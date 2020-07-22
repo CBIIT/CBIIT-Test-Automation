@@ -7,9 +7,6 @@ import com.nci.automation.utils.CucumberLogUtils;
 /**
  * Implementation of CucumberLogger which can be used to log messages to
  * cucumber report and Console if needed.
- * @author sohilz2
- *
- * @param <T>
  */
 public class CucumberLoggerImpl<T> implements CucumberLogger {
 
