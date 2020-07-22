@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.tablesorter.min.js"></script>
+<script src="js/Chart.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+<link rel="stylesheet" href="css/cucumber.css" type="text/css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="shortcut icon" href="images/favicon.png"/>
+
+<script>
+$(document).ready(function() {
+    // this will tell tablesorter to try looking for the data-value attribute
+    // if present, it'll sort by that instead
+    // otherwise, it'll sort by the text content of the table cell
+    $("#tablesorter").tablesorter({
+        textAttribute: 'data-value',
+        // ignores the first row of the header, the 'scenario', 'steps', since
+        // sorting those doesn't make sense
+        selectorHeaders: '> thead tr:not(.dont-sort) th',
+        // use a stable sort
+        sortStable: true
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<title>Cucumber Reports (no 1) - Steps Overview</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+      <p class="navbar-text navbar-left">Cucumber Report</p>
+      <ul class="nav navbar-nav navbar-right">
+        <li role="presentation" ><a href="overview-features.html">Features</a></li>
+        <li role="presentation" ><a href="overview-tags.html">Tags</a></li>
+        <li role="presentation"     class="active" ><a href="overview-steps.html">Steps</a></li>
+        <li role="presentation" ><a href="overview-failures.html">Failures</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container-fluid">
+  <div class="col-md-5 col-md-offset-1">
+
+<table class="table table-bordered" id="build-info">
+  <thead>
+    <tr>
+      <th>Project</th>
+        <th>Number</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="info">
+      <td>CBIIT-Test-Automation</td>
+        <td>1</td>
+      <td>22 Jul 2020, 09:36</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+  <div class="col-md-3 col-md-offset-2">
+  </div>
+</div>
+
+
+<div id="report-lead" class="container-fluid">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>Steps Statistics</h2>
+      <p>The following graph shows step statistics for this build. Below list is based on results.
+ step does not provide information about result then is not listed below.
+ Additionally @Before and @After are not counted because they are part of the scenarios, not steps.</p>
+  </div>
+</div>
+
+<div class="container-fluid" id="report">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table id="tablesorter" class="stats-table table-hover">
+
+        <thead>
+          <tr class="header">
+            <th>Implementation</th>
+            <th>Occurrences</th>
+            <th>Average duration</th>
+            <th>Max duration</th>
+            <th>Total durations</th>
+            <th>Ratio</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+              <td class="location">COVIDHomePageSteps.a_User_has_logged_in_to_the_NIH_COVID_Biorepository_Dashboard_Application(Integer)</td>
+              <td>1</td>
+              <td class="duration" data-value="14976560500">14.976</td>
+              <td class="duration" data-value="14976560500">14.976</td>
+              <td class="duration" data-value="14976560500">14.976</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">COVIDHomePageSteps.the_Institute_Division_Email_Address_and_Phone_Number_fields_are_auto_populated(String,String,String,String)</td>
+              <td>1</td>
+              <td class="duration" data-value="62532100">0.062</td>
+              <td class="duration" data-value="62532100">0.062</td>
+              <td class="duration" data-value="62532100">0.062</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">COVIDHomePageSteps.the_User_selects_a_Primary_Investigator_by_typing_their_name_in_the_Primary_Investigator_search_box(String)</td>
+              <td>1</td>
+              <td class="duration" data-value="1738383900">1.738</td>
+              <td class="duration" data-value="1738383900">1.738</td>
+              <td class="duration" data-value="1738383900">1.738</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">COVIDHomePageSteps.the_user_logs_out()</td>
+              <td>1</td>
+              <td class="duration" data-value="2872613000">2.872</td>
+              <td class="duration" data-value="2872613000">2.872</td>
+              <td class="duration" data-value="2872613000">2.872</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">COVIDHomePageSteps.user_validates_that_Institute_Division_Email_Address_and_Phone_Number_fields_are_not_editabel()</td>
+              <td>2</td>
+              <td class="duration" data-value="61685700">0.061</td>
+              <td class="duration" data-value="61685700">0.075</td>
+              <td class="duration" data-value="123371400">0.123</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">HooksSteps.genericSetUp(Scenario)</td>
+              <td>1</td>
+              <td class="duration" data-value="5045735700">5.045</td>
+              <td class="duration" data-value="5045735700">5.045</td>
+              <td class="duration" data-value="5045735700">5.045</td>
+              <td class="passed">100.00%</td>
+            </tr>
+            <tr>
+              <td class="location">HooksSteps.genericTearDown(Scenario)</td>
+              <td>1</td>
+              <td class="duration" data-value="2737014000">2.737</td>
+              <td class="duration" data-value="2737014000">2.737</td>
+              <td class="duration" data-value="2737014000">2.737</td>
+              <td class="passed">100.00%</td>
+            </tr>
+        </tbody>
+
+        <tfoot class="total">
+          <tr>
+            <td>7</td>
+            <td>8</td>
+            <td class="duration">3.444</td>
+            <td class="duration">14.976</td>
+            <td class="duration">27.556</td>
+            <td>Totals</td>
+          </tr>
+        </tfoot>
+
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<nav class="navbar navbar-default" id="footer">
+  <div class="container-fluid">
+    <p class="navbar-text navbar-right">
+        <small>generate Cucumber HTML reports via:&nbsp;</small>
+        <a class="navbar-link" href="https://github.com/jenkinsci/cucumber-reports-plugin">Jenkins Plugin</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-reporting">Standalone</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/cucumber-sandwich">Sandwich</a> |
+        <a class="navbar-link" href="https://github.com/damianszczepanik/maven-cucumber-reporting">Maven</a>
+        &nbsp;&nbsp;
+    </p>
+  </div>
+</nav>
+
+</body>
+</html>

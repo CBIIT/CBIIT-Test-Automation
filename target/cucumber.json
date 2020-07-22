@@ -1,0 +1,163 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-07-22T13:50:52.940Z",
+        "before": [
+          {
+            "result": {
+              "duration": 3901448700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "HooksSteps.genericSetUp(Scenario)"
+            }
+          }
+        ],
+        "line": 16,
+        "name": "Validate Autopulation",
+        "description": "",
+        "id": "covid-dashboard;validate-autopulation;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 2586699300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "HooksSteps.genericTearDown(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "output": [
+              "2020-07-22 09:50:59: INFO: Environment: Test (https://service-test.nci.nih.gov/nih-covid-19-dashboard?xpage\u003dlanding_pub)",
+              "2020-07-22 09:50:59: Screenshot: "
+            ],
+            "result": {
+              "duration": 9799296600,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "a User has logged in to the NIH COVID-19 Biorepository Dashboard Application",
+            "match": {
+              "arguments": [
+                {
+                  "val": "-19",
+                  "offset": 37
+                }
+              ],
+              "location": "COVIDHomePageSteps.a_User_has_logged_in_to_the_NIH_COVID_Biorepository_Dashboard_Application(Integer)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 866398600,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "user validates that Institute, Division, Email Address, and Phone Number fields are not editable",
+            "match": {
+              "location": "COVIDHomePageSteps.user_validates_that_Institute_Division_Email_Address_and_Phone_Number_fields_are_not_editabel()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1696115300,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "the User selects a principal Investigator by typing their name in the principal Investigator search box. \"Sohil Zalmay\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Sohil Zalmay\"",
+                  "offset": 105
+                }
+              ],
+              "location": "COVIDHomePageSteps.the_User_selects_a_Primary_Investigator_by_typing_their_name_in_the_Primary_Investigator_search_box(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "output": [
+              "2020-07-22 09:51:09: Screenshot: "
+            ],
+            "result": {
+              "duration": 81578300,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "the Institute, Division, Email Address, and Phone Number fields are auto-populated. \"NCI\",\"OD\",\"@nih.gov\",\"2402766573\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"NCI\"",
+                  "offset": 84
+                },
+                {
+                  "val": "\"OD\"",
+                  "offset": 90
+                },
+                {
+                  "val": "\"@nih.gov\"",
+                  "offset": 95
+                },
+                {
+                  "val": "\"2402766573\"",
+                  "offset": 106
+                }
+              ],
+              "location": "COVIDHomePageSteps.the_Institute_Division_Email_Address_and_Phone_Number_fields_are_auto_populated(String,String,String,String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 44027800,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "user validates that Institute, Division, Email Address, and Phone Number fields are not editable",
+            "match": {
+              "location": "COVIDHomePageSteps.user_validates_that_Institute_Division_Email_Address_and_Phone_Number_fields_are_not_editabel()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 2323940800,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "the user logs out",
+            "match": {
+              "location": "COVIDHomePageSteps.the_user_logs_out()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@smoke"
+          },
+          {
+            "name": "@progression"
+          }
+        ]
+      }
+    ],
+    "name": "COVID Dashboard",
+    "description": "  Description: This feature file tests COVIDDASH-7, 8, 20, 134, 135, 138, 136, 137, 140, 142, 143, 148",
+    "id": "covid-dashboard",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/ServiceNow/COVIDDash/Features/Covid19Dashboard.feature",
+    "tags": []
+  }
+]
