@@ -172,8 +172,8 @@ public class COVIDHomePage extends CommonUtils {
 	 * dashboard page
 	 */
 	public void clickITrustRedirectButton() {
-		waitForClickability(iTrustRedirectForLogin);
-		iTrustRedirectForLogin.click();
+		waitForThePresenceOfEl("//button[@ng-click='c.login()']",30);
+		JavascriptUtils.clickByJS(iTrustRedirectForLogin);
 	}
 
 	/** This method will search and select a PI */
