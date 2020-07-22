@@ -33,6 +33,7 @@ public class COVIDHomePageImpl extends PageInitializer {
 	}
 
 	public void clickOnLoginToAccessBtn() {
+		MiscUtils.sleep(1000);
 		covidHomePage.clickITrustRedirectButton();
 	}
 
