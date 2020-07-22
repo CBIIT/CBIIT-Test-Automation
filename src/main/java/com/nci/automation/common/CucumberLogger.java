@@ -3,6 +3,8 @@ package com.nci.automation.common;
 /**
  * Cucumber Logger. This logger will write reports to Cucumber report and
  * optionally to Console.
+ * @author sohilz2
+ *
  */
 public interface CucumberLogger {
 
