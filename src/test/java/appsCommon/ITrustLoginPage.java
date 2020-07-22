@@ -48,8 +48,7 @@ public class ITrustLoginPage extends CommonUtils{
 	 */
 	public void enterUsername() throws TestingException {
 		userNameField.clear();
-		String decyptedUserName=EncryptionUtils.decrypt(ConfUtils.getProperty("Username"));
-		sendKeys(userNameField, decyptedUserName);
+		sendKeys(userNameField, ConfUtils.getProperty("Username"));
 	}
 	
 	/**
