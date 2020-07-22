@@ -4,8 +4,6 @@ import java.io.File;
 
 /**
  * This class contains automation related system level constants.
- * @author sohilz2
- *
  */
 public class Constants {
 
