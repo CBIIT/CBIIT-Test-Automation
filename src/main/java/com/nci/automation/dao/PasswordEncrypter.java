@@ -10,7 +10,7 @@ import com.nci.automation.utils.EncryptionUtils;
 public class PasswordEncrypter {
 
 	public static void main(String[] args) {
-		String pwd = "";
+		String pwd = "we!come1234";
 		System.out.println(EncryptionUtils.encrypt(pwd));
 
 	}
