@@ -19,7 +19,7 @@ import cucumber.api.junit.Cucumber;
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/ServiceNow/COVIDDash/Features"
 		, glue="ServiceNow.COVIDDash.Steps"
-		, tags="@progression"
+		, tags="@regression"
 		, dryRun = false
 		, monochrome=true
 		, strict = true
