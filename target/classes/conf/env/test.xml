@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<environment>
+	<profile-name>automation</profile-name>
+
+	<application id="login">
+
+		<login_url>https://service-test.nci.nih.gov/nih-covid-19-dashboard
+		</login_url><!-- add test url -->
+
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+
+
+
+			<user id="Admin">
+				<name>Admin</name>
+				<userId></userId>
+				<password></password>
+			</user>
+
+
+		</role>
+
+		<db>
+
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
+
+		</db>
+
+
+		<native>
+			<view>
+				<native_view_url>https://service-test.nci.nih.gov/ncisp</native_view_url><!-- Add native view url -->
+			</view>
+		</native>
+
+
+	</application>
+
+</environment>
