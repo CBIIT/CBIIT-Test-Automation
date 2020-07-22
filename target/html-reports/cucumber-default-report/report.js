@@ -89,8 +89,9 @@ formatter.step({
 formatter.match({
   "location": "COVIDHomePageSteps.a_User_has_logged_in_to_the_NIH_COVID_Biorepository_Dashboard_Application(Integer)"
 });
-formatter.write("2020-07-22 09:50:59: INFO: Environment: Test (https://service-test.nci.nih.gov/nih-covid-19-dashboard?xpage\u003dlanding_pub)");
-formatter.write("2020-07-22 09:50:59: Screenshot: ");
+formatter.write("2020-07-22 11:19:55: INFO: Environment: Test (https://service-test.nci.nih.gov/nih-covid-19-dashboard?xpage\u003dlanding_pub)");
+formatter.write("2020-07-22 11:19:55: Screenshot: ");
+formatter.embedding("image/png", "embedded0.png");
 formatter.result({
   "status": "passed"
 });
@@ -121,7 +122,8 @@ formatter.step({
 formatter.match({
   "location": "COVIDHomePageSteps.the_Institute_Division_Email_Address_and_Phone_Number_fields_are_auto_populated(String,String,String,String)"
 });
-formatter.write("2020-07-22 09:51:09: Screenshot: ");
+formatter.write("2020-07-22 11:20:08: Screenshot: ");
+formatter.embedding("image/png", "embedded1.png");
 formatter.result({
   "status": "passed"
 });
