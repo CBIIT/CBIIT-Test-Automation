@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="21.301485">
-<testcase classname="COVID Dashboard" name="Validate Autopulation" time="21.301485">
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="26.380816">
+<testcase classname="COVID Dashboard" name="Validate Autopulation" time="26.380816">
 <system-out><![CDATA[Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application.passed
 And user validates that Institute, Division, Email Address, and Phone Number fields are not editable.passed
 When the User selects a principal Investigator by typing their name in the principal Investigator search box. "Sohil Zalmay".passed
