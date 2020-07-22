@@ -1,11 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="26.380816">
-<testcase classname="COVID Dashboard" name="Validate Autopulation" time="26.380816">
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="2" time="39.511342">
+<testcase classname="COVID Dashboard" name="Validate Autopulation" time="25.590009">
 <system-out><![CDATA[Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application.passed
 And user validates that Institute, Division, Email Address, and Phone Number fields are not editable.passed
 When the User selects a principal Investigator by typing their name in the principal Investigator search box. "Sohil Zalmay".passed
 Then the Institute, Division, Email Address, and Phone Number fields are auto-populated. "NCI","OD","@nih.gov","2402766573".passed
 Then user validates that Institute, Division, Email Address, and Phone Number fields are not editable.passed
 And the user logs out.......................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Login" name="Covid dash Login" time="13.921333">
+<system-out><![CDATA[Given User navigates to the COVID-19 Biorepository login page...............passed
+When the User clicks on Login to access button..............................passed
+And logs in by entering iTrust credentials..................................passed
+Then the User is directed to the home page..................................passed
 ]]></system-out>
 </testcase>
 </testsuite>
