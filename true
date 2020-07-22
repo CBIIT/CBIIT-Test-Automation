@@ -901,3 +901,6 @@
 }
 [1595442870.131][INFO]: Waiting for pending navigations...
 [1595442870.133][INFO]: Done waiting for pending navigations. Status: ok
+[1595442892.303][INFO]: Waiting for pending navigations...
+[1595442892.304][INFO]: Done waiting for pending navigations. Status: disconnected: not connected to DevTools
+[1595442892.391][INFO]: [6de8c79ff2daa12feebbab9b2970635d] RESPONSE FindElement
