@@ -22,7 +22,7 @@ public class COVIDHomePageImpl extends PageInitializer {
 	private static PageCache pageCache = PageCache.getInstance();
 
 
-	final static String covid = "covid-19-dashboard";
+	final static String covid = "covid";
 	final static String attName = "value";
 	
 
@@ -38,7 +38,8 @@ public class COVIDHomePageImpl extends PageInitializer {
 	}
 
 	public void verifyUserLoggedIn() {
-		Assert.assertTrue(WebDriverUtils.webDriver.getCurrentUrl().contains(covid));
+		MiscUtils.sleep(1000);
+		Assert.assertTrue(WebDriverUtils.webDriver.getCurrentUrl().toLowerCase().contains(covid));
 		CucumberLogUtils.logScreenShot();
 	}
 
