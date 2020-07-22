@@ -13,6 +13,8 @@ import cucumber.api.Scenario;
 
 /**
  * This class is the global scenario context.
+ * @author sohilz2
+ *
  */
 public class ScenarioContext {
 
