@@ -89,8 +89,8 @@ formatter.step({
 formatter.match({
   "location": "COVIDHomePageSteps.a_User_has_logged_in_to_the_NIH_COVID_Biorepository_Dashboard_Application(Integer)"
 });
-formatter.write("2020-07-22 13:35:47: INFO: Environment: Test (https://service-test.nci.nih.gov/nih-covid-19-dashboard?xpage\u003dlanding_pub)");
-formatter.write("2020-07-22 13:35:47: Screenshot: ");
+formatter.write("2020-07-23 10:15:26: INFO: Environment: Test (https://service-test.nci.nih.gov/nih-covid-19-dashboard?xpage\u003dlanding_pub)");
+formatter.write("2020-07-23 10:15:26: Screenshot: ");
 formatter.embedding("image/png", "embedded0.png");
 formatter.result({
   "status": "passed"
@@ -122,7 +122,7 @@ formatter.step({
 formatter.match({
   "location": "COVIDHomePageSteps.the_Institute_Division_Email_Address_and_Phone_Number_fields_are_auto_populated(String,String,String,String)"
 });
-formatter.write("2020-07-22 13:36:00: Screenshot: ");
+formatter.write("2020-07-23 10:15:35: Screenshot: ");
 formatter.embedding("image/png", "embedded1.png");
 formatter.result({
   "status": "passed"
@@ -176,7 +176,7 @@ formatter.step({
 formatter.match({
   "location": "COVIDHomePageSteps.user_navigates_to_the_COVID_Biorepository_login_page(Integer)"
 });
-formatter.write("2020-07-22 13:36:11: INFO: Environment: Test (https://service-test.nci.nih.gov/nih-covid-19-dashboard?xpage\u003dlanding_pub)");
+formatter.write("2020-07-23 10:15:47: INFO: Environment: Test (https://service-test.nci.nih.gov/nih-covid-19-dashboard?xpage\u003dlanding_pub)");
 formatter.result({
   "status": "passed"
 });
@@ -197,8 +197,6 @@ formatter.step({
 formatter.match({
   "location": "ITrustLoginPageSteps.logs_in_by_entering_iTrust_credentials()"
 });
-formatter.write("2020-07-22 13:36:15: Screenshot: ");
-formatter.embedding("image/png", "embedded2.png");
 formatter.result({
   "status": "passed"
 });
@@ -209,8 +207,8 @@ formatter.step({
 formatter.match({
   "location": "COVIDHomePageSteps.the_User_is_directed_to_the_Submissions_home_page()"
 });
-formatter.write("2020-07-22 13:36:17: Screenshot: ");
-formatter.embedding("image/png", "embedded3.png");
+formatter.write("2020-07-23 10:15:53: Screenshot: ");
+formatter.embedding("image/png", "embedded2.png");
 formatter.result({
   "status": "passed"
 });
