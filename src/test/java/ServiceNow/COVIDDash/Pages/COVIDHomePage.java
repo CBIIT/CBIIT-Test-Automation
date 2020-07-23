@@ -180,9 +180,9 @@ public class COVIDHomePage extends CommonUtils {
 	public void searchPrincipalInvestigator(String investgatorName) {
 		principalInvestigatorDD.click();
 		pISearchBox.sendKeys(investgatorName);
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(700);
 		pISearchBox.sendKeys(Keys.ENTER);
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1300);
 	}
 
 	
