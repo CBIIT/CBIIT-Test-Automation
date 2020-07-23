@@ -41,7 +41,7 @@ $(document).ready(function() {
 
 
 
-<title>Cucumber Reports (no 1) - Feature: COVID Dashboard</title>
+<title>Cucumber Reports (no 1) - Feature: Login</title>
 
 </head>
 <body>
@@ -128,19 +128,19 @@ $(document).ready(function() {
 
         <tbody>
         <tr>
-          <td class="tagname">COVID Dashboard</td>
-          <td      class="passed"    >6</td>
+          <td class="tagname">Login</td>
+          <td      class="passed"    >4</td>
           <td >0</td>
           <td >0</td>
           <td >0</td>
           <td >0</td>
-          <td class="total">6</td>
+          <td class="total">4</td>
 
           <td  class="passed"    >1</td>
           <td >0</td>
           <td class="total">1</td>
 
-          <td class="duration" data-value="13474323898">13.474</td>
+          <td class="duration" data-value="6114989199">6.114</td>
           <td class="passed">Passed</td>
         </tr>
         </tbody>
@@ -175,12 +175,13 @@ $(document).ready(function() {
 
 <div class="brief passed">
   <span class="keyword indention">Feature</span>
-  <span class="name">COVID Dashboard</span>
+  <span class="name">Login</span>
 
 
 </div>
 
-        <div class="description indention">  Description: This feature file tests COVIDDASH-7, 8, 20, 134, 135, 138, 136, 137, 140, 142, 143, 148</div>
+        <div class="description indention">  Reviewer and Regular User/PI Login
+  Description: This feature tests User Story COVIDDASH-133, 141</div>
 
         <div class="elements inner-level">
 
@@ -190,18 +191,17 @@ $(document).ready(function() {
 <div class="tags indention">
     <b>Tags:</b>
        <a href="report-tag_4089311534.html">@smoke</a>
-       <a href="report-tag_2950390394.html">@progression</a>
 </div>
 
 
-  <span class="lead-duration duration">13.474</span>
+  <span class="lead-duration duration">6.114</span>
 
 
   <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-1">
 
 <div class="brief passed">
-  <span class="keyword indention">Scenario Outline</span>
-  <span class="name">Validate Autopulation</span>
+  <span class="keyword indention">Scenario</span>
+  <span class="name">Covid dash Login</span>
 
 
      <i class="chevron fa fa-fw"></i>
@@ -232,7 +232,7 @@ $(document).ready(function() {
             <span class="keyword indention">Before</span>
               <span class="location name">HooksSteps.genericSetUp(Scenario)</span>
 
-  <span class="lead-duration duration">5.535</span>
+  <span class="lead-duration duration">4.679</span>
 
           </div>
 
@@ -267,9 +267,9 @@ $(document).ready(function() {
 
 <div class="brief step-name-Given passed">
   <span class="keyword indention">Given</span>
-  <span class="name">a User has logged in to the NIH COVID<span class="argument">-19</span> Biorepository Dashboard Application</span>
+  <span class="name">User navigates to the COVID<span class="argument">-19</span> Biorepository login page</span>
 
-  <span class="lead-duration duration">8.247</span>
+  <span class="lead-duration duration">2.458</span>
 
 </div>
 
@@ -291,26 +291,11 @@ $(document).ready(function() {
         </div>
         <div id="output-4" class="collapse collapsable-details " >
           
-          <pre><p>2020-07-23 10:09:28: INFO: Environment: Test (https://service-test.nci.nih.gov/nih-covid-19-dashboard?xpage=landing_pub)</p><p>2020-07-23 10:09:28: Screenshot: </p></pre>
+          <pre><p>2020-07-23 10:09:49: INFO: Environment: Test (https://service-test.nci.nih.gov/nih-covid-19-dashboard?xpage=landing_pub)</p></pre>
         </div>
       </div>
   </div>
 
-  <div class="embeddings inner-level">
-  <div class="embedding indention">
-    <div data-toggle="collapse" data-target="#embedding-5" class="collapsable-control">
-      <a>Attachment 1 (png)</a>
-      <a href="embeddings/embedding_-213893530.png" download target="_blank">
-        <span class="download-button glyphicon glyphicon-download-alt"></span>
-      </a>
-    </div>
-    <div id="embedding-5" class="collapse collapsable-details ">
-      <div class="embedding-content">
-        <img src="embeddings/embedding_-213893530.png">
-      </div>
-    </div>
-  </div>
-  </div>
 
 
 
@@ -319,11 +304,11 @@ $(document).ready(function() {
       <div class="step">
 
 
-<div class="brief step-name-And passed">
-  <span class="keyword indention">And</span>
-  <span class="name">user validates that Institute, Division, Email Address, and Phone Number fields are not editable</span>
+<div class="brief step-name-When passed">
+  <span class="keyword indention">When</span>
+  <span class="name">the User clicks on Login to access button</span>
 
-  <span class="lead-duration duration">1.254</span>
+  <span class="lead-duration duration">1.026</span>
 
 </div>
 
@@ -346,11 +331,11 @@ $(document).ready(function() {
       <div class="step">
 
 
-<div class="brief step-name-When passed">
-  <span class="keyword indention">When</span>
-  <span class="name">the User selects a principal Investigator by typing their name in the principal Investigator search box. <span class="argument">&quot;Sohil Zalmay&quot;</span></span>
+<div class="brief step-name-And passed">
+  <span class="keyword indention">And</span>
+  <span class="name">logs in by entering iTrust credentials</span>
 
-  <span class="lead-duration duration">2.310</span>
+  <span class="lead-duration duration">2.598</span>
 
 </div>
 
@@ -375,9 +360,9 @@ $(document).ready(function() {
 
 <div class="brief step-name-Then passed">
   <span class="keyword indention">Then</span>
-  <span class="name">the Institute, Division, Email Address, and Phone Number fields are auto-populated. <span class="argument">&quot;NCI&quot;</span>,<span class="argument">&quot;OD&quot;</span>,<span class="argument">&quot;@nih.gov&quot;</span>,<span class="argument">&quot;2402766573&quot;</span></span>
+  <span class="name">the User is directed to the home page</span>
 
-  <span class="lead-duration duration">0.096</span>
+  <span class="lead-duration duration">0.031</span>
 
 </div>
 
@@ -393,86 +378,32 @@ $(document).ready(function() {
 
   <div class="outputs inner-level">
       <div class="output indention">
-        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#output-6">
+        <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#output-5">
           Output 1
           <i class="chevron fa fa-fw"></i>
         </div>
-        <div id="output-6" class="collapse collapsable-details " >
+        <div id="output-5" class="collapse collapsable-details " >
           
-          <pre><p>2020-07-23 10:09:37: Screenshot: </p></pre>
+          <pre><p>2020-07-23 10:09:52: Screenshot: </p></pre>
         </div>
       </div>
   </div>
 
   <div class="embeddings inner-level">
   <div class="embedding indention">
-    <div data-toggle="collapse" data-target="#embedding-7" class="collapsable-control">
+    <div data-toggle="collapse" data-target="#embedding-6" class="collapsable-control">
       <a>Attachment 1 (png)</a>
-      <a href="embeddings/embedding_1763245024.png" download target="_blank">
+      <a href="embeddings/embedding_-289097812.png" download target="_blank">
         <span class="download-button glyphicon glyphicon-download-alt"></span>
       </a>
     </div>
-    <div id="embedding-7" class="collapse collapsable-details ">
+    <div id="embedding-6" class="collapse collapsable-details ">
       <div class="embedding-content">
-        <img src="embeddings/embedding_1763245024.png">
+        <img src="embeddings/embedding_-289097812.png">
       </div>
     </div>
   </div>
   </div>
-
-
-
-
-      </div>
-      <div class="step">
-
-
-<div class="brief step-name-Then passed">
-  <span class="keyword indention">Then</span>
-  <span class="name">user validates that Institute, Division, Email Address, and Phone Number fields are not editable</span>
-
-  <span class="lead-duration duration">0.030</span>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </div>
-      <div class="step">
-
-
-<div class="brief step-name-And passed">
-  <span class="keyword indention">And</span>
-  <span class="name">the user logs out</span>
-
-  <span class="lead-duration duration">1.535</span>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -485,7 +416,7 @@ $(document).ready(function() {
 
 
   <div class="inner-level hooks-element-after">
-    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-8">
+    <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#after-7">
 
 <div class="brief passed">
   <span class="keyword indention">Hooks</span>
@@ -497,13 +428,13 @@ $(document).ready(function() {
 
     </div>
 
-    <div id="after-8" class="inner-level collapse collapsable-details ">
+    <div id="after-7" class="inner-level collapse collapsable-details ">
         <div class="hook">
           <div class="brief passed">
             <span class="keyword indention">After</span>
               <span class="location name">HooksSteps.genericTearDown(Scenario)</span>
 
-  <span class="lead-duration duration">2.883</span>
+  <span class="lead-duration duration">2.970</span>
 
           </div>
 
