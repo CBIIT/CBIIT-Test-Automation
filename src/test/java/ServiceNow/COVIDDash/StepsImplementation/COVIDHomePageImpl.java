@@ -38,6 +38,7 @@ public class COVIDHomePageImpl extends PageInitializer {
 	}
 
 	public void verifyUserLoggedIn() {
+		MiscUtils.sleep(2500);
 		Assert.assertTrue(WebDriverUtils.webDriver.getCurrentUrl().contains(covid));
 		CucumberLogUtils.logScreenShot();
 	}
