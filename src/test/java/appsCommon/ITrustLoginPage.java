@@ -9,6 +9,7 @@ import com.nci.automation.utils.EncryptionUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.EnvUtils;
+import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 
@@ -65,7 +66,7 @@ public class ITrustLoginPage extends CommonUtils{
 	 * Clicks ITrust sign-in button
 	 */
 	public void clickSignInButton(){
-		signInButton.click();
+		JavascriptUtils.clickByJS(signInButton);
 	}
 	
 	
