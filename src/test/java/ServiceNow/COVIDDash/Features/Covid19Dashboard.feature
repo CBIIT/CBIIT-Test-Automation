@@ -16,7 +16,7 @@ Feature: COVID Dashboard
       | Sohil Zalmay | NCI       | OD       | @nih.gov | 2402766573 |
 
 
-  
+  @smoke
   Scenario: Validate Study Submission
     Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application
     And the user verifies that the submit button is disbaled by default
