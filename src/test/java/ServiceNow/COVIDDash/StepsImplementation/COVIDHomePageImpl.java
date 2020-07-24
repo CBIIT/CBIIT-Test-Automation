@@ -28,13 +28,14 @@ public class COVIDHomePageImpl extends PageInitializer {
 
 
 	public void navigateToCOVIDDashLoginPage() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl());
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("covid19dashboard"));
 		CucumberLogUtils.logInfo(EnvUtils.getExecutionEnv());
 	}
 
 	public void clickOnLoginToAccessBtn() {
 		MiscUtils.sleep(1000);
 		covidHomePage.clickITrustRedirectButton();
+		
 	}
 
 	public void verifyUserLoggedIn() {
@@ -44,7 +45,7 @@ public class COVIDHomePageImpl extends PageInitializer {
 	}
 
 	public void loginToCovidDashboard() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl());
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("covid19dashboard"));
 		CucumberLogUtils.logInfo(EnvUtils.getExecutionEnv());
 		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(2000);
