@@ -3,6 +3,7 @@ package appsCommon;
 import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
+import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
 
 /**
  * This an initializer class which will initialize all pages classes.
@@ -16,6 +17,7 @@ public class PageInitializer {
 	protected static COVIDHomePage covidHomePage;
 	protected static SubmissionsPage submissionPage;
 	protected static NativeViewDashboardPage nativeViewDashPage;
+	protected static COVIDHomePageImpl covidHomePageImpl;
 	
 	
 	public static void initializeAllPages() {
@@ -25,6 +27,7 @@ public class PageInitializer {
 		 covidHomePage = new COVIDHomePage();
 		 submissionPage=new SubmissionsPage();
 		 nativeViewDashPage=new NativeViewDashboardPage();
+		 covidHomePageImpl=new COVIDHomePageImpl();
 	}
 	
 	
