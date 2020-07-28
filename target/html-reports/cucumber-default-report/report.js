@@ -89,8 +89,8 @@ formatter.step({
 formatter.match({
   "location": "COVIDHomePageSteps.a_User_has_logged_in_to_the_NIH_COVID_Biorepository_Dashboard_Application(Integer)"
 });
-formatter.write("2020-07-24 14:44:23: INFO: Environment: Test (https://service-test.nci.nih.gov/nih-covid-19-dashboard?xpage\u003dlanding_pub)");
-formatter.write("2020-07-24 14:44:23: Screenshot: ");
+formatter.write("2020-07-28 02:05:54: INFO: Environment: Test (https://service-test.nci.nih.gov/nih-covid-19-dashboard?xpage\u003dlanding_pub)");
+formatter.write("2020-07-28 02:05:54: Screenshot: ");
 formatter.embedding("image/png", "embedded0.png");
 formatter.result({
   "status": "passed"
@@ -122,7 +122,7 @@ formatter.step({
 formatter.match({
   "location": "COVIDHomePageSteps.the_Institute_Division_Email_Address_and_Phone_Number_fields_are_auto_populated(String,String,String,String)"
 });
-formatter.write("2020-07-24 14:44:33: Screenshot: ");
+formatter.write("2020-07-28 02:06:04: Screenshot: ");
 formatter.embedding("image/png", "embedded1.png");
 formatter.result({
   "status": "passed"
@@ -144,210 +144,6 @@ formatter.step({
 formatter.match({
   "location": "COVIDHomePageSteps.the_user_logs_out()"
 });
-formatter.result({
-  "status": "passed"
-});
-formatter.after({
-  "status": "passed"
-});
-formatter.scenario({
-  "name": "Validate Study Submission",
-  "description": "",
-  "keyword": "Scenario",
-  "tags": [
-    {
-      "name": "@smoke"
-    }
-  ]
-});
-formatter.before({
-  "status": "passed"
-});
-formatter.step({
-  "name": "a User has logged in to the NIH COVID-19 Biorepository Dashboard Application",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "COVIDHomePageSteps.a_User_has_logged_in_to_the_NIH_COVID_Biorepository_Dashboard_Application(Integer)"
-});
-formatter.write("2020-07-24 14:44:43: INFO: Environment: Test (https://service-test.nci.nih.gov/nih-covid-19-dashboard?xpage\u003dlanding_pub)");
-formatter.write("2020-07-24 14:44:43: Screenshot: ");
-formatter.embedding("image/png", "embedded2.png");
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the user verifies that the submit button is disbaled by default",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "COVIDHomePageSteps.the_user_verifies_that_the_submit_button_is_Disbaled()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the User selects a Principal Investigator \"Sohil Zalmay\"",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "COVIDHomePageSteps.the_User_selects_a_Principal_Investigator(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "enters a unique IRB Protocol Number which can contain numbers and text such as \"65YUT55\"",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "COVIDHomePageSteps.enters_a_unique_IRB_Protocol_Number_which_can_contain_numbers_and_text_such_as(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "enters a Study Title as \"COVID Study\"",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "COVIDHomePageSteps.enters_a_Study_Title_as(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "selects any Biospecimen Type \"Other\" and enters Other type as \"tissue\"",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "COVIDHomePageSteps.selects_any_Biospecimen_Type_than_enters_Other_type_as(String,String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "selects any Biospecimen Collection Frequency",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "COVIDHomePageSteps.selects_any_Biospecimen_Collection_Frequency()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "verifies that \"NCI Frederick\" text is displayed in the Repository Location text box",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "COVIDHomePageSteps.verifies_that_text_is_displayed_in_the_Repository_Location_text_box(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "enters Study Specific Aims \"Prevent the development or recurrence of disease\"",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "COVIDHomePageSteps.enters_Study_Specific_Aims(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "attaches an IRB Protocol Document",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "COVIDHomePageSteps.attaches_an_IRB_Protocol_Document()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "attaches a Related URL",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "COVIDHomePageSteps.attaches_a_Related_URL()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the User is able to successfully submit the study \"65YUT55\"",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "COVIDHomePageSteps.the_User_is_able_to_successfully_submit_the_study(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.after({
-  "status": "passed"
-});
-formatter.uri("file:src/test/java/ServiceNow/COVIDDash/Features/Login.feature");
-formatter.feature({
-  "name": "Login",
-  "description": "  Reviewer and Regular User/PI Login\n  Description: This feature tests User Story COVIDDASH-133, 141",
-  "keyword": "Feature"
-});
-formatter.scenario({
-  "name": "Covid dash Login",
-  "description": "",
-  "keyword": "Scenario",
-  "tags": [
-    {
-      "name": "@smoke"
-    }
-  ]
-});
-formatter.before({
-  "status": "passed"
-});
-formatter.step({
-  "name": "User navigates to the COVID-19 Biorepository login page",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "COVIDHomePageSteps.user_navigates_to_the_COVID_Biorepository_login_page(Integer)"
-});
-formatter.write("2020-07-24 14:45:28: INFO: Environment: Test (https://service-test.nci.nih.gov/nih-covid-19-dashboard?xpage\u003dlanding_pub)");
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the User clicks on Login to access button",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "COVIDHomePageSteps.the_User_clicls_on_Login_to_access_button()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "logs in by entering iTrust credentials",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "ITrustLoginPageSteps.logs_in_by_entering_iTrust_credentials()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the User is directed to the home page",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "COVIDHomePageSteps.the_User_is_directed_to_the_Submissions_home_page()"
-});
-formatter.write("2020-07-24 14:45:36: Screenshot: ");
-formatter.embedding("image/png", "embedded3.png");
 formatter.result({
   "status": "passed"
 });

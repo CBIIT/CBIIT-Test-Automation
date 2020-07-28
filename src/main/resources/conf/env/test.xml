@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <environment>
+	<!-- Below application ID's are for TEST/QA environments -->
+
 	<profile-name>automation</profile-name>
 
+	<!-- Application ID for covid19dashboard -->
 	<application id="covid19dashboard">
 
 		<login_url>https://service-test.nci.nih.gov/nih-covid-19-dashboard
@@ -25,10 +28,12 @@
 		</db>
 
 	</application>
-		
-		<application id="nativeview">
 
-		<login_url>https://service-test.nci.nih.gov/ncisp</login_url><!-- add test url -->
+	<!-- Application ID for Native View -->
+	<application id="nativeview">
+
+		<login_url>https://service-test.nci.nih.gov/ncisp</login_url><!-- add test 
+			url -->
 
 		<role name="Role">
 			<user id="regular">
@@ -47,11 +52,12 @@
 			</default>
 		</db>
 	</application>
-	
-	
-		<application id="nativeview">
 
-		<login_url>https://service-test.nci.nih.gov/ncisp</login_url><!-- add test url -->
+	<!-- Application ID for CHARMS -->
+	<application id="CHARMS">
+
+		<login_url>https://service-test.nci.nih.gov/ncisp</login_url><!-- add test 
+			url -->
 
 		<role name="Role">
 			<user id="regular">
@@ -70,9 +76,5 @@
 			</default><!-- comment -->
 		</db>
 	</application>
-	
-	
-	
-	
 
 </environment>
