@@ -14,7 +14,7 @@ public class EnvUtils {
 	
 	/**
 	 * This method will return the application URL. make sure you have 
-	 * proper URL placed in all environment xmls.
+	 * proper URL placed in all environment xml files.
 	 * @return String object
 	 * @throws TestingException
 	 */
