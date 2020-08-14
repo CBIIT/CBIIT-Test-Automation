@@ -9,6 +9,7 @@ import com.nci.automation.utils.EncryptionUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.EnvUtils;
+import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 
@@ -20,18 +21,23 @@ public class ITrustLoginPage extends CommonUtils{
 	@FindBy(xpath = "//div[@class='col-md-8']//a")
 	private WebElement loginLink;
 	
+	/** Username field*/
 	@FindBy(xpath = "//input[@id='USER']")
 	private WebElement userNameField;
 
+	/** Password field */
 	@FindBy(xpath = "//input[@id='PASSWORD']")
 	private WebElement passwordField;
 	
+	/** Sign in button */
 	@FindBy(xpath="//button[@type='submit']")
 	private WebElement signInButton;
 	
+	/** Forgot Password link */
 	@FindBy(xpath="//a[@class='forgot-password']")
 	private WebElement forgotPasswordLink;
 	
+	/** Trouble Signing In link */ 
 	@FindBy(xpath="//a[text()='Trouble signing in?']")
 	private WebElement TroubleSigningInLink;
 	
@@ -65,7 +71,7 @@ public class ITrustLoginPage extends CommonUtils{
 	 * Clicks ITrust sign-in button
 	 */
 	public void clickSignInButton(){
-		signInButton.click();
+		JavascriptUtils.clickByJS(signInButton);
 	}
 	
 	
