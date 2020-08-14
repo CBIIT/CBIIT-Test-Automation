@@ -14,23 +14,12 @@ public class EnvUtils {
 	
 	/**
 	 * This method will return the application URL. make sure you have 
-	 * proper URL placed in all environment xmls.
+	 * proper URL placed in all environment xml files.
 	 * @return String object
 	 * @throws TestingException
 	 */
-	public static String getApplicationUrl() throws TestingException {
-        final String appURL = "//application[@id='login']/login_url";
-        return getConfigValue(appURL);
-    }
-	
-	/**
-	 * This method will return the native view URL. make sure you have 
-	 * proper URL placed in all environment xmls.
-	 * @return String object
-	 * @throws TestingException
-	 */
-	public static String getNativeViewUrl() throws TestingException {
-        final String appURL = "//native/view/native_view_url";
+	public static String getApplicationUrl(String appName) throws TestingException {
+        final String appURL = "//application[@id='"+ appName +"']/login_url";
         return getConfigValue(appURL);
     }
     
