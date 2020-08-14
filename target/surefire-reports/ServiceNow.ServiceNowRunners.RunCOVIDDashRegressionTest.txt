@@ -1,0 +1,7 @@
+-------------------------------------------------------------------------------
+Test set: ServiceNow.ServiceNowRunners.RunCOVIDDashRegressionTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 222.602 s <<< FAILURE! - in ServiceNow.ServiceNowRunners.RunCOVIDDashRegressionTest
+COVID Dashboard.Verifying Study Form Submission as a Reviewer  Time elapsed: 49.064 s  <<< ERROR!
+java.lang.IndexOutOfBoundsException: Index 1 out of bounds for length 1
+
