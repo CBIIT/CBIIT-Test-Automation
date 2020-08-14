@@ -6,23 +6,24 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.xceptions.TestingException;
 
 import appsCommon.PageCache;
+import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 
-public class COVIDHomePageSteps {
+public class COVIDHomePageSteps extends PageInitializer{
 
 	private static PageCache pageCache = PageCache.getInstance();
 
 	@Given("User navigates to the COVID{int} Biorepository login page")
 	public void user_navigates_to_the_COVID_Biorepository_login_page(Integer int1) throws TestingException {
-		pageCache.getCOVIDHomePageImpl().navigateToCOVIDDashLoginPage();
+		covidHomePageImpl.navigateToCOVIDDashLoginPage();
 	}
 
 	@When("the User clicks on Login to access button")
 	public void the_User_clicls_on_Login_to_access_button() {
-		pageCache.getCOVIDHomePageImpl().clickOnLoginToAccessBtn();
+		covidHomePageImpl.clickOnLoginToAccessBtn();
 	}
 
 	@When("the User is directed to the home page")
