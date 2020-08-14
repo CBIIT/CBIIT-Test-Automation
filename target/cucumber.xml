@@ -1,18 +1,79 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="2" time="39.511342">
-<testcase classname="COVID Dashboard" name="Validate Autopulation" time="25.590009">
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="7" time="218.789646">
+<testcase classname="COVID Dashboard" name="Validating Study Submission without attaching a Related URL" time="43.05269">
 <system-out><![CDATA[Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application.passed
-And user validates that Institute, Division, Email Address, and Phone Number fields are not editable.passed
-When the User selects a principal Investigator by typing their name in the principal Investigator search box. "Sohil Zalmay".passed
-Then the Institute, Division, Email Address, and Phone Number fields are auto-populated. "NCI","OD","@nih.gov","2402766573".passed
-Then user validates that Institute, Division, Email Address, and Phone Number fields are not editable.passed
+When the User selects a Principal Investigator "Diego Juarez"...............passed
+And enters a unique IRB Protocol Number which can contain numbers and text such as "77YXB33".passed
+And enters a Study Title as "Automation Test"...............................passed
+And selects any Biospecimen Type "Other" and enters Other type as "Automation Test".passed
+And selects any Biospecimen Collection Frequency............................passed
+And verifies that "NCI Frederick" text is displayed in the Repository Location text box.passed
+And enters Study Specific Aims "Test Automation"............................passed
+And attaches an IRB Protocol Document.......................................passed
+And does not attach a Related URL...........................................passed
+Then the User is able to successfully submit the study "77YXB33"............passed
+]]></system-out>
+</testcase>
+<testcase classname="COVID Dashboard" name="Validating Study Submission with attaching multiple Related URL's" time="42.363414">
+<system-out><![CDATA[Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application.passed
+When the User selects a Principal Investigator "Diego Juarez"...............passed
+And enters a unique IRB Protocol Number which can contain numbers and text such as "77DJ88".passed
+And enters a Study Title as "Automation Test"...............................passed
+And selects any Biospecimen Type "Other" and enters Other type as "Automation Test".passed
+And selects any Biospecimen Collection Frequency............................passed
+And verifies that "NCI Frederick" text is displayed in the Repository Location text box.passed
+And enters Study Specific Aims "Test Automation"............................passed
+And attaches an IRB Protocol Document.......................................passed
+And attaches multiple Related URL’s.........................................passed
+Then the User is able to successfully submit the study "77DJ88".............passed
+]]></system-out>
+</testcase>
+<testcase classname="COVID Dashboard" name="Verifying a user is not able to submit a study form when not attaching an IRB Protocol Document" time="24.893242">
+<system-out><![CDATA[Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application.passed
+When the User enters all required information...............................passed
+But does not attach an IRB Protocol Document................................passed
+And attempts to confirm and submit the study form...........................passed
+Then the user is not able to successfully submit the study form.............passed
+And sees a pop up with a message indicating study documentation is required before submitting.passed
+And when selecting "Go Back"................................................passed
+Then under Study Documentation the user sees the message " Study documentation is required. Please attach the appropriate file(s). ".passed
 And the user logs out.......................................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Login" name="Covid dash Login" time="13.921333">
-<system-out><![CDATA[Given User navigates to the COVID-19 Biorepository login page...............passed
-When the User clicks on Login to access button..............................passed
+<testcase classname="COVID Dashboard" name="Verifying Home Page verbiage" time="16.431945">
+<system-out><![CDATA[Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application.passed
+When the user is on the submissions home page...............................passed
+Then the user should see the home page below verbiage.......................passed
+]]></system-out>
+</testcase>
+<testcase classname="COVID Dashboard" name="Verifying empty field messages" time="15.544548">
+<system-out><![CDATA[Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application.passed
+When the User enters any IRB Protocol Number and immediately deletes it.....passed
+And clicks on any other field on the page...................................passed
+Then an error message displays for IRB field with the message "Please enter an IRB protocol number".passed
+When the User enters any Study Title and immediately deletes it.............passed
+And clicks on any other field on the page...................................passed
+Then an error message displays for title with the message "Please enter a title for this study. This field is required.".passed
+When the User selects a Biospecimen Collection Frequency and then immediately selects no option.passed
+And clicks on any other field on the page...................................passed
+Then an error message displays for colection with the message "Please select the appropriate collection frequency. This field is required.".passed
+When the User enters any Study Specific Aim and immediately deletes it......passed
+And clicks on any other field on the page...................................passed
+Then an error message displays for aims with the message "Please enter the study specific aims. This field is required.".passed
+]]></system-out>
+</testcase>
+<testcase classname="COVID Dashboard" name="Verifying Study Form Submission as a Reviewer" time="46.012256">
+<system-out><![CDATA[Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application.passed
+And successfully submits a Study Form.......................................passed
+When impersonating a reviewer...............................................passed
+Then the submitted study is displayed and options to Approve or Reject are available.passed
+]]></system-out>
+</testcase>
+<testcase classname="Login" name="Reviewer Login" time="30.491551">
+<system-out><![CDATA[Given a Reviewer navigates to the COVID-19 Biorepository login page.........passed
+When the Reviewer selects Login to access button............................passed
 And logs in by entering iTrust credentials..................................passed
-Then the User is directed to the home page..................................passed
+Then the Reviewer is directed to the Submissions page.......................passed
+And is able to see two tables names "Studies Pending Approval" and "Approved / Rejected Studies".passed
 ]]></system-out>
 </testcase>
 </testsuite>
