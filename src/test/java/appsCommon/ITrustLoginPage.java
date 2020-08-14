@@ -21,18 +21,23 @@ public class ITrustLoginPage extends CommonUtils{
 	@FindBy(xpath = "//div[@class='col-md-8']//a")
 	private WebElement loginLink;
 	
+	/** Username field*/
 	@FindBy(xpath = "//input[@id='USER']")
 	private WebElement userNameField;
 
+	/** Password field */
 	@FindBy(xpath = "//input[@id='PASSWORD']")
 	private WebElement passwordField;
 	
+	/** Sign in button */
 	@FindBy(xpath="//button[@type='submit']")
 	private WebElement signInButton;
 	
+	/** Forgot Password link */
 	@FindBy(xpath="//a[@class='forgot-password']")
 	private WebElement forgotPasswordLink;
 	
+	/** Trouble Signing In link */ 
 	@FindBy(xpath="//a[text()='Trouble signing in?']")
 	private WebElement TroubleSigningInLink;
 	
