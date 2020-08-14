@@ -76,5 +76,29 @@
 			</default><!-- comment -->
 		</db>
 	</application>
+	
+		<!-- Application ID for COVIDCode -->
+	<application id="Code">
+
+		<login_url>https://service-test.nci.nih.gov/covidcode</login_url><!-- add test 
+			url -->
+
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default><!-- comment -->
+		</db>
+	</application>
 
 </environment>
