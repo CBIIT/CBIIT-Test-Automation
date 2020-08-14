@@ -18,7 +18,7 @@ public class NativeViewDashboardPageImpl extends PageInitializer {
 
 	public void impersonateUser(String approver) throws TestingException {
 	
-		WebDriverUtils.webDriver.navigate().to(EnvUtils.getNativeViewUrl());
+		WebDriverUtils.webDriver.navigate().to(EnvUtils.getApplicationUrl("nativeview"));
 		MiscUtils.sleep(3000);
 		pageCache.getNativeViewDashboardPage().clickNativeViewLink();
 		MiscUtils.sleep(2000);
@@ -30,7 +30,7 @@ public class NativeViewDashboardPageImpl extends PageInitializer {
 		MiscUtils.sleep(1000);
 		pageCache.getNativeViewDashboardPage().enterTextImpersntSearchBox(approver);
 		MiscUtils.sleep(1000);	
-		WebDriverUtils.webDriver.navigate().to(EnvUtils.getApplicationUrl());
+		WebDriverUtils.webDriver.navigate().to(EnvUtils.getApplicationUrl("covid19dashboard"));
 
 	}
 	
