@@ -37,8 +37,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		WebDriverUtils.webDriver.findElement(By.cssSelector("#filter")).sendKeys("CovidCode App");
 		// driver.findElement(By.id("filter")).sendKeys("CovidCode App");
 
-		MiscUtils.sleep(2000);
-		CommonUtils.waitForClickability(WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='1e1cc5b71b3f8090afebdd39bc4bcb28']/div/div")));
+		MiscUtils.sleep(5000);
 		WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='1e1cc5b71b3f8090afebdd39bc4bcb28']/div/div")).click();
 
 		String titleOfNativeEQ = WebDriverUtils.webDriver.getTitle();
