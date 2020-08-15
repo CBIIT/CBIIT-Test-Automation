@@ -85,4 +85,152 @@ formatter.result({
 formatter.after({
   "status": "passed"
 });
+formatter.uri("file:src/test/java/ServiceNow/COVIDCode/Features/ServicePortalLogin.feature");
+formatter.feature({
+  "name": "COVIDcode Study Provider User Login Scenarios",
+  "description": "",
+  "keyword": "Feature"
+});
+formatter.background({
+  "name": "",
+  "description": "",
+  "keyword": "Background"
+});
+formatter.before({
+  "status": "passed"
+});
+formatter.step({
+  "name": "a COVIDcode Study Provider user is on the COVIDcode study homepage",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "COVIDCodeLoginSteps.a_COVIDcode_Study_Provider_user_is_on_the_COVIDcode_study_homepage()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.scenario({
+  "name": "COVIDcode Study Provider Login when clicking \u0027Access and complete questionnaire\u0027 button and verifies expected header text",
+  "description": "",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "name": "@Smoke"
+    }
+  ]
+});
+formatter.step({
+  "name": "the COVIDcode Study Provider user logs in by clicking Access and complete questionnaire button",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "COVIDCodeLoginSteps.the_COVIDcode_Study_Provider_user_logs_in_by_clicking_Access_and_complete_questionnaire_button()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "the COVIDcode Study Provider user should see the COVIDcode Enrollment Questionnaire",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "COVIDCodeLoginSteps.the_COVIDcode_Study_Provider_user_should_see_the_COVIDcode_Enrollment_Questionnaire()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "the Study Provider user sees the header text \"Please fill out each data element to the best of your abilities. If you do not know the answer to a question, select “Don’t know”,  do not leave it blank. Some fields are required and denoted by an asterisk. If you have any questions about completing this survey, please contact the study team at covidcode@mail.nih.gov or (240) 274-6777.\"",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "COVIDCodeLoginSteps.the_COVIDcode_Study_Provider_user_sees_the_header_text(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "the Study Provider also sees contact email and phone number as \"covidcode@mail.nih.gov or (240) 274-6777.\"",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "COVIDCodeLoginSteps.the_COVIDcode_Study_Provider_also_sees_contact_email_and_phone_number_as(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.after({
+  "status": "passed"
+});
+formatter.background({
+  "name": "",
+  "description": "",
+  "keyword": "Background"
+});
+formatter.before({
+  "status": "passed"
+});
+formatter.step({
+  "name": "a COVIDcode Study Provider user is on the COVIDcode study homepage",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "COVIDCodeLoginSteps.a_COVIDcode_Study_Provider_user_is_on_the_COVIDcode_study_homepage()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.scenario({
+  "name": "COVIDcode Study Provider Login when clicking \u0027Log In\u0027 button and verifies expected header text",
+  "description": "",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "name": "@Smoke"
+    }
+  ]
+});
+formatter.step({
+  "name": "the COVIDcode Study Provider user logs in by clicking Log In button",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "COVIDCodeLoginSteps.the_COVIDcode_Study_Provider_user_logs_in_by_clicking_Log_In_button()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "the COVIDcode Study Provider user should see the COVIDcode Enrollment Questionnaire",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "COVIDCodeLoginSteps.the_COVIDcode_Study_Provider_user_should_see_the_COVIDcode_Enrollment_Questionnaire()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "the Study Provider user sees the header text \"Please fill out each data element to the best of your abilities. If you do not know the answer to a question, select “Don’t know”,  do not leave it blank. Some fields are required and denoted by an asterisk. If you have any questions about completing this survey, please contact the study team at covidcode@mail.nih.gov or (240) 274-6777.\"",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "COVIDCodeLoginSteps.the_COVIDcode_Study_Provider_user_sees_the_header_text(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "the Study Provider also sees contact email and phone number as \"covidcode@mail.nih.gov or (240) 274-6777.\"",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "COVIDCodeLoginSteps.the_COVIDcode_Study_Provider_also_sees_contact_email_and_phone_number_as(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.after({
+  "status": "passed"
+});
 });
