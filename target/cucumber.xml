@@ -1,79 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="7" time="218.789646">
-<testcase classname="COVID Dashboard" name="Validating Study Submission without attaching a Related URL" time="43.05269">
-<system-out><![CDATA[Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application.passed
-When the User selects a Principal Investigator "Diego Juarez"...............passed
-And enters a unique IRB Protocol Number which can contain numbers and text such as "77YXB33".passed
-And enters a Study Title as "Automation Test"...............................passed
-And selects any Biospecimen Type "Other" and enters Other type as "Automation Test".passed
-And selects any Biospecimen Collection Frequency............................passed
-And verifies that "NCI Frederick" text is displayed in the Repository Location text box.passed
-And enters Study Specific Aims "Test Automation"............................passed
-And attaches an IRB Protocol Document.......................................passed
-And does not attach a Related URL...........................................passed
-Then the User is able to successfully submit the study "77YXB33"............passed
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="3" time="65.982312">
+<testcase classname="COVIDcode Study nurse with an Admin role submits Enrollment Questionnaire Submission" name="COVIDcode Study nurse with an Admin role is able to submit an Enrollment Questionnaire in Native View" time="30.356653">
+<system-out><![CDATA[Given a COVIDcode Study nurse with an Admin role has logged in to the COVIDcode Study Native View application.passed
+And is on the COVIDcode Enrollments page....................................passed
+When the COVIDcode Study nurse begins an Enrollment Questionnaire for a "Group 1" user who consents "Yes" to join the study.passed
+And fills out the Enrollment Questionnaire by entering all required information including Demographics, Symptomology, and Exposures and Risk Factors.passed
+And submits the Enrollment Questionnaire....................................passed
+Then the Enrollment Questionnaire should be successfully submitted..........passed
 ]]></system-out>
 </testcase>
-<testcase classname="COVID Dashboard" name="Validating Study Submission with attaching multiple Related URL's" time="42.363414">
-<system-out><![CDATA[Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application.passed
-When the User selects a Principal Investigator "Diego Juarez"...............passed
-And enters a unique IRB Protocol Number which can contain numbers and text such as "77DJ88".passed
-And enters a Study Title as "Automation Test"...............................passed
-And selects any Biospecimen Type "Other" and enters Other type as "Automation Test".passed
-And selects any Biospecimen Collection Frequency............................passed
-And verifies that "NCI Frederick" text is displayed in the Repository Location text box.passed
-And enters Study Specific Aims "Test Automation"............................passed
-And attaches an IRB Protocol Document.......................................passed
-And attaches multiple Related URL’s.........................................passed
-Then the User is able to successfully submit the study "77DJ88".............passed
+<testcase classname="COVIDcode Study Provider User Login Scenarios" name="COVIDcode Study Provider Login when clicking 'Access and complete questionnaire' button and verifies expected header text" time="17.583663">
+<system-out><![CDATA[Given a COVIDcode Study Provider user is on the COVIDcode study homepage....passed
+When the COVIDcode Study Provider user logs in by clicking Access and complete questionnaire button.passed
+Then the COVIDcode Study Provider user should see the COVIDcode Enrollment Questionnaire.passed
+And the Study Provider user sees the header text "Please fill out each data element to the best of your abilities. If you do not know the answer to a question, select “Don’t know”,  do not leave it blank. Some fields are required and denoted by an asterisk. If you have any questions about completing this survey, please contact the study team at covidcode@mail.nih.gov or (240) 274-6777.".passed
+And the Study Provider also sees contact email and phone number as "covidcode@mail.nih.gov or (240) 274-6777.".passed
 ]]></system-out>
 </testcase>
-<testcase classname="COVID Dashboard" name="Verifying a user is not able to submit a study form when not attaching an IRB Protocol Document" time="24.893242">
-<system-out><![CDATA[Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application.passed
-When the User enters all required information...............................passed
-But does not attach an IRB Protocol Document................................passed
-And attempts to confirm and submit the study form...........................passed
-Then the user is not able to successfully submit the study form.............passed
-And sees a pop up with a message indicating study documentation is required before submitting.passed
-And when selecting "Go Back"................................................passed
-Then under Study Documentation the user sees the message " Study documentation is required. Please attach the appropriate file(s). ".passed
-And the user logs out.......................................................passed
-]]></system-out>
-</testcase>
-<testcase classname="COVID Dashboard" name="Verifying Home Page verbiage" time="16.431945">
-<system-out><![CDATA[Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application.passed
-When the user is on the submissions home page...............................passed
-Then the user should see the home page below verbiage.......................passed
-]]></system-out>
-</testcase>
-<testcase classname="COVID Dashboard" name="Verifying empty field messages" time="15.544548">
-<system-out><![CDATA[Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application.passed
-When the User enters any IRB Protocol Number and immediately deletes it.....passed
-And clicks on any other field on the page...................................passed
-Then an error message displays for IRB field with the message "Please enter an IRB protocol number".passed
-When the User enters any Study Title and immediately deletes it.............passed
-And clicks on any other field on the page...................................passed
-Then an error message displays for title with the message "Please enter a title for this study. This field is required.".passed
-When the User selects a Biospecimen Collection Frequency and then immediately selects no option.passed
-And clicks on any other field on the page...................................passed
-Then an error message displays for colection with the message "Please select the appropriate collection frequency. This field is required.".passed
-When the User enters any Study Specific Aim and immediately deletes it......passed
-And clicks on any other field on the page...................................passed
-Then an error message displays for aims with the message "Please enter the study specific aims. This field is required.".passed
-]]></system-out>
-</testcase>
-<testcase classname="COVID Dashboard" name="Verifying Study Form Submission as a Reviewer" time="46.012256">
-<system-out><![CDATA[Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application.passed
-And successfully submits a Study Form.......................................passed
-When impersonating a reviewer...............................................passed
-Then the submitted study is displayed and options to Approve or Reject are available.passed
-]]></system-out>
-</testcase>
-<testcase classname="Login" name="Reviewer Login" time="30.491551">
-<system-out><![CDATA[Given a Reviewer navigates to the COVID-19 Biorepository login page.........passed
-When the Reviewer selects Login to access button............................passed
-And logs in by entering iTrust credentials..................................passed
-Then the Reviewer is directed to the Submissions page.......................passed
-And is able to see two tables names "Studies Pending Approval" and "Approved / Rejected Studies".passed
+<testcase classname="COVIDcode Study Provider User Login Scenarios" name="COVIDcode Study Provider Login when clicking 'Log In' button and verifies expected header text" time="18.041996">
+<system-out><![CDATA[Given a COVIDcode Study Provider user is on the COVIDcode study homepage....passed
+When the COVIDcode Study Provider user logs in by clicking Log In button....passed
+Then the COVIDcode Study Provider user should see the COVIDcode Enrollment Questionnaire.passed
+And the Study Provider user sees the header text "Please fill out each data element to the best of your abilities. If you do not know the answer to a question, select “Don’t know”,  do not leave it blank. Some fields are required and denoted by an asterisk. If you have any questions about completing this survey, please contact the study team at covidcode@mail.nih.gov or (240) 274-6777.".passed
+And the Study Provider also sees contact email and phone number as "covidcode@mail.nih.gov or (240) 274-6777.".passed
 ]]></system-out>
 </testcase>
 </testsuite>
