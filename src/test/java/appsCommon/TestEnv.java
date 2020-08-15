@@ -9,7 +9,7 @@ public class TestEnv {
 	public static void main(String[] args) throws TestingException {
 
 		System.out.println();
-		System.out.println(EnvUtils.getApplicationUrl("COVIDCode"));
+		System.out.println(EnvUtils.getApplicationUrl("nativeview"));
 		System.out.println();
 
 
