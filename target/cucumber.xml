@@ -1,27 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="3" time="65.982312">
-<testcase classname="COVIDcode Study nurse with an Admin role submits Enrollment Questionnaire Submission" name="COVIDcode Study nurse with an Admin role is able to submit an Enrollment Questionnaire in Native View" time="30.356653">
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="29.471343">
+<testcase classname="COVIDcode Study nurse with an Admin role submits Enrollment Questionnaire Submission" name="COVIDcode Study nurse with an Admin role is able to submit an Enrollment Questionnaire in Native View" time="29.471343">
 <system-out><![CDATA[Given a COVIDcode Study nurse with an Admin role has logged in to the COVIDcode Study Native View application.passed
 And is on the COVIDcode Enrollments page....................................passed
 When the COVIDcode Study nurse begins an Enrollment Questionnaire for a "Group 1" user who consents "Yes" to join the study.passed
 And fills out the Enrollment Questionnaire by entering all required information including Demographics, Symptomology, and Exposures and Risk Factors.passed
 And submits the Enrollment Questionnaire....................................passed
 Then the Enrollment Questionnaire should be successfully submitted..........passed
-]]></system-out>
-</testcase>
-<testcase classname="COVIDcode Study Provider User Login Scenarios" name="COVIDcode Study Provider Login when clicking 'Access and complete questionnaire' button and verifies expected header text" time="17.583663">
-<system-out><![CDATA[Given a COVIDcode Study Provider user is on the COVIDcode study homepage....passed
-When the COVIDcode Study Provider user logs in by clicking Access and complete questionnaire button.passed
-Then the COVIDcode Study Provider user should see the COVIDcode Enrollment Questionnaire.passed
-And the Study Provider user sees the header text "Please fill out each data element to the best of your abilities. If you do not know the answer to a question, select “Don’t know”,  do not leave it blank. Some fields are required and denoted by an asterisk. If you have any questions about completing this survey, please contact the study team at covidcode@mail.nih.gov or (240) 274-6777.".passed
-And the Study Provider also sees contact email and phone number as "covidcode@mail.nih.gov or (240) 274-6777.".passed
-]]></system-out>
-</testcase>
-<testcase classname="COVIDcode Study Provider User Login Scenarios" name="COVIDcode Study Provider Login when clicking 'Log In' button and verifies expected header text" time="18.041996">
-<system-out><![CDATA[Given a COVIDcode Study Provider user is on the COVIDcode study homepage....passed
-When the COVIDcode Study Provider user logs in by clicking Log In button....passed
-Then the COVIDcode Study Provider user should see the COVIDcode Enrollment Questionnaire.passed
-And the Study Provider user sees the header text "Please fill out each data element to the best of your abilities. If you do not know the answer to a question, select “Don’t know”,  do not leave it blank. Some fields are required and denoted by an asterisk. If you have any questions about completing this survey, please contact the study team at covidcode@mail.nih.gov or (240) 274-6777.".passed
-And the Study Provider also sees contact email and phone number as "covidcode@mail.nih.gov or (240) 274-6777.".passed
 ]]></system-out>
 </testcase>
 </testsuite>
