@@ -3,11 +3,11 @@
     "line": 5,
     "elements": [
       {
-        "start_timestamp": "2020-08-15T02:31:56.491Z",
+        "start_timestamp": "2020-08-15T03:05:29.232Z",
         "before": [
           {
             "result": {
-              "duration": 3395934094,
+              "duration": 3439161125,
               "status": "passed"
             },
             "match": {
@@ -22,7 +22,7 @@
         "after": [
           {
             "result": {
-              "duration": 2170793934,
+              "duration": 2131144953,
               "status": "passed"
             },
             "match": {
@@ -35,7 +35,7 @@
         "steps": [
           {
             "result": {
-              "duration": 11335221704,
+              "duration": 13150343598,
               "status": "passed"
             },
             "line": 8,
@@ -47,7 +47,7 @@
           },
           {
             "result": {
-              "duration": 2628373697,
+              "duration": 2412959965,
               "status": "passed"
             },
             "line": 9,
@@ -59,7 +59,7 @@
           },
           {
             "result": {
-              "duration": 7506879440,
+              "duration": 4671054447,
               "status": "passed"
             },
             "line": 10,
@@ -81,7 +81,7 @@
           },
           {
             "result": {
-              "duration": 2670149661,
+              "duration": 2797988187,
               "status": "passed"
             },
             "line": 11,
@@ -93,7 +93,7 @@
           },
           {
             "result": {
-              "duration": 646773590,
+              "duration": 864151540,
               "status": "passed"
             },
             "line": 12,
@@ -105,7 +105,7 @@
           },
           {
             "result": {
-              "duration": 32103,
+              "duration": 31116,
               "status": "passed"
             },
             "line": 13,
@@ -138,254 +138,5 @@
         }
       }
     ]
-  },
-  {
-    "line": 4,
-    "elements": [
-      {
-        "line": 5,
-        "name": "",
-        "description": "",
-        "type": "background",
-        "keyword": "Background",
-        "steps": [
-          {
-            "result": {
-              "duration": 5611565703,
-              "status": "passed"
-            },
-            "line": 6,
-            "name": "a COVIDcode Study Provider user is on the COVIDcode study homepage",
-            "match": {
-              "location": "COVIDCodeLoginSteps.a_COVIDcode_Study_Provider_user_is_on_the_COVIDcode_study_homepage()"
-            },
-            "keyword": "Given "
-          }
-        ]
-      },
-      {
-        "start_timestamp": "2020-08-15T02:32:26.848Z",
-        "before": [
-          {
-            "result": {
-              "duration": 2933058780,
-              "status": "passed"
-            },
-            "match": {
-              "location": "HooksSteps.genericSetUp(Scenario)"
-            }
-          }
-        ],
-        "line": 9,
-        "name": "COVIDcode Study Provider Login when clicking \u0027Access and complete questionnaire\u0027 button and verifies expected header text",
-        "description": "",
-        "id": "covidcode-study-provider-user-login-scenarios;covidcode-study-provider-login-when-clicking--access-and-complete-questionnaire--button-and-verifies-expected-header-text",
-        "after": [
-          {
-            "result": {
-              "duration": 2116282604,
-              "status": "passed"
-            },
-            "match": {
-              "location": "HooksSteps.genericTearDown(Scenario)"
-            }
-          }
-        ],
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 3748342054,
-              "status": "passed"
-            },
-            "line": 10,
-            "name": "the COVIDcode Study Provider user logs in by clicking Access and complete questionnaire button",
-            "match": {
-              "location": "COVIDCodeLoginSteps.the_COVIDcode_Study_Provider_user_logs_in_by_clicking_Access_and_complete_questionnaire_button()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 2390524321,
-              "status": "passed"
-            },
-            "line": 11,
-            "name": "the COVIDcode Study Provider user should see the COVIDcode Enrollment Questionnaire",
-            "match": {
-              "location": "COVIDCodeLoginSteps.the_COVIDcode_Study_Provider_user_should_see_the_COVIDcode_Enrollment_Questionnaire()"
-            },
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "duration": 726980935,
-              "status": "passed"
-            },
-            "line": 12,
-            "name": "the Study Provider user sees the header text \"Please fill out each data element to the best of your abilities. If you do not know the answer to a question, select “Don’t know”,  do not leave it blank. Some fields are required and denoted by an asterisk. If you have any questions about completing this survey, please contact the study team at covidcode@mail.nih.gov or (240) 274-6777.\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Please fill out each data element to the best of your abilities. If you do not know the answer to a question, select “Don’t know”,  do not leave it blank. Some fields are required and denoted by an asterisk. If you have any questions about completing this survey, please contact the study team at covidcode@mail.nih.gov or (240) 274-6777.\"",
-                  "offset": 45
-                }
-              ],
-              "location": "COVIDCodeLoginSteps.the_COVIDcode_Study_Provider_user_sees_the_header_text(String)"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 56283015,
-              "status": "passed"
-            },
-            "line": 13,
-            "name": "the Study Provider also sees contact email and phone number as \"covidcode@mail.nih.gov or (240) 274-6777.\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"covidcode@mail.nih.gov or (240) 274-6777.\"",
-                  "offset": 63
-                }
-              ],
-              "location": "COVIDCodeLoginSteps.the_COVIDcode_Study_Provider_also_sees_contact_email_and_phone_number_as(String)"
-            },
-            "keyword": "And "
-          }
-        ],
-        "tags": [
-          {
-            "name": "@Smoke"
-          }
-        ]
-      },
-      {
-        "line": 5,
-        "name": "",
-        "description": "",
-        "type": "background",
-        "keyword": "Background",
-        "steps": [
-          {
-            "result": {
-              "duration": 5310954882,
-              "status": "passed"
-            },
-            "line": 6,
-            "name": "a COVIDcode Study Provider user is on the COVIDcode study homepage",
-            "match": {
-              "location": "COVIDCodeLoginSteps.a_COVIDcode_Study_Provider_user_is_on_the_COVIDcode_study_homepage()"
-            },
-            "keyword": "Given "
-          }
-        ]
-      },
-      {
-        "start_timestamp": "2020-08-15T02:32:44.432Z",
-        "before": [
-          {
-            "result": {
-              "duration": 2882640891,
-              "status": "passed"
-            },
-            "match": {
-              "location": "HooksSteps.genericSetUp(Scenario)"
-            }
-          }
-        ],
-        "line": 16,
-        "name": "COVIDcode Study Provider Login when clicking \u0027Log In\u0027 button and verifies expected header text",
-        "description": "",
-        "id": "covidcode-study-provider-user-login-scenarios;covidcode-study-provider-login-when-clicking--log-in--button-and-verifies-expected-header-text",
-        "after": [
-          {
-            "result": {
-              "duration": 2112197976,
-              "status": "passed"
-            },
-            "match": {
-              "location": "HooksSteps.genericTearDown(Scenario)"
-            }
-          }
-        ],
-        "type": "scenario",
-        "keyword": "Scenario",
-        "steps": [
-          {
-            "result": {
-              "duration": 4195808679,
-              "status": "passed"
-            },
-            "line": 17,
-            "name": "the COVIDcode Study Provider user logs in by clicking Log In button",
-            "match": {
-              "location": "COVIDCodeLoginSteps.the_COVIDcode_Study_Provider_user_logs_in_by_clicking_Log_In_button()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 2714380810,
-              "status": "passed"
-            },
-            "line": 18,
-            "name": "the COVIDcode Study Provider user should see the COVIDcode Enrollment Questionnaire",
-            "match": {
-              "location": "COVIDCodeLoginSteps.the_COVIDcode_Study_Provider_user_should_see_the_COVIDcode_Enrollment_Questionnaire()"
-            },
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "duration": 804004945,
-              "status": "passed"
-            },
-            "line": 19,
-            "name": "the Study Provider user sees the header text \"Please fill out each data element to the best of your abilities. If you do not know the answer to a question, select “Don’t know”,  do not leave it blank. Some fields are required and denoted by an asterisk. If you have any questions about completing this survey, please contact the study team at covidcode@mail.nih.gov or (240) 274-6777.\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Please fill out each data element to the best of your abilities. If you do not know the answer to a question, select “Don’t know”,  do not leave it blank. Some fields are required and denoted by an asterisk. If you have any questions about completing this survey, please contact the study team at covidcode@mail.nih.gov or (240) 274-6777.\"",
-                  "offset": 45
-                }
-              ],
-              "location": "COVIDCodeLoginSteps.the_COVIDcode_Study_Provider_user_sees_the_header_text(String)"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 21666086,
-              "status": "passed"
-            },
-            "line": 20,
-            "name": "the Study Provider also sees contact email and phone number as \"covidcode@mail.nih.gov or (240) 274-6777.\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"covidcode@mail.nih.gov or (240) 274-6777.\"",
-                  "offset": 63
-                }
-              ],
-              "location": "COVIDCodeLoginSteps.the_COVIDcode_Study_Provider_also_sees_contact_email_and_phone_number_as(String)"
-            },
-            "keyword": "And "
-          }
-        ],
-        "tags": [
-          {
-            "name": "@Smoke"
-          }
-        ]
-      }
-    ],
-    "name": "COVIDcode Study Provider User Login Scenarios",
-    "description": "",
-    "id": "covidcode-study-provider-user-login-scenarios",
-    "keyword": "Feature",
-    "uri": "file:src/test/java/ServiceNow/COVIDCode/Features/ServicePortalLogin.feature",
-    "tags": []
   }
 ]
