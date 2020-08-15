@@ -5,7 +5,7 @@ Feature: COVIDcode Study Provider User Login Scenarios
 Background: 
 Given a COVIDcode Study Provider user is on the COVIDcode study homepage
  
-   @Smoke    
+@Smoke       
 Scenario: COVIDcode Study Provider Login when clicking 'Access and complete questionnaire' button and verifies expected header text
 When the COVIDcode Study Provider user logs in by clicking Access and complete questionnaire button
 Then the COVIDcode Study Provider user should see the COVIDcode Enrollment Questionnaire
