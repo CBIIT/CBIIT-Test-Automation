@@ -83,7 +83,7 @@ public class CommonUtils extends WebDriverUtils{
 	 */
 	public static void selectDropDownValue(WebElement element,String value) {
 		Select select = new Select(element);
-		select.selectByValue(value);
+		select.selectByVisibleText(value);
 	}
 	
 	/**
