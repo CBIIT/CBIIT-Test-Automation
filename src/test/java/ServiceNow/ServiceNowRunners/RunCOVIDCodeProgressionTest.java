@@ -19,7 +19,7 @@ import cucumber.api.junit.Cucumber;
 		, features="src/test/java/ServiceNow/COVIDCode/Features"
 		, glue="ServiceNow.COVIDCode.Steps"
 		, tags="@Sprint7"
-		, dryRun = true
+		, dryRun = false
 		, monochrome=true
 		, strict = true
 		
