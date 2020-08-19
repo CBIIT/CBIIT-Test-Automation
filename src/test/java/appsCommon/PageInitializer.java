@@ -6,6 +6,7 @@ import ServiceNow.COVIDCode.Pages.FollowUpFormPage;
 import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentViewPage;
 import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentsPage;
 import ServiceNow.COVIDCode.StepsImplementation.ServicePortalEQPageImpl;
+import ServiceNow.COVIDCode.StepsImplementation.COVIDCodeLoginStepsImpl;
 import ServiceNow.COVIDCode.StepsImplementation.FollowUpFormPageImpl;
 import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.Pages.COVIDHomePage;
@@ -37,6 +38,7 @@ public class PageInitializer {
 	protected static NativeViewEnrollmentViewPage nativeViewEnrollmentViewPage;
 	protected static FollowUpFormPage followUpFormPage;
 	protected static FollowUpFormPageImpl followUpFormPageImpl;
+	protected static COVIDCodeLoginStepsImpl covidCodeLoginStepsImpl;
 
 	public static void initializeAllPages() {
 		// create instances of all pages and assign them to the variables
@@ -53,6 +55,7 @@ public class PageInitializer {
 		nativeViewEnrollmentViewPage = new NativeViewEnrollmentViewPage();
 		followUpFormPage = new FollowUpFormPage();
 		followUpFormPageImpl = new FollowUpFormPageImpl();
+		covidCodeLoginStepsImpl = new COVIDCodeLoginStepsImpl();
 	}
 
 }

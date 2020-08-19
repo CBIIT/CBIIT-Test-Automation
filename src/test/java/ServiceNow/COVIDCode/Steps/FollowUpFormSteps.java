@@ -27,16 +27,6 @@ public class FollowUpFormSteps extends PageInitializer {
 		
 	}
 	
-	@Given("step one")
-	public void step_one() {
-	}
 
-	@When("step two")
-	public void step_two() {
-	}
-
-	@Then("step three")
-	public void step_three() {
-	}
 
 }
