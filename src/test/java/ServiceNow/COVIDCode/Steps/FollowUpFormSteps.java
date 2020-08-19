@@ -3,9 +3,7 @@ package ServiceNow.COVIDCode.Steps;
 import org.junit.Assert;
 
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
-import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 
 import appsCommon.PageInitializer;
@@ -21,9 +19,9 @@ public class FollowUpFormSteps extends PageInitializer {
 
 	@Then("the question {string} should display in the demographics section")
 	public void the_question_should_display_in_the_demographics_section(String questionText) {
-		JavascriptUtils.scrollDown(10000);
 		String txt = followUpFormPage.whatIsHighestEducationLevelCompleted.getText();
 		Assert.assertTrue(txt.contentEquals(questionText));
+		JavascriptUtils.scrollDown(10000);
 		CucumberLogUtils.logScreenShot();
 		
 	}
