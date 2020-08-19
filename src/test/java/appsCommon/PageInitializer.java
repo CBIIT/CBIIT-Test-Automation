@@ -2,6 +2,9 @@ package appsCommon;
 
 import ServiceNow.COVIDCode.Pages.COVIDCodeLoginPage;
 import ServiceNow.COVIDCode.Pages.EnrollmentQuestionnairePage;
+import ServiceNow.COVIDCode.Pages.FollowUpFormPage;
+import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentViewPage;
+import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentsPage;
 import ServiceNow.COVIDCode.StepsImplementation.EnrollmentQuestionnairePageImpl;
 import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.Pages.COVIDHomePage;
@@ -29,6 +32,9 @@ public class PageInitializer {
 	protected static COVIDCodeLoginPage covidCodeLoginPage;
 	protected static EnrollmentQuestionnairePage covidCodeEQPage;
 	protected static EnrollmentQuestionnairePageImpl covidCodeEQPageImpl;
+	protected static NativeViewEnrollmentsPage nativeViewEnrollementsPage;
+	protected static NativeViewEnrollmentViewPage nativeViewEnrollmentViewPage;
+	protected static FollowUpFormPage followUpFormPage;
 
 	public static void initializeAllPages() {
 		// create instances of all pages and assign them to the variables
@@ -41,6 +47,9 @@ public class PageInitializer {
 		covidCodeEQPage = new EnrollmentQuestionnairePage();
 		covidCodeEQPageImpl = new EnrollmentQuestionnairePageImpl();
 		covidCodeLoginPage = new COVIDCodeLoginPage();
+		nativeViewEnrollementsPage = new NativeViewEnrollmentsPage();
+		nativeViewEnrollmentViewPage = new NativeViewEnrollmentViewPage();
+		followUpFormPage = new FollowUpFormPage();
 	}
 
 }
