@@ -29,20 +29,14 @@ public class FollowUpFormSteps extends PageInitializer {
 	
 	@Given("step one")
 	public void step_one() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new cucumber.api.PendingException();
 	}
 
 	@When("step two")
 	public void step_two() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new cucumber.api.PendingException();
 	}
 
 	@Then("step three")
 	public void step_three() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new cucumber.api.PendingException();
 	}
 
 }
