@@ -9,15 +9,15 @@ import com.nci.automation.web.JavascriptUtils;
 import appsCommon.PageInitializer;
 
 public class ServicePortalEQPageImpl extends PageInitializer{
-	
+	public static ServicePortalEQPageImpl obj = new ServicePortalEQPageImpl();
 	
 	public static void group1EQSubmissionWithoutDiseaseCourseAndRiskFactorsInfo(String groupUserID, String consent) {
-		groupUserAndConsent(groupUserID, consent);
-		requiredDemographicsInfo();
-		submittingEQ();
+		obj.groupUserAndConsent(groupUserID, consent);
+		obj.requiredDemographicsInfo();
+		obj.submittingEQ();
 	}
 	
-	public static void groupUserAndConsent(String groupUserID, String consent) {
+	public void groupUserAndConsent(String groupUserID, String consent) {
 
 		covidCodeEQPage.userGroupIdDropdown.click();
 		List<WebElement> groupIDs = covidCodeEQPage.dropDownValues;
@@ -45,7 +45,7 @@ public class ServicePortalEQPageImpl extends PageInitializer{
 	 * This method fills out full name, required information labeled with *, and
 	 * Demographics information Values are hard coded and can be changed accordingly
 	 */
-	public static void requiredDemographicsInfo() {
+	public void requiredDemographicsInfo() {
 
 		covidCodeEQPage.patientLastNameTextBox.sendKeys("AutomatedLN");
 		covidCodeEQPage.patientFirstNameTextBox.sendKeys("AutomatedFN");
@@ -114,7 +114,7 @@ public class ServicePortalEQPageImpl extends PageInitializer{
 	 * This method clicks on submit button and clicks on yes on the submission pop
 	 * up
 	 */
-	public static void submittingEQ() {
+	public void submittingEQ() {
 		covidCodeEQPage.submitButton.click();
 		covidCodeEQPage.YesButton.click();
 	}
