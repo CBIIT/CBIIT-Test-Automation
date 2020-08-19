@@ -21,7 +21,6 @@ public class FollowUpFormSteps extends PageInitializer {
 		covidCodeLoginPage.accessAndCompleteFollowUpQuestionnaireButton.click();
 		CucumberLogUtils.logScreenShot();
 		loginImpl.loginToITrust();
-		CucumberLogUtils.logScreenShot();
 	}
 
 	@Then("the question {string} should display in the demographics section")
@@ -29,6 +28,7 @@ public class FollowUpFormSteps extends PageInitializer {
 		JavascriptUtils.scrollDown(5000);
 		String txt = followUpFormPage.whatIsHighestEducationLevelCompleted.getText();
 		Assert.assertTrue(txt.contentEquals(questionText));
+		CucumberLogUtils.logScreenShot();
 		
 	}
 
