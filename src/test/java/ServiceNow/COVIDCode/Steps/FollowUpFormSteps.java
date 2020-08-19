@@ -7,6 +7,7 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.xceptions.TestingException;
 
 import appsCommon.PageInitializer;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -24,6 +25,24 @@ public class FollowUpFormSteps extends PageInitializer {
 		JavascriptUtils.scrollDown(2000);
 		CucumberLogUtils.logScreenShot();
 		
+	}
+	
+	@Given("step one")
+	public void step_one() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new cucumber.api.PendingException();
+	}
+
+	@When("step two")
+	public void step_two() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new cucumber.api.PendingException();
+	}
+
+	@Then("step three")
+	public void step_three() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new cucumber.api.PendingException();
 	}
 
 }
