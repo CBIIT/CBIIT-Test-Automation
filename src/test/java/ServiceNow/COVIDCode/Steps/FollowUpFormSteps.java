@@ -21,7 +21,7 @@ public class FollowUpFormSteps extends PageInitializer {
 	public void the_question_should_display_in_the_demographics_section(String questionText) {
 		String txt = followUpFormPage.whatIsHighestEducationLevelCompleted.getText();
 		Assert.assertTrue(txt.contentEquals(questionText));
-		JavascriptUtils.scrollDown(7000);
+		JavascriptUtils.scrollDown(5000);
 		CucumberLogUtils.logScreenShot();
 		
 	}
