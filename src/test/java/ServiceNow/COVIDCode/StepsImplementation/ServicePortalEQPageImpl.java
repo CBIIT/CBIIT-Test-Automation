@@ -4,13 +4,31 @@ import java.util.List;
 
 import org.openqa.selenium.WebElement;
 
+import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
+import com.nci.automation.web.WebDriverUtils;
+import com.nci.automation.xceptions.TestingException;
 
 import appsCommon.PageInitializer;
 
-public class EnrollmentQuestionnairePageImpl extends PageInitializer{
+public class ServicePortalEQPageImpl extends PageInitializer{
 	
-	public void groupUserAndConsent(String groupUserID, String consent) {
+	public void covidCodeServicePortalLogin() throws TestingException {
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("Code"));
+		CucumberLogUtils.logScreenShot();
+		covidCodeLoginPage.AcceptandCompleteQuestionnaireButton.click();
+		CucumberLogUtils.logScreenShot();
+		loginImpl.loginToITrust();	
+	}
+	
+	public static void group1EQSubmissionWithoutDiseaseCourseAndRiskFactorsInfo(String groupUserID, String consent) {
+		groupUserAndConsent(groupUserID, consent);
+		requiredDemographicsInfo();
+		submittingEQ();
+	}
+	
+	public static void groupUserAndConsent(String groupUserID, String consent) {
 
 		covidCodeEQPage.userGroupIdDropdown.click();
 		List<WebElement> groupIDs = covidCodeEQPage.dropDownValues;
@@ -38,7 +56,7 @@ public class EnrollmentQuestionnairePageImpl extends PageInitializer{
 	 * This method fills out full name, required information labeled with *, and
 	 * Demographics information Values are hard coded and can be changed accordingly
 	 */
-	public void fullNameRequiredInfoDemographicsInfo() {
+	public static void requiredDemographicsInfo() {
 
 		covidCodeEQPage.patientLastNameTextBox.sendKeys("AutomatedLN");
 		covidCodeEQPage.patientFirstNameTextBox.sendKeys("AutomatedFN");
@@ -107,7 +125,7 @@ public class EnrollmentQuestionnairePageImpl extends PageInitializer{
 	 * This method clicks on submit button and clicks on yes on the submission pop
 	 * up
 	 */
-	public void submittingEQ() {
+	public static void submittingEQ() {
 		covidCodeEQPage.submitButton.click();
 		covidCodeEQPage.YesButton.click();
 	}
