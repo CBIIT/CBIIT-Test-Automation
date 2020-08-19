@@ -13,8 +13,13 @@ public class COVIDCodeLoginPage extends CommonUtils {
 	@FindBy(linkText  = "Access and complete enrollment questionnaire →")
 	public WebElement AcceptandCompleteQuestionnaireButton;
 	
+	/** Log In button */
 	@FindBy(linkText  = "Log In")
 	public WebElement LogInButton;
+	
+	/** Access and complete follow up questionnaire */
+	@FindBy (linkText = "Access and complete follow up questionnaire →")
+	public WebElement accessAndCompleteFollowUpQuestionnaireButton;
 	
 	public COVIDCodeLoginPage() {
 		
