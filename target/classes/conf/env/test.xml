@@ -78,7 +78,7 @@
 	</application>
 	
 		<!-- Application ID for COVIDCode -->
-	<application id="Code">
+	<application id="COVIDCode">
 
 		<login_url>https://service-test.nci.nih.gov/covidcode</login_url><!-- add test 
 			url -->
