@@ -3,6 +3,8 @@ package ServiceNow.COVIDCode.StepsImplementation;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
+
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.JavascriptUtils;
 
 
@@ -116,6 +118,7 @@ public class ServicePortalEQPageImpl extends PageInitializer{
 	 */
 	public void submittingEQ() {
 		covidCodeEQPage.submitButton.click();
+		MiscUtils.sleep(2000);
 		covidCodeEQPage.YesButton.click();
 	}
 
