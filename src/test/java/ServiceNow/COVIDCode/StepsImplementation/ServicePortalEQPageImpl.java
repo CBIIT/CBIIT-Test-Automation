@@ -107,9 +107,9 @@ public class ServicePortalEQPageImpl extends PageInitializer{
 		covidCodeEQPage.feetTextBox.sendKeys("5");
 		covidCodeEQPage.inchesTextBox.sendKeys("10");
 		// selectDateByJS(EQPage.whenDevelopSymptoms, "04-01-2020");
-		covidCodeEQPage.whenDevelopSymptoms.sendKeys("04-01-2020");
+		covidCodeEQPage.whenDevelopSymptoms.sendKeys("Aug 01, 2020");
 		// selectDateByJS(EQPage.whenOfficiallyDiagnosed, "04-04-2020");
-		covidCodeEQPage.whenOfficiallyDiagnosed.sendKeys("04-04-2020");
+		covidCodeEQPage.whenOfficiallyDiagnosed.sendKeys("Aug 05, 2020");
 	}
 
 	/**
