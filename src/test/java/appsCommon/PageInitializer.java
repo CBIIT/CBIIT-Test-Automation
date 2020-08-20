@@ -39,6 +39,9 @@ public class PageInitializer {
 	protected static FollowUpFormPage followUpFormPage;
 	protected static FollowUpFormPageImpl followUpFormPageImpl;
 	protected static COVIDCodeLoginStepsImpl covidCodeLoginStepsImpl;
+	
+	/** Native View instance */
+	protected static NativeViewLoginImpl nativeViewLoginImpl;
 
 	public static void initializeAllPages() {
 		// create instances of all pages and assign them to the variables
@@ -56,6 +59,7 @@ public class PageInitializer {
 		followUpFormPage = new FollowUpFormPage();
 		followUpFormPageImpl = new FollowUpFormPageImpl();
 		covidCodeLoginStepsImpl = new COVIDCodeLoginStepsImpl();
+		nativeViewLoginImpl = new NativeViewLoginImpl();
 	}
 
 }
