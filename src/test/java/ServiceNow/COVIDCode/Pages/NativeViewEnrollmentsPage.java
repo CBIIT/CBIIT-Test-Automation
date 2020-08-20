@@ -24,6 +24,14 @@ public class NativeViewEnrollmentsPage extends CommonUtils {
 	/** New button */
 	@FindBy (css = "#sysverb_new")
 	public WebElement newButton;
+	
+	/** Search drop down */
+	@FindBy (xpath = "//select[@class='form-control default-focus-outline']")
+	public WebElement searchDropDown;
+	
+	/** Search text box */
+	@FindBy (xpath = "//div[@class='input-group']/input")
+	public WebElement searchTextBox;
 
 	public NativeViewEnrollmentsPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
