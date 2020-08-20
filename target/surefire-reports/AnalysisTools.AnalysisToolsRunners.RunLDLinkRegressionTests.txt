@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: AnalysisTools.AnalysisToolsRunners.RunLDLinkRegressionTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.773 s <<< FAILURE! - in AnalysisTools.AnalysisToolsRunners.RunLDLinkRegressionTests
-AnalysisTools.AnalysisToolsRunners.RunLDLinkRegressionTests  Time elapsed: 0.767 s  <<< ERROR!
-java.lang.NoClassDefFoundError: org/apache/tools/ant/taskdefs/MatchingTask
-Caused by: java.lang.ClassNotFoundException: org.apache.tools.ant.taskdefs.MatchingTask
-
