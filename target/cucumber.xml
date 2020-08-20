@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="1" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="2" time="28.083321">
-<testcase classname="COVIDCode Follow Up Form Scenarios" name="RunDefined Follow Up Form - Verifying added education question - Service Portal" time="23.020973">
-<system-out><![CDATA[When a COVIDCode user accesses a Follow Up Form to update an existing enrollment.passed
-Then the question "What is the highest level of school that you/the patient completed?" should display in the demographics section.passed
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="22.86526">
+<testcase classname="Service Portal Enrollment Questionnaire Submissions" name="COVIDcode Study Provider Enrollment Questionnaire Submission Group 1 User" time="22.86526">
+<system-out><![CDATA[Given a COVIDcode Study Provider user has logged in to the COVIDcode Study application.passed
+When the COVIDcode Study Provider fills out an Enrollment Questionnaire for a "Group 1" who says "Yes" to join the study.passed
+And enters users full name, required information, and demographics information.passed
+But does not enter Disease Course and Exposures and Risk Factors information.passed
+And Submits the enrollment questionnaire....................................passed
+Then the enrollment questionnaire should be successfully submitted..........passed
 ]]></system-out>
-</testcase>
-<testcase classname="COVIDCode Follow Up Form Scenarios" name="RunPending scenario" time="5.062348">
-<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given step one..............................................................pending
-When step two...............................................................skipped
-Then step three.............................................................skipped
-]]></failure>
 </testcase>
 </testsuite>
