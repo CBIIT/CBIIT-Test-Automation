@@ -12,6 +12,7 @@ import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 
 import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentViewPage;
+import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentsPage;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -27,15 +28,12 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 
 	@Given("is on the COVIDcode Enrollments page")
 	public void is_on_the_COVIDcode_Enrollments_page() throws InterruptedException {
-
 		CommonUtils.waitForVisibility(WebDriverUtils.webDriver.findElement(By.id("filter")));
-
 		// Thread.sleep(3000);
 		nativeViewEnrollementsPage.filterNavigator.sendKeys("CovidCode App");
 		// driver.findElement(By.id("filter")).sendKeys("CovidCode App");
-
-		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(5000);
+		CucumberLogUtils.logScreenShot();
 		nativeViewEnrollementsPage.COVIDCodeEnrollmentsLink.click();
 		// WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='1e1cc5b71b3f8090afebdd39bc4bcb28']/div/div")).click();
 		String titleOfNativeEQ = WebDriverUtils.webDriver.getTitle();
@@ -45,7 +43,6 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 	@When("the COVIDcode Study nurse begins an Enrollment Questionnaire for a {string} user who consents {string} to join the study")
 	public void the_COVIDcode_Study_nurse_begins_an_Enrollment_Questionnaire_for_a_user_who_consents_to_join_the_study(
 			String group, String consent) throws InterruptedException {
-
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.frame);
 		Thread.sleep(2000);
 		// WebDriverUtils.webDriver.findElement(By.cssSelector("#sysverb_new")).click();
@@ -69,92 +66,62 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 	@When("fills out the Enrollment Questionnaire by entering all required information including Demographics, Symptomology, and Exposures and Risk Factors")
 	public void fills_out_the_Enrollment_Questionnaire_by_entering_all_required_information_including_Demographics_Symptomology_and_Exposures_and_Risk_Factors()
 			throws InterruptedException {
-
-		// Demographics
-		// driver.findElement(By.xpath("//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.form_complete_date.ui_policy_sensitive']/span[1]")).click();
-
 		nativeViewEnrollmentViewPage.dateFormCompletedField.sendKeys("04-01-2020");
-
 		nativeViewEnrollmentViewPage.whatIsYourDateOfBirthField.sendKeys("04-01-1990");
-
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.whatIsYourBioSexDropDown, "Female");
-
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.whatIsYourCurrentHeightDropDown, "Foot/Inches");
-
 		nativeViewEnrollmentViewPage.heightField.sendKeys("5");
-
 		nativeViewEnrollmentViewPage.heightInches.sendKeys("10");
-
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.currentWeightDropDown, "Pounds");
-
 		nativeViewEnrollmentViewPage.weightField.sendKeys("200");
-
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.howWouldYouDescribeYourRaceDropDown, "Asian");
-
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.areYouHispaniceOrLatinoDropDown, "No");
 		CucumberLogUtils.logScreenShot();
 		nativeViewEnrollmentViewPage.symptomologyTab.click();
-
 		CucumberLogUtils.logScreenShot();
 		nativeViewEnrollmentViewPage.whenFirstDevelopSymptomsField.sendKeys("04-01-2020");
-
 		nativeViewEnrollmentViewPage.dateOfficiallyDiagnosed.sendKeys("04-09-2020");
 		CucumberLogUtils.logScreenShot();
 		nativeViewEnrollmentViewPage.exposuredAndRiskFactorsTab.click();
-
 		CucumberLogUtils.logScreenShot();
 		nativeViewEnrollmentViewPage.tellMeMedicalConditionsLockButton.click();
-
 		CucumberLogUtils.logScreenShot();
 		nativeViewEnrollmentViewPage.tellMeMedicalConditionsLookupButton.click();
 		CucumberLogUtils.logScreenShot();
 		nativeViewEnrollmentViewPage.multiSelectOptionsSearchBar.sendKeys("Asthma");
-
 		nativeViewEnrollmentViewPage.multiSelectOptionsSearchBar.sendKeys(Keys.RETURN);
 		CucumberLogUtils.logScreenShot();
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.hasPatientVapedDropDown, "Never");
-
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.hasPatientSmoked100CigarretesDropDown,
 				"Currently smokes daily");
-
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.howManyCigarettesPatientSmokesDailyDD, "1-10");
-
 		JavascriptUtils.scrollDown(500);
-
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.antiInflammatoryDD, "2-7 days ago");
-
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.strokeMedicationDD, "Over a year ago");
-
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.paracetamolAcetaminophenDD, "Today or yesterday");
-
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.bloodThinnersDD, "Never");
-
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.asthmaMedicationDD, "Never");
-
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.aceInhibitorsDD, "1-12 months ago");
-
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.allergyMedicationUsedDD, "Over a year ago");
-
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.usedArbs, "Never");
-
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.usedAntibiotics, "Over a year ago");
-
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.exposureToCOVID19Frequency, "Never");
-
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.haveYouBeenWearingFaceMask, "Yes");
 		CucumberLogUtils.logScreenShot();
 	}
 
 	@When("submits the Enrollment Questionnaire")
 	public void submits_the_Enrollment_Questionnaire() {
-
 		nativeViewEnrollmentViewPage.submitButton.click();
-
 	}
 
 	@Then("the Enrollment Questionnaire should be successfully submitted")
-	public void the_Enrollment_Questionnaire_should_be_successfully_submitted() {
-		CucumberLogUtils.logScreenShot();
+	public void the_Enrollment_Questionnaire_should_be_successfully_submitted() {	
+		CommonUtils.selectDropDownValue(nativeViewEnrollementsPage.searchDropDown, "Patient's First Name");
+		nativeViewEnrollementsPage.searchTextBox.sendKeys("NVAutomatedFN");
+		nativeViewEnrollementsPage.searchTextBox.sendKeys(Keys.RETURN);
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenShot();	
 	}
 
 }
