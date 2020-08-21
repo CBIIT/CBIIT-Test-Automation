@@ -11,3 +11,9 @@ Then the question "What is the highest level of school that you/the patient comp
 Scenario: Follow Up Form - Search Function - Service Portal
 Given a COVIDCode user is on the Follow Up Form to update an existing enrollment
 Then the user is able to search an existing enrollment by patient ID, last name, first name, or NIH Medical Record Number
+
+@Sprint7 @COVID-177 @Smoke 
+Scenario: Follow Up Form - Verifying Group ID and Hospital Code fields are locked - Service Portal
+Given a COVIDCode Provider is on the Follow Up Form to update an existing enrollment
+When an enrollment is selected
+Then the Group ID and Hospital Code fields should be locked 
