@@ -40,25 +40,28 @@ public class FollowUpFormSteps extends PageInitializer {
 
 	@Then("the user is able to search an existing enrollment by patient ID, last name, first name, or NIH Medical Record Number")
 	public void the_user_is_able_to_search_an_existing_enrollment_by_patient_ID_last_name_first_name_or_NIH_Medical_Record_Number() {
+		followUpFormPageImpl.searchEnrollmentByPatientIDLastNameFirstNameNIHMedicalRecordNumber();	
+	}
+
+	@Given("a COVIDCode Provider is on the Follow Up Form to update an existing enrollment")
+	public void a_COVIDCode_Provider_is_on_the_Follow_Up_Form_to_update_an_existing_enrollment() throws TestingException {
+		followUpFormPageImpl.accessingFollowUpForm();
+	}
+
+	@When("an enrollment is selected")
+	public void an_enrollment_is_selected() {
 		followUpFormPage.enrollmentSearchDropDown.click();
 		followUpFormPage.enrollmentSearchTxtBox.sendKeys("AutomatedFN");	
 		MiscUtils.sleep(3000);
 		followUpFormPage.enrollmentSearchTxtBox.sendKeys(Keys.ENTER);
 		CucumberLogUtils.logScreenShot();
-		followUpFormPage.enrollmentSearchXbutton.click();
-		followUpFormPage.enrollmentSearchDropDown.click();
-		followUpFormPage.enrollmentSearchTxtBox.sendKeys("NVAutomatedLN");
-		MiscUtils.sleep(3000);
-		followUpFormPage.enrollmentSearchTxtBox.sendKeys(Keys.ENTER);
-		CucumberLogUtils.logScreenShot();
-		followUpFormPage.enrollmentSearchXbutton.click();
-		followUpFormPage.enrollmentSearchDropDown.click();
-		followUpFormPage.enrollmentSearchTxtBox.sendKeys("HCC");
-		MiscUtils.sleep(3000);
-		followUpFormPage.enrollmentSearchTxtBox.sendKeys(Keys.ENTER);
-		CucumberLogUtils.logScreenShot();
-		followUpFormPage.enrollmentSearchXbutton.click();	
 	}
 
+	@Then("the Group ID and Hospital Code fields should be locked")
+	public void the_Group_ID_and_Hospital_Code_fields_should_be_locked() {
+		Assert.assertTrue(followUpFormPage.userGroupID.getAttribute("disabled").contentEquals("true"));
+		Assert.assertTrue(followUpFormPage.hostHospitalCode.getAttribute("disabled").contentEquals("true"));
+		CucumberLogUtils.logScreenShot();
+	}
 
 }
