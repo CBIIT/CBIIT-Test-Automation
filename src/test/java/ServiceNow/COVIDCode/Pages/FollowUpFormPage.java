@@ -23,10 +23,17 @@ public class FollowUpFormPage extends CommonUtils{
 	@FindBy (xpath = "//*[@id='select2-drop']/div/input")
 	public WebElement enrollmentSearchTxtBox;
 	
-	
+	/** Existing Enrollment search values */
 	@FindBy(xpath = "//*[@id='select2-results-48']/li")
 	public List<WebElement> enrollmentSearchValues;
 	
+	/** User Group ID */
+	@FindBy (xpath = "//*[@id='s2id_autogen1']")
+	public WebElement userGroupID;
+	
+	/** Host Hospital Code */
+	@FindBy (xpath = "//*[@id='s2id_sp_formfield_host_hospital_code']/input")	
+	public WebElement hostHospitalCode;
 	
 	
 	/*
