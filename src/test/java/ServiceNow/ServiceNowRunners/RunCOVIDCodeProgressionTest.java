@@ -18,7 +18,7 @@ import cucumber.api.junit.Cucumber;
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/ServiceNow/COVIDCode/Features"
 		, glue="ServiceNow.COVIDCode.Steps"
-		, tags="@Sprint7"
+		, tags="@Progression"
 		, dryRun = false
 		, monochrome=true
 		, strict = true
