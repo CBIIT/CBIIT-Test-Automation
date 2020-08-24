@@ -1,8 +1,8 @@
-Feature: Login
+Feature: Login Scenarios
   Reviewer and Regular User/PI Login
   Description: This feature tests User Story COVIDDASH-133, 141
 
-  @smoke
+  @smoke @regression 
   Scenario: Covid dash Login
     Given User navigates to the COVID-19 Biorepository login page
     When the User clicks on Login to access button
