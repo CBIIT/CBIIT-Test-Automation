@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.EnvUtils;
+import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 
@@ -41,6 +42,14 @@ public class FollowUpFormPageImpl extends PageInitializer{
 		followUpFormPage.enrollmentSearchTxtBox.sendKeys(Keys.ENTER);
 		CucumberLogUtils.logScreenShot();
 		followUpFormPage.enrollmentSearchXbutton.click();
+	}
+	
+	public void accessingFollowUpFormDiseaseCourseSection() {
+		JavascriptUtils.scrollIntoView(followUpFormPage.diseaseCourseAddButton);
+		CucumberLogUtils.logScreenShot();
+		followUpFormPage.diseaseCourseAddButton.click();
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenShot();
 	}
 
 }

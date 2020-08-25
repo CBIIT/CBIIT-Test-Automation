@@ -35,6 +35,46 @@ public class FollowUpFormPage extends CommonUtils{
 	@FindBy (xpath = "//*[@id='s2id_sp_formfield_host_hospital_code']/input")	
 	public WebElement hostHospitalCode;
 	
+	/*
+	 * Disease Course Section
+	 */
+	
+	/** Disease Course Add button */
+	@FindBy (xpath = "//div[@style='min-height:0px;']/button[1]")
+	public WebElement diseaseCourseAddButton;
+	
+	/** Disease Course Symptoms Field */
+	@FindBy (xpath = "//input[contains(@id,'s2id_auto') and @autocomplete='sp_formfield_symptoms']")
+	public WebElement diseaseCourseSymptomsField;
+	
+	/** Disease Course Symptoms drop down Cough option */
+	@FindBy (xpath = "//div[contains(text(),'Cough')]")
+	public WebElement diseasCourseSymptomsDDCoughOption;
+	
+	/** Disease Course Symptoms drop down Fever option */
+	@FindBy (xpath = "//div[contains(text(),'Fever')]")
+	public WebElement diseasCourseSymptomsDDFeverOption;
+	
+	/** Disease Course Symptoms drop down None of the above option */
+	@FindBy (xpath = "//div[contains(text(),'None of the above')]")
+	public WebElement diseasCourseSymptomsDDNoneOfTheAboveOption;
+	
+	/** Disease Course Symptoms drop down Don't know option */
+	@FindBy (xpath = "//div[contains(text(),'Don')]")
+	public WebElement diseasCourseSymptomsDDdontKnowOption;
+	
+	/** Disease Course None of the above pop up message */
+	@FindBy (xpath = "//div[@class='modal-content']/div[2]/p")
+	public WebElement diseaseCourseNoneOfTheAboveMessage;
+	
+	/** Disease Course None of the above option displayed after selected */
+	@FindBy (xpath = "//ul[@class='select2-choices']/li[1]/div")
+	public WebElement diseaseCourseOptionDisplayeAfterSelecting;
+	
+	/** Disease Course pop up Yes button */
+	@FindBy (xpath = "//div[@class='modal-content']/div[3]/button[2]")
+	public WebElement diseaseCoursePopUpYesButton;
+	
 	
 	/*
 	 * Demographics Section elements
