@@ -63,5 +63,78 @@ public class FollowUpFormSteps extends PageInitializer {
 		Assert.assertTrue(followUpFormPage.hostHospitalCode.getAttribute("disabled").contentEquals("true"));
 		CucumberLogUtils.logScreenShot();
 	}
+	
+	@When("the user is on the Disease Course section to add information")
+	public void the_user_is_on_the_Disease_Course_section_to_add_information() {		
+		followUpFormPageImpl.accessingFollowUpFormDiseaseCourseSection();
+	}
+
+	@Then("the user is able to select multiple symptoms in the symptoms field")
+	public void the_user_is_able_to_select_multiple_symptoms_in_the_symptoms_field() {
+		followUpFormPage.diseaseCourseSymptomsField.click();
+		followUpFormPage.diseasCourseSymptomsDDCoughOption.click();
+		followUpFormPage.diseaseCourseSymptomsField.click();
+		followUpFormPage.diseasCourseSymptomsDDFeverOption.click();
+		CucumberLogUtils.logScreenShot();	
+	}
+
+	@When("the user selects {string} after having selected multiple symptoms")
+	public void the_user_selects_after_having_selected_multiple_symptoms(String string) {
+		followUpFormPage.diseaseCourseSymptomsField.click();
+		followUpFormPage.diseasCourseSymptomsDDNoneOfTheAboveOption.click();
+	}
+
+	@Then("the user sees a pop up with the message {string}")
+	public void the_user_sees_a_pop_up_with_the_message(String noneOfTheAboveMessage) {
+		Assert.assertTrue(followUpFormPage.diseaseCourseNoneOfTheAboveMessage.getText().contentEquals(noneOfTheAboveMessage));
+		CucumberLogUtils.logScreenShot();
+	}
+	@When("the user selects Yes")
+	public void the_user_selects_Yes() {
+		followUpFormPage.diseaseCoursePopUpYesButton.click();
+	}
+
+	@Then("{string} option displays and replaces all previously selected symptoms")
+	public void option_displays_and_replaces_all_previously_selected_symptoms(String noneOfTheAboveAfterSelecting) {
+	followUpFormPage.diseaseCourseOptionDisplayeAfterSelecting.getText().contentEquals(noneOfTheAboveAfterSelecting);
+	}
+	
+	@When("the user attempts to add a symptom such as {string} after selecting {string} option")
+	public void the_user_attempts_to_add_a_symptom_such_as_after_selecting_option(String string, String string2) {
+		MiscUtils.sleep(2000);
+		followUpFormPage.diseaseCourseSymptomsField.click(); 
+		followUpFormPage.diseasCourseSymptomsDDCoughOption.click();
+	}
+
+	@Then("the user sees another pop up with the message {string}")
+	public void the_user_sees_another_pop_up_with_the_message(String message) {
+		Assert.assertTrue(followUpFormPage.diseaseCourseNoneOfTheAboveMessage.getText().contentEquals(message));		
+	}
+
+	@Then("{string} symptom is displayed")
+	public void symptom_is_displayed(String coughOptionAfterSelected) {
+		MiscUtils.sleep(2000);
+		Assert.assertTrue(followUpFormPage.diseaseCourseOptionDisplayeAfterSelecting.getText().contentEquals(coughOptionAfterSelected));
+	}
+
+	@When("selecting {string} after having selected a symptoms")
+	public void selecting_after_having_selected_a_symptoms(String string) {
+		MiscUtils.sleep(3000);
+		followUpFormPage.diseaseCourseSymptomsField.click(); 
+	    followUpFormPage.diseasCourseSymptomsDDdontKnowOption.click();
+	}
+
+	@Then("the user is able to see another pop up with the message {string}")
+	public void the_user_is_able_to_see_another_pop_up_with_the_message(String message) {
+		Assert.assertTrue(followUpFormPage.diseaseCourseNoneOfTheAboveMessage.getText().contentEquals(message));
+	}
+
+	@Then("{string} option displays")
+	public void option_displays(String dontKnowDisplayed) {
+		MiscUtils.sleep(2000);
+		Assert.assertTrue(followUpFormPage.diseaseCourseOptionDisplayeAfterSelecting.getText().contentEquals(dontKnowDisplayed));
+	}
+	
+	
 
 }
