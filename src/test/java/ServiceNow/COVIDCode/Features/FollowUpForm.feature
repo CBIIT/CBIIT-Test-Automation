@@ -60,3 +60,13 @@ Given a COVIDCode user is on the Follow Up Form to update an existing enrollment
 When the user selects a group 3 enrollment 
 Then the Host Hospital Code field should auto populate with "FLD"
 
+@Sprint7 @COVID-206 @Progression
+Scenario: Follow Up Form - Verifying Exposure and Risk Factors questions display - Service Portal
+Given a COVIDCode Provider is on the Follow Up Form to update an existing enrollment
+When on the "Exposures and Risk Factors" section 
+Then the following questions should display "Your/Patient's typical self reported health?", "Medical Conditions", "If you/the patient has cancer, what type of cancer is it? (Please specify)", "Are immunizations up to date?", "Have you/the patient received the following vaccinations:", "What were your/the patient's typical walking pace?","Hours spent sitting", "Have you/the patient ever regularly vaped an e-cigarette or similar device?", "Have you/the patient smoked at least 100 cigarettes in your/their entire life?", "About how often do you/the patient consume alcoholic beverages?", "Hours per week spent exercising" 
+
+
+
+
+
