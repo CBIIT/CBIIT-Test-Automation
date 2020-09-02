@@ -35,3 +35,28 @@ When selecting "Don't know" after having selected a symptoms
 Then the user is able to see another pop up with the message "Choosing Don't Know will clear the previously selected values, is that Ok?"
 When the user selects Yes
 Then "Don't know" option displays
+
+@Sprint7 @COVID-194 @Smoke
+Scenario: Follow Up Form - Verifying Enhanced Treatment question - Service Portal
+Given a COVIDCode user is on the Follow Up Form to update an existing enrollment
+When the user is on the Disease Course section to add information
+Then the user is able to select multiple treatment items in "Treatment Items" field
+When the user selects "None of the above" after having selected multiple treatment items
+Then the user sees a pop up with the message "Choosing None of the Above will clear the previously selected values, is that Ok?"
+When the user selects Yes
+Then "None of the above" option displays and replaces all previously selected symptoms
+When the user adds a symptom such as "Intubation" after selecting "None of the above" option
+Then the user sees another pop up with the message "Choosing this drug treatment will result in previous options being removed, is that Ok?"
+When the user selects Yes 
+Then "Intubation" symptom is displayed in treatment item field
+When selecting "Don't know" after having selected a treatment item
+Then the user is able to see another pop up with the message "Choosing Don't Know will clear the previously selected values, is that Ok?"
+When the user selects Yes
+Then "Don't know" option displays
+
+@Sprint7 @COVID-201 @Smoke
+Scenario: Follow Up Form - Verifying Auto Populate FLD Hospital Code - Service Portal
+Given a COVIDCode user is on the Follow Up Form to update an existing enrollment
+When the user selects a group 3 enrollment 
+Then the Host Hospital Code field should auto populate with "FLD"
+

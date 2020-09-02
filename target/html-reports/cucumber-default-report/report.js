@@ -1,20 +1,14 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/ServiceNow/COVIDCode/Features/FollowUpForm.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/ServiceNow/CHARMS/Features/TESTACCOUNTRESET.feature");
 formatter.feature({
-  "name": "COVIDCode Follow Up Form Scenarios",
-  "description": "Description: This feature file contains scenarios related to the Follow Up Form",
+  "name": "TEST ACCOUNT RESET",
+  "description": "Description: This feature resets CHARMS test accounts used for Automation",
   "keyword": "Feature"
 });
 formatter.scenario({
-  "name": "Follow Up Form - Verifying Enhanced Symptoms Question - Service Portal",
+  "name": "Test Account Reset",
   "description": "",
   "keyword": "Scenario",
   "tags": [
-    {
-      "name": "@Sprint7"
-    },
-    {
-      "name": "@COVID-193"
-    },
     {
       "name": "@Progression"
     }
@@ -24,165 +18,199 @@ formatter.before({
   "status": "passed"
 });
 formatter.step({
-  "name": "a COVIDCode user is on the Follow Up Form to update an existing enrollment",
+  "name": "logged in to ServiceNow Native View",
   "keyword": "Given "
 });
 formatter.match({
-  "location": "FollowUpFormSteps.a_COVIDCode_user_is_on_the_Follow_Up_Form_to_update_an_existing_enrollment()"
+  "location": "TestAccountResetSteps.logged_in_to_ServiceNow_Native_View()"
 });
-formatter.write("2020-08-24 21:51:40: Screenshot: ");
+formatter.write("2020-09-01 20:55:32: Screenshot: ");
 formatter.embedding("image/png", "embedded0.png");
-formatter.write("2020-08-24 21:51:42: Screenshot: ");
+formatter.write("2020-09-01 20:55:35: Screenshot: ");
 formatter.embedding("image/png", "embedded1.png");
-formatter.write("2020-08-24 21:51:52: Screenshot: ");
+formatter.write("2020-09-01 20:55:42: Screenshot: ");
 formatter.embedding("image/png", "embedded2.png");
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "the user is on the Disease Course section to add information",
+  "name": "searching for \"Studio\" in the filter navigator",
   "keyword": "When "
 });
 formatter.match({
-  "location": "FollowUpFormSteps.the_user_is_on_the_Disease_Course_section_to_add_information()"
+  "location": "TestAccountResetSteps.searching_for_in_the_filter_navigator(String)"
 });
-formatter.write("2020-08-24 21:51:56: Screenshot: ");
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "click on Studio",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "TestAccountResetSteps.click_on_Studio()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "a new tab opens with ServiceNow Studios applications filter search box",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "TestAccountResetSteps.a_new_tab_opens_with_ServiceNow_Studios_applications_filter_search_box()"
+});
+formatter.write("2020-09-01 20:55:53: Screenshot: ");
 formatter.embedding("image/png", "embedded3.png");
-formatter.write("2020-08-24 21:51:58: Screenshot: ");
-formatter.embedding("image/png", "embedded4.png");
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "the user is able to select multiple symptoms in the symptoms field",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "FollowUpFormSteps.the_user_is_able_to_select_multiple_symptoms_in_the_symptoms_field()"
-});
-formatter.write("2020-08-24 21:52:00: Screenshot: ");
-formatter.embedding("image/png", "embedded5.png");
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the user selects \"None of the above\" after having selected multiple symptoms",
+  "name": "searching for \"Family Cohort Study\"",
   "keyword": "When "
 });
 formatter.match({
-  "location": "FollowUpFormSteps.the_user_selects_after_having_selected_multiple_symptoms(String)"
+  "location": "TestAccountResetSteps.searching_for(String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "the user sees a pop up with the message \"Choosing None of the Above will clear the previously selected values, is that Ok?\"",
+  "name": "clicking on the Family Cohort Study application link",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "TestAccountResetSteps.clicking_on_the_Family_Cohort_Study_application_link()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "the \"Welcome to Studio\" page displays with CHARMS application explorer",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "FollowUpFormSteps.the_user_sees_a_pop_up_with_the_message(String)"
-});
-formatter.write("2020-08-24 21:52:01: Screenshot: ");
-formatter.embedding("image/png", "embedded6.png");
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the user selects Yes",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "FollowUpFormSteps.the_user_selects_Yes()"
+  "location": "TestAccountResetSteps.the_page_displays_with_CHARMS_application_explorer(String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "\"None of the above\" option displays and replaces all previously selected symptoms",
+  "name": "on the tables drop down navigate to CHARMS Referrals",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "FollowUpFormSteps.option_displays_and_replaces_all_previously_selected_symptoms(String)"
+  "location": "TestAccountResetSteps.on_the_tables_drop_down_navigate_to_CHARMS_Referrals()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "the user attempts to add a symptom such as \"Cough\" after selecting \"None of the above\" option",
-  "keyword": "When "
+  "name": "under \"Related Links\" click on Show List",
+  "keyword": "And "
 });
 formatter.match({
-  "location": "FollowUpFormSteps.the_user_attempts_to_add_a_symptom_such_as_after_selecting_option(String,String)"
+  "location": "TestAccountResetSteps.under_click_on_Show_List(String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "the user sees another pop up with the message \"Choosing this symptom will result in previous options being removed, is that Ok?\"",
+  "name": "search for test account email address \"diegojuarezbusiness@gmail.com\"",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "FollowUpFormSteps.the_user_sees_another_pop_up_with_the_message(String)"
+  "location": "TestAccountResetSteps.search_for_test_account_email_address(String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "the user selects Yes",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "FollowUpFormSteps.the_user_selects_Yes()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "\"Cough\" symptom is displayed",
+  "name": "select the account and delete it - this will reset the screener form",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "FollowUpFormSteps.symptom_is_displayed(String)"
+  "location": "TestAccountResetSteps.select_the_account_and_delete_it_this_will_reset_the_screener_form()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "selecting \"Don\u0027t know\" after having selected a symptoms",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "FollowUpFormSteps.selecting_after_having_selected_a_symptoms(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the user is able to see another pop up with the message \"Choosing Don\u0027t Know will clear the previously selected values, is that Ok?\"",
+  "name": "on the tables drop down navigate to Family Member Details",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "FollowUpFormSteps.the_user_is_able_to_see_another_pop_up_with_the_message(String)"
+  "location": "TestAccountResetSteps.on_the_tables_drop_down_navigate_to_Family_Member_Details()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "the user selects Yes",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "FollowUpFormSteps.the_user_selects_Yes()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "\"Don\u0027t know\" option displays",
+  "name": "navigate to Show List",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "FollowUpFormSteps.option_displays(String)"
+  "location": "TestAccountResetSteps.navigate_to_Show_List()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "search by testers name \"Diego TestAccount2\"",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "TestAccountResetSteps.search_by_testers_name(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "select the account and delete it - this will reset Family Member Details",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "TestAccountResetSteps.select_the_account_and_delete_it_this_will_reset_Family_Member_Details()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "on the tables drop down navigate to FCSMS Form Access",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "TestAccountResetSteps.on_the_tables_drop_down_navigate_to_FCSMS_Form_Access()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "navigate to  FCSMS Show List",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "TestAccountResetSteps.navigate_to_FCSMS_Show_List()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "search for test account email address for FCSMS form \"diegojuarezbusiness@gmail.com\"",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "TestAccountResetSteps.search_for_test_account_email_address_for_FCSMS_form(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "select the account and delete it - this will reset FCSMS Form Access",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "TestAccountResetSteps.select_the_account_and_delete_it_this_will_reset_FCSMS_Form_Access()"
 });
 formatter.result({
   "status": "passed"
