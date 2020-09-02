@@ -165,7 +165,9 @@ public class FollowUpFormSteps extends PageInitializer {
 
 	@When("the user adds a symptom such as {string} after selecting {string} option")
 	public void the_user_adds_a_symptom_such_as_after_selecting_option(String string, String string2) {
+		MiscUtils.sleep(2000);
 		followUpFormPage.diseaseCoursetreatmentItemsField.click();
+		MiscUtils.sleep(2000);
 		followUpFormPage.diseasCourseTreatmentItemDDIntubationOption.click();
 		CucumberLogUtils.logScreenShot();
 	}
@@ -201,6 +203,8 @@ public class FollowUpFormSteps extends PageInitializer {
 	
 	@When("on the {string} section")
 	public void on_the_section(String string) {
+		
+		
 	}
 
 	@Then("the following questions should display {string}, {string}, {string}, {string}, {string}, {string},{string}, {string}, {string}, {string}, {string}")
