@@ -1,20 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="48.243755">
-<testcase classname="COVIDCode Follow Up Form Scenarios" name="Follow Up Form - Verifying Enhanced Symptoms Question - Service Portal" time="48.243755">
-<system-out><![CDATA[Given a COVIDCode user is on the Follow Up Form to update an existing enrollment.passed
-When the user is on the Disease Course section to add information...........passed
-Then the user is able to select multiple symptoms in the symptoms field.....passed
-When the user selects "None of the above" after having selected multiple symptoms.passed
-Then the user sees a pop up with the message "Choosing None of the Above will clear the previously selected values, is that Ok?".passed
-When the user selects Yes...................................................passed
-Then "None of the above" option displays and replaces all previously selected symptoms.passed
-When the user attempts to add a symptom such as "Cough" after selecting "None of the above" option.passed
-Then the user sees another pop up with the message "Choosing this symptom will result in previous options being removed, is that Ok?".passed
-When the user selects Yes...................................................passed
-Then "Cough" symptom is displayed...........................................passed
-When selecting "Don't know" after having selected a symptoms................passed
-Then the user is able to see another pop up with the message "Choosing Don't Know will clear the previously selected values, is that Ok?".passed
-When the user selects Yes...................................................passed
-Then "Don't know" option displays...........................................passed
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="74.435529">
+<testcase classname="TEST ACCOUNT RESET" name="Test Account Reset" time="74.435529">
+<system-out><![CDATA[Given logged in to ServiceNow Native View...................................passed
+When searching for "Studio" in the filter navigator.........................passed
+And click on Studio.........................................................passed
+Then a new tab opens with ServiceNow Studios applications filter search box.passed
+When searching for "Family Cohort Study"....................................passed
+And clicking on the Family Cohort Study application link....................passed
+Then the "Welcome to Studio" page displays with CHARMS application explorer.passed
+Then on the tables drop down navigate to CHARMS Referrals...................passed
+And under "Related Links" click on Show List................................passed
+Then search for test account email address "diegojuarezbusiness@gmail.com"..passed
+Then select the account and delete it - this will reset the screener form...passed
+Then on the tables drop down navigate to Family Member Details..............passed
+Then navigate to Show List..................................................passed
+Then search by testers name "Diego TestAccount2"............................passed
+Then select the account and delete it - this will reset Family Member Details.passed
+Then on the tables drop down navigate to FCSMS Form Access..................passed
+Then navigate to  FCSMS Show List...........................................passed
+Then search for test account email address for FCSMS form "diegojuarezbusiness@gmail.com".passed
+Then select the account and delete it - this will reset FCSMS Form Access...passed
 ]]></system-out>
 </testcase>
 </testsuite>

@@ -63,9 +63,9 @@ public class FollowUpFormPage extends CommonUtils{
 	@FindBy (xpath = "//div[contains(text(),'Don')]")
 	public WebElement diseasCourseSymptomsDDdontKnowOption;
 	
-	/** Disease Course None of the above pop up message */
+	/** Disease Course pop up message */
 	@FindBy (xpath = "//div[@class='modal-content']/div[2]/p")
-	public WebElement diseaseCourseNoneOfTheAboveMessage;
+	public WebElement diseaseCoursePopUpMessage;
 	
 	/** Disease Course None of the above option displayed after selected */
 	@FindBy (xpath = "//ul[@class='select2-choices']/li[1]/div")
@@ -74,6 +74,18 @@ public class FollowUpFormPage extends CommonUtils{
 	/** Disease Course pop up Yes button */
 	@FindBy (xpath = "//div[@class='modal-content']/div[3]/button[2]")
 	public WebElement diseaseCoursePopUpYesButton;
+	
+	/** Treatment Items section */
+	@FindBy (xpath = "//*[@id='treatment_items']/div/label")
+	public WebElement diseaseCoursetreatmentItemsSectionText;
+	
+	/** Treatment Items field */
+	@FindBy (xpath = "//div[@id='s2id_sp_formfield_treatment_items']/ul/li/input")
+	public WebElement diseaseCoursetreatmentItemsField;
+	
+	/** Disease Course treatment items drop down Intubation option */
+	@FindBy (xpath = "//div[contains(text(),'Intubation')]")
+	public WebElement diseasCourseTreatmentItemDDIntubationOption;
 	
 	
 	/*
