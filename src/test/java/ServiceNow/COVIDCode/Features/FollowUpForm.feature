@@ -60,7 +60,7 @@ Given a COVIDCode user is on the Follow Up Form to update an existing enrollment
 When the user selects a group 3 enrollment 
 Then the Host Hospital Code field should auto populate with "FLD"
 
-@Sprint7 @COVID-206 @Progression
+@Sprint7 @COVID-206 @Progession
 Scenario: Follow Up Form - Verifying Exposure and Risk Factors questions display - Service Portal
 Given a COVIDCode Provider is on the Follow Up Form to update an existing enrollment
 When on the "Exposures and Risk Factors" section 
