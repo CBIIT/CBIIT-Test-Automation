@@ -1,7 +1,7 @@
 #Author: Diego Juarez
 #Supports COVID-
 
-@Smoke @Progression
+@Smoke 
 Feature: Native View Scenarios
 
   Scenario: COVIDcode Study nurse with an Admin role is able to submit an Enrollment Questionnaire in Native View
