@@ -48,9 +48,8 @@ public class ServicePortalEQPageImpl extends PageInitializer{
 	 * Demographics information Values are hard coded and can be changed accordingly
 	 */
 	public void requiredDemographicsInfo() {
-
 		covidCodeEQPage.patientLastNameTextBox.sendKeys("AutomatedLN");
-		covidCodeEQPage.patientFirstNameTextBox.sendKeys("AutomatedFN");
+		covidCodeEQPage.patientFirstNameTextBox.sendKeys("AutomatedFNGroup3");
 		covidCodeEQPage.patientMiddletNameTextBox.sendKeys("M");
 		covidCodeEQPage.patientEmailAddressTextBox.sendKeys("email@email.com");
 		covidCodeEQPage.patientPhoneNumberTextBox.sendKeys("1112223333");
