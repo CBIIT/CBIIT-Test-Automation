@@ -40,7 +40,7 @@ public class EnrollmentQuestionnairePage extends CommonUtils {
 	public WebElement consentDropdown;
 
 	// COVIDcode Enrollment Questionnaire patient last name text box
-	@FindBy(id = "sp_formfield_sample_code")
+	@FindBy(id = "sp_formfield_last_name")
 	public WebElement patientLastNameTextBox;
 
 	// COVIDcode Enrollment Questionnaire patient first name text box

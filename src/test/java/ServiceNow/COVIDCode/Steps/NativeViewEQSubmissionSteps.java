@@ -51,8 +51,8 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.userGroupIDDropDown, group);
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.hostHospitalCodeDropDown, "HCC");
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.consentDropDown, consent);
-		nativeViewEnrollmentViewPage.patientLastNameField.sendKeys("NVAutomatedLN");
-		nativeViewEnrollmentViewPage.patientFirstName.sendKeys("NVAutomatedFN");
+		nativeViewEnrollmentViewPage.patientLastNameField.sendKeys("AutomatedLN");
+		nativeViewEnrollmentViewPage.patientFirstName.sendKeys("AutomatedFN");
 		nativeViewEnrollmentViewPage.patientMiddleInitial.sendKeys("M");
 		nativeViewEnrollmentViewPage.contactEmailAddress.sendKeys("email@automatedtest.com");
 		nativeViewEnrollmentViewPage.contactPhoneNumber.sendKeys("1112223333");
