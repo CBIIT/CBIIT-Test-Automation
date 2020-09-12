@@ -32,6 +32,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 	public void selects_the_option_to_Volunteer() {
 		CommonUtils.waitForClickability(covidCodeLoginPage.volunteerHereButton);
 		JavascriptUtils.clickByJS(covidCodeLoginPage.volunteerHereButton);
+		
 	}
 
 	@Then("the {string} page displays with the option to start the survey")
