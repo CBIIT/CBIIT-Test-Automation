@@ -54,7 +54,7 @@ public class FollowUpFormPageImpl extends PageInitializer{
 		JavascriptUtils.scrollIntoView(followUpFormPage.diseaseCourseAddButton);
 		CucumberLogUtils.logScreenShot();
 		followUpFormPage.diseaseCourseAddButton.click();
-		MiscUtils.sleep(2000);
+		MiscUtils.sleep(3000);
 		CucumberLogUtils.logScreenShot();
 	}
 	
