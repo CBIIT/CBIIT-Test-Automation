@@ -66,7 +66,7 @@ Given a COVIDCode Provider is on the Follow Up Form to update an existing enroll
 When on the "Exposures and Risk Factors" section 
 Then the following questions should display "Your/Patient's typical self reported health?", "Medical Conditions", "If you/the patient has cancer, what type of cancer is it? (Please specify)", "Are immunizations up to date?", "Have you/the patient received the following vaccinations:", "What were your/the patient's typical walking pace?","Hours spent sitting", "Have you/the patient ever regularly vaped an e-cigarette or similar device?", "Have you/the patient smoked at least 100 cigarettes in your/their entire life?", "About how often do you/the patient consume alcoholic beverages?", "Hours per week spent exercising" 
 
-@Sprint8 @COVID-116 @Smoke
+@Sprint8 @COVID-116 @Progression
 Scenario: Follow Up Form - Verifying 'Drug Treatments' section - Service Portal
 When a COVIDCode provider is on the Disease Course section on the Follow Up Form
 Then "Drug Treatments" section should display along with the values "None", "Azithromycin", "Chloroquine", "Corticosteroids", "Hydroxycholoquine", "JAK Inhibitor", "Remdesivir", "Tocilizumab", "Other"
