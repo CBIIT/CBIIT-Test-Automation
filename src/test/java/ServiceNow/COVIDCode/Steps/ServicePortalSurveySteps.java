@@ -225,11 +225,12 @@ public class ServicePortalSurveySteps extends PageInitializer {
 
 	@When("searching for {string} to view follow ups")
 	public void searching_for_to_view_follow_ups(String covidCodeVolunteerSurveysTxt) {
-		MiscUtils.sleep(4000);
+		MiscUtils.sleep(5000);
 		CommonUtils.waitForVisibility(WebDriverUtils.webDriver.findElement(By.id("filter")));
-		MiscUtils.sleep(4000);
+		MiscUtils.sleep(5000);
 		nativeViewEnrollementsPage.filterNavigator.sendKeys(covidCodeVolunteerSurveysTxt);
 		CucumberLogUtils.logScreenShot();
+		MiscUtils.sleep(3000);
 		nativeViewEnrollementsPage.covidCodeVolunteerSurveysLink.click();
 	}
 
