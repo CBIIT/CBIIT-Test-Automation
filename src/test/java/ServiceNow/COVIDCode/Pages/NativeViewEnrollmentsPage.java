@@ -32,6 +32,26 @@ public class NativeViewEnrollmentsPage extends CommonUtils {
 	/** Search text box */
 	@FindBy (xpath = "//div[@class='input-group']/input")
 	public WebElement searchTextBox;
+	
+	/** COVIDCode Follow Ups link */
+	@FindBy (linkText = "COVIDcode Follow Ups")
+	public WebElement covidCodeFollowUpsLink;
+	
+	/** COVIDCode Volunteer Surveys */
+	@FindBy (linkText = "COVIDcode volunteer surveys")
+	public WebElement covidCodeVolunteerSurveysLink;
+	
+	/** COVIDCode Follow Ups Group 1 link */
+	@FindBy (xpath = "/html/body/div[1]/div[1]/span/div/div[6]/table/tbody/tr/td/div/table/tbody/tr[1]/td[3]/a")
+	public WebElement covidCodeFollowUpsGroup1link;
+	
+	/** COVIDCode Survey Number first link */
+	@FindBy (xpath = "/html/body/div[1]/div[1]/span/div/div[6]/table/tbody/tr/td/div/table/tbody/tr[1]/td[3]/a")
+	public WebElement covidCodeSurveyNumberFirstLink;
+	
+	/** COVIDCode Follow Ups Activity tab */
+	@FindBy (xpath = "//*[@id='tabs2_section']/span[6]/span[1]/span[2]")
+	public WebElement covidCodeFollowUpsActivityTab;
 
 	public NativeViewEnrollmentsPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
