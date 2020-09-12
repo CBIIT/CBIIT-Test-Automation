@@ -245,7 +245,7 @@ public class FollowUpFormSteps extends PageInitializer {
 		//xpath of "None" drop down option disease course drug treatments 
 		MiscUtils.sleep(5000);
 	//	CommonUtils.waitForVisibility(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[1]")));
-		
+		CucumberLogUtils.logScreenShot();
 		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[1]")).getText().contentEquals(none));
 		System.out.println(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[1]")).getText());
 		//xpath for Azithromycin drop down option disease course drug treatments
