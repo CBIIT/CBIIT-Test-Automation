@@ -15,7 +15,7 @@ public class ServicePortalSurveyPage extends CommonUtils {
 	public WebElement covidCodeVolunteerSurvey;
 
 	/** Get Started button */
-	@FindBy(xpath = "//*[@id='sp_survey_root']/div/div/div[1]/div[4]/div/div/button")
+	@FindBy(xpath = "//button[contains(text(),'Get Started')]")
 	public WebElement getStartedButton;
 
 	/** Are you filling this out for yourself or child? drop down */
