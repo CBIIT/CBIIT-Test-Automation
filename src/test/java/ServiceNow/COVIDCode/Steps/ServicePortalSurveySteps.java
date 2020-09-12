@@ -31,6 +31,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 	@Given("selects the option to Volunteer")
 	public void selects_the_option_to_Volunteer() {
 		MiscUtils.sleep(8000);
+		CommonUtils.waitForClickability(covidCodeLoginPage.volunteerHereButton);
 		covidCodeLoginPage.volunteerHereButton.click();
 	}
 
