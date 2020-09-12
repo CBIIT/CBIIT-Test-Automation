@@ -244,22 +244,21 @@ public class FollowUpFormSteps extends PageInitializer {
 		//xpath of "None" drop down option disease course drug treatments 
 		CucumberLogUtils.logScreenShot();
 		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'None') and @class='select2-result-label']")).getText().contentEquals(none));
-		System.out.println(WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'None') and @class='select2-result-label']")).getText());
 		//xpath for Azithromycin drop down option disease course drug treatments
-	//	Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[2]/div")).getText().contentEquals(Azithromycin));
+		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'Azithromycin') and @class='select2-result-label']")).getText().contentEquals(Azithromycin));
 		//xpath for Chloroquine drop down option disease course drug treatments
-		//Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[3]/div")).getText().contentEquals(Chloroquine));
+		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'Chloroquine') and @class='select2-result-label']")).getText().contentEquals(Chloroquine));
 		//xpath for Corticosteroids drop down option disease course drug treatments
-		//Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[4]/div")).getText().contentEquals(Corticosteroids));
+		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'Corticosteroids') and @class='select2-result-label']")).getText().contentEquals(Corticosteroids));
 		//xpath for Hydroxycholoquine drop down option disease course drug treatments
-		//Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[5]/div")).getText().contentEquals(Hydroxycholoquine));
+		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'Hydroxycholoquine') and @class='select2-result-label']")).getText().contentEquals(Hydroxycholoquine));
 		//xpath for JAK Inhibitor drop down option disease course drug treatments
-		//Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[6]/div")).getText().contentEquals(JAKInhibitor));
+		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'JAK Inhibitor') and @class='select2-result-label']")).getText().contentEquals(JAKInhibitor));
 		//xpath for Remdesivir drop down option disease course drug treatments
-	//	Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[7]/div")).getText().contentEquals(Remdesivir));
+		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'Remdesivir') and @class='select2-result-label']")).getText().contentEquals(Remdesivir));
 		//xpath for Tocilizumab drop down option disease course drug treatments
-	//	Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[8]/div")).getText().contentEquals(Tocilizumab));
+		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'Tocilizumab') and @class='select2-result-label']")).getText().contentEquals(Tocilizumab));
 		//xpath for Other drop down option disease course drug treatments
-	//	Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[9]/div")).getText().contentEquals(Other));
+		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'Other') and @class='select2-result-label']")).getText().contentEquals(Other));
 	}
 }
