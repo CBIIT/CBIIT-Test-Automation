@@ -11,7 +11,7 @@ import com.nci.automation.web.WebDriverUtils;
 
 public class ServicePortalSurveyPage extends CommonUtils {
 	/** COVIDCode Volunteer Survey text */
-	@FindBy(xpath = "//*[contains(text(),'COVIDcode Vol')]")
+	@FindBy(xpath = "//*[contains(text(),'COVIDcode Volunteer Survey')]")
 	public WebElement covidCodeVolunteerSurvey;
 
 	/** Get Started button */
