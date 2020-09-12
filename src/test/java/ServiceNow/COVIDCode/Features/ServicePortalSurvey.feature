@@ -5,7 +5,7 @@ Feature: Volunteer Survey
   Scenario: Volunteer Survey Self Submission_1 - Service Portal
     Given a user is on the COVIDCode home page
     And selects the option to Volunteer
-    Then the "COVIDcode Volunteer Survey" page displays with the option to start the survey
+    Then the "COVIDcode" page displays with the option to start the survey
     When starting the survey
     And the user selects option to fill out the survery for themselves
     Then the question "Have you tested positive for" populates
