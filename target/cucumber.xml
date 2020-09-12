@@ -1,47 +1,80 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="1" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="2" time="83.289994">
-<testcase classname="COVIDCode Follow Up Form Scenarios" name="Follow Up Form - Verifying Exposure and Risk Factors questions display - Service Portal" time="22.38901">
-<system-out><![CDATA[Given a COVIDCode Provider is on the Follow Up Form to update an existing enrollment.passed
-When on the "Exposures and Risk Factors" section............................passed
-Then the following questions should display "Your/Patient's typical self reported health?", "Medical Conditions", "If you/the patient has cancer, what type of cancer is it? (Please specify)", "Are immunizations up to date?", "Have you/the patient received the following vaccinations:", "What were your/the patient's typical walking pace?","Hours spent sitting", "Have you/the patient ever regularly vaped an e-cigarette or similar device?", "Have you/the patient smoked at least 100 cigarettes in your/their entire life?", "About how often do you/the patient consume alcoholic beverages?", "Hours per week spent exercising".passed
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="3" time="69.507999">
+<testcase classname="Volunteer Survey" name="Volunteer Survey Self Submission - Service Portal" time="23.489947">
+<system-out><![CDATA[Given a user is on the COVIDCode home page..................................passed
+And selects the option to Volunteer.........................................passed
+Then the "COVIDcode Volunteer Survey" page displays with the option to start the survey.passed
+When starting the survey....................................................passed
+And the user selects option to fill out the survery for themselves..........passed
+Then the question "Have you tested positive for" populates..................passed
+When "Yes" option is selected...............................................passed
+Then the question "How was the sample taken?" displays......................passed
+When "Saliva" sample taken is selected......................................passed
+And selecting "Rapid testing (up to 2 hour turnaround)" checkbox............passed
+And "Yes" option is selected for being able to provide a copy of test report.passed
+And "No" option is selected for being hospitalized..........................passed
+When clicking next..........................................................passed
+Then the "Contact Information " displays where the user is able to enter their contact information.passed
+When entering required information..........................................passed
+And clicking next to proceed................................................passed
+Then the "How did you hear about us? " page displays with a question regarding the discovery of the survey.passed
+And "I prefer not to answer" option is selected for finding out about the study.passed
+And clicking Submit.........................................................passed
+Then the "Your survey has been submitted successfully!" page displays.......passed
+And the user is able to see a message "If you have any questions, please feel free to email us at covidcode@mail.nih.gov".passed
+When the user selects OK....................................................passed
+Then the user is prompted back to the COVIDCode Study Home Page.............passed
 ]]></system-out>
 </testcase>
-<testcase classname="Native View Scenarios" name="COVIDcode Study nurse with an Admin role is able to submit an Enrollment Questionnaire in Native View" time="60.900984">
-<failure message="org.openqa.selenium.ElementNotInteractableException: element not interactable&#10;  (Session info: chrome=85.0.4183.83)&#10;Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'&#10;System info: host: 'NCI-02195279-ML', ip: '2600:8806:1100:1f9:0:0:0:32a9%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.6', java.version: '14.0.2'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 85.0.4183.83, chrome: {chromedriverVersion: 84.0.4147.30 (48b3e868b4cc0..., userDataDir: /var/folders/10/x0tkb8rd0yl...}, goog:chromeOptions: {debuggerAddress: localhost:56541}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}&#10;Session ID: 7e41a7d60280f0e718d1bde96229065d&#10;&#9;at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)&#10;&#9;at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)&#10;&#9;at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)&#10;&#9;at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)&#10;&#9;at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)&#10;&#9;at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)&#10;&#9;at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)&#10;&#9;at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)&#10;&#9;at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)&#10;&#9;at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)&#10;&#9;at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)&#10;&#9;at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)&#10;&#9;at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:106)&#10;&#9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#10;&#9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#10;&#9;at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#10;&#9;at java.base/java.lang.reflect.Method.invoke(Method.java:564)&#10;&#9;at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)&#10;&#9;at com.sun.proxy.$Proxy20.sendKeys(Unknown Source)&#10;&#9;at ServiceNow.COVIDCode.Steps.NativeViewEQSubmissionSteps.the_COVIDcode_Study_nurse_begins_an_Enrollment_Questionnaire_for_a_user_who_consents_to_join_the_study(NativeViewEQSubmissionSteps.java:54)&#10;&#9;at ✽.the COVIDcode Study nurse begins an Enrollment Questionnaire for a &quot;Group 3&quot; user who consents &quot;Yes&quot; to join the study(file:src/test/java/ServiceNow/COVIDCode/Features/NativeViewScenarios.feature:10)&#10;"><![CDATA[Given a COVIDcode Study nurse with an Admin role has logged in to the COVIDcode Study Native View application.passed
-And is on the COVIDcode Enrollments page....................................passed
-When the COVIDcode Study nurse begins an Enrollment Questionnaire for a "Group 3" user who consents "Yes" to join the study.failed
-And fills out the Enrollment Questionnaire by entering all required information including Demographics, Symptomology, and Exposures and Risk Factors.skipped
-And submits the Enrollment Questionnaire....................................skipped
-Then the Enrollment Questionnaire should be successfully submitted..........skipped
-
-StackTrace:
-org.openqa.selenium.ElementNotInteractableException: element not interactable
-  (Session info: chrome=85.0.4183.83)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'NCI-02195279-ML', ip: '2600:8806:1100:1f9:0:0:0:32a9%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.6', java.version: '14.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 85.0.4183.83, chrome: {chromedriverVersion: 84.0.4147.30 (48b3e868b4cc0..., userDataDir: /var/folders/10/x0tkb8rd0yl...}, goog:chromeOptions: {debuggerAddress: localhost:56541}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
-Session ID: 7e41a7d60280f0e718d1bde96229065d
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:106)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at com.sun.proxy.$Proxy20.sendKeys(Unknown Source)
-	at ServiceNow.COVIDCode.Steps.NativeViewEQSubmissionSteps.the_COVIDcode_Study_nurse_begins_an_Enrollment_Questionnaire_for_a_user_who_consents_to_join_the_study(NativeViewEQSubmissionSteps.java:54)
-	at ✽.the COVIDcode Study nurse begins an Enrollment Questionnaire for a "Group 3" user who consents "Yes" to join the study(file:src/test/java/ServiceNow/COVIDCode/Features/NativeViewScenarios.feature:10)
-]]></failure>
+<testcase classname="Volunteer Survey" name="Volunteer Survey Self Submission - Service Portal 2" time="23.174495">
+<system-out><![CDATA[Given a user is on the COVIDCode home page..................................passed
+And selects the option to Volunteer.........................................passed
+Then the "COVIDcode Volunteer Survey" page displays with the option to start the survey.passed
+When starting the survey....................................................passed
+And the user selects option to fill out the survery for themselves..........passed
+Then the question "Have you tested positive for" populates..................passed
+When "Yes" option is selected...............................................passed
+Then the question "How was the sample taken?" displays......................passed
+When "Blood draw" sample taken is selected..................................passed
+And selecting "Rapid testing (up to 2 hour turnaround)" checkbox............passed
+And "No" option is selected for being able to provide a copy of test report.passed
+And "Yes" option is selected for being hospitalized.........................passed
+When clicking next..........................................................passed
+Then the "Contact Information " displays where the user is able to enter their contact information.passed
+When entering required information..........................................passed
+And clicking next to proceed................................................passed
+Then the "How did you hear about us? " page displays with a question regarding the discovery of the survey.passed
+And "ClinicalTrials.gov" option is selected for finding out about the study.passed
+And clicking Submit.........................................................passed
+Then the "Your survey has been submitted successfully!" page displays.......passed
+And the user is able to see a message "If you have any questions, please feel free to email us at covidcode@mail.nih.gov".passed
+When the user selects OK....................................................passed
+Then the user is prompted back to the COVIDCode Study Home Page.............passed
+]]></system-out>
+</testcase>
+<testcase classname="Volunteer Survey" name="Volunteer Survey Self Submission - Service Portal 3" time="22.843557">
+<system-out><![CDATA[Given a user is on the COVIDCode home page..................................passed
+And selects the option to Volunteer.........................................passed
+Then the "COVIDcode Volunteer Survey" page displays with the option to start the survey.passed
+When starting the survey....................................................passed
+And the user selects option to fill out the survery for themselves..........passed
+Then the question "Have you tested positive for" populates..................passed
+When "Yes" option is selected...............................................passed
+Then the question "How was the sample taken?" displays......................passed
+When "Nasal or throat swab" sample taken is selected........................passed
+And selecting "Rapid testing (up to 2 hour turnaround)" checkbox............passed
+And "No" option is selected for being able to provide a copy of test report.passed
+And "No" option is selected for being hospitalized..........................passed
+When clicking next..........................................................passed
+Then the "Contact Information " displays where the user is able to enter their contact information.passed
+When entering required information..........................................passed
+And clicking next to proceed................................................passed
+Then the "How did you hear about us? " page displays with a question regarding the discovery of the survey.passed
+And "COVID-19 prevention website" option is selected for finding out about the study.passed
+And clicking Submit.........................................................passed
+Then the "Your survey has been submitted successfully!" page displays.......passed
+And the user is able to see a message "If you have any questions, please feel free to email us at covidcode@mail.nih.gov".passed
+When the user selects OK....................................................passed
+Then the user is prompted back to the COVIDCode Study Home Page.............passed
+]]></system-out>
 </testcase>
 </testsuite>
