@@ -240,7 +240,7 @@ public class FollowUpFormSteps extends PageInitializer {
 		JavascriptUtils.scrollIntoView(followUpFormPage.diseaseCoursetreatmentItemsSectionText);
 		MiscUtils.sleep(2000);
 		followUpFormPage.diseaseCourseDrugTreatmentsTextField.click();
-		MiscUtils.sleep(3000);
+		MiscUtils.sleep(2000);
 		//xpath of "None" drop down option disease course drug treatments 
 		CucumberLogUtils.logScreenShot();
 		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'None') and @class='select2-result-label']")).getText().contentEquals(none));
