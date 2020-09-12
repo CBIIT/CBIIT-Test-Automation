@@ -30,6 +30,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 
 	@Given("selects the option to Volunteer")
 	public void selects_the_option_to_Volunteer() {
+		MiscUtils.sleep(2000);
 		covidCodeLoginPage.volunteerHereButton.click();
 	}
 
@@ -224,6 +225,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 
 	@When("searching for {string} to view follow ups")
 	public void searching_for_to_view_follow_ups(String covidCodeVolunteerSurveysTxt) {
+		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(WebDriverUtils.webDriver.findElement(By.id("filter")));
 		MiscUtils.sleep(4000);
 		nativeViewEnrollementsPage.filterNavigator.sendKeys(covidCodeVolunteerSurveysTxt);
