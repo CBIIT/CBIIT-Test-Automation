@@ -68,7 +68,7 @@ Feature: Volunteer Survey
     And header "What is involved in the study?" with the body description "● Provide a blood sample."
     And a statement "Privacy and confidentiality are very important to us. All information shared with us will be anonymized. It is important to note that we intend for our study to benefit a large group of patients. In order to make this possible, we will be unable to return individual genetic results. We may recontact you for this information over a period of a year after you have joined the study."
 
-  @Sprint9 @COVID-214 @Smoke
+  @Sprint9 @COVID-214 @Progression
   Scenario: Verifying Survey Submitted data displays under the COVIDCode application - Native View
     Given a COVIDcode Study nurse with an Admin role has logged in to the COVIDcode Study Native View application
     When searching for "COVIDcode volunteer surveys" to view follow ups
