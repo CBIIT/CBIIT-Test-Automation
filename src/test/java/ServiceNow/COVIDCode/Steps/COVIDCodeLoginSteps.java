@@ -3,6 +3,7 @@ package ServiceNow.COVIDCode.Steps;
 import org.junit.Assert;
 
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
@@ -27,9 +28,13 @@ public class COVIDCodeLoginSteps extends PageInitializer {
 
 	@When("the COVIDcode Study Provider user logs in by clicking Access and complete questionnaire button")
 	public void the_COVIDcode_Study_Provider_user_logs_in_by_clicking_Access_and_complete_questionnaire_button() throws TestingException {
-		covidCodeLoginPage.AcceptandCompleteQuestionnaireButton.click();
+		covidCodeLoginPage.LogInButton.click();
 		CucumberLogUtils.logScreenShot();
 		loginImpl.loginToITrust();
+		MiscUtils.sleep(2000);
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
+		MiscUtils.sleep(2000);
+		covidCodeLoginPage.AcceptandCompleteQuestionnaireButton.click();
 	}
 
 	@Then("the COVIDcode Study Provider user should see the COVIDcode Enrollment Questionnaire")
