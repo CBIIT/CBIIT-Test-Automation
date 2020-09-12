@@ -87,6 +87,17 @@ public class FollowUpFormPage extends CommonUtils{
 	@FindBy (xpath = "//div[contains(text(),'Intubation')]")
 	public WebElement diseasCourseTreatmentItemDDIntubationOption;
 	
+	/** Disease Course Drug Treatments text */
+	@FindBy (xpath = "//*[@id='drug_treatments']/div/label")
+	public WebElement diseaseCourseDrugTreatmentsText;
+	
+	/** Disease Course Drug Treatments text field */
+	@FindBy (xpath = "/html/body/div[1]/div/div/div/div/div/div/div[2]/div/sp-variable-layout/fieldset/div/div[1]/div[9]/div/span/div/ul/li/input")
+	public WebElement diseaseCourseDrugTreatmentsTextField;
+	
+	/** Disease Course Drug Treatments drop down values */
+	@FindBy (xpath = "//*[@id='s2id_autogen32_results']/li")
+	public List<WebElement> diseaseCourseDrugTreatmentsDropDownValues;
 	
 	/*
 	 * Demographics Section elements
@@ -94,6 +105,59 @@ public class FollowUpFormPage extends CommonUtils{
 	/** What is the highest level of school that you/the patient completed? */
 	@FindBy (xpath = "//*[@id='highest_education_level']/div/label")
 	public WebElement whatIsHighestEducationLevelCompleted;
+	
+	
+	/*
+	 * Exposures and Risk Factors
+	 */
+	/** Exposures and Risk Factors label text */
+	@FindBy (xpath = "//*[@id='exposures_label']/div/label")
+	public WebElement exposuredAndRiskFactorsLabelText;
+	
+	/** Exposures and Risk Factors Your/Patient's typical self reported health? */
+	@FindBy (xpath = "//*[@id='self_reported_health']/div/label")
+	public WebElement exposuresAndRiskFactorsSelfReportedHealthQuestionText;
+	
+	/** Exposures and Risk Factors Medical Conditions question text */
+	@FindBy (xpath = "//*[@id='comorbidities']/div/label")
+	public WebElement exposuresAndRiskFactorsMedicalConditionsQuestionText;
+	
+	/** Exposures amd Risk Factors Cancer question text */
+	@FindBy (xpath = "//*[@id='specify_cancer_type']/div/label")
+	public WebElement exposuresAndRiskFactorsCancerQuestionText;
+	
+	/** Exposures and Risk Factors Immunizations question text */
+	@FindBy (xpath = "//*[@id='immunizations_up_to_date']/div/label")
+	public WebElement exposuresAndRiskFactorsImmunizationsQuestionText;
+	
+	/** Exposures and Risk Factors Vacinations received question text */ 
+	@FindBy (xpath = "//*[@id='vacinations_received']/div/label")
+	public WebElement exposuresAndRiskFactorsVacinationsReceivedQuestionText;
+	
+	/** Exposures and Risk Factors walking pace question text */
+	@FindBy (xpath = "//*[@id='patient_walking_pace']/div/label")
+	public WebElement exposiresAndRiskFactorsWalkingPaceQuestionText;
+	
+	/** Exposures and Risk Factors hours spent sitting question text */
+	@FindBy (xpath = "//*[@id='hours_spent_sitting']/div/label")
+	public WebElement exposuresAndRiskFactorsHoursSpentSittingQuestionText;
+	
+	/** Exposures and Risk Factors vape habit question text */
+	@FindBy (xpath = "//*[@id='vape_habit']/div/label")
+	public WebElement exposureAndRiskFactorsVapeHabit;
+	
+	/** Exposures and Risk Factors smoke question text */
+	@FindBy (xpath = "//*[@id='smoke_100']/div/label")
+	public WebElement exposureAndRiskFactorsSmokeQuestionText;
+	
+	/** Exposures and Risk Factors alcohol consuption question text */
+	@FindBy (xpath = "//*[@id='alcohol_consumption']/div/label")
+	public WebElement exposuresAndRiskFactorsAlcoholConsumptionQuestionText;
+	
+	/** Exposures and Risk Factors hours per week spent exercising */
+	@FindBy (xpath = "//*[@id='hours_per_week_spent_exercising']/div/label")
+	public WebElement exposuresAndRiskFactorsHoursPerWeekSpentQuestionText;
+	
 	
 	
 	public FollowUpFormPage() {

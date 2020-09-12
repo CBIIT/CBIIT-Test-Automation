@@ -7,6 +7,7 @@ import ServiceNow.COVIDCode.Pages.EnrollmentQuestionnairePage;
 import ServiceNow.COVIDCode.Pages.FollowUpFormPage;
 import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentViewPage;
 import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentsPage;
+import ServiceNow.COVIDCode.Pages.ServicePortalSurveyPage;
 import ServiceNow.COVIDCode.StepsImplementation.ServicePortalEQPageImpl;
 import ServiceNow.COVIDCode.StepsImplementation.COVIDCodeLoginStepsImpl;
 import ServiceNow.COVIDCode.StepsImplementation.FollowUpFormPageImpl;
@@ -41,6 +42,7 @@ public class PageInitializer {
 	protected static FollowUpFormPage followUpFormPage;
 	protected static FollowUpFormPageImpl followUpFormPageImpl;
 	protected static COVIDCodeLoginStepsImpl covidCodeLoginStepsImpl;
+	protected static ServicePortalSurveyPage servicePortalSurveyPage;
 	
 	/** Native View instance */
 	protected static NativeViewLoginImpl nativeViewLoginImpl;
@@ -70,6 +72,7 @@ public class PageInitializer {
 		nativeViewHomePage = new NativeViewHomePage();
 		charmsNativeViewPage = new CHARMSNativeViewPage();
 		testAccountResetImpl = new TestAccountResetImpl();
+		servicePortalSurveyPage = new ServicePortalSurveyPage();
 	}
 
 }
