@@ -236,15 +236,16 @@ public class FollowUpFormSteps extends PageInitializer {
 
 	@Then("{string} section should display along with the values {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
 	public void section_should_display_along_with_the_values(String drugTreatments, String none, String Azithromycin, String Chloroquine, String Corticosteroids, String Hydroxycholoquine, String JAKInhibitor, String Remdesivir, String Tocilizumab, String Other) {
-		MiscUtils.sleep(3000);
+		MiscUtils.sleep(4000);
 		JavascriptUtils.scrollIntoView(followUpFormPage.diseaseCoursetreatmentItemsSectionText);
-		MiscUtils.sleep(3000);
+		MiscUtils.sleep(4000);
 		followUpFormPage.diseaseCourseDrugTreatmentsTextField.click();
 		CucumberLogUtils.logScreenShot();
-		MiscUtils.sleep(5000);
+		MiscUtils.sleep(9000);
 		//xpath of "None" drop down option disease course drug treatments 
-		MiscUtils.sleep(4000);
-		CommonUtils.waitForVisibility(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[1]")));
+		MiscUtils.sleep(5000);
+	//	CommonUtils.waitForVisibility(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[1]")));
+		
 		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[1]")).getText().contentEquals(none));
 		System.out.println(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[1]")).getText());
 		//xpath for Azithromycin drop down option disease course drug treatments
