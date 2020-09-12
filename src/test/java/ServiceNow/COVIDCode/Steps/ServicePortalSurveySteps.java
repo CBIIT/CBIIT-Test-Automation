@@ -39,7 +39,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(servicePortalSurveyPage.covidCodeVolunteerSurvey);
 		Assert.assertTrue(
-				servicePortalSurveyPage.covidCodeVolunteerSurvey.getText().contentEquals(covidCodeVolunteerSurveyText));
+				servicePortalSurveyPage.covidCodeVolunteerSurvey.getText().contains(covidCodeVolunteerSurveyText));
 	}
 
 	@When("starting the survey")
