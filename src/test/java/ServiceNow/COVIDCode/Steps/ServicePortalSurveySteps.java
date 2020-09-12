@@ -41,6 +41,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 		Assert.assertTrue(
 				servicePortalSurveyPage.covidCodeVolunteerSurvey.getText().contains(covidCodeVolunteerSurveyText));
 		System.out.println(servicePortalSurveyPage.covidCodeVolunteerSurvey.getText());
+		CucumberLogUtils.logScreenShot();
 	}
 
 	@When("starting the survey")
