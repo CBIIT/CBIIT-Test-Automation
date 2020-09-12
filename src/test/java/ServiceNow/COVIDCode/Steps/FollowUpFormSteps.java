@@ -87,8 +87,7 @@ public class FollowUpFormSteps extends PageInitializer {
 
 	@Then("the user sees a pop up with the message {string}")
 	public void the_user_sees_a_pop_up_with_the_message(String noneOfTheAboveMessage) {
-		Assert.assertTrue(
-				followUpFormPage.diseaseCoursePopUpMessage.getText().contentEquals(noneOfTheAboveMessage));
+		Assert.assertTrue(followUpFormPage.diseaseCoursePopUpMessage.getText().contentEquals(noneOfTheAboveMessage));
 		CucumberLogUtils.logScreenShot();
 	}
 
@@ -150,7 +149,8 @@ public class FollowUpFormSteps extends PageInitializer {
 	public void the_user_is_able_to_select_multiple_treatment_items_in_field(String treatmentItemsField) {
 		MiscUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(followUpFormPage.diseaseCoursetreatmentItemsSectionText);
-		Assert.assertTrue(followUpFormPage.diseaseCoursetreatmentItemsSectionText.getText().contentEquals(treatmentItemsField));
+		Assert.assertTrue(
+				followUpFormPage.diseaseCoursetreatmentItemsSectionText.getText().contentEquals(treatmentItemsField));
 		followUpFormPage.diseaseCoursetreatmentItemsField.click();
 		followUpFormPage.diseasCourseTreatmentItemDDIntubationOption.click();
 		CucumberLogUtils.logScreenShot();
@@ -160,7 +160,7 @@ public class FollowUpFormSteps extends PageInitializer {
 	public void the_user_selects_after_having_selected_multiple_treatment_items(String string) {
 		followUpFormPage.diseaseCoursetreatmentItemsField.click();
 		followUpFormPage.diseasCourseSymptomsDDNoneOfTheAboveOption.click();
-		
+
 	}
 
 	@When("the user adds a symptom such as {string} after selecting {string} option")
@@ -175,7 +175,8 @@ public class FollowUpFormSteps extends PageInitializer {
 	@Then("{string} symptom is displayed in treatment item field")
 	public void symptom_is_displayed_in_treatment_item_field(String intubationOption) {
 		MiscUtils.sleep(2000);
-		Assert.assertTrue(followUpFormPage.diseaseCourseOptionDisplayeAfterSelecting.getText().contentEquals(intubationOption));
+		Assert.assertTrue(
+				followUpFormPage.diseaseCourseOptionDisplayeAfterSelecting.getText().contentEquals(intubationOption));
 		CucumberLogUtils.logScreenShot();
 	}
 
@@ -184,8 +185,7 @@ public class FollowUpFormSteps extends PageInitializer {
 		followUpFormPage.diseaseCoursetreatmentItemsField.click();
 		followUpFormPage.diseasCourseSymptomsDDdontKnowOption.click();
 	}
-	
-	//------progression
+
 	@When("the user selects a group {int} enrollment")
 	public void the_user_selects_a_group_enrollment(int group3user) {
 		followUpFormPage.enrollmentSearchDropDown.click();
@@ -197,20 +197,66 @@ public class FollowUpFormSteps extends PageInitializer {
 	@Then("the Host Hospital Code field should auto populate with {string}")
 	public void the_Host_Hospital_Code_field_should_auto_populate_with(String hospitalCodeFLD) {
 		MiscUtils.sleep(2000);
-		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("//div[@id='s2id_sp_formfield_host_hospital_code']/a/span[1]")).getText().contentEquals(hospitalCodeFLD));
-		//WebDriverUtils.webDriver.findElement(By.xpath("//div[@id='s2id_sp_formfield_host_hospital_code']/a/span[1]")).getText().contentEquals(hospitalCodeFLD);
+		Assert.assertTrue(WebDriverUtils.webDriver
+				.findElement(By.xpath("//div[@id='s2id_sp_formfield_host_hospital_code']/a/span[1]")).getText()
+				.contentEquals(hospitalCodeFLD));
+		// WebDriverUtils.webDriver.findElement(By.xpath("//div[@id='s2id_sp_formfield_host_hospital_code']/a/span[1]")).getText().contentEquals(hospitalCodeFLD);
 	}
-	
+
 	@When("on the {string} section")
 	public void on_the_section(String string) {
-		
-		
+		followUpFormPage.enrollmentSearchDropDown.click();
+		followUpFormPage.enrollmentSearchTxtBox.sendKeys("AutomatedFN");
+		MiscUtils.sleep(3000);
+		followUpFormPage.enrollmentSearchTxtBox.sendKeys(Keys.ENTER);
+		CucumberLogUtils.logScreenShot();
+		JavascriptUtils.scrollIntoView(followUpFormPage.exposuredAndRiskFactorsLabelText);
+		MiscUtils.sleep(5000);
+
 	}
 
 	@Then("the following questions should display {string}, {string}, {string}, {string}, {string}, {string},{string}, {string}, {string}, {string}, {string}")
-	public void the_following_questions_should_display(String string, String string2, String string3, String string4, String string5, String string6, String string7, String string8, String string9, String string10, String string11) {
+	public void the_following_questions_should_display(String patientsSelfReportedHealth, String medicalConditionsText,
+			String patientCancerTypeText, String immunizationsUpToDateText, String patientReceivedVaccinationsText,
+			String patientsWalkingPaceText, String hoursSpentSittingText, String patientVapeCigarettesText,
+			String patientSmokeAtLeast100cigarettesText, String patientConsumeAlcoholicBeveragesText,
+			String hoursSpentExercisingText) {
+		followUpFormPageImpl.verifyingExposuresAndRiskFactorsQuestion(patientsSelfReportedHealth, medicalConditionsText,
+				patientCancerTypeText, immunizationsUpToDateText, patientReceivedVaccinationsText,
+				patientsWalkingPaceText, hoursSpentSittingText, patientVapeCigarettesText,
+				patientSmokeAtLeast100cigarettesText, patientConsumeAlcoholicBeveragesText, hoursSpentExercisingText);
 	}
 
+	@When("a COVIDCode provider is on the Disease Course section on the Follow Up Form")
+	public void a_COVIDCode_provider_is_on_the_Disease_Course_section_on_the_Follow_Up_Form() throws TestingException {
+		followUpFormPageImpl.accessingFollowUpForm();
+		followUpFormPageImpl.accessingFollowUpFormDiseaseCourseSection();
+	}
 
-
+	@Then("{string} section should display along with the values {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+	public void section_should_display_along_with_the_values(String drugTreatments, String none, String Azithromycin, String Chloroquine, String Corticosteroids, String Hydroxycholoquine, String JAKInhibitor, String Remdesivir, String Tocilizumab, String Other) {
+		JavascriptUtils.scrollIntoView(followUpFormPage.diseaseCoursetreatmentItemsSectionText);
+		MiscUtils.sleep(2000);
+		followUpFormPage.diseaseCourseDrugTreatmentsTextField.click();
+		MiscUtils.sleep(3000);
+		//xpath of "None" drop down option disease course drug treatments 
+		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[1]/div")).getText().contentEquals(none));
+		//xpath for Azithromycin drop down option disease course drug treatments
+		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[2]/div")).getText().contentEquals(Azithromycin));
+		//xpath for Chloroquine drop down option disease course drug treatments
+		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[3]/div")).getText().contentEquals(Chloroquine));
+		//xpath for Corticosteroids drop down option disease course drug treatments
+		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[4]/div")).getText().contentEquals(Corticosteroids));
+		//xpath for Hydroxycholoquine drop down option disease course drug treatments
+		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[5]/div")).getText().contentEquals(Hydroxycholoquine));
+		//xpath for JAK Inhibitor drop down option disease course drug treatments
+		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[6]/div")).getText().contentEquals(JAKInhibitor));
+		//xpath for Remdesivir drop down option disease course drug treatments
+		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[7]/div")).getText().contentEquals(Remdesivir));
+		//xpath for Tocilizumab drop down option disease course drug treatments
+		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[8]/div")).getText().contentEquals(Tocilizumab));
+		//xpath for Other drop down option disease course drug treatments
+		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[9]/div")).getText().contentEquals(Other));
+		CucumberLogUtils.logScreenShot();		
+	}
 }

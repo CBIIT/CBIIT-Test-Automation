@@ -12,7 +12,7 @@ Scenario: Follow Up Form - Search Function - Service Portal
 Given a COVIDCode user is on the Follow Up Form to update an existing enrollment
 Then the user is able to search an existing enrollment by patient ID, last name, first name, or NIH Medical Record Number
 
-@Sprint7 @COVID-177 @Smoke 
+@Sprint7 @COVID-177 @Smoke
 Scenario: Follow Up Form - Verifying Group ID and Hospital Code fields are locked - Service Portal
 Given a COVIDCode Provider is on the Follow Up Form to update an existing enrollment
 When an enrollment is selected
@@ -60,13 +60,16 @@ Given a COVIDCode user is on the Follow Up Form to update an existing enrollment
 When the user selects a group 3 enrollment 
 Then the Host Hospital Code field should auto populate with "FLD"
 
-@Sprint7 @COVID-206 @Progession
+@Sprint8 @COVID-206 @Smoke
 Scenario: Follow Up Form - Verifying Exposure and Risk Factors questions display - Service Portal
 Given a COVIDCode Provider is on the Follow Up Form to update an existing enrollment
 When on the "Exposures and Risk Factors" section 
 Then the following questions should display "Your/Patient's typical self reported health?", "Medical Conditions", "If you/the patient has cancer, what type of cancer is it? (Please specify)", "Are immunizations up to date?", "Have you/the patient received the following vaccinations:", "What were your/the patient's typical walking pace?","Hours spent sitting", "Have you/the patient ever regularly vaped an e-cigarette or similar device?", "Have you/the patient smoked at least 100 cigarettes in your/their entire life?", "About how often do you/the patient consume alcoholic beverages?", "Hours per week spent exercising" 
 
-
+@Sprint8 @COVID-116 @Smoke
+Scenario: Follow Up Form - Verifying 'Drug Treatments' section - Service Portal
+When a COVIDCode provider is on the Disease Course section on the Follow Up Form
+Then "Drug Treatments" section should display along with the values "None", "Azithromycin", "Chloroquine", "Corticosteroids", "Hydroxycholoquine", "JAK Inhibitor", "Remdesivir", "Tocilizumab", "Other"
 
 
 
