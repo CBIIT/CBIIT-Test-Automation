@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
@@ -243,6 +244,7 @@ public class FollowUpFormSteps extends PageInitializer {
 		MiscUtils.sleep(5000);
 		//xpath of "None" drop down option disease course drug treatments 
 		MiscUtils.sleep(4000);
+		CommonUtils.waitForVisibility(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[1]")));
 		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[1]")).getText().contentEquals(none));
 		System.out.println(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[1]")).getText());
 		//xpath for Azithromycin drop down option disease course drug treatments
