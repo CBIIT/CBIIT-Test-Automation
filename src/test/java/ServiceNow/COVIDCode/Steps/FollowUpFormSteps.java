@@ -235,11 +235,11 @@ public class FollowUpFormSteps extends PageInitializer {
 
 	@Then("{string} section should display along with the values {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
 	public void section_should_display_along_with_the_values(String drugTreatments, String none, String Azithromycin, String Chloroquine, String Corticosteroids, String Hydroxycholoquine, String JAKInhibitor, String Remdesivir, String Tocilizumab, String Other) {
-		MiscUtils.sleep(2000);
+		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(followUpFormPage.diseaseCoursetreatmentItemsSectionText);
 		MiscUtils.sleep(3000);
 		followUpFormPage.diseaseCourseDrugTreatmentsTextField.click();
-		MiscUtils.sleep(4000);
+		MiscUtils.sleep(5000);
 		//xpath of "None" drop down option disease course drug treatments 
 		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[13]/ul/li[1]/div")).getText().contentEquals(none));
 		//xpath for Azithromycin drop down option disease course drug treatments
