@@ -22,7 +22,7 @@ public class COVIDCodeLoginPage extends CommonUtils {
 	public WebElement accessAndCompleteFollowUpQuestionnaireButton;
 	
 	/** Volunteer Here button */
-	@FindBy (partialLinkText = "Volunteer")
+	@FindBy (xpath = "/html/body/div/section/main/div/div/sp-page-row[2]/div/div/span/div/div/div/div/div/div[1]/div/a")
 	public WebElement volunteerHereButton;
 	
 	/** Why are we doing this study? header */
