@@ -37,9 +37,9 @@ public class ServicePortalSurveySteps extends PageInitializer {
 	@Then("the {string} page displays with the option to start the survey")
 	public void the_page_displays_with_the_option_to_start_the_survey(String covidCodeVolunteerSurveyText) {
 		MiscUtils.sleep(2000);
-		CommonUtils.waitForVisibility(servicePortalSurveyPage.covidCodeVolunteerSurvey);
 		Assert.assertTrue(
 				servicePortalSurveyPage.covidCodeVolunteerSurvey.getText().contains(covidCodeVolunteerSurveyText));
+		System.out.println(servicePortalSurveyPage.covidCodeVolunteerSurvey.getText());
 	}
 
 	@When("starting the survey")
