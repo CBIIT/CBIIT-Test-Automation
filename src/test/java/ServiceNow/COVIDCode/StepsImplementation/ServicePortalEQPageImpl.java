@@ -4,11 +4,20 @@ import java.util.List;
 
 import org.openqa.selenium.WebElement;
 
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.JavascriptUtils;
+
 
 import appsCommon.PageInitializer;
 
-public class EnrollmentQuestionnairePageImpl extends PageInitializer{
+public class ServicePortalEQPageImpl extends PageInitializer{
+	public static ServicePortalEQPageImpl obj = new ServicePortalEQPageImpl();
+	
+	public static void group1EQSubmissionWithoutDiseaseCourseAndRiskFactorsInfo(String groupUserID, String consent) {
+		obj.groupUserAndConsent(groupUserID, consent);
+		obj.requiredDemographicsInfo();
+		obj.submittingEQ();
+	}
 	
 	public void groupUserAndConsent(String groupUserID, String consent) {
 
@@ -38,10 +47,9 @@ public class EnrollmentQuestionnairePageImpl extends PageInitializer{
 	 * This method fills out full name, required information labeled with *, and
 	 * Demographics information Values are hard coded and can be changed accordingly
 	 */
-	public void fullNameRequiredInfoDemographicsInfo() {
-
+	public void requiredDemographicsInfo() {
 		covidCodeEQPage.patientLastNameTextBox.sendKeys("AutomatedLN");
-		covidCodeEQPage.patientFirstNameTextBox.sendKeys("AutomatedFN");
+		covidCodeEQPage.patientFirstNameTextBox.sendKeys("AutomatedFNGroup3");
 		covidCodeEQPage.patientMiddletNameTextBox.sendKeys("M");
 		covidCodeEQPage.patientEmailAddressTextBox.sendKeys("email@email.com");
 		covidCodeEQPage.patientPhoneNumberTextBox.sendKeys("1112223333");
@@ -98,9 +106,9 @@ public class EnrollmentQuestionnairePageImpl extends PageInitializer{
 		covidCodeEQPage.feetTextBox.sendKeys("5");
 		covidCodeEQPage.inchesTextBox.sendKeys("10");
 		// selectDateByJS(EQPage.whenDevelopSymptoms, "04-01-2020");
-		covidCodeEQPage.whenDevelopSymptoms.sendKeys("04-01-2020");
+		covidCodeEQPage.whenDevelopSymptoms.sendKeys("Aug 01, 2020");
 		// selectDateByJS(EQPage.whenOfficiallyDiagnosed, "04-04-2020");
-		covidCodeEQPage.whenOfficiallyDiagnosed.sendKeys("04-04-2020");
+		covidCodeEQPage.whenOfficiallyDiagnosed.sendKeys("Aug 05, 2020");
 	}
 
 	/**
@@ -109,6 +117,7 @@ public class EnrollmentQuestionnairePageImpl extends PageInitializer{
 	 */
 	public void submittingEQ() {
 		covidCodeEQPage.submitButton.click();
+		MiscUtils.sleep(2000);
 		covidCodeEQPage.YesButton.click();
 	}
 
