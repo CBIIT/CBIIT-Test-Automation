@@ -1,13 +1,13 @@
 [
   {
-    "line": 5,
+    "line": 1,
     "elements": [
       {
-        "start_timestamp": "2020-08-15T03:05:29.232Z",
+        "start_timestamp": "2020-09-12T04:10:55.200Z",
         "before": [
           {
             "result": {
-              "duration": 3439161125,
+              "duration": 2106661641,
               "status": "passed"
             },
             "match": {
@@ -15,14 +15,14 @@
             }
           }
         ],
-        "line": 7,
-        "name": "COVIDcode Study nurse with an Admin role is able to submit an Enrollment Questionnaire in Native View",
+        "line": 70,
+        "name": "Follow Up Form - Verifying \u0027Drug Treatments\u0027 section - Service Portal",
         "description": "",
-        "id": "covidcode-study-nurse-with-an-admin-role-submits-enrollment-questionnaire-submission;covidcode-study-nurse-with-an-admin-role-is-able-to-submit-an-enrollment-questionnaire-in-native-view",
+        "id": "covidcode-follow-up-form-scenarios;follow-up-form---verifying--drug-treatments--section---service-portal",
         "after": [
           {
             "result": {
-              "duration": 2131144953,
+              "duration": 41676,
               "status": "passed"
             },
             "match": {
@@ -35,108 +35,90 @@
         "steps": [
           {
             "result": {
-              "duration": 13150343598,
-              "status": "passed"
+              "error_message": "java.lang.NullPointerException\n\tat java.base/java.io.Reader.\u003cinit\u003e(Reader.java:167)\n\tat java.base/java.io.InputStreamReader.\u003cinit\u003e(InputStreamReader.java:109)\n\tat org.apache.commons.io.IOUtils.copy(IOUtils.java:2440)\n\tat org.apache.commons.io.IOUtils.toString(IOUtils.java:1084)\n\tat org.apache.commons.io.IOUtils.toString(IOUtils.java:1064)\n\tat com.nci.automation.xml.JDomXmlUtils.getXMLContentFromResourcePath(JDomXmlUtils.java:77)\n\tat com.nci.automation.xml.JDomXmlUtils.getValueByXpathFromResourcePath(JDomXmlUtils.java:53)\n\tat com.nci.automation.web.EnvUtils.getConfigValue(EnvUtils.java:136)\n\tat com.nci.automation.web.EnvUtils.getApplicationUrl(EnvUtils.java:23)\n\tat ServiceNow.COVIDCode.StepsImplementation.FollowUpFormPageImpl.accessingFollowUpForm(FollowUpFormPageImpl.java:19)\n\tat ServiceNow.COVIDCode.Steps.FollowUpFormSteps.a_COVIDCode_provider_is_on_the_Disease_Course_section_on_the_Follow_Up_Form(FollowUpFormSteps.java:232)\n\tat ✽.a COVIDCode provider is on the Disease Course section on the Follow Up Form(file:src/test/java/ServiceNow/COVIDCode/Features/FollowUpForm.feature:71)\n",
+              "duration": 9403451,
+              "status": "failed"
             },
-            "line": 8,
-            "name": "a COVIDcode Study nurse with an Admin role has logged in to the COVIDcode Study Native View application",
+            "line": 71,
+            "name": "a COVIDCode provider is on the Disease Course section on the Follow Up Form",
             "match": {
-              "location": "NativeViewEQSubmissionSteps.a_COVIDcode_Study_nurse_with_an_Admin_role_has_logged_in_to_the_COVIDcode_Study_Native_View_application()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 2412959965,
-              "status": "passed"
-            },
-            "line": 9,
-            "name": "is on the COVIDcode Enrollments page",
-            "match": {
-              "location": "NativeViewEQSubmissionSteps.is_on_the_COVIDcode_Enrollments_page()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 4671054447,
-              "status": "passed"
-            },
-            "line": 10,
-            "name": "the COVIDcode Study nurse begins an Enrollment Questionnaire for a \"Group 1\" user who consents \"Yes\" to join the study",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Group 1\"",
-                  "offset": 67
-                },
-                {
-                  "val": "\"Yes\"",
-                  "offset": 95
-                }
-              ],
-              "location": "NativeViewEQSubmissionSteps.the_COVIDcode_Study_nurse_begins_an_Enrollment_Questionnaire_for_a_user_who_consents_to_join_the_study(String,String)"
+              "location": "FollowUpFormSteps.a_COVIDCode_provider_is_on_the_Disease_Course_section_on_the_Follow_Up_Form()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 2797988187,
-              "status": "passed"
+              "duration": 21919,
+              "status": "skipped"
             },
-            "line": 11,
-            "name": "fills out the Enrollment Questionnaire by entering all required information including Demographics, Symptomology, and Exposures and Risk Factors",
+            "line": 72,
+            "name": "\"Drug Treatments\" section should display along with the values \"None\", \"Azithromycin\", \"Chloroquine\", \"Corticosteroids\", \"Hydroxycholoquine\", \"JAK Inhibitor\", \"Remdesivir\", \"Tocilizumab\", \"Other\"",
             "match": {
-              "location": "NativeViewEQSubmissionSteps.fills_out_the_Enrollment_Questionnaire_by_entering_all_required_information_including_Demographics_Symptomology_and_Exposures_and_Risk_Factors()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 864151540,
-              "status": "passed"
-            },
-            "line": 12,
-            "name": "submits the Enrollment Questionnaire",
-            "match": {
-              "location": "NativeViewEQSubmissionSteps.submits_the_Enrollment_Questionnaire()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 31116,
-              "status": "passed"
-            },
-            "line": 13,
-            "name": "the Enrollment Questionnaire should be successfully submitted",
-            "match": {
-              "location": "NativeViewEQSubmissionSteps.the_Enrollment_Questionnaire_should_be_successfully_submitted()"
+              "arguments": [
+                {
+                  "val": "\"Drug Treatments\"",
+                  "offset": 0
+                },
+                {
+                  "val": "\"None\"",
+                  "offset": 63
+                },
+                {
+                  "val": "\"Azithromycin\"",
+                  "offset": 71
+                },
+                {
+                  "val": "\"Chloroquine\"",
+                  "offset": 87
+                },
+                {
+                  "val": "\"Corticosteroids\"",
+                  "offset": 102
+                },
+                {
+                  "val": "\"Hydroxycholoquine\"",
+                  "offset": 121
+                },
+                {
+                  "val": "\"JAK Inhibitor\"",
+                  "offset": 142
+                },
+                {
+                  "val": "\"Remdesivir\"",
+                  "offset": 159
+                },
+                {
+                  "val": "\"Tocilizumab\"",
+                  "offset": 173
+                },
+                {
+                  "val": "\"Other\"",
+                  "offset": 188
+                }
+              ],
+              "location": "FollowUpFormSteps.section_should_display_along_with_the_values(String,String,String,String,String,String,String,String,String,String)"
             },
             "keyword": "Then "
           }
         ],
         "tags": [
           {
-            "name": "@Smoke"
+            "name": "@Sprint8"
+          },
+          {
+            "name": "@COVID-116"
+          },
+          {
+            "name": "@Progression"
           }
         ]
       }
     ],
-    "name": "COVIDcode Study nurse with an Admin role submits Enrollment Questionnaire Submission",
-    "description": "",
-    "id": "covidcode-study-nurse-with-an-admin-role-submits-enrollment-questionnaire-submission",
+    "name": "COVIDCode Follow Up Form Scenarios",
+    "description": "Description: This feature file contains scenarios related to the Follow Up Form",
+    "id": "covidcode-follow-up-form-scenarios",
     "keyword": "Feature",
-    "uri": "file:src/test/java/ServiceNow/COVIDCode/Features/NativeViewScenarios.feature",
-    "tags": [
-      {
-        "name": "@Smoke",
-        "type": "Tag",
-        "location": {
-          "line": 4,
-          "column": 1
-        }
-      }
-    ]
+    "uri": "file:src/test/java/ServiceNow/COVIDCode/Features/FollowUpForm.feature",
+    "tags": []
   }
 ]
