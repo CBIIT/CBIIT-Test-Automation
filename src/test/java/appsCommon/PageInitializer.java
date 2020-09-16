@@ -1,8 +1,16 @@
 package appsCommon;
 
+import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
+import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
 import ServiceNow.COVIDCode.Pages.COVIDCodeLoginPage;
 import ServiceNow.COVIDCode.Pages.EnrollmentQuestionnairePage;
-import ServiceNow.COVIDCode.StepsImplementation.EnrollmentQuestionnairePageImpl;
+import ServiceNow.COVIDCode.Pages.FollowUpFormPage;
+import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentViewPage;
+import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentsPage;
+import ServiceNow.COVIDCode.Pages.ServicePortalSurveyPage;
+import ServiceNow.COVIDCode.StepsImplementation.ServicePortalEQPageImpl;
+import ServiceNow.COVIDCode.StepsImplementation.COVIDCodeLoginStepsImpl;
+import ServiceNow.COVIDCode.StepsImplementation.FollowUpFormPageImpl;
 import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
@@ -28,7 +36,21 @@ public class PageInitializer {
 	/** COVIDcode instances */
 	protected static COVIDCodeLoginPage covidCodeLoginPage;
 	protected static EnrollmentQuestionnairePage covidCodeEQPage;
-	protected static EnrollmentQuestionnairePageImpl covidCodeEQPageImpl;
+	protected static ServicePortalEQPageImpl covidCodeEQPageImpl;
+	protected static NativeViewEnrollmentsPage nativeViewEnrollementsPage;
+	protected static NativeViewEnrollmentViewPage nativeViewEnrollmentViewPage;
+	protected static FollowUpFormPage followUpFormPage;
+	protected static FollowUpFormPageImpl followUpFormPageImpl;
+	protected static COVIDCodeLoginStepsImpl covidCodeLoginStepsImpl;
+	protected static ServicePortalSurveyPage servicePortalSurveyPage;
+	
+	/** Native View instance */
+	protected static NativeViewLoginImpl nativeViewLoginImpl;
+	protected static NativeViewHomePage nativeViewHomePage;
+	
+	/** CHARMS instances */
+	protected static CHARMSNativeViewPage charmsNativeViewPage;
+	protected static TestAccountResetImpl testAccountResetImpl;
 
 	public static void initializeAllPages() {
 		// create instances of all pages and assign them to the variables
@@ -39,8 +61,18 @@ public class PageInitializer {
 		nativeViewDashPage = new NativeViewDashboardPage();
 		covidHomePageImpl = new COVIDHomePageImpl();
 		covidCodeEQPage = new EnrollmentQuestionnairePage();
-		covidCodeEQPageImpl = new EnrollmentQuestionnairePageImpl();
+		covidCodeEQPageImpl = new ServicePortalEQPageImpl();
 		covidCodeLoginPage = new COVIDCodeLoginPage();
+		nativeViewEnrollementsPage = new NativeViewEnrollmentsPage();
+		nativeViewEnrollmentViewPage = new NativeViewEnrollmentViewPage();
+		followUpFormPage = new FollowUpFormPage();
+		followUpFormPageImpl = new FollowUpFormPageImpl();
+		covidCodeLoginStepsImpl = new COVIDCodeLoginStepsImpl();
+		nativeViewLoginImpl = new NativeViewLoginImpl();
+		nativeViewHomePage = new NativeViewHomePage();
+		charmsNativeViewPage = new CHARMSNativeViewPage();
+		testAccountResetImpl = new TestAccountResetImpl();
+		servicePortalSurveyPage = new ServicePortalSurveyPage();
 	}
 
 }
