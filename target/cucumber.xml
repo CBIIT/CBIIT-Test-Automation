@@ -1,11 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="29.471343">
-<testcase classname="COVIDcode Study nurse with an Admin role submits Enrollment Questionnaire Submission" name="COVIDcode Study nurse with an Admin role is able to submit an Enrollment Questionnaire in Native View" time="29.471343">
-<system-out><![CDATA[Given a COVIDcode Study nurse with an Admin role has logged in to the COVIDcode Study Native View application.passed
-And is on the COVIDcode Enrollments page....................................passed
-When the COVIDcode Study nurse begins an Enrollment Questionnaire for a "Group 1" user who consents "Yes" to join the study.passed
-And fills out the Enrollment Questionnaire by entering all required information including Demographics, Symptomology, and Exposures and Risk Factors.passed
-And submits the Enrollment Questionnaire....................................passed
-Then the Enrollment Questionnaire should be successfully submitted..........passed
-]]></system-out>
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="1" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="2.118811">
+<testcase classname="COVIDCode Follow Up Form Scenarios" name="Follow Up Form - Verifying 'Drug Treatments' section - Service Portal" time="2.118811">
+<failure message="java.lang.NullPointerException&#10;&#9;at java.base/java.io.Reader.&lt;init&gt;(Reader.java:167)&#10;&#9;at java.base/java.io.InputStreamReader.&lt;init&gt;(InputStreamReader.java:109)&#10;&#9;at org.apache.commons.io.IOUtils.copy(IOUtils.java:2440)&#10;&#9;at org.apache.commons.io.IOUtils.toString(IOUtils.java:1084)&#10;&#9;at org.apache.commons.io.IOUtils.toString(IOUtils.java:1064)&#10;&#9;at com.nci.automation.xml.JDomXmlUtils.getXMLContentFromResourcePath(JDomXmlUtils.java:77)&#10;&#9;at com.nci.automation.xml.JDomXmlUtils.getValueByXpathFromResourcePath(JDomXmlUtils.java:53)&#10;&#9;at com.nci.automation.web.EnvUtils.getConfigValue(EnvUtils.java:136)&#10;&#9;at com.nci.automation.web.EnvUtils.getApplicationUrl(EnvUtils.java:23)&#10;&#9;at ServiceNow.COVIDCode.StepsImplementation.FollowUpFormPageImpl.accessingFollowUpForm(FollowUpFormPageImpl.java:19)&#10;&#9;at ServiceNow.COVIDCode.Steps.FollowUpFormSteps.a_COVIDCode_provider_is_on_the_Disease_Course_section_on_the_Follow_Up_Form(FollowUpFormSteps.java:232)&#10;&#9;at ✽.a COVIDCode provider is on the Disease Course section on the Follow Up Form(file:src/test/java/ServiceNow/COVIDCode/Features/FollowUpForm.feature:71)&#10;"><![CDATA[When a COVIDCode provider is on the Disease Course section on the Follow Up Form.failed
+Then "Drug Treatments" section should display along with the values "None", "Azithromycin", "Chloroquine", "Corticosteroids", "Hydroxycholoquine", "JAK Inhibitor", "Remdesivir", "Tocilizumab", "Other".skipped
+
+StackTrace:
+java.lang.NullPointerException
+	at java.base/java.io.Reader.<init>(Reader.java:167)
+	at java.base/java.io.InputStreamReader.<init>(InputStreamReader.java:109)
+	at org.apache.commons.io.IOUtils.copy(IOUtils.java:2440)
+	at org.apache.commons.io.IOUtils.toString(IOUtils.java:1084)
+	at org.apache.commons.io.IOUtils.toString(IOUtils.java:1064)
+	at com.nci.automation.xml.JDomXmlUtils.getXMLContentFromResourcePath(JDomXmlUtils.java:77)
+	at com.nci.automation.xml.JDomXmlUtils.getValueByXpathFromResourcePath(JDomXmlUtils.java:53)
+	at com.nci.automation.web.EnvUtils.getConfigValue(EnvUtils.java:136)
+	at com.nci.automation.web.EnvUtils.getApplicationUrl(EnvUtils.java:23)
+	at ServiceNow.COVIDCode.StepsImplementation.FollowUpFormPageImpl.accessingFollowUpForm(FollowUpFormPageImpl.java:19)
+	at ServiceNow.COVIDCode.Steps.FollowUpFormSteps.a_COVIDCode_provider_is_on_the_Disease_Course_section_on_the_Follow_Up_Form(FollowUpFormSteps.java:232)
+	at ✽.a COVIDCode provider is on the Disease Course section on the Follow Up Form(file:src/test/java/ServiceNow/COVIDCode/Features/FollowUpForm.feature:71)
+]]></failure>
 </testcase>
 </testsuite>
