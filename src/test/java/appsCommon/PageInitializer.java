@@ -51,6 +51,7 @@ public class PageInitializer {
 	/** CHARMS instances */
 	protected static CHARMSNativeViewPage charmsNativeViewPage;
 	protected static TestAccountResetImpl testAccountResetImpl;
+	
 
 	public static void initializeAllPages() {
 		// create instances of all pages and assign them to the variables
