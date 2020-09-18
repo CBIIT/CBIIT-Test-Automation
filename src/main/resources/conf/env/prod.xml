@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<environment>
+	<!-- Below application ID's are for PROD environments -->
+
+	<profile-name>automation</profile-name>
+
+	<!-- Application ID for LDlink -->
+	<application id="LDlink">
+
+		<login_url>https://ldlink.nci.nih.gov/?tab=home
+		</login_url><!-- add production url -->
+
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
+		</db>
+
+	</application>
+
+
+
+
+	
+
+
+</environment>
