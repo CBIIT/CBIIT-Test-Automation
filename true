@@ -1,11 +1,6 @@
 [1600549357.097][INFO]: Starting ChromeDriver 84.0.4147.30 (48b3e868b4cc0aa7e8149519690b6f6949e110a8-refs/branch-heads/4147@{#310}) on port 1991
 [1600549357.097][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 [1600549357.312][INFO]: [a6016b30796c470553be44f77b29777d] COMMAND InitSession {
-
-[1600374319.176][INFO]: Starting ChromeDriver 84.0.4147.30 (48b3e868b4cc0aa7e8149519690b6f6949e110a8-refs/branch-heads/4147@{#310}) on port 26294
-[1600374319.176][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
-[1600374319.213][INFO]: [3d32546389b26eca9df4cb4033087c2a] COMMAND InitSession {
-
    "capabilities": {
       "firstMatch": [ {
          "browserName": "chrome",
@@ -25,9 +20,6 @@
 }
 
 [1600549357.313][INFO]: Populating Preferences file: {
-
-[1600374319.214][INFO]: Populating Preferences file: {
-
    "alternate_error_pages": {
       "enabled": false
    },
