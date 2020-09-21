@@ -1,12 +1,11 @@
-<<<<<<< HEAD
 [1600549357.097][INFO]: Starting ChromeDriver 84.0.4147.30 (48b3e868b4cc0aa7e8149519690b6f6949e110a8-refs/branch-heads/4147@{#310}) on port 1991
 [1600549357.097][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 [1600549357.312][INFO]: [a6016b30796c470553be44f77b29777d] COMMAND InitSession {
-=======
+
 [1600374319.176][INFO]: Starting ChromeDriver 84.0.4147.30 (48b3e868b4cc0aa7e8149519690b6f6949e110a8-refs/branch-heads/4147@{#310}) on port 26294
 [1600374319.176][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 [1600374319.213][INFO]: [3d32546389b26eca9df4cb4033087c2a] COMMAND InitSession {
->>>>>>> 76902d8de071eaf282646786f5abee8bf4f88302
+
    "capabilities": {
       "firstMatch": [ {
          "browserName": "chrome",
@@ -24,11 +23,11 @@
       }
    }
 }
-<<<<<<< HEAD
+
 [1600549357.313][INFO]: Populating Preferences file: {
-=======
+
 [1600374319.214][INFO]: Populating Preferences file: {
->>>>>>> 76902d8de071eaf282646786f5abee8bf4f88302
+
    "alternate_error_pages": {
       "enabled": false
    },
@@ -81,11 +80,11 @@
       "enabled": false
    }
 }
-<<<<<<< HEAD
+
 [1600549357.313][INFO]: Populating Local State file: {
-=======
+
 [1600374319.215][INFO]: Populating Local State file: {
->>>>>>> 76902d8de071eaf282646786f5abee8bf4f88302
+
    "background_mode": {
       "enabled": false
    },
@@ -95,34 +94,34 @@
       }
    }
 }
-<<<<<<< HEAD
+
 [1600549357.316][INFO]: Launching chrome: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-blink-features=ShadowDOMV0 --enable-logging --load-extension=/var/folders/10/x0tkb8rd0yl84mhcx3t01lbr43m3_9/T/.com.google.Chrome.Z92v6M/internal --log-level=0 --no-first-run --password-store=basic --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir=/var/folders/10/x0tkb8rd0yl84mhcx3t01lbr43m3_9/T/.com.google.Chrome.vIT5Fe data:,
 [1600549358.542][WARNING]: This version of ChromeDriver has not been tested with Chrome version 85.
 [1600549358.558][INFO]: resolved localhost to ["127.0.0.1","::1"]
 [1600549358.595][INFO]: [a6016b30796c470553be44f77b29777d] RESPONSE InitSession {
-=======
+
 [1600374319.216][INFO]: Launching chrome: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-blink-features=ShadowDOMV0 --enable-logging --load-extension=/var/folders/ls/pc4m1ymd4n13y6xjdzp813phg6shkh/T/.com.google.Chrome.dMQy4L/internal --log-level=0 --no-first-run --password-store=basic --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir=/var/folders/ls/pc4m1ymd4n13y6xjdzp813phg6shkh/T/.com.google.Chrome.HegkQf data:,
 [1600374320.509][WARNING]: This version of ChromeDriver has not been tested with Chrome version 85.
 [1600374320.528][INFO]: resolved localhost to ["::1","127.0.0.1"]
 [1600374320.573][INFO]: [3d32546389b26eca9df4cb4033087c2a] RESPONSE InitSession {
->>>>>>> 76902d8de071eaf282646786f5abee8bf4f88302
+
    "capabilities": {
       "acceptInsecureCerts": false,
       "browserName": "chrome",
       "browserVersion": "85.0.4183.102",
       "chrome": {
          "chromedriverVersion": "84.0.4147.30 (48b3e868b4cc0aa7e8149519690b6f6949e110a8-refs/branch-heads/4147@{#310})",
-<<<<<<< HEAD
+
          "userDataDir": "/var/folders/10/x0tkb8rd0yl84mhcx3t01lbr43m3_9/T/.com.google.Chrome.vIT5Fe"
       },
       "goog:chromeOptions": {
          "debuggerAddress": "localhost:62487"
-=======
+
          "userDataDir": "/var/folders/ls/pc4m1ymd4n13y6xjdzp813phg6shkh/T/.com.google.Chrome.HegkQf"
       },
       "goog:chromeOptions": {
          "debuggerAddress": "localhost:55609"
->>>>>>> 76902d8de071eaf282646786f5abee8bf4f88302
+
       },
       "networkConnectionEnabled": false,
       "pageLoadStrategy": "normal",
@@ -140,7 +139,7 @@
       "unhandledPromptBehavior": "dismiss and notify",
       "webauthn:virtualAuthenticators": true
    },
-<<<<<<< HEAD
+
    "sessionId": "a6016b30796c470553be44f77b29777d"
 }
 [1600549358.636][INFO]: [a6016b30796c470553be44f77b29777d] COMMAND SetTimeouts {
@@ -513,7 +512,7 @@
 
 }
 [1600549397.193][INFO]: [a6016b30796c470553be44f77b29777d] RESPONSE Quit
-=======
+
    "sessionId": "3d32546389b26eca9df4cb4033087c2a"
 }
 [1600374320.578][INFO]: [3d32546389b26eca9df4cb4033087c2a] COMMAND SetTimeouts {
@@ -780,4 +779,4 @@
 
 }
 [1600374368.767][INFO]: [3d32546389b26eca9df4cb4033087c2a] RESPONSE Quit
->>>>>>> 76902d8de071eaf282646786f5abee8bf4f88302
+
