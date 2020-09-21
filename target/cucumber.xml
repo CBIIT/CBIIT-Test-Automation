@@ -1,28 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="36.458467">
-<testcase classname="Volunteer Survey" name="Volunteer Survey Self Submission_1 - Service Portal" time="36.458467">
-<system-out><![CDATA[Given a user is on the COVIDCode home page..................................passed
-And selects the option to Volunteer.........................................passed
-Then the "COVIDcode Volunteer Survey" page displays with the option to start the survey.passed
-When starting the survey....................................................passed
-And the user selects option to fill out the survery for themselves..........passed
-Then the question "Have you tested positive for" populates..................passed
-When selecting No...........................................................passed
-Then the question "How was the sample taken?" displays......................passed
-When selecting "Nasal or throat swab".......................................passed
-And selecting "Rapid testing (up to 2 hour turnaround)" checkbox............passed
-And selecting No for being able to provide a copy of test report............passed
-And selecting No for for ever being hospitalized............................passed
-When clicking next..........................................................passed
-Then the "Contact Information " displays where the user is able to enter their contact information.passed
-When entering required information..........................................passed
-And clicking next to proceed................................................passed
-Then the "How did you hear about us? " page displays with a question regarding the discovery of the survey.passed
-When selecting option "I prefer not to answer"..............................passed
-And clicking Submit.........................................................passed
-Then the "Your survey has been submitted successfully!" page displays.......passed
-And the user is able to see a message "If you have any questions, please feel free to email us at covidcode@mail.nih.gov".passed
-When the user selects OK....................................................passed
-Then the user is prompted back to the COVIDCode Study Home Page.............passed
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="50.931307">
+<testcase classname="COVID19 Dashboard Scenarios" name="Verifying Study Form Submission as a Reviewer" time="50.931307">
+<system-out><![CDATA[Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application.passed
+And successfully submits a Study Form.......................................passed
+When impersonating a reviewer...............................................passed
+Then the submitted study is displayed and options to Approve or Reject are available.passed
 ]]></system-out>
 </testcase>
 </testsuite>
