@@ -9,7 +9,7 @@ Feature: Login Scenarios
     And logs in by entering iTrust credentials
     Then the User is directed to the home page
 
-  @regression
+  @regression 
   Scenario: Reviewer Login
     Given a Reviewer navigates to the COVID-19 Biorepository login page
     When the Reviewer selects Login to access button
