@@ -1,11 +1,7 @@
 Feature: Volunteer Survey
   Description: Volunteer Survery scenarios including both Service Portal and Native View
 
-<<<<<<< HEAD
   @Sprint9 @COVID-109 @Smoke
-=======
-  @Sprint9 @COVID-109 @Progression
->>>>>>> 76902d8de071eaf282646786f5abee8bf4f88302
   Scenario: Volunteer Survey Self Submission_1 - Service Portal
     Given a user is on the COVIDCode home page
     And selects the option to Volunteer
