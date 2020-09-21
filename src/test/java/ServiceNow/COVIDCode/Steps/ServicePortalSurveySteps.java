@@ -30,8 +30,8 @@ public class ServicePortalSurveySteps extends PageInitializer {
 
 	@Given("selects the option to Volunteer")
 	public void selects_the_option_to_Volunteer() {
-		CommonUtils.waitForClickability(covidCodeLoginPage.volunteerHereButton);
-		JavascriptUtils.clickByJS(covidCodeLoginPage.volunteerHereButton);
+		CommonUtils.waitForClickability(covidCodeLoginPage.volunteerForTheStudy);
+		JavascriptUtils.clickByJS(covidCodeLoginPage.volunteerForTheStudy);
 		
 	}
 
@@ -185,7 +185,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 	@Then("the user is prompted back to the COVIDCode Study Home Page")
 	public void the_user_is_prompted_back_to_the_COVIDCode_Study_Home_Page() {
 		// Why are we doing this study? text on home page
-		Assert.assertTrue(covidCodeLoginPage.whyAreWeDoingThisStudyTxt.getText().contains("Why are we doing"));
+		Assert.assertTrue(covidCodeLoginPage.whyAreWeDoingThisStudyTxt.getText().contains("WHY ARE WE DOING"));
 	}
 
 	@Then("the following header displays {string} followed by a body description {string}")
@@ -210,7 +210,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 			String selectingTheButtonBelowParagraph) {
 		Assert.assertTrue(covidCodeLoginPage.interestedInVolunteeringHeader.getText()
 				.contentEquals(interestedInVolunteeringHeader));
-		Assert.assertTrue(covidCodeLoginPage.selectingTheButtonBelowParagraph.getText()
+		Assert.assertTrue(covidCodeLoginPage.fillOutACOVIDVolunteerSurveyParagraph.getText()
 				.contentEquals(selectingTheButtonBelowParagraph));
 	}
 
