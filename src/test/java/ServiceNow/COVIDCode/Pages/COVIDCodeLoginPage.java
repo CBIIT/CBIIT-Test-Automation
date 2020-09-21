@@ -21,44 +21,44 @@ public class COVIDCodeLoginPage extends CommonUtils {
 	@FindBy (linkText = "Access and complete follow up questionnaire →")
 	public WebElement accessAndCompleteFollowUpQuestionnaireButton;
 	
-	/** Volunteer Here button */
-	@FindBy (xpath = "//a[contains(text(),'Volunteer')]")
-	public WebElement volunteerHereButton;
+	/** Volunteer For The Study button */
+	@FindBy (xpath = "//a[contains(text(),'Volunteer For The Study ')]")
+	public WebElement volunteerForTheStudy;
 	
 	/** Why are we doing this study? header */
-	@FindBy (xpath = "/html/body/div/section/main/div/div/sp-page-row[2]/div/div/span/div/div/div/div/div/div[1]/h2")
+	@FindBy (xpath = "//*[contains(text(),'WHY ARE WE DOING THIS STUDY?')]")
 	public WebElement whyAreWeDoingThisStudyTxt;
 	
 	/** Coronavirus 2019 paragraph */
-	@FindBy (xpath = "/html/body/div/section/main/div/div/sp-page-row[2]/div/div/span/div/div/div/div/div/div[1]/p[1]")
+	@FindBy (xpath = "//*[contains(text(),'Coronavirus 2019')]")
 	public WebElement coronavirus2019Paragraph;
 	
 	/** Who can join? header */
-	@FindBy (xpath = "/html/body/div/section/main/div/div/sp-page-row[2]/div/div/span/div/div/div/div/div/div[2]/h2[1]")
+	@FindBy (xpath = "//*[contains(text(),'WHO CAN JOIN?')]")
 	public WebElement whoCanJoinHeader;
 	
 	/** Anyone who has tested positive paragraph */
-	@FindBy (xpath = "/html/body/div/section/main/div/div/sp-page-row[2]/div/div/span/div/div/div/div/div/div[2]/p[1]")
+	@FindBy (xpath = "//*[contains(text(),'Anyone who has tested positive')]")
 	public WebElement anyoneWhoHasTestedPositiveParagraph;
 	
 	/** Interested in volunteering for the COVID-19 Study? header */
-	@FindBy (xpath = "/html/body/div/section/main/div/div/sp-page-row[2]/div/div/span/div/div/div/div/div/div[1]/div/h2")
+	@FindBy (xpath = "//*[contains(text(),'Interested in volunteering?')]")
 	public WebElement interestedInVolunteeringHeader;
 	
-	/** Selecting the button below paragraph */
-	@FindBy (xpath = "/html/body/div/section/main/div/div/sp-page-row[2]/div/div/span/div/div/div/div/div/div[1]/div/p")
-	public WebElement selectingTheButtonBelowParagraph;
+	/** Fill out a COVID-19 Volunteer Survey to get started. paragraph */
+	@FindBy (xpath = "//*[contains(text(),'Fill out a COVID-19 Volunteer Survey')]")
+	public WebElement fillOutACOVIDVolunteerSurveyParagraph;
 	
 	/** What is involved in the study? header */
-	@FindBy (xpath = "/html/body/div/section/main/div/div/sp-page-row[2]/div/div/span/div/div/div/div/div/div[2]/h2[2]")
+	@FindBy (xpath = "//*[contains(text(),'WHAT IS INVOLVED IN THE STUDY?')]")
 	public WebElement whatIsInvolvedInTheStudyHeader;
 	
 	/** Provide a blood sample paragraph */
-	@FindBy (xpath = "/html/body/div/section/main/div/div/sp-page-row[2]/div/div/span/div/div/div/div/div/div[2]/p[2]")
+	@FindBy (xpath = "//p[@class='info-text-not-logged'][3]")
 	public WebElement provideAbloodSampleParagraph;
 	
 	/** Privacy Statement */
-	@FindBy (xpath = "/html/body/div/section/main/div/div/sp-page-row[2]/div/div/span/div/div/div/div/div/div[1]/p[2]")
+	@FindBy (xpath = "//*[contains(text(),'Privacy and confidentiality')]")
 	public WebElement privacyStatement;
 	
 	
