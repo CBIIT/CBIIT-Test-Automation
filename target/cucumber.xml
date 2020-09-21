@@ -1,22 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="1" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="2.118811">
-<testcase classname="COVIDCode Follow Up Form Scenarios" name="Follow Up Form - Verifying 'Drug Treatments' section - Service Portal" time="2.118811">
-<failure message="java.lang.NullPointerException&#10;&#9;at java.base/java.io.Reader.&lt;init&gt;(Reader.java:167)&#10;&#9;at java.base/java.io.InputStreamReader.&lt;init&gt;(InputStreamReader.java:109)&#10;&#9;at org.apache.commons.io.IOUtils.copy(IOUtils.java:2440)&#10;&#9;at org.apache.commons.io.IOUtils.toString(IOUtils.java:1084)&#10;&#9;at org.apache.commons.io.IOUtils.toString(IOUtils.java:1064)&#10;&#9;at com.nci.automation.xml.JDomXmlUtils.getXMLContentFromResourcePath(JDomXmlUtils.java:77)&#10;&#9;at com.nci.automation.xml.JDomXmlUtils.getValueByXpathFromResourcePath(JDomXmlUtils.java:53)&#10;&#9;at com.nci.automation.web.EnvUtils.getConfigValue(EnvUtils.java:136)&#10;&#9;at com.nci.automation.web.EnvUtils.getApplicationUrl(EnvUtils.java:23)&#10;&#9;at ServiceNow.COVIDCode.StepsImplementation.FollowUpFormPageImpl.accessingFollowUpForm(FollowUpFormPageImpl.java:19)&#10;&#9;at ServiceNow.COVIDCode.Steps.FollowUpFormSteps.a_COVIDCode_provider_is_on_the_Disease_Course_section_on_the_Follow_Up_Form(FollowUpFormSteps.java:232)&#10;&#9;at ✽.a COVIDCode provider is on the Disease Course section on the Follow Up Form(file:src/test/java/ServiceNow/COVIDCode/Features/FollowUpForm.feature:71)&#10;"><![CDATA[When a COVIDCode provider is on the Disease Course section on the Follow Up Form.failed
-Then "Drug Treatments" section should display along with the values "None", "Azithromycin", "Chloroquine", "Corticosteroids", "Hydroxycholoquine", "JAK Inhibitor", "Remdesivir", "Tocilizumab", "Other".skipped
-
-StackTrace:
-java.lang.NullPointerException
-	at java.base/java.io.Reader.<init>(Reader.java:167)
-	at java.base/java.io.InputStreamReader.<init>(InputStreamReader.java:109)
-	at org.apache.commons.io.IOUtils.copy(IOUtils.java:2440)
-	at org.apache.commons.io.IOUtils.toString(IOUtils.java:1084)
-	at org.apache.commons.io.IOUtils.toString(IOUtils.java:1064)
-	at com.nci.automation.xml.JDomXmlUtils.getXMLContentFromResourcePath(JDomXmlUtils.java:77)
-	at com.nci.automation.xml.JDomXmlUtils.getValueByXpathFromResourcePath(JDomXmlUtils.java:53)
-	at com.nci.automation.web.EnvUtils.getConfigValue(EnvUtils.java:136)
-	at com.nci.automation.web.EnvUtils.getApplicationUrl(EnvUtils.java:23)
-	at ServiceNow.COVIDCode.StepsImplementation.FollowUpFormPageImpl.accessingFollowUpForm(FollowUpFormPageImpl.java:19)
-	at ServiceNow.COVIDCode.Steps.FollowUpFormSteps.a_COVIDCode_provider_is_on_the_Disease_Course_section_on_the_Follow_Up_Form(FollowUpFormSteps.java:232)
-	at ✽.a COVIDCode provider is on the Disease Course section on the Follow Up Form(file:src/test/java/ServiceNow/COVIDCode/Features/FollowUpForm.feature:71)
-]]></failure>
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="36.458467">
+<testcase classname="Volunteer Survey" name="Volunteer Survey Self Submission_1 - Service Portal" time="36.458467">
+<system-out><![CDATA[Given a user is on the COVIDCode home page..................................passed
+And selects the option to Volunteer.........................................passed
+Then the "COVIDcode Volunteer Survey" page displays with the option to start the survey.passed
+When starting the survey....................................................passed
+And the user selects option to fill out the survery for themselves..........passed
+Then the question "Have you tested positive for" populates..................passed
+When selecting No...........................................................passed
+Then the question "How was the sample taken?" displays......................passed
+When selecting "Nasal or throat swab".......................................passed
+And selecting "Rapid testing (up to 2 hour turnaround)" checkbox............passed
+And selecting No for being able to provide a copy of test report............passed
+And selecting No for for ever being hospitalized............................passed
+When clicking next..........................................................passed
+Then the "Contact Information " displays where the user is able to enter their contact information.passed
+When entering required information..........................................passed
+And clicking next to proceed................................................passed
+Then the "How did you hear about us? " page displays with a question regarding the discovery of the survey.passed
+When selecting option "I prefer not to answer"..............................passed
+And clicking Submit.........................................................passed
+Then the "Your survey has been submitted successfully!" page displays.......passed
+And the user is able to see a message "If you have any questions, please feel free to email us at covidcode@mail.nih.gov".passed
+When the user selects OK....................................................passed
+Then the user is prompted back to the COVIDCode Study Home Page.............passed
+]]></system-out>
 </testcase>
 </testsuite>
