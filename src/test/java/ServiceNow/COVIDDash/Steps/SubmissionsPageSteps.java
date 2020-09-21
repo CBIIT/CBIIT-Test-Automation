@@ -1,6 +1,7 @@
 package ServiceNow.COVIDDash.Steps;
 
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageCache;
 import cucumber.api.java.en.*;
@@ -18,7 +19,9 @@ public class SubmissionsPageSteps {
 
 	@Then("is able to see two tables names {string} and {string}")
 	public void is_able_to_see_two_tables_names_and(String pendingStudies, String rejectedStudies) {
+		MiscUtils.sleep(2000);
 		pageCache.getSubmissionsPageImpl().verifySubmissionsTablesExists(pendingStudies, rejectedStudies);
+		CucumberLogUtils.logScreenShot();
 	}
 
 	@Then("the submitted study is displayed and options to Approve or Reject are available")
