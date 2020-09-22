@@ -1,5 +1,7 @@
 package appsCommon;
 
+import AnalysisTools.LDLink.Pages.LDLinkHomePage;
+import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
 import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
 import ServiceNow.COVIDCode.Pages.COVIDCodeLoginPage;
@@ -52,6 +54,10 @@ public class PageInitializer {
 	protected static CHARMSNativeViewPage charmsNativeViewPage;
 	protected static TestAccountResetImpl testAccountResetImpl;
 	
+	/**LDLink instances**/
+	protected static LDLinkHomePage ldLinkHomePage; 
+	protected static LDLinkLandingPage ldLinkLandingPage; 
+	
 
 	public static void initializeAllPages() {
 		// create instances of all pages and assign them to the variables
@@ -74,6 +80,9 @@ public class PageInitializer {
 		charmsNativeViewPage = new CHARMSNativeViewPage();
 		testAccountResetImpl = new TestAccountResetImpl();
 		servicePortalSurveyPage = new ServicePortalSurveyPage();
+		ldLinkLandingPage = new LDLinkLandingPage();
+		ldLinkHomePage = new LDLinkHomePage(); 
+		
 	}
 
 }
