@@ -4,11 +4,11 @@
 
 	<profile-name>automation</profile-name>
 
-	<!-- Application ID for LDlink -->
-	<application id="LDlink">
+		<!-- Application ID for COVIDCode -->
+	<application id="LDLink">
 
-		<login_url>https://ldlink.nci.nih.gov/?tab=home
-		</login_url><!-- add production url -->
+		<login_url>https://ldlink.nci.nih.gov/?tab=home</login_url><!-- add test 
+			url -->
 
 		<role name="Role">
 			<user id="regular">
@@ -24,9 +24,8 @@
 				<url></url><!-- complete string url -->
 				<username></username><!-- Add db username -->
 				<password></password><!-- Add db password -->
-			</default>
+			</default><!-- comment -->
 		</db>
-
 	</application>
 
 
