@@ -22,6 +22,11 @@ public class EnvUtils {
         final String appURL = "//application[@id='"+ appName +"']/login_url";
         return getConfigValue(appURL);
     }
+	
+	public static String getHomePageURL(String appName) throws TestingException {
+        final String appURL = "//application[@id='"+ appName +"']/home_url";
+        return getConfigValue(appURL);
+    }
     
 	/**
 	 * This method will return the application user-name. make sure you have 
