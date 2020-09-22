@@ -18,9 +18,9 @@ import cucumber.api.junit.Cucumber;
 		, "json:target/cucumber.json"
 		, "junit:target/cucumber.xml"
 		, "rerun:target/failed.txt","pretty"}
-		, features=""
-		, glue=""
-		, tags=""
+		, features="src/test/java/AnalysisTools/LDLink/Features"
+		, glue="AnalysisTools.LDLink.Steps"
+		, tags="@Smoke"
 		, dryRun = false
 		, monochrome=true
 		, strict = true
