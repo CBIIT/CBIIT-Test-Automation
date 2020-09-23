@@ -23,10 +23,7 @@ public class EnvUtils {
         return getConfigValue(appURL);
     }
 	
-	public static String getHomePageURL(String appName) throws TestingException {
-        final String appURL = "//application[@id='"+ appName +"']/home_url";
-        return getConfigValue(appURL);
-    }
+
     
 	/**
 	 * This method will return the application user-name. make sure you have 
@@ -144,6 +141,16 @@ public class EnvUtils {
         }
 
         return configElementValue;
+    }
+    
+	public static String getHomePageUrl(String appName) throws TestingException {
+        final String appURL = "//application[@id='"+ appName +"']/home_url";
+        return getConfigValue(appURL);
+    }
+	
+	public static String getLandingPageUrl(String appName) throws TestingException {
+        final String appURL = "//application[@id='"+ appName +"']/landing_url";
+        return getConfigValue(appURL);
     }
     
 //  public static String getDatabaseURL(String dbName) throws TestingException {

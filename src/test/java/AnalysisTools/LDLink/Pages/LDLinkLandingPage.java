@@ -15,7 +15,12 @@ public class LDLinkLandingPage {
 	@FindBy(linkText = "LDLink")
 	public WebElement lnkLDLink; 
 	
-	@FindBy(xpath = "//a[text() = 'LDLink']/../following-sibling::div")
+	
+//	@FindBy(xpath = "//a[text() = 'LDLink']/../following-sibling::div")
+//	public WebElement lblLDLinkDescripition; 
+	
+	@FindBy(xpath = "(//div[@class='tools-section'])[8]/div")
 	public WebElement lblLDLinkDescripition; 
+	
 
 }
