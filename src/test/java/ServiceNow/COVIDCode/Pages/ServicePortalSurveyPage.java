@@ -27,24 +27,24 @@ public class ServicePortalSurveyPage extends CommonUtils {
 	public List<WebElement> areYouFillingThisOutForYourselfDropDownValues;
 
 	/** Have you tested positive for SARS-CoV-2 (the novel coronavirus text */
-	@FindBy(xpath = "/html/body/div[1]/section/main/div[2]/div/sp-page-row/div/div/span/div/div[2]/div/div/div/div[2]/sp-survey-form/div/div[2]/div[2]/div[5]/div/h4")
+	@FindBy(xpath = "//*[contains(text(),'Have you tested positive for SARS-CoV-2')]")
 	public WebElement haveYouTestedPositiveForSARSCoV2Text;
 
 	/**
 	 * Have you tested positive for SARS-CoV-2 (the novel coronavirus)? drop down
 	 */
-	@FindBy(xpath = "/html/body/div[1]/section/main/div[2]/div/sp-page-row/div/div/span/div/div[2]/div/div/div/div[2]/sp-survey-form/div/div[2]/div[2]/div[5]/div/sp-survey-field/div/div/div/div[1]/a/span[1]")
+	@FindBy(xpath = "//span[@class='select2-chosen' and @id='select2-chosen-13']")
 	public WebElement haveYouTestedPositiveForSARSCoV2DropDown;
 
 	/**
 	 * Have you tested positive for SARS-CoV-2 (the novel coronavirus)? drop down
 	 * values
 	 */
-	@FindBy(xpath = "/html/body/div[4]/ul/li")
+	@FindBy(xpath = "//li[starts-with(@class,'select2-results-dept-0')]")
 	public List<WebElement> haveYouTestedPositiveForSARSCoV2DropDownValues;
 
 	/** How was the sample taken? text */
-	@FindBy(xpath = "//html/body/div[1]/section/main/div[2]/div/sp-page-row/div/div/span/div/div[2]/div/div/div/div[2]/sp-survey-form/div/div[2]/div[2]/div[6]/div/h4")
+	@FindBy(xpath = "//*[contains(text(),'How was the sample taken?')]")
 	public WebElement howWasTheSampleTakenTxt;
 
 	/** How was the sample taken? drop down */
@@ -52,11 +52,11 @@ public class ServicePortalSurveyPage extends CommonUtils {
 	public WebElement howWasTheSampleTakenDropDown;
 
 	/** How was the sample taken? drop down values */
-	@FindBy(xpath = "/html/body/div[5]/ul/li")
+	@FindBy(xpath = "//li[starts-with(@class,'select2-results-dept-0')]")
 	public List<WebElement> howWasTheSampleTakenDropDownValues;
 
 	/** Rapid testing (up to 2 hour turnaround) checkbox */
-	@FindBy(xpath = "/html/body/div[1]/section/main/div[2]/div/sp-page-row/div/div/span/div/div[2]/div/div/div/div[2]/sp-survey-form/div/div[2]/div[2]/div[9]/div/sp-survey-field/div/sp-survey-multiple-checkbox/div/div[1]/input")
+	@FindBy(xpath = "//input[starts-with(@aria-label,'Rapid testing (up to 2 hour turnaround)')]")
 	public WebElement rapidTestingCheckbox;
 
 	/** Can you provide a copy of your test report? text */
