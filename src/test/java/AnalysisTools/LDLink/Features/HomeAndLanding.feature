@@ -12,10 +12,16 @@ And user verify the description "A suite of web-based applications designed to e
 Scenario: User navigates from landing page to home page
 Given a LDlink user opens Analysis Tools page
 When user clicks LDLink on landing page 
-Then User verify user is on LDlink home page
+Then User verify title is "LDlink | An Interactive Web Tool for Exploring Linkage Disequilibrium in Population Groups"
 
 
 @Smoke
 Scenario: Home Page - Validate LDlink
 When a LDlink user opens home page
 Then User verify title is "LDlink | An Interactive Web Tool for Exploring Linkage Disequilibrium in Population Groups"
+
+@InProgress
+Scenario: 
+
+			
+			
