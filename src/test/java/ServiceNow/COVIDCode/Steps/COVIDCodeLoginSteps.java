@@ -40,7 +40,8 @@ public class COVIDCodeLoginSteps extends PageInitializer {
 	}
 
 	@Then("the COVIDcode Study Provider user should see the COVIDcode Enrollment Questionnaire")
-	public void the_COVIDcode_Study_Provider_user_should_see_the_COVIDcode_Enrollment_Questionnaire() {		
+	public void the_COVIDcode_Study_Provider_user_should_see_the_COVIDcode_Enrollment_Questionnaire() {
+		covidCodeLoginPage.AcceptandCompleteQuestionnaireButton.click();
 		String actualText = covidCodeEQPage.COVIDcodeEnrollmentQuestionnaireText.getText();
 		CucumberLogUtils.logScreenShot();
 		String expectedText = "COVIDcode Enrollment Questionnaire";
