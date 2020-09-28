@@ -1,11 +1,11 @@
 Feature: Volunteer Survey
   Description: Volunteer Survery scenarios including both Service Portal and Native View
 
-  @Sprint9 @COVID-109 @Progression
+  @Sprint9 @COVID-109 @Smoke
   Scenario: Volunteer Survey Self Submission_1 - Service Portal
     Given a user is on the COVIDCode home page
     And selects the option to Volunteer
-    Then the "COVIDcode" page displays with the option to start the survey
+    Then the "COVIDcode Volunteer Survey" page displays with the option to start the survey
     When starting the survey
     And the user selects option to fill out the survery for themselves
     Then the question "Have you tested positive for" populates
@@ -62,10 +62,10 @@ Feature: Volunteer Survey
   @Sprint9 @COVID-220 @Smoke
   Scenario: Verifying Volunteer Survey Landing page wording
     Given a user is on the COVIDCode home page
-    Then the following header displays "Why are we doing this study?" followed by a body description "Coronavirus 2019 (COVID-19) is a serious public health problem."
-    And the header "Who can join?" with the body description as "Anyone who has tested positive for SARS-CoV-2 infection may be eligible to join. We will use the clinical history and biological samples provided by participants for our analyses."
-    And also the header "Interested in volunteering for the COVID-19 Study?" with the body description "Selecting the button below will take you to the COVID-19 Volunteer Survey"
-    And header "What is involved in the study?" with the body description "● Provide a blood sample."
+    Then the following header displays "WHY ARE WE DOING THIS STUDY?" followed by a body description "Coronavirus 2019 (COVID-19) is a serious public health problem."
+    And the header "WHO CAN JOIN?" with the body description as "Anyone who has tested positive for SARS-CoV-2 infection may be eligible to join. We will use the clinical history and biological samples provided by participants for our analyses."
+    And also the header "Interested in volunteering?" with the body description "Fill out a COVID-19 Volunteer Survey to get started."
+    And header "WHAT IS INVOLVED IN THE STUDY?" with the body description "We will ask you to"
     And a statement "Privacy and confidentiality are very important to us. All information shared with us will be anonymized. It is important to note that we intend for our study to benefit a large group of patients. In order to make this possible, we will be unable to return individual genetic results. We may recontact you for this information over a period of a year after you have joined the study."
 
   @Sprint9 @COVID-214 @Smoke
