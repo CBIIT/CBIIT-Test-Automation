@@ -1,0 +1,184 @@
+[1601045023.833][INFO]: Starting ChromeDriver 84.0.4147.30 (48b3e868b4cc0aa7e8149519690b6f6949e110a8-refs/branch-heads/4147@{#310}) on port 42451
+[1601045023.833][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+[1601045024.016][INFO]: [a0fff9626962580f364ce4db89119280] COMMAND InitSession {
+   "capabilities": {
+      "firstMatch": [ {
+         "browserName": "chrome",
+         "goog:chromeOptions": {
+            "args": [  ],
+            "extensions": [  ]
+         }
+      } ]
+   },
+   "desiredCapabilities": {
+      "browserName": "chrome",
+      "goog:chromeOptions": {
+         "args": [  ],
+         "extensions": [  ]
+      }
+   }
+}
+[1601045024.017][INFO]: Populating Preferences file: {
+   "alternate_error_pages": {
+      "enabled": false
+   },
+   "autofill": {
+      "enabled": false
+   },
+   "browser": {
+      "check_default_browser": false
+   },
+   "distribution": {
+      "import_bookmarks": false,
+      "import_history": false,
+      "import_search_engine": false,
+      "make_chrome_default_for_user": false,
+      "skip_first_run_ui": true
+   },
+   "dns_prefetching": {
+      "enabled": false
+   },
+   "profile": {
+      "content_settings": {
+         "pattern_pairs": {
+            "https://*,*": {
+               "media-stream": {
+                  "audio": "Default",
+                  "video": "Default"
+               }
+            }
+         }
+      },
+      "default_content_setting_values": {
+         "geolocation": 1
+      },
+      "default_content_settings": {
+         "geolocation": 1,
+         "mouselock": 1,
+         "notifications": 1,
+         "popups": 1,
+         "ppapi-broker": 1
+      },
+      "password_manager_enabled": false
+   },
+   "safebrowsing": {
+      "enabled": false
+   },
+   "search": {
+      "suggest_enabled": false
+   },
+   "translate": {
+      "enabled": false
+   }
+}
+[1601045024.017][INFO]: Populating Local State file: {
+   "background_mode": {
+      "enabled": false
+   },
+   "ssl": {
+      "rev_checking": {
+         "enabled": false
+      }
+   }
+}
+[1601045024.018][INFO]: Launching chrome: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-blink-features=ShadowDOMV0 --enable-logging --load-extension=/var/folders/ls/pc4m1ymd4n13y6xjdzp813phg6shkh/T/.com.google.Chrome.q7f8eA/internal --log-level=0 --no-first-run --password-store=basic --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir=/var/folders/ls/pc4m1ymd4n13y6xjdzp813phg6shkh/T/.com.google.Chrome.M457bb data:,
+[1601045025.147][WARNING]: This version of ChromeDriver has not been tested with Chrome version 85.
+[1601045025.164][INFO]: resolved localhost to ["127.0.0.1","::1"]
+[1601045025.219][INFO]: [a0fff9626962580f364ce4db89119280] RESPONSE InitSession {
+   "capabilities": {
+      "acceptInsecureCerts": false,
+      "browserName": "chrome",
+      "browserVersion": "85.0.4183.121",
+      "chrome": {
+         "chromedriverVersion": "84.0.4147.30 (48b3e868b4cc0aa7e8149519690b6f6949e110a8-refs/branch-heads/4147@{#310})",
+         "userDataDir": "/var/folders/ls/pc4m1ymd4n13y6xjdzp813phg6shkh/T/.com.google.Chrome.M457bb"
+      },
+      "goog:chromeOptions": {
+         "debuggerAddress": "localhost:51665"
+      },
+      "networkConnectionEnabled": false,
+      "pageLoadStrategy": "normal",
+      "platformName": "mac os x",
+      "proxy": {
+
+      },
+      "setWindowRect": true,
+      "strictFileInteractability": false,
+      "timeouts": {
+         "implicit": 0,
+         "pageLoad": 300000,
+         "script": 30000
+      },
+      "unhandledPromptBehavior": "dismiss and notify",
+      "webauthn:virtualAuthenticators": true
+   },
+   "sessionId": "a0fff9626962580f364ce4db89119280"
+}
+[1601045025.257][INFO]: [a0fff9626962580f364ce4db89119280] COMMAND SetTimeouts {
+   "implicit": 25000
+}
+[1601045025.262][INFO]: [a0fff9626962580f364ce4db89119280] RESPONSE SetTimeouts
+[1601045025.278][INFO]: [a0fff9626962580f364ce4db89119280] COMMAND MaximizeWindow {
+
+}
+[1601045025.278][INFO]: Waiting for pending navigations...
+[1601045025.279][INFO]: Done waiting for pending navigations. Status: ok
+[1601045025.279][INFO]: resolved localhost to ["127.0.0.1","::1"]
+[1601045025.397][INFO]: Waiting for pending navigations...
+[1601045025.397][INFO]: Done waiting for pending navigations. Status: ok
+[1601045025.397][INFO]: [a0fff9626962580f364ce4db89119280] RESPONSE MaximizeWindow {
+   "height": 806,
+   "width": 1440,
+   "x": 0,
+   "y": 23
+}
+[1601045027.548][INFO]: [a0fff9626962580f364ce4db89119280] COMMAND Navigate {
+   "url": "https://ldlink-qa.nci.nih.gov/?tab=home"
+}
+[1601045027.548][INFO]: Waiting for pending navigations...
+[1601045027.548][INFO]: Done waiting for pending navigations. Status: ok
+[1601045028.156][INFO]: Waiting for pending navigations...
+[1601045030.389][INFO]: Done waiting for pending navigations. Status: ok
+[1601045030.389][INFO]: [a0fff9626962580f364ce4db89119280] RESPONSE Navigate
+[1601045030.393][INFO]: [a0fff9626962580f364ce4db89119280] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//a[@dest='ldexpress']/div[1]"
+}
+[1601045030.393][INFO]: Waiting for pending navigations...
+[1601045030.394][INFO]: Done waiting for pending navigations. Status: ok
+[1601045030.403][INFO]: Waiting for pending navigations...
+[1601045030.404][INFO]: Done waiting for pending navigations. Status: ok
+[1601045030.404][INFO]: [a0fff9626962580f364ce4db89119280] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "358c0797-0647-4134-ab7f-f4c0e7c75833"
+}
+[1601045030.408][INFO]: [a0fff9626962580f364ce4db89119280] COMMAND ClickElement {
+   "id": "358c0797-0647-4134-ab7f-f4c0e7c75833"
+}
+[1601045030.408][INFO]: Waiting for pending navigations...
+[1601045030.408][INFO]: Done waiting for pending navigations. Status: ok
+[1601045030.438][INFO]: Waiting for pending navigations...
+[1601045030.441][INFO]: Done waiting for pending navigations. Status: ok
+[1601045030.441][INFO]: [a0fff9626962580f364ce4db89119280] RESPONSE ClickElement
+[1601045032.450][INFO]: [a0fff9626962580f364ce4db89119280] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//div[@id='ldexpress-tab']/div/h2"
+}
+[1601045032.450][INFO]: Waiting for pending navigations...
+[1601045032.452][INFO]: Done waiting for pending navigations. Status: ok
+[1601045032.462][INFO]: Waiting for pending navigations...
+[1601045032.463][INFO]: Done waiting for pending navigations. Status: ok
+[1601045032.463][INFO]: [a0fff9626962580f364ce4db89119280] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "d6963cb5-ac0f-42e4-9dfc-68787e6fb09d"
+}
+[1601045032.465][INFO]: [a0fff9626962580f364ce4db89119280] COMMAND GetElementText {
+   "id": "d6963cb5-ac0f-42e4-9dfc-68787e6fb09d"
+}
+[1601045032.465][INFO]: Waiting for pending navigations...
+[1601045032.465][INFO]: Done waiting for pending navigations. Status: ok
+[1601045032.474][INFO]: Waiting for pending navigations...
+[1601045032.474][INFO]: Done waiting for pending navigations. Status: ok
+[1601045032.474][INFO]: [a0fff9626962580f364ce4db89119280] RESPONSE GetElementText "LDexpress Tool"
+[1601045034.480][INFO]: [a0fff9626962580f364ce4db89119280] COMMAND Quit {
+
+}
+[1601045034.532][INFO]: [a0fff9626962580f364ce4db89119280] RESPONSE Quit
