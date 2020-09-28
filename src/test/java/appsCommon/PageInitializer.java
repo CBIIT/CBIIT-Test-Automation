@@ -1,5 +1,6 @@
 package appsCommon;
 
+import AnalysisTools.LDLink.Pages.LDLinkExpressPage;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
@@ -57,6 +58,7 @@ public class PageInitializer {
 	/**LDLink instances**/
 	protected static LDLinkHomePage ldLinkHomePage; 
 	protected static LDLinkLandingPage ldLinkLandingPage; 
+	protected static LDLinkExpressPage ldLinkExpressPage;
 	
 
 	public static void initializeAllPages() {
@@ -82,6 +84,7 @@ public class PageInitializer {
 		servicePortalSurveyPage = new ServicePortalSurveyPage();
 		ldLinkLandingPage = new LDLinkLandingPage();
 		ldLinkHomePage = new LDLinkHomePage(); 
+		ldLinkExpressPage = new LDLinkExpressPage();
 		
 	}
 

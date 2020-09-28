@@ -8,6 +8,9 @@ import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+
+import java.util.Map;
+
 import org.junit.Assert;
 
 
@@ -49,16 +52,23 @@ public class LDLinkHomeAndLandingPageSteps extends PageInitializer {
 	
 	@When("user clicks LDLink on landing page")
 	public void user_clicks_LDLink_on_landing_page() {
-		
+		ldLinkLandingPage.lnkLDLink.click();
 	   
 	}
 
-	@Then("User verify user is on LDlink home page")
-	public void user_verify_user_is_on_LDlink_home_page() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new cucumber.api.PendingException();
+
+	@Then("user verify the following applications displayed with given description")
+	public void user_verify_the_following_applications_displayed_with_given_description(Map<String,String> expApps) {
+		CucumberLogUtils.logScreenShot();
+		Map<String,String> actApps = ldLinkHomePage.getApplicationsNameAndDescription(); 
+		Assert.assertEquals(expApps, actApps);
+		
 	}
-	
+
+	@When("user clicks on LDExpress application")
+	public void userClicksOnLDLinkExpressApplication() {
+		ldLinkHomePage.clickLDExpressCardOnHomePage();
+	}
 
 
 
