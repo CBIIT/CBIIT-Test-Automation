@@ -9,13 +9,13 @@ import com.nci.automation.web.WebDriverUtils;
 
 public class CHARMSHomePage extends CommonUtils {
 	
-	/** sample */
-	@FindBy(xpath = "//button[@ng-click='c.login()']")
-	private WebElement sample1;
+	/** Login Button */
+	@FindBy(xpath = "//button[@class='login-btn']")
+	public WebElement loginButton;
 
 	/** sample */
 	@FindBy(xpath = "//span[contains(@class,'user-name')]")
-	private WebElement sample2;
+	public WebElement sample2;
 
 	public CHARMSHomePage() {
 
