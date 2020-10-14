@@ -1,16 +1,16 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/ServiceNow/COVIDDash/Features/Covid19Dashboard.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/ServiceNow/CHARMS/Features/ProbandScenarios.feature");
 formatter.feature({
-  "name": "COVID19 Dashboard Scenarios",
-  "description": "  Description: This feature file tests COVIDDASH-7, 8, 20, 134, 135, 138, 136, 137, 140, 142, 143, 148",
+  "name": "Proband Scenarios",
+  "description": "Description: This feature file contains Proband related scenarios",
   "keyword": "Feature"
 });
 formatter.scenario({
-  "name": "Verifying Study Form Submission as a Reviewer",
+  "name": "Proband LFS Okta Login",
   "description": "",
   "keyword": "Scenario",
   "tags": [
     {
-      "name": "@progression"
+      "name": "@Progression"
     }
   ]
 });
@@ -18,49 +18,36 @@ formatter.before({
   "status": "passed"
 });
 formatter.step({
-  "name": "a User has logged in to the NIH COVID-19 Biorepository Dashboard Application",
+  "name": "a Proband is on the CHARMS home page",
   "keyword": "Given "
 });
 formatter.match({
-  "location": "COVIDHomePageSteps.a_User_has_logged_in_to_the_NIH_COVID_Biorepository_Dashboard_Application(Integer)"
+  "location": "ProbandLoginSteps.a_Proband_is_on_the_CHARMS_home_page()"
 });
-formatter.write("2020-09-21 15:10:29: INFO: Environment: Test (https://service-test.nci.nih.gov/nih-covid-19-dashboard?xpage\u003dlanding_pub)");
-formatter.write("2020-09-21 15:10:29: Screenshot: ");
+formatter.write("2020-10-14 16:47:56: Screenshot: ");
 formatter.embedding("image/png", "embedded0.png");
-formatter.write("2020-09-21 15:10:37: Screenshot: ");
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "the Proband logs in with existing valid credentials",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "ProbandLoginSteps.the_Proband_logs_in_with_existing_valid_credentials()"
+});
+formatter.write("2020-10-14 16:48:00: Screenshot: ");
 formatter.embedding("image/png", "embedded1.png");
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "successfully submits a Study Form",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "COVIDHomePageSteps.successfully_submits_a_Study_Form()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "impersonating a reviewer",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "COVIDHomePageSteps.impersonating_a_reviewer()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the submitted study is displayed and options to Approve or Reject are available",
+  "name": "the Proband is directed to the Clinical Genetics Branch page",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "SubmissionsPageSteps.the_submitted_study_is_displayed_and_options_to_Approve_or_Reject_are_available()"
+  "location": "ProbandLoginSteps.the_Proband_is_directed_to_the_Clinical_Genetics_Branch_page()"
 });
-formatter.write("2020-09-21 15:11:10: Screenshot: ");
-formatter.embedding("image/png", "embedded2.png");
 formatter.result({
   "status": "passed"
 });
