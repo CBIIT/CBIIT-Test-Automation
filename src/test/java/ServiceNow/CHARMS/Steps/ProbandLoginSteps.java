@@ -20,11 +20,7 @@ public class ProbandLoginSteps extends PageInitializer {
 
 	@When("the Proband logs in with existing valid credentials")
 	public void the_Proband_logs_in_with_existing_valid_credentials() {
-		charmsHomePage.loginButton.click();
-		oktaLoginPage.usernameTxtBox.sendKeys("ncitestautomation@gmail.com");
-		oktaLoginPage.nextButton.click();
-		oktaLoginPage.passwordTxtBox.sendKeys("TESTAutomation1990!");
-		CucumberLogUtils.logScreenShot();
+		charmsHomePageImpl.charmsLogin();
 	}
 
 	@Then("the Proband is directed to the Clinical Genetics Branch page")
