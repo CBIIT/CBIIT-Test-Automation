@@ -1,6 +1,8 @@
 package appsCommon;
 
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
+import ServiceNow.CHARMS.Pages.CHARMSHomePage;
+import ServiceNow.CHARMS.Pages.OKTAloginPage;
 import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
 import ServiceNow.COVIDCode.Pages.COVIDCodeLoginPage;
 import ServiceNow.COVIDCode.Pages.EnrollmentQuestionnairePage;
@@ -51,6 +53,8 @@ public class PageInitializer {
 	/** CHARMS instances */
 	protected static CHARMSNativeViewPage charmsNativeViewPage;
 	protected static TestAccountResetImpl testAccountResetImpl;
+	protected static CHARMSHomePage charmsHomePage;
+	protected static OKTAloginPage oktaLoginPage;
 	
 
 	public static void initializeAllPages() {
@@ -74,6 +78,8 @@ public class PageInitializer {
 		charmsNativeViewPage = new CHARMSNativeViewPage();
 		testAccountResetImpl = new TestAccountResetImpl();
 		servicePortalSurveyPage = new ServicePortalSurveyPage();
+		charmsHomePage = new CHARMSHomePage();
+		oktaLoginPage = new OKTAloginPage();
 	}
 
 }
