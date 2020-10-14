@@ -24,7 +24,7 @@ formatter.step({
 formatter.match({
   "location": "ProbandLoginSteps.a_Proband_is_on_the_CHARMS_home_page()"
 });
-formatter.write("2020-10-14 16:47:56: Screenshot: ");
+formatter.write("2020-10-14 16:58:45: Screenshot: ");
 formatter.embedding("image/png", "embedded0.png");
 formatter.result({
   "status": "passed"
@@ -36,7 +36,7 @@ formatter.step({
 formatter.match({
   "location": "ProbandLoginSteps.the_Proband_logs_in_with_existing_valid_credentials()"
 });
-formatter.write("2020-10-14 16:48:00: Screenshot: ");
+formatter.write("2020-10-14 16:58:48: Screenshot: ");
 formatter.embedding("image/png", "embedded1.png");
 formatter.result({
   "status": "passed"
