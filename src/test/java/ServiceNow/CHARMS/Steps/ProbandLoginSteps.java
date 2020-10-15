@@ -8,7 +8,6 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 
-import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -25,6 +24,7 @@ public class ProbandLoginSteps extends PageInitializer {
 	@When("the Proband logs in with existing valid credentials")
 	public void the_Proband_logs_in_with_existing_valid_credentials() {
 		charmsHomePageImpl.charmsLogin();
+		//added
 	}
 	
 	@Then("the {string} page displays")
