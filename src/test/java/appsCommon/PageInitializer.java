@@ -2,6 +2,7 @@ package appsCommon;
 
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
+import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
 import ServiceNow.CHARMS.Pages.OKTAloginPage;
 import ServiceNow.CHARMS.StepsImplementation.CHARMSHomePageImp;
 import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
@@ -57,6 +58,7 @@ public class PageInitializer {
 	protected static CHARMSHomePage charmsHomePage;
 	protected static OKTAloginPage oktaLoginPage;
 	protected static CHARMSHomePageImp charmsHomePageImpl;
+	protected static ClinicalGeneticsBranchPage clinicalGeneticsBranchPage;
 	
 
 	public static void initializeAllPages() {
@@ -83,6 +85,7 @@ public class PageInitializer {
 		charmsHomePage = new CHARMSHomePage();
 		oktaLoginPage = new OKTAloginPage();
 		charmsHomePageImpl = new CHARMSHomePageImp();
+		clinicalGeneticsBranchPage = new ClinicalGeneticsBranchPage();
 	}
 
 }
