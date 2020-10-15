@@ -1,10 +1,14 @@
 package ServiceNow.CHARMS.Steps;
 
+import org.junit.Assert;
+
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 
+import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -22,9 +26,12 @@ public class ProbandLoginSteps extends PageInitializer {
 	public void the_Proband_logs_in_with_existing_valid_credentials() {
 		charmsHomePageImpl.charmsLogin();
 	}
-
-	@Then("the Proband is directed to the Clinical Genetics Branch page")
-	public void the_Proband_is_directed_to_the_Clinical_Genetics_Branch_page() {
+	
+	@Then("the {string} page displays")
+	public void the_page_displays(String clinicalGeneticsBranchText) {
+		Assert.assertTrue(clinicalGeneticsBranchPage.clinicalGeneticsBranchText.getText().contentEquals(clinicalGeneticsBranchText));
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenShot();
 	}
 
 
