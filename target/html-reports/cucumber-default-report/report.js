@@ -10,7 +10,7 @@ formatter.scenario({
   "keyword": "Scenario",
   "tags": [
     {
-      "name": "@Progression"
+      "name": "@Smoke"
     }
   ]
 });
@@ -24,7 +24,7 @@ formatter.step({
 formatter.match({
   "location": "ProbandLoginSteps.a_Proband_is_on_the_CHARMS_home_page()"
 });
-formatter.write("2020-10-14 16:58:45: Screenshot: ");
+formatter.write("2020-10-15 14:35:48: Screenshot: ");
 formatter.embedding("image/png", "embedded0.png");
 formatter.result({
   "status": "passed"
@@ -36,18 +36,22 @@ formatter.step({
 formatter.match({
   "location": "ProbandLoginSteps.the_Proband_logs_in_with_existing_valid_credentials()"
 });
-formatter.write("2020-10-14 16:58:48: Screenshot: ");
+formatter.write("2020-10-15 14:35:51: Screenshot: ");
 formatter.embedding("image/png", "embedded1.png");
+formatter.write("2020-10-15 14:35:54: Screenshot: ");
+formatter.embedding("image/png", "embedded2.png");
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "the Proband is directed to the Clinical Genetics Branch page",
+  "name": "the \"Clinical Genetics Branch\" page displays",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "ProbandLoginSteps.the_Proband_is_directed_to_the_Clinical_Genetics_Branch_page()"
+  "location": "ProbandLoginSteps.the_page_displays(String)"
 });
+formatter.write("2020-10-15 14:35:57: Screenshot: ");
+formatter.embedding("image/png", "embedded3.png");
 formatter.result({
   "status": "passed"
 });

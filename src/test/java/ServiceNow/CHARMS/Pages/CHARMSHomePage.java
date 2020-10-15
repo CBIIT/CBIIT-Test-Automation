@@ -16,6 +16,7 @@ public class CHARMSHomePage extends CommonUtils {
 	/** sample */
 	@FindBy(xpath = "//span[contains(@class,'user-name')]")
 	public WebElement sample2;
+	
 
 	public CHARMSHomePage() {
 

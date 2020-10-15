@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="13.343832">
-<testcase classname="Proband Scenarios" name="Proband LFS Okta Login" time="13.343832">
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="17.827811">
+<testcase classname="Proband Scenarios" name="Proband LFS Okta Login" time="17.827811">
 <system-out><![CDATA[Given a Proband is on the CHARMS home page..................................passed
 When the Proband logs in with existing valid credentials....................passed
-Then the Proband is directed to the Clinical Genetics Branch page...........passed
+Then the "Clinical Genetics Branch" page displays...........................passed
 ]]></system-out>
 </testcase>
 </testsuite>
