@@ -17,6 +17,10 @@ public class ClinicalGeneticsBranchPage extends CommonUtils{
 	@FindBy(xpath = "//div[contains(text(),'Clinical Genetics Branch')]")
 	public WebElement clinicalGeneticsBranchText;
 	
+	/** Screener Button */
+	@FindBy (xpath = "//div[@class='custom-card ng-scope']")
+	public WebElement screenerBtn;
+	
 	
 	
 	
