@@ -1,8 +1,711 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="17.827811">
-<testcase classname="Proband Scenarios" name="Proband LFS Okta Login" time="17.827811">
-<system-out><![CDATA[Given a Proband is on the CHARMS home page..................................passed
-When the Proband logs in with existing valid credentials....................passed
-Then the "Clinical Genetics Branch" page displays...........................passed
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="37" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="38" time="0.026907">
+<testcase classname="Proband Scenarios" name="Proband LFS Okta Login" time="0.003597">
+<system-out><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+Then the "Clinical Genetics Branch" page displays...........................skipped
 ]]></system-out>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data" time="0.001246">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "Female", "04/01/2000", "U.S.A","Burke", "VA" "Hispanic/Latino", "American Indian/Alaskan Native", "Hispanic/Latino", "American Indian/Alaskan Native", "Hispanic/Latino", "American Indian/Alaskan Native".undefined
+And fills out all Contact Information with "7036875816", "1234 Street Address Road", "Burke", "VA", "22015".undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Adrenal gland (adrenocortical carcinoma)", "".undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "BRCA1, BRCA2 (Hereditary Breast and Ovarian Cancer syndrome)", "Positive".undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "Adrenocortical Carcinoma", "Aunt (mom's sister)", "", "USA", "", "", "", "", "", "No".undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "Aunt (mom's sister)", "BRCA1, BRCA2 (Hereditary Breast and Ovarian Cancer syndrome)", "Positive".undefined
+And on the Final Information section selects the following information "Web Search", "No", "No", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 2" time="0.000651">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "Male", "04/02/2000", "","", "" "Not Hispanic/Latino", "Asian", "Not Hispanic/Latino", "Asian", "Not Hispanic/Latino", "Asian".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Breast cancer, Left breast", "".......undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "MLH1, MSH2, MSH6, PMS2, EPCAM (Lynch syndrome)", "Negative".undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "Brain", "Aunt (dad's sister)", "", "", "", "", "", "", "", "Yes".undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "Aunt (dad's sister)", "MLH1, MSH2, MSH6, PMS2, EPCAM (Lynch syndrome)", "Negative".undefined
+And on the Final Information section selects the following information "Genetic Counselor", "Yes", "Don't Know", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 3" time="0.000572">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "Don't Know", "Black/African American", "Don't Know", "Black/African American", "Don't Know", "Black/African American".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Breast cancer, Right breast", ""......undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "TP53 (Li-Fraumeni syndrome)", "Indeterminate".undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "Breast", "Brother (full)", "", "", "", "", "", "", "", "Don't Know".undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "Brother (full)", "TP53 (Li-Fraumeni syndrome)", "Indeterminate".undefined
+And on the Final Information section selects the following information "Physician", "Don't Know", "Not answered", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 4" time="0.00096">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "Not answered", "Native Hawaiian/Other Pacific Islander", "Not answered", "Native Hawaiian/Other Pacific Islander", "Not answered", "Native Hawaiian/Other Pacific Islander".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Brain cancer", "".....................undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "PTEN (PTEN Hamartoma Tumor syndrome, Cowden syndrome)", "A variant of unknown significance".undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "Choroid Plexus Carcinoma", "Brother (half – mom)", "", "", "", "", "", "", "", "".undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "Brother (half – mom)", "PTEN (PTEN Hamartoma Tumor syndrome, Cowden syndrome)", "A variant of unknown significance".undefined
+And on the Final Information section selects the following information "PI", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 5" time="0.000867">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "White", "", "White", "", "White".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Bone cancer, Osteosarcoma", ""........undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "Other genes/syndromes or Unsure", "".undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "Colon", "Brother (half – dad)", "", "", "", "", "", "", "", "".undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "Brother (half – dad)", "Other genes/syndromes or Unsure", "".undefined
+And on the Final Information section selects the following information "Advertisement", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 6" time="0.000528">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Bone cancer, Chrondrosarcoma", "".....undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "Leukemia", "Cousin (mom’s side)", "", "", "", "", "", "", "", "".undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "Cousin (mom’s side)", "", "".undefined
+And on the Final Information section selects the following information "Family Member", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 7" time="0.000926">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Bone cancer, Ewing's sarcoma", "".....undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "Lung", "Cousin (dad’s side)", "", "", "", "", "", "", "", "".undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "Cousin (dad’s side)", "", "".undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 8" time="0.000776">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Soft tissue sarcoma, Rhabdomyosarcoma", "".undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "Lymphoma", "Daughter", "", "", "", "", "", "", "", "".undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "Daughter", "", ""....undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 9" time="0.000853">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Soft tissue sarcoma, Liposarcoma", "".undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "Melanoma", "Father", "", "", "", "", "", "", "", "".undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "Father", "", ""......undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 10" time="0.000856">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Soft tissue sarcoma, Fibrosarcoma", "".undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "Osteosarcoma (bone)", "Granddaughter", "", "", "", "", "", "", "", "".undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "Granddaughter", "", "".undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 11" time="0.000894">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Soft tissue sarcoma, Leiomyosarcoma", "".undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "Ovarian", "Grandfather (mom’s dad)", "", "", "", "", "", "", "", "".undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "Grandfather (mom’s dad)", "", "".undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 12" time="0.00179">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Soft tissue sarcoma, Malignant Fibrous Histiocytoma", "".undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "Prostate", "Grandfather (dad’s dad)", "", "", "", "", "", "", "", "".undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "Grandfather (dad’s dad)", "", "".undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 13" time="0.002027">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Colon or rectal cancer", ""...........undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "Sarcoma", "Grandmother (mom’s mom)", "", "", "", "", "", "", "", "".undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "Grandmother (mom’s mom)", "", "".undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 14" time="0.000777">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Lung or bronchus cancer, Left lung or bronchus", "".undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "Stomach", "Grandmother (dad’s mom)", "", "", "", "", "", "", "", "".undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "Grandmother (dad’s mom)", "", "".undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 15" time="0.000686">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Lung or bronchus cancer, Right lung or bronchus", "".undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "Uterine/Endometrial", "Grandson", "", "", "", "", "", "", "", "".undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "Grandson", "", ""....undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 16" time="0.000586">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Leukemia (blood cancer), AML", "".....undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "Don't Know", "Mother", "", "", "", "", "", "", "", "".undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "Mother", "", ""......undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 17" time="0.00054">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Leukemia (blood cancer), ALL", "".....undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "Other", "Sister (full)", "", "", "", "", "", "", "", "".undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "Sister (full)", "", "".undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 18" time="0.000515">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Leukemia (blood cancer), CML", "".....undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "", "Sister (half – mom)", "", "", "", "", "", "", "", "".undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "Sister (half – mom)", "", "".undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 19" time="0.000455">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Leukemia (blood cancer), CLL", "".....undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "", "Sister (half – dad)", "", "", "", "", "", "", "", "".undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "Sister (half – dad)", "", "".undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 20" time="0.000425">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Other: Bladder (urinary)", "".........undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "", "Son", "", "", "", "", "", "", "", "".undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "Son", "", "".........undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 21" time="0.000316">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Other: Cervix", ""....................undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "", "Uncle (mom's brother)", "", "", "", "", "", "", "", "".undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "Uncle (mom's brother)", "", "".undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 22" time="0.000456">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Other: Choroid plexus carcinoma", ""..undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "", "Uncle (dad’s brother)", "", "", "", "", "", "", "", "".undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "Uncle (dad’s brother)", "", "".undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 23" time="0.000334">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Other: Esophagus", "".................undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "", "Other", "", "", "", "", "", "", "", "".undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "Other", "", "".......undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 24" time="0.000325">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Other: Head,neck,throat", ""..........undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "", "", "", "", "", "", "", "", "", ""...undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "", "", ""............undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 25" time="0.000374">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Other: Hodgkin's lymphoma", ""........undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "", "", "", "", "", "", "", "", "", ""...undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "", "", ""............undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 26" time="0.000411">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Other: Kidney", ""....................undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "", "", "", "", "", "", "", "", "", ""...undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "", "", ""............undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 27" time="0.000484">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Other: Liver", "".....................undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "", "", "", "", "", "", "", "", "", ""...undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "", "", ""............undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 28" time="0.0004">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Other: Non-Hodgkin's lymphoma", ""....undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "", "", "", "", "", "", "", "", "", ""...undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "", "", ""............undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 29" time="0.000407">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Other: Ovary", "".....................undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "", "", "", "", "", "", "", "", "", ""...undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "", "", ""............undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 30" time="0.00036">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Other: Pancreas", ""..................undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "", "", "", "", "", "", "", "", "", ""...undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "", "", ""............undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 31" time="0.000378">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Other: Prostate", ""..................undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "", "", "", "", "", "", "", "", "", ""...undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "", "", ""............undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 32" time="0.000377">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Other: Skin – basal or squamous cell carcinoma", "".undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "", "", "", "", "", "", "", "", "", ""...undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "", "", ""............undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 33" time="0.000439">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Other: Skin – Melanoma", ""...........undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "", "", "", "", "", "", "", "", "", ""...undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "", "", ""............undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 34" time="0.000378">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Other: Stomach (gastric)", "".........undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "", "", "", "", "", "", "", "", "", ""...undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "", "", ""............undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 35" time="0.000346">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Other: Testicular", ""................undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "", "", "", "", "", "", "", "", "", ""...undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "", "", ""............undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 36" time="0.000271">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Other: Thyroid", ""...................undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "", "", "", "", "", "", "", "", "", ""...undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "", "", ""............undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
+</testcase>
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data 37" time="0.000324">
+<failure message="The scenario has pending or undefined step(s)"><![CDATA[Given a Proband is on the CHARMS home page..................................skipped
+When the Proband logs in with existing valid credentials....................skipped
+When the probands selects on screener to submit a screener..................undefined
+And selects "No" to filling questionnaire out for someone else..............undefined
+And fills out all Demographic Information "", "", "","", "" "", "", "", "", "", "".undefined
+And fills out all Contact Information with "", "", "", "", ""...............undefined
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.undefined
+And adds Personal Cancer information "Other: Uterus (endometrial)", ""......undefined
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.undefined
+And adds Personal Genetic Tests information "", ""..........................undefined
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.undefined
+And adds Family Cancer information "", "", "", "", "", "", "", "", "", ""...undefined
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.undefined
+And adds Relatives with Genetic Tests information "", "", "", ""............undefined
+And on the Final Information section selects the following information "", "", "", "<Comments>".undefined
+And Submits the Screener Questionnaire......................................undefined
+]]></failure>
 </testcase>
 </testsuite>
