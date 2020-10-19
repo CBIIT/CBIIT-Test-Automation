@@ -366,7 +366,7 @@ public class CommonUtils extends WebDriverUtils {
 	 * when Select class will not work NOTE: Before using, first you must click on
 	 * the drop down, then store elements in a list
 	 */
-	public static void selectValueFromServiceNowDropDown(List<WebElement> values, String value) {
+	public static void selectValueFromBootStrapDropDown(List<WebElement> values, String value) {
 
 		for (WebElement dropDownValues : values) {
 
