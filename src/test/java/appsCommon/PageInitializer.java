@@ -4,7 +4,8 @@ import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
 import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
 import ServiceNow.CHARMS.Pages.OKTAloginPage;
-import ServiceNow.CHARMS.Steps.ProbandScreenerSubmission;
+import ServiceNow.CHARMS.Pages.ProbandScreenerPage;
+import ServiceNow.CHARMS.Steps.ProbandScreenerSubmissionSteps;
 import ServiceNow.CHARMS.StepsImplementation.CHARMSHomePageImp;
 import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
 import ServiceNow.COVIDCode.Pages.COVIDCodeLoginPage;
@@ -60,7 +61,7 @@ public class PageInitializer {
 	protected static OKTAloginPage oktaLoginPage;
 	protected static CHARMSHomePageImp charmsHomePageImpl;
 	protected static ClinicalGeneticsBranchPage clinicalGeneticsBranchPage;
-	protected static ProbandScreenerSubmission probandScreenerSubmission;
+	protected static ProbandScreenerPage probandScreenerPage;
 	
 
 	public static void initializeAllPages() {
@@ -88,7 +89,7 @@ public class PageInitializer {
 		oktaLoginPage = new OKTAloginPage();
 		charmsHomePageImpl = new CHARMSHomePageImp();
 		clinicalGeneticsBranchPage = new ClinicalGeneticsBranchPage();
-		probandScreenerSubmission = new ProbandScreenerSubmission();
+		probandScreenerPage = new ProbandScreenerPage();
 	}
 
 }
