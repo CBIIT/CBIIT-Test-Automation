@@ -1,27 +1,34 @@
 package ServiceNow.CHARMS.Steps;
 
-import org.junit.Assert;
+
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
 
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.EnvUtils;
-import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
+import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.JavascriptUtils;
 
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class ProbandScreenerSubmission extends PageInitializer {
+public class ProbandScreenerSubmissionSteps extends PageInitializer {
 
 	@When("the probands selects on screener to submit a screener")
 	public void the_probands_selects_on_screener_to_submit_a_screener() {
 		clinicalGeneticsBranchPage.screenerBtn.click();
+		MiscUtils.sleep(2000);
 	}
 
 	@When("selects {string} to filling questionnaire out for someone else")
-	public void selects_to_filling_questionnaire_out_for_someone_else(String string) {
+	public void selects_to_filling_questionnaire_out_for_someone_else(String noOption) {
+		JavascriptUtils.scrollIntoView(probandScreenerPage.areYouFillingOutThisQuestionnaireForSomeoneElseDropDown);
+		probandScreenerPage.areYouFillingOutThisQuestionnaireForSomeoneElseDropDown.click();	
+		List<WebElement> values = probandScreenerPage.areYouFillingOutThisQuestionnaireForSomeoneElseDropDownValues;
+		CommonUtils.selectValueFromBootStrapDropDown(values, noOption);
+		CucumberLogUtils.logScreenShot();
+		probandScreenerPage.saveAndNextBtn.click();
 	}
 
 	@When("fills out all Demographic Information {string}, {string}, {string},{string}, {string} {string}, {string}, {string}, {string}, {string}, {string}")
