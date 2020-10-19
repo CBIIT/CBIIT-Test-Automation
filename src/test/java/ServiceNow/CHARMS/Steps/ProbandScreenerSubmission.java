@@ -15,25 +15,6 @@ import cucumber.api.java.en.When;
 
 public class ProbandScreenerSubmission extends PageInitializer {
 
-	@Given("a Proband is on the CHARMS home page")
-	public void a_Proband_is_on_the_CHARMS_home_page() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CHARMS"));
-		CucumberLogUtils.logScreenShot();
-	}
-
-	@When("the Proband logs in with existing valid credentials")
-	public void the_Proband_logs_in_with_existing_valid_credentials() {
-		charmsHomePageImpl.charmsLogin();
-	}
-
-	@Then("the {string} page displays")
-	public void the_page_displays(String clinicalGeneticsBranchText) {
-		Assert.assertTrue(clinicalGeneticsBranchPage.clinicalGeneticsBranchText.getText()
-				.contentEquals(clinicalGeneticsBranchText));
-		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
-	}
-
 	@When("the probands selects on screener to submit a screener")
 	public void the_probands_selects_on_screener_to_submit_a_screener() {
 		clinicalGeneticsBranchPage.screenerBtn.click();
