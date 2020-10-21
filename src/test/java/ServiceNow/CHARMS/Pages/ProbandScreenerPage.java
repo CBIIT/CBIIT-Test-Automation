@@ -62,6 +62,10 @@ public class ProbandScreenerPage extends CommonUtils {
 	/** Proband's Race Drop Down */
 	@FindBy(xpath = "//input[@autocomplete='sp_formfield_participate_race']")
 	public WebElement probandsRaceDropDown;
+	
+	/** Probands race drop down clear button*/
+	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[3]/div/div[1]/div/div/div[2]/div[2]/div/sp-variable-layout/fieldset/div[2]/div/div[10]/div/span/div/ul/li[1]/a")
+	public WebElement probandsRaceClear;
 
 	/** Proband's Race */
 	@FindBy(xpath = "//div[@class='select2-result-label']")
@@ -78,6 +82,10 @@ public class ProbandScreenerPage extends CommonUtils {
 	/** Biological Mother's Race Drop Down */
 	@FindBy(xpath = "//div[@id='s2id_sp_formfield_biological_mother_s_race']")
 	public WebElement biologicalMothersRaceDropDown;
+	
+	/**biological mothers race drop down clear button*/
+	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[3]/div/div[1]/div/div/div[2]/div[2]/div/sp-variable-layout/fieldset/div[2]/div/div[12]/div/span/div/ul/li[1]/a")
+	public WebElement motherRaceClear;
 
 	/** Biological Mother's Race Drop Down Values */
 	@FindBy(xpath = "//li[@role='presentation']")
@@ -94,6 +102,10 @@ public class ProbandScreenerPage extends CommonUtils {
 	/** Biological Father's Race Drop Down */
 	@FindBy(xpath = "//div[@id='s2id_sp_formfield_biological_father_s_race']")
 	public WebElement biologicalFathersRaceDropDown;
+	
+	/**biological fathers race drop down clear button*/
+	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[3]/div/div[1]/div/div/div[2]/div[2]/div/sp-variable-layout/fieldset/div[2]/div/div[14]/div/span/div/ul/li[1]/a")
+	public WebElement fatherRaceClear;
 
 	/** Biological Father's Race Drop Down Values */
 	@FindBy(xpath = "//li[@role='presentation']")
@@ -102,6 +114,8 @@ public class ProbandScreenerPage extends CommonUtils {
 	/** Demographic Information Save and Next Button */
 	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[3]/div/div[2]/button[2]")
 	public WebElement demographicSaveAndNextBtn;
+	
+	/**=======================*/
 	
 	/**Contact Information Phone Number*/
 	@FindBy (xpath = "//input[@id='sp_formfield_phone_number']")
@@ -124,7 +138,7 @@ public class ProbandScreenerPage extends CommonUtils {
 	public WebElement probandsZipCode;
 	
 	/**Contact Information Save and Next Button*/
-	@FindBy (xpath = "//button[@ng-click='saveNext(c.forms.LFS21)']")
+	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[4]/div/div[2]/button[2]")
 	public WebElement contactInfoSaveAndNextBtn;
 	
 	/**Has a physician ever diagnosed the research participant with cancer?*/
@@ -224,19 +238,140 @@ public class ProbandScreenerPage extends CommonUtils {
 	public List<WebElement> familyCancerTypeOrSiteValues;
 	
 	/**Relationship To Research Participant drop down*/
-	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[7]/div[2]/div/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[2]/div/sp-variable-layout/fieldset[1]/div[2]/div/div[1]/div/span/div")
+	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[7]/div[2]/div/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[2]/div/sp-variable-layout/fieldset[1]/div[2]/div/div[3]/div/span/div")
 	public WebElement relationshipToResearchParticipant;
 	
 	/**Relationship To Research Participant drop down values*/
-	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[7]/div[2]/div/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[2]/div/sp-variable-layout/fieldset[1]/div[2]/div/div[1]/div/span/div")
+	@FindBy (xpath = "//li[@role='presentation']")
 	public List<WebElement> relationshipToResearchParticipantValues;
 	
 	/**Name of Hospital Where Diagnosed*/
 	@FindBy (xpath = "//input[@id='sp_formfield_relative_hosiptal_diagnosed']")
 	public WebElement nameOfHospitalWhereDiagnosed;
 	
+	/**Hospital Country Drop Down*/
+	@FindBy (xpath = "//div[@id='s2id_sp_formfield_relative_hospital_country']")
+	public WebElement hospitalCountryDropDown;
 	
+	/**Hospital Country Drop Down Values*/
+	@FindBy (xpath = "//li[@role='presentation']")
+	public List<WebElement> hospitalCountryDropDownValues;
 	
+	/**Hospital City */
+	@FindBy (xpath = "//input[@id='sp_formfield_relative_hospital_city']")
+	public WebElement hospitalCity;
+	
+	/**Hospital State */
+	@FindBy (xpath = "//input[@id='sp_formfield_relative_hospital_state']")
+	public WebElement hospitalState;
+	
+	/**Relative's Name*/
+	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[7]/div[2]/div/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[2]/div/sp-variable-layout/fieldset[3]/div/div[1]/div/div/span/span[2]/input")
+	public WebElement relativesName;
+	
+	/**Relative's Date of Birth*/
+	@FindBy (xpath = "//input[@id='sp_formfield_date_of_birth']")
+	public WebElement relativesDOB;
+	
+	/**Relative's Age (in  Years) when they were  diagnosed*/
+	@FindBy (xpath = "//input[@id='sp_formfield_age_at_diagnosis']")
+	public WebElement relativesAgeOfDiagonsis;
+	
+	/**Is Relative Alive? Drop Down*/
+	@FindBy (xpath ="//div[@id='s2id_sp_formfield_is_this_relative_alive']")
+	public WebElement isThisRelativeAliveDropDown;
+	
+	/**Is Relative Alive? Drop Down Values*/
+	@FindBy (xpath ="//li[@role='presentation']")
+	public List<WebElement> isThisRelativeAliveDropDownValues;
+	
+	/**Family Members Cancer History Save Button*/
+	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[7]/div[2]/div/div[2]/div/div/div[3]/button[1]")
+	public WebElement newFamilyMemberInformationSaveBtn;
+	
+	/**Family Member Cancer's History Save & Next Button*/
+	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[7]/div[1]/div[2]/button[2]")
+	public WebElement familyMembersCancerHistorySaveAndNext;
+	
+	/**Have any relatives been genetically tested for inherited cancer syndromes? Drop Down*/
+	@FindBy (xpath = "//div[@id='s2id_sp_formfield_relatives_had_genetic_testing']")
+	public WebElement haveAnyRelativesBeenGeneticallyTestedForInheritedCancerSyndromesDropDown;
+	
+	/**Have any relatives been genetically tested for inherited cancer syndromes? Drop Down Values*/
+	@FindBy (xpath = "//li[@role='presentation']")
+	public List<WebElement> haveAnyRelativesBeenGeneticallyTestedForInheritedCancerSyndromesDropDownValues;
+	
+	/**New Family Relative Information button*/
+	@FindBy (xpath = "//button[contains(text(),'New Family Relative Information')]")
+	public WebElement newFamilyRelativeInformationBtn;
+	
+	/**Relative's Name textbox*/
+	@FindBy (xpath  = "//input[@id='sp_formfield_relative_name']")
+	public WebElement anotherRelativesName;
+	
+	/**Relationship to research participant drop down*/
+	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[8]/div[2]/div/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[2]/div/sp-variable-layout/fieldset/div[2]/div/div[2]/div/span/div")
+	public WebElement anotherRelativesRelationshipToResearchParticipant;
+	
+	/**Relationship to research participant drop down values*/
+	@FindBy (xpath = "//li[@role='presentation']")
+	public List<WebElement> anotherRelativesRelationshipToResearchParticipantValues;
+	
+	/**Genes/Hereditary Cancer Syndromes With Positive Results drop down*/
+	@FindBy (xpath = "//div[@id='s2id_sp_formfield_genes_hereditary_cancer_syndromes']")
+	public WebElement genesHereditaryCancerSyndromeWithPositiveResults;
+	
+	/**Genes/Hereditary Cancer Syndromes With Positive Results Values drop down values*/
+	@FindBy (xpath = "//li[@role='presentation']")
+	public List<WebElement> genesHereditaryCancerSyndromeWithPositiveResultsValues;
+	
+	/**Test Results for additional family member drop down*/
+	@FindBy (xpath = "//div[@id='s2id_sp_formfield_relative_test_result']")
+	public WebElement additionalFamilyMemberTestResultDropDown;
+	
+	/**Test Results for additional family member drop down Values*/
+	@FindBy (xpath = "//li[@role='presentation']")
+	public List<WebElement> additionalFamilyMemberTestResultDropDownValues;
+	
+	/**Save button for the family member genetics*/
+	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[8]/div[2]/div/div[2]/div/div/div[3]/button[1]")
+	public WebElement additionalFamilyMemberGeneticsSaveBtn;
+	
+	/**Family Members' Genetic Tests Save and Next Button*/
+	@FindBy (xpath =  "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[8]/div[1]/div[2]/button[2]")
+	public WebElement familyMembersGeneticTestsSaveAndNextBtn;
+	
+	/**How did you hear about this study? drop down*/
+	@FindBy (xpath = "//div[@id='s2id_sp_formfield_hear_about_this_study']")
+	public WebElement howDidyouHearAboutThisStudy;
+	
+	/**How did you hear about this study? drop down value*/
+	@FindBy (xpath = "//li[@role='presentation']")
+	public List<WebElement> howDidyouHearAboutThisStudyValues;
+	
+	/**Has the research participant or any family member participated in any LFS study? drop down*/
+	@FindBy (xpath = "//div[@id='s2id_sp_formfield_participated_through_another_institution']")
+	public WebElement hasTheResearchParticipantOrAnyFamilyMemberParticipatedInAnyLFSStudy;
+	
+	/**Has the research participant or any family member participated in any LFS study? drop down Values*/
+	@FindBy (xpath = "//li[@role='presentation']")
+	public List<WebElement> hasTheResearchParticipantOrAnyFamilyMemberParticipatedInAnyLFSStudyValues;
+			
+	/**Are any relatives currently receiving cancer care or follow-up? drop down*/
+	@FindBy (xpath = "//div[@id='s2id_sp_formfield_received_cancer_care']")
+	public WebElement areAnyRelativesCurrentlyReceivingCancerCareOrFollowUp;
+	
+	/**Are any relatives currently receiving cancer care or follow-up? drop down values*/
+	@FindBy (xpath = "//li[@role='presentation']")
+	public List<WebElement> areAnyRelativesCurrentlyReceivingCancerCareOrFollowUpValues;
+	
+	/**Comments area on Final Information Section*/
+	@FindBy (xpath = "//textarea[@id='sp_formfield_comments']")
+	public WebElement commentTxtBox;
+	
+	/**Final Information Submit Button*/
+	@FindBy (xpath = "//button[contains(text(),'SUBMIT')]")
+	public WebElement screenerSubmitBtn;
 
 	public ProbandScreenerPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
