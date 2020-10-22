@@ -25,7 +25,7 @@ public class ProbandScreenerPage extends CommonUtils {
 
 	/** Biological Sex Drop Down */
 	@FindBy(xpath = "//span[@id='select2-chosen-5']")
-	public WebElement biologicalSex;
+	public WebElement biologicalSexDropDown;
 
 	/** Biological Sex Values */
 	@FindBy(xpath = "//div[@class='select2-result-label']")
@@ -37,7 +37,7 @@ public class ProbandScreenerPage extends CommonUtils {
 
 	/** Country of Birth Drop Down */
 	@FindBy(xpath = "//div[@id='s2id_sp_formfield_country_of_birth']")
-	public WebElement countryOfBirth;
+	public WebElement countryOfBirthDropDown;
 
 	/** Country of Birth Drop Down Values */
 	@FindBy(xpath = "//div[@class='select2-result-label']")
@@ -53,7 +53,7 @@ public class ProbandScreenerPage extends CommonUtils {
 
 	/** Demographic Ethnicity Drop Down */
 	@FindBy(xpath = "//div[@id='s2id_sp_formfield_race_ethnicity']")
-	public WebElement ethnicityDropDown;
+	public WebElement probandsEthnicityDropDown;
 
 	/** Demographic Ethnicity Drop Down Values */
 	@FindBy(xpath = "//li[@role='presentation']")
@@ -143,7 +143,7 @@ public class ProbandScreenerPage extends CommonUtils {
 	
 	/**Has a physician ever diagnosed the research participant with cancer?*/
 	@FindBy (xpath = "//div[@id='s2id_sp_formfield_diagnosed_with_cancer']")
-	public WebElement hasAPhysicianEverDiagnosedTheResearchParticipantWithCancer;
+	public WebElement hasAPhysicianEverDiagnosedTheResearchParticipantWithCancerDropDown;
 	
 	/**Has a physician ever diagnosed the research participant with cancer? Values*/
 	@FindBy (xpath = "//li[@role='presentation']")
@@ -195,7 +195,7 @@ public class ProbandScreenerPage extends CommonUtils {
 	
 	/**TestedGenes/Hereditary Cancer Syndromes*/
 	@FindBy (xpath = "//div[@id='s2id_sp_formfield_tested_genes_syndromes']")
-	public WebElement testGenesHereditaryCancerSyndromes;
+	public WebElement testGenesHereditaryCancerSyndromesDropDown;
 	
 	/**TestedGenes/Hereditary Cancer Syndromes Values*/
 	@FindBy (xpath = "//li[@role='presentation']")
@@ -207,7 +207,7 @@ public class ProbandScreenerPage extends CommonUtils {
 	
 	/**Test Results values*/
 	@FindBy (xpath = "//li[@role='presentation']")
-	public List<WebElement> testResultsValues;
+	public List<WebElement> testResultsDropDownValues;
 	
 	/**Test Genetics Save Button*/
 	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[6]/div[2]/div/div/div[4]/div/div/div[2]/div[3]/button[1]")
@@ -219,7 +219,7 @@ public class ProbandScreenerPage extends CommonUtils {
 	
 	/**Have any biological relatives been diagnosed with cancer? Drop Down*/
 	@FindBy (xpath = "//div[@id='s2id_sp_formfield_biological_relatives_diagnosed']")
-	public WebElement haveAnyBiologicalRelativesBeenDiagnosedWithCancer;
+	public WebElement haveAnyBiologicalRelativesBeenDiagnosedWithCancerDropDown;
 	
 	/**Have any biological relatives been diagnosed with cancer? Drop Down Values*/
 	@FindBy (xpath = "//li[@role='presentation']")
@@ -231,15 +231,15 @@ public class ProbandScreenerPage extends CommonUtils {
 	
 	/** Cancer Type or site Drop down*/
 	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[7]/div[2]/div/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[2]/div/sp-variable-layout/fieldset[1]/div[2]/div/div[1]/div/span/div")
-	public WebElement familyCancerTypeOrSite;
+	public WebElement familyCancerTypeOrSiteDropDown;
 	
 	/** Cancer Type or site Drop down values*/
 	@FindBy (xpath = "//li[@role='presentation']")
-	public List<WebElement> familyCancerTypeOrSiteValues;
+	public List<WebElement> familyCancerTypeOrSiteDropDownValues;
 	
 	/**Relationship To Research Participant drop down*/
 	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[7]/div[2]/div/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[2]/div/sp-variable-layout/fieldset[1]/div[2]/div/div[3]/div/span/div")
-	public WebElement relationshipToResearchParticipant;
+	public WebElement relationshipToResearchParticipantDropDown;
 	
 	/**Relationship To Research Participant drop down values*/
 	@FindBy (xpath = "//li[@role='presentation']")
@@ -311,7 +311,7 @@ public class ProbandScreenerPage extends CommonUtils {
 	
 	/**Relationship to research participant drop down*/
 	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[8]/div[2]/div/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[2]/div/sp-variable-layout/fieldset/div[2]/div/div[2]/div/span/div")
-	public WebElement anotherRelativesRelationshipToResearchParticipant;
+	public WebElement anotherRelativesRelationshipToResearchParticipantDropDown;
 	
 	/**Relationship to research participant drop down values*/
 	@FindBy (xpath = "//li[@role='presentation']")
@@ -319,11 +319,11 @@ public class ProbandScreenerPage extends CommonUtils {
 	
 	/**Genes/Hereditary Cancer Syndromes With Positive Results drop down*/
 	@FindBy (xpath = "//div[@id='s2id_sp_formfield_genes_hereditary_cancer_syndromes']")
-	public WebElement genesHereditaryCancerSyndromeWithPositiveResults;
+	public WebElement genesHereditaryCancerSyndromeWithPositiveResultsDropDown;
 	
 	/**Genes/Hereditary Cancer Syndromes With Positive Results Values drop down values*/
 	@FindBy (xpath = "//li[@role='presentation']")
-	public List<WebElement> genesHereditaryCancerSyndromeWithPositiveResultsValues;
+	public List<WebElement> genesHereditaryCancerSyndromeWithPositiveResultsDropDownValues;
 	
 	/**Test Results for additional family member drop down*/
 	@FindBy (xpath = "//div[@id='s2id_sp_formfield_relative_test_result']")
@@ -343,27 +343,27 @@ public class ProbandScreenerPage extends CommonUtils {
 	
 	/**How did you hear about this study? drop down*/
 	@FindBy (xpath = "//div[@id='s2id_sp_formfield_hear_about_this_study']")
-	public WebElement howDidyouHearAboutThisStudy;
+	public WebElement howDidyouHearAboutThisStudyDropDown;
 	
 	/**How did you hear about this study? drop down value*/
 	@FindBy (xpath = "//li[@role='presentation']")
-	public List<WebElement> howDidyouHearAboutThisStudyValues;
+	public List<WebElement> howDidyouHearAboutThisStudyDropDownValues;
 	
 	/**Has the research participant or any family member participated in any LFS study? drop down*/
 	@FindBy (xpath = "//div[@id='s2id_sp_formfield_participated_through_another_institution']")
-	public WebElement hasTheResearchParticipantOrAnyFamilyMemberParticipatedInAnyLFSStudy;
+	public WebElement hasTheResearchParticipantOrAnyFamilyMemberParticipatedInAnyLFSStudyDropDown;
 	
 	/**Has the research participant or any family member participated in any LFS study? drop down Values*/
 	@FindBy (xpath = "//li[@role='presentation']")
-	public List<WebElement> hasTheResearchParticipantOrAnyFamilyMemberParticipatedInAnyLFSStudyValues;
+	public List<WebElement> hasTheResearchParticipantOrAnyFamilyMemberParticipatedInAnyLFSStudyDropDownValues;
 			
 	/**Are any relatives currently receiving cancer care or follow-up? drop down*/
 	@FindBy (xpath = "//div[@id='s2id_sp_formfield_received_cancer_care']")
-	public WebElement areAnyRelativesCurrentlyReceivingCancerCareOrFollowUp;
+	public WebElement areAnyRelativesCurrentlyReceivingCancerCareOrFollowUpDropDown;
 	
 	/**Are any relatives currently receiving cancer care or follow-up? drop down values*/
 	@FindBy (xpath = "//li[@role='presentation']")
-	public List<WebElement> areAnyRelativesCurrentlyReceivingCancerCareOrFollowUpValues;
+	public List<WebElement> areAnyRelativesCurrentlyReceivingCancerCareOrFollowUpDropDownValues;
 	
 	/**Comments area on Final Information Section*/
 	@FindBy (xpath = "//textarea[@id='sp_formfield_comments']")
