@@ -555,4 +555,17 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 		MiscUtils.sleep(500);
 		CucumberLogUtils.logScreenShot();
 	}
+	
+	public  void submitTheScreener() {
+		/*
+		 *  This  method clicks on the  Submit  button on the Final Information Page
+		 */
+		probandScreenerPage.screenerSubmitBtn.click();
+		
+		/*
+		 * This method  waits for the "Are you ready to submit this form?" warning and selects "OK"
+		 */
+		MiscUtils.sleep(2000);
+		JavascriptUtils.clickByJS(probandScreenerPage.confirmScreenerSubmissionBtn);
+	}
 }
