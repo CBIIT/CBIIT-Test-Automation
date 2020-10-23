@@ -5,30 +5,26 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 
 import com.nci.automation.utils.MiscUtils;
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
-
 
 import appsCommon.PageInitializer;
 
-public class ServicePortalEQPageImpl extends PageInitializer{
+public class ServicePortalEQPageImpl extends PageInitializer {
 	public static ServicePortalEQPageImpl obj = new ServicePortalEQPageImpl();
-	
+
 	public static void group1EQSubmissionWithoutDiseaseCourseAndRiskFactorsInfo(String groupUserID, String consent) {
 		obj.groupUserAndConsent(groupUserID, consent);
 		obj.requiredDemographicsInfo();
 		obj.submittingEQ();
 	}
-	
+
 	public void groupUserAndConsent(String groupUserID, String consent) {
 
 		covidCodeEQPage.userGroupIdDropdown.click();
 		List<WebElement> groupIDs = covidCodeEQPage.dropDownValues;
-		for (WebElement element : groupIDs) {
-			if (element.getText().contains(groupUserID)) {
-				element.click();
-				break;
-			}
-		}
+		CommonUtils.selectValueFromBootStrapDropDown(groupIDs, groupUserID);
+
 		// scrolling down page
 		JavascriptUtils.scrollDown(700);
 		covidCodeEQPage.consentDropdown.click();
@@ -120,6 +116,5 @@ public class ServicePortalEQPageImpl extends PageInitializer{
 		MiscUtils.sleep(2000);
 		covidCodeEQPage.YesButton.click();
 	}
-
 
 }
