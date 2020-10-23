@@ -122,9 +122,8 @@ public class ProbandScreenerSubmissionSteps extends PageInitializer {
 
 	@When("Submits the Screener Questionnaire")
 	public void submits_the_Screener_Questionnaire() {
-		/** Submitting screener */
-		probandScreenerPage.screenerSubmitBtn.click();
-		MiscUtils.sleep(500);
+		probandScreenerSubmissionImpl.submitTheScreener();
+		
 	}
 
 }
