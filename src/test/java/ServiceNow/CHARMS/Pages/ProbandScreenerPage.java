@@ -372,6 +372,10 @@ public class ProbandScreenerPage extends CommonUtils {
 	/**Final Information Submit Button*/
 	@FindBy (xpath = "//button[contains(text(),'SUBMIT')]")
 	public WebElement screenerSubmitBtn;
+	
+	/**Confirms your intent  to submit screener  form*/
+	@FindBy (xpath = "//button[contains(text(),'OK')]")
+	public  WebElement  confirmScreenerSubmissionBtn;
 
 	public ProbandScreenerPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
