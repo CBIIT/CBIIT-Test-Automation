@@ -5,20 +5,21 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 
 import com.nci.automation.utils.MiscUtils;
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 
-
+import ServiceNow.COVIDCode.Pages.EnrollmentQuestionnairePage;
 import appsCommon.PageInitializer;
 
-public class ServicePortalEQPageImpl extends PageInitializer{
+public class ServicePortalEQPageImpl extends PageInitializer {
 	public static ServicePortalEQPageImpl obj = new ServicePortalEQPageImpl();
-	
+
 	public static void group1EQSubmissionWithoutDiseaseCourseAndRiskFactorsInfo(String groupUserID, String consent) {
 		obj.groupUserAndConsent(groupUserID, consent);
 		obj.requiredDemographicsInfo();
 		obj.submittingEQ();
 	}
-	
+
 	public void groupUserAndConsent(String groupUserID, String consent) {
 
 		covidCodeEQPage.userGroupIdDropdown.click();
@@ -105,10 +106,28 @@ public class ServicePortalEQPageImpl extends PageInitializer{
 		}
 		covidCodeEQPage.feetTextBox.sendKeys("5");
 		covidCodeEQPage.inchesTextBox.sendKeys("10");
+		/*
+		 * covidCodeEQPage.whenOfficiallyDiagnosed.sendKeys("Aug 05, 2020");
+		 */
+		
+		/*
+		 * Clicks on the "Were you symptomatic" drop down
+		 */
+		covidCodeEQPage.wereYouSymptomaticDropdown.click();
+
+		/*
+		 * Selects yes value from "Were you symptomatic" drop down We can pass parameter
+		 * when selecting yes or no options later
+		 */
+		CommonUtils.selectValueFromBootStrapDropDown(covidCodeEQPage.wereYouSymptomaticDropdownValues, "Yes");
 		// selectDateByJS(EQPage.whenDevelopSymptoms, "04-01-2020");
-		covidCodeEQPage.whenDevelopSymptoms.sendKeys("Aug 01, 2020");
+		JavascriptUtils.selectDateByJS(covidCodeEQPage.whenDevelopSymptoms, "04-01-2020");
+		/*
+		 * covidCodeEQPage.whenDevelopSymptoms.sendKeys("Aug 01, 2020");
+		 */
 		// selectDateByJS(EQPage.whenOfficiallyDiagnosed, "04-04-2020");
-		covidCodeEQPage.whenOfficiallyDiagnosed.sendKeys("Aug 05, 2020");
+		JavascriptUtils.selectDateByJS(covidCodeEQPage.whenOfficiallyDiagnosed, "04-04-2020");
+		
 	}
 
 	/**
@@ -120,6 +139,5 @@ public class ServicePortalEQPageImpl extends PageInitializer{
 		MiscUtils.sleep(2000);
 		covidCodeEQPage.YesButton.click();
 	}
-
 
 }
