@@ -78,8 +78,10 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.areYouHispaniceOrLatinoDropDown, "No");
 		CucumberLogUtils.logScreenShot();
 		nativeViewEnrollmentViewPage.symptomologyTab.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.logScreenShot();		
+		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.wereYouSymptomaticDropDown, "Yes");
 		nativeViewEnrollmentViewPage.whenFirstDevelopSymptomsField.sendKeys("04-01-2020");
+		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.howWasTheSampleTakenDropDown, "Nasal or throat swab");	
 		nativeViewEnrollmentViewPage.dateOfficiallyDiagnosed.sendKeys("04-09-2020");
 		CucumberLogUtils.logScreenShot();
 		nativeViewEnrollmentViewPage.exposuredAndRiskFactorsTab.click();

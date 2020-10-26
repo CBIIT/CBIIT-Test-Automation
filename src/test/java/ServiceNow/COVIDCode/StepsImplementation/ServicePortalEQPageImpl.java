@@ -8,7 +8,7 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 
-import ServiceNow.COVIDCode.Pages.EnrollmentQuestionnairePage;
+
 import appsCommon.PageInitializer;
 
 public class ServicePortalEQPageImpl extends PageInitializer {
@@ -24,12 +24,8 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 
 		covidCodeEQPage.userGroupIdDropdown.click();
 		List<WebElement> groupIDs = covidCodeEQPage.dropDownValues;
-		for (WebElement element : groupIDs) {
-			if (element.getText().contains(groupUserID)) {
-				element.click();
-				break;
-			}
-		}
+		CommonUtils.selectValueFromBootStrapDropDown(groupIDs, groupUserID);
+
 		// scrolling down page
 		JavascriptUtils.scrollDown(700);
 		covidCodeEQPage.consentDropdown.click();
