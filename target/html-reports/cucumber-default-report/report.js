@@ -24,11 +24,11 @@ formatter.step({
 formatter.match({
   "location": "ServicePortalEQSubmissionsSteps.a_COVIDcode_Study_Provider_user_has_logged_in_to_the_COVIDcode_Study_application()"
 });
-formatter.write("2020-10-23 18:31:46: Screenshot: ");
+formatter.write("2020-10-26 02:04:40: Screenshot: ");
 formatter.embedding("image/png", "embedded0.png");
-formatter.write("2020-10-23 18:31:48: Screenshot: ");
+formatter.write("2020-10-26 02:04:41: Screenshot: ");
 formatter.embedding("image/png", "embedded1.png");
-formatter.write("2020-10-23 18:31:51: Screenshot: ");
+formatter.write("2020-10-26 02:04:47: Screenshot: ");
 formatter.embedding("image/png", "embedded2.png");
 formatter.result({
   "status": "passed"

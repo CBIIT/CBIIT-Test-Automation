@@ -104,6 +104,14 @@ public class NativeViewEnrollmentViewPage extends CommonUtils {
 	/** When did you first develop symptoms of COVID-19? field */
 	@FindBy(id = "x_g_nci_geco_covid_geco_covid_19_enrollment.date_first_symptoms")
 	public WebElement whenFirstDevelopSymptomsField;
+	
+	/** How was the sample taken? drop down */
+	@FindBy (id = "x_g_nci_geco_covid_geco_covid_19_enrollment.how_was_the_sample_taken")
+	public WebElement howWasTheSampleTakenDropDown;
+	
+	/** Were you symptomatic? drop down */
+	@FindBy(id = "x_g_nci_geco_covid_geco_covid_19_enrollment.symptomatic")
+	public WebElement wereYouSymptomaticDropDown;
 
 	/** When where you officially diagnosed with COVID-19? field */
 	@FindBy(id = "x_g_nci_geco_covid_geco_covid_19_enrollment.date_official_diagnosis")
