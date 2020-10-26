@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="50.931307">
-<testcase classname="COVID19 Dashboard Scenarios" name="Verifying Study Form Submission as a Reviewer" time="50.931307">
-<system-out><![CDATA[Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application.passed
-And successfully submits a Study Form.......................................passed
-When impersonating a reviewer...............................................passed
-Then the submitted study is displayed and options to Approve or Reject are available.passed
-]]></system-out>
-</testcase>
-</testsuite>
