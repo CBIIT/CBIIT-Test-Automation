@@ -56,7 +56,7 @@
 	<!-- Application ID for CHARMS -->
 	<application id="CHARMS">
 
-		<login_url>https://service-test.nci.nih.gov/ncisp</login_url><!-- add test 
+		<login_url>https://service-test.nci.nih.gov/charms</login_url><!-- add test 
 			url -->
 
 		<role name="Role">
