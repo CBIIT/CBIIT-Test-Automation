@@ -1,6 +1,13 @@
 package appsCommon;
 
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
+import ServiceNow.CHARMS.Pages.CHARMSHomePage;
+import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
+import ServiceNow.CHARMS.Pages.OKTAloginPage;
+import ServiceNow.CHARMS.Pages.ProbandScreenerPage;
+import ServiceNow.CHARMS.Steps.ProbandScreenerSubmissionSteps;
+import ServiceNow.CHARMS.StepsImplementation.CHARMSHomePageImp;
+import ServiceNow.CHARMS.StepsImplementation.ProbandScreenerSubmissionImpl;
 import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
 import ServiceNow.COVIDCode.Pages.COVIDCodeLoginPage;
 import ServiceNow.COVIDCode.Pages.EnrollmentQuestionnairePage;
@@ -51,6 +58,12 @@ public class PageInitializer {
 	/** CHARMS instances */
 	protected static CHARMSNativeViewPage charmsNativeViewPage;
 	protected static TestAccountResetImpl testAccountResetImpl;
+	protected static CHARMSHomePage charmsHomePage;
+	protected static OKTAloginPage oktaLoginPage;
+	protected static CHARMSHomePageImp charmsHomePageImpl;
+	protected static ClinicalGeneticsBranchPage clinicalGeneticsBranchPage;
+	protected static ProbandScreenerPage probandScreenerPage;
+	protected static ProbandScreenerSubmissionImpl probandScreenerSubmissionImpl;
 	
 
 	public static void initializeAllPages() {
@@ -74,6 +87,12 @@ public class PageInitializer {
 		charmsNativeViewPage = new CHARMSNativeViewPage();
 		testAccountResetImpl = new TestAccountResetImpl();
 		servicePortalSurveyPage = new ServicePortalSurveyPage();
+		charmsHomePage = new CHARMSHomePage();
+		oktaLoginPage = new OKTAloginPage();
+		charmsHomePageImpl = new CHARMSHomePageImp();
+		clinicalGeneticsBranchPage = new ClinicalGeneticsBranchPage();
+		probandScreenerPage = new ProbandScreenerPage();
+		probandScreenerSubmissionImpl = new ProbandScreenerSubmissionImpl();
 	}
 
 }
