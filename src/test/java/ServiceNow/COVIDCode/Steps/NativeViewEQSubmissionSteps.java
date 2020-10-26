@@ -49,7 +49,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		nativeViewEnrollementsPage.newButton.click();
 		CucumberLogUtils.logScreenShot();
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.userGroupIDDropDown, group);
-		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.hostHospitalCodeDropDown, "HCC");
+		//CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.hostHospitalCodeDropDown, "HCC");
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.consentDropDown, consent);
 		nativeViewEnrollmentViewPage.patientLastNameField.sendKeys("AutomatedLN");
 		nativeViewEnrollmentViewPage.patientFirstName.sendKeys("AutomatedFN");
@@ -68,14 +68,23 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 			throws InterruptedException {
 		nativeViewEnrollmentViewPage.dateFormCompletedField.sendKeys("04-01-2020");
 		nativeViewEnrollmentViewPage.whatIsYourDateOfBirthField.sendKeys("04-01-1990");
+		JavascriptUtils.scrollIntoView(nativeViewEnrollmentViewPage.whatIsYourBioSexDropDown);
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.whatIsYourBioSexDropDown, "Female");
+		MiscUtils.sleep(2000);
+		JavascriptUtils.scrollIntoView(nativeViewEnrollmentViewPage.whatIsYourCurrentHeightDropDown);
+		MiscUtils.sleep(500);
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.whatIsYourCurrentHeightDropDown, "Foot/Inches");
+		MiscUtils.sleep(500);
 		nativeViewEnrollmentViewPage.heightField.sendKeys("5");
 		nativeViewEnrollmentViewPage.heightInches.sendKeys("10");
+		MiscUtils.sleep(2000);
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.currentWeightDropDown, "Pounds");
+		MiscUtils.sleep(500);
 		nativeViewEnrollmentViewPage.weightField.sendKeys("200");
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.howWouldYouDescribeYourRaceDropDown, "Asian");
+		MiscUtils.sleep(500);
 		CommonUtils.selectDropDownValue(nativeViewEnrollmentViewPage.areYouHispaniceOrLatinoDropDown, "No");
+		MiscUtils.sleep(500);
 		CucumberLogUtils.logScreenShot();
 		nativeViewEnrollmentViewPage.symptomologyTab.click();
 		CucumberLogUtils.logScreenShot();		
