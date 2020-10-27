@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="29.76049">
 <testcase classname="Service Portal Enrollment Questionnaire Submissions" name="COVIDcode Study Provider Enrollment Questionnaire Submission Group 1 User" time="29.76049">
 <system-out><![CDATA[Given a COVIDcode Study Provider user has logged in to the COVIDcode Study application.passed
@@ -9,3 +10,5 @@ Then the enrollment questionnaire should be successfully submitted..........pass
 ]]></system-out>
 </testcase>
 </testsuite>
+=======
+>>>>>>> bb60f540c677accd86db2c54d8e8e7247f83323e
