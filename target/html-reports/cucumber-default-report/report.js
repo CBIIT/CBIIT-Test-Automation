@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/ServiceNow/COVIDCode/Features/ServicePortalEQSubmission.feature");
 formatter.feature({
   "name": "Service Portal Enrollment Questionnaire Submissions",
@@ -87,3 +88,5 @@ formatter.after({
   "status": "passed"
 });
 });
+=======
+>>>>>>> bb60f540c677accd86db2c54d8e8e7247f83323e

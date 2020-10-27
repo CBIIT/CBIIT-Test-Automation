@@ -36,7 +36,6 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 				break;
 			}
 		}
-
 	}
 
 	/**
