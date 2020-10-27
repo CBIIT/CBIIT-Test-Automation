@@ -112,7 +112,7 @@ public class ProbandScreenerPage extends CommonUtils {
 	public List<WebElement> biologicalFathersRaceDropDownValues;
 	
 	/** Demographic Information Save and Next Button */
-	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[3]/div/div[2]/button[2]")
+	@FindBy (xpath = "//div[@class='form-section']/button[@ng-click='saveNext(c.forms.LFS2)']")
 	public WebElement demographicSaveAndNextBtn;
 	
 	/**=======================*/
@@ -138,7 +138,7 @@ public class ProbandScreenerPage extends CommonUtils {
 	public WebElement probandsZipCode;
 	
 	/**Contact Information Save and Next Button*/
-	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[4]/div/div[2]/button[2]")
+	@FindBy (xpath = "//div[@class='form-section']/button[@ng-click='saveNext(c.forms.LFS21)']")
 	public WebElement contactInfoSaveAndNextBtn;
 	
 	/**Has a physician ever diagnosed the research participant with cancer?*/
@@ -178,7 +178,7 @@ public class ProbandScreenerPage extends CommonUtils {
 	public WebElement addNewEntrySaveBtn;
 	
 	/**Personal Cancer History Save and Next Button*/
-	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[5]/div[1]/div[2]/button[2]")
+	@FindBy (xpath = "//div[@class='form-section']/button[@ng-click='saveNext(c.forms.LFS3)']")
 	public WebElement personalCancerHistorySaveAndNextBtn;
 	
 	/**Has research participant been genetically tested for inherited cancer syndromes? Drop Down*/
@@ -193,7 +193,7 @@ public class ProbandScreenerPage extends CommonUtils {
 	@FindBy (xpath = "//button[contains(text(), 'New Personal Genetic Test')]")
 	public WebElement newPersonalGeneticTestBtn;
 	
-	/**TestedGenes/Hereditary Cancer Syndromes*/
+	/**TestedGenes/Hereditary Cancer Syndromes drop down */
 	@FindBy (xpath = "//div[@id='s2id_sp_formfield_tested_genes_syndromes']")
 	public WebElement testGenesHereditaryCancerSyndromesDropDown;
 	
@@ -201,7 +201,7 @@ public class ProbandScreenerPage extends CommonUtils {
 	@FindBy (xpath = "//li[@role='presentation']")
 	public List<WebElement> testGenesHereditaryCancerSyndromesValues;
 	
-	/**Test Results*/
+	/**Test Results drop down*/
 	@FindBy (xpath = "//div[@id='s2id_sp_formfield_test_result']")
 	public WebElement testResults;
 	
@@ -210,11 +210,11 @@ public class ProbandScreenerPage extends CommonUtils {
 	public List<WebElement> testResultsDropDownValues;
 	
 	/**Test Genetics Save Button*/
-	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[6]/div[2]/div/div/div[4]/div/div/div[2]/div[3]/button[1]")
+	@FindBy (xpath = "//div[@class='form-section']/button[@id='saveTest']")
 	public WebElement testedGenesSaveBtn;
 	
 	/**Personal Genetics Tests Save & Next Button*/
-	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[6]/div[1]/div[2]/button[2]")
+	@FindBy (xpath = "//div[@class='form-section']/button[@ng-click='saveNext(c.forms.LFS31)']")
 	public WebElement personalGeneticTestsSaveAndNextBtn;
 	
 	/**Have any biological relatives been diagnosed with cancer? Drop Down*/
@@ -230,7 +230,7 @@ public class ProbandScreenerPage extends CommonUtils {
 	public WebElement newFamilyCancerInformation;
 	
 	/** Cancer Type or site Drop down*/
-	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[7]/div[2]/div/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[2]/div/sp-variable-layout/fieldset[1]/div[2]/div/div[1]/div/span/div")
+	@FindBy (xpath = "//div[@id='s2id_sp_formfield_cancer_type']/a/span[@class='select2-chosen']")
 	public WebElement familyCancerTypeOrSiteDropDown;
 	
 	/** Cancer Type or site Drop down values*/
@@ -238,7 +238,7 @@ public class ProbandScreenerPage extends CommonUtils {
 	public List<WebElement> familyCancerTypeOrSiteDropDownValues;
 	
 	/**Relationship To Research Participant drop down*/
-	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[7]/div[2]/div/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[2]/div/sp-variable-layout/fieldset[1]/div[2]/div/div[3]/div/span/div")
+	@FindBy (xpath = "//div[@id='s2id_sp_formfield_relationship']/a[contains(@class,'select2-choice')]/span[text()='-- None --']")
 	public WebElement relationshipToResearchParticipantDropDown;
 	
 	/**Relationship To Research Participant drop down values*/
@@ -266,7 +266,7 @@ public class ProbandScreenerPage extends CommonUtils {
 	public WebElement hospitalState;
 	
 	/**Relative's Name*/
-	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[7]/div[2]/div/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[2]/div/sp-variable-layout/fieldset[3]/div/div[1]/div/div/span/span[2]/input")
+	@FindBy (xpath = "//input[@id='sp_formfield_name']")
 	public WebElement relativesName;
 	
 	/**Relative's Date of Birth*/
@@ -286,11 +286,11 @@ public class ProbandScreenerPage extends CommonUtils {
 	public List<WebElement> isThisRelativeAliveDropDownValues;
 	
 	/**Family Members Cancer History Save Button*/
-	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[7]/div[2]/div/div[2]/div/div/div[3]/button[1]")
+	@FindBy (xpath = "//button[@id='saveCancer']")
 	public WebElement newFamilyMemberInformationSaveBtn;
 	
 	/**Family Member Cancer's History Save & Next Button*/
-	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[7]/div[1]/div[2]/button[2]")
+	@FindBy (xpath = "//div[@class='form-section']/button[@ng-click='saveNext(c.forms.LFS4)']")
 	public WebElement familyMembersCancerHistorySaveAndNext;
 	
 	/**Have any relatives been genetically tested for inherited cancer syndromes? Drop Down*/
@@ -338,7 +338,7 @@ public class ProbandScreenerPage extends CommonUtils {
 	public WebElement additionalFamilyMemberGeneticsSaveBtn;
 	
 	/**Family Members' Genetic Tests Save and Next Button*/
-	@FindBy (xpath =  "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[8]/div[1]/div[2]/button[2]")
+	@FindBy (xpath =  "//div[@class='form-section']/button[@ng-click='saveNext(c.forms.LFS41)']")
 	public WebElement familyMembersGeneticTestsSaveAndNextBtn;
 	
 	/**How did you hear about this study? drop down*/
