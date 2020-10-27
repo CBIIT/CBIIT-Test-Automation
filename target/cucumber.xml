@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="30.208727">
-<testcase classname="Service Portal Enrollment Questionnaire Submissions" name="COVIDcode Study Provider Enrollment Questionnaire Submission Group 1 User" time="30.208727">
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="29.76049">
+<testcase classname="Service Portal Enrollment Questionnaire Submissions" name="COVIDcode Study Provider Enrollment Questionnaire Submission Group 1 User" time="29.76049">
 <system-out><![CDATA[Given a COVIDcode Study Provider user has logged in to the COVIDcode Study application.passed
 When the COVIDcode Study Provider fills out an Enrollment Questionnaire for a "Group 1" who says "Yes" to join the study.passed
 And enters users full name, required information, and demographics information.passed
