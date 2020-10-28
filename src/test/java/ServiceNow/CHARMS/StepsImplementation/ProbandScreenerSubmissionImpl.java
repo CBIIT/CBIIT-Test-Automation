@@ -2,12 +2,14 @@ package ServiceNow.CHARMS.StepsImplementation;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
+import com.nci.automation.web.WebDriverUtils;
 
 import appsCommon.PageInitializer;
 
@@ -37,6 +39,8 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 
 		/** Taking screenshot */
 		CucumberLogUtils.logScreenShot();
+		
+		
 	}
 
 	/*
@@ -58,7 +62,8 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 
 		/** Selecting Date of Birth */
 		MiscUtils.sleep(1000);
-		JavascriptUtils.selectDateByJS(probandScreenerPage.dateOfBirth, DOB);
+		//JavascriptUtils.selectDateByJS(probandScreenerPage.dateOfBirth, DOB);
+		probandScreenerPage.dateOfBirth.sendKeys(DOB);
 
 		/** Clicking Country of Birth drop down */
 		MiscUtils.sleep(1000);
@@ -70,9 +75,9 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 		CommonUtils.selectValueFromBootStrapDropDown(countryOfBirthValues, CountryOfBirth);
 
 		/** Sending city and state values */
-		probandScreenerPage.birthCity.clear();
+		//probandScreenerPage.birthCity.clear();
 		probandScreenerPage.birthCity.sendKeys(City);
-		probandScreenerPage.birthState.clear();
+		//probandScreenerPage.birthState.clear();
 		probandScreenerPage.birthState.sendKeys(State);
 
 		/** Clicking on probandsEthnicityDropDown */
@@ -158,18 +163,19 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 			String State, String ZipCode) {
 		/** Sending probands phone number */
 		MiscUtils.sleep(1000);
-		probandScreenerPage.probandsPhoneNumber.clear();
+		//probandScreenerPage.probandsPhoneNumber.clear();
 		probandScreenerPage.probandsPhoneNumber.sendKeys(PhoneNumber);
 
 		/** Sending probands street address */
-		probandScreenerPage.probandsStAddress.clear();
+		//probandScreenerPage.probandsStAddress.clear();
 		probandScreenerPage.probandsStAddress.sendKeys(StreetAddress);
-		probandScreenerPage.probandsCity.clear();
+		//probandScreenerPage.probandsCity.clear();
 		probandScreenerPage.probandsCity.sendKeys(City);
-		probandScreenerPage.probandsState.clear();
+		//probandScreenerPage.probandsState.clear();
 		probandScreenerPage.probandsState.sendKeys(State);
-		probandScreenerPage.probandsZipCode.clear();
+		//probandScreenerPage.probandsZipCode.clear();
 		probandScreenerPage.probandsZipCode.sendKeys(ZipCode);
+		probandScreenerPage.probandsState.click();
 
 		/** Taking screenshot */
 		MiscUtils.sleep(1000);
@@ -198,7 +204,7 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 		CommonUtils.selectValueFromBootStrapDropDown(yesOrNoCancer, yesOrNoOption);
 
 		/** Taking screenshot */
-		MiscUtils.sleep(300);
+		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 	}
 
@@ -222,11 +228,11 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 				.sendKeys(AgeResearchParticipantWasDiagnosed);
 
 		/** Taking screenshot */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 
 		/** Clicking on addNewEntrySaveBtn */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		probandScreenerPage.addNewEntrySaveBtn.click();
 
 		/** Taking screenshot */
@@ -266,33 +272,33 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 	 */
 	public void addNewPersonalGeneticTestsEntry(String TestedGenes, String TestResult) {
 		/** Clicking on testGenesHereditaryCancerSyndromesDropDown */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(2000);
 		probandScreenerPage.testGenesHereditaryCancerSyndromesDropDown.click();
 
 		/** Selecting tested genes from testGenesHereditaryCancerSyndromesValues */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		List<WebElement> testedGenesHereditaryCancerSyndrome = probandScreenerPage.testGenesHereditaryCancerSyndromesValues;
 		CommonUtils.selectValueFromBootStrapDropDown(testedGenesHereditaryCancerSyndrome, TestedGenes);
 
 		/** Clicking on testResults */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		probandScreenerPage.testResults.click();
 
 		/** Selecting value from testResultsDropDownValues */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		List<WebElement> testedResultValues = probandScreenerPage.testResultsDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(testedResultValues, TestResult);
 
 		/** Taking screenshot */
-		MiscUtils.sleep(200);
+		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 
 		/** Clicking on testedGenesSaveBtn */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		probandScreenerPage.testedGenesSaveBtn.click();
 
 		/** Taking screenshot */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 	}
 
@@ -303,13 +309,13 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 	 */
 	public void haveAnyBiologicalRelativesBeenDiagnosedWithCancer(String value) {
 		/** Clicking on haveAnyBiologicalRelativesBeenDiagnosedWithCancerDropDown */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		probandScreenerPage.haveAnyBiologicalRelativesBeenDiagnosedWithCancerDropDown.click();
 
 		/**
 		 * Selecting yes from haveAnyBiologicalRelativesBeenDiagnosedWithCancerValues
 		 */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		List<WebElement> haveAnyBiologicalRelativesBeenDiagnosedWithCancer = probandScreenerPage.haveAnyBiologicalRelativesBeenDiagnosedWithCancerValues;
 		CommonUtils.selectValueFromBootStrapDropDown(haveAnyBiologicalRelativesBeenDiagnosedWithCancer, value);
 
@@ -328,48 +334,48 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 			String isRelativeAlive) {
 
 		/** Clicking on familyCancerTypeOrSiteDropDown */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(2000);
 		probandScreenerPage.familyCancerTypeOrSiteDropDown.click();
 
 		/** Selecting family cancer type from familyCancerTypeOrSiteDropDownValues */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		List<WebElement> familyCancerTypeOrSiteValues = probandScreenerPage.familyCancerTypeOrSiteDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(familyCancerTypeOrSiteValues, FamilyCancerType);
 
 		/** Clicking on relationshipToResearchParticipantDropDown */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		probandScreenerPage.relationshipToResearchParticipantDropDown.click();
 
 		/**
 		 * Selecting relationship to research participant from
 		 * relationshipToResearchParticipantValues
 		 */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		List<WebElement> relationshipToParticipant = probandScreenerPage.relationshipToResearchParticipantValues;
 		CommonUtils.selectValueFromBootStrapDropDown(relationshipToParticipant, RelationshipToParticipant);
 
 		/**
 		 * Sending name of hospital where diagnosed into nameOfHospitalWhereDiagnosed
 		 */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		probandScreenerPage.nameOfHospitalWhereDiagnosed.click();
 
 		/**
 		 * Sending name of hospital where diagnosed into nameOfHospitalWhereDiagnosed
 		 */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		probandScreenerPage.nameOfHospitalWhereDiagnosed.sendKeys(NameOfHospital);
 
 		/** Clicking on hospitalCountryDropDown */
 		probandScreenerPage.hospitalCountryDropDown.click();
 
 		/** Selecting hospital country from hospitalCountryDropDownValues */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		List<WebElement> hospitalCountry = probandScreenerPage.hospitalCountryDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(hospitalCountry, HospitalCountry);
 
 		/** Sending hospital city into hospitalCity */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		probandScreenerPage.hospitalCity.sendKeys(HospitalCity);
 
 		/** Sending hospital state into hospitalState */
@@ -379,30 +385,30 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 		probandScreenerPage.relativesName.sendKeys(RelativesName);
 
 		/** Selecting relatives date of birth */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		JavascriptUtils.selectDateByJS(probandScreenerPage.relativesDOB, RelativesDateOfBirth);
 
 		/** Entering relatives age of diagnosis into relativesAgeOfDiagonsis */
 		probandScreenerPage.relativesAgeOfDiagonsis.sendKeys(RelativesAgeWhenDiagnosed);
 
 		/** Clicking on isThisRelativeAliveDropDown */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		probandScreenerPage.isThisRelativeAliveDropDown.click();
 
 		/** Selecting No, Yes, or Don't Know from isThisRelativeAliveDropDownValues */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		List<WebElement> isThisRelativeAlive = probandScreenerPage.isThisRelativeAliveDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(isThisRelativeAlive, isRelativeAlive);
 
 		/** Taking screenshot */
-		MiscUtils.sleep(300);
+		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 
 		/** Clicking on newFamilyMemberInformationSaveBtn */
 		probandScreenerPage.newFamilyMemberInformationSaveBtn.click();
 
 		/** Taking screenshot */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 
 	}
@@ -418,7 +424,7 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 		 * Clicking on
 		 * haveAnyRelativesBeenGeneticallyTestedForInheritedCancerSyndromesDropDown
 		 */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		probandScreenerPage.haveAnyRelativesBeenGeneticallyTestedForInheritedCancerSyndromesDropDown.click();
 
 		/**
@@ -442,51 +448,51 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 			String FamilyMemberGeneticTestsRelationshipToParticipant, String GenesSyndromesWithPositiveResults,
 			String RelativesTestResult) {
 		/** Sending another relatives name into anotherRelativesName */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(2000);
 		probandScreenerPage.anotherRelativesName.sendKeys(SecondRelativesName);
 
 		/** Clicking on anotherRelativesRelationshipToResearchParticipantDropDown */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		probandScreenerPage.anotherRelativesRelationshipToResearchParticipantDropDown.click();
 
 		/**
 		 * Selecting relationship to research participant from
 		 * anotherRelativesRelationshipToResearchParticipantValues
 		 */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		List<WebElement> relationshipToResearchParticipant = probandScreenerPage.anotherRelativesRelationshipToResearchParticipantValues;
 		CommonUtils.selectValueFromBootStrapDropDown(relationshipToResearchParticipant,
 				FamilyMemberGeneticTestsRelationshipToParticipant);
 
 		/** Clicking on genesHereditaryCancerSyndromeWithPositiveResultsDropDown */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		probandScreenerPage.genesHereditaryCancerSyndromeWithPositiveResultsDropDown.click();
 
 		/** Selecting genes/cancer syndromes from */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		List<WebElement> genesHereditaryCancerSyndromeWithPositiveResults = probandScreenerPage.genesHereditaryCancerSyndromeWithPositiveResultsDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(genesHereditaryCancerSyndromeWithPositiveResults,
 				GenesSyndromesWithPositiveResults);
 
 		/** Clicking on additionalFamilyMemberTestResultDropDown */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		probandScreenerPage.additionalFamilyMemberTestResultDropDown.click();
 
 		/** Selecting value from additionalFamilyMemberTestResultDropDownValues */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		List<WebElement> additionalFamilyMemberTestResults = probandScreenerPage.additionalFamilyMemberTestResultDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(additionalFamilyMemberTestResults, RelativesTestResult);
 
 		/** Taking screenshot */
-		MiscUtils.sleep(300);
+		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 
 		/** Clicking on additionalFamilyMemberGeneticsSaveBtn */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		probandScreenerPage.additionalFamilyMemberGeneticsSaveBtn.click();
 
 		/** Taking screenshot */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 	}
 
@@ -496,10 +502,10 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 	 */
 	public void howDidYouHearAboutThisStudy(String HowDidYouHearAboutStudy) {
 		/** Clicking on howDidyouHearAboutThisStudyDropDown */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		probandScreenerPage.howDidyouHearAboutThisStudyDropDown.click();
 		/** Selecting value from howDidyouHearAboutThisStudyDropDownValues */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		List<WebElement> howDidYouHearAboutThisStudyValues = probandScreenerPage.howDidyouHearAboutThisStudyDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(howDidYouHearAboutThisStudyValues, HowDidYouHearAboutStudy);
 	}
@@ -514,9 +520,9 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 		 * Clicking on
 		 * hasTheResearchParticipantOrAnyFamilyMemberParticipatedInAnyLFSStudyDropDown
 		 */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		probandScreenerPage.hasTheResearchParticipantOrAnyFamilyMemberParticipatedInAnyLFSStudyDropDown.click();
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 
 		/**
 		 * Selecting value from
@@ -534,25 +540,26 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 	 */
 	public void areAnyRelativesCurrentlyReceivingCancerCareOrFollowUp(String AreRelativesReceivingCancerCare) {
 		/** Clicking on areAnyRelativesCurrentlyReceivingCancerCareOrFollowUpDropDown */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		probandScreenerPage.areAnyRelativesCurrentlyReceivingCancerCareOrFollowUpDropDown.click();
 
 		/**
 		 * Selecting value from
 		 * areAnyRelativesCurrentlyReceivingCancerCareOrFollowUpDropDownValues
 		 */
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		List<WebElement> areAnyRelativesCurrentlyReceivingCancerCareOrFollowUpValues = probandScreenerPage.areAnyRelativesCurrentlyReceivingCancerCareOrFollowUpDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(areAnyRelativesCurrentlyReceivingCancerCareOrFollowUpValues,
 				AreRelativesReceivingCancerCare);
 	}
 	
 	public void fillingOutFinalInformationWithoutSelectingOtherAndSelectingNoToReceivingCancerFollowUp(String HowDidYouHearAboutStudy, String hasResearchParticipantOrFamilyMemberParticipatedInAnyLFSStudy, String AreRelativesReceivingCancerCare, String Comments) {
+		MiscUtils.sleep(1000);
 		probandScreenerSubmissionImpl.howDidYouHearAboutThisStudy(HowDidYouHearAboutStudy);		
 		probandScreenerSubmissionImpl.hasTheResearchParticipantOrAnyFamilyMemberParticipatedInAnyLFSstudy(hasResearchParticipantOrFamilyMemberParticipatedInAnyLFSStudy);
 		probandScreenerSubmissionImpl.areAnyRelativesCurrentlyReceivingCancerCareOrFollowUp(AreRelativesReceivingCancerCare);
 		probandScreenerPage.commentTxtBox.sendKeys(Comments);
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 	}
 	
