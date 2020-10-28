@@ -355,9 +355,15 @@ public class ProbandScreenerPage extends CommonUtils {
 	/** Relative's Name text box */
 	@FindBy(xpath = "//input[@id='sp_formfield_relative_name']")
 	public WebElement anotherRelativesName;
+<<<<<<< HEAD
 
 	/** Relationship to research participant drop down */
 	@FindBy(xpath = "(//*[@id='s2id_sp_formfield_relationship']/a/span)[5]")
+=======
+	
+	/**Relationship to research participant drop down*/
+	@FindBy (xpath = "//*[@id='select2-chosen-8']")
+>>>>>>> 9cf09311f46d13d765112b1b3a240e314feb4686
 	public WebElement anotherRelativesRelationshipToResearchParticipantDropDown;
 
 	/** Relationship to research participant drop down values */
@@ -382,9 +388,19 @@ public class ProbandScreenerPage extends CommonUtils {
 	/** Test Results for additional family member drop down Values */
 	@FindBy(xpath = "//li[@role='presentation']")
 	public List<WebElement> additionalFamilyMemberTestResultDropDownValues;
+<<<<<<< HEAD
 
 	/** Save button for the family member genetics */
 	@FindBy(xpath = "//*[@id='saveButton']")
+=======
+	
+	/**Save button for the family member genetics*/
+	@FindBy (xpath = "//div[@class='form-section']/button[@id='saveButton']")
+	/*
+	 * Or xpath = "//button[@type='button' and @id='saveButton']"
+	 * or xpath = "(//div[@id='s2id_sp_formfield_relationship']/a[@class='select2-choice form-control']/span[@class='select2-chosen'])[2]"
+	 */
+>>>>>>> 9cf09311f46d13d765112b1b3a240e314feb4686
 	public WebElement additionalFamilyMemberGeneticsSaveBtn;
 
 	/** Family Members' Genetic Tests Save and Next Button */
