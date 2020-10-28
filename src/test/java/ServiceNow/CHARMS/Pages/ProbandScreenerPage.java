@@ -310,7 +310,7 @@ public class ProbandScreenerPage extends CommonUtils {
 	public WebElement anotherRelativesName;
 	
 	/**Relationship to research participant drop down*/
-	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[8]/div[2]/div/div[2]/div/div/div[2]/div/div/div/div/div[2]/div[2]/div/sp-variable-layout/fieldset/div[2]/div/div[2]/div/span/div")
+	@FindBy (xpath = "//*[@id='select2-chosen-8']")
 	public WebElement anotherRelativesRelationshipToResearchParticipantDropDown;
 	
 	/**Relationship to research participant drop down values*/
@@ -334,7 +334,11 @@ public class ProbandScreenerPage extends CommonUtils {
 	public List<WebElement> additionalFamilyMemberTestResultDropDownValues;
 	
 	/**Save button for the family member genetics*/
-	@FindBy (xpath = "/html/body/div[1]/section/main/div[3]/div/sp-page-row[2]/div/div/span/div/div/div/div[2]/div[8]/div[2]/div/div[2]/div/div/div[3]/button[1]")
+	@FindBy (xpath = "//div[@class='form-section']/button[@id='saveButton']")
+	/*
+	 * Or xpath = "//button[@type='button' and @id='saveButton']"
+	 * or xpath = "(//div[@id='s2id_sp_formfield_relationship']/a[@class='select2-choice form-control']/span[@class='select2-chosen'])[2]"
+	 */
 	public WebElement additionalFamilyMemberGeneticsSaveBtn;
 	
 	/**Family Members' Genetic Tests Save and Next Button*/
