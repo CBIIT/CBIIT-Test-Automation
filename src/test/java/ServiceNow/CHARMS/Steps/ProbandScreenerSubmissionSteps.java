@@ -90,7 +90,11 @@ public class ProbandScreenerSubmissionSteps extends PageInitializer {
 			String NameOfHospital, String HospitalCountry, String HospitalCity, String HospitalState,
 			String RelativesName, String RelativesDateOfBirth, String RelativesAgeWhenDiagnosed,
 			String isRelativeAlive) {
+
 		MiscUtils.sleep(1000);
+
+		
+
 		JavascriptUtils.clickByJS(probandScreenerPage.newFamilyCancerInformation);
 		probandScreenerSubmissionImpl.addNewFamilyCancerInformation(FamilyCancerType, RelationshipToParticipant,
 				NameOfHospital, HospitalCountry, HospitalCity, HospitalState, RelativesName, RelativesDateOfBirth,
