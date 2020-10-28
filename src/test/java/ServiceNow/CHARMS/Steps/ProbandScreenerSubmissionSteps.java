@@ -23,6 +23,7 @@ public class ProbandScreenerSubmissionSteps extends PageInitializer {
 	public void selects_to_filling_questionnaire_out_for_someone_else(String value) {
 		probandScreenerSubmissionImpl.areYouFillingThisQuestionnaireOutForSomeoneElse(value);
 		probandScreenerPage.studyIntroductionSaveAndNextBtn.click();
+		MiscUtils.sleep(1000);
 	}
 
 	@When("fills out all Demographic Information {string}, {string}, {string},{string}, {string} {string}, {string}, {string}, {string}, {string}, {string}")
@@ -39,14 +40,17 @@ public class ProbandScreenerSubmissionSteps extends PageInitializer {
 	@When("fills out all Contact Information with {string}, {string}, {string}, {string}, {string}")
 	public void fills_out_all_Contact_Information_with(String PhoneNumber, String StreetAddress, String City,
 			String State, String ZipCode) {
+		MiscUtils.sleep(1000);
 		probandScreenerSubmissionImpl.fillingOutProbandsContactInformation(PhoneNumber, StreetAddress, City, State,
 				ZipCode);
+		MiscUtils.sleep(1000);
 		JavascriptUtils.clickByJS(probandScreenerPage.contactInfoSaveAndNextBtn);
 	}
 
 	@When("on the Personal Cancer History section selects {string} to a physician diagnosing the research participant with cancer")
 	public void on_the_Personal_Cancer_History_section_selects_to_a_physician_diagnosing_the_research_participant_with_cancer(
 			String yesOrNoOption) {
+		MiscUtils.sleep(1000);
 		probandScreenerSubmissionImpl.hasAphysicianEverDiagnosedTheResearchParticipantWithCancer(yesOrNoOption);
 	}
 
@@ -56,12 +60,13 @@ public class ProbandScreenerSubmissionSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(probandScreenerPage.newPersonalCancerInformationBtn);
 		probandScreenerSubmissionImpl.addingNewPersonalCancerInformation(CancerType,
 				AgeResearchParticipantWasDiagnosed);
-		probandScreenerPage.personalCancerHistorySaveAndNextBtn.click();
+		JavascriptUtils.clickByJS(probandScreenerPage.personalCancerHistorySaveAndNextBtn);
 	}
 
 	@When("on the Personal Genetic Tests sections selects {string} to being genetically tested for inherited cancer syndromes")
 	public void on_the_Personal_Genetic_Tests_sections_selects_to_being_genetically_tested_for_inherited_cancer_syndromes(
 			String yesOption) {
+		MiscUtils.sleep(2000);
 		probandScreenerSubmissionImpl.hasResearchParticipantBeenGeneticallyTestedForInheritedCancerSyndromes(yesOption);
 	}
 
@@ -76,6 +81,7 @@ public class ProbandScreenerSubmissionSteps extends PageInitializer {
 	@When("on Family Members Cancer History selects {string} to having any biological relatives being diagnosed with cancer")
 	public void on_Family_Members_Cancer_History_selects_to_having_any_biological_relatives_being_diagnosed_with_cancer(
 			String value) {
+		MiscUtils.sleep(1000);
 		probandScreenerSubmissionImpl.haveAnyBiologicalRelativesBeenDiagnosedWithCancer(value);
 	}
 
@@ -84,8 +90,8 @@ public class ProbandScreenerSubmissionSteps extends PageInitializer {
 			String NameOfHospital, String HospitalCountry, String HospitalCity, String HospitalState,
 			String RelativesName, String RelativesDateOfBirth, String RelativesAgeWhenDiagnosed,
 			String isRelativeAlive) {
-		MiscUtils.sleep(500);
-		probandScreenerPage.newFamilyCancerInformation.click();
+		MiscUtils.sleep(1000);
+		JavascriptUtils.clickByJS(probandScreenerPage.newFamilyCancerInformation);
 		probandScreenerSubmissionImpl.addNewFamilyCancerInformation(FamilyCancerType, RelationshipToParticipant,
 				NameOfHospital, HospitalCountry, HospitalCity, HospitalState, RelativesName, RelativesDateOfBirth,
 				RelativesAgeWhenDiagnosed, isRelativeAlive);
@@ -95,6 +101,7 @@ public class ProbandScreenerSubmissionSteps extends PageInitializer {
 	@When("on the Family Members Genetic Tests selects {string} to having any relatives being genetically tested for inherited cancer syndromes")
 	public void on_the_Family_Members_Genetic_Tests_selects_to_having_any_relatives_being_genetically_tested_for_inherited_cancer_syndromes(
 			String value) {
+		MiscUtils.sleep(1000);
 		probandScreenerSubmissionImpl.haveAnyRelativesBeenGeneticallyTestedForInheritedCancerSyndromes(value);
 	}
 
@@ -102,7 +109,7 @@ public class ProbandScreenerSubmissionSteps extends PageInitializer {
 	public void adds_Relatives_with_Genetic_Tests_information(String SecondRelativesName,
 			String FamilyMemberGeneticTestsRelationshipToParticipant, String GenesSyndromesWithPositiveResults,
 			String RelativesTestResult) {
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		probandScreenerPage.newFamilyRelativeInformationBtn.click();
 		probandScreenerSubmissionImpl.addingNewFamilyRelativeInformation(SecondRelativesName,
 				FamilyMemberGeneticTestsRelationshipToParticipant, GenesSyndromesWithPositiveResults,
@@ -114,6 +121,7 @@ public class ProbandScreenerSubmissionSteps extends PageInitializer {
 	public void on_the_Final_Information_section_selects_the_following_information(String HowDidYouHearAboutStudy,
 			String hasResearchParticipantOrFamilyMemberParticipatedInAnyLFSStudy,
 			String AreRelativesReceivingCancerCare, String Comments) {
+		MiscUtils.sleep(1000);
 		probandScreenerSubmissionImpl
 				.fillingOutFinalInformationWithoutSelectingOtherAndSelectingNoToReceivingCancerFollowUp(
 						HowDidYouHearAboutStudy, hasResearchParticipantOrFamilyMemberParticipatedInAnyLFSStudy,
