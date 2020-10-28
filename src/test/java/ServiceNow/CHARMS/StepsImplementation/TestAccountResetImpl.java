@@ -14,11 +14,9 @@ import appsCommon.PageInitializer;
 public class TestAccountResetImpl extends PageInitializer {
 
 	public void navigateToCHARMSstudio(String fcsms) {
-		// System.out.println(WebDriverUtils.webDriver.getTitle());
 		for (String childTab : WebDriverUtils.webDriver.getWindowHandles()) {
 			WebDriverUtils.webDriver.switchTo().window(childTab);
 		}
-		// System.out.println(WebDriverUtils.webDriver.getTitle());
 		charmsNativeViewPage.applicationsSearchBar.sendKeys(fcsms);
 	}
 
@@ -52,18 +50,21 @@ public class TestAccountResetImpl extends PageInitializer {
 		CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewFamilyMemberDetailsIframe);
 		MiscUtils.sleep(2000);
 	}
+
 	public void navigateToFamilyMemberDetailsShowList() {
 		JavascriptUtils.scrollIntoView(charmsNativeViewPage.familyMemberDetailsShowListLink);
 		MiscUtils.sleep(2000);
 		charmsNativeViewPage.familyMemberDetailsShowListLink.click();
 		MiscUtils.sleep(2000);
 	}
+
 	public void searchTestAccountNameFamilyMemberDetails(String accountName) {
 		CommonUtils.selectDropDownValue(charmsNativeViewPage.familyMemberDetailsShowListSearchDropDown, "Name");
 		charmsNativeViewPage.familyMemberDetailsShowListSearchTextBox.sendKeys(accountName);
 		charmsNativeViewPage.familyMemberDetailsShowListSearchTextBox.sendKeys(Keys.RETURN);
 		MiscUtils.sleep(2000);
 	}
+
 	public void deleteAccountFromFamilyMemberDetails() {
 		charmsNativeViewPage.familyMemberDetailsShowListCheckBox.click();
 		CommonUtils.selectDropDownValue(charmsNativeViewPage.familyMemberDetailsShowListDeleteDropDown, "Delete");
@@ -71,6 +72,7 @@ public class TestAccountResetImpl extends PageInitializer {
 		charmsNativeViewPage.familyMemberDetailsShowListPopUpDeleteButton.click();
 		MiscUtils.sleep(2000);
 	}
+
 	public void navigateToFCSMSformAccess() {
 		WebDriverUtils.webDriver.switchTo().defaultContent();
 		charmsNativeViewPage.fcsmsFormAccess.click();
@@ -78,15 +80,11 @@ public class TestAccountResetImpl extends PageInitializer {
 		CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewFCSMSformAccessIframe);
 		MiscUtils.sleep(3000);
 	}
+
 	public void deleteAccountFromFCSMSformAccess() {
 		charmsNativeViewPage.fcsmsFormAccessShowListSearchBox.click();
 		charmsNativeViewPage.fcsmsFormAccessShowListSearchBox.sendKeys("diegojuarezbusiness@gmail.com");
 		charmsNativeViewPage.fcsmsFormAccessShowListSearchBox.sendKeys(Keys.ENTER);
-//		WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[1]/div[1]/span/div/div[6]/table/tbody/tr/td/div/table/tbody/tr[12]/td[1]/span/label")).click();
-//		CommonUtils.switchToFrame(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[1]/section/editor-tabset/div/div[2]/editor-tab-frame/iframe")));
-//		JavascriptUtils.scrollIntoView(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[2]/form/div[1]/button[6]")));
-//		JavascriptUtils.clickByJS(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[2]/form/div[1]/button[6]")));
-//		WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='sysverb_delete']")).click();
 		MiscUtils.sleep(2000);
 		charmsNativeViewPage.fcsmsFormAccessShowListAccountCheckBox.click();
 		CommonUtils.selectDropDownValue(charmsNativeViewPage.fcsmsFormAccessShowListDeleteDropDown, "Delete");
