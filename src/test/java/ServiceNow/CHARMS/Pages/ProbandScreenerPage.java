@@ -348,7 +348,6 @@ public class ProbandScreenerPage extends CommonUtils {
 	@FindBy(xpath = "(//*[@id='s2id_sp_formfield_relationship']/a/span)[5]")
 	public WebElement anotherRelativesRelationshipToResearchParticipantDropDown;
 
-
 	/** Relationship to research participant drop down values */
 	@FindBy(xpath = "//li[@role='presentation']")
 	public List<WebElement> anotherRelativesRelationshipToResearchParticipantValues;
@@ -375,7 +374,7 @@ public class ProbandScreenerPage extends CommonUtils {
 	/** Save button for the family member genetics */
 	@FindBy(xpath = "//*[@id='saveButton']")
 	public WebElement additionalFamilyMemberGeneticsSaveBtn;
-
+	
 	/** Family Members' Genetic Tests Save and Next Button */
 	@FindBy(xpath = "//div[@class='form-section']/button[@ng-click='saveNext(c.forms.LFS41)']")
 	public WebElement familyMembersGeneticTestsSaveAndNextBtn;
