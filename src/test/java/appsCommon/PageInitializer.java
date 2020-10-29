@@ -22,6 +22,9 @@ import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
+import ServiceNow.DevOpsAutomatedBuilds.Pages.DevOpsLoginPage;
+import ServiceNow.DevOpsAutomatedBuilds.Pages.DevOpsNativeViewPage;
+import ServiceNow.DevOpsAutomatedBuilds.StepsImplementation.DevOpsAutomatedBuildStepsImplementation;
 
 /**
  * This an initializer class which will initialize all pages classes. Once pages
@@ -50,11 +53,11 @@ public class PageInitializer {
 	protected static FollowUpFormPageImpl followUpFormPageImpl;
 	protected static COVIDCodeLoginStepsImpl covidCodeLoginStepsImpl;
 	protected static ServicePortalSurveyPage servicePortalSurveyPage;
-	
+
 	/** Native View instance */
 	protected static NativeViewLoginImpl nativeViewLoginImpl;
 	protected static NativeViewHomePage nativeViewHomePage;
-	
+
 	/** CHARMS instances */
 	protected static CHARMSNativeViewPage charmsNativeViewPage;
 	protected static TestAccountResetImpl testAccountResetImpl;
@@ -64,7 +67,11 @@ public class PageInitializer {
 	protected static ClinicalGeneticsBranchPage clinicalGeneticsBranchPage;
 	protected static ProbandScreenerPage probandScreenerPage;
 	protected static ProbandScreenerSubmissionImpl probandScreenerSubmissionImpl;
-	
+
+	/** ServiceNow DevOps instances */
+	protected static DevOpsLoginPage devOpsLoginPage;
+	protected static DevOpsNativeViewPage devOpsNativeViewPage;
+	protected static DevOpsAutomatedBuildStepsImplementation devOpsAutomatedBuildStepsImplementation;
 
 	public static void initializeAllPages() {
 		// create instances of all pages and assign them to the variables
@@ -93,6 +100,9 @@ public class PageInitializer {
 		clinicalGeneticsBranchPage = new ClinicalGeneticsBranchPage();
 		probandScreenerPage = new ProbandScreenerPage();
 		probandScreenerSubmissionImpl = new ProbandScreenerSubmissionImpl();
+		devOpsLoginPage = new DevOpsLoginPage();
+		devOpsNativeViewPage = new DevOpsNativeViewPage();
+		devOpsAutomatedBuildStepsImplementation = new DevOpsAutomatedBuildStepsImplementation();
 	}
 
 }
