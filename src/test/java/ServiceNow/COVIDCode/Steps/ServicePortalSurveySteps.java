@@ -53,6 +53,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 
 	@When("the user selects option to fill out the survery for themselves")
 	public void the_user_selects_option_to_fill_out_the_survery_for_themselves() {
+		MiscUtils.sleep(2000);
 		servicePortalSurveyPage.areYouFillingThisOutForYourselfDropDown.click();
 		List<WebElement> values = servicePortalSurveyPage.areYouFillingThisOutForYourselfDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(values, "Myself");
@@ -60,6 +61,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 
 	@Then("the question {string} populates")
 	public void populates(String haveYouTestedPositiveForSARS) {
+		MiscUtils.sleep(1000);
 		Assert.assertTrue(servicePortalSurveyPage.haveYouTestedPositiveForSARSCoV2Text.getText()
 				.contains(haveYouTestedPositiveForSARS));
 		System.out.println(servicePortalSurveyPage.haveYouTestedPositiveForSARSCoV2Text.getText());
