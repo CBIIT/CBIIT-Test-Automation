@@ -43,6 +43,6 @@ public class DevOpsApplicationBuildSteps extends PageInitializer{
 
 	@When("selecting sets that contain {string} and moving them to the right side table")
 	public void selecting_sets_that_contain_and_moving_them_to_the_right_side_table(String pendingCodeReview) {
-		devOpsAutomatedBuildStepsImplementation.selectingPendingCodeReviewSetsAndMovingToRightTable();
+		devOpsAutomatedBuildStepsImplementation.selectingCICDDevOpsInProgressSetsAndMovingToRightTable();
 	}
 }
