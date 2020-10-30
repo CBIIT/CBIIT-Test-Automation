@@ -65,5 +65,15 @@ public class DevOpsAutomatedBuildStepsImplementation extends PageInitializer {
 			devOpsNativeViewPage.moveRightButton.click();
 		}
 	}
+	public void selectingCICDDevOpsInProgressSetsAndMovingToRightTable() {
+		MiscUtils.sleep(2000);
+		JavascriptUtils.scrollIntoView(devOpsNativeViewPage.moveRightButton);
+		List<WebElement> sets = devOpsNativeViewPage.listOfCICDDevOpsInProgress;
+		for (WebElement retrievedSets : sets) {
+			retrievedSets.click();
+			devOpsNativeViewPage.moveRightButton.click();
+		}
+		
+	}
 
 }
