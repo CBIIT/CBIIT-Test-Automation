@@ -7,8 +7,8 @@
 	<!-- Application ID for covid19dashboard -->
 	<application id="covid19dashboard">
 
-		<login_url>https://service-test.nci.nih.gov/nih-covid-19-dashboard
-		</login_url><!-- add test url -->
+		<login_url>
+		</login_url><!-- add Stage url -->
 
 		<role name="Role">
 			<user id="regular">
@@ -32,7 +32,7 @@
 	<!-- Application ID for Native View -->
 	<application id="nativeview">
 
-		<login_url>https://service-test.nci.nih.gov/ncisp</login_url><!-- add test 
+		<login_url></login_url><!-- add Stage 
 			url -->
 
 		<role name="Role">
@@ -56,8 +56,8 @@
 	<!-- Application ID for CHARMS -->
 	<application id="CHARMS">
 
-		<login_url>https://service-test.nci.nih.gov/charms</login_url><!-- add 
-			test url -->
+		<login_url></login_url><!-- add 
+			Stage url -->
 
 		<role name="Role">
 			<user id="regular">
