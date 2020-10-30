@@ -47,6 +47,10 @@ public class DevOpsNativeViewPage extends CommonUtils{
 	/** Move right button */
 	@FindBy (xpath = "(//div[@id='addRemoveButtons']/a)[1]")
 	public WebElement moveRightButton;
+	
+	/** CICD_Dev_Ops -   -  in progress options*/
+	@FindBy (xpath = "//option[starts-with(@title,'CICD_Dev_Ops') and contains(text(),'in progress')]")
+	public List<WebElement> listOfCICDDevOpsInProgress;
 
 	
 	
