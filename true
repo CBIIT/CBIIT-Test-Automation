@@ -1,6 +1,6 @@
-[1603904384.904][INFO]: Starting ChromeDriver 86.0.4240.22 (398b0743353ff36fb1b82468f63a3a93b4e2e89e-refs/branch-heads/4240@{#378}) on port 45873
-[1603904384.904][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
-[1603904384.937][INFO]: [e3269b84db83e63440328bea543869ba] COMMAND InitSession {
+[1604006393.466][INFO]: Starting ChromeDriver 86.0.4240.22 (398b0743353ff36fb1b82468f63a3a93b4e2e89e-refs/branch-heads/4240@{#378}) on port 22506
+[1604006393.466][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+[1604006393.607][INFO]: [8219911aac4bbbfe6818fb30650ce1dd] COMMAND InitSession {
    "capabilities": {
       "firstMatch": [ {
          "browserName": "chrome",
@@ -18,7 +18,7 @@
       }
    }
 }
-[1603904384.938][INFO]: Populating Preferences file: {
+[1604006393.608][INFO]: Populating Preferences file: {
    "alternate_error_pages": {
       "enabled": false
    },
@@ -71,7 +71,7 @@
       "enabled": false
    }
 }
-[1603904384.938][INFO]: Populating Local State file: {
+[1604006393.608][INFO]: Populating Local State file: {
    "background_mode": {
       "enabled": false
    },
@@ -81,19 +81,19 @@
       }
    }
 }
-[1603904384.938][INFO]: Launching chrome: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-blink-features=ShadowDOMV0 --enable-logging --log-level=0 --no-first-run --password-store=basic --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir=/var/folders/10/x0tkb8rd0yl84mhcx3t01lbr43m3_9/T/.com.google.Chrome.JIyfqy data:,
-[1603904386.126][INFO]: resolved localhost to ["127.0.0.1","::1"]
-[1603904386.139][INFO]: [e3269b84db83e63440328bea543869ba] RESPONSE InitSession {
+[1604006393.608][INFO]: Launching chrome: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-blink-features=ShadowDOMV0 --enable-logging --log-level=0 --no-first-run --password-store=basic --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir=/var/folders/10/x0tkb8rd0yl84mhcx3t01lbr43m3_9/T/.com.google.Chrome.tyTq62 data:,
+[1604006394.801][INFO]: resolved localhost to ["127.0.0.1","::1"]
+[1604006394.822][INFO]: [8219911aac4bbbfe6818fb30650ce1dd] RESPONSE InitSession {
    "capabilities": {
       "acceptInsecureCerts": false,
       "browserName": "chrome",
       "browserVersion": "86.0.4240.111",
       "chrome": {
          "chromedriverVersion": "86.0.4240.22 (398b0743353ff36fb1b82468f63a3a93b4e2e89e-refs/branch-heads/4240@{#378})",
-         "userDataDir": "/var/folders/10/x0tkb8rd0yl84mhcx3t01lbr43m3_9/T/.com.google.Chrome.JIyfqy"
+         "userDataDir": "/var/folders/10/x0tkb8rd0yl84mhcx3t01lbr43m3_9/T/.com.google.Chrome.tyTq62"
       },
       "goog:chromeOptions": {
-         "debuggerAddress": "localhost:54404"
+         "debuggerAddress": "localhost:52900"
       },
       "networkConnectionEnabled": false,
       "pageLoadStrategy": "normal",
@@ -111,31 +111,31 @@
       "unhandledPromptBehavior": "dismiss and notify",
       "webauthn:virtualAuthenticators": true
    },
-   "sessionId": "e3269b84db83e63440328bea543869ba"
+   "sessionId": "8219911aac4bbbfe6818fb30650ce1dd"
 }
-[1603904386.143][INFO]: [e3269b84db83e63440328bea543869ba] COMMAND SetTimeouts {
+[1604006394.860][INFO]: [8219911aac4bbbfe6818fb30650ce1dd] COMMAND SetTimeouts {
    "implicit": 25000
 }
-[1603904386.143][INFO]: [e3269b84db83e63440328bea543869ba] RESPONSE SetTimeouts
-[1603904386.145][INFO]: [e3269b84db83e63440328bea543869ba] COMMAND MaximizeWindow {
+[1604006394.860][INFO]: [8219911aac4bbbfe6818fb30650ce1dd] RESPONSE SetTimeouts
+[1604006394.864][INFO]: [8219911aac4bbbfe6818fb30650ce1dd] COMMAND MaximizeWindow {
 
 }
-[1603904386.145][INFO]: Waiting for pending navigations...
-[1603904386.146][INFO]: Done waiting for pending navigations. Status: ok
-[1603904386.146][INFO]: resolved localhost to ["127.0.0.1","::1"]
-[1603904386.264][INFO]: Waiting for pending navigations...
-[1603904386.264][INFO]: Done waiting for pending navigations. Status: ok
-[1603904386.264][INFO]: [e3269b84db83e63440328bea543869ba] RESPONSE MaximizeWindow {
-   "height": 867,
-   "width": 1536,
+[1604006394.864][INFO]: Waiting for pending navigations...
+[1604006394.865][INFO]: Done waiting for pending navigations. Status: ok
+[1604006394.866][INFO]: resolved localhost to ["127.0.0.1","::1"]
+[1604006395.024][INFO]: Waiting for pending navigations...
+[1604006395.025][INFO]: Done waiting for pending navigations. Status: ok
+[1604006395.025][INFO]: [8219911aac4bbbfe6818fb30650ce1dd] RESPONSE MaximizeWindow {
+   "height": 877,
+   "width": 1600,
    "x": 0,
    "y": 23
 }
-[1603904388.281][INFO]: [e3269b84db83e63440328bea543869ba] COMMAND Navigate {
-   "url": "https://service-test.nci.nih.gov/covidcode"
+[1604006397.171][INFO]: [8219911aac4bbbfe6818fb30650ce1dd] COMMAND Navigate {
+   "url": "https://service-sandbox.nci.nih.gov/login.do"
 }
-[1603904388.281][INFO]: Waiting for pending navigations...
-[1603904388.282][INFO]: Done waiting for pending navigations. Status: ok
-[1603904388.778][INFO]: Waiting for pending navigations...
-[1603904392.325][INFO]: Done waiting for pending navigations. Status: ok
-[1603904392.325][INFO]: [e3269b84db83e63440328bea543869ba] RESPONSE Navigate
+[1604006397.171][INFO]: Waiting for pending navigations...
+[1604006397.171][INFO]: Done waiting for pending navigations. Status: ok
+[1604006397.484][INFO]: Waiting for pending navigations...
+[1604006398.397][INFO]: Done waiting for pending navigations. Status: ok
+[1604006398.397][INFO]: [8219911aac4bbbfe6818fb30650ce1dd] RESPONSE Navigate
