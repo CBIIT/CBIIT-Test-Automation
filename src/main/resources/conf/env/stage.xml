@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <environment>
-	<!-- Below application ID's are for TEST/QA environments -->
+	<!-- Below application ID's are for STAGE environments -->
 
 	<profile-name>automation</profile-name>
 
@@ -81,7 +81,7 @@
 	<application id="COVIDCode">
 
 		<login_url>https://service-stage.nci.nih.gov/covidcode</login_url><!-- add 
-			test url -->
+			stage url -->
 
 		<role name="Role">
 			<user id="regular">
