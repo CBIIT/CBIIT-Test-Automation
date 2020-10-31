@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="18.024055">
+<testcase classname="Sign Out Verification" name="_2" time="18.024055">
+<system-out><![CDATA[Given an internal user is logged into the COVIDcode application.............passed
+And is on the home page.....................................................passed
+Then the internal user is able to sign out of the application by clicking on the "Sign Out" button.passed
+]]></system-out>
+</testcase>
+</testsuite>
