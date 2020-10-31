@@ -15,6 +15,7 @@ import ServiceNow.COVIDCode.Pages.FollowUpFormPage;
 import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentViewPage;
 import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentsPage;
 import ServiceNow.COVIDCode.Pages.ServicePortalSurveyPage;
+import ServiceNow.COVIDCode.Pages.SignOutVerificationPage;
 import ServiceNow.COVIDCode.StepsImplementation.ServicePortalEQPageImpl;
 import ServiceNow.COVIDCode.StepsImplementation.COVIDCodeLoginStepsImpl;
 import ServiceNow.COVIDCode.StepsImplementation.FollowUpFormPageImpl;
@@ -53,6 +54,7 @@ public class PageInitializer {
 	protected static FollowUpFormPageImpl followUpFormPageImpl;
 	protected static COVIDCodeLoginStepsImpl covidCodeLoginStepsImpl;
 	protected static ServicePortalSurveyPage servicePortalSurveyPage;
+	protected static SignOutVerificationPage signOutVerificationPage;
 
 	/** Native View instance */
 	protected static NativeViewLoginImpl nativeViewLoginImpl;
@@ -84,6 +86,7 @@ public class PageInitializer {
 		covidCodeEQPage = new EnrollmentQuestionnairePage();
 		covidCodeEQPageImpl = new ServicePortalEQPageImpl();
 		covidCodeLoginPage = new COVIDCodeLoginPage();
+		signOutVerificationPage = new SignOutVerificationPage();
 		nativeViewEnrollementsPage = new NativeViewEnrollmentsPage();
 		nativeViewEnrollmentViewPage = new NativeViewEnrollmentViewPage();
 		followUpFormPage = new FollowUpFormPage();
