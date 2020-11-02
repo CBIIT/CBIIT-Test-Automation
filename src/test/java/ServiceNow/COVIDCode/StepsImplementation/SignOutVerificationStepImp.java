@@ -13,7 +13,7 @@ public class SignOutVerificationStepImp extends PageInitializer {
 
 	/**
 	 * This method directs user to the COVIDCode web site and logs in with
-	 * credentials and takes a screenshot of filled out fields
+	 * credentials and takes a screenshot of fields already filled out
 	 */
 	public void covidCodeServicePortalLogIn() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
