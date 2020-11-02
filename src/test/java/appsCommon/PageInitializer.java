@@ -15,8 +15,8 @@ import ServiceNow.COVIDCode.Pages.FollowUpFormPage;
 import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentViewPage;
 import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentsPage;
 import ServiceNow.COVIDCode.Pages.ServicePortalSurveyPage;
-import ServiceNow.COVIDCode.Pages.SignOutVerificationPage;
 import ServiceNow.COVIDCode.StepsImplementation.ServicePortalEQPageImpl;
+import ServiceNow.COVIDCode.StepsImplementation.SignOutVerificationStepImp;
 import ServiceNow.COVIDCode.StepsImplementation.COVIDCodeLoginStepsImpl;
 import ServiceNow.COVIDCode.StepsImplementation.FollowUpFormPageImpl;
 import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
@@ -54,7 +54,7 @@ public class PageInitializer {
 	protected static FollowUpFormPageImpl followUpFormPageImpl;
 	protected static COVIDCodeLoginStepsImpl covidCodeLoginStepsImpl;
 	protected static ServicePortalSurveyPage servicePortalSurveyPage;
-	protected static SignOutVerificationPage signOutVerificationPage;
+	protected static SignOutVerificationStepImp signOutVerificationStepImp;
 
 	/** Native View instance */
 	protected static NativeViewLoginImpl nativeViewLoginImpl;
@@ -86,7 +86,6 @@ public class PageInitializer {
 		covidCodeEQPage = new EnrollmentQuestionnairePage();
 		covidCodeEQPageImpl = new ServicePortalEQPageImpl();
 		covidCodeLoginPage = new COVIDCodeLoginPage();
-		signOutVerificationPage = new SignOutVerificationPage();
 		nativeViewEnrollementsPage = new NativeViewEnrollmentsPage();
 		nativeViewEnrollmentViewPage = new NativeViewEnrollmentViewPage();
 		followUpFormPage = new FollowUpFormPage();
@@ -97,6 +96,7 @@ public class PageInitializer {
 		charmsNativeViewPage = new CHARMSNativeViewPage();
 		testAccountResetImpl = new TestAccountResetImpl();
 		servicePortalSurveyPage = new ServicePortalSurveyPage();
+		signOutVerificationStepImp = new SignOutVerificationStepImp();
 		charmsHomePage = new CHARMSHomePage();
 		oktaLoginPage = new OKTAloginPage();
 		charmsHomePageImpl = new CHARMSHomePageImp();
