@@ -1,8 +1,17 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="22.032561">
 <testcase classname="Sign Out Verification" name="_2" time="22.032561">
 <system-out><![CDATA[Given an internal user is logged into the COVIDcode application.............passed
 And is on the home page.....................................................passed
 Then the internal user is able to sign out of the application by clicking on the Sign Out button.passed
+=======
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="29.220612">
+<testcase classname="CICD_Dev_Ops Automated Build Deployment" name="CICD_Dev_Ops UpdateSet Automated Build Deployment" time="29.220612">
+<system-out><![CDATA[Given login to the CICD_Dev_Ops application in Native View is successful with username "DevOpsUsername" and password "DevOpsPassword".passed
+When selecting the "CICD_Dev_Ops" application...............................passed
+And selects "UpdateSet" as the deployment type..............................passed
+When selecting sets that contain "CICD_Dev_Ops_in_progress" and moving them to the right side table.passed
+>>>>>>> 43b116712bb97f25528753db61f93dc549c0d364
 ]]></system-out>
 </testcase>
 </testsuite>
