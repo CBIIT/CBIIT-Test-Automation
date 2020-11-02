@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="29.220612">
-<testcase classname="CICD_Dev_Ops Automated Build Deployment" name="CICD_Dev_Ops UpdateSet Automated Build Deployment" time="29.220612">
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="39.670454">
+<testcase classname="CICD_Dev_Ops Automated Build Deployment" name="CICD DevOps UpdateSet Automated Build Deployment" time="39.670454">
 <system-out><![CDATA[Given login to the CICD_Dev_Ops application in Native View is successful with username "DevOpsUsername" and password "DevOpsPassword".passed
 When selecting the "CICD_Dev_Ops" application...............................passed
 And selects "UpdateSet" as the deployment type..............................passed
 When selecting sets that contain "CICD_Dev_Ops_in_progress" and moving them to the right side table.passed
+Then build is able to be executed successfully..............................passed
 ]]></system-out>
 </testcase>
 </testsuite>
