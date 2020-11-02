@@ -9,6 +9,9 @@ import ServiceNow.CHARMS.Steps.ProbandScreenerSubmissionSteps;
 import ServiceNow.CHARMS.StepsImplementation.CHARMSHomePageImp;
 import ServiceNow.CHARMS.StepsImplementation.ProbandScreenerSubmissionImpl;
 import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
+import ServiceNow.CICDBuild.Pages.DevOpsLoginPage;
+import ServiceNow.CICDBuild.Pages.DevOpsNativeViewPage;
+import ServiceNow.CICDBuild.StepsImplementation.DevOpsAutomatedBuildStepsImplementation;
 import ServiceNow.COVIDCode.Pages.COVIDCodeLoginPage;
 import ServiceNow.COVIDCode.Pages.EnrollmentQuestionnairePage;
 import ServiceNow.COVIDCode.Pages.FollowUpFormPage;
@@ -22,9 +25,6 @@ import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
-import ServiceNow.DevOpsAutomatedBuilds.Pages.DevOpsLoginPage;
-import ServiceNow.DevOpsAutomatedBuilds.Pages.DevOpsNativeViewPage;
-import ServiceNow.DevOpsAutomatedBuilds.StepsImplementation.DevOpsAutomatedBuildStepsImplementation;
 
 /**
  * This an initializer class which will initialize all pages classes. Once pages
