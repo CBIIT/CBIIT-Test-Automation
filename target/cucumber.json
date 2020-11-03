@@ -3,11 +3,19 @@
     "line": 1,
     "elements": [
       {
+<<<<<<< HEAD
         "start_timestamp": "2020-11-03T15:41:04.593Z",
         "before": [
           {
             "result": {
               "duration": 3724897224,
+=======
+        "start_timestamp": "2020-10-30T16:57:34.719Z",
+        "before": [
+          {
+            "result": {
+              "duration": 3881997933,
+>>>>>>> origin/master
               "status": "passed"
             },
             "match": {
@@ -15,6 +23,7 @@
             }
           }
         ],
+<<<<<<< HEAD
         "line": 4,
         "name": "User navigates to API Acess page",
         "description": "",
@@ -23,6 +32,16 @@
           {
             "result": {
               "duration": 2095625565,
+=======
+        "line": 11,
+        "name": "CICD_Dev_Ops UpdateSet Automated Build Deployment",
+        "description": "",
+        "id": "cicd-dev-ops-automated-build-deployment;cicd-dev-ops-updateset-automated-build-deployment",
+        "after": [
+          {
+            "result": {
+              "duration": 2115256230,
+>>>>>>> origin/master
               "status": "passed"
             },
             "match": {
@@ -35,6 +54,7 @@
         "steps": [
           {
             "result": {
+<<<<<<< HEAD
               "duration": 978178448,
               "status": "passed"
             },
@@ -228,11 +248,49 @@
             "name": "user selects explore GWAS",
             "match": {
               "location": "ExploreGWASSteps.user_selects_explore_GWAS()"
+=======
+              "duration": 11102114297,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "login to the CICD_Dev_Ops application in Native View is successful with username \"DevOpsUsername\" and password \"DevOpsPassword\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"DevOpsUsername\"",
+                  "offset": 81
+                },
+                {
+                  "val": "\"DevOpsPassword\"",
+                  "offset": 111
+                }
+              ],
+              "location": "DevOpsApplicationBuildSteps.login_to_the_CICD_Dev_Ops_application_in_Native_View_is_successful_with_username_and_password(String,String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2079230804,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "selecting the \"CICD_Dev_Ops\" application",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"CICD_Dev_Ops\"",
+                  "offset": 14
+                }
+              ],
+              "location": "DevOpsApplicationBuildSteps.selecting_the_application(String)"
+>>>>>>> origin/master
             },
             "keyword": "When "
           },
           {
             "result": {
+<<<<<<< HEAD
               "duration": 173980253,
               "status": "passed"
             },
@@ -252,11 +310,27 @@
             "name": "selects ancestry as east asian all",
             "match": {
               "location": "ExploreGWASSteps.selects_ancestry_as_east_asian_all()"
+=======
+              "duration": 7882741239,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "selects \"UpdateSet\" as the deployment type",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"UpdateSet\"",
+                  "offset": 8
+                }
+              ],
+              "location": "DevOpsApplicationBuildSteps.selects_as_the_deployment_type(String)"
+>>>>>>> origin/master
             },
             "keyword": "And "
           },
           {
             "result": {
+<<<<<<< HEAD
               "duration": 121176920,
               "status": "passed"
             },
@@ -287,20 +361,49 @@
               "location": "ExploreGWASSteps.Manhattan_Plot_displays()"
             },
             "keyword": "Then "
+=======
+              "duration": 2156590128,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "selecting sets that contain \"CICD_Dev_Ops_in_progress\" and moving them to the right side table",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"CICD_Dev_Ops_in_progress\"",
+                  "offset": 28
+                }
+              ],
+              "location": "DevOpsApplicationBuildSteps.selecting_sets_that_contain_and_moving_them_to_the_right_side_table(String)"
+            },
+            "keyword": "When "
+>>>>>>> origin/master
           }
         ],
         "tags": [
           {
+<<<<<<< HEAD
             "name": "@Smoke"
+=======
+            "name": "@DevOpsCICDInProgressBuild"
+>>>>>>> origin/master
           }
         ]
       }
     ],
+<<<<<<< HEAD
     "name": "Explore GWAS",
     "description": "",
     "id": "explore-gwas",
     "keyword": "Feature",
     "uri": "file:src/test/java/AnalysisTools/PLCO/Features/ExploreGWAS.feature",
+=======
+    "name": "CICD_Dev_Ops Automated Build Deployment",
+    "description": "",
+    "id": "cicd-dev-ops-automated-build-deployment",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/ServiceNow/DevOpsAutomatedBuilds/Features/CICDDevOps.feature",
+>>>>>>> origin/master
     "tags": []
   }
 ]

@@ -30,6 +30,7 @@ public class COVIDHomePageImpl extends PageInitializer {
 	public void navigateToCOVIDDashLoginPage() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("covid19dashboard"));
 		CucumberLogUtils.logInfo(EnvUtils.getExecutionEnv());
+		CucumberLogUtils.logScreenShot();
 	}
 
 	public void clickOnLoginToAccessBtn() {
@@ -39,7 +40,7 @@ public class COVIDHomePageImpl extends PageInitializer {
 	}
 
 	public void verifyUserLoggedIn() {
-		MiscUtils.sleep(2500);
+		MiscUtils.sleep(3000);
 		Assert.assertTrue(WebDriverUtils.webDriver.getCurrentUrl().contains(covid));
 		CucumberLogUtils.logScreenShot();
 	}
@@ -55,6 +56,7 @@ public class COVIDHomePageImpl extends PageInitializer {
 		iTrustloginPage.enterPassword();
 		iTrustloginPage.clickSignInButton();
 		MiscUtils.sleep(1000);
+		CucumberLogUtils.logScreenShot();
 	}
 
 	public void verifyFieldsAreDiabled() {
@@ -69,6 +71,7 @@ public class COVIDHomePageImpl extends PageInitializer {
 	}
 
 	public void checkFieldsAutoPubulated(String inst, String dvsn, String piEml, String piPhn) {
+		MiscUtils.sleep(2000);
 		Assert.assertEquals(inst, covidHomePage.instituteField().getAttribute(attName));
 		Assert.assertEquals(dvsn, covidHomePage.divisionField().getAttribute(attName));
 		Assert.assertEquals(piEml, covidHomePage.emailAddressField().getAttribute(attName).substring(11));
