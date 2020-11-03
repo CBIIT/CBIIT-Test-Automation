@@ -1,6 +1,6 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/ServiceNow/CICDBuild/Features/ESR.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/ServiceNow/CICDBuild/Features/MyCICDTestApp.feature");
 formatter.feature({
-  "name": "ESR Automated Build Deployment",
+  "name": "MyCICDTestApp Automated Build Deployment",
   "description": "",
   "keyword": "Feature"
 });
@@ -10,7 +10,7 @@ formatter.scenario({
   "keyword": "Scenario",
   "tags": [
     {
-      "name": "@ESR_Application_Build"
+      "name": "@MyCICDTestApp_Application_Build"
     }
   ]
 });
@@ -28,12 +28,14 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "selecting the \"esr\" application",
+  "name": "selecting the \"MyCICDTestApp\" application",
   "keyword": "When "
 });
 formatter.match({
   "location": "DevOpsApplicationBuildSteps.selecting_the_application(String)"
 });
+formatter.write("2020-11-03 17:21:36: Screenshot: ");
+formatter.embedding("image/png", "embedded0.png");
 formatter.result({
   "status": "passed"
 });
