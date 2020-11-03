@@ -1,7 +1,7 @@
 Feature: Explore GWAS
 
 @Smoke
-Scenario: User generates Manhattan Plot 
+Scenario: User generates BMI Manhattan Plot for East Asian All
 Given user on PLCO homepage
 When user selects explore GWAS
 And selects phenotype as BMI at baseline 
