@@ -13,7 +13,11 @@ public class DevOpsNativeViewPage extends CommonUtils{
 	
 
 	/** Native View application selector drop down*/
-	@FindBy (xpath = "//*[@id='application_picker_select']")
+//	@FindBy (xpath = "//*[@id='application_picker_select']")
+//	public WebElement applicationSelectorDropDown;
+	
+	/** Native View application selector drop down*/
+	@FindBy (id = "application_picker_select")
 	public WebElement applicationSelectorDropDown;
 	
 	/** Drop down applications*/
