@@ -20,8 +20,7 @@ Scenario: Home Page - Validate LDlink
 When a LDlink user opens home page
 Then User verify title is "LDlink | An Interactive Web Tool for Exploring Linkage Disequilibrium in Population Groups"
 
-@InProgress
-Scenario: 
+
 
 			
 			

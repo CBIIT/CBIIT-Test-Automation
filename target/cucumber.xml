@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="10.028721">
+<testcase classname="Explore GWAS" name="User generates Manhattan Plot with Pairwise Plot" time="10.028721">
+<system-out><![CDATA[Given user on PLCO homepage.................................................passed
+When user selects explore GWAS..............................................passed
+And selects Pairwise Plots..................................................passed
+]]></system-out>
+</testcase>
+</testsuite>
