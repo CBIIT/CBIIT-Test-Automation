@@ -29,8 +29,7 @@ public class DevOpsAutomatedBuildStepsImplementation extends PageInitializer {
 	}
 
 	public void selectingCICDDevOpsApplication(String cicdDevOps) {
-		MiscUtils.sleep(5000);
-		CommonUtils.waitForClickability(devOpsNativeViewPage.applicationSelectorDropDown);
+		MiscUtils.sleep(6000);
 		devOpsNativeViewPage.applicationSelectorDropDown.click();
 		MiscUtils.sleep(6000);
 		List<WebElement> values = devOpsNativeViewPage.dropDownApplications;
