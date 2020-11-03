@@ -3,11 +3,11 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2020-10-30T16:57:34.719Z",
+        "start_timestamp": "2020-11-02T21:39:12.318Z",
         "before": [
           {
             "result": {
-              "duration": 3881997933,
+              "duration": 5279365074,
               "status": "passed"
             },
             "match": {
@@ -16,13 +16,13 @@
           }
         ],
         "line": 11,
-        "name": "CICD_Dev_Ops UpdateSet Automated Build Deployment",
+        "name": "CICD DevOps UpdateSet Automated Build Deployment",
         "description": "",
-        "id": "cicd-dev-ops-automated-build-deployment;cicd-dev-ops-updateset-automated-build-deployment",
+        "id": "cicd-dev-ops-automated-build-deployment;cicd-devops-updateset-automated-build-deployment",
         "after": [
           {
             "result": {
-              "duration": 2115256230,
+              "duration": 2476536317,
               "status": "passed"
             },
             "match": {
@@ -35,7 +35,7 @@
         "steps": [
           {
             "result": {
-              "duration": 11102114297,
+              "duration": 7587116369,
               "status": "passed"
             },
             "line": 12,
@@ -57,7 +57,7 @@
           },
           {
             "result": {
-              "duration": 2079230804,
+              "duration": 12530371553,
               "status": "passed"
             },
             "line": 13,
@@ -75,7 +75,7 @@
           },
           {
             "result": {
-              "duration": 7882741239,
+              "duration": 6309918704,
               "status": "passed"
             },
             "line": 14,
@@ -93,7 +93,7 @@
           },
           {
             "result": {
-              "duration": 2156590128,
+              "duration": 2441725646,
               "status": "passed"
             },
             "line": 15,
@@ -108,11 +108,23 @@
               "location": "DevOpsApplicationBuildSteps.selecting_sets_that_contain_and_moving_them_to_the_right_side_table(String)"
             },
             "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 3042549591,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "build is able to be executed successfully",
+            "match": {
+              "location": "DevOpsApplicationBuildSteps.build_is_able_to_be_executed_successfully()"
+            },
+            "keyword": "Then "
           }
         ],
         "tags": [
           {
-            "name": "@DevOpsCICDInProgressBuild"
+            "name": "@CICD_Dev_Ops_UpdateSet_Build"
           }
         ]
       }
@@ -121,7 +133,7 @@
     "description": "",
     "id": "cicd-dev-ops-automated-build-deployment",
     "keyword": "Feature",
-    "uri": "file:src/test/java/ServiceNow/DevOpsAutomatedBuilds/Features/CICDDevOps.feature",
+    "uri": "file:src/test/java/ServiceNow/CICDBuild/Features/CICDDevOps.feature",
     "tags": []
   }
 ]

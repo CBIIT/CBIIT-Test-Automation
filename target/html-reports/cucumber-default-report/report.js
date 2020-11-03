@@ -1,16 +1,16 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/ServiceNow/DevOpsAutomatedBuilds/Features/CICDDevOps.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/ServiceNow/CICDBuild/Features/CICDDevOps.feature");
 formatter.feature({
   "name": "CICD_Dev_Ops Automated Build Deployment",
   "description": "",
   "keyword": "Feature"
 });
 formatter.scenario({
-  "name": "CICD_Dev_Ops UpdateSet Automated Build Deployment",
+  "name": "CICD DevOps UpdateSet Automated Build Deployment",
   "description": "",
   "keyword": "Scenario",
   "tags": [
     {
-      "name": "@DevOpsCICDInProgressBuild"
+      "name": "@CICD_Dev_Ops_UpdateSet_Build"
     }
   ]
 });
@@ -53,6 +53,16 @@ formatter.step({
 });
 formatter.match({
   "location": "DevOpsApplicationBuildSteps.selecting_sets_that_contain_and_moving_them_to_the_right_side_table(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "build is able to be executed successfully",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "DevOpsApplicationBuildSteps.build_is_able_to_be_executed_successfully()"
 });
 formatter.result({
   "status": "passed"

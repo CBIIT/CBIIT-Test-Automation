@@ -1,4 +1,4 @@
-package ServiceNow.DevOpsAutomatedBuilds.StepsImplementation;
+package ServiceNow.CICDBuild.StepsImplementation;
 
 import java.util.List;
 
@@ -27,8 +27,16 @@ public class DevOpsAutomatedBuildStepsImplementation extends PageInitializer {
 	}
 
 	public void selectingCICDDevOpsApplication(String cicdDevOps) {
-		MiscUtils.sleep(2000);
-		CommonUtils.selectDropDownValue(devOpsNativeViewPage.applicationSelectorDropDown, cicdDevOps);
+		MiscUtils.sleep(5000);
+		//CommonUtils.selectDropDownValue(devOpsNativeViewPage.applicationSelectorDropDown, cicdDevOps);
+		devOpsNativeViewPage.applicationSelectorDropDown.click();
+		MiscUtils.sleep(4000);
+		List<WebElement> values = devOpsNativeViewPage.dropDownApplications;
+		CommonUtils.selectValueFromBootStrapDropDown(values, cicdDevOps);
+		//JavascriptUtils.clickByJS(devOpsNativeViewPage.applicationSelectorDropDown);
+		MiscUtils.sleep(3000);
+		//CommonUtils.selectDropDownValue(cicdDevOps, devOpsNativeViewPage.applicationSelectorDropDown);
+		//CommonUtils.selectDropDownValue(devOpsNativeViewPage.applicationSelectorDropDown, 0);
 		JavascriptUtils.clickByJS(devOpsNativeViewPage.showSelectedApplicationButton);
 	}
 
@@ -72,8 +80,6 @@ public class DevOpsAutomatedBuildStepsImplementation extends PageInitializer {
 		for (WebElement retrievedSets : sets) {
 			retrievedSets.click();
 			devOpsNativeViewPage.moveRightButton.click();
-		}
-		
+		}		
 	}
-
 }
