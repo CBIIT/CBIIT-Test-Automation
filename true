@@ -1,6 +1,6 @@
-[1601302733.440][INFO]: Starting ChromeDriver 84.0.4147.30 (48b3e868b4cc0aa7e8149519690b6f6949e110a8-refs/branch-heads/4147@{#310}) on port 47134
-[1601302733.440][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
-[1601302733.643][INFO]: [f0f4629a1e45bef59444c4ef188f1b86] COMMAND InitSession {
+[1604345677.778][INFO]: Starting ChromeDriver 86.0.4240.22 (398b0743353ff36fb1b82468f63a3a93b4e2e89e-refs/branch-heads/4240@{#378}) on port 31127
+[1604345677.778][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+[1604345677.941][INFO]: [21ffa0445f6e0d050050c9dc3759e5ab] COMMAND InitSession {
    "capabilities": {
       "firstMatch": [ {
          "browserName": "chrome",
@@ -18,7 +18,7 @@
       }
    }
 }
-[1601302733.645][INFO]: Populating Preferences file: {
+[1604345677.942][INFO]: Populating Preferences file: {
    "alternate_error_pages": {
       "enabled": false
    },
@@ -71,7 +71,7 @@
       "enabled": false
    }
 }
-[1601302733.645][INFO]: Populating Local State file: {
+[1604345677.943][INFO]: Populating Local State file: {
    "background_mode": {
       "enabled": false
    },
@@ -81,20 +81,19 @@
       }
    }
 }
-[1601302733.646][INFO]: Launching chrome: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-blink-features=ShadowDOMV0 --enable-logging --load-extension=/var/folders/ls/pc4m1ymd4n13y6xjdzp813phg6shkh/T/.com.google.Chrome.hrw7xe/internal --log-level=0 --no-first-run --password-store=basic --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir=/var/folders/ls/pc4m1ymd4n13y6xjdzp813phg6shkh/T/.com.google.Chrome.OolMsJ data:,
-[1601302734.688][WARNING]: This version of ChromeDriver has not been tested with Chrome version 85.
-[1601302734.710][INFO]: resolved localhost to ["::1","127.0.0.1"]
-[1601302734.763][INFO]: [f0f4629a1e45bef59444c4ef188f1b86] RESPONSE InitSession {
+[1604345677.943][INFO]: Launching chrome: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-blink-features=ShadowDOMV0 --enable-logging --log-level=0 --no-first-run --password-store=basic --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir=/var/folders/ls/pc4m1ymd4n13y6xjdzp813phg6shkh/T/.com.google.Chrome.QIoE2l data:,
+[1604345679.086][INFO]: resolved localhost to ["127.0.0.1","::1"]
+[1604345679.116][INFO]: [21ffa0445f6e0d050050c9dc3759e5ab] RESPONSE InitSession {
    "capabilities": {
       "acceptInsecureCerts": false,
       "browserName": "chrome",
-      "browserVersion": "85.0.4183.121",
+      "browserVersion": "86.0.4240.111",
       "chrome": {
-         "chromedriverVersion": "84.0.4147.30 (48b3e868b4cc0aa7e8149519690b6f6949e110a8-refs/branch-heads/4147@{#310})",
-         "userDataDir": "/var/folders/ls/pc4m1ymd4n13y6xjdzp813phg6shkh/T/.com.google.Chrome.OolMsJ"
+         "chromedriverVersion": "86.0.4240.22 (398b0743353ff36fb1b82468f63a3a93b4e2e89e-refs/branch-heads/4240@{#378})",
+         "userDataDir": "/var/folders/ls/pc4m1ymd4n13y6xjdzp813phg6shkh/T/.com.google.Chrome.QIoE2l"
       },
       "goog:chromeOptions": {
-         "debuggerAddress": "localhost:51011"
+         "debuggerAddress": "localhost:63170"
       },
       "networkConnectionEnabled": false,
       "pageLoadStrategy": "normal",
@@ -112,28 +111,73 @@
       "unhandledPromptBehavior": "dismiss and notify",
       "webauthn:virtualAuthenticators": true
    },
-   "sessionId": "f0f4629a1e45bef59444c4ef188f1b86"
+   "sessionId": "21ffa0445f6e0d050050c9dc3759e5ab"
 }
-[1601302734.822][INFO]: [f0f4629a1e45bef59444c4ef188f1b86] COMMAND SetTimeouts {
+[1604345679.145][INFO]: [21ffa0445f6e0d050050c9dc3759e5ab] COMMAND SetTimeouts {
    "implicit": 25000
 }
-[1601302734.822][INFO]: [f0f4629a1e45bef59444c4ef188f1b86] RESPONSE SetTimeouts
-[1601302734.827][INFO]: [f0f4629a1e45bef59444c4ef188f1b86] COMMAND MaximizeWindow {
+[1604345679.145][INFO]: [21ffa0445f6e0d050050c9dc3759e5ab] RESPONSE SetTimeouts
+[1604345679.150][INFO]: [21ffa0445f6e0d050050c9dc3759e5ab] COMMAND MaximizeWindow {
 
 }
-[1601302734.827][INFO]: Waiting for pending navigations...
-[1601302734.827][INFO]: Done waiting for pending navigations. Status: ok
-[1601302734.828][INFO]: resolved localhost to ["::1","127.0.0.1"]
-[1601302734.935][INFO]: Waiting for pending navigations...
-[1601302734.935][INFO]: Done waiting for pending navigations. Status: ok
-[1601302734.935][INFO]: [f0f4629a1e45bef59444c4ef188f1b86] RESPONSE MaximizeWindow {
+[1604345679.150][INFO]: Waiting for pending navigations...
+[1604345679.151][INFO]: Done waiting for pending navigations. Status: ok
+[1604345679.151][INFO]: resolved localhost to ["127.0.0.1","::1"]
+[1604345679.257][INFO]: Waiting for pending navigations...
+[1604345679.257][INFO]: Done waiting for pending navigations. Status: ok
+[1604345679.257][INFO]: [21ffa0445f6e0d050050c9dc3759e5ab] RESPONSE MaximizeWindow {
    "height": 808,
    "width": 1440,
    "x": 0,
    "y": 23
 }
-[1601302737.152][INFO]: [f0f4629a1e45bef59444c4ef188f1b86] COMMAND Navigate {
-   "url": "https://ldlink-qa.nci.nih.gov/?tab=home"
+[1604345681.414][INFO]: [21ffa0445f6e0d050050c9dc3759e5ab] COMMAND Navigate {
+   "url": "https://exploregwas-qa.cancer.gov/plco-atlas/#/"
 }
-[1601302737.152][INFO]: Waiting for pending navigations...
-[1601302737.153][INFO]: Done waiting for pending navigations. Status: ok
+[1604345681.414][INFO]: Waiting for pending navigations...
+[1604345681.415][INFO]: Done waiting for pending navigations. Status: ok
+[1604345681.720][INFO]: Waiting for pending navigations...
+[1604345684.601][INFO]: Done waiting for pending navigations. Status: ok
+[1604345684.601][INFO]: [21ffa0445f6e0d050050c9dc3759e5ab] RESPONSE Navigate
+[1604345684.607][INFO]: [21ffa0445f6e0d050050c9dc3759e5ab] COMMAND FindElement {
+   "using": "xpath",
+   "value": "(//*[@href='#/gwas'])[3]"
+}
+[1604345684.607][INFO]: Waiting for pending navigations...
+[1604345684.608][INFO]: Done waiting for pending navigations. Status: ok
+[1604345685.205][INFO]: Waiting for pending navigations...
+[1604345685.205][INFO]: Done waiting for pending navigations. Status: ok
+[1604345685.205][INFO]: [21ffa0445f6e0d050050c9dc3759e5ab] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "8be29ca9-2059-483c-af07-98c0740dbdde"
+}
+[1604345685.209][INFO]: [21ffa0445f6e0d050050c9dc3759e5ab] COMMAND ClickElement {
+   "id": "8be29ca9-2059-483c-af07-98c0740dbdde"
+}
+[1604345685.209][INFO]: Waiting for pending navigations...
+[1604345685.209][INFO]: Done waiting for pending navigations. Status: ok
+[1604345685.326][INFO]: Waiting for pending navigations...
+[1604345685.333][INFO]: Done waiting for pending navigations. Status: ok
+[1604345685.333][INFO]: [21ffa0445f6e0d050050c9dc3759e5ab] RESPONSE ClickElement
+[1604345685.337][INFO]: [21ffa0445f6e0d050050c9dc3759e5ab] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@for='is-pairwise']"
+}
+[1604345685.337][INFO]: Waiting for pending navigations...
+[1604345685.348][INFO]: Done waiting for pending navigations. Status: ok
+[1604345685.353][INFO]: Waiting for pending navigations...
+[1604345685.354][INFO]: Done waiting for pending navigations. Status: ok
+[1604345685.354][INFO]: [21ffa0445f6e0d050050c9dc3759e5ab] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "2d6a42b7-fdc0-40e9-9d9d-3b4d695741f7"
+}
+[1604345685.357][INFO]: [21ffa0445f6e0d050050c9dc3759e5ab] COMMAND ClickElement {
+   "id": "2d6a42b7-fdc0-40e9-9d9d-3b4d695741f7"
+}
+[1604345685.357][INFO]: Waiting for pending navigations...
+[1604345685.358][INFO]: Done waiting for pending navigations. Status: ok
+[1604345685.389][INFO]: Waiting for pending navigations...
+[1604345685.396][INFO]: Done waiting for pending navigations. Status: ok
+[1604345685.396][INFO]: [21ffa0445f6e0d050050c9dc3759e5ab] RESPONSE ClickElement
+[1604345687.402][INFO]: [21ffa0445f6e0d050050c9dc3759e5ab] COMMAND Quit {
+
+}
+[1604345687.453][INFO]: [21ffa0445f6e0d050050c9dc3759e5ab] RESPONSE Quit
