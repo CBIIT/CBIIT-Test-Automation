@@ -1,5 +1,7 @@
 package ServiceNow.COVIDCode.StepsImplementation;
 
+import org.junit.Test;
+
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
@@ -8,6 +10,7 @@ import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializer;
 
 public class COVIDCodeLoginStepsImpl extends PageInitializer {
+	
 	
 	public void covidCodeServicePortalLogin() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
@@ -20,5 +23,7 @@ public class COVIDCodeLoginStepsImpl extends PageInitializer {
 		covidCodeLoginPage.AcceptandCompleteQuestionnaireButton.click();
 		
 	}
+	
+	
 
 }
