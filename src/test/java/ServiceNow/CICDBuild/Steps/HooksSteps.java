@@ -1,4 +1,4 @@
-package ServiceNow.DevOpsAutomatedBuilds.Steps;
+package ServiceNow.CICDBuild.Steps;
 
 import java.io.File;
 import java.net.MalformedURLException;
