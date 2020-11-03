@@ -1,4 +1,4 @@
-package ServiceNow.DevOpsAutomatedBuilds.Pages;
+package ServiceNow.CICDBuild.Pages;
 
 import java.util.List;
 
@@ -13,8 +13,12 @@ public class DevOpsNativeViewPage extends CommonUtils{
 	
 
 	/** Native View application selector drop down*/
-	@FindBy (id = "application_picker_select")
+	@FindBy (xpath = "//*[@id='application_picker_select']")
 	public WebElement applicationSelectorDropDown;
+	
+	/** Drop down applications*/
+	@FindBy (xpath = "//*[@id='application_picker_select']/option")
+	public List<WebElement> dropDownApplications;
 	
 	/** Show selected application button */
 	@FindBy (xpath = "(//div[@class='form-group']/a)[2]")
@@ -52,9 +56,6 @@ public class DevOpsNativeViewPage extends CommonUtils{
 	@FindBy (xpath = "//option[starts-with(@title,'CICD_Dev_Ops') and contains(text(),'in progress')]")
 	public List<WebElement> listOfCICDDevOpsInProgress;
 
-	
-	
-	
 	public DevOpsNativeViewPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
