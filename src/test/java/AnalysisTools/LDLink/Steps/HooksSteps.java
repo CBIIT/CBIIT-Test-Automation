@@ -4,6 +4,8 @@ import java.io.File;
 import java.net.MalformedURLException;
 
 import org.apache.commons.lang.StringUtils;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import com.nci.automation.common.QcTestResult;
 import com.nci.automation.common.ScenarioContext;
@@ -33,6 +35,7 @@ public class HooksSteps {
 	@Before
 	public void genericSetUp(Scenario s) throws TestingException {
 		WebDriverUtils.getWebDriver();
+		System.out.println();
 		MiscUtils.sleep(2000);
 		PageInitializer.initializeAllPages();
 		ScenarioContext.localConf = LocalConfUtils.loadLocalConf();
