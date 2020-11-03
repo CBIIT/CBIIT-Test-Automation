@@ -36,6 +36,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 
 	@Then("the enrollment questionnaire should be successfully submitted")
 	public void the_enrollment_questionnaire_should_be_successfully_submitted() {
+		//Include step here
 	}
 
 }
