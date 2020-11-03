@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [1604418079.096][INFO]: Starting ChromeDriver 86.0.4240.22 (398b0743353ff36fb1b82468f63a3a93b4e2e89e-refs/branch-heads/4240@{#378}) on port 22033
 [1604418079.096][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 [1604418079.126][INFO]: [5621d007beb201ae4718c701804b7e5f] COMMAND InitSession {
@@ -6,6 +7,11 @@
 [1604077055.001][INFO]: Starting ChromeDriver 86.0.4240.22 (398b0743353ff36fb1b82468f63a3a93b4e2e89e-refs/branch-heads/4240@{#378}) on port 15744
 [1604077055.001][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 [1604077055.168][INFO]: [4dbd1a52aaf03dff57972d270daf93bf] COMMAND InitSession {
+>>>>>>> origin/master
+=======
+[1604079009.862][INFO]: Starting ChromeDriver 86.0.4240.22 (398b0743353ff36fb1b82468f63a3a93b4e2e89e-refs/branch-heads/4240@{#378}) on port 33880
+[1604079009.862][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+[1604079009.896][INFO]: [13e0ac74241784e542318fb39c7e7f8a] COMMAND InitSession {
 >>>>>>> origin/master
    "capabilities": {
       "firstMatch": [ {
@@ -25,9 +31,13 @@
    }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 [1604418079.127][INFO]: Populating Preferences file: {
 =======
 [1604077055.169][INFO]: Populating Preferences file: {
+>>>>>>> origin/master
+=======
+[1604079009.897][INFO]: Populating Preferences file: {
 >>>>>>> origin/master
    "alternate_error_pages": {
       "enabled": false
@@ -82,9 +92,13 @@
    }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 [1604418079.128][INFO]: Populating Local State file: {
 =======
 [1604077055.169][INFO]: Populating Local State file: {
+>>>>>>> origin/master
+=======
+[1604079009.897][INFO]: Populating Local State file: {
 >>>>>>> origin/master
    "background_mode": {
       "enabled": false
@@ -96,6 +110,7 @@
    }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 [1604418079.128][INFO]: Launching chrome: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-blink-features=ShadowDOMV0 --enable-logging --log-level=0 --no-first-run --password-store=basic --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir=/var/folders/ls/pc4m1ymd4n13y6xjdzp813phg6shkh/T/.com.google.Chrome.SHQJBG data:,
 [1604418079.983][INFO]: resolved localhost to ["127.0.0.1","::1"]
 [1604418080.013][INFO]: [5621d007beb201ae4718c701804b7e5f] RESPONSE InitSession {
@@ -104,12 +119,18 @@
 [1604077056.311][INFO]: resolved localhost to ["127.0.0.1","::1"]
 [1604077056.332][INFO]: [4dbd1a52aaf03dff57972d270daf93bf] RESPONSE InitSession {
 >>>>>>> origin/master
+=======
+[1604079009.898][INFO]: Launching chrome: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-blink-features=ShadowDOMV0 --enable-logging --log-level=0 --no-first-run --password-store=basic --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir=/var/folders/10/x0tkb8rd0yl84mhcx3t01lbr43m3_9/T/.com.google.Chrome.13nWJL data:,
+[1604079010.972][INFO]: resolved localhost to ["127.0.0.1","::1"]
+[1604079010.991][INFO]: [13e0ac74241784e542318fb39c7e7f8a] RESPONSE InitSession {
+>>>>>>> origin/master
    "capabilities": {
       "acceptInsecureCerts": false,
       "browserName": "chrome",
       "browserVersion": "86.0.4240.111",
       "chrome": {
          "chromedriverVersion": "86.0.4240.22 (398b0743353ff36fb1b82468f63a3a93b4e2e89e-refs/branch-heads/4240@{#378})",
+<<<<<<< HEAD
 <<<<<<< HEAD
          "userDataDir": "/var/folders/ls/pc4m1ymd4n13y6xjdzp813phg6shkh/T/.com.google.Chrome.SHQJBG"
       },
@@ -120,6 +141,12 @@
       },
       "goog:chromeOptions": {
          "debuggerAddress": "localhost:52620"
+>>>>>>> origin/master
+=======
+         "userDataDir": "/var/folders/10/x0tkb8rd0yl84mhcx3t01lbr43m3_9/T/.com.google.Chrome.13nWJL"
+      },
+      "goog:chromeOptions": {
+         "debuggerAddress": "localhost:61207"
 >>>>>>> origin/master
       },
       "networkConnectionEnabled": false,
@@ -138,6 +165,7 @@
       "unhandledPromptBehavior": "dismiss and notify",
       "webauthn:virtualAuthenticators": true
    },
+<<<<<<< HEAD
 <<<<<<< HEAD
    "sessionId": "5621d007beb201ae4718c701804b7e5f"
 }
@@ -401,25 +429,29 @@
 [1604418087.548][INFO]: [5621d007beb201ae4718c701804b7e5f] RESPONSE Quit
 =======
    "sessionId": "4dbd1a52aaf03dff57972d270daf93bf"
+=======
+   "sessionId": "13e0ac74241784e542318fb39c7e7f8a"
+>>>>>>> origin/master
 }
-[1604077056.377][INFO]: [4dbd1a52aaf03dff57972d270daf93bf] COMMAND SetTimeouts {
+[1604079010.995][INFO]: [13e0ac74241784e542318fb39c7e7f8a] COMMAND SetTimeouts {
    "implicit": 25000
 }
-[1604077056.377][INFO]: [4dbd1a52aaf03dff57972d270daf93bf] RESPONSE SetTimeouts
-[1604077056.380][INFO]: [4dbd1a52aaf03dff57972d270daf93bf] COMMAND MaximizeWindow {
+[1604079010.995][INFO]: [13e0ac74241784e542318fb39c7e7f8a] RESPONSE SetTimeouts
+[1604079010.997][INFO]: [13e0ac74241784e542318fb39c7e7f8a] COMMAND MaximizeWindow {
 
 }
-[1604077056.380][INFO]: Waiting for pending navigations...
-[1604077056.381][INFO]: Done waiting for pending navigations. Status: ok
-[1604077056.381][INFO]: resolved localhost to ["127.0.0.1","::1"]
-[1604077056.521][INFO]: Waiting for pending navigations...
-[1604077056.537][INFO]: Done waiting for pending navigations. Status: ok
-[1604077056.537][INFO]: [4dbd1a52aaf03dff57972d270daf93bf] RESPONSE MaximizeWindow {
+[1604079010.997][INFO]: Waiting for pending navigations...
+[1604079010.998][INFO]: Done waiting for pending navigations. Status: ok
+[1604079010.998][INFO]: resolved localhost to ["127.0.0.1","::1"]
+[1604079011.105][INFO]: Waiting for pending navigations...
+[1604079011.105][INFO]: Done waiting for pending navigations. Status: ok
+[1604079011.106][INFO]: [13e0ac74241784e542318fb39c7e7f8a] RESPONSE MaximizeWindow {
    "height": 877,
    "width": 1600,
    "x": 0,
    "y": 23
 }
+<<<<<<< HEAD
 [1604077058.703][INFO]: [4dbd1a52aaf03dff57972d270daf93bf] COMMAND Navigate {
    "url": "https://service-sandbox.nci.nih.gov/login.do"
 }
@@ -845,4 +877,6 @@
 
 }
 [1604077083.882][INFO]: [4dbd1a52aaf03dff57972d270daf93bf] RESPONSE Quit
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master

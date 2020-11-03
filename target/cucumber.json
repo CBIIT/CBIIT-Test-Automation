@@ -1,0 +1,109 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-11-03T17:25:07.411Z",
+        "before": [
+          {
+            "result": {
+              "duration": 4772757217,
+              "status": "passed"
+            },
+            "match": {
+              "location": "HooksSteps.genericSetUp(Scenario)"
+            }
+          }
+        ],
+        "line": 4,
+        "name": "CICD DevOps Application Automated Build Deployment",
+        "description": "",
+        "id": "esr-automated-build-deployment;cicd-devops-application-automated-build-deployment",
+        "after": [
+          {
+            "result": {
+              "duration": 2444934909,
+              "status": "passed"
+            },
+            "match": {
+              "location": "HooksSteps.genericTearDown(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 5980044866,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "login to the CICD_Dev_Ops application in Native View is successful with username \"DevOpsUsername\" and password \"DevOpsPassword\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"DevOpsUsername\"",
+                  "offset": 81
+                },
+                {
+                  "val": "\"DevOpsPassword\"",
+                  "offset": 111
+                }
+              ],
+              "location": "DevOpsApplicationBuildSteps.login_to_the_CICD_Dev_Ops_application_in_Native_View_is_successful_with_username_and_password(String,String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 14825591670,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "selecting the \"esr\" application",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"esr\"",
+                  "offset": 14
+                }
+              ],
+              "location": "DevOpsApplicationBuildSteps.selecting_the_application(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 8302449376,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "selecting \"Application\" as the deployment type",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Application\"",
+                  "offset": 10
+                }
+              ],
+              "location": "DevOpsApplicationBuildSteps.selecting_as_the_deployment_type(String)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@ESR_Application_Build"
+          }
+        ]
+      }
+    ],
+    "name": "ESR Automated Build Deployment",
+    "description": "",
+    "id": "esr-automated-build-deployment",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/ServiceNow/CICDBuild/Features/ESR.feature",
+    "tags": []
+  }
+]
