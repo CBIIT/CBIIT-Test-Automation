@@ -1,16 +1,16 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/ServiceNow/CICDBuild/Features/CICDDevOps.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/ServiceNow/CICDBuild/Features/ESR.feature");
 formatter.feature({
-  "name": "CICD_Dev_Ops Automated Build Deployment",
+  "name": "ESR Automated Build Deployment",
   "description": "",
   "keyword": "Feature"
 });
 formatter.scenario({
-  "name": "CICD DevOps UpdateSet Automated Build Deployment",
+  "name": "CICD DevOps Application Automated Build Deployment",
   "description": "",
   "keyword": "Scenario",
   "tags": [
     {
-      "name": "@CICD_Dev_Ops_UpdateSet_Build"
+      "name": "@ESR_Application_Build"
     }
   ]
 });
@@ -28,7 +28,7 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "selecting the \"CICD_Dev_Ops\" application",
+  "name": "selecting the \"esr\" application",
   "keyword": "When "
 });
 formatter.match({
@@ -38,31 +38,11 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "selects \"UpdateSet\" as the deployment type",
+  "name": "selecting \"Application\" as the deployment type",
   "keyword": "And "
 });
 formatter.match({
-  "location": "DevOpsApplicationBuildSteps.selects_as_the_deployment_type(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "selecting sets that contain \"CICD_Dev_Ops_in_progress\" and moving them to the right side table",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "DevOpsApplicationBuildSteps.selecting_sets_that_contain_and_moving_them_to_the_right_side_table(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "build is able to be executed successfully",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "DevOpsApplicationBuildSteps.build_is_able_to_be_executed_successfully()"
+  "location": "DevOpsApplicationBuildSteps.selecting_as_the_deployment_type(String)"
 });
 formatter.result({
   "status": "passed"
