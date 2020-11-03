@@ -1,8 +1,11 @@
 package appsCommon;
 
-import AnalysisTools.LDLink.Pages.LDLinkExpressPage;
+
+
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
+import AnalysisTools.PLCO.Pages.APIAcessPage;
+import AnalysisTools.PLCO.Pages.ExploreGWASPage;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
 import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
 import ServiceNow.COVIDCode.Pages.COVIDCodeLoginPage;
@@ -11,9 +14,9 @@ import ServiceNow.COVIDCode.Pages.FollowUpFormPage;
 import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentViewPage;
 import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentsPage;
 import ServiceNow.COVIDCode.Pages.ServicePortalSurveyPage;
-import ServiceNow.COVIDCode.StepsImplementation.ServicePortalEQPageImpl;
 import ServiceNow.COVIDCode.StepsImplementation.COVIDCodeLoginStepsImpl;
 import ServiceNow.COVIDCode.StepsImplementation.FollowUpFormPageImpl;
+import ServiceNow.COVIDCode.StepsImplementation.ServicePortalEQPageImpl;
 import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
@@ -58,7 +61,10 @@ public class PageInitializer {
 	/**LDLink instances**/
 	protected static LDLinkHomePage ldLinkHomePage; 
 	protected static LDLinkLandingPage ldLinkLandingPage; 
-	protected static LDLinkExpressPage ldLinkExpressPage;
+	
+	/**PLCO instances**/
+	protected static ExploreGWASPage exploreGWASPage; 
+	protected static APIAcessPage apiAcessPage; 
 	
 
 	public static void initializeAllPages() {
@@ -84,7 +90,8 @@ public class PageInitializer {
 		servicePortalSurveyPage = new ServicePortalSurveyPage();
 		ldLinkLandingPage = new LDLinkLandingPage();
 		ldLinkHomePage = new LDLinkHomePage(); 
-		ldLinkExpressPage = new LDLinkExpressPage();
+		exploreGWASPage = new ExploreGWASPage(); 
+		apiAcessPage = new APIAcessPage();
 		
 	}
 
