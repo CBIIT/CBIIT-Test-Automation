@@ -2,7 +2,7 @@ Feature: COVID19 Dashboard Scenarios
   
   Description: This feature file tests COVIDDASH-7, 8, 20, 134, 135, 138, 136, 137, 140, 142, 143, 148
 
-  @smoke @progression @regression 
+  @smoke @regression  
   Scenario Outline: Validate Autopulation
     Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application
     And user validates that Institute, Division, Email Address, and Phone Number fields are not editable
@@ -13,14 +13,14 @@ Feature: COVID19 Dashboard Scenarios
 
     Examples: 
       | PI Name      | istitName | dvsnName | piEmail  | piPhonNum  |
-      | Sohil Zalmay | NCI       | OD       | @nih.gov | 2402766573 |
+      | Zalmay Sohil | NCI       | OD       | @nih.gov | 2402766573 |
 
 
-  @smoke @regression 
+  @smoke  @regression 
   Scenario: Validate Study Submission
     Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application
     And the user verifies that the submit button is disbaled by default
-    When the User selects a Principal Investigator "Sohil Zalmay"
+    When the User selects a Principal Investigator "Zalmay Sohil"
     And enters a unique IRB Protocol Number which can contain numbers and text such as "65YUT55"
     And enters a Study Title as "COVID Study"
     And selects any Biospecimen Type "Other" and enters Other type as "tissue"

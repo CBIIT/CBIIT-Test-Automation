@@ -110,15 +110,23 @@ public class EnrollmentQuestionnairePage extends CommonUtils {
 	// COVIDcode Enrollment Questionnaire inches text box
 	@FindBy(id = "sp_formfield_height_inches")
 	public WebElement inchesTextBox;
+	
+	// COVIDcode Enrollment Questionnaire Were you symptomatic dropdown
+	@FindBy (xpath = "//div[@id='s2id_sp_formfield_symptomatic']")
+	public WebElement wereYouSymptomaticDropdown;
+		
+	// COVIDcode Enrollment Questionnaire Were you symptomatic dropdown values
+	@FindBy (xpath = "//li[@role='presentation']")
+	public List<WebElement> wereYouSymptomaticDropdownValues;
 
 	// COVIDcode Enrollment Questionnaire when did you first develop symptoms of
 	// COVID-19? calendar
-	@FindBy(id = "sp_formfield_date_first_symptoms")
+	@FindBy(xpath ="//input[@id='sp_formfield_date_first_symptoms']")
 	public WebElement whenDevelopSymptoms;
 
 	// COVIDcode Enrollment Questionnaire when were you officially diagnosed with
 	// COVID-19? calendar
-	@FindBy(id = "sp_formfield_date_official_diagnosis")
+	@FindBy(xpath = "//input[@id='sp_formfield_date_official_diagnosis']")
 	public WebElement whenOfficiallyDiagnosed;
 
 	// COVIDcode Enrollment Questionnaire weight text box when selecting
