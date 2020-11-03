@@ -3,6 +3,7 @@ package ServiceNow.COVIDDash.Steps;
 import org.junit.Assert;
 
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.xceptions.TestingException;
 
 import appsCommon.PageCache;
@@ -39,6 +40,7 @@ public class COVIDHomePageSteps extends PageInitializer{
 	@Given("user validates that Institute, Division, Email Address, and Phone Number fields are not editable")
 	public void user_validates_that_Institute_Division_Email_Address_and_Phone_Number_fields_are_not_editabel() {
 		pageCache.getCOVIDHomePageImpl().verifyFieldsAreDiabled();
+		CucumberLogUtils.logScreenShot();
 	}
 
 	@When("the User selects a principal Investigator by typing their name in the principal Investigator search box. {string}")
@@ -84,6 +86,7 @@ public class COVIDHomePageSteps extends PageInitializer{
 
 	@When("selects any Biospecimen Collection Frequency")
 	public void selects_any_Biospecimen_Collection_Frequency() {
+		MiscUtils.sleep(2000);
 		pageCache.getCOVIDHomePage().selectCollectionFrequency();
 	}
 
