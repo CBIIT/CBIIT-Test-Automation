@@ -3,11 +3,11 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2020-11-02T21:39:12.318Z",
+        "start_timestamp": "2020-11-03T17:25:07.411Z",
         "before": [
           {
             "result": {
-              "duration": 5279365074,
+              "duration": 4772757217,
               "status": "passed"
             },
             "match": {
@@ -15,14 +15,14 @@
             }
           }
         ],
-        "line": 11,
-        "name": "CICD DevOps UpdateSet Automated Build Deployment",
+        "line": 4,
+        "name": "CICD DevOps Application Automated Build Deployment",
         "description": "",
-        "id": "cicd-dev-ops-automated-build-deployment;cicd-devops-updateset-automated-build-deployment",
+        "id": "esr-automated-build-deployment;cicd-devops-application-automated-build-deployment",
         "after": [
           {
             "result": {
-              "duration": 2476536317,
+              "duration": 2444934909,
               "status": "passed"
             },
             "match": {
@@ -35,10 +35,10 @@
         "steps": [
           {
             "result": {
-              "duration": 7587116369,
+              "duration": 5980044866,
               "status": "passed"
             },
-            "line": 12,
+            "line": 5,
             "name": "login to the CICD_Dev_Ops application in Native View is successful with username \"DevOpsUsername\" and password \"DevOpsPassword\"",
             "match": {
               "arguments": [
@@ -57,15 +57,15 @@
           },
           {
             "result": {
-              "duration": 12530371553,
+              "duration": 14825591670,
               "status": "passed"
             },
-            "line": 13,
-            "name": "selecting the \"CICD_Dev_Ops\" application",
+            "line": 6,
+            "name": "selecting the \"esr\" application",
             "match": {
               "arguments": [
                 {
-                  "val": "\"CICD_Dev_Ops\"",
+                  "val": "\"esr\"",
                   "offset": 14
                 }
               ],
@@ -75,65 +75,35 @@
           },
           {
             "result": {
-              "duration": 6309918704,
+              "duration": 8302449376,
               "status": "passed"
             },
-            "line": 14,
-            "name": "selects \"UpdateSet\" as the deployment type",
+            "line": 7,
+            "name": "selecting \"Application\" as the deployment type",
             "match": {
               "arguments": [
                 {
-                  "val": "\"UpdateSet\"",
-                  "offset": 8
+                  "val": "\"Application\"",
+                  "offset": 10
                 }
               ],
-              "location": "DevOpsApplicationBuildSteps.selects_as_the_deployment_type(String)"
+              "location": "DevOpsApplicationBuildSteps.selecting_as_the_deployment_type(String)"
             },
             "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 2441725646,
-              "status": "passed"
-            },
-            "line": 15,
-            "name": "selecting sets that contain \"CICD_Dev_Ops_in_progress\" and moving them to the right side table",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"CICD_Dev_Ops_in_progress\"",
-                  "offset": 28
-                }
-              ],
-              "location": "DevOpsApplicationBuildSteps.selecting_sets_that_contain_and_moving_them_to_the_right_side_table(String)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 3042549591,
-              "status": "passed"
-            },
-            "line": 16,
-            "name": "build is able to be executed successfully",
-            "match": {
-              "location": "DevOpsApplicationBuildSteps.build_is_able_to_be_executed_successfully()"
-            },
-            "keyword": "Then "
           }
         ],
         "tags": [
           {
-            "name": "@CICD_Dev_Ops_UpdateSet_Build"
+            "name": "@ESR_Application_Build"
           }
         ]
       }
     ],
-    "name": "CICD_Dev_Ops Automated Build Deployment",
+    "name": "ESR Automated Build Deployment",
     "description": "",
-    "id": "cicd-dev-ops-automated-build-deployment",
+    "id": "esr-automated-build-deployment",
     "keyword": "Feature",
-    "uri": "file:src/test/java/ServiceNow/CICDBuild/Features/CICDDevOps.feature",
+    "uri": "file:src/test/java/ServiceNow/CICDBuild/Features/ESR.feature",
     "tags": []
   }
 ]
