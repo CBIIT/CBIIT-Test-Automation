@@ -66,7 +66,7 @@ Feature: Volunteer Survey
     And the header "WHO CAN JOIN?" with the body description as "Anyone who has tested positive for SARS-CoV-2 infection may be eligible to join. We will use the clinical history and biological samples provided by participants for our analyses."
     And also the header "Interested in volunteering?" with the body description "Fill out a COVID-19 Volunteer Survey to get started."
     And header "WHAT IS INVOLVED IN THE STUDY?" with the body description "We will ask you to"
-    And a statement "Privacy and confidentiality are very important to us. All information shared with us will be anonymized. It is important to note that we intend for our study to benefit a large group of patients. In order to make this possible, we will be unable to return individual genetic results. We may recontact you for this information over a period of a year after you have joined the study."
+    And a statement "Privacy and confidentiality are very important to us. All information shared with us will be anonymized. It is important to note that we intend for our study to benefit a large group of patients. In order to make this possible, we will be unable to return individual genetic results. We may recontact you for additional information over a period of a year after you have joined the study."
 
   @Sprint9 @COVID-214 @Smoke
   Scenario: Verifying Survey Submitted data displays under the COVIDCode application - Native View

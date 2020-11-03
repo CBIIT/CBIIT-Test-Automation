@@ -21,15 +21,15 @@ public class NativeViewDashboardPageImpl extends PageInitializer {
 		WebDriverUtils.webDriver.navigate().to(EnvUtils.getApplicationUrl("nativeview"));
 		MiscUtils.sleep(3000);
 		pageCache.getNativeViewDashboardPage().clickNativeViewLink();
-		MiscUtils.sleep(2000);
+		MiscUtils.sleep(3000);
 		pageCache.getNativeViewDashboardPage().clickUserDropDown();
 		MiscUtils.sleep(500);
 		pageCache.getNativeViewDashboardPage().clickImpersonateUserLink();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(3000);
 		pageCache.getNativeViewDashboardPage().clickImpersonateSearchDD();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(3000);
 		pageCache.getNativeViewDashboardPage().enterTextImpersntSearchBox(approver);
-		MiscUtils.sleep(1000);	
+		MiscUtils.sleep(3000);	
 		WebDriverUtils.webDriver.navigate().to(EnvUtils.getApplicationUrl("covid19dashboard"));
 
 	}
