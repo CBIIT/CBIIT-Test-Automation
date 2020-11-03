@@ -22,12 +22,7 @@ public class LDLinkHomeAndLandingPageSteps extends PageInitializer {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("Analysistools"));
 	}
 
-	@Then("user verify {string} present on the screen")
-	public void user_verify_present_on_the_screen(String expectedText) {
-		  String actualText = ldLinkLandingPage.lnkLDLink.getText(); 
-		  Assert.assertEquals("Verifying LDLink landing page Users sees LDLink hyperlink",
-					expectedText, actualText);
-	}
+	
 	
 
 	@When("a LDlink user opens home page")

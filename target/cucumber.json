@@ -1,0 +1,87 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-11-02T19:34:37.470Z",
+        "before": [
+          {
+            "result": {
+              "duration": 3837047462,
+              "status": "passed"
+            },
+            "match": {
+              "location": "HooksSteps.genericSetUp(Scenario)"
+            }
+          }
+        ],
+        "line": 13,
+        "name": "User generates Manhattan Plot with Pairwise Plot",
+        "description": "",
+        "id": "explore-gwas;user-generates-manhattan-plot-with-pairwise-plot",
+        "after": [
+          {
+            "result": {
+              "duration": 2102375292,
+              "status": "passed"
+            },
+            "match": {
+              "location": "HooksSteps.genericTearDown(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3293093897,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "user on PLCO homepage",
+            "match": {
+              "location": "ExploreGWASSteps.user_on_PLCO_homepage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 731264697,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "user selects explore GWAS",
+            "match": {
+              "location": "ExploreGWASSteps.user_selects_explore_GWAS()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 63292866,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "selects Pairwise Plots",
+            "match": {
+              "location": "ExploreGWASSteps.selects_Pairwise_Plots()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Progression"
+          }
+        ]
+      }
+    ],
+    "name": "Explore GWAS",
+    "description": "",
+    "id": "explore-gwas",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/AnalysisTools/PLCO/Features/ExploreGWAS.feature",
+    "tags": []
+  }
+]
