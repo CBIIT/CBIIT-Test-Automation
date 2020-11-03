@@ -1,4 +1,4 @@
-package ServiceNow.DevOpsAutomatedBuilds.Pages;
+package ServiceNow.CICDBuild.Pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
