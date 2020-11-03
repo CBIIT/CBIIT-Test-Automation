@@ -1,8 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="10.028721">
-<testcase classname="Explore GWAS" name="User generates Manhattan Plot with Pairwise Plot" time="10.028721">
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="3" time="22.990998">
+<testcase classname="API Acess Page" name="User navigates to API Acess page" time="7.887117">
+<system-out><![CDATA[Given user on PLCO homepage.................................................passed
+When user selects API Acess tab.............................................passed
+Then API Acess page displays................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="API Acess Page" name="User views API Acess Page heading" time="6.597492">
+<system-out><![CDATA[Given user on PLCO homepage.................................................passed
+When user selects API Acess tab.............................................passed
+Then API Acess page displays "API Access" heading...........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Explore GWAS" name="User generates BMI Manhattan Plot for East Asian All" time="8.506389">
 <system-out><![CDATA[Given user on PLCO homepage.................................................passed
 When user selects explore GWAS..............................................passed
-And selects Pairwise Plots..................................................passed
+And selects phenotype as BMI at baseline....................................passed
+And selects ancestry as east asian all......................................passed
+And clicks submit...........................................................passed
+Then Manhattan Plot displays................................................passed
 ]]></system-out>
 </testcase>
 </testsuite>

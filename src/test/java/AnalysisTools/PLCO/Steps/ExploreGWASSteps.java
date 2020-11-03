@@ -47,7 +47,7 @@ public class ExploreGWASSteps extends PageInitializer {
 	
 	@When("selects ancestry as east asian all")
 	public void selects_ancestry_as_east_asian_all(){
-     	CommonUtils.selectDropDownValue(exploreGWASPage.selAncestry, "east_asian__all");
+//     	CommonUtils.selectDropDownValue(exploreGWASPage.selAncestry, "east_asian__all");
 		Select select = new Select(exploreGWASPage.selAncestry); 
 		select.selectByValue("east_asian__all");
 	}
