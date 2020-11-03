@@ -125,6 +125,8 @@ public class CommonUtils extends WebDriverUtils {
 			System.out.println("Alert is not present");
 		}
 	}
+	
+	
 
 	/**
 	 * this method will dismiss the alert
