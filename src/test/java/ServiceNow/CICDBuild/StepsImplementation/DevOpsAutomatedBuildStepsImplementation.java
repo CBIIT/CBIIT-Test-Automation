@@ -30,7 +30,7 @@ public class DevOpsAutomatedBuildStepsImplementation extends PageInitializer {
 		MiscUtils.sleep(5000);
 		//CommonUtils.selectDropDownValue(devOpsNativeViewPage.applicationSelectorDropDown, cicdDevOps);
 		devOpsNativeViewPage.applicationSelectorDropDown.click();
-		MiscUtils.sleep(4000);
+		MiscUtils.sleep(6000);
 		List<WebElement> values = devOpsNativeViewPage.dropDownApplications;
 		CommonUtils.selectValueFromBootStrapDropDown(values, cicdDevOps);
 		//JavascriptUtils.clickByJS(devOpsNativeViewPage.applicationSelectorDropDown);
