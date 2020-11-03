@@ -56,8 +56,8 @@
 	<!-- Application ID for CHARMS -->
 	<application id="CHARMS">
 
-		<login_url>https://service-test.nci.nih.gov/ncisp</login_url><!-- add test 
-			url -->
+		<login_url>https://service-test.nci.nih.gov/charms</login_url><!-- add 
+			test url -->
 
 		<role name="Role">
 			<user id="regular">
@@ -76,12 +76,12 @@
 			</default><!-- comment -->
 		</db>
 	</application>
-	
-		<!-- Application ID for COVIDCode -->
+
+	<!-- Application ID for COVIDCode -->
 	<application id="COVIDCode">
 
-		<login_url>https://service-test.nci.nih.gov/covidcode</login_url><!-- add test 
-			url -->
+		<login_url>https://service-test.nci.nih.gov/covidcode</login_url><!-- add 
+			test url -->
 
 		<role name="Role">
 			<user id="regular">
@@ -182,5 +182,6 @@
 	
 
 	
+
 
 </environment>
