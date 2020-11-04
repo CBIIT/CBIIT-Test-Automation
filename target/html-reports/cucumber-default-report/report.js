@@ -1,6 +1,6 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/ServiceNow/CICDBuild/Features/MyCICDTestApp.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/ServiceNow/CICDBuild/Features/CICDIntegration.feature");
 formatter.feature({
-  "name": "MyCICDTestApp Automated Build Deployment",
+  "name": "CICD Integration",
   "description": "",
   "keyword": "Feature"
 });
@@ -10,7 +10,7 @@ formatter.scenario({
   "keyword": "Scenario",
   "tags": [
     {
-      "name": "@MyCICDTestApp_Application_Build"
+      "name": "@CICD_Integration_Application_Build"
     }
   ]
 });
@@ -28,13 +28,13 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "selecting the \"MyCICDTestApp\" application",
+  "name": "selecting the \"CICD Integration\" application",
   "keyword": "When "
 });
 formatter.match({
   "location": "DevOpsApplicationBuildSteps.selecting_the_application(String)"
 });
-formatter.write("2020-11-03 17:21:36: Screenshot: ");
+formatter.write("2020-11-04 10:15:38: Screenshot: ");
 formatter.embedding("image/png", "embedded0.png");
 formatter.result({
   "status": "passed"
