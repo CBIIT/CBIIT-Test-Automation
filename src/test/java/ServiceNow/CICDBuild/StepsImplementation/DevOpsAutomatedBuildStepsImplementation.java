@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
+import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.ConfUtils;
@@ -27,17 +29,19 @@ public class DevOpsAutomatedBuildStepsImplementation extends PageInitializer {
 	}
 
 	public void selectingCICDDevOpsApplication(String cicdDevOps) {
-		MiscUtils.sleep(5000);
-		//CommonUtils.selectDropDownValue(devOpsNativeViewPage.applicationSelectorDropDown, cicdDevOps);
+		MiscUtils.sleep(4000);
 		devOpsNativeViewPage.applicationSelectorDropDown.click();
 		MiscUtils.sleep(6000);
 		List<WebElement> values = devOpsNativeViewPage.dropDownApplications;
+		MiscUtils.sleep(6000);
 		CommonUtils.selectValueFromBootStrapDropDown(values, cicdDevOps);
-		//JavascriptUtils.clickByJS(devOpsNativeViewPage.applicationSelectorDropDown);
-		MiscUtils.sleep(3000);
-		//CommonUtils.selectDropDownValue(cicdDevOps, devOpsNativeViewPage.applicationSelectorDropDown);
-		//CommonUtils.selectDropDownValue(devOpsNativeViewPage.applicationSelectorDropDown, 0);
+		MiscUtils.sleep(5000);//was seven seconds	
 		JavascriptUtils.clickByJS(devOpsNativeViewPage.showSelectedApplicationButton);
+		MiscUtils.sleep(8000);
+		//WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='user_info_dropdown']")).click();
+		//MiscUtils.sleep(2000);
+		//WebDriverUtils.webDriver.findElement(By.xpath("//*[@href='logout.do']")).click();
+		CucumberLogUtils.logScreenShot();
 	}
 
 	public void selectingApplicationAsDeploymentType(String application) {
