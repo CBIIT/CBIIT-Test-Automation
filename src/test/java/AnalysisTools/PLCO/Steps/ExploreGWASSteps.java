@@ -48,7 +48,7 @@ public class ExploreGWASSteps extends PageInitializer {
 	@When("selects ancestry as east asian all")
 	public void selects_ancestry_as_east_asian_all(){
 //     	CommonUtils.selectDropDownValue(exploreGWASPage.selAncestry, "east_asian__all");
-		Select select = new Select(exploreGWASPage.selAncestry); 
+		Select select = new Select(exploreGWASPage.selAncestryTop); 
 		select.selectByValue("east_asian__all");
 	}
 	
@@ -68,6 +68,20 @@ public class ExploreGWASSteps extends PageInitializer {
 	@When("selects Pairwise Plots")
 	public void selects_Pairwise_Plots(){
 		exploreGWASPage.chkPairWise.click();
+	}
+	
+	@When("selects top ancestry as east asian all")
+	public void selects_top_ancestry_as_east_asian_all() {
+		Select select = new Select(exploreGWASPage.selAncestryTop); 
+		select.selectByValue("east_asian__all");
+		
+	}
+	
+	@When("selects bottom ancestry as european all")
+	public void selects_bottom_ancestry_as_european_all() {
+		Select select = new Select(exploreGWASPage.selAncestryBottom); 
+		select.selectByValue("european__all");
+	 
 	}
 	
 	

@@ -1,8 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="36.328219">
-<testcase classname="ESR Automated Build Deployment" name="CICD DevOps Application Automated Build Deployment" time="36.328219">
-<system-out><![CDATA[Given login to the CICD_Dev_Ops application in Native View is successful with username "DevOpsUsername" and password "DevOpsPassword".passed
-When selecting the "esr" application........................................passed
-And selecting "Application" as the deployment type..........................passed
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="10.7103">
+<testcase classname="Explore GWAS" name="User generates pairwise BMI Manhattan plot with top ancestry as east asian all and bottom ancestry as european all" time="10.7103">
+<system-out><![CDATA[Given user on PLCO homepage.................................................passed
+When user selects explore GWAS..............................................passed
+And selects Pairwise Plots..................................................passed
+And selects phenotype as BMI at baseline....................................passed
+And selects top ancestry as east asian all..................................passed
+And selects bottom ancestry as european all.................................passed
+And clicks submit...........................................................passed
+Then Manhattan Plot displays................................................passed
 ]]></system-out>
 </testcase>
 </testsuite>
