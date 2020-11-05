@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 $(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/AnalysisTools/PLCO/Features/ExploreGWAS.feature");
 formatter.feature({
   "name": "Explore GWAS",
+=======
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/ServiceNow/CICDBuild/Features/CICDIntegration.feature");
+formatter.feature({
+  "name": "CICD Integration",
+>>>>>>> origin/master
   "description": "",
   "keyword": "Feature"
 });
@@ -10,7 +16,11 @@ formatter.scenario({
   "keyword": "Scenario",
   "tags": [
     {
+<<<<<<< HEAD
       "name": "@Progression"
+=======
+      "name": "@CICD_Integration_Application_Build"
+>>>>>>> origin/master
     }
   ]
 });
@@ -28,12 +38,18 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
+<<<<<<< HEAD
   "name": "user selects explore GWAS",
+=======
+  "name": "selecting the \"CICD Integration\" application",
+>>>>>>> origin/master
   "keyword": "When "
 });
 formatter.match({
   "location": "ExploreGWASSteps.user_selects_explore_GWAS()"
 });
+formatter.write("2020-11-04 10:15:38: Screenshot: ");
+formatter.embedding("image/png", "embedded0.png");
 formatter.result({
   "status": "passed"
 });
