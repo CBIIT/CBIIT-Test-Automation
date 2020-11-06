@@ -1,56 +1,24 @@
-<<<<<<< HEAD
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/ServiceNow/COVIDCode/Features/SignOutVerification.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/ServiceNow/CICDBuild/Features/ESR.feature");
 formatter.feature({
-  "name": "Sign Out Verification",
-  "description": "This feature file will verify that the user can log out properly",
-  "keyword": "Feature"
-});
-formatter.scenario({
-  "name": "",
-=======
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/ServiceNow/DevOpsAutomatedBuilds/Features/CICDDevOps.feature");
-formatter.feature({
-  "name": "CICD_Dev_Ops Automated Build Deployment",
+  "name": "ESR Automated Build Deployment",
   "description": "",
   "keyword": "Feature"
 });
 formatter.scenario({
-  "name": "CICD_Dev_Ops UpdateSet Automated Build Deployment",
->>>>>>> 43b116712bb97f25528753db61f93dc549c0d364
+  "name": "CICD DevOps Application Automated Build Deployment",
   "description": "",
   "keyword": "Scenario",
   "tags": [
     {
-<<<<<<< HEAD
-      "name": "@Test_Case_COVID-245"
-    },
-    {
-      "name": "@User_Story_COVID-261"
-    },
-    {
-      "name": "@Progression"
-=======
-      "name": "@DevOpsCICDInProgressBuild"
->>>>>>> 43b116712bb97f25528753db61f93dc549c0d364
+      "name": "@ESR_Application_Build"
     }
   ]
 });
 formatter.before({
-  "status": "passed"
+  "error_message": "java.lang.AssertionError: 2020-11-06 11:09:02: FAIL: Unsupported browser in localConf.properties file! Browser has to be \u0027ie\u0027 or \u0027firefox\u0027 or \u0027phantomjs\u0027\n\tat org.junit.Assert.fail(Assert.java:88)\n\tat org.junit.Assert.assertTrue(Assert.java:41)\n\tat com.nci.automation.utils.CucumberLogUtils.logFail(CucumberLogUtils.java:124)\n\tat com.nci.automation.web.WebDriverUtils.getWebDriver(WebDriverUtils.java:98)\n\tat ServiceNow.CICDBuild.Steps.HooksSteps.genericSetUp(HooksSteps.java:35)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:564)\n\tat cucumber.runtime.Utils$1.call(Utils.java:26)\n\tat cucumber.runtime.Timeout.timeout(Timeout.java:16)\n\tat cucumber.runtime.Utils.invoke(Utils.java:20)\n\tat cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)\n\tat cucumber.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:16)\n\tat cucumber.runner.TestStep.executeStep(TestStep.java:65)\n\tat cucumber.runner.TestStep.run(TestStep.java:50)\n\tat cucumber.runner.TestCase.run(TestCase.java:42)\n\tat cucumber.runner.Runner.runPickle(Runner.java:49)\n\tat cucumber.runtime.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)\n\tat cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:68)\n\tat cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:23)\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\n\tat cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:73)\n\tat cucumber.api.junit.Cucumber.runChild(Cucumber.java:123)\n\tat cucumber.api.junit.Cucumber.runChild(Cucumber.java:65)\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\n\tat cucumber.api.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:147)\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)\n\tat org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)\n\tat org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:377)\n\tat org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:138)\n\tat org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:465)\n\tat org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:451)\n",
+  "status": "failed"
 });
 formatter.step({
-<<<<<<< HEAD
-  "name": "an internal user is logged into the COVIDcode application",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "SignOutVerificationSteps.an_internal_user_is_logged_into_the_COVIDcode_application()"
-});
-formatter.write("2020-11-02 16:54:53: Screenshot: ");
-formatter.embedding("image/png", "embedded0.png");
-formatter.write("2020-11-02 16:54:56: Screenshot: ");
-formatter.embedding("image/png", "embedded1.png");
-=======
   "name": "login to the CICD_Dev_Ops application in Native View is successful with username \"DevOpsUsername\" and password \"DevOpsPassword\"",
   "keyword": "Given "
 });
@@ -58,62 +26,37 @@ formatter.match({
   "location": "DevOpsApplicationBuildSteps.login_to_the_CICD_Dev_Ops_application_in_Native_View_is_successful_with_username_and_password(String,String)"
 });
 formatter.result({
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.step({
-  "name": "selecting the \"CICD_Dev_Ops\" application",
+  "name": "selecting the \"esr\" application",
   "keyword": "When "
 });
 formatter.match({
   "location": "DevOpsApplicationBuildSteps.selecting_the_application(String)"
 });
->>>>>>> 43b116712bb97f25528753db61f93dc549c0d364
 formatter.result({
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.step({
-<<<<<<< HEAD
-  "name": "is on the home page",
+  "name": "selecting \"Application\" as the deployment type",
   "keyword": "And "
 });
 formatter.match({
-  "location": "SignOutVerificationSteps.is_on_the_home_page()"
+  "location": "DevOpsApplicationBuildSteps.selecting_as_the_deployment_type(String)"
 });
-formatter.write("2020-11-02 16:54:59: Screenshot: ");
-formatter.embedding("image/png", "embedded2.png");
-=======
-  "name": "selects \"UpdateSet\" as the deployment type",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "DevOpsApplicationBuildSteps.selects_as_the_deployment_type(String)"
-});
->>>>>>> 43b116712bb97f25528753db61f93dc549c0d364
 formatter.result({
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.step({
-<<<<<<< HEAD
-  "name": "the internal user is able to sign out of the application by clicking on the Sign Out button",
+  "name": "build is able to be executed successfully",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "SignOutVerificationSteps.the_internal_user_is_able_to_sign_out_of_the_application_by_clicking_on_the_button()"
+  "location": "DevOpsApplicationBuildSteps.build_is_able_to_be_executed_successfully()"
 });
-formatter.write("2020-11-02 16:55:01: Screenshot: ");
-formatter.embedding("image/png", "embedded3.png");
-formatter.write("2020-11-02 16:55:05: Screenshot: ");
-formatter.embedding("image/png", "embedded4.png");
-=======
-  "name": "selecting sets that contain \"CICD_Dev_Ops_in_progress\" and moving them to the right side table",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "DevOpsApplicationBuildSteps.selecting_sets_that_contain_and_moving_them_to_the_right_side_table(String)"
-});
->>>>>>> 43b116712bb97f25528753db61f93dc549c0d364
 formatter.result({
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.after({
   "status": "passed"
