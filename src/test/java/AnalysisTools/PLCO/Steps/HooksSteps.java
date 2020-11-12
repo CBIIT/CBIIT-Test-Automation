@@ -8,6 +8,7 @@ import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.DateUtils;
 import com.nci.automation.utils.LocalConfUtils;
 import com.nci.automation.utils.MiscUtils;
+import com.nci.automation.utils.Report;
 import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
@@ -23,6 +24,7 @@ public class HooksSteps {
 
 	private static final String BUILD_NUMBER = "BUILD_NUMBER";
 	public static String SCENARIO_NAME_TEXT = "scenarioNameText";
+	private static String featureName = null;
 
 	/**
 	 * This method will run before each scenario
@@ -32,6 +34,15 @@ public class HooksSteps {
 	 */
 	@Before
 	public void genericSetUp(Scenario s) throws TestingException {
+		if(featureName==null) {
+			featureName = getFeatureFileNameFromScenarioId(s);
+			Report.startFeature(featureName);
+		}			
+		if(!featureName.equals(getFeatureFileNameFromScenarioId(s))) {
+			Report.startFeature(featureName);
+			featureName = getFeatureFileNameFromScenarioId(s);
+		}
+		Report.startTest(s.getName());
 		WebDriverUtils.getWebDriver();
 		MiscUtils.sleep(2000);
 		PageInitializer.initializeAllPages();
@@ -89,6 +100,7 @@ public class HooksSteps {
 
 			QcTestResult currentQcResult = new QcTestResult(scenarioName, scenarioResult, scenarioResultsDir);
 			ScenarioContext.setCurrentQcResult(currentQcResult);
+			Report.endTest();
 			WebDriverUtils.closeWebDriver();
 			PageCache.getInstance().destroyInstances();
 		}
@@ -104,6 +116,14 @@ public class HooksSteps {
 	public void webTearDown() throws MalformedURLException {
 		// use this for web specific clean up
 		System.out.println("web specific clean up");
+	}
+	
+	private String getFeatureFileNameFromScenarioId(Scenario scenario) {
+	    String[] tab = scenario.getId().split("/");
+	    int rawFeatureNameLength = tab.length;
+	    String featureName = tab[rawFeatureNameLength - 1].split(":")[0];
+	    System.out.println("featureName: " + featureName);
+	    return featureName;
 	}
 
 }
