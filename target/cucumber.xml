@@ -1,21 +1,23 @@
-<<<<<<< HEAD
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="10.7103">
-<testcase classname="Explore GWAS" name="User generates pairwise BMI Manhattan plot with top ancestry as east asian all and bottom ancestry as european all" time="10.7103">
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="3" time="23.411153">
+<testcase classname="API Acess Page" name="User navigates to API Acess page" time="8.481792">
+<system-out><![CDATA[Given user on PLCO homepage.................................................passed
+When user selects API Acess tab.............................................passed
+Then API Acess page displays................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="API Acess Page" name="User views API Acess Page heading" time="6.49568">
+<system-out><![CDATA[Given user on PLCO homepage.................................................passed
+When user selects API Acess tab.............................................passed
+Then API Acess page displays "API Access" heading...........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Explore GWAS" name="User generates BMI Manhattan Plot for East Asian All" time="8.433681">
 <system-out><![CDATA[Given user on PLCO homepage.................................................passed
 When user selects explore GWAS..............................................passed
-And selects Pairwise Plots..................................................passed
 And selects phenotype as BMI at baseline....................................passed
-And selects top ancestry as east asian all..................................passed
-And selects bottom ancestry as european all.................................passed
+And selects ancestry as east asian all......................................passed
 And clicks submit...........................................................passed
 Then Manhattan Plot displays................................................passed
-=======
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="57.801078">
-<testcase classname="CICD Integration" name="CICD DevOps Application Automated Build Deployment" time="57.801078">
-<system-out><![CDATA[Given login to the CICD_Dev_Ops application in Native View is successful with username "DevOpsUsername" and password "DevOpsPassword".passed
-When selecting the "CICD Integration" application...........................passed
-And selecting "Application" as the deployment type..........................passed
->>>>>>> origin/master
 ]]></system-out>
 </testcase>
 </testsuite>
