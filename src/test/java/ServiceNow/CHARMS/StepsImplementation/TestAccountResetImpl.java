@@ -46,7 +46,9 @@ public class TestAccountResetImpl extends PageInitializer {
 
 	public void navigateToFamilyMemberDetails() {
 		WebDriverUtils.webDriver.switchTo().defaultContent();
-		charmsNativeViewPage.familyMemberDetailsLink.click();
+		MiscUtils.sleep(2000);
+		JavascriptUtils.clickByJS(charmsNativeViewPage.familyMemberDetailsLink);
+		//charmsNativeViewPage.familyMemberDetailsLink.click();
 		CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewFamilyMemberDetailsIframe);
 		MiscUtils.sleep(2000);
 	}
@@ -75,7 +77,9 @@ public class TestAccountResetImpl extends PageInitializer {
 
 	public void navigateToFCSMSformAccess() {
 		WebDriverUtils.webDriver.switchTo().defaultContent();
-		charmsNativeViewPage.fcsmsFormAccess.click();
+		MiscUtils.sleep(2000);
+		JavascriptUtils.clickByJS(charmsNativeViewPage.fcsmsFormAccess);
+		//charmsNativeViewPage.fcsmsFormAccess.click();
 		MiscUtils.sleep(2000);
 		CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewFCSMSformAccessIframe);
 		MiscUtils.sleep(3000);
