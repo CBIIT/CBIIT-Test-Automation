@@ -27,7 +27,7 @@ public class APIAcessSteps extends PageInitializer {
 	
 	@Then("API Acess page displays {string} heading")
 	public void api_Acess_page_displays_heading(String heading) {
-		Assert.assertTrue(apiAcessPage.lnkAPIAcess.getText().contentEquals(heading));
+		Assert.assertTrue(apiAcessPage.txtAPIAcessHeading.getText().contentEquals(heading));
 		
 	}
 

@@ -1,26 +1,16 @@
-<<<<<<< HEAD
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/AnalysisTools/PLCO/Features/ExploreGWAS.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/AnalysisTools/PLCO/Features/APIAcess.feature");
 formatter.feature({
-  "name": "Explore GWAS",
-=======
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/ServiceNow/CICDBuild/Features/CICDIntegration.feature");
-formatter.feature({
-  "name": "CICD Integration",
->>>>>>> origin/master
+  "name": "API Acess Page",
   "description": "",
   "keyword": "Feature"
 });
 formatter.scenario({
-  "name": "User generates pairwise BMI Manhattan plot with top ancestry as east asian all and bottom ancestry as european all",
+  "name": "User navigates to API Acess page",
   "description": "",
   "keyword": "Scenario",
   "tags": [
     {
-<<<<<<< HEAD
-      "name": "@Progression"
-=======
-      "name": "@CICD_Integration_Application_Build"
->>>>>>> origin/master
+      "name": "@Smoke"
     }
   ]
 });
@@ -38,27 +28,111 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-<<<<<<< HEAD
-  "name": "user selects explore GWAS",
-=======
-  "name": "selecting the \"CICD Integration\" application",
->>>>>>> origin/master
+  "name": "user selects API Acess tab",
   "keyword": "When "
 });
 formatter.match({
-  "location": "ExploreGWASSteps.user_selects_explore_GWAS()"
+  "location": "APIAcessSteps.user_selects_API_Acess_tab()"
 });
-formatter.write("2020-11-04 10:15:38: Screenshot: ");
-formatter.embedding("image/png", "embedded0.png");
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "selects Pairwise Plots",
-  "keyword": "And "
+  "name": "API Acess page displays",
+  "keyword": "Then "
 });
 formatter.match({
-  "location": "ExploreGWASSteps.selects_Pairwise_Plots()"
+  "location": "APIAcessSteps.api_Acess_page_displays()"
+});
+formatter.write("2020-11-12 09:38:07: Screenshot: ");
+formatter.embedding("image/png", "embedded0.png");
+formatter.result({
+  "status": "passed"
+});
+formatter.after({
+  "status": "passed"
+});
+formatter.scenario({
+  "name": "User views API Acess Page heading",
+  "description": "",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "name": "@Smoke"
+    }
+  ]
+});
+formatter.before({
+  "status": "passed"
+});
+formatter.step({
+  "name": "user on PLCO homepage",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "ExploreGWASSteps.user_on_PLCO_homepage()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "user selects API Acess tab",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "APIAcessSteps.user_selects_API_Acess_tab()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "API Acess page displays \"API Access\" heading",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "APIAcessSteps.api_Acess_page_displays_heading(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.after({
+  "status": "passed"
+});
+formatter.uri("file:src/test/java/AnalysisTools/PLCO/Features/ExploreGWAS.feature");
+formatter.feature({
+  "name": "Explore GWAS",
+  "description": "",
+  "keyword": "Feature"
+});
+formatter.scenario({
+  "name": "User generates BMI Manhattan Plot for East Asian All",
+  "description": "",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "name": "@Smoke"
+    }
+  ]
+});
+formatter.before({
+  "status": "passed"
+});
+formatter.step({
+  "name": "user on PLCO homepage",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "ExploreGWASSteps.user_on_PLCO_homepage()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "user selects explore GWAS",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "ExploreGWASSteps.user_selects_explore_GWAS()"
 });
 formatter.result({
   "status": "passed"
@@ -74,21 +148,11 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "selects top ancestry as east asian all",
+  "name": "selects ancestry as east asian all",
   "keyword": "And "
 });
 formatter.match({
-  "location": "ExploreGWASSteps.selects_top_ancestry_as_east_asian_all()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "selects bottom ancestry as european all",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "ExploreGWASSteps.selects_bottom_ancestry_as_european_all()"
+  "location": "ExploreGWASSteps.selects_ancestry_as_east_asian_all()"
 });
 formatter.result({
   "status": "passed"
@@ -110,8 +174,8 @@ formatter.step({
 formatter.match({
   "location": "ExploreGWASSteps.Manhattan_Plot_displays()"
 });
-formatter.write("2020-11-05 10:53:20: Screenshot: ");
-formatter.embedding("image/png", "embedded0.png");
+formatter.write("2020-11-12 09:38:22: Screenshot: ");
+formatter.embedding("image/png", "embedded1.png");
 formatter.result({
   "status": "passed"
 });

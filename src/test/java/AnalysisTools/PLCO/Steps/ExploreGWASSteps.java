@@ -35,9 +35,6 @@ public class ExploreGWASSteps extends PageInitializer {
 		exploreGWASPage.btnPlusAnthropometricMeasures.click();
 		exploreGWASPage.btnPlusBMI.click();
 		exploreGWASPage.chkBMIBaseLine.click();
-//		exploreGWASPage.btnPlusAnthropometricMeasures.click();
-//		exploreGWASPage.btnPlusHeight.click();
-//		exploreGWASPage.chkHeight.click();
 
 
 		
@@ -47,9 +44,7 @@ public class ExploreGWASSteps extends PageInitializer {
 	
 	@When("selects ancestry as east asian all")
 	public void selects_ancestry_as_east_asian_all(){
-//     	CommonUtils.selectDropDownValue(exploreGWASPage.selAncestry, "east_asian__all");
-		Select select = new Select(exploreGWASPage.selAncestryTop); 
-		select.selectByValue("east_asian__all");
+		CommonUtils.selectDropDownValue(exploreGWASPage.selAncestryTop, "east_asian__all");
 	}
 	
 	@When("clicks submit")
