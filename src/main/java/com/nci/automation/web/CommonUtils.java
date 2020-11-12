@@ -88,14 +88,14 @@ public class CommonUtils extends WebDriverUtils {
 
 	/**
 	 * Use this over loaded method in need of selecting an element of dropDown by
-	 * VisbleText.
+	 * Value.
 	 * 
 	 * @param dropDownElement Pass the value to be selected.
 	 * @param ValueOfDropDown Pass the WebElement of the dropDown.
 	 */
 	public static void selectDropDownValue(WebElement element, String value) {
 		Select select = new Select(element);
-		select.selectByVisibleText(value);
+		select.selectByValue(value);
 	}
 
 	/**
@@ -125,6 +125,8 @@ public class CommonUtils extends WebDriverUtils {
 			System.out.println("Alert is not present");
 		}
 	}
+	
+	
 
 	/**
 	 * this method will dismiss the alert
