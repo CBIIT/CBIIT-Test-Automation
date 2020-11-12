@@ -11,8 +11,8 @@ import cucumber.api.junit.Cucumber;
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/AnalysisTools/CEDCD/Features"
 		, glue="AnalysisTools.CEDCD.Steps"
-		, tags="@Regression"
-		, dryRun = true
+		, tags="@Progression"
+		, dryRun = false
 		, monochrome=true
 		, strict = true
 		
@@ -24,6 +24,6 @@ import cucumber.api.junit.Cucumber;
  * 
  * @author sohilz2
  */
-public class RunCEDCDRegressionTest {
+public class RunCEDCDProgressionTest {
 
 }
