@@ -2,6 +2,9 @@ package appsCommon;
 
 
 
+import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDMaleDiscrepancyOnSearchCohortsStepImp;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
 import AnalysisTools.PLCO.Pages.APIAcessPage;
@@ -89,6 +92,11 @@ public class PageInitializer {
 	protected static DevOpsLoginPage devOpsLoginPage;
 	protected static DevOpsNativeViewPage devOpsNativeViewPage;
 	protected static DevOpsAutomatedBuildStepsImplementation devOpsAutomatedBuildStepsImplementation;
+	
+	/** CEDCD instances */
+	protected static CEDCDSearchCohortsPage cedcdSearchCohortsPage;
+	protected static CEDCDSearchFemaleCohortsStepImp cedcdSearchFemaleCohortsStepImp;
+	protected static CEDCDMaleDiscrepancyOnSearchCohortsStepImp cedcdMaleDiscrepancyOnSearchCohortsStepImp;
 
 
 	public static void initializeAllPages() {
@@ -126,6 +134,9 @@ public class PageInitializer {
 		devOpsNativeViewPage = new DevOpsNativeViewPage();
 		devOpsAutomatedBuildStepsImplementation = new DevOpsAutomatedBuildStepsImplementation();
 		signOutVerificationStepImp = new SignOutVerificationStepImp();
+		cedcdSearchCohortsPage = new CEDCDSearchCohortsPage();
+		cedcdSearchFemaleCohortsStepImp = new CEDCDSearchFemaleCohortsStepImp();
+		cedcdMaleDiscrepancyOnSearchCohortsStepImp = new CEDCDMaleDiscrepancyOnSearchCohortsStepImp();
 
 	}
 
