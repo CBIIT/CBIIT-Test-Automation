@@ -1,7 +1,11 @@
 package ServiceNow.CHARMS.Steps;
 
+import org.openqa.selenium.By;
+
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.JavascriptUtils;
+import com.nci.automation.web.WebDriverUtils;
+import com.nci.automation.xceptions.TestingException;
 
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.When;
@@ -23,7 +27,7 @@ public class ProbandScreenerSubmissionSteps extends PageInitializer {
 	public void selects_to_filling_questionnaire_out_for_someone_else(String value) {
 		probandScreenerSubmissionImpl.areYouFillingThisQuestionnaireOutForSomeoneElse(value);
 		probandScreenerPage.studyIntroductionSaveAndNextBtn.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 	}
 
 	@When("fills out all Demographic Information {string}, {string}, {string},{string}, {string} {string}, {string}, {string}, {string}, {string}, {string}")
@@ -33,14 +37,14 @@ public class ProbandScreenerSubmissionSteps extends PageInitializer {
 		probandScreenerSubmissionImpl.fillingOutDemographicInformation(BiologicalSex, DOB, CountryOfBirth, City, State,
 				Ethnicity, Race, BiologicalMothersEthnicity, BiologicalMothersRace, BiologicalFathersEthnicity,
 				BiologicalFathersRace);
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		probandScreenerPage.demographicSaveAndNextBtn.click();
 	}
 
 	@When("fills out all Contact Information with {string}, {string}, {string}, {string}, {string}")
 	public void fills_out_all_Contact_Information_with(String PhoneNumber, String StreetAddress, String City,
 			String State, String ZipCode) {
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		probandScreenerSubmissionImpl.fillingOutProbandsContactInformation(PhoneNumber, StreetAddress, City, State,
 				ZipCode);
 		MiscUtils.sleep(1000);
@@ -133,9 +137,14 @@ public class ProbandScreenerSubmissionSteps extends PageInitializer {
 	}
 
 	@When("Submits the Screener Questionnaire")
-	public void submits_the_Screener_Questionnaire() {
+	public void submits_the_Screener_Questionnaire() throws TestingException {
+		MiscUtils.sleep(1000);
 		probandScreenerSubmissionImpl.submitTheScreener();
-		
+		probandScreenerSubmissionImpl.signingOutOfCharms();
 	}
-
+	
+	@When("test account is reset to be reused for next execution")
+	public void test_account_is_reset_to_be_reused_for_next_execution() throws TestingException {
+		probandScreenerSubmissionImpl.fullTestAccountReset();
+	}
 }

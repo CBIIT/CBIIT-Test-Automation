@@ -1,5 +1,11 @@
 package appsCommon;
 
+
+
+import AnalysisTools.LDLink.Pages.LDLinkHomePage;
+import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
+import AnalysisTools.PLCO.Pages.APIAcessPage;
+import AnalysisTools.PLCO.Pages.ExploreGWASPage;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
 import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
@@ -18,9 +24,9 @@ import ServiceNow.COVIDCode.Pages.FollowUpFormPage;
 import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentViewPage;
 import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentsPage;
 import ServiceNow.COVIDCode.Pages.ServicePortalSurveyPage;
-import ServiceNow.COVIDCode.StepsImplementation.ServicePortalEQPageImpl;
 import ServiceNow.COVIDCode.StepsImplementation.COVIDCodeLoginStepsImpl;
 import ServiceNow.COVIDCode.StepsImplementation.FollowUpFormPageImpl;
+import ServiceNow.COVIDCode.StepsImplementation.ServicePortalEQPageImpl;
 import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
@@ -61,6 +67,17 @@ public class PageInitializer {
 	/** CHARMS instances */
 	protected static CHARMSNativeViewPage charmsNativeViewPage;
 	protected static TestAccountResetImpl testAccountResetImpl;
+
+	
+	/**LDLink instances**/
+	protected static LDLinkHomePage ldLinkHomePage; 
+	protected static LDLinkLandingPage ldLinkLandingPage; 
+	
+	/**PLCO instances**/
+	protected static ExploreGWASPage exploreGWASPage; 
+	protected static APIAcessPage apiAcessPage; 
+	
+
 	protected static CHARMSHomePage charmsHomePage;
 	protected static OKTAloginPage oktaLoginPage;
 	protected static CHARMSHomePageImp charmsHomePageImpl;
@@ -72,6 +89,7 @@ public class PageInitializer {
 	protected static DevOpsLoginPage devOpsLoginPage;
 	protected static DevOpsNativeViewPage devOpsNativeViewPage;
 	protected static DevOpsAutomatedBuildStepsImplementation devOpsAutomatedBuildStepsImplementation;
+
 
 	public static void initializeAllPages() {
 		// create instances of all pages and assign them to the variables
@@ -94,6 +112,10 @@ public class PageInitializer {
 		charmsNativeViewPage = new CHARMSNativeViewPage();
 		testAccountResetImpl = new TestAccountResetImpl();
 		servicePortalSurveyPage = new ServicePortalSurveyPage();
+		ldLinkLandingPage = new LDLinkLandingPage();
+		ldLinkHomePage = new LDLinkHomePage(); 
+		exploreGWASPage = new ExploreGWASPage(); 
+		apiAcessPage = new APIAcessPage();
 		charmsHomePage = new CHARMSHomePage();
 		oktaLoginPage = new OKTAloginPage();
 		charmsHomePageImpl = new CHARMSHomePageImp();
@@ -103,6 +125,7 @@ public class PageInitializer {
 		devOpsLoginPage = new DevOpsLoginPage();
 		devOpsNativeViewPage = new DevOpsNativeViewPage();
 		devOpsAutomatedBuildStepsImplementation = new DevOpsAutomatedBuildStepsImplementation();
+
 	}
 
 }
