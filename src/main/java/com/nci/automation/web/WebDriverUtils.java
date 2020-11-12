@@ -7,6 +7,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -38,6 +39,7 @@ public class WebDriverUtils {
 
 	public static WebDriver webDriver;
 	public static final String GET_EXE = ".exe";
+	public static final String GET_LINUX = "_linux";
 
 	/**
 	 * Get a web-driver to interact with the UI
@@ -57,6 +59,7 @@ public class WebDriverUtils {
 					webDriver = new ChromeDriver(chromeOptions);
 				} else {
 					webDriver = new ChromeDriver(chromeOptions);
+					System.out.println(chromeOptions.getVersion());
 				}
 
 			} else if (browser.equalsIgnoreCase(Constants.BROWSER_IE)) {
@@ -124,6 +127,8 @@ public class WebDriverUtils {
 				System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH);
 			} else if (osName.contains("Window")) {
 				System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH + GET_EXE);
+			}else if (osName.contains("Linux")) {
+				System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH + GET_LINUX);
 			}
 
 		} else if (browser.equalsIgnoreCase(Constants.BROWSER_IE)) {
