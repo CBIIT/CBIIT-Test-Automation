@@ -10,7 +10,7 @@ import com.nci.automation.utils.EncryptionUtils;
 public class PasswordEncrypter {
 
 	public static void main(String[] args) {
-		String pwd = "P@ssw0rd!@#-nci";
+		String pwd = "Dothraki99?";
 		System.out.println(EncryptionUtils.encrypt(pwd));
 
 	}
