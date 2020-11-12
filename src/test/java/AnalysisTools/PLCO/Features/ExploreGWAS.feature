@@ -20,6 +20,12 @@ And selects bottom ancestry as european all
 And clicks submit
 Then Manhattan Plot displays
 
+Scenario: User generates Manhattan Plot with Pairwise Plot
+Given user on PLCO homepage
+When user selects explore GWAS
+And selects Pairwise Plots
+
+
 
 
 
