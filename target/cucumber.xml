@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="52.367885">
-<testcase classname="MyCICDTestApp Automated Build Deployment" name="CICD DevOps Application Automated Build Deployment" time="52.367885">
-<system-out><![CDATA[Given login to the CICD_Dev_Ops application in Native View is successful with username "DevOpsUsername" and password "DevOpsPassword".passed
-When selecting the "MyCICDTestApp" application..............................passed
-And selecting "Application" as the deployment type..........................passed
-]]></system-out>
-</testcase>
-</testsuite>
