@@ -26,18 +26,9 @@ import cucumber.api.junit.Cucumber;
 public class RunPLCOSmokeTest {
 	
 	@BeforeClass
-	public static void runSetup() {
-		
-
-		
+	public static void runSetup() {	
 		Report.initReport();
 		Report.startSuite();
-
-
-		String reportsOutput = LocalConfUtils.getRootDir() + File.separator + "html-reports";
-		ConfUtils.setBaseResultsDir(reportsOutput);
-		System.out.println("Starting Test Execution...");
-
 	}
 
 
