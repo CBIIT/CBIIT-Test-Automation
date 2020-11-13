@@ -38,6 +38,7 @@ public class ExploreGWASSteps extends PageInitializer {
 //		exploreGWASPage.btnPlusAnthropometricMeasures.click();
 //		exploreGWASPage.btnPlusHeight.click();
 //		exploreGWASPage.chkHeight.click();	
+
 	}
 	
 	@When("selects ancestry as east asian all")
@@ -76,7 +77,7 @@ public class ExploreGWASSteps extends PageInitializer {
 	@When("selects bottom ancestry as european all")
 	public void selects_bottom_ancestry_as_european_all() {
 		Select select = new Select(exploreGWASPage.selAncestryBottom); 
-		select.selectByValue("european__all");
-	 
+		select.selectByValue("european__all"); 
 	}
+
 }
