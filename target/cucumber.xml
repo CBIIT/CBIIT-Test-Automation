@@ -1,23 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="3" time="23.411153">
-<testcase classname="API Acess Page" name="User navigates to API Acess page" time="8.481792">
-<system-out><![CDATA[Given user on PLCO homepage.................................................passed
-When user selects API Acess tab.............................................passed
-Then API Acess page displays................................................passed
-]]></system-out>
-</testcase>
-<testcase classname="API Acess Page" name="User views API Acess Page heading" time="6.49568">
-<system-out><![CDATA[Given user on PLCO homepage.................................................passed
-When user selects API Acess tab.............................................passed
-Then API Acess page displays "API Access" heading...........................passed
-]]></system-out>
-</testcase>
-<testcase classname="Explore GWAS" name="User generates BMI Manhattan Plot for East Asian All" time="8.433681">
-<system-out><![CDATA[Given user on PLCO homepage.................................................passed
-When user selects explore GWAS..............................................passed
-And selects phenotype as BMI at baseline....................................passed
-And selects ancestry as east asian all......................................passed
-And clicks submit...........................................................passed
-Then Manhattan Plot displays................................................passed
-]]></system-out>
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="1" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="105.437976">
+<testcase classname="CICD_Dev_Ops Automated Build Deployment" name="CICD DevOps Application Automated Build Deployment" time="105.437976">
+<failure message="org.openqa.selenium.NoSuchElementException: Cannot locate option with value: Application&#10;For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html&#10;Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'&#10;System info: host: 'NCI-02134309-ML', ip: 'fe80:0:0:0:1055:8e0d:e612:a958%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.7', java.version: '1.8.0_271'&#10;Driver info: driver.version: unknown&#10;&#9;at org.openqa.selenium.support.ui.Select.findOptionsByValue(Select.java:283)&#10;&#9;at org.openqa.selenium.support.ui.Select.selectByValue(Select.java:186)&#10;&#9;at com.nci.automation.web.CommonUtils.selectDropDownValue(CommonUtils.java:98)&#10;&#9;at ServiceNow.CICDBuild.StepsImplementation.DevOpsAutomatedBuildStepsImplementation.selectingApplicationAsDeploymentType(DevOpsAutomatedBuildStepsImplementation.java:57)&#10;&#9;at ServiceNow.CICDBuild.Steps.DevOpsApplicationBuildSteps.selecting_as_the_deployment_type(DevOpsApplicationBuildSteps.java:31)&#10;&#9;at ✽.selecting &quot;Application&quot; as the deployment type(file:src/test/java/ServiceNow/CICDBuild/Features/CICDDevOps.feature:7)&#10;"><![CDATA[Given login to the CICD_Dev_Ops application in Native View is successful with username "DevOpsUsername" and password "DevOpsPassword".passed
+When selecting the "CICD_Dev_Ops" application...............................passed
+And selecting "Application" as the deployment type..........................failed
+Then build is able to be executed successfully..............................skipped
+
+StackTrace:
+org.openqa.selenium.NoSuchElementException: Cannot locate option with value: Application
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'NCI-02134309-ML', ip: 'fe80:0:0:0:1055:8e0d:e612:a958%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.7', java.version: '1.8.0_271'
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.Select.findOptionsByValue(Select.java:283)
+	at org.openqa.selenium.support.ui.Select.selectByValue(Select.java:186)
+	at com.nci.automation.web.CommonUtils.selectDropDownValue(CommonUtils.java:98)
+	at ServiceNow.CICDBuild.StepsImplementation.DevOpsAutomatedBuildStepsImplementation.selectingApplicationAsDeploymentType(DevOpsAutomatedBuildStepsImplementation.java:57)
+	at ServiceNow.CICDBuild.Steps.DevOpsApplicationBuildSteps.selecting_as_the_deployment_type(DevOpsApplicationBuildSteps.java:31)
+	at ✽.selecting "Application" as the deployment type(file:src/test/java/ServiceNow/CICDBuild/Features/CICDDevOps.feature:7)
+]]></failure>
 </testcase>
 </testsuite>
