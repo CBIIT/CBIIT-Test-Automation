@@ -1,4 +1,4 @@
-Feature: Female Discrepancy
+Feature: Female Discrepancy on the Search Cohorts Tab
   This tests the discrepancies in the amount of eligible females returned on search cohorts tab.
 
   @SS-3428 @Progression
