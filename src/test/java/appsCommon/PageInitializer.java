@@ -3,8 +3,11 @@ package appsCommon;
 
 
 import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
+import AnalysisTools.CEDCD.Steps.CEDCDBiospecimenCountsSelectAllCohortsSteps;
+import AnalysisTools.CEDCD.Steps.CEDCDSelectAllCohortsSteps;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDMaleDiscrepancyOnSearchCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
 import AnalysisTools.PLCO.Pages.APIAcessPage;
@@ -97,6 +100,8 @@ public class PageInitializer {
 	protected static CEDCDSearchCohortsPage cedcdSearchCohortsPage;
 	protected static CEDCDSearchFemaleCohortsStepImp cedcdSearchFemaleCohortsStepImp;
 	protected static CEDCDMaleDiscrepancyOnSearchCohortsStepImp cedcdMaleDiscrepancyOnSearchCohortsStepImp;
+	protected static CEDCDSelectAllCohortsStepImp cedcdSelectAllCohortsStepImp;
+	protected static CEDCDBiospecimenCountsSelectAllCohortsSteps cedcdBiospecimenCountsSelectAllCohortsSteps;
 
 
 	public static void initializeAllPages() {
@@ -137,6 +142,8 @@ public class PageInitializer {
 		cedcdSearchCohortsPage = new CEDCDSearchCohortsPage();
 		cedcdSearchFemaleCohortsStepImp = new CEDCDSearchFemaleCohortsStepImp();
 		cedcdMaleDiscrepancyOnSearchCohortsStepImp = new CEDCDMaleDiscrepancyOnSearchCohortsStepImp();
+		cedcdSelectAllCohortsStepImp = new CEDCDSelectAllCohortsStepImp();
+		cedcdBiospecimenCountsSelectAllCohortsSteps = new CEDCDBiospecimenCountsSelectAllCohortsSteps();
 
 	}
 
