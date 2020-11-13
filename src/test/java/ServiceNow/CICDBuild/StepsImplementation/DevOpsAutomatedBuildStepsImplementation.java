@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -30,6 +32,8 @@ public class DevOpsAutomatedBuildStepsImplementation extends PageInitializer {
 
 	public void selectingCICDDevOpsApplication(String cicdDevOps) {
 		MiscUtils.sleep(4000);
+		WebDriverWait wait = new WebDriverWait(WebDriverUtils.webDriver, 60);
+		wait.until(ExpectedConditions.visibilityOf(devOpsNativeViewPage.applicationSelectorDropDown));
 		devOpsNativeViewPage.applicationSelectorDropDown.click();
 		MiscUtils.sleep(6000);
 		List<WebElement> values = devOpsNativeViewPage.dropDownApplications;
