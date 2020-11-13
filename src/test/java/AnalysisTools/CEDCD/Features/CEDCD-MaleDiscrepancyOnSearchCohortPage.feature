@@ -1,4 +1,4 @@
-Feature: Male Discrepancy on the Search Cohorts tab.
+Feature: Male Discrepancy on the Search Cohorts Tab.
   This tests the discrepancies in the amount of eligible males returned on "search cohorts" tab.
 	
 	@SS-3429 @Progression
