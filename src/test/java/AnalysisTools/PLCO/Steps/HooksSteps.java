@@ -18,6 +18,7 @@ import appsCommon.PageInitializer;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import cucumber.api.java.BeforeStep;
 
 
 public class HooksSteps {
@@ -39,9 +40,9 @@ public class HooksSteps {
 			Report.startFeature(featureName);
 		}			
 		if(!featureName.equals(getFeatureFileNameFromScenarioId(s))) {
-			Report.startFeature(featureName);
 			featureName = getFeatureFileNameFromScenarioId(s);
-		}
+			Report.startFeature(featureName);
+			}
 		Report.startTest(s.getName());
 		WebDriverUtils.getWebDriver();
 		MiscUtils.sleep(2000);
@@ -124,6 +125,11 @@ public class HooksSteps {
 	    String featureName = tab[rawFeatureNameLength - 1].split(":")[0];
 	    System.out.println("featureName: " + featureName);
 	    return featureName;
+	}
+	
+	@BeforeStep
+	public void beforeStep() {
+		
 	}
 
 }
