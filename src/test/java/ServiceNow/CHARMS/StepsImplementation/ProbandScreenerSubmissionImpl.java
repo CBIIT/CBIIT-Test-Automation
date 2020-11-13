@@ -10,6 +10,7 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
+import com.nci.automation.xceptions.TestingException;
 
 import appsCommon.PageInitializer;
 
@@ -20,7 +21,7 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 	 * out for someone else? drop down ----- SCREENSHOTS ARE TAKEN WITH THIS METHOD
 	 * AS WELL -----
 	 */
-	public void areYouFillingThisQuestionnaireOutForSomeoneElse(String value) {
+	public void areYouFillingThisQuestionnaireOutForSomeoneElse(String value){
 		/** Scrolling into areYouFillingOutThisQuestionnaireForSomeoneElseDropDown */
 		MiscUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(probandScreenerPage.areYouFillingOutThisQuestionnaireForSomeoneElseDropDown);
@@ -39,8 +40,7 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 
 		/** Taking screenshot */
 		CucumberLogUtils.logScreenShot();
-		
-		
+
 	}
 
 	/*
@@ -62,7 +62,7 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 
 		/** Selecting Date of Birth */
 		MiscUtils.sleep(1000);
-		//JavascriptUtils.selectDateByJS(probandScreenerPage.dateOfBirth, DOB);
+		// JavascriptUtils.selectDateByJS(probandScreenerPage.dateOfBirth, DOB);
 		probandScreenerPage.dateOfBirth.sendKeys(DOB);
 
 		/** Clicking Country of Birth drop down */
@@ -75,9 +75,9 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 		CommonUtils.selectValueFromBootStrapDropDown(countryOfBirthValues, CountryOfBirth);
 
 		/** Sending city and state values */
-		//probandScreenerPage.birthCity.clear();
+		// probandScreenerPage.birthCity.clear();
 		probandScreenerPage.birthCity.sendKeys(City);
-		//probandScreenerPage.birthState.clear();
+		// probandScreenerPage.birthState.clear();
 		probandScreenerPage.birthState.sendKeys(State);
 
 		/** Clicking on probandsEthnicityDropDown */
@@ -104,7 +104,7 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 		JavascriptUtils.scrollIntoView(probandScreenerPage.biologicalMothersEthnicityDropDown);
 
 		/** Clicking on biologicalMothersEthnicityDropDown */
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		probandScreenerPage.biologicalMothersEthnicityDropDown.click();
 
 		/**
@@ -128,7 +128,7 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 		CommonUtils.selectValueFromBootStrapDropDown(biologicalMothersRaceDropDownValues, BiologicalMothersRace);
 
 		/** Clicking on biological fathers ethnicity drop down */
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		probandScreenerPage.biologicalFathersEthnicityDropDown.click();
 
 		/**
@@ -163,17 +163,17 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 			String State, String ZipCode) {
 		/** Sending probands phone number */
 		MiscUtils.sleep(1000);
-		//probandScreenerPage.probandsPhoneNumber.clear();
+		// probandScreenerPage.probandsPhoneNumber.clear();
 		probandScreenerPage.probandsPhoneNumber.sendKeys(PhoneNumber);
 
 		/** Sending probands street address */
-		//probandScreenerPage.probandsStAddress.clear();
+		// probandScreenerPage.probandsStAddress.clear();
 		probandScreenerPage.probandsStAddress.sendKeys(StreetAddress);
-		//probandScreenerPage.probandsCity.clear();
+		// probandScreenerPage.probandsCity.clear();
 		probandScreenerPage.probandsCity.sendKeys(City);
-		//probandScreenerPage.probandsState.clear();
+		// probandScreenerPage.probandsState.clear();
 		probandScreenerPage.probandsState.sendKeys(State);
-		//probandScreenerPage.probandsZipCode.clear();
+		// probandScreenerPage.probandsZipCode.clear();
 		probandScreenerPage.probandsZipCode.sendKeys(ZipCode);
 		probandScreenerPage.probandsState.click();
 
@@ -515,7 +515,8 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 	 * family member participated in any LFS study? drop down in the final
 	 * information section
 	 */
-	public void hasTheResearchParticipantOrAnyFamilyMemberParticipatedInAnyLFSstudy(String hasResearchParticipantOrFamilyMemberParticipatedInAnyLFSStudy) {
+	public void hasTheResearchParticipantOrAnyFamilyMemberParticipatedInAnyLFSstudy(
+			String hasResearchParticipantOrFamilyMemberParticipatedInAnyLFSStudy) {
 		/**
 		 * Clicking on
 		 * hasTheResearchParticipantOrAnyFamilyMemberParticipatedInAnyLFSStudyDropDown
@@ -533,10 +534,11 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 				hasResearchParticipantOrFamilyMemberParticipatedInAnyLFSStudy);
 
 	}
-	
+
 	/*
-	 * Use this method to select any value from Are any relatives currently receiving cancer care or follow-up? drop down
-	 * When selecting YES - application requires cancer type to submit
+	 * Use this method to select any value from Are any relatives currently
+	 * receiving cancer care or follow-up? drop down When selecting YES -
+	 * application requires cancer type to submit
 	 */
 	public void areAnyRelativesCurrentlyReceivingCancerCareOrFollowUp(String AreRelativesReceivingCancerCare) {
 		/** Clicking on areAnyRelativesCurrentlyReceivingCancerCareOrFollowUpDropDown */
@@ -552,27 +554,95 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 		CommonUtils.selectValueFromBootStrapDropDown(areAnyRelativesCurrentlyReceivingCancerCareOrFollowUpValues,
 				AreRelativesReceivingCancerCare);
 	}
-	
-	public void fillingOutFinalInformationWithoutSelectingOtherAndSelectingNoToReceivingCancerFollowUp(String HowDidYouHearAboutStudy, String hasResearchParticipantOrFamilyMemberParticipatedInAnyLFSStudy, String AreRelativesReceivingCancerCare, String Comments) {
+
+	public void fillingOutFinalInformationWithoutSelectingOtherAndSelectingNoToReceivingCancerFollowUp(
+			String HowDidYouHearAboutStudy, String hasResearchParticipantOrFamilyMemberParticipatedInAnyLFSStudy,
+			String AreRelativesReceivingCancerCare, String Comments) {
 		MiscUtils.sleep(1000);
-		probandScreenerSubmissionImpl.howDidYouHearAboutThisStudy(HowDidYouHearAboutStudy);		
-		probandScreenerSubmissionImpl.hasTheResearchParticipantOrAnyFamilyMemberParticipatedInAnyLFSstudy(hasResearchParticipantOrFamilyMemberParticipatedInAnyLFSStudy);
-		probandScreenerSubmissionImpl.areAnyRelativesCurrentlyReceivingCancerCareOrFollowUp(AreRelativesReceivingCancerCare);
+		probandScreenerSubmissionImpl.howDidYouHearAboutThisStudy(HowDidYouHearAboutStudy);
+		probandScreenerSubmissionImpl.hasTheResearchParticipantOrAnyFamilyMemberParticipatedInAnyLFSstudy(
+				hasResearchParticipantOrFamilyMemberParticipatedInAnyLFSStudy);
+		probandScreenerSubmissionImpl
+				.areAnyRelativesCurrentlyReceivingCancerCareOrFollowUp(AreRelativesReceivingCancerCare);
 		probandScreenerPage.commentTxtBox.sendKeys(Comments);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 	}
-	
-	public  void submitTheScreener() {
+
+	public void submitTheScreener() {
 		/*
-		 *  This  method clicks on the  Submit  button on the Final Information Page
+		 * This method clicks on the Submit button on the Final Information Page
 		 */
 		probandScreenerPage.screenerSubmitBtn.click();
-		
+
 		/*
-		 * This method  waits for the "Are you ready to submit this form?" warning and selects "OK"
+		 * This method waits for the "Are you ready to submit this form?" warning and
+		 * selects "OK"
 		 */
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(probandScreenerPage.confirmScreenerSubmissionBtn);
+	}
+
+	public void fullTestAccountReset() throws TestingException {
+		/**
+		 * THE BELOW CODE HAS ITS OWN CUCUMBER FEATURE IMPLEMENTATION -- PLEASE REVIEW
+		 * TESTACCOUNTRESET.feature in the CHARMS features package
+		 */
+		nativeViewLoginImpl.nativeViewLogin();
+		MiscUtils.sleep(2000);
+		nativeViewHomePage.nativeViewFilterNavigator.sendKeys("Studio");
+		MiscUtils.sleep(2000);
+		String parentWindowHandle = WebDriverUtils.webDriver.getWindowHandle();
+		charmsNativeViewPage.studioLink.click();
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenShot();
+		MiscUtils.sleep(3000);
+		testAccountResetImpl.navigateToCHARMSstudio("Family Cohort Study");
+		MiscUtils.sleep(3000);
+		charmsNativeViewPage.familyCohortStudyLink.click();
+		MiscUtils.sleep(3000);
+		MiscUtils.sleep(3000);
+		// charmsNativeViewPage.charmsReferralsLink.click();
+		JavascriptUtils.clickByJS(charmsNativeViewPage.charmsReferralsLink);
+		MiscUtils.sleep(2000);
+		MiscUtils.sleep(3000);
+		testAccountResetImpl.navigateToCHARMSreferralsShowList();
+		MiscUtils.sleep(3000);
+		testAccountResetImpl.searchForTestAccountCHARMSreferralsShowList("diegojuarezbusiness@gmail.com");
+		MiscUtils.sleep(3000);
+		testAccountResetImpl.deleteAccountFromCHARMSreferralsShowList();
+		MiscUtils.sleep(3000);
+		testAccountResetImpl.navigateToFamilyMemberDetails();
+		MiscUtils.sleep(3000);
+		testAccountResetImpl.navigateToFamilyMemberDetailsShowList();
+		MiscUtils.sleep(3000);
+		testAccountResetImpl.searchTestAccountNameFamilyMemberDetails("Diego TestAccount2");
+		MiscUtils.sleep(3000);
+		testAccountResetImpl.deleteAccountFromFamilyMemberDetails();
+		MiscUtils.sleep(3000);
+		testAccountResetImpl.navigateToFCSMSformAccess();
+		MiscUtils.sleep(3000);
+		JavascriptUtils.scrollIntoView(charmsNativeViewPage.fcsmsFormAccessShowListLink);
+		MiscUtils.sleep(2000);
+		charmsNativeViewPage.fcsmsFormAccessShowListLink.click();
+		MiscUtils.sleep(3000);
+		MiscUtils.sleep(3000);
+		testAccountResetImpl.deleteAccountFromFCSMSformAccess();
+	}
+
+	public void signingOutOfCharms() {
+		/**
+		 * clicking on Your Screener Form has been submitted successfully ! ok button
+		 */
+		MiscUtils.sleep(1500);
+		JavascriptUtils.clickByJS(probandScreenerPage.screenerFormSubmittedSuccessfullyOKButton);
+
+		/** clicking on profile account drop down */
+		MiscUtils.sleep(1500);
+		JavascriptUtils.clickByJS(probandScreenerPage.profileAccountDropDown);
+
+		/** clicking on sign out */
+		MiscUtils.sleep(1500);
+		JavascriptUtils.clickByJS(probandScreenerPage.signOutButton);
 	}
 }
