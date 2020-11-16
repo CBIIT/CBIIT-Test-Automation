@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="1" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="373.039452">
-<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data" time="373.039452">
-<failure message="org.openqa.selenium.NoSuchElementException: Cannot locate option with value: Delete&#10;For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html&#10;Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'&#10;System info: host: 'NCI-02195279-ML', ip: 'fe80:0:0:0:1c28:1850:a065:c92d%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.7', java.version: '15.0.1'&#10;Driver info: driver.version: unknown&#10;&#9;at org.openqa.selenium.support.ui.Select.findOptionsByValue(Select.java:283)&#10;&#9;at org.openqa.selenium.support.ui.Select.selectByValue(Select.java:186)&#10;&#9;at com.nci.automation.web.CommonUtils.selectDropDownValue(CommonUtils.java:98)&#10;&#9;at ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl.deleteAccountFromCHARMSreferralsShowList(TestAccountResetImpl.java:45)&#10;&#9;at ServiceNow.CHARMS.StepsImplementation.ProbandScreenerSubmissionImpl.fullTestAccountReset(ProbandScreenerSubmissionImpl.java:616)&#10;&#9;at ServiceNow.CHARMS.Steps.ProbandScreenerSubmissionSteps.test_account_is_reset_to_be_reused_for_next_execution(ProbandScreenerSubmissionSteps.java:148)&#10;&#9;at ✽.test account is reset to be reused for next execution(file:src/test/java/ServiceNow/CHARMS/Features/ProbandScenarios.feature:28)&#10;"><![CDATA[Given a Proband is on the CHARMS home page..................................passed
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="361.896981">
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data" time="361.896981">
+<system-out><![CDATA[Given a Proband is on the CHARMS home page..................................passed
 When the Proband logs in with existing valid credentials....................passed
 When the probands selects on screener to submit a screener..................passed
 And selects "No" to filling questionnaire out for someone else..............passed
@@ -16,21 +16,7 @@ And on the Family Members Genetic Tests selects "Yes" to having any relatives be
 And adds Relatives with Genetic Tests information "James", "Aunt (mom’s sister)", "BRCA1, BRCA2 (Hereditary Breast and Ovarian Cancer syndrome)", "Positive".passed
 And on the Final Information section selects the following information "Web Search", "No", "No", "<Comments>".passed
 And Submits the Screener Questionnaire......................................passed
-And test account is reset to be reused for next execution...................failed
-
-StackTrace:
-org.openqa.selenium.NoSuchElementException: Cannot locate option with value: Delete
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'NCI-02195279-ML', ip: 'fe80:0:0:0:1c28:1850:a065:c92d%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.7', java.version: '15.0.1'
-Driver info: driver.version: unknown
-	at org.openqa.selenium.support.ui.Select.findOptionsByValue(Select.java:283)
-	at org.openqa.selenium.support.ui.Select.selectByValue(Select.java:186)
-	at com.nci.automation.web.CommonUtils.selectDropDownValue(CommonUtils.java:98)
-	at ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl.deleteAccountFromCHARMSreferralsShowList(TestAccountResetImpl.java:45)
-	at ServiceNow.CHARMS.StepsImplementation.ProbandScreenerSubmissionImpl.fullTestAccountReset(ProbandScreenerSubmissionImpl.java:616)
-	at ServiceNow.CHARMS.Steps.ProbandScreenerSubmissionSteps.test_account_is_reset_to_be_reused_for_next_execution(ProbandScreenerSubmissionSteps.java:148)
-	at ✽.test account is reset to be reused for next execution(file:src/test/java/ServiceNow/CHARMS/Features/ProbandScenarios.feature:28)
-]]></failure>
+And test account is reset to be reused for next execution...................passed
+]]></system-out>
 </testcase>
 </testsuite>
