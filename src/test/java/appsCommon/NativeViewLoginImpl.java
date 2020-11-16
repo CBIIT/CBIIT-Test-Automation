@@ -11,7 +11,7 @@ import com.nci.automation.xceptions.TestingException;
 public class NativeViewLoginImpl extends PageInitializer {
 	
 	public void nativeViewLogin() throws TestingException {
-		MiscUtils.sleep(2000);
+		MiscUtils.sleep(3000);
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
@@ -22,7 +22,6 @@ public class NativeViewLoginImpl extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 		WebDriverUtils.webDriver.findElement(By.linkText("Native View")).click();
-		MiscUtils.sleep(2000);
 	}
 
 }
