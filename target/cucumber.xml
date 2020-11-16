@@ -1,31 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="4" time="39.725142">
-<testcase classname="Selecting All Cohorts on Biospecimen Tab" name="Selecting all Cohorts from the Biospecimen Tab" time="10.296076">
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="12.049108">
+<testcase classname="The &quot;Clear All&quot; button on the Biospecimen Counts Tab works how intended" name="The Clear All button clears all the selection on the Biospecimen Counts Tab" time="12.049108">
 <system-out><![CDATA[Given the user is on the CEDCD homepage.....................................passed
 When the user clicks on the Biospecimen Counts tab..........................passed
-And the user clicks on the Specimen Type drop down..........................passed
-And the user clicks on the All Types check box..............................passed
-Then all Specimen tabs are selected.........................................passed
-]]></system-out>
-</testcase>
-<testcase classname="Male Discrepancy on the Search Cohorts Tab." name="Eligible Male Cohorts returned on the Search Cohorts Tab" time="9.746616">
-<system-out><![CDATA[Given the user is on the CEDCD homepage.....................................passed
-When the user clicks on the CEDCD search cohorts tab........................passed
-And the user filters by males...............................................passed
-Then 44 results return for Male cohort Filter results.......................passed
-]]></system-out>
-</testcase>
-<testcase classname="Selecting All on the Cohort Studies Tab" name="Select All Cohorts" time="9.906315">
-<system-out><![CDATA[Given the user is on the CEDCD homepage.....................................passed
-When the user clicks on the CEDCD search cohorts tab........................passed
-And the user clicks on the select all check box.............................passed
-Then all studies are selected...............................................passed
-]]></system-out>
-</testcase>
-<testcase classname="Female Discrepancy on the Search Cohorts Tab" name="Eligible Female Cohorts returned on the Search Cohorts Tab" time="9.776135">
-<system-out><![CDATA[Given the user is on the CEDCD homepage.....................................passed
-When the user clicks on the CEDCD search cohorts tab........................passed
-And the user filters by females.............................................passed
-Then 53 results return for Female Cohort Filter Result......................passed
+And the user selects All Types from the Specimen Type drop down.............passed
+And the user selects All Cancers from the Cancer Type drop down.............passed
+And the user selects All Cohorts from the Cohorts drop down.................passed
+And the user searches results...............................................passed
+When the user clicks on the Clear All button................................passed
+Then all previously selected fields are no longer selected..................passed
 ]]></system-out>
 </testcase>
 </testsuite>
