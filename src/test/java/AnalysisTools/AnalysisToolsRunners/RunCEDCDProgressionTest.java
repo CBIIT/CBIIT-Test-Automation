@@ -11,8 +11,8 @@ import cucumber.api.junit.Cucumber;
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/AnalysisTools/CEDCD/Features"
 		, glue="AnalysisTools.CEDCD.Steps"
-		, tags="@SS-3453"
-		, dryRun = false
+		, tags="@Progression"
+		, dryRun = true
 		, monochrome=true
 		, strict = true
 		
