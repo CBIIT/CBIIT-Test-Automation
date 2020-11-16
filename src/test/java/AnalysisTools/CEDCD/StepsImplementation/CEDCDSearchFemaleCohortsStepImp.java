@@ -17,7 +17,6 @@ public class CEDCDSearchFemaleCohortsStepImp extends PageInitializer {
 	public void startUpCEDCDBrowser() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
 	}
 
 	/**
