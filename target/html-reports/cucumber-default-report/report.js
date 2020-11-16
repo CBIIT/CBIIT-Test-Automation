@@ -193,7 +193,7 @@ formatter.step({
 formatter.match({
   "location": "ProbandLoginSteps.a_Proband_is_on_the_CHARMS_home_page()"
 });
-formatter.write("2020-11-16 12:45:56: Screenshot: ");
+formatter.write("2020-11-16 16:58:52: Screenshot: ");
 formatter.embedding("image/png", "embedded0.png");
 formatter.result({
   "status": "passed"
@@ -205,9 +205,9 @@ formatter.step({
 formatter.match({
   "location": "ProbandLoginSteps.the_Proband_logs_in_with_existing_valid_credentials()"
 });
-formatter.write("2020-11-16 12:46:07: Screenshot: ");
+formatter.write("2020-11-16 16:59:04: Screenshot: ");
 formatter.embedding("image/png", "embedded1.png");
-formatter.write("2020-11-16 12:46:09: Screenshot: ");
+formatter.write("2020-11-16 16:59:07: Screenshot: ");
 formatter.embedding("image/png", "embedded2.png");
 formatter.result({
   "status": "passed"
@@ -229,7 +229,7 @@ formatter.step({
 formatter.match({
   "location": "ProbandScreenerSubmissionSteps.selects_to_filling_questionnaire_out_for_someone_else(String)"
 });
-formatter.write("2020-11-16 12:46:21: Screenshot: ");
+formatter.write("2020-11-16 16:59:20: Screenshot: ");
 formatter.embedding("image/png", "embedded3.png");
 formatter.result({
   "status": "passed"
@@ -241,9 +241,9 @@ formatter.step({
 formatter.match({
   "location": "ProbandScreenerSubmissionSteps.fills_out_all_Demographic_Information(String,String,String,String,String,String,String,String,String,String,String)"
 });
-formatter.write("2020-11-16 12:46:40: Screenshot: ");
+formatter.write("2020-11-16 16:59:40: Screenshot: ");
 formatter.embedding("image/png", "embedded4.png");
-formatter.write("2020-11-16 12:46:56: Screenshot: ");
+formatter.write("2020-11-16 16:59:56: Screenshot: ");
 formatter.embedding("image/png", "embedded5.png");
 formatter.result({
   "status": "passed"
@@ -255,7 +255,7 @@ formatter.step({
 formatter.match({
   "location": "ProbandScreenerSubmissionSteps.fills_out_all_Contact_Information_with(String,String,String,String,String)"
 });
-formatter.write("2020-11-16 12:47:05: Screenshot: ");
+formatter.write("2020-11-16 17:00:06: Screenshot: ");
 formatter.embedding("image/png", "embedded6.png");
 formatter.result({
   "status": "passed"
@@ -267,7 +267,7 @@ formatter.step({
 formatter.match({
   "location": "ProbandScreenerSubmissionSteps.on_the_Personal_Cancer_History_section_selects_to_a_physician_diagnosing_the_research_participant_with_cancer(String)"
 });
-formatter.write("2020-11-16 12:47:14: Screenshot: ");
+formatter.write("2020-11-16 17:00:15: Screenshot: ");
 formatter.embedding("image/png", "embedded7.png");
 formatter.result({
   "status": "passed"
@@ -279,9 +279,9 @@ formatter.step({
 formatter.match({
   "location": "ProbandScreenerSubmissionSteps.adds_Personal_Cancer_information(String,String)"
 });
-formatter.write("2020-11-16 12:47:24: Screenshot: ");
+formatter.write("2020-11-16 17:00:26: Screenshot: ");
 formatter.embedding("image/png", "embedded8.png");
-formatter.write("2020-11-16 12:47:29: Screenshot: ");
+formatter.write("2020-11-16 17:00:31: Screenshot: ");
 formatter.embedding("image/png", "embedded9.png");
 formatter.result({
   "status": "passed"
@@ -293,7 +293,7 @@ formatter.step({
 formatter.match({
   "location": "ProbandScreenerSubmissionSteps.on_the_Personal_Genetic_Tests_sections_selects_to_being_genetically_tested_for_inherited_cancer_syndromes(String)"
 });
-formatter.write("2020-11-16 12:47:35: Screenshot: ");
+formatter.write("2020-11-16 17:00:38: Screenshot: ");
 formatter.embedding("image/png", "embedded10.png");
 formatter.result({
   "status": "passed"
@@ -305,9 +305,9 @@ formatter.step({
 formatter.match({
   "location": "ProbandScreenerSubmissionSteps.adds_Personal_Genetic_Tests_information(String,String)"
 });
-formatter.write("2020-11-16 12:47:46: Screenshot: ");
+formatter.write("2020-11-16 17:00:49: Screenshot: ");
 formatter.embedding("image/png", "embedded11.png");
-formatter.write("2020-11-16 12:47:50: Screenshot: ");
+formatter.write("2020-11-16 17:00:54: Screenshot: ");
 formatter.embedding("image/png", "embedded12.png");
 formatter.result({
   "status": "passed"
@@ -319,7 +319,7 @@ formatter.step({
 formatter.match({
   "location": "ProbandScreenerSubmissionSteps.on_Family_Members_Cancer_History_selects_to_having_any_biological_relatives_being_diagnosed_with_cancer(String)"
 });
-formatter.write("2020-11-16 12:47:57: Screenshot: ");
+formatter.write("2020-11-16 17:01:01: Screenshot: ");
 formatter.embedding("image/png", "embedded13.png");
 formatter.result({
   "status": "passed"
@@ -331,9 +331,9 @@ formatter.step({
 formatter.match({
   "location": "ProbandScreenerSubmissionSteps.adds_Family_Cancer_information(String,String,String,String,String,String,String,String,String,String)"
 });
-formatter.write("2020-11-16 12:48:20: Screenshot: ");
+formatter.write("2020-11-16 17:01:25: Screenshot: ");
 formatter.embedding("image/png", "embedded14.png");
-formatter.write("2020-11-16 12:48:22: Screenshot: ");
+formatter.write("2020-11-16 17:01:28: Screenshot: ");
 formatter.embedding("image/png", "embedded15.png");
 formatter.result({
   "status": "passed"
@@ -345,7 +345,7 @@ formatter.step({
 formatter.match({
   "location": "ProbandScreenerSubmissionSteps.on_the_Family_Members_Genetic_Tests_selects_to_having_any_relatives_being_genetically_tested_for_inherited_cancer_syndromes(String)"
 });
-formatter.write("2020-11-16 12:48:30: Screenshot: ");
+formatter.write("2020-11-16 17:01:36: Screenshot: ");
 formatter.embedding("image/png", "embedded16.png");
 formatter.result({
   "status": "passed"
@@ -357,9 +357,9 @@ formatter.step({
 formatter.match({
   "location": "ProbandScreenerSubmissionSteps.adds_Relatives_with_Genetic_Tests_information(String,String,String,String)"
 });
-formatter.write("2020-11-16 12:48:45: Screenshot: ");
+formatter.write("2020-11-16 17:01:52: Screenshot: ");
 formatter.embedding("image/png", "embedded17.png");
-formatter.write("2020-11-16 12:48:49: Screenshot: ");
+formatter.write("2020-11-16 17:01:56: Screenshot: ");
 formatter.embedding("image/png", "embedded18.png");
 formatter.result({
   "status": "passed"
@@ -371,7 +371,7 @@ formatter.step({
 formatter.match({
   "location": "ProbandScreenerSubmissionSteps.on_the_Final_Information_section_selects_the_following_information(String,String,String,String)"
 });
-formatter.write("2020-11-16 12:49:05: Screenshot: ");
+formatter.write("2020-11-16 17:02:12: Screenshot: ");
 formatter.embedding("image/png", "embedded19.png");
 formatter.result({
   "status": "passed"
@@ -393,16 +393,16 @@ formatter.step({
 formatter.match({
   "location": "ProbandScreenerSubmissionSteps.test_account_is_reset_to_be_reused_for_next_execution()"
 });
-formatter.write("2020-11-16 12:49:23: Screenshot: ");
+formatter.write("2020-11-16 17:02:32: Screenshot: ");
 formatter.embedding("image/png", "embedded20.png");
-formatter.write("2020-11-16 12:49:25: Screenshot: ");
+formatter.write("2020-11-16 17:02:37: Screenshot: ");
 formatter.embedding("image/png", "embedded21.png");
-formatter.write("2020-11-16 12:49:32: Screenshot: ");
+formatter.write("2020-11-16 17:02:44: Screenshot: ");
 formatter.embedding("image/png", "embedded22.png");
-formatter.write("2020-11-16 12:49:43: Screenshot: ");
+formatter.write("2020-11-16 17:02:57: Screenshot: ");
 formatter.embedding("image/png", "embedded23.png");
 formatter.result({
-  "error_message": "org.openqa.selenium.NoSuchElementException: Cannot locate option with value: Contact Email Address\nFor documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027NCI-02195279-ML\u0027, ip: \u0027fe80:0:0:0:1c28:1850:a065:c92d%en0\u0027, os.name: \u0027Mac OS X\u0027, os.arch: \u0027x86_64\u0027, os.version: \u002710.15.7\u0027, java.version: \u002715.0.1\u0027\nDriver info: driver.version: unknown\n\tat org.openqa.selenium.support.ui.Select.findOptionsByValue(Select.java:283)\n\tat org.openqa.selenium.support.ui.Select.selectByValue(Select.java:186)\n\tat com.nci.automation.web.CommonUtils.selectDropDownValue(CommonUtils.java:98)\n\tat ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl.searchForTestAccountCHARMSreferralsShowList(TestAccountResetImpl.java:32)\n\tat ServiceNow.CHARMS.StepsImplementation.ProbandScreenerSubmissionImpl.fullTestAccountReset(ProbandScreenerSubmissionImpl.java:615)\n\tat ServiceNow.CHARMS.Steps.ProbandScreenerSubmissionSteps.test_account_is_reset_to_be_reused_for_next_execution(ProbandScreenerSubmissionSteps.java:148)\n\tat ✽.test account is reset to be reused for next execution(file:src/test/java/ServiceNow/CHARMS/Features/ProbandScenarios.feature:28)\n",
+  "error_message": "org.openqa.selenium.NoSuchElementException: Cannot locate option with value: Delete\nFor documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027NCI-02195279-ML\u0027, ip: \u0027fe80:0:0:0:1c28:1850:a065:c92d%en0\u0027, os.name: \u0027Mac OS X\u0027, os.arch: \u0027x86_64\u0027, os.version: \u002710.15.7\u0027, java.version: \u002715.0.1\u0027\nDriver info: driver.version: unknown\n\tat org.openqa.selenium.support.ui.Select.findOptionsByValue(Select.java:283)\n\tat org.openqa.selenium.support.ui.Select.selectByValue(Select.java:186)\n\tat com.nci.automation.web.CommonUtils.selectDropDownValue(CommonUtils.java:98)\n\tat ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl.deleteAccountFromCHARMSreferralsShowList(TestAccountResetImpl.java:45)\n\tat ServiceNow.CHARMS.StepsImplementation.ProbandScreenerSubmissionImpl.fullTestAccountReset(ProbandScreenerSubmissionImpl.java:616)\n\tat ServiceNow.CHARMS.Steps.ProbandScreenerSubmissionSteps.test_account_is_reset_to_be_reused_for_next_execution(ProbandScreenerSubmissionSteps.java:148)\n\tat ✽.test account is reset to be reused for next execution(file:src/test/java/ServiceNow/CHARMS/Features/ProbandScenarios.feature:28)\n",
   "status": "failed"
 });
 formatter.after({
