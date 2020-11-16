@@ -593,7 +593,7 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 		 * TESTACCOUNTRESET.feature in the CHARMS features package
 		 */
 		nativeViewLoginImpl.nativeViewLogin();
-		MiscUtils.sleep(2000);
+		//MiscUtils.sleep(2000);
 		nativeViewHomePage.nativeViewFilterNavigator.sendKeys("Studio");
 		MiscUtils.sleep(3000);
 		String parentWindowHandle = WebDriverUtils.webDriver.getWindowHandle();
@@ -606,10 +606,8 @@ public class ProbandScreenerSubmissionImpl extends PageInitializer {
 		MiscUtils.sleep(3000);
 		charmsNativeViewPage.familyCohortStudyLink.click();
 		MiscUtils.sleep(3000);
-		MiscUtils.sleep(3000);
 		// charmsNativeViewPage.charmsReferralsLink.click();
 		JavascriptUtils.clickByJS(charmsNativeViewPage.charmsReferralsLink);
-		MiscUtils.sleep(3000);
 		MiscUtils.sleep(3000);
 		testAccountResetImpl.navigateToCHARMSreferralsShowList();
 		MiscUtils.sleep(3000);
