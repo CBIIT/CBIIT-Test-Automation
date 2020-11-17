@@ -10,7 +10,7 @@ import appsCommon.PageInitializer;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class CEDCDBiospecimenCountClearAll extends PageInitializer {
+public class CEDCDBiospecimenCountClearAllSteps extends PageInitializer {
 
 	/** This clicks on the Specimen Type drop down and selects "All Type" */
 	@When("the user selects All Types from the Specimen Type drop down")
