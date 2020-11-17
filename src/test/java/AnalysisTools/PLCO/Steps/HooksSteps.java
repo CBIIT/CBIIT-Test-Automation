@@ -35,15 +35,15 @@ public class HooksSteps {
 	 */
 	@Before
 	public void genericSetUp(Scenario s) throws TestingException {
-		if(featureName==null) {
-			featureName = getFeatureFileNameFromScenarioId(s);
-			Report.startFeature(featureName);
-		}			
-		if(!featureName.equals(getFeatureFileNameFromScenarioId(s))) {
-			featureName = getFeatureFileNameFromScenarioId(s);
-			Report.startFeature(featureName);
-			}
-		Report.startTest(s.getName());
+//		if(featureName==null) {
+//			featureName = getFeatureFileNameFromScenarioId(s);
+//			Report.startFeature(featureName);
+//		}			
+//		if(!featureName.equals(getFeatureFileNameFromScenarioId(s))) {
+//			featureName = getFeatureFileNameFromScenarioId(s);
+//			Report.startFeature(featureName);
+//			}
+//		Report.startTest(s.getName());
 		WebDriverUtils.getWebDriver();
 		MiscUtils.sleep(2000);
 		PageInitializer.initializeAllPages();
