@@ -1,7 +1,7 @@
 Feature: The "Clear All" button on the Biospecimen Counts Tab works how intended
 Description:
 
-@SS-3453 @Progression
+@SS-3453 @Smoke
 Scenario: The Clear All button clears all the selection on the Biospecimen Counts Tab
 Given the user is on the CEDCD homepage
 When the user clicks on the Biospecimen Counts tab
