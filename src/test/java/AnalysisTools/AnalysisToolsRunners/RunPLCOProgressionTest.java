@@ -17,7 +17,7 @@ import cucumber.api.junit.Cucumber;
 		, "junit:target/cucumber.xml"
 		, "rerun:target/failed.txt","pretty"}
 		, features={"src/test/java/AnalysisTools/PLCO/Features"}
-		, glue="AnalysisTools.PLCO.Steps"
+		, glue="AnalysisTools.PLCOAPI.Steps"
 		, tags="@Progression"
 		, dryRun = false
 		, monochrome=true
