@@ -41,7 +41,7 @@ public class CHARMSNativeViewPage extends CommonUtils{
 	public WebElement familyCohortStudyLink;
 	
 	/** CHARMS Referrals link */
-	@FindBy (xpath = "//*[@id='navigation-modules']/ul/li[1]/ul/li[1]/ul/li[3]/a")
+	@FindBy (xpath = "/html/body/div[1]/nav/app-explorer/div[1]/ul/li[1]/ul/li[1]/ul/li[3]/a")
 	public WebElement charmsReferralsLink;
 	
 	/** CHARMS Referrals Show List */
