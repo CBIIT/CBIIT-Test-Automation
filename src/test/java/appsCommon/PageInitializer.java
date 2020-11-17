@@ -2,11 +2,13 @@ package appsCommon;
 
 
 
+import AnalysisTools.CEDCD.Pages.CEDCDBiospecimenCountsPage;
 import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
 import AnalysisTools.CEDCD.Steps.CEDCDBiospecimenCountsSelectAllCohortsSteps;
 import AnalysisTools.CEDCD.Steps.CEDCDSelectAllCohortsSteps;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDMaleDiscrepancyOnSearchCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortAlcoholConsumptionStepImp;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortNewPageLayOutStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
@@ -104,6 +106,8 @@ public class PageInitializer {
 	protected static CEDCDSelectAllCohortsStepImp cedcdSelectAllCohortsStepImp;
 	protected static CEDCDBiospecimenCountsSelectAllCohortsSteps cedcdBiospecimenCountsSelectAllCohortsSteps;
 	protected static CEDCDSearchCohortAlcoholConsumptionStepImp cedcdSearchCohortAlcoholConsumptionStepImp;
+	protected static CEDCDBiospecimenCountsPage cedcdBiospecimenCountsPage;
+	protected static CEDCDSearchCohortNewPageLayOutStepImp cedcdSearchCohortNewPageLayOutStepImp;
 
 	public static void initializeAllPages() {
 		// create instances of all pages and assign them to the variables
@@ -146,6 +150,8 @@ public class PageInitializer {
 		cedcdSelectAllCohortsStepImp = new CEDCDSelectAllCohortsStepImp();
 		cedcdBiospecimenCountsSelectAllCohortsSteps = new CEDCDBiospecimenCountsSelectAllCohortsSteps();
 		cedcdSearchCohortAlcoholConsumptionStepImp = new CEDCDSearchCohortAlcoholConsumptionStepImp();
+		cedcdBiospecimenCountsPage = new CEDCDBiospecimenCountsPage();
+		cedcdSearchCohortNewPageLayOutStepImp = new CEDCDSearchCohortNewPageLayOutStepImp();
 
 	}
 
