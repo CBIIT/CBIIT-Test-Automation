@@ -1,7 +1,14 @@
+<<<<<<< HEAD
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/AnalysisTools/CEDCD/Features/CEDCD-SearchCohorts-AlcoholConsumption.feature");
+formatter.feature({
+  "name": "Alcohol Consumption",
+  "description": "Description: when search cohorts using \"Alcohol consumption\" filter, old nci shows 58 entries, while new nci shows 58 entries",
+=======
 $(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/ServiceNow/CHARMS/Features/ProbandScenarios.feature");
 formatter.feature({
   "name": "Proband Scenarios",
   "description": "  Description: This feature file contains Proband related scenarios",
+>>>>>>> origin/master
   "keyword": "Feature"
 });
 formatter.scenarioOutline({
@@ -174,11 +181,21 @@ formatter.examples({
   ]
 });
 formatter.scenario({
+<<<<<<< HEAD
+  "name": "Filtering Cohorts by Alcohol Consumption",
+=======
   "name": "Proband Screener Submission - Executed with different sets of data",
+>>>>>>> origin/master
   "description": "",
   "keyword": "Scenario Outline",
   "tags": [
     {
+<<<<<<< HEAD
+      "name": "@SS-3437"
+    },
+    {
+=======
+>>>>>>> origin/master
       "name": "@Progression"
     }
   ]
@@ -187,11 +204,19 @@ formatter.before({
   "status": "passed"
 });
 formatter.step({
+<<<<<<< HEAD
+  "name": "the user is on the CEDCD Search Cohorts Tab",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "CEDCDSearchCohortAlcoholConsumptionSteps.the_user_is_on_the_CEDCD_Search_Cohorts_Tab()"
+=======
   "name": "a Proband is on the CHARMS home page",
   "keyword": "Given "
 });
 formatter.match({
   "location": "ProbandLoginSteps.a_Proband_is_on_the_CHARMS_home_page()"
+>>>>>>> origin/master
 });
 formatter.write("2020-11-16 17:39:00: Screenshot: ");
 formatter.embedding("image/png", "embedded0.png");
@@ -199,6 +224,13 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
+<<<<<<< HEAD
+  "name": "the user searches cohorts through Alcohol Consumption filter",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "CEDCDSearchCohortAlcoholConsumptionSteps.the_user_searches_cohorts_through_Alcohol_Consumption_filter()"
+=======
   "name": "the Proband logs in with existing valid credentials",
   "keyword": "When "
 });
@@ -382,11 +414,22 @@ formatter.step({
 });
 formatter.match({
   "location": "ProbandScreenerSubmissionSteps.submits_the_Screener_Questionnaire()"
+>>>>>>> origin/master
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
+<<<<<<< HEAD
+  "name": "the user sees 58 studies returned",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "CEDCDSearchCohortAlcoholConsumptionSteps.the_user_sees_studies_returned(int)"
+});
+formatter.write("2020-11-17 10:28:13: Screenshot: ");
+formatter.embedding("image/png", "embedded0.png");
+=======
   "name": "test account is reset to be reused for next execution",
   "keyword": "And "
 });
@@ -401,6 +444,7 @@ formatter.write("2020-11-16 17:42:37: Screenshot: ");
 formatter.embedding("image/png", "embedded22.png");
 formatter.write("2020-11-16 17:42:50: Screenshot: ");
 formatter.embedding("image/png", "embedded23.png");
+>>>>>>> origin/master
 formatter.result({
   "status": "passed"
 });

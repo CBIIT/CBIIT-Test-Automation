@@ -13,7 +13,7 @@ import cucumber.api.junit.Cucumber;
 		, features="src/test/java/ServiceNow/CHARMS/Features"
 		, glue="ServiceNow.CHARMS.Steps"
 		, tags="@Progression"
-		, dryRun = false
+		, dryRun = true
 		, monochrome=true
 		, strict = true
 		
