@@ -1,8 +1,8 @@
 Feature: Alcohol Consumption
-Description: when search cohorts using 'Alcohol consumption' filter, old nci shows 58 entries, while new nci shows 46 entries
+Description: when search cohorts using "Alcohol consumption" filter, old nci shows 58 entries, while new nci shows 58 entries
 
-@Progression
+@SS-3437 @Smoke
 Scenario: Filtering Cohorts by Alcohol Consumption
 Given the user is on the CEDCD Search Cohorts Tab
 When the user searches cohorts through Alcohol Consumption filter
-Then the user see 46 studies returned
+Then the user sees 58 studies returned

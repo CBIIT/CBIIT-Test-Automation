@@ -1,7 +1,7 @@
 Feature: Male Discrepancy on the Search Cohorts Tab.
   This tests the discrepancies in the amount of eligible males returned on "search cohorts" tab.
 	
-	@SS-3429 @Progression
+	@SS-3429 @Smoke
   Scenario: Eligible Male Cohorts returned on the Search Cohorts Tab
     Given the user is on the CEDCD homepage
     When the user clicks on the CEDCD search cohorts tab
