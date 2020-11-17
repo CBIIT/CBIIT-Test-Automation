@@ -1,37 +1,65 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/AnalysisTools/PLCO/Features/PublicAPI.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/ServiceNow/CICDBuild/Features/CICDDevOps.feature");
 formatter.feature({
-  "name": "Public API",
+  "name": "CICD_Dev_Ops Automated Build Deployment",
   "description": "",
   "keyword": "Feature"
 });
 formatter.scenario({
-  "name": "User querys cancer phenotype",
+  "name": "CICD DevOps Application Automated Build Deployment",
   "description": "",
   "keyword": "Scenario",
   "tags": [
     {
-      "name": "@Progression"
+      "name": "@CICD_Dev_Ops_Application_Build"
     }
   ]
 });
+formatter.before({
+  "status": "passed"
+});
 formatter.step({
-  "name": "user sends GET request for cancer phenotype",
+  "name": "login to the CICD_Dev_Ops application in Native View is successful with username \"DevOpsUsername\" and password \"DevOpsPassword\"",
   "keyword": "Given "
 });
 formatter.match({
-  "location": "PublicAPISteps.user_sends_GET_request_for_cancer_phenotype()"
+  "location": "DevOpsApplicationBuildSteps.login_to_the_CICD_Dev_Ops_application_in_Native_View_is_successful_with_username_and_password(String,String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user receives response for cancer phenotype",
+  "name": "selecting the \"CICD_Dev_Ops\" application",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "DevOpsApplicationBuildSteps.selecting_the_application(String)"
+});
+formatter.write("2020-11-16 20:19:19: Screenshot: ");
+formatter.embedding("image/png", "embedded0.png");
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "selecting \"Application\" as the deployment type",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "DevOpsApplicationBuildSteps.selecting_as_the_deployment_type(String)"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "build is able to be executed successfully",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "PublicAPISteps.user_receives_response_for_cancer_phenotype()"
+  "location": "DevOpsApplicationBuildSteps.build_is_able_to_be_executed_successfully()"
 });
 formatter.result({
+  "status": "passed"
+});
+formatter.after({
   "status": "passed"
 });
 });
