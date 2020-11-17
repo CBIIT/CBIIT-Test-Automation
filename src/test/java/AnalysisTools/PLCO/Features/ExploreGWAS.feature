@@ -9,7 +9,7 @@ And selects ancestry as east asian all
 And clicks submit
 Then Manhattan Plot displays
 
-@Progression
+@Smoke
 Scenario: User generates pairwise BMI Manhattan plot with top ancestry as east asian all and bottom ancestry as european all
 Given user on PLCO homepage
 When user selects explore GWAS
