@@ -36,6 +36,7 @@ public class CEDCDSearchFemaleCohortsStepImp extends PageInitializer {
 	 * the results in red and logs screenshot
 	 */
 	public void femaleResultsReturnedWithRedBorderScreenshot() {
+		MiscUtils.sleep(2000);
 		Assert.assertTrue(cedcdSearchCohortsPage.numberOfSearchResultReturned.getText().contains("53"));
 		JavascriptUtils.drawRedBorder(cedcdSearchCohortsPage.numberOfSearchResultReturned);
 		CucumberLogUtils.logScreenShot();
