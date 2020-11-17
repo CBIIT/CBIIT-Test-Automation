@@ -1,8 +1,30 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="14.887065">
 <testcase classname="Alcohol Consumption" name="Filtering Cohorts by Alcohol Consumption" time="14.887065">
 <system-out><![CDATA[Given the user is on the CEDCD Search Cohorts Tab...........................passed
 When the user searches cohorts through Alcohol Consumption filter...........passed
 Then the user sees 58 studies returned......................................passed
+=======
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="361.896981">
+<testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data" time="361.896981">
+<system-out><![CDATA[Given a Proband is on the CHARMS home page..................................passed
+When the Proband logs in with existing valid credentials....................passed
+When the probands selects on screener to submit a screener..................passed
+And selects "No" to filling questionnaire out for someone else..............passed
+And fills out all Demographic Information "Female", "04/01/2000", "U.S.A","Burke", "Virginia" "Hispanic/Latino", "American Indian/Alaskan Native", "Hispanic/Latino", "American Indian/Alaskan Native", "Hispanic/Latino", "American Indian/Alaskan Native".passed
+And fills out all Contact Information with "7036875816", "1234 Street Address Road", "Burke", "Virginia", "22015".passed
+And on the Personal Cancer History section selects "Yes" to a physician diagnosing the research participant with cancer.passed
+And adds Personal Cancer information "Adrenal gland (adrenocortical carcinoma)", "18".passed
+And on the Personal Genetic Tests sections selects "Yes" to being genetically tested for inherited cancer syndromes.passed
+And adds Personal Genetic Tests information "BRCA1, BRCA2 (Hereditary Breast and Ovarian Cancer syndrome)", "Positive".passed
+And on Family Members Cancer History selects "Yes" to having any biological relatives being diagnosed with cancer.passed
+And adds Family Cancer information "Adrenocortical Carcinoma", "Aunt (mom's sister)", "Inova Fairfax Hospital", "USA", "Fairfax", "Virginia", "Thelma", "11/01/1967", "18", "No".passed
+And on the Family Members Genetic Tests selects "Yes" to having any relatives being genetically tested for inherited cancer syndromes.passed
+And adds Relatives with Genetic Tests information "James", "Aunt (mom’s sister)", "BRCA1, BRCA2 (Hereditary Breast and Ovarian Cancer syndrome)", "Positive".passed
+And on the Final Information section selects the following information "Web Search", "No", "No", "<Comments>".passed
+And Submits the Screener Questionnaire......................................passed
+And test account is reset to be reused for next execution...................passed
+>>>>>>> origin/master
 ]]></system-out>
 </testcase>
 </testsuite>
