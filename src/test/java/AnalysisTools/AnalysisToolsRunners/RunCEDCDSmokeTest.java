@@ -1,7 +1,6 @@
-package ServiceNow.ServiceNowRunners;
+package AnalysisTools.AnalysisToolsRunners;
 
 import org.junit.runner.RunWith;
-
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
@@ -10,19 +9,21 @@ import cucumber.api.junit.Cucumber;
 		, "json:target/cucumber.json"
 		, "junit:target/cucumber.xml"
 		, "rerun:target/failed.txt","pretty"}
-		, features="src/test/java/ServiceNow/CHARMS/Features"
-		, glue="ServiceNow.CHARMS.Steps"
-		, tags="@Progression"
-		, dryRun = true
+		, features="src/test/java/AnalysisTools/CEDCD/Features"
+		, glue="AnalysisTools.CEDCD.Steps"
+		, tags="@Smoke"
+		, dryRun = false
 		, monochrome=true
 		, strict = true
 		
 		)
 
 /**
- * This class is annotated with @RunWith(Cucumber.class) and it will run cucumber feature(s).
- *  @author sohilz2
+ * This class is annotated with @RunWith(Cucumber.class) and it will run
+ * cucumber feature(s).
+ * 
+ * @author sohilz2
  */
-public class RunCHARMSProgressionTest {
+public class RunCEDCDSmokeTest {
 
 }
