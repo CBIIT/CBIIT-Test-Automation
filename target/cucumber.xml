@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="14.887065">
+<testcase classname="Alcohol Consumption" name="Filtering Cohorts by Alcohol Consumption" time="14.887065">
+<system-out><![CDATA[Given the user is on the CEDCD Search Cohorts Tab...........................passed
+When the user searches cohorts through Alcohol Consumption filter...........passed
+Then the user sees 58 studies returned......................................passed
+=======
 <?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="361.896981">
 <testcase classname="Proband Scenarios" name="Proband Screener Submission - Executed with different sets of data" time="361.896981">
 <system-out><![CDATA[Given a Proband is on the CHARMS home page..................................passed
@@ -17,6 +24,7 @@ And adds Relatives with Genetic Tests information "James", "Aunt (mom’s sister
 And on the Final Information section selects the following information "Web Search", "No", "No", "<Comments>".passed
 And Submits the Screener Questionnaire......................................passed
 And test account is reset to be reused for next execution...................passed
+>>>>>>> origin/master
 ]]></system-out>
 </testcase>
 </testsuite>

@@ -2,7 +2,6 @@ package ServiceNow.CHARMS.StepsImplementation;
 
 import java.util.List;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.nci.automation.utils.CucumberLogUtils;
