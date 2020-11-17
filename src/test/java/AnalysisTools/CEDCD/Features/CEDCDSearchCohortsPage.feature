@@ -1,7 +1,7 @@
 Feature: Female Discrepancy on the Search Cohorts Tab
   This tests the discrepancies in the amount of eligible females returned on search cohorts tab.
 
-  @SS-3428 @Progression
+  @SS-3428 @Smoke
   Scenario: Eligible Female Cohorts returned on the Search Cohorts Tab
     Given the user is on the CEDCD homepage
     When the user clicks on the CEDCD search cohorts tab

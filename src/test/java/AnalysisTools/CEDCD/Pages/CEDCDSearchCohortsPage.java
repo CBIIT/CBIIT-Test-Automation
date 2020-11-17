@@ -9,6 +9,9 @@ import com.nci.automation.web.WebDriverUtils;
 
 public class CEDCDSearchCohortsPage extends CommonUtils {
 
+	
+	
+	/**================================================= Search Cohorts WebElements =======================================================*/
 	/** This element is the search Cohorts tab */
 	@FindBy(xpath = "//a[@id='searchCohortsTab']")
 	public WebElement searchCohortTab;
@@ -47,6 +50,16 @@ public class CEDCDSearchCohortsPage extends CommonUtils {
 	@FindBy(xpath = "//input[@id='select_all']")
 	public WebElement selectAllCheckBox;
 	
+	/** This element clicks on the Categories of Data Collected Drop down */
+	@FindBy (xpath = "//button[contains(text(),'Categories of Data Collected')]")
+	public WebElement categoriesOfDataCollectedDropDown;
+	
+	/** This element selects "Alcohol Consumption" from the categories of data collected drop down */
+	@FindBy (xpath = "//label[contains(text(),'Alcohol Consumption')]")
+	public WebElement categoriesOfDataCollectedAlcoholConsumptionValue;
+	
+	
+	/**================================================= Biospecimen WebElements =======================================================*/
 	/** This element selects the Biospecimen tab on the home page */
 	@FindBy (xpath = "//span[contains(text(),'Biospecimen Counts')]")
 	public WebElement biospecimenTab;

@@ -3,6 +3,7 @@ package AnalysisTools.CEDCD.StepsImplementation;
 import org.junit.Assert;
 
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.JavascriptUtils;
 
 import appsCommon.PageInitializer;
@@ -23,6 +24,7 @@ public class CEDCDMaleDiscrepancyOnSearchCohortsStepImp extends PageInitializer 
 	 */
 	public void maleResultsReturnedWithBlueBorderScreenshot() {
 
+		MiscUtils.sleep(2000);
 		Assert.assertTrue(cedcdSearchCohortsPage.numberOfSearchResultReturned.getText().contains("44"));
 		JavascriptUtils.drawBlueBorder(cedcdSearchCohortsPage.numberOfSearchResultReturned);
 		CucumberLogUtils.logScreenShot();
