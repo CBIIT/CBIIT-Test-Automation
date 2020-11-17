@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="1.393863">
-<testcase classname="Public API" name="User querys cancer phenotype" time="1.393863">
-<system-out><![CDATA[Given user sends GET request for cancer phenotype...........................passed
-Then user receives response for cancer phenotype............................passed
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="57.367592">
+<testcase classname="CICD_Dev_Ops Automated Build Deployment" name="CICD DevOps Application Automated Build Deployment" time="57.367592">
+<system-out><![CDATA[Given login to the CICD_Dev_Ops application in Native View is successful with username "DevOpsUsername" and password "DevOpsPassword".passed
+When selecting the "CICD_Dev_Ops" application...............................passed
+And selecting "Application" as the deployment type..........................passed
+Then build is able to be executed successfully..............................passed
 ]]></system-out>
 </testcase>
 </testsuite>
