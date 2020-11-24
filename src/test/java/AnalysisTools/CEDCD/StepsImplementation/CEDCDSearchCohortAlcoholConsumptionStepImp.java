@@ -11,18 +11,6 @@ import appsCommon.PageInitializer;
 
 public class CEDCDSearchCohortAlcoholConsumptionStepImp extends PageInitializer {
 
-	/**
-	 * This method will direct user to CEDCD home page and then click on the Search
-	 * Cohorts tab
-	 * 
-	 * @throws TestingException
-	 */
-
-	public void setUpOnSearchCohortsPage() throws TestingException {
-		cedcdSearchFemaleCohortsStepImp.startUpCEDCDBrowser();
-		JavascriptUtils.clickByJS(cedcdSearchCohortsPage.searchCohortTab);
-
-	}
 
 	/**
 	 * This method will filter Cohorts by "Alcohol Consumption" and search for them
