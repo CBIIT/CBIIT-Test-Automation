@@ -22,3 +22,11 @@ Description: This is an automated suite for test cases under the Biospecimen Tab
 		And the user clicks on the Specimen Type drop down
 		And the user clicks on the All Types check box
 		Then all Specimen tabs are selected
+		
+		@SS-3439 @Progression
+	Scenario: Select Type Sorted Alphabetically
+		
+		Given the user is on the CEDCD homepage
+		When the user clicks on the Biospecimen Counts tab
+		And the user clicks on the Specimen Types drop down
+		Then the alphabetized Specimen Types are displayed

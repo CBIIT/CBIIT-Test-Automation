@@ -39,3 +39,10 @@ Description: This is an automated suite for test cases under the Search Cohorts 
 	Given the user is on the CEDCD homepage
 	When the user clicks on the CEDCD search cohorts
 	Then the user sees updated Search Cohorts UI page
+	
+	
+	
+	
+	
+	
+	
