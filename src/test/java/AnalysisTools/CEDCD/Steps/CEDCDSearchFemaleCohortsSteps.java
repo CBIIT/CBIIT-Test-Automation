@@ -1,6 +1,5 @@
 package AnalysisTools.CEDCD.Steps;
 
-
 import com.nci.automation.xceptions.TestingException;
 
 import appsCommon.PageInitializer;
@@ -9,10 +8,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class CEDCDSearchFemaleCohortsSteps extends PageInitializer {
-	@Given("the user is on the CEDCD homepage")
-	public void the_user_is_on_the_CEDCD_homepage() throws TestingException {
 
-		cedcdSearchFemaleCohortsStepImp.startUpCEDCDBrowser();
+	@Given("the user is on the CEDCD Search Cohorts Tab")
+	public void the_user_is_on_the_CEDCD_Search_Cohorts_Tab() throws TestingException {
+
+		cedcdStartUps.setUpOnSearchCohortsTabPage();
 
 	}
 
