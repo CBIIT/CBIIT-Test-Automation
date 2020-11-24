@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="8.977196">
-<testcase classname="Test Cases on the Biospecimen Count Tab" name="Select Type Sorted Alphabetically" time="8.977196">
-<system-out><![CDATA[Given the user is on the CEDCD homepage.....................................passed
-When the user clicks on the Biospecimen Counts tab..........................passed
-And the user clicks on the Specimen Types drop down.........................passed
-Then the alphabetized Specimen Types are displayed..........................passed
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="10.847705">
+<testcase classname="Test Cases on the Search Cohorts Tab" name="Categories of Data Collected sorted Alphabetically" time="10.847705">
+<system-out><![CDATA[Given the user is on the CEDCD Search Cohorts Tab...........................passed
+When the user clicks on the Categories of Data Collected drop down..........passed
+Then all selections are sorted alphabetically...............................passed
 ]]></system-out>
 </testcase>
 </testsuite>
