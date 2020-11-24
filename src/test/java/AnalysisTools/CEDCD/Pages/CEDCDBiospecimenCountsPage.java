@@ -1,5 +1,7 @@
 package AnalysisTools.CEDCD.Pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -22,6 +24,38 @@ public class CEDCDBiospecimenCountsPage extends CommonUtils {
 	/** This element selects "All Types" from the Specimen Type drop down */
 	@FindBy(xpath = "//label[contains(text(), 'All Types')]")
 	public WebElement specimenTypeDropDownAllTypeValue;
+	
+	/** This element selects "Buffy Coat and/or Lymphocytes" from the Specimen Type drop down */
+	@FindBy(xpath = "//label[contains(text(), 'Buffy Coat and/or Lymphocytes')]")
+	public WebElement specimenTypeDropDownBuffyCoatAndOrLymphocytesValue;
+	
+	/** This element selects "Feces" from the Specimen Type drop down */
+	@FindBy(xpath = "//label[contains(text(), 'Feces')]")
+	public WebElement specimenTypeDropDownFecesValue;
+	
+	/** This element selects "Saliva and/or Buccal" from the Specimen Type drop down */
+	@FindBy(xpath = "//label[contains(text(), 'Saliva and/or Buccal')]")
+	public WebElement specimenTypeDropDownSalivaAndOrBuccalValue;
+	
+	/** This element selects "Serum and/or Plasma" from the Specimen Type drop down */
+	@FindBy(xpath = "//label[contains(text(), 'Serum and/or Plasma')]")
+	public WebElement specimenTypeDropDownSerumAndOrPlasmaValue;
+	
+	/** This element selects "Tumor Tissue FFPE" from the Specimen Type drop down */
+	@FindBy(xpath = "//label[contains(text(), 'Tumor Tissue FFPE')]")
+	public WebElement specimenTypeDropDownTumorTissueFFPEValue;
+	
+	/** This element selects "Tumor Tissue Fresh/Frozen" from the Specimen Type drop down */
+	@FindBy(xpath = "//label[contains(text(), 'Tumor Tissue Fresh/Frozen')]")
+	public WebElement specimenTypeDropDownTumorTissueFreshFrozenValue;
+	
+	/** This element selects "Urine" from the Specimen Type drop down */
+	@FindBy(xpath = "//label[contains(text(), 'Urine')]")
+	public WebElement specimenTypeDropDownUrineValue;
+	
+	/** This element returns the list of selections from the Specimen Type (still returns all values from specimen type, cancer type, cohorts) drop down */
+	@FindBy (xpath = "//div[contains(@class, 'dropdown-menu')]/ul/li/label")
+	public List<WebElement> specimenTypeDropDownValues;
 
 	/** This element clicks on the Cancer Type drop down on the Biospecimen tab */
 	@FindBy(xpath = "//button[contains(text(),'Cancer Type')]")

@@ -1,0 +1,102 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-11-24T15:47:36.321Z",
+        "before": [
+          {
+            "result": {
+              "duration": 3941933171,
+              "status": "passed"
+            },
+            "match": {
+              "location": "HooksSteps.genericSetUp(Scenario)"
+            }
+          }
+        ],
+        "line": 27,
+        "name": "Select Type Sorted Alphabetically",
+        "description": "",
+        "id": "test-cases-on-the-biospecimen-count-tab;select-type-sorted-alphabetically",
+        "after": [
+          {
+            "result": {
+              "duration": 2105872080,
+              "status": "passed"
+            },
+            "match": {
+              "location": "HooksSteps.genericTearDown(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2679157134,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "the user is on the CEDCD homepage",
+            "match": {
+              "location": "CEDCDSearchFemaleCohortsSteps.the_user_is_on_the_CEDCD_homepage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 30978607,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "the user clicks on the Biospecimen Counts tab",
+            "match": {
+              "location": "CEDCDBiospecimenCountsSelectAllCohortsSteps.the_user_clicks_on_the_Biospecimen_Counts_tab()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 20495592,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "the user clicks on the Specimen Types drop down",
+            "match": {
+              "location": "CEDCDBiospecimenCountsSelectTypesAlphabeticallySteps.the_user_clicks_on_the_Specimen_Types_drop_down()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 195823004,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "the alphabetized Specimen Types are displayed",
+            "match": {
+              "location": "CEDCDBiospecimenCountsSelectTypesAlphabeticallySteps.the_alphabetized_Specimen_Types_are_displayed()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@SS-3439"
+          },
+          {
+            "name": "@Progression"
+          }
+        ]
+      }
+    ],
+    "name": "Test Cases on the Biospecimen Count Tab",
+    "description": "Description: This is an automated suite for test cases under the Biospecimen Tab",
+    "id": "test-cases-on-the-biospecimen-count-tab",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/AnalysisTools/CEDCD/Features/CEDCD-BiospecimenCountsTab.feature",
+    "tags": []
+  }
+]
