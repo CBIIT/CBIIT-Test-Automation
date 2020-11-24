@@ -1,5 +1,7 @@
 package AnalysisTools.CEDCD.Pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -53,7 +55,12 @@ public class CEDCDSearchCohortsPage extends CommonUtils {
 	/** This element clicks on the Categories of Data Collected Drop down */
 	@FindBy(xpath = "//button[contains(text(),'Categories of Data Collected')]")
 	public WebElement categoriesOfDataCollectedDropDown;
-
+	
+	/** This element clicks on the "Depression" value from the Categories of Data Collected drop down */
+	@FindBy (xpath = "//label[contains(text(),'Depression')]")
+	public WebElement categoriesOfDataCollectedDepressionValue;
+	
+	
 	/**
 	 * This element selects "Alcohol Consumption" from the categories of data
 	 * collected drop down
@@ -69,9 +76,15 @@ public class CEDCDSearchCohortsPage extends CommonUtils {
 	@FindBy (xpath = "(//div[@class='col-sm-3 filterCol'])[2]")
 	public WebElement cohortEnrollmentSection;
 	
+	/** This list of WebElements returns all the values from the Categories of Data Collected */
+	@FindBy (xpath = "//*[@id='filter-panel']/div[2]/div/div[1]/div[3]/div/div/div[1]/div/div/div/ul/li")
+	public List<WebElement> categoriesOfDataCollectedValues;
+	
 	/** This element selects the whole section of the Data and Specimens Collected */
 	@FindBy (xpath = "//div[@class='filterCol col-sm-6 last']")
 	public WebElement cohortDataAndSpecimenCollectedSection;
+	
+	
 	
 	public CEDCDSearchCohortsPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
