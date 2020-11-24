@@ -3,11 +3,11 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2020-11-24T15:47:36.321Z",
+        "start_timestamp": "2020-11-24T20:56:40.545Z",
         "before": [
           {
             "result": {
-              "duration": 3941933171,
+              "duration": 3983155689,
               "status": "passed"
             },
             "match": {
@@ -15,14 +15,14 @@
             }
           }
         ],
-        "line": 27,
-        "name": "Select Type Sorted Alphabetically",
+        "line": 49,
+        "name": "Categories of Data Collected sorted Alphabetically",
         "description": "",
-        "id": "test-cases-on-the-biospecimen-count-tab;select-type-sorted-alphabetically",
+        "id": "test-cases-on-the-search-cohorts-tab;categories-of-data-collected-sorted-alphabetically",
         "after": [
           {
             "result": {
-              "duration": 2105872080,
+              "duration": 2103378694,
               "status": "passed"
             },
             "match": {
@@ -35,56 +35,44 @@
         "steps": [
           {
             "result": {
-              "duration": 2679157134,
+              "duration": 3819950774,
               "status": "passed"
             },
-            "line": 29,
-            "name": "the user is on the CEDCD homepage",
+            "line": 51,
+            "name": "the user is on the CEDCD Search Cohorts Tab",
             "match": {
-              "location": "CEDCDSearchFemaleCohortsSteps.the_user_is_on_the_CEDCD_homepage()"
+              "location": "CEDCDSearchFemaleCohortsSteps.the_user_is_on_the_CEDCD_Search_Cohorts_Tab()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 30978607,
+              "duration": 20670021,
               "status": "passed"
             },
-            "line": 30,
-            "name": "the user clicks on the Biospecimen Counts tab",
+            "line": 52,
+            "name": "the user clicks on the Categories of Data Collected drop down",
             "match": {
-              "location": "CEDCDBiospecimenCountsSelectAllCohortsSteps.the_user_clicks_on_the_Biospecimen_Counts_tab()"
+              "location": "CEDCDSearchCohortsCategoriesofDataSorted.the_user_clicks_on_the_Categories_of_Data_Collected_drop_down()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 20495592,
+              "duration": 918317352,
               "status": "passed"
             },
-            "line": 31,
-            "name": "the user clicks on the Specimen Types drop down",
+            "line": 53,
+            "name": "all selections are sorted alphabetically",
             "match": {
-              "location": "CEDCDBiospecimenCountsSelectTypesAlphabeticallySteps.the_user_clicks_on_the_Specimen_Types_drop_down()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 195823004,
-              "status": "passed"
-            },
-            "line": 32,
-            "name": "the alphabetized Specimen Types are displayed",
-            "match": {
-              "location": "CEDCDBiospecimenCountsSelectTypesAlphabeticallySteps.the_alphabetized_Specimen_Types_are_displayed()"
+              "location": "CEDCDSearchCohortsCategoriesofDataSorted.all_selections_are_sorted_alphabetically()"
             },
             "keyword": "Then "
           }
         ],
         "tags": [
           {
-            "name": "@SS-3439"
+            "name": "@SS-3438"
           },
           {
             "name": "@Progression"
@@ -92,11 +80,11 @@
         ]
       }
     ],
-    "name": "Test Cases on the Biospecimen Count Tab",
-    "description": "Description: This is an automated suite for test cases under the Biospecimen Tab",
-    "id": "test-cases-on-the-biospecimen-count-tab",
+    "name": "Test Cases on the Search Cohorts Tab",
+    "description": "Description: This is an automated suite for test cases under the Search Cohorts Tab",
+    "id": "test-cases-on-the-search-cohorts-tab",
     "keyword": "Feature",
-    "uri": "file:src/test/java/AnalysisTools/CEDCD/Features/CEDCD-BiospecimenCountsTab.feature",
+    "uri": "file:src/test/java/AnalysisTools/CEDCD/Features/CEDCD-SearchCohortsTab.feature",
     "tags": []
   }
 ]
