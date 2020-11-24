@@ -1,16 +1,16 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/AnalysisTools/CEDCD/Features/CEDCD-BiospecimenCountsTab.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/AnalysisTools/CEDCD/Features/CEDCD-SearchCohortsTab.feature");
 formatter.feature({
-  "name": "Test Cases on the Biospecimen Count Tab",
-  "description": "Description: This is an automated suite for test cases under the Biospecimen Tab",
+  "name": "Test Cases on the Search Cohorts Tab",
+  "description": "Description: This is an automated suite for test cases under the Search Cohorts Tab",
   "keyword": "Feature"
 });
 formatter.scenario({
-  "name": "Select Type Sorted Alphabetically",
+  "name": "Categories of Data Collected sorted Alphabetically",
   "description": "",
   "keyword": "Scenario",
   "tags": [
     {
-      "name": "@SS-3439"
+      "name": "@SS-3438"
     },
     {
       "name": "@Progression"
@@ -21,41 +21,31 @@ formatter.before({
   "status": "passed"
 });
 formatter.step({
-  "name": "the user is on the CEDCD homepage",
+  "name": "the user is on the CEDCD Search Cohorts Tab",
   "keyword": "Given "
 });
 formatter.match({
-  "location": "CEDCDSearchFemaleCohortsSteps.the_user_is_on_the_CEDCD_homepage()"
+  "location": "CEDCDSearchFemaleCohortsSteps.the_user_is_on_the_CEDCD_Search_Cohorts_Tab()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "the user clicks on the Biospecimen Counts tab",
+  "name": "the user clicks on the Categories of Data Collected drop down",
   "keyword": "When "
 });
 formatter.match({
-  "location": "CEDCDBiospecimenCountsSelectAllCohortsSteps.the_user_clicks_on_the_Biospecimen_Counts_tab()"
+  "location": "CEDCDSearchCohortsCategoriesofDataSorted.the_user_clicks_on_the_Categories_of_Data_Collected_drop_down()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "the user clicks on the Specimen Types drop down",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "CEDCDBiospecimenCountsSelectTypesAlphabeticallySteps.the_user_clicks_on_the_Specimen_Types_drop_down()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "the alphabetized Specimen Types are displayed",
+  "name": "all selections are sorted alphabetically",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "CEDCDBiospecimenCountsSelectTypesAlphabeticallySteps.the_alphabetized_Specimen_Types_are_displayed()"
+  "location": "CEDCDSearchCohortsCategoriesofDataSorted.all_selections_are_sorted_alphabetically()"
 });
 formatter.result({
   "status": "passed"
