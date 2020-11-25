@@ -36,8 +36,8 @@ public class CEDCDSearchCohortsRestoringSearchCriteriaAfterSwitchingTabsSteps ex
 
 	}
 
-	@Then("the user's filtered result from before are still populated")
-	public void the_user_s_filtered_result_from_before_are_still_populated() {
+	@Then("the user is filtered result from before are still populated")
+	public void the_user_is_filtered_result_from_before_are_still_populated() {
 
 		/**
 		 * This step verifies that the previous selected value (depression) is still

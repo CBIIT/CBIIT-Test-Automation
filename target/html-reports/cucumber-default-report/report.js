@@ -1,16 +1,16 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/AnalysisTools/CEDCD/Features/CEDCD-SearchCohortsTab.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/AnalysisTools/CEDCD/Features/CEDCD-BiospecimenCountsTab.feature");
 formatter.feature({
-  "name": "Test Cases on the Search Cohorts Tab",
-  "description": "Description: This is an automated suite for test cases under the Search Cohorts Tab",
+  "name": "Test Cases on the Biospecimen Count Tab",
+  "description": "Description: This is an automated suite for test cases under the Biospecimen Tab",
   "keyword": "Feature"
 });
 formatter.scenario({
-  "name": "Categories of Data Collected sorted Alphabetically",
+  "name": "Cancer Type Drop Down is sorted Alphabetically",
   "description": "",
   "keyword": "Scenario",
   "tags": [
     {
-      "name": "@SS-3438"
+      "name": "@SS-3509"
     },
     {
       "name": "@Progression"
@@ -21,32 +21,34 @@ formatter.before({
   "status": "passed"
 });
 formatter.step({
-  "name": "the user is on the CEDCD Search Cohorts Tab",
+  "name": "the user is on the CEDCD Biospecimen tab",
   "keyword": "Given "
 });
 formatter.match({
-  "location": "CEDCDSearchFemaleCohortsSteps.the_user_is_on_the_CEDCD_Search_Cohorts_Tab()"
+  "location": "CEDCDBiospecimenCountsAlphabeticalCancerTypeSteps.the_user_is_on_the_CEDCD_Biospecimen_tab()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "the user clicks on the Categories of Data Collected drop down",
+  "name": "the user clicks on the Cancer Types drop down",
   "keyword": "When "
 });
 formatter.match({
-  "location": "CEDCDSearchCohortsCategoriesofDataSorted.the_user_clicks_on_the_Categories_of_Data_Collected_drop_down()"
+  "location": "CEDCDBiospecimenCountsAlphabeticalCancerTypeSteps.the_user_clicks_on_the_Cancer_Types_drop_down()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "all selections are sorted alphabetically",
+  "name": "the drop down is sorted alphabetically",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "CEDCDSearchCohortsCategoriesofDataSorted.all_selections_are_sorted_alphabetically()"
+  "location": "CEDCDBiospecimenCountsAlphabeticalCancerTypeSteps.the_drop_down_is_sorted_alphabetically()"
 });
+formatter.write("2020-11-25 14:37:43: Screenshot: ");
+formatter.embedding("image/png", "embedded0.png");
 formatter.result({
   "status": "passed"
 });
