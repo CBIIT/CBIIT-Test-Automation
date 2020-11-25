@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="10.046911">
 <testcase classname="Test Cases on the Biospecimen Count Tab" name="Cancer Type Drop Down is sorted Alphabetically" time="10.046911">
 <system-out><![CDATA[Given the user is on the CEDCD Biospecimen tab..............................passed
@@ -6,3 +7,5 @@ Then the drop down is sorted alphabetically.................................pass
 ]]></system-out>
 </testcase>
 </testsuite>
+=======
+>>>>>>> 57adf8d05df3daab77c2fe843056273c269c0810
