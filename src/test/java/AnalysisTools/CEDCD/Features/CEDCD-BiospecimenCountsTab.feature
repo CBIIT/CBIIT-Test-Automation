@@ -26,4 +26,11 @@ Description: This is an automated suite for test cases under the Biospecimen Tab
 		
 		Given the user is on the CEDCD Biospecimen Tab
 		And the user clicks on the Specimen Types drop down
-		Then the alphabetized Specimen Types are displayed
+		Then the alphabetized Specimen Types are displayed	
+		
+		@SS-3509 @Smoke
+	Scenario: Cancer Type Drop Down is sorted Alphabetically
+	
+		Given the user is on the CEDCD Biospecimen tab
+		When the user clicks on the Cancer Types drop down
+		Then the drop down is sorted alphabetically

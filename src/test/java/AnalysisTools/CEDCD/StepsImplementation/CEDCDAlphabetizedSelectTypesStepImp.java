@@ -30,7 +30,6 @@ public class CEDCDAlphabetizedSelectTypesStepImp extends PageInitializer{
 		actualSpecimenTypeValues.add(cedcdBiospecimenCountsPage.specimenTypeDropDownUrineValue.getText());
 
 		
-		Collections.sort(firstArraylist);
 		Collections.sort(actualSpecimenTypeValues);
 		
 		System.out.println(firstArraylist);
