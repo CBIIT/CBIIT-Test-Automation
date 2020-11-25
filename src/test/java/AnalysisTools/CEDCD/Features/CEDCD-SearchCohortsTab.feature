@@ -43,9 +43,9 @@ Description: This is an automated suite for test cases under the Search Cohorts 
 	When the user filters for a certain study
 	And the user clicks on a different tab
 	And the user click back on the previous tab
-	Then the user's filtered result from before are still populated
+	Then the user is filtered result from before are still populated
 	
-		@SS-3438 @Progression
+		@SS-3438 @Smoke
 	Scenario: Categories of Data Collected sorted Alphabetically
 	
 	Given the user is on the CEDCD Search Cohorts Tab
