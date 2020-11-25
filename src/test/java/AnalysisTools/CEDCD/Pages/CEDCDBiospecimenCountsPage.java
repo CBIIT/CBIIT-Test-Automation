@@ -60,6 +60,10 @@ public class CEDCDBiospecimenCountsPage extends CommonUtils {
 	/** This element clicks on the Cancer Type drop down on the Biospecimen tab */
 	@FindBy(xpath = "//button[contains(text(),'Cancer Type')]")
 	public WebElement cancerType;
+	
+	/** This element is a list of the Cancer Type drop down values on the Biospecimen tab */
+	@FindBy(xpath = "//*[@id='filter-panel']/div[2]/div[1]/div[2]/div/div/div/ul/li")
+	public List<WebElement> cancerTypeValues;
 
 	/** This element clicks on the "All Types" from the cancerType drop down */
 	@FindBy(xpath = "//label[contains(text(),'All Cancers')]")
