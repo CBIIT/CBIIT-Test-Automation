@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/AnalysisTools/CEDCD/Features/CEDCD-BiospecimenCountsTab.feature");
 formatter.feature({
   "name": "Test Cases on the Biospecimen Count Tab",
@@ -56,3 +57,5 @@ formatter.after({
   "status": "passed"
 });
 });
+=======
+>>>>>>> 57adf8d05df3daab77c2fe843056273c269c0810
