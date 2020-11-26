@@ -1,61 +1,86 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/ServiceNow/CICDBuild/Features/CICDDevOps.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/AnalysisTools/PLCO/Features/ExploreGWAS.feature");
 formatter.feature({
-  "name": "CICD_Dev_Ops Automated Build Deployment",
+  "name": "Explore GWAS",
   "description": "",
   "keyword": "Feature"
 });
 formatter.scenario({
-  "name": "CICD DevOps Application Automated Build Deployment",
+  "name": "Loading Manhattan Plot Displays loading icon",
   "description": "",
   "keyword": "Scenario",
   "tags": [
     {
-      "name": "@CICD_Dev_Ops_Application_Build"
+      "name": "@Progression"
     }
   ]
 });
 formatter.before({
   "status": "passed"
 });
+formatter.beforestep({
+  "status": "passed"
+});
 formatter.step({
-  "name": "login to the CICD_Dev_Ops application in Native View is successful with username \"DevOpsUsername\" and password \"DevOpsPassword\"",
+  "name": "user on PLCO homepage",
   "keyword": "Given "
 });
 formatter.match({
-  "location": "DevOpsApplicationBuildSteps.login_to_the_CICD_Dev_Ops_application_in_Native_View_is_successful_with_username_and_password(String,String)"
+  "location": "ExploreGWASSteps.user_on_PLCO_homepage()"
 });
 formatter.result({
   "status": "passed"
 });
+formatter.beforestep({
+  "status": "passed"
+});
 formatter.step({
-  "name": "selecting the \"CICD_Dev_Ops\" application",
+  "name": "user selects explore GWAS",
   "keyword": "When "
 });
 formatter.match({
-  "location": "DevOpsApplicationBuildSteps.selecting_the_application(String)"
+  "location": "ExploreGWASSteps.user_selects_explore_GWAS()"
 });
-formatter.write("2020-11-16 20:19:19: Screenshot: ");
-formatter.embedding("image/png", "embedded0.png");
 formatter.result({
   "status": "passed"
 });
+formatter.beforestep({
+  "status": "passed"
+});
 formatter.step({
-  "name": "selecting \"Application\" as the deployment type",
+  "name": "selects phenotype as BMI at baseline",
   "keyword": "And "
 });
 formatter.match({
-  "location": "DevOpsApplicationBuildSteps.selecting_as_the_deployment_type(String)"
+  "location": "ExploreGWASSteps.selects_phenotype_as_BMI_at_baseline()"
 });
 formatter.result({
   "status": "passed"
 });
+formatter.beforestep({
+  "status": "passed"
+});
 formatter.step({
-  "name": "build is able to be executed successfully",
+  "name": "selects ancestry as European Female",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "ExploreGWASSteps.selects_ancestry_as_European_Female()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.beforestep({
+  "status": "passed"
+});
+formatter.step({
+  "name": "clicks submit for results to load",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "DevOpsApplicationBuildSteps.build_is_able_to_be_executed_successfully()"
+  "location": "ExploreGWASSteps.clicks_submit_for_results_to_load()"
 });
+formatter.write("2020-11-26 15:09:24: Screenshot: ");
+formatter.embedding("image/png", "embedded0.png");
 formatter.result({
   "status": "passed"
 });
