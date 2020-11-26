@@ -6,6 +6,7 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
 import com.nci.automation.utils.LocalConfUtils;
+import com.nci.automation.utils.Report;
 import com.nci.automation.web.ConfUtils;
 
 import cucumber.api.CucumberOptions;
@@ -20,7 +21,7 @@ import cucumber.api.junit.Cucumber;
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/AnalysisTools/LDLink/Features"
 		, glue="AnalysisTools.LDLink.Steps"
-		, tags="@Inprogress"
+		, tags="@Smoke"
 		, dryRun = false
 		, monochrome=true
 		, strict = true
@@ -34,6 +35,8 @@ public class RunLDLinkSmokeTest {
 	@BeforeClass
 	public static void runSetup() {
 		
+		Report.initReport();
+		Report.startSuite();
 		String reportsOutput = LocalConfUtils.getRootDir() + File.separator + "html-reports";
 		ConfUtils.setBaseResultsDir(reportsOutput);
 		System.out.println("Starting Test Execution...");
