@@ -56,8 +56,14 @@ public class ExploreGWASPage extends CommonUtils {
 	public WebElement subSummaryResults; 
 	
 	/** Manhattan Plot **/
-	@FindBy(xpath = "//*[@class='manhattan-plot gene-plot-collapsed']")
+//	@FindBy(xpath = "//*[@class='manhattan-plot gene-plot-collapsed']")
+//	public WebElement dspManhattanPlot; 
+	
+	/** Manhattan Plot **/
+	@FindBy(xpath = "//div[@role='tabpanel' and contains(@class, 'active')]//canvas[contains(@style, 'block')]")
 	public WebElement dspManhattanPlot; 
+	
+	
 	
 	
 
