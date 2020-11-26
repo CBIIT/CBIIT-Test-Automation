@@ -73,7 +73,8 @@ public class DevOpsAutomatedBuildStepsImplementation extends PageInitializer {
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(devOpsNativeViewPage.buildThisApplicationButton);
 		MiscUtils.sleep(2000);
-		CommonUtils.selectDropDownValue(devOpsNativeViewPage.selectDeploymentDropDown, updateSet);
+//		CommonUtils.selectDropDownValue(devOpsNativeViewPage.selectDeploymentDropDown, updateSet);
+		CommonUtils.selectDropDownValue(updateSet, devOpsNativeViewPage.selectDeploymentDropDown);
 	}
 
 	public void selectingPendingCodeReviewSetsAndMovingToRightTable() {
