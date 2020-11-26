@@ -1,6 +1,7 @@
 package AnalysisTools.PLCO.Steps;
 
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import com.nci.automation.utils.CucumberLogUtils;
@@ -21,8 +22,6 @@ public class ExploreGWASSteps extends PageInitializer {
 	@Given("user on PLCO homepage")
 	public void user_on_PLCO_homepage() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("PLCO"));
-		ChromeOptions chromeOptions = new ChromeOptions();
-		System.out.println(chromeOptions.getVersion());
 	}
 	
 	@When("user selects explore GWAS")
@@ -35,15 +34,10 @@ public class ExploreGWASSteps extends PageInitializer {
 		exploreGWASPage.btnPlusAnthropometricMeasures.click();
 		exploreGWASPage.btnPlusBMI.click();
 		exploreGWASPage.chkBMIBaseLine.click();
-
-
-		
-		
-		
 	}
 	
-	@When("selects ancestry as east asian all")
-	public void selects_ancestry_as_east_asian_all(){
+	@When("selects ancestry as East Asian All")
+	public void selects_ancestry_as_East_Asian_All(){
 		CommonUtils.selectDropDownValue(exploreGWASPage.selAncestryTop, "east_asian__all");
 	}
 	
@@ -55,6 +49,10 @@ public class ExploreGWASSteps extends PageInitializer {
 	@Then("Manhattan Plot displays")
 	public void Manhattan_Plot_displays(){
 		exploreGWASPage.dspManhattanPlot.isDisplayed(); 
+		int width = exploreGWASPage.dspManhattanPlot.getSize().getWidth();
+		int height = exploreGWASPage.dspManhattanPlot.getSize().getHeight();
+		Actions action = new Actions(WebDriverUtils.webDriver);
+		action.moveToElement(exploreGWASPage.dspManhattanPlot).moveByOffset(width/5, height/5).click().build().perform();
 		JavascriptUtils.scrollIntoView(exploreGWASPage.dspManhattanPlot);
 		CucumberLogUtils.logScreenShot();
 	}
@@ -65,19 +63,34 @@ public class ExploreGWASSteps extends PageInitializer {
 		exploreGWASPage.chkPairWise.click();
 	}
 	
-	@When("selects top ancestry as east asian all")
-	public void selects_top_ancestry_as_east_asian_all() {
+	@When("selects top ancestry as East Asian All")
+	public void selects_top_ancestry_as_East_Asian_All() {
 		Select select = new Select(exploreGWASPage.selAncestryTop); 
 		select.selectByValue("east_asian__all");
 		
 	}
 	
-	@When("selects bottom ancestry as european all")
-	public void selects_bottom_ancestry_as_european_all() {
+	@When("selects bottom ancestry as European All")
+	public void selects_bottom_ancestry_as_European_All() {
 		Select select = new Select(exploreGWASPage.selAncestryBottom); 
 		select.selectByValue("european__all");
 	 
 	}
+	
+	@When("selects ancestry as European Female")
+	public void selects_ancestry_as_European_Female() {
+		Select select = new Select(exploreGWASPage.selAncestryTop); 
+		select.selectByValue("european__female");
+	}
+	
+	@When("clicks submit for results to load")
+	public void clicks_submit_for_results_to_load() {
+		exploreGWASPage.subSummaryResults.click();
+		JavascriptUtils.scrollIntoView(exploreGWASPage.dspManhattanPlot);
+		CucumberLogUtils.logScreenShot();
+	}
+	
+	
 	
 	
 	
