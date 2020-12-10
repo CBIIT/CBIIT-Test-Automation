@@ -21,7 +21,7 @@ import cucumber.api.junit.Cucumber;
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/AnalysisTools/LDLink/Features"
 		, glue="AnalysisTools.LDLink.Steps"
-		, tags="@Smoke"
+		, tags="@Smoke1"
 		, dryRun = false
 		, monochrome=true
 		, strict = true
