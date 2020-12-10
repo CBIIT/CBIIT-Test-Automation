@@ -63,6 +63,14 @@ public class ExploreGWASPage extends CommonUtils {
 	@FindBy(xpath = "//div[@role='tabpanel' and contains(@class, 'active')]//canvas[contains(@style, 'block')]")
 	public WebElement dspManhattanPlot; 
 	
+	/** Summary Results tab **/
+	@FindBy(xpath = "//*[@href='#/gwas/summary']")
+	public WebElement txtSummaryResults;
+	
+	/**Gene Plot**/
+	@FindBy(xpath = "//div[@data-type='gene-plot']/canvas")
+	public WebElement dspGenePlot; 
+	
 	
 	
 	
