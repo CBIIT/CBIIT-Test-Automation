@@ -1,11 +1,74 @@
-<<<<<<< HEAD
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="10.046911">
-<testcase classname="Test Cases on the Biospecimen Count Tab" name="Cancer Type Drop Down is sorted Alphabetically" time="10.046911">
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="11" time="124.48713">
+<testcase classname="Test Cases on the Biospecimen Count Tab" name="The Clear All button clears all the selection on the Biospecimen Counts Tab" time="11.875201">
+<system-out><![CDATA[Given the user is on the CEDCD Biospecimen Tab..............................passed
+And the user selects All Types from the Specimen Type drop down.............passed
+And the user selects All Cancers from the Cancer Type drop down.............passed
+And the user selects All Cohorts from the Cohorts drop down.................passed
+And the user searches results...............................................passed
+When the user clicks on the Clear All button................................passed
+Then all previously selected fields are no longer selected..................passed
+]]></system-out>
+</testcase>
+<testcase classname="Test Cases on the Biospecimen Count Tab" name="Selecting all Cohorts from the Biospecimen Tab" time="11.276777">
+<system-out><![CDATA[Given the user is on the CEDCD Biospecimen Tab..............................passed
+And the user clicks on the Specimen Type drop down..........................passed
+And the user clicks on the All Types check box..............................passed
+Then all Specimen tabs are selected.........................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Test Cases on the Biospecimen Count Tab" name="Select Type Sorted Alphabetically" time="10.07268">
+<system-out><![CDATA[Given the user is on the CEDCD Biospecimen Tab..............................passed
+And the user clicks on the Specimen Types drop down.........................passed
+Then the alphabetized Specimen Types are displayed..........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Test Cases on the Biospecimen Count Tab" name="Cancer Type Drop Down is sorted Alphabetically" time="10.607561">
 <system-out><![CDATA[Given the user is on the CEDCD Biospecimen tab..............................passed
 When the user clicks on the Cancer Types drop down..........................passed
 Then the drop down is sorted alphabetically.................................passed
 ]]></system-out>
 </testcase>
+<testcase classname="Test Cases on the Search Cohorts Tab" name="Eligible Female Cohorts returned on the Search Cohorts Tab" time="12.678248">
+<system-out><![CDATA[Given the user is on the CEDCD Search Cohorts Tab...........................passed
+And the user filters by females.............................................passed
+Then 53 results return for Female Cohort Filter Result......................passed
+]]></system-out>
+</testcase>
+<testcase classname="Test Cases on the Search Cohorts Tab" name="Eligible Male Cohorts returned on the Search Cohorts Tab" time="12.450169">
+<system-out><![CDATA[Given the user is on the CEDCD Search Cohorts Tab...........................passed
+And the user filters by males...............................................passed
+Then 44 results return for Male cohort Filter results.......................passed
+]]></system-out>
+</testcase>
+<testcase classname="Test Cases on the Search Cohorts Tab" name="Select All Cohorts" time="10.10919">
+<system-out><![CDATA[Given the user is on the CEDCD Search Cohorts Tab...........................passed
+And the user clicks on the select all check box.............................passed
+Then all studies are selected...............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Test Cases on the Search Cohorts Tab" name="Filtering Cohorts by Alcohol Consumption" time="14.06351">
+<system-out><![CDATA[Given the user is on the CEDCD Search Cohorts Tab...........................passed
+When the user searches cohorts through Alcohol Consumption filter...........passed
+Then the user sees 58 studies returned......................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Test Cases on the Search Cohorts Tab" name="Tests the new Search Cohorts Page Layout" time="10.448078">
+<system-out><![CDATA[Given the user is on the CEDCD Search Cohorts Tab...........................passed
+Then the user sees updated Search Cohorts UI page...........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Test Cases on the Search Cohorts Tab" name="Restoring Search Criteria after Switching Tabs." time="10.374381">
+<system-out><![CDATA[Given the user is on the CEDCD Search Cohorts Tab...........................passed
+When the user filters for a certain study...................................passed
+And the user clicks on a different tab......................................passed
+And the user click back on the previous tab.................................passed
+Then the user is filtered result from before are still populated............passed
+]]></system-out>
+</testcase>
+<testcase classname="Test Cases on the Search Cohorts Tab" name="Categories of Data Collected sorted Alphabetically" time="10.531335">
+<system-out><![CDATA[Given the user is on the CEDCD Search Cohorts Tab...........................passed
+When the user clicks on the Categories of Data Collected drop down..........passed
+Then all selections are sorted alphabetically...............................passed
+]]></system-out>
+</testcase>
 </testsuite>
-=======
->>>>>>> 57adf8d05df3daab77c2fe843056273c269c0810
