@@ -1,0 +1,126 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-12-04T20:55:27.439Z",
+        "before": [
+          {
+            "result": {
+              "duration": 3866653058,
+              "status": "passed"
+            },
+            "match": {
+              "location": "HooksSteps.genericSetUp(Scenario)"
+            }
+          }
+        ],
+        "line": 4,
+        "name": "User on Browse Phenotype Tab",
+        "description": "",
+        "id": "browse-phenotype;user-on-browse-phenotype-tab",
+        "after": [
+          {
+            "result": {
+              "duration": 2392377084,
+              "status": "passed"
+            },
+            "match": {
+              "location": "HooksSteps.genericTearDown(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1079226933,
+              "status": "passed"
+            },
+            "before": [
+              {
+                "result": {
+                  "duration": 25749,
+                  "status": "passed"
+                },
+                "match": {
+                  "location": "HooksSteps.beforeStep()"
+                }
+              }
+            ],
+            "line": 5,
+            "name": "user on PLCO homepage",
+            "match": {
+              "location": "ExploreGWASSteps.user_on_PLCO_homepage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 484643252,
+              "status": "passed"
+            },
+            "before": [
+              {
+                "result": {
+                  "duration": 17598,
+                  "status": "passed"
+                },
+                "match": {
+                  "location": "HooksSteps.beforeStep()"
+                }
+              }
+            ],
+            "line": 6,
+            "name": "user clicks browse phenotype tab",
+            "match": {
+              "location": "BrowsePhenotypeSteps.user_clicks_browse_phenotype_tab()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 47711869,
+              "status": "passed"
+            },
+            "before": [
+              {
+                "result": {
+                  "duration": 21520,
+                  "status": "passed"
+                },
+                "match": {
+                  "location": "HooksSteps.beforeStep()"
+                }
+              }
+            ],
+            "line": 7,
+            "name": "browse phenotype page displays \"Please select a phenotype\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Please select a phenotype\"",
+                  "offset": 31
+                }
+              ],
+              "location": "BrowsePhenotypeSteps.browse_phenotype_page_displays(String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Progression"
+          }
+        ]
+      }
+    ],
+    "name": "Browse Phenotype",
+    "description": "",
+    "id": "browse-phenotype",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/AnalysisTools/PLCO/Features/BrowsePhenotype.feature",
+    "tags": []
+  }
+]

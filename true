@@ -1,6 +1,6 @@
-[1606421644.132][INFO]: Starting ChromeDriver 86.0.4240.22 (398b0743353ff36fb1b82468f63a3a93b4e2e89e-refs/branch-heads/4240@{#378}) on port 20546
-[1606421644.132][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
-[1606421644.329][INFO]: [ad882360f3b2b586f6b26f224ced931e] COMMAND InitSession {
+[1607115327.740][INFO]: Starting ChromeDriver 86.0.4240.22 (398b0743353ff36fb1b82468f63a3a93b4e2e89e-refs/branch-heads/4240@{#378}) on port 8286
+[1607115327.740][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+[1607115327.932][INFO]: [7cc1e3d5151b6854fae6e15cac8a0ac7] COMMAND InitSession {
    "capabilities": {
       "firstMatch": [ {
          "browserName": "chrome",
@@ -18,7 +18,7 @@
       }
    }
 }
-[1606421644.331][INFO]: Populating Preferences file: {
+[1607115327.933][INFO]: Populating Preferences file: {
    "alternate_error_pages": {
       "enabled": false
    },
@@ -71,7 +71,7 @@
       "enabled": false
    }
 }
-[1606421644.331][INFO]: Populating Local State file: {
+[1607115327.933][INFO]: Populating Local State file: {
    "background_mode": {
       "enabled": false
    },
@@ -81,20 +81,20 @@
       }
    }
 }
-[1606421644.331][INFO]: Launching chrome: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-blink-features=ShadowDOMV0 --enable-logging --log-level=0 --no-first-run --password-store=basic --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir=/var/folders/ls/pc4m1ymd4n13y6xjdzp813phg6shkh/T/.com.google.Chrome.oXCZFe data:,
-[1606421645.503][WARNING]: This version of ChromeDriver has not been tested with Chrome version 87.
-[1606421645.515][INFO]: resolved localhost to ["127.0.0.1","::1"]
-[1606421645.544][INFO]: [ad882360f3b2b586f6b26f224ced931e] RESPONSE InitSession {
+[1607115327.934][INFO]: Launching chrome: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-blink-features=ShadowDOMV0 --enable-logging --log-level=0 --no-first-run --password-store=basic --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir=/var/folders/ls/pc4m1ymd4n13y6xjdzp813phg6shkh/T/.com.google.Chrome.SwqOT8 data:,
+[1607115329.064][WARNING]: This version of ChromeDriver has not been tested with Chrome version 87.
+[1607115329.076][INFO]: resolved localhost to ["127.0.0.1","::1"]
+[1607115329.107][INFO]: [7cc1e3d5151b6854fae6e15cac8a0ac7] RESPONSE InitSession {
    "capabilities": {
       "acceptInsecureCerts": false,
       "browserName": "chrome",
       "browserVersion": "87.0.4280.67",
       "chrome": {
          "chromedriverVersion": "86.0.4240.22 (398b0743353ff36fb1b82468f63a3a93b4e2e89e-refs/branch-heads/4240@{#378})",
-         "userDataDir": "/var/folders/ls/pc4m1ymd4n13y6xjdzp813phg6shkh/T/.com.google.Chrome.oXCZFe"
+         "userDataDir": "/var/folders/ls/pc4m1ymd4n13y6xjdzp813phg6shkh/T/.com.google.Chrome.SwqOT8"
       },
       "goog:chromeOptions": {
-         "debuggerAddress": "localhost:51108"
+         "debuggerAddress": "localhost:55384"
       },
       "networkConnectionEnabled": false,
       "pageLoadStrategy": "normal",
@@ -112,29 +112,73 @@
       "unhandledPromptBehavior": "dismiss and notify",
       "webauthn:virtualAuthenticators": true
    },
-   "sessionId": "ad882360f3b2b586f6b26f224ced931e"
+   "sessionId": "7cc1e3d5151b6854fae6e15cac8a0ac7"
 }
-[1606421645.573][INFO]: [ad882360f3b2b586f6b26f224ced931e] COMMAND SetTimeouts {
+[1607115329.136][INFO]: [7cc1e3d5151b6854fae6e15cac8a0ac7] COMMAND SetTimeouts {
    "implicit": 25000
 }
-[1606421645.573][INFO]: [ad882360f3b2b586f6b26f224ced931e] RESPONSE SetTimeouts
-[1606421645.577][INFO]: [ad882360f3b2b586f6b26f224ced931e] COMMAND MaximizeWindow {
+[1607115329.138][INFO]: [7cc1e3d5151b6854fae6e15cac8a0ac7] RESPONSE SetTimeouts
+[1607115329.142][INFO]: [7cc1e3d5151b6854fae6e15cac8a0ac7] COMMAND MaximizeWindow {
 
 }
-[1606421645.577][INFO]: Waiting for pending navigations...
-[1606421645.577][INFO]: Done waiting for pending navigations. Status: ok
-[1606421645.578][INFO]: resolved localhost to ["127.0.0.1","::1"]
-[1606421645.683][INFO]: Waiting for pending navigations...
-[1606421645.683][INFO]: Done waiting for pending navigations. Status: ok
-[1606421645.683][INFO]: [ad882360f3b2b586f6b26f224ced931e] RESPONSE MaximizeWindow {
-   "height": 816,
+[1607115329.142][INFO]: Waiting for pending navigations...
+[1607115329.142][INFO]: Done waiting for pending navigations. Status: ok
+[1607115329.143][INFO]: resolved localhost to ["127.0.0.1","::1"]
+[1607115329.249][INFO]: Waiting for pending navigations...
+[1607115329.249][INFO]: Done waiting for pending navigations. Status: ok
+[1607115329.249][INFO]: [7cc1e3d5151b6854fae6e15cac8a0ac7] RESPONSE MaximizeWindow {
+   "height": 804,
    "width": 1440,
    "x": 0,
    "y": 23
 }
-[1606421647.858][INFO]: [ad882360f3b2b586f6b26f224ced931e] COMMAND Navigate {
+[1607115331.424][INFO]: [7cc1e3d5151b6854fae6e15cac8a0ac7] COMMAND Navigate {
    "url": "https://exploregwas-qa.cancer.gov/plco-atlas/#/"
 }
-[1606421647.858][INFO]: resolved localhost to ["127.0.0.1","::1"]
-[1606421647.861][INFO]: [ad882360f3b2b586f6b26f224ced931e] RESPONSE Navigate ERROR no such window: window was already closed
-  (Session info: chrome=87.0.4280.67)
+[1607115331.424][INFO]: Waiting for pending navigations...
+[1607115331.424][INFO]: Done waiting for pending navigations. Status: ok
+[1607115331.617][INFO]: Waiting for pending navigations...
+[1607115332.386][INFO]: Done waiting for pending navigations. Status: ok
+[1607115332.386][INFO]: [7cc1e3d5151b6854fae6e15cac8a0ac7] RESPONSE Navigate
+[1607115332.391][INFO]: [7cc1e3d5151b6854fae6e15cac8a0ac7] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@href='#/phenotypes']"
+}
+[1607115332.391][INFO]: Waiting for pending navigations...
+[1607115332.391][INFO]: Done waiting for pending navigations. Status: ok
+[1607115332.768][INFO]: Waiting for pending navigations...
+[1607115332.768][INFO]: Done waiting for pending navigations. Status: ok
+[1607115332.768][INFO]: [7cc1e3d5151b6854fae6e15cac8a0ac7] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "02081483-dceb-4072-956f-0f9e7ff1a3b8"
+}
+[1607115332.772][INFO]: [7cc1e3d5151b6854fae6e15cac8a0ac7] COMMAND ClickElement {
+   "id": "02081483-dceb-4072-956f-0f9e7ff1a3b8"
+}
+[1607115332.773][INFO]: Waiting for pending navigations...
+[1607115332.773][INFO]: Done waiting for pending navigations. Status: ok
+[1607115332.848][INFO]: Waiting for pending navigations...
+[1607115332.871][INFO]: Done waiting for pending navigations. Status: ok
+[1607115332.872][INFO]: [7cc1e3d5151b6854fae6e15cac8a0ac7] RESPONSE ClickElement
+[1607115332.875][INFO]: [7cc1e3d5151b6854fae6e15cac8a0ac7] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//*[@class='h5 text-center text-secondary my-1']"
+}
+[1607115332.875][INFO]: Waiting for pending navigations...
+[1607115332.883][INFO]: Done waiting for pending navigations. Status: ok
+[1607115332.908][INFO]: Waiting for pending navigations...
+[1607115332.908][INFO]: Done waiting for pending navigations. Status: ok
+[1607115332.908][INFO]: [7cc1e3d5151b6854fae6e15cac8a0ac7] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "38081374-a927-4500-8a77-f8e164486cbb"
+}
+[1607115332.910][INFO]: [7cc1e3d5151b6854fae6e15cac8a0ac7] COMMAND GetElementText {
+   "id": "38081374-a927-4500-8a77-f8e164486cbb"
+}
+[1607115332.910][INFO]: Waiting for pending navigations...
+[1607115332.910][INFO]: Done waiting for pending navigations. Status: ok
+[1607115332.918][INFO]: Waiting for pending navigations...
+[1607115332.919][INFO]: Done waiting for pending navigations. Status: ok
+[1607115332.919][INFO]: [7cc1e3d5151b6854fae6e15cac8a0ac7] RESPONSE GetElementText "Please select a phenotype"
+[1607115335.206][INFO]: [7cc1e3d5151b6854fae6e15cac8a0ac7] COMMAND Quit {
+
+}
+[1607115335.256][INFO]: [7cc1e3d5151b6854fae6e15cac8a0ac7] RESPONSE Quit
