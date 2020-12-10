@@ -52,6 +52,13 @@ Description: This is an automated suite for test cases under the Search Cohorts 
 	When the user clicks on the Categories of Data Collected drop down
 	Then all selections are sorted alphabetically
 	
+		@SS-3503 @Progression
+	Scenario: Cohort Study URL functions properly
+	
+	Given the user is on the CEDCD Search Cohorts Tab
+	When the user clicks Agricultural Health Study	
+	Then the Agricultural Health Study icon is shown on the web page
+	
 	
 	
 	

@@ -84,6 +84,19 @@ public class CEDCDSearchCohortsPage extends CommonUtils {
 	@FindBy (xpath = "//div[@class='filterCol col-sm-6 last']")
 	public WebElement cohortDataAndSpecimenCollectedSection;
 	
+	/** This element selects the URL for the Agricultural Health Study */
+	@FindBy (xpath = "//a[@href='http://aghealth.nih.gov/']")
+	public WebElement AHSURL;
+	
+	/** This element selects the AHS logo at the top to verify web page */
+	@FindBy (xpath = "//span[contains(text(),'Agricultural Health Study')]")
+	public WebElement AHSLogo;
+	
+	/** This element selects the text from the AHS for assertions */
+	
+	@FindBy (xpath = "//a[contains(text(), 'Agricultural Health Study')]")
+	public WebElement AHSTextBox;
+	
 	
 	
 	public CEDCDSearchCohortsPage() {
