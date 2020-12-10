@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="7.87268">
+<testcase classname="Browse Phenotype" name="User on Browse Phenotype Tab" time="7.87268">
+<system-out><![CDATA[Given user on PLCO homepage.................................................passed
+When user clicks browse phenotype tab.......................................passed
+Then browse phenotype page displays "Please select a phenotype".............passed
+]]></system-out>
+</testcase>
+</testsuite>
