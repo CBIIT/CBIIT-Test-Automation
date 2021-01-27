@@ -74,7 +74,7 @@ public class COVIDHomePageImpl extends PageInitializer {
 		MiscUtils.sleep(2000);
 		Assert.assertEquals(inst, covidHomePage.instituteField().getAttribute(attName));
 		Assert.assertEquals(dvsn, covidHomePage.divisionField().getAttribute(attName));
-		Assert.assertEquals(piEml, covidHomePage.emailAddressField().getAttribute(attName).substring(11));
+		Assert.assertEquals(piEml, covidHomePage.emailAddressField().getAttribute(attName).substring(12));
 		Assert.assertEquals(piPhn, covidHomePage.phonNumberField().getAttribute(attName));
 		CucumberLogUtils.logScreenShot();
 	}
