@@ -242,7 +242,7 @@ public class COVIDHomePageSteps extends PageInitializer{
 				"Automation Test");
 	}
 
-	@When("impersonating a reviewer")
+	@When("the user impersonates Sharon Savage to reject the study")
 	public void impersonating_a_reviewer() throws TestingException {
 		pageCache.getSubmissionsPageImpl().rejectStudyUsingIbrNumber("Sharon Savage", "Automation Test");
 	}
