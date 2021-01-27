@@ -19,15 +19,15 @@ public class NativeViewDashboardPageImpl extends PageInitializer {
 	public void impersonateUser(String approver) throws TestingException {
 	
 		WebDriverUtils.webDriver.navigate().to(EnvUtils.getApplicationUrl("nativeview"));
-		MiscUtils.sleep(3000);
+		MiscUtils.sleep(1800);
 		pageCache.getNativeViewDashboardPage().clickNativeViewLink();
-		MiscUtils.sleep(3000);
+		MiscUtils.sleep(1000);
 		pageCache.getNativeViewDashboardPage().clickUserDropDown();
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
 		pageCache.getNativeViewDashboardPage().clickImpersonateUserLink();
-		MiscUtils.sleep(3000);
+		MiscUtils.sleep(500);
 		pageCache.getNativeViewDashboardPage().clickImpersonateSearchDD();
-		MiscUtils.sleep(3000);
+		MiscUtils.sleep(500);
 		pageCache.getNativeViewDashboardPage().enterTextImpersntSearchBox(approver);
 		MiscUtils.sleep(3000);	
 		WebDriverUtils.webDriver.navigate().to(EnvUtils.getApplicationUrl("covid19dashboard"));
