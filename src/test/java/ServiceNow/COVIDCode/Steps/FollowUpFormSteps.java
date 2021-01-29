@@ -14,6 +14,7 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 
+import ServiceNow.COVIDCode.Pages.ServicePortalQuestionnairePage;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -26,14 +27,6 @@ public class FollowUpFormSteps extends PageInitializer {
 		followUpFormPageImpl.accessingFollowUpForm();
 	}
 
-	@Then("the question {string} should display in the demographics section")
-	public void the_question_should_display_in_the_demographics_section(String questionText) {
-		String txt = followUpFormPage.whatIsHighestEducationLevelCompleted.getText();
-		Assert.assertTrue(txt.contentEquals(questionText));
-		JavascriptUtils.scrollDown(2000);
-		CucumberLogUtils.logScreenShot();
-	}
-
 	@Given("a COVIDCode user is on the Follow Up Form to update an existing enrollment")
 	public void a_COVIDCode_user_is_on_the_Follow_Up_Form_to_update_an_existing_enrollment() throws TestingException {
 		followUpFormPageImpl.accessingFollowUpForm();
@@ -43,7 +36,7 @@ public class FollowUpFormSteps extends PageInitializer {
 	public void the_user_is_able_to_search_an_existing_enrollment_by_patient_ID_last_name_first_name_or_NIH_Medical_Record_Number() {
 		followUpFormPageImpl.searchEnrollmentByPatientIDLastNameFirstNameNIHMedicalRecordNumber();
 	}
-
+	
 	@Given("a COVIDCode Provider is on the Follow Up Form to update an existing enrollment")
 	public void a_COVIDCode_Provider_is_on_the_Follow_Up_Form_to_update_an_existing_enrollment()
 			throws TestingException {
@@ -58,12 +51,10 @@ public class FollowUpFormSteps extends PageInitializer {
 		followUpFormPage.enrollmentSearchTxtBox.sendKeys(Keys.ENTER);
 		CucumberLogUtils.logScreenShot();
 	}
-
-	@Then("the Group ID and Hospital Code fields should be locked")
-	public void the_Group_ID_and_Hospital_Code_fields_should_be_locked() {
-		Assert.assertTrue(followUpFormPage.userGroupID.getAttribute("disabled").contentEquals("true"));
-		Assert.assertTrue(followUpFormPage.hostHospitalCode.getAttribute("disabled").contentEquals("true"));
-		CucumberLogUtils.logScreenShot();
+	
+	@Then("selected enrollment is opened")
+	public void selected_enrollment_is_opened() {
+		servicePortalQuestionnairePage.startNewFollowUpButton.click();
 	}
 
 	@When("the user is on the Disease Course section to add information")
@@ -261,4 +252,5 @@ public class FollowUpFormSteps extends PageInitializer {
 		//xpath for Other drop down option disease course drug treatments
 		Assert.assertTrue(WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'Other') and @class='select2-result-label']")).getText().contentEquals(Other));
 	}
+	
 }

@@ -9,7 +9,11 @@ import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
-public class FollowUpFormPage extends CommonUtils{
+
+public class FollowUpFormPage extends CommonUtils {
+
+
+	/** --------------- COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE GENERALS  ---------------  */ 
 	
 	/** Enrollment Search drop down */
 	@FindBy (xpath = "//*[@id='s2id_sp_formfield_patient_id']/a")
@@ -24,28 +28,59 @@ public class FollowUpFormPage extends CommonUtils{
 	public WebElement enrollmentSearchTxtBox;
 	
 	/** Existing Enrollment search values */
-	@FindBy(xpath = "//*[@id='select2-results-48']/li")
+	@FindBy(xpath = "//*[@id='select2-results-3']/li")
 	public List<WebElement> enrollmentSearchValues;
 	
 	/** User Group ID */
-	@FindBy (xpath = "//*[@id='s2id_autogen1']")
+	//@FindBy (xpath = "//*[@id='s2id_autogen1']")
+	@FindBy(xpath="//*[@id=\"enrollmentLookUp\"]/div/div/div[2]/div[2]/input")
 	public WebElement userGroupID;
 	
 	/** Host Hospital Code */
-	@FindBy (xpath = "//*[@id='s2id_sp_formfield_host_hospital_code']/input")	
+	@FindBy (xpath = "//*[@id='s2id_sp_formfield_patient_id.host_hospital_code']")	
 	public WebElement hostHospitalCode;
 	
-	/*
-	 * Disease Course Section
-	 */
+	/** Enrollment Follow Up Save Button */
+	@FindBy (xpath = "//*[@class='btn btn-primary action-btn pull-right ng-scope']")
+	public WebElement followUpSaveButton;
+	
+	/** Enrollment Follow Up Submit For Review Button */
+	@FindBy (xpath = "//*[contains(text(), 'for Review')] ")
+	public WebElement followUpSubmitForReview;
+	
+	/** --------------- THE END OF COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE GENERALS  ---------------  */ 
+
+
+	/** --------------- COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE DISEASE COURSE SECTION  ---------------  */ 
+
+	
+	/** Disease Course New Button */
+	@FindBy (xpath = "//*[contains(text(), 'New')] ")
+	public WebElement diseaseCourseNewButton;
 	
 	/** Disease Course Add button */
-	@FindBy (xpath = "//div[@style='min-height:0px;']/button[1]")
+	@FindBy (xpath = "//div[@class = 'modal-footer']/button[2]")
 	public WebElement diseaseCourseAddButton;
+
+	/** Disease Course Visit Date Calendar */
+	@FindBy (id = "sp_formfield_visit_date")
+	public WebElement diseaseCourseVisitDate;
+	
+	/** Disease Course Visit Date Search Box */
+	@FindBy (id = "sp_formfield_visit_date")
+	public WebElement diseaseCourseVisitDateSearchBox;
 	
 	/** Disease Course Symptoms Field */
 	@FindBy (xpath = "//input[contains(@id,'s2id_auto') and @autocomplete='sp_formfield_symptoms']")
 	public WebElement diseaseCourseSymptomsField;
+	
+	/** Disease Course Symptoms Other Text Field */
+	@FindBy (xpath = "//*[@id='sp_formfield_please_specify_other_symptoms']")
+	public WebElement diseaseCourseSymptomsOtherTextField;
+	
+	/** Disease Course Symptoms drop down value */
+	@FindBy (xpath = "//*[@id='select2-drop']/ul/li/div")
+	public List<WebElement> diseaseCourseSymptomsDDValue;
 	
 	/** Disease Course Symptoms drop down Cough option */
 	@FindBy (xpath = "//div[contains(text(),'Cough')]")
@@ -96,22 +131,29 @@ public class FollowUpFormPage extends CommonUtils{
 	public WebElement diseaseCourseDrugTreatmentsTextField;
 	
 	/** Disease Course Drug Treatments drop down values */
-	@FindBy (xpath = "//*[@id='s2id_autogen32_results']/li")
+	@FindBy (xpath = "//*[@id='s2id_autogen126_results']/li")
 	public List<WebElement> diseaseCourseDrugTreatmentsDropDownValues;
 	
-	/*
-	 * Demographics Section elements
-	 */
-	/** What is the highest level of school that you/the patient completed? */
-	@FindBy (xpath = "//*[@id='highest_education_level']/div/label")
-	public WebElement whatIsHighestEducationLevelCompleted;
+	/** --------------- THE END OF COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE DISEASE COURSE SECTION  ---------------  */ 
+
+	/** --------------- COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE DEMOGRAPHICS SECTION  ---------------  */ 
+
+	
+	/** Follow Up Questionnaire Demographics Text Box */
+	@FindBy (xpath = "//*[contains(text(), 'Demographics')]")
+	public WebElement followUpDemographicsTextBox;
+	
+	/** Follow Up Questionnaire Demographic Field Date Form Completed */
+	@FindBy (xpath = "//*[@id=\"sp_formfield_form_complete_date\"]")
+	public WebElement followUpQuestionnaireDemographicDateFormComplted;
 	
 	
-	/*
-	 * Exposures and Risk Factors
-	 */
+	/** --------------- THE END OF COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE DEMOGRAPHICS SECTION  ---------------  */ 
+
+	/** --------------- COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE EXPOSURES AND RISK FACTORS SECTION  ---------------  */ 
+	
 	/** Exposures and Risk Factors label text */
-	@FindBy (xpath = "//*[@id='exposures_label']/div/label")
+	@FindBy (xpath = "//*[contains(text(),'Exposures')]")
 	public WebElement exposuredAndRiskFactorsLabelText;
 	
 	/** Exposures and Risk Factors Your/Patient's typical self reported health? */
@@ -150,7 +192,7 @@ public class FollowUpFormPage extends CommonUtils{
 	@FindBy (xpath = "//*[@id='smoke_100']/div/label")
 	public WebElement exposureAndRiskFactorsSmokeQuestionText;
 	
-	/** Exposures and Risk Factors alcohol consuption question text */
+	/** Exposures and Risk Factors alcohol consumption question text */
 	@FindBy (xpath = "//*[@id='alcohol_consumption']/div/label")
 	public WebElement exposuresAndRiskFactorsAlcoholConsumptionQuestionText;
 	
@@ -158,11 +200,13 @@ public class FollowUpFormPage extends CommonUtils{
 	@FindBy (xpath = "//*[@id='hours_per_week_spent_exercising']/div/label")
 	public WebElement exposuresAndRiskFactorsHoursPerWeekSpentQuestionText;
 	
-	
+	/** --------------- THE END OF COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE EXPOSURES AND RISK FACTORS SECTION  ---------------  */ 
+
 	
 	public FollowUpFormPage() {
 		
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
+
 
 }

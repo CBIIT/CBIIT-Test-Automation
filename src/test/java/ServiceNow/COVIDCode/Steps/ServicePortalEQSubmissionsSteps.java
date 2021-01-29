@@ -2,6 +2,7 @@ package ServiceNow.COVIDCode.Steps;
 
 import com.nci.automation.xceptions.TestingException;
 
+import ServiceNow.COVIDCode.StepsImplementation.ServicePortalEQPageImpl;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -35,8 +36,9 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 	}
 
 	@Then("the enrollment questionnaire should be successfully submitted")
-	public void the_enrollment_questionnaire_should_be_successfully_submitted() {
-		//Include step here
+	public void the_enrollment_questionnaire_should_be_successfully_submitted() throws TestingException {
+		ServicePortalEQPageImpl.enrollmentSubmissionConfirmation();
 	}
+	
 
 }
