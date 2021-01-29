@@ -1,10 +1,7 @@
 package appsCommon;
 
-
-
 import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
 import AnalysisTools.CEDCD.Steps.CEDCDBiospecimenCountsSelectAllCohortsSteps;
-import AnalysisTools.CEDCD.Steps.CEDCDSelectAllCohortsSteps;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDMaleDiscrepancyOnSearchCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortAlcoholConsumptionStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
@@ -29,15 +26,21 @@ import ServiceNow.COVIDCode.Pages.EnrollmentQuestionnairePage;
 import ServiceNow.COVIDCode.Pages.FollowUpFormPage;
 import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentViewPage;
 import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentsPage;
+import ServiceNow.COVIDCode.Pages.ServicePortalQuestionnairePage;
 import ServiceNow.COVIDCode.Pages.ServicePortalSurveyPage;
 import ServiceNow.COVIDCode.StepsImplementation.COVIDCodeLoginStepsImpl;
+import ServiceNow.COVIDCode.StepsImplementation.DashboardStepImpl;
 import ServiceNow.COVIDCode.StepsImplementation.FollowUpFormPageImpl;
+import ServiceNow.COVIDCode.StepsImplementation.NativeViewStepsImpl;
 import ServiceNow.COVIDCode.StepsImplementation.ServicePortalEQPageImpl;
+import ServiceNow.COVIDCode.StepsImplementation.ServicePortalQuestionnairePageImp;
+import ServiceNow.COVIDCode.StepsImplementation.SignOutVerificationStepImp;
 import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
-import ServiceNow.COVIDCode.StepsImplementation.SignOutVerificationStepImp;
+
+
 /**
  * This an initializer class which will initialize all pages classes. Once pages
  * class created, create an object of it here inside the constructor
@@ -61,11 +64,15 @@ public class PageInitializer {
 	protected static ServicePortalEQPageImpl covidCodeEQPageImpl;
 	protected static NativeViewEnrollmentsPage nativeViewEnrollementsPage;
 	protected static NativeViewEnrollmentViewPage nativeViewEnrollmentViewPage;
+	protected static NativeViewStepsImpl nativeViewStepsImpl;
 	protected static FollowUpFormPage followUpFormPage;
 	protected static FollowUpFormPageImpl followUpFormPageImpl;
 	protected static COVIDCodeLoginStepsImpl covidCodeLoginStepsImpl;
 	protected static ServicePortalSurveyPage servicePortalSurveyPage;
 	protected static SignOutVerificationStepImp signOutVerificationStepImp;
+	protected static ServicePortalQuestionnairePage servicePortalQuestionnairePage;
+	protected static ServicePortalQuestionnairePageImp servicePortalQuestionnairePageImp;
+	protected static DashboardStepImpl dashboardStepImpl;
 
 	/** Native View instance */
 	protected static NativeViewLoginImpl nativeViewLoginImpl;
@@ -75,15 +82,13 @@ public class PageInitializer {
 	protected static CHARMSNativeViewPage charmsNativeViewPage;
 	protected static TestAccountResetImpl testAccountResetImpl;
 
-	
-	/**LDLink instances**/
-	protected static LDLinkHomePage ldLinkHomePage; 
-	protected static LDLinkLandingPage ldLinkLandingPage; 
-	
-	/**PLCO instances**/
-	protected static ExploreGWASPage exploreGWASPage; 
-	protected static APIAcessPage apiAcessPage; 
-	
+	/** LDLink instances **/
+	protected static LDLinkHomePage ldLinkHomePage;
+	protected static LDLinkLandingPage ldLinkLandingPage;
+
+	/** PLCO instances **/
+	protected static ExploreGWASPage exploreGWASPage;
+	protected static APIAcessPage apiAcessPage;
 
 	protected static CHARMSHomePage charmsHomePage;
 	protected static OKTAloginPage oktaLoginPage;
@@ -96,7 +101,7 @@ public class PageInitializer {
 	protected static DevOpsLoginPage devOpsLoginPage;
 	protected static DevOpsNativeViewPage devOpsNativeViewPage;
 	protected static DevOpsAutomatedBuildStepsImplementation devOpsAutomatedBuildStepsImplementation;
-	
+
 	/** CEDCD instances */
 	protected static CEDCDSearchCohortsPage cedcdSearchCohortsPage;
 	protected static CEDCDSearchFemaleCohortsStepImp cedcdSearchFemaleCohortsStepImp;
@@ -105,7 +110,7 @@ public class PageInitializer {
 	protected static CEDCDBiospecimenCountsSelectAllCohortsSteps cedcdBiospecimenCountsSelectAllCohortsSteps;
 	protected static CEDCDSearchCohortAlcoholConsumptionStepImp cedcdSearchCohortAlcoholConsumptionStepImp;
 
-	public static void initializeAllPages() {
+	public static void initializeAllPages() { 
 		// create instances of all pages and assign them to the variables
 		iTrustloginPage = new ITrustLoginPage();
 		loginImpl = new ITrustLoginPageImpl();
@@ -127,8 +132,8 @@ public class PageInitializer {
 		testAccountResetImpl = new TestAccountResetImpl();
 		servicePortalSurveyPage = new ServicePortalSurveyPage();
 		ldLinkLandingPage = new LDLinkLandingPage();
-		ldLinkHomePage = new LDLinkHomePage(); 
-		exploreGWASPage = new ExploreGWASPage(); 
+		ldLinkHomePage = new LDLinkHomePage();
+		exploreGWASPage = new ExploreGWASPage();
 		apiAcessPage = new APIAcessPage();
 		charmsHomePage = new CHARMSHomePage();
 		oktaLoginPage = new OKTAloginPage();
@@ -146,7 +151,10 @@ public class PageInitializer {
 		cedcdSelectAllCohortsStepImp = new CEDCDSelectAllCohortsStepImp();
 		cedcdBiospecimenCountsSelectAllCohortsSteps = new CEDCDBiospecimenCountsSelectAllCohortsSteps();
 		cedcdSearchCohortAlcoholConsumptionStepImp = new CEDCDSearchCohortAlcoholConsumptionStepImp();
-
+		servicePortalQuestionnairePage = new ServicePortalQuestionnairePage();
+		servicePortalQuestionnairePageImp = new ServicePortalQuestionnairePageImp();
+		dashboardStepImpl = new DashboardStepImpl();
+		nativeViewStepsImpl = new NativeViewStepsImpl();
 	}
 
 }
