@@ -13,7 +13,7 @@ Feature: Native View Scenarios
     Then the Enrollment Questionnaire should be successfully submitted
 
 
-  @New @Smoke @Aidana
+  @New @Smoke 
   Scenario: Add a RVS status field on the Enrollment Form
     When the COVIDcode user is on the COVIDcode Study Native View application
     Given the COVIDcode user is on the COVIDcode Enrollments page and clicks on New button
@@ -33,14 +33,14 @@ Feature: Native View Scenarios
     When an internal user clicks on COVIDCode Dashboard
     Then a COVIDCode Dashboard table with a list of records displays
 
-  @New @Aidana @Smoke
+  @New @Smoke
   Scenario: Native View My Inquiry Tracking Records - Verifying Study Team Contact fields
     Given a user has logged into the COVIDcode application in Native View
     And navigates to My Inquiry Tracking Records
     And opens a new  Inquiry Tracking record by clicking on "New" button
     Then the "Covid Test Result F/U 1", "Covid Test Result F/U 2", "COVID test result received (non OMS)?", and "Telephone interview date/time" field are visible in the "Study Team Contact" section
 
-  @New @Aidana @Smoke
+  @New @Smoke
   Scenario: Native View COVIDcode Enrollments - Verifying RVS Payment Requested
     Given a user has logged into the COVIDcode application in Native View
     And opens a COVIDCode Enrollment record
