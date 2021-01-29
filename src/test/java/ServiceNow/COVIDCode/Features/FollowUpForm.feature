@@ -2,25 +2,17 @@ Feature: COVIDCode Follow Up Form Scenarios
 
 Description: This feature file contains scenarios related to the Follow Up Form
 
-@Sprint7 @COVID-95
-Scenario: Follow Up Form - Verifying added education question - Service Portal
-When a COVIDCode user accesses a Follow Up Form to update an existing enrollment
-Then the question "What is the highest level of school that you/the patient completed?" should display in the demographics section
-
-@Sprint7 @COVID-209 
+@Sprint7 @COVID-209 @updated-01/21/2021  
 Scenario: Follow Up Form - Search Function - Service Portal
 Given a COVIDCode user is on the Follow Up Form to update an existing enrollment
-Then the user is able to search an existing enrollment by patient ID, last name, first name, or NIH Medical Record Number
 
-@Sprint7 @COVID-177 
-Scenario: Follow Up Form - Verifying Group ID and Hospital Code fields are locked - Service Portal
-Given a COVIDCode Provider is on the Follow Up Form to update an existing enrollment
-When an enrollment is selected
-Then the Group ID and Hospital Code fields should be locked 
+Then the user is able to search an existing enrollment by patient ID OR last name OR first name OR NIH Medical Record Number
 
-@Sprint7 @COVID-193 
+@Sprint7 @COVID-193 @InReview 
 Scenario: Follow Up Form - Verifying Enhanced Symptoms Question - Service Portal
 Given a COVIDCode user is on the Follow Up Form to update an existing enrollment
+When an enrollment is selected
+Then selected enrollment is opened
 When the user is on the Disease Course section to add information
 Then the user is able to select multiple symptoms in the symptoms field
 When the user selects "None of the above" after having selected multiple symptoms
@@ -36,7 +28,7 @@ Then the user is able to see another pop up with the message "Choosing Don't Kno
 When the user selects Yes
 Then "Don't know" option displays
 
-@Sprint7 @COVID-194 
+@Sprint7 @COVID-194 @InReview
 Scenario: Follow Up Form - Verifying Enhanced Treatment question - Service Portal
 Given a COVIDCode user is on the Follow Up Form to update an existing enrollment
 When the user is on the Disease Course section to add information
@@ -54,7 +46,7 @@ Then the user is able to see another pop up with the message "Choosing Don't Kno
 When the user selects Yes
 Then "Don't know" option displays
 
-@Sprint7 @COVID-201 
+@Sprint7 @COVID-201 @delete
 Scenario: Follow Up Form - Verifying Auto Populate FLD Hospital Code - Service Portal
 Given a COVIDCode user is on the Follow Up Form to update an existing enrollment
 When the user selects a group 3 enrollment 
@@ -70,6 +62,4 @@ Then the following questions should display "Your/Patient's typical self reporte
 Scenario: Follow Up Form - Verifying 'Drug Treatments' section - Service Portal
 When a COVIDCode provider is on the Disease Course section on the Follow Up Form
 Then "Drug Treatments" section should display along with the values "None", "Azithromycin", "Chloroquine", "Corticosteroids", "Hydroxycholoquine", "JAK Inhibitor", "Remdesivir", "Tocilizumab", "Other"
-
-
 
