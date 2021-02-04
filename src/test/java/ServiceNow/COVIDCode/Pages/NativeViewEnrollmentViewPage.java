@@ -173,14 +173,10 @@ public class NativeViewEnrollmentViewPage extends CommonUtils {
 	public WebElement nativeViewEnrollmentViewDemographicsAreYouHispaniceOrLatinoDropDown;
 
 	/**
-	 * --------------- END OF NATIVE VIEW COVIDcode ENROLLMENT VIEW DEMOGRAPHICS
-	 * SECTION TABLE ---------------
-	 */
+	 * --------------- END OF NATIVE VIEW COVIDcode ENROLLMENT VIEW DEMOGRAPHICS  SECTION TABLE --------------- */
 
 	/**
-	 * --------------- NATIVE VIEW COVIDcode ENROLLMENT VIEW SYMPTOMOLOGY SECTION
-	 * TABLE ---------------
-	 */
+	 * --------------- NATIVE VIEW COVIDcode ENROLLMENT VIEW SYMPTOMOLOGY SECTION TABLE ---------------*/
 
 	/** Native View Enrollment View Symptomology tab */
 	@FindBy(xpath = "//*[@id='tabs2_section']/span[2]/span[1]/span[2]")
@@ -211,13 +207,11 @@ public class NativeViewEnrollmentViewPage extends CommonUtils {
 	public WebElement nativeViewEnrollmentViewSymptomologyDateOfficiallyDiagnosed;
 
 	/**
-	 * --------------- END OF NATIVE VIEW COVIDcode ENROLLMENT VIEW SYMPTOMOLOGY
-	 * SECTION TABLE ---------------
+	 * --------------- END OF NATIVE VIEW COVIDcode ENROLLMENT VIEW SYMPTOMOLOGY  SECTION TABLE ---------------
 	 */
 
 	/**
-	 * --------------- NATIVE VIEW COVIDcode ENROLLMENT VIEW EXPOSURES AND RISK
-	 * FACTORS SECTION TABLE ---------------
+	 * --------------- NATIVE VIEW COVIDcode ENROLLMENT VIEW EXPOSURES AND RISK FACTORS SECTION TABLE ---------------
 	 */
 
 	/** Native View Enrollment View Exposures and risk factors tab */
@@ -435,13 +429,11 @@ public class NativeViewEnrollmentViewPage extends CommonUtils {
 	public WebElement nativeViewEnrollmentViewParticipantEventsOmsRedCapSurveyUploadedDate;
 
 	/**
-	 * --------------- END OF NATIVE VIEW COVIDcode ENROLLMENT VIEW PARTICIPANT
-	 * EVENTS SECTION TABLE ---------------
+	 * --------------- END OF NATIVE VIEW COVIDcode ENROLLMENT VIEW PARTICIPANT EVENTS SECTION TABLE ---------------
 	 */
 
 	/**
-	 * --------------- NATIVE VIEW COVIDcode ENROLLMENT VIEW VACCINE SECTION TABLE
-	 * ---------------
+	 * --------------- NATIVE VIEW COVIDcode ENROLLMENT VIEW VACCINE SECTION TABLE ---------------
 	 */
 
 	/** Native View Enrollment View Vaccine tab */
@@ -481,17 +473,15 @@ public class NativeViewEnrollmentViewPage extends CommonUtils {
 	public WebElement nativeViewEnrollmentViewVaccineHaveYouReceivedYourSecondVaccineDate;
 
 	/**
-	 * --------------- END OF NATIVE VIEW COVIDcode ENROLLMENT VIEW VACCINE SECTION
-	 * TABLE ---------------
+	 * --------------- END OF NATIVE VIEW COVIDcode ENROLLMENT VIEW VACCINE SECTION TABLE ---------------
 	 */
 
 	/**
-	 * --------------- NATIVE VIEW COVIDcode ENROLLMENT VIEW DISEASE COURSES SECTION
-	 * TABLE ---------------
+	 * --------------- NATIVE VIEW COVIDcode ENROLLMENT VIEW DISEASE COURSES SECTION TABLE ---------------
 	 */
 
 	/** Native View Enrollment View Vaccine Disease Courses New button */
-	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_disease_course.visit_date']")
+	@FindBy(xpath = "//button[@class='selected_action action_context btn btn-primary']")
 	public WebElement nativeViewEnrollmentViewDiseaseCoursesNewButton;
 
 	/** Native View Enrollment View Vaccine Disease Courses Visit Date field */
@@ -542,10 +532,25 @@ public class NativeViewEnrollmentViewPage extends CommonUtils {
 	/** Native View Enrollment View Vaccine Disease Courses Add Attachment button */
 	@FindBy(xpath = "//*[@id='add_attachment_bottom']")
 	public WebElement nativeViewEnrollmentViewDiseaseCoursesAddAttachmentButton;
+	
+	/** Disease Courses Drug Treatments unlock button */
+	@FindBy (xpath="//*[@id='x_g_nci_geco_covid_disease_course.drug_treatments_unlock']")
+	public WebElement diseaseCoursesDrugTreatmentsUnlockButton;
+	
+	/** Disease Courses Drug Treatments select options search bar */
+	@FindBy (xpath="//*[@id='sys_display.x_g_nci_geco_covid_disease_course.drug_treatments']")
+	public WebElement diseaseCoursesDrugTreatmentsSearchbar;
+	
+	/** Disease Courses Drug Treatments lock button */
+	@FindBy (xpath="//*[@id='x_g_nci_geco_covid_disease_course.drug_treatments_lock']")
+	public WebElement diseaseCoursesDrugTreatmentsLockButton;
+
+	/** Disease Courses Drug Treatments Text */
+	@FindBy (xpath="//*[@id='lookup.x_g_nci_geco_covid_disease_course.drug_treatments']")
+	public WebElement diseaseCoursesDrugTreatmentsText;
 
 	/**
-	 * --------------- END OF NATIVE VIEW COVIDcode ENROLLMENT VIEW DISEASE COURSES
-	 * SECTION TABLE ---------------
+	 * --------------- END OF NATIVE VIEW COVIDcode ENROLLMENT VIEW DISEASE COURSES SECTION TABLE ---------------
 	 */
 
 	public NativeViewEnrollmentViewPage() {

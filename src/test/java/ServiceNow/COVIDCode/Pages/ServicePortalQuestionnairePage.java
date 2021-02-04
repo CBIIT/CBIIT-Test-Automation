@@ -27,17 +27,14 @@ public class ServicePortalQuestionnairePage extends CommonUtils {
 	public WebElement servicePortalEnrollmentQuestionnaireSubmissionConfirmationText;
 	
 	
-	
-
 	/** --------------- THE END OF COVIDcode SERVICE PORTAL NIH USER DASHBOARD HEADER SECTION ---------------  */ 
 	
 	/** --------------- COVIDcode SERVICE PORTAL DRAFT INITIAL QUESTIONNAIRE SECTION ---------------  */ 
 
 	
 	/** Start new initial questionnaire button */
-
 	@FindBy(xpath = "//button[contains(text(), 'Start new initial questionnaire')]")
-	public static WebElement startNewQuestionnaireButton;
+	public WebElement startNewQuestionnaireButton;
 
 	@FindBy(xpath = "//*[contains(text(), 'initial questionnaire')]")
 	public WebElement startNewInitialQuestionnaireButton;
@@ -91,12 +88,11 @@ public class ServicePortalQuestionnairePage extends CommonUtils {
 	public WebElement draftInitialPageButtonForward;
 	
 	/** Enrollment Creation pop up text */
-
 	@FindBy(xpath = "//*[contains(text(), 'Enrollment Creation')]")
 	public WebElement EnrollmentCreationTitle;
 
 	/** Enrollment Creation User Group ID Drop Down */
-	@FindBy(id = "user-group-id")
+	@FindBy(xpath="//*[@id='user-group-id']")
 	public WebElement EnrollmentCreationUserGroupIDSelectDropDown;
 	
 	/** Enrollment Creation User Group ID Drop Down Values */
@@ -111,7 +107,7 @@ public class ServicePortalQuestionnairePage extends CommonUtils {
 	public WebElement enrollmentCreationTitle;
 	
 	/** Enrollment Creation User Group ID Drop Down Box */
-	@FindBy (xpath = "//select[@id='user-group-id']")
+	@FindBy (xpath = "//*[@class='form-control input']")
 	public WebElement enrollmentCreationUserGroupIDSelectDropDown;
 	
 	/** Enrollment Creation User Group ID Drop Down Values */
@@ -135,7 +131,7 @@ public class ServicePortalQuestionnairePage extends CommonUtils {
 	
 	/** Start New Follow-up Questionnaire */
 	@FindBy (xpath= "//*[contains(text(), 'follow-up')]")
-	public static WebElement startNewFollowUpButton;
+	public WebElement startNewFollowUpButton;
 	
 	/** Draft Follow Up Patient ID text */
 	@FindBy (xpath = "(//div[contains(text(), 'Patient ID')])[2]")
@@ -144,6 +140,14 @@ public class ServicePortalQuestionnairePage extends CommonUtils {
 	/** Draft Follow Up User Group ID */
 	@FindBy (xpath = "(//div[contains(text(), 'User Group ID ')])[2]")
 	public WebElement draftFollowUpUserGroupIDHeader;
+	
+	/** Draft Follow Up User Group ID Field */
+	@FindBy (xpath = "//*[@id='x8069d1771ba02050e541631ee54bcb94']/div[1]/div[2]/div[3]")
+	public WebElement draftFollowUpUserGroupIDField;
+	
+	/** Draft Follow Up Last Updated */
+	@FindBy (xpath = "(//div[contains(text(), 'Last Updated')])[2]")
+	public WebElement draftFollowUpLastUpdated;
 	
 	/** Draft Follow Up NIH Medical Record */
 	@FindBy (xpath = "(//div[contains(text(), 'NIH Medical Record ')])[2]")
@@ -161,6 +165,10 @@ public class ServicePortalQuestionnairePage extends CommonUtils {
 	@FindBy (xpath = "//*[@id= 'x8069d1771ba02050e541631ee54bcb94']/div[1]/div[2]/div[3]")
 	public WebElement draftFollowUpFirstRow;
 	
+	/** Draft Follow Up Table NIH Medical Record First Row */
+	@FindBy (xpath = "//*[@id= 'x8069d1771ba02050e541631ee54bcb94']/div[1]/div[2]/div[3]")
+	public WebElement draftFollowUNihMedicalRecordFirstRow;
+
 	/** Draft Follow Up Draft FollowUp Back Button */
 	@FindBy (xpath = "(//div[@class='pagination-button-section'])[2]/button[1]")
 	public WebElement draftFollowUpPageButtonBack;
@@ -185,8 +193,13 @@ public class ServicePortalQuestionnairePage extends CommonUtils {
 	@FindBy (xpath="//*[@id= 's2id_enrollmentId']/a")
 	public WebElement enrollmentLookUpPatientIDSearchDropDown;
 	
+	/** Enrollment Look Up Patient ID Search Drop Down Text Field */
+	//@FindBy (xpath="//input[@id='s2id_autogen1_search']")
+	@FindBy (xpath="//input[@class='select2-input']")
+	public WebElement enrollmentLookUpPatientIDSearchDropDownTextField;
+	
 	/** Enrollment Look Up Search Patient ID Values */
-	@FindBy(xpath = "//*[@id='select2-results-1']/li/div")
+	@FindBy(xpath = "//ul[@class='select2-results']/li")
 	public List<WebElement> enrollmentLookUpPatientIDSearchValues;
 
 	/** Enrollment Look Up Create Follow Up Button */
