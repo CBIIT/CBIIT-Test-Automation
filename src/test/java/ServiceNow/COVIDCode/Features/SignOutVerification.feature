@@ -1,9 +1,8 @@
 Feature: Sign Out Verification
 
-This feature file will verify that the user can log out properly
+Description: This feature file will verify that the user can log out properly
 
-@Test_Case_COVID-245 @User_Story_COVID-261 @Smoke
-
+@Smoke @Test_Case_COVID-245 @User_Story_COVID-261
 Scenario:
 Given an internal user is logged into the COVIDcode application
 And is on the home page

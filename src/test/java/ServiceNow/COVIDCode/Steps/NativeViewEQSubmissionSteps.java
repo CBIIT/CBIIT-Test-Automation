@@ -4,6 +4,7 @@ package ServiceNow.COVIDCode.Steps;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -173,5 +174,193 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 
 	}
+	
+	@Given("a COVIDCode App Admin user is in the Native View")
+	public void a_COVIDCode_App_Admin_user_is_in_the_Native_View() throws TestingException {
+		nativeViewLoginImpl.nativeViewLogin();
+
+	}
+
+	@When("the users open an Enrollment records")
+	public void the_users_open_an_Enrollment_records() {
+		nativeViewStepsImpl.nativeViewNavigateToCovidCodeEnrollmentQuestionnaire();
+		MiscUtils.sleep(2000);
+		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
+		MiscUtils.sleep(2000);
+		nativeViewEnrollementsPage.covidCodeFollowUpsGroup1link.click();
+		MiscUtils.sleep(2000);
+
+	    
+	}
+
+	@When("a create a new Disease Course record")
+	public void a_create_a_new_Disease_Course_record() {
+	   JavascriptUtils.scrollIntoView(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesNewButton);
+	   nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesNewButton.click();
+		MiscUtils.sleep(3000);
+
+	}
+
+	@Then("there is a field option called a {string} for the a Drug Treatments field")
+	public void there_is_a_field_option_called_a_for_the_a_Drug_Treatments_field(String plasma) {
+		nativeViewEnrollmentViewPage.diseaseCoursesDrugTreatmentsUnlockButton.click();
+		MiscUtils.sleep(1000);
+		nativeViewEnrollmentViewPage.diseaseCoursesDrugTreatmentsSearchbar.sendKeys(plasma);
+		MiscUtils.sleep(1000);
+		nativeViewEnrollmentViewPage.diseaseCoursesDrugTreatmentsSearchbar.sendKeys(Keys.ENTER);
+		nativeViewEnrollmentViewPage.diseaseCoursesDrugTreatmentsLockButton.click();
+		MiscUtils.sleep(1000);
+		CucumberLogUtils.logScreenShot();
+	}
+	
+	@Given("a COVIDCode App Admin users is in the Native View")
+	public void a_COVIDCode_App_Admin_users_is_in_the_Native_View() throws TestingException {
+		nativeViewLoginImpl.nativeViewLogin();
+ 
+	}
+
+	@When("the user opens a Follow Up record")
+	public void the_user_opens_a_Follow_Up_record() {
+		nativeViewStepsImpl.nativeViewNavigateToCovidCodeFollowUpQuestionnaire();
+		MiscUtils.sleep(2000);
+		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
+		MiscUtils.sleep(2000);
+		nativeViewEnrollementsPage.covidCodeFollowUpsGroup1link.click();
+		MiscUtils.sleep(2000);
+	   
+	}
+
+	@When("a creates a new Disease Course record")
+	public void a_creates_a_new_Disease_Course_record() {
+		 JavascriptUtils.scrollIntoView(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesNewButton);
+		   nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesNewButton.click();
+			MiscUtils.sleep(3000);
+	}
+
+	@Then("there is a field option called {string} for Drug Treatments field")
+	public void there_is_a_field_option_called_for_Drug_Treatments_field(String Plasma) {
+		nativeViewEnrollmentViewPage.diseaseCoursesDrugTreatmentsUnlockButton.click();
+		MiscUtils.sleep(1000);
+		nativeViewEnrollmentViewPage.diseaseCoursesDrugTreatmentsSearchbar.sendKeys(Plasma);
+		MiscUtils.sleep(1000);
+		nativeViewEnrollmentViewPage.diseaseCoursesDrugTreatmentsSearchbar.sendKeys(Keys.ENTER);
+		nativeViewEnrollmentViewPage.diseaseCoursesDrugTreatmentsLockButton.click();
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenShot();
+	}
+	
+	@Given("a COVIDCode App Admin user is in Native View")
+	public void a_COVIDCode_App_Admin_user_is_in_Native_View() throws TestingException {
+		nativeViewLoginImpl.nativeViewLogin();
+	}
+
+	@When("the user opens a Specimens record")
+	public void the_user_opens_a_Specimens_record() {
+	   nativeViewStepsImpl.nativeViewNavigateToCovidCodeSpecimens();
+		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
+	   nativeViewEnrollementsPage.specimensPreviewButton.click();
+	   MiscUtils.sleep(2000);
+	   nativeViewEnrollementsPage.specimensOpenRecordButton.click();
+	}
+
+	@When("clicks the Sample Outcome field")
+	public void clicks_the_Sample_Outcome_field() {
+		nativeViewEnrollementsPage.specimensSampleOutcomeDD.click();	
+	}
+
+	@Then("{string} and {string} are available as field options")
+	public void and_are_available_as_field_options(String FedexRequested, String AppointmentMade) {
+		CommonUtils.selectDropDownValue(FedexRequested, nativeViewEnrollementsPage.specimensSampleOutcomeDD);
+		CucumberLogUtils.logScreenShot();
+		MiscUtils.sleep(2000);
+		Assert.assertTrue(nativeViewEnrollementsPage.specimensSampleOutcomeDD.getText().contains(FedexRequested));
+		CucumberLogUtils.logScreenShot();
+		MiscUtils.sleep(2000);
+		CommonUtils.selectDropDownValue(AppointmentMade, nativeViewEnrollementsPage.specimensSampleOutcomeDD);
+		CucumberLogUtils.logScreenShot();
+		MiscUtils.sleep(2000);
+		Assert.assertTrue(nativeViewEnrollementsPage.specimensSampleOutcomeDD.getText().contains(AppointmentMade));
+		CucumberLogUtils.logScreenShot();
+	}
+	
+	@Given("a Study Nurse is in Native view")
+	public void a_Study_Nurse_is_in_Native_view() throws TestingException {
+		nativeViewLoginImpl.nativeViewLogin();
+
+	}
+
+	@When("the user opens an Inquiry Tracking Record")
+	public void the_user_opens_an_Inquiry_Tracking_Record() {
+		nativeViewStepsImpl.nativeViewNavigateToCovidCodeMyInquiryTrackingRecords();
+		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
+		MiscUtils.sleep(2000);
+		nativeViewEnrollementsPage.myInquiryTrackingRecordsNewButton.click();
+		
+	}
+
+	@Then("there is a field called {string} in the Study Team Contact tab")
+	public void there_is_a_field_called_in_the_Study_Team_Contact_tab(String AssignedTo) {
+		nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactTab.click();
+		MiscUtils.sleep(2000);
+		Assert.assertTrue(nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactAssignedToText.getText().contentEquals(AssignedTo));
+		CucumberLogUtils.logScreenShot();
+		MiscUtils.sleep(1000);
+	}
+	
+	@Given("a Study Nurse is in the Native view")
+	public void a_Study_Nurse_is_in_the_Native_view() throws TestingException {
+		nativeViewLoginImpl.nativeViewLogin();
+
+	}
+
+	@When("the users opens an Inquiry Tracking Record")
+	public void the_users_opens_an_Inquiry_Tracking_Record() {
+		nativeViewStepsImpl.nativeViewNavigateToCovidCodeMyInquiryTrackingRecords();
+		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
+		MiscUtils.sleep(2000);
+		nativeViewEnrollementsPage.myInquiryTrackingRecordsNewButton.click();
+	}
+
+	@When("clicks the {string} button")
+	public void clicks_the_button(String string) {
+		nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactTab.click();
+		nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactAssignedToMeButton.click();
+		MiscUtils.sleep(2000);
+
+	}
+
+	@Then("their name {string} is added to the Assigned To field")
+	public void their_name_is_added_to_the_Assigned_To_field(String Name) {
+	   Assert.assertTrue(nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactAssignedToMeNameText.getText().contentEquals(Name));
+		MiscUtils.sleep(1000);
+	   CucumberLogUtils.logScreenShot();
+	}
+	
+	@Given("a Study Nurse is in Native View")
+	public void a_Study_Nurse_is_in_Native_View() throws TestingException {
+		nativeViewLoginImpl.nativeViewLogin();
+
+	}
+
+	@When("the users open an Inquiry Tracking Record")
+	public void the_users_open_an_Inquiry_Tracking_Record() {
+		nativeViewStepsImpl.nativeViewNavigateToCovidCodeMyInquiryTrackingRecords();
+		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
+		MiscUtils.sleep(2000);
+		nativeViewEnrollementsPage.myInquiryTrackingRecordsNewButton.click();
+	}
+
+	@When("click the Unlock Assigned To button")
+	public void click_the_Unlock_Assigned_To_button() {
+	    nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactUnlockAssignedToButton.click();
+	}
+
+	@Then("the user is able to select multiple nurses from a list of Alan Orpia, Janet Bracci, Laura Harney, Lisa Leathwood, Maureen Risch, Kathryn Nichols and Stephanie Steinbart")
+	public void the_user_is_able_to_select_multiple_nurses_from_a_list_of_Alan_Orpia_Janet_Bracci_Laura_Harney_Lisa_Leathwood_Maureen_Risch__Kathryn_Nichols_and_Stephanie_Steinbart() {
+	    nativeViewStepsImpl.nativeViewMyInquiryTrackingSearchNursesinAssignedToTextField();
+	}
+
+
+
 
 }
