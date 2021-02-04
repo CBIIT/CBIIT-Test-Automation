@@ -1,14 +1,18 @@
 package ServiceNow.COVIDCode.StepsImplementation;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
-import com.nci.automation.xceptions.TestingException;
-import ServiceNow.COVIDCode.Pages.ServicePortalQuestionnairePage;
+import com.nci.automation.web.WebDriverUtils;
+
 import appsCommon.PageInitializer;
-import org.junit.Assert;
 
 public class ServicePortalEQPageImpl extends PageInitializer {
 	public static ServicePortalEQPageImpl obj = new ServicePortalEQPageImpl();
@@ -21,16 +25,15 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 
 	public void groupUserAndConsent(String groupUserID, String consent) {
 
-
-		ServicePortalQuestionnairePage.startNewQuestionnaireButton.click();
+		servicePortalQuestionnairePage.startNewQuestionnaireButton.click();
 		servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown.click();
-		List<WebElement> groupIDs =servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDownValues ;
+		List<WebElement> groupIDs = servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDownValues;
 
 		CommonUtils.selectValueFromBootStrapDropDown(groupIDs, groupUserID);
 		servicePortalQuestionnairePage.enrollmentCreationWindowText.click();
 		// click on create enrollment button
 		servicePortalQuestionnairePage.createEnrollmentButton.click();
-		
+
 		// scrolling down page
 		JavascriptUtils.scrollDown(700);
 
@@ -40,14 +43,13 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 		for (WebElement value : consentValues) {
 			if (value.getText().contains(consent)) {
 				value.click();
-				
-				
+
 				break;
 			}
 		}
-		
+
 	}
-	
+
 	/**
 	 * 
 	 * This method fills out full name, required information labeled with *, and
@@ -94,13 +96,13 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 		/*
 		 * covidCodeEQPage.whenOfficiallyDiagnosed.sendKeys("Aug 05, 2020");
 		 */
-			
+
 		/*
 		 * Clicks on the "Symptomology" tab
 		 */
-		
+
 		covidCodeEQPage.symptomologyTab.click();
-		
+
 		/*
 		 * Clicks on the "Were you symptomatic" drop down
 		 */
@@ -110,9 +112,11 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 		 * Selects yes value from "Were you symptomatic" drop down We can pass parameter
 		 * when selecting yes or no options later
 		 */
-		CommonUtils.selectValueFromBootStrapDropDown(covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticDropdownValues, "Yes");
+		CommonUtils.selectValueFromBootStrapDropDown(
+				covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticDropdownValues, "Yes");
 		JavascriptUtils.selectDateByJS(covidCodeEQPage.enrollmentQuestionnaireWhenDevelopSymptoms, "04-01-2020");
-		JavascriptUtils.selectDateByJS(covidCodeEQPage.enrollmentQuestionnaireWhenOfficiallyDiagnosedCalendar, "04-04-2020");
+		JavascriptUtils.selectDateByJS(covidCodeEQPage.enrollmentQuestionnaireWhenOfficiallyDiagnosedCalendar,
+				"04-04-2020");
 	}
 
 	/**
@@ -124,12 +128,31 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 		MiscUtils.sleep(2000);
 		covidCodeEQPage.enrollmentQuestionnaireConfirmSubmissionYesButton.click();
 	}
-	
+
 	public static void enrollmentSubmissionConfirmation() {
 		MiscUtils.sleep(10000);
-		String text=servicePortalQuestionnairePage.servicePortalEnrollmentQuestionnaireSubmissionConfirmationText.getText();
-		boolean status=text.contains("has been successfully submitted!");
+		String text = servicePortalQuestionnairePage.servicePortalEnrollmentQuestionnaireSubmissionConfirmationText
+				.getText();
+		boolean status = text.contains("has been successfully submitted!");
 		Assert.assertEquals(true, status);
 	}
 
+	/***
+	 * This method compare expected and actual list of drop down and assert it on Exposure and Risk Factors tab
+	 * Enrollment Questionnaire in service portal
+	 * element List of Webelement is hard coded
+	 */
+	public void servicePortalEnrollmentQuestionnaireExposureAndRiskAssertValueFromBootStrapDropDown( ) {
+		MiscUtils.sleep(2000);
+		String[] expArray = {"-- None --", "Day of or day before onset of symptoms/diagnosis (if asymptomatic)", "2 to 7 days prior to onset of symptoms/diagnosis (if asymptomatic)", "1 to 4 weeks prior to onset of symptoms/diagnosis (if asymptomatic)", "1 to 12 months prior to onset of symptoms/diagnosis (if asymptomatic)", "Over 1 year prior to onset of symptoms/diagnosis (if asymptomatic)", "Never", "Don't know", "Prefer not to answer" };
+		List<WebElement> lst=WebDriverUtils.webDriver.findElements(By.xpath("//ul[@class='select2-results']/li/div"));
+		List<String> act = new ArrayList<String>();
+		for(WebElement e : lst){
+		    act.add(e.getText());
+		}
+		List<String> exp = new ArrayList<String>(Arrays.asList(expArray));
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenShot();
+	    Assert.assertEquals(act, exp);
+	}
 }

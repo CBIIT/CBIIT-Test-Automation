@@ -15,25 +15,32 @@ public class FollowUpFormPage extends CommonUtils {
 
 	/** --------------- COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE GENERALS  ---------------  */ 
 	
+	/** COVIDcode Follow up: NIH Medical Record Number Text Box */
+	@FindBy(id = "sp_formfield_nih_medical_record_number")
+	public WebElement followUpNIHMedicalRecordNumberTextBox;
+
 	/** Enrollment Search drop down */
-	@FindBy (xpath = "//*[@id='s2id_sp_formfield_patient_id']/a")
+	@FindBy (xpath = "//*[@id='s2id_enrollmentId']/a")
 	public WebElement enrollmentSearchDropDown;
 	
 	/** Enrollment search x button*/
-	@FindBy (xpath = "//*[@id='s2id_sp_formfield_patient_id']/a/abbr")
+	@FindBy (xpath = "//div[@id='s2id_enrollmentId']/a/abbr")
 	public WebElement enrollmentSearchXbutton;
 	
 	/** Enrollment Search text box */
-	@FindBy (xpath = "//*[@id='select2-drop']/div/input")
+	@FindBy (xpath = "//input[@id='s2id_autogen1_search']")
 	public WebElement enrollmentSearchTxtBox;
 	
 	/** Existing Enrollment search values */
-	@FindBy(xpath = "//*[@id='select2-results-3']/li")
+	@FindBy(xpath = "//ul[@class='select2-results']/li")
 	public List<WebElement> enrollmentSearchValues;
 	
+	/** Existing Enrollment search values */
+	@FindBy(xpath = "//ul[@class='select2-results']")
+	public WebElement enrollmentSearchValuesAfterInput;
+	
 	/** User Group ID */
-	//@FindBy (xpath = "//*[@id='s2id_autogen1']")
-	@FindBy(xpath="//*[@id=\"enrollmentLookUp\"]/div/div/div[2]/div[2]/input")
+	@FindBy(xpath="//*[@id='enrollmentLookUp']/div/div/div[2]/div[2]/input")
 	public WebElement userGroupID;
 	
 	/** Host Hospital Code */
@@ -127,11 +134,12 @@ public class FollowUpFormPage extends CommonUtils {
 	public WebElement diseaseCourseDrugTreatmentsText;
 	
 	/** Disease Course Drug Treatments text field */
-	@FindBy (xpath = "/html/body/div[1]/div/div/div/div/div/div/div[2]/div/sp-variable-layout/fieldset/div/div[1]/div[9]/div/span/div/ul/li/input")
+	@FindBy (xpath = "//div[@id='s2id_sp_formfield_drug_treatments']/ul/li/input")
 	public WebElement diseaseCourseDrugTreatmentsTextField;
 	
 	/** Disease Course Drug Treatments drop down values */
-	@FindBy (xpath = "//*[@id='s2id_autogen126_results']/li")
+
+	@FindBy (xpath = "//div[@id='select2-drop']/ul/li")
 	public List<WebElement> diseaseCourseDrugTreatmentsDropDownValues;
 	
 	/** --------------- THE END OF COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE DISEASE COURSE SECTION  ---------------  */ 
@@ -157,7 +165,7 @@ public class FollowUpFormPage extends CommonUtils {
 	public WebElement exposuredAndRiskFactorsLabelText;
 	
 	/** Exposures and Risk Factors Your/Patient's typical self reported health? */
-	@FindBy (xpath = "//*[@id='self_reported_health']/div/label")
+	@FindBy (xpath = "//div[@id='self_reported_health']/div[2]/label")
 	public WebElement exposuresAndRiskFactorsSelfReportedHealthQuestionText;
 	
 	/** Exposures and Risk Factors Medical Conditions question text */
