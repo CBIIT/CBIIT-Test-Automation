@@ -21,7 +21,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class ServicePortalIOScenarioSteps extends PageInitializer {
+public class ServicePortalIQScenarioSteps extends PageInitializer {
 
 	@Given("a user in the CovidCode App Admins group has saved a draft Initial Questionnaire")
 	public void a_user_in_the_CovidCode_App_Admins_group_has_saved_a_draft_Initial_Questionnaire() throws TestingException {
@@ -36,13 +36,8 @@ public class ServicePortalIOScenarioSteps extends PageInitializer {
 		MiscUtils.sleep(5000);
 		CucumberLogUtils.logScreenShot();
 		servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown.click();
-		List<WebElement> groupIDs = servicePortalQuestionnairePage.enrollmentCreationUserGroupIDValues;
-		for (WebElement value : groupIDs) {
-			if (value.getText().contains("User Group 2")) {
-				value.click();
-				break;
-			}
-		}
+		MiscUtils.sleep(1000);
+		CommonUtils.selectDropDownValue("User Group 2", servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown);
 		servicePortalQuestionnairePage.createEnrollmentButton.click();
 		covidCodeEQPage.enrollmentQuestionnaireNIHMedicalRecordNumberTextBox.sendKeys("11122245");
 		covidCodeEQPage.enrollmentQuestionnairePatientLastNameTextBox.sendKeys("AutomatedLNGroup2");
@@ -108,6 +103,45 @@ public class ServicePortalIOScenarioSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 
 	}
+	
+	@Given("an enrollment form has been filled out")
+	public void an_enrollment_form_has_been_filled_out() throws TestingException {
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
+		CucumberLogUtils.logScreenShot();
+		covidCodeLoginPage.LogInButton.click();
+		CucumberLogUtils.logScreenShot();
+		loginImpl.loginToITrust();
+		CucumberLogUtils.logScreenShot();
+		// Start New initial questionnaire, select Group1 and click on create Enrollment
+		// Button
+		JavascriptUtils.clickByJS(servicePortalQuestionnairePage.startNewInitialQuestionnaireButton);
+		MiscUtils.sleep(2000);
+
+		CommonUtils.selectDropDownValue(servicePortalQuestionnairePage.enrollmentCreationUserGroupIDSelectDropDown,
+				"1");
+		JavascriptUtils.clickByJS(servicePortalQuestionnairePage.createEnrollmentButton);
+		// filling the questionnaire
+		MiscUtils.sleep(2000);
+		JavascriptUtils.scrollIntoView(covidCodeEQPage.enrollmentQuestionnaireUserGroupIdDropdown);
+		covidCodeEQPage.enrollmentQuestionnaireConsentDropdown.click();
+		List<WebElement> consentValues = covidCodeEQPage.enrollmentQuestionaireConsentDropDownValues;
+		CommonUtils.selectValueFromBootStrapDropDown(consentValues, "Yes");
+		covidCodeEQPageImpl.requiredDemographicsInfo();
+	}
+
+	@When("submitting")
+	public void submitting() {
+		covidCodeEQPage.enrollmentQuestionnaireSubmitButton.click();
+		MiscUtils.sleep(2000);
+	}
+
+	@Then("a pop up with the message {string} displays")
+	public void a_pop_up_with_the_message_displays(String confirmSubmissionPopUpText) {
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenShot();
+		Assert.assertEquals(confirmSubmissionPopUpText, covidCodeEQPage.enrollmentQuestionnaireConfirmSubmissionPopUpText.getText());
+	}
+
 
 
 }

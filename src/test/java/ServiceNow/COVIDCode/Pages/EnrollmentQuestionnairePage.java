@@ -9,9 +9,14 @@ import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
+import appsCommon.PageInitializer;
+
 public class EnrollmentQuestionnairePage extends CommonUtils {
 
-	/**--------------- COVIDcode ENROLLMENT QUESTIONNAIRE GENERALS ---------------*/
+	/**
+	 * --------------- COVIDcode ENROLLMENT QUESTIONNAIRE GENERALS ---------------
+	 * 
+	 */
 
 	/** COVIDcode Enrollment Questionnaire Header */
 	@FindBy(xpath = "//h1[text()=' COVIDcode Enrollment Questionnaire ']")
@@ -20,6 +25,7 @@ public class EnrollmentQuestionnairePage extends CommonUtils {
 	/** COVIDcode Enrollment Questionnaire: Home Button */
 	@FindBy(xpath = "//*[contains(text(), 'Home')]")
 	public WebElement COVIDcodeHomeButton;
+
 	/**
 	 * COVIDcode Enrollment Questionnaire: Please fill out each data
 	 * element..Paragraph
@@ -55,7 +61,6 @@ public class EnrollmentQuestionnairePage extends CommonUtils {
 	@FindBy(xpath = "/html/body/div[1]/div/div/div[3]/button[2]")
 	public WebElement enrollmentQuestionnaireConfirmSubmissionYesButton;
 
-
 	/** COVIDcode Confirm Submission Pop Up Text */
 	@FindBy(xpath = "//p[contains(text(), 'Are you sure you want to submit')]")
 	public WebElement enrollmentQuestionnaireConfirmSubmissionPopUpText;
@@ -67,13 +72,18 @@ public class EnrollmentQuestionnairePage extends CommonUtils {
 	/** COVIDcode Enrollment Questionnaire Submit button */
 	@FindBy(xpath = "//*[contains(text(), 'Submit for Review')]")
 	public WebElement enrollmentQuestionnaireSubmitButton;
-
-
-
-	/**--------------- THE END OF COVIDcode ENROLLMENT QUESTIONNAIRE GENERALS ---------------*/
 	
+	/** COVIDcode Enrollment Questionnaire Submit Yes button */
+	@FindBy(xpath = "//button[@ng-click='buttonClicked(button)'][2]")
+	public WebElement enrollmentQuestionnaireSubmitYesButton;
 
-	/**--------------- COVIDcode ENROLLMENT QUESTIONNAIRE CONTACT INFO SECTION ---------------*/
+	/**
+	 * ---------- THE END OF COVIDcode ENROLLMENT QUESTIONNAIRE GENERALS --------
+	 */
+
+	/**
+	 * --------- COVIDcode ENROLLMENT QUESTIONNAIRE CONTACT INFO SECTION ---------
+	 */
 
 	/**
 	 * COVIDcode Enrollment Questionnaire Contact info: patient LAST NAME text
@@ -131,16 +141,15 @@ public class EnrollmentQuestionnairePage extends CommonUtils {
 	public WebElement enrollmentQuestionnairePatientZipCodeTextBox;
 
 	/**
-	 * --------------- THE END OF COVIDcode ENROLLMENT QUESTIONNAIRE CONTACT INFO SECTION ---------------
-	 */
+	 * ---- THE END OF COVIDcode ENROLLMENT QUESTIONNAIRE CONTACT INFO SECTION -----*/
 
 	/**
-	 * --------------- COVIDcode ENROLLMENT QUESTIONNAIRE DEMOGRAPHICS SECTION ---------------
-	 */
+	 * ------- COVIDcode ENROLLMENT QUESTIONNAIRE DEMOGRAPHICS SECTION ------*/
 
 	/** COVIDcode Enrollment Questionnaire demographics tab */
 	@FindBy(xpath = "//a[contains(text(), 'Demographics')]")
 	public WebElement demographicsTab;
+
 	/**
 	 * COVIDcode Enrollment Questionnaire Demographics: Date form completed calendar
 	 * field
@@ -236,11 +245,11 @@ public class EnrollmentQuestionnairePage extends CommonUtils {
 	public WebElement enrollmentQuestionnaireInchesTextBox;
 
 	/**
-	 * --------------- THE END OF COVIDcode ENROLLMENT QUESTIONNAIRE DEMOGRAPHICS SECTION ---------------
+	 * --- THE END OF COVIDcode ENROLLMENT QUESTIONNAIRE DEMOGRAPHICS SECTION ----
 	 */
 
 	/**
-	 * --------------- COVIDcode ENROLLMENT QUESTIONNAIRE SYMPTOMOLOGY SECTION ---------------
+	 * -------- COVIDcode ENROLLMENT QUESTIONNAIRE SYMPTOMOLOGY SECTION -----
 	 */
 
 	/** COVIDcode Enrollment Questionnaire patient zip code text box */
@@ -250,6 +259,7 @@ public class EnrollmentQuestionnairePage extends CommonUtils {
 	/** COVIDcode Enrollment Questionnaire Symptomology tab */
 	@FindBy(xpath = "//*[contains(text(),'Symptomology')]")
 	public WebElement symptomologyTab;
+
 	/**
 	 * COVIDcode Enrollment Questionnaire Symptomology: Were you symptomatic
 	 * dropdown
@@ -270,6 +280,7 @@ public class EnrollmentQuestionnairePage extends CommonUtils {
 	 */
 	@FindBy(xpath = "//input[@id='sp_formfield_date_first_symptoms']")
 	public WebElement enrollmentQuestionnaireWhenDevelopSymptoms;
+
 	/**
 	 * COVIDcode Enrollment Questionnaire Symptomology: When were you officially
 	 * diagnosed with COVID-19? calendar
@@ -278,9 +289,119 @@ public class EnrollmentQuestionnairePage extends CommonUtils {
 	public WebElement enrollmentQuestionnaireWhenOfficiallyDiagnosedCalendar;
 
 	/**
-	 * --------------- THE END OF COVIDcode ENROLLMENT QUESTIONNAIRE SYMPTOMOLOGY SECTION ---------------
+	 * ---- THE END OF COVIDcode ENROLLMENT QUESTIONNAIRE SYMPTOMOLOGY SECTION -----
 	 */
+	
+	
+    /** --------------- COVIDcode ENROLLMENT QUESTIONNAIRE EXPOSURES AND RISK FACTORS SECTION TABLE ---------------  */ 
+	
+	/** Enrollment Questionnaire Exposures and risk factors tab */
+	@FindBy(xpath = "//*[contains(text(),'Exposures')]")
+	public WebElement enrollmentQuestionnaireExposuredAndRiskFactorsTab;
+	
+	/** Enrollment Questionnaire Exposures and Risk Factors Non-steroidal anti-inflammatory drugs (ex. ibuprofen: Advil, Motrin, etc.) drop down */
+	@FindBy(xpath = "//div[@id='s2id_sp_formfield_used_anti_inflammatory']/a")
+	public WebElement enrollmentQuestionnaireExposuredAndRiskFactorsNonSteroidalAntiInflammatoryDrugsnDD;
+	
+	/** Enrollment Questionnaire Exposures and Risk Factors Myocardial infarction or stroke medication (ex. digoxin) drop down */
+	@FindBy(xpath = "//div[@id='s2id_sp_formfield_used_stroke']/a")
+	public WebElement enrollmentQuestionnaireExposuredAndRiskFactorsMyocardialInfarctionOrStrokeMedicationDD;
+	
+	/** Enrollment Questionnaire Exposures and Risk Factors Paracetamol/acetaminophen (ex. acetaminophen: Tylenol) drop down */
+	@FindBy(xpath = "//div[@id='s2id_sp_formfield_used_paracetamol']/a")
+	public WebElement enrollmentQuestionnaireExposuredAndRiskFactorsParacetamolAcetaminophenDD;
+	
+	/** Enrollment Questionnaire Exposures and Risk Factors Blood thinners (ex. warfarin – Coumadin, rivaroxaban – Xarelto) drop down */
+	@FindBy(xpath = "//div[@id='s2id_sp_formfield_used_blood_thinners']/a")
+	public WebElement enrollmentQuestionnaireExposuredAndRiskFactorsBloodThinnersDD;
+	
+	/** Enrollment Questionnaire Exposures and Risk Factors Asthma medication (ex. albuterol – Ventolin) drop down */
+	@FindBy(xpath = "//div[@id='s2id_sp_formfield_used_asthma']/a")
+	public WebElement enrollmentQuestionnaireExposuredAndRiskFactorsAsthmaMedicationDD;
+	
+	/** Enrollment Questionnaire Exposures and Risk Factors ACE-inhibitors for blood pressure (ex. enalapril, lisinopril) drop down */
+	@FindBy(xpath = "//div[@id='s2id_sp_formfield_used_ace_inhibitors']/a")
+	public WebElement enrollmentQuestionnaireExposuredAndRiskFactorsAceInhibitorsDD;
 
+	/** Enrollment Questionnaire Exposures and Risk Factors Pollen allergy medication (ex diphenhydramine – Benadryl, ioratadine - Claritin) drop down */
+	@FindBy(xpath = "//div[@id='s2id_sp_formfield_used_allergy']/a")
+	public WebElement enrollmentQuestionnaireExposuredAndRiskFactorsPollenAllergyMedicationUsedDD;
+	
+	/** Enrollment Questionnaire Exposures and Risk Factors ARBs(Angiotensin II Receptor Blockers) (candesartan- Atacand, valsartan-Diovan) drop down */
+	@FindBy(xpath = "//div[@id='s2id_sp_formfield_used_arbs']/a")
+	public WebElement enrollmentQuestionnaireExposuredAndRiskFactorsUsedArbsDD;
+	
+	/** Enrollment Questionnaire Exposures and Risk Factors Antibiotics penicillin, azithromycin (ex. Z-pack) drop down */
+	@FindBy(xpath = "//div[@id='s2id_sp_formfield_used_antibiotics']/a")
+	public WebElement enrollmentQuestionnaireExposuredAndRiskFactorsUsedAntibioticsDD;
+	
+	/** Enrollment Questionnaire Exposures and Risk Factors Drop Down Value list */
+	@FindBy(xpath = "//ul[@class='select2-results']/li/div")
+	public List<WebElement> enrollmentQuestionnaireExposuredAndRiskFactorsDDValue;
+	
+	/** Enrollment Questionnaire Exposures and Risk Factors Non-steroidal anti-inflammatory drugs (ex. ibuprofen: Advil, Motrin, etc.) Search Drop Down Text Field */
+	@FindBy(xpath = "//input[@id='s2id_autogen15_search']")
+	public WebElement enrollmentQuestionnaireExposuredAndRiskFactorsNonSteroidalAntiInflammatoryDrugsnSearchDropDownTextField;
+	
+	/** Enrollment Questionnaire Exposures and Risk Factors Myocardial infarction or stroke medication (ex. digoxin) Search Drop Down Text Field */
+	@FindBy(xpath = "//input[@id='s2id_autogen20_search']")
+	public WebElement enrollmentQuestionnaireExposuredAndRiskFactorsMyocardialInfarctionOrStrokeMedicationSearchDropDownTextField;
+	
+	/** Enrollment Questionnaire Exposures and Risk Factors Paracetamol/acetaminophen (ex. acetaminophen: Tylenol) Search Drop Down Text Field */
+	@FindBy(xpath = "//input[@id='s2id_autogen16_search']")
+	public WebElement enrollmentQuestionnaireExposuredAndRiskFactorsParacetamolAcetaminophenSearchDropDownTextField;
+	
+	/** Enrollment Questionnaire Exposures and Risk Factors Blood thinners (ex. warfarin – Coumadin, rivaroxaban – Xarelto) Search Drop Down Text Field */
+	@FindBy(xpath = "//input[@id='s2id_autogen21_search']")
+	public WebElement enrollmentQuestionnaireExposuredAndRiskFactorsBloodThinnersSearchDropDownTextField;
+	
+	/** Enrollment Questionnaire Exposures and Risk Factors Asthma medication (ex. albuterol – Ventolin) Search Drop Down Text Field */
+	@FindBy(xpath = "//input[@id='s2id_autogen17_search']")
+	public WebElement enrollmentQuestionnaireExposuredAndRiskFactorsAsthmaMedicationSearchDropDownTextField;
+	
+	/** Enrollment Questionnaire Exposures and Risk Factors ACE-inhibitors for blood pressure (ex. enalapril, lisinopril) Search Drop Down Text Field */
+	@FindBy(xpath = "//input[@id='s2id_autogen22_search']")
+	public WebElement enrollmentQuestionnaireExposuredAndRiskFactorsAceInhibitorsSearchDropDownTextField;
+	
+	/** Enrollment Questionnaire Exposures and Risk Factors Pollen allergy medication (ex diphenhydramine – Benadryl, ioratadine - Claritin) Search Drop Down Text Field */
+	@FindBy(xpath = "//input[@id='s2id_autogen18_search']")
+	public WebElement enrollmentQuestionnaireExposuredAndRiskFactorsPollenAllergyMedicationUsedSearchDropDownTextField;
+	
+	/** Enrollment Questionnaire Exposures and Risk Factors ARBs(Angiotensin II Receptor Blockers) (candesartan- Atacand, valsartan-Diovan) Search Drop Down Text Field */
+	@FindBy(xpath = "//input[@id='s2id_autogen23_search']")
+	public WebElement enrollmentQuestionnaireExposuredAndRiskFactorsUsedArbsSearchDropDownTextField;
+	
+	/** Enrollment Questionnaire Exposures and Risk Factors Antibiotics penicillin, azithromycin (ex. Z-pack) Search Drop Down Text Field */
+    @FindBy(xpath = "//input[@id='s2id_autogen19_search']")
+	public WebElement enrollmentQuestionnaireExposuredAndRiskFactorsAntibioticsPenicillinSearchDropDownTextField;
+	
+    /** --------------- END OF COVIDcode ENROLLMENT QUESTIONNAIRE EXPOSURES AND RISK FACTORS SECTION TABLE ---------------  */ 
+	
+	
+    /** --------------- COVIDcode ENROLLMENT QUESTIONNAIRE DISEASE COURSE SECTION ---------------  */ 
+	
+	/** Enrollment Questionnaire Disease Course New Button */
+	@FindBy (xpath = "//*[contains(text(), 'New')] ")
+	public WebElement enrollmentQuestionnaireDiseaseCourseNewButton;
+	
+	/** Enrollment Questionnaire Disease Course Add button */
+	@FindBy (xpath = "//div[@class = 'modal-footer']/button[2]")
+	public WebElement enrollmentQuestionnaireDiseaseCourseAddButton;
+	
+	/** Enrollment Questionnaire Disease Course Drug Treatments text */
+	@FindBy (xpath = "//*[@id='drug_treatments']/div/label")
+	public WebElement enrollmentQuestionnaireDiseaseCourseDrugTreatmentsText;
+	
+	/** Enrollment Questionnaire Disease Course Drug Treatments text field */
+	@FindBy (xpath = "//div[@id='s2id_sp_formfield_drug_treatments']/ul/li/input")
+	public WebElement enrollmentQuestionnaireDiseaseCourseDrugTreatmentsTextField;
+	
+	/** Enrollment Questionnaire Disease Course Drug Treatments drop down values */
+	@FindBy (xpath = "//div[@id='select2-drop']/ul/li")
+	public List<WebElement> enrollmentQuestionnaireDiseaseCourseDrugTreatmentsDropDownValues;
+	
+    /** --------------- END OF COVIDcode ENROLLMENT QUESTIONNAIRE DISEASE COURSE SECTION ---------------  */ 
+	
 	public EnrollmentQuestionnairePage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}

@@ -39,7 +39,10 @@ import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
-
+import ServiceNow.SEER.Pages.NativeViewSentViewPage;
+import ServiceNow.SEER.Pages.SEERDataAccessRequestPage;
+import ServiceNow.SEER.Pages.SEERLandingPage;
+import ServiceNow.SEER.Pages.SEERUserRegistrationPage;
 
 /**
  * This an initializer class which will initialize all pages classes. Once pages
@@ -110,7 +113,13 @@ public class PageInitializer {
 	protected static CEDCDBiospecimenCountsSelectAllCohortsSteps cedcdBiospecimenCountsSelectAllCohortsSteps;
 	protected static CEDCDSearchCohortAlcoholConsumptionStepImp cedcdSearchCohortAlcoholConsumptionStepImp;
 
-	public static void initializeAllPages() { 
+	/** SEER instances */
+	protected static SEERLandingPage seerLandingPage;
+	protected static SEERUserRegistrationPage seerUserRegistrationPage;
+	protected static SEERDataAccessRequestPage seerDataAccessRequestPage;
+	protected static NativeViewSentViewPage nativeViewSentViewPage;
+
+	public static void initializeAllPages() {
 		// create instances of all pages and assign them to the variables
 		iTrustloginPage = new ITrustLoginPage();
 		loginImpl = new ITrustLoginPageImpl();
@@ -155,6 +164,10 @@ public class PageInitializer {
 		servicePortalQuestionnairePageImp = new ServicePortalQuestionnairePageImp();
 		dashboardStepImpl = new DashboardStepImpl();
 		nativeViewStepsImpl = new NativeViewStepsImpl();
+		seerLandingPage = new SEERLandingPage();
+		seerUserRegistrationPage = new SEERUserRegistrationPage();
+		seerDataAccessRequestPage = new SEERDataAccessRequestPage();
+		nativeViewSentViewPage = new NativeViewSentViewPage();
 	}
 
 }
