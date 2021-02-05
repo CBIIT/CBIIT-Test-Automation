@@ -25,7 +25,9 @@ public class SubmissionsPageSteps {
 	}
 
 	@Then("the submitted study is displayed and options to Approve or Reject are available")
-	public void the_submitted_study_is_displayed_and_options_to_Approve_or_Reject_are_available() {
+	public void the_submitted_study_is_displayed_and_options_to_Approve_or_Reject_are_available() throws TestingException {
+		pageCache.getNativeViewDashboardPageImpl().impersonateUser("Sharon Savage");
+		MiscUtils.sleep(3000);
 		pageCache.getSubmissionsPage().verifyApproveRejectButton();
 		CucumberLogUtils.logScreenShot();
 
