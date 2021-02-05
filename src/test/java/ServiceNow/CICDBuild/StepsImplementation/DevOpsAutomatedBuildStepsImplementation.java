@@ -32,17 +32,13 @@ public class DevOpsAutomatedBuildStepsImplementation extends PageInitializer {
 	}
 
 	public void selectingCICDDevOpsApplication(String cicdDevOps) {
-		MiscUtils.sleep(4000);
-//		Actions action = new Actions(WebDriverUtils.webDriver);
-//		action.moveToElement(devOpsNativeViewPage.applicationSelectorDropDown).build().perform();
-//		WebDriverWait wait = new WebDriverWait(WebDriverUtils.webDriver, 60);
-		JavascriptUtils.clickByJS(devOpsNativeViewPage.applicationSelectorDropDown);
-		//devOpsNativeViewPage.applicationSelectorDropDown.click();
-		MiscUtils.sleep(6000);
+		MiscUtils.sleep(5000);
+		devOpsNativeViewPage.applicationSelectorDropDown.click();
+		MiscUtils.sleep(8000);
 		List<WebElement> values = devOpsNativeViewPage.dropDownApplications;
-		MiscUtils.sleep(6000);
+		MiscUtils.sleep(8000);
 		CommonUtils.selectValueFromBootStrapDropDown(values, cicdDevOps);
-		MiscUtils.sleep(5000);//was seven seconds	
+		MiscUtils.sleep(8000);//was seven seconds	
 		JavascriptUtils.clickByJS(devOpsNativeViewPage.showSelectedApplicationButton);
 		MiscUtils.sleep(8000);
 		//WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='user_info_dropdown']")).click();
@@ -56,8 +52,8 @@ public class DevOpsAutomatedBuildStepsImplementation extends PageInitializer {
 		CommonUtils.switchToFrame(devOpsNativeViewPage.nativeViewSandboxIframe);
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(devOpsNativeViewPage.buildThisApplicationButton);
-		MiscUtils.sleep(2000);
-//		CommonUtils.selectDropDownValue(devOpsNativeViewPage.selectDeploymentDropDown, application);
+		MiscUtils.sleep(3000);
+		//CommonUtils.selectDropDownValue(devOpsNativeViewPage.selectDeploymentDropDown, application);
 		CommonUtils.selectDropDownValue(application, devOpsNativeViewPage.selectDeploymentDropDown);
 		MiscUtils.sleep(2000);
 	}

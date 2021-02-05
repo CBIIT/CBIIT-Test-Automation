@@ -52,6 +52,10 @@ public class ExploreGWASPage extends CommonUtils {
 	/** Ancestry/Sex drop down Bottom**/
 	@FindBy(xpath = "(//*[@class='form-control'])[2]")
 	public WebElement selAncestryBottom; 
+
+	/** Ancestry/Sex drop down**/
+	@FindBy(xpath = "//*[@class='form-control']")
+	public WebElement selAncestry; 
 	
 	/** Submit button for Summary Results **/
 	@FindBy(xpath = "//*[@type='submit']")
