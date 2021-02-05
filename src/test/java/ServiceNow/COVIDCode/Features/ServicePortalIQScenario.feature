@@ -1,5 +1,4 @@
-#Author: Daniyar Mussatayev and Chelsea Yilmaz
-
+#Author: juarezds
 Feature: COVIDCode Service Portal Draft Initial Questionnaires Scenarios
 
 Description: This feature file contains scenarios related to Service Portal Draft Initial Questionnaires

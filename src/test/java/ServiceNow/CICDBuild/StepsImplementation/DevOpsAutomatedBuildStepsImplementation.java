@@ -4,7 +4,10 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -66,7 +69,8 @@ public class DevOpsAutomatedBuildStepsImplementation extends PageInitializer {
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(devOpsNativeViewPage.buildThisApplicationButton);
 		MiscUtils.sleep(2000);
-		CommonUtils.selectDropDownValue(devOpsNativeViewPage.selectDeploymentDropDown, updateSet);
+//		CommonUtils.selectDropDownValue(devOpsNativeViewPage.selectDeploymentDropDown, updateSet);
+		CommonUtils.selectDropDownValue(updateSet, devOpsNativeViewPage.selectDeploymentDropDown);
 	}
 
 	public void selectingPendingCodeReviewSetsAndMovingToRightTable() {
