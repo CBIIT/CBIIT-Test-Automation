@@ -1,8 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="7.87268">
-<testcase classname="Browse Phenotype" name="User on Browse Phenotype Tab" time="7.87268">
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="3" time="43.811883">
+<testcase classname="Explore GWAS" name="User generates BMI Manhattan Plot for East Asian All" time="18.974273">
 <system-out><![CDATA[Given user on PLCO homepage.................................................passed
-When user clicks browse phenotype tab.......................................passed
-Then browse phenotype page displays "Please select a phenotype".............passed
+When user selects explore GWAS..............................................passed
+And selects phenotype as BMI at baseline....................................passed
+And selects ancestry as East Asian All......................................passed
+And clicks submit...........................................................passed
+Then Manhattan Plot displays................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Explore GWAS" name="User generates pairwise BMI Manhattan plot with top ancestry as east asian all and bottom ancestry as european all" time="15.703452">
+<system-out><![CDATA[Given user on PLCO homepage.................................................passed
+When user selects explore GWAS..............................................passed
+And selects Pairwise Plots..................................................passed
+And selects phenotype as BMI at baseline....................................passed
+And selects top ancestry as East Asian All..................................passed
+And selects bottom ancestry as European All.................................passed
+And clicks submit...........................................................passed
+Then Manhattan Plot displays................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Explore GWAS" name="User looks up BMI at Baseline for variant rs114124524" time="9.134158">
+<system-out><![CDATA[Given user on PLCO homepage.................................................passed
+When user selects explore GWAS..............................................passed
+And selects variant lookup tab..............................................passed
+And selects phenotype as BMI at baseline for variant lookup.................passed
+And writes variant as "rs114124524".........................................passed
+And selects ancestry as European for variant lookup.........................passed
+And selects sex as all for variant lookup...................................passed
+And clicks submit...........................................................passed
+Then results table displays.................................................passed
 ]]></system-out>
 </testcase>
 </testsuite>
