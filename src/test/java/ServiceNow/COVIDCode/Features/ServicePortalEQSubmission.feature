@@ -1,6 +1,5 @@
 Feature: Service Portal Enrollment Questionnaire Submissions
 
-
   @Smoke @updatedJan282021
   Scenario: COVIDcode Study Provider Enrollment Questionnaire Submission Group 1 User
     Given a COVIDcode Study Provider user has logged in to the COVIDcode Study application
