@@ -12,7 +12,6 @@ import com.nci.automation.utils.Report;
 import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import appsCommon.PageCache;
 import appsCommon.PageInitializer;
 import cucumber.api.Scenario;
@@ -125,11 +124,6 @@ public class HooksSteps {
 	    String featureName = tab[rawFeatureNameLength - 1].split(":")[0];
 	    System.out.println("featureName: " + featureName);
 	    return featureName;
-	}
-	
-	@BeforeStep
-	public void beforeStep() {
-		
 	}
 
 }
