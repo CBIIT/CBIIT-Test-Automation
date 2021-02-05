@@ -24,11 +24,13 @@ public class TestAccountResetSteps extends PageInitializer {
 
 	@When("searching for {string} in the filter navigator")
 	public void searching_for_in_the_filter_navigator(String studio) {
+		MiscUtils.sleep(2000);
 		nativeViewHomePage.nativeViewFilterNavigator.sendKeys(studio);
 	}
 
 	@When("click on Studio")
 	public void click_on_Studio() {
+		MiscUtils.sleep(2000);
 		String parentWindowHandle = WebDriverUtils.webDriver.getWindowHandle();
 		charmsNativeViewPage.studioLink.click();
 	}
@@ -41,68 +43,81 @@ public class TestAccountResetSteps extends PageInitializer {
 
 	@When("searching for {string}")
 	public void searching_for(String fcsms) {
+		MiscUtils.sleep(3000);
 		testAccountResetImpl.navigateToCHARMSstudio(fcsms);
 	}
 
 	@When("clicking on the Family Cohort Study application link")
 	public void clicking_on_the_Family_Cohort_Study_application_link() {
+		MiscUtils.sleep(3000);
 		charmsNativeViewPage.familyCohortStudyLink.click();
 	}
 
 	@Then("the {string} page displays with CHARMS application explorer")
 	public void the_page_displays_with_CHARMS_application_explorer(String string) {
-		MiscUtils.sleep(2000);
+		MiscUtils.sleep(3000);
 	}
 
 	@Then("on the tables drop down navigate to CHARMS Referrals")
 	public void on_the_tables_drop_down_navigate_to_CHARMS_Referrals() {
-		charmsNativeViewPage.charmsReferralsLink.click();
+		MiscUtils.sleep(3000);
+		//charmsNativeViewPage.charmsReferralsLink.click();
+		JavascriptUtils.clickByJS(charmsNativeViewPage.charmsReferralsLink);
 		MiscUtils.sleep(2000);
 	}
 
 	@Then("under {string} click on Show List")
 	public void under_click_on_Show_List(String string) {
+		MiscUtils.sleep(3000);
 		testAccountResetImpl.navigateToCHARMSreferralsShowList();
 	}
 
 	@Then("search for test account email address {string}")
 	public void search_for_test_account_email_address(String testAccountEmail) {
+		MiscUtils.sleep(3000);
 		testAccountResetImpl.searchForTestAccountCHARMSreferralsShowList(testAccountEmail);
 	}
 
 	@Then("select the account and delete it - this will reset the screener form")
-	public void select_the_account_and_delete_it_this_will_reset_the_screener_form() {	
+	public void select_the_account_and_delete_it_this_will_reset_the_screener_form() {
+		MiscUtils.sleep(3000);
 		testAccountResetImpl.deleteAccountFromCHARMSreferralsShowList();
 	}
 
 	@Then("on the tables drop down navigate to Family Member Details")
 	public void on_the_tables_drop_down_navigate_to_Family_Member_Details() {
+		MiscUtils.sleep(3000);
 		testAccountResetImpl.navigateToFamilyMemberDetails();
 	}
 
 	@Then("navigate to Show List")
 	public void navigate_to_Show_List() {
+		MiscUtils.sleep(3000);
 		testAccountResetImpl.navigateToFamilyMemberDetailsShowList();
 	}
 
 	@Then("search by testers name {string}")
 	public void search_by_testers_name(String accountName) {
+		MiscUtils.sleep(3000);
 		testAccountResetImpl.searchTestAccountNameFamilyMemberDetails(accountName);
 	}
 
 	@Then("select the account and delete it - this will reset Family Member Details")
 	public void select_the_account_and_delete_it_this_will_reset_Family_Member_Details() {
+		MiscUtils.sleep(3000);
 		testAccountResetImpl.deleteAccountFromFamilyMemberDetails();
 	}
 
 	@Then("on the tables drop down navigate to FCSMS Form Access")
 	public void on_the_tables_drop_down_navigate_to_FCSMS_Form_Access() {
-		
+		MiscUtils.sleep(3000);
 		testAccountResetImpl.navigateToFCSMSformAccess();
 	}
 	@Then("navigate to  FCSMS Show List")
 	public void navigate_to_FCSMS_Show_List() {
+		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(charmsNativeViewPage.fcsmsFormAccessShowListLink);
+		MiscUtils.sleep(2000);
 		charmsNativeViewPage.fcsmsFormAccessShowListLink.click();
 		MiscUtils.sleep(3000);
 	}
@@ -112,6 +127,7 @@ public class TestAccountResetSteps extends PageInitializer {
 
 	@Then("select the account and delete it - this will reset FCSMS Form Access")
 	public void select_the_account_and_delete_it_this_will_reset_FCSMS_Form_Access() {
+		MiscUtils.sleep(3000);
 		testAccountResetImpl.deleteAccountFromFCSMSformAccess();
 	}
  

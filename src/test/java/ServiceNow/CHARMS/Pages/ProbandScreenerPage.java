@@ -429,6 +429,24 @@ public class ProbandScreenerPage extends CommonUtils {
 	public WebElement confirmScreenerSubmissionBtn;
 	
 	/** --------------- END OF FINAL INFORMATION SECTION --------------- */
+	
+	/** --------------- SIGNING OUT OF CHARMS --------------- */
+	
+	/** Your Screener Form has been submitted successfully ! OK button */
+	@FindBy (xpath = "(//*[contains(text(),'OK')])[1]")
+	public WebElement screenerFormSubmittedSuccessfullyOKButton;
+	
+	/** Profile account drop down */
+	@FindBy (xpath = "//*[@id='user-info-dropdown']")
+	public WebElement profileAccountDropDown;
+	
+	/** Sign Out button */
+	@FindBy (xpath = "//a[contains(text(),'Sign Out')]")
+	public WebElement signOutButton;
+	
+	/** --------------- END OF SIGNING OUT OF CHARMS --------------- */
+	
+	
 
 	public ProbandScreenerPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
