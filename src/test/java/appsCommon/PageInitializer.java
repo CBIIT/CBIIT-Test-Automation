@@ -8,8 +8,9 @@ import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
-import AnalysisTools.PLCO.Pages.APIAcessPage;
+import AnalysisTools.PLCO.Pages.BrowsePhenotypePage;
 import AnalysisTools.PLCO.Pages.ExploreGWASPage;
+import AnalysisTools.PLCO.Pages.InformationPage;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
 import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
@@ -85,13 +86,19 @@ public class PageInitializer {
 	protected static CHARMSNativeViewPage charmsNativeViewPage;
 	protected static TestAccountResetImpl testAccountResetImpl;
 
-	/** LDLink instances **/
-	protected static LDLinkHomePage ldLinkHomePage;
-	protected static LDLinkLandingPage ldLinkLandingPage;
 
-	/** PLCO instances **/
-	protected static ExploreGWASPage exploreGWASPage;
-	protected static APIAcessPage apiAcessPage;
+	
+	/**LDLink instances**/
+	protected static LDLinkHomePage ldLinkHomePage; 
+	protected static LDLinkLandingPage ldLinkLandingPage; 
+	
+	/**PLCO instances**/
+	protected static ExploreGWASPage exploreGWASPage; 
+	protected static InformationPage informationPage; 
+	protected static BrowsePhenotypePage browsePhenotypePage;
+	
+
+
 
 	protected static CHARMSHomePage charmsHomePage;
 	protected static OKTAloginPage oktaLoginPage;
@@ -143,7 +150,6 @@ public class PageInitializer {
 		ldLinkLandingPage = new LDLinkLandingPage();
 		ldLinkHomePage = new LDLinkHomePage();
 		exploreGWASPage = new ExploreGWASPage();
-		apiAcessPage = new APIAcessPage();
 		charmsHomePage = new CHARMSHomePage();
 		oktaLoginPage = new OKTAloginPage();
 		charmsHomePageImpl = new CHARMSHomePageImp();
@@ -153,6 +159,8 @@ public class PageInitializer {
 		devOpsLoginPage = new DevOpsLoginPage();
 		devOpsNativeViewPage = new DevOpsNativeViewPage();
 		devOpsAutomatedBuildStepsImplementation = new DevOpsAutomatedBuildStepsImplementation();
+		informationPage = new InformationPage();
+		browsePhenotypePage = new BrowsePhenotypePage();
 		signOutVerificationStepImp = new SignOutVerificationStepImp();
 		cedcdSearchCohortsPage = new CEDCDSearchCohortsPage();
 		cedcdSearchFemaleCohortsStepImp = new CEDCDSearchFemaleCohortsStepImp();
