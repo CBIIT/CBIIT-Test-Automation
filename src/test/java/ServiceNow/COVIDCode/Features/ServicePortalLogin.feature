@@ -1,4 +1,4 @@
-#Author: Diego Juarez
+#Author: juarezds
 #Supports COVID-33, COVID-64, COVID-86
 Feature: COVIDcode Study Provider Service Portal Login Scenarios
 
