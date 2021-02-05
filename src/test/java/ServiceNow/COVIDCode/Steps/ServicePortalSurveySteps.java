@@ -30,8 +30,8 @@ public class ServicePortalSurveySteps extends PageInitializer {
 
 	@Given("selects the option to Volunteer")
 	public void selects_the_option_to_Volunteer() {
-		CommonUtils.waitForClickability(covidCodeLoginPage.volunteerForTheStudy);
-		JavascriptUtils.clickByJS(covidCodeLoginPage.volunteerForTheStudy);
+		CommonUtils.waitForClickability(covidCodeLoginPage.volunteerForTheStudyButton);
+		JavascriptUtils.clickByJS(covidCodeLoginPage.volunteerForTheStudyButton);
 		
 	}
 
@@ -53,7 +53,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 
 	@When("the user selects option to fill out the survery for themselves")
 	public void the_user_selects_option_to_fill_out_the_survery_for_themselves() {
-		MiscUtils.sleep(2000);
+		MiscUtils.sleep(1000);
 		servicePortalSurveyPage.areYouFillingThisOutForYourselfDropDown.click();
 		List<WebElement> values = servicePortalSurveyPage.areYouFillingThisOutForYourselfDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(values, "Myself");
@@ -70,6 +70,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 	@When("selecting No")
 	public void selecting_No() {
 		servicePortalSurveyPage.haveYouTestedPositiveForSARSCoV2DropDown.click();
+		MiscUtils.sleep(1000);
 		List<WebElement> values = servicePortalSurveyPage.haveYouTestedPositiveForSARSCoV2DropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(values, "No");
 	}
@@ -83,6 +84,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 	@When("selecting {string}")
 	public void selecting(String nasalOrThroatSwab) {
 		servicePortalSurveyPage.howWasTheSampleTakenDropDown.click();
+		MiscUtils.sleep(1000);
 		List<WebElement> values = servicePortalSurveyPage.howWasTheSampleTakenDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(values, nasalOrThroatSwab);
 		CucumberLogUtils.logScreenShot();
@@ -98,6 +100,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 	public void selecting_No_for_being_able_to_provide_a_copy_of_test_report() {
 		JavascriptUtils.scrollIntoView(servicePortalSurveyPage.canYouProvideCopyofTestReportTxt);
 		servicePortalSurveyPage.canYouProvideCopyofTestReportDropDown.click();
+		MiscUtils.sleep(1000);
 		List<WebElement> values = servicePortalSurveyPage.canYouProvideCopyofTestReportDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(values, "No");
 		CucumberLogUtils.logScreenShot();
@@ -106,6 +109,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 	@When("selecting No for for ever being hospitalized")
 	public void selecting_No_for_for_ever_being_hospitalized() {
 		servicePortalSurveyPage.wereYouEverHospitalizedDropDown.click();
+		MiscUtils.sleep(1000);
 		List<WebElement> values = servicePortalSurveyPage.wereYouEverHospitalizedDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(values, "No");
 		CucumberLogUtils.logScreenShot();
@@ -129,8 +133,9 @@ public class ServicePortalSurveySteps extends PageInitializer {
 		servicePortalSurveyPage.lastNameTextBox.sendKeys("AutomatedLastName");
 		servicePortalSurveyPage.phoneNumberTextBox.sendKeys("703-687-5816");
 		servicePortalSurveyPage.emailAddressTextBox.sendKeys("automatedtest@test.com");
-		JavascriptUtils.scrollIntoView(servicePortalSurveyPage.preferredMethodOfContactTxt);
+		JavascriptUtils.scrollIntoView(servicePortalSurveyPage.preferredMethodOfContactDropDown);
 		servicePortalSurveyPage.preferredMethodOfContactDropDown.click();
+		MiscUtils.sleep(3000);
 		List<WebElement> values = servicePortalSurveyPage.preferredMethodOfContactDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(values, "Phone");
 		servicePortalSurveyPage.yearOfBirthTextBox.sendKeys("1990");
@@ -153,6 +158,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 	@When("selecting option {string}")
 	public void selecting_option(String preferNotToAnswer) {
 		servicePortalSurveyPage.howDidYouFindOutAboutOurStudyDropDown.click();
+		MiscUtils.sleep(3000);
 		List<WebElement> values = servicePortalSurveyPage.howDidYouFindOutAboutOurStudyDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(values, preferNotToAnswer);
 	}
@@ -187,14 +193,14 @@ public class ServicePortalSurveySteps extends PageInitializer {
 	@Then("the user is prompted back to the COVIDCode Study Home Page")
 	public void the_user_is_prompted_back_to_the_COVIDCode_Study_Home_Page() {
 		// Why are we doing this study? text on home page
-		Assert.assertTrue(covidCodeLoginPage.whyAreWeDoingThisStudyTxt.getText().contains("WHY ARE WE DOING"));
+		Assert.assertTrue(covidCodeLoginPage.whyAreWeDoingThisStudyHeader.getText().contains("WHY ARE WE DOING"));
 	}
 
 	@Then("the following header displays {string} followed by a body description {string}")
 	public void the_following_header_displays_followed_by_a_body_description(String whyAreWeDoingThisStudyHeader,
 			String coronavirus2019Paragraph) {
 		Assert.assertTrue(
-				covidCodeLoginPage.whyAreWeDoingThisStudyTxt.getText().contentEquals(whyAreWeDoingThisStudyHeader));
+				covidCodeLoginPage.whyAreWeDoingThisStudyHeader.getText().contentEquals(whyAreWeDoingThisStudyHeader));
 		Assert.assertTrue(covidCodeLoginPage.coronavirus2019Paragraph.getText().contains(coronavirus2019Paragraph));
 
 	}
@@ -239,12 +245,12 @@ public class ServicePortalSurveySteps extends PageInitializer {
 		nativeViewEnrollementsPage.filterNavigator.sendKeys(covidCodeVolunteerSurveysTxt);
 		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(3000);
-		nativeViewEnrollementsPage.covidCodeVolunteerSurveysLink.click();
+		nativeViewEnrollementsPage.nativeViewPanelNavigatorCovidCodeVolunteerSurveysLink.click();
 	}
 
 	@When("clicking on a submitted Survey Number")
 	public void clicking_on_an_existing_follow_up_surverys_Group_ID() {
-		CommonUtils.switchToFrame(nativeViewEnrollementsPage.frame);
+		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
 		MiscUtils.sleep(2000);
 		nativeViewEnrollementsPage.covidCodeSurveyNumberFirstLink.click();
 	}
@@ -258,6 +264,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 	@When("{string} option is selected")
 	public void option_is_selected(String haveYouTestedPositiveYesOrNo) {
 		servicePortalSurveyPage.haveYouTestedPositiveForSARSCoV2DropDown.click();
+		MiscUtils.sleep(3000);
 		List<WebElement> values = servicePortalSurveyPage.haveYouTestedPositiveForSARSCoV2DropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(values, haveYouTestedPositiveYesOrNo);
 	}
@@ -265,6 +272,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 	@When("{string} sample taken is selected")
 	public void sample_taken_is_selected(String howWasTheSampleTaken) {
 		servicePortalSurveyPage.howWasTheSampleTakenDropDown.click();
+		MiscUtils.sleep(3000);
 		List<WebElement> values = servicePortalSurveyPage.howWasTheSampleTakenDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(values, howWasTheSampleTaken);
 		CucumberLogUtils.logScreenShot();
@@ -274,6 +282,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 	public void option_is_selected_for_being_able_to_provide_a_copy_of_test_report(String canYouProvideAcopyOfTestYesOrNo) {
 		JavascriptUtils.scrollIntoView(servicePortalSurveyPage.canYouProvideCopyofTestReportTxt);
 		servicePortalSurveyPage.canYouProvideCopyofTestReportDropDown.click();
+		MiscUtils.sleep(3000);
 		List<WebElement> values = servicePortalSurveyPage.canYouProvideCopyofTestReportDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(values, canYouProvideAcopyOfTestYesOrNo);
 		CucumberLogUtils.logScreenShot();
@@ -282,6 +291,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 	@When("{string} option is selected for being hospitalized")
 	public void option_is_selected_for_being_hospitalized(String wereYouHospitalizedYesOrNo) {
 		servicePortalSurveyPage.wereYouEverHospitalizedDropDown.click();
+		MiscUtils.sleep(3000);
 		List<WebElement> values = servicePortalSurveyPage.wereYouEverHospitalizedDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(values, wereYouHospitalizedYesOrNo);
 		CucumberLogUtils.logScreenShot();
@@ -290,6 +300,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 	@Then("{string} option is selected for finding out about the study")
 	public void option_is_selected_for_finding_out_about_the_study(String howDidYouFindOutAboutStudy) {
 		servicePortalSurveyPage.howDidYouFindOutAboutOurStudyDropDown.click();
+		MiscUtils.sleep(3000);
 		List<WebElement> values = servicePortalSurveyPage.howDidYouFindOutAboutOurStudyDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(values, howDidYouFindOutAboutStudy);
 	}
