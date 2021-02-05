@@ -1,6 +1,6 @@
 Feature: Browse Phenotype
 
-@Progression
+@Smoke
 Scenario: User on Browse Phenotype Tab
     Given user on PLCO homepage
 		When user clicks browse phenotype tab
