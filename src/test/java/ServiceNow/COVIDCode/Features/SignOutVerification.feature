@@ -1,3 +1,4 @@
+#Author: juarezds
 Feature: Sign Out Verification
 
 Description: This feature file will verify that the user can log out properly

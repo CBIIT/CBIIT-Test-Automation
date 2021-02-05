@@ -1,4 +1,3 @@
-
 Feature: COVIDCode Dashboard Scenarios
 
 Description: this feature file contains scenarios telated to the COVIDCode Dashboard
