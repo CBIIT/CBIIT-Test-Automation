@@ -113,6 +113,8 @@ public class COVIDHomePageSteps extends PageInitializer{
 	@Then("the User is able to successfully submit the study {string}")
 	public void the_User_is_able_to_successfully_submit_the_study(String ibrNumber) throws TestingException {
 		pageCache.getCOVIDHomePage().clickSubmitAndConfirmSubButton();
+		//enter step here
+
 		pageCache.getSubmissionsPageImpl().rejectStudyUsingIbrNumber("Sharon Savage", ibrNumber);
 	}
 
