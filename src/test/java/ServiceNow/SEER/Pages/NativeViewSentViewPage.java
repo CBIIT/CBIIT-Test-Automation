@@ -23,9 +23,13 @@ public class NativeViewSentViewPage extends CommonUtils {
 	@FindBy (xpath = "//select[@class='form-control default-focus-outline']")
 	public WebElement nativeViewSearchDropDown;
 	
-	/**NativeView Sent Search filed*/
+	/**NativeView Sent Search fieled*/
 	@FindBy(xpath = "//div/span/div/div/input")
 	public WebElement nativeViewSentSearchField;
+	
+	/**Native View Created Button*/
+	@FindBy(xpath = "//table/tbody/tr/td/div/table/thead/tr[1]/th[3]/span/a")
+	public WebElement nativeViewCreatedButton;
 	
 	/**Native View Preview Verify Email I icon*/
 	@FindBy(xpath = "//*[@data-type='list2_popup']")
@@ -52,21 +56,16 @@ public class NativeViewSentViewPage extends CommonUtils {
 	public WebElement nativeViewPreviewEmailHelloNameText;
 	
 	/** Native View Review Email Verify EMAIL link*/
-	@FindBy(linkText= "https://service-test.nci.nih.gov/api/x_g_nci_seer_data/verify?id=b2001b671bb92850af3bed7bbc4bcbd0")
+	@FindBy(xpath = "/html/body/table/tbody/tr/td/table/tbody/tr[3]/td/p[3]/span/a")
 	public WebElement nativeViewPreviewEmailVerifyEMAILlink;
 	
+	/** Native View Sorting Created Data In Order Link */
+	@FindBy (xpath = "//tr[@id = 'hdr_sys_email']/th[3]/span/a")
+	public WebElement sortingCreatedDataInOrderLink;
 	
-	
-	
-	
-	
-	
-	
+	/** --------------- END OF NATIVE VIEW SENT VIEW PAGE --------------- */
 	
 	public NativeViewSentViewPage() {
-
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
-
 	}
-
 }
