@@ -13,7 +13,7 @@ import com.nci.automation.web.WebDriverUtils;
 public class FollowUpFormPage extends CommonUtils {
 
 
-	/** --------------- COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE GENERALS  ---------------  */ 
+	/** --------------- BEGINNING OF COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE GENERALS  ---------------  */ 
 	
 	/** COVIDcode Follow up: NIH Medical Record Number Text Box */
 	@FindBy(id = "sp_formfield_nih_medical_record_number")
@@ -58,7 +58,7 @@ public class FollowUpFormPage extends CommonUtils {
 	/** --------------- THE END OF COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE GENERALS  ---------------  */ 
 
 
-	/** --------------- COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE DISEASE COURSE SECTION  ---------------  */ 
+	/** --------------- BEGINNING OF COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE DISEASE COURSE SECTION  ---------------  */ 
 
 	
 	/** Disease Course New Button */
@@ -138,27 +138,29 @@ public class FollowUpFormPage extends CommonUtils {
 	public WebElement diseaseCourseDrugTreatmentsTextField;
 	
 	/** Disease Course Drug Treatments drop down values */
-
 	@FindBy (xpath = "//div[@id='select2-drop']/ul/li")
 	public List<WebElement> diseaseCourseDrugTreatmentsDropDownValues;
 	
 	/** --------------- THE END OF COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE DISEASE COURSE SECTION  ---------------  */ 
 
+
 	/** --------------- COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE DEMOGRAPHICS SECTION  ---------------  */ 
 
+	
+	/** --------------- BEGINNING OF COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE DEMOGRAPHICS SECTION  ---------------  */ 
 	
 	/** Follow Up Questionnaire Demographics Text Box */
 	@FindBy (xpath = "//*[contains(text(), 'Demographics')]")
 	public WebElement followUpDemographicsTextBox;
 	
 	/** Follow Up Questionnaire Demographic Field Date Form Completed */
-	@FindBy (xpath = "//*[@id=\"sp_formfield_form_complete_date\"]")
+	@FindBy (xpath = "//*[@id='sp_formfield_form_complete_date']")
 	public WebElement followUpQuestionnaireDemographicDateFormComplted;
-	
 	
 	/** --------------- THE END OF COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE DEMOGRAPHICS SECTION  ---------------  */ 
 
-	/** --------------- COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE EXPOSURES AND RISK FACTORS SECTION  ---------------  */ 
+	
+	/** --------------- BEGINNING OF COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE EXPOSURES AND RISK FACTORS SECTION  ---------------  */ 
 	
 	/** Exposures and Risk Factors label text */
 	@FindBy (xpath = "//*[contains(text(),'Exposures')]")
@@ -210,7 +212,6 @@ public class FollowUpFormPage extends CommonUtils {
 	
 	/** --------------- THE END OF COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE EXPOSURES AND RISK FACTORS SECTION  ---------------  */ 
 
-	
 	public FollowUpFormPage() {
 		
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
