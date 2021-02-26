@@ -7,7 +7,7 @@
 	<!-- Application ID for covid19dashboard -->
 	<application id="covid19dashboard">
 
-		<login_url>
+		<login_url>https://service-sandbox.nci.nih.gov/nih-covid-19-dashboard
 		</login_url><!-- add Sandbox url -->
 
 		<role name="Role">
