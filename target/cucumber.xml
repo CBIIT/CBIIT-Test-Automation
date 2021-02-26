@@ -1,20 +1,132 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="1" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="0.069092">
-<testcase classname="SEER Data Access Request Scenarios" name="Non-Institutional flow - Verifying SEER Data Access Request page contents and agreements for Non-Institutional flow" time="0.069092">
-<failure message="java.lang.IllegalStateException: The driver executable does not exist: /Users/diegojuarez/backupworkspace/CBIIT-Test-Automation/src/main/java/com/drivers/chromedriver&#10;&#9;at com.google.common.base.Preconditions.checkState(Preconditions.java:585)&#10;&#9;at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)&#10;&#9;at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)&#10;&#9;at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:157)&#10;&#9;at com.nci.automation.web.WebDriverUtils.getWebDriver(WebDriverUtils.java:59)&#10;&#9;at ServiceNow.SEER.Steps.HooksSteps.genericSetUp(HooksSteps.java:34)&#10;&#9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#10;&#9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)&#10;&#9;at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#10;&#9;at java.base/java.lang.reflect.Method.invoke(Method.java:564)&#10;&#9;at cucumber.runtime.Utils$1.call(Utils.java:26)&#10;&#9;at cucumber.runtime.Timeout.timeout(Timeout.java:16)&#10;&#9;at cucumber.runtime.Utils.invoke(Utils.java:20)&#10;&#9;at cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)&#10;&#9;at cucumber.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:16)&#10;&#9;at cucumber.runner.TestStep.executeStep(TestStep.java:65)&#10;&#9;at cucumber.runner.TestStep.run(TestStep.java:50)&#10;&#9;at cucumber.runner.TestCase.run(TestCase.java:42)&#10;&#9;at cucumber.runner.Runner.runPickle(Runner.java:49)&#10;&#9;at cucumber.runtime.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:68)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:23)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:73)&#10;&#9;at cucumber.api.junit.Cucumber.runChild(Cucumber.java:123)&#10;&#9;at cucumber.api.junit.Cucumber.runChild(Cucumber.java:65)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#10;&#9;at cucumber.api.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:147)&#10;&#9;at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#10;&#9;at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#10;"><![CDATA[Given a SEER User Registration has been successfully submitted..............skipped
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="8" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="8" time="0.104014">
+<testcase classname="SEER Data Access Landing Page Scenarios" name="Verifying Request Database Access text" time="0.093861">
+<failure message="java.lang.IllegalStateException: The driver executable does not exist: /Users/diegojuarez/backupworkspace/CBIIT-Test-Automation/src/main/java/com/drivers/chromedriver&#10;&#9;at com.google.common.base.Preconditions.checkState(Preconditions.java:585)&#10;&#9;at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)&#10;&#9;at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)&#10;&#9;at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:157)&#10;&#9;at com.nci.automation.web.WebDriverUtils.getWebDriver(WebDriverUtils.java:61)&#10;&#9;at ServiceNow.SEER.Steps.HooksSteps.genericSetUp(HooksSteps.java:34)&#10;&#9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#10;&#9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)&#10;&#9;at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#10;&#9;at java.base/java.lang.reflect.Method.invoke(Method.java:564)&#10;&#9;at cucumber.runtime.Utils$1.call(Utils.java:26)&#10;&#9;at cucumber.runtime.Timeout.timeout(Timeout.java:16)&#10;&#9;at cucumber.runtime.Utils.invoke(Utils.java:20)&#10;&#9;at cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)&#10;&#9;at cucumber.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:16)&#10;&#9;at cucumber.runner.TestStep.executeStep(TestStep.java:65)&#10;&#9;at cucumber.runner.TestStep.run(TestStep.java:50)&#10;&#9;at cucumber.runner.TestCase.run(TestCase.java:42)&#10;&#9;at cucumber.runner.Runner.runPickle(Runner.java:49)&#10;&#9;at cucumber.runtime.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:68)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:23)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:73)&#10;&#9;at cucumber.api.junit.Cucumber.runChild(Cucumber.java:123)&#10;&#9;at cucumber.api.junit.Cucumber.runChild(Cucumber.java:65)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#10;&#9;at cucumber.api.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:147)&#10;&#9;at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#10;&#9;at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#10;"><![CDATA[Given a user is on the SEER Data Access landing page........................skipped
+Then the "Request Database Access" text displays as.........................skipped
+
+StackTrace:
+java.lang.IllegalStateException: The driver executable does not exist: /Users/diegojuarez/backupworkspace/CBIIT-Test-Automation/src/main/java/com/drivers/chromedriver
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:157)
+	at com.nci.automation.web.WebDriverUtils.getWebDriver(WebDriverUtils.java:61)
+	at ServiceNow.SEER.Steps.HooksSteps.genericSetUp(HooksSteps.java:34)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at cucumber.runtime.Utils$1.call(Utils.java:26)
+	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
+	at cucumber.runtime.Utils.invoke(Utils.java:20)
+	at cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)
+	at cucumber.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:16)
+	at cucumber.runner.TestStep.executeStep(TestStep.java:65)
+	at cucumber.runner.TestStep.run(TestStep.java:50)
+	at cucumber.runner.TestCase.run(TestCase.java:42)
+	at cucumber.runner.Runner.runPickle(Runner.java:49)
+	at cucumber.runtime.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)
+	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:68)
+	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:23)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:73)
+	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:123)
+	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:65)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at cucumber.api.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:147)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+]]></failure>
+</testcase>
+<testcase classname="SEER Data Access Landing Page Scenarios" name="Verifying Institutional Accounts, Non-Institutional Accounts, Existing SEER*Stat Account Holders text on landing page" time="0.0021">
+<failure message="java.lang.IllegalStateException: The driver executable does not exist: /Users/diegojuarez/backupworkspace/CBIIT-Test-Automation/src/main/java/com/drivers/chromedriver&#10;&#9;at com.google.common.base.Preconditions.checkState(Preconditions.java:585)&#10;&#9;at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)&#10;&#9;at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)&#10;&#9;at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:157)&#10;&#9;at com.nci.automation.web.WebDriverUtils.getWebDriver(WebDriverUtils.java:61)&#10;&#9;at ServiceNow.SEER.Steps.HooksSteps.genericSetUp(HooksSteps.java:34)&#10;&#9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#10;&#9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)&#10;&#9;at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#10;&#9;at java.base/java.lang.reflect.Method.invoke(Method.java:564)&#10;&#9;at cucumber.runtime.Utils$1.call(Utils.java:26)&#10;&#9;at cucumber.runtime.Timeout.timeout(Timeout.java:16)&#10;&#9;at cucumber.runtime.Utils.invoke(Utils.java:20)&#10;&#9;at cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)&#10;&#9;at cucumber.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:16)&#10;&#9;at cucumber.runner.TestStep.executeStep(TestStep.java:65)&#10;&#9;at cucumber.runner.TestStep.run(TestStep.java:50)&#10;&#9;at cucumber.runner.TestCase.run(TestCase.java:42)&#10;&#9;at cucumber.runner.Runner.runPickle(Runner.java:49)&#10;&#9;at cucumber.runtime.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:68)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:23)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:73)&#10;&#9;at cucumber.api.junit.Cucumber.runChild(Cucumber.java:123)&#10;&#9;at cucumber.api.junit.Cucumber.runChild(Cucumber.java:65)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#10;&#9;at cucumber.api.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:147)&#10;&#9;at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#10;&#9;at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#10;"><![CDATA[Given a user is on the SEER Data Access landing page........................skipped
+Then under "Institutional Accounts" the text displayed is...................skipped
+And the text displayed is "* If you are unable to authenticate, please use the Non-institutional option.".skipped
+And under "Non-Institutional Accounts", text displayed is...................skipped
+And under "Existing SEER*Stat Account Holders" text displayed is "Please enter your current SEER*Stat Username and the email address you used to request access to other databases." and "Request SEER Research Plus Databases".skipped
+
+StackTrace:
+java.lang.IllegalStateException: The driver executable does not exist: /Users/diegojuarez/backupworkspace/CBIIT-Test-Automation/src/main/java/com/drivers/chromedriver
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:157)
+	at com.nci.automation.web.WebDriverUtils.getWebDriver(WebDriverUtils.java:61)
+	at ServiceNow.SEER.Steps.HooksSteps.genericSetUp(HooksSteps.java:34)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at cucumber.runtime.Utils$1.call(Utils.java:26)
+	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
+	at cucumber.runtime.Utils.invoke(Utils.java:20)
+	at cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)
+	at cucumber.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:16)
+	at cucumber.runner.TestStep.executeStep(TestStep.java:65)
+	at cucumber.runner.TestStep.run(TestStep.java:50)
+	at cucumber.runner.TestCase.run(TestCase.java:42)
+	at cucumber.runner.Runner.runPickle(Runner.java:49)
+	at cucumber.runtime.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)
+	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:68)
+	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:23)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:73)
+	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:123)
+	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:65)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at cucumber.api.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:147)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+]]></failure>
+</testcase>
+<testcase classname="SEER Data Access Request Scenarios" name="Non-Institutional flow - Verifying SEER Data Access Request page contents and agreements for Non-Institutional flow" time="0.002214">
+<failure message="java.lang.IllegalStateException: The driver executable does not exist: /Users/diegojuarez/backupworkspace/CBIIT-Test-Automation/src/main/java/com/drivers/chromedriver&#10;&#9;at com.google.common.base.Preconditions.checkState(Preconditions.java:585)&#10;&#9;at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)&#10;&#9;at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)&#10;&#9;at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:157)&#10;&#9;at com.nci.automation.web.WebDriverUtils.getWebDriver(WebDriverUtils.java:61)&#10;&#9;at ServiceNow.SEER.Steps.HooksSteps.genericSetUp(HooksSteps.java:34)&#10;&#9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#10;&#9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)&#10;&#9;at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#10;&#9;at java.base/java.lang.reflect.Method.invoke(Method.java:564)&#10;&#9;at cucumber.runtime.Utils$1.call(Utils.java:26)&#10;&#9;at cucumber.runtime.Timeout.timeout(Timeout.java:16)&#10;&#9;at cucumber.runtime.Utils.invoke(Utils.java:20)&#10;&#9;at cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)&#10;&#9;at cucumber.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:16)&#10;&#9;at cucumber.runner.TestStep.executeStep(TestStep.java:65)&#10;&#9;at cucumber.runner.TestStep.run(TestStep.java:50)&#10;&#9;at cucumber.runner.TestCase.run(TestCase.java:42)&#10;&#9;at cucumber.runner.Runner.runPickle(Runner.java:49)&#10;&#9;at cucumber.runtime.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:68)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:23)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:73)&#10;&#9;at cucumber.api.junit.Cucumber.runChild(Cucumber.java:123)&#10;&#9;at cucumber.api.junit.Cucumber.runChild(Cucumber.java:65)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#10;&#9;at cucumber.api.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:147)&#10;&#9;at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#10;&#9;at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#10;"><![CDATA[Given a SEER User Registration has been successfully submitted..............skipped
 And user verifies email address by clicking on the email verification link that is sent to the user after submitting a SEER User registration form.skipped
 Then the user is directed to the 'SEER Data Access Request' page............skipped
 And the 'Requested for' field contains the name of the requestor in read-only format.skipped
-And the 'Database type' field displays with 'SEER Research Plus' in read-only format.skipped
+And the 'Database type' field displays with 'SEER Research Database' in read-only format.skipped
 And the user can select a general purpose for using the data................skipped
-And user can enter official first name, official last name, and official email address.skipped
-And user can select Yes to 'Do you intend to use the treatment fields in your analysis?'.skipped
-And user can enter a plan to "How do you plan to use these fields?".........skipped
-And before entering initials for 'I understand the limitation of treatment data.' the Initials text box displays with the users initials in read-only mode.skipped
-And the 'I understand the limitation of treatment data.' text agreement displays as followed.skipped
-And before entering initials for 'Data Use Agreement Certification', the users initials display in read only format.skipped
-And the Data Use Agreement Certification text displays as the following:....skipped
-And before entering initials for 'Best Practice Assurance', the users initials are displayed in read-only format.skipped
-And the Best Practice Assurance text displays as follows:...................skipped
+And before entering initials for 'Data Use Agreement Certification' the Initials text box displays with the users initials in read-only mode.skipped
+And the Data Use Agreement Certification text agreement displayed...........skipped
+And before entering initials for 'Best Practice Assurance', the users initials display in read only format.skipped
+And the Best Practice Assurance text displayed..............................skipped
 And when the user scrolls down each agreement...............................skipped
 Then the user is able to enter intials......................................skipped
 And SEER information is displayed on the bottom of the page as follows:.....skipped
@@ -30,7 +142,332 @@ java.lang.IllegalStateException: The driver executable does not exist: /Users/di
 	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)
 	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:157)
-	at com.nci.automation.web.WebDriverUtils.getWebDriver(WebDriverUtils.java:59)
+	at com.nci.automation.web.WebDriverUtils.getWebDriver(WebDriverUtils.java:61)
+	at ServiceNow.SEER.Steps.HooksSteps.genericSetUp(HooksSteps.java:34)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at cucumber.runtime.Utils$1.call(Utils.java:26)
+	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
+	at cucumber.runtime.Utils.invoke(Utils.java:20)
+	at cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)
+	at cucumber.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:16)
+	at cucumber.runner.TestStep.executeStep(TestStep.java:65)
+	at cucumber.runner.TestStep.run(TestStep.java:50)
+	at cucumber.runner.TestCase.run(TestCase.java:42)
+	at cucumber.runner.Runner.runPickle(Runner.java:49)
+	at cucumber.runtime.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)
+	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:68)
+	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:23)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:73)
+	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:123)
+	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:65)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at cucumber.api.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:147)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+]]></failure>
+</testcase>
+<testcase classname="SEER User Registration Scenarios" name="Verifying Undergraduate or Graduate students get directed to landing page when selecting 'Undergraduate or Graduate Student' for 'Which of these best describe you?' on the SEER Registration Page" time="0.001107">
+<failure message="java.lang.IllegalStateException: The driver executable does not exist: /Users/diegojuarez/backupworkspace/CBIIT-Test-Automation/src/main/java/com/drivers/chromedriver&#10;&#9;at com.google.common.base.Preconditions.checkState(Preconditions.java:585)&#10;&#9;at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)&#10;&#9;at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)&#10;&#9;at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:157)&#10;&#9;at com.nci.automation.web.WebDriverUtils.getWebDriver(WebDriverUtils.java:61)&#10;&#9;at ServiceNow.SEER.Steps.HooksSteps.genericSetUp(HooksSteps.java:34)&#10;&#9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#10;&#9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)&#10;&#9;at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#10;&#9;at java.base/java.lang.reflect.Method.invoke(Method.java:564)&#10;&#9;at cucumber.runtime.Utils$1.call(Utils.java:26)&#10;&#9;at cucumber.runtime.Timeout.timeout(Timeout.java:16)&#10;&#9;at cucumber.runtime.Utils.invoke(Utils.java:20)&#10;&#9;at cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)&#10;&#9;at cucumber.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:16)&#10;&#9;at cucumber.runner.TestStep.executeStep(TestStep.java:65)&#10;&#9;at cucumber.runner.TestStep.run(TestStep.java:50)&#10;&#9;at cucumber.runner.TestCase.run(TestCase.java:42)&#10;&#9;at cucumber.runner.Runner.runPickle(Runner.java:49)&#10;&#9;at cucumber.runtime.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:68)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:23)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:73)&#10;&#9;at cucumber.api.junit.Cucumber.runChild(Cucumber.java:123)&#10;&#9;at cucumber.api.junit.Cucumber.runChild(Cucumber.java:65)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#10;&#9;at cucumber.api.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:147)&#10;&#9;at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#10;&#9;at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#10;"><![CDATA[Given a user is on the SEER Data Access landing page........................skipped
+When the user enters an email address as "test@mail.com" and continues with the email verification for Non-Institutional Accounts.skipped
+And fills out the SEER Registration form....................................skipped
+And for 'Which of these best describe you?' selects 'Undergraduate or Graduate Student'.skipped
+Then the user is directed back to the landing page with a message indicating the user must request access via the Institutional Accounts option.skipped
+
+StackTrace:
+java.lang.IllegalStateException: The driver executable does not exist: /Users/diegojuarez/backupworkspace/CBIIT-Test-Automation/src/main/java/com/drivers/chromedriver
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:157)
+	at com.nci.automation.web.WebDriverUtils.getWebDriver(WebDriverUtils.java:61)
+	at ServiceNow.SEER.Steps.HooksSteps.genericSetUp(HooksSteps.java:34)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at cucumber.runtime.Utils$1.call(Utils.java:26)
+	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
+	at cucumber.runtime.Utils.invoke(Utils.java:20)
+	at cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)
+	at cucumber.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:16)
+	at cucumber.runner.TestStep.executeStep(TestStep.java:65)
+	at cucumber.runner.TestStep.run(TestStep.java:50)
+	at cucumber.runner.TestCase.run(TestCase.java:42)
+	at cucumber.runner.Runner.runPickle(Runner.java:49)
+	at cucumber.runtime.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)
+	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:68)
+	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:23)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:73)
+	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:123)
+	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:65)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at cucumber.api.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:147)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+]]></failure>
+</testcase>
+<testcase classname="SEER User Registration Scenarios" name="Verifying Sate and Zip code fields are required when selecting United States of America for Country field" time="0.000952">
+<failure message="java.lang.IllegalStateException: The driver executable does not exist: /Users/diegojuarez/backupworkspace/CBIIT-Test-Automation/src/main/java/com/drivers/chromedriver&#10;&#9;at com.google.common.base.Preconditions.checkState(Preconditions.java:585)&#10;&#9;at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)&#10;&#9;at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)&#10;&#9;at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:157)&#10;&#9;at com.nci.automation.web.WebDriverUtils.getWebDriver(WebDriverUtils.java:61)&#10;&#9;at ServiceNow.SEER.Steps.HooksSteps.genericSetUp(HooksSteps.java:34)&#10;&#9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#10;&#9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)&#10;&#9;at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#10;&#9;at java.base/java.lang.reflect.Method.invoke(Method.java:564)&#10;&#9;at cucumber.runtime.Utils$1.call(Utils.java:26)&#10;&#9;at cucumber.runtime.Timeout.timeout(Timeout.java:16)&#10;&#9;at cucumber.runtime.Utils.invoke(Utils.java:20)&#10;&#9;at cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)&#10;&#9;at cucumber.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:16)&#10;&#9;at cucumber.runner.TestStep.executeStep(TestStep.java:65)&#10;&#9;at cucumber.runner.TestStep.run(TestStep.java:50)&#10;&#9;at cucumber.runner.TestCase.run(TestCase.java:42)&#10;&#9;at cucumber.runner.Runner.runPickle(Runner.java:49)&#10;&#9;at cucumber.runtime.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:68)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:23)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:73)&#10;&#9;at cucumber.api.junit.Cucumber.runChild(Cucumber.java:123)&#10;&#9;at cucumber.api.junit.Cucumber.runChild(Cucumber.java:65)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#10;&#9;at cucumber.api.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:147)&#10;&#9;at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#10;&#9;at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#10;"><![CDATA[Given a user is on the SEER Data Access landing page........................skipped
+And user proceeds with email verification for a Non-Institutional Account...skipped
+When entering required information..........................................skipped
+And entering and selecting "United States of America" for Country field.....skipped
+And submitting the registration form........................................skipped
+Then the user is not able to submit the registration form because the State and Zip Code fields are required.skipped
+
+StackTrace:
+java.lang.IllegalStateException: The driver executable does not exist: /Users/diegojuarez/backupworkspace/CBIIT-Test-Automation/src/main/java/com/drivers/chromedriver
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:157)
+	at com.nci.automation.web.WebDriverUtils.getWebDriver(WebDriverUtils.java:61)
+	at ServiceNow.SEER.Steps.HooksSteps.genericSetUp(HooksSteps.java:34)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at cucumber.runtime.Utils$1.call(Utils.java:26)
+	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
+	at cucumber.runtime.Utils.invoke(Utils.java:20)
+	at cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)
+	at cucumber.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:16)
+	at cucumber.runner.TestStep.executeStep(TestStep.java:65)
+	at cucumber.runner.TestStep.run(TestStep.java:50)
+	at cucumber.runner.TestCase.run(TestCase.java:42)
+	at cucumber.runner.Runner.runPickle(Runner.java:49)
+	at cucumber.runtime.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)
+	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:68)
+	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:23)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:73)
+	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:123)
+	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:65)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at cucumber.api.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:147)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+]]></failure>
+</testcase>
+<testcase classname="SEER User Registration Scenarios" name="Verifying &quot;Thank you - your registration is complete.&quot; page contents" time="0.001142">
+<failure message="java.lang.IllegalStateException: The driver executable does not exist: /Users/diegojuarez/backupworkspace/CBIIT-Test-Automation/src/main/java/com/drivers/chromedriver&#10;&#9;at com.google.common.base.Preconditions.checkState(Preconditions.java:585)&#10;&#9;at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)&#10;&#9;at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)&#10;&#9;at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:157)&#10;&#9;at com.nci.automation.web.WebDriverUtils.getWebDriver(WebDriverUtils.java:61)&#10;&#9;at ServiceNow.SEER.Steps.HooksSteps.genericSetUp(HooksSteps.java:34)&#10;&#9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#10;&#9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)&#10;&#9;at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#10;&#9;at java.base/java.lang.reflect.Method.invoke(Method.java:564)&#10;&#9;at cucumber.runtime.Utils$1.call(Utils.java:26)&#10;&#9;at cucumber.runtime.Timeout.timeout(Timeout.java:16)&#10;&#9;at cucumber.runtime.Utils.invoke(Utils.java:20)&#10;&#9;at cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)&#10;&#9;at cucumber.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:16)&#10;&#9;at cucumber.runner.TestStep.executeStep(TestStep.java:65)&#10;&#9;at cucumber.runner.TestStep.run(TestStep.java:50)&#10;&#9;at cucumber.runner.TestCase.run(TestCase.java:42)&#10;&#9;at cucumber.runner.Runner.runPickle(Runner.java:49)&#10;&#9;at cucumber.runtime.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:68)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:23)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:73)&#10;&#9;at cucumber.api.junit.Cucumber.runChild(Cucumber.java:123)&#10;&#9;at cucumber.api.junit.Cucumber.runChild(Cucumber.java:65)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#10;&#9;at cucumber.api.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:147)&#10;&#9;at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#10;&#9;at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#10;"><![CDATA[Given a user is on the SEER Data Access landing page........................skipped
+When the user enters an email address for Non-Institutional Account.........skipped
+And fills out all required fields on SEER Data registration page............skipped
+And submits the registration form...........................................skipped
+Then the "Thank you - your registration is complete." page displays.........skipped
+And the page header displays as "SEER Incidence Database details"...........skipped
+And the following text also displays........................................skipped
+And the <- Back to SEER Database details button displays....................skipped
+And the following SEER information text displays on the bottom of the page..skipped
+
+StackTrace:
+java.lang.IllegalStateException: The driver executable does not exist: /Users/diegojuarez/backupworkspace/CBIIT-Test-Automation/src/main/java/com/drivers/chromedriver
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:157)
+	at com.nci.automation.web.WebDriverUtils.getWebDriver(WebDriverUtils.java:61)
+	at ServiceNow.SEER.Steps.HooksSteps.genericSetUp(HooksSteps.java:34)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at cucumber.runtime.Utils$1.call(Utils.java:26)
+	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
+	at cucumber.runtime.Utils.invoke(Utils.java:20)
+	at cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)
+	at cucumber.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:16)
+	at cucumber.runner.TestStep.executeStep(TestStep.java:65)
+	at cucumber.runner.TestStep.run(TestStep.java:50)
+	at cucumber.runner.TestCase.run(TestCase.java:42)
+	at cucumber.runner.Runner.runPickle(Runner.java:49)
+	at cucumber.runtime.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)
+	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:68)
+	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:23)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:73)
+	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:123)
+	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:65)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at cucumber.api.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:147)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+]]></failure>
+</testcase>
+<testcase classname="SEER User Registration Scenarios" name="Verifying 'SEER Incidence Database' bread crumb directs user to https://seer.cancer.gov/data/" time="0.001562">
+<failure message="java.lang.IllegalStateException: The driver executable does not exist: /Users/diegojuarez/backupworkspace/CBIIT-Test-Automation/src/main/java/com/drivers/chromedriver&#10;&#9;at com.google.common.base.Preconditions.checkState(Preconditions.java:585)&#10;&#9;at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)&#10;&#9;at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)&#10;&#9;at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:157)&#10;&#9;at com.nci.automation.web.WebDriverUtils.getWebDriver(WebDriverUtils.java:61)&#10;&#9;at ServiceNow.SEER.Steps.HooksSteps.genericSetUp(HooksSteps.java:34)&#10;&#9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#10;&#9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)&#10;&#9;at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#10;&#9;at java.base/java.lang.reflect.Method.invoke(Method.java:564)&#10;&#9;at cucumber.runtime.Utils$1.call(Utils.java:26)&#10;&#9;at cucumber.runtime.Timeout.timeout(Timeout.java:16)&#10;&#9;at cucumber.runtime.Utils.invoke(Utils.java:20)&#10;&#9;at cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)&#10;&#9;at cucumber.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:16)&#10;&#9;at cucumber.runner.TestStep.executeStep(TestStep.java:65)&#10;&#9;at cucumber.runner.TestStep.run(TestStep.java:50)&#10;&#9;at cucumber.runner.TestCase.run(TestCase.java:42)&#10;&#9;at cucumber.runner.Runner.runPickle(Runner.java:49)&#10;&#9;at cucumber.runtime.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:68)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:23)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:73)&#10;&#9;at cucumber.api.junit.Cucumber.runChild(Cucumber.java:123)&#10;&#9;at cucumber.api.junit.Cucumber.runChild(Cucumber.java:65)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#10;&#9;at cucumber.api.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:147)&#10;&#9;at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#10;&#9;at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#10;"><![CDATA[Given a user is on the SEER Data Access landing page........................skipped
+Then the 'SEER Incidence Database' bread crumb displays.....................skipped
+And when clicking, user is directed to "https://seer.cancer.gov/data/"......skipped
+When the user enter an email address for a Non-Institutional Account........skipped
+And the user is on the 'SEER User Registration' page........................skipped
+Then the 'SEER Incidence Database' bread crumb displays.....................skipped
+And when clicking, user is directed to "https://seer.cancer.gov/data/"......skipped
+And fills out all required fields on the SEER Data registration page........skipped
+And submits the registration form...........................................skipped
+Then user is directed to the 'Thank you - your registration is complete.' page.skipped
+And the 'SEER Incidence Database' bread crumb displays......................skipped
+And when clicking, user is directed to "https://seer.cancer.gov/data/"......skipped
+When user confirms their email address by clicking on the email verifation link sent to the users email address.skipped
+Then the user is directed to 'SEER Data Access Request' page................skipped
+And the 'SEER Incidence Database' bread crumb displays......................skipped
+And when clicking, user is directed to "https://seer.cancer.gov/data/"......skipped
+Then the user has to select a general purpose for using the data............skipped
+And also has to agree by typing initials to the Data Use Agreement Certification and Best Practice Assurance.skipped
+When successfully submitting the SEER Data Request form.....................skipped
+Then the page 'Thank you - your data access request is complete.' displays..skipped
+And the 'SEER Incidence Database' bread crumb displays......................skipped
+And when clicking, user is directed to "https://seer.cancer.gov/data/"......skipped
+
+StackTrace:
+java.lang.IllegalStateException: The driver executable does not exist: /Users/diegojuarez/backupworkspace/CBIIT-Test-Automation/src/main/java/com/drivers/chromedriver
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:157)
+	at com.nci.automation.web.WebDriverUtils.getWebDriver(WebDriverUtils.java:61)
+	at ServiceNow.SEER.Steps.HooksSteps.genericSetUp(HooksSteps.java:34)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at cucumber.runtime.Utils$1.call(Utils.java:26)
+	at cucumber.runtime.Timeout.timeout(Timeout.java:16)
+	at cucumber.runtime.Utils.invoke(Utils.java:20)
+	at cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)
+	at cucumber.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:16)
+	at cucumber.runner.TestStep.executeStep(TestStep.java:65)
+	at cucumber.runner.TestStep.run(TestStep.java:50)
+	at cucumber.runner.TestCase.run(TestCase.java:42)
+	at cucumber.runner.Runner.runPickle(Runner.java:49)
+	at cucumber.runtime.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)
+	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:68)
+	at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:23)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:73)
+	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:123)
+	at cucumber.api.junit.Cucumber.runChild(Cucumber.java:65)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at cucumber.api.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:147)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+]]></failure>
+</testcase>
+<testcase classname="SEER User Registration Scenarios" name="Verifying bread crumbs on &quot;Thank you - your registration is complete.&quot; page" time="0.001076">
+<failure message="java.lang.IllegalStateException: The driver executable does not exist: /Users/diegojuarez/backupworkspace/CBIIT-Test-Automation/src/main/java/com/drivers/chromedriver&#10;&#9;at com.google.common.base.Preconditions.checkState(Preconditions.java:585)&#10;&#9;at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)&#10;&#9;at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)&#10;&#9;at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)&#10;&#9;at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:157)&#10;&#9;at com.nci.automation.web.WebDriverUtils.getWebDriver(WebDriverUtils.java:61)&#10;&#9;at ServiceNow.SEER.Steps.HooksSteps.genericSetUp(HooksSteps.java:34)&#10;&#9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#10;&#9;at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)&#10;&#9;at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#10;&#9;at java.base/java.lang.reflect.Method.invoke(Method.java:564)&#10;&#9;at cucumber.runtime.Utils$1.call(Utils.java:26)&#10;&#9;at cucumber.runtime.Timeout.timeout(Timeout.java:16)&#10;&#9;at cucumber.runtime.Utils.invoke(Utils.java:20)&#10;&#9;at cucumber.runtime.java.JavaHookDefinition.execute(JavaHookDefinition.java:60)&#10;&#9;at cucumber.runner.HookDefinitionMatch.runStep(HookDefinitionMatch.java:16)&#10;&#9;at cucumber.runner.TestStep.executeStep(TestStep.java:65)&#10;&#9;at cucumber.runner.TestStep.run(TestStep.java:50)&#10;&#9;at cucumber.runner.TestCase.run(TestCase.java:42)&#10;&#9;at cucumber.runner.Runner.runPickle(Runner.java:49)&#10;&#9;at cucumber.runtime.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:68)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:23)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#10;&#9;at cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:73)&#10;&#9;at cucumber.api.junit.Cucumber.runChild(Cucumber.java:123)&#10;&#9;at cucumber.api.junit.Cucumber.runChild(Cucumber.java:65)&#10;&#9;at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#10;&#9;at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#10;&#9;at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#10;&#9;at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#10;&#9;at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#10;&#9;at cucumber.api.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:147)&#10;&#9;at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)&#10;&#9;at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#10;&#9;at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#10;&#9;at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#10;"><![CDATA[Given a user is on the SEER Data Access landing page........................skipped
+When user enters email address for a Non-Institutional Account..............skipped
+And fills out all required fields on SEER Data registration page............skipped
+And submits the registration form...........................................skipped
+Then user is directed to the 'Thank you - your registration is complete.' page.skipped
+Then the following breadcrumbs are displayed "Home", "SEER Data & Software", "SEER Incidence Database", "Request SEER Incidence Data", "Submission Confirmation".skipped
+And the 'SEER Incidence Database' bread crumb displays......................skipped
+And when clicking, user is directed to "https://seer.cancer.gov/data/"......skipped
+
+StackTrace:
+java.lang.IllegalStateException: The driver executable does not exist: /Users/diegojuarez/backupworkspace/CBIIT-Test-Automation/src/main/java/com/drivers/chromedriver
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:157)
+	at com.nci.automation.web.WebDriverUtils.getWebDriver(WebDriverUtils.java:61)
 	at ServiceNow.SEER.Steps.HooksSteps.genericSetUp(HooksSteps.java:34)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)

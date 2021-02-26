@@ -69,7 +69,7 @@ public class FollowUpFormPageImpl extends PageInitializer{
 	
 	public void searchEnrollmentByPatientID() {
 		followUpFormPage.enrollmentSearchDropDown.click();
-		followUpFormPage.enrollmentSearchTxtBox.sendKeys("AutomatedFN");	
+		followUpFormPage.enrollmentSearchTxtBox.sendKeys("AutomatedLN");	
 		MiscUtils.sleep(3000);
 		followUpFormPage.enrollmentSearchTxtBox.sendKeys(Keys.ENTER);
 		CucumberLogUtils.logScreenShot();
