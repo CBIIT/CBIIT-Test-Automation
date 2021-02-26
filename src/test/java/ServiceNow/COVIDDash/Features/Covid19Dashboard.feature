@@ -2,7 +2,7 @@ Feature: COVID19 Dashboard Scenarios
   
   Description: This feature file tests COVIDDASH-7, 8, 20, 134, 135, 138, 136, 137, 140, 142, 143, 148
 
-  @smoke @regression
+  @smoke @regression 
   Scenario Outline: Validate Autopulation
     Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application
     And user validates that Institute, Division, Email Address, and Phone Number fields are not editable
