@@ -36,6 +36,7 @@ public class ServicePortalFollowUpScenarioSteps extends PageInitializer {
 		CommonUtils.selectDropDownValue("User Group 2", servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown);
 	    servicePortalQuestionnairePage.createEnrollmentButton.click();
 		covidCodeEQPageImpl.requiredDemographicsInfo();
+		JavascriptUtils.scrollIntoView(covidCodeEQPage.enrollmentQuestionnaireSubmitButton);
 		covidCodeEQPage.enrollmentQuestionnaireSubmitButton.click();
 		MiscUtils.sleep(2000);
 		covidCodeEQPage.enrollmentQuestionnaireSubmitYesButton.click();
@@ -51,16 +52,19 @@ public class ServicePortalFollowUpScenarioSteps extends PageInitializer {
 		servicePortalQuestionnairePage.enrollmentLookUpPatientIDSearchDropDownTextField.sendKeys(Keys.ENTER);
 		MiscUtils.sleep(3000);
 		servicePortalQuestionnairePage.enrollmentLookUpCreateFollowUpButton.click();
+		JavascriptUtils.scrollIntoView(followUpFormPage.followUpNIHMedicalRecordNumberTextBox);
 		followUpFormPage.followUpNIHMedicalRecordNumberTextBox.sendKeys("11122288");
 		followUpFormPage.followUpDemographicsTextBox.click();
+		JavascriptUtils.scrollIntoView(followUpFormPage.followUpQuestionnaireDemographicDateFormComplted);
 		followUpFormPage.followUpQuestionnaireDemographicDateFormComplted.sendKeys("05/07/2020");
+		JavascriptUtils.scrollIntoView(followUpFormPage.followUpSaveButton);
 		followUpFormPage.followUpSaveButton.click();
 	}
 
 	@When("the user in the CovidCode App Admins group comes to the COVIDCode Home Page")
 	public void the_user_in_the_CovidCode_App_Admins_group_comes_to_the_COVIDCode_Home_Page() throws TestingException {
-		JavascriptUtils.scrollUp(2000);
 		MiscUtils.sleep(3000);
+		JavascriptUtils.scrollIntoView(covidCodeEQPage.COVIDcodeHomeButton);
 		covidCodeEQPage.COVIDcodeHomeButton.click();
 		MiscUtils.sleep(5000);
 		CucumberLogUtils.logScreenShot();
@@ -68,12 +72,13 @@ public class ServicePortalFollowUpScenarioSteps extends PageInitializer {
 
 	@Then("the draft is shown in the Draft Follow up Questionnaires table on the Home Page")
 	public void the_draft_is_shown_in_the_Draft_Follow_up_Questionnaires_table_on_the_Home_Page() {
+		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(servicePortalQuestionnairePage.draftFollowUpFirstRow);
+		JavascriptUtils.scrollUp(200);
+		MiscUtils.sleep(500);
 		servicePortalQuestionnairePage.draftFollowUpLastUpdated.click();
-		MiscUtils.sleep(2000);
+		MiscUtils.sleep(1000);
 		Assert.assertTrue(servicePortalQuestionnairePage.draftFollowUpFirstRow.getText().contains("11122288"));
-		Assert.assertTrue(
-				servicePortalQuestionnairePage.draftFollowUpUserGroupIDField.getText().contains("Group 1"));
 		CucumberLogUtils.logScreenShot();
 	}
 

@@ -35,6 +35,26 @@ public class SEERLandingPage extends CommonUtils{
 	@FindBy(xpath = "//span[@class='alert-msg ng-binding'] ")
 	public WebElement warningTextForUndergraduateOrGraduateStudents;
 	
+	/** SEER Incidence Database Breadcrumb */
+	@FindBy (xpath = "//a[text() = 'SEER Incidence Database']")
+	public WebElement seerIncidenceDatabaseBreadcrumb;
+	
+	/** SEER Home Breadcrumb */
+	@FindBy (xpath = "//div[@class = 'breadcrumbs']/a[1]")
+	public WebElement seerHomeBreadcrumb;
+	
+	/** SEER Data And Software Breadcrumb */
+	@FindBy (xpath = "//a[text() = 'SEER Data & Software']")
+	public WebElement seerDataAndSoftwareBreadcrumb;
+	
+	/** SEER Request SEER Incidence Data Breadcrumb */
+	@FindBy (xpath = "//a[text() = 'Request SEER Incidence Data']")
+	public WebElement seerRequestSeerIncidenceDataBreadcrumb;
+	
+	/** SEER Submission Confirmation Breadcrumb */
+	@FindBy (xpath = "//p[text() = 'Submission Confirmation']")
+	public WebElement seerSubmissionConfirmationBreadcrumb;
+	
 	/** --------------- Create a New SEER*Stat Account Section   ---------------  */
 	
 	/** Institutional Accounts Header Text */
@@ -87,10 +107,6 @@ public class SEERLandingPage extends CommonUtils{
 	/** --------------- End Of SEER Data Access Landing Page   ---------------  */
 	
 	public SEERLandingPage() {
-
-		PageFactory.initElements(WebDriverUtils.webDriver, this);
-
+		PageFactory.initElements(WebDriverUtils.webDriver, this);   
 	}
-
-
 }
