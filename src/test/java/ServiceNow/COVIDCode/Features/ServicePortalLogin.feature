@@ -1,8 +1,8 @@
-#Author: juarezds
+#Author: Diego Juarez
 #Supports COVID-33, COVID-64, COVID-86
 Feature: COVIDcode Study Provider Service Portal Login Scenarios
 
-  @Smoke @Updated02/04/2021
+  @Smoke @Updated @Aidana
   Scenario: COVIDcode Study Provider Login when clicking 'Log In' button, clicks on Start new initial questionnaire button and verifies expected header text
     Given a COVIDcode Study Provider user is on the COVIDcode study homepage
     When the COVIDcode Study Provider user logs in by clicking Log In button
