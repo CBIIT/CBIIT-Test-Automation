@@ -8,6 +8,7 @@ import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
+import AnalysisTools.PLCO.Pages.BrowsePhenotypePage;
 import AnalysisTools.PLCO.Pages.ExploreGWASPage;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
@@ -88,14 +89,6 @@ public class PageInitializer {
 	/** CHARMS instances */
 	protected static CHARMSNativeViewPage charmsNativeViewPage;
 	protected static TestAccountResetImpl testAccountResetImpl;
-
-	/** LDLink instances **/
-	protected static LDLinkHomePage ldLinkHomePage;
-	protected static LDLinkLandingPage ldLinkLandingPage;
-
-	/** PLCO instances **/
-	protected static ExploreGWASPage exploreGWASPage;
-
 	protected static CHARMSHomePage charmsHomePage;
 	protected static OKTAloginPage oktaLoginPage;
 	protected static CHARMSHomePageImp charmsHomePageImpl;
@@ -103,6 +96,14 @@ public class PageInitializer {
 	protected static ProbandScreenerPage probandScreenerPage;
 	protected static ProbandScreenerSubmissionImpl probandScreenerSubmissionImpl;
 
+	/** LDLink instances **/
+	protected static LDLinkHomePage ldLinkHomePage;
+	protected static LDLinkLandingPage ldLinkLandingPage;
+
+	/** PLCO instances **/
+	protected static ExploreGWASPage exploreGWASPage;
+	protected static BrowsePhenotypePage browsePhenotypePage;
+   
 	/** ServiceNow DevOps instances */
 	protected static DevOpsLoginPage devOpsLoginPage;
 	protected static DevOpsNativeViewPage devOpsNativeViewPage;
