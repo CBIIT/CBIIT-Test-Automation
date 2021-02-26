@@ -11,17 +11,16 @@ import com.nci.automation.web.WebDriverUtils;
 
 public class ServicePortalSurveyPage extends CommonUtils {
 
-	/** --------------- COVIDcode HOME PAGE ---------------  */ 
-
+	/** --------------- BEGINNING OF COVIDcode HOME PAGE ---------------  */ 
 
 	/** COVIDCode Volunteer Survey text */
-	@FindBy(xpath = "//*[contains(text(),'COVIDcode Volunteer Survey')]")
+	@FindBy(xpath = "//h3[contains(text(),'COVIDcode Volunteer Survey')]")
 	public WebElement covidCodeVolunteerSurvey;
 	
 	/** --------------- THE END OF COVIDcode HOME PAGE ---------------  */ 
 	
-	/** --------------- COVIDcode TAKE SURVEY PAGE ---------------  */ 
-
+	
+	/** --------------- BEGINNING OF COVIDcode TAKE SURVEY PAGE ---------------  */ 
 
 	/** COVIDcode Volunteer Survey: Get Started button */
 	@FindBy(xpath = "//button[contains(text(),'Get Started')]")
@@ -47,7 +46,7 @@ public class ServicePortalSurveyPage extends CommonUtils {
 	 * COVIDcode Volunteer Survey: Have you tested positive for SARS-CoV-2 (the
 	 * novel coronavirus text
 	 */
-	@FindBy(xpath = "//*[contains(text(),'Have you tested positive for SARS-CoV-2')]")
+	@FindBy(xpath = "//*[contains(text(),'Have you tested positive for SARS-CoV-2 (the novel coronavirus)?')]")
 	public WebElement haveYouTestedPositiveForSARSCoV2Text;
 
 	/**
@@ -69,7 +68,7 @@ public class ServicePortalSurveyPage extends CommonUtils {
 	public WebElement howWasTheSampleTakenTxt;
 
 	/** COVIDcode Volunteer Survey: How was the sample taken? drop down */
-	@FindBy(xpath = "//span[@id = 'select2-chosen-28' and @class = 'select2-chosen']")
+	@FindBy(xpath = "//span[@id = 'select2-chosen-32' and @class = 'select2-chosen']")
 	public WebElement howWasTheSampleTakenDropDown;
 
 	/** COVIDcode Volunteer Survey: How was the sample taken? drop down values */
@@ -81,6 +80,27 @@ public class ServicePortalSurveyPage extends CommonUtils {
 	 */
 	@FindBy(xpath = "//input[starts-with(@aria-label,'Rapid testing (up to 2 hour turnaround)')]")
 	public WebElement rapidTestingCheckbox;
+	
+	/**
+	 * COVIDcode Volunteer Survey: Were you tested by OMS? Text
+	 */
+	@FindBy(xpath = "//h4[contains(text(), 'Were you tested by OMS?')]")
+	public WebElement wereYouTestedByOMSText;
+
+	
+	/**
+	 * COVIDcode Volunteer Survey: Were you tested by OMS? drop
+	 * down
+	 */
+	@FindBy(xpath = "//*[@id='s2id_autogen44']/a")
+	public WebElement wereYouTestedByOMSDropDown;
+	
+	/**
+	 * COVIDcode Volunteer Survey: Were you tested by OMS? drop
+	 * down values
+	 */
+	@FindBy(xpath = "/html/body/div[7]/ul/li")
+	public List<WebElement> wereYouTestedByOMSDropDownValues;
 
 	/**
 	 * COVIDcode Volunteer Survey: Can you provide a copy of your test report? text
@@ -92,27 +112,63 @@ public class ServicePortalSurveyPage extends CommonUtils {
 	 * COVIDcode Volunteer Survey: Can you provide a copy of your test report? drop
 	 * down
 	 */
-	@FindBy(xpath = "//*[@id='s2id_autogen16']/a")
+	@FindBy(xpath = "//div[@id = 's2id_autogen20']/a")
 	public WebElement canYouProvideCopyofTestReportDropDown;
+	
+	/**
+	 * COVIDcode Volunteer Survey: Are you a National Institute of Health Employee? Text
+	 */
+	@FindBy(xpath = "//h4[contains(text(), 'Are you a National Institute of Health Employee?')]")
+	public WebElement areYouANationalInstituteOfHealthEmployeeText;
+	
+	/**
+	 * COVIDcode Volunteer Survey: Are you a National Institute of Health Employee? drop
+	 * down
+	 */
+	@FindBy(xpath = "//div[@id = 's2id_autogen16']/a")
+	public WebElement areYouANationalInstituteOfHealthEmployeeDropDown;
+	
+	/**
+	 * COVIDcode Volunteer Survey: Are you a National Institute of Health Employee? drop
+	 * down values
+	 */
+	@FindBy(xpath = "/html/body/div[6]/ul/li")
+	public List<WebElement> areYouANationalInstituteOfHealthEmployeeDropDownValues;
+	
+	/**
+	 * COVIDcode Volunteer Survey: Are you a National Institute of Health Employee? TextBox
+	 */
+	@FindBy(xpath = "//input[@id= 's2id_autogen181_search']")
+	public WebElement areYouANationalInstituteOfHealthEmployeeTextBox;
 
 	/**
 	 * COVIDcode Volunteer Survey: Can you provide a copy of your test report? drop
 	 * down values
 	 */
-	@FindBy(xpath = "/html/body/div[6]/ul/li")
+	@FindBy(xpath = "/html/body/div[8]/ul/li")
 	public List<WebElement> canYouProvideCopyofTestReportDropDownValues;
+	
+	/**
+	 * COVIDcode Volunteer Survey: Can you provide a copy of your test report? TextBox
+	 */
+	@FindBy(xpath = "//input[@id = 's2id_autogen21_search']")
+	public WebElement canYouProvideACopyOfYourTestReportTextBox;
 
 
 	/**COVIDcode Volunteer Survey: Were you ever hospitalized for COVID-19? drop down */
-	@FindBy(xpath = "/html/body/div[1]/section/main/div[2]/div/sp-page-row/div/div/span/div/div[2]/div/div/div/div[2]/sp-survey-form/div/div[2]/div[2]/div[13]/div/sp-survey-field/div/div/div/div[1]/a/span[1]")
+	@FindBy(xpath = "//div[@id='s2id_autogen24']/a")
 	public WebElement wereYouEverHospitalizedDropDown;
+	
+	/**COVIDcode Volunteer Survey: Were you ever hospitalized for COVID-19? TextBox */
+	@FindBy(xpath = "//input[@id = 's2id_autogen25_search']")
+	public WebElement wereYouEverHospitalizedTextBox;
+
 
 	/**
 	 * COVIDcode Volunteer Survey: Were you ever hospitalized for COVID-19? drop
 	 * down values
 	 */
-	@FindBy(xpath = "/html/body/div[7]/ul/li")
-
+	@FindBy(xpath = "/html/body/div[9]/ul/li")
 	public List<WebElement> wereYouEverHospitalizedDropDownValues;
 
 	/** COVIDcode Volunteer Survey: Next button */
@@ -173,8 +229,8 @@ public class ServicePortalSurveyPage extends CommonUtils {
 
 	/** --------------- THE END OF COVIDcode TAKE SURVEY PAGE ---------------  */ 
 
-	/** --------------- COVIDcode SURVEY THANK YOU PAGE ---------------  */ 
-
+	
+	/** --------------- BEGINNING OF COVIDcode SURVEY THANK YOU PAGE ---------------  */ 
 
 	/** Survey Thank you page: Your survey has been submitted successfully! text */
 	@FindBy(xpath = "//*[@id='thank_you']/p[1]")
@@ -189,7 +245,6 @@ public class ServicePortalSurveyPage extends CommonUtils {
 	public WebElement okButton;
 
 	/** --------------- THE END OF COVIDcode SURVEY THANK YOU PAGE ---------------  */ 
-
 
 	public ServicePortalSurveyPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
