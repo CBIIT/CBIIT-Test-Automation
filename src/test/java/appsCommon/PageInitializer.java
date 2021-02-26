@@ -10,6 +10,7 @@ import AnalysisTools.LDLink.Pages.LDLinkHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
 import AnalysisTools.PLCO.Pages.BrowsePhenotypePage;
 import AnalysisTools.PLCO.Pages.ExploreGWASPage;
+import AnalysisTools.PLCO.Pages.InformationPage;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
 import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
@@ -103,7 +104,8 @@ public class PageInitializer {
 	/** PLCO instances **/
 	protected static ExploreGWASPage exploreGWASPage;
 	protected static BrowsePhenotypePage browsePhenotypePage;
-   
+    protected static InformationPage informationPage;
+    
 	/** ServiceNow DevOps instances */
 	protected static DevOpsLoginPage devOpsLoginPage;
 	protected static DevOpsNativeViewPage devOpsNativeViewPage;
@@ -185,5 +187,7 @@ public class PageInitializer {
 		nerdCrsKnowledgeDatabaseSubmissionsPage = new NERDSubmissionsPage();
 		createNewSubmissionPage = new CreateNewSubmissionPage();
 		nerdDynamicXpaths = new NERDDynamicXPATHS();
+		browsePhenotypePage = new BrowsePhenotypePage();
+		informationPage = new InformationPage();
 	}
 }
