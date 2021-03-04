@@ -3,8 +3,6 @@ package ServiceNow.COVIDCode.Steps;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.xceptions.TestingException;
-
-import ServiceNow.COVIDCode.StepsImplementation.SignOutVerificationStepImp;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
