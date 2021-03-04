@@ -1,4 +1,3 @@
-#Author: Aidana
 Feature: SEER User Registration Scenarios
 
   @Smoke @juarezds
