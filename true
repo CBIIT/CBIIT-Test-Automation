@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 [1614880887.086][INFO]: Starting ChromeDriver 88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}) on port 10618
 [1614880887.086][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 [1614880887.324][INFO]: [f9dc6f15fcf65f0741becb39c2e1ad1b] COMMAND InitSession {
+=======
+[1614629099.782][INFO]: Starting ChromeDriver 88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}) on port 13434
+[1614629099.783][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+[1614629099.933][INFO]: [d4159015ef0a4da7fcd410217f6cee41] COMMAND InitSession {
+>>>>>>> bf42c9f5bd0952ce13155bd0470a729e65c96c77
    "capabilities": {
       "firstMatch": [ {
          "browserName": "chrome",
@@ -18,7 +24,11 @@
       }
    }
 }
+<<<<<<< HEAD
 [1614880887.326][INFO]: Populating Preferences file: {
+=======
+[1614629099.934][INFO]: Populating Preferences file: {
+>>>>>>> bf42c9f5bd0952ce13155bd0470a729e65c96c77
    "alternate_error_pages": {
       "enabled": false
    },
@@ -71,7 +81,11 @@
       "enabled": false
    }
 }
+<<<<<<< HEAD
 [1614880887.326][INFO]: Populating Local State file: {
+=======
+[1614629099.934][INFO]: Populating Local State file: {
+>>>>>>> bf42c9f5bd0952ce13155bd0470a729e65c96c77
    "background_mode": {
       "enabled": false
    },
@@ -81,6 +95,7 @@
       }
    }
 }
+<<<<<<< HEAD
 [1614880887.327][INFO]: Launching chrome: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-blink-features=ShadowDOMV0 --enable-logging --log-level=0 --no-first-run --no-service-autorun --password-store=basic --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir=/var/folders/ls/pc4m1ymd4n13y6xjdzp813phg6shkh/T/.com.google.Chrome.LBHScE data:,
 [1614880888.435][WARNING]: This version of ChromeDriver has not been tested with Chrome version 89.
 [1614880888.448][INFO]: resolved localhost to ["::1","127.0.0.1"]
@@ -95,6 +110,21 @@
       },
       "goog:chromeOptions": {
          "debuggerAddress": "localhost:53418"
+=======
+[1614629099.934][INFO]: Launching chrome: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-blink-features=ShadowDOMV0 --enable-logging --log-level=0 --no-first-run --no-service-autorun --password-store=basic --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir=/var/folders/10/x0tkb8rd0yl84mhcx3t01lbr43m3_9/T/.com.google.Chrome.CgxgxV data:,
+[1614629101.079][INFO]: resolved localhost to ["127.0.0.1","::1"]
+[1614629101.160][INFO]: [d4159015ef0a4da7fcd410217f6cee41] RESPONSE InitSession {
+   "capabilities": {
+      "acceptInsecureCerts": false,
+      "browserName": "chrome",
+      "browserVersion": "88.0.4324.192",
+      "chrome": {
+         "chromedriverVersion": "88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784})",
+         "userDataDir": "/var/folders/10/x0tkb8rd0yl84mhcx3t01lbr43m3_9/T/.com.google.Chrome.CgxgxV"
+      },
+      "goog:chromeOptions": {
+         "debuggerAddress": "localhost:55240"
+>>>>>>> bf42c9f5bd0952ce13155bd0470a729e65c96c77
       },
       "networkConnectionEnabled": false,
       "pageLoadStrategy": "normal",
@@ -113,6 +143,7 @@
       "webauthn:extension:largeBlob": true,
       "webauthn:virtualAuthenticators": true
    },
+<<<<<<< HEAD
    "sessionId": "f9dc6f15fcf65f0741becb39c2e1ad1b"
 }
 [1614880888.528][INFO]: [f9dc6f15fcf65f0741becb39c2e1ad1b] COMMAND SetTimeouts {
@@ -158,3 +189,80 @@
 [1614880891.514][INFO]: Waiting for pending navigations...
 [1614880895.161][INFO]: Done waiting for pending navigations. Status: ok
 [1614880895.161][INFO]: [f9dc6f15fcf65f0741becb39c2e1ad1b] RESPONSE Navigate
+=======
+   "sessionId": "d4159015ef0a4da7fcd410217f6cee41"
+}
+[1614629101.197][INFO]: [d4159015ef0a4da7fcd410217f6cee41] COMMAND SetTimeouts {
+   "implicit": 80000
+}
+[1614629101.197][INFO]: [d4159015ef0a4da7fcd410217f6cee41] RESPONSE SetTimeouts
+[1614629101.201][INFO]: [d4159015ef0a4da7fcd410217f6cee41] COMMAND MaximizeWindow {
+
+}
+[1614629101.201][INFO]: Waiting for pending navigations...
+[1614629101.202][INFO]: Done waiting for pending navigations. Status: ok
+[1614629101.202][INFO]: resolved localhost to ["127.0.0.1","::1"]
+[1614629101.331][INFO]: Waiting for pending navigations...
+[1614629101.332][INFO]: Done waiting for pending navigations. Status: ok
+[1614629101.332][INFO]: [d4159015ef0a4da7fcd410217f6cee41] RESPONSE MaximizeWindow {
+   "height": 874,
+   "width": 1536,
+   "x": 0,
+   "y": 23
+}
+[1614629103.424][INFO]: [d4159015ef0a4da7fcd410217f6cee41] COMMAND Navigate {
+   "url": "https://service-test.nci.nih.gov/side_door.do"
+}
+[1614629103.424][INFO]: Waiting for pending navigations...
+[1614629103.424][INFO]: Done waiting for pending navigations. Status: ok
+[1614629103.841][INFO]: Waiting for pending navigations...
+[1614629105.900][INFO]: Done waiting for pending navigations. Status: ok
+[1614629105.900][INFO]: [d4159015ef0a4da7fcd410217f6cee41] RESPONSE Navigate
+[1614629105.904][INFO]: [d4159015ef0a4da7fcd410217f6cee41] COMMAND FindElements {
+   "using": "css selector",
+   "value": "frame[name='gsft_main'],iframe[name='gsft_main']"
+}
+[1614629105.904][INFO]: Waiting for pending navigations...
+[1614629105.904][INFO]: Done waiting for pending navigations. Status: ok
+[1614629105.910][INFO]: Waiting for pending navigations...
+[1614629105.911][INFO]: Done waiting for pending navigations. Status: ok
+[1614629105.911][INFO]: [d4159015ef0a4da7fcd410217f6cee41] RESPONSE FindElements [ {
+   "element-6066-11e4-a52e-4f735466cecf": "e5a0ab25-c30c-47d8-b82e-420541a3bab5"
+} ]
+[1614629105.917][INFO]: [d4159015ef0a4da7fcd410217f6cee41] COMMAND SwitchToFrame {
+   "id": {
+      "ELEMENT": "e5a0ab25-c30c-47d8-b82e-420541a3bab5",
+      "element-6066-11e4-a52e-4f735466cecf": "e5a0ab25-c30c-47d8-b82e-420541a3bab5"
+   }
+}
+[1614629105.917][INFO]: Waiting for pending navigations...
+[1614629105.918][INFO]: Done waiting for pending navigations. Status: ok
+[1614629105.934][INFO]: Waiting for pending navigations...
+[1614629105.935][INFO]: Done waiting for pending navigations. Status: ok
+[1614629105.935][INFO]: [d4159015ef0a4da7fcd410217f6cee41] RESPONSE SwitchToFrame
+[1614629105.937][INFO]: [d4159015ef0a4da7fcd410217f6cee41] COMMAND FindElement {
+   "using": "xpath",
+   "value": "//input[@id='user_name']"
+}
+[1614629105.937][INFO]: Waiting for pending navigations...
+[1614629105.938][INFO]: Done waiting for pending navigations. Status: ok
+[1614629105.944][INFO]: Waiting for pending navigations...
+[1614629105.944][INFO]: Done waiting for pending navigations. Status: ok
+[1614629105.944][INFO]: [d4159015ef0a4da7fcd410217f6cee41] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "6fa39df0-ec51-421b-bf73-aec4ffbb99d7"
+}
+[1614629105.950][INFO]: [d4159015ef0a4da7fcd410217f6cee41] COMMAND TypeElement {
+   "id": "6fa39df0-ec51-421b-bf73-aec4ffbb99d7",
+   "text": "username",
+   "value": [ "u", "s", "e", "r", "n", "a", "m", "e" ]
+}
+[1614629105.950][INFO]: Waiting for pending navigations...
+[1614629105.951][INFO]: Done waiting for pending navigations. Status: ok
+[1614629106.018][INFO]: Waiting for pending navigations...
+[1614629106.020][INFO]: Done waiting for pending navigations. Status: ok
+[1614629106.020][INFO]: [d4159015ef0a4da7fcd410217f6cee41] RESPONSE TypeElement
+[1614629108.028][INFO]: [d4159015ef0a4da7fcd410217f6cee41] COMMAND Quit {
+
+}
+[1614629108.079][INFO]: [d4159015ef0a4da7fcd410217f6cee41] RESPONSE Quit
+>>>>>>> bf42c9f5bd0952ce13155bd0470a729e65c96c77
