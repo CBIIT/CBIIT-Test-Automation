@@ -2,9 +2,7 @@ package ServiceNow.CHARMS.StepsImplementation;
 
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
-
 import appsCommon.PageInitializer;
 
 public class CHARMSHomePageImp extends PageInitializer {
