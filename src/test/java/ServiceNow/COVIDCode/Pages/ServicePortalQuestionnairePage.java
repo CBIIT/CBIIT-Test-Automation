@@ -11,8 +11,7 @@ import com.nci.automation.web.WebDriverUtils;
 
 public class ServicePortalQuestionnairePage extends CommonUtils {
 
-	/** --------------- COVIDcode SERVICE PORTAL NIH USER DASHBOARD HEADER SECTION ---------------  */ 
-
+	/** --------------- BEGINNING OF COVIDcode SERVICE PORTAL NIH USER DASHBOARD HEADER SECTION ---------------  */ 
 
 	/**Service Portal Questionnaire Page  Header */
 	@FindBy(xpath = "//h1[contains(text(),'NIH')]")
@@ -26,12 +25,11 @@ public class ServicePortalQuestionnairePage extends CommonUtils {
 	@FindBy(xpath = "/html/body/div/div/div/span")
 	public WebElement servicePortalEnrollmentQuestionnaireSubmissionConfirmationText;
 	
-	
 	/** --------------- THE END OF COVIDcode SERVICE PORTAL NIH USER DASHBOARD HEADER SECTION ---------------  */ 
 	
-	/** --------------- COVIDcode SERVICE PORTAL DRAFT INITIAL QUESTIONNAIRE SECTION ---------------  */ 
-
 	
+	/** --------------- BEGINNING OF COVIDcode SERVICE PORTAL DRAFT INITIAL QUESTIONNAIRE SECTION ---------------  */ 
+
 	/** Start new initial questionnaire button */
 	@FindBy(xpath = "//button[contains(text(), 'Start new initial questionnaire')]")
 	public WebElement startNewQuestionnaireButton;
@@ -114,6 +112,10 @@ public class ServicePortalQuestionnairePage extends CommonUtils {
 	@FindBy (xpath = "//select[@id='user-group-id']/option")
 	public List<WebElement> enrollmentCreationUserGroupIDValues;
 	
+	/** Delete Confirmation Button */
+	@FindBy (xpath = "//*[contains(text(), 'Yes')]")
+	public WebElement deleteConfirmationButton;
+	
 	/** Create Enrollment Button */
 	@FindBy (xpath = "//*[contains(text(), 'Create Enrollment')]")
 	public WebElement createEnrollmentButton;
@@ -122,13 +124,11 @@ public class ServicePortalQuestionnairePage extends CommonUtils {
 	@FindBy(xpath = "//h1[contains(text(), 'Draft Initial Questionnaire')]")
 	public WebElement draftInitialQuestionnaireText;
 	
-	
 	/** --------------- THE END OF COVIDcode SERVICE PORTAL DRAFT INITIAL QUESTIONNAIRE SECTION ---------------  */ 
 
 	
-	/** --------------- COVIDcode SERVICE PORTAL DRAFT FOLLOW UP QUESTIONNAIRE SECTION ---------------  */ 
+	/** --------------- BEGINNING OF COVIDcode SERVICE PORTAL DRAFT FOLLOW UP QUESTIONNAIRE SECTION ---------------  */ 
 
-	
 	/** Start New Follow-up Questionnaire */
 	@FindBy (xpath= "//*[contains(text(), 'follow-up')]")
 	public WebElement startNewFollowUpButton;
@@ -146,7 +146,7 @@ public class ServicePortalQuestionnairePage extends CommonUtils {
 	public WebElement draftFollowUpUserGroupIDField;
 	
 	/** Draft Follow Up Last Updated */
-	@FindBy (xpath = "(//div[contains(text(), 'Last Updated')])[2]")
+	@FindBy(xpath="//*[@id='x8069d1771ba02050e541631ee54bcb94']/div[1]/div[2]/div[2]/div[4]")
 	public WebElement draftFollowUpLastUpdated;
 	
 	/** Draft Follow Up NIH Medical Record */
@@ -194,7 +194,6 @@ public class ServicePortalQuestionnairePage extends CommonUtils {
 	public WebElement enrollmentLookUpPatientIDSearchDropDown;
 	
 	/** Enrollment Look Up Patient ID Search Drop Down Text Field */
-	//@FindBy (xpath="//input[@id='s2id_autogen1_search']")
 	@FindBy (xpath="//input[@class='select2-input']")
 	public WebElement enrollmentLookUpPatientIDSearchDropDownTextField;
 	
@@ -210,9 +209,7 @@ public class ServicePortalQuestionnairePage extends CommonUtils {
 	@FindBy(xpath = "//h1[contains(text(), 'Draft Follow-up Questionnaire')]")
 	public WebElement draftFollowUpQuestionnaireText;
 	
-	
 	/** --------------- THE END OF COVIDcode SERVICE PORTAL DRAFT FOLLOW UP QUESTIONNAIRE SECTION ---------------  */ 
-
 
 	public ServicePortalQuestionnairePage() {
 
