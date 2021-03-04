@@ -28,6 +28,9 @@ import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.LocalConfUtils;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+
 /**
  * This class contains web driver related methods
  * 
@@ -40,19 +43,38 @@ public class WebDriverUtils {
 	public static WebDriver webDriver;
 	public static final String GET_EXE = ".exe";
 	public static final String GET_LINUX = "_linux";
+	
 
 	/**
 	 * Get a web-driver to interact with the UI
+	 * @throws MalformedURLException 
 	 */
 	@SuppressWarnings("deprecation")
-	public static WebDriver getWebDriver() {
+	public static WebDriver getWebDriver()  {
 
 		String browser = ConfUtils.getProperty("browser");
 		String headless = ConfUtils.getProperty("headless");
+		String avdName = ConfUtils.getProperty("avdName");
 		if (webDriver == null) {
 			setDriverExecutables();
 
-			if (Constants.BROWSER_CHROME.equals(browser)) {
+			if(Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
+				DesiredCapabilities cap = new DesiredCapabilities();
+				cap.setCapability("deviceName", "Android");
+				cap.setCapability("platformName", "Android");
+				cap.setCapability(CapabilityType.BROWSER_NAME, "Chrome"); 
+				cap.setCapability(CapabilityType.VERSION, "10");		
+				cap.setCapability("avd", avdName );
+				try {
+					webDriver = new AppiumDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), cap);
+				} catch (MalformedURLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					CucumberLogUtils.logFail("Mobile driver intlization filed", false);
+				}
+
+			}
+			else if (Constants.BROWSER_CHROME.equals(browser)) {
 				ChromeOptions chromeOptions = new ChromeOptions();
 				if (headless.equalsIgnoreCase("true")) {
 					chromeOptions.setHeadless(true);
@@ -103,8 +125,9 @@ public class WebDriverUtils {
 
 		long implicitWaitInSeconds = Long.valueOf(LocalConfUtils.getProperty("implicitWaitInSeconds"));
 		webDriver.manage().timeouts().implicitlyWait(implicitWaitInSeconds, TimeUnit.SECONDS);
-
-		webDriver.manage().window().maximize();
+		if(!Constants.BROWSER_MOBILE.equalsIgnoreCase(browser))
+		{ webDriver.manage().window().maximize();}
+		
 
 		return webDriver;
 	}
