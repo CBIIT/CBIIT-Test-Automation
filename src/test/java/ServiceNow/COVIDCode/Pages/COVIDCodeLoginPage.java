@@ -9,7 +9,7 @@ import com.nci.automation.web.WebDriverUtils;
 
 public class COVIDCodeLoginPage extends CommonUtils {
 	
-	/** --------------- COVIDcode HOME PAGE   ---------------  */
+	/** --------------- BEGINNING OF COVIDcode HOME PAGE   ---------------  */
 
 	/** Log In button */
 	@FindBy(xpath = "//*[contains(text(), 'Log In')]")
@@ -54,7 +54,6 @@ public class COVIDCodeLoginPage extends CommonUtils {
 	/** Privacy Statement */
 	@FindBy(xpath = "//*[contains(text(),'Privacy and confidentiality')]")
 	public WebElement privacyStatement;
-	
 	
 	/** --------------- THE END OF COVIDcode HOME PAGE   ---------------  */
 
