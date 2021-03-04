@@ -1,4 +1,3 @@
-#Author: Olga
 Feature: SEER Data Access Landing Page Scenarios
 
   @Smoke @juarezds
