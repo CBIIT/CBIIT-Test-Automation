@@ -29,7 +29,7 @@ Feature: Ruturning published Collaboration by the CRS Rreviewer/DOC Planning Con
     Given a Collaboration has been submitted to the DOC Planning Contact
     Then the submitted Collaboration shows as "Under Review" in the Submissions page
 
-  @SS-3936 @Progression @juarezds
+  @SS-3936  @juarezds
   Scenario: Verifying the article is incremented one major version number
     Given a published Collaboration has been returned to the Program Staff
     When the Program Staff resubmits the article to the DOC Planning Contact
