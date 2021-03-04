@@ -40,8 +40,13 @@ import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
+import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
+import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
+import ServiceNow.NERD.Pages.NERDSubmissionsPage;
+import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
 import ServiceNow.SEER.Pages.NativeViewSentViewPage;
 import ServiceNow.SEER.Pages.SEERDataAccessRequestPage;
+import ServiceNow.SEER.Pages.SEERIncidenceDatabaseDetailsPage;
 import ServiceNow.SEER.Pages.SEERLandingPage;
 import ServiceNow.SEER.Pages.SEERUserRegistrationPage;
 
@@ -85,21 +90,6 @@ public class PageInitializer {
 	/** CHARMS instances */
 	protected static CHARMSNativeViewPage charmsNativeViewPage;
 	protected static TestAccountResetImpl testAccountResetImpl;
-
-
-	
-	/**LDLink instances**/
-	protected static LDLinkHomePage ldLinkHomePage; 
-	protected static LDLinkLandingPage ldLinkLandingPage; 
-	
-	/**PLCO instances**/
-	protected static ExploreGWASPage exploreGWASPage; 
-	protected static InformationPage informationPage; 
-	protected static BrowsePhenotypePage browsePhenotypePage;
-	
-
-
-
 	protected static CHARMSHomePage charmsHomePage;
 	protected static OKTAloginPage oktaLoginPage;
 	protected static CHARMSHomePageImp charmsHomePageImpl;
@@ -107,6 +97,15 @@ public class PageInitializer {
 	protected static ProbandScreenerPage probandScreenerPage;
 	protected static ProbandScreenerSubmissionImpl probandScreenerSubmissionImpl;
 
+	/** LDLink instances **/
+	protected static LDLinkHomePage ldLinkHomePage;
+	protected static LDLinkLandingPage ldLinkLandingPage;
+
+	/** PLCO instances **/
+	protected static ExploreGWASPage exploreGWASPage;
+	protected static BrowsePhenotypePage browsePhenotypePage;
+    protected static InformationPage informationPage;
+    
 	/** ServiceNow DevOps instances */
 	protected static DevOpsLoginPage devOpsLoginPage;
 	protected static DevOpsNativeViewPage devOpsNativeViewPage;
@@ -125,6 +124,15 @@ public class PageInitializer {
 	protected static SEERUserRegistrationPage seerUserRegistrationPage;
 	protected static SEERDataAccessRequestPage seerDataAccessRequestPage;
 	protected static NativeViewSentViewPage nativeViewSentViewPage;
+	protected static SEERIncidenceDatabaseDetailsPage seerIncidenceDatabaseDetailsPage;
+	
+	/** NERD instances */
+	protected static NERDLoginStepsImplementation nerdLoginStepsImplementation;
+	protected static NERDSubmissionsPage nerdCrsKnowledgeDatabaseSubmissionsPage;
+	protected static CreateNewSubmissionPage createNewSubmissionPage;
+	protected static NERDDynamicXPATHS nerdDynamicXpaths;
+
+	
 
 	public static void initializeAllPages() {
 		// create instances of all pages and assign them to the variables
@@ -159,8 +167,6 @@ public class PageInitializer {
 		devOpsLoginPage = new DevOpsLoginPage();
 		devOpsNativeViewPage = new DevOpsNativeViewPage();
 		devOpsAutomatedBuildStepsImplementation = new DevOpsAutomatedBuildStepsImplementation();
-		informationPage = new InformationPage();
-		browsePhenotypePage = new BrowsePhenotypePage();
 		signOutVerificationStepImp = new SignOutVerificationStepImp();
 		cedcdSearchCohortsPage = new CEDCDSearchCohortsPage();
 		cedcdSearchFemaleCohortsStepImp = new CEDCDSearchFemaleCohortsStepImp();
@@ -176,6 +182,12 @@ public class PageInitializer {
 		seerUserRegistrationPage = new SEERUserRegistrationPage();
 		seerDataAccessRequestPage = new SEERDataAccessRequestPage();
 		nativeViewSentViewPage = new NativeViewSentViewPage();
+		seerIncidenceDatabaseDetailsPage = new SEERIncidenceDatabaseDetailsPage();
+		nerdLoginStepsImplementation = new NERDLoginStepsImplementation();
+		nerdCrsKnowledgeDatabaseSubmissionsPage = new NERDSubmissionsPage();
+		createNewSubmissionPage = new CreateNewSubmissionPage();
+		nerdDynamicXpaths = new NERDDynamicXPATHS();
+		browsePhenotypePage = new BrowsePhenotypePage();
+		informationPage = new InformationPage();
 	}
-
 }
