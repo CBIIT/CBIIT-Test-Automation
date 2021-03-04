@@ -1,4 +1,4 @@
-#Author: Diego Juarez, Aidana, Daniyar
+#Author: Diego Juarez
 #Supports COVID-
 Feature: Native View Scenarios
 
