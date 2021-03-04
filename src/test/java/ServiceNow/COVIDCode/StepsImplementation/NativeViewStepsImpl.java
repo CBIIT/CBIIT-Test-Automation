@@ -30,8 +30,8 @@ public class NativeViewStepsImpl extends PageInitializer {
 		MiscUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourCurrentHeightDropDown);
-		MiscUtils.sleep(500);
-		CommonUtils.selectDropDownValue("Foot/Inches",
+		MiscUtils.sleep(1000);
+		CommonUtils.selectDropDownValue("Feet/Inches",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourCurrentHeightDropDown);
 		MiscUtils.sleep(500);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsHeightField.sendKeys("5");
@@ -65,9 +65,11 @@ public class NativeViewStepsImpl extends PageInitializer {
 				.sendKeys("04-01-2020");
 		CommonUtils.selectDropDownValue("Nasal or throat swab",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyHowWasTheSampleTakenDropDown);
+		CommonUtils.selectDropDownValue("Yes",
+				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyHaveYouOfficiallyBeenDiagnosedWithCOVID19);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyDateOfficiallyDiagnosed.sendKeys("04-09-2020");
 		CucumberLogUtils.logScreenShot();
-	}
+	} 
 
 	/***
 	 * The below navigates to and fills out the Exposures and Risk Factors section
