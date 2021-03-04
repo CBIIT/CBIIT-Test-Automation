@@ -1,4 +1,3 @@
-#Author: Daniyar Mussatayev and Chelsea Yilmaz
 Feature: COVIDCode Service Portal Draft Follow-Up Questionnaires Scenarios
   
   Description: This feature file contains scenarios related to Service Portal Draft Follow-Up Questionnaires
