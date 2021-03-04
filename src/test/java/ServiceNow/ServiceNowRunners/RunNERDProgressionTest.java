@@ -13,7 +13,7 @@ import cucumber.api.junit.Cucumber;
 		, features="src/test/java/ServiceNow/NERD/Features"
 		, glue="ServiceNow.NERD.Steps"
 		, tags="@Progression"
-		, dryRun = true
+		, dryRun = false
 		, monochrome=true
 		, strict = true
 		

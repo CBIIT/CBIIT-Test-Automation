@@ -8,13 +8,9 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import java.util.List;
-
-import org.json.JSONObject;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-
 import appsCommon.PageInitializer;
 
 public class ServicePortalQuestionnairePageImp extends PageInitializer {
