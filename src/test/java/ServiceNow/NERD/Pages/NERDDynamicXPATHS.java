@@ -2,10 +2,7 @@ package ServiceNow.NERD.Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-
 import com.nci.automation.web.WebDriverUtils;
-
 import appsCommon.PageInitializer;
 
 public class NERDDynamicXPATHS extends PageInitializer {
