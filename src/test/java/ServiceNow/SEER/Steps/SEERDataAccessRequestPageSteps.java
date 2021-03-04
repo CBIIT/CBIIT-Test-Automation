@@ -3,7 +3,6 @@ package ServiceNow.SEER.Steps;
 import java.util.Iterator;
 import java.util.Set;
 import org.junit.Assert;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
