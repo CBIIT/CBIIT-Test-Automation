@@ -21,6 +21,14 @@
 			<artifactId>selenium-java</artifactId>
 			<version>3.141.59</version>
 		</dependency>
+		
+		<!-- appium libraries -->
+		
+		<dependency>
+			<groupId>io.appium</groupId>
+			<artifactId>java-client</artifactId>
+			<version>7.4.1</version>
+		</dependency>
 
 		<!-- cucumber libraries -->
 
@@ -163,21 +171,21 @@
 			<version>19.3.0.0</version>
 		</dependency>
 
-		
+
 		<dependency>
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
 			<version>5.0.4</version>
 		</dependency>
 
-		
+
 		<dependency>
 			<groupId>org.freemarker</groupId>
 			<artifactId>freemarker</artifactId>
 			<version>2.3.30</version>
 		</dependency>
 
-	
+
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
