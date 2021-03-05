@@ -13,6 +13,7 @@ public class Constants {
 	public static final String BROWSER_CHROME = "chrome";
 	public static final String BROWSER_HTML_UNIT_DRIVER = "htmlunitdriver";
 	public static final String BROWSER_PHANTOM = "phantomjs";
+	public static final String BROWSER_MOBILE = "mobile";
 
 	// Browser keys
 	public static final String CHROME_KEY = "webdriver.chrome.driver";
