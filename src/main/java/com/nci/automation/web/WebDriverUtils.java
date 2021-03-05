@@ -7,10 +7,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -23,6 +25,9 @@ import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.nci.automation.common.Constants;
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -329,5 +334,18 @@ public class WebDriverUtils {
 	public static void refreshPage(WebDriver driver) {
 		driver.navigate().refresh();
 	}
+	
+	public static WebElement element(By by) {
+		boolean status = false;
+		try {
+			WebDriverWait wait = new WebDriverWait(webDriver, 30);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+			status = true;
+		} catch (Exception e) {
+			logger.error(e);
+		}
+		return webDriver.findElement(by);
+	}
+
 
 }
