@@ -3,6 +3,7 @@ package ServiceNow.SEER.Steps;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 
+import com.nci.automation.common.Constants;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
@@ -20,6 +21,7 @@ public class SEERLandingPageSteps extends PageInitializer {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SEERDataAccess"));
 		JavascriptExecutor js = (JavascriptExecutor) WebDriverUtils.webDriver;
 		js.executeScript("document.body.style.zoom='200%'");
+		System.out.println("OS name : " + Constants.GET_OS_NAME);
 		CucumberLogUtils.logScreenShot();
 	}
 
