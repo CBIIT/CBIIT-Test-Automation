@@ -79,8 +79,8 @@ public class SubmissionsPage extends CommonUtils {
 	}
 
 	public void verifyApproveRejectButton() {
-		Assert.assertTrue(approveButtons.get(1).isDisplayed());
-		Assert.assertTrue(rejectButtonsList.get(1).isDisplayed());
+		Assert.assertTrue(approveButtons.get(0).isDisplayed());
+		Assert.assertTrue(rejectButtonsList.get(0).isDisplayed());
 	}
 
 }
