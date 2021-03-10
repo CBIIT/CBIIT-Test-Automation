@@ -113,6 +113,8 @@ public class COVIDHomePageSteps extends PageInitializer{
 	@Then("the User is able to successfully submit the study {string}")
 	public void the_User_is_able_to_successfully_submit_the_study(String ibrNumber) throws TestingException {
 		pageCache.getCOVIDHomePage().clickSubmitAndConfirmSubButton();
+		//enter step here
+
 		pageCache.getSubmissionsPageImpl().rejectStudyUsingIbrNumber("Sharon Savage", ibrNumber);
 	}
 
@@ -242,7 +244,7 @@ public class COVIDHomePageSteps extends PageInitializer{
 				"Automation Test");
 	}
 
-	@When("impersonating a reviewer")
+	@When("the user impersonates Sharon Savage to reject the study")
 	public void impersonating_a_reviewer() throws TestingException {
 		pageCache.getSubmissionsPageImpl().rejectStudyUsingIbrNumber("Sharon Savage", "Automation Test");
 	}
