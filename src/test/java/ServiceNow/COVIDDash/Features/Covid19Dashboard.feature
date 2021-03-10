@@ -2,7 +2,7 @@ Feature: COVID19 Dashboard Scenarios
   
   Description: This feature file tests COVIDDASH-7, 8, 20, 134, 135, 138, 136, 137, 140, 142, 143, 148
 
-  @smoke @regression  
+  @smoke @regression 
   Scenario Outline: Validate Autopulation
     Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application
     And user validates that Institute, Division, Email Address, and Phone Number fields are not editable
@@ -13,14 +13,14 @@ Feature: COVID19 Dashboard Scenarios
 
     Examples: 
       | PI Name      | istitName | dvsnName | piEmail  | piPhonNum  |
-      | Zalmay Sohil | NCI       | OD       | @nih.gov | 2402766573 |
+      | Diego Juarez | NCI       | OD       | @nih.gov | 2402766573 |
 
 
   @smoke  @regression 
   Scenario: Validate Study Submission
     Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application
     And the user verifies that the submit button is disbaled by default
-    When the User selects a Principal Investigator "Zalmay Sohil"
+    When the User selects a Principal Investigator "Diego Juarez"
     And enters a unique IRB Protocol Number which can contain numbers and text such as "65YUT55"
     And enters a Study Title as "COVID Study"
     And selects any Biospecimen Type "Other" and enters Other type as "tissue"
@@ -45,7 +45,7 @@ Feature: COVID19 Dashboard Scenarios
     And does not attach a Related URL
     Then the User is able to successfully submit the study "77YXB33"
 
-  @regression
+  @regression 
   Scenario: Validating Study Submission with attaching multiple Related URL's
     Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application
     When the User selects a Principal Investigator "Diego Juarez"
@@ -96,7 +96,7 @@ Feature: COVID19 Dashboard Scenarios
       Thank you for your interest in the COVID-19 Biorepository
       """
 
-  @regression
+  @regression 
   Scenario: Verifying empty field messages
     Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application
     When the User enters any IRB Protocol Number and immediately deletes it
@@ -112,9 +112,9 @@ Feature: COVID19 Dashboard Scenarios
     And clicks on any other field on the page
     Then an error message displays for aims with the message "Please enter the study specific aims. This field is required."
 
-  @regression
+  @regression 
   Scenario: Verifying Study Form Submission as a Reviewer
     Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application
     And successfully submits a Study Form
-    When impersonating a reviewer
-    Then the submitted study is displayed and options to Approve or Reject are available
+    And the submitted study is displayed and options to Approve or Reject are available
+    Then the user impersonates Sharon Savage to reject the study
