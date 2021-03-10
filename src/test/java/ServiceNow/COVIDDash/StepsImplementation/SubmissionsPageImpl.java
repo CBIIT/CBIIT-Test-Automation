@@ -40,8 +40,8 @@ public class SubmissionsPageImpl extends PageInitializer {
 	}
 	
 	public void rejectStudyUsingIbrNumber(String approver, String ibrNumber) throws TestingException {
+		MiscUtils.sleep(3000);
 		pageCache.getNativeViewDashboardPageImpl().impersonateUser(approver);
-		MiscUtils.sleep(2000);
 		pageCache.getSubmissionsPageImpl().findIbrNumberAndclickRejectButton(ibrNumber);
 	}
 
