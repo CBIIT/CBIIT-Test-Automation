@@ -1,14 +1,6 @@
 package ServiceNow.CICDBuild.Steps;
 
-import java.util.List;
-
-import org.openqa.selenium.WebElement;
-
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
