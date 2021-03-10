@@ -1,10 +1,13 @@
 package ServiceNow.SEER.Steps;
 
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
+
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
+
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -15,6 +18,8 @@ public class SEERLandingPageSteps extends PageInitializer {
 	public void a_user_is_on_the_SEER_Data_Access_landing_page() throws TestingException {
 		WebDriverUtils.getWebDriver();
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SEERDataAccess"));
+		JavascriptExecutor js = (JavascriptExecutor) WebDriverUtils.webDriver;
+		js.executeScript("document.body.style.zoom='100%'");
 		CucumberLogUtils.logScreenShot();
 	}
 
