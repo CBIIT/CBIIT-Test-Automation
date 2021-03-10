@@ -1,16 +1,15 @@
 package ServiceNow.COVIDCode.StepsImplementation;
 
+import java.util.List;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-
+import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
-import ServiceNow.COVIDCode.Pages.COVIDCodeLoginPage;
 import appsCommon.PageInitializer;
 
 public class FollowUpFormPageImpl extends PageInitializer{
@@ -18,7 +17,6 @@ public class FollowUpFormPageImpl extends PageInitializer{
 	public void accessingFollowUpForm() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
 		CucumberLogUtils.logScreenShot();
-		//covidCodeLoginPage.accessAndCompleteFollowUpQuestionnaireButton.click();
 		covidCodeLoginPage.LogInButton.click();
 		CucumberLogUtils.logScreenShot();
 		loginImpl.loginToITrust();
@@ -26,7 +24,17 @@ public class FollowUpFormPageImpl extends PageInitializer{
 		CucumberLogUtils.logScreenShot();
 		//ADDING TEMPORARY WORK AROUND TO LOG INTO FOLLOW UP FORM
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
-		covidCodeLoginPage.accessAndCompleteFollowUpQuestionnaireButton.click();
+		servicePortalQuestionnairePage.startNewFollowUpButton.click();
+
+	}
+	
+	public void selectingExistingFollowUPEnrollment() {
+		followUpFormPage.enrollmentSearchDropDown.click();
+		MiscUtils.sleep(3000);
+		followUpFormPage.enrollmentSearchTxtBox.sendKeys("AutomatedFN");
+		MiscUtils.sleep(3000);
+		followUpFormPage.enrollmentSearchTxtBox.sendKeys(Keys.ENTER);
+		CucumberLogUtils.logScreenShot();
 	}
 	
 	public void searchEnrollmentByPatientIDLastNameFirstNameNIHMedicalRecordNumber() {
@@ -37,9 +45,12 @@ public class FollowUpFormPageImpl extends PageInitializer{
 		CucumberLogUtils.logScreenShot();
 		followUpFormPage.enrollmentSearchXbutton.click();
 		followUpFormPage.enrollmentSearchDropDown.click();
-		followUpFormPage.enrollmentSearchTxtBox.sendKeys("NVAutomatedLN");
+		//followUpFormPage.enrollmentSearchTxtBox.sendKeys("NVAutomatedLN");
+		List<WebElement>existingFormsList=followUpFormPage.enrollmentSearchValues;
 		MiscUtils.sleep(3000);
-		followUpFormPage.enrollmentSearchTxtBox.sendKeys(Keys.ENTER);
+		String name=existingFormsList.get(0).getText();
+		followUpFormPage.enrollmentSearchTxtBox.sendKeys(name);
+		followUpFormPage.enrollmentSearchValuesAfterInput.click();
 		CucumberLogUtils.logScreenShot();
 		followUpFormPage.enrollmentSearchXbutton.click();
 		followUpFormPage.enrollmentSearchDropDown.click();
@@ -50,10 +61,17 @@ public class FollowUpFormPageImpl extends PageInitializer{
 		followUpFormPage.enrollmentSearchXbutton.click();
 	}
 	
-	public void accessingFollowUpFormDiseaseCourseSection() {
-		JavascriptUtils.scrollIntoView(followUpFormPage.diseaseCourseAddButton);
+	public void searchEnrollmentByPatientID() {
+		followUpFormPage.enrollmentSearchDropDown.click();
+		followUpFormPage.enrollmentSearchTxtBox.sendKeys("AutomatedLN");	
+		MiscUtils.sleep(3000);
+		followUpFormPage.enrollmentSearchTxtBox.sendKeys(Keys.ENTER);
 		CucumberLogUtils.logScreenShot();
-		followUpFormPage.diseaseCourseAddButton.click();
+	}
+	public void accessingFollowUpFormDiseaseCourseSection() {
+		JavascriptUtils.scrollIntoView(followUpFormPage.diseaseCourseNewButton);
+		CucumberLogUtils.logScreenShot();
+		followUpFormPage.diseaseCourseNewButton.click();
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.logScreenShot();
 	}
