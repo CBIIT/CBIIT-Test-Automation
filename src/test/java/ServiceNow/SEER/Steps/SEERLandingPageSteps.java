@@ -19,7 +19,7 @@ public class SEERLandingPageSteps extends PageInitializer {
 		WebDriverUtils.getWebDriver();
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SEERDataAccess"));
 		JavascriptExecutor js = (JavascriptExecutor) WebDriverUtils.webDriver;
-		js.executeScript("document.body.style.zoom='100%'");
+		js.executeScript("document.body.style.zoom='150%'");
 		CucumberLogUtils.logScreenShot();
 	}
 
