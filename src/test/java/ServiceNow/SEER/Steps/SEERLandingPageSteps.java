@@ -19,9 +19,6 @@ public class SEERLandingPageSteps extends PageInitializer {
 	public void a_user_is_on_the_SEER_Data_Access_landing_page() throws TestingException {
 		WebDriverUtils.getWebDriver();
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SEERDataAccess"));
-		JavascriptExecutor js = (JavascriptExecutor) WebDriverUtils.webDriver;
-		js.executeScript("document.body.style.zoom='200%'");
-		System.out.println("OS name : " + Constants.GET_OS_NAME);
 		CucumberLogUtils.logScreenShot();
 	}
 
