@@ -20,9 +20,15 @@ public class LocalConfUtils {
 		 *  Check for command line parameter
 		 */
 		String localConfResourcesPath = System.getProperty("configurationFile");
+		
 		if(StringUtils.isBlank(localConfResourcesPath)){
-			localConfResourcesPath = "/conf/localConf.properties";
+			if(isLocalExec()) {
+				localConfResourcesPath = "/conf/localEnv.properties";
+			}else {
+			localConfResourcesPath = "/conf/cloudEnv.properties";
+			}
 		}
+		
 
 		localConf = new Properties();
 
@@ -94,5 +100,17 @@ public class LocalConfUtils {
 	public static String getQcResourcesDir() {
 		return getResourceDir() + File.separator + "libs" + File.separator + "qc";
 	}
+	
+	public static boolean isLocalExec() {
+	   boolean executionLocation = false;
+		try {
+			executionLocation = Boolean.parseBoolean(System.getProperty("isLocalExec"));
+		} catch (Exception e) {
+		  System.out.println("Please check environment configuration and isLocslExec property & exception is :" + e);
+		}
+		return executionLocation;
+	}
+
+	
 	
 }

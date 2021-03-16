@@ -1,6 +1,6 @@
-[1615344028.390][INFO]: Starting ChromeDriver 88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}) on port 2991
-[1615344028.390][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
-[1615344028.609][INFO]: [51945e867dfe944f25d613057d703b9b] COMMAND InitSession {
+[1615861725.273][INFO]: Starting ChromeDriver 88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784}) on port 39062
+[1615861725.273][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+[1615861725.612][INFO]: [35215270fbf3065ff480fe10eb4da20a] COMMAND InitSession {
    "capabilities": {
       "firstMatch": [ {
          "browserName": "chrome",
@@ -18,7 +18,7 @@
       }
    }
 }
-[1615344028.610][INFO]: Populating Preferences file: {
+[1615861725.614][INFO]: Populating Preferences file: {
    "alternate_error_pages": {
       "enabled": false
    },
@@ -71,7 +71,7 @@
       "enabled": false
    }
 }
-[1615344028.610][INFO]: Populating Local State file: {
+[1615861725.614][INFO]: Populating Local State file: {
    "background_mode": {
       "enabled": false
    },
@@ -81,20 +81,20 @@
       }
    }
 }
-[1615344028.611][INFO]: Launching chrome: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-blink-features=ShadowDOMV0 --enable-logging --log-level=0 --no-first-run --no-service-autorun --password-store=basic --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir=/var/folders/ls/pc4m1ymd4n13y6xjdzp813phg6shkh/T/.com.google.Chrome.wdhMTT data:,
-[1615344029.884][WARNING]: This version of ChromeDriver has not been tested with Chrome version 89.
-[1615344029.900][INFO]: resolved localhost to ["::1","127.0.0.1"]
-[1615344029.979][INFO]: [51945e867dfe944f25d613057d703b9b] RESPONSE InitSession {
+[1615861725.615][INFO]: Launching chrome: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-blink-features=ShadowDOMV0 --enable-logging --log-level=0 --no-first-run --no-service-autorun --password-store=basic --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir=/var/folders/ls/pc4m1ymd4n13y6xjdzp813phg6shkh/T/.com.google.Chrome.VYWwQi data:,
+[1615861727.203][WARNING]: This version of ChromeDriver has not been tested with Chrome version 89.
+[1615861727.216][INFO]: resolved localhost to ["::1","127.0.0.1"]
+[1615861727.276][INFO]: [35215270fbf3065ff480fe10eb4da20a] RESPONSE InitSession {
    "capabilities": {
       "acceptInsecureCerts": false,
       "browserName": "chrome",
       "browserVersion": "89.0.4389.82",
       "chrome": {
          "chromedriverVersion": "88.0.4324.96 (68dba2d8a0b149a1d3afac56fa74648032bcf46b-refs/branch-heads/4324@{#1784})",
-         "userDataDir": "/var/folders/ls/pc4m1ymd4n13y6xjdzp813phg6shkh/T/.com.google.Chrome.wdhMTT"
+         "userDataDir": "/var/folders/ls/pc4m1ymd4n13y6xjdzp813phg6shkh/T/.com.google.Chrome.VYWwQi"
       },
       "goog:chromeOptions": {
-         "debuggerAddress": "localhost:50968"
+         "debuggerAddress": "localhost:50067"
       },
       "networkConnectionEnabled": false,
       "pageLoadStrategy": "normal",
@@ -113,107 +113,107 @@
       "webauthn:extension:largeBlob": true,
       "webauthn:virtualAuthenticators": true
    },
-   "sessionId": "51945e867dfe944f25d613057d703b9b"
+   "sessionId": "35215270fbf3065ff480fe10eb4da20a"
 }
-[1615344030.012][INFO]: [51945e867dfe944f25d613057d703b9b] COMMAND SetTimeouts {
+[1615861727.327][INFO]: [35215270fbf3065ff480fe10eb4da20a] COMMAND SetTimeouts {
    "implicit": 80000
 }
-[1615344030.012][INFO]: [51945e867dfe944f25d613057d703b9b] RESPONSE SetTimeouts
-[1615344030.017][INFO]: [51945e867dfe944f25d613057d703b9b] COMMAND MaximizeWindow {
+[1615861727.338][INFO]: [35215270fbf3065ff480fe10eb4da20a] RESPONSE SetTimeouts
+[1615861727.342][INFO]: [35215270fbf3065ff480fe10eb4da20a] COMMAND MaximizeWindow {
 
 }
-[1615344030.017][INFO]: Waiting for pending navigations...
-[1615344030.017][INFO]: Done waiting for pending navigations. Status: ok
-[1615344030.018][INFO]: resolved localhost to ["::1","127.0.0.1"]
-[1615344030.130][INFO]: Waiting for pending navigations...
-[1615344030.131][INFO]: Done waiting for pending navigations. Status: ok
-[1615344030.131][INFO]: [51945e867dfe944f25d613057d703b9b] RESPONSE MaximizeWindow {
-   "height": 814,
+[1615861727.366][INFO]: Waiting for pending navigations...
+[1615861727.367][INFO]: Done waiting for pending navigations. Status: ok
+[1615861727.431][INFO]: resolved localhost to ["::1","127.0.0.1"]
+[1615861727.545][INFO]: Waiting for pending navigations...
+[1615861727.548][INFO]: Done waiting for pending navigations. Status: ok
+[1615861727.548][INFO]: [35215270fbf3065ff480fe10eb4da20a] RESPONSE MaximizeWindow {
+   "height": 808,
    "width": 1440,
    "x": 0,
    "y": 23
 }
-[1615344032.225][INFO]: [51945e867dfe944f25d613057d703b9b] COMMAND SetTimeouts {
+[1615861729.661][INFO]: [35215270fbf3065ff480fe10eb4da20a] COMMAND SetTimeouts {
    "implicit": 80000
 }
-[1615344032.225][INFO]: [51945e867dfe944f25d613057d703b9b] RESPONSE SetTimeouts
-[1615344032.229][INFO]: [51945e867dfe944f25d613057d703b9b] COMMAND MaximizeWindow {
+[1615861729.661][INFO]: [35215270fbf3065ff480fe10eb4da20a] RESPONSE SetTimeouts
+[1615861729.664][INFO]: [35215270fbf3065ff480fe10eb4da20a] COMMAND MaximizeWindow {
 
 }
-[1615344032.229][INFO]: Waiting for pending navigations...
-[1615344032.230][INFO]: Done waiting for pending navigations. Status: ok
-[1615344032.334][INFO]: Waiting for pending navigations...
-[1615344032.334][INFO]: Done waiting for pending navigations. Status: ok
-[1615344032.334][INFO]: [51945e867dfe944f25d613057d703b9b] RESPONSE MaximizeWindow {
-   "height": 814,
+[1615861729.664][INFO]: Waiting for pending navigations...
+[1615861729.665][INFO]: Done waiting for pending navigations. Status: ok
+[1615861729.769][INFO]: Waiting for pending navigations...
+[1615861729.769][INFO]: Done waiting for pending navigations. Status: ok
+[1615861729.769][INFO]: [35215270fbf3065ff480fe10eb4da20a] RESPONSE MaximizeWindow {
+   "height": 808,
    "width": 1440,
    "x": 0,
    "y": 23
 }
-[1615344032.435][INFO]: [51945e867dfe944f25d613057d703b9b] COMMAND Navigate {
+[1615861729.875][INFO]: [35215270fbf3065ff480fe10eb4da20a] COMMAND Navigate {
    "url": "https://service-test.nci.nih.gov/seer-data-access"
 }
-[1615344032.435][INFO]: Waiting for pending navigations...
-[1615344032.435][INFO]: Done waiting for pending navigations. Status: ok
-[1615344033.010][INFO]: Waiting for pending navigations...
-[1615344034.602][INFO]: Done waiting for pending navigations. Status: ok
-[1615344034.602][INFO]: [51945e867dfe944f25d613057d703b9b] RESPONSE Navigate
-[1615344034.606][INFO]: [51945e867dfe944f25d613057d703b9b] COMMAND ExecuteScript {
+[1615861729.875][INFO]: Waiting for pending navigations...
+[1615861729.876][INFO]: Done waiting for pending navigations. Status: ok
+[1615861730.611][INFO]: Waiting for pending navigations...
+[1615861733.239][INFO]: Done waiting for pending navigations. Status: ok
+[1615861733.239][INFO]: [35215270fbf3065ff480fe10eb4da20a] RESPONSE Navigate
+[1615861733.242][INFO]: [35215270fbf3065ff480fe10eb4da20a] COMMAND ExecuteScript {
    "args": [  ],
-   "script": "document.body.style.zoom='40%'"
+   "script": "document.body.style.zoom='200%'"
 }
-[1615344034.606][INFO]: Waiting for pending navigations...
-[1615344034.606][INFO]: Done waiting for pending navigations. Status: ok
-[1615344034.608][INFO]: Waiting for pending navigations...
-[1615344034.609][INFO]: Done waiting for pending navigations. Status: ok
-[1615344034.609][INFO]: [51945e867dfe944f25d613057d703b9b] RESPONSE ExecuteScript null
-[1615344034.611][INFO]: [51945e867dfe944f25d613057d703b9b] COMMAND Screenshot {
+[1615861733.242][INFO]: Waiting for pending navigations...
+[1615861733.243][INFO]: Done waiting for pending navigations. Status: ok
+[1615861733.245][INFO]: Waiting for pending navigations...
+[1615861733.246][INFO]: Done waiting for pending navigations. Status: ok
+[1615861733.246][INFO]: [35215270fbf3065ff480fe10eb4da20a] RESPONSE ExecuteScript null
+[1615861733.249][INFO]: [35215270fbf3065ff480fe10eb4da20a] COMMAND Screenshot {
 
 }
-[1615344034.611][INFO]: Waiting for pending navigations...
-[1615344034.612][INFO]: Done waiting for pending navigations. Status: ok
-[1615344035.278][INFO]: Waiting for pending navigations...
-[1615344035.307][INFO]: Done waiting for pending navigations. Status: ok
-[1615344035.307][INFO]: [51945e867dfe944f25d613057d703b9b] RESPONSE Screenshot "iVBORw0KGgoAAAANSUhEUgAAC0AAAAVmCAYAAAAKhT8WAAABLGlDQ1BTa2lhAAAokX2RPUvDUBSGH4uLVURQ0cEhTrr40VaqBR1ssUXcWoXqlqahiG0MaUT3ri7+A2dnR39AZwUnBxd3QXBwqe9NhwSknsvJ++TNuTfn3gupRRSpGeh4YVCtFK366ZlFImyn6zM6x..."
-[1615344035.370][INFO]: [51945e867dfe944f25d613057d703b9b] COMMAND FindElement {
+[1615861733.249][INFO]: Waiting for pending navigations...
+[1615861733.249][INFO]: Done waiting for pending navigations. Status: ok
+[1615861733.845][INFO]: Waiting for pending navigations...
+[1615861733.849][INFO]: Done waiting for pending navigations. Status: ok
+[1615861733.849][INFO]: [35215270fbf3065ff480fe10eb4da20a] RESPONSE Screenshot "iVBORw0KGgoAAAANSUhEUgAAC0AAAAVaCAYAAAB5PfjAAAABLGlDQ1BTa2lhAAAokX2RPUvDUBSGH4uLVURQ0cEhTrr40VaqBR1ssUXcWoXqlqahiG0MaUT3ri7+A2dnR39AZwUnBxd3QXBwqe9NhwSknsvJ++TNuTfn3gupRRSpGeh4YVCtFK366ZlFImyn6zM6x..."
+[1615861733.897][INFO]: [35215270fbf3065ff480fe10eb4da20a] COMMAND FindElement {
    "using": "xpath",
    "value": "//h2[contains(text(), 'Request Database Access')]"
 }
-[1615344035.370][INFO]: Waiting for pending navigations...
-[1615344035.371][INFO]: Done waiting for pending navigations. Status: ok
-[1615344035.377][INFO]: Waiting for pending navigations...
-[1615344035.378][INFO]: Done waiting for pending navigations. Status: ok
-[1615344035.378][INFO]: [51945e867dfe944f25d613057d703b9b] RESPONSE FindElement {
-   "element-6066-11e4-a52e-4f735466cecf": "f955dab2-945e-4514-a325-6238717febec"
+[1615861733.897][INFO]: Waiting for pending navigations...
+[1615861733.898][INFO]: Done waiting for pending navigations. Status: ok
+[1615861733.904][INFO]: Waiting for pending navigations...
+[1615861733.905][INFO]: Done waiting for pending navigations. Status: ok
+[1615861733.905][INFO]: [35215270fbf3065ff480fe10eb4da20a] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "f46e1cc2-4552-422f-bb32-97ee2ae654eb"
 }
-[1615344035.380][INFO]: [51945e867dfe944f25d613057d703b9b] COMMAND GetElementText {
-   "id": "f955dab2-945e-4514-a325-6238717febec"
+[1615861733.907][INFO]: [35215270fbf3065ff480fe10eb4da20a] COMMAND GetElementText {
+   "id": "f46e1cc2-4552-422f-bb32-97ee2ae654eb"
 }
-[1615344035.381][INFO]: Waiting for pending navigations...
-[1615344035.381][INFO]: Done waiting for pending navigations. Status: ok
-[1615344035.389][INFO]: Waiting for pending navigations...
-[1615344035.390][INFO]: Done waiting for pending navigations. Status: ok
-[1615344035.390][INFO]: [51945e867dfe944f25d613057d703b9b] RESPONSE GetElementText "Request Database Access"
-[1615344035.395][INFO]: [51945e867dfe944f25d613057d703b9b] COMMAND FindElement {
+[1615861733.908][INFO]: Waiting for pending navigations...
+[1615861733.908][INFO]: Done waiting for pending navigations. Status: ok
+[1615861733.915][INFO]: Waiting for pending navigations...
+[1615861733.916][INFO]: Done waiting for pending navigations. Status: ok
+[1615861733.916][INFO]: [35215270fbf3065ff480fe10eb4da20a] RESPONSE GetElementText "Request Database Access"
+[1615861733.921][INFO]: [35215270fbf3065ff480fe10eb4da20a] COMMAND FindElement {
    "using": "xpath",
    "value": "/html/body/div/section/main/div[3]/div/sp-page-row/div/div/span/div/div[1]/div[1]/div"
 }
-[1615344035.395][INFO]: Waiting for pending navigations...
-[1615344035.395][INFO]: Done waiting for pending navigations. Status: ok
-[1615344035.400][INFO]: Waiting for pending navigations...
-[1615344035.401][INFO]: Done waiting for pending navigations. Status: ok
-[1615344035.401][INFO]: [51945e867dfe944f25d613057d703b9b] RESPONSE FindElement {
-   "element-6066-11e4-a52e-4f735466cecf": "095571b4-780a-40bc-bf11-4b64ad067a40"
+[1615861733.921][INFO]: Waiting for pending navigations...
+[1615861733.922][INFO]: Done waiting for pending navigations. Status: ok
+[1615861733.927][INFO]: Waiting for pending navigations...
+[1615861733.928][INFO]: Done waiting for pending navigations. Status: ok
+[1615861733.928][INFO]: [35215270fbf3065ff480fe10eb4da20a] RESPONSE FindElement {
+   "element-6066-11e4-a52e-4f735466cecf": "0d81db91-32f0-434f-91e8-6240885acfa5"
 }
-[1615344035.402][INFO]: [51945e867dfe944f25d613057d703b9b] COMMAND GetElementText {
-   "id": "095571b4-780a-40bc-bf11-4b64ad067a40"
+[1615861733.929][INFO]: [35215270fbf3065ff480fe10eb4da20a] COMMAND GetElementText {
+   "id": "0d81db91-32f0-434f-91e8-6240885acfa5"
 }
-[1615344035.402][INFO]: Waiting for pending navigations...
-[1615344035.403][INFO]: Done waiting for pending navigations. Status: ok
-[1615344035.413][INFO]: Waiting for pending navigations...
-[1615344035.414][INFO]: Done waiting for pending navigations. Status: ok
-[1615344035.414][INFO]: [51945e867dfe944f25d613057d703b9b] RESPONSE GetElementText "Request Database Access\nTo request access to the SEER Incidence Databases, you will need to create a new SEER*Stat account by registering. For immediate access to the SEER Research Plus Databases, ..."
-[1615344037.422][INFO]: [51945e867dfe944f25d613057d703b9b] COMMAND Quit {
+[1615861733.929][INFO]: Waiting for pending navigations...
+[1615861733.930][INFO]: Done waiting for pending navigations. Status: ok
+[1615861733.939][INFO]: Waiting for pending navigations...
+[1615861733.940][INFO]: Done waiting for pending navigations. Status: ok
+[1615861733.940][INFO]: [35215270fbf3065ff480fe10eb4da20a] RESPONSE GetElementText "Request Database Access\nTo request access to the SEER Incidence Databases, you will need to create a new SEER*Stat account by registering. For immediate access to the SEER Research Plus Databases, ..."
+[1615861735.946][INFO]: [35215270fbf3065ff480fe10eb4da20a] COMMAND Quit {
 
 }
-[1615344037.473][INFO]: [51945e867dfe944f25d613057d703b9b] RESPONSE Quit
+[1615861735.997][INFO]: [35215270fbf3065ff480fe10eb4da20a] RESPONSE Quit
