@@ -15,6 +15,7 @@ public class BrowsePhenotypeSteps extends PageInitializer {
 		browsePhenotypePage.lnkBrowsePhenotype.click();
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Then("browse phenotype page displays {string}")
 	public void browse_phenotype_page_displays(String text) {
 		Assert.assertTrue(browsePhenotypePage.txtSelectPhenotype.getText().contentEquals("Please select a phenotype"));
