@@ -20,9 +20,11 @@ public class LocalConfUtils {
 		 *  Check for command line parameter
 		 */
 		String localConfResourcesPath = System.getProperty("configurationFile");
+		
 		if(StringUtils.isBlank(localConfResourcesPath)){
-			localConfResourcesPath = "/conf/localConf.properties";
+			localConfResourcesPath = "/conf/localEnv.properties";
 		}
+		
 
 		localConf = new Properties();
 
@@ -94,5 +96,6 @@ public class LocalConfUtils {
 	public static String getQcResourcesDir() {
 		return getResourceDir() + File.separator + "libs" + File.separator + "qc";
 	}
+
 	
 }
