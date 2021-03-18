@@ -1,10 +1,8 @@
 package appsCommon;
 
-<<<<<<< HEAD
+
 import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
-=======
 import AnalysisTools.CEDCD.Pages.CEDCDBiospecimenCountsPage;
->>>>>>> 954e98e21905a9fbe638873a3b25d59f3e78ae7a
 import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDAlphabetizedSelectTypesStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp;
@@ -128,16 +126,13 @@ public class PageInitializer {
 	protected static CEDCDMaleDiscrepancyOnSearchCohortsStepImp cedcdMaleDiscrepancyOnSearchCohortsStepImp;
 	protected static CEDCDSelectAllCohortsStepImp cedcdSelectAllCohortsStepImp;
 	protected static CEDCDSearchCohortAlcoholConsumptionStepImp cedcdSearchCohortAlcoholConsumptionStepImp;
-<<<<<<< HEAD
-	
-=======
 	protected static CEDCDBiospecimenCountsPage cedcdBiospecimenCountsPage;
 	protected static CEDCDSearchCohortNewPageLayOutStepImp cedcdSearchCohortNewPageLayOutStepImp;
 	protected static CEDCDAlphabetizedSelectTypesStepImp cedcdAlphabetizedSelectTypesStepImp;
 	protected static CEDCDStartUps cedcdStartUps;
 	protected static CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp cedcdSearchCohortsCategoriesOfDataOfDataSortedStepImp;
 	protected static CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp cedcdBiospecimenCountsAlphabeticalCancerTypeStepImp;
->>>>>>> 954e98e21905a9fbe638873a3b25d59f3e78ae7a
+
 
 	/** SEER instances */
 	protected static SEERLandingPage seerLandingPage;
