@@ -1,6 +1,6 @@
 Feature: SEER Data Access Landing Page Scenarios
 
-  @Smoke @juarezds
+  @Smoke @juarezds @Progression
   Scenario: Verifying Request Database Access text
     Given a user is on the SEER Data Access landing page
     Then the "Request Database Access" text displays as
