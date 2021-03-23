@@ -19,8 +19,7 @@ public class SignOutVerificationStepImp extends PageInitializer {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
 		CucumberLogUtils.logScreenShot();
 		iTrustloginPage.covidCodeLogInButton();
-		iTrustloginPage.enterUsername();
-		iTrustloginPage.enterPassword();
+		loginImpl.loginToITrust();
 		CucumberLogUtils.logScreenShot();
 		iTrustloginPage.clickSignInButton();
 	}
