@@ -1,5 +1,7 @@
 package appsCommon;
 
+
+import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
 import AnalysisTools.CEDCD.Pages.CEDCDBiospecimenCountsPage;
 import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDAlphabetizedSelectTypesStepImp;
@@ -119,6 +121,7 @@ public class PageInitializer {
 	/** CEDCD instances */
 	/** CEDCD instances */
 	protected static CEDCDSearchCohortsPage cedcdSearchCohortsPage;
+	protected static CEDCDAdminPage  cedcdAdminPage;   
 	protected static CEDCDSearchFemaleCohortsStepImp cedcdSearchFemaleCohortsStepImp;
 	protected static CEDCDMaleDiscrepancyOnSearchCohortsStepImp cedcdMaleDiscrepancyOnSearchCohortsStepImp;
 	protected static CEDCDSelectAllCohortsStepImp cedcdSelectAllCohortsStepImp;
@@ -129,6 +132,7 @@ public class PageInitializer {
 	protected static CEDCDStartUps cedcdStartUps;
 	protected static CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp cedcdSearchCohortsCategoriesOfDataOfDataSortedStepImp;
 	protected static CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp cedcdBiospecimenCountsAlphabeticalCancerTypeStepImp;
+
 
 	/** SEER instances */
 	protected static SEERLandingPage seerLandingPage;
@@ -205,5 +209,6 @@ public class PageInitializer {
 		nerdDynamicXpaths = new NERDDynamicXPATHS();
 		browsePhenotypePage = new BrowsePhenotypePage();
 		informationPage = new InformationPage();
+		cedcdAdminPage = new CEDCDAdminPage();
 	}
 }
