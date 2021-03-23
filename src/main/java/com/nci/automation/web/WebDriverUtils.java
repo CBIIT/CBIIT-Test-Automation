@@ -61,16 +61,30 @@ public class WebDriverUtils {
 		String browser = ConfUtils.getProperty("browser");
 		String headless = ConfUtils.getProperty("headless");
 		String avdName = ConfUtils.getProperty("avdName");
+		String platformName = ConfUtils.getProperty("platformName");
+		String udid = ConfUtils.getProperty("udid");
 		if (webDriver == null) {
 			setDriverExecutables();
 
 			if(Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
+				
 				DesiredCapabilities cap = new DesiredCapabilities();
-				cap.setCapability("deviceName", "Android");
-				cap.setCapability("platformName", "Android");
-				cap.setCapability(CapabilityType.BROWSER_NAME, "Chrome"); 
-				cap.setCapability(CapabilityType.VERSION, "10");		
-				cap.setCapability("avd", avdName );
+				if(platformName.equalsIgnoreCase(Constants.IOS_MOBILE)) {
+					cap.setCapability("deviceName", "iOS");
+					cap.setCapability("platformName", "iOS");
+					cap.setCapability(CapabilityType.BROWSER_NAME, "Safari"); 
+					cap.setCapability(CapabilityType.VERSION, "14");		
+					cap.setCapability("udid", udid );
+					cap.setCapability("automationName", "XCUITest");
+					
+				}else {
+					cap.setCapability("deviceName", "Android");
+					cap.setCapability("platformName", "Android");
+					cap.setCapability(CapabilityType.BROWSER_NAME, "Chrome"); 
+					cap.setCapability(CapabilityType.VERSION, "10");		
+					cap.setCapability("avd", avdName );
+					
+				}
 				try {
 					webDriver = new AppiumDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), cap);
 				} catch (MalformedURLException e) {

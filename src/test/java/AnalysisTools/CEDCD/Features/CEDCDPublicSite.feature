@@ -2,7 +2,7 @@ Feature: Test Cases on the Public Site
 
 Description: This is an automated suite for test cases under the Public Site
 
-		@SS-3453 @Smoke
+		@SS-3453 @Smoke 
 	Scenario: The Clear All button clears all the selection on the Biospecimen Counts Tab
 	
 		Given the user is on the CEDCD Biospecimen Tab
