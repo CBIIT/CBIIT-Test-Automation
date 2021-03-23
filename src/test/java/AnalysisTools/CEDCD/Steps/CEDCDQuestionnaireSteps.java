@@ -30,17 +30,14 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		try {
 			WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
 		} catch (TestingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
 	@When("the user is logged in as Admin")
-	public void the_user_is_logged_in_as_Admin() {
+	public void the_user_is_logged_in_as_Admin() throws TestingException {
 		cedcdAdminPage.nihLoginBtn.click();
-		cedcdAdminPage.internalUsernameTxtBox.sendKeys("uddins2");
-		cedcdAdminPage.internalPasswordTxtBox.sendKeys("Areeb2007!");
-		cedcdAdminPage.loginSubmitBtn.click();
+		loginImpl.shomirITrustLogin();
 	}
 	
 	@When("user selects add new Cohort")
