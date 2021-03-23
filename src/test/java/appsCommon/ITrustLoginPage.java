@@ -19,27 +19,27 @@ public class ITrustLoginPage extends CommonUtils{
 	
 	
 	@FindBy(xpath = "//a[contains(text(),'Log In')]")
-	private WebElement loginLink;
+	public WebElement loginLink;
 	
 	/** Username field*/
 	@FindBy(xpath = "//input[@id='USER']")
-	private WebElement userNameField;
+	public WebElement userNameField;
 
 	/** Password field */
 	@FindBy(xpath = "//input[@id='PASSWORD']")
-	private WebElement passwordField;
+	public WebElement passwordField;
 	
 	/** Sign in button */
 	@FindBy(xpath="//button[@type='submit']")
-	private WebElement signInButton;
+	public WebElement signInButton;
 	
 	/** Forgot Password link */
 	@FindBy(xpath="//a[@class='forgot-password']")
-	private WebElement forgotPasswordLink;
+	public WebElement forgotPasswordLink;
 	
 	/** Trouble Signing In link */ 
 	@FindBy(xpath="//a[text()='Trouble signing in?']")
-	private WebElement TroubleSigningInLink;
+	public WebElement TroubleSigningInLink;
 	
 	/** Clicks on the user's profile drop down*/
 	@FindBy (xpath = "//button[@id='user-info-dropdown']")
@@ -60,18 +60,18 @@ public class ITrustLoginPage extends CommonUtils{
 	 * Enters user-name to ITrust
 	 * @throws TestingException
 	 */
-	public void enterUsername() throws TestingException {
+	public void enterUsername(WebElement userNameField, String username) throws TestingException {
 		userNameField.clear();
-		sendKeys(userNameField, ConfUtils.getProperty("Username"));
+		sendKeys(userNameField, ConfUtils.getProperty(username));
 	}
 	
 	/**
 	 * Enters password to ITrust
 	 * @throws TestingException
 	 */
-	public void enterPassword() throws TestingException {
+	public void enterPassword(String password) throws TestingException {
 		passwordField.clear();
-		String decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("Password"));
+		String decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty(password));
 		sendKeys(passwordField, decyptedPass);
 	}
 	
