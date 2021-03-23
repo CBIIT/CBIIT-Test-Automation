@@ -2,9 +2,12 @@ package AnalysisTools.CEDCD.Steps;
 
 import javax.swing.plaf.basic.BasicArrowButton;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor;
 import com.nci.automation.utils.MiscUtils;
@@ -59,12 +62,9 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	
 	@When("enters Cohort Owner")
 	public void enters_Cohort_Owner() {
-		Actions act = new Actions(WebDriverUtils.webDriver);
-		act.doubleClick(cedcdAdminPage.cohortOwnerTxtBox);
-		MiscUtils.sleep(1000);
+		cedcdAdminPage.cohortOwnerDownArrow.click();
 		cedcdAdminPage.cohortOwnerTxtBox.sendKeys("Diego");
 		cedcdAdminPage.cohortOwnerTxtBox.sendKeys(Keys.RETURN);
-	
 		
 	}
 	
