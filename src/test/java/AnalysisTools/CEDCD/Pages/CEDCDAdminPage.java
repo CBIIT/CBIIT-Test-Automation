@@ -58,11 +58,15 @@ public class CEDCDAdminPage {
 	public WebElement cohortAcroynmTxtBox; 
 	
 	/** Cohort Owner Textbox */
-	@FindBy(xpath = "//*[@class=' css-1hwfws3']")
+	@FindBy(xpath = "//*[@id='react-select-2-input']")
 	public WebElement cohortOwnerTxtBox; 
 	 
+	/** Cohort Owner Down Arrow */
+	@FindBy(xpath = "//*[@class=' css-tlfecz-indicatorContainer']")
+	public WebElement cohortOwnerDownArrow; 
+	
 	/** Notes Textbox */
-	@FindBy(id = "cu_message")
+	@FindBy(xpath = "(//*[@class='form-control'])[3]")
 	public WebElement notesTxtBox; 
 	
 	/** Submit Button */
