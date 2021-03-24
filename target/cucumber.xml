@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="11.904273">
-<testcase classname="Questionnaire" name="Admin able to add cohort" time="11.904273">
-<system-out><![CDATA[Given the user is on the CEDCD homepage.....................................passed
-When the user is logged in as Admin.........................................passed
-]]></system-out>
-</testcase>
-</testsuite>
