@@ -14,7 +14,7 @@ public class CEDCDAdminPage {
 		
 	}
 	
-	/**================================================= Public Site Login Webelements =======================================================*/
+	/**================================================= Public Site Login WebElements =======================================================*/
 	
 	/** NIH Login Button */
 	@FindBy(linkText = "NIH Login")
