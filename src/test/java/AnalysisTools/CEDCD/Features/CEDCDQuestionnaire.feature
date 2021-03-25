@@ -12,6 +12,7 @@ And enters "<Notes>"
 And clicks submit
 Then Cohort is added
 
+
 Examples:
 |   Cohort Name              |        Cohort Acronym          |               Notes                             |
 |   Second Automated Cohort  |          SAC                   |     This Cohort Will Be Automated               |
