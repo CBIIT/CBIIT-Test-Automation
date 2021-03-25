@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="1" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="100.651724">
+<testcase classname="Questionnaire" name="Admin able to add cohort" time="100.651724">
+<failure message="org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.&#10;For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html&#10;Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'&#10;System info: host: 'NCI-02134309-ML', ip: 'fe80:0:0:0:876:aaae:3505:9c16%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.7', java.version: '14.0.2'&#10;Driver info: io.appium.java_client.AppiumDriver&#10;Capabilities {automationName: XCUITest, browserName: Safari, databaseEnabled: false, deviceName: iOS, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: false, platform: MAC, platformName: iOS, takesScreenshot: true, udid: 1C90D3C1-E1BC-4DBE-AC6A-C0E..., version: 14, webStorageEnabled: false}&#10;Session ID: b32bd849-2cc6-49a1-b847-081eecce878e&#10;*** Element info: {Using=link text, value=Submit}&#10;&#9;at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)&#10;&#9;at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)&#10;&#9;at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)&#10;&#9;at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)&#10;&#9;at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)&#10;&#9;at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)&#10;&#9;at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)&#10;&#9;at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)&#10;&#9;at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)&#10;&#9;at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:247)&#10;&#9;at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)&#10;&#9;at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)&#10;&#9;at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)&#10;&#9;at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)&#10;&#9;at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)&#10;&#9;at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)&#10;&#9;at org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:380)&#10;&#9;at io.appium.java_client.DefaultGenericMobileDriver.findElementByLinkText(DefaultGenericMobileDriver.java:78)&#10;&#9;at io.appium.java_client.AppiumDriver.findElementByLinkText(AppiumDriver.java:1)&#10;&#9;at org.openqa.selenium.By$ByLinkText.findElement(By.java:220)&#10;&#9;at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)&#10;&#9;at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)&#10;&#9;at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)&#10;&#9;at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)&#10;&#9;at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)&#10;&#9;at com.sun.proxy.$Proxy20.click(Unknown Source)&#10;&#9;at AnalysisTools.CEDCD.Steps.CEDCDQuestionnaireSteps.clicks_submit(CEDCDQuestionnaireSteps.java:78)&#10;&#9;at ✽.clicks submit(file:src/test/java/AnalysisTools/CEDCD/Features/CEDCDQuestionnaire.feature:12)&#10;"><![CDATA[Given the user is on the CEDCD homepage.....................................passed
+When the user is logged in as Admin.........................................passed
+When user selects add new Cohort............................................passed
+And enters Cohort Name as "Second Automated Cohort".........................passed
+And enters Cohort Owner.....................................................passed
+And enters "This Cohort Will Be Automated"..................................passed
+And clicks submit...........................................................failed
+Then Cohort is added........................................................skipped
+
+StackTrace:
+org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'NCI-02134309-ML', ip: 'fe80:0:0:0:876:aaae:3505:9c16%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.7', java.version: '14.0.2'
+Driver info: io.appium.java_client.AppiumDriver
+Capabilities {automationName: XCUITest, browserName: Safari, databaseEnabled: false, deviceName: iOS, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: false, platform: MAC, platformName: iOS, takesScreenshot: true, udid: 1C90D3C1-E1BC-4DBE-AC6A-C0E..., version: 14, webStorageEnabled: false}
+Session ID: b32bd849-2cc6-49a1-b847-081eecce878e
+*** Element info: {Using=link text, value=Submit}
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:247)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:61)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:380)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElementByLinkText(DefaultGenericMobileDriver.java:78)
+	at io.appium.java_client.AppiumDriver.findElementByLinkText(AppiumDriver.java:1)
+	at org.openqa.selenium.By$ByLinkText.findElement(By.java:220)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at io.appium.java_client.DefaultGenericMobileDriver.findElement(DefaultGenericMobileDriver.java:57)
+	at io.appium.java_client.AppiumDriver.findElement(AppiumDriver.java:1)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy20.click(Unknown Source)
+	at AnalysisTools.CEDCD.Steps.CEDCDQuestionnaireSteps.clicks_submit(CEDCDQuestionnaireSteps.java:78)
+	at ✽.clicks submit(file:src/test/java/AnalysisTools/CEDCD/Features/CEDCDQuestionnaire.feature:12)
+]]></failure>
+</testcase>
+</testsuite>
