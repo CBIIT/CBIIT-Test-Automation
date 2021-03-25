@@ -52,8 +52,7 @@ public class COVIDHomePageImpl extends PageInitializer {
 		MiscUtils.sleep(2000);
 		covidHomePage.clickITrustRedirectButton();
 		MiscUtils.sleep(2060);
-		iTrustloginPage.enterUsername();
-		iTrustloginPage.enterPassword();
+		loginImpl.loginToITrust();
 		iTrustloginPage.clickSignInButton();
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
