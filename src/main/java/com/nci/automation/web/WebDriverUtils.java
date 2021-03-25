@@ -172,6 +172,7 @@ public class WebDriverUtils {
 				System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH + GET_EXE);
 			}else if (osName.contains("Linux")) {
 				System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH + GET_LINUX);
+				
 			}
 
 		} else if (browser.equalsIgnoreCase(Constants.BROWSER_IE)) {
