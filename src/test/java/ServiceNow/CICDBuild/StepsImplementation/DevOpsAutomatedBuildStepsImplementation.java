@@ -1,11 +1,7 @@
 package ServiceNow.CICDBuild.StepsImplementation;
 
 import java.util.List;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -14,7 +10,6 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import appsCommon.PageInitializer;
 
 public class DevOpsAutomatedBuildStepsImplementation extends PageInitializer {
@@ -66,7 +61,8 @@ public class DevOpsAutomatedBuildStepsImplementation extends PageInitializer {
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(devOpsNativeViewPage.buildThisApplicationButton);
 		MiscUtils.sleep(2000);
-		CommonUtils.selectDropDownValue(devOpsNativeViewPage.selectDeploymentDropDown, updateSet);
+//		CommonUtils.selectDropDownValue(devOpsNativeViewPage.selectDeploymentDropDown, updateSet);
+		CommonUtils.selectDropDownValue(updateSet, devOpsNativeViewPage.selectDeploymentDropDown);
 	}
 
 	public void selectingPendingCodeReviewSetsAndMovingToRightTable() {

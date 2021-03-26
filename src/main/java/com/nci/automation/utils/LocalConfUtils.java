@@ -19,10 +19,14 @@ public class LocalConfUtils {
 		/*
 		 *  Check for command line parameter
 		 */
-		String localConfResourcesPath = System.getProperty("configurationFile");
+		String localConfResourcesPath = System.getProperty("isCloud");
+		
 		if(StringUtils.isBlank(localConfResourcesPath)){
-			localConfResourcesPath = "/conf/localConf.properties";
+			localConfResourcesPath = "/conf/localEnv.properties";
+		}else if(localConfResourcesPath.equalsIgnoreCase("true")){
+			localConfResourcesPath = "/conf/cloudEnv.properties";
 		}
+		
 
 		localConf = new Properties();
 
@@ -94,5 +98,6 @@ public class LocalConfUtils {
 	public static String getQcResourcesDir() {
 		return getResourceDir() + File.separator + "libs" + File.separator + "qc";
 	}
+
 	
 }
