@@ -13,11 +13,6 @@ import appsCommon.PageInitializer;
 
 public class CEDCDSearchFemaleCohortsStepImp extends PageInitializer {
 
-	/** This method takes you to the CEDCD homepage and logs a screenshot */
-	public void startUpCEDCDBrowser() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
-		MiscUtils.sleep(2000);
-	}
 
 	/**
 	 * This method filters the cohorts by selecting female and clicking "Search

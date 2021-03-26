@@ -2,16 +2,14 @@ package ServiceNow.COVIDCode.StepsImplementation;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
-import com.nci.automation.web.WebDriverUtils;
-
 import appsCommon.PageInitializer;
 
 public class ServicePortalEQPageImpl extends PageInitializer {
@@ -57,7 +55,7 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 	 */
 	public void requiredDemographicsInfo() {
 		covidCodeEQPage.enrollmentQuestionnairePatientLastNameTextBox.sendKeys("AutomatedLN");
-		covidCodeEQPage.enrollmentQuestionnairePatientFirstNameTextBox.sendKeys("AutomatedFNGroup3");
+		covidCodeEQPage.enrollmentQuestionnairePatientFirstNameTextBox.sendKeys("AutomatedFN");
 		covidCodeEQPage.enrollmentQuestionnairePatientMiddletNameTextBox.sendKeys("M");
 		covidCodeEQPage.enrollmentQuestionnairePatientEmailAddressTextBox.sendKeys("email@email.com");
 		covidCodeEQPage.enrollmentQuestionnairePatientPhoneNumberTextBox.sendKeys("1112223333");
@@ -70,26 +68,26 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 		JavascriptUtils.selectDateByJS(covidCodeEQPage.enrollmentQuestionnaireDateFormCompletedBox, "04-06-2020");
 		JavascriptUtils.selectDateByJS(covidCodeEQPage.enrollmentQuestionnaireDOBbox, "04-01-2000");
 		covidCodeEQPage.enrollmentQuestionnaireBiologicalSexDropdown.click();
+		MiscUtils.sleep(500);
 		List<WebElement> biologicalSexValues = covidCodeEQPage.enrollmentQuestionnaireBiologicalSexDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(biologicalSexValues, "Male");
 		covidCodeEQPage.enrollmentQuestionnaireCurrentWeightDropdown.click();
-
+		MiscUtils.sleep(500);
 		List<WebElement> currentWeightValues = covidCodeEQPage.enrollmentQuestionnaireCurrentWeightDropdownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(currentWeightValues, "Pounds");
-
 		covidCodeEQPage.enrollmentQuestionnaireWeightTextBox.sendKeys("200");
 		covidCodeEQPage.enrollmentQuestionnaireRaceDropdown.click();
-
+		MiscUtils.sleep(500);
 		List<WebElement> raceValues = covidCodeEQPage.enrollmentQuestionnaireRaceDropdownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(raceValues, "Asian");
-
+		MiscUtils.sleep(500);
 		covidCodeEQPage.enrollmentQuestionnaireHispanicOrLatinoDropdown.click();
 		List<WebElement> hispanicOrLatinoValues = covidCodeEQPage.enrollmentQuestionnaireHispanicOrLatinoDropdownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(hispanicOrLatinoValues, "Yes");
-
+		MiscUtils.sleep(500);
 		covidCodeEQPage.enrollmentQuestionnaireCurrentHeightDropdown.click();
 		List<WebElement> heightDropdownValues = covidCodeEQPage.enrollmentQuestionnaireCurrentHeightDropdownValues;
-		CommonUtils.selectValueFromBootStrapDropDown(heightDropdownValues, "Foot/Inches");
+		CommonUtils.selectValueFromBootStrapDropDown(heightDropdownValues, "Feet/Inches");
 
 		covidCodeEQPage.enrollmentQuestionnaireFeetTextBox.sendKeys("5");
 		covidCodeEQPage.enrollmentQuestionnaireInchesTextBox.sendKeys("10");
@@ -140,19 +138,34 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 	/***
 	 * This method compare expected and actual list of drop down and assert it on Exposure and Risk Factors tab
 	 * Enrollment Questionnaire in service portal
-	 * element List of Webelement is hard coded
 	 */
-	public void servicePortalEnrollmentQuestionnaireExposureAndRiskAssertValueFromBootStrapDropDown( ) {
+
+	public void servicePortalEnrollmentQuestionnaireExposureAndRiskAssertValueFromBootStrapDropDown(List<WebElement> lists, String[] arrayList) {
 		MiscUtils.sleep(2000);
-		String[] expArray = {"-- None --", "Day of or day before onset of symptoms/diagnosis (if asymptomatic)", "2 to 7 days prior to onset of symptoms/diagnosis (if asymptomatic)", "1 to 4 weeks prior to onset of symptoms/diagnosis (if asymptomatic)", "1 to 12 months prior to onset of symptoms/diagnosis (if asymptomatic)", "Over 1 year prior to onset of symptoms/diagnosis (if asymptomatic)", "Never", "Don't know", "Prefer not to answer" };
-		List<WebElement> lst=WebDriverUtils.webDriver.findElements(By.xpath("//ul[@class='select2-results']/li/div"));
 		List<String> act = new ArrayList<String>();
-		for(WebElement e : lst){
-		    act.add(e.getText());
+		for(WebElement l : lists){
+		  act.add(l.getText());
 		}
-		List<String> exp = new ArrayList<String>(Arrays.asList(expArray));
+		List<String> exp = new ArrayList<String>(Arrays.asList(arrayList));
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
-	    Assert.assertEquals(act, exp);
+	  Assert.assertEquals(act, exp);
 	}
+    
+	/***
+	 * This method selects Yes on consent drop down
+	 */
+	public void initialQuestionnaireConcent() {
+		covidCodeEQPage.enrollmentQuestionnaireConsentDropdown.click();
+		List<WebElement> consentValues = covidCodeEQPage.enrollmentQuestionaireConsentDropDownValues;
+
+		for (WebElement value : consentValues) {
+			if (value.getText().contains("Yes")) {
+				value.click();
+
+				break;
+			}
+		}
+	}
+
 }
