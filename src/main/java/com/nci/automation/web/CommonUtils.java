@@ -3,12 +3,17 @@ package com.nci.automation.web;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchFrameException;
@@ -29,7 +34,7 @@ import com.nci.automation.utils.MiscUtils;
  */
 public class CommonUtils extends WebDriverUtils {
 
-	private static Logger logger = Logger.getLogger(CommonUtils.class);
+	private static Logger logger = Logger.getLogger(CommonUtils.class); 
 
 	/**
 	 * Use this method in need of clicking on a WebElement by selenium WebDriver.
@@ -125,8 +130,6 @@ public class CommonUtils extends WebDriverUtils {
 			System.out.println("Alert is not present");
 		}
 	}
-	
-	
 
 	/**
 	 * this method will dismiss the alert
@@ -181,7 +184,7 @@ public class CommonUtils extends WebDriverUtils {
 	 * 
 	 * @param element
 	 */
-	public static void switchToFrame(WebElement element) {
+	public static void switchToFrame(WebElement element) { 
 		try {
 			webDriver.switchTo().frame(element);
 		} catch (NoSuchFrameException e) {
@@ -379,5 +382,77 @@ public class CommonUtils extends WebDriverUtils {
 			}
 		}
 
+	}
+
+	/**
+	 * Use this method to pass an email concatenated with current date and time into
+	 * an email text box
+	 */
+
+	public static String getEmail() {
+		Date date = new Date();
+		Timestamp ts = new Timestamp(date.getTime());
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String email = formatter.format(ts).toString();
+		email = email.replaceAll("[^A-Za-z0-9]", "");
+		email = ("test") + email + ("@email.com");
+		return email;
+	}
+	
+	/**
+	 * Use this String to pass an email concatenated with current date and time into
+	 * an email text box and you can pass same value (email+date+time) in another
+	 * steps.
+	 */
+
+	public static String email = getEmail();
+
+	/**
+	 * Use this method to pass date as a string. You can concatinate with any String
+	 * and get unique name
+	 */
+	public static String getDateAsString() {
+		Date date = new Date();
+		Timestamp ts = new Timestamp(date.getTime());
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String dateAsString = formatter.format(ts).toString();
+		dateAsString = dateAsString.replaceAll("[^A-Za-z0-9]", "");
+		return dateAsString;
+	}
+
+	
+	/**
+	 * Use this method to select a checkbox value
+	 */
+	public static void selectCheckbox(List<WebElement> checkboxList, String attribute, String value) {
+		for (WebElement checkbox : checkboxList) {
+			if (checkbox.isEnabled()) {
+				String checkboxText = checkbox.getAttribute(attribute);
+				if (checkboxText.equals(value)) {
+					checkbox.click();
+					MiscUtils.sleep(1000);
+					break;
+				}
+			}
+		}
+	}
+	
+	
+	/**
+	 * Use this method to open new tab
+	 */
+	public static void openNewTab () {
+		JavascriptExecutor js = (JavascriptExecutor) WebDriverUtils.webDriver;
+		js.executeScript("window.open('about:blank','_blank');");
+	}
+	
+	/**
+	 * Use this method to switch to the next another open window
+	 */
+	public static void swicthToAnotherWindow() {
+		Set<String> handlingAllOpenWindows= WebDriverUtils.webDriver.getWindowHandles();
+		for (String nextWindow : handlingAllOpenWindows) {
+			WebDriverUtils.webDriver.switchTo().window(nextWindow);
+	   }
 	}
 }
