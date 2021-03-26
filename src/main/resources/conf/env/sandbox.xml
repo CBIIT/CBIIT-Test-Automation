@@ -7,7 +7,7 @@
 	<!-- Application ID for covid19dashboard -->
 	<application id="covid19dashboard">
 
-		<login_url>
+		<login_url>https://service-sandbox.nci.nih.gov/nih-covid-19-dashboard
 		</login_url><!-- add Sandbox url -->
 
 		<role name="Role">
@@ -32,7 +32,7 @@
 	<!-- Application ID for Native View -->
 	<application id="nativeview">
 
-		<login_url></login_url><!-- add Sandbox url -->
+		<login_url>https://service-sandbox.nci.nih.gov/ncisp</login_url><!-- add Sandbox url -->
 
 		<role name="Role">
 			<user id="regular">
@@ -119,6 +119,30 @@
 				<username></username><!-- Add db username -->
 				<password></password><!-- Add db password -->
 			</default><!-- comment -->
+		</db>
+	</application>
+	
+	<!-- Application ID for ODS SEER Data Access -->
+	<application id="SEERDataAccess">
+
+		<login_url>https://service-sandbox.nci.nih.gov/seer-data-access
+		</login_url><!-- add Sandbox url -->
+
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
 		</db>
 	</application>
 	

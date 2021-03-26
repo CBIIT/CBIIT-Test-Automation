@@ -119,19 +119,11 @@ public class SEERUserRegistrationPage extends CommonUtils {
 	@FindBy (xpath = "//div[@class = 'col-sm-10']/child::p")
 	public WebElement seerUserRegistrationSeerIsSupportedByTheSurveillanceResearchProgramText;
 	
+	/** --------------- END OF SEER USER REGISTRATION SUBMISSION CONFIRMATION SECTION --------------- */
 	
-	
-	/** --------------- THE END OF SEER USER REGISTRATION SUBMISSION CONFIRMATION SECTION --------------- */
-	/** --------------- THE END OF SEER USER REGISTRATION PAGE --------------- */
+	/** --------------- END OF SEER USER REGISTRATION PAGE --------------- */
 	
 	public SEERUserRegistrationPage() {
-
-		PageFactory.initElements(WebDriverUtils.webDriver, this);
-
+		PageFactory.initElements(WebDriverUtils.webDriver, this);    
 	}
-	
-	
-	
-	
-
 }
