@@ -1,15 +1,23 @@
 package appsCommon;
 
+
+import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
+import AnalysisTools.CEDCD.Pages.CEDCDBiospecimenCountsPage;
 import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
-import AnalysisTools.CEDCD.Steps.CEDCDBiospecimenCountsSelectAllCohortsSteps;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDAlphabetizedSelectTypesStepImp;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDMaleDiscrepancyOnSearchCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortAlcoholConsumptionStepImp;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortNewPageLayOutStepImp;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
+import AnalysisTools.CEDCD.Steps.CEDCDStartUps;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
-import AnalysisTools.PLCO.Pages.APIAcessPage;
+import AnalysisTools.PLCO.Pages.BrowsePhenotypePage;
 import AnalysisTools.PLCO.Pages.ExploreGWASPage;
+import AnalysisTools.PLCO.Pages.InformationPage;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
 import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
@@ -39,8 +47,14 @@ import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
+import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
+import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
+import ServiceNow.NERD.Pages.NERDSubmissionsPage;
+import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
+import ServiceNow.NERD.StepsImplementation.NativeViewImpersonateUser;
 import ServiceNow.SEER.Pages.NativeViewSentViewPage;
 import ServiceNow.SEER.Pages.SEERDataAccessRequestPage;
+import ServiceNow.SEER.Pages.SEERIncidenceDatabaseDetailsPage;
 import ServiceNow.SEER.Pages.SEERLandingPage;
 import ServiceNow.SEER.Pages.SEERUserRegistrationPage;
 
@@ -84,15 +98,6 @@ public class PageInitializer {
 	/** CHARMS instances */
 	protected static CHARMSNativeViewPage charmsNativeViewPage;
 	protected static TestAccountResetImpl testAccountResetImpl;
-
-	/** LDLink instances **/
-	protected static LDLinkHomePage ldLinkHomePage;
-	protected static LDLinkLandingPage ldLinkLandingPage;
-
-	/** PLCO instances **/
-	protected static ExploreGWASPage exploreGWASPage;
-	protected static APIAcessPage apiAcessPage;
-
 	protected static CHARMSHomePage charmsHomePage;
 	protected static OKTAloginPage oktaLoginPage;
 	protected static CHARMSHomePageImp charmsHomePageImpl;
@@ -100,24 +105,51 @@ public class PageInitializer {
 	protected static ProbandScreenerPage probandScreenerPage;
 	protected static ProbandScreenerSubmissionImpl probandScreenerSubmissionImpl;
 
+	/** LDLink instances **/
+	protected static LDLinkHomePage ldLinkHomePage;
+	protected static LDLinkLandingPage ldLinkLandingPage;
+
+	/** PLCO instances **/
+	protected static ExploreGWASPage exploreGWASPage;
+	protected static BrowsePhenotypePage browsePhenotypePage;
+    protected static InformationPage informationPage;
+    
 	/** ServiceNow DevOps instances */
 	protected static DevOpsLoginPage devOpsLoginPage;
 	protected static DevOpsNativeViewPage devOpsNativeViewPage;
 	protected static DevOpsAutomatedBuildStepsImplementation devOpsAutomatedBuildStepsImplementation;
 
 	/** CEDCD instances */
+	/** CEDCD instances */
 	protected static CEDCDSearchCohortsPage cedcdSearchCohortsPage;
+	protected static CEDCDAdminPage  cedcdAdminPage;   
 	protected static CEDCDSearchFemaleCohortsStepImp cedcdSearchFemaleCohortsStepImp;
 	protected static CEDCDMaleDiscrepancyOnSearchCohortsStepImp cedcdMaleDiscrepancyOnSearchCohortsStepImp;
 	protected static CEDCDSelectAllCohortsStepImp cedcdSelectAllCohortsStepImp;
-	protected static CEDCDBiospecimenCountsSelectAllCohortsSteps cedcdBiospecimenCountsSelectAllCohortsSteps;
 	protected static CEDCDSearchCohortAlcoholConsumptionStepImp cedcdSearchCohortAlcoholConsumptionStepImp;
+	protected static CEDCDBiospecimenCountsPage cedcdBiospecimenCountsPage;
+	protected static CEDCDSearchCohortNewPageLayOutStepImp cedcdSearchCohortNewPageLayOutStepImp;
+	protected static CEDCDAlphabetizedSelectTypesStepImp cedcdAlphabetizedSelectTypesStepImp;
+	protected static CEDCDStartUps cedcdStartUps;
+	protected static CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp cedcdSearchCohortsCategoriesOfDataOfDataSortedStepImp;
+	protected static CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp cedcdBiospecimenCountsAlphabeticalCancerTypeStepImp;
+
 
 	/** SEER instances */
 	protected static SEERLandingPage seerLandingPage;
 	protected static SEERUserRegistrationPage seerUserRegistrationPage;
 	protected static SEERDataAccessRequestPage seerDataAccessRequestPage;
 	protected static NativeViewSentViewPage nativeViewSentViewPage;
+	protected static SEERIncidenceDatabaseDetailsPage seerIncidenceDatabaseDetailsPage;
+	
+	/** NERD instances */
+	protected static NERDLoginStepsImplementation nerdLoginStepsImplementation;
+	protected static NERDSubmissionsPage nerdCrsKnowledgeDatabaseSubmissionsPage;
+	protected static CreateNewSubmissionPage createNewSubmissionPage;
+	protected static NativeViewImpersonateUser nativeViewImpersonateUser;
+	protected static NERDDynamicXPATHS nerdDynamicXpaths;
+
+	
 
 	public static void initializeAllPages() {
 		// create instances of all pages and assign them to the variables
@@ -141,9 +173,8 @@ public class PageInitializer {
 		testAccountResetImpl = new TestAccountResetImpl();
 		servicePortalSurveyPage = new ServicePortalSurveyPage();
 		ldLinkLandingPage = new LDLinkLandingPage();
-		ldLinkHomePage = new LDLinkHomePage();
-		exploreGWASPage = new ExploreGWASPage();
-		apiAcessPage = new APIAcessPage();
+		ldLinkHomePage = new LDLinkHomePage(); 
+		exploreGWASPage = new ExploreGWASPage(); 
 		charmsHomePage = new CHARMSHomePage();
 		oktaLoginPage = new OKTAloginPage();
 		charmsHomePageImpl = new CHARMSHomePageImp();
@@ -158,8 +189,13 @@ public class PageInitializer {
 		cedcdSearchFemaleCohortsStepImp = new CEDCDSearchFemaleCohortsStepImp();
 		cedcdMaleDiscrepancyOnSearchCohortsStepImp = new CEDCDMaleDiscrepancyOnSearchCohortsStepImp();
 		cedcdSelectAllCohortsStepImp = new CEDCDSelectAllCohortsStepImp();
-		cedcdBiospecimenCountsSelectAllCohortsSteps = new CEDCDBiospecimenCountsSelectAllCohortsSteps();
 		cedcdSearchCohortAlcoholConsumptionStepImp = new CEDCDSearchCohortAlcoholConsumptionStepImp();
+		cedcdBiospecimenCountsPage = new CEDCDBiospecimenCountsPage();
+		cedcdSearchCohortNewPageLayOutStepImp = new CEDCDSearchCohortNewPageLayOutStepImp();
+		cedcdAlphabetizedSelectTypesStepImp = new CEDCDAlphabetizedSelectTypesStepImp();
+		cedcdStartUps = new CEDCDStartUps();
+		cedcdSearchCohortsCategoriesOfDataOfDataSortedStepImp = new CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp();
+		cedcdBiospecimenCountsAlphabeticalCancerTypeStepImp = new CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp();
 		servicePortalQuestionnairePage = new ServicePortalQuestionnairePage();
 		servicePortalQuestionnairePageImp = new ServicePortalQuestionnairePageImp();
 		dashboardStepImpl = new DashboardStepImpl();
@@ -168,6 +204,14 @@ public class PageInitializer {
 		seerUserRegistrationPage = new SEERUserRegistrationPage();
 		seerDataAccessRequestPage = new SEERDataAccessRequestPage();
 		nativeViewSentViewPage = new NativeViewSentViewPage();
+		seerIncidenceDatabaseDetailsPage = new SEERIncidenceDatabaseDetailsPage();
+		nerdLoginStepsImplementation = new NERDLoginStepsImplementation();
+		nerdCrsKnowledgeDatabaseSubmissionsPage = new NERDSubmissionsPage();
+		createNewSubmissionPage = new CreateNewSubmissionPage();
+		nativeViewImpersonateUser = new NativeViewImpersonateUser();
+		nerdDynamicXpaths = new NERDDynamicXPATHS();
+		browsePhenotypePage = new BrowsePhenotypePage();
+		informationPage = new InformationPage();
+		cedcdAdminPage = new CEDCDAdminPage();
 	}
-
 }
