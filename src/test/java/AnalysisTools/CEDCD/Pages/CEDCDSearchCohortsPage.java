@@ -1,5 +1,7 @@
 package AnalysisTools.CEDCD.Pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -9,9 +11,9 @@ import com.nci.automation.web.WebDriverUtils;
 
 public class CEDCDSearchCohortsPage extends CommonUtils {
 
-	
-	
-	/**================================================= Search Cohorts WebElements =======================================================*/
+	/**
+	 * ================= Search Cohorts WebElements ================
+	 */
 	/** This element is the search Cohorts tab */
 	@FindBy(xpath = "//a[@id='searchCohortsTab']")
 	public WebElement searchCohortTab;
@@ -49,51 +51,54 @@ public class CEDCDSearchCohortsPage extends CommonUtils {
 	/** This element is the select all check box on the Search Cohorts Page */
 	@FindBy(xpath = "//input[@id='select_all']")
 	public WebElement selectAllCheckBox;
-	
+
 	/** This element clicks on the Categories of Data Collected Drop down */
-	@FindBy (xpath = "//button[contains(text(),'Categories of Data Collected')]")
+	@FindBy(xpath = "//button[contains(text(),'Categories of Data Collected')]")
 	public WebElement categoriesOfDataCollectedDropDown;
 	
-	/** This element selects "Alcohol Consumption" from the categories of data collected drop down */
-	@FindBy (xpath = "//label[contains(text(),'Alcohol Consumption')]")
+	/** This element clicks on the "Depression" value from the Categories of Data Collected drop down */
+	@FindBy (xpath = "//label[contains(text(),'Depression')]")
+	public WebElement categoriesOfDataCollectedDepressionValue;
+	
+	
+	/**
+	 * This element selects "Alcohol Consumption" from the categories of data
+	 * collected drop down
+	 */
+	@FindBy(xpath = "//label[contains(text(),'Alcohol Consumption')]")
 	public WebElement categoriesOfDataCollectedAlcoholConsumptionValue;
 	
+	/** This element selects the whole section of the Eligibility Requirement */
+	@FindBy (xpath = "(//div[@class='col-sm-3 filterCol'])[1]")
+	public WebElement cohortEligibilityRequirementsSection;
 	
-	/**================================================= Biospecimen WebElements =======================================================*/
-	/** This element selects the Biospecimen tab on the home page */
-	@FindBy (xpath = "//span[contains(text(),'Biospecimen Counts')]")
-	public WebElement biospecimenTab;
+	/** This element selects the whole section of the Enrollment */
+	@FindBy (xpath = "(//div[@class='col-sm-3 filterCol'])[2]")
+	public WebElement cohortEnrollmentSection;
 	
-	/** This element selects the Specimen Type drop down from the Biospecimen tab */
-	@FindBy (xpath = "//button[contains(text(), 'Specimen Type')]")
-	public WebElement specimenType;
+	/** This list of WebElements returns all the values from the Categories of Data Collected */
+	@FindBy (xpath = "//*[@id='filter-panel']/div[2]/div/div[1]/div[3]/div/div/div[1]/div/div/div/ul/li")
+	public List<WebElement> categoriesOfDataCollectedValues;
 	
-	/** This element selects "All Types" from the Specimen Type drop down */
-	@FindBy (xpath = "//label[contains(text(), 'All Types')]")
-	public WebElement specimenTypeDropDownAllTypeValue;
+	/** This element selects the whole section of the Data and Specimens Collected */
+	@FindBy (xpath = "//div[@class='filterCol col-sm-6 last']")
+	public WebElement cohortDataAndSpecimenCollectedSection;
 	
-	/** This element clicks on the Cancer Type drop down on the Biospecimen tab*/
-	@FindBy (xpath = "//button[contains(text(),'Cancer Type')]")
-	public WebElement cancerType;
+	/** This element selects the URL for the Agricultural Health Study */
+	@FindBy (xpath = "//a[@href='http://aghealth.nih.gov/']")
+	public WebElement AHSURL;
 	
-	/** This element clicks on the "All Types" from the cancerType drop down */
-	@FindBy (xpath = "//label[contains(text(),'All Cancers')]")
-	public WebElement cancerTypeDropDownAllTypeValues;
+	/** This element selects the AHS logo at the top to verify web page */
+	@FindBy (xpath = "//span[contains(text(),'Agricultural Health Study')]")
+	public WebElement AHSLogo;
 	
-	/** This element clicks on the Cohort drop down from the Biospecimen tab */
-	@FindBy (xpath = "//button[contains(text(),'Select Cohorts')]")
-	public WebElement cohortType;
+	/** This element selects the text from the AHS for assertions */
 	
-	/** This element clicks on the "All Cohorts" from the Cohorts drop down */
-	@FindBy (xpath = "//label[contains(text(),'All Cohorts')]")
-	public WebElement cohortTypeDropDownAllTypeValue;
+	@FindBy (xpath = "//a[contains(text(), 'Agricultural Health Study')]")
+	public WebElement AHSTextBox;
 	
-	@FindBy (xpath = "//input[@name='submitBtn']")
-	public WebElement biospecimenSubmitBtn;
 	
-	@FindBy (xpath = "//a[contains(text(),'Clear All')]")
-	public WebElement biospecimenClearAllBtn;
-
+	
 	public CEDCDSearchCohortsPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}

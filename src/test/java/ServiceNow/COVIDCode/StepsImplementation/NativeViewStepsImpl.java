@@ -1,6 +1,10 @@
 package ServiceNow.COVIDCode.StepsImplementation;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -8,6 +12,7 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
+import com.nci.automation.xceptions.TestingException;
 
 import appsCommon.PageInitializer;
 
@@ -30,8 +35,8 @@ public class NativeViewStepsImpl extends PageInitializer {
 		MiscUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourCurrentHeightDropDown);
-		MiscUtils.sleep(500);
-		CommonUtils.selectDropDownValue("Foot/Inches",
+		MiscUtils.sleep(1000);
+		CommonUtils.selectDropDownValue("Feet/Inches",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourCurrentHeightDropDown);
 		MiscUtils.sleep(500);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsHeightField.sendKeys("5");
@@ -65,9 +70,11 @@ public class NativeViewStepsImpl extends PageInitializer {
 				.sendKeys("04-01-2020");
 		CommonUtils.selectDropDownValue("Nasal or throat swab",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyHowWasTheSampleTakenDropDown);
+		CommonUtils.selectDropDownValue("Yes",
+				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyHaveYouOfficiallyBeenDiagnosedWithCOVID19);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyDateOfficiallyDiagnosed.sendKeys("04-09-2020");
 		CucumberLogUtils.logScreenShot();
-	}
+	} 
 
 	/***
 	 * The below navigates to and fills out the Exposures and Risk Factors section
@@ -283,5 +290,69 @@ public class NativeViewStepsImpl extends PageInitializer {
 		}
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
+	}
+	
+	/***
+	 * This method creates a new Enrollment Questionnaire for User Group 1, enters all required information and submits for review
+	 */
+	public void submitForReviewEQGroup1 () throws TestingException {
+		nativeViewLoginImpl.nativeViewLogin();
+		nativeViewStepsImpl.nativeViewNavigateToCovidCodeEnrollmentQuestionnaire();
+		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
+		MiscUtils.sleep(500);
+		nativeViewEnrollementsPage.covidCodeEnrollmentsNewButton.click();
+		MiscUtils.sleep(2000);
+		CommonUtils.selectDropDownValue("Group 1", nativeViewEnrollmentViewPage.nativeViewEnrollmentViewUserGroupIDDropDown);
+		CommonUtils.selectDropDownValue("Yes", nativeViewEnrollmentViewPage.nativeViewEnrollmentViewConsentDropDown);
+		CommonUtils.sendKeys(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewPatientLastNameField, "TestLastName");
+		CommonUtils.sendKeys(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewPatientFirstName, "TestFirstName");
+		JavascriptUtils.scrollIntoView(
+				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourBioSexDropDown);
+		CommonUtils.selectDropDownValue("Female",
+				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourBioSexDropDown);
+		MiscUtils.sleep(500);
+		CommonUtils.selectDropDownValue("Feet/Inches",
+				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourCurrentHeightDropDown);
+		MiscUtils.sleep(500);
+		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsHeightField.sendKeys("5");
+		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsHeightInches.sendKeys("10");
+		MiscUtils.sleep(500);
+		CommonUtils.selectDropDownValue("Pounds",
+				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsCurrentWeightDropDown);
+		MiscUtils.sleep(500);
+		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWeighPoundtField.sendKeys("200");
+		CommonUtils.selectDropDownValue("Asian",
+				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsHowWouldYouDescribeYourRaceDropDown);
+		MiscUtils.sleep(500);
+		CommonUtils.selectDropDownValue("No",
+				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsAreYouHispaniceOrLatinoDropDown);
+		MiscUtils.sleep(500);
+		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsTab.click();
+		MiscUtils.sleep(500);
+		JavascriptUtils.selectDateByJS(
+				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsConsentedDate, "01/20/2021");
+		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewPageSubmitForReviewBtn.click();
+		MiscUtils.sleep(2000);
+	}
+	
+	/***
+	 * This method sends values one by one from list to lookup search field
+	 */
+	public void sendMultipleValuesToLookupField(String[] list, WebElement lookupField) {
+		for(String l : list) {
+			lookupField.sendKeys(l);
+			CommonUtils.sendKeys(lookupField, Keys.ENTER);
+			MiscUtils.sleep(1000);
+		}
+	}
+	
+	/** This method asserts actual list of WebElements with expected list of Strings */
+	public void assertTwoLists(List<WebElement> lists, String[] arrayList) {
+		MiscUtils.sleep(2000);
+		List<String> act = new ArrayList<String>(Arrays.asList(lists.get(0).getText().split("\n")));
+		List<String> exp = new ArrayList<String>(Arrays.asList(arrayList));
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenShot();
+	    Assert.assertEquals(act, exp);
 	}
 }
