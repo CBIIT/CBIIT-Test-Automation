@@ -1,12 +1,8 @@
 package ServiceNow.COVIDCode.Steps;
 
 import java.util.List;
-
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -14,8 +10,6 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
-
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -39,7 +33,7 @@ public class ServicePortalIQScenarioSteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.selectDropDownValue("User Group 2", servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown);
 		servicePortalQuestionnairePage.createEnrollmentButton.click();
-		covidCodeEQPage.enrollmentQuestionnaireNIHMedicalRecordNumberTextBox.sendKeys("11122245");
+		covidCodeEQPage.enrollmentQuestionnaireNIHMedicalRecordNumberTextBox.sendKeys("1112224");
 		covidCodeEQPage.enrollmentQuestionnairePatientLastNameTextBox.sendKeys("AutomatedLNGroup2");
 		covidCodeEQPage.enrollmentQuestionnairePatientFirstNameTextBox.sendKeys("AutomatedFNGroup2");
 		covidCodeEQPage.enrollmentQuestionnairePatientMiddletNameTextBox.sendKeys("M");
@@ -64,7 +58,7 @@ public class ServicePortalIQScenarioSteps extends PageInitializer {
 	@Then("the draft is shown in the Draft Initial Questionnaires table")
 	public void the_draft_is_shown_in_the_Draft_Initial_Questionnaires_table() {
 	
-	   Assert.assertTrue(servicePortalQuestionnairePage.draftIQTableFirstRow.getText().contains("11122245"));
+	   Assert.assertTrue(servicePortalQuestionnairePage.draftIQTableFirstRow.getText().contains("1112224"));
 	   Assert.assertTrue(servicePortalQuestionnairePage.draftIQTableFirstRowUserGroupIDField.getText().contentEquals("Group 2"));
 	   CucumberLogUtils.logScreenShot();
 	  
