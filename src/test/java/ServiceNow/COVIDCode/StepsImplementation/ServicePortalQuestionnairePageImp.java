@@ -28,7 +28,7 @@ public class ServicePortalQuestionnairePageImp extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 		servicePortalQuestionnairePage.enrollmentCreationUserGroupIDSelectDropDown.click();
 		List<WebElement> groupIDs = servicePortalQuestionnairePage.enrollmentCreationUserGroupIDValues;
-		CommonUtils.selectValueFromBootStrapDropDown(groupIDs, "User Group 1");
+		CommonUtils.selectValueFromBootStrapDropDown(groupIDs, " User Group 1");
 		servicePortalQuestionnairePage.createEnrollmentButton.click();
 
 	}
