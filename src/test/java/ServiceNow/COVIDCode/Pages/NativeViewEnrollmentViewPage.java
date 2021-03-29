@@ -585,7 +585,6 @@ public class NativeViewEnrollmentViewPage extends CommonUtils {
 	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.second_vaccine_date_fieldmsg']/div")
 	public WebElement nativeViewEnrollmentViewVaccineHaveYouReceivedYourSecondVaccineSelectedDateCannotBeInTheFutureText;
 
-
 	/**
 	 * --------------- END OF NATIVE VIEW COVIDcode ENROLLMENT VIEW VACCINE SECTION TABLE ---------------
 	 */
@@ -734,7 +733,7 @@ public class NativeViewEnrollmentViewPage extends CommonUtils {
 	/** Native View Enrollment View Delete Submission Pop Up Delete Button */
 	@FindBy(xpath = "//button[@id = 'ok_button']")
 	public WebElement nativeViewEnrollmentViewDeleteDeleteSubmissionPopUpDeleteButton;
-	
+
 	/**
 	 * --------------- END OF NATIVE VIEW COVIDcode ENROLLMENT VIEW DISEASE COURSES SECTION TABLE ---------------
 	 */
@@ -1009,7 +1008,6 @@ public class NativeViewEnrollmentViewPage extends CommonUtils {
 	 */
 	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_covidcode_follow_up.second_vaccine_date_fieldmsg']/div")
 	public WebElement nativeViewFollowUpVaccineHaveYouReceivedYourSecondVaccineSelectedDateCannotBeInTheFutureText;
-
 
 	/**
 	 * --------------- END OF NATIVE VIEW COVIDcode FOLLOW UPS VACCINE SECTION TABLE ---------------
