@@ -36,7 +36,7 @@ public class NativeViewEnrollmentsPage extends CommonUtils {
 	/** COVIDCode Enrollments Open Record */
 	@FindBy(xpath = "//a[contains(text(), 'Open Record')]")
 	public WebElement covidCodeEnrollmentOpenRecordBtn;
-	
+
 	/** COVIDCode Follow Up New button */
 	@FindBy(xpath = "//button[@id = 'sysverb_new']")
 	public WebElement covidCodeFollowUpNewButton;
@@ -242,8 +242,7 @@ public class NativeViewEnrollmentsPage extends CommonUtils {
 	/** My Inquiry Tracking Records Study Team Contact Covid Test Result F/U 1 Text Box */
 	@FindBy (xpath = "//input[@name='x_g_nci_geco_covid_inquiry_tracking.study_team_contact_date_3']")
 	public WebElement myInquiryTrackingRecordsStudyTeamContactCovidTestResultFU2TextBox;
-	
-	
+
 
 	/** ---------------THE END OF THE NATIVE VIEW COVIDcode My Inquiry Tracking Records VIEW  ---------------  */
 	

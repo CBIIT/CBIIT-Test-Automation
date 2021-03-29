@@ -7,13 +7,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -26,16 +23,10 @@ import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.nci.automation.common.Constants;
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.LocalConfUtils;
-
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
 
 import io.github.bonigarcia.wdm.OperatingSystem;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -51,53 +42,20 @@ public class WebDriverUtils {
 
 	public static WebDriver webDriver;
 //	public static final String GET_EXE = ".exe";
-//	public static final String GET_LINUX = "_linux";
-	
+//	public static final String GET_LINUX = "_linux"; 
 
 	/**
 	 * Get a web-driver to interact with the UI
-	 * @throws MalformedURLException 
 	 */
 	@SuppressWarnings("deprecation")
-	public static WebDriver getWebDriver()  {
+	public static WebDriver getWebDriver() {  
 
 		String browser = ConfUtils.getProperty("browser");
 		String headless = ConfUtils.getProperty("headless");
-		String avdName = ConfUtils.getProperty("avdName");
-		String platformName = ConfUtils.getProperty("platformName");
-		String udid = ConfUtils.getProperty("udid");
 		if (webDriver == null) {
 			setDriverExecutables();
 
-			if(Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
-				
-				DesiredCapabilities cap = new DesiredCapabilities();
-				if(platformName.equalsIgnoreCase(Constants.IOS_MOBILE)) {
-					cap.setCapability("deviceName", "iOS");
-					cap.setCapability("platformName", "iOS");
-					cap.setCapability(CapabilityType.BROWSER_NAME, "Safari"); 
-					cap.setCapability(CapabilityType.VERSION, "14");		
-					cap.setCapability("udid", udid );
-					cap.setCapability("automationName", "XCUITest");
-					
-				}else {
-					cap.setCapability("deviceName", "Android");
-					cap.setCapability("platformName", "Android");
-					cap.setCapability(CapabilityType.BROWSER_NAME, "Chrome"); 
-					cap.setCapability(CapabilityType.VERSION, "10");		
-					cap.setCapability("avd", avdName );
-					
-				}
-				try {
-					webDriver = new AppiumDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), cap);
-				} catch (MalformedURLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					CucumberLogUtils.logFail("Mobile driver intlization filed", false);
-				}
-
-			}
-			else if (Constants.BROWSER_CHROME.equals(browser)) {
+			if (Constants.BROWSER_CHROME.equals(browser)) {
 				ChromeOptions chromeOptions = new ChromeOptions();
 				if (headless.equalsIgnoreCase("true")) {
 					chromeOptions.setHeadless(true);
@@ -137,7 +95,7 @@ public class WebDriverUtils {
 				String[] phantomArgs = new String[] { "--webdriver-loglevel=NONE" }; 
 				capabilities.setCapability(PhantomJSDriverService.PHANTOMJS_CLI_ARGS, phantomArgs);
 				webDriver = new PhantomJSDriver(capabilities);
-				
+				 
 			}else {
 
 				CucumberLogUtils.logFail("Unsupported browser in localConf.properties file! "
@@ -148,9 +106,8 @@ public class WebDriverUtils {
 
 		long implicitWaitInSeconds = Long.valueOf(LocalConfUtils.getProperty("implicitWaitInSeconds"));
 		webDriver.manage().timeouts().implicitlyWait(implicitWaitInSeconds, TimeUnit.SECONDS);
-		if(!Constants.BROWSER_MOBILE.equalsIgnoreCase(browser))
-		{ webDriver.manage().window().maximize();}
-		
+
+		webDriver.manage().window().maximize();
 
 		return webDriver;
 	}
@@ -178,7 +135,6 @@ public class WebDriverUtils {
 			}else if (osName.contains("Linux")) {
 				//System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH + GET_LINUX);
 				WebDriverManager.chromedriver().operatingSystem(OperatingSystem.LINUX).setup();
-				
 			}
 
 		} else if (browser.equalsIgnoreCase(Constants.BROWSER_IE)) {
@@ -186,12 +142,14 @@ public class WebDriverUtils {
 			if (osName.contains("Mac")) {
 				//System.setProperty(Constants.IE_KEY, Constants.IE_PATH);
 				WebDriverManager.iedriver().setup();
+				
 			} else if (osName.contains("Windows")) {
 				//System.setProperty(Constants.IE_KEY, Constants.IE_PATH + GET_EXE);
 				WebDriverManager.iedriver().operatingSystem(OperatingSystem.WIN).setup();
-			}else if (osName.contains("Linux")) {
-				WebDriverManager.iedriver().operatingSystem(OperatingSystem.LINUX).setup();
-			}
+			} else if (osName.contains("Linux")) {
+		
+			WebDriverManager.iedriver().operatingSystem(OperatingSystem.LINUX).setup();
+		}
 
 		} else if (browser.equalsIgnoreCase(Constants.BROWSER_FIREFOX)) {
 
@@ -201,7 +159,8 @@ public class WebDriverUtils {
 			} else if (osName.contains("Windows")) {
 				//System.setProperty(Constants.FIREFOX_KEY, Constants.FIREFOX_PATH + GET_EXE);
 				WebDriverManager.firefoxdriver().operatingSystem(OperatingSystem.WIN).setup();
-			}else if (osName.contains("Linux")) {	
+			}else if (osName.contains("Linux")) {
+				
 				WebDriverManager.firefoxdriver().operatingSystem(OperatingSystem.LINUX).setup();
 			}
 		}else if (browser.equalsIgnoreCase(Constants.BROWSER_PHANTOM)) {
@@ -369,18 +328,5 @@ public class WebDriverUtils {
 	public static void refreshPage(WebDriver driver) {
 		driver.navigate().refresh();
 	}
-	
-	public static WebElement element(By by) {
-		boolean status = false;
-		try {
-			WebDriverWait wait = new WebDriverWait(webDriver, 30);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-			status = true;
-		} catch (Exception e) {
-			logger.error(e);
-		}
-		return webDriver.findElement(by);
-	}
-
 
 }
