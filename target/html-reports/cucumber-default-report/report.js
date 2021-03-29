@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 $(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/java/ServiceNow/COVIDCode/Features/ServicePortalSurvey.feature");
 formatter.feature({
   "name": "Volunteer Survey",
@@ -303,3 +305,4 @@ formatter.after({
   "status": "passed"
 });
 });
+>>>>>>> 0892c72f85e8e20c39de019485a5991aa7b3559b
