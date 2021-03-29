@@ -22,6 +22,7 @@ Feature: COVIDCode Service Portal Draft Follow-Up Questionnaires Scenarios
     And create a new Disease Course record
     Then there is a field option called a "Convalescent plasma" for the Drug Treatments field
 
-  @new @Progression @juarezds
+  @new @Smoke
   Scenario: a Study Staff nurse can save the follow up form so that he/she may continue working on it at a later time.
     Given an enrollment form has been filled out
+
