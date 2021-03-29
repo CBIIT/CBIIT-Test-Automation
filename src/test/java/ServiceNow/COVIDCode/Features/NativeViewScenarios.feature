@@ -1,3 +1,5 @@
+#Author: Diego Juarez
+#Supports COVID-
 Feature: Native View Scenarios
 
   @Smoke @updated2/5/21 @juarezds
