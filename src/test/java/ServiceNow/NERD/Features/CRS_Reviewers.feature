@@ -10,7 +10,7 @@ Feature: CRS Reviewers Test Scenarios
     And when selecting Other "Other"
     Then the If Other is selected above, please specify "If Other is selected above, please specify" field displays
 
-  @Smoke @juarezds
+  @Smoke
   Scenario: Test Special topics filter missing "Women's Health"
     Given a CRS Reviewer is on the NERD Knowledge Base page
     And clicks the "Special Topic" filter
