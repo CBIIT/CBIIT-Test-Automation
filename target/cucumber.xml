@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 <?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="51.330334">
 <testcase classname="Volunteer Survey" name="Volunteer Survey Self Submission_1 - Service Portal" time="51.330334">
 <system-out><![CDATA[Given a user is on the COVIDCode home page..................................passed
@@ -28,3 +30,4 @@ Then the user is prompted back to the COVIDCode Study Home Page.............pass
 ]]></system-out>
 </testcase>
 </testsuite>
+>>>>>>> 0892c72f85e8e20c39de019485a5991aa7b3559b
