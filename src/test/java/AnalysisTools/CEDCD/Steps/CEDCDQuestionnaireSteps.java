@@ -10,6 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor;
+import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
@@ -77,6 +78,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	
 	@Then("Cohort is added")
 	public void Cohort_is_added() {
+		CucumberLogUtils.logScreenShot();
 		
 	}
 	
