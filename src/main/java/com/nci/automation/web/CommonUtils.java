@@ -8,10 +8,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchFrameException;
@@ -406,7 +408,7 @@ public class CommonUtils extends WebDriverUtils {
 	public static String email = getEmail();
 
 	/**
-	 * Use this method to pass date as a string. You can concatenate with any String
+	 * Use this method to pass date as a string. You can concatinate with any String
 	 * and get unique name
 	 */
 	public static String getDateAsString() {
@@ -433,5 +435,24 @@ public class CommonUtils extends WebDriverUtils {
 				}
 			}
 		}
+	}
+	
+	
+	/**
+	 * Use this method to open new tab
+	 */
+	public static void openNewTab () {
+		JavascriptExecutor js = (JavascriptExecutor) WebDriverUtils.webDriver;
+		js.executeScript("window.open('about:blank','_blank');");
+	}
+	
+	/**
+	 * Use this method to switch to the next another open window
+	 */
+	public static void swicthToAnotherWindow() {
+		Set<String> handlingAllOpenWindows= WebDriverUtils.webDriver.getWindowHandles();
+		for (String nextWindow : handlingAllOpenWindows) {
+			WebDriverUtils.webDriver.switchTo().window(nextWindow);
+	   }
 	}
 }
