@@ -119,7 +119,6 @@ public class PageInitializer {
 	protected static DevOpsAutomatedBuildStepsImplementation devOpsAutomatedBuildStepsImplementation;
 
 	/** CEDCD instances */
-	/** CEDCD instances */
 	protected static CEDCDSearchCohortsPage cedcdSearchCohortsPage;
 	protected static CEDCDAdminPage  cedcdAdminPage;   
 	protected static CEDCDSearchFemaleCohortsStepImp cedcdSearchFemaleCohortsStepImp;
