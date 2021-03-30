@@ -7,7 +7,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -27,9 +26,11 @@ import com.nci.automation.common.Constants;
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.LocalConfUtils;
-
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.github.bonigarcia.wdm.OperatingSystem;
 import io.github.bonigarcia.wdm.WebDriverManager;
+
 
 /**
  * This class contains web driver related methods
@@ -52,10 +53,40 @@ public class WebDriverUtils {
 
 		String browser = ConfUtils.getProperty("browser");
 		String headless = ConfUtils.getProperty("headless");
+		String avdName = ConfUtils.getProperty("avdName");
+		String platformName = ConfUtils.getProperty("platformName");
+		String udid = ConfUtils.getProperty("udid");
 		if (webDriver == null) {
 			setDriverExecutables();
 
-			if (Constants.BROWSER_CHROME.equals(browser)) {
+			if(Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
+
+				DesiredCapabilities cap = new DesiredCapabilities();
+				if(platformName.equalsIgnoreCase(Constants.IOS_MOBILE)) {
+					cap.setCapability("deviceName", "iOS");
+					cap.setCapability("platformName", "iOS");
+					cap.setCapability(CapabilityType.BROWSER_NAME, "Safari"); 
+					cap.setCapability(CapabilityType.VERSION, "14");		
+					cap.setCapability("udid", udid );
+					cap.setCapability("automationName", "XCUITest");
+
+				}else {
+					cap.setCapability("deviceName", "Android");
+					cap.setCapability("platformName", "Android");
+					cap.setCapability(CapabilityType.BROWSER_NAME, "Chrome"); 
+					cap.setCapability(CapabilityType.VERSION, "10");		
+					cap.setCapability("avd", avdName );
+
+				}
+				try {
+					webDriver = new AppiumDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), cap);
+				} catch (MalformedURLException e) {
+					e.printStackTrace();
+					CucumberLogUtils.logFail("Mobile driver intlization filed", false);
+				}
+
+			}
+			else if (Constants.BROWSER_CHROME.equals(browser)) {
 				ChromeOptions chromeOptions = new ChromeOptions();
 				if (headless.equalsIgnoreCase("true")) {
 					chromeOptions.setHeadless(true);
@@ -107,7 +138,8 @@ public class WebDriverUtils {
 		long implicitWaitInSeconds = Long.valueOf(LocalConfUtils.getProperty("implicitWaitInSeconds"));
 		webDriver.manage().timeouts().implicitlyWait(implicitWaitInSeconds, TimeUnit.SECONDS);
 
-		webDriver.manage().window().maximize();
+		if(!Constants.BROWSER_MOBILE.equalsIgnoreCase(browser))
+		{ webDriver.manage().window().maximize();}
 
 		return webDriver;
 	}
@@ -121,11 +153,9 @@ public class WebDriverUtils {
 
 		System.setProperty(ChromeDriverService.CHROME_DRIVER_LOG_PROPERTY, "true");
 		String browser = ConfUtils.getProperty("browser");
-
 		String osName = Constants.GET_OS_NAME;
 
 		if (browser.equalsIgnoreCase(Constants.BROWSER_CHROME)) {
-
 			if (osName.contains("Mac")) {
 				//System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH);
 				WebDriverManager.chromedriver().setup();
@@ -230,7 +260,6 @@ public class WebDriverUtils {
 	 * @return
 	 */
 	public static WebDriver getNewSauceDriver(DesiredCapabilities capabilities) {
-
 		WebDriver driver = null;
 		String url = "http://ondemand.saucelabs.com:80/wd/hub";
 
@@ -238,16 +267,13 @@ public class WebDriverUtils {
 		// to show right test execution time on sauce dashboard
 		if (capabilities.getCapability("time-zone") == null)
 			capabilities.setCapability("time-zone", "New York");
-
 		try {
 			driver = new RemoteWebDriver(new URL(url), capabilities);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
 		ScenarioContext.sauceSessionId.set((((RemoteWebDriver) driver).getSessionId()).toString());
-
 		return driver;
-
 	}
 
 	/**
@@ -287,7 +313,6 @@ public class WebDriverUtils {
 	}
 
 	public static void suppressAlert() {
-
 		Robot robot = null;
 		String browser = ScenarioContext.getBrowserID();
 		if (Constants.BROWSER_IE.equals(browser)) {
@@ -328,5 +353,4 @@ public class WebDriverUtils {
 	public static void refreshPage(WebDriver driver) {
 		driver.navigate().refresh();
 	}
-
 }
