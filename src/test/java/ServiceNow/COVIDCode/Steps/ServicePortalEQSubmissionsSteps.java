@@ -537,7 +537,6 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
-		WebDriverUtils.webDriver.findElement(By.linkText("Native View")).click();
 		MiscUtils.sleep(2000);
 		WebDriverUtils.webDriver.findElement(By.linkText("Native View")).click();
 		nativeViewStepsImpl.nativeViewNavigateToCovidCodeEnrollmentQuestionnaire();
@@ -629,6 +628,10 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 	   covidCodeEQPage.enrollmentQuestionnaireVaccineHaveYouReceivedYourFirstCovidSearchBox.sendKeys(Keys.ENTER);
 	   covidCodeEQPage.enrollmentQuestionnaireVaccineWhatDateDidYouReceiveTheFirstVaccineSearchBox.sendKeys("02/22/2026");
 	   covidCodeEQPage.enrollmentQuestionnaireVaccineWhatDateDidYouReceiveTheFirstVaccineSearchBox.sendKeys(Keys.ENTER);
+	   covidCodeEQPage.enrollmentQuestionnaireVaccineManufactureDD.click();
+	   covidCodeEQPage.enrollmentQuestionnaireVaccineManufactureSearchBox.sendKeys("Pfizer");
+	   MiscUtils.sleep(1000);
+	   covidCodeEQPage.enrollmentQuestionnaireVaccineManufactureSearchBox.sendKeys(Keys.ENTER);
 	   covidCodeEQPage.enrollmentQuestionnaireVaccineReceivedSecondVaccineDD.click();
 	   covidCodeEQPage.enrollmentQuestionnaireVaccineReceivedSecondVaccineSearchBox.sendKeys("Yes");
 	   covidCodeEQPage.enrollmentQuestionnaireVaccineReceivedSecondVaccineSearchBox.sendKeys(Keys.ENTER);
