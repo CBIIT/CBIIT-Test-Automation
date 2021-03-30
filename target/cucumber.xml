@@ -1,30 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="51.330334">
-<testcase classname="Volunteer Survey" name="Volunteer Survey Self Submission_1 - Service Portal" time="51.330334">
-<system-out><![CDATA[Given a user is on the COVIDCode home page..................................passed
-And selects the option to Volunteer.........................................passed
-Then the "COVIDcode Volunteer Survey" page displays with the option to start the survey.passed
-When starting the survey....................................................passed
-And the user selects option to fill out the survery for themselves..........passed
-Then the question "Have you tested positive for SARS-CoV-2 (the novel coronavirus)?" populates.passed
-When selecting No...........................................................passed
-Then the question "How was the sample taken?" displays......................passed
-When selecting "Nasal or throat swab".......................................passed
-And selecting "Rapid testing (up to 2 hour turnaround)" checkbox............passed
-Then the "Are you a National Institute of Health Employee?" question displays.passed
-And selecting No from drop down.............................................passed
-And selecting No for being able to provide a copy of test report............passed
-And selecting No for for ever being hospitalized............................passed
-When clicking next..........................................................passed
-Then the "Contact Information " displays where the user is able to enter their contact information.passed
-When entering required information..........................................passed
-And clicking next to proceed................................................passed
-Then the "How did you hear about us? " page displays with a question regarding the discovery of the survey.passed
-When selecting option "I prefer not to answer"..............................passed
-And clicking Submit.........................................................passed
-Then the "Your survey has been submitted successfully!" page displays.......passed
-And the user is able to see a message "If you have any questions, please feel free to email us at covidcode@mail.nih.gov".passed
-When the user selects OK....................................................passed
-Then the user is prompted back to the COVIDCode Study Home Page.............passed
-]]></system-out>
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="1" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="92.433073">
+<testcase classname="Questionnaire" name="Admin able to add cohort" time="92.433073">
+<failure message="org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;link text&quot;,&quot;selector&quot;:&quot;Submit&quot;}&#10;  (Session info: chrome=89.0.4389.90)&#10;For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html&#10;Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'&#10;System info: host: 'NCI-02134309-ML', ip: 'fe80:0:0:0:1427:6f46:8945:846f%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.7', java.version: '14.0.2'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.90, chrome: {chromedriverVersion: 88.0.4324.96 (68dba2d8a0b14..., userDataDir: /var/folders/ls/pc4m1ymd4n1...}, goog:chromeOptions: {debuggerAddress: localhost:52244}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;Session ID: 7b52479f9e4e8189e0875f186d224ae7&#10;*** Element info: {Using=link text, value=Submit}&#10;&#9;at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)&#10;&#9;at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)&#10;&#9;at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)&#10;&#9;at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)&#10;&#9;at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)&#10;&#9;at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)&#10;&#9;at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)&#10;&#9;at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)&#10;&#9;at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)&#10;&#9;at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)&#10;&#9;at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)&#10;&#9;at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)&#10;&#9;at org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:380)&#10;&#9;at org.openqa.selenium.By$ByLinkText.findElement(By.java:220)&#10;&#9;at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)&#10;&#9;at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)&#10;&#9;at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)&#10;&#9;at com.sun.proxy.$Proxy20.click(Unknown Source)&#10;&#9;at AnalysisTools.CEDCD.Steps.CEDCDQuestionnaireSteps.clicks_submit(CEDCDQuestionnaireSteps.java:76)&#10;&#9;at ✽.clicks submit(file:src/test/java/AnalysisTools/CEDCD/Features/CEDCDQuestionnaire.feature:12)&#10;"><![CDATA[Given the user is on the CEDCD homepage.....................................passed
+When the user is logged in as Admin.........................................passed
+When user selects add new Cohort............................................passed
+And enters Cohort Name as "Second Automated Cohort".........................passed
+And enters Cohort Owner.....................................................passed
+And enters "This Cohort Will Be Automated"..................................passed
+And clicks submit...........................................................failed
+Then Cohort is added........................................................skipped
+
+StackTrace:
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"link text","selector":"Submit"}
+  (Session info: chrome=89.0.4389.90)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'NCI-02134309-ML', ip: 'fe80:0:0:0:1427:6f46:8945:846f%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.7', java.version: '14.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.90, chrome: {chromedriverVersion: 88.0.4324.96 (68dba2d8a0b14..., userDataDir: /var/folders/ls/pc4m1ymd4n1...}, goog:chromeOptions: {debuggerAddress: localhost:52244}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 7b52479f9e4e8189e0875f186d224ae7
+*** Element info: {Using=link text, value=Submit}
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByLinkText(RemoteWebDriver.java:380)
+	at org.openqa.selenium.By$ByLinkText.findElement(By.java:220)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy20.click(Unknown Source)
+	at AnalysisTools.CEDCD.Steps.CEDCDQuestionnaireSteps.clicks_submit(CEDCDQuestionnaireSteps.java:76)
+	at ✽.clicks submit(file:src/test/java/AnalysisTools/CEDCD/Features/CEDCDQuestionnaire.feature:12)
+]]></failure>
 </testcase>
 </testsuite>
