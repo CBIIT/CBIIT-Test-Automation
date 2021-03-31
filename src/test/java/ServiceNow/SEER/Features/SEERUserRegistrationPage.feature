@@ -1,6 +1,5 @@
 Feature: SEER User Registration Scenarios
 
-
   @Smoke @juarezds
   Scenario: Verifying Undergraduate or Graduate students get directed to landing page when selecting 'Undergraduate or Graduate Student' for 'Which of these best describe you?' on the SEER Registration Page
     Given a user is on the SEER Data Access landing page
