@@ -2,10 +2,10 @@ package ServiceNow.NERD.Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-import appsCommon.PageInitializer;
 
-public class NERDDynamicXPATHS extends PageInitializer {
+public class NERDDynamicXPATHS extends CommonUtils {
 	
 	
 	/** ------------ COLLABORATION SUBMISSIONSIONS BY DOC PLANNING CONTACT   -----------*/
