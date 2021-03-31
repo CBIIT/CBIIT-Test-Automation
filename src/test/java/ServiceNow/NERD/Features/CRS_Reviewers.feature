@@ -1,7 +1,7 @@
 Feature: CRS Reviewers Test Scenarios
   
   Description: This feature file contains test scenarios related to CRS Reviewers
-  
+
   Scenario: Verifying New OM Category Type - Service Portal
     Given a CRS reviewer is logged into NERD's CRS Knowledge Management System
     When adding a new OM entry
@@ -10,8 +10,8 @@ Feature: CRS Reviewers Test Scenarios
     And when selecting Other "Other"
     Then the If Other is selected above, please specify "If Other is selected above, please specify" field displays
 
- 
+  @Smoke
   Scenario: Test Special topics filter missing "Women's Health"
     Given a CRS Reviewer is on the NERD Knowledge Base page
     And clicks the "Special Topic" filter
-    Then the field options are "All", "Big data/Data Sharing", "COVID-19","Communications","Early Detection","Metastatic","Minority health/Health disparities","Moonshot","Partnerships","Pediatric","Rare", "Sex/Gender differences", "Training/Workforce development", "Women's health", and "Workforce"
+    Then the field options are "All", "Big data/Data sharing", "COVID-19","Communications","Early Detection","Metastatic","Minority health/Health disparities","Moonshot","Partnerships","Pediatric","Rare", "Sex/Gender differences", "Training/Workforce development", "Women's health", and "Workforce"
