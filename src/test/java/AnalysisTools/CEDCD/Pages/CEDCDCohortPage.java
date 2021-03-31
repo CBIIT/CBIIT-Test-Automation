@@ -3,13 +3,10 @@ package AnalysisTools.CEDCD.Pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import com.gargoylesoftware.htmlunit.javascript.host.media.webkitMediaStream;
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
-import appsCommon.PageInitializer;
-
-public class CEDCDCohortPage extends PageInitializer {
+public class CEDCDCohortPage extends CommonUtils {
 	
 	/**========================= Login.gov WebElements =================================*/
 	
