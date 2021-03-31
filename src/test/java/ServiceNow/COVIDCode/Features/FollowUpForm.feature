@@ -1,13 +1,6 @@
 Feature: COVIDCode Follow Up Form Scenarios
   
   Description: This feature file contains scenarios related to the Follow Up Form
-  
-  Description: This feature file contains scenarios related to the Follow Up Form
-
-  @Smoke @Sprint7 @COVID-209 @updated2/2/21 @juarezds
-  Scenario: Follow Up Form - Search Function - Service Portal
-    Given a COVIDCode user is on the Follow Up Form to update an existing enrollment
-    Then the user is able to search an existing enrollment by patient ID OR last name OR first name OR NIH Medical Record Number
 
   @Smoke @Sprint7 @COVID-209 @updated2/2/21 @juarezds
   Scenario: Follow Up Form - Search Function - Service Portal
@@ -68,9 +61,9 @@ Feature: COVIDCode Follow Up Form Scenarios
     And on the Demographics Information section
     When selecting Feet/Inches for Height
     And entering any value for feet
-    And entering a value greater than 11
+    And entering a value greater than 12
     And clicking anywhere else or attempting to submit the application
-    Then a message "Because you have a value in feet, inches cannot be more than 11" displays
+    Then a message "Because you have a value in feet, inches cannot be more than 11.99" displays
 
   @Smoke @New @COVID-422 @juarezds
   Scenario: Add Field Options for "When were you officially diagnosed with COVID-19" field
