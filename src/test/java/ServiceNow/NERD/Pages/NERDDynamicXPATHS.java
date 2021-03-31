@@ -36,8 +36,34 @@ public class NERDDynamicXPATHS extends PageInitializer {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//a[text()='"+value+"']/following::div[3]"));
 	}
 	
+	/**Author Text */
+	public  WebElement authorTextDocSubmission (String value) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("//a[text()='"+value+"']/following::div[1]"));
+	}
+	
+	
 	
 	/** ------------THE END OF  COLLABORATION SUBMISSIONSIONS BY DOC PLANNING CONTACT   -----------*/
+	
+	/** ------------ CRS BUTTONS  ------------ */
+	/** This locators will work on CRS pages for staff member
+	 * 	 with all links such as: Top Accomplishments, Collaborations and etc
+	 * 	For Submit button - we can use Submit to CRS Button locator.
+	 * 	
+	 */
+	
+	/** Edit to CRS Button */
+	public WebElement eiditCRSButton (String value) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("//a[text()='"+value+"']/following::button[2]"));
+	}
+	
+	/** Delete to CRS Button */
+	public WebElement deleteCRSButton (String value) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("//a[text()='"+value+"']/following::button[3]"));
+	}
+	
+	/** ------------ THE END OF CRS BUTTONS ---------- */
+	
 	
 	/** ------------ COLLABORATION SUBMISSIONSIONS BY CRS REVIEWER   -----------*/
 	
@@ -55,6 +81,11 @@ public class NERDDynamicXPATHS extends PageInitializer {
 	/**Returned to DOC text*/	
 	public  WebElement returnedToDOCText (String value) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//a[text()='"+value+"']/following::div[3]"));
+		}
+	
+	/**CRS Knowledge Management System Home Page => NERD => Collaborations List value */	
+	public  WebElement publishedCollaboration (String value) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("//a[text()='"+value+"']"));
 		}
 		
 	
@@ -79,7 +110,7 @@ public class NERDDynamicXPATHS extends PageInitializer {
 	
 	/**Under Review Text */
 	public  WebElement underReviewText (String value) {
-		return WebDriverUtils.webDriver.findElement(By.xpath("//a[contains(text(),'"+value+"')]/following::div[2]"));
+		return WebDriverUtils.webDriver.findElement(By.xpath("//a[text()='"+value+"']/following::div[2]"));
 	}
 	
 	/**Submit Button To DOC Planning Contact */
@@ -87,7 +118,10 @@ public class NERDDynamicXPATHS extends PageInitializer {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//a[contains(text(),'"+value+"')]/following::button[1]"));
 	}
 	
-
+	/**Delete Button */
+	public  WebElement deleteButtonByStaffMember (String value) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("//a[text()='"+value+"']/following::button[3]"));
+	}
 	
 	
 	
