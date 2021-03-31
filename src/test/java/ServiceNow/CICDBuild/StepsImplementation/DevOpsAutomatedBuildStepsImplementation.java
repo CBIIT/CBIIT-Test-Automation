@@ -19,7 +19,7 @@ public class DevOpsAutomatedBuildStepsImplementation extends PageInitializer {
 		CommonUtils.sendKeys(devOpsLoginPage.userNameTextBox, ConfUtils.getProperty(username));
 		CommonUtils.sendKeys(devOpsLoginPage.passwordTxtBox, ConfUtils.getProperty(password));
 		JavascriptUtils.clickByJS(devOpsLoginPage.logInButton);
-		MiscUtils.sleep(3000);
+		MiscUtils.sleep(4000);
 		JavascriptUtils.clickByJS(devOpsLoginPage.nativeViewLink);
 	}
 
