@@ -78,6 +78,7 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer{
 	    MiscUtils.sleep(3000);
 	    Assert.assertEquals("Submission has been successfully submitted." ,createNewSubmissionPage.popUpSubmissionConfirmationText.getText());
 	    CucumberLogUtils.logScreenShot();
+	    MiscUtils.sleep(3000);
 	    CommonUtils.click(createNewSubmissionPage.popUpSubmissionConfirmationOkButton);
 	    MiscUtils.sleep(5000);
 	    JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
