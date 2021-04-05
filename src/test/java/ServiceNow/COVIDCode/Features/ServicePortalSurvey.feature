@@ -1,7 +1,7 @@
 Feature: Volunteer Survey
   Description: Volunteer Survery scenarios including both Service Portal and Native View
 
-  @Smoke @Sprint9 @COVID-109 @juarezds @Progression
+  @Smoke @Sprint9 @COVID-109 @juarezds
   Scenario: Volunteer Survey Self Submission_1 - Service Portal
     Given a user is on the COVIDCode home page
     And selects the option to Volunteer
@@ -80,3 +80,9 @@ Feature: Volunteer Survey
     When searching for "COVIDcode volunteer surveys" to view follow ups
     And clicking on a submitted Survey Number
     Then information submitted via the volunteer survey is displayed
+    
+    
+    @Smoke @COVID-260 @juarezds
+    Scenario: Verifying that Study Staff Nurses are able to see the volunteer submitted zip code in Native view
+    Given a COVIDcode Volunteer Survey has been submitted with zip code "12345"
+    Then Study Staff Nurses are able to see the volunteer's submitted zip code "12345" in a Inquiry Tracking record in native view

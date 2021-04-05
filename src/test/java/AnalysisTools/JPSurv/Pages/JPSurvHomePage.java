@@ -1,5 +1,7 @@
 package AnalysisTools.JPSurv.Pages;
 
-public class JPSurvHomePage {
+import com.nci.automation.web.CommonUtils;
+
+public class JPSurvHomePage extends CommonUtils{
 
 }

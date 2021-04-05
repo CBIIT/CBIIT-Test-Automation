@@ -212,7 +212,7 @@ public class CreateNewSubmissionPage extends CommonUtils {
 	/** ------------ END OF CREATE NEW COLLABORATION SECTION ----------- */
 
 	/** Pop Up Submission Confirmation Text */
-	@FindBy(xpath = "//div[contains(text(), 'Submission has been successfully submitted.')]")
+	@FindBy(xpath = "//div[@class='spModal_content'] ")
 	public WebElement popUpSubmissionConfirmationText;
 
 	/** Pop Up Submission Confirmation Ok Button */
