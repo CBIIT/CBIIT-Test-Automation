@@ -2,6 +2,7 @@ package ServiceNow.COVIDCode.StepsImplementation;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
@@ -143,12 +144,12 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 		MiscUtils.sleep(2000);
 		List<String> act = new ArrayList<String>();
 		for(WebElement l : lists){
-		    act.add(l.getText());
+		  act.add(l.getText());
 		}
 		List<String> exp = new ArrayList<String>(Arrays.asList(arrayList));
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
-	    Assert.assertEquals(act, exp);
+	  Assert.assertEquals(act, exp);
 	}
     
 	/***

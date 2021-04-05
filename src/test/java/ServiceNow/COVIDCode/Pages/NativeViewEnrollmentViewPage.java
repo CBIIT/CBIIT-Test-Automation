@@ -1,5 +1,7 @@
 package ServiceNow.COVIDCode.Pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -17,6 +19,10 @@ public class NativeViewEnrollmentViewPage extends CommonUtils {
     /** Native View Enrollment View Save Button */
     @FindBy(xpath = "(//button[@class='form_action_button  action_context btn btn-default'])[1]")
     public WebElement nativeViewEnrollmentViewPageSaveButton;
+    
+    /** Native View Enrollment View Submit for Review Button */
+    @FindBy(xpath = "//button[@id = 'submit_for_review_bottom']")
+    public WebElement nativeViewEnrollmentViewPageSubmitForReviewBtn;
     
     /** Native View Enrollment View Update button */
     @FindBy(xpath = "//*[@id='sysverb_insert_bottom']")
@@ -101,7 +107,7 @@ public class NativeViewEnrollmentViewPage extends CommonUtils {
 	/** Native View Enrollment View State */
 	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.us_state']")
 	public WebElement nativeViewEnrollmentViewState;
-
+	
 	/** Native View Enrollment View Zip code */
 	@FindBy(xpath = "/html/body/div[2]/form/span[1]/span/div[5]/div/div[2]/div[6]/div[2]/input")
 	public WebElement nativeViewEnrollmentViewZipCode;
@@ -635,7 +641,47 @@ public class NativeViewEnrollmentViewPage extends CommonUtils {
 	 */
 	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_disease_course.organ_failure']")
 	public WebElement nativeViewEnrollmentViewOrganFailureDD;
-
+	
+	/** Native View Enrollment View Disease Course Organ Failure - Which organ(s) showed signs of dysfunction/failure? text */
+	@FindBy(xpath = "(//span[contains(text(), 'Which organ(s) showed signs of dysfunction/failure?')])[1]")
+	public WebElement nativeViewEnrollmentWhichOrgansShowFailureText;
+	
+	/** Native View Enrollment View Disease Course Organ Failure - unlock options for Which organ(s) showed signs of dysfunction/failure? */
+	@FindBy(xpath = "//button[@id = 'x_g_nci_geco_covid_disease_course.which_organs_unlock']")
+	public WebElement unlockWhichOrgansFailedOptions;
+	
+	/** Native View Enrollment View Disease Course Organ Failure Lookup button */
+	@FindBy(xpath = "//button[@id ='lookup.x_g_nci_geco_covid_disease_course.which_organs']")
+	public WebElement nativeViewEnrollmentWhichOrgansLookupBtn;
+	
+	/** Native View Enrollment View Disease Course Organ Failure Lookup Field */
+	@FindBy(xpath = "//input[@id = 'sys_display.x_g_nci_geco_covid_disease_course.which_organs']")
+	public WebElement whichOrgansFailedLookupField;
+	
+	/** Native View Enrollment View Disease Course - List of Selected Failed Organs */
+	@FindBy(xpath = "//select[@id = 'select_0x_g_nci_geco_covid_disease_course.which_organs']")
+	public List<WebElement> listOfSelectedFailedOrgans;
+	
+	/** Native View Enrollment View Disease Course - Other Failed Organs Text Box */
+	@FindBy(xpath = "//input[@id = 'x_g_nci_geco_covid_disease_course.other']")
+	public WebElement failedOrganOtherTextBox;
+	
+	/** Native View Enrollment View Disease Course Drug Treatments - unlock options for Drug Treatments */
+	@FindBy(xpath = "//button[@id = 'x_g_nci_geco_covid_disease_course.drug_treatments_unlock']")
+	public WebElement unlockDrugTreatmentsOptions;
+	
+	/** Native View Disease Course - Drug Treatments Lookup Field */
+	@FindBy(xpath = "//input[@id = 'sys_display.x_g_nci_geco_covid_disease_course.drug_treatments']")
+	public WebElement drugTreatmentsLookupField;
+	
+	/** Native View Disease Course - List of Selected Drug Treatments */
+	@FindBy(xpath = "//select[@id = 'select_0x_g_nci_geco_covid_disease_course.drug_treatments']")
+	public List<WebElement> listOfSelectedDrugTreatments;
+	
+	/** Native View Disease Course - Other Drug Treatments Text Box */
+	@FindBy(xpath = "//input[@id = 'x_g_nci_geco_covid_disease_course.other_drug_treatments']")
+    public WebElement otherDrugTreatmentsTextBox;
+	
 	/** Native View Enrollment View Vaccine Disease Courses submit button */
 	@FindBy(xpath = "//*[@id='sysverb_insert_bottom']")
 	public WebElement nativeViewEnrollmentViewDiseaseCoursesSubmitButton;
@@ -687,12 +733,6 @@ public class NativeViewEnrollmentViewPage extends CommonUtils {
 	/** Native View Enrollment View Delete Submission Pop Up Delete Button */
 	@FindBy(xpath = "//button[@id = 'ok_button']")
 	public WebElement nativeViewEnrollmentViewDeleteDeleteSubmissionPopUpDeleteButton;
-	
-	
-	
-	
-	
-	
 
 	/**
 	 * --------------- END OF NATIVE VIEW COVIDcode ENROLLMENT VIEW DISEASE COURSES SECTION TABLE ---------------
