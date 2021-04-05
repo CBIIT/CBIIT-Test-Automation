@@ -17,10 +17,20 @@ Examples:
 |   Cohort Name             |        Cohort Acronym          |               Notes                             |
 |   Second Automated Cohort  |          SAC                   |     This Cohort Will Be Automated               |
 
-@Progression
+#@Progression @matarodriguezko
 
-Scenario: Cohort Owner logs in and selects cohort
+Scenario: Cohort Owner logs in and completes section A
 Given the user is on the CEDCD homepage
 When the user is logged in as a Cohort Owner
 And the Cohort Owner selects their Cohort questionnaire
 Then Section A of the Questionnaire is filled out
+#Then Section A status Circle is green
+
+@Progression @matarodriguezko
+
+Scenario: Cohort Owner logs in and completes section C
+Given the user is on the CEDCD homepage
+When the user is logged in as a Cohort Owner
+And the Cohort Owner selects their Cohort questionnaire
+Then Section C of the Questionnaire is filled out
+Then Section C status Circle is green
