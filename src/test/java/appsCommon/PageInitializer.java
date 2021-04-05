@@ -50,6 +50,7 @@ import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
 import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
 import ServiceNow.NERD.Pages.NERDSubmissionsPage;
 import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
+import ServiceNow.NERD.StepsImplementation.NativeViewImpersonateUser;
 import ServiceNow.SEER.Pages.NativeViewSentViewPage;
 import ServiceNow.SEER.Pages.SEERDataAccessRequestPage;
 import ServiceNow.SEER.Pages.SEERIncidenceDatabaseDetailsPage;
@@ -142,6 +143,7 @@ public class PageInitializer {
 	protected static NERDLoginStepsImplementation nerdLoginStepsImplementation;
 	protected static NERDSubmissionsPage nerdCrsKnowledgeDatabaseSubmissionsPage;
 	protected static CreateNewSubmissionPage createNewSubmissionPage;
+	protected static NativeViewImpersonateUser nativeViewImpersonateUser;
 	protected static NERDDynamicXPATHS nerdDynamicXpaths;
 
 	
@@ -201,6 +203,7 @@ public class PageInitializer {
 		nerdLoginStepsImplementation = new NERDLoginStepsImplementation();
 		nerdCrsKnowledgeDatabaseSubmissionsPage = new NERDSubmissionsPage();
 		createNewSubmissionPage = new CreateNewSubmissionPage();
+		nativeViewImpersonateUser = new NativeViewImpersonateUser();
 		nerdDynamicXpaths = new NERDDynamicXPATHS();
 		browsePhenotypePage = new BrowsePhenotypePage();
 		informationPage = new InformationPage();
