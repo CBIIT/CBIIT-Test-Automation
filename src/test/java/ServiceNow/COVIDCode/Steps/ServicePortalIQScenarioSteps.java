@@ -33,7 +33,7 @@ public class ServicePortalIQScenarioSteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.selectDropDownValue("User Group 2", servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown);
 		servicePortalQuestionnairePage.createEnrollmentButton.click();
-		covidCodeEQPage.enrollmentQuestionnaireNIHMedicalRecordNumberTextBox.sendKeys("11122245");
+		covidCodeEQPage.enrollmentQuestionnaireNIHMedicalRecordNumberTextBox.sendKeys("1112224");
 		covidCodeEQPage.enrollmentQuestionnairePatientLastNameTextBox.sendKeys("AutomatedLNGroup2");
 		covidCodeEQPage.enrollmentQuestionnairePatientFirstNameTextBox.sendKeys("AutomatedFNGroup2");
 		covidCodeEQPage.enrollmentQuestionnairePatientMiddletNameTextBox.sendKeys("M");
@@ -58,7 +58,7 @@ public class ServicePortalIQScenarioSteps extends PageInitializer {
 	@Then("the draft is shown in the Draft Initial Questionnaires table")
 	public void the_draft_is_shown_in_the_Draft_Initial_Questionnaires_table() {
 	
-	   Assert.assertTrue(servicePortalQuestionnairePage.draftIQTableFirstRow.getText().contains("11122245"));
+	   Assert.assertTrue(servicePortalQuestionnairePage.draftIQTableFirstRow.getText().contains("1112224"));
 	   Assert.assertTrue(servicePortalQuestionnairePage.draftIQTableFirstRowUserGroupIDField.getText().contentEquals("Group 2"));
 	   CucumberLogUtils.logScreenShot();
 	  
