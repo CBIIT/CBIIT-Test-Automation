@@ -1,6 +1,8 @@
 package appsCommon;
 
 
+import com.sun.xml.bind.v2.model.core.ID;
+
 import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
 import AnalysisTools.CEDCD.Pages.CEDCDBiospecimenCountsPage;
 import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
@@ -18,6 +20,26 @@ import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
 import AnalysisTools.PLCO.Pages.BrowsePhenotypePage;
 import AnalysisTools.PLCO.Pages.ExploreGWASPage;
 import AnalysisTools.PLCO.Pages.InformationPage;
+import CustomBusinessApp.EIDP.Pages.AligningExpectationsPage;
+import CustomBusinessApp.EIDP.Pages.BasePage;
+import CustomBusinessApp.EIDP.Pages.CareerGoalAndActivePage;
+import CustomBusinessApp.EIDP.Pages.CoPrimaryMentorPage;
+import CustomBusinessApp.EIDP.Pages.CommonPage;
+import CustomBusinessApp.EIDP.Pages.DashboardPage;
+import CustomBusinessApp.EIDP.Pages.DelegatePage;
+import CustomBusinessApp.EIDP.Pages.GeneralInformationPage;
+import CustomBusinessApp.EIDP.Pages.IDPAwaitingResponsePage;
+import CustomBusinessApp.EIDP.Pages.LoginPage;
+import CustomBusinessApp.EIDP.Pages.ProjectRelatedDeliverablePage;
+import CustomBusinessApp.EIDP.Pages.SearchPage;
+import CustomBusinessApp.EIDP.Pages.TraineeReviewPage;
+import CustomBusinessApp.EIDP.Steps.AligningExpectationsSteps;
+import CustomBusinessApp.EIDP.StepsImplementation.AlignExpectionsStepImpl;
+import CustomBusinessApp.EIDP.StepsImplementation.CareerGoalAndActiveStepImpl;
+import CustomBusinessApp.EIDP.StepsImplementation.EIDPLoginStepImpl;
+import CustomBusinessApp.EIDP.StepsImplementation.GeneralInformationStepImpl;
+import CustomBusinessApp.EIDP.StepsImplementation.ProjectRelatedDeliverableStepImpl;
+import CustomBusinessApp.EIDP.StepsImplementation.SearchStepImpl;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
 import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
@@ -147,8 +169,28 @@ public class PageInitializer {
 	protected static CreateNewSubmissionPage createNewSubmissionPage;
 	protected static NERDDynamicXPATHS nerdDynamicXpaths;
 
+	/** Custom Business App Instances*/
+	protected static AligningExpectationsPage aligningExpectationsPage;
+	protected static DashboardPage eidpDashboardPage;
+	protected static CommonPage eidpCommonPage;
+	protected static LoginPage nihLoginPage;
+	protected static BasePage eidpBasePage;
+	protected static EIDPLoginStepImpl eidpLoginStepImpl;
+	protected static AlignExpectionsStepImpl aligningExpectationsStepImpl;
+	protected static GeneralInformationPage generalInformationPage;
+	protected static GeneralInformationStepImpl generalInformationStepImpl;
+	protected static CustomBusinessApp.EIDP.StepsImplementation.DashboardStepImpl eidpDashboardStepImpl;
+	protected static SearchPage searchPage;
+	protected static SearchStepImpl searchStepimpl;
+	protected static CareerGoalAndActivePage careerGoalAndActivePage;
+	protected static CareerGoalAndActiveStepImpl careerGoalAndActiveStepImpl;
+	protected static ProjectRelatedDeliverablePage projectRelatedDeliverablePage;
+	protected static ProjectRelatedDeliverableStepImpl projectRelatedDeliverableStepImpl;
+	protected static DelegatePage delegatePage;
+	protected static IDPAwaitingResponsePage iDPAwaitingResponsePage;
+	protected static TraineeReviewPage traineeReviewPage;
+	protected static CoPrimaryMentorPage coPrimaryMentorPage;
 	
-
 	public static void initializeAllPages() {
 		// create instances of all pages and assign them to the variables
 		iTrustloginPage = new ITrustLoginPage();
@@ -210,5 +252,26 @@ public class PageInitializer {
 		browsePhenotypePage = new BrowsePhenotypePage();
 		informationPage = new InformationPage();
 		cedcdAdminPage = new CEDCDAdminPage();
+		
+		aligningExpectationsPage = new AligningExpectationsPage();
+		eidpDashboardPage = new DashboardPage();
+		eidpCommonPage = new CommonPage();
+		nihLoginPage = new LoginPage();
+		eidpBasePage = new BasePage();
+		eidpLoginStepImpl = new EIDPLoginStepImpl();
+		aligningExpectationsStepImpl = new AlignExpectionsStepImpl();
+		generalInformationPage = new GeneralInformationPage();
+		searchPage = new SearchPage();
+		searchStepimpl = new SearchStepImpl();
+		generalInformationStepImpl = new GeneralInformationStepImpl();
+		careerGoalAndActivePage = new CareerGoalAndActivePage();
+		careerGoalAndActiveStepImpl = new CareerGoalAndActiveStepImpl();
+		projectRelatedDeliverablePage = new ProjectRelatedDeliverablePage();
+		projectRelatedDeliverableStepImpl = new ProjectRelatedDeliverableStepImpl();
+		delegatePage = new DelegatePage();
+		iDPAwaitingResponsePage = new IDPAwaitingResponsePage();
+		traineeReviewPage = new TraineeReviewPage();
+		coPrimaryMentorPage = new CoPrimaryMentorPage();
+		eidpDashboardStepImpl = new CustomBusinessApp.EIDP.StepsImplementation.DashboardStepImpl();
 	}
 }
