@@ -1,6 +1,7 @@
 package CustomBusinessApp.EIDP.StepsImplementation;
 
 import java.util.List;
+import org.junit.Assert;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -304,7 +305,29 @@ public void selectReviewExistingIDP() throws Exception{
 	public void clickOnSearchButton() {
 		CommonUtils.click(searchPage.searchButton);
 	}
-
-
-
+	
+	//Method for IDPCheckbox
+		public void checkTraineeWithIDPCheckbox() {
+			CommonUtils.click(searchPage.traineesWithIDPCheckbox);
+		}
+		//Method to enter Trainee First Name
+		public void enterTraineeFirstName(String enterName) {
+			searchPage.TraineeFirstName.sendKeys(enterName);
+		}
+		//Method to enter Trainee Last Name
+			public void enterTraineeLastName(String enterName) {
+				searchPage.trainneLastName.sendKeys(enterName);
+			}
+		//Method to verify Kim, Olga
+			public void verifyFirmlyExpectedName(String expectedFirstName, String expectedLastName) {
+			String expectedFullName = expectedLastName + ", " + expectedFirstName;
+			String actualFullName = searchPage.searchResultTableFirstRowFirstCell.getText();
+			Assert.assertEquals(expectedFullName, actualFullName);
+			}
+			
+			//methodtoverifyClassificationType
+			public void verifyFirmlyClassificationType(String expectedClassificationType) {
+			String actualClassificationType = searchPage.searchResultTableFirstRowThirdCell.getText();	
+			Assert.assertEquals(expectedClassificationType.toUpperCase(), actualClassificationType);
+			}
 }

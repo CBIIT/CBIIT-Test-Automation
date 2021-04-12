@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="2" time="94.92247">
+<testcase classname="Regression testing" name="IDP Search request specifying  Classification type" time="48.804795">
+<system-out><![CDATA[When User will login to the application as "nekrashevicha2" user............passed
+And Logged in user changes the user to "Ginsburg,Erika".....................passed
+And User will click on search in dashboard..................................passed
+And User will select "Fellow" as Classification type........................passed
+And User will click Search button...........................................passed
+Then User will verify first page results classification type are "Fellow"...passed
+]]></system-out>
+</testcase>
+<testcase classname="Regression testing" name="IDP Search request specifying  Classification type 2" time="46.117675">
+<system-out><![CDATA[When User will login to the application as "nekrashevicha2" user............passed
+And Logged in user changes the user to "Ginsburg,Erika".....................passed
+And User will click on search in dashboard..................................passed
+And User will select "Employee" as Classification type......................passed
+And User will click Search button...........................................passed
+Then User will verify first page results classification type are "Employee".passed
+]]></system-out>
+</testcase>
+</testsuite>
