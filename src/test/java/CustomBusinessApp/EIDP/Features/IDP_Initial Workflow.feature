@@ -344,3 +344,71 @@ Feature: Regression testing
     And User click on "Exist Survey" on the grid
     And User clicks on yes button of modal
     Then User will click on ok button
+    
+    @Alena1
+    Scenario Outline: IDP Search request 
+    #Given User opens nih application in browser
+    When User will login to the application as "nekrashevicha2" user
+    And Logged in user changes the user to "Ginsburg,Erika"
+    And User will click on search in dashboard
+    And User selects IDP type as Trainees with IDP
+    And User enters "<Trainee First Name>" to first name input box
+    And User enters "<Trainee Last Name>" to last name input box
+    And User will click Search button
+    Then verify expected results as "<Trainee First Name>" and "<Trainee Last Name>"
+    Examples: User fills out the form as in the table below:
+    |Trainee First Name|Trainee Last Name|
+    |Olga              |Kim              | 
+    
+    @Alena2
+    Scenario Outline:IDP Search request specifying  Classification type
+    #Given User opens nih application in browser
+    When User will login to the application as "nekrashevicha2" user
+    And Logged in user changes the user to "Ginsburg,Erika"
+    And User will click on search in dashboard
+    And User will select "<Classification Type>" as Classification type
+    And User will click Search button
+    Then User will verify first page results classification type are "<Classification Type>"
+    Examples: Classification Type Options
+    |Classification Type|
+    |Fellow             |
+    |Employee           |
+   
+    
+    @Alena3
+    Scenario:IDP Search request specifying  Training Organization and Training Lab, Branch, or Office
+    #Given User opens nih application in browser
+    When User will login to the application as "nekrashevicha2" user
+    And Logged in user changes the user to "Ginsburg,Erika"
+    And User will click on search in dashboard
+    And User will select "Training Organization" as CBIIT
+    And User will select "Training Lab, Branch, or Office" as NCI OD CBIIT
+    And User will click Search button
+    And User sees filtered results returned
+    And User will verify expected result
+    Then User will click Clear button
+    
+    @PrimaryMentorSearchCriteria
+    Scenario: IDP Search Request by selecting Primary Mentor
+    #Given User opens nih application in browser
+    When User will login to the application as "nekrashevicha2" user
+    And Logged in user changes the user to "Ginsburg,Erika"
+    And User will click on search in dashboard
+    And User will select "Primary Mentor" as Ali Abazeed
+    And User sees filtered results returned
+    And User will verify expected result
+    Then User will click Clear button  
+    
+    @Alena4
+    Scenario: IDP Search Request by selecting Primary Mentor
+    #Given User opens nih application in browser
+    When User will login to the application as "nekrashevicha2" user
+    And Logged in user changes the user to "Ginsburg,Erika"
+    And User will click on search in dashboard
+    And User will select "Current year of Training" as First
+    And User 
+    
+    
+    
+    
+    

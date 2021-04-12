@@ -5,6 +5,7 @@ import java.util.Map;
 import org.junit.Assert;
 
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.web.JavascriptUtils;
 
 import CustomBusinessApp.EIDP.Util.CommonUtil;
 import CustomBusinessApp.EIDP.Util.SharedData;
@@ -192,4 +193,50 @@ public class SearchSteps extends PageInitializer{
 		eidpCommonPage.clickOnOkButton();
 		CommonUtil.waitBrowser(3000);
 	}
-}
+		//alena1
+		@When("User selects IDP type as Trainees with IDP")
+		public void traineesWithIDP() {
+			searchStepimpl.checkTraineeWithIDPCheckbox();
+			CommonUtil.waitBrowser(3000);
+		}
+	     //enter first name
+		@When("User enters {string} to first name input box")
+		public void user_enters_to_first_name_input_box(String firstName) {
+		searchStepimpl.enterTraineeFirstName(firstName);
+		}
+	    //enter last name
+		@When("User enters {string} to last name input box")
+		public void user_enters_to_last_name_input_box(String lastName) {
+		searchStepimpl.enterTraineeLastName(lastName);
+		CommonUtil.waitBrowser(3000);
+		}
+	
+		@When("User will click Search button")
+		public void user_will_click_Search_button() {
+		 searchStepimpl.clickOnSearchButton();
+		 CommonUtil.waitBrowser(5000);
+		 JavascriptUtils.scrollDown(1000);
+		
+		}
+
+		@Then("verify expected results as {string} and {string}")
+		public void verify_expected_results_as_and(String firstName, String lastName) {
+		searchStepimpl.verifyFirmlyExpectedName(firstName, lastName);
+		 CommonUtil.waitBrowser(5000);
+		}	
+		//alena2
+
+        @When("User will select {string} as Classification type")
+        public void user_will_select_as_Fellow(String userClassification) {
+        searchStepimpl.selectClassificationType(userClassification);
+     
+        }
+
+       
+
+        @Then("User will verify first page results classification type are {string}")
+        public void user_will_verify_expected_results(String  expectedClassificationType) {
+        searchStepimpl.verifyFirmlyClassificationType(expectedClassificationType);
+        }
+
+		}
