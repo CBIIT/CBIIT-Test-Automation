@@ -75,6 +75,23 @@ public class SearchPage extends CommonUtils{
 	@FindBy(how = How.XPATH, xpath = "//div[@style]//button[contains(text(),'Save & Send Email')]")
 	public WebElement saveAndSendEmail;
 	
+	@FindBy (how = How.ID, id ="trainees_with_idp_div")
+	public WebElement traineesWithIDPCheckbox;
+	
+	@FindBy (how = How.ID, id ="firstName")
+	public WebElement TraineeFirstName;
+	
+	@FindBy (how = How.ID, id ="clear_btn")
+	public WebElement ClearButton;
+	
+	@FindBy (how = How.XPATH, xpath = "//table[@id='advanced_search_results']/tbody/tr[1]/td[1]/a")
+	public WebElement searchResultTableFirstRowFirstCell;
+	
+	@FindBy (how = How.XPATH, xpath = "//table[@id='advanced_search_results']/tbody/tr[1]/td[3]")
+	public WebElement searchResultTableFirstRowThirdCell;
+	
+
+	
 	public SearchPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
