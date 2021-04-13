@@ -10,12 +10,15 @@ formatter.feature({
   ]
 });
 formatter.scenarioOutline({
-  "name": "IDP Search request specifying  Classification type",
+  "name": "IDP Search request as Gloria Calloway",
   "description": "",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "name": "@Alena2"
+      "name": "@Alena6"
+    },
+    {
+      "name": "@GloriaCalllowaySearch"
     }
   ]
 });
@@ -24,49 +27,46 @@ formatter.step({
   "keyword": "When "
 });
 formatter.step({
-  "name": "Logged in user changes the user to \"Ginsburg,Erika\"",
+  "name": "Logged in user changes the user to \"Calloway, Gloria\"",
   "keyword": "And "
 });
 formatter.step({
-  "name": "User will click on search in dashboard",
+  "name": "User enters \"\u003cTrainee First Name\u003e\" to first name input box",
   "keyword": "And "
 });
 formatter.step({
-  "name": "User will select \"\u003cClassification Type\u003e\" as Classification type",
+  "name": "User enters \"\u003cTrainee Last Name\u003e\" to last name input box",
   "keyword": "And "
 });
 formatter.step({
-  "name": "User will click Search button",
+  "name": "User will click Search button on Gloria Calloway page",
   "keyword": "And "
 });
 formatter.step({
-  "name": "User will verify first page results classification type are \"\u003cClassification Type\u003e\"",
+  "name": "verify expected results as \"\u003cTrainee First Name\u003e\" and \"\u003cTrainee Last Name\u003e\" on Gloria Calloway page",
   "keyword": "Then "
 });
 formatter.examples({
-  "name": "Classification Type Options",
+  "name": "User fills out the form as in the table below:",
   "description": "",
   "keyword": "Examples",
   "rows": [
     {
       "cells": [
-        "Classification Type"
+        "Trainee First Name",
+        "Trainee Last Name"
       ]
     },
     {
       "cells": [
-        "Fellow"
-      ]
-    },
-    {
-      "cells": [
-        "Employee"
+        "Kate",
+        "Brown"
       ]
     }
   ]
 });
 formatter.scenario({
-  "name": "IDP Search request specifying  Classification type",
+  "name": "IDP Search request as Gloria Calloway",
   "description": "",
   "keyword": "Scenario Outline",
   "tags": [
@@ -74,7 +74,10 @@ formatter.scenario({
       "name": "@Smoketest"
     },
     {
-      "name": "@Alena2"
+      "name": "@Alena6"
+    },
+    {
+      "name": "@GloriaCalllowaySearch"
     }
   ]
 });
@@ -92,138 +95,53 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "Logged in user changes the user to \"Ginsburg,Erika\"",
+  "name": "Logged in user changes the user to \"Calloway, Gloria\"",
   "keyword": "And "
 });
 formatter.match({
   "location": "LoginSteps.changeUser(String)"
 });
-formatter.write("2021-04-11 22:15:33: Screenshot: ");
+formatter.write("2021-04-13 12:33:31: Screenshot: ");
 formatter.embedding("image/png", "embedded0.png");
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "User will click on search in dashboard",
+  "name": "User enters \"Kate\" to first name input box",
   "keyword": "And "
 });
 formatter.match({
-  "location": "DashboardSteps.clickOnSearch()"
-});
-formatter.write("2021-04-11 22:15:41: Screenshot: After Search");
-formatter.embedding("image/png", "embedded1.png");
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "User will select \"Fellow\" as Classification type",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "SearchSteps.user_will_select_as_Fellow(String)"
+  "location": "SearchSteps.user_enters_to_first_name_input_box(String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "User will click Search button",
+  "name": "User enters \"Brown\" to last name input box",
   "keyword": "And "
 });
 formatter.match({
-  "location": "SearchSteps.user_will_click_Search_button()"
+  "location": "SearchSteps.user_enters_to_last_name_input_box(String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "User will verify first page results classification type are \"Fellow\"",
+  "name": "User will click Search button on Gloria Calloway page",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "SearchSteps.user_will_click_Search_button_on_Gloria_Calloway_page()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "verify expected results as \"Kate\" and \"Brown\" on Gloria Calloway page",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "SearchSteps.user_will_verify_expected_results(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.after({
-  "status": "passed"
-});
-formatter.scenario({
-  "name": "IDP Search request specifying  Classification type",
-  "description": "",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "name": "@Smoketest"
-    },
-    {
-      "name": "@Alena2"
-    }
-  ]
-});
-formatter.before({
-  "status": "passed"
-});
-formatter.step({
-  "name": "User will login to the application as \"nekrashevicha2\" user",
-  "keyword": "When "
-});
-formatter.match({
-  "location": "LoginSteps.loginByUsername(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "Logged in user changes the user to \"Ginsburg,Erika\"",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "LoginSteps.changeUser(String)"
-});
-formatter.write("2021-04-11 22:16:20: Screenshot: ");
-formatter.embedding("image/png", "embedded2.png");
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "User will click on search in dashboard",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "DashboardSteps.clickOnSearch()"
-});
-formatter.write("2021-04-11 22:16:27: Screenshot: After Search");
-formatter.embedding("image/png", "embedded3.png");
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "User will select \"Employee\" as Classification type",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "SearchSteps.user_will_select_as_Fellow(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "User will click Search button",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "SearchSteps.user_will_click_Search_button()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "User will verify first page results classification type are \"Employee\"",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "SearchSteps.user_will_verify_expected_results(String)"
+  "location": "SearchSteps.verify_expected_results_as_and_on_Gloria_Calloway_page(String,String)"
 });
 formatter.result({
   "status": "passed"

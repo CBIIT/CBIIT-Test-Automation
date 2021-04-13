@@ -1,20 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="2" time="94.92247">
-<testcase classname="Regression testing" name="IDP Search request specifying  Classification type" time="48.804795">
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="49.024868">
+<testcase classname="Regression testing" name="IDP Search request as Gloria Calloway" time="49.024868">
 <system-out><![CDATA[When User will login to the application as "nekrashevicha2" user............passed
-And Logged in user changes the user to "Ginsburg,Erika".....................passed
-And User will click on search in dashboard..................................passed
-And User will select "Fellow" as Classification type........................passed
-And User will click Search button...........................................passed
-Then User will verify first page results classification type are "Fellow"...passed
-]]></system-out>
-</testcase>
-<testcase classname="Regression testing" name="IDP Search request specifying  Classification type 2" time="46.117675">
-<system-out><![CDATA[When User will login to the application as "nekrashevicha2" user............passed
-And Logged in user changes the user to "Ginsburg,Erika".....................passed
-And User will click on search in dashboard..................................passed
-And User will select "Employee" as Classification type......................passed
-And User will click Search button...........................................passed
-Then User will verify first page results classification type are "Employee".passed
+And Logged in user changes the user to "Calloway, Gloria"...................passed
+And User enters "Kate" to first name input box..............................passed
+And User enters "Brown" to last name input box..............................passed
+And User will click Search button on Gloria Calloway page...................passed
+Then verify expected results as "Kate" and "Brown" on Gloria Calloway page..passed
 ]]></system-out>
 </testcase>
 </testsuite>
