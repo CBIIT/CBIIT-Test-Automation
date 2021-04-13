@@ -348,6 +348,16 @@ public void selectReviewExistingIDP() throws Exception{
 				String actualFullName = searchPage.searchResultTableFirstRowThirdCellCalloway.getText();
 				Assert.assertEquals(expectedFullName, actualFullName);
 			}
+			//Alena8
+			public void selectClassificationTypeGloriaCalloway(String type) {
+			CommonUtils.click(searchPage.classificationTypeInput);
+			CommonUtils.selectDropDownValue(type, searchPage.classificationTypeDropDownGloriaGalloway);
+			}
+			public void selectPrimaryMentorName(String nameMentor) {
+			CommonUtils.click(searchPage.primaryMentorInbox);	
+			CommonUtils.selectDropDownValue(nameMentor, searchPage.aliAbazeed);	
+			}
 }
+
             
 

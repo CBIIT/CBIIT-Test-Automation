@@ -387,15 +387,19 @@ Feature: Regression testing
     And User will verify expected result
    
     
-    @Alena4 @PrimaryMentorSearchCriteria
-    Scenario: IDP Search Request by selecting Primary Mentor
+    @Alena4
+    Scenario Outline: IDP Search Request by selecting Primary Mentor
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
     And Logged in user changes the user to "Ginsburg,Erika"
     And User will click on search in dashboard
-    And User will select Primary Mentor as Ali Abazeed
+    And User will select "<Primary Mentor>" as Primary Mentor
     And User will click Search button
-    Then User will verify expected result
+    Then User will verify expected result as "<Primary Mentor>"
+    Examples:Primary Mentor Options
+    |Primary Mentor|
+    |Ali Abazeed   |
+    
        
       
     
@@ -409,7 +413,7 @@ Feature: Regression testing
     And User 
     
     @Alena6 @GloriaCalllowaySearch
-    Scenario Outline: IDP Search request as Gloria Calloway
+    Scenario Outline: IDP Search request as Gloria Calloway specifying a full name
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
     And Logged in user changes the user to "Calloway, Gloria"
@@ -421,7 +425,18 @@ Feature: Regression testing
     |Trainee First Name|Trainee Last Name|
     |Kate              |Brown            |
     
-    
+    @Alena7 @GloriaCalllowaySearch
+    Scenario Outline:IDP Search request as Gloria Calloway  specifying  Classification type
+    #Given User opens nih application in browser
+    When User will login to the application as "nekrashevicha2" user
+    And Logged in user changes the user to "Calloway, Gloria"
+    And User will select "<Classification Type>" as Classification type on Gloria Calloway page
+    And User will click Search button on Gloria Calloway page
+    Then User will verify first page results on Gloria Calloway page classification type are "<Classification Type>"
+    Examples: Classification Type Options
+    |Classification Type|
+    |Fellow             |
+    |Employee           |
     
     
     
