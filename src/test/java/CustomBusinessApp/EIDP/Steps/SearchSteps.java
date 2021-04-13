@@ -236,18 +236,18 @@ public class SearchSteps extends PageInitializer{
         @Then("User will verify first page results classification type are {string}")
         public void user_will_verify_expected_results(String  expectedClassificationType) {
         searchStepimpl.verifyFirmlyClassificationType(expectedClassificationType);
+       
+        } 
+        @When("User will select {string} as Primary Mentor")
+        public void user_will_select_as_Primary_Mentor(String nameMentor) {
+        searchStepimpl.selectPrimaryMentorName(nameMentor);
+        CommonUtil.waitBrowser(3000);
         }
-        //SelectPrimaryMentor
-        @When("User will select Primary Mentor as Ali Abazeed")
-        public void user_will_select_Primary_Mentor_as_Ali_Abazeed() {
-        CommonUtil.waitBrowser(5000);
-        searchStepimpl.selectPrimaryMentorName();
-        CommonUtil.waitBrowser(5000);
-        JavascriptUtils.scrollDown(2000);
+
+        @Then("User will verify expected result as {string}")
+        public void user_will_verify_expected_result_as(String string) {
+           
         }
-        //VerifyPrimaryMentorResults
-        //@Then("User will verify expected result")
-        //public void user_will_verify_expected_result() {
         @When("User will click Search button on Gloria Calloway page")
         public void user_will_click_Search_button_on_Gloria_Calloway_page() {
         searchStepimpl.clickOnSearchButtonGloriaCalloway();
@@ -260,6 +260,20 @@ public class SearchSteps extends PageInitializer{
         searchStepimpl.verifyGloriaCallowayExpectedName(firstName, lastName);
         CommonUtil.waitBrowser(5000);
         }
+        
+        //GloriaSearchClassifType
+        @When("User will select {string} as Classification type on Gloria Calloway page")
+        public void user_will_select_as_Classification_type_on_Gloria_Calloway_page(String dropdownOptions) {
+        searchStepimpl.selectClassificationTypeGloriaCalloway(dropdownOptions);
+        CommonUtil.waitBrowser(3000);
+        }
+
+        @Then("User will verify first page results on Gloria Calloway page classification type are {string}")
+        public void user_will_verify_first_page_results_on_Gloria_Calloway_page_classification_type_are(String string) {
+          
+        }
+
+        
        
         }
         

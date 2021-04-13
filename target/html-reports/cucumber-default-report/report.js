@@ -10,15 +10,12 @@ formatter.feature({
   ]
 });
 formatter.scenarioOutline({
-  "name": "IDP Search request as Gloria Calloway",
+  "name": "IDP Search Request by selecting Primary Mentor",
   "description": "",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "name": "@Alena6"
-    },
-    {
-      "name": "@GloriaCalllowaySearch"
+      "name": "@Alena4"
     }
   ]
 });
@@ -27,46 +24,44 @@ formatter.step({
   "keyword": "When "
 });
 formatter.step({
-  "name": "Logged in user changes the user to \"Calloway, Gloria\"",
+  "name": "Logged in user changes the user to \"Ginsburg,Erika\"",
   "keyword": "And "
 });
 formatter.step({
-  "name": "User enters \"\u003cTrainee First Name\u003e\" to first name input box",
+  "name": "User will click on search in dashboard",
   "keyword": "And "
 });
 formatter.step({
-  "name": "User enters \"\u003cTrainee Last Name\u003e\" to last name input box",
+  "name": "User will select \"\u003cPrimary Mentor\u003e\" as Primary Mentor",
   "keyword": "And "
 });
 formatter.step({
-  "name": "User will click Search button on Gloria Calloway page",
+  "name": "User will click Search button",
   "keyword": "And "
 });
 formatter.step({
-  "name": "verify expected results as \"\u003cTrainee First Name\u003e\" and \"\u003cTrainee Last Name\u003e\" on Gloria Calloway page",
+  "name": "User will verify expected result as \"\u003cPrimary Mentor\u003e\"",
   "keyword": "Then "
 });
 formatter.examples({
-  "name": "User fills out the form as in the table below:",
+  "name": "Primary Mentor Options",
   "description": "",
   "keyword": "Examples",
   "rows": [
     {
       "cells": [
-        "Trainee First Name",
-        "Trainee Last Name"
+        "Primary Mentor"
       ]
     },
     {
       "cells": [
-        "Kate",
-        "Brown"
+        "Ali Abazeed"
       ]
     }
   ]
 });
 formatter.scenario({
-  "name": "IDP Search request as Gloria Calloway",
+  "name": "IDP Search Request by selecting Primary Mentor",
   "description": "",
   "keyword": "Scenario Outline",
   "tags": [
@@ -74,10 +69,7 @@ formatter.scenario({
       "name": "@Smoketest"
     },
     {
-      "name": "@Alena6"
-    },
-    {
-      "name": "@GloriaCalllowaySearch"
+      "name": "@Alena4"
     }
   ]
 });
@@ -95,53 +87,55 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "Logged in user changes the user to \"Calloway, Gloria\"",
+  "name": "Logged in user changes the user to \"Ginsburg,Erika\"",
   "keyword": "And "
 });
 formatter.match({
   "location": "LoginSteps.changeUser(String)"
 });
-formatter.write("2021-04-13 12:33:31: Screenshot: ");
+formatter.write("2021-04-13 17:31:10: Screenshot: ");
 formatter.embedding("image/png", "embedded0.png");
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "User enters \"Kate\" to first name input box",
+  "name": "User will click on search in dashboard",
   "keyword": "And "
 });
 formatter.match({
-  "location": "SearchSteps.user_enters_to_first_name_input_box(String)"
+  "location": "DashboardSteps.clickOnSearch()"
+});
+formatter.write("2021-04-13 17:31:19: Screenshot: After Search");
+formatter.embedding("image/png", "embedded1.png");
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "User will select \"Ali Abazeed\" as Primary Mentor",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "SearchSteps.user_will_select_as_Primary_Mentor(String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "User enters \"Brown\" to last name input box",
+  "name": "User will click Search button",
   "keyword": "And "
 });
 formatter.match({
-  "location": "SearchSteps.user_enters_to_last_name_input_box(String)"
+  "location": "SearchSteps.user_will_click_Search_button()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "User will click Search button on Gloria Calloway page",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "SearchSteps.user_will_click_Search_button_on_Gloria_Calloway_page()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "verify expected results as \"Kate\" and \"Brown\" on Gloria Calloway page",
+  "name": "User will verify expected result as \"Ali Abazeed\"",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "SearchSteps.verify_expected_results_as_and_on_Gloria_Calloway_page(String,String)"
+  "location": "SearchSteps.user_will_verify_expected_result_as(String)"
 });
 formatter.result({
   "status": "passed"
