@@ -375,7 +375,7 @@ Feature: Regression testing
     |Employee           |
    
     
-    @Alena3
+    @Alena3//unfinished
     Scenario:IDP Search request specifying  Training Organization and Training Lab, Branch, or Office
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -384,22 +384,22 @@ Feature: Regression testing
     And User will select "Training Organization" as CBIIT
     And User will select "Training Lab, Branch, or Office" as NCI OD CBIIT
     And User will click Search button
-    And User sees filtered results returned
     And User will verify expected result
-    Then User will click Clear button
+   
     
-    @PrimaryMentorSearchCriteria
+    @Alena4 @PrimaryMentorSearchCriteria
     Scenario: IDP Search Request by selecting Primary Mentor
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
     And Logged in user changes the user to "Ginsburg,Erika"
     And User will click on search in dashboard
-    And User will select "Primary Mentor" as Ali Abazeed
-    And User sees filtered results returned
-    And User will verify expected result
-    Then User will click Clear button  
+    And User will select Primary Mentor as Ali Abazeed
+    And User will click Search button
+    Then User will verify expected result
+       
+      
     
-    @Alena4
+    @Alena5
     Scenario: IDP Search Request by selecting Primary Mentor
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -407,6 +407,20 @@ Feature: Regression testing
     And User will click on search in dashboard
     And User will select "Current year of Training" as First
     And User 
+    
+    @Alena6 @GloriaCalllowaySearch
+    Scenario Outline: IDP Search request as Gloria Calloway
+    #Given User opens nih application in browser
+    When User will login to the application as "nekrashevicha2" user
+    And Logged in user changes the user to "Calloway, Gloria"
+    And User enters "<Trainee First Name>" to first name input box
+    And User enters "<Trainee Last Name>" to last name input box
+    And User will click Search button on Gloria Calloway page
+    Then verify expected results as "<Trainee First Name>" and "<Trainee Last Name>" on Gloria Calloway page
+    Examples: User fills out the form as in the table below:
+    |Trainee First Name|Trainee Last Name|
+    |Kate              |Brown            |
+    
     
     
     

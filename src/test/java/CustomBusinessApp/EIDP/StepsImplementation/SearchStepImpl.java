@@ -38,10 +38,11 @@ public class SearchStepImpl extends PageInitializer{
 	
 	public void selectClassificationType(String type) {
 		CommonUtils.click(searchPage.classificationTypeInput);
-		WebElement option = WebDriverUtils.getWebDriver().findElement(By.xpath("//*[@id='select2-trainee-classifications-results']//li[text()=\"" + type + "\"]"));
+		WebElement option = WebDriverUtils.getWebDriver().findElement(By.xpath("//*[@id='select2-trainee-classifications-results']//title[text()=\"" + type + "\"]"));
 		CommonUtils.click(option);
 		CommonUtils.click(searchPage.trainneLastName);
 		CommonUtils.click(searchPage.searchButton);
+	
 		
 		
 	}
@@ -316,7 +317,7 @@ public void selectReviewExistingIDP() throws Exception{
 		}
 		//Method to enter Trainee Last Name
 			public void enterTraineeLastName(String enterName) {
-				searchPage.trainneLastName.sendKeys(enterName);
+			searchPage.trainneLastName.sendKeys(enterName);
 			}
 		//Method to verify Kim, Olga
 			public void verifyFirmlyExpectedName(String expectedFirstName, String expectedLastName) {
@@ -330,4 +331,23 @@ public void selectReviewExistingIDP() throws Exception{
 			String actualClassificationType = searchPage.searchResultTableFirstRowThirdCell.getText();	
 			Assert.assertEquals(expectedClassificationType.toUpperCase(), actualClassificationType);
 			}
+			//method Select Primary Mentor as Ali Abazeed
+			public void selectPrimaryMentorName() {
+			CommonUtils.click(searchPage.selectPrimaryMentor);
+			CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.xpath("//span[@id='select2-primaryMentor-container']")));
+			}
+			//method to assert Primary Mentor results
+			//public void verifyPrimaryMentorName(String expectedPrimaryMentorName){
+			//String actualPrimaryMentorName = searchPage.
+			public void clickOnSearchButtonGloriaCalloway() {
+			CommonUtils.click(searchPage.searchButtonCallowayGloria);
+			}
+			//verifyGloriaCalloway
+			public void verifyGloriaCallowayExpectedName(String expectedFirstName, String expectedLastName) {
+				String expectedFullName = expectedLastName + ", " + expectedFirstName;
+				String actualFullName = searchPage.searchResultTableFirstRowThirdCellCalloway.getText();
+				Assert.assertEquals(expectedFullName, actualFullName);
+			}
 }
+            
+

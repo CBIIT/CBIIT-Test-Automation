@@ -216,6 +216,7 @@ public class SearchSteps extends PageInitializer{
 		 searchStepimpl.clickOnSearchButton();
 		 CommonUtil.waitBrowser(5000);
 		 JavascriptUtils.scrollDown(1000);
+		 CommonUtil.waitBrowser(5000);
 		
 		}
 
@@ -232,11 +233,36 @@ public class SearchSteps extends PageInitializer{
      
         }
 
-       
-
         @Then("User will verify first page results classification type are {string}")
         public void user_will_verify_expected_results(String  expectedClassificationType) {
         searchStepimpl.verifyFirmlyClassificationType(expectedClassificationType);
         }
+        //SelectPrimaryMentor
+        @When("User will select Primary Mentor as Ali Abazeed")
+        public void user_will_select_Primary_Mentor_as_Ali_Abazeed() {
+        CommonUtil.waitBrowser(5000);
+        searchStepimpl.selectPrimaryMentorName();
+        CommonUtil.waitBrowser(5000);
+        JavascriptUtils.scrollDown(2000);
+        }
+        //VerifyPrimaryMentorResults
+        //@Then("User will verify expected result")
+        //public void user_will_verify_expected_result() {
+        @When("User will click Search button on Gloria Calloway page")
+        public void user_will_click_Search_button_on_Gloria_Calloway_page() {
+        searchStepimpl.clickOnSearchButtonGloriaCalloway();
+        CommonUtil.waitBrowser(2000);
+        JavascriptUtils.scrollDown(2000);
+        }
+        
+        @Then("verify expected results as {string} and {string} on Gloria Calloway page")
+        public void verify_expected_results_as_and_on_Gloria_Calloway_page(String firstName, String lastName) {
+        searchStepimpl.verifyGloriaCallowayExpectedName(firstName, lastName);
+        CommonUtil.waitBrowser(5000);
+        }
+       
+        }
+        
+        
 
-		}
+		
