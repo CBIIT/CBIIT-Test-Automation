@@ -93,7 +93,7 @@ formatter.step({
 formatter.match({
   "location": "LoginSteps.changeUser(String)"
 });
-formatter.write("2021-04-13 17:31:10: Screenshot: ");
+formatter.write("2021-04-14 18:34:38: Screenshot: ");
 formatter.embedding("image/png", "embedded0.png");
 formatter.result({
   "status": "passed"
@@ -105,7 +105,7 @@ formatter.step({
 formatter.match({
   "location": "DashboardSteps.clickOnSearch()"
 });
-formatter.write("2021-04-13 17:31:19: Screenshot: After Search");
+formatter.write("2021-04-14 18:34:46: Screenshot: After Search");
 formatter.embedding("image/png", "embedded1.png");
 formatter.result({
   "status": "passed"

@@ -1,18 +1,22 @@
 package CustomBusinessApp.EIDP.StepsImplementation;
 
 import java.util.List;
+
 import org.junit.Assert;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
 
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 
 import CustomBusinessApp.EIDP.Util.CommonUtil;
 import CustomBusinessApp.EIDP.Util.SharedData;
 import appsCommon.PageInitializer;
+
 
 public class SearchStepImpl extends PageInitializer{
 	public String getInitiateTraineeAnotherName() {
@@ -335,6 +339,13 @@ public void selectReviewExistingIDP() throws Exception{
 			public void selectPrimaryMentorName() {
 			CommonUtils.click(searchPage.selectPrimaryMentor);
 			CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.xpath("//span[@id='select2-primaryMentor-container']")));
+			}
+			//method to click plus button
+			public void clickPlusBUtton() {
+			Action action = new Action(WebDriverUtils.getWebDriver());
+			action.movetoelement(driver.findelement(By.cssSelector("td.sorting_2 dtr-control:before").build.perform()));
+			//WebElement plusButton = WebDriverUtils.getWebDriver().findElement(By.id("advanced_search_results"));
+			//JavascriptUtils.clickByJS(plusButton);
 			}
 			//method to assert Primary Mentor results
 			//public void verifyPrimaryMentorName(String expectedPrimaryMentorName){

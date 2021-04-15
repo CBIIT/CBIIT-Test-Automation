@@ -375,16 +375,16 @@ Feature: Regression testing
     |Employee           |
    
     
-    @Alena3//unfinished
+    @Alena3
     Scenario:IDP Search request specifying  Training Organization and Training Lab, Branch, or Office
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
     And Logged in user changes the user to "Ginsburg,Erika"
     And User will click on search in dashboard
-    And User will select "Training Organization" as CBIIT
-    And User will select "Training Lab, Branch, or Office" as NCI OD CBIIT
+    And User will select Training Organization as "CBIIT"
+    And User will select Training Lab, Branch, or Office as "NCI OD CBIIT"
     And User will click Search button
-    And User will verify expected result
+    And User will verify NED Org is "NCI" and Training Org is "CBIIT'
    
     
     @Alena4
@@ -438,6 +438,23 @@ Feature: Regression testing
     |Fellow             |
     |Employee           |
     
+    @Alena8 @GloriaCalllowaySearch
+    Scenario Outline: Search request as Gloria Calloway specifying NIH SAC
+    #Given User opens nih application in browser
+    When User will login to the application as "nekrashevicha2" user
+    And Logged in User changes the user to "Calloway, Gloria"
+    And User will select "<NIH SAC>" as NIH SAC on Gloria Calloway page
+    And User will click Search button on Gloria Calloway page
+    Then User will verify first page results on Gloria Calloway page NIH SAC are "<NIH SAC>"
+    Examples: NIH SAC
+    |NIH SAC|
+    |HNC1   |
     
+    @Alena9 @GloriaCallowaySearch
+    
+    
+    
+    
+     
     
     
