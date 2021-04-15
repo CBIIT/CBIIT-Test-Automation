@@ -108,6 +108,11 @@ public class SearchPage extends CommonUtils{
     @FindBy(how = How.XPATH, xpath = "//span[@id='select2-primaryMentor-container']")
     public WebElement primaryMentorInbox;
     
+    @FindBy(how = How.ID, id = "select2-trainingOrg-container")
+	public WebElement nciTrainingOrgDropdown;
+    
+    //webelement for verify   xpath=(//table[@id='search-results']//tbody//tr//td[5])[1]
+    
   
 	public SearchPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
