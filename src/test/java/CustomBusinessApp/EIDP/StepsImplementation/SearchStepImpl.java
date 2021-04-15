@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 
+import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
@@ -341,11 +342,23 @@ public void selectReviewExistingIDP() throws Exception{
 			CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.xpath("//span[@id='select2-primaryMentor-container']")));
 			}
 			//method to click plus button
-			public void clickPlusBUtton() {
-			Action action = new Action(WebDriverUtils.getWebDriver());
-			action.movetoelement(driver.findelement(By.cssSelector("td.sorting_2 dtr-control:before").build.perform()));
-			//WebElement plusButton = WebDriverUtils.getWebDriver().findElement(By.id("advanced_search_results"));
-			//JavascriptUtils.clickByJS(plusButton);
+			public void verifyTraineeUnderPrimaryMentor(String primaryMentor) {
+		        eidpBasePage.selectOption(searchPage.aliAbazeed, primaryMentor);
+		        clickOnSearchButton();
+		        MiscUtils.sleep(5000);
+		        List<WebElement> rows = WebDriverUtils.getWebDriver().findElements(By.cssSelector("td.sorting_2"));
+		        for(WebElement row : rows) {
+		            row.click();
+		            MiscUtils.sleep(5000);
+		            WebElement element = WebDriverUtils.getWebDriver().findElement(By.xpath("//span[@class='dtr-title' and text()='Primary Mentor']/following-sibling::span/a"));
+		            eidpBasePage.scrollToElement(element );
+		            String actualName = element.getText();
+		            Assert.assertEquals(primaryMentor, actualName);
+		            CucumberLogUtils.logScreenShot();
+		            row.click();
+		            MiscUtils.sleep(5000);
+		        }
+		   
 			}
 			//method to assert Primary Mentor results
 			//public void verifyPrimaryMentorName(String expectedPrimaryMentorName){
@@ -365,7 +378,7 @@ public void selectReviewExistingIDP() throws Exception{
 			CommonUtils.selectDropDownValue(type, searchPage.classificationTypeDropDownGloriaGalloway);
 			}
 			public void selectPrimaryMentorName(String nameMentor) {
-			CommonUtils.click(searchPage.primaryMentorInbox);	
+			CommonUtils.click(searchPage.selectPrimaryMentor);	
 			CommonUtils.selectDropDownValue(nameMentor, searchPage.aliAbazeed);	
 			}
 }

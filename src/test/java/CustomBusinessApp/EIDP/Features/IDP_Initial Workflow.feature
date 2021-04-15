@@ -403,14 +403,9 @@ Feature: Regression testing
        
       
     
-    @Alena5
-    Scenario: IDP Search Request by selecting Primary Mentor
-    #Given User opens nih application in browser
-    When User will login to the application as "nekrashevicha2" user
-    And Logged in user changes the user to "Ginsburg,Erika"
-    And User will click on search in dashboard
-    And User will select "Current year of Training" as First
-    And User 
+    
+
+     
     
     @Alena6 @GloriaCalllowaySearch
     Scenario Outline: IDP Search request as Gloria Calloway specifying a full name
@@ -450,7 +445,7 @@ Feature: Regression testing
     |NIH SAC|
     |HNC1   |
     
-    @Alena9 @GloriaCallowaySearch
+    
     
     
     
