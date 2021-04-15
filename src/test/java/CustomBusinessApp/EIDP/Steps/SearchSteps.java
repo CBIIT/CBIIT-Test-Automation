@@ -245,9 +245,9 @@ public class SearchSteps extends PageInitializer{
         }
 
         @Then("User will verify expected result as {string}")
-        public void user_will_verify_expected_result_as(String string) {
+        public void user_will_verify_expected_result_as(String primaryMentorName) {
         JavascriptUtils.scrollDown(2000);	
-        searchStepimpl.clickPlusBUtton();
+        searchStepimpl.verifyTraineeUnderPrimaryMentor(primaryMentorName);
            
         }
         @When("User will click Search button on Gloria Calloway page")
