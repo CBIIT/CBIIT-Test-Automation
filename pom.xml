@@ -13,9 +13,15 @@
 	</properties>
 
 	<dependencies>
+<<<<<<< HEAD
 	
 	       	<!-- Remote WebDriver dependencies -->
 			<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+=======
+
+		<!-- Remote WebDriver dependencies -->
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+>>>>>>> 5edc7db14429f7b731810c2f449ed9222b381532
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -37,9 +43,15 @@
 			<artifactId>selenium-java</artifactId>
 			<version>3.141.59</version>
 		</dependency>
+<<<<<<< HEAD
 		
 		<!-- appium libraries -->
 		
+=======
+
+		<!-- appium libraries -->
+
+>>>>>>> 5edc7db14429f7b731810c2f449ed9222b381532
 		<dependency>
 			<groupId>io.appium</groupId>
 			<artifactId>java-client</artifactId>
@@ -220,7 +232,11 @@
 				<version>3.0.0-M4</version>
 				<configuration>
 					<includes>
+<<<<<<< HEAD
 
+=======
+						 <include>**/RunCOVIDDashRegressionTest.java</include>
+>>>>>>> 5edc7db14429f7b731810c2f449ed9222b381532
 					</includes>
 					<testFailureIgnore>true</testFailureIgnore> <!-- to get report even when fails -->
 				</configuration>
