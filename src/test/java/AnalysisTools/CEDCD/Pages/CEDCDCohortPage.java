@@ -1,5 +1,8 @@
 package AnalysisTools.CEDCD.Pages;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -367,6 +370,29 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** Save Action Button */
 	@FindBy (xpath = "//button[contains(text(),'Submit For Review')]")
 	public WebElement submitForReviewButton;
+	
+	
+	/** =============== Questionnaire Section B ================= */
+	
+	/** Enrollment Date **/
+	@FindBy(xpath = "(//*[@type='text'])[6]")
+	public WebElement enrollmentDateBox; 
+	
+	
+	
+	/** =============== Questionnaire Section D ================= */
+	
+	@FindBy(xpath = "//*[@class='cedcd-btn']")
+	public WebElement cancerInformationTab; 
+	
+	@FindBy(xpath = "//*[@id='ci_confirmed_cancer_date']")
+	public WebElement d2AscertainedDateTextBox; 
+	
+	@FindBy(xpath = "//*[@type='checkbox']")
+	public List<WebElement> SectionDCheckBoxes;
+	
+	@FindBy(xpath = "//*[@type='radio']")
+	public List<WebElement> SectionDRadioButton;
 	
 	
 
