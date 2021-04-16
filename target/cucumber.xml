@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="17.137344">
-<testcase classname="Questionnaire" name="Cohort Owner logs in and selects cohort" time="17.137344">
-<system-out><![CDATA[Given the user is on the CEDCD homepage.....................................passed
-When the user is logged in as a Cohort Owner................................passed
-And the Cohort Owner selects their Cohort questionnaire.....................passed
-Then Section A of the Questionnaire is filled out...........................passed
-]]></system-out>
-</testcase>
-</testsuite>
