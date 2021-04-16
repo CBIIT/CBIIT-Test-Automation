@@ -1,2 +1,6 @@
 */target/*
 /target/
+<<<<<<< HEAD
+=======
+src/main/resources/conf/localConf.properties
+>>>>>>> 5edc7db14429f7b731810c2f449ed9222b381532

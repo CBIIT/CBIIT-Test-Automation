@@ -2509,14 +2509,8 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** Tumor Tissue FFPE/No Cancer */
 	@FindBy (xpath = "//input[@name='29-7']")
 	public WebElement tumorTissueFFPENoCancerTableValue;
-	
-	
-	
-	
 
 	public CEDCDCohortPage() {
-
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
-
 	}
 }
