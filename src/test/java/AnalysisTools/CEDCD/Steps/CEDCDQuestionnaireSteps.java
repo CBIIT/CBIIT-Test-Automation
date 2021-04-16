@@ -1,23 +1,12 @@
 package AnalysisTools.CEDCD.Steps;
 
-import javax.swing.plaf.basic.BasicArrowButton;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
-
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
-import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -100,35 +89,37 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		/** A2 clearing of previous data and completion of section */
 //		cedcdCohortPage.a2TextBox.clear();
 		cedcdCohortPage.a2TextBox.sendKeys("This is an automated test case");
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 
 		/** A3 clearing of previous data and completion of section */
 //		cedcdCohortPage.a3TextBox.clear();
 		cedcdCohortPage.a3TextBox.sendKeys("AgainThisIsAnAutomatedTestCase.com");
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 
 		/** A4 clearing of previous data and completion of section */
 //		cedcdCohortPage.a4aName.click();
 //		cedcdCohortPage.a4aName.clear();
-		cedcdCohortPage.a4aName.sendKeys("Diego Juarez");
-		Thread.sleep(3000);
+		JavascriptUtils.clearByJS(cedcdCohortPage.a4aName);
+//		cedcdCohortPage.a4aName.sendKeys("Diego Juarez");
+		Thread.sleep(1000);
 
 //		cedcdCohortPage.a4aCohortPosition.click();
 //		cedcdCohortPage.a4aCohortPosition.clear();
+//		JavascriptUtils.clearByJS(cedcdCohortPage.a4aCohortPosition);
 		cedcdCohortPage.a4aCohortPosition.sendKeys("Test Lead");
-		Thread.sleep(3000);
+		Thread.sleep(10000);
 
 //		cedcdCohortPage.a4aCountryCode.clear();
 		cedcdCohortPage.a4aCountryCode.sendKeys("");
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 
 //		cedcdCohortPage.a4aPhone.clear();
 		cedcdCohortPage.a4aPhone.sendKeys("1234567890");
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 
 //		cedcdCohortPage.a4aEmail.clear();
 		cedcdCohortPage.a4aEmail.sendKeys("diego.juarezz@mail.com");
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 
 		cedcdCohortPage.a4bRadioButtonNo.click();
 
@@ -462,6 +453,174 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	@Then("Section C status Circle is green")
 	public void section_C_status_Circle_is_green() {
 
+	}
+	
+	@Then("Section E of the Questionnaire is filled out")
+	public void section_E_of_the_Questionnaire_is_filled_out() throws InterruptedException {
+		
+		/** Clicks on the Mortality section tab */
+		cedcdCohortPage.sectionE.click();
+		
+		/** Sends year value for E1 */
+		cedcdCohortPage.e1MortalityFollowUpTextBox.sendKeys("2000");
+		
+		/** Answering E.2 check boxes and text box */
+		cedcdCohortPage.e2NDICheckBox.click();
+		cedcdCohortPage.e2OtherCheckBox.click();
+		cedcdCohortPage.e2OtherTextBox.sendKeys("With death certificates");
+		
+		/** Sending answers for E3 */
+		cedcdCohortPage.e3RadioYes.click();
+		
+		/** E.4 Do you have cause of death for most subjects radio button yes or no */
+		cedcdCohortPage.e4RadioYes.click();
+		
+		/** Sending answers for E4's check boxes and text boxes */
+		cedcdCohortPage.e4ICD9CheckBox.click();
+		cedcdCohortPage.e4ICD10CheckBox.click();
+		cedcdCohortPage.e4OtherCodeCheckBox.click();
+		cedcdCohortPage.e4OtherCodeTextBox.sendKeys("Another Code that's not listed");
+		
+		/** Answering E5's What is the number of deaths in your cohort as of most recent mortality follow-up question */
+		cedcdCohortPage.e5MortalityTextBox.sendKeys("4200");
+		Thread.sleep(5000);
+		
+		/** Saving on section E of the questionnaire */
+		cedcdCohortPage.saveButton.click();
+		Thread.sleep(1000);
+		CucumberLogUtils.logScreenShot();
+		Thread.sleep(1000);
+		
+		
+		
+	}
+
+	@Then("Section E status Circle is green")
+	public void section_E_status_Circle_is_green() {
+		
+		
+		
+	}
+	
+	@Then("Section G of the Questionnaire is filled out")
+	public void section_G_of_the_Questionnaire_is_filled_out() throws InterruptedException {
+		
+		/** Answering G.1 Blood */
+		cedcdCohortPage.SectionG.click();
+		Thread.sleep(1000);
+		cedcdCohortPage.g1BaselineYesValue.click();
+		cedcdCohortPage.g1SerumBaselineCheckBox.click();
+		cedcdCohortPage.g1BuffyCoatBaselineCheckBox.click();
+		cedcdCohortPage.g1FollowUpYesValue.click();
+		cedcdCohortPage.g1OtherBloodDerivativeFollowUpCheckBox.click();
+		cedcdCohortPage.g1PlasmaFollowUpCheckBox.click();
+		
+		/** Answering G.2 Buccal/Saliva */
+		cedcdCohortPage.g2BaselineRadioYes.click();
+		cedcdCohortPage.g2FollowUpRadioYes.click();
+		
+		/** Answering G.3 Tissue (include tumor and/or normal) */
+		cedcdCohortPage.g3BaselineRadioYes.click();
+		cedcdCohortPage.g3FollowUpRadioYes.click();
+		
+		/** Answering G.4 Urine */
+		cedcdCohortPage.g4BaselineRadioYes.click();
+		cedcdCohortPage.g4FollowUpRadioYes.click();
+		
+		/** Answering G.5 Feces */
+		cedcdCohortPage.g5BaselineRadioYes.click();
+		cedcdCohortPage.g5FollowUpRadioYes.click();
+		
+		/** Answering G.6 Other (e.g. toenails) */
+		cedcdCohortPage.g6BaselineRadioYes.click();
+		cedcdCohortPage.g6BaselineTextBox.sendKeys("Answering G6 Baseline Other Text Box");
+		
+		cedcdCohortPage.g6FollowUpRadioYes.click();
+		cedcdCohortPage.g6FollowUpTextBox.sendKeys("Answering G6 Follow Up Other Text Box");
+		
+		/** Answering G.7 Did you collect repeated samples over multiple timepoints for the same individuals? */
+		cedcdCohortPage.g7RadioYes.click();
+		
+		/** Answering G.8 If your cohort does not currently collect tumor blocks, do you have information on where the blocks are kept/stored? */
+		cedcdCohortPage.g8RadioYes.click();
+		
+		/** Switching to Additional Data Collected tab */
+		cedcdCohortPage.additionalDataCollectedTab.click();
+		
+		/** Answering G.9 Genotyping Data (SNP) */
+		cedcdCohortPage.g9RadioYes.click();
+		
+		/** Answering G.10 Sequencing Data – Exome */
+		cedcdCohortPage.g10RadioYes.click();
+		Thread.sleep(1000);
+		
+		/** Answering G.11 Sequencing Data – Whole Genome */
+		cedcdCohortPage.g11RadioYes.click();
+		Thread.sleep(1000);
+		
+		/** Answering G.12 Epigenetic Data (methylation, miRNA, histone chip-on-chip data) */
+		cedcdCohortPage.g12RadioYes.click();
+		
+		/** Answering G.13 Transcriptomics Data */
+		cedcdCohortPage.g13RadioYes.click();
+		
+		/** Answering G.14 Microbiome Data (16S RNA, metagenomics) */
+		cedcdCohortPage.g14RadioYes.click();
+		
+		/** Switching to Metabolomics Data tab */
+		cedcdCohortPage.metabolicDataTab.click();
+		
+		/** Answering G.15 Metabolomic Data (from MS and/or NMR).  If answered Yes, the remainder of the questionnaire (G15a-G15i) is required.  If answered no, then you can just save the questionnaire */
+		cedcdCohortPage.g15RadioYes.click();
+		
+		/** Answering G.15a Are the biospecimens collected fasting samples? */
+		cedcdCohortPage.g15ARadioYes.click();
+		
+		/** Answering G.15b What are the disease outcome(s) in your study?* (Select all that apply) */
+		cedcdCohortPage.g15BCancerCheckBoxValue.click();
+		cedcdCohortPage.g15BDiabetesCheckBoxValue.click();
+		cedcdCohortPage.g15BOtherSpecifyCheckBoxValue.click();
+		cedcdCohortPage.g15BOtherSpecifyTextBoxValue.sendKeys("Answering G15b's Other, Specify text box");
+		
+		/** Answering G.15c Are you a member of the Consortium of Metabolomics Studies (COMETS)? */
+		
+		JavascriptUtils.clickByJS(cedcdCohortPage.g15CRadioButtonYes);
+		
+		/** Answering G.15d What is the number of participants with metabolomics data in your study? */
+		cedcdCohortPage.g15DTextBox.sendKeys("4200");
+		
+		/** Answering G.15e Which laboratory or company was used for the analysis? */
+		cedcdCohortPage.g15ETextBox.sendKeys("The NIH laboratories");
+		
+		/** Answering G.15f Which type(s) of analytical platform was used, (e.g., NMR, Orbitrap mass spectrometry, QTOF mass spectrometry)? */
+		cedcdCohortPage.g15FTextBox.sendKeys("QTOF Mass Spectrometry");
+		
+		/** Answering G.15g Which separation platform(s) was used (e.g., GC, HILIC, RPLC, Ion pairing LC)? */
+		cedcdCohortPage.g15GTextBox.sendKeys("Ion pairing LC and HILIC");
+		
+		/** Answering G.15h How many metabolites were measured? */
+		cedcdCohortPage.g15HTextBox.sendKeys("321");
+		
+		/** Answering G.15i What year were samples analyzed? */
+		cedcdCohortPage.g15ITextBox.sendKeys("2000");
+		
+		/** Click on the Biospecimens Counts */
+		cedcdCohortPage.biospecimenCountsTab.click();
+		
+		
+		
+		/** Saving on section G */
+		cedcdCohortPage.saveButton.click();
+		Thread.sleep(20000);
+		
+		
+		}
+
+	@Then("Section G status Circle is green")
+	public void section_G_status_Circle_is_green() {
+		
+		
+		
 	}
 
 }
