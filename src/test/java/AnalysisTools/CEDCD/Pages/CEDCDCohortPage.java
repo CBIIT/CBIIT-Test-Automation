@@ -13,6 +13,9 @@ public class CEDCDCohortPage extends CommonUtils {
 	 * =================================
 	 */
 /** Adding line, losing sleep */
+	
+	/** ADD SECOND LINE */
+	
 	/** Username for Login.gov */
 	@FindBy(xpath = "//input[@id = 'user_email']")
 	public WebElement cohortUsername;
