@@ -12,6 +12,9 @@ public class CEDCDCohortPage extends CommonUtils {
 	 * ========================= Login.gov WebElements
 	 * =================================
 	 */
+	
+	
+	//******** WE FIXED THESE CONFLICTS *****/////////
 
 	/** Username for Login.gov */
 	@FindBy(xpath = "//input[@id = 'user_email']")
