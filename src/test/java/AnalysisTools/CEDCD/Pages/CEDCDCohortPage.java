@@ -392,8 +392,9 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//*[@type='checkbox']")
 	public List<WebElement> SectionDCheckBoxes;
 	
-	@FindBy(xpath = "//*[@type='radio']")
-	public List<WebElement> SectionDRadioButton;
+	/** Sample Change **/
+//	@FindBy(xpath = "//*[@type='radio']")
+//	public List<WebElement> SectionDRadioButton;
 	
 	
 
