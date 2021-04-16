@@ -1233,6 +1233,1286 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** Other Text Box */
 	@FindBy(xpath = "//input[@name='cancerOtherSpecify']")
 	public WebElement c32CancerOtherSpecifyTextbox;
+	
+	/**
+	 * =============================== Questionnaire Section E
+	 * ===================================
+	 */	
+	
+	/** E1's text box.  Takes year in YYYY format */
+	@FindBy (xpath = "//input[@name='mortalityYear']")
+	public WebElement e1MortalityFollowUpTextBox;
+	
+	/** E2's check boxes */
+	
+	/** E2's U.S. National Death Index (NDI) linkage check box value */
+	@FindBy (xpath = "(//input[@type = 'checkbox'])[1]")
+	public WebElement e2NDICheckBox;
+	
+	/** E2's Death Certificates check box value */
+	@FindBy (xpath = "(//input[@type = 'checkbox'])[2]")
+	public WebElement e2DeathCertificateCheckBox;
+	
+	/** E2's Other check box value */
+	@FindBy (xpath = "(//input[@type = 'checkbox'])[3]")
+	public WebElement e2OtherCheckBox;
+	
+	/** E2's answer to: How did your cohort confirm death? */
+	@FindBy (xpath = "//input[@name = 'otherDeathSpecify']")
+	public WebElement e2OtherTextBox;
+	
+	/** E.3 Do you have date of death for most subjects radio button No Value */
+	@FindBy (xpath = "(//input[@type = 'radio'])[1]")
+	public WebElement e3RadioNo;
+	
+	/** E.3 Do you have date of death for most subjects radio button Yes Value */
+	@FindBy (xpath = "(//input[@type = 'radio'])[2]")
+	public WebElement e3RadioYes;
+	
+	/** E.4 Do you have cause of death for most subjects No Value */
+	@FindBy (xpath = "(//input[@type = 'radio'])[3]")
+	public WebElement e4RadioNo;
+	
+	/** E.4 Do you have cause of death for most subjects Yes Value */
+	@FindBy (xpath = "(//input[@type = 'radio'])[4]")
+	public WebElement e4RadioYes;
+	
+	/** E.4 if E4 is Yes then click check boxes below */
+	
+	/** E4's ICD-9 check box value */
+	@FindBy (xpath = "(//input[@type = 'checkbox'])[4]")
+	public WebElement e4ICD9CheckBox;
+	
+	/** E4's ICD-10 check box value */
+	@FindBy (xpath = "(//input[@type = 'checkbox'])[5]")
+	public WebElement e4ICD10CheckBox;
+	
+	/** E4's Not Coded check box value */
+	@FindBy (xpath = "(//input[@type = 'checkbox'])[6]")
+	public WebElement e4NotCodedCheckBox;
+	
+	/** E4's Other Code check box value */
+	@FindBy (xpath = "(//input[@type = 'checkbox'])[7]")
+	public WebElement e4OtherCodeCheckBox;
+	
+	/** E4's Other Code text box value */
+	@FindBy (xpath = "//input[@name='otherCodeSpecify']")
+	public WebElement e4OtherCodeTextBox;
+	
+	/** E5's  */
+	@FindBy (xpath = "//input[@name='deathNumbers']")
+	public WebElement e5MortalityTextBox;
+	
+	/**
+	 * =============================== Questionnaire Section G
+	 * ===================================
+	 */	
+	
+	/** Biospecimens Collected Tabs for section G */
+	@FindBy (xpath = "//button[contains(text(),'Biospecimens Collected')]")
+	public WebElement biospecimensCollectedTab;
+	
+	/**Specify the types of specimens you collected, whether the specimen was collected at baseline, and/or collected at other time points.*/
+	
+	/** G.1 Blood No radio Value */
+	@FindBy (xpath = "//input[@id='bioBloodBaseline_0']")
+	public WebElement g1BaselineNoValue;
+	
+	/** G.1 Blood Yes radio Value */
+	@FindBy (xpath = "//input[@id='bioBloodBaseline_1']")
+	public WebElement g1BaselineYesValue;
+	
+	/** G.1 If collected, types of aliquots (select all that apply) */
+	
+	/** G.1 Serum BASELINE check box value */
+	@FindBy (xpath = "//input[@id='bioBloodBaselineSerum']")
+	public WebElement g1SerumBaselineCheckBox;
+	
+	/** G.1 Plasma BASELINE check box value */
+	@FindBy (xpath = "//input[@id='bioBloodBaselinePlasma']")
+	public WebElement g1PlasmaBaselineCheckBox;
+	
+	/** G.1 Buffy Coat BASELINE check box value */
+	@FindBy (xpath = "//input[@id='bioBloodBaselineBuffyCoat']")
+	public WebElement g1BuffyCoatBaselineCheckBox;
+	
+	/** G.1 Other Blood Derivative BASELINE check box value */
+	@FindBy (xpath = "//input[@id='bioBloodBaselineOtherDerivative']")
+	public WebElement g1OtherBloodDerivativeBaselineCheckBox;
+	
+	/** G.1 Collected at other points yes or no radio buttons */
+	
+	/** G.1 Other points No radio Button */
+	@FindBy (xpath = "//input[@id='bioBloodOtherTime_0']")
+	public WebElement g1FollowUpNoValue;
+	
+	/** G.1 Other points Yes radio Button */
+	@FindBy (xpath = "//input[@id='bioBloodOtherTime_1']")
+	public WebElement g1FollowUpYesValue;
+	
+	/** G.1 Serum FOLLOW UP check box value */
+	@FindBy (xpath = "//input[@id='bioBloodOtherTimeSerum']")
+	public WebElement g1SerumFollowUpCheckBox;
+	
+	/** G.1 Plasma FOLLOW UP check box value */
+	@FindBy (xpath = "//input[@id='bioBloodOtherTimePlasma']")
+	public WebElement g1PlasmaFollowUpCheckBox;
+	
+	/** G.1 Buffy Coat FOLLOW UP check box value */
+	@FindBy (xpath = "//input[@id='bioBloodOtherTimeBuffyCoat']")
+	public WebElement g1BuffyCoatFollowUpCheckBox;
+	
+	/** G.1 Other Blood Derivative FOLLOW UP check box value */
+	@FindBy (xpath = "//input[@id='bioBloodOtherTimeOtherDerivative']")
+	public WebElement g1OtherBloodDerivativeFollowUpCheckBox;
+	
+	/** G.2 Buccal/Saliva */
+	
+	/** G.2 Baseline No Radio Value */
+	@FindBy (xpath = "//input[@id='bioBuccalSalivaBaseline_0']")
+	public WebElement g2BaselineRadioNo;
+	
+	/** G.2 Baseline Yes Radio Value */
+	@FindBy (xpath = "//input[@id='bioBuccalSalivaBaseline_1']")
+	public WebElement g2BaselineRadioYes;
+	
+	/** G.2 Follow Up No Radio Value */
+	@FindBy (xpath = "//input[@id='bioBuccalSalivaOtherTime_0']")
+	public WebElement g2FollowUpRadioNo;
+	
+	/** G.2 Follow Up Yes Radio Value */
+	@FindBy (xpath = "//input[@id='bioBuccalSalivaOtherTime_1']")
+	public WebElement g2FollowUpRadioYes;
+	
+	/** G.3 Tissue (include tumor and/or normal) */
+	
+	/** G.3 Baseline No Radio Value */
+	@FindBy (xpath = "//input[@id='bioTissueBaseline_0']")
+	public WebElement g3BaselineRadioNo;
+	
+	/** G.3 Baseline Yes Radio Value */
+	@FindBy (xpath = "//input[@id='bioTissueBaseline_1']")
+	public WebElement g3BaselineRadioYes;
+	
+	/** G.3 Follow Up No Radio Value */
+	@FindBy (xpath = "//input[@id='bioTissueOtherTime_0']")
+	public WebElement g3FollowUpRadioNo;
+	
+	/** G.3 Follow Up Yes Radio Value */
+	@FindBy (xpath = "//input[@id='bioTissueOtherTime_1']")
+	public WebElement g3FollowUpRadioYes;
+	
+	/** G.4 Urine */
+	
+	/** G.4 Baseline No Radio Value */
+	@FindBy (xpath = "//input[@id='bioUrineBaseline_0']")
+	public WebElement g4BaselineRadioNo;
+
+	/** G.4 Baseline Yes Radio Value */
+	@FindBy (xpath = "//input[@id='bioUrineBaseline_1']")
+	public WebElement g4BaselineRadioYes;
+	
+	/** G.4 Follow Up No Radio Value */
+	@FindBy (xpath = "//input[@id='bioUrineOtherTime_0']")
+	public WebElement g4FollowUpRadioNo;
+	
+	/** G.4 Follow Up Yes Radio Value */
+	@FindBy (xpath = "//input[@id='bioUrineOtherTime_1']")
+	public WebElement g4FollowUpRadioYes;
+	
+	/** G.5 Feces */
+	
+	/** G.5 Baseline No Radio Value */
+	@FindBy (xpath = "//input[@id='bioFecesBaseline_0']")
+	public WebElement g5BaselineRadioNo;
+
+	/** G.5 Baseline Yes Radio Value */
+	@FindBy (xpath = "//input[@id='bioFecesBaseline_1']")
+	public WebElement g5BaselineRadioYes;
+	
+	/** G.5 Follow Up No Radio Value */
+	@FindBy (xpath = "//input[@id='bioFecesOtherTime_0']")
+	public WebElement g5FollowUpRadioNo;
+	
+	/** G.5 Follow Up Yes Radio Value */
+	@FindBy (xpath = "//input[@id='bioFecesOtherTime_1']")
+	public WebElement g5FollowUpRadioYes;
+	
+	/** G.6 Other (e.g. toenails) */
+	
+	/** G.6 Baseline No Radio Value */
+	@FindBy (xpath = "//input[@id='bioOtherBaseline_0']")
+	public WebElement g6BaselineRadioNo;
+
+	/** G.6 Baseline Yes Radio Value */
+	@FindBy (xpath = "//input[@id='bioOtherBaseline_1']")
+	public WebElement g6BaselineRadioYes;
+	
+	/** G.6 Baseline Text Box */
+	@FindBy (xpath = "//input[@name='bioOtherBaselineSpecify']")
+	public WebElement g6BaselineTextBox;
+	
+	/** G.6 Follow Up No Radio Value */
+	@FindBy (xpath = "//input[@id='bioOtherOtherTime_0']")
+	public WebElement g6FollowUpRadioNo;
+	
+	/** G.6 Follow Up Yes Radio Value */
+	@FindBy (xpath = "//input[@id='bioOtherOtherTime_1']")
+	public WebElement g6FollowUpRadioYes;
+	
+	/** G.6 Follow Up Text Box */
+	@FindBy (xpath = "//input[@name='bioOtherOtherTimeSpecify']")
+	public WebElement g6FollowUpTextBox;
+	
+	/** G.7 Did you collect repeated samples over multiple timepoints for the same individuals? */
+	
+	/** G.7 No Radio Button Value */
+	@FindBy (xpath = "//input[@id='bioRepeatedSampleSameIndividual_0']")
+	public WebElement g7RadioNo;
+	
+	/** G.7 Yes Radio Button Value */
+	@FindBy (xpath = "//input[@id='bioRepeatedSampleSameIndividual_1']")
+	public WebElement g7RadioYes;
+	
+	/** G.8 If your cohort does not currently collect tumor blocks, do you have information on where the blocks are kept/stored? */
+	
+	/** G.8 No Radio Button Value */
+	@FindBy (xpath = "//input[@id='bioTumorBlockInfo_0']")
+	public WebElement g8RadioNo;
+	
+	/** G.8 Yes Radio Button Value */
+	@FindBy (xpath = "//input[@id='bioTumorBlockInfo_1']")
+	public WebElement g8RadioYes;
+	
+	/** Additional Data Collected Section on section G */
+	@FindBy (xpath = "//button[contains(text(),'Additional Data Collected')]")
+	public WebElement additionalDataCollectedTab;
+	
+	/** G.9 Genotyping Data (SNP) */
+	
+	/** G.9 No Radio Button Value */
+	@FindBy (xpath = "//input[@id='bioGenotypingData_0']")
+	public WebElement g9RadioNo;
+	
+	/** G.9 Yes Radio Button Value */
+	@FindBy (xpath = "//input[@id='bioGenotypingData_1']")
+	public WebElement g9RadioYes;
+	
+	/** G.10 Sequencing Data – Exome */
+	
+	/** G.10 No Radio Button Value */
+	@FindBy (xpath = "//label[@for='bioSequencingDataExome_0']")
+	public WebElement g10RadioNo;
+	
+	/** G.10 Yes Radio Button Value */
+	@FindBy (xpath = "//label[@for='bioSequencingDataExome_1']")
+	public WebElement g10RadioYes;
+	
+	/** G.11 Sequencing Data – Whole Genome */
+	
+	/** G.11 No Radio Button Value */
+	@FindBy (xpath = "//label[@for='bioSequencingDataWholeGenome_0']")
+	public WebElement g11RadioNo;
+	
+	/** G.11 Yes Radio Button Value */
+	@FindBy (xpath = "//label[@for='bioSequencingDataWholeGenome_1']")
+	public WebElement g11RadioYes;
+	
+	/** G.12 Epigenetic Data (methylation, miRNA, histone chip-on-chip data) */
+	
+	/** G.12 No Radio Button Value */
+	@FindBy (xpath = "//input[@id='bioEpigeneticOrMetabolicMarkers_0']")
+	public WebElement g12RadioNo;
+	
+	/** G.12 Yes Radio Button Value */
+	@FindBy (xpath = "//input[@id='bioEpigeneticOrMetabolicMarkers_1']")
+	public WebElement g12RadioYes;
+	
+	/** G.13 Transcriptomics Data */
+	
+	/** G.13 No Radio Button Value */
+	@FindBy (xpath = "//input[@id='bioTranscriptomicsData_0']")
+	public WebElement g13RadioNo;
+	
+	/** G.13 Yes Radio Button Value */
+	@FindBy (xpath = "//input[@id='bioTranscriptomicsData_1']")
+	public WebElement g13RadioYes;
+	
+	/** G.14 Microbiome Data (16S RNA, metagenomics) */
+	
+	/** G.14 No Radio Button Value */
+	@FindBy (xpath = "//input[@id='bioMicrobiomeData_0']")
+	public WebElement g14RadioNo;
+	
+	/** G.14 Yes Radio Button Value */
+	@FindBy (xpath = "//input[@id='bioMicrobiomeData_1']")
+	public WebElement g14RadioYes;
+	
+	/** Metabolic Data tab on Section G */
+	@FindBy (xpath = "//button[contains(text(),'Metabolomics Data')]")
+	public WebElement metabolicDataTab;
+	
+	/** G.15 Metabolomic Data (from MS and/or NMR) */
+	
+	/** G.15 No Radio Button Value */
+	@FindBy (xpath = "//input[@id='bioMetabolomicData_0']")
+	public WebElement g15RadioNo;
+	
+	/** G.15 Yes Radio Button Value */
+	@FindBy (xpath = "//input[@id='bioMetabolomicData_1']")
+	public WebElement g15RadioYes;
+	
+	/** If G.15 is answered Yes, then they fill out the following questions */
+
+	/** G.15a Are the biospecimens collected fasting samples? */
+	
+	/** G.15a No Radio Button Value */
+	@FindBy (xpath = "//input[@id='bioMetaFastingSample_0']")
+	public WebElement g15ARadioNo;
+	
+	/** G.15a Yes Radio Button Value */
+	@FindBy (xpath = "//input[@id='bioMetaFastingSample_1']")
+	public WebElement g15ARadioYes;
+	
+	/** G.15b What are the disease outcome(s) in your study? */
+	
+	/** G.15b Cancer Check Box Value */
+	@FindBy (xpath = "//input[@id='bioMetaOutcomesInCancerStudy']")
+	public WebElement g15BCancerCheckBoxValue;
+	
+	/** G.15b CVD Check Box Value */
+	@FindBy (xpath = "//input[@id='bioMetaOutcomesInCvdStudy']")
+	public WebElement g15BCVDCheckBoxValue;
+	
+	/** G.15b Diabetes Check Box Value */
+	@FindBy (xpath = "//input[@id='bioMetaOutcomesInDiabetesStudy']")
+	public WebElement g15BDiabetesCheckBoxValue;
+	
+	/** G.15b Other, specify: Check Box Value */
+	@FindBy (xpath = "//input[@id='bioMetaOutcomesInOtherStudy']")
+	public WebElement g15BOtherSpecifyCheckBoxValue;
+	
+	/** G.15b Other, specify: Text Box Value */
+	@FindBy (xpath = "//textarea[@name='bioMetaOutcomesOtherStudySpecify']")
+	public WebElement g15BOtherSpecifyTextBoxValue;
+	
+	/** G.15c Are you a member of the Consortium of Metabolomics Studies (COMETS)? */
+	
+	/** G.15c No Radio Button Value */
+	@FindBy (xpath = "//input[@name='bioMemberOfMetabolomicsStudies' and @id='bioMemberOfMetabolomicsStudies_0']")
+	public WebElement g15CRadioButtonNo;
+	
+	/** G.15c Yes Radio Button Value */
+	@FindBy (xpath = "//input[@name='bioMemberOfMetabolomicsStudies' and @id='bioMemberOfMetabolomicsStudies_1']")
+	public WebElement g15CRadioButtonYes;
+	
+	/** G.15d What is the number of participants with metabolomics data in your study? */
+	
+	/** G.15d Text Box */
+	@FindBy (xpath = "//input[@name='bioMemberInStudy']")
+	public WebElement g15DTextBox;
+	
+	/** G.15e Which laboratory or company was used for the analysis? Text Box */
+	@FindBy (xpath = "//textarea[@name='bioLabsUsedForAnalysis']")
+	public WebElement g15ETextBox;
+	
+	/** G.15f Which type(s) of analytical platform was used, (e.g., NMR, Orbitrap mass spectrometry, QTOF mass spectrometry)? Text Box */
+	@FindBy (xpath = "//textarea[@name='bioAnalyticalPlatform']")
+	public WebElement g15FTextBox;
+	
+	/** G.15g Which separation platform(s) was used (e.g., GC, HILIC, RPLC, Ion pairing LC)? Text Box */
+	@FindBy (xpath = "//textarea[@name='bioSeparationPlatform']")
+	public WebElement g15GTextBox;
+	
+	/** G.15h How many metabolites were measured? Text Box */
+	@FindBy (xpath = "//input[@name='bioNumberMetabolitesMeasured']")
+	public WebElement g15HTextBox;
+	
+	/** G.15i What year were samples analyzed? Text Box */
+	@FindBy (xpath = "//input[@name='bioYearSamplesSent']")
+	public WebElement g15ITextBox;
+	
+	/** Biospecimen Counts tab for Section G */
+	@FindBy (xpath = "//button[contains(text(),'Biospecimens Counts')]")
+	public WebElement biospecimenCountsTab;
+	
+	/** WebElements for the G16 Table */
+	
+	/** Types of Aliquots/Cancer Type */
+	
+	/** Oropharyngeal Values */
+	
+	/** Serum and/or Plasma/Oropharyngeal */
+	@FindBy (xpath = "//input[@name='2-1']")
+	public WebElement g16SerumOropharyngealTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Oropharyngeal */
+	@FindBy (xpath = "//input[@name='2-2']")
+	public WebElement g16BuffyOropharyngealTableValue;
+	
+	/** Saliva and/or Buccal/Oropharyngeal */
+	@FindBy (xpath = "//input[@name='2-3']")
+	public WebElement salivaOropharyngealTableValue;
+	
+	/** Urine/Oropharyngeal */
+	@FindBy (xpath = "//input[@name='2-4']")
+	public WebElement urineOropharyngealTableValue;
+	
+	/** Feces/Oropharyngeal */
+	@FindBy (xpath = "//input[@name='2-5']")
+	public WebElement fecesOropharyngealTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Oropharyngeal */
+	@FindBy (xpath = "//input[@name='2-6']")
+	public WebElement tumorTissueFreshFrozenOropharyngealTableValue;
+	
+	/** Tumor Tissue FFPE/Oropharyngeal */
+	@FindBy (xpath = "//input[@name='2-7']")
+	public WebElement tumorTissueFFPEOropharyngealTableValue;
+	
+	/** Esophagus Values */
+	
+	/** Serum and/or Plasma/Esophagus */
+	@FindBy (xpath = "//input[@name='3-1']")
+	public WebElement serumEsophagusTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Esophagus */
+	@FindBy (xpath = "//input[@name='3-2']")
+	public WebElement g16BuffyEsophagusTableValue;
+	
+	/** Saliva and/or Buccal/Esophagus */
+	@FindBy (xpath = "//input[@name='3-3']")
+	public WebElement salivaEsophagusTableValue;
+	
+	/** Urine/Esophagus */
+	@FindBy (xpath = "//input[@name='3-4']")
+	public WebElement urineEsophagusTableValue;
+	
+	/** Feces/Esophagus */
+	@FindBy (xpath = "//input[@name='3-5']")
+	public WebElement fecesEsophagusTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Esophagus */
+	@FindBy (xpath = "//input[@name='3-6']")
+	public WebElement tumorTissueFreshFrozenEsophagusTableValue;
+	
+	/** Tumor Tissue FFPE/Esophagus */
+	@FindBy (xpath = "//input[@name='3-7']")
+	public WebElement tumorTissueFFPEStomachEsophagusValue;
+	
+	/** Stomach Values */
+
+	/** Serum and/or Plasma/Stomach */
+	@FindBy (xpath = "//input[@name='4-1']")
+	public WebElement serumStomachTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Stomach */
+	@FindBy (xpath = "//input[@name='4-2']")
+	public WebElement g16BuffyStomachTableValue;
+	
+	/** Saliva and/or Buccal/Stomach */
+	@FindBy (xpath = "//input[@name='4-3']")
+	public WebElement salivaStomachTableValue;
+	
+	/** Urine/Stomach */
+	@FindBy (xpath = "//input[@name='4-4']")
+	public WebElement urineStomachTableValue;
+	
+	/** Feces/Stomach */
+	@FindBy (xpath = "//input[@name='4-5']")
+	public WebElement fecesStomachTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Stomach */
+	@FindBy (xpath = "//input[@name='4-6']")
+	public WebElement tumorTissueFreshFrozenStomachTableValue;
+	
+	/** Tumor Tissue FFPE/Stomach */
+	@FindBy (xpath = "//input[@name='4-7']")
+	public WebElement tumorTissueFFPEStomachTableValue;
+	
+	/** Small Intestine Values */
+	
+	/** Serum and/or Plasma/Small intestine */
+	@FindBy (xpath = "//input[@name='5-1']")
+	public WebElement serumSmallIntestineTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Small intestine */
+	@FindBy (xpath = "//input[@name='5-2']")
+	public WebElement g16BuffySmallIntestineTableValue;
+	
+	/** Saliva and/or Buccal/Small intestine */
+	@FindBy (xpath = "//input[@name='5-3']")
+	public WebElement salivaSmallIntestineTableValue;
+	
+	/** Urine/Small intestine */
+	@FindBy (xpath = "//input[@name='5-4']")
+	public WebElement urineSmallIntestineTableValue;
+	
+	/** Feces/Small intestine */
+	@FindBy (xpath = "//input[@name='5-5']")
+	public WebElement fecesSmallIntestineTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Small intestine */
+	@FindBy (xpath = "//input[@name='5-6']")
+	public WebElement tumorTissueFreshFrozenSmallIntestineTableValue;
+	
+	/** Tumor Tissue FFPE/Small intestine */
+	@FindBy (xpath = "//input[@name='5-7']")
+	public WebElement tumorTissueFFPESmallIntestineTableValue;
+	
+	/** Colon Values */
+	
+	/** Serum and/or Plasma/Colon */
+	@FindBy (xpath = "//input[@name='6-1']")
+	public WebElement serumColonTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Colon */
+	@FindBy (xpath = "//input[@name='6-2']")
+	public WebElement g16BuffyColonTableValue;
+	
+	/** Saliva and/or Buccal/Colon */
+	@FindBy (xpath = "//input[@name='6-3']")
+	public WebElement salivaColonTableValue;
+	
+	/** Urine/Colon */
+	@FindBy (xpath = "//input[@name='6-4']")
+	public WebElement urineColonTableValue;
+	
+	/** Feces/Colon */
+	@FindBy (xpath = "//input[@name='6-5']")
+	public WebElement fecesColonTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Colon */
+	@FindBy (xpath = "//input[@name='6-6']")
+	public WebElement tumorTissueFreshFrozenColonTableValue;
+	
+	/** Tumor Tissue FFPE/Colon */
+	@FindBy (xpath = "//input[@name='6-7']")
+	public WebElement tumorTissueFFPEColonTableValue;
+	
+	/** Rectum and Anus Values */
+	
+	/** Serum and/or Plasma/Rectum and anus */
+	@FindBy (xpath = "//input[@name='7-1']")
+	public WebElement serumRectumAndAnusTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Rectum and anus */
+	@FindBy (xpath = "//input[@name='7-2']")
+	public WebElement g16BuffyRectumAndAnusTableValue;
+	
+	/** Saliva and/or Buccal/Rectum and anus */
+	@FindBy (xpath = "//input[@name='7-3']")
+	public WebElement salivaRectumAndAnusTableValue;
+	
+	/** Urine/Rectum and anus */
+	@FindBy (xpath = "//input[@name='7-4']")
+	public WebElement urineRectumAndAnusTableValue;
+	
+	/** Feces/Rectum and anus */
+	@FindBy (xpath = "//input[@name='7-5']")
+	public WebElement fecesRectumAndAnusTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Rectum and anus */
+	@FindBy (xpath = "//input[@name='7-6']")
+	public WebElement tumorTissueFreshFrozenRectumAndAnusTableValue;
+	
+	/** Tumor Tissue FFPE/Rectum and anus */
+	@FindBy (xpath = "//input[@name='7-7']")
+	public WebElement tumorTissueFFPERectumAndAnusTableValue;
+	
+	/** Liver Values */
+	
+	/** Serum and/or Plasma/Liver */
+	@FindBy (xpath = "//input[@name='8-1']")
+	public WebElement serumLiverTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Liver */
+	@FindBy (xpath = "//input[@name='8-2']")
+	public WebElement g16BuffyLiverTableValue;
+	
+	/** Saliva and/or Buccal/Liver */
+	@FindBy (xpath = "//input[@name='8-3']")
+	public WebElement salivaLiverTableValue;
+	
+	/** Urine/Liver */
+	@FindBy (xpath = "//input[@name='8-4']")
+	public WebElement urineLiverTableValue;
+	
+	/** Feces/Liver */
+	@FindBy (xpath = "//input[@name='8-5']")
+	public WebElement fecesLiverTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Liver */
+	@FindBy (xpath = "//input[@name='8-6']")
+	public WebElement tumorTissueFreshFrozenLiverTableValue;
+	
+	/** Tumor Tissue FFPE/Liver */
+	@FindBy (xpath = "//input[@name='8-7']")
+	public WebElement tumorTissueFFPELiverTableValue;
+	
+	/** Gall bladder Values */
+	
+	/** Serum and/or Plasma/Gall bladder */
+	@FindBy (xpath = "//input[@name='9-1']")
+	public WebElement serumGallBladderTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Small intestine */
+	@FindBy (xpath = "//input[@name='9-2']")
+	public WebElement g16BuffyGallBladderTableValue;
+	
+	/** Saliva and/or Buccal/Gall bladder */
+	@FindBy (xpath = "//input[@name='9-3']")
+	public WebElement salivaGallBladderTableValue;
+	
+	/** Urine/Gall bladder */
+	@FindBy (xpath = "//input[@name='9-4']")
+	public WebElement urineGallBladderTableValue;
+	
+	/** Feces/Gall bladder */
+	@FindBy (xpath = "//input[@name='9-5']")
+	public WebElement fecesGallBladderTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Gall bladder */
+	@FindBy (xpath = "//input[@name='9-6']")
+	public WebElement tumorTissueFreshFrozenGallBladderTableValue;
+	
+	/** Tumor Tissue FFPE/Gall bladder */
+	@FindBy (xpath = "//input[@name='9-7']")
+	public WebElement tumorTissueFFPEGallBladderTableValue;
+	
+	/** Pancreas Values */
+	
+	/** Serum and/or Plasma/Pancreas */
+	@FindBy (xpath = "//input[@name='10-1']")
+	public WebElement serumPancreasTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Pancreas */
+	@FindBy (xpath = "//input[@name='10-2']")
+	public WebElement g16BuffyPancreasTableValue;
+	
+	/** Saliva and/or Buccal/Pancreas */
+	@FindBy (xpath = "//input[@name='10-3']")
+	public WebElement salivaPancreasTableValue;
+	
+	/** Urine/Pancreas */
+	@FindBy (xpath = "//input[@name='10-4']")
+	public WebElement urinePancreasTableValue;
+	
+	/** Feces/Pancreas */
+	@FindBy (xpath = "//input[@name='10-5']")
+	public WebElement fecesPancreasTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Pancreas */
+	@FindBy (xpath = "//input[@name='10-6']")
+	public WebElement tumorTissueFreshFrozenPancreasTableValue;
+	
+	/** Tumor Tissue FFPE/Pancreas */
+	@FindBy (xpath = "//input[@name='10-7']")
+	public WebElement tumorTissueFFPEPancreasTableValue;
+	
+	/** Lung and bronchus Values */
+	
+	/** Serum and/or Plasma/Lung and bronchus */
+	@FindBy (xpath = "//input[@name='11-1']")
+	public WebElement serumLungAndBronchusTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Lung and bronchus */
+	@FindBy (xpath = "//input[@name='11-2']")
+	public WebElement g16BuffyLungAndBronchusTableValue;
+	
+	/** Saliva and/or Buccal/Lung and bronchus */
+	@FindBy (xpath = "//input[@name='11-3']")
+	public WebElement salivaLungAndBronchusTableValue;
+	
+	/** Urine/Lung and bronchus */
+	@FindBy (xpath = "//input[@name='11-4']")
+	public WebElement urineLungAndBronchusTableValue;
+	
+	/** Feces/Lung and bronchus */
+	@FindBy (xpath = "//input[@name='11-5']")
+	public WebElement fecesLungAndBronchusTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Lung and bronchus */
+	@FindBy (xpath = "//input[@name='11-6']")
+	public WebElement tumorTissueFreshFrozenLungAndBronchusTableValue;
+	
+	/** Tumor Tissue FFPE/Lung and bronchus */
+	@FindBy (xpath = "//input[@name='11-7']")
+	public WebElement tumorTissueFFPELungAndBronchusTableValue;
+	
+	/** Bone Values */
+	
+	/** Serum and/or Plasma/Bone */
+	@FindBy (xpath = "//input[@name='12-1']")
+	public WebElement serumBoneTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Bone */
+	@FindBy (xpath = "//input[@name='12-2']")
+	public WebElement g16BuffyBoneTableValue;
+	
+	/** Saliva and/or Buccal/Bone */
+	@FindBy (xpath = "//input[@name='12-3']")
+	public WebElement salivaBoneTableValue;
+	
+	/** Urine/Bone */
+	@FindBy (xpath = "//input[@name='12-4']")
+	public WebElement urineBoneTableValue;
+	
+	/** Feces/Bone */
+	@FindBy (xpath = "//input[@name='12-5']")
+	public WebElement fecesBoneTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Bone */
+	@FindBy (xpath = "//input[@name='12-6']")
+	public WebElement tumorTissueFreshFrozenBoneTableValue;
+	
+	/** Tumor Tissue FFPE/Bone */
+	@FindBy (xpath = "//input[@name='12-7']")
+	public WebElement tumorTissueFFPEBoneTableValue;
+	
+	/** Melanoma (excluding mucosal sites) Values */
+	
+	/** Serum and/or Plasma/Melanoma */
+	@FindBy (xpath = "//input[@name='13-1']")
+	public WebElement serumMelanomaTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Melanoma */
+	@FindBy (xpath = "//input[@name='13-2']")
+	public WebElement g16BuffyMelanomaTableValue;
+	
+	/** Saliva and/or Buccal/Melanoma */
+	@FindBy (xpath = "//input[@name='13-3']")
+	public WebElement salivaMelanomaTableValue;
+	
+	/** Urine/Melanoma */
+	@FindBy (xpath = "//input[@name='13-4']")
+	public WebElement urineMelanomaTableValue;
+	
+	/** Feces/Melanoma */
+	@FindBy (xpath = "//input[@name='13-5']")
+	public WebElement fecesMelanomaTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Melanoma */
+	@FindBy (xpath = "//input[@name='13-6']")
+	public WebElement tumorTissueFreshFrozenMelanomaTableValue;
+	
+	/** Tumor Tissue FFPE/Melanoma */
+	@FindBy (xpath = "//input[@name='13-7']")
+	public WebElement tumorTissueFFPEMelanomaTableValue;
+	
+	/** Invasive Breast Cancer Values */
+	
+	/** Serum and/or Plasma/Liver */
+	@FindBy (xpath = "//input[@name='14-1']")
+	public WebElement serumInvasiveBreastCancerTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Liver */
+	@FindBy (xpath = "//input[@name='14-2']")
+	public WebElement g16BuffyInvasiveBreastCancerTableValue;
+	
+	/** Saliva and/or Buccal/Liver */
+	@FindBy (xpath = "//input[@name='14-3']")
+	public WebElement salivaInvasiveBreastCancerTableValue;
+	
+	/** Urine/Liver */
+	@FindBy (xpath = "//input[@name='14-4']")
+	public WebElement urineInvasiveBreastCancerTableValue;
+	
+	/** Feces/Liver */
+	@FindBy (xpath = "//input[@name='14-5']")
+	public WebElement fecesInvasiveBreastCancerTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Liver */
+	@FindBy (xpath = "//input[@name='14-6']")
+	public WebElement tumorTissueFreshFrozenInvasiveBreastCancerTableValue;
+	
+	/** Tumor Tissue FFPE/Liver */
+	@FindBy (xpath = "//input[@name='14-7']")
+	public WebElement tumorTissueFFPEInvasiveBreastCancerTableValue;
+	
+	/** Cervix (Squamous cell carcinoma, Adenocarcinoma) Values */
+	
+	/** Serum and/or Plasma/Cervix */
+	@FindBy (xpath = "//input[@name='16-1']")
+	public WebElement serumCervixTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Cervix */
+	@FindBy (xpath = "//input[@name='16-2']")
+	public WebElement g16BuffyCervixTableValue;
+	
+	/** Saliva and/or Buccal/Cervix */
+	@FindBy (xpath = "//input[@name='16-3']")
+	public WebElement salivaCervixTableValue;
+	
+	/** Urine/Cervix */
+	@FindBy (xpath = "//input[@name='16-4']")
+	public WebElement urineCervixTableValue;
+	
+	/** Feces/Cervix */
+	@FindBy (xpath = "//input[@name='16-5']")
+	public WebElement fecesCervixTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Cervix */
+	@FindBy (xpath = "//input[@name='16-6']")
+	public WebElement tumorTissueFreshFrozenCervixTableValue;
+	
+	/** Tumor Tissue FFPE/Cervix */
+	@FindBy (xpath = "//input[@name='16-7']")
+	public WebElement tumorTissueFFPECervixTableValue;
+	
+	/** Corpus, body of uterus Values */
+
+	/** Serum and/or Plasma/Corpus */
+	@FindBy (xpath = "//input[@name='18-1']")
+	public WebElement serumCorpusTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Corpus */
+	@FindBy (xpath = "//input[@name='18-2']")
+	public WebElement g16BuffyCorpusTableValue;
+	
+	/** Saliva and/or Buccal/Corpus */
+	@FindBy (xpath = "//input[@name='18-3']")
+	public WebElement salivaCorpusTableValue;
+	
+	/** Urine/Corpus */
+	@FindBy (xpath = "//input[@name='18-4']")
+	public WebElement urineCorpusTableValue;
+	
+	/** Feces/Corpus */
+	@FindBy (xpath = "//input[@name='18-5']")
+	public WebElement fecesCorpusTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Corpus */
+	@FindBy (xpath = "//input[@name='18-6']")
+	public WebElement tumorTissueFreshFrozenCorpusTableValue;
+	
+	/** Tumor Tissue FFPE/Corpus */
+	@FindBy (xpath = "//input[@name='18-7']")
+	public WebElement tumorTissueFFPECorpusTableValue;
+	
+	/** Ovary, fallopian tube, broad ligament Values */
+	
+	/** Serum and/or Plasma/Ovary */
+	@FindBy (xpath = "//input[@name='19-1']")
+	public WebElement serumOvaryTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Ovary */
+	@FindBy (xpath = "//input[@name='19-2']")
+	public WebElement g16BuffyOvaryTableValue;
+	
+	/** Saliva and/or Buccal/Ovary */
+	@FindBy (xpath = "//input[@name='19-3']")
+	public WebElement salivaOvaryTableValue;
+	
+	/** Urine/Ovary */
+	@FindBy (xpath = "//input[@name='19-4']")
+	public WebElement urineOvaryTableValue;
+	
+	/** Feces/Ovary */
+	@FindBy (xpath = "//input[@name='19-5']")
+	public WebElement fecesOvaryTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Ovary */
+	@FindBy (xpath = "//input[@name='19-6']")
+	public WebElement tumorTissueFreshFrozenOvaryTableValue;
+	
+	/** Tumor Tissue FFPE/Ovary */
+	@FindBy (xpath = "//input[@name='19-7']")
+	public WebElement tumorTissueFFPEOvaryTableValue;
+	
+	/** Prostate Values */
+	
+	/** Serum and/or Plasma/Prostate */
+	@FindBy (xpath = "//input[@name='20-1']")
+	public WebElement serumProstateTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Prostate */
+	@FindBy (xpath = "//input[@name='20-2']")
+	public WebElement g16BuffyProstateTableValue;
+	
+	/** Saliva and/or Buccal/Prostate */
+	@FindBy (xpath = "//input[@name='20-3']")
+	public WebElement salivaProstateTableValue;
+	
+	/** Urine/Prostate */
+	@FindBy (xpath = "//input[@name='20-4']")
+	public WebElement urineProstateTableValue;
+	
+	/** Feces/Prostate */
+	@FindBy (xpath = "//input[@name='20-5']")
+	public WebElement fecesProstateTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Prostate */
+	@FindBy (xpath = "//input[@name='20-6']")
+	public WebElement tumorTissueFreshFrozenProstateTableValue;
+	
+	/** Tumor Tissue FFPE/Prostate */
+	@FindBy (xpath = "//input[@name='20-7']")
+	public WebElement tumorTissueFFPEProstateTableValue;
+	
+	/** Bladder Values */
+	
+	/** Serum and/or Plasma/Bladder */
+	@FindBy (xpath = "//input[@name='21-1']")
+	public WebElement serumBladderTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Bladder */
+	@FindBy (xpath = "//input[@name='21-2']")
+	public WebElement g16BuffyBladderTableValue;
+	
+	/** Saliva and/or Buccal/Bladder */
+	@FindBy (xpath = "//input[@name='21-3']")
+	public WebElement salivaBladderTableValue;
+	
+	/** Urine/Bladder */
+	@FindBy (xpath = "//input[@name='21-4']")
+	public WebElement urineBladderTableValue;
+	
+	/** Feces/Bladder */
+	@FindBy (xpath = "//input[@name='21-5']")
+	public WebElement fecesBladderTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Bladder */
+	@FindBy (xpath = "//input[@name='21-6']")
+	public WebElement tumorTissueFreshFrozenBladderTableValue;
+	
+	/** Tumor Tissue FFPE/Bladder */
+	@FindBy (xpath = "//input[@name='21-7']")
+	public WebElement tumorTissueFFPEBladderTableValue;
+	
+	/** Kidney and other unspecified urinary organs Values */
+	
+	/** Serum and/or Plasma/Kidney */
+	@FindBy (xpath = "//input[@name='22-1']")
+	public WebElement serumKidneyTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Kidney */
+	@FindBy (xpath = "//input[@name='22-2']")
+	public WebElement g16BuffyKidneyTableValue;
+	
+	/** Saliva and/or Buccal/Kidney */
+	@FindBy (xpath = "//input[@name='22-3']")
+	public WebElement salivaKidneyTableValue;
+	
+	/** Urine/Kidney */
+	@FindBy (xpath = "//input[@name='22-4']")
+	public WebElement urineKidneyTableValue;
+	
+	/** Feces/Kidney */
+	@FindBy (xpath = "//input[@name='22-5']")
+	public WebElement fecesKidneyTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Kidney */
+	@FindBy (xpath = "//input[@name='22-6']")
+	public WebElement tumorTissueFreshFrozenKidneyTableValue;
+	
+	/** Tumor Tissue FFPE/Kidney */
+	@FindBy (xpath = "//input[@name='22-7']")
+	public WebElement tumorTissueFFPEKidneyTableValue;
+	
+	/** Brain Values */
+	
+	/** Serum and/or Plasma/Brain */
+	@FindBy (xpath = "//input[@name='23-1']")
+	public WebElement serumBrainTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Brain */
+	@FindBy (xpath = "//input[@name='23-2']")
+	public WebElement g16BuffyBrainTableValue;
+	
+	/** Saliva and/or Buccal/Brain */
+	@FindBy (xpath = "//input[@name='23-3']")
+	public WebElement salivaBrainTableValue;
+	
+	/** Urine/Brain */
+	@FindBy (xpath = "//input[@name='23-4']")
+	public WebElement urineBrainTableValue;
+	
+	/** Feces/Brain */
+	@FindBy (xpath = "//input[@name='23-5']")
+	public WebElement fecesBrainTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Brain */
+	@FindBy (xpath = "//input[@name='23-6']")
+	public WebElement tumorTissueFreshFrozenBrainTableValue;
+	
+	/** Tumor Tissue FFPE/Brain */
+	@FindBy (xpath = "//input[@name='23-7']")
+	public WebElement tumorTissueFFPEBrainTableValue;
+	
+	/** Thyroid Values */
+	
+	/** Serum and/or Plasma/Thyroid */
+	@FindBy (xpath = "//input[@name='24-1']")
+	public WebElement serumThyroidTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Thyroid */
+	@FindBy (xpath = "//input[@name='24-2']")
+	public WebElement g16BuffyThyroidTableValue;
+	
+	/** Saliva and/or Buccal/Thyroid */
+	@FindBy (xpath = "//input[@name='24-3']")
+	public WebElement salivaThyroidTableValue;
+	
+	/** Urine/Thyroid */
+	@FindBy (xpath = "//input[@name='24-4']")
+	public WebElement urineThyroidTableValue;
+	
+	/** Feces/Thyroid */
+	@FindBy (xpath = "//input[@name='24-5']")
+	public WebElement fecesThyroidTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Thyroid */
+	@FindBy (xpath = "//input[@name='24-6']")
+	public WebElement tumorTissueFreshFrozenThyroidTableValue;
+	
+	/** Tumor Tissue FFPE/Thyroid */
+	@FindBy (xpath = "//input[@name='24-7']")
+	public WebElement tumorTissueFFPEThyroidTableValue;
+	
+	/** Non-Hodgkin Lymphoma Values */
+	
+	/** Serum and/or Plasma/Non-Hodgkin Lymphoma */
+	@FindBy (xpath = "//input[@name='26-1']")
+	public WebElement serumNonHodgkinLymphomaTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Non-Hodgkin Lymphoma */
+	@FindBy (xpath = "//input[@name='26-2']")
+	public WebElement g16BuffyNonHodgkinLymphomaTableValue;
+	
+	/** Saliva and/or Buccal/Non-Hodgkin Lymphoma */
+	@FindBy (xpath = "//input[@name='26-3']")
+	public WebElement salivaNonHodgkinLymphomaTableValue;
+	
+	/** Urine/Non-Hodgkin Lymphoma */
+	@FindBy (xpath = "//input[@name='26-4']")
+	public WebElement urineNonHodgkinLymphomaTableValue;
+	
+	/** Feces/Non-Hodgkin Lymphoma */
+	@FindBy (xpath = "//input[@name='26-5']")
+	public WebElement fecesNonHodgkinLymphomaTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Non-Hodgkin Lymphoma */
+	@FindBy (xpath = "//input[@name='26-6']")
+	public WebElement tumorTissueFreshFrozenNonHodgkinLymphomaTableValue;
+	
+	/** Tumor Tissue FFPE/Non-Hodgkin Lymphoma */
+	@FindBy (xpath = "//input[@name='26-7']")
+	public WebElement tumorTissueFFPENonHodgkinLymphomaTableValue;
+	
+	/** Hodgkin Lymphoma Values */
+	
+	/** Serum and/or Plasma/Hodgkin Lymphoma */
+	@FindBy (xpath = "//input[@name='25-1']")
+	public WebElement serumHodgkinLymphomaTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Hodgkin Lymphoma */
+	@FindBy (xpath = "//input[@name='25-2']")
+	public WebElement g16BuffyHodgkinLymphomaTableValue;
+	
+	/** Saliva and/or Buccal/Hodgkin Lymphoma */
+	@FindBy (xpath = "//input[@name='25-3']")
+	public WebElement salivaHodgkinLymphomaTableValue;
+	
+	/** Urine/Hodgkin Lymphoma */
+	@FindBy (xpath = "//input[@name='25-4']")
+	public WebElement urineHodgkinLymphomaTableValue;
+	
+	/** Feces/Hodgkin Lymphoma */
+	@FindBy (xpath = "//input[@name='25-5']")
+	public WebElement fecesHodgkinLymphomaTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Hodgkin Lymphoma */
+	@FindBy (xpath = "//input[@name='25-6']")
+	public WebElement tumorTissueFreshFrozenHodgkinLymphomaTableValue;
+	
+	/** Tumor Tissue FFPE/Hodgkin Lymphoma */
+	@FindBy (xpath = "//input[@name='25-7']")
+	public WebElement tumorTissueFFPEHodgkinLymphomaTableValue;
+	
+	/** Myeloma Values */
+	
+	/** Serum and/or Plasma/Myeloma */
+	@FindBy (xpath = "//input[@name='27-1']")
+	public WebElement serumMyelomaTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Myeloma */
+	@FindBy (xpath = "//input[@name='27-2']")
+	public WebElement g16BuffyMyelomaTableValue;
+	
+	/** Saliva and/or Buccal/Myeloma */
+	@FindBy (xpath = "//input[@name='27-3']")
+	public WebElement salivaMyelomaTableValue;
+	
+	/** Urine/Myeloma */
+	@FindBy (xpath = "//input[@name='27-4']")
+	public WebElement urineMyelomaTableValue;
+	
+	/** Feces/Myeloma */
+	@FindBy (xpath = "//input[@name='27-5']")
+	public WebElement fecesMyelomaTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Myeloma */
+	@FindBy (xpath = "//input[@name='27-6']")
+	public WebElement tumorTissueFreshFrozenMyelomaTableValue;
+	
+	/** Tumor Tissue FFPE/Myeloma */
+	@FindBy (xpath = "//input[@name='27-7']")
+	public WebElement tumorTissueFFPEMyelomaTableValue;
+	
+	/** Leukemia Values */
+	
+	/** Serum and/or Plasma/Leukemia */
+	@FindBy (xpath = "//input[@name='28-1']")
+	public WebElement serumLeukemiaTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Leukemia */
+	@FindBy (xpath = "//input[@name='28-2']")
+	public WebElement g16BuffyLeukemiaTableValue;
+	
+	/** Saliva and/or Buccal/Leukemia */
+	@FindBy (xpath = "//input[@name='28-3']")
+	public WebElement salivaLeukemiaTableValue;
+	
+	/** Urine/Leukemia */
+	@FindBy (xpath = "//input[@name='28-4']")
+	public WebElement urineLeukemiaTableValue;
+	
+	/** Feces/Leukemia */
+	@FindBy (xpath = "//input[@name='28-5']")
+	public WebElement fecesLeukemiaTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Leukemia */
+	@FindBy (xpath = "//input[@name='28-6']")
+	public WebElement tumorTissueFreshFrozenLeukemiaTableValue;
+	
+	/** Tumor Tissue FFPE/Leukemia */
+	@FindBy (xpath = "//input[@name='28-7']")
+	public WebElement tumorTissueFFPELeukemiaTableValue;
+	
+	/** Ductal carcinoma in situ of breast Values */
+	
+	/** Serum and/or Plasma/Ductal carcinoma in situ of breast */
+	@FindBy (xpath = "//input[@name='15-1']")
+	public WebElement serumDuctalCarcinomaBreastTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Ductal carcinoma in situ of breast */
+	@FindBy (xpath = "//input[@name='15-2']")
+	public WebElement g16BuffyDuctalCarcinomaBreastTableValue;
+	
+	/** Saliva and/or Buccal/Ductal carcinoma in situ of breast */
+	@FindBy (xpath = "//input[@name='15-3']")
+	public WebElement salivaDuctalCarcinomaBreastTableValue;
+	
+	/** Urine/Ductal carcinoma in situ of breast */
+	@FindBy (xpath = "//input[@name='15-4']")
+	public WebElement urineDuctalCarcinomaBreastTableValue;
+	
+	/** Feces/Ductal carcinoma in situ of breast */
+	@FindBy (xpath = "//input[@name='15-5']")
+	public WebElement fecesDuctalCarcinomaBreastTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Ductal carcinoma in situ of breast */
+	@FindBy (xpath = "//input[@name='15-6']")
+	public WebElement tumorTissueFreshFrozenDuctalCarcinomaBreastTableValue;
+	
+	/** Tumor Tissue FFPE/Ductal carcinoma in situ of breast */
+	@FindBy (xpath = "//input[@name='15-7']")
+	public WebElement tumorTissueFFPEDuctalCarcinomaBreastTableValue;
+	
+	/** Cervical carcinoma in situ (CIN II/III, CIS, AIS) Values */
+	
+	/** Serum and/or Plasma/Cervical carcinoma in situ (CIN II/III, CIS, AIS) */
+	@FindBy (xpath = "//input[@name='17-1']")
+	public WebElement serumCervicalCarcinomaTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/Cervical carcinoma in situ (CIN II/III, CIS, AIS) */
+	@FindBy (xpath = "//input[@name='17-2']")
+	public WebElement g16BuffyCervicalCarcinomaTableValue;
+	
+	/** Saliva and/or Buccal/Cervical carcinoma in situ (CIN II/III, CIS, AIS) */
+	@FindBy (xpath = "//input[@name='17-3']")
+	public WebElement salivaCervicalCarcinomaTableValue;
+	
+	/** Urine/Cervical carcinoma in situ (CIN II/III, CIS, AIS) */
+	@FindBy (xpath = "//input[@name='17-4']")
+	public WebElement urineCervicalCarcinomaTableValue;
+	
+	/** Feces/Cervical carcinoma in situ (CIN II/III, CIS, AIS) */
+	@FindBy (xpath = "//input[@name='17-5']")
+	public WebElement fecesCervicalCarcinomaTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/Cervical carcinoma in situ (CIN II/III, CIS, AIS) */
+	@FindBy (xpath = "//input[@name='17-6']")
+	public WebElement tumorTissueFreshFrozenCervicalCarcinomaTableValue;
+	
+	/** Tumor Tissue FFPE/Cervical carcinoma in situ (CIN II/III, CIS, AIS) */
+	@FindBy (xpath = "//input[@name='17-7']")
+	public WebElement tumorTissueFFPECervicalCarcinomaTableValue;
+	
+	/** All Other Cancers Values */
+	
+	/** Serum and/or Plasma/All Other Cancers */
+	@FindBy (xpath = "//input[@name='1-1']")
+	public WebElement serumAllOtherCancersTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/All Other Cancers */
+	@FindBy (xpath = "//input[@name='1-2']")
+	public WebElement g16BuffyAllOtherCancersTableValue;
+	
+	/** Saliva and/or Buccal/All Other Cancers */
+	@FindBy (xpath = "//input[@name='1-3']")
+	public WebElement salivaAllOtherCancersTableValue;
+	
+	/** Urine/All Other Cancers */
+	@FindBy (xpath = "//input[@name='1-4']")
+	public WebElement urineAllOtherCancersTableValue;
+	
+	/** Feces/All Other Cancers */
+	@FindBy (xpath = "//input[@name='1-5']")
+	public WebElement fecesAllOtherCancersTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/All Other Cancers */
+	@FindBy (xpath = "//input[@name='1-6']")
+	public WebElement tumorTissueFreshFrozenAllOtherCancersTableValue;
+	
+	/** Tumor Tissue FFPE/All Other Cancers */
+	@FindBy (xpath = "//input[@name='1-7']")
+	public WebElement tumorTissueFFPEAllOtherCancersTableValue;
+	
+	/** No Cancer Values */
+	
+	/** Serum and/or Plasma/No Cancer */
+	@FindBy (xpath = "//input[@name='29-1']")
+	public WebElement serumNoCancerTableValue;
+	
+	/** Buffy Coat and/or Lymphocytes/No Cancer */
+	@FindBy (xpath = "//input[@name='29-2']")
+	public WebElement g16BuffyNoCancerTableValue;
+	
+	/** Saliva and/or Buccal/No Cancer */
+	@FindBy (xpath = "//input[@name='29-3']")
+	public WebElement salivaNoCancerTableValue;
+	
+	/** Urine/No Cancer */
+	@FindBy (xpath = "//input[@name='29-4']")
+	public WebElement urineNoCancerTableValue;
+	
+	/** Feces/No Cancer */
+	@FindBy (xpath = "//input[@name='29-5']")
+	public WebElement fecesNoCancerTableValue;
+	
+	/** Tumor Tissue Fresh/Frozen/No Cancer */
+	@FindBy (xpath = "//input[@name='29-6']")
+	public WebElement tumorTissueFreshFrozenNoCancerTableValue;
+	
+	/** Tumor Tissue FFPE/No Cancer */
+	@FindBy (xpath = "//input[@name='29-7']")
+	public WebElement tumorTissueFFPENoCancerTableValue;
+	
+	
+	
+	
 
 	public CEDCDCohortPage() {
 
