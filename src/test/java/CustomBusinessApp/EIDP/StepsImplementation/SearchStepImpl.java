@@ -313,88 +313,88 @@ public void selectReviewExistingIDP() throws Exception{
 	}
 	
 	//Method for IDPCheckbox
-		public void checkTraineeWithIDPCheckbox() {
+	public void checkTraineeWithIDPCheckbox() {
 			CommonUtils.click(searchPage.traineesWithIDPCheckbox);
-		}
-		//Method to enter Trainee First Name
-		public void enterTraineeFirstName(String enterName) {
-			searchPage.TraineeFirstName.sendKeys(enterName);
+	}
+	//Method to enter Trainee First Name
+	public void enterTraineeFirstName(String enterName) {
+	     searchPage.TraineeFirstName.sendKeys(enterName);
 		}
 		//Method to enter Trainee Last Name
-			public void enterTraineeLastName(String enterName) {
-			searchPage.trainneLastName.sendKeys(enterName);
+	 public void enterTraineeLastName(String enterName) {
+		 searchPage.trainneLastName.sendKeys(enterName);
 			}
 		//Method to verify Kim, Olga
-			public void verifyFirmlyExpectedName(String expectedFirstName, String expectedLastName) {
-			String expectedFullName = expectedLastName + ", " + expectedFirstName;
-			String actualFullName = searchPage.searchResultTableFirstRowFirstCell.getText();
-			Assert.assertEquals(expectedFullName, actualFullName);
-			}
+	 public void verifyFirmlyExpectedName(String expectedFirstName, String expectedLastName) {
+		String expectedFullName = expectedLastName + ", " + expectedFirstName;
+		String actualFullName = searchPage.searchResultTableFirstRowFirstCell.getText();
+		Assert.assertEquals(expectedFullName, actualFullName);
+		}
 			
-			//methodtoverifyClassificationType
-			public void verifyFirmlyClassificationType(String expectedClassificationType) {
-			String actualClassificationType = searchPage.searchResultTableFirstRowThirdCell.getText();	
-			Assert.assertEquals(expectedClassificationType.toUpperCase(), actualClassificationType);
-			}
-			//method Select Primary Mentor as Ali Abazeed
-			public void selectPrimaryMentorName() {
-			CommonUtils.click(searchPage.selectPrimaryMentor);
+		//methodtoverifyClassificationType
+	 public void verifyFirmlyClassificationType(String expectedClassificationType) {
+		String actualClassificationType = searchPage.searchResultTableFirstRowThirdCell.getText();	
+		Assert.assertEquals(expectedClassificationType.toUpperCase(), actualClassificationType);
+		}
+		//method Select Primary Mentor as Ali Abazeed
+	 public void selectPrimaryMentorName() {
+	    CommonUtils.click(searchPage.selectPrimaryMentor);
 			
-			}
-			//method to click plus button and assert primary mentor
-			public void verifyTraineeUnderPrimaryMentor(String primaryMentor) {
-		        eidpBasePage.selectOption(searchPage.choosePrimaryMentor, primaryMentor);
-		        clickOnSearchButton();
+		}
+		//method to click plus button and assert primary mentor
+	 public void verifyTraineeUnderPrimaryMentor(String primaryMentor) {
+		eidpBasePage.selectOption(searchPage.choosePrimaryMentor, primaryMentor);
+		clickOnSearchButton();
+		MiscUtils.sleep(5000);
+		List<WebElement> rows = WebDriverUtils.getWebDriver().findElements(By.cssSelector("td.sorting_2"));
+		    for(WebElement row : rows) {
+		        row.click();
 		        MiscUtils.sleep(5000);
-		        List<WebElement> rows = WebDriverUtils.getWebDriver().findElements(By.cssSelector("td.sorting_2"));
-		        for(WebElement row : rows) {
-		            row.click();
-		            MiscUtils.sleep(5000);
-		            WebElement element = WebDriverUtils.getWebDriver().findElement(By.xpath("//span[@class='dtr-title' and text()='Primary Mentor']/following-sibling::span/a"));
-		            eidpBasePage.scrollToElement(element );
-		            String actualName = element.getText();
-		            Assert.assertEquals(primaryMentor, actualName);
-		            CucumberLogUtils.logScreenShot();
-		            row.click();
-		            MiscUtils.sleep(5000);
+		        WebElement element = WebDriverUtils.getWebDriver().findElement(By.xpath("//span[@class='dtr-title' and text()='Primary Mentor']/following-sibling::span/a"));
+		        eidpBasePage.scrollToElement(element );
+		        String actualName = element.getText();
+		        Assert.assertEquals(primaryMentor, actualName);
+		        CucumberLogUtils.logScreenShot();
+		        row.click();
+		        MiscUtils.sleep(5000);
 		        }
 		   
 			}
 			
-			public void clickOnSearchButtonGloriaCalloway() {
+	 public void clickOnSearchButtonGloriaCalloway() {
 			CommonUtils.click(searchPage.searchButtonCallowayGloria);
 			}
 			//verifyGloriaCalloway
-			public void verifyGloriaCallowayExpectedName(String expectedFirstName, String expectedLastName) {
-				String expectedFullName = expectedLastName + ", " + expectedFirstName;
-				String actualFullName = searchPage.searchResultTableFirstRowThirdCellCalloway.getText();
-				Assert.assertEquals(expectedFullName, actualFullName);
+	public void verifyGloriaCallowayExpectedName(String expectedFirstName, String expectedLastName) {
+			String expectedFullName = expectedLastName + ", " + expectedFirstName;
+			String actualFullName = searchPage.searchResultTableFirstRowThirdCellCalloway.getText();
+			Assert.assertEquals(expectedFullName, actualFullName);
 			}
 			//Alena8
-			public void selectClassificationTypeGloriaCalloway(String type) {
+	public void selectClassificationTypeGloriaCalloway(String type) {
 			CommonUtils.click(searchPage.classificationTypeInput);
 			CommonUtils.selectDropDownValue(type, searchPage.classificationTypeDropDownGloriaGalloway);
 			}
-			public void selectPrimaryMentorName(String nameMentor) {
+	public void selectPrimaryMentorName(String nameMentor) {
 			CommonUtils.click(searchPage.selectPrimaryMentor);	
 			CommonUtils.selectDropDownValue(nameMentor, searchPage.choosePrimaryMentor);	
 			}
 			//chooseOrganizationDropdown
-			public void selectTrainingOrganization(String organizationName) {
+	public void selectTrainingOrganization(String organizationName) {
 			CommonUtils.click(searchPage.selectTrainingOrganizationDropdown);	
 			//eidpBasePage.selectOption(searchPage.chooseCBIIT, organizationName);
 			}
 
 		    //verifyListOfWebElements//CBIIT
-			public void verifyTraineeOrganization(String nameOrg) {
+	public void verifyTraineeOrganization(String nameOrg) {
 			eidpBasePage.selectOption(searchPage.chooseCBIIT, nameOrg);
 			clickOnSearchButton();
 			List<WebElement>rows = WebDriverUtils.getWebDriver().findElements(By.cssSelector("td.sorting_2"));
 			for(WebElement each: rows) {
-			WebElement nameOrgList = WebDriverUtils.getWebDriver().findElement(By.xpath("//table[@id='advanced_search_results']//td[text()=\""+nameOrg+"\"]"));
+			WebElement nameOrgList = WebDriverUtils.getWebDriver().findElement(By.xpath("//table[@id='advanced_search_results']//tbody//tr[1]//td[4]"));
 			eidpBasePage.scrollToElement(nameOrgList);
 			if(each.getText().equals(nameOrg)) {
-				Assert.assertTrue(each.getText().equals(nameOrg));
+			Assert.assertTrue(each.getText().equals(nameOrg));
 			}
 					
 			}

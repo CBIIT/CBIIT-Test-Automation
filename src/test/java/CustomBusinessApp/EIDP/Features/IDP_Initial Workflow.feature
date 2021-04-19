@@ -403,7 +403,18 @@ Feature: Regression testing
     |Ali Abazeed   |
     
        
-      
+    @Alena5 @Inprogress
+    Scenario Outline: IDP Search Request by adding an advanced search
+    #Given User opens nih application in browser
+    When User will login to the application as "nekrashevicha2" user
+    And Logged in user changes the user to "Ginsburg,Erika"
+    And User will click on search in dashboard
+    And User will select "<Primary Mentor>" as Primary Mentor
+    And User will click Search button
+    Then User will verify expected result as "<Primary Mentor>"
+    Examples:Advanced Search Options
+    |Primary Mentor|
+    |Ali Abazeed   |
     
     
 
