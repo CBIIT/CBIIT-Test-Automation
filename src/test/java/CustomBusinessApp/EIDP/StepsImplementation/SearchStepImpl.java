@@ -339,11 +339,11 @@ public void selectReviewExistingIDP() throws Exception{
 			//method Select Primary Mentor as Ali Abazeed
 			public void selectPrimaryMentorName() {
 			CommonUtils.click(searchPage.selectPrimaryMentor);
-			CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.xpath("//span[@id='select2-primaryMentor-container']")));
+			
 			}
-			//method to click plus button
+			//method to click plus button and assert primary mentor
 			public void verifyTraineeUnderPrimaryMentor(String primaryMentor) {
-		        eidpBasePage.selectOption(searchPage.aliAbazeed, primaryMentor);
+		        eidpBasePage.selectOption(searchPage.choosePrimaryMentor, primaryMentor);
 		        clickOnSearchButton();
 		        MiscUtils.sleep(5000);
 		        List<WebElement> rows = WebDriverUtils.getWebDriver().findElements(By.cssSelector("td.sorting_2"));
@@ -360,9 +360,7 @@ public void selectReviewExistingIDP() throws Exception{
 		        }
 		   
 			}
-			//method to assert Primary Mentor results
-			//public void verifyPrimaryMentorName(String expectedPrimaryMentorName){
-			//String actualPrimaryMentorName = searchPage.
+			
 			public void clickOnSearchButtonGloriaCalloway() {
 			CommonUtils.click(searchPage.searchButtonCallowayGloria);
 			}
@@ -379,9 +377,28 @@ public void selectReviewExistingIDP() throws Exception{
 			}
 			public void selectPrimaryMentorName(String nameMentor) {
 			CommonUtils.click(searchPage.selectPrimaryMentor);	
-			CommonUtils.selectDropDownValue(nameMentor, searchPage.aliAbazeed);	
+			CommonUtils.selectDropDownValue(nameMentor, searchPage.choosePrimaryMentor);	
+			}
+			//chooseOrganizationDropdown
+			public void selectTrainingOrganization(String organizationName) {
+			CommonUtils.click(searchPage.selectTrainingOrganizationDropdown);	
+			//eidpBasePage.selectOption(searchPage.chooseCBIIT, organizationName);
+			}
+
+		    //verifyListOfWebElements//CBIIT
+			public void verifyTraineeOrganization(String nameOrg) {
+			eidpBasePage.selectOption(searchPage.chooseCBIIT, nameOrg);
+			clickOnSearchButton();
+			List<WebElement>rows = WebDriverUtils.getWebDriver().findElements(By.cssSelector("td.sorting_2"));
+			for(WebElement each: rows) {
+			WebElement nameOrgList = WebDriverUtils.getWebDriver().findElement(By.xpath("//table[@id='advanced_search_results']//td[text()=\""+nameOrg+"\"]"));
+			eidpBasePage.scrollToElement(nameOrgList);
+			if(each.getText().equals(nameOrg)) {
+				Assert.assertTrue(each.getText().equals(nameOrg));
+			}
+					
+			}
 			}
 }
-
             
 

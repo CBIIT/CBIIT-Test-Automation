@@ -273,26 +273,26 @@ public class SearchSteps extends PageInitializer{
         @Then("User will verify first page results on Gloria Calloway page classification type are {string}")
         public void user_will_verify_first_page_results_on_Gloria_Calloway_page_classification_type_are(String string) {
           
-        }//new scenario
-        @When("User will select Training Organization as {string}")
-        public void user_will_select_Training_Organization_as(String trainingOrg) {
-          
+        }//new scenarioChooseCBIITorganizations
+        @When("User will select {string} as Training Organization")
+        public void user_will_select_as_Training_Organization(String nameOrganization) {
+        searchStepimpl.selectTrainingOrganization(nameOrganization);
+        CommonUtil.waitBrowser(3000);
         }
 
-        @When("User will select Training Lab, Branch, or Office as {string}")
-        public void user_will_select_Training_Lab_Branch_or_Office_as(String string) {
-         
+        @When("User will verify first page search results of {string}")
+        public void user_will_verify_first_page_search_results_of(String name_CBIIT) {
+        searchStepimpl.verifyTraineeOrganization(name_CBIIT); 
         }
 
-        @When("User will verify NED Org is {string} and Training Org is \"CBIIT'")
-        public void user_will_verify_NED_Org_is_and_Training_Org_is_CBIIT(String string) {
+
             
         }
 
 
         
        
-        }
+
         
         
 
