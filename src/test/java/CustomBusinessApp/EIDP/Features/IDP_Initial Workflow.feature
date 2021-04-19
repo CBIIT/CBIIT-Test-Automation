@@ -376,15 +376,17 @@ Feature: Regression testing
    
     
     @Alena3
-    Scenario:IDP Search request specifying  Training Organization and Training Lab, Branch, or Office
+    Scenario Outline:IDP Search request specifying  Training Organization and Training Lab, Branch, or Office
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
     And Logged in user changes the user to "Ginsburg,Erika"
     And User will click on search in dashboard
-    And User will select Training Organization as "CBIIT"
-    And User will select Training Lab, Branch, or Office as "NCI OD CBIIT"
+    And User will select "<Training Organization>" as Training Organization 
     And User will click Search button
-    And User will verify NED Org is "NCI" and Training Org is "CBIIT'
+    And User will verify first page search results of "<Training Organization>"
+    Examples: Training Organization 
+    |Training Organization|
+    |CBIIT                |
    
     
     @Alena4
@@ -406,7 +408,7 @@ Feature: Regression testing
     
 
      
-    
+
     @Alena6 @GloriaCalllowaySearch
     Scenario Outline: IDP Search request as Gloria Calloway specifying a full name
     #Given User opens nih application in browser
