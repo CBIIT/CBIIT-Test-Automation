@@ -1,4 +1,4 @@
-@Smoketest
+
 Feature: Regression testing
 
   @InitiatesIDP @Regression @Smoke
@@ -402,8 +402,8 @@ Feature: Regression testing
     |Primary Mentor|
     |Ali Abazeed   |
     
-       
-    @Alena5 @Inprogress
+    #blocker  
+    @Alena5 @Inprogress 
     Scenario Outline: IDP Search Request by adding an advanced search
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -443,14 +443,14 @@ Feature: Regression testing
     Then User will verify first page results on Gloria Calloway page classification type are "<Classification Type>"
     Examples: Classification Type Options
     |Classification Type|
-    |Fellow             |
     |Employee           |
     
+    #blocker
     @Alena8 @GloriaCalllowaySearch
     Scenario Outline: Search request as Gloria Calloway specifying NIH SAC
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
-    And Logged in User changes the user to "Calloway, Gloria"
+    And Logged in user changes the user to "Calloway, Gloria"
     And User will select "<NIH SAC>" as NIH SAC on Gloria Calloway page
     And User will click Search button on Gloria Calloway page
     Then User will verify first page results on Gloria Calloway page NIH SAC are "<NIH SAC>"
