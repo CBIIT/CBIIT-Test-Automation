@@ -405,7 +405,7 @@ public void selectReviewExistingIDP() throws Exception{
 		//selectClassificationTypeGloriaCalloway(type);
 		//clickOnSearchButtonGloriaCalloway();
 		MiscUtils.sleep(2000);
-		List<WebElement>rows=WebDriverUtils.getWebDriver().findElements(By.cssSelector("td.sorting_2"));
+		List<WebElement>rows=WebDriverUtils.getWebDriver().findElements(By.cssSelector("td.sorting_1.dtr-control::before"));
 		for(WebElement eachRow: rows) {
 			eachRow.click();
 			MiscUtils.sleep(1000);
