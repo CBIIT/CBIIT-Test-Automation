@@ -388,6 +388,7 @@ public void selectReviewExistingIDP() throws Exception{
 		    //verifyListOfWebElements//CBIIT
 	public void verifyTraineeOrganization(String nameOrg) {
 			eidpBasePage.selectOption(searchPage.chooseCBIIT, nameOrg);
+			Assert.fail("Name:"+nameOrg+"does not exist in the list!Verification FAILED!!!");
 			clickOnSearchButton();
 			List<WebElement>rows = WebDriverUtils.getWebDriver().findElements(By.cssSelector("td.sorting_2"));
 			for(WebElement each: rows) {
@@ -396,9 +397,28 @@ public void selectReviewExistingIDP() throws Exception{
 			if(each.getText().equals(nameOrg)) {
 			Assert.assertTrue(each.getText().equals(nameOrg));
 			}
-					
 			}
-			}
+			
+	}
+	//verifyGloriaCallowayCalssification results search Scenario#7
+	public void verifyClassificationType(String type) {
+		//selectClassificationTypeGloriaCalloway(type);
+		//clickOnSearchButtonGloriaCalloway();
+		MiscUtils.sleep(2000);
+		List<WebElement>rows=WebDriverUtils.getWebDriver().findElements(By.cssSelector("td.sorting_2"));
+		for(WebElement eachRow: rows) {
+			eachRow.click();
+			MiscUtils.sleep(1000);
+			WebElement typeOfClassification = WebDriverUtils.getWebDriver().findElement(By.xpath("//span[@class='dtr-data' and text()='EMPLOYEE']"));
+			eidpBasePage.scrollToElement(typeOfClassification);
+			String actualType = typeOfClassification.getText();
+			Assert.assertEquals(type.toUpperCase(), actualType);
+			CucumberLogUtils.logScreenShot();
+			eachRow.click();
+			
+		}		
+	}
+	
 }
             
 

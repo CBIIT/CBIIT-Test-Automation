@@ -271,8 +271,9 @@ public class SearchSteps extends PageInitializer{
         }
 
         @Then("User will verify first page results on Gloria Calloway page classification type are {string}")
-        public void user_will_verify_first_page_results_on_Gloria_Calloway_page_classification_type_are(String string) {
-        
+        public void user_will_verify_first_page_results_on_Gloria_Calloway_page_classification_type_are(String classificationType) {
+        searchStepimpl.verifyClassificationType(classificationType);
+        CommonUtil.waitBrowser(3000);
         	
         	
         }//new scenarioChooseCBIITorganizations
