@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="103.30529">
+<testcase classname="Regression testing" name="IDP Search Request by selecting Primary Mentor" time="103.30529">
+<system-out><![CDATA[When User will login to the application as "nekrashevicha2" user............passed
+And Logged in user changes the user to "Ginsburg,Erika".....................passed
+And User will click on search in dashboard..................................passed
+And User will select "Ali Abazeed" as Primary Mentor........................passed
+And User will click Search button...........................................passed
+Then User will verify expected result as "Ali Abazeed"......................passed
+]]></system-out>
+</testcase>
+</testsuite>
