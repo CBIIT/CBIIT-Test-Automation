@@ -5,12 +5,15 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.scenarioOutline({
-  "name": "IDP Search Request by selecting Primary Mentor",
+  "name": "Search request as Gloria Calloway specifying NIH SAC",
   "description": "",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "name": "@Alena4"
+      "name": "@Alena8"
+    },
+    {
+      "name": "@GloriaCalllowaySearch"
     }
   ]
 });
@@ -19,49 +22,48 @@ formatter.step({
   "keyword": "When "
 });
 formatter.step({
-  "name": "Logged in user changes the user to \"Ginsburg,Erika\"",
+  "name": "Logged in user changes the user to \"Calloway, Gloria\"",
   "keyword": "And "
 });
 formatter.step({
-  "name": "User will click on search in dashboard",
+  "name": "User will select \"\u003cNIH SAC\u003e\" as NIH SAC on Gloria Calloway page",
   "keyword": "And "
 });
 formatter.step({
-  "name": "User will select \"\u003cPrimary Mentor\u003e\" as Primary Mentor",
+  "name": "User will click Search button on Gloria Calloway page",
   "keyword": "And "
 });
 formatter.step({
-  "name": "User will click Search button",
-  "keyword": "And "
-});
-formatter.step({
-  "name": "User will verify expected result as \"\u003cPrimary Mentor\u003e\"",
+  "name": "User will verify first page results on Gloria Calloway page NIH SAC are \"\u003cNIH SAC\u003e\"",
   "keyword": "Then "
 });
 formatter.examples({
-  "name": "Primary Mentor Options",
+  "name": "NIH SAC",
   "description": "",
   "keyword": "Examples",
   "rows": [
     {
       "cells": [
-        "Primary Mentor"
+        "NIH SAC"
       ]
     },
     {
       "cells": [
-        "Ali Abazeed"
+        "HNC1"
       ]
     }
   ]
 });
 formatter.scenario({
-  "name": "IDP Search Request by selecting Primary Mentor",
+  "name": "Search request as Gloria Calloway specifying NIH SAC",
   "description": "",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "name": "@Alena4"
+      "name": "@Alena8"
+    },
+    {
+      "name": "@GloriaCalllowaySearch"
     }
   ]
 });
@@ -79,64 +81,44 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "Logged in user changes the user to \"Ginsburg,Erika\"",
+  "name": "Logged in user changes the user to \"Calloway, Gloria\"",
   "keyword": "And "
 });
 formatter.match({
   "location": "LoginSteps.changeUser(String)"
 });
-formatter.write("2021-04-21 16:30:07: Screenshot: ");
+formatter.write("2021-04-22 15:26:01: Screenshot: ");
 formatter.embedding("image/png", "embedded0.png");
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "User will click on search in dashboard",
+  "name": "User will select \"HNC1\" as NIH SAC on Gloria Calloway page",
   "keyword": "And "
 });
 formatter.match({
-  "location": "DashboardSteps.clickOnSearch()"
-});
-formatter.write("2021-04-21 16:30:16: Screenshot: After Search");
-formatter.embedding("image/png", "embedded1.png");
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "User will select \"Ali Abazeed\" as Primary Mentor",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "SearchSteps.user_will_select_as_Primary_Mentor(String)"
+  "location": "SearchSteps.user_will_select_as_NIH_SAC_on_Gloria_Calloway_page(String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "User will click Search button",
+  "name": "User will click Search button on Gloria Calloway page",
   "keyword": "And "
 });
 formatter.match({
-  "location": "SearchSteps.user_will_click_Search_button()"
+  "location": "SearchSteps.user_will_click_Search_button_on_Gloria_Calloway_page()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "User will verify expected result as \"Ali Abazeed\"",
+  "name": "User will verify first page results on Gloria Calloway page NIH SAC are \"HNC1\"",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "SearchSteps.user_will_verify_expected_result_as(String)"
+  "location": "SearchSteps.user_will_verify_first_page_results_on_Gloria_Calloway_page_NIH_SAC_are(String)"
 });
-formatter.write("2021-04-21 16:30:43: Screenshot: ");
-formatter.embedding("image/png", "embedded2.png");
-formatter.write("2021-04-21 16:30:53: Screenshot: ");
-formatter.embedding("image/png", "embedded3.png");
-formatter.write("2021-04-21 16:31:03: Screenshot: ");
-formatter.embedding("image/png", "embedded4.png");
-formatter.write("2021-04-21 16:31:14: Screenshot: ");
-formatter.embedding("image/png", "embedded5.png");
 formatter.result({
   "status": "passed"
 });
