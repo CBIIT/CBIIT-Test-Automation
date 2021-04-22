@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="103.30529">
-<testcase classname="Regression testing" name="IDP Search Request by selecting Primary Mentor" time="103.30529">
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="40.442006">
+<testcase classname="Regression testing" name="Search request as Gloria Calloway specifying NIH SAC" time="40.442006">
 <system-out><![CDATA[When User will login to the application as "nekrashevicha2" user............passed
-And Logged in user changes the user to "Ginsburg,Erika".....................passed
-And User will click on search in dashboard..................................passed
-And User will select "Ali Abazeed" as Primary Mentor........................passed
-And User will click Search button...........................................passed
-Then User will verify expected result as "Ali Abazeed"......................passed
+And Logged in user changes the user to "Calloway, Gloria"...................passed
+And User will select "HNC1" as NIH SAC on Gloria Calloway page..............passed
+And User will click Search button on Gloria Calloway page...................passed
+Then User will verify first page results on Gloria Calloway page NIH SAC are "HNC1".passed
 ]]></system-out>
 </testcase>
 </testsuite>
