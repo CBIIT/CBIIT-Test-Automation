@@ -20,35 +20,20 @@ public class CEDCDSearchFemaleCohortsStepImp extends PageInitializer {
 		cedcdSearchCohortsPage.searchCohortResultBtn.click();
 		cedcdSearchCohortsPage.searchCohortSelectAllCheckbox.click();
 		cedcdSearchCohortsPage.viewSelectedCohortDataButton.click();
-
 	}
-
-	/**
-	 * This method verifies the correct number of cohorts are returned, highlights
-	 * the results in red and logs screenshot
-	 */
-//	public void femaleResultsReturnedWithRedBorderScreenshot() {
-//		MiscUtils.sleep(2000);
-//		Assert.assertTrue(cedcdSearchCohortsPage.numberOfSearchResultReturned.getText().contains("53"));
-//		JavascriptUtils.drawRedBorder(cedcdSearchCohortsPage.numberOfSearchResultReturned);
-//		CucumberLogUtils.logScreenShot();
-//	}
-
 	public void comparingResultsReturnedtoFemaleAndAllValues() {
 
-		List<WebElement> listOfWebElements = cedcdSearchCohortsPage.returnedResultsForFemaleFilter;
-
+		List<WebElement> listOfWebElements = cedcdSearchCohortsPage.returnedResultsFilter;
 		System.out.println(listOfWebElements.size());
-
 		for (WebElement webElement : listOfWebElements) {
 			String locator = webElement.getText();
 			if (locator.endsWith("All")) {
-
-			} else if (locator.endsWith("Female")) {
-
+			} 
+			else if (locator.endsWith("Female")) {
 			}
 			System.out.println("Returned result: " + locator);
 		}
+		
 	}
 
 }
