@@ -62,7 +62,7 @@ public class CEDCDSearchCohortsPage extends CommonUtils {
 	
 	/** This returns all the results from Female or All Cohorts */
 	@FindBy (xpath = "/html/body/div[2]/div[2]/div[1]/div/div[3]/div[2]/div[3]/div[2]/div/div/div[4]/div[1]/table/tbody/tr[2]/td")
-	public List<WebElement> returnedResultsForFemaleFilter; 
+	public List<WebElement> returnedResultsFilter; 
 
 	/** This element displays the number of returned results in text form */
 	@FindBy(xpath = "(//span[@id='summaryCount'])[1]")
