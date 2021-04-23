@@ -260,7 +260,7 @@ public class SearchSteps extends PageInitializer {
 	public void user_will_click_Search_button_on_Gloria_Calloway_page() {
 		searchStepimpl.clickOnSearchButtonGloriaCalloway();
 		CommonUtil.waitBrowser(2000);
-		JavascriptUtils.scrollDown(2000);
+		JavascriptUtils.scrollDown(3000);
 	}
 
 	@Then("verify expected results as {string} and {string} on Gloria Calloway page")
@@ -301,7 +301,8 @@ public class SearchSteps extends PageInitializer {
 	}
 
 	@Then("User will verify first page results on Gloria Calloway page NIH SAC are {string}")
-	public void user_will_verify_first_page_results_on_Gloria_Calloway_page_NIH_SAC_are(String string) {
+	public void user_will_verify_first_page_results_on_Gloria_Calloway_page_NIH_SAC_are(String NIHSAC) {
+		searchStepimpl.verifyNIHSAAC(NIHSAC);
 
 	}
 
