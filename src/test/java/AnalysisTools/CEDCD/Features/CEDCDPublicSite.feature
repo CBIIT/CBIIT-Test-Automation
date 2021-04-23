@@ -9,7 +9,7 @@ Description: This is an automated suite for test cases under the Public Site
 		And the user selects All Types from the Specimen Type drop down
 		And the user selects All Cancers from the Cancer Type drop down
 		And the user selects All Cohorts from the Cohorts drop down
-		And the user searches results
+		And the user searches results,  
 		When the user clicks on the Clear All button
 		Then all previously selected fields are no longer selected
 

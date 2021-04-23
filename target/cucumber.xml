@@ -1,10 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="40.442006">
-<testcase classname="Regression testing" name="Search request as Gloria Calloway specifying NIH SAC" time="40.442006">
-<system-out><![CDATA[When User will login to the application as "nekrashevicha2" user............passed
+<?xml version="1.0" encoding="UTF-8"?><testsuite failures="2" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="2" time="157.934569">
+<testcase classname="Regression testing" name="Search request as Gloria Calloway specifying NIH SAC" time="40.526113">
+<failure message="java.lang.AssertionError: HNC1DOES NOT EXIST IN THE DROPDOWN LIST, FAILED!!!&#13;&#10;&#9;at org.junit.Assert.fail(Assert.java:88)&#13;&#10;&#9;at CustomBusinessApp.EIDP.StepsImplementation.SearchStepImpl.verifyNIHSAAC(SearchStepImpl.java:459)&#13;&#10;&#9;at CustomBusinessApp.EIDP.Steps.SearchSteps.user_will_verify_first_page_results_on_Gloria_Calloway_page_NIH_SAC_are(SearchSteps.java:305)&#13;&#10;&#9;at ✽.User will verify first page results on Gloria Calloway page NIH SAC are &quot;HNC1&quot;(file:src/test/java/CustomBusinessApp/EIDP/Features/IDP_Initial%20Workflow.feature:456)&#13;&#10;"><![CDATA[When User will login to the application as "nekrashevicha2" user............passed
 And Logged in user changes the user to "Calloway, Gloria"...................passed
 And User will select "HNC1" as NIH SAC on Gloria Calloway page..............passed
 And User will click Search button on Gloria Calloway page...................passed
-Then User will verify first page results on Gloria Calloway page NIH SAC are "HNC1".passed
-]]></system-out>
+Then User will verify first page results on Gloria Calloway page NIH SAC are "HNC1".failed
+
+StackTrace:
+java.lang.AssertionError: HNC1DOES NOT EXIST IN THE DROPDOWN LIST, FAILED!!!
+	at org.junit.Assert.fail(Assert.java:88)
+	at CustomBusinessApp.EIDP.StepsImplementation.SearchStepImpl.verifyNIHSAAC(SearchStepImpl.java:459)
+	at CustomBusinessApp.EIDP.Steps.SearchSteps.user_will_verify_first_page_results_on_Gloria_Calloway_page_NIH_SAC_are(SearchSteps.java:305)
+	at ✽.User will verify first page results on Gloria Calloway page NIH SAC are "HNC1"(file:src/test/java/CustomBusinessApp/EIDP/Features/IDP_Initial%20Workflow.feature:456)
+]]></failure>
+</testcase>
+<testcase classname="Regression testing" name="Search request as Gloria Calloway specifying NIH SAC 2" time="117.408456">
+<failure message="org.openqa.selenium.NoSuchElementException: Cannot locate option with value: HNU22&#10;For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html&#10;Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'&#10;System info: host: 'NCI-02225370-L', ip: '10.0.0.30', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'&#10;Driver info: driver.version: unknown&#13;&#10;&#9;at org.openqa.selenium.support.ui.Select.findOptionsByValue(Select.java:283)&#13;&#10;&#9;at org.openqa.selenium.support.ui.Select.selectByValue(Select.java:186)&#13;&#10;&#9;at com.nci.automation.web.CommonUtils.selectDropDownValue(CommonUtils.java:101)&#13;&#10;&#9;at CustomBusinessApp.EIDP.StepsImplementation.SearchStepImpl.selectDropdownNIHSACGloriaCalloway(SearchStepImpl.java:453)&#13;&#10;&#9;at CustomBusinessApp.EIDP.Steps.SearchSteps.user_will_select_as_NIH_SAC_on_Gloria_Calloway_page(SearchSteps.java:300)&#13;&#10;&#9;at ✽.User will select &quot;HNU22&quot; as NIH SAC on Gloria Calloway page(file:src/test/java/CustomBusinessApp/EIDP/Features/IDP_Initial%20Workflow.feature:454)&#13;&#10;"><![CDATA[When User will login to the application as "nekrashevicha2" user............passed
+And Logged in user changes the user to "Calloway, Gloria"...................passed
+And User will select "HNU22" as NIH SAC on Gloria Calloway page.............failed
+And User will click Search button on Gloria Calloway page...................skipped
+Then User will verify first page results on Gloria Calloway page NIH SAC are "HNU22".skipped
+
+StackTrace:
+org.openqa.selenium.NoSuchElementException: Cannot locate option with value: HNU22
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'NCI-02225370-L', ip: '10.0.0.30', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '15.0.2'
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.Select.findOptionsByValue(Select.java:283)
+	at org.openqa.selenium.support.ui.Select.selectByValue(Select.java:186)
+	at com.nci.automation.web.CommonUtils.selectDropDownValue(CommonUtils.java:101)
+	at CustomBusinessApp.EIDP.StepsImplementation.SearchStepImpl.selectDropdownNIHSACGloriaCalloway(SearchStepImpl.java:453)
+	at CustomBusinessApp.EIDP.Steps.SearchSteps.user_will_select_as_NIH_SAC_on_Gloria_Calloway_page(SearchSteps.java:300)
+	at ✽.User will select "HNU22" as NIH SAC on Gloria Calloway page(file:src/test/java/CustomBusinessApp/EIDP/Features/IDP_Initial%20Workflow.feature:454)
+]]></failure>
 </testcase>
 </testsuite>

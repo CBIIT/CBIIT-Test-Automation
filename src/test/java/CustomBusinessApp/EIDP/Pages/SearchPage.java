@@ -118,7 +118,7 @@ public class SearchPage extends CommonUtils{
     @FindBy (how = How.XPATH, xpath = "//table[@id='advanced_search_results']//tbody//tr[1]//td[2])[1]")
     public WebElement searchResultFirstRowSecondCell;
     
-    @FindBy (how = How.XPATH, xpath = "(//input[@class='select2-search__field'])[1]")
+    @FindBy (how = How.XPATH, xpath = "(//input[@class='select2-search__field'])[2]")
     public WebElement inputBoxNIHSAC;
     
     @FindBy (how = How.XPATH, xpath = "//select[@id='groups']")
