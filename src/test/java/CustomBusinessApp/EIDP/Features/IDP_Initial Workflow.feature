@@ -420,7 +420,7 @@ Feature: Regression testing
 
      
 
-    @Alena6 @GloriaCalllowaySearch
+    @Alena6 
     Scenario Outline: IDP Search request as Gloria Calloway specifying a full name
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -433,7 +433,7 @@ Feature: Regression testing
     |Trainee First Name|Trainee Last Name|
     |Kate              |Brown            |
     
-    @Alena7 @GloriaCalllowaySearch
+    @Alena7 
     Scenario Outline:IDP Search request as Gloria Calloway  specifying  Classification type
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -445,8 +445,8 @@ Feature: Regression testing
     |Classification Type|
     |Employee           |
     
-    #blocker
-    @Alena8 @GloriaCalllowaySearch
+    
+    @Alena8 
     Scenario Outline: Search request as Gloria Calloway specifying NIH SAC
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -457,7 +457,9 @@ Feature: Regression testing
     Examples: NIH SAC
     |NIH SAC|
     |HNC1   |
+    |HNU22  |
     
+   
     
     
     
