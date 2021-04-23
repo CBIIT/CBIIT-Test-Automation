@@ -14,6 +14,7 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 
+import CustomBusinessApp.EIDP.Pages.BasePage;
 import CustomBusinessApp.EIDP.Util.CommonUtil;
 import CustomBusinessApp.EIDP.Util.SharedData;
 import appsCommon.PageInitializer;
@@ -443,27 +444,31 @@ public class SearchStepImpl extends PageInitializer {
 
 		}
 	}
-	//NIHSAC 
+
+	// NIHSAC
 	public void selectDropdownNIHSACGloriaCalloway(String SACname) {
-		CommonUtils.click(searchPage.inputBoxNIHSAC);
-		CommonUtils.selectDropDownValue(searchPage.chooseDropdownNIHSACGloriaCalloway,SACname);
+		
+		//CommonUtils.click(searchPage.inputBoxNIHSAC);
+		
+		CommonUtils.selectDropDownValue(searchPage.chooseDropdownNIHSACGloriaCalloway, SACname);
+		
 	}
-	//verifyNIHSACAssertion
+
+	// verifyNIHSACAssertion
 	public void verifyNIHSAAC(String name) {
-		List<WebElement> rows = WebDriverUtils.getWebDriver().findElements(By.cssSelector("td.sorting_1"));
+		Assert.fail(name + "DOES NOT EXIST IN THE DROPDOWN LIST, FAILED!!!");
+		List<WebElement> rows = WebDriverUtils.getWebDriver()
+				.findElements(By.cssSelector("sorting_1 dtr-control::before"));
+		for (WebElement each : rows) {
+			WebElement nameofList = WebDriverUtils.getWebDriver()
+					.findElement(By.xpath("//table[@id ='search-results']//tbody//tr[1]//td[5]"));
+			eidpBasePage.scrollToElement(nameofList);
+			if (each.getText().contains(name)) {
+				Assert.assertTrue(each.getText().contains(name));
+			} else {
+				Assert.fail("RESULT DOES NOT EXIST" + name);
+			}
+		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
