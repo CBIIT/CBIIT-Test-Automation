@@ -1,5 +1,4 @@
-package CustomBusinessApp.EIDP.Runner;
-
+package ServiceNow.ServiceNowRunners;
 import org.junit.runner.RunWith;
 
 import cucumber.api.CucumberOptions;
@@ -10,13 +9,14 @@ import cucumber.api.junit.Cucumber;
 		, "json:target/cucumber.json"
 		, "junit:target/cucumber.xml"
 		, "rerun:target/failed.txt","pretty"}
-		, features="src/test/java/CustomBusinessApp/EIDP/Features"
-		, glue="CustomBusinessApp.EIDP.Steps"
-		, tags="@Alena7"
-		, dryRun = false,
-		junit = "--step-notifications"
-		
+		, features="src/test/java/ServiceNow/AppTracker/Features"
+		, glue="ServiceNow.AppTracker.Steps"
+		, tags="@Progression"
+		, dryRun = false
+		, monochrome=true
+		, strict = true
 		)
-public class CustomBusinessAppInProgressRunner {
+
+public class RunAppTrackerProgressionTest {
 
 }

@@ -345,7 +345,7 @@ Feature: Regression testing
     And User clicks on yes button of modal
     Then User will click on ok button
     
-    @Alena1
+    @Regression
     Scenario Outline: IDP Search request 
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user

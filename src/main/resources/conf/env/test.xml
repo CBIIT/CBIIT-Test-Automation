@@ -276,10 +276,10 @@
 
 	</application>
 	
-	<!-- Application ID for ATO -->
-	<application id="AtoTestUrl">
+<!-- Application ID for AppTracker -->
+	<application id="AppTrackerTestUrl">
 
-		<login_url>https://service-test.nci.nih.gov/ncisp</login_url><!-- add test url -->
+		<login_url>https://service-test.nci.nih.gov/nci-scss.do#/</login_url><!-- add test url -->
 
 		<role name="Role">
 			<user id="regular">
@@ -298,5 +298,5 @@
 			</default>
 		</db>
 
-	</application>
+	</application>	
 </environment>
