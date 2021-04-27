@@ -447,16 +447,13 @@ public class SearchStepImpl extends PageInitializer {
 
 	// NIHSAC
 	public void selectDropdownNIHSACGloriaCalloway(String SACname) {
-		
-		//CommonUtils.click(searchPage.inputBoxNIHSAC);
-		
 		CommonUtils.selectDropDownValue(searchPage.chooseDropdownNIHSACGloriaCalloway, SACname);
-		
+
 	}
 
 	// verifyNIHSACAssertion
 	public void verifyNIHSAAC(String name) {
-		Assert.fail(name + "DOES NOT EXIST IN THE DROPDOWN LIST, FAILED!!!");
+		Assert.fail(name + " DOES NOT EXIST IN THE DROPDOWN LIST, FAILED!!!");
 		List<WebElement> rows = WebDriverUtils.getWebDriver()
 				.findElements(By.cssSelector("sorting_1 dtr-control::before"));
 		for (WebElement each : rows) {
