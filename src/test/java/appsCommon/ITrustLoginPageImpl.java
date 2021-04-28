@@ -24,4 +24,21 @@ public class ITrustLoginPageImpl extends PageInitializer{
 		MiscUtils.sleep(500);
 	}
 	
+	public void satyaiTrustLogin() throws TestingException {
+		MiscUtils.sleep(2000);
+		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "sgugulothuUsername");
+		iTrustloginPage.enterPassword("sgugulothuPassword");
+		//CucumberLogUtils.logScreenShot();
+		iTrustloginPage.clickSignInButton();
+		MiscUtils.sleep(500);		
+	}
+	
+	public void alenaiTrustLogin() throws TestingException {
+		MiscUtils.sleep(2000);
+		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "nekrashevicha2Username");
+		iTrustloginPage.enterPassword("nekrashevicha2Password");
+		//CucumberLogUtils.logScreenShot();
+		iTrustloginPage.clickSignInButton();
+		MiscUtils.sleep(500);	
+	}
 }
