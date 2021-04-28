@@ -3,7 +3,6 @@ package AnalysisTools.CEDCD.Pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.nci.automation.web.WebDriverUtils;
 
 public class CEDCDAdminPage {
@@ -14,7 +13,7 @@ public class CEDCDAdminPage {
 		
 	}
 	
-	/**================================================= Public Site Login Webelements =======================================================*/
+	/**================================================= Public Site Login WebElements =======================================================*/
 	
 	/** NIH Login Button */
 	@FindBy(linkText = "NIH Login")
@@ -72,7 +71,4 @@ public class CEDCDAdminPage {
 	/** Submit Button */
 	@FindBy(linkText = "Submit")
 	public WebElement cohortSubmitBtn; 
-	
-	
-	
 }
