@@ -17,6 +17,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
@@ -122,7 +124,17 @@ public class WebDriverUtils {
 					webDriver = new FirefoxDriver(fireOptions);
 				}
 
-			} else if (browser.equalsIgnoreCase("htmlunitdriver")) {
+			} else if (browser.equalsIgnoreCase(Constants.BROWSER_EDGE)) {
+				EdgeOptions edgeOptions = new EdgeOptions();
+
+				if (headless.equalsIgnoreCase("true")) {
+//					edgeOptions.
+					webDriver = new EdgeDriver(edgeOptions);
+				} else {
+					webDriver = new EdgeDriver(edgeOptions);
+				}
+
+			}else if (browser.equalsIgnoreCase("htmlunitdriver")) {
 					 webDriver=new HtmlUnitDriver();
 			}  else if (browser.equalsIgnoreCase(Constants.BROWSER_PHANTOM)) {
 				DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -188,6 +200,13 @@ public class WebDriverUtils {
 				System.setProperty(Constants.FIREFOX_KEY, Constants.FIREFOX_PATH);
 			} else if (osName.contains("Windows")) {
 				System.setProperty(Constants.FIREFOX_KEY, Constants.FIREFOX_PATH + GET_EXE);
+			}
+		}else if (browser.equalsIgnoreCase(Constants.BROWSER_EDGE)) {
+
+			if (osName.contains("Mac")) {
+				System.setProperty(Constants.EDGE_KEY, Constants.EDGE_PATH);
+			} else if (osName.contains("Windows")) {
+				System.setProperty(Constants.EDGE_KEY, Constants.EDGE_PATH + GET_EXE);
 			}
 		}else if (browser.equalsIgnoreCase(Constants.BROWSER_PHANTOM)) {
 
