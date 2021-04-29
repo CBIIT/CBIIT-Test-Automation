@@ -15,42 +15,58 @@ public class CEDCDSearchCohortsPage extends CommonUtils {
 	 * ================= Search Cohorts WebElements ================
 	 */
 	/** This element is the search Cohorts tab */
-	@FindBy(xpath = "//a[@id='searchCohortsTab']")
+	@FindBy(xpath = "(//a[@id='searchCohortsTab'])[2]")
 	public WebElement searchCohortTab;
 
 	/** This element is the gender drop down from the search Cohorts tab */
-	@FindBy(xpath = "//button[contains(text(),'Gender')]")
+	@FindBy(xpath = "//button[@class='btn btn-default dropdown-toggle gender-list-for-testing']")
 	public WebElement searchCohortsGenderBtn;
 
 	/**
 	 * This element selects "Female" from the gender drop down from the search
 	 * cohorts tab
 	 */
-	@FindBy(xpath = "//label[contains(text(),'Female')]")
+	@FindBy(xpath = "//input[@id='gender_checkbox_1']")
 	public WebElement searchCohortsFemaleOption;
 
 	/**
 	 * This element selects "Male" from the gender drop down from the search Cohorts
 	 * tab
 	 */
-	@FindBy(xpath = "//label[contains(text(),'Male')]")
+	@FindBy(xpath = "//input[@id='gender_checkbox_2']")
 	public WebElement searchCohortsMaleOption;
 
 	/** This element clicks on the search Cohort button */
-	@FindBy(xpath = "//input[@id='filterEngage']")
+	@FindBy(xpath = "//button[contains(text(),'Search Cohorts')]")
 	public WebElement searchCohortResultBtn;
 
 	/** This element lets you see the inputs when you filtered */
-	@FindBy(xpath = "//span[@class='pull-right d-inline-block toggle-down']")
-	public WebElement showVariablesCollectedInCohortStudy;
+	@FindBy(xpath = "(//button[@id='compareButton'])[1]")
+	public WebElement viewSelectedCohortDataButton;
+	
+	/** This element clicks on the select all Checkbox */
+	@FindBy (xpath = "//input[@id='select_all']")
+	public WebElement searchCohortSelectAllCheckbox;
+	
+	/** This list of webelements will return the number of cohorts selected plus the Data Collected section */
+	@FindBy (xpath = "//*[@id='sticker']/th")
+	public List<WebElement> numberofCohortsReturned;
+	
+	/** This element is the back to filter button */
+	@FindBy (xpath = "//span[contains(text(),'Back to filter')]")
+	public WebElement backToFilterButton;
+	
+	/** This is the Breast Cancer Family Registry Cohort link element */
+	@FindBy (xpath = "//a[contains(text(),'Breast Cancer Family Registry Cohort')]")
+	public WebElement bCFRCohort;
+	
+	/** This returns all the results from Female or All Cohorts */
+	@FindBy (xpath = "/html/body/div[2]/div[2]/div[1]/div/div[3]/div[2]/div[3]/div[2]/div/div/div[4]/div[1]/table/tbody/tr[2]/td")
+	public List<WebElement> returnedResultsFilter; 
 
 	/** This element displays the number of returned results in text form */
 	@FindBy(xpath = "(//span[@id='summaryCount'])[1]")
 	public WebElement numberOfSearchResultReturned;
-
-	/** This element is the select all check box on the Search Cohorts Page */
-	@FindBy(xpath = "//input[@id='select_all']")
-	public WebElement selectAllCheckBox;
 
 	/** This element clicks on the Categories of Data Collected Drop down */
 	@FindBy(xpath = "//button[contains(text(),'Categories of Data Collected')]")
@@ -77,7 +93,7 @@ public class CEDCDSearchCohortsPage extends CommonUtils {
 	public WebElement cohortEnrollmentSection;
 	
 	/** This list of WebElements returns all the values from the Categories of Data Collected */
-	@FindBy (xpath = "//*[@id='filter-panel']/div[2]/div/div[1]/div[3]/div/div/div[1]/div/div/div/ul/li")
+	@FindBy (xpath = "/html/body/div[2]/div[2]/div[1]/div/div[3]/div[2]/div[1]/div/div[2]/div[1]/div[3]/div/div/div[1]/div/div/div/ul/li")
 	public List<WebElement> categoriesOfDataCollectedValues;
 	
 	/** This element selects the whole section of the Data and Specimens Collected */
