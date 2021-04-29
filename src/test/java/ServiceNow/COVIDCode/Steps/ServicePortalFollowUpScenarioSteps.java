@@ -47,13 +47,13 @@ public class ServicePortalFollowUpScenarioSteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		servicePortalQuestionnairePage.enrollmentLookUpPatientIDSearchDropDown.click();
 		MiscUtils.sleep(2000);
-		servicePortalQuestionnairePage.enrollmentLookUpPatientIDSearchDropDownTextField.sendKeys("AutomatedFNGroup3");
+		servicePortalQuestionnairePage.enrollmentLookUpPatientIDSearchDropDownTextField.sendKeys("AutomatedFN");
 		MiscUtils.sleep(2000);
 		servicePortalQuestionnairePage.enrollmentLookUpPatientIDSearchDropDownTextField.sendKeys(Keys.ENTER);
 		MiscUtils.sleep(3000);
 		servicePortalQuestionnairePage.enrollmentLookUpCreateFollowUpButton.click();
 		JavascriptUtils.scrollIntoView(followUpFormPage.followUpNIHMedicalRecordNumberTextBox);
-		followUpFormPage.followUpNIHMedicalRecordNumberTextBox.sendKeys("11122288");
+		followUpFormPage.followUpNIHMedicalRecordNumberTextBox.sendKeys("1112228");
 		followUpFormPage.followUpDemographicsTextBox.click();
 		JavascriptUtils.scrollIntoView(followUpFormPage.followUpQuestionnaireDemographicDateFormComplted);
 		followUpFormPage.followUpQuestionnaireDemographicDateFormComplted.sendKeys("05/07/2020");
@@ -78,7 +78,7 @@ public class ServicePortalFollowUpScenarioSteps extends PageInitializer {
 		MiscUtils.sleep(500);
 		servicePortalQuestionnairePage.draftFollowUpLastUpdated.click();
 		MiscUtils.sleep(1000);
-		Assert.assertTrue(servicePortalQuestionnairePage.draftFollowUpFirstRow.getText().contains("11122288"));
+		Assert.assertTrue(servicePortalQuestionnairePage.draftFollowUpFirstRow.getText().contains("1112228"));
 		CucumberLogUtils.logScreenShot();
 	}
 
