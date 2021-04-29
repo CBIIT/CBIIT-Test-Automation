@@ -371,8 +371,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy (xpath = "//button[contains(text(),'Submit For Review')]")
 	public WebElement submitForReviewButton;
 	
-	
-
 	/** =============== Questionnaire Section B ================= */
 	
 	/** Enrollment Date **/
@@ -407,8 +405,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//*[@name='dataOnlineURL']")
 	public WebElement sectionFWebsiteTextBox;
 	
-	
-
 
 public CEDCDCohortPage(){
 		
