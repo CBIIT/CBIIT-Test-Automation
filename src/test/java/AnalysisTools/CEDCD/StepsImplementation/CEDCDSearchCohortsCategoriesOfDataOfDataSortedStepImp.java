@@ -17,14 +17,15 @@ public class CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp extends PageI
 		 */
 
 		ArrayList<String> categoriesOfData = new ArrayList<String>();
-
-		for (int i = 1; i < 30; i++) {
+		System.out.println(cedcdSearchCohortsPage.categoriesOfDataCollectedValues.size());
+		
+		for (int i = 0; i < cedcdSearchCohortsPage.categoriesOfDataCollectedValues.size(); i++) {
 			categoriesOfData.add(cedcdSearchCohortsPage.categoriesOfDataCollectedValues.get(i).getText());
 		}
 
 		ArrayList<String> sortedCategoriesOfData = new ArrayList<String>();
 
-		for (int i = 1; i < 30; i++) {
+		for (int i = 0; i < cedcdSearchCohortsPage.categoriesOfDataCollectedValues.size(); i++) {
 			sortedCategoriesOfData.add(cedcdSearchCohortsPage.categoriesOfDataCollectedValues.get(i).getText());
 		}
 
