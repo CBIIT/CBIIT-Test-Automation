@@ -131,7 +131,7 @@ public class WebDriverUtils {
 //					edgeOptions.
 					webDriver = new EdgeDriver(edgeOptions);
 				} else {
-					webDriver = new EdgeDriver(edgeOptions);
+					webDriver = new EdgeDriver();
 				}
 
 			}else if (browser.equalsIgnoreCase("htmlunitdriver")) {
