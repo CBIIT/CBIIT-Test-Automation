@@ -221,6 +221,21 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.SectionDCheckBoxes.get(15).click();
 	}
 	
+	@Then("Section F of the Questionnaire is filled out")
+	public void Section_F_of_the_Questionnaire_is_filled_out() {
+		cedcdCohortPage.nextButton.click();
+		cedcdCohortPage.nextButton.click();
+		cedcdCohortPage.nextButton.click();
+		cedcdCohortPage.nextButton.click();
+		cedcdCohortPage.nextButton.click();
+		cedcdCohortPage.SectionFRadioButtons.get(0).click();
+		cedcdCohortPage.SectionFRadioButtons.get(2).click();
+		cedcdCohortPage.SectionFRadioButtons.get(4).click();
+		cedcdCohortPage.SectionFRadioButtons.get(7).click();
+		cedcdCohortPage.sectionFWebsiteTextBox.sendKeys("https://wordcounter.net/");
+		cedcdCohortPage.SectionFRadioButtons.get(8).click();
+	}
+	
 	
 	
 
