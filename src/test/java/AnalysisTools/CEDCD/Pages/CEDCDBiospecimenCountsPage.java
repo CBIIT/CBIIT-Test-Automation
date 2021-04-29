@@ -14,7 +14,7 @@ public class CEDCDBiospecimenCountsPage extends CommonUtils {
 	/**======================= Biospecimen WebElements ====================*/
 	
 	/** This element selects the Biospecimen tab on the home page */
-	@FindBy(xpath = "//span[contains(text(),'Biospecimen Counts')]")
+	@FindBy(xpath = "(//span[contains(text(),'Biospecimen Counts')])[2]")
 	public WebElement biospecimenTab;
 
 	/** This element selects the Specimen Type drop down from the Biospecimen tab */
@@ -78,7 +78,7 @@ public class CEDCDBiospecimenCountsPage extends CommonUtils {
 	public WebElement cohortTypeDropDownAllTypeValue;
 
 	/** Searches the filters on the Biospecimen Counts Tab */
-	@FindBy(xpath = "//input[@name='submitBtn']")
+	@FindBy(xpath = "(//button[contains(text(),'Submit')])[2]")
 	public WebElement biospecimenSubmitBtn;
 
 	/** This element clears all filters on the Biospecimen Counts tab */
