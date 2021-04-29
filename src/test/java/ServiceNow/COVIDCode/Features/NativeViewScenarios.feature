@@ -57,7 +57,7 @@ Feature: Native View Scenarios
     When the user opens a Follow Up record
     And a creates a new Disease Course record
     Then there is a field option called "Convalescent plasma" for Drug Treatments field
- 
+
   @Smoke @New @juarezds
   Scenario: Native View Specimens - Add Fedex and Appointment Made Fields
     Given a COVIDCode App Admin user is in Native View
@@ -84,44 +84,44 @@ Feature: Native View Scenarios
     When the users open an Inquiry Tracking Record
     And click the Unlock Assigned To button
     Then the user is able to select multiple nurses from a list of Alan Orpia, Janet Bracci, Laura Harney, Lisa Leathwood, Maureen Risch, Kathryn Nichols and Stephanie Steinbart
-   
-   @Smoke @New @COVID-425 @juarezds
-   Scenario: Native View COVIDcode Enrollments - Veriying Error Message for Invalid Data in Inches
-   When on the Initial Questionnaire form in Native View
-   And on the Demographics Information
-   When selecting "Feet/Inches" for Height
-   And entering value for feet
-   And entering a value greater than 11 Inches for Height
-   And clicking anywhere else
-   Then a message displays "Because you have a value in feet, inches cannot be more than 11" 
-   
-   @Smoke @New @COVID-425 @juarezds
-   Scenario: Native View COVIDcode Follow Ups - Verifying Error Message for Invalid Data in Inches
-   When on the Follow Up form in Native View
-   And on the Demographics Information 
-   When selecting "Feet/Inches" for Height
-   And entering value for feet
-   And entering a value greater than 11 Inches for Height
-   And clicking anywhere else
-   Then a message displays "Because you have a value in feet, inches cannot be more than 11" 
-   
-   @Smoke @New @COVID-422 @juarezds
-   Scenario: Add Field Options for "When were you officially diagnosed with COVID-19" field
-   When on the enrollment form in Native View
-   And navigating to the Symptomology in Native View
-   Then "Have you officially been diagnosed with COVID-19?" displays
-   
-   @Smoke @New @COVID-422 @juarezds
-   Scenario: Add Field Options for "When were you officially diagnosed with COVID-19" field
-   When on the Follow Up form in Native View
-   And navigating to the Symptomology section
-   Then "Have you officially been diagnosed with COVID-19?" displays
-   
-   @Smoke @New @COVID-405 @juarezds
-   Scenario: Verifying Add Sample Code Column
-   When a COVIDcode user is logged into the COVIDcode application in Native View
-   And navigates to the Specimen module
-   Then a "Sample Code" column displays
+
+  @Smoke @New @COVID-425 @juarezds
+  Scenario: Native View COVIDcode Enrollments - Veriying Error Message for Invalid Data in Inches
+    When on the Initial Questionnaire form in Native View
+    And on the Demographics Information
+    When selecting "Feet/Inches" for Height
+    And entering value for feet
+    And entering a value greater than 12 Inches for Height
+    And clicking anywhere else
+    Then a message displays "Because you have a value in feet, inches cannot be more than 11.99"
+
+  @Smoke @New @COVID-425 @juarezds
+  Scenario: Native View COVIDcode Follow Ups - Verifying Error Message for Invalid Data in Inches
+    When on the Follow Up form in Native View
+    And on the Demographics Information
+    When selecting "Feet/Inches" for Height
+    And entering value for feet
+    And entering a value greater than 12 Inches for Height
+    And clicking anywhere else
+    Then a message displays "Because you have a value in feet, inches cannot be more than 11.99"
+
+  @Smoke @New @COVID-422 @juarezds
+  Scenario: Add Field Options for "When were you officially diagnosed with COVID-19" field
+    When on the enrollment form in Native View
+    And navigating to the Symptomology in Native View
+    Then "Have you officially been diagnosed with COVID-19?" displays
+
+  @Smoke @New @COVID-422 @juarezds
+  Scenario: Add Field Options for "When were you officially diagnosed with COVID-19" field
+    When on the Follow Up form in Native View
+    And navigating to the Symptomology section
+    Then "Have you officially been diagnosed with COVID-19?" displays
+
+  @Smoke @New @COVID-405 @juarezds
+  Scenario: Verifying Add Sample Code Column
+    When a COVIDcode user is logged into the COVIDcode application in Native View
+    And navigates to the Specimen module
+    Then a "Sample Code" column displays
 
   @Smoke @New @COVID-424 @juarezds
   Scenario: Native View Specimens - Verify new field option for the Sample Outcome drop down Hold displays
@@ -170,3 +170,22 @@ Feature: Native View Scenarios
     When the COVIDcode Admin user submits the Initial Questionnaire
     Then the COVIDcode Admin user should be able to see the files uploaded
 
+  @New @Smoke @COVID-418 @juarezds
+  Scenario: Verifying Re-enable Which Organs Showed Signs of Dysfunction/Failure?
+    Given a COVIDcode user is on the existing Initial Questionnaire form
+    When on Disease Course section, when selecting "Yes" for the Organ Failure
+    Then a new question appears "Which organ(s) showed signs of dysfunction/failure?"
+    And field options are: Liver, Kidney, Lungs, Heart, Central Nervous system, Hematologic System, Other, Other (free text field)
+
+  @New @Smoke @COVID-419 @juarezds
+  Scenario: Update Dates for List Edits
+    Given a COVIDcode User logs into the COVIDcode application in Native View
+    And navigates to the COVIDcode Inquiry Tracking module
+    When clicking New
+    And entering a date for Initial Emails Sent Date field
+    Then the Covid Test Result F/U 1 and Covid Test Result F/U 2 are automatically updated with dates a week apart
+
+  @New @Smoke @COVID-198 @juarezds
+  Scenario: Verifying Follow Up Form - Verifying 'Drug Treatments' section - Native View
+    When a COVIDCode provider is on the Disease Course section on the Follow Up Form in Native View
+    Then Drug Treatments section should display along with the values on the Follow Up Form in Native View None, Azithromycin, Chloroquine, Corticosteroids, Hydroxycholoquine, JAK Inhibitor, Remdesivir, Tocilizumab, Other
