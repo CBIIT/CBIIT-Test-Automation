@@ -40,8 +40,8 @@ Description: This is an automated suite for test cases under the Public Site
   Scenario: Eligible Female Cohorts returned on the Search Cohorts Tab
   
     Given the user is on the CEDCD Search Cohorts Tab
-    And the user filters by females
-    Then 53 results return for Female Cohort Filter Result
+    When the user filters by females
+    Then the results returned are for Female or All Cohorts
     
     @SS-3430 @Smoke @matarodriguezko
 	Scenario: Select All Cohorts
@@ -60,7 +60,7 @@ Description: This is an automated suite for test cases under the Public Site
 	Scenario: Restoring Search Criteria after Switching Tabs.
 	
 	Given the user is on the CEDCD Search Cohorts Tab
-	When the user filters for a certain study
+	When the user filters by Depression study
 	And the user clicks on a different tab
 	And the user click back on the previous tab
 	Then the user is filtered result from before are still populated
