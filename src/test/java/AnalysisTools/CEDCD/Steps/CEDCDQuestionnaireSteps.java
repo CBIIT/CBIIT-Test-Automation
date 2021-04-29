@@ -23,23 +23,19 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class CEDCDQuestionnaireSteps extends PageInitializer {
-	
 	@Given("the user is on the CEDCD homepage")
 	public void the_user_is_on_the_CEDCD_homepage() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
 	}
-	
 	@When("the user is logged in as Admin")
 	public void the_user_is_logged_in_as_Admin() throws TestingException {
 		cedcdAdminPage.nihLoginBtn.click();
 		loginImpl.shomirITrustLogin();
 	}
-	
+
 	@When("user selects add new Cohort")
 	public void user_selects_add_new_Cohort() {
 		cedcdAdminPage.addNewCohortlnk.click();
-		
-		
 	}
 	
 	@When("enters Cohort Name as {string}")
@@ -57,7 +53,6 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdAdminPage.cohortOwnerDownArrow.click();
 		cedcdAdminPage.cohortOwnerTxtBox.sendKeys("Diego");
 		cedcdAdminPage.cohortOwnerTxtBox.sendKeys(Keys.RETURN);
-		
 	}
 	
 	@When("enters {string}")
@@ -69,121 +64,439 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	public void clicks_submit() {
 		cedcdAdminPage.cohortSubmitBtn.click();
 	}
-	
+
 	@Then("Cohort is added")
 	public void Cohort_is_added() {
 		CucumberLogUtils.logScreenShot();
-		
+
 	}
-	
+
 	@When("the user is logged in as a Cohort Owner")
 	public void the_user_is_logged_in_as_a_Cohort_Owner() throws TestingException {
 		cedcdAdminPage.nihLoginBtn.click();
 		loginImpl.loginToITrust();
-		
 	}
 
 	@When("the Cohort Owner selects their Cohort questionnaire")
 	public void the_Cohort_Owner_selects_their_Cohort_questionnaire() {
-		
 	}
 
 	@Then("Section A of the Questionnaire is filled out")
-	public void section_A_of_the_Questionnaire_is_filled_out() {
-		
+	public void section_A_of_the_Questionnaire_is_filled_out() throws InterruptedException {
+
 		/** Entering all data required for Cohort the Information tab */
-		
-		/** A2 completion */
-		cedcdCohortPage.a2TextBox.sendKeys("This is an automated test case");
-		
-		/** A3 completion */
-		cedcdCohortPage.a3TextBox.sendKeys("AgainThisIsAnAutomatedTestCase.com");
-		
-		/** A4 completion */
-		cedcdCohortPage.a4aName.sendKeys("Diego Juarez");
-		cedcdCohortPage.a4aCohortPosition.sendKeys("Test Lead");
+
+		/** A2 clearing of previous data and completion of section */
+		cedcdCohortPage.a2TextBox.clear();
+		cedcdCohortPage.a2TextBox.sendKeys("This is an automated test case12124234134123432");
+		Thread.sleep(2000);
+
+		/** A3 clearing of previous data and completion of section */
+		JavascriptUtils.clearByJS(cedcdCohortPage.a3TextBox);
+		cedcdCohortPage.a3TextBox.sendKeys("AgainThisIsAnAutomatedTestCase1213423424324234234234312.com");
+		Thread.sleep(2000);
+
+		/** A4 clearing of previous data and completion of section */
+		cedcdCohortPage.a4aName.click();
+		JavascriptUtils.clearByJS(cedcdCohortPage.a4aName);
+		cedcdCohortPage.a4aName.sendKeys(Keys.BACK_SPACE);
+		cedcdCohortPage.a4aName.sendKeys("Kevin Mata");
+		Thread.sleep(2000);
+
+		cedcdCohortPage.a4aCohortPosition.click();
+		JavascriptUtils.clearByJS(cedcdCohortPage.a4aCohortPosition);
+		cedcdCohortPage.a4aCohortPosition.sendKeys(Keys.BACK_SPACE);
+		cedcdCohortPage.a4aCohortPosition.sendKeys("Test Lead 1234567890");
+		Thread.sleep(2000);
+
 		cedcdCohortPage.a4aCountryCode.sendKeys("");
+		Thread.sleep(1000);
+
+		cedcdCohortPage.a4aPhone.click();
+		JavascriptUtils.clearByJS(cedcdCohortPage.a4aPhone);
+		cedcdCohortPage.a4aPhone.sendKeys(Keys.BACK_SPACE);
 		cedcdCohortPage.a4aPhone.sendKeys("1234567890");
-		cedcdCohortPage.a4aEmail.sendKeys("diego.juarezz@mail.com");
+		Thread.sleep(1000);
+
+		cedcdCohortPage.a4aEmail.click();
+		JavascriptUtils.clearByJS(cedcdCohortPage.a4aEmail);
+		cedcdCohortPage.a4aEmail.sendKeys(Keys.BACK_SPACE);
+		cedcdCohortPage.a4aEmail.sendKeys("diego.juarez@mail12345678900987654321.com");
+		Thread.sleep(8000);
+
 		cedcdCohortPage.a4bRadioButtonNo.click();
+
+//		cedcdCohortPage.a4bName.clear();
 		cedcdCohortPage.a4bName.sendKeys("Kevin Mata");
+
+//		cedcdCohortPage.a4bCohortPosition.clear();
 		cedcdCohortPage.a4bCohortPosition.sendKeys("Tester");
+
+//		cedcdCohortPage.a4bCountryCode.clear();
 		cedcdCohortPage.a4bCountryCode.sendKeys("");
+
+//		cedcdCohortPage.a4bPhone.clear();
 		cedcdCohortPage.a4bPhone.sendKeys("0987654321");
+
+//		cedcdCohortPage.a4bEmail.clear();
 		cedcdCohortPage.a4bEmail.sendKeys("kevinmata@mail.com");
-		
+
 		/** Entering all data for the Principal Investigators tab */
 		cedcdCohortPage.principalInvestigatorTab.click();
-		
-		/** A5 completion */
+
+		/** A5 clearing of previous data and completion of section */
+//		cedcdCohortPage.a5InvestigatorsName.clear();
 		cedcdCohortPage.a5InvestigatorsName.sendKeys("Shomir Uddin");
+
+//		cedcdCohortPage.a5InvestigatorsInstitution.clear();
 		cedcdCohortPage.a5InvestigatorsInstitution.sendKeys("National Cancer Institute");
+
+//		cedcdCohortPage.a5InvestigatorsEmails.clear();
 		cedcdCohortPage.a5InvestigatorsEmails.sendKeys("Shomir.Uddinn@mail.com");
-		
-		/** A6 completion */
+
+		/** A6 clearing of previous data and completion of section */
 		cedcdCohortPage.sameAs4aCheckbox.click();
-		
+
 		/** Entering all data for the Eligibility and Enrollments tab */
-		
-		/** A7 completion */
+
+		/** A7 clearing of previous data and completion of section */
 		cedcdCohortPage.eligibilityAndEnrollmentTab.click();
+
 		cedcdCohortPage.eligibleSexAllValue.click();
+
 		cedcdCohortPage.baselinePopulationCheckbox.click();
+
+//		cedcdCohortPage.baselinePopulationTextbox.clear();
 		cedcdCohortPage.baselinePopulationTextbox.sendKeys("Automated test case in Progress");
+
+//		cedcdCohortPage.eligibilityDiseaseOtherSpecifyTextbox.clear();
 		cedcdCohortPage.eligibilityDiseaseOtherSpecifyTextbox.sendKeys("Diabetes");
-		
-		/** A8 completion */
+
+		/** A8 clearing of previous data and completion of section */
+//		cedcdCohortPage.enrollmentTotal.clear();
 		cedcdCohortPage.enrollmentTotal.sendKeys("17");
+
+//		cedcdCohortPage.startedInYear.clear();
 		cedcdCohortPage.startedInYear.sendKeys("1996");
+
 		cedcdCohortPage.enrollmentOngoingYesRadio.click();
+
+//		cedcdCohortPage.targetNumberPlannedToEnroll.clear();
 		cedcdCohortPage.targetNumberPlannedToEnroll.sendKeys("20000");
+
+//		cedcdCohortPage.targetCountCompletionYear.clear();
 		cedcdCohortPage.targetCountCompletionYear.sendKeys("2025");
+
+//		cedcdCohortPage.enrollmentAgeMin.clear();
 		cedcdCohortPage.enrollmentAgeMin.sendKeys("18");
+
+//		cedcdCohortPage.enrollmentAgeMax.clear();
 		cedcdCohortPage.enrollmentAgeMax.sendKeys("45");
+
+//		cedcdCohortPage.enrollmentMedianAge.clear();
 		cedcdCohortPage.enrollmentMedianAge.sendKeys("24");
+
+//		cedcdCohortPage.enrollmentMeanAge.clear();
 		cedcdCohortPage.enrollmentMeanAge.sendKeys("25");
+
+//		cedcdCohortPage.currentAgeMin.clear();
 		cedcdCohortPage.currentAgeMin.sendKeys("35");
+
+//		cedcdCohortPage.currentAgeMax.clear();
 		cedcdCohortPage.currentAgeMax.sendKeys("65");
+
+//		cedcdCohortPage.currentMedianAge.clear();
 		cedcdCohortPage.currentMedianAge.sendKeys("45");
+
+//		cedcdCohortPage.currentMeanAge.clear();
 		cedcdCohortPage.currentMeanAge.sendKeys("43");
-		
-		/**=============================== Entering all data for the Recruitment tab ============================*/
-		
+
+		/**
+		 * =============================== Entering all data for the Recruitment tab
+		 * ============================
+		 */
+
 		cedcdCohortPage.recruitmentTab.click();
-		
-		/** A9 completion */
+
+		/** A9 clearing of previous data and completion of section */
+//		cedcdCohortPage.questionnaireFrequency.clear();
 		cedcdCohortPage.questionnaireFrequency.sendKeys("Monthly");
-		
-		/** A10 completion */
+
+		/** A10 clearing of previous data and completion of section */
+//		cedcdCohortPage.mostRecentYear.clear();
 		cedcdCohortPage.mostRecentYear.sendKeys("2018");
-		
-		/** A11 completion */
+
+		/** A11 clearing of previous data and completion of section */
 		cedcdCohortPage.a11PhoneInterview.click();
 		cedcdCohortPage.a11AdministeredViaWebBasedDevice.click();
 		cedcdCohortPage.a11otherPleaseSpecify.click();
+//		cedcdCohortPage.a11otherPleaseSpecifyTextbox.clear();
 		cedcdCohortPage.a11otherPleaseSpecifyTextbox.sendKeys("A11 Automated Key Presses");
-		
-		/** A12 completion */
+
+		/** A12 clearing of previous data and completion of section */
 		cedcdCohortPage.a12RequireIRBApproval.click();
 		cedcdCohortPage.a12LinkingOtherDatabases.click();
 		cedcdCohortPage.a12OtherPleaseSpecify.click();
+//		cedcdCohortPage.a12OtherPleaseSpecifyTextbox.clear();
 		cedcdCohortPage.a12OtherPleaseSpecifyTextbox.sendKeys("A12 Automated Key Presses");
-		
-		/** A13 completion */
+
+		/** A13 clearing of previous data and completion of section */
 		cedcdCohortPage.a13AdvisoryCommittees.click();
 		cedcdCohortPage.a13GeneticVariantsBloodPressure.click();
 		cedcdCohortPage.a13OtherPleaseSpecify.click();
+//		cedcdCohortPage.a13OtherPleaseSpecifyTextbox.clear();
 		cedcdCohortPage.a13OtherPleaseSpecifyTextbox.sendKeys("A13 Automated Key Presses");
-		
-		/** Entering all data for the Documents tab (there is nothing entered in this section) */
-		
+
+		/**
+		 * Entering all data for the Documents tab (there is nothing entered in this
+		 * section)
+		 */
+
 		/** Saving the questionnaire */
 		cedcdCohortPage.saveButton.click();
-		
-		
-		
 	}
 
+	// try to show the section circle color/status. Possibly from a screenshot.
+	@Then("Section A status Circle is green")
+	public void section_A_status_Circle_is_green() {
+
+	}
+
+	/**
+	 * This step fills out the whole of Section C of the questionnaire
+	 * 
+	 * @throws InterruptedException
+	 */
+	@Then("Section C of the Questionnaire is filled out")
+	public void section_C_of_the_Questionnaire_is_filled_out() {
+
+		/** Selecting Section C */
+		cedcdCohortPage.SectionC.click();
+
+		/** C1 radio buttons filled out */
+		cedcdCohortPage.c1BaselineYesRadio.click();
+		cedcdCohortPage.c1FollowUpYesRadio.click();
+
+		/** C2 radio buttons filled out */
+		cedcdCohortPage.c2BaselineYesRadio.click();
+		cedcdCohortPage.c2FollowUpYesRadio.click();
+
+		/** C3 radio buttons filled out */
+		cedcdCohortPage.c3BaselineYesRadio.click();
+		cedcdCohortPage.c3FollowUpYesRadio.click();
+
+		/** C4 radio buttons filled out */
+		cedcdCohortPage.c4BaselineYesRadio.click();
+		cedcdCohortPage.c4FollowUpYesRadio.click();
+
+		/** C5 radio buttons filled out */
+		cedcdCohortPage.c5BaselineYesRadio.click();
+		cedcdCohortPage.c5FollowUpYesRadio.click();
+
+		/** C6 radio buttons filled out */
+		cedcdCohortPage.c6BaselineYesRadio.click();
+		cedcdCohortPage.c6FollowUpYesRadio.click();
+
+		/** C7 radio buttons filled out */
+		cedcdCohortPage.c7BaselineYesRadio.click();
+		cedcdCohortPage.c7FollowUpYesRadio.click();
+
+		/** C8 radio buttons filled out */
+		cedcdCohortPage.c8BaselineYesRadio.click();
+		cedcdCohortPage.c8FollowUpYesRadio.click();
+
+		/** C9 radio buttons filled out */
+		cedcdCohortPage.c9BaselineYesRadio.click();
+		cedcdCohortPage.c9FollowUpYesRadio.click();
+
+		/** C10 radio buttons filled out */
+		cedcdCohortPage.c10BaselineYesRadio.click();
+		cedcdCohortPage.c10FollowUpYesRadio.click();
+
+		/** C11 radio buttons filled out */
+		cedcdCohortPage.c11BaselineYesRadio.click();
+		cedcdCohortPage.c11FollowUpYesRadio.click();
+
+		/** C12 radio buttons filled out */
+		cedcdCohortPage.c12BaselineYesRadio.click();
+		cedcdCohortPage.c12FollowUpYesRadio.click();
+
+		/** C13 radio buttons filled out */
+		cedcdCohortPage.c13BaselineYesRadio.click();
+		cedcdCohortPage.c13FollowUpYesRadio.click();
+
+		/** C14 radio buttons filled out */
+		cedcdCohortPage.c14BaselineYesRadio.click();
+		cedcdCohortPage.c14FollowUpYesRadio.click();
+
+		/** C15 Check box options */
+
+		/** C15 Baseline selected values */
+		cedcdCohortPage.c15CigarBaselineValue.click();
+		cedcdCohortPage.c15ChewTobaccoBaselineValue.click();
+		cedcdCohortPage.c15OtherBaselineValue.click();
+		CommonUtils.sendKeys(cedcdCohortPage.c15OtherBaselineTextBox, "C15 Baseline Text Box Test");
+
+		/** C15 Follow Up selected values */
+		cedcdCohortPage.c15PipesFollowUpValue.click();
+		cedcdCohortPage.c15ECigarettesFollowUpValue.click();
+		cedcdCohortPage.c15OtherFollowUpValue.click();
+		CommonUtils.sendKeys(cedcdCohortPage.c15OtherFollowUpTextBox, "C15 Follow Up Text Box Test");
+
+		/** C16 radio buttons filled out */
+		cedcdCohortPage.c16BaselineYesRadio.click();
+		cedcdCohortPage.c16FollowUpYesRadio.click();
+
+		/** C17 radio buttons filled out */
+		cedcdCohortPage.c17BaselineYesRadio.click();
+		cedcdCohortPage.c17FollowUpYesRadio.click();
+
+		/** C18 radio buttons filled out */
+		cedcdCohortPage.c18BaselineYesRadio.click();
+		cedcdCohortPage.c18FollowUpYesRadio.click();
+
+		/** C19 radio buttons filled out */
+		cedcdCohortPage.c19BaselineYesRadio.click();
+		cedcdCohortPage.c19FollowUpYesRadio.click();
+
+		/** C20 radio buttons filled out */
+		cedcdCohortPage.c20BaselineYesRadio.click();
+		cedcdCohortPage.c20FollowUpYesRadio.click();
+
+		/** C21 radio buttons filled out */
+		cedcdCohortPage.c21BaselineYesRadio.click();
+		cedcdCohortPage.c21FollowUpYesRadio.click();
+
+		/** C22 radio buttons filled out */
+		cedcdCohortPage.c22BaselineYesRadio.click();
+		cedcdCohortPage.c22FollowUpYesRadio.click();
+
+		/** C23 radio buttons filled out */
+		cedcdCohortPage.c23BaselineYesRadio.click();
+		cedcdCohortPage.c23FollowUpYesRadio.click();
+
+		/** C24 radio buttons filled out */
+		cedcdCohortPage.c24BaselineYesRadio.click();
+		cedcdCohortPage.c24FollowUpYesRadio.click();
+
+		/** C25 radio buttons filled out */
+		cedcdCohortPage.c25BaselineYesRadio.click();
+		cedcdCohortPage.c25FollowUpYesRadio.click();
+
+		/** C26 radio buttons filled out */
+		cedcdCohortPage.c26BaselineYesRadio.click();
+		cedcdCohortPage.c26FollowUpYesRadio.click();
+
+		/** C27 radio buttons filled out */
+		cedcdCohortPage.c27BaselineYesRadio.click();
+		cedcdCohortPage.c27FollowUpYesRadio.click();
+
+		/** C28 radio buttons filled out */
+		cedcdCohortPage.c28BaselineYesRadio.click();
+		cedcdCohortPage.c28FollowUpYesRadio.click();
+
+		/** C29 radio buttons filled out */
+		cedcdCohortPage.c29BaselineYesRadio.click();
+		cedcdCohortPage.c29FollowUpYesRadio.click();
+
+		/** C30 radio buttons filled out */
+		cedcdCohortPage.c30BaselineYesRadio.click();
+		cedcdCohortPage.c30FollowUpYesRadio.click();
+		
+		/** Clicking the Other Medical Conditions tab for section C */
+		cedcdCohortPage.otherMedicalConditionsTab.click();
+		
+		/** C31 filling out all of the radio buttons for tab */
+		
+		/** Diabetes Yes selection for baseline and follow ups */
+		cedcdCohortPage.c31DiabetesBaselineYesRadio.click();
+		cedcdCohortPage.c31DiabetesFollowUpYesRadio.click();
+		
+		/** Stroke Yes selection for baseline and follow ups */
+		cedcdCohortPage.c31StrokeBaselineYesRadio.click();
+		cedcdCohortPage.c31StrokeFollowUpYesRadio.click();
+		
+		/** COPD and/or Emphysema Yes selection for baseline and follow ups */
+		cedcdCohortPage.c31COPDBaselineYesRadio.click();
+		cedcdCohortPage.c31COPDFollowUpYesRadio.click();
+		
+		/** Cardiovascular Disease Yes selection for baseline and follow ups */
+		cedcdCohortPage.c31CardiovascularBaselineYesRadio.click();
+		cedcdCohortPage.c31CardiovascularFollowUpYesRadio.click();
+		
+		/** Osteoporosis Yes selection for baseline and follow ups */
+		cedcdCohortPage.c31OsteoporosisBaselineYesRadio.click();
+		cedcdCohortPage.c31OsteoporosisFollowUpYesRadio.click();
+		
+		/** Mental Health Yes selection for baseline and follow ups */
+		cedcdCohortPage.c31MentalHealthBaselineYesRadio.click();
+		cedcdCohortPage.c31MentalHealthFollowUpYesRadio.click();
+		
+		/** Cognitive Decline Yes selection for baseline and follow ups */
+		cedcdCohortPage.c31CognitiveDeclineBaselineYesRadio.click();
+		cedcdCohortPage.c31CognitiveDeclineFollowUpYesRadio.click();
+		
+		/** Clicking the Cancer Related Conditions tab for section C */
+		cedcdCohortPage.cancerRelatedConditionsTab.click();
+		
+		/** C32 filling out selected check boxes and text boxes */
+		
+		cedcdCohortPage.c32CancerToxicityCheckbox.click();
+		cedcdCohortPage.c32CancerLateEffectsCheckbox.click();
+		cedcdCohortPage.c32CancerOtherCheckbox.click();
+		CommonUtils.sendKeys(cedcdCohortPage.c32CancerOtherSpecifyTextbox, "C32 Text Box Test");
+		
+		/** Saving the questionnaire after completion */
+		cedcdCohortPage.saveButton.click();
+	}
+
+	// try to show the section circle color/status. Possibly from a screenshot.
+	@Then("Section C status Circle is green")
+	public void section_C_status_Circle_is_green() {
+
+	}
+	
+	@Then("Section E of the Questionnaire is filled out")
+	public void section_E_of_the_Questionnaire_is_filled_out() throws InterruptedException {
+		
+		/** Clicks on the Mortality section tab */
+		cedcdCohortPage.sectionE.click();
+		
+		/** Sends year value for E1 */
+		cedcdCohortPage.e1MortalityFollowUpTextBox.sendKeys("2000");
+		
+		/** Answering E.2 check boxes and text box */
+		cedcdCohortPage.e2NDICheckBox.click();
+		cedcdCohortPage.e2OtherCheckBox.click();
+		cedcdCohortPage.e2OtherTextBox.sendKeys("With death certificates");
+		Thread.sleep(5000);		
+		/** Sending answers for E3 */
+		cedcdCohortPage.e3RadioYes.click();
+		
+		/** E.4 Do you have cause of death for most subjects radio button yes or no */
+		cedcdCohortPage.e4RadioYes.click();
+		
+		/** Sending answers for E4's check boxes and text boxes */
+		cedcdCohortPage.e4ICD9CheckBox.click();
+		cedcdCohortPage.e4ICD10CheckBox.click();
+		cedcdCohortPage.e4OtherCodeCheckBox.click();
+		cedcdCohortPage.e4OtherCodeTextBox.sendKeys("Another Code that's not listed");
+		
+		/** Answering E5's What is the number of deaths in your cohort as of most recent mortality follow-up question */
+		cedcdCohortPage.e5MortalityTextBox.sendKeys("4200");
+		Thread.sleep(5000);
+		
+		/** Saving on section E of the questionnaire */
+		cedcdCohortPage.saveButton.click();
+		Thread.sleep(1000);
+		CucumberLogUtils.logScreenShot();
+		Thread.sleep(1000);
+	}
+
+	@Then("Section E status Circle is green")
+	public void section_E_status_Circle_is_green() {
+	}
+	
 	@When("selects first automated cohort")
 	public void selects_first_automated_cohort() {
 		
@@ -230,10 +543,120 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.SectionFRadioButtons.get(8).click();
 	}
 	
-	
-	
+	@Then("Section G of the Questionnaire is filled out")
+	public void section_G_of_the_Questionnaire_is_filled_out() throws InterruptedException {
+		
+		/** Answering G.1 Blood */
+		cedcdCohortPage.SectionG.click();
+		Thread.sleep(1000);
+		cedcdCohortPage.g1BaselineYesValue.click();
+		cedcdCohortPage.g1SerumBaselineCheckBox.click();
+		cedcdCohortPage.g1BuffyCoatBaselineCheckBox.click();
+		cedcdCohortPage.g1FollowUpYesValue.click();
+		cedcdCohortPage.g1OtherBloodDerivativeFollowUpCheckBox.click();
+		cedcdCohortPage.g1PlasmaFollowUpCheckBox.click();
+		
+		/** Answering G.2 Buccal/Saliva */
+		cedcdCohortPage.g2BaselineRadioYes.click();
+		cedcdCohortPage.g2FollowUpRadioYes.click();
+		
+		/** Answering G.3 Tissue (include tumor and/or normal) */
+		cedcdCohortPage.g3BaselineRadioYes.click();
+		cedcdCohortPage.g3FollowUpRadioYes.click();
+		
+		/** Answering G.4 Urine */
+		cedcdCohortPage.g4BaselineRadioYes.click();
+		cedcdCohortPage.g4FollowUpRadioYes.click();
+		
+		/** Answering G.5 Feces */
+		cedcdCohortPage.g5BaselineRadioYes.click();
+		cedcdCohortPage.g5FollowUpRadioYes.click();
+		
+		/** Answering G.6 Other (e.g. toenails) */
+		cedcdCohortPage.g6BaselineRadioYes.click();
+		cedcdCohortPage.g6BaselineTextBox.sendKeys("Answering G6 Baseline Other Text Box");
+		
+		cedcdCohortPage.g6FollowUpRadioYes.click();
+		cedcdCohortPage.g6FollowUpTextBox.sendKeys("Answering G6 Follow Up Other Text Box");
+		
+		/** Answering G.7 Did you collect repeated samples over multiple timepoints for the same individuals? */
+		cedcdCohortPage.g7RadioYes.click();
+		
+		/** Answering G.8 If your cohort does not currently collect tumor blocks, do you have information on where the blocks are kept/stored? */
+		cedcdCohortPage.g8RadioYes.click();
+		
+		/** Switching to Additional Data Collected tab */
+		cedcdCohortPage.additionalDataCollectedTab.click();
+		
+		/** Answering G.9 Genotyping Data (SNP) */
+		cedcdCohortPage.g9RadioYes.click();
+		
+		/** Answering G.10 Sequencing Data – Exome */
+		cedcdCohortPage.g10RadioYes.click();
+		Thread.sleep(1000);
+		
+		/** Answering G.11 Sequencing Data – Whole Genome */
+		cedcdCohortPage.g11RadioYes.click();
+		Thread.sleep(1000);
+		
+		/** Answering G.12 Epigenetic Data (methylation, miRNA, histone chip-on-chip data) */
+		cedcdCohortPage.g12RadioYes.click();
+		
+		/** Answering G.13 Transcriptomics Data */
+		cedcdCohortPage.g13RadioYes.click();
+		
+		/** Answering G.14 Microbiome Data (16S RNA, metagenomics) */
+		cedcdCohortPage.g14RadioYes.click();
+		
+		/** Switching to Metabolomics Data tab */
+		cedcdCohortPage.metabolicDataTab.click();
+		
+		/** Answering G.15 Metabolomic Data (from MS and/or NMR).  If answered Yes, the remainder of the questionnaire (G15a-G15i) is required.  If answered no, then you can just save the questionnaire */
+		cedcdCohortPage.g15RadioYes.click();
+		
+		/** Answering G.15a Are the biospecimens collected fasting samples? */
+		cedcdCohortPage.g15ARadioYes.click();
+		
+		/** Answering G.15b What are the disease outcome(s) in your study?* (Select all that apply) */
+		cedcdCohortPage.g15BCancerCheckBoxValue.click();
+		cedcdCohortPage.g15BDiabetesCheckBoxValue.click();
+		cedcdCohortPage.g15BOtherSpecifyCheckBoxValue.click();
+		cedcdCohortPage.g15BOtherSpecifyTextBoxValue.sendKeys("Answering G15b's Other, Specify text box");
+		
+		/** Answering G.15c Are you a member of the Consortium of Metabolomics Studies (COMETS)? */
+		
+		JavascriptUtils.clickByJS(cedcdCohortPage.g15CRadioButtonYes);
+		
+		/** Answering G.15d What is the number of participants with metabolomics data in your study? */
+		cedcdCohortPage.g15DTextBox.sendKeys("4200");
+		
+		/** Answering G.15e Which laboratory or company was used for the analysis? */
+		cedcdCohortPage.g15ETextBox.sendKeys("The NIH laboratories");
+		
+		/** Answering G.15f Which type(s) of analytical platform was used, (e.g., NMR, Orbitrap mass spectrometry, QTOF mass spectrometry)? */
+		cedcdCohortPage.g15FTextBox.sendKeys("QTOF Mass Spectrometry");
+		
+		/** Answering G.15g Which separation platform(s) was used (e.g., GC, HILIC, RPLC, Ion pairing LC)? */
+		cedcdCohortPage.g15GTextBox.sendKeys("Ion pairing LC and HILIC");
+		
+		/** Answering G.15h How many metabolites were measured? */
+		cedcdCohortPage.g15HTextBox.sendKeys("321");
+		
+		/** Answering G.15i What year were samples analyzed? */
+		cedcdCohortPage.g15ITextBox.sendKeys("2000");
+		
+		/** Click on the Biospecimens Counts */
+		cedcdCohortPage.biospecimenCountsTab.click();
+		
+		/** Saving on section G */
+		cedcdCohortPage.saveButton.click();
+		Thread.sleep(20000);
+		}
 
-	
+	@Then("Section G status Circle is green")
+	public void section_G_status_Circle_is_green() {
+	}
+
 
 
 }
