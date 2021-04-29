@@ -1,4 +1,5 @@
 */target/*
 /target/
-src/main/resources/conf/localEnv.properties
 src/main/resources/conf/localConf.properties
+src/main/resources/conf/localEnv.properties
+target/cucumber.json
