@@ -1,6 +1,6 @@
 Feature: Questionnaire
 
-  @Progression
+  
   Scenario Outline: Admin able to add cohort
     Given the user is on the CEDCD homepage
     #When the user is logged in as Admin
@@ -15,6 +15,7 @@ Feature: Questionnaire
     Examples: 
       | Cohort Name             | Cohort Acronym | Notes                         |
       | Second Automated Cohort | SAC            | This Cohort Will Be Automated |
+      
 
   
   Scenario: Cohort Owner logs in and selects cohort
@@ -23,15 +24,23 @@ Feature: Questionnaire
     And the Cohort Owner selects their Cohort questionnaire
     Then Section A of the Questionnaire is filled out
 
+	@Progression
   Scenario: Cohort Owner completes Section B
     Given the user is on the CEDCD homepage
     When the user is logged in as a Cohort Owner
     And the Cohort Owner selects their Cohort questionnaire
     Then Section B of the Questionnaire is filled out
 
-  
+  @Progression
   Scenario: Cohort Owner completes Section D
     Given the user is on the CEDCD homepage
     When the user is logged in as a Cohort Owner
     And the Cohort Owner selects their Cohort questionnaire
     Then Section D of the Questionnaire is filled out
+    
+  @Progression
+  Scenario: Cohort Owner completes Section F
+    Given the user is on the CEDCD homepage
+    When the user is logged in as a Cohort Owner
+    And the Cohort Owner selects their Cohort questionnaire
+    Then Section F of the Questionnaire is filled out
