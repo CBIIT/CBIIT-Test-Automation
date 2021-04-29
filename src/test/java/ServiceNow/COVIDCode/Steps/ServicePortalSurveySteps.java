@@ -333,6 +333,91 @@ public class ServicePortalSurveySteps extends PageInitializer {
 		List<WebElement> values = servicePortalSurveyPage.howDidYouFindOutAboutOurStudyDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(values, howDidYouFindOutAboutStudy);
 	}
+	
+	@Given("a COVIDcode Volunteer Survey has been submitted with zip code {string}")
+	public void a_COVIDcode_Volunteer_Survey_has_been_submitted_with_zip_code(String zipCode) throws TestingException {
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenShot();
+		CommonUtils.waitForClickability(covidCodeLoginPage.volunteerForTheStudyButton);
+		JavascriptUtils.clickByJS(covidCodeLoginPage.volunteerForTheStudyButton);
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenShot();
+		Assert.assertTrue(servicePortalSurveyPage.covidCodeVolunteerSurvey.getText().contains("COVIDcode Volunteer Survey"));
+		System.out.println(servicePortalSurveyPage.covidCodeVolunteerSurvey.getText());
+		CucumberLogUtils.logScreenShot();
+		JavascriptUtils.clickByJS(servicePortalSurveyPage.getStartedButton);
+		MiscUtils.sleep(1000);
+		servicePortalSurveyPage.areYouFillingThisOutForYourselfDropDown.click();
+		List<WebElement> areYouFillingThisOutForYourselValues = servicePortalSurveyPage.areYouFillingThisOutForYourselfDropDownValues;
+		CommonUtils.selectValueFromBootStrapDropDown(areYouFillingThisOutForYourselValues, "Myself");
+		MiscUtils.sleep(1000);
+		servicePortalSurveyPage.haveYouTestedPositiveForSARSCoV2DropDown.click();
+		MiscUtils.sleep(1000);
+		List<WebElement> TestedPositiveForSARSValues = servicePortalSurveyPage.haveYouTestedPositiveForSARSCoV2DropDownValues;
+		CommonUtils.selectValueFromBootStrapDropDown(TestedPositiveForSARSValues, "No");
+		servicePortalSurveyPage.nextButton.click();
+		JavascriptUtils.scrollIntoView(servicePortalSurveyPage.contactInformationTxt);
+		Assert.assertTrue(servicePortalSurveyPage.contactInformationTxt.getText().contains("Contact Information"));
+		System.out.println(servicePortalSurveyPage.contactInformationTxt.getText());
+		servicePortalSurveyPage.firstNameTextBox.sendKeys("TestVolunteerSurvey");
+		servicePortalSurveyPage.lastNameTextBox.sendKeys("Test");
+		servicePortalSurveyPage.phoneNumberTextBox.sendKeys("123-456-7891");
+		servicePortalSurveyPage.emailAddressTextBox.sendKeys("testVolunteerSurvey@test.com");
+		JavascriptUtils.scrollIntoView(servicePortalSurveyPage.preferredMethodOfContactDropDown);
+		servicePortalSurveyPage.preferredMethodOfContactDropDown.click();
+		MiscUtils.sleep(3000);
+		List<WebElement> preferredMethodOfContactValues = servicePortalSurveyPage.preferredMethodOfContactDropDownValues;
+		CommonUtils.selectValueFromBootStrapDropDown(preferredMethodOfContactValues, "Phone");
+		servicePortalSurveyPage.homeZipCodeTextBox.sendKeys(zipCode);
+		MiscUtils.sleep(3000);
+		CucumberLogUtils.logScreenShot();
+		servicePortalSurveyPage.nextButton.click();
+		servicePortalSurveyPage.howDidYouFindOutAboutOurStudyDropDown.click();
+		MiscUtils.sleep(3000);
+		List<WebElement> howDidYouFindOutAboutOurStudyValues = servicePortalSurveyPage.howDidYouFindOutAboutOurStudyDropDownValues;
+		CommonUtils.selectValueFromBootStrapDropDown(howDidYouFindOutAboutOurStudyValues, "I prefer not to answer");
+		servicePortalSurveyPage.submitButton.click();
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenShot();
+		Assert.assertTrue(servicePortalSurveyPage.yourSurveyHasBeenSubmittedTxt.getText().contains("Your survey has been submitted successfully!"));
+		servicePortalSurveyPage.okButton.click();
+		MiscUtils.sleep(2000);	
+	}
+
+	@Then("Study Staff Nurses are able to see the volunteer's submitted zip code {string} in a Inquiry Tracking record in native view")
+	public void study_Staff_Nurses_are_able_to_see_the_volunteer_s_submitted_zip_code_in_a_Inquiry_Tracking_record_in_native_view(String submittedZipCode) throws TestingException {
+		nativeViewLoginImpl.nativeViewLogin();
+		MiscUtils.sleep(2000);
+		nativeViewEnrollementsPage.filterNavigator.sendKeys("COVIDCode Application");
+		MiscUtils.sleep(2000);
+		nativeViewEnrollementsPage.nativeViewPanelNavigatorCovidCodeInquiryTrackingLink.click();
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenShot();
+		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
+		MiscUtils.sleep(2000);
+		CommonUtils.selectDropDownValue(nativeViewEnrollementsPage.covidCodeEnrollmentsSearchDropDown, "contact_email_address");
+		MiscUtils.sleep(2000);
+		nativeViewEnrollementsPage.covidCodeEnrollmentsSearchTextBox.sendKeys("testVolunteerSurvey@test.com");
+		MiscUtils.sleep(2000);
+		CommonUtils.sendKeys(nativeViewEnrollementsPage.covidCodeEnrollmentsSearchTextBox,Keys.RETURN);
+		MiscUtils.sleep(1000);
+		JavascriptUtils.clickByJS(nativeViewSentViewPage.nativeViewPreviewVerifyEmailIcon);
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenShot();
+		CommonUtils.click(nativeViewSentViewPage.NativeViewPreviewVerifyEmailOpenRecordButton);
+		MiscUtils.sleep(2000);
+		JavascriptUtils.drawRedBorder(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewZipCode);
+		MiscUtils.sleep(5000);
+		CucumberLogUtils.logScreenShot();
+		Assert.assertEquals(submittedZipCode,nativeViewEnrollmentViewPage.nativeViewEnrollmentViewZipCode.getAttribute("value"));
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenShot();
+		CommonUtils.click(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDeleteTopButton);
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenShot();
+		CommonUtils.click(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDeleteDeleteSubmissionPopUpDeleteButton);	
+	}
 
 
 
