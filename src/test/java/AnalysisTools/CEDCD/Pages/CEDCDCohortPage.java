@@ -1,7 +1,5 @@
 package AnalysisTools.CEDCD.Pages;
 
-
-import java.util.ArrayList;
 import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -457,8 +455,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//input[@id='seStatusFollowUp_1']")
 	public WebElement c1FollowUpYesRadio;
 
-	/** =================================== */
-
 	/** C.2 Education Level Baseline No Value */
 	@FindBy(xpath = "//input[@id='educationBaseLine_0']")
 	public WebElement c2BaselineNoRadio;
@@ -474,8 +470,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** C.2 Education Level Follow Up Yes Value */
 	@FindBy(xpath = "//input[@id='educationFollowUp_1']")
 	public WebElement c2FollowUpYesRadio;
-
-	/** =================================== */
 
 	/** C.3 Marital Status Baseline No Value */
 	@FindBy(xpath = "//input[@id='maritalStatusBaseLine_0']")
@@ -493,8 +487,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//input[@id='maritalStatusFollowUp_1']")
 	public WebElement c3FollowUpYesRadio;
 
-	/** =================================== */
-
 	/** C.4 Language/Country of Origin Baseline No Value */
 	@FindBy(xpath = "//input[@id='originBaseLine_0']")
 	public WebElement c4BaselineNoRadio;
@@ -511,8 +503,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//input[@id='originFollowUp_1']")
 	public WebElement c4FollowUpYesRadio;
 
-	/** =================================== */
-
 	/** C.5 Employment Status Baseline No Value */
 	@FindBy(xpath = "//input[@id='empStatusBaseLine_0']")
 	public WebElement c5BaselineNoRadio;
@@ -520,7 +510,7 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** C.5 Employment Status Baseline Yes Value */
 	@FindBy(xpath = "//input[@id='empStatusBaseLine_1']")
 	public WebElement c5BaselineYesRadio;
-
+	
 	/** C.5 Employment Status Follow Up No Value */
 	@FindBy(xpath = "//input[@id='empStatusFollowUp_0']")
 	public WebElement c5FollowUpNoRadio;
@@ -528,8 +518,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** C.5 Employment Status Follow Up Yes Value */
 	@FindBy(xpath = "//input[@id='empStatusFollowUp_1']")
 	public WebElement c5FollowUpYesRadio;
-
-	/** =================================== */
 
 	/** C.6 Health Insurance Status Baseline No Value */
 	@FindBy(xpath = "//input[@id='insuranceStatusBaseLine_0']")
@@ -546,8 +534,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** C.6 Health Insurance Status Follow Up Yes Value */
 	@FindBy(xpath = "//input[@id='insuranceStatusFollowUp_1']")
 	public WebElement c6FollowUpYesRadio;
-
-	/** =================================== */
 
 	/**
 	 * C.7 Anthropometry (e.g., weight, height, waist circumference) Baseline No
@@ -576,8 +562,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	 */
 	@FindBy(xpath = "//input[@id='anthropometryFollowUp_1']")
 	public WebElement c7FollowUpYesRadio;
-
-	/** =================================== */
 
 	/** C.8 Dietary Intake Baseline No Value */
 	@FindBy(xpath = "//input[@id='dietaryBaseLine_0']")
@@ -1145,7 +1129,7 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** c. COPD and/or Emphysema Follow Up Yes value */
 	@FindBy(xpath = "//input[@id = 'copdFollowUp_1']")
 	public WebElement c31COPDFollowUpYesRadio;
-
+	
 	/** d. Cardiovascular Disease Baseline No value */
 	@FindBy(xpath = "//input[@id = 'cardiovascularBaseLine_0']")
 	public WebElement c31CardiovascularBaselineNoRadio;
@@ -1240,6 +1224,38 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//input[@name='cancerOtherSpecify']")
 	public WebElement c32CancerOtherSpecifyTextbox;
 	
+	/** =============== Questionnaire Section B ================= */
+	
+	/** Enrollment Date **/
+	@FindBy(xpath = "(//*[@type='text'])[6]")
+	public WebElement enrollmentDateBox; 
+	
+	/** =============== Questionnaire Section D ================= */
+	
+	@FindBy(xpath = "//*[@class='cedcd-btn']")
+	public WebElement cancerInformationTab; 
+	
+	@FindBy(xpath = "//*[@id='ci_confirmed_cancer_date']")
+	public WebElement d2AscertainedDateTextBox; 
+	
+	@FindBy(xpath = "//*[@type='checkbox']")
+	public List<WebElement> SectionDCheckBoxes;
+	
+	
+	@FindBy(xpath = "//*[@type='radio']")
+	public List<WebElement> SectionDRadioButton;
+	
+	/** =============== Questionnaire Section F ================= */
+	
+	@FindBy(xpath = "//*[@type='radio']")
+	public List<WebElement> SectionFRadioButtons; 
+	
+	@FindBy(xpath = "//*[@class='px-0 col-sm-2']")
+	public WebElement sectionFUploadPdf;
+	
+	@FindBy(xpath = "//*[@name='dataOnlineURL']")
+	public WebElement sectionFWebsiteTextBox;
+
 	/**
 	 * =============================== Questionnaire Section E
 	 * ===================================
@@ -2515,40 +2531,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** Tumor Tissue FFPE/No Cancer */
 	@FindBy (xpath = "//input[@name='29-7']")
 	public WebElement tumorTissueFFPENoCancerTableValue;
-	
-	/** =============== Questionnaire Section B ================= */
-	
-	/** Enrollment Date **/
-	@FindBy(xpath = "(//*[@type='text'])[6]")
-	public WebElement enrollmentDateBox; 
-	
-	
-	
-	/** =============== Questionnaire Section D ================= */
-	
-	@FindBy(xpath = "//*[@class='cedcd-btn']")
-	public WebElement cancerInformationTab; 
-	
-	@FindBy(xpath = "//*[@id='ci_confirmed_cancer_date']")
-	public WebElement d2AscertainedDateTextBox; 
-	
-	@FindBy(xpath = "//*[@type='checkbox']")
-	public List<WebElement> SectionDCheckBoxes;
-	
-	
-	@FindBy(xpath = "//*[@type='radio']")
-	public List<WebElement> SectionDRadioButton;
-	
-	/** =============== Questionnaire Section F ================= */
-	
-	@FindBy(xpath = "//*[@type='radio']")
-	public List<WebElement> SectionFRadioButtons; 
-	
-	@FindBy(xpath = "//*[@class='px-0 col-sm-2']")
-	public WebElement sectionFUploadPdf;
-	
-	@FindBy(xpath = "//*[@name='dataOnlineURL']")
-	public WebElement sectionFWebsiteTextBox;
 	
 	public CEDCDCohortPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
