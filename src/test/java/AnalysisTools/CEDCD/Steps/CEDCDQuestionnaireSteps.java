@@ -1,14 +1,12 @@
 package AnalysisTools.CEDCD.Steps;
 
 import javax.swing.plaf.basic.BasicArrowButton;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-
 import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -17,7 +15,7 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
+import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
 import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
@@ -27,12 +25,8 @@ import cucumber.api.java.en.When;
 public class CEDCDQuestionnaireSteps extends PageInitializer {
 	
 	@Given("the user is on the CEDCD homepage")
-	public void the_user_is_on_the_CEDCD_homepage() {
-		try {
-			WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
-		} catch (TestingException e) {
-			e.printStackTrace();
-		}
+	public void the_user_is_on_the_CEDCD_homepage() throws TestingException {
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
 	}
 	
 	@When("the user is logged in as Admin")
@@ -190,6 +184,56 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		
 	}
 
+	@When("selects first automated cohort")
+	public void selects_first_automated_cohort() {
+		
+	}
 	
+	@Then("Section B of the Questionnaire is filled out")
+	public void Section_B_of_the_Questionnaire_is_filled_out() {
+		cedcdCohortPage.nextButton.click();
+		cedcdCohortPage.enrollmentDateBox.sendKeys("04/06/2021");
+	}
+	
+	@Then("Section D of the Questionnaire is filled out")
+	public void Section_D_of_the_Questionnaire_is_filled_out() {
+		cedcdCohortPage.nextButton.click();
+		cedcdCohortPage.nextButton.click();
+		cedcdCohortPage.nextButton.click();
+		cedcdCohortPage.cancerInformationTab.click();
+		cedcdCohortPage.d2AscertainedDateTextBox.sendKeys("4/13/2021");
+		cedcdCohortPage.d2AscertainedDateTextBox.sendKeys(Keys.RETURN);
+		cedcdCohortPage.SectionDCheckBoxes.get(0).click();
+		cedcdCohortPage.SectionDRadioButton.get(0).click();
+		cedcdCohortPage.SectionDRadioButton.get(2).click();
+		cedcdCohortPage.SectionDRadioButton.get(4).click();
+		cedcdCohortPage.SectionDRadioButton.get(6).click();
+		cedcdCohortPage.SectionDRadioButton.get(8).click();
+		cedcdCohortPage.SectionDRadioButton.get(10).click();
+		cedcdCohortPage.SectionDRadioButton.get(12).click();
+		cedcdCohortPage.SectionDRadioButton.get(14).click();
+		cedcdCohortPage.SectionDCheckBoxes.get(15).click();
+	}
+	
+	@Then("Section F of the Questionnaire is filled out")
+	public void Section_F_of_the_Questionnaire_is_filled_out() {
+		cedcdCohortPage.nextButton.click();
+		cedcdCohortPage.nextButton.click();
+		cedcdCohortPage.nextButton.click();
+		cedcdCohortPage.nextButton.click();
+		cedcdCohortPage.nextButton.click();
+		cedcdCohortPage.SectionFRadioButtons.get(0).click();
+		cedcdCohortPage.SectionFRadioButtons.get(2).click();
+		cedcdCohortPage.SectionFRadioButtons.get(4).click();
+		cedcdCohortPage.SectionFRadioButtons.get(7).click();
+		cedcdCohortPage.sectionFWebsiteTextBox.sendKeys("https://wordcounter.net/");
+		cedcdCohortPage.SectionFRadioButtons.get(8).click();
+	}
+	
+	
+	
+
+	
+
 
 }
