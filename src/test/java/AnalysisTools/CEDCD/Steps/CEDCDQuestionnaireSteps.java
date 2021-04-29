@@ -1,7 +1,6 @@
 package AnalysisTools.CEDCD.Steps;
 
 
-import javax.swing.plaf.basic.BasicArrowButton;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -91,39 +90,42 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		/** Entering all data required for Cohort the Information tab */
 
 		/** A2 clearing of previous data and completion of section */
-//		cedcdCohortPage.a2TextBox.clear();
-		cedcdCohortPage.a2TextBox.sendKeys("This is an automated test case");
-		Thread.sleep(1000);
+		cedcdCohortPage.a2TextBox.clear();
+		cedcdCohortPage.a2TextBox.sendKeys("This is an automated test case12124234134123432");
+		Thread.sleep(2000);
 
 		/** A3 clearing of previous data and completion of section */
-//		cedcdCohortPage.a3TextBox.clear();
-		cedcdCohortPage.a3TextBox.sendKeys("AgainThisIsAnAutomatedTestCase.com");
-		Thread.sleep(1000);
+		JavascriptUtils.clearByJS(cedcdCohortPage.a3TextBox);
+		cedcdCohortPage.a3TextBox.sendKeys("AgainThisIsAnAutomatedTestCase1213423424324234234234312.com");
+		Thread.sleep(2000);
 
 		/** A4 clearing of previous data and completion of section */
-//		cedcdCohortPage.a4aName.click();
-//		cedcdCohortPage.a4aName.clear();
+		cedcdCohortPage.a4aName.click();
 		JavascriptUtils.clearByJS(cedcdCohortPage.a4aName);
-//		cedcdCohortPage.a4aName.sendKeys("Diego Juarez");
-		Thread.sleep(1000);
+		cedcdCohortPage.a4aName.sendKeys(Keys.BACK_SPACE);
+		cedcdCohortPage.a4aName.sendKeys("Kevin Mata");
+		Thread.sleep(2000);
 
-//		cedcdCohortPage.a4aCohortPosition.click();
-//		cedcdCohortPage.a4aCohortPosition.clear();
-//		JavascriptUtils.clearByJS(cedcdCohortPage.a4aCohortPosition);
-		cedcdCohortPage.a4aCohortPosition.sendKeys("Test Lead");
-		Thread.sleep(10000);
+		cedcdCohortPage.a4aCohortPosition.click();
+		JavascriptUtils.clearByJS(cedcdCohortPage.a4aCohortPosition);
+		cedcdCohortPage.a4aCohortPosition.sendKeys(Keys.BACK_SPACE);
+		cedcdCohortPage.a4aCohortPosition.sendKeys("Test Lead 1234567890");
+		Thread.sleep(2000);
 
-//		cedcdCohortPage.a4aCountryCode.clear();
 		cedcdCohortPage.a4aCountryCode.sendKeys("");
 		Thread.sleep(1000);
 
-//		cedcdCohortPage.a4aPhone.clear();
+		cedcdCohortPage.a4aPhone.click();
+		JavascriptUtils.clearByJS(cedcdCohortPage.a4aPhone);
+		cedcdCohortPage.a4aPhone.sendKeys(Keys.BACK_SPACE);
 		cedcdCohortPage.a4aPhone.sendKeys("1234567890");
 		Thread.sleep(1000);
 
-//		cedcdCohortPage.a4aEmail.clear();
-		cedcdCohortPage.a4aEmail.sendKeys("diego.juarezz@mail.com");
-		Thread.sleep(1000);
+		cedcdCohortPage.a4aEmail.click();
+		JavascriptUtils.clearByJS(cedcdCohortPage.a4aEmail);
+		cedcdCohortPage.a4aEmail.sendKeys(Keys.BACK_SPACE);
+		cedcdCohortPage.a4aEmail.sendKeys("diego.juarez@mail12345678900987654321.com");
+		Thread.sleep(8000);
 
 		cedcdCohortPage.a4bRadioButtonNo.click();
 
@@ -472,7 +474,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.e2NDICheckBox.click();
 		cedcdCohortPage.e2OtherCheckBox.click();
 		cedcdCohortPage.e2OtherTextBox.sendKeys("With death certificates");
-		
+		Thread.sleep(5000);		
 		/** Sending answers for E3 */
 		cedcdCohortPage.e3RadioYes.click();
 		
