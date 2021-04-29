@@ -14,7 +14,6 @@
 
 	<dependencies>
 
-
 		<!-- Remote WebDriver dependencies -->
 		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
 		<dependency>
@@ -221,7 +220,6 @@
 				<version>3.0.0-M4</version>
 				<configuration>
 					<includes>
-						 
 					</includes>
 					<testFailureIgnore>true</testFailureIgnore> <!-- to get report even when fails -->
 				</configuration>
