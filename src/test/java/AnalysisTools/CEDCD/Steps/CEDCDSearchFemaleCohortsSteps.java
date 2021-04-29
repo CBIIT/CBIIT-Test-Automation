@@ -6,6 +6,7 @@ import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import junit.framework.Assert;
 
 public class CEDCDSearchFemaleCohortsSteps extends PageInitializer {
 
@@ -24,6 +25,7 @@ public class CEDCDSearchFemaleCohortsSteps extends PageInitializer {
 
 	}
 
+
 	@When("the user filters by females")
 	public void the_user_filters_by_females() {
 
@@ -31,11 +33,13 @@ public class CEDCDSearchFemaleCohortsSteps extends PageInitializer {
 
 	}
 
-	@Then("{int} results return for Female Cohort Filter Result")
-	public void results_return_for_Female_Cohort_Filter_Result(int numberOfFemalesReturned) {
-
-		cedcdSearchFemaleCohortsStepImp.femaleResultsReturnedWithRedBorderScreenshot();
-
+	@Then("the results returned are for Female or All Cohorts")
+	public void the_results_returned_are_for_Female_or_All_Cohorts() {
+		
+		cedcdSearchFemaleCohortsStepImp.comparingResultsReturnedtoFemaleAndAllValues();
+		
+//		System.out.println(cedcdSearchCohortsPage.returnedResultsForFemaleFilter);
+		
 	}
 
 }
