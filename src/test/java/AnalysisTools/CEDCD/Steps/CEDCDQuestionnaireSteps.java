@@ -1,14 +1,12 @@
 package AnalysisTools.CEDCD.Steps;
 
 import javax.swing.plaf.basic.BasicArrowButton;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-
 import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -17,10 +15,7 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
-
 import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
-
 import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
@@ -189,7 +184,6 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		
 	}
 
-	
 	@When("selects first automated cohort")
 	public void selects_first_automated_cohort() {
 		
@@ -240,5 +234,6 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	
 
 	
+
 
 }
