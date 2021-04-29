@@ -38,8 +38,8 @@
 			<version>3.141.59</version>
 		</dependency>
 
-		<!-- appium libraries -->
 
+		<!-- appium libraries -->
 		<dependency>
 			<groupId>io.appium</groupId>
 			<artifactId>java-client</artifactId>
@@ -220,7 +220,6 @@
 				<version>3.0.0-M4</version>
 				<configuration>
 					<includes>
-						 <include>**/RunCOVIDDashRegressionTest.java</include>
 					</includes>
 					<testFailureIgnore>true</testFailureIgnore> <!-- to get report even when fails -->
 				</configuration>

@@ -14,4 +14,5 @@ public class PasswordEncrypter {
 		System.out.println(EncryptionUtils.encrypt(pwd));
 
 	}
+
 }
