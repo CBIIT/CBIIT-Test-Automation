@@ -91,7 +91,6 @@ public class WebDriverUtils {
 				if (headless.equalsIgnoreCase("true")) {
 					chromeOptions.setHeadless(true);
 					webDriver = new ChromeDriver(chromeOptions);
-					webDriver.manage().window().maximize();
 				} else {
 					webDriver = new ChromeDriver(chromeOptions);
 					System.out.println(chromeOptions.getVersion());
@@ -139,8 +138,10 @@ public class WebDriverUtils {
 		long implicitWaitInSeconds = Long.valueOf(LocalConfUtils.getProperty("implicitWaitInSeconds"));
 		webDriver.manage().timeouts().implicitlyWait(implicitWaitInSeconds, TimeUnit.SECONDS);
 
-		if(!Constants.BROWSER_MOBILE.equalsIgnoreCase(browser))
-		{ webDriver.manage().window().maximize();}
+		if(!Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)){ 
+			webDriver.manage().window().maximize();
+			
+		}
 
 		return webDriver;
 	}
@@ -160,7 +161,6 @@ public class WebDriverUtils {
 			if (osName.contains("Mac")) {
 				//System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH);
 				WebDriverManager.chromedriver().setup();
-				webDriver.manage().window().maximize();
 			} else if (osName.contains("Window")) {
 				//System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH + GET_EXE);
 				WebDriverManager.chromedriver().operatingSystem(OperatingSystem.WIN).setup();
@@ -209,6 +209,7 @@ public class WebDriverUtils {
 			}
 
 		}
+		webDriver.manage().window().maximize();
 	}
 
 	/**
