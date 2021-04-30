@@ -26,12 +26,14 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	@Given("the user is on the CEDCD homepage")
 	public void the_user_is_on_the_CEDCD_homepage() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
+		CucumberLogUtils.logScreenShot();
 	}
 	
 	@Given("a Admin user adds a Cohort Study linked to Cohort Owner")
 	public void a_Admin_user_adds_a_Cohort_Study_linked_to_Cohort_Owner() throws TestingException {
-		MiscUtils.sleep(2000);
-		cedcdAdminPage.nihLoginBtn.click();
+		MiscUtils.sleep(3000);
+		JavascriptUtils.clickByJS(cedcdAdminPage.nihLoginBtn);
+		//cedcdAdminPage.nihLoginBtn.click();
 		loginImpl.shomirITrustLogin();
 		cedcdAdminPage.addNewCohortlnk.click();
 		cedcdAdminPage.cohortNameTxtBox.sendKeys("Automated_TestCohort_Name "+ CommonUtils.date);
