@@ -36,9 +36,12 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(cedcdAdminPage.nihLoginBtn);
 		//cedcdAdminPage.nihLoginBtn.click();
 		loginImpl.shomirITrustLogin();
+		MiscUtils.sleep(2000);
 		cedcdAdminPage.addNewCohortlnk.click();
+		MiscUtils.sleep(2000);
 		cedcdAdminPage.cohortNameTxtBox.sendKeys("Automated_TestCohort_Name "+ CommonUtils.date);
 		cedcdAdminPage.cohortAcroynmTxtBox.sendKeys("Automated_TestCohort_Acronym "+ CommonUtils.date);
+		MiscUtils.sleep(2000);
 		cedcdAdminPage.cohortOwnerDownArrow.click();
 		cedcdAdminPage.cohortOwnerTxtBox.sendKeys("Diego");
 		cedcdAdminPage.cohortOwnerTxtBox.sendKeys(Keys.RETURN);
@@ -60,6 +63,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	@When("selects linked Cohort")
 	public void selects_linked_Cohort() {
 		//ADD TO PAGES CLASS - CLICKING ON DROP DOWN
+		MiscUtils.sleep(2000);
 		WebDriverUtils.webDriver.findElement(By.xpath("//div[@class=' css-yk16xz-control']")).click();
 		MiscUtils.sleep(3000);
 		//INPUT LOCATOR TO SEND TEXT TO DROP DOWN TEXT BOX
@@ -80,71 +84,117 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 
 		/** A4 clearing of previous data and completion of section */
 		//cedcdCohortPage.a4aName.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a4aName.sendKeys("Kevin Mata");
 		//cedcdCohortPage.a4aCohortPosition.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a4aCohortPosition.sendKeys("Test Lead");
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a4aCountryCode.sendKeys("");
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		//cedcdCohortPage.a4aPhone.click();
 		cedcdCohortPage.a4aPhone.sendKeys("7036875816");
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		//cedcdCohortPage.a4aEmail.click();
 		cedcdCohortPage.a4aEmail.sendKeys("diego.juarez@mail.com");
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a4bRadioButtonNo.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a4bName.sendKeys("Kevin Mata");
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a4bCohortPosition.sendKeys("Tester");
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a4bCountryCode.sendKeys("");
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a4bPhone.sendKeys("7031112345");
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a4bEmail.sendKeys("kevinmata@mail.com");
+		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 
 		/** Entering all data for the Principal Investigators tab */
 		cedcdCohortPage.principalInvestigatorTab.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a5InvestigatorsName.sendKeys("Shomir Uddin");
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a5InvestigatorsInstitution.sendKeys("National Cancer Institute");
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a5InvestigatorsEmails.sendKeys("Shomir.Uddinn@mail.com");
+		MiscUtils.sleep(2000);
 		
 		/** A6 Selecting same as 4a checkbox */
 		cedcdCohortPage.sameAs4aCheckbox.click();
+		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 
 		/** Entering all data for the Eligibility and Enrollments tab */
 		cedcdCohortPage.eligibilityAndEnrollmentTab.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.eligibleSexAllValue.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.baselinePopulationCheckbox.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.baselinePopulationTextbox.sendKeys("Automated test case in Progress");
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.eligibilityDiseaseOtherSpecifyTextbox.sendKeys("Diabetes");
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.enrollmentTotal.sendKeys("17");
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.startedInYear.sendKeys("1996");
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.enrollmentOngoingYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.targetNumberPlannedToEnroll.sendKeys("20000");
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.targetCountCompletionYear.sendKeys("2025");
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.enrollmentAgeMin.sendKeys("18");
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.enrollmentAgeMax.sendKeys("45");
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.enrollmentMedianAge.sendKeys("24");
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.enrollmentMeanAge.sendKeys("25");
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.currentAgeMin.sendKeys("35");
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.currentAgeMax.sendKeys("65");
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.currentMedianAge.sendKeys("45");
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.currentMeanAge.sendKeys("43");
+		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 
 		/** Entering all data for the Recruitment tab*/
 		cedcdCohortPage.recruitmentTab.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.questionnaireFrequency.sendKeys("Monthly");
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.mostRecentYear.sendKeys("2018");
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a11PhoneInterview.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a11AdministeredViaWebBasedDevice.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a11otherPleaseSpecify.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a11otherPleaseSpecifyTextbox.sendKeys("A11 Automated Key Presses");
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a12RequireIRBApproval.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a12LinkingOtherDatabases.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a12OtherPleaseSpecify.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a12OtherPleaseSpecifyTextbox.sendKeys("A12 Automated Key Presses");
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a13AdvisoryCommittees.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a13GeneticVariantsBloodPressure.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a13OtherPleaseSpecify.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a13OtherPleaseSpecifyTextbox.sendKeys("A13 Automated Key Presses");
 		CucumberLogUtils.logScreenShot();
 
@@ -155,6 +205,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		/** Saving sections and proceeding to next section */
 		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(cedcdCohortPage.saveAndContinueButton);
+		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cedcdCohortPage.saveAndContinueButton);
 		//cedcdCohortPage.saveAndContinueButton.click();
 		CucumberLogUtils.logScreenShot();
@@ -162,196 +213,284 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		/** Selecting enrollment date for section B */
 		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(cedcdCohortPage.enrollmentDateBox);
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.enrollmentDateBox.sendKeys("04/06/2021");
 		CucumberLogUtils.logScreenShot();
 		
 		/** Saving sections and proceeding to next section */
 		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(cedcdCohortPage.saveAndContinueButton);
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.saveAndContinueButton.click();
 				
 		/** C1 radio buttons filled out */
 		MiscUtils.sleep(3000);
 		cedcdCohortPage.c1BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c1FollowUpYesRadio.click();
 
 		/** C2 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c2BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c2FollowUpYesRadio.click();
 
 		/** C3 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c3BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c3FollowUpYesRadio.click();
 
 		/** C4 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c4BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c4FollowUpYesRadio.click();
 
 		/** C5 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c5BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c5FollowUpYesRadio.click();
 
 		/** C6 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c6BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c6FollowUpYesRadio.click();
 
 		/** C7 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c7BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c7FollowUpYesRadio.click();
 
 		/** C8 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c8BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c8FollowUpYesRadio.click();
 
 		/** C9 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c9BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c9FollowUpYesRadio.click();
 
 		/** C10 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c10BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c10FollowUpYesRadio.click();
 		CucumberLogUtils.logScreenShot();
 
 		/** C11 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c11BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c11FollowUpYesRadio.click();
 
 		/** C12 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c12BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c12FollowUpYesRadio.click();
 
 		/** C13 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c13BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c13FollowUpYesRadio.click();
 
 		/** C14 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c14BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c14FollowUpYesRadio.click();
 
 		/** C15 Check box options */
 
 		/** C15 Baseline selected values */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c15CigarBaselineValue.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c15ChewTobaccoBaselineValue.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c15OtherBaselineValue.click();
+		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(cedcdCohortPage.c15OtherBaselineTextBox, "C15 Baseline Text Box Test");
 
 		/** C15 Follow Up selected values */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c15PipesFollowUpValue.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c15ECigarettesFollowUpValue.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c15OtherFollowUpValue.click();
+		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(cedcdCohortPage.c15OtherFollowUpTextBox, "C15 Follow Up Text Box Test");
 
 		/** C16 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c16BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c16FollowUpYesRadio.click();
+		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 
 		/** C17 radio buttons filled out */
 		cedcdCohortPage.c17BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c17FollowUpYesRadio.click();
 
 		/** C18 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c18BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c18FollowUpYesRadio.click();
 
 		/** C19 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c19BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c19FollowUpYesRadio.click();
 
 		/** C20 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c20BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c20FollowUpYesRadio.click();
 
 		/** C21 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c21BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c21FollowUpYesRadio.click();
 
 		/** C22 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c22BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c22FollowUpYesRadio.click();
 
 		/** C23 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c23BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c23FollowUpYesRadio.click();
 
 		/** C24 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c24BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c24FollowUpYesRadio.click();
 
 		/** C25 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c25BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c25FollowUpYesRadio.click();
 
 		/** C26 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c26BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c26FollowUpYesRadio.click();
+		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 
 		/** C27 radio buttons filled out */
 		cedcdCohortPage.c27BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c27FollowUpYesRadio.click();
 
 		/** C28 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c28BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c28FollowUpYesRadio.click();
 
 		/** C29 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c29BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c29FollowUpYesRadio.click();
 
 		/** C30 radio buttons filled out */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c30BaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c30FollowUpYesRadio.click();
 		CucumberLogUtils.logScreenShot();
 		
 		/** Clicking the Other Medical Conditions tab for section C */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.otherMedicalConditionsTab.click();
 		
 		/** C31 filling out all of the radio buttons for tab */
 		
 		/** Diabetes Yes selection for baseline and follow ups */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c31DiabetesBaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c31DiabetesFollowUpYesRadio.click();
 		
 		/** Stroke Yes selection for baseline and follow ups */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c31StrokeBaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c31StrokeFollowUpYesRadio.click();
 		
 		/** COPD and/or Emphysema Yes selection for baseline and follow ups */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c31COPDBaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c31COPDFollowUpYesRadio.click();
 		
 		/** Cardiovascular Disease Yes selection for baseline and follow ups */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c31CardiovascularBaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c31CardiovascularFollowUpYesRadio.click();
 		
 		/** Osteoporosis Yes selection for baseline and follow ups */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c31OsteoporosisBaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c31OsteoporosisFollowUpYesRadio.click();
 		
 		/** Mental Health Yes selection for baseline and follow ups */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c31MentalHealthBaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c31MentalHealthFollowUpYesRadio.click();
 		
 		/** Cognitive Decline Yes selection for baseline and follow ups */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c31CognitiveDeclineBaselineYesRadio.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c31CognitiveDeclineFollowUpYesRadio.click();
 		CucumberLogUtils.logScreenShot();
 		
 		/** Clicking the Cancer Related Conditions tab for section C */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.cancerRelatedConditionsTab.click();
 		
 		/** C32 filling out selected check boxes and text boxes */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c32CancerToxicityCheckbox.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c32CancerLateEffectsCheckbox.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.c32CancerOtherCheckbox.click();
+		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(cedcdCohortPage.c32CancerOtherSpecifyTextbox, "C32 Text Box Test");
 		CucumberLogUtils.logScreenShot();
 		
 		/** Saving sections and proceeding to next section */
 		MiscUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(cedcdCohortPage.saveAndContinueButton);
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.saveAndContinueButton.click();
 		
 		/** Filling out Section D */
