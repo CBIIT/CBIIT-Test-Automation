@@ -52,7 +52,8 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	@When("a Cohort Owner logs in")
 	public void a_Cohort_Owner_logs_in() throws TestingException {
 		MiscUtils.sleep(3000);
-		cedcdAdminPage.nihLoginBtn.click();
+		JavascriptUtils.clickByJS(cedcdAdminPage.nihLoginBtn);
+		//cedcdAdminPage.nihLoginBtn.click();
 		loginImpl.loginToITrust();
 	}
 
