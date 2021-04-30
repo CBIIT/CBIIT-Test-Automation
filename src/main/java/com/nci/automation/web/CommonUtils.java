@@ -419,6 +419,8 @@ public class CommonUtils extends WebDriverUtils {
 		dateAsString = dateAsString.replaceAll("[^A-Za-z0-9]", "");
 		return dateAsString;
 	}
+	
+	public static String date = getDateAsString();
 
 	
 	/**
