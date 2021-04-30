@@ -536,7 +536,6 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		cedcdCohortPage.saveButton.click();
 		MiscUtils.sleep(3000);
-		cedcdCohortPage.submitForReviewButton.click();
 		}
 	
 
