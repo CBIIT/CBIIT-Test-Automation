@@ -161,16 +161,12 @@ public class WebDriverUtils {
 			if (osName.contains("Mac")) {
 				//System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH);
 				WebDriverManager.chromedriver().setup();
-				webDriver = new ChromeDriver();
-				webDriver.manage().window().maximize();
 			} else if (osName.contains("Window")) {
 				//System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH + GET_EXE);
 				WebDriverManager.chromedriver().operatingSystem(OperatingSystem.WIN).setup();
 			}else if (osName.contains("Linux")) {
 				//System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH + GET_LINUX);
 				WebDriverManager.chromedriver().operatingSystem(OperatingSystem.LINUX).setup();
-				webDriver = new ChromeDriver();
-				webDriver.manage().window().maximize();
 			}
 
 		} else if (browser.equalsIgnoreCase(Constants.BROWSER_IE)) {
