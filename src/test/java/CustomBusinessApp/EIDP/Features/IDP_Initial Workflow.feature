@@ -345,7 +345,7 @@ Feature: Regression testing
     And User clicks on yes button of modal
     Then User will click on ok button
     
-    @Regression
+    @Alena1 @Regression
     Scenario Outline: IDP Search request 
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -360,7 +360,7 @@ Feature: Regression testing
     |Trainee First Name|Trainee Last Name|
     |Olga              |Kim              | 
     
-    @Alena2
+    @Alena2 @Regression
     Scenario Outline:IDP Search request specifying  Classification type
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -375,7 +375,7 @@ Feature: Regression testing
     |Employee           |
    
     
-    @Alena3
+    @Alena3  @Regression
     Scenario Outline:IDP Search request specifying  Training Organization and Training Lab, Branch, or Office
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -386,10 +386,10 @@ Feature: Regression testing
     And User will verify first page search results of "<Training Organization>"
     Examples: Training Organization 
     |Training Organization|
+    |CCR                  |
     |CBIIT                |
-   
     
-    @Alena4
+    @Alena4 @Regression
     Scenario Outline: IDP Search Request by selecting Primary Mentor
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -403,19 +403,7 @@ Feature: Regression testing
     |Ali Abazeed   |
     
 
-    #blocker  
-    @Alena5 @Inprogress 
-    Scenario Outline: IDP Search Request by adding an advanced search
-    #Given User opens nih application in browser
-    When User will login to the application as "nekrashevicha2" user
-    And Logged in user changes the user to "Ginsburg,Erika"
-    And User will click on search in dashboard
-    And User will select "<Primary Mentor>" as Primary Mentor
-    And User will click Search button
-    Then User will verify expected result as "<Primary Mentor>"
-    Examples:Advanced Search Options
-    |Primary Mentor|
-    |Ali Abazeed   |
+
 
     @Alena6 @GloriaCalllowaySearch
     Scenario Outline: IDP Search request as Gloria Calloway specifying a full name
