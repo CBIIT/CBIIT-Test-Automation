@@ -48,7 +48,7 @@ public class SearchStepImpl extends PageInitializer {
 	public void selectClassificationType(String type) {
 		CommonUtils.click(searchPage.classificationTypeInput);
 		WebElement option = WebDriverUtils.getWebDriver().findElement(
-				By.xpath("//*[@id='select2-trainee-classifications-results']//title[text()=\"" + type + "\"]"));
+				By.xpath("//*[@id='select2-trainee-classifications-results']//li[text()=\"" + type + "\"]"));
 		CommonUtils.click(option);
 		CommonUtils.click(searchPage.trainneLastName);
 		CommonUtils.click(searchPage.searchButton);
@@ -410,8 +410,9 @@ public class SearchStepImpl extends PageInitializer {
 	// verifyListOfWebElements//CBIIT
 	public void verifyTraineeOrganization(String nameOrg) {
 		eidpBasePage.selectOption(searchPage.chooseCBIIT, nameOrg);
-		Assert.fail("Name:" + nameOrg + "does not exist in the list!Verification FAILED!!!");
+		MiscUtils.sleep(3000);
 		clickOnSearchButton();
+		MiscUtils.sleep(3000);
 		List<WebElement> rows = WebDriverUtils.getWebDriver().findElements(By.cssSelector("td.sorting_2"));
 		for (WebElement each : rows) {
 			WebElement nameOrgList = WebDriverUtils.getWebDriver()
@@ -419,6 +420,7 @@ public class SearchStepImpl extends PageInitializer {
 			eidpBasePage.scrollToElement(nameOrgList);
 			if (each.getText().equals(nameOrg)) {
 				Assert.assertTrue(each.getText().equals(nameOrg));
+				MiscUtils.sleep(3000);
 			}
 		}
 

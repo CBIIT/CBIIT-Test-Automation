@@ -1,6 +1,5 @@
 package appsCommon;
 
-
 import com.sun.xml.bind.v2.model.core.ID;
 
 import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
@@ -39,6 +38,8 @@ import CustomBusinessApp.EIDP.StepsImplementation.EIDPLoginStepImpl;
 import CustomBusinessApp.EIDP.StepsImplementation.GeneralInformationStepImpl;
 import CustomBusinessApp.EIDP.StepsImplementation.ProjectRelatedDeliverableStepImpl;
 import CustomBusinessApp.EIDP.StepsImplementation.SearchStepImpl;
+import ServiceNow.AppTracker.Pages.AppTrackerBasePage;
+import ServiceNow.AppTracker.Pages.AppTrackerLogInPage;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
 import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
@@ -133,8 +134,8 @@ public class PageInitializer {
 	/** PLCO instances **/
 	protected static ExploreGWASPage exploreGWASPage;
 	protected static BrowsePhenotypePage browsePhenotypePage;
-    protected static InformationPage informationPage;
-    
+	protected static InformationPage informationPage;
+
 	/** ServiceNow DevOps instances */
 	protected static DevOpsLoginPage devOpsLoginPage;
 	protected static DevOpsNativeViewPage devOpsNativeViewPage;
@@ -142,7 +143,7 @@ public class PageInitializer {
 
 	/** CEDCD instances */
 	protected static CEDCDSearchCohortsPage cedcdSearchCohortsPage;
-	protected static CEDCDAdminPage  cedcdAdminPage;   
+	protected static CEDCDAdminPage cedcdAdminPage;
 	protected static CEDCDCohortPage cedcdCohortPage;
 	protected static CEDCDSearchFemaleCohortsStepImp cedcdSearchFemaleCohortsStepImp;
 	protected static CEDCDSelectAllCohortsStepImp cedcdSelectAllCohortsStepImp;
@@ -153,14 +154,13 @@ public class PageInitializer {
 	protected static CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp cedcdSearchCohortsCategoriesOfDataOfDataSortedStepImp;
 	protected static CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp cedcdBiospecimenCountsAlphabeticalCancerTypeStepImp;
 
-
 	/** SEER instances */
 	protected static SEERLandingPage seerLandingPage;
 	protected static SEERUserRegistrationPage seerUserRegistrationPage;
 	protected static SEERDataAccessRequestPage seerDataAccessRequestPage;
 	protected static NativeViewSentViewPage nativeViewSentViewPage;
 	protected static SEERIncidenceDatabaseDetailsPage seerIncidenceDatabaseDetailsPage;
-	
+
 	/** NERD instances */
 	protected static NERDLoginStepsImplementation nerdLoginStepsImplementation;
 	protected static NERDSubmissionsPage nerdCrsKnowledgeDatabaseSubmissionsPage;
@@ -168,7 +168,7 @@ public class PageInitializer {
 	protected static NativeViewImpersonateUser nativeViewImpersonateUser;
 	protected static NERDDynamicXPATHS nerdDynamicXpaths;
 
-	/** Custom Business App Instances*/
+	/** Custom Business App Instances */
 	protected static AligningExpectationsPage aligningExpectationsPage;
 	protected static DashboardPage eidpDashboardPage;
 	protected static CommonPage eidpCommonPage;
@@ -189,7 +189,10 @@ public class PageInitializer {
 	protected static IDPAwaitingResponsePage iDPAwaitingResponsePage;
 	protected static TraineeReviewPage traineeReviewPage;
 	protected static CoPrimaryMentorPage coPrimaryMentorPage;
-	
+	private static AppTrackerBasePage AppTrackerBasePage;
+	private static ServiceNow.AppTracker.Pages.AppTrackerBasePage appTrackerBasePage;
+	private static AppTrackerLogInPage appTrackerLogInPage;
+
 	public static void initializeAllPages() {
 		// create instances of all pages and assign them to the variables
 		iTrustloginPage = new ITrustLoginPage();
@@ -212,8 +215,8 @@ public class PageInitializer {
 		testAccountResetImpl = new TestAccountResetImpl();
 		servicePortalSurveyPage = new ServicePortalSurveyPage();
 		ldLinkLandingPage = new LDLinkLandingPage();
-		ldLinkHomePage = new LDLinkHomePage(); 
-		exploreGWASPage = new ExploreGWASPage(); 
+		ldLinkHomePage = new LDLinkHomePage();
+		exploreGWASPage = new ExploreGWASPage();
 		charmsHomePage = new CHARMSHomePage();
 		oktaLoginPage = new OKTAloginPage();
 		charmsHomePageImpl = new CHARMSHomePageImp();
@@ -271,5 +274,10 @@ public class PageInitializer {
 		traineeReviewPage = new TraineeReviewPage();
 		coPrimaryMentorPage = new CoPrimaryMentorPage();
 		eidpDashboardStepImpl = new CustomBusinessApp.EIDP.StepsImplementation.DashboardStepImpl();
+
+		appTrackerBasePage = new AppTrackerBasePage();
+		appTrackerLogInPage = new AppTrackerLogInPage();
+		
+
 	}
 }
