@@ -1227,7 +1227,7 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** =============== Questionnaire Section B ================= */
 	
 	/** Enrollment Date **/
-	@FindBy(xpath = "(//*[@type='text'])[6]")
+	@FindBy(xpath = "//*[@placeholder='MM/DD/YYYY']")
 	public WebElement enrollmentDateBox; 
 	
 	/** =============== Questionnaire Section D ================= */
@@ -2531,6 +2531,10 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** Tumor Tissue FFPE/No Cancer */
 	@FindBy (xpath = "//input[@name='29-7']")
 	public WebElement tumorTissueFFPENoCancerTableValue;
+	
+	/** Confirmation for submission pop up button */
+	@FindBy (xpath = "(//button[contains(text(),'Submit')])[3]")
+	public WebElement confirmSubmitPopUpButton;
 	
 	public CEDCDCohortPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
