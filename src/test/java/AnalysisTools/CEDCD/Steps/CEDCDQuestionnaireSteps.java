@@ -41,7 +41,6 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		cedcdAdminPage.cohortNameTxtBox.sendKeys("Automated_TestCohort_Name "+ CommonUtils.date);
 		cedcdAdminPage.cohortAcroynmTxtBox.sendKeys("Automated_TestCohort_Acronym "+ CommonUtils.date);
-		MiscUtils.sleep(2000);
 		cedcdAdminPage.cohortOwnerDownArrow.click();
 		cedcdAdminPage.cohortOwnerTxtBox.sendKeys("Diego");
 		cedcdAdminPage.cohortOwnerTxtBox.sendKeys(Keys.RETURN);
@@ -56,7 +55,6 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	public void a_Cohort_Owner_logs_in() throws TestingException {
 		MiscUtils.sleep(3000);
 		JavascriptUtils.clickByJS(cedcdAdminPage.nihLoginBtn);
-		//cedcdAdminPage.nihLoginBtn.click();
 		loginImpl.loginToITrust();
 	}
 
@@ -75,52 +73,35 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	public void fills_out_all_sections_of_the_questionnaire() {
 	
 		/** Entering all data required for Cohort the Information tab */
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.a2TextBox.sendKeys("This is an automated test case");
-		MiscUtils.sleep(2000);
 
 		/** A3 clearing of previous data and completion of section */
 		cedcdCohortPage.a3TextBox.sendKeys("AnAutomatedTestCase.com");
 
 		/** A4 clearing of previous data and completion of section */
 		//cedcdCohortPage.a4aName.click();
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.a4aName.sendKeys("Kevin Mata");
 		//cedcdCohortPage.a4aCohortPosition.click();
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.a4aCohortPosition.sendKeys("Test Lead");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.a4aCountryCode.sendKeys("");
-		MiscUtils.sleep(2000);
 		//cedcdCohortPage.a4aPhone.click();
 		cedcdCohortPage.a4aPhone.sendKeys("7036875816");
-		MiscUtils.sleep(2000);
 		//cedcdCohortPage.a4aEmail.click();
 		cedcdCohortPage.a4aEmail.sendKeys("diego.juarez@mail.com");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.a4bRadioButtonNo.click();
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.a4bName.sendKeys("Kevin Mata");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.a4bCohortPosition.sendKeys("Tester");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.a4bCountryCode.sendKeys("");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.a4bPhone.sendKeys("7031112345");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.a4bEmail.sendKeys("kevinmata@mail.com");
-		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 
 		/** Entering all data for the Principal Investigators tab */
 		cedcdCohortPage.principalInvestigatorTab.click();
 		MiscUtils.sleep(2000);
 		cedcdCohortPage.a5InvestigatorsName.sendKeys("Shomir Uddin");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.a5InvestigatorsInstitution.sendKeys("National Cancer Institute");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.a5InvestigatorsEmails.sendKeys("Shomir.Uddinn@mail.com");
-		MiscUtils.sleep(2000);
 		
 		/** A6 Selecting same as 4a checkbox */
 		cedcdCohortPage.sameAs4aCheckbox.click();
@@ -131,70 +112,40 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.eligibilityAndEnrollmentTab.click();
 		MiscUtils.sleep(2000);
 		cedcdCohortPage.eligibleSexAllValue.click();
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.baselinePopulationCheckbox.click();
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.baselinePopulationTextbox.sendKeys("Automated test case in Progress");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.eligibilityDiseaseOtherSpecifyTextbox.sendKeys("Diabetes");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.enrollmentTotal.sendKeys("17");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.startedInYear.sendKeys("1996");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.enrollmentOngoingYesRadio.click();
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.targetNumberPlannedToEnroll.sendKeys("20000");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.targetCountCompletionYear.sendKeys("2025");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.enrollmentAgeMin.sendKeys("18");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.enrollmentAgeMax.sendKeys("45");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.enrollmentMedianAge.sendKeys("24");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.enrollmentMeanAge.sendKeys("25");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.currentAgeMin.sendKeys("35");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.currentAgeMax.sendKeys("65");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.currentMedianAge.sendKeys("45");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.currentMeanAge.sendKeys("43");
-		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 
 		/** Entering all data for the Recruitment tab*/
 		cedcdCohortPage.recruitmentTab.click();
 		MiscUtils.sleep(2000);
 		cedcdCohortPage.questionnaireFrequency.sendKeys("Monthly");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.mostRecentYear.sendKeys("2018");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.a11PhoneInterview.click();
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.a11AdministeredViaWebBasedDevice.click();
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.a11otherPleaseSpecify.click();
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.a11otherPleaseSpecifyTextbox.sendKeys("A11 Automated Key Presses");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.a12RequireIRBApproval.click();
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.a12LinkingOtherDatabases.click();
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.a12OtherPleaseSpecify.click();
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.a12OtherPleaseSpecifyTextbox.sendKeys("A12 Automated Key Presses");
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.a13AdvisoryCommittees.click();
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.a13GeneticVariantsBloodPressure.click();
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.a13OtherPleaseSpecify.click();
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.a13OtherPleaseSpecifyTextbox.sendKeys("A13 Automated Key Presses");
 		CucumberLogUtils.logScreenShot();
 
@@ -212,8 +163,8 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		
 		/** Selecting enrollment date for section B */
 		MiscUtils.sleep(3000);
-		//JavascriptUtils.scrollIntoView(cedcdCohortPage.enrollmentDateBox);
-		//MiscUtils.sleep(2000);
+		JavascriptUtils.scrollIntoView(cedcdCohortPage.enrollmentDateBox);
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.enrollmentDateBox.sendKeys("04/06/2021");
 		CucumberLogUtils.logScreenShot();
 		
@@ -226,19 +177,14 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		/** C1 radio buttons filled out */
 		MiscUtils.sleep(3000);
 		cedcdCohortPage.c1BaselineYesRadio.click();
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.c1FollowUpYesRadio.click();
 
 		/** C2 radio buttons filled out */
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.c2BaselineYesRadio.click();
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.c2FollowUpYesRadio.click();
 
 		/** C3 radio buttons filled out */
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.c3BaselineYesRadio.click();
-		MiscUtils.sleep(2000);
 		cedcdCohortPage.c3FollowUpYesRadio.click();
 
 		/** C4 radio buttons filled out */
