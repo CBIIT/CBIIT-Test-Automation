@@ -212,8 +212,8 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		
 		/** Selecting enrollment date for section B */
 		MiscUtils.sleep(3000);
-		JavascriptUtils.scrollIntoView(cedcdCohortPage.enrollmentDateBox);
-		MiscUtils.sleep(2000);
+		//JavascriptUtils.scrollIntoView(cedcdCohortPage.enrollmentDateBox);
+		//MiscUtils.sleep(2000);
 		cedcdCohortPage.enrollmentDateBox.sendKeys("04/06/2021");
 		CucumberLogUtils.logScreenShot();
 		
