@@ -30,6 +30,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	
 	@Given("a Admin user adds a Cohort Study linked to Cohort Owner")
 	public void a_Admin_user_adds_a_Cohort_Study_linked_to_Cohort_Owner() throws TestingException {
+		MiscUtils.sleep(2000);
 		cedcdAdminPage.nihLoginBtn.click();
 		loginImpl.shomirITrustLogin();
 		cedcdAdminPage.addNewCohortlnk.click();
