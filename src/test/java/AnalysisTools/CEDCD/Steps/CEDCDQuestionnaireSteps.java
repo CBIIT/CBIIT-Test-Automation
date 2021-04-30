@@ -153,9 +153,10 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		 * section)
 		 */
 		/** Saving sections and proceeding to next section */
-		MiscUtils.sleep(2000);
+		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(cedcdCohortPage.saveAndContinueButton);
-		cedcdCohortPage.saveAndContinueButton.click();
+		JavascriptUtils.clickByJS(cedcdCohortPage.saveAndContinueButton);
+		//cedcdCohortPage.saveAndContinueButton.click();
 		CucumberLogUtils.logScreenShot();
 		
 		/** Selecting enrollment date for section B */
@@ -165,7 +166,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 		
 		/** Saving sections and proceeding to next section */
-		MiscUtils.sleep(2000);
+		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(cedcdCohortPage.saveAndContinueButton);
 		cedcdCohortPage.saveAndContinueButton.click();
 				
