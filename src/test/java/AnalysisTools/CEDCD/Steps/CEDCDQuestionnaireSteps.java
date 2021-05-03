@@ -73,6 +73,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	public void fills_out_all_sections_of_the_questionnaire() {
 	
 		/** Entering all data required for Cohort the Information tab */
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a2TextBox.sendKeys("This is an automated test case");
 
 		/** A3 clearing of previous data and completion of section */
@@ -146,6 +147,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.a13AdvisoryCommittees.click();
 		cedcdCohortPage.a13GeneticVariantsBloodPressure.click();
 		cedcdCohortPage.a13OtherPleaseSpecify.click();
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.a13OtherPleaseSpecifyTextbox.sendKeys("A13 Automated Key Presses");
 		CucumberLogUtils.logScreenShot();
 
