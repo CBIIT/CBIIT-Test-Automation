@@ -78,7 +78,7 @@ public class SEERLandingPage extends CommonUtils{
 	public WebElement forAllOtherAccountsParagraph;	
 	
 	/** Non-Institutional Accounts email address field*/
-	@FindBy(xpath = "//input[@id = 'userEmail']")
+	@FindBy(xpath = "//input[@type='email']")
 	public WebElement nonInstitutionalAccountsEmailAddressField;
 	
 	/** Non-Institutional Accounts  Continue to Email Verification  button*/
