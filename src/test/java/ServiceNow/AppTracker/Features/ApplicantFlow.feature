@@ -1,3 +1,4 @@
+
 Feature: Regression testing
 @AlenaAppTracker
 Scenario Outline: Verify that the user can enter their basic information when applying for a vacancy
@@ -19,4 +20,5 @@ Then User is on Address page
 Examples:
 |First Name|Middle Name|Last Name|Email Address|Phone Number|Business Phone Number|Doctoral degree|
 |John      |Michael    |Brown    |aa@a.com     |2021234433  |2021113322           |yes            |
+
 
