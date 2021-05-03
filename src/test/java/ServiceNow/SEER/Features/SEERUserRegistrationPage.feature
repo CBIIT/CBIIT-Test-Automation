@@ -1,6 +1,6 @@
 Feature: SEER User Registration Scenarios
 
-  @Smoke @juarezds
+  @Smoke @juarezds @Progression
   Scenario: Verifying Undergraduate or Graduate students get directed to landing page when selecting 'Undergraduate or Graduate Student' for 'Which of these best describe you?' on the SEER Registration Page
     Given a user is on the SEER Data Access landing page
     When the user enters an email address as "test@mail.com" and continues with the email verification for Non-Institutional Accounts

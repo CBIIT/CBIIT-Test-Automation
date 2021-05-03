@@ -90,8 +90,10 @@ public class WebDriverUtils {
 				ChromeOptions chromeOptions = new ChromeOptions();
 				if (headless.equalsIgnoreCase("true")) {
 					chromeOptions.setHeadless(true);
+					chromeOptions.addArguments("--kiosk");
 					webDriver = new ChromeDriver(chromeOptions);
 				} else {
+					chromeOptions.addArguments("--kiosk");
 					webDriver = new ChromeDriver(chromeOptions);
 					System.out.println(chromeOptions.getVersion());
 				}

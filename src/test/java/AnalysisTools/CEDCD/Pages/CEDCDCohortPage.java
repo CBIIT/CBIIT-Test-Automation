@@ -14,16 +14,26 @@ public class CEDCDCohortPage extends CommonUtils {
 	/**========================= Login.gov WebElements =================================*/
 	
 	/** Username for Login.gov */
-	@FindBy (xpath = "//input[@id = 'user_email']")
+	@FindBy(xpath = "//input[@id = 'user_email']")
 	public WebElement cohortUsername;
 	
 	/** Password for Login.gov */
-	@FindBy (xpath = "//input[@id = 'user_password']")
+	@FindBy(xpath = "//input[@id = 'user_password']")
 	public WebElement cohortPassword;
 	
 	/** Sign in button for Login.gov */
-	@FindBy (xpath = "//input[@type='submit']")
+	@FindBy(xpath = "//input[@type='submit']")
 	public WebElement signinButton;
+	
+	/** =============== Cohort Selection  ================= */
+	
+	/** Cohort Selection Down Arrow **/
+	@FindBy(xpath = "//*[@class=' css-tlfecz-indicatorContainer']")
+	public WebElement cohortSelectionDownArrow; 
+	
+	/** Cohort Selection Text Box **/
+	@FindBy(xpath = "//*[@class=' css-1hwfws3']")
+	public WebElement  cohortSelectionTextBox; 
 	
 	
 	/** =============== Questionnaire Section A ================= */
@@ -374,7 +384,7 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** =============== Questionnaire Section B ================= */
 	
 	/** Enrollment Date **/
-	@FindBy(xpath = "(//*[@type='text'])[6]")
+	@FindBy(xpath = "//*[@placeholder='MM/DD/YYYY']")
 	public WebElement enrollmentDateBox; 
 	
 	
