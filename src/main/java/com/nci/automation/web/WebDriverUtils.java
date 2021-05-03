@@ -90,10 +90,8 @@ public class WebDriverUtils {
 				ChromeOptions chromeOptions = new ChromeOptions();
 				if (headless.equalsIgnoreCase("true")) {
 					chromeOptions.setHeadless(true);
-					chromeOptions.addArguments("--kiosk");
 					webDriver = new ChromeDriver(chromeOptions);
 				} else {
-					chromeOptions.addArguments("--kiosk");
 					webDriver = new ChromeDriver(chromeOptions);
 					System.out.println(chromeOptions.getVersion());
 				}
@@ -140,9 +138,9 @@ public class WebDriverUtils {
 		long implicitWaitInSeconds = Long.valueOf(LocalConfUtils.getProperty("implicitWaitInSeconds"));
 		webDriver.manage().timeouts().implicitlyWait(implicitWaitInSeconds, TimeUnit.SECONDS);
 
-//		if(!Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)){ 
-//			webDriver.manage().window().maximize();	
-//		} 
+		if(!Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)){ 
+			webDriver.manage().window().maximize();	
+		} 
 
 		return webDriver;
 	}
