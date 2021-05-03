@@ -17,7 +17,6 @@ public class SEERLandingPageSteps extends PageInitializer {
 
 	@Given("a user is on the SEER Data Access landing page")
 	public void a_user_is_on_the_SEER_Data_Access_landing_page() throws TestingException {
-		WebDriverUtils.getWebDriver();
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SEERDataAccess"));
 		CucumberLogUtils.logScreenShot();
 	}
