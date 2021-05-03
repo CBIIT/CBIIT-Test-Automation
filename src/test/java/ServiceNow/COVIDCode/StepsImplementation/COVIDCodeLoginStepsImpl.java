@@ -19,8 +19,6 @@ public class COVIDCodeLoginStepsImpl extends PageInitializer {
 	    loginImpl.loginToITrust();
 		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(2000);
-		iTrustloginPage.clickSignInButton();
-		MiscUtils.sleep(2000);
 	}
 
 	public void covidCodeStudyHomePage() throws TestingException {
