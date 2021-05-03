@@ -561,9 +561,12 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	@When("submits the Cohort Study for Review")
 	public void submits_the_Cohort_Study_for_Review() {
 		cedcdCohortPage.submitForReviewButton.click();
+		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(3000);	
 		/** Confiriming submission */
 		cedcdCohortPage.confirmSubmitPopUpButton.click();
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenShot();
 	}
 
 	@Then("the Cohort Study Questionnaire is successfully submitted")
