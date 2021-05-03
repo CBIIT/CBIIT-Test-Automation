@@ -142,6 +142,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.a13OtherPleaseSpecify.click();
 		cedcdCohortPage.a13OtherPleaseSpecifyTextbox.sendKeys("A13 Automated Key Presses");
 		CucumberLogUtils.logScreenShot();
+		MiscUtils.sleep(20000);
 
 		/**
 		 * Entering all data for the Documents tab (there is nothing entered in this
