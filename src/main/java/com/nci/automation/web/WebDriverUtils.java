@@ -90,6 +90,7 @@ public class WebDriverUtils {
 				ChromeOptions chromeOptions = new ChromeOptions();
 				if (headless.equalsIgnoreCase("true")) {
 					chromeOptions.setHeadless(true);
+					chromeOptions.addArguments("window-size=1920,1080");
 					webDriver = new ChromeDriver(chromeOptions);
 				} else {
 					webDriver = new ChromeDriver(chromeOptions);
