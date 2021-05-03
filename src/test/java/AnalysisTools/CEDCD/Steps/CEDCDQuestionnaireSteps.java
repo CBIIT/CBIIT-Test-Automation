@@ -140,12 +140,12 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.mostRecentYear.sendKeys("2018");
 		cedcdCohortPage.a11PhoneInterview.click();
 		cedcdCohortPage.a11AdministeredViaWebBasedDevice.click();
-		cedcdCohortPage.a11otherPleaseSpecify.click();
-		cedcdCohortPage.a11otherPleaseSpecifyTextbox.sendKeys("A11 Automated Key Presses");
+		//cedcdCohortPage.a11otherPleaseSpecify.click();
+		//cedcdCohortPage.a11otherPleaseSpecifyTextbox.sendKeys("A11 Automated Key Presses");
 		cedcdCohortPage.a12RequireIRBApproval.click();
 		cedcdCohortPage.a12LinkingOtherDatabases.click();
-		cedcdCohortPage.a12OtherPleaseSpecify.click();
-		cedcdCohortPage.a12OtherPleaseSpecifyTextbox.sendKeys("A12 Automated Key Presses");
+		//cedcdCohortPage.a12OtherPleaseSpecify.click();
+		//cedcdCohortPage.a12OtherPleaseSpecifyTextbox.sendKeys("A12 Automated Key Presses");
 		cedcdCohortPage.a13AdvisoryCommittees.click();
 		cedcdCohortPage.a13GeneticVariantsBloodPressure.click();
 		//cedcdCohortPage.a13OtherPleaseSpecify.click();
