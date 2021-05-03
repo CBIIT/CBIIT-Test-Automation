@@ -85,7 +85,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 
 	@When("the Cohort Owner selects their Cohort questionnaire")
 	public void the_Cohort_Owner_selects_their_Cohort_questionnaire() {
-		
+		cedcdCohortPage.cohortSelectionDownArrow.click();
 	}
 
 	@Then("Section A of the Questionnaire is filled out")
