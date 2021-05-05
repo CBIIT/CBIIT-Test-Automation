@@ -39,7 +39,10 @@ import CustomBusinessApp.EIDP.StepsImplementation.GeneralInformationStepImpl;
 import CustomBusinessApp.EIDP.StepsImplementation.ProjectRelatedDeliverableStepImpl;
 import CustomBusinessApp.EIDP.StepsImplementation.SearchStepImpl;
 import ServiceNow.AppTracker.Pages.AppTrackerBasePage;
-import ServiceNow.AppTracker.Pages.AppTrackerLogInPage;
+import ServiceNow.AppTracker.Pages.LogInPage;
+import ServiceNow.AppTracker.Pages.VacancyManagerUserPage;
+import ServiceNow.AppTracker.StepsImplementation.AppTrackerLogInStepsImpl;
+import ServiceNow.AppTracker.StepsImplementation.VacancyManagerUserStepsImpl;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
 import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
@@ -189,9 +192,13 @@ public class PageInitializer {
 	protected static IDPAwaitingResponsePage iDPAwaitingResponsePage;
 	protected static TraineeReviewPage traineeReviewPage;
 	protected static CoPrimaryMentorPage coPrimaryMentorPage;
-	private static AppTrackerBasePage AppTrackerBasePage;
-	private static ServiceNow.AppTracker.Pages.AppTrackerBasePage appTrackerBasePage;
-	private static AppTrackerLogInPage appTrackerLogInPage;
+	
+	/** Service Now  App Instances**/
+	protected static AppTrackerBasePage appTrackerBasePage;
+	protected static LogInPage appTrackerLogInPage;
+	protected static AppTrackerLogInStepsImpl appTrackerLogInStepsImpl;
+	protected static VacancyManagerUserPage vacancyManagerUserPage;
+	protected static VacancyManagerUserStepsImpl vacancyManagerUserStepsImpl;
 
 	public static void initializeAllPages() {
 		// create instances of all pages and assign them to the variables
@@ -274,10 +281,12 @@ public class PageInitializer {
 		traineeReviewPage = new TraineeReviewPage();
 		coPrimaryMentorPage = new CoPrimaryMentorPage();
 		eidpDashboardStepImpl = new CustomBusinessApp.EIDP.StepsImplementation.DashboardStepImpl();
-
-		appTrackerBasePage = new AppTrackerBasePage();
-		appTrackerLogInPage = new AppTrackerLogInPage();
 		
+		appTrackerLogInPage = new LogInPage();
+		appTrackerBasePage = new AppTrackerBasePage();
+		appTrackerLogInStepsImpl = new AppTrackerLogInStepsImpl();
+		vacancyManagerUserPage = new VacancyManagerUserPage();
+		vacancyManagerUserStepsImpl = new VacancyManagerUserStepsImpl();
 
 	}
 }

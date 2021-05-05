@@ -277,9 +277,10 @@
 	</application>
 	
 <!-- Application ID for AppTracker -->
-	<application id="AppTrackerTestUrl">
+	<application id="AppTracker">
 
-		<login_url>https://service-test.nci.nih.gov/nci-scss.do#/</login_url><!-- add test url -->
+		<login_url>https://service-test.nci.nih.gov/nci-scss.do#/
+		</login_url><!-- add test url -->
 
 		<role name="Role">
 			<user id="regular">
