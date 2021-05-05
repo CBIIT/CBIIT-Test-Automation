@@ -1,6 +1,6 @@
 Feature: COVIDCode Dashboard Scenarios
   
-  Description: this feature file contains scenarios telated to the COVIDCode Dashboard
+  Description: this feature file contains scenarios related to the COVIDCode Dashboard
 
   @Smoke @New @juarezds
   Scenario: Verifying - Start new initial questionnaire button
