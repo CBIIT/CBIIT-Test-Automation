@@ -12,7 +12,7 @@ import appsCommon.PageInitializer;
 public class COVIDCodeLoginStepsImpl extends PageInitializer {
 
 	public void covidCodeServicePortalLogin() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
+	    WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(covidCodeLoginPage.LogInButton);
 		CucumberLogUtils.logScreenShot();
