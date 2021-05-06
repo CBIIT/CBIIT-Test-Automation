@@ -44,7 +44,6 @@ import CustomBusinessApp.EIDP.StepsImplementation.GeneralInformationStepImpl;
 import CustomBusinessApp.EIDP.StepsImplementation.ProjectRelatedDeliverableStepImpl;
 import CustomBusinessApp.EIDP.StepsImplementation.SearchStepImpl;
 import ServiceNow.AppTracker.Pages.AppTrackerBasePage;
-import ServiceNow.AppTracker.Pages.LogInPage;
 import ServiceNow.AppTracker.Pages.VacancyManagerUserPage;
 import ServiceNow.AppTracker.StepsImplementation.AppTrackerLogInStepsImpl;
 import ServiceNow.AppTracker.StepsImplementation.VacancyManagerUserStepsImpl;
