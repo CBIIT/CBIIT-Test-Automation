@@ -12,6 +12,7 @@ public class Constants {
 	public static final String BROWSER_FIREFOX = "firefox";
 	public static final String BROWSER_CHROME = "chrome";
 	public static final String BROWSER_HTML_UNIT_DRIVER = "htmlunitdriver";
+	public static final String BROWSER_SAFARI = "safari";
 	public static final String BROWSER_PHANTOM = "phantomjs";
 	public static final String BROWSER_MOBILE = "mobile";
 	public static final String ANDROID_MOBILE = "android";
