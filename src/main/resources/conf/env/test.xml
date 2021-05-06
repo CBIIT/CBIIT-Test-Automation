@@ -275,14 +275,15 @@
 		</db>
 
 	</application>
-	
-<!-- Application ID for AppTracker -->
+	<!-- Application ID for AppTracker -->
 	<application id="AppTracker">
-
-		<login_url>https://service-test.nci.nih.gov/nci-scss.do#/
+	<login_url>https://service-test.nci.nih.gov/nci-scss.do#/
 		</login_url><!-- add test url -->
 
-		<role name="Role">
+
+
+		<login_url>https://service-test.nci.nih.gov/nci-scss.do#/</login_url><!-- add test url -->
+<role name="Role">
 			<user id="regular">
 				<name>regular</name>
 				<userId></userId><!-- add encrypted test user -->
