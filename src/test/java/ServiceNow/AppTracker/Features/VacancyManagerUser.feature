@@ -1,5 +1,6 @@
 Feature: Vacancy Manager Workflow
-@Satya1Ticket88
+
+@Satya1Ticket88 
 Scenario: verify vacancy description without copy/paste
 Given User is on AppTracker home page
 When User logs in as an NIH Trusted User

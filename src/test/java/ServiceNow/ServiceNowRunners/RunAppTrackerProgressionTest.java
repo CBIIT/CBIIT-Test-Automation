@@ -10,9 +10,9 @@ import cucumber.api.junit.Cucumber;
 		, "junit:target/cucumber.xml"
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/ServiceNow/AppTracker/Features"
-		, glue="ServiceNow.AppTracker.Steps"
+	    , glue="ServiceNow.AppTracker.Steps"		
 		, tags="@Satya1Ticket88"
-		, dryRun = false
+    	, dryRun = false
 		, monochrome=true
 		, strict = true
 		)

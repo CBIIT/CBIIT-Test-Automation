@@ -229,7 +229,7 @@ public class SearchSteps extends PageInitializer {
               searchStepimpl.verifyFirmlyExpectedName(firstName, lastName);
              CommonUtil.waitBrowser(5000);
        }
-       
+
  
        @When("User will select {string} as Classification type")
        public void user_will_select_as_Fellow(String userClassification) {
@@ -242,7 +242,7 @@ public class SearchSteps extends PageInitializer {
        searchStepimpl.verifyFirmlyClassificationType(expectedClassificationType);
  
        }
-       
+
        @When("User will select {string} as Primary Mentor")
        public void user_will_select_as_Primary_Mentor(String nameMentor) {
               searchStepimpl.selectPrimaryMentorName(nameMentor);

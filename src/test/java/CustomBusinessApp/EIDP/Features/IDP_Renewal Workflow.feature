@@ -1,6 +1,6 @@
 Feature: Regression testing
 
-    @InitiatesIDP_Renewal @Regression @Smoke
+  @InitiatesIDP_Renewal @Regression @Smoke
   Scenario: IDP request creates and decline and approve
     ##Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user

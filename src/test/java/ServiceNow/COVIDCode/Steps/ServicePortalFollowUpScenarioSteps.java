@@ -1,7 +1,5 @@
 package ServiceNow.COVIDCode.Steps;
 
-
-
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -33,8 +31,9 @@ public class ServicePortalFollowUpScenarioSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 		servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown.click();
 		MiscUtils.sleep(1000);
-		CommonUtils.selectDropDownValue("User Group 2", servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown);
-	    servicePortalQuestionnairePage.createEnrollmentButton.click();
+		CommonUtils.selectDropDownValue("User Group 2",
+				servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown);
+		servicePortalQuestionnairePage.createEnrollmentButton.click();
 		covidCodeEQPageImpl.requiredDemographicsInfo();
 		JavascriptUtils.scrollIntoView(covidCodeEQPage.enrollmentQuestionnaireSubmitButton);
 		covidCodeEQPage.enrollmentQuestionnaireSubmitButton.click();
@@ -42,7 +41,7 @@ public class ServicePortalFollowUpScenarioSteps extends PageInitializer {
 		covidCodeEQPage.enrollmentQuestionnaireSubmitYesButton.click();
 		MiscUtils.sleep(2000);
 		covidCodeEQPage.COVIDcodeHomeButton.click();
-		MiscUtils.sleep(5000);	
+		MiscUtils.sleep(5000);
 		servicePortalQuestionnairePage.startNewFollowUpButton.click();
 		MiscUtils.sleep(1000);
 		servicePortalQuestionnairePage.enrollmentLookUpPatientIDSearchDropDown.click();
