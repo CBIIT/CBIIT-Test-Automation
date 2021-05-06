@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
-
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -408,8 +407,8 @@ public class CommonUtils extends WebDriverUtils {
 	public static String email = getEmail();
 
 	/**
-	 * Use this method to pass date as a string. You can concatinate with any String
-	 * and get unique name
+	 * Use this method to pass date as a string. You can concatenate with any String
+     * and get unique name
 	 */
 	public static String getDateAsString() {
 		Date date = new Date();
@@ -436,9 +435,7 @@ public class CommonUtils extends WebDriverUtils {
 			}
 		}
 	}
-	
-	
-	/**
+/**
 	 * Use this method to open new tab
 	 */
 	public static void openNewTab () {
@@ -456,3 +453,6 @@ public class CommonUtils extends WebDriverUtils {
 	   }
 	}
 }
+
+
+

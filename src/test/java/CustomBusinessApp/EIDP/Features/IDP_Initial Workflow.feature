@@ -345,7 +345,9 @@ Feature: Regression testing
     And User clicks on yes button of modal
     Then User will click on ok button
     
-    @Alena1 @Regression
+
+
+    @Regression @nekrashevicha2
     Scenario Outline: IDP Search request 
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -360,7 +362,7 @@ Feature: Regression testing
     |Trainee First Name|Trainee Last Name|
     |Olga              |Kim              | 
     
-    @Alena2 @Regression
+    @Regression @nekrashevicha2
     Scenario Outline:IDP Search request specifying  Classification type
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -375,7 +377,8 @@ Feature: Regression testing
     |Employee           |
    
     
-    @Alena3  @Regression
+
+    @Regression @nekrashevicha2
     Scenario Outline:IDP Search request specifying  Training Organization and Training Lab, Branch, or Office
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -389,7 +392,7 @@ Feature: Regression testing
     |CCR                  |
     |CBIIT                |
     
-    @Alena4 @Regression
+   @Regression
     Scenario Outline: IDP Search Request by selecting Primary Mentor
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -404,8 +407,7 @@ Feature: Regression testing
     
 
 
-
-    @Alena6 @GloriaCalllowaySearch
+     @Regression
     Scenario Outline: IDP Search request as Gloria Calloway specifying a full name
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -418,7 +420,7 @@ Feature: Regression testing
     |Trainee First Name|Trainee Last Name|
     |Kate              |Brown            |
     
-    @Alena7 @GloriaCalllowaySearch
+    @Regression 
     Scenario Outline:IDP Search request as Gloria Calloway  specifying  Classification type
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -431,8 +433,8 @@ Feature: Regression testing
     |Fellow             |
     |Employee           |
     |Employee           |
-     
-    @Alena8 @GloriaCalllowaySearch
+    
+    @Regression
     Scenario Outline: Search request as Gloria Calloway specifying NIH SAC
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user

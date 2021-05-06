@@ -10,6 +10,13 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -22,6 +29,8 @@ import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import com.nci.automation.common.Constants;
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -30,6 +39,8 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.github.bonigarcia.wdm.OperatingSystem;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 
 
 /**
@@ -42,6 +53,7 @@ public class WebDriverUtils {
 	private final static Logger logger = Logger.getLogger(WebDriverUtils.class);
 
 	public static WebDriver webDriver;
+
 //	public static final String GET_EXE = ".exe";
 //	public static final String GET_LINUX = "_linux"; 
 
@@ -50,7 +62,6 @@ public class WebDriverUtils {
 	 */
 	@SuppressWarnings("deprecation")
 	public static WebDriver getWebDriver() {  
-
 		String browser = ConfUtils.getProperty("browser");
 		String headless = ConfUtils.getProperty("headless");
 		String avdName = ConfUtils.getProperty("avdName");
@@ -60,7 +71,6 @@ public class WebDriverUtils {
 			setDriverExecutables();
 
 			if(Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
-
 				DesiredCapabilities cap = new DesiredCapabilities();
 				if(platformName.equalsIgnoreCase(Constants.IOS_MOBILE)) {
 					cap.setCapability("deviceName", "iOS");
@@ -69,14 +79,12 @@ public class WebDriverUtils {
 					cap.setCapability(CapabilityType.VERSION, "14");		
 					cap.setCapability("udid", udid );
 					cap.setCapability("automationName", "XCUITest");
-
 				}else {
 					cap.setCapability("deviceName", "Android");
 					cap.setCapability("platformName", "Android");
 					cap.setCapability(CapabilityType.BROWSER_NAME, "Chrome"); 
 					cap.setCapability(CapabilityType.VERSION, "10");		
 					cap.setCapability("avd", avdName );
-
 				}
 				try {
 					webDriver = new AppiumDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), cap);
@@ -126,7 +134,6 @@ public class WebDriverUtils {
 				String[] phantomArgs = new String[] { "--webdriver-loglevel=NONE" }; 
 				capabilities.setCapability(PhantomJSDriverService.PHANTOMJS_CLI_ARGS, phantomArgs);
 				webDriver = new PhantomJSDriver(capabilities);
-				 
 			}else {
 
 				CucumberLogUtils.logFail("Unsupported browser in localConf.properties file! "
@@ -137,10 +144,8 @@ public class WebDriverUtils {
 
 		long implicitWaitInSeconds = Long.valueOf(LocalConfUtils.getProperty("implicitWaitInSeconds"));
 		webDriver.manage().timeouts().implicitlyWait(implicitWaitInSeconds, TimeUnit.SECONDS);
-
 		if(!Constants.BROWSER_MOBILE.equalsIgnoreCase(browser))
 		{ webDriver.manage().window().maximize();}
-
 		return webDriver;
 	}
 
@@ -153,7 +158,7 @@ public class WebDriverUtils {
 
 		System.setProperty(ChromeDriverService.CHROME_DRIVER_LOG_PROPERTY, "true");
 		String browser = ConfUtils.getProperty("browser");
-		String osName = Constants.GET_OS_NAME;
+        String osName = Constants.GET_OS_NAME;
 
 		if (browser.equalsIgnoreCase(Constants.BROWSER_CHROME)) {
 			if (osName.contains("Mac")) {
@@ -166,7 +171,6 @@ public class WebDriverUtils {
 				//System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH + GET_LINUX);
 				WebDriverManager.chromedriver().operatingSystem(OperatingSystem.LINUX).setup();
 			}
-
 		} else if (browser.equalsIgnoreCase(Constants.BROWSER_IE)) {
 
 			if (osName.contains("Mac")) {
@@ -180,7 +184,6 @@ public class WebDriverUtils {
 		
 			WebDriverManager.iedriver().operatingSystem(OperatingSystem.LINUX).setup();
 		}
-
 		} else if (browser.equalsIgnoreCase(Constants.BROWSER_FIREFOX)) {
 
 			if (osName.contains("Mac")) {
@@ -205,10 +208,8 @@ public class WebDriverUtils {
 				
 				WebDriverManager.phantomjs().operatingSystem(OperatingSystem.LINUX).setup();
 			}
-
 		}
 	}
-
 	/**
 	 * This method will close the current web-driver
 	 */
