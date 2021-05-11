@@ -1,5 +1,6 @@
 Feature: Vacancy Manager Workflow
 
+
 @Satya1Ticket88 
 Scenario: verify vacancy description without copy/paste
 Given User is on AppTracker home page
@@ -7,31 +8,23 @@ When User logs in as an NIH Trusted User
 And User should see Vacancy Dashboard Page
 And User clicks on Create Vacancy button
 And User enters the vacancy title
-And User enters vacancy description
-Then User should see the vacancy title & description entered with same format
-
-@Satya2Ticket88
-Scenario: verify vacancy description with copy/paste
-Given User should access the create vacancy form
-And User should be in Basic Vacancy Info section
-When User copy paste text with different format in title
-And User copy paste text with different format in vacancy description
-Then User should see the vacancy title should not be displayed in the same format
-And User should see description field displaying in same format as per source
-Then User  copy the text in different font with highlighted text from source
-And User paste the highlighted text in description field
-Then User verify the text entered in description field is in same font with highlighted text
+Then User should see "Vacancy Description" text as
+ """
+Determines customers’ needs and desires by specifying the research needed to obtain market information.
+Recommends the nature and scope of present and future product lines by reviewing product specifications and requirements; appraising new product ideas and/or product or packaging changes.
+Assesses market competition by comparing the company’s product to competitors’ products.
+   """
 
 @Satya3Ticket89
 Scenario: Verify Letters of Recommendation persistent in Basic Information 
-Given User logged in as a vacancy manager
-When User click on Create Vacancy button
-Then User can see the Create Vacancy form opens
-And User can see recommendation levels showing from 1 to 3
-When User selects recommendation as 2
-And Use navigates to other tab
+Given User is on AppTracker home page
+When User logs in as an NIH Trusted User
+And User clicks on Create Vacancy button
+#And User can see recommendation levels showing from 1 to 3
+And User selects recommendation as 2
+And User clicks Save button
 And User click on Basic Information tab
-Then User can verify the recommendation value showing as 
+Then User can verify the recommendation value showing as 2 on Review and Finalize page
 
 @Satya4Ticket91
 Scenario: Verify create vacancy form
@@ -118,7 +111,7 @@ Then User can see the updated value displays on the text field
 
 @Satya12Ticket101
 Scenario: Verify the Mandatory Statements persistency on clicking other tabs
-Given User logged in to the application with**the Vacancy Manager user role
+Given User logged in to the application with *the Vacancy Manager user role
 And User is on Mandatory Statements page
 When User toggle off the Equal Opportunity Employer button
 And User updates the value in Standards of Conduct/Financial Disclosure and toggle On
