@@ -24,7 +24,7 @@ public class AppTrackerLogInStepsImpl  extends PageInitializer{
 	    CommonUtils.waitForVisibility(loginMainPage);
 	    actions.moveToElement(loginMainPage).perform();
 	    MiscUtils.sleep(3000);
-	    CommonUtils.click(appTrackerLogInPage.NIHTrustedUserLogin);
+	   // CommonUtils.click(appTrackerLogInPage.NIHTrustedUserLogin);
 	    MiscUtils.sleep(3000);
 	   // CommonUtils.sendKeys(nihLoginPage.username, ConfUtils.getProperty(username));
 		//String decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty(password));

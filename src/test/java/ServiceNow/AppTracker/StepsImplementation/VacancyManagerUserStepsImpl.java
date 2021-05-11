@@ -1,5 +1,10 @@
 package ServiceNow.AppTracker.StepsImplementation;
 
+import java.io.File;
+import java.io.FileInputStream;
+
+import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -26,18 +31,33 @@ public class VacancyManagerUserStepsImpl extends PageInitializer {
 		loginImpl.alenaiTrustLogin();
 		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(2000);
+
+	}
+
+	public void verifyVacancyDashboardHeader() throws TestingException {
+		String actualText = vacancyManagerUserPage.vacancyDashboardPageHeader.getText();
+		CucumberLogUtils.logScreenShot();
+		String expectedText = "Vacancy Dashboard";
+		MiscUtils.sleep(2000);
+		Assert.assertEquals("Verifying Vacancy Manager sees Vacancy Dashboard text", expectedText, actualText);
+	}
+
+	//public void enterVacancyDescFromSourceDoc() {
+	    
+		
+	public void selectRecommendationLetter() {
+		JavascriptUtils.scrollDown(7000);
+		CommonUtils.click(vacancyManagerUserPage.lettersOfRecommendation);
+		MiscUtils.sleep(2000);
+	}
+	public void verifyNumberOfLettersOfRecommendation() {
+		JavascriptUtils.scrollUp(600);
+		MiscUtils.sleep(2000);
+		Assert.assertEquals("It is present", vacancyManagerUserPage.numberOfLettersOfRecommendation.getText(),"2");
 		
 	}
-	
-	public void verifyVacancyDashboardHeader() throws TestingException {
-			String actualText = vacancyManagerUserPage.vacancyDashboardPageHeader.getText();
-			CucumberLogUtils.logScreenShot();
-			String expectedText = "Vacancy Dashboard";
-			MiscUtils.sleep(2000);
-			Assert.assertEquals("Verifying Vacancy Manager sees Vacancy Dashboard text", expectedText,
-					actualText);
-		}
-	    
+		
+		
 	}
 
 
