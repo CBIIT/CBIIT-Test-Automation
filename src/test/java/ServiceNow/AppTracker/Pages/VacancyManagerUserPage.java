@@ -21,7 +21,33 @@ public class VacancyManagerUserPage extends CommonUtils {
 	@FindBy(xpath = "//h1[contains(text(),'Vacancy Dashboard')]")
 	public WebElement vacancyDashboardPageHeader;
 	
+	/**Create Vacancy Button**/
+	@FindBy(xpath = "//button[@class='ant-btn ant-btn-primary']")
+	public WebElement createVacancyButton;
 	
+	/**Vacancy Page Vacancy Title Input Field**/
+	@FindBy(xpath ="//input[@id='BasicInfo_title']")
+	public WebElement vacancyTitleField;
+	
+	/**Vacancy Page Vacancy Description Input Field**/
+	@FindBy(xpath ="(//div[@class='ql-editor ql-blank'])[1]")
+	public WebElement vacancyDescriptionField;
+	
+	/** Vacancy Description Header**/
+	@FindBy(xpath="//label[@title='Vacancy Description']")
+	public WebElement vacancyHeader;
+	
+	/**Recommendation Option**/
+	@FindBy(xpath="//div[@class='ant-slider-step']")
+	public WebElement lettersOfRecommendation;
+	
+    /**Basic Vacancy Information Save Button**/
+	@FindBy(xpath="//button[@class='ant-btn ant-btn-primary wider-button']")
+	public WebElement basicVacancyInformationSaveButton;
+	
+	/**Review and Finalize Page verify number of letters of recommendation**/
+	@FindBy(xpath ="//li[@class='ListItemTrue' and text()='3']")
+	public WebElement numberOfLettersOfRecommendation;
 	
 	
 	
