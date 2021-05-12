@@ -279,10 +279,30 @@
 	<application id="AppTracker">
 	<login_url>https://service-test.nci.nih.gov/nci-scss.do#/
 		</login_url><!-- add test url -->
-
-
-
 		<login_url>https://service-test.nci.nih.gov/nci-scss.do#/</login_url><!-- add test url -->
+<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
+		</db>
+
+	</application>	
+	<!-- Application ID for AppTrackerNativeView -->
+	<application id="AppTrackerNativeView">
+	<login_url>window.open('https://service-test.nci.nih.gov/ncisp','_blank');
+		</login_url><!-- add test url -->
+		<login_url>window.open('https://service-test.nci.nih.gov/ncisp','_blank');</login_url><!-- add test url -->
 <role name="Role">
 			<user id="regular">
 				<name>regular</name>
