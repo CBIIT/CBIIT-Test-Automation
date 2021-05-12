@@ -17,11 +17,7 @@ import cucumber.api.java.en.Then;
 
 public class VacancyManagerUserSteps extends PageInitializer {
 
-	@Given("User is on AppTracker home page")
-	public void user_is_on_AppTracker_home_page() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("AppTracker"));
-		CucumberLogUtils.logScreenShot();
-	}
+	
 
 	@When("User logs in as an NIH Trusted User")
 	public void user_logs_in_as_an_NIH_Trusted_User() throws TestingException {

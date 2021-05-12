@@ -3,18 +3,19 @@ Feature: Vacancy Manager Workflow
 
 @Satya1Ticket88 
 Scenario: verify vacancy description without copy/paste
-Given User is on AppTracker home page
-When User logs in as an NIH Trusted User
+Given User is on AppTracker home page and "AppTracker Scoring Member"
+#When User logs in as an NIH Trusted User
 And User should see Vacancy Dashboard Page
 And User clicks on Create Vacancy button
 And User enters the vacancy title
 Then User should see "Vacancy Description" text as
- """
-Determines customers’ needs and desires by specifying the research needed to obtain market information.
-Recommends the nature and scope of present and future product lines by reviewing product specifications and requirements; appraising new product ideas and/or product or packaging changes.
-Assesses market competition by comparing the company’s product to competitors’ products.
-   """
+ ""
+ To request access to the SEER Incidence Databases, you will need to create a new SEER*Stat account by registering. For immediate access to the SEER Research Plus Databases, you will need to register with your eRA Commons credentials using the Institutional Account Login. If you do not have an eRA commons login and are not affiliated with an Institute, you will need to use the Non-Institutional Account, and will receive access to the SEER Research Database.
+      If you are affiliated with an Institute and have an institutional email account (.edu, .gov, .org), you must use your eRA Commons credentials to request the SEER data.
+      Existing SEER*Stat account holders can upgrade access to the Research Plus Databases by logging in with your SEER*Stat Username and registered email address.
+      Only users who have already used this system to request a new, non-Institutional account can upgrade an existing account. All other users should follow steps to create a new account.
 
+   ""
 @Satya3Ticket89
 Scenario: Verify Letters of Recommendation persistent in Basic Information 
 Given User is on AppTracker home page

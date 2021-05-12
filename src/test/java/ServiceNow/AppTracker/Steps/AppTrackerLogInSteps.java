@@ -1,5 +1,6 @@
 package ServiceNow.AppTracker.Steps;
 
+import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
@@ -10,9 +11,10 @@ import cucumber.api.java.en.When;
 
 public class AppTrackerLogInSteps extends PageInitializer {
 
-	@Given("User is on a login page of NIH website")
-	public void user_is_on_a_login_page_of_NIH_website() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("AppTracker"));
+	@Given("User is on AppTracker home page and {string}")
+	public void user_is_on_AppTracker_home_page_and(String user) throws TestingException {
+		appTrackerLoginStepsImpl.appTrackerServicePortalLogin(user);
 	}
-
+		
+	
 }
