@@ -44,6 +44,7 @@ import CustomBusinessApp.EIDP.StepsImplementation.GeneralInformationStepImpl;
 import CustomBusinessApp.EIDP.StepsImplementation.ProjectRelatedDeliverableStepImpl;
 import CustomBusinessApp.EIDP.StepsImplementation.SearchStepImpl;
 import ServiceNow.AppTracker.Pages.AppTrackerBasePage;
+import ServiceNow.AppTracker.Pages.AppTrackerLoginPage;
 import ServiceNow.AppTracker.Pages.VacancyManagerUserPage;
 import ServiceNow.AppTracker.StepsImplementation.AppTrackerLogInStepsImpl;
 import ServiceNow.AppTracker.StepsImplementation.VacancyManagerUserStepsImpl;
@@ -204,6 +205,8 @@ public class PageInitializer {
 	protected static AppTrackerBasePage appTrackerBasePage;
 	protected static VacancyManagerUserPage vacancyManagerUserPage;
 	protected static VacancyManagerUserStepsImpl vacancyManagerUserStepsImpl;
+	protected static AppTrackerLoginPage appTrackerLoginPage;
+	protected static AppTrackerLogInStepsImpl appTrackerLoginStepsImpl;
 	
 
 	public static void initializeAllPages() {
@@ -291,9 +294,13 @@ public class PageInitializer {
 		eidpDashboardStepImpl = new CustomBusinessApp.EIDP.StepsImplementation.DashboardStepImpl();
 
 		
-		
+		/**AppTracker**/
 		appTrackerBasePage = new AppTrackerBasePage();
 		vacancyManagerUserPage = new VacancyManagerUserPage();
 		vacancyManagerUserStepsImpl = new VacancyManagerUserStepsImpl();
+		appTrackerLoginPage = new AppTrackerLoginPage();
+		appTrackerLoginStepsImpl = new AppTrackerLogInStepsImpl();
+		
+		
 	}
 }

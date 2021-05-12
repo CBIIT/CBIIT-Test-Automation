@@ -248,9 +248,9 @@ public class CommonUtils extends WebDriverUtils {
 	 * {@code id} can be clicked in the page or {@code timeOut} whichever is
 	 * earlier.
 	 */
-	public static void waitUntilElemtTobeClickableByXpath(long timeOut, String xpathExcpression) {
+	public static void waitUntilElemtTobeClickableByXpath(long timeOut, WebElement nativeViewButton) {
 		WebDriverWait webDriverWait = new WebDriverWait(webDriver, timeOut);
-		webDriverWait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpathExcpression)));
+		webDriverWait.until(ExpectedConditions.elementToBeClickable(By.xpath(nativeViewButton)));
 	}
 
 	/**
