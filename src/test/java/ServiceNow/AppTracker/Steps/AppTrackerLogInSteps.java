@@ -10,11 +10,14 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class AppTrackerLogInSteps extends PageInitializer {
-
-	@Given("User is on AppTracker home page and {string}")
-	public void user_is_on_AppTracker_home_page_and(String user) throws TestingException {
+	
+	@Given("User is on AppTracker home page and user is {string}")
+	public void user_is_on_AppTracker_home_page_and_user_is(String user) throws TestingException {
 		appTrackerLoginStepsImpl.appTrackerServicePortalLogin(user);
 	}
+	   
+
+	
 		
 	
 }

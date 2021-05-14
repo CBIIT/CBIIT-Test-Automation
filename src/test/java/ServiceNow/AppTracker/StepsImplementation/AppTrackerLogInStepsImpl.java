@@ -27,8 +27,11 @@ public class AppTrackerLogInStepsImpl extends PageInitializer {
 	public void appTrackerServicePortalLogin(String userName) throws TestingException {
 
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("AppTracker"));
+		MiscUtils.sleep(3000);
+	
 		CucumberLogUtils.logScreenShot();
 		CommonUtils.click(appTrackerLoginPage.logInMainPage);
+		MiscUtils.sleep(3000);
 		CommonUtils.click(appTrackerLoginPage.NIHTrustedUserLogin);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
@@ -73,17 +76,16 @@ public class AppTrackerLogInStepsImpl extends PageInitializer {
 			CommonUtils.click(appTrackerLoginPage.apptrackVacancyManager);
 
 			windowHandles = WebDriverUtils.webDriver.getWindowHandles();
+			MiscUtils.sleep(1000);
 			for (String each : windowHandles) {
-				MiscUtils.sleep(1000);
-
-				
+				MiscUtils.sleep(2000);
 				JavascriptUtils.refreshBrowserByJS(WebDriverUtils.webDriver.switchTo().window(each));
-				MiscUtils.sleep(1000);
+				MiscUtils.sleep(3000);
 
 				System.out.println("Curent page title " + WebDriverUtils.webDriver.getTitle());
 
 				if (WebDriverUtils.webDriver.getCurrentUrl().contains("service-test.nci.nih.gov/nci-scss.do#")) {
-					MiscUtils.sleep(1000);
+					MiscUtils.sleep(2000);
 					Assert.assertTrue(WebDriverUtils.webDriver.getTitle().contains("NCI"));
 					break;
 
@@ -100,11 +102,11 @@ public class AppTrackerLogInStepsImpl extends PageInitializer {
 
 				
 				JavascriptUtils.refreshBrowserByJS(WebDriverUtils.webDriver.switchTo().window(each));
-				MiscUtils.sleep(1000);
+				MiscUtils.sleep(4000);
 
 				System.out.println("Curent page title " + WebDriverUtils.webDriver.getTitle());
 
-				if (WebDriverUtils.webDriver.getCurrentUrl().contains("service-test.nci.nih.gov/nci-scss.do#")) {
+				if (WebDriverUtils.webDriver.getCurrentUrl().contains("vacancy-dashboard")) {
 					MiscUtils.sleep(1000);
 					Assert.assertTrue(WebDriverUtils.webDriver.getTitle().contains("NCI"));
 					break;

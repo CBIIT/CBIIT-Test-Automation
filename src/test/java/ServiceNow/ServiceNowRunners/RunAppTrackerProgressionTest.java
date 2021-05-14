@@ -11,8 +11,8 @@ import cucumber.api.junit.Cucumber;
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/ServiceNow/AppTracker/Features"
 	    , glue="ServiceNow.AppTracker.Steps"		
-		, tags="@Satya1Ticket88"
-    	, dryRun = false
+		, tags="@Satya6Ticket93"
+    	, dryRun =false
 		, monochrome=true
 		, strict = true
 		)
