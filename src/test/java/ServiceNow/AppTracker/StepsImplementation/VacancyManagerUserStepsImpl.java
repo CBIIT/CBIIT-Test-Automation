@@ -2,6 +2,7 @@ package ServiceNow.AppTracker.StepsImplementation;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.List;
 
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
@@ -23,16 +24,6 @@ import appsCommon.PageInitializer;
 
 public class VacancyManagerUserStepsImpl extends PageInitializer {
 
-	public void appTrackerServicePortalLogin() throws TestingException {
-		CommonUtils.click(vacancyManagerUserPage.logInMainPage);
-		CommonUtils.click(vacancyManagerUserPage.NIHTrustedUserLogin);
-		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
-		loginImpl.alenaiTrustLogin();
-		CucumberLogUtils.logScreenShot();
-		MiscUtils.sleep(2000);
-
-	}
 
 	public void verifyVacancyDashboardHeader() throws TestingException {
 		String actualText = vacancyManagerUserPage.vacancyDashboardPageHeader.getText();
@@ -53,9 +44,39 @@ public class VacancyManagerUserStepsImpl extends PageInitializer {
 	public void verifyNumberOfLettersOfRecommendation() {
 		JavascriptUtils.scrollUp(600);
 		MiscUtils.sleep(2000);
-		Assert.assertEquals("It is present", vacancyManagerUserPage.numberOfLettersOfRecommendation.getText(),"2");
+		Assert.assertEquals("It is present", vacancyManagerUserPage.numberOfLettersOfRecommendation.getText(),"2" + " recommendations");
 		
 	}
+	
+	public void verifyTabsOnVacancyManagerPage(List<String> names) {
+		List <WebElement> namesList = WebDriverUtils.webDriver.findElements(By.xpath("//p[@class='vacancy-desc']"));
+		System.out.println("size of all tabs " + namesList.size());
+		
+		for(WebElement each : namesList) {	
+		System.out.println("each tab name "+ each.getText());
+		
+		if(names.contains(each.getText())){
+			System.out.println("true");
+			
+		} else {
+			System.out.println("false");
+		}
+		
+		}
+	}
+	
+	public void verifyTabsCountOnVacancyManagerPage() {
+		List <WebElement> countList = WebDriverUtils.webDriver.findElements(By.xpath("//p[@class='num-count']"));
+		System.out.println("count of all tabs " + countList.size());
+		
+		for(WebElement each : countList) {	
+		System.out.println("each count of all tabs "+ each.getText());
+		
+		
+		}
+	}
+		
+	
 		
 		
 	}
