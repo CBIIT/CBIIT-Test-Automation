@@ -54,8 +54,6 @@ Then User can see count of each tabs
 		
 @Satya6Ticket93
 Scenario: Verify dashboard page sub filters
-#When User clicks on any sub tab
-#And User can see the grid shows the filtered value
 When User clicks on live vacancies tab
 And User can see the "All", "Live", "Extended" sub filters on live vacancies
 When User is on pre-flight vacancies tab
@@ -64,33 +62,27 @@ When User clicks on closed vacancies tab
 Then User can see the "All", "Closed", "Triaged", "Individually Scored", "Scored", "Archived" sub filters on closed vacancies
 
 @Satya7Ticket94
-Scenario Outline: Verify set vacancy date functionality
-When User clicks on the Create Vacancy button
+Scenario: Verify set vacancy date functionality
+When User clicks on Create Vacancy button
 Then User should able to navigate to the "Basic Vacancy Information" without any error
-When User adds new open date and close date
-|Open date|Close Date|
-|2021-05-14|2021-05-14|
-
+When User clicks on the Open date field
+When User clicks on the Close Date field
+And User selects date same as today's date in Open Date field and Close Date
 Then User can see the calendar pop up displays with Past dates disabled
-And User selects date same as today's date
-When User clicks on the Close date field
-Then User can see the calendar pop up displays with Past dates disabled
-When User selects the closed date same as open date
-Then User can see the error message as "Please pick a close date that is after the open date."
-When User selects the open date as greater than the close date
-Then User can see the error message as "Please pick an open date that is before the close date."
+#Then User can see the under Close Date field message displays with "Please pick a close date that is after the open date."
+#When User selects the Open date as greater than the Close date 
+#Then User can see the under Open Date field message displays with "Please pick an open date that is before the close date."
 
 @Satya8Ticket94
 Scenario: Verify the manual date enter functionality in vacancy dates fields
 When User is on create vacancy page
 And User enters the past date in open date field & tab out
 Then User can see the dates changing to current date automatically
-And User enters the past date in Closed date field & tab out
+And User enters the past date in Closed date field & tab ou
 Then User can see the dates changing to current date automatically
 
 @Satya9Ticket94
 Scenario: Verify the date field persistent in create vacancy form
-
 When User clicks on the Create Vacancy button
 And User selects the open & closed date
 Then User navigates to other tab
@@ -99,15 +91,13 @@ Then User can see the selected Open & Closed date displaying as the same
 
 @Satya10Ticket101
 Scenario: Verify the Mandatory Statements Page
-When User clicks on the create vacancy button
-Then User can see the create vacancy form opens
-When User click on the Mandatory Statements link
-Then User can see "Equal Opportunity Employment,Standards of Conduct/Financial Disclosure, Foreign Education, Reasonable Accommodation" toggle buttons
+When User clicks on Create Vacancy button
+And User click on the Mandatory Statements link
+Then User can see "Equal Opportunity Employer","Standards of Conduct/Financial Disclosure", "Foreign Education", "Reasonable Accommodation" toggle buttons
 And User can see pre-filled rich text area on each of the field
 
 @Satya11Ticket101
 Scenario: Verify the on/off for the buttons in the mandatory statements
-
 And User is on Mandatory Statements page
 When User toggle off any of the button
 Then User can see the respective text area is hidden
@@ -128,7 +118,6 @@ Then User can see the same state displays when user navigates to other tab
 
 @Satya13Ticket102
 Scenario: Verify create vacancy documents upload functionality
-
 And User is on Create Vacancy page
 Then User can see the below fields under Application Documents
 | Curriculum Vitae (CV) | Cover Letter | Vision Statement |Qualification Statement }

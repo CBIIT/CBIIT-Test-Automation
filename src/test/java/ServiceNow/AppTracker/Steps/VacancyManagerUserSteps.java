@@ -1,6 +1,7 @@
 package ServiceNow.AppTracker.Steps;
 
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -14,15 +15,18 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 
+import CustomBusinessApp.EIDP.Util.CommonUtil;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.When;
+import io.cucumber.datatable.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 
 public class VacancyManagerUserSteps extends PageInitializer {
-/** @Satya1Ticket88 
-Scenario: verify vacancy description without copy/paste */
-	
+	/**
+	 * @Satya1Ticket88 Scenario: verify vacancy description without copy/paste
+	 */
+
 	@When("User logs in as an NIH Trusted User")
 	public void user_logs_in_as_an_NIH_Trusted_User() throws TestingException {
 		vacancyManagerUserStepsImpl.appTrackerServicePortalLogin();
@@ -55,9 +59,11 @@ Scenario: verify vacancy description without copy/paste */
 		Assert.assertEquals(vacancyManagerUserPage.vacancyHeader.getText(), vacancyDescriptionHeader);
 
 	}
-	
-	/**  @Satya3Ticket89
-Scenario: Verify Letters of Recommendation persistent in Basic Information */
+
+	/**
+	 * @Satya3Ticket89 Scenario: Verify Letters of Recommendation persistent in
+	 *                 Basic Information
+	 */
 	@When("User selects recommendation as {int}")
 	public void user_selects_recommendation_as(Integer int1) {
 		vacancyManagerUserStepsImpl.selectRecommendationLetter();
@@ -80,9 +86,10 @@ Scenario: Verify Letters of Recommendation persistent in Basic Information */
 		vacancyManagerUserStepsImpl.verifyNumberOfLettersOfRecommendation();
 		MiscUtils.sleep(2000);
 	}
-	/**  @Satya4Ticket91
-Scenario: Verify create vacancy form
- */
+
+	/**
+	 * @Satya4Ticket91 Scenario: Verify create vacancy form
+	 */
 
 	@When("User can see the Create Vacancy form opens with below left menu items")
 	public void user_can_see_the_Create_Vacancy_form_opens_with_below_left_menu_items(List<String> sections) {
@@ -103,114 +110,182 @@ Scenario: Verify create vacancy form
 
 	}
 
-@Then("User should able to navigate to the {string} without any error")
-public void user_should_able_to_navigate_to_the_without_any_error(String nameOfSection) {
-	CommonUtils.click(vacancyManagerUserPage.basicVacancySection);
-	Assert.assertEquals(nameOfSection, vacancyManagerUserPage.vacancyDashboardPageHeader.getText());
-}
+	@Then("User should able to navigate to the {string} without any error")
+	public void user_should_able_to_navigate_to_the_without_any_error(String nameOfSection) {
+		CommonUtils.click(vacancyManagerUserPage.basicVacancySection);
+		// Assert.assertEquals(nameOfSection,
+		// vacancyManagerUserPage.vacancyDashboardPageHeader.getText());
+	}
 
-/** @Satya5Ticket93
-Scenario: Verify the Vacancy Manager dashboard landing page*/
+	/**
+	 * @Satya5Ticket93 Scenario: Verify the Vacancy Manager dashboard landing page
+	 */
 
-@Given("User can see the dashboard page displaying tabs as below")
-public void user_can_see_the_dashboard_page_displaying_tabs_as_below(List<String> names) {
-	
-	vacancyManagerUserStepsImpl.verifyTabsOnVacancyManagerPage(names);	
-}
+	@Given("User can see the dashboard page displaying tabs as below")
+	public void user_can_see_the_dashboard_page_displaying_tabs_as_below(List<String> names) {
 
+		vacancyManagerUserStepsImpl.verifyTabsOnVacancyManagerPage(names);
+	}
 
-@Then("User can see count of each tabs")
-public void user_can_see_count_of_each_tabs() {
-  vacancyManagerUserStepsImpl.verifyTabsCountOnVacancyManagerPage();
-}
+	@Then("User can see count of each tabs")
+	public void user_can_see_count_of_each_tabs() {
+		vacancyManagerUserStepsImpl.verifyTabsCountOnVacancyManagerPage();
+	}
 
-/**@Satya6Ticket93
-Scenario: Verify dashboard page sub filters*/
+	/**
+	 * @Satya6Ticket93 Scenario: Verify dashboard page sub filters
+	 */
 
-@When("User is on pre-flight vacancies tab")
-public void user_is_on_pre_flight_vacancies_tab() {
-	
-	CommonUtils.click(vacancyManagerUserPage.preFlightVacanciesTab);
-	
-	MiscUtils.sleep(2000);
-}
+	@When("User is on pre-flight vacancies tab")
+	public void user_is_on_pre_flight_vacancies_tab() {
 
-@When("User can see the {string}, {string}, {string} sub filters on pre-flight vacancies tab")
-public void user_can_see_the_sub_filters_on_pre_flight_vacancies_tab(String allSubFilter, String draftSubFilter, 
-		String finalazedSubFilter) {
-	Assert.assertTrue(vacancyManagerUserPage.allPreFlightSubFiltersTextpreFlightVacanciesTab.getText()
-			.contentEquals(allSubFilter));
-	Assert.assertTrue(vacancyManagerUserPage.draftSubFiltersTextpreFlightVacanciesTab.getText()
-			.contentEquals(draftSubFilter));
-	Assert.assertTrue(vacancyManagerUserPage.finalizedSubFiltersTextpreFlightVacanciesTab.getText()
-			.contentEquals(finalazedSubFilter));
-	
-	
-   
-}
+		CommonUtils.click(vacancyManagerUserPage.preFlightVacanciesTab);
 
-@When("User can see the {string}, {string}, {string} sub filters on live vacancies")
-public void user_can_see_the_sub_filters_on_live_vacancies(String allSubFilter, String liveSubFilter ,
-		String extendedSubFilter) {
-	Assert.assertTrue(vacancyManagerUserPage.allLiveSubFiltersTextpreFlightVacanciesTab.getText()
-			.contentEquals(allSubFilter));
-	Assert.assertTrue(vacancyManagerUserPage.liveSubFiltersTextpreFlightVacanciesTab.getText()
-			.contentEquals(liveSubFilter));
-	Assert.assertTrue(vacancyManagerUserPage.extendedSubFiltersTextpreFlightVacanciesTab.getText()
-			.contentEquals(extendedSubFilter));
-	
-	
-	
-}
+		MiscUtils.sleep(2000);
+	}
 
-@Then("User can see the {string}, {string}, {string}, {string}, {string}, {string} sub filters on closed vacancies")
-public void user_can_see_the_sub_filters_on_closed_vacancies(String allSubFilter, String closedSubFilter, 
-		String triagedSubFilter, String individuallySubFilter, String scoredSubFilter, String archivedSubFilter) {
-	
-	Assert.assertTrue(vacancyManagerUserPage.allClosedSubFiltersTextpreFlightVacanciesTab.getText()
-			.contentEquals(allSubFilter));
-	MiscUtils.sleep(1000);
-	Assert.assertTrue(vacancyManagerUserPage.closedClosedSubFiltersTextpreFlightVacanciesTab.getText()
-			.contentEquals(closedSubFilter));
-	MiscUtils.sleep(1000);
-	Assert.assertTrue(vacancyManagerUserPage.triagedClosedSubFiltersTextpreFlightVacanciesTab.getText()
-			.contentEquals(triagedSubFilter));
-	MiscUtils.sleep(1000);
-	Assert.assertTrue(vacancyManagerUserPage.individuallyScoredClosedSubFiltersTextpreFlightVacanciesTab.getText()
-			.contentEquals(individuallySubFilter));
-	MiscUtils.sleep(1000);
-	Assert.assertTrue(vacancyManagerUserPage.scoredClosedSubFiltersTextpreFlightVacanciesTab.getText()
-			.contentEquals(scoredSubFilter));
-	MiscUtils.sleep(1000);
-	Assert.assertTrue(vacancyManagerUserPage.archivedClosedSubFiltersTextpreFlightVacanciesTab.getText()
-			.contentEquals(archivedSubFilter));
-	MiscUtils.sleep(1000);
-}
+	@When("User can see the {string}, {string}, {string} sub filters on pre-flight vacancies tab")
+	public void user_can_see_the_sub_filters_on_pre_flight_vacancies_tab(String allSubFilter, String draftSubFilter,
+			String finalazedSubFilter) {
+		Assert.assertTrue(vacancyManagerUserPage.allPreFlightSubFiltersTextpreFlightVacanciesTab.getText()
+				.contentEquals(allSubFilter));
+		Assert.assertTrue(vacancyManagerUserPage.draftSubFiltersTextpreFlightVacanciesTab.getText()
+				.contentEquals(draftSubFilter));
+		Assert.assertTrue(vacancyManagerUserPage.finalizedSubFiltersTextpreFlightVacanciesTab.getText()
+				.contentEquals(finalazedSubFilter));
 
-/*@When("User clicks on any sub tab")
-public void user_clicks_on_any_sub_tab() {
- 
-}
+	}
 
-@When("User can see the grid shows the filtered value")
-public void user_can_see_the_grid_shows_the_filtered_value() {
-   
-}
-*/
-@When("User clicks on live vacancies tab")
-public void user_clicks_on_live_vacancies_tab() {
-	CommonUtils.click(vacancyManagerUserPage.liveVacanciesTab);
-	MiscUtils.sleep(2000);
-   
-}
+	@When("User can see the {string}, {string}, {string} sub filters on live vacancies")
+	public void user_can_see_the_sub_filters_on_live_vacancies(String allSubFilter, String liveSubFilter,
+			String extendedSubFilter) {
+		Assert.assertTrue(vacancyManagerUserPage.allLiveSubFiltersTextpreFlightVacanciesTab.getText()
+				.contentEquals(allSubFilter));
+		Assert.assertTrue(
+				vacancyManagerUserPage.liveSubFiltersTextpreFlightVacanciesTab.getText().contentEquals(liveSubFilter));
+		Assert.assertTrue(vacancyManagerUserPage.extendedSubFiltersTextpreFlightVacanciesTab.getText()
+				.contentEquals(extendedSubFilter));
 
-@When("User clicks on closed vacancies tab")
-public void user_clicks_on_closed_vacancies_tab() {
-	
-	CommonUtils.click(vacancyManagerUserPage.closedVacanciesTab);
-	MiscUtils.sleep(2000);
-}
+	}
 
-	
+	@Then("User can see the {string}, {string}, {string}, {string}, {string}, {string} sub filters on closed vacancies")
+	public void user_can_see_the_sub_filters_on_closed_vacancies(String allSubFilter, String closedSubFilter,
+			String triagedSubFilter, String individuallySubFilter, String scoredSubFilter, String archivedSubFilter) {
+
+		Assert.assertTrue(vacancyManagerUserPage.allClosedSubFiltersTextpreFlightVacanciesTab.getText()
+				.contentEquals(allSubFilter));
+		MiscUtils.sleep(1000);
+		Assert.assertTrue(vacancyManagerUserPage.closedClosedSubFiltersTextpreFlightVacanciesTab.getText()
+				.contentEquals(closedSubFilter));
+		MiscUtils.sleep(1000);
+		Assert.assertTrue(vacancyManagerUserPage.triagedClosedSubFiltersTextpreFlightVacanciesTab.getText()
+				.contentEquals(triagedSubFilter));
+		MiscUtils.sleep(1000);
+		Assert.assertTrue(vacancyManagerUserPage.individuallyScoredClosedSubFiltersTextpreFlightVacanciesTab.getText()
+				.contentEquals(individuallySubFilter));
+		MiscUtils.sleep(1000);
+		Assert.assertTrue(vacancyManagerUserPage.scoredClosedSubFiltersTextpreFlightVacanciesTab.getText()
+				.contentEquals(scoredSubFilter));
+		MiscUtils.sleep(1000);
+		Assert.assertTrue(vacancyManagerUserPage.archivedClosedSubFiltersTextpreFlightVacanciesTab.getText()
+				.contentEquals(archivedSubFilter));
+		MiscUtils.sleep(1000);
+	}
+
+	@When("User clicks on live vacancies tab")
+	public void user_clicks_on_live_vacancies_tab() {
+		CommonUtils.click(vacancyManagerUserPage.liveVacanciesTab);
+		MiscUtils.sleep(2000);
+
+	}
+
+	@When("User clicks on closed vacancies tab")
+	public void user_clicks_on_closed_vacancies_tab() {
+
+		CommonUtils.click(vacancyManagerUserPage.closedVacanciesTab);
+		MiscUtils.sleep(2000);
+	}
+
+	/**
+	 * @Satya7Ticket94 Scenario: Verify set vacancy date functionality
+	 */
+	@When("User clicks on the Open date field")
+	public void user_clicks_on_the_Open_date_field() {
+		JavascriptUtils.scrollDown(8000);
+		CommonUtils.click(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
+
+	}
+
+	@When("User clicks on the Close Date field")
+	public void user_clicks_on_the_Close_Date_field() {
+
+		CommonUtils.click(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection);
+	}
+
+	@When("User selects date same as today's date in Open Date field and Close Date")
+	public void user_selects_date_same_as_today_s_date_in_Open_Date_field_and_Close_Date() {
+
+	}
+
+	@Then("User can see the calendar pop up displays with Past dates disabled")
+	public void user_can_see_the_calendar_pop_up_displays_with_Past_dates_disabled() {
+
+		CommonUtils.selectDateFromTable(vacancyManagerUserPage.openCalendarTableInBasicVacancySection, "8");
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenShot();
+
+	}
+
+	@When("User clicks on the Close Date field and selects date same as today's date")
+	public void user_clicks_on_the_Close_Date_field_and_selects_date_same_as_today_s_date() {
+
+	}
+
+	@When("User selects the Open date as greater than the Close date")
+	public void user_selects_the_Open_date_as_greater_than_the_Close_date() {
+
+	}
+
+	@Then("User can see the under Close Date field message displays with {string}")
+	public void user_can_see_the_under_Close_Date_field_message_displays_with(String string) {
+
+	}
+
+	@Then("User can see the under Open Date field message displays with {string}")
+	public void user_can_see_the_under_Open_Date_field_message_displays_with(String string) {
+
+	}
+
+	/** SectionsFields **/
+	@When("User click on the Mandatory Statements link")
+	public void user_click_on_the_Mandatory_Statements_link() {
+		CommonUtils.click(vacancyManagerUserPage.mandatoryStatementsSection);
+
+	}
+
+	@Then("User can see {string},{string}, {string}, {string} toggle buttons")
+	public void user_can_see_toggle_buttons(String equalOpportunityEmployer, String standardsOfConduct,
+			String foreignEducation, String reasonableAccommodation) {
+		Assert.assertTrue(vacancyManagerUserPage.equalOpportunityEmployerInMandatorySection.getText()
+				.contentEquals(equalOpportunityEmployer));
+		Assert.assertTrue(
+				vacancyManagerUserPage.standardsOfConductFinancialDisclosureInMandatorySection.getText().contentEquals(standardsOfConduct));
+		Assert.assertTrue(vacancyManagerUserPage.foreignEducationInMandatorySection.getText()
+				.contentEquals(foreignEducation));
+		Assert.assertTrue(vacancyManagerUserPage.reasonableAccommodationInMandatorySection.getText()
+				.contentEquals(reasonableAccommodation));
+
+		
+
+	}
+
+	@Then("User can see pre-filled rich text area on each of the field")
+	public void user_can_see_pre_filled_rich_text_area_on_each_of_the_field() {
+		System.out.println("equalOpportunityEmployer " + vacancyManagerUserPage.textOfSectionEqualOpportunityEmployer.getText());
+		System.out.println("standardsOfConduct "+vacancyManagerUserPage.textOfSectionForeignEducationText.getText());
+		System.out.println("foreignEducation "+vacancyManagerUserPage.textOfSectionStandardsOfConductText.getText());
+		System.out.println("reasonableAccommodation "+vacancyManagerUserPage.textOfSectionReasonableAccommodationText.getText());
+
+	}
 
 }

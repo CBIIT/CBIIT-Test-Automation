@@ -2,6 +2,8 @@ package ServiceNow.AppTracker.Pages;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -106,4 +108,22 @@ public class AppTrackerBasePage extends CommonUtils {
 		actions.moveToElement(element).perform();
 
 	}
+	
+	 //Get The Current Day
+    public String getCurrentDay (){
+        //Create a Calendar Object
+        Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+ 
+        //Get Current Day as a number
+        int todayInt = calendar.get(Calendar.DAY_OF_MONTH);
+        System.out.println("Today Int: " + todayInt +"\n");
+ 
+        //Integer to String Conversion
+        String todayStr = Integer.toString(todayInt);
+        System.out.println("Today Str: " + todayStr + "\n");
+ 
+        return todayStr;
+    }
+	
+	
 }

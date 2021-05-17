@@ -59,6 +59,55 @@ public class VacancyManagerUserPage extends CommonUtils {
 	/**Basic Vacancy Section **/
 	@FindBy(xpath ="//div[@class='ant-steps-item ant-steps-item-process ant-steps-item-active']")
 	public WebElement basicVacancySection;
+	
+	/**Mandatory Statements Section**/
+	@FindBy(xpath ="//div[@class='ant-steps-item ant-steps-item-wait'][1]")
+	public WebElement mandatoryStatementsSection;
+	
+
+
+	
+	/**Mandatory Statements Section Equal Opportunity Employer text verify **/
+	@FindBy(xpath = "//p[contains(text(), 'Equal Opportunity Employer')]")
+	public WebElement equalOpportunityEmployerInMandatorySection;
+	
+	/**Mandatory Statements Section text verify**/
+	@FindBy(xpath ="//div[@id='MandatoryStatements_equalOpportunityEmployerText']//p")
+	public WebElement textOfSectionEqualOpportunityEmployer;
+	
+	/**Mandatory Statements Section Standards of Conduct/Financial Disclosure text verify **/
+	@FindBy(xpath = "//p[contains(text(), 'Standards of Conduct/Financial Disclosure')]")
+	public WebElement standardsOfConductFinancialDisclosureInMandatorySection;
+	
+	/**Mandatory Statements Section Foreign Education text verify **/
+	@FindBy(xpath = "//p[contains(text(), 'Foreign Education')]")
+	public WebElement foreignEducationInMandatorySection;
+	
+	/**Mandatory Statements Section Reasonable Accommodation text verify **/
+	@FindBy(xpath = "//p[contains(text(), 'Reasonable Accommodation')]")
+	public WebElement reasonableAccommodationInMandatorySection;
+	
+	/**Mandatory Statements Foreign Education text verify **/
+	@FindBy(xpath = "//div[@id='MandatoryStatements_standardsOfConductText']//p")
+	public WebElement textOfSectionForeignEducationText;
+	
+	/**Mandatory Statements Section Standards of Conduct text verify **/
+	@FindBy(xpath = "//div[@id='MandatoryStatements_foreignEducationText']//p")
+	public WebElement textOfSectionStandardsOfConductText;
+	
+	/**Mandatory Statements Section Reasonable Accommodation text verify **/
+	@FindBy(xpath = "//div[@id='MandatoryStatements_reasonableAccomodationText']//p")
+	public WebElement textOfSectionReasonableAccommodationText;
+	
+	
+	/**Email Templates Committee Section**/
+	@FindBy(xpath ="//div[@class='ant-steps-item ant-steps-item-wait'][3]")
+	public WebElement emailTamplatesSection;
+	
+	/**Review Section**/
+	@FindBy(xpath ="//div[@class='ant-steps-item ant-steps-item-wait'][4]")
+	public WebElement reviewSection;
+	
 		
 	/**Basic Vacancy tab pre-flight vacancies **/
 	@FindBy(xpath ="(//p[@class='vacancy-desc'])[1]")
@@ -119,6 +168,11 @@ public class VacancyManagerUserPage extends CommonUtils {
 	public WebElement scoredClosedSubFiltersTextpreFlightVacanciesTab;
 	
 	
+	/**Basic Vacancy tab closed vacancies Archived sub filters**/
+	@FindBy(xpath = "//span[contains(text(), 'Archived')]")
+	public WebElement archivedClosedSubFiltersTextpreFlightVacanciesTab;
+	
+	
 	/**Basic Vacancy Open Date calendar input **/
 	@FindBy(xpath = "//input[@id='BasicInfo_openDate']")
 	public WebElement openCalendarInputButtonInBasicVacancySection;
@@ -128,6 +182,18 @@ public class VacancyManagerUserPage extends CommonUtils {
 	@FindBy(xpath = "//input[@id='BasicInfo_closeDate']")
 	public WebElement closeCalendarInputButtonInBasicVacancySection;
 	
+
+	/**Basic Vacancy Date calendar input **/
+	@FindBy(xpath = "(//td[@title='2021-05-14'])[1]")
+	public WebElement date;
+	
+	/**Basic Vacancy Open Date calendar table**/
+	@FindBy(xpath = "(//table[@class='ant-picker-content'])[1]")
+	public WebElement openCalendarTableInBasicVacancySection;
+	
+	/**Basic Vacancy Close Date calendar table**/
+	@FindBy(xpath = "(//table[@class='ant-picker-content'])[2]")
+	public WebElement closeCalendarTableInBasicVacancySection;
 	
 	
 	
