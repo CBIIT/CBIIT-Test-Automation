@@ -2,7 +2,9 @@ package ServiceNow.AppTracker.StepsImplementation;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
@@ -75,10 +77,18 @@ public class VacancyManagerUserStepsImpl extends PageInitializer {
 		
 		}
 	}
-		
 	
-		
-		
-	}
 
+	public void selectOpenDate(String date) {
+		vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection.sendKeys(date);
+	}
+	
+	public void selectCloseDate(String date) {
+		vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection.sendKeys(date);
+	}
+	
+
+
+
+}
 
