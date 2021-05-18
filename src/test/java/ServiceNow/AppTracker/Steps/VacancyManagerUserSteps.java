@@ -245,18 +245,25 @@ public class VacancyManagerUserSteps extends PageInitializer {
 
 	/** question **/
 	@Then("User selects date same as today's date as below")
-	public void user_selects_date_same_as_today_s_date_as_below(Map<String, String>data) {
+	public void user_selects_date_same_as_today_s_date_as_below(Map<String, String> data) {
 		String openDate = data.get("Open Date");
 		String closeDate = data.get("Close Date");
 		vacancyManagerUserStepsImpl.selectOpenDate(openDate);
 		CommonUtil.waitBrowser(4000);
 		vacancyManagerUserStepsImpl.selectCloseDate(closeDate);
+		JavascriptUtils.scrollDown(7000);
+		CommonUtil.waitBrowser(4000);
+		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
+		CommonUtils.click(vacancyManagerUserPage.reviewSection);
+		JavascriptUtils.scrollUp(4000);
+		CommonUtil.waitBrowser(4000);
+		
 	}
-	
+
 	/** SectionsFields **/
-	@When("User click on the Mandatory Statements link")
-	public void user_click_on_the_Mandatory_Statements_link() {
-		CommonUtils.click(vacancyManagerUserPage.mandatoryStatementsSection);
+	@When("User clicks on the Mandatory Statements section")
+	public void user_clicks_on_the_Mandatory_Statements_section() {
+	    CommonUtils.click(vacancyManagerUserPage.mandatoryStatementsSection);
 
 	}
 
@@ -284,5 +291,22 @@ public class VacancyManagerUserSteps extends PageInitializer {
 				"reasonableAccommodation " + vacancyManagerUserPage.textOfSectionReasonableAccommodationText.getText());
 
 	}
+	/**satya11ticket101**/
+	@When("User toggles off {string} as below")
+	public void user_toggles_off_as_below(String nameFromExamples) {
+		vacancyManagerUserStepsImpl.selectToggleButtonOnMandatoryStatementPage(nameFromExamples);
+	    
+	}
+
+	@When("User edits Equal Opportunity Employer text by adding {string}")
+	public void user_edits_Equal_Opportunity_Employer_text_by_adding(String string) {
+	    
+	}
+
+	@Then("User can see the updated value displays in the text field")
+	public void user_can_see_the_updated_value_displays_in_the_text_field() {
+	   
+	}
+
 
 }
