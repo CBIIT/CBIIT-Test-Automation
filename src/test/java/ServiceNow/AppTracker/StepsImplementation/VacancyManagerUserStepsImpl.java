@@ -86,7 +86,6 @@ public class VacancyManagerUserStepsImpl extends PageInitializer {
 	public void selectCloseDate(String date) {
 		vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection.sendKeys(date);
 	}
-	
 
 
 

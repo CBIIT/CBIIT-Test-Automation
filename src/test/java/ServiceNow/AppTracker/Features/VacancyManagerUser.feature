@@ -3,9 +3,8 @@ Feature: Vacancy Manager Workflow
 Background: common steps
 Given User is on AppTracker home page and user is "AppTracker Vacancy Manager"
 
-@Satya1Ticket88 
+@Regression @Smoke @JIra88
 Scenario: verify vacancy description without copy/paste
-
 And User should see Vacancy Dashboard Page
 When User clicks on Create Vacancy button
 And User enters the vacancy title
@@ -35,9 +34,9 @@ Scenario: Verify create vacancy form
 When User clicks on Create Vacancy button
 And User can see the Create Vacancy form opens with below left menu items
 | Basic Vacancy Information |
-| Mandatory Statements |
-| Vacancy Committee |
-| Email Templates |
+| Mandatory Statements      |
+| Vacancy Committee         |
+| Email Templates  |
 | Review and Finalize |
 And User click on "Vacancy Committee" without entering any value in previous field
 Then User should able to navigate to the "Basic Vacancy Information" without any error
@@ -65,9 +64,11 @@ Then User can see the "All", "Closed", "Triaged", "Individually Scored", "Scored
 Scenario: Verify set vacancy date functionality
 When User clicks on Create Vacancy button
 Then User should able to navigate to the "Basic Vacancy Information" without any error
-When User clicks on the Open date field
-When User clicks on the Close Date field
-And User selects date same as today's date in Open Date field and Close Date
+And User clicks on the Open date field to see calendar past dates disabled
+And User clicks on the Close Date field to see calendar past dates disabled
+And User selects date same as today's date as below
+|Open Date |Close Date|
+|2021-05-17|2021-05-17|
 Then User can see the calendar pop up displays with Past dates disabled
 #Then User can see the under Close Date field message displays with "Please pick a close date that is after the open date."
 #When User selects the Open date as greater than the Close date 
@@ -120,7 +121,7 @@ Then User can see the same state displays when user navigates to other tab
 Scenario: Verify create vacancy documents upload functionality
 And User is on Create Vacancy page
 Then User can see the below fields under Application Documents
-| Curriculum Vitae (CV) | Cover Letter | Vision Statement |Qualification Statement }
+| Curriculum Vitae (CV) | Cover Letter | Vision Statement |Qualification Statement |
 And User can see Add more button to add more documents
 And User can see optional check box in each field to indicate the document is optional 
 And User can see trash icon in each field to delete the field
