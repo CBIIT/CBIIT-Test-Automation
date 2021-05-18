@@ -74,20 +74,34 @@ public class VacancyManagerUserStepsImpl extends PageInitializer {
 		for(WebElement each : countList) {	
 		System.out.println("each count of all tabs "+ each.getText());
 		
-		
 		}
 	}
 	
 
 	public void selectOpenDate(String date) {
 		vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection.sendKeys(date);
+		
 	}
 	
 	public void selectCloseDate(String date) {
 		vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection.sendKeys(date);
 	}
+	public void selectToggleButtonOnMandatoryStatementPage(String nameButton) {
+		if (nameButton.equals("Equal Opportunity Employer")){
+			CommonUtils.click(vacancyManagerUserPage.toggleButtonEqualOpportunityEmployer);
+			Assert.assertEquals(vacancyManagerUserPage.textOfSectionEqualOpportunityEmployer, null);
+			}else if(nameButton.equals("Standards of Conduct/Financial Disclosure")) {
+				CommonUtils.click(vacancyManagerUserPage.toggleButtonStandardsOfConduct);
+				Assert.assertEquals(vacancyManagerUserPage.textOfSectionStandardsOfConductText, null);
+			}else if(nameButton.equals("Foreign Education")) {
+				CommonUtils.click(vacancyManagerUserPage.toggleButtonForeignEducation);
+				Assert.assertEquals(vacancyManagerUserPage.textOfSectionForeignEducationText, null);
+			}else if(nameButton.equals("Reasonable Accommodation")) {
+				CommonUtils.click(vacancyManagerUserPage.toggleButtonReasonableAccommodation);
+				Assert.assertEquals(vacancyManagerUserPage.textOfSectionReasonableAccommodationText, null);
+			}
+	}
 
 
 
 }
-

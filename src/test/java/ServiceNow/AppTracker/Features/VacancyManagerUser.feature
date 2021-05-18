@@ -46,7 +46,7 @@ Then User should able to navigate to the "Basic Vacancy Information" without any
 Scenario: Verify the Vacancy Manager dashboard landing page
 And User should see Vacancy Dashboard Page
 And User can see the dashboard page displaying tabs as below 
-|pre-flight vacancies|live vacancies	     |closed vacancies    |
+|pre-flight vacancies|live vacancies|closed vacancies    |
 Then User can see count of each tabs
 
 
@@ -67,8 +67,8 @@ Then User should able to navigate to the "Basic Vacancy Information" without any
 And User clicks on the Open date field to see calendar past dates disabled
 And User clicks on the Close Date field to see calendar past dates disabled
 And User selects date same as today's date as below
-|Open Date |Close Date|
-|2021-05-17|2021-05-17|
+|Open Date |2021-05-18|
+|Close Date|2021-05-21|
 Then User can see the calendar pop up displays with Past dates disabled
 #Then User can see the under Close Date field message displays with "Please pick a close date that is after the open date."
 #When User selects the Open date as greater than the Close date 
@@ -90,25 +90,29 @@ Then User navigates to other tab
 And User comes back to Basic info tab
 Then User can see the selected Open & Closed date displaying as the same
 
-@Satya10Ticket101
+
+@Satya10Ticket101 
 Scenario: Verify the Mandatory Statements Page
 When User clicks on Create Vacancy button
-And User click on the Mandatory Statements link
+And User clicks on the Mandatory Statements section
 Then User can see "Equal Opportunity Employer","Standards of Conduct/Financial Disclosure", "Foreign Education", "Reasonable Accommodation" toggle buttons
 And User can see pre-filled rich text area on each of the field
 
 @Satya11Ticket101
-Scenario: Verify the on/off for the buttons in the mandatory statements
-And User is on Mandatory Statements page
-When User toggle off any of the button
-Then User can see the respective text area is hidden
-When User updates the field value
-And User Off/On the button
-Then User can see the updated value displays on the text field
+Scenario Outline: Verify the on/off for the buttons in the mandatory statements
+When User clicks on Create Vacancy button
+And User clicks on the Mandatory Statements section
+And User toggles off "<buttons>" as below
+And User edits Equal Opportunity Employer text by adding "lorem ipsum"
+Then User can see the updated value displays in the text field
+Examples: buttons
+|buttons| 
+|Equal Opportunity Employer|
+|Foreign Education|
 
 @Satya12Ticket101
-Scenario: Verify the Mandatory Statements persistency on clicking other tabs
-
+Scenario: Verify the Mandatory Statements persistence on clicking other tabs
+And User clicks on Create Vacancy button
 And User is on Mandatory Statements page
 When User toggle off the Equal Opportunity Employer button
 And User updates the value in Standards of Conduct/Financial Disclosure and toggle On
