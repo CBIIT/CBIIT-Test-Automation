@@ -200,6 +200,7 @@ public class VacancyManagerUserPage extends CommonUtils {
 
 	public VacancyManagerUserPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
+	
+	}
 
-}
 }
