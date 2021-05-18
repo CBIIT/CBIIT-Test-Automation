@@ -26,13 +26,6 @@ public class VacancyManagerUserSteps extends PageInitializer {
 	/**
 	 * @Satya1Ticket88 Scenario: verify vacancy description without copy/paste
 	 */
-
-	@When("User logs in as an NIH Trusted User")
-	public void user_logs_in_as_an_NIH_Trusted_User() throws TestingException {
-		vacancyManagerUserStepsImpl.appTrackerServicePortalLogin();
-
-	}
-
 	@When("User should see Vacancy Dashboard Page")
 	public void user_should_see_Vacancy_Dashboard_Page() throws TestingException {
 		vacancyManagerUserStepsImpl.verifyVacancyDashboardHeader();
@@ -236,26 +229,30 @@ public class VacancyManagerUserSteps extends PageInitializer {
 
 	}
 
-	@When("User clicks on the Close Date field and selects date same as today's date")
-	public void user_clicks_on_the_Close_Date_field_and_selects_date_same_as_today_s_date() {
+	@Then("User clicks on the Open date field to see calendar past dates disabled")
+	public void user_clicks_on_the_Open_date_field_to_see_calendar_past_dates_disabled() {
+		JavascriptUtils.scrollDown(8000);
+		CommonUtils.click(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
+		CucumberLogUtils.logScreenShot();
+	}
+
+	@Then("User clicks on the Close Date field to see calendar past dates disabled")
+	public void user_clicks_on_the_Close_Date_field_to_see_calendar_past_dates_disabled() {
+		CommonUtils.click(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection);
+		CucumberLogUtils.logScreenShot();
 
 	}
 
-	@When("User selects the Open date as greater than the Close date")
-	public void user_selects_the_Open_date_as_greater_than_the_Close_date() {
-
+	/** question **/
+	@Then("User selects date same as today's date as below")
+	public void user_selects_date_same_as_today_s_date_as_below(Map<String, String>data) {
+		String openDate = data.get("Open Date");
+		String closeDate = data.get("Close Date");
+		vacancyManagerUserStepsImpl.selectOpenDate(openDate);
+		CommonUtil.waitBrowser(4000);
+		vacancyManagerUserStepsImpl.selectCloseDate(closeDate);
 	}
-
-	@Then("User can see the under Close Date field message displays with {string}")
-	public void user_can_see_the_under_Close_Date_field_message_displays_with(String string) {
-
-	}
-
-	@Then("User can see the under Open Date field message displays with {string}")
-	public void user_can_see_the_under_Open_Date_field_message_displays_with(String string) {
-
-	}
-
+	
 	/** SectionsFields **/
 	@When("User click on the Mandatory Statements link")
 	public void user_click_on_the_Mandatory_Statements_link() {
@@ -268,23 +265,23 @@ public class VacancyManagerUserSteps extends PageInitializer {
 			String foreignEducation, String reasonableAccommodation) {
 		Assert.assertTrue(vacancyManagerUserPage.equalOpportunityEmployerInMandatorySection.getText()
 				.contentEquals(equalOpportunityEmployer));
+		Assert.assertTrue(vacancyManagerUserPage.standardsOfConductFinancialDisclosureInMandatorySection.getText()
+				.contentEquals(standardsOfConduct));
 		Assert.assertTrue(
-				vacancyManagerUserPage.standardsOfConductFinancialDisclosureInMandatorySection.getText().contentEquals(standardsOfConduct));
-		Assert.assertTrue(vacancyManagerUserPage.foreignEducationInMandatorySection.getText()
-				.contentEquals(foreignEducation));
+				vacancyManagerUserPage.foreignEducationInMandatorySection.getText().contentEquals(foreignEducation));
 		Assert.assertTrue(vacancyManagerUserPage.reasonableAccommodationInMandatorySection.getText()
 				.contentEquals(reasonableAccommodation));
-
-		
 
 	}
 
 	@Then("User can see pre-filled rich text area on each of the field")
 	public void user_can_see_pre_filled_rich_text_area_on_each_of_the_field() {
-		System.out.println("equalOpportunityEmployer " + vacancyManagerUserPage.textOfSectionEqualOpportunityEmployer.getText());
-		System.out.println("standardsOfConduct "+vacancyManagerUserPage.textOfSectionForeignEducationText.getText());
-		System.out.println("foreignEducation "+vacancyManagerUserPage.textOfSectionStandardsOfConductText.getText());
-		System.out.println("reasonableAccommodation "+vacancyManagerUserPage.textOfSectionReasonableAccommodationText.getText());
+		System.out.println(
+				"equalOpportunityEmployer " + vacancyManagerUserPage.textOfSectionEqualOpportunityEmployer.getText());
+		System.out.println("standardsOfConduct " + vacancyManagerUserPage.textOfSectionForeignEducationText.getText());
+		System.out.println("foreignEducation " + vacancyManagerUserPage.textOfSectionStandardsOfConductText.getText());
+		System.out.println(
+				"reasonableAccommodation " + vacancyManagerUserPage.textOfSectionReasonableAccommodationText.getText());
 
 	}
 
