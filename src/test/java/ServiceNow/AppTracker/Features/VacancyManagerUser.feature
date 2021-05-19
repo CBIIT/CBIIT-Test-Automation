@@ -3,7 +3,7 @@ Feature: Vacancy Manager Workflow
 Background: common steps
 Given User is on AppTracker home page and user is "AppTracker Vacancy Manager"
 
-@Regression @Smoke @JIra88
+@Regression @Smoke @Jira88
 Scenario: verify vacancy description without copy/paste
 And User should see Vacancy Dashboard Page
 When User clicks on Create Vacancy button
@@ -103,23 +103,19 @@ Scenario Outline: Verify the on/off for the buttons in the mandatory statements
 When User clicks on Create Vacancy button
 And User clicks on the Mandatory Statements section
 And User toggles off "<buttons>" as below
-And User edits Equal Opportunity Employer text by adding "lorem ipsum"
-Then User can see the updated value displays in the text field
 Examples: buttons
 |buttons| 
-|Equal Opportunity Employer|
 |Foreign Education|
+|Reasonable Accommodation|
 
 @Satya12Ticket101
-Scenario: Verify the Mandatory Statements persistence on clicking other tabs
+Scenario: Verify the Mandatory Statements persistence on editing text
 And User clicks on Create Vacancy button
-And User is on Mandatory Statements page
-When User toggle off the Equal Opportunity Employer button
-And User updates the value in Standards of Conduct/Financial Disclosure and toggle On
-And User updates the value in Standards of Conduct/Financial Disclosure and toggle Off
-Then User click on other tab
-And User click on Mandatory Statements tab
-Then User can see the same state displays when user navigates to other tab
+And User clicks on the Mandatory Statements section
+And User edits Equal Opportunity Employer text by adding "This position requires traveling overseas"
+And User toggles off/on Equal Opportunity Employer button
+And User toggles off Standards of Conduct/Financial Disclosure button
+Then User can see the updated value displays in the text field
 
 @Satya13Ticket102
 Scenario: Verify create vacancy documents upload functionality
