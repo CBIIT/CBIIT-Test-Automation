@@ -26,7 +26,6 @@ import appsCommon.PageInitializer;
 
 public class VacancyManagerUserStepsImpl extends PageInitializer {
 
-
 	public void verifyVacancyDashboardHeader() throws TestingException {
 		String actualText = vacancyManagerUserPage.vacancyDashboardPageHeader.getText();
 		CucumberLogUtils.logScreenShot();
@@ -35,73 +34,76 @@ public class VacancyManagerUserStepsImpl extends PageInitializer {
 		Assert.assertEquals("Verifying Vacancy Manager sees Vacancy Dashboard text", expectedText, actualText);
 	}
 
-	//public void enterVacancyDescFromSourceDoc() {
-	    
-		
+	// public void enterVacancyDescFromSourceDoc() {
+
 	public void selectRecommendationLetter() {
 		JavascriptUtils.scrollDown(7000);
 		CommonUtils.click(vacancyManagerUserPage.lettersOfRecommendation);
 		MiscUtils.sleep(2000);
 	}
+
 	public void verifyNumberOfLettersOfRecommendation() {
 		JavascriptUtils.scrollUp(600);
 		MiscUtils.sleep(2000);
-		Assert.assertEquals("It is present", vacancyManagerUserPage.numberOfLettersOfRecommendation.getText(),"2" + " recommendations");
-		
+		Assert.assertEquals("It is present", vacancyManagerUserPage.numberOfLettersOfRecommendation.getText(),
+				"2" + " recommendations");
+
 	}
-	
+
 	public void verifyTabsOnVacancyManagerPage(List<String> names) {
-		List <WebElement> namesList = WebDriverUtils.webDriver.findElements(By.xpath("//p[@class='vacancy-desc']"));
+		List<WebElement> namesList = WebDriverUtils.webDriver.findElements(By.xpath("//p[@class='vacancy-desc']"));
 		System.out.println("size of all tabs " + namesList.size());
-		
-		for(WebElement each : namesList) {	
-		System.out.println("each tab name "+ each.getText());
-		
-		if(names.contains(each.getText())){
-			System.out.println("true");
-			
-		} else {
-			System.out.println("false");
-		}
-		
+
+		for (WebElement each : namesList) {
+			System.out.println("each tab name " + each.getText());
+
+			if (names.contains(each.getText())) {
+				System.out.println("true");
+
+			} else {
+				System.out.println("false");
+			}
+
 		}
 	}
-	
+
 	public void verifyTabsCountOnVacancyManagerPage() {
-		List <WebElement> countList = WebDriverUtils.webDriver.findElements(By.xpath("//p[@class='num-count']"));
+		List<WebElement> countList = WebDriverUtils.webDriver.findElements(By.xpath("//p[@class='num-count']"));
 		System.out.println("count of all tabs " + countList.size());
-		
-		for(WebElement each : countList) {	
-		System.out.println("each count of all tabs "+ each.getText());
-		
+
+		for (WebElement each : countList) {
+			System.out.println("each count of all tabs " + each.getText());
+
 		}
 	}
-	
 
 	public void selectOpenDate(String date) {
 		vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection.sendKeys(date);
-		
+
 	}
-	
+
 	public void selectCloseDate(String date) {
 		vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection.sendKeys(date);
 	}
+
 	public void selectToggleButtonOnMandatoryStatementPage(String nameButton) {
-		if (nameButton.equals("Equal Opportunity Employer")){
+		if (nameButton.equals("Equal Opportunity Employer")) {
 			CommonUtils.click(vacancyManagerUserPage.toggleButtonEqualOpportunityEmployer);
-			Assert.assertEquals(vacancyManagerUserPage.textOfSectionEqualOpportunityEmployer, null);
-			}else if(nameButton.equals("Standards of Conduct/Financial Disclosure")) {
-				CommonUtils.click(vacancyManagerUserPage.toggleButtonStandardsOfConduct);
-				Assert.assertEquals(vacancyManagerUserPage.textOfSectionStandardsOfConductText, null);
-			}else if(nameButton.equals("Foreign Education")) {
-				CommonUtils.click(vacancyManagerUserPage.toggleButtonForeignEducation);
-				Assert.assertEquals(vacancyManagerUserPage.textOfSectionForeignEducationText, null);
-			}else if(nameButton.equals("Reasonable Accommodation")) {
-				CommonUtils.click(vacancyManagerUserPage.toggleButtonReasonableAccommodation);
-				Assert.assertEquals(vacancyManagerUserPage.textOfSectionReasonableAccommodationText, null);
-			}
+			CucumberLogUtils.logScreenShot();
+
+		} else if (nameButton.equals("Standards of Conduct/Financial Disclosure")) {
+			CommonUtils.click(vacancyManagerUserPage.toggleButtonStandardsOfConduct);
+			CucumberLogUtils.logScreenShot();
+
+		} else if (nameButton.equals("Foreign Education")) {
+		
+			CommonUtils.click(vacancyManagerUserPage.toggleButtonForeignEducation);
+			CucumberLogUtils.logScreenShot();
+
+		} else if (nameButton.equals("Reasonable Accommodation")) {
+;
+			CommonUtils.click(vacancyManagerUserPage.toggleButtonReasonableAccommodation);
+			CucumberLogUtils.logScreenShot();
+		}
 	}
-
-
-
 }
