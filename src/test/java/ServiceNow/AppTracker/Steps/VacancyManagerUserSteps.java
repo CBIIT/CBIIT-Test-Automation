@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 import com.nci.automation.utils.CucumberLogUtils;
@@ -257,13 +258,13 @@ public class VacancyManagerUserSteps extends PageInitializer {
 		CommonUtils.click(vacancyManagerUserPage.reviewSection);
 		JavascriptUtils.scrollUp(4000);
 		CommonUtil.waitBrowser(4000);
-		
+
 	}
 
 	/** SectionsFields **/
 	@When("User clicks on the Mandatory Statements section")
 	public void user_clicks_on_the_Mandatory_Statements_section() {
-	    CommonUtils.click(vacancyManagerUserPage.mandatoryStatementsSection);
+		CommonUtils.click(vacancyManagerUserPage.mandatoryStatementsSection);
 
 	}
 
@@ -291,22 +292,39 @@ public class VacancyManagerUserSteps extends PageInitializer {
 				"reasonableAccommodation " + vacancyManagerUserPage.textOfSectionReasonableAccommodationText.getText());
 
 	}
-	/**satya11ticket101**/
+
+	/** satya11ticket101 **/
 	@When("User toggles off {string} as below")
 	public void user_toggles_off_as_below(String nameFromExamples) {
 		vacancyManagerUserStepsImpl.selectToggleButtonOnMandatoryStatementPage(nameFromExamples);
-	    
+
 	}
 
 	@When("User edits Equal Opportunity Employer text by adding {string}")
-	public void user_edits_Equal_Opportunity_Employer_text_by_adding(String string) {
-	    
+	public void user_edits_Equal_Opportunity_Employer_text_by_adding(String sentence) {
+		String presentText = vacancyManagerUserPage.textOfSectionEqualOpportunityEmployer.getText();
+		CommonUtils.sendKeys(vacancyManagerUserPage.textOfSectionEqualOpportunityEmployer,
+				presentText + Keys.SPACE + sentence);
+
 	}
 
 	@Then("User can see the updated value displays in the text field")
 	public void user_can_see_the_updated_value_displays_in_the_text_field() {
-	   
+	 Assert.assertTrue(vacancyManagerUserPage.textOfSectionEqualOpportunityEmployer.getText().contains("This position requires traveling overseas"));
+	
+	}
+	@Given("User toggles off\\/on Equal Opportunity Employer button")
+	public void user_toggles_off_on_Equal_Opportunity_Employer_button() {
+	CommonUtils.click(vacancyManagerUserPage.toggleButtonEqualOpportunityEmployer); //OFF
+	MiscUtils.sleep(2000);
+	CommonUtils.click(vacancyManagerUserPage.toggleButtonEqualOpportunityEmployer); //ON
+	MiscUtils.sleep(2000);
 	}
 
+	@Given("User toggles off Standards of Conduct\\/Financial Disclosure button")
+	public void user_toggles_off_Standards_of_Conduct_Financial_Disclosure_button() {
+	CommonUtils.click(vacancyManagerUserPage.toggleButtonStandardsOfConduct);
+	MiscUtils.sleep(2000);
+	}
 
 }
