@@ -310,21 +310,67 @@ public class VacancyManagerUserSteps extends PageInitializer {
 
 	@Then("User can see the updated value displays in the text field")
 	public void user_can_see_the_updated_value_displays_in_the_text_field() {
-	 Assert.assertTrue(vacancyManagerUserPage.textOfSectionEqualOpportunityEmployer.getText().contains("This position requires traveling overseas"));
-	
+		Assert.assertTrue(vacancyManagerUserPage.textOfSectionEqualOpportunityEmployer.getText()
+				.contains("This position requires traveling overseas"));
+
 	}
+
 	@Given("User toggles off\\/on Equal Opportunity Employer button")
 	public void user_toggles_off_on_Equal_Opportunity_Employer_button() {
-	CommonUtils.click(vacancyManagerUserPage.toggleButtonEqualOpportunityEmployer); //OFF
-	MiscUtils.sleep(2000);
-	CommonUtils.click(vacancyManagerUserPage.toggleButtonEqualOpportunityEmployer); //ON
-	MiscUtils.sleep(2000);
+		CommonUtils.click(vacancyManagerUserPage.toggleButtonEqualOpportunityEmployer); // OFF
+		MiscUtils.sleep(2000);
+		CommonUtils.click(vacancyManagerUserPage.toggleButtonEqualOpportunityEmployer); // ON
+		MiscUtils.sleep(2000);
 	}
 
 	@Given("User toggles off Standards of Conduct\\/Financial Disclosure button")
 	public void user_toggles_off_Standards_of_Conduct_Financial_Disclosure_button() {
-	CommonUtils.click(vacancyManagerUserPage.toggleButtonStandardsOfConduct);
-	MiscUtils.sleep(2000);
+		CommonUtils.click(vacancyManagerUserPage.toggleButtonStandardsOfConduct);
+		MiscUtils.sleep(2000);
+	}
+
+	/** @Satya13Ticket102 **/
+	@Then("User can see the below fields under Application Documents {string}Cover Letter{string}, {string}")
+	public void user_can_see_the_below_fields_under_Application_Documents_Cover_Letter(String string, String string2,
+			String string3) {
+
+	}
+
+	@Then("User can see Add more button to add more documents")
+	public void user_can_see_Add_more_button_to_add_more_documents() {
+		;
+	}
+
+	@Then("User can see optional check box in each field to indicate the document is optional")
+	public void user_can_see_optional_check_box_in_each_field_to_indicate_the_document_is_optional() {
+
+	}
+
+	@Then("User can see trash icon in each field to delete the field")
+	public void user_can_see_trash_icon_in_each_field_to_delete_the_field() {
+
+	}
+
+	/** Satya14Ticklet102 **/
+
+	@Given("User renames any field in the Application Documents section and User adds more documents")
+	public void user_renames_any_field_in_the_Application_Documents_section_and_User_adds_more_documents() {
+
+	}
+
+	@Given("User deletes {int} existing document section")
+	public void user_deletes_existing_document_section(Integer int1) {
+
+	}
+
+	@When("User comes back to Basic information tab")
+	public void user_comes_back_to_Basic_information_tab() {
+		;
+	}
+
+	@Then("User can see changes in documents section remains the same")
+	public void user_can_see_changes_in_documents_section_remains_the_same() {
+
 	}
 
 }
