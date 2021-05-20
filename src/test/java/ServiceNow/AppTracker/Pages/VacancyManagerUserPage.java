@@ -210,8 +210,62 @@ public class VacancyManagerUserPage extends CommonUtils {
 	@FindBy(xpath = "//button[@id='MandatoryStatements_reasonableAccomodation']")
 	public WebElement toggleButtonReasonableAccommodation;
 	
+	/**Curriculum Vitae field**/
+	@FindBy(xpath= "//input[@id='BasicInfo_applicationDocuments_0_document']")
+	public WebElement curriculumVitaeField;
+	
+	/**Cover Letter field**/
+	@FindBy(xpath= "//input[@id='BasicInfo_applicationDocuments_1_document']")
+	public WebElement coverLetterField;
+	
+	/**Vision Statement field**/
+	@FindBy(xpath= "//input[@id='BasicInfo_applicationDocuments_2_document']")
+	public WebElement visionStatementField;
+	
+	/**Qualification Statement field**/
+	@FindBy(xpath= "//input[@id='BasicInfo_applicationDocuments_3_document']")
+	public WebElement qualificationStatementField;
+	
+	/**Trash Icon of Curriculum Vitae field**/
+	@FindBy(xpath= "(//button[@class='ant-btn ant-btn-Link ant-btn-icon-only BorderlessButton'])[1]")
+	public WebElement trashIconofCurriculumVitae;
+	
+	/**Trash Icon of Cover Letter field**/
+	@FindBy(xpath= "(//button[@class='ant-btn ant-btn-Link ant-btn-icon-only BorderlessButton'])[2]")
+	public WebElement trashIconofCoverLetter;
+	
+	/**Trash Icon of Vision Statement field**/
+	@FindBy(xpath= "(//button[@class='ant-btn ant-btn-Link ant-btn-icon-only BorderlessButton'])[3]")
+	public WebElement trashIconofVisionStatement;
+	
+	/**Trash Icon of Qualification Statement field**/
+	@FindBy(xpath= "(//button[@class='ant-btn ant-btn-Link ant-btn-icon-only BorderlessButton'])[4]")
+	public WebElement trashIconofQualificationStatement;
+	
+	/**Optional Checkbox of Curriculum Vitae field**/
+	@FindBy(xpath= "//input[@id='BasicInfo_applicationDocuments_0_isDocumentOptional']")
+	public WebElement optionalCheckboxOfCurriculumVitae;
+	
+	/**Optional Checkbox of Cover Letter field**/
+	@FindBy(xpath= "//input[@id='BasicInfo_applicationDocuments_1_isDocumentOptional']")
+	public WebElement optionalCheckboxOfCoverLetter;
+	
+	/**Optional Checkbox of Vision Statement field**/
+	@FindBy(xpath= "//input[@id='BasicInfo_applicationDocuments_2_isDocumentOptional']")
+	public WebElement optionalCheckboxOfVisionStatement;
+	
+	/**Optional Checkbox of Qualification Statement field**/
+	@FindBy(xpath= "//input[@id='BasicInfo_applicationDocuments_3_isDocumentOptional']")
+	public WebElement optionalCheckboxOfQualificationStatement;
+	
+	/**Add More Button**/
+	@FindBy(xpath= "//span[contains(text(), ' add more')]")
+	public WebElement addMoreButton;
 	
 	
+	/**New Field added by clicking AddMore Button**/
+	@FindBy(xpath= "//input[@id='BasicInfo_applicationDocuments_4_document']")
+	public WebElement newFieldForAddMoreButton;
 	
 
 	public VacancyManagerUserPage() {

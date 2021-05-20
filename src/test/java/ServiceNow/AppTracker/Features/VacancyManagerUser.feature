@@ -119,24 +119,25 @@ Then User can see the updated value displays in the text field
 
 @Satya13Ticket102
 Scenario: Verify create vacancy documents upload functionality
-And User is on Create Vacancy page
-Then User can see the below fields under Application Documents
-| Curriculum Vitae (CV) | Cover Letter | Vision Statement |Qualification Statement |
+And User should see Vacancy Dashboard Page
+When User clicks on Create Vacancy button
+Then User can see the below fields under Application Documents "Curriculum Vitae (CV)"Cover Letter", Vision Statement", "Qualification Statement"
 And User can see Add more button to add more documents
 And User can see optional check box in each field to indicate the document is optional 
 And User can see trash icon in each field to delete the field
 
-@Satya13Ticket102
-Scenario: Verify the rename & persistency functionality in documents section 
-And User is on Create Vacancy form page
-When User renames any field in the Application Documents section
-And User adds more documents
+@Satya14Ticket102
+Scenario:Verify the rename & persistence of functionality in documents section
+Given User is on AppTracker home page and user is "AppTracker Vacancy Manager"
+And User should see Vacancy Dashboard Page
+And User clicks on Create Vacancy button
+And User renames any field in the Application Documents section and User adds more documents
 And User deletes 1 existing document section
-And User navigates to some other tab
+And User clicks on the Mandatory Statements section
 When User comes back to Basic information tab
 Then User can see changes in documents section remains the same
 
-@Satya14Ticket103
+@Satya15Ticket103
 Scenario: Verify the email template in create vacancy form
 Given User logged in to the application with Vacancy Manager user role & is on create vacancy form page
 When User clicks on the Email Template tab
