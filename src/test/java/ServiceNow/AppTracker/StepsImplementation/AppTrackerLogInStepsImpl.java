@@ -28,7 +28,7 @@ public class AppTrackerLogInStepsImpl extends PageInitializer {
 
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("AppTracker"));
 		MiscUtils.sleep(3000);
-	
+
 		CucumberLogUtils.logScreenShot();
 		CommonUtils.click(appTrackerLoginPage.logInMainPage);
 		MiscUtils.sleep(3000);
@@ -46,7 +46,7 @@ public class AppTrackerLogInStepsImpl extends PageInitializer {
 
 			WebDriverUtils.webDriver.switchTo().window(each);
 			MiscUtils.sleep(1000);
-			
+
 			CucumberLogUtils.logScreenShot();
 
 			System.out.println("Curent page title " + WebDriverUtils.webDriver.getTitle());
@@ -57,13 +57,12 @@ public class AppTrackerLogInStepsImpl extends PageInitializer {
 				break;
 
 			}
-			
+
 			MiscUtils.sleep(1000);
 			CucumberLogUtils.logScreenShot();
 
 		}
 
-		
 		MiscUtils.sleep(1000);
 		CommonUtils.click(appTrackerLoginPage.nativeViewButton);
 		CucumberLogUtils.logScreenShot();
@@ -95,12 +94,11 @@ public class AppTrackerLogInStepsImpl extends PageInitializer {
 
 		} else if (userName.equals("AppTracker Committee Member")) {
 			CommonUtils.click(appTrackerLoginPage.apptrackCommitteeMember);
-			
+
 			windowHandles = WebDriverUtils.webDriver.getWindowHandles();
 			for (String each : windowHandles) {
 				MiscUtils.sleep(1000);
 
-				
 				JavascriptUtils.refreshBrowserByJS(WebDriverUtils.webDriver.switchTo().window(each));
 				MiscUtils.sleep(4000);
 
@@ -120,7 +118,6 @@ public class AppTrackerLogInStepsImpl extends PageInitializer {
 			for (String each : windowHandles) {
 				MiscUtils.sleep(1000);
 
-				
 				JavascriptUtils.refreshBrowserByJS(WebDriverUtils.webDriver.switchTo().window(each));
 				MiscUtils.sleep(1000);
 

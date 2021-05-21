@@ -66,6 +66,7 @@ public class VacancyManagerUserStepsImpl extends PageInitializer {
 
 		}
 	}
+	
 
 	public void verifyTabsCountOnVacancyManagerPage() {
 		List<WebElement> countList = WebDriverUtils.webDriver.findElements(By.xpath("//p[@class='num-count']"));
