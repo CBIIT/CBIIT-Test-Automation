@@ -268,7 +268,57 @@ public class VacancyManagerUserPage extends CommonUtils {
 	@FindBy(xpath= "//input[@id='BasicInfo_applicationDocuments_3_document']")
 	public WebElement newFieldForAddMoreButton;
 	
+	
+	/**Application Saved Field**/
+	@FindBy(xpath= "//p[contains(text(), 'Application saved')]")
+	public WebElement applicationSavedField;
+	
+	/**Application is Inactive Field**/
+	@FindBy(xpath= "//p[contains(text(), 'Application is inactive')]")
+	public WebElement applicationIsInactiveField;
+	
+	/**Application submitted confirmation Field**/
+	@FindBy(xpath= "//p[contains(text(), 'Application submitted confirmation')]")
+	public WebElement applicationSubmittedConfirmationField;
+	
+	/**Not referred to interview Field**/
+	@FindBy(xpath= "//p[contains(text(), 'Not referred to interview')]")
+	public WebElement notReferredToInterviewField;
+	
+	/**Not referred to interview Field**/
+	@FindBy(xpath= "//p[contains(text(), 'Invitation to interview')]")
+	public WebElement invitationToInterviewField;
+	
+	/** Application Saved Toggle Button**/
+	@FindBy(xpath= "//button[@id='EmailTemplates_emailTemplates_0_active']")
+	public WebElement applicationSavedToggleButton;
+	
+	/** Application is Inactive Toggle Button**/
+	@FindBy(xpath= "//button[@id='EmailTemplates_emailTemplates_1_active']")
+	public WebElement applicationIsInactiveToggleButton;
+	
+	/** Application submitted confirmation Toggle Button**/
+	@FindBy(xpath= "//button[@id='EmailTemplates_emailTemplates_2_active']")
+	public WebElement ApplicationSubmittedConfirmationToggleButton;
+	
+	/** Not referred to interview Toggle Button**/
+	@FindBy(xpath= "//button[@id='EmailTemplates_emailTemplates_3_active']")
+	public WebElement notReferredToInterviewToggleButton;
+	
+	/** Invitation to interview Toggle Button**/
+	@FindBy(xpath= "//button[@id='EmailTemplates_emailTemplates_4_active']")
+	public WebElement invitationToInterviewToggleButton;
+	
+	/** Application Saved Text Field**/
+	@FindBy(xpath= "//div[@id='EmailTemplates_emailTemplates_0_text']//p[4]")
+	public WebElement applicationSavedTextField;
+	
+	
+	
 
+	
+	
+	
 	public VacancyManagerUserPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 
