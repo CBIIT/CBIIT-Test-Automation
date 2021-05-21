@@ -138,11 +138,66 @@ Then User can see changes in documents section remains the same
 
 @Satya15Ticket103
 Scenario: Verify the email template in create vacancy form
-And User should see Vacancy Dashboard Page
-And User clicks on the Email Template tab
-And User can see the below fields "Application Saved","Application is Inactive"," Application Submitted Confirmation", "Not Referred to Interview","Invitation to Interview"
-And User toggles off/on Application saved checkbox to mark the template as active or not
+And User clicks on Create Vacancy button
+When User clicks on the Email Template tab
+And User can see the below fields "Application saved","Application is inactive","Application submitted confirmation", "Not referred to interview","Invitation to interview"
+When User toggles off/on Application saved checkbox to mark the template as active or not
 And User inputs in Application saved email template text "Lorem Ipsum"
 And User clicks on Vacancy Committee tab
 When User clicks on the Email template tab
 Then User can see the updated changes displaying as same
+
+
+Scenario: Verify Vacancy Committee form
+Given User logged in to the application with vacancy manager user role
+When User clicks on Create Vacancy button
+And User clicks on Vacancy Committee tab
+And User can see the Vacancy Committee table and add member button
+And User clicks on the add member button
+When User can see Member & Role dropdown list
+Then User can see Save & Cancel button in Action column
+
+Scenario: Verify add member functionality
+Given User logged in to the application with vacancy manager user role
+When User clicks on Create Vacancy button
+When User click on Vacancy Committee tab
+Then User can see the Vacancy Committee table and add member button
+When User click on the add member button
+Then User can see Member & Role dropdown list
+And User can see Save & Cancel button in Action column
+When User click on member drop down
+Then User can see the list of member name & email id
+And User selects a member from the list
+When User click on Role dropdown
+Then User can see the below options
+And Chair Member (voting) Member (non-voting) HR Specialist EDI Representative Executive Secretary
+When User click on Cancel button
+Then User can see the member is not added to the grid
+When User click on Save button
+Then User can see the member is added to the grid
+
+Scenario: Verify edit member functionality
+Given User logged in to the application with vacancy manager user role
+When User clicks on Create Vacancy button
+When User click on Vacancy Committee tab
+Then User can see the Vacancy Committee table and add member button
+When User click on edit button
+Then User can modify the Name & Role
+When User click on Cancel button
+Then User can verify the data not updated
+When User click on Save button
+Then User can verify the data updated
+When User click on remove button
+Then User can verify the data removed from grid
+
+
+
+
+
+
+
+
+
+
+
+

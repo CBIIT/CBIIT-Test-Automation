@@ -116,7 +116,6 @@ public class VacancyManagerUserSteps extends PageInitializer {
 
 	@Given("User can see the dashboard page displaying tabs as below")
 	public void user_can_see_the_dashboard_page_displaying_tabs_as_below(List<String> names) {
-
 		vacancyManagerUserStepsImpl.verifyTabsOnVacancyManagerPage(names);
 	}
 
@@ -131,9 +130,7 @@ public class VacancyManagerUserSteps extends PageInitializer {
 
 	@When("User is on pre-flight vacancies tab")
 	public void user_is_on_pre_flight_vacancies_tab() {
-
 		CommonUtils.click(vacancyManagerUserPage.preFlightVacanciesTab);
-
 		MiscUtils.sleep(2000);
 	}
 
@@ -211,7 +208,6 @@ public class VacancyManagerUserSteps extends PageInitializer {
 
 	@When("User clicks on the Close Date field")
 	public void user_clicks_on_the_Close_Date_field() {
-
 		CommonUtils.click(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection);
 	}
 
@@ -222,7 +218,6 @@ public class VacancyManagerUserSteps extends PageInitializer {
 
 	@Then("User can see the calendar pop up displays with Past dates disabled")
 	public void user_can_see_the_calendar_pop_up_displays_with_Past_dates_disabled() {
-
 		CommonUtils.selectDateFromTable(vacancyManagerUserPage.openCalendarTableInBasicVacancySection, "8");
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
@@ -402,37 +397,54 @@ public class VacancyManagerUserSteps extends PageInitializer {
 	/** Satya15Ticket@103 **/
 	@Given("User clicks on the Email Template tab")
 	public void user_clicks_on_the_Email_Template_tab() {
-
+		CommonUtils.click(vacancyManagerUserPage.emailTamplatesSection);
 	}
 
 	@Given("User can see the below fields {string},{string},{string}, {string},{string}")
-	public void user_can_see_the_below_fields(String string, String string2, String string3, String string4,
-			String string5) {
+	public void user_can_see_the_below_fields(String applicationSaved, String appliactionIsInactive,
+			String applicationSubmittedConfirmation, String notReferredToInterview, String invitationToInterview) {
+		Assert.assertTrue(vacancyManagerUserPage.applicationSavedField.getText().contentEquals(applicationSaved));
+		Assert.assertTrue(
+				vacancyManagerUserPage.applicationIsInactiveField.getText().contentEquals(appliactionIsInactive));
+		Assert.assertTrue(vacancyManagerUserPage.applicationSubmittedConfirmationField.getText()
+				.contentEquals(applicationSubmittedConfirmation));
+		Assert.assertTrue(
+				vacancyManagerUserPage.notReferredToInterviewField.getText().contentEquals(notReferredToInterview));
+		Assert.assertTrue(
+				vacancyManagerUserPage.invitationToInterviewField.getText().contentEquals(invitationToInterview));
 
 	}
 
 	@Given("User toggles off\\/on Application saved checkbox to mark the template as active or not")
 	public void user_toggles_off_on_Application_saved_checkbox_to_mark_the_template_as_active_or_not() {
+		CommonUtils.click(vacancyManagerUserPage.applicationSavedToggleButton);
+		MiscUtils.sleep(3000);
+		CucumberLogUtils.logScreenShot();
+		CommonUtils.click(vacancyManagerUserPage.applicationSavedToggleButton);
 
 	}
 
 	@Given("User inputs in Application saved email template text {string}")
-	public void user_inputs_in_Application_saved_email_template_text(String string) {
-		;
+	public void user_inputs_in_Application_saved_email_template_text(String text) {
+		CommonUtils.sendKeys(vacancyManagerUserPage.applicationSavedTextField, Keys.SPACE + text);
+		MiscUtils.sleep(3000);
+		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
+
 	}
 
 	@Given("User clicks on Vacancy Committee tab")
 	public void user_clicks_on_Vacancy_Committee_tab() {
-
+		CommonUtils.click(vacancyManagerUserPage.basicVacancySection);
 	}
 
 	@When("User clicks on the Email template tab")
 	public void user_clicks_on_the_Email_template_tab() {
-
+		CommonUtils.click(vacancyManagerUserPage.emailTamplatesSection);
 	}
 
 	@Then("User can see the updated changes displaying as same")
 	public void user_can_see_the_updated_changes_displaying_as_same() {
+		Assert.assertTrue(vacancyManagerUserPage.applicationSavedTextField.getText().contains("Lorem Ipsum"));
 
 	}
 
