@@ -56,7 +56,8 @@ public class VacancyManagerUserPage extends CommonUtils {
 	public WebElement vacancyCommitteeSectionHeader;
 
 	/** Basic Vacancy Section **/
-	@FindBy(xpath = "//div[@class='ant-steps-item ant-steps-item-process ant-steps-item-active']")
+	//@FindBy(xpath = "//div[@class='ant-steps-item ant-steps-item-process ant-steps-item-active']")
+	@FindBy(xpath = "(//div[@class='ant-steps-item-title'])[1]")
 	public WebElement basicVacancySection;
 
 	/** Mandatory Statements Section **/
@@ -264,7 +265,7 @@ public class VacancyManagerUserPage extends CommonUtils {
 	
 	
 	/**New Field added by clicking AddMore Button**/
-	@FindBy(xpath= "//input[@id='BasicInfo_applicationDocuments_4_document']")
+	@FindBy(xpath= "//input[@id='BasicInfo_applicationDocuments_3_document']")
 	public WebElement newFieldForAddMoreButton;
 	
 

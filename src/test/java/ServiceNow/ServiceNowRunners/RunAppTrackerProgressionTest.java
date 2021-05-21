@@ -12,7 +12,7 @@ import cucumber.api.junit.Cucumber;
 		, features="src/test/java/ServiceNow/AppTracker/Features"
 	    , glue="ServiceNow.AppTracker.Steps"		
 		, tags="@Satya14Ticket102"
-    	, dryRun =true
+    	, dryRun =false
 		, monochrome=true
 		, strict = true
 		)

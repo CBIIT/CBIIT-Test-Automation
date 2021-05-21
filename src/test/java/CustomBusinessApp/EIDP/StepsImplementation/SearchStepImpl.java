@@ -51,13 +51,14 @@ public class SearchStepImpl extends PageInitializer {
 
 				By.xpath("//*[@id='select2-trainee-classifications-results']//li[text()=\"" + type + "\"]"));
 
-				By.xpath("//*[@id='select2-trainee-classifications-results']//title[text()=\"" + type + "\"]"));
+				By.xpath("//*[@id='select2-trainee-classifications-results']//title[text()=\"" + type + "\"]");
 
 		CommonUtils.click(option);
 		CommonUtils.click(searchPage.trainneLastName);
 		CommonUtils.click(searchPage.searchButton);
 
 	}
+
 
 	public void selectActiveCompletedIDP() throws Exception {
 		CommonUtil.waitBrowser(4000);

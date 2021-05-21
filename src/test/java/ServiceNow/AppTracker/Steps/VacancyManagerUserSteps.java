@@ -98,7 +98,6 @@ public class VacancyManagerUserSteps extends PageInitializer {
 	public void user_click_on_without_entering_any_value_in_previous_field(String nameOfSection) {
 		CommonUtils.click(vacancyManagerUserPage.vacancyCommitteeSection);
 		MiscUtils.sleep(2000);
-
 		Assert.assertEquals(nameOfSection, vacancyManagerUserPage.vacancyCommitteeSectionHeader.getText());
 		MiscUtils.sleep(2000);
 
@@ -330,46 +329,110 @@ public class VacancyManagerUserSteps extends PageInitializer {
 	}
 
 	/** @Satya13Ticket102 **/
-	@Then("User can see the below fields under Application Documents {string}Cover Letter{string}, {string}")
-	public void user_can_see_the_below_fields_under_Application_Documents_Cover_Letter(String string, String string2,
-			String string3) {
+	@Then("User can see the below fields under Application Documents {string},{string}, {string}, {string}")
+	public void user_can_see_the_below_fields_under_Application_Documents(String curriculumVitae, String coverLetter,
+			String visionStatement, String qualificationStatement) {
+		JavascriptUtils.scrollDown(1000);
+		Assert.assertTrue(
+				vacancyManagerUserPage.curriculumVitaeField.getAttribute("value").contentEquals(curriculumVitae));
+		Assert.assertTrue(vacancyManagerUserPage.coverLetterField.getAttribute("value").contentEquals(coverLetter));
+		Assert.assertTrue(
+				vacancyManagerUserPage.visionStatementField.getAttribute("value").contentEquals(visionStatement));
+		Assert.assertTrue(vacancyManagerUserPage.qualificationStatementField.getAttribute("value")
+				.contentEquals(qualificationStatement));
 
 	}
 
 	@Then("User can see Add more button to add more documents")
 	public void user_can_see_Add_more_button_to_add_more_documents() {
-		;
+		Assert.assertTrue(vacancyManagerUserPage.addMoreButton.isDisplayed());
+
 	}
 
 	@Then("User can see optional check box in each field to indicate the document is optional")
 	public void user_can_see_optional_check_box_in_each_field_to_indicate_the_document_is_optional() {
-
+		Assert.assertFalse(vacancyManagerUserPage.optionalCheckboxOfCurriculumVitae.isSelected());
+		Assert.assertTrue(vacancyManagerUserPage.optionalCheckboxOfCoverLetter.isSelected());
+		Assert.assertFalse(vacancyManagerUserPage.optionalCheckboxOfVisionStatement.isSelected());
+		Assert.assertTrue(vacancyManagerUserPage.optionalCheckboxOfQualificationStatement.isSelected());
 	}
 
 	@Then("User can see trash icon in each field to delete the field")
 	public void user_can_see_trash_icon_in_each_field_to_delete_the_field() {
+		Assert.assertTrue(vacancyManagerUserPage.trashIconofCurriculumVitae.isDisplayed());
+		Assert.assertTrue(vacancyManagerUserPage.trashIconofCoverLetter.isDisplayed());
+		Assert.assertTrue(vacancyManagerUserPage.trashIconofVisionStatement.isDisplayed());
+		Assert.assertTrue(vacancyManagerUserPage.trashIconofQualificationStatement.isDisplayed());
 
 	}
 
-	/** Satya14Ticklet102 **/
+	/** Satya14Ticket102 **/
 
 	@Given("User renames any field in the Application Documents section and User adds more documents")
 	public void user_renames_any_field_in_the_Application_Documents_section_and_User_adds_more_documents() {
-
+		CommonUtils.click(vacancyManagerUserPage.addMoreButton);
+		CommonUtils.sendKeys(vacancyManagerUserPage.newFieldForAddMoreButton, "Letter Of Confirmation");
+		MiscUtils.sleep(3000);
+		vacancyManagerUserPage.curriculumVitaeField.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		vacancyManagerUserPage.curriculumVitaeField.sendKeys("Statement");
+		MiscUtils.sleep(3000);
+		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
+		JavascriptUtils.scrollUp(4000);
 	}
 
-	@Given("User deletes {int} existing document section")
-	public void user_deletes_existing_document_section(Integer int1) {
-
+	@Given("User deletes one existing document section")
+	public void user_deletes_one_existing_document_section() {
+		CommonUtils.click(vacancyManagerUserPage.trashIconofQualificationStatement);
+		MiscUtils.sleep(3000);
 	}
 
 	@When("User comes back to Basic information tab")
 	public void user_comes_back_to_Basic_information_tab() {
-		;
+		CommonUtils.click(vacancyManagerUserPage.basicVacancySection);
+
 	}
 
 	@Then("User can see changes in documents section remains the same")
 	public void user_can_see_changes_in_documents_section_remains_the_same() {
+		Assert.assertTrue(vacancyManagerUserPage.curriculumVitaeField.getAttribute("value").contentEquals("Statement"));
+		Assert.assertTrue(vacancyManagerUserPage.newFieldForAddMoreButton.getAttribute("value")
+				.contentEquals("Letter Of Confirmation"));
+	}
+
+	/** Satya15Ticket@103 **/
+	@Given("User clicks on the Email Template tab")
+	public void user_clicks_on_the_Email_Template_tab() {
+
+	}
+
+	@Given("User can see the below fields {string},{string},{string}, {string},{string}")
+	public void user_can_see_the_below_fields(String string, String string2, String string3, String string4,
+			String string5) {
+
+	}
+
+	@Given("User toggles off\\/on Application saved checkbox to mark the template as active or not")
+	public void user_toggles_off_on_Application_saved_checkbox_to_mark_the_template_as_active_or_not() {
+
+	}
+
+	@Given("User inputs in Application saved email template text {string}")
+	public void user_inputs_in_Application_saved_email_template_text(String string) {
+		;
+	}
+
+	@Given("User clicks on Vacancy Committee tab")
+	public void user_clicks_on_Vacancy_Committee_tab() {
+
+	}
+
+	@When("User clicks on the Email template tab")
+	public void user_clicks_on_the_Email_template_tab() {
+
+	}
+
+	@Then("User can see the updated changes displaying as same")
+	public void user_can_see_the_updated_changes_displaying_as_same() {
 
 	}
 
