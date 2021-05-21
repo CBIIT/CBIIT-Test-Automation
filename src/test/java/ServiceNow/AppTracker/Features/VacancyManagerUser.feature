@@ -3,7 +3,7 @@ Feature: Vacancy Manager Workflow
 Background: common steps
 Given User is on AppTracker home page and user is "AppTracker Vacancy Manager"
 
-@Regression @Smoke @Jira88
+@Regression
 Scenario: verify vacancy description without copy/paste
 And User should see Vacancy Dashboard Page
 When User clicks on Create Vacancy button
@@ -121,31 +121,28 @@ Then User can see the updated value displays in the text field
 Scenario: Verify create vacancy documents upload functionality
 And User should see Vacancy Dashboard Page
 When User clicks on Create Vacancy button
-Then User can see the below fields under Application Documents "Curriculum Vitae (CV)"Cover Letter", Vision Statement", "Qualification Statement"
+Then User can see the below fields under Application Documents "Curriculum Vitae (CV)","Cover Letter", "Vision Statement", "Qualification Statement"
 And User can see Add more button to add more documents
 And User can see optional check box in each field to indicate the document is optional 
 And User can see trash icon in each field to delete the field
 
 @Satya14Ticket102
 Scenario:Verify the rename & persistence of functionality in documents section
-Given User is on AppTracker home page and user is "AppTracker Vacancy Manager"
 And User should see Vacancy Dashboard Page
 And User clicks on Create Vacancy button
+And User deletes one existing document section
 And User renames any field in the Application Documents section and User adds more documents
-And User deletes 1 existing document section
 And User clicks on the Mandatory Statements section
 When User comes back to Basic information tab
 Then User can see changes in documents section remains the same
 
 @Satya15Ticket103
 Scenario: Verify the email template in create vacancy form
-Given User logged in to the application with Vacancy Manager user role & is on create vacancy form page
-When User clicks on the Email Template tab
-Then User can see the below fields
-And Application Saved Application is Inactive Application Submitted Confirmation Applicant Not Referred to Interview Applicant Invitation to Interview
-And User can see checkbox to mark the template as active or not
-When User edits any email template
-And User marks the template as active/inactive
-And User clicks on some other tab
+And User should see Vacancy Dashboard Page
+And User clicks on the Email Template tab
+And User can see the below fields "Application Saved","Application is Inactive"," Application Submitted Confirmation", "Not Referred to Interview","Invitation to Interview"
+And User toggles off/on Application saved checkbox to mark the template as active or not
+And User inputs in Application saved email template text "Lorem Ipsum"
+And User clicks on Vacancy Committee tab
 When User clicks on the Email template tab
 Then User can see the updated changes displaying as same
