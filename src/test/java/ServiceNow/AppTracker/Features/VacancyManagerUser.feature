@@ -147,7 +147,7 @@ And User clicks on Vacancy Committee tab
 When User clicks on the Email template tab
 Then User can see the updated changes displaying as same
 
-
+@Satya16Ticket104
 Scenario: Verify Vacancy Committee form
 Given User logged in to the application with vacancy manager user role
 When User clicks on Create Vacancy button
@@ -157,6 +157,7 @@ And User clicks on the add member button
 When User can see Member & Role dropdown list
 Then User can see Save & Cancel button in Action column
 
+@Satya16Ticket104
 Scenario: Verify add member functionality
 Given User logged in to the application with vacancy manager user role
 When User clicks on Create Vacancy button
@@ -176,6 +177,7 @@ Then User can see the member is not added to the grid
 When User click on Save button
 Then User can see the member is added to the grid
 
+@Satya16Ticket104
 Scenario: Verify edit member functionality
 Given User logged in to the application with vacancy manager user role
 When User clicks on Create Vacancy button
@@ -189,6 +191,47 @@ When User click on Save button
 Then User can verify the data updated
 When User click on remove button
 Then User can verify the data removed from grid
+
+@Satya17Ticket105
+Scenario: Verify the Review & Finalize screen with negative input
+When User clicks on Create Vacancy button
+And User enters the vacancy title
+And User indicates open date and close date
+And User selects recommendation as 2
+And User toggles off Equal Opportunity Employer button, Standards of Conduct/Financial Disclosure button, Foreign Education button, Reasonable Accommodation button
+And User adds committee member as a chair
+And User toggles off all the email template button
+And User clicks on Review and Finalize section
+When User clicks on Save and Finalize button
+Then User will see the error messages displayed
+And User comes back to Basic information tab
+And User clicks on the Mandatory Statements section
+And User clicks on Vacancy Committee tab
+And User clicks on the Email template tab
+
+
+@Satya18Ticket105
+Scenario: Verify the Review & Finalize screen with positive input
+When User clicks on Create Vacancy button
+And User enters the vacancy title
+Then User should see "Basic Vacancy Information" text as
+ """
+•	Determines customers’ needs and desires by specifying the research needed to obtain market information.
+•	Recommends the nature and scope of present and future product lines by reviewing product specifications and requirements; appraising new product ideas and/or product or packaging changes.
+•	Assesses market competition by comparing the company’s product to competitors’ products.
+•	Provides source data for product line communications by defining product marketing communication objectives.
+•	Obtains product market share by working with sales director to develop product sales strategies.
+•	Assesses product market data by calling on customers with field salespeople and evaluating sales call results.
+ """
+And User indicates open date and close date
+And User adds committee member as a chair and as an executive secretary
+And User clicks on Review and Finalize tab
+And User clicks on the Mandatory Statements section
+And User clicks on Review and Finalize tab
+When User clicks on Save and Finalize button
+Then User can see confirmation modal "Ready to Finalize?" is displayed
+When User chooses OK for  confirmation modal"Ready to finalize vacancy?"
+Then User can see confirmation modal "Vacancy Finalized!"
 
 
 

@@ -445,7 +445,68 @@ public class VacancyManagerUserSteps extends PageInitializer {
 	@Then("User can see the updated changes displaying as same")
 	public void user_can_see_the_updated_changes_displaying_as_same() {
 		Assert.assertTrue(vacancyManagerUserPage.applicationSavedTextField.getText().contains("Lorem Ipsum"));
-
 	}
+		//@Satya17Ticket105
+		@When("User indicates open date and close date")
+		public void user_indicates_open_date_and_close_date() {
+		    
+		}
+
+		@When("User toggles off Equal Opportunity Employer button, Standards of Conduct\\/Financial Disclosure button, Foreign Education button, Reasonable Accommodation button")
+		public void user_toggles_off_Equal_Opportunity_Employer_button_Standards_of_Conduct_Financial_Disclosure_button_Foreign_Education_button_Reasonable_Accommodation_button() {
+		}
+
+		@When("User adds committee member as a chair")
+		public void user_adds_committee_member_as_a_chair() {
+		    
+		}
+
+		@When("User toggles off all the email template button")
+		public void user_toggles_off_all_the_email_template_button() {
+		   
+		}
+
+		@When("User clicks on Review and Finalize section")
+		public void user_clicks_on_Review_and_Finalize_section() {
+		    
+		}
+
+		@When("User clicks on Save and Finalize button")
+		public void user_clicks_on_Save_and_Finalize_button() {
+		    // Write code here that turns the phrase above into concrete actions
+		    throw new cucumber.api.PendingException();
+		}
+
+		@Then("User will see the error messages displayed")
+		public void user_will_see_the_error_messages_displayed() {
+		
+		}
+		//@Satya18Ticket105
+		@Then("User adds committee member as a chair and as an executive secretary")
+		public void user_adds_committee_member_as_a_chair_and_as_an_executive_secretary() {
+		    
+		}
+
+		@Then("User clicks on Review and Finalize tab")
+		public void user_clicks_on_Review_and_Finalize_tab() {
+	
+		}
+
+		@Then("User can see confirmation modal {string} is displayed")
+		public void user_can_see_confirmation_modal_is_displayed(String string) {
+		    
+		}
+
+		@When("User chooses OK for  confirmation modal{string}")
+		public void user_chooses_OK_for_confirmation_modal(String string) {
+		    
+		}
+
+		@Then("User can see confirmation modal {string}")
+		public void user_can_see_confirmation_modal(String string) {
+		    
+		}
+
+
 
 }
