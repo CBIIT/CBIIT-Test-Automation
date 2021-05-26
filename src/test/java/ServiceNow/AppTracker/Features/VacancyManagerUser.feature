@@ -61,25 +61,26 @@ When User clicks on closed vacancies tab
 Then User can see the "All", "Closed", "Triaged", "Individually Scored", "Scored", "Archived" sub filters on closed vacancies
 
 @Satya7Ticket94
-Scenario: Verify set vacancy date functionality
+Scenario Outline: Verify set vacancy date functionality
 When User clicks on Create Vacancy button
 Then User should able to navigate to the "Basic Vacancy Information" without any error
 And User clicks on the Open date field to see calendar past dates disabled
 And User clicks on the Close Date field to see calendar past dates disabled
 And User selects date same as today's date as below
-|Open Date |2021-05-18|
-|Close Date|2021-05-21|
-Then User can see the calendar pop up displays with Past dates disabled
 #Then User can see the under Close Date field message displays with "Please pick a close date that is after the open date."
 #When User selects the Open date as greater than the Close date 
 #Then User can see the under Open Date field message displays with "Please pick an open date that is before the close date."
+Examples: dates
+|Open Date |2021-05-26|
+|Close Date|2021-05-26|
+
 
 @Satya8Ticket94
 Scenario: Verify the manual date enter functionality in vacancy dates fields
 When User is on create vacancy page
 And User enters the past date in open date field & tab out
 Then User can see the dates changing to current date automatically
-And User enters the past date in Closed date field & tab ou
+And User enters the past date in Closed date field & tab out
 Then User can see the dates changing to current date automatically
 
 @Satya9Ticket94
@@ -192,25 +193,25 @@ Then User can verify the data updated
 When User click on remove button
 Then User can verify the data removed from grid
 
-@Satya17Ticket105
+@Satya17Ticket120
 Scenario: Verify the Review & Finalize screen with negative input
 When User clicks on Create Vacancy button
 And User enters the vacancy title
 And User indicates open date and close date
-And User selects recommendation as 2
-And User toggles off Equal Opportunity Employer button, Standards of Conduct/Financial Disclosure button, Foreign Education button, Reasonable Accommodation button
-And User adds committee member as a chair
-And User toggles off all the email template button
-And User clicks on Review and Finalize section
-When User clicks on Save and Finalize button
-Then User will see the error messages displayed
-And User comes back to Basic information tab
-And User clicks on the Mandatory Statements section
-And User clicks on Vacancy Committee tab
-And User clicks on the Email template tab
+#And User selects recommendation as 2
+#And User toggles off Equal Opportunity Employer button, Standards of Conduct/Financial Disclosure button, Foreign Education button, Reasonable Accommodation button
+#And User adds committee member as a chair
+#And User toggles off all the email template button
+#And User clicks on Review and Finalize section
+##When User clicks on Save and Finalize button
+#Then User will see the error messages displayed
+#And User comes back to Basic information tab
+#And User clicks on the Mandatory Statements section
+#And User clicks on Vacancy Committee tab
+#And User clicks on the Email template tab
 
 
-@Satya18Ticket105
+@Satya18Ticket120
 Scenario: Verify the Review & Finalize screen with positive input
 When User clicks on Create Vacancy button
 And User enters the vacancy title

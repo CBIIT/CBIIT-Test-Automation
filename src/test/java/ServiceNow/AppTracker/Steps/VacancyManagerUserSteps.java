@@ -199,30 +199,6 @@ public class VacancyManagerUserSteps extends PageInitializer {
 	/**
 	 * @Satya7Ticket94 Scenario: Verify set vacancy date functionality
 	 */
-	@When("User clicks on the Open date field")
-	public void user_clicks_on_the_Open_date_field() {
-		JavascriptUtils.scrollDown(8000);
-		CommonUtils.click(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
-
-	}
-
-	@When("User clicks on the Close Date field")
-	public void user_clicks_on_the_Close_Date_field() {
-		CommonUtils.click(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection);
-	}
-
-	@When("User selects date same as today's date in Open Date field and Close Date")
-	public void user_selects_date_same_as_today_s_date_in_Open_Date_field_and_Close_Date() {
-
-	}
-
-	@Then("User can see the calendar pop up displays with Past dates disabled")
-	public void user_can_see_the_calendar_pop_up_displays_with_Past_dates_disabled() {
-		CommonUtils.selectDateFromTable(vacancyManagerUserPage.openCalendarTableInBasicVacancySection, "8");
-		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
-
-	}
 
 	@Then("User clicks on the Open date field to see calendar past dates disabled")
 	public void user_clicks_on_the_Open_date_field_to_see_calendar_past_dates_disabled() {
@@ -244,14 +220,12 @@ public class VacancyManagerUserSteps extends PageInitializer {
 		String openDate = data.get("Open Date");
 		String closeDate = data.get("Close Date");
 		vacancyManagerUserStepsImpl.selectOpenDate(openDate);
-		CommonUtil.waitBrowser(4000);
+		MiscUtils.sleep(4000);
 		vacancyManagerUserStepsImpl.selectCloseDate(closeDate);
-		JavascriptUtils.scrollDown(7000);
-		CommonUtil.waitBrowser(4000);
-		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
+		MiscUtils.sleep(4000);
 		CommonUtils.click(vacancyManagerUserPage.reviewSection);
+		MiscUtils.sleep(4000);
 		JavascriptUtils.scrollUp(4000);
-		CommonUtil.waitBrowser(4000);
 
 	}
 
@@ -446,67 +420,75 @@ public class VacancyManagerUserSteps extends PageInitializer {
 	public void user_can_see_the_updated_changes_displaying_as_same() {
 		Assert.assertTrue(vacancyManagerUserPage.applicationSavedTextField.getText().contains("Lorem Ipsum"));
 	}
-		//@Satya17Ticket105
-		@When("User indicates open date and close date")
-		public void user_indicates_open_date_and_close_date() {
-		    
-		}
 
-		@When("User toggles off Equal Opportunity Employer button, Standards of Conduct\\/Financial Disclosure button, Foreign Education button, Reasonable Accommodation button")
-		public void user_toggles_off_Equal_Opportunity_Employer_button_Standards_of_Conduct_Financial_Disclosure_button_Foreign_Education_button_Reasonable_Accommodation_button() {
-		}
+	// @Satya17Ticket120
+	@When("User indicates open date and close date")
+	public void user_indicates_open_date_and_close_date() {
+		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
+		MiscUtils.sleep(2000);
+		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection,
+				"2021-05-27");
+		MiscUtils.sleep(1000);
+		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection,
+				"2021-05-29");
+		MiscUtils.sleep(3000);
+	}
 
-		@When("User adds committee member as a chair")
-		public void user_adds_committee_member_as_a_chair() {
-		    
-		}
+	@When("User toggles off Equal Opportunity Employer button, Standards of Conduct\\/Financial Disclosure button, Foreign Education button, Reasonable Accommodation button")
+	public void user_toggles_off_Equal_Opportunity_Employer_button_Standards_of_Conduct_Financial_Disclosure_button_Foreign_Education_button_Reasonable_Accommodation_button() {
+		CommonUtils.click(vacancyManagerUserPage.toggleButtonEqualOpportunityEmployer);
+		MiscUtils.sleep(3000);
+	}
 
-		@When("User toggles off all the email template button")
-		public void user_toggles_off_all_the_email_template_button() {
-		   
-		}
+	@When("User adds committee member as a chair")
+	public void user_adds_committee_member_as_a_chair() {
 
-		@When("User clicks on Review and Finalize section")
-		public void user_clicks_on_Review_and_Finalize_section() {
-		    
-		}
+	}
 
-		@When("User clicks on Save and Finalize button")
-		public void user_clicks_on_Save_and_Finalize_button() {
-		    // Write code here that turns the phrase above into concrete actions
-		    throw new cucumber.api.PendingException();
-		}
+	@When("User toggles off all the email template button")
+	public void user_toggles_off_all_the_email_template_button() {
 
-		@Then("User will see the error messages displayed")
-		public void user_will_see_the_error_messages_displayed() {
-		
-		}
-		//@Satya18Ticket105
-		@Then("User adds committee member as a chair and as an executive secretary")
-		public void user_adds_committee_member_as_a_chair_and_as_an_executive_secretary() {
-		    
-		}
+	}
 
-		@Then("User clicks on Review and Finalize tab")
-		public void user_clicks_on_Review_and_Finalize_tab() {
-	
-		}
+	@When("User clicks on Review and Finalize section")
+	public void user_clicks_on_Review_and_Finalize_section() {
 
-		@Then("User can see confirmation modal {string} is displayed")
-		public void user_can_see_confirmation_modal_is_displayed(String string) {
-		    
-		}
+	}
 
-		@When("User chooses OK for  confirmation modal{string}")
-		public void user_chooses_OK_for_confirmation_modal(String string) {
-		    
-		}
+	@When("User clicks on Save and Finalize button")
+	public void user_clicks_on_Save_and_Finalize_button() {
 
-		@Then("User can see confirmation modal {string}")
-		public void user_can_see_confirmation_modal(String string) {
-		    
-		}
+	}
 
+	@Then("User will see the error messages displayed")
+	public void user_will_see_the_error_messages_displayed() {
 
+	}
+
+	// @Satya18Ticket105
+	@Then("User adds committee member as a chair and as an executive secretary")
+	public void user_adds_committee_member_as_a_chair_and_as_an_executive_secretary() {
+
+	}
+
+	@Then("User clicks on Review and Finalize tab")
+	public void user_clicks_on_Review_and_Finalize_tab() {
+
+	}
+
+	@Then("User can see confirmation modal {string} is displayed")
+	public void user_can_see_confirmation_modal_is_displayed(String string) {
+
+	}
+
+	@When("User chooses OK for  confirmation modal{string}")
+	public void user_chooses_OK_for_confirmation_modal(String string) {
+
+	}
+
+	@Then("User can see confirmation modal {string}")
+	public void user_can_see_confirmation_modal(String string) {
+
+	}
 
 }
