@@ -100,11 +100,11 @@ public class VacancyManagerUserPage extends CommonUtils {
 	public WebElement textOfSectionReasonableAccommodationText;
 
 	/** Email Templates Committee Section **/
-	@FindBy(xpath = "//div[@class='ant-steps-item ant-steps-item-wait'][3]")
+	@FindBy(xpath = "(//div[@class='ant-steps-item-title'])[4]")
 	public WebElement emailTamplatesSection;
 
 	/** Review Section **/
-	@FindBy(xpath = "//div[@class='ant-steps-item ant-steps-item-wait'][4]")
+	@FindBy(xpath = "//div[@class='ant-steps-item-title' and text()='Review and Finalize']")
 	public WebElement reviewSection;
 
 	/** Basic Vacancy tab pre-flight vacancies **/
@@ -313,6 +313,14 @@ public class VacancyManagerUserPage extends CommonUtils {
 	@FindBy(xpath= "//div[@id='EmailTemplates_emailTemplates_0_text']//p[4]")
 	public WebElement applicationSavedTextField;
 	
+	/** Open Date alert**/
+	@FindBy(xpath= "(//div[@class='ant-form-item-explain ant-form-item-explain-error'])[1]")
+	public WebElement openDateAlert;
+	
+
+	/** Close Date alert**/
+	@FindBy(xpath= "(//div[@class='ant-form-item-explain ant-form-item-explain-error'])[2]")
+	public WebElement closeDateAlert;
 	
 	
 

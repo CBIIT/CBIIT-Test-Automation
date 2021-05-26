@@ -347,7 +347,7 @@ Feature: Regression testing
     
 
 
-    @Regression @nekrashevicha2
+    @Regression @Smoke @SearchFirstNameLastName
     Scenario Outline: IDP Search request 
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -362,7 +362,7 @@ Feature: Regression testing
     |Trainee First Name|Trainee Last Name|
     |Olga              |Kim              | 
     
-    @Regression @nekrashevicha2
+    @Regression @Smoke @ClassificationType
     Scenario Outline:IDP Search request specifying  Classification type
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -377,8 +377,7 @@ Feature: Regression testing
     |Employee           |
    
     
-
-    @Regression @nekrashevicha2
+    @Regression @Smoke @TrainingOrganization
     Scenario Outline:IDP Search request specifying  Training Organization and Training Lab, Branch, or Office
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -392,7 +391,7 @@ Feature: Regression testing
     |CCR                  |
     |CBIIT                |
     
-   @Regression
+    @Regression @Smoke @PrimaryMentor
     Scenario Outline: IDP Search Request by selecting Primary Mentor
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -407,7 +406,7 @@ Feature: Regression testing
     
 
 
-     @Regression
+    @Regression @Smoke @SpecifyingFullName
     Scenario Outline: IDP Search request as Gloria Calloway specifying a full name
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -420,7 +419,7 @@ Feature: Regression testing
     |Trainee First Name|Trainee Last Name|
     |Kate              |Brown            |
     
-    @Regression 
+    @Regression @Smoke @ClassificationType
     Scenario Outline:IDP Search request as Gloria Calloway  specifying  Classification type
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -434,7 +433,7 @@ Feature: Regression testing
     |Employee           |
     |Employee           |
     
-    @Regression
+    @Regression @Smoke @NIHSAC
     Scenario Outline: Search request as Gloria Calloway specifying NIH SAC
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user

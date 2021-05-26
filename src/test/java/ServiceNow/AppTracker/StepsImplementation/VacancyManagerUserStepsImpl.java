@@ -10,6 +10,7 @@ import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
@@ -66,12 +67,10 @@ public class VacancyManagerUserStepsImpl extends PageInitializer {
 
 		}
 	}
-	
 
 	public void verifyTabsCountOnVacancyManagerPage() {
 		List<WebElement> countList = WebDriverUtils.webDriver.findElements(By.xpath("//p[@class='num-count']"));
 		System.out.println("count of all tabs " + countList.size());
-
 		for (WebElement each : countList) {
 			System.out.println("each count of all tabs " + each.getText());
 
@@ -97,12 +96,12 @@ public class VacancyManagerUserStepsImpl extends PageInitializer {
 			CucumberLogUtils.logScreenShot();
 
 		} else if (nameButton.equals("Foreign Education")) {
-		
+
 			CommonUtils.click(vacancyManagerUserPage.toggleButtonForeignEducation);
 			CucumberLogUtils.logScreenShot();
 
 		} else if (nameButton.equals("Reasonable Accommodation")) {
-;
+			;
 			CommonUtils.click(vacancyManagerUserPage.toggleButtonReasonableAccommodation);
 			CucumberLogUtils.logScreenShot();
 		}
