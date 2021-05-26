@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
@@ -70,10 +71,11 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer{
 		for(int i=0; i<editIcons.size(); i++) {
 			CommonUtil.waitBrowser(4000);
 			editIcons = WebDriverUtils.getWebDriver().findElements(By.cssSelector("[title='Edit']"));
-			editIcons.get(0).click();
+			editIcons.get(i).click();
 			CommonUtils.click(WebDriverUtils.getWebDriver().findElements(By.cssSelector(".modal-lg.in label.radio")).get(2));
 			//WebDriverUtils.getWebDriver().findElements(By.cssSelector(".modal-lg.in label.radio")).get(2).click();
 			//doneButton.click();
+			MiscUtils.sleep(3000);
 			CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.xpath("//*[contains(@class, 'modal-lg')][contains(@class, 'in')]//*[text()='Done']")));
 			//WebDriverUtils.getWebDriver().findElement(By.xpath("//*[contains(@class, 'modal-lg')][contains(@class, 'in')]//*[text()='Done']")).click();
 		}

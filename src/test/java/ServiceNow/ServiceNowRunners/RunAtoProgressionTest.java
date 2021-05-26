@@ -12,7 +12,7 @@ import cucumber.api.junit.Cucumber;
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/ServiceNow/ATO/Features"
 		, glue="ServiceNow.ATO.Steps"
-		, tags="@AuditAndAccountability"
+		, tags=" @FASTATO"
 		, dryRun = false
 		, monochrome=true
 		, strict = true

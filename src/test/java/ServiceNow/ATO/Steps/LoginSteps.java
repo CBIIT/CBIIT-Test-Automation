@@ -53,8 +53,8 @@ public class LoginSteps {
 	public void login() throws Exception {
 		if(loginStepsImpl.isLoginButtonDisplayed()) {
 			loginStepsImpl.clckOnLoginButton();
-			loginStepsImpl.enterUsername(ConfUtils.getProperty("Username"));
-			String decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("Password"));
+			loginStepsImpl.enterUsername(ConfUtils.getProperty("sgugulothuUsername"));
+			String decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
 			loginStepsImpl.enterPassword(decyptedPass);
 			//loginPage.enterUsername(ConfigFileReader.getConfigFileReader().getUserName());
 			//loginPage.enterPassword(ConfigFileReader.getConfigFileReader().getPassword());
@@ -75,15 +75,22 @@ public class LoginSteps {
 		loginStepsImpl.clickOnSignInButton();
 	}
 	
-	@Given("User will login to the fast ato application")
-	public void loginToFastAto(String userName) throws Exception{
+	
+	@Given("user opens the fast ato page")
+	public void accessFastAtoPage() {
 		loginStepsImpl.openServiceApp();
-//		commonPage.clickOnLoginInToGetStartedButton();
-//		Thread.sleep(3000);
-//		loginPage.enterUsername(userName);
-//		loginPage.enterPassword(Constants.passwords.get(userName));
-//		basePage.captureScreenshot("Before Login");
-//		loginPage.clickOnSignInButton();
+	}
+
+	@Then("User navigates to fast ato page and validates the header")
+	public void validateFastAtoHeader() {
+		loginStepsImpl.validateHeader();
+		basePage.captureScreenshot("Header Validation");
+	}
+	
+	
+	@Given("User will login to the fast ato application")
+	public void loginToFastAto() throws Exception{
+		loginStepsImpl.openServiceApp();
 	}
 	
 	@Then("User clicks on {string} in header menu")
