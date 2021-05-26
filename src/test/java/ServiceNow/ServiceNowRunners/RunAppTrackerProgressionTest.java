@@ -11,10 +11,10 @@ import cucumber.api.junit.Cucumber;
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/ServiceNow/AppTracker/Features"
 	    , glue="ServiceNow.AppTracker.Steps"		
-		, tags="@Satya18Ticket105"
-    	, dryRun =true
+		, tags="@Satya7Ticket94"
+    	, dryRun =false
 		, monochrome=true
-		, strict = true
+		, strict =true
 		)
 
 public class RunAppTrackerProgressionTest {
