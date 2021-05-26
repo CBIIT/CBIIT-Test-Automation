@@ -5,17 +5,21 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import ServiceNow.ATO.Steps.HookSteps;
@@ -94,6 +98,10 @@ public class BasePage {
 		clickOnElement(driver.findElement(By.xpath("//td[text()='Go to Today']")));
 	}
 	
+	public void selectDatesTab() {
+		clickOnElement(driver.findElement(By.xpath("//span[text()='Dates']")));
+	}
+	
 	protected void selectTodayDateTime(WebElement inputEle) throws InterruptedException {
 		clickOnElement(inputEle);
 		Thread.sleep(4000);
@@ -108,6 +116,16 @@ public class BasePage {
 
 	protected void waitForElementToVisible(WebElement element) {
 		wait.until(ExpectedConditions.visibilityOf(element));
+	}
+	
+	
+	
+	protected void waitForElementIgnoreStaleException(By locator) {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)							
+				.withTimeout(30, TimeUnit.SECONDS) 			
+				.pollingEvery(5, TimeUnit.SECONDS) 			
+				.ignoring(StaleElementReferenceException.class);
+		wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
 
 	protected void waitForElementToLoad(By locator) {
@@ -129,6 +147,7 @@ public class BasePage {
 		select.selectByVisibleText(optionText);
 		switchToDefaultFrame();
 	}
+	
 
 	protected void selectOptionByIndex(WebElement selectEl) {
 		Select select = new Select(selectEl);
@@ -228,4 +247,24 @@ public class BasePage {
 		clickOnElementByXpath(xpath);
 		Thread.sleep(2000);
 	}
+	
+	public WebElement find(By locator) {
+		wait.until(ExpectedConditions.elementToBeClickable(locator));
+		return driver.findElement(locator);
+	}
+	
+	public Boolean isElementPresent(By locator) {
+		return (driver.findElements(locator).size()>0);
+	}
+	
+	public Boolean isElementVisible(By locator) {
+		for (WebElement e:driver.findElements(locator)) {
+			if(e.isDisplayed()) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
 }

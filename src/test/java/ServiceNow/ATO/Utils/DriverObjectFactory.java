@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class DriverObjectFactory {
 	private static WebDriver driver;
 	private static String browserName = "chrome";
@@ -20,6 +22,8 @@ public class DriverObjectFactory {
 				driver = new SafariDriver();
 			}
 			else if(browserName.equals("chrome")) {
+				WebDriverManager.chromedriver().setup();
+				//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"\\src\\main\\java\\com\\drivers\\chromedriver.exe");
 				driver = new ChromeDriver();
 				driver.manage().window().maximize();
 			}else {

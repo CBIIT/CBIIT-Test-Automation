@@ -44,7 +44,7 @@ public class WebDriverUtils {
 	private final static Logger logger = Logger.getLogger(WebDriverUtils.class);
 
 	public static WebDriver webDriver;
-//	public static final String GET_EXE = ".exe";
+	public static final String GET_EXE = ".exe";
 //	public static final String GET_LINUX = "_linux"; 
 
 	/**
@@ -120,7 +120,6 @@ public class WebDriverUtils {
 				EdgeOptions edgeOptions = new EdgeOptions();
 
 				if (headless.equalsIgnoreCase("true")) {
-//					edgeOptions.
 					webDriver = new EdgeDriver(edgeOptions);
 				} else {
 					webDriver = new EdgeDriver();
@@ -208,7 +207,8 @@ public class WebDriverUtils {
 		}else if (browser.equalsIgnoreCase(Constants.BROWSER_EDGE)) {
 
 			if (osName.contains("Mac")) {
-				System.setProperty(Constants.EDGE_KEY, Constants.EDGE_PATH);
+//				System.setProperty(Constants.EDGE_KEY, Constants.EDGE_PATH);
+				WebDriverManager.edgedriver().setup();
 			} else if (osName.contains("Windows")) {
 				System.setProperty(Constants.EDGE_KEY, Constants.EDGE_PATH + GET_EXE);
 			}
