@@ -60,6 +60,14 @@ public class SecurityFormStepsImpl extends SecurityFormPage{
 		driver.switchTo().defaultContent();
 	}
 	
+	public void selectStateWithoutFrameSwicth(String optionVal) {
+		//switchToFrame();
+		selectOption(driver.findElement(By.cssSelector("[id='x_g_nci_atoaas_package.state']")), optionVal);
+		//driver.switchTo().defaultContent();
+	}
+	
+	
+	
 	public void selectRenewalDueDate(String dateStr) throws Exception {
 		String DATE_FIELD_NAME = "//a[contains(@name,'fieldName')]";
 		if("today".equalsIgnoreCase(dateStr)) {
@@ -68,6 +76,13 @@ public class SecurityFormStepsImpl extends SecurityFormPage{
 			selectTodayDate(renewalDue);
 			driver.switchTo().defaultContent();
 		}
+	}
+	
+	public void setRenewalDueDateAsToday() throws InterruptedException {
+		selectDatesTab();
+		String DATE_FIELD_NAME = "//a[contains(@name,'fieldName')]";
+		WebElement renewalDue = driver.findElement(By.xpath(DATE_FIELD_NAME.replace("fieldName", "renewal_due")));
+		selectTodayDate(renewalDue);
 	}
 
 	public void goToTab(String tabName) throws InterruptedException {
@@ -204,6 +219,10 @@ public class SecurityFormStepsImpl extends SecurityFormPage{
 		clickOnElementInIFrame(eles.get(eles.size() - 1));
 	}
 	
+	public void clickOnFirstPackage() {
+		clickOnElement(find(By.xpath("//div[@ng-click=\"openPackage(package)\"][1]")));
+	}
+	
 	public void clickOnPackageLink(String name) {
 		CommonUtil.waitBrowser(5000);
 		List<WebElement> eles = driver.findElements(By.xpath("//*[text()='" + name +"']"));
@@ -238,7 +257,8 @@ public class SecurityFormStepsImpl extends SecurityFormPage{
 			clickOnElement(startAttestationEle);
 			clickOnElement(driver.findElement(By.cssSelector(".sa-btn")));
 			CommonUtil.waitBrowser(2000);
-			clickOnElement(driver.findElement(By.xpath("//*[contains(text(), 'View')]")));
+			if(isElementVisible(By.xpath("//*[contains(text(), 'View')]"))) {
+			clickOnElement(driver.findElement(By.xpath("//*[contains(text(), 'View')]")));}
 			ReportUtil.takeScreenShot(scenario, "System view");
 		}
 	}

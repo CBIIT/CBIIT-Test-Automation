@@ -21,7 +21,7 @@ public class LoginSteps extends PageInitializer{
 	
 	@When("User will login to the application as \"([^\"]*)\" user")
 	public void loginByUsername(String username) throws TestingException {
-		eidpLoginStepImpl.eidpApplicationLogin("Username", "Password");
+		eidpLoginStepImpl.eidpApplicationLogin("sgugulothuUsername", "sgugulothuPassword");
 	}
 	
 	@When("Logged in user changes the user to \"([^\"]*)\"")

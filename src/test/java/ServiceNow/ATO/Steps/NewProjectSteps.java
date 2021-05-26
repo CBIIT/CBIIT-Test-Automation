@@ -30,6 +30,13 @@ public class NewProjectSteps {
 	public void clickOnContactsTab() throws InterruptedException {
 	    newProjectStepsImpl.clickOnTab("Contacts");
 	}
+	
+	@Then("go back and sort packages")
+	public void goBack_And_Sort_packages() {
+		newProjectStepsImpl.gobackToAllPackages();
+		newProjectStepsImpl.sortPackages();
+		//button[@data-original-title="Back"]
+	}
 
 	@Then("User selects the dates")
 	public void selectDates() throws InterruptedException {

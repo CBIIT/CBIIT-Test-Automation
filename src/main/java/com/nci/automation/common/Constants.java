@@ -20,17 +20,17 @@ public class Constants {
 	
 	// Browser keys
 
-//	public static final String CHROME_KEY = "webdriver.chrome.driver";
-//	public static final String FIREFOX_KEY = "webdriver.gecko.driver";
-//	public static final String IE_KEY = "webdriver.ie.driver";
-//	public static final String PHANTOM_KEY = "phantomjs.binary.path";
+	public static final String CHROME_KEY = "webdriver.chrome.driver";
+	public static final String FIREFOX_KEY = "webdriver.gecko.driver";
+	public static final String IE_KEY = "webdriver.ie.driver";
+	public static final String PHANTOM_KEY = "phantomjs.binary.path";
 	public static final String EDGE_KEY = "webdriver.edge.driver";
 
 	// Browser paths
-//	public static final String CHROME_PATH = "src"+File.separator+"main"+File.separator+"java"+File.separator+"com"+File.separator+"drivers"+File.separator+"chromedriver";
-//	public static final String FIREFOX_PATH = "src"+File.separator+"main"+File.separator+"java"+File.separator+"com"+File.separator+"drivers"+File.separator+"geckodriver";
-//	public static final String IE_PATH = "src"+File.separator+"test"+File.separator+"resources"+File.separator+"drivers"+File.separator+"IEDriverServer";
-//	public static final String PHANTOM_PATH = "src"+File.separator+"test"+File.separator+"resources"+File.separator+"drivers"+File.separator+"phantomjs";
+	public static final String CHROME_PATH = "src"+File.separator+"main"+File.separator+"java"+File.separator+"com"+File.separator+"drivers"+File.separator+"chromedriver";
+	public static final String FIREFOX_PATH = "src"+File.separator+"main"+File.separator+"java"+File.separator+"com"+File.separator+"drivers"+File.separator+"geckodriver";
+	public static final String IE_PATH = "src"+File.separator+"test"+File.separator+"resources"+File.separator+"drivers"+File.separator+"IEDriverServer";
+	public static final String PHANTOM_PATH = "src"+File.separator+"test"+File.separator+"resources"+File.separator+"drivers"+File.separator+"phantomjs";
 	public static final String EDGE_PATH = "src"+File.separator+"main"+File.separator+"java"+File.separator+"com"+File.separator+"drivers"+File.separator+"msedgedriver";
 	
 	public static final String GET_OS_NAME=System.getProperty("os.name");

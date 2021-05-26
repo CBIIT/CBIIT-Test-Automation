@@ -53,8 +53,16 @@ public class CommonPage extends BasePage{
 		clickOnElementInIFrame(saveButton);
 	}
 	
+	public void clickOnSaveButtonNonFrame() {
+		clickOnElement(saveButton);
+	}
+	
 	public void clickOnSubmitButton() {
 		clickOnElementInIFrame(submitButton);
+	}
+	
+	public void switchToFrme(String frameId) {
+		driver.switchTo().frame(frameId);
 	}
 	
 	public void clickOnCancelAtoButton() {
