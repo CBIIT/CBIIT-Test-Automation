@@ -148,19 +148,27 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer{
 				markPublicationSubTypeAsCompleted();
 			} else if("Presentation".equalsIgnoreCase(currentDeliverableTitle)){
 				WebDriverUtils.getWebDriver().findElement(By.xpath("//*[@id='trackPresentationDelStatus']//*[contains(text(), 'Completed')]")).click();
+<<<<<<< HEAD
 				
 				WebDriverUtils.getWebDriver().findElement(By.id("datepicker3")).sendKeys("05/01/2021");
 				if(CommonUtils.isElementDisplayed(WebDriverUtils.getWebDriver().findElement(By.id("datepicker4")))) {
 					WebDriverUtils.getWebDriver().findElement(By.id("datepicker4")).sendKeys("05/10/2021");
 				}
+=======
+				WebDriverUtils.getWebDriver().findElement(By.id("datepicker3")).sendKeys("01/15/2021");
+>>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 				WebDriverUtils.getWebDriver().findElement(By.id("presentationFields3Location")).sendKeys("Virtual");
 				projectRelatedDeliverablePage.addDeliverablesButton.click();
 			} else if("Other Type of Deliverable".equalsIgnoreCase(currentDeliverableTitle)) {
 				WebDriverUtils.getWebDriver().findElement(By.xpath("//*[@id='trackOtherDelStatus']//*[contains(text(), 'Completed')]")).click();
+<<<<<<< HEAD
 				WebDriverUtils.getWebDriver().findElement(By.id("datepicker3")).sendKeys("05/01/2021");
 				if(CommonUtils.isElementDisplayed(WebDriverUtils.getWebDriver().findElement(By.id("datepicker4")))) {
 					WebDriverUtils.getWebDriver().findElement(By.id("datepicker4")).sendKeys("05/10/2021");
 				}
+=======
+				WebDriverUtils.getWebDriver().findElement(By.id("datepicker3")).sendKeys("01/15/2021");
+>>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 				WebDriverUtils.getWebDriver().findElement(By.id("presentationFields3Location")).sendKeys("Virtual");
 				projectRelatedDeliverablePage.addDeliverablesButton.click();
 			}
@@ -172,6 +180,7 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer{
 		String publicationSubType = WebDriverUtils.getWebDriver().findElement(By.cssSelector(".publicSubTypeText")).getText();
 		if("Manuscript".equalsIgnoreCase(publicationSubType)) {
 			WebDriverUtils.getWebDriver().findElement(By.xpath("//label[contains(text(), 'Submitted')]")).click();
+<<<<<<< HEAD
 			WebDriverUtils.getWebDriver().findElement(By.id("datepicker3")).sendKeys("05/01/2021");
 			if(CommonUtils.isElementDisplayed(WebDriverUtils.getWebDriver().findElement(By.id("datepicker4")))) {
 				WebDriverUtils.getWebDriver().findElement(By.id("datepicker4")).sendKeys("05/10/2021");
@@ -183,6 +192,13 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer{
 			if(CommonUtils.isElementDisplayed(WebDriverUtils.getWebDriver().findElement(By.id("datepicker4")))) {
 				WebDriverUtils.getWebDriver().findElement(By.id("datepicker4")).sendKeys("05/10/2021");
 			}
+=======
+			WebDriverUtils.getWebDriver().findElement(By.id("datepicker3")).sendKeys("01/15/2021");
+			projectRelatedDeliverablePage.addDeliverablesButton.click();
+		} else {
+			WebDriverUtils.getWebDriver().findElement(By.xpath("//*[@id='trackWhitePaperRepStatus']//*[contains(text(), 'Completed')]")).click();
+			WebDriverUtils.getWebDriver().findElement(By.id("datepicker3")).sendKeys("01/15/2021");
+>>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 			projectRelatedDeliverablePage.addDeliverablesButton.click();
 		}
 		

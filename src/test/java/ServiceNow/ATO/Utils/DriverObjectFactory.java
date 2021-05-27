@@ -7,7 +7,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+<<<<<<< HEAD
 import io.github.bonigarcia.wdm.WebDriverManager;
+
 
 public class DriverObjectFactory {
 	private static WebDriver driver;
@@ -22,8 +24,8 @@ public class DriverObjectFactory {
 				driver = new SafariDriver();
 			}
 			else if(browserName.equals("chrome")) {
+
 				WebDriverManager.chromedriver().setup();
-				//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +"\\src\\main\\java\\com\\drivers\\chromedriver.exe");
 				driver = new ChromeDriver();
 				driver.manage().window().maximize();
 			}else {
