@@ -5,31 +5,22 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-<<<<<<< HEAD
 import java.util.concurrent.TimeUnit;
-=======
->>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
-<<<<<<< HEAD
 import org.openqa.selenium.StaleElementReferenceException;
-=======
->>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-<<<<<<< HEAD
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
-=======
 import org.openqa.selenium.support.ui.Select;
->>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import ServiceNow.ATO.Steps.HookSteps;
@@ -108,13 +99,10 @@ public class BasePage {
 		clickOnElement(driver.findElement(By.xpath("//td[text()='Go to Today']")));
 	}
 	
-<<<<<<< HEAD
 	public void selectDatesTab() {
 		clickOnElement(driver.findElement(By.xpath("//span[text()='Dates']")));
 	}
 	
-=======
->>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 	protected void selectTodayDateTime(WebElement inputEle) throws InterruptedException {
 		clickOnElement(inputEle);
 		Thread.sleep(4000);
@@ -130,7 +118,6 @@ public class BasePage {
 	protected void waitForElementToVisible(WebElement element) {
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
-<<<<<<< HEAD
 	
 	
 	
@@ -141,8 +128,6 @@ public class BasePage {
 				.ignoring(StaleElementReferenceException.class);
 		wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
-=======
->>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 
 	protected void waitForElementToLoad(By locator) {
 		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
@@ -163,10 +148,6 @@ public class BasePage {
 		select.selectByVisibleText(optionText);
 		switchToDefaultFrame();
 	}
-<<<<<<< HEAD
-	
-=======
->>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 
 	protected void selectOptionByIndex(WebElement selectEl) {
 		Select select = new Select(selectEl);
@@ -266,7 +247,6 @@ public class BasePage {
 		clickOnElementByXpath(xpath);
 		Thread.sleep(2000);
 	}
-<<<<<<< HEAD
 	
 	public WebElement find(By locator) {
 		wait.until(ExpectedConditions.elementToBeClickable(locator));
@@ -287,6 +267,4 @@ public class BasePage {
 	}
 	
 	
-=======
->>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 }
