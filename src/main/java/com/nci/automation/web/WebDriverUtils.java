@@ -10,6 +10,13 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -45,6 +52,8 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.github.bonigarcia.wdm.OperatingSystem;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -59,7 +68,11 @@ public class WebDriverUtils {
 	private final static Logger logger = Logger.getLogger(WebDriverUtils.class);
 
 	public static WebDriver webDriver;
+
 	public static final String GET_EXE = ".exe";
+
+//	public static final String GET_EXE = ".exe";
+
 //	public static final String GET_LINUX = "_linux"; 
 
 	public static final String GET_LINUX = "_linux";
@@ -70,7 +83,11 @@ public class WebDriverUtils {
 	 * @throws MalformedURLException
 	 */
 	@SuppressWarnings("deprecation")
-	public static WebDriver getWebDriver() {
+
+	
+
+
+	public static WebDriver getWebDriver() {  
 
 		String browser = ConfUtils.getProperty("browser");
 		String headless = ConfUtils.getProperty("headless");
@@ -80,7 +97,11 @@ public class WebDriverUtils {
 		if (webDriver == null) {
 			setDriverExecutables();
 
+
 			if (Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
+
+			if(Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
+
 				DesiredCapabilities cap = new DesiredCapabilities();
 				if (platformName.equalsIgnoreCase(Constants.IOS_MOBILE)) {
 					cap.setCapability("deviceName", "iOS");
@@ -89,12 +110,21 @@ public class WebDriverUtils {
 					cap.setCapability(CapabilityType.VERSION, "14");
 					cap.setCapability("udid", udid);
 					cap.setCapability("automationName", "XCUITest");
+
 				} else {
 					cap.setCapability("deviceName", "Android");
 					cap.setCapability("platformName", "Android");
 					cap.setCapability(CapabilityType.BROWSER_NAME, "Chrome");
 					cap.setCapability(CapabilityType.VERSION, "10");
 					cap.setCapability("avd", avdName);
+
+				}else {
+					cap.setCapability("deviceName", "Android");
+					cap.setCapability("platformName", "Android");
+					cap.setCapability(CapabilityType.BROWSER_NAME, "Chrome"); 
+					cap.setCapability(CapabilityType.VERSION, "10");		
+					cap.setCapability("avd", avdName );
+
 				}
 				try {
 					webDriver = new AppiumDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), cap);
@@ -154,7 +184,10 @@ public class WebDriverUtils {
 				String[] phantomArgs = new String[] { "--webdriver-loglevel=NONE" };
 				capabilities.setCapability(PhantomJSDriverService.PHANTOMJS_CLI_ARGS, phantomArgs);
 				webDriver = new PhantomJSDriver(capabilities);
+
 			} else {
+
+			}else {
 
 				CucumberLogUtils.logFail("Unsupported browser in localConf.properties file! "
 						+ "Browser has to be 'ie' or 'firefox' or 'phantomjs'", false);
@@ -165,12 +198,17 @@ public class WebDriverUtils {
 		long implicitWaitInSeconds = Long.valueOf(LocalConfUtils.getProperty("implicitWaitInSeconds"));
 		webDriver.manage().timeouts().implicitlyWait(implicitWaitInSeconds, TimeUnit.SECONDS);
 
+
 		if (!Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
 			webDriver.manage().window().maximize();
 		}
 		if (!Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
 			webDriver.manage().window().maximize();
 		}
+
+
+		if(!Constants.BROWSER_MOBILE.equalsIgnoreCase(browser))
+		{ webDriver.manage().window().maximize();}
 
 		return webDriver;
 	}
@@ -184,7 +222,7 @@ public class WebDriverUtils {
 
 		System.setProperty(ChromeDriverService.CHROME_DRIVER_LOG_PROPERTY, "true");
 		String browser = ConfUtils.getProperty("browser");
-		String osName = Constants.GET_OS_NAME;
+        String osName = Constants.GET_OS_NAME;
 
 		if (browser.equalsIgnoreCase(Constants.BROWSER_CHROME)) {
 			if (osName.contains("Mac")) {
@@ -196,6 +234,7 @@ public class WebDriverUtils {
 			} else if (osName.contains("Linux")) {
 				// System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH + GET_LINUX);
 				WebDriverManager.chromedriver().operatingSystem(OperatingSystem.LINUX).setup();
+
 
 				if (browser.equalsIgnoreCase(Constants.BROWSER_CHROME)) {
 
@@ -209,9 +248,27 @@ public class WebDriverUtils {
 
 				} else if (browser.equalsIgnoreCase(Constants.BROWSER_IE)) {
 
+			}
+		} else if (browser.equalsIgnoreCase(Constants.BROWSER_IE)) {
+
+			if (osName.contains("Mac")) {
+				//System.setProperty(Constants.IE_KEY, Constants.IE_PATH);
+				WebDriverManager.iedriver().setup();
+				
+			} else if (osName.contains("Windows")) {
+				//System.setProperty(Constants.IE_KEY, Constants.IE_PATH + GET_EXE);
+				WebDriverManager.iedriver().operatingSystem(OperatingSystem.WIN).setup();
+			} else if (osName.contains("Linux")) {
+		
+			WebDriverManager.iedriver().operatingSystem(OperatingSystem.LINUX).setup();
+		}
+		} else if (browser.equalsIgnoreCase(Constants.BROWSER_FIREFOX)) {
+
+
 					if (osName.contains("Mac")) {
 						// System.setProperty(Constants.IE_KEY, Constants.IE_PATH);
 						WebDriverManager.iedriver().setup();
+
 
 					} else if (osName.contains("Windows")) {
 						// System.setProperty(Constants.IE_KEY, Constants.IE_PATH + GET_EXE);
@@ -264,10 +321,20 @@ public class WebDriverUtils {
 					System.setProperty(Constants.PHANTOM_KEY, Constants.PHANTOM_PATH + GET_EXE);
 				}
 
+
+			if (osName.contains("Mac")) {
+				//System.setProperty(Constants.PHANTOM_KEY, Constants.PHANTOM_PATH);
+				WebDriverManager.phantomjs().setup();
+			} else if (osName.contains("Windows")) {
+				//System.setProperty(Constants.PHANTOM_KEY, Constants.PHANTOM_PATH + GET_EXE);
+				WebDriverManager.phantomjs().operatingSystem(OperatingSystem.WIN).setup();
+			}else if (osName.contains("Linux")) {
+				
+				WebDriverManager.phantomjs().operatingSystem(OperatingSystem.LINUX).setup();
+
 			}
 		}
 	}
-
 	/**
 	 * This method will close the current web-driver
 	 */
@@ -413,6 +480,7 @@ public class WebDriverUtils {
 		driver.navigate().refresh();
 	}
 
+
 	public static WebElement element(By by) {
 		boolean status = false;
 		try {
@@ -426,3 +494,6 @@ public class WebDriverUtils {
 	}
 
 }
+
+}
+
