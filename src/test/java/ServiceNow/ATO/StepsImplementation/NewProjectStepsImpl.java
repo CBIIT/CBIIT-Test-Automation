@@ -49,7 +49,6 @@ public class NewProjectStepsImpl extends NewProjectPage{
 		selectTodayDateTime(verifiedDate);
 		switchToDefaultFrame();
 	}
-<<<<<<< HEAD
 	
 	public void gobackToAllPackages() {
 		clickOnElementByXpath("//button[@data-original-title=\"Back\"]");
@@ -59,8 +58,6 @@ public class NewProjectStepsImpl extends NewProjectPage{
 		clickOnElementByXpath("//span[text()='Sort in ascending order']/parent::a");
 		clickOnElementByXpath("//span[text()='Sort in descending order']/parent::a");
 	}
-=======
->>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 
 	public void setNotes(String notes) throws InterruptedException {
 		clickOnTab("Notes");

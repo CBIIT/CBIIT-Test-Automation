@@ -28,13 +28,10 @@ public class LoginStepsImpl extends LoginPage{
 		driver.get(fasturl);
 	}
 	
-<<<<<<< HEAD
 	public void validateHeader() {
 		driver.findElement(By.xpath("//h1[text()='FISMA ATO Streamlining Tool (FAST ATO)']"));
 	}
 	
-=======
->>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 	public Boolean isLoginButtonDisplayed() {
 		try {
 			return loginButton.isDisplayed();

@@ -43,12 +43,7 @@ Feature: ATO testing
     Then User clicks on new button to add role
     And User fills the Security Category Impact Level details
     Then User clicks on submit button
-<<<<<<< HEAD
 
-=======
-    
-    
->>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
   @eAuthentication
   Scenario: ATO validate eAuthentication form
     Given User opens ATO application in browser
@@ -66,13 +61,8 @@ Feature: ATO testing
     Then User goto "Approval" tab
     And User fills the approval details
     And User clicks on update button
-<<<<<<< HEAD
-
-  @SystemSecurityPlan
-=======
     
 @SystemSecurityPlan
->>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
   Scenario: ATO validate System Security Plan form
     Given User opens ATO application in browser
     When User will login to ato application
@@ -95,7 +85,6 @@ Feature: ATO testing
     And User fills the System Interconnections
     And User clicks on submit button
     And User clicks on update button
-<<<<<<< HEAD
 
   @IdentityAcceeManagement
   Scenario: ATO validate identity and access management form
@@ -251,7 +240,6 @@ Feature: ATO testing
     And User will select the state as "In progress"
     And User clicks on save button without frame
     Then go back and sort packages
-=======
   
  @IdentityAcceeManagement 
  Scenario: ATO validate identity and access management form
@@ -351,4 +339,46 @@ Feature: ATO testing
   And User fills the approval details
   And User clicks on update button
     
->>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
+ @CreateThreepackages @ValidateStatus
+  Scenario: Create same name packages and validate their statuses are unique
+    Given User opens ATO application in browser
+    When User will login to ato application
+    Then User clicks on "Native View" in header menu
+    And User filters value as "ATO"
+    And User clicks on "All" package
+    Then User clicks on new button to add role
+    And User selects the system as "BRB"
+    And User selects the Application hosting solution as "NCI Cloud One"
+    Then Switch to iframe id "gsft_main"
+    And User clicks on save button without frame
+    And User will select the state as "Complete"
+    And User clicks on save button without frame
+    Then go back and sort packages
+    #Given User opens ATO application in browser
+    #When User will login to ato application
+    #Then User clicks on "Native View" in header menu
+    And User filters value as "ATO"
+    And User clicks on "All" package
+    Then User clicks on new button to add role
+    And User selects the system as "BRB"
+    And User selects the Application hosting solution as "NCI Cloud One"
+    Then Switch to iframe id "gsft_main"
+    And User clicks on save button without frame
+    And User will select the state as "Not started"
+    And User clicks on save button without frame
+    Then go back and sort packages
+    #Given User opens ATO application in browser
+    #When User will login to ato application
+    #Then User clicks on "Native View" in header menu
+    And User filters value as "ATO"
+    And User clicks on "All" package
+    Then User clicks on new button to add role
+    And User selects the system as "BRB"
+    And User selects the Application hosting solution as "NCI Cloud One"
+    Then Switch to iframe id "gsft_main"
+    And User clicks on save button without frame
+    And User will select the state as "In progress"
+    And User clicks on save button without frame
+    Then go back and sort packages
+    
+    
