@@ -1,11 +1,35 @@
 package appsCommon;
 
-
 import com.sun.xml.bind.v2.model.core.ID;
 
 import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
 import AnalysisTools.CEDCD.Pages.CEDCDBiospecimenCountsPage;
 import AnalysisTools.CEDCD.Pages.CEDCDCohortPage;
+import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDAlphabetizedSelectTypesStepImp;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp;
+
+import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDAlphabetizedSelectTypesStepImp;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp;
+
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDMaleDiscrepancyOnSearchCohortsStepImp;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortAlcoholConsumptionStepImp;
+import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDAlphabetizedSelectTypesStepImp;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDMaleDiscrepancyOnSearchCohortsStepImp;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortAlcoholConsumptionStepImp;
+import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDAlphabetizedSelectTypesStepImp;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDMaleDiscrepancyOnSearchCohortsStepImp;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortAlcoholConsumptionStepImp;
+import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDAlphabetizedSelectTypesStepImp;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDMaleDiscrepancyOnSearchCohortsStepImp;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortAlcoholConsumptionStepImp;
 import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDAlphabetizedSelectTypesStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp;
@@ -41,6 +65,11 @@ import CustomBusinessApp.EIDP.StepsImplementation.EIDPLoginStepImpl;
 import CustomBusinessApp.EIDP.StepsImplementation.GeneralInformationStepImpl;
 import CustomBusinessApp.EIDP.StepsImplementation.ProjectRelatedDeliverableStepImpl;
 import CustomBusinessApp.EIDP.StepsImplementation.SearchStepImpl;
+import ServiceNow.AppTracker.Pages.AppTrackerBasePage;
+import ServiceNow.AppTracker.Pages.AppTrackerLoginPage;
+import ServiceNow.AppTracker.Pages.VacancyManagerUserPage;
+import ServiceNow.AppTracker.StepsImplementation.AppTrackerLogInStepsImpl;
+import ServiceNow.AppTracker.StepsImplementation.VacancyManagerUserStepsImpl;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
 import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
@@ -136,18 +165,25 @@ public class PageInitializer {
 	/** PLCO instances **/
 	protected static ExploreGWASPage exploreGWASPage;
 	protected static BrowsePhenotypePage browsePhenotypePage;
-    protected static InformationPage informationPage;
-    
+	protected static InformationPage informationPage;
+
 	/** ServiceNow DevOps instances */
 	protected static DevOpsLoginPage devOpsLoginPage;
 	protected static DevOpsNativeViewPage devOpsNativeViewPage;
 	protected static DevOpsAutomatedBuildStepsImplementation devOpsAutomatedBuildStepsImplementation;
 
 	/** CEDCD instances */
+
 	/** CEDCD instances */
 	protected static CEDCDCohortPage cedcdCohortPage;
 	protected static CEDCDSearchCohortsPage cedcdSearchCohortsPage;
 	protected static CEDCDAdminPage  cedcdAdminPage;   
+
+
+	protected static CEDCDSearchCohortsPage cedcdSearchCohortsPage;
+	protected static CEDCDAdminPage cedcdAdminPage;
+	protected static CEDCDCohortPage cedcdCohortPage;
+
 	protected static CEDCDSearchFemaleCohortsStepImp cedcdSearchFemaleCohortsStepImp;
 	protected static CEDCDMaleDiscrepancyOnSearchCohortsStepImp cedcdMaleDiscrepancyOnSearchCohortsStepImp;
 	protected static CEDCDSelectAllCohortsStepImp cedcdSelectAllCohortsStepImp;
@@ -158,22 +194,22 @@ public class PageInitializer {
 	protected static CEDCDStartUps cedcdStartUps;
 	protected static CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp cedcdSearchCohortsCategoriesOfDataOfDataSortedStepImp;
 	protected static CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp cedcdBiospecimenCountsAlphabeticalCancerTypeStepImp;
-
-
+	protected static CEDCDMaleDiscrepancyOnSearchCohortsStepImp cedcdMaleDiscrepancyOnSearchCohortsStepImp;
+	
 	/** SEER instances */
 	protected static SEERLandingPage seerLandingPage;
 	protected static SEERUserRegistrationPage seerUserRegistrationPage;
 	protected static SEERDataAccessRequestPage seerDataAccessRequestPage;
 	protected static NativeViewSentViewPage nativeViewSentViewPage;
 	protected static SEERIncidenceDatabaseDetailsPage seerIncidenceDatabaseDetailsPage;
-	
+
 	/** NERD instances */
 	protected static NERDLoginStepsImplementation nerdLoginStepsImplementation;
 	protected static NERDSubmissionsPage nerdCrsKnowledgeDatabaseSubmissionsPage;
 	protected static CreateNewSubmissionPage createNewSubmissionPage;
 	protected static NERDDynamicXPATHS nerdDynamicXpaths;
 
-	/** Custom Business App Instances*/
+	/** Custom Business App Instances */
 	protected static AligningExpectationsPage aligningExpectationsPage;
 	protected static DashboardPage eidpDashboardPage;
 	protected static CommonPage eidpCommonPage;
@@ -194,7 +230,15 @@ public class PageInitializer {
 	protected static IDPAwaitingResponsePage iDPAwaitingResponsePage;
 	protected static TraineeReviewPage traineeReviewPage;
 	protected static CoPrimaryMentorPage coPrimaryMentorPage;
+
+	/** Service Now App Instances **/
+	protected static AppTrackerBasePage appTrackerBasePage;
+	protected static VacancyManagerUserPage vacancyManagerUserPage;
+	protected static VacancyManagerUserStepsImpl vacancyManagerUserStepsImpl;
+	protected static AppTrackerLoginPage appTrackerLoginPage;
+	protected static AppTrackerLogInStepsImpl appTrackerLoginStepsImpl;
 	
+
 	public static void initializeAllPages() {
 		// create instances of all pages and assign them to the variables
 		iTrustloginPage = new ITrustLoginPage();
@@ -217,8 +261,8 @@ public class PageInitializer {
 		testAccountResetImpl = new TestAccountResetImpl();
 		servicePortalSurveyPage = new ServicePortalSurveyPage();
 		ldLinkLandingPage = new LDLinkLandingPage();
-		ldLinkHomePage = new LDLinkHomePage(); 
-		exploreGWASPage = new ExploreGWASPage(); 
+		ldLinkHomePage = new LDLinkHomePage();
+		exploreGWASPage = new ExploreGWASPage();
 		charmsHomePage = new CHARMSHomePage();
 		oktaLoginPage = new OKTAloginPage();
 		charmsHomePageImpl = new CHARMSHomePageImp();
@@ -231,7 +275,11 @@ public class PageInitializer {
 		signOutVerificationStepImp = new SignOutVerificationStepImp();
 		cedcdSearchCohortsPage = new CEDCDSearchCohortsPage();
 		cedcdSearchFemaleCohortsStepImp = new CEDCDSearchFemaleCohortsStepImp();
+
 		cedcdMaleDiscrepancyOnSearchCohortsStepImp = new CEDCDMaleDiscrepancyOnSearchCohortsStepImp();
+
+        cedcdMaleDiscrepancyOnSearchCohortsStepImp = new CEDCDMaleDiscrepancyOnSearchCohortsStepImp();
+
 		cedcdSelectAllCohortsStepImp = new CEDCDSelectAllCohortsStepImp();
 		cedcdSearchCohortAlcoholConsumptionStepImp = new CEDCDSearchCohortAlcoholConsumptionStepImp();
 		cedcdBiospecimenCountsPage = new CEDCDBiospecimenCountsPage();
@@ -256,7 +304,9 @@ public class PageInitializer {
 		browsePhenotypePage = new BrowsePhenotypePage();
 		informationPage = new InformationPage();
 		cedcdAdminPage = new CEDCDAdminPage();
-		
+
+		cedcdCohortPage = new CEDCDCohortPage();
+
 		aligningExpectationsPage = new AligningExpectationsPage();
 		eidpDashboardPage = new DashboardPage();
 		eidpCommonPage = new CommonPage();
@@ -277,5 +327,17 @@ public class PageInitializer {
 		traineeReviewPage = new TraineeReviewPage();
 		coPrimaryMentorPage = new CoPrimaryMentorPage();
 		eidpDashboardStepImpl = new CustomBusinessApp.EIDP.StepsImplementation.DashboardStepImpl();
+
+
+		
+		/**AppTracker**/
+		appTrackerBasePage = new AppTrackerBasePage();
+		vacancyManagerUserPage = new VacancyManagerUserPage();
+		vacancyManagerUserStepsImpl = new VacancyManagerUserStepsImpl();
+		appTrackerLoginPage = new AppTrackerLoginPage();
+		appTrackerLoginStepsImpl = new AppTrackerLogInStepsImpl();
+		
+		
+
 	}
 }

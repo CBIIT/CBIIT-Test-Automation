@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
-
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -249,9 +248,9 @@ public class CommonUtils extends WebDriverUtils {
 	 * {@code id} can be clicked in the page or {@code timeOut} whichever is
 	 * earlier.
 	 */
-	public static void waitUntilElemtTobeClickableByXpath(long timeOut, String xpathExcpression) {
+	public static void waitUntilElemtTobeClickableByXpath(long timeOut, String nativeViewButton) {
 		WebDriverWait webDriverWait = new WebDriverWait(webDriver, timeOut);
-		webDriverWait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpathExcpression)));
+		webDriverWait.until(ExpectedConditions.elementToBeClickable(By.xpath(nativeViewButton)));
 	}
 
 	/**
@@ -408,12 +407,16 @@ public class CommonUtils extends WebDriverUtils {
 	public static String email = getEmail();
 
 	/**
-<<<<<<< HEAD
+
 	 * Use this method to pass date as a string. You can concatinate with any String
-=======
+
 	 * Use this method to pass date as a string. You can concatenate with any String
->>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
+
 	 * and get unique name
+
+	 * Use this method to pass date as a string. You can concatenate with any String
+     * and get unique name
+
 	 */
 	public static String getDateAsString() {
 		Date date = new Date();
@@ -440,9 +443,7 @@ public class CommonUtils extends WebDriverUtils {
 			}
 		}
 	}
-	
-	
-	/**
+/**
 	 * Use this method to open new tab
 	 */
 	public static void openNewTab () {
@@ -460,3 +461,6 @@ public class CommonUtils extends WebDriverUtils {
 	   }
 	}
 }
+
+
+

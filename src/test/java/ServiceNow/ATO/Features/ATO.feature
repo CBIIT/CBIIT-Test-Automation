@@ -1,5 +1,5 @@
 Feature: ATO testing
-
+ 
   @CreatePackage @Regression @Smoke
   Scenario: ATO validation of create new package
     Given User opens ATO application in browser
@@ -14,7 +14,7 @@ Feature: ATO testing
     And User selects the dates
     And User enters the note as "Test Automation"
     And User clicks on submit button
-
+ 
   @CancelPackage
   Scenario: ATO validation of Cancel package
     Given User opens ATO application in browser
@@ -24,7 +24,7 @@ Feature: ATO testing
     And User clicks on "In Progress" package
     Then User click on "first" package code
     And User clicks on cancel ato button
-
+ 
   @FIPS199
   Scenario: ATO validate FIPS199 form
     Given User opens ATO application in browser
@@ -36,7 +36,7 @@ Feature: ATO testing
     And User click on "FIPS199" security form
     And User change the form status to "In progress"
     And User assigns the form to "Satya Gugulothu"
-    Then User goto "Approval" tab
+   Then User goto "Approval" tab
     And User fills the approval details
     And User clicks on update button
     And User click on "FIPS199" security form
@@ -61,8 +61,8 @@ Feature: ATO testing
     Then User goto "Approval" tab
     And User fills the approval details
     And User clicks on update button
-    
-@SystemSecurityPlan
+ 
+  @SystemSecurityPlan
   Scenario: ATO validate System Security Plan form
     Given User opens ATO application in browser
     When User will login to ato application
@@ -85,8 +85,8 @@ Feature: ATO testing
     And User fills the System Interconnections
     And User clicks on submit button
     And User clicks on update button
-
-  @IdentityAcceeManagement
+    
+<  @IdentityAcceeManagement
   Scenario: ATO validate identity and access management form
     Given User opens ATO application in browser
     When User will login to ato application
@@ -275,55 +275,54 @@ Feature: ATO testing
   
   @AuditAndAccountability
   Scenario: Validate Audit and Accountability form of the package
-  Given User opens ATO application in browser
-  When User will login to ato application
-  Then User clicks on "Native View" in header menu
-  And User filters value as "ATO"
-  And User clicks on "In Progress" package
-  Then User click on "first" package code
-  When User click on "Audit and Accountability" security form 
-  And User clicks on "Additional Info" tab
-  And User fills Additional Info data
-  And User clicks on "Approval" tab
-  And User fills the approval details
-  And User clicks on update button
-  
-  @ConfigurationManagementPlan
+    Given User opens ATO application in browser
+    When User will login to ato application
+    Then User clicks on "Native View" in header menu
+    And User filters value as "ATO"
+    And User clicks on "In Progress" package
+    Then User click on "first" package code
+    When User click on "Audit and Accountability" security form
+    And User clicks on "Additional Info" tab
+    And User fills Additional Info data
+    And User clicks on "Approval" tab
+    And User fills the approval details
+    And User clicks on update button
+ 
+ @ConfigurationManagementPlan
   Scenario: Validate Configuration Management Plan form of the package
-  Given User opens ATO application in browser
-  When User will login to ato application
-  Then User clicks on "Native View" in header menu
-  And User filters value as "ATO"
-  And User clicks on "In Progress" package
-  Then User click on "first" package code
-  When User click on "Configuration Management Plan" security form
-  And User change the form status to "In progress"
-  And User assigns the form to "Satya Gugulothu"
-  And User clicks on update button
-  And User click on "Configuration Management Plan" security form
-  And User clicks on "Configuration Items" tab
-  And User adds new configuration item
-  And User clicks on "System Contacts" tab
-  And User adds new system contacts
-  
+    Given User opens ATO application in browser
+    When User will login to ato application
+    Then User clicks on "Native View" in header menu
+    And User filters value as "ATO"
+    And User clicks on "In Progress" package
+    Then User click on "first" package code
+    When User click on "Configuration Management Plan" security form
+    And User change the form status to "In progress"
+    And User assigns the form to "Satya Gugulothu"
+    And User clicks on update button
+    And User click on "Configuration Management Plan" security form
+    And User clicks on "Configuration Items" tab
+    And User adds new configuration item
+    And User clicks on "System Contacts" tab
+    And User adds new system contacts
+ 
   @ContingencyPlan
   Scenario: Validate Contingency Plan form of the package
-  Given User opens ATO application in browser
-  When User will login to ato application
-  Then User clicks on "Native View" in header menu
-  And User filters value as "ATO"
-  And User clicks on "In Progress" package
-  Then User click on "first" package code
-  When User click on "Contingency Plan" security form
-  And User change the form status to "In progress"
-  And User assigns the form to "Satya Gugulothu"
-  And User clicks on "Line of Succession" tab
-  And User fills line of succession form
-  And User clicks on "Approval" tab
-  And User fills the approval details
-  And User clicks on update button
-  
-  
+    Given User opens ATO application in browser
+    When User will login to ato application
+    Then User clicks on "Native View" in header menu
+    And User filters value as "ATO"
+    And User clicks on "In Progress" package
+    Then User click on "first" package code
+    When User click on "Contingency Plan" security form
+    And User change the form status to "In progress"
+    And User assigns the form to "Satya Gugulothu"
+    And User clicks on "Line of Succession" tab
+    And User fills line of succession form
+    And User clicks on "Approval" tab
+    And User fills the approval details
+    And User clicks on update button
+ 
   @IncidentResponseContactList
   Scenario: Validate Contingency Plan form of the package
   Given User opens ATO application in browser
