@@ -19,19 +19,12 @@ public class LocalConfUtils {
 		/*
 		 *  Check for command line parameter
 		 */
-<<<<<<< HEAD
 		String localConfResourcesPath = System.getProperty("isCloud");
 		
 		if(StringUtils.isBlank(localConfResourcesPath)){
 			localConfResourcesPath = "/conf/localEnv.properties";
 		}else if(localConfResourcesPath.equalsIgnoreCase("true")){
 			localConfResourcesPath = "/conf/cloudEnv.properties";
-=======
-		String localConfResourcesPath = System.getProperty("configurationFile");
-		
-		if(StringUtils.isBlank(localConfResourcesPath)){
-			localConfResourcesPath = "/conf/localEnv.properties";
->>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 		}
 		
 
