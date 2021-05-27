@@ -6,7 +6,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.nci.automation.utils.CucumberLogUtils;
+<<<<<<< HEAD
 import com.nci.automation.utils.MiscUtils;
+=======
+>>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
@@ -71,11 +74,18 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer{
 		for(int i=0; i<editIcons.size(); i++) {
 			CommonUtil.waitBrowser(4000);
 			editIcons = WebDriverUtils.getWebDriver().findElements(By.cssSelector("[title='Edit']"));
+<<<<<<< HEAD
 			editIcons.get(i).click();
 			CommonUtils.click(WebDriverUtils.getWebDriver().findElements(By.cssSelector(".modal-lg.in label.radio")).get(2));
 			//WebDriverUtils.getWebDriver().findElements(By.cssSelector(".modal-lg.in label.radio")).get(2).click();
 			//doneButton.click();
 			MiscUtils.sleep(3000);
+=======
+			editIcons.get(0).click();
+			CommonUtils.click(WebDriverUtils.getWebDriver().findElements(By.cssSelector(".modal-lg.in label.radio")).get(2));
+			//WebDriverUtils.getWebDriver().findElements(By.cssSelector(".modal-lg.in label.radio")).get(2).click();
+			//doneButton.click();
+>>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 			CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.xpath("//*[contains(@class, 'modal-lg')][contains(@class, 'in')]//*[text()='Done']")));
 			//WebDriverUtils.getWebDriver().findElement(By.xpath("//*[contains(@class, 'modal-lg')][contains(@class, 'in')]//*[text()='Done']")).click();
 		}

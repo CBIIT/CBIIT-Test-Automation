@@ -53,8 +53,13 @@ public class LoginSteps {
 	public void login() throws Exception {
 		if(loginStepsImpl.isLoginButtonDisplayed()) {
 			loginStepsImpl.clckOnLoginButton();
+<<<<<<< HEAD
 			loginStepsImpl.enterUsername(ConfUtils.getProperty("sgugulothuUsername"));
 			String decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
+=======
+			loginStepsImpl.enterUsername(ConfUtils.getProperty("Username"));
+			String decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("Password"));
+>>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 			loginStepsImpl.enterPassword(decyptedPass);
 			//loginPage.enterUsername(ConfigFileReader.getConfigFileReader().getUserName());
 			//loginPage.enterPassword(ConfigFileReader.getConfigFileReader().getPassword());
@@ -75,6 +80,7 @@ public class LoginSteps {
 		loginStepsImpl.clickOnSignInButton();
 	}
 	
+<<<<<<< HEAD
 	
 	@Given("user opens the fast ato page")
 	public void accessFastAtoPage() {
@@ -91,6 +97,17 @@ public class LoginSteps {
 	@Given("User will login to the fast ato application")
 	public void loginToFastAto() throws Exception{
 		loginStepsImpl.openServiceApp();
+=======
+	@Given("User will login to the fast ato application")
+	public void loginToFastAto(String userName) throws Exception{
+		loginStepsImpl.openServiceApp();
+//		commonPage.clickOnLoginInToGetStartedButton();
+//		Thread.sleep(3000);
+//		loginPage.enterUsername(userName);
+//		loginPage.enterPassword(Constants.passwords.get(userName));
+//		basePage.captureScreenshot("Before Login");
+//		loginPage.clickOnSignInButton();
+>>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 	}
 	
 	@Then("User clicks on {string} in header menu")

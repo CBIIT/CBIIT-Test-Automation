@@ -2,5 +2,9 @@
 /target/
 src/main/resources/conf/localConf.properties
 src/main/resources/conf/localEnv.properties
+<<<<<<< HEAD
 target/classes/conf/localConf.properties
 target/cucumber.json
+=======
+target/classes/conf/localConf.properties
+>>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
