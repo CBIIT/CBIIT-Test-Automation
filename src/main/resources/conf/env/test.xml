@@ -254,7 +254,11 @@
 	<!-- Application ID for EIDP -->
 	<application id="EidpTestUrl">
 
+<<<<<<< HEAD
 		<login_url>https://idp-test.cancer.gov/idp/
+=======
+		<login_url>https://idp-test.cancer.gov/
+>>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 		</login_url><!-- add test url -->
 
 		<role name="Role">

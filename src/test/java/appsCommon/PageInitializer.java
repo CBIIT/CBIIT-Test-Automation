@@ -5,10 +5,18 @@ import com.sun.xml.bind.v2.model.core.ID;
 
 import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
 import AnalysisTools.CEDCD.Pages.CEDCDBiospecimenCountsPage;
+<<<<<<< HEAD
 import AnalysisTools.CEDCD.Pages.CEDCDCohortPage;
 import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDAlphabetizedSelectTypesStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp;
+=======
+import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDAlphabetizedSelectTypesStepImp;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDMaleDiscrepancyOnSearchCohortsStepImp;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortAlcoholConsumptionStepImp;
+>>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortNewPageLayOutStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
@@ -72,7 +80,10 @@ import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
 import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
 import ServiceNow.NERD.Pages.NERDSubmissionsPage;
 import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
+<<<<<<< HEAD
 import ServiceNow.NERD.StepsImplementation.NativeViewImpersonateUser;
+=======
+>>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 import ServiceNow.SEER.Pages.NativeViewSentViewPage;
 import ServiceNow.SEER.Pages.SEERDataAccessRequestPage;
 import ServiceNow.SEER.Pages.SEERIncidenceDatabaseDetailsPage;
@@ -141,11 +152,21 @@ public class PageInitializer {
 	protected static DevOpsAutomatedBuildStepsImplementation devOpsAutomatedBuildStepsImplementation;
 
 	/** CEDCD instances */
+<<<<<<< HEAD
 	protected static CEDCDSearchCohortsPage cedcdSearchCohortsPage;
 	protected static CEDCDAdminPage  cedcdAdminPage;   
 	protected static CEDCDCohortPage cedcdCohortPage;
 	protected static CEDCDSearchFemaleCohortsStepImp cedcdSearchFemaleCohortsStepImp;
 	protected static CEDCDSelectAllCohortsStepImp cedcdSelectAllCohortsStepImp;
+=======
+	/** CEDCD instances */
+	protected static CEDCDSearchCohortsPage cedcdSearchCohortsPage;
+	protected static CEDCDAdminPage  cedcdAdminPage;   
+	protected static CEDCDSearchFemaleCohortsStepImp cedcdSearchFemaleCohortsStepImp;
+	protected static CEDCDMaleDiscrepancyOnSearchCohortsStepImp cedcdMaleDiscrepancyOnSearchCohortsStepImp;
+	protected static CEDCDSelectAllCohortsStepImp cedcdSelectAllCohortsStepImp;
+	protected static CEDCDSearchCohortAlcoholConsumptionStepImp cedcdSearchCohortAlcoholConsumptionStepImp;
+>>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 	protected static CEDCDBiospecimenCountsPage cedcdBiospecimenCountsPage;
 	protected static CEDCDSearchCohortNewPageLayOutStepImp cedcdSearchCohortNewPageLayOutStepImp;
 	protected static CEDCDAlphabetizedSelectTypesStepImp cedcdAlphabetizedSelectTypesStepImp;
@@ -165,7 +186,10 @@ public class PageInitializer {
 	protected static NERDLoginStepsImplementation nerdLoginStepsImplementation;
 	protected static NERDSubmissionsPage nerdCrsKnowledgeDatabaseSubmissionsPage;
 	protected static CreateNewSubmissionPage createNewSubmissionPage;
+<<<<<<< HEAD
 	protected static NativeViewImpersonateUser nativeViewImpersonateUser;
+=======
+>>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 	protected static NERDDynamicXPATHS nerdDynamicXpaths;
 
 	/** Custom Business App Instances*/
@@ -226,7 +250,13 @@ public class PageInitializer {
 		signOutVerificationStepImp = new SignOutVerificationStepImp();
 		cedcdSearchCohortsPage = new CEDCDSearchCohortsPage();
 		cedcdSearchFemaleCohortsStepImp = new CEDCDSearchFemaleCohortsStepImp();
+<<<<<<< HEAD
 		cedcdSelectAllCohortsStepImp = new CEDCDSelectAllCohortsStepImp();
+=======
+		cedcdMaleDiscrepancyOnSearchCohortsStepImp = new CEDCDMaleDiscrepancyOnSearchCohortsStepImp();
+		cedcdSelectAllCohortsStepImp = new CEDCDSelectAllCohortsStepImp();
+		cedcdSearchCohortAlcoholConsumptionStepImp = new CEDCDSearchCohortAlcoholConsumptionStepImp();
+>>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 		cedcdBiospecimenCountsPage = new CEDCDBiospecimenCountsPage();
 		cedcdSearchCohortNewPageLayOutStepImp = new CEDCDSearchCohortNewPageLayOutStepImp();
 		cedcdAlphabetizedSelectTypesStepImp = new CEDCDAlphabetizedSelectTypesStepImp();
@@ -245,12 +275,19 @@ public class PageInitializer {
 		nerdLoginStepsImplementation = new NERDLoginStepsImplementation();
 		nerdCrsKnowledgeDatabaseSubmissionsPage = new NERDSubmissionsPage();
 		createNewSubmissionPage = new CreateNewSubmissionPage();
+<<<<<<< HEAD
 		nativeViewImpersonateUser = new NativeViewImpersonateUser();
+=======
+>>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 		nerdDynamicXpaths = new NERDDynamicXPATHS();
 		browsePhenotypePage = new BrowsePhenotypePage();
 		informationPage = new InformationPage();
 		cedcdAdminPage = new CEDCDAdminPage();
+<<<<<<< HEAD
 		cedcdCohortPage = new CEDCDCohortPage();
+=======
+		
+>>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 		aligningExpectationsPage = new AligningExpectationsPage();
 		eidpDashboardPage = new DashboardPage();
 		eidpCommonPage = new CommonPage();
@@ -271,6 +308,9 @@ public class PageInitializer {
 		traineeReviewPage = new TraineeReviewPage();
 		coPrimaryMentorPage = new CoPrimaryMentorPage();
 		eidpDashboardStepImpl = new CustomBusinessApp.EIDP.StepsImplementation.DashboardStepImpl();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 	}
 }

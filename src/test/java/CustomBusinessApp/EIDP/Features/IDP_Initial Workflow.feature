@@ -1,7 +1,11 @@
 @Smoketest
 Feature: Regression testing
 
+<<<<<<< HEAD
   @InitiatesIDP @Regression @Smoke1
+=======
+  @InitiatesIDP @Regression @Smoke
+>>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
   Scenario: IDP request creates and decline and approve
     ##Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user
@@ -161,7 +165,11 @@ Feature: Regression testing
     And User clicks on save and send mail button
     Then User will click on ok button
 
+<<<<<<< HEAD
   @IDPOnHold1 @Regression
+=======
+  @IDPOnHold @Regression
+>>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
   Scenario: IDP is placed on HOLD
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user

@@ -8,12 +8,18 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Set;
+=======
+>>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+<<<<<<< HEAD
 import org.openqa.selenium.JavascriptExecutor;
+=======
+>>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchFrameException;
@@ -408,7 +414,11 @@ public class CommonUtils extends WebDriverUtils {
 	public static String email = getEmail();
 
 	/**
+<<<<<<< HEAD
 	 * Use this method to pass date as a string. You can concatinate with any String
+=======
+	 * Use this method to pass date as a string. You can concatenate with any String
+>>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 	 * and get unique name
 	 */
 	public static String getDateAsString() {
@@ -436,6 +446,7 @@ public class CommonUtils extends WebDriverUtils {
 			}
 		}
 	}
+<<<<<<< HEAD
 	
 	
 	/**
@@ -455,4 +466,6 @@ public class CommonUtils extends WebDriverUtils {
 			WebDriverUtils.webDriver.switchTo().window(nextWindow);
 	   }
 	}
+=======
+>>>>>>> 3654b208295f96cd2c28cfa67b69b114e67078e8
 }
