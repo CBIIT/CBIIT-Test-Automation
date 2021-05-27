@@ -75,6 +75,54 @@ public class SearchPage extends CommonUtils{
 	@FindBy(how = How.XPATH, xpath = "//div[@style]//button[contains(text(),'Save & Send Email')]")
 	public WebElement saveAndSendEmail;
 	
+	@FindBy (how = How.ID, id ="trainees_with_idp_div")
+	public WebElement traineesWithIDPCheckbox;
+	
+	@FindBy (how = How.ID, id ="firstName")
+	public WebElement TraineeFirstName;
+	
+	@FindBy (how = How.ID, id ="clear_btn")
+	public WebElement ClearButton;
+	
+	@FindBy (how = How.XPATH, xpath = "//table[@id='advanced_search_results']/tbody/tr[1]/td[1]/a")
+	public WebElement searchResultTableFirstRowFirstCell;
+	
+	@FindBy (how = How.XPATH, xpath = "//table[@id='advanced_search_results']/tbody/tr[1]/td[3]")
+	public WebElement searchResultTableFirstRowThirdCell;
+	
+    @FindBy (how = How.XPATH, xpath = "//span[@id='select2-primaryMentor-container']")
+    public WebElement selectPrimaryMentor;
+    
+    @FindBy (how = How.XPATH, xpath = "//input[@id='search-btn']")
+    public WebElement searchButtonCallowayGloria;
+    
+    @FindBy (how = How.XPATH, xpath = "//table[@id='search-results']/tbody/tr[1]/td[1]/a")
+    public WebElement searchResultTableFirstRowThirdCellCalloway;
+    
+    @FindBy (how = How.XPATH, xpath = "//select[@id='trainee-classifications']")
+    public WebElement classificationTypeDropDownGloriaGalloway;
+    
+    @FindBy (how = How.XPATH, xpath = "//select[@id='primaryMentor']")
+    public WebElement choosePrimaryMentor;
+    
+    @FindBy(how = How.ID, id = "select2-trainingOrg-container")
+	public WebElement nciTrainingOrgDropdown;
+    
+    @FindBy (how = How.XPATH, xpath = "//select[@id='trainingOrg']")
+    public WebElement chooseCBIIT;
+    
+    @FindBy (how = How.XPATH, xpath = "//span[@id='select2-trainingOrg-container']")
+    public WebElement selectTrainingOrganizationDropdown;
+    
+    @FindBy (how = How.XPATH, xpath = "//table[@id='advanced_search_results']//tbody//tr[1]//td[2])[1]")
+    public WebElement searchResultFirstRowSecondCell;
+    
+    @FindBy (how = How.XPATH, xpath = "(//input[@class='select2-search__field'])[2]")
+    public WebElement inputBoxNIHSAC;
+    
+    @FindBy (how = How.XPATH, xpath = "//select[@id='groups']")
+    public WebElement chooseDropdownNIHSACGloriaCalloway;
+  
 	public SearchPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
