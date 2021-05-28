@@ -106,4 +106,6 @@ public class VacancyManagerUserStepsImpl extends PageInitializer {
 			CucumberLogUtils.logScreenShot();
 		}
 	}
+	
 }
+

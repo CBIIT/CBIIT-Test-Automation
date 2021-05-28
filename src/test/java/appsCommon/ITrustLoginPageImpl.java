@@ -41,3 +41,4 @@ public class ITrustLoginPageImpl extends PageInitializer {
 		MiscUtils.sleep(500);
 	}
 }
+

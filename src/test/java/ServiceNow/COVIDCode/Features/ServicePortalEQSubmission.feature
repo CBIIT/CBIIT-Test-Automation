@@ -96,4 +96,3 @@ Feature: Service Portal Enrollment Questionnaire Submissions
   Scenario: COVIDcode Initial Questionnaire - Verifying the system does not allow any future dates to be selected for any date picker
     Given a COVIDCode user is on the Initial questionnaire page
     Then the system does not allow any future dates to be selected for any date picker
-
