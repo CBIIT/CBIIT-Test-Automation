@@ -23,6 +23,9 @@ public class CEDCDAdminPage {
 	@FindBy(linkText = "External Login")
 	public WebElement extLoginBtn;
 	
+	/** Logout Button */
+	@FindBy(xpath = "//a[@class='login-button']")
+	public WebElement logoutButton;
 	
 	/**================================================= Internal Login Page WebElements =======================================================*/
 	
@@ -69,6 +72,6 @@ public class CEDCDAdminPage {
 	public WebElement notesTxtBox; 
 	
 	/** Submit Button */
-	@FindBy(linkText = "Submit")
+	@FindBy(xpath = "(//button[@type='submit'])[2]")
 	public WebElement cohortSubmitBtn; 
 }

@@ -3,6 +3,10 @@
 src/main/resources/conf/localConf.properties
 src/main/resources/conf/localEnv.properties
 target/cucumber.json
+<<<<<<< HEAD
 true
 
 
+=======
+true
+>>>>>>> 50f080abfee338ca663adb96ae97f1aa8d3ebcb9
