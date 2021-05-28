@@ -1,5 +1,4 @@
 package ServiceNow.NERD.Steps;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -30,7 +29,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 		CommonUtils.click(
 				nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.logScreenShot(); 
 		createNewSubmissionPage.titleTextBox.sendKeys("TestingCRSReviewer");
 		CommonUtils.selectDropDownValue("New", createNewSubmissionPage.pleaseSpecifyDropDown);
 		createNewSubmissionPage.acronymTextBox.sendKeys("Testing");
@@ -321,11 +320,10 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 			throws TestingException {
 		nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink.click();
 		JavascriptUtils.scrollIntoView(nerdDynamicXpaths.underReviewText("TestingUnderReviewText"));
-		Assert.assertTrue(nerdDynamicXpaths.underReviewText("TestingUnderReviewText").getText().toString()
-				.contentEquals(UnderReview));
+	    Assert.assertTrue(nerdDynamicXpaths.underReviewText("TestingUnderReviewText").getText().toString().contentEquals(UnderReview ));
 		JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText("TestingUnderReviewText"));
-		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+	    MiscUtils.sleep(2000);
+	    CucumberLogUtils.logScreenShot();
 		nativeViewImpersonateUser.impersonateToDocPlanningContact();
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
 		WebDriverUtils.webDriver.navigate().refresh();
@@ -340,8 +338,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 	}
 
 	@Given("a published Collaboration has been returned to the Program Staff with the article version number as {string}")
-	public void a_published_Collaboration_has_been_returned_to_the_Program_Staff_with_the_article_version_number_as(
-			String versionNumber) throws TestingException {
+	public void a_published_Collaboration_has_been_returned_to_the_Program_Staff_with_the_article_version_number_as(String versionNumber) throws TestingException {
 		nerdLoginStepsImplementation.loginToNerd();
 		CommonUtils.click(
 				nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink);
@@ -402,9 +399,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 		WebDriverUtils.webDriver.navigate().refresh();
 		MiscUtils.sleep(10000);
 		nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu.click();
-		CommonUtils.selectValueFromBootStrapDropDown(
-				nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenuValues,
-				"Submissions");
+		CommonUtils.selectValueFromBootStrapDropDown(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenuValues, "Submissions");
 		MiscUtils.sleep(10000);
 		nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown.click();
 		MiscUtils.sleep(4000);
@@ -428,9 +423,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 		nerdDynamicXpaths.publishedCollaboration(CommonUtils.email).click();
 		CommonUtils.swicthToAnotherWindow();
 		MiscUtils.sleep(1000);
-		Assert.assertTrue("Verifying Article version number has been incremented",
-				nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsVersionNumber1.getText()
-						.contentEquals("Version 1.0 - DOC Version"));
+		Assert.assertTrue("Verifying Article version number has been incremented", nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsVersionNumber1.getText().contentEquals("Version 1.0 - DOC Version"));
 		JavascriptUtils.drawBlueBorder(nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsVersionNumber1);
 		MiscUtils.sleep(5000);
 		CucumberLogUtils.logScreenShot();
@@ -451,7 +444,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 		MiscUtils.sleep(3000);
 		nerdDynamicXpaths.returnButtonToStaff(CommonUtils.email).click();
 		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField
-				.sendKeys("Testing Returning To The Program Staff");
+			.sendKeys("Testing Returning To The Program Staff");
 		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowYesButton.click();
 		nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
 		MiscUtils.sleep(1000);
@@ -494,15 +487,13 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 	}
 
 	@Then("the article is incremented one major version number as {string}")
-	public void the_article_is_incremented_one_major_version_number_as(String versionNumber) throws TestingException {
+	public void the_article_is_incremented_one_major_version_number_as(String versionNumber)  throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
 		WebDriverUtils.webDriver.navigate().refresh();
 		MiscUtils.sleep(10000);
-
+		
 		nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu.click();
-		CommonUtils.selectValueFromBootStrapDropDown(
-				nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenuValues,
-				"Submissions");
+		CommonUtils.selectValueFromBootStrapDropDown(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenuValues, "Submissions");
 		MiscUtils.sleep(10000);
 		nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown.click();
 		MiscUtils.sleep(4000);
@@ -522,18 +513,18 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 		nerdDynamicXpaths.publishedCollaboration(CommonUtils.email).click();
 		CommonUtils.swicthToAnotherWindow();
 		MiscUtils.sleep(1000);
-		System.out.println("Version 2 TEXT:"
-				+ nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsVersionNumber2.getText().toString());
-		Assert.assertTrue("Verifying Article version number has been incremented",
-				nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsVersionNumber2.getText()
-						.contentEquals(versionNumber));
+		System.out.println("Version 2 TEXT:"+nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsVersionNumber2.getText().toString());
+		Assert.assertTrue("Verifying Article version number has been incremented", nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsVersionNumber2.getText().contentEquals(versionNumber));
 		JavascriptUtils.drawBlueBorder(nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsVersionNumber2);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
-
+		
+		
+	
+		
 	}
-
-	// Volha
+	
+	//Volha
 	@Given("a published Collaboration is returned to the DOC Planning Contact")
 	public void a_published_Collaboration_is_returned_to_the_DOC_Planning_Contact() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
@@ -677,7 +668,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 		MiscUtils.sleep(3000);
 		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmSubmissionYesButton.click();
 		MiscUtils.sleep(2000);
-		nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
+		nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();  
 	}
 
 	@When("the CRS Reviewer returns the submission once more")
@@ -704,8 +695,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 		nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown.click();
 		MiscUtils.sleep(4000);
 		JavascriptUtils.clickByJS(nerdDynamicXpaths.returnButton("CollaborationVolhaTest"));
-		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowTextField
-				.sendKeys("Testing Second Return Submission");
+		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowTextField.sendKeys("Testing Second Return Submission");
 	}
 
 	@Then("a notification is sent to the DOC Planning Contact")
@@ -713,7 +703,8 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowYESbutton.click();
 		MiscUtils.sleep(3000);
 		nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
-		JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnedToDOCText("CollaborationVolhaTest"));
+		JavascriptUtils
+		.drawBlueBorder(nerdDynamicXpaths.returnedToDOCText("CollaborationVolhaTest"));
 		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(3000);
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
@@ -737,7 +728,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 		nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
 		MiscUtils.sleep(1000);
 	}
-
+	
 	@Given("a DOC Planning Contact creates a Collaboration submission")
 	public void a_DOC_Planning_Contact_creates_a_Collaboration_submission() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
@@ -813,22 +804,20 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 		MiscUtils.sleep(4000);
 		nerdDynamicXpaths.returnButtonToStaff("DOCPlanContactCreateCollabarationTest").click();
 		MiscUtils.sleep(2000);
-		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowDropDown.click();
-		MiscUtils.sleep(2000);
-		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowForSearchStaffMemberTextField
-				.sendKeys("Diego Juarez");
-		MiscUtils.sleep(5000);
-		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowResultsTextField.click();
-		MiscUtils.sleep(2000);
-		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField
-				.sendKeys("Return DOC Test to Staff Member");
+	    nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowDropDown.click();
+	    MiscUtils.sleep(2000);
+	    nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowForSearchStaffMemberTextField.sendKeys("Diego Juarez");
+	    MiscUtils.sleep(5000);
+	    nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowResultsTextField.click();
+	    MiscUtils.sleep(2000);
+		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField.sendKeys("Return DOC Test to Staff Member");
 		MiscUtils.sleep(2000);
 		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmReturnYesButton.click();
-		MiscUtils.sleep(2000);
+		MiscUtils.sleep(2000);  
 		nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
 		MiscUtils.sleep(2000);
 		JavascriptUtils
-				.drawBlueBorder(nerdDynamicXpaths.returnedToStaffMemberText("DOCPlanContactCreateCollabarationTest"));
+		.drawBlueBorder(nerdDynamicXpaths.returnedToStaffMemberText("DOCPlanContactCreateCollabarationTest"));
 		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(4000);
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
@@ -852,9 +841,9 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmDeleteYesButton);
 		MiscUtils.sleep(1000);
 		nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1000);	
 	}
-
+	
 	@Given("a Collaboration has been returned to a Program Staff")
 	public void a_Collaboration_has_been_returned_to_a_Program_Staff() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
@@ -928,32 +917,28 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 		nerdDynamicXpaths.returnButtonToStaff("TestCollaborationReturnToStaff").click();
 		MiscUtils.sleep(3000);
 		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowDropDown.click();
-		MiscUtils.sleep(2000);
-		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowForSearchStaffMemberTextField
-				.sendKeys("Diego Juarez");
-		MiscUtils.sleep(5000);
-		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowResultsTextField.click();
-		MiscUtils.sleep(2000);
-		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField
-				.sendKeys("Return Test to Staff Member");
+	    MiscUtils.sleep(2000);
+	    nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowForSearchStaffMemberTextField.sendKeys("Diego Juarez");
+	    MiscUtils.sleep(5000);
+	    nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowResultsTextField.click();
+	    MiscUtils.sleep(2000);
+		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField.sendKeys("Return Test to Staff Member");
 		MiscUtils.sleep(2000);
 		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmReturnYesButton.click();
-		MiscUtils.sleep(2000);
+		MiscUtils.sleep(2000);  
 		nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
 		MiscUtils.sleep(2000);
 	}
-
+	
 	@Then("the Collaboration shows as {string} in the Submission page")
-	public void the_Collaboration_shows_as_in_the_Submission_page(String ReturnedToStaffMember)
-			throws TestingException {
+	public void the_Collaboration_shows_as_in_the_Submission_page(String ReturnedToStaffMember) throws TestingException {
 		WebDriverUtils.webDriver.navigate().refresh();
 		MiscUtils.sleep(5000);
 		nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink.click();
 		MiscUtils.sleep(5000);
 		JavascriptUtils.scrollIntoView(nerdDynamicXpaths.returnedToStaffMemberText("TestCollaborationReturnToStaff"));
 		MiscUtils.sleep(3000);
-		Assert.assertTrue(nerdDynamicXpaths.returnedToStaffMemberText("TestCollaborationReturnToStaff").getText()
-				.contentEquals(ReturnedToStaffMember));
+		Assert.assertTrue(nerdDynamicXpaths.returnedToStaffMemberText("TestCollaborationReturnToStaff").getText().contentEquals(ReturnedToStaffMember));
 		MiscUtils.sleep(3000);
 		JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnedToStaffMemberText("TestCollaborationReturnToStaff"));
 		CucumberLogUtils.logScreenShot();
@@ -981,10 +966,9 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 		nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
 		MiscUtils.sleep(1000);
 	}
-
+	
 	@Given("a published Collaboration started by a Program Staff has been returned to the DOC Planning Contact")
-	public void a_published_Collaboration_started_by_a_Program_Staff_has_been_returned_to_the_DOC_Planning_Contact()
-			throws TestingException {
+	public void a_published_Collaboration_started_by_a_Program_Staff_has_been_returned_to_the_DOC_Planning_Contact() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
 		CucumberLogUtils.logScreenShot();
 		loginImpl.loginToITrust();
@@ -1085,8 +1069,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 		nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
 		MiscUtils.sleep(3000);
 		JavascriptUtils.clickByJS(nerdDynamicXpaths.returnButton("TestingAuthorSubmission"));
-		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowTextField
-				.sendKeys("Testing Return AuthorSubmission");
+		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowTextField.sendKeys("Testing Return AuthorSubmission");
 		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowYESbutton.click();
 		MiscUtils.sleep(1000);
 		nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
@@ -1117,34 +1100,30 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 		nerdDynamicXpaths.returnButtonToStaff("TestingAuthorSubmission").click();
 		MiscUtils.sleep(3000);
 		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowDropDown.click();
-		MiscUtils.sleep(2000);
-		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowForSearchStaffMemberTextField
-				.sendKeys("Diego Juarez");
-		MiscUtils.sleep(5000);
-		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowResultsTextField.click();
-		MiscUtils.sleep(2000);
-		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField
-				.sendKeys("Return TestAuthor to Staff Member");
+	    MiscUtils.sleep(2000);
+	    nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowForSearchStaffMemberTextField.sendKeys("Diego Juarez");
+	    MiscUtils.sleep(5000);
+	    nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowResultsTextField.click();
+	    MiscUtils.sleep(2000);
+		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField.sendKeys("Return TestAuthor to Staff Member");
 		MiscUtils.sleep(2000);
 		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmReturnYesButton.click();
-		MiscUtils.sleep(2000);
+		MiscUtils.sleep(2000);  
 		nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
 		MiscUtils.sleep(2000);
 	}
 
 	@Then("the author will show as the Program Staff user who originally created the Submission")
-	public void the_author_will_show_as_the_Program_Staff_user_who_originally_created_the_Submission()
-			throws TestingException {
+	public void the_author_will_show_as_the_Program_Staff_user_who_originally_created_the_Submission() throws TestingException {
 		String authorExpected = nerdDynamicXpaths.authorTextDocSubmission("TestingAuthorSubmission").getText();
 		MiscUtils.sleep(3000);
-		Assert.assertEquals(authorExpected,
-				nerdDynamicXpaths.authorTextDocSubmission("TestingAuthorSubmission").getText());
+		Assert.assertEquals(authorExpected, nerdDynamicXpaths.authorTextDocSubmission("TestingAuthorSubmission").getText());
 		MiscUtils.sleep(3000);
 		JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.authorTextDocSubmission("TestingAuthorSubmission"));
 		MiscUtils.sleep(5000);
 		CucumberLogUtils.logScreenShot();
-		MiscUtils.sleep(5000);
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
+	    MiscUtils.sleep(5000);
+	    WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
 		MiscUtils.sleep(2000);
 		WebDriverUtils.webDriver.findElement(By.linkText("Native View")).click();
 		MiscUtils.sleep(5000);
@@ -1164,11 +1143,11 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmDeleteYesButton);
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.logScreenShot();
+		 CucumberLogUtils.logScreenShot();
 		nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1000);	
 	}
-
+	
 	@Given("a DOC Planning Contact creates a Collaboration")
 	public void a_DOC_Planning_Contact_creates_a_Collaboration() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
@@ -1245,27 +1224,24 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 		nerdDynamicXpaths.returnButtonToStaff("DOCPlanContactCreateCollabarationSubmission").click();
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
-		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowDropDown.click();
-		MiscUtils.sleep(2000);
-		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowForSearchStaffMemberTextField
-				.sendKeys("Diego Juarez");
-		MiscUtils.sleep(4000);
-		CucumberLogUtils.logScreenShot();
-		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowResultsTextField.click();
-		MiscUtils.sleep(2000);
-		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField
-				.sendKeys("Return Test Submission to Staff Member");
+	    nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowDropDown.click();
+	    MiscUtils.sleep(2000);
+	    nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowForSearchStaffMemberTextField.sendKeys("Diego Juarez");
+	    MiscUtils.sleep(4000);
+	    CucumberLogUtils.logScreenShot();
+	    nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowResultsTextField.click();
+	    MiscUtils.sleep(2000);
+		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField.sendKeys("Return Test Submission to Staff Member");
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 		nerdCrsKnowledgeDatabaseSubmissionsPage.confirmReturnYesButton.click();
-		MiscUtils.sleep(2000);
+		MiscUtils.sleep(2000);  
 		nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
 		MiscUtils.sleep(2000);
-		Assert.assertTrue(nerdDynamicXpaths.returnedToStaffMemberText("DOCPlanContactCreateCollabarationSubmission")
-				.getText().contentEquals("Returned to Staff Member"));
+		Assert.assertTrue(nerdDynamicXpaths.returnedToStaffMemberText("DOCPlanContactCreateCollabarationSubmission").getText().contentEquals("Returned to Staff Member"));
 		MiscUtils.sleep(2000);
-		JavascriptUtils.drawBlueBorder(
-				nerdDynamicXpaths.returnedToStaffMemberText("DOCPlanContactCreateCollabarationSubmission"));
+		JavascriptUtils
+		.drawBlueBorder(nerdDynamicXpaths.returnedToStaffMemberText("DOCPlanContactCreateCollabarationSubmission"));
 		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(4000);
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
@@ -1289,7 +1265,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmDeleteYesButton);
 		MiscUtils.sleep(1000);
 		nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1000);	
 	}
-
+	
 }
