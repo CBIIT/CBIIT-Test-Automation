@@ -7,10 +7,7 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
 public class BrowsePhenotypePage extends CommonUtils {
-public BrowsePhenotypePage(){
-		PageFactory.initElements(WebDriverUtils.webDriver, this);
-	}
-	
+
 	/**Browse Phenotype Tab**/
 	@FindBy(xpath = "//*[@href='#/phenotypes']")
 	public WebElement lnkBrowsePhenotype; 
@@ -19,4 +16,10 @@ public BrowsePhenotypePage(){
 	@FindBy(xpath = "//*[@class='h5 text-center text-secondary my-1']")
 	public WebElement txtSelectPhenotype; 
 
+	
+	
+	public BrowsePhenotypePage(){
+		PageFactory.initElements(WebDriverUtils.webDriver, this);
+	}
+	
 }

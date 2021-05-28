@@ -1,5 +1,6 @@
 package ServiceNow.COVIDCode.StepsImplementation;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -73,7 +74,7 @@ public class NativeViewStepsImpl extends PageInitializer {
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyHaveYouOfficiallyBeenDiagnosedWithCOVID19);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyDateOfficiallyDiagnosed.sendKeys("04-09-2020");
 		CucumberLogUtils.logScreenShot();
-	}
+	} 
 
 	/***
 	 * The below navigates to and fills out the Exposures and Risk Factors section
@@ -225,7 +226,8 @@ public class NativeViewStepsImpl extends PageInitializer {
 		 */
 		nativeViewEnrollmentViewPage.nativeViewAllBreadCrumbLink.click();
 		MiscUtils.sleep(2000);
-		CommonUtils.selectDropDownValue("for text", nativeViewEnrollementsPage.covidCodeEnrollmentsSearchDropDown);
+		CommonUtils.selectDropDownValue("for text",
+				nativeViewEnrollementsPage.covidCodeEnrollmentsSearchDropDown);
 		nativeViewEnrollementsPage.covidCodeEnrollmentsSearchTextBox.sendKeys("email@automatedtest.com");
 		MiscUtils.sleep(2000);
 		nativeViewEnrollementsPage.covidCodeEnrollmentsSearchTextBox.sendKeys(Keys.RETURN);
@@ -270,12 +272,12 @@ public class NativeViewStepsImpl extends PageInitializer {
 				.sendKeys(Keys.ENTER);
 		MiscUtils.sleep(2000);
 		nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactUnlockAssignedToSearchTextField
-				.sendKeys("Kathryn Nichols");
-		nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactUnlockAssignedToSearchTextField
-				.sendKeys(Keys.ENTER);
+		.sendKeys("Kathryn Nichols");
+        nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactUnlockAssignedToSearchTextField
+		.sendKeys(Keys.ENTER);
 		MiscUtils.sleep(2000);
 		String[] exp = { "Alan Orpia", "Janet Bracci", "Laura Harney", "Lisa Leathwood", "Maureen Risch",
-				"Stephanie Steinbart", "Kathryn Nichols" };
+				"Stephanie Steinbart", "Kathryn Nichols"};
 		for (WebElement act : nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactListOfAssignedToDD) {
 			boolean match = false;
 			for (int i = 0; i < exp.length; i++) {
@@ -288,20 +290,18 @@ public class NativeViewStepsImpl extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 	}
-
+	
 	/***
-	 * This method creates a new Enrollment Questionnaire for User Group 1, enters
-	 * all required information and submits for review
+	 * This method creates a new Enrollment Questionnaire for User Group 1, enters all required information and submits for review
 	 */
-	public void submitForReviewEQGroup1() throws TestingException {
+	public void submitForReviewEQGroup1 () throws TestingException {
 		nativeViewLoginImpl.nativeViewLogin();
 		nativeViewStepsImpl.nativeViewNavigateToCovidCodeEnrollmentQuestionnaire();
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
 		MiscUtils.sleep(500);
 		nativeViewEnrollementsPage.covidCodeEnrollmentsNewButton.click();
 		MiscUtils.sleep(2000);
-		CommonUtils.selectDropDownValue("Group 1",
-				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewUserGroupIDDropDown);
+		CommonUtils.selectDropDownValue("Group 1", nativeViewEnrollmentViewPage.nativeViewEnrollmentViewUserGroupIDDropDown);
 		CommonUtils.selectDropDownValue("Yes", nativeViewEnrollmentViewPage.nativeViewEnrollmentViewConsentDropDown);
 		CommonUtils.sendKeys(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewPatientLastNameField, "TestLastName");
 		CommonUtils.sendKeys(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewPatientFirstName, "TestFirstName");
@@ -333,27 +333,25 @@ public class NativeViewStepsImpl extends PageInitializer {
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewPageSubmitForReviewBtn.click();
 		MiscUtils.sleep(2000);
 	}
-
+	
 	/***
 	 * This method sends values one by one from list to lookup search field
 	 */
 	public void sendMultipleValuesToLookupField(String[] list, WebElement lookupField) {
-		for (String l : list) {
+		for(String l : list) {
 			lookupField.sendKeys(l);
 			CommonUtils.sendKeys(lookupField, Keys.ENTER);
 			MiscUtils.sleep(1000);
 		}
 	}
-
-	/**
-	 * This method asserts actual list of WebElements with expected list of Strings
-	 */
+	
+	/** This method asserts actual list of WebElements with expected list of Strings */
 	public void assertTwoLists(List<WebElement> lists, String[] arrayList) {
 		MiscUtils.sleep(2000);
 		List<String> act = new ArrayList<String>(Arrays.asList(lists.get(0).getText().split("\n")));
 		List<String> exp = new ArrayList<String>(Arrays.asList(arrayList));
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
-		Assert.assertEquals(act, exp);
+	    Assert.assertEquals(act, exp);
 	}
 }

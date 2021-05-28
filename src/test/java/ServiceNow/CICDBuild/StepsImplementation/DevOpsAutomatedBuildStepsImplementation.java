@@ -20,7 +20,7 @@ public class DevOpsAutomatedBuildStepsImplementation extends PageInitializer {
 		CommonUtils.sendKeys(devOpsLoginPage.passwordTxtBox, ConfUtils.getProperty(password));
 		JavascriptUtils.clickByJS(devOpsLoginPage.logInButton);
 		MiscUtils.sleep(4000);
-        JavascriptUtils.clickByJS(devOpsLoginPage.nativeViewLink);
+		JavascriptUtils.clickByJS(devOpsLoginPage.nativeViewLink);
 	}
 
 	public void selectingCICDDevOpsApplication(String cicdDevOps) {
