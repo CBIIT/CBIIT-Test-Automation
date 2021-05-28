@@ -18,8 +18,7 @@ import cucumber.api.java.en.When;
 public class ServicePortalIQScenarioSteps extends PageInitializer {
 
 	@Given("a user in the CovidCode App Admins group has saved a draft Initial Questionnaire")
-	public void a_user_in_the_CovidCode_App_Admins_group_has_saved_a_draft_Initial_Questionnaire()
-			throws TestingException {
+	public void a_user_in_the_CovidCode_App_Admins_group_has_saved_a_draft_Initial_Questionnaire() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
 		CucumberLogUtils.logScreenShot();
 		covidCodeLoginPage.LogInButton.click();
@@ -32,8 +31,7 @@ public class ServicePortalIQScenarioSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 		servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown.click();
 		MiscUtils.sleep(1000);
-		CommonUtils.selectDropDownValue("User Group 2",
-				servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown);
+		CommonUtils.selectDropDownValue("User Group 2", servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown);
 		servicePortalQuestionnairePage.createEnrollmentButton.click();
 		covidCodeEQPage.enrollmentQuestionnaireNIHMedicalRecordNumberTextBox.sendKeys("1112224");
 		covidCodeEQPage.enrollmentQuestionnairePatientLastNameTextBox.sendKeys("AutomatedLNGroup2");
@@ -44,9 +42,9 @@ public class ServicePortalIQScenarioSteps extends PageInitializer {
 		covidCodeEQPage.enrollmentQuestionnairePatientPhoneNumberTextBox.sendKeys("2346794567");
 		covidCodeEQPage.enrollmentQuestionnairePatientStreetAddress1TextBox.sendKeys("345 M Road");
 		covidCodeEQPage.enrollmentQuestionnaireSaveButton.click();
-
-	}
-
+		
+	   	}
+	
 	@When("the user comes to the COVIDCode Home Page")
 	public void the_user_comes_to_the_COVIDCode_Home_Page() throws TestingException {
 		JavascriptUtils.scrollUp(2000);
@@ -56,22 +54,22 @@ public class ServicePortalIQScenarioSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 	}
 
+
 	@Then("the draft is shown in the Draft Initial Questionnaires table")
 	public void the_draft_is_shown_in_the_Draft_Initial_Questionnaires_table() {
-
-		Assert.assertTrue(servicePortalQuestionnairePage.draftIQTableFirstRow.getText().contains("1112224"));
-		Assert.assertTrue(
-				servicePortalQuestionnairePage.draftIQTableFirstRowUserGroupIDField.getText().contentEquals("Group 2"));
-		CucumberLogUtils.logScreenShot();
-
+	
+	   Assert.assertTrue(servicePortalQuestionnairePage.draftIQTableFirstRow.getText().contains("1112224"));
+	   Assert.assertTrue(servicePortalQuestionnairePage.draftIQTableFirstRowUserGroupIDField.getText().contentEquals("Group 2"));
+	   CucumberLogUtils.logScreenShot();
+	  
 	}
 
 	@Then("the user can resume draft by clicking the Open button")
 	public void the_user_can_resume_draft_by_clicking_the_Open_button() {
-		servicePortalQuestionnairePage.draftInitialOpenButton.click();
-		CucumberLogUtils.logScreenShot();
+		 servicePortalQuestionnairePage.draftInitialOpenButton.click();
+		 CucumberLogUtils.logScreenShot();
 	}
-
+	
 	@Given("COVIDcode user is on the Disease Course section on the Initial Questionnaire form")
 	public void covidcode_user_is_on_the_Disease_Course_section_on_the_Initial_Questionnaire_form()
 			throws TestingException {
@@ -99,7 +97,7 @@ public class ServicePortalIQScenarioSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 
 	}
-
+	
 	@Given("an enrollment form has been filled out")
 	public void an_enrollment_form_has_been_filled_out() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
@@ -135,8 +133,9 @@ public class ServicePortalIQScenarioSteps extends PageInitializer {
 	public void a_pop_up_with_the_message_displays(String confirmSubmissionPopUpText) {
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
-		Assert.assertEquals(confirmSubmissionPopUpText,
-				covidCodeEQPage.enrollmentQuestionnaireConfirmSubmissionPopUpText.getText());
+		Assert.assertEquals(confirmSubmissionPopUpText, covidCodeEQPage.enrollmentQuestionnaireConfirmSubmissionPopUpText.getText());
 	}
+
+
 
 }
