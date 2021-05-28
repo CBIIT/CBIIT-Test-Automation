@@ -23,9 +23,9 @@ public class FollowUpFormSteps extends PageInitializer {
 		covidCodeEQPageImpl.requiredDemographicsInfo();
 		covidCodeEQPageImpl.submittingEQ();
 		MiscUtils.sleep(2000);
-		servicePortalQuestionnairePage.startNewFollowUpButton.click();
+		servicePortalQuestionnairePage.startNewFollowUpButton.click();		
 	}
-
+	
 	@Then("the user is able to search an existing enrollment by patient ID OR last name OR first name OR NIH Medical Record Number")
 	public void the_user_is_able_to_search_an_existing_enrollment_by_patient_ID_OR_last_name_OR_first_name_OR_NIH_Medical_Record_Number() {
 		MiscUtils.sleep(2000);
@@ -37,7 +37,7 @@ public class FollowUpFormSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		followUpFormPageImpl.searchEnrollmentByPatientIDLastNameFirstNameNIHMedicalRecordNumber();
 	}
-
+	
 	@Given("an existing Draft Follow Up Form cleared to run automation")
 	public void an_existing_Draft_Follow_Up_Form_cleared_to_run_automation() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
@@ -47,9 +47,9 @@ public class FollowUpFormSteps extends PageInitializer {
 		loginImpl.loginToITrust();
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
-		// ADDING TEMPORARY WORK AROUND TO LOG INTO FOLLOW UP FORM
+		//ADDING TEMPORARY WORK AROUND TO LOG INTO FOLLOW UP FORM
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
-		if (CommonUtils.isElementDisplayed(servicePortalQuestionnairePage.draftFollowUpFirstDeleteButton)) {
+		if(CommonUtils.isElementDisplayed(servicePortalQuestionnairePage.draftFollowUpFirstDeleteButton)) {
 			servicePortalQuestionnairePage.draftFollowUpFirstDeleteButton.click();
 			MiscUtils.sleep(500);
 			servicePortalQuestionnairePage.deleteConfirmationButton.click();
@@ -61,7 +61,7 @@ public class FollowUpFormSteps extends PageInitializer {
 	public void an_enrollment_is_selected() {
 		followUpFormPageImpl.selectingExistingFollowUPEnrollment();
 	}
-
+	
 	@Then("selected enrollment is opened")
 	public void selected_enrollment_is_opened() {
 		servicePortalQuestionnairePage.enrollmentLookUpCreateFollowUpButton.click();
@@ -208,7 +208,7 @@ public class FollowUpFormSteps extends PageInitializer {
 				patientsWalkingPaceText, hoursSpentSittingText, patientVapeCigarettesText,
 				patientSmokeAtLeast100cigarettesText, patientConsumeAlcoholicBeveragesText, hoursSpentExercisingText);
 	}
-
+	
 	@When("on the Follow Up form in Service Portal")
 	public void on_the_Follow_Up_form_in_Service_Portal() throws TestingException {
 		servicePortalQuestionnairePageImp.startNewInitialQuestionnaire();
@@ -219,7 +219,7 @@ public class FollowUpFormSteps extends PageInitializer {
 		followUpFormPageImpl.searchEnrollmentByPatientID();
 		servicePortalQuestionnairePage.enrollmentLookUpCreateFollowUpButton.click();
 	}
-
+	
 	@Given("a COVIDcode user is on the Follow Up form in Service Portal")
 	public void a_COVIDcode_user_is_on_the_Follow_Up_form_in_Service_Portal() throws TestingException {
 		servicePortalQuestionnairePageImp.startNewInitialQuestionnaire();
@@ -230,7 +230,7 @@ public class FollowUpFormSteps extends PageInitializer {
 		followUpFormPageImpl.searchEnrollmentByPatientID();
 		servicePortalQuestionnairePage.enrollmentLookUpCreateFollowUpButton.click();
 	}
-
+	
 	@Given("a COVIDCode provider is on the Follow Up Form")
 	public void a_COVIDCode_provider_is_on_the_Follow_Up_Form() throws TestingException {
 		servicePortalQuestionnairePageImp.startNewInitialQuestionnaire();
@@ -245,20 +245,18 @@ public class FollowUpFormSteps extends PageInitializer {
 	@Given("navigating to the Disease Course section")
 	public void navigating_to_the_Disease_Course_section() {
 		MiscUtils.sleep(1000);
-		JavascriptUtils.scrollIntoView(followUpFormPage.diseaseCourseNewButton);
-		followUpFormPage.diseaseCourseNewButton.click();
+	    JavascriptUtils.scrollIntoView(followUpFormPage.diseaseCourseNewButton);
+	    followUpFormPage.diseaseCourseNewButton.click();    
 	}
-
+	
 	@Then("Drug Treatments section should display along with the values None, Azithromycin, Chloroquine, Corticosteroids, Hydroxycholoquine, JAK Inhibitor, Remdesivir, Tocilizumab, Other")
 	public void drug_Treatments_section_should_display_along_with_the_values_None_Azithromycin_Chloroquine_Corticosteroids_Hydroxycholoquine_JAK_Inhibitor_Remdesivir_Tocilizumab_Other() {
 		MiscUtils.sleep(1000);
-		String[] arrayList = { "Azithromycin", "Chloroquine", "Convalescent plasma", "Corticosteroids",
-				"Hydroxycholoquine", "JAK Inhibitor", "None", "Other", "Remdesivir", "Tocilizumab" };
-		followUpFormPage.diseaseCourseDrugTreatmentsTextField.click();
-		covidCodeEQPageImpl.servicePortalEnrollmentQuestionnaireExposureAndRiskAssertValueFromBootStrapDropDown(
-				followUpFormPage.diseaseCourseDrugTreatmentsDropDownValues, arrayList);
+		String [] arrayList = {"Azithromycin", "Chloroquine", "Convalescent plasma", "Corticosteroids", "Hydroxycholoquine", "JAK Inhibitor", "None", "Other", "Remdesivir", "Tocilizumab"};
+	    followUpFormPage.diseaseCourseDrugTreatmentsTextField.click();
+	    covidCodeEQPageImpl.servicePortalEnrollmentQuestionnaireExposureAndRiskAssertValueFromBootStrapDropDown(followUpFormPage.diseaseCourseDrugTreatmentsDropDownValues, arrayList);
 	}
-
+	
 	@Given("a COVIDCode user is on the Follow Up form page")
 	public void a_COVIDCode_user_is_on_the_Follow_Up_form_page() throws TestingException {
 		servicePortalQuestionnairePageImp.startNewInitialQuestionnaire();
@@ -267,74 +265,61 @@ public class FollowUpFormSteps extends PageInitializer {
 		CommonUtils.waitForClickability(servicePortalQuestionnairePage.startNewFollowUpButton);
 		servicePortalQuestionnairePage.startNewFollowUpButton.click();
 		followUpFormPageImpl.selectingExistingFollowUPEnrollment();
-		servicePortalQuestionnairePage.enrollmentLookUpCreateFollowUpButton.click();
+	    servicePortalQuestionnairePage.enrollmentLookUpCreateFollowUpButton.click();
 	}
 
 	@Then("the systems does not allow any future dates to be selected for any date picker")
 	public void the_systems_does_not_allow_any_future_dates_to_be_selected_for_any_date_picker() {
-		covidCodeEQPage.demographicsTab.click();
-		covidCodeEQPage.enrollmentQuestionnaireDateFormCompletedBox.sendKeys("02/22/2026");
-		covidCodeEQPage.enrollmentQuestionnaireDateFormCompletedBox.sendKeys(Keys.ENTER);
-		covidCodeEQPage.enrollmentQuestionnaireDOBbox.sendKeys("02/22/2026");
-		covidCodeEQPage.enrollmentQuestionnaireDOBbox.sendKeys(Keys.ENTER);
-		MiscUtils.sleep(1000);
-		Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireDateFormSelectedDateCannotBeInTheFutureText.getText()
-				.contentEquals("Selected date cannot be in the future."));
-		Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireDOBSelectedDateCannotBeInTheFutureText.getText()
-				.contentEquals("Selected date cannot be in the future."));
-		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
-		covidCodeEQPage.symptomologyTab.click();
-		covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticDropdown.click();
-		covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticSearchBox.sendKeys("Yes");
-		MiscUtils.sleep(1000);
-		covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticSearchBox.sendKeys(Keys.ENTER);
-		covidCodeEQPage.enrollmentQuestionnaireWhenDevelopSymptoms.sendKeys("02/22/2026");
-		covidCodeEQPage.enrollmentQuestionnaireWhenDevelopSymptoms.sendKeys(Keys.ENTER);
-		covidCodeEQPage.enrollmentQuestionnaireHaveYouOfficiallyBeenDiagnosedDropdown.click();
-		covidCodeEQPage.enrollmentQuestionnaireHaveYouOfficiallyBeenDiagnosedSearchText.sendKeys("Yes");
-		MiscUtils.sleep(1000);
-		covidCodeEQPage.enrollmentQuestionnaireHaveYouOfficiallyBeenDiagnosedSearchText.sendKeys(Keys.ENTER);
-		covidCodeEQPage.enrollmentQuestionnaireWhenOfficiallyDiagnosedCalendar.sendKeys("02/22/2026");
-		covidCodeEQPage.enrollmentQuestionnaireWhenOfficiallyDiagnosedCalendar.sendKeys(Keys.ENTER);
-		MiscUtils.sleep(1000);
-		Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireWhenDevelopSymptomsSelectedDateCannotBeInTheFutureText
-				.getText().contentEquals("Selected date cannot be in the future."));
-		Assert.assertTrue(
-				covidCodeEQPage.enrollmentQuestionnaireWhenOfficiallyDiagnosedCalendarSelectedDateCannotBeInTheFutureText
-						.getText().contentEquals("Selected date cannot be in the future."));
-		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
-		covidCodeEQPage.enrollmentQuestionnaireVaccineTab.click();
-		covidCodeEQPage.enrollmentQuestionnaireVaccineHaveYouReceivedYourFirstCovidDD.click();
-		covidCodeEQPage.enrollmentQuestionnaireVaccineHaveYouReceivedYourFirstCovidSearchBox.sendKeys("Yes");
-		MiscUtils.sleep(1000);
-		covidCodeEQPage.enrollmentQuestionnaireVaccineHaveYouReceivedYourFirstCovidSearchBox.sendKeys(Keys.ENTER);
-		covidCodeEQPage.enrollmentQuestionnaireVaccineWhatDateDidYouReceiveTheFirstVaccineSearchBox
-				.sendKeys("02/22/2026");
-		covidCodeEQPage.enrollmentQuestionnaireVaccineWhatDateDidYouReceiveTheFirstVaccineSearchBox
-				.sendKeys(Keys.ENTER);
-		covidCodeEQPage.enrollmentQuestionnaireVaccineManufactureDD.click();
-		covidCodeEQPage.enrollmentQuestionnaireVaccineManufactureSearchBox.sendKeys("Pfizer");
-		covidCodeEQPage.enrollmentQuestionnaireVaccineManufactureSearchBox.sendKeys(Keys.ENTER);
-		covidCodeEQPage.enrollmentQuestionnaireVaccineReceivedSecondVaccineDD.click();
-		covidCodeEQPage.enrollmentQuestionnaireVaccineReceivedSecondVaccineSearchBox.sendKeys("Yes");
-		covidCodeEQPage.enrollmentQuestionnaireVaccineReceivedSecondVaccineSearchBox.sendKeys(Keys.ENTER);
-		covidCodeEQPage.enrollmentQuestionnaireVaccineWhatDateDidYouReceiveTheSecondVaccineSearchBox
-				.sendKeys("02/22/2026");
-		covidCodeEQPage.enrollmentQuestionnaireVaccineWhatDateDidYouReceiveTheSecondVaccineSearchBox
-				.sendKeys(Keys.ENTER);
-		MiscUtils.sleep(1000);
-		Assert.assertTrue(
-				covidCodeEQPage.enrollmentQuestionnaireVaccineWhatDateDidYouReceiveTheFirstVaccineSelectedDateCannotBeInTheFutureText
-						.getText().contentEquals("Selected date cannot be in the future."));
-		Assert.assertTrue(
-				covidCodeEQPage.enrollmentQuestionnaireVaccineWhatDateDidYouReceiveTheSecondVaccineSelectedDateCannotBeInTheFutureText
-						.getText().contentEquals("Selected date cannot be in the future."));
-		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		   covidCodeEQPage.demographicsTab.click();
+		   covidCodeEQPage.enrollmentQuestionnaireDateFormCompletedBox.sendKeys("02/22/2026");
+		   covidCodeEQPage.enrollmentQuestionnaireDateFormCompletedBox.sendKeys(Keys.ENTER);
+		   covidCodeEQPage.enrollmentQuestionnaireDOBbox.sendKeys("02/22/2026");
+		   covidCodeEQPage.enrollmentQuestionnaireDOBbox.sendKeys(Keys.ENTER);
+		   MiscUtils.sleep(1000);
+		   Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireDateFormSelectedDateCannotBeInTheFutureText.getText().contentEquals("Selected date cannot be in the future."));
+		   Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireDOBSelectedDateCannotBeInTheFutureText.getText().contentEquals("Selected date cannot be in the future."));
+		   MiscUtils.sleep(2000);
+		   CucumberLogUtils.logScreenShot();
+		   covidCodeEQPage.symptomologyTab.click();
+		   covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticDropdown.click();
+		   covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticSearchBox.sendKeys("Yes");
+		   MiscUtils.sleep(1000);
+		   covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticSearchBox.sendKeys(Keys.ENTER);
+		   covidCodeEQPage.enrollmentQuestionnaireWhenDevelopSymptoms.sendKeys("02/22/2026");
+		   covidCodeEQPage.enrollmentQuestionnaireWhenDevelopSymptoms.sendKeys(Keys.ENTER);
+		   covidCodeEQPage.enrollmentQuestionnaireHaveYouOfficiallyBeenDiagnosedDropdown.click();
+		   covidCodeEQPage.enrollmentQuestionnaireHaveYouOfficiallyBeenDiagnosedSearchText.sendKeys("Yes");
+		   MiscUtils.sleep(1000);
+		   covidCodeEQPage.enrollmentQuestionnaireHaveYouOfficiallyBeenDiagnosedSearchText.sendKeys(Keys.ENTER);
+		   covidCodeEQPage.enrollmentQuestionnaireWhenOfficiallyDiagnosedCalendar.sendKeys("02/22/2026");
+		   covidCodeEQPage.enrollmentQuestionnaireWhenOfficiallyDiagnosedCalendar.sendKeys(Keys.ENTER);
+		   MiscUtils.sleep(1000);
+		   Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireWhenDevelopSymptomsSelectedDateCannotBeInTheFutureText.getText().contentEquals("Selected date cannot be in the future."));
+		   Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireWhenOfficiallyDiagnosedCalendarSelectedDateCannotBeInTheFutureText.getText().contentEquals("Selected date cannot be in the future."));
+		   MiscUtils.sleep(2000);
+		   CucumberLogUtils.logScreenShot();
+		   covidCodeEQPage.enrollmentQuestionnaireVaccineTab.click();
+		   covidCodeEQPage.enrollmentQuestionnaireVaccineHaveYouReceivedYourFirstCovidDD.click();
+		   covidCodeEQPage.enrollmentQuestionnaireVaccineHaveYouReceivedYourFirstCovidSearchBox.sendKeys("Yes");
+		   MiscUtils.sleep(1000);
+		   covidCodeEQPage.enrollmentQuestionnaireVaccineHaveYouReceivedYourFirstCovidSearchBox.sendKeys(Keys.ENTER);
+		   covidCodeEQPage.enrollmentQuestionnaireVaccineWhatDateDidYouReceiveTheFirstVaccineSearchBox.sendKeys("02/22/2026");
+		   covidCodeEQPage.enrollmentQuestionnaireVaccineWhatDateDidYouReceiveTheFirstVaccineSearchBox.sendKeys(Keys.ENTER);
+		   covidCodeEQPage.enrollmentQuestionnaireVaccineManufactureDD.click();
+		   covidCodeEQPage.enrollmentQuestionnaireVaccineManufactureSearchBox.sendKeys("Pfizer");
+		   covidCodeEQPage.enrollmentQuestionnaireVaccineManufactureSearchBox.sendKeys(Keys.ENTER);
+		   covidCodeEQPage.enrollmentQuestionnaireVaccineReceivedSecondVaccineDD.click();
+		   covidCodeEQPage.enrollmentQuestionnaireVaccineReceivedSecondVaccineSearchBox.sendKeys("Yes");
+		   covidCodeEQPage.enrollmentQuestionnaireVaccineReceivedSecondVaccineSearchBox.sendKeys(Keys.ENTER);
+		   covidCodeEQPage.enrollmentQuestionnaireVaccineWhatDateDidYouReceiveTheSecondVaccineSearchBox.sendKeys("02/22/2026");
+		   covidCodeEQPage.enrollmentQuestionnaireVaccineWhatDateDidYouReceiveTheSecondVaccineSearchBox.sendKeys(Keys.ENTER);
+		   MiscUtils.sleep(1000);
+		   Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireVaccineWhatDateDidYouReceiveTheFirstVaccineSelectedDateCannotBeInTheFutureText.getText().contentEquals("Selected date cannot be in the future."));
+		   Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireVaccineWhatDateDidYouReceiveTheSecondVaccineSelectedDateCannotBeInTheFutureText.getText().contentEquals("Selected date cannot be in the future."));
+		   MiscUtils.sleep(2000);
+		   CucumberLogUtils.logScreenShot();
 	}
-
+	
 	@Given("a COVIDcode User is on the Follow Up form Service Portal")
 	public void a_COVIDcode_User_is_on_the_Follow_Up_form_Service_Portal() throws TestingException {
 		servicePortalQuestionnairePageImp.startNewInitialQuestionnaire();
@@ -343,30 +328,25 @@ public class FollowUpFormSteps extends PageInitializer {
 		CommonUtils.waitForClickability(servicePortalQuestionnairePage.startNewFollowUpButton);
 		servicePortalQuestionnairePage.startNewFollowUpButton.click();
 		followUpFormPageImpl.selectingExistingFollowUPEnrollment();
-		servicePortalQuestionnairePage.enrollmentLookUpCreateFollowUpButton.click();
+	    servicePortalQuestionnairePage.enrollmentLookUpCreateFollowUpButton.click();
 	}
 
 	@When("a navigating to the Symptomology tab")
 	public void a_navigating_to_the_Symptomology_tab() {
-		covidCodeEQPage.symptomologyTab.click();
-		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+	   covidCodeEQPage.symptomologyTab.click();
+	   MiscUtils.sleep(2000);
+	   CucumberLogUtils.logScreenShot();
 
 	}
 
 	@Then("the following field display: {string}, {string}, {string}, {string}")
-	public void the_following_field_display(String wereYouSymptomatic, String howWasTheSampleTaken, String typeOfTest,
-			String dateOfficiallyDiagnosed) {
-		Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticText.getText()
-				.contentEquals(wereYouSymptomatic));
-		Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireHowWasTheSampleTakenText.getText()
-				.contentEquals(howWasTheSampleTaken));
-		Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireWhatTypeOfTestDidThePatientReceiveText.getText()
-				.contentEquals(typeOfTest));
-		Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireHaveYouOfficiallyBeenDiagnosedText.getText()
-				.contentEquals(dateOfficiallyDiagnosed));
-		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+	public void the_following_field_display(String wereYouSymptomatic, String howWasTheSampleTaken, String typeOfTest, String dateOfficiallyDiagnosed) {
+		  Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticText.getText().contentEquals(wereYouSymptomatic));
+		  Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireHowWasTheSampleTakenText.getText().contentEquals(howWasTheSampleTaken));
+		  Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireWhatTypeOfTestDidThePatientReceiveText.getText().contentEquals(typeOfTest));
+		  Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireHaveYouOfficiallyBeenDiagnosedText.getText().contentEquals(dateOfficiallyDiagnosed));
+		  MiscUtils.sleep(2000);
+	      CucumberLogUtils.logScreenShot();
 	}
 
 	@Then("when a selecting {string} to Were you symptomatic?")
@@ -380,10 +360,10 @@ public class FollowUpFormSteps extends PageInitializer {
 
 	@Then("when did you the first develop symptoms of COVID{int}? date picker displays")
 	public void when_did_you_the_first_develop_symptoms_of_COVID_date_picker_displays(Integer int1) {
-		Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireWhenDevelopSymptomsText.getText()
-				.contentEquals("When did you first develop symptoms of COVID-19?"));
-		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		 Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireWhenDevelopSymptomsText.getText().contentEquals("When did you first develop symptoms of COVID-19?"));
+		 MiscUtils.sleep(2000);
+		 CucumberLogUtils.logScreenShot();
 	}
 
+	
 }

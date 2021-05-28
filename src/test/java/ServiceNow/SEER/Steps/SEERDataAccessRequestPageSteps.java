@@ -117,7 +117,7 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 	public void the_user_is_directed_to_the_page(String landingPageHeaderText) {
 		Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
 		for (String currentWindow1 : allWindowHandles1) {
-			WebDriverUtils.webDriver.switchTo().window(currentWindow1);
+			WebDriverUtils.webDriver.switchTo().window(currentWindow1); 
 		}
 		String landingPageTitle = WebDriverUtils.getWebDriver().getTitle();
 		Assert.assertTrue(landingPageTitle.contentEquals("SEER Data Access Request - ODS SEER Data Access Request"));
