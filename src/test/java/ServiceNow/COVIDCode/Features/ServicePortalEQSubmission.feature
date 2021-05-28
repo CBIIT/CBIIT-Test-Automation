@@ -1,6 +1,6 @@
 Feature: Service Portal Enrollment Questionnaire Submissions
 
-  @Smoke @juarezds 
+  @Smoke @juarezds @Progression
   Scenario: COVIDcode Study Provider Enrollment Questionnaire Submission Group 1 User
     Given a COVIDcode Study Provider user has logged in to the COVIDcode Study application
     When the COVIDcode Study Provider fills out an Enrollment Questionnaire for a "User Group 1" who says "Yes" to join the study
@@ -96,4 +96,3 @@ Feature: Service Portal Enrollment Questionnaire Submissions
   Scenario: COVIDcode Initial Questionnaire - Verifying the system does not allow any future dates to be selected for any date picker
     Given a COVIDCode user is on the Initial questionnaire page
     Then the system does not allow any future dates to be selected for any date picker
-

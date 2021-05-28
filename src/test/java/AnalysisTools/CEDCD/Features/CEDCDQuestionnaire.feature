@@ -1,5 +1,6 @@
 Feature: Questionnaire
-Scenario Outline: Admin able to add cohort
+
+  Scenario Outline: Admin able to add cohort
     Given the user is on the CEDCD homepage
     When the user is logged in as Admin
     When user selects add new Cohort
@@ -9,6 +10,7 @@ Scenario Outline: Admin able to add cohort
     And enters "<Notes>"
     And clicks submit
     Then Cohort is added
+
     Examples: 
       | Cohort Name             | Cohort Acronym | Notes                         |
       | Second Automated Cohort | SAC            | This Cohort Will Be Automated |
@@ -72,4 +74,3 @@ Scenario Outline: Admin able to add cohort
     And fills out all sections of the questionnaire
     And submits the Cohort Study for Review
     Then the Cohort Study Questionnaire is successfully submitted
-

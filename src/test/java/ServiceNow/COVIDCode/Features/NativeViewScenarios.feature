@@ -187,4 +187,3 @@ Feature: Native View Scenarios
   Scenario: Verifying Follow Up Form - Verifying 'Drug Treatments' section - Native View
     When a COVIDCode provider is on the Disease Course section on the Follow Up Form in Native View
     Then Drug Treatments section should display along with the values on the Follow Up Form in Native View None, Azithromycin, Chloroquine, Corticosteroids, Hydroxycholoquine, JAK Inhibitor, Remdesivir, Tocilizumab, Other
-

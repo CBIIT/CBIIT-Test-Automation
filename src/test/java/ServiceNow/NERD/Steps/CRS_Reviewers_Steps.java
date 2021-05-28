@@ -32,7 +32,7 @@ public class CRS_Reviewers_Steps extends PageInitializer {
 				nerdCrsKnowledgeDatabaseSubmissionsPage.nerdSpecialTopicsDD.getText().contentEquals(SpecificTopic));
 		JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.nerdSpecialTopicsDD);
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.logScreenShot(); 
 	}
 
 	@Then("the field options are {string}, {string}, {string},{string},{string},{string},{string},{string},{string},{string},{string}, {string}, {string}, {string}, and {string}")
