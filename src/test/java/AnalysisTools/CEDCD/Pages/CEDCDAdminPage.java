@@ -74,4 +74,6 @@ public class CEDCDAdminPage {
 	/** Submit Button */
 	@FindBy(xpath = "(//button[@type='submit'])[2]")
 	public WebElement cohortSubmitBtn; 
+
 }
+

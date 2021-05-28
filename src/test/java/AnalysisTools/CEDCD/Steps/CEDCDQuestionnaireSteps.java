@@ -1203,4 +1203,4 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	@Then("Section G status Circle is green")
 	public void section_G_status_Circle_is_green() {
 	}
-}
+	}
