@@ -15,4 +15,3 @@ Feature: CRS Reviewers Test Scenarios
     Given a CRS Reviewer is on the NERD Knowledge Base page
     And clicks the "Special Topic" filter
     Then the field options are "All", "Big data/Data sharing", "COVID-19","Communications","Early Detection","Metastatic","Minority health/Health disparities","Moonshot","Partnerships","Pediatric","Rare", "Sex/Gender differences", "Training/Workforce development", "Women's health", and "Workforce"
-

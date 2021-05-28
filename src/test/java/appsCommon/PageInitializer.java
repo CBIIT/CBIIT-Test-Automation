@@ -8,33 +8,6 @@ import AnalysisTools.CEDCD.Pages.CEDCDCohortPage;
 import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDAlphabetizedSelectTypesStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp;
-
-import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDAlphabetizedSelectTypesStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp;
-
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDMaleDiscrepancyOnSearchCohortsStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortAlcoholConsumptionStepImp;
-import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDAlphabetizedSelectTypesStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDMaleDiscrepancyOnSearchCohortsStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortAlcoholConsumptionStepImp;
-import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDAlphabetizedSelectTypesStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDMaleDiscrepancyOnSearchCohortsStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortAlcoholConsumptionStepImp;
-import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDAlphabetizedSelectTypesStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDMaleDiscrepancyOnSearchCohortsStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortAlcoholConsumptionStepImp;
-import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDAlphabetizedSelectTypesStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDMaleDiscrepancyOnSearchCohortsStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortAlcoholConsumptionStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortNewPageLayOutStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
@@ -173,28 +146,17 @@ public class PageInitializer {
 	protected static DevOpsAutomatedBuildStepsImplementation devOpsAutomatedBuildStepsImplementation;
 
 	/** CEDCD instances */
-
-	/** CEDCD instances */
 	protected static CEDCDCohortPage cedcdCohortPage;
 	protected static CEDCDSearchCohortsPage cedcdSearchCohortsPage;
 	protected static CEDCDAdminPage  cedcdAdminPage;   
-
-
-	protected static CEDCDSearchCohortsPage cedcdSearchCohortsPage;
-	protected static CEDCDAdminPage cedcdAdminPage;
-	protected static CEDCDCohortPage cedcdCohortPage;
-
 	protected static CEDCDSearchFemaleCohortsStepImp cedcdSearchFemaleCohortsStepImp;
-	protected static CEDCDMaleDiscrepancyOnSearchCohortsStepImp cedcdMaleDiscrepancyOnSearchCohortsStepImp;
 	protected static CEDCDSelectAllCohortsStepImp cedcdSelectAllCohortsStepImp;
-	protected static CEDCDSearchCohortAlcoholConsumptionStepImp cedcdSearchCohortAlcoholConsumptionStepImp;
 	protected static CEDCDBiospecimenCountsPage cedcdBiospecimenCountsPage;
 	protected static CEDCDSearchCohortNewPageLayOutStepImp cedcdSearchCohortNewPageLayOutStepImp;
 	protected static CEDCDAlphabetizedSelectTypesStepImp cedcdAlphabetizedSelectTypesStepImp;
 	protected static CEDCDStartUps cedcdStartUps;
 	protected static CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp cedcdSearchCohortsCategoriesOfDataOfDataSortedStepImp;
 	protected static CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp cedcdBiospecimenCountsAlphabeticalCancerTypeStepImp;
-	protected static CEDCDMaleDiscrepancyOnSearchCohortsStepImp cedcdMaleDiscrepancyOnSearchCohortsStepImp;
 	
 	/** SEER instances */
 	protected static SEERLandingPage seerLandingPage;
@@ -275,13 +237,7 @@ public class PageInitializer {
 		signOutVerificationStepImp = new SignOutVerificationStepImp();
 		cedcdSearchCohortsPage = new CEDCDSearchCohortsPage();
 		cedcdSearchFemaleCohortsStepImp = new CEDCDSearchFemaleCohortsStepImp();
-
-		cedcdMaleDiscrepancyOnSearchCohortsStepImp = new CEDCDMaleDiscrepancyOnSearchCohortsStepImp();
-
-        cedcdMaleDiscrepancyOnSearchCohortsStepImp = new CEDCDMaleDiscrepancyOnSearchCohortsStepImp();
-
 		cedcdSelectAllCohortsStepImp = new CEDCDSelectAllCohortsStepImp();
-		cedcdSearchCohortAlcoholConsumptionStepImp = new CEDCDSearchCohortAlcoholConsumptionStepImp();
 		cedcdBiospecimenCountsPage = new CEDCDBiospecimenCountsPage();
 		cedcdSearchCohortNewPageLayOutStepImp = new CEDCDSearchCohortNewPageLayOutStepImp();
 		cedcdAlphabetizedSelectTypesStepImp = new CEDCDAlphabetizedSelectTypesStepImp();
@@ -300,11 +256,11 @@ public class PageInitializer {
 		nerdLoginStepsImplementation = new NERDLoginStepsImplementation();
 		nerdCrsKnowledgeDatabaseSubmissionsPage = new NERDSubmissionsPage();
 		createNewSubmissionPage = new CreateNewSubmissionPage();
+		nativeViewImpersonateUser = new NativeViewImpersonateUser();
 		nerdDynamicXpaths = new NERDDynamicXPATHS();
 		browsePhenotypePage = new BrowsePhenotypePage();
 		informationPage = new InformationPage();
 		cedcdAdminPage = new CEDCDAdminPage();
-
 		cedcdCohortPage = new CEDCDCohortPage();
 
 		aligningExpectationsPage = new AligningExpectationsPage();
@@ -327,17 +283,12 @@ public class PageInitializer {
 		traineeReviewPage = new TraineeReviewPage();
 		coPrimaryMentorPage = new CoPrimaryMentorPage();
 		eidpDashboardStepImpl = new CustomBusinessApp.EIDP.StepsImplementation.DashboardStepImpl();
-
-
-		
+	
 		/**AppTracker**/
 		appTrackerBasePage = new AppTrackerBasePage();
 		vacancyManagerUserPage = new VacancyManagerUserPage();
 		vacancyManagerUserStepsImpl = new VacancyManagerUserStepsImpl();
 		appTrackerLoginPage = new AppTrackerLoginPage();
-		appTrackerLoginStepsImpl = new AppTrackerLogInStepsImpl();
-		
-		
-
+		appTrackerLoginStepsImpl = new AppTrackerLogInStepsImpl();	
 	}
 }
