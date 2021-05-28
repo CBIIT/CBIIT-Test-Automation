@@ -4,6 +4,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.nci.automation.utils.EncryptionUtils;
 import com.nci.automation.web.ConfUtils;
+import com.nci.automation.web.EnvUtils;
+import com.nci.automation.web.WebDriverUtils;
+import com.nci.automation.xceptions.TestingException;
 
 import ServiceNow.ATO.Pages.BasePage;
 import ServiceNow.ATO.Pages.CommonPage;
@@ -68,7 +71,9 @@ public class LoginSteps {
 	}
 	
 	@When("User will login to the application as \"([^\"]*)\" user")
-	public void loginByUsername(String username) throws InterruptedException {
+	public void loginByUsername(String username) throws InterruptedException, TestingException {
+		//COMPILER IS GETTING CONFUSED HERE
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
 		loginStepsImpl.clckOnLoginButton();
 		Thread.sleep(3000);
 		loginStepsImpl.enterUsername(username);
