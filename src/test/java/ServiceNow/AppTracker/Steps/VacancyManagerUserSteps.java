@@ -17,6 +17,7 @@ import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 
 import CustomBusinessApp.EIDP.Util.CommonUtil;
+import ServiceNow.AppTracker.Utils.AppTrackerCommonUtils;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
@@ -214,18 +215,37 @@ public class VacancyManagerUserSteps extends PageInitializer {
 
 	}
 
-	/** question **/
 	@Then("User selects date same as today's date as below")
 	public void user_selects_date_same_as_today_s_date_as_below(Map<String, String> data) {
 		String openDate = data.get("Open Date");
 		String closeDate = data.get("Close Date");
-		vacancyManagerUserStepsImpl.selectOpenDate(openDate);
-		MiscUtils.sleep(4000);
-		vacancyManagerUserStepsImpl.selectCloseDate(closeDate);
-		MiscUtils.sleep(4000);
+		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
+		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection, openDate);
+		MiscUtils.sleep(3000);
+		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection);
+		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection, closeDate);
+		MiscUtils.sleep(3000);
+		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
 		CommonUtils.click(vacancyManagerUserPage.reviewSection);
-		MiscUtils.sleep(4000);
-		JavascriptUtils.scrollUp(4000);
+		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.basicVacancyInformationSaveButton);
+		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
+		MiscUtils.sleep(3000);
+
+	}
+
+	@Then("User can see the under Close Date field message displays with {string}")
+	public void user_can_see_the_under_Close_Date_field_message_displays_with(String alertTextMessage) {
+		Assert.assertEquals(CommonUtils.getAlertText(), alertTextMessage);
+
+	}
+
+	@When("User selects the Open date as greater than the Close date")
+	public void user_selects_the_Open_date_as_greater_than_the_Close_date() {
+
+	}
+
+	@Then("User can see the under Open Date field message displays with {string}")
+	public void user_can_see_the_under_Open_Date_field_message_displays_with(String string) {
 
 	}
 
@@ -430,39 +450,77 @@ public class VacancyManagerUserSteps extends PageInitializer {
 				"2021-05-27");
 		MiscUtils.sleep(1000);
 		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection,
-				"2021-05-29");
+				"2021-05-27");
 		MiscUtils.sleep(3000);
+		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
 	}
 
 	@When("User toggles off Equal Opportunity Employer button, Standards of Conduct\\/Financial Disclosure button, Foreign Education button, Reasonable Accommodation button")
 	public void user_toggles_off_Equal_Opportunity_Employer_button_Standards_of_Conduct_Financial_Disclosure_button_Foreign_Education_button_Reasonable_Accommodation_button() {
 		CommonUtils.click(vacancyManagerUserPage.toggleButtonEqualOpportunityEmployer);
-		MiscUtils.sleep(3000);
+		MiscUtils.sleep(1000);
+		CommonUtils.click(vacancyManagerUserPage.toggleButtonForeignEducation);
+		MiscUtils.sleep(1000);
+		CommonUtils.click(vacancyManagerUserPage.toggleButtonReasonableAccommodation);
+		MiscUtils.sleep(1000);
+		CommonUtils.click(vacancyManagerUserPage.toggleButtonStandardsOfConduct);
+		MiscUtils.sleep(1000);
+		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
 	}
 
 	@When("User adds committee member as a chair")
 	public void user_adds_committee_member_as_a_chair() {
+		CommonUtils.click(vacancyManagerUserPage.addMemberButton);
+		MiscUtils.sleep(1000);
+		CommonUtils.click(vacancyManagerUserPage.committeeMemberDropdown);
+		MiscUtils.sleep(1000);
+		CommonUtils.click(vacancyManagerUserPage.apptrackScoringMember);
+		MiscUtils.sleep(1000);
+		CommonUtils.click(vacancyManagerUserPage.roleDropdown);
+		MiscUtils.sleep(1000);
+		CommonUtils.click(vacancyManagerUserPage.roleMemmberVoting);
+		MiscUtils.sleep(1000);
+		CommonUtils.click(vacancyManagerUserPage.saveButtonAddingMember);
+		MiscUtils.sleep(1000);
+		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
 
 	}
 
 	@When("User toggles off all the email template button")
 	public void user_toggles_off_all_the_email_template_button() {
-
-	}
-
-	@When("User clicks on Review and Finalize section")
-	public void user_clicks_on_Review_and_Finalize_section() {
+		CommonUtils.click(vacancyManagerUserPage.applicationSavedToggleButton);
+		MiscUtils.sleep(1000);
+		CommonUtils.click(vacancyManagerUserPage.applicationIsInactiveToggleButton);
+		MiscUtils.sleep(1000);
+		CommonUtils.click(vacancyManagerUserPage.ApplicationSubmittedConfirmationToggleButton);
+		MiscUtils.sleep(1000);
+		CommonUtils.click(vacancyManagerUserPage.notReferredToInterviewToggleButton);
+		MiscUtils.sleep(1000);
+		CommonUtils.click(vacancyManagerUserPage.invitationToInterviewToggleButton);
+		MiscUtils.sleep(1000);
+		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
 
 	}
 
 	@When("User clicks on Save and Finalize button")
 	public void user_clicks_on_Save_and_Finalize_button() {
+		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
+		MiscUtils.sleep(3000);
+		JavascriptUtils.scrollDown(3000);
+		MiscUtils.sleep(3000);
 
 	}
 
 	@Then("User will see the error messages displayed")
 	public void user_will_see_the_error_messages_displayed() {
-
+	String expectedBeginningMessage = "Sorry, we can't submit just yet.  The following sections have fields that need to change or have values: ";
+    String expectedEndMessage = "We've highlighted those fields in red.  Please return to those sections and address the highlights, then return here and click 'Save and Finalize' again.";
+	String actualBegMessage = vacancyManagerUserPage.beginningAlertMessage.getText();
+	System.out.println();
+	String actualEndMessage = vacancyManagerUserPage.endAlertMessage.getText();
+	System.out.println();
+	Assert.assertEquals(expectedBeginningMessage, actualBegMessage);
+	Assert.assertEquals(actualEndMessage, expectedEndMessage);
 	}
 
 	// @Satya18Ticket105
