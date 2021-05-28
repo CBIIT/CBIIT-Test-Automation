@@ -195,20 +195,20 @@ public class SearchSteps extends PageInitializer {
              CommonUtil.waitBrowser(3000);
        }
  
-       // alena1
+ 
        @When("User selects IDP type as Trainees with IDP")
        public void traineesWithIDP() {
              searchStepimpl.checkTraineeWithIDPCheckbox();
              CommonUtil.waitBrowser(3000);
        }
  
-       // enter first name
+  
        @When("User enters {string} to first name input box")
        public void user_enters_to_first_name_input_box(String firstName) {
              searchStepimpl.enterTraineeFirstName(firstName);
        }
  
-       // enter last name
+       
        @When("User enters {string} to last name input box")
        public void user_enters_to_last_name_input_box(String lastName) {
              searchStepimpl.enterTraineeLastName(lastName);
