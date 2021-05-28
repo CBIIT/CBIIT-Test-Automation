@@ -16,7 +16,7 @@ public class COVIDCodeLoginStepsImpl extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(covidCodeLoginPage.LogInButton);
 		CucumberLogUtils.logScreenShot();
-	    loginImpl.loginToITrust();
+		loginImpl.loginToITrust();
 		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(2000);
 	}
