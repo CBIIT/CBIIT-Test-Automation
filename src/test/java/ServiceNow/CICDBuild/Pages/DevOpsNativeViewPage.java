@@ -21,8 +21,6 @@ public class DevOpsNativeViewPage extends CommonUtils{
 	//@FindBy(xpath = "//select[@id='application_picker_select']")
 	public WebElement applicationSelectorDropDown;
 	
-	
-	
 	/** Drop down applications*/
 	@FindBy (xpath = "//*[@id='application_picker_select']/option")
 	public List<WebElement> dropDownApplications;
@@ -66,5 +64,5 @@ public class DevOpsNativeViewPage extends CommonUtils{
 	public DevOpsNativeViewPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
-	
 }
+

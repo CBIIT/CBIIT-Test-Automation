@@ -16,10 +16,7 @@ public class BrowsePhenotypePage extends CommonUtils {
 	@FindBy(xpath = "//*[@class='h5 text-center text-secondary my-1']")
 	public WebElement txtSelectPhenotype; 
 
-	
-	
 	public BrowsePhenotypePage(){
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
-	
 }
