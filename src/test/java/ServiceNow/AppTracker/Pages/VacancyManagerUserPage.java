@@ -57,7 +57,7 @@ public class VacancyManagerUserPage extends CommonUtils {
 
 	/** Basic Vacancy Section **/
 	//@FindBy(xpath = "//div[@class='ant-steps-item ant-steps-item-process ant-steps-item-active']")
-	@FindBy(xpath = "(//div[@class='ant-steps-item-title'])[1]")
+	@FindBy(xpath = "//div[@class='ant-steps-item-title' and text()='Basic Vacancy Information']")
 	public WebElement basicVacancySection;
 
 	/** Mandatory Statements Section **/
@@ -319,8 +319,45 @@ public class VacancyManagerUserPage extends CommonUtils {
 	
 
 	/** Close Date alert**/
-	@FindBy(xpath= "(//div[@class='ant-form-item-explain ant-form-item-explain-error'])[2]")
+	@FindBy(xpath= "//div[@class='ant-form-item-explain ant-form-item-explain-error']")
 	public WebElement closeDateAlert;
+	
+	/**Add Member Button in Vacancy Committee section**/
+	@FindBy(xpath = "//button[@class='ant-btn ant-btn-secondary AddButton']")
+	public WebElement addMemberButton;
+	
+	/**Committee Member dropdown in Vacancy Committee section**/
+	@FindBy(xpath = "//div[@class=' css-tlfecz-indicatorContainer']")
+	public WebElement committeeMemberDropdown;
+	
+	/**Role dropdown**/
+	@FindBy(xpath ="//div[@class='ant-select-selector']")
+	public WebElement roleDropdown;
+	
+	
+	/**APPTRACK SCORING MEMBER**/
+	@FindBy(xpath="//*[contains (text(), 'APPTRACK SCORING MEMBER')]")
+	public WebElement apptrackScoringMember;
+	
+	/*** Role as Member voting*/
+	@FindBy(xpath="//div[@class='ant-select-item-option-content' and text()='Member (voting)']")
+	public WebElement roleMemmberVoting;
+	
+	/**Save Button for adding member**/
+	@FindBy(xpath ="//*[@class='ant-btn ant-btn-link ActionButton']//*[contains(text(), 'save')]")
+	public WebElement saveButtonAddingMember;
+	
+	/**Beginning of text of  Alert Message in Review & Finalize Section**/
+	@FindBy(xpath = "//*[contains(text(),'Sorry, we')]")
+	public WebElement beginningAlertMessage;
+	
+	/**End of text of  Alert Message in Review & Finalize Section**/
+	@FindBy(xpath = "//*[contains(text(),'Please return')]")
+	public WebElement endAlertMessage;
+	
+	
+	
+	
 	
 	
 
