@@ -101,11 +101,21 @@ public class VacancyManagerUserStepsImpl extends PageInitializer {
 			CucumberLogUtils.logScreenShot();
 
 		} else if (nameButton.equals("Reasonable Accommodation")) {
-			;
 			CommonUtils.click(vacancyManagerUserPage.toggleButtonReasonableAccommodation);
 			CucumberLogUtils.logScreenShot();
 		}
 	}
+	public void chooseOpenAndCloseDates(String openDate, String closeDate) {
+		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
+		MiscUtils.sleep(2000);
+		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection,
+				openDate);
+		MiscUtils.sleep(1000);
+		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection,
+				closeDate);
+		MiscUtils.sleep(3000);
+		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
+		}
 	
 }
 

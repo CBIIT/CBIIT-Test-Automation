@@ -68,29 +68,20 @@ Then User should able to navigate to the "Basic Vacancy Information" without any
 And User clicks on the Open date field to see calendar past dates disabled
 And User clicks on the Close Date field to see calendar past dates disabled
 And User selects date same as today's date as below
-|Open Date |2021-05-27|
-|Close Date|2021-05-27|
+|Open Date |2021-06-01|
+|Close Date|2021-06-01|
 Then User can see the under Close Date field message displays with "Please pick an open date that is before the close date."
 When User selects the Open date as greater than the Close date 
 Then User can see the under Open Date field message displays with "Please pick an open date that is before the close date."
 
 
 
-
-@Satya8Ticket94
-Scenario: Verify the manual date enter functionality in vacancy dates fields
-When User is on create vacancy page
-And User enters the past date in open date field & tab out
-Then User can see the dates changing to current date automatically
-And User enters the past date in Closed date field & tab out
-Then User can see the dates changing to current date automatically
-
 @Satya9Ticket94
 Scenario: Verify the date field persistent in create vacancy form
-When User clicks on the Create Vacancy button
-And User selects the open & closed date
-Then User navigates to other tab
-And User comes back to Basic info tab
+When User clicks on Create Vacancy button
+And User chooses open date and close date
+And User clicks on the Mandatory Statements section
+When User comes back to Basic information tab
 Then User can see the selected Open & Closed date displaying as the same
 
 
