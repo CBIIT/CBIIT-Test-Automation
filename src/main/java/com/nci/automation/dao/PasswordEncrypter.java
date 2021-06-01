@@ -11,7 +11,7 @@ public class PasswordEncrypter {
 
 	public static void main(String[] args) {
 
-		String pwd = "";
+		String pwd = "TRPTRPTRP1029e$$";
 		System.out.println(EncryptionUtils.encrypt(pwd));
 	}
 

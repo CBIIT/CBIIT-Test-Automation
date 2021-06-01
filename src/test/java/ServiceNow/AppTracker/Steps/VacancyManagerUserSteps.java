@@ -444,15 +444,8 @@ public class VacancyManagerUserSteps extends PageInitializer {
 	// @Satya17Ticket120
 	@When("User indicates open date and close date")
 	public void user_indicates_open_date_and_close_date() {
-		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
-		MiscUtils.sleep(2000);
-		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection,
-				"2021-05-27");
-		MiscUtils.sleep(1000);
-		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection,
-				"2021-05-27");
-		MiscUtils.sleep(3000);
-		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
+		vacancyManagerUserStepsImpl.chooseOpenAndCloseDates("2021-06-17", "2021-06-25");
+		
 	}
 
 	@When("User toggles off Equal Opportunity Employer button, Standards of Conduct\\/Financial Disclosure button, Foreign Education button, Reasonable Accommodation button")
@@ -513,14 +506,14 @@ public class VacancyManagerUserSteps extends PageInitializer {
 
 	@Then("User will see the error messages displayed")
 	public void user_will_see_the_error_messages_displayed() {
-	String expectedBeginningMessage = "Sorry, we can't submit just yet.  The following sections have fields that need to change or have values: ";
-    String expectedEndMessage = "We've highlighted those fields in red.  Please return to those sections and address the highlights, then return here and click 'Save and Finalize' again.";
-	String actualBegMessage = vacancyManagerUserPage.beginningAlertMessage.getText();
-	System.out.println();
-	String actualEndMessage = vacancyManagerUserPage.endAlertMessage.getText();
-	System.out.println();
-	Assert.assertEquals(expectedBeginningMessage, actualBegMessage);
-	Assert.assertEquals(actualEndMessage, expectedEndMessage);
+		String expectedBeginningMessage = "Sorry, we can't submit just yet.  The following sections have fields that need to change or have values: ";
+		String expectedEndMessage = "We've highlighted those fields in red.  Please return to those sections and address the highlights, then return here and click 'Save and Finalize' again.";
+		String actualBegMessage = vacancyManagerUserPage.beginningAlertMessage.getText();
+		System.out.println();
+		String actualEndMessage = vacancyManagerUserPage.endAlertMessage.getText();
+		System.out.println();
+		Assert.assertEquals(expectedBeginningMessage, actualBegMessage);
+		Assert.assertEquals(actualEndMessage, expectedEndMessage);
 	}
 
 	// @Satya18Ticket105
@@ -547,6 +540,23 @@ public class VacancyManagerUserSteps extends PageInitializer {
 	@Then("User can see confirmation modal {string}")
 	public void user_can_see_confirmation_modal(String string) {
 
+	}
+	//@Satya9Ticket94
+	@When("User chooses open date and close date")
+	public void user_chooses_open_date_and_close_date() {
+	vacancyManagerUserStepsImpl.chooseOpenAndCloseDates("2021-06-25", "2021-06-29");
+	
+	}
+
+	@Then("User can see the selected Open & Closed date displaying as the same")
+	public void user_can_see_the_selected_Open_Closed_date_displaying_as_the_same() {
+	JavascriptUtils.scrollIntoView(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
+	MiscUtils.sleep(1000);
+	String actualResult = vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection.getText();
+	String expectedResult = "2021-06-25";
+	Assert.assertEquals(actualResult, expectedResult);
+	MiscUtils.sleep(1000);
+	
 	}
 
 }
