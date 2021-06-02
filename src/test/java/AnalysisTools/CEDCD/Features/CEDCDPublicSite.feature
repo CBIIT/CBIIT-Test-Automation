@@ -67,3 +67,4 @@ Feature: Test Cases on the Public Site
     Given the user is on the CEDCD Search Cohorts Tab
     When the user clicks Agricultural Health Study
     Then the Agricultural Health Study icon is shown on the web page
+
