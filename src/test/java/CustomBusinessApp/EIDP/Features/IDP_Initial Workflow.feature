@@ -6,11 +6,11 @@ Feature: Regression testing
   Scenario: IDP request creates and decline and approve
     ##Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user
-    And Logged in user changes the user to "Plante,Faith"
+    And Logged in user changes the user to "Ginsburg,Erika"
     And User will click on search in dashboard
     And User creates IDP request
-    | Classification Type | 
-    | Fellow              | 
+      | Search For             | Classification Type | NCI Training Organization |
+      | Non-NCI (Fellows Only) | Fellow              | CCR                       |
     And Logged in user changes the user to trainee
     And User will clickOn start idp button
     And User fills mandatory fields in general information
@@ -352,7 +352,7 @@ Feature: Regression testing
     Scenario Outline: IDP Search request 
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
-    And Logged in user changes the user to "Plante,Faith"
+    And Logged in user changes the user to "Ginsburg,Erika"
     And User will click on search in dashboard
     And User selects IDP type as Trainees with IDP
     And User enters "<Trainee First Name>" to first name input box
@@ -361,13 +361,13 @@ Feature: Regression testing
     Then verify expected results as "<Trainee First Name>" and "<Trainee Last Name>"
     Examples: User fills out the form as in the table below:
     |Trainee First Name|Trainee Last Name|
-    |Idowu             |Aimola           | 
+    |Olga              |Kim              | 
     
     @Regression @Smoke @ClassificationType
     Scenario Outline:IDP Search request specifying  Classification type
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
-    And Logged in user changes the user to "Plante,Faith"
+    And Logged in user changes the user to "Ginsburg,Erika"
     And User will click on search in dashboard
     And User will select "<Classification Type>" as Classification type
     And User will click Search button
@@ -382,7 +382,7 @@ Feature: Regression testing
     Scenario Outline:IDP Search request specifying  Training Organization and Training Lab, Branch, or Office
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
-    And Logged in user changes the user to "Plante,Faith"
+    And Logged in user changes the user to "Ginsburg,Erika"
     And User will click on search in dashboard
     And User will select "<Training Organization>" as Training Organization 
     And User will click Search button
@@ -396,14 +396,14 @@ Feature: Regression testing
     Scenario Outline: IDP Search Request by selecting Primary Mentor
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
-    And Logged in user changes the user to "Plante,Faith"
+    And Logged in user changes the user to "Ginsburg,Erika"
     And User will click on search in dashboard
     And User will select "<Primary Mentor>" as Primary Mentor
     And User will click Search button
     Then User will verify expected result as "<Primary Mentor>"
     Examples:Primary Mentor Options
     |Primary Mentor|
-    |Pnina Laric   |
+    |Ali Abazeed   |
     
 
 

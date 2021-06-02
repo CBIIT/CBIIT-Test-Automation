@@ -355,9 +355,7 @@ public class VacancyManagerUserPage extends CommonUtils {
 	@FindBy(xpath = "//*[contains(text(),'Please return')]")
 	public WebElement endAlertMessage;
 	
-	/**Today at Close Date Field**/
-	@FindBy(xpath ="(//a[@class='ant-picker-today-btn'])[1]")
-	public WebElement todayWord;
+	
 	
 	
 	

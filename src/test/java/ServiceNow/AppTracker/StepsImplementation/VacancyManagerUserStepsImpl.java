@@ -117,5 +117,8 @@ public class VacancyManagerUserStepsImpl extends PageInitializer {
 		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
 		}
 	
-}
+		
+	
+	}
+	
 
