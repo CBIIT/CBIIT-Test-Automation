@@ -138,21 +138,22 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.recruitmentTab.click();
 		cedcdCohortPage.questionnaireFrequency.sendKeys("Monthly");
 		cedcdCohortPage.mostRecentYear.sendKeys("2018");
-		cedcdCohortPage.a11PhoneInterview.click();
-		cedcdCohortPage.a11AdministeredViaWebBasedDevice.click();
-		//cedcdCohortPage.a11otherPleaseSpecify.click();
-		//cedcdCohortPage.a11otherPleaseSpecifyTextbox.sendKeys("A11 Automated Key Presses");
+		
 		cedcdCohortPage.a12RequireIRBApproval.click();
 		cedcdCohortPage.a12LinkingOtherDatabases.click();
-		//cedcdCohortPage.a12OtherPleaseSpecify.click();
-		//cedcdCohortPage.a12OtherPleaseSpecifyTextbox.sendKeys("A12 Automated Key Presses");
+		cedcdCohortPage.a12OtherPleaseSpecify.click();
+		cedcdCohortPage.a12OtherPleaseSpecifyTextbox.sendKeys("A12 Automated Key Presses");
 		cedcdCohortPage.a13AdvisoryCommittees.click();
 		cedcdCohortPage.a13GeneticVariantsBloodPressure.click();
-		//cedcdCohortPage.a13OtherPleaseSpecify.click();
+		cedcdCohortPage.a13OtherPleaseSpecify.click();
 		MiscUtils.sleep(3000);
-		//cedcdCohortPage.a13OtherPleaseSpecifyTextbox.sendKeys("A13 Automated Key Presses");
+		cedcdCohortPage.a13OtherPleaseSpecifyTextbox.sendKeys("A13 Automated Key Presses");
+		cedcdCohortPage.a11PhoneInterview.click();
+		cedcdCohortPage.a11AdministeredViaWebBasedDevice.click();
+		cedcdCohortPage.a11otherPleaseSpecify.click();
+		cedcdCohortPage.a11otherPleaseSpecifyTextbox.sendKeys("A11 Automated Key Presses");
 		CucumberLogUtils.logScreenShot();
-		MiscUtils.sleep(20000);
+		MiscUtils.sleep(2000);
 
 		/**
 		 * Entering all data for the Documents tab (there is nothing entered in this
@@ -168,7 +169,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 		
 		/** Selecting enrollment date for section B */
-		MiscUtils.sleep(2000);
+		MiscUtils.sleep(20000);
 		JavascriptUtils.scrollIntoView(cedcdCohortPage.enrollmentDateBox);
 		MiscUtils.sleep(2000);
 		cedcdCohortPage.enrollmentDateBox.sendKeys("04/06/2021");
