@@ -11,6 +11,7 @@ import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortNewPageLayOutSte
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
+import AnalysisTools.Comets2.Pages.Comets2Page;
 import AnalysisTools.CEDCD.Steps.CEDCDStartUps;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
@@ -145,6 +146,9 @@ public class PageInitializer {
 	protected static CreateNewSubmissionPage createNewSubmissionPage;
 	protected static NativeViewImpersonateUser nativeViewImpersonateUser;
 	protected static NERDDynamicXPATHS nerdDynamicXpaths;
+	
+	/** Comets 2.0 Instances */
+	protected static Comets2Page comets2Page;
 
 	
 
@@ -209,5 +213,6 @@ public class PageInitializer {
 		informationPage = new InformationPage();
 		cedcdAdminPage = new CEDCDAdminPage();
 		cedcdCohortPage = new CEDCDCohortPage();
+		comets2Page = new Comets2Page();
 	}
 }
