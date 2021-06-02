@@ -67,15 +67,15 @@ public class LoginSteps {
 		
 	}
 	
-	@When("User will login to the application as \"([^\"]*)\" user")
-	public void loginByUsername(String username) throws InterruptedException {
-		loginStepsImpl.clckOnLoginButton();
-		Thread.sleep(3000);
-		loginStepsImpl.enterUsername(username);
-		loginStepsImpl.enterPassword(Constants.passwords.get(username));
-		basePage.captureScreenshot("Before Login");
-		loginStepsImpl.clickOnSignInButton();
-	}
+	/*
+	 * @When("User will login to the application as \"([^\"]*)\" user") public void
+	 * loginByUsername(String username) throws InterruptedException {
+	 * loginStepsImpl.clckOnLoginButton(); Thread.sleep(3000);
+	 * loginStepsImpl.enterUsername(username);
+	 * loginStepsImpl.enterPassword(Constants.passwords.get(username));
+	 * basePage.captureScreenshot("Before Login");
+	 * loginStepsImpl.clickOnSignInButton(); }
+	 */
 	
 	
 	@Given("user opens the fast ato page")
