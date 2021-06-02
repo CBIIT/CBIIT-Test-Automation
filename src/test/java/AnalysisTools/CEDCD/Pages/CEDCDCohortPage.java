@@ -553,7 +553,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//input[@id='insuranceStatusFollowUp_1']")
 	public WebElement c6FollowUpYesRadio;
 
-
 	/**
 	 * C.7 Anthropometry (e.g., weight, height, waist circumference) Baseline No
 	 * Value
@@ -1242,9 +1241,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** Other Text Box */
 	@FindBy(xpath = "//input[@name='cancerOtherSpecify']")
 	public WebElement c32CancerOtherSpecifyTextbox;
-	
-	
-	/** =============== Questionnaire Section D ================= */
 	
 	@FindBy(xpath = "//*[@class='cedcd-btn']")
 	public WebElement cancerInformationTab; 

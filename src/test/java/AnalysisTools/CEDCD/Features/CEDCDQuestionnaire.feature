@@ -15,6 +15,7 @@ Feature: Questionnaire
       | Second Automated Cohort | SAC            | This Cohort Will Be Automated |
 
 
+
   @Smoke @matarodriguezko
   Scenario: Cohort Owner logs in and completes section A
     Given the user is on the CEDCD homepage
@@ -22,7 +23,6 @@ Feature: Questionnaire
     And the Cohort Owner selects their Cohort questionnaire
     Then Section A of the Questionnaire is filled out
     Then Section A status Circle is green
-
 
   Scenario: Cohort Owner completes Section B
     Given the user is on the CEDCD homepage
@@ -76,3 +76,4 @@ Feature: Questionnaire
     And fills out all sections of the questionnaire
     And submits the Cohort Study for Review
     Then the Cohort Study Questionnaire is successfully submitted
+

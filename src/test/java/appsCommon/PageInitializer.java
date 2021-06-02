@@ -1,5 +1,6 @@
 package appsCommon;
 
+import com.sun.xml.bind.v2.model.core.ID;
 
 import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
 import AnalysisTools.CEDCD.Pages.CEDCDBiospecimenCountsPage;
@@ -17,6 +18,31 @@ import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
 import AnalysisTools.PLCO.Pages.BrowsePhenotypePage;
 import AnalysisTools.PLCO.Pages.ExploreGWASPage;
 import AnalysisTools.PLCO.Pages.InformationPage;
+import CustomBusinessApp.EIDP.Pages.AligningExpectationsPage;
+import CustomBusinessApp.EIDP.Pages.BasePage;
+import CustomBusinessApp.EIDP.Pages.CareerGoalAndActivePage;
+import CustomBusinessApp.EIDP.Pages.CoPrimaryMentorPage;
+import CustomBusinessApp.EIDP.Pages.CommonPage;
+import CustomBusinessApp.EIDP.Pages.DashboardPage;
+import CustomBusinessApp.EIDP.Pages.DelegatePage;
+import CustomBusinessApp.EIDP.Pages.GeneralInformationPage;
+import CustomBusinessApp.EIDP.Pages.IDPAwaitingResponsePage;
+import CustomBusinessApp.EIDP.Pages.LoginPage;
+import CustomBusinessApp.EIDP.Pages.ProjectRelatedDeliverablePage;
+import CustomBusinessApp.EIDP.Pages.SearchPage;
+import CustomBusinessApp.EIDP.Pages.TraineeReviewPage;
+import CustomBusinessApp.EIDP.Steps.AligningExpectationsSteps;
+import CustomBusinessApp.EIDP.StepsImplementation.AlignExpectionsStepImpl;
+import CustomBusinessApp.EIDP.StepsImplementation.CareerGoalAndActiveStepImpl;
+import CustomBusinessApp.EIDP.StepsImplementation.EIDPLoginStepImpl;
+import CustomBusinessApp.EIDP.StepsImplementation.GeneralInformationStepImpl;
+import CustomBusinessApp.EIDP.StepsImplementation.ProjectRelatedDeliverableStepImpl;
+import CustomBusinessApp.EIDP.StepsImplementation.SearchStepImpl;
+import ServiceNow.AppTracker.Pages.AppTrackerBasePage;
+import ServiceNow.AppTracker.Pages.AppTrackerLoginPage;
+import ServiceNow.AppTracker.Pages.VacancyManagerUserPage;
+import ServiceNow.AppTracker.StepsImplementation.AppTrackerLogInStepsImpl;
+import ServiceNow.AppTracker.StepsImplementation.VacancyManagerUserStepsImpl;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
 import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
@@ -93,6 +119,7 @@ public class PageInitializer {
 	/** Native View instance */
 	protected static NativeViewLoginImpl nativeViewLoginImpl;
 	protected static NativeViewHomePage nativeViewHomePage;
+	protected static NativeViewImpersonateUser nativeViewImpersonateUser;
 
 	/** CHARMS instances */
 	protected static CHARMSNativeViewPage charmsNativeViewPage;
@@ -111,17 +138,17 @@ public class PageInitializer {
 	/** PLCO instances **/
 	protected static ExploreGWASPage exploreGWASPage;
 	protected static BrowsePhenotypePage browsePhenotypePage;
-    protected static InformationPage informationPage;
-    
+	protected static InformationPage informationPage;
+
 	/** ServiceNow DevOps instances */
 	protected static DevOpsLoginPage devOpsLoginPage;
 	protected static DevOpsNativeViewPage devOpsNativeViewPage;
 	protected static DevOpsAutomatedBuildStepsImplementation devOpsAutomatedBuildStepsImplementation;
 
 	/** CEDCD instances */
+	protected static CEDCDCohortPage cedcdCohortPage;
 	protected static CEDCDSearchCohortsPage cedcdSearchCohortsPage;
 	protected static CEDCDAdminPage  cedcdAdminPage;   
-	protected static CEDCDCohortPage cedcdCohortPage;
 	protected static CEDCDSearchFemaleCohortsStepImp cedcdSearchFemaleCohortsStepImp;
 	protected static CEDCDSelectAllCohortsStepImp cedcdSelectAllCohortsStepImp;
 	protected static CEDCDBiospecimenCountsPage cedcdBiospecimenCountsPage;
@@ -130,22 +157,48 @@ public class PageInitializer {
 	protected static CEDCDStartUps cedcdStartUps;
 	protected static CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp cedcdSearchCohortsCategoriesOfDataOfDataSortedStepImp;
 	protected static CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp cedcdBiospecimenCountsAlphabeticalCancerTypeStepImp;
-
-
+	
 	/** SEER instances */
 	protected static SEERLandingPage seerLandingPage;
 	protected static SEERUserRegistrationPage seerUserRegistrationPage;
 	protected static SEERDataAccessRequestPage seerDataAccessRequestPage;
 	protected static NativeViewSentViewPage nativeViewSentViewPage;
 	protected static SEERIncidenceDatabaseDetailsPage seerIncidenceDatabaseDetailsPage;
-	
+
 	/** NERD instances */
 	protected static NERDLoginStepsImplementation nerdLoginStepsImplementation;
 	protected static NERDSubmissionsPage nerdCrsKnowledgeDatabaseSubmissionsPage;
 	protected static CreateNewSubmissionPage createNewSubmissionPage;
-	protected static NativeViewImpersonateUser nativeViewImpersonateUser;
 	protected static NERDDynamicXPATHS nerdDynamicXpaths;
 
+	/** Custom Business App Instances */
+	protected static AligningExpectationsPage aligningExpectationsPage;
+	protected static DashboardPage eidpDashboardPage;
+	protected static CommonPage eidpCommonPage;
+	protected static LoginPage nihLoginPage;
+	protected static BasePage eidpBasePage;
+	protected static EIDPLoginStepImpl eidpLoginStepImpl;
+	protected static AlignExpectionsStepImpl aligningExpectationsStepImpl;
+	protected static GeneralInformationPage generalInformationPage;
+	protected static GeneralInformationStepImpl generalInformationStepImpl;
+	protected static CustomBusinessApp.EIDP.StepsImplementation.DashboardStepImpl eidpDashboardStepImpl;
+	protected static SearchPage searchPage;
+	protected static SearchStepImpl searchStepimpl;
+	protected static CareerGoalAndActivePage careerGoalAndActivePage;
+	protected static CareerGoalAndActiveStepImpl careerGoalAndActiveStepImpl;
+	protected static ProjectRelatedDeliverablePage projectRelatedDeliverablePage;
+	protected static ProjectRelatedDeliverableStepImpl projectRelatedDeliverableStepImpl;
+	protected static DelegatePage delegatePage;
+	protected static IDPAwaitingResponsePage iDPAwaitingResponsePage;
+	protected static TraineeReviewPage traineeReviewPage;
+	protected static CoPrimaryMentorPage coPrimaryMentorPage;
+
+	/** Service Now App Instances **/
+	protected static AppTrackerBasePage appTrackerBasePage;
+	protected static VacancyManagerUserPage vacancyManagerUserPage;
+	protected static VacancyManagerUserStepsImpl vacancyManagerUserStepsImpl;
+	protected static AppTrackerLoginPage appTrackerLoginPage;
+	protected static AppTrackerLogInStepsImpl appTrackerLoginStepsImpl;
 	
 
 	public static void initializeAllPages() {
@@ -170,8 +223,8 @@ public class PageInitializer {
 		testAccountResetImpl = new TestAccountResetImpl();
 		servicePortalSurveyPage = new ServicePortalSurveyPage();
 		ldLinkLandingPage = new LDLinkLandingPage();
-		ldLinkHomePage = new LDLinkHomePage(); 
-		exploreGWASPage = new ExploreGWASPage(); 
+		ldLinkHomePage = new LDLinkHomePage();
+		exploreGWASPage = new ExploreGWASPage();
 		charmsHomePage = new CHARMSHomePage();
 		oktaLoginPage = new OKTAloginPage();
 		charmsHomePageImpl = new CHARMSHomePageImp();
@@ -209,5 +262,33 @@ public class PageInitializer {
 		informationPage = new InformationPage();
 		cedcdAdminPage = new CEDCDAdminPage();
 		cedcdCohortPage = new CEDCDCohortPage();
+
+		aligningExpectationsPage = new AligningExpectationsPage();
+		eidpDashboardPage = new DashboardPage();
+		eidpCommonPage = new CommonPage();
+		nihLoginPage = new LoginPage();
+		eidpBasePage = new BasePage();
+		eidpLoginStepImpl = new EIDPLoginStepImpl();
+		aligningExpectationsStepImpl = new AlignExpectionsStepImpl();
+		generalInformationPage = new GeneralInformationPage();
+		searchPage = new SearchPage();
+		searchStepimpl = new SearchStepImpl();
+		generalInformationStepImpl = new GeneralInformationStepImpl();
+		careerGoalAndActivePage = new CareerGoalAndActivePage();
+		careerGoalAndActiveStepImpl = new CareerGoalAndActiveStepImpl();
+		projectRelatedDeliverablePage = new ProjectRelatedDeliverablePage();
+		projectRelatedDeliverableStepImpl = new ProjectRelatedDeliverableStepImpl();
+		delegatePage = new DelegatePage();
+		iDPAwaitingResponsePage = new IDPAwaitingResponsePage();
+		traineeReviewPage = new TraineeReviewPage();
+		coPrimaryMentorPage = new CoPrimaryMentorPage();
+		eidpDashboardStepImpl = new CustomBusinessApp.EIDP.StepsImplementation.DashboardStepImpl();
+	
+		/**AppTracker**/
+		appTrackerBasePage = new AppTrackerBasePage();
+		vacancyManagerUserPage = new VacancyManagerUserPage();
+		vacancyManagerUserStepsImpl = new VacancyManagerUserStepsImpl();
+		appTrackerLoginPage = new AppTrackerLoginPage();
+		appTrackerLoginStepsImpl = new AppTrackerLogInStepsImpl();	
 	}
 }
