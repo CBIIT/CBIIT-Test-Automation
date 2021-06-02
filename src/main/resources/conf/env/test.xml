@@ -250,11 +250,6 @@
 
 	</application>
 
-<<<<<<< HEAD
-		<login_url>https://idp-test.cancer.gov/idp/
-		</login_url><!-- add test url -->
-=======
->>>>>>> 64fda862331390fcb227769dd2d00821f196d2ab
 
 	<!-- Application ID for EIDP -->
 	<application id="EidpUrl">

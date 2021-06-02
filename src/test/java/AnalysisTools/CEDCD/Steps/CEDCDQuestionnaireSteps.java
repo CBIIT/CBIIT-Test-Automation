@@ -67,7 +67,10 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		//INPUT LOCATOR TO SEND TEXT TO DROP DOWN TEXT BOX
 		WebDriverUtils.webDriver.findElement(By.id("react-select-2-input")).sendKeys("Automated_TestCohort_Name "+ CommonUtils.date);
 		WebDriverUtils.webDriver.findElement(By.id("react-select-2-input")).sendKeys(Keys.RETURN);
+
 	}
+	
+
 	
 	@When("fills out all sections of the questionnaire")
 	public void fills_out_all_sections_of_the_questionnaire() {
@@ -626,6 +629,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 
 	@When("the Cohort Owner selects their Cohort questionnaire")
 	public void the_Cohort_Owner_selects_their_Cohort_questionnaire() {
+
 	}
 
 	@Then("Section A of the Questionnaire is filled out")
@@ -1203,4 +1207,6 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	@Then("Section G status Circle is green")
 	public void section_G_status_Circle_is_green() {
 	}
-	}
+
+}
+

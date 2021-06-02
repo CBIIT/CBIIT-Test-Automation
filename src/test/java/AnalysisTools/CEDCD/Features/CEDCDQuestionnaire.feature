@@ -10,10 +10,11 @@ Feature: Questionnaire
     And enters "<Notes>"
     And clicks submit
     Then Cohort is added
-
     Examples: 
       | Cohort Name             | Cohort Acronym | Notes                         |
       | Second Automated Cohort | SAC            | This Cohort Will Be Automated |
+
+
 
   @Smoke @matarodriguezko
   Scenario: Cohort Owner logs in and completes section A
@@ -28,6 +29,7 @@ Feature: Questionnaire
     When the user is logged in as a Cohort Owner
     And the Cohort Owner selects their Cohort questionnaire
     Then Section B of the Questionnaire is filled out
+
 
   @Smoke @matarodriguezko
   Scenario: Cohort Owner logs in and completes section C
@@ -74,3 +76,4 @@ Feature: Questionnaire
     And fills out all sections of the questionnaire
     And submits the Cohort Study for Review
     Then the Cohort Study Questionnaire is successfully submitted
+

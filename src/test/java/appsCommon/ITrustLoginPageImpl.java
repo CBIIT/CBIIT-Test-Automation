@@ -22,7 +22,6 @@ public class ITrustLoginPageImpl extends PageInitializer {
 		MiscUtils.sleep(500);
 	}
 
-
 	public void satyaiTrustLogin() throws TestingException {
 		MiscUtils.sleep(2000);
 		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "sgugulothuUsername");
