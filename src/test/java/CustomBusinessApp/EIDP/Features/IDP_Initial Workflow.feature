@@ -25,7 +25,7 @@ Feature: Regression testing
     And User clicks on Decline IDP button
     And Logged in user changes the user to trainee
     And User will clickOn proceed button
-    And User clicks on Send IDP to the Primary MeAndntor button
+    And User clicks on Send IDP to the Primary Mentor button
     And Logged in user changes the user to "Berzofsky,Jay"
     And User will click on IDP Awaiting response button
     And User clicks on the trainee specific IDP request
