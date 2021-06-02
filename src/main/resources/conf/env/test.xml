@@ -255,7 +255,7 @@
 	<application id="EidpTestUrl">
 
 
-		<login_url>https://idp-test.cancer.gov/nhgri/idp/
+		<login_url>https://idp-test.cancer.gov/idp/
 
 		</login_url><!-- add test url -->
 

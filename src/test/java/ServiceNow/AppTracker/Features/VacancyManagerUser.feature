@@ -186,6 +186,7 @@ Then User can verify the data updated
 When User click on remove button
 Then User can verify the data removed from grid
 
+#unfinished
 @Satya17Ticket120
 Scenario: Verify the Review & Finalize screen with negative input
 When User clicks on Create Vacancy button
@@ -195,10 +196,10 @@ And User toggles off Equal Opportunity Employer button, Standards of Conduct/Fin
 And User adds committee member as a chair
 And User toggles off all the email template button
 Then User will see the error messages displayed
-#And User comes back to Basic information tab
-#And User clicks on the Mandatory Statements section
-#And User clicks on Vacancy Committee tab
-#And User clicks on the Email template tab
+And User comes back to Basic information tab
+And User clicks on the Mandatory Statements section
+And User clicks on Vacancy Committee tab
+And User clicks on the Email template tab
 
 
 @Satya18Ticket120
@@ -220,7 +221,7 @@ And User clicks on Review and Finalize tab
 And User clicks on the Mandatory Statements section
 And User clicks on Review and Finalize tab
 When User clicks on Save and Finalize button
-Then User can see confirmation modal "Ready to Finalize?" is displayed
+Then User can see confirmation modal "Ready to finalize vacancy?" is displayed
 When User chooses OK for  confirmation modal"Ready to finalize vacancy?"
 Then User can see confirmation modal "Vacancy Finalized!"
 

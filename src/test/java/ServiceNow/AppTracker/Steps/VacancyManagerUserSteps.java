@@ -445,7 +445,7 @@ public class VacancyManagerUserSteps extends PageInitializer {
 	@When("User indicates open date and close date")
 	public void user_indicates_open_date_and_close_date() {
 		vacancyManagerUserStepsImpl.chooseOpenAndCloseDates("2021-06-17", "2021-06-25");
-		
+
 	}
 
 	@When("User toggles off Equal Opportunity Employer button, Standards of Conduct\\/Financial Disclosure button, Foreign Education button, Reasonable Accommodation button")
@@ -524,11 +524,12 @@ public class VacancyManagerUserSteps extends PageInitializer {
 
 	@Then("User clicks on Review and Finalize tab")
 	public void user_clicks_on_Review_and_Finalize_tab() {
-
+    CommonUtils.click(vacancyManagerUserPage.reviewSection);
 	}
 
 	@Then("User can see confirmation modal {string} is displayed")
-	public void user_can_see_confirmation_modal_is_displayed(String string) {
+	public void user_can_see_confirmation_modal_is_displayed(String expectedTextfromAlert) {
+		Assert.assertTrue(CommonUtils.getAlertText().contentEquals(expectedTextfromAlert));
 
 	}
 
@@ -541,22 +542,23 @@ public class VacancyManagerUserSteps extends PageInitializer {
 	public void user_can_see_confirmation_modal(String string) {
 
 	}
-	//@Satya9Ticket94
+
+	// @Satya9Ticket94
 	@When("User chooses open date and close date")
 	public void user_chooses_open_date_and_close_date() {
-	vacancyManagerUserStepsImpl.chooseOpenAndCloseDates("2021-06-25", "2021-06-29");
-	
+		vacancyManagerUserStepsImpl.chooseOpenAndCloseDates("2021-06-03", "2021-06-04");
+
 	}
 
 	@Then("User can see the selected Open & Closed date displaying as the same")
 	public void user_can_see_the_selected_Open_Closed_date_displaying_as_the_same() {
-	JavascriptUtils.scrollIntoView(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
-	MiscUtils.sleep(1000);
-	String actualResult = vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection.getText();
-	String expectedResult = "2021-06-25";
-	Assert.assertEquals(actualResult, expectedResult);
-	MiscUtils.sleep(1000);
-	
+		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
+		MiscUtils.sleep(1000);
+		String actualResult = vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection.getText();
+		String expectedResult = "2021-06-25";
+		Assert.assertEquals(actualResult, expectedResult);
+		MiscUtils.sleep(1000);
+
 	}
 
 }
