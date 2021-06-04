@@ -117,8 +117,41 @@ public class VacancyManagerUserStepsImpl extends PageInitializer {
 		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
 		}
 	
+	public void selectCommitteeMemberFromDropDown(String searchOption) {
+		if(searchOption.equals("APPTRACK COMMITTEE MEMBER")) {
+			CommonUtils.click(vacancyManagerUserPage.addMemberButton);
+			CommonUtils.click(vacancyManagerUserPage.committeeMemberDropdown);
+			CommonUtils.click(vacancyManagerUserPage.apptrackCommitteeMember);
+			MiscUtils.sleep(1000);
+		}else if(searchOption.equals("APPTRACK SCORING MEMBER")) {
+			CommonUtils.click(vacancyManagerUserPage.addMemberButton);
+			CommonUtils.click(vacancyManagerUserPage.committeeMemberDropdown);
+			CommonUtils.click(vacancyManagerUserPage.apptrackScoringMember);
+			MiscUtils.sleep(1000);
+		}else if(searchOption.equals("APPTRACK VACANCY MANAGER")) {
+			CommonUtils.click(vacancyManagerUserPage.addMemberButton);
+			CommonUtils.click(vacancyManagerUserPage.committeeMemberDropdown);
+			CommonUtils.click(vacancyManagerUserPage.apptrackVacancyManager);
+			MiscUtils.sleep(1000);
+	}
+	}
+		public void selectRole(String roleOption) {
+			if(roleOption.equals("Chair")) {
+			CommonUtils.click(vacancyManagerUserPage.roleDropdown);	
+			CommonUtils.click(vacancyManagerUserPage.roleChair);
+			MiscUtils.sleep(1000);
+		}else if(roleOption.equals("Executive Secretary")) {
+			CommonUtils.click(vacancyManagerUserPage.roleDropdown);	
+			CommonUtils.click(vacancyManagerUserPage.roleExecutiveSecretary);
+			MiscUtils.sleep(1000);
+		}else if(roleOption.equals("Member (voting)")) {
+			CommonUtils.click(vacancyManagerUserPage.roleDropdown);	
+			CommonUtils.click(vacancyManagerUserPage.roleMemberVoting);
+		}
+	
 		
 	
 	}
+		
 	
-
+}

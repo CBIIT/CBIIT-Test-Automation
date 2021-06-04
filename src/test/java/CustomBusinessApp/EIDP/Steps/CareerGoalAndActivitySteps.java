@@ -15,7 +15,7 @@ public class CareerGoalAndActivitySteps extends PageInitializer{
 	@When("User adds new career training activities")
 	public void editTrainning() {
 		careerGoalAndActiveStepImpl.markAllExistingCareerGoalsAsCompleted();
-		CommonUtil.waitBrowser(3000);
+		CommonUtil.waitBrowser(6000);
 		careerGoalAndActiveStepImpl.addNewCareerGoal();
 		CommonUtil.waitBrowser(3000);
 		careerGoalAndActiveStepImpl.clickOnSaveAndContinueButton();

@@ -35,6 +35,7 @@ public class ProjectRelatedDeliverableSteps extends PageInitializer{
 	@When("User adds new project with deliverables")
 	public void addNewProject() {
 		projectRelatedDeliverableStepImpl.markAllExistingProjectsAsCompleted();
+		CommonUtil.waitBrowser(3000);
 		projectRelatedDeliverableStepImpl.addNewProject();
 		CommonUtil.waitBrowser(3000);
 		projectRelatedDeliverableStepImpl.selectProjectStatus("In Progress");
