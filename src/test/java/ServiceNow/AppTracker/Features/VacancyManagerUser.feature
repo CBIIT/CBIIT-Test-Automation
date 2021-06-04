@@ -20,7 +20,7 @@ Then User should see "Basic Vacancy Information" text as
 
  """
  
-@Satya3Ticket89
+@Satya3Ticket89 @Regression
 Scenario: Verify Letters of Recommendation persistent in Basic Information 
 When User clicks on Create Vacancy button
 And User selects recommendation as 2
@@ -68,8 +68,8 @@ Then User should able to navigate to the "Basic Vacancy Information" without any
 And User clicks on the Open date field to see calendar past dates disabled
 And User clicks on the Close Date field to see calendar past dates disabled
 And User selects date same as today's date as below
-|Open Date |2021-06-01|
-|Close Date|2021-06-01|
+|Open Date |2021-06-04|
+|Close Date|2021-06-04|
 Then User can see the under Close Date field message displays with "Please pick an open date that is before the close date."
 When User selects the Open date as greater than the Close date 
 Then User can see the under Open Date field message displays with "Please pick an open date that is before the close date."
@@ -216,7 +216,11 @@ Then User should see "Basic Vacancy Information" text as
 •	Assesses product market data by calling on customers with field salespeople and evaluating sales call results.
  """
 And User indicates open date and close date
-And User adds committee member as a chair and as an executive secretary
+And User adds committee member 
+|Committee Member           |Role               |
+|APPTRACK COMMITTEE MEMBER  |Chair              |    
+|APPTRACK VACANCY MANAGER   |Executive Secretary|
+|APPTRACK SCORING MEMBER    |Chair              |
 And User clicks on Review and Finalize tab
 And User clicks on the Mandatory Statements section
 And User clicks on Review and Finalize tab

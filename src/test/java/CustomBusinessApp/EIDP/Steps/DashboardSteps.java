@@ -4,6 +4,7 @@ package CustomBusinessApp.EIDP.Steps;
 import org.junit.Assert;
 
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
 
 import CustomBusinessApp.EIDP.Util.SharedData;
 import appsCommon.PageInitializer;
@@ -56,6 +57,7 @@ public class DashboardSteps extends PageInitializer {
 	@When("User will clickOn proceed button")
 	public void clickOnProceedButton() throws Exception{
 		eidpDashboardStepImpl.clickOnProceedButton();
+		MiscUtils.sleep(3000);
 	}
 	
 	@When("User clicks on Send IDP to the Primary Mentor button")

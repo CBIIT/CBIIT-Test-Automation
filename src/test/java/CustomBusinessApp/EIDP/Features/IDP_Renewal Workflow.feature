@@ -1,3 +1,4 @@
+@Regression1
 Feature: Regression testing
 
   @InitiatesIDP_Renewal @Regression @Smoke
@@ -7,8 +8,8 @@ Feature: Regression testing
     And Logged in user changes the user to "Ginsburg,Erika"
     And User will click on search in dashboard
     And User creates IDP request
-      | Search For             | Classification Type | NCI Training Organization |
-      | Non-NCI (Fellows Only) | Fellow              | CCR                       |
+      | Search For             | Classification Type | Current IDP Status |
+      | Non-NCI (Fellows Only) | Fellow              | Completed          |
     And Logged in user changes the user to trainee
     And User will clickOn start idp button
     And User fills mandatory fields in general information
@@ -160,7 +161,7 @@ Feature: Regression testing
     And User clicks on save and send mail button
     Then User will click on ok button
 
-  @IDPOnHold @Regression
+  #@IDPOnHold @Regression
   Scenario: IDP is placed on HOLD
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user

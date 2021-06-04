@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -20,6 +21,7 @@ import CustomBusinessApp.EIDP.Util.CommonUtil;
 import ServiceNow.AppTracker.Utils.AppTrackerCommonUtils;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.When;
+import groovyjarjarantlr4.v4.codegen.model.Action;
 import io.cucumber.datatable.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -219,34 +221,40 @@ public class VacancyManagerUserSteps extends PageInitializer {
 	public void user_selects_date_same_as_today_s_date_as_below(Map<String, String> data) {
 		String openDate = data.get("Open Date");
 		String closeDate = data.get("Close Date");
+		System.out.println(openDate);
 		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
-		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection, openDate);
-		MiscUtils.sleep(3000);
-		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection);
-		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection, closeDate);
-		MiscUtils.sleep(3000);
-		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
-		CommonUtils.click(vacancyManagerUserPage.reviewSection);
-		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.basicVacancyInformationSaveButton);
-		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
-		MiscUtils.sleep(3000);
+		JavascriptUtils.clickByJS(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
+		JavascriptUtils.clickByJS(vacancyManagerUserPage.calendarDatePicker.get(6));
+		JavascriptUtils.clickByJS(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection);
+		JavascriptUtils.clickByJS(vacancyManagerUserPage.calendarDatePicker.get(52));
 
 	}
 
 	@Then("User can see the under Close Date field message displays with {string}")
-	public void user_can_see_the_under_Close_Date_field_message_displays_with(String alertTextMessage) {
-		Assert.assertEquals(CommonUtils.getAlertText(), alertTextMessage);
+	public void user_can_see_the_under_Close_Date_field_message_displays_with(String closeDayAlertTextMessage) {
+		Assert.assertTrue(
+				WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='BasicInfo']/div[3]/div[2]/div[2]/div[2]/div"))
+						.getText().contentEquals(closeDayAlertTextMessage));
+		// WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='BasicInfo']/div[3]/div[2]/div[2]/div[2]/div")).getText().contentEquals(closeDayAlertTextMessage);
 
 	}
 
 	@When("User selects the Open date as greater than the Close date")
 	public void user_selects_the_Open_date_as_greater_than_the_Close_date() {
+		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
+		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection,
+				"2021-06-10");
+		MiscUtils.sleep(3000);
+		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection);
+		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection,
+				"2021-06-06");
+		MiscUtils.sleep(3000);
 
 	}
 
 	@Then("User can see the under Open Date field message displays with {string}")
-	public void user_can_see_the_under_Open_Date_field_message_displays_with(String string) {
-
+	public void user_can_see_the_under_Open_Date_field_message_displays_with(String openDateAlertTextMessage) {
+		Assert.assertEquals(CommonUtils.getAlertText(), openDateAlertTextMessage);
 	}
 
 	/** SectionsFields **/
@@ -445,6 +453,8 @@ public class VacancyManagerUserSteps extends PageInitializer {
 	@When("User indicates open date and close date")
 	public void user_indicates_open_date_and_close_date() {
 		vacancyManagerUserStepsImpl.chooseOpenAndCloseDates("2021-06-17", "2021-06-25");
+		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
+		MiscUtils.sleep(1000);
 
 	}
 
@@ -471,7 +481,7 @@ public class VacancyManagerUserSteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.click(vacancyManagerUserPage.roleDropdown);
 		MiscUtils.sleep(1000);
-		CommonUtils.click(vacancyManagerUserPage.roleMemmberVoting);
+		CommonUtils.click(vacancyManagerUserPage.roleMemberVoting);
 		MiscUtils.sleep(1000);
 		CommonUtils.click(vacancyManagerUserPage.saveButtonAddingMember);
 		MiscUtils.sleep(1000);
@@ -517,14 +527,27 @@ public class VacancyManagerUserSteps extends PageInitializer {
 	}
 
 	// @Satya18Ticket105
-	@Then("User adds committee member as a chair and as an executive secretary")
-	public void user_adds_committee_member_as_a_chair_and_as_an_executive_secretary() {
+
+	@Then("User adds committee member")
+	public void user_adds_committee_member(DataTable dataTable) {
+		CommonUtils.click(vacancyManagerUserPage.vacancyCommitteeSection);
+		MiscUtils.sleep(1000);
+		Map<String, String> addCommitteeMember = CommonUtil.getMapFromDataTable(dataTable);
+		vacancyManagerUserStepsImpl.selectCommitteeMemberFromDropDown(addCommitteeMember.get("Committee Member"));
+		if (!addCommitteeMember.get("Committee Member ").isEmpty()) {
+			vacancyManagerUserStepsImpl.selectCommitteeMemberFromDropDown(addCommitteeMember.get("Committee Member"));
+		}
+		MiscUtils.sleep(3000);
+		vacancyManagerUserStepsImpl.selectRole(addCommitteeMember.get("Role"));
+		MiscUtils.sleep(1000);
+		CommonUtils.click(vacancyManagerUserPage.saveButtonAddingMember);
+		CucumberLogUtils.logScreenShot();
 
 	}
 
 	@Then("User clicks on Review and Finalize tab")
 	public void user_clicks_on_Review_and_Finalize_tab() {
-    CommonUtils.click(vacancyManagerUserPage.reviewSection);
+		CommonUtils.click(vacancyManagerUserPage.reviewSection);
 	}
 
 	@Then("User can see confirmation modal {string} is displayed")
