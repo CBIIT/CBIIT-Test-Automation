@@ -218,11 +218,11 @@ public class VacancyManagerUserSteps extends PageInitializer {
 	}
 
 	@Then("User selects date same as today's date")
-	//openDate = index - 2
-	//close date: index 33 = 1
+	// openDate = index - 2
+	// close date: index 33 = 1
 	public void user_selects_date_same_as_today_s_date() {
-		//open date = 2021-06-07, close date = 2021-06-07
-		vacancyManagerUserStepsImpl.selectOpenCloseDate(9,51);
+		// open date = 2021-06-07, close date = 2021-06-07
+		vacancyManagerUserStepsImpl.selectOpenCloseDate(9, 51);
 
 	}
 
@@ -233,11 +233,12 @@ public class VacancyManagerUserSteps extends PageInitializer {
 
 	}
 
+	// Satya7Ticket94
 	@When("User selects the Open date as greater than the Close date")
 	public void user_selects_the_Open_date_as_greater_than_the_Close_date() {
-		//open date = 2021-06-09
-		//close date = 2021-06-07
-		vacancyManagerUserStepsImpl.selectOpenCloseDate(11,51);
+		// open date = 2021-06-09
+		// close date = 2021-06-07
+		vacancyManagerUserStepsImpl.selectOpenCloseDate(11, 51);
 
 	}
 
@@ -546,31 +547,34 @@ public class VacancyManagerUserSteps extends PageInitializer {
 
 	}
 
-	@When("User chooses OK for  confirmation modal{string}")
-	public void user_chooses_OK_for_confirmation_modal(String string) {
+	//@When("User chooses OK for  confirmation modal{string}")
+	//public void user_chooses_OK_for_confirmation_modal(String string) {
 
-	}
+//	}
 
-	@Then("User can see confirmation modal {string}")
-	public void user_can_see_confirmation_modal(String string) {
+	//@Then("User can see confirmation modal {string}")
+	//public void user_can_see_confirmation_modal(String string) {
 
-	}
+	//}
 
 	// @Satya9Ticket94
-	@When("User chooses open date and close date")
-	public void user_chooses_open_date_and_close_date() {
-		vacancyManagerUserStepsImpl.chooseOpenAndCloseDates("2021-06-03", "2021-06-04");
-
+	@When("User picks open date and close date")
+	public void user_picks_open_date_and_close_date() {
+		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
+		JavascriptUtils.clickByJS(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
+		JavascriptUtils.clickByJS(vacancyManagerUserPage.calendarDatePicker.get(11));
+		JavascriptUtils.clickByJS(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection);
+		JavascriptUtils.clickByJS(vacancyManagerUserPage.calendarDatePicker.get(60));
+		MiscUtils.sleep(2000);
 	}
 
 	@Then("User can see the selected Open & Closed date displaying as the same")
 	public void user_can_see_the_selected_Open_Closed_date_displaying_as_the_same() {
+		// text = 10,17
 		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
-		MiscUtils.sleep(1000);
-		String actualResult = vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection.getText();
-		String expectedResult = "2021-06-25";
-		Assert.assertEquals(actualResult, expectedResult);
-		MiscUtils.sleep(1000);
+		Assert.assertTrue(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection.getAttribute("title").contentEquals("2021-06-10"));
+		Assert.assertTrue(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection.getAttribute("title").contentEquals("2021-06-17"));
+		
 
 	}
 
