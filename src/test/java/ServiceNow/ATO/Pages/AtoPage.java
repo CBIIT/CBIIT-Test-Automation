@@ -38,7 +38,9 @@ public class AtoPage extends BasePage {
 	public static String signATOButton = "//button[text()='Sign ATO']";
 	public static String OKButton = "//button[text()='OK']";
 	public static By onlineTxnDropdown = By.xpath("//*[@id='x_g_nci_atoaas_eauthentication.involves_online_transactions']");
-	
+	public static String renewButtonXpath = "//button[text()='Renew']";
+	public static String datesSection= "//span[text()='Dates']";
+	public static String startDate = "//input[@aria-label='Start date']";
 	
 	@FindBy(css = ".list2_body tr .composite_field_link")
 	public WebElement firstPackageLink;

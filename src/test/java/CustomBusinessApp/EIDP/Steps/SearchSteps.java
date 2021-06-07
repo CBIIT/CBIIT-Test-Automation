@@ -16,26 +16,33 @@ import io.cucumber.datatable.DataTable;
  
 public class SearchSteps extends PageInitializer {
  
-       @When("User creates IDP request")
-       public void createIDPrequest(DataTable dataTable) throws Exception {
-             Map<String, String> requestData = CommonUtil.getMapFromDataTable(dataTable);
-       searchStepimpl.selectSearchForDropdown(requestData.get("Search For"));
-             searchStepimpl.checkTraineeWithoutIDPCheckbox();
-             if (!requestData.get("Classification Type").isEmpty()) {
-             searchStepimpl.selectClassificationType(requestData.get("Classification Type"));
-             }
-             searchStepimpl.clickOnSearchButton();
-             searchStepimpl.selectActiveTrainee();
-              Assert.assertTrue(searchStepimpl.isIDPFormDisplayed());
-             CucumberLogUtils.logScreenShot("owner details page");
-       searchStepimpl.selectNCITrainingOrganization(requestData.get("NCI Training Organization"));
-             searchStepimpl.clickOnSaveAndSendMailButton();
-           Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
-             CucumberLogUtils.logScreenShot("IDP intiation message success");
-             searchStepimpl.clickOnOkButton();
- 
-       }
- 
+	@When("User creates IDP request")
+	public void createIDPrequest(DataTable dataTable) throws Exception {
+		Map<String, String> requestData = CommonUtil.getMapFromDataTable(dataTable);
+		if (requestData.containsKey("SetTrainee")) {
+			searchStepimpl.setTraineesWithoutIDP();
+		}
+		if (requestData.containsKey("Search For")) {
+			searchStepimpl.selectSearchForDropdown(requestData.get("Search For"));
+			searchStepimpl.checkTraineeWithoutIDPCheckbox();
+		}
+		if (!requestData.get("Classification Type").isEmpty()) {
+			searchStepimpl.selectClassificationType(requestData.get("Classification Type"));
+		}
+		searchStepimpl.clickOnSearchButton();
+		searchStepimpl.selectActiveTrainee();
+		Assert.assertTrue(searchStepimpl.isIDPFormDisplayed());
+		CucumberLogUtils.logScreenShot("owner details page");
+		if (requestData.containsKey("NCI Training Organization")) {
+			searchStepimpl.selectNCITrainingOrganization(requestData.get("NCI Training Organization"));
+			searchStepimpl.clickOnSaveAndSendMailButton();
+		}
+		Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
+		CucumberLogUtils.logScreenShot("IDP intiation message success");
+		searchStepimpl.clickOnOkButton();
+
+	}
+	
        @When("User searches for completed idp request")
        public void searchCompletedIDP() {
              searchStepimpl.selectSearchForDropdown("Non-NCI (Fellows Only)");
