@@ -71,16 +71,13 @@ And User selects date same as today's date
 Then User can see the under Close Date field message displays with "Please pick a close date that is after the open date."
 When User selects the Open date as greater than the Close date 
 Then User can see the under Open Date field message displays with "Please pick an open date that is before the close date."
-
-
-
-@Satya9Ticket94
-Scenario: Verify the date field persistent in create vacancy form
-When User clicks on Create Vacancy button
-And User chooses open date and close date
+And User clicks on the Mandatory Statements section
+When User comes back to Basic information tab
+And User picks open date and close date
 And User clicks on the Mandatory Statements section
 When User comes back to Basic information tab
 Then User can see the selected Open & Closed date displaying as the same
+
 
 
 @Satya10Ticket101 
@@ -189,7 +186,7 @@ Then User can verify the data removed from grid
 Scenario: Verify the Review & Finalize screen with negative input
 When User clicks on Create Vacancy button
 And User enters the vacancy title
-And User indicates open date and close date
+#And User indicates open date and close date
 And User toggles off Equal Opportunity Employer button, Standards of Conduct/Financial Disclosure button, Foreign Education button, Reasonable Accommodation button
 And User adds committee member as a chair
 And User toggles off all the email template button
@@ -213,7 +210,7 @@ Then User should see "Basic Vacancy Information" text as
 •	Obtains product market share by working with sales director to develop product sales strategies.
 •	Assesses product market data by calling on customers with field salespeople and evaluating sales call results.
  """
-And User indicates open date and close date
+#And User indicates open date and close date
 And User adds committee member 
 |Committee Member           |Role               |
 |APPTRACK COMMITTEE MEMBER  |Chair              |    
