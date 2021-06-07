@@ -60,17 +60,15 @@ And User can see the "All", "Draft", "Finalized" sub filters on pre-flight vacan
 When User clicks on closed vacancies tab
 Then User can see the "All", "Closed", "Triaged", "Individually Scored", "Scored", "Archived" sub filters on closed vacancies
 
-#unfinished
+
 @Satya7Ticket94
 Scenario: Verify set vacancy date functionality
 When User clicks on Create Vacancy button
 Then User should able to navigate to the "Basic Vacancy Information" without any error
 And User clicks on the Open date field to see calendar past dates disabled
 And User clicks on the Close Date field to see calendar past dates disabled
-And User selects date same as today's date as below
-|Open Date |2021-06-04|
-|Close Date|2021-06-04|
-Then User can see the under Close Date field message displays with "Please pick an open date that is before the close date."
+And User selects date same as today's date 
+Then User can see the under Close Date field message displays with "Please pick a close date that is after the open date."
 When User selects the Open date as greater than the Close date 
 Then User can see the under Open Date field message displays with "Please pick an open date that is before the close date."
 

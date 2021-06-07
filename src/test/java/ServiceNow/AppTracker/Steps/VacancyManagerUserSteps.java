@@ -217,44 +217,34 @@ public class VacancyManagerUserSteps extends PageInitializer {
 
 	}
 
-	@Then("User selects date same as today's date as below")
-	public void user_selects_date_same_as_today_s_date_as_below(Map<String, String> data) {
-		String openDate = data.get("Open Date");
-		String closeDate = data.get("Close Date");
-		System.out.println(openDate);
-		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
-		JavascriptUtils.clickByJS(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
-		JavascriptUtils.clickByJS(vacancyManagerUserPage.calendarDatePicker.get(6));
-		JavascriptUtils.clickByJS(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection);
-		JavascriptUtils.clickByJS(vacancyManagerUserPage.calendarDatePicker.get(52));
+	@Then("User selects date same as today's date")
+	//openDate = index - 2
+	//close date: index 33 = 1
+	public void user_selects_date_same_as_today_s_date() {
+		//open date = 2021-06-07, close date = 2021-06-07
+		vacancyManagerUserStepsImpl.selectOpenCloseDate(9,51);
 
 	}
 
 	@Then("User can see the under Close Date field message displays with {string}")
 	public void user_can_see_the_under_Close_Date_field_message_displays_with(String closeDayAlertTextMessage) {
-		Assert.assertTrue(
-				WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='BasicInfo']/div[3]/div[2]/div[2]/div[2]/div"))
-						.getText().contentEquals(closeDayAlertTextMessage));
-		// WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='BasicInfo']/div[3]/div[2]/div[2]/div[2]/div")).getText().contentEquals(closeDayAlertTextMessage);
+		String expectedResult = vacancyManagerUserPage.closeDateErrorMessage.getText();
+		Assert.assertEquals(expectedResult, vacancyManagerUserPage.closeDateErrorMessage.getText());
 
 	}
 
 	@When("User selects the Open date as greater than the Close date")
 	public void user_selects_the_Open_date_as_greater_than_the_Close_date() {
-		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
-		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection,
-				"2021-06-10");
-		MiscUtils.sleep(3000);
-		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection);
-		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection,
-				"2021-06-06");
-		MiscUtils.sleep(3000);
+		//open date = 2021-06-09
+		//close date = 2021-06-07
+		vacancyManagerUserStepsImpl.selectOpenCloseDate(11,51);
 
 	}
 
 	@Then("User can see the under Open Date field message displays with {string}")
 	public void user_can_see_the_under_Open_Date_field_message_displays_with(String openDateAlertTextMessage) {
-		Assert.assertEquals(CommonUtils.getAlertText(), openDateAlertTextMessage);
+		String expectedResult = vacancyManagerUserPage.openDateErrorMessage.getText();
+		Assert.assertEquals(expectedResult, vacancyManagerUserPage.openDateErrorMessage.getText());
 	}
 
 	/** SectionsFields **/
