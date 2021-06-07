@@ -152,6 +152,14 @@ public class VacancyManagerUserStepsImpl extends PageInitializer {
 		
 	
 	}
+		public void selectOpenCloseDate(int openDate, int closeDate) {
+			JavascriptUtils.scrollIntoView(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
+			JavascriptUtils.clickByJS(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
+			JavascriptUtils.clickByJS(vacancyManagerUserPage.calendarDatePicker.get(openDate));
+			JavascriptUtils.clickByJS(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection);
+			JavascriptUtils.clickByJS(vacancyManagerUserPage.calendarDatePicker.get(closeDate));
+			MiscUtils.sleep(2000);
+		}
 		
 	
 }

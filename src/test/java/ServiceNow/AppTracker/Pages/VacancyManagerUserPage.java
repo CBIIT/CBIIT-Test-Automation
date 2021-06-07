@@ -315,13 +315,13 @@ public class VacancyManagerUserPage extends CommonUtils {
 	public WebElement applicationSavedTextField;
 	
 	/** Open Date alert**/
-	@FindBy(xpath= "(//div[@class='ant-form-item-explain ant-form-item-explain-error'])[1]")
-	public WebElement openDateAlert;
+	@FindBy(xpath= "//div[@class='ant-form-item-explain ant-form-item-explain-error']")
+	public WebElement openDateErrorMessage;
 	
 
 	/** Close Date alert**/
 	@FindBy(xpath= "//div[@class='ant-form-item-explain ant-form-item-explain-error']")
-	public WebElement closeDateAlert;
+	public WebElement closeDateErrorMessage;
 	
 	/**Add Member Button in Vacancy Committee section**/
 	@FindBy(xpath = "//button[@class='ant-btn ant-btn-secondary AddButton']")
@@ -376,6 +376,7 @@ public class VacancyManagerUserPage extends CommonUtils {
 	/**Calendar DatePicker**/
 	@FindBy(xpath ="//div[@class='ant-picker-cell-inner']")
 	public List<WebElement> calendarDatePicker;
+	
 	
 	
 	
