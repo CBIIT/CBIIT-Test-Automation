@@ -133,6 +133,11 @@ public class DashboardSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 	}
 	
+	@Then("Complete Process")
+	public void lastStep(){
+		eidpDashboardStepImpl.finishSteps();
+	}
+	
 	@When("User clicks on proceed button of the trainee specific IDP request")
 	public void clickProceedbuttonOfTrainee() throws Exception{
 		eidpDashboardStepImpl.clickProceedButtonOfTrainee();

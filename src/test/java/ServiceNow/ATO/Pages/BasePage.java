@@ -49,6 +49,10 @@ public class BasePage {
 		element.click();
 	}
 	
+	public void setText(By locator,String text) {
+		driver.findElement(locator).sendKeys(text);
+	}
+	
 	protected void clickOnElementInIFrame(WebElement element) {
 		switchToFrame();
 		wait.until(ExpectedConditions.visibilityOf(element));
@@ -92,6 +96,7 @@ public class BasePage {
 		}
 		switchToDefaultFrame();
 	}
+	
 
 	protected void selectTodayDate(WebElement inputEle) throws InterruptedException {
 		clickOnElement(inputEle);

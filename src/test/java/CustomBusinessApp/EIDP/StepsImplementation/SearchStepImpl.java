@@ -329,6 +329,10 @@ public class SearchStepImpl extends PageInitializer {
 		CommonUtils.click(searchPage.searchButton);
 	}
 
+	public void setTraineesWithoutIDP(){
+		CommonUtils.click(searchPage.traineeWithoutIDPCHeckBox);
+	}
+	
 	// Method for IDPCheckbox
 	public void checkTraineeWithIDPCheckbox() {
 		CommonUtils.click(searchPage.traineesWithIDPCheckbox);

@@ -58,8 +58,8 @@ public class LoginSteps {
 			loginStepsImpl.clckOnLoginButton();
 			loginStepsImpl.enterUsername(ConfUtils.getProperty("sgugulothuUsername"));
 			String decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
-			loginStepsImpl.enterUsername(ConfUtils.getProperty("Username"));
-			 decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("Password"));
+			//loginStepsImpl.enterUsername(ConfUtils.getProperty("Username"));
+			 //decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("Password"));
 			loginStepsImpl.enterPassword(decyptedPass);
 			//loginPage.enterUsername(ConfigFileReader.getConfigFileReader().getUserName());
 			//loginPage.enterPassword(ConfigFileReader.getConfigFileReader().getPassword());
