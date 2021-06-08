@@ -51,14 +51,13 @@ public class SearchStepImpl extends PageInitializer {
 
 				By.xpath("//*[@id='select2-trainee-classifications-results']//li[text()=\"" + type + "\"]"));
 
-				By.xpath("//*[@id='select2-trainee-classifications-results']//title[text()=\"" + type + "\"]");
+		By.xpath("//*[@id='select2-trainee-classifications-results']//title[text()=\"" + type + "\"]");
 
 		CommonUtils.click(option);
 		CommonUtils.click(searchPage.trainneLastName);
 		CommonUtils.click(searchPage.searchButton);
 
 	}
-
 
 	public void selectActiveCompletedIDP() throws Exception {
 		CommonUtil.waitBrowser(4000);
@@ -190,6 +189,10 @@ public class SearchStepImpl extends PageInitializer {
 		return WebDriverUtils.getWebDriver().findElement(By.cssSelector("#cancelModalUserInfo")).getText();
 	}
 
+	public String getTrainneNameFromReviseIDPConfirmationPopUp() {
+		return WebDriverUtils.getWebDriver().findElement(By.xpath("//div[@class='bootbox-body']/b[1]")).getText();
+	}
+
 	public String getTraineeeNameFromUndoCancelIdpConformationWindow() {
 		return WebDriverUtils.getWebDriver().findElement(By.cssSelector("#undoCancelModalUserInfo")).getText();
 	}
@@ -293,6 +296,34 @@ public class SearchStepImpl extends PageInitializer {
 		eidpBasePage.selectOption(searchPage.nciTrainingOrganizationDropdown, optionText);
 	}
 
+	public void resonForReviseIDP(String idpReason) {
+		if (idpReason.contains("Primary")) {
+			WebDriverUtils.getWebDriver()
+					.findElement(By.xpath("//span[@id=\"forStartedLegend\"]/following-sibling::div/label[1]")).click();
+			return;
+		}
+		if (idpReason.contains("Lab")) {
+			WebDriverUtils.getWebDriver()
+					.findElement(By.xpath("//span[@id=\"forStartedLegend\"]/following-sibling::div/label[2]")).click();
+			return;
+		}
+		if (idpReason.contains("follow")) {
+			WebDriverUtils.getWebDriver()
+					.findElement(By.xpath("//span[@id=\"forStartedLegend\"]/following-sibling::div/label[3]")).click();
+			return;
+		}
+		if (idpReason.contains("Other")) {
+			WebDriverUtils.getWebDriver()
+					.findElement(By.xpath("//span[@id=\"forStartedLegend\"]/following-sibling::div/label[4]")).click();
+			WebDriverUtils.getWebDriver().findElement(By.id("another-idp-reason-other")).sendKeys("Automation");
+			return;
+		}
+	}
+
+	public void selectCurrentIDPStatus(String optionText) {
+		eidpBasePage.selectOption(searchPage.nciCurrentIDPStatus, optionText);
+	}
+
 	public String getTraineeName() {
 		return searchPage.traineeName.getText();
 	}
@@ -329,10 +360,10 @@ public class SearchStepImpl extends PageInitializer {
 		CommonUtils.click(searchPage.searchButton);
 	}
 
-	public void setTraineesWithoutIDP(){
+	public void setTraineesWithoutIDP() {
 		CommonUtils.click(searchPage.traineeWithoutIDPCHeckBox);
 	}
-	
+
 	// Method for IDPCheckbox
 	public void checkTraineeWithIDPCheckbox() {
 		CommonUtils.click(searchPage.traineesWithIDPCheckbox);

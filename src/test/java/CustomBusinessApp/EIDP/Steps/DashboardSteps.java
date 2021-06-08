@@ -53,6 +53,11 @@ public class DashboardSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 	}
 	
+	@Then("user will click on revise idp button")
+	public void reviseIDPButton() throws Exception {
+		eidpDashboardStepImpl.clickOnReviseIDP();
+	}
+	
 	@When("User will clickOn proceed button")
 	public void clickOnProceedButton() throws Exception{
 		eidpDashboardStepImpl.clickOnProceedButton();

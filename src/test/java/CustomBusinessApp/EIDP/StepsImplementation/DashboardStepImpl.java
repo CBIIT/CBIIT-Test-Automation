@@ -33,6 +33,17 @@ public class DashboardStepImpl extends PageInitializer {
 		CommonUtils.waitForVisibility(eidpDashboardPage.startIDPButton);
 		CommonUtils.click(eidpDashboardPage.startIDPButton);
 	}
+	
+	public void clickOnReviseIDP() throws Exception {
+		List<WebElement> allElements = WebDriverUtils.getWebDriver().findElements(By.xpath("//img[@data-original-title=\"Revise existing IDP\"]"));
+		for(WebElement e:allElements) {
+			if(e.isEnabled()) {
+				e.click();
+				return;
+			}
+		}
+		throw new Exception("No button available to click for revise IDP");
+	}
 
 	public void clickOnProceedButton() {
 		CommonUtils.waitForVisibility(eidpDashboardPage.proceedButton);
