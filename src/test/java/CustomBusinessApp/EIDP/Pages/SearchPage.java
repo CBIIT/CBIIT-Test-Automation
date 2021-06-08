@@ -53,6 +53,9 @@ public class SearchPage extends CommonUtils{
 	@FindBy(how = How.ID, id = "initiate-group")
 	public WebElement nciTrainingOrganizationDropdown;
 	
+	@FindBy(how = How.ID, id = "idpStatus")
+	public WebElement nciCurrentIDPStatus;
+	
 	@FindBy(how= How.ID, id= "initiate-trainee")
 	public WebElement traineeName;
 	

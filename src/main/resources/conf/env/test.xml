@@ -253,7 +253,7 @@
 
 	<!-- Application ID for EIDP -->
 	<application id="EidpTestUrl">
-		<login_url>https://idp-test.cancer.gov/nidcr/idp/</login_url><!-- add test 
+		<login_url>https://idp-test.cancer.gov/nhgri/idp/</login_url><!-- add test 
 			url -->
 
 		<role name="Role">
