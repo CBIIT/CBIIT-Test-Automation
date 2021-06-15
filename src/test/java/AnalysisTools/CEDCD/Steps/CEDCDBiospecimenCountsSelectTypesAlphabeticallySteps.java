@@ -35,7 +35,6 @@ public class CEDCDBiospecimenCountsSelectTypesAlphabeticallySteps extends PageIn
 		 * them, and logs a screenshot
 		 */
 
-		CommonUtils.waitForVisibility(cedcdBiospecimenCountsPage.specimenTypeDropDownValues.get(1));
 		cedcdAlphabetizedSelectTypesStepImp.alphabetizedComparison();
 
 	}
