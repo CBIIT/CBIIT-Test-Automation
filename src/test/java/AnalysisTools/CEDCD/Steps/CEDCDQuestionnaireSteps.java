@@ -15,16 +15,13 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class CEDCDQuestionnaireSteps extends PageInitializer {
-	//Keep below
 	@Given("the user is on the CEDCD homepage")
 	public void the_user_is_on_the_CEDCD_homepage() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.logScreenShot();
 	}
-	//keep above
-	
-	//keep below
+
 	@Given("a Admin user adds a Cohort Study linked to Cohort Owner")
 	public void a_Admin_user_adds_a_Cohort_Study_linked_to_Cohort_Owner() throws TestingException {
 		MiscUtils.sleep(3000);
@@ -45,18 +42,14 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cedcdAdminPage.logoutButton);
 	}
-	//keep above
 	
-	//keep below
 	@When("a Cohort Owner logs in")
 	public void a_Cohort_Owner_logs_in() throws TestingException {
 		MiscUtils.sleep(3000);
 		JavascriptUtils.clickByJS(cedcdAdminPage.nihLoginBtn);
 		loginImpl.loginToITrust();
 	}
-	//keep above
 
-	//keep below
 	@When("selects linked Cohort")
 	public void selects_linked_Cohort() {
 		//ADD TO PAGES CLASS - CLICKING ON DROP DOWN
@@ -67,10 +60,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		WebDriverUtils.webDriver.findElement(By.id("react-select-2-input")).sendKeys("Automated_TestCohort_Name "+ CommonUtils.date);
 		WebDriverUtils.webDriver.findElement(By.id("react-select-2-input")).sendKeys(Keys.RETURN);
 	}
-	//keep above
-	
 
-	//keep below
 	@When("fills out all sections of the questionnaire")
 	public void fills_out_all_sections_of_the_questionnaire() {
 	
@@ -559,10 +549,6 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		MiscUtils.sleep(3000);
 		}
 	
-	//keep above
-	
-
-	//keep below
 	@When("submits the Cohort Study for Review")
 	public void submits_the_Cohort_Study_for_Review() {
 		cedcdCohortPage.submitForReviewButton.click();
@@ -573,15 +559,10 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 	}
-	//keep above
 
-	//keep below
 	@Then("the Cohort Study Questionnaire is successfully submitted")
 	public void the_Cohort_Study_Questionnaire_is_successfully_submitted() {
-		
 	}
-	//keep above
-	
 	
 }
 
