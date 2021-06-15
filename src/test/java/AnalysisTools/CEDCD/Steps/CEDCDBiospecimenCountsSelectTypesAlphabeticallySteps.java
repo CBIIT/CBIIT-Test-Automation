@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 
 import appsCommon.PageInitializer;
@@ -34,6 +35,7 @@ public class CEDCDBiospecimenCountsSelectTypesAlphabeticallySteps extends PageIn
 		 * them, and logs a screenshot
 		 */
 
+		CommonUtils.waitForVisibility(cedcdBiospecimenCountsPage.specimenTypeDropDownValues.get(1));
 		cedcdAlphabetizedSelectTypesStepImp.alphabetizedComparison();
 
 	}
