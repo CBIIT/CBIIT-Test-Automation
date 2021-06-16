@@ -21,6 +21,9 @@ public class CoPrimaryMentorPage extends CommonUtils{
 	@FindBy(css = "[class='checkbox btn btn-primary']")
 	public WebElement markAsReviewedCheckbox;
 	
+	@FindBy(css = "[class='checkbox btn btn-primary validate-error']")
+	public WebElement markAsReviewedCheckboxNhgri;
+	
 	@FindBy(css = "[href*='/idp/review-general']")
 	private WebElement generalInformationTab;
 	
@@ -67,6 +70,12 @@ public class CoPrimaryMentorPage extends CommonUtils{
 		CommonUtils.click(markAsReviewedCheckbox);
 		CommonUtils.click(saveAndContinueButton);
 		
+		CommonUtils.click(markAsReviewedCheckbox);
+		CucumberLogUtils.logScreenShot("Mark review");
+		CommonUtils.click(saveButton);
+		
+	}
+	public void markNHGRIasReviewed() {
 		CommonUtils.click(markAsReviewedCheckbox);
 		CucumberLogUtils.logScreenShot("Mark review");
 		CommonUtils.click(saveButton);

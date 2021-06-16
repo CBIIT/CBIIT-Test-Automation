@@ -3,7 +3,7 @@ Feature: Vacancy Manager Workflow
 Background: common steps
 Given User is on AppTracker home page and user is "AppTracker Vacancy Manager"
 
-@Regression
+@Regression @Ticket88
 Scenario: verify vacancy description without copy/paste
 And User should see Vacancy Dashboard Page
 When User clicks on Create Vacancy button
@@ -136,7 +136,7 @@ And User clicks on Vacancy Committee tab
 When User clicks on the Email template tab
 Then User can see the updated changes displaying as same
 
-@Satya16Ticket104
+@Satya16Ticket119
 Scenario: Verify Vacancy Committee form
 Given User logged in to the application with vacancy manager user role
 When User clicks on Create Vacancy button
@@ -146,7 +146,7 @@ And User clicks on the add member button
 When User can see Member & Role dropdown list
 Then User can see Save & Cancel button in Action column
 
-@Satya16Ticket104
+@Satya16Ticket119
 Scenario: Verify add member functionality
 Given User logged in to the application with vacancy manager user role
 When User clicks on Create Vacancy button
@@ -166,7 +166,7 @@ Then User can see the member is not added to the grid
 When User click on Save button
 Then User can see the member is added to the grid
 
-@Satya16Ticket104
+@Satya16Ticket119
 Scenario: Verify edit member functionality
 Given User logged in to the application with vacancy manager user role
 When User clicks on Create Vacancy button
@@ -186,7 +186,7 @@ Then User can verify the data removed from grid
 Scenario: Verify the Review & Finalize screen with negative input
 When User clicks on Create Vacancy button
 And User enters the vacancy title
-#And User indicates open date and close date
+And User indicates open date and close date
 And User toggles off Equal Opportunity Employer button, Standards of Conduct/Financial Disclosure button, Foreign Education button, Reasonable Accommodation button
 And User adds committee member as a chair
 And User toggles off all the email template button
@@ -210,12 +210,10 @@ Then User should see "Basic Vacancy Information" text as
 •	Obtains product market share by working with sales director to develop product sales strategies.
 •	Assesses product market data by calling on customers with field salespeople and evaluating sales call results.
  """
-#And User indicates open date and close date
-And User adds committee member 
-|Committee Member           |Role               |
-|APPTRACK COMMITTEE MEMBER  |Chair              |    
-|APPTRACK VACANCY MANAGER   |Executive Secretary|
-|APPTRACK SCORING MEMBER    |Chair              |
+And User picks open date as "2021-06-10" and close date as "2021-06-22"
+And User clicks on Vacancy Committee tab
+And User adds committee member as "APPTRACK COMMITTEE MEMBER" and role "Chair"
+And User adds committee member as "APPTRACK SCORING MEMBER" and role "Executive Secretary"
 And User clicks on Review and Finalize tab
 And User clicks on the Mandatory Statements section
 And User clicks on Review and Finalize tab

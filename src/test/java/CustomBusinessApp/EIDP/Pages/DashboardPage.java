@@ -24,6 +24,7 @@ public class DashboardPage extends CommonUtils{
 	@FindBy(how = How.CSS, css="a[href*='/idp/general'][class='btn btn-primary']")
 	public WebElement startIDPButton;
 	
+	
 	@FindBy(xpath = "//a[text()='Proceed']")
 	public WebElement proceedButton;
 	

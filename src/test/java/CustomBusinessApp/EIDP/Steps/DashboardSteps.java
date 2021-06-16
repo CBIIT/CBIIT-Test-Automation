@@ -131,7 +131,7 @@ public class DashboardSteps extends PageInitializer {
 	
 	@When("User clicks on the trainee specific IDP request")
 	public void selectIncompleteIDPrequestOfTrainnee() throws Exception{
-		eidpDashboardStepImpl.selectIDPRequestOfTrainee();
+		eidpDashboardStepImpl.clickProceedButtonOfTrainee();
 		CucumberLogUtils.logScreenShot();
 	}
 	

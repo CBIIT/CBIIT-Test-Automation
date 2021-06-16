@@ -79,11 +79,15 @@ public class VacancyManagerUserStepsImpl extends PageInitializer {
 
 	public void selectOpenDate(String date) {
 		vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection.sendKeys(date);
+		MiscUtils.sleep(2000);
+		
 
 	}
 
 	public void selectCloseDate(String date) {
 		vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection.sendKeys(date);
+		MiscUtils.sleep(2000);
+		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
 	}
 
 	public void selectToggleButtonOnMandatoryStatementPage(String nameButton) {
@@ -105,17 +109,6 @@ public class VacancyManagerUserStepsImpl extends PageInitializer {
 			CucumberLogUtils.logScreenShot();
 		}
 	}
-	public void chooseOpenAndCloseDates(String openDate, String closeDate) {
-		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
-		MiscUtils.sleep(2000);
-		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection,
-				openDate);
-		MiscUtils.sleep(1000);
-		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection,
-				closeDate);
-		MiscUtils.sleep(3000);
-		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
-		}
 	
 	public void selectCommitteeMemberFromDropDown(String searchOption) {
 		if(searchOption.equals("APPTRACK COMMITTEE MEMBER")) {
@@ -140,13 +133,16 @@ public class VacancyManagerUserStepsImpl extends PageInitializer {
 			CommonUtils.click(vacancyManagerUserPage.roleDropdown);	
 			CommonUtils.click(vacancyManagerUserPage.roleChair);
 			MiscUtils.sleep(1000);
+			CommonUtils.click(vacancyManagerUserPage.saveButtonAddingMember);
 		}else if(roleOption.equals("Executive Secretary")) {
 			CommonUtils.click(vacancyManagerUserPage.roleDropdown);	
 			CommonUtils.click(vacancyManagerUserPage.roleExecutiveSecretary);
 			MiscUtils.sleep(1000);
+			CommonUtils.click(vacancyManagerUserPage.saveButtonAddingMember);
 		}else if(roleOption.equals("Member (voting)")) {
 			CommonUtils.click(vacancyManagerUserPage.roleDropdown);	
 			CommonUtils.click(vacancyManagerUserPage.roleMemberVoting);
+			CommonUtils.click(vacancyManagerUserPage.saveButtonAddingMember);
 		}
 	
 		
@@ -155,11 +151,15 @@ public class VacancyManagerUserStepsImpl extends PageInitializer {
 		public void selectOpenCloseDate(int openDate, int closeDate) {
 			JavascriptUtils.scrollIntoView(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
 			JavascriptUtils.clickByJS(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
+			MiscUtils.sleep(2000);
 			JavascriptUtils.clickByJS(vacancyManagerUserPage.calendarDatePicker.get(openDate));
+			MiscUtils.sleep(2000);
 			JavascriptUtils.clickByJS(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection);
+			MiscUtils.sleep(2000);
 			JavascriptUtils.clickByJS(vacancyManagerUserPage.calendarDatePicker.get(closeDate));
 			MiscUtils.sleep(2000);
+			
+			    }
 		}
 		
 	
-}
