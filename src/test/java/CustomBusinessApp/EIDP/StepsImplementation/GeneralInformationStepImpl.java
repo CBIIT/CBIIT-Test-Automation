@@ -1,6 +1,9 @@
 package CustomBusinessApp.EIDP.StepsImplementation;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -59,8 +62,8 @@ public class GeneralInformationStepImpl extends PageInitializer {
 	
 	public void selectRandomHighestDegree() {
 		MiscUtils.sleep(3000);
-		CommonUtils.waitForVisibility(generalInformationPage.highestDegreeDropdown);
-		eidpBasePage.selectOptionByIndex(generalInformationPage.highestDegreeDropdown);
+		CommonUtils.waitForVisibility(generalInformationPage.highestDegreeDropdownnhgri);
+		eidpBasePage.selectOptionByIndex(generalInformationPage.highestDegreeDropdownnhgri);
 	}
 	
 	public void selectRandomCurrentTitle() {
@@ -112,5 +115,19 @@ public class GeneralInformationStepImpl extends PageInitializer {
 	public void clickOnDeclineIDPButton() {
 		CommonUtils.click(generalInformationPage.declineIDPButton);
 	}
+	
+	
+	public void chooseTraineeProceedButton(String traineeName) {
+		List<WebElement>rows = WebDriverUtils.getWebDriver().findElements(By.cssSelector("td.sorting_1"));
+		for(WebElement row: rows) {
+		if(row.getText().equals(traineeName)) {
+		break;
+		}
+		CommonUtils.click(generalInformationPage.ProceedButton);
+		}
+	}	
+		
+		
+	}
 
-}
+

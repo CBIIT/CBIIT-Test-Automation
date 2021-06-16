@@ -239,7 +239,7 @@ public class SearchStepImpl extends PageInitializer {
 						.findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
 			}
 		}
-
+		
 	}
 
 	public void selectReviewExistingIDP() throws Exception {
@@ -288,9 +288,13 @@ public class SearchStepImpl extends PageInitializer {
 		CommonUtils.click(searchPage.okButton);
 	}
 
-	public void selectNCITrainingOrganization(String optionText) {
-		eidpBasePage.selectOption(searchPage.nciTrainingOrganizationDropdown, optionText);
-	}
+
+		public void selectNCITrainingOrganization(String optionText) {
+			eidpBasePage.selectOption(searchPage.nciTrainingOrganizationDropdown, optionText);
+		}
+		
+	
+	
 
 	public String getTraineeName() {
 		return searchPage.traineeName.getText();

@@ -89,7 +89,8 @@ public class DashboardStepImpl extends PageInitializer {
 			traineeName = SharedData.traineeName.split(" ")[1] + ", " +SharedData.traineeName.split(" ")[0];
 		}
 		Thread.sleep(5000);
-		WebElement button = WebDriverUtils.getWebDriver().findElement(By.xpath("//a[text()='" + traineeName + "']//ancestor::tr//a[@title='Proceed']"));
+		//WebElement button = WebDriverUtils.getWebDriver().findElement(By.xpath("//a[text()='" + traineeName + "']//ancestor::tr//a[@title='Proceed']"));
+		WebElement button = WebDriverUtils.getWebDriver().findElement(By.xpath("(//a[@data-original-title='Proceed'])[1]"));
 		button.click();
 	}
 	

@@ -25,7 +25,7 @@ public class IDPAwaitingResponseSteps extends PageInitializer{
 		searchStepimpl.selectActiveTrainee();
 		Assert.assertTrue(searchStepimpl.isIDPFormDisplayed());
 		CucumberLogUtils.logScreenShot("owner details page");
-		searchStepimpl.selectNCITrainingOrganization(requestData.get("NCI Training Organization"));
+		searchStepimpl.selectNCITrainingOrganization(requestData.get(" NHGRI Training Organization"));
 		searchStepimpl.clickOnSaveAndSendMailButton();
 		Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
 		CucumberLogUtils.logScreenShot("IDP intiation message success");
