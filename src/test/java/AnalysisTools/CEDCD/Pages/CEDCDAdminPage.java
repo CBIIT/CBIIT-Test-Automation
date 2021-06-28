@@ -23,9 +23,18 @@ public class CEDCDAdminPage {
 	@FindBy(linkText = "External Login")
 	public WebElement extLoginBtn;
 	
+<<<<<<< Updated upstream
 	/** Logout Button */
 	@FindBy(xpath = "//a[@class='login-button']")
 	public WebElement logoutButton;
+=======
+<<<<<<< HEAD
+=======
+	/** Logout Button */
+	@FindBy(xpath = "//a[@class='login-button']")
+	public WebElement logoutButton;
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 	
 	/**================================================= Internal Login Page WebElements =======================================================*/
 	
@@ -72,8 +81,23 @@ public class CEDCDAdminPage {
 	public WebElement notesTxtBox; 
 	
 	/** Submit Button */
+<<<<<<< Updated upstream
+	@FindBy(xpath = "(//button[@type='submit'])[2]")
+=======
+<<<<<<< HEAD
+	@FindBy(linkText = "Submit")
+>>>>>>> Stashed changes
+	public WebElement cohortSubmitBtn; 
+
+}
+<<<<<<< Updated upstream
+
+=======
+=======
 	@FindBy(xpath = "(//button[@type='submit'])[2]")
 	public WebElement cohortSubmitBtn; 
 
 }
 
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes

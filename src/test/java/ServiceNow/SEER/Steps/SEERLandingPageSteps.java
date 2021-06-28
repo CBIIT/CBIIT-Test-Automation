@@ -17,6 +17,13 @@ public class SEERLandingPageSteps extends PageInitializer {
 
 	@Given("a user is on the SEER Data Access landing page")
 	public void a_user_is_on_the_SEER_Data_Access_landing_page() throws TestingException {
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+		WebDriverUtils.getWebDriver();
+=======
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SEERDataAccess"));
 		CucumberLogUtils.logScreenShot();
 	}
@@ -30,7 +37,15 @@ public class SEERLandingPageSteps extends PageInitializer {
 	@Then("under {string} the text displayed is")
 	public void under_the_text_displayed_is(String institutionalAccounts, String doYouHaveAnAccount) {
 		Assert.assertEquals(institutionalAccounts, seerLandingPage.institutionalAccountsHeaderText.getText());
+<<<<<<< Updated upstream
 		Assert.assertEquals(doYouHaveAnAccount, seerLandingPage.doYouHaveAnAccountParagraph.getText());
+=======
+<<<<<<< HEAD
+		Assert.assertEquals(doYouHaveAnAccount, seerLandingPage.doYouHaveAnAccountParagraph.getText());   
+=======
+		Assert.assertEquals(doYouHaveAnAccount, seerLandingPage.doYouHaveAnAccountParagraph.getText());
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 	}
 
 	@Then("the text displayed is {string}")
@@ -38,7 +53,15 @@ public class SEERLandingPageSteps extends PageInitializer {
 		Assert.assertEquals(ifYouAreUnable, seerLandingPage.ifYouAreUnableToAuthenticateText.getText());
 		CucumberLogUtils.logScreenShot();
 	}
+<<<<<<< Updated upstream
 
+=======
+<<<<<<< HEAD
+	
+=======
+
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 	@Then("under {string}, text displayed is")
 	public void under_text_displayed_is(String nonInstitutionalAccounts, String forAllOtherAccountsText) {
 		Assert.assertEquals(nonInstitutionalAccounts, seerLandingPage.nonInstitutionalAccountsHeaderText.getText());
@@ -56,4 +79,11 @@ public class SEERLandingPageSteps extends PageInitializer {
 	}
 
 }
+<<<<<<< Updated upstream
 
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes

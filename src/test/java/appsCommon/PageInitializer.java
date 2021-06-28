@@ -1,6 +1,13 @@
 package appsCommon;
 
+<<<<<<< Updated upstream
 import com.sun.xml.bind.v2.model.core.ID;
+=======
+<<<<<<< HEAD
+=======
+import com.sun.xml.bind.v2.model.core.ID;
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 
 import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
 import AnalysisTools.CEDCD.Pages.CEDCDBiospecimenCountsPage;
@@ -18,6 +25,11 @@ import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
 import AnalysisTools.PLCO.Pages.BrowsePhenotypePage;
 import AnalysisTools.PLCO.Pages.ExploreGWASPage;
 import AnalysisTools.PLCO.Pages.InformationPage;
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 import CustomBusinessApp.EIDP.Pages.AligningExpectationsPage;
 import CustomBusinessApp.EIDP.Pages.BasePage;
 import CustomBusinessApp.EIDP.Pages.CareerGoalAndActivePage;
@@ -43,6 +55,10 @@ import ServiceNow.AppTracker.Pages.AppTrackerLoginPage;
 import ServiceNow.AppTracker.Pages.VacancyManagerUserPage;
 import ServiceNow.AppTracker.StepsImplementation.AppTrackerLogInStepsImpl;
 import ServiceNow.AppTracker.StepsImplementation.VacancyManagerUserStepsImpl;
+<<<<<<< Updated upstream
+=======
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
 import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
@@ -119,7 +135,14 @@ public class PageInitializer {
 	/** Native View instance */
 	protected static NativeViewLoginImpl nativeViewLoginImpl;
 	protected static NativeViewHomePage nativeViewHomePage;
+<<<<<<< Updated upstream
 	protected static NativeViewImpersonateUser nativeViewImpersonateUser;
+=======
+<<<<<<< HEAD
+=======
+	protected static NativeViewImpersonateUser nativeViewImpersonateUser;
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 
 	/** CHARMS instances */
 	protected static CHARMSNativeViewPage charmsNativeViewPage;
@@ -138,17 +161,39 @@ public class PageInitializer {
 	/** PLCO instances **/
 	protected static ExploreGWASPage exploreGWASPage;
 	protected static BrowsePhenotypePage browsePhenotypePage;
+<<<<<<< Updated upstream
 	protected static InformationPage informationPage;
 
+=======
+<<<<<<< HEAD
+    protected static InformationPage informationPage;
+    
+=======
+	protected static InformationPage informationPage;
+
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 	/** ServiceNow DevOps instances */
 	protected static DevOpsLoginPage devOpsLoginPage;
 	protected static DevOpsNativeViewPage devOpsNativeViewPage;
 	protected static DevOpsAutomatedBuildStepsImplementation devOpsAutomatedBuildStepsImplementation;
 
 	/** CEDCD instances */
+<<<<<<< Updated upstream
 	protected static CEDCDCohortPage cedcdCohortPage;
 	protected static CEDCDSearchCohortsPage cedcdSearchCohortsPage;
 	protected static CEDCDAdminPage  cedcdAdminPage;   
+=======
+<<<<<<< HEAD
+	protected static CEDCDSearchCohortsPage cedcdSearchCohortsPage;
+	protected static CEDCDAdminPage  cedcdAdminPage;   
+	protected static CEDCDCohortPage cedcdCohortPage;
+=======
+	protected static CEDCDCohortPage cedcdCohortPage;
+	protected static CEDCDSearchCohortsPage cedcdSearchCohortsPage;
+	protected static CEDCDAdminPage  cedcdAdminPage;   
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 	protected static CEDCDSearchFemaleCohortsStepImp cedcdSearchFemaleCohortsStepImp;
 	protected static CEDCDSelectAllCohortsStepImp cedcdSelectAllCohortsStepImp;
 	protected static CEDCDBiospecimenCountsPage cedcdBiospecimenCountsPage;
@@ -157,20 +202,47 @@ public class PageInitializer {
 	protected static CEDCDStartUps cedcdStartUps;
 	protected static CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp cedcdSearchCohortsCategoriesOfDataOfDataSortedStepImp;
 	protected static CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp cedcdBiospecimenCountsAlphabeticalCancerTypeStepImp;
+<<<<<<< Updated upstream
 	
+=======
+<<<<<<< HEAD
+
+
+=======
+	
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 	/** SEER instances */
 	protected static SEERLandingPage seerLandingPage;
 	protected static SEERUserRegistrationPage seerUserRegistrationPage;
 	protected static SEERDataAccessRequestPage seerDataAccessRequestPage;
 	protected static NativeViewSentViewPage nativeViewSentViewPage;
 	protected static SEERIncidenceDatabaseDetailsPage seerIncidenceDatabaseDetailsPage;
+<<<<<<< Updated upstream
 
+=======
+<<<<<<< HEAD
+	
+=======
+
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 	/** NERD instances */
 	protected static NERDLoginStepsImplementation nerdLoginStepsImplementation;
 	protected static NERDSubmissionsPage nerdCrsKnowledgeDatabaseSubmissionsPage;
 	protected static CreateNewSubmissionPage createNewSubmissionPage;
+<<<<<<< Updated upstream
 	protected static NERDDynamicXPATHS nerdDynamicXpaths;
 
+=======
+<<<<<<< HEAD
+	protected static NativeViewImpersonateUser nativeViewImpersonateUser;
+	protected static NERDDynamicXPATHS nerdDynamicXpaths;
+
+=======
+	protected static NERDDynamicXPATHS nerdDynamicXpaths;
+
+>>>>>>> Stashed changes
 	/** Custom Business App Instances */
 	protected static AligningExpectationsPage aligningExpectationsPage;
 	protected static DashboardPage eidpDashboardPage;
@@ -199,6 +271,10 @@ public class PageInitializer {
 	protected static VacancyManagerUserStepsImpl vacancyManagerUserStepsImpl;
 	protected static AppTrackerLoginPage appTrackerLoginPage;
 	protected static AppTrackerLogInStepsImpl appTrackerLoginStepsImpl;
+<<<<<<< Updated upstream
+=======
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 	
 
 	public static void initializeAllPages() {
@@ -223,8 +299,18 @@ public class PageInitializer {
 		testAccountResetImpl = new TestAccountResetImpl();
 		servicePortalSurveyPage = new ServicePortalSurveyPage();
 		ldLinkLandingPage = new LDLinkLandingPage();
+<<<<<<< Updated upstream
 		ldLinkHomePage = new LDLinkHomePage();
 		exploreGWASPage = new ExploreGWASPage();
+=======
+<<<<<<< HEAD
+		ldLinkHomePage = new LDLinkHomePage(); 
+		exploreGWASPage = new ExploreGWASPage(); 
+=======
+		ldLinkHomePage = new LDLinkHomePage();
+		exploreGWASPage = new ExploreGWASPage();
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 		charmsHomePage = new CHARMSHomePage();
 		oktaLoginPage = new OKTAloginPage();
 		charmsHomePageImpl = new CHARMSHomePageImp();
@@ -262,6 +348,11 @@ public class PageInitializer {
 		informationPage = new InformationPage();
 		cedcdAdminPage = new CEDCDAdminPage();
 		cedcdCohortPage = new CEDCDCohortPage();
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 
 		aligningExpectationsPage = new AligningExpectationsPage();
 		eidpDashboardPage = new DashboardPage();
@@ -290,5 +381,9 @@ public class PageInitializer {
 		vacancyManagerUserStepsImpl = new VacancyManagerUserStepsImpl();
 		appTrackerLoginPage = new AppTrackerLoginPage();
 		appTrackerLoginStepsImpl = new AppTrackerLogInStepsImpl();	
+<<<<<<< Updated upstream
+=======
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 	}
 }

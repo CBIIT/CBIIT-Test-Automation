@@ -1017,4 +1017,12 @@ public class NativeViewEnrollmentViewPage extends CommonUtils {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 
+<<<<<<< Updated upstream
 }
+=======
+<<<<<<< HEAD
+}
+=======
+}
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes

@@ -14,7 +14,15 @@ public class CEDCDBiospecimenCountsPage extends CommonUtils {
 	/**======================= Biospecimen WebElements ====================*/
 	
 	/** This element selects the Biospecimen tab on the home page */
+<<<<<<< Updated upstream
 	@FindBy(xpath = "(//span[contains(text(),'Biospecimen Counts')])[2]")
+=======
+<<<<<<< HEAD
+	@FindBy(xpath = "//span[contains(text(),'Biospecimen Counts')]")
+=======
+	@FindBy(xpath = "(//span[contains(text(),'Biospecimen Counts')])[2]")
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 	public WebElement biospecimenTab;
 
 	/** This element selects the Specimen Type drop down from the Biospecimen tab */
@@ -78,7 +86,15 @@ public class CEDCDBiospecimenCountsPage extends CommonUtils {
 	public WebElement cohortTypeDropDownAllTypeValue;
 
 	/** Searches the filters on the Biospecimen Counts Tab */
+<<<<<<< Updated upstream
 	@FindBy(xpath = "(//button[contains(text(),'Submit')])[2]")
+=======
+<<<<<<< HEAD
+	@FindBy(xpath = "//input[@name='submitBtn']")
+=======
+	@FindBy(xpath = "(//button[contains(text(),'Submit')])[2]")
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 	public WebElement biospecimenSubmitBtn;
 
 	/** This element clears all filters on the Biospecimen Counts tab */

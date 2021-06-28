@@ -1,14 +1,33 @@
 Feature: SEER User Registration Scenarios
 
+<<<<<<< HEAD
   @Smoke @juarezds
   Scenario: Verifying Undergraduate or Graduate students get directed to landing page when selecting 'Undergraduate or Graduate Student' for 'Which of these best describe you?' on the SEER Registration Page
     Given a user is on the SEER Data Access landing page
+<<<<<<< Updated upstream
     When the user enters an email address and continues with the email verification for Non-Institutional Accounts
+=======
+    When the user enters an email address as "test@mail.com" and continues with the email verification for Non-Institutional Accounts
+=======
+  @Smoke @juarezds 
+  Scenario: Verifying Undergraduate or Graduate students get directed to landing page when selecting 'Undergraduate or Graduate Student' for 'Which of these best describe you?' on the SEER Registration Page
+    Given a user is on the SEER Data Access landing page
+    When the user enters an email address and continues with the email verification for Non-Institutional Accounts
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
     And fills out the SEER Registration form
     And for 'Which of these best describe you?' selects 'Undergraduate or Graduate Student'
     Then the user is directed back to the landing page with a message indicating the user must request access via the Institutional Accounts option
 
+<<<<<<< Updated upstream
   @Smoke @juarezds @Progression
+=======
+<<<<<<< HEAD
+  @Smoke @juarezds
+=======
+  @Smoke @juarezds @Progression
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
   Scenario: Verifying Sate and Zip code fields are required when selecting United States of America for Country field
     Given a user is on the SEER Data Access landing page
     And user proceeds with email verification for a Non-Institutional Account
@@ -79,4 +98,11 @@ Feature: SEER User Registration Scenarios
     Then the following breadcrumbs are displayed "Home", "SEER Data & Software", "SEER Incidence Database", "Request SEER Incidence Data", "Submission Confirmation"
     And the 'SEER Incidence Database' bread crumb displays
     And when clicking, user is directed to "https://seer.cancer.gov/data/"
+<<<<<<< Updated upstream
 
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes

@@ -17,15 +17,34 @@ public class CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp extends PageI
 		 */
 
 		ArrayList<String> categoriesOfData = new ArrayList<String>();
+<<<<<<< Updated upstream
 		System.out.println(cedcdSearchCohortsPage.categoriesOfDataCollectedValues.size());
 		
 		for (int i = 0; i < cedcdSearchCohortsPage.categoriesOfDataCollectedValues.size(); i++) {
+=======
+<<<<<<< HEAD
+
+		for (int i = 1; i < 30; i++) {
+=======
+		System.out.println(cedcdSearchCohortsPage.categoriesOfDataCollectedValues.size());
+		
+		for (int i = 0; i < cedcdSearchCohortsPage.categoriesOfDataCollectedValues.size(); i++) {
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 			categoriesOfData.add(cedcdSearchCohortsPage.categoriesOfDataCollectedValues.get(i).getText());
 		}
 
 		ArrayList<String> sortedCategoriesOfData = new ArrayList<String>();
 
+<<<<<<< Updated upstream
 		for (int i = 0; i < cedcdSearchCohortsPage.categoriesOfDataCollectedValues.size(); i++) {
+=======
+<<<<<<< HEAD
+		for (int i = 1; i < 30; i++) {
+=======
+		for (int i = 0; i < cedcdSearchCohortsPage.categoriesOfDataCollectedValues.size(); i++) {
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 			sortedCategoriesOfData.add(cedcdSearchCohortsPage.categoriesOfDataCollectedValues.get(i).getText());
 		}
 

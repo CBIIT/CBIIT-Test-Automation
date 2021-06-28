@@ -51,7 +51,11 @@ public class SearchStepImpl extends PageInitializer {
 
 				By.xpath("//*[@id='select2-trainee-classifications-results']//li[text()=\"" + type + "\"]"));
 
+<<<<<<< Updated upstream
 		By.xpath("//*[@id='select2-trainee-classifications-results']//title[text()=\"" + type + "\"]");
+=======
+				By.xpath("//*[@id='select2-trainee-classifications-results']//title[text()=\"" + type + "\"]");
+>>>>>>> Stashed changes
 
 		CommonUtils.click(option);
 		CommonUtils.click(searchPage.trainneLastName);
@@ -59,6 +63,10 @@ public class SearchStepImpl extends PageInitializer {
 
 	}
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 	public void selectActiveCompletedIDP() throws Exception {
 		CommonUtil.waitBrowser(4000);
 		CommonUtils.waitForVisibility(WebDriverUtils.getWebDriver().findElement(By.id("advanced_search_results")));
@@ -239,7 +247,11 @@ public class SearchStepImpl extends PageInitializer {
 						.findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
 			}
 		}
+<<<<<<< Updated upstream
 		
+=======
+
+>>>>>>> Stashed changes
 	}
 
 	public void selectReviewExistingIDP() throws Exception {
@@ -288,6 +300,7 @@ public class SearchStepImpl extends PageInitializer {
 		CommonUtils.click(searchPage.okButton);
 	}
 
+<<<<<<< Updated upstream
 
 		public void selectNCITrainingOrganization(String optionText) {
 			eidpBasePage.selectOption(searchPage.nciTrainingOrganizationDropdown, optionText);
@@ -295,6 +308,11 @@ public class SearchStepImpl extends PageInitializer {
 		
 	
 	
+=======
+	public void selectNCITrainingOrganization(String optionText) {
+		eidpBasePage.selectOption(searchPage.nciTrainingOrganizationDropdown, optionText);
+	}
+>>>>>>> Stashed changes
 
 	public String getTraineeName() {
 		return searchPage.traineeName.getText();
@@ -418,9 +436,20 @@ public class SearchStepImpl extends PageInitializer {
 	// verifyListOfWebElements//CBIIT
 	public void verifyTraineeOrganization(String nameOrg) {
 		eidpBasePage.selectOption(searchPage.chooseCBIIT, nameOrg);
+<<<<<<< Updated upstream
 		MiscUtils.sleep(3000);
 		clickOnSearchButton();
 		MiscUtils.sleep(3000);
+=======
+
+		MiscUtils.sleep(3000);
+		clickOnSearchButton();
+		MiscUtils.sleep(3000);
+
+		Assert.fail("Name:" + nameOrg + "does not exist in the list!Verification FAILED!!!");
+		clickOnSearchButton();
+
+>>>>>>> Stashed changes
 		List<WebElement> rows = WebDriverUtils.getWebDriver().findElements(By.cssSelector("td.sorting_2"));
 		for (WebElement each : rows) {
 			WebElement nameOrgList = WebDriverUtils.getWebDriver()
@@ -464,6 +493,10 @@ public class SearchStepImpl extends PageInitializer {
 
 	// verifyNIHSACAssertion
 	public void verifyNIHSAAC(String name) {
+<<<<<<< Updated upstream
+=======
+		Assert.fail(name + " DOES NOT EXIST IN THE DROPDOWN LIST, FAILED!!!");
+>>>>>>> Stashed changes
 		List<WebElement> rows = WebDriverUtils.getWebDriver()
 				.findElements(By.cssSelector("sorting_1 dtr-control::before"));
 		for (WebElement each : rows) {

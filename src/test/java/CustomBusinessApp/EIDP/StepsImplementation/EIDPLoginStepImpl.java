@@ -73,4 +73,8 @@ public class EIDPLoginStepImpl extends PageInitializer{
 		}
 		
 	}
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes

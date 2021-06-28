@@ -96,7 +96,11 @@ public class BasePage extends CommonUtils{
 	
 	public void selectOptionByIndex(WebElement selectEl ) {
 		Select select = new Select(selectEl);
+<<<<<<< Updated upstream
 		select.selectByIndex(4);
+=======
+		select.selectByIndex(2);
+>>>>>>> Stashed changes
 	}
 	
 	

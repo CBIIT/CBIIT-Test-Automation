@@ -22,7 +22,15 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 	}
 
 	public void groupUserAndConsent(String groupUserID, String consent) {
+<<<<<<< Updated upstream
 		MiscUtils.sleep(2000);
+=======
+<<<<<<< HEAD
+
+=======
+		MiscUtils.sleep(2000);
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 		servicePortalQuestionnairePage.startNewQuestionnaireButton.click();
 		servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown.click();
 		List<WebElement> groupIDs = servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDownValues;
@@ -58,7 +66,15 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 		covidCodeEQPage.enrollmentQuestionnairePatientFirstNameTextBox.sendKeys("AutomatedFN");
 		covidCodeEQPage.enrollmentQuestionnairePatientMiddletNameTextBox.sendKeys("M");
 		covidCodeEQPage.enrollmentQuestionnairePatientEmailAddressTextBox.sendKeys("email@email.com");
+<<<<<<< Updated upstream
 		covidCodeEQPage.enrollmentQuestionnairePatientPhoneNumberTextBox.sendKeys("111-222-3333");
+=======
+<<<<<<< HEAD
+		covidCodeEQPage.enrollmentQuestionnairePatientPhoneNumberTextBox.sendKeys("1112223333");
+=======
+		covidCodeEQPage.enrollmentQuestionnairePatientPhoneNumberTextBox.sendKeys("111-222-3333");
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 		covidCodeEQPage.enrollmentQuestionnairePatientStreetAddress1TextBox.sendKeys("123 street");
 		JavascriptUtils.scrollDown(700);
 		covidCodeEQPage.enrollmentQuestionnairePatientCityTextBox.sendKeys("Rockville");
@@ -168,4 +184,12 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 		}
 	}
 
+<<<<<<< Updated upstream
 }
+=======
+<<<<<<< HEAD
+}
+=======
+}
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes

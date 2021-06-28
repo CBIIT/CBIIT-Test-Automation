@@ -1,5 +1,6 @@
 Feature: Questionnaire
 
+<<<<<<< Updated upstream
   Scenario Outline: Admin able to add cohort
     Given the user is on the CEDCD homepage
     When the user is logged in as Admin
@@ -66,6 +67,35 @@ Feature: Questionnaire
     Then Section G status Circle is green
 
   @Progression @juarezds
+=======
+<<<<<<< HEAD
+#@Progression
+Scenario Outline: Admin able to add cohort
+Given the user is on the CEDCD homepage
+When the user is logged in as Admin
+When user selects add new Cohort
+And enters Cohort Name as "<Cohort Name>"
+#And enters Cohort Acronym as "<Cohort Acronym>"
+And enters Cohort Owner
+And enters "<Notes>"
+And clicks submit
+Then Cohort is added
+
+
+Examples:
+|   Cohort Name             |        Cohort Acronym          |               Notes                             |
+|   Second Automated Cohort  |          SAC                   |     This Cohort Will Be Automated               |
+
+@Progression
+
+Scenario: Cohort Owner logs in and selects cohort
+Given the user is on the CEDCD homepage
+When the user is logged in as a Cohort Owner
+And the Cohort Owner selects their Cohort questionnaire
+Then Section A of the Questionnaire is filled out
+=======
+  @juarezds @Smoke
+>>>>>>> Stashed changes
   Scenario: Admin creates Cohort Study and Cohort Owner submits questionnaire
     Given the user is on the CEDCD homepage
     And a Admin user adds a Cohort Study linked to Cohort Owner
@@ -73,4 +103,10 @@ Feature: Questionnaire
     And selects linked Cohort
     And fills out all sections of the questionnaire
     And submits the Cohort Study for Review
+<<<<<<< Updated upstream
     Then the Cohort Study Questionnaire is successfully submitted
+=======
+    Then the Cohort Study Questionnaire is successfully submitted
+
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes

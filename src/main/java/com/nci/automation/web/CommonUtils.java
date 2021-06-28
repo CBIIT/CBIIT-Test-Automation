@@ -419,8 +419,16 @@ public class CommonUtils extends WebDriverUtils {
 		dateAsString = dateAsString.replaceAll("[^A-Za-z0-9]", "");
 		return dateAsString;
 	}
+<<<<<<< Updated upstream
 	
 	public static String date = getDateAsString();
+=======
+<<<<<<< HEAD
+=======
+	
+	public static String date = getDateAsString();
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 
 	
 	/**
@@ -457,4 +465,12 @@ public class CommonUtils extends WebDriverUtils {
 			WebDriverUtils.webDriver.switchTo().window(nextWindow);
 	   }
 	}
+<<<<<<< Updated upstream
 }
+=======
+<<<<<<< HEAD
+}
+=======
+}
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes

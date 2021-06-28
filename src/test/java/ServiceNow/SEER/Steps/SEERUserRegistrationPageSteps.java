@@ -15,14 +15,36 @@ import cucumber.api.java.en.When;
 public class SEERUserRegistrationPageSteps extends PageInitializer {
 	public static String newEmail = "seer" + CommonUtils.email;
 
+<<<<<<< Updated upstream
 	@When("the user enters an email address and continues with the email verification for Non-Institutional Accounts")
 	public void the_user_enters_an_email_address_and_continues_with_the_email_verification_for_Non_Institutional_Accounts() {
 		JavascriptUtils.scrollIntoView(seerLandingPage.nonInstitutionalAccountsEmailAddressField);
+=======
+<<<<<<< HEAD
+	@When("the user enters an email address as {string} and continues with the email verification for Non-Institutional Accounts")
+	public void the_user_enters_an_email_address_as_and_continues_with_the_email_verification_for_Non_Institutional_Accounts(
+			String emailAddress) {
+=======
+	@When("the user enters an email address and continues with the email verification for Non-Institutional Accounts")
+	public void the_user_enters_an_email_address_and_continues_with_the_email_verification_for_Non_Institutional_Accounts() {
+		JavascriptUtils.scrollIntoView(seerLandingPage.nonInstitutionalAccountsEmailAddressField);
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 		Assert.assertTrue("Verifying that the User entering email address for Non-Institutional Accounts",
 				seerLandingPage.nonInstitutionalAccountsHeaderText.getText()
 						.contentEquals("Non-Institutional Accounts"));
 		MiscUtils.sleep(2000);
+<<<<<<< Updated upstream
 		CommonUtils.sendKeys(seerLandingPage.nonInstitutionalAccountsEmailAddressField, newEmail);
+=======
+<<<<<<< HEAD
+		JavascriptUtils.scrollIntoView(seerLandingPage.nonInstitutionalAccountsEmailAddressField);
+		MiscUtils.sleep(2000);
+		CommonUtils.sendKeys(seerLandingPage.nonInstitutionalAccountsEmailAddressField, emailAddress);
+=======
+		CommonUtils.sendKeys(seerLandingPage.nonInstitutionalAccountsEmailAddressField, newEmail);
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 		MiscUtils.sleep(2000);
 		seerLandingPage.nonInstitutionalAccountsContinuetoEmailVerificationButton.click();
 		MiscUtils.sleep(2000);
@@ -36,7 +58,15 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 		seerUserRegistrationPage.seerUserRegistrationMiddleNameField.sendKeys("Tester");
 		seerUserRegistrationPage.seerUserRegistrationLastNameField.sendKeys("Testing");
 		MiscUtils.sleep(2000);
+<<<<<<< Updated upstream
 		Assert.assertEquals(newEmail,
+=======
+<<<<<<< HEAD
+		Assert.assertEquals("test@mail.com",
+=======
+		Assert.assertEquals(newEmail,
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 				seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("value"));
 		Assert.assertTrue(
 				seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("disabled").equals("true"));

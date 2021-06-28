@@ -149,7 +149,10 @@ Feature: Regression testing
     And User clicks on APPROVE IDP button
     And User clicks on yes button on trainee page
 
+<<<<<<< Updated upstream
   
+=======
+>>>>>>> Stashed changes
   @ReviseExistingIDP @Regression
   Scenario: Revise Existing IDP
     #Given User opens nih application in browser
@@ -163,9 +166,13 @@ Feature: Regression testing
     And User clicks on save and send mail button
     Then User will click on ok button
 
+<<<<<<< Updated upstream
   #didn't click on Revise existing idp as the button is greyed out
   #added CommonUtil.waitBrowser(3000);line 80 steps imlp
   #@IDPOnHold @Regression
+=======
+  @IDPOnHold @Regression
+>>>>>>> Stashed changes
   Scenario: IDP is placed on HOLD
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user
@@ -182,12 +189,20 @@ Feature: Regression testing
     And User will clickOn proceed button
     And User selects primary mentor as "Berzofsky,Jay"
     And User adds new project with deliverables
+<<<<<<< Updated upstream
     And User adds new career training activities
     And User edits aligning expectations
     And User will click on revew and take action button
     Then User verifies IDP will be placed on hold message
     
     #passed
+=======
+
+  And User adds new career training activities
+  And User edits aligning expectations
+  And User will click on revew and take action button
+  Then User verifies IDP will be placed on hold message
+>>>>>>> Stashed changes
   @releaseOnHold @Regression
   Scenario: Release IDP placed on hold
     #Given User opens nih application in browser
@@ -367,7 +382,11 @@ Feature: Regression testing
     |Trainee First Name|Trainee Last Name|
     |Olga              |Kim              | 
     
+<<<<<<< Updated upstream
     @Regression @Smoke @ClassificationTypesErika
+=======
+    @Regression @Smoke @ClassificationType
+>>>>>>> Stashed changes
     Scenario Outline:IDP Search request specifying  Classification type
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -424,7 +443,11 @@ Feature: Regression testing
     |Trainee First Name|Trainee Last Name|
     |Kate              |Brown            |
     
+<<<<<<< Updated upstream
     @Regression @Smoke @ClassificationTypesGloria
+=======
+    @Regression @Smoke @ClassificationType
+>>>>>>> Stashed changes
     Scenario Outline:IDP Search request as Gloria Calloway  specifying  Classification type
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -436,8 +459,13 @@ Feature: Regression testing
     |Classification Type|
     |Fellow             |
     |Employee           |
+<<<<<<< Updated upstream
     
     #negative input is NHU22
+=======
+    |Employee           |
+    
+>>>>>>> Stashed changes
     @Regression @Smoke @NIHSAC
     Scenario Outline: Search request as Gloria Calloway specifying NIH SAC
     #Given User opens nih application in browser

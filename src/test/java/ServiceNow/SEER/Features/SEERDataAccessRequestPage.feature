@@ -18,4 +18,12 @@ Feature: SEER Data Access Request Scenarios
       """
       SEER is supported by the Surveillance Research Program (SRP) in NCI's Division of Cancer Control and Population Sciences (DCCPS). SRP provides national leadership in the science of cancer surveillance as well as analytical tools and methodological expertise in collecting, analyzing, interpreting, and disseminating reliable population-based statistics.
       """
+<<<<<<< Updated upstream
     Then after entering required information, the user is able to successfully submit the SEER Data Access Request form
+=======
+<<<<<<< HEAD
+    Then after entering required information, the user is able to successfully submit the SEER Data Access Request form
+=======
+    Then after entering required information, the user is able to successfully submit the SEER Data Access Request form
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
