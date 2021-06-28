@@ -86,7 +86,11 @@ Feature: ATO testing
     And User clicks on submit button
     And User clicks on update button
     
+<<<<<<< Updated upstream
    @IdentityAcceeManagement
+=======
+  @IdentityAcceeManagement
+>>>>>>> Stashed changes
   Scenario: ATO validate identity and access management form
     Given User opens ATO application in browser
     When User will login to ato application

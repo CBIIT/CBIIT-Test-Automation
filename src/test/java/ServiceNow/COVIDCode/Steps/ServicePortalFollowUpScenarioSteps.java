@@ -1,5 +1,13 @@
 package ServiceNow.COVIDCode.Steps;
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -31,9 +39,20 @@ public class ServicePortalFollowUpScenarioSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 		servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown.click();
 		MiscUtils.sleep(1000);
+<<<<<<< Updated upstream
 		CommonUtils.selectDropDownValue("User Group 2",
 				servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown);
 		servicePortalQuestionnairePage.createEnrollmentButton.click();
+=======
+<<<<<<< HEAD
+		CommonUtils.selectDropDownValue("User Group 2", servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown);
+	    servicePortalQuestionnairePage.createEnrollmentButton.click();
+=======
+		CommonUtils.selectDropDownValue("User Group 2",
+				servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown);
+		servicePortalQuestionnairePage.createEnrollmentButton.click();
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 		covidCodeEQPageImpl.requiredDemographicsInfo();
 		JavascriptUtils.scrollIntoView(covidCodeEQPage.enrollmentQuestionnaireSubmitButton);
 		covidCodeEQPage.enrollmentQuestionnaireSubmitButton.click();
@@ -41,7 +60,15 @@ public class ServicePortalFollowUpScenarioSteps extends PageInitializer {
 		covidCodeEQPage.enrollmentQuestionnaireSubmitYesButton.click();
 		MiscUtils.sleep(2000);
 		covidCodeEQPage.COVIDcodeHomeButton.click();
+<<<<<<< Updated upstream
 		MiscUtils.sleep(5000);
+=======
+<<<<<<< HEAD
+		MiscUtils.sleep(5000);	
+=======
+		MiscUtils.sleep(5000);
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 		servicePortalQuestionnairePage.startNewFollowUpButton.click();
 		MiscUtils.sleep(1000);
 		servicePortalQuestionnairePage.enrollmentLookUpPatientIDSearchDropDown.click();

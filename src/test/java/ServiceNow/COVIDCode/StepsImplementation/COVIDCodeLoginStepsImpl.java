@@ -16,9 +16,23 @@ public class COVIDCodeLoginStepsImpl extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(covidCodeLoginPage.LogInButton);
 		CucumberLogUtils.logScreenShot();
+<<<<<<< Updated upstream
 		loginImpl.loginToITrust();
 		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(2000);
+=======
+<<<<<<< HEAD
+	    loginImpl.loginToITrust();
+		CucumberLogUtils.logScreenShot();
+		MiscUtils.sleep(2000);
+		iTrustloginPage.clickSignInButton();
+		MiscUtils.sleep(2000);
+=======
+		loginImpl.loginToITrust();
+		CucumberLogUtils.logScreenShot();
+		MiscUtils.sleep(2000);
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes
 	}
 
 	public void covidCodeStudyHomePage() throws TestingException {

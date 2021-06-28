@@ -1,7 +1,17 @@
 */target/*
 /target/
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 src/main/resources/conf/localConf.properties
 src/main/resources/conf/localEnv.properties
 target/classes/conf/localConf.properties
 target/cucumber.json
+<<<<<<< Updated upstream
 true
+=======
+true
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes

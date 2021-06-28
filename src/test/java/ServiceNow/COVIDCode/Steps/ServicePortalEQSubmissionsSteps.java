@@ -644,4 +644,12 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 	   CucumberLogUtils.logScreenShot();
 
 	}
+<<<<<<< Updated upstream
 }
+=======
+<<<<<<< HEAD
+}
+=======
+}
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes

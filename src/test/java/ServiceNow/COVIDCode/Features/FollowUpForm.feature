@@ -96,4 +96,11 @@ Feature: COVIDCode Follow Up Form Scenarios
     Then the following field display: 'Were you symptomatic?', 'How was the sample taken?', 'What type of test did the patient receive? (Please select all that apply)', 'Have you officially been diagnosed with COVID-19?'
     And when a selecting 'Yes' to Were you symptomatic?
     Then when did you the first develop symptoms of COVID-19? date picker displays
+<<<<<<< Updated upstream
 
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
+>>>>>>> Stashed changes

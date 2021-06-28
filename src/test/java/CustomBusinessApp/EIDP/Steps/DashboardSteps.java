@@ -4,7 +4,10 @@ package CustomBusinessApp.EIDP.Steps;
 import org.junit.Assert;
 
 import com.nci.automation.utils.CucumberLogUtils;
+<<<<<<< Updated upstream
 import com.nci.automation.utils.MiscUtils;
+=======
+>>>>>>> Stashed changes
 
 import CustomBusinessApp.EIDP.Util.SharedData;
 import appsCommon.PageInitializer;
@@ -57,7 +60,10 @@ public class DashboardSteps extends PageInitializer {
 	@When("User will clickOn proceed button")
 	public void clickOnProceedButton() throws Exception{
 		eidpDashboardStepImpl.clickOnProceedButton();
+<<<<<<< Updated upstream
 		MiscUtils.sleep(3000);
+=======
+>>>>>>> Stashed changes
 	}
 	
 	@When("User clicks on Send IDP to the Primary Mentor button")
@@ -131,7 +137,11 @@ public class DashboardSteps extends PageInitializer {
 	
 	@When("User clicks on the trainee specific IDP request")
 	public void selectIncompleteIDPrequestOfTrainnee() throws Exception{
+<<<<<<< Updated upstream
 		eidpDashboardStepImpl.clickProceedButtonOfTrainee();
+=======
+		eidpDashboardStepImpl.selectIDPRequestOfTrainee();
+>>>>>>> Stashed changes
 		CucumberLogUtils.logScreenShot();
 	}
 	
