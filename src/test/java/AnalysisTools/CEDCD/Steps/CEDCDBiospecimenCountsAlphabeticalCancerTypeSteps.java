@@ -6,6 +6,7 @@ import java.util.Collections;
 import org.junit.Assert;
 
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.xceptions.TestingException;
 
@@ -39,6 +40,8 @@ public class CEDCDBiospecimenCountsAlphabeticalCancerTypeSteps extends PageIniti
 		 * This step verifies that the drop down is sorted alphabetically and logs a
 		 * screenshot
 		 */
+		
+		CommonUtils.waitForVisibility(cedcdBiospecimenCountsPage.cancerTypeValues.get(0));
 		cedcdBiospecimenCountsAlphabeticalCancerTypeStepImp.sortCancerTypeAlphabetically();
 
 	}
