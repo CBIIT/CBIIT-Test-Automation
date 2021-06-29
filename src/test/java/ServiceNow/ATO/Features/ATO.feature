@@ -86,12 +86,9 @@ Feature: ATO testing
     And User clicks on submit button
     And User clicks on update button
     
-<<<<<<< Updated upstream
-   @IdentityAcceeManagement
-=======
+
   @IdentityAcceeManagement
->>>>>>> Stashed changes
-  Scenario: ATO validate identity and access management form
+ Scenario: ATO validate identity and access management form
     Given User opens ATO application in browser
     When User will login to ato application
     Then User clicks on "Native View" in header menu
@@ -383,5 +380,4 @@ Feature: ATO testing
     And User will select the state as "In progress"
     And User clicks on save button without frame
     Then go back and sort packages
-    
     
