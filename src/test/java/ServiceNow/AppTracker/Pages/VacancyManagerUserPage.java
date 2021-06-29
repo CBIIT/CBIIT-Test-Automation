@@ -1,9 +1,6 @@
 package ServiceNow.AppTracker.Pages;
 
-<<<<<<< Updated upstream
 import java.util.ArrayList;
-=======
->>>>>>> Stashed changes
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
@@ -52,11 +49,7 @@ public class VacancyManagerUserPage extends CommonUtils {
 	public List<WebElement> listOfSections;
 
 	/** Vacancy Committee Section **/
-<<<<<<< Updated upstream
 	@FindBy(xpath = "//div[@class='ant-steps-item-title' and text()='Vacancy Committee']")
-=======
-	@FindBy(xpath = "//div[@class='ant-steps-item ant-steps-item-wait'][2]")
->>>>>>> Stashed changes
 	public WebElement vacancyCommitteeSection;
 
 	/** Vacancy Committee Section Header **/
@@ -69,11 +62,7 @@ public class VacancyManagerUserPage extends CommonUtils {
 	public WebElement basicVacancySection;
 
 	/** Mandatory Statements Section **/
-<<<<<<< Updated upstream
 	@FindBy(xpath = "//div[@class='ant-steps-item-title' and text()='Mandatory Statements']")
-=======
-	@FindBy(xpath = "//div[@class='ant-steps-item ant-steps-item-wait'][1]")
->>>>>>> Stashed changes
 	public WebElement mandatoryStatementsSection;
 
 	/** Mandatory Statements Section Equal Opportunity Employer text verify **/
@@ -326,22 +315,13 @@ public class VacancyManagerUserPage extends CommonUtils {
 	public WebElement applicationSavedTextField;
 	
 	/** Open Date alert**/
-<<<<<<< Updated upstream
 	@FindBy(xpath= "//div[@class='ant-form-item-explain ant-form-item-explain-error']")
 	public WebElement openDateErrorMessage;
-=======
-	@FindBy(xpath= "(//div[@class='ant-form-item-explain ant-form-item-explain-error'])[1]")
-	public WebElement openDateAlert;
->>>>>>> Stashed changes
 	
 
 	/** Close Date alert**/
 	@FindBy(xpath= "//div[@class='ant-form-item-explain ant-form-item-explain-error']")
-<<<<<<< Updated upstream
 	public WebElement closeDateErrorMessage;
-=======
-	public WebElement closeDateAlert;
->>>>>>> Stashed changes
 	
 	/**Add Member Button in Vacancy Committee section**/
 	@FindBy(xpath = "//button[@class='ant-btn ant-btn-secondary AddButton']")
@@ -360,7 +340,6 @@ public class VacancyManagerUserPage extends CommonUtils {
 	@FindBy(xpath="//*[contains (text(), 'APPTRACK SCORING MEMBER')]")
 	public WebElement apptrackScoringMember;
 	
-<<<<<<< Updated upstream
 	/**APPTRACK COMMITTEE MEMBER**/
 	@FindBy(xpath="//*[contains (text(), 'APPTRACK COMMITTEE MEMBER')]")
 	public WebElement apptrackCommitteeMember;
@@ -381,18 +360,12 @@ public class VacancyManagerUserPage extends CommonUtils {
 	@FindBy(xpath="//div[@class='ant-select-item-option-content' and text()='Executive Secretary']")
 	public WebElement roleExecutiveSecretary;
 	
-=======
-	/*** Role as Member voting*/
-	@FindBy(xpath="//div[@class='ant-select-item-option-content' and text()='Member (voting)']")
-	public WebElement roleMemmberVoting;
->>>>>>> Stashed changes
 	
 	/**Save Button for adding member**/
 	@FindBy(xpath ="//*[@class='ant-btn ant-btn-link ActionButton']//*[contains(text(), 'save')]")
 	public WebElement saveButtonAddingMember;
 	
 	/**Beginning of text of  Alert Message in Review & Finalize Section**/
-<<<<<<< Updated upstream
 	@FindBy(xpath = "//div[@class='ErrorPanel']//p[1]")
 	public WebElement beginningAlertMessage;
 	
@@ -403,25 +376,6 @@ public class VacancyManagerUserPage extends CommonUtils {
 	/**Calendar DatePicker**/
 	@FindBy(xpath ="//div[@class='ant-picker-cell-inner']")
 	public List<WebElement> calendarDatePicker;
-	
-	
-	
-=======
-	@FindBy(xpath = "//*[contains(text(),'Sorry, we')]")
-	public WebElement beginningAlertMessage;
-	
-	/**End of text of  Alert Message in Review & Finalize Section**/
-	@FindBy(xpath = "//*[contains(text(),'Please return')]")
-	public WebElement endAlertMessage;
-	
->>>>>>> Stashed changes
-	
-	
-	
-	
-	
-
-	
 	
 	
 	public VacancyManagerUserPage() {
