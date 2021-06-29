@@ -67,14 +67,11 @@ public class EIDPLoginStepImpl extends PageInitializer{
 			Thread.sleep(3000);
 			CucumberLogUtils.logScreenShot();
 			CommonUtils.click(nihLoginPage.changeUserOption);
+			Thread.sleep(1000);
 			
 		} catch(Exception ex) {
 			System.out.println(ex.getMessage());
 		}
 		
 	}
-<<<<<<< Updated upstream
 }
-=======
-}
->>>>>>> Stashed changes
