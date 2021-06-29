@@ -28,40 +28,12 @@ public class CEDCDBiospecimenCountClearAllSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(cedcdBiospecimenCountsPage.cancerTypeDropDownAllTypeValues);
 	}
 
-<<<<<<< Updated upstream
 	/** This method clicks on the Cohorts drop down and selects "All Types" 
 	 * @throws InterruptedException */
-=======
-<<<<<<< HEAD
-	/** This method clicks on the Cohorts drop down and selects "All Types" */
-=======
-	/** This method clicks on the Cohorts drop down and selects "All Types" 
-	 * @throws InterruptedException */
->>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
->>>>>>> Stashed changes
 	@When("the user selects All Cohorts from the Cohorts drop down")
 	public void the_user_selects_All_Cohorts_from_the_Cohorts_drop_down() {
 		JavascriptUtils.clickByJS(cedcdBiospecimenCountsPage.cohortType);
 		JavascriptUtils.clickByJS(cedcdBiospecimenCountsPage.cohortTypeDropDownAllTypeValue);
-<<<<<<< Updated upstream
-		
-=======
-<<<<<<< HEAD
->>>>>>> Stashed changes
-	}
-
-	/** The user clicks on the submit button to search and takes a screenshot 
-	 * @throws InterruptedException */
-	@When("the user searches results")
-	public void the_user_searches_results() throws InterruptedException  {
-
-		JavascriptUtils.clickByJS(cedcdBiospecimenCountsPage.biospecimenSubmitBtn);
-		CucumberLogUtils.logScreenShot();
-<<<<<<< Updated upstream
-		Thread.sleep(1000);
-		
-=======
-=======
 		
 	}
 
@@ -74,8 +46,6 @@ public class CEDCDBiospecimenCountClearAllSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 		Thread.sleep(1000);
 		
->>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
->>>>>>> Stashed changes
 
 	}
 
@@ -83,14 +53,7 @@ public class CEDCDBiospecimenCountClearAllSteps extends PageInitializer {
 	@When("the user clicks on the Clear All button")
 	public void the_user_clicks_on_the_Clear_All_button() {
 		JavascriptUtils.clickByJS(cedcdBiospecimenCountsPage.biospecimenClearAllBtn);
-<<<<<<< Updated upstream
 		CucumberLogUtils.logScreenShot();
-=======
-<<<<<<< HEAD
-=======
-		CucumberLogUtils.logScreenShot();
->>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
->>>>>>> Stashed changes
 	}
 
 	/**
@@ -101,16 +64,7 @@ public class CEDCDBiospecimenCountClearAllSteps extends PageInitializer {
 	@Then("all previously selected fields are no longer selected")
 	public void all_previously_selected_fields_are_no_longer_selected() {
 
-<<<<<<< Updated upstream
 		Assert.assertTrue(cedcdBiospecimenCountsPage.biospecimenSubmitBtn.isEnabled());
-=======
-<<<<<<< HEAD
-		Assert.assertFalse(cedcdBiospecimenCountsPage.biospecimenSubmitBtn.isEnabled());
-		CucumberLogUtils.logScreenShot();
-=======
-		Assert.assertTrue(cedcdBiospecimenCountsPage.biospecimenSubmitBtn.isEnabled());
->>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
->>>>>>> Stashed changes
 		MiscUtils.sleep(2000);
 
 	}
