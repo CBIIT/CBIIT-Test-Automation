@@ -1,20 +1,8 @@
 package AnalysisTools.CEDCD.Steps;
 
 import java.util.ArrayList;
-<<<<<<< HEAD
-import java.util.Collection;
-import java.util.Collections;
-
-import org.junit.Assert;
-import org.openqa.selenium.WebElement;
-
-import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.web.JavascriptUtils;
-
-=======
 import org.openqa.selenium.WebElement;
 import com.nci.automation.web.JavascriptUtils;
->>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
