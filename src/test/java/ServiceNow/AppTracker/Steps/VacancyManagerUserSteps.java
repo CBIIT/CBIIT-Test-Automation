@@ -7,10 +7,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-<<<<<<< Updated upstream
 import org.openqa.selenium.interactions.Actions;
-=======
->>>>>>> Stashed changes
 
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -24,10 +21,7 @@ import CustomBusinessApp.EIDP.Util.CommonUtil;
 import ServiceNow.AppTracker.Utils.AppTrackerCommonUtils;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.When;
-<<<<<<< Updated upstream
 import groovyjarjarantlr4.v4.codegen.model.Action;
-=======
->>>>>>> Stashed changes
 import io.cucumber.datatable.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -223,35 +217,16 @@ public class VacancyManagerUserSteps extends PageInitializer {
 
 	}
 
-<<<<<<< Updated upstream
 	@Then("User selects date same as today's date")
 	// openDate = index - 2
 	// close date: index 33 = 1
 	public void user_selects_date_same_as_today_s_date() {
 		// open date = 2021-06-07, close date = 2021-06-07
 		vacancyManagerUserStepsImpl.selectOpenCloseDate(9, 51);
-=======
-	@Then("User selects date same as today's date as below")
-	public void user_selects_date_same_as_today_s_date_as_below(Map<String, String> data) {
-		String openDate = data.get("Open Date");
-		String closeDate = data.get("Close Date");
-		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
-		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection, openDate);
-		MiscUtils.sleep(3000);
-		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection);
-		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection, closeDate);
-		MiscUtils.sleep(3000);
-		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
-		CommonUtils.click(vacancyManagerUserPage.reviewSection);
-		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.basicVacancyInformationSaveButton);
-		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
-		MiscUtils.sleep(3000);
->>>>>>> Stashed changes
 
 	}
 
 	@Then("User can see the under Close Date field message displays with {string}")
-<<<<<<< Updated upstream
 	public void user_can_see_the_under_Close_Date_field_message_displays_with(String closeDayAlertTextMessage) {
 		String expectedResult = vacancyManagerUserPage.closeDateErrorMessage.getText();
 		Assert.assertEquals(expectedResult, vacancyManagerUserPage.closeDateErrorMessage.getText());
@@ -264,27 +239,13 @@ public class VacancyManagerUserSteps extends PageInitializer {
 		// open date = 2021-06-09
 		// close date = 2021-06-07
 		vacancyManagerUserStepsImpl.selectOpenCloseDate(11, 51);
-=======
-	public void user_can_see_the_under_Close_Date_field_message_displays_with(String alertTextMessage) {
-		Assert.assertEquals(CommonUtils.getAlertText(), alertTextMessage);
-
-	}
-
-	@When("User selects the Open date as greater than the Close date")
-	public void user_selects_the_Open_date_as_greater_than_the_Close_date() {
->>>>>>> Stashed changes
 
 	}
 
 	@Then("User can see the under Open Date field message displays with {string}")
-<<<<<<< Updated upstream
 	public void user_can_see_the_under_Open_Date_field_message_displays_with(String openDateAlertTextMessage) {
 		String expectedResult = vacancyManagerUserPage.openDateErrorMessage.getText();
 		Assert.assertEquals(expectedResult, vacancyManagerUserPage.openDateErrorMessage.getText());
-=======
-	public void user_can_see_the_under_Open_Date_field_message_displays_with(String string) {
-
->>>>>>> Stashed changes
 	}
 
 	/** SectionsFields **/
@@ -466,11 +427,7 @@ public class VacancyManagerUserSteps extends PageInitializer {
 
 	@Given("User clicks on Vacancy Committee tab")
 	public void user_clicks_on_Vacancy_Committee_tab() {
-<<<<<<< Updated upstream
 		CommonUtils.click(vacancyManagerUserPage.vacancyCommitteeSection);
-=======
-		CommonUtils.click(vacancyManagerUserPage.basicVacancySection);
->>>>>>> Stashed changes
 	}
 
 	@When("User clicks on the Email template tab")
@@ -486,22 +443,10 @@ public class VacancyManagerUserSteps extends PageInitializer {
 	// @Satya17Ticket120
 	@When("User indicates open date and close date")
 	public void user_indicates_open_date_and_close_date() {
-<<<<<<< Updated upstream
 		vacancyManagerUserStepsImpl.selectOpenCloseDate(16, 60);
 		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
 		MiscUtils.sleep(1000);
 
-=======
-		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
-		MiscUtils.sleep(2000);
-		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection,
-				"2021-05-27");
-		MiscUtils.sleep(1000);
-		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection,
-				"2021-05-27");
-		MiscUtils.sleep(3000);
-		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
->>>>>>> Stashed changes
 	}
 
 	@When("User toggles off Equal Opportunity Employer button, Standards of Conduct\\/Financial Disclosure button, Foreign Education button, Reasonable Accommodation button")
@@ -527,11 +472,7 @@ public class VacancyManagerUserSteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.click(vacancyManagerUserPage.roleDropdown);
 		MiscUtils.sleep(1000);
-<<<<<<< Updated upstream
 		CommonUtils.click(vacancyManagerUserPage.roleMemberVoting);
-=======
-		CommonUtils.click(vacancyManagerUserPage.roleMemmberVoting);
->>>>>>> Stashed changes
 		MiscUtils.sleep(1000);
 		CommonUtils.click(vacancyManagerUserPage.saveButtonAddingMember);
 		MiscUtils.sleep(1000);
@@ -566,7 +507,6 @@ public class VacancyManagerUserSteps extends PageInitializer {
 
 	@Then("User will see the error messages displayed")
 	public void user_will_see_the_error_messages_displayed() {
-<<<<<<< Updated upstream
 		String expectedBeginningMessage = "Sorry, we can't submit just yet.  The following sections have fields that need to change or have values: ";
 		String expectedEndMessage = "We've highlighted those fields in red.  Please return to those sections and address the highlights, then return here and click 'Save and Finalize' again.";
 		String actualBegMessage = vacancyManagerUserPage.beginningAlertMessage.getText();
@@ -593,27 +533,11 @@ public class VacancyManagerUserSteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.click(vacancyManagerUserPage.saveButtonAddingMember);
 		CucumberLogUtils.logScreenShot();
-=======
-	String expectedBeginningMessage = "Sorry, we can't submit just yet.  The following sections have fields that need to change or have values: ";
-    String expectedEndMessage = "We've highlighted those fields in red.  Please return to those sections and address the highlights, then return here and click 'Save and Finalize' again.";
-	String actualBegMessage = vacancyManagerUserPage.beginningAlertMessage.getText();
-	System.out.println();
-	String actualEndMessage = vacancyManagerUserPage.endAlertMessage.getText();
-	System.out.println();
-	Assert.assertEquals(expectedBeginningMessage, actualBegMessage);
-	Assert.assertEquals(actualEndMessage, expectedEndMessage);
-	}
-
-	// @Satya18Ticket105
-	@Then("User adds committee member as a chair and as an executive secretary")
-	public void user_adds_committee_member_as_a_chair_and_as_an_executive_secretary() {
->>>>>>> Stashed changes
 
 	}
 
 	@Then("User clicks on Review and Finalize tab")
 	public void user_clicks_on_Review_and_Finalize_tab() {
-<<<<<<< Updated upstream
 		CommonUtils.click(vacancyManagerUserPage.reviewSection);
 	}
 
@@ -641,28 +565,15 @@ public class VacancyManagerUserSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(vacancyManagerUserPage.calendarDatePicker.get(65));
 		MiscUtils.sleep(2000);
 		
-=======
-
-	}
-
-	@Then("User can see confirmation modal {string} is displayed")
-	public void user_can_see_confirmation_modal_is_displayed(String string) {
-
->>>>>>> Stashed changes
 	}
 
 	@When("User chooses OK for  confirmation modal{string}")
 	public void user_chooses_OK_for_confirmation_modal(String string) {
-<<<<<<< Updated upstream
 	    
-=======
-
->>>>>>> Stashed changes
 	}
 
 	@Then("User can see confirmation modal {string}")
 	public void user_can_see_confirmation_modal(String string) {
-<<<<<<< Updated upstream
 	   
 	}
 
@@ -685,8 +596,6 @@ public class VacancyManagerUserSteps extends PageInitializer {
 		Assert.assertTrue(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection.getAttribute("title").contentEquals("2021-06-12"));
 		Assert.assertTrue(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection.getAttribute("title").contentEquals("2021-06-20"));
 		
-=======
->>>>>>> Stashed changes
 
 	}
 
