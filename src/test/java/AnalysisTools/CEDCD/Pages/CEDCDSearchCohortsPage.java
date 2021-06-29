@@ -1,4 +1,4 @@
-ackage AnalysisTools.CEDCD.Pages;
+package AnalysisTools.CEDCD.Pages;
 
 import java.util.List;
 
