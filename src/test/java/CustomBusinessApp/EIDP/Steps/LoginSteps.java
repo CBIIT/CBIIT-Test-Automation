@@ -1,17 +1,11 @@
 package CustomBusinessApp.EIDP.Steps;
 
-<<<<<<< Updated upstream
-import com.nci.automation.xceptions.TestingException;
-
-import CustomBusinessApp.EIDP.Util.SharedData;
-=======
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 
 import CustomBusinessApp.EIDP.Util.SharedData;
 import ServiceNow.ATO.Utils.Constants;
->>>>>>> Stashed changes
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.When;
 
@@ -30,25 +24,8 @@ public class LoginSteps extends PageInitializer{
 	
 	@When("User will login to the application as \"([^\"]*)\" user")
 	public void loginByUsername(String username) throws TestingException {
-<<<<<<< Updated upstream
+
 		eidpLoginStepImpl.eidpApplicationLogin("Username", "Password");
-=======
-
-
-		eidpLoginStepImpl.eidpApplicationLogin("sgugulothuUsername", "sgugulothuPassword");
-//        eidpLoginStepImpl.eidpApplicationLogin("nekrashevicha2Username", "nekrashevicha2Password");
-        //eidpLoginStepImpl.eidpApplicationLogin("Username", "Password");
-
-//		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
-//		loginStepsImpl.clckOnLoginButton();
-//		Thread.sleep(3000);
-//		loginStepsImpl.enterUsername(username);
-//		loginStepsImpl.enterPassword(Constants.passwords.get(username));
-//		basePage.captureScreenshot("Before Login");
-//		loginStepsImpl.clickOnSignInButton();
-
-
->>>>>>> Stashed changes
 	}
 	
 	@When("Logged in user changes the user to \"([^\"]*)\"")
@@ -86,8 +63,4 @@ public class LoginSteps extends PageInitializer{
 //		nihLoginPage.changeUserToTrainee(updatedUserName);
 	}
 	
-<<<<<<< Updated upstream
 }
-=======
-}
->>>>>>> Stashed changes
