@@ -1,13 +1,9 @@
 package CustomBusinessApp.EIDP.StepsImplementation;
 
-<<<<<<< Updated upstream
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-=======
-import org.openqa.selenium.By;
->>>>>>> Stashed changes
 
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -66,13 +62,8 @@ public class GeneralInformationStepImpl extends PageInitializer {
 	
 	public void selectRandomHighestDegree() {
 		MiscUtils.sleep(3000);
-<<<<<<< Updated upstream
 		CommonUtils.waitForVisibility(generalInformationPage.highestDegreeDropdownnhgri);
 		eidpBasePage.selectOptionByIndex(generalInformationPage.highestDegreeDropdownnhgri);
-=======
-		CommonUtils.waitForVisibility(generalInformationPage.highestDegreeDropdown);
-		eidpBasePage.selectOptionByIndex(generalInformationPage.highestDegreeDropdown);
->>>>>>> Stashed changes
 	}
 	
 	public void selectRandomCurrentTitle() {
@@ -110,7 +101,7 @@ public class GeneralInformationStepImpl extends PageInitializer {
 	
 	public void doYouHaveCoPrimaryMentory(Boolean isCoPrimary) {
 		if(isCoPrimary) {
-			MiscUtils.sleep(10000);
+			MiscUtils.sleep(3000);
 			WebDriverUtils.webDriver.findElement(By.id("coprimMentorYes")).click();
 		} else {
 			WebDriverUtils.webDriver.findElement(By.id("coprimMentorNo")).click();
@@ -124,7 +115,6 @@ public class GeneralInformationStepImpl extends PageInitializer {
 	public void clickOnDeclineIDPButton() {
 		CommonUtils.click(generalInformationPage.declineIDPButton);
 	}
-<<<<<<< Updated upstream
 	
 	
 	public void chooseTraineeProceedButton(String traineeName) {
@@ -141,7 +131,3 @@ public class GeneralInformationStepImpl extends PageInitializer {
 	}
 
 
-=======
-
-}
->>>>>>> Stashed changes
