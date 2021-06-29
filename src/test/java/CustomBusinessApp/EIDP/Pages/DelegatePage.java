@@ -64,10 +64,11 @@ public class DelegatePage extends CommonUtils{
 	public void deleteDelegator(String name) {
 		String xpathVal = "//a[text()='" + name + "']//ancestor::tr//*[@aria-label='Delete']";
 		WebDriverUtils.getWebDriver().findElement(By.xpath(xpathVal)).click();
+		
 	}
 	
 	public void clickOnDeleteButton() {
-		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.id("delete-delegate-btn")));
+		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.xpath("//button[@id='delete-delegate-btn']")));
 		
 	}
 	
