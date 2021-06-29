@@ -20,6 +20,12 @@ public class CoPrimaryMentorSteps extends PageInitializer {
 		coPrimaryMentorPage.markAsReviewedInAllTabs();
 	}
 	
+	@When("User marks all the fields as reviewed in all the tabs being LBO")
+	public void user_marks_all_the_fields_as_reviewed_in_all_the_tabs_being_LBO() {
+	 coPrimaryMentorPage.markNHGRIasReviewed();
+	}
+
+	
 	@When("Primary mentor clicks on SEND IDP TO THE TRAINEE button")
 	public void clickOnSendIDPToTrainee() {
 		eidpCommonPage.clickOnbutton("Send IDP to the Trainee");
