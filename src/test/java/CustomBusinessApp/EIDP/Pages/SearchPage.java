@@ -53,12 +53,11 @@ public class SearchPage extends CommonUtils{
 	@FindBy(how = How.ID, id = "initiate-group")
 	public WebElement nciTrainingOrganizationDropdown;
 	
-<<<<<<< Updated upstream
+
 	@FindBy(how = How.ID, id ="nedOrg")
 	public WebElement nedOrgDropdowns;
 	
-=======
->>>>>>> Stashed changes
+
 	@FindBy(how= How.ID, id= "initiate-trainee")
 	public WebElement traineeName;
 	
