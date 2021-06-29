@@ -4,12 +4,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.nci.automation.utils.EncryptionUtils;
 import com.nci.automation.web.ConfUtils;
-<<<<<<< Updated upstream
-=======
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
->>>>>>> Stashed changes
 
 import ServiceNow.ATO.Pages.BasePage;
 import ServiceNow.ATO.Pages.CommonPage;
@@ -73,10 +70,6 @@ public class LoginSteps {
 		
 	}
 	
-<<<<<<< Updated upstream
-	@When("User will login to the application as \"([^\"]*)\" user")
-	public void loginByUsername(String username) throws InterruptedException {
-=======
 
 	/*
 	 * @When("User will login to the application as \"([^\"]*)\" user") public void
@@ -92,7 +85,6 @@ public class LoginSteps {
 	public void loginByUsername(String username) throws InterruptedException, TestingException {
 		//COMPILER IS GETTING CONFUSED HERE
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
->>>>>>> Stashed changes
 		loginStepsImpl.clckOnLoginButton();
 		Thread.sleep(3000);
 		loginStepsImpl.enterUsername(username);
@@ -100,10 +92,7 @@ public class LoginSteps {
 		basePage.captureScreenshot("Before Login");
 		loginStepsImpl.clickOnSignInButton();
 	}
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 	
 	
 	@Given("user opens the fast ato page")
