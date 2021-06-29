@@ -67,16 +67,10 @@ public class AppTrackerLogInStepsImpl extends PageInitializer {
 		CommonUtils.click(appTrackerLoginPage.nativeViewButton);
 		CucumberLogUtils.logScreenShot();
 
-<<<<<<< Updated upstream
 		JavascriptUtils.clickByJS(appTrackerLoginPage.impersonateViewDropDown);
 		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(appTrackerLoginPage.impersonateOption);
-=======
-		CommonUtils.click(appTrackerLoginPage.impersonateViewDropDown);
-		CucumberLogUtils.logScreenShot();
-		CommonUtils.click(appTrackerLoginPage.impersonateOption);
->>>>>>> Stashed changes
 
 		if (userName.equals("AppTracker Vacancy Manager")) {
 			CommonUtils.click(appTrackerLoginPage.apptrackVacancyManager);
