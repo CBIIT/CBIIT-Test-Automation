@@ -18,15 +18,7 @@ import cucumber.api.junit.Cucumber;
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/ServiceNow/COVIDCode/Features"
 		, glue="ServiceNow.COVIDCode.Steps"
-<<<<<<< Updated upstream
 		, tags="@juarezds"
-=======
-<<<<<<< HEAD
-		, tags="@Progression"
-=======
-		, tags="@juarezds"
->>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
->>>>>>> Stashed changes
 		, dryRun = false
 		, monochrome=true
 		, strict = true
