@@ -1,10 +1,7 @@
 package CustomBusinessApp.EIDP.Pages;
 
-<<<<<<< Updated upstream
 import java.util.List;
 
-=======
->>>>>>> Stashed changes
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,12 +22,9 @@ public class GeneralInformationPage extends CommonUtils{
 	@FindBy(how=How.ID, id = "highestdegreeSelect")
 	public WebElement highestDegreeDropdown;
 	
-<<<<<<< Updated upstream
 	@FindBy(how=How.ID, id = "highestDegreeObtained")
 	public WebElement highestDegreeDropdownnhgri;
 
-=======
->>>>>>> Stashed changes
 	@FindBy(how = How.ID, id ="select2-primaryMentors-container")
 	public WebElement primaryMentorsName;
 	
@@ -61,12 +55,17 @@ public class GeneralInformationPage extends CommonUtils{
 	@FindBy(how = How.ID, id = "trainingTitle")
 	public WebElement currentTitle;
 	
-<<<<<<< Updated upstream
 	@FindBy( how = How.XPATH, xpath ="(//a[@title='Proceed'])[1]")
 	public WebElement ProceedButton;
 	
-=======
->>>>>>> Stashed changes
+	@FindBy( how = How.XPATH, xpath ="(//a[@title='Completed'])[1]")
+	public WebElement clickOnCompletedGeneralInfobutton;
+	
+	
+	@FindBy( how = How.XPATH, xpath ="//li[@id='advancedSearchtabs']")
+	public WebElement searchSection;
+	
+	
 	public GeneralInformationPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
