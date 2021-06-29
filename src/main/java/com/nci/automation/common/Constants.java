@@ -12,14 +12,7 @@ public class Constants {
 	public static final String BROWSER_FIREFOX = "firefox";
 	public static final String BROWSER_CHROME = "chrome";
 	public static final String BROWSER_HTML_UNIT_DRIVER = "htmlunitdriver";
-<<<<<<< Updated upstream
 	public static final String BROWSER_SAFARI = "safari";
-=======
-<<<<<<< HEAD
-=======
-	public static final String BROWSER_SAFARI = "safari";
->>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
->>>>>>> Stashed changes
 	public static final String BROWSER_PHANTOM = "phantomjs";
 	public static final String BROWSER_MOBILE = "mobile";
 	public static final String ANDROID_MOBILE = "android";
@@ -68,12 +61,4 @@ public class Constants {
 	public static enum OSType {
 		Windows, MacOS, Unix, Other
 	};
-<<<<<<< Updated upstream
 }
-=======
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
->>>>>>> Stashed changes
