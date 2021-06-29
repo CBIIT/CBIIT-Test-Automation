@@ -5,288 +5,1015 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
-public class NativeViewEnrollmentsPage extends CommonUtils {
-
-	/** --------------- BEGINNING OF NATIVE COVIDcode VIEW All APPLICATIONS BAR --------------- */
-
-	/** Filter Navigator search bar */
-	@FindBy(css = "#filter")
-	public WebElement filterNavigator;
-
-	/** Native View Frame */
-	@FindBy(id = "gsft_main")
-	public WebElement NativeViewFrame;
+public class NativeViewEnrollmentViewPage extends CommonUtils {
 	
-	/** Native View Download Attachment Link */
-	@FindBy(xpath = "//a[contains(text(), '[download]')]")
-	public WebElement nativeViewDownloadAttachmentLink;
+	/** --------------- BEGINNING OF NATIVE VIEW COVIDcode ENROLLMENT VIEW  ---------------  */ 
+
+    /** Native View Enrollment View frame */
+    @FindBy(xpath = "//iframe[@id='gsft_main']")
+    public WebElement nativeViewEnrollmentViewFrame;
+    
+    /** Native View Enrollment View Save Button */
+    @FindBy(xpath = "(//button[@class='form_action_button  action_context btn btn-default'])[1]")
+    public WebElement nativeViewEnrollmentViewPageSaveButton;
+    
+    /** Native View Enrollment View Submit for Review Button */
+    @FindBy(xpath = "//button[@id = 'submit_for_review_bottom']")
+    public WebElement nativeViewEnrollmentViewPageSubmitForReviewBtn;
+    
+    /** Native View Enrollment View Update button */
+    @FindBy(xpath = "//*[@id='sysverb_insert_bottom']")
+    public WebElement nativeViewEnrollmentViewPageUpdateButton;
+    
+    /** Native View Enrollment View Back from view page button */
+    @FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.form_header']/span[1]/span[1]/nav[1]/div[1]/div[1]/button[1]")
+    public WebElement  nativeViewEnrollmentViewbackFromViewPageButton;
+        
+	/** Native View Enrollment View User Group ID drop down */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.user_group_id']")
+	public WebElement nativeViewEnrollmentViewUserGroupIDDropDown;
+
+	/** Native View Enrollment View Host Hospital Code drop down */
+	@FindBy(xpath = "//select[@id='sys_select.x_g_nci_geco_covid_geco_covid_19_enrollment.host_hospital_code']")
+	public WebElement nativeViewEnrollmentViewHostHospitalCodeDropDown;
+
+	/** Native View Enrollment View Inquiry ID field */
+	@FindBy(xpath = "//*[@id='sys_display.x_g_nci_geco_covid_geco_covid_19_enrollment.inquiry_id']")
+	public WebElement nativeViewEnrollmentViewInquiryIdField;
 	
-	/** COVIDCode Follow Ups Group 1 link */
-	@FindBy(xpath = "/html/body/div[1]/div[1]/span/div/div[6]/table/tbody/tr/td/div/table/tbody/tr[1]/td[3]")
-	public WebElement covidCodeFollowUpsGroup1link;
+	/** Native View Enrollment View Inquiry ID text */
+	@FindBy(xpath = "//div[@id='label.x_g_nci_geco_covid_geco_covid_19_enrollment.inquiry_id']/label")
+	public WebElement nativeViewEnrollmentViewInquiryIdText;
 
-	/** COVIDCode Enrollments New button */
-	@FindBy(css = "#sysverb_new")
-	public WebElement covidCodeEnrollmentsNewButton;
+	/** Native View Enrollment View Inquiry ID lookup button */
+	@FindBy(xpath = "//*[@id='lookup.x_g_nci_geco_covid_geco_covid_19_enrollment.inquiry_id']")
+	public WebElement nativeViewEnrollmentViewInquiryLookUpButton;
+
+	/** Native View Enrollment View NIH Medical Record Number field */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.nih_medical_record_number']")
+	public WebElement nativeViewEnrollmentViewNihMedcalRecordNumber;
+
+	/** Native View Enrollment View Shipment Center Code */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.shipment_center_code']")
+	public WebElement nativeViewEnrollmentViewShipmentCenterCode;
+
+	/** Native View Enrollment View Verbal Consent Drop Down */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.verbal_consent']")
+	public WebElement nativeViewEnrollmentViewConsentDropDown;
 	
-	/** COVIDCode Enrollments Open Record */
-	@FindBy(xpath = "//a[contains(text(), 'Open Record')]")
-	public WebElement covidCodeEnrollmentOpenRecordBtn;
+	/** Native View Enrollment View Hospital Name text */
+	@FindBy(xpath = "//div[@id='label.x_g_nci_geco_covid_geco_covid_19_enrollment.host_hospital_city_code']/label")
+	public WebElement nativeViewEnrollmentViewHospitalNameText;
 
-	/** COVIDCode Follow Up New button */
-	@FindBy(xpath = "//button[@id = 'sysverb_new']")
-	public WebElement covidCodeFollowUpNewButton;
+	/** Native View Enrollment View Patient Last Name field */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.last_name']")
+	public WebElement nativeViewEnrollmentViewPatientLastNameField;
 
-	/** COVIDCode Enrollments Search drop down */
-	@FindBy(xpath = "//span[@class = 'input-group-addon input-group-select']/span/select")
-	public WebElement covidCodeEnrollmentsSearchDropDown;
+	/** Native View Enrollment View Patient First Name */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.first_name']")
+	public WebElement nativeViewEnrollmentViewPatientFirstName;
 
-	/** COVIDCode Enrollments Search text box */
-	@FindBy(xpath = "//div[@class='input-group']/input")
-	public WebElement covidCodeEnrollmentsSearchTextBox;
+	/** Native View Enrollment View Patient Middle Initial */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.middle_initial']")
+	public WebElement nativeViewEnrollmentViewPatientMiddleInitial;
 
-	/** COVIDCode Survey Number first link */
-	@FindBy(xpath = "//tr[3]/td[3]/a")
-	public WebElement covidCodeSurveyNumberFirstLink;
+	/** Native View Enrollment View Contact email address */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.contact_email']")
+	public WebElement nativeViewEnrollmentViewContactEmailAddress;
 
-	/** COVIDCode Follow Ups Activity tab */
-	@FindBy(xpath = "//*[@id='tabs2_section']/span[6]/span[1]/span[2]")
-	public WebElement covidCodeFollowUpsActivityTab;
+	/** Native View Enrollment View Contact phone number */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.contact_phone_number']")
+	public WebElement nativeViewEnrollmentViewContactPhoneNumber;
 
-	/** COVIDcode Enrollments Context Menu Link */
-	@FindBy(xpath = "//h2[contains(text(), 'COVIDcode Enrollments')]")
-	public WebElement covidCodeEnrollmentsContextMenuLink;
+	/** Native View Enrollment View Host Hospital Code dropdown */
+	@FindBy(xpath = "//select[@id='sys_select.x_g_nci_geco_covid_geco_covid_19_enrollment.host_hospital_code']")
+	public WebElement nativeViewEnrollmentViewHostHospitalCodeDD;
 
-	/** Disease Courses Context Menu Link */
-	@FindBy(xpath = "//h2[contains(text(), 'Disease Courses')]")
-	public WebElement diseaseCoursesContextMenuLink;
+	/** Native View Enrollment View Anonymized Patient ID */
+	@FindBy(xpath = "//*[@id='sys_readonly.x_g_nci_geco_covid_geco_covid_19_enrollment.anonymized_patient_id']")
+	public WebElement nativeViewEnrollmentViewAnonymizedPatientID;
 
-	/** COVIDcode Follow Ups Context Menu Link */
-	@FindBy(xpath = "//h2[contains(text(), 'COVIDcode Follow Ups')]")
-	public WebElement followUpsContextMenuLink;
+	/** Native View Enrollment View Street address 1 */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.street_address_1']")
+	public WebElement nativeViewEnrollmentViewStreetAddress1;
 
-	/** COVIDcode Dashboard Context Menu Link */
-	@FindBy(xpath = "//span[@class = 'sn-canvas-header-title ng-binding']")
-	public WebElement covidCodeDashboardContextMenuLink;
+	/** Native View Enrollment View City */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.city']")
+	public WebElement nativeViewEnrollmentViewCity;
+
+	/** Native View Enrollment View State */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.us_state']")
+	public WebElement nativeViewEnrollmentViewState;
+	
+	/** Native View Enrollment View Zip code */
+	@FindBy(xpath = "/html/body/div[2]/form/span[1]/span/div[5]/div/div[2]/div[6]/div[2]/input")
+	public WebElement nativeViewEnrollmentViewZipCode;
+
+	/** Native View 'All' breadcrumb link */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment_breadcrumb']/a/b")
+	public WebElement nativeViewAllBreadCrumbLink;
+	
+	/** Native View Follow Up Patient Id */
+	@FindBy(xpath = "//input[@id='sys_display.x_g_nci_geco_covid_covidcode_follow_up.patient_id']")
+	public WebElement nativeViewFollowUpPatientId;
+
+	
+	/** --------------- END OF NATIVE VIEW COVIDcode ENROLLMENT VIEW  ---------------  */ 
+
+
+	/** --------------- NATIVE VIEW COVIDcode ENROLLMENT VIEW DEMOGRAPHICS SECTION TABLE ---------------  */ 
+
+    /** Native View Enrollment Questionnaire demographics tab */
+	@FindBy(xpath = "/html/body/div[2]/form/div[1]/span[1]/span[1]/span[2]")
+	public WebElement nativeViewEnrollmentViewDemographicsTab;
+	
+
+	/** --------------- BEGINNING OF NATIVE VIEW COVIDcode ENROLLMENT VIEW DEMOGRAPHICS SECTION TABLE ---------------  */ 
+
+	/** Native View Enrollment View Demographics Date form completed field */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.form_complete_date']")
+	public WebElement nativeViewEnrollmentViewDemographicsDateFormCompletedField;
+	
+	/** Native View Enrollment View Demographics Date form completed Selected date cannot be in the future text */
+	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.form_complete_date_fieldmsg']/div")
+	public WebElement nativeViewEnrollmentViewDemographicsDateFormCompletedSelectedDateCannotBeInTheFutureText;
 
 	/**
-	 * --------------- THE END OF NATIVE COVIDcode VIEW All APPLICATIONS BAR ---------------*/
+	 * Native View Enrollment View Demographics What is your date of birth? field
+	 */
+	@FindBy(xpath = "//input[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.date_of_birth']")
+	public WebElement nativeViewEnrollmentViewDemographicsWhatIsYourDateOfBirthField;
+	
+	/**
+	 * Native View Enrollment View Demographics What is your date of birth? Selected date cannot be in the future text
+	 */
+	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.date_of_birth_fieldmsg']/div")
+	public WebElement nativeViewEnrollmentViewDemographicsWhatIsYourDateOfBirthSelectedDateCannotBeInTheFutureText;
+
+	/**
+	 * Native View Enrollment View Demographics What is your biological sex? drop
+	 * down
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.sex']")
+	public WebElement nativeViewEnrollmentViewDemographicsWhatIsYourBioSexDropDown;
+
+	/** Native View Enrollment View Demographics What is your current height? */
+	@FindBy(xpath = "//select[contains(@id , 'height_choice')]")
+	public WebElement nativeViewEnrollmentViewDemographicsWhatIsYourCurrentHeightDropDown;
+	
+	/** Native View Enrollment View Demographics Height Feet field */
+	@FindBy(xpath = "(//input[contains(@id, 'height_feet')])[2]")
+	public WebElement nativeViewEnrollmentViewDemographicsHeightField;
+
+	/** Native View Enrollment View Demographics Height inches field */
+	@FindBy(xpath = "(//input[contains(@id, 'height_inches')])[2]")
+	public WebElement nativeViewEnrollmentViewDemographicsHeightInches;
+	
+	/** Native View Enrollment View Demographics Error Message for Inches */
+	@FindBy(xpath = "/html/body/div[2]/form/span[2]/span/div/div/div[1]/div[7]/div[2]/div[2]/div")
+	public WebElement nativeViewEnrollmentViewDemographicsInchesErrorMessage;
+
+	/** Native View Enrollment View Demographics Height centimeters field */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.height']")
+	public WebElement nativeViewEnrollmentViewDemographicsHeightCentimeters;
+
+	/**
+	 * Native View Enrollment View Demographics What is your current weight? drop
+	 * down
+	 */
+	@FindBy(xpath = "//select[contains(@id, 'weight_choice')]")
+	public WebElement nativeViewEnrollmentViewDemographicsCurrentWeightDropDown;
+
+	/** Native View Enrollment View Demographics Weight in pound field */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.weight_pounds']")
+	public WebElement nativeViewEnrollmentViewDemographicsWeighPoundtField;
+
+	/** Native View Enrollment View Demographics Weight in kilograms field */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.weight']")
+	public WebElement nativeViewEnrollmentViewDemographicsWeightKilogramsField;
+
+	/**
+	 * Native View Enrollment View Demographics How would you describe your race?
+	 * drop down
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.ancestry']")
+	public WebElement nativeViewEnrollmentViewDemographicsHowWouldYouDescribeYourRaceDropDown;
+
+	/**
+	 * Native View Enrollment View Demographics Are you hispanic or latino? drop
+	 * down
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.are_you_hispanic_or_latino']")
+	public WebElement nativeViewEnrollmentViewDemographicsAreYouHispaniceOrLatinoDropDown;
+
+	/**
+	 * --------------- END OF NATIVE VIEW COVIDcode ENROLLMENT VIEW DEMOGRAPHICS  SECTION TABLE --------------- */
 
 	
 	/**
-	 * ------ BEGINNING OF NATIVE VIEW COVIDcode APPLICATION PANNEL NAVIGATOR SECTION----------*/
-	
-	/** Native View Panel Navigator Admin Guide Link */
-	@FindBy(xpath = "//a[@id='abad49291b589c102701b913cc4bcb06']/div/div")
-	public WebElement nativeViewPanelNavigatorAdminGuideLink;
+	 * --------------- BEGINNING OF NATIVE VIEW COVIDcode ENROLLMENT VIEW SYMPTOMOLOGY SECTION TABLE ---------------*/
 
-	/** Native View Panel Navigator COVIDCode Enrollments Link */
-	@FindBy(xpath = "//div[contains(text(), 'COVIDcode enrollments')]")
-	public WebElement nativeViewPanelNavigatorCovidCodeEnrollmentsLink;
-
-	/** Native View Panel Navigator Forms Assigned to Me Link */
-	@FindBy(xpath = "//div[contains(text(), 'Forms Assigned to Me')]")
-	public WebElement nativeViewPanelNavigatorFormsAssignedToMeLink;
-
-	/** Native View Panel Navigator Enrollment and Follow Up Link */
-	@FindBy(xpath = "//span[contains(text(), 'Enrollment and Follow Up')]")
-	public WebElement nativeViewPanelNavigatorEnrollmentAndFollowUpLink;
-
-	/** Native View Panel Navigator My draft enrollment Link */
-	@FindBy(xpath = "//div[contains(text(), 'My draft enrollments')]")
-	public WebElement nativeViewPanelNavigatorMyDraftEnrollmentLink;
-
-	/** Native View Panel Navigator COVIDCode Follow Ups link */
-	@FindBy(xpath = "//div[contains(text(), 'COVIDcode Follow Ups')]")
-	public WebElement nativeViewPanelNavigatorCovidCodeFollowUpsLink;
-
-	/** Native View Panel Navigator My draft follow ups Link */
-	@FindBy(xpath = "//div[contains(text(), 'My draft follow ups')]")
-	public WebElement nativeViewPanelNavigatorMyDraftFollowUpsLink;
-
-	/** Native View Panel Navigator Disease Course Link */
-	@FindBy(xpath = "//div[contains(text(), 'Disease Course')]")
-	public WebElement nativeViewPanelNavigatorDiseaseCourseLink;
-
-	/** Native View Panel Navigator Specimens Link */
-	@FindBy(xpath = "//div[contains(text(), 'Specimens')]")
-	public WebElement nativeViewPanelNavigatorSpecimensLink;
-
-	/** Native View Panel Navigator COVIDcode Dashboard Link */
-	@FindBy(xpath = "//div[contains(text(), 'COVIDcode Dashboard')]")
-	public WebElement nativeViewPanelNavigatorCovidCodeDashboardLink;
-
-	/** Native View Panel Navigator Inquiry Tracking Link */
-	@FindBy(xpath = "//li[@id = 'concourse_module_115c7e961b48a410e541631ee54bcb39']/div/a")
-	public WebElement nativeViewPanelNavigatorInquiryTrackingLink;
-
-	/** Native View Panel Navigator COVIDCode Volunteer Surveys Link */
-	@FindBy(xpath = "//div[contains(text(), 'COVIDcode volunteer surveys')]")
-	public WebElement nativeViewPanelNavigatorCovidCodeVolunteerSurveysLink;
-
-	/** Native View Panel Navigator COVIDcode Inquiry Tracking Link */
-	@FindBy(xpath = "//div[contains(text(), 'COVIDcode Inquiry Tracking')]")
-	public WebElement nativeViewPanelNavigatorCovidCodeInquiryTrackingLink;
-
-	/** Native View Panel Navigator My Inquiry Tracking Records Link */
-	@FindBy(xpath = "//div[contains(text(), 'My Inquiry Tracking Records')]")
-	public WebElement nativeViewPanelNavigatorMyInquiryTrackingRecordsLink; 
-
-	/** Native View Panel Navigator Inquiry Tracking Dashboard Link */
-	@FindBy(xpath = "//div[contains(text(), 'Inquiry Tracking Dashboard')]")
-	public WebElement nativeViewPanelNavigatorInquiryTrackingDashboardLink;
-
-	/** Native View Panel Navigator Institution Contact Tracking Link */
-	@FindBy(xpath = "//li[@id = 'concourse_module_4ebc72d61b48a410e541631ee54bcb2e']/div/a")
-	public WebElement nativeViewPanelNavigatorInstitutionContactTrackingLink;
-
-	/** Native View Panel Navigator COVIDcode Institution Contact Tracking Link */
-	@FindBy(xpath = "//div[contains(text(), 'COVIDcode Institution Contact Tracking')]")
-	public WebElement nativeViewPanelNavigatorCovidCodeInstitutionContactTrackingLink;
-
-	/** Native View Panel Navigator Admin Link */
-	@FindBy(xpath = "//li[@id = 'concourse_module_d5de22161b08a410e541631ee54bcb18']/div/a")
-	public WebElement nativeViewPanelNavigatorAdminLink;
-
-	/** Native View Panel Navigator GeCo COVID Multi-Select Choices Link */
-	@FindBy(xpath = "//div[contains(text(),'GeCo COVID Multi-Select Choices')]")
-	public WebElement nativeViewPanelNavigatorGeCoCovidMultiSelectChoicesLink;
-
-	/** Native View Panel Navigator Hospital Codes Link */
-	@FindBy(xpath = "//div[contains(text(),'Hospital Codes')]")
-	public WebElement nativeViewPanelNavigatorHospitalCodesLink;
-
-	/** Native View Panel Navigator Notifications Link */
-	@FindBy(xpath = "//li[@id = 'concourse_module_dd3a471c1bdda8106daea681f54bcb32']/div/a/div/div")
-	public WebElement nativeViewPanelNavigatorNotificationsLink;
+	/** Native View Enrollment View Symptomology tab */
+	@FindBy(xpath = "//*[@id='tabs2_section']/span[2]/span[1]/span[2]")
+	public WebElement nativeViewEnrollmentViewSymptomologyTab;
 
 	/**
-	 * ----- END OF NATIVE VIEW COVIDcode APPLICATION PANNEL NAVIGATOR SECTION ---------------
+	 * Native View Enrollment View Symptomology When did you first develop symptoms
+	 * of COVID-19? field
+	 */
+	@FindBy(xpath = "//*[@aria-label='When did you first develop symptoms of COVID-19?']")
+	public WebElement nativeViewEnrollmentViewSymptomologyWhenFirstDevelopSymptomsField;
+	
+	/**
+	 * Native View Enrollment View Symptomology When did you first develop symptoms
+	 * of COVID-19? Selected date cannot be in the future text
+	 */
+	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.date_first_symptoms_fieldmsg']/div")
+	public WebElement nativeViewEnrollmentViewSymptomologyWhenFirstDevelopSymptomsSelectedDateCannotBeInTheFutureText;
+
+	/**
+	 * Native View Enrollment View Symptomology How was the sample taken? drop down
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.how_was_the_sample_taken']")
+	public WebElement nativeViewEnrollmentViewSymptomologyHowWasTheSampleTakenDropDown;
+
+	/** Native View Enrollment View Symptomology Were you symptomatic? drop down */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.symptomatic']")
+	public WebElement nativeViewEnrollmentViewSymptomologyWereYouSymptomaticDropDown;
+
+	/**
+	 * Native View Enrollment View Symptomology When where you officially diagnosed
+	 * with COVID-19? field
+	 */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.date_official_diagnosis']")
+	public WebElement nativeViewEnrollmentViewSymptomologyDateOfficiallyDiagnosed;
+	
+	/**
+	 * Native View Enrollment View Symptomology When where you officially diagnosed
+	 * with COVID-19? Selected date cannot be in the future text
+	 */
+	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.date_official_diagnosis_fieldmsg']/div")
+	public WebElement nativeViewEnrollmentViewSymptomologyDateOfficiallyDiagnosedSelectedDateCannotBeInTheFutureText;
+	
+	/** Native View Enrollment View Symptomology Have you officially been diagnosed with COVID19 */
+	@FindBy(xpath="//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.officially_diagnosed']")
+	public WebElement nativeViewEnrollmentViewSymptomologyHaveYouOfficiallyBeenDiagnosedWithCOVID19;
+	
+	/** Native View Enrollment View Symptomology Have you officially been diagnosed with COVID-19? text */
+	@FindBy(xpath = "//span[contains(text(), 'Have you officially been diagnosed with COVID-19?')]")
+	public WebElement nativeViewEnrollmentViewSymptomologyHaveYouOfficiallyBeenDiagnosedWithCOVID19Text;
+	
+
+	/**
+	 * --------------- END OF NATIVE VIEW COVIDcode ENROLLMENT VIEW SYMPTOMOLOGY  SECTION TABLE ---------------
 	 */
 
 	
 	/**
-	 * ---------- BEGINNING OF NATIVE VIEW COVIDcode MY VIEW MY INQUIRY TRACKING RECORD------------*/
-
-	/** My Inquiry Tracking Records New Button */
-	@FindBy(xpath = "//button[@class='selected_action action_context btn btn-primary']")
-	public WebElement myInquiryTrackingRecordsNewButton;
-
-	/** My Inquiry Tracking Records Study Team Contact Section tab */
-	@FindBy(xpath = "//span[@aria-controls='section_tab.36ef0c611be8e410e541631ee54bcbef']")
-	public WebElement myInquiryTrackingRecordsStudyTeamContactTab;
-
-	/**
-	 * My Inquiry Tracking Records Study Team Contact "Section COVID test result
-	 * received (non OMS)?" text
+	 * --------------- BEGINNING OF NATIVE VIEW COVIDcode ENROLLMENT VIEW EXPOSURES AND RISK FACTORS SECTION TABLE ---------------
 	 */
-	@FindBy(xpath = "//span[contains(text(), 'non OMS')]")
-	public WebElement myInquiryTrackingRecordsStudyTeamContactCOVIDtestResultReceivedQuestionText;
+
+	/** Native View Enrollment View Exposures and risk factors tab */
+	@FindBy(xpath = "//*[@id='tabs2_section']/span[3]/span[1]/span[2]")
+	public WebElement nativeViewEnrollmentViewExposuredAndRiskFactorsTab;
 
 	/**
-	 * My Inquiry Tracking Records Study Team Contact "Covid Test Result F/U 1" text
+	 * Native View Enrollment View Exposures and Risk Factors Tell Me Medical
+	 * Conditions unlock button
 	 */
-	@FindBy(xpath = "//span[contains(text(), 'Result F/U 1')]")
-	public WebElement myInquiryTrackingRecordsStudyTeamContactCovidTestResult_F_U_1Text;
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.comorbidities_unlock']")
+	public WebElement nativeViewEnrollmentViewExposuredAndRiskFactorsTellMeMedicalConditionsUnlockButton;
 
 	/**
-	 * My Inquiry Tracking Records Study Team Contact "Covid Test Result F/U 2" text
+	 * Native View Enrollment View Exposures and Risk Factors Tell Me Medical
+	 * Conditions Lookup Button
 	 */
-	@FindBy(xpath = "//span[contains(text(), 'Result F/U 2')]")
-	public WebElement myInquiryTrackingRecordsStudyTeamContactCovidTestResult_F_U_2Text;
+	@FindBy(xpath = "//*[@id='lookup.x_g_nci_geco_covid_geco_covid_19_enrollment.comorbidities']")
+	public WebElement nativeViewEnrollmentViewExposuredAndRiskFactorsLookupButton;
 
-	/** My Inquiry Tracking Records Study Team Contact "Telephone interview date/time" text */
-	@FindBy (xpath = "//span[contains(text(), 'Telephone')]")
-	public WebElement  myInquiryTrackingRecordsStudyTeamContactTelephoneInterviewDate_timeText;
-	
-	/** My Inquiry Tracking Records Study Team Contact "Assigned to" text */
-	@FindBy (xpath = "//div[@id='label.x_g_nci_geco_covid_inquiry_tracking.assigned_to']/label/span[2]")
-	public WebElement  myInquiryTrackingRecordsStudyTeamContactAssignedToText;
-	
-	/** My Inquiry Tracking Records Study Team Contact "Assigned to me" button */
-	@FindBy (xpath = "//button[@id='add_me_locked.x_g_nci_geco_covid_inquiry_tracking.assigned_to']")
-	public WebElement  myInquiryTrackingRecordsStudyTeamContactAssignedToMeButton;
-	
-	/** My Inquiry Tracking Records Study Team Contact "Unlock Assigned to" button */
-	@FindBy (xpath = "//button[@id='x_g_nci_geco_covid_inquiry_tracking.assigned_to_unlock']")
-	public WebElement  myInquiryTrackingRecordsStudyTeamContactUnlockAssignedToButton;
-	
-	/** My Inquiry Tracking Records Study Team Contact "Unlock Assigned to" search text field */
-	@FindBy (xpath = "//input[@id='sys_display.x_g_nci_geco_covid_inquiry_tracking.assigned_to']")
-	public WebElement  myInquiryTrackingRecordsStudyTeamContactUnlockAssignedToSearchTextField;
-	
-	/** My Inquiry Tracking Records Study Team Contact "Assigned to me" Name text */
-	@FindBy (xpath = "//p[@id='x_g_nci_geco_covid_inquiry_tracking.assigned_to_nonedit']")
-	public WebElement  myInquiryTrackingRecordsStudyTeamContactAssignedToMeNameText;
-	
-	/** My Inquiry Tracking Records Study Team Contact "List of Assigned to" drop down */
-	@FindBy (xpath = "//select[@id='select_0x_g_nci_geco_covid_inquiry_tracking.assigned_to']/option")
-	public List<WebElement> myInquiryTrackingRecordsStudyTeamContactListOfAssignedToDD;
-	
-	/** My Inquiry Tracking Records Study Team Contact Initial Emails Sent Date Select Date Button */
-	@FindBy (xpath = "//a[@id='x_g_nci_geco_covid_inquiry_tracking.study_team_contact_date_1.ui_policy_sensitive']" )
-	public WebElement myInquiryTrackingRecordsStudyTeamContactInitialEmailsSentDateSelectDateButton;
-	
-	/** My Inquiry Tracking Records Study Team Contact Initial Emails Sent Date Select Date Button Calendar Table */
-	@FindBy (xpath = "//table[@id='window.GwtDateTimePicker']")
-	public WebElement myInquiryTrackingRecordsStudyTeamContactInitialEmailsSentDateSelectDateButtonCalendarTable;
-	
-	/** My Inquiry Tracking Records Study Team Contact Covid Test Result F/U 1 Text Box */
-	@FindBy (xpath = "//input[@name='x_g_nci_geco_covid_inquiry_tracking.study_team_contact_date_2']")
-	public WebElement myInquiryTrackingRecordsStudyTeamContactCovidTestResultFU1TextBox; 
-	
-	/** My Inquiry Tracking Records Study Team Contact Covid Test Result F/U 1 Text Box */
-	@FindBy (xpath = "//input[@name='x_g_nci_geco_covid_inquiry_tracking.study_team_contact_date_3']")
-	public WebElement myInquiryTrackingRecordsStudyTeamContactCovidTestResultFU2TextBox;
+	/**
+	 * Native View Enrollment View Exposures and Risk Factors Tell Me Medical
+	 * Conditions Search Bar
+	 */
+	@FindBy(xpath = "//*[@id='sys_display.x_g_nci_geco_covid_geco_covid_19_enrollment.comorbidities']")
+	public WebElement nativeViewEnrollmentViewExposuredAndRiskFactorstellMeMedicalConditionsSearchBar;
 
+	/**
+	 * Native View Enrollment View Exposures and Risk Factors Have you/the patient
+	 * ever regularly vaped an e-cigarette or similar device? drop down
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.vape_habit']")
+	public WebElement nativeViewEnrollmentViewExposuredAndRiskFactorsHasPatientVapedDropDown;
 
-	/** ---------------THE END OF THE NATIVE VIEW COVIDcode My Inquiry Tracking Records VIEW  ---------------  */
-	
-	
-	/** --------------- BEGINNING OF NATIVE VIEW COVIDcode Specimens VIEW  ---------------  */ 
-	
-	/** Specimens Preview Button */
-	@FindBy (xpath = "(//*[@class='list_decoration_cell col-small col-center '])[1]")
-	public WebElement specimensPreviewButton;
-	
-	/** Specimens Open Record Button */
-	@FindBy (xpath = "//*[@class='btn btn-sm btn-default pop-over-button pull-right']")
-	public WebElement specimensOpenRecordButton;
-	
-	/** Specimens Sample Outcome drop down */
-	@FindBy (xpath = "//select[@id='x_g_nci_geco_covid_blood_samples.sample_outcome']")
-	public WebElement specimensSampleOutcomeDD;
-	
-	/** Specimen Sample Code Link */
-	@FindBy (xpath = "(//a[contains(text(), 'Sample Code')])[1]")
-	public WebElement specimenSampleCodeLink;
+	/**
+	 * Native View Enrollment View Exposures and Risk Factors Have you/the patient
+	 * smoked at least 100 cigarettes in your entire life? drop down
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.smoke_100']")
+	public WebElement nativeViewEnrollmentViewExposuredAndRiskFactorsHasPatientSmoked100CigarretesDropDown;
 
-	/** --------------- THE END OF NATIVE VIEW COVIDcode Specimens VIEW  ---------------  */ 
+	/**
+	 * Native View Enrollment View Exposures and Risk Factors When you smoke/have
+	 * smoked, how many cigarettes do/did you usually smoke daily? drop down
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.smoke_habit']")
+	public WebElement nativeViewEnrollmentViewExposuredAndRiskFactorsHowManyCigarettesPatientSmokesDailyDD;
+
+	/**
+	 * Native View Enrollment View Exposures and Risk Factors Non-steroidal
+	 * anti-inflammatory drugs drop down
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.used_anti_inflammatory']")
+	public WebElement nativeViewEnrollmentViewExposuredAndRiskFactorsAntiInflammatoryDD;
+
+	/**
+	 * Native View Enrollment View Exposures and Risk Factors Myocardial infarction
+	 * or stroke medication (ex. digoxin) drop down
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.used_stroke']")
+	public WebElement nativeViewEnrollmentViewExposuredAndRiskFactorsMyocardialInfarctionOrStrokeMedicationDD;
+
+	/**
+	 * Native View Enrollment View Exposures and Risk Factors
+	 * Paracetamol/acetaminophen (ex. acetaminophen: Tylenol) drop down
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.used_paracetamol']")
+	public WebElement nativeViewEnrollmentViewExposuredAndRiskFactorsParacetamolAcetaminophenDD;
+
+	/**
+	 * Native View Enrollment View Exposures and Risk Factors Blood thinners (ex.
+	 * warfarin – Coumadin, rivaroxaban – Xarelto) drop down
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.used_blood_thinners']")
+	public WebElement nativeViewEnrollmentViewExposuredAndRiskFactorsBloodThinnersDD;
+
+	/**
+	 * Native View Enrollment View Exposures and Risk Factors Asthma medication (ex.
+	 * albuterol – Ventolin) drop down
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.used_asthma']")
+	public WebElement nativeViewEnrollmentViewExposuredAndRiskFactorsAsthmaMedicationDD;
+
+	/**
+	 * Native View Enrollment View Exposures and Risk Factors ACE-inhibitors for
+	 * blood pressure (ex. enalapril, lisinopril) drop down
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.used_ace_inhibitors']")
+	public WebElement nativeViewEnrollmentViewExposuredAndRiskFactorsAceInhibitorsDD;
+
+	/**
+	 * Native View Enrollment View Exposures and Risk Factors Pollen allergy
+	 * medication (ex diphenhydramine – Benadryl, ioratadine - Claritin) drop down
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.used_allergy']")
+	public WebElement nativeViewEnrollmentViewExposuredAndRiskFactorsAllergyMedicationUsedDD;
+
+	/**
+	 * Native View Enrollment View Exposures and Risk Factors ARBs(Angiotensin II
+	 * Receptor Blockers) (candesartan- Atacand, valsartan-Diovan) drop down
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.used_arbs']")
+	public WebElement nativeViewEnrollmentViewExposuredAndRiskFactorsUsedArbsDD;
+
+	/**
+	 * Native View Enrollment View Exposures and Risk Factors Antibiotics
+	 * penicillin, azithromycin (ex. Z-pack) drop down
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.used_antibiotics']")
+	public WebElement nativeViewEnrollmentViewExposuredAndRiskFactorsUsedAntibioticsDD;
+
+	/**
+	 * Native View Enrollment View Exposures and Risk Factors How many times have
+	 * you been exposed to known COVID-19 people? drop down
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.exposure_frequency']")
+	public WebElement nativeViewEnrollmentViewExposuredAndRiskFactorsExposureToCOVID19FrequencyDD;
+
+	/** Native View Enrollment View Exposures and Risk Factors Did you/the patient wear a mask? drop down */
+	@FindBy (xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.exposure_protection']")
+	public WebElement nativeViewEnrollmentViewExposuredAndRiskFactorsDidYouThePatientWearAMaskDD;
+	
+	/** --------------- END OF NATIVE VIEW COVIDcode ENROLLMENT VIEW EXPOSURES AND RISK FACTORS SECTION TABLE ---------------  */ 
+	
+	
+	/** --------------- BEGINNING OF NATIVE VIEW COVIDcode ENROLLMENT VIEW PARTICIPANT EVENTS SECTION TABLE ---------------  */ 
+
+	/** Native View Enrollment View Participant Events tab */
+	@FindBy(xpath = "//*[@id='tabs2_section']/span[4]/span[1]")
+	public WebElement nativeViewEnrollmentViewParticipantEventsTab;
+
+	/** Native View Enrollment View Participant Events Consented Date field */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.consented']")
+	public WebElement nativeViewEnrollmentViewParticipantEventsConsentedDate;
+	
+	/** Native View Enrollment View Participant Events Consented Date Selected date cannot be in the future text */
+	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.consented_fieldmsg']/div")
+	public WebElement nativeViewEnrollmentViewParticipantEventsConsentedSelectedDateCannotBeInTheFutureText;
+
+	/**
+	 * Native View Enrollment View Participant Events Minimal Survey Conducted Date
+	 * field
+	 */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.min_survey_conducted']")
+	public WebElement nativeViewEnrollmentViewParticipantEventsMinimalSurveyConductedDate;
+	
+	/**
+	 * Native View Enrollment View Participant Events Minimal Survey Conducted Date Selected date cannot be in the future text */
+	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.min_survey_conducted_fieldmsg']/div")
+	public WebElement nativeViewEnrollmentViewParticipantEventsMinimalSurveyConductedDateSelectedDateCannotBeInTheFutureText;
+
+	/**
+	 * Native View Enrollment View Participant Events Assigned Protocol 20-HG-0090
+	 * in CRIS Date field
+	 */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.assigned_protocol_cris']")
+	public WebElement nativeViewEnrollmentViewParticipantEventsAssignedProtocolInCRISDate;
+	
+	/**
+	 * Native View Enrollment View Participant Events Assigned Protocol 20-HG-0090
+	 * in CRIS Selected date cannot be in the future text
+	 */
+	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.assigned_protocol_cris_fieldmsg']/div")
+	public WebElement nativeViewEnrollmentViewParticipantEventsAssignedProtocolInCRISSelectedDateCannotBeInTheFutureText;
+
+	/**
+	 * Native View Enrollment View Participant Events Data Extracted from CRIS?
+	 * dropdown
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.data_extracted_cris']")
+	public WebElement nativeViewEnrollmentViewParticipantEventsDataExtractedFromCRISDropDown;
+
+	/**
+	 * Native View Enrollment View Participant Events RVS Payment Requested Text
+	 */
+	@FindBy(xpath = "//span[contains(text(), 'RVS Payment')]")
+	public WebElement nativeViewEnrollmentViewParticipantEventsRvsPaymentRequestedText;
+
+	/**
+	 * Native View Enrollment View Participant Events Data Extracted from CRIS?
+	 * field
+	 */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.data_extracted_date_cris']")
+	public WebElement nativeViewEnrollmentViewParticipantEventsDataExtractedFromCRISField;
+
+	/** Native View Enrollment View Participant Events RVS Status dropdown */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.rvs_status']")
+	public WebElement nativeViewEnrollmentViewParticipantEventsRvsStatusDropDown;
+
+	/**
+	 * Native View Enrollment View Participant Events RVS Payment Requested Date
+	 * Selected date cannot be in the future text
+	 */
+	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.rvs_payment_requested_fieldmsg']/div")
+	public WebElement nativeViewEnrollmentViewParticipantEventsRvsPaymentRequestedDateSelectedDateCannotBeInTheFutureText;
+	
+	/**
+	 * Native View Enrollment View Participant Events RVS Payment Requested Date
+	 * field
+	 */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.rvs_payment_requested']")
+	public WebElement nativeViewEnrollmentViewParticipantEventsRvsPaymentRequestedDatefField;
+
+	/**
+	 * Native View Enrollment View Participant Events When did you first develop
+	 * symptoms of COVID-19? field
+	 */
+	@FindBy(xpath = "//div[@class='col-xs-10 col-md-9 col-lg-8 form-field input_controls']/span[1]/input[1]")
+	public WebElement nativeViewEnrollmentViewParticipantEventsFirstDevelopSymptomsOfCOVID;
+
+	/**
+	 * Native View Enrollment View Participant Events Extended Survey Completed Date
+	 * field
+	 */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.extended_survey_completed']")
+	public WebElement nativeViewEnrollmentViewParticipantEventsExtendedSurveyCompletedDate;
+	
+	/**
+	 * Native View Enrollment View Participant Events Extended Survey Completed Date
+	 * Selected date cannot be in the future text
+	 */
+	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.extended_survey_completed_fieldmsg']/div")
+	public WebElement nativeViewEnrollmentViewParticipantEventsExtendedSurveyCompletedDateSelectedDateCannotBeInTheFutureText;
+
+	/**
+	 * Native View Enrollment View Participant Events Medical Release Authorization
+	 * Signed Date field
+	 */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.medical_release_signed']")
+	public WebElement nativeViewEnrollmentViewParticipantEventsMedicalReleaseAuthorizationSignedDate;
+	
+	/**
+	 * Native View Enrollment View Participant Events Medical Release Authorization
+	 * Signed Selected date cannot be in the future text
+	 */
+	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.medical_release_signed_fieldmsg']/div")
+	public WebElement nativeViewEnrollmentViewParticipantEventsMedicalReleaseAuthorizationSignedSelectedDateCannotBeInTheFutureText;
+
+	/**
+	 * Native View Enrollment View Participant Events OMS REDCap survey uploaded?
+	 * dropdown
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.data_extracted_oms']")
+	public WebElement nativeViewEnrollmentViewParticipantEventsOmsRedCapSurveyUploadedDD;
+
+	/**
+	 * Native View Enrollment View Participant Events Date OMS REDCap survey
+	 * uploaded field
+	 */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.data_extracted_date_oms']")
+	public WebElement nativeViewEnrollmentViewParticipantEventsOmsRedCapSurveyUploadedDate;
+
+	/**
+	 * --------------- END OF NATIVE VIEW COVIDcode ENROLLMENT VIEW PARTICIPANT EVENTS SECTION TABLE ---------------
+	 */
+
+	
+	/**
+	 * --------------- BEGINNING OF NATIVE VIEW COVIDcode ENROLLMENT VIEW VACCINE SECTION TABLE ---------------
+	 */
+
+	/** Native View Enrollment View Vaccine tab */
+	@FindBy(xpath = "//*[@id='tabs2_section']/span[5]/span[1]")
+	public WebElement nativeViewEnrollmentViewVaccineTab;
+
+	/**
+	 * Native View Enrollment View Vaccine Have you received your first COVID-19
+	 * Vaccine? dropdown
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.received_first_vaccine']")
+	public WebElement nativeViewEnrollmentViewVaccineHaveYouReceivedYourFirstCOVIDVaccineDD;
+
+	/** Native View Enrollment View Vaccine Manufacture dropdown */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.vaccine_manufacture']")
+	public WebElement nativeViewEnrollmentViewVaccineManufactureDD;
+
+	/**
+	 * Native View Enrollment View Vaccine What date did you receive the first
+	 * vaccine? Date field
+	 */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.first_vaccine_date']")
+	public WebElement nativeViewEnrollmentViewVaccineWhatDateDidYouReceiveFirstVaccineDate;
+	
+	/**
+	 * Native View Enrollment View Vaccine What date did you receive the first
+	 * vaccine? Selected date cannot be in the future text
+	 */
+	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.first_vaccine_date_fieldmsg']/div")
+	public WebElement nativeViewEnrollmentViewVaccineWhatDateDidYouReceiveFirstVaccineSelectedDateCannotBeInTheFutureText;
+
+	/**
+	 * Native View Enrollment View Vaccine Have you received your second COVID-19
+	 * Vaccine dropdown
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.received_second_vaccine']")
+	public WebElement nativeViewEnrollmentViewVaccineHaveYouReceivedYourSecondCovidVaccineDD;
+
+	/**
+	 * Native View Enrollment View Vaccine What date did you receive the second
+	 * vaccine? Date field
+	 */
+	@FindBy(xpath = "//input[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.second_vaccine_date']")
+	public WebElement nativeViewEnrollmentViewVaccineHaveYouReceivedYourSecondVaccineDate;
+	
+	/**
+	 * Native View Enrollment View Vaccine What date did you receive the second
+	 * vaccine? Selected date cannot be in the future text
+	 */
+	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.second_vaccine_date_fieldmsg']/div")
+	public WebElement nativeViewEnrollmentViewVaccineHaveYouReceivedYourSecondVaccineSelectedDateCannotBeInTheFutureText;
+
+	/**
+	 * --------------- END OF NATIVE VIEW COVIDcode ENROLLMENT VIEW VACCINE SECTION TABLE ---------------
+	 */
+
+	/**
+	 * --------------- BEGINNING OF NATIVE VIEW COVIDcode ENROLLMENT VIEW DISEASE COURSES SECTION TABLE ---------------
+	 */
+
+	/** Native View Enrollment View Vaccine Disease Courses Tab */
+	@FindBy(xpath = "(//div[@id='tabs2_list']/span/span)[1]")
+	public WebElement nativeViewEnrollmentViewDiseaseCoursesTab;
+	
+	/** Native View Enrollment View Vaccine Disease Courses New button */
+	@FindBy(xpath = "(//button[@class='selected_action action_context btn btn-primary'])[1]")
+	public WebElement nativeViewEnrollmentViewDiseaseCoursesNewButton;
+
+	/** Native View Enrollment View Vaccine Disease Courses Visit Date field */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_disease_course.visit_date']")
+	public WebElement nativeViewEnrollmentViewDiseaseCoursesVisitDate;
+
+	/**
+	 * Native View Enrollment View Vaccine Were you admitted to the hospital to
+	 * treat your COVID-19? dropdown
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_disease_course.admitted_to_hospital']")
+	public WebElement nativeViewEnrollmentViewAdmittedToTheHospitalToTreatDD;
+
+	/**
+	 * Native View Enrollment View Vaccine What date were you admitted to the
+	 * hospital? Date field
+	 */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_disease_course.date_admission']")
+	public WebElement nativeViewEnrollmentViewDateWereYouAdmittedToTheHospital;
+
+	/**
+	 * Native View Enrollment View Vaccine Disease Courses "Have you been diagnosed
+	 * with pneumonia due to COVID-19?" dropdown
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_disease_course.pneumonia']")
+	public WebElement nativeViewEnrollmentViewHaveYouBeenDiagnosedWithPneumoniDD;
+
+	/**
+	 * Native View Enrollment View Vaccine Disease Courses Respiratory Rate dropdown
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_disease_course.respiratory_rate']")
+	public WebElement nativeViewEnrollmentViewRespiratoryRateDD;
+
+	/** Native View Enrollment View Vaccine Disease Courses Septic Shock dropdown */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_disease_course.septic_shock']")
+	public WebElement nativeViewEnrollmentViewSepticShockDD;
+
+	/**
+	 * Native View Enrollment View Vaccine Disease Courses Organ Failure dropdown
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_disease_course.organ_failure']")
+	public WebElement nativeViewEnrollmentViewOrganFailureDD;
+	
+	/** Native View Enrollment View Disease Course Organ Failure - Which organ(s) showed signs of dysfunction/failure? text */
+	@FindBy(xpath = "(//span[contains(text(), 'Which organ(s) showed signs of dysfunction/failure?')])[1]")
+	public WebElement nativeViewEnrollmentWhichOrgansShowFailureText;
+	
+	/** Native View Enrollment View Disease Course Organ Failure - unlock options for Which organ(s) showed signs of dysfunction/failure? */
+	@FindBy(xpath = "//button[@id = 'x_g_nci_geco_covid_disease_course.which_organs_unlock']")
+	public WebElement unlockWhichOrgansFailedOptions;
+	
+	/** Native View Enrollment View Disease Course Organ Failure Lookup button */
+	@FindBy(xpath = "//button[@id ='lookup.x_g_nci_geco_covid_disease_course.which_organs']")
+	public WebElement nativeViewEnrollmentWhichOrgansLookupBtn;
+	
+	/** Native View Enrollment View Disease Course Organ Failure Lookup Field */
+	@FindBy(xpath = "//input[@id = 'sys_display.x_g_nci_geco_covid_disease_course.which_organs']")
+	public WebElement whichOrgansFailedLookupField;
+	
+	/** Native View Enrollment View Disease Course - List of Selected Failed Organs */
+	@FindBy(xpath = "//select[@id = 'select_0x_g_nci_geco_covid_disease_course.which_organs']")
+	public List<WebElement> listOfSelectedFailedOrgans;
+	
+	/** Native View Enrollment View Disease Course - Other Failed Organs Text Box */
+	@FindBy(xpath = "//input[@id = 'x_g_nci_geco_covid_disease_course.other']")
+	public WebElement failedOrganOtherTextBox;
+	
+	/** Native View Enrollment View Disease Course Drug Treatments - unlock options for Drug Treatments */
+	@FindBy(xpath = "//button[@id = 'x_g_nci_geco_covid_disease_course.drug_treatments_unlock']")
+	public WebElement unlockDrugTreatmentsOptions;
+	
+	/** Native View Disease Course - Drug Treatments Lookup Field */
+	@FindBy(xpath = "//input[@id = 'sys_display.x_g_nci_geco_covid_disease_course.drug_treatments']")
+	public WebElement drugTreatmentsLookupField;
+	
+	/** Native View Disease Course - List of Selected Drug Treatments */
+	@FindBy(xpath = "//select[@id = 'select_0x_g_nci_geco_covid_disease_course.drug_treatments']")
+	public List<WebElement> listOfSelectedDrugTreatments;
+	
+	/** Native View Disease Course - Other Drug Treatments Text Box */
+	@FindBy(xpath = "//input[@id = 'x_g_nci_geco_covid_disease_course.other_drug_treatments']")
+    public WebElement otherDrugTreatmentsTextBox;
+	
+	/** Native View Enrollment View Vaccine Disease Courses submit button */
+	@FindBy(xpath = "//*[@id='sysverb_insert_bottom']")
+	public WebElement nativeViewEnrollmentViewDiseaseCoursesSubmitButton;
+
+	/** Native View Enrollment View Vaccine Disease Courses Add Attachment button */
+	@FindBy(xpath = "//*[@id='add_attachment_bottom']")
+	public WebElement nativeViewEnrollmentViewDiseaseCoursesAddAttachmentButton;
+	
+	/** Disease Courses Drug Treatments unlock button */
+	@FindBy (xpath="//*[@id='x_g_nci_geco_covid_disease_course.drug_treatments_unlock']")
+	public WebElement diseaseCoursesDrugTreatmentsUnlockButton;
+	
+	/** Disease Courses Drug Treatments select options search bar */
+	@FindBy (xpath="//*[@id='sys_display.x_g_nci_geco_covid_disease_course.drug_treatments']")
+	public WebElement diseaseCoursesDrugTreatmentsSearchbar;
+	
+	/** Disease Courses Drug Treatments lock button */
+	@FindBy (xpath="//*[@id='x_g_nci_geco_covid_disease_course.drug_treatments_lock']")
+	public WebElement diseaseCoursesDrugTreatmentsLockButton;
+
+	/** Disease Courses Drug Treatments Text */
+	@FindBy (xpath="//*[@id='lookup.x_g_nci_geco_covid_disease_course.drug_treatments']")
+	public WebElement diseaseCoursesDrugTreatmentsText;
+	
+	/** Native View Enrollment View Add Attachment Top Button */
+	@FindBy(xpath = "//button[@id = 'add_attachment']")
+	public WebElement nativeViewEnrollmentViewAddAttachmentTopButton;
+	
+	/** Native View Enrollment View Choose File Attachments Button */
+	@FindBy(xpath = "//input[@id='attachFile']")
+	public WebElement nativeViewEnrollmentViewChooseFileAttachmentsButton;
+	
+	/** Native View Enrollment View Choose File Attachments Download Text */
+	@FindBy(xpath = "//td[@style = 'white-space: nowrap;']/a[4]")
+	public WebElement nativeViewEnrollmentViewChooseFileAttachmentsDownloadText;
+	
+	/** Native View Enrollment View Choose File Attachments Close Button*/
+	@FindBy(xpath = "//button[@id = 'attachment_closemodal']")
+	public WebElement nativeViewEnrollmentViewChooseFileAttachmentsCloseButton;
+	
+	/** Native View Enrollment View Submit Top Button */
+	@FindBy(xpath = "//button[@id='sysverb_insert']")
+	public WebElement nativeViewEnrollmentViewSubmitTopButton;
+	
+	/** Native View Enrollment View Delete Top Button */
+	@FindBy(xpath = "//button[@id = 'sysverb_delete']")
+	public WebElement nativeViewEnrollmentViewDeleteTopButton;
+	
+	/** Native View Enrollment View Delete Submission Pop Up Delete Button */
+	@FindBy(xpath = "//button[@id = 'ok_button']")
+	public WebElement nativeViewEnrollmentViewDeleteDeleteSubmissionPopUpDeleteButton;
+
+	/**
+	 * --------------- END OF NATIVE VIEW COVIDcode ENROLLMENT VIEW DISEASE COURSES SECTION TABLE ---------------
+	 */
 	
 	
 	/**
-	 * ---------- BEGINNING OF NATIVE VIEW COVIDcode INQUIRY TRACKING RECORD------------*/
+	 * --------------- BEGINNING OF NATIVE VIEW COVIDcode ENROLLMENT VIEW SPECIMENS SECTION TABLE ---------------
+	 */
 
-	/** COVIDcode Inquiry Tracking New Button */
-	@FindBy(xpath = "//button[@class='selected_action action_context btn btn-primary']")
-	public WebElement covidCodeInquiryTrackingNewButton;
+	/** Native View Enrollment View Specimens Tab */
+	@FindBy(xpath = "//div[@id='tabs2_list']/span[2]/span")
+	public WebElement nativeViewEnrollmentViewSpecimensTab;
 	
-	/** COVIDcode Inquiry Tracking Outcome drop down */
-	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_inquiry_tracking.outcome']")
-	public WebElement covidCodeInquiryTrackingOutcomeDD;
+	/** Native View Enrollment View Specimens New Button */
+	@FindBy(xpath = "(//button[@class='selected_action action_context btn btn-primary'])[2]")
+	public WebElement nativeViewEnrollmentViewSpecimensNewButton;
+
+	/** Native View Enrollment View Specimens Type drop down */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_blood_samples.specimen_type']")
+	public WebElement nativeViewEnrollmentViewSpecimensTypeDD;
 	
-	/** COVIDcode Inquiry Tracking User Group Id drop down */
-	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_inquiry_tracking.user_group_id']")
-	public WebElement covidCodeInquiryTrackingUserGroupIdDD;
+	/** Native View Enrollment View Specimens Submit Button */
+	@FindBy(xpath = "//button[@id='sysverb_insert_bottom']")
+	public WebElement nativeViewEnrollmentViewSpecimensSubmitButton;
 
 	/**
-	 * ---------- END OF NATIVE VIEW COVIDcode INQUIRY TRACKING RECORD------------*/
+	 * --------------- END OF NATIVE VIEW COVIDcode ENROLLMENT VIEW SPECIMENS SECTION TABLE ---------------
+	 */
 	
-	public NativeViewEnrollmentsPage() {
+	
+	/** --------------- BEGINNING OF NATIVE VIEW COVIDcode ENROLLMENT FOLLOW UPS DEMOGRAPHICS SECTION TABLE ---------------  */ 
+
+	/** Native View Follow Up Demographics Date form completed field */
+	@FindBy(xpath = "//input[@id='x_g_nci_geco_covid_covidcode_follow_up.form_complete_date']")
+	public WebElement nativeViewFollowUpDemographicsDateFormCompletedField;
+	
+	/** Native View Follow Up Demographics Date form completed Selected date cannot be in the future text */
+	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_covidcode_follow_up.form_complete_date_fieldmsg']/div")
+	public WebElement nativeViewFollowUpDemographicsDateFormCompletedSelectedDateCannotBeInTheFutureText;
+
+	/**
+	 * Native View Follow Up Demographics What is your date of birth? field
+	 */
+	@FindBy(xpath = "//input[@id='x_g_nci_geco_covid_covidcode_follow_up.date_of_birth']")
+	public WebElement nativeViewFollowUpDemographicsWhatIsYourDateOfBirthField;
+	
+	/**
+	 * Native View Follow Up Demographics What is your date of birth? Selected date cannot be in the future text
+	 */
+	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_covidcode_follow_up.date_of_birth_fieldmsg']/div")
+	public WebElement nativeViewFollowUpDemographicsWhatIsYourDateOfBirthSelectedDateCannotBeInTheFutureText;
+
+	/**
+	 * --------------- END OF NATIVE VIEW COVIDcode ENROLLMENT FOLLOW UPS DEMOGRAPHICS  SECTION TABLE --------------- */
+	
+	/**
+	 * --------------- BEGINNING OF NATIVE VIEW COVIDcode ENROLLMENT FOLLOW UPS SYMPTOMOLOGY SECTION TABLE ---------------*/
+
+	/** Native ViewFollow Up Symptomology tab */
+	@FindBy(xpath = "//div[@id='tabs2_section']/span[2]/span[1]")
+	public WebElement nativeViewFollowUpSymptomologyTab;
+
+	/** Native Follow Up Symptomology Were you symptomatic text */
+	@FindBy(xpath = "//div[@id='element.x_g_nci_geco_covid_covidcode_follow_up.symptomatic']/div/label")
+	public WebElement nativeViewFollowUpSymptomologyWereYouSymptomaticText;
+	
+	/** Native Follow Up Symptomology When did you first develop symptoms of COVID-19 text */
+	@FindBy(xpath = "//div[@id='label.x_g_nci_geco_covid_covidcode_follow_up.date_first_symptoms']/label")
+	public WebElement nativeViewFollowUpSymptomologyWhenDidYouFirstDevelopSymptomsText;
+	
+	/** Native Follow Up Symptomology Have you officially been diagnosed with COVID-19 text */
+	@FindBy(xpath = "//div[@id='label.x_g_nci_geco_covid_covidcode_follow_up.officially_diagnosed']/label")
+	public WebElement nativeViewFollowUpSymptomologyHaveYouOfficiallyBeenDiagnosedText;
+	
+	/** Native Follow Up Symptomology How was the sample taken text */
+	@FindBy(xpath = "//div[@id='label.x_g_nci_geco_covid_covidcode_follow_up.how_was_the_sample_taken']/label")
+	public WebElement nativeViewFollowUpSymptomologyHowWasTheSampleTakenText;
+	
+	/** Native Follow Up Symptomology What type of test did the patient receive text */
+	@FindBy(xpath = "//div[@id='label.x_g_nci_geco_covid_covidcode_follow_up.test_type']/label")
+	public WebElement nativeViewFollowUpSymptomologyWhatTypeOfTestDidThePatientReceiveText;
+	
+	/** Native Follow Up Symptomology Were you symptomatic drop down */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_covidcode_follow_up.symptomatic']")
+	public WebElement nativeViewFollowUpSymptomologyWereYouSymptomaticDD;
+	
+	/** Native Follow Up Symptomology When did you first develop symptoms of COVID-19 text field */
+	@FindBy(xpath = "//input[@id='x_g_nci_geco_covid_covidcode_follow_up.date_first_symptoms']")
+	public WebElement nativeViewFollowUpSymptomologyWhenDidYouFirstDevelopSymptomsTextField;
+	
+	/** Native Follow Up Symptomology When did you first develop symptoms of COVID-19 text Label */
+	@FindBy(xpath = "//div[@id='label.x_g_nci_geco_covid_covidcode_follow_up.date_first_symptoms']/label")
+	public WebElement nativeViewFollowUpSymptomologyWhenDidYouFirstDevelopSymptomsTextLabel;
+	
+	/**
+	 * Native View Follow Up Symptomology When did you first develop symptoms
+	 * of COVID-19? field
+	 */
+	@FindBy(xpath = "//input[@id='x_g_nci_geco_covid_covidcode_follow_up.date_first_symptoms']")
+	public WebElement nativeViewFollowUpSymptomologyWhenFirstDevelopSymptomsField;
+	
+	/**
+	 * Native View Follow Up Symptomology When did you first develop symptoms
+	 * of COVID-19? Selected date cannot be in the future text
+	 */
+	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_covidcode_follow_up.date_first_symptoms_fieldmsg']/div")
+	public WebElement nativeViewFollowUpSymptomologyWhenFirstDevelopSymptomsSelectedDateCannotBeInTheFutureText;
+
+	/** Native View Follow Up Symptomology Were you symptomatic? drop down */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_covidcode_follow_up.symptomatic']")
+	public WebElement nativeViewFollowUpSymptomologyWereYouSymptomaticDropDown;
+
+	/**
+	 * Native View Follow Up Symptomology When where you officially diagnosed
+	 * with COVID-19? field
+	 */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_covidcode_follow_up.date_official_diagnosis']")
+	public WebElement nativeViewFollowUpSymptomologyDateOfficiallyDiagnosed;
+	
+	/**
+	 * Native View Follow Up Symptomology When where you officially diagnosed
+	 * with COVID-19? Selected date cannot be in the future text
+	 */
+	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_covidcode_follow_up.date_official_diagnosis_fieldmsg']/div")
+	public WebElement nativeViewFollowUpSymptomologyDateOfficiallyDiagnosedSelectedDateCannotBeInTheFutureText;
+	
+	/** Native View Follow Up Symptomology Have you officially been diagnosed with COVID19 */
+	@FindBy(xpath="//select[@id='x_g_nci_geco_covid_covidcode_follow_up.officially_diagnosed']")
+	public WebElement nativeViewFollowUpSymptomologyHaveYouOfficiallyBeenDiagnosedWithCOVID19;
+
+	/**
+	 * --------------- END OF NATIVE VIEW COVIDcode FOLLOW UPS SYMPTOMOLOGY  SECTION TABLE ---------------
+	 */
+	
+	
+	/** --------------- BEGINNING OF NATIVE VIEW COVIDcode FOLLOW UPS PARTICIPANT EVENTS SECTION TABLE ---------------  */ 
+
+	/** Native View Follow Up Participant Events tab */
+	@FindBy(xpath = "//*[@id='tabs2_section']/span[5]/span[1]")
+	public WebElement nativeViewFollowUpParticipantEventsTab;
+
+	/** Native View Follow Up Participant Events Consented Date field */
+	@FindBy(xpath = "//input[@id='x_g_nci_geco_covid_covidcode_follow_up.consented']")
+	public WebElement nativeViewFollowUpParticipantEventsConsentedDate;
+	
+	/** Native View Follow Up Participant Events Consented Date Selected date cannot be in the future text */
+	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_covidcode_follow_up.consented_fieldmsg']/div")
+	public WebElement nativeViewFollowUpParticipantEventsConsentedSelectedDateCannotBeInTheFutureText;
+
+	/**
+	 * Native View Follow Up Participant Events Minimal Survey Conducted Date
+	 * field
+	 */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_covidcode_follow_up.min_survey_conducted']")
+	public WebElement nativeViewFollowUpParticipantEventsMinimalSurveyConductedDate;
+	
+	/**
+	 * Native View Follow Up Participant Events Minimal Survey Conducted Date Selected date cannot be in the future text */
+	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_covidcode_follow_up.min_survey_conducted_fieldmsg']/div")
+	public WebElement nativeViewFollowUpParticipantEventsMinimalSurveyConductedDateSelectedDateCannotBeInTheFutureText;
+
+	/**
+	 * Native View Follow Up Participant Events Assigned Protocol 20-HG-0090
+	 * in CRIS Date field
+	 */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_covidcode_follow_up.assigned_protocol_cris']")
+	public WebElement nativeViewFollowUpParticipantEventsAssignedProtocolInCRISDate;
+	
+	/**
+	 * Native View Follow Up Participant Events Assigned Protocol 20-HG-0090
+	 * in CRIS Selected date cannot be in the future text
+	 */
+	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_covidcode_follow_up.assigned_protocol_cris_fieldmsg']/div")
+	public WebElement nativeViewFollowUpParticipantEventsAssignedProtocolInCRISSelectedDateCannotBeInTheFutureText;
+
+	/**
+	 * Native View Follow Up Participant Events RVS Payment Requested Date
+	 * Selected date cannot be in the future text
+	 */
+	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_covidcode_follow_up.rvs_payment_requested_fieldmsg']/div")
+	public WebElement nativeViewFollowUpParticipantEventsRvsPaymentRequestedDateSelectedDateCannotBeInTheFutureText;
+	
+	/**
+	 * Native View Follow Up Participant Events RVS Payment Requested Date
+	 * field
+	 */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_covidcode_follow_up.rvs_payment_requested']")
+	public WebElement  nativeViewFollowUpParticipantEventsRvsPaymentRequestedDatefField;
+
+	/**
+	 * Native View Follow Up Participant Events Extended Survey Completed Date
+	 * field
+	 */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_covidcode_follow_up.extended_survey_completed']")
+	public WebElement nativeViewFollowUpParticipantEventsExtendedSurveyCompletedDate;
+	
+	/**
+	 * Native View Follow Up Participant Events Extended Survey Completed Date
+	 * Selected date cannot be in the future text
+	 */
+	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_covidcode_follow_up.extended_survey_completed_fieldmsg']/div")
+	public WebElement nativeViewFollowUpParticipantEventsExtendedSurveyCompletedDateSelectedDateCannotBeInTheFutureText;
+
+	/**
+	 * Native View Follow Up Participant Events Medical Release Authorization
+	 * Signed Date field
+	 */
+	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_covidcode_follow_up.medical_release_signed']")
+	public WebElement nativeViewFollowUpParticipantEventsMedicalReleaseAuthorizationSignedDate;
+	
+	/**
+	 * Native View Follow Up Participant Events Medical Release Authorization
+	 * Signed Selected date cannot be in the future text
+	 */
+	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_covidcode_follow_up.medical_release_signed_fieldmsg']/div")
+	public WebElement nativeViewFollowUpParticipantEventsMedicalReleaseAuthorizationSignedSelectedDateCannotBeInTheFutureText;
+
+	/**
+	 * --------------- END OF NATIVE VIEW COVIDcode FOLLOW UPS PARTICIPANT EVENTS SECTION TABLE ---------------
+	 */
+	
+	/**
+	 * --------------- BEGINNING OF NATIVE VIEW COVIDcode FOLLOW UPS VACCINE SECTION TABLE ---------------
+	 */
+
+	/** Native View Follow Up Vaccine tab */
+	@FindBy(xpath = "//*[@id='tabs2_section']/span[6]/span[1]")
+	public WebElement nativeViewFollowUpVaccineTab;
+
+	/**
+	 * Native View Follow Up Vaccine Have you received your first COVID-19
+	 * Vaccine? dropdown
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_covidcode_follow_up.received_first_vaccine']")
+	public WebElement nativeViewFollowUpVaccineHaveYouReceivedYourFirstCOVIDVaccineDD;
+
+	/** Native View Follow Up Vaccine Manufacture dropdown */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_covidcode_follow_up.vaccine_manufacture']")
+	public WebElement nativeViewFollowUpViewVaccineManufactureDD;
+
+	/**
+	 * Native View Follow Up Vaccine What date did you receive the first
+	 * vaccine? Date field
+	 */
+	@FindBy(xpath = "//input[@id='x_g_nci_geco_covid_covidcode_follow_up.first_vaccine_date']")
+	public WebElement nativeViewFollowUpVaccineWhatDateDidYouReceiveFirstVaccineDate;
+	
+	/**
+	 * Native View Follow Up Vaccine What date did you receive the first
+	 * vaccine? Selected date cannot be in the future text
+	 */
+	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_covidcode_follow_up.first_vaccine_date_fieldmsg']/div")
+	public WebElement nativeViewFollowUpVaccineWhatDateDidYouReceiveFirstVaccineSelectedDateCannotBeInTheFutureText;
+
+	/**
+	 * Native View Follow Up Vaccine Have you received your second COVID-19
+	 * Vaccine dropdown
+	 */
+	@FindBy(xpath = "//select[@id='x_g_nci_geco_covid_covidcode_follow_up.received_second_vaccine']")
+	public WebElement nativeViewFollowUpVaccineHaveYouReceivedYourSecondCovidVaccineDD;
+
+	/**
+	 * Native View Follow Up Vaccine What date did you receive the second
+	 * vaccine? Date field
+	 */
+	@FindBy(xpath = "//input[@id='x_g_nci_geco_covid_covidcode_follow_up.second_vaccine_date']")
+	public WebElement nativeViewFollowUpVaccineHaveYouReceivedYourSecondVaccineDate;
+	
+	/**
+	 * Native View Follow Up Vaccine What date did you receive the second
+	 * vaccine? Selected date cannot be in the future text
+	 */
+	@FindBy(xpath = "//div[@id='x_g_nci_geco_covid_covidcode_follow_up.second_vaccine_date_fieldmsg']/div")
+	public WebElement nativeViewFollowUpVaccineHaveYouReceivedYourSecondVaccineSelectedDateCannotBeInTheFutureText;
+
+	/**
+	 * --------------- END OF NATIVE VIEW COVIDcode FOLLOW UPS VACCINE SECTION TABLE ---------------
+	 */
+
+	public NativeViewEnrollmentViewPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 
