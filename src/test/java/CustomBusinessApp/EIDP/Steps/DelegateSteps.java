@@ -6,6 +6,8 @@ import java.util.Map;
 
 import org.junit.Assert;
 
+import com.nci.automation.utils.MiscUtils;
+
 import CustomBusinessApp.EIDP.Util.CommonUtil;
 import CustomBusinessApp.EIDP.Util.Constants.DelegationTypes;
 import appsCommon.PageInitializer;
@@ -53,6 +55,7 @@ public class DelegateSteps extends PageInitializer{
 	@When("User deletes \"([^\"]*)\" from delegators table")
 	public void deleteDelegator(String name) {
 		delegatePage.deleteDelegator(name);
+		MiscUtils.sleep(3000);
 		delegatePage.clickOnDeleteButton();
 	}
 	@Then("User check delegate delete message")
