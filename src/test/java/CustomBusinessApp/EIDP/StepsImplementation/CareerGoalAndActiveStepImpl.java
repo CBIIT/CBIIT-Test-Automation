@@ -72,24 +72,14 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer{
 			CommonUtil.waitBrowser(4000);
 			editIcons = WebDriverUtils.getWebDriver().findElements(By.cssSelector("[title='Edit']"));
 			editIcons.get(i).click();
-<<<<<<< Updated upstream
 			//CommonUtils.click(WebDriverUtils.getWebDriver().findElements(By.cssSelector(".modal-lg.in label.radio")).get(2));
 			WebDriverUtils.getWebDriver().findElements(By.cssSelector(".modal-lg.in label.radio")).get(2).click();
 			//doneButton.click();
-			MiscUtils.sleep(3000);
+			MiscUtils.sleep(10000);
 			editIcons.get(0).click();
-			MiscUtils.sleep(3000);
+			MiscUtils.sleep(10000);
 			//CommonUtils.click(WebDriverUtils.getWebDriver().findElements(By.cssSelector(".modal-lg.in label.radio")).get(2));
 			WebDriverUtils.getWebDriver().findElements(By.cssSelector(".modal-lg.in label.radio")).get(2).click();
-=======
-			CommonUtils.click(WebDriverUtils.getWebDriver().findElements(By.cssSelector(".modal-lg.in label.radio")).get(2));
-			//WebDriverUtils.getWebDriver().findElements(By.cssSelector(".modal-lg.in label.radio")).get(2).click();
-			//doneButton.click();
-			MiscUtils.sleep(3000);
-			editIcons.get(0).click();
-			CommonUtils.click(WebDriverUtils.getWebDriver().findElements(By.cssSelector(".modal-lg.in label.radio")).get(2));
-			//WebDriverUtils.getWebDriver().findElements(By.cssSelector(".modal-lg.in label.radio")).get(2).click();
->>>>>>> Stashed changes
 			//doneButton.click();
 			CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.xpath("//*[contains(@class, 'modal-lg')][contains(@class, 'in')]//*[text()='Done']")));
 			//WebDriverUtils.getWebDriver().findElement(By.xpath("//*[contains(@class, 'modal-lg')][contains(@class, 'in')]//*[text()='Done']")).click();
