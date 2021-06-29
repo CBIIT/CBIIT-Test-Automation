@@ -86,11 +86,4 @@ Feature: Volunteer Survey
     Scenario: Verifying that Study Staff Nurses are able to see the volunteer submitted zip code in Native view
     Given a COVIDcode Volunteer Survey has been submitted with zip code "12345"
     Then Study Staff Nurses are able to see the volunteer's submitted zip code "12345" in a Inquiry Tracking record in native view
-<<<<<<< Updated upstream
 
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
->>>>>>> Stashed changes
