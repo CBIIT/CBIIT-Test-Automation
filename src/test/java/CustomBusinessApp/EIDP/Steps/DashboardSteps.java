@@ -2,13 +2,14 @@ package CustomBusinessApp.EIDP.Steps;
 
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 
 import com.nci.automation.utils.CucumberLogUtils;
-<<<<<<< Updated upstream
 import com.nci.automation.utils.MiscUtils;
-=======
->>>>>>> Stashed changes
+import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.WebDriverUtils;
 
+import CustomBusinessApp.EIDP.Util.CommonUtil;
 import CustomBusinessApp.EIDP.Util.SharedData;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Then;
@@ -60,10 +61,7 @@ public class DashboardSteps extends PageInitializer {
 	@When("User will clickOn proceed button")
 	public void clickOnProceedButton() throws Exception{
 		eidpDashboardStepImpl.clickOnProceedButton();
-<<<<<<< Updated upstream
 		MiscUtils.sleep(3000);
-=======
->>>>>>> Stashed changes
 	}
 	
 	@When("User clicks on Send IDP to the Primary Mentor button")
@@ -134,14 +132,16 @@ public class DashboardSteps extends PageInitializer {
 	public void selectIncompleteIDPRequest() {
 		eidpDashboardStepImpl.selectFirstPendingReviewIDP();
 	}
-	
+
 	@When("User clicks on the trainee specific IDP request")
 	public void selectIncompleteIDPrequestOfTrainnee() throws Exception{
-<<<<<<< Updated upstream
-		eidpDashboardStepImpl.clickProceedButtonOfTrainee();
-=======
 		eidpDashboardStepImpl.selectIDPRequestOfTrainee();
->>>>>>> Stashed changes
+		CucumberLogUtils.logScreenShot();
+	}
+	
+	@When("User clicks on the trainee specific IDP being co-primary mentor")
+	public void user_clicks_on_the_trainee_specific_IDP_being_co_primary_mentor() throws Exception {
+		eidpDashboardStepImpl.clickProceedButtonOfTraineeCoPrimaryMentor();
 		CucumberLogUtils.logScreenShot();
 	}
 	
@@ -169,10 +169,23 @@ public class DashboardSteps extends PageInitializer {
 	}
 	
 	@When("User clicks on yes button of modal")
-	public void clickOnYesButton() {
-		//CommonUtil.waitBrowser(3000);
+	public void clickOnYesButton() throws Exception {
 		eidpCommonPage.clickOnModalFooterYesButton();
+		CommonUtil.waitBrowser(3000);
 	}
+	@When("User clicks on the requestto verify meeting")
+	public void user_clicks_on_the_requestto_verify_meeting() throws Exception {
+		eidpDashboardStepImpl.clickProceedButtonOfTrainee();
+	}
+	@Then("User clicks on Home button")
+	public void user_clicks_on_Home_button() {
+	    CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.xpath("//a[@title='Home']")));
+	}
+	@Then("User will click on manage delegate tab")
+	public void user_will_click_on_manage_delegate_tab() {
+	    CommonUtils.click(eidpDashboardPage.manageDelegateTab);
+	}
+
 }
 
 
