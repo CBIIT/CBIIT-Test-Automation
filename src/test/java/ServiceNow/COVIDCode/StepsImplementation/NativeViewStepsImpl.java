@@ -205,15 +205,7 @@ public class NativeViewStepsImpl extends PageInitializer {
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewPatientFirstName.sendKeys("AutomatedFN");
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewPatientMiddleInitial.sendKeys("M");
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewContactEmailAddress.sendKeys("email@automatedtest.com");
-<<<<<<< Updated upstream
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewContactPhoneNumber.sendKeys("111-222-3333");
-=======
-<<<<<<< HEAD
-		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewContactPhoneNumber.sendKeys("1112223333");
-=======
-		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewContactPhoneNumber.sendKeys("111-222-3333");
->>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
->>>>>>> Stashed changes
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewStreetAddress1.sendKeys("NCI Rockville");
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewCity.sendKeys("Rockville");
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewState.sendKeys("MD");
@@ -233,46 +225,19 @@ public class NativeViewStepsImpl extends PageInitializer {
 		 * added filters - refer to UI for further review
 		 */
 		nativeViewEnrollmentViewPage.nativeViewAllBreadCrumbLink.click();
-<<<<<<< Updated upstream
 		MiscUtils.sleep(2000);
 		CommonUtils.selectDropDownValue("for text",
-=======
-<<<<<<< HEAD
-		MiscUtils.sleep(1000);
-		CommonUtils.selectDropDownValue("Contact Email Address",
-=======
-		MiscUtils.sleep(2000);
-		CommonUtils.selectDropDownValue("for text",
->>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
->>>>>>> Stashed changes
 				nativeViewEnrollementsPage.covidCodeEnrollmentsSearchDropDown);
 		nativeViewEnrollementsPage.covidCodeEnrollmentsSearchTextBox.sendKeys("email@automatedtest.com");
 		MiscUtils.sleep(2000);
 		nativeViewEnrollementsPage.covidCodeEnrollmentsSearchTextBox.sendKeys(Keys.RETURN);
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-		CucumberLogUtils.logScreenShot();
-=======
->>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
->>>>>>> Stashed changes
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 	}
 
 	/***
-<<<<<<< Updated upstream
 	 * This method searches Nurses in 'Assigned to' text field on the 'My Inquiry
 	 * Tracking' page in Native View and asserts. selected values Values are hard
-=======
-<<<<<<< HEAD
-	 * This method search Nurses in Assigned to text field on the My Inquiry
-	 * Tracking in Native View and do assertion by selected values Values are hard
-=======
-	 * This method searches Nurses in 'Assigned to' text field on the 'My Inquiry
-	 * Tracking' page in Native View and asserts. selected values Values are hard
->>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
->>>>>>> Stashed changes
 	 * coded
 	 */
 	public void nativeViewMyInquiryTrackingSearchNursesinAssignedToTextField() {
@@ -389,12 +354,4 @@ public class NativeViewStepsImpl extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 	    Assert.assertEquals(act, exp);
 	}
-<<<<<<< Updated upstream
 }
-=======
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> 8f4e2d8f13237294dd99ecbb9a77e6b945dae2eb
->>>>>>> Stashed changes
