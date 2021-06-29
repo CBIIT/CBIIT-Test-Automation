@@ -79,21 +79,15 @@ public class VacancyManagerUserStepsImpl extends PageInitializer {
 
 	public void selectOpenDate(String date) {
 		vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection.sendKeys(date);
-<<<<<<< Updated upstream
 		MiscUtils.sleep(2000);
 		
-=======
->>>>>>> Stashed changes
 
 	}
 
 	public void selectCloseDate(String date) {
 		vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection.sendKeys(date);
-<<<<<<< Updated upstream
 		MiscUtils.sleep(2000);
 		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
-=======
->>>>>>> Stashed changes
 	}
 
 	public void selectToggleButtonOnMandatoryStatementPage(String nameButton) {
@@ -111,16 +105,11 @@ public class VacancyManagerUserStepsImpl extends PageInitializer {
 			CucumberLogUtils.logScreenShot();
 
 		} else if (nameButton.equals("Reasonable Accommodation")) {
-<<<<<<< Updated upstream
-=======
-			;
->>>>>>> Stashed changes
 			CommonUtils.click(vacancyManagerUserPage.toggleButtonReasonableAccommodation);
 			CucumberLogUtils.logScreenShot();
 		}
 	}
 	
-<<<<<<< Updated upstream
 	public void selectCommitteeMemberFromDropDown(String searchOption) {
 		if(searchOption.equals("APPTRACK COMMITTEE MEMBER")) {
 			CommonUtils.click(vacancyManagerUserPage.addMemberButton);
@@ -174,7 +163,3 @@ public class VacancyManagerUserStepsImpl extends PageInitializer {
 		}
 		
 	
-=======
-}
-
->>>>>>> Stashed changes
