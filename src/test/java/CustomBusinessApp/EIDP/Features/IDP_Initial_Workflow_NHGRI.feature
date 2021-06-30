@@ -156,7 +156,7 @@ Feature: Regression testing
     When User will login to the application as "nekrashevicha2" user
     And Logged in user changes the user to "Plante,Faith"
     And User will click on search in dashboard
-    And User selects "Current IDP Status" as "Under Trainee and Primary Mentor Meeting Verification"
+    And User selects "Current IDP Status" as "Under Trainee's Meeting Verification"
     And User clicks on search button
     And User click on "Revise Existing IDP" on the grid
     And User clicks on yes button in pop up
@@ -192,7 +192,7 @@ Feature: Regression testing
     When User will login to the application as "nekrashevicha2" user
     And Logged in user changes the user to "Plante,Faith"
     And User will click on search in dashboard
-    And User selects "Current IDP Status" as "Under Trainee's Review"
+    And User selects "Current IDP Status" as "Under Trainee's Meeting Verification"
     And User clicks on search button
     And User click on "Cancel IDP" on the grid
     And User reads the trainee name from cancel idp confirmation window
@@ -301,7 +301,7 @@ Feature: Regression testing
     And User clicks on Home button
     And Logged in user changes the user to "Hurle,Belen"
     And User will click on search in dashboard
-    And User selects "Current IDP Status" as "Under Lab, Branch, Office Chief/Director's Review"
+    And User selects "Current IDP Status" as "Under Trainee's Meeting Verification"
     And User clicks on search button
     And User click on "Revise Existing IDP" on the grid
     And User clicks on yes button in pop up
