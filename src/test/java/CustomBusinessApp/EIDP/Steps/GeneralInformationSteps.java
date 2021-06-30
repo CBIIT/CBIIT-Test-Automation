@@ -3,6 +3,7 @@ package CustomBusinessApp.EIDP.Steps;
 import java.util.Map;
 
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 
@@ -40,6 +41,7 @@ public class GeneralInformationSteps extends PageInitializer {
 		CommonUtil.waitBrowser(2000);
 		CucumberLogUtils.logScreenShot("General Info");
 		generalInformationStepImpl.clickOnSaveAndContinueButton();
+		MiscUtils.sleep(1000);
 	}
 
 	@When("User selects primary mentor as \"([^\"]*)\"")
