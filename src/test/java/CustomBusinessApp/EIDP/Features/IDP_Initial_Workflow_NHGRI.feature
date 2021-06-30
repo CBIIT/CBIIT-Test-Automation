@@ -8,7 +8,7 @@ Feature: Regression testing
     And User will click on search in dashboard
     And User creates IDP request
       |Search For                         | Classification Type | NHGRI Training Organization|
-      |NHGRI (Fellows and Employees Only) | All                 | DIR                        |                                         
+      |NHGRI (Fellows and Employees Only) | Employee            | DIR                        |                                         
     And Logged in user changes the user to trainee
     And User will clickOn start idp button
     And User fills mandatory fields in general information section
@@ -68,7 +68,7 @@ Feature: Regression testing
     And User will click on search in dashboard
     And User creates IDP request
       | Search For                        | Classification Type | NHGRI Training Organization|
-      | NHGRI (Fellows and Employees Only)| All                 | DIR                        |
+      | NHGRI (Fellows and Employees Only)| Employee            | DIR                        |
     And Logged in user changes the user to trainee
     And User will clickOn start idp button
     And User fills mandatory fields in general information section
@@ -261,7 +261,7 @@ Feature: Regression testing
     And User will click on search in dashboard
     And User creates IDP request
       |Search For                         | Classification Type | NHGRI Training Organization|
-      |NHGRI (Fellows and Employees Only) | All                 | DIR                        | 
+      |NHGRI (Fellows and Employees Only) | Employee            | DIR                        | 
     And Logged in user changes the user to trainee
     And User will clickOn start idp button
     And User fills mandatory fields in general information section
