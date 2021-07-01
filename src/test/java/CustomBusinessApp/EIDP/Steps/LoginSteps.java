@@ -9,9 +9,8 @@ import ServiceNow.ATO.Utils.Constants;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.When;
 
-public class LoginSteps extends PageInitializer{
-	
-  
+public class LoginSteps extends PageInitializer {
+
 //	@Given("User opens nih application in browser")
 //	public void openApp() {
 //		nihLoginPage.openApp("nih");
@@ -21,46 +20,57 @@ public class LoginSteps extends PageInitializer{
 //	public void openNIDCRApp() {
 //		nihLoginPage.openApp("nidcra");
 //	}
-	
+
 	@When("User will login to the application as \"([^\"]*)\" user")
 	public void loginByUsername(String username) throws TestingException {
-
 		eidpLoginStepImpl.eidpApplicationLogin("Username", "Password");
+		eidpLoginStepImpl.eidpApplicationLogin("sgugulothuUsername", "sgugulothuPassword");
+//        eidpLoginStepImpl.eidpApplicationLogin("nekrashevicha2Username", "nekrashevicha2Password");
+		// eidpLoginStepImpl.eidpApplicationLogin("Username", "Password");
+
+//		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
+//		loginStepsImpl.clckOnLoginButton();
+//		Thread.sleep(3000);
+//		loginStepsImpl.enterUsername(username);
+//		loginStepsImpl.enterPassword(Constants.passwords.get(username));
+//		basePage.captureScreenshot("Before Login");
+//		loginStepsImpl.clickOnSignInButton();
+
 	}
-	
+
 	@When("Logged in user changes the user to \"([^\"]*)\"")
 	public void changeUser(String username) throws TestingException {
 		eidpLoginStepImpl.changeUser(username);
 	}
-	
+
 	@When("Logged in user changes the user to trainee")
-	public void changeUser() throws Exception{
+	public void changeUser() throws Exception {
 		String updatedUserName = SharedData.traineeName;
-		if(!SharedData.traineeName.contains(",")) {
+		if (!SharedData.traineeName.contains(",")) {
 			String[] temp = SharedData.traineeName.split(" ");
-			if(temp.length > 2) {
+			if (temp.length > 2) {
 				updatedUserName = temp[1] + " " + temp[2] + "," + temp[0];
 			} else {
 				updatedUserName = temp[1] + "," + temp[0];
-			} 
+			}
 		}
 		System.out.println("trainee name = " + updatedUserName);
 		eidpLoginStepImpl.changeUserToTrainee(updatedUserName);
 	}
-	
+
 	@When("Logged in user changes the user to primary mentor")
 	public void changeToPrimaryMentor() {
 		String updatedUserName = SharedData.primaryMentorName;
-		if(!SharedData.primaryMentorName.contains(",")) {
+		if (!SharedData.primaryMentorName.contains(",")) {
 			String[] temp = SharedData.primaryMentorName.split(" ");
-			if(temp.length > 2) {
+			if (temp.length > 2) {
 				updatedUserName = temp[1] + " " + temp[2] + "," + temp[0];
 			} else {
 				updatedUserName = temp[1] + "," + temp[0];
-			} 
+			}
 		}
 		System.out.println("Primary mentor name = " + updatedUserName);
 //		nihLoginPage.changeUserToTrainee(updatedUserName);
 	}
-	
+
 }
