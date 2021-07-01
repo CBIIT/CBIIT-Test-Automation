@@ -133,11 +133,14 @@ public class WebDriverUtils {
 			}
 		}
 		long implicitWaitInSeconds = Long.valueOf(LocalConfUtils.getProperty("implicitWaitInSeconds"));
-		webDriver.manage().timeouts().implicitlyWait(implicitWaitInSeconds, TimeUnit.SECONDS);
-		
-		if (!Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
-			webDriver.manage().window().maximize();
-		}
+		webDriver.manage().timeouts().implicitlyWait(implicitWaitInSeconds, TimeUnit.MINUTES);
+
+
+		if(!Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)){ 
+			webDriver.manage().window().maximize();	
+		} 
+
+
 		return webDriver;
 	}
 
