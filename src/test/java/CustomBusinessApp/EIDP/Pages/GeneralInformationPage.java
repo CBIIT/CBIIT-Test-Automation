@@ -20,8 +20,14 @@ public class GeneralInformationPage extends CommonUtils{
 	@FindBy(how=How.ID, id = "highestdegreeSelect")
 	public WebElement highestDegreeDropdown;
 	
+	@FindBy(how=How.ID, id = "highestDegreeObtained")
+	public WebElement highestDegreeDropdown2;
+	
 	@FindBy(how = How.ID, id ="select2-primaryMentors-container")
 	public WebElement primaryMentorsName;
+	
+	@FindBy(how = How.XPATH,xpath="(//i[@class=\"fa fa-pencil\"])[1]" )
+	public WebElement generalInformationEdit;
 	
 	@FindBy(how = How.ID, id ="select2-isCoPiSelect-container")
 	public WebElement coPrimaryMentorsName;
@@ -46,6 +52,15 @@ public class GeneralInformationPage extends CommonUtils{
 	
 	@FindBy(css = "a[href*='/idp/review-general']")
 	public WebElement generalInformationTab;
+	
+	@FindBy(xpath = "//span[text()='REVIEW & TAKE ACTION']")
+	public WebElement reviewAndTakeAction;
+	
+	@FindBy(xpath="//input[@value=\"Send IDP to the Primary Mentor\"]")
+	public WebElement sendIdpToPrimaryMentor;
+	
+	@FindBy(xpath="//button[@onclick=\"form_submit_onHold()\"]")
+	public WebElement yesButton;
 
 	@FindBy(how = How.ID, id = "trainingTitle")
 	public WebElement currentTitle;

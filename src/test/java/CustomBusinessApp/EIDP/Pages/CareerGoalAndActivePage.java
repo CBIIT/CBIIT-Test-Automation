@@ -25,6 +25,9 @@ public class CareerGoalAndActivePage extends CommonUtils{
 	@FindBy(how = How.ID, id = "select")
 	public WebElement typeDropdown;
 	
+	@FindBy(how = How.XPATH, xpath="//div[@id=\"radioButtons_c100\"]/label[1]")
+	public WebElement careerExplorationStatus;
+	
 	@FindBy(how = How.ID, id = "field-RTA-01")
 	public WebElement description;
 	

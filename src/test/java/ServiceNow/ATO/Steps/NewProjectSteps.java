@@ -2,6 +2,7 @@ package ServiceNow.ATO.Steps;
 
 import org.openqa.selenium.support.PageFactory;
 
+import ServiceNow.ATO.Pages.BasePage;
 import ServiceNow.ATO.Pages.NewProjectPage;
 import ServiceNow.ATO.StepsImplementation.NewProjectStepsImpl;
 import ServiceNow.ATO.Utils.DriverObjectFactory;
@@ -10,11 +11,13 @@ import cucumber.api.java.en.Then;
 
 public class NewProjectSteps {
 	private NewProjectStepsImpl newProjectStepsImpl;
+	private BasePage basePage;
 	
 	
 	@Before
 	public void before() {
 		this.newProjectStepsImpl = new NewProjectStepsImpl();
+		this.basePage = PageFactory.initElements(DriverObjectFactory.getWebDriver(), BasePage.class);
 	}
 	@Then("User selects the system as {string}")
 	public void selectSystem(String system) throws InterruptedException {
@@ -24,11 +27,14 @@ public class NewProjectSteps {
 	@Then("User selects the Application hosting solution as {string}")
 	public void selectApplicationHost(String hostigSolution) {
 		newProjectStepsImpl.selectApplicationHosting(hostigSolution);
+		basePage.captureScreenshot("System Information app hot solution");
+		
 	}
 
 	@Then("User clicks on the contacts tab")
 	public void clickOnContactsTab() throws InterruptedException {
 	    newProjectStepsImpl.clickOnTab("Contacts");
+	    basePage.captureScreenshot("contact tab");
 	}
 	
 	@Then("go back and sort packages")
@@ -41,6 +47,7 @@ public class NewProjectSteps {
 	@Then("User selects the dates")
 	public void selectDates() throws InterruptedException {
 	    newProjectStepsImpl.setDates();
+	    basePage.captureScreenshot("Dates tab data");
 	}
 
 	@Then("User enters the note as {string}")

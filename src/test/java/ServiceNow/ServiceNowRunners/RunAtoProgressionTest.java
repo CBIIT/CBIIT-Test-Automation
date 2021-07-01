@@ -12,11 +12,11 @@ import cucumber.api.junit.Cucumber;
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/ServiceNow/ATO/Features"
 		, glue="ServiceNow.ATO.Steps"
-		, tags=" @FASTATO"
+		, tags="@allato"
 		, dryRun = false
 		, monochrome=true
 		, strict = true
-		
+		, junit = "--step-notifications"
 		)
 public class RunAtoProgressionTest {
 

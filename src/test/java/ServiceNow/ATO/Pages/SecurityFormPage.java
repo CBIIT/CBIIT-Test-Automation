@@ -148,7 +148,7 @@ public class SecurityFormPage extends BasePage {
 	@FindBy(css = "input[aria-label='Authorization status']")
 	public WebElement authorizationStatusInput;
 	
-	@FindBy(css = "input[aria-label='Authorizing official']")
+	@FindBy(css = "input[data-name='authorizing_official']")
 	public WebElement authorizingOfficialInput;
 	
 	@FindBy(css ="select[id$='agreement_type']")

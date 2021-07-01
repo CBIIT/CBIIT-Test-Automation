@@ -162,7 +162,7 @@ Feature: Regression testing
     And User clicks on save and send mail button
     Then User will click on ok button
 
-  @IDPOnHold @Regression
+  @IDPOnHold 
   Scenario: IDP is placed on HOLD
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user
