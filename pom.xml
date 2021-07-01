@@ -1,263 +1,350 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.nih.nci.testing</groupId>
-	<artifactId>CBIIT-Test-Automation</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.8</java.version>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-	</properties>
+<?xml version="1.0" encoding="UTF-8"?>
+<environment>
+	<!-- Below application ID's are for TEST/QA environments -->
 
-	<dependencies>
+	<profile-name>automation</profile-name>
 
-		<!-- Remote WebDriver dependencies -->
-		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>2.0.0-alpha1</version>
-		</dependency>
+	<!-- Application ID for covid19dashboard -->
+	<application id="covid19dashboard">
 
+		<login_url>https://service-test.nci.nih.gov/nih-covid-19-dashboard
+		</login_url><!-- add test url -->
 
-		<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
-		<dependency>
-			<groupId>io.github.bonigarcia</groupId>
-			<artifactId>webdrivermanager</artifactId>
-			<version>3.8.1</version>
-		</dependency>
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
 
-		<!-- selenium libraries -->
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
+		</db>
 
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>3.141.59</version>
-		</dependency>
+	</application>
 
+	<!-- Application ID for Native View -->
+	<application id="nativeview">
 
-		<!-- appium libraries -->
-		<dependency>
-			<groupId>io.appium</groupId>
-			<artifactId>java-client</artifactId>
-			<version>7.4.1</version>
-		</dependency>
+		<login_url>https://service-test.nci.nih.gov/ncisp</login_url><!-- add test 
+			url -->
 
-		<!-- cucumber libraries -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
 
-		<dependency>
-			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-java</artifactId>
-			<version>4.3.0</version>
-		</dependency>
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
+		</db>
+	</application>
 
-		<dependency>
-			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-junit</artifactId>
-			<version>4.3.0</version>
-			<scope>test</scope>
-		</dependency>
+	<!-- Application ID for CHARMS -->
+	<application id="CHARMS">
 
-		<!-- common libraries -->
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>htmlunit-driver</artifactId>
-			<version>2.26</version>
-		</dependency>
+		<login_url>https://service-test.nci.nih.gov/charms</login_url><!-- add 
+			test url -->
 
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
 
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default><!-- comment -->
+		</db>
+	</application>
 
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>2.6</version>
-		</dependency>
+	<!-- Application ID for COVIDCode -->
+	<application id="COVIDCode">
 
-		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-			<version>2.6</version>
-		</dependency>
+		<login_url>https://service-test.nci.nih.gov/covidcode</login_url><!-- add 
+			test url -->
 
-		<dependency>
-			<groupId>commons-dbcp</groupId>
-			<artifactId>commons-dbcp</artifactId>
-			<version>1.4</version>
-		</dependency>
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
 
-		<!-- apache-poi libraries -->
-
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml</artifactId>
-			<version>4.1.0</version>
-		</dependency>
-
-		<!-- rest-assured libraries -->
-
-		<dependency>
-			<groupId>io.rest-assured</groupId>
-			<artifactId>rest-assured</artifactId>
-			<version>4.3.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.json</groupId>
-			<artifactId>json</artifactId>
-			<version>20160810</version>
-		</dependency>
-
-		<!-- mySQL libraries -->
-
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.19</version>
-		</dependency>
-
-		<!-- xml libraries -->
-
-		<dependency>
-			<groupId>xml-apis</groupId>
-			<artifactId>xml-apis</artifactId>
-			<version>1.4.01</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.jdom</groupId>
-			<artifactId>jdom</artifactId>
-			<version>2.0.2</version>
-		</dependency>
-
-		<dependency>
-			<groupId>jaxen</groupId>
-			<artifactId>jaxen</artifactId>
-			<version>1.1.6</version>
-		</dependency>
-
-		<!-- log4j libraries -->
-
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-		</dependency>
-
-		<!-- phantom-js libraries -->
-
-		<dependency>
-			<groupId>com.codeborne</groupId>
-			<artifactId>phantomjsdriver</artifactId>
-			<version>1.4.4</version>
-		</dependency>
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default><!-- comment -->
+		</db>
+	</application>
 
 
-		<!-- mixed libraries -->
+	<!-- Application ID for LDLink -->
+	<application id="LDLink">
 
-		<dependency>
-			<groupId>com.saucelabs</groupId>
-			<artifactId>saucerest</artifactId>
-			<version>1.0.34</version>
-		</dependency>
+		<login_url>https://ldlink-qa.nci.nih.gov/?tab=home</login_url><!-- add 
+			test url -->
 
-		<dependency>
-			<groupId>net.sf.jacob-project</groupId>
-			<artifactId>jacob</artifactId>
-			<version>1.14.3</version>
-		</dependency>
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
 
-		<dependency>
-			<groupId>org.jsoup</groupId>
-			<artifactId>jsoup</artifactId>
-			<version>1.7.1</version>
-		</dependency>
-
-		<dependency>
-			<groupId>net.sf.opencsv</groupId>
-			<artifactId>opencsv</artifactId>
-			<version>2.3</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.oracle.ojdbc</groupId>
-			<artifactId>ojdbc8</artifactId>
-			<version>19.3.0.0</version>
-		</dependency>
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default><!-- comment -->
+		</db>
+	</application>
 
 
-		<dependency>
-			<groupId>com.aventstack</groupId>
-			<artifactId>extentreports</artifactId>
-			<version>5.0.4</version>
-		</dependency>
+	<!-- Application ID for Analysistools -->
+	<application id="Analysistools">
+
+		<login_url>https://analysistools-qa.cancer.gov/</login_url><!-- add test 
+			url -->
+
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default><!-- comment -->
+		</db>
+	</application>
+
+	<!-- Application ID for PLCO -->
+	<application id="PLCO">
+
+		<login_url>https://exploregwas-qa.cancer.gov/plco-atlas/#/</login_url><!-- 
+			add test url -->
+
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default><!-- comment -->
+		</db>
+	</application>
+
+	<!-- Application ID for CEDCD -->
+	<application id="CEDCD">
+
+		<login_url>https://cedcd-qa.nci.nih.gov/home
+		</login_url><!-- add test url -->
+
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
+		</db>
+
+	</application>
+
+	<!-- Application ID for NERD -->
+	<application id="NERD">
+
+		<login_url>https://service-test.nci.nih.gov/nerd
+		</login_url><!-- add test url -->
+
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
+		</db>
+
+	</application>
+
+	<!-- Application ID for SEER Data Access -->
+	<application id="SEERDataAccess">
+
+		<login_url>https://service-test.nci.nih.gov/seer-data-access
+		</login_url><!-- add test url -->
+
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
+		</db>
+
+	</application>
 
 
-		<dependency>
-			<groupId>org.freemarker</groupId>
-			<artifactId>freemarker</artifactId>
-			<version>2.3.30</version>
-		</dependency>
+	<!-- Application ID for EIDP -->
+	<application id="EidpTestUrl">
+		<login_url>https://idp-test.cancer.gov/nhgri/idp/</login_url><!-- add test 
+			url -->
 
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
 
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>2.8.6</version>
-		</dependency>
-	</dependencies>
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
+		</db>
 
-	<build>
-		<plugins>
+	</application>
+	<!-- Application ID for AppTracker -->
+	<application id="AppTracker">
+		<login_url>https://service-test.nci.nih.gov/nci-scss.do#/
+		</login_url><!-- add test url -->
+		<login_url>https://service-test.nci.nih.gov/nci-scss.do#/</login_url><!-- 
+			add test url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.0.0-M4</version>
-				<configuration>
-					<includes>
-					</includes>
-					<testFailureIgnore>true</testFailureIgnore> <!-- to get report even when fails -->
-				</configuration>
-			</plugin>
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
+		</db>
 
-			<!-- to convert .json files to HTML reports -->
-			<plugin>
-				<groupId>net.masterthought</groupId>
-				<artifactId>maven-cucumber-reporting</artifactId>
-				<version>5.0.0</version>
-				<executions>
-					<execution>
-						<id>execution</id>
-						<phase>test</phase> <!-- the report will be created on test phase -->
-						<goals>
-							<goal>generate</goal>
-						</goals>
-						<configuration>
-							<projectName>CBIIT-Test-Automation</projectName>
-							<!-- optional, per documentation set this to "true" to bypass generation 
-								of Cucumber Reports entirely, defaults to false if not specified -->
-							<!-- <skip>false</skip> -->
-							<!-- output directory for the generated report -->
-							<outputDirectory>${project.build.directory}</outputDirectory>
-							<!-- optional, defaults to outputDirectory if not specified -->
-							<inputDirectory>${project.build.directory}</inputDirectory>
-							<jsonFiles>
-								<!-- supports wildcard or name pattern -->
-								<param>**/cucumber.json</param>   <!-- it will take .json file -->
-							</jsonFiles>
+	</application>
+	<!-- Application ID for AppTrackerNativeView -->
+	<application id="AppTrackerNativeView">
+		<login_url>window.open('https://service-test.nci.nih.gov/ncisp','_blank');
+		</login_url><!-- add test url -->
+		<login_url>window.open('https://service-test.nci.nih.gov/ncisp','_blank');
+		</login_url><!-- add test url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
 
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
+		</db>
 
-		</plugins>
-	</build>
+	</application>
+	
+	<!-- Application ID for AppTracker -->
+	<application id="AtoTestUrl">
+		<login_url>https://service-test.nci.nih.gov/ncisp
+		</login_url><!-- add test url -->
+			add test url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
 
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
+		</db>
 
-	<name>CBIIT-Test-Automation</name>
-
-</project>
+	</application>
+	
+</environment>
