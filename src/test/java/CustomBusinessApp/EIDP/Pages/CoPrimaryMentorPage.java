@@ -32,11 +32,17 @@ public class CoPrimaryMentorPage extends CommonUtils {
 	@FindBy(id = "approveSubmit")
 	private WebElement reviewedButton;
 
+	@FindBy(id = "markasReviewedAllPagesCheck")
+	private WebElement markAsReviewed;
+
 	@FindBy(id = "tdAprroveIDP")
 	private WebElement approvedAndSubmitButton;
 
 	@FindBy(css = "button[onclick='form_submit_approveByTD(this)']")
 	private WebElement yesButton;
+
+	@FindBy(xpath = "//*[@onclick=\"form_submit_approveByLBO()\"]")
+	private WebElement finalYesButton;
 
 	@FindBy(id = "lboAprroveIDP")
 	private WebElement approveIDP;
@@ -48,15 +54,42 @@ public class CoPrimaryMentorPage extends CommonUtils {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 
+	public void markAsReviewedInAllTabsForDir() {
+		CommonUtils.click(markAsReviewedCheckbox);
+		CommonUtils.click(approvedAndSubmitButton);
+		CommonUtils.click(yesButton);
+	}
+
+	public void approveIdp() {
+		CommonUtils.click(markAsReviewedCheckbox);
+		CommonUtils.click(approveIDP);
+		CommonUtils.click(finalYesButton);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		CucumberLogUtils.logScreenShot("Last Screenshot");
+	}
+
 	public void markAsReviewedInAllTabs() {
 		MiscUtils.sleep(3000);
-		CommonUtils.click(generalInformationTab);
+		try {
+			CommonUtils.click(generalInformationTab);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		try {
 			CommonUtils.click(markAsReviewedCheckbox);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		CommonUtils.click(saveAndContinueButton);
+		try {
+			CommonUtils.click(saveAndContinueButton);
+		} catch (Exception e) {
+
+		}
 
 		// Project related deliverables / training
 		try {
@@ -64,34 +97,53 @@ public class CoPrimaryMentorPage extends CommonUtils {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		CommonUtils.click(saveAndContinueButton);
-
+		try {
+			CommonUtils.click(saveAndContinueButton);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		try {
 			CommonUtils.click(markAsReviewedCheckbox);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		CommonUtils.click(saveAndContinueButton);
-
+		try {
+			CommonUtils.click(saveAndContinueButton);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		try {
 			CommonUtils.click(markAsReviewedCheckbox);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		CommonUtils.click(saveAndContinueButton);
-
+		try {
+			CommonUtils.click(saveAndContinueButton);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		try {
 			CommonUtils.click(markAsReviewedCheckbox);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		try {
 		CucumberLogUtils.logScreenShot("Mark review");
-		CommonUtils.click(saveButton);
-
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try{CommonUtils.click(saveButton);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void clickOnReviewedButton() {
 		CommonUtils.click(reviewedButton);
+	}
+
+	public void markAsReviewed() {
+		CommonUtils.click(markAsReviewed);
 	}
 
 	public void clickOnApproveAndSubmitButton() {
@@ -102,7 +154,7 @@ public class CoPrimaryMentorPage extends CommonUtils {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String locator = "//label[@class=\"checkbox btn btn-primary\"]";
+		String locator = "//label[@class=\"checkbox btn btn-primary validate-error\"]";
 		if (WebDriverUtils.getWebDriver().findElements(By.xpath(locator)).size() > 0) {
 			CommonUtils.click(markAsReviewedCheckbox);
 		}

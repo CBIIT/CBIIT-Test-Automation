@@ -14,59 +14,86 @@ public class GeneralInformationStepImpl extends PageInitializer {
 	public void selectCurrentYearOfTrainingDropdown(String year) {
 		eidpBasePage.selectOption(generalInformationPage.currentYearOfTrainingDropdown, year);
 	}
+
 	public void clickOnGeneralInformationTab() {
 		CommonUtils.click(generalInformationPage.generalInformationTab);
 	}
+
 	public void clickOnSaveAndContinueButton() {
 		CommonUtils.click(generalInformationPage.saveAndContinueButton);
 	}
-	
+
 	public void enterPrimaryMentor(String name) {
-		if(name != null) {
+		if (name != null) {
 			CommonUtils.click(generalInformationPage.primaryMentorsName);
 			CommonUtils.waitForVisibility(generalInformationPage.searchInputField);
+			CommonUtils.scrollIntoView(generalInformationPage.searchInputField);
 			CommonUtils.sendKeys(generalInformationPage.searchInputField, name);
 			CommonUtil.waitBrowser(2000);
+			CommonUtils.scrollIntoView(generalInformationPage.dropdownOptions);
 			CommonUtils.click(generalInformationPage.dropdownOptions);
 		}
-		
-		
+
+	}
+	
+	public void reviewTakeAction(){
+		CommonUtils.click(generalInformationPage.reviewAndTakeAction);
+	}
+	
+	public void sendToPrimaryMentor() {
+		CommonUtils.click(generalInformationPage.sendIdpToPrimaryMentor);
+	}
+	
+	public void editGeneralInformation() {
+		CommonUtils.click(generalInformationPage.generalInformationEdit);
+	}
+
+	public void clickYes() {
+		CommonUtils.click(generalInformationPage.yesButton);
 	}
 	
 	public void enterLabBranchName(String name) {
-		if(name != null) {
+		if (name != null) {
 			CommonUtils.click(generalInformationPage.labBranchNameDropdown);
 			CommonUtils.click(generalInformationPage.dropdownOptions);
 			CommonUtils.waitForVisibility(generalInformationPage.searchInputField);
+			CommonUtils.scrollIntoView(generalInformationPage.searchInputField);
 			CommonUtils.sendKeys(generalInformationPage.searchInputField, name);
-			CommonUtil.waitBrowser(2000);
+			CommonUtil.waitBrowser(4000);
+			CommonUtils.scrollIntoView(generalInformationPage.dropdownOptions);
 			CommonUtils.click(generalInformationPage.dropdownOptions);
 		}
-		
+
 	}
-	
+
 	public void selectCoPrimaryMentor(String name) {
-		if(name != null) {
-			
+		if (name != null) {
 			CommonUtils.click(generalInformationPage.coPrimaryMentorsName);
 			CommonUtils.waitForVisibility(generalInformationPage.searchInputField);
+			CommonUtils.scrollIntoView(generalInformationPage.searchInputField);
 			CommonUtils.sendKeys(generalInformationPage.searchInputField, name);
 			CommonUtil.waitBrowser(2000);
+			CommonUtils.scrollIntoView(generalInformationPage.dropdownOptions);
 			CommonUtils.click(generalInformationPage.dropdownOptions);
 		}
-		
+
 	}
-	
+
 	public void selectRandomHighestDegree() {
 		MiscUtils.sleep(3000);
-		CommonUtils.waitForVisibility(generalInformationPage.highestDegreeDropdown);
-		eidpBasePage.selectOptionByIndex(generalInformationPage.highestDegreeDropdown);
+		if (CommonUtils.isElementDisplayed(generalInformationPage.highestDegreeDropdown)) {
+			eidpBasePage.selectOptionByIndex(generalInformationPage.highestDegreeDropdown);
+		}else if (CommonUtils.isElementDisplayed(generalInformationPage.highestDegreeDropdown2)) {
+			eidpBasePage.selectOptionByIndex(generalInformationPage.highestDegreeDropdown2);
+		}
 	}
-	
+
 	public void selectRandomCurrentTitle() {
-		eidpBasePage.selectOptionByIndex(generalInformationPage.currentTitle);
+		if (CommonUtils.isElementDisplayed(generalInformationPage.currentTitle)) {
+			eidpBasePage.selectOptionByIndex(generalInformationPage.currentTitle);
+		}
 	}
-	
+
 	public void fillGeneralInformation() throws Exception {
 		CommonUtils.click(generalInformationPage.primaryMentorsName);
 		CommonUtils.waitForVisibility(generalInformationPage.searchInputField);
@@ -93,22 +120,22 @@ public class GeneralInformationStepImpl extends PageInitializer {
 		Thread.sleep(3000);
 		CucumberLogUtils.logScreenShot("General Information");
 		CommonUtils.click(generalInformationPage.saveAndContinueButton);
-	
+
 	}
-	
+
 	public void doYouHaveCoPrimaryMentory(Boolean isCoPrimary) {
-		if(isCoPrimary) {
+		if (isCoPrimary) {
 			MiscUtils.sleep(10000);
 			WebDriverUtils.webDriver.findElement(By.id("coprimMentorYes")).click();
 		} else {
 			WebDriverUtils.webDriver.findElement(By.id("coprimMentorNo")).click();
 		}
 	}
-	
+
 	public String getTraineeName() {
 		return generalInformationPage.traineeName.getAttribute("value");
 	}
-	
+
 	public void clickOnDeclineIDPButton() {
 		CommonUtils.click(generalInformationPage.declineIDPButton);
 	}

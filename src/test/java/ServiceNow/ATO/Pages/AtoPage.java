@@ -9,13 +9,15 @@ import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.nci.automation.web.WebDriverUtils;
+
 import ServiceNow.ATO.Utils.CommonUtil;
 import ServiceNow.ATO.Utils.DriverObjectFactory;
 
 public class AtoPage extends BasePage {
 
 	public AtoPage() {
-		PageFactory.initElements(DriverObjectFactory.getWebDriver(), this);
+		PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
 	}
 
 	public static String packageCode = "";
