@@ -33,8 +33,6 @@ Feature: NIDCR work flows
   And Logged in user changes the user to "Hauser,Belinda"
   And User will click on IDP Awaiting response button
   And User clicks on the trainee specific IDP request for renewal
-  And User marks all the fields as reviewed in all the tabs
-  #And User clicks on REVIEW AND TAKE ACTION button
   And User clicks on REVIEWED button then approves and submit
   And User clicks on Yes button
   And Logged in user changes the user to trainee
@@ -42,16 +40,13 @@ Feature: NIDCR work flows
   And User clicks on Verify meeting and accept IDP button
   And User enters meeting date and submits
   And Logged in user changes the user to "Walrath,Jessica"
-  And User clicks on proceed button of the trainee specific IDP request 
+  And User clicks on the trainee specific IDP request for renewal 
 	And User clicks on Verify meeting and accept IDP button
   And User enters meeting date and submits and waits for home queue
   And Logged in user changes the user to "Bolling,Chris"
   And User will click on IDP Awaiting response button
   And User clicks on the trainee specific IDP request for renewal
-  And User marks all the fields as reviewed in all the tabs
-  And User clicks on REVIEW AND TAKE ACTION button
-  And User clicks on APPROVE IDP button
-  And User clicks on yes button on trainee page  
+  And Finish Idp process
     
    @TDReviewReturnToPM 
   Scenario: Send the IDP to PM From TD Review
