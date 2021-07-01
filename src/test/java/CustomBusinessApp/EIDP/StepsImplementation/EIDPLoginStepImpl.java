@@ -23,6 +23,15 @@ public class EIDPLoginStepImpl extends PageInitializer{
 		CommonUtils.click(nihLoginPage.signInButton);
 		MiscUtils.sleep(3000);
 	}
+	
+	public void ApplicationLogin(String username, String password,String env) throws TestingException {
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(env));
+		CommonUtils.sendKeys(nihLoginPage.username, ConfUtils.getProperty(username));
+		String decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty(password));
+		CommonUtils.sendKeys(nihLoginPage.password, decyptedPass);
+		CommonUtils.click(nihLoginPage.signInButton);
+		MiscUtils.sleep(3000);
+	}
 
 	
 	public void enterUsername(String username) {

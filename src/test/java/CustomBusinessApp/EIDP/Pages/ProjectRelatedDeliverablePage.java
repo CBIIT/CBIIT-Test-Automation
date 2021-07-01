@@ -22,6 +22,9 @@ public class ProjectRelatedDeliverablePage extends CommonUtils{
 	@FindBy(how = How.ID, id = "projectTitle")
 	public WebElement projectTitle;
 	
+	@FindBy(how = How.ID, id="trainingActivitiesTab")
+	public WebElement trainingActivityButton;
+	
 	@FindBy(how = How.ID, id = "field-RP-01")
 	public WebElement description;
 	
