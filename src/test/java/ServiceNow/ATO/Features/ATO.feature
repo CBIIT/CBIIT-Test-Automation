@@ -1,3 +1,4 @@
+@allato
 Feature: ATO testing
 
   @CreatePackage @Regression @Smoke
@@ -15,7 +16,7 @@ Feature: ATO testing
     And User enters the note as "Test Automation"
     And User clicks on submit button
 
-  @CancelPackage
+  @CancelPackage @Regression
   Scenario: ATO validation of Cancel package
     Given User opens ATO application in browser
     When User will login to ato application
@@ -24,8 +25,9 @@ Feature: ATO testing
     And User clicks on "In Progress" package
     Then User click on "first" package code
     And User clicks on cancel ato button
+    And User clicks on "All" package
 
-  @FIPS199
+  @FIPS199 @Regression
   Scenario: ATO validate FIPS199 form
     Given User opens ATO application in browser
     When User will login to ato application
@@ -44,7 +46,7 @@ Feature: ATO testing
     And User fills the Security Category Impact Level details
     Then User clicks on submit button
 
-  @eAuthentication
+  @eAuthentication @Regression
   Scenario: ATO validate eAuthentication form
     Given User opens ATO application in browser
     When User will login to ato application
@@ -62,7 +64,7 @@ Feature: ATO testing
     And User fills the approval details
     And User clicks on update button
 
-  @SystemSecurityPlan
+  @SystemSecurityPlan  @Regression
   Scenario: ATO validate System Security Plan form
     Given User opens ATO application in browser
     When User will login to ato application
@@ -86,7 +88,7 @@ Feature: ATO testing
     And User clicks on submit button
     And User clicks on update button
 
-  @IdentityAcceeManagement
+  @IdentityAcceeManagement @Regression 
   Scenario: ATO validate identity and access management form
     Given User opens ATO application in browser
     When User will login to ato application
@@ -118,7 +120,7 @@ Feature: ATO testing
     And User fills the approval details
     And User clicks on update button
 
-  @AuditAndAccountability
+  @AuditAndAccountability @Regression 
   Scenario: Validate Audit and Accountability form of the package
     Given User opens ATO application in browser
     When User will login to ato application
@@ -133,7 +135,7 @@ Feature: ATO testing
     And User fills the approval details
     And User clicks on update button
 
-  @ConfigurationManagementPlan
+  @ConfigurationManagementPlan @Regression 
   Scenario: Validate Configuration Management Plan form of the package
     Given User opens ATO application in browser
     When User will login to ato application
@@ -151,7 +153,7 @@ Feature: ATO testing
     And User clicks on "System Contacts" tab
     And User adds new system contacts
 
-  @ContingencyPlan
+  @ContingencyPlan @Regression 
   Scenario: Validate Contingency Plan form of the package
     Given User opens ATO application in browser
     When User will login to ato application
@@ -168,7 +170,7 @@ Feature: ATO testing
     And User fills the approval details
     And User clicks on update button
 
-  @IncidentResponseContactList
+  @IncidentResponseContactList @Regression 
   Scenario: Validate Contingency Plan form of the package
     Given User opens ATO application in browser
     When User will login to ato application
@@ -183,7 +185,7 @@ Feature: ATO testing
     And User fills the approval details
     And User clicks on update button
 
-  @ATO @Regression @Smoke
+   @Regression @Smoke @Regression 
   Scenario: ATO validation of create new package the click on sign ATO button
     Given User opens ATO application in browser
     When User will login to ato application
@@ -199,7 +201,7 @@ Feature: ATO testing
     And User clicks on submit button
     Then User opens the first inprogress package and sets everything to pending ISSO Review
 
-  @CreateThreepackages @ValidateStatus
+  @CreateThreepackages @ValidateStatus @Regression 
   Scenario: Create same name packages and validate their statuses are unique
     Given User opens ATO application in browser
     When User will login to ato application
@@ -241,7 +243,7 @@ Feature: ATO testing
     And User clicks on save button without frame
     Then go back and sort packages
 
-  @IdentityAcceeManagement
+  @IdentityAcceeManagement  @Regression 
   Scenario: ATO validate identity and access management form
     Given User opens ATO application in browser
     When User will login to ato application
@@ -273,7 +275,7 @@ Feature: ATO testing
     And User fills the approval details
     And User clicks on update button
 
-  @AuditAndAccountability
+  @AuditAndAccountability  @Regression 
   Scenario: Validate Audit and Accountability form of the package
     Given User opens ATO application in browser
     When User will login to ato application
@@ -288,7 +290,7 @@ Feature: ATO testing
     And User fills the approval details
     And User clicks on update button
 
-  @ConfigurationManagementPlan
+  @ConfigurationManagementPlan  @Regression 
   Scenario: Validate Configuration Management Plan form of the package
     Given User opens ATO application in browser
     When User will login to ato application
@@ -306,7 +308,7 @@ Feature: ATO testing
     And User clicks on "System Contacts" tab
     And User adds new system contacts
 
-  @ContingencyPlan
+  @ContingencyPlan  @Regression 
   Scenario: Validate Contingency Plan form of the package
     Given User opens ATO application in browser
     When User will login to ato application
@@ -323,7 +325,7 @@ Feature: ATO testing
     And User fills the approval details
     And User clicks on update button
 
-  @IncidentResponseContactList
+  @IncidentResponseContactList  @Regression 
   Scenario: Validate Contingency Plan form of the package
     Given User opens ATO application in browser
     When User will login to ato application
@@ -338,7 +340,7 @@ Feature: ATO testing
     And User fills the approval details
     And User clicks on update button
 
-  @CreateThreepackages @ValidateStatus
+ @CreateThreepackages @ValidateStatus  @Regression 
   Scenario: Create same name packages and validate their statuses are unique
     Given User opens ATO application in browser
     When User will login to ato application
@@ -380,7 +382,7 @@ Feature: ATO testing
     And User clicks on save button without frame
     Then go back and sort packages
 
-  @RenewPackage
+  @RenewPackage  @Regression 
   Scenario: User creates new package and renews it when due and checks status after cancelling that package
     Given User opens ATO application in browser
     When User will login to ato application
@@ -401,7 +403,7 @@ Feature: ATO testing
     And User clicks on save button without frame
     Then Check If resume button is available on screen
 
-  @ValidateReviewCOmments
+  @ValidateReviewCOmments  @Regression 
   Scenario: User validate the status of items is in pending state
     Given User opens ATO application in browser
     When User will login to ato application

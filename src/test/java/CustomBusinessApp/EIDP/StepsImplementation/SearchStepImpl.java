@@ -28,8 +28,15 @@ public class SearchStepImpl extends PageInitializer {
 		eidpBasePage.selectOption(searchPage.searchForDropdown, searchOption);
 	}
 
-	public void selectStatus(String statusOption) {
-		CommonUtils.click(searchPage.currentIDPStatusDropdown);
+	public void selectStatus(String statusOption, String dropDownName) {
+		if (dropDownName.equalsIgnoreCase("Current IDP Status")) {
+			CommonUtils.click(searchPage.currentIDPStatusDropdown);
+		}else if(dropDownName.equalsIgnoreCase("IDP Type")){
+			CommonUtils.click(searchPage.idpType);
+		}else {
+			//default
+			CommonUtils.click(searchPage.currentIDPStatusDropdown);
+		}
 		CommonUtils.click(WebDriverUtils.getWebDriver()
 				.findElement(By.cssSelector(".select2-search.select2-search--dropdown .select2-search__field")));
 		CommonUtils.sendKeys(
@@ -225,13 +232,18 @@ public class SearchStepImpl extends PageInitializer {
 		WebElement buttonEl;
 		Boolean isSelected = false;
 		while (true) {
-			for (int i = 0; i < searchResults.size(); i++) {
+			for (int i = 2; i < searchResults.size(); i++) {
 				buttonEl = searchResults.get(i).findElement(By.tagName("button"));
 				if (buttonEl.isEnabled()) {
 					SharedData.traineeName = searchResults.get(i).findElement(By.tagName("a")).getText();
 					buttonEl.click();
-					isSelected = true;
-					break;
+					Thread.sleep(2000);
+					if (!searchPage.saveAndSendEmailButton.isDisplayed()) {
+						continue;
+					} else {
+						isSelected = true;
+						break;
+					}
 				}
 			}
 			if (isSelected) {

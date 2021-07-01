@@ -2,10 +2,10 @@
 Feature: NIDCR work flows
 
   
- #@NIDCRIDPComplete  @Smoke
+ @NIDCRIDPComplete  @Smoke
  Scenario: IDP request create by trainee and approve by director flow
  	#Given User opens nidcra application in browser
-  When User will login to the application as "gugulothus2" user
+ 	Given User will login to the application as "gugulothus2" user on "NIDCR"
   And Logged in user changes the user to "Hauser,Belinda"
   And User will click on search in dashboard
   And User creates IDP request
@@ -22,7 +22,7 @@ Feature: NIDCR work flows
   And User will click on revew and take action button
   And User clicks on Send IDP to the Primary Mentor button
   And Logged in user changes the user to "Walrath,Jessica"
-  And User clicks on the trainee specific IDP request
+  And User clicks on the trainee specific IDP request for renewal
   And User validates fields in all the tabs and values and clicks on No Revision option
   And User clicks on REVIEW AND TAKE ACTION button 
   And User clicks on SEND IDP TO THE TRAINEE button
@@ -32,10 +32,10 @@ Feature: NIDCR work flows
   And User clicks on SUBMIT button
   And Logged in user changes the user to "Hauser,Belinda"
   And User will click on IDP Awaiting response button
-  And User clicks on the trainee specific IDP request
+  And User clicks on the trainee specific IDP request for renewal
   And User marks all the fields as reviewed in all the tabs
-  And User clicks on REVIEW AND TAKE ACTION button
-  And User clicks on APPROVE AND SUBMIT button
+  #And User clicks on REVIEW AND TAKE ACTION button
+  And User clicks on REVIEWED button then approves and submit
   And User clicks on Yes button
   And Logged in user changes the user to trainee
   And User clicks on VERIFY MEETING button
@@ -47,7 +47,7 @@ Feature: NIDCR work flows
   And User enters meeting date and submits and waits for home queue
   And Logged in user changes the user to "Bolling,Chris"
   And User will click on IDP Awaiting response button
-  And User clicks on the trainee specific IDP request
+  And User clicks on the trainee specific IDP request for renewal
   And User marks all the fields as reviewed in all the tabs
   And User clicks on REVIEW AND TAKE ACTION button
   And User clicks on APPROVE IDP button
@@ -73,7 +73,7 @@ Feature: NIDCR work flows
   And User will click on revew and take action button
   And User clicks on Send IDP to the Primary Mentor button
   And Logged in user changes the user to "Walrath,Jessica"
-  And User clicks on the trainee specific IDP request
+  And User clicks on the trainee specific IDP request for renewal
   And User validates fields in all the tabs and values and clicks on No Revision option
   And User clicks on REVIEW AND TAKE ACTION button 
   And User clicks on SEND IDP TO THE TRAINEE button
@@ -82,13 +82,13 @@ Feature: NIDCR work flows
   And User reviews comments and feedbacks in all the tabs
   And User clicks on SUBMIT button 
   And Logged in user changes the user to "Sekiguchi,Rei"
-  And User clicks on the trainee specific IDP request
+  And User clicks on the trainee specific IDP request for renewal
   And User marks all the fields as reviewed in all the tabs
   And User clicks on REVIEW AND TAKE ACTION button
   And User clicks on REVIEWED button
   And Logged in user changes the user to "Hauser,Belinda"
   And User will click on IDP Awaiting response button
-  And User clicks on the trainee specific IDP request
+  And User clicks on the trainee specific IDP request for renewal
   And User marks all the fields as reviewed in all the tabs
   And User clicks on REVIEW AND TAKE ACTION button
   And User clicks on RETURN TO THE PRIMARY MENTOR button
@@ -117,7 +117,7 @@ Feature: NIDCR work flows
   And User will click on revew and take action button
   And User clicks on Send IDP to the Primary Mentor button
   And Logged in user changes the user to "Walrath,Jessica"
-  And User clicks on the trainee specific IDP request
+  And User clicks on the trainee specific IDP request for renewal
   And User validates fields in all the tabs and values and clicks on No Revision option
   And User clicks on REVIEW AND TAKE ACTION button 
   And User clicks on SEND IDP TO THE TRAINEE button
@@ -126,13 +126,13 @@ Feature: NIDCR work flows
   And User reviews comments and feedbacks in all the tabs
   And User clicks on SUBMIT button 
   And Logged in user changes the user to "Sekiguchi,Rei"
-  And User clicks on the trainee specific IDP request
+  And User clicks on the trainee specific IDP request for renewal
   And User marks all the fields as reviewed in all the tabs
   And User clicks on REVIEW AND TAKE ACTION button
   And User clicks on REVIEWED button
   And Logged in user changes the user to "Hauser,Belinda"
   And User will click on IDP Awaiting response button
-  And User clicks on the trainee specific IDP request
+  And User clicks on the trainee specific IDP request for renewal
   And User marks all the fields as reviewed in all the tabs
   And User clicks on REVIEW AND TAKE ACTION button
   And User clicks on RETURN TO TRAINEE button
@@ -161,14 +161,14 @@ Feature: NIDCR work flows
   And User will click on revew and take action button
   And User clicks on Send IDP to the Primary Mentor button
   And Logged in user changes the user to "Walrath,Jessica"
-  And User clicks on the trainee specific IDP request
+  And User clicks on the trainee specific IDP request for renewal
   And User clicks on Decline IDP button
   And Logged in user changes the user to trainee
   Then Trainee verifies IDP request status as "Under Trainee's Review"
   And User will clickOn proceed button
   And User clicks on Send IDP to the Primary Mentor button
   And Logged in user changes the user to "Walrath,Jessica"
-  Then User clicks on the trainee specific IDP request
+  Then User clicks on the trainee specific IDP request for renewal
   
   
  # below scenario covers IDP Returned to TD from LBO Chief
@@ -194,7 +194,7 @@ Feature: NIDCR work flows
   #And User clicks on Send IDP to the Primary Mentor button
   # step2
   #And Logged in user changes the user to "Walrath,Jessica"
-  #And User clicks on the trainee specific IDP request 
+  #And User clicks on the trainee specific IDP request for renewal 
   #And User validates fields in all the tabs and values and clicks on No Revision option
   #And User clicks on REVIEW AND TAKE ACTION button 
   #And User clicks on SEND IDP TO THE TRAINEE button
@@ -205,14 +205,14 @@ Feature: NIDCR work flows
   #And User clicks on SUBMIT button
   ##step5   
   And Logged in user changes the user to "Sekiguchi,Rei"
-  And User clicks on the trainee specific IDP request
+  And User clicks on the trainee specific IDP request for renewal
   And User marks all the fields as reviewed in all the tabs
   And User clicks on REVIEW AND TAKE ACTION button
   And User clicks on REVIEWED button
   #step 7
   And Logged in user changes the user to "Hauser,Belinda"
   And User will click on IDP Awaiting response button
-  And User clicks on the trainee specific IDP request
+  And User clicks on the trainee specific IDP request for renewal
   And User marks all the fields as reviewed in all the tabs
   And User clicks on REVIEW AND TAKE ACTION button
   And User clicks on RETURN TO TRAINEE button
@@ -221,7 +221,7 @@ Feature: NIDCR work flows
   And User clicks on proceed button of the trainee specific IDP request
   And User clicks on SUBMIT button
   And Logged in user changes the user to "Sekiguchi,Rei"
-  And User clicks on the trainee specific IDP request
-  And User clicks on the trainee specific IDP request
+  And User clicks on the trainee specific IDP request for renewal
+  And User clicks on the trainee specific IDP request for renewal
   And User marks all the fields as reviewed in all the tabs
   And User clicks on REVIEW AND TAKE ACTION button

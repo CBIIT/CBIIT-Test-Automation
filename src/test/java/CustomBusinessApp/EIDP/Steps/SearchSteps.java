@@ -40,6 +40,7 @@ public class SearchSteps extends PageInitializer {
 			searchStepimpl.selectNCITrainingOrganization(requestData.get("NCI Training Organization"));
 			searchStepimpl.clickOnSaveAndSendMailButton();
 		}
+		
 
 		Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
 		CucumberLogUtils.logScreenShot("IDP intiation message success");
@@ -130,7 +131,7 @@ public class SearchSteps extends PageInitializer {
 	// Revise
 	@When("User selects {string} as {string}")
 	public void user_searches_as(String dropDownName, String value) {
-		searchStepimpl.selectStatus(value);
+		searchStepimpl.selectStatus(value,dropDownName);
 	}
 
 	@When("User clicks on search button")
