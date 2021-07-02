@@ -252,6 +252,7 @@
 
 
 	<!-- Application ID for EIDP -->
+
 	<application id="EidpUrlNHGRI">
 		<login_url>https://idp-test.cancer.gov/nhgri/idp/</login_url><!-- add test 
 			url -->
@@ -272,6 +273,7 @@
 				<password></password><!-- Add db password -->
 			</default>
 		</db>
+
 			</application>
 			
 	<application id="EidpUrlNCI">
@@ -294,6 +296,7 @@
 				<password></password><!-- Add db password -->
 			</default>
 		</db>
+
 
 	</application>
 	<!-- Application ID for AppTracker -->

@@ -221,7 +221,7 @@ public class SearchStepImpl extends PageInitializer {
 		WebElement buttonEl;
 		Boolean isSelected = false;
 		while (true) {
-			for (int i = 3; i < searchResults.size(); i++) {
+			for (int i = 0; i < searchResults.size(); i++) {
 				buttonEl = searchResults.get(i).findElement(By.tagName("button"));
 				if (buttonEl.isEnabled()) {
 					SharedData.traineeName = searchResults.get(i).findElement(By.tagName("a")).getText();
