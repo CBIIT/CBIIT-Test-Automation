@@ -24,8 +24,8 @@ public class LoginSteps extends PageInitializer {
 	@When("User will login to the application as \"([^\"]*)\" user")
 	public void loginByUsername(String username) throws TestingException {
 		eidpLoginStepImpl.eidpApplicationLogin("Username", "Password");
-		eidpLoginStepImpl.eidpApplicationLogin("sgugulothuUsername", "sgugulothuPassword");
-//        eidpLoginStepImpl.eidpApplicationLogin("nekrashevicha2Username", "nekrashevicha2Password");
+		//eidpLoginStepImpl.eidpApplicationLogin("sgugulothuUsername", "sgugulothuPassword");
+      // eidpLoginStepImpl.eidpApplicationLogin("nekrashevicha2Username", "nekrashevicha2Password");
 		// eidpLoginStepImpl.eidpApplicationLogin("Username", "Password");
 
 //		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
@@ -70,7 +70,7 @@ public class LoginSteps extends PageInitializer {
 			}
 		}
 		System.out.println("Primary mentor name = " + updatedUserName);
-//		nihLoginPage.changeUserToTrainee(updatedUserName);
+
 	}
 
 }

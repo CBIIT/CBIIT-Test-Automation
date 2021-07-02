@@ -51,28 +51,28 @@ public class GeneralInformationSteps extends PageInitializer {
 		CommonUtil.waitBrowser(2000);
 		generalInformationStepImpl.clickOnSaveAndContinueButton();
 	}
+
 	@Then("User selects primary mentor as exactly {string}")
 	public void user_selects_primary_mentor_as_exactly(String name) {
 		generalInformationStepImpl.enterPrimaryMentor(name);
 		CommonUtil.waitBrowser(2000);
 		generalInformationStepImpl.clickOnSaveAndContinueButton();
-		
+
 	}
+
 	@When("User will click on Search tab")
 	public void user_will_click_on_Seacrh_tab() {
-	    CommonUtils.click(generalInformationPage.searchSection);
+		CommonUtils.click(generalInformationPage.searchSection);
 	}
-
-
 
 	@When("User clicks on Proceed button")
 	public void user_clicks_on_Proceed_button() {
 		CommonUtils.click(generalInformationPage.ProceedButton);
 	}
+
 	@Then("User will click on General Information section")
 	public void user_will_click_on_General_Information_section() {
 		CommonUtils.click(generalInformationPage.clickOnCompletedGeneralInfobutton);
 	}
-
 
 }
