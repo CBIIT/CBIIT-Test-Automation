@@ -71,7 +71,6 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer{
 		CommonUtils.waitForVisibility(projectRelatedDeliverablePage.classesCoursesWorkshopButton);
 		CommonUtils.click(projectRelatedDeliverablePage.classesCoursesWorkshopButton);
 		CommonUtil.waitBrowser(2000);
-		//status radio button selection -> In Progress
 		WebDriverUtils.getWebDriver().findElements(By.cssSelector("#trackClassActStatus > .controls > label")).get(1).click();
 		CommonUtils.click(projectRelatedDeliverablePage.travelNoRadioButton);
 		CommonUtils.sendKeys(projectRelatedDeliverablePage.classesStartDate, "02/20/2021"+Keys.TAB);
@@ -86,7 +85,6 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer{
 	
 	public void addNewProject() {
 		CommonUtil.waitBrowser(7000);
-		//CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.id("projectsTab")));
 		CommonUtils.waitForVisibility(projectRelatedDeliverablePage.addNewProjectButton);
 		CommonUtils.click(projectRelatedDeliverablePage.addNewProjectButton);
 		CommonUtils.waitForVisibility(projectRelatedDeliverablePage.projectTitle);
@@ -129,7 +127,6 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer{
 		List<WebElement> rows = WebDriverUtils.getWebDriver().findElements(By.cssSelector("[id*='manuscriptRowId']"));
 		for(int i= 0 ; i < rows.size(); i++) {
 			CommonUtil.waitBrowser(4000);
-			//rows = WebDriverUtils.getWebDriver().findElements(By.cssSelector("[id*='manuscriptRowId']"));
 			String text = rows.get(i).findElements(By.tagName("td")).get(1).getText();
 			System.out.println("text = " + text);;
 		}
@@ -187,34 +184,11 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer{
 			}
 			WebDriverUtils.getWebDriver().findElement(By.id("datepicker3")).sendKeys("01/15/2021");
 			projectRelatedDeliverablePage.addDeliverablesButton.click();
-		} /*
-			 * else { WebDriverUtils.getWebDriver().findElement(By.
-			 * xpath("//*[@id='trackWhitePaperRepStatus']//*[contains(text(), 'Completed')]"
-			 * )).click();
-			 * WebDriverUtils.getWebDriver().findElement(By.id("datepicker3")).sendKeys(
-			 * "01/15/2021"); projectRelatedDeliverablePage.addDeliverablesButton.click(); }
-			 */
-		
-//		else if("White Paper".equalsIgnoreCase(publicationSubType)) {
-//			WebDriverUtils.getWebDriver().findElement(By.xpath("//*[@id='trackWhitePaperRepStatus']//*[contains(text(), 'Completed')]")).click();
-//			WebDriverUtils.getWebDriver().findElement(By.id("datepicker3")).sendKeys("01/15/2021");
-//			addDeliverablesButton.click();
-//		} else if("Report".equalsIgnoreCase(publicationSubType)) {
-//			WebDriverUtils.getWebDriver().findElement(By.xpath("//*[@id='trackWhitePaperRepStatus']//*[contains(text(), 'Completed')]")).click();
-//			WebDriverUtils.getWebDriver().findElement(By.id("datepicker3")).sendKeys("01/15/2021");
-//			addDeliverablesButton.click();
-//		} else if("Other-publication other".equalsIgnoreCase(publicationSubType)) {
-//			WebDriverUtils.getWebDriver().findElement(By.xpath("//*[@id='trackWhitePaperRepStatus']//*[contains(text(), 'Completed')]")).click();
-//			WebDriverUtils.getWebDriver().findElement(By.id("datepicker3")).sendKeys("01/15/2021");
-//			addDeliverablesButton.click();
-//		}
-		
+		} 
 				
 	}
 	
 	public void markAllProjectRelatedTrainningsAreCompleted() {
-		//CommonUtil.waitBrowser(10000);
-		//CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.id("trainingActivitiesTab")));
 		CommonUtils.waitForVisibility(projectRelatedDeliverablePage.classesCoursesWorkshopButton);
 		List<WebElement> trainningActivitiesEditIcons = WebDriverUtils.getWebDriver().findElements(By.cssSelector(".delivChoice .fa.fa-pencil"));
 		for(int i=0; i<trainningActivitiesEditIcons.size(); i++) {

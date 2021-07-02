@@ -72,7 +72,7 @@ public class DashboardStepImpl extends PageInitializer {
 		return isSelected;
 	}
 
-	public boolean selectIDPRequestOfTrainee() throws Exception {
+	public boolean selectIDPRequestOfTraineeNHGRI() throws Exception {
 		Boolean isSelected = false;
 		String traineeName = SharedData.traineeName;
 		if (!traineeName.contains(",")) {
@@ -85,11 +85,9 @@ public class DashboardStepImpl extends PageInitializer {
 
 			for (WebElement each : pendingReviews) {
 				if (each.getText().equals(traineeName)) {
-					WebElement pendingReviewsTraineeButton = WebDriverUtils.getWebDriver().findElement
-							(By.xpath("(//a[text()='" + traineeName + "']//ancestor::tr//a[@title='Pending Review'])[1]"));
-							//(By.xpath("(//tr//a[text()='" + traineeName
-								//	+ "']/parent::td/following-sibling::td//a[@title='Pending Review']"));
-							pendingReviewsTraineeButton.click();
+					WebElement pendingReviewsTraineeButton = WebDriverUtils.getWebDriver().findElement(By
+							.xpath("(//a[text()='" + traineeName + "']//ancestor::tr//a[@title='Pending Review'])[1]"));
+					pendingReviewsTraineeButton.click();
 					isSelected = true;
 					break;
 				}
@@ -107,9 +105,34 @@ public class DashboardStepImpl extends PageInitializer {
 		return isSelected;
 	}
 
+	public Boolean selectIDPRequestOfTrainee() throws Exception {
+		if (WebDriverUtils.getWebDriver().findElements(By.xpath("//div[@id='d1']/span[text()='IDP Awaiting Response']"))
+				.size() > 0) {
+			WebDriverUtils.getWebDriver().findElement(By.xpath("//div[@id='d1']/span[text()='IDP Awaiting Response']"))
+					.click();
+		}
 
+		Boolean isSelected = false;
+		String traineeName = SharedData.traineeName;
+		if (!traineeName.contains(",")) {
+			traineeName = SharedData.traineeName.split(" ")[1] + ", " + SharedData.traineeName.split(" ")[0];
+		}
+		List<WebElement> pendingReviews = WebDriverUtils.getWebDriver()
+				.findElements(By.xpath("//a[text()='" + traineeName + "']//ancestor::tr//a[@title='Pending Review']"));
+		if (pendingReviews.size() > 0) {
+			pendingReviews.get(0).click();
+			isSelected = true;
+		}
+		if (!isSelected) {
+			WebDriverUtils.getWebDriver().findElement(By.xpath(
+					"//tr//a[text()='" + traineeName + "']/parent::td/following-sibling::td//a[@title='Proceed']"))
+					.click();
 
-	public boolean clickProceedButtonOfTrainee() throws Exception {
+		}
+		return isSelected;
+	}
+
+	public boolean clickProceedButtonOfTraineeNHGRI() throws Exception {
 		Boolean isSelected = false;
 		String traineeName = SharedData.traineeName;
 		if (!traineeName.contains(",")) {
@@ -119,16 +142,12 @@ public class DashboardStepImpl extends PageInitializer {
 		for (byte i = 1; i <= 7; i++) {
 			List<WebElement> pendingReviews = WebDriverUtils.getWebDriver()
 					.findElements(By.xpath("//table[@id='mentorsTable']/tbody/tr"));
-
 			for (byte j = 0; j < pendingReviews.size(); j++) {
 				String name = WebDriverUtils.getWebDriver()
 						.findElement(By.xpath(".//*[@id='mentorsTable']/tbody/tr[" + (j + 1) + "]/td[1]")).getText();
 				if (name.equals(traineeName)) {
-					WebElement button = WebDriverUtils.getWebDriver().findElement
-
-					(By.xpath("//tr//a[text()='" + traineeName
-							+ "']/parent::td/following-sibling::td//a[@title='Proceed']"));
-
+					WebElement button = WebDriverUtils.getWebDriver().findElement(By.xpath("//tr//a[text()='"
+							+ traineeName + "']/parent::td/following-sibling::td//a[@title='Proceed']"));
 					button.click();
 					isSelected = true;
 					break;
@@ -146,7 +165,22 @@ public class DashboardStepImpl extends PageInitializer {
 		return isSelected;
 	}
 
-	public void clickProceedButtonOfTraineeCoPrimaryMentor() throws Exception {
+	public void clickProceedButtonOfTrainee() throws Exception {
+
+		String traineeName = SharedData.traineeName;
+		if (!traineeName.contains(",")) {
+			traineeName = SharedData.traineeName.split(" ")[1] + ", " + SharedData.traineeName.split(" ")[0];
+		}
+
+		Thread.sleep(25000);
+		WebElement button = WebDriverUtils.getWebDriver().findElement(By.xpath(String.format(
+				"//h4[contains(text(),'ADD')]/ancestor::div[@class='container main']//tbody//*[text()='%s']//parent::td/following-sibling::td/a[@class=\"btn btn-primary\"]",
+				traineeName)));
+		button.click();
+
+	}
+
+	public void clickProceedButtonOfTraineeCoPrimaryMentorNHGRI() throws Exception {
 		String traineeName = SharedData.traineeName;
 		if (!traineeName.contains(",")) {
 			traineeName = SharedData.traineeName.split(" ")[1] + ", " + SharedData.traineeName.split(" ")[0];
@@ -154,7 +188,7 @@ public class DashboardStepImpl extends PageInitializer {
 		Thread.sleep(5000);
 		WebElement button = WebDriverUtils.getWebDriver()
 				.findElement(By.xpath("//a[text()='" + traineeName + "']//ancestor::tr//a[@title='Proceed']"));
-				Thread.sleep(5000);
+		Thread.sleep(5000);
 		button.click();
 
 	}

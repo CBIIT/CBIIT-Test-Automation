@@ -1,4 +1,4 @@
-@Smoketest
+
 Feature: Regression testing
   @InitiatesIDPnhgri @RegressionNHGRI @Smoke
   Scenario: IDP request creates and decline and approve
@@ -6,9 +6,9 @@ Feature: Regression testing
     When User will login to the application as "nekrashevicha2" user
     And Logged in user changes the user to "Plante,Faith"
     And User will click on search in dashboard
-    And User creates IDP request
+    And User creates IDP NGHRI request
       |Search For                         | Classification Type | NHGRI Training Organization|
-      |NHGRI (Fellows and Employees Only) | Employee            | DIR                        |                                         
+      |NHGRI (Fellows and Employees Only) | All                 | DIR                        |                                         
     And Logged in user changes the user to trainee
     And User will clickOn start idp button
     And User fills mandatory fields in general information section
@@ -20,13 +20,13 @@ Feature: Regression testing
     And User will click on revew and take action button
     And User clicks on Send IDP to the Primary Mentor button
     And Logged in user changes the user to "Laric,Pnina"
-    And User clicks on the trainee specific IDP request
+    And User clicks on the trainee specific IDP NHGRI request
     And User clicks on Decline IDP button
     And Logged in user changes the user to trainee
     And User will clickOn proceed button
     And User clicks on Send IDP to the Primary Mentor button
     And Logged in user changes the user to "Laric,Pnina"
-    And User clicks on the trainee specific IDP request
+    And User clicks on the trainee specific IDP NHGRI request
     And User validates fields in all the tabs and values and clicks on No Revision option
     And User clicks on REVIEW AND TAKE ACTION button
     And User clicks on SEND IDP TO THE TRAINEE button
@@ -50,7 +50,7 @@ Feature: Regression testing
     And User clicks on Verify meeting and accept IDP button
     And User enters meeting date and submits
     And Logged in user changes the user to "Laric,Pnina"
-    And User clicks on proceed button of the trainee specific IDP request
+    And User clicks on proceed button of the trainee specific IDP NHGRI request
     And User clicks on Verify meeting and accept IDP button
     And User enters meeting date and submits and waits for home queue
     And Logged in user changes the user to "Ferguson,Kimberly"
@@ -68,7 +68,7 @@ Feature: Regression testing
     And User will click on search in dashboard
     And User creates IDP request
       | Search For                        | Classification Type | NHGRI Training Organization|
-      | NHGRI (Fellows and Employees Only)| Employee            | DIR                        |
+      | NHGRI (Fellows and Employees Only)| All                 | DIR                        |
     And Logged in user changes the user to trainee
     And User will clickOn start idp button
     And User fills mandatory fields in general information section
@@ -80,13 +80,13 @@ Feature: Regression testing
     And User will click on revew and take action button
     And User clicks on Send IDP to the Primary Mentor button
     And Logged in user changes the user to "Laric,Pnina"
-    And User clicks on the trainee specific IDP request
+    And User clicks on the trainee specific IDP NHGRI request
     And User clicks on Decline IDP button
     And Logged in user changes the user to trainee
     And User will clickOn proceed button
     And User clicks on Send IDP to the Primary Mentor button
     And Logged in user changes the user to "Laric,Pnina"
-    And User clicks on the trainee specific IDP request
+    And User clicks on the trainee specific IDP NHGRI request
     And User validates fields in all the tabs and values and clicks on No Revision option
     And User clicks on REVIEW AND TAKE ACTION button
     And User clicks on SEND IDP TO THE TRAINEE button

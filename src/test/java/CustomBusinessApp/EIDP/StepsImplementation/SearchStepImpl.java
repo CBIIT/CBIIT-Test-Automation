@@ -80,9 +80,6 @@ public class SearchStepImpl extends PageInitializer {
 
 	public void selectReleaseHoldIDP() {
 		CommonUtil.waitBrowser(4000);
-		//String traineeName = SharedData.traineeName;
-		//if (!traineeName.contains(",")) {
-			//traineeName = SharedData.traineeName.split(" ")[1] + ", " + SharedData.traineeName.split(" ")[0];
 		CommonUtils.waitForVisibility(WebDriverUtils.getWebDriver().findElement(By.id("advanced_search_results")));
 		List<WebElement> activeButtons = WebDriverUtils.getWebDriver()
 				.findElements(By.xpath("//button[@class='btn btn-primary holdIDP'][not(@disabled)]"));
@@ -216,7 +213,7 @@ public class SearchStepImpl extends PageInitializer {
 		WebDriverUtils.getWebDriver().findElement(By.id("release-hold-button")).click();
 	}
 
-	public void selectActiveTrainee() throws Exception {
+	public void selectActiveTraineeNHGRI() throws Exception {
 
 		Thread.sleep(8000);
 		List<WebElement> searchResults = WebDriverUtils.getWebDriver().findElement(By.id("advanced_search_results"))
@@ -224,7 +221,7 @@ public class SearchStepImpl extends PageInitializer {
 		WebElement buttonEl;
 		Boolean isSelected = false;
 		while (true) {
-			for (int i = 5; i < searchResults.size(); i++) {
+			for (int i = 3; i < searchResults.size(); i++) {
 				buttonEl = searchResults.get(i).findElement(By.tagName("button"));
 				if (buttonEl.isEnabled()) {
 					SharedData.traineeName = searchResults.get(i).findElement(By.tagName("a")).getText();
@@ -242,8 +239,42 @@ public class SearchStepImpl extends PageInitializer {
 						.findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
 			}
 		}
-		
-}
+
+	}
+
+	public void selectActiveTrainee() throws Exception {
+
+		Thread.sleep(8000);
+		List<WebElement> searchResults = WebDriverUtils.getWebDriver().findElement(By.id("advanced_search_results"))
+				.findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
+		WebElement buttonEl;
+		Boolean isSelected = false;
+		while (true) {
+			for (int i = 2; i < searchResults.size(); i++) {
+				buttonEl = searchResults.get(i).findElement(By.tagName("button"));
+				if (buttonEl.isEnabled()) {
+					SharedData.traineeName = searchResults.get(i).findElement(By.tagName("a")).getText();
+					buttonEl.click();
+					Thread.sleep(2000);
+					if (!searchPage.saveAndSendEmailButton.isDisplayed()) {
+						continue;
+					} else {
+						isSelected = true;
+						break;
+					}
+				}
+			}
+			if (isSelected) {
+				break;
+			} else {
+				searchPage.nextButton.click();
+				Thread.sleep(8000);
+				searchResults = WebDriverUtils.getWebDriver().findElement(By.id("advanced_search_results"))
+						.findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
+			}
+		}
+
+	}
 
 	public void selectReviewExistingIDP() throws Exception {
 
@@ -291,13 +322,9 @@ public class SearchStepImpl extends PageInitializer {
 		CommonUtils.click(searchPage.okButton);
 	}
 
-
-		public void selectNCITrainingOrganization(String optionText) {
-			eidpBasePage.selectOption(searchPage.nciTrainingOrganizationDropdown, optionText);
-		}
-		
-	
-	
+	public void selectNCITrainingOrganization(String optionText) {
+		eidpBasePage.selectOption(searchPage.nciTrainingOrganizationDropdown, optionText);
+	}
 
 	public String getTraineeName() {
 		return searchPage.traineeName.getText();
@@ -326,10 +353,10 @@ public class SearchStepImpl extends PageInitializer {
 		WebDriverUtils.getWebDriver().findElement(By.xpath(xpath)).click();
 	}
 
-	public void clickOnPopUpYesButton(){
+	public void clickOnPopUpYesButton() {
 		String xpath = "//button[text()='Yes' and not(@id)]";
 		WebDriverUtils.getWebDriver().findElement(By.xpath(xpath)).click();
-		
+
 	}
 
 	public void clickOnSearchButton() {
@@ -337,41 +364,34 @@ public class SearchStepImpl extends PageInitializer {
 		CommonUtils.click(searchPage.searchButton);
 	}
 
-	// Method for IDPCheckbox
 	public void checkTraineeWithIDPCheckbox() {
 		CommonUtils.click(searchPage.traineesWithIDPCheckbox);
 	}
 
-	// Method to enter Trainee First Name
 	public void enterTraineeFirstName(String enterName) {
 		searchPage.TraineeFirstName.sendKeys(enterName);
 	}
 
-	// Method to enter Trainee Last Name
 	public void enterTraineeLastName(String enterName) {
 		searchPage.trainneLastName.sendKeys(enterName);
 	}
 
-	// Method to verify Kim, Olga
 	public void verifyFirmlyExpectedName(String expectedFirstName, String expectedLastName) {
 		String expectedFullName = expectedLastName + ", " + expectedFirstName;
 		String actualFullName = searchPage.searchResultTableFirstRowFirstCell.getText();
 		Assert.assertEquals(expectedFullName, actualFullName);
 	}
 
-	// methodtoverifyClassificationType
 	public void verifyFirmlyClassificationType(String expectedClassificationType) {
 		String actualClassificationType = searchPage.searchResultTableFirstRowThirdCell.getText();
 		Assert.assertEquals(expectedClassificationType.toUpperCase(), actualClassificationType);
 	}
 
-	// method Select Primary Mentor as Ali Abazeed
 	public void selectPrimaryMentorName() {
 		CommonUtils.click(searchPage.selectPrimaryMentor);
 
 	}
 
-	// method to click plus button and assert primary mentor
 	public void verifyTraineeUnderPrimaryMentor(String primaryMentor) {
 		eidpBasePage.selectOption(searchPage.choosePrimaryMentor, primaryMentor);
 		clickOnSearchButton();
@@ -396,14 +416,12 @@ public class SearchStepImpl extends PageInitializer {
 		CommonUtils.click(searchPage.searchButtonCallowayGloria);
 	}
 
-	// verifyGloriaCalloway
 	public void verifyGloriaCallowayExpectedName(String expectedFirstName, String expectedLastName) {
 		String expectedFullName = expectedLastName + ", " + expectedFirstName;
 		String actualFullName = searchPage.searchResultTableFirstRowThirdCellCalloway.getText();
 		Assert.assertEquals(expectedFullName, actualFullName);
 	}
 
-	// Alena8
 	public void selectClassificationTypeGloriaCalloway(String type) {
 		CommonUtils.click(searchPage.classificationTypeInput);
 		CommonUtils.selectDropDownValue(type, searchPage.classificationTypeDropDownGloriaGalloway);
@@ -414,13 +432,11 @@ public class SearchStepImpl extends PageInitializer {
 		CommonUtils.selectDropDownValue(nameMentor, searchPage.choosePrimaryMentor);
 	}
 
-	// chooseOrganizationDropdown
 	public void selectTrainingOrganization(String organizationName) {
 		CommonUtils.click(searchPage.selectTrainingOrganizationDropdown);
-		// eidpBasePage.selectOption(searchPage.chooseCBIIT, organizationName);
+
 	}
 
-	// verifyListOfWebElements//CBIIT
 	public void verifyTraineeOrganization(String nameOrg) {
 		eidpBasePage.selectOption(searchPage.chooseCBIIT, nameOrg);
 		MiscUtils.sleep(3000);
@@ -440,10 +456,7 @@ public class SearchStepImpl extends PageInitializer {
 
 	}
 
-	// verifyGloriaCallowayCalssification results search Scenario#7
 	public void verifyClassificationType(String type) {
-		// selectClassificationTypeGloriaCalloway(type);
-		// clickOnSearchButtonGloriaCalloway();
 		MiscUtils.sleep(2000);
 		List<WebElement> rows = WebDriverUtils.getWebDriver()
 				.findElements(By.cssSelector("td.sorting_1.dtr-control::before"));
@@ -461,13 +474,11 @@ public class SearchStepImpl extends PageInitializer {
 		}
 	}
 
-	// NIHSAC
 	public void selectDropdownNIHSACGloriaCalloway(String SACname) {
 		CommonUtils.selectDropDownValue(searchPage.chooseDropdownNIHSACGloriaCalloway, SACname);
 
 	}
 
-	// verifyNIHSACAssertion
 	public void verifyNIHSAAC(String name) {
 		List<WebElement> rows = WebDriverUtils.getWebDriver()
 				.findElements(By.cssSelector("sorting_1 dtr-control::before"));
