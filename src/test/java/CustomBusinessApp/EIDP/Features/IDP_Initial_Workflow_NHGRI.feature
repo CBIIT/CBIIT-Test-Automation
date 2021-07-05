@@ -8,7 +8,7 @@ Feature: Regression testing
     And User will click on search in dashboard
     And User creates IDP NGHRI request
       |Search For                         | Classification Type | NHGRI Training Organization|
-      |NHGRI (Fellows and Employees Only) | All                 | DIR                        |                                         
+      |NHGRI (Fellows and Employees Only) | Employee            | DIR                        |                                         
     And Logged in user changes the user to trainee
     And User will clickOn start idp button
     And User fills mandatory fields in general information section
@@ -68,7 +68,7 @@ Feature: Regression testing
     And User will click on search in dashboard
     And User creates IDP request
       | Search For                        | Classification Type | NHGRI Training Organization|
-      | NHGRI (Fellows and Employees Only)| All                 | DIR                        |
+      | NHGRI (Fellows and Employees Only)| Employee            | DIR                        |
     And Logged in user changes the user to trainee
     And User will clickOn start idp button
     And User fills mandatory fields in general information section
@@ -192,7 +192,7 @@ Feature: Regression testing
     When User will login to the application as "nekrashevicha2" user
     And Logged in user changes the user to "Plante,Faith"
     And User will click on search in dashboard
-    And User selects "Current IDP Status" as "Under Trainee's Meeting Verification"
+    And User selects "Current IDP Status" as "Under Trainee's Review"
     And User clicks on search button
     And User click on "Cancel IDP" on the grid
     And User reads the trainee name from cancel idp confirmation window
