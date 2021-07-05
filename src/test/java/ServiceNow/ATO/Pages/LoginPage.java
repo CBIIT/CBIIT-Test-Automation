@@ -10,6 +10,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 import com.nci.automation.web.EnvUtils;
+import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 
 import ServiceNow.ATO.Utils.CommonUtil;
@@ -60,7 +61,8 @@ public class LoginPage extends BasePage{
 	public List<WebElement> filteredList;
 	
 	public LoginPage() {
-		PageFactory.initElements(DriverObjectFactory.getWebDriver(), this);
+		//PageFactory.initElements(DriverObjectFactory.getWebDriver(), this);
+		PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
 	}
 	
 }

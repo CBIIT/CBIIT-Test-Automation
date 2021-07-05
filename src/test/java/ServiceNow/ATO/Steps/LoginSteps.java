@@ -2,7 +2,10 @@ package ServiceNow.ATO.Steps;
 
 import org.openqa.selenium.support.PageFactory;
 
+import com.nci.automation.common.QcTestResult;
+import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.EncryptionUtils;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
@@ -15,7 +18,9 @@ import ServiceNow.ATO.Pages.NewProjectPage;
 import ServiceNow.ATO.StepsImplementation.LoginStepsImpl;
 import ServiceNow.ATO.Utils.Constants;
 import ServiceNow.ATO.Utils.DriverObjectFactory;
+import appsCommon.PageCache;
 import cucumber.api.Scenario;
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -47,6 +52,11 @@ public class LoginSteps {
 		loginStepsImpl.openApp();
 	}
 	
+	@Given("User opens Ato application url {string}")
+	public void openATOAppWithUrl(String url) {
+		loginStepsImpl.openApp(url);
+	}
+	
 	@Given("User opens fast ato app in browser")
 	public void openServiceApp( ) {
 		loginStepsImpl.openServiceApp();
@@ -58,8 +68,8 @@ public class LoginSteps {
 			loginStepsImpl.clckOnLoginButton();
 			loginStepsImpl.enterUsername(ConfUtils.getProperty("sgugulothuUsername"));
 			String decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
-			loginStepsImpl.enterUsername(ConfUtils.getProperty("Username"));
-			 decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("Password"));
+			//loginStepsImpl.enterUsername(ConfUtils.getProperty("Username"));
+			 //decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("Password"));
 			loginStepsImpl.enterPassword(decyptedPass);
 			//loginPage.enterUsername(ConfigFileReader.getConfigFileReader().getUserName());
 			//loginPage.enterPassword(ConfigFileReader.getConfigFileReader().getPassword());
@@ -86,6 +96,17 @@ public class LoginSteps {
 		//COMPILER IS GETTING CONFUSED HERE
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
 		loginStepsImpl.clckOnLoginButton();
+		Thread.sleep(3000);
+		loginStepsImpl.enterUsername(username);
+		loginStepsImpl.enterPassword(Constants.passwords.get(username));
+		basePage.captureScreenshot("Before Login");
+		loginStepsImpl.clickOnSignInButton();
+	}
+	
+	
+	@When("User will login to the application as \"([^\"]*)\" user into fast ato")
+	public void loginByUsernameFastAto(String username) throws InterruptedException, TestingException {
+		loginStepsImpl.loginButtonFastAto();
 		Thread.sleep(3000);
 		loginStepsImpl.enterUsername(username);
 		loginStepsImpl.enterPassword(Constants.passwords.get(username));
@@ -120,7 +141,9 @@ public class LoginSteps {
 	
 	@Then("User clicks on {string} in header menu")
 	public void clickOnHeaderMenu(String menu) throws InterruptedException {
+		basePage.captureScreenshot("Navtive header");
 		loginStepsImpl.clickOnHeaderMenu(menu);
+		loginStepsImpl.waitForListToLoad();
 		basePage.captureScreenshot("Inside "+menu+" Menu");
 	}
 	
@@ -148,6 +171,9 @@ public class LoginSteps {
 		loginStepsImpl.clickOnButtonInIframe(btnName);
 		
 	}
+	
+	
+	
 	
 	
 	

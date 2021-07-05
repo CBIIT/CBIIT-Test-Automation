@@ -163,8 +163,12 @@ Feature: Regression testing
     And User clicks on save and send mail button
     Then User will click on ok button
 
+<<<<<<< HEAD:src/test/java/CustomBusinessApp/EIDP/Features/IDP_Initial Workflow.feature
  
   @IDPOnHold @Regression
+=======
+  @IDPOnHold 
+>>>>>>> 67e43970c1b37bcdaf766a37e7c953d49e7c97a4:src/test/java/CustomBusinessApp/EIDP/Features/IDP_Initial WorkflowNCI.feature
   Scenario: IDP is placed on HOLD
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user

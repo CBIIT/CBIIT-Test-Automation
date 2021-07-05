@@ -60,10 +60,18 @@ public class GeneralInformationStepImpl extends PageInitializer {
 		
 	}
 	
-	public void selectRandomHighestDegree() {
+	public void selectRandomHighestDegreeNHGRI() {
 		MiscUtils.sleep(3000);
 		CommonUtils.waitForVisibility(generalInformationPage.highestDegreeDropdownnhgri);
 		eidpBasePage.selectOptionByIndex(generalInformationPage.highestDegreeDropdownnhgri);
+	}
+	public void selectRandomHighestDegree() {
+		MiscUtils.sleep(3000);
+		if (CommonUtils.isElementDisplayed(generalInformationPage.highestDegreeDropdown)) {
+			eidpBasePage.selectOptionByIndex(generalInformationPage.highestDegreeDropdown);
+		}else if (CommonUtils.isElementDisplayed(generalInformationPage.highestDegreeDropdown2)) {
+			eidpBasePage.selectOptionByIndex(generalInformationPage.highestDegreeDropdown2);
+		}
 	}
 	
 	public void selectRandomCurrentTitle() {
@@ -119,7 +127,21 @@ public class GeneralInformationStepImpl extends PageInitializer {
 	public void clickOnDeclineIDPButton() {
 		CommonUtils.click(generalInformationPage.declineIDPButton);
 	}
+	public void reviewTakeAction(){
+		CommonUtils.click(generalInformationPage.reviewAndTakeAction);
+	}
 	
+	public void sendToPrimaryMentor() {
+		CommonUtils.click(generalInformationPage.sendIdpToPrimaryMentor);
+	}
+	
+	public void editGeneralInformation() {
+		CommonUtils.click(generalInformationPage.generalInformationEdit);
+	}
+
+	public void clickYes() {
+		CommonUtils.click(generalInformationPage.yesButton);
+	}
 	
 	public void chooseTraineeProceedButton(String traineeName) {
 		List<WebElement>rows = WebDriverUtils.getWebDriver().findElements(By.cssSelector("td.sorting_1"));
@@ -133,5 +155,4 @@ public class GeneralInformationStepImpl extends PageInitializer {
 		
 		
 	}
-
 
