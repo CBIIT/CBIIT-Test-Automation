@@ -252,8 +252,7 @@
 
 
 	<!-- Application ID for EIDP -->
-
-	<application id="EidpUrlNHGRI">
+	<application id="EidpTestUrl">
 		<login_url>https://idp-test.cancer.gov/nhgri/idp/</login_url><!-- add test 
 			url -->
 
@@ -274,9 +273,8 @@
 			</default>
 		</db>
 
-			</application>
-			
-	<application id="EidpUrlNCI">
+	</application>
+	<application id="EidpTestUrlNCI">
 		<login_url>https://idp-test.cancer.gov/idp/</login_url><!-- add test 
 			url -->
 
@@ -296,7 +294,6 @@
 				<password></password><!-- Add db password -->
 			</default>
 		</db>
-
 
 	</application>
 	<!-- Application ID for AppTracker -->
@@ -353,6 +350,49 @@
 		<login_url>https://service-test.nci.nih.gov/ncisp
 		</login_url><!-- add test url -->
 			add test url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
+		</db>
+
+	</application>
+	<application id="FASTAtoTestUrl">
+		<login_url>https://service-test.nci.nih.gov/ncisp
+		</login_url><!-- add test url -->
+			add test url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
+		</db>
+
+	</application>
+	<application id="NIDCR">
+		<login_url>https://idp-test.cancer.gov/nidcr/idp/
+		</login_url><!-- add test url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>

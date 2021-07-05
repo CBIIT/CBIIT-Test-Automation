@@ -25,6 +25,13 @@ public class CoPrimaryMentorSteps extends PageInitializer {
 	 coPrimaryMentorPage.markNHGRIasReviewed();
 	}
 
+
+	@When("Director user review, approve & submit")
+	public void markReviewInAllTabsForDirector() {
+		coPrimaryMentorPage.markAsReviewedInAllTabsForDir();
+	}
+	
+
 	
 	@When("Primary mentor clicks on SEND IDP TO THE TRAINEE button")
 	public void clickOnSendIDPToTrainee() {
@@ -36,6 +43,17 @@ public class CoPrimaryMentorSteps extends PageInitializer {
 	public void clickOnReviewedButton() {
 		coPrimaryMentorPage.clickOnReviewedButton();
 		eidpCommonPage.waitForGoBackToHomeQueueButtonVisible();
+	}
+	
+	@When("User clicks on REVIEWED button then approves and submit")
+	public void clickOnReviewedButtonApproveAndSubmit() {
+		coPrimaryMentorPage.markAsReviewed();
+		coPrimaryMentorPage.clickOnApproveAndSubmitButton();
+	}
+	
+	@Then("Finish Idp process")
+	public void finish() {
+		coPrimaryMentorPage.approveIdp();
 	}
 	
 	@When("User clicks on APPROVE AND SUBMIT button")

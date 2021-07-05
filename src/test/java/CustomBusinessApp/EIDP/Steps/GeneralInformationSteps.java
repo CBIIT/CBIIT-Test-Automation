@@ -21,6 +21,7 @@ public class GeneralInformationSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot("Generarl info completed");
 	}
 
+
 	@When("User fills mandatory fields in general information section")
 	public void user_fills_mandatory_fields_in_general_information_section(io.cucumber.datatable.DataTable data)
 			throws Exception {
@@ -44,6 +45,34 @@ public class GeneralInformationSteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 	}
 
+	@When("User fills general information for renewal")
+	public void fillGeneralInformationForRenewal(DataTable data) throws Exception {
+		/*
+		 * Map<String, String> requestData = CommonUtil.getMapFromDataTable(data);
+		 * generalInformationStepImpl.enterPrimaryMentor(requestData.
+		 * get("Primary Mentor"));
+		 * generalInformationStepImpl.enterLabBranchName(requestData.
+		 * get("Lab Driector name")); String coPrimaryMentor =
+		 * requestData.get("Co Primary Mentor"); System.out.println("coPrimaryMentor = "
+		 * + coPrimaryMentor); if (coPrimaryMentor != null &&
+		 * !"".equals(coPrimaryMentor)) {
+		 * generalInformationStepImpl.doYouHaveCoPrimaryMentory(true);
+		 * generalInformationStepImpl.selectCoPrimaryMentor(coPrimaryMentor); }
+		 */
+		generalInformationStepImpl.selectRandomHighestDegree();
+		CommonUtil.waitBrowser(2000);
+		CucumberLogUtils.logScreenShot("General Info");
+		generalInformationStepImpl.clickOnSaveAndContinueButton();
+		MiscUtils.sleep(1000);
+	}
+
+
+	@When("Edit general information")
+	public void editGeneralInformation() {
+		generalInformationStepImpl.editGeneralInformation();
+	}
+	
+
 	@When("User selects primary mentor as \"([^\"]*)\"")
 	public void selectPrimaryMentor(String name) throws Exception {
 		generalInformationStepImpl.enterPrimaryMentor(name);
@@ -51,6 +80,7 @@ public class GeneralInformationSteps extends PageInitializer {
 		CommonUtil.waitBrowser(2000);
 		generalInformationStepImpl.clickOnSaveAndContinueButton();
 	}
+
 
 	@Then("User selects primary mentor as exactly {string}")
 	public void user_selects_primary_mentor_as_exactly(String name) {
@@ -73,6 +103,17 @@ public class GeneralInformationSteps extends PageInitializer {
 	@Then("User will click on General Information section")
 	public void user_will_click_on_General_Information_section() {
 		CommonUtils.click(generalInformationPage.clickOnCompletedGeneralInfobutton);
+
+	}
+	@When("Review and Take Action and finish")
+	public void test() {
+		generalInformationStepImpl.reviewTakeAction();
+		generalInformationStepImpl.sendToPrimaryMentor();
+		CommonUtil.waitBrowser(2000);
+		generalInformationStepImpl.clickYes();
+		CommonUtil.waitBrowser(2000);
+		CucumberLogUtils.logScreenShot("IDP Hold Screenshot");
+
 	}
 
 }

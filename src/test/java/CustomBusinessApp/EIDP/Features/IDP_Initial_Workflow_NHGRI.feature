@@ -66,7 +66,7 @@ Feature: Regression testing
     When User will login to the application as "nekrashevicha2" user
     And Logged in user changes the user to "Plante,Faith"
     And User will click on search in dashboard
-    And User creates IDP request
+    And User creates IDP NGHRI request
       | Search For                        | Classification Type | NHGRI Training Organization|
       | NHGRI (Fellows and Employees Only)| Employee            | DIR                        |
     And Logged in user changes the user to trainee

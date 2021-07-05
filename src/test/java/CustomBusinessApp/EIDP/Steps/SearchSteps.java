@@ -17,6 +17,7 @@ import io.cucumber.datatable.DataTable;
 
 public class SearchSteps extends PageInitializer {
 
+
 	@When("User creates IDP NGHRI request")
 	public void createIDPrequestNHGRI(DataTable dataTable) throws Exception {
 		Map<String, String> requestData = CommonUtil.getMapFromDataTable(dataTable);
@@ -35,6 +36,7 @@ public class SearchSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot("IDP intiation message success");
 		searchStepimpl.clickOnOkButton();
 	}
+	
 	@When("User creates IDP request")
 	public void createIDPrequest(DataTable dataTable) throws Exception {
 		Map<String, String> requestData = CommonUtil.getMapFromDataTable(dataTable);
@@ -54,6 +56,65 @@ public class SearchSteps extends PageInitializer {
 		searchStepimpl.clickOnOkButton();
 	
 	}
+
+	@When("User creates IDP NHGRI request")
+	public void createIDPNHGRIrequest(DataTable dataTable) throws Exception {
+		Map<String, String> requestData = CommonUtil.getMapFromDataTable(dataTable);
+		if (requestData.containsKey("SetTrainee")) {
+			searchStepimpl.setTraineesWithoutIDP();
+		}
+		if (requestData.containsKey("Search For")) {
+			searchStepimpl.selectSearchForDropdown(requestData.get("Search For"));
+			searchStepimpl.checkTraineeWithoutIDPCheckbox();
+		}
+		if (requestData.containsKey("Classification Type") && !requestData.get("Classification Type").isEmpty()) {
+			searchStepimpl.selectClassificationType(requestData.get("Classification Type"));
+		}
+		if (requestData.containsKey("Current IDP Status")) {
+			searchStepimpl.selectCurrentIDPStatus(requestData.get("Current IDP Status"));
+		}
+		searchStepimpl.clickOnSearchButton();
+		searchStepimpl.selectActiveTrainee();
+		Assert.assertTrue(searchStepimpl.isIDPFormDisplayed());
+		CucumberLogUtils.logScreenShot("owner details page");
+		if (requestData.containsKey("NCI Training Organization")) {
+			searchStepimpl.selectNCITrainingOrganization(requestData.get("NCI Training Organization"));
+			searchStepimpl.clickOnSaveAndSendMailButton();
+		}
+		
+
+		Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
+		CucumberLogUtils.logScreenShot("IDP intiation message success");
+		searchStepimpl.clickOnOkButton();
+
+	}
+
+	@Then("Select reason for revise idp and Click On save and send email button")
+	public void saveAndSendEmail() {
+		searchStepimpl.resonForReviseIDP("follow");
+		searchStepimpl.clickOnSaveAndSendMailButton();
+		searchStepimpl.clickOnOkButton();
+	}
+
+	@When("Search with inputs")
+	public void searchWithInputs(DataTable dataTable) throws Exception {
+		Map<String, String> requestData = CommonUtil.getMapFromDataTable(dataTable);
+		if (requestData.containsKey("SetTrainee")) {
+			searchStepimpl.setTraineesWithoutIDP();
+		}
+		if (requestData.containsKey("Search For")) {
+			searchStepimpl.selectSearchForDropdown(requestData.get("Search For"));
+		}
+		if (requestData.containsKey("Classification Type") && !requestData.get("Classification Type").isEmpty()) {
+			searchStepimpl.selectClassificationType(requestData.get("Classification Type"));
+		}
+		if (requestData.containsKey("Current IDP Status")) {
+			searchStepimpl.selectCurrentIDPStatus(requestData.get("Current IDP Status"));
+		}
+		searchStepimpl.clickOnSearchButton();
+	}
+
+
 	@When("User searches for completed idp request")
 	public void searchCompletedIDP() {
 		searchStepimpl.selectSearchForDropdown("Non-NCI (Fellows Only)");
@@ -75,9 +136,13 @@ public class SearchSteps extends PageInitializer {
 		searchStepimpl.selectClassificationType(classificationType);
 	}
 
-	@When("User clicks on active trainee")
+	@When("User clicks on active trainee NHGRI")
 	public void selectActiveTrainne() throws Exception {
 		searchStepimpl.selectActiveTraineeNHGRI();
+	}
+	@When("User clicks on active trainee")
+	public void selectActiveTrainne() throws Exception {
+		searchStepimpl.selectActiveTrainee();
 	}
 
 	@Then("User will verify initiate IDP form is opned")
@@ -109,10 +174,17 @@ public class SearchSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot("IDP intiation message success");
 	}
 
+<<<<<<< HEAD
 	@When("User selects {string} as {string}")
 	public void user_searches_as(String dropDownName, String value) {
 		searchStepimpl.selectStatus(value);
 		MiscUtils.sleep(3000);
+=======
+	// Revise
+	@When("User selects {string} as {string}")
+	public void user_searches_as(String dropDownName, String value) {
+		searchStepimpl.selectStatus(value,dropDownName);
+>>>>>>> 67e43970c1b37bcdaf766a37e7c953d49e7c97a4
 	}
 
 	@When("User clicks on search button")
@@ -127,6 +199,10 @@ public class SearchSteps extends PageInitializer {
 
 	@Then("User click on {string} on the grid")
 	public void user_click_on_on_the_grid(String button) throws Exception {
+<<<<<<< HEAD
+=======
+		// searchStepimpl.selectReviewExistingIDP();
+>>>>>>> 67e43970c1b37bcdaf766a37e7c953d49e7c97a4
 		button = button.trim();
 		switch (button) {
 		case "Revise Existing IDP":
@@ -153,11 +229,27 @@ public class SearchSteps extends PageInitializer {
 	@Then("Select the reason as {string} checkbox")
 	public void select_the_reason_as_checkbox(String value) {
 		searchStepimpl.selectCheckBox(value);
+<<<<<<< HEAD
 		MiscUtils.sleep(5000);
 	}
 
 	@Then("User clicks on yes button in pop up")
 	public void user_clicks_on_yes_button_in_pop_up() {
+=======
+	}
+
+	@Then("User clicks on yes button in pop up")
+	public void user_clicks_on_yes_button_in_pop_up() throws InterruptedException {
+		searchStepimpl.clickOnPopUpYesButton();
+	}
+
+	@Then("User clicks on yes button in pop up and stores the user name")
+	public void user_clicks_on_yes_button_in_pop_up_and_Store_username() throws InterruptedException {
+		Thread.sleep(3000);
+		String trainneName = searchStepimpl.getTrainneNameFromReviseIDPConfirmationPopUp();
+		String[] trainneNam2e = trainneName.split(" ");
+		SharedData.traineeName = trainneNam2e[1] + "," + trainneNam2e[0];
+>>>>>>> 67e43970c1b37bcdaf766a37e7c953d49e7c97a4
 		searchStepimpl.clickOnPopUpYesButton();
 	}
 
@@ -168,6 +260,10 @@ public class SearchSteps extends PageInitializer {
 		SharedData.traineeName = searchStepimpl.getTrainneeNameFromHoldConfirmationWindow();
 		System.out.println("primaryMentorName = " + SharedData.primaryMentorName);
 		System.out.println("traineeName = " + SharedData.traineeName);
+<<<<<<< HEAD
+=======
+		// commonPage.clickOnOkButton();
+>>>>>>> 67e43970c1b37bcdaf766a37e7c953d49e7c97a4
 
 	}
 
@@ -282,6 +378,10 @@ public class SearchSteps extends PageInitializer {
 		CommonUtil.waitBrowser(5000);
 	}
 
+<<<<<<< HEAD
+=======
+	// GloriaSearchClassifType
+>>>>>>> 67e43970c1b37bcdaf766a37e7c953d49e7c97a4
 	@When("User will select {string} as Classification type on Gloria Calloway page")
 	public void user_will_select_as_Classification_type_on_Gloria_Calloway_page(String dropdownOptions) {
 		searchStepimpl.selectClassificationTypeGloriaCalloway(dropdownOptions);
@@ -294,7 +394,11 @@ public class SearchSteps extends PageInitializer {
 		searchStepimpl.verifyClassificationType(classificationType);
 		CommonUtil.waitBrowser(3000);
 
+<<<<<<< HEAD
 	}
+=======
+	}// new scenarioChooseCBIITorganizations
+>>>>>>> 67e43970c1b37bcdaf766a37e7c953d49e7c97a4
 
 	@When("User will select {string} as Training Organization")
 	public void user_will_select_as_Training_Organization(String nameOrganization) {
@@ -318,4 +422,8 @@ public class SearchSteps extends PageInitializer {
 
 	}
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 67e43970c1b37bcdaf766a37e7c953d49e7c97a4

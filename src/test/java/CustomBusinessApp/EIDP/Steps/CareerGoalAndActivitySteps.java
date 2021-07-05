@@ -13,6 +13,11 @@ public class CareerGoalAndActivitySteps extends PageInitializer{
 		CommonUtil.waitBrowser(3000);
 	}
 	
+	@When("User fills mandatory fields in career goals page for renew idp")
+	public void fillCareerGoalForRenewIdp() throws Exception{
+		careerGoalAndActiveStepImpl.fillCarrerGoalActiviteForRenewIdp();
+	}
+	
 	@When("User adds new career training activities")
 	public void editTrainning() {
 		careerGoalAndActiveStepImpl.markAllExistingCareerGoalsAsCompleted();

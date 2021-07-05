@@ -32,6 +32,11 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer{
 		CommonUtils.click(projectRelatedDeliverablePage.saveAndContinueButton);
 	}
 	
+	public void clickOnProjectRelatedTraining() {
+		CommonUtils.click(projectRelatedDeliverablePage.trainingActivityButton);
+		CommonUtils.click(projectRelatedDeliverablePage.saveAndContinueButton);
+	}
+	
 	public void enterPublication() {
 		CommonUtils.click(projectRelatedDeliverablePage.publicationButton);
 		MiscUtils.sleep(2000);

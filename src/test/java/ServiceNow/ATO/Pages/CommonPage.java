@@ -40,6 +40,13 @@ public class CommonPage extends BasePage{
 		clickOnElement(driver.findElement(By.xpath("//div[contains(text(), '" + tabName + "')]")));
 	}
 	
+	public void clickOnElement(By locator) {
+		clickOnElement(driver.findElement(locator));
+	}
+
+	public void setTextInLocator(By locator, String text) {
+		setText(locator, text);
+	}
 	
 	public void clickOnUpdateButton() {
 		clickOnElementInIFrame(updateButton);
@@ -75,4 +82,10 @@ public class CommonPage extends BasePage{
 	public void clickOnLoginInToGetStartedButton() {
 		clickOnElement(driver.findElement(By.cssSelector(".login-btn")));
 	}
+	
+	
+	public String getText(By locator) {
+		return driver.findElement(locator).getText();
+	}
+
 }
