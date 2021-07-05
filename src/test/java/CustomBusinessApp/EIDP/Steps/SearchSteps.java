@@ -137,7 +137,7 @@ public class SearchSteps extends PageInitializer {
 	}
 
 	@When("User clicks on active trainee NHGRI")
-	public void selectActiveTrainne() throws Exception {
+	public void selectActiveTraineeNHGRI() throws Exception {
 		searchStepimpl.selectActiveTraineeNHGRI();
 	}
 	@When("User clicks on active trainee")
@@ -174,17 +174,11 @@ public class SearchSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot("IDP intiation message success");
 	}
 
-<<<<<<< HEAD
-	@When("User selects {string} as {string}")
-	public void user_searches_as(String dropDownName, String value) {
-		searchStepimpl.selectStatus(value);
-		MiscUtils.sleep(3000);
-=======
 	// Revise
 	@When("User selects {string} as {string}")
 	public void user_searches_as(String dropDownName, String value) {
 		searchStepimpl.selectStatus(value,dropDownName);
->>>>>>> 67e43970c1b37bcdaf766a37e7c953d49e7c97a4
+
 	}
 
 	@When("User clicks on search button")
@@ -199,10 +193,6 @@ public class SearchSteps extends PageInitializer {
 
 	@Then("User click on {string} on the grid")
 	public void user_click_on_on_the_grid(String button) throws Exception {
-<<<<<<< HEAD
-=======
-		// searchStepimpl.selectReviewExistingIDP();
->>>>>>> 67e43970c1b37bcdaf766a37e7c953d49e7c97a4
 		button = button.trim();
 		switch (button) {
 		case "Revise Existing IDP":
@@ -229,13 +219,7 @@ public class SearchSteps extends PageInitializer {
 	@Then("Select the reason as {string} checkbox")
 	public void select_the_reason_as_checkbox(String value) {
 		searchStepimpl.selectCheckBox(value);
-<<<<<<< HEAD
 		MiscUtils.sleep(5000);
-	}
-
-	@Then("User clicks on yes button in pop up")
-	public void user_clicks_on_yes_button_in_pop_up() {
-=======
 	}
 
 	@Then("User clicks on yes button in pop up")
@@ -249,8 +233,7 @@ public class SearchSteps extends PageInitializer {
 		String trainneName = searchStepimpl.getTrainneNameFromReviseIDPConfirmationPopUp();
 		String[] trainneNam2e = trainneName.split(" ");
 		SharedData.traineeName = trainneNam2e[1] + "," + trainneNam2e[0];
->>>>>>> 67e43970c1b37bcdaf766a37e7c953d49e7c97a4
-		searchStepimpl.clickOnPopUpYesButton();
+        searchStepimpl.clickOnPopUpYesButton();
 	}
 
 	@When("User reads the primary mentor name from release hold confirmation window")
@@ -260,10 +243,6 @@ public class SearchSteps extends PageInitializer {
 		SharedData.traineeName = searchStepimpl.getTrainneeNameFromHoldConfirmationWindow();
 		System.out.println("primaryMentorName = " + SharedData.primaryMentorName);
 		System.out.println("traineeName = " + SharedData.traineeName);
-<<<<<<< HEAD
-=======
-		// commonPage.clickOnOkButton();
->>>>>>> 67e43970c1b37bcdaf766a37e7c953d49e7c97a4
 
 	}
 
@@ -378,10 +357,6 @@ public class SearchSteps extends PageInitializer {
 		CommonUtil.waitBrowser(5000);
 	}
 
-<<<<<<< HEAD
-=======
-	// GloriaSearchClassifType
->>>>>>> 67e43970c1b37bcdaf766a37e7c953d49e7c97a4
 	@When("User will select {string} as Classification type on Gloria Calloway page")
 	public void user_will_select_as_Classification_type_on_Gloria_Calloway_page(String dropdownOptions) {
 		searchStepimpl.selectClassificationTypeGloriaCalloway(dropdownOptions);
@@ -393,12 +368,8 @@ public class SearchSteps extends PageInitializer {
 			String classificationType) {
 		searchStepimpl.verifyClassificationType(classificationType);
 		CommonUtil.waitBrowser(3000);
-
-<<<<<<< HEAD
 	}
-=======
-	}// new scenarioChooseCBIITorganizations
->>>>>>> 67e43970c1b37bcdaf766a37e7c953d49e7c97a4
+
 
 	@When("User will select {string} as Training Organization")
 	public void user_will_select_as_Training_Organization(String nameOrganization) {
@@ -422,8 +393,5 @@ public class SearchSteps extends PageInitializer {
 
 	}
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 67e43970c1b37bcdaf766a37e7c953d49e7c97a4
+
