@@ -57,30 +57,7 @@ public class SearchSteps extends PageInitializer {
 	
 	}
 
-	@When("User creates IDP NHGRI request")
-	public void createIDPNHGRIrequest(DataTable dataTable) throws Exception {
-		Map<String, String> requestData = CommonUtil.getMapFromDataTable(dataTable);
-		if (requestData.containsKey("SetTrainee")) {
-			searchStepimpl.setTraineesWithoutIDP();
-		}
-		if (requestData.containsKey("Search For")) {
-			searchStepimpl.selectSearchForDropdown(requestData.get("Search For"));
-			searchStepimpl.checkTraineeWithoutIDPCheckbox();
-		}
-		if (requestData.containsKey("Classification Type") && !requestData.get("Classification Type").isEmpty()) {
-			searchStepimpl.selectClassificationType(requestData.get("Classification Type"));
-		}
-		if (requestData.containsKey("Current IDP Status")) {
-			searchStepimpl.selectCurrentIDPStatus(requestData.get("Current IDP Status"));
-		}
-		searchStepimpl.clickOnSearchButton();
-		searchStepimpl.selectActiveTrainee();
-		Assert.assertTrue(searchStepimpl.isIDPFormDisplayed());
-		CucumberLogUtils.logScreenShot("owner details page");
-		if (requestData.containsKey("NCI Training Organization")) {
-			searchStepimpl.selectNCITrainingOrganization(requestData.get("NCI Training Organization"));
-			searchStepimpl.clickOnSaveAndSendMailButton();
-		}
+	
 		
 
 		Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
