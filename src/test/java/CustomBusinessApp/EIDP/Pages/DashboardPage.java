@@ -21,6 +21,9 @@ public class DashboardPage extends CommonUtils{
 	@FindBy(css = "div[onclick*='manage-delegate']")
 	public WebElement manageDelegate;
 	
+	@FindBy(xpath ="//li[@id='manageDelegatetabs']")
+	public WebElement manageDelegateTab;
+	
 	@FindBy(how = How.CSS, css="a[href*='/idp/general'][class='btn btn-primary']")
 	public WebElement startIDPButton;
 	
@@ -44,6 +47,10 @@ public class DashboardPage extends CommonUtils{
 
 	@FindBy(id = "advanced_search_btn")
 	public WebElement searchButton;
+	
+	@FindBy(id = "(//select[@name='mentorsTable_length'])[1]")
+	public WebElement show100;
+	
 	
 	public DashboardPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);

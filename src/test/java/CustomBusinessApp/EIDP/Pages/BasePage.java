@@ -58,12 +58,6 @@ public class BasePage extends CommonUtils{
 		System.out.print("");
 	}
 	
-//	protected String getText(WebElement element) {
-//		//wait.until(ExpectedConditions.elementToBeClickable(element));
-//		wait.until(ExpectedConditions.visibilityOf(element));
-//		return element.getAttribute("value");
-//	}
-	
 	protected void waitForElementToVisible(WebElement element) {
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}

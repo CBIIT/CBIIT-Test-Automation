@@ -13,12 +13,12 @@ import com.nci.automation.xceptions.TestingException;
 
 import appsCommon.PageInitializer;
 
-public class EIDPLoginStepImpl extends PageInitializer{
-	
+public class EIDPLoginStepImpl extends PageInitializer {
+
 	public void eidpApplicationLogin(String username, String password) throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("EidpTestUrl"));
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("EidpUrlNHGRI"));
 		CommonUtils.sendKeys(nihLoginPage.username, ConfUtils.getProperty(username));
-		String decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty(password));
+		String decyptedPass = EncryptionUtils.decrypt(ConfUtils.getProperty(password));
 		CommonUtils.sendKeys(nihLoginPage.password, decyptedPass);
 		CommonUtils.click(nihLoginPage.signInButton);
 		MiscUtils.sleep(3000);
@@ -33,20 +33,19 @@ public class EIDPLoginStepImpl extends PageInitializer{
 		MiscUtils.sleep(3000);
 	}
 
-	
 	public void enterUsername(String username) {
 		CommonUtils.sendKeys(nihLoginPage.username, username);
 	}
-	
+
 	public void enterPassword(String password) {
 		CommonUtils.sendKeys(nihLoginPage.password, password);
 	}
-	
+
 	public void clickOnSignInButton() {
 		CommonUtils.click(nihLoginPage.signInButton);
-		
+
 	}
-	
+
 	public void changeUser(String username) {
 		try {
 			Thread.sleep(5000);
@@ -57,16 +56,16 @@ public class EIDPLoginStepImpl extends PageInitializer{
 			Thread.sleep(6000);
 			CucumberLogUtils.logScreenShot();
 			CommonUtils.click(nihLoginPage.changeUserOption);
-			
-		} catch(Exception ex) {
+
+		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
 		}
-		
+
 	}
-	
+
 	public void changeUserToTrainee(String username) {
 		try {
-			
+
 			Thread.sleep(3000);
 			eidpBasePage.scrollToElement(nihLoginPage.changeUserButton);
 			CommonUtils.click(nihLoginPage.changeUserButton);
@@ -76,10 +75,11 @@ public class EIDPLoginStepImpl extends PageInitializer{
 			Thread.sleep(3000);
 			CucumberLogUtils.logScreenShot();
 			CommonUtils.click(nihLoginPage.changeUserOption);
-			
-		} catch(Exception ex) {
+			Thread.sleep(1000);
+
+		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
 		}
-		
+
 	}
 }

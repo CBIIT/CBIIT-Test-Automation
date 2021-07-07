@@ -20,11 +20,18 @@ public class CoPrimaryMentorSteps extends PageInitializer {
 		coPrimaryMentorPage.markAsReviewedInAllTabs();
 	}
 	
+	@When("User marks all the fields as reviewed in all the tabs being LBO")
+	public void user_marks_all_the_fields_as_reviewed_in_all_the_tabs_being_LBO() {
+	 coPrimaryMentorPage.markNHGRIasReviewed();
+	}
+
+
 	@When("Director user review, approve & submit")
 	public void markReviewInAllTabsForDirector() {
 		coPrimaryMentorPage.markAsReviewedInAllTabsForDir();
 	}
 	
+
 	
 	@When("Primary mentor clicks on SEND IDP TO THE TRAINEE button")
 	public void clickOnSendIDPToTrainee() {
@@ -54,6 +61,10 @@ public class CoPrimaryMentorSteps extends PageInitializer {
 		coPrimaryMentorPage.clickOnApproveAndSubmitButton();
 	}
 	
+	@When("User clicks on APPROVE AND SUBMIT button NHGRI")
+	public void clickOnApproveAndSubmitButtonNHGRI() {
+		coPrimaryMentorPage.clickOnApproveAndSubmitButtonNHGRI();
+	}
 	@When("User clicks on Yes button")
 	public void clickOnYesButton() {
 		coPrimaryMentorPage.clickOnYesButton();
