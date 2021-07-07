@@ -43,7 +43,7 @@ public class DashboardStepImpl extends PageInitializer {
 		}
 		throw new Exception("No button available to click for revise IDP");
 	}
-	
+
 	public void clickOnStartIDPButton() {
 		CommonUtils.waitForVisibility(eidpDashboardPage.startIDPButton);
 		MiscUtils.sleep(2000);
@@ -84,6 +84,7 @@ public class DashboardStepImpl extends PageInitializer {
 		return isSelected;
 	}
 
+	// Looping through list of trainees to pick up the initiated IDP of a trainee
 	public boolean selectIDPRequestOfTraineeNHGRI() throws Exception {
 		Boolean isSelected = false;
 		String traineeName = SharedData.traineeName;
@@ -94,7 +95,6 @@ public class DashboardStepImpl extends PageInitializer {
 		for (byte i = 1; i <= 8; i++) {
 			List<WebElement> pendingReviews = WebDriverUtils.getWebDriver()
 					.findElements(By.xpath("//table[@id='mentorsTable']//tr/td[1]/a"));
-
 			for (WebElement each : pendingReviews) {
 				if (each.getText().equals(traineeName)) {
 					WebElement pendingReviewsTraineeButton = WebDriverUtils.getWebDriver().findElement(By
@@ -212,6 +212,7 @@ public class DashboardStepImpl extends PageInitializer {
 	public void clickOnSearchButton() {
 		CommonUtils.click(eidpDashboardPage.searchButton);
 	}
+
 	public Boolean selectIDPRequestOfTraineeForRenewal() throws Exception {
 		Boolean isSelected = false;
 		String traineeName = SharedData.traineeName;
@@ -249,6 +250,7 @@ public class DashboardStepImpl extends PageInitializer {
 		}
 		return isSelected;
 	}
+
 	public void finishSteps() {
 		try {
 			Thread.sleep(10000);
