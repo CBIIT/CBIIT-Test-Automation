@@ -8,8 +8,8 @@ Feature: Regression testing
     And Logged in user changes the user to "Ginsburg,Erika"
     And User will click on search in dashboard
     And User creates IDP request
-      | Search For             | Classification Type | Current IDP Status |
-      | Non-NCI (Fellows Only) | Fellow              | Completed          |
+      | Search For             | Classification Type | NCI Training Organization |
+      | Non-NCI (Fellows Only) | Fellow              | CCR                       |
     And Logged in user changes the user to trainee
     And User will clickOn start idp button
     And User fills mandatory fields in general information
@@ -161,7 +161,7 @@ Feature: Regression testing
     And User clicks on save and send mail button
     Then User will click on ok button
 
-  #@IDPOnHold @Regression
+  @IDPOnHold @Regression
   Scenario: IDP is placed on HOLD
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user
@@ -179,10 +179,7 @@ Feature: Regression testing
     And User selects primary mentor as "Berzofsky,Jay"
     And User adds new project with deliverables
 
-  #And User adds new career training activities
-  #And User edits aligning expectations
-  #And User will click on revew and take action button
-  #Then User verifies IDP will be placed on hold message
+
   @releaseOnHold @Regression
   Scenario: Release IDP placed on hold
     #Given User opens nih application in browser
