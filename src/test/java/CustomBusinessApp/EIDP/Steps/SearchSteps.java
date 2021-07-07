@@ -5,6 +5,7 @@ import java.util.Map;
 import org.junit.Assert;
 
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.JavascriptUtils;
 
 import CustomBusinessApp.EIDP.Util.CommonUtil;
@@ -16,37 +17,45 @@ import io.cucumber.datatable.DataTable;
 
 public class SearchSteps extends PageInitializer {
 
+	@When("User creates IDP NGHRI request")
+	public void createIDPrequestNHGRI(DataTable dataTable) throws Exception {
+		Map<String, String> requestData = CommonUtil.getMapFromDataTable(dataTable);
+		searchStepimpl.selectSearchForDropdown(requestData.get("Search For"));
+		searchStepimpl.checkTraineeWithoutIDPCheckbox();
+		if (!requestData.get("Classification Type").isEmpty()) {
+			searchStepimpl.selectClassificationType(requestData.get("Classification Type"));
+		}
+		searchStepimpl.clickOnSearchButton();
+		searchStepimpl.selectActiveTraineeNHGRI();
+		Assert.assertTrue(searchStepimpl.isIDPFormDisplayed());
+		CucumberLogUtils.logScreenShot("owner details page");
+		searchStepimpl.selectNCITrainingOrganization(requestData.get("NHGRI Training Organization"));
+		searchStepimpl.clickOnSaveAndSendMailButton();
+		Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
+		CucumberLogUtils.logScreenShot("IDP intiation message success");
+		searchStepimpl.clickOnOkButton();
+	}
+
 	@When("User creates IDP request")
 	public void createIDPrequest(DataTable dataTable) throws Exception {
 		Map<String, String> requestData = CommonUtil.getMapFromDataTable(dataTable);
-		if (requestData.containsKey("SetTrainee")) {
-			searchStepimpl.setTraineesWithoutIDP();
-		}
-		if (requestData.containsKey("Search For")) {
-			searchStepimpl.selectSearchForDropdown(requestData.get("Search For"));
-			searchStepimpl.checkTraineeWithoutIDPCheckbox();
-		}
-		if (requestData.containsKey("Classification Type") && !requestData.get("Classification Type").isEmpty()) {
+		searchStepimpl.selectSearchForDropdown(requestData.get("Search For"));
+		searchStepimpl.checkTraineeWithoutIDPCheckbox();
+		if (!requestData.get("Classification Type").isEmpty()) {
 			searchStepimpl.selectClassificationType(requestData.get("Classification Type"));
 		}
-		if (requestData.containsKey("Current IDP Status")) {
-			searchStepimpl.selectCurrentIDPStatus(requestData.get("Current IDP Status"));
-		}
 		searchStepimpl.clickOnSearchButton();
-		searchStepimpl.selectActiveTrainee();
+		searchStepimpl.selectActiveTraineeNHGRI();
 		Assert.assertTrue(searchStepimpl.isIDPFormDisplayed());
 		CucumberLogUtils.logScreenShot("owner details page");
-		if (requestData.containsKey("NCI Training Organization")) {
-			searchStepimpl.selectNCITrainingOrganization(requestData.get("NCI Training Organization"));
-			searchStepimpl.clickOnSaveAndSendMailButton();
-		}
-		
-
+		searchStepimpl.selectNCITrainingOrganization(requestData.get("NCI Training Organization"));
+		searchStepimpl.clickOnSaveAndSendMailButton();
 		Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
 		CucumberLogUtils.logScreenShot("IDP intiation message success");
 		searchStepimpl.clickOnOkButton();
 
 	}
+
 
 	@Then("Select reason for revise idp and Click On save and send email button")
 	public void saveAndSendEmail() {
@@ -94,6 +103,11 @@ public class SearchSteps extends PageInitializer {
 		searchStepimpl.selectClassificationType(classificationType);
 	}
 
+	@When("User clicks on active trainee NHGRI")
+	public void selectActiveTraineeNHGRI() throws Exception {
+		searchStepimpl.selectActiveTraineeNHGRI();
+	}
+
 	@When("User clicks on active trainee")
 	public void selectActiveTrainne() throws Exception {
 		searchStepimpl.selectActiveTrainee();
@@ -131,7 +145,8 @@ public class SearchSteps extends PageInitializer {
 	// Revise
 	@When("User selects {string} as {string}")
 	public void user_searches_as(String dropDownName, String value) {
-		searchStepimpl.selectStatus(value,dropDownName);
+		searchStepimpl.selectStatus(value, dropDownName);
+
 	}
 
 	@When("User clicks on search button")
@@ -146,7 +161,6 @@ public class SearchSteps extends PageInitializer {
 
 	@Then("User click on {string} on the grid")
 	public void user_click_on_on_the_grid(String button) throws Exception {
-		// searchStepimpl.selectReviewExistingIDP();
 		button = button.trim();
 		switch (button) {
 		case "Revise Existing IDP":
@@ -173,6 +187,7 @@ public class SearchSteps extends PageInitializer {
 	@Then("Select the reason as {string} checkbox")
 	public void select_the_reason_as_checkbox(String value) {
 		searchStepimpl.selectCheckBox(value);
+		MiscUtils.sleep(5000);
 	}
 
 	@Then("User clicks on yes button in pop up")
@@ -196,7 +211,6 @@ public class SearchSteps extends PageInitializer {
 		SharedData.traineeName = searchStepimpl.getTrainneeNameFromHoldConfirmationWindow();
 		System.out.println("primaryMentorName = " + SharedData.primaryMentorName);
 		System.out.println("traineeName = " + SharedData.traineeName);
-		// commonPage.clickOnOkButton();
 
 	}
 
@@ -311,7 +325,6 @@ public class SearchSteps extends PageInitializer {
 		CommonUtil.waitBrowser(5000);
 	}
 
-	// GloriaSearchClassifType
 	@When("User will select {string} as Classification type on Gloria Calloway page")
 	public void user_will_select_as_Classification_type_on_Gloria_Calloway_page(String dropdownOptions) {
 		searchStepimpl.selectClassificationTypeGloriaCalloway(dropdownOptions);
@@ -323,8 +336,7 @@ public class SearchSteps extends PageInitializer {
 			String classificationType) {
 		searchStepimpl.verifyClassificationType(classificationType);
 		CommonUtil.waitBrowser(3000);
-
-	}// new scenarioChooseCBIITorganizations
+	}
 
 	@When("User will select {string} as Training Organization")
 	public void user_will_select_as_Training_Organization(String nameOrganization) {

@@ -79,11 +79,15 @@ public class VacancyManagerUserStepsImpl extends PageInitializer {
 
 	public void selectOpenDate(String date) {
 		vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection.sendKeys(date);
+		MiscUtils.sleep(2000);
+		
 
 	}
 
 	public void selectCloseDate(String date) {
 		vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection.sendKeys(date);
+		MiscUtils.sleep(2000);
+		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
 	}
 
 	public void selectToggleButtonOnMandatoryStatementPage(String nameButton) {
@@ -101,11 +105,61 @@ public class VacancyManagerUserStepsImpl extends PageInitializer {
 			CucumberLogUtils.logScreenShot();
 
 		} else if (nameButton.equals("Reasonable Accommodation")) {
-			;
 			CommonUtils.click(vacancyManagerUserPage.toggleButtonReasonableAccommodation);
 			CucumberLogUtils.logScreenShot();
 		}
 	}
 	
-}
-
+	public void selectCommitteeMemberFromDropDown(String searchOption) {
+		if(searchOption.equals("APPTRACK COMMITTEE MEMBER")) {
+			CommonUtils.click(vacancyManagerUserPage.addMemberButton);
+			CommonUtils.click(vacancyManagerUserPage.committeeMemberDropdown);
+			CommonUtils.click(vacancyManagerUserPage.apptrackCommitteeMember);
+			MiscUtils.sleep(1000);
+		}else if(searchOption.equals("APPTRACK SCORING MEMBER")) {
+			CommonUtils.click(vacancyManagerUserPage.addMemberButton);
+			CommonUtils.click(vacancyManagerUserPage.committeeMemberDropdown);
+			CommonUtils.click(vacancyManagerUserPage.apptrackScoringMember);
+			MiscUtils.sleep(1000);
+		}else if(searchOption.equals("APPTRACK VACANCY MANAGER")) {
+			CommonUtils.click(vacancyManagerUserPage.addMemberButton);
+			CommonUtils.click(vacancyManagerUserPage.committeeMemberDropdown);
+			CommonUtils.click(vacancyManagerUserPage.apptrackVacancyManager);
+			MiscUtils.sleep(1000);
+	}
+	}
+		public void selectRole(String roleOption) {
+			if(roleOption.equals("Chair")) {
+			CommonUtils.click(vacancyManagerUserPage.roleDropdown);	
+			CommonUtils.click(vacancyManagerUserPage.roleChair);
+			MiscUtils.sleep(1000);
+			CommonUtils.click(vacancyManagerUserPage.saveButtonAddingMember);
+		}else if(roleOption.equals("Executive Secretary")) {
+			CommonUtils.click(vacancyManagerUserPage.roleDropdown);	
+			CommonUtils.click(vacancyManagerUserPage.roleExecutiveSecretary);
+			MiscUtils.sleep(1000);
+			CommonUtils.click(vacancyManagerUserPage.saveButtonAddingMember);
+		}else if(roleOption.equals("Member (voting)")) {
+			CommonUtils.click(vacancyManagerUserPage.roleDropdown);	
+			CommonUtils.click(vacancyManagerUserPage.roleMemberVoting);
+			CommonUtils.click(vacancyManagerUserPage.saveButtonAddingMember);
+		}
+	
+		
+	
+	}
+		public void selectOpenCloseDate(int openDate, int closeDate) {
+			JavascriptUtils.scrollIntoView(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
+			JavascriptUtils.clickByJS(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
+			MiscUtils.sleep(2000);
+			JavascriptUtils.clickByJS(vacancyManagerUserPage.calendarDatePicker.get(openDate));
+			MiscUtils.sleep(2000);
+			JavascriptUtils.clickByJS(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection);
+			MiscUtils.sleep(2000);
+			JavascriptUtils.clickByJS(vacancyManagerUserPage.calendarDatePicker.get(closeDate));
+			MiscUtils.sleep(2000);
+			
+			    }
+		}
+		
+	

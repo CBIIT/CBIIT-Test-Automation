@@ -67,9 +67,10 @@ public class AppTrackerLogInStepsImpl extends PageInitializer {
 		CommonUtils.click(appTrackerLoginPage.nativeViewButton);
 		CucumberLogUtils.logScreenShot();
 
-		CommonUtils.click(appTrackerLoginPage.impersonateViewDropDown);
+		JavascriptUtils.clickByJS(appTrackerLoginPage.impersonateViewDropDown);
 		CucumberLogUtils.logScreenShot();
-		CommonUtils.click(appTrackerLoginPage.impersonateOption);
+		MiscUtils.sleep(2000);
+		JavascriptUtils.clickByJS(appTrackerLoginPage.impersonateOption);
 
 		if (userName.equals("AppTracker Vacancy Manager")) {
 			CommonUtils.click(appTrackerLoginPage.apptrackVacancyManager);

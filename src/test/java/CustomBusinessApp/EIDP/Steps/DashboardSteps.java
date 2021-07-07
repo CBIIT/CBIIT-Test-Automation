@@ -1,9 +1,14 @@
 package CustomBusinessApp.EIDP.Steps;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
+import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.WebDriverUtils;
 
+import CustomBusinessApp.EIDP.Util.CommonUtil;
 import CustomBusinessApp.EIDP.Util.SharedData;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Then;
@@ -54,14 +59,17 @@ public class DashboardSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 	}
 
+
 	@Then("user will click on revise idp button")
 	public void reviseIDPButton() throws Exception {
 		eidpDashboardStepImpl.clickOnReviseIDP();
 	}
 
+
 	@When("User will clickOn proceed button")
 	public void clickOnProceedButton() throws Exception {
 		eidpDashboardStepImpl.clickOnProceedButton();
+		MiscUtils.sleep(3000);
 	}
 
 	@When("User clicks on Send IDP to the Primary Mentor button")
@@ -84,7 +92,6 @@ public class DashboardSteps extends PageInitializer {
 
 	@When("User enters meeting date and submits")
 	public void enterMeetingDate() {
-//		eidpCommonPage.enterToday();
 		eidpDashboardStepImpl.selectVerifyMeetingCheckbox();
 		eidpDashboardStepImpl.clickOnSubmitButton();
 		eidpCommonPage.waitForGoBackToHomePageButtonVisible();
@@ -121,11 +128,11 @@ public class DashboardSteps extends PageInitializer {
 
 	@When("User enters meeting date and submits and waits for home queue")
 	public void enterMeetingDateAndWaitForHomeQueue() {
-//		eidpCommonPage.enterToday();
 		eidpDashboardStepImpl.selectVerifyMeetingCheckbox();
 		eidpDashboardStepImpl.clickOnSubmitButton();
 		eidpCommonPage.waitForGoBackToHomeQueueButtonVisible();
 	}
+
 
 	@When("User checks verify meeting checkbox and submits and waits for home page")
 	public void enterMeetingDateAndWaitForHomePage() {
@@ -143,6 +150,7 @@ public class DashboardSteps extends PageInitializer {
 		eidpCommonPage.clickOnMarkAsReviewed();
 	}
 
+
 	@Then("User verifies IDP request send successfully")
 	public void verifyIDPRequestSentSucuessfully() {
 		Assert.assertTrue(eidpDashboardStepImpl.isIDPSentMessage());
@@ -153,11 +161,26 @@ public class DashboardSteps extends PageInitializer {
 		eidpDashboardStepImpl.selectFirstPendingReviewIDP();
 	}
 
+
+	@When("User clicks on the trainee specific IDP NHGRI request")
+	public void selectIncompleteIDPrequestOfTrainneeNHGRI() throws Exception {
+		eidpDashboardStepImpl.selectIDPRequestOfTraineeNHGRI();
+		CucumberLogUtils.logScreenShot();
+	}
+
 	@When("User clicks on the trainee specific IDP request")
 	public void selectIncompleteIDPrequestOfTrainnee() throws Exception {
 		eidpDashboardStepImpl.selectIDPRequestOfTrainee();
 		CucumberLogUtils.logScreenShot();
 	}
+
+
+	@When("User clicks on the trainee specific IDP being co-primary mentor")
+	public void user_clicks_on_the_trainee_specific_IDP_being_co_primary_mentor() throws Exception {
+		eidpDashboardStepImpl.clickProceedButtonOfTraineeCoPrimaryMentorNHGRI();
+		CucumberLogUtils.logScreenShot();
+	}
+
 
 	@When("User clicks on the trainee specific IDP request for renewal")
 	public void selectIncompleteIDPrequestOfTrainneeForRenewal() throws Exception {
@@ -170,11 +193,17 @@ public class DashboardSteps extends PageInitializer {
 		eidpDashboardStepImpl.finishSteps();
 	}
 
+
 	@When("User clicks on proceed button of the trainee specific IDP request")
 	public void clickProceedbuttonOfTrainee() throws Exception {
 		eidpDashboardStepImpl.clickProceedButtonOfTrainee();
 	}
-
+	
+	@When("User clicks on proceed button of the trainee specific IDP NHGRI request")
+	public void clickProceedbuttonOfTraineeNHGRI() throws Exception {
+		eidpDashboardStepImpl.clickProceedButtonOfTraineeNHGRI();
+	}
+	
 	@When("User clicks on Decline IDP button")
 	public void clickOnDeclineIDPButton() throws Exception {
 		generalInformationStepImpl.clickOnGeneralInformationTab();
@@ -194,8 +223,25 @@ public class DashboardSteps extends PageInitializer {
 	}
 
 	@When("User clicks on yes button of modal")
-	public void clickOnYesButton() {
-		// CommonUtil.waitBrowser(3000);
+	public void clickOnYesButton() throws Exception {
 		eidpCommonPage.clickOnModalFooterYesButton();
+		CommonUtil.waitBrowser(3000);
 	}
+
+	@When("User clicks on the requestto verify meeting")
+	public void user_clicks_on_the_requestto_verify_meeting() throws Exception {
+		eidpDashboardStepImpl.clickProceedButtonOfTraineeNHGRI();
+	}
+
+
+	@Then("User clicks on Home button")
+	public void user_clicks_on_Home_button() {
+		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.xpath("//a[@title='Home']")));
+	}
+
+	@Then("User will click on manage delegate tab")
+	public void user_will_click_on_manage_delegate_tab() {
+		CommonUtils.click(eidpDashboardPage.manageDelegateTab);
+	}
+
 }

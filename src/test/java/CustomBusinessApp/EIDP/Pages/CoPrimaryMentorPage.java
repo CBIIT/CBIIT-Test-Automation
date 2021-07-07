@@ -20,6 +20,9 @@ public class CoPrimaryMentorPage extends CommonUtils {
 	@FindBy(css = "[class='checkbox btn btn-primary']")
 	public WebElement markAsReviewedCheckbox;
 
+	@FindBy(css = "[class='checkbox btn btn-primary validate-error']")
+	public WebElement markAsReviewedCheckboxNhgri;
+	
 	@FindBy(css = "[href*='/idp/review-general']")
 	private WebElement generalInformationTab;
 
@@ -138,6 +141,12 @@ public class CoPrimaryMentorPage extends CommonUtils {
 		}
 	}
 
+	public void markNHGRIasReviewed() {
+		CommonUtils.click(markAsReviewedCheckbox);
+		CucumberLogUtils.logScreenShot("Mark review");
+			
+	}
+	
 	public void clickOnReviewedButton() {
 		CommonUtils.click(reviewedButton);
 	}
@@ -167,6 +176,14 @@ public class CoPrimaryMentorPage extends CommonUtils {
 			CommonUtils.click(reviewedButton);
 		}
 	}
+	
+	public void clickOnApproveAndSubmitButtonNHGRI() {
+		if(markAsReviewedCheckbox.isDisplayed())
+			CommonUtils.click(markAsReviewedCheckbox);
+		CucumberLogUtils.logScreenShot("Approve and submit");
+		CommonUtils.click(approvedAndSubmitButton);
+	}
+	
 
 	public void clickOnYesButton() {
 		CommonUtils.click(yesButton);

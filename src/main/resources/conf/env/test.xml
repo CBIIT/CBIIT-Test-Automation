@@ -252,7 +252,7 @@
 
 
 	<!-- Application ID for EIDP -->
-	<application id="EidpTestUrl">
+	<application id="EidpUrlNHGRI">
 		<login_url>https://idp-test.cancer.gov/nhgri/idp/</login_url><!-- add test 
 			url -->
 
@@ -274,7 +274,7 @@
 		</db>
 
 	</application>
-	<application id="EidpTestUrlNCI">
+	<application id="EidpUrlNCI">
 		<login_url>https://idp-test.cancer.gov/idp/</login_url><!-- add test 
 			url -->
 
