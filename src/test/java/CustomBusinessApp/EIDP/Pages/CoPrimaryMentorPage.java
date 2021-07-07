@@ -176,6 +176,14 @@ public class CoPrimaryMentorPage extends CommonUtils {
 			CommonUtils.click(reviewedButton);
 		}
 	}
+	
+	public void clickOnApproveAndSubmitButtonNHGRI() {
+		if(markAsReviewedCheckbox.isDisplayed())
+			CommonUtils.click(markAsReviewedCheckbox);
+		CucumberLogUtils.logScreenShot("Approve and submit");
+		CommonUtils.click(approvedAndSubmitButton);
+	}
+	
 
 	public void clickOnYesButton() {
 		CommonUtils.click(yesButton);

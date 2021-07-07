@@ -1,4 +1,4 @@
-  
+
 package CustomBusinessApp.EIDP.StepsImplementation;
 
 import java.util.List;
@@ -15,11 +15,22 @@ import CustomBusinessApp.EIDP.Util.CommonUtil;
 import appsCommon.PageInitializer;
 
 public class CareerGoalAndActiveStepImpl extends PageInitializer {
+	
 	public void fillCarrerGoalActivite() throws Exception {
 		CommonUtils.waitForVisibility(careerGoalAndActivePage.saveAndContinueButton);
 		selectCareerGoal();
 		Thread.sleep(4000);
 		fillSkill();
+		Thread.sleep(2000);
+		CucumberLogUtils.logScreenShot("Career Goal");
+		CommonUtils.click(careerGoalAndActivePage.saveAndContinueButton);
+
+	}
+	public void fillCarrerGoalActiviteNHGRI() throws Exception {
+		CommonUtils.waitForVisibility(careerGoalAndActivePage.saveAndContinueButton);
+		selectCareerGoal();
+		Thread.sleep(4000);
+		fillSkillNGHRI();
 		Thread.sleep(2000);
 		CucumberLogUtils.logScreenShot("Career Goal");
 		CommonUtils.click(careerGoalAndActivePage.saveAndContinueButton);
@@ -55,7 +66,7 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 		Thread.sleep(3000);
 		List<WebElement> goalOptions = WebDriverUtils.getWebDriver()
 				.findElements(By.cssSelector(".controls.line.ta_interestGroup.collapse.in label"));
-		if(goalOptions.size() == 0) {
+		if (goalOptions.size() == 0) {
 			WebDriverUtils.getWebDriver().findElement(By.cssSelector("[data-target='#academic24']")).click();
 			Thread.sleep(3000);
 			goalOptions = WebDriverUtils.getWebDriver()
@@ -64,6 +75,15 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 		goalOptions.get(2).click();
 		goalOptions.get(3).click();
 		CommonUtils.click(goals.get(0));
+	}
+
+	public void fillSkillNGHRI() throws Exception {
+		CommonUtils.click(careerGoalAndActivePage.communicationSkillButton);
+		CommonUtils.waitForVisibility(careerGoalAndActivePage.typeDropdown);
+		eidpBasePage.selectOption(careerGoalAndActivePage.typeDropdown, "Writing");
+		CommonUtils.sendKeys(careerGoalAndActivePage.description,
+				"Automation script writing skill set enter for testing");
+		CommonUtils.click(careerGoalAndActivePage.doneButton);
 	}
 
 	public void fillSkill() throws Exception {

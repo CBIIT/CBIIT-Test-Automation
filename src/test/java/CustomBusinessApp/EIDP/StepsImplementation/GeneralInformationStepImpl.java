@@ -60,17 +60,13 @@ public class GeneralInformationStepImpl extends PageInitializer {
 		
 	}
 	
-	public void selectRandomHighestDegreeNHGRI() {
-		MiscUtils.sleep(3000);
-		CommonUtils.waitForVisibility(generalInformationPage.highestDegreeDropdownnhgri);
-		eidpBasePage.selectOptionByIndex(generalInformationPage.highestDegreeDropdownnhgri);
-	}
 	public void selectRandomHighestDegree() {
 		MiscUtils.sleep(3000);
 		if (CommonUtils.isElementDisplayed(generalInformationPage.highestDegreeDropdown)) {
 			eidpBasePage.selectOptionByIndex(generalInformationPage.highestDegreeDropdown);
-		}else if (CommonUtils.isElementDisplayed(generalInformationPage.highestDegreeDropdown2)) {
+			}else if (CommonUtils.isElementDisplayed(generalInformationPage.highestDegreeDropdown2)) {
 			eidpBasePage.selectOptionByIndex(generalInformationPage.highestDegreeDropdown2);
+			MiscUtils.sleep(3000);
 		}
 	}
 	
@@ -95,7 +91,7 @@ public class GeneralInformationStepImpl extends PageInitializer {
 		Thread.sleep(4000);
 		CommonUtils.click(generalInformationPage.dropdownOptions);
 		Thread.sleep(1000);
-		eidpBasePage.selectOptionByIndex(generalInformationPage.highestDegreeDropdownnhgri);
+		eidpBasePage.selectOptionByIndex(generalInformationPage.highestDegreeDropdown);
 		Thread.sleep(5000);
 		doYouHaveCoPrimaryMentory(true);
 		Thread.sleep(1000);
@@ -115,8 +111,10 @@ public class GeneralInformationStepImpl extends PageInitializer {
 		if(isCoPrimary) {
 			MiscUtils.sleep(3000);
 			WebDriverUtils.webDriver.findElement(By.id("coprimMentorYes")).click();
+			MiscUtils.sleep(3000);
 		} else {
 			WebDriverUtils.webDriver.findElement(By.id("coprimMentorNo")).click();
+			MiscUtils.sleep(3000);
 		}
 	}
 	

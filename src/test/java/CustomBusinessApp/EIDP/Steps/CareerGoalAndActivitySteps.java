@@ -7,6 +7,12 @@ import cucumber.api.java.en.When;
 public class CareerGoalAndActivitySteps extends PageInitializer{
 	
 
+	@When("User fills mandatory fields in career goals page NHGRI")
+	public void fillCareerGoalNHGRI() throws Exception{
+		careerGoalAndActiveStepImpl.fillCarrerGoalActiviteNHGRI();
+		CommonUtil.waitBrowser(3000);
+	}
+	
 	@When("User fills mandatory fields in career goals page")
 	public void fillCareerGoal() throws Exception{
 		careerGoalAndActiveStepImpl.fillCarrerGoalActivite();
