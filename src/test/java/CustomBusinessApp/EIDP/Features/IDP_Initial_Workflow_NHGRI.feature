@@ -1,6 +1,6 @@
 
 Feature: Regression testing
-  @InitiatesIDPnhgri @RegressionNHGRI @Smoke
+  @InitiatesIDPnhgri  @Smoke @RegressionNHGRI
   Scenario: IDP request creates and decline and approve
     ##Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -8,14 +8,14 @@ Feature: Regression testing
     And User will click on search in dashboard
     And User creates IDP NGHRI request
       |Search For                         | Classification Type | NHGRI Training Organization|
-      |NHGRI (Fellows and Employees Only) | Employee            | DIR                        |                                         
+      |NHGRI (Fellows and Employees Only) | All                 | DIR                        |                                         
     And Logged in user changes the user to trainee
     And User will clickOn start idp button
     And User fills mandatory fields in general information section
     | Primary Mentor | Lab Driector name | Co Primary Mentor |
     | Laric,Pnina    | Ferguson,Kimberly | Henke,Joseph      |
     And User fills mandatory fields in project deliverable page
-    And User fills mandatory fields in career goals page
+    And User fills mandatory fields in career goals page NHGRI
     And User fills mandatory fields in aligning expecations page
     And User will click on revew and take action button
     And User clicks on Send IDP to the Primary Mentor button
@@ -43,7 +43,7 @@ Feature: Regression testing
     And Logged in user changes the user to "Plante,Faith"
     And User will click on IDP Awaiting response button
     And User clicks on the trainee specific IDP being co-primary mentor
-    And User clicks on APPROVE AND SUBMIT button
+    And  User clicks on APPROVE AND SUBMIT button NHGRI
     And User clicks on Yes button
     And Logged in user changes the user to trainee
     And User clicks on VERIFY MEETING button
@@ -68,14 +68,14 @@ Feature: Regression testing
     And User will click on search in dashboard
     And User creates IDP NGHRI request
       | Search For                        | Classification Type | NHGRI Training Organization|
-      | NHGRI (Fellows and Employees Only)| Employee            | DIR                        |
+      | NHGRI (Fellows and Employees Only)| All                 | DIR                        |
     And Logged in user changes the user to trainee
     And User will clickOn start idp button
     And User fills mandatory fields in general information section
     | Primary Mentor | Lab Driector name | Co Primary Mentor |
     | Laric,Pnina    | Ferguson,Kimberly | Henke,Joseph      |
     And User fills mandatory fields in project deliverable page
-    And User fills mandatory fields in career goals page
+    And User fills mandatory fields in career goals page NHGRI
     And User fills mandatory fields in aligning expecations page
     And User will click on revew and take action button
     And User clicks on Send IDP to the Primary Mentor button
@@ -105,7 +105,7 @@ Feature: Regression testing
     And User clicks on the trainee specific IDP being co-primary mentor
     And User clicks on RETURN TO THE PRIMARY MENTOR button
     And Logged in user changes the user to "Laric,Pnina"
-    And User clicks on proceed button of the trainee specific IDP request
+    And User clicks on proceed button of the trainee specific IDP NHGRI request
     And User clicks on SEND BACK TO TRAINEE button
     And Logged in user changes the user to trainee
     And User will clickOn proceed button
@@ -118,14 +118,14 @@ Feature: Regression testing
     And Logged in user changes the user to "Plante,Faith"
     And User will click on IDP Awaiting response button
     And User clicks on the trainee specific IDP being co-primary mentor
-    And User clicks on APPROVE AND SUBMIT button
+    And User clicks on APPROVE AND SUBMIT button NHGRI
     And User clicks on Yes button
     And Logged in user changes the user to trainee
     And User clicks on VERIFY MEETING button
     And User clicks on Verify meeting and accept IDP button
     And User enters meeting date and submits
     And Logged in user changes the user to "Laric,Pnina"
-    And User clicks on proceed button of the trainee specific IDP request
+    And User clicks on proceed button of the trainee specific IDP NHGRI request
     And User clicks on Verify meeting and accept IDP button
     And User enters meeting date and submits and waits for home queue
     And Logged in user changes the user to "Ferguson,Kimberly"
@@ -135,9 +135,9 @@ Feature: Regression testing
     And User clicks on APPROVE IDP button
     And User clicks on yes button on trainee page
 
-   #working
-  @ReviseExistingIDPnhgri @RegressionNHGRI
-  Scenario: Revise Existing IDP
+ 
+    @ReviseExistingIDPnhgri @RegressionNHGRI
+    Scenario: Revise Existing IDP
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
     And Logged in user changes the user to "Plante,Faith"
@@ -149,14 +149,14 @@ Feature: Regression testing
     And User clicks on save and send mail button
     Then User will click on ok button
 
-    #working
+    
     @IDPOnHoldnghri @RegressionNHGRI
     Scenario: IDP is placed on HOLD
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
     And Logged in user changes the user to "Plante,Faith"
     And User will click on search in dashboard
-    And User selects "Current IDP Status" as "Under Trainee's Meeting Verification"
+    And User selects "Current IDP Status" as "Under Co-Primary (and/or) Additional Mentor's Review"
     And User clicks on search button
     And User click on "Revise Existing IDP" on the grid
     And User clicks on yes button in pop up
@@ -170,9 +170,9 @@ Feature: Regression testing
     Then User verifies IDP will be placed on hold message
 
     
-    #working
-  @releaseOnHoldnhgri @RegressionNHGRI
-  Scenario: Release IDP placed on hold
+    
+   @releaseOnHoldnhgri @RegressionNHGRI
+   Scenario: Release IDP placed on hold
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
     And Logged in user changes the user to "Plante,Faith"
@@ -185,9 +185,9 @@ Feature: Regression testing
     And Logged in user changes the user to trainee
     Then Trainee verifies IDP request status as "Under Primary Mentor's Review"
 
-  #working
-  @CancelIdpnhgri @RegressionNHGRI
-  Scenario: Cancel IDP
+ 
+    @CancelIdpnhgri @RegressionNHGRI
+    Scenario: Cancel IDP
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
     And Logged in user changes the user to "Plante,Faith"
@@ -200,9 +200,9 @@ Feature: Regression testing
     And Logged in user changes the user to trainee
     Then Trainee verifies IDP request status as "Cancelled"
 
-  #working
-  @UndoCancelIdpnhgri @RegressionNHGRI
-  Scenario: Undo Cancel IDP
+  
+    @UndoCancelIdpnhgri @RegressionNHGRI
+    Scenario: Undo Cancel IDP
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
     And Logged in user changes the user to "Plante,Faith"
@@ -214,9 +214,9 @@ Feature: Regression testing
     And User enters comments and clicks on yes button on undo cancel idp window
     And Logged in user changes the user to trainee
 
-  #working
-  @AddAndDeleteTempDelegatenhgri @RegressionNHGRI
-  Scenario: Add/Delete Temporary Delegates
+
+    @AddAndDeleteTempDelegatenhgri @RegressionNHGRI
+    Scenario: Add/Delete Temporary Delegates
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user
     And Logged in user changes the user to "Plante,Faith"
@@ -229,7 +229,7 @@ Feature: Regression testing
     When User deletes "Kathleen Craft" from delegators table
     Then User check delegate delete message
     
-   #working
+   
   @AddAndDeletePermanentDelegatenhgri @RegressionNHGRI
   Scenario: Add/Delete Permanent Delegates
     #Given User opens nih application in browser
@@ -244,7 +244,7 @@ Feature: Regression testing
     When User deletes "Kathleen Craft" from delegators table
     Then User check delegate delete message
 
-  #working
+  
   @DelegateInitiatesIDPnhgri @RegressionNHGRI
   Scenario: TD Delegate initiates IDP
     #Given User opens nih application in browser
@@ -261,20 +261,20 @@ Feature: Regression testing
     And User will click on search in dashboard
     And User creates IDP NGHRI request
       |Search For                         | Classification Type | NHGRI Training Organization|
-      |NHGRI (Fellows and Employees Only) | Employee            | DIR                        | 
+      |NHGRI (Fellows and Employees Only) | All                 | DIR                        | 
     And Logged in user changes the user to trainee
     And User will clickOn start idp button
     And User fills mandatory fields in general information section
     | Primary Mentor | Lab Driector name | Co Primary Mentor |
     | Laric,Pnina    | Ferguson,Kimberly | Henke,Joseph      |
     And User fills mandatory fields in project deliverable page
-    And User fills mandatory fields in career goals page
+    And User fills mandatory fields in career goals page NHGRI
     And User fills mandatory fields in aligning expecations page
     And User will click on revew and take action button
     And User clicks on Send IDP to the Primary Mentor button
 
 
-  #working
+  
   @ExistSurveynhgri @RegressionNHGRI
   Scenario: TD/AO Initiates the Exit Survey for the Fellow/Employee
     #Given User opens nih application in browser
@@ -286,7 +286,7 @@ Feature: Regression testing
     And User clicks on yes button of modal
     Then User will click on ok button
 
-  #working
+
   @TDReleaseHoldnhgri @RegressionNHGRI
   Scenario: TD Delegates Release IDP placed on HOLD
     #Given User opens nih application in browser
@@ -301,7 +301,7 @@ Feature: Regression testing
     And User clicks on Home button
     And Logged in user changes the user to "Hurle,Belen"
     And User will click on search in dashboard
-    And User selects "Current IDP Status" as "Under Trainee's Meeting Verification"
+    And User selects "Current IDP Status" as "Under Training Director's Review"
     And User clicks on search button
     And User click on "Revise Existing IDP" on the grid
     And User clicks on yes button in pop up
@@ -320,6 +320,4 @@ Feature: Regression testing
     And User click on "Release Hold" on the grid
     And User reads the primary mentor name from release hold confirmation window
     And User enters release hold comments and clicks on ok button
-    And User will click on manage delegate tab
-    When User deletes "Belen Hurle" from delegators table
-    Then User check delegate delete message
+    

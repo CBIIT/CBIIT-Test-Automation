@@ -17,7 +17,6 @@ import io.cucumber.datatable.DataTable;
 
 public class SearchSteps extends PageInitializer {
 
-
 	@When("User creates IDP NGHRI request")
 	public void createIDPrequestNHGRI(DataTable dataTable) throws Exception {
 		Map<String, String> requestData = CommonUtil.getMapFromDataTable(dataTable);
@@ -36,7 +35,7 @@ public class SearchSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot("IDP intiation message success");
 		searchStepimpl.clickOnOkButton();
 	}
-	
+
 	@When("User creates IDP request")
 	public void createIDPrequest(DataTable dataTable) throws Exception {
 		Map<String, String> requestData = CommonUtil.getMapFromDataTable(dataTable);
@@ -54,17 +53,9 @@ public class SearchSteps extends PageInitializer {
 		Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
 		CucumberLogUtils.logScreenShot("IDP intiation message success");
 		searchStepimpl.clickOnOkButton();
-	
-	}
-
-	
-		
-
-		Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
-		CucumberLogUtils.logScreenShot("IDP intiation message success");
-		searchStepimpl.clickOnOkButton();
 
 	}
+
 
 	@Then("Select reason for revise idp and Click On save and send email button")
 	public void saveAndSendEmail() {
@@ -91,7 +82,6 @@ public class SearchSteps extends PageInitializer {
 		searchStepimpl.clickOnSearchButton();
 	}
 
-
 	@When("User searches for completed idp request")
 	public void searchCompletedIDP() {
 		searchStepimpl.selectSearchForDropdown("Non-NCI (Fellows Only)");
@@ -117,6 +107,7 @@ public class SearchSteps extends PageInitializer {
 	public void selectActiveTraineeNHGRI() throws Exception {
 		searchStepimpl.selectActiveTraineeNHGRI();
 	}
+
 	@When("User clicks on active trainee")
 	public void selectActiveTrainne() throws Exception {
 		searchStepimpl.selectActiveTrainee();
@@ -154,7 +145,7 @@ public class SearchSteps extends PageInitializer {
 	// Revise
 	@When("User selects {string} as {string}")
 	public void user_searches_as(String dropDownName, String value) {
-		searchStepimpl.selectStatus(value,dropDownName);
+		searchStepimpl.selectStatus(value, dropDownName);
 
 	}
 
@@ -210,7 +201,7 @@ public class SearchSteps extends PageInitializer {
 		String trainneName = searchStepimpl.getTrainneNameFromReviseIDPConfirmationPopUp();
 		String[] trainneNam2e = trainneName.split(" ");
 		SharedData.traineeName = trainneNam2e[1] + "," + trainneNam2e[0];
-        searchStepimpl.clickOnPopUpYesButton();
+		searchStepimpl.clickOnPopUpYesButton();
 	}
 
 	@When("User reads the primary mentor name from release hold confirmation window")
@@ -347,7 +338,6 @@ public class SearchSteps extends PageInitializer {
 		CommonUtil.waitBrowser(3000);
 	}
 
-
 	@When("User will select {string} as Training Organization")
 	public void user_will_select_as_Training_Organization(String nameOrganization) {
 		searchStepimpl.selectTrainingOrganization(nameOrganization);
@@ -371,4 +361,3 @@ public class SearchSteps extends PageInitializer {
 	}
 
 }
-

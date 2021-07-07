@@ -19,11 +19,11 @@ public class GeneralInformationPage extends CommonUtils{
 	@FindBy(how = How.ID, id = "currentYearOfTraining")
 	public WebElement currentYearOfTrainingDropdown;
 	
+	@FindBy(how=How.ID, id = "highestDegreeObtained")
+	public WebElement highestDegreeDropdown2;
+	
 	@FindBy(how=How.ID, id = "highestdegreeSelect")
 	public WebElement highestDegreeDropdown;
-	
-	@FindBy(how=How.ID, id = "highestDegreeObtained")
-    public WebElement highestDegreeDropdownnhgri;
 
 	@FindBy(how = How.ID, id ="select2-primaryMentors-container")
 	public WebElement primaryMentorsName;
@@ -76,10 +76,6 @@ public class GeneralInformationPage extends CommonUtils{
 	
 	@FindBy( how = How.XPATH, xpath ="//li[@id='advancedSearchtabs']")
 	public WebElement searchSection;
-	
-	@FindBy(how=How.ID, id = "highestDegreeObtained")
-	public WebElement highestDegreeDropdown2;
-	
 	
 	public GeneralInformationPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);

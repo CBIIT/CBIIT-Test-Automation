@@ -61,6 +61,10 @@ public class CoPrimaryMentorSteps extends PageInitializer {
 		coPrimaryMentorPage.clickOnApproveAndSubmitButton();
 	}
 	
+	@When("User clicks on APPROVE AND SUBMIT button NHGRI")
+	public void clickOnApproveAndSubmitButtonNHGRI() {
+		coPrimaryMentorPage.clickOnApproveAndSubmitButtonNHGRI();
+	}
 	@When("User clicks on Yes button")
 	public void clickOnYesButton() {
 		coPrimaryMentorPage.clickOnYesButton();
