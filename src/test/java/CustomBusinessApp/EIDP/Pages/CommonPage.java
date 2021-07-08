@@ -39,6 +39,9 @@ public class CommonPage extends CommonUtils{
 	@FindBy(id= "meetingdate")
 	private WebElement meetingDate;
 	
+	@FindBy(css = "[class*='checkbox btn btn-primary']")
+	private WebElement markAsReviewed;
+	
 	public CommonPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
@@ -102,5 +105,8 @@ public class CommonPage extends CommonUtils{
 		CommonUtils.waitForVisibility(goBackToYourQueue);
 	}
 	
+	public void clickOnMarkAsReviewed() {
+		CommonUtils.click(markAsReviewed);
+	}
 	
 }

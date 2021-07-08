@@ -1,6 +1,6 @@
 Feature: Top Accomplishments Submission
 
-	@Smoke @juarezds
+	@CBIIT-99 @Smoke
   Scenario: Verifying the Program Staff member sees options to Submit, Edit, and Delete 
     Given a Program Staff member is on the CRS Knowledge Management System page
     When the Program Staff Member clicks on 'Create new Submission' for Top Accomplishments

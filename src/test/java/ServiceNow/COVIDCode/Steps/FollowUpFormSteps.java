@@ -305,9 +305,6 @@ public class FollowUpFormSteps extends PageInitializer {
 		   covidCodeEQPage.enrollmentQuestionnaireVaccineHaveYouReceivedYourFirstCovidSearchBox.sendKeys(Keys.ENTER);
 		   covidCodeEQPage.enrollmentQuestionnaireVaccineWhatDateDidYouReceiveTheFirstVaccineSearchBox.sendKeys("02/22/2026");
 		   covidCodeEQPage.enrollmentQuestionnaireVaccineWhatDateDidYouReceiveTheFirstVaccineSearchBox.sendKeys(Keys.ENTER);
-		   covidCodeEQPage.enrollmentQuestionnaireVaccineManufactureDD.click();
-		   covidCodeEQPage.enrollmentQuestionnaireVaccineManufactureSearchBox.sendKeys("Pfizer");
-		   covidCodeEQPage.enrollmentQuestionnaireVaccineManufactureSearchBox.sendKeys(Keys.ENTER);
 		   covidCodeEQPage.enrollmentQuestionnaireVaccineReceivedSecondVaccineDD.click();
 		   covidCodeEQPage.enrollmentQuestionnaireVaccineReceivedSecondVaccineSearchBox.sendKeys("Yes");
 		   covidCodeEQPage.enrollmentQuestionnaireVaccineReceivedSecondVaccineSearchBox.sendKeys(Keys.ENTER);

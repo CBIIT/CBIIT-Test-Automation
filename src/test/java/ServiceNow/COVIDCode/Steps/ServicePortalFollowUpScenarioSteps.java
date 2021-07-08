@@ -1,5 +1,7 @@
 package ServiceNow.COVIDCode.Steps;
 
+
+
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -31,9 +33,8 @@ public class ServicePortalFollowUpScenarioSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 		servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown.click();
 		MiscUtils.sleep(1000);
-		CommonUtils.selectDropDownValue("User Group 2",
-				servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown);
-		servicePortalQuestionnairePage.createEnrollmentButton.click();
+		CommonUtils.selectDropDownValue("User Group 2", servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown);
+	    servicePortalQuestionnairePage.createEnrollmentButton.click();
 		covidCodeEQPageImpl.requiredDemographicsInfo();
 		JavascriptUtils.scrollIntoView(covidCodeEQPage.enrollmentQuestionnaireSubmitButton);
 		covidCodeEQPage.enrollmentQuestionnaireSubmitButton.click();
@@ -41,18 +42,18 @@ public class ServicePortalFollowUpScenarioSteps extends PageInitializer {
 		covidCodeEQPage.enrollmentQuestionnaireSubmitYesButton.click();
 		MiscUtils.sleep(2000);
 		covidCodeEQPage.COVIDcodeHomeButton.click();
-		MiscUtils.sleep(5000);
+		MiscUtils.sleep(5000);	
 		servicePortalQuestionnairePage.startNewFollowUpButton.click();
 		MiscUtils.sleep(1000);
 		servicePortalQuestionnairePage.enrollmentLookUpPatientIDSearchDropDown.click();
 		MiscUtils.sleep(2000);
-		servicePortalQuestionnairePage.enrollmentLookUpPatientIDSearchDropDownTextField.sendKeys("AutomatedFN");
+		servicePortalQuestionnairePage.enrollmentLookUpPatientIDSearchDropDownTextField.sendKeys("AutomatedFNGroup3");
 		MiscUtils.sleep(2000);
 		servicePortalQuestionnairePage.enrollmentLookUpPatientIDSearchDropDownTextField.sendKeys(Keys.ENTER);
 		MiscUtils.sleep(3000);
 		servicePortalQuestionnairePage.enrollmentLookUpCreateFollowUpButton.click();
 		JavascriptUtils.scrollIntoView(followUpFormPage.followUpNIHMedicalRecordNumberTextBox);
-		followUpFormPage.followUpNIHMedicalRecordNumberTextBox.sendKeys("1112228");
+		followUpFormPage.followUpNIHMedicalRecordNumberTextBox.sendKeys("11122288");
 		followUpFormPage.followUpDemographicsTextBox.click();
 		JavascriptUtils.scrollIntoView(followUpFormPage.followUpQuestionnaireDemographicDateFormComplted);
 		followUpFormPage.followUpQuestionnaireDemographicDateFormComplted.sendKeys("05/07/2020");
@@ -77,7 +78,7 @@ public class ServicePortalFollowUpScenarioSteps extends PageInitializer {
 		MiscUtils.sleep(500);
 		servicePortalQuestionnairePage.draftFollowUpLastUpdated.click();
 		MiscUtils.sleep(1000);
-		Assert.assertTrue(servicePortalQuestionnairePage.draftFollowUpFirstRow.getText().contains("1112228"));
+		Assert.assertTrue(servicePortalQuestionnairePage.draftFollowUpFirstRow.getText().contains("11122288"));
 		CucumberLogUtils.logScreenShot();
 	}
 

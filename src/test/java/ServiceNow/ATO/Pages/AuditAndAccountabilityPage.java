@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.nci.automation.web.WebDriverUtils;
+
 import ServiceNow.ATO.Utils.DriverObjectFactory;
 
 public class AuditAndAccountabilityPage extends BasePage{
@@ -34,6 +36,6 @@ public class AuditAndAccountabilityPage extends BasePage{
 
 	
 	public AuditAndAccountabilityPage() {
-		PageFactory.initElements(DriverObjectFactory.getWebDriver(), this);
+		PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
 	}
 }

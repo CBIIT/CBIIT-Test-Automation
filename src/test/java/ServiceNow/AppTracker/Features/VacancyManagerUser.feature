@@ -3,7 +3,7 @@ Feature: Vacancy Manager Workflow
 Background: common steps
 Given User is on AppTracker home page and user is "AppTracker Vacancy Manager"
 
-@Regression
+@Regression @Ticket88
 Scenario: verify vacancy description without copy/paste
 And User should see Vacancy Dashboard Page
 When User clicks on Create Vacancy button
@@ -20,7 +20,7 @@ Then User should see "Basic Vacancy Information" text as
 
  """
  
-@Satya3Ticket89
+@Satya3Ticket89 @Regression
 Scenario: Verify Letters of Recommendation persistent in Basic Information 
 When User clicks on Create Vacancy button
 And User selects recommendation as 2
@@ -60,38 +60,24 @@ And User can see the "All", "Draft", "Finalized" sub filters on pre-flight vacan
 When User clicks on closed vacancies tab
 Then User can see the "All", "Closed", "Triaged", "Individually Scored", "Scored", "Archived" sub filters on closed vacancies
 
-#unfinished
+
 @Satya7Ticket94
 Scenario: Verify set vacancy date functionality
 When User clicks on Create Vacancy button
 Then User should able to navigate to the "Basic Vacancy Information" without any error
 And User clicks on the Open date field to see calendar past dates disabled
 And User clicks on the Close Date field to see calendar past dates disabled
-And User selects date same as today's date as below
-|Open Date |2021-05-27|
-|Close Date|2021-05-27|
-Then User can see the under Close Date field message displays with "Please pick an open date that is before the close date."
+And User selects date same as today's date 
+Then User can see the under Close Date field message displays with "Please pick a close date that is after the open date."
 When User selects the Open date as greater than the Close date 
 Then User can see the under Open Date field message displays with "Please pick an open date that is before the close date."
-
-
-
-
-@Satya8Ticket94
-Scenario: Verify the manual date enter functionality in vacancy dates fields
-When User is on create vacancy page
-And User enters the past date in open date field & tab out
-Then User can see the dates changing to current date automatically
-And User enters the past date in Closed date field & tab out
-Then User can see the dates changing to current date automatically
-
-@Satya9Ticket94
-Scenario: Verify the date field persistent in create vacancy form
-When User clicks on the Create Vacancy button
-And User selects the open & closed date
-Then User navigates to other tab
-And User comes back to Basic info tab
+And User clicks on the Mandatory Statements section
+When User comes back to Basic information tab
+And User picks open date and close date
+And User clicks on the Mandatory Statements section
+When User comes back to Basic information tab
 Then User can see the selected Open & Closed date displaying as the same
+
 
 
 @Satya10Ticket101 
@@ -150,7 +136,7 @@ And User clicks on Vacancy Committee tab
 When User clicks on the Email template tab
 Then User can see the updated changes displaying as same
 
-@Satya16Ticket104
+@Satya16Ticket119
 Scenario: Verify Vacancy Committee form
 Given User logged in to the application with vacancy manager user role
 When User clicks on Create Vacancy button
@@ -160,7 +146,7 @@ And User clicks on the add member button
 When User can see Member & Role dropdown list
 Then User can see Save & Cancel button in Action column
 
-@Satya16Ticket104
+@Satya16Ticket119
 Scenario: Verify add member functionality
 Given User logged in to the application with vacancy manager user role
 When User clicks on Create Vacancy button
@@ -180,7 +166,7 @@ Then User can see the member is not added to the grid
 When User click on Save button
 Then User can see the member is added to the grid
 
-@Satya16Ticket104
+@Satya16Ticket119
 Scenario: Verify edit member functionality
 Given User logged in to the application with vacancy manager user role
 When User clicks on Create Vacancy button
@@ -195,6 +181,7 @@ Then User can verify the data updated
 When User click on remove button
 Then User can verify the data removed from grid
 
+#unfinished
 @Satya17Ticket120
 Scenario: Verify the Review & Finalize screen with negative input
 When User clicks on Create Vacancy button
@@ -204,10 +191,10 @@ And User toggles off Equal Opportunity Employer button, Standards of Conduct/Fin
 And User adds committee member as a chair
 And User toggles off all the email template button
 Then User will see the error messages displayed
-#And User comes back to Basic information tab
-#And User clicks on the Mandatory Statements section
-#And User clicks on Vacancy Committee tab
-#And User clicks on the Email template tab
+And User comes back to Basic information tab
+And User clicks on the Mandatory Statements section
+And User clicks on Vacancy Committee tab
+And User clicks on the Email template tab
 
 
 @Satya18Ticket120
@@ -223,13 +210,15 @@ Then User should see "Basic Vacancy Information" text as
 •	Obtains product market share by working with sales director to develop product sales strategies.
 •	Assesses product market data by calling on customers with field salespeople and evaluating sales call results.
  """
-And User indicates open date and close date
-And User adds committee member as a chair and as an executive secretary
+And User picks open date as "2021-06-10" and close date as "2021-06-22"
+And User clicks on Vacancy Committee tab
+And User adds committee member as "APPTRACK COMMITTEE MEMBER" and role "Chair"
+And User adds committee member as "APPTRACK SCORING MEMBER" and role "Executive Secretary"
 And User clicks on Review and Finalize tab
 And User clicks on the Mandatory Statements section
 And User clicks on Review and Finalize tab
 When User clicks on Save and Finalize button
-Then User can see confirmation modal "Ready to Finalize?" is displayed
+Then User can see confirmation modal "Ready to finalize vacancy?" is displayed
 When User chooses OK for  confirmation modal"Ready to finalize vacancy?"
 Then User can see confirmation modal "Vacancy Finalized!"
 

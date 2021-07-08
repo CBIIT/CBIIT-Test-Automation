@@ -149,6 +149,7 @@ Feature: Regression testing
     And User clicks on APPROVE IDP button
     And User clicks on yes button on trainee page
 
+  
   @ReviseExistingIDP @Regression
   Scenario: Revise Existing IDP
     #Given User opens nih application in browser
@@ -162,6 +163,8 @@ Feature: Regression testing
     And User clicks on save and send mail button
     Then User will click on ok button
 
+
+ 
   @IDPOnHold @Regression
   Scenario: IDP is placed on HOLD
     #Given User opens nih application in browser
@@ -179,11 +182,12 @@ Feature: Regression testing
     And User will clickOn proceed button
     And User selects primary mentor as "Berzofsky,Jay"
     And User adds new project with deliverables
-
-  And User adds new career training activities
-  And User edits aligning expectations
-  And User will click on revew and take action button
-  Then User verifies IDP will be placed on hold message
+    And User adds new career training activities
+    And User edits aligning expectations
+    And User will click on revew and take action button
+    Then User verifies IDP will be placed on hold message
+    
+    #passed
   @releaseOnHold @Regression
   Scenario: Release IDP placed on hold
     #Given User opens nih application in browser
@@ -363,7 +367,7 @@ Feature: Regression testing
     |Trainee First Name|Trainee Last Name|
     |Olga              |Kim              | 
     
-    @Regression @Smoke @ClassificationType
+    @Regression @Smoke @ClassificationTypesErika
     Scenario Outline:IDP Search request specifying  Classification type
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -420,7 +424,7 @@ Feature: Regression testing
     |Trainee First Name|Trainee Last Name|
     |Kate              |Brown            |
     
-    @Regression @Smoke @ClassificationType
+    @Regression @Smoke @ClassificationTypesGloria
     Scenario Outline:IDP Search request as Gloria Calloway  specifying  Classification type
     #Given User opens nih application in browser
     When User will login to the application as "nekrashevicha2" user
@@ -432,8 +436,8 @@ Feature: Regression testing
     |Classification Type|
     |Fellow             |
     |Employee           |
-    |Employee           |
     
+    #negative input is NHU22
     @Regression @Smoke @NIHSAC
     Scenario Outline: Search request as Gloria Calloway specifying NIH SAC
     #Given User opens nih application in browser

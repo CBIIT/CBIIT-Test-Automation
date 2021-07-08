@@ -252,28 +252,48 @@
 
 
 	<!-- Application ID for EIDP -->
-	<application id="EidpUrl">
+	<application id="EidpUrlNHGRI">
+		<login_url>https://idp-test.cancer.gov/nhgri/idp/</login_url><!-- add test 
+			url -->
 
-		<login_url>
-			https://idp-test.cancer.gov/idp/
-			</login_url><!-- add test url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
 
-			<role name="Role">
-				<user id="regular">
-					<name>regular</name>
-					<userId></userId><!-- add encrypted test user -->
-					<password></password><!-- add encrypted test pass -->
-				</user>
-			</role>
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
+		</db>
 
-			<db>
-				<default>
-					<driverclassname></driverclassname><!-- Add driver class-name -->
-					<url></url><!-- complete string url -->
-					<username></username><!-- Add db username -->
-					<password></password><!-- Add db password -->
-				</default>
-			</db>
+	</application>
+	<application id="EidpUrlNCI">
+		<login_url>https://idp-test.cancer.gov/idp/</login_url><!-- add test 
+			url -->
+
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
+		</db>
 
 	</application>
 	<!-- Application ID for AppTracker -->
@@ -324,4 +344,72 @@
 		</db>
 
 	</application>
+	
+	<!-- Application ID for AppTracker -->
+	<application id="AtoTestUrl">
+		<login_url>https://service-test.nci.nih.gov/ncisp
+		</login_url><!-- add test url -->
+			add test url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
+		</db>
+
+	</application>
+	<application id="FASTAtoTestUrl">
+		<login_url>https://service-test.nci.nih.gov/ncisp
+		</login_url><!-- add test url -->
+			add test url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
+		</db>
+
+	</application>
+	<application id="NIDCR">
+		<login_url>https://idp-test.cancer.gov/nidcr/idp/
+		</login_url><!-- add test url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
+		</db>
+
+	</application>
+	
 </environment>

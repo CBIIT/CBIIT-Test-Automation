@@ -733,7 +733,7 @@ public class NativeViewEnrollmentViewPage extends CommonUtils {
 	/** Native View Enrollment View Delete Submission Pop Up Delete Button */
 	@FindBy(xpath = "//button[@id = 'ok_button']")
 	public WebElement nativeViewEnrollmentViewDeleteDeleteSubmissionPopUpDeleteButton;
-
+	
 	/**
 	 * --------------- END OF NATIVE VIEW COVIDcode ENROLLMENT VIEW DISEASE COURSES SECTION TABLE ---------------
 	 */
