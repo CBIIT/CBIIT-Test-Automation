@@ -40,37 +40,3 @@ Feature: Title of your feature
       | name  | value | status  |
       | name1 |     5 | success |
       | name2 |     7 | Fail    |
-      
-    
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
