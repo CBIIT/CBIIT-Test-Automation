@@ -1,6 +1,9 @@
 package CustomBusinessApp.EIDP.StepsImplementation;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -59,8 +62,12 @@ public class GeneralInformationStepImpl extends PageInitializer {
 	
 	public void selectRandomHighestDegree() {
 		MiscUtils.sleep(3000);
-		CommonUtils.waitForVisibility(generalInformationPage.highestDegreeDropdown);
-		eidpBasePage.selectOptionByIndex(generalInformationPage.highestDegreeDropdown);
+		if (CommonUtils.isElementDisplayed(generalInformationPage.highestDegreeDropdown)) {
+			eidpBasePage.selectOptionByIndex(generalInformationPage.highestDegreeDropdown);
+			}else if (CommonUtils.isElementDisplayed(generalInformationPage.highestDegreeDropdown2)) {
+			eidpBasePage.selectOptionByIndex(generalInformationPage.highestDegreeDropdown2);
+			MiscUtils.sleep(3000);
+		}
 	}
 	
 	public void selectRandomCurrentTitle() {
@@ -73,9 +80,13 @@ public class GeneralInformationStepImpl extends PageInitializer {
 		CommonUtils.sendKeys(generalInformationPage.searchInputField, "Berzofsky,Jay");
 		Thread.sleep(6000);
 		CommonUtils.click(generalInformationPage.dropdownOptions);
+		Thread.sleep(1000);
 		CommonUtils.click(generalInformationPage.labBranchNameDropdown);
+		Thread.sleep(1000);
 		CommonUtils.click(generalInformationPage.dropdownOptions);
+		Thread.sleep(1000);
 		CommonUtils.waitForVisibility(generalInformationPage.searchInputField);
+		Thread.sleep(1000);
 		CommonUtils.sendKeys(generalInformationPage.searchInputField, "Lipkowitz,Stan");
 		Thread.sleep(4000);
 		CommonUtils.click(generalInformationPage.dropdownOptions);
@@ -98,10 +109,12 @@ public class GeneralInformationStepImpl extends PageInitializer {
 	
 	public void doYouHaveCoPrimaryMentory(Boolean isCoPrimary) {
 		if(isCoPrimary) {
-			MiscUtils.sleep(10000);
+			MiscUtils.sleep(3000);
 			WebDriverUtils.webDriver.findElement(By.id("coprimMentorYes")).click();
+			MiscUtils.sleep(3000);
 		} else {
 			WebDriverUtils.webDriver.findElement(By.id("coprimMentorNo")).click();
+			MiscUtils.sleep(3000);
 		}
 	}
 	
@@ -112,5 +125,32 @@ public class GeneralInformationStepImpl extends PageInitializer {
 	public void clickOnDeclineIDPButton() {
 		CommonUtils.click(generalInformationPage.declineIDPButton);
 	}
+	public void reviewTakeAction(){
+		CommonUtils.click(generalInformationPage.reviewAndTakeAction);
+	}
+	
+	public void sendToPrimaryMentor() {
+		CommonUtils.click(generalInformationPage.sendIdpToPrimaryMentor);
+	}
+	
+	public void editGeneralInformation() {
+		CommonUtils.click(generalInformationPage.generalInformationEdit);
+	}
 
-}
+	public void clickYes() {
+		CommonUtils.click(generalInformationPage.yesButton);
+	}
+	
+	public void chooseTraineeProceedButton(String traineeName) {
+		List<WebElement>rows = WebDriverUtils.getWebDriver().findElements(By.cssSelector("td.sorting_1"));
+		for(WebElement row: rows) {
+		if(row.getText().equals(traineeName)) {
+		break;
+		}
+		CommonUtils.click(generalInformationPage.ProceedButton);
+		}
+	}	
+		
+		
+	}
+

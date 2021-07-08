@@ -1,3 +1,4 @@
+@Regression1
 Feature: Regression testing
 
   @InitiatesIDP_Renewal @Regression @Smoke
@@ -178,10 +179,7 @@ Feature: Regression testing
     And User selects primary mentor as "Berzofsky,Jay"
     And User adds new project with deliverables
 
-  #And User adds new career training activities
-  #And User edits aligning expectations
-  #And User will click on revew and take action button
-  #Then User verifies IDP will be placed on hold message
+
   @releaseOnHold @Regression
   Scenario: Release IDP placed on hold
     #Given User opens nih application in browser

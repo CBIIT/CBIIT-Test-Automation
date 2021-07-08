@@ -1,6 +1,6 @@
-#Author: Diego Juarez
 #Supports COVID-33, COVID-64, COVID-86
 Feature: COVIDcode Study Provider Service Portal Login Scenarios
+
 
   @Smoke @juarezds
   Scenario: COVIDcode Study Provider Login when clicking 'Log In' button, clicks on Start new initial questionnaire button and verifies expected header text

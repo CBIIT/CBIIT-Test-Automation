@@ -28,8 +28,15 @@ public class SearchStepImpl extends PageInitializer {
 		eidpBasePage.selectOption(searchPage.searchForDropdown, searchOption);
 	}
 
-	public void selectStatus(String statusOption) {
-		CommonUtils.click(searchPage.currentIDPStatusDropdown);
+	public void selectStatus(String statusOption, String dropDownName) {
+		if (dropDownName.equalsIgnoreCase("Current IDP Status")) {
+			CommonUtils.click(searchPage.currentIDPStatusDropdown);
+		}else if(dropDownName.equalsIgnoreCase("IDP Type")){
+			CommonUtils.click(searchPage.idpType);
+		}else {
+			//default
+			CommonUtils.click(searchPage.currentIDPStatusDropdown);
+		}
 		CommonUtils.click(WebDriverUtils.getWebDriver()
 				.findElement(By.cssSelector(".select2-search.select2-search--dropdown .select2-search__field")));
 		CommonUtils.sendKeys(
@@ -51,14 +58,13 @@ public class SearchStepImpl extends PageInitializer {
 
 				By.xpath("//*[@id='select2-trainee-classifications-results']//li[text()=\"" + type + "\"]"));
 
-				By.xpath("//*[@id='select2-trainee-classifications-results']//title[text()=\"" + type + "\"]");
+		By.xpath("//*[@id='select2-trainee-classifications-results']//title[text()=\"" + type + "\"]");
 
 		CommonUtils.click(option);
 		CommonUtils.click(searchPage.trainneLastName);
 		CommonUtils.click(searchPage.searchButton);
 
 	}
-
 
 	public void selectActiveCompletedIDP() throws Exception {
 		CommonUtil.waitBrowser(4000);
@@ -190,6 +196,10 @@ public class SearchStepImpl extends PageInitializer {
 		return WebDriverUtils.getWebDriver().findElement(By.cssSelector("#cancelModalUserInfo")).getText();
 	}
 
+	public String getTrainneNameFromReviseIDPConfirmationPopUp() {
+		return WebDriverUtils.getWebDriver().findElement(By.xpath("//div[@class='bootbox-body']/b[1]")).getText();
+	}
+
 	public String getTraineeeNameFromUndoCancelIdpConformationWindow() {
 		return WebDriverUtils.getWebDriver().findElement(By.cssSelector("#undoCancelModalUserInfo")).getText();
 	}
@@ -214,6 +224,40 @@ public class SearchStepImpl extends PageInitializer {
 		WebDriverUtils.getWebDriver().findElement(By.id("release-hold-button")).click();
 	}
 
+	public void selectActiveTraineeNHGRI() throws Exception {
+
+		Thread.sleep(8000);
+		List<WebElement> searchResults = WebDriverUtils.getWebDriver().findElement(By.id("advanced_search_results"))
+				.findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
+		WebElement buttonEl;
+		Boolean isSelected = false;
+		while (true) {
+			for (int i = 2; i < searchResults.size(); i++) {
+				buttonEl = searchResults.get(i).findElement(By.tagName("button"));
+				if (buttonEl.isEnabled()) {
+					SharedData.traineeName = searchResults.get(i).findElement(By.tagName("a")).getText();
+					buttonEl.click();
+					Thread.sleep(2000);
+					if (!searchPage.saveAndSendEmailButton.isDisplayed()) {
+						continue;
+					} else {
+						isSelected = true;
+						break;
+					}
+				}
+			}
+			if (isSelected) {
+				break;
+			} else {
+				searchPage.nextButton.click();
+				Thread.sleep(8000);
+				searchResults = WebDriverUtils.getWebDriver().findElement(By.id("advanced_search_results"))
+						.findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
+			}
+		}
+
+	}
+
 	public void selectActiveTrainee() throws Exception {
 
 		Thread.sleep(8000);
@@ -222,13 +266,18 @@ public class SearchStepImpl extends PageInitializer {
 		WebElement buttonEl;
 		Boolean isSelected = false;
 		while (true) {
-			for (int i = 0; i < searchResults.size(); i++) {
+			for (int i = 2; i < searchResults.size(); i++) {
 				buttonEl = searchResults.get(i).findElement(By.tagName("button"));
 				if (buttonEl.isEnabled()) {
 					SharedData.traineeName = searchResults.get(i).findElement(By.tagName("a")).getText();
 					buttonEl.click();
-					isSelected = true;
-					break;
+					Thread.sleep(2000);
+					if (!searchPage.saveAndSendEmailButton.isDisplayed()) {
+						continue;
+					} else {
+						isSelected = true;
+						break;
+					}
 				}
 			}
 			if (isSelected) {
@@ -293,6 +342,34 @@ public class SearchStepImpl extends PageInitializer {
 		eidpBasePage.selectOption(searchPage.nciTrainingOrganizationDropdown, optionText);
 	}
 
+	public void resonForReviseIDP(String idpReason) {
+		if (idpReason.contains("Primary")) {
+			WebDriverUtils.getWebDriver()
+					.findElement(By.xpath("//span[@id=\"forStartedLegend\"]/following-sibling::div/label[1]")).click();
+			return;
+		}
+		if (idpReason.contains("Lab")) {
+			WebDriverUtils.getWebDriver()
+					.findElement(By.xpath("//span[@id=\"forStartedLegend\"]/following-sibling::div/label[2]")).click();
+			return;
+		}
+		if (idpReason.contains("follow")) {
+			WebDriverUtils.getWebDriver()
+					.findElement(By.xpath("//span[@id=\"forStartedLegend\"]/following-sibling::div/label[3]")).click();
+			return;
+		}
+		if (idpReason.contains("Other")) {
+			WebDriverUtils.getWebDriver()
+					.findElement(By.xpath("//span[@id=\"forStartedLegend\"]/following-sibling::div/label[4]")).click();
+			WebDriverUtils.getWebDriver().findElement(By.id("another-idp-reason-other")).sendKeys("Automation");
+			return;
+		}
+	}
+
+	public void selectCurrentIDPStatus(String optionText) {
+		eidpBasePage.selectOption(searchPage.nciCurrentIDPStatus, optionText);
+	}
+
 	public String getTraineeName() {
 		return searchPage.traineeName.getText();
 	}
@@ -300,6 +377,7 @@ public class SearchStepImpl extends PageInitializer {
 	public Boolean isIDPInitationSuccess() throws Exception {
 		Thread.sleep(12000);
 		CommonUtils.waitForVisibility(searchPage.idpInitiationMessage);
+		Thread.sleep(1000);
 
 		return searchPage.idpInitiationMessage.isDisplayed();
 	}
@@ -319,14 +397,20 @@ public class SearchStepImpl extends PageInitializer {
 		WebDriverUtils.getWebDriver().findElement(By.xpath(xpath)).click();
 	}
 
-	public void clickOnPopUpYesButton() throws InterruptedException {
+	public void clickOnPopUpYesButton() {
 		String xpath = "//button[text()='Yes' and not(@id)]";
 		WebDriverUtils.getWebDriver().findElement(By.xpath(xpath)).click();
-		Thread.sleep(2000);
+
 	}
 
 	public void clickOnSearchButton() {
+		CommonUtils.waitForClickability(searchPage.searchButton);
 		CommonUtils.click(searchPage.searchButton);
+	}
+
+
+	public void setTraineesWithoutIDP() {
+		CommonUtils.click(searchPage.traineeWithoutIDPCHeckBox);
 	}
 
 	// Method for IDPCheckbox
@@ -334,36 +418,30 @@ public class SearchStepImpl extends PageInitializer {
 		CommonUtils.click(searchPage.traineesWithIDPCheckbox);
 	}
 
-	// Method to enter Trainee First Name
 	public void enterTraineeFirstName(String enterName) {
 		searchPage.TraineeFirstName.sendKeys(enterName);
 	}
 
-	// Method to enter Trainee Last Name
 	public void enterTraineeLastName(String enterName) {
 		searchPage.trainneLastName.sendKeys(enterName);
 	}
 
-	// Method to verify Kim, Olga
 	public void verifyFirmlyExpectedName(String expectedFirstName, String expectedLastName) {
 		String expectedFullName = expectedLastName + ", " + expectedFirstName;
 		String actualFullName = searchPage.searchResultTableFirstRowFirstCell.getText();
 		Assert.assertEquals(expectedFullName, actualFullName);
 	}
 
-	// methodtoverifyClassificationType
 	public void verifyFirmlyClassificationType(String expectedClassificationType) {
 		String actualClassificationType = searchPage.searchResultTableFirstRowThirdCell.getText();
 		Assert.assertEquals(expectedClassificationType.toUpperCase(), actualClassificationType);
 	}
 
-	// method Select Primary Mentor as Ali Abazeed
 	public void selectPrimaryMentorName() {
 		CommonUtils.click(searchPage.selectPrimaryMentor);
 
 	}
 
-	// method to click plus button and assert primary mentor
 	public void verifyTraineeUnderPrimaryMentor(String primaryMentor) {
 		eidpBasePage.selectOption(searchPage.choosePrimaryMentor, primaryMentor);
 		clickOnSearchButton();
@@ -388,14 +466,12 @@ public class SearchStepImpl extends PageInitializer {
 		CommonUtils.click(searchPage.searchButtonCallowayGloria);
 	}
 
-	// verifyGloriaCalloway
 	public void verifyGloriaCallowayExpectedName(String expectedFirstName, String expectedLastName) {
 		String expectedFullName = expectedLastName + ", " + expectedFirstName;
 		String actualFullName = searchPage.searchResultTableFirstRowThirdCellCalloway.getText();
 		Assert.assertEquals(expectedFullName, actualFullName);
 	}
 
-	// Alena8
 	public void selectClassificationTypeGloriaCalloway(String type) {
 		CommonUtils.click(searchPage.classificationTypeInput);
 		CommonUtils.selectDropDownValue(type, searchPage.classificationTypeDropDownGloriaGalloway);
@@ -406,23 +482,16 @@ public class SearchStepImpl extends PageInitializer {
 		CommonUtils.selectDropDownValue(nameMentor, searchPage.choosePrimaryMentor);
 	}
 
-	// chooseOrganizationDropdown
 	public void selectTrainingOrganization(String organizationName) {
 		CommonUtils.click(searchPage.selectTrainingOrganizationDropdown);
-		// eidpBasePage.selectOption(searchPage.chooseCBIIT, organizationName);
+
 	}
 
-	// verifyListOfWebElements//CBIIT
 	public void verifyTraineeOrganization(String nameOrg) {
 		eidpBasePage.selectOption(searchPage.chooseCBIIT, nameOrg);
-
 		MiscUtils.sleep(3000);
 		clickOnSearchButton();
 		MiscUtils.sleep(3000);
-
-		Assert.fail("Name:" + nameOrg + "does not exist in the list!Verification FAILED!!!");
-		clickOnSearchButton();
-
 		List<WebElement> rows = WebDriverUtils.getWebDriver().findElements(By.cssSelector("td.sorting_2"));
 		for (WebElement each : rows) {
 			WebElement nameOrgList = WebDriverUtils.getWebDriver()
@@ -437,10 +506,7 @@ public class SearchStepImpl extends PageInitializer {
 
 	}
 
-	// verifyGloriaCallowayCalssification results search Scenario#7
 	public void verifyClassificationType(String type) {
-		// selectClassificationTypeGloriaCalloway(type);
-		// clickOnSearchButtonGloriaCalloway();
 		MiscUtils.sleep(2000);
 		List<WebElement> rows = WebDriverUtils.getWebDriver()
 				.findElements(By.cssSelector("td.sorting_1.dtr-control::before"));
@@ -458,15 +524,12 @@ public class SearchStepImpl extends PageInitializer {
 		}
 	}
 
-	// NIHSAC
 	public void selectDropdownNIHSACGloriaCalloway(String SACname) {
 		CommonUtils.selectDropDownValue(searchPage.chooseDropdownNIHSACGloriaCalloway, SACname);
 
 	}
 
-	// verifyNIHSACAssertion
 	public void verifyNIHSAAC(String name) {
-		Assert.fail(name + " DOES NOT EXIST IN THE DROPDOWN LIST, FAILED!!!");
 		List<WebElement> rows = WebDriverUtils.getWebDriver()
 				.findElements(By.cssSelector("sorting_1 dtr-control::before"));
 		for (WebElement each : rows) {
