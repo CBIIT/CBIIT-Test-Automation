@@ -215,7 +215,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		MiscUtils.sleep(3000);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesTab.click();
 		MiscUtils.sleep(1000);
-		JavascriptUtils.clickByJS(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesNewButton);
+		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesNewButton.click();
 		MiscUtils.sleep(3000);
 	}
 
@@ -257,7 +257,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		MiscUtils.sleep(3000);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesTab.click();
 		MiscUtils.sleep(1000);
-		JavascriptUtils.clickByJS(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesNewButton);
+		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesNewButton.click();
 		MiscUtils.sleep(3000);
 
 	}
@@ -553,9 +553,6 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineWhatDateDidYouReceiveFirstVaccineDate
 				.sendKeys("02/22/2026");
 		MiscUtils.sleep(1000);
-		CommonUtils.selectDropDownValue("Pfizer",
-				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineManufactureDD);
-		MiscUtils.sleep(1000);
 		CommonUtils.selectDropDownValue("Yes",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineHaveYouReceivedYourSecondCovidVaccineDD);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineHaveYouReceivedYourSecondVaccineDate
@@ -663,8 +660,6 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		nativeViewEnrollmentViewPage.nativeViewFollowUpVaccineWhatDateDidYouReceiveFirstVaccineDate
 				.sendKeys("02/22/2026");
 		MiscUtils.sleep(1000);
-		CommonUtils.selectDropDownValue("Pfizer",
-				nativeViewEnrollmentViewPage.nativeViewFollowUpViewVaccineManufactureDD);
 		CommonUtils.selectDropDownValue("Yes",
 				nativeViewEnrollmentViewPage.nativeViewFollowUpVaccineHaveYouReceivedYourSecondCovidVaccineDD);
 		nativeViewEnrollmentViewPage.nativeViewFollowUpVaccineHaveYouReceivedYourSecondVaccineDate

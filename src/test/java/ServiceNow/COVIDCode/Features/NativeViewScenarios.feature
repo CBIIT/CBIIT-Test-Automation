@@ -1,6 +1,6 @@
 Feature: Native View Scenarios
 
-  @Smoke @juarezds @Progression
+  @Smoke @juarezds
   Scenario: COVIDcode Study nurse with an Admin role is able to submit an Enrollment Questionnaire in Native View
     Given a COVIDcode Study nurse with an Admin role has logged in to the COVIDcode Study Native View application
     And is on the COVIDcode Enrollments page
@@ -76,7 +76,7 @@ Feature: Native View Scenarios
     And clicks the "Add Me" button
     Then their name "Diego Juarez" is added to the Assigned To field
 
-  @Smoke @updatedFeb042021 @juarezds
+  @Smoke @juarezds
   Scenario: Native View My Inquiry Tracking Records - Verify Add Assigned Nurses Field
     Given a Study Nurse is in Native View
     When the users open an Inquiry Tracking Record
@@ -89,9 +89,9 @@ Feature: Native View Scenarios
     And on the Demographics Information
     When selecting "Feet/Inches" for Height
     And entering value for feet
-    And entering a value greater than 12 Inches for Height
+    And entering a value greater than 11 Inches for Height
     And clicking anywhere else
-    Then a message displays "Because you have a value in feet, inches cannot be more than 11.99"
+    Then a message displays "Because you have a value in feet, inches cannot be more than 11"
 
   @Smoke @COVID-425 @juarezds
   Scenario: Native View COVIDcode Follow Ups - Verifying Error Message for Invalid Data in Inches
@@ -99,9 +99,9 @@ Feature: Native View Scenarios
     And on the Demographics Information
     When selecting "Feet/Inches" for Height
     And entering value for feet
-    And entering a value greater than 12 Inches for Height
+    And entering a value greater than 11 Inches for Height
     And clicking anywhere else
-    Then a message displays "Because you have a value in feet, inches cannot be more than 11.99"
+    Then a message displays "Because you have a value in feet, inches cannot be more than 11"
 
   @Smoke @COVID-422 @juarezds
   Scenario: Add Field Options for "When were you officially diagnosed with COVID-19" field
@@ -109,7 +109,7 @@ Feature: Native View Scenarios
     And navigating to the Symptomology in Native View
     Then "Have you officially been diagnosed with COVID-19?" displays
 
-  @Smoke @New @COVID-422 @juarezds
+  @Smoke @COVID-422 @juarezds
   Scenario: Add Field Options for "When were you officially diagnosed with COVID-19" field
     When on the Follow Up form in Native View
     And navigating to the Symptomology section
@@ -168,14 +168,14 @@ Feature: Native View Scenarios
     When the COVIDcode Admin user submits the Initial Questionnaire
     Then the COVIDcode Admin user should be able to see the files uploaded
 
-  @Smoke @COVID-418 @juarezds
+  @Smoke @COVID-418 @CBIIT-54 @juarezds
   Scenario: Verifying Re-enable Which Organs Showed Signs of Dysfunction/Failure?
     Given a COVIDcode user is on the existing Initial Questionnaire form
     When on Disease Course section, when selecting "Yes" for the Organ Failure
     Then a new question appears "Which organ(s) showed signs of dysfunction/failure?"
     And field options are: Liver, Kidney, Lungs, Heart, Central Nervous system, Hematologic System, Other, Other (free text field)
 
-  @Smoke @COVID-419 @juarezds
+  @Smoke @COVID-419 @CBIIT-53
   Scenario: Update Dates for List Edits
     Given a COVIDcode User logs into the COVIDcode application in Native View
     And navigates to the COVIDcode Inquiry Tracking module
@@ -183,7 +183,7 @@ Feature: Native View Scenarios
     And entering a date for Initial Emails Sent Date field
     Then the Covid Test Result F/U 1 and Covid Test Result F/U 2 are automatically updated with dates a week apart
 
-  @Smoke @COVID-198 @juarezds
+  @Smoke @COVID-198 @CBIIT-73
   Scenario: Verifying Follow Up Form - Verifying 'Drug Treatments' section - Native View
     When a COVIDCode provider is on the Disease Course section on the Follow Up Form in Native View
     Then Drug Treatments section should display along with the values on the Follow Up Form in Native View None, Azithromycin, Chloroquine, Corticosteroids, Hydroxycholoquine, JAK Inhibitor, Remdesivir, Tocilizumab, Other

@@ -1,14 +1,10 @@
 package ServiceNow.SEER.Steps;
 
 import org.junit.Assert;
-import org.openqa.selenium.JavascriptExecutor;
-
-import com.nci.automation.common.Constants;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -17,6 +13,7 @@ public class SEERLandingPageSteps extends PageInitializer {
 
 	@Given("a user is on the SEER Data Access landing page")
 	public void a_user_is_on_the_SEER_Data_Access_landing_page() throws TestingException {
+		WebDriverUtils.getWebDriver();
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SEERDataAccess"));
 		CucumberLogUtils.logScreenShot();
 	}
@@ -30,7 +27,7 @@ public class SEERLandingPageSteps extends PageInitializer {
 	@Then("under {string} the text displayed is")
 	public void under_the_text_displayed_is(String institutionalAccounts, String doYouHaveAnAccount) {
 		Assert.assertEquals(institutionalAccounts, seerLandingPage.institutionalAccountsHeaderText.getText());
-		Assert.assertEquals(doYouHaveAnAccount, seerLandingPage.doYouHaveAnAccountParagraph.getText());
+		Assert.assertEquals(doYouHaveAnAccount, seerLandingPage.doYouHaveAnAccountParagraph.getText());   
 	}
 
 	@Then("the text displayed is {string}")
@@ -38,7 +35,7 @@ public class SEERLandingPageSteps extends PageInitializer {
 		Assert.assertEquals(ifYouAreUnable, seerLandingPage.ifYouAreUnableToAuthenticateText.getText());
 		CucumberLogUtils.logScreenShot();
 	}
-
+	
 	@Then("under {string}, text displayed is")
 	public void under_text_displayed_is(String nonInstitutionalAccounts, String forAllOtherAccountsText) {
 		Assert.assertEquals(nonInstitutionalAccounts, seerLandingPage.nonInstitutionalAccountsHeaderText.getText());
@@ -56,4 +53,3 @@ public class SEERLandingPageSteps extends PageInitializer {
 	}
 
 }
-

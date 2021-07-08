@@ -27,4 +27,3 @@ Feature: COVIDCode Dashboard Scenarios
     When the user lands on the COVIDCode Home Page
     Then there is a table named "Draft Follow-up Questionnaires"
     And the table contains the following: "Patient ID", "User Group ID", "NIH Medical Record #", "Last Updated", "Available Actions"
-
