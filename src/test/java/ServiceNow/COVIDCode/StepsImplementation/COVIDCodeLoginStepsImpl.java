@@ -8,6 +8,7 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 
+import appsCommon.ITrustLoginPageImpl;
 import appsCommon.PageInitializer;
 
 public class COVIDCodeLoginStepsImpl extends PageInitializer {
@@ -17,8 +18,7 @@ public class COVIDCodeLoginStepsImpl extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(covidCodeLoginPage.LogInButton);
 		CucumberLogUtils.logScreenShot();
-		iTrustloginPage.enterUsername();
-		iTrustloginPage.enterPassword();
+		loginImpl.loginToITrust();
 		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(2000);
 		iTrustloginPage.clickSignInButton();
