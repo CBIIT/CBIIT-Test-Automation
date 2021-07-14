@@ -12,7 +12,7 @@ import cucumber.api.junit.Cucumber;
 		, features="src/test/java/AnalysisTools/mSigPortal/Features"
 		, glue="AnalysisTools.mSigPortal.Steps"
 		, tags="@Progression"
-		, dryRun = true
+		, dryRun = false
 		, monochrome=true
 		, strict = true
 		
@@ -24,6 +24,6 @@ import cucumber.api.junit.Cucumber;
  * 
  * @author sohilz2
  */
-public class RunCEDCDProgressionTest {
+public class RunMSigPortalProgressionTest {
 
 }
