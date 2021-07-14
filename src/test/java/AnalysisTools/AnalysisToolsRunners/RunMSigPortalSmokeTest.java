@@ -11,7 +11,7 @@ import cucumber.api.junit.Cucumber;
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/AnalysisTools/mSigPortal/Features"
 		, glue="AnalysisTools.mSigPortal.Steps"
-		, tags="@Progression"
+		, tags="@Smoke"
 		, dryRun = true
 		, monochrome=true
 		, strict = true
@@ -24,6 +24,6 @@ import cucumber.api.junit.Cucumber;
  * 
  * @author sohilz2
  */
-public class RunCEDCDProgressionTest {
+public class RunMSigPortalSmokeTest {
 
 }

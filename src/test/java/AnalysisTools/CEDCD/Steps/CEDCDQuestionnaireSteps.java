@@ -1,13 +1,7 @@
 package AnalysisTools.CEDCD.Steps;
 
-import javax.swing.plaf.basic.BasicArrowButton;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
-import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -15,8 +9,6 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
-import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -139,6 +131,10 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.questionnaireFrequency.sendKeys("Monthly");
 		cedcdCohortPage.mostRecentYear.sendKeys("2018");
 		
+		cedcdCohortPage.a11PhoneInterview.click();
+		cedcdCohortPage.a11AdministeredViaWebBasedDevice.click();
+		cedcdCohortPage.a11otherPleaseSpecify.click();
+		cedcdCohortPage.a11otherPleaseSpecifyTextbox.sendKeys("A11 Automated Key Presses");
 		cedcdCohortPage.a12RequireIRBApproval.click();
 		cedcdCohortPage.a12LinkingOtherDatabases.click();
 		cedcdCohortPage.a12OtherPleaseSpecify.click();
@@ -148,10 +144,9 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.a13OtherPleaseSpecify.click();
 		MiscUtils.sleep(3000);
 		cedcdCohortPage.a13OtherPleaseSpecifyTextbox.sendKeys("A13 Automated Key Presses");
-		cedcdCohortPage.a11PhoneInterview.click();
-		cedcdCohortPage.a11AdministeredViaWebBasedDevice.click();
-		cedcdCohortPage.a11otherPleaseSpecify.click();
-		cedcdCohortPage.a11otherPleaseSpecifyTextbox.sendKeys("A11 Automated Key Presses");
+		cedcdCohortPage.a12OtherPleaseSpecifyTextbox.click();
+		cedcdCohortPage.a13OtherPleaseSpecifyTextbox.click();
+		
 		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(2000);
 
@@ -171,7 +166,8 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		/** Selecting enrollment date for section B */
 		MiscUtils.sleep(20000);
 		JavascriptUtils.scrollIntoView(cedcdCohortPage.enrollmentDateBox);
-		MiscUtils.sleep(2000);
+//		MiscUtils.sleep(2000);
+		CommonUtils.waitForClickability(cedcdCohortPage.enrollmentDateBox);
 		cedcdCohortPage.enrollmentDateBox.sendKeys("04/06/2021");
 		CucumberLogUtils.logScreenShot();
 		

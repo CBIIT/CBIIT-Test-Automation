@@ -18,6 +18,10 @@ import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
 import AnalysisTools.PLCO.Pages.BrowsePhenotypePage;
 import AnalysisTools.PLCO.Pages.ExploreGWASPage;
 import AnalysisTools.PLCO.Pages.InformationPage;
+import AnalysisTools.mSigPortal.Pages.MSigPortalHomePage;
+import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
+import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
+import AnalysisTools.mSigPortal.Steps.SignatureVisualizationSteps;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
 import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
@@ -149,7 +153,11 @@ public class PageInitializer {
 	
 	/** Comets 2.0 Instances */
 	protected static Comets2Page comets2Page;
-
+	
+	/** mSigPortal Instances */
+	protected static SignatureVisualizationsPage signatureVisualizationsPage;
+	protected static MSigPortalHomePage mSigPortalHomePage;
+	protected static SignatureExplorerPages signatureExplorerPages;
 	
 
 	public static void initializeAllPages() {
@@ -214,5 +222,8 @@ public class PageInitializer {
 		cedcdAdminPage = new CEDCDAdminPage();
 		cedcdCohortPage = new CEDCDCohortPage();
 		comets2Page = new Comets2Page();
+		signatureVisualizationsPage = new SignatureVisualizationsPage ();
+		mSigPortalHomePage = new MSigPortalHomePage();
+		signatureExplorerPages = new SignatureExplorerPages();
 	}
 }
