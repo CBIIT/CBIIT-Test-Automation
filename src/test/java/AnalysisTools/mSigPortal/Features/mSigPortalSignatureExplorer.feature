@@ -1,7 +1,7 @@
 Feature:
 
 
-@Progression @matarodriguezko
+@Smoke @matarodriguezko
 Scenario:
 Given the user is on the mSigPortal Home page
 When the user navigates to the Signature Explorer page

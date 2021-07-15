@@ -108,7 +108,7 @@ public class SignatureVisualizationSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.submitButton);
 		Thread.sleep(60000);
 		CucumberLogUtils.logScreenShot();
-		CommonUtils.waitForClickability(signatureVisualizationsPage.downloadPlotOnProfileSummary);
+		CommonUtils.waitForVisibility(signatureVisualizationsPage.downloadPlotOnProfileSummary);
 
 	}
 
