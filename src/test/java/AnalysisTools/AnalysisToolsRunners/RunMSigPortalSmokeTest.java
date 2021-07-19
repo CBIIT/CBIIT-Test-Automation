@@ -12,7 +12,7 @@ import cucumber.api.junit.Cucumber;
 		, features="src/test/java/AnalysisTools/mSigPortal/Features"
 		, glue="AnalysisTools.mSigPortal.Steps"
 		, tags="@Smoke"
-		, dryRun = true
+		, dryRun = false
 		, monochrome=true
 		, strict = true
 		
