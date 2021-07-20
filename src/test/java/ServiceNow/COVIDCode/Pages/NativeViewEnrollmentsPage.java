@@ -243,7 +243,6 @@ public class NativeViewEnrollmentsPage extends CommonUtils {
 	@FindBy (xpath = "//input[@name='x_g_nci_geco_covid_inquiry_tracking.study_team_contact_date_3']")
 	public WebElement myInquiryTrackingRecordsStudyTeamContactCovidTestResultFU2TextBox;
 
-
 	/** ---------------THE END OF THE NATIVE VIEW COVIDcode My Inquiry Tracking Records VIEW  ---------------  */
 	
 	

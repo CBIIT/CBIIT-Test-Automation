@@ -20,9 +20,7 @@ public class DevOpsNativeViewPage extends CommonUtils{
 	@FindBy (xpath = "/html/body/div[5]/div/div/header/div[1]/div/div[2]/div/div[1]/application-picker/div/div/span/select")
 	//@FindBy(xpath = "//select[@id='application_picker_select']")
 	public WebElement applicationSelectorDropDown;
-	
-	
-	
+
 	/** Drop down applications*/
 	@FindBy (xpath = "//*[@id='application_picker_select']/option")
 	public List<WebElement> dropDownApplications;

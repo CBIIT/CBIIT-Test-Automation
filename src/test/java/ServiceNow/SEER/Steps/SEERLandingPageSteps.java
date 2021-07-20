@@ -1,14 +1,10 @@
 package ServiceNow.SEER.Steps;
 
 import org.junit.Assert;
-import org.openqa.selenium.JavascriptExecutor;
-
-import com.nci.automation.common.Constants;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;

@@ -2,6 +2,7 @@ Feature: NCI Staff Member Test Scenarios
   
   Description: This feature file contains scenarios related to NCI Staff Members
 
+ @Progression
   Scenario: Verifying additional question on COVID submission and entry form - Service Portal
     Given user is on the COVID-19 Activities submissions page
     Then the section "This activity aligns with the following NIH COVID-19 Strategic Plan" displays

@@ -537,6 +537,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
+		WebDriverUtils.webDriver.findElement(By.linkText("Native View")).click();
 		MiscUtils.sleep(2000);
 		WebDriverUtils.webDriver.findElement(By.linkText("Native View")).click();
 		nativeViewStepsImpl.nativeViewNavigateToCovidCodeEnrollmentQuestionnaire();

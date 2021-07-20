@@ -2,7 +2,7 @@ Feature: COVID19 Dashboard Scenarios
   
   Description: This feature file tests COVIDDASH-7, 8, 20, 134, 135, 138, 136, 137, 140, 142, 143, 148
 
-  @smoke @regression 
+  @smoke @regression @juarezds
   Scenario Outline: Validate Autopulation
     Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application
     And user validates that Institute, Division, Email Address, and Phone Number fields are not editable
@@ -16,7 +16,7 @@ Feature: COVID19 Dashboard Scenarios
       | Diego Juarez | NCI       | OD       | @nih.gov | 2402766573 |
 
 
-  @smoke  @regression 
+  @smoke  @regression @juarezds
   Scenario: Validate Study Submission
     Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application
     And the user verifies that the submit button is disbaled by default
@@ -31,7 +31,7 @@ Feature: COVID19 Dashboard Scenarios
     And attaches a Related URL
     Then the User is able to successfully submit the study "65YUT55"
 
-  @regression 
+  @regression @juarezds
   Scenario: Validating Study Submission without attaching a Related URL
     Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application
     When the User selects a Principal Investigator "Diego Juarez"
@@ -45,7 +45,7 @@ Feature: COVID19 Dashboard Scenarios
     And does not attach a Related URL
     Then the User is able to successfully submit the study "77YXB33"
 
-  @regression 
+  @regression @juarezds
   Scenario: Validating Study Submission with attaching multiple Related URL's
     Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application
     When the User selects a Principal Investigator "Diego Juarez"
@@ -59,7 +59,7 @@ Feature: COVID19 Dashboard Scenarios
     And attaches multiple Related URL’s
     Then the User is able to successfully submit the study "77DJ88"
 
- @regression 
+ @regression @juarezds
   Scenario: Verifying a user is not able to submit a study form when not attaching an IRB Protocol Document
     Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application
     When the User enters all required information
@@ -71,7 +71,7 @@ Feature: COVID19 Dashboard Scenarios
     Then under Study Documentation the user sees the message " Study documentation is required. Please attach the appropriate file(s). "
 		And the user logs out
 
-  @regression 
+  @regression @juarezds
   Scenario: Verifying Home Page verbiage
     Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application
     When the user is on the submissions home page
@@ -96,7 +96,7 @@ Feature: COVID19 Dashboard Scenarios
       Thank you for your interest in the COVID-19 Biorepository
       """
 
-  @regression 
+  @regression @juarezds
   Scenario: Verifying empty field messages
     Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application
     When the User enters any IRB Protocol Number and immediately deletes it
@@ -112,7 +112,7 @@ Feature: COVID19 Dashboard Scenarios
     And clicks on any other field on the page
     Then an error message displays for aims with the message "Please enter the study specific aims. This field is required."
 
-  @regression 
+  @regression @juarezds
   Scenario: Verifying Study Form Submission as a Reviewer
     Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application
     And successfully submits a Study Form
