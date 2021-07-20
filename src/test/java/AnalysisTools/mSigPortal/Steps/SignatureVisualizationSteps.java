@@ -63,7 +63,8 @@ public class SignatureVisualizationSteps extends PageInitializer {
 
 	@When("the data is calculated")
 	public void the_data_is_calculated() {
-
+		
+		MiscUtils.sleep(65000);
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.submitButton);
 
 	}
@@ -71,7 +72,7 @@ public class SignatureVisualizationSteps extends PageInitializer {
 	@Then("the user navigates to Profile Comparison")
 	public void the_user_navigates_to_Profile_Comparison() throws InterruptedException {
 
-		Thread.sleep(60000);
+		CommonUtils.waitForVisibility(signatureVisualizationsPage.profileComparisonTab);
 		CucumberLogUtils.logScreenShot();
 		CommonUtils.waitForVisibility(signatureVisualizationsPage.profileComparisonTab);
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.profileComparisonTab);
@@ -97,7 +98,7 @@ public class SignatureVisualizationSteps extends PageInitializer {
 	}
 
 	@When("the user calculates sample data")
-	public void the_user_calculates_sample_data() throws InterruptedException {
+	public void the_user_calculates_sample_data()  {
 
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.userDataSourceRadioButton);
 		CommonUtils.waitForClickability(signatureVisualizationsPage.loadExampleDataButton);
@@ -106,9 +107,8 @@ public class SignatureVisualizationSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.loadExampleDataButton);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.submitButton);
-		Thread.sleep(60000);
+		MiscUtils.sleep(65000);
 		CucumberLogUtils.logScreenShot();
-		CommonUtils.waitForVisibility(signatureVisualizationsPage.downloadPlotOnProfileSummary);
 
 	}
 
@@ -116,8 +116,8 @@ public class SignatureVisualizationSteps extends PageInitializer {
 	public void the_download_plot_link_is_displayed() {
 
 		CucumberLogUtils.logScreenShot();
-		Assert.assertTrue(signatureVisualizationsPage.downloadPlotOnProfileSummary.isDisplayed());
-
+		Assert.assertTrue(signatureVisualizationsPage.downloadPlotOnProfileSummary.isEnabled());
+		
 	}
 
 	@When("the user clicks on the Download section tab")
