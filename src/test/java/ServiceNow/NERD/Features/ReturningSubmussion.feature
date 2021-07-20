@@ -62,4 +62,3 @@ Feature: Ruturning published Collaboration by the CRS Rreviewer/DOC Planning Con
   Scenario: Verifying the DOC Planning Contact are able to return the Collaboration to a Program Staff user
     Given a DOC Planning Contact creates a Collaboration
     Then they are able to return the Collaboration to a Program Staff user
->>>>>>> 50ca581691149b22cd7787846a4643ffc08a645c
