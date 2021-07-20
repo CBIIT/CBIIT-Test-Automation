@@ -1,5 +1,4 @@
-Feature:
-
+Feature: mSigPortal Signature Explorer tab
 
 @Smoke @matarodriguezko
 Scenario:
