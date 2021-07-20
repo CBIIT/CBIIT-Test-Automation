@@ -2,7 +2,7 @@ Feature: Test Cases on the Public Site
   
   Description: This is an automated suite for test cases under the Public Site
 
-  @SS-3453 @Smoke @matarodriguezko
+  @SS-3453 @Smoke @matarodriguezko 
   Scenario: The Clear All button clears all the selection on the Biospecimen Counts Tab
     Given the user is on the CEDCD Biospecimen Tab
     And the user selects All Types from the Specimen Type drop down
@@ -12,7 +12,7 @@ Feature: Test Cases on the Public Site
     When the user clicks on the Clear All button
     Then all previously selected fields are no longer selected
 
-  @SS-3436 @Smoke @matarodriguezko
+  @SS-3436 @Smoke @matarodriguezko 
   Scenario: Selecting all Cohorts from the Biospecimen Tab
     Given the user is on the CEDCD Biospecimen Tab
     And the user clicks on the Specimen Type drop down
@@ -37,7 +37,7 @@ Feature: Test Cases on the Public Site
     When the user filters by females
     Then the results returned are for Female or All Cohorts
 
-  @SS-3430 @Smoke @matarodriguezko
+  @SS-3430 @Smoke @matarodriguezko 
   Scenario: Select All Cohorts
     Given the user is on the CEDCD Search Cohorts Tab
     And the user clicks on the select all check box
@@ -48,7 +48,7 @@ Feature: Test Cases on the Public Site
     Given the user is on the CEDCD Search Cohorts Tab
     Then the user sees updated Search Cohorts UI page
 
-  @SS-3446 @Smoke @matarodriguezko
+  @SS-3446 @Smoke @matarodriguezko 
   Scenario: Restoring Search Criteria after Switching Tabs.
     Given the user is on the CEDCD Search Cohorts Tab
     When the user filters by Depression study

@@ -1,9 +1,9 @@
 Feature: Service Portal Enrollment Questionnaire Submissions
 
-  @Smoke @juarezds @Progression
+  @Smoke @juarezds
   Scenario: COVIDcode Study Provider Enrollment Questionnaire Submission Group 1 User
     Given a COVIDcode Study Provider user has logged in to the COVIDcode Study application
-    When the COVIDcode Study Provider fills out an Enrollment Questionnaire for a "User Group 1" who says "Yes" to join the study
+    When the COVIDcode Study Provider fills out an Enrollment Questionnaire for a " User Group 1" who says "Yes" to join the study
     And enters users full name, required information, and demographics information
     But does not enter Disease Course and Exposures and Risk Factors information
     And Submits the enrollment questionnaire
@@ -33,9 +33,9 @@ Feature: Service Portal Enrollment Questionnaire Submissions
     And on the Demographics Information section
     When selecting Feet/Inches for Height
     And entering any value for feet
-    And entering a value greater than 12
+    And entering a value greater than 11
     And clicking anywhere else or attempting to submit the application
-    Then a message "Because you have a value in feet, inches cannot be more than 11.99" displays
+    Then a message "Because you have a value in feet, inches cannot be more than 11" displays
 
   @Smoke @COVID-422 @juarezds
   Scenario: Add Field Options for "When were you officially diagnosed with COVID-19" field

@@ -28,7 +28,17 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** Sign in button for Login.gov */
 	@FindBy(xpath = "//input[@type='submit']")
 	public WebElement signinButton;
-
+	
+	/** =============== Cohort Selection  ================= */
+	
+	/** Cohort Selection Down Arrow **/
+	@FindBy(xpath = "//*[@class=' css-tlfecz-indicatorContainer']")
+	public WebElement cohortSelectionDownArrow; 
+	
+	/** Cohort Selection Text Box **/
+	@FindBy(xpath = "//*[@class=' css-1hwfws3']")
+	public WebElement  cohortSelectionTextBox; 
+	
 	/** =============== Questionnaire Section A ================= */
 
 	/** =============== Cohort Information Section ===================== */
@@ -429,6 +439,12 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** Section G */
 	@FindBy(xpath = "(//div/div/div/span[contains(text(),'Biospecimens')])[2]")
 	public WebElement SectionG;
+	
+/** =============== Questionnaire Section B ================= */
+	
+	/** Enrollment Date **/
+	@FindBy(xpath = "//*[@placeholder='MM/DD/YYYY']")
+	public WebElement enrollmentDateBox; 
 
 	/**
 	 * =============================== Questionnaire Section C
@@ -1223,14 +1239,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** Other Text Box */
 	@FindBy(xpath = "//input[@name='cancerOtherSpecify']")
 	public WebElement c32CancerOtherSpecifyTextbox;
-	
-	/** =============== Questionnaire Section B ================= */
-	
-	/** Enrollment Date **/
-	@FindBy(xpath = "//*[@placeholder='MM/DD/YYYY']")
-	public WebElement enrollmentDateBox; 
-	
-	/** =============== Questionnaire Section D ================= */
 	
 	@FindBy(xpath = "//*[@class='cedcd-btn']")
 	public WebElement cancerInformationTab; 

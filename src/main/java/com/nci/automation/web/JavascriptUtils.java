@@ -150,6 +150,7 @@ public class JavascriptUtils extends WebDriverUtils {
 	/**
 	 * This method is to select values from bootstrap drop downs Pass the element
 	 * and date desired in String format as arguments
+<<<<<<< HEAD
 	 * @param element
 	 * @param date to be selected
 	 */
@@ -160,6 +161,16 @@ public class JavascriptUtils extends WebDriverUtils {
 	}
 
 	
+//=======
+//	 * 
+//	 * @param element
+//	 * @param date    to be selected
+//	 */
+//	public static void selectDateByJS(WebElement element, String date) {
+//		JavascriptExecutor js = (JavascriptExecutor) webDriver;
+//		js.executeScript("arguments[0].setAttribute('title','" + date + "');", element);
+	}
+
 	/**
 	 * This method will scroll text up by the given pixel
 	 * 
@@ -169,5 +180,6 @@ public class JavascriptUtils extends WebDriverUtils {
 	public static void scrollUpWithinElement (WebElement element, int pixel) {
 		JavascriptExecutor js = (JavascriptExecutor) webDriver;
 		js.executeScript("arguments[0].scrollTop = arguments[1];",element, pixel);
+
 	}
 }

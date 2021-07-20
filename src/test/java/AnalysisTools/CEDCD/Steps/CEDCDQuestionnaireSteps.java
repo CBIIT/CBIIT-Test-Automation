@@ -21,7 +21,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.logScreenShot();
 	}
-	
+
 	@Given("a Admin user adds a Cohort Study linked to Cohort Owner")
 	public void a_Admin_user_adds_a_Cohort_Study_linked_to_Cohort_Owner() throws TestingException {
 		MiscUtils.sleep(3000);
@@ -60,7 +60,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		WebDriverUtils.webDriver.findElement(By.id("react-select-2-input")).sendKeys("Automated_TestCohort_Name "+ CommonUtils.date);
 		WebDriverUtils.webDriver.findElement(By.id("react-select-2-input")).sendKeys(Keys.RETURN);
 	}
-	
+
 	@When("fills out all sections of the questionnaire")
 	public void fills_out_all_sections_of_the_questionnaire() {
 	
@@ -130,7 +130,6 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.recruitmentTab.click();
 		cedcdCohortPage.questionnaireFrequency.sendKeys("Monthly");
 		cedcdCohortPage.mostRecentYear.sendKeys("2018");
-		
 		cedcdCohortPage.a11PhoneInterview.click();
 		cedcdCohortPage.a11AdministeredViaWebBasedDevice.click();
 		cedcdCohortPage.a11otherPleaseSpecify.click();
@@ -164,10 +163,9 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 		
 		/** Selecting enrollment date for section B */
-		MiscUtils.sleep(20000);
+		MiscUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(cedcdCohortPage.enrollmentDateBox);
-//		MiscUtils.sleep(2000);
-		CommonUtils.waitForClickability(cedcdCohortPage.enrollmentDateBox);
+		MiscUtils.sleep(2000);
 		cedcdCohortPage.enrollmentDateBox.sendKeys("04/06/2021");
 		CucumberLogUtils.logScreenShot();
 		
@@ -554,7 +552,6 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.saveButton.click();
 		MiscUtils.sleep(3000);
 		}
-	
 
 	@When("submits the Cohort Study for Review")
 	public void submits_the_Cohort_Study_for_Review() {
@@ -1202,3 +1199,4 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	public void section_G_status_Circle_is_green() {
 	}
 }
+	

@@ -4,4 +4,8 @@ src/main/resources/conf/localConf.properties
 src/main/resources/conf/localEnv.properties
 target/classes/conf/localConf.properties
 target/cucumber.json
+<<<<<<< HEAD
 true
+=======
+true
+>>>>>>> 50ca581691149b22cd7787846a4643ffc08a645c

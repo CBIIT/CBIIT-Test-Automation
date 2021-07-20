@@ -1,6 +1,13 @@
 package AnalysisTools.AnalysisToolsRunners;
 
+import java.io.File;
+
+import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
+
+import com.nci.automation.utils.LocalConfUtils;
+import com.nci.automation.web.ConfUtils;
+
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
@@ -9,10 +16,10 @@ import cucumber.api.junit.Cucumber;
 		, "json:target/cucumber.json"
 		, "junit:target/cucumber.xml"
 		, "rerun:target/failed.txt","pretty"}
-		, features="src/test/java/AnalysisTools/mSigPortal/Features"
-		, glue="AnalysisTools.mSigPortal.Steps"
+		, features="src/test/java/AnalysisTools/CEDCD/Features"
+		, glue="AnalysisTools.CEDCD.Steps"
 		, tags="@Progression"
-		, dryRun = true
+		, dryRun = false
 		, monochrome=true
 		, strict = true
 		
@@ -25,5 +32,13 @@ import cucumber.api.junit.Cucumber;
  * @author sohilz2
  */
 public class RunCEDCDProgressionTest {
+	
+	@BeforeClass
+	public static void runSetup() {
+		
+		String reportsOutput = LocalConfUtils.getRootDir() + File.separator + "html-reports";
+		ConfUtils.setBaseResultsDir(reportsOutput);
+		System.out.println("Starting Test Execution...");
+	}
 
 }

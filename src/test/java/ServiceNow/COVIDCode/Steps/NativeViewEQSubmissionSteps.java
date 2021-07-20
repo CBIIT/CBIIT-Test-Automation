@@ -215,7 +215,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		MiscUtils.sleep(3000);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesTab.click();
 		MiscUtils.sleep(1000);
-		JavascriptUtils.clickByJS(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesNewButton);
+		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesNewButton.click();
 		MiscUtils.sleep(3000);
 	}
 
@@ -257,7 +257,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		MiscUtils.sleep(3000);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesTab.click();
 		MiscUtils.sleep(1000);
-		JavascriptUtils.clickByJS(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesNewButton);
+		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesNewButton.click();
 		MiscUtils.sleep(3000);
 
 	}
