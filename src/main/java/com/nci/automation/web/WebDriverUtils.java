@@ -22,12 +22,8 @@ import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-<<<<<<< HEAD
-=======
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
-
->>>>>>> 50ca581691149b22cd7787846a4643ffc08a645c
 import com.nci.automation.common.Constants;
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -226,39 +222,23 @@ public class WebDriverUtils {
 	 * @return
 	 */
 	public static WebDriver getNewDriver() {
-<<<<<<< HEAD
-
 		String browser = ScenarioContext.getBrowserID();
 		WebDriver driver;
-
-=======
-		String browser = ScenarioContext.getBrowserID();
-		WebDriver driver;
->>>>>>> 50ca581691149b22cd7787846a4643ffc08a645c
 		if (Constants.BROWSER_IE.equals(browser)) {
 			driver = new InternetExplorerDriver();
 			driver.manage().window().maximize();
 			return driver;
-<<<<<<< HEAD
-
-=======
->>>>>>> 50ca581691149b22cd7787846a4643ffc08a645c
+	
 		} else if (Constants.BROWSER_FIREFOX.contentEquals(browser)) {
 			driver = new FirefoxDriver();
 			driver.manage().window().maximize();
 			return driver;
-<<<<<<< HEAD
 
-=======
->>>>>>> 50ca581691149b22cd7787846a4643ffc08a645c
 		} else if (Constants.BROWSER_CHROME.equals(browser)) {
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			return driver;
-<<<<<<< HEAD
 
-=======
->>>>>>> 50ca581691149b22cd7787846a4643ffc08a645c
 		} else {
 			CucumberLogUtils.logFail("Unsupported browser in localConf.properties file! "
 					+ "Browser has to be 'ie' or 'firefox' or 'headless chrome, firefox'", false);
@@ -295,10 +275,7 @@ public class WebDriverUtils {
 	 * @return image in byte codes
 	 */
 	public static byte[] getScreenShot() {
-<<<<<<< HEAD
 
-=======
->>>>>>> 50ca581691149b22cd7787846a4643ffc08a645c
 		byte[] screenshot = null;
 		ScenarioContext.webDriver.get();
 		try {
@@ -315,15 +292,9 @@ public class WebDriverUtils {
 	 * @param url
 	 */
 	public static void navToExternalPage(String url) {
-<<<<<<< HEAD
 
 		WebDriver driver = ScenarioContext.webDriver.get();
 		driver.get(url);
-
-=======
-		WebDriver driver = ScenarioContext.webDriver.get();
-		driver.get(url);
->>>>>>> 50ca581691149b22cd7787846a4643ffc08a645c
 		try {
 			Thread.sleep(1000);
 			suppressAlert();
@@ -374,8 +345,4 @@ public class WebDriverUtils {
 	public static void refreshPage(WebDriver driver) {
 		driver.navigate().refresh();
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 50ca581691149b22cd7787846a4643ffc08a645c
