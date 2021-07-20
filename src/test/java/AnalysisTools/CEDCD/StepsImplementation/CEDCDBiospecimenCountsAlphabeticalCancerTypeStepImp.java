@@ -12,20 +12,16 @@ public class CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp extends PageIni
 
 		ArrayList<String> cancerTypeDropDown = new ArrayList<String>();
 
-		for (int i = 0; i < cedcdBiospecimenCountsPage.cancerTypeValues.size()-3; i++) {
+		for (int i = 0; i < cedcdBiospecimenCountsPage.cancerTypeValues.size() - 3; i++) {
 			cancerTypeDropDown.add(cedcdBiospecimenCountsPage.cancerTypeValues.get(i).getText());
 		}
 		ArrayList<String> cancerTypeDropDownSortAlphabetically = new ArrayList<String>();
 
-		for (int i = 0; i < cedcdBiospecimenCountsPage.cancerTypeValues.size()-3; i++) {
+		for (int i = 0; i < cedcdBiospecimenCountsPage.cancerTypeValues.size() - 3; i++) {
 			cancerTypeDropDownSortAlphabetically.add(cedcdBiospecimenCountsPage.cancerTypeValues.get(i).getText());
 		}
 
 		Collections.sort(cancerTypeDropDownSortAlphabetically);
-
-		System.out.println(cancerTypeDropDown);
-		System.out.println(cancerTypeDropDownSortAlphabetically);
-
 		Assert.assertEquals(cancerTypeDropDownSortAlphabetically, cancerTypeDropDown);
 		CucumberLogUtils.logScreenShot();
 

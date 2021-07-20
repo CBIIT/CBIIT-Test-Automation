@@ -106,7 +106,6 @@
 
 		<login_url>https://cedcd-stage.nci.nih.gov/</login_url><!-- add 
 			stage url -->
-
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
