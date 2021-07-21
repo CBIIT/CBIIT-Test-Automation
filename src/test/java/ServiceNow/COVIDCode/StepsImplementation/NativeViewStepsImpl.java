@@ -236,13 +236,8 @@ public class NativeViewStepsImpl extends PageInitializer {
 	}
 
 	/***
-<<<<<<< HEAD
 	 * This method searches Nurses in 'Assigned to' text field on the 'My Inquiry
 	 * Tracking' page in Native View and asserts. selected values Values are hard
-=======
-	 * This method search Nurses in Assigned to text field on the My Inquiry
-	 * Tracking in Native View and do assertion by selected values Values are hard
->>>>>>> 50ca581691149b22cd7787846a4643ffc08a645c
 	 * coded
 	 */
 	public void nativeViewMyInquiryTrackingSearchNursesinAssignedToTextField() {
