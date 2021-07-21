@@ -22,7 +22,10 @@ public class LDLinkHomeAndLandingPageSteps extends PageInitializer {
 public static void main(String[] args) {
 	System.setProperty("webdriver.chrome.driver", "/CBIIT-Test-Automation/src/main/java/com/drivers/chromedriver"); 
 	WebDriver driver = new ChromeDriver(); 
+	
+	System.out.println("This is a test ");
 }
+
 
 
 
