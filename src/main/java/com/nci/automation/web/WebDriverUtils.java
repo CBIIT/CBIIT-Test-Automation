@@ -100,6 +100,7 @@ public class WebDriverUtils {
 					chromeOptions.addArguments("enable-automation");
 					chromeOptions.addArguments("--disable-browser-side-navigation");
 					chromeOptions.addArguments("--profile-directory=Default");
+					chromeOptions.addArguments("--disable-setuid-sandbox");
 					chromeOptions.addArguments("--user-data-dir=~/.config/google-chrome");
 					chromeOptions.setExperimentalOption("useAutomationExtension", false);
 					webDriver = new ChromeDriver(chromeOptions);
