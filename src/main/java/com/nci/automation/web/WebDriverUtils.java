@@ -88,13 +88,16 @@ public class WebDriverUtils {
 			} else if (Constants.BROWSER_CHROME.equals(browser)) {
 				ChromeOptions chromeOptions = new ChromeOptions();
 				if (headless.equalsIgnoreCase("true")) {
-					chromeOptions.setHeadless(true);
+//					chromeOptions.setHeadless(true);
+					chromeOptions.addArguments("--headless");
 					chromeOptions.addArguments("window-size=1920,1080");
 					chromeOptions.addArguments("--disable-dev-shm-usage");
 					chromeOptions.addArguments("--no-sandbox");
-					chromeOptions.addArguments("disable-infobars");
+					chromeOptions.addArguments("--disable-infobars");
 					chromeOptions.addArguments("--disable-extensions");
 					chromeOptions.addArguments("--disable-gpu");
+					chromeOptions.addArguments("enable-automation");
+					chromeOptions.addArguments("--disable-browser-side-navigation");
 					webDriver = new ChromeDriver(chromeOptions);
 				} else {
 					webDriver = new ChromeDriver(chromeOptions);
