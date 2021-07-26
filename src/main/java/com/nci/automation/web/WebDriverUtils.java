@@ -92,6 +92,9 @@ public class WebDriverUtils {
 					chromeOptions.addArguments("window-size=1920,1080");
 					chromeOptions.addArguments("--disable-dev-shm-usage");
 					chromeOptions.addArguments("--no-sandbox");
+					chromeOptions.addArguments("disable-infobars");
+					chromeOptions.addArguments("--disable-extensions");
+					chromeOptions.addArguments("--disable-gpu");
 					webDriver = new ChromeDriver(chromeOptions);
 				} else {
 					webDriver = new ChromeDriver(chromeOptions);
