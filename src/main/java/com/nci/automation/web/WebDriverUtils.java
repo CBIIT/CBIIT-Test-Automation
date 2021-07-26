@@ -99,6 +99,9 @@ public class WebDriverUtils {
 					chromeOptions.addArguments("--disable-gpu");
 					chromeOptions.addArguments("enable-automation");
 					chromeOptions.addArguments("--disable-browser-side-navigation");
+					chromeOptions.addArguments("--profile-directory=Default");
+					chromeOptions.addArguments("--user-data-dir=~/.config/google-chrome");
+					chromeOptions.setExperimentalOption("useAutomationExtension", false);
 					webDriver = new ChromeDriver(chromeOptions);
 					System.out.println(chromeOptions.getVersion());
 				} else {
