@@ -7,6 +7,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -99,6 +100,7 @@ public class WebDriverUtils {
 					chromeOptions.addArguments("enable-automation");
 					chromeOptions.addArguments("--disable-browser-side-navigation");
 					webDriver = new ChromeDriver(chromeOptions);
+					System.out.println(chromeOptions.getVersion());
 				} else {
 					webDriver = new ChromeDriver(chromeOptions);
 					System.out.println(chromeOptions.getVersion());
