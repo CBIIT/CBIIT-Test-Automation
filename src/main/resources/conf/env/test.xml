@@ -101,7 +101,6 @@
 		</db>
 	</application>
 
-
 	<!-- Application ID for LDLink -->
 	<application id="LDLink">
 
@@ -125,12 +124,11 @@
 			</default><!-- comment -->
 		</db>
 	</application>
-
-
+	
 	<!-- Application ID for Analysistools -->
 	<application id="Analysistools">
 
-		<login_url>https://analysistools-qa.cancer.gov/</login_url><!-- add test 
+		<login_url>https://analysistools-qa.cancer.gov/</login_url><!-- add test
 			url -->
 
 		<role name="Role">
@@ -174,7 +172,7 @@
 			</default><!-- comment -->
 		</db>
 	</application>
-
+	
 	<!-- Application ID for CEDCD -->
 	<application id="CEDCD">
 
@@ -199,11 +197,60 @@
 		</db>
 
 	</application>
+	
+	<!-- Application ID for mSigPortal -->
+	<application id="MSigPortal">
 
+		<login_url>https://analysistools-qa.cancer.gov/mutational-signatures/#/
+		</login_url><!-- add test url -->
+
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
+		</db>
+
+	</application>
 	<!-- Application ID for NERD -->
 	<application id="NERD">
 
 		<login_url>https://service-test.nci.nih.gov/nerd
+		</login_url><!-- add test url -->
+
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
+		</db>
+
+	</application>
+	
+	<!-- Application ID for Comets Explorer -->
+	<application id="Comets2">
+
+		<login_url>https://www.comets-analytics-test.org/index.html
 		</login_url><!-- add test url -->
 
 		<role name="Role">
@@ -249,7 +296,30 @@
 		</db>
 
 	</application>
+	
+	<!-- Application ID for NERD -->
+	<application id="NERD">
 
+		<login_url>https://service-test.nci.nih.gov/nerd
+		</login_url><!-- add test url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
+		</db>
+
+	</application>
 
 	<!-- Application ID for EIDP -->
 	<application id="EidpUrlNHGRI">
@@ -345,6 +415,30 @@
 
 	</application>
 	
+	<!-- Application ID for SEER Data Access -->
+	<application id="SEERDataAccess">
+
+		<login_url>https://service-test.nci.nih.gov/seer-data-access
+		</login_url><!-- add test url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
+		</db>
+
+	</application>
+
 	<!-- Application ID for AppTracker -->
 	<application id="AtoTestUrl">
 		<login_url>https://service-test.nci.nih.gov/ncisp
@@ -411,5 +505,4 @@
 		</db>
 
 	</application>
-	
 </environment>

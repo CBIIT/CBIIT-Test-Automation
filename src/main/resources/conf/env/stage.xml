@@ -104,9 +104,8 @@
 	<!-- Application ID for CEDCD -->
 	<application id="CEDCD">
 
-		<login_url>https://cedcd-stage.nci.nih.gov/home
-		</login_url><!-- add test url -->
-
+		<login_url>https://cedcd-stage.nci.nih.gov/</login_url><!-- add 
+			stage url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -121,9 +120,8 @@
 				<url></url><!-- complete string url -->
 				<username></username><!-- Add db username -->
 				<password></password><!-- Add db password -->
-			</default>
+			</default><!-- comment -->
 		</db>
-
 	</application>
 	
 </environment>

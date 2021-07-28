@@ -2,7 +2,7 @@ Feature: CRS Reviewers Test Scenarios
   
   Description: This feature file contains test scenarios related to CRS Reviewers
    
-   @inProgress
+   @Progression
   Scenario: Verifying New OM Category Type - Service Portal
     Given a CRS reviewer is logged into NERD's CRS Knowledge Management System
     When adding a new OM entry
