@@ -15,7 +15,7 @@ Feature: Questionnaire
       | Cohort Name             | Cohort Acronym | Notes                         |
       | Second Automated Cohort | SAC            | This Cohort Will Be Automated |
 
-  @Progression @matarodriguezko
+   @matarodriguezko
   Scenario: Cohort Owner logs in and completes section A
     Given the user is on the CEDCD homepage
     When the user is logged in as a Cohort Owner
@@ -29,7 +29,7 @@ Feature: Questionnaire
     And the Cohort Owner selects their Cohort questionnaire
     Then Section B of the Questionnaire is filled out
 
-  @Progression @matarodriguezko
+   @matarodriguezko
   Scenario: Cohort Owner logs in and completes section C
     Given the user is on the CEDCD homepage
     When the user is logged in as a Cohort Owner
@@ -43,7 +43,7 @@ Feature: Questionnaire
     And the Cohort Owner selects their Cohort questionnaire
     Then Section D of the Questionnaire is filled out
 
-  @Progression @matarodriguezko
+   @matarodriguezko
   Scenario: Cohort Owner logs in and completes section E
     Given the user is on the CEDCD homepage
     When the user is logged in as a Cohort Owner
@@ -57,7 +57,7 @@ Feature: Questionnaire
     And the Cohort Owner selects their Cohort questionnaire
     Then Section F of the Questionnaire is filled out
 
-  @Progression @matarodriguezko
+   @matarodriguezko
   Scenario: Cohort Owner logs in and completes section G
     Given the user is on the CEDCD homepage
     When the user is logged in as a Cohort Owner
