@@ -13,7 +13,7 @@ public class SignatureExplorerPages extends CommonUtils {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 
 	}
-	
+	/**  */
 	@FindBy (xpath = "(//strong[contains(text(),'SBS24')])[1]")
 	public WebElement calculateOnExplorerTab;
 	
@@ -25,6 +25,9 @@ public class SignatureExplorerPages extends CommonUtils {
 	
 	@FindBy (xpath = "//button[contains(text(),'Calculate All')]")
 	public WebElement calculateAllButtonOnExposureTab;
+	
+	@FindBy (xpath = "(//button[contains(text(),'Calculate')])[2]")
+	public WebElement calculateOnTumorMutationalBurdenSearch;
 	
 	@FindBy (xpath ="(//img[@class='w-100'])[1]")
 	public WebElement imageOnExposureSearch;
