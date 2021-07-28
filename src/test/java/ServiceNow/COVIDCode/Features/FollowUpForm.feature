@@ -1,8 +1,6 @@
 Feature: COVIDCode Follow Up Form Scenarios
   
   Description: This feature file contains scenarios related to the Follow Up Form
-  
-  Description: This feature file contains scenarios related to the Follow Up Form
 
   @Smoke @Sprint7 @COVID-209 @juarezds
   Scenario: Follow Up Form - Search Function - Service Portal

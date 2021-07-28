@@ -1,4 +1,4 @@
-Feature: Public Site
+Feature: Test Cases on the Public Site
   
   Description: This is an automated suite for test cases under the Public Site
 
@@ -19,19 +19,19 @@ Feature: Public Site
     And the user clicks on the All Types check box
     Then all Specimen tabs are selected
 
-  @SS-3439 @Smoke @matarodriguezko 
+  @SS-3439 @Smoke @matarodriguezko
   Scenario: Select Type Sorted Alphabetically
     Given the user is on the CEDCD Biospecimen Tab
     And the user clicks on the Specimen Types drop down
     Then the alphabetized Specimen Types are displayed
 
-  @SS-3509 @Smoke @matarodriguezko 
+  @SS-3509 @Smoke @matarodriguezko
   Scenario: Cancer Type Drop Down is sorted Alphabetically
     Given the user is on the CEDCD Biospecimen tab
     When the user clicks on the Cancer Types drop down
     Then the drop down is sorted alphabetically
 
-  @SS-3428 @Smoke @matarodriguezko 
+  @SS-3428 @Smoke @matarodriguezko
   Scenario: Eligible Female Cohorts returned on the Search Cohorts Tab
     Given the user is on the CEDCD Search Cohorts Tab
     When the user filters by females
@@ -43,7 +43,7 @@ Feature: Public Site
     And the user clicks on the select all check box
     Then all studies are selected
 
-  @SS-3432 @Smoke @matarodriguezko 
+  @SS-3432 @Smoke @matarodriguezko
   Scenario: Tests the new Search Cohorts Page Layout
     Given the user is on the CEDCD Search Cohorts Tab
     Then the user sees updated Search Cohorts UI page
@@ -67,4 +67,3 @@ Feature: Public Site
     Given the user is on the CEDCD Search Cohorts Tab
     When the user clicks Agricultural Health Study
     Then the Agricultural Health Study icon is shown on the web page
-
