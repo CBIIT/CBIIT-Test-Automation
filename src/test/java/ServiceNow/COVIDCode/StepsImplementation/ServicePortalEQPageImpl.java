@@ -22,7 +22,6 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 	}
 
 	public void groupUserAndConsent(String groupUserID, String consent) {
-
 		servicePortalQuestionnairePage.startNewQuestionnaireButton.click();
 		servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown.click();
 		List<WebElement> groupIDs = servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDownValues;

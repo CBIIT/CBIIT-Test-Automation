@@ -39,8 +39,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//*[@class=' css-1hwfws3']")
 	public WebElement  cohortSelectionTextBox; 
 	
-	
-
 	/** =============== Questionnaire Section A ================= */
 
 	/** =============== Cohort Information Section ===================== */

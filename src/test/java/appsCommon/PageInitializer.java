@@ -1,7 +1,6 @@
 package appsCommon;
 
 import com.sun.xml.bind.v2.model.core.ID;
-
 import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
 import AnalysisTools.CEDCD.Pages.CEDCDBiospecimenCountsPage;
 import AnalysisTools.CEDCD.Pages.CEDCDCohortPage;
@@ -12,12 +11,17 @@ import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortNewPageLayOutSte
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
+import AnalysisTools.Comets2.Pages.Comets2Page;
 import AnalysisTools.CEDCD.Steps.CEDCDStartUps;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
 import AnalysisTools.PLCO.Pages.BrowsePhenotypePage;
 import AnalysisTools.PLCO.Pages.ExploreGWASPage;
 import AnalysisTools.PLCO.Pages.InformationPage;
+import AnalysisTools.mSigPortal.Pages.MSigPortalHomePage;
+import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
+import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
+import AnalysisTools.mSigPortal.Steps.SignatureVisualizationSteps;
 import CustomBusinessApp.EIDP.Pages.AligningExpectationsPage;
 import CustomBusinessApp.EIDP.Pages.BasePage;
 import CustomBusinessApp.EIDP.Pages.CareerGoalAndActivePage;
@@ -138,7 +142,7 @@ public class PageInitializer {
 	/** PLCO instances **/
 	protected static ExploreGWASPage exploreGWASPage;
 	protected static BrowsePhenotypePage browsePhenotypePage;
-	protected static InformationPage informationPage;
+    protected static InformationPage informationPage;
 
 	/** ServiceNow DevOps instances */
 	protected static DevOpsLoginPage devOpsLoginPage;
@@ -157,7 +161,7 @@ public class PageInitializer {
 	protected static CEDCDStartUps cedcdStartUps;
 	protected static CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp cedcdSearchCohortsCategoriesOfDataOfDataSortedStepImp;
 	protected static CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp cedcdBiospecimenCountsAlphabeticalCancerTypeStepImp;
-	
+
 	/** SEER instances */
 	protected static SEERLandingPage seerLandingPage;
 	protected static SEERUserRegistrationPage seerUserRegistrationPage;
@@ -170,6 +174,14 @@ public class PageInitializer {
 	protected static NERDSubmissionsPage nerdCrsKnowledgeDatabaseSubmissionsPage;
 	protected static CreateNewSubmissionPage createNewSubmissionPage;
 	protected static NERDDynamicXPATHS nerdDynamicXpaths;
+	
+	/** Comets 2.0 Instances */
+	protected static Comets2Page comets2Page;
+	
+	/** mSigPortal Instances */
+	protected static SignatureVisualizationsPage signatureVisualizationsPage;
+	protected static MSigPortalHomePage mSigPortalHomePage;
+	protected static SignatureExplorerPages signatureExplorerPages;
 
 	/** Custom Business App Instances */
 	protected static AligningExpectationsPage aligningExpectationsPage;
@@ -262,7 +274,10 @@ public class PageInitializer {
 		informationPage = new InformationPage();
 		cedcdAdminPage = new CEDCDAdminPage();
 		cedcdCohortPage = new CEDCDCohortPage();
-
+		comets2Page = new Comets2Page();
+		signatureVisualizationsPage = new SignatureVisualizationsPage ();
+		mSigPortalHomePage = new MSigPortalHomePage();
+		signatureExplorerPages = new SignatureExplorerPages();
 		aligningExpectationsPage = new AligningExpectationsPage();
 		eidpDashboardPage = new DashboardPage();
 		eidpCommonPage = new CommonPage();
