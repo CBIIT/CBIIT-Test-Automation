@@ -32,8 +32,7 @@
 	<!-- Application ID for Native View -->
 	<application id="nativeview">
 
-		<login_url></login_url><!-- add Stage 
-			url -->
+		<login_url></login_url><!-- add Stage url -->
 
 		<role name="Role">
 			<user id="regular">
@@ -56,8 +55,7 @@
 	<!-- Application ID for CHARMS -->
 	<application id="CHARMS">
 
-		<login_url></login_url><!-- add 
-			Stage url -->
+		<login_url></login_url><!-- add Stage url -->
 
 		<role name="Role">
 			<user id="regular">
@@ -80,8 +78,8 @@
 	<!-- Application ID for COVIDCode -->
 	<application id="COVIDCode">
 
-		<login_url>https://service-stage.nci.nih.gov/covidcode</login_url><!-- add 
-			stage url -->
+		<login_url>https://service-stage.nci.nih.gov/covidcode</login_url><!-- 
+			add stage url -->
 
 		<role name="Role">
 			<user id="regular">
@@ -100,7 +98,7 @@
 			</default><!-- comment -->
 		</db>
 	</application>
-	
+
 	<!-- Application ID for CEDCD -->
 	<application id="CEDCD">
 
@@ -125,5 +123,5 @@
 		</db>
 
 	</application>
-	
+
 </environment>
