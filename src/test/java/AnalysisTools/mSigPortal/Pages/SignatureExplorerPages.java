@@ -19,5 +19,14 @@ public class SignatureExplorerPages extends CommonUtils {
 	
 	@FindBy (xpath = "(//button[contains(text(),'Download Plot')])[1]")
 	public WebElement downloadFirstPlotOnSignatureExplorer;
+	
+	@FindBy (xpath = "(//a[contains(text(),'Exposure')])[1]")
+	public WebElement exposureTabOnSignatureExposureSection;
+	
+	@FindBy (xpath = "//button[contains(text(),'Calculate All')]")
+	public WebElement calculateAllButtonOnExposureTab;
+	
+	@FindBy (xpath ="(//img[@class='w-100'])[1]")
+	public WebElement imageOnExposureSearch;
 
 }

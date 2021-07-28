@@ -3,6 +3,7 @@ package AnalysisTools.mSigPortal.Steps;
 import org.junit.Assert;
 
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 
 import appsCommon.PageInitializer;
@@ -32,6 +33,22 @@ public class SignatureExplorerSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 		Assert.assertTrue(signatureExplorerPages.downloadFirstPlotOnSignatureExplorer.isDisplayed());
 		
+	}
+	
+	@When("the user navigates to and Calculates All on the Exposure tab")
+	public void the_user_navigates_to_and_Calculates_All_on_the_Exposure_tab() {
+		
+		JavascriptUtils.clickByJS(signatureExplorerPages.exposureTabOnSignatureExposureSection);
+		JavascriptUtils.clickByJS(signatureExplorerPages.calculateAllButtonOnExposureTab);
+		CommonUtils.waitForVisibility(signatureExplorerPages.imageOnExposureSearch);
+
+	}
+
+	@Then("the Tumor Mutational Burden download plot link is displayed")
+	public void the_Tumor_Mutational_Burden_download_plot_link_is_displayed() {
+		
+		Assert.assertTrue(signatureExplorerPages.imageOnExposureSearch.isDisplayed());
+
 	}
 
 }
