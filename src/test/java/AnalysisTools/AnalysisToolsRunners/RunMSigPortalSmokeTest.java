@@ -18,7 +18,7 @@ import cucumber.api.junit.Cucumber;
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/AnalysisTools/mSigPortal/Features"
 		, glue="AnalysisTools.mSigPortal.Steps"
-		, tags="@Smoke1"
+		, tags="@Smoke"
 		, dryRun = false
 		, monochrome=true
 		, strict = true
