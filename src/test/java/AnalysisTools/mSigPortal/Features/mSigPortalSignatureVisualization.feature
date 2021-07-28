@@ -1,12 +1,12 @@
 Feature: mSigPortal Signature Visualizations tab
 
-#@Progression @NCIATWP-3828 @matarodriguezko
-  #Scenario: Incorrect File Type Error Message
-    #Given the user is on the mSigPortal Home page
-    #When the user submits with an incorrect file type
-    #Then an error message is displayed
+@Progression @NCIATWP-3828 @matarodriguezko
+  Scenario: Incorrect File Type Error Message
+    Given the user is on the mSigPortal Home page
+    When the user submits with an incorrect file type
+    Then an error message is displayed
 
-@1Progression	@NCIATWP-3848		@matarodriguezko
+	@NCIATWP-3848		@matarodriguezko
   Scenario: Profile Comparison Chart is Displayed
     Given the user is on the mSigPortal Home page
     And the user navigates to the Visualization section
@@ -32,13 +32,13 @@ Feature: mSigPortal Signature Visualizations tab
     And the user clicks on the Download section tab
     Then the results were successfully analyzed
 
-@1Progression 	@NCIATWP-3870	 @matarodriguezko
+ 	@NCIATWP-3870	 @matarodriguezko
   Scenario: 
     Given the user is on the mSigPortal Home page
     When the user clicks on the Signature Visualization banner
     Then the Public and User radio button buttons are clickable
 
-@1Progression 	@NCIATWP-3872	 @matarodriguezko
+ 	@NCIATWP-3872	 @matarodriguezko
   Scenario: 
     Given the user is on the mSigPortal Home page
     And the user navigates to the Visualization section
@@ -46,7 +46,7 @@ Feature: mSigPortal Signature Visualizations tab
     And the user clicks on load Example Data link
     Then the VCF example file is displayed
 
-@1Progression 	@NCIATWP-3873	 @matarodriguezko
+ 	@NCIATWP-3873	 @matarodriguezko
   Scenario: 
     Given the user is on the mSigPortal Home page
     And the user navigates to the Visualization section
