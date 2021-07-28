@@ -76,4 +76,3 @@ public class CEDCDAdminPage {
 	public WebElement cohortSubmitBtn; 
 
 }
-

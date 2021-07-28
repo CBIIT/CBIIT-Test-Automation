@@ -231,14 +231,13 @@ public class NativeViewStepsImpl extends PageInitializer {
 		nativeViewEnrollementsPage.covidCodeEnrollmentsSearchTextBox.sendKeys("email@automatedtest.com");
 		MiscUtils.sleep(2000);
 		nativeViewEnrollementsPage.covidCodeEnrollmentsSearchTextBox.sendKeys(Keys.RETURN);
-		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 	}
 
 	/***
-	 * This method search Nurses in Assigned to text field on the My Inquiry
-	 * Tracking in Native View and do assertion by selected values Values are hard
+	 * This method searches Nurses in 'Assigned to' text field on the 'My Inquiry
+	 * Tracking' page in Native View and asserts. selected values Values are hard
 	 * coded
 	 */
 	public void nativeViewMyInquiryTrackingSearchNursesinAssignedToTextField() {

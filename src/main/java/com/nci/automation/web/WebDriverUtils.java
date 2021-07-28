@@ -7,6 +7,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -24,7 +25,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
-
 import com.nci.automation.common.Constants;
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -50,8 +50,8 @@ public class WebDriverUtils {
 	 * Get a web-driver to interact with the UI
 	 */
 	@SuppressWarnings("deprecation")
-	public static WebDriver getWebDriver() {
-	
+	public static WebDriver getWebDriver() {  
+
 		String browser = ConfUtils.getProperty("browser");
 		String headless = ConfUtils.getProperty("headless");
 		String avdName = ConfUtils.getProperty("avdName");
@@ -59,21 +59,25 @@ public class WebDriverUtils {
 		String udid = ConfUtils.getProperty("udid");
 		if (webDriver == null) {
 			setDriverExecutables();
-			if (Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
+
+			if(Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
+
 				DesiredCapabilities cap = new DesiredCapabilities();
-				if (platformName.equalsIgnoreCase(Constants.IOS_MOBILE)) {
+				if(platformName.equalsIgnoreCase(Constants.IOS_MOBILE)) {
 					cap.setCapability("deviceName", "iOS");
 					cap.setCapability("platformName", "iOS");
-					cap.setCapability(CapabilityType.BROWSER_NAME, "Safari");
-					cap.setCapability(CapabilityType.VERSION, "14");
-					cap.setCapability("udid", udid);
+					cap.setCapability(CapabilityType.BROWSER_NAME, "Safari"); 
+					cap.setCapability(CapabilityType.VERSION, "14");		
+					cap.setCapability("udid", udid );
 					cap.setCapability("automationName", "XCUITest");
-				} else {
+
+				}else {
 					cap.setCapability("deviceName", "Android");
 					cap.setCapability("platformName", "Android");
-					cap.setCapability(CapabilityType.BROWSER_NAME, "Chrome");
-					cap.setCapability(CapabilityType.VERSION, "10");
-					cap.setCapability("avd", avdName);
+					cap.setCapability(CapabilityType.BROWSER_NAME, "Chrome"); 
+					cap.setCapability(CapabilityType.VERSION, "10");		
+					cap.setCapability("avd", avdName );
+
 				}
 				try {
 					webDriver = new AppiumDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), cap);
@@ -81,12 +85,26 @@ public class WebDriverUtils {
 					e.printStackTrace();
 					CucumberLogUtils.logFail("Mobile driver intlization filed", false);
 				}
+
 			} else if (Constants.BROWSER_CHROME.equals(browser)) {
 				ChromeOptions chromeOptions = new ChromeOptions();
 				if (headless.equalsIgnoreCase("true")) {
-					chromeOptions.setHeadless(true);
+//					chromeOptions.setHeadless(true);
+					chromeOptions.addArguments("--headless");
 					chromeOptions.addArguments("window-size=1920,1080");
+					chromeOptions.addArguments("--disable-dev-shm-usage");
+					chromeOptions.addArguments("--no-sandbox");
+					chromeOptions.addArguments("--disable-infobars");
+					chromeOptions.addArguments("--disable-extensions");
+					chromeOptions.addArguments("--disable-gpu");
+					chromeOptions.addArguments("enable-automation");
+					chromeOptions.addArguments("--disable-browser-side-navigation");
+					chromeOptions.addArguments("--profile-directory=Default");
+					chromeOptions.addArguments("--disable-setuid-sandbox");
+					chromeOptions.addArguments("--user-data-dir=~/.config/google-chrome");
+					chromeOptions.setExperimentalOption("useAutomationExtension", false);
 					webDriver = new ChromeDriver(chromeOptions);
+					System.out.println(chromeOptions.getVersion());
 				} else {
 					webDriver = new ChromeDriver(chromeOptions);
 					System.out.println(chromeOptions.getVersion());
@@ -98,6 +116,7 @@ public class WebDriverUtils {
 				desiredCapabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, Boolean.TRUE);
 				desiredCapabilities.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, "ignore");
 				webDriver = new InternetExplorerDriver(desiredCapabilities);
+
 			} else if (browser.equalsIgnoreCase(Constants.BROWSER_FIREFOX)) {
 				FirefoxOptions fireOptions = new FirefoxOptions();
 				if (headless.equalsIgnoreCase("true")) {
@@ -106,6 +125,7 @@ public class WebDriverUtils {
 				} else {
 					webDriver = new FirefoxDriver(fireOptions);
 				}
+
 			} else if(browser.equalsIgnoreCase(Constants.BROWSER_SAFARI)) {
 				SafariOptions safariOptions = new SafariOptions();
 				if (headless.equalsIgnoreCase("true")) {
@@ -123,6 +143,7 @@ public class WebDriverUtils {
 				capabilities.setCapability("takesScreenshot", true);
 				capabilities.setCapability(PhantomJSDriverService.PHANTOMJS_CLI_ARGS,
 						new String[] { "--web-security=no", "--ignore-ssl-errors=yes" });
+
 				String[] phantomArgs = new String[] { "--webdriver-loglevel=NONE" };
 				capabilities.setCapability(PhantomJSDriverService.PHANTOMJS_CLI_ARGS, phantomArgs);
 				webDriver = new PhantomJSDriver(capabilities);
@@ -132,14 +153,13 @@ public class WebDriverUtils {
 				return null;
 			}
 		}
+
 		long implicitWaitInSeconds = Long.valueOf(LocalConfUtils.getProperty("implicitWaitInSeconds"));
 		webDriver.manage().timeouts().implicitlyWait(implicitWaitInSeconds, TimeUnit.MINUTES);
-
 
 		if(!Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)){ 
 			webDriver.manage().window().maximize();	
 		} 
-
 
 		return webDriver;
 	}
@@ -222,14 +242,17 @@ public class WebDriverUtils {
 			driver = new InternetExplorerDriver();
 			driver.manage().window().maximize();
 			return driver;
+	
 		} else if (Constants.BROWSER_FIREFOX.contentEquals(browser)) {
 			driver = new FirefoxDriver();
 			driver.manage().window().maximize();
 			return driver;
+
 		} else if (Constants.BROWSER_CHROME.equals(browser)) {
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			return driver;
+
 		} else {
 			CucumberLogUtils.logFail("Unsupported browser in localConf.properties file! "
 					+ "Browser has to be 'ie' or 'firefox' or 'headless chrome, firefox'", false);
@@ -266,6 +289,7 @@ public class WebDriverUtils {
 	 * @return image in byte codes
 	 */
 	public static byte[] getScreenShot() {
+
 		byte[] screenshot = null;
 		ScenarioContext.webDriver.get();
 		try {
@@ -282,6 +306,7 @@ public class WebDriverUtils {
 	 * @param url
 	 */
 	public static void navToExternalPage(String url) {
+
 		WebDriver driver = ScenarioContext.webDriver.get();
 		driver.get(url);
 		try {
