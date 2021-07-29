@@ -1,6 +1,6 @@
 Feature: SEER Data Access Request Scenarios
 
-  @Smoke @juarezds
+  @Smoke @juarezds @Smoke
   Scenario: Non-Institutional flow - Verifying SEER Data Access Request page contents and agreements for Non-Institutional flow
     Given a SEER User Registration has been successfully submitted
     And user verifies email address by clicking on the email verification link that is sent to the user after submitting a SEER User registration form

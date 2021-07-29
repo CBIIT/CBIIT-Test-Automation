@@ -86,7 +86,7 @@ public class SEERUserRegistrationPage extends CommonUtils {
 	public WebElement seerUserRegistrationPhoneField;
 	
 	/**SEER User Registration  Which of these best describe you? Text*/
-	@FindBy(xpath = "//label[contains(text(), 'Which of these best describe you?')]")
+	@FindBy(xpath = "//label[contains(text(),'What best describes you for the purpose of request')]")
 	public WebElement seerUserRegistrationWhichOfTheseBestDescribeYouText;
 
 	/**SEER User Registration  Which of these best describe you? field*/

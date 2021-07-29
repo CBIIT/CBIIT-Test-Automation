@@ -22,11 +22,10 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 	@Given("a SEER User Registration has been successfully submitted")
 	public void a_SEER_User_Registration_has_been_successfully_submitted() throws TestingException { 
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SEERDataAccess"));
-		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(seerLandingPage.nonInstitutionalAccountsEmailAddressField);
 		JavascriptUtils.scrollIntoView(seerLandingPage.nonInstitutionalAccountsEmailAddressField);
-		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(seerLandingPage.nonInstitutionalAccountsEmailAddressField, CommonUtils.email);
-		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(seerLandingPage.nonInstitutionalAccountsContinuetoEmailVerificationButton);
 		seerLandingPage.nonInstitutionalAccountsContinuetoEmailVerificationButton.click();
 		MiscUtils.sleep(2000);
 		String seerRegistrationPage = WebDriverUtils.getWebDriver().getTitle();
@@ -34,36 +33,30 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 		seerUserRegistrationPage.seerUserRegistrationFirstNameField.sendKeys("TestFIRSTname");
 		seerUserRegistrationPage.seerUserRegistrationMiddleNameField.sendKeys("TestMIDDLEname");
 		seerUserRegistrationPage.seerUserRegistrationLastNameField.sendKeys("TestLASTname");
-		MiscUtils.sleep(2000);
 		Assert.assertEquals(CommonUtils.email,seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("value"));
 		Assert.assertTrue(seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("disabled").equals("true"));
-		MiscUtils.sleep(2000); 
+		CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
 		seerUserRegistrationPage.seerUserRegistrationOrganizationField.click();
 		seerUserRegistrationPage.seerUserRegistrationOrganizationField.sendKeys("A. T. Still University");
-		MiscUtils.sleep(2000);
-		seerUserRegistrationPage.seerUserRegistrationJobTitleField.sendKeys("TestJOBtitle");
+		seerUserRegistrationPage.seerUserRegistrationJobTitleField.sendKeys("TestJobTitle");
 		JavascriptUtils.scrollIntoView(seerUserRegistrationPage.seerUserRegistrationEmailField);
-		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationCountryField);
 		seerUserRegistrationPage.seerUserRegistrationCountryField.click();
 		seerUserRegistrationPage.seerUserRegistrationCountryField.sendKeys("United States of America");
 		seerUserRegistrationPage.seerUserRegistrationCountryUSA.click();
-		MiscUtils.sleep(2000);
 		seerUserRegistrationPage.seerUserRegistrationAddressField.sendKeys("330 Ivy Lane, Apartment 6");
 		seerUserRegistrationPage.seerUserRegistrationCityField.sendKeys("NYC");
 		seerUserRegistrationPage.seerUserRegistrationStateField.sendKeys("NY");
 		seerUserRegistrationPage.seerUserRegistrationZipcodeField.sendKeys("11214");
 		seerUserRegistrationPage.seerUserRegistrationPhoneField.sendKeys("6306543343");
-		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
 		CommonUtils.selectDropDownValue("General Public",seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
-		MiscUtils.sleep(2000);
 		seerUserRegistrationPage.seerUserRegistrationSubmitButton.click();
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
-		MiscUtils.sleep(2000);
-		String seerRegistrationIsCompletePage = WebDriverUtils.getWebDriver().getTitle();
+	    String seerRegistrationIsCompletePage = WebDriverUtils.getWebDriver().getTitle();
 		Assert.assertEquals("SEER Data Confirmation - ODS SEER Data Access Request", seerRegistrationIsCompletePage);
 		Assert.assertEquals("Thank you - your registration is complete.",seerUserRegistrationPage.seerUserRegistrationIsCompleteHeader.getText());
-		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 
 	}
