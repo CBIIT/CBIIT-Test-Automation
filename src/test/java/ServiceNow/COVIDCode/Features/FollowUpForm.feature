@@ -2,17 +2,17 @@ Feature: COVIDCode Follow Up Form Scenarios
   
   Description: This feature file contains scenarios related to the Follow Up Form
 
-  @Smoke @Sprint7 @COVID-209 @juarezds
+  @Smoke @Sprint7 @COVID-209 @juarezds 
   Scenario: Follow Up Form - Search Function - Service Portal
     Given a COVIDCode user is on the Follow Up Form to update an existing enrollment
     Then the user is able to search an existing enrollment by patient ID OR last name OR first name OR NIH Medical Record Number
 
-  @Smoke @Sprint7 @COVID-209 @juarezds
+  @Smoke @Sprint7 @COVID-209 @juarezds 
   Scenario: Follow Up Form - Search Function - Service Portal
     Given a COVIDCode user is on the Follow Up Form to update an existing enrollment
     Then the user is able to search an existing enrollment by patient ID OR last name OR first name OR NIH Medical Record Number
 
-  @Smoke @Sprint7 @COVID-193 @juarezds
+  @Smoke @Sprint7 @COVID-193 @juarezds @Progression
   Scenario: Follow Up Form - Verifying Enhanced Symptoms Question - Service Portal
     Given a COVIDCode user is on the Follow Up Form to update an existing enrollment
     When an enrollment is selected

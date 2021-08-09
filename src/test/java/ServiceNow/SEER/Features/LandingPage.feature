@@ -1,6 +1,6 @@
 Feature: SEER Data Access Landing Page Scenarios
 
-  @Smoke @juarezds @Smoke
+  @Smoke @ODS-264 @ODS-256 @juarezds @Smoke
   Scenario: Verifying Request Database Access text
     Given a user is on the SEER Data Access landing page
     Then the "Request Database Access" text displays as
@@ -15,7 +15,7 @@ Feature: SEER Data Access Landing Page Scenarios
       Only users who have already used this system to request a new, non-Institutional account can upgrade an existing account. All other users should follow steps to create a new account.
       """
 
-  @Smoke @juarezds
+  @Smoke @ODS-265 @ODS-263 @ODS-255 @juarezds
   Scenario: Verifying Institutional Accounts and Non-Institutional Accounts text on landing page
     Given a user is on the SEER Data Access landing page
     Then under "Institutional Accounts" the text displayed is
