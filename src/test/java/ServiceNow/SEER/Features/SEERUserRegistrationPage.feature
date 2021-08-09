@@ -8,7 +8,7 @@ Feature: SEER User Registration Scenarios
     And for 'What best describes you for the purpose of requesting this data?' selects 'Undergraduate or Graduate Student'
     Then the user is directed back to the landing page with a message indicating the user must request access via the Institutional Accounts option
 
-  @Smoke @juarezds
+  @Smoke @ODS-283 @juarezds
   Scenario: Verifying Sate and Zip code fields are required when selecting United States of America for Country field
     Given a user is on the SEER Data Access landing page
     And user proceeds with email verification for a Non-Institutional Account
@@ -17,7 +17,7 @@ Feature: SEER User Registration Scenarios
     And submitting the registration form
     Then the user is not able to submit the registration form because the State and Zip Code fields are required
 
-  @Smoke @juarezds 
+  @Smoke @ODS-284 @juarezds 
   Scenario: Verifying "Thank you - your registration is complete." page contents
     Given a user is on the SEER Data Access landing page
     When the user enters an email address for Non-Institutional Account
@@ -43,7 +43,7 @@ Feature: SEER User Registration Scenarios
       SEER is supported by the Surveillance Research Program (SRP) in NCI's Division of Cancer Control and Population Sciences (DCCPS). SRP provides national leadership in the science of cancer surveillance as well as analytical tools and methodological expertise in collecting, analyzing, interpreting, and disseminating reliable population-based statistics.
       """
 
-  @Smoke @juarezds 
+  @Smoke @ODS-285 @juarezds 
   Scenario: Verifying 'SEER Incidence Database' bread crumb directs user to https://seer.cancer.gov/data/
     Given a user is on the SEER Data Access landing page
     Then the 'SEER Incidence Database' bread crumb displays
@@ -68,7 +68,7 @@ Feature: SEER User Registration Scenarios
     And the 'SEER Incidence Database' bread crumb displays
     And when clicking, user is directed to "https://seer.cancer.gov/data/"
 
-  @Smoke @juarezds
+  @Smoke @ODS-286 @juarezds
   Scenario: Verifying bread crumbs on "Thank you - your registration is complete." page
     Given a user is on the SEER Data Access landing page
     When user enters email address for a Non-Institutional Account
