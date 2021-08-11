@@ -1,0 +1,4 @@
+[0728/114331.208602:ERROR:file_io.cc(91)] ReadExactly: expected 8, observed 0
+[0728/114331.209764:ERROR:xattr.cc(63)] setxattr org.chromium.crashpad.database.initialized on file /var/folders/10/x0tkb8rd0yl84mhcx3t01lbr43m3_9/T/: Operation not permitted (1)
+[0728/114338.864882:INFO:CONSOLE(1)] "Uncaught Error: only one instance of babel-polyfill is allowed", source: https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js (1)
+[0728/114339.372899:INFO:CONSOLE(911)] "amb.MessageClient [INFO] >>> connection exists, request satisfied", source: https://service-test.nci.nih.gov/scripts/js_includes_sp.jsx?v=06-22-2021_1726&lp=Wed_Jul_14_18_59_38_PDT_2021&c=33_773 (911)

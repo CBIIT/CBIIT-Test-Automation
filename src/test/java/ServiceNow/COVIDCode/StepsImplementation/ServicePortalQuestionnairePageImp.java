@@ -24,11 +24,16 @@ public class ServicePortalQuestionnairePageImp extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 		servicePortalQuestionnairePage.startNewInitialQuestionnaireButton.click();
-		MiscUtils.sleep(5000);
+		MiscUtils.sleep(3000);
 		CucumberLogUtils.logScreenShot();
-		servicePortalQuestionnairePage.enrollmentCreationUserGroupIDSelectDropDown.click();
-		List<WebElement> groupIDs = servicePortalQuestionnairePage.enrollmentCreationUserGroupIDValues;
-		CommonUtils.selectValueFromBootStrapDropDown(groupIDs, " User Group 1");
+		
+		CommonUtils.selectDropDownValue("User Group 1", servicePortalQuestionnairePage.enrollmentCreationUserGroupIDSelectDropDown);
+		//CommonUtils.selectDropDownValue(servicePortalQuestionnairePage.enrollmentCreationUserGroupIDSelectDropDown, " User Group 1");
+		//servicePortalQuestionnairePage.enrollmentCreationUserGroupIDSelectDropDown.click();
+		//List<WebElement> groupIDs = servicePortalQuestionnairePage.enrollmentCreationUserGroupIDValues;
+		//CommonUtils.selectValueFromBootStrapDropDown(groupIDs, " User Group 1");
+		MiscUtils.sleep(2000);
+		
 		servicePortalQuestionnairePage.createEnrollmentButton.click();
 
 	}

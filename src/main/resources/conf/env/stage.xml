@@ -7,7 +7,7 @@
 	<!-- Application ID for covid19dashboard -->
 	<application id="covid19dashboard">
 
-		<login_url>
+		<login_url>https://service-stage.nci.nih.gov/nih-covid-19-dashboard?xpage=landing_pub
 		</login_url><!-- add Stage url -->
 
 		<role name="Role">
@@ -32,8 +32,8 @@
 	<!-- Application ID for Native View -->
 	<application id="nativeview">
 
-		<login_url></login_url><!-- add Stage 
-			url -->
+		<login_url>https://service-stage.nci.nih.gov/ncisp</login_url><!-- add 
+			Stage url -->
 
 		<role name="Role">
 			<user id="regular">
@@ -56,8 +56,7 @@
 	<!-- Application ID for CHARMS -->
 	<application id="CHARMS">
 
-		<login_url></login_url><!-- add 
-			Stage url -->
+		<login_url></login_url><!-- add Stage url -->
 
 		<role name="Role">
 			<user id="regular">
@@ -80,8 +79,8 @@
 	<!-- Application ID for COVIDCode -->
 	<application id="COVIDCode">
 
-		<login_url>https://service-stage.nci.nih.gov/covidcode</login_url><!-- add 
-			stage url -->
+		<login_url>https://service-stage.nci.nih.gov/covidcode</login_url><!-- 
+			add stage url -->
 
 		<role name="Role">
 			<user id="regular">
@@ -100,12 +99,11 @@
 			</default><!-- comment -->
 		</db>
 	</application>
-	
+
 	<!-- Application ID for CEDCD -->
 	<application id="CEDCD">
 
-		<login_url>https://cedcd-stage.nci.nih.gov/</login_url><!-- add 
-			stage url -->
+		<login_url>https://cedcd-stage.nci.nih.gov/</login_url><!-- add stage url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -123,5 +121,5 @@
 			</default><!-- comment -->
 		</db>
 	</application>
-	
+
 </environment>

@@ -105,7 +105,7 @@ public class ServicePortalQuestionnairePage extends CommonUtils {
 	public WebElement enrollmentCreationTitle;
 	
 	/** Enrollment Creation User Group ID Drop Down Box */
-	@FindBy (xpath = "//*[@class='form-control input']")
+	@FindBy (xpath = "//select[@name='repositoryLocation']")
 	public WebElement enrollmentCreationUserGroupIDSelectDropDown;
 	
 	/** Enrollment Creation User Group ID Drop Down Values */
