@@ -78,8 +78,20 @@ public class FollowUpFormPage extends CommonUtils {
 	public WebElement diseaseCourseVisitDateSearchBox;
 	
 	/** Disease Course Symptoms Field */
-	@FindBy (xpath = "//input[contains(@id,'s2id_auto') and @autocomplete='sp_formfield_symptoms']")
+	@FindBy (xpath = "//div[4]//div[1]//span[1]//div[1]//ul[1]//li[1]//input[1]")
 	public WebElement diseaseCourseSymptomsField;
+	
+	/** Disease Course Symptoms Field after selecting value (DOM changes when selecting value) */
+	@FindBy (xpath = "//div[@class='form-group ng-scope ng-isolate-scope form-group-has-focus']//ul[@class='select2-choices form-control']")
+	public WebElement diseaseCourseSymptomsFieldAfter;
+	
+	/** Disease Course Symptoms Field after selecting two values (DOM changes when selecting value)*/
+	@FindBy (xpath = "//div[@class='form-group ng-scope ng-isolate-scope form-group-has-focus']//ul[@class='select2-choices form-control']")
+	public WebElement diseaseCourseSymptomsFieldAfterTwo;
+	
+	/** Disease Course Symptoms Field after selecting None of the above option (DOM changes when selecting value)*/
+	@FindBy (xpath = "//div[@class='form-group ng-scope ng-isolate-scope form-group-has-focus']//ul[@class='select2-choices form-control']")
+	public WebElement diseaseCourseSymptomsFieldAfterNoneOfTheAbove;
 	
 	/** Disease Course Symptoms Other Text Field */
 	@FindBy (xpath = "//*[@id='sp_formfield_please_specify_other_symptoms']")
@@ -110,8 +122,16 @@ public class FollowUpFormPage extends CommonUtils {
 	public WebElement diseaseCoursePopUpMessage;
 	
 	/** Disease Course None of the above option displayed after selected */
-	@FindBy (xpath = "//ul[@class='select2-choices']/li[1]/div")
+	@FindBy (xpath = "//p[@class='ng-binding ng-scope']")
 	public WebElement diseaseCourseOptionDisplayeAfterSelecting;
+	
+	/** Disease Course Don't know text option displayed after selected */
+	@FindBy (xpath = "//div[contains(text(),'Don')]")
+	public WebElement diseaseCourseDontKnowTextOptionDisplayeAfterSelecting;
+	
+	/** Disease Course Cough text option displayed after selected */
+	@FindBy (xpath = "//div[contains(text(),'Cough')]")
+	public WebElement diseaseCourseCoughTextOptionDisplayeAfterSelecting;
 	
 	/** Disease Course pop up Yes button */
 	@FindBy (xpath = "//div[@class='modal-content']/div[3]/button[2]")

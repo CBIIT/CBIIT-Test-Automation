@@ -32,7 +32,8 @@
 	<!-- Application ID for Native View -->
 	<application id="nativeview">
 
-		<login_url>https://service-sandbox.nci.nih.gov/ncisp</login_url><!-- add Sandbox url -->
+		<login_url>https://service-sandbox.nci.nih.gov/ncisp</login_url><!-- add 
+			Sandbox url -->
 
 		<role name="Role">
 			<user id="regular">
@@ -78,7 +79,8 @@
 	<!-- Application ID for COVIDCode -->
 	<application id="COVIDCode">
 
-		<login_url></login_url><!-- add Sandbox url -->
+		<login_url>https://service-sandbox.nci.nih.gov/covidcode</login_url><!-- 
+			add Sandbox url -->
 
 		<role name="Role">
 			<user id="regular">
@@ -121,7 +123,7 @@
 			</default><!-- comment -->
 		</db>
 	</application>
-	
+
 	<!-- Application ID for ODS SEER Data Access -->
 	<application id="SEERDataAccess">
 
@@ -145,6 +147,6 @@
 			</default>
 		</db>
 	</application>
-	
+
 
 </environment>
