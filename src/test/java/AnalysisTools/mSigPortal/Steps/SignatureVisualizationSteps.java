@@ -175,5 +175,19 @@ public class SignatureVisualizationSteps extends PageInitializer {
 	public void the_calculate_button_is_enabled_on_all_Cosine_Tabs(int int1) {
 
 	}
+	
+	@When("the user clicks on the i icon when on the Profile Comparison tab")
+	public void the_user_clicks_on_the_i_icon_when_on_the_Profile_Comparison_tab() {
+		
+		
+
+	}
+
+	@Then("the cosmic v{int} Signature pop up is displayed")
+	public void the_cosmic_v_Signature_pop_up_is_displayed(Integer int1) {
+		
+		
+		
+	}
 
 }

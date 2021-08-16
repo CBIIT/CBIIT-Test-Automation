@@ -53,3 +53,11 @@ Feature: mSigPortal Signature Visualizations tab
     When the user calculates using User provided example data
     And the user clicks on Cosine Similarity
     Then the calculate button is enabled on all 3 Cosine Tabs
+    
+    @Progression @NCIATWP-3985	@matarodriguezko
+    Scenario: Profile Comparison i icon popup message
+    Given the user is on the mSigPortal Home page
+		And the user navigates to the Visualization section
+		When the user calculates sample data
+		And the user clicks on the i icon when on the Profile Comparison tab
+		Then the cosmic v3 Signature pop up is displayed

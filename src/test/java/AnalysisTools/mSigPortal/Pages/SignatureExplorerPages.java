@@ -14,7 +14,7 @@ public class SignatureExplorerPages extends CommonUtils {
 
 	}
 	/**  */
-	@FindBy (xpath = "(//strong[contains(text(),'SBS24')])[1]")
+	@FindBy (xpath = "//button[contains(text(),'Calculate')]")
 	public WebElement calculateOnExplorerTab;
 	
 	@FindBy (xpath = "(//button[contains(text(),'Download Plot')])[1]")
@@ -29,7 +29,7 @@ public class SignatureExplorerPages extends CommonUtils {
 	@FindBy (xpath = "(//button[contains(text(),'Calculate')])[2]")
 	public WebElement calculateOnTumorMutationalBurdenSearch;
 	
-	@FindBy (xpath ="(//img[@class='w-100'])[1]")
+	@FindBy (xpath = "//*[@id='tmbPlot']/div/div[2]/div/img")
 	public WebElement imageOnExposureSearch;
 
 }
