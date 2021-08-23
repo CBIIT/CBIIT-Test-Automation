@@ -71,5 +71,47 @@ public class SignatureVisualizationsPage extends CommonUtils {
 	/** This is the description of the download tab */
 	@FindBy(xpath = "//p[contains(text(),'were successfully analyzed.')]")
 	public WebElement downloadDescriptionText;
+	
+	/** This is the Mutational Profiles section Tab at the top of the screen */
+	@FindBy (xpath = "(//button[contains(text(),'Mutational Profiles')])[1]")
+	public WebElement mutationalProfileTab;
+	
+	/** This is the Sample Name text box under mutational profile tab */
+	@FindBy (xpath = "(//div[@class=' css-tlfecz-indicatorContainer'])[4]")
+	public WebElement mutationalProfileSampleNameTextBox;
+	
+	/** This is the Sample Name text box under mutational profile tab's "SB749362" value */
+	@FindBy (xpath = "//div[contains(text(),'SB749362')]")
+	public WebElement mutationalProfileSampleNameBorder;
+	
+	/** This is the Cosine Similarity tab  */
+	@FindBy (xpath = "(//button[contains(text(),'Cosine Similarity')])[1]")
+	public WebElement cosineSimilarityTab;
+	
+	/** This is the CS Within Samples tab under the Cosine Similarities tab */
+	@FindBy (xpath = "//strong[contains(text(),'CS Within Samples')]")
+	public WebElement csWithinSamplesTab;
+	
+	/** This is the Cosine Similarity Within Samples calculate button  */
+	@FindBy (xpath = "(//button[contains(text(),'Calculate')])[1]")
+	public WebElement csWithinSamplesCalculateButton;
+	
+	/** This is the CS to Reference tab under the Cosine Similarities tab */
+	@FindBy (xpath = "//strong[contains(text(),'CS to Reference Signatures')]")
+	public WebElement csToReferenceTab;
+	
+	/** This is the Cosine Similarity to Reference Signatures calculate button  */
+	@FindBy (xpath = "(//button[contains(text(),'Calculate')])[2]")
+	public WebElement csToReferenceSignaturesCalculateButton;
+	
+	/** This is the CS to Public Data tab under the Cosine Similarities tab */
+	@FindBy (xpath = "//strong[contains(text(),'CS to Public Data')]")
+	public WebElement csToPublicDataTab;
+	
+	/** This is the Cosine Similarity to Public Data calculate button  */
+	@FindBy (xpath = "(//button[contains(text(),'Calculate')])[3]")
+	public WebElement csToPublicDataCalculateButton;
+	
+	
 
 }
