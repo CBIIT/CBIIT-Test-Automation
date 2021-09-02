@@ -169,7 +169,7 @@ public class EnrollmentQuestionnairePage extends CommonUtils {
 	public WebElement enrollmentQuestionnaireCurrentWeightDropdown;
 	
 	/** COVIDcode Enrollment Questionnaire Demographics: current weight search box */
-	@FindBy(xpath = "//input[@autocomplete='sp_formfield_weight_choice']")
+	@FindBy(xpath = "/html/body/div[9]/div/input")
 	public WebElement enrollmentQuestionnaireCurrentWeightSearchBox;
 
 	/**
@@ -237,6 +237,10 @@ public class EnrollmentQuestionnairePage extends CommonUtils {
 	/** COVIDcode Enrollment Questionnaire Demographics: are you hispanic or latino search box */
 	@FindBy(xpath = "//input[@autocomplete='sp_formfield_are_you_hispanic_or_latino']")
 	public WebElement enrollmentQuestionnaireHispanicOrLatinoSearchBox;
+	
+	/** COVIDcode Enrollment Questionnaire Demographics: are you hispanic or latino search box full xpath */
+	@FindBy(xpath = "/html/body/div[13]/div/input")
+	public WebElement enrollmentQuestionnaireHispanicOrLatinoSearchBoxFullTextBox;
 
 	/**
 	 * COVIDcode Enrollment Questionnaire Demographics: are you hispanic or latino
@@ -306,7 +310,7 @@ public class EnrollmentQuestionnairePage extends CommonUtils {
 	public WebElement enrollmentQuestionnaireWereYouSymptomaticText;
 	
 	/** COVIDcode Enrollment Questionnaire Symptomology: Were you symptomatic search box */
-	@FindBy(xpath = "//input[@autocomplete='sp_formfield_symptomatic']")
+	@FindBy(xpath = "//div[@class='select2-drop select2-display-none select2-with-searchbox select2-drop-active']//input[@role='combobox']")
 	public WebElement enrollmentQuestionnaireWereYouSymptomaticSearchBox;
 
 	/**
@@ -378,7 +382,7 @@ public class EnrollmentQuestionnairePage extends CommonUtils {
 	public WebElement enrollmentQuestionnaireHaveYouOfficiallyBeenDiagnosedText;
 	
 	/** COVIDcode Enrollment Questionnaire Symptomology: Have you officially been diagnosed with COVID-19 Search Text */
-	@FindBy(xpath = "//input[@autocomplete='sp_formfield_officially_diagnosed']")
+	@FindBy(xpath = "//body/div[10]/div[1]/input[1]")
 	public WebElement enrollmentQuestionnaireHaveYouOfficiallyBeenDiagnosedSearchText;
 	
 	/**
@@ -497,7 +501,7 @@ public class EnrollmentQuestionnairePage extends CommonUtils {
 	public List<WebElement> enrollmentQuestionnaireExposuredAndRiskFactorsDDValue;
 	
 	/** Enrollment Questionnaire Exposures and Risk Factors Non-steroidal anti-inflammatory drugs (ex. ibuprofen: Advil, Motrin, etc.) Search Drop Down Text Field */
-	@FindBy(xpath="//input[@autocomplete='sp_formfield_used_anti_inflammatory']")
+	@FindBy(xpath="//div[@class='select2-drop select2-display-none select2-with-searchbox select2-drop-active select2-drop-above']//input[@role='combobox']")
 	public WebElement enrollmentQuestionnaireExposuredAndRiskFactorsNonSteroidalAntiInflammatoryDrugsnSearchDropDownTextField;
 	
 	/** Enrollment Questionnaire Exposures and Risk Factors Myocardial infarction or stroke medication (ex. digoxin) Search Drop Down Text Field */
@@ -546,7 +550,7 @@ public class EnrollmentQuestionnairePage extends CommonUtils {
 	public WebElement enrollmentQuestionnaireVaccineHaveYouReceivedYourFirstCovidDD;
 	
 	/** Enrollment Questionnaire Vaccine Have you received your first COVID-19 Vaccine search box */
-	@FindBy(xpath = "//input[@autocomplete='sp_formfield_received_first_vaccine']")
+	@FindBy(xpath = "//body/div[11]/div[1]/input[1]")
 	public WebElement enrollmentQuestionnaireVaccineHaveYouReceivedYourFirstCovidSearchBox;
 	
 	/** Enrollment Questionnaire Vaccine Manufacture drop down */
@@ -554,7 +558,7 @@ public class EnrollmentQuestionnairePage extends CommonUtils {
 	public WebElement enrollmentQuestionnaireVaccineManufactureDD;
 	
 	/** Enrollment Questionnaire Vaccine Manufacture search box */
-	@FindBy(xpath = "//input[@autocomplete='sp_formfield_vaccine_manufacture']")
+	@FindBy(xpath = "//body/div[12]/div[1]/input[1]")
 	public WebElement enrollmentQuestionnaireVaccineManufactureSearchBox;
 	
 	/** Enrollment Questionnaire Vaccine Have you received your second COVID-19 Vaccine drop down */
@@ -566,7 +570,7 @@ public class EnrollmentQuestionnairePage extends CommonUtils {
 	public List<WebElement> enrollmentQuestionnaireVaccineReceivedSecondVaccineDDValue;
 	
 	/** Enrollment Questionnaire Vaccine Have you received your second COVID-19 Vaccine search box */
-	@FindBy(xpath = "//input[@autocomplete='sp_formfield_received_second_vaccine']")
+	@FindBy(xpath = "//body/div[13]/div[1]/input[1]")
 	public WebElement enrollmentQuestionnaireVaccineReceivedSecondVaccineSearchBox;
 	
 	/** Enrollment Questionnaire Vaccine What date did you receive the second vaccine search box */
@@ -603,7 +607,7 @@ public class EnrollmentQuestionnairePage extends CommonUtils {
 	public WebElement enrollmentQuestionnaireDiseaseCourseDrugTreatmentsText;
 	
 	/** Enrollment Questionnaire Disease Course Drug Treatments text field */
-	@FindBy (xpath = "//input[@autocomplete='sp_formfield_drug_treatments']")
+	@FindBy (xpath = "//div[@class='row']//div[1]//div[10]//div[1]//span[1]//div[1]//ul[1]//li[1]//input[1]")
 	public WebElement enrollmentQuestionnaireDiseaseCourseDrugTreatmentsTextField;
 	
 	/** Enrollment Questionnaire Disease Course Drug Treatments drop down values */
@@ -619,7 +623,7 @@ public class EnrollmentQuestionnairePage extends CommonUtils {
 	public List<WebElement> enrollmentQuestionnaireDiseaseCourseOrganFailureDropDownValues;
 	
 	/** Enrollment Questionnaire Disease Course: Which organ(s) showed signs of dysfunction/failure? text */
-	@FindBy (xpath = "//label[contains(text(), 'Which organ(s) showed signs of dysfunction/failure?')]")
+	@FindBy (xpath = "//span[contains(text(),'Which organ(s) showed signs of dysfunction/failure')]")
 	public WebElement enrollmentQuestionnaireDiseaseCourseWhichOrgansFailedText;
 	
 	/** Enrollment Questionnaire Disease Course: Which organ(s) showed signs of dysfunction/failure drop down */
