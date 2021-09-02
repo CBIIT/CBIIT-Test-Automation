@@ -22,18 +22,15 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 	}
 
 	public void groupUserAndConsent(String groupUserID, String consent) {
+		CommonUtils.waitForVisibility(servicePortalQuestionnairePage.startNewQuestionnaireButton);
 		servicePortalQuestionnairePage.startNewQuestionnaireButton.click();
-		servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown.click();
-		List<WebElement> groupIDs = servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDownValues;
-
-		CommonUtils.selectValueFromBootStrapDropDown(groupIDs, groupUserID);
+		CommonUtils.waitForVisibility(servicePortalQuestionnairePage.userGroupIDDropDown);
+		CommonUtils.selectDropDownValue(groupUserID, servicePortalQuestionnairePage.userGroupIDDropDown);
+		CommonUtils.waitForVisibility(servicePortalQuestionnairePage.enrollmentCreationWindowText);
 		servicePortalQuestionnairePage.enrollmentCreationWindowText.click();
-		// click on create enrollment button
+		CommonUtils.waitForVisibility(servicePortalQuestionnairePage.createEnrollmentButton);
 		servicePortalQuestionnairePage.createEnrollmentButton.click();
-
-		// scrolling down page
 		JavascriptUtils.scrollDown(700);
-
 		covidCodeEQPage.enrollmentQuestionnaireConsentDropdown.click();
 		List<WebElement> consentValues = covidCodeEQPage.enrollmentQuestionaireConsentDropDownValues;
 
