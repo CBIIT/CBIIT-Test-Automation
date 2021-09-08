@@ -51,8 +51,22 @@ public class SignatureExplorerSteps extends PageInitializer {
 	@Then("the Tumor Mutational Burden download plot link is displayed")
 	public void the_Tumor_Mutational_Burden_download_plot_link_is_displayed() {
 		
+		MiscUtils.sleep(2000);
+		JavascriptUtils.scrollIntoView(signatureExplorerPages.tmbText);
+		CucumberLogUtils.logScreenShot();
 		Assert.assertTrue(signatureExplorerPages.imageOnExposureSearch.isEnabled());
 
+	}
+	
+	@When("the user calculates using public data")
+	public void the_user_calculates_using_public_data() {
+		
+		MiscUtils.sleep(2000);
+		JavascriptUtils.clickByJS(signatureExplorerPages.explorerCalculate);
+		CommonUtils.waitForVisibility(signatureExplorerPages.tmbText);
+		
+
+		
 	}
 
 }
