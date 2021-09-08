@@ -1,11 +1,5 @@
 Feature: mSigPortal Signature Visualizations tab
 
-	@Progression @NCIATWP-3828 @matarodriguezko
-  Scenario: Incorrect File Type Error Message
-    Given the user is on the mSigPortal Home page
-    When the user submits with an incorrect file type
-    Then an error message is displayed
-
 	@NCIATWP-3848		@matarodriguezko
   Scenario: Profile Comparison Chart is Displayed
     Given the user is on the mSigPortal Home page
@@ -54,18 +48,18 @@ Feature: mSigPortal Signature Visualizations tab
     And the user clicks on Cosine Similarity
     Then the calculate button is enabled on all Cosine Tabs
     
-   @Progression @NCIATWP-3985	@matarodriguezko
+	@Progression @NCIATWP-3985	@matarodriguezko
    Scenario: Profile Comparison i icon popup message
-    Given the user is on the mSigPortal Home page
-		And the user navigates to the Visualization section
-		When the user calculates sample data
-		And the user clicks on the i icon when on the Profile Comparison tab
-		Then the cosmic v3 Signature pop up is displayed
+   	Given the user is on the mSigPortal Home page
+	And the user navigates to the Visualization section
+	When the user calculates sample data
+	And the user clicks on the i icon when on the Profile Comparison tab
+	Then the cosmic v3 Signature pop up is displayed
 		
-	@Smoke @NCIATWP-4020 @matarodriguezko
+@Smoke @NCIATWP-4020 @matarodriguezko
 	Scenario: Mutational Profile Sample Name allows text in field
-		Given the user is on the mSigPortal Home page
-		And the user navigates to the Visualization section
-		When the user calculates sample data
-		And then navigates to the Mutational Profiles tab
-		Then text can be entered in at the Sample Name text box
+	Given the user is on the mSigPortal Home page
+	And the user navigates to the Visualization section
+	When the user calculates sample data
+	And then navigates to the Mutational Profiles tab
+	Then text can be entered in at the Sample Name text box
