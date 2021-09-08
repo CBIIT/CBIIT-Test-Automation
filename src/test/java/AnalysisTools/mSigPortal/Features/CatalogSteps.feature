@@ -1,8 +1,9 @@
-Feature: mSigPortal Signature Explorer tab
+Feature: mSigPortal Catalog Section
 
+Scenario: SBS Graph is being displayed
 @Smoke @matarodriguezko
-Scenario: Tumor Mutational Burden graph on Signature Exploration Page is displayed
+Scenario: Etiology graph on Catalog Page is displayed
 Given the user is on the mSigPortal Home page
-When the user navigates to the Signature Explorer page
-And the user calculates using public data
-Then the Tumor Mutational Burden download plot link is displayed
+When the user navigates to the Catalog page
+And the user calculates by clicking on the SBS Graph
+Then a download link for the graph is displayed
