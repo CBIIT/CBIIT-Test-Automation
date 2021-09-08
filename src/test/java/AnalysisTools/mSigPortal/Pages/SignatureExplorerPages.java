@@ -31,6 +31,13 @@ public class SignatureExplorerPages extends CommonUtils {
 	
 	@FindBy (xpath = "//*[@id='tmbPlot']/div/div[2]/div/img")
 	public WebElement imageOnExposureSearch;
-
+	
+	@FindBy (xpath = "//button[contains(text(),'Calculate')]")
+	public WebElement explorerCalculate;
+	
+	@FindBy (xpath = "//strong[contains(text(),'Tumor Mutational Burden')]")
+	public WebElement tmbText;
+	
+	
 
 }
