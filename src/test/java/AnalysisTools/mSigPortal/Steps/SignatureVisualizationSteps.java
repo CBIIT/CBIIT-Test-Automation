@@ -222,6 +222,7 @@ public class SignatureVisualizationSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		signatureVisualizationsPage.mutationalProfileSampleNameTextBox.click();
 		MiscUtils.sleep(2000);
+//		signatureVisualizationsPage.mutationalProfileSampleNameTextBox.sendKeys("SB749362");
 		JavascriptUtils.drawRedBorder(signatureVisualizationsPage.mutationalProfileSampleNameBorder);
 		Thread.sleep(2000);
 		CucumberLogUtils.logScreenShot();
