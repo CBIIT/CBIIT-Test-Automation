@@ -63,3 +63,4 @@ Feature: mSigPortal Signature Visualizations tab
 		When the user calculates sample data
 		And then navigates to the Mutational Profiles tab
 		Then text can be entered in at the Sample Name text box
+
