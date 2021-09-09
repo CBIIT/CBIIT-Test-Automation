@@ -37,7 +37,7 @@ Feature: Test Cases on the Public Site
     When the user filters by females
     Then the results returned are for Female or All Cohorts
 
-  @SS-3430 @Smoke @matarodriguezko 
+  @SS-3430 @progression @matarodriguezko 
   Scenario: Select All Cohorts
     Given the user is on the CEDCD Search Cohorts Tab
     And the user clicks on the select all check box

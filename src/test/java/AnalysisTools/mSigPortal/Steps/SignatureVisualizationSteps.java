@@ -161,18 +161,36 @@ public class SignatureVisualizationSteps extends PageInitializer {
 
 	}
 
-	@When("the user calculates using User provided example data")
-	public void the_user_calculates_using_User_provided_example_data() {
-
-	}
-
 	@When("the user clicks on Cosine Similarity")
 	public void the_user_clicks_on_Cosine_Similarity() {
+		
+		MiscUtils.sleep(2000);
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.cosineSimilarityTab);
 
 	}
 
-	@Then("the calculate button is enabled on all {int} Cosine Tabs")
-	public void the_calculate_button_is_enabled_on_all_Cosine_Tabs(int int1) {
+	@Then("the calculate button is enabled on all Cosine Tabs")
+	public void the_calculate_button_is_enabled_on_all_Cosine_Tabs() {
+		
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.csWithinSamplesTab);
+		JavascriptUtils.drawRedBorder(signatureVisualizationsPage.csWithinSamplesCalculateButton);
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenShot();
+		Assert.assertTrue(signatureVisualizationsPage.csWithinSamplesCalculateButton.isEnabled());
+		
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.csToReferenceTab);
+		MiscUtils.sleep(1000);
+		JavascriptUtils.drawRedBorder(signatureVisualizationsPage.csToReferenceSignaturesCalculateButton);
+		MiscUtils.sleep(1000);
+		CucumberLogUtils.logScreenShot();
+		Assert.assertTrue(signatureVisualizationsPage.csToReferenceSignaturesCalculateButton.isEnabled());
+		
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.csToPublicDataTab);
+		MiscUtils.sleep(1000);
+		JavascriptUtils.drawRedBorder(signatureVisualizationsPage.csToPublicDataCalculateButton);
+		MiscUtils.sleep(1000);
+		CucumberLogUtils.logScreenShot();
+		Assert.assertTrue(signatureVisualizationsPage.csToPublicDataCalculateButton.isEnabled());
 
 	}
 	
@@ -189,5 +207,27 @@ public class SignatureVisualizationSteps extends PageInitializer {
 		
 		
 	}
+	
+	@When("then navigates to the Mutational Profiles tab")
+	public void then_navigates_to_the_Mutational_Profiles_tab() {
+		
+		MiscUtils.sleep(2000);
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.mutationalProfileTab);
+
+	}
+
+	@Then("text can be entered in at the Sample Name text box")
+	public void text_can_be_entered_in_at_the_Sample_Name_text_box() throws InterruptedException {
+		
+		MiscUtils.sleep(2000);
+		signatureVisualizationsPage.mutationalProfileSampleNameTextBox.click();
+		MiscUtils.sleep(2000);
+//		signatureVisualizationsPage.mutationalProfileSampleNameTextBox.sendKeys("SB749362");
+		JavascriptUtils.drawRedBorder(signatureVisualizationsPage.mutationalProfileSampleNameBorder);
+		Thread.sleep(2000);
+		CucumberLogUtils.logScreenShot();
+
+	}
+
 
 }
