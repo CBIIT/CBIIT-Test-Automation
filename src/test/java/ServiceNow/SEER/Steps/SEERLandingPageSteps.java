@@ -22,6 +22,7 @@ public class SEERLandingPageSteps extends PageInitializer {
 	@Then("the {string} text displays as")
 	public void the_text_displays_as(String requestDatabaseAccessHeader, String requestDatabaseAccessParagraph) {
 		Assert.assertEquals(requestDatabaseAccessHeader, seerLandingPage.requestDatabaseAccessHeader.getText());
+		System.out.println(seerLandingPage.requestDatabaseAccessText.getText());
 		Assert.assertEquals(requestDatabaseAccessParagraph, seerLandingPage.requestDatabaseAccessText.getText());
 	}
 
