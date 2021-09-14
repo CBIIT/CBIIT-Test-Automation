@@ -95,7 +95,7 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		Assert.assertTrue(nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataHeader.getText().contentEquals("SEER Incidence Data: Verify your email address"));
 		Assert.assertTrue(nativeViewSentViewPage.nativeViewPreviewEmailHelloNameText.getText().contentEquals("Hello TestFIRSTname,"));
-		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(nativeViewSentViewPage.nativeViewPreviewEmailVerifyEMAILlink);
 		nativeViewSentViewPage.nativeViewPreviewEmailVerifyEMAILlink.click();
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();	
@@ -156,6 +156,7 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 
 	@Then("the Data Use Agreement Certification text agreement displayed")
 	public void the_Data_Use_Agreement_Certification_text_agreement_displayed()  {
+		CommonUtils.waitForVisibility(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationText);
 		Assert.assertEquals("SEER Research Data Use Certification Agreement\n" + 
 				"  This SEER Research Data Use Certification Agreement (the “Agreement”) outlines the terms for access to data in the National Institutes of Health (NIH) Surveillance, Epidemiology, and End Results (SEER) Research and Research Plus Databases (collectively, the “Databases”). The parties to this Agreement include the NIH and the “Authorized User” indicated in the signature block below.  The effective date of this Agreement is the date of Authorized User’s signature (“Effective Date”).\n" + 
 				"  Preamble\n" + 
@@ -194,6 +195,7 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 
 	@Then("the Best Practice Assurance text displayed")
 	public void the_Best_Practice_Assurance_text_displayed()  {
+		CommonUtils.waitForVisibility(seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceText);
 		Assert.assertEquals("Introduction\n" + 
 				"This document is intended to provide guidance for those requesting access to National Cancer Institute (NCI)-designated data repositories. It provides an outline of the expectations for the management and responsible conduct for the secondary use of data managed by the NCI on local storage systems or in cloud computing systems. This document is intended to ensure that NCI’s data distributed for secondary research purposes are kept secure and that only NCI approved users have access to this data.\n" + 
 				"  The information contained in this document is targeted to those individuals who are:\n" + 
@@ -313,7 +315,6 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 	public void when_the_user_scrolls_down_each_agreement() {
 		JavascriptUtils.scrollUpWithinElement(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationText, 8000);
 		MiscUtils.sleep(2000);
-		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.scrollUpWithinElement(seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceText, 8000);
 		MiscUtils.sleep(2000);
@@ -340,6 +341,7 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 
 	@Then("after entering required information, the user is able to successfully submit the SEER Data Access Request form")
 	public void after_entering_required_information_the_user_is_able_to_successfully_submit_the_SEER_Data_Access_Request_form() {
+		CommonUtils.waitForVisibility(seerDataAccessRequestPage.seerDataAccessSubmitButton);
 		seerDataAccessRequestPage.seerDataAccessSubmitButton.click();
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
