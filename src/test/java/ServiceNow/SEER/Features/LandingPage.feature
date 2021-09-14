@@ -1,6 +1,6 @@
 Feature: SEER Data Access Landing Page Scenarios
 
-  @Smoke @ODS-264 @ODS-256 @juarezds @Smoke
+  @Smoke @ODS-264 @ODS-256 @juarezds @Smoke @Progression
   Scenario: Verifying Request Database Access text
     Given a user is on the SEER Data Access landing page
     Then the "Request Database Access" text displays as
@@ -14,7 +14,7 @@ Feature: SEER Data Access Landing Page Scenarios
       To upgrade your access to include the Research Plus Database, existing SEER*Stat account holders can upgrade their accounts using their registered email address and once again go the Non-Institutional route below. Completing the Non-Institutional route a second time will provide you with the form to request expanded access to Research Plus Database.
       """
 
-  @Smoke @ODS-265 @ODS-263 @ODS-255 @juarezds 
+  @Smoke @ODS-265 @ODS-263 @ODS-255 @juarezds @Progression
   Scenario: Verifying Institutional Accounts and Non-Institutional Accounts text on landing page
     Given a user is on the SEER Data Access landing page
     Then under "Institutional Accounts" the text displayed is
