@@ -20,6 +20,13 @@ public class SignatureExplorerSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(mSigPortalHomePage.signatureExplorerTab);
 	
 	}
+	
+	@Then("the Instructions are displayed")
+	public void the_Instructions_are_displayed() {
+		
+		Assert.assertTrue(signatureExplorerPages.instructionsOnExplorerPage.getText().equalsIgnoreCase("Choose a Data Source and its associated options to submit a query using the panel on the left"));
+		
+	}
 
 	@When("the user calculates by clicking on the graph")
 	public void the_user_calculates_by_clicking_on_the_graph() {
