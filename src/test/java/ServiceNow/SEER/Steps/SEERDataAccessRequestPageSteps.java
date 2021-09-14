@@ -354,11 +354,13 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 
 	@Then("the {string} bread crumb displays")
 	public void the_bread_crumb_displays(String seerIncidenceDatabaseLink) {
+		CommonUtils.waitForVisibility(seerLandingPage.seerIncidenceDatabaseBreadcrumb);
 		Assert.assertEquals(seerIncidenceDatabaseLink, seerLandingPage.seerIncidenceDatabaseBreadcrumb.getText());
 	}
 
 	@Then("when clicking, user is directed to {string}")
 	public void when_clicking_user_is_directed_to(String seerIncidenceDatabaseUrl) {
+		CommonUtils.waitForVisibility(seerLandingPage.seerIncidenceDatabaseBreadcrumb);
 		CommonUtils.click(seerLandingPage.seerIncidenceDatabaseBreadcrumb);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
@@ -378,12 +380,14 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 
 	@When("the user is on the {string} page")
 	public void the_user_is_on_the_page(String seerUserRegistrationHeader) {
+		CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationHeaderText);
 		Assert.assertEquals(seerUserRegistrationHeader,
 				seerUserRegistrationPage.seerUserRegistrationHeaderText.getText());
 	}
 
 	@Then("user is directed to the {string} page")
 	public void user_is_directed_to_the_page(String seerRegistrationIsCompleteText) {
+		CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationIsCompleteHeader);
 		Assert.assertEquals(seerRegistrationIsCompleteText,
 				seerUserRegistrationPage.seerUserRegistrationIsCompleteHeader.getText());
 	}
