@@ -90,7 +90,7 @@ public class WebDriverUtils {
 				ChromeOptions chromeOptions = new ChromeOptions();
 				if (headless.equalsIgnoreCase("true")) {
 //					chromeOptions.setHeadless(true);
-					chromeOptions.addArguments("--headless");
+//					chromeOptions.addArguments("--headless");
 					chromeOptions.addArguments("window-size=1920,1080");
 //					chromeOptions.addArguments("--disable-dev-shm-usage");
 //					chromeOptions.addArguments("--no-sandbox");
