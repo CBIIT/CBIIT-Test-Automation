@@ -27,13 +27,13 @@ Feature: mSigPortal Signature Visualizations tab
     Then the results were successfully analyzed
 
  	@NCIATWP-3870	 @matarodriguezko
-  Scenario: 
+  Scenario: User can select either Public Data or User Entered Data
     Given the user is on the mSigPortal Home page
     When the user clicks on the Signature Visualization banner
     Then the Public and User radio button buttons are clickable
 
  	@NCIATWP-3872	 @matarodriguezko
-  Scenario: 
+  Scenario: Clicking Load Example Files loads VCF File
     Given the user is on the mSigPortal Home page
     And the user navigates to the Visualization section
     When the User data source is selected
@@ -63,4 +63,8 @@ Feature: mSigPortal Signature Visualizations tab
 		When the user calculates sample data
 		And then navigates to the Mutational Profiles tab
 		Then text can be entered in at the Sample Name text box
+		
+		
+
+
 

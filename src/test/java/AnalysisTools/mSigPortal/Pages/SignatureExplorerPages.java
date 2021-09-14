@@ -38,6 +38,9 @@ public class SignatureExplorerPages extends CommonUtils {
 	@FindBy (xpath = "//strong[contains(text(),'Tumor Mutational Burden')]")
 	public WebElement tmbText;
 	
+	@FindBy (xpath = "//p[contains(text(),'Choose a Data Source and its associated options to submit a query using the panel on the left')]")
+	public WebElement instructionsOnExplorerPage;
+	
 	
 
 }

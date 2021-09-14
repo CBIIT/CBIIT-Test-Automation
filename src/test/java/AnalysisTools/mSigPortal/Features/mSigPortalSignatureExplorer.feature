@@ -6,3 +6,9 @@ Given the user is on the mSigPortal Home page
 When the user navigates to the Signature Explorer page
 And the user calculates using public data
 Then the Tumor Mutational Burden download plot link is displayed
+
+@Smoke @matarodriguezkevin
+Scenario: Instructions are displayed on the default Explorer Page
+Given the user is on the mSigPortal Home page
+When the user navigates to the Signature Explorer page
+Then the Instructions are displayed
