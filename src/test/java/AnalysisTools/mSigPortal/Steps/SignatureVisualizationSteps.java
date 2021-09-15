@@ -61,14 +61,6 @@ public class SignatureVisualizationSteps extends PageInitializer {
 
 	}
 
-	@When("the data is calculated")
-	public void the_data_is_calculated() {
-		
-		MiscUtils.sleep(65000);
-		JavascriptUtils.clickByJS(signatureVisualizationsPage.submitButton);
-
-	}
-
 	@Then("the user navigates to Profile Comparison")
 	public void the_user_navigates_to_Profile_Comparison() throws InterruptedException {
 
@@ -82,9 +74,10 @@ public class SignatureVisualizationSteps extends PageInitializer {
 	@When("the user calculates on Profile Comparison")
 	public void the_user_calculates_on_Profile_Comparison() throws InterruptedException {
 
-		Thread.sleep(3000);
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.profileComparisonTab);
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.pcToReferenceTab);
-		JavascriptUtils.clickByJS(signatureVisualizationsPage.submitButton);
+		MiscUtils.sleep(5000);
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.calculateOnPcReferenceSignatures);
 //		CommonUtils.waitForVisibility(signatureVisualizationsPage.plotReturnedOnProfileComparison);
 
 	}
@@ -151,13 +144,26 @@ public class SignatureVisualizationSteps extends PageInitializer {
 
 	}
 
-	@When("the user clicks on load Example Data link")
-	public void the_user_clicks_on_load_Example_Data_link() {
-
+	@When("the user clicks on the Load Example File button")
+	public void the_user_clicks_on_the_Load_Example_File_button() {
+		
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.userDataSourceRadioButton);
+		CommonUtils.waitForClickability(signatureVisualizationsPage.loadExampleDataButton);
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.loadExampleDataButton);
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.removeFilesButton);
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.loadExampleDataButton);
+		CucumberLogUtils.logScreenShot();
+		
 	}
+
 
 	@Then("the VCF example file is displayed")
 	public void the_VCF_example_file_is_displayed() {
+		
+		MiscUtils.sleep(2000);
+		JavascriptUtils.drawBlueBorder(signatureVisualizationsPage.uploadFileVCFText);
+		String uploadFileValue = signatureVisualizationsPage.uploadFileVCFText.getText();
+		Assert.assertEquals("demo_input_multi.vcf.gz", uploadFileValue);
 
 	}
 
@@ -197,14 +203,21 @@ public class SignatureVisualizationSteps extends PageInitializer {
 	@When("the user clicks on the i icon when on the Profile Comparison tab")
 	public void the_user_clicks_on_the_i_icon_when_on_the_Profile_Comparison_tab() {
 		
+		CommonUtils.waitForClickability(signatureVisualizationsPage.profileComparisonTab);
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.profileComparisonTab);
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.pcToReferenceTab);
+		MiscUtils.sleep(15000);
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.compareSignatureInfoButton);
+		CucumberLogUtils.logScreenShot();
 		
 
 	}
 
-	@Then("the cosmic v{int} Signature pop up is displayed")
-	public void the_cosmic_v_Signature_pop_up_is_displayed(Integer int1) {
+	@Then("the cosmic Signature pop up is displayed")
+	public void the_cosmic_Signature_pop_up_is_displayed() {
 		
-		
+		JavascriptUtils.drawBlueBorder(signatureVisualizationsPage.signatureInfoPopUpBox);
+		CucumberLogUtils.logScreenShot();
 		
 	}
 	

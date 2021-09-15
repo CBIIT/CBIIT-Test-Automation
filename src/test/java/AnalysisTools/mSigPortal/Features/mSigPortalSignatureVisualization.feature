@@ -1,13 +1,10 @@
 Feature: mSigPortal Signature Visualizations tab
 
-	@NCIATWP-3848		@matarodriguezko
+	@Progression @NCIATWP-3848		@matarodriguezko
   Scenario: Profile Comparison Chart is Displayed
     Given the user is on the mSigPortal Home page
     And the user navigates to the Visualization section
-    When User inputted data is selected
-    And the user loads example data with file format VCF
-    When the data is calculated
-    Then the user navigates to Profile Comparison
+    When the user calculates sample data
     When the user calculates on Profile Comparison
     Then the chart is displayed
 
@@ -26,18 +23,11 @@ Feature: mSigPortal Signature Visualizations tab
     And the user clicks on the Download section tab
     Then the results were successfully analyzed
 
- 	@NCIATWP-3870	 @matarodriguezko
-  Scenario: User can select either Public Data or User Entered Data
-    Given the user is on the mSigPortal Home page
-    When the user clicks on the Signature Visualization banner
-    Then the Public and User radio button buttons are clickable
-
- 	@NCIATWP-3872	 @matarodriguezko
+ 	@Smoke @NCIATWP-3872	 @matarodriguezko
   Scenario: Clicking Load Example Files loads VCF File
     Given the user is on the mSigPortal Home page
     And the user navigates to the Visualization section
-    When the User data source is selected
-    And the user clicks on load Example Data link
+    When the user clicks on the Load Example File button
     Then the VCF example file is displayed
 
  	@Smoke @NCIATWP-3873	 @matarodriguezko
@@ -48,13 +38,13 @@ Feature: mSigPortal Signature Visualizations tab
     And the user clicks on Cosine Similarity
     Then the calculate button is enabled on all Cosine Tabs
     
-   @Progression @NCIATWP-3985	@matarodriguezko
+   @Smoke @NCIATWP-3985	@matarodriguezko
    Scenario: Profile Comparison i icon popup message
     Given the user is on the mSigPortal Home page
 		And the user navigates to the Visualization section
 		When the user calculates sample data
 		And the user clicks on the i icon when on the Profile Comparison tab
-		Then the cosmic v3 Signature pop up is displayed
+		Then the cosmic Signature pop up is displayed
 		
 	@Smoke @NCIATWP-4020 @matarodriguezko
 	Scenario: Mutational Profile Sample Name allows text in field

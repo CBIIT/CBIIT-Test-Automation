@@ -49,10 +49,6 @@ public class SignatureVisualizationsPage extends CommonUtils {
 	@FindBy(xpath = "(//div[@class=' css-2b097c-container'])[15]")
 	public WebElement sample2Dropdown;
 
-	/** Calculate button on Profile comparison tab */
-	@FindBy(xpath = "(//button[contains(text(),'Calculate')])[6]")
-	public WebElement calculateButtonOnPcToReferenceTab;
-
 	/**
 	 * This is the plot of data returned on the profile comparison tab on the PC to
 	 * Reference Tab
@@ -112,6 +108,25 @@ public class SignatureVisualizationsPage extends CommonUtils {
 	@FindBy (xpath = "(//button[contains(text(),'Calculate')])[3]")
 	public WebElement csToPublicDataCalculateButton;
 	
+	/** This is the compare signature info button */
+	@FindBy (xpath = "//button[@aria-label='compare signatures info']")
+	public WebElement compareSignatureInfoButton;
+	
+	/** This is the compare signature info pop up box */
+	@FindBy (xpath = "//div[@id='popover-basic']")
+	public WebElement signatureInfoPopUpBox;
+	
+	/** This is the Profile Type drop down on the Profile Comparison tab under Visualization section */
+	@FindBy (xpath = "(//div[contains(text(),'SBS')])[2]")
+	public WebElement profileTypeSBSDropDown;
+	
+	/** This is the "demo_input_multi.vcf.gz" text value for the Upload File browser on the user inputed table */
+	@FindBy (xpath = "//label[contains(text(),'demo_input_multi.vcf.gz')]")
+	public WebElement uploadFileVCFText;
+	
+	/** This is the calculate button on the PC to Reference Signatures on the Visualization Tab */
+	@FindBy (xpath = "(//button[contains(text(),'Calculate')])[2]")
+	public WebElement calculateOnPcReferenceSignatures;
 	
 
 }
