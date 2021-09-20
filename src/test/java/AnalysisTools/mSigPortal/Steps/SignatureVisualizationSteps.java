@@ -253,7 +253,10 @@ public class SignatureVisualizationSteps extends PageInitializer {
 	@Then("the Profiler Summary plot is displayed")
 	public void the_Profiler_Summary_plot_is_displayed() {
 		
-		
+		MiscUtils.sleep(2000);
+		CommonUtils.scrollIntoView(signatureVisualizationsPage.profilerSummaryHeaderText);
+		CucumberLogUtils.logScreenShot();
+		Assert.assertTrue(signatureVisualizationsPage.publicPlotOnProfilerSummary.isDisplayed());
 		
 	}
 
