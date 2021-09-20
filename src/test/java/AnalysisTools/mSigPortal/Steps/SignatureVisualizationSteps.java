@@ -241,6 +241,21 @@ public class SignatureVisualizationSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 
 	}
+	
+	@When("the user calculates public data")
+	public void the_user_calculates_public_data() {
+		
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.visualPublicSubmitButton);
+		MiscUtils.sleep(17000);
+		
+	}
+
+	@Then("the Profiler Summary plot is displayed")
+	public void the_Profiler_Summary_plot_is_displayed() {
+		
+		
+		
+	}
 
 
 }

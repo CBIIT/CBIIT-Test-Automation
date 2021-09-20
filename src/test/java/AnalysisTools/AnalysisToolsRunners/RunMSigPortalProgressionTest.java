@@ -19,7 +19,7 @@ import cucumber.api.junit.Cucumber;
 		, features="src/test/java/AnalysisTools/mSigPortal/Features"
 		, glue="AnalysisTools.mSigPortal.Steps"
 		, tags="@Progression"
-		, dryRun = false
+		, dryRun = true
 		, monochrome=true
 		, strict = true
 		

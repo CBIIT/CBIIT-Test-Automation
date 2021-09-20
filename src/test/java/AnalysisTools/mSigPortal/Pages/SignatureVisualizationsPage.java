@@ -30,7 +30,7 @@ public class SignatureVisualizationsPage extends CommonUtils {
 	public WebElement submitButton;
 
 	/** The Remove File button on the signature visualization tab */
-	@FindBy(xpath = "//button[contains(text(),'Remove File')]")
+	@FindBy(xpath = "//button[@title = 'Remove']")
 	public WebElement removeFilesButton;
 
 	/** Profile Comparison tab web element */
@@ -127,6 +127,14 @@ public class SignatureVisualizationsPage extends CommonUtils {
 	/** This is the calculate button on the PC to Reference Signatures on the Visualization Tab */
 	@FindBy (xpath = "(//button[contains(text(),'Calculate')])[2]")
 	public WebElement calculateOnPcReferenceSignatures;
+	
+	/** This is the submit button when on the Public Visualization page */
+	@FindBy (xpath = "(//button[contains(text(),'Submit')])[2]")
+	public WebElement visualPublicSubmitButton;
+	
+	/** This is the plot returned on the Profiler Summary when using public data */
+	@FindBy (xpath = "//div[@class='react-transform-element TransformComponent-module_content__TZU5O ']")
+	public WebElement publicPlotOnProfilerSummary;
 	
 
 }
