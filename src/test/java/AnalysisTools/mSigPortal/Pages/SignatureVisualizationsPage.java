@@ -136,5 +136,9 @@ public class SignatureVisualizationsPage extends CommonUtils {
 	@FindBy (xpath = "//div[@class='react-transform-element TransformComponent-module_content__TZU5O ']")
 	public WebElement publicPlotOnProfilerSummary;
 	
+	/** This is the text header for the Profiler Summary */
+	@FindBy (xpath = "//b[contains(text(),'Number of Mutations Per Sample with Regard to Mutational Profile')]")
+	public WebElement profilerSummaryHeaderText;
+	
 
 }
