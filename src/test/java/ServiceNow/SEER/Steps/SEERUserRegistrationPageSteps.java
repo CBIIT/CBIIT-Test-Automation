@@ -234,6 +234,7 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 
 	@When("submits the registration form")
 	public void submits_the_registration_form() {
+		CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationSubmitButton);
 		CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationSubmitButton);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();

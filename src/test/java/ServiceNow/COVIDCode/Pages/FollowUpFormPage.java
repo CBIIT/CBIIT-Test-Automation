@@ -11,6 +11,22 @@ import com.nci.automation.web.WebDriverUtils;
 
 
 public class FollowUpFormPage extends CommonUtils {
+	
+	/** --------------- BEGINNING OF COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE GENERALS  ---------------  */ 
+	
+	/** COVIDcode Follow up: Follow Up Native View All bread crumb link */
+	@FindBy(xpath = "//b[normalize-space()='All']")
+	public WebElement followUpNativeViewAllBreadcrumbLink;
+	
+	/** COVIDcode Follow up: Follow Up Native View Record Preview Button */
+	@FindBy(xpath = "/html/body/div[1]/div[1]/span/div/div[6]/table/tbody/tr/td/div/table/tbody/tr[1]/td[2]/a")
+	public WebElement followUpNativeViewRecordPreviewButton;
+	
+	/** COVIDcode Follow up: Follow Up Open Record Button */
+	@FindBy(xpath = "//a[normalize-space()='Open Record']")
+	public WebElement followUpNativeViewOpenRecordButton;
+	
+	/** --------------- END OF COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE GENERALS  ---------------  */ 
 
 
 	/** --------------- BEGINNING OF COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE GENERALS  ---------------  */ 
@@ -125,6 +141,10 @@ public class FollowUpFormPage extends CommonUtils {
 	@FindBy (xpath = "//p[@class='ng-binding ng-scope']")
 	public WebElement diseaseCourseOptionDisplayeAfterSelecting;
 	
+	/** Disease Course Intubation text option displayed after selected */
+	@FindBy (xpath = "//div[contains(text(),'Intubation')]")
+	public WebElement diseaseCourseIntubationTextOptionDisplayeAfterSelecting;
+	
 	/** Disease Course Don't know text option displayed after selected */
 	@FindBy (xpath = "//div[contains(text(),'Don')]")
 	public WebElement diseaseCourseDontKnowTextOptionDisplayeAfterSelecting;
@@ -162,9 +182,6 @@ public class FollowUpFormPage extends CommonUtils {
 	public List<WebElement> diseaseCourseDrugTreatmentsDropDownValues;
 	
 	/** --------------- THE END OF COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE DISEASE COURSE SECTION  ---------------  */ 
-
-
-	/** --------------- COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE DEMOGRAPHICS SECTION  ---------------  */ 
 
 	
 	/** --------------- BEGINNING OF COVIDcode ENROLLMENT FOLOW UP FORM QUESTIONNAIRE DEMOGRAPHICS SECTION  ---------------  */ 
