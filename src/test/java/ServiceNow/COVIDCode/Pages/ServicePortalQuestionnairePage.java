@@ -30,6 +30,10 @@ public class ServicePortalQuestionnairePage extends CommonUtils {
 	
 	/** --------------- BEGINNING OF COVIDcode SERVICE PORTAL DRAFT INITIAL QUESTIONNAIRE SECTION ---------------  */ 
 
+	/** SELECT User Group ID Drop Down */
+	@FindBy(xpath = "//select[@name='repositoryLocation']")
+	public WebElement userGroupIDDropDown;
+	
 	/** Start new initial questionnaire button */
 	@FindBy(xpath = "//button[contains(text(), 'Start new initial questionnaire')]")
 	public WebElement startNewQuestionnaireButton;

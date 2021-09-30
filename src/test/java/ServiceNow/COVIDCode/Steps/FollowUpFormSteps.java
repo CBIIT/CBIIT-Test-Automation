@@ -183,7 +183,7 @@ public class FollowUpFormSteps extends PageInitializer {
 	public void symptom_is_displayed_in_treatment_item_field(String intubationOption) {
 		MiscUtils.sleep(2000);
 		Assert.assertTrue(
-				followUpFormPage.diseaseCourseOptionDisplayeAfterSelecting.getText().contentEquals(intubationOption));
+				followUpFormPage.diseaseCourseIntubationTextOptionDisplayeAfterSelecting.getText().contentEquals(intubationOption));
 		CucumberLogUtils.logScreenShot();
 	}
 
@@ -354,6 +354,8 @@ public class FollowUpFormSteps extends PageInitializer {
 
 	@Then("when a selecting {string} to Were you symptomatic?")
 	public void when_a_selecting_to_Were_you_symptomatic(String string) {
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticDropdown);
+		JavascriptUtils.scrollIntoView(covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticDropdown);
 		covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticDropdown.click();
 		covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticSearchBox.sendKeys("Yes");
 		covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticSearchBox.sendKeys(Keys.ENTER);
