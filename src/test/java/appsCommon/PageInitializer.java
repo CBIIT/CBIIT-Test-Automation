@@ -50,8 +50,11 @@ import ServiceNow.AppTracker.StepsImplementation.VacancyManagerUserStepsImpl;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
 import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
+import ServiceNow.CHARMS.Pages.MyRASHomePage;
+import ServiceNow.CHARMS.Pages.MyRASLoginPage;
 import ServiceNow.CHARMS.Pages.OKTAloginPage;
 import ServiceNow.CHARMS.Pages.ProbandScreenerPage;
+import ServiceNow.CHARMS.Pages.RASopathyQuestionnairePage;
 import ServiceNow.CHARMS.StepsImplementation.CHARMSHomePageImp;
 import ServiceNow.CHARMS.StepsImplementation.ProbandScreenerSubmissionImpl;
 import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
@@ -134,6 +137,9 @@ public class PageInitializer {
 	protected static ClinicalGeneticsBranchPage clinicalGeneticsBranchPage;
 	protected static ProbandScreenerPage probandScreenerPage;
 	protected static ProbandScreenerSubmissionImpl probandScreenerSubmissionImpl;
+	protected static MyRASLoginPage myRASLoginPage;
+	protected static MyRASHomePage myRASHomePage;
+	protected static RASopathyQuestionnairePage rasopathyQuestionnairePage;
 
 	/** LDLink instances **/
 	protected static LDLinkHomePage ldLinkHomePage;
@@ -298,6 +304,10 @@ public class PageInitializer {
 		traineeReviewPage = new TraineeReviewPage();
 		coPrimaryMentorPage = new CoPrimaryMentorPage();
 		eidpDashboardStepImpl = new CustomBusinessApp.EIDP.StepsImplementation.DashboardStepImpl();
+		myRASLoginPage = new MyRASLoginPage();
+		myRASHomePage = new MyRASHomePage();
+		rasopathyQuestionnairePage = new RASopathyQuestionnairePage();
+		
 	
 		/**AppTracker**/
 		appTrackerBasePage = new AppTrackerBasePage();
