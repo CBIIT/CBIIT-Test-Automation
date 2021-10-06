@@ -483,6 +483,10 @@ public class RASopathyQuestionnairePage {
 	@FindBy(xpath = "//span[@class='LabelWrapper']//label[@for='QR~QID102~1']")
 	public WebElement participantCopyOfGeneticTestResultsYesOption;
 
+	/* No option */
+	@FindBy(xpath = "//span[@class='LabelWrapper']//label[@for='QR~QID102~2']")
+	public WebElement participantCopyOfGeneticTestResultsNoOption;
+
 	/**
 	 * --------------- END OF Do you have a copy of the genetic test results? PAGE
 	 * ---------------
@@ -513,14 +517,280 @@ public class RASopathyQuestionnairePage {
 	/* Drop files or click here to upload */
 	@FindBy(xpath = "//button[normalize-space()='Drop files or click here to upload']")
 	public WebElement dropFilesOrClickHereToUploadButton;
-	
+
 	/* Word document PDF text */
 	@FindBy(xpath = "//div[contains(@class,'FileUploadName')]")
 	public WebElement wordDocumentPDFtext;
-	
+
 	/**
 	 * --------------- END OF If you would like to upload the genetic test results,
 	 * please do so here. Note: Only pdf files are accepted. PAGE ---------------
+	 */
+
+	/**
+	 * --------------- BEGINNING OF
+	 * 
+	 * Were any genetic changes detected for the following syndromes? (Mark all that
+	 * apply). PAGE ---------------
+	 */
+
+	/* Other genes/syndromes option */
+	@FindBy(xpath = "//span[@class='LabelWrapper']//label[@for='QR~QID40~8']")
+	public WebElement wereAnyGeneticChangesDetectedOtherGenesSyndromeOption;
+
+	/* Noonan syndrome option */
+	@FindBy(xpath = "//span[contains(@class,'LabelWrapper')]//label[contains(@for,'QR~QID40~1')]")
+	public WebElement wereAnyGeneticChangesDetectedNoonanSyndromeOption;
+
+	/* Noonan syndrome with multiple lentigines option */
+	@FindBy(xpath = "//strong[normalize-space()='Noonan syndrome with multiple lentigines']")
+	public WebElement wereAnyGeneticChangesDetectedNoonanSyndromeWithMultipleLentiginesOption;
+
+	/* Cardiofaciocutaneous syndrome option */
+	@FindBy(xpath = "//label[contains(@for,'QR~QID40~3')]//span")
+	public WebElement wereAnyGeneticChangesDetectedCardiofaciocutaneousSyndromeOption;
+
+	/* Costello syndrome option */
+	@FindBy(xpath = "//label[contains(@for,'QR~QID40~4')]//span[1]")
+	public WebElement wereAnyGeneticChangesDetectedCostelloSyndromeOption;
+
+	/* Capillary syndrome option */
+	@FindBy(xpath = "//strong[normalize-space()='Capillary arteriovenous malformation syndrome']")
+	public WebElement wereAnyGeneticChangesDetectedCapillarySyndromeOption;
+
+	/* SYNGAP1 syndrome option */
+	@FindBy(xpath = "//strong[normalize-space()='SYNGAP1 syndrome']")
+	public WebElement wereAnyGeneticChangesDetectedSYNGAP1SyndromeOption;
+
+	/* Legius syndrome option */
+	@FindBy(xpath = "//strong[normalize-space()='Legius syndrome']")
+	public WebElement wereAnyGeneticChangesDetectedLegiusSyndromeOption;
+
+	/**
+	 * --------------- END OF
+	 * 
+	 * Were any genetic changes detected for the following syndromes? (Mark all that
+	 * apply). PAGE ---------------
+	 */
+
+	/**
+	 * --------------- BEGINNING OF
+	 * 
+	 * How did you hear about this study? If a specific health care provider
+	 * referred sdfg sgd to this study, please include their name in the
+	 * corresponding text box. PAGE ---------------
+	 */
+
+	/* Other option */
+	@FindBy(xpath = "//span[@class='LabelWrapper']//label[@for='QR~QID70~8']")
+	public WebElement howDidYouHearAboutTheStudyOtherOption;
+
+	/* Other text box */
+	@FindBy(xpath = "//input[contains(@title,'Other')]")
+	public WebElement howDidYouHearAboutTheStudyOtherTextBox;
+
+	/**
+	 * --------------- END OF
+	 * 
+	 * How did you hear about this study? If a specific health care provider
+	 * referred sdfg sgd to this study, please include their name in the
+	 * corresponding text box. PAGE ---------------
+	 */
+
+	/**
+	 * --------------- BEGINNING OF
+	 * 
+	 * Has participant or other family members ever participated in another study on
+	 * RASopathies at another medical institution, university, government agency or
+	 * other site? PAGE ---------------
+	 */
+
+	/* Yes option */
+	@FindBy(xpath = "//span[@class='LabelWrapper']//label[@for='QR~QID127~1']")
+	public WebElement hasParticipantOrOtherFamilyMemberParticipatedInOtherStudyYesOption;
+
+	/**
+	 * --------------- END OF
+	 * 
+	 * Has participant or other family members ever participated in another study on
+	 * RASopathies at another medical institution, university, government agency or
+	 * other site? PAGE ---------------
+	 */
+
+	/**
+	 * --------------- BEGINNING OF
+	 * 
+	 * Please provide the information regarding previous participation in other
+	 * RASopathy studies in the box below. PAGE ---------------
+	 */
+
+	/* Study name Relative 1 text box */
+	@FindBy(xpath = "//input[@name='QR~QID97#1~1~1~TEXT']")
+	public WebElement studyNameRelative1textbox;
+
+	/* Study name Relative 2 text box */
+	@FindBy(xpath = "//input[@name='QR~QID97#1~2~1~TEXT']")
+	public WebElement studyNameRelative2textbox;
+
+	/* Study name Relative 3 text box */
+	@FindBy(xpath = "//input[@name='QR~QID97#1~3~1~TEXT']")
+	public WebElement studyNameRelative3textbox;
+
+	/* Study name Relative 4 text box */
+	@FindBy(xpath = "//input[@name='QR~QID97#1~4~1~TEXT']")
+	public WebElement studyNameRelative4textbox;
+
+	/* Family relationship Relative 1 text box */
+	@FindBy(xpath = "//input[@name='QR~QID97#2~1~1~TEXT']")
+	public WebElement familyRelationshipRelative1textbox;
+
+	/* Family relationship Relative 2 text box */
+	@FindBy(xpath = "//input[@name='QR~QID97#2~2~1~TEXT']")
+	public WebElement familyRelationshipRelative2textbox;
+
+	/* Family relationship Relative 3 text box */
+	@FindBy(xpath = "//input[@name='QR~QID97#2~3~1~TEXT']")
+	public WebElement familyRelationshipRelative3textbox;
+
+	/* Family relationship Relative 4 text box */
+	@FindBy(xpath = "//input[@name='QR~QID97#2~4~1~TEXT']")
+	public WebElement familyRelationshipRelative4textbox;
+
+	/* Study contact person Relative 1 text box */
+	@FindBy(xpath = "//input[@name='QR~QID97#3~1~1~TEXT']")
+	public WebElement studyContactPersonRelative1textbox;
+
+	/* Study contact person Relative 2 text box */
+	@FindBy(xpath = "//input[@name='QR~QID97#3~2~1~TEXT']")
+	public WebElement studyContactPersonRelative2textbox;
+
+	/* Study contact person Relative 3 text box */
+	@FindBy(xpath = "//input[@name='QR~QID97#3~3~1~TEXT']")
+	public WebElement studyContactPersonRelative3textbox;
+
+	/* Study contact person Relative 4 text box */
+	@FindBy(xpath = "//input[@name='QR~QID97#3~4~1~TEXT']")
+	public WebElement studyContactPersonRelative4textbox;
+
+	/* Study phone number Relative 1 text box */
+	@FindBy(xpath = "//input[@name='QR~QID97#4~1~1~TEXT']")
+	public WebElement studyPhoneNumberRelative1textbox;
+
+	/* Study phone number Relative 2 text box */
+	@FindBy(xpath = "//input[@name='QR~QID97#4~2~1~TEXT']")
+	public WebElement studyPhoneNumberRelative2textbox;
+
+	/* Study phone number Relative 3 text box */
+	@FindBy(xpath = "//input[@name='QR~QID97#4~3~1~TEXT']")
+	public WebElement studyPhoneNumberRelative3textbox;
+
+	/* Study phone number Relative 4 text box */
+	@FindBy(xpath = "//input[@name='QR~QID97#4~4~1~TEXT']")
+	public WebElement studyPhoneNumberRelative4textbox;
+
+	/* Date of participation year Relative 1 text box */
+	@FindBy(xpath = "//input[@name='QR~QID97#5~1~1~TEXT']")
+	public WebElement dateOfParticipationStartYearRelative1textbox;
+
+	/* Date of participation year Relative 2 text box */
+	@FindBy(xpath = "//input[@name='QR~QID97#5~2~1~TEXT']")
+	public WebElement dateOfParticipationStartYearRelative2textbox;
+
+	/* Date of participation year Relative 3 text box */
+	@FindBy(xpath = "//input[@name='QR~QID97#5~3~1~TEXT']")
+	public WebElement dateOfParticipationStartYearRelative3textbox;
+
+	/* Date of participation start year Relative 4 text box */
+	@FindBy(xpath = "//input[@name='QR~QID97#5~4~1~TEXT']")
+	public WebElement dateOfParticipationStartYearRelative4textbox;
+
+	/* Date of participation end year Relative 1 text box */
+	@FindBy(xpath = "//input[@name='QR~QID97#5~1~2~TEXT']")
+	public WebElement dateOfParticipationEndYearRelative1textbox;
+
+	/* Date of participation end year Relative 2 text box */
+	@FindBy(xpath = "//input[@name='QR~QID97#5~2~2~TEXT']")
+	public WebElement dateOfParticipationEndYearRelative2textbox;
+
+	/* Date of participation end year Relative 3 text box */
+	@FindBy(xpath = "//input[@name='QR~QID97#5~3~2~TEXT']")
+	public WebElement dateOfParticipationEndYearRelative3textbox;
+
+	/* Date of participation end year Relative 4 text box */
+	@FindBy(xpath = "//input[@name='QR~QID97#5~4~2~TEXT']")
+	public WebElement dateOfParticipationEndYearRelative4textbox;
+
+	/**
+	 * --------------- END OF
+	 * 
+	 * Please provide the information regarding previous participation in other
+	 * RASopathy studies in the box below. PAGE ---------------
+	 */
+
+	/**
+	 * --------------- BEGINNING OF
+	 * 
+	 * What are the main reasons for participating in this study? Select all that
+	 * apply. Please elaborate on the reason in the corresponding textbox. PAGE
+	 * ---------------
+	 */
+
+	/* Participate in research option */
+	@FindBy(xpath = "//span[contains(@class,'LabelWrapper')]//label[contains(@for,'QR~QID81~1')]")
+	public WebElement mainReasonForParticipatingInStudyParticipateInResearchOption;
+
+	/* Participate in research text box */
+	@FindBy(xpath = "//input[contains(@title,'<span style=\"font-family:Arial,Helvetica,sans-serif;\">Participate in research</span>')]")
+	public WebElement mainReasonForParticipatingInStudyParticipateInResearchTextBox;
+
+	/* Identify a diagnosis option */
+	@FindBy(xpath = "//span[@class='LabelWrapper']//label[@for='QR~QID81~2']")
+	public WebElement mainReasonForParticipatingInStudyIdentifyADiagnosisOption;
+
+	/* Identify a diagnosis text box */
+	@FindBy(xpath = "//input[contains(@title,'<span style=\"font-family:Arial,Helvetica,sans-serif;\">Identify a diagnosis</span>')]")
+	public WebElement mainReasonForParticipatingInStudyIdentifyADiagnosisTextBox;
+
+	/* Receive genetic testing option */
+	@FindBy(xpath = "//span[@class='LabelWrapper']//label[@for='QR~QID81~3']")
+	public WebElement mainReasonForParticipatingInStudyReceiveGeneticTestingOption;
+
+	/* Receive genetic testing text box */
+	@FindBy(xpath = "//input[contains(@title,'<span style=\"font-family:Arial,Helvetica,sans-serif;\">Receive genetic testing</span>')]")
+	public WebElement mainReasonForParticipatingInStudyReceiveGeneticTestingTextBox;
+
+	/* Other option */
+	@FindBy(xpath = "//span[@class='LabelWrapper']//label[@for='QR~QID81~4']")
+	public WebElement mainReasonForParticipatingInStudyOtherOption;
+
+	/* Other text box */
+	@FindBy(xpath = "//input[contains(@title,'<span style=\"font-family:Arial,Helvetica,sans-serif;\">Other</span>')]")
+	public WebElement mainReasonForParticipatingInStudyOtherTextBox;
+
+	/**
+	 * --------------- END OF
+	 * 
+	 * What are the main reasons for participating in this study? Select all that
+	 * apply. Please elaborate on the reason in the corresponding textbox. PAGE
+	 * ---------------
+	 */
+
+	/**
+	 * --------------- BEGINNING OF
+	 * 
+	 * We thank you for your time spent taking this survey. Your response has been
+	 * recorded. PAGE ---------------
+	 */
+
+	/* Submission successful text */
+	@FindBy(xpath = "//div[@class='END_OF_SURVEY EndOfSurvey BorderColor SystemEndOfSurvey']")
+	public WebElement submissionSuccessfulText;
+	
+	/**
+	 * --------------- END OF
+	 * 
+	 * We thank you for your time spent taking this survey. Your response has been
+	 * recorded. PAGE ---------------
 	 */
 
 	/** --------------- END OF RASopathy Questionnaire PAGE --------------- */

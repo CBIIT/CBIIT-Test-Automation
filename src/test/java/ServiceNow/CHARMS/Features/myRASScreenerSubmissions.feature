@@ -37,9 +37,15 @@ Feature: myRAS Screener Submissions
     And proceeds with providing genetic testing information
     And selects Yes option to family members of participants having been diagnosed with a RASopathy
     And selects Yes option to participant having had genetic testing
-    And selects Yes option to participant having a copy of genetic test results
-    And selects Upload to this questionnaire options for providing genetic test results of participant
-    And uploads PDF file of genetic test results of participant
+    And selects No option to participant having a copy of genetic test results
+    And selects all the option for any genetic changes detected for the following syndromes for the participant
+    And the user proceeds on answering few remaining questions regarding the study
+    And selects Other option and enters "Entering other option" for how did you hear about this study? 
+    And selects the Yes option for the participant or other family members ever participated in another study on RASopathies at another medical institution
+    And provides the following information regarding previous participation in other RASopathy studies
+    And for What are the main reasons for participating in this study? selects All options and for Participate in research enters "Reason one", for Identify a diagnosis enters "Reason two", for Receive genetic testing enters "Reason three", and for Other enters "Reason four"
+    And proceeds with submitting the Eligibility Questionnaire
+    Then the Eligibility Questionnaire is sucessfully submitted
     
     
     
