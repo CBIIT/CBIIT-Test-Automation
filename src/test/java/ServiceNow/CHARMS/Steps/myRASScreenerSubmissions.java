@@ -4,7 +4,6 @@ import java.util.Set;
 
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -12,11 +11,10 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import ServiceNow.CHARMS.Pages.MyRASLoginPage;
-import ServiceNow.COVIDDash.Utils.COVIDConstants;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 
 public class myRASScreenerSubmissions extends PageInitializer {
 
@@ -235,12 +233,13 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	public void enters_for_being_diagnosed_with_any_of_the_listed_conditions(String otherCondition) {
 
 		MiscUtils.sleep(1000);
-		CommonUtils
-				.waitForVisibility(rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithFollowingConditionsOtherOption);
-		JavascriptUtils
-				.scrollIntoView(rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithFollowingConditionsOtherOption);
+		CommonUtils.waitForVisibility(
+				rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithFollowingConditionsOtherOption);
+		JavascriptUtils.scrollIntoView(
+				rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithFollowingConditionsOtherOption);
 		rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithFollowingConditionsOtherOption.click();
-		rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithFollowingConditionsOtherTextBox.sendKeys(otherCondition);
+		rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithFollowingConditionsOtherTextBox
+				.sendKeys(otherCondition);
 		rasopathyQuestionnairePage.studyNextButton.click();
 	}
 
@@ -296,7 +295,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	@Given("selects Other and enters {string} for selecting a specific RASopathy diagnosed of the participant")
 	public void selects_Other_and_enters_for_selecting_a_specific_RASopathy(String enteringOtherText) {
-		
+
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.participantSpecificRasopathyOtherOption);
 		JavascriptUtils.scrollIntoView(rasopathyQuestionnairePage.participantSpecificRasopathyOtherOption);
@@ -304,26 +303,26 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		rasopathyQuestionnairePage.participantSpecificRasopathyOtherTextBox.sendKeys(enteringOtherText);
 		rasopathyQuestionnairePage.studyNextButton.click();
 	}
-	
+
 	@Given("enters participants age in years {string} of diagnosis")
 	public void enters_participants_age_in_years_of_diagnosis(String age) {
-		
+
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.participantAgeInYearsAtDiagnosis);
 		rasopathyQuestionnairePage.participantAgeInYearsAtDiagnosis.sendKeys(age);
 		rasopathyQuestionnairePage.studyNextButton.click();
 	}
-	
+
 	@Given("enters participants year of diagnosis {string}")
 	public void enters_participants_year_of_diagnosis(String participantsYearOfDiagnosis) {
-		
+
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.participantsYearOfDiagnosis);
 		rasopathyQuestionnairePage.participantsYearOfDiagnosis.sendKeys(participantsYearOfDiagnosis);
 		rasopathyQuestionnairePage.studyNextButton.click();
 	}
-	
+
 	@Given("proceeds with providing genetic testing information")
 	public void proceeds_with_providing_genetic_testing_information() {
-		
+
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.studyNextButton);
 		rasopathyQuestionnairePage.studyNextButton.click();
@@ -331,51 +330,128 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	@Given("selects Yes option to family members of participants having been diagnosed with a RASopathy")
 	public void selects_Yes_option_to_family_members_having_been_diagnosed_with_a_RASopathy() {
-		
+
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.participantsFamilyMembersBeenDiagnosedYesOption);
 		rasopathyQuestionnairePage.participantsFamilyMembersBeenDiagnosedYesOption.click();
 		rasopathyQuestionnairePage.studyNextButton.click();
 	}
-	
+
 	@Given("selects Yes option to participant having had genetic testing")
 	public void selects_Yes_option_to_participant_having_had_genetic_testing() {
-		
+
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.participantsEverHadGeneticTestingYesOption);
 		rasopathyQuestionnairePage.participantsEverHadGeneticTestingYesOption.click();
 		rasopathyQuestionnairePage.studyNextButton.click();
 	}
-	
-	@Given("selects Yes option to participant having a copy of genetic test results")
-	public void selects_Yes_option_to_participant_having_a_copy_of_genetic_test_results() {
 
-		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.participantCopyOfGeneticTestResultsYesOption);
-		rasopathyQuestionnairePage.participantCopyOfGeneticTestResultsYesOption.click();
+	@Given("selects No option to participant having a copy of genetic test results")
+	public void selects_No_option_to_participant_having_a_copy_of_genetic_test_results() {
+
+		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.participantCopyOfGeneticTestResultsNoOption);
+		rasopathyQuestionnairePage.participantCopyOfGeneticTestResultsNoOption.click();
+		rasopathyQuestionnairePage.studyNextButton.click();
+	}
+
+	@Given("selects all the option for any genetic changes detected for the following syndromes for the participant")
+	public void selects_all_the_option_for_any_genetic_changes_detected_for_the_following_syndromes_for_the_participant() {
+
+		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedNoonanSyndromeOption);
+		rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedNoonanSyndromeOption.click();
+		rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedNoonanSyndromeWithMultipleLentiginesOption.click();
+		rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedCardiofaciocutaneousSyndromeOption.click();
+		rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedCostelloSyndromeOption.click();
+		rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedCapillarySyndromeOption.click();
+		rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedSYNGAP1SyndromeOption.click();
+		rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedLegiusSyndromeOption.click();
+		rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedOtherGenesSyndromeOption.click();
+		rasopathyQuestionnairePage.studyNextButton.click();
+	}
+
+	@Given("the user proceeds on answering few remaining questions regarding the study")
+	public void the_user_proceeds_on_answering_few_remaining_questions_regarding_the_study() {
+
+		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.studyNextButton);
+		MiscUtils.sleep(1500);
 		rasopathyQuestionnairePage.studyNextButton.click();
 	}
 	
-	@Given("selects Upload to this questionnaire options for providing genetic test results of participant")
-	public void selects_Upload_to_this_questionnaire_options_for_providing_genetic_test_results_of_participant() {
+	@Given("selects Other option and enters {string} for how did you hear about this study?")
+	public void selects_Other_option_and_enters_for_how_did_you_hear_about_this_study(String otherOptionText) {
+
+	CommonUtils.waitForVisibility(rasopathyQuestionnairePage.howDidYouHearAboutTheStudyOtherOption);
+	JavascriptUtils.scrollIntoView(rasopathyQuestionnairePage.howDidYouHearAboutTheStudyOtherOption);
+	rasopathyQuestionnairePage.howDidYouHearAboutTheStudyOtherOption.click();
+	rasopathyQuestionnairePage.howDidYouHearAboutTheStudyOtherTextBox.sendKeys(otherOptionText);
+	rasopathyQuestionnairePage.studyNextButton.click();
+	}
+	
+	@Given("selects the Yes option for the participant or other family members ever participated in another study on RASopathies at another medical institution")
+	public void selects_the_Yes_option_for_the_participant_or_other_family_members_ever_participated_in_another_study_on_RASopathies_at_another_medical_institution() {
+
+	CommonUtils.waitForVisibility(rasopathyQuestionnairePage.hasParticipantOrOtherFamilyMemberParticipatedInOtherStudyYesOption);	
+	rasopathyQuestionnairePage.hasParticipantOrOtherFamilyMemberParticipatedInOtherStudyYesOption.click();
+	rasopathyQuestionnairePage.studyNextButton.click();
+	}
+	
+	@Given("provides the following information regarding previous participation in other RASopathy studies")
+	public void provides_the_following_information_regarding_previous_participation_in_other_RASopathy_studies() {
 		
-		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.participantUploadToThisQuestionnaireOption);
-		rasopathyQuestionnairePage.participantUploadToThisQuestionnaireOption.click();
+		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.studyNameRelative1textbox);
+		rasopathyQuestionnairePage.studyNameRelative1textbox.sendKeys("RAS1");
+		rasopathyQuestionnairePage.studyNameRelative2textbox.sendKeys("RAS2");
+		rasopathyQuestionnairePage.studyNameRelative3textbox.sendKeys("RAS3");
+		rasopathyQuestionnairePage.studyNameRelative4textbox.sendKeys("RAS4");
+		rasopathyQuestionnairePage.familyRelationshipRelative1textbox.sendKeys("Parent");
+		rasopathyQuestionnairePage.familyRelationshipRelative2textbox.sendKeys("Uncle");
+		rasopathyQuestionnairePage.familyRelationshipRelative3textbox.sendKeys("Aunt");
+		rasopathyQuestionnairePage.familyRelationshipRelative4textbox.sendKeys("Uncle");
+		rasopathyQuestionnairePage.studyContactPersonRelative1textbox.sendKeys("RN");
+		rasopathyQuestionnairePage.studyContactPersonRelative2textbox.sendKeys("MD");
+		rasopathyQuestionnairePage.studyContactPersonRelative3textbox.sendKeys("GC");
+		rasopathyQuestionnairePage.studyContactPersonRelative4textbox.sendKeys("etc");
+		rasopathyQuestionnairePage.studyPhoneNumberRelative1textbox.sendKeys("240-286-6298");
+		rasopathyQuestionnairePage.studyPhoneNumberRelative2textbox.sendKeys("240-286-6298");
+		rasopathyQuestionnairePage.studyPhoneNumberRelative3textbox.sendKeys("240-286-6298");
+		rasopathyQuestionnairePage.studyPhoneNumberRelative4textbox.sendKeys("240-286-6298");
+		rasopathyQuestionnairePage.dateOfParticipationStartYearRelative1textbox.sendKeys("1991");
+		rasopathyQuestionnairePage.dateOfParticipationStartYearRelative2textbox.sendKeys("1992");
+		rasopathyQuestionnairePage.dateOfParticipationStartYearRelative3textbox.sendKeys("1993");
+		rasopathyQuestionnairePage.dateOfParticipationStartYearRelative4textbox.sendKeys("1994");
+		rasopathyQuestionnairePage.dateOfParticipationEndYearRelative1textbox.sendKeys("2010");
+		rasopathyQuestionnairePage.dateOfParticipationEndYearRelative2textbox.sendKeys("2012");
+		rasopathyQuestionnairePage.dateOfParticipationEndYearRelative3textbox.sendKeys("2014");
+		rasopathyQuestionnairePage.dateOfParticipationEndYearRelative4textbox.sendKeys("2016");
 		rasopathyQuestionnairePage.studyNextButton.click();
 	}
 	
-	@Given("uploads PDF file of genetic test results of participant")
-	public void uploads_PDF_file_of_genetic_test_results_of_participant() {
-		
-		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dropFilesOrClickHereToUploadButton);
-		JavascriptUtils.scrollIntoView(rasopathyQuestionnairePage.dropFilesOrClickHereToUploadButton);
-		
-		MiscUtils.sleep(7000);
-		
-		//rasopathyQuestionnairePage.dropFilesOrClickHereToUploadButton.click();
-		//JavascriptUtils.enterValueByJS(rasopathyQuestionnairePage.dropFilesOrClickHereToUploadButton, COVIDConstants.PDF_PATH);
-		MiscUtils.sleep(7000);
-		//CommonUtils.waitForClickability(rasopathyQuestionnairePage.dropFilesOrClickHereToUploadButton);
-		rasopathyQuestionnairePage.dropFilesOrClickHereToUploadButton.sendKeys(COVIDConstants.PDF_PATH);
-		MiscUtils.sleep(7000);
-		//boolean isFileUploaded = rasopathyQuestionnairePage.wordDocumentPDFtext.getText().contains(".pdf");
-		//Assert.assertTrue(isFileUploaded);	
+	
+	@Given("for What are the main reasons for participating in this study? selects All options and for Participate in research enters {string}, for Identify a diagnosis enters {string}, for Receive genetic testing enters {string}, and for Other enters {string}")
+	public void for_What_are_the_main_reasons_for_participating_in_this_study_selects_All_options_and_for_Participate_in_research_enters_for_Identify_a_diagnosis_enters_for_Receive_genetic_testing_enters_and_for_Other_enters(String reasonOne, String reasonTwo, String reasonThree, String reasonFour) {
+
+	CommonUtils.waitForVisibility(rasopathyQuestionnairePage.mainReasonForParticipatingInStudyParticipateInResearchOption);	
+	rasopathyQuestionnairePage.mainReasonForParticipatingInStudyParticipateInResearchOption.click();
+	rasopathyQuestionnairePage.mainReasonForParticipatingInStudyParticipateInResearchTextBox.sendKeys(reasonOne);
+	rasopathyQuestionnairePage.mainReasonForParticipatingInStudyIdentifyADiagnosisOption.click();
+	rasopathyQuestionnairePage.mainReasonForParticipatingInStudyIdentifyADiagnosisTextBox.sendKeys(reasonTwo);
+	rasopathyQuestionnairePage.mainReasonForParticipatingInStudyReceiveGeneticTestingOption.click();
+	rasopathyQuestionnairePage.mainReasonForParticipatingInStudyReceiveGeneticTestingTextBox.sendKeys(reasonFour);
+	rasopathyQuestionnairePage.mainReasonForParticipatingInStudyOtherOption.click();
+	rasopathyQuestionnairePage.mainReasonForParticipatingInStudyOtherTextBox.sendKeys(reasonFour);
+	rasopathyQuestionnairePage.studyNextButton.click();
 	}
+	
+	@Given("proceeds with submitting the Eligibility Questionnaire")
+	public void proceeds_with_submitting_the_Eligibility_Questionnaire() {
+		
+		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.studyNextButton);
+		JavascriptUtils.scrollIntoView(rasopathyQuestionnairePage.studyNextButton);
+		rasopathyQuestionnairePage.studyNextButton.click();
+	}
+
+	@Then("the Eligibility Questionnaire is sucessfully submitted")
+	public void the_Eligibility_Questionnaire_is_sucessfully_submitted() {
+		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.submissionSuccessfulText);		
+	}
+	
 }
