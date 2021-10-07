@@ -23,6 +23,7 @@ public class CatalogSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(catalogPages.catalogSignatureName);
 		CucumberLogUtils.logScreenShot();
+		
 
 	}
 
