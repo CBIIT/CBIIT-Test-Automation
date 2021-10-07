@@ -12,7 +12,7 @@ public class NativeViewSentViewPage extends CommonUtils {
 	/** --------------- NATIVE VIEW SENT VIEW PAGE --------------- */
 	
 	/** System Mailboxes SENT link */
-	@FindBy(xpath="//div[contains(text(),'Sent')]")
+	@FindBy(xpath="//div[contains(@class,'sn-widget-list-title')][normalize-space()='Sent']")
 	public WebElement nativeViewmailboxSentLink;
 	
 	/**Native View IFRAME*/

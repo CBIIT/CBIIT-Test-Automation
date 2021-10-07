@@ -1,13 +1,13 @@
 Feature: Proband Scenarios
   Description: This feature file contains Proband related scenarios
 
-  @Smoke @juarezds
+  @juarezds
   Scenario: Proband LFS Okta Login
     Given a Proband is on the CHARMS home page
     When the Proband logs in with existing valid credentials
     Then the "Clinical Genetics Branch" page displays
 
-  @Progression
+  @INVALID
   Scenario Outline: Proband Screener Submission - Executed with different sets of data
     Given a Proband is on the CHARMS home page
     When the Proband logs in with existing valid credentials

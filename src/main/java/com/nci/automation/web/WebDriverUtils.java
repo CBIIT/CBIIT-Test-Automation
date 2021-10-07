@@ -89,20 +89,21 @@ public class WebDriverUtils {
 			} else if (Constants.BROWSER_CHROME.equals(browser)) {
 				ChromeOptions chromeOptions = new ChromeOptions();
 				if (headless.equalsIgnoreCase("true")) {
-//					chromeOptions.setHeadless(true);
-					chromeOptions.addArguments("--headless");
+					chromeOptions.setHeadless(true);
+//					chromeOptions.addArguments("--headless");
 					chromeOptions.addArguments("window-size=1920,1080");
-					chromeOptions.addArguments("--disable-dev-shm-usage");
-					chromeOptions.addArguments("--no-sandbox");
-					chromeOptions.addArguments("--disable-infobars");
-					chromeOptions.addArguments("--disable-extensions");
-					chromeOptions.addArguments("--disable-gpu");
-					chromeOptions.addArguments("enable-automation");
-					chromeOptions.addArguments("--disable-browser-side-navigation");
-					chromeOptions.addArguments("--profile-directory=Default");
-					chromeOptions.addArguments("--disable-setuid-sandbox");
-					chromeOptions.addArguments("--user-data-dir=~/.config/google-chrome");
-					chromeOptions.setExperimentalOption("useAutomationExtension", false);
+//					chromeOptions.addArguments("--disable-dev-shm-usage");
+//					chromeOptions.addArguments("--disable-tmp-usage");
+//					chromeOptions.addArguments("--no-sandbox");
+//					chromeOptions.addArguments("--disable-infobars");
+//					chromeOptions.addArguments("--disable-extensions");
+//					chromeOptions.addArguments("--disable-gpu");
+//					chromeOptions.addArguments("enable-automation");
+//					chromeOptions.addArguments("--disable-browser-side-navigation");
+//					chromeOptions.addArguments("--profile-directory=Default");
+//					chromeOptions.addArguments("--disable-setuid-sandbox");
+//					chromeOptions.addArguments("--user-data-dir=~/.config/google-chrome");
+//					chromeOptions.setExperimentalOption("useAutomationExtension", false);
 					webDriver = new ChromeDriver(chromeOptions);
 					System.out.println(chromeOptions.getVersion());
 				} else {
@@ -155,7 +156,7 @@ public class WebDriverUtils {
 		}
 
 		long implicitWaitInSeconds = Long.valueOf(LocalConfUtils.getProperty("implicitWaitInSeconds"));
-		webDriver.manage().timeouts().implicitlyWait(implicitWaitInSeconds, TimeUnit.MINUTES);
+		webDriver.manage().timeouts().implicitlyWait(implicitWaitInSeconds, TimeUnit.SECONDS);
 
 		if(!Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)){ 
 			webDriver.manage().window().maximize();	
