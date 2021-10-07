@@ -25,6 +25,9 @@ public class OKTAloginPage extends CommonUtils {
 	@FindBy (xpath = "//input[@type='submit']")
 	public WebElement loginBtn;
 	
+	/* Send Push Button */
+	@FindBy (xpath = "//input[@value='Send Push']")
+	public WebElement sendPushButton;
 	
 	
 	public OKTAloginPage() {	
