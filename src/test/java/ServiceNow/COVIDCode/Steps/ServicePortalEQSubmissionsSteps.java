@@ -4,6 +4,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -53,23 +54,29 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 	@Given("a user is on the Exposures and Risk Factors tab on  COVIDcode Enrollment Questionnaire")
 	public void a_user_is_on_the_Exposures_and_Risk_Factors_tab_on_COVIDcode_Enrollment_Questionnaire() throws TestingException {
 		signOutVerificationStepImp.covidCodeServicePortalLogIn();
+		CommonUtils.waitForVisibility(servicePortalQuestionnairePage.startNewInitialQuestionnaireButton);
 		servicePortalQuestionnairePage.startNewInitialQuestionnaireButton.click();
-		servicePortalQuestionnairePage.enrollmentCreationUserGroupIDSelectDropDown.click();
+		CommonUtils.waitForVisibility(servicePortalQuestionnairePage.enrollmentCreationUserGroupIDSelectDropDown);
 		CommonUtils.selectDropDownValue(servicePortalQuestionnairePage.enrollmentCreationUserGroupIDSelectDropDown, 2);
+		CommonUtils.waitForVisibility(servicePortalQuestionnairePage.createEnrollmentButton);
 		servicePortalQuestionnairePage.createEnrollmentButton.click();
-		MiscUtils.sleep(5000);
+		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsTab);
 		MiscUtils.sleep(3000);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsTab);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsTab.click();
 	}
 	
 	@Then("the options for the following questions Non-steroidal anti-inflammatory drugs, Myocardial infarction or stroke medication, Paracetamol\\/acetaminophen, Blood thinners, Asthma medication, ACE-inhibitors for blood pressure, Pollen allergy medication, ARBs, Antibiotics penicillin, azithromycin are: -- None --, Day of or day before onset of symptoms\\/diagnosis \\(if asymptomatic), {int} to {int} days prior to onset of symptoms\\/diagnosis \\(if asymptomatic), {int} to {int} weeks prior to onset of symptoms\\/diagnosis \\(if asymptomatic), {int} to {int} months prior to onset of symptoms\\/diagnosis \\(if asymptomatic), Over {int} year prior to onset of symptoms\\/diagnosis \\(if asymptomatic), Never, Don’t know, Prefer not to answer")
 	public void the_options_for_the_following_questions_Non_steroidal_anti_inflammatory_drugs_Myocardial_infarction_or_stroke_medication_Paracetamol_acetaminophen_Blood_thinners_Asthma_medication_ACE_inhibitors_for_blood_pressure_Pollen_allergy_medication_ARBs_Antibiotics_penicillin_azithromycin_are_None_Day_of_or_day_before_onset_of_symptoms_diagnosis_if_asymptomatic_to_days_prior_to_onset_of_symptoms_diagnosis_if_asymptomatic_to_weeks_prior_to_onset_of_symptoms_diagnosis_if_asymptomatic_to_months_prior_to_onset_of_symptoms_diagnosis_if_asymptomatic_Over_year_prior_to_onset_of_symptoms_diagnosis_if_asymptomatic_Never_Don_t_know_Prefer_not_to_answer(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6, Integer int7) {
 		String[] arrayList = {"-- None --", "Day of or day before onset of symptoms/diagnosis (if asymptomatic)", "2 to 7 days prior to onset of symptoms/diagnosis (if asymptomatic)", "1 to 4 weeks prior to onset of symptoms/diagnosis (if asymptomatic)", "1 to 12 months prior to onset of symptoms/diagnosis (if asymptomatic)", "Over 1 year prior to onset of symptoms/diagnosis (if asymptomatic)", "Never", "Don't know", "Prefer not to answer" };
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsNonSteroidalAntiInflammatoryDrugsnDD);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsNonSteroidalAntiInflammatoryDrugsnDD.click();
-		covidCodeEQPageImpl.servicePortalEnrollmentQuestionnaireExposureAndRiskAssertValueFromBootStrapDropDown(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsDDValue, arrayList);
 		MiscUtils.sleep(2000);
+		covidCodeEQPageImpl.servicePortalEnrollmentQuestionnaireExposureAndRiskAssertValueFromBootStrapDropDown(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsDDValue, arrayList);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsNonSteroidalAntiInflammatoryDrugsnSearchDropDownTextField);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsNonSteroidalAntiInflammatoryDrugsnSearchDropDownTextField.sendKeys(Keys.ENTER);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsMyocardialInfarctionOrStrokeMedicationDD);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsMyocardialInfarctionOrStrokeMedicationDD.click();
 		covidCodeEQPageImpl.servicePortalEnrollmentQuestionnaireExposureAndRiskAssertValueFromBootStrapDropDown(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsDDValue, arrayList);
 		MiscUtils.sleep(2000);
@@ -128,10 +135,11 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 
 	@Then("there is a field option called {string} for the Drug Treatments field")
 	public void there_is_a_field_option_called_for_the_Drug_Treatments_field(String ConvalescentPlasma) {
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseDrugTreatmentsTextField);
 		covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseDrugTreatmentsTextField.click();
 		MiscUtils.sleep(3000);
 		CommonUtils.selectValueFromBootStrapDropDown(covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseDrugTreatmentsDropDownValues, ConvalescentPlasma);
-		MiscUtils.sleep(5000);
+		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 	}
 	
@@ -202,7 +210,8 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 	public void on_Disease_Course_section_when_selecting_for_the_Organ_Failure_field(String organFailureYes) {
 		JavascriptUtils.scrollIntoView(covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseNewButton);
 		covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseNewButton.click();
-		MiscUtils.sleep(4000);
+		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseOrganFailureDropDown);
 		covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseOrganFailureDropDown.click();
 		List<WebElement> organFailureValues = covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseOrganFailureDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(organFailureValues, organFailureYes);
@@ -219,6 +228,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 	@Then("the field options are: Liver, Kidney, Lungs, Heart, Central Nervous system, Hematologic System, Other, Other \\(free text field)")
 	public void the_field_options_are_Liver_Kidney_Lungs_Heart_Central_Nervous_system_Hematologic_System_Other_Other_free_text_field() {
 	    String [] arrayList = {"Central nervous system", "Heart", "Hematologic system", "Kidney", "Liver", "Lungs", "Other"};
+	    CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseOrgansFailedDropDown);
 	    covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseOrgansFailedDropDown.click();
 	    covidCodeEQPageImpl.servicePortalEnrollmentQuestionnaireExposureAndRiskAssertValueFromBootStrapDropDown(covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseOrgansFailedDropDownValues, arrayList);
 	    CommonUtils.selectValueFromBootStrapDropDown(covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseOrgansFailedDropDownValues, "Other");
@@ -241,10 +251,10 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 		covidCodeEQPage.enrollmentQuestionnairePatientFirstNameTextBox.sendKeys("TestFN");
 		covidCodeEQPage.enrollmentQuestionnairePatientMiddletNameTextBox.sendKeys("TestMN");
 		covidCodeEQPage.enrollmentQuestionnairePatientEmailAddressTextBox.sendKeys("test@automatedtest.com");
-		covidCodeEQPage.enrollmentQuestionnairePatientPhoneNumberTextBox.sendKeys("12345678");
+		covidCodeEQPage.enrollmentQuestionnairePatientPhoneNumberTextBox.sendKeys("703-687-5816");
 		covidCodeEQPage.enrollmentQuestionnairePatientStreetAddress1TextBox.sendKeys("TestAddress");
 		covidCodeEQPage.enrollmentQuestionnairePatientCityTextBox.sendKeys("TestCity");
-		covidCodeEQPage.enrollmentQuestionnairePatientStateTextBox.sendKeys("TestState");
+		covidCodeEQPage.enrollmentQuestionnairePatientStateTextBox.sendKeys("VA");
 		covidCodeEQPage.enrollmentQuestionnairePatientZipCodeTextBox.sendKeys("20210");
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
@@ -252,39 +262,59 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 
 	@When("the user enters {string}, {string}, {string} information")
 	public void the_user_enters_information(String biologicalSex, String describeYourRace, String areYouHispanicOrLatino) {
+		CommonUtils.waitForVisibility(covidCodeEQPage.demographicsTab);
 		covidCodeEQPage.demographicsTab.click();
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireCurrentWeightDropdown);
 		covidCodeEQPage.enrollmentQuestionnaireCurrentWeightDropdown.click();
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireCurrentWeightSearchBox);
 		covidCodeEQPage.enrollmentQuestionnaireCurrentWeightSearchBox.sendKeys("Pounds");
 		covidCodeEQPage.enrollmentQuestionnaireCurrentWeightSearchBox.sendKeys(Keys.ENTER);
-		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireWeightTextBox);
 		covidCodeEQPage.enrollmentQuestionnaireWeightTextBox.sendKeys("150");
 		covidCodeEQPage.enrollmentQuestionnaireWeightTextBox.sendKeys(Keys.ENTER);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireCurrentHeightDropdown);
 		covidCodeEQPage.enrollmentQuestionnaireCurrentHeightDropdown.click();
-		covidCodeEQPage.enrollmentQuestionnaireCurrentHeightSearchBox.sendKeys("Feet/Inches");
-		covidCodeEQPage.enrollmentQuestionnaireCurrentHeightSearchBox.sendKeys(Keys.ENTER);
-		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[10]/div/input")));
+		WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[10]/div/input")).sendKeys("Feet/Inches");
+		//covidCodeEQPage.enrollmentQuestionnaireCurrentHeightSearchBox.sendKeys("Feet/Inches");
+		WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[10]/div/input")).sendKeys(Keys.ENTER);
+		//covidCodeEQPage.enrollmentQuestionnaireCurrentHeightSearchBox.sendKeys(Keys.ENTER);
+		
+		
+		//WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[9]/div/input")).sendKeys("5");
 		covidCodeEQPage.enrollmentQuestionnaireFeetTextBox.sendKeys("5");
 		covidCodeEQPage.enrollmentQuestionnaireFeetTextBox.sendKeys(Keys.ENTER);
-		MiscUtils.sleep(1000);
-		covidCodeEQPage.enrollmentQuestionnaireInchesTextBox.sendKeys("5");
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireInchesTextBox);
+		covidCodeEQPage.enrollmentQuestionnaireInchesTextBox.sendKeys("10");
 		covidCodeEQPage.enrollmentQuestionnaireInchesTextBox.sendKeys(Keys.ENTER);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireBiologicalSexDropdown);
 		covidCodeEQPage.enrollmentQuestionnaireBiologicalSexDropdown.click();
-		CommonUtils.sendKeys(covidCodeEQPage.enrollmentQuestionnaireBiologicalSexSearchBox, biologicalSex);
+		
+		//WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[11]/div/input"));
+		CommonUtils.waitForVisibility(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[11]/div/input")));
+		CommonUtils.sendKeys(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[11]/div/input")), biologicalSex);
 		MiscUtils.sleep(1000);
-		covidCodeEQPage.enrollmentQuestionnaireBiologicalSexSearchBox.sendKeys(Keys.ENTER);
+		WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[11]/div/input")).sendKeys(Keys.ENTER);
+		//covidCodeEQPage.enrollmentQuestionnaireBiologicalSexSearchBox.sendKeys(Keys.ENTER);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireRaceDropdown);
 		covidCodeEQPage.enrollmentQuestionnaireRaceDropdown.click();
-		CommonUtils.sendKeys(covidCodeEQPage.enrollmentQuestionnaireRaceSearchBox, describeYourRace);
+		
+		//WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[12]/div/input"));
+		CommonUtils.waitForVisibility(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[12]/div/input")));
+		CommonUtils.sendKeys(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[12]/div/input")), describeYourRace);
 		MiscUtils.sleep(1000);
-		covidCodeEQPage.enrollmentQuestionnaireRaceSearchBox.sendKeys(Keys.ENTER);
+		WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[12]/div/input")).sendKeys(Keys.ENTER);
+		//covidCodeEQPage.enrollmentQuestionnaireRaceSearchBox.sendKeys(Keys.ENTER);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireHispanicOrLatinoDropdown);
 		covidCodeEQPage.enrollmentQuestionnaireHispanicOrLatinoDropdown.click();
-		if(areYouHispanicOrLatino.equalsIgnoreCase("No")) {
-			
+		
+		if(areYouHispanicOrLatino.equalsIgnoreCase("No")) {	
 			CommonUtils.selectValueFromBootStrapDropDown(covidCodeEQPage.enrollmentQuestionnaireHispanicOrLatinoDropdownValues, areYouHispanicOrLatino);
 			MiscUtils.sleep(1000);
 		}else {
-		CommonUtils.sendKeys(covidCodeEQPage.enrollmentQuestionnaireHispanicOrLatinoSearchBox, areYouHispanicOrLatino);
+		CommonUtils.sendKeys(covidCodeEQPage.enrollmentQuestionnaireHispanicOrLatinoSearchBoxFullTextBox, areYouHispanicOrLatino);
 		MiscUtils.sleep(1000);
-		covidCodeEQPage.enrollmentQuestionnaireHispanicOrLatinoSearchBox.sendKeys(Keys.ENTER);
+		covidCodeEQPage.enrollmentQuestionnaireHispanicOrLatinoSearchBoxFullTextBox.sendKeys(Keys.ENTER);
 		MiscUtils.sleep(1000);
 		}
 		MiscUtils.sleep(2000);
@@ -293,21 +323,34 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 
 	@When("selects Yes to being symptomatic")
 	public void selects_Yes_to_being_symptomatic() {
+		CommonUtils.waitForVisibility(covidCodeEQPage.symptomologyTab);
 		covidCodeEQPage.symptomologyTab.click();
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticDropdown);
 		covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticDropdown.click();
-		covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticSearchBox.sendKeys("Yes");
+		
+		//WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[11]/div/input"));
+		CommonUtils.waitForVisibility(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[14]/div/input")));
+		WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[14]/div/input")).sendKeys("Yes");
+		//covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticSearchBox.sendKeys("Yes");
 		MiscUtils.sleep(1000);
-		covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticSearchBox.sendKeys(Keys.ENTER);
+		WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[14]/div/input")).sendKeys(Keys.ENTER);
+		//covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticSearchBox.sendKeys(Keys.ENTER);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 	}
 
 	@When("selects {string}, {string}")
 	public void selects(String howWasTheSampleTaken, String whatTypeOfTestDidThePatientRecieve) {
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireHowWasTheSampleTakenDropdown);
 		covidCodeEQPage.enrollmentQuestionnaireHowWasTheSampleTakenDropdown.click();
-		CommonUtils.sendKeys(covidCodeEQPage.enrollmentQuestionnaireHowWasTheSampleTakenSearchBox, howWasTheSampleTaken);
+		
+		//WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[15]/div/input"));
+		CommonUtils.waitForVisibility(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[15]/div/input")));
+		CommonUtils.sendKeys(WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[15]/div/input")), howWasTheSampleTaken);
 		MiscUtils.sleep(1000);
-		covidCodeEQPage.enrollmentQuestionnaireHowWasTheSampleTakenSearchBox.sendKeys(Keys.ENTER);
+		WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[15]/div/input")).sendKeys(Keys.ENTER);
+		//covidCodeEQPage.enrollmentQuestionnaireHowWasTheSampleTakenSearchBox.sendKeys(Keys.ENTER);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireWhatTypeOfTestDidThePatientReceiveSearchBox);
 		CommonUtils.sendKeys(covidCodeEQPage.enrollmentQuestionnaireWhatTypeOfTestDidThePatientReceiveSearchBox, whatTypeOfTestDidThePatientRecieve);
 		MiscUtils.sleep(1000);
 		covidCodeEQPage.enrollmentQuestionnaireWhatTypeOfTestDidThePatientReceiveSearchBox.sendKeys(Keys.ENTER);
@@ -317,71 +360,95 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 
 	@When("in exposures and Risk Factors section enters {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
 	public void in_exposures_and_Risk_Factors_section_enters(String followingMedicalConditions, String  regularlyVaped, String smokedAtLeast100Cigarettes, String nonSteroidalAntiInflammatoryDrugs, String paracetamol, String asthmaMedication, String pollenAllergy, String antibioticsPenicillin, String testedPositiveForCovid19, String myocardialInfarction, String bloodThinners, String aceInhibitors, String arbs, String  wearMask) {
-		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsTab);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsTab.click();
-	    MiscUtils.sleep(2000);
+	    CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsPleaseTellMeIfThePatientHaveAnyOfTheFollowingMedicalConditionsSearchBox);
 		CommonUtils.sendKeys(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsPleaseTellMeIfThePatientHaveAnyOfTheFollowingMedicalConditionsSearchBox, followingMedicalConditions);
-		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsPleaseTellMeIfThePatientHaveAnyOfTheFollowingMedicalConditionsSearchBox);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsPleaseTellMeIfThePatientHaveAnyOfTheFollowingMedicalConditionsSearchBox.sendKeys(Keys.ENTER);
-		MiscUtils.sleep(3000);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsHaveThePatientEverRegularlyVapedAnEcigaretteOrSimilarDeviceDD);
 	    covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsHaveThePatientEverRegularlyVapedAnEcigaretteOrSimilarDeviceDD.click();
-		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsHaveThePatientEverRegularlyVapedAnEcigaretteOrSimilarDeviceSearchBox);
 		CommonUtils.sendKeys(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsHaveThePatientEverRegularlyVapedAnEcigaretteOrSimilarDeviceSearchBox, regularlyVaped);
-		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsHaveThePatientEverRegularlyVapedAnEcigaretteOrSimilarDeviceSearchBox);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsHaveThePatientEverRegularlyVapedAnEcigaretteOrSimilarDeviceSearchBox.sendKeys(Keys.ENTER);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsSmokedAtLeast100CigarettesDD);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsSmokedAtLeast100CigarettesDD.click();
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsSmokedAtLeast100CigarettesSearchBox);
 		CommonUtils.sendKeys(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsSmokedAtLeast100CigarettesSearchBox, smokedAtLeast100Cigarettes);
-		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsSmokedAtLeast100CigarettesSearchBox);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsSmokedAtLeast100CigarettesSearchBox.sendKeys(Keys.ENTER);
 		MiscUtils.sleep(1000);
+		
 		if(!(smokedAtLeast100Cigarettes.matches("Never smoked|Don't know/prefer not to answer"))) {
+			CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsHowManyCigarettesUsuallySmokeDailyDD);
 			covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsHowManyCigarettesUsuallySmokeDailyDD.click();
 			covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsHowManyCigarettesUsuallySmokeDailySearchBox.sendKeys("1-10");
-			MiscUtils.sleep(1000);
+			CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsHowManyCigarettesUsuallySmokeDailySearchBox);
 			covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsHowManyCigarettesUsuallySmokeDailySearchBox.sendKeys(Keys.ENTER);
 			MiscUtils.sleep(1000);			
 		}
 		
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsNonSteroidalAntiInflammatoryDrugsnDD);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsNonSteroidalAntiInflammatoryDrugsnDD.click();
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsNonSteroidalAntiInflammatoryDrugsnSearchDropDownTextField);
 		CommonUtils.sendKeys(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsNonSteroidalAntiInflammatoryDrugsnSearchDropDownTextField, nonSteroidalAntiInflammatoryDrugs);
 		MiscUtils.sleep(1000);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsNonSteroidalAntiInflammatoryDrugsnSearchDropDownTextField.sendKeys(Keys.ENTER);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsParacetamolAcetaminophenDD);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsParacetamolAcetaminophenDD.click();
 		CommonUtils.sendKeys(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsParacetamolAcetaminophenSearchDropDownTextField, paracetamol);
 		MiscUtils.sleep(1000);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsParacetamolAcetaminophenSearchDropDownTextField.sendKeys(Keys.ENTER);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsAsthmaMedicationDD);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsAsthmaMedicationDD.click();
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsAsthmaMedicationSearchDropDownTextField);
 		CommonUtils.sendKeys(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsAsthmaMedicationSearchDropDownTextField, asthmaMedication);
 		MiscUtils.sleep(1000);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsAsthmaMedicationSearchDropDownTextField.sendKeys(Keys.ENTER);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsPollenAllergyMedicationUsedDD);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsPollenAllergyMedicationUsedDD.click();
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsPollenAllergyMedicationUsedSearchDropDownTextField);
 		CommonUtils.sendKeys(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsPollenAllergyMedicationUsedSearchDropDownTextField, pollenAllergy);
 		MiscUtils.sleep(1000);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsPollenAllergyMedicationUsedSearchDropDownTextField.sendKeys(Keys.ENTER);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsUsedAntibioticsDD);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsUsedAntibioticsDD.click();
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsAntibioticsPenicillinSearchDropDownTextField);
 		CommonUtils.sendKeys(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsAntibioticsPenicillinSearchDropDownTextField, antibioticsPenicillin);
 		MiscUtils.sleep(1000);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsAntibioticsPenicillinSearchDropDownTextField.sendKeys(Keys.ENTER);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsTestedPositiveForCovidDD);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsTestedPositiveForCovidDD.click();
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsTestedPositiveForCovidSearchBox);
 		CommonUtils.sendKeys(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsTestedPositiveForCovidSearchBox, testedPositiveForCovid19);
 		MiscUtils.sleep(1000);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsTestedPositiveForCovidSearchBox.sendKeys(Keys.ENTER);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsMyocardialInfarctionOrStrokeMedicationDD);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsMyocardialInfarctionOrStrokeMedicationDD.click();
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsMyocardialInfarctionOrStrokeMedicationSearchDropDownTextField);
 		CommonUtils.sendKeys(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsMyocardialInfarctionOrStrokeMedicationSearchDropDownTextField, myocardialInfarction);
 		MiscUtils.sleep(1000);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsMyocardialInfarctionOrStrokeMedicationSearchDropDownTextField.sendKeys(Keys.ENTER);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsBloodThinnersDD);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsBloodThinnersDD.click();
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsBloodThinnersSearchDropDownTextField);
 		CommonUtils.sendKeys(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsBloodThinnersSearchDropDownTextField, bloodThinners);
 		MiscUtils.sleep(1000);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsBloodThinnersSearchDropDownTextField.sendKeys(Keys.ENTER);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsAceInhibitorsDD);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsAceInhibitorsDD.click();
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsAceInhibitorsSearchDropDownTextField);
 		CommonUtils.sendKeys(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsAceInhibitorsSearchDropDownTextField, aceInhibitors);
 		MiscUtils.sleep(1000);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsAceInhibitorsSearchDropDownTextField.sendKeys(Keys.ENTER);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsUsedArbsDD);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsUsedArbsDD.click();
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsUsedArbsSearchDropDownTextField);
 		CommonUtils.sendKeys(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsUsedArbsSearchDropDownTextField, arbs);
 		MiscUtils.sleep(1000);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsUsedArbsSearchDropDownTextField.sendKeys(Keys.ENTER);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsDidThePatientWearMaskDD);
 		covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsDidThePatientWearMaskDD.click();
         if(wearMask.equalsIgnoreCase("No")) {
 			CommonUtils.selectValueFromBootStrapDropDown(covidCodeEQPage.enrollmentQuestionnaireExposuredAndRiskFactorsDidThePatientWearMaskDdValue, wearMask);
@@ -398,8 +465,9 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 
 	@When("selects Yes to having received the vaccine")
 	public void selects_Yes_to_having_received_the_vaccine() {
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireVaccineTab);
 		covidCodeEQPage.enrollmentQuestionnaireVaccineTab.click();
-		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireVaccineHaveYouReceivedYourFirstCovidDD);
 		covidCodeEQPage.enrollmentQuestionnaireVaccineHaveYouReceivedYourFirstCovidDD.click();
 		covidCodeEQPage.enrollmentQuestionnaireVaccineHaveYouReceivedYourFirstCovidSearchBox.sendKeys("Yes");
 		MiscUtils.sleep(1000);
@@ -410,10 +478,12 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 
 	@When("enters vaccine information {string}, {string}")
 	public void enters_vaccine_information(String vaccineManufacture, String secondVaccine ) {
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireVaccineManufactureDD);
 		covidCodeEQPage.enrollmentQuestionnaireVaccineManufactureDD.click();
 		CommonUtils.sendKeys(covidCodeEQPage.enrollmentQuestionnaireVaccineManufactureSearchBox, vaccineManufacture);
 		MiscUtils.sleep(1000);
 		covidCodeEQPage.enrollmentQuestionnaireVaccineManufactureSearchBox.sendKeys(Keys.ENTER);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireVaccineReceivedSecondVaccineDD);
 		covidCodeEQPage.enrollmentQuestionnaireVaccineReceivedSecondVaccineDD.click();
 		  if(secondVaccine.equalsIgnoreCase("No")) {
 				
@@ -437,13 +507,14 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 
 	@When("enters Disease Course information")
 	public void enters_Disease_Course_information() {
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseNewButton);
 		covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseNewButton.click();
-		MiscUtils.sleep(10000);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseVisitDateSearchBox);
 		covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseVisitDateSearchBox.sendKeys("01/04/2021");
 		covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseSymptomsSearchBox.sendKeys("Headache");
 		MiscUtils.sleep(1000);
 		covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseSymptomsSearchBox.sendKeys(Keys.ENTER);
-		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseHaveYouBeenDiagnosedWithPneumoniaDD);
 		covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseHaveYouBeenDiagnosedWithPneumoniaDD.click();
 		covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseHaveYouBeenDiagnosedWithPneumoniaSeacrhBox.sendKeys("Not present");
 		MiscUtils.sleep(1000);
@@ -454,15 +525,19 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 		covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseDrugTreatmentsTextField.sendKeys("None");
 		MiscUtils.sleep(1000);
 		covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseDrugTreatmentsTextField.sendKeys(Keys.ENTER);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseWereYouAdmittedToTheHospitalToTreatYourCovidDD);
 		covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseWereYouAdmittedToTheHospitalToTreatYourCovidDD.click();
 		covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseWereYouAdmittedToTheHospitalToTreatYourCovidSearchBox.sendKeys("Yes");
 		MiscUtils.sleep(1000);
 		covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseWereYouAdmittedToTheHospitalToTreatYourCovidSearchBox.sendKeys(Keys.ENTER);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseWhatDateWereYouAdmittedToTheHospitalSearchBox);
 		covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseWhatDateWereYouAdmittedToTheHospitalSearchBox.sendKeys("01/04/2021");
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseRespiratoryRateDD);
 		covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseRespiratoryRateDD.click();
 		covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseRespiratoryRateSearchBox.sendKeys("Not elevated");
 		MiscUtils.sleep(1000);
 		covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseRespiratoryRateSearchBox.sendKeys(Keys.ENTER);
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseSepticShockDD);
 		covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseSepticShockDD.click();
 		covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseSepticShockSearchBox.sendKeys("Don't know");
 		MiscUtils.sleep(1000);
@@ -477,6 +552,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 
 	@Then("the user is able to successfully submit the Initial Questionnaire")
 	public void the_user_is_able_to_successfully_submit_the_Initial_Questionnaire() {
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseAddButton);
 	    covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseAddButton.click();
 		MiscUtils.sleep(2000);
 //		covidCodeEQPage.enrollmentQuestionnaireSubmitButton.click();
@@ -537,6 +613,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
+		WebDriverUtils.webDriver.findElement(By.linkText("Native View")).click();
 		MiscUtils.sleep(2000);
 		WebDriverUtils.webDriver.findElement(By.linkText("Native View")).click();
 		nativeViewStepsImpl.nativeViewNavigateToCovidCodeEnrollmentQuestionnaire();

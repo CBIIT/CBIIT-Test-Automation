@@ -140,51 +140,18 @@ public class NativeViewGroupingsVerificationSteps extends PageInitializer {
 		nativeViewLoginImpl.nativeViewLogin();
 		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.filterNavigator);
 		nativeViewEnrollementsPage.filterNavigator.sendKeys("CovidCode App");
-		MiscUtils.sleep(5000);
+		MiscUtils.sleep(3000);
 		CucumberLogUtils.logScreenShot();
-		nativeViewEnrollementsPage.nativeViewPanelNavigatorCovidCodeFollowUpsLink.click();
+		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.nativeViewPanelNavigatorSpecimensLink);
+		nativeViewEnrollementsPage.nativeViewPanelNavigatorSpecimensLink.click();
+		CucumberLogUtils.logScreenShot();
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
 		MiscUtils.sleep(1000);
-		CommonUtils.selectDropDownValue("Opened by", nativeViewEnrollementsPage.covidCodeEnrollmentsSearchDropDown);
-		MiscUtils.sleep(1000);
-		nativeViewEnrollementsPage.covidCodeEnrollmentsSearchTextBox.sendKeys("Diego Juarez");
-		MiscUtils.sleep(1000);
-		nativeViewEnrollementsPage.covidCodeEnrollmentsSearchTextBox.sendKeys(Keys.ENTER);
-		MiscUtils.sleep(2000);
-		nativeViewEnrollementsPage.specimensPreviewButton.click();
-		MiscUtils.sleep(2000);
-		nativeViewEnrollementsPage.specimensOpenRecordButton.click();
-		MiscUtils.sleep(1000);
-		nativeViewEnrollmentViewPage.nativeViewFollowUpParticipantEventsTab.click();
-		MiscUtils.sleep(1000);
-		JavascriptUtils.selectDateByJS(nativeViewEnrollmentViewPage.nativeViewFollowUpParticipantEventsConsentedDate,
-				"01/20/2021");
-		MiscUtils.sleep(3000);
-		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewPageSaveButton.click();
-		MiscUtils.sleep(10000);
-		JavascriptUtils.scrollDown(2000);
-		JavascriptUtils.clickByJS(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSpecimensTab);
-		MiscUtils.sleep(5000);
-		JavascriptUtils.clickByJS(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSpecimensNewButton);
-		MiscUtils.sleep(3000);
-		CommonUtils.selectDropDownValue("Saliva", nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSpecimensTypeDD);
-		CucumberLogUtils.logScreenShot();
-		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSpecimensSubmitButton.click();
-		MiscUtils.sleep(2000);
-		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewPageSaveButton.click();
-		MiscUtils.sleep(2000);
-		CommonUtils.webDriver.switchTo().defaultContent();
-		MiscUtils.sleep(1000);
-		nativeViewEnrollementsPage.nativeViewPanelNavigatorSpecimensLink.click();
-		MiscUtils.sleep(3000);
-		CucumberLogUtils.logScreenShot();
 	}
 
 	@When("opening a Specimen record")
 	public void opening_a_Specimen_record() {
-		MiscUtils.sleep(5000);
-		CommonUtils.webDriver.switchTo().frame(nativeViewEnrollementsPage.NativeViewFrame);
-		MiscUtils.sleep(5000);
+		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.specimensPreviewButton);
 		nativeViewEnrollementsPage.specimensPreviewButton.click();
 		MiscUtils.sleep(2000);
 		nativeViewEnrollementsPage.specimensOpenRecordButton.click();
@@ -245,8 +212,11 @@ public class NativeViewGroupingsVerificationSteps extends PageInitializer {
 	public void a_COVIDcode_User_is_on_the_Follow_Up_form() throws TestingException {
 		nativeViewLoginImpl.nativeViewLogin();
 		nativeViewStepsImpl.nativeViewNavigateToCovidCodeFollowUpQuestionnaire();
+		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.followUpsContextMenuLink);
+		nativeViewEnrollementsPage.followUpsContextMenuLink.click();
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
 		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.covidCodeEnrollmentsNewButton);
 		nativeViewEnrollementsPage.covidCodeEnrollmentsNewButton.click();
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
@@ -254,6 +224,7 @@ public class NativeViewGroupingsVerificationSteps extends PageInitializer {
 
 	@When("navigating to the Symptomology tab")
 	public void navigating_to_the_Symptomology_tab() {
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewFollowUpSymptomologyTab);
 		JavascriptUtils.scrollIntoView(nativeViewEnrollmentViewPage.nativeViewFollowUpSymptomologyTab);
 		nativeViewEnrollmentViewPage.nativeViewFollowUpSymptomologyTab.click();
 		MiscUtils.sleep(2000);

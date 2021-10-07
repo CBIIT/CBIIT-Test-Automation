@@ -21,7 +21,6 @@ public class SignOutVerificationStepImp extends PageInitializer {
 		iTrustloginPage.covidCodeLogInButton();
 		loginImpl.loginToITrust();
 		CucumberLogUtils.logScreenShot();
-		iTrustloginPage.clickSignInButton();
 	}
 
 	/**

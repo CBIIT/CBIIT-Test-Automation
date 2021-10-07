@@ -12,11 +12,10 @@ import cucumber.api.junit.Cucumber;
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/CustomBusinessApp/EIDP/Features"
 		, glue="CustomBusinessApp.EIDP.Steps"
-    	, tags="@InitiatesIDP"
-    	, dryRun =false,
+    	, tags="@RegressionNHGRI"
+        , dryRun =false,
 		junit = "--step-notifications"
 		
 		)
 public class CustomBusinessAppInProgressRunner {
-
 }

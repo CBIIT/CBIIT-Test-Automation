@@ -1,14 +1,12 @@
 package ServiceNow.SEER.Steps;
 
 import org.junit.Assert;
-import org.openqa.selenium.JavascriptExecutor;
-
-import com.nci.automation.common.Constants;
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.EnvUtils;
+import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -30,7 +28,7 @@ public class SEERLandingPageSteps extends PageInitializer {
 	@Then("under {string} the text displayed is")
 	public void under_the_text_displayed_is(String institutionalAccounts, String doYouHaveAnAccount) {
 		Assert.assertEquals(institutionalAccounts, seerLandingPage.institutionalAccountsHeaderText.getText());
-		Assert.assertEquals(doYouHaveAnAccount, seerLandingPage.doYouHaveAnAccountParagraph.getText());
+		Assert.assertEquals(doYouHaveAnAccount, seerLandingPage.doYouHaveAnAccountParagraph.getText());   
 	}
 
 	@Then("the text displayed is {string}")
@@ -38,22 +36,14 @@ public class SEERLandingPageSteps extends PageInitializer {
 		Assert.assertEquals(ifYouAreUnable, seerLandingPage.ifYouAreUnableToAuthenticateText.getText());
 		CucumberLogUtils.logScreenShot();
 	}
-
+	
 	@Then("under {string}, text displayed is")
 	public void under_text_displayed_is(String nonInstitutionalAccounts, String forAllOtherAccountsText) {
+		JavascriptUtils.scrollIntoView(seerLandingPage.nonInstitutionalAccountsHeaderText);
 		Assert.assertEquals(nonInstitutionalAccounts, seerLandingPage.nonInstitutionalAccountsHeaderText.getText());
 		Assert.assertEquals(forAllOtherAccountsText, seerLandingPage.forAllOtherAccountsParagraph.getText());
-	}
-
-	@Then("under {string} text displayed is {string} and {string}")
-	public void under_text_displayed_is_and(String existingSeerAccountHolders, String pleaseEnterText,
-			String requestSeerText) {
-		Assert.assertEquals(existingSeerAccountHolders,
-				seerLandingPage.existingSeerStatAccountHoldersHeaderText.getText());
-		Assert.assertEquals(pleaseEnterText, seerLandingPage.pleaseEnterYourCurrentSeerStatUsernameParagraph.getText());
-		Assert.assertEquals(requestSeerText, seerLandingPage.requestSeerResearchPlusDatabasesParagraph.getText());
 		CucumberLogUtils.logScreenShot();
 	}
 
-}
 
+}

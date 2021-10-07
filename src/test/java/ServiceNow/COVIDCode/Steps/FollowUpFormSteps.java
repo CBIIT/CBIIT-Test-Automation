@@ -1,6 +1,7 @@
 package ServiceNow.COVIDCode.Steps;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -76,14 +77,16 @@ public class FollowUpFormSteps extends PageInitializer {
 	public void the_user_is_able_to_select_multiple_symptoms_in_the_symptoms_field() {
 		followUpFormPage.diseaseCourseSymptomsField.click();
 		followUpFormPage.diseasCourseSymptomsDDCoughOption.click();
-		followUpFormPage.diseaseCourseSymptomsField.click();
+		CommonUtils.waitForClickability(followUpFormPage.diseaseCourseSymptomsFieldAfter);
+		followUpFormPage.diseaseCourseSymptomsFieldAfter.click();
 		followUpFormPage.diseasCourseSymptomsDDFeverOption.click();
 		CucumberLogUtils.logScreenShot();
 	}
 
 	@When("the user selects {string} after having selected multiple symptoms")
 	public void the_user_selects_after_having_selected_multiple_symptoms(String string) {
-		followUpFormPage.diseaseCourseSymptomsField.click();
+		CommonUtils.waitForClickability(followUpFormPage.diseaseCourseSymptomsFieldAfterTwo);
+		followUpFormPage.diseaseCourseSymptomsFieldAfterTwo.click();
 		followUpFormPage.diseasCourseSymptomsDDNoneOfTheAboveOption.click();
 	}
 
@@ -107,8 +110,8 @@ public class FollowUpFormSteps extends PageInitializer {
 
 	@When("the user attempts to add a symptom such as {string} after selecting {string} option")
 	public void the_user_attempts_to_add_a_symptom_such_as_after_selecting_option(String string, String string2) {
-		MiscUtils.sleep(2000);
-		followUpFormPage.diseaseCourseSymptomsField.click();
+		CommonUtils.waitForClickability(followUpFormPage.diseaseCourseSymptomsFieldAfterTwo);
+		followUpFormPage.diseaseCourseSymptomsFieldAfterTwo.click();
 		followUpFormPage.diseasCourseSymptomsDDCoughOption.click();
 	}
 
@@ -122,7 +125,7 @@ public class FollowUpFormSteps extends PageInitializer {
 	@Then("{string} symptom is displayed")
 	public void symptom_is_displayed(String coughOptionAfterSelected) {
 		MiscUtils.sleep(2000);
-		Assert.assertTrue(followUpFormPage.diseaseCourseOptionDisplayeAfterSelecting.getText()
+		Assert.assertTrue(followUpFormPage.diseaseCourseCoughTextOptionDisplayeAfterSelecting.getText()
 				.contentEquals(coughOptionAfterSelected));
 		CucumberLogUtils.logScreenShot();
 	}
@@ -130,7 +133,7 @@ public class FollowUpFormSteps extends PageInitializer {
 	@When("selecting {string} after having selected a symptoms")
 	public void selecting_after_having_selected_a_symptoms(String string) {
 		MiscUtils.sleep(3000);
-		followUpFormPage.diseaseCourseSymptomsField.click();
+		followUpFormPage.diseaseCourseSymptomsFieldAfter.click();
 		followUpFormPage.diseasCourseSymptomsDDdontKnowOption.click();
 	}
 
@@ -145,7 +148,7 @@ public class FollowUpFormSteps extends PageInitializer {
 	public void option_displays(String dontKnowDisplayed) {
 		MiscUtils.sleep(3000);
 		Assert.assertTrue(
-				followUpFormPage.diseaseCourseOptionDisplayeAfterSelecting.getText().contentEquals(dontKnowDisplayed));
+				followUpFormPage.diseaseCourseDontKnowTextOptionDisplayeAfterSelecting.getText().contentEquals(dontKnowDisplayed));
 		CucumberLogUtils.logScreenShot();
 	}
 
@@ -180,7 +183,7 @@ public class FollowUpFormSteps extends PageInitializer {
 	public void symptom_is_displayed_in_treatment_item_field(String intubationOption) {
 		MiscUtils.sleep(2000);
 		Assert.assertTrue(
-				followUpFormPage.diseaseCourseOptionDisplayeAfterSelecting.getText().contentEquals(intubationOption));
+				followUpFormPage.diseaseCourseIntubationTextOptionDisplayeAfterSelecting.getText().contentEquals(intubationOption));
 		CucumberLogUtils.logScreenShot();
 	}
 
@@ -351,6 +354,8 @@ public class FollowUpFormSteps extends PageInitializer {
 
 	@Then("when a selecting {string} to Were you symptomatic?")
 	public void when_a_selecting_to_Were_you_symptomatic(String string) {
+		CommonUtils.waitForVisibility(covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticDropdown);
+		JavascriptUtils.scrollIntoView(covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticDropdown);
 		covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticDropdown.click();
 		covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticSearchBox.sendKeys("Yes");
 		covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticSearchBox.sendKeys(Keys.ENTER);

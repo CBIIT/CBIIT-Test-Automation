@@ -22,19 +22,15 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 	}
 
 	public void groupUserAndConsent(String groupUserID, String consent) {
-		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(servicePortalQuestionnairePage.startNewQuestionnaireButton);
 		servicePortalQuestionnairePage.startNewQuestionnaireButton.click();
-		servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown.click();
-		List<WebElement> groupIDs = servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDownValues;
-
-		CommonUtils.selectValueFromBootStrapDropDown(groupIDs, groupUserID);
+		CommonUtils.waitForVisibility(servicePortalQuestionnairePage.userGroupIDDropDown);
+		CommonUtils.selectDropDownValue(groupUserID, servicePortalQuestionnairePage.userGroupIDDropDown);
+		CommonUtils.waitForVisibility(servicePortalQuestionnairePage.enrollmentCreationWindowText);
 		servicePortalQuestionnairePage.enrollmentCreationWindowText.click();
-		// click on create enrollment button
+		CommonUtils.waitForVisibility(servicePortalQuestionnairePage.createEnrollmentButton);
 		servicePortalQuestionnairePage.createEnrollmentButton.click();
-
-		// scrolling down page
 		JavascriptUtils.scrollDown(700);
-
 		covidCodeEQPage.enrollmentQuestionnaireConsentDropdown.click();
 		List<WebElement> consentValues = covidCodeEQPage.enrollmentQuestionaireConsentDropDownValues;
 
@@ -58,7 +54,7 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 		covidCodeEQPage.enrollmentQuestionnairePatientFirstNameTextBox.sendKeys("AutomatedFN");
 		covidCodeEQPage.enrollmentQuestionnairePatientMiddletNameTextBox.sendKeys("M");
 		covidCodeEQPage.enrollmentQuestionnairePatientEmailAddressTextBox.sendKeys("email@email.com");
-		covidCodeEQPage.enrollmentQuestionnairePatientPhoneNumberTextBox.sendKeys("111-222-3333");
+		covidCodeEQPage.enrollmentQuestionnairePatientPhoneNumberTextBox.sendKeys("1112223333");
 		covidCodeEQPage.enrollmentQuestionnairePatientStreetAddress1TextBox.sendKeys("123 street");
 		JavascriptUtils.scrollDown(700);
 		covidCodeEQPage.enrollmentQuestionnairePatientCityTextBox.sendKeys("Rockville");

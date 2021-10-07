@@ -25,6 +25,7 @@ public class NativeViewStepsImpl extends PageInitializer {
 
 	public void nativeViewFillOutDemographicsSection() {
 
+		CommonUtils.scrollIntoView(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsDateFormCompletedField);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsDateFormCompletedField.sendKeys("04-01-2020");
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourDateOfBirthField
 				.sendKeys("04-01-1990");
@@ -170,10 +171,10 @@ public class NativeViewStepsImpl extends PageInitializer {
 	 */
 	public void nativeViewNavigateToCovidCodeFollowUpQuestionnaire() {
 		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.filterNavigator);
+		MiscUtils.sleep(500);
 		nativeViewEnrollementsPage.filterNavigator.sendKeys("CovidCode App");
-		MiscUtils.sleep(5000);
+		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
-		nativeViewEnrollementsPage.nativeViewPanelNavigatorCovidCodeFollowUpsLink.click();
 	}
 
 	/***
@@ -206,10 +207,13 @@ public class NativeViewStepsImpl extends PageInitializer {
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewPatientMiddleInitial.sendKeys("M");
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewContactEmailAddress.sendKeys("email@automatedtest.com");
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewContactPhoneNumber.sendKeys("111-222-3333");
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewStreetAddress1);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewStreetAddress1.sendKeys("NCI Rockville");
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewCity.sendKeys("Rockville");
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewState.sendKeys("MD");
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewZipCode);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewZipCode.sendKeys("20850");
+		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 	}
 
@@ -225,7 +229,7 @@ public class NativeViewStepsImpl extends PageInitializer {
 		 * added filters - refer to UI for further review
 		 */
 		nativeViewEnrollmentViewPage.nativeViewAllBreadCrumbLink.click();
-		MiscUtils.sleep(2000);
+		MiscUtils.sleep(1000);
 		CommonUtils.selectDropDownValue("for text",
 				nativeViewEnrollementsPage.covidCodeEnrollmentsSearchDropDown);
 		nativeViewEnrollementsPage.covidCodeEnrollmentsSearchTextBox.sendKeys("email@automatedtest.com");
@@ -241,8 +245,8 @@ public class NativeViewStepsImpl extends PageInitializer {
 	 * coded
 	 */
 	public void nativeViewMyInquiryTrackingSearchNursesinAssignedToTextField() {
-		nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactUnlockAssignedToSearchTextField
-				.sendKeys("Alan Orpia");
+//		nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactUnlockAssignedToSearchTextField
+//				.sendKeys("Alan Orpia");
 		nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactUnlockAssignedToSearchTextField
 				.sendKeys(Keys.ENTER);
 		MiscUtils.sleep(2000);
@@ -276,7 +280,7 @@ public class NativeViewStepsImpl extends PageInitializer {
         nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactUnlockAssignedToSearchTextField
 		.sendKeys(Keys.ENTER);
 		MiscUtils.sleep(2000);
-		String[] exp = { "Alan Orpia", "Janet Bracci", "Laura Harney", "Lisa Leathwood", "Maureen Risch",
+		String[] exp = { "Janet Bracci", "Laura Harney", "Lisa Leathwood", "Maureen Risch",
 				"Stephanie Steinbart", "Kathryn Nichols"};
 		for (WebElement act : nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactListOfAssignedToDD) {
 			boolean match = false;

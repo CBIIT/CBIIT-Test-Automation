@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
-
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -18,6 +17,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchFrameException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -42,6 +42,7 @@ public class CommonUtils extends WebDriverUtils {
 	 * @param element Pass the desired WebElement to be clicked.
 	 */
 	public static void click(WebElement element) {
+		waitForClickability(element);
 		element.click();
 	}
 
@@ -215,6 +216,14 @@ public class CommonUtils extends WebDriverUtils {
 	public static boolean isElementDisplayed(WebElement element) {
 		try {
 			return element.isDisplayed();
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
+	public static boolean isElementDisplayed(By locator) {
+		try {
+			return webDriver.findElement(locator).isDisplayed();
 		} catch (Exception e) {
 			return false;
 		}
@@ -456,5 +465,26 @@ public class CommonUtils extends WebDriverUtils {
 		for (String nextWindow : handlingAllOpenWindows) {
 			WebDriverUtils.webDriver.switchTo().window(nextWindow);
 	   }
+	}
+	
+	public static void scrollIntoView(By locator) {
+		try {
+			WebElement element = WebDriverUtils.webDriver.findElement(locator);
+			Actions action = new Actions( WebDriverUtils.webDriver);
+			action.moveToElement(element);
+			action.perform();
+		}catch(Exception e) {
+			throw e;
+		}
+	}
+	
+	public static void scrollIntoView(WebElement element) {
+		try {
+			Actions action = new Actions( WebDriverUtils.webDriver);
+			action.moveToElement(element);
+			action.perform();
+		}catch(Exception e) {
+			throw e;
+		}
 	}
 }

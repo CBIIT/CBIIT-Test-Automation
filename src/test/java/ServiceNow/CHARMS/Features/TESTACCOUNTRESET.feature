@@ -2,7 +2,7 @@ Feature: TEST ACCOUNT RESET
   
   Description: This feature resets CHARMS test accounts used for Automation
 
-  @TestAccountReset 
+  @TestAccountReset @INVALID
   Scenario: Test Account Reset
     Given logged in to ServiceNow Native View
     When searching for "Studio" in the filter navigator

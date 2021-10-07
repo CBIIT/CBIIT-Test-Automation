@@ -143,8 +143,8 @@ public class ServicePortalSurveySteps extends PageInitializer {
 		CommonUtils.sendKeys(servicePortalSurveyPage.phoneNumberTextBox, "703-687-5816");
 		CommonUtils.sendKeys(servicePortalSurveyPage.emailAddressTextBox, "automatedtest@test.com");
 		JavascriptUtils.scrollIntoView(servicePortalSurveyPage.preferredMethodOfContactDropDown);
+		CommonUtils.waitForVisibility(servicePortalSurveyPage.preferredMethodOfContactDropDown);
 		CommonUtils.click(servicePortalSurveyPage.preferredMethodOfContactDropDown);
-		MiscUtils.sleep(3000);
 		CommonUtils.selectValueFromBootStrapDropDown(servicePortalSurveyPage.preferredMethodOfContactDropDownValues, "Phone");
 		CommonUtils.sendKeys(servicePortalSurveyPage.yearOfBirthTextBox, "1990");
 		CommonUtils.sendKeys(servicePortalSurveyPage.homeZipCodeTextBox, "22015");

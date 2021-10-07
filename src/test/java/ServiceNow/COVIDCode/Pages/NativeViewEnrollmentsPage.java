@@ -66,7 +66,7 @@ public class NativeViewEnrollmentsPage extends CommonUtils {
 	public WebElement diseaseCoursesContextMenuLink;
 
 	/** COVIDcode Follow Ups Context Menu Link */
-	@FindBy(xpath = "//h2[contains(text(), 'COVIDcode Follow Ups')]")
+	@FindBy(xpath = "//div[contains(text(),'COVIDcode Follow Ups')]")
 	public WebElement followUpsContextMenuLink;
 
 	/** COVIDcode Dashboard Context Menu Link */
@@ -243,7 +243,6 @@ public class NativeViewEnrollmentsPage extends CommonUtils {
 	@FindBy (xpath = "//input[@name='x_g_nci_geco_covid_inquiry_tracking.study_team_contact_date_3']")
 	public WebElement myInquiryTrackingRecordsStudyTeamContactCovidTestResultFU2TextBox;
 
-
 	/** ---------------THE END OF THE NATIVE VIEW COVIDcode My Inquiry Tracking Records VIEW  ---------------  */
 	
 	
@@ -269,7 +268,7 @@ public class NativeViewEnrollmentsPage extends CommonUtils {
 	
 	
 	/**
-	 * ---------- BEGINNING OF NATIVE VIEW COVIDcode INQUIRY TRACKING RECORD------------*/
+	 * --------------- BEGINNING OF NATIVE VIEW COVIDcode INQUIRY TRACKING RECORD ---------------*/
 
 	/** COVIDcode Inquiry Tracking New Button */
 	@FindBy(xpath = "//button[@class='selected_action action_context btn btn-primary']")

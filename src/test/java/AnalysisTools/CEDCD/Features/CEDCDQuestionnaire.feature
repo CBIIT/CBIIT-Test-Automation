@@ -10,13 +10,12 @@ Feature: Questionnaire
     And enters "<Notes>"
     And clicks submit
     Then Cohort is added
+
     Examples: 
       | Cohort Name             | Cohort Acronym | Notes                         |
       | Second Automated Cohort | SAC            | This Cohort Will Be Automated |
 
-
-
-  @Smoke @matarodriguezko
+   @matarodriguezko
   Scenario: Cohort Owner logs in and completes section A
     Given the user is on the CEDCD homepage
     When the user is logged in as a Cohort Owner
@@ -30,8 +29,7 @@ Feature: Questionnaire
     And the Cohort Owner selects their Cohort questionnaire
     Then Section B of the Questionnaire is filled out
 
-
-  @Smoke @matarodriguezko
+   @matarodriguezko
   Scenario: Cohort Owner logs in and completes section C
     Given the user is on the CEDCD homepage
     When the user is logged in as a Cohort Owner
@@ -45,7 +43,7 @@ Feature: Questionnaire
     And the Cohort Owner selects their Cohort questionnaire
     Then Section D of the Questionnaire is filled out
 
-  @Smoke @matarodriguezko
+   @matarodriguezko
   Scenario: Cohort Owner logs in and completes section E
     Given the user is on the CEDCD homepage
     When the user is logged in as a Cohort Owner
@@ -59,7 +57,7 @@ Feature: Questionnaire
     And the Cohort Owner selects their Cohort questionnaire
     Then Section F of the Questionnaire is filled out
 
-  @Smoke @matarodriguezko
+   @matarodriguezko
   Scenario: Cohort Owner logs in and completes section G
     Given the user is on the CEDCD homepage
     When the user is logged in as a Cohort Owner
@@ -67,7 +65,7 @@ Feature: Questionnaire
     Then Section G of the Questionnaire is filled out
     Then Section G status Circle is green
 
-  @juarezds 
+  @Smoke @juarezds
   Scenario: Admin creates Cohort Study and Cohort Owner submits questionnaire
     Given the user is on the CEDCD homepage
     And a Admin user adds a Cohort Study linked to Cohort Owner
@@ -76,4 +74,3 @@ Feature: Questionnaire
     And fills out all sections of the questionnaire
     And submits the Cohort Study for Review
     Then the Cohort Study Questionnaire is successfully submitted
-

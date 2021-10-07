@@ -15,14 +15,16 @@ import cucumber.api.java.en.When;
 public class SEERUserRegistrationPageSteps extends PageInitializer {
 	public static String newEmail = "seer" + CommonUtils.email;
 
-	@When("the user enters an email address and continues with the email verification for Non-Institutional Accounts")
-	public void the_user_enters_an_email_address_and_continues_with_the_email_verification_for_Non_Institutional_Accounts() {
-		JavascriptUtils.scrollIntoView(seerLandingPage.nonInstitutionalAccountsEmailAddressField);
+	@When("the user enters an email address as {string} and continues with the email verification for Non-Institutional Accounts")
+	public void the_user_enters_an_email_address_as_and_continues_with_the_email_verification_for_Non_Institutional_Accounts(
+			String emailAddress) {
 		Assert.assertTrue("Verifying that the User entering email address for Non-Institutional Accounts",
 				seerLandingPage.nonInstitutionalAccountsHeaderText.getText()
 						.contentEquals("Non-Institutional Accounts"));
 		MiscUtils.sleep(2000);
-		CommonUtils.sendKeys(seerLandingPage.nonInstitutionalAccountsEmailAddressField, newEmail);
+		JavascriptUtils.scrollIntoView(seerLandingPage.nonInstitutionalAccountsEmailAddressField);
+		MiscUtils.sleep(2000);
+		CommonUtils.sendKeys(seerLandingPage.nonInstitutionalAccountsEmailAddressField, emailAddress);
 		MiscUtils.sleep(2000);
 		seerLandingPage.nonInstitutionalAccountsContinuetoEmailVerificationButton.click();
 		MiscUtils.sleep(2000);
@@ -35,12 +37,11 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 		seerUserRegistrationPage.seerUserRegistrationFirstNameField.sendKeys("Test");
 		seerUserRegistrationPage.seerUserRegistrationMiddleNameField.sendKeys("Tester");
 		seerUserRegistrationPage.seerUserRegistrationLastNameField.sendKeys("Testing");
-		MiscUtils.sleep(2000);
-		Assert.assertEquals(newEmail,
+		Assert.assertEquals("test@mail.com",
 				seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("value"));
 		Assert.assertTrue(
 				seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("disabled").equals("true"));
-		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
 		seerUserRegistrationPage.seerUserRegistrationOrganizationField.click();
 		seerUserRegistrationPage.seerUserRegistrationOrganizationField.sendKeys("A. T. Still University");
 		MiscUtils.sleep(2000);
@@ -65,7 +66,7 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 			String UndergraduateOrGraduateStudentValue) {
 		Assert.assertTrue(seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouText.getText()
 				.contentEquals(expectedWhichofTheseBestDescribeYouText));
-		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
 		CommonUtils.selectDropDownValue(UndergraduateOrGraduateStudentValue,
 				seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
 		MiscUtils.sleep(2000);
@@ -88,11 +89,12 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 	@Given("user proceeds with email verification for a Non-Institutional Account")
 	public void user_proceeds_with_email_verification_for_a_Non_Institutional_Account() {
 		JavascriptUtils.scrollIntoView(seerLandingPage.nonInstitutionalAccountsEmailAddressField);
-		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(seerLandingPage.nonInstitutionalAccountsEmailAddressField);
 		CommonUtils.sendKeys(seerLandingPage.nonInstitutionalAccountsEmailAddressField, "test@mail.com");
-		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(seerLandingPage.nonInstitutionalAccountsContinuetoEmailVerificationButton);
 		seerLandingPage.nonInstitutionalAccountsContinuetoEmailVerificationButton.click();
 		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenShot();
 	}
 
 	@When("entering required information")
@@ -102,15 +104,14 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 		seerUserRegistrationPage.seerUserRegistrationFirstNameField.sendKeys("Test");
 		seerUserRegistrationPage.seerUserRegistrationMiddleNameField.sendKeys("Tester");
 		seerUserRegistrationPage.seerUserRegistrationLastNameField.sendKeys("Testing");
-		MiscUtils.sleep(2000);
 		Assert.assertEquals("test@mail.com",
 				seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("value"));
 		Assert.assertTrue(
 				seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("disabled").equals("true"));
-		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
 		seerUserRegistrationPage.seerUserRegistrationOrganizationField.click();
 		seerUserRegistrationPage.seerUserRegistrationOrganizationField.sendKeys("A. T. Still University");
-		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationJobTitleField);
 		seerUserRegistrationPage.seerUserRegistrationJobTitleField.sendKeys("Tester");
 		JavascriptUtils.scrollIntoView(seerUserRegistrationPage.seerUserRegistrationEmailField);
 		MiscUtils.sleep(2000);
@@ -124,11 +125,8 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 		seerUserRegistrationPage.seerUserRegistrationAddressField.sendKeys("330 Ivy Lane, Apartment 6");
-		MiscUtils.sleep(2000);
 		seerUserRegistrationPage.seerUserRegistrationCityField.sendKeys("NYC");
-		MiscUtils.sleep(2000);
 		seerUserRegistrationPage.seerUserRegistrationPhoneField.sendKeys("6306543343");
-		MiscUtils.sleep(2000);
 		CommonUtils.selectDropDownValue("General Public",
 				seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
 		MiscUtils.sleep(2000);
@@ -158,14 +156,14 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 
 	@When("the user enters an email address for Non-Institutional Account")
 	public void the_user_enters_an_email_address_for_Non_Institutional_Account() {
-		CommonUtils.sendKeys(seerLandingPage.nonInstitutionalAccountsEmailAddressField, "email@email.com");
+		CommonUtils.sendKeys(seerLandingPage.nonInstitutionalAccountsEmailAddressField, newEmail);
 		CucumberLogUtils.logScreenShot();
 		CommonUtils.click(seerLandingPage.nonInstitutionalAccountsContinuetoEmailVerificationButton);
 	}
 	
 	@When("user enters email address for a Non-Institutional Account")
 	public void user_enters_email_address_for_a_Non_Institutional_Account() {
-	    CommonUtils.sendKeys(seerLandingPage.nonInstitutionalAccountsEmailAddressField, "email@email.com");
+	    CommonUtils.sendKeys(seerLandingPage.nonInstitutionalAccountsEmailAddressField, newEmail);
 	    CucumberLogUtils.logScreenShot();
 		CommonUtils.click(seerLandingPage.nonInstitutionalAccountsContinuetoEmailVerificationButton);
 	}
@@ -210,7 +208,7 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 	public void fills_out_all_required_fields_on_SEER_Data_registration_page() {
 		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationFirstNameField, "FirstName");
 		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationLastNameField, "LastName");
-		Assert.assertEquals("email@email.com",
+		Assert.assertEquals(newEmail,
 				seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("value"));
 		Assert.assertTrue(
 				seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("disabled").equals("true"));
@@ -236,6 +234,7 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 
 	@When("submits the registration form")
 	public void submits_the_registration_form() {
+		CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationSubmitButton);
 		CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationSubmitButton);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
@@ -260,6 +259,7 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 
 	@Then("the following text also displays")
 	public void the_following_text_also_displays(String registrationIsCompleteFullText) {
+		System.out.println(seerUserRegistrationPage.seerUserRegistrationConfirmationText.getText());
 		Assert.assertEquals(registrationIsCompleteFullText,
 				seerUserRegistrationPage.seerUserRegistrationConfirmationText.getText());
 		CucumberLogUtils.logScreenShot();

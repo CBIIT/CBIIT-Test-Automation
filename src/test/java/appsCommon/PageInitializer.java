@@ -1,7 +1,6 @@
 package appsCommon;
 
 import com.sun.xml.bind.v2.model.core.ID;
-
 import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
 import AnalysisTools.CEDCD.Pages.CEDCDBiospecimenCountsPage;
 import AnalysisTools.CEDCD.Pages.CEDCDCohortPage;
@@ -14,12 +13,17 @@ import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
 import AnalysisTools.ICRP.Pages.ICRPHomePage;
 import AnalysisTools.ICRP.Pages.ICRPSearchDatabase;
+import AnalysisTools.Comets2.Pages.Comets2Page;
 import AnalysisTools.CEDCD.Steps.CEDCDStartUps;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
 import AnalysisTools.PLCO.Pages.BrowsePhenotypePage;
 import AnalysisTools.PLCO.Pages.ExploreGWASPage;
 import AnalysisTools.PLCO.Pages.InformationPage;
+import AnalysisTools.mSigPortal.Pages.MSigPortalHomePage;
+import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
+import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
+import AnalysisTools.mSigPortal.Steps.SignatureVisualizationSteps;
 import CustomBusinessApp.EIDP.Pages.AligningExpectationsPage;
 import CustomBusinessApp.EIDP.Pages.BasePage;
 import CustomBusinessApp.EIDP.Pages.CareerGoalAndActivePage;
@@ -48,8 +52,11 @@ import ServiceNow.AppTracker.StepsImplementation.VacancyManagerUserStepsImpl;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
 import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
+import ServiceNow.CHARMS.Pages.MyRASHomePage;
+import ServiceNow.CHARMS.Pages.MyRASLoginPage;
 import ServiceNow.CHARMS.Pages.OKTAloginPage;
 import ServiceNow.CHARMS.Pages.ProbandScreenerPage;
+import ServiceNow.CHARMS.Pages.RASopathyQuestionnairePage;
 import ServiceNow.CHARMS.StepsImplementation.CHARMSHomePageImp;
 import ServiceNow.CHARMS.StepsImplementation.ProbandScreenerSubmissionImpl;
 import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
@@ -132,6 +139,9 @@ public class PageInitializer {
 	protected static ClinicalGeneticsBranchPage clinicalGeneticsBranchPage;
 	protected static ProbandScreenerPage probandScreenerPage;
 	protected static ProbandScreenerSubmissionImpl probandScreenerSubmissionImpl;
+	protected static MyRASLoginPage myRASLoginPage;
+	protected static MyRASHomePage myRASHomePage;
+	protected static RASopathyQuestionnairePage rasopathyQuestionnairePage;
 
 	/** LDLink instances **/
 	protected static LDLinkHomePage ldLinkHomePage;
@@ -140,7 +150,7 @@ public class PageInitializer {
 	/** PLCO instances **/
 	protected static ExploreGWASPage exploreGWASPage;
 	protected static BrowsePhenotypePage browsePhenotypePage;
-	protected static InformationPage informationPage;
+    protected static InformationPage informationPage;
 
 	/** ServiceNow DevOps instances */
 	protected static DevOpsLoginPage devOpsLoginPage;
@@ -159,7 +169,7 @@ public class PageInitializer {
 	protected static CEDCDStartUps cedcdStartUps;
 	protected static CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp cedcdSearchCohortsCategoriesOfDataOfDataSortedStepImp;
 	protected static CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp cedcdBiospecimenCountsAlphabeticalCancerTypeStepImp;
-	
+
 	/** SEER instances */
 	protected static SEERLandingPage seerLandingPage;
 	protected static SEERUserRegistrationPage seerUserRegistrationPage;
@@ -172,6 +182,14 @@ public class PageInitializer {
 	protected static NERDSubmissionsPage nerdCrsKnowledgeDatabaseSubmissionsPage;
 	protected static CreateNewSubmissionPage createNewSubmissionPage;
 	protected static NERDDynamicXPATHS nerdDynamicXpaths;
+	
+	/** Comets 2.0 Instances */
+	protected static Comets2Page comets2Page;
+	
+	/** mSigPortal Instances */
+	protected static SignatureVisualizationsPage signatureVisualizationsPage;
+	protected static MSigPortalHomePage mSigPortalHomePage;
+	protected static SignatureExplorerPages signatureExplorerPages;
 
 	/** Custom Business App Instances */
 	protected static AligningExpectationsPage aligningExpectationsPage;
@@ -271,7 +289,10 @@ public class PageInitializer {
 		cedcdCohortPage = new CEDCDCohortPage();
 		icrpHomePage = new ICRPHomePage(); 
 		icrpSearchDatabase = new ICRPSearchDatabase(); 
-
+		comets2Page = new Comets2Page();
+		signatureVisualizationsPage = new SignatureVisualizationsPage ();
+		mSigPortalHomePage = new MSigPortalHomePage();
+		signatureExplorerPages = new SignatureExplorerPages();
 		aligningExpectationsPage = new AligningExpectationsPage();
 		eidpDashboardPage = new DashboardPage();
 		eidpCommonPage = new CommonPage();
@@ -292,6 +313,10 @@ public class PageInitializer {
 		traineeReviewPage = new TraineeReviewPage();
 		coPrimaryMentorPage = new CoPrimaryMentorPage();
 		eidpDashboardStepImpl = new CustomBusinessApp.EIDP.StepsImplementation.DashboardStepImpl();
+		myRASLoginPage = new MyRASLoginPage();
+		myRASHomePage = new MyRASHomePage();
+		rasopathyQuestionnairePage = new RASopathyQuestionnairePage();
+		
 	
 		/**AppTracker**/
 		appTrackerBasePage = new AppTrackerBasePage();
