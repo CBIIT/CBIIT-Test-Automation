@@ -47,6 +47,3 @@ Feature: myRAS Screener Submissions
     And proceeds with submitting the Eligibility Questionnaire
     Then the Eligibility Questionnaire is sucessfully submitted
     
-    
-    
-    
