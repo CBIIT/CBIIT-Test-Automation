@@ -15,7 +15,7 @@ Feature: Questionnaire
       | Cohort Name             | Cohort Acronym | Notes                         |
       | Second Automated Cohort | SAC            | This Cohort Will Be Automated |
 
-   @matarodriguezko
+   @Progression @matarodriguezko
   Scenario: Cohort Owner logs in and completes section A
     Given the user is on the CEDCD homepage
     When the user is logged in as a Cohort Owner

@@ -21,5 +21,6 @@ public class CatalogPages {
 	
 	@FindBy (xpath = "//strong[contains(text(),'Signature Name:')]")
 	public WebElement catalogSignatureName;
+	
 
 }

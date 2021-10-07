@@ -795,7 +795,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		 */
 
 		/** Saving the questionnaire */
-		cedcdCohortPage.saveButton.click();
+//		cedcdCohortPage.saveButton.click();
 	}
 
 	// try to show the section circle color/status. Possibly from a screenshot.
