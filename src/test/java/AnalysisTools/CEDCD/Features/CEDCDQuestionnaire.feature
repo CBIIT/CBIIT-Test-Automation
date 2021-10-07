@@ -67,7 +67,7 @@ Feature: Questionnaire
     Then Section G of the Questionnaire is filled out
     Then Section G status Circle is green
 
-  @Progression @juarezds
+  @juarezds 
   Scenario: Admin creates Cohort Study and Cohort Owner submits questionnaire
     Given the user is on the CEDCD homepage
     And a Admin user adds a Cohort Study linked to Cohort Owner

@@ -15,25 +15,31 @@ public class CEDCDBiospecimenCountClearAllSteps extends PageInitializer {
 	/** This clicks on the Specimen Type drop down and selects "All Type" */
 	@When("the user selects All Types from the Specimen Type drop down")
 	public void the_user_selects_All_Types_from_the_Specimen_Type_drop_down() {
-
+		
+		JavascriptUtils.scrollIntoView(cedcdBiospecimenCountsPage.specimenType);
 		JavascriptUtils.clickByJS(cedcdBiospecimenCountsPage.specimenType);
 		JavascriptUtils.clickByJS(cedcdBiospecimenCountsPage.specimenTypeDropDownAllTypeValue);
+		MiscUtils.sleep(1000);
 
 	}
 
 	/** This method clicks on the Cancer Type drop down and selects "All Type" */
 	@When("the user selects All Cancers from the Cancer Type drop down")
 	public void the_user_selects_All_Cancers_from_the_Cancer_Type_drop_down() {
+		JavascriptUtils.scrollIntoView(cedcdBiospecimenCountsPage.cancerType);
 		JavascriptUtils.clickByJS(cedcdBiospecimenCountsPage.cancerType);
 		JavascriptUtils.clickByJS(cedcdBiospecimenCountsPage.cancerTypeDropDownAllTypeValues);
+		MiscUtils.sleep(1000);
 	}
 
 	/** This method clicks on the Cohorts drop down and selects "All Types" 
 	 * @throws InterruptedException */
 	@When("the user selects All Cohorts from the Cohorts drop down")
 	public void the_user_selects_All_Cohorts_from_the_Cohorts_drop_down() {
+		JavascriptUtils.scrollIntoView(cedcdBiospecimenCountsPage.cohortType);
 		JavascriptUtils.clickByJS(cedcdBiospecimenCountsPage.cohortType);
 		JavascriptUtils.clickByJS(cedcdBiospecimenCountsPage.cohortTypeDropDownAllTypeValue);
+		MiscUtils.sleep(1000);
 		
 	}
 
