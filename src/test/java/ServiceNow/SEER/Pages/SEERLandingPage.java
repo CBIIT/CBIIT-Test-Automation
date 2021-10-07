@@ -16,7 +16,7 @@ public class SEERLandingPage extends CommonUtils{
 	public WebElement requestDatabaseAccessHeader;
 	
 	/** Request Database Access Text */
-	@FindBy (xpath = "/html/body/div/section/main/div[3]/div/sp-page-row/div/div/span/div/div[1]/div[1]/div")
+	@FindBy (xpath = "//div[contains(@class,'row how-to')]//div[contains(@class,'col-xs-12')]")
 	public WebElement requestDatabaseAccessText;
 	
 	/** If You Have Access Paragraph */
@@ -78,7 +78,7 @@ public class SEERLandingPage extends CommonUtils{
 	public WebElement forAllOtherAccountsParagraph;	
 	
 	/** Non-Institutional Accounts email address field*/
-	@FindBy(xpath = "//input[@type='email']")
+	@FindBy(xpath = "//input[@placeholder='email address']")
 	public WebElement nonInstitutionalAccountsEmailAddressField;
 	
 	/** Non-Institutional Accounts  Continue to Email Verification  button*/

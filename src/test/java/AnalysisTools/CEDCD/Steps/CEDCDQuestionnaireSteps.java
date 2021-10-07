@@ -1,13 +1,7 @@
 package AnalysisTools.CEDCD.Steps;
 
-import javax.swing.plaf.basic.BasicArrowButton;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
-import com.gargoylesoftware.htmlunit.javascript.background.JavaScriptExecutor;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -15,8 +9,6 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
-import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -32,7 +24,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.logScreenShot();
 	}
-	
+
 	@Given("a Admin user adds a Cohort Study linked to Cohort Owner")
 	public void a_Admin_user_adds_a_Cohort_Study_linked_to_Cohort_Owner() throws TestingException {
 		MiscUtils.sleep(3000);
@@ -70,11 +62,8 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		//INPUT LOCATOR TO SEND TEXT TO DROP DOWN TEXT BOX
 		WebDriverUtils.webDriver.findElement(By.id("react-select-2-input")).sendKeys("Automated_TestCohort_Name "+ CommonUtils.date);
 		WebDriverUtils.webDriver.findElement(By.id("react-select-2-input")).sendKeys(Keys.RETURN);
-
 	}
-	
 
-	
 	@When("fills out all sections of the questionnaire")
 	public void fills_out_all_sections_of_the_questionnaire() {
 	
@@ -146,18 +135,22 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.mostRecentYear.sendKeys("2018");
 		cedcdCohortPage.a11PhoneInterview.click();
 		cedcdCohortPage.a11AdministeredViaWebBasedDevice.click();
-		//cedcdCohortPage.a11otherPleaseSpecify.click();
-		//cedcdCohortPage.a11otherPleaseSpecifyTextbox.sendKeys("A11 Automated Key Presses");
+		cedcdCohortPage.a11otherPleaseSpecify.click();
+		cedcdCohortPage.a11otherPleaseSpecifyTextbox.sendKeys("A11 Automated Key Presses");
 		cedcdCohortPage.a12RequireIRBApproval.click();
 		cedcdCohortPage.a12LinkingOtherDatabases.click();
-		//cedcdCohortPage.a12OtherPleaseSpecify.click();
-		//cedcdCohortPage.a12OtherPleaseSpecifyTextbox.sendKeys("A12 Automated Key Presses");
+		cedcdCohortPage.a12OtherPleaseSpecify.click();
+		cedcdCohortPage.a12OtherPleaseSpecifyTextbox.sendKeys("A12 Automated Key Presses");
 		cedcdCohortPage.a13AdvisoryCommittees.click();
 		cedcdCohortPage.a13GeneticVariantsBloodPressure.click();
-		//cedcdCohortPage.a13OtherPleaseSpecify.click();
+		cedcdCohortPage.a13OtherPleaseSpecify.click();
 		MiscUtils.sleep(3000);
-		//cedcdCohortPage.a13OtherPleaseSpecifyTextbox.sendKeys("A13 Automated Key Presses");
+		cedcdCohortPage.a13OtherPleaseSpecifyTextbox.sendKeys("A13 Automated Key Presses");
+		cedcdCohortPage.a12OtherPleaseSpecifyTextbox.click();
+		cedcdCohortPage.a13OtherPleaseSpecifyTextbox.click();
+		
 		CucumberLogUtils.logScreenShot();
+		MiscUtils.sleep(2000);
 
 		/**
 		 * Entering all data for the Documents tab (there is nothing entered in this
@@ -562,10 +555,11 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.saveButton.click();
 		MiscUtils.sleep(3000);
 		}
-	
 
 	@When("submits the Cohort Study for Review")
 	public void submits_the_Cohort_Study_for_Review() {
+		CommonUtils.scrollIntoView(cedcdCohortPage.submitForReviewButton);
+		CommonUtils.waitForVisibility(cedcdCohortPage.submitForReviewButton);
 		cedcdCohortPage.submitForReviewButton.click();
 		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(3000);	
@@ -632,7 +626,6 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 
 	@When("the Cohort Owner selects their Cohort questionnaire")
 	public void the_Cohort_Owner_selects_their_Cohort_questionnaire() {
-
 	}
 
 	@Then("Section A of the Questionnaire is filled out")
@@ -1210,6 +1203,5 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	@Then("Section G status Circle is green")
 	public void section_G_status_Circle_is_green() {
 	}
-
 }
-
+	

@@ -5,8 +5,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import com.nci.automation.utils.MiscUtils;
-
 /**
  * This is a util class which contains all JavaScript common methods that will
  * be used through out the application. New JavaScript methods can be added any
@@ -159,7 +157,6 @@ public class JavascriptUtils extends WebDriverUtils {
 
 	}
 
-	
 	/**
 	 * This method will scroll text up by the given pixel
 	 * 
@@ -169,5 +166,6 @@ public class JavascriptUtils extends WebDriverUtils {
 	public static void scrollUpWithinElement (WebElement element, int pixel) {
 		JavascriptExecutor js = (JavascriptExecutor) webDriver;
 		js.executeScript("arguments[0].scrollTop = arguments[1];",element, pixel);
+
 	}
 }

@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -20,6 +21,7 @@ import CustomBusinessApp.EIDP.Util.CommonUtil;
 import ServiceNow.AppTracker.Utils.AppTrackerCommonUtils;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.When;
+import groovyjarjarantlr4.v4.codegen.model.Action;
 import io.cucumber.datatable.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -215,38 +217,35 @@ public class VacancyManagerUserSteps extends PageInitializer {
 
 	}
 
-	@Then("User selects date same as today's date as below")
-	public void user_selects_date_same_as_today_s_date_as_below(Map<String, String> data) {
-		String openDate = data.get("Open Date");
-		String closeDate = data.get("Close Date");
-		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
-		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection, openDate);
-		MiscUtils.sleep(3000);
-		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection);
-		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection, closeDate);
-		MiscUtils.sleep(3000);
-		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
-		CommonUtils.click(vacancyManagerUserPage.reviewSection);
-		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.basicVacancyInformationSaveButton);
-		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
-		MiscUtils.sleep(3000);
+	@Then("User selects date same as today's date")
+	// openDate = index - 2
+	// close date: index 33 = 1
+	public void user_selects_date_same_as_today_s_date() {
+		// open date = 2021-06-07, close date = 2021-06-07
+		vacancyManagerUserStepsImpl.selectOpenCloseDate(9, 51);
 
 	}
 
 	@Then("User can see the under Close Date field message displays with {string}")
-	public void user_can_see_the_under_Close_Date_field_message_displays_with(String alertTextMessage) {
-		Assert.assertEquals(CommonUtils.getAlertText(), alertTextMessage);
+	public void user_can_see_the_under_Close_Date_field_message_displays_with(String closeDayAlertTextMessage) {
+		String expectedResult = vacancyManagerUserPage.closeDateErrorMessage.getText();
+		Assert.assertEquals(expectedResult, vacancyManagerUserPage.closeDateErrorMessage.getText());
 
 	}
 
+	// Satya7Ticket94
 	@When("User selects the Open date as greater than the Close date")
 	public void user_selects_the_Open_date_as_greater_than_the_Close_date() {
+		// open date = 2021-06-09
+		// close date = 2021-06-07
+		vacancyManagerUserStepsImpl.selectOpenCloseDate(11, 51);
 
 	}
 
 	@Then("User can see the under Open Date field message displays with {string}")
-	public void user_can_see_the_under_Open_Date_field_message_displays_with(String string) {
-
+	public void user_can_see_the_under_Open_Date_field_message_displays_with(String openDateAlertTextMessage) {
+		String expectedResult = vacancyManagerUserPage.openDateErrorMessage.getText();
+		Assert.assertEquals(expectedResult, vacancyManagerUserPage.openDateErrorMessage.getText());
 	}
 
 	/** SectionsFields **/
@@ -428,7 +427,7 @@ public class VacancyManagerUserSteps extends PageInitializer {
 
 	@Given("User clicks on Vacancy Committee tab")
 	public void user_clicks_on_Vacancy_Committee_tab() {
-		CommonUtils.click(vacancyManagerUserPage.basicVacancySection);
+		CommonUtils.click(vacancyManagerUserPage.vacancyCommitteeSection);
 	}
 
 	@When("User clicks on the Email template tab")
@@ -444,15 +443,10 @@ public class VacancyManagerUserSteps extends PageInitializer {
 	// @Satya17Ticket120
 	@When("User indicates open date and close date")
 	public void user_indicates_open_date_and_close_date() {
-		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
-		MiscUtils.sleep(2000);
-		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection,
-				"2021-05-27");
-		MiscUtils.sleep(1000);
-		JavascriptUtils.selectDateByJS(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection,
-				"2021-05-27");
-		MiscUtils.sleep(3000);
+		vacancyManagerUserStepsImpl.selectOpenCloseDate(16, 60);
 		CommonUtils.click(vacancyManagerUserPage.basicVacancyInformationSaveButton);
+		MiscUtils.sleep(1000);
+
 	}
 
 	@When("User toggles off Equal Opportunity Employer button, Standards of Conduct\\/Financial Disclosure button, Foreign Education button, Reasonable Accommodation button")
@@ -478,7 +472,7 @@ public class VacancyManagerUserSteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.click(vacancyManagerUserPage.roleDropdown);
 		MiscUtils.sleep(1000);
-		CommonUtils.click(vacancyManagerUserPage.roleMemmberVoting);
+		CommonUtils.click(vacancyManagerUserPage.roleMemberVoting);
 		MiscUtils.sleep(1000);
 		CommonUtils.click(vacancyManagerUserPage.saveButtonAddingMember);
 		MiscUtils.sleep(1000);
@@ -513,39 +507,95 @@ public class VacancyManagerUserSteps extends PageInitializer {
 
 	@Then("User will see the error messages displayed")
 	public void user_will_see_the_error_messages_displayed() {
-	String expectedBeginningMessage = "Sorry, we can't submit just yet.  The following sections have fields that need to change or have values: ";
-    String expectedEndMessage = "We've highlighted those fields in red.  Please return to those sections and address the highlights, then return here and click 'Save and Finalize' again.";
-	String actualBegMessage = vacancyManagerUserPage.beginningAlertMessage.getText();
-	System.out.println();
-	String actualEndMessage = vacancyManagerUserPage.endAlertMessage.getText();
-	System.out.println();
-	Assert.assertEquals(expectedBeginningMessage, actualBegMessage);
-	Assert.assertEquals(actualEndMessage, expectedEndMessage);
+		String expectedBeginningMessage = "Sorry, we can't submit just yet.  The following sections have fields that need to change or have values: ";
+		String expectedEndMessage = "We've highlighted those fields in red.  Please return to those sections and address the highlights, then return here and click 'Save and Finalize' again.";
+		String actualBegMessage = vacancyManagerUserPage.beginningAlertMessage.getText();
+		System.out.println();
+		String actualEndMessage = vacancyManagerUserPage.endAlertMessage.getText();
+		System.out.println();
+		Assert.assertEquals(expectedBeginningMessage, actualBegMessage);
+		Assert.assertEquals(actualEndMessage, expectedEndMessage);
 	}
 
 	// @Satya18Ticket105
-	@Then("User adds committee member as a chair and as an executive secretary")
-	public void user_adds_committee_member_as_a_chair_and_as_an_executive_secretary() {
+
+	@Then("User adds committee member")
+	public void user_adds_committee_member(DataTable dataTable) {
+		CommonUtils.click(vacancyManagerUserPage.vacancyCommitteeSection);
+		MiscUtils.sleep(1000);
+		Map<String, String> addCommitteeMember = CommonUtil.getMapFromDataTable(dataTable);
+		vacancyManagerUserStepsImpl.selectCommitteeMemberFromDropDown(addCommitteeMember.get("Committee Member"));
+		if (!addCommitteeMember.get("Committee Member ").isEmpty()) {
+			vacancyManagerUserStepsImpl.selectCommitteeMemberFromDropDown(addCommitteeMember.get("Committee Member"));
+		}
+		MiscUtils.sleep(3000);
+		vacancyManagerUserStepsImpl.selectRole(addCommitteeMember.get("Role"));
+		MiscUtils.sleep(1000);
+		CommonUtils.click(vacancyManagerUserPage.saveButtonAddingMember);
+		CucumberLogUtils.logScreenShot();
 
 	}
 
 	@Then("User clicks on Review and Finalize tab")
 	public void user_clicks_on_Review_and_Finalize_tab() {
-
+		CommonUtils.click(vacancyManagerUserPage.reviewSection);
 	}
 
 	@Then("User can see confirmation modal {string} is displayed")
-	public void user_can_see_confirmation_modal_is_displayed(String string) {
+	public void user_can_see_confirmation_modal_is_displayed(String expectedTextfromAlert) {
+		Assert.assertTrue(CommonUtils.getAlertText().contentEquals(expectedTextfromAlert));
 
+	}
+    //@Satya18Ticket120
+	@Then("User adds committee member as {string} and role {string}")
+	public void user_adds_committee_member_as_and_role(String committeeMember, String role) {
+		vacancyManagerUserStepsImpl.selectCommitteeMemberFromDropDown(committeeMember);
+		vacancyManagerUserStepsImpl.selectRole(role);
+		}
+	
+	@Then("User picks open date as {string} and close date as {string}")
+	public void user_picks_open_date_as_and_close_date_as(String openDate, String closeDate) {
+		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
+		JavascriptUtils.clickByJS(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
+		MiscUtils.sleep(2000);
+		JavascriptUtils.clickByJS(vacancyManagerUserPage.calendarDatePicker.get(16));
+		MiscUtils.sleep(2000);
+		JavascriptUtils.clickByJS(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection);
+		MiscUtils.sleep(2000);
+		JavascriptUtils.clickByJS(vacancyManagerUserPage.calendarDatePicker.get(65));
+		MiscUtils.sleep(2000);
+		
 	}
 
 	@When("User chooses OK for  confirmation modal{string}")
 	public void user_chooses_OK_for_confirmation_modal(String string) {
-
+	    
 	}
 
 	@Then("User can see confirmation modal {string}")
 	public void user_can_see_confirmation_modal(String string) {
+	   
+	}
+
+	// @Satya7Ticket94
+	@When("User picks open date and close date")
+	public void user_picks_open_date_and_close_date() {
+		//JavascriptUtils.scrollIntoView(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
+		//JavascriptUtils.clickByJS(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
+		//JavascriptUtils.clickByJS(vacancyManagerUserPage.calendarDatePicker.get(13));
+		//JavascriptUtils.clickByJS(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection);
+		//JavascriptUtils.clickByJS(vacancyManagerUserPage.calendarDatePicker.get(63));
+		//MiscUtils.sleep(2000);
+		vacancyManagerUserStepsImpl.selectOpenCloseDate(13,63);
+	}
+
+	@Then("User can see the selected Open & Closed date displaying as the same")
+	public void user_can_see_the_selected_Open_Closed_date_displaying_as_the_same() {
+		// text = 10,17
+		JavascriptUtils.scrollIntoView(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection);
+		Assert.assertTrue(vacancyManagerUserPage.openCalendarInputButtonInBasicVacancySection.getAttribute("title").contentEquals("2021-06-12"));
+		Assert.assertTrue(vacancyManagerUserPage.closeCalendarInputButtonInBasicVacancySection.getAttribute("title").contentEquals("2021-06-20"));
+		
 
 	}
 

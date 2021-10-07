@@ -109,12 +109,16 @@ public class NativeViewEnrollmentViewPage extends CommonUtils {
 	public WebElement nativeViewEnrollmentViewState;
 	
 	/** Native View Enrollment View Zip code */
-	@FindBy(xpath = "/html/body/div[2]/form/span[1]/span/div[5]/div/div[2]/div[6]/div[2]/input")
+	@FindBy(xpath = "//input[@id='x_g_nci_geco_covid_geco_covid_19_enrollment.zip_code']")
 	public WebElement nativeViewEnrollmentViewZipCode;
 
 	/** Native View 'All' breadcrumb link */
-	@FindBy(xpath = "//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment_breadcrumb']/a/b")
+	@FindBy(xpath = "(//*[@id='x_g_nci_geco_covid_geco_covid_19_enrollment_breadcrumb']/a/b)[1]")
 	public WebElement nativeViewAllBreadCrumbLink;
+	
+	/** Native View Follow Up 'All' breadcrumb link */
+	@FindBy(xpath = "//b[@aria-hidden='true']")
+	public WebElement nativeViewFollowUpAllBreadCrumbLink;
 	
 	/** Native View Follow Up Patient Id */
 	@FindBy(xpath = "//input[@id='sys_display.x_g_nci_geco_covid_covidcode_follow_up.patient_id']")
@@ -173,7 +177,7 @@ public class NativeViewEnrollmentViewPage extends CommonUtils {
 	public WebElement nativeViewEnrollmentViewDemographicsHeightInches;
 	
 	/** Native View Enrollment View Demographics Error Message for Inches */
-	@FindBy(xpath = "/html/body/div[2]/form/span[2]/span/div/div/div[1]/div[7]/div[2]/div[2]/div")
+	@FindBy(xpath = "//div[@class='fieldmsg notification notification-error']")
 	public WebElement nativeViewEnrollmentViewDemographicsInchesErrorMessage;
 
 	/** Native View Enrollment View Demographics Height centimeters field */
@@ -725,6 +729,15 @@ public class NativeViewEnrollmentViewPage extends CommonUtils {
 	/** Native View Enrollment View Submit Top Button */
 	@FindBy(xpath = "//button[@id='sysverb_insert']")
 	public WebElement nativeViewEnrollmentViewSubmitTopButton;
+	
+	/** Native View Enrollment View Submit For Review Button */
+	@FindBy(xpath = "//span[contains(@class,'navbar_ui_actions')]//button[contains(@name,'not_important')][normalize-space()='Submit for Review']")
+	public WebElement nativeViewEnrollmentViewSubmitForReviewButton;
+	
+	/*
+	 * 
+	 * ---------- HERE ----------
+	 */
 	
 	/** Native View Enrollment View Delete Top Button */
 	@FindBy(xpath = "//button[@id = 'sysverb_delete']")

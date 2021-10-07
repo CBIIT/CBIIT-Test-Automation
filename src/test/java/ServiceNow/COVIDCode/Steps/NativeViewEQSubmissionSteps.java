@@ -215,7 +215,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		MiscUtils.sleep(3000);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesTab.click();
 		MiscUtils.sleep(1000);
-		JavascriptUtils.clickByJS(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesNewButton);
+		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesNewButton.click();
 		MiscUtils.sleep(3000);
 	}
 
@@ -242,13 +242,17 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 	@When("the user opens a Follow Up record")
 	public void the_user_opens_a_Follow_Up_record() {
 		nativeViewStepsImpl.nativeViewNavigateToCovidCodeFollowUpQuestionnaire();
-		MiscUtils.sleep(2000);
+		nativeViewEnrollementsPage.nativeViewPanelNavigatorCovidCodeFollowUpsLink.click();
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
 		MiscUtils.sleep(2000);
-		nativeViewEnrollementsPage.specimensPreviewButton.click();
-		MiscUtils.sleep(2000);
-		nativeViewEnrollementsPage.specimensOpenRecordButton.click();
-		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(followUpFormPage.followUpNativeViewAllBreadcrumbLink);
+		followUpFormPage.followUpNativeViewAllBreadcrumbLink.click();
+		CommonUtils.waitForVisibility(followUpFormPage.followUpNativeViewRecordPreviewButton);
+		JavascriptUtils.clickByJS(followUpFormPage.followUpNativeViewRecordPreviewButton);
+		//followUpFormPage.followUpNativeViewRecordPreviewButton.click();
+		CommonUtils.waitForVisibility(followUpFormPage.followUpNativeViewOpenRecordButton);
+		followUpFormPage.followUpNativeViewOpenRecordButton.click();
+		
 
 	}
 
@@ -257,14 +261,14 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		MiscUtils.sleep(3000);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesTab.click();
 		MiscUtils.sleep(1000);
-		JavascriptUtils.clickByJS(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesNewButton);
+		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesNewButton.click();
 		MiscUtils.sleep(3000);
 
 	}
 
 	@Then("there is a field option called {string} for Drug Treatments field")
 	public void there_is_a_field_option_called_for_Drug_Treatments_field(String Plasma) {
-		MiscUtils.sleep(3000);
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.diseaseCoursesDrugTreatmentsUnlockButton);
 		nativeViewEnrollmentViewPage.diseaseCoursesDrugTreatmentsUnlockButton.click();
 		MiscUtils.sleep(1000);
 		nativeViewEnrollmentViewPage.diseaseCoursesDrugTreatmentsSearchbar.sendKeys(Plasma);
@@ -284,8 +288,10 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 	public void the_user_opens_a_Specimens_record() {
 		nativeViewStepsImpl.nativeViewNavigateToCovidCodeSpecimens();
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
+		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.specimensPreviewButton);
 		nativeViewEnrollementsPage.specimensPreviewButton.click();
 		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.specimensOpenRecordButton);
 		nativeViewEnrollementsPage.specimensOpenRecordButton.click();
 	}
 
@@ -399,11 +405,13 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 
 	@When("on the Demographics Information")
 	public void on_the_Demographics_Information() {
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsTab);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsTab.click();
 	}
 
 	@When("selecting {string} for Height")
 	public void selecting_for_Height(String feetInches) {
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourCurrentHeightDropDown);
 		CommonUtils.selectDropDownValue(feetInches,
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourCurrentHeightDropDown);
 	}
@@ -415,16 +423,19 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 
 	@When("entering a value greater than {int} Inches for Height")
 	public void entering_a_value_greater_than_Inches_for_Height(Integer int1) {
+		CommonUtils.scrollIntoView(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsHeightInches);
 		CommonUtils.sendKeys(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsHeightInches, "13");
 	}
 
 	@When("clicking anywhere else")
 	public void clicking_anywhere_else() {
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsCurrentWeightDropDown);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsCurrentWeightDropDown.click();
 	}
 
 	@Then("a message displays {string}")
 	public void a_message_displays(String errorMessage) {
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsInchesErrorMessage);
 		Assert.assertTrue(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsInchesErrorMessage.getText()
 				.contentEquals(errorMessage));
 		CucumberLogUtils.logScreenShot();
@@ -434,9 +445,14 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 	public void on_the_Follow_Up_form_in_Native_View() throws TestingException {
 		nativeViewLoginImpl.nativeViewLogin();
 		nativeViewStepsImpl.nativeViewNavigateToCovidCodeFollowUpQuestionnaire();
-		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
 		MiscUtils.sleep(2000);
-		nativeViewEnrollementsPage.covidCodeFollowUpNewButton.click();
+		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.followUpsContextMenuLink);
+		JavascriptUtils.clickByJS(nativeViewEnrollementsPage.followUpsContextMenuLink);
+		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
+		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.covidCodeEnrollmentsNewButton);
+		nativeViewEnrollementsPage.covidCodeEnrollmentsNewButton.click();
+		
+		
 	}
 
 	@When("a COVIDcode user is on the Initial Questionnaire form in Native View")
@@ -473,98 +489,120 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 
 	@Then("the systems does not allow any future dates to be selected for the any date picker")
 	public void the_systems_does_not_allow_any_future_dates_to_be_selected_for_the_any_date_picker() {
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsDateFormCompletedField);
+		JavascriptUtils.scrollIntoView(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsDateFormCompletedField);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsDateFormCompletedField.sendKeys("02/22/2026");
-		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourDateOfBirthField);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourDateOfBirthField
 				.sendKeys("02/22/2026");
-		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsDateFormCompletedField);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsDateFormCompletedField.click();
-		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsDateFormCompletedSelectedDateCannotBeInTheFutureText);
 		Assert.assertTrue(
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsDateFormCompletedSelectedDateCannotBeInTheFutureText
 						.getText().contentEquals("Selected date cannot be in the future."));
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourDateOfBirthSelectedDateCannotBeInTheFutureText);
 		Assert.assertTrue(
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourDateOfBirthSelectedDateCannotBeInTheFutureText
 						.getText().contentEquals("Selected date cannot be in the future."));
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyTab);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyTab.click();
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyWereYouSymptomaticDropDown);
 		CommonUtils.selectDropDownValue("Yes",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyWereYouSymptomaticDropDown);
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyWhenFirstDevelopSymptomsField);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyWhenFirstDevelopSymptomsField
 				.sendKeys("02/22/2026");
-		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyHaveYouOfficiallyBeenDiagnosedWithCOVID19);
 		CommonUtils.selectDropDownValue("Yes",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyHaveYouOfficiallyBeenDiagnosedWithCOVID19);
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyDateOfficiallyDiagnosed);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyDateOfficiallyDiagnosed.sendKeys("02/22/2026");
-		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyWhenFirstDevelopSymptomsField);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyWhenFirstDevelopSymptomsField.click();
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyWhenFirstDevelopSymptomsSelectedDateCannotBeInTheFutureText);
 		Assert.assertTrue(
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyWhenFirstDevelopSymptomsSelectedDateCannotBeInTheFutureText
 						.getText().contentEquals("Selected date cannot be in the future."));
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyDateOfficiallyDiagnosedSelectedDateCannotBeInTheFutureText);
 		Assert.assertTrue(
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyDateOfficiallyDiagnosedSelectedDateCannotBeInTheFutureText
 						.getText().contentEquals("Selected date cannot be in the future."));
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsTab);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsTab.click();
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsConsentedDate);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsConsentedDate.sendKeys("02/22/2026");
-		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsMinimalSurveyConductedDate);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsMinimalSurveyConductedDate
 				.sendKeys("02/22/2026");
-		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsAssignedProtocolInCRISDate);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsAssignedProtocolInCRISDate
 				.sendKeys("02/22/2026");
-		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsRvsPaymentRequestedDatefField);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsRvsPaymentRequestedDatefField
 				.sendKeys("02/22/2026");
-		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsExtendedSurveyCompletedDate);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsExtendedSurveyCompletedDate
 				.sendKeys("02/22/2026");
-		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsMedicalReleaseAuthorizationSignedDate);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsMedicalReleaseAuthorizationSignedDate
 				.sendKeys("02/22/2026");
-		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsRvsPaymentRequestedDatefField);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsRvsPaymentRequestedDatefField.click();
-		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsConsentedSelectedDateCannotBeInTheFutureText);
 		Assert.assertTrue(
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsConsentedSelectedDateCannotBeInTheFutureText
 						.getText().contentEquals("Selected date cannot be in the future."));
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsMinimalSurveyConductedDateSelectedDateCannotBeInTheFutureText);
 		Assert.assertTrue(
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsMinimalSurveyConductedDateSelectedDateCannotBeInTheFutureText
 						.getText().contentEquals("Selected date cannot be in the future."));
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsAssignedProtocolInCRISSelectedDateCannotBeInTheFutureText);
 		Assert.assertTrue(
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsAssignedProtocolInCRISSelectedDateCannotBeInTheFutureText
 						.getText().contentEquals("Selected date cannot be in the future."));
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsRvsPaymentRequestedDateSelectedDateCannotBeInTheFutureText);
 		Assert.assertTrue(
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsRvsPaymentRequestedDateSelectedDateCannotBeInTheFutureText
 						.getText().contentEquals("Selected date cannot be in the future."));
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsExtendedSurveyCompletedDateSelectedDateCannotBeInTheFutureText);
 		Assert.assertTrue(
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsExtendedSurveyCompletedDateSelectedDateCannotBeInTheFutureText
 						.getText().contentEquals("Selected date cannot be in the future."));
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsMedicalReleaseAuthorizationSignedSelectedDateCannotBeInTheFutureText);
 		Assert.assertTrue(
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsMedicalReleaseAuthorizationSignedSelectedDateCannotBeInTheFutureText
 						.getText().contentEquals("Selected date cannot be in the future."));
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineTab);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineTab.click();
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineHaveYouReceivedYourFirstCOVIDVaccineDD);
 		CommonUtils.selectDropDownValue("Yes",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineHaveYouReceivedYourFirstCOVIDVaccineDD);
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineWhatDateDidYouReceiveFirstVaccineDate);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineWhatDateDidYouReceiveFirstVaccineDate
 				.sendKeys("02/22/2026");
-		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineManufactureDD);
 		CommonUtils.selectDropDownValue("Pfizer",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineManufactureDD);
-		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineHaveYouReceivedYourSecondCovidVaccineDD);
 		CommonUtils.selectDropDownValue("Yes",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineHaveYouReceivedYourSecondCovidVaccineDD);
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineHaveYouReceivedYourSecondVaccineDate);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineHaveYouReceivedYourSecondVaccineDate
 				.sendKeys("02/22/2026");
-		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineWhatDateDidYouReceiveFirstVaccineDate);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineWhatDateDidYouReceiveFirstVaccineDate.click();
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineWhatDateDidYouReceiveFirstVaccineSelectedDateCannotBeInTheFutureText);
 		Assert.assertTrue(
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineWhatDateDidYouReceiveFirstVaccineSelectedDateCannotBeInTheFutureText
 						.getText().contentEquals("Selected date cannot be in the future."));
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineHaveYouReceivedYourSecondVaccineSelectedDateCannotBeInTheFutureText);
 		Assert.assertTrue(
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineHaveYouReceivedYourSecondVaccineSelectedDateCannotBeInTheFutureText
 						.getText().contentEquals("Selected date cannot be in the future."));
@@ -576,6 +614,8 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 	public void covidcode_user_is_on_the_Follow_Up_form_page_in_Native_View() throws TestingException {
 		nativeViewLoginImpl.nativeViewLogin();
 		nativeViewStepsImpl.nativeViewNavigateToCovidCodeFollowUpQuestionnaire();
+		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.followUpsContextMenuLink);
+		nativeViewEnrollementsPage.followUpsContextMenuLink.click();
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
 		MiscUtils.sleep(1000);
 		nativeViewEnrollementsPage.covidCodeEnrollmentsNewButton.click();
@@ -730,9 +770,31 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		CommonUtils.selectDropDownValue(groupNumber,
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewUserGroupIDDropDown);
 		CommonUtils.sendKeys(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewPatientLastNameField, "TestLastName");
-		CommonUtils.sendKeys(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewPatientFirstName, testFirstName);
+		CommonUtils.sendKeys(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewPatientFirstName, "DebugginTest");
 		CommonUtils.sendKeys(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewContactEmailAddress,
 				"email@email.com");
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourBioSexDropDown);
+		JavascriptUtils.scrollIntoView(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourBioSexDropDown);
+		CommonUtils.selectDropDownValue("Male", nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourBioSexDropDown);
+		
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourCurrentHeightDropDown);
+		CommonUtils.selectDropDownValue("Feet/Inches", nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourCurrentHeightDropDown);
+		
+		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsHeightField.sendKeys("5");
+		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsHeightInches.sendKeys("10");
+		
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsCurrentWeightDropDown);
+		CommonUtils.selectDropDownValue("Pounds", nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsCurrentWeightDropDown);
+		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWeighPoundtField.sendKeys("200");
+		
+		CommonUtils.selectDropDownValue("Asian", nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsHowWouldYouDescribeYourRaceDropDown);
+		
+		CommonUtils.selectDropDownValue("Yes", nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsAreYouHispaniceOrLatinoDropDown);
+		
+		
+		
+		
+		//CONTINUE HERE
 		CucumberLogUtils.logScreenShot();
 	}
 
@@ -757,20 +819,22 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 
 	@When("the COVIDcode Admin user submits the Initial Questionnaire")
 	public void the_COVIDcode_Admin_user_submits_the_Initial_Questionnaire() {
-		CommonUtils.click(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSubmitTopButton);
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSubmitForReviewButton);
+		CommonUtils.click(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSubmitForReviewButton);
 		CucumberLogUtils.logScreenShot();
 	}
 
 	@Then("the COVIDcode Admin user should be able to see the files uploaded")
 	public void the_COVIDcode_Admin_user_should_be_able_to_see_the_files_uploaded() {
 		CommonUtils.click(nativeViewEnrollmentViewPage.nativeViewAllBreadCrumbLink);
-		MiscUtils.sleep(2000);
-		CommonUtils.selectDropDownValue(nativeViewEnrollementsPage.covidCodeEnrollmentsSearchDropDown, "first_name");
-		MiscUtils.sleep(2000);
-		CommonUtils.sendKeys(nativeViewEnrollementsPage.covidCodeEnrollmentsSearchTextBox, testFirstName);
-		MiscUtils.sleep(2000);
+		MiscUtils.sleep(5000);
+		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.covidCodeEnrollmentsSearchDropDown);
+		CommonUtils.selectDropDownValue(nativeViewEnrollementsPage.covidCodeEnrollmentsSearchDropDown, "zztextsearchyy");
+		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.covidCodeEnrollmentsSearchTextBox);
+		CommonUtils.sendKeys(nativeViewEnrollementsPage.covidCodeEnrollmentsSearchTextBox, "DebugginTest");
+		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.covidCodeEnrollmentsSearchTextBox);
 		CommonUtils.sendKeys(nativeViewEnrollementsPage.covidCodeEnrollmentsSearchTextBox, Keys.RETURN);
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(3000);
 		JavascriptUtils.clickByJS(nativeViewSentViewPage.nativeViewPreviewVerifyEmailIcon);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
@@ -851,14 +915,16 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 			throws TestingException {
 		nativeViewLoginImpl.nativeViewLogin();
 		nativeViewStepsImpl.nativeViewNavigateToCovidCodeFollowUpQuestionnaire();
-		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.followUpsContextMenuLink);
+		nativeViewEnrollementsPage.followUpsContextMenuLink.click();
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
 		MiscUtils.sleep(500);
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewFollowUpAllBreadCrumbLink);
+		CommonUtils.click(nativeViewEnrollmentViewPage.nativeViewFollowUpAllBreadCrumbLink);	
+		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.covidCodeFollowUpsGroup1link);
 		nativeViewEnrollementsPage.covidCodeFollowUpsGroup1link.click();
-		MiscUtils.sleep(1000);
-		nativeViewEnrollementsPage.specimensPreviewButton.click();
-		nativeViewEnrollementsPage.covidCodeEnrollmentOpenRecordBtn.click();
-		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesNewButton);
+		JavascriptUtils.scrollIntoView(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesNewButton);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesNewButton.click();
 	}
 
@@ -931,7 +997,5 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 				.getText(nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactCovidTestResultFU2TextBox);
 		Assert.assertNotNull(date1);
 		Assert.assertNotNull(date2);
-
 	}
-
 }
