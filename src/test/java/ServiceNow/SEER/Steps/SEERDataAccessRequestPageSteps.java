@@ -22,11 +22,10 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 	@Given("a SEER User Registration has been successfully submitted")
 	public void a_SEER_User_Registration_has_been_successfully_submitted() throws TestingException { 
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SEERDataAccess"));
-		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(seerLandingPage.nonInstitutionalAccountsEmailAddressField);
 		JavascriptUtils.scrollIntoView(seerLandingPage.nonInstitutionalAccountsEmailAddressField);
-		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(seerLandingPage.nonInstitutionalAccountsEmailAddressField, CommonUtils.email);
-		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(seerLandingPage.nonInstitutionalAccountsContinuetoEmailVerificationButton);
 		seerLandingPage.nonInstitutionalAccountsContinuetoEmailVerificationButton.click();
 		MiscUtils.sleep(2000);
 		String seerRegistrationPage = WebDriverUtils.getWebDriver().getTitle();
@@ -34,36 +33,30 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 		seerUserRegistrationPage.seerUserRegistrationFirstNameField.sendKeys("TestFIRSTname");
 		seerUserRegistrationPage.seerUserRegistrationMiddleNameField.sendKeys("TestMIDDLEname");
 		seerUserRegistrationPage.seerUserRegistrationLastNameField.sendKeys("TestLASTname");
-		MiscUtils.sleep(2000);
 		Assert.assertEquals(CommonUtils.email,seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("value"));
 		Assert.assertTrue(seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("disabled").equals("true"));
-		MiscUtils.sleep(2000); 
+		CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
 		seerUserRegistrationPage.seerUserRegistrationOrganizationField.click();
 		seerUserRegistrationPage.seerUserRegistrationOrganizationField.sendKeys("A. T. Still University");
-		MiscUtils.sleep(2000);
-		seerUserRegistrationPage.seerUserRegistrationJobTitleField.sendKeys("TestJOBtitle");
+		seerUserRegistrationPage.seerUserRegistrationJobTitleField.sendKeys("TestJobTitle");
 		JavascriptUtils.scrollIntoView(seerUserRegistrationPage.seerUserRegistrationEmailField);
-		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationCountryField);
 		seerUserRegistrationPage.seerUserRegistrationCountryField.click();
 		seerUserRegistrationPage.seerUserRegistrationCountryField.sendKeys("United States of America");
 		seerUserRegistrationPage.seerUserRegistrationCountryUSA.click();
-		MiscUtils.sleep(2000);
 		seerUserRegistrationPage.seerUserRegistrationAddressField.sendKeys("330 Ivy Lane, Apartment 6");
 		seerUserRegistrationPage.seerUserRegistrationCityField.sendKeys("NYC");
 		seerUserRegistrationPage.seerUserRegistrationStateField.sendKeys("NY");
 		seerUserRegistrationPage.seerUserRegistrationZipcodeField.sendKeys("11214");
 		seerUserRegistrationPage.seerUserRegistrationPhoneField.sendKeys("6306543343");
-		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
 		CommonUtils.selectDropDownValue("General Public",seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
-		MiscUtils.sleep(2000);
 		seerUserRegistrationPage.seerUserRegistrationSubmitButton.click();
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
-		MiscUtils.sleep(2000);
-		String seerRegistrationIsCompletePage = WebDriverUtils.getWebDriver().getTitle();
+	    String seerRegistrationIsCompletePage = WebDriverUtils.getWebDriver().getTitle();
 		Assert.assertEquals("SEER Data Confirmation - ODS SEER Data Access Request", seerRegistrationIsCompletePage);
 		Assert.assertEquals("Thank you - your registration is complete.",seerUserRegistrationPage.seerUserRegistrationIsCompleteHeader.getText());
-		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 
 	}
@@ -102,7 +95,7 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		Assert.assertTrue(nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataHeader.getText().contentEquals("SEER Incidence Data: Verify your email address"));
 		Assert.assertTrue(nativeViewSentViewPage.nativeViewPreviewEmailHelloNameText.getText().contentEquals("Hello TestFIRSTname,"));
-		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(nativeViewSentViewPage.nativeViewPreviewEmailVerifyEMAILlink);
 		nativeViewSentViewPage.nativeViewPreviewEmailVerifyEMAILlink.click();
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();	
@@ -163,6 +156,7 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 
 	@Then("the Data Use Agreement Certification text agreement displayed")
 	public void the_Data_Use_Agreement_Certification_text_agreement_displayed()  {
+		CommonUtils.waitForVisibility(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationText);
 		Assert.assertEquals("SEER Research Data Use Certification Agreement\n" + 
 				"  This SEER Research Data Use Certification Agreement (the “Agreement”) outlines the terms for access to data in the National Institutes of Health (NIH) Surveillance, Epidemiology, and End Results (SEER) Research and Research Plus Databases (collectively, the “Databases”). The parties to this Agreement include the NIH and the “Authorized User” indicated in the signature block below.  The effective date of this Agreement is the date of Authorized User’s signature (“Effective Date”).\n" + 
 				"  Preamble\n" + 
@@ -201,6 +195,7 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 
 	@Then("the Best Practice Assurance text displayed")
 	public void the_Best_Practice_Assurance_text_displayed()  {
+		CommonUtils.waitForVisibility(seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceText);
 		Assert.assertEquals("Introduction\n" + 
 				"This document is intended to provide guidance for those requesting access to National Cancer Institute (NCI)-designated data repositories. It provides an outline of the expectations for the management and responsible conduct for the secondary use of data managed by the NCI on local storage systems or in cloud computing systems. This document is intended to ensure that NCI’s data distributed for secondary research purposes are kept secure and that only NCI approved users have access to this data.\n" + 
 				"  The information contained in this document is targeted to those individuals who are:\n" + 
@@ -320,7 +315,6 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 	public void when_the_user_scrolls_down_each_agreement() {
 		JavascriptUtils.scrollUpWithinElement(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationText, 8000);
 		MiscUtils.sleep(2000);
-		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.scrollUpWithinElement(seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceText, 8000);
 		MiscUtils.sleep(2000);
@@ -347,6 +341,7 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 
 	@Then("after entering required information, the user is able to successfully submit the SEER Data Access Request form")
 	public void after_entering_required_information_the_user_is_able_to_successfully_submit_the_SEER_Data_Access_Request_form() {
+		CommonUtils.waitForVisibility(seerDataAccessRequestPage.seerDataAccessSubmitButton);
 		seerDataAccessRequestPage.seerDataAccessSubmitButton.click();
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
@@ -359,11 +354,13 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 
 	@Then("the {string} bread crumb displays")
 	public void the_bread_crumb_displays(String seerIncidenceDatabaseLink) {
+		CommonUtils.waitForVisibility(seerLandingPage.seerIncidenceDatabaseBreadcrumb);
 		Assert.assertEquals(seerIncidenceDatabaseLink, seerLandingPage.seerIncidenceDatabaseBreadcrumb.getText());
 	}
 
 	@Then("when clicking, user is directed to {string}")
 	public void when_clicking_user_is_directed_to(String seerIncidenceDatabaseUrl) {
+		CommonUtils.waitForVisibility(seerLandingPage.seerIncidenceDatabaseBreadcrumb);
 		CommonUtils.click(seerLandingPage.seerIncidenceDatabaseBreadcrumb);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
@@ -383,12 +380,14 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 
 	@When("the user is on the {string} page")
 	public void the_user_is_on_the_page(String seerUserRegistrationHeader) {
+		CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationHeaderText);
 		Assert.assertEquals(seerUserRegistrationHeader,
 				seerUserRegistrationPage.seerUserRegistrationHeaderText.getText());
 	}
 
 	@Then("user is directed to the {string} page")
 	public void user_is_directed_to_the_page(String seerRegistrationIsCompleteText) {
+		CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationIsCompleteHeader);
 		Assert.assertEquals(seerRegistrationIsCompleteText,
 				seerUserRegistrationPage.seerUserRegistrationIsCompleteHeader.getText());
 	}

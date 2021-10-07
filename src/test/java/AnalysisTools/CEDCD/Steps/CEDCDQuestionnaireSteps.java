@@ -555,6 +555,8 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 
 	@When("submits the Cohort Study for Review")
 	public void submits_the_Cohort_Study_for_Review() {
+		CommonUtils.scrollIntoView(cedcdCohortPage.submitForReviewButton);
+		CommonUtils.waitForVisibility(cedcdCohortPage.submitForReviewButton);
 		cedcdCohortPage.submitForReviewButton.click();
 		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(3000);	
