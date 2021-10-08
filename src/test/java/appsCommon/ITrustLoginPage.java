@@ -16,8 +16,6 @@ import com.nci.automation.xceptions.TestingException;
 
 public class ITrustLoginPage extends CommonUtils{
 
-	
-	
 	@FindBy(xpath = "//a[contains(text(),'Log In')]")
 	public WebElement loginLink;
 	
