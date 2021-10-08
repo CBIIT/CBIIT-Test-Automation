@@ -87,9 +87,10 @@ public class WebDriverUtils {
 				}
 
 			} else if (Constants.BROWSER_CHROME.equals(browser)) {
-				System.out.println("tryinh headless chrome");
+				
 				ChromeOptions chromeOptions = new ChromeOptions();
 				if (headless.equalsIgnoreCase("true") || Boolean.valueOf(System.getenv("headless"))) {
+					System.out.println("trying headless chrome");
 					chromeOptions.setHeadless(true);
 //					chromeOptions.addArguments("--headless");
 //					chromeOptions.addArguments("window-size=1920,1080");
