@@ -89,9 +89,7 @@ public class WebDriverUtils {
 			} else if (Constants.BROWSER_CHROME.equals(browser)) {
 				
 				ChromeOptions chromeOptions = new ChromeOptions();
-				if (headless.equalsIgnoreCase("true") || Boolean.valueOf(System.getenv("headless"))) {
-					System.out.println("trying headless chrome");
-					chromeOptions.setHeadless(true);
+				if (headless.equalsIgnoreCase("true")){
 //					chromeOptions.addArguments("--headless");
 //					chromeOptions.addArguments("window-size=1920,1080");
 //					chromeOptions.addArguments("--disable-dev-shm-usage");
