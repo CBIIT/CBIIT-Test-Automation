@@ -11,6 +11,8 @@ import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortNewPageLayOutSte
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
+import AnalysisTools.ICRP.Pages.ICRPHomePage;
+import AnalysisTools.ICRP.Pages.ICRPSearchDatabase;
 import AnalysisTools.Comets2.Pages.Comets2Page;
 import AnalysisTools.CEDCD.Steps.CEDCDStartUps;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
@@ -56,8 +58,8 @@ import ServiceNow.CHARMS.Pages.MyRASLoginPage;
 import ServiceNow.CHARMS.Pages.OKTAloginPage;
 import ServiceNow.CHARMS.Pages.ProbandScreenerPage;
 import ServiceNow.CHARMS.Pages.RASopathyQuestionnairePage;
+import ServiceNow.CHARMS.Pages.TestAccountResetPage;
 import ServiceNow.CHARMS.StepsImplementation.CHARMSHomePageImp;
-import ServiceNow.CHARMS.StepsImplementation.ProbandScreenerSubmissionImpl;
 import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
 import ServiceNow.CICDBuild.Pages.DevOpsLoginPage;
 import ServiceNow.CICDBuild.Pages.DevOpsNativeViewPage;
@@ -137,10 +139,10 @@ public class PageInitializer {
 	protected static CHARMSHomePageImp charmsHomePageImpl;
 	protected static ClinicalGeneticsBranchPage clinicalGeneticsBranchPage;
 	protected static ProbandScreenerPage probandScreenerPage;
-	protected static ProbandScreenerSubmissionImpl probandScreenerSubmissionImpl;
 	protected static MyRASLoginPage myRASLoginPage;
 	protected static MyRASHomePage myRASHomePage;
 	protected static RASopathyQuestionnairePage rasopathyQuestionnairePage;
+	protected static TestAccountResetPage testAccountResetPage;
 
 	/** LDLink instances **/
 	protected static LDLinkHomePage ldLinkHomePage;
@@ -220,6 +222,11 @@ public class PageInitializer {
 	protected static AppTrackerLoginPage appTrackerLoginPage;
 	protected static AppTrackerLogInStepsImpl appTrackerLoginStepsImpl;
 	
+	/** ICRP instances **/
+	protected static ICRPHomePage icrpHomePage; 
+	protected static ICRPSearchDatabase icrpSearchDatabase; 
+	
+	
 
 	public static void initializeAllPages() {
 		// create instances of all pages and assign them to the variables
@@ -250,7 +257,6 @@ public class PageInitializer {
 		charmsHomePageImpl = new CHARMSHomePageImp();
 		clinicalGeneticsBranchPage = new ClinicalGeneticsBranchPage();
 		probandScreenerPage = new ProbandScreenerPage();
-		probandScreenerSubmissionImpl = new ProbandScreenerSubmissionImpl();
 		devOpsLoginPage = new DevOpsLoginPage();
 		devOpsNativeViewPage = new DevOpsNativeViewPage();
 		devOpsAutomatedBuildStepsImplementation = new DevOpsAutomatedBuildStepsImplementation();
@@ -282,6 +288,8 @@ public class PageInitializer {
 		informationPage = new InformationPage();
 		cedcdAdminPage = new CEDCDAdminPage();
 		cedcdCohortPage = new CEDCDCohortPage();
+		icrpHomePage = new ICRPHomePage(); 
+		icrpSearchDatabase = new ICRPSearchDatabase(); 
 		comets2Page = new Comets2Page();
 		signatureVisualizationsPage = new SignatureVisualizationsPage ();
 		mSigPortalHomePage = new MSigPortalHomePage();
@@ -310,6 +318,7 @@ public class PageInitializer {
 		myRASLoginPage = new MyRASLoginPage();
 		myRASHomePage = new MyRASHomePage();
 		rasopathyQuestionnairePage = new RASopathyQuestionnairePage();
+		testAccountResetPage = new TestAccountResetPage();
 		
 	
 		/**AppTracker**/
