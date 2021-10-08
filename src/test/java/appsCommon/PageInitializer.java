@@ -11,6 +11,8 @@ import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortNewPageLayOutSte
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
+import AnalysisTools.ICRP.Pages.ICRPHomePage;
+import AnalysisTools.ICRP.Pages.ICRPSearchDatabase;
 import AnalysisTools.Comets2.Pages.Comets2Page;
 import AnalysisTools.CEDCD.Steps.CEDCDStartUps;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
@@ -218,6 +220,11 @@ public class PageInitializer {
 	protected static AppTrackerLoginPage appTrackerLoginPage;
 	protected static AppTrackerLogInStepsImpl appTrackerLoginStepsImpl;
 	
+	/** ICRP instances **/
+	protected static ICRPHomePage icrpHomePage; 
+	protected static ICRPSearchDatabase icrpSearchDatabase; 
+	
+	
 
 	public static void initializeAllPages() {
 		// create instances of all pages and assign them to the variables
@@ -279,6 +286,8 @@ public class PageInitializer {
 		informationPage = new InformationPage();
 		cedcdAdminPage = new CEDCDAdminPage();
 		cedcdCohortPage = new CEDCDCohortPage();
+		icrpHomePage = new ICRPHomePage(); 
+		icrpSearchDatabase = new ICRPSearchDatabase(); 
 		comets2Page = new Comets2Page();
 		signatureVisualizationsPage = new SignatureVisualizationsPage ();
 		mSigPortalHomePage = new MSigPortalHomePage();
