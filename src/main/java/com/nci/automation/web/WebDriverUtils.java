@@ -87,12 +87,13 @@ public class WebDriverUtils {
 				}
 
 			} else if (Constants.BROWSER_CHROME.equals(browser)) {
+				System.out.println("tryinh headless chrome");
 				ChromeOptions chromeOptions = new ChromeOptions();
-				if (headless.equalsIgnoreCase("true")) {
+				if (headless.equalsIgnoreCase("true") || Boolean.valueOf(System.getenv("headless"))) {
 					chromeOptions.setHeadless(true);
 //					chromeOptions.addArguments("--headless");
-					chromeOptions.addArguments("window-size=1920,1080");
-					chromeOptions.addArguments("--disable-dev-shm-usage");
+//					chromeOptions.addArguments("window-size=1920,1080");
+//					chromeOptions.addArguments("--disable-dev-shm-usage");
 //					chromeOptions.addArguments("--disable-tmp-usage");
 //					chromeOptions.addArguments("--no-sandbox");
 //					chromeOptions.addArguments("--disable-infobars");
