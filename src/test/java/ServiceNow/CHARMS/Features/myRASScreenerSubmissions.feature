@@ -2,7 +2,7 @@ Feature: myRAS Screener Submissions
   
   This feature file contains scenarios which verify data submitted via Qualtrics questionnaire in Native View
 
-  @Progression @juarezds
+   @juarezds
   Scenario: Proxy Screener Submission with data verification
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -47,3 +47,6 @@ Feature: myRAS Screener Submissions
     And proceeds with submitting the Eligibility Questionnaire
     Then the Eligibility Questionnaire is sucessfully submitted
     
+    @Progression 
+    Scenario: Test Account Reset
+    Then test account is reset to be used for next test execution
