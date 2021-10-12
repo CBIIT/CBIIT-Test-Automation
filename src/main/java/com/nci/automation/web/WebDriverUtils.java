@@ -94,8 +94,8 @@ public class WebDriverUtils {
 //					chromeOptions.addArguments("--headless");
 //					chromeOptions.addArguments("window-size=1920,1080");
 					chromeOptions.addArguments("--no-sandbox");
-					chromeOptions.addArguments("--disable-dev-shm-usage");
-//					chromeOptions.addArguments("--disable-tmp-usage");
+//					chromeOptions.addArguments("--disable-dev-shm-usage");
+					chromeOptions.addArguments("--disable-tmp-usage");
 //					chromeOptions.addArguments("--disable-infobars");
 //					chromeOptions.addArguments("--disable-extensions");
 //					chromeOptions.addArguments("--disable-gpu");
