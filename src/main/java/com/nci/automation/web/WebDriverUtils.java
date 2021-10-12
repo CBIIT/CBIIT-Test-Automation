@@ -93,9 +93,9 @@ public class WebDriverUtils {
 					chromeOptions.setBinary("/usr/bin/google-chrome");
 //					chromeOptions.addArguments("--headless");
 //					chromeOptions.addArguments("window-size=1920,1080");
-					chromeOptions.addArguments("--no-sandbox");
+//					chromeOptions.addArguments("--no-sandbox");
 //					chromeOptions.addArguments("--disable-dev-shm-usage");
-					chromeOptions.addArguments("--disable-tmp-usage");
+//					chromeOptions.addArguments("--disable-tmp-usage");
 //					chromeOptions.addArguments("--disable-infobars");
 //					chromeOptions.addArguments("--disable-extensions");
 //					chromeOptions.addArguments("--disable-gpu");
@@ -108,8 +108,11 @@ public class WebDriverUtils {
 					webDriver = new ChromeDriver(chromeOptions);
 					System.out.println(chromeOptions.getVersion());
 				} else {
+					chromeOptions.addArguments("--no-sandbox");
+					chromeOptions.addArguments("--disable-dev-shm-usage");
+					System.out.println("Non headless -->"+chromeOptions.getVersion());
 					webDriver = new ChromeDriver(chromeOptions);
-					System.out.println(chromeOptions.getVersion());
+					
 				}
 			} else if (browser.equalsIgnoreCase(Constants.BROWSER_IE)) {
 				DesiredCapabilities desiredCapabilities = DesiredCapabilities.internetExplorer();
