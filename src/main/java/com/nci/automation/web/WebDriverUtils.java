@@ -90,7 +90,7 @@ public class WebDriverUtils {
 				
 				ChromeOptions chromeOptions = new ChromeOptions();
 				if (headless.equalsIgnoreCase("true")){
-					chromeOptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
+					chromeOptions.setBinary("/usr/bin/google-chrome");
 //					chromeOptions.addArguments("--headless");
 //					chromeOptions.addArguments("window-size=1920,1080");
 					chromeOptions.addArguments("--no-sandbox");
