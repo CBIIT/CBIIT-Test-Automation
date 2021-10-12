@@ -91,7 +91,7 @@ public class WebDriverUtils {
 				ChromeOptions chromeOptions = new ChromeOptions();
 				if (headless.equalsIgnoreCase("true")){
 					System.out.println("Headless-->"+chromeOptions.getVersion());
-					chromeOptions.setBinary("/usr/bin/google-chrome");
+//					chromeOptions.setBinary("/usr/bin/google-chrome");
 					chromeOptions.setHeadless(true);					
 //					chromeOptions.addArguments("--headless");
 //					chromeOptions.addArguments("window-size=1920,1080");
