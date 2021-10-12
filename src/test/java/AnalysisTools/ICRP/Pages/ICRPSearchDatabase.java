@@ -41,6 +41,13 @@ public class ICRPSearchDatabase extends CommonUtils {
 	@FindBy(xpath = "//*[@title='University of Colorado Denver']")
 	public List<WebElement> institutionUniversityOfColoradoDenver; 
 	
+	@FindBy(xpath = "(//*[@class='ui-panel-header'])[3]")
+	public WebElement fundingPanelHeader;
+	
+	@FindBy(xpath = "//*[@value='127']")
+	public WebElement ALSFChkbox;
+	
+	
 	
 	public ICRPSearchDatabase() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);

@@ -44,7 +44,7 @@ public class WebDriverUtils {
 	private final static Logger logger = Logger.getLogger(WebDriverUtils.class);
 	public static WebDriver webDriver;
 //	public static final String GET_EXE = ".exe";
-//	public static final String GET_LINUX = "_linux"; 
+	public static final String GET_LINUX = "_linux"; 
 
 	/**
 	 * Get a web-driver to interact with the UI
@@ -183,8 +183,8 @@ public class WebDriverUtils {
 				// System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH + GET_EXE);
 				WebDriverManager.chromedriver().operatingSystem(OperatingSystem.WIN).setup();
 			} else if (osName.contains("Linux")) {
-				// System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH + GET_LINUX);
-				WebDriverManager.chromedriver().operatingSystem(OperatingSystem.LINUX).setup();
+				 System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH + GET_LINUX);
+//				WebDriverManager.chromedriver().operatingSystem(OperatingSystem.LINUX).setup();
 			}
 		} else if (browser.equalsIgnoreCase(Constants.BROWSER_IE)) {
 			if (osName.contains("Mac")) {

@@ -68,8 +68,7 @@ public class ICRPSearchSteps extends PageInitializer {
 		Assert.assertTrue(icrpSearchDatabase.projGliomaOrganoids.getText().contentEquals(gliomaOrganoids));
 
 	}
-	
-	
+
 	@When("user searchs {string}")
 	public void user_searchs(String institutionName) {
 		MiscUtils.sleep(5000);
@@ -77,13 +76,26 @@ public class ICRPSearchSteps extends PageInitializer {
 		icrpSearchDatabase.institutionPanelHeader.click();
 		icrpSearchDatabase.institutionTxtBox.sendKeys(institutionName);
 	}
-	
+
 	@Then("projects with institution as {string} display")
 	public void projects_with_institution_as_display(String institutionName) {
-		for(int i = 0 ; i < icrpSearchDatabase.institutionUniversityOfColoradoDenver.size(); i++) {
-			Assert.assertTrue(icrpSearchDatabase.institutionUniversityOfColoradoDenver.get(i).getText().contentEquals(institutionName));
+		for (int i = 0; i < icrpSearchDatabase.institutionUniversityOfColoradoDenver.size(); i++) {
+			Assert.assertTrue(icrpSearchDatabase.institutionUniversityOfColoradoDenver.get(i).getText()
+					.contentEquals(institutionName));
 		}
 
 	}
+
+	@When("user selects Alexs Lemonade Stand Foundation")
+	public void user_selects_Alexs_Lemonade_Stand_Foundation() {
+		MiscUtils.sleep(5000);
+		JavascriptUtils.scrollIntoView(icrpSearchDatabase.fundingPanelHeader);
+		icrpSearchDatabase.fundingPanelHeader.click();
+		icrpSearchDatabase.ALSFChkbox.click();
+		MiscUtils.sleep(5000);
+
+	}
+	
+	
 
 }
