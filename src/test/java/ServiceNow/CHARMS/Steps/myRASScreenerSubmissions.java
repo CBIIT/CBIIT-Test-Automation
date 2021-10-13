@@ -15,6 +15,7 @@ import ServiceNow.CHARMS.Pages.MyRASLoginPage;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class myRASScreenerSubmissions extends PageInitializer {
 
@@ -454,4 +455,45 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.submissionSuccessfulText);		
 	}
 	
+	@When("a user navigates to CHARMS in ServiceNow Native View")
+	public void a_user_navigates_to_CHARMS_in_ServiceNow_Native_View() throws TestingException {		
+		nativeViewLoginImpl.nativeViewLogin();
+		CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator); 
+		nativeViewHomePage.nativeViewFilterNavigator.sendKeys("CHARMS");
+		
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewDashboardLink);
+		charmsNativeViewPage.nativeViewDashboardLink.click();
+		
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewiFrameCHARMS);
+		CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewiFrameCHARMS);
+		
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewWaitingForElegibilityReviewButton);
+		charmsNativeViewPage.nativeViewWaitingForElegibilityReviewButton.click();
+		
+
+		Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
+		for (String currentWindow1 : allWindowHandles1) {
+			WebDriverUtils.webDriver.switchTo().window(currentWindow1);
+		}
+		
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestButton);
+		charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestButton.click();
+			
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedFirstNameText);
+		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedFirstNameText.getAttribute("value").contentEquals("Automated"));
+		
+//		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedLastNameText.getText().contentEquals("Test"));
+//		//charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedLastNameText.getText().contentEquals("Test");
+//		
+//		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedContactHomePhoneText.getText().contentEquals("703-687-5816"));
+//		//charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedContactHomePhoneText.getText().contentEquals("703-687-5816");
+//		
+		//CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton);
+		//charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton.click();
+		
+		//CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordNameText);
+		//Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordNameText.getAttribute("value").contentEquals("Automated Test"));
+				
+	}
+
 }
