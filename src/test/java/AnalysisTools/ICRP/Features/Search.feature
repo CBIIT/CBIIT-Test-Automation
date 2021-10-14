@@ -30,7 +30,7 @@ And user searchs "University of Colorado Denver"
 And user clicks search
 Then projects with institution as "University of Colorado Denver" display
 
-@Smoke @uddins2 @Progression
+@Smoke @uddins2
 Scenario: User searches by funding organization
 Given user on ICRP home page
 When user clicks ICRP data
@@ -39,6 +39,39 @@ And user selects Alexs Lemonade Stand Foundation
 And user clicks search
 Then projects funded by Alexs Lemonade Stand Foundation displays
 
+@Smoke @uddins2  
+Scenario: User searchs by cancer type 
+Given user on ICRP home page
+When user clicks ICRP data
+And user clicks search database
+And user selects cancer type as brain tumor
+And user clicks search
+Then projects with cancer type as Brain Tumor display
 
+@Smoke @uddins2
+Scenario: User resets search
+Given user on ICRP home page
+When user clicks ICRP data
+And user clicks search database
+And user selects exact phrase provided 
+Then exact phrase provided is selected
+When user clicks reset 
+Then exact phrase provided is unselected
 
+@Smoke @uddins2 
+Scenario: User clears search 
+Given user on ICRP home page
+When user clicks ICRP data
+And user clicks search database
+And user clicks clear  
+And user clicks search
+Then all projects are displayed 
 
+@Smoke @uddins2 @Progression
+Scenario: user searchs by common scientific outline research area
+Given user on ICRP home page
+When user clicks ICRP data
+And user clicks search database
+And user selects normal functioning 
+And user clicks search
+Then projects with research area as normal functioning display

@@ -59,6 +59,7 @@ public class ICRPSearchSteps extends PageInitializer {
 
 	@When("user selects exact phrase provided")
 	public void user_selects_exact_phrase_provided() {
+		MiscUtils.sleep(5000);
 		icrpSearchDatabase.exactPhraseRadioBtn.click();
 	}
 
@@ -95,7 +96,75 @@ public class ICRPSearchSteps extends PageInitializer {
 		MiscUtils.sleep(5000);
 
 	}
-	
-	
+
+	@Then("projects funded by Alexs Lemonade Stand Foundation displays")
+	public void projects_funded_by_Alexs_Lemonade_Stand_Foundation_displays() {
+		Assert.assertTrue(icrpSearchDatabase.fundingOrgALSF.getText().contentEquals("ALSF"));
+
+	}
+
+	@When("user selects cancer type as brain tumor")
+	public void user_selects_cancer_type_as_brain_tumor() {
+		MiscUtils.sleep(5000);
+		icrpSearchDatabase.cancerTypePanelHeader.click();
+		icrpSearchDatabase.cancerTypeTxtbox.sendKeys("Brain Tumor");
+		icrpSearchDatabase.cancerTypeTxtbox.submit();
+		icrpSearchDatabase.cancerTypePanelHeader.click();
+		icrpSearchDatabase.cancerTypePanelHeader.click();
+		MiscUtils.sleep(5000);
+	}
+
+	@Then("projects with cancer type as Brain Tumor display")
+	public void projects_with_cancer_type_as_Brain_Tumor_display() {
+		icrpSearchDatabase.projGliomaOrganoids.click();
+		CommonUtils.swicthToAnotherWindow();
+		Assert.assertTrue(icrpSearchDatabase.brainTumortxt.getText().contentEquals("Brain Tumor"));
+	}
+
+	@Then("exact phrase provided is selected")
+	public void exact_phrase_provided_is_selected() {
+		MiscUtils.sleep(5000);
+		System.out.println(icrpSearchDatabase.exactPhraseRadioBtn.isSelected());
+		Assert.assertTrue(icrpSearchDatabase.exactPhraseRadioBtn.isSelected());
+
+	}
+
+	@When("user clicks reset")
+	public void user_clicks_reset() {
+		icrpSearchDatabase.resetBtn.click();
+
+	}
+
+	@Then("exact phrase provided is unselected")
+	public void exact_phrase_provided_is_unselected() {
+		Assert.assertFalse(icrpSearchDatabase.resetBtn.isSelected());
+	}
+
+	@When("user clicks clear")
+	public void user_clicks_clear() {
+		MiscUtils.sleep(5000);
+		icrpSearchDatabase.clearBtn.click();
+
+	}
+
+	@Then("all projects are displayed")
+	public void all_projects_are_displayed() {
+		Assert.assertTrue(icrpSearchDatabase.allProjTxt.getText()
+				.contentEquals("All projects are shown below. Use the form on the left to refine search results"));
+	}
+
+	@When("user selects normal functioning")
+	public void user_selects_normal_functioning() {
+		MiscUtils.sleep(5000);
+		icrpSearchDatabase.researchAreaPanelHeader.click();
+		icrpSearchDatabase.normalFunctioningChkbox.click();
+	}
+
+	@Then("projects with research area as normal functioning display")
+	public void projects_with_research_area_as_normal_functioning_display() {
+		icrpSearchDatabase.proj3DPrinting.click();
+		
+
+	}
 
 }
