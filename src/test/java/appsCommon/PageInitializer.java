@@ -51,6 +51,7 @@ import ServiceNow.AppTracker.Pages.VacancyManagerUserPage;
 import ServiceNow.AppTracker.StepsImplementation.AppTrackerLogInStepsImpl;
 import ServiceNow.AppTracker.StepsImplementation.VacancyManagerUserStepsImpl;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
+import ServiceNow.CHARMS.Pages.CGBIIQPages;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
 import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
 import ServiceNow.CHARMS.Pages.MyRASHomePage;
@@ -143,6 +144,7 @@ public class PageInitializer {
 	protected static MyRASHomePage myRASHomePage;
 	protected static RASopathyQuestionnairePage rasopathyQuestionnairePage;
 	protected static TestAccountResetPage testAccountResetPage;
+	protected static CGBIIQPages cGBIIQPages;
 
 	/** LDLink instances **/
 	protected static LDLinkHomePage ldLinkHomePage;
@@ -319,6 +321,7 @@ public class PageInitializer {
 		myRASHomePage = new MyRASHomePage();
 		rasopathyQuestionnairePage = new RASopathyQuestionnairePage();
 		testAccountResetPage = new TestAccountResetPage();
+		cGBIIQPages = new CGBIIQPages();
 		
 	
 		/**AppTracker**/
