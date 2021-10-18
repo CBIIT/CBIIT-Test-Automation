@@ -451,8 +451,15 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	}
 
 	@Then("the Eligibility Questionnaire is sucessfully submitted")
-	public void the_Eligibility_Questionnaire_is_sucessfully_submitted() {
-		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.submissionSuccessfulText);		
+	public void the_Eligibility_Questionnaire_is_sucessfully_submitted() throws TestingException {
+		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.submissionSuccessfulText);	
+		
+		MiscUtils.sleep(3000);
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
+		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewCCButton);
+		testAccountResetPage.nativeViewCCButton.click();
+		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewCCLogOutButton);
+		testAccountResetPage.nativeViewCCLogOutButton.click();
 	}
 	
 	@When("a user navigates to CHARMS in ServiceNow Native View")
@@ -482,18 +489,28 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedFirstNameText);
 		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedFirstNameText.getAttribute("value").contentEquals("Automated"));
 		
-//		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedLastNameText.getText().contentEquals("Test"));
-//		//charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedLastNameText.getText().contentEquals("Test");
-//		
-//		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedContactHomePhoneText.getText().contentEquals("703-687-5816"));
-//		//charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedContactHomePhoneText.getText().contentEquals("703-687-5816");
-//		
-		//CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton);
-		//charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton.click();
-		
-		//CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordNameText);
-		//Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordNameText.getAttribute("value").contentEquals("Automated Test"));
+		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedLastNameText.getAttribute("value").contentEquals("Test"));
 				
-	}
+		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedContactHomePhoneText.getAttribute("value").contentEquals("703-687-5816"));
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton);
+		charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton.click();
+		
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordNameText);
+		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordNameText.getAttribute("value").contentEquals("Automated Test"));
+		
+		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordWaitingForEligibilityText.getText().contentEquals("Waiting for Eligibility"));
+		
+		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordNewScreenerReceivedText.getText().contentEquals("New Screener Received"));
+		
+		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordMayWeHaveYourPermissionToContactThisRelativeYesText.getText().contentEquals("Yes"));
+		
+		CommonUtils.scrollIntoView(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordRecordPersonalInformationTab);
+		
+		/*
+		 * PROCEED WITH VERIFICATION HERE 
+		 */
 
+		
+		
+	}
 }

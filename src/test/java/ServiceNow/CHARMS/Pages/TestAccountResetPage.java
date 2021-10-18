@@ -35,7 +35,17 @@ public class TestAccountResetPage {
 	@FindBy (xpath = "//button[normalize-space()='Proceed in Background']")
 	public WebElement nativeViewProceedInBackgroundButton;
 	
+	/*
+	 * Native View CC button
+	 */
+	@FindBy (xpath = "//div[@aria-label='CHARMSAutomatedTestTwo CHARMSAutomatedTestTwo']")
+	public WebElement nativeViewCCButton;
 	
+	/*
+	 * Native View CC log out button
+	 */
+	@FindBy (xpath = "//a[normalize-space()='Log out']")
+	public WebElement nativeViewCCLogOutButton;
 	
 	public TestAccountResetPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);

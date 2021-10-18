@@ -201,6 +201,47 @@ public class CHARMSNativeViewPage extends CommonUtils{
 	@FindBy (xpath = "//body/div[2]/form[1]/span[1]/span[1]/div[5]/div[2]/div[1]/div[2]/div[2]/input[1]")
 	public WebElement nativeViewFamilyMemberDetailsAutomatedTestRecordNameText;
 	
+	
+	/*
+	 * Native view Family Member Details Automated Test Record 'Waiting for eligibility' text 
+	 */
+	@FindBy (xpath = "(//option[@selected='SELECTED'])[2]")
+	public WebElement nativeViewFamilyMemberDetailsAutomatedTestRecordWaitingForEligibilityText;
+	
+	/*
+	 * Native view Family Member Details Automated Test Record 'New Screener Received' text 
+	 */
+	@FindBy (xpath = "(//option[@selected='SELECTED'])[3]")
+	public WebElement nativeViewFamilyMemberDetailsAutomatedTestRecordNewScreenerReceivedText;
+	
+	/*
+	 * Native view Family Member Details Automated Test Record 'May we have your permission to contact this relative?' text 
+	 */
+	@FindBy (xpath = "(//option[@selected='SELECTED'])[1]")
+	public WebElement nativeViewFamilyMemberDetailsAutomatedTestRecordMayWeHaveYourPermissionToContactThisRelativeYesText;
+	
+
+	/*
+	 * Native view Family Member Details Automated Test Record Personal Information tab
+	 */
+	@FindBy (xpath = "//span[@class='tabs2_tab default-focus-outline tabs2_active']")
+	public WebElement nativeViewFamilyMemberDetailsAutomatedTestRecordRecordPersonalInformationTab;
+	
+	
+	/*
+	 * Native view Family Member Details Automated Test Record Submit for Eligibility Review button
+	 */
+	@FindBy (xpath = "//span[@class='navbar_ui_actions']//button[@value='ea5e9eacdb998810b86770c08c96196e'][normalize-space()='Submit for Eligibility Review']")
+	public WebElement nativeViewFamilyMemberDetailsAutomatedTestRecordSubmitForEligibilityReviewButton;
+	
+	
+	/*
+	 * Native view Family Member Details Automated Test Record Mark Eligible button
+	 */
+	@FindBy (xpath = "//span[contains(@class,'navbar_ui_actions')]//button[contains(@name,'not_important')][normalize-space()='Mark Eligible']")
+	public WebElement nativeViewFamilyMemberDetailsAutomatedTestRecordMarkEligibleButton;
+	
+	
 	/*
 	 * ----------------- END OF Native View Elements for ALL pages -----------------
 	 */
