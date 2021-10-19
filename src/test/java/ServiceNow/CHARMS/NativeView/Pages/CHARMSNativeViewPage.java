@@ -241,6 +241,38 @@ public class CHARMSNativeViewPage extends CommonUtils{
 	@FindBy (xpath = "//span[contains(@class,'navbar_ui_actions')]//button[contains(@name,'not_important')][normalize-space()='Mark Eligible']")
 	public WebElement nativeViewFamilyMemberDetailsAutomatedTestRecordMarkEligibleButton;
 	
+	/*
+	 * Native view Family Member Details Automated Test Record History Tab
+	 */
+	@FindBy (xpath = "//span[normalize-space()='History']")
+	public WebElement nativeViewFamilyMemberDetailsAutomatedTestRecordHistoryTab;
+	
+	/*
+	 * Native view Family Member Details Automated Test Record History comments box
+	 */
+	@FindBy (xpath = "//textarea[contains(@class,'sn-string-textarea form-control ng-pristine ng-untouched ng-valid ng-isolate-scope ng-empty ng-valid-required')]")
+	public WebElement nativeViewFamilyMemberDetailsAutomatedTestRecordHistoryCommentsBox;
+	
+	/*
+	 * Native view Family Member Details Automated Test Record History comments box
+	 */
+	@FindBy (xpath = "//span[@class='navbar_ui_actions']//button[@value='e65678521bc9b814e541631ee54bcb87'][normalize-space()='Send Consent']")
+	public WebElement nativeViewFamilyMemberDetailsAutomatedTestRecordSendConsentButton;
+	
+	/*
+	 * Native view 'DJ' button
+	 */
+	@FindBy (xpath = "//span[contains(text(),'DJ')]")
+	public WebElement nativeViewDJButton;
+	
+	/*
+	 * Native view Log Out
+	 */
+	@FindBy (xpath = "//a[normalize-space()='Log out']")
+	public WebElement nativeViewLogOutButton;
+	
+	
+	
 	
 	/*
 	 * ----------------- END OF Native View Elements for ALL pages -----------------

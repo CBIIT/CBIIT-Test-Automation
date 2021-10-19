@@ -17,6 +17,10 @@ public class MyRASHomePage {
 	/* RASopathy Eligibility Questionnaire */
 	@FindBy (xpath = "//span[normalize-space()='Eligibility Questionnaire']")
 	public WebElement rasoptathyEligibilityQuestionnaire;
+	
+	/* RASopathy Study Consent */
+	@FindBy (xpath = "//div[@class='custom-card-image']//a[@aria-label='Consent']")
+	public WebElement rasopathyStudyConsent;
 
 	/** --------------- END OF myRAS Home PAGE   ---------------  */
 	

@@ -47,7 +47,7 @@ Feature: myRAS Screener Submissions
     And proceeds with submitting the Eligibility Questionnaire
     Then the Eligibility Questionnaire is sucessfully submitted
 
-  @juarezds 
+  @juarezds @Progression
   Scenario: Proxy Screener Submission with data verification
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -93,7 +93,7 @@ Feature: myRAS Screener Submissions
     Then the Eligibility Questionnaire is sucessfully submitted
     When a user navigates to CHARMS in ServiceNow Native View
     
-    @Progression
+    
     Scenario: test
      When a user navigates to CHARMS in ServiceNow Native View
      
