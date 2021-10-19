@@ -1,5 +1,6 @@
 package AnalysisTools.CEDCD.Steps;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -1200,8 +1201,61 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		Thread.sleep(20000);
 		}
 
-	@Then("Section G status Circle is green")
-	public void section_G_status_Circle_is_green() {
+	@Then("the Select a Cohort Page displays {string}")
+	public void the_Select_a_Cohort_Page_displays(String ChooseACohortText) {
+	
+		CommonUtils.waitForVisibility(cedcdCohortPage.chooseACohortText);
+		JavascriptUtils.drawRedBorder(cedcdCohortPage.chooseACohortText);
+		CucumberLogUtils.logScreenShot();
+		Assert.assertTrue(cedcdCohortPage.chooseACohortText.getText().equals(ChooseACohortText));
+		
+	}
+	
+	@When("a Cohort Owner logs in and selects their first questionnaire")
+	public void a_Cohort_Owner_logs_in_and_selects_their_first_questionnaire() throws TestingException {
+		
+		MiscUtils.sleep(3000);
+		JavascriptUtils.clickByJS(cedcdAdminPage.nihLoginBtn);
+		loginImpl.loginToITrust();
+		
+		CommonUtils.waitForVisibility(cedcdCohortPage.chooseACohortText);
+		JavascriptUtils.drawRedBorder(cedcdCohortPage.chooseACohortText);
+		CucumberLogUtils.logScreenShot();
+		Assert.assertTrue(cedcdCohortPage.chooseACohortText.getText().equals("Please select the cohort you wish to update from the list below."));
+		cedcdCohortPage.firstCohortOnSelectACohortDropDown.sendKeys("plco");
+		cedcdCohortPage.firstCohortOnSelectACohortDropDown.sendKeys(Keys.TAB);
+		
+	}
+
+	@When("the user changes section of the questionnaire")
+	public void the_user_changes_section_of_the_questionnaire() {
+		
+		CommonUtils.waitForVisibility(cedcdCohortPage.g1BaselineNoValue);
+		JavascriptUtils.clickByJS(cedcdCohortPage.g1BaselineNoValue);
+		MiscUtils.sleep(1000);
+		JavascriptUtils.clickByJS(cedcdCohortPage.g1BaselineYesValue);
+		JavascriptUtils.clickByJS(cedcdCohortPage.g1SerumBaselineCheckBox);
+		JavascriptUtils.clickByJS(cedcdCohortPage.g1PlasmaBaselineCheckBox);
+		JavascriptUtils.clickByJS(cedcdCohortPage.g1BuffyCoatBaselineCheckBox);
+		
+	}
+
+	@Then("the user submits their updated questionnaire")
+	public void the_user_submits_their_updated_questionnaire() {
+		
+		MiscUtils.sleep(2000);
+		JavascriptUtils.clickByJS(cedcdCohortPage.saveButton);
+		CommonUtils.scrollIntoView(cedcdCohortPage.submitForReviewButton);
+		CommonUtils.waitForVisibility(cedcdCohortPage.submitForReviewButton);
+		JavascriptUtils.clickByJS(cedcdCohortPage.submitForReviewButton);
+		CucumberLogUtils.logScreenShot();
+		MiscUtils.sleep(3000);	
+		/** Confiriming submission */
+		CommonUtils.scrollIntoView(cedcdCohortPage.confirmSubmitPopUpButton);
+		cedcdCohortPage.confirmSubmitPopUpButton.click();
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenShot();
+		
 	}
 }
 	
