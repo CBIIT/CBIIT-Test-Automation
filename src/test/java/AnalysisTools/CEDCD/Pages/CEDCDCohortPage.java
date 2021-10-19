@@ -2544,6 +2544,14 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy (xpath = "(//button[contains(text(),'Submit')])[3]")
 	public WebElement confirmSubmitPopUpButton;
 	
+	/** This is the webelement for the Select a Cohort Please select the cohort you wish to update from the list below.  Text */
+	@FindBy (xpath = "//p[@class='welcome']")
+	public WebElement chooseACohortText;
+	
+	/** This is the element for the first cohort in the select a cohort  */
+	@FindBy (xpath = "//div[contains(text(),'Select...')]")
+	public WebElement firstCohortOnSelectACohortDropDown;
+	
 	public CEDCDCohortPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}

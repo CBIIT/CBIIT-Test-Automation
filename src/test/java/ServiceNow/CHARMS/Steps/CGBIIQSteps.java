@@ -573,7 +573,7 @@ public class CGBIIQSteps extends PageInitializer {
 	@When("upload the genetic test results")
 	public void upload_the_genetic_test_results() {
 		
-		MiscUtils.sleep(2000);
+		MiscUtils.sleep(20000);
 		CucumberLogUtils.logScreenShot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
@@ -784,38 +784,38 @@ public class CGBIIQSteps extends PageInitializer {
 	@When("adds the total amount of time the participant has taken hormone replacement therapy {string}")
 	public void adds_the_total_amount_of_time_the_participant_has_taken_hormone_replacement_therapy(String WeeksProbandTookPrescribedHormones) {
 		
-		MiscUtils.sleep(2000);
-		JavascriptUtils.clickByJS(cGBIIQPages.weeksProbandTookPrescribedHormones);
-		cGBIIQPages.weeksProbandTookPrescribedHormonesTextBox.sendKeys(WeeksProbandTookPrescribedHormones);
-		CucumberLogUtils.logScreenShot();
-		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
-		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
+//		MiscUtils.sleep(2000);
+//		JavascriptUtils.clickByJS(cGBIIQPages.weeksProbandTookPrescribedHormones);
+//		cGBIIQPages.weeksProbandTookPrescribedHormonesTextBox.sendKeys(WeeksProbandTookPrescribedHormones);
+//		CucumberLogUtils.logScreenShot();
+//		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
+//		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 		
 	}
 	
 	@Then("the user lands on the {string} page")
 	public void the_user_lands_on_the_page(String YouAreAlmostDoneText) {
 		
-		MiscUtils.sleep(2000);
-		Assert.assertTrue(cGBIIQPages.youAreAlmostDoneText.getText().contains(YouAreAlmostDoneText));
-		CucumberLogUtils.logScreenShot();
+//		MiscUtils.sleep(2000);
+//		Assert.assertTrue(cGBIIQPages.youAreAlmostDoneText.getText().contains(YouAreAlmostDoneText));
+//		CucumberLogUtils.logScreenShot();
 		
 	}
 
 	@Then("the user clicks the forward arrow button")
 	public void the_user_clicks_the_forward_arrow_button() {
 		
-		MiscUtils.sleep(2000);
-		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
-		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
+//		MiscUtils.sleep(2000);
+//		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
+//		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 		
 	}
 
 	@Then("the end of the IIQ survey page {string} is displayed")
 	public void the_end_of_the_IIQ_survey_page_is_displayed(String EndOfScreenerText) {
 		
-		MiscUtils.sleep(2000);
-		Assert.assertTrue(cGBIIQPages.endOfSurveyText.getAttribute("id").contentEquals(EndOfScreenerText));
+//		MiscUtils.sleep(2000);
+//		Assert.assertTrue(cGBIIQPages.endOfSurveyText.getAttribute("id").contentEquals(EndOfScreenerText));
 		
 	}
 

@@ -1,7 +1,7 @@
 Feature:  This is the feature file for scenarios that solely involve Admin priviledges
 
-@Smoke @matarodriguezko
-Scenario:  As Admin, I want to Review and Publish Submitted Cohort
+	@Smoke @matarodriguezko
+	Scenario:  As Admin, I want to Review and Publish Submitted Cohort
 	Given the user is on the CEDCD homepage
 	When the user is logged in as Admin
 	And the user filters and selects from submitted cohorts
