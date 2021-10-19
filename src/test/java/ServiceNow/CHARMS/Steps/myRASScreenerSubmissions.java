@@ -503,14 +503,49 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordNewScreenerReceivedText.getText().contentEquals("New Screener Received"));
 		
 		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordMayWeHaveYourPermissionToContactThisRelativeYesText.getText().contentEquals("Yes"));
-		
-		CommonUtils.scrollIntoView(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordRecordPersonalInformationTab);
-		
+				
 		/*
 		 * PROCEED WITH VERIFICATION HERE 
 		 */
 
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordSubmitForEligibilityReviewButton);
+		charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordSubmitForEligibilityReviewButton.click();
 		
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordMarkEligibleButton);
+		charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordMarkEligibleButton.click();
+		
+		
+		
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordHistoryTab);
+		charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordHistoryTab.click();
+		
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordHistoryCommentsBox);
+		charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordHistoryCommentsBox.sendKeys("Entering consent comments");
+		
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordSendConsentButton);
+		CommonUtils.scrollIntoView(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordSendConsentButton);
+		charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordSendConsentButton.click();
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
+		
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewDJButton);
+		charmsNativeViewPage.nativeViewDJButton.click();
+		
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewLogOutButton);
+		charmsNativeViewPage.nativeViewLogOutButton.click();
+		
+		
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("myRASLoginPage"));
+		
+		CommonUtils.waitForVisibility(myRASLoginPage.loginToMyRASButton);
+		myRASLoginPage.loginToMyRASButton.click();
+		oktaLoginPage.usernameTxtBox.sendKeys("charmsras4@yahoo.com");
+		oktaLoginPage.passwordTxtBox.sendKeys("RASTest2021$$");
+		CommonUtils.waitForVisibility(oktaLoginPage.loginBtn);
+		oktaLoginPage.loginBtn.click();
+		
+		CommonUtils.waitForVisibility(myRASHomePage.warningAgreeButton);
+		myRASHomePage.warningAgreeButton.click();
 		
 	}
 }
