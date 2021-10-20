@@ -271,7 +271,23 @@ public class CHARMSNativeViewPage extends CommonUtils{
 	@FindBy (xpath = "//a[normalize-space()='Log out']")
 	public WebElement nativeViewLogOutButton;
 	
+	/*
+	 * Native view Awaiting PI Signature link
+	 */
+	@FindBy (xpath = "//a[@rel='enrollment_status%3D6']")
+	public WebElement nativeViewAwaitingPISignatureLink;
 	
+	/*
+	 * Native view Family Study Consent link
+	 */
+	@FindBy (xpath = "//a[normalize-space()='Family Cohort Study Consent.pdf']")
+	public WebElement nativeViewFamilyStudyConsentLink;
+	
+	/*
+	 * Native view Family Sign Consent button
+	 */
+	@FindBy (xpath = "//span[@class='navbar_ui_actions']//button[@value='cc01bb4cdbd7c810b86770c08c9619dc'][normalize-space()='Sign Consent']]")
+	public WebElement nativeViewSignConsentButton;
 	
 	
 	/*

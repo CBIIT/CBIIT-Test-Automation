@@ -534,6 +534,112 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewLogOutButton);
 		charmsNativeViewPage.nativeViewLogOutButton.click();
 		
+	}
+	
+	@When("submitting consent form")
+	public void submitting_consent_form() throws TestingException {
+		
+
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("myRASLoginPage"));
+		
+		CommonUtils.waitForVisibility(myRASLoginPage.loginToMyRASButton);
+		myRASLoginPage.loginToMyRASButton.click();
+		oktaLoginPage.usernameTxtBox.sendKeys("charmsras4@yahoo.com");
+		oktaLoginPage.passwordTxtBox.sendKeys("RASTest2021$$");
+		CommonUtils.waitForVisibility(oktaLoginPage.loginBtn);
+		oktaLoginPage.loginBtn.click();
+		
+		CommonUtils.waitForVisibility(myRASHomePage.warningAgreeButton);
+		myRASHomePage.warningAgreeButton.click();
+		
+		CommonUtils.waitForVisibility(myRASHomePage.rasopathyStudyConsent);
+		myRASHomePage.rasopathyStudyConsent.click();
+		
+		myRasStudyConsentPage.yesIhaveReadTheTermsAndConditionsCheckbox.click();
+		
+		JavascriptUtils.scrollIntoView(myRasStudyConsentPage.iAmThisPersonRadioButton);
+		myRasStudyConsentPage.iAmThisPersonRadioButton.click();
+		
+		myRasStudyConsentPage.iDoGivePermissionForMyCodedSpecimensAndDataToBeStoredRadioButton.click();
+		
+		myRasStudyConsentPage.iDoGivePermissionForMyCodedSpecimensAndDataToBeSharedWithOtherResearchersRadioButton.click();
+		
+		CommonUtils.waitForVisibility(myRasStudyConsentPage.consentButton);
+		myRasStudyConsentPage.consentButton.click();
+		
+		CommonUtils.waitForVisibility(myRasStudyConsentPage.signingPasswordTextBox);
+		myRasStudyConsentPage.signingPasswordTextBox.sendKeys("RASTest2021$$");
+		
+		CommonUtils.waitForVisibility(myRasStudyConsentPage.signButton);
+		myRasStudyConsentPage.signButton.click();
+		
+		CommonUtils.waitForVisibility(myRasStudyConsentPage.yourConsentFormHasBeenSubmittedOKbutton);
+		myRasStudyConsentPage.yourConsentFormHasBeenSubmittedOKbutton.click();
+		
+		CommonUtils.waitForVisibility(myRASHomePage.charmsAutomatedTestTwoLink);
+		myRASHomePage.charmsAutomatedTestTwoLink.click();
+		
+		CommonUtils.waitForVisibility(myRASHomePage.charmsAutomatedTestTwoSignOutLink);
+		myRASHomePage.charmsAutomatedTestTwoSignOutLink.click();
+			
+	}
+	
+	@When("signing consent form as PI")
+	public void signing_consent_form_as_PI() throws TestingException {
+		
+        nativeViewLoginImpl.nativeViewLogin();
+		
+		CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator); 
+		nativeViewHomePage.nativeViewFilterNavigator.sendKeys("CHARMS");
+		
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewDashboardLink);
+		charmsNativeViewPage.nativeViewDashboardLink.click();
+		
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewiFrameCHARMS);
+		CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewiFrameCHARMS);
+		
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewAwaitingPISignatureLink);
+		charmsNativeViewPage.nativeViewAwaitingPISignatureLink.click();
+		
+		Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
+		for (String currentWindow1 : allWindowHandles1) {
+			WebDriverUtils.webDriver.switchTo().window(currentWindow1);
+		}
+		
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestButton);
+		charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestButton.click();
+			
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedFirstNameText);
+		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedFirstNameText.getAttribute("value").contentEquals("Automated"));
+		
+		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedLastNameText.getAttribute("value").contentEquals("Test"));
+				
+		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedContactHomePhoneText.getAttribute("value").contentEquals("703-687-5816"));
+		
+		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyStudyConsentLink.isDisplayed());
+		
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton);
+		charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton.click();
+		
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewSignConsentButton);
+		charmsNativeViewPage.nativeViewSignConsentButton.click();
+		
+        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
+		
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewDJButton);
+		charmsNativeViewPage.nativeViewDJButton.click();
+		
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewLogOutButton);
+		charmsNativeViewPage.nativeViewLogOutButton.click();
+		
+
+	}
+	
+	static String cgbIIQOneTimePin;
+	
+	@When("submiting CGB IIQ")
+	public void submiting_CGB_IIQ() throws TestingException {
 		
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("myRASLoginPage"));
 		
@@ -546,6 +652,31 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		
 		CommonUtils.waitForVisibility(myRASHomePage.warningAgreeButton);
 		myRASHomePage.warningAgreeButton.click();
+		
+		CommonUtils.waitForVisibility(myRASHomePage.rasoptathyIndividualInformationQuestionnaire);
+		myRASHomePage.rasoptathyIndividualInformationQuestionnaire.click();
+		
+		
+		
+		CommonUtils.waitForVisibility(myRASHomePage.rasoptathyIndividualInformationQuestionnairePinText);
+		
+		//PRINTING OUT PIN - IT WILL ALWAYS BE DIFFERENT
+		System.out.println(myRASHomePage.rasoptathyIndividualInformationQuestionnairePinText.getText());
+		
+		cgbIIQOneTimePin = myRASHomePage.rasoptathyIndividualInformationQuestionnairePinText.getText();
+		
+		CommonUtils.waitForVisibility(myRASHomePage.rasoptathyIndividualInformationQuestionnaireOneTimePinGoButton);
+		myRASHomePage.rasoptathyIndividualInformationQuestionnaireOneTimePinGoButton.click();
+		
+		Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
+		for (String currentWindow1 : allWindowHandles1) {
+			WebDriverUtils.webDriver.switchTo().window(currentWindow1);
+		}
+		
+		CommonUtils.waitForVisibility(cgbIIQPage.cgbIIQOneTimePinTextBox);
+		cgbIIQPage.cgbIIQOneTimePinTextBox.sendKeys(cgbIIQOneTimePin);
+		
+		
 		
 	}
 }
