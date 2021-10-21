@@ -19,7 +19,7 @@ import cucumber.api.junit.Cucumber;
 		, features="src/test/java/AnalysisTools/CEDCD/Features"
 		, glue="AnalysisTools.CEDCD.Steps"
 		, tags="@Progression"
-		, dryRun = true
+		, dryRun = false
 		, monochrome=true
 		, strict = true
 		
