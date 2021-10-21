@@ -13,6 +13,9 @@ public class CGBIIQPage {
 	@FindBy (xpath = "//input[@name='QR~Authentication-FL_18~1~TEXT']")
 	public WebElement cgbIIQOneTimePinTextBox;
 	
+	/* One Time Pin email box */
+	@FindBy (xpath = "//input[@name='QR~Authentication-FL_18~0~TEXT']")
+	public WebElement cgbIIQOneTimeEmailTextBox;
 	
 	
 	public CGBIIQPage() {
