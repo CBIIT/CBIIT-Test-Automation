@@ -61,14 +61,6 @@ public class SignatureVisualizationSteps extends PageInitializer {
 
 	}
 
-	@When("the data is calculated")
-	public void the_data_is_calculated() {
-		
-		MiscUtils.sleep(65000);
-		JavascriptUtils.clickByJS(signatureVisualizationsPage.submitButton);
-
-	}
-
 	@Then("the user navigates to Profile Comparison")
 	public void the_user_navigates_to_Profile_Comparison() throws InterruptedException {
 
@@ -82,9 +74,10 @@ public class SignatureVisualizationSteps extends PageInitializer {
 	@When("the user calculates on Profile Comparison")
 	public void the_user_calculates_on_Profile_Comparison() throws InterruptedException {
 
-		Thread.sleep(3000);
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.profileComparisonTab);
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.pcToReferenceTab);
-		JavascriptUtils.clickByJS(signatureVisualizationsPage.submitButton);
+		MiscUtils.sleep(5000);
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.calculateOnPcReferenceSignatures);
 //		CommonUtils.waitForVisibility(signatureVisualizationsPage.plotReturnedOnProfileComparison);
 
 	}
@@ -151,29 +144,121 @@ public class SignatureVisualizationSteps extends PageInitializer {
 
 	}
 
-	@When("the user clicks on load Example Data link")
-	public void the_user_clicks_on_load_Example_Data_link() {
-
+	@When("the user clicks on the Load Example File button")
+	public void the_user_clicks_on_the_Load_Example_File_button() {
+		
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.userDataSourceRadioButton);
+		CommonUtils.waitForClickability(signatureVisualizationsPage.loadExampleDataButton);
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.loadExampleDataButton);
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.removeFilesButton);
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.loadExampleDataButton);
+		CucumberLogUtils.logScreenShot();
+		
 	}
+
 
 	@Then("the VCF example file is displayed")
 	public void the_VCF_example_file_is_displayed() {
-
-	}
-
-	@When("the user calculates using User provided example data")
-	public void the_user_calculates_using_User_provided_example_data() {
+		
+		MiscUtils.sleep(2000);
+		JavascriptUtils.drawBlueBorder(signatureVisualizationsPage.uploadFileVCFText);
+		String uploadFileValue = signatureVisualizationsPage.uploadFileVCFText.getText();
+		Assert.assertEquals("demo_input_multi.vcf.gz", uploadFileValue);
 
 	}
 
 	@When("the user clicks on Cosine Similarity")
 	public void the_user_clicks_on_Cosine_Similarity() {
+		
+		MiscUtils.sleep(2000);
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.cosineSimilarityTab);
 
 	}
 
-	@Then("the calculate button is enabled on all {int} Cosine Tabs")
-	public void the_calculate_button_is_enabled_on_all_Cosine_Tabs(int int1) {
+	@Then("the calculate button is enabled on all Cosine Tabs")
+	public void the_calculate_button_is_enabled_on_all_Cosine_Tabs() {
+		
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.csWithinSamplesTab);
+		JavascriptUtils.drawRedBorder(signatureVisualizationsPage.csWithinSamplesCalculateButton);
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenShot();
+		Assert.assertTrue(signatureVisualizationsPage.csWithinSamplesCalculateButton.isEnabled());
+		
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.csToReferenceTab);
+		MiscUtils.sleep(1000);
+		JavascriptUtils.drawRedBorder(signatureVisualizationsPage.csToReferenceSignaturesCalculateButton);
+		MiscUtils.sleep(1000);
+		CucumberLogUtils.logScreenShot();
+		Assert.assertTrue(signatureVisualizationsPage.csToReferenceSignaturesCalculateButton.isEnabled());
+		
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.csToPublicDataTab);
+		MiscUtils.sleep(1000);
+		JavascriptUtils.drawRedBorder(signatureVisualizationsPage.csToPublicDataCalculateButton);
+		MiscUtils.sleep(1000);
+		CucumberLogUtils.logScreenShot();
+		Assert.assertTrue(signatureVisualizationsPage.csToPublicDataCalculateButton.isEnabled());
 
 	}
+	
+	@When("the user clicks on the i icon when on the Profile Comparison tab")
+	public void the_user_clicks_on_the_i_icon_when_on_the_Profile_Comparison_tab() {
+		
+		CommonUtils.waitForClickability(signatureVisualizationsPage.profileComparisonTab);
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.profileComparisonTab);
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.pcToReferenceTab);
+		MiscUtils.sleep(15000);
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.compareSignatureInfoButton);
+		CucumberLogUtils.logScreenShot();
+		
+
+	}
+
+	@Then("the cosmic Signature pop up is displayed")
+	public void the_cosmic_Signature_pop_up_is_displayed() {
+		
+		JavascriptUtils.drawBlueBorder(signatureVisualizationsPage.signatureInfoPopUpBox);
+		CucumberLogUtils.logScreenShot();
+		
+	}
+	
+	@When("then navigates to the Mutational Profiles tab")
+	public void then_navigates_to_the_Mutational_Profiles_tab() {
+		
+		MiscUtils.sleep(2000);
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.mutationalProfileTab);
+
+	}
+
+	@Then("text can be entered in at the Sample Name text box")
+	public void text_can_be_entered_in_at_the_Sample_Name_text_box() throws InterruptedException {
+		
+		MiscUtils.sleep(2000);
+		signatureVisualizationsPage.mutationalProfileSampleNameTextBox.click();
+		MiscUtils.sleep(2000);
+//		signatureVisualizationsPage.mutationalProfileSampleNameTextBox.sendKeys("SB749362");
+		JavascriptUtils.drawRedBorder(signatureVisualizationsPage.mutationalProfileSampleNameBorder);
+		Thread.sleep(2000);
+		CucumberLogUtils.logScreenShot();
+
+	}
+	
+	@When("the user calculates public data")
+	public void the_user_calculates_public_data() {
+		
+		JavascriptUtils.clickByJS(signatureVisualizationsPage.visualPublicSubmitButton);
+		MiscUtils.sleep(17000);
+		
+	}
+
+	@Then("the Profiler Summary plot is displayed")
+	public void the_Profiler_Summary_plot_is_displayed() {
+		
+		MiscUtils.sleep(2000);
+		CommonUtils.scrollIntoView(signatureVisualizationsPage.profilerSummaryHeaderText);
+		CucumberLogUtils.logScreenShot();
+		Assert.assertTrue(signatureVisualizationsPage.publicPlotOnProfilerSummary.isDisplayed());
+		
+	}
+
 
 }
