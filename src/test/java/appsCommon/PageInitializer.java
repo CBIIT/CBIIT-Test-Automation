@@ -20,6 +20,7 @@ import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
 import AnalysisTools.PLCO.Pages.BrowsePhenotypePage;
 import AnalysisTools.PLCO.Pages.ExploreGWASPage;
 import AnalysisTools.PLCO.Pages.InformationPage;
+import AnalysisTools.mSigPortal.Pages.CatalogPages;
 import AnalysisTools.mSigPortal.Pages.MSigPortalHomePage;
 import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
 import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
@@ -51,6 +52,7 @@ import ServiceNow.AppTracker.StepsImplementation.AppTrackerLogInStepsImpl;
 import ServiceNow.AppTracker.StepsImplementation.VacancyManagerUserStepsImpl;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
 import ServiceNow.CHARMS.Pages.CGBIIQPage;
+import ServiceNow.CHARMS.Pages.CGBIIQPages;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
 import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
 import ServiceNow.CHARMS.Pages.MyRASHomePage;
@@ -146,6 +148,7 @@ public class PageInitializer {
 	protected static TestAccountResetPage testAccountResetPage;
 	protected static MyRASStudyConsentPage myRasStudyConsentPage;
 	protected static CGBIIQPage cgbIIQPage;
+	protected static CGBIIQPages cGBIIQPages;
 
 	/** LDLink instances **/
 	protected static LDLinkHomePage ldLinkHomePage;
@@ -194,6 +197,7 @@ public class PageInitializer {
 	protected static SignatureVisualizationsPage signatureVisualizationsPage;
 	protected static MSigPortalHomePage mSigPortalHomePage;
 	protected static SignatureExplorerPages signatureExplorerPages;
+	protected static CatalogPages catalogPages;
 
 	/** Custom Business App Instances */
 	protected static AligningExpectationsPage aligningExpectationsPage;
@@ -296,6 +300,7 @@ public class PageInitializer {
 		signatureVisualizationsPage = new SignatureVisualizationsPage ();
 		mSigPortalHomePage = new MSigPortalHomePage();
 		signatureExplorerPages = new SignatureExplorerPages();
+		catalogPages = new CatalogPages();
 		aligningExpectationsPage = new AligningExpectationsPage();
 		eidpDashboardPage = new DashboardPage();
 		eidpCommonPage = new CommonPage();
@@ -322,6 +327,8 @@ public class PageInitializer {
 		testAccountResetPage = new TestAccountResetPage();
 		myRasStudyConsentPage = new MyRASStudyConsentPage();
 		cgbIIQPage = new CGBIIQPage();
+		cGBIIQPages = new CGBIIQPages();
+		
 	
 		/**AppTracker**/
 		appTrackerBasePage = new AppTrackerBasePage();
