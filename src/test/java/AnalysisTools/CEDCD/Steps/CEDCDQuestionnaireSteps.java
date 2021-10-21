@@ -1214,23 +1214,25 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	@When("a Cohort Owner logs in and selects their first questionnaire")
 	public void a_Cohort_Owner_logs_in_and_selects_their_first_questionnaire() throws TestingException {
 		
-		MiscUtils.sleep(3000);
+		MiscUtils.sleep(500);
 		JavascriptUtils.clickByJS(cedcdAdminPage.nihLoginBtn);
 		loginImpl.loginToITrust();
-		
-		CommonUtils.waitForVisibility(cedcdCohortPage.chooseACohortText);
-		JavascriptUtils.drawRedBorder(cedcdCohortPage.chooseACohortText);
+		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 		Assert.assertTrue(cedcdCohortPage.chooseACohortText.getText().equals("Please select the cohort you wish to update from the list below."));
-		cedcdCohortPage.firstCohortOnSelectACohortDropDown.sendKeys("plco");
-		cedcdCohortPage.firstCohortOnSelectACohortDropDown.sendKeys(Keys.TAB);
+		cedcdCohortPage.firstCohortOnSelectACohortDropDown.click();
+		MiscUtils.sleep(1000);
+//		cedcdCohortPage.firstCohortOnSelectACohortDropDown.sendKeys("plco");
+		WebDriverUtils.webDriver.findElement(By.id("react-select-2-input")).sendKeys("PLCO");
+		WebDriverUtils.webDriver.findElement(By.id("react-select-2-input")).sendKeys(Keys.RETURN);
 		
 	}
 
 	@When("the user changes section of the questionnaire")
 	public void the_user_changes_section_of_the_questionnaire() {
 		
-		CommonUtils.waitForVisibility(cedcdCohortPage.g1BaselineNoValue);
+		JavascriptUtils.clickByJS(cedcdCohortPage.biospecimenTabOnQuestionnaire);
+		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cedcdCohortPage.g1BaselineNoValue);
 		MiscUtils.sleep(1000);
 		JavascriptUtils.clickByJS(cedcdCohortPage.g1BaselineYesValue);

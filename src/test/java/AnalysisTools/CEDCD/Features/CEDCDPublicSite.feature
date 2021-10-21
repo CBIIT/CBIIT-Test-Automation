@@ -68,7 +68,7 @@ Feature: Test Cases on the Public Site
     When the user clicks Agricultural Health Study
     Then the Agricultural Health Study icon is shown on the web page
     
-    @Progression17	@matarodriguezko
+    @Progression	@matarodriguezko
     Scenario: Compare Production and QA sites Cancer Counts
     Given the user is on the CEDCD Production Site
     When The user navigates to Cancer Counts and selects the AHS cohort
