@@ -1666,6 +1666,10 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy (xpath = "//button[contains(text(),'Biospecimens Counts')]")
 	public WebElement biospecimenCountsTab;
 	
+	/** This is the biospecimen counts section when on the questionnaire */
+	@FindBy (xpath = "(//span[contains(text(),'Biospecimen')])[4]")
+	public WebElement biospecimenTabOnQuestionnaire;
+	
 	/** WebElements for the G16 Table */
 	
 	/** Types of Aliquots/Cancer Type */
@@ -2549,7 +2553,7 @@ public class CEDCDCohortPage extends CommonUtils {
 	public WebElement chooseACohortText;
 	
 	/** This is the element for the first cohort in the select a cohort  */
-	@FindBy (xpath = "//div[contains(text(),'Select...')]")
+	@FindBy (xpath = "//div[@class=' css-yk16xz-control']")
 	public WebElement firstCohortOnSelectACohortDropDown;
 	
 	public CEDCDCohortPage() {
