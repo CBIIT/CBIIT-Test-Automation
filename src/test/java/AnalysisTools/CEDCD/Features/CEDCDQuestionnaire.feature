@@ -75,7 +75,7 @@ Feature: Questionnaire
     And submits the Cohort Study for Review
     Then the Cohort Study Questionnaire is successfully submitted
     
-    @Progression @matarodriguezko
+    @Smoke @matarodriguezko
     Scenario:  A Multi-Cohort Owner logs in to see the Select a Cohort page
     Given the user is on the CEDCD homepage
     When a Cohort Owner logs in
