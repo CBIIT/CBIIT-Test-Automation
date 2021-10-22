@@ -51,11 +51,13 @@ import ServiceNow.AppTracker.Pages.VacancyManagerUserPage;
 import ServiceNow.AppTracker.StepsImplementation.AppTrackerLogInStepsImpl;
 import ServiceNow.AppTracker.StepsImplementation.VacancyManagerUserStepsImpl;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
+import ServiceNow.CHARMS.Pages.CGBIIQPage;
 import ServiceNow.CHARMS.Pages.CGBIIQPages;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
 import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
 import ServiceNow.CHARMS.Pages.MyRASHomePage;
 import ServiceNow.CHARMS.Pages.MyRASLoginPage;
+import ServiceNow.CHARMS.Pages.MyRASStudyConsentPage;
 import ServiceNow.CHARMS.Pages.OKTAloginPage;
 import ServiceNow.CHARMS.Pages.ProbandScreenerPage;
 import ServiceNow.CHARMS.Pages.RASopathyQuestionnairePage;
@@ -144,6 +146,8 @@ public class PageInitializer {
 	protected static MyRASHomePage myRASHomePage;
 	protected static RASopathyQuestionnairePage rasopathyQuestionnairePage;
 	protected static TestAccountResetPage testAccountResetPage;
+	protected static MyRASStudyConsentPage myRasStudyConsentPage;
+	protected static CGBIIQPage cgbIIQPage;
 	protected static CGBIIQPages cGBIIQPages;
 
 	/** LDLink instances **/
@@ -321,6 +325,8 @@ public class PageInitializer {
 		myRASHomePage = new MyRASHomePage();
 		rasopathyQuestionnairePage = new RASopathyQuestionnairePage();
 		testAccountResetPage = new TestAccountResetPage();
+		myRasStudyConsentPage = new MyRASStudyConsentPage();
+		cgbIIQPage = new CGBIIQPage();
 		cGBIIQPages = new CGBIIQPages();
 		
 	

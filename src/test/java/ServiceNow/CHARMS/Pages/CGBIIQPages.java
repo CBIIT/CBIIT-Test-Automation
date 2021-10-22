@@ -30,11 +30,11 @@ public class CGBIIQPages extends CommonUtils {
 	public WebElement noSelection;
 	
 	/** This is the element for the next button (Can be used for any next button on questoinnaire) */
-	@FindBy (xpath = "//input[@id='NextButton']")
+	@FindBy (xpath = "//input[@title='→']")
 	public WebElement nextButton;
 	
 	/** List of Elements to use when multiple answers can be selected */
-	@FindBy (xpath = "//label[@class='MultipleAnswer ']")
+	@FindBy (xpath = "//label[@class='MultipleAnswer  ChoiceTextPositionLeft']")
 	public List<WebElement> multipleAnswers;
 	
 	/** Switching to Questionnaire's Desktop view frame */

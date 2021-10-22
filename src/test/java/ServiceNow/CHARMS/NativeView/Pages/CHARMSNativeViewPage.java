@@ -140,7 +140,159 @@ public class CHARMSNativeViewPage extends CommonUtils{
 	@FindBy (xpath = "//button[@id='ok_button']")
 	public WebElement fcsmsFormAccessShowListDeleteButton; 
 	
+	/*
+	 * ----------------- BEGINNING OF Native View Elements for ALL pages
+	 * -----------------
+	 */
+
+	/*
+	 * Dashboard Link
+	 */
+	@FindBy(xpath = "//body/div[5]/div[1]/div[1]/nav[1]/div[1]/div[3]/div[1]/div[1]/concourse-application-tree[1]/ul[1]/li[17]/ul[1]/li[5]/div[1]/div[1]/a[1]/div[1]/div[1]")
+	public WebElement nativeViewDashboardLink;
 	
+	/*
+	 * Native view frame
+	 */
+	@FindBy (xpath = "//iframe[@title='RAS Study | ServiceNow']")
+	public WebElement nativeViewiFrameCHARMS;
+	
+	
+	/*
+	 * Native view Waiting for Eligibility Review button
+	 */
+	@FindBy (xpath = "//a[@rel='eligibility_status%3Dwaiting_for_eligibility']")
+	public WebElement nativeViewWaitingForElegibilityReviewButton;
+	
+	
+	/*
+	 * Native view Family Member Details Preview Automated Test button
+	 */
+	@FindBy (xpath = "//a[@aria-label='Preview record: Automated Test']")
+	public WebElement nativeViewFamilyMemberDetailsPreviewAutomatedTestButton;
+	
+	/*
+	 * Native view Family Member Details Preview Automated Test First Name text
+	 */
+	@FindBy (xpath = "/html/body/div[4]/div[3]/form/div/span/span/div[4]/div/div[1]/div[2]/div[2]/input[1]")
+	public WebElement nativeViewFamilyMemberDetailsPreviewAutomatedFirstNameText;
+	
+	/*
+	 * Native view Family Member Details Preview Automated Test Last Name text
+	 */
+	@FindBy (xpath = "//body/div[@role='dialog']/div[@class='popover-content']/form[@name='x_naci_family_coho_family_history_details.do']/div/span[contains(@class,'tabs2_section tabs2_section_0 tabs2_section0')]/span[contains(@class,'section')]/div[@aria-label='Family Member Details form section']/div[@class='row']/div[2]/div[2]/div[2]/input[1]")
+	public WebElement nativeViewFamilyMemberDetailsPreviewAutomatedLastNameText;
+	
+	/*
+	 * Native view Family Member Details Preview Automated Test Contact Home Phone text
+	 */
+	@FindBy (xpath = "//body/div[@role='dialog']/div[@class='popover-content']/form[@name='x_naci_family_coho_family_history_details.do']/div/span[contains(@class,'tabs2_section tabs2_section_0 tabs2_section0')]/span[contains(@class,'section')]/div[@aria-label='Family Member Details form section']/div[@class='row']/div[2]/div[3]/div[2]/input[1]")
+	public WebElement nativeViewFamilyMemberDetailsPreviewAutomatedContactHomePhoneText;
+	
+	/*
+	 * Native view Family Member Details Preview Automated Test Open Record button
+	 */
+	@FindBy (xpath = "//a[normalize-space()='Open Record']")
+	public WebElement nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton;
+	
+	/*
+	 * Native view Family Member Details Automated Test Record 'Name' text 
+	 */
+	@FindBy (xpath = "//body/div[2]/form[1]/span[1]/span[1]/div[5]/div[2]/div[1]/div[2]/div[2]/input[1]")
+	public WebElement nativeViewFamilyMemberDetailsAutomatedTestRecordNameText;
+	
+	
+	/*
+	 * Native view Family Member Details Automated Test Record 'Waiting for eligibility' text 
+	 */
+	@FindBy (xpath = "(//option[@selected='SELECTED'])[2]")
+	public WebElement nativeViewFamilyMemberDetailsAutomatedTestRecordWaitingForEligibilityText;
+	
+	/*
+	 * Native view Family Member Details Automated Test Record 'New Screener Received' text 
+	 */
+	@FindBy (xpath = "(//option[@selected='SELECTED'])[3]")
+	public WebElement nativeViewFamilyMemberDetailsAutomatedTestRecordNewScreenerReceivedText;
+	
+	/*
+	 * Native view Family Member Details Automated Test Record 'May we have your permission to contact this relative?' text 
+	 */
+	@FindBy (xpath = "(//option[@selected='SELECTED'])[1]")
+	public WebElement nativeViewFamilyMemberDetailsAutomatedTestRecordMayWeHaveYourPermissionToContactThisRelativeYesText;
+	
+
+	/*
+	 * Native view Family Member Details Automated Test Record Personal Information tab
+	 */
+	@FindBy (xpath = "//span[@class='tabs2_tab default-focus-outline tabs2_active']")
+	public WebElement nativeViewFamilyMemberDetailsAutomatedTestRecordRecordPersonalInformationTab;
+	
+	
+	/*
+	 * Native view Family Member Details Automated Test Record Submit for Eligibility Review button
+	 */
+	@FindBy (xpath = "//span[@class='navbar_ui_actions']//button[@value='ea5e9eacdb998810b86770c08c96196e'][normalize-space()='Submit for Eligibility Review']")
+	public WebElement nativeViewFamilyMemberDetailsAutomatedTestRecordSubmitForEligibilityReviewButton;
+	
+	
+	/*
+	 * Native view Family Member Details Automated Test Record Mark Eligible button
+	 */
+	@FindBy (xpath = "//span[contains(@class,'navbar_ui_actions')]//button[contains(@name,'not_important')][normalize-space()='Mark Eligible']")
+	public WebElement nativeViewFamilyMemberDetailsAutomatedTestRecordMarkEligibleButton;
+	
+	/*
+	 * Native view Family Member Details Automated Test Record History Tab
+	 */
+	@FindBy (xpath = "//span[normalize-space()='History']")
+	public WebElement nativeViewFamilyMemberDetailsAutomatedTestRecordHistoryTab;
+	
+	/*
+	 * Native view Family Member Details Automated Test Record History comments box
+	 */
+	@FindBy (xpath = "//textarea[contains(@class,'sn-string-textarea form-control ng-pristine ng-untouched ng-valid ng-isolate-scope ng-empty ng-valid-required')]")
+	public WebElement nativeViewFamilyMemberDetailsAutomatedTestRecordHistoryCommentsBox;
+	
+	/*
+	 * Native view Family Member Details Automated Test Record History comments box
+	 */
+	@FindBy (xpath = "//span[@class='navbar_ui_actions']//button[@value='e65678521bc9b814e541631ee54bcb87'][normalize-space()='Send Consent']")
+	public WebElement nativeViewFamilyMemberDetailsAutomatedTestRecordSendConsentButton;
+	
+	/*
+	 * Native view 'DJ' button
+	 */
+	@FindBy (xpath = "//span[contains(text(),'DJ')]")
+	public WebElement nativeViewDJButton;
+	
+	/*
+	 * Native view Log Out
+	 */
+	@FindBy (xpath = "//a[normalize-space()='Log out']")
+	public WebElement nativeViewLogOutButton;
+	
+	/*
+	 * Native view Awaiting PI Signature link
+	 */
+	@FindBy (xpath = "//a[@rel='enrollment_status%3D6']")
+	public WebElement nativeViewAwaitingPISignatureLink;
+	
+	/*
+	 * Native view Family Study Consent link
+	 */
+	@FindBy (xpath = "//a[normalize-space()='Family Cohort Study Consent.pdf']")
+	public WebElement nativeViewFamilyStudyConsentLink;
+	
+	/*
+	 * Native view Family Sign Consent button
+	 */
+	@FindBy (xpath = "//span[@class='navbar_ui_actions']//button[@value='cc01bb4cdbd7c810b86770c08c9619dc'][normalize-space()='Sign Consent']")
+	public WebElement nativeViewSignConsentButton;
+	
+	
+	/*
+	 * ----------------- END OF Native View Elements for ALL pages -----------------
+	 */
 	
 	
 	public CHARMSNativeViewPage() {
