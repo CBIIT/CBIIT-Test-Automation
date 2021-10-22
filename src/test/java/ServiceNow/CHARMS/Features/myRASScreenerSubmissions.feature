@@ -1,6 +1,6 @@
 Feature: myRAS Screener Submissions
   
-  This feature file contains scenarios which verify data submitted via Qualtrics questionnaire in Native View
+  This feature file contains scenarios which submits myRAS Screener and verify questionnaire data submitted via Qualtrics is imported as expected in Native View
 
   @jains 
   Scenario: Proxy Screener Submission for male participant with selection of the single options 
@@ -49,7 +49,7 @@ Feature: myRAS Screener Submissions
     
     
 
-  @jains 
+  @jains @Progression
   Scenario: Proxy Screener Submission for male participant with selection of the multiple options 
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in via Okta with username "charmsras6@gmail.com" and password "RASTest2021$$"
@@ -148,7 +148,7 @@ Feature: myRAS Screener Submissions
     And proceeds with submitting the Eligibility Questionnaire
     Then the Eligibility Questionnaire is sucessfully submitted
 
-  @jains @Progression
+  @jains 
   Scenario: proband Screener Submission for Female participant who is not currently living in the United States with selection of the multiple options 
     Given a proband is on the RASopathies Longitudinal Cohort Study login page
     And logs in via Okta with username "charmsras6@gmail.com" and password "RASTest2021$$"
@@ -194,7 +194,7 @@ Feature: myRAS Screener Submissions
     And proceeds with submitting the Eligibility Questionnaire
     Then the Eligibility Questionnaire is sucessfully submitted
 
-   @jains @Progression
+   @jains
    Scenario: proband Screener Submission for Male participant who is diagnosed with other cancer types and with selection of the multiple options 
     Given a proband is on the RASopathies Longitudinal Cohort Study login page
     And logs in via Okta with username "charmsras6@gmail.com" and password "RASTest2021$$"
@@ -240,7 +240,7 @@ Feature: myRAS Screener Submissions
     And proceeds with submitting the Eligibility Questionnaire
     Then the Eligibility Questionnaire is sucessfully submitted
    
-      @jains 
+    @jains 
    Scenario: proband Screener Submission for Male participant who is diagnosed with given options of cancer types and with selection of the multiple options 
     Given a proband is on the RASopathies Longitudinal Cohort Study login page
     And logs in via Okta with username "charmsras6@gmail.com" and password "RASTest2021$$"
