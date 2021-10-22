@@ -15,6 +15,7 @@ import ServiceNow.CHARMS.Pages.MyRASLoginPage;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class myRASScreenerSubmissions extends PageInitializer {
 
@@ -374,28 +375,29 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		MiscUtils.sleep(1500);
 		rasopathyQuestionnairePage.studyNextButton.click();
 	}
-	
+
 	@Given("selects Other option and enters {string} for how did you hear about this study?")
 	public void selects_Other_option_and_enters_for_how_did_you_hear_about_this_study(String otherOptionText) {
 
-	CommonUtils.waitForVisibility(rasopathyQuestionnairePage.howDidYouHearAboutTheStudyOtherOption);
-	JavascriptUtils.scrollIntoView(rasopathyQuestionnairePage.howDidYouHearAboutTheStudyOtherOption);
-	rasopathyQuestionnairePage.howDidYouHearAboutTheStudyOtherOption.click();
-	rasopathyQuestionnairePage.howDidYouHearAboutTheStudyOtherTextBox.sendKeys(otherOptionText);
-	rasopathyQuestionnairePage.studyNextButton.click();
+		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.howDidYouHearAboutTheStudyOtherOption);
+		JavascriptUtils.scrollIntoView(rasopathyQuestionnairePage.howDidYouHearAboutTheStudyOtherOption);
+		rasopathyQuestionnairePage.howDidYouHearAboutTheStudyOtherOption.click();
+		rasopathyQuestionnairePage.howDidYouHearAboutTheStudyOtherTextBox.sendKeys(otherOptionText);
+		rasopathyQuestionnairePage.studyNextButton.click();
 	}
-	
+
 	@Given("selects the Yes option for the participant or other family members ever participated in another study on RASopathies at another medical institution")
 	public void selects_the_Yes_option_for_the_participant_or_other_family_members_ever_participated_in_another_study_on_RASopathies_at_another_medical_institution() {
 
-	CommonUtils.waitForVisibility(rasopathyQuestionnairePage.hasParticipantOrOtherFamilyMemberParticipatedInOtherStudyYesOption);	
-	rasopathyQuestionnairePage.hasParticipantOrOtherFamilyMemberParticipatedInOtherStudyYesOption.click();
-	rasopathyQuestionnairePage.studyNextButton.click();
+		CommonUtils.waitForVisibility(
+				rasopathyQuestionnairePage.hasParticipantOrOtherFamilyMemberParticipatedInOtherStudyYesOption);
+		rasopathyQuestionnairePage.hasParticipantOrOtherFamilyMemberParticipatedInOtherStudyYesOption.click();
+		rasopathyQuestionnairePage.studyNextButton.click();
 	}
-	
+
 	@Given("provides the following information regarding previous participation in other RASopathy studies")
 	public void provides_the_following_information_regarding_previous_participation_in_other_RASopathy_studies() {
-		
+
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.studyNameRelative1textbox);
 		rasopathyQuestionnairePage.studyNameRelative1textbox.sendKeys("RAS1");
 		rasopathyQuestionnairePage.studyNameRelative2textbox.sendKeys("RAS2");
@@ -423,26 +425,27 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		rasopathyQuestionnairePage.dateOfParticipationEndYearRelative4textbox.sendKeys("2016");
 		rasopathyQuestionnairePage.studyNextButton.click();
 	}
-	
-	
-	@Given("for What are the main reasons for participating in this study? selects All options and for Participate in research enters {string}, for Identify a diagnosis enters {string}, for Receive genetic testing enters {string}, and for Other enters {string}")
-	public void for_What_are_the_main_reasons_for_participating_in_this_study_selects_All_options_and_for_Participate_in_research_enters_for_Identify_a_diagnosis_enters_for_Receive_genetic_testing_enters_and_for_Other_enters(String reasonOne, String reasonTwo, String reasonThree, String reasonFour) {
 
-	CommonUtils.waitForVisibility(rasopathyQuestionnairePage.mainReasonForParticipatingInStudyParticipateInResearchOption);	
-	rasopathyQuestionnairePage.mainReasonForParticipatingInStudyParticipateInResearchOption.click();
-	rasopathyQuestionnairePage.mainReasonForParticipatingInStudyParticipateInResearchTextBox.sendKeys(reasonOne);
-	rasopathyQuestionnairePage.mainReasonForParticipatingInStudyIdentifyADiagnosisOption.click();
-	rasopathyQuestionnairePage.mainReasonForParticipatingInStudyIdentifyADiagnosisTextBox.sendKeys(reasonTwo);
-	rasopathyQuestionnairePage.mainReasonForParticipatingInStudyReceiveGeneticTestingOption.click();
-	rasopathyQuestionnairePage.mainReasonForParticipatingInStudyReceiveGeneticTestingTextBox.sendKeys(reasonFour);
-	rasopathyQuestionnairePage.mainReasonForParticipatingInStudyOtherOption.click();
-	rasopathyQuestionnairePage.mainReasonForParticipatingInStudyOtherTextBox.sendKeys(reasonFour);
-	rasopathyQuestionnairePage.studyNextButton.click();
+	@Given("for What are the main reasons for participating in this study? selects All options and for Participate in research enters {string}, for Identify a diagnosis enters {string}, for Receive genetic testing enters {string}, and for Other enters {string}")
+	public void for_What_are_the_main_reasons_for_participating_in_this_study_selects_All_options_and_for_Participate_in_research_enters_for_Identify_a_diagnosis_enters_for_Receive_genetic_testing_enters_and_for_Other_enters(
+			String reasonOne, String reasonTwo, String reasonThree, String reasonFour) {
+
+		CommonUtils.waitForVisibility(
+				rasopathyQuestionnairePage.mainReasonForParticipatingInStudyParticipateInResearchOption);
+		rasopathyQuestionnairePage.mainReasonForParticipatingInStudyParticipateInResearchOption.click();
+		rasopathyQuestionnairePage.mainReasonForParticipatingInStudyParticipateInResearchTextBox.sendKeys(reasonOne);
+		rasopathyQuestionnairePage.mainReasonForParticipatingInStudyIdentifyADiagnosisOption.click();
+		rasopathyQuestionnairePage.mainReasonForParticipatingInStudyIdentifyADiagnosisTextBox.sendKeys(reasonTwo);
+		rasopathyQuestionnairePage.mainReasonForParticipatingInStudyReceiveGeneticTestingOption.click();
+		rasopathyQuestionnairePage.mainReasonForParticipatingInStudyReceiveGeneticTestingTextBox.sendKeys(reasonFour);
+		rasopathyQuestionnairePage.mainReasonForParticipatingInStudyOtherOption.click();
+		rasopathyQuestionnairePage.mainReasonForParticipatingInStudyOtherTextBox.sendKeys(reasonFour);
+		rasopathyQuestionnairePage.studyNextButton.click();
 	}
-	
+
 	@Given("proceeds with submitting the Eligibility Questionnaire")
 	public void proceeds_with_submitting_the_Eligibility_Questionnaire() {
-		
+
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.studyNextButton);
 		JavascriptUtils.scrollIntoView(rasopathyQuestionnairePage.studyNextButton);
@@ -450,8 +453,296 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	}
 
 	@Then("the Eligibility Questionnaire is sucessfully submitted")
-	public void the_Eligibility_Questionnaire_is_sucessfully_submitted() {
-		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.submissionSuccessfulText);		
+	public void the_Eligibility_Questionnaire_is_sucessfully_submitted() throws TestingException {
+		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.submissionSuccessfulText);
+
+		MiscUtils.sleep(3000);
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
+		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewCCButton);
+		testAccountResetPage.nativeViewCCButton.click();
+		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewCCLogOutButton);
+		testAccountResetPage.nativeViewCCLogOutButton.click();
+	}
+
+	@When("a ServiceNow user navigates to CHARMS Native view and opens records that are Waiting for Elegibility Review")
+	public void a_ServiceNow_user_navigates_to_CHARMS_Native_view_and_opens_records_that_are_Waiting_for_Elegibility_Review()
+			throws TestingException {
+
+		nativeViewLoginImpl.nativeViewLogin();
+		CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator);
+		nativeViewHomePage.nativeViewFilterNavigator.sendKeys("CHARMS");
+
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewDashboardLink);
+		charmsNativeViewPage.nativeViewDashboardLink.click();
+
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewiFrameCHARMS);
+		CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewiFrameCHARMS);
+
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewWaitingForElegibilityReviewButton);
+		charmsNativeViewPage.nativeViewWaitingForElegibilityReviewButton.click();
+
+	}
+
+	@Given("selects the submitted MyRAS screener record")
+	public void selects_the_submitted_MyRAS_screener_record() {
+		Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
+		for (String currentWindow1 : allWindowHandles1) {
+			WebDriverUtils.webDriver.switchTo().window(currentWindow1);
+		}
+
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestButton);
+		charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestButton.click();
+
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedFirstNameText);
+		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedFirstNameText
+				.getAttribute("value").contentEquals("Automated"));
+
+		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedLastNameText
+				.getAttribute("value").contentEquals("Test"));
+
+		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedContactHomePhoneText
+				.getAttribute("value").contentEquals("703-687-5816"));
+		CommonUtils.waitForVisibility(
+				charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton);
+		charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton.click();
+
+	}
+
+	@Given("verifies data submitted in Qualtrics is imported as expected in ServiceNow")
+	public void verifies_data_submitted_in_Qualtrics_is_imported_as_expected_in_ServiceNow() {
+
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordNameText);
+		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordNameText
+				.getAttribute("value").contentEquals("Automated Test"));
+
+		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordWaitingForEligibilityText
+				.getText().contentEquals("Waiting for Eligibility"));
+
+		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordNewScreenerReceivedText
+				.getText().contentEquals("New Screener Received"));
+
+		Assert.assertTrue(
+				charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordMayWeHaveYourPermissionToContactThisRelativeYesText
+						.getText().contentEquals("Yes"));
+
+	}
+
+	@Given("the ServiceNow user submits the study for eligibility review")
+	public void the_ServiceNow_user_submits_the_study_for_eligibility_review() {
+
+		CommonUtils.waitForVisibility(
+				charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordSubmitForEligibilityReviewButton);
+		charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordSubmitForEligibilityReviewButton.click();
+
+	}
+
+	@Given("the ServiceNow user marks the study eligible")
+	public void the_ServiceNow_user_marks_the_study_eligible() {
+
+		CommonUtils.waitForVisibility(
+				charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordMarkEligibleButton);
+		charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordMarkEligibleButton.click();
+
+	}
+
+	@Given("the ServiceNow user adds comments in the history section {string} and sends consent form")
+	public void the_ServiceNow_user_adds_comments_in_the_history_section_and_sends_consent_form(String consentComment)
+			throws TestingException {
+
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordHistoryTab);
+		charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordHistoryTab.click();
+
+		CommonUtils.waitForVisibility(
+				charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordHistoryCommentsBox);
+		charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordHistoryCommentsBox
+				.sendKeys(consentComment);
+
+		CommonUtils.waitForVisibility(
+				charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordSendConsentButton);
+		CommonUtils
+				.scrollIntoView(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordSendConsentButton);
+		charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordSendConsentButton.click();
+
+		/*
+		 * LOGGING OUT OF NATIVE VIEW WITH DJ ACCOUNT
+		 */
+
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewDJButton);
+		charmsNativeViewPage.nativeViewDJButton.click();
+
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewLogOutButton);
+		charmsNativeViewPage.nativeViewLogOutButton.click();
+
+	}
+
+
+	@When("the myRAS user signs the consent form in the Service Portal")
+	public void the_myRAS_user_signs_the_consent_form_in_the_Service_Portal() throws TestingException {
+
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("myRASLoginPage"));
+
+		CommonUtils.waitForVisibility(myRASLoginPage.loginToMyRASButton);
+		myRASLoginPage.loginToMyRASButton.click();
+		oktaLoginPage.usernameTxtBox.sendKeys("charmsras4@yahoo.com");
+		oktaLoginPage.passwordTxtBox.sendKeys("RASTest2021$$");
+		CommonUtils.waitForVisibility(oktaLoginPage.loginBtn);
+		oktaLoginPage.loginBtn.click();
+
+		CommonUtils.waitForVisibility(myRASHomePage.warningAgreeButton);
+		myRASHomePage.warningAgreeButton.click();
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(myRASHomePage.rasopathyStudyConsent);
+		JavascriptUtils.clickByJS(myRASHomePage.rasopathyStudyConsent);
+
+		myRasStudyConsentPage.yesIhaveReadTheTermsAndConditionsCheckbox.click();
+
+		JavascriptUtils.scrollIntoView(myRasStudyConsentPage.iAmThisPersonRadioButton);
+		myRasStudyConsentPage.iAmThisPersonRadioButton.click();
+
+		myRasStudyConsentPage.iDoGivePermissionForMyCodedSpecimensAndDataToBeStoredRadioButton.click();
+
+		myRasStudyConsentPage.iDoGivePermissionForMyCodedSpecimensAndDataToBeSharedWithOtherResearchersRadioButton
+				.click();
+
+		CommonUtils.waitForVisibility(myRasStudyConsentPage.consentButton);
+		myRasStudyConsentPage.consentButton.click();
+
+		CommonUtils.waitForVisibility(myRasStudyConsentPage.signingPasswordTextBox);
+		myRasStudyConsentPage.signingPasswordTextBox.sendKeys("RASTest2021$$");
+
+		CommonUtils.waitForVisibility(myRasStudyConsentPage.signButton);
+		myRasStudyConsentPage.signButton.click();
+
+		CommonUtils.waitForVisibility(myRasStudyConsentPage.yourConsentFormHasBeenSubmittedOKbutton);
+		myRasStudyConsentPage.yourConsentFormHasBeenSubmittedOKbutton.click();
+		
+		/*
+		 * LOGGING OUT OF CHARMS AUTOMATED OKTA ACCOUNT
+		 */
+		
+		CommonUtils.waitForVisibility(myRASHomePage.charmsAutomatedTestTwoLink);
+		myRASHomePage.charmsAutomatedTestTwoLink.click();
+
+		CommonUtils.waitForVisibility(myRASHomePage.charmsAutomatedTestTwoSignOutLink);
+		myRASHomePage.charmsAutomatedTestTwoSignOutLink.click();
+
+	}
+
+	
+	@When("a ServiceNow user navigates to CHARMS Native view and opens records that are Awaiting PI Signature")
+	public void a_ServiceNow_user_navigates_to_CHARMS_Native_view_and_opens_records_that_are_Awaiting_PI_Signature() throws TestingException {
+
+		nativeViewLoginImpl.nativeViewLogin();
+
+		CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator);
+		nativeViewHomePage.nativeViewFilterNavigator.sendKeys("CHARMS");
+
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewDashboardLink);
+		charmsNativeViewPage.nativeViewDashboardLink.click();
+
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewiFrameCHARMS);
+		CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewiFrameCHARMS);
+
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewAwaitingPISignatureLink);
+		charmsNativeViewPage.nativeViewAwaitingPISignatureLink.click();
+	
 	}
 	
+	
+	@Given("selects the submitted MyRAS screener record that has signed consent form from participant attached")
+	public void selects_the_submitted_MyRAS_screener_record_that_has_signed_consent_form_from_participant_attached() {
+
+		Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
+		for (String currentWindow1 : allWindowHandles1) {
+			WebDriverUtils.webDriver.switchTo().window(currentWindow1);
+		}
+
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestButton);
+		charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestButton.click();
+
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedFirstNameText);
+		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedFirstNameText
+				.getAttribute("value").contentEquals("Automated"));
+
+		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedLastNameText
+				.getAttribute("value").contentEquals("Test"));
+
+		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedContactHomePhoneText
+				.getAttribute("value").contentEquals("703-687-5816"));
+
+		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyStudyConsentLink.isDisplayed());
+
+		CommonUtils.waitForVisibility(
+				charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton);
+		charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton.click();
+	
+	}
+	
+	
+	@Given("the ServiceNow user signs the consent form")
+	public void the_ServiceNow_user_signs_the_consent_form() throws TestingException {
+
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewSignConsentButton);
+		charmsNativeViewPage.nativeViewSignConsentButton.click();
+		MiscUtils.sleep(3000);
+
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewDJButton);
+		charmsNativeViewPage.nativeViewDJButton.click();
+
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewLogOutButton);
+		charmsNativeViewPage.nativeViewLogOutButton.click();
+	
+	
+	}
+
+	
+	@Given("clicks on the Individual Information Questionnaire to begin the IIQ form")
+	public void clicks_on_the_Individual_Information_Questionnaire_to_begin_the_IIQ_form() {
+
+		CommonUtils.waitForVisibility(myRASHomePage.warningAgreeButton);
+		myRASHomePage.warningAgreeButton.click();
+
+		CommonUtils.waitForVisibility(myRASHomePage.rasoptathyIndividualInformationQuestionnaire);
+		myRASHomePage.rasoptathyIndividualInformationQuestionnaire.click();
+	}
+	
+	static String cgbIIQOneTimePin;
+	
+	@Given("enters email address and One Time Pin code to proceed with the form")
+	public void enters_email_address_and_One_Time_Pin_code_to_proceed_with_the_form() {
+
+		CommonUtils.waitForVisibility(myRASHomePage.rasoptathyIndividualInformationQuestionnairePinText);
+
+		// PRINTING OUT PIN - IT WILL ALWAYS BE DIFFERENT
+		System.out.println(myRASHomePage.rasoptathyIndividualInformationQuestionnairePinText.getText());
+
+		cgbIIQOneTimePin = myRASHomePage.rasoptathyIndividualInformationQuestionnairePinText.getText();
+
+		CommonUtils.waitForVisibility(myRASHomePage.rasoptathyIndividualInformationQuestionnaireOneTimePinGoButton);
+		myRASHomePage.rasoptathyIndividualInformationQuestionnaireOneTimePinGoButton.click();
+
+		Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
+		for (String currentWindow1 : allWindowHandles1) {
+			WebDriverUtils.webDriver.switchTo().window(currentWindow1);
+		}
+
+		CommonUtils.waitForVisibility(cgbIIQPage.cgbIIQOneTimePinTextBox);
+		cgbIIQPage.cgbIIQOneTimePinTextBox.sendKeys(cgbIIQOneTimePin);
+
+		cgbIIQPage.cgbIIQOneTimeEmailTextBox.sendKeys("automatedTest@nci.gov");
+		
+		
+		CucumberLogUtils.logScreenShot();
+		MiscUtils.sleep(2000);
+		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
+		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);	
+		MiscUtils.sleep(2000);
+	}
 }
