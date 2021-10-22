@@ -558,4 +558,31 @@
 		</db>
 
 	</application>
+	
+	<!-- Application ID for the CGBIIQ - CHARMS -->
+	<application id="CGBIIQ">
+
+		<login_url>https://ncidccpssurveys.gov1.qualtrics.com/jfe/preview/SV_b3Mp5ULl2UeJTjo?Q_CHL
+		</login_url><!-- add test url -->
+
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default>
+		</db>
+
+	</application>
+	
+	
 </environment>
