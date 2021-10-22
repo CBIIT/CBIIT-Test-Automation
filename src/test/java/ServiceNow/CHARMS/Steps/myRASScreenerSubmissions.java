@@ -552,8 +552,10 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		CommonUtils.waitForVisibility(myRASHomePage.warningAgreeButton);
 		myRASHomePage.warningAgreeButton.click();
 		
+		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(myRASHomePage.rasopathyStudyConsent);
-		myRASHomePage.rasopathyStudyConsent.click();
+		JavascriptUtils.clickByJS(myRASHomePage.rasopathyStudyConsent);
+		//myRASHomePage.rasopathyStudyConsent.click();
 		
 		myRasStudyConsentPage.yesIhaveReadTheTermsAndConditionsCheckbox.click();
 		
@@ -623,6 +625,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		
 		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewSignConsentButton);
 		charmsNativeViewPage.nativeViewSignConsentButton.click();
+		MiscUtils.sleep(3000);
 		
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
 		
@@ -653,6 +656,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		CommonUtils.waitForVisibility(myRASHomePage.warningAgreeButton);
 		myRASHomePage.warningAgreeButton.click();
 		
+		
 		CommonUtils.waitForVisibility(myRASHomePage.rasoptathyIndividualInformationQuestionnaire);
 		myRASHomePage.rasoptathyIndividualInformationQuestionnaire.click();
 		
@@ -676,8 +680,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		CommonUtils.waitForVisibility(cgbIIQPage.cgbIIQOneTimePinTextBox);
 		cgbIIQPage.cgbIIQOneTimePinTextBox.sendKeys(cgbIIQOneTimePin);
 		
-		cgbIIQPage.cgbIIQOneTimeEmailTextBox.sendKeys("automatedTest@nci.gov");
-		
+		cgbIIQPage.cgbIIQOneTimeEmailTextBox.sendKeys("charmsras4@yahoo.com");
 		
 		
 	}
