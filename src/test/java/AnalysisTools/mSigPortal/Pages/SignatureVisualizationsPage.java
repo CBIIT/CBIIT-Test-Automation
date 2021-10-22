@@ -133,7 +133,7 @@ public class SignatureVisualizationsPage extends CommonUtils {
 	public WebElement visualPublicSubmitButton;
 	
 	/** This is the plot returned on the Profiler Summary when using public data */
-	@FindBy (xpath = "//div[@class='react-transform-element TransformComponent-module_content__TZU5O ']")
+	@FindBy (xpath = "//div[@class='react-transform-component transform-component-module_content__2jYgh ']")
 	public WebElement publicPlotOnProfilerSummary;
 	
 	/** This is the text header for the Profiler Summary */
