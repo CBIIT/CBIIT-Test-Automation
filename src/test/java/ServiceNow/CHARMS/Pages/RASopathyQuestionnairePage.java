@@ -16,8 +16,10 @@ public class RASopathyQuestionnairePage {
 
 	/* ************************************************************************ */
 
-	/* BEGINNING OF Are you completing this form for someone else or for yourself? PAGE */
-	 	
+	/*
+	 * BEGINNING OF Are you completing this form for someone else or for yourself?
+	 * PAGE
+	 */
 
 	/* I am completing this form for someone else option */
 	@FindBy(xpath = "//span[contains(text(),'I am completing this form for someone else')]")
@@ -27,11 +29,14 @@ public class RASopathyQuestionnairePage {
 	@FindBy(xpath = "//span[contains(text(),'I am completing this form for myself')]")
 	public WebElement iAmCompletingThisFormForMyselfOption;
 
-	/*  END OF Are you completing this form for someone else or for yourself?PAGE */
-	 	 
+	/* END OF Are you completing this form for someone else or for yourself?PAGE */
+
 	/* ************************************************************************ */
 
-	/* BEGINNING OF What is the name of the person who may be eligible for this study? PAGE*/
+	/*
+	 * BEGINNING OF What is the name of the person who may be eligible for this
+	 * study? PAGE
+	 */
 
 	/* First Name of the participant text box */
 	@FindBy(xpath = "//input[@name=\"QR~QID105~4~TEXT\"]")
@@ -45,7 +50,10 @@ public class RASopathyQuestionnairePage {
 	@FindBy(xpath = "//input[@name=\"QR~QID105~6~TEXT\"]")
 	public WebElement lastNameTextBox;
 
-	/* END OF What is the name of the person who may be eligible for this study? PAGE */
+	/*
+	 * END OF What is the name of the person who may be eligible for this study?
+	 * PAGE
+	 */
 
 	/* ************************************************************************ */
 
@@ -216,7 +224,7 @@ public class RASopathyQuestionnairePage {
 	public WebElement doesParticipantLiveInUnitedStatesNoOption;
 
 	/* End OF Does "name" currently live in the United States? PAGE */
-	
+
 	/* ************************************************************************ */
 
 	/* BEGINNING OF Does "participant" currently live in the United States?PAGE */
@@ -273,7 +281,10 @@ public class RASopathyQuestionnairePage {
 
 	/* ************************************************************************ */
 
-	/* BEGINNING Please list your phone numbers below. Please also select your preferred contact number. PAGE */
+	/*
+	 * BEGINNING Please list your phone numbers below. Please also select your
+	 * preferred contact number. PAGE
+	 */
 
 	/* Home phone number text box */
 	@FindBy(xpath = "//tbody/tr[1]/th[1]/span[1]/div[1]/input[1]")
@@ -299,8 +310,11 @@ public class RASopathyQuestionnairePage {
 	@FindBy(xpath = "//tbody/tr[3]/td[1]/label[1]")
 	public WebElement pleaseSelectWorkPhonePreferredContactCheckBox;
 
-	/* END OF Please list your phone numbers below. Please also select your preferred contact number. PAGE */
-	
+	/*
+	 * END OF Please list your phone numbers below. Please also select your
+	 * preferred contact number. PAGE
+	 */
+
 	/* ************************************************************************ */
 
 	/* -------- BEGINNING OF Ethnicity of "Name" PAGE --------------- */
@@ -326,7 +340,7 @@ public class RASopathyQuestionnairePage {
 	/* ************************************************************************ */
 
 	/* BEGINNING OF Race of "Name". Please select all that apply.PAGE */
-	
+
 	/* All Race options except Prefer not to answer */
 	@FindBy(xpath = "//span[contains(text(),'White')]")
 	public WebElement raceOfParticipantWhite;
@@ -356,7 +370,10 @@ public class RASopathyQuestionnairePage {
 
 	/* ************************************************************************ */
 
-	/* BEGINNING OF Is Automated Test a participant in any other research study or registry group? Please specify.PAGE */
+	/*
+	 * BEGINNING OF Is Automated Test a participant in any other research study or
+	 * registry group? Please specify.PAGE
+	 */
 
 	@FindBy(xpath = "//span[contains(text(),'RASopathies Net')]")
 	public WebElement isParticipantInResopathiesNetOption;
@@ -381,7 +398,10 @@ public class RASopathyQuestionnairePage {
 	@FindBy(xpath = "//input[@title='Other']")
 	public WebElement isParticipantInOtherResearchStudyOptionTextBox;
 
-	/* END OF Is Automated Test a participant in any other research study or registry group? Please specify.PAGE */
+	/*
+	 * END OF Is Automated Test a participant in any other research study or
+	 * registry group? Please specify.PAGE
+	 */
 
 	/* ************************************************************************ */
 
@@ -437,7 +457,7 @@ public class RASopathyQuestionnairePage {
 	 */
 
 	/* ************************************************************************ */
-	
+
 	/* -------- BEGINNING OF Has "Name" ever been diagnosed with cancer? PAGE --- */
 
 	/* Yes option */
@@ -588,7 +608,7 @@ public class RASopathyQuestionnairePage {
 	 */
 
 	/* ************************************************************************ */
-	
+
 	/*
 	 * ---- For Proband: Have you been diagnosed with a RASopathy such as Noonan
 	 * syndrome, Noonan syndrome with multiple lentigines, Costello syndrome,
@@ -614,8 +634,11 @@ public class RASopathyQuestionnairePage {
 	 */
 
 	/* ************************************************************************ */
-	
-	/* BEGINNING OF For which specific RASopathy has Automated Test been diagnosed? PAGE */
+
+	/*
+	 * BEGINNING OF For which specific RASopathy has Automated Test been diagnosed?
+	 * PAGE
+	 */
 
 	/* Other option */
 	@FindBy(xpath = "//span[@class='LabelWrapper']//label[@for='QR~QID28~10']")
@@ -629,7 +652,9 @@ public class RASopathyQuestionnairePage {
 	@FindBy(xpath = "//span[contains(@class,'LabelWrapper')]//label[contains(@for,'QR~QID28~9')]")
 	public WebElement participantSpecificRasopathyDontKnowOption;
 
-	/* END OF For which specific RASopathy has Automated Test been diagnosed? PAGE */
+	/*
+	 * END OF For which specific RASopathy has Automated Test been diagnosed? PAGE
+	 */
 
 	/* ************************************************************************ */
 
@@ -653,7 +678,10 @@ public class RASopathyQuestionnairePage {
 
 	/* ************************************************************************ */
 
-	/* For Proxy:BEGINNING Have any of "Participant Name" biological relatives been diagnosed with a RASopathy? PAGE */
+	/*
+	 * For Proxy:BEGINNING Have any of "Participant Name" biological relatives been
+	 * diagnosed with a RASopathy? PAGE
+	 */
 
 	/* Yes option */
 	@FindBy(xpath = "//span[contains(@class,\"LabelWrapper\")]//label[contains(@for,\"QR~QID123~1\")]//span[contains(text(),\"Yes\")]")
@@ -671,11 +699,17 @@ public class RASopathyQuestionnairePage {
 	@FindBy(xpath = "//span[contains(@class,\"LabelWrapper\")]//label[contains(@for,\"QR~QID123~4\")]//span[contains(text(),\"I have no information on my biological relatives\")]")
 	public WebElement participantsFamilyMembersBeenDiagnosedhaveNoInformationOption;
 
-	/* For Proxy: END Have any of "Participant Name" biological relatives been diagnosed with a RASopathy? PAGE */
-	
+	/*
+	 * For Proxy: END Have any of "Participant Name" biological relatives been
+	 * diagnosed with a RASopathy? PAGE
+	 */
+
 	/* ************************************************************************ */
 
-	/* For Proband: BEGINNING OF Have any of your biological relatives been diagnosed with a RASopathy? PAGE */ 
+	/*
+	 * For Proband: BEGINNING OF Have any of your biological relatives been
+	 * diagnosed with a RASopathy? PAGE
+	 */
 
 	/* Yes option */
 	@FindBy(xpath = "//span[contains(@class,\"LabelWrapper\")]//label[contains(@for,\"QR~QID43~1\")]//span[contains(text(),\"Yes\")]")
@@ -693,11 +727,14 @@ public class RASopathyQuestionnairePage {
 	@FindBy(xpath = "//span[contains(@class,\"LabelWrapper\")]//label[contains(@for,\"QR~QID43~4\")]//span[contains(text(),\"I have no information on my biological relatives\")]")
 	public WebElement probandFamilyMembersBeenDiagnosedhaveNoInformationOption;
 
-	/* For Proband: END OF Have any of your biological relatives been diagnosed with a RASopathy? PAGE */  
+	/*
+	 * For Proband: END OF Have any of your biological relatives been diagnosed with
+	 * a RASopathy? PAGE
+	 */
 
 	/* ************************************************************************ */
 
-	/* ----- BEGINNING OF Has participant ever had genetic testing? PAGE ---  */
+	/* ----- BEGINNING OF Has participant ever had genetic testing? PAGE --- */
 
 	/* Yes option */
 	@FindBy(xpath = "//span[contains(@class,\"LabelWrapper\")]//span[contains(text(),\"Yes\")]")
@@ -907,9 +944,10 @@ public class RASopathyQuestionnairePage {
 	@FindBy(xpath = "//span[contains(text(),\"Not sure\")]")
 	public WebElement hasParticipantOrOtherFamilyMemberParticipatedInOtherStudyNotSureOption;
 
-	/* END OF Has participant or other family members ever participated in
-	 * another study on RASopathies at another medical institution, university,
-	 * government agency or other site? PAGE ------
+	/*
+	 * END OF Has participant or other family members ever participated in another
+	 * study on RASopathies at another medical institution, university, government
+	 * agency or other site? PAGE ------
 	 */
 
 	/* ************************************************************************ */
@@ -1015,11 +1053,17 @@ public class RASopathyQuestionnairePage {
 	@FindBy(xpath = "//input[@name='QR~QID97#5~4~2~TEXT']")
 	public WebElement dateOfParticipationEndYearRelative4textbox;
 
-	/* END OF Please provide the information regarding previous participation in other RASopathy studies in the box below. PAGE */ 
+	/*
+	 * END OF Please provide the information regarding previous participation in
+	 * other RASopathy studies in the box below. PAGE
+	 */
 
 	/* ************************************************************************ */
 
-	/* BEGINNING OF What are the main reasons for participating in this study? Select all that apply. */
+	/*
+	 * BEGINNING OF What are the main reasons for participating in this study?
+	 * Select all that apply.
+	 */
 
 	/* Participate in research option */
 	@FindBy(xpath = "//span[contains(@class,'LabelWrapper')]//label[contains(@for,'QR~QID81~1')]")
@@ -1053,20 +1097,23 @@ public class RASopathyQuestionnairePage {
 	@FindBy(xpath = "//input[contains(@title,'<span style=\"font-family:Arial,Helvetica,sans-serif;\">Other</span>')]")
 	public WebElement mainReasonForParticipatingInStudyOtherTextBox;
 
-	/* END OF What are the main reasons for participating in this study? Select all that apply. */
+	/*
+	 * END OF What are the main reasons for participating in this study? Select all
+	 * that apply.
+	 */
 
 	/* ************************************************************************ */
 
-	/* BEGINNING OF We thank you for your time spent taking this survey. Page  */
+	/* BEGINNING OF We thank you for your time spent taking this survey. Page */
 
 	/* Submission successful text */
 	@FindBy(xpath = "//div[@class='END_OF_SURVEY EndOfSurvey BorderColor SystemEndOfSurvey']")
 	public WebElement submissionSuccessfulText;
 
-	/* END OF We thank you for your time spent taking this survey. Page  */
+	/* END OF We thank you for your time spent taking this survey. Page */
 
 	/* ************************************************************************ */
-	
+
 	/* -------- END OF RASopathy Questionnaire PAGE ------------- */
 
 	public RASopathyQuestionnairePage() {

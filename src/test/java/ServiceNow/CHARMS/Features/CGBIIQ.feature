@@ -2,7 +2,7 @@ Feature: These are features pertaining to the CGB IIQ
 
 Description: These scenarios will complete the CGB IIQ in the flows specified in the scenario
 
-@matarodriguezko
+@matarodriguezko 
 Scenario: Female Participant (Proxy) A user lands on the CHARMS
 
 Given the user is redirected to the log in page of the Individual Information Questionnaire 
