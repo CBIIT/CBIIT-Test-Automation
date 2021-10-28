@@ -1,8 +1,6 @@
 package ServiceNow.CHARMS.Steps;
 
 import org.junit.Assert;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.support.ui.Select;
 
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -784,21 +782,21 @@ public class CGBIIQSteps extends PageInitializer {
 	@When("adds the total amount of time the participant has taken hormone replacement therapy {string}")
 	public void adds_the_total_amount_of_time_the_participant_has_taken_hormone_replacement_therapy(String WeeksProbandTookPrescribedHormones) {
 		
-//		MiscUtils.sleep(2000);
-//		JavascriptUtils.clickByJS(cGBIIQPages.weeksProbandTookPrescribedHormones);
-//		cGBIIQPages.weeksProbandTookPrescribedHormonesTextBox.sendKeys(WeeksProbandTookPrescribedHormones);
-//		CucumberLogUtils.logScreenShot();
-//		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
-//		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
+		MiscUtils.sleep(2000);
+		JavascriptUtils.clickByJS(cGBIIQPages.weeksProbandTookPrescribedHormones);
+		cGBIIQPages.weeksProbandTookPrescribedHormonesTextBox.sendKeys(WeeksProbandTookPrescribedHormones);
+		CucumberLogUtils.logScreenShot();
+		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
+		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 		
 	}
 	
 	@Then("the user lands on the {string} page")
 	public void the_user_lands_on_the_page(String YouAreAlmostDoneText) {
 		
-//		MiscUtils.sleep(2000);
-//		Assert.assertTrue(cGBIIQPages.youAreAlmostDoneText.getText().contains(YouAreAlmostDoneText));
-//		CucumberLogUtils.logScreenShot();
+		MiscUtils.sleep(2000);
+		Assert.assertTrue(cGBIIQPages.youAreAlmostDoneText.getText().contains(YouAreAlmostDoneText));
+		CucumberLogUtils.logScreenShot();
 		
 	}
 

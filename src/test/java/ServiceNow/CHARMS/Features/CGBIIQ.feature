@@ -72,3 +72,33 @@ Feature: These are features pertaining to the CGB IIQ
     Then the user lands on the "You are almost done!" page
     And the user clicks the forward arrow button
     Then the end of the IIQ survey page "EndOfSurvey" is displayed
+    
+    @Progession @matarodriguezko
+  Scenario: Male Participant (Proxy) A user lands on the CHARMS
+    Given the user is redirected to the log in page of the Individual Information Questionnaire
+    When types the email address in the textbook labeled Email
+    And types the One-time pin in the textbook labeled One Time pin
+    And on the CGB Statement of Confidentiality page clicks next arrow button
+    And on the CGB Instructions page clicks next arrow button
+    And on the General Background Information section of IIQ Survey page clicks next arrow button
+    And selects the radio button labelled I am completing this form for someone else
+    And fills out the participants "Kevin Mata" for whom the user is completing the IIQ form.
+    And selects Male as the biological sex of the participant assigned at birth
+    And selects for which Sex the participant is identified
+    And selects what the participant is considered to be
+    And selects the Race of the participant
+    And selects if the participant is from the Ashkenazi Eastern European JewishDescent
+    And selects if the participant is Adopted
+    And selects Yes for the participant raised by someone other than their biological parent
+    And adds Information regarding individuals who raised the participant "Joanne","Step Mother"
+    And adds the participant DOB in MMDDYYYY format
+    And adds the Demographic information of the participant "Bethesda", "Maryland", "United States"
+    And selects the participant Biological Mothers Ancestral Background or add the free text for the box labelled Other SPECIFY
+    And selects the participant Biological Fathers Ancestral Background or add the free text for the box labelled Other SPECIFY
+    And selects the participant Familys Religious Background or add the free text for the box labelled Other SPECIFY
+    And selects the participant Current Marital Status
+    And adds the participant "Software Engineer"
+    And selects if the participant currently have health insurance?
+    And selects the total combined yearly income for all the persons in participant household
+    And selects the highest level of schooling participant has completed
+    And on the medical history section of IIQ Survey page clicks on the forward arrow button

@@ -47,6 +47,6 @@ Feature: myRAS Screener Submissions
     And proceeds with submitting the Eligibility Questionnaire
     Then the Eligibility Questionnaire is sucessfully submitted
     
-    @Progression 
+    @Progression
     Scenario: Test Account Reset
     Then test account is reset to be used for next test execution

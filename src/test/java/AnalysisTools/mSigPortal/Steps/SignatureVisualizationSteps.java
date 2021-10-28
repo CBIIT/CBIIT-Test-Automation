@@ -100,7 +100,7 @@ public class SignatureVisualizationSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.loadExampleDataButton);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.submitButton);
-		MiscUtils.sleep(40000);
+		MiscUtils.sleep(60000);
 		CucumberLogUtils.logScreenShot();
 
 	}
@@ -171,6 +171,7 @@ public class SignatureVisualizationSteps extends PageInitializer {
 	public void the_user_clicks_on_Cosine_Similarity() {
 		
 		MiscUtils.sleep(2000);
+		CommonUtils.waitForClickability(signatureVisualizationsPage.cosineSimilarityTab);
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.cosineSimilarityTab);
 
 	}
@@ -225,7 +226,9 @@ public class SignatureVisualizationSteps extends PageInitializer {
 	public void then_navigates_to_the_Mutational_Profiles_tab() {
 		
 		MiscUtils.sleep(2000);
+		CommonUtils.waitForClickability(signatureVisualizationsPage.mutationalProfileTab);
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.mutationalProfileTab);
+		MiscUtils.sleep(20000);
 
 	}
 
