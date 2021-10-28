@@ -46,7 +46,7 @@ Feature: mSigPortal Signature Visualizations tab
     And the user clicks on the i icon when on the Profile Comparison tab
     Then the cosmic Signature pop up is displayed
 
-  @Smoke1 @NCIATWP-4020 @matarodriguezko
+  @Smoke @NCIATWP-4020 @matarodriguezko
   Scenario: Mutational Profile Sample Name allows text in field
     Given the user is on the mSigPortal Home page
     And the user navigates to the Visualization section
