@@ -12,7 +12,7 @@ import cucumber.api.junit.Cucumber;
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/ServiceNow/CHARMS/Features"
 		, glue="ServiceNow.CHARMS.Steps"
-		, tags="@Progression1"
+		, tags="@Progression"
 		, dryRun = false
 		, monochrome=true
 		, strict = true
