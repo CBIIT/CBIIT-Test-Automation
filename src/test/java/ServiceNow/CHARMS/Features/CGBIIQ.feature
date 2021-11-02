@@ -2,7 +2,7 @@ Feature: These are features pertaining to the CGB IIQ
   
   Description: These scenarios will complete the CGB IIQ in the flows specified in the scenario
 
-  @Progression1 @matarodriguezko
+  @Smoke @matarodriguezko
   Scenario: Female Participant (Proxy) A user lands on the CHARMS
     Given the user is redirected to the log in page of the Individual Information Questionnaire
     When types the email address in the textbook labeled Email
@@ -73,7 +73,7 @@ Feature: These are features pertaining to the CGB IIQ
     And the user clicks the forward arrow button
     Then the end of the IIQ survey page "EndOfSurvey" is displayed
     
-    @Progression1 @matarodriguezko
+    @Smoke @matarodriguezko
   Scenario: Male Participant (Proxy) A user lands on the CHARMS
     Given the user is redirected to the log in page of the Individual Information Questionnaire
     When types the email address in the textbook labeled Email
@@ -132,7 +132,7 @@ Feature: These are features pertaining to the CGB IIQ
     And the user clicks the forward arrow button
     Then the end of the IIQ survey page "EndOfSurvey" is displayed
     
-    @Progression1 @matarodriguezko
+    @Smoke @matarodriguezko
   Scenario: Female Participant (Proband) A user lands on the CHARMS
     Given the user is redirected to the log in page of the Individual Information Questionnaire
     When types the email address in the textbook labeled Email
@@ -202,7 +202,7 @@ Feature: These are features pertaining to the CGB IIQ
     And the user clicks the forward arrow button
     Then the end of the IIQ survey page "EndOfSurvey" is displayed
     
-    @Progression1 @matarodriguezko
+    @Smoke @matarodriguezko
   Scenario: Male Participant (Proband) A user lands on the CHARMS
     Given the user is redirected to the log in page of the Individual Information Questionnaire
 		When types the email address in the textbook labeled Email
