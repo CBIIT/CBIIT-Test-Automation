@@ -16,7 +16,7 @@ import cucumber.api.java.en.When;
 
 public class CGBIIQSteps extends PageInitializer {
 
-	@Given("the user is redirected to the log in page of the Individual Information Questionnaire")
+	@Given("the user is redirected to the log in page of the Individual Information Questionnaire - CGB IIQ")
 	public void the_user_is_redirected_to_the_log_in_page_of_the_Individual_Information_Questionnaire()
 			throws TestingException {
 
@@ -27,7 +27,7 @@ public class CGBIIQSteps extends PageInitializer {
 	/**
 	 * This closes mobile view, switches frame to the desktop view and enters email
 	 */
-	@When("types the email address in the textbook labeled Email")
+	@When("types the email address in the textbook labeled Email - CGB IIQ")
 	public void types_the_email_address_in_the_textbook_labeled_Email() {
 
 		JavascriptUtils.clickByJS(cGBIIQPages.mobileViewSlider);
@@ -36,7 +36,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("types the One-time pin in the textbook labeled One Time pin")
+	@When("types the One-time pin in the textbook labeled One Time pin - CGB IIQ")
 	public void types_the_One_time_pin_in_the_textbook_labeled_One_Time_pin() {
 
 		cGBIIQPages.oneTimePin.sendKeys("123456");
@@ -46,7 +46,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("on the CGB Statement of Confidentiality page clicks next arrow button")
+	@When("on the CGB Statement of Confidentiality page clicks next arrow button - CGB IIQ")
 	public void on_the_CGB_Statement_of_Confidentiality_page_clicks_next_arrow_button() {
 
 		MiscUtils.sleep(2000);
@@ -55,7 +55,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("on the CGB Instructions page clicks next arrow button")
+	@When("on the CGB Instructions page clicks next arrow button - CGB IIQ")
 	public void on_the_CGB_Instructions_page_clicks_next_arrow_button() {
 
 		MiscUtils.sleep(2000);
@@ -64,7 +64,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("on the General Background Information section of IIQ Survey page clicks next arrow button")
+	@When("on the General Background Information section of IIQ Survey page clicks next arrow button - CGB IIQ")
 	public void on_the_General_Background_Information_section_of_IIQ_Survey_page_clicks_next_arrow_button() {
 
 		MiscUtils.sleep(2000);
@@ -73,7 +73,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects the radio button labelled I am completing this form for someone else")
+	@When("selects the radio button labelled I am completing this form for someone else - CGB IIQ")
 	public void selects_the_radio_button_labelled_I_am_completing_this_form_for_someone_else() {
 
 		MiscUtils.sleep(2000);
@@ -84,7 +84,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("fills out the participant {string} for whom the user is completing the IIQ form.")
+	@When("fills out the participant {string} for whom the user is completing the IIQ form. - CGB IIQ")
 	public void fills_out_the_participant_for_whom_the_user_is_completing_the_IIQ_form(String probandName) {
 
 		MiscUtils.sleep(2000);
@@ -95,7 +95,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects Female as the biological sex of the participant assigned at birth")
+	@When("selects Female as the biological sex of the participant assigned at birth - CGB IIQ")
 	public void selects_as_the_biological_sex_of_the_participant_assigned_at_birth() {
 
 		MiscUtils.sleep(2000);
@@ -106,7 +106,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects for which Sex the participant is identified")
+	@When("selects for which Sex the participant is identified - CGB IIQ")
 	public void selects_for_which_the_participant_is_identified() {
 
 		MiscUtils.sleep(2000);
@@ -117,7 +117,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects what the participant is considered to be")
+	@When("selects what the participant is considered to be - CGB IIQ")
 	public void selects_what_the_participant_is_to_be() {
 
 		MiscUtils.sleep(2000);
@@ -128,7 +128,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects the Race of the participant")
+	@When("selects the Race of the participant - CGB IIQ")
 	public void selects_the_of_the_participant() {
 
 		MiscUtils.sleep(2000);
@@ -146,7 +146,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects if the participant is from the Ashkenazi Eastern European JewishDescent")
+	@When("selects if the participant is from the Ashkenazi Eastern European JewishDescent - CGB IIQ")
 	public void selects_if_the_participant_is_from_the_Ashkenazi_Eastern_European_JewishDescent() {
 
 		MiscUtils.sleep(2000);
@@ -157,7 +157,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects if the participant is Adopted")
+	@When("selects if the participant is Adopted - CGB IIQ")
 	public void selects_if_the_participant_is_Adopted() {
 
 		MiscUtils.sleep(2000);
@@ -167,7 +167,7 @@ public class CGBIIQSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
 
-	@When("selects Yes for the participant raised by someone other than their biological parent")
+	@When("selects Yes for the participant raised by someone other than their biological parent - CGB IIQ")
 	public void selects_for_the_participant_raised_by_someone_other_than_their_biological_blood_parent() {
 
 		MiscUtils.sleep(2000);
@@ -178,7 +178,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("adds Information regarding individuals who raised the participant {string},{string}")
+	@When("adds Information regarding individuals who raised the participant {string},{string} - CGB IIQ")
 	public void adds_Information_regarding_individuals_who_raised_the_participant(String nameOfGuardian,
 			String relationshipOfGuardian) {
 
@@ -191,7 +191,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("adds the participant DOB in MMDDYYYY format")
+	@When("adds the participant DOB in MMDDYYYY format - CGB IIQ")
 	public void adds_the_participant_DOB_in_MMDDYYYY_format() {
 
 		MiscUtils.sleep(2000);
@@ -204,7 +204,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("adds the Demographic information of the participant {string}, {string}, {string}")
+	@When("adds the Demographic information of the participant {string}, {string}, {string} - CGB IIQ")
 	public void adds_the_Demographic_information_of_the_participant_or(String City, String State, String Country) {
 
 		MiscUtils.sleep(2000);
@@ -217,7 +217,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects the participant Biological Mothers Ancestral Background or add the free text for the box labelled Other SPECIFY")
+	@When("selects the participant Biological Mothers Ancestral Background or add the free text for the box labelled Other SPECIFY - CGB IIQ")
 	public void selects_the_participant_Biological_Mothers_Ancestral_Background_or_add_the_free_text_for_the_box_labelled_Other_SPECIFY() {
 
 		MiscUtils.sleep(2000);
@@ -248,7 +248,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects the participant Biological Fathers Ancestral Background or add the free text for the box labelled Other SPECIFY")
+	@When("selects the participant Biological Fathers Ancestral Background or add the free text for the box labelled Other SPECIFY - CGB IIQ")
 	public void selects_the_participant_Biological_Fathers_Ancestral_Background_or_add_the_free_text_for_the_box_labelled_Other_SPECIFY() {
 
 		MiscUtils.sleep(2000);
@@ -263,7 +263,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects the participant Familys Religious Background or add the free text for the box labelled Other SPECIFY")
+	@When("selects the participant Familys Religious Background or add the free text for the box labelled Other SPECIFY - CGB IIQ")
 	public void selects_the_participant_Familys_Religious_Background_or_add_the_free_text_for_the_box_labelled_Other_SPECIFY() {
 
 		MiscUtils.sleep(2000);
@@ -276,7 +276,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects the participant Current Marital Status")
+	@When("selects the participant Current Marital Status - CGB IIQ")
 	public void selects_the_participant_Current_Marital_Status() {
 
 		MiscUtils.sleep(2000);
@@ -287,7 +287,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("adds the participant {string}")
+	@When("adds the participant {string} - CGB IIQ")
 	public void adds_the_participant_or_select_the_option(String Occupation) {
 
 		MiscUtils.sleep(2000);
@@ -299,7 +299,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects if the participant currently have health insurance?")
+	@When("selects if the participant currently have health insurance? - CGB IIQ")
 	public void selects_if_the_participant_currently_have_health_insurance() {
 
 		MiscUtils.sleep(2000);
@@ -311,7 +311,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects the total combined yearly income for all the persons in participant household")
+	@When("selects the total combined yearly income for all the persons in participant household - CGB IIQ")
 	public void selects_the_total_combined_yearly_income_for_all_the_persons_in_participant_household() {
 
 		MiscUtils.sleep(2000);
@@ -323,7 +323,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects the highest level of schooling participant has completed")
+	@When("selects the highest level of schooling participant has completed - CGB IIQ")
 	public void selects_the_highest_level_of_schooling_participant_has_completed() {
 
 		MiscUtils.sleep(2000);
@@ -334,7 +334,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("on the medical history section of IIQ Survey page clicks on the forward arrow button")
+	@When("on the medical history section of IIQ Survey page clicks on the forward arrow button - CGB IIQ")
 	public void on_the_medical_history_section_of_IIQ_Survey_page_clicks_on_the_forward_arrow_button() {
 
 		MiscUtils.sleep(2000);
@@ -344,7 +344,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("the user selects if the participant conceived using in vitro fertilization IVF")
+	@When("the user selects if the participant conceived using in vitro fertilization IVF - CGB IIQ")
 	public void the_user_selects_if_the_participant_conceived_using_in_vitro_fertilization_IVF() {
 
 		MiscUtils.sleep(2000);
@@ -355,7 +355,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects if the participant conceived through a donor egg or sperm")
+	@When("selects if the participant conceived through a donor egg or sperm - CGB IIQ")
 	public void selects_if_the_participant_conceived_through_a_donor_egg_or_sperm() {
 
 		MiscUtils.sleep(2000);
@@ -367,7 +367,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects if the participant Preimplantation Genetic Diagnosis PGD used")
+	@When("selects if the participant Preimplantation Genetic Diagnosis PGD used - CGB IIQ")
 	public void selects_if_the_participant_Preimplantation_Genetic_Diagnosis_PGD_used() {
 
 		MiscUtils.sleep(2000);
@@ -378,7 +378,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects option Yes if the participant is a twin or multiple birth")
+	@When("selects option Yes if the participant is a twin or multiple birth - CGB IIQ")
 	public void selects_option_Yes_if_the_participant_is_a_twin_or_multiple_birth() {
 
 		MiscUtils.sleep(2000);
@@ -389,7 +389,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects the option Twin for what type of birth was the participant")
+	@When("selects the option Twin for what type of birth was the participant - CGB IIQ")
 	public void selects_the_option_Twin_for_what_type_of_birth_was_the_participant() {
 
 		MiscUtils.sleep(2000);
@@ -400,7 +400,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects whether the participant have a fraternal or identical twin")
+	@When("selects whether the participant have a fraternal or identical twin - CGB IIQ")
 	public void selects_whether_the_participant_have_a_fraternal_or_identical_twin() {
 
 		MiscUtils.sleep(2000);
@@ -411,7 +411,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("adds the information for the names of the children in the twin or multiple birth {string},{string},{string},{string}")
+	@When("adds the information for the names of the children in the twin or multiple birth {string},{string},{string},{string} - CGB IIQ")
 	public void adds_the_information_for_the_names_of_the_children_in_the_twin_or_multiple_birth(String Twin,
 			String SiblingFirstName, String SiblingLastInitial, String RelationshipToProband) {
 
@@ -426,7 +426,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects the option Yes for the participants biological parents blood-related to each other")
+	@When("selects the option Yes for the participants biological parents blood-related to each other - CGB IIQ")
 	public void selects_the_option_Yes_for_the_participants_biological_parents_blood_related_to_each_other() {
 
 		MiscUtils.sleep(2000);
@@ -437,7 +437,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("adds {string} of the participant how the biological parents blood-related to each other")
+	@When("adds {string} of the participant how the biological parents blood-related to each other - CGB IIQ")
 	public void adds_of_the_participant_how_the_biological_parents_blood_related_to_each_other(
 			String RelationshipBetweenParents) {
 
@@ -450,7 +450,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects how was the participant born")
+	@When("selects how was the participant born - CGB IIQ")
 	public void selects_how_was_the_participant_born() {
 
 		MiscUtils.sleep(2000);
@@ -461,7 +461,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("adds the participants birth {string}, {string} and {string} Numerical Value and {string}, {string} and {string} for Unit Of Measure")
+	@When("adds the participants birth {string}, {string} and {string} Numerical Value and {string}, {string} and {string} for Unit Of Measure - CGB IIQ")
 	public void adds_the_participants_birth_and_Numerical_Value_and_and_for_Unit_Of_Measure(String NumericalWeight,
 			String NumericalLength, String NumericalHeadCircumference, String UnitMeasurementWeight,
 			String UnitMeasurementLength, String UnitMeasurementHeadCircumference) {
@@ -482,7 +482,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("the user clicks the forward arrow on the cancer and benign tumor history section of IIQ Survey page")
+	@When("the user clicks the forward arrow on the cancer and benign tumor history section of IIQ Survey page - CGB IIQ")
 	public void the_user_clicks_the_forward_arrow_on_the_cancer_and_benign_tumor_history_section_of_IIQ_Survey_page() {
 
 		MiscUtils.sleep(2000);
@@ -492,7 +492,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("the user selects option Yes if participant ever been diagnosed with any cancer and or benign tumor")
+	@When("the user selects option Yes if participant ever been diagnosed with any cancer and or benign tumor - CGB IIQ")
 	public void the_user_selects_option_Yes_if_participant_ever_been_diagnosed_with_any_cancer_and_or_benign_tumor() {
 
 		MiscUtils.sleep(2000);
@@ -503,7 +503,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects or adds the primary cancers or benign tumors that have been diagnosed")
+	@When("selects or adds the primary cancers or benign tumors that have been diagnosed - CGB IIQ")
 	public void selects_or_adds_the_primary_cancers_or_benign_tumors_that_have_been_diagnosed() {
 
 		MiscUtils.sleep(2000);
@@ -514,7 +514,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("adds primary cancer or tumor information {string},{string},{string},{string} and selects what kind of the treatment received")
+	@When("adds primary cancer or tumor information {string},{string},{string},{string} and selects what kind of the treatment received - CGB IIQ")
 	public void adds_primary_cancer_or_tumor_information_and_selects_what_kind_of_the_treatment_received(
 			String DateOfDiagnosisInYears, String AgeOfDiagnosisInYears, String NameAndAddressOfDiagnosisFacility,
 			String NameAndAddressOfTreatingFacility) {
@@ -539,7 +539,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects Yes if the participant ever been evaluated for ANY genetic disease or syndrome?")
+	@When("selects Yes if the participant ever been evaluated for ANY genetic disease or syndrome? - CGB IIQ")
 	public void selects_Yes_if_the_participant_ever_been_evaluated_for_ANY_genetic_disease_or_syndrome() {
 
 		MiscUtils.sleep(2000);
@@ -550,7 +550,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects if participant ever had genetic counseling for ANY reason?")
+	@When("selects if participant ever had genetic counseling for ANY reason? - CGB IIQ")
 	public void selects_if_participant_ever_had_genetic_counseling_for_ANY_reason() {
 
 		MiscUtils.sleep(2000);
@@ -561,7 +561,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects the details for the genetic evaluations that have been completed includes {string} summarization of the evaluation and adds the information {string}, {string}, {string}, and {string}")
+	@When("selects the details for the genetic evaluations that have been completed includes {string} summarization of the evaluation and adds the information {string}, {string}, {string}, and {string} - CGB IIQ")
 	public void selects_the_details_for_the_genetic_evaluations_that_have_been_completed_includes_summarization_of_the_evaluation_and_adds_the_information_and(
 			String GeneOrSyndromeTested, String DateDiagnosedMonthYear, String AgeDiagnosed,
 			String HospitalLocationOfEvaluation, String ResultsOfEvaluation) {
@@ -581,7 +581,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects Yes if the participant has copy of the genetic test results and would like to upload them to this questionnaire?")
+	@When("selects Yes if the participant has copy of the genetic test results and would like to upload them to this questionnaire? - CGB IIQ")
 	public void selects_Yes_if_the_participant_has_copy_of_the_genetic_test_results_and_would_like_to_upload_them_to_this_questionnaire() {
 
 		MiscUtils.sleep(2000);
@@ -593,7 +593,7 @@ public class CGBIIQSteps extends PageInitializer {
 	}
 
 	/** NO PDF HAS BEEN ATTACHED YET, THIS STEP IS JUST CLICKING THE NEXT BUTTON */
-	@When("upload the genetic test results")
+	@When("upload the genetic test results - CGB IIQ")
 	public void upload_the_genetic_test_results() {
 
 		MiscUtils.sleep(2000);
@@ -603,7 +603,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("the user adds the participant height and weight at the indicated ages {string},{string},{string},{string},{string} and selects {string}, {string}, {string}, {string} and {string} for Unit of Measurements")
+	@When("the user adds the participant height and weight at the indicated ages {string},{string},{string},{string},{string} and selects {string}, {string}, {string}, {string} and {string} for Unit of Measurements - CGB IIQ")
 	public void the_user_adds_the_participant_height_and_weight_at_the_indicated_ages_and_selects_and_for_Unit_of_Measurements(
 			String CurrentWeight, String CurrentHeight, String WeightAt18YearsOld, String WeightAt30YearsOld,
 			String WeightAt40YearsOld, String CurrentWeightUnits, String CurrentHeightUnits,
@@ -626,7 +626,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects the most participant has ever weighed {string} EXCLUDING WEIGHT DURING PREGNANCY")
+	@When("selects the most participant has ever weighed {string} EXCLUDING WEIGHT DURING PREGNANCY - CGB IIQ")
 	public void selects_the_most_participant_has_ever_weighed_EXCLUDING_WEIGHT_DURING_PREGNANCY(
 			String MostedEverWeighed) {
 
@@ -638,7 +638,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects at what {string} was the participant at their highest weight?")
+	@When("selects at what {string} was the participant at their highest weight? - CGB IIQ")
 	public void selects_at_what_was_the_participant_at_their_highest_weight(String ageProbandWasTallestEver) {
 
 		MiscUtils.sleep(2000);
@@ -649,7 +649,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("the user adds the {string} of the participant at first menstrual period")
+	@When("the user adds the {string} of the participant at first menstrual period - CGB IIQ")
 	public void the_user_adds_the_of_the_participant_at_first_menstrual_period(String AgeofFirstMenstrualPeriod) {
 
 		MiscUtils.sleep(2000);
@@ -661,7 +661,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("adds the last menstrual period {string}")
+	@When("adds the last menstrual period {string} - CGB IIQ")
 	public void adds_the_last_menstrual_period(String AgeofMostRecentMenstrualPeriod) {
 
 		MiscUtils.sleep(2000);
@@ -674,7 +674,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects the reason if participant period has not occurred for the last year or more")
+	@When("selects the reason if participant period has not occurred for the last year or more - CGB IIQ")
 	public void selects_the_reason_if_participant_period_has_not_occurred_for_the_last_year_or_more() {
 
 		MiscUtils.sleep(2000);
@@ -685,7 +685,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects Yes if the participant ever been pregnant?")
+	@When("selects Yes if the participant ever been pregnant? - CGB IIQ")
 	public void selects_Yes_if_the_participant_ever_been_pregnant() {
 
 		MiscUtils.sleep(2000);
@@ -696,7 +696,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("adds the participant {string} at their first pregnancy?")
+	@When("adds the participant {string} at their first pregnancy? - CGB IIQ")
 	public void adds_the_participant_at_their_first_pregnancy(String AgeOfFirstPregnancy) {
 
 		MiscUtils.sleep(2000);
@@ -707,7 +707,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("adds the {string} the participant has been pregnant?")
+	@When("adds the {string} the participant has been pregnant? - CGB IIQ")
 	public void adds_the_the_participant_has_been_pregnant(String numberOfTimesProbandHasBeenPregnant) {
 
 		MiscUtils.sleep(2000);
@@ -718,7 +718,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects Yes if the participant has ever tried to become pregnant for more than one year without success")
+	@When("selects Yes if the participant has ever tried to become pregnant for more than one year without success - CGB IIQ")
 	public void selects_Yes_if_the_participant_has_ever_tried_to_become_pregnant_for_more_than_one_year_without_success() {
 
 		MiscUtils.sleep(2000);
@@ -729,7 +729,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects Yes for participant ever being consulted a doctor because of difficulty in getting pregnant")
+	@When("selects Yes for participant ever being consulted a doctor because of difficulty in getting pregnant - CGB IIQ")
 	public void selects_Yes_for_participant_ever_being_consulted_a_doctor_because_of_difficulty_in_getting_pregnant() {
 
 		MiscUtils.sleep(2000);
@@ -740,7 +740,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("adds {string} was participant when they first consulted a doctor about difficulty in getting pregnant")
+	@When("adds {string} was participant when they first consulted a doctor about difficulty in getting pregnant - CGB IIQ")
 	public void adds_was_participant_when_they_first_consulted_a_doctor_about_difficulty_in_getting_pregnant(
 			String AgeProbandConsultedDrOverFailedPregnancies) {
 
@@ -753,7 +753,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects all diagnosis that was made to explain the difficulties getting pregnant")
+	@When("selects all diagnosis that was made to explain the difficulties getting pregnant - CGB IIQ")
 	public void selects_all_diagnosis_that_was_made_to_explain_the_difficulties_getting_pregnant() {
 
 		MiscUtils.sleep(2000);
@@ -764,7 +764,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("on the Female Hormones section of IIQ Survey page clicks on the forward arrow button")
+	@When("on the Female Hormones section of IIQ Survey page clicks on the forward arrow button - CGB IIQ")
 	public void on_the_Female_Hormones_section_of_IIQ_Survey_page_clicks_on_the_forward_arrow_button() {
 
 		MiscUtils.sleep(2000);
@@ -774,7 +774,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("the user selects if participant has ever taken pills, injections or implants for birth control or for any other reason?")
+	@When("the user selects if participant has ever taken pills, injections or implants for birth control or for any other reason? - CGB IIQ")
 	public void the_user_selects_if_participant_has_ever_taken_pills_injections_or_implants_for_birth_control_or_for_any_other_reason() {
 
 		MiscUtils.sleep(2000);
@@ -785,7 +785,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects Yes if participant has ever prescribed female hormones for this reason?")
+	@When("selects Yes if participant has ever prescribed female hormones for this reason? - CGB IIQ")
 	public void selects_Yes_if_participant_has_ever_prescribed_female_hormones_for_this_reason() {
 
 		MiscUtils.sleep(2000);
@@ -796,7 +796,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("adds at what {string} was participant prescribed female hormones for hormone replacement therapy?")
+	@When("adds at what {string} was participant prescribed female hormones for hormone replacement therapy? - CGB IIQ")
 	public void adds_at_what_was_participant_prescribed_female_hormones_for_hormone_replacement_therapy(
 			String AgeProbandWasPrescribedHormones) {
 
@@ -809,7 +809,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("adds the total amount of time the participant has taken hormone replacement therapy {string}")
+	@When("adds the total amount of time the participant has taken hormone replacement therapy {string} - CGB IIQ")
 	public void adds_the_total_amount_of_time_the_participant_has_taken_hormone_replacement_therapy(
 			String WeeksProbandTookPrescribedHormones) {
 
@@ -822,7 +822,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@Then("the user lands on the {string} page")
+	@Then("the user lands on the {string} page - CGB IIQ")
 	public void the_user_lands_on_the_page(String YouAreAlmostDoneText) {
 
 		MiscUtils.sleep(2000);
@@ -831,7 +831,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@Then("the user clicks the forward arrow button")
+	@Then("the user clicks the forward arrow button - CGB IIQ")
 	public void the_user_clicks_the_forward_arrow_button() {
 
 //		MiscUtils.sleep(2000);
@@ -840,7 +840,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@Then("the end of the IIQ survey page {string} is displayed")
+	@Then("the end of the IIQ survey page {string} is displayed - CGB IIQ")
 	public void the_end_of_the_IIQ_survey_page_is_displayed(String EndOfScreenerText) {
 
 //		MiscUtils.sleep(2000);
@@ -848,7 +848,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("fills out the participants {string} for whom the user is completing the IIQ form.")
+	@When("fills out the participants {string} for whom the user is completing the IIQ form. - CGB IIQ")
 	public void fills_out_the_participants_for_whom_the_user_is_completing_the_IIQ_form(String probandName) {
 
 		MiscUtils.sleep(2000);
@@ -859,7 +859,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects Male as the biological sex of the participant assigned at birth")
+	@When("selects Male as the biological sex of the participant assigned at birth - CGB IIQ")
 	public void selects_Male_as_the_biological_sex_of_the_participant_assigned_at_birth() {
 
 		MiscUtils.sleep(2000);
@@ -870,7 +870,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects for which Sex the participant identifies as")
+	@When("selects for which Sex the participant identifies as - CGB IIQ")
 	public void selects_for_which_Sex_the_participant_identifies_as() {
 
 		MiscUtils.sleep(2000);
@@ -881,7 +881,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects how many {string} the proband has gotten a women pregnant")
+	@When("selects how many {string} the proband has gotten a women pregnant - CGB IIQ")
 	public void selects_how_many_the_proband_has_gotten_a_women_pregnant(String numberOfPregnanciesFathered) {
 
 		MiscUtils.sleep(2000);
@@ -893,7 +893,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects if Proband or Partner have sought help with fertility")
+	@When("selects if Proband or Partner have sought help with fertility - CGB IIQ")
 	public void selects_if_Proband_or_Partner_have_sought_help_with_fertility() {
 
 		MiscUtils.sleep(2000);
@@ -904,7 +904,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects the radio button labelled I am completing this form for myself")
+	@When("selects the radio button labelled I am completing this form for myself - CGB IIQ")
 	public void selects_the_radio_button_labelled_I_am_completing_this_form_for_myself() {
 
 		MiscUtils.sleep(2000);
@@ -915,7 +915,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("adds Information regarding the individual who raised the participant {string},{string}")
+	@When("adds Information regarding the individual who raised the participant {string},{string} - CGB IIQ")
 	public void adds_Information_regarding_the_individual_who_raised_the_participant(String nameOfGuardian,
 			String relationshipOfGuardian) {
 
@@ -928,7 +928,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("adds the Demographic information of participant {string}, {string}, {string}")
+	@When("adds the Demographic information of participant {string}, {string}, {string} - CGB IIQ")
 	public void adds_the_Demographic_information_of_participant_or(String City, String State, String Country) {
 
 		MiscUtils.sleep(2000);
@@ -941,7 +941,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 	
-	@When("adds participant {string}")
+	@When("adds participant {string} - CGB IIQ")
 	public void adds_participant(String Occupation) {
 		
 		MiscUtils.sleep(2000);
@@ -953,7 +953,7 @@ public class CGBIIQSteps extends PageInitializer {
 		
 	}
 	
-	@When("adds participants birth {string}, {string} and {string} Numerical Value and {string}, {string} and {string} for Unit Of Measure")
+	@When("adds participants birth {string}, {string} and {string} Numerical Value and {string}, {string} and {string} for Unit Of Measure - CGB IIQ")
 	public void adds_participants_birth_and_Numerical_Value_and_and_for_Unit_Of_Measure(String NumericalWeight,
 			String NumericalLength, String NumericalHeadCircumference, String UnitMeasurementWeight,
 			String UnitMeasurementLength, String UnitMeasurementHeadCircumference) {
@@ -974,7 +974,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 	
-	@When("selects details for the genetic evaluations that have been completed includes {string} summarization of the evaluation and adds the information {string}, {string}, {string}, and {string}")
+	@When("selects details for the genetic evaluations that have been completed includes {string} summarization of the evaluation and adds the information {string}, {string}, {string}, and {string} - CGB IIQ")
 	public void selects_details_for_the_genetic_evaluations_that_have_been_completed_includes_summarization_of_the_evaluation_and_adds_the_information_and(
 			String GeneOrSyndromeTested, String DateDiagnosedMonthYear, String AgeDiagnosed,
 			String HospitalLocationOfEvaluation, String ResultsOfEvaluation) {
@@ -994,7 +994,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 	
-	@When("the user adds participant height and weight at the indicated ages {string},{string},{string},{string},{string} and selects {string}, {string}, {string}, {string} and {string} for Unit of Measurements")
+	@When("the user adds participant height and weight at the indicated ages {string},{string},{string},{string},{string} and selects {string}, {string}, {string}, {string} and {string} for Unit of Measurements - CGB IIQ")
 	public void the_user_adds_participant_height_and_weight_at_the_indicated_ages_and_selects_and_for_Unit_of_Measurements(
 			String CurrentWeight, String CurrentHeight, String WeightAt18YearsOld, String WeightAt30YearsOld,
 			String WeightAt40YearsOld, String CurrentWeightUnits, String CurrentHeightUnits,
@@ -1017,7 +1017,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 	
-	@When("adds participant {string} at their first pregnancy?")
+	@When("adds participant {string} at their first pregnancy? - CGB IIQ")
 	public void adds_participant_at_their_first_pregnancy(String AgeOfFirstPregnancy) {
 
 		MiscUtils.sleep(2000);
@@ -1028,7 +1028,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("adds the {string} participant has been pregnant?")
+	@When("adds the {string} participant has been pregnant? - CGB IIQ")
 	public void adds_the_participant_has_been_pregnant(String numberOfTimesProbandHasBeenPregnant) {
 
 		MiscUtils.sleep(2000);
