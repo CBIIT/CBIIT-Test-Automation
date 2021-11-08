@@ -4,7 +4,6 @@ Description: These scenarios will complete the CGB IIQ in the flows specified in
 
 @matarodriguezko
 Scenario: Female Participant (Proxy) A user lands on the CHARMS
-
 Given the user is redirected to the log in page of the Individual Information Questionnaire 
 When types the email address in the textbook labeled Email 
 And types the One-time pin in the textbook labeled One Time pin 
