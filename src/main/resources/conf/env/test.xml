@@ -587,7 +587,7 @@
 	<!-- Application ID for RAS Survey - CHARMS -->
 	<application id="RASSurvey">
 
-		<login_url>https://ncidccpssurveys.gov1.qualtrics.com/jfe/form/SV_8ILfY1imsK7xPzo?family_member_id=fc41798d1b4bf810af3bed7bbc4bcb76
+		<login_url>
 		</login_url><!-- add test url -->
 
 		<role name="Role">
