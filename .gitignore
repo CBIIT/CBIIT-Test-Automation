@@ -8,3 +8,6 @@ true
 /.metadata/
 /.metadata
 */.metadata/*
+/.DS_Store/
+/.DS_Store
+*/.DS_Store/*
