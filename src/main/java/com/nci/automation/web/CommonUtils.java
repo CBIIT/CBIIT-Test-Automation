@@ -458,6 +458,19 @@ public class CommonUtils extends WebDriverUtils {
 	}
 	
 	/**
+	 * Use this method to scroll down the page
+	 */
+	public static void scrollDownPage () {
+//		JavascriptExecutor js = (JavascriptExecutor) WebDriverUtils.webDriver;
+//		js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		WebDriverUtils.webDriver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL, Keys.END);
+		
+	//	  ((JavascriptExecutor)WebDriverUtils.webDriver).executeScript("scroll(0,400)");
+		
+	}
+	
+	
+	/**
 	 * Use this method to switch to the next another open window
 	 */
 	public static void swicthToAnotherWindow() {

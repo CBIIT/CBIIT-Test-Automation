@@ -15,7 +15,6 @@ public class RASopathyQuestionnairePage {
 	public WebElement studyNextButton;
 
 	/* ************************************************************************ */
-
 	/*
 	 * BEGINNING OF Are you completing this form for someone else or for yourself?
 	 * PAGE
@@ -30,9 +29,7 @@ public class RASopathyQuestionnairePage {
 	public WebElement iAmCompletingThisFormForMyselfOption;
 
 	/* END OF Are you completing this form for someone else or for yourself?PAGE */
-
 	/* ************************************************************************ */
-
 	/*
 	 * BEGINNING OF What is the name of the person who may be eligible for this
 	 * study? PAGE
@@ -54,31 +51,23 @@ public class RASopathyQuestionnairePage {
 	 * END OF What is the name of the person who may be eligible for this study?
 	 * PAGE
 	 */
-
 	/* ************************************************************************ */
-
 	/* --------BEGINNING OF What is your name? Proxy Name details PAGE---------- */
 
 	/* First Name of Proxy ? text box */
-	// @FindBy(xpath = "//input[contains(@name,\"QR~QID3~4~TEXT\")]")
-	// @FindBy(xpath = "//input[@name=\"QR~QID2~4~TEXT\"]")
 	@FindBy(xpath = "//tbody/tr[1]/td[2]/input[1]")
 	public WebElement firstNameWhatIsYourNameTextBox;
 
 	/* Middle Name of Proxy? text box */
-	// @FindBy(xpath = "//input[@name=\"QR~QID3~5~TEXT\"]")
 	@FindBy(xpath = "//tbody/tr[2]/td[2]/input[1]")
 	public WebElement middleNameWhatIsYourNameTextBox;
 
 	/* Last Name of Proxy? text box */
-	// @FindBy(xpath = "//input[@name=\"QR~QID3~6~TEXT\"]")
 	@FindBy(xpath = "//tbody/tr[3]/td[2]/input[1]")
 	public WebElement lastNameWhatIsYourNameTextBox;
 
 	/* -------- END OF What is your name? Proxy Name details PAGE ---------- */
-
 	/* ************************************************************************ */
-
 	/* -------- BEGINNING OF What is your relationship to name? PAGE ------ */
 
 	/* What is your relationship to name? Select Parent option */
@@ -118,9 +107,7 @@ public class RASopathyQuestionnairePage {
 	public WebElement whatIsYourRelationshipToNameTextBox;
 
 	/* ---- END OF What is your relationship to name? PAGE ----- */
-
 	/* ************************************************************************ */
-
 	/* ---- BEGINNING OF Are you the legal guardian of -- name? PAGE ----- */
 
 	/* Are you the legal guardian of the participant? Yes option */
@@ -132,9 +119,7 @@ public class RASopathyQuestionnairePage {
 	public WebElement areYouTheLegalGuardianNoOption;
 
 	/* END OF Are you the legal guardian of automated name? PAGE */
-
 	/* ************************************************************************ */
-
 	/* -------- BEGINNING OF Date of birth of "name" PAGE ------- */
 
 	/* Calendar month drop down */
@@ -150,9 +135,7 @@ public class RASopathyQuestionnairePage {
 	public WebElement calendarDayOption;
 
 	/* -------- END OF Date of birth of "name" PAGE --------------- */
-
 	/* ************************************************************************ */
-
 	/* --- BEGINNING OF Sex of "name" assigned at birth PAGE----- */
 
 	/* Sex Male option */
@@ -164,9 +147,7 @@ public class RASopathyQuestionnairePage {
 	public WebElement sexFemaleOptionAssignedAtBirth;
 
 	/* ---- END OF Sex of "name" assigned at birth PAGE ------- */
-
 	/* ************************************************************************ */
-
 	/* -------- BEGINNING OF Is "name" adopted? PAGE ----------- */
 
 	/* Yes option */
@@ -178,9 +159,7 @@ public class RASopathyQuestionnairePage {
 	public WebElement isParticipantAdoptedNoOption;
 
 	/* -------- END OF Is "name" adopted? PAGE --------------- */
-
 	/* ************************************************************************ */
-
 	/* -------- BEGINNING OF Is "name" still alive? PAGE --------------- */
 
 	/* Yes option */
@@ -192,9 +171,7 @@ public class RASopathyQuestionnairePage {
 	public WebElement isParticipantStillAliveNoOption;
 
 	/* -------- END OF Is "name" still alive? PAGE --------------- */
-
 	/* ************************************************************************ */
-
 	/* -------- BEGINNING OF Date of death of Participant PAGE ------ */
 
 	/* Calendar month drop down */
@@ -210,9 +187,7 @@ public class RASopathyQuestionnairePage {
 	public WebElement calendarDODDayOption;
 
 	/* -------- End OF Date of death of Participant PAGE --------------- */
-
 	/* ************************************************************************ */
-
 	/* BEGINNING OF Does "name" currently live in the United States? PAGE */
 
 	/* Yes option */
@@ -224,9 +199,7 @@ public class RASopathyQuestionnairePage {
 	public WebElement doesParticipantLiveInUnitedStatesNoOption;
 
 	/* End OF Does "name" currently live in the United States? PAGE */
-
 	/* ************************************************************************ */
-
 	/* BEGINNING OF Does "participant" currently live in the United States?PAGE */
 
 	/* Street text box */
@@ -258,9 +231,7 @@ public class RASopathyQuestionnairePage {
 	public WebElement addressForStudyMaterialsToBeSentZipCodeTextBox;
 
 	/* END OF Does participant currently live in the United States?PAGE */
-
 	/* ************************************************************************ */
-
 	/* -------- BEGINNING OF What is your email address? PAGE --------------- */
 
 	/* Email address text box */
@@ -268,9 +239,7 @@ public class RASopathyQuestionnairePage {
 	public WebElement whatIsYourEmailAddressTextBox;
 
 	/* -------- END OF What is your email address? PAGE --------------- */
-
 	/* ************************************************************************ */
-
 	/* -------- BEGINNING OF Please confirm your email address PAGE-------- */
 
 	/* Email address text box */
@@ -278,9 +247,7 @@ public class RASopathyQuestionnairePage {
 	public WebElement pleaseConfirmYourEmailAddressTextBox;
 
 	/* -------- END OF Please confirm your email address PAGE--------------- */
-
 	/* ************************************************************************ */
-
 	/*
 	 * BEGINNING Please list your phone numbers below. Please also select your
 	 * preferred contact number. PAGE
@@ -314,9 +281,7 @@ public class RASopathyQuestionnairePage {
 	 * END OF Please list your phone numbers below. Please also select your
 	 * preferred contact number. PAGE
 	 */
-
 	/* ************************************************************************ */
-
 	/* -------- BEGINNING OF Ethnicity of "Name" PAGE --------------- */
 
 	/* hispanic/latino option */
@@ -336,9 +301,7 @@ public class RASopathyQuestionnairePage {
 	public WebElement authenticityOfParticipantUnKnownOption;
 
 	/* -------- END OF Ethnicity of "Name" PAGE --------------- */
-
 	/* ************************************************************************ */
-
 	/* BEGINNING OF Race of "Name". Please select all that apply.PAGE */
 
 	/* All Race options except Prefer not to answer */
@@ -367,9 +330,7 @@ public class RASopathyQuestionnairePage {
 	public WebElement raceOfParticipantPreferNotToAnswer;
 
 	/* -------- END OF Race of "Name". Please select all that apply.PAGE ------ */
-
 	/* ************************************************************************ */
-
 	/*
 	 * BEGINNING OF Is Automated Test a participant in any other research study or
 	 * registry group? Please specify.PAGE
@@ -402,9 +363,7 @@ public class RASopathyQuestionnairePage {
 	 * END OF Is Automated Test a participant in any other research study or
 	 * registry group? Please specify.PAGE
 	 */
-
 	/* ************************************************************************ */
-
 	/*
 	 * --- BEGINNING OF Has Automated Test ever been diagnosed with the following
 	 * conditions?Select all that apply. If you do not see the exact condition
@@ -455,9 +414,7 @@ public class RASopathyQuestionnairePage {
 	 * conditions? Select all that apply. If you do not see the exact condition
 	 * diagnosed, please select the closest answer. PAGE --
 	 */
-
 	/* ************************************************************************ */
-
 	/* -------- BEGINNING OF Has "Name" ever been diagnosed with cancer? PAGE --- */
 
 	/* Yes option */
@@ -469,7 +426,6 @@ public class RASopathyQuestionnairePage {
 	public WebElement hasParticipantBeenDiagnosedWithCancerNoOption;
 
 	/* -------- END OF Has "Name" ever been diagnosed with cancer? PAGE--- */
-
 	/* ************************************************************************ */
 	/*
 	 * ---- BEGINNING OF Please complete the box below by selecting which primary
@@ -580,15 +536,13 @@ public class RASopathyQuestionnairePage {
 	 * one place to another, please only indicate the original cancers and not the
 	 * number of sites where cancer spread. PAGE -------
 	 */
-
 	/* ************************************************************************ */
-
 	/*
 	 * ---- For Proxy: BEGINNING OF Has "Name" been diagnosed with a RASopathy such
 	 * as Noonan syndrome, Noonan syndrome with multiple lentigines, Costello
 	 * syndrome, cardiofaciocutaneous syndrome, Legius syndrome, capillary
 	 * arteriovenous malformation syndrome, hereditary gingival fibromatosis or
-	 * SYNGAP1 syndrome? Page ---
+	 * SYNGAP1 syndrome? PAGE
 	 */
 
 	/* Yes option */
@@ -600,21 +554,19 @@ public class RASopathyQuestionnairePage {
 	public WebElement hasProxyBeenDiagnosedWithaRasopathyNoOption;
 
 	/*
-	 * -- For Proxy: END OF Has "Name" been diagnosed with a RASopathy such as
+	 * For Proxy: END OF Has "Name" been diagnosed with a RASopathy such as
 	 * Noonan syndrome, Noonan syndrome with multiple lentigines, Costello syndrome,
 	 * cardiofaciocutaneous syndrome, Legius syndrome, capillary arteriovenous
 	 * malformation syndrome, hereditary gingival fibromatosis or SYNGAP1 syndrome?
-	 * Page ---
+	 * PAGE
 	 */
-
 	/* ************************************************************************ */
-
 	/*
-	 * ---- For Proband: Have you been diagnosed with a RASopathy such as Noonan
+	 * For Proband: Have you been diagnosed with a RASopathy such as Noonan
 	 * syndrome, Noonan syndrome with multiple lentigines, Costello syndrome,
 	 * cardiofaciocutaneous syndrome, Legius syndrome, capillary arteriovenous
 	 * malformation syndrome, hereditary gingival fibromatosis or SYNGAP1 syndrome?
-	 * Page ---
+	 * PAGE
 	 */
 
 	/* Yes option */
@@ -626,15 +578,13 @@ public class RASopathyQuestionnairePage {
 	public WebElement hasProbandBeenDiagnosedWithaRasopathyNoOption;
 
 	/*
-	 * -- For Proband: END OF Have you been diagnosed with a RASopathy such as
+	 * For Proband: END OF Have you been diagnosed with a RASopathy such as
 	 * Noonan syndrome, Noonan syndrome with multiple lentigines, Costello syndrome,
 	 * cardiofaciocutaneous syndrome, Legius syndrome, capillary arteriovenous
 	 * malformation syndrome, hereditary gingival fibromatosis or SYNGAP1 syndrome?
-	 * Page ---
+	 * PAGE
 	 */
-
 	/* ************************************************************************ */
-
 	/*
 	 * BEGINNING OF For which specific RASopathy has Automated Test been diagnosed?
 	 * PAGE
@@ -655,29 +605,23 @@ public class RASopathyQuestionnairePage {
 	/*
 	 * END OF For which specific RASopathy has Automated Test been diagnosed? PAGE
 	 */
-
 	/* ************************************************************************ */
-
-	/* -------- BEGINNING OF Age (in years) at diagnosis PAGE ------- */
+	/*  BEGINNING OF Age (in years) at diagnosis PAGE  */
 
 	/* Age (in years) at diagnosis text box */
 	@FindBy(xpath = "//input[@name='QR~QID29~TEXT']")
 	public WebElement participantAgeInYearsAtDiagnosis;
 
-	/* ---- END OF Age (in years) at diagnosis PAGE ---- */
-
+	/*  END OF Age (in years) at diagnosis PAGE */
 	/* ************************************************************************ */
-
-	/* ---- BEGINNING OF Year of diagnosis (yyyy) PAGE ----- */
+	/*  BEGINNING OF Year of diagnosis (yyyy) PAGE */
 
 	/* Age (in years) at diagnosis text box */
 	@FindBy(xpath = "//input[@name='QR~QID30~TEXT']")
 	public WebElement participantsYearOfDiagnosis;
 
-	/* -------- END OF Year of diagnosis (YYYY) PAGE ------- **/
-
+	/*  END OF Year of diagnosis (YYYY) PAGE */
 	/* ************************************************************************ */
-
 	/*
 	 * For Proxy:BEGINNING Have any of "Participant Name" biological relatives been
 	 * diagnosed with a RASopathy? PAGE
@@ -703,9 +647,7 @@ public class RASopathyQuestionnairePage {
 	 * For Proxy: END Have any of "Participant Name" biological relatives been
 	 * diagnosed with a RASopathy? PAGE
 	 */
-
 	/* ************************************************************************ */
-
 	/*
 	 * For Proband: BEGINNING OF Have any of your biological relatives been
 	 * diagnosed with a RASopathy? PAGE
@@ -731,10 +673,8 @@ public class RASopathyQuestionnairePage {
 	 * For Proband: END OF Have any of your biological relatives been diagnosed with
 	 * a RASopathy? PAGE
 	 */
-
 	/* ************************************************************************ */
-
-	/* ----- BEGINNING OF Has participant ever had genetic testing? PAGE --- */
+	/* BEGINNING OF Has participant ever had genetic testing? PAGE */
 
 	/* Yes option */
 	@FindBy(xpath = "//span[contains(@class,\"LabelWrapper\")]//span[contains(text(),\"Yes\")]")
@@ -748,14 +688,9 @@ public class RASopathyQuestionnairePage {
 	@FindBy(xpath = "//span[contains(@class,\"LabelWrapper\")]//span[contains(text(),\"Not sure\")]")
 	public WebElement participantsEverHadGeneticTestingNotSureOption;
 
-	/* -------- END OF Has participant ever had genetic testing? PAGE ------- */
-
+	/* END OF Has participant ever had genetic testing? PAGE */
 	/* ************************************************************************ */
-
-	/*
-	 * -------- BEGINNING OF Do you have a copy of the genetic test results? PAGE
-	 * -------
-	 */
+	/* BEGINNING OF Do you have a copy of the genetic test results? PAGE */
 
 	/* Yes option */
 	@FindBy(xpath = "//span[@class='LabelWrapper']//label[@for='QR~QID102~1']")
@@ -765,16 +700,12 @@ public class RASopathyQuestionnairePage {
 	@FindBy(xpath = "//span[@class='LabelWrapper']//label[@for='QR~QID102~2']")
 	public WebElement participantCopyOfGeneticTestResultsNoOption;
 
-	/*
-	 * -------- END OF Do you have a copy of the genetic test results? PAGE--------
-	 */
-
+	/* END OF Do you have a copy of the genetic test results? PAGE */
 	/* ************************************************************************ */
-
 	/*
-	 * --- BEGINNING OF How would you like to provide the genetic test results to
+	 * BEGINNING OF How would you like to provide the genetic test results to
 	 * us?Please select one. On the next page, you will be provided with where to
-	 * send the information. PAGE ----
+	 * send the information. PAGE 
 	 */
 
 	/* Upload to this questionnaire option */
@@ -782,16 +713,14 @@ public class RASopathyQuestionnairePage {
 	public WebElement participantUploadToThisQuestionnaireOption;
 
 	/*
-	 * ----END OF How would you like to provide the genetic test results to
+	 * END OF How would you like to provide the genetic test results to
 	 * us?Please select one. On the next page, you will be provided with where to
-	 * send the information. PAGE ----
+	 * send the information. PAGE 
 	 */
-
 	/* ************************************************************************ */
-
 	/*
-	 * --- BEGINNING OF If you would like to upload the genetic test results, please
-	 * do so here. Note: Only PDF files are accepted. PAGE ---
+	 *  BEGINNING OF If you would like to upload the genetic test results, please
+	 * do so here. Note: Only PDF files are accepted. PAGE 
 	 */
 
 	/* Drop files or click here to upload */
@@ -803,15 +732,13 @@ public class RASopathyQuestionnairePage {
 	public WebElement wordDocumentPDFtext;
 
 	/*
-	 * --- END OF If you would like to upload the genetic test results, please do so
-	 * here. Note: Only PDF files are accepted. PAGE ---
+	 * END OF If you would like to upload the genetic test results, please do so
+	 * here. Note: Only PDF files are accepted. PAGE
 	 */
-
 	/* ************************************************************************ */
-
 	/*
-	 * --- BEGINNING OF Were any genetic changes detected for the following
-	 * syndromes? (Mark all that apply). PAGE ---
+	 * BEGINNING OF Were any genetic changes detected for the following
+	 * syndromes? (Mark all that apply). PAGE 
 	 */
 
 	/* Other genes/syndromes option */
@@ -847,15 +774,14 @@ public class RASopathyQuestionnairePage {
 	public WebElement wereAnyGeneticChangesDetectedLegiusSyndromeOption;
 
 	/*
-	 * --- END OF Were any genetic changes detected for the following syndromes?
-	 * (Mark all that apply). PAGE ---
+	 * END OF Were any genetic changes detected for the following syndromes?
+	 * (Mark all that apply). PAGE
 	 */
-
 	/* ************************************************************************ */
 	/*
-	 * --- BEGINNING OF How did you hear about this study? If a specific health care
+	 * BEGINNING OF How did you hear about this study? If a specific health care
 	 * provider referred participant to this study, please include their name in the
-	 * corresponding text box. PAGE ---
+	 * corresponding text box. PAGE
 	 */
 
 	/* WebSearch option */
@@ -907,54 +833,35 @@ public class RASopathyQuestionnairePage {
 	public WebElement howDidYouHearAboutTheStudyOtherTextBox;
 
 	/*
-	 * ---- END OF How did you hear about this study? If a specific health care
+	 * END OF How did you hear about this study? If a specific health care
 	 * provider referred participant to this study, please include their name in the
-	 * corresponding text box. PAGE ---
+	 * corresponding text box. PAGE
 	 */
-
 	/* ************************************************************************ */
-
 	/*
-	 * -- BEGINNING OF Has participant or other family members ever participated in
+	 * BEGINNING OF Has participant or other family members ever participated in
 	 * another study on RASopathies at another medical institution, university,
-	 * government agency or other site? PAGE ------
+	 * government agency or other site? PAGE 
 	 */
 
-	/* Yes option */
-	// @FindBy(xpath =
-	// "//span[contains(@class,'LabelWrapper')]//label[contains(@for,'QR~QID71~1')]")
-	// @FindBy(xpath
-	// ="//span[@class=\"LabelWrapper\"]//label[@for=\"QR~QID127~1\"]")
 	@FindBy(xpath = "//span[contains(text(),\"Yes\")]")
 	public WebElement hasParticipantOrOtherFamilyMemberParticipatedInOtherStudyYesOption;
 
-	/* No option */
-	// @FindBy(xpath =
-	// "//span[contains(@class,'LabelWrapper')]//label[contains(@for,'QR~QID71~2')]")
-	// @FindBy(xpath
-	// ="//span[@class=\"LabelWrapper\"]//label[@for=\"QR~QID127~2\"]")
 	@FindBy(xpath = "//span[contains(@class,'LabelWrapper')]//span[text()='No']")
 	public WebElement hasParticipantOrOtherFamilyMemberParticipatedInOtherStudyNoOption;
 
-	/* Not Sure option */
-	// @FindBy(xpath =
-	// "//span[contains(@class,'LabelWrapper')]//label[contains(@for,'QR~QID71~3')]")
-	// @FindBy(xpath
-	// ="//span[contains(@class,\"LabelWrapper\")]//label[contains(@for,\"QR~QID127~3\")]")
 	@FindBy(xpath = "//span[contains(text(),\"Not sure\")]")
 	public WebElement hasParticipantOrOtherFamilyMemberParticipatedInOtherStudyNotSureOption;
 
 	/*
 	 * END OF Has participant or other family members ever participated in another
 	 * study on RASopathies at another medical institution, university, government
-	 * agency or other site? PAGE ------
+	 * agency or other site? PAGE 
 	 */
-
 	/* ************************************************************************ */
-
 	/*
-	 * --BEGINNING OF Please provide the information regarding previous
-	 * participation in other RASopathy studies in the box below. PAGE ---
+	 * BEGINNING OF Please provide the information regarding previous
+	 * participation in other RASopathy studies in the box below. PAGE
 	 */
 
 	/* Study name Relative 1 text box */
@@ -1057,12 +964,10 @@ public class RASopathyQuestionnairePage {
 	 * END OF Please provide the information regarding previous participation in
 	 * other RASopathy studies in the box below. PAGE
 	 */
-
 	/* ************************************************************************ */
-
 	/*
 	 * BEGINNING OF What are the main reasons for participating in this study?
-	 * Select all that apply.
+	 * Select all that apply. PAGE
 	 */
 
 	/* Participate in research option */
@@ -1099,21 +1004,17 @@ public class RASopathyQuestionnairePage {
 
 	/*
 	 * END OF What are the main reasons for participating in this study? Select all
-	 * that apply.
+	 * that apply.PAGE
 	 */
-
 	/* ************************************************************************ */
-
-	/* BEGINNING OF We thank you for your time spent taking this survey. Page */
+	/* BEGINNING OF We thank you for your time spent taking this survey. PAGE */
 
 	/* Submission successful text */
 	@FindBy(xpath = "//div[@class='END_OF_SURVEY EndOfSurvey BorderColor SystemEndOfSurvey']")
 	public WebElement submissionSuccessfulText;
 
-	/* END OF We thank you for your time spent taking this survey. Page */
-
+	/* END OF We thank you for your time spent taking this survey. PAGE */
 	/* ************************************************************************ */
-
 	/* -------- END OF RASopathy Questionnaire PAGE ------------- */
 
 	public RASopathyQuestionnairePage() {
