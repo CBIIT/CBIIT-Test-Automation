@@ -3,14 +3,11 @@ package ServiceNow.CHARMS.Steps;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -18,7 +15,7 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
+import ServiceNow.CHARMS.Pages.MyRASLoginPage;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -72,7 +69,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		myRASHomePage.warningAgreeButton.click();
 		CommonUtils.waitForVisibility(myRASHomePage.rasoptathyEligibilityQuestionnaire);
 		myRASHomePage.rasoptathyEligibilityQuestionnaire.click();
-
 	}
 
 	/* END: Eligibility Questionnaire Link to click */
@@ -85,7 +81,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
 		for (String currentWindow1 : allWindowHandles1) {
 			WebDriverUtils.webDriver.switchTo().window(currentWindow1);
-
 		}
 
 		JavascriptUtils.scrollIntoView(rasopathyQuestionnairePage.studyNextButton);
@@ -140,10 +135,8 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	@Given("enters First Name {string}, Middle Name {string}, Last Name {string} for What is your name?")
 	public void enters_First_Name_Middle_Name_Last_Name_for_What_is_your_name(String firstName, String middleName,
 			String lastName) {
-
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.firstNameWhatIsYourNameTextBox);
-
 		rasopathyQuestionnairePage.firstNameWhatIsYourNameTextBox.sendKeys(firstName);
 		rasopathyQuestionnairePage.middleNameWhatIsYourNameTextBox.sendKeys(middleName);
 		rasopathyQuestionnairePage.lastNameWhatIsYourNameTextBox.sendKeys(lastName);
@@ -201,7 +194,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	 * participant Page
 	 */
 
-	@Given("clicks next for The next set of questions will collect basic information about the participant. page")
+	@Given("clicks next for The next set of questions will collect basic information about the participant")
 	public void clicks_next_for_The_next_set_of_questions_will_collect_basic_information_about_automated_name_page() {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.studyNextButton);
@@ -390,7 +383,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.pleaseConfirmYourEmailAddressTextBox);
 		rasopathyQuestionnairePage.pleaseConfirmYourEmailAddressTextBox.sendKeys(probandEmailAddressConfirm);
 		rasopathyQuestionnairePage.studyNextButton.click();
-
 	}
 
 	@Given("enters proxy email address {string}")
@@ -399,7 +391,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.whatIsYourEmailAddressTextBox);
 		rasopathyQuestionnairePage.whatIsYourEmailAddressTextBox.sendKeys(emailAddress);
 		rasopathyQuestionnairePage.studyNextButton.click();
-
 	}
 
 	@Given("enters proxy email address {string} to confirm email address")
@@ -442,6 +433,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	@Given("enters proxy home phone number {string}, cell phone number {string}, work phone number {string} and selects cell phone number as Preferred Contact")
 	public void enters_home_phone_number_cell_phone_number_work_phone_number_and_selects_cell_phone_number_as_Preferred_Contact(
 			String homePhoneNumber, String cellPhoneNumber, String workPhoneNumber) {
+
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.pleaseListHomePhoneNumberTextBox);
 		rasopathyQuestionnairePage.pleaseListHomePhoneNumberTextBox.sendKeys(homePhoneNumber);
@@ -474,11 +466,11 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.authenticityOfParticipantHispanicLatinoOption);
 		rasopathyQuestionnairePage.authenticityOfParticipantHispanicLatinoOption.click();
 		rasopathyQuestionnairePage.studyNextButton.click();
-
 	}
 
 	@Given("selects Not Hispanic\\/Latino option for Ethnicity of participant")
 	public void selects_Not_Hispanic_Latino_option_for_Ethnicity_of_participant() {
+
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.authenticityOfParticipantNotHispanicLatinoOption);
 		rasopathyQuestionnairePage.authenticityOfParticipantNotHispanicLatinoOption.click();
@@ -514,11 +506,11 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		rasopathyQuestionnairePage.raceOfParticipantOther.click();
 		rasopathyQuestionnairePage.raceOfParticipantOtherTextBox.sendKeys(otherRace);
 		rasopathyQuestionnairePage.studyNextButton.click();
-
 	}
 
 	@Given("enters {string} for other when selecting Race of participant")
 	public void enters_for_other_when_selecting_Race(String otherRace) {
+
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.raceOfParticipantOtherTextBox);
 		rasopathyQuestionnairePage.raceOfParticipantOtherTextBox.sendKeys(otherRace);
@@ -604,6 +596,22 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		rasopathyQuestionnairePage.studyNextButton.click();
 
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	/* END: proceeds with providing information for medical diagnosis Page */
 	/* ******************************************************* */
@@ -1090,8 +1098,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	 * BEGINNING:options for any genetic changes detected for the following
 	 * syndromes for the participant
 	 */
-
-	// TODO
 	@Given("selects all the option for any genetic changes detected for the following syndromes for the participant")
 	public void selects_all_the_option_for_any_genetic_changes_detected_for_the_following_syndromes_for_the_participant() {
 
@@ -1100,7 +1106,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedNoonanSyndromeOption.click();
 		String value = rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedNoonanSyndromeOption.getText();
 		String id = rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedNoonanSyndromeOption.getAttribute("id");
-		System.out.println("id: " + id);
+		// system.out.println("id: " + id);
 		geneticSyndromeMap.put(value, "1");
 		rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedNoonanSyndromeWithMultipleLentiginesOption.click();
 		value = rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedNoonanSyndromeWithMultipleLentiginesOption
@@ -1108,49 +1114,49 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		id = rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedNoonanSyndromeWithMultipleLentiginesOption
 				.getAttribute("id");
 
-		System.out.println("id: " + id);
+		// system.out.println("id: " + id);
 		geneticSyndromeMap.put(value, "2");
 		rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedCardiofaciocutaneousSyndromeOption.click();
 		value = rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedCardiofaciocutaneousSyndromeOption.getText();
 		id = rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedCardiofaciocutaneousSyndromeOption
 				.getAttribute("id");
 
-		System.out.println("id: " + id);
+		// system.out.println("id: " + id);
 
 		geneticSyndromeMap.put(value, "3");
 		rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedCostelloSyndromeOption.click();
 		value = rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedCostelloSyndromeOption.getText();
 		id = rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedCostelloSyndromeOption.getAttribute("id");
 
-		System.out.println("id: " + id);
+		// system.out.println("id: " + id);
 
 		geneticSyndromeMap.put(value, "4");
 		rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedCapillarySyndromeOption.click();
 		value = rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedCapillarySyndromeOption.getText();
 		id = rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedCapillarySyndromeOption.getAttribute("id");
 
-		System.out.println("id: " + id);
+		// system.out.println("id: " + id);
 
 		geneticSyndromeMap.put(value, "5");
 		rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedSYNGAP1SyndromeOption.click();
 		value = rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedSYNGAP1SyndromeOption.getText();
 		id = rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedSYNGAP1SyndromeOption.getAttribute("id");
 
-		System.out.println("id: " + id);
+		// system.out.println("id: " + id);
 
 		geneticSyndromeMap.put(value, "6");
 		rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedLegiusSyndromeOption.click();
 		value = rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedLegiusSyndromeOption.getText();
 		id = rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedLegiusSyndromeOption.getAttribute("id");
 
-		System.out.println("id: " + id);
+		// system.out.println("id: " + id);
 
 		geneticSyndromeMap.put(value, "7");
 		rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedOtherGenesSyndromeOption.click();
 		value = rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedOtherGenesSyndromeOption.getText();
 		id = rasopathyQuestionnairePage.wereAnyGeneticChangesDetectedOtherGenesSyndromeOption.getAttribute("id");
 
-		System.out.println("id: " + id);
+		// system.out.println("id: " + id);
 
 		geneticSyndromeMap.put(value, "8");
 
@@ -1171,7 +1177,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	@Given("the user proceeds on answering few remaining questions regarding the study")
 	public void the_user_proceeds_on_answering_few_remaining_questions_regarding_the_study() {
 
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.studyNextButton);
 		rasopathyQuestionnairePage.studyNextButton.click();
 
@@ -1346,7 +1352,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	@Given("proceeds with submitting the Eligibility Questionnaire")
 	public void proceeds_with_submitting_the_Eligibility_Questionnaire() {
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.studyNextButton);
 		JavascriptUtils.scrollIntoView(rasopathyQuestionnairePage.studyNextButton);
 		rasopathyQuestionnairePage.studyNextButton.click();
@@ -1359,6 +1365,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	@Then("the Eligibility Questionnaire is sucessfully submitted")
 	public void the_Eligibility_Questionnaire_is_sucessfully_submitted() throws TestingException {
+
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.submissionSuccessfulText);
 		MiscUtils.sleep(3000);
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
@@ -1377,7 +1384,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	@When("a ServiceNow user navigates to CHARMS Native view and opens records that are Waiting for Elegibility Review")
 	public void a_ServiceNow_user_navigates_to_CHARMS_Native_view_and_opens_records_that_are_Waiting_for_Elegibility_Review()
 			throws TestingException {
-
+		MiscUtils.sleep(1000);
 		nativeViewLoginImpl.nativeViewLogin();
 		CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator);
 		nativeViewHomePage.nativeViewFilterNavigator.sendKeys("CHARMS");
@@ -1403,8 +1410,10 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestButton);
 		charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestButton.click();
+		MiscUtils.sleep(3000);
 
 		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedFirstNameText);
+
 		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedFirstNameText
 				.getAttribute("value").contentEquals("Automated"));
 
@@ -1413,23 +1422,24 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedContactHomePhoneText
 				.getAttribute("value").contentEquals("703-687-5816"));
+
 		CommonUtils.waitForVisibility(
 				charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton);
+
 		charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton.click();
 
-		System.out.println("selects the submitted MyRAS screener record");
+		// system.out.println("selects the submitted MyRAS screener record");
 
 	}
 
 	/* VERIFIES DATA SUBMITTED IN QUALTRICS IS IMPORTED AS EXPECTED IN SERVICENOW */
 	@Given("verifies data submitted in Qualtrics is imported as expected in ServiceNow")
 	public void verifies_data_submitted_in_Qualtrics_is_imported_as_expected_in_ServiceNow() {
-		
 
 		referralNumber = (charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordReferral
 				.getAttribute("value"));
 
-		System.out.println("referralNumber: " + referralNumber);
+		// system.out.println("referralNumber: " + referralNumber);
 
 		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordNameText);
 		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordNameText
@@ -1445,7 +1455,8 @@ public class myRASScreenerSubmissions extends PageInitializer {
 				charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordMayWeHaveYourPermissionToContactThisRelativeYesText
 						.getText().contentEquals("Yes"));
 
-		System.out.println("verifies data submitted in Qualtrics is imported as expected in ServiceNow");
+		// system.out.println("verifies data submitted in Qualtrics is imported as
+		// expected in ServiceNow");
 
 	}
 
@@ -1455,7 +1466,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 		CommonUtils.waitForVisibility(charmsNativeViewPage.nVFamilyMemberDetailsRecordPersonalInformationTab);
 		charmsNativeViewPage.nVFamilyMemberDetailsRecordPersonalInformationTab.click();
-
+		MiscUtils.sleep(3000);
 		Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordPersonalInformationTabRelationshipToYou
 				.getAttribute("value").contentEquals("proband"));
 
@@ -1468,8 +1479,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordPersonalInformationTabLastName
 				.getAttribute("value").contentEquals("Test"));
 
-		System.out.println(
-				"verifies Personal Information data submitted in Qualtrics is imported as expected in the Family Member Details page of ServiceNow");
+		// system.out.println(
+		// "verifies Personal Information data submitted in Qualtrics is imported as
+		// expected in the Family Member Details page of ServiceNow");
 
 	}
 
@@ -1478,17 +1490,19 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	public void verifies_Demographics_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_Family_Member_Details_page_of_ServiceNow() {
 
 		charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTab.click();
-
-		System.out.println("Biological Gender: "
-				+ charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabBiologicalGender.getText());
+		MiscUtils.sleep(3000);
+		// system.out.println("Biological Gender: "
+		// +
+		// charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabBiologicalGender.getText());
 
 		Assert.assertTrue("Is the participant adopted Data Field do not match",
 				charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabBiologicalGender.getText()
 						.contentEquals("Male"));
 
-		System.out.println("Participants identified gender: "
-				+ charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantsIdentifiedGender
-						.getText());
+		// system.out.println("Participants identified gender: "
+		// +
+		// charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantsIdentifiedGender
+		// .getText());
 
 		Assert.assertTrue("Participants identified gender Data Field do not match",
 				charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantsIdentifiedGender.getText()
@@ -1516,14 +1530,15 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 		Assert.assertTrue("Participant Race (Select all that apply) Data Field do not match",
 				charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantRace.getText()
-						.contentEquals("Other"));
+						.contentEquals("Caucasian (white), Black/African American, Native Hawaiian/Other Pacific Islander, American Indian/Alaskan Native, Asian, Other"));
 
 		Assert.assertTrue("Participant Race Other Text Field  do not match",
 				charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantRaceOtherText
 						.getAttribute("value").contentEquals("Entering other Race"));
 
-		System.out.println(
-				"verifies Demographics data submitted in Qualtrics is imported as expected in the Family Member Details page of ServiceNow");
+		// system.out.println(
+		// "verifies Demographics data submitted in Qualtrics is imported as expected in
+		// the Family Member Details page of ServiceNow");
 	}
 
 	/* VERIFIES CONTACT INFO TAB DATA IN FAMILY MEMBERS DETAILS PAGE */
@@ -1533,7 +1548,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		CommonUtils.waitForVisibility(charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTab);
 
 		charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTab.click();
-
+		MiscUtils.sleep(3000);
 		Assert.assertTrue(
 				"This is a Contact Info Tab mismatch data for the Does the participant need legal representation?: ",
 				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabDoesParticipantNeedLegalRepresentation
@@ -1560,8 +1575,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 		Assert.assertTrue("This is a Contact Info Tab mismatch data for the Contact Street Address : ",
 				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabStreetAddress.getAttribute("value")
-						.contentEquals("9609 Medical Center Dr "));
-
+						.contentEquals("9609 Medical Center Dr New Avenue Park"));
+	
+	
 		Assert.assertTrue("This is a Contact Info Tab mismatch data for the Contact State : ",
 				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabState.getAttribute("value")
 						.contentEquals("Maryland "));
@@ -1594,8 +1610,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
 				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabWorkPhone.getAttribute("value")
 						.contentEquals("703-687-5816"));
 
-		System.out.println(
-				"verifies Contact Info data submitted in Qualtrics is imported as expected in the Family Member Details page of ServiceNow");
+		// system.out.println(
+		// "verifies Contact Info data submitted in Qualtrics is imported as expected in
+		// the Family Member Details page of ServiceNow");
 
 	}
 
@@ -1606,7 +1623,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		CommonUtils.waitForVisibility(charmsNativeViewPage.nVFamilyMemberDetailsRecordMedicalInfoTab);
 
 		charmsNativeViewPage.nVFamilyMemberDetailsRecordMedicalInfoTab.click();
-
+		MiscUtils.sleep(3000);
 		Assert.assertTrue(
 				"This is a Medical Information Tab mismatch data for the Has a physician ever diagnosed this participant with cancer? : ",
 				charmsNativeViewPage.nVFamilyMemberDetailsRecordMedicalInfoPhysicianDiagnosedParticipantWithCancer
@@ -1621,8 +1638,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
 				charmsNativeViewPage.nVFamilyMemberDetailsRecordMedicalInfoParticipantVitalStatus.getText()
 						.contentEquals("Alive"));
 
-		System.out.println(
-				"verifies Medical Information data submitted Qualtrics is imported as expected in the Family Member Details page of ServiceNow");
+		// system.out.println(
+		// "verifies Medical Information data submitted Qualtrics is imported as
+		// expected in the Family Member Details page of ServiceNow");
 
 	}
 
@@ -1631,8 +1649,10 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	public void verifies_Participant_Cancer_History_data_submitted_Qualtrics_is_imported_as_expected_in_the_Family_Member_Details_page_of_ServiceNow() {
 
 		charmsNativeViewPage.nVReferralPatientCancerIntakeFormForSkinCancerButton.click();
+		MiscUtils.sleep(1000);
 		charmsNativeViewPage.nVReferralPatientIntakeFormPreviewOpenRecordButton.click();
 
+		MiscUtils.sleep(3000);
 		Assert.assertTrue(
 				"This is Participant Cancer History mismatch data for Cancer Type or Site for Skin cancer  : ",
 				charmsNativeViewPage.nVReferralPatientCancerIntakeFormCancerTypeOrSite.getAttribute("value")
@@ -1662,8 +1682,10 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		/* --------------------------------------------------------------- */
 
 		charmsNativeViewPage.nVReferralPatientCancerIntakeFormForBreastLeftButton.click();
+		MiscUtils.sleep(1000);
 		charmsNativeViewPage.nVReferralPatientIntakeFormPreviewOpenRecordButton.click();
 
+		MiscUtils.sleep(3000);
 		Assert.assertTrue(
 				"This is Participant Cancer History mismatch data for Cancer Type or Site cancer for Breast Left  : ",
 				charmsNativeViewPage.nVReferralPatientCancerIntakeFormCancerTypeOrSite.getAttribute("value")
@@ -1693,8 +1715,10 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		/* --------------------------------------------------------------- */
 
 		charmsNativeViewPage.nVReferralPatientCancerIntakeFormForAnalCancerButton.click();
+		MiscUtils.sleep(1000);
 		charmsNativeViewPage.nVReferralPatientIntakeFormPreviewOpenRecordButton.click();
 
+		MiscUtils.sleep(3000);
 		Assert.assertTrue(
 				"This is Participant Cancer History mismatch data for Cancer Type or Site cancer for Anal Cancer: ",
 				charmsNativeViewPage.nVReferralPatientCancerIntakeFormCancerTypeOrSite.getAttribute("value")
@@ -1724,8 +1748,10 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		/* --------------------------------------------------------------- */
 
 		charmsNativeViewPage.nVReferralPatientCancerIntakeFormForAdrenalGlandButton.click();
+		MiscUtils.sleep(1000);
 		charmsNativeViewPage.nVReferralPatientIntakeFormPreviewOpenRecordButton.click();
 
+		MiscUtils.sleep(3000);
 		Assert.assertTrue(
 				"This is Participant Cancer History mismatch data for Cancer Type or Site cancer for Adrenal Gland: ",
 				charmsNativeViewPage.nVReferralPatientCancerIntakeFormCancerTypeOrSite.getAttribute("value")
@@ -1761,10 +1787,10 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		referralNumber = (charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordReferral
 				.getAttribute("value"));
 
-		// System.out.println("referralNumber: " + referralNumber);
+		// system.out.println("referralNumber: " + referralNumber);
 
 		charmsNativeViewPage.nVParticipantGeneticHistoryTab.click();
-
+		MiscUtils.sleep(2000);
 		List<WebElement> tBodyList = charmsNativeViewPage.participantGeneticHistoryTable
 				.findElements(By.tagName("tbody"));
 
@@ -1804,17 +1830,17 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 							MiscUtils.sleep(1000);
 
-							System.out.println("Description :" + description);
+							// system.out.println("Description :" + description);
 
-							System.out.println("Get Genes-Hereditary Cancer Syndromes : "
-									+ charmsNativeViewPage.nVParticipantGeneticTestedGenesSyndromes.getText());
+							// system.out.println("Get Genes-Hereditary Cancer Syndromes : "
+							// + charmsNativeViewPage.nVParticipantGeneticTestedGenesSyndromes.getText());
 
-							System.out.println("Get Intake Form REFERRAL ID: "
-									+ charmsNativeViewPage.nVParticipantGeneticIntakeFormReferralId
-											.getAttribute("value"));
+							// system.out.println("Get Intake Form REFERRAL ID: "
+							// + charmsNativeViewPage.nVParticipantGeneticIntakeFormReferralId
+							// .getAttribute("value"));
 
-							System.out.println(" Get vTest Result :"
-									+ charmsNativeViewPage.nVParticipantGeneticTestResult.getAttribute("value"));
+							// system.out.println(" Get vTest Result :"
+							// + charmsNativeViewPage.nVParticipantGeneticTestResult.getAttribute("value"));
 
 							/*
 							 * Assert.assertTrue(
@@ -1822,7 +1848,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 							 * , charmsNativeViewPage.nVParticipantGeneticTestedGenesSyndromes.getText()
 							 * .contentEquals(description));
 							 */
-
+							MiscUtils.sleep(2000);
 							Assert.assertTrue("This is Participant Genetic History mismatch data for Test Result? : ",
 									charmsNativeViewPage.nVParticipantGeneticTestResult.getAttribute("value")
 											.contentEquals("Positive"));
@@ -1833,7 +1859,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 											.contentEquals(referralNumber));
 
 							charmsNativeViewPage.nVReferralParticipantIntakeFormBackButton.click();
-
+							MiscUtils.sleep(2000);
 						}
 						break;
 					}
@@ -1842,102 +1868,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 			}
 		}
-
-		// repeating the above code for the second column
-
-		// tBodyList =
-		// charmsNativeViewPage.participantGeneticHistoryTable.findElements(By.tagName("tbody"));
-		//
-		// tBody = tBodyList.get(0);
-		// rowList = tBody.findElements(By.tagName("tr"));
-		//
-		// for (int j = 0; j < rowList.size(); j++) {
-		// WebElement row;
-		// if (0 != j) {
-		// tBodyList =
-		// charmsNativeViewPage.participantGeneticHistoryTable.findElements(By.tagName("tbody"));
-		//
-		// tBody = tBodyList.get(0);
-		// rowList = tBody.findElements(By.tagName("tr"));
-		// // scroll to the bottom of the page
-		// ((JavascriptExecutor)
-		// WebDriverUtils.webDriver).executeScript("arguments[0].scrollIntoView();",
-		// charmsNativeViewPage.participantGeneticHistoryTable);
-		// }
-		// row = rowList.get(j);
-		//
-		// List<WebElement> columnList = row.findElements(By.tagName("td"));
-		// if (columnList.size() >= 4) {
-		// for (int i = 0; i < columnList.size(); i++) {
-		// if (2 == i) {
-		// WebElement desciptionCol = columnList.get(i);
-		// String description = desciptionCol.getAttribute("title");
-		// if (!("").equals(description)) {
-		// WebElement testResultColumn = columnList.get(i + 1);
-		// String testResult = testResultColumn.getText();
-		//
-		// WebElement previewIcon = columnList.get(i);
-		// previewIcon.click();
-		//
-		// MiscUtils.sleep(1000);
-		//
-		// /*
-		// * charmsNativeViewPage.
-		// * nVFamilyMemberDetailsRecordPagePreviewReferralRecordIframeOpenRecord
-		// * .click();
-		// *
-		// * MiscUtils.sleep(1000); System.out.println("Discription :" + description);
-		// *
-		// * System.out.println("Get Genes-Hereditary Cancer Syndromes : " +
-		// * charmsNativeViewPage.nVParticipantGeneticTestedGenesSyndromes.getText());
-		// *
-		// * System.out.println("Get Intake Form REFERRAL ID: " +
-		// * charmsNativeViewPage.nVParticipantGeneticIntakeFormReferralId
-		// * .getAttribute("value"));
-		// *
-		// * System.out.println(" Get vTest Result :" +
-		// * charmsNativeViewPage.nVParticipantGeneticTestResult.getAttribute("value"));
-		// *
-		// */
-		// /*
-		// * Assert.assertTrue(
-		// * "This is Participant Genetic History mismatch data for Genes-Hereditary
-		// Cancer Syndromes : "
-		// * , charmsNativeViewPage.nVParticipantGeneticTestedGenesSyndromes.getText()
-		// * .contentEquals(description));
-		// */
-		//
-		// /*
-		// * Assert.
-		// * assertTrue("This is Participant Genetic History mismatch data for Test
-		// Result? : "
-		// * , charmsNativeViewPage.nVParticipantGeneticTestResult.getAttribute("value")
-		// * .contentEquals("Positive"));
-		// *
-		// * Assert.assertTrue(
-		// * "This is Participant Genetic History mismatch data for Intake Form REFERRAL
-		// ID: "
-		// * ,
-		// charmsNativeViewPage.nVParticipantGeneticIntakeFormReferralId.getAttribute(
-		// * "value") .contentEquals(referralNumber));
-		// *
-		// *
-		// * charmsNativeViewPage.nVReferralParticipantIntakeFormBackButton.click();
-		// */
-		// WebDriver driver = WebDriverUtils.getWebDriver();
-		// if (driver instanceof JavascriptExecutor) {
-		// ((JavascriptExecutor) driver).executeScript("window.history.go(-1)");
-		//
-		// }
-		//
-		// }
-		// break;
-		// }
-		//
-		// }
-		//
-		// }
-		// }
 
 	}
 
@@ -1950,11 +1880,13 @@ public class myRASScreenerSubmissions extends PageInitializer {
 						.contentEquals(referralNumber));
 
 		charmsNativeViewPage.nVFamilyMemberDetailsRecordPagePreviewReferralRecordButton.click();
+		MiscUtils.sleep(3000);
 		CommonUtils.switchToFrame(charmsNativeViewPage.nVFamilyMemberDetailsRecordPagePreviewReferralRecordIframe);
 		CommonUtils.waitForVisibility(
 				charmsNativeViewPage.nVFamilyMemberDetailsRecordPagePreviewReferralRecordIframeOpenRecord);
 		charmsNativeViewPage.nVFamilyMemberDetailsRecordPagePreviewReferralRecordIframeOpenRecord.click();
 
+		MiscUtils.sleep(1000);
 		Assert.assertTrue("The RAS REFERRAL BAR TITLE NOT DISPLAYED: ",
 				charmsNativeViewPage.nVRasReferralViewPageRASReferralBarTitle.isDisplayed());
 
@@ -2007,8 +1939,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		 * contentEquals("10/28/2021 22:12:19"));
 		 */
 
-		System.out.println(
-				"verifies data submitted in Qualtrics is imported as expected in the RAS Referral page of ServiceNow");
+		// system.out.println(
+		// "verifies data submitted in Qualtrics is imported as expected in the RAS
+		// Referral page of ServiceNow");
 
 	}
 
@@ -2017,7 +1950,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	public void verifies_Contact_Info_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_RAS_Referral_page_of_ServiceNow() {
 
 		charmsNativeViewPage.nVRasReferralViewPageContactInformationTab.click();
-
+		MiscUtils.sleep(3000);
 		Assert.assertTrue(
 				"This is the Contact Info tab --> Contact Email mismatch for the Referral Submitted in the Referral page : ",
 				charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactEmail.getAttribute("value")
@@ -2046,7 +1979,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		Assert.assertTrue(
 				"This is the Contact Info tab --> Contact Street Address mismatch for the Referral Submitted in the Referral page : ",
 				charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactStreetAddress
-						.getAttribute("value").contentEquals("9609 Medical Center Dr "));
+						.getAttribute("value").contentEquals("9609 Medical Center Dr New Avenue Park"));
 
 		Assert.assertTrue(
 				"This is the Contact Info tab --> Contact City mismatch for the Referral Submitted in the Referral page : ",
@@ -2063,8 +1996,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
 				charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactZipCode.getAttribute("value")
 						.contentEquals("20850"));
 
-		System.out.println(
-				"verifies Contact Info data submitted in Qualtrics is imported as expected in the RAS Referral page of ServiceNow");
+		// system.out.println(
+		// "verifies Contact Info data submitted in Qualtrics is imported as expected in
+		// the RAS Referral page of ServiceNow");
 
 	}
 
@@ -2073,11 +2007,11 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	public void verifies_Demographics_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_RAS_Referral_page_of_ServiceNow() {
 
 		charmsNativeViewPage.nVRasReferralViewPageDemographicsTab.click();
-
+		MiscUtils.sleep(3000);
 		Assert.assertTrue(
 				"This is the Demographics tab -- > Participant Race mismatch for the Referral Submitted in the Referral page : ",
 				charmsNativeViewPage.nVRasReferralViewPageDemographicsTabParticipantRace.getText()
-						.contentEquals("Other"));
+						.contentEquals("Caucasian (white), Black/African American, Native Hawaiian/Other Pacific Islander, American Indian/Alaskan Native, Asian, Other"));
 
 		Assert.assertTrue(
 				"This is the Demographics tab -- > Other mismatch for the Referral Submitted in the Referral page : ",
@@ -2099,8 +2033,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
 				charmsNativeViewPage.nVRasReferralViewPageDemographicsTabEthnicity.getText()
 						.contentEquals("Not Hispanic/Latino"));
 
-		System.out.println(
-				"verifies Demographics data submitted in Qualtrics is imported as expected in the RAS Referral page of ServiceNow");
+		// system.out.println(
+		// "verifies Demographics data submitted in Qualtrics is imported as expected in
+		// the RAS Referral page of ServiceNow");
 
 	}
 
@@ -2109,7 +2044,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	public void verifies_RASopathy_History_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_RAS_Referral_page_of_ServiceNow() {
 
 		charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTab.click();
-
+		MiscUtils.sleep(3000);
 		Assert.assertTrue(
 				"This is the RASopathy History tab -- > Have you been diagnosed with a RASopathy? mismatch for the Referral Submitted in the Referral page : ",
 				charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabHaveYouBeenDiagnosedWithRASopathy.getText()
@@ -2137,7 +2072,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		Assert.assertTrue(
 				"This is the RASopathy History tab -- > Has the participant been diagnosed with any of the following Conditions? mismatch for the Referral Submitted in the Referral page : ",
 				charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabHasParticipantBeenDiagnosedWithAnyOfTheFollowingConditions
-						.getText().contentEquals("Other: such as endocrine issues, bleeding disorders, seizures"));
+						.getText().contentEquals("Feeding problems or failure to thrive, Neurocognitive/ Developmental Delay such as: Intellectual disability and language impairment, Skeletal deformities such as: Short stature, short webbed neck, unusual chest shape, curved spine, muscle or joint problems, limb overgrowth, Head/Craniofacial Abnormalities such as: Large head, broad or high forehead, short nose, small chin, swelling or bleeding of the gums, abnormal shape or movement of teeth, Eye/Ear abnormalities such as: Widely spaced eyes, eye diseases, droopy eye lids, sparse/absent eye lashes/eyebrows, low set ears, hearing loss, Skin/hair abnormalities such as: soft loose skin, fine/thin/thick/dry/brittle/curly hair, slow growing hair, tumors or small skin tags near the nose or anus, lipomas, light to dark brown birth marks (cafe au lait spots), freckles in the armpits, Heart problems such as cardiomyopathy, Genital abnormalities such as undescended testes, Other: such as endocrine issues, bleeding disorders, seizures, Non-cancerous tumors, Lymphedema"));
 
 		Assert.assertTrue(
 				"This is the RASopathy History tab -- > Other conditions mismatch for the Referral Submitted in the Referral page :  ",
@@ -2156,7 +2091,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	public void verifies_Cancer_History_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_RAS_Referral_page_of_ServiceNow() {
 
 		charmsNativeViewPage.nVRasReferralViewPageCancerHistoryTab.click();
-
+		MiscUtils.sleep(3000);
 		Assert.assertTrue(
 				"This is the Cancer History tab -- > Has a physician ever diagnosed this participant with cancer? mismatch for the Referral Submitted in the Referral page : ",
 				charmsNativeViewPage.nVRasReferralViewPageCancerHistoryTabHasPhysicianEverDiagnosedParticipantWithCancer
@@ -2196,7 +2131,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	public void verifies_Final_Information_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_RAS_Referral_page_of_ServiceNow() {
 
 		charmsNativeViewPage.nVRasReferralViewPageFinalInformationTab.click();
-
+		MiscUtils.sleep(3000);
 		Assert.assertTrue(
 				"This is the Final Information tab -- > How did you hear about this study? mismatch for the Referral Submitted in the Referral page : ",
 				charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabHowDidYouHearAboutThisStudy.getText()
@@ -2260,39 +2195,37 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	public void verifies_Comments_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_RAS_Referral_page_of_ServiceNow() {
 
 		charmsNativeViewPage.nVRasReferralViewPageCommentsTab.click();
-
-//		Assert.assertTrue(
-//				"This is the Comments tab -- > Comments mismatch for the Referral Submitted in the Referral page : ",
-//				charmsNativeViewPage.nVRasReferralViewPageCommentsTabComments.getAttribute("data-stream-text-input").contentEquals("Comments"));
-		
 		charmsNativeViewPage.nVReferralParticipantIntakeFormBackButton.click();
 	}
 
 	/* THE SERVICENOW USER SUBMITS THE STUDY FOR ELIGIBILITY REVIEW */
+
 	@Given("the ServiceNow user submits the study for eligibility review")
 	public void the_ServiceNow_user_submits_the_study_for_eligibility_review() {
 
 		CommonUtils.waitForVisibility(
 				charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordSubmitForEligibilityReviewButton);
-
 		charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordSubmitForEligibilityReviewButton.click();
-
+		MiscUtils.sleep(1000);
+		
 	}
 
 	/* THE SERVICENOW USER MARKS THE STUDY ELIGIBLE */
+
 	@Given("the ServiceNow user marks the study eligible")
 	public void the_ServiceNow_user_marks_the_study_eligible() {
 
 		CommonUtils.waitForVisibility(
 				charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordMarkEligibleButton);
 		charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordMarkEligibleButton.click();
-
+		MiscUtils.sleep(1000);
 	}
 
 	/*
 	 * THE SERVICENOW USER ADDS COMMENTS IN THE HISTORY SECTION AND SENDS CONSENT
 	 * FORM
 	 */
+
 	@Given("the ServiceNow user adds comments in the history section {string} and sends consent form")
 	public void the_ServiceNow_user_adds_comments_in_the_history_section_and_sends_consent_form(String consentComment)
 			throws TestingException {
@@ -2366,6 +2299,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		myRasStudyConsentPage.yourConsentFormHasBeenSubmittedOKbutton.click();
 
 		/* LOGGING OUT OF CHARMS AUTOMATED OKTA ACCOUNT */
+
 		CommonUtils.waitForVisibility(myRASHomePage.charmsAutomatedTestTwoLink);
 		myRASHomePage.charmsAutomatedTestTwoLink.click();
 
@@ -2378,6 +2312,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	 * A SERVICENOW USER NAVIGATES TO CHARMS NATIVE VIEW AND OPENS RECORDS THAT ARE
 	 * AWAITING PI SIGNATURE
 	 */
+
 	@When("a ServiceNow user navigates to CHARMS Native view and opens records that are Awaiting PI Signature")
 	public void a_ServiceNow_user_navigates_to_CHARMS_Native_view_and_opens_records_that_are_Awaiting_PI_Signature()
 			throws TestingException {
@@ -2402,6 +2337,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	 * SELECTS THE SUBMITTED myRAS SCREENER RECORD THAT HAS SIGNED CONSENT FORM FROM
 	 * PARTICIPANT ATTACHED
 	 */
+
 	@Given("selects the submitted MyRAS screener record that has signed consent form from participant attached")
 	public void selects_the_submitted_MyRAS_screener_record_that_has_signed_consent_form_from_participant_attached() {
 
@@ -2432,6 +2368,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	}
 
 	/* THE SERVICENOW USER SIGNS THE CONSENT FORM */
+
 	@Given("the ServiceNow user signs the consent form")
 	public void the_ServiceNow_user_signs_the_consent_form() throws TestingException {
 
@@ -2444,19 +2381,17 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewDJButton);
 		charmsNativeViewPage.nativeViewDJButton.click();
-
-		// CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewLogOutButton);
-		// charmsNativeViewPage.nativeViewLogOutButton.click();
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewLogOutButton);
+		charmsNativeViewPage.nativeViewLogOutButton.click();
 
 	}
 
 	/* *************************************************************** */
-
 	/* **************** THE END ************************************** */
-	
 	/* *************************************************************** */
 
 	/* -------------- ******* CGB IIQ SUBMISSION ********* ------------------ */
+
 	@Given("clicks on the Individual Information Questionnaire to begin the IIQ form")
 	public void clicks_on_the_Individual_Information_Questionnaire_to_begin_the_IIQ_form() {
 
@@ -2475,7 +2410,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		CommonUtils.waitForVisibility(myRASHomePage.rasoptathyIndividualInformationQuestionnairePinText);
 
 		// PRINTING OUT PIN - IT WILL ALWAYS BE DIFFERENT
-		System.out.println(myRASHomePage.rasoptathyIndividualInformationQuestionnairePinText.getText());
+		// //system.out.println(myRASHomePage.rasoptathyIndividualInformationQuestionnairePinText.getText());
 
 		cgbIIQOneTimePin = myRASHomePage.rasoptathyIndividualInformationQuestionnairePinText.getText();
 

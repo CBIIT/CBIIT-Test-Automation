@@ -18,9 +18,10 @@ public class RASopathyQuestionnairePage {
 	/*
 	 * BEGINNING OF Are you completing this form for someone else or for yourself?
 	 * PAGE
+	 * 
+	 * 
+	 * /* I am completing this form for someone else option
 	 */
-
-	/* I am completing this form for someone else option */
 	@FindBy(xpath = "//span[contains(text(),'I am completing this form for someone else')]")
 	public WebElement iAmCompletingThisFormForSomeoneElseOption;
 
@@ -466,6 +467,26 @@ public class RASopathyQuestionnairePage {
 	@FindBy(xpath = "//tbody/tr[4]/td[6]/input[1]")
 	public WebElement otherCancerOptionFourth;
 
+	/* Other option */
+	@FindBy(xpath = "//span[@class='LabelWrapper']//label[@for='QR~QID115~3']")
+	public WebElement isParticipantInOtherResearchStudyOtherOption;
+
+	/* Other text box */
+	@FindBy(xpath = "//input[@title='Other']")
+	public WebElement isParticipantInOtherResearchStudyOtherTextBox;
+
+	/* Other option */
+	@FindBy(xpath = "//span[contains(text(),': such as endocrine issues, bleeding disorders, se')]")
+	public WebElement hasParticipantBeenDiagnosedWithFollowingConditionsOtherOption;
+
+	/* Other text box */
+	@FindBy(xpath = "//input[contains(@title,'<strong>Other</strong>: such as endocrine issues, bleeding disorders, seizures, tethered cord')]")
+	public WebElement hasParticipantBeenDiagnosedWithFollowingConditionsOtherTextBox;
+
+	/* Yes option */
+	@FindBy(xpath = "//span[@class='LabelWrapper']//label[@for='QR~QID32~1']")
+	public WebElement hasProxyBeenDiagnosedWithCancerYesOption;
+
 	/* Age at diagnosis first text box */
 	@FindBy(xpath = "//input[@name='QR~QID86#3~1~1~TEXT']")
 	public WebElement ageAtDiagnosisFirstTextBox;
@@ -543,6 +564,7 @@ public class RASopathyQuestionnairePage {
 	 * syndrome, cardiofaciocutaneous syndrome, Legius syndrome, capillary
 	 * arteriovenous malformation syndrome, hereditary gingival fibromatosis or
 	 * SYNGAP1 syndrome? PAGE
+	 * 
 	 */
 
 	/* Yes option */
@@ -554,8 +576,8 @@ public class RASopathyQuestionnairePage {
 	public WebElement hasProxyBeenDiagnosedWithaRasopathyNoOption;
 
 	/*
-	 * For Proxy: END OF Has "Name" been diagnosed with a RASopathy such as
-	 * Noonan syndrome, Noonan syndrome with multiple lentigines, Costello syndrome,
+	 * For Proxy: END OF Has "Name" been diagnosed with a RASopathy such as Noonan
+	 * syndrome, Noonan syndrome with multiple lentigines, Costello syndrome,
 	 * cardiofaciocutaneous syndrome, Legius syndrome, capillary arteriovenous
 	 * malformation syndrome, hereditary gingival fibromatosis or SYNGAP1 syndrome?
 	 * PAGE
@@ -578,8 +600,8 @@ public class RASopathyQuestionnairePage {
 	public WebElement hasProbandBeenDiagnosedWithaRasopathyNoOption;
 
 	/*
-	 * For Proband: END OF Have you been diagnosed with a RASopathy such as
-	 * Noonan syndrome, Noonan syndrome with multiple lentigines, Costello syndrome,
+	 * For Proband: END OF Have you been diagnosed with a RASopathy such as Noonan
+	 * syndrome, Noonan syndrome with multiple lentigines, Costello syndrome,
 	 * cardiofaciocutaneous syndrome, Legius syndrome, capillary arteriovenous
 	 * malformation syndrome, hereditary gingival fibromatosis or SYNGAP1 syndrome?
 	 * PAGE
@@ -588,9 +610,10 @@ public class RASopathyQuestionnairePage {
 	/*
 	 * BEGINNING OF For which specific RASopathy has Automated Test been diagnosed?
 	 * PAGE
+	 * 
+	 * 
+	 * /* Other option
 	 */
-
-	/* Other option */
 	@FindBy(xpath = "//span[@class='LabelWrapper']//label[@for='QR~QID28~10']")
 	public WebElement participantSpecificRasopathyOtherOption;
 
@@ -606,21 +629,21 @@ public class RASopathyQuestionnairePage {
 	 * END OF For which specific RASopathy has Automated Test been diagnosed? PAGE
 	 */
 	/* ************************************************************************ */
-	/*  BEGINNING OF Age (in years) at diagnosis PAGE  */
+	/* BEGINNING OF Age (in years) at diagnosis PAGE */
 
 	/* Age (in years) at diagnosis text box */
 	@FindBy(xpath = "//input[@name='QR~QID29~TEXT']")
 	public WebElement participantAgeInYearsAtDiagnosis;
 
-	/*  END OF Age (in years) at diagnosis PAGE */
+	/* END OF Age (in years) at diagnosis PAGE */
 	/* ************************************************************************ */
-	/*  BEGINNING OF Year of diagnosis (yyyy) PAGE */
+	/* BEGINNING OF Year of diagnosis (yyyy) PAGE */
 
 	/* Age (in years) at diagnosis text box */
 	@FindBy(xpath = "//input[@name='QR~QID30~TEXT']")
 	public WebElement participantsYearOfDiagnosis;
 
-	/*  END OF Year of diagnosis (YYYY) PAGE */
+	/* END OF Year of diagnosis (YYYY) PAGE */
 	/* ************************************************************************ */
 	/*
 	 * For Proxy:BEGINNING Have any of "Participant Name" biological relatives been
@@ -705,7 +728,7 @@ public class RASopathyQuestionnairePage {
 	/*
 	 * BEGINNING OF How would you like to provide the genetic test results to
 	 * us?Please select one. On the next page, you will be provided with where to
-	 * send the information. PAGE 
+	 * send the information. PAGE
 	 */
 
 	/* Upload to this questionnaire option */
@@ -713,14 +736,14 @@ public class RASopathyQuestionnairePage {
 	public WebElement participantUploadToThisQuestionnaireOption;
 
 	/*
-	 * END OF How would you like to provide the genetic test results to
-	 * us?Please select one. On the next page, you will be provided with where to
-	 * send the information. PAGE 
+	 * END OF How would you like to provide the genetic test results to us?Please
+	 * select one. On the next page, you will be provided with where to send the
+	 * information. PAGE
 	 */
 	/* ************************************************************************ */
 	/*
-	 *  BEGINNING OF If you would like to upload the genetic test results, please
-	 * do so here. Note: Only PDF files are accepted. PAGE 
+	 * BEGINNING OF If you would like to upload the genetic test results, please do
+	 * so here. Note: Only PDF files are accepted. PAGE
 	 */
 
 	/* Drop files or click here to upload */
@@ -737,8 +760,9 @@ public class RASopathyQuestionnairePage {
 	 */
 	/* ************************************************************************ */
 	/*
-	 * BEGINNING OF Were any genetic changes detected for the following
-	 * syndromes? (Mark all that apply). PAGE 
+	 * BEGINNING OF Were any genetic changes detected for the following syndromes?
+	 * (Mark all that apply). PAGE
+	 * 
 	 */
 
 	/* Other genes/syndromes option */
@@ -774,8 +798,8 @@ public class RASopathyQuestionnairePage {
 	public WebElement wereAnyGeneticChangesDetectedLegiusSyndromeOption;
 
 	/*
-	 * END OF Were any genetic changes detected for the following syndromes?
-	 * (Mark all that apply). PAGE
+	 * END OF Were any genetic changes detected for the following syndromes? (Mark
+	 * all that apply). PAGE
 	 */
 	/* ************************************************************************ */
 	/*
@@ -833,15 +857,15 @@ public class RASopathyQuestionnairePage {
 	public WebElement howDidYouHearAboutTheStudyOtherTextBox;
 
 	/*
-	 * END OF How did you hear about this study? If a specific health care
-	 * provider referred participant to this study, please include their name in the
+	 * END OF How did you hear about this study? If a specific health care provider
+	 * referred participant to this study, please include their name in the
 	 * corresponding text box. PAGE
 	 */
 	/* ************************************************************************ */
 	/*
 	 * BEGINNING OF Has participant or other family members ever participated in
 	 * another study on RASopathies at another medical institution, university,
-	 * government agency or other site? PAGE 
+	 * government agency or other site? PAGE
 	 */
 
 	@FindBy(xpath = "//span[contains(text(),\"Yes\")]")
@@ -856,12 +880,12 @@ public class RASopathyQuestionnairePage {
 	/*
 	 * END OF Has participant or other family members ever participated in another
 	 * study on RASopathies at another medical institution, university, government
-	 * agency or other site? PAGE 
+	 * agency or other site? PAGE
 	 */
 	/* ************************************************************************ */
 	/*
-	 * BEGINNING OF Please provide the information regarding previous
-	 * participation in other RASopathy studies in the box below. PAGE
+	 * BEGINNING OF Please provide the information regarding previous participation
+	 * in other RASopathy studies in the box below. PAGE
 	 */
 
 	/* Study name Relative 1 text box */

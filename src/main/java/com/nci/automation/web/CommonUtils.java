@@ -457,8 +457,6 @@ public class CommonUtils extends WebDriverUtils {
 		js.executeScript("window.open('about:blank','_blank');");
 	}
 	
-
-	
 	/**
 	 * Use this method to switch to the next another open window
 	 */
