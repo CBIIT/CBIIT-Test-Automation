@@ -171,7 +171,7 @@ Feature: myRAS Screener Submissions
 		And the user clicks the forward arrow button
 		Then the end of the IIQ survey page "EndOfSurvey" is displayed
 
-	@RASSurveyPreview
+	@juarezds @RASSurveyPreview
 	Scenario: RASSurvey Preview Submission #submit page next button has been commented out/disabled
 		Given a participant is on the Rassurvey Questionaire login page - myRAS Survey
 		And logs in via Okta with username "diego1@test.com" and password "123456" on login page - myRAS Survey
