@@ -127,9 +127,7 @@ Feature: myRAS Screener Submissions from the Qualtrics Portal
     When a ServiceNow user navigates to CHARMS Native view and opens records that are Awaiting PI Signature
     And selects the submitted MyRAS screener record that has signed consent form from participant attached
     And the ServiceNow user signs the consent form
-    
-    
-    
+
   @jains @myRASScreenerSubmission
   Scenario: Proxy Screener Submission for male participant with selection of the multiple options
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page

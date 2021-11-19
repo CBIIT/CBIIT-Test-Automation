@@ -13,7 +13,7 @@ import cucumber.api.junit.Cucumber;
 		, features="src/test/java/ServiceNow/CHARMS/Features"
 		, glue="ServiceNow.CHARMS.Steps"
 		, tags="@TestAccountReset"
-		, dryRun = true
+		, dryRun = false
 		, monochrome=true
 		, strict = true
 		
