@@ -578,7 +578,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	}
 
-
 	@When("the myRAS user signs the consent form in the Service Portal")
 	public void the_myRAS_user_signs_the_consent_form_in_the_Service_Portal() throws TestingException {
 
@@ -598,6 +597,8 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		CommonUtils.waitForVisibility(myRASHomePage.rasopathyStudyConsent);
 		JavascriptUtils.clickByJS(myRASHomePage.rasopathyStudyConsent);
 
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(myRasStudyConsentPage.yesIhaveReadTheTermsAndConditionsCheckbox);
 		myRasStudyConsentPage.yesIhaveReadTheTermsAndConditionsCheckbox.click();
 
 		JavascriptUtils.scrollIntoView(myRasStudyConsentPage.iAmThisPersonRadioButton);
@@ -616,14 +617,15 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 		CommonUtils.waitForVisibility(myRasStudyConsentPage.signButton);
 		myRasStudyConsentPage.signButton.click();
+		MiscUtils.sleep(1500);
 
 		CommonUtils.waitForVisibility(myRasStudyConsentPage.yourConsentFormHasBeenSubmittedOKbutton);
 		myRasStudyConsentPage.yourConsentFormHasBeenSubmittedOKbutton.click();
-		
+
 		/*
 		 * LOGGING OUT OF CHARMS AUTOMATED OKTA ACCOUNT
 		 */
-		
+
 		CommonUtils.waitForVisibility(myRASHomePage.charmsAutomatedTestTwoLink);
 		myRASHomePage.charmsAutomatedTestTwoLink.click();
 
@@ -632,9 +634,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	}
 
-	
 	@When("a ServiceNow user navigates to CHARMS Native view and opens records that are Awaiting PI Signature")
-	public void a_ServiceNow_user_navigates_to_CHARMS_Native_view_and_opens_records_that_are_Awaiting_PI_Signature() throws TestingException {
+	public void a_ServiceNow_user_navigates_to_CHARMS_Native_view_and_opens_records_that_are_Awaiting_PI_Signature()
+			throws TestingException {
 
 		nativeViewLoginImpl.nativeViewLogin();
 
@@ -649,10 +651,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewAwaitingPISignatureLink);
 		charmsNativeViewPage.nativeViewAwaitingPISignatureLink.click();
-	
+
 	}
-	
-	
+
 	@Given("selects the submitted MyRAS screener record that has signed consent form from participant attached")
 	public void selects_the_submitted_MyRAS_screener_record_that_has_signed_consent_form_from_participant_attached() {
 
@@ -679,10 +680,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		CommonUtils.waitForVisibility(
 				charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton);
 		charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton.click();
-	
+
 	}
-	
-	
+
 	@Given("the ServiceNow user signs the consent form")
 	public void the_ServiceNow_user_signs_the_consent_form() throws TestingException {
 
@@ -698,11 +698,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewLogOutButton);
 		charmsNativeViewPage.nativeViewLogOutButton.click();
-	
-	
+
 	}
 
-	
 	@Given("clicks on the Individual Information Questionnaire to begin the IIQ form")
 	public void clicks_on_the_Individual_Information_Questionnaire_to_begin_the_IIQ_form() {
 
@@ -712,9 +710,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		CommonUtils.waitForVisibility(myRASHomePage.rasoptathyIndividualInformationQuestionnaire);
 		myRASHomePage.rasoptathyIndividualInformationQuestionnaire.click();
 	}
-	
+
 	static String cgbIIQOneTimePin;
-	
+
 	@Given("enters email address and One Time Pin code to proceed with the form")
 	public void enters_email_address_and_One_Time_Pin_code_to_proceed_with_the_form() {
 
@@ -734,15 +732,15 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		}
 
 		CommonUtils.waitForVisibility(cgbIIQPage.cgbIIQOneTimePinTextBox);
+		MiscUtils.sleep(2000);
 		cgbIIQPage.cgbIIQOneTimePinTextBox.sendKeys(cgbIIQOneTimePin);
 
-		cgbIIQPage.cgbIIQOneTimeEmailTextBox.sendKeys("automatedTest@nci.gov");
-		
-		
+		cgbIIQPage.cgbIIQOneTimeEmailTextBox.sendKeys("charmsras4@yahoo.com");
+
 		CucumberLogUtils.logScreenShot();
-		MiscUtils.sleep(2000);
+		MiscUtils.sleep(4000);
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
-		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);	
-		MiscUtils.sleep(2000);
+		cGBIIQPages.nextButton.click();
+		MiscUtils.sleep(10000);
 	}
 }
