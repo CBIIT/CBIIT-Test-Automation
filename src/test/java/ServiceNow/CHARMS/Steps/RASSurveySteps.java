@@ -5,6 +5,7 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.lang3.text.translate.NumericEntityEscaper;
 import org.openqa.selenium.By;
@@ -34,10 +35,10 @@ public class RASSurveySteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 	}
 
+	@Given("logs in via Okta with username {string} and password {string} on login page - myRAS Survey")
+	public void logs_in_via_Okta_with_username_and_password_on_login_page_myRAS_Survey(String username,
+			String password) {
 
-@Given("logs in via Okta with username {string} and password {string} on login page - myRAS Survey")
-public void logs_in_via_Okta_with_username_and_password_on_login_page_myRAS_Survey(String username, String password) {
-	
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.cHARMSEmailLogIn);
 		rASSurveyPage.cHARMSEmailLogIn.sendKeys(username);
@@ -67,7 +68,7 @@ public void logs_in_via_Okta_with_username_and_password_on_login_page_myRAS_Surv
 
 	@Given("selects I am completing this form for myself option on who is completing this form page - myRAS Survey")
 	public void selects_I_am_completing_this_form_for_myself_option_on_who_is_completing_this_form_page_myRAS_Survey() {
-		
+
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.completingFormForSelfRadioButton);
 		rASSurveyPage.completingFormForSelfRadioButton.click();
@@ -77,7 +78,7 @@ public void logs_in_via_Okta_with_username_and_password_on_login_page_myRAS_Surv
 
 	@Given("clicks YES option for Have you ever been included in a published case report or otherwise represented in a public manner by a healthcare provider or researcher? page - myRAS Survey")
 	public void clicks_YES_option_for_Have_you_ever_been_included_in_a_published_case_report_or_otherwise_represented_in_a_public_manner_by_a_healthcare_provider_orresearcher_page_myRAS_Survey() {
-		
+
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
@@ -131,8 +132,8 @@ public void logs_in_via_Okta_with_username_and_password_on_login_page_myRAS_Surv
 	}
 
 	@Given("selects All that apply and enters in other prenatal condition {string} for Were you diagnosed with any of the following conditions during your mothers pregnancy? page - myRAS Survey")
-	public void selects_All_that_apply_and_enters_in_other_prenatal_condition_for_Were_you_diagnosed_with_any_of_the_following_conditions_during_your_mothers_pregnancy_page_myRAS_Survey(String otherPrenatalCondition) {
-
+	public void selects_All_that_apply_and_enters_in_other_prenatal_condition_for_Were_you_diagnosed_with_any_of_the_following_conditions_during_your_mothers_pregnancy_page_myRAS_Survey(
+			String otherPrenatalCondition) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.otherConditionTextBox);
@@ -197,11 +198,13 @@ public void logs_in_via_Okta_with_username_and_password_on_login_page_myRAS_Surv
 	}
 
 	@Given("selects All that apply for and enters herbal supplement {string}, other medication {string}, and other medication {string} for Please select all medications your mother took during her pregnancy with you. page - myRAS Survey")
-	public void selects_All_that_apply_for_and_enters_herbal_supplement_other_medication_and_other_medication_for_Please_select_all_medications_your_mother_took_during_her_pregnancy_with_you_page_myRAS_Survey(String herbalSupplement, String otherMedication1, String otherMedication2 ) {
+	public void selects_All_that_apply_for_and_enters_herbal_supplement_other_medication_and_other_medication_for_Please_select_all_medications_your_mother_took_during_her_pregnancy_with_you_page_myRAS_Survey(
+			String herbalSupplement, String otherMedication1, String otherMedication2) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.herbalSupplementTextBox);
-		rASSurveyStepsImpl.selectingCheckBoxes("Unsure of what medications/supplements/vitamins taken during pregnancy");
+		rASSurveyStepsImpl
+				.selectingCheckBoxes("Unsure of what medications/supplements/vitamins taken during pregnancy");
 		rASSurveyPage.herbalSupplementTextBox.sendKeys(herbalSupplement);
 		rASSurveyPage.otherMedicationTextBox.sendKeys(otherMedication1);
 		rASSurveyPage.otherMedicationTextBox2.sendKeys(otherMedication2);
@@ -222,7 +225,8 @@ public void logs_in_via_Okta_with_username_and_password_on_login_page_myRAS_Surv
 		CommonUtils.selectDropDownValue("5 months", rASSurveyPage.vitaminLenghtOfTimeMedicationWasTakenDropDown);
 		rASSurveyPage.antihypertensivesNameTextBox.sendKeys("PROPRANOLOL");
 		rASSurveyPage.antihypertensiveReasonTextBox.sendKeys("BLOOD PRESSURE");
-		CommonUtils.selectDropDownValue("2 weeks",rASSurveyPage.antihypertensivesLenghtOfTimeMedicationWasTakenDropDown);
+		CommonUtils.selectDropDownValue("2 weeks",
+				rASSurveyPage.antihypertensivesLenghtOfTimeMedicationWasTakenDropDown);
 		rASSurveyPage.insulinMedicationNameTextBox.sendKeys("INSULIN");
 		rASSurveyPage.insulinReasonTextBox.sendKeys("DIABETES");
 		CommonUtils.selectDropDownValue("4 weeks", rASSurveyPage.insulinLenghtOfTimeMedicationWasTakenDropDown);
@@ -244,13 +248,16 @@ public void logs_in_via_Okta_with_username_and_password_on_login_page_myRAS_Surv
 		CommonUtils.selectDropDownValue("4 days", rASSurveyPage.painRelieversLenghtOfTimeMedicationWasTakenDropDown);
 		rASSurveyPage.pretermLaborMedicationNameTextBox.sendKeys("PRETERM LABOR MEDICATION");
 		rASSurveyPage.pretermLaborReasonTextBox.sendKeys("PRETERM LABOR RISK");
-		CommonUtils.selectDropDownValue("3 weeks",rASSurveyPage.medicationsForPretermLaborLenghtOfTimeMedicationWasTakenDropDown);
+		CommonUtils.selectDropDownValue("3 weeks",
+				rASSurveyPage.medicationsForPretermLaborLenghtOfTimeMedicationWasTakenDropDown);
 		rASSurveyPage.thyroidMedicationNameTextBox.sendKeys("THYROID MEDICATION");
 		rASSurveyPage.thyroidReasonTextBox.sendKeys("THYROID ILLNESS");
-		CommonUtils.selectDropDownValue("1 day",rASSurveyPage.thyroidMedicationsLenghtOfTimeMedicationWasTakenDropDown);
+		CommonUtils.selectDropDownValue("1 day",
+				rASSurveyPage.thyroidMedicationsLenghtOfTimeMedicationWasTakenDropDown);
 		rASSurveyPage.antiSeizureNameTextBox.sendKeys("ANTI SEIZURE MEDICATION");
 		rASSurveyPage.antiSeizureReasonTextBox.sendKeys("SEIZURES");
-		CommonUtils.selectDropDownValue("4 days",rASSurveyPage.antiSeizureMedicationsLenghtOfTimeMedicationWasTakenDropDown);
+		CommonUtils.selectDropDownValue("4 days",
+				rASSurveyPage.antiSeizureMedicationsLenghtOfTimeMedicationWasTakenDropDown);
 		rASSurveyPage.oreganoNameTextBox.sendKeys("OREGANO");
 		rASSurveyPage.oreganoReasonTextBox.sendKeys("DIGESTIVE SUPPORT");
 		CommonUtils.selectDropDownValue("9 months", rASSurveyPage.oreganoLenghtOfTimeMedicationWasTakenDropDown);
@@ -288,8 +295,9 @@ public void logs_in_via_Okta_with_username_and_password_on_login_page_myRAS_Surv
 	}
 
 	@Given("selects All that apply and enters other tobacco product {string} for What tobacco products did your biological mother use during her pregnancy with you? page - myRAS Survey")
-	public void selects_All_that_apply_and_enters_other_tobacco_product_for_What_tobacco_products_did_your_biological_mother_use_during_her_pregnancy_with_you_page_myRAS_Survey(String otherTobaccoProducts) {
-		
+	public void selects_All_that_apply_and_enters_other_tobacco_product_for_What_tobacco_products_did_your_biological_mother_use_during_her_pregnancy_with_you_page_myRAS_Survey(
+			String otherTobaccoProducts) {
+
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
@@ -309,8 +317,9 @@ public void logs_in_via_Okta_with_username_and_password_on_login_page_myRAS_Surv
 	}
 
 	@Given("selects All that apply and enters other vape product {string} for Which vaping products did your mother use during her pregnancy with you? Please select all that apply. page - myRAS Survey")
-	public void selects_All_that_apply_and_enters_other_vape_product_for_Which_vaping_products_did_your_mother_use_during_her_pregnancy_with_you_Please_select_all_that_apply_page_myRAS_Survey(String otherVapeProducts) {
-		
+	public void selects_All_that_apply_and_enters_other_vape_product_for_Which_vaping_products_did_your_mother_use_during_her_pregnancy_with_you_Please_select_all_that_apply_page_myRAS_Survey(
+			String otherVapeProducts) {
+
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
@@ -329,9 +338,9 @@ public void logs_in_via_Okta_with_username_and_password_on_login_page_myRAS_Surv
 		rASSurveyPage.surveyNextButton.click();
 	}
 
-
-@Given("selects All that apply and enters other alcoholic beverage {string} for What alcoholic beverages did your mother drink during her pregnancy with you? page - myRAS Survey")
-public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_alcoholic_beverages_did_your_mother_drink_during_her_pregnancy_with_you_page_myRAS_Survey(String otherAlcoholicBeverages) {
+	@Given("selects All that apply and enters other alcoholic beverage {string} for What alcoholic beverages did your mother drink during her pregnancy with you? page - myRAS Survey")
+	public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_alcoholic_beverages_did_your_mother_drink_during_her_pregnancy_with_you_page_myRAS_Survey(
+			String otherAlcoholicBeverages) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
@@ -352,7 +361,8 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	}
 
 	@Given("selects All that apply and enters other recreational drug {string} for What recreational drug did your biological mother use during her pregnancy with you? page - myRAS Survey")
-	public void selects_All_that_apply_and_enters_other_recreational_drug_for_What_recreational_drug_did_your_biological_mother_use_during_her_pregnancy_with_you_page_myRAS_Survey(String otherRecreationalDrugs) {
+	public void selects_All_that_apply_and_enters_other_recreational_drug_for_What_recreational_drug_did_your_biological_mother_use_during_her_pregnancy_with_you_page_myRAS_Survey(
+			String otherRecreationalDrugs) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
@@ -373,7 +383,8 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	}
 
 	@Given("selects All that apply and enters other products used around your mother {string} for What products were used around your biological mother during her pregnancy with you? page - myRAS Survey")
-	public void selects_All_that_apply_and_enters_other_products_used_around_your_mother_for_What_products_were_used_around_your_biological_mother_during_her_pregnancy_with_you_page_myRAS_Survey(String otherPrenatalProducts) {
+	public void selects_All_that_apply_and_enters_other_products_used_around_your_mother_for_What_products_were_used_around_your_biological_mother_during_her_pregnancy_with_you_page_myRAS_Survey(
+			String otherPrenatalProducts) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
@@ -429,7 +440,7 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	@Given("enters Endocrinologist medical provider name {string}, medical provider city, state, country {string}, hospital or medical affiliation {string} in What is the name of the endocrinologist who completed your examination? page - myRAS Survey")
 	public void enters_endocrinologist_medical_provider_name_medical_provider_city_state_country_hospital_or_medical_affiliation_in_What_is_the_name_of_the_endocrinologist_who_completed_your_examination_page_myRAS_Survey(
 			String endocrinologistMedicalProvider, String endocrinologistLocation, String endocrinologistHospital) {
-		
+
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.doctorMedicalProviderNameTextBox);
 		CommonUtils.sendKeys(rASSurveyPage.doctorMedicalProviderNameTextBox, endocrinologistMedicalProvider);
@@ -450,7 +461,8 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	}
 
 	@Given("selects All options that apply enters other hormone testing {string} for What were the results of your growth hormone testing? page - myRAS Survey")
-	public void selects_All_options_that_apply_enters_other_hormone_testing_for_What_were_the_results_of_your_growth_hormone_testing_page_myRAS_Survey(String otherHormoneTesting) {
+	public void selects_All_options_that_apply_enters_other_hormone_testing_for_What_were_the_results_of_your_growth_hormone_testing_page_myRAS_Survey(
+			String otherHormoneTesting) {
 
 		MiscUtils.sleep(1000);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/unknown");
@@ -487,7 +499,8 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.howManyTimesHaveYouReceivedGrowthHormoneTreatmentDropDown);
-		CommonUtils.selectDropDownValue(numberOfgrowthHormoneTreatments,rASSurveyPage.howManyTimesHaveYouReceivedGrowthHormoneTreatmentDropDown);
+		CommonUtils.selectDropDownValue(numberOfgrowthHormoneTreatments,
+				rASSurveyPage.howManyTimesHaveYouReceivedGrowthHormoneTreatmentDropDown);
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
@@ -913,7 +926,7 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 
 	@Given("clicks YES button Are you still on? page - myRAS Survey")
 	public void clicks_YES_button_Are_you_still_on_page_myRAS_Survey() {
-		
+
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
@@ -954,7 +967,8 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 		rASSurveyPage.tachycardiaHospitalOfTreatmentTextBox.sendKeys("INOVA");
 		rASSurveyPage.cardiacConductionDefectFristSymptomTextBox.sendKeys("10 NOVEMBER 2021");
 		rASSurveyPage.cardiacConductionDefectDateOfDiagnosisTextBox.sendKeys("15 NOVEMBER 2021");
-		rASSurveyPage.cardiacConductionDefectTreatmentAndMedicationTextBox.sendKeys("CARDIAC CONDUCTION DEFECT MEDECINE");
+		rASSurveyPage.cardiacConductionDefectTreatmentAndMedicationTextBox
+				.sendKeys("CARDIAC CONDUCTION DEFECT MEDECINE");
 		rASSurveyPage.cardiacConductionDefectHospitalOfTreatmentTextBox.sendKeys("INOVA");
 		rASSurveyPage.heartFailureAgeOfFirstSymptomTextBox.sendKeys("22");
 		rASSurveyPage.heartFailureDateOfDiagnosisTextBox.sendKeys("10 December 2020");
@@ -1026,7 +1040,8 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 		CommonUtils.waitForVisibility(rASSurveyPage.PrimaryCareProviderNameTextBox);
 		rASSurveyPage.PrimaryCareProviderNameTextBox.sendKeys(primaryCareProvider);
 		rASSurveyPage.PrimaryCareProviderLocationTextBox.sendKeys(primaryCareProviderLocation);
-		rASSurveyPage.PrimaryCareProviderHospitalorMedicalCenterAffiliationTextBox.sendKeys(primaryCareProviderHospital);
+		rASSurveyPage.PrimaryCareProviderHospitalorMedicalCenterAffiliationTextBox
+				.sendKeys(primaryCareProviderHospital);
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
@@ -1057,7 +1072,9 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	}
 
 	@Given("clicks + sign to add first food allergy {string} and enters allergic reaction {string} and clicks + sign for second food allergy {string} and enters allergic reaction {string} for Please complete the table below for all Foods to which you are allergic. page - myRAS Survey")
-	public void clicks_sign_to_add_first_food_allergy_and_enters_allergic_reaction_and_clicks_sign_for_second_food_allergy_and_enters_allergic_reaction_for_Please_complete_the_table_below_for_all_Foods_to_which_you_are_allergic_page_myRAS_Survey(String firstFoodAllergy, String firstFoodAllergyReaction, String secondFoodAllergy, String secondFoodAllergyReaction ) {
+	public void clicks_sign_to_add_first_food_allergy_and_enters_allergic_reaction_and_clicks_sign_for_second_food_allergy_and_enters_allergic_reaction_for_Please_complete_the_table_below_for_all_Foods_to_which_you_are_allergic_page_myRAS_Survey(
+			String firstFoodAllergy, String firstFoodAllergyReaction, String secondFoodAllergy,
+			String secondFoodAllergyReaction) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.plusSignButton);
@@ -1072,7 +1089,9 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	}
 
 	@Given("clicks + sign to add other allergy {string} and enters {string} for allergic reaction and clicks + sign for second allergy {string} and enters	{string} for items to which you are allergic that were notincluded in medication or food allergies. page - myRAS Survey")
-	public void clicks_sign_to_add_other_allergy_and_enters_for_allergic_reaction_and_clicks_sign_for_second_allergy_and_enters_for_items_to_which_you_are_allergic_that_were_notincluded_in_medication_or_food_allergies_page_myRAS_Survey(String otherFirstFoodAllergy, String otherFirstFoodAllergyReaction, String otherSecondFoodAllergy, String otherSecondFoodAllergyReaction) {
+	public void clicks_sign_to_add_other_allergy_and_enters_for_allergic_reaction_and_clicks_sign_for_second_allergy_and_enters_for_items_to_which_you_are_allergic_that_were_notincluded_in_medication_or_food_allergies_page_myRAS_Survey(
+			String otherFirstFoodAllergy, String otherFirstFoodAllergyReaction, String otherSecondFoodAllergy,
+			String otherSecondFoodAllergyReaction) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.plusSignButton);
@@ -1098,7 +1117,7 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 
 	@Given("clicks + sign to add type of surgery {string} and enters age for surgery {string} and selects reason for surgery {string} and enters hospital name {string} in Please provide the information for eachbiopsy and surgery in the table below. To add a surgery or biopsy, click on the + button located in the upper left corner of the table. page - myRAS Survey")
 	public void clicks_sign_to_add_type_of_surgery_and_enters_age_for_surgery_and_selects_reason_for_surgery_and_enters_hospital_name_in_Please_provide_the_information_for_eachbiopsy_and_surgery_in_the_table_below_To_add_a_surgery_or_biopsy_click_on_the_button_located_in_the_upper_left_corner_of_the_table_page_myRAS_Survey(
-			String typeOfSurgery, String ageForSurgery, String reasonForSurgery, String surgeryHospital){
+			String typeOfSurgery, String ageForSurgery, String reasonForSurgery, String surgeryHospital) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.plusSignButton);
@@ -1170,7 +1189,7 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	@Given("clicks All that apply and enters other feeding difficulties {string} for Have you ever been diagnosed with any of the following feeding difficulties? These issues often include problems eating food by mouth or keeping food from being vomited. page - myRAS Survey")
 	public void clicks_All_that_apply_and_enters_other_feeding_difficulties_for_Have_you_ever_been_diagnosed_with_any_of_the_following_feeding_difficulties_These_issues_often_include_problems_eating_food_by_mouth_or_keeping_food_from_being_vomited_page_myRAS_Survey(
 			String otherFeedingDifficulties) {
-		
+
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxesAnd("No known feeding difficulties", "Unsure/unknown");
@@ -1267,7 +1286,7 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 
 	@Given("clicks YES for All for Did choking\\/gagging ever lead to. page - myRAS Survey")
 	public void clicks_YES_for_All_for_Did_choking_gagging_ever_lead_to_page_myRAS_Survey() {
-		
+
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.pneumoniaYesRadioButton);
 		rASSurveyPage.pneumoniaYesRadioButton.click();
@@ -1279,7 +1298,7 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 
 	@Given("click YES for All that apply and enters heartburn symptoms at age {string} and enters heartburn medication {string} for Please complete the Testing Docs table below regarding heartburn\\/reflux symptoms. page - myRAS Survey")
 	public void click_YES_for_All_that_apply_and_enters_heartburn_symptoms_at_age_and_enters_heartburn_medication_for_Please_complete_the_Testing_Docs_table_below_regarding_heartburn_reflux_symptoms_page_myRAS_Survey(
-			String ageOfHeartBurnMedication, String heartBurnMedication ) {
+			String ageOfHeartBurnMedication, String heartBurnMedication) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.impedanceStudyYesRadioButton);
@@ -1292,7 +1311,8 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	}
 
 	@Given("click YES for All and enters nausea symptoms at age {string} and enters medication {string} for Please complete the table below regarding nausea symptoms. page - myRAS Survey")
-	public void click_YES_for_All_and_enters_nausea_symptoms_at_age_and_enters_medication_for_Please_complete_the_table_below_regarding_nausea_symptoms_page_myRAS_Survey(String ageOfNausea, String nauseaMedication) {
+	public void click_YES_for_All_and_enters_nausea_symptoms_at_age_and_enters_medication_for_Please_complete_the_table_below_regarding_nausea_symptoms_page_myRAS_Survey(
+			String ageOfNausea, String nauseaMedication) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.bothersomeNauseaForAtLeast2WeeksNotRelatedToMealsYesRadioButton);
@@ -1309,7 +1329,8 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	public void clicks_YES_for_ALL_for_Please_complete_the_next_set_of_questions_regarding_abdominal_pain_page_myRAS_Survey() {
 
 		MiscUtils.sleep(1000);
-		CommonUtils.waitForVisibility(rASSurveyPage.severeDistressingAcutePainAtTheBellyButtomOrEntireAbdomenYesRadioButton);
+		CommonUtils.waitForVisibility(
+				rASSurveyPage.severeDistressingAcutePainAtTheBellyButtomOrEntireAbdomenYesRadioButton);
 		rASSurveyPage.severeDistressingAcutePainAtTheBellyButtomOrEntireAbdomenYesRadioButton.click();
 		rASSurveyPage.areEpisodesOfBellyPainSeparatedByWeeksOrMonthsYesRadioButton.click();
 		rASSurveyPage.doesAbdominalPainPreventTheCompletionOfUsualActivitiesYesRadioButton.click();
@@ -1344,11 +1365,13 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	}
 
 	@Given("selects abdominal medication amount {string} for How many medications have been taken for abdominal pain. page - myRAS Survey")
-	public void selects_abdominal_medication_amount_for_How_many_medications_have_been_taken_for_abdominal_pain_page_myRAS_Survey(String amountOfAbdominalMedication) {
+	public void selects_abdominal_medication_amount_for_How_many_medications_have_been_taken_for_abdominal_pain_page_myRAS_Survey(
+			String amountOfAbdominalMedication) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.howManyMediationsHaveBeenTakenForAbdominal2DropDown);
-		CommonUtils.selectDropDownValue(amountOfAbdominalMedication, rASSurveyPage.howManyMediationsHaveBeenTakenForAbdominal2DropDown);
+		CommonUtils.selectDropDownValue(amountOfAbdominalMedication,
+				rASSurveyPage.howManyMediationsHaveBeenTakenForAbdominal2DropDown);
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
@@ -1370,11 +1393,13 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	public void clicks_YES_button_for_all_Please_complete_the_next_set_of_questions_regarding_vomiting_page_myRAS_Survey() {
 
 		MiscUtils.sleep(1000);
-		CommonUtils.waitForVisibility(rASSurveyPage.everHadAtLeast2MonthsWith1OrMoreEpisodesOfVomitingPerWeekYesRadioButton);
+		CommonUtils.waitForVisibility(
+				rASSurveyPage.everHadAtLeast2MonthsWith1OrMoreEpisodesOfVomitingPerWeekYesRadioButton);
 		rASSurveyPage.everHadAtLeast2MonthsWith1OrMoreEpisodesOfVomitingPerWeekYesRadioButton.click();
 		rASSurveyPage.isVomitingEverSelfInducedYesRadioButton.click();
 		rASSurveyPage.isVomitingRelatedToMedicationSurgeryOrOtherHealthIssueYesRadioButton.click();
-		rASSurveyPage.everHave2OrMoreEpisodesOfIntenseNauseaAndVomitingThatLastsHoursToDaysWithinA6MonthPeriodYesRadioButton.click();
+		rASSurveyPage.everHave2OrMoreEpisodesOfIntenseNauseaAndVomitingThatLastsHoursToDaysWithinA6MonthPeriodYesRadioButton
+				.click();
 		rASSurveyPage.doEpisodesOfVomitingSeemSimilarToEachOtherWhenTheyOccurYesRadioButton.click();
 		rASSurveyPage.areThereWeeksToMonthsWithoutSymptomsOfNauseaVomitingBetweenEpisodesYesRadioButton.click();
 		rASSurveyPage.everVomitedBloodYesRadioButton.click();
@@ -1393,18 +1418,21 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	}
 
 	@Given("selects vomiting medication amount {string} for How many medications have been taken for vomiting? page - myRAS Survey")
-	public void selects_vomiting_medicaiton_amount_for_How_many_medications_have_been_taken_for_vomiting_page_myRAS_Survey(String amountOfVomitingMedications) {
+	public void selects_vomiting_medicaiton_amount_for_How_many_medications_have_been_taken_for_vomiting_page_myRAS_Survey(
+			String amountOfVomitingMedications) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.howManyMedicationsHaveBeenTakenForVomiting2DropDown);
-		CommonUtils.selectDropDownValue(amountOfVomitingMedications, rASSurveyPage.howManyMedicationsHaveBeenTakenForVomiting2DropDown);
+		CommonUtils.selectDropDownValue(amountOfVomitingMedications,
+				rASSurveyPage.howManyMedicationsHaveBeenTakenForVomiting2DropDown);
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
 
 	@Given("enters vomiting details at age {string} and enters medication {string} and enters second age {string} for second medication {string} for second medication for Please complete the list below by describing any medications taken for vomiting and the age when these medications were taken. page - myRAS Survey")
 	public void enters_vomiting_details_at_age_and_enters_medication_and_enters_second_age_for_second_medication_for_second_medication_for_Please_complete_the_list_below_by_describing_any_medications_taken_for_vomiting_and_the_age_when_these_medications_were_taken_page_myRAS_Survey(
-			String ageOfVomitingMedication, String typeVomitingMedication, String secondAgeOfVomitingMedication, String secondTypeOfVomitingMedication) {
+			String ageOfVomitingMedication, String typeVomitingMedication, String secondAgeOfVomitingMedication,
+			String secondTypeOfVomitingMedication) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.pleaseIncludeAgeWhenEachMedicationWasTakenTextBox);
@@ -1431,8 +1459,10 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 			String amountOfJaundiceTime, String amountOfTimeJaundiceLasted) {
 
 		MiscUtils.sleep(1000);
-		CommonUtils.waitForVisibility(rASSurveyPage.whatAgeDidJaundiceOccurPleaseSpecifyIfDaysWeeksMonthsYearsOld1DayTextBox);
-		rASSurveyPage.whatAgeDidJaundiceOccurPleaseSpecifyIfDaysWeeksMonthsYearsOld1DayTextBox.sendKeys(amountOfJaundiceTime);
+		CommonUtils.waitForVisibility(
+				rASSurveyPage.whatAgeDidJaundiceOccurPleaseSpecifyIfDaysWeeksMonthsYearsOld1DayTextBox);
+		rASSurveyPage.whatAgeDidJaundiceOccurPleaseSpecifyIfDaysWeeksMonthsYearsOld1DayTextBox
+				.sendKeys(amountOfJaundiceTime);
 		rASSurveyPage.howLongDidJaundiceLastTextBox.sendKeys(amountOfTimeJaundiceLasted);
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
@@ -1440,7 +1470,7 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 
 	@Given("clicks YES Do you take a lactose supplement? page - myRAS Survey")
 	public void clicks_YES_Do_you_take_a_lactose_supplement_page_myRAS_Survey() {
-		
+
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
@@ -1453,8 +1483,10 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 			String foodsToAvoid) {
 
 		MiscUtils.sleep(1000);
-		CommonUtils.waitForVisibility(rASSurveyPage.describeFoodsThatYouAvoidBecauseYouDoNotLikeTheTextureOrOtherPhysicalQualitiesOfTheFoodEggsTextBox);
-		rASSurveyPage.describeFoodsThatYouAvoidBecauseYouDoNotLikeTheTextureOrOtherPhysicalQualitiesOfTheFoodEggsTextBox.sendKeys(foodsToAvoid);
+		CommonUtils.waitForVisibility(
+				rASSurveyPage.describeFoodsThatYouAvoidBecauseYouDoNotLikeTheTextureOrOtherPhysicalQualitiesOfTheFoodEggsTextBox);
+		rASSurveyPage.describeFoodsThatYouAvoidBecauseYouDoNotLikeTheTextureOrOtherPhysicalQualitiesOfTheFoodEggsTextBox
+				.sendKeys(foodsToAvoid);
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
@@ -1473,7 +1505,7 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 
 	@Given("enters amount of episodes {string} for episodes in a day and enters {string} for medication used and enters {string} for age when medication was taken in Please complete the table below regarding diarrhea. If medications have never been used, please put N\\/A in the box. page - myRAS Survey")
 	public void enters_amount_of_episodes_for_episodes_in_a_day_and_enters_for_medication_used_and_enters_for_age_when_medication_was_taken_in_Please_complete_the_table_below_regarding_diarrhea_If_medications_have_never_been_used_please_put_N_A_in_the_box_page_myRAS_Survey(
-			String amountOfEpisodes, String medicationOfEpisodes, String ageDuringEpisodes){
+			String amountOfEpisodes, String medicationOfEpisodes, String ageDuringEpisodes) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.whenDiarrheaOccursHowManyEpisodesOccurInOneDayTextBox);
@@ -1516,7 +1548,7 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	@Given("enters weight {string} for weight lost and enters {string} for over period of time where loss of weight occured and enters {string} for gained back weight in Please complete the table below regarding weight loss. page - myRAS Survey")
 	public void enters_weight_for_weight_lost_and_enters_for_over_period_of_time_where_loss_of_weight_occured_and_enters_for_gained_back_weight_in_Please_complete_the_table_below_regarding_weight_loss_page_myRAS_Survey(
 			String amountOfWeightLost, String timeOfWeightLost, String gainedBackWeight) {
-		
+
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.howMuchWeightHasBeenLostTextBox);
 		rASSurveyPage.howMuchWeightHasBeenLostTextBox.sendKeys(amountOfWeightLost);
@@ -1552,11 +1584,13 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	}
 
 	@Given("selects toilet trained age {string} for At what age \\(approximately) were you toilet trained? page - myRAS Survey")
-	public void selects_toilet_trained_age_for_At_what_age_approximately_were_you_toilet_trained_page_myRAS_Survey(String ageOfToiletTraining) {
+	public void selects_toilet_trained_age_for_At_what_age_approximately_were_you_toilet_trained_page_myRAS_Survey(
+			String ageOfToiletTraining) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CommonUtils.selectDropDownValue(ageOfToiletTraining, rASSurveyPage.atWhatAgeApproximatelyWereYouToiletTrainedDropDown);
+		CommonUtils.selectDropDownValue(ageOfToiletTraining,
+				rASSurveyPage.atWhatAgeApproximatelyWereYouToiletTrainedDropDown);
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
@@ -1578,18 +1612,21 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.isTheToiletConsistentlyUsedForAllBowelMovementsYesRadioButton);
 		rASSurveyPage.isTheToiletConsistentlyUsedForAllBowelMovementsYesRadioButton.click();
-		rASSurveyPage.haveThereBeenAnyEpisodesOfRepeatedBowelMovementAccidentsAfterBeingToiletTrainedYesRadioButton.click();
+		rASSurveyPage.haveThereBeenAnyEpisodesOfRepeatedBowelMovementAccidentsAfterBeingToiletTrainedYesRadioButton
+				.click();
 		rASSurveyPage.isTherePainWithBowelMovementsYesRadioButton.click();
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
 
 	@Given("selects bowel movement per week amount {string} for How many bowel movements do you have per week? page - myRAS Survey")
-	public void selects_bowel_movement_per_week_amount_for_How_many_bowel_movements_do_you_have_per_week_page_myRAS_Survey(String amountOfBowelMovements) {
+	public void selects_bowel_movement_per_week_amount_for_How_many_bowel_movements_do_you_have_per_week_page_myRAS_Survey(
+			String amountOfBowelMovements) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CommonUtils.selectDropDownValue(amountOfBowelMovements, rASSurveyPage.howManyBowelMovementsDoYouHavePerWeekDropDown);
+		CommonUtils.selectDropDownValue(amountOfBowelMovements,
+				rASSurveyPage.howManyBowelMovementsDoYouHavePerWeekDropDown);
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
@@ -1600,18 +1637,22 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CommonUtils.selectDropDownValue(longestAmountOfTimeWithoutBowelMovement,rASSurveyPage.whatIsTheLongestAmountOfTimeThatHasPassedWithoutYouHavingABowelMovementDropDown);
+		CommonUtils.selectDropDownValue(longestAmountOfTimeWithoutBowelMovement,
+				rASSurveyPage.whatIsTheLongestAmountOfTimeThatHasPassedWithoutYouHavingABowelMovementDropDown);
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
 
 	@Given("clicks type one for Please use the Bristol Stool Chart shown below and select the choice that best represents what typical bowel movements look like. page - myRAS Survey")
 	public void clicks_type_one_for_Please_use_the_Bristol_Stool_Chart_shown_below_and_select_the_choice_that_best_represents_what_typical_bowel_movements_look_like_page_myRAS_Survey() {
-		
+
 		MiscUtils.sleep(1500);
-		CommonUtils.waitForVisibility(rASSurveyPage.bristolStoolChartShownBelowAndSelectTheChoiceThatBestRepresentsWhatTypicalBowelMovementsLookLikeType1RadioButton);
-		JavascriptUtils.scrollIntoView(rASSurveyPage.bristolStoolChartShownBelowAndSelectTheChoiceThatBestRepresentsWhatTypicalBowelMovementsLookLikeType1RadioButton);
-		rASSurveyPage.bristolStoolChartShownBelowAndSelectTheChoiceThatBestRepresentsWhatTypicalBowelMovementsLookLikeType1RadioButton.click();
+		CommonUtils.waitForVisibility(
+				rASSurveyPage.bristolStoolChartShownBelowAndSelectTheChoiceThatBestRepresentsWhatTypicalBowelMovementsLookLikeType1RadioButton);
+		JavascriptUtils.scrollIntoView(
+				rASSurveyPage.bristolStoolChartShownBelowAndSelectTheChoiceThatBestRepresentsWhatTypicalBowelMovementsLookLikeType1RadioButton);
+		rASSurveyPage.bristolStoolChartShownBelowAndSelectTheChoiceThatBestRepresentsWhatTypicalBowelMovementsLookLikeType1RadioButton
+				.click();
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
@@ -1633,7 +1674,8 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
-		rASSurveyPage.pleaseIndicateWhichOfTheFollowingProceduresHaveBeenPerformedPleaseSelectAllThatApplyOtherGITestPleaseSpecifyExamTextBox.sendKeys(otherGiTests);
+		rASSurveyPage.pleaseIndicateWhichOfTheFollowingProceduresHaveBeenPerformedPleaseSelectAllThatApplyOtherGITestPleaseSpecifyExamTextBox
+				.sendKeys(otherGiTests);
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
@@ -1667,7 +1709,8 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 		rASSurveyPage.phProbeOrImpedanceStudyExPainEtcTestTextBox.sendKeys("HAD PAIN");
 		rASSurveyPage.phProbeOrImpedanceStudyExPolypUlcerTestTextBox.sendKeys("POSITIVE");
 		rASSurveyPage.phProbeOrImpedanceStudyHospitalNameCityStateProvinceCountryTextBox.sendKeys("INOVA, FAIRFAX VA");
-		rASSurveyPage.phProbeOrImpedanceStudyPleaseSelectThisColumnIfOnlyOneProcedureHasBeenPerformedRadioButton.click();
+		rASSurveyPage.phProbeOrImpedanceStudyPleaseSelectThisColumnIfOnlyOneProcedureHasBeenPerformedRadioButton
+				.click();
 		rASSurveyPage.upperGiSwallowStudyMmYyOrDontKnowTextBox.sendKeys("06/06");
 		rASSurveyPage.upperGiSwallowStudyExPainEtcTestTextBox.sendKeys("HAD PAIN");
 		rASSurveyPage.upperGiSwallowStudyExPolypUlcerTestTextBox.sendKeys("POSITIVE");
@@ -1676,8 +1719,10 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 		rASSurveyPage.modifiedBariumSwallowStudyMmYyOrDontKnowTextBox.sendKeys("07/07");
 		rASSurveyPage.modifiedBariumSwallowStudyExPainEtcTestTextBox.sendKeys("HAD PAIN");
 		rASSurveyPage.modifiedBariumSwallowStudyExPolypUlcerTestTextBox.sendKeys("POSITIVE");
-		rASSurveyPage.modifiedBariumSwallowStudyHospitalNameCityStateProvinceCountryTextBox.sendKeys("INOVA, FAIRFAX VA");
-		rASSurveyPage.modifiedBariumSwallowStudyPleaseSelectThisColumnIfOnlyOneProcedureHasBeenPerformedRadioButton.click();
+		rASSurveyPage.modifiedBariumSwallowStudyHospitalNameCityStateProvinceCountryTextBox
+				.sendKeys("INOVA, FAIRFAX VA");
+		rASSurveyPage.modifiedBariumSwallowStudyPleaseSelectThisColumnIfOnlyOneProcedureHasBeenPerformedRadioButton
+				.click();
 		rASSurveyPage.gastricEmptyingStudyMmYyOrDontKnowTextBox.sendKeys("08/08");
 		rASSurveyPage.gastricEmptyingStudyExPainEtcTestTextBox.sendKeys("HAD PAIN");
 		rASSurveyPage.gastricEmptyingStudyExPolypUlcerTestTextBox.sendKeys("POSITIVE");
@@ -1786,7 +1831,7 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	@Given("enters name of Dentist {string} and enters location {string}, and enters Medical Center {string} for Please provide the information below for where dental care is received. page - myRAS Survey")
 	public void enters_name_of_Dentist_and_enters_location_and_enters_Medical_Center_for_Please_provide_the_information_below_for_where_dental_care_is_received_page_myRAS_Survey(
 			String dentistName, String dentistLocation, String dentistMedicalCenter) {
-		
+
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.nameOfDentistTextBox);
 		rASSurveyPage.nameOfDentistTextBox.sendKeys(dentistName);
@@ -1799,7 +1844,7 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	@Given("enters last dentist visit date {string} for when did you last visit a dentist? Please use format month\\/year as MM\\/YY. page - myRAS Survey")
 	public void enters_last_dentist_visit_date_for_when_did_you_last_visit_a_dentist_Please_use_format_month_year_as_MM_YY_page_myRAS_Survey(
 			String lastDentistVisit) {
-		
+
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.whenDidYouLastVisitADentistTextBox);
 		rASSurveyPage.whenDidYouLastVisitADentistTextBox.sendKeys(lastDentistVisit);
@@ -1916,7 +1961,7 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
-	
+
 	@Given("clicks YES button for Have you had any changes in your sense of taste \\(NOT related to a diagnosis of COVID)? page - myRAS Survey")
 	public void clicks_YES_button_for_Have_you_had_any_changes_in_your_sense_of_taste_NOT_related_to_a_diagnosis_of_COVID_page_myRAS_Survey() {
 
@@ -2068,8 +2113,10 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 			String unusualDentalCondition) {
 
 		MiscUtils.sleep(1000);
-		CommonUtils.waitForVisibility(rASSurveyPage.overallIsThereAnythingUnusualAboutYourTeethOrMouthYesPleaseSpecifyWhatIsUnusualRadioButton);
-		rASSurveyPage.overallIsThereAnythingUnusualAboutYourTeethOrMouthYesPleaseSpecifyWhatIsUnusualRadioButton.click();
+		CommonUtils.waitForVisibility(
+				rASSurveyPage.overallIsThereAnythingUnusualAboutYourTeethOrMouthYesPleaseSpecifyWhatIsUnusualRadioButton);
+		rASSurveyPage.overallIsThereAnythingUnusualAboutYourTeethOrMouthYesPleaseSpecifyWhatIsUnusualRadioButton
+				.click();
 		rASSurveyPage.yesPleaseSpecifyWhatIsUnusualRadioButton.sendKeys(unusualDentalCondition);
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
@@ -2079,18 +2126,21 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	public void clicks_Occasionally_for_Have_you_had_trouble_pronouncing_any_words_because_of_problems_with_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
 
 		MiscUtils.sleep(1000);
-		CommonUtils.waitForVisibility(rASSurveyPage.troublePronouncingWordsBecauseOfProblemsWithTeethMouthOrDenturesOcassionallyRadioButton);
+		CommonUtils.waitForVisibility(
+				rASSurveyPage.troublePronouncingWordsBecauseOfProblemsWithTeethMouthOrDenturesOcassionallyRadioButton);
 		rASSurveyPage.troublePronouncingWordsBecauseOfProblemsWithTeethMouthOrDenturesOcassionallyRadioButton.click();
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
- 
+
 	@Given("clicks Occasionally for Have you felt that your sense of taste has worsened because of problems with your teeth, mouth or dentures? page - myRAS Survey")
 	public void clicks_Occasionally_for_Have_you_felt_that_your_sense_of_taste_has_worsened_because_of_problems_with_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
 
 		MiscUtils.sleep(1000);
-		CommonUtils.waitForVisibility(rASSurveyPage.haveYouFeltYourSenseOfTasteWorsenedBecauseOfProblemsWithTeethMouthOrDenturesOcassionallyRadioButton);
-		rASSurveyPage.haveYouFeltYourSenseOfTasteWorsenedBecauseOfProblemsWithTeethMouthOrDenturesOcassionallyRadioButton.click();
+		CommonUtils.waitForVisibility(
+				rASSurveyPage.haveYouFeltYourSenseOfTasteWorsenedBecauseOfProblemsWithTeethMouthOrDenturesOcassionallyRadioButton);
+		rASSurveyPage.haveYouFeltYourSenseOfTasteWorsenedBecauseOfProblemsWithTeethMouthOrDenturesOcassionallyRadioButton
+				.click();
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
@@ -2109,8 +2159,10 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	public void clicks_Occasionally_for_Have_you_found_it_uncomfortable_to_eat_any_foods_because_of_problems_with_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
 
 		MiscUtils.sleep(1000);
-		CommonUtils.waitForVisibility(rASSurveyPage.haveYouFoundItUnconfortableToEatFoodsBecauseOfProblemsWithTeethMouthOrDenturesOcassionallyRadioButton);
-		rASSurveyPage.haveYouFoundItUnconfortableToEatFoodsBecauseOfProblemsWithTeethMouthOrDenturesOcassionallyRadioButton.click();
+		CommonUtils.waitForVisibility(
+				rASSurveyPage.haveYouFoundItUnconfortableToEatFoodsBecauseOfProblemsWithTeethMouthOrDenturesOcassionallyRadioButton);
+		rASSurveyPage.haveYouFoundItUnconfortableToEatFoodsBecauseOfProblemsWithTeethMouthOrDenturesOcassionallyRadioButton
+				.click();
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
@@ -2119,7 +2171,8 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	public void clicks_Occasionally_for_Are_you_self_conscious_because_of_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
 
 		MiscUtils.sleep(1000);
-		CommonUtils.waitForVisibility(rASSurveyPage.areYouSelfConsciousBecauseOfYourTeethMouthOrDenturesOccasionallyRadioButton);
+		CommonUtils.waitForVisibility(
+				rASSurveyPage.areYouSelfConsciousBecauseOfYourTeethMouthOrDenturesOccasionallyRadioButton);
 		rASSurveyPage.areYouSelfConsciousBecauseOfYourTeethMouthOrDenturesOccasionallyRadioButton.click();
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
@@ -2129,7 +2182,8 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	public void clicks_Occasionally_for_Have_you_felt_tense_because_of_problems_with_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
 
 		MiscUtils.sleep(1000);
-		CommonUtils.waitForVisibility(rASSurveyPage.haveYouFeltTenseBecauseOfProblemsWithYourTeethMouthOrDenturesOccasionallyRadioButton);
+		CommonUtils.waitForVisibility(
+				rASSurveyPage.haveYouFeltTenseBecauseOfProblemsWithYourTeethMouthOrDenturesOccasionallyRadioButton);
 		rASSurveyPage.haveYouFeltTenseBecauseOfProblemsWithYourTeethMouthOrDenturesOccasionallyRadioButton.click();
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
@@ -2139,8 +2193,10 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	public void clicks_Occasionally_Has_your_diet_been_unsatisfactory_because_of_problems_with_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
 
 		MiscUtils.sleep(1000);
-		CommonUtils.waitForVisibility(rASSurveyPage.hasYourDietBeenUnsatisfactoryBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton);
-		rASSurveyPage.hasYourDietBeenUnsatisfactoryBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton.click();
+		CommonUtils.waitForVisibility(
+				rASSurveyPage.hasYourDietBeenUnsatisfactoryBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton);
+		rASSurveyPage.hasYourDietBeenUnsatisfactoryBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton
+				.click();
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
@@ -2149,8 +2205,10 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	public void clicks_Occasionally_Have_you_had_to_interrupt_meals_because_of_problems_with_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
 
 		MiscUtils.sleep(1000);
-		CommonUtils.waitForVisibility(rASSurveyPage.haveYouHadToInterruptMealsBeacuseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton);
-		rASSurveyPage.haveYouHadToInterruptMealsBeacuseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton.click();
+		CommonUtils.waitForVisibility(
+				rASSurveyPage.haveYouHadToInterruptMealsBeacuseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton);
+		rASSurveyPage.haveYouHadToInterruptMealsBeacuseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton
+				.click();
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
@@ -2159,8 +2217,10 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	public void clicks_Occasionally_Have_you_found_it_difficult_to_relax_because_of_problems_with_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
 
 		MiscUtils.sleep(1000);
-		CommonUtils.waitForVisibility(rASSurveyPage.haveYouFoundItDifficultToRelaxBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton);
-		rASSurveyPage.haveYouFoundItDifficultToRelaxBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton.click();
+		CommonUtils.waitForVisibility(
+				rASSurveyPage.haveYouFoundItDifficultToRelaxBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton);
+		rASSurveyPage.haveYouFoundItDifficultToRelaxBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton
+				.click();
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
@@ -2169,8 +2229,10 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	public void clicks_Occasionally_Have_you_been_a_bit_embarrassed_because_of_problems_with_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
 
 		MiscUtils.sleep(1000);
-		CommonUtils.waitForVisibility(rASSurveyPage.haveYouBeenABitEmbarrassedBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton);
-		rASSurveyPage.haveYouBeenABitEmbarrassedBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton.click();
+		CommonUtils.waitForVisibility(
+				rASSurveyPage.haveYouBeenABitEmbarrassedBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton);
+		rASSurveyPage.haveYouBeenABitEmbarrassedBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton
+				.click();
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
@@ -2179,8 +2241,10 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	public void clicks_Occasionally_Have_you_been_irritable_with_other_people_because_of_problems_with_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
 
 		MiscUtils.sleep(1000);
-		CommonUtils.waitForVisibility(rASSurveyPage.haveYouBeenIrritableWithOtherPeopleBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton);
-		rASSurveyPage.haveYouBeenIrritableWithOtherPeopleBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton.click();
+		CommonUtils.waitForVisibility(
+				rASSurveyPage.haveYouBeenIrritableWithOtherPeopleBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton);
+		rASSurveyPage.haveYouBeenIrritableWithOtherPeopleBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton
+				.click();
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
@@ -2189,8 +2253,10 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	public void clicks_Occasionally_Have_you_had_difficulty_doing_your_usual_jobs_because_of_problems_with_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
 
 		MiscUtils.sleep(1000);
-		CommonUtils.waitForVisibility(rASSurveyPage.haveYouHadDifficultyDoingYourUsualJobsBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton);
-		rASSurveyPage.haveYouHadDifficultyDoingYourUsualJobsBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton.click();
+		CommonUtils.waitForVisibility(
+				rASSurveyPage.haveYouHadDifficultyDoingYourUsualJobsBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton);
+		rASSurveyPage.haveYouHadDifficultyDoingYourUsualJobsBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton
+				.click();
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
@@ -2199,8 +2265,10 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	public void clicks_Occasionally_Have_you_felt_that_life_in_general_is_less_satisfying_because_of_problems_with_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
 
 		MiscUtils.sleep(1000);
-		CommonUtils.waitForVisibility(rASSurveyPage.haveYouFeltThatLifeInGeneralIsLessSatisfyingBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton);
-		rASSurveyPage.haveYouFeltThatLifeInGeneralIsLessSatisfyingBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton.click();
+		CommonUtils.waitForVisibility(
+				rASSurveyPage.haveYouFeltThatLifeInGeneralIsLessSatisfyingBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton);
+		rASSurveyPage.haveYouFeltThatLifeInGeneralIsLessSatisfyingBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton
+				.click();
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
@@ -2209,8 +2277,10 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	public void clicks_Occasionally_Have_you_been_totally_unable_to_function_because_of_problems_with_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
 
 		MiscUtils.sleep(1000);
-		CommonUtils.waitForVisibility(rASSurveyPage.haveYouBeenTotallyUnableToFunctionBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton);
-		rASSurveyPage.haveYouBeenTotallyUnableToFunctionBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton.click();
+		CommonUtils.waitForVisibility(
+				rASSurveyPage.haveYouBeenTotallyUnableToFunctionBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton);
+		rASSurveyPage.haveYouBeenTotallyUnableToFunctionBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton
+				.click();
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
@@ -2255,31 +2325,38 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 		rASSurveyPage.neonatalLymphedemaAgeOfFirstSymptomsTextBox.sendKeys("1");
 		rASSurveyPage.neonatalLymphedemaAgeOfDiagnosisTextBox.sendKeys("1");
 		rASSurveyPage.neonatalLymphedemaMedicationOrProcedureTextBox.sendKeys("KETOPROFEN");
-		rASSurveyPage.neonatalLymphedemaNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox.sendKeys("INOVA URGENT CARE - NORTH ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
+		rASSurveyPage.neonatalLymphedemaNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox
+				.sendKeys("INOVA URGENT CARE - NORTH ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
 		rASSurveyPage.lymphedemaAgeOfFirstSymptomsTextBox.sendKeys("1");
 		rASSurveyPage.lymphedemaAgeOfDiagnosisTextBox.sendKeys("1");
 		rASSurveyPage.lymphedemaMedicationOrProcedureTextBox.sendKeys("AMOXICILLIN");
-		rASSurveyPage.lymphedemaNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox.sendKeys("INOVA URGENT CARE - NORTH ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
+		rASSurveyPage.lymphedemaNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox
+				.sendKeys("INOVA URGENT CARE - NORTH ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
 		rASSurveyPage.congenitalChylothoraxAgeOfFirstSymptomsTextBox.sendKeys("1");
 		rASSurveyPage.congenitalChylothoraxAgeOfDiagnosisTextBox.sendKeys("1");
 		rASSurveyPage.congenitalChylothoraxMedicationOrProcedureTextBox.sendKeys("OCTREOTIDE");
-		rASSurveyPage.congenitalChylothoraxNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox.sendKeys("INOVA URGENT CARE - NORTH ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
+		rASSurveyPage.congenitalChylothoraxNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox
+				.sendKeys("INOVA URGENT CARE - NORTH ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
 		rASSurveyPage.pleuralEffusionChylothoraxAgeOfFirstSymptomsTextBox.sendKeys("1");
 		rASSurveyPage.pleuralEffusionChylothoraxAgeOfDiagnosisTextBox.sendKeys("1");
 		rASSurveyPage.pleuralEffusionChylothoraxMedicationOrProcedureTextBox.sendKeys("CLINDAMYCIN");
-		rASSurveyPage.pleuralEffusionChylothoraxNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox.sendKeys("INOVA URGENT CARE - NORTH ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
+		rASSurveyPage.pleuralEffusionChylothoraxNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox
+				.sendKeys("INOVA URGENT CARE - NORTH ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
 		rASSurveyPage.lymphangiomaAgeOfFirstSymptomsTextBox.sendKeys("10");
 		rASSurveyPage.lymphangiomaAgeOfDiagnosisTextBox.sendKeys("11");
 		rASSurveyPage.lymphangiomaMedicationOrProcedureTextBox.sendKeys("SIROLIMUS");
-		rASSurveyPage.lymphangiomaNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox.sendKeys("INOVA URGENT CARE - NORTH ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
+		rASSurveyPage.lymphangiomaNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox
+				.sendKeys("INOVA URGENT CARE - NORTH ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
 		rASSurveyPage.chronicAbdominalPainAgeOfFirstSymptomsBox.sendKeys("15");
 		rASSurveyPage.chronicAbdominalPainAgeOfDiagnosisBox.sendKeys("16");
 		rASSurveyPage.chronicAbdominalPainMedicationOrProcedureTextBox.sendKeys("TYLENOL");
-		rASSurveyPage.chronicAbdominalPainNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox.sendKeys("INOVA URGENT CARE - NORTH ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
+		rASSurveyPage.chronicAbdominalPainNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox
+				.sendKeys("INOVA URGENT CARE - NORTH ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
 		rASSurveyPage.poorLymphaticDrainageAgeOfFirstSymptomsTextBox.sendKeys("20");
 		rASSurveyPage.poorLymphaticDrainageAgeOfDiagnosisTextBox.sendKeys("21");
 		rASSurveyPage.poorLymphaticDrainageMedicationOrProcedureTextBox.sendKeys("ASTRAGALUS");
-		rASSurveyPage.poorLymphaticDrainageNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox.sendKeys("INOVA URGENT CARE - NORTH ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
+		rASSurveyPage.poorLymphaticDrainageNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox
+				.sendKeys("INOVA URGENT CARE - NORTH ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 
@@ -2472,10 +2549,9 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 		rASSurveyPage.surveyNextButton.click();
 	}
 
-
 	@Given("clicks Next button for The next set of questions ask about skeletal conditions. Skeletal conditions involve the bones throughout the body page. page - myRAS Survey")
 	public void clicks_Next_button_for_The_next_set_of_questions_ask_about_skeletal_conditions_Skeletal_conditions_involve_the_bones_throughout_the_body_page_page_myRAS_Survey() {
-		
+
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		CucumberLogUtils.logScreenShot();
@@ -2528,7 +2604,8 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	}
 
 	@Given("clicks All that apply and enters other spine condition {string} for Have you ever been diagnosed with any of the following types of curvature of the spin. page - myRAS Survey")
-	public void clicks_All_that_apply_and_enters_other_spine_condition_for_Have_you_ever_been_diagnosed_with_any_of_the_following_types_of_curvature_of_the_spin_page_myRAS_Survey(String otherSpineCondition) {
+	public void clicks_All_that_apply_and_enters_other_spine_condition_for_Have_you_ever_been_diagnosed_with_any_of_the_following_types_of_curvature_of_the_spin_page_myRAS_Survey(
+			String otherSpineCondition) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
@@ -2540,7 +2617,7 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 
 	@Given("enters all details for Please complete the table below for each of the spine issues listed. For each condition, please indicate your age or date when they occurred \\(you do not need to include both). If you do not recall the details, place	an X in the column Dont know. For the treatment column, if no treatment was	required, please write None. page - myRAS Survey")
 	public void enters_all_details_for_Please_complete_the_table_below_for_each_of_the_spine_issues_listed_For_each_condition_please_indicate_your_age_or_date_when_they_occurred_you_do_not_need_to_include_both_If_you_do_not_recall_the_details_place_an_X_in_the_column_Dont_know_For_the_treatment_column_if_no_treatment_was_required_please_write_None_page_myRAS_Survey() {
-		
+
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.scoliosisFirstSymptomsDateTextBox);
 		rASSurveyPage.scoliosisFirstSymptomsDateTextBox.sendKeys("03/03");
@@ -2589,7 +2666,8 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	}
 
 	@Given("clicks ALL that apply and enters other joint issue {string} for Have you ever been diagnosed with the following joint issues page? page - myRAS Survey")
-	public void clicks_ALL_that_apply_and_enters_other_joint_issue_for_Have_you_ever_been_diagnosed_with_the_following_joint_issues_page_page_myRAS_Survey(String otherJointIssue) {
+	public void clicks_ALL_that_apply_and_enters_other_joint_issue_for_Have_you_ever_been_diagnosed_with_the_following_joint_issues_page_page_myRAS_Survey(
+			String otherJointIssue) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
@@ -2691,10 +2769,10 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
-	
+
 	@Given("enters All details for Please complete the table below for each of the bleeding bruising issues listed. For each condition, please provide your age or date when symptoms first started and at diagnosis, you only need to provide date or age, but not both. If you do not recall the details, please place an X in the Dont know column. If no treatment was required, please write None in the treatment column. page - myRAS Survey")
 	public void enters_All_details_for_Please_complete_the_table_below_for_each_of_the_bleeding_bruising_issues_listed_For_each_condition_please_provide_your_age_or_date_when_symptoms_first_started_and_at_diagnosis_you_only_need_to_provide_date_or_age_but_not_both_If_you_do_not_recall_the_details_please_place_an_X_in_the_Dont_know_column_If_no_treatment_was_required_please_write_None_in_the_treatment_column_page_myRAS_Survey() {
-		
+
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.easyBruisingFirstSymptomsDateTextBox);
 		rASSurveyPage.easyBruisingFirstSymptomsDateTextBox.sendKeys("03/03");
@@ -2749,10 +2827,9 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 		rASSurveyPage.surveyNextButton.click();
 	}
 
+	@Given("enters All details for Please complete the table below for each of the blood disorders issues listed. For each condition listed, please include either your age or date of symptoms and diagnosis \\(you do not need to include both date and age). If you do not recall the details, please place an X in the column Dont know. If no treatment was required, please write None in the Treatment column. page - myRAS Survey")
+	public void enters_All_details_for_Please_complete_the_table_below_for_each_of_the_blood_disorders_issues_listed_For_each_condition_listed_please_include_either_your_age_or_date_of_symptoms_and_diagnosis_you_do_not_need_to_include_both_date_and_age_If_you_do_not_recall_the_details_please_place_an_X_in_the_column_Dont_know_If_no_treatment_was_required_please_write_None_in_the_Treatment_column_page_myRAS_Survey() {
 
-@Given("enters All details for Please complete the table below for each of the blood disorders issues listed. For each condition listed, please include either your age or date of symptoms and diagnosis \\(you do not need to include both date and age). If you do not recall the details, please place an X in the column Dont know. If no treatment was required, please write None in the Treatment column. page - myRAS Survey")
-public void enters_All_details_for_Please_complete_the_table_below_for_each_of_the_blood_disorders_issues_listed_For_each_condition_listed_please_include_either_your_age_or_date_of_symptoms_and_diagnosis_you_do_not_need_to_include_both_date_and_age_If_you_do_not_recall_the_details_please_place_an_X_in_the_column_Dont_know_If_no_treatment_was_required_please_write_None_in_the_Treatment_column_page_myRAS_Survey() {
-	
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.splenomegalyFirstSymptomsDateTextBox);
 		rASSurveyPage.splenomegalyFirstSymptomsDateTextBox.sendKeys("01/01");
@@ -2821,7 +2898,7 @@ public void enters_All_details_for_Please_complete_the_table_below_for_each_of_t
 
 	@Given("enters All details for Please complete the table below for each of the tumors listed. Please include your age or date when symptoms first started and diagnosis you do not need to include both age and date. If you do not recall the details, please place an X under the Dont know column. page - myRAS Survey")
 	public void enters_All_details_for_Please_complete_the_table_below_for_each_of_the_tumors_listed_Please_include_your_age_or_date_when_symptoms_first_started_and_diagnosis_you_do_not_need_to_include_both_age_and_date_If_you_do_not_recall_the_details_please_place_an_X_under_the_Dont_know_column_page_myRAS_Survey() {
-		
+
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.giantCellLesionFirstSymptomsDateTextBox);
 		rASSurveyPage.giantCellLesionFirstSymptomsDateTextBox.sendKeys("03/03");
@@ -2956,7 +3033,7 @@ public void enters_All_details_for_Please_complete_the_table_below_for_each_of_t
 
 	@Given("enters All details for Please complete the table below for each of the autoimmune conditions listed below. Please provide the date or age when symptoms first occurred and diagnosis, you do not need to include both age and date. If you do not recall the details, please place an X in the Dont know box. If no treatment was required, please state None in the Treatment column. page - myRAS Survey")
 	public void enters_All_details_for_Please_complete_the_table_below_for_each_of_the_autoimmune_conditions_listed_below_Please_provide_the_date_or_age_when_symptoms_first_occurred_and_diagnosis_you_do_not_need_to_include_both_age_and_date_If_you_do_not_recall_the_details_please_place_an_X_in_the_Dont_know_box_If_no_treatment_was_required_please_state_None_in_the_Treatment_column_page_myRAS_Survey() {
-		
+
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.autoimmuneThyroiditisFirstSymptomsDateTextBox);
 		rASSurveyPage.autoimmuneThyroiditisFirstSymptomsDateTextBox.sendKeys("05/05");
@@ -3153,7 +3230,7 @@ public void enters_All_details_for_Please_complete_the_table_below_for_each_of_t
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
-	
+
 	@Given("enters Name of Behavioral Physican {string} and enters Location {string} and enters hospital {string} for Please provide the information listed below for the medical providers who completed your evaluation. page - myRAS Survey")
 	public void enters_Name_of_behavioral_Physican_and_enters_Location_and_enters_hospital_for_Please_provide_the_information_listed_below_for_the_medical_providers_who_completed_your_evaluation_page_myRAS_Survey(
 			String behavioralDoctor, String behavioralLocation, String behavioralHospital) {
@@ -3361,7 +3438,8 @@ public void enters_All_details_for_Please_complete_the_table_below_for_each_of_t
 
 	@Given("enters strabismus first symptoms date {string} and enters age {string} and enters diagnosis date {string} and enters age {string} and clicks occlusion treatment for Please complete the table below regarding strabismus. Please list the age or date when symptoms first started and when the diagnosis was made \\(you do not need to include both date and age). If you do not recall, place an X in the Dont know column. If no treatment was required, place None in the Treatment column. page - myRAS Survey")
 	public void enters_strabismus_first_symptoms_date_and_enters_age_and_enters_diagnosis_date_and_enters_age_and_clicks_occlusion_treatment_for_Please_complete_the_table_below_regarding_strabismus_Please_list_the_age_or_date_when_symptoms_first_started_and_when_the_diagnosis_was_made_you_do_not_need_to_include_both_date_and_age_If_you_do_not_recall_place_an_X_in_the_Dont_know_column_If_no_treatment_was_required_place_None_in_the_Treatment_column_page_myRAS_Survey(
-			String strabismusFirstSymptomsDate, String strabismusFirstSymptomsAge, String strabismusDiagnosisDate, String strabismusDiagnosisAge) {
+			String strabismusFirstSymptomsDate, String strabismusFirstSymptomsAge, String strabismusDiagnosisDate,
+			String strabismusDiagnosisAge) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.strabismusFirstSymptomsDateTextBox);
@@ -3386,7 +3464,8 @@ public void enters_All_details_for_Please_complete_the_table_below_for_each_of_t
 
 	@Given("enters nystagmus first symptoms date {string} and enters age {string} and enters diagnosis date {string} and enters age {string} and clicks yes treatment mild shorterm severity for Please complete the table below regarding nystagmus. Please include the age or date when symptoms first occurred and when the diagnosis was made you do not need to include both age and date. page - myRAS Survey")
 	public void enters_nystagmus_first_symptoms_date_and_enters_age_and_enters_diagnosis_date_and_enters_age_and_clicks_yes_treatment_mild_shorterm_severity_for_Please_complete_the_table_below_regarding_nystagmus_Please_include_the_age_or_date_when_symptoms_first_occurred_and_when_the_diagnosis_was_made_you_do_not_need_to_include_both_age_and_date_page_myRAS_Survey(
-			String nystagmusFirstSymptomsDate, String nystagmusFirstSymptomsAge, String nystagmusDiagnosisDate, String nystagmusDiagnosisAge) {
+			String nystagmusFirstSymptomsDate, String nystagmusFirstSymptomsAge, String nystagmusDiagnosisDate,
+			String nystagmusDiagnosisAge) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.nystagmusFirstSymptomsDateTextBox);
@@ -3466,7 +3545,7 @@ public void enters_All_details_for_Please_complete_the_table_below_for_each_of_t
 	@Given("select All that apply and enters other ear issue {string} for Do you have any of the following issues with your ears? page - myRAS Survey")
 	public void select_All_that_apply_and_enters_other_ear_issue_for_Do_you_have_any_of_the_following_issues_with_your_ears_page_myRAS_Survey(
 			String otherEarIssues) {
-		
+
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxesAnd("Unsure/Unknown", "No known ear issues");
@@ -3478,7 +3557,7 @@ public void enters_All_details_for_Please_complete_the_table_below_for_each_of_t
 	@Given("enters other health issue {string} for If there are any other health issues present that have not been captured by this survey page. page - myRAS Survey")
 	public void enters_other_health_issue_for_If_there_are_any_other_health_issues_present_that_have_not_been_captured_by_this_survey_page__page_myRAS_Survey(
 			String otherHealthIssues) {
-		
+
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.anyOtherHealthIssuesTextBox.sendKeys(otherHealthIssues);
@@ -3493,8 +3572,55 @@ public void enters_All_details_for_Please_complete_the_table_below_for_each_of_t
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		CucumberLogUtils.logScreenShot();
-		//rASSurveyPage.surveyNextButton.click();
+		// rASSurveyPage.surveyNextButton.click();
 		MiscUtils.sleep(2000);
 	}
+
+	/**
+	 * BEGINNING OF RAS SURVEY AUTOMATION INTEGRATION (NOT QUALTRICS PREVIEW)
+	 */
+
+	@Given("clicks on the RAS Survey to begin the RAS Survey")
+	public void clicks_on_the_RAS_Survey_to_begin_the_RAS_Survey() {
+
+		CommonUtils.waitForVisibility(myRASHomePage.warningAgreeButton);
+		myRASHomePage.warningAgreeButton.click();
+
+		CommonUtils.waitForVisibility(myRASHomePage.rasSurvey);
+		myRASHomePage.rasSurvey.click();
+
+	}
+
+	static String rasSurveyPin;
+
+	@Given("enters Okta email address and One Time Pin code to proceed with the RAS Survey")
+	public void enters_Okta_email_address_and_One_Time_Pin_code_to_proceed_with_the_RAS_Survey() {
+
+		/**
+		 * USING SAME PIN TEXT AND GO BUTTON LOCATORS AS CGB IIQ SINCE THEY ARE THE SAME
+		 */
+		CommonUtils.waitForVisibility(myRASHomePage.rasoptathyIndividualInformationQuestionnairePinText);
+
+		rasSurveyPin = myRASHomePage.rasoptathyIndividualInformationQuestionnairePinText.getText();
+
+		CommonUtils.waitForVisibility(myRASHomePage.rasoptathyIndividualInformationQuestionnaireOneTimePinGoButton);
+		myRASHomePage.rasoptathyIndividualInformationQuestionnaireOneTimePinGoButton.click();
+
+		Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
+		for (String currentWindow1 : allWindowHandles1) {
+			WebDriverUtils.webDriver.switchTo().window(currentWindow1);
+		}
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.cHARMSEmailLogIn);
+		rASSurveyPage.cHARMSEmailLogIn.sendKeys("charmsras4@yahoo.com");
+		rASSurveyPage.cHARMSpasswordToLogIn.sendKeys(rasSurveyPin);
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	/**
+	 * END OF RAS SURVEY AUTOMATION INTEGRATION (NOT QUALTRICS PREVIEW)
+	 */
 
 }
