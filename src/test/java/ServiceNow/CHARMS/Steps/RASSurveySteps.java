@@ -3572,7 +3572,7 @@ public class RASSurveySteps extends PageInitializer {
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		CucumberLogUtils.logScreenShot();
-		// rASSurveyPage.surveyNextButton.click();
+		rASSurveyPage.surveyNextButton.click();
 		MiscUtils.sleep(2000);
 	}
 
@@ -3586,6 +3586,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(myRASHomePage.warningAgreeButton);
 		myRASHomePage.warningAgreeButton.click();
 
+		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(myRASHomePage.rasSurvey);
 		myRASHomePage.rasSurvey.click();
 
