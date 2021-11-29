@@ -567,7 +567,7 @@ Feature: MyRAS Study Regression Scenarios
         And the user clicks the forward arrow button
         Then the end of the IIQ survey page "EndOfSurvey" is displayed
 
-    @juarezds @RegressionProxySubmissionPartThree @Progression
+    @juarezds @RegressionProxySubmissionPartThree 
     Scenario: RAS Survey Submission - Regression
         Given a proxy is on the RASopathies Longitudinal Cohort Study login page
         And logs in via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
