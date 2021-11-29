@@ -1,5 +1,3 @@
-
-
 package ServiceNow.CHARMS.Pages;
 
 import java.util.List;
@@ -42,6 +40,28 @@ public class RASSurveyPage {
 	//XPATH FOR ALL CHECKBOX PAGES
 	@FindBy(xpath= "//span[contains(@class,'LabelWrapper')]")
 	public List<WebElement> xpathForAllCheckBoxes;
+	
+	// NIH NATIONAL CANCER INSTITUTE BANNER IMAGE
+	@FindBy(xpath = "//form[@data-testid='page-ready']//div//div//div//div//div//img")
+	public WebElement nihBannerImage;
+	
+	// DETAILS LIST DATE(MM/YY) HEADER TEXT
+	@FindBy(xpath = "//thead//tr[4]//th[1]")
+	public WebElement dateHeaderText;
+	
+	// DETAILS LIST DATE(MM/YY) TEXT BOX ROW 2
+	@FindBy(xpath = "//tbody/tr[1]/td[3]/input[1]")
+	public WebElement dateRow1TextBox;
+	
+	// DETAILS LIST DATE(MM/YY) TEXT BOX ROW 2
+	@FindBy(xpath = "//tbody/tr[2]/td[3]/input[1]")
+	public WebElement dateRow2TextBox;
+	
+	// DETAILS LIST DATE(MM/YY) TEXT BOX ROW 3
+	@FindBy(xpath = "//tbody/tr[3]/td[3]/input[1]")
+	public WebElement dateRow3TextBox;
+
+	
 	/*
 	 * ----------------- END OF COMMON ELEMENTS FOR ALL PAGE -----------------
 	 */
@@ -50,6 +70,7 @@ public class RASSurveyPage {
 	 * ----------------- BEGINNING OF START RASSURVEY LOGIN PAGE PAGE -----------------
 	 */
 	
+
 	// MOBILE VIEW SLIDER FOR PREVIEW
 	@FindBy (xpath= "//span[contains(@class,'mobile-view-slider')]")
 	public WebElement mobileViewSlider;
@@ -83,7 +104,7 @@ public class RASSurveyPage {
 	 */
 	
 	@FindBy(xpath="//textarea[@name='QR~QID59~TEXT']")
-	public WebElement pleaseProvideAdditionalintoIfAvailabletextbox;
+	public WebElement pleaseProvideAdditionalInfoIfAvailableTextbox;
 	
 	/*
 	 * ----------------- END OF PLEASE PROVIDE ANY ADDITIONAL INFORMATION ABOUT THE AUTHORS, YEAR OF PUBLICATION OR PUBMED ID (PMID), IF AVAILABLE PAGE -----------------
@@ -178,18 +199,22 @@ public class RASSurveyPage {
 	 * CONDITIONS PRIOR TO OR DURING HER PREGNANCY WITH YOU? PAGE -----------------
 	 */
 	
+	// HYPERTENSION (HIGH BLOOD PRESSURE PRIOR TO PREGNANCY)  TEXT BOX
+	@FindBy (xpath="//span[contains(text(),'Hypertension (high blood pressure prior to pregnan')]")
+	public WebElement hypertensionTextBox;
+	
 	//INFECTION (PLEASE SPECIFY) TEXT BOX
-	@FindBy (xpath="//input[contains(@title,'Infection (please specify)')]")
-	public WebElement typeOfInfectionTextBox;
-	
-	//RASH (PLEASE SPECIFY)TEXT BOX
-	@FindBy (xpath="//input[contains(@title,'Rash (please specify)')]")
-	public WebElement rashTextBox;
-	
-	// OTHER COMPLICATIONS (PLEASE SPECIFY) TEXT BOX
-	@FindBy (xpath="//input[@title='Other complications (please specify)']")
-	public WebElement otherComplicationsTextBox;
-	
+		@FindBy (xpath="//input[contains(@title,'Infection (please specify)')]")
+		public WebElement typeOfInfectionTextBox;
+		
+		//RASH (PLEASE SPECIFY)TEXT BOX
+		@FindBy (xpath="//input[contains(@title,'Rash (please specify)')]")
+		public WebElement rashTextBox;
+		
+		// OTHER COMPLICATIONS (PLEASE SPECIFY) TEXT BOX
+		@FindBy (xpath="//input[@title='Other complications (please specify)']")
+		public WebElement otherComplicationsTextBox;
+		
 	/*
 	 * ----------------- END OF WAS YOUR BIOLOGICAL MOTHER DIAGNOSED WITH ANY OF THE FOLLOWING 
 	 * CONDITIONS PRIOR TO OR DURING HER PREGNANCY WITH YOU? PAGE -----------------
@@ -198,6 +223,10 @@ public class RASSurveyPage {
 	/*
      * ----------------- BEGINNING OF PLEASE SELECT ALL MEDICATIONS YOUR MOTHER TOOK DURING HER PREGNANCY WITH YOU. PAGE -----------------
      */
+	
+	//HORMONES TEXT BOX
+	@FindBy (xpath="//span[contains(text(),'Hormones (e.g. DES, progesterone)')]")
+	public WebElement hormonesCheckBox;
 	
 	//HERBAL SUPPLEMENTS (PLEASE SPECIFY) TEXT BOX
 	@FindBy (xpath="//input[@title='Herbal supplements (please specify)']")
@@ -210,6 +239,7 @@ public class RASSurveyPage {
 	//OTHER MEDICATION (PLEASE SPECIFY) SECOND TEXT BOX
 	@FindBy (xpath="//input[@name='QR~QID47~16~TEXT']")
 	public WebElement otherMedicationTextBox2;
+	
 	
 	/*
      * ----------------- END OF PLEASE SELECT ALL MEDICATIONS YOUR MOTHER TOOK DURING HER PREGNANCY WITH YOU. PAGE -----------------
@@ -479,7 +509,7 @@ public class RASSurveyPage {
 	 * --------------- BEGINNING OF WHAT WAS YOUR HEIGHT BEFORE STARTING GROWTH HORMONE?  PAGE ---------------
 	 */
 	
-	//TYPE OF WHAT WAS YOUR HEIGHT BEFORE STARTING GROWTH HORMONE? RATIO BUTTON 
+	//TYPE OF WHAT WAS YOUR HEIGHT BEFORE STARTING GROWTH HORMONE? RADIO BUTTON 
 	@FindBy (xpath="(//span[contains(text(),'Height (please specify units such as feet, inches ')])[1]")
 	public WebElement whatWasYourHeightBeforeStartingGrowthHormoneRadioButton;
 		
@@ -551,7 +581,7 @@ public class RASSurveyPage {
 	 * --------------- BEGINNING OF AT WHAT AGE WERE YOU ABLE TO SIT WITHOUT SUPPORT? PAGE ---------------
 	 */
 		
-	//TYPE OF AT WHAT AGE WERE YOU ABLE TO SIT WITHOUT SUPPORT? 12-18 MONTHS RADIO BUTTON WEBELEMENT
+	//TYPE OF AT WHAT AGE WERE YOU ABLE TO SIT WITHOUT SUPPORT? 12-18 MONTHS RADIO BUTTON 
 	@FindBy (xpath="(//label[@for='QR~QID82~3'])[2]")
 	public WebElement atWhatAgeWereYouAbleToSitWithoutSupportCheckRadioButton;
 		
@@ -563,7 +593,8 @@ public class RASSurveyPage {
 	 * --------------- BEGINNING OF AT WHAT AGE WERE YOU ABLE TO WALK WITHOUT SUPPORT?  PAGE ---------------
 	 */
 		
-	//TYPE OF AT WHAT AGE WERE YOU ABLE TO WALK WITHOUT SUPPORT? 12 -18 MONTHS RADIO BUTTON WEBELEMENT
+
+	//TYPE OF AT WHAT AGE WERE YOU ABLE TO WALK WITHOUT SUPPORT? 12 -18 MONTHS RADIO BUTTON 
 	@FindBy (xpath="(//label[@for='QR~QID84~3'])[2]")
 	public WebElement atWhatAgeWereYouAbleToWalkWithoutSupportCheckRadioButton;
 		
@@ -630,7 +661,7 @@ public class RASSurveyPage {
 	public WebElement attendedTypicalclassroomOrlittleSupportRadioButton;
 	
 	/*
-	 *  ----------------- BEGINNING OF BETWEEN THE AGES OF 10 AND 17 (MIDDLE AND HIGH SCHOOL AGE) PLEASE SELECT THE OPTION THAT BEST DESCRIBES YOUR SCHOOLING. PAGE -----------------
+	 *  ----------------- END OF BETWEEN THE AGES OF 10 AND 17 (MIDDLE AND HIGH SCHOOL AGE) PLEASE SELECT THE OPTION THAT BEST DESCRIBES YOUR SCHOOLING. PAGE -----------------
 	 */
 
 	/*
@@ -1117,142 +1148,138 @@ public class RASSurveyPage {
 
 	// -------------MEDICATION (PLEASE SPECIFY) SECTION-------------
 	
-	// “Medication FIRST TREATMENT AGE" TEXT BOX
+	// “MEDICATION FIRST TREATMENT AGE" TEXT BOX
 	@FindBy(xpath = "//tbody/tr[1]/td[3]/input[1]")
 	public WebElement medicationFirstTreatmentAgeTextBox;
 
-	// “Medication FIRST TREATMENT DATE(MM/YY)" TEXT BOX
+	// “MEDICATION FIRST TREATMENT DATE(MM/YY)" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[2]")
 	public WebElement medicationFirstTreatmentDateTextBox;
 
-	// “Medication FIRST TREATMENT DON'T KNOW" TEXT BOX
+	// “MEDICATION FIRST TREATMENT DON'T KNOW" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[3]")
 	public WebElement medicationFirstTreatmentDontKnowTextBox;
 
-	// “Medication FIRST TREATMENT LOCATION HOSPITAL CITY STATE COUNTRY" TEXT BOX
+	// “MEDICATION FIRST TREATMENT LOCATION HOSPITAL CITY STATE COUNTRY" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[4]")
 	public WebElement medicationFirstTreatmentLocationTextBox;
 
-	// “Medication MOST RECENT TREATMENT AGE" TEXT BOX
+	// “MEDICATION MOST RECENT TREATMENT AGE" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[5]")
 	public WebElement medicationMostRecentTreatmentAgeTextBox;
 
-	// “Medication MOST RECENT TREATMENT DATE(MM/YY)" TEXT BOX
+	// “MEDICATION MOST RECENT TREATMENT DATE(MM/YY)" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[6]")
 	public WebElement medicationMostRecentTreatmentDateTextBox;
 
-	// “Medication MOST RECENT TREATMENT DON'T KNOW" TEXT BOX
+	// “MEDICATION MOST RECENT TREATMENT DON'T KNOW" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[7]")
 	public WebElement medicationMostRecentTreatmentDontKnowTextBox;
 
-	// “Medication MOST RECENT TREATMENT LOCATION HOSPITAL CITY STATE COUNTRY" TEXT
-	// BOX
+	// “MEDICATION MOST RECENT TREATMENT LOCATION HOSPITAL CITY STATE COUNTRY" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[8]")
 	public WebElement medicationMostRecentTreatmentLocationTextBox;
 
 	// -------------CATHETER INTERVENTION SECTION-------------
 
-	// “Catheter intervention FIRST TREATMENT AGE" TEXT BOX
+	// “CATHETER INTERVENTION FIRST TREATMENT AGE" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[9]")
 	public WebElement catheterInterventionFirstTreatmentAgeTextBox;
 
-	// “Catheter intervention FIRST TREATMENT DATE(MM/YY)" TEXT BOX
+	// “CATHETER INTERVENTION FIRST TREATMENT DATE(MM/YY)" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[10]")
 	public WebElement catheterInterventionFirstTreatmentDateTextBox;
 
-	// "Catheter intervention FIRST TREATMENT DON'T KNOW" TEXT BOX
+	// "CATHETER INTERVENTION FIRST TREATMENT DON'T KNOW" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[11]")
 	public WebElement catheterInterventionFirstTreatmentDontKnowTextBox;
 
-	// “Catheter intervention FIRST TREATMENT LOCATION HOSPITAL CITY STATE COUNTRY"
-	// TEXT BOX
+
+	// “CATHETER INTERVENTION FIRST TREATMENT LOCATION HOSPITAL CITY STATE COUNTRY" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[12]")
 	public WebElement catheterInterventionFirstTreatmentLocationTextBox;
 
-	// “Catheter intervention MOST RECENT TREATMENT AGE" TEXT BOX
+	// “CATHETER INTERVENTION MOST RECENT TREATMENT AGE" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[13]")
 	public WebElement catheterInterventionMostRecentTreatmentAgeTextBox;
 
-	// “Catheter intervention MOST RECENT TREATMENT DATE(MM/YY)" TEXT BOX
+	// “CATHETER INTERVENTION MOST RECENT TREATMENT DATE(MM/YY)" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[14]")
 	public WebElement catheterInterventionMostRecentTreatmentDateTextBox;
 
-	// “Catheter intervention MOST RECENT TREATMENT DON'T KNOW" TEXT BOX
+	// “CATHETER INTERVENTION MOST RECENT TREATMENT DON'T KNOW" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[15]")
 	public WebElement catheterInterventionMostRecentTreatmentDontKnowTextBox;
 
-	// “Catheter intervention MOST RECENT TREATMENT LOCATION HOSPITAL CITY STATE
-	// COUNTRY" TEXT BOX
+	// “CATHETER INTERVENTION MOST RECENT TREATMENT LOCATION HOSPITAL CITY STATE COUNTRY" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[16]")
 	public WebElement catheterInterventionMostRecentTreatmentLocationTextBox;
 
 	// -------------SURGERY SECTION-------------
 
-	// “Surgery FIRST TREATMENT AGE" TEXT BOX
+	// “SURGERY FIRST TREATMENT AGE" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[17]")
 	public WebElement surgeryFirstTreatmentAgeTextBox;
 
-	// “Surgery FIRST TREATMENT DATE(MM/YY)" TEXT BOX
+	// “SURGERY FIRST TREATMENT DATE(MM/YY)" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[18]")
 	public WebElement surgeryFirstTreatmentDateTextBox;
 
-	// "Surgery FIRST TREATMENT DON'T KNOW" TEXT BOX
+	// "SURGERY FIRST TREATMENT DON'T KNOW" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[19]")
 	public WebElement surgeryFirstTreatmentDontKnowTextBox;
 
-	// “Surgery FIRST TREATMENT LOCATION HOSPITAL CITY STATE COUNTRY" TEXT BOX
+	// “SURGERY FIRST TREATMENT LOCATION HOSPITAL CITY STATE COUNTRY" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[20]")
 	public WebElement surgeryFirstTreatmentLocationTextBox;
 
-	// “Surgery MOST RECENT TREATMENT AGE" TEXT BOX
+	// “SURGERY MOST RECENT TREATMENT AGE" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[21]")
 	public WebElement surgeryMostRecentTreatmentAgeTextBox;
 
-	// “Surgery MOST RECENT TREATMENT DATE(MM/YY)" TEXT BOX
+	// “SURGERY MOST RECENT TREATMENT DATE(MM/YY)" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[22]")
 	public WebElement surgeryMostRecentTreatmentDateTextBox;
 
-	// “Surgery MOST RECENT TREATMENT DON'T KNOW" TEXT BOX
+	// “SURGERY MOST RECENT TREATMENT DON'T KNOW" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[23]")
 	public WebElement surgeryMostRecentTreatmentDontKnowTextBox;
 
-	// “Surgery MOST RECENT TREATMENT LOCATION HOSPITAL CITY STATE COUNTRY" TEXT BOX
+	// “SURGERY MOST RECENT TREATMENT LOCATION HOSPITAL CITY STATE COUNTRY" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[24]")
 	public WebElement surgeryMostRecentTreatmentLocationTextBox;
 
 	// -------------OTHER(PLEASE SPECIFY) SECTION-------------
 
-	// “Other(please specify) FIRST TREATMENT AGE" TEXT BOX
+	// “OTHER(PLEASE SPECIFY) FIRST TREATMENT AGE" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[25]")
 	public WebElement otherFirstTreatmentAgeTextBox;
 
-	// “Other(please specify) FIRST TREATMENT DATE(MM/YY)" TEXT BOX
+	// “OTHER(PLEASE SPECIFY) FIRST TREATMENT DATE(MM/YY)" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[26]")
 	public WebElement otherFirstTreatmentDateTextBox;
 
-	// "Other(please specify) FIRST TREATMENT DON'T KNOW" TEXT BOX
+	// "OTHER(PLEASE SPECIFY) FIRST TREATMENT DON'T KNOW" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[27]")
 	public WebElement otherFirstTreatmentDontKnowTextBox;
 
-	// “Other(please specify) FIRST TREATMENT LOCATION HOSPITAL CITY STATE COUNTRY"
-	// TEXT BOX
+	// “OTHER(PLEASE SPECIFY) FIRST TREATMENT LOCATION HOSPITAL CITY STATE COUNTRY" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[28]")
 	public WebElement otherFirstTreatmentLocationTextBox;
 
-	// “Other(please specify) MOST RECENT TREATMENT AGE" TEXT BOX
+	// “OTHER(PLEASE SPECIFY) MOST RECENT TREATMENT AGE" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[29]")
 	public WebElement otherMostRecentTreatmentAgeTextBox;
 
-	// “Other(please specify) MOST RECENT TREATMENT DATE(MM/YY)" TEXT BOX
+	// “OTHER(PLEASE SPECIFY) MOST RECENT TREATMENT DATE(MM/YY)" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[30]")
 	public WebElement otherMostRecentTreatmentDateTextBox;
 
-	// “Other(please specify) MOST RECENT TREATMENT DON'T KNOW" TEXT BOX
+	// “OTHER(PLEASE SPECIFY) MOST RECENT TREATMENT DON'T KNOW" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[31]")
 	public WebElement otherMostRecentTreatmentDontKnowTextBox;
 
-	// “Other(please specify) MOST RECENT TREATMENT LOCATION HOSPITAL CITY STATE
-	// COUNTRY" TEXT BOX
+	// “OTHER(PLEASE SPECIFY) MOST RECENT TREATMENT LOCATION HOSPITAL CITY STATE COUNTRY" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[32]")
 	public WebElement otherMostRecentTreatmentLocationTextBox;
 
@@ -1278,67 +1305,99 @@ public class RASSurveyPage {
 	 */
 	
 	//TACHYCARDIA AGE OF FIRST SYMPTOM TEXT BOX
-	@FindBy(xpath = "//input[@name='QR~QID106#1~x1~1~TEXT']")
+	@FindBy(xpath = "//tbody/tr[1]/td[3]/input[1]")
 	public WebElement tachycardiaAgeOfFirstSymptomTextBox;
 	
+	//TACHYCARDIA DATE OF FIRST SYMPTOM TEXT BOX
+	@FindBy(xpath = "//tbody/tr[1]/td[4]/input[1]")
+	public WebElement tachycardiaDateOfFirstSymptomTextBox;
+	
 	//TACHYCARDIA AGE OF DIAGNOSIS TEXT BOX
-	@FindBy(xpath = "//input[@name='QR~QID106#2~x1~1~TEXT']")
+	@FindBy(xpath = "//tbody/tr[1]/td[8]/input[1]")
 	public WebElement tachycardiaAgeOfDiagnosisTextBox;
 	
+	//TACHYCARDIA DATE OF DIAGNOSIS TEXT BOX
+	@FindBy(xpath = "//tbody/tr[1]/td[9]/input[1]")
+	public WebElement tachycardiaDateOfDiagnosisTextBox;
+	
 	//TACHYCARDIA TREATMENT AND MEDICATION TAKEN TEXT BOX
-	@FindBy(xpath = "//input[@name='QR~QID106#3~x1~1~TEXT']")
+	@FindBy(xpath = "//tbody/tr[1]/td[13]/input[1]")
 	public WebElement tachycardiaTreatmentAndMedicationTextBox;
 	
 	//TACHYCARDIA HOSPITAL OF TREATMENT TEXT BOX
-	@FindBy(xpath = "//input[@name='QR~QID106#4~x1~1~TEXT']")
+	@FindBy(xpath = "//tbody/tr[1]/td[16]/input[1]")
 	public WebElement tachycardiaHospitalOfTreatmentTextBox;
 	
+	//CARDIAC CONDUCTION DEFECT AGE OF FIRST SYMPTOM TEXT BOX
+	@FindBy(xpath = "//tbody/tr[2]/td[3]/input[1]")
+	public WebElement cardiacConductionDefectAgeOfFirstSymptomTextBox;
+	
 	//CARDIAC CONDUCTION DEFECT DATE OF FIRST SYMPTOM TEXT BOX
-	@FindBy(xpath = "//input[@name='QR~QID106#1~x2~1~TEXT']")
-	public WebElement cardiacConductionDefectFristSymptomTextBox;
+	@FindBy(xpath = "//tbody/tr[2]/td[4]/input[1]")
+	public WebElement cardiacConductionDefectDateOfFirstSymptomTextBox;
+	
+	//CARDIAC CONDUCTION DEFECT AGE OF DIAGNOSIS TEXT BOX
+	@FindBy(xpath = "//tbody/tr[2]/td[8]/input[1]")
+	public WebElement cardiacConductionDefectAgeOfDiagnosisTextBox;
 	
 	//CARDIAC CONDUCTION DEFECT DATE OF DIAGNOSIS TEXT BOX
-	@FindBy(xpath = "//input[@name='QR~QID106#2~x2~2~TEXT']")
+	@FindBy(xpath = "//tbody/tr[2]/td[9]/input[1]")
 	public WebElement cardiacConductionDefectDateOfDiagnosisTextBox;
 	
 	//CARDIAC CONDUCTION DEFECT TREATMENT AND MEDICATION TAKEN TEXT BOX
-	@FindBy(xpath = "//input[@name='QR~QID106#3~x2~1~TEXT']")
+	@FindBy(xpath = "//tbody/tr[2]/td[13]/input[1]")
 	public WebElement cardiacConductionDefectTreatmentAndMedicationTextBox;
 	
 	//CARDIAC CONDUCTION DEFECT HOSPITAL OF TREATMENT TEXT BOX
-	@FindBy(xpath = "//input[@name='QR~QID106#4~x2~1~TEXT']")
+	@FindBy(xpath = "//tbody/tr[2]/td[16]/input[1]")
 	public WebElement cardiacConductionDefectHospitalOfTreatmentTextBox;
 	
 	// HEART FAILURE AGE OF FIRST SYMPTOM TEXT BOX
-	@FindBy(xpath = "//input[@name='QR~QID106#1~x3~1~TEXT']")
+	@FindBy(xpath = "//tbody/tr[3]/td[3]/input[1]")
 	public WebElement heartFailureAgeOfFirstSymptomTextBox;
 	
+	// HEART FAILURE DATE OF FIRST SYMPTOM TEXT BOX
+	@FindBy(xpath = "//tbody/tr[3]/td[4]/input[1]")
+	public WebElement heartFailureDateOfFirstSymptomTextBox;
+	
+	// HEART FAILURE AGE OF DIAGNOSIS TEXT BOX
+	@FindBy(xpath = "//tbody/tr[3]/td[8]/input[1]")
+	public WebElement heartFailureAgeOfDiagnosisTextBox;
+	
 	// HEART FAILURE DATE OF DIAGNOSIS TEXT BOX
-	@FindBy(xpath = "//input[@name='QR~QID106#2~x3~2~TEXT']")
+	@FindBy(xpath = "//tbody/tr[3]/td[9]/input[1]")
 	public WebElement heartFailureDateOfDiagnosisTextBox;
 	
 	// HEART FAILURE TREATMENT AND MEDICATION TAKEN TEXT BOX
-	@FindBy(xpath = "//input[@name='QR~QID106#3~x3~1~TEXT']")
+	@FindBy(xpath = "//tbody/tr[3]/td[13]/input[1]")
 	public WebElement heartFailureTreatmentAndMedecationTextBox;
 	
 	// HEART FAILURE HOSPITAL OF TREATMENT TEXT BOX
-	@FindBy(xpath = "//input[@name='QR~QID106#4~x3~1~TEXT']")
+	@FindBy(xpath = "//tbody/tr[3]/td[16]/input[1]")
 	public WebElement heartFailureHospitalOfTreatmentTextBox;
 	
+	// OTHER HEART ISSUES AGE OF FIRST SYMPTOM TEXT BOX
+	@FindBy(xpath = "//tbody/tr[4]/td[3]/input[1]")
+	public WebElement otherHeartIssuesAgeOfFirstSymptomTextBox;
+	
 	// OTHER HEART ISSUES DATE OF FIRST SYMPTOM TEXT BOX
-	@FindBy(xpath = "//input[@name='QR~QID106#1~x4~2~TEXT']")
+	@FindBy(xpath = "//tbody/tr[4]/td[4]/input[1]")
 	public WebElement otherHeartIssuesDateOfFirstSymptomTextBox;
 	
 	// OTHER HEART ISSUES AGE OF DIAGNOSIS TEXT BOX
-	@FindBy(xpath = "//input[@name='QR~QID106#2~x4~1~TEXT']")
+	@FindBy(xpath = "//tbody/tr[4]/td[8]/input[1]")
 	public WebElement otherHeartIssuesAgeOfDiagnosisTextBox;
 	
+	// OTHER HEART ISSUES DATE OF DIAGNOSIS TEXT BOX
+	@FindBy(xpath = "//tbody/tr[4]/td[9]/input[1]")
+	public WebElement otherHeartIssuesDateOfDiagnosisTextBox;
+	
 	// OTHER HEART ISSUES TREATMENT AND MEDICATION TAKEN TEXT BOX
-	@FindBy(xpath = "//input[@name='QR~QID106#3~x4~1~TEXT']")
+	@FindBy(xpath = "//tbody/tr[4]/td[13]/input[1]")
 	public WebElement OtherHeartIssuesTreatmentAndMedicationTextBox;
 	
 	// OTHER HEART ISSUES HOSPITAL OF TREATMENT TEXT BOX
-	@FindBy(xpath = "//input[@name='QR~QID106#4~x4~1~TEXT']")
+	@FindBy(xpath = "//tbody/tr[4]/td[16]/input[1]")
 	public WebElement otherHeartIssuesHospitalOfTreatmentTextBox;
 	
 	/*
@@ -1533,7 +1592,6 @@ public class RASSurveyPage {
 	//GASTROSTOMY-JEJUNOSTOMY  TUBE PLACED RADIO BUTTON 
 	@FindBy(xpath = "//span[@class='LabelWrapper']//label[@for='QR~QID123~1']")
 	public WebElement tubePlacedJejunostomyPlacedRadioButton;
-
 		
 	/*
 	 * --------------- END OF AT WHAT AGE WAS THE GASTROSTOMY (G-TUBE) OR GASTROSTOMY-JEJUNOSTOMY (GJ) TUBE PLACED? PAGE ---------------
@@ -1550,6 +1608,27 @@ public class RASSurveyPage {
 		
 	/*
 	 * --------------- END OF AT WHAT AGE WAS THE GASTROSTOMY (G-TUBE) OR GASTROSTOMY-JEJUNOSTOMY (GJ) TUBE REMOVED? PAGE ---------------
+	 */
+	
+	/*
+	 * --------------- BEGINNING OF WHICH OF THE FOLLOWING SYMPTOMS RELATED TO THE GI SYSTEM HAVE OCCURRED?  PLEASE SELECT ALL THAT APPLY.  PAGE ---------------
+	 */
+	
+	// FOOD GETTING STUCK WHILE SWALLOWING CHECK BOX
+	@FindBy(xpath = "//div[@role='main']//div//div//div//fieldset//div//span//label[@for='QR~QID125~4']")
+	public WebElement FoodGettingStuckWhileSwallowingCheckBox;
+	
+	// GALLBLADDER PROBLEMS CHECK BOX
+	@FindBy(xpath = "//span[contains(text(),'Gallbladder problems (eg, stones, infection)')]")
+	public WebElement GallbladderProblemsCheckBox;
+	
+	// DIARRHEA CHECK BOX
+	@FindBy(xpath = "//span[contains(text(),'Diarrhea (loose liquid stool > 1 per day)')]")
+	public WebElement DiarrheaCheckBox;
+	
+
+	/*
+	 * --------------- END OF WHICH OF THE FOLLOWING SYMPTOMS RELATED TO THE GI SYSTEM HAVE OCCURRED?  PLEASE SELECT ALL THAT APPLY.  PAGE ---------------
 	 */
 	
 	/*
@@ -1696,7 +1775,6 @@ public class RASSurveyPage {
 	@FindBy(xpath= ("//label[@for='QR~QID130#1~1~1']"))
 	public WebElement bothersomeNauseaForAtLeast2WeeksNotRelatedToMealsYesRadioButton;
 	 
-	
 	//HAS NAUSEA THAT IS NOT RELATED TO VOMITING OCCURING(THAT HAS OCCURRED FOR ATLEAST 2 WEEKS? YES RADIO BUTTON
 	@FindBy(xpath= ("//label[@for='QR~QID130#4~1~1']"))
 	public WebElement nauseaThatIsNotRelatedToVomitingOccurredThatHasOccurredForAtLeast2WeeksYesRadioButton;
@@ -1718,7 +1796,7 @@ public class RASSurveyPage {
 	 */
 		
 	/*
-	 * --------------- BEGINNING OF  PLEASE COMPLETE THE NEXT SET OF QUESTIONS REGARDING ABDOMINAL PAIN. PAGE ---------------
+	 * --------------- BEGINNING OF PLEASE COMPLETE THE NEXT SET OF QUESTIONS REGARDING ABDOMINAL PAIN. PAGE ---------------
 	 */
 	
 	//EVER HAD WAVES OF SEVERE, DISTRESSING,ACUTE PAIN AT THE BELLY-BUTTON OR ENTIRE ABDOMEN? YES RADIO BUTTON
@@ -1806,8 +1884,8 @@ public class RASSurveyPage {
 	 */
 				
 	//HOW MANY MEDIATIONS HAVE BEEN TAKEN FOR ABDOMINAL? 2 DROP DOWN
-	@FindBy (xpath= ("(//select[@name='QR~QID344'])[1]"))
-	public WebElement howManyMediationsHaveBeenTakenForAbdominal2DropDown;
+	@FindBy (xpath= ("//select[@data-runtime-value='runtime.Selected']"))
+	public WebElement howManyMediationsHaveBeenTakenForAbdominalDropDown;
 				
 	/*
 	 * --------------- END OF HOW MANY MEDICATIONS HAVE BEEN TAKEN FOR ABDOMINAL PAIN? PAGE ---------------
@@ -1816,21 +1894,23 @@ public class RASSurveyPage {
 	/*
 	 * --------------- BEGINNING OF PLEASE COMPLETE THE TABLE BELOW REGARDING THE MEDICATIONS TAKEN FOR ABDOMINAL PAIN TO THE BEST OF YOUR ABILITY. PAGE ---------------
 	 */
-				
-	//PLEASE INCLUDE AGE WHEN EACH MEDICATION WAS TAKEN? 18 TEXT BOX
-	@FindBy (xpath = ("(//input[@name='QR~QID133#1~4~1~TEXT'])[1]"))
-	public WebElement pleaseIncludeAgeWhenEachMedicationWasTaken18TextBox;
-				
-	//PLEASE SPECIFY THE MEDICATION NAME. ADVIL TEXT BOX
-	@FindBy (xpath= ("(//input[@name='QR~QID133#1~4~2~TEXT'])[1]"))
-	public WebElement pleaseSpecifyTheMedicationNameAdvilTextBox;
-				
-	//PLEASE INCLUDE AS MANY DETAILS AS YOU CAN RECALL TEXT BOX
-	@FindBy (xpath= ("(//textarea[@name='QR~QID133#2~4~1~TEXT'])[1]"))
-	public WebElement pleaseIncludeAsManyDetailsAsYouCanRecallTextBox;
-						
+
+	// PLEASE INCLUDE AGE WHEN EACH MEDICATION WAS TAKEN? #1 TEXT BOX
+	@FindBy(xpath = ("//tbody/tr/td[3]/input[1]"))
+	public WebElement pleaseIncludeAgeWhenEachAbdominalMedicationWasTakenTextBox;
+
+	// PLEASE SPECIFY THE MEDICATION NAME. #1 TEXT BOX
+	@FindBy(xpath = ("//tbody/tr/td[4]/input[1]"))
+	public WebElement pleaseSpecifyTheAbdominalMedicationNameTextBox;
+
+	// PLEASE INCLUDE AS MANY DETAILS AS YOU CAN RECALL #1 TEXT BOX
+	@FindBy(xpath = ("//textarea[@type='text']"))
+	public WebElement pleaseIncludeAbdominalDetailsTextBox;
+
 	/*
-	 * --------------- END OF PLEASE COMPLETE THE TABLE BELOW REGARDING THE MEDICATIONS TAKEN FOR ABDOMINAL PAIN TO THE BEST OF YOUR ABILITY. PAGE ---------------
+	 * --------------- END OF PLEASE COMPLETE THE TABLE BELOW REGARDING THE
+	 * MEDICATIONS TAKEN FOR ABDOMINAL PAIN TO THE BEST OF YOUR ABILITY. PAGE
+	 * ---------------
 	 */	
 				
 	/*
@@ -1875,7 +1955,7 @@ public class RASSurveyPage {
 			
 	//HOW MANY MEDICATIONS HAVE BEEN TAKEN FOR VOMITING? 2 DROP DOWN
 	@FindBy (xpath= ("(//select[@name='QR~QID342'])[1]"))
-	public WebElement howManyMedicationsHaveBeenTakenForVomiting2DropDown;
+	public WebElement howManyMedicationsHaveBeenTakenForVomitingDropDown;
 	
 	/*
 	 * --------------- END OF HOW MANY MEDICATIONS HAVE BEEN TAKEN FOR VOMITING? PAGE ---------------
@@ -1886,17 +1966,17 @@ public class RASSurveyPage {
 	 */
 				
 	//PLEASE INCLUDE AGE WHEN EACH MEDICATION WAS TAKEN. TEXT BOX
-	@FindBy (xpath=("(//input[@name='QR~QID135#1~1~1~TEXT'])[1]"))
-	public WebElement pleaseIncludeAgeWhenEachMedicationWasTakenTextBox;
+	@FindBy (xpath=("//tbody/tr/td[3]/input[1]"))
+	public WebElement pleaseIncludeAgeWhenEachVommitingMedicationWasTakenTextBox;
 				
+    //PLEASE SPECIFY NAME OF MEDICATION TAKEN FOR VOMITING. TEXT BOX
+	@FindBy (xpath= ("//tbody/tr/td[4]/input[1]"))
+	public WebElement pleaseSpecifyNameOfVommitingMedicationTakenForVomitingTextBox;
+	
 	//PLEASE INCLUDE AGE WHEN EACH MEDICATION2 WAS TAKEN. TEXT BOX
 	@FindBy (xpath=("(//input[@name='QR~QID135#1~2~1~TEXT'])[1]"))
 	public WebElement pleaseIncludeAgeWhenEachMedication2WasTakenTextBox;
-				
-    //PLEASE SPECIFY NAME OF MEDICATION TAKEN FOR VOMITING. TEXT BOX
-	@FindBy (xpath= ("(//input[@name='QR~QID135#1~1~2~TEXT'])[1]"))
-	public WebElement pleaseSpecifyNameOfMedicationTakenForVomitingTextBox;
-				
+	
 	//PLEASE SPECIFY NAME OF MEDICATION2 TAKEN FOR VOMITING. TEXT BOX
 	@FindBy (xpath= ("(//input[@name='QR~QID135#1~2~2~TEXT'])[1]"))
 	public WebElement pleaseSpecifyNameOfMedication2TakenForVomitingTextBox;
@@ -2036,7 +2116,7 @@ public class RASSurveyPage {
 	//HOW MUCH WEIGHT HAS BEEN LOST? TEXT BOX
 	@FindBy (xpath=("//input[@name='QR~QID146~1~TEXT']"))
 	public WebElement howMuchWeightHasBeenLostTextBox;
-				
+	
 	//OVER WHAT TIME PERIOD DID THIS WEIGHT LOSS OCCUR? TEXT BOX
 	@FindBy (xpath= ("//input[@name='QR~QID146~2~TEXT']"))
 	public WebElement overWhatTimePeriodDidThisWeightLossOccur30DaysTextBox;
@@ -2164,8 +2244,7 @@ public class RASSurveyPage {
 	/*
 	 * --------------- BEGINNING OF PLEASE INDICATE WHICH OF THE FOLLOWING PROCEDURES HAVE BEEN PERFORMED. PLEASE SELECT ALL THAT APPLY. PAGE ---------------
 	 */
-				
-				
+							
 	//PLEASE INDICATE WHICH OF THE FOLLOWING PROCEDURES HAVE BEEN PERFORMED. PLEASE SELECT ALL THAT APPLY. OTHER GI TEST (PLEASE SPECIFY) EXAM TEXT BOX
 	@FindBy (xpath=("//input[contains(@title,'Other GI test (please specify)')]"))
 	public WebElement pleaseIndicateWhichOfTheFollowingProceduresHaveBeenPerformedPleaseSelectAllThatApplyOtherGITestPleaseSpecifyExamTextBox;
@@ -2535,7 +2614,7 @@ public class RASSurveyPage {
 	 *  ----------------- BEGINING OF HAVE YOU HAD PAINFUL ACHING IN YOUR MOUTH? PAGE -----------------
 	 */
 					
-	//Have you had painful aching in your mouth? Occasionally radio Button
+	//HAVE YOU HAD PAINFUL ACHING IN YOUR MOUTH? OCCASIONALLY RADIO BUTTON
 	@FindBy(xpath = "(//label[contains(@for,'QR~QID198~3')])[2]")
 	public WebElement haveYouHadPainfulAchingInYourMouthOcassionallyRadioButton;
 		
@@ -2676,19 +2755,30 @@ public class RASSurveyPage {
 	 * ----------------- END OF HAVE YOU BEEN TOTALLY UNABLE TO FUNCTION BECAUSE OF PROBLEMS WITH YOUR TEETH, MOUTH OR DENTURES? PAGE -----------------
 	 */
 		
+	
+	
 	/*
 	 *  ----------------- BEGINING OF PLEASE COMPLETE THE TABLE BELOW TO THE BEST OF YOUR ABILITY ABOUT THE ONSET OF SYMPTOMS, 
 	 *    WHEN YOU WERE DIAGNOSED AND IF ANY PROCEDURES OR MEDICATIONS WERE UNDERTAKEN. PAGE -----------------
 	 */
+	
+	
+	//NEONATAL LYMPHEDEMA (LYMPH BUILD UP TYPICALLY IN THE ARMS AND LEGS. THIS OCCURS IN THE FIRST MONTH OF LIFE) DATE OF FIRST SYMPTOMS TEXT BOX
+	@FindBy(xpath = "//tbody/tr[1]/td[3]/input[1]")
+	public WebElement neonatalLymphedemaDateOfFirstSymptomsTextBox;
 					
 	//NEONATAL LYMPHEDEMA (LYMPH BUILD UP TYPICALLY IN THE ARMS AND LEGS. THIS OCCURS IN THE FIRST MONTH OF LIFE) AGE OF FIRST SYMPTOMS TEXT BOX
 	@FindBy(xpath = "//tbody/tr[1]/td[4]/input[1]")
 	public WebElement neonatalLymphedemaAgeOfFirstSymptomsTextBox;
+	
+	//NEONATAL LYMPHEDEMA (LYMPH BUILD UP TYPICALLY IN THE ARMS AND LEGS. THIS OCCURS IN THE FIRST MONTH OF LIFE) DATE OF DIAGNOSIS TEXT BOX
+	@FindBy(xpath = "//tbody/tr[1]/td[8]/input[1]")
+	public WebElement neonatalLymphedemaDateOfDiagnosisTextBox;
 		
 	//NEONATAL LYMPHEDEMA (LYMPH BUILD UP TYPICALLY IN THE ARMS AND LEGS. THIS OCCURS IN THE FIRST MONTH OF LIFE) AGE OF DIAGNOSIS TEXT BOX
 	@FindBy(xpath = "//tbody/tr[1]/td[9]/input[1]")
 	public WebElement neonatalLymphedemaAgeOfDiagnosisTextBox;
-			
+	
 	//NEONATAL LYMPHEDEMA (LYMPH BUILD UP TYPICALLY IN THE ARMS AND LEGS. THIS OCCURS IN THE FIRST MONTH OF LIFE) MEDICATION TYPE OR PROCEDURE TEXT BOX
 	@FindBy(xpath = "//tbody/tr[1]/td[13]/input[1]")
 	public WebElement neonatalLymphedemaMedicationOrProcedureTextBox;
@@ -2697,9 +2787,17 @@ public class RASSurveyPage {
 	@FindBy(xpath = "//tbody/tr[1]/td[16]/input[1]")
 	public WebElement neonatalLymphedemaNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox;
 		
+	//LYMPHEDEMA (LYMPH FLUID BUILDS UP AND CAUSES SWELLING IN THE ARMS AND LEGS. THIS OCCURS AFTER ONE MONTH OF AGE) DATE OF FIRST SYMPTOMS TEXT BOX
+	@FindBy(xpath = "//tbody/tr[2]/td[3]/input[1]")
+	public WebElement lymphedemaDateOfFirstSymptomsTextBox;
+	
 	//LYMPHEDEMA (LYMPH FLUID BUILDS UP AND CAUSES SWELLING IN THE ARMS AND LEGS. THIS OCCURS AFTER ONE MONTH OF AGE) AGE OF FIRST SYMPTOMS TEXT BOX
 	@FindBy(xpath = "//tbody/tr[2]/td[4]/input[1]")
 	public WebElement lymphedemaAgeOfFirstSymptomsTextBox;
+		
+	//LYMPHEDEMA (LYMPH FLUID BUILDS UP AND CAUSES SWELLING IN THE ARMS AND LEGS. THIS OCCURS AFTER ONE MONTH OF AGE) DATE OF DIAGNOSIS TEXT BOX
+	@FindBy(xpath = "//tbody/tr[2]/td[8]/input[1]")
+	public WebElement lymphedemaDateOfDiagnosisTextBox;
 		
 	//LYMPHEDEMA (LYMPH FLUID BUILDS UP AND CAUSES SWELLING IN THE ARMS AND LEGS. THIS OCCURS AFTER ONE MONTH OF AGE) AGE OF DIAGNOSIS TEXT BOX
 	@FindBy(xpath = "//tbody/tr[2]/td[9]/input[1]")
@@ -2712,10 +2810,18 @@ public class RASSurveyPage {
 	//LYMPHEDEMA (LYMPH FLUID BUILDS UP AND CAUSES SWELLING IN THE ARMS AND LEGS. THIS OCCURS AFTER ONE MONTH OF AGE) NAME OF TREATING HOSPITAL OR PHYSICIAN AND ADDRESS OF HOSPITAL TEXT BOX
 	@FindBy(xpath = "//tbody/tr[2]/td[16]/input[1]")
 	public WebElement lymphedemaNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox;
-			
+	
+	//CONGENITAL CHYLOTHORAX (LYMPH FLUID BUILDS UP IN THE LUNG; DIAGNOSED WITHIN THE FIRST MONTH OF LIFE) DATE OF FIRST SYMPTOMS TEXT BOX
+	@FindBy(xpath = "//tbody/tr[3]/td[3]/input[1]")
+	public WebElement congenitalChylothoraxDateOfFirstSymptomsTextBox;
+	
 	//CONGENITAL CHYLOTHORAX (LYMPH FLUID BUILDS UP IN THE LUNG; DIAGNOSED WITHIN THE FIRST MONTH OF LIFE) AGE OF FIRST SYMPTOMS TEXT BOX
 	@FindBy(xpath = "//tbody/tr[3]/td[4]/input[1]")
 	public WebElement congenitalChylothoraxAgeOfFirstSymptomsTextBox;
+	
+	//CONGENITAL CHYLOTHORAX (LYMPH FLUID BUILDS UP IN THE LUNG; DIAGNOSED WITHIN THE FIRST MONTH OF LIFE) DATE OF DIAGNOSIS TEXT BOX
+	@FindBy(xpath = "//tbody/tr[3]/td[8]/input[1]")
+	public WebElement congenitalChylothoraxDateOfDiagnosisTextBox;
 		
 	//CONGENITAL CHYLOTHORAX (LYMPH FLUID BUILDS UP IN THE LUNG; DIAGNOSED WITHIN THE FIRST MONTH OF LIFE) AGE OF DIAGNOSIS TEXT BOX
 	@FindBy(xpath = "//tbody/tr[3]/td[9]/input[1]")
@@ -2728,10 +2834,18 @@ public class RASSurveyPage {
 	//CONGENITAL CHYLOTHORAX (LYMPH FLUID BUILDS UP IN THE LUNG; DIAGNOSED WITHIN THE FIRST MONTH OF LIFE) NAME OF TREATING HOSPITAL OR PHYSICIAN AND ADDRESS OF HOSPITAL TEXT BOX
 	@FindBy(xpath = "//tbody/tr[3]/td[16]/input[1]")
 	public WebElement congenitalChylothoraxNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox;
-			
+	
+	//PLEURAL EFFUSION/CHYLOTHORAX (LYMPH FLUID BUILDS UP IN THE LUNG; DIAGNOSED AFTER ONE MONTH OF AGE) DATE OF FIRST SYMPTOMS TEXT BOX
+	@FindBy(xpath = "//tbody/tr[4]/td[3]/input[1]")
+	public WebElement pleuralEffusionChylothoraxDateOfFirstSymptomsTextBox;
+	
 	//PLEURAL EFFUSION/CHYLOTHORAX (LYMPH FLUID BUILDS UP IN THE LUNG; DIAGNOSED AFTER ONE MONTH OF AGE) AGE OF FIRST SYMPTOMS TEXT BOX
 	@FindBy(xpath = "//tbody/tr[4]/td[4]/input[1]")
 	public WebElement pleuralEffusionChylothoraxAgeOfFirstSymptomsTextBox;
+	
+	//PLEURAL EFFUSION/CHYLOTHORAX (LYMPH FLUID BUILDS UP IN THE LUNG; DIAGNOSED AFTER ONE MONTH OF AGE) DATE OF DIAGNOSIS TEXT BOX
+	@FindBy(xpath = "//tbody/tr[4]/td[8]/input[1]")
+	public WebElement pleuralEffusionChylothoraxDateOfDiagnosisTextBox;
 		
 	//PLEURAL EFFUSION/CHYLOTHORAX (LYMPH FLUID BUILDS UP IN THE LUNG; DIAGNOSED AFTER ONE MONTH OF AGE) AGE OF DIAGNOSIS TEXT BOX
 	@FindBy(xpath = "//tbody/tr[4]/td[9]/input[1]")
@@ -2744,10 +2858,18 @@ public class RASSurveyPage {
 	//PLEURAL EFFUSION/CHYLOTHORAX (LYMPH FLUID BUILDS UP IN THE LUNG; DIAGNOSED AFTER ONE MONTH OF AGE) NAME OF TREATING HOSPITAL OR PHYSICIAN AND ADDRESS OF HOSPITAL TEXT BOX
 	@FindBy(xpath = "//tbody/tr[4]/td[16]/input[1]")
 	public WebElement pleuralEffusionChylothoraxNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox;
-			
+	
+	//LYMPHANGIOMA (LYMPH FLUID UNDER THE SKIN THAT APPEARS AS A SWELLING, MASS, OR CYST; MOST OFTEN OCCURS IN THE HEAD, NECK OR BREAST AREA DATE OF FIRST SYMPTOMS TEXT BOX
+	@FindBy(xpath = "//tbody/tr[5]/td[3]/input[1]")
+	public WebElement lymphangiomaDateOfFirstSymptomsTextBox;
+	
 	//LYMPHANGIOMA (LYMPH FLUID UNDER THE SKIN THAT APPEARS AS A SWELLING, MASS, OR CYST; MOST OFTEN OCCURS IN THE HEAD, NECK OR BREAST AREA AGE OF FIRST SYMPTOMS TEXT BOX
 	@FindBy(xpath = "//tbody/tr[5]/td[4]/input[1]")
 	public WebElement lymphangiomaAgeOfFirstSymptomsTextBox;
+	
+	//LYMPHANGIOMA (LYMPH FLUID UNDER THE SKIN THAT APPEARS AS A SWELLING, MASS, OR CYST; MOST OFTEN OCCURS IN THE HEAD, NECK OR BREAST AREA DATE OF DIAGNOSIS TEXT BOX
+	@FindBy(xpath = "//tbody/tr[5]/td[8]/input[1]")
+	public WebElement lymphangiomaDateOfDiagnosisTextBox;
 		
 	//LYMPHANGIOMA (LYMPH FLUID UNDER THE SKIN THAT APPEARS AS A SWELLING, MASS, OR CYST; MOST OFTEN OCCURS IN THE HEAD, NECK OR BREAST AREA AGE OF DIAGNOSIS TEXT BOX
 	@FindBy(xpath = "//tbody/tr[5]/td[9]/input[1]")
@@ -2761,9 +2883,17 @@ public class RASSurveyPage {
 	@FindBy(xpath = "//tbody/tr[5]/td[16]/input[1]")
 	public WebElement lymphangiomaNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox;
 			
+	//CHRONIC ABDOMINAL PAIN DATE OF FIRST SYMPTOMS TEXT BOX
+	@FindBy(xpath = "//tbody/tr[6]/td[3]/input[1]")
+	public WebElement chronicAbdominalPainDateOfFirstSymptomsBox;
+	
 	//CHRONIC ABDOMINAL PAIN AGE OF FIRST SYMPTOMS TEXT BOX
 	@FindBy(xpath = "//tbody/tr[6]/td[4]/input[1]")
 	public WebElement chronicAbdominalPainAgeOfFirstSymptomsBox;
+	
+	//CHRONIC ABDOMINAL PAIN DATE OF DIAGNOSIS TEXT BOX
+	@FindBy(xpath = "//tbody/tr[6]/td[8]/input[1]")
+	public WebElement chronicAbdominalPainDateOfDiagnosisBox;
 		
 	//CHRONIC ABDOMINAL PAIN AGE OF DIAGNOSIS TEXT BOX
 	@FindBy(xpath = "//tbody/tr[6]/td[9]/input[1]")
@@ -2776,11 +2906,19 @@ public class RASSurveyPage {
 	//CHRONIC ABDOMINAL PAIN NAME OF TREATING HOSPITAL OR PHYSICIAN AND ADDRESS OF HOSPITAL TEXT BOX
 	@FindBy(xpath = "//tbody/tr[6]/td[16]/input[1]")
 	public WebElement chronicAbdominalPainNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox;
-			
+		
+	//POOR LYMPHATIC DRAINAGE DATE OF FIRST SYMPTOMS TEXT BOX
+	@FindBy(xpath = "//tbody/tr[7]/td[3]/input[1]")
+	public WebElement poorLymphaticDrainageDateOfFirstSymptomsTextBox;
+	
 	//POOR LYMPHATIC DRAINAGE AGE OF FIRST SYMPTOMS TEXT BOX
 	@FindBy(xpath = "//tbody/tr[7]/td[4]/input[1]")
 	public WebElement poorLymphaticDrainageAgeOfFirstSymptomsTextBox;
 		
+	//POOR LYMPHATIC DRAINAGE DATE OF DIAGNOSIS TEXT BOX
+	@FindBy(xpath = "//tbody/tr[7]/td[8]/input[1]")
+	public WebElement poorLymphaticDrainageDateOfDiagnosisTextBox;
+	
 	//POOR LYMPHATIC DRAINAGE AGE OF DIAGNOSIS TEXT BOX
 	@FindBy(xpath = "//tbody/tr[7]/td[9]/input[1]")
 	public WebElement poorLymphaticDrainageAgeOfDiagnosisTextBox;
@@ -3727,6 +3865,7 @@ public class RASSurveyPage {
 	@FindBy(xpath = "//tbody/tr[6]/td[9]/input[1]")
 	public WebElement otherTumorDisorderDiagnosisAgeTextBox;
 
+
 	//OTHER TUMOR "YES" RADIO BUTTON
 	@FindBy(xpath = "//label[contains(@for,'QR~QID237#3~x6~1')]")
 	public WebElement otherTumorDisorderYesRadioButton;
@@ -4651,6 +4790,7 @@ public class RASSurveyPage {
 	@FindBy(xpath = "(//input[contains(@type,'text')])[5]")
 	public WebElement strabismusDiagnosisAgeTextBox;
 
+
 	//"OCCLUSION" TEXT BOX
 	@FindBy(xpath = "(//label[contains(@for,'QR~QID255#3~1~1')])[1]")
 	public WebElement occlusionTreatmentTextBox;
@@ -4696,6 +4836,7 @@ public class RASSurveyPage {
 	//"PLEASE PROVIDE DETAILS OF....UNSURE/UKNOWN" TEXT BOX
 	@FindBy(xpath = "(//input[contains(@type,'text')])[6]")
 	public WebElement nystagmusUnsureDiagnosisTextBox;
+
 
 	//NYSTAGMUS TREATMENT "YES" RADIO BUTTON
 	@FindBy(xpath = "(//label[contains(@for,'QR~QID257#3~1~1')])[1]")
@@ -4858,7 +4999,7 @@ public class RASSurveyPage {
 	 * ----------------- BEGINNING OF IF THERE ARE ANY OTHER HEALTH ISSUES PRESENT
 	 * THAT HAVE NOT BEEN CAPTURED BY THIS SURVEY, PLEASE LIST THEM HERE: PAGE ----------------- 
 	 */
-
+	
 	//"UNSURE/UNKNOWN" TEXT BOX
 	@FindBy(xpath = "(//textarea)[1]")
 	public WebElement anyOtherHealthIssuesTextBox;
@@ -4871,6 +5012,1137 @@ public class RASSurveyPage {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 		
 	}
+	/*
+	 * --------------------------- BEGINNING OF TO CONFIRM ARE YOU COMPLETING THIS FORM FOR YOURSELF OR FOR SOMEONE ELSE--------------------------- 
+	 */
+	
+	//I AM COMPLETING THIS FORM FOR SOMEONE ELSE RADIO BUTTON
+		@FindBy (xpath= "//span[contains(text(),'I am completing this form for someone else')]")
+		public WebElement completingFormForSomeoneElse;
+	
+		/*
+		 * --------------------------- END OF TO CONFIRM ARE YOU COMPLETING THIS FORM FOR YOURSELF OR FOR SOMEONE ELSE--------------------------- 
+		 */
+		
+		/*
+		 * --------------------------- BEGINNING OF PLEASE CONFIRM THE NAME OF THE PERSON FOR WHOM YOU ARE COMPLETING THIS QUESTIONNAIRE.--------------------------- 
+		 */
+		
+	// PLEASE CONFIRM THE NAME OF THE PERSON FOR WHOM YOU ARE COMPLETING THIS QUESTIONNAIRE. FIRSTNAME TEXT BOX 
+		@FindBy (xpath= "//input[@id='QR~QID2~1']")
+		public WebElement personFirstNameCompletingQuestionnaire;
+		
+		// PLEASE CONFIRM THE NAME OF THE PERSON FOR WHOM YOU ARE COMPLETING THIS QUESTIONNAIRE. MIDDLE INITIAL TEXT BOX 
+		@FindBy (xpath= "//input[@id='QR~QID2~2']")
+		public WebElement personMiddleInitialCompletingQuestionnaire;
+		
+		// PLEASE CONFIRM THE NAME OF THE PERSON FOR WHOM YOU ARE COMPLETING THIS QUESTIONNAIRE. LAST NAME TEXT BOX 
+		@FindBy (xpath= "//input[@id='QR~QID2~3']")
+		public WebElement personLastNameCompletingQuestionnaire;
+		
+		/*
+		 * --------------------------- END OF PLEASE CONFIRM THE NAME OF THE PERSON FOR WHOM YOU ARE COMPLETING THIS QUESTIONNAIRE.--------------------------- 
+		 */
+		
+		/*
+		 * --------------------------- BEGINNING OF IS CHRISTINA STILL ALIVE?--------------------------- 
+		 */
+		// IS CHRISTINA STILL ALIVE "YES" RADIO BUTTON
+		@FindBy (xpath= "//span[contains(text(),'Yes')]")
+		public WebElement yesIsChristinaStillAlive;
+		
+		/*
+		 * --------------------------- END OF IS CHRISTINA STILL ALIVE?--------------------------- 
+		 */
+		
+		/*
+		 * --------------------------- BEGINNING OF HAS CHRISTINA EVER BEEN INCLUDED IN A PUBLISHED CASE REPORT OR OTHERWISE REPRESENTED IN A PUBLIC MANNER BY A HEALTHCARE PROVIDER OR RESEARCHER --------------------------- 
+		 */
+		
+		//HAS CHRISTINA EVER BEEN INCLUDED IN A PUBLISHED CASE REPORT OR OTHERWISE REPRESENTED IN A PUBLIC MANNER BY A HEALTHCARE PROVIDER OR RESEARCHER? "YES" RADIO BUTTON
+		@FindBy (xpath="//span[contains(text(),'Yes')]")
+		public WebElement yesChristinaHasBeenIncludedInAPublishedCase;
+		
+		/*
+		 * --------------------------- END OF HAS CHRISTINA EVER BEEN INCLUDED IN A PUBLISHED CASE REPORT OR OTHERWISE REPRESENTED IN A PUBLIC MANNER BY A HEALTHCARE PROVIDER OR RESEARCHER --------------------------- 
+		 */
+		
+		/*
+		 *  ----------------- BEGINNING OF PLEASE COMPLETE THE TABLE BELOW REGARDING CHRISTINAS BIOLOGICAL PARENTS. PAGE ----------------- 
+		 */
+		// BIOLOGICAL MOTHER TEXTBOX
+		@FindBy(xpath="//tr[@class='Choice ']//input[@type='text']")
+		public WebElement biologicalMothersBirthCityTextBox;
+		
+		// BIOLOGICAL FATHER TEXTBOX
+		@FindBy(xpath="//tr[@class='Choice ReadableAlt']//input[@type='text']")
+		public WebElement biologicalFatherBirthCityTextBox;
+		
+		//MOTHER'S AGE WHEN BORN DROPDOWN
+		@FindBy(xpath="(//select[@class='MatrixDL QWatchTimer'])[1]")
+		public WebElement biologicalMothersAgeWhenBornDropDown;
+		
+		//FATHER'S AGE WHEN BORN DROPDOWN
+		@FindBy (xpath="//tr[@class='Choice ReadableAlt']//select[@class='MatrixDL QWatchTimer']")
+		public WebElement biologicalFathersAgeWhenBornDropDown;
+		
+		/*
+		 *  ----------------- END OF PLEASE COMPLETE THE TABLE BELOW REGARDING CHRISTINAS BIOLOGICAL PARENTS. PAGE ----------------- 
+		 */
+		
+		
+		
+		
+		/*
+		 * --------------------------- BEGINNING OF WAS CHRISTINA RAMIREZ DIAGNOSED WITH HYPOGLYCEMIA (LOW BLOOD SUGAR) DURING THE NEWBORN PERIOD?--------------------------- 
+		 */
+		
+		//WAS CHRISTINA RAMIREZ DIAGNOSED WITH HYPOGLYCEMIA LOW BLOOD SUGAR DURING THE NEWBORN PERIOD? "YES" RADIO BUTTON
+		@FindBy (xpath="//span[contains(text(),'Yes')]")
+		public WebElement yesChristinaWasDiagnosedWithHypoglycemia;
+		
+		/*
+		 * --------------------------- END OF WAS CHRISTINA RAMIREZ DIAGNOSED WITH HYPOGLYCEMIA (LOW BLOOD SUGAR) DURING THE NEWBORN PERIOD?--------------------------- 
+		 */
+		
+		/*
+		 * --------------------------- BEGINNING OF WAS CHRISTINA RAMIREZ DIAGNOSED WITH ANY OF THE FOLLOWING CONDITIONS DURING THEIR MOTHER'S PREGNANCY?--------------------------- 
+		 */
+
+		//EXTRA FLUID IN THE NECK AREA NUCHAL EDEMA RADIO BUTTON
+		@FindBy (xpath= "//span[contains(text(),'Extra fluid in the neck area (nuchal edema)')]")
+		public WebElement extraFluidInTheNeckArea;
+		
+		//EXTRA FLUID IN THE LUNG AREA PLEURAL EDEMA RADIO BUTTON
+		@FindBy (xpath="//span[contains(text(),'Extra fluid in the lung area (pleural edema)')]")
+		public WebElement extraFluidInTheLungArea;
+		
+		//EXTRA FLUID IN THE ABDOMEN ASCITES RADIO BUTTON
+		@FindBy (xpath = "//span[contains(text(),'Extra fluid in the abdomen (ascites)')]")
+		public WebElement extraFluidInTheAbdomenAscites;
+		
+		//EXTRA FLUID IN MORE THAN ONE BODY AREA HYDROPS RADIO BUTTON
+		@FindBy (xpath = "//span[contains(text(),'Extra fluid in more than one body area (hydrops)')]")
+		public WebElement extraFluidInMoreThanOneBodyAreaHydrops;
+		
+		//TOO MUCH FLUID IN THE AMNIOTIC SAC POLYHYDRAMNIOS RADIO BUTTON
+		@FindBy (xpath= "//span[contains(text(),'Too much fluid in the amniotic sac (polyhydramnios')]")
+		public WebElement tooMuchFluidInTheAmnioticSac;
+		
+		//HEART ISSUE RADIO BUTTON
+		@FindBy (xpath="//span[contains(text(),'Heart issue')]")
+		public WebElement heartIssue;
+		
+		//OTHER PLEASE SPECIFY TEXT BOX
+		@FindBy(xpath = "(//input[@id='QR~QID38~7~TEXT'])[1]")
+		public WebElement otherPleaseSpecifyOtherTextBox;
+		
+		/*
+		 * --------------------------- END OF WAS CHRISTINA RAMIREZ DIAGNOSED WITH ANY OF THE FOLLOWING CONDITIONS DURING THEIR MOTHER'S PREGNANCY?--------------------------- 
+		 */
+		
+		/*
+		 * --------------------------- BEGINNING OF DURING HER PREGNANCY WITH CHRISTINA RAMIREZ DID THEIR MOTHER HAVE ANY PRENATAL TESTS TO IDENTIFY FETAL BIRTH DEFECTS OR FETAL MEDICAL PROBLEMS?--------------------------- 
+		 */
+		
+		// DURING HER PREGNANCY WITH CHRISTINA RAMIREZ DID THEIR MOTHER HAVE ANY PRENATAL TESTS TO IDENTIFY FETAL BIRTH DEFECTS OR FETAL MEDICAL PROBLEMS? "YES" RADIO BUTTON
+		 @FindBy (xpath = "(//span)[3]")
+		 public WebElement yesChristinasMotherHadPrenatalTestToIdentifyBirthDefects;
+		
+		/*
+		 * --------------------------- END OF DURING HER PREGNANCY WITH CHRISTINA RAMIREZ DID THEIR MOTHER HAVE ANY PRENATAL TESTS TO IDENTIFY FETAL BIRTH DEFECTS OR FETAL MEDICAL PROBLEMS?--------------------------- 
+		 */
+		 
+		 /*
+		 * --------------------------- BEGINNING OF PLEASE INDICATE THE RESULTS OF THE PRENATAL TESTS ADMINISTERED TO THE BIOLOGICAL MOTHER OF "NAME OF PARTICIPANT" DURING HER PREGNANCY WITH CHRISTINA RAMIREZ.--------------------------- 
+		 */
+		 	//SERUM AFP (ALPHA-FETOPROTEIN) NORMAL RADIO BUTTON
+			@FindBy (xpath="//label[@for='QR~QID42#1~1~1']")
+			public WebElement serumAFPProxyRadioButton;
+			
+			//ULTRASOUND NORMAL RADIO BUTTON
+			@FindBy (xpath="//label[@for='QR~QID42#1~2~1']")
+			public WebElement ultraSoundProxyRadioButton;
+			
+			//AMNIOCENTESIS NORMAL RADIO BUTTON
+			@FindBy (xpath="//label[@for='QR~QID42#1~3~1']")
+			public WebElement amniocentesisProxyRadioButton;
+			
+			//CHORIONIC VILLUS SAMPLING NORMAL RADIO BUTTON
+			@FindBy (xpath="//label[@for='QR~QID42#1~4~1']")
+			public WebElement chorionicVillusSamplingProxyRadioButton;
+			
+			//FETAL BLOOD SAMPLING NORMAL RADIO BUTTON
+			@FindBy (xpath="//label[@for='QR~QID42#1~5~1']")
+			public WebElement fetalBloodSamplingProxyRadioButton;
+			
+			//STRESS TEST NORMAL RADIO BUTTON
+			@FindBy (xpath="//label[@for='QR~QID42#1~6~1']")
+			public WebElement stressTestProxyRadioButton;
+			
+			//X-RAYS NORMAL RADIO BUTTON
+			@FindBy (xpath="//label[@for='QR~QID42#1~7~1']")
+			public WebElement xRayProxyRadioButton;
+			
+			//OTHER (PLEASE SPECIFY) NORMAL RADIO BUTTON
+			@FindBy (xpath="//label[@for='QR~QID42#1~8~1']")
+			public WebElement otherProxyRadioButton;
+			
+			//OTHER (PLEASE SPECIFY) TEXT BOX
+			@FindBy (xpath="//input[@type='text']")
+			public WebElement otherTestProxyTextBox;
+			
+
+			/*
+			 * --------------------------- END OF PLEASE INDICATE THE RESULTS OF THE PRENATAL TESTS ADMINISTERED TO THE BIOLOGICAL MOTHER OF CHRISTINA RAMIREZ DURING HER PREGNANCY WITH CHRISTINA RAMIREZ.--------------------------- 
+			 */
+		 
+			 /*
+			 * --------------------------- BEGINNING OF DURING HER PREGNANCY WITH CHRISTINA RAMIREZ, DID THEIR BIOLOGICAL MOTHER TAKE ANY MEDICATIONS, VITAMINS OR SUPPLEMENTS FOR ANY REASON? --------------------------- 
+			 */
+				
+			//OTHER MEDICATION (PLEASE SPECIFY)PROXY TEXT BOX
+			@FindBy (xpath="//li[15]//span[1]//input[1]")
+			public WebElement otherMedicationProxyTextBox;
+			
+			//OTHER MEDICATION (PLEASE SPECIFY) SECOND PROXY TEXT BOX
+			@FindBy (xpath="//li[16]//span[1]//input[1]")
+			public WebElement otherMedicationProxyTextBox2;
+			 /*
+			 * --------------------------- END OF DURING HER PREGNANCY WITH CHRISTINA RAMIREZ, DID THEIR BIOLOGICAL MOTHER TAKE ANY MEDICATIONS, VITAMINS OR SUPPLEMENTS FOR ANY REASON? --------------------------- 
+			 */
+
+			 /*
+			 * --------------------------- BEGINNING OF PLEASE DESCRIBE CHRISTINAS BIOLOGICAL PARENTS OCCUPATIONS DURING THEIR MOTHERS PREGNANCY WITH CHRISTINA? PAGE --------------------------- 
+			 */
+
+			//TYPE BLOLOGICAL MOTHER TEXT BOX WEBELEMENT
+			@FindBy (xpath="(//input[contains(@type,'text')])[1]")
+			public WebElement biologicalMotherOccupationProxyTextBox;
+				
+			//TYPE BIOLOGICAL FATHER TEXT BOX WEBELEMENT
+			@FindBy (xpath="(//input[contains(@type,'text')])[2]")
+			public WebElement biologicalFatherOccupationProxyTextBox;
+				
+			/*
+			 * --------------------------- END OF PLEASE DESCRIBE CHRISTINAS BIOLOGICAL PARENTS OCCUPATIONS DURING THEIR MOTHERS PREGNANCY WITH CHRISTINA? PAGE --------------------------- 
+			 */
+
+			 /*
+			 * --------------------------- BEGINNING OF WHAT IS THE HEIGHT OF CHRISTINAS BIOLOGICAL MOTHER AND FATHER?  PAGE --------------------------- 
+			 */
+			//ADULT HEIGHT BIOLOGICAL MOTHER TEXT BOX 
+			@FindBy (xpath="(//input[contains(@type,'text')])[1]")
+			public WebElement biologicalMotherHeightProxyTextBox;
+				
+			//ADULT HEIGHT BIOLOGICAL FATHER TEXT BOX 
+			@FindBy (xpath="(//input[contains(@type,'text')])[2]")
+			public WebElement biologicalFatherHeightProxyTextBox;
+			
+			//UNIT OF MEASURE BLOLOGICAL MOTHER CENTIMETERS RADIO BUTTON 
+			@FindBy (xpath="(//label[@for='QR~QID410#1~1~3'])[1]")
+			public WebElement unitOfMeasureMotherProxyRadioButton;
+				
+			//UNIT OF MEASURE  BLOLOGICAL FATHER CENTIMETERS RADIO BUTTON 
+			@FindBy (xpath="(//label[@for='QR~QID410#1~2~3'])[1]")
+			public WebElement unitOfMeasureFatherProxyRadioButton;
+				
+
+			 /*
+			 * --------------------------- END OF WHAT IS THE HEIGHT OF CHRISTINAS BIOLOGICAL MOTHER AND FATHER?  PAGE --------------------------- 
+			 */
+
+			/*
+			 * --------------------------- BEGINNING OF WHAT IS THE NAME OF THE ENDOCRINOLOGIST WHO COMPLETED CHRISTINAS EXAMINATION?  PAGE --------------------------- 
+			 */
+			//TYPE OF DOCTOR/MEDICAL PROVIDER NAME TEXT BOX 
+			@FindBy (xpath="(//input[@class='Medium InputText QR-QID412-1 QWatchTimer'])[1]")
+			public WebElement doctorMedicalProviderNameProxyTextBox;
+				
+			//TYPE OF LOCATION (CITY,STATE,COUNTRY) TEXT BOX 
+			@FindBy (xpath="(//input[@class='Medium InputText QR-QID412-2 QWatchTimer'])[1]")
+			public WebElement locatioCityStateCountryProxyTextBox;
+				
+			//TYPE OF HOSPITAL OR HEALTH SYSTEM AFFILIATION TEXT BOX 
+			@FindBy (xpath="(//input[@class='Medium InputText QR-QID412-3 QWatchTimer'])[1]")
+			public WebElement hospitalOrHealthSystemAffiliationProxyTextBox;
+			
+				
+			/*
+			 * --------------------------- END OF WHAT IS THE NAME OF THE ENDOCRINOLOGIST WHO COMPLETED CHRISTINAS EXAMINATION?  PAGE --------------------------- 
+			 */
+			
+			/*
+			 * --------------- BEGINNING OF AT WHAT AGE WAS CHRISTINA ABLE TO SIT WITHOUT SUPPORT? PAGE ---------------
+			 */
+				
+			//TYPE OF AT WHAT AGE WAS CHRISTINA ABLE TO SIT WITHOUT SUPPORT? 12-18 MONTHS RADIO BUTTON 
+			@FindBy (xpath= "(//span[contains(text(),'12-18 months')])[1]")
+			public WebElement atWhatAgeWereYouAbleToSitWithoutSupportProxyCheckRadioButton;
+			
+			/*
+			 * --------------- END OF AT WHAT AGE WAS CHRISTINA ABLE TO SIT WITHOUT SUPPORT? PAGE ---------------
+			 */
+			
+			/*
+			 * --------------- BEGINNING OF AT WHAT AGE WAS CHRISTINA ABLE TO WALK WITHOUT SUPPORT?  PAGE ---------------
+			 */
+				
+			//TYPE OF AT WHAT AGE WAS CHRISTINA ABLE TO WALK WITHOUT SUPPORT? 12 -18 MONTHS RADIO BUTTON 
+			@FindBy (xpath="//span[contains(text(),'12-18 months')]")
+			public WebElement atWhatAgeWereYouAbleToWalkWithoutSupportProxyCheckRadioButton;
+			
+			/*
+			 * --------------- END OF AT WHAT AGE WAS CHRISTINA ABLE TO WALK WITHOUT SUPPORT?  PAGE ---------------
+			 */
+			
+			/*
+			 * ----------------- BEGINNING OF AT WHAT AGE WAS CHRISTINA ABLE TO USE SIMPLE TWO-WORD PHRASES? PAGE -----------------
+			 */
+
+			// "36-48 MONTHS" RADIO BUTTON
+			@FindBy(xpath = "(//span[contains(text(),'24-36 months')])[1]")
+			public WebElement twentyFourToThirthySixMonthsProxyRadioButton;
+			
+			/*
+			 * ----------------- END OF AT WHAT AGE WAS CHRISTINA ABLE TO USE SIMPLE TWO-WORD PHRASES? PAGE -----------------
+			 */
+
+			/*
+			 *  ----------------- BEGINNING OF BETWEEN THE AGES OF 10 AND 17 (MIDDLE AND HIGH SCHOOL AGE) PLEASE SELECT THE OPTION THAT BEST DESCRIBES CHRISTINA'S SCHOOLING.   PAGE -----------------
+			 */
+			
+			// “ATTENDED TYPICAL CLASSROOM WITHOUT SUPPORT OR LITTLE SUPPORT" RADIO BUTTON
+			@FindBy(xpath = "//body/div/div/form[contains(@name,'Page')]/div/div/div/div/div[contains(@role,'main')]/div/div/div/fieldset/div/ul/li[1]/span[1]")
+			public WebElement attendedTypicalclassroomOrlittleSupportProxyRadioButton;
+			
+			/*
+			 *  ----------------- END OF BETWEEN THE AGES OF 10 AND 17 (MIDDLE AND HIGH SCHOOL AGE) PLEASE SELECT THE OPTION THAT BEST DESCRIBES CHRISTINA'S SCHOOLING.   PAGE -----------------
+			 */
+			
+			/*
+			 * ----------------- BEGINNING OF WHAT IS THE NAME OF THE CARDIOLOGIST WHO COMPLETED CHRISTINAS HEART EVALUATION? PAGE -----------------
+			 */
+
+			// "NAME OF DOCTOR/MEDICAL PROVIDER" TEXT BOX
+			@FindBy(xpath = "(//input[@type='text'])[1]")
+			public WebElement nameOfDoctorOrMedicalProviderProxyTextBox;
+
+			// STEPS TO SENT TEXT TO "LOCATION (CITY, STATE, COUNTRY)" TEXT BOX
+			@FindBy(xpath = "(//input[contains(@type,'text')])[2]")
+			public WebElement locationCityStateCountryProxyTextBox;
+
+			// STEPS TO SENT TEXT TO "HOSPITAL OR HEALTH CENTER AFFILIATION" TEXT BOX
+			@FindBy(xpath = "(//input[contains(@type,'text')])[3]")
+			public WebElement hospitalOrHealthCenterAffiliationProxyTextBox;
+			
+			/*
+			 * ----------------- END OF WHAT IS THE NAME OF THE CARDIOLOGIST WHO COMPLETED CHRISTINAS HEART EVALUATION? PAGE -----------------
+			 */
+			
+			/*
+			 * ----------------- BEGINNING OF PLEASE COMPLETE THE TABLE BELOW BY PROVIDING INFORMATION FOR THE FIRST TREATMENT AND THE MOST RECENT TREATMENT.  YOU ONLY NEED TO PROVIDE THE AGE AT WHICH SYMPTOMS
+			 *  OCCURRED OR DATE NOT BOTH. IF YOU DO NOT RECALL THE DETAILS, PLEASE PLACE AN X IN THE DONT KNOW BOX.   PAGE -----------------
+			 */
+
+			// -------------MEDICATION (PLEASE SPECIFY) SECTION-------------
+			
+			// “MEDICATION FIRST TREATMENT AGE" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[1]/td[3]/input[1]")
+			public WebElement medicationFirstTreatmentAgeProxyTextBox;
+
+			// “MEDICATION FIRST TREATMENT DATE(MM/YY)" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[1]/td[4]/input[1]")
+			public WebElement medicationFirstTreatmentDateProxyTextBox;
+
+			// “MEDICATION FIRST TREATMENT DON'T KNOW" TEXT BOX
+			@FindBy(xpath = "(//input[@type='text'])[3]")
+			public WebElement medicationFirstTreatmentDontKnowProxyTextBox;
+
+			// “MEDICATION FIRST TREATMENT LOCATION HOSPITAL CITY STATE COUNTRY" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[1]/td[8]/input[1]")
+			public WebElement medicationFirstTreatmentLocationProxyTextBox;
+
+			// “MEDICATION MOST RECENT TREATMENT AGE" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[1]/td[11]/input[1]")
+			public WebElement medicationMostRecentTreatmentAgeProxyTextBox;
+
+			// “MEDICATION MOST RECENT TREATMENT DATE(MM/YY)" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[1]/td[12]/input[1]")
+			public WebElement medicationMostRecentTreatmentDateProxyTextBox;
+
+			// “MEDICATION MOST RECENT TREATMENT DON'T KNOW" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[1]/td[13]/input[1]")
+			public WebElement medicationMostRecentTreatmentDontKnowProxyTextBox;
+
+			// “MEDICATION MOST RECENT TREATMENT LOCATION HOSPITAL CITY STATE COUNTRY" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[1]/td[16]/input[1]")
+			public WebElement medicationMostRecentTreatmentLocationProxyTextBox;
+
+			// -------------CATHETER INTERVENTION SECTION-------------
+
+			// “CATHETER INTERVENTION FIRST TREATMENT AGE" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[2]/td[3]/input[1]")
+			public WebElement catheterInterventionFirstTreatmentAgeProxyTextBox;
+
+			// “CATHETER INTERVENTION FIRST TREATMENT DATE(MM/YY)" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[2]/td[4]/input[1]")
+			public WebElement catheterInterventionFirstTreatmentDateProxyTextBox;
+
+			// "CATHETER INTERVENTION FIRST TREATMENT DON'T KNOW" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[2]/td[5]/input[1]")
+			public WebElement catheterInterventionFirstTreatmentDontKnowProxyTextBox;
+
+			// “CATHETER INTERVENTION FIRST TREATMENT LOCATION HOSPITAL CITY STATE COUNTRY"
+			// TEXT BOX
+			@FindBy(xpath = "//tbody/tr[2]/td[8]/input[1]")
+			public WebElement catheterInterventionFirstTreatmentLocationProxyTextBox;
+
+			// “CATHETER INTERVENTION MOST RECENT TREATMENT AGE" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[2]/td[11]/input[1]")
+			public WebElement catheterInterventionMostRecentTreatmentAgeProxyTextBox;
+
+			// “CATHETER INTERVENTION MOST RECENT TREATMENT DATE(MM/YY)" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[2]/td[12]/input[1]")
+			public WebElement catheterInterventionMostRecentTreatmentDateProxyTextBox;
+
+			// “CATHETER INTERVENTION MOST RECENT TREATMENT DON'T KNOW" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[2]/td[13]/input[1]")
+			public WebElement catheterInterventionMostRecentTreatmentDontKnowProxyTextBox;
+
+			// “CATHETER INTERVENTION MOST RECENT TREATMENT LOCATION HOSPITAL CITY STATE
+			// COUNTRY" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[2]/td[16]/input[1]")
+			public WebElement catheterInterventionMostRecentTreatmentLocationProxyTextBox;
+
+			// -------------SURGERY SECTION-------------
+
+			// “SURGERY FIRST TREATMENT AGE" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[3]/td[3]/input[1]")
+			public WebElement surgeryFirstTreatmentAgeProxyTextBox;
+
+			// “SURGERY FIRST TREATMENT DATE(MM/YY)" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[3]/td[4]/input[1]")
+			public WebElement surgeryFirstTreatmentDateProxyTextBox;
+
+			// "SURGERY FIRST TREATMENT DON'T KNOW" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[3]/td[5]/input[1]")
+			public WebElement surgeryFirstTreatmentDontKnowProxyTextBox;
+
+			// “SURGERY FIRST TREATMENT LOCATION HOSPITAL CITY STATE COUNTRY" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[3]/td[8]/input[1]")
+			public WebElement surgeryFirstTreatmentLocationProxyTextBox;
+
+			// “SURGERY MOST RECENT TREATMENT AGE" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[3]/td[11]/input[1]")
+			public WebElement surgeryMostRecentTreatmentAgeProxyTextBox;
+
+			// “SURGERY MOST RECENT TREATMENT DATE(MM/YY)" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[3]/td[12]/input[1]")
+			public WebElement surgeryMostRecentTreatmentDateProxyTextBox;
+
+			// “SURGERY MOST RECENT TREATMENT DON'T KNOW" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[3]/td[13]/input[1]")
+			public WebElement surgeryMostRecentTreatmentDontKnowProxyTextBox;
+
+			// “SURGERY MOST RECENT TREATMENT LOCATION HOSPITAL CITY STATE COUNTRY" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[3]/td[16]/input[1]")
+			public WebElement surgeryMostRecentTreatmentLocationProxyTextBox;
+
+			// -------------OTHER(PLEASE SPECIFY) SECTION-------------
+
+			// “OTHER(PLEASE SPECIFY) FIRST TREATMENT AGE" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[4]/td[3]/input[1]")
+			public WebElement otherFirstTreatmentAgeProxyTextBox;
+
+			// “OTHER(PLEASE SPECIFY) FIRST TREATMENT DATE(MM/YY)" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[4]/td[4]/input[1]")
+			public WebElement otherFirstTreatmentDateProxyTextBox;
+
+			// "OTHER(PLEASE SPECIFY) FIRST TREATMENT DON'T KNOW" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[4]/td[5]/input[1]")
+			public WebElement otherFirstTreatmentDontKnowProxyTextBox;
+
+			// “OTHER(PLEASE SPECIFY) FIRST TREATMENT LOCATION HOSPITAL CITY STATE COUNTRY" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[4]/td[8]/input[1]")
+			public WebElement otherFirstTreatmentLocationProxyTextBox;
+
+			// “OTHER(PLEASE SPECIFY) MOST RECENT TREATMENT AGE" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[4]/td[11]/input[1]")
+			public WebElement otherMostRecentTreatmentAgeProxyTextBox;
+
+			// “OTHER(PLEASE SPECIFY) MOST RECENT TREATMENT DATE(MM/YY)" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[4]/td[12]/input[1]")
+			public WebElement otherMostRecentTreatmentDateProxyTextBox;
+
+			// “OTHER(PLEASE SPECIFY) MOST RECENT TREATMENT DON'T KNOW" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[4]/td[13]/input[1]")
+			public WebElement otherMostRecentTreatmentDontKnowProxyTextBox;
+
+			// “OTHER(PLEASE SPECIFY) MOST RECENT TREATMENT LOCATION HOSPITAL CITY STATE COUNTRY" TEXT BOX
+			@FindBy(xpath = "//tbody/tr[4]/td[16]/input[1]")
+			public WebElement otherMostRecentTreatmentLocationProxyTextBox;
+
+			/*
+			 * ----------------- END OF PLEASE COMPLETE THE TABLE BELOW BY PROVIDING INFORMATION FOR THE FIRST TREATMENT AND THE MOST RECENT TREATMENT.  YOU ONLY NEED TO PROVIDE THE AGE AT WHICH SYMPTOMS
+			 *  OCCURRED OR DATE NOT BOTH. IF YOU DO NOT RECALL THE DETAILS, PLEASE PLACE AN X IN THE DONT KNOW BOX.   PAGE -----------------
+			 */
+
+			/*
+			 * --------------- BEGINNING OF PLEASE PROVIDE ANY DETAILS KNOWN FOR THE CONDITION(S) FOR WHICH CHRISTINA HAS BEEN DIAGNOSED. PAGE ---------------
+			 */
+			
+			//TACHYCARDIA AGE OF FIRST SYMPTOM TEXT BOX
+			@FindBy(xpath = "//tbody/tr[1]/td[3]/input[1]")
+			public WebElement tachycardiaAgeOfFirstSymptomProxyTextBox;
+			
+			//TACHYCARDIA AGE OF DIAGNOSIS TEXT BOX
+			@FindBy(xpath = "//tbody/tr[1]/td[8]/input[1]")
+			public WebElement tachycardiaAgeOfDiagnosisProxyTextBox;
+			
+			//TACHYCARDIA TREATMENT AND MEDICATION TAKEN TEXT BOX
+			@FindBy(xpath = "//tbody/tr[1]/td[13]/input[1]")
+			public WebElement tachycardiaTreatmentAndMedicationProxyTextBox;
+			
+			//TACHYCARDIA HOSPITAL OF TREATMENT TEXT BOX
+			@FindBy(xpath = "//tbody/tr[1]/td[16]/input[1]")
+			public WebElement tachycardiaHospitalOfTreatmentProxyTextBox;
+			
+			//CARDIAC CONDUCTION DEFECT DATE OF FIRST SYMPTOM TEXT BOX
+			@FindBy(xpath = "//tbody/tr[2]/td[3]/input[1]")
+			public WebElement cardiacConductionDefectFristSymptomProxyTextBox;
+			
+			//CARDIAC CONDUCTION DEFECT DATE OF DIAGNOSIS TEXT BOX
+			@FindBy(xpath = "//tbody/tr[2]/td[8]/input[1]")
+			public WebElement cardiacConductionDefectDateOfDiagnosisProxyTextBox;
+			
+			//CARDIAC CONDUCTION DEFECT TREATMENT AND MEDICATION TAKEN TEXT BOX
+			@FindBy(xpath = "//tbody/tr[2]/td[13]/input[1]")
+			public WebElement cardiacConductionDefectTreatmentAndMedicationProxyTextBox;
+			
+			//CARDIAC CONDUCTION DEFECT HOSPITAL OF TREATMENT TEXT BOX
+			@FindBy(xpath = "//tbody/tr[2]/td[16]/input[1]")
+			public WebElement cardiacConductionDefectHospitalOfTreatmentProxyTextBox;
+			
+			// HEART FAILURE AGE OF FIRST SYMPTOM TEXT BOX
+			@FindBy(xpath = "//tbody/tr[3]/td[3]/input[1]")
+			public WebElement heartFailureAgeOfFirstSymptomProxyTextBox;
+			
+			// HEART FAILURE DATE OF DIAGNOSIS TEXT BOX
+			@FindBy(xpath = "//tbody/tr[3]/td[8]/input[1]")
+			public WebElement heartFailureDateOfDiagnosisProxyTextBox;
+			
+			// HEART FAILURE TREATMENT AND MEDICATION TAKEN TEXT BOX
+			@FindBy(xpath = "//tbody/tr[3]/td[13]/input[1]")
+			public WebElement heartFailureTreatmentAndMedecationProxyTextBox;
+			
+			// HEART FAILURE HOSPITAL OF TREATMENT TEXT BOX
+			@FindBy(xpath = "//tbody/tr[3]/td[16]/input[1]")
+			public WebElement heartFailureHospitalOfTreatmentProxyTextBox;
+			
+			// OTHER HEART ISSUES DATE OF FIRST SYMPTOM TEXT BOX
+			@FindBy(xpath = "//tbody/tr[4]/td[3]/input[1]")
+			public WebElement otherHeartIssuesDateOfFirstSymptomProxyTextBox;
+			
+			// OTHER HEART ISSUES AGE OF DIAGNOSIS TEXT BOX
+			@FindBy(xpath = "//tbody/tr[4]/td[8]/input[1]")
+			public WebElement otherHeartIssuesAgeOfDiagnosisProxyTextBox;
+			
+			// OTHER HEART ISSUES TREATMENT AND MEDICATION TAKEN TEXT BOX
+			@FindBy(xpath = "//tbody/tr[4]/td[13]/input[1]")
+			public WebElement OtherHeartIssuesTreatmentAndMedicationProxyTextBox;
+			
+			// OTHER HEART ISSUES HOSPITAL OF TREATMENT TEXT BOX
+			@FindBy(xpath = "//tbody/tr[4]/td[16]/input[1]")
+			public WebElement otherHeartIssuesHospitalOfTreatmentProxyTextBox;
+
+			/*
+			 * --------------- END OF PLEASE PROVIDE ANY DETAILS KNOWN FOR THE CONDITION(S) FOR WHICH CHRISTINA HAS BEEN DIAGNOSED. PAGE ---------------
+			 */
+
+			/*
+			 * --------------- BEGINNING PLEASE PROVIDE THE INFORMATION FOR CHRISTINAS PRIMARY CARE PROVIDER BELOW.   PAGE ---------------
+			 */
+			
+			// PRIMARY CARE PROVIDER NAME TEXT BOX 
+			@FindBy(xpath = "(//input[@type='text'])[1]")
+			public WebElement PrimaryCareProviderNameProxyTextBox ;
+			
+			// PRIMARY CARE PROVIDER LOCATION TEXT BOX
+			@FindBy(xpath = "(//input[contains(@type,'text')])[2]")
+			public WebElement PrimaryCareProviderLocationProxyTextBox ;
+			
+			// PRIMARY CARE PROVIDER HOSPITAL OR MEDICAL CENTER AFFILIATION TEXT BOX
+			@FindBy(xpath = "(//input[contains(@type,'text')])[3]")
+			public WebElement PrimaryCareProviderHospitalorMedicalCenterAffiliationProxyTextBox ;
+
+			/*
+			 * --------------- END PLEASE PROVIDE THE INFORMATION FOR CHRISTINAS PRIMARY CARE PROVIDER BELOW.   PAGE ---------------
+			 */
+
+			/*
+			 * --------------- BEGINNING OF PLEASE INDICATE IN THE TABLE BELOW IF CHRISTINA HAS ALLERGIES TO THE LISTED ITEMS. PAGE ---------------
+			 */
+			
+			// ALLERGIES TO MEDICINES RADIO BUTTON
+			@FindBy(xpath = "//label[@for='QR~QID447#1~1~1']")
+			public WebElement allergiesToMedicinesProxyRadioButton ;
+			
+			// ALLERGIES TO FOOD RADIO BUTTON
+			@FindBy(xpath = "//label[@for='QR~QID447#1~2~1']")
+			public WebElement allergiesToFoodProxyRadioButton ;
+
+			//ALLERGIES TO ANYTHING ELSE RADIO BUTTON
+			@FindBy(xpath = "//label[@for='QR~QID447#1~3~1']")
+			public WebElement allergiesToAnythingElseProxyRadioButton ;
+			
+			/*
+			 * --------------- END OF PLEASE INDICATE IN THE TABLE BELOW IF CHRISTINA HAS ALLERGIES TO THE LISTED ITEMS. PAGE ---------------
+			 */
+
+			/*
+			 * --------------- BEGINNING OF TABLE OF ALL MEDICATIONS WHICH CHRISTINA IS ALLERGIC TO . PAGE ---------------
+			 */
+				
+			// MEDICATION NAME TEXT BOX
+			@FindBy(xpath = "(//input[@type='text'])[1]")
+			public WebElement medicationNamesProxyTextBox ;
+				
+			//ALLERGIES REACTIONS TEXT BOX
+			@FindBy(xpath = "(//input[@type='text'])[2]")
+			public WebElement allergiesReactionsProxyTextBox ;
+			
+			/*
+			 * --------------- END OF TABLE OF ALL MEDICATIONS WHICH CHRISTINA IS ALLERGIC TO . PAGE ---------------
+			 */	
+			
+			/*
+			 * --------------- BEGINNING OF TABLE OF ALL FOOD OF WHICH CHRISTINA IS ALLERGIC TO . PAGE ---------------
+			 */
+				
+			// ALLERGY TO MILK TEXT BOX
+			@FindBy(xpath = "(//input[@type='text'])[1]")
+			public WebElement firstFoodAllergyNamesProxyTextBox ;
+				
+			// REACTION TO MILK ALLERGY TEXT BOX
+			@FindBy(xpath = "(//input[@type='text'])[2]")
+			public WebElement firstFoodAllergyreactionProxyTextBox ;
+				
+			// ALLERGY TO NUTS TEXT BOX
+			@FindBy(xpath = "(//input[@type='text'])[3]")
+			public WebElement secondFoodAllergyNamesProxyTextBox ;
+				
+			// REACTION TO NUTS ALLERGY TEXT BOX
+			@FindBy(xpath = "(//input[@type='text'])[4]")
+			public WebElement secondFoodAllergyreactionProxyTextBox ;
+			
+			/*
+			 * --------------- END OF TABLE OF ALL FOOD OF WHICH CHRISTINA IS ALLERGIC TO . PAGE ---------------
+			 */		
+
+			/*
+			 * --------------- BEGINNING OF TABLE OF ALL "OTHER" ITEMS TO WHICH CHRISTINA IS ALLERGIC THAT WERE NOT INCLUDED IN MEDICATION OR FOOD ALLERGIES. . PAGE ---------------
+			 */
+			
+			// OTHER  ALLERGY 1 TEXT BOX
+			@FindBy(xpath = "(//input[@type='text'])[1]")
+			public WebElement firstOtherAllergyNamesProxyTextBox ;
+				
+			// OTHER ALLERGY REACTION 1 TEXT BOX
+			@FindBy(xpath = "(//input[@type='text'])[2]")
+			public WebElement firstOtherAllergyReactionProxyTextBox ;
+				
+			//OTHER ALLERGY 2 TEXT BOX
+			@FindBy(xpath = "(//input[@type='text'])[3]")
+			public WebElement secondOtherAllergyNamesProxyTextBox ;
+			
+			// OTHER ALLERGY REACTION 2 TEXT BOX
+			@FindBy(xpath = "(//input[@type='text'])[4]")
+			public WebElement secondOtherAllergyReactionProxyTextBox ;
+
+			/*
+			 * --------------- END OF TABLE OF ALL "OTHER" ITEMS TO WHICH CHRISTINA IS ALLERGIC THAT WERE NOT INCLUDED IN MEDICATION OR FOOD ALLERGIES. . PAGE ---------------
+			 */
+
+			/*
+			 * --------------- BEGINNING OF PLEASE PROVIDE THE INFORMATION FOR EACH HOSPITALIZATION IN THE TABLE BELOW. 
+			 * TO ADD A NEW HOSPITALIZATION, PLEASE CLICK ON THE '+' SIGN IN THE UPPER LEFT CORNER OF THE TABLE.  PAGE ---------------
+			 */
+
+			//PLEASE PROVIDE PRIMARY REASON FOR HOSPITALIZATION TEXT BOX
+			@FindBy(xpath = "(//input[@type='text'])[1]")
+			public WebElement reasonOfHospitalizationProxyTextBox ;
+				
+			//DATE OF HOSPITALIZATION ACCURANCE TEXT BOX
+			@FindBy(xpath = "(//input[@type='text'])[3]")
+			public WebElement dateOfHospitalizationProxyTextBox ;
+				
+			// PLACE OF HOSPITALIZATION ACCURANCE 
+			@FindBy(xpath = "(//textarea[@type='text'])[1]")
+			public WebElement placeOfHospitalizationProxyTextBox ;
+				
+			/*
+			 * --------------- END OF PLEASE PROVIDE THE INFORMATION FOR EACH HOSPITALIZATION IN THE TABLE BELOW. 
+			 * TO ADD A NEW HOSPITALIZATION, PLEASE CLICK ON THE '+' SIGN IN THE UPPER LEFT CORNER OF THE TABLE.  PAGE ---------------
+			 */
+			
+			/*
+			 * --------------- BEGINNING OF PLEASE COMPLETE THE NEXT SET OF QUESTIONS REGARDING ABDOMINAL PAIN PROXY. PAGE ---------------
+			 */
+			
+			//EVER HAD WAVES OF SEVERE, DISTRESSING,ACUTE PAIN AT THE BELLY-BUTTON OR ENTIRE ABDOMEN? YES RADIO BUTTON
+			@FindBy (xpath= ("(//label[@for='QR~QID131#1~1~1'])[1]"))
+			public WebElement severeDistressingAcutePainAtTheBellyButtomOrEntireAbdomenProxyYesRadioButton;
+				
+			//ARE EPISODES OF BELLY PAIN SEPARATED BY WEEKS OR MONTHS? YES RADIO BUTTON
+			@FindBy (xpath= ("(//label[@for='QR~QID131#1~2~1'])[1]"))
+			public WebElement areEpisodesOfBellyPainSeparatedByWeeksOrMonthsProxyYesRadioButton;
+				
+			//DOES ABDOMINAL PAIN PREVENT THE COMPLETION OF USUAL ACTIVITIES? YES RADIO BUTTON
+			@FindBy (xpath= ("(//label[@for='QR~QID131#1~3~1'])[1]"))
+			public WebElement doesAbdominalPainPreventTheCompletionOfUsualActivitiesProxyYesRadioButton;
+				
+			//IS THE PAIN SIMILAR WITH EACH EPISODES? YES RADIO BUTTON
+			@FindBy (xpath= ("(//label[@for='QR~QID131#1~4~1'])[1]"))
+			public WebElement isThePainSimilarWithEachEpisodeProxyYesRadioButton;
+				
+			//HAVE THESE EPISODES BEEN HAPPENING AT LEAST SIX MONTHS? YES RADIO BUTTON
+			@FindBy (xpath= ("(//label[@for='QR~QID131#1~5~1'])[1]"))
+			public WebElement haveTheseEpisodesBeenHappeningAtLeastSixMonthsProxyYesRadioButton;
+				
+			//ABDOMINAL PAINS OCCUR AT LEAST 4 DAYS/MONTHS FOR > 2 MONTHS? YES RADIO BUTTON
+			@FindBy (xpath =("(//label[@for='QR~QID131#1~6~1'])[1]"))
+			public WebElement abdominalPainsOccurAtLeast4MonthsFor2MonthsProxyYesRadioButton;
+				
+			//IS PAIN ASSOCIATED WITH HAVING BOWEL MOVEMENTS? YES RADIO BUTTON
+			@FindBy (xpath= ("(//label[@for='QR~QID131#1~7~1'])[1]"))
+			public WebElement isPainAssociatedWithHavingBowelMovementsProxyYesRadioButton;
+				
+			//ASSOCIATED WITH CHANGE IN BOWEL MOVEMENT FREQUENCY? YES RADIO BUTTON
+			@FindBy (xpath = ("(//label[@for='QR~QID131#1~8~1'])[1]"))
+			public WebElement associatedWithChangeInBowelMovementFrequencyProxyYesRadioButton;
+				
+			//ASSOCIATED WITH CHANGE IN BOWEL MOVEMENT CONSISTENCY? YES RADIO BUTTON
+			@FindBy (xpath= ("(//label[@for='QR~QID131#1~9~1'])[1]"))
+			public WebElement associatedWithChangeInBowelMovementConsistencyProxyYesRadioButton;
+				
+			//DID PAIN RESOLVE IN RELATION TO RESOLUTION OF CONSTIPATION? YES RADIO BUTTON
+			@FindBy (xpath =("(//label[@for='QR~QID131#1~10~1'])[1]"))
+			public WebElement didPainResolveInRelationToResolutionOfConstipationProxyYesRadioButton;
+				
+			//IS THE PAIN NOT RELATED TO EATING, MENSTRUAL CYCLES OR OTHER ILLNESS? YES RADIO BUTTON
+			@FindBy (xpath=("(//label[@for='QR~QID131#1~11~1'])[1]"))
+			public WebElement isThePainNotRelatedToEatingMenstrualCyclesOrOtherIllnessProxyYesRadioButton;
+				
+			//HAS ABDOMINAL PAIN EVER CAUSED AWAKENING FROM SLEEP AT NIGHT? YES RADIO BUTTON
+			@FindBy (xpath = ("(//label[@for='QR~QID131#1~12~1'])[1]"))
+			public WebElement hasAbdominalPainEverCausedAwakeningFromSleepAtNightProxyYesRadioButton;
+				
+			//HAS THE ABDOMINAL PAIN CAUSED WEIGHT LOSS? YES RADIO BUTTON
+			@FindBy (xpath=("(//label[@for='QR~QID131#1~13~1'])[1]"))
+			public WebElement hasTheAbdominalPainCausedWeightLossProxyYesRadioButton;
+				
+			//IS ABDOMINAL PAIN ASSOCIATED WITH LOSS OF APPETITE? YES RADIO BUTTON
+			@FindBy (xpath=("(//label[@for='QR~QID131#1~14~1'])[1]"))
+			public WebElement isAbdominalPainAssociatedWithLossOfAppetiteProxyYesRadioButton;
+				
+			//IS ABDOMINAL PAIN ASSOCIATED WITH NAUSEA? YES RADIO BUTTON
+			@FindBy (xpath= ("(//label[@for='QR~QID131#1~15~1'])[1]"))
+			public WebElement isAbdominalPainAssociatedWithNauseaProxyYesRadioButton;
+				
+			//Is abdominal pain associated with vomiting? YES RADIO BUTTON
+			@FindBy (xpath =("(//label[@for='QR~QID131#1~16~1'])[1]"))
+			public WebElement isAbdominalPainAssociatedWithVomitingProxyYesRadioButton;
+				
+			//IS ABDOMINAL PAIN ASSOCIATED WITH HEADACHE? YES RADIO BUTTON
+			@FindBy (xpath=("(//label[@for='QR~QID131#1~17~1'])[1]"))
+			public WebElement isAbdominalPainAssociatedWithHeadacheProxyYesRadioButton;
+				
+			//IS ABDOMINAL PAIN ASSOCIATED WITH IRRITATION TO BRIGHT LIGHT? YES RADIO BUTTON
+			@FindBy (xpath= ("(//label[@for='QR~QID131#1~18~1'])[1]"))
+			public WebElement isAbdominalPainAssociatedWithIrritationToBrightLightProxyYesRadioButton;
+				
+			//IS ABDOMINAL PAIN ASSOCIATED WITH LOOKING PALE? YES RADIO BUTTON
+			@FindBy (xpath=("(//label[@for='QR~QID131#1~19~1'])[1]"))
+			public WebElement isAbdominalPainAssociatedWithLookingPaleProxyYesRadioButton;
+			/*
+			 * --------------- END OF PLEASE COMPLETE THE NEXT SET OF QUESTIONS REGARDING ABDOMINAL PAIN PROXY. PAGE ---------------
+			 */
+
+			/*
+			 * --------------- BEGINNING OF TO WHAT FOODS IS CHRISTINA AVERSE? PLEASE DESCRIBE FOODS THAT CHRISTINA AVOIDS BECAUSE THEY DO NOT LIKE THE TEXTURE OR OTHER PHYSICAL QUALITIES OF THE FOOD   PAGE ---------------
+			 */
+						
+			//DESCRIBE FOODS THAT YOU AVOID BECAUSE YOU DO NOT LIKE THE TEXTURE OR OTHER PHYSICAL QUALITIES OF THE FOOD. EGGS TEXT BOX
+			@FindBy (xpath= ("(//input[@name='QR~QID575~TEXT'])[1]"))
+			public WebElement describeFoodsThatYouAvoidBecauseYouDoNotLikeTheTextureOrOtherPhysicalQualitiesOfTheFoodEggsProxyTextBox;
+			
+			/*
+			 * --------------- END OF TO WHAT FOODS IS CHRISTINA AVERSE? PLEASE DESCRIBE FOODS THAT CHRISTINA AVOIDS BECAUSE THEY DO NOT LIKE THE TEXTURE OR OTHER PHYSICAL QUALITIES OF THE FOOD   PAGE ---------------
+			 */
+			
+			/*
+			 * --------------- BEGINNING OF AT WHAT AGE (APPROXIMATELY) WAS CHRISTINA TOILET TRAINED? PAGE ---------------
+			 */
+			
+			//AT WHAT AGE (APPROXIMATELY) WERE YOU TOILET TRAINED? DROP DOWN
+			@FindBy (xpath=("(//select[@name='QR~QID577'])[1]"))
+			public WebElement atWhatAgeApproximatelyWereYouToiletTrainedProxyDropDown;
+
+			/*
+			 * --------------- END OF AT WHAT AGE (APPROXIMATELY) WAS CHRISTINA TOILET TRAINED? PAGE ---------------
+			 */
+
+			/*
+			 * --------------- BEGINNING OF HOW MANY BOWEL MOVEMENTS DOES CHRISTINA HAVE PER WEEK? PAGE ---------------
+			 */
+						
+			//BEGIN HOW MANY BOWEL MOVEMENTS DO YOU HAVE PER WEEK?  DROP DOWN
+			@FindBy (xpath= ("(//select[@name='QR~QID578'])[1]"))
+			public WebElement howManyBowelMovementsDoYouHavePerWeekProxyDropDown;
+
+			/*
+			 * --------------- END OF HOW MANY BOWEL MOVEMENTS DOES CHRISTINA HAVE PER WEEK? PAGE ---------------
+			 */
+
+			/*
+			 * --------------- BEGINNING OF WHAT IS THE LONGEST AMOUNT OF TIME THAT HAS PASSED WITHOUT CHRISTINA HAVING A BOWEL MOVEMENT? PAGE ---------------
+			 */
+						
+			//WHAT IS THE LONGEST AMOUNT OF TIME THAT HAS PASSED WITHOUT YOU HAVING A BOWEL MOVEMENT? DROP DOWN
+			@FindBy (xpath=("(//select[@name='QR~QID579'])[1]"))
+			public WebElement whatIsTheLongestAmountOfTimeThatHasPassedWithoutYouHavingABowelMovementProxyDropDown;
+
+			/*
+			 * --------------- END OF WHAT IS THE LONGEST AMOUNT OF TIME THAT HAS PASSED WITHOUT CHRISTINA HAVING A BOWEL MOVEMENT? PAGE ---------------
+			 */
+
+			/*
+			 * --------------- BEGINNING OF PLEASE PROVIDE THE INFORMATION BELOW FOR THE PULMONOLOGIST WHO COMPLETED FOR PROXY EVALUATION. PAGE ---------------
+			 */
+			
+			//NAME OF PHYSICIAN TEXT BOX
+			@FindBy (xpath=("(//input[@type='text'])[1]"))
+			public WebElement nameOfPhysicianProxyTextBox;
+						
+			//LOCATION (CITY, STATE, COUNTRY) TEXT BOX
+			@FindBy (xpath=("(//input[contains(@type,'text')])[2]"))
+			public WebElement locationPulmonologistCityStateCountryProxyTextBox;
+						
+			//HOSPITAL AND MEDICAL CENTER AFFILIATION TEXT BOX
+			@FindBy (xpath=("(//input[contains(@type,'text')])[3]"))
+			public WebElement hospitalAndMedicalCenterAffiliationTestProxyTextBox;
+
+			/*
+			 * --------------- END OF PLEASE PROVIDE THE INFORMATION BELOW FOR THE PULMONOLOGIST WHO COMPLETED FOR PROXY EVALUATION. PAGE ---------------
+			 */
+			
+			/*
+			 * ----------------- BEGINING OF WHAT WAS THE REASON FOR YOUR LAST PROXY DENTAL VISIT? PAGE -----------------
+			 */		
+
+			// CLEANING OPTION RADIO BUTTON
+			@FindBy(xpath = "(//label[@for='QR~QID531~1'])[2]")
+			public WebElement cleaningProxyRadioButton;
+
+			/*
+			 * ----------------- END OF WHAT WAS THE REASON FOR YOUR LAST PROXY DENTAL VISIT? PAGE -----------------
+			 */
+			
+			/*
+			 * ----------------- BEGINING OF OVERALL, HOW WOULD YOU RATE PROXY THE OVERALL HEALTH OF YOUR TEETH AND GUMS? PAGE -----------------
+			 */
+
+			// OVERALL, HOW WOULD YOU RATE THE OVERALL HEALTH OF YOUR TEETH AND GUMS? PROXY FAIR RADIO BUTTON
+			@FindBy(xpath = "(//label[@for='QR~QID539~3'])[2]")
+			public WebElement overallHealthOfTeethAndGumsFairProxyRadioButton;
+
+			/*
+			 * ----------------- END OF OVERALL, HOW WOULD YOU RATE PROXY THE OVERALL HEALTH OF YOUR TEETH AND GUMS? PAGE -----------------
+			 */
+
+			/*
+			 * ----------------- BEGINING OF OVERALL, HOW WOULD YOU RATE PROXY DENTAL HYGIENE ROUTINE (REGULAR TOOTH BRUSHING, FLOSSING, AND YOUR HOME ORAL MOUTH RINSE)? PAGE -----------------
+			 */		
+
+			// OVERALL, HOW WOULD YOU RATE PROXY DENTAL HYGIENE ROUTINE FAIR RADIO BUTTON
+			@FindBy(xpath = "(//label[@for='QR~QID540~3'])[2]")
+			public WebElement overallRateDentalHygeneFairProxyRadioButton;
+
+			/*
+			 * ----------------- END OF OVERALL, HOW WOULD YOU RATE PROXY DENTAL HYGIENE ROUTINE (REGULAR TOOTH BRUSHING, FLOSSING, AND YOUR HOME ORAL MOUTH RINSE)? PAGE -----------------
+			 */	
+			
+			/*
+			 *  ----------------- BEGINING OF OVERALL -- IS THERE ANYTHING UNUSUAL ABOUT PROXY TEETH OR MOUTH 
+			 *  (EXTRA TEETH, MISSING TEETH, SEVERE DENTAL DISEASES, JAWBONE PROBLEMS, ENAMEL PROBLEMS, ETC.)? PAGE -----------------
+			 */
+							
+			//OVERALL -- IS THERE ANYTHING UNUSUAL ABOUT PROXY TEETH OR MOUTH...? YES (PLEASE SPECIFY)RADIO BUTTON
+			@FindBy(xpath = "//span[contains(text(),'Yes (please specify what is unusual)')]")
+			public WebElement overallIsThereAnythingUnusualAboutYourTeethOrMouthYesPleaseSpecifyWhatIsUnusualProxyRadioButton;
+						
+			/*
+			 * ----------------- END OF OVERALL -- IS THERE ANYTHING UNUSUAL ABOUT PROXY TEETH OR MOUTH 
+			 * (EXTRA TEETH, MISSING TEETH, SEVERE DENTAL DISEASES, JAWBONE PROBLEMS, ENAMEL PROBLEMS, ETC.)? PAGE -----------------
+			 */	
+			
+			/*
+		   	 *  ----------------- BEGINING OF HAVE YOU HAD TROUBLE PRONOUNCING ANY WORDS BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+							
+			//HAVE YOU HAD TROUBLE PRONOUNCING ANY WORDS BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? OCCASIONALLY RADIO BUTTON
+			@FindBy(xpath = "(//label[contains(@for,'QR~QID556~3')])[2]")
+			public WebElement troublePronouncingWordsBecauseOfProblemsWithTeethMouthOrDenturesOcassionallyProxyRadioButton;
+				
+			/*
+			 * ----------------- END OF HAVE YOU HAD TROUBLE PRONOUNCING ANY WORDS BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */	
+					
+			/*
+			 *  ----------------- BEGINING OF HAVE YOU FELT THAT YOUR SENSE OF TASTE HAS WORSENED BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+							
+			//HAVE YOU FELT THAT YOUR SENSE OF TASTE HAS WORSENED BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? OCCASIONALLY RADIO BUTTON
+			@FindBy(xpath = "(//label[contains(@for,'QR~QID557~3')])[2]")
+			public WebElement haveYouFeltYourSenseOfTasteWorsenedBecauseOfProblemsWithTeethMouthOrDenturesOcassionallyProxyRadioButton;
+				
+			/*
+			 * ----------------- END OF HAVE YOU FELT THAT YOUR SENSE OF TASTE HAS WORSENED BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+				
+			/*
+			 *  ----------------- BEGINING OF HAVE YOU HAD PAINFUL ACHING IN PROXY MOUTH? PAGE -----------------
+			 */
+							
+			//HAVE YOU HAD PAINFUL ACHING IN PROXY MOUTH? OCCASIONALLY RADIO BUTTON
+			@FindBy(xpath = "(//label[contains(@for,'QR~QID558~3')])[2]")
+			public WebElement haveYouHadPainfulAchingInYourMouthOcassionallyProxyRadioButton;
+				
+			/*
+			 * ----------------- END OF HAVE YOU HAD PAINFUL ACHING IN PROXY MOUTH? PAGE -----------------
+			 */
+				
+			/*
+			 *  ----------------- BEGINING OF HAVE YOU FOUND IT UNCOMFORTABLE TO EAT ANY FOODS BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+							
+			//HAVE YOU FOUND IT UNCOMFORTABLE TO EAT ANY FOODS BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? OCCASIONALLY RADIO BUTTON
+			@FindBy(xpath = "(//label[contains(@for,'QR~QID559~3')])[2]")
+			public WebElement haveYouFoundItUnconfortableToEatFoodsBecauseOfProblemsWithTeethMouthOrDenturesOcassionallyProxyRadioButton;
+				
+			/*
+			 * ----------------- END OF HAVE YOU FOUND IT UNCOMFORTABLE TO EAT ANY FOODS BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+					
+			/*
+			 *  ----------------- BEGINING OF ARE YOU SELF-CONSCIOUS BECAUSE OF PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+							
+			//ARE YOU SELF-CONSCIOUS BECAUSE OF PROXY TEETH, MOUTH OR DENTURES? OCCASIONALLY RADIO BUTTON
+			@FindBy(xpath = "(//label[contains(@for,'QR~QID560~3')])[2]")
+			public WebElement areYouSelfConsciousBecauseOfYourTeethMouthOrDenturesOccasionallyProxyRadioButton;
+				
+			/*
+			 * ----------------- END OF ARE YOU SELF-CONSCIOUS BECAUSE OF PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+				
+			/*
+			 *  ----------------- BEGINING OF HAVE YOU FELT TENSE BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+							
+			//HAVE YOU FELT TENSE BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? OCCASIONALLY RADIO BUTTON
+			@FindBy(xpath = "(//label[contains(@for,'QR~QID561~3')])[2]")
+			public WebElement haveYouFeltTenseBecauseOfProblemsWithYourTeethMouthOrDenturesOccasionallyProxyRadioButton;
+				
+			/*
+			 * ----------------- END OF HAVE YOU FELT TENSE BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+				
+			/*
+			 *  ----------------- BEGINING OF HAS YOUR DIET BEEN UNSATISFACTORY BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+							
+			//HAS YOUR DIET BEEN UNSATISFACTORY BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? OCCASIONALLY RADIO BUTTON
+			@FindBy(xpath = "(//label[contains(@for,'QR~QID562~3')])[2]")
+			public WebElement hasYourDietBeenUnsatisfactoryBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyProxyRadioButton;
+				
+			/*
+			 * ----------------- END OF HAS YOUR DIET BEEN UNSATISFACTORY BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+				
+			/*
+			 *  ----------------- BEGINING OF HAVE YOU HAD TO INTERRUPT MEALS BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+							
+			//HAVE YOU HAD TO INTERRUPT MEALS BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? OCCASIONALLY RADIO BUTTON
+			@FindBy(xpath = "(//label[contains(@for,'QR~QID563~3')])[2]")
+			public WebElement haveYouHadToInterruptMealsBeacuseOfProblemsWithTeethMouthOrDenturesOccasionallyProxyRadioButton;
+				
+			/*
+			 * ----------------- END OF HAVE YOU HAD TO INTERRUPT MEALS BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+					
+			/*
+			 *  ----------------- BEGINING OF HAVE YOU FOUND IT DIFFICULT TO RELAX BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+							
+			//HAVE YOU FOUND IT DIFFICULT TO RELAX BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? OCCASIONALLY RADIO BUTTON
+			@FindBy(xpath = "(//label[contains(@for,'QR~QID564~3')])[2]")
+			public WebElement haveYouFoundItDifficultToRelaxBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyProxyRadioButton;
+				
+			/*
+			 * ----------------- END OF HAVE YOU FOUND IT DIFFICULT TO RELAX BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+				
+				
+			/*
+			 *  ----------------- BEGINING OF HAVE YOU BEEN A BIT EMBARRASSED BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+							
+			//HAVE YOU BEEN A BIT EMBARRASSED BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? OCCASIONALLY RADIO BUTTON
+			@FindBy(xpath = "(//label[contains(@for,'QR~QID565~3')])[2]")
+			public WebElement haveYouBeenABitEmbarrassedBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyProxyRadioButton;
+				
+			/*
+			 * ----------------- END OF HAVE YOU BEEN A BIT EMBARRASSED BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+				
+			/*
+			 *  ----------------- BEGINING OF HAVE YOU BEEN IRRITABLE WITH OTHER PEOPLE BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+							
+			//HAVE YOU BEEN IRRITABLE WITH OTHER PEOPLE BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? OCCASIONALLY RADIO BUTTON
+			@FindBy(xpath = "(//label[contains(@for,'QR~QID566~3')])[2]")
+			public WebElement haveYouBeenIrritableWithOtherPeopleBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyProxyRadioButton;
+				
+			/*
+			 * ----------------- END OF HAVE YOU BEEN IRRITABLE WITH OTHER PEOPLE BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+				
+			/*
+			 *  ----------------- BEGINING OF HAVE YOU HAD DIFFICULTY DOING YOUR USUAL JOBS BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+							
+			//HAVE YOU HAD DIFFICULTY DOING YOUR USUAL JOBS BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? OCCASIONALLY RADIO BUTTON
+			@FindBy(xpath = "(//label[contains(@for,'QR~QID567~3')])[2]")
+			public WebElement haveYouHadDifficultyDoingYourUsualJobsBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyProxyRadioButton;
+				
+			/*
+			 * ----------------- END OF HAVE YOU HAD DIFFICULTY DOING YOUR USUAL JOBS BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+					
+			/*
+			 *  ----------------- BEGINING OF HAVE YOU FELT THAT LIFE IN GENERAL IS LESS SATISFYING BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+							
+			//HAVE YOU FELT THAT LIFE IN GENERAL IS LESS SATISFYING BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? OCCASIONALLY RADIO BUTTON
+			@FindBy(xpath = "(//label[contains(@for,'QR~QID568~3')])[2]")
+			public WebElement haveYouFeltThatLifeInGeneralIsLessSatisfyingBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyProxyRadioButton;
+				
+			/*
+			 * ----------------- END OF HAVE YOU FELT THAT LIFE IN GENERAL IS LESS SATISFYING BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+					
+			/*
+			 *  ----------------- BEGINING OF HAVE YOU BEEN TOTALLY UNABLE TO FUNCTION BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+							
+			//HAVE YOU BEEN TOTALLY UNABLE TO FUNCTION BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? OCCASIONALLY RADIO BUTTON
+			@FindBy(xpath = "(//label[contains(@for,'QR~QID569~3')])[2]")
+			public WebElement haveYouBeenTotallyUnableToFunctionBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyProxyRadioButton;
+				
+			/*
+			 * ----------------- END OF HAVE YOU BEEN TOTALLY UNABLE TO FUNCTION BECAUSE OF PROBLEMS WITH PROXY TEETH, MOUTH OR DENTURES? PAGE -----------------
+			 */
+			
+			/*
+			 * ----------------- BEGINING OF PLEASE PROVIDE THE INFORMATION BELOW FOR THE
+			 * DERMATOLOGIST WHO COMPLETED PROXY EVALUATION. PAGE ----------------- */
+
+			//"NAME OF PHYSICIAN" TEXT BOX
+			@FindBy(xpath = "(//input[@type='text'])[1]")
+			public WebElement nameOfPhysicianDermatologistProxyTextBox;
+
+			//"CITY, STATE" TEXT BOX
+			@FindBy(xpath = "(//input[@type='text'])[2]")
+			public WebElement cityStateProxyTextBox;
+			
+			//"HOSPITAL OR MEDICAL CENTER AFFILIATION" TEXT BOX
+			@FindBy(xpath = "(//input[@type='text'])[3]")
+			public WebElement hospitalOrMedicalCenterAffiliationProxyTextBox;
+
+			/*
+			 * ----------------- END OF PLEASE PROVIDE THE INFORMATION BELOW FOR THE DERMATOLOGIST WHO COMPLETED PROXY EVALUATION. PAGE -----------------
+			 */
+			
+			/*
+			 * ----------------- BEGINNING OF PLEASE COMPLETE THE TABLE BELOW FOR EACH OF THE TUMORS LISTED. PLEASE INCLUDE PROXY AGE OR DATE WHEN SYMPTOMS FIRST
+			 * STARTED AND DIAGNOSIS (YOU DO NOT NEED TO INCLUDE BOTH AGE AND DATE). IF YOU DO NOT RECALL THE DETAILS, PLEASE PLACE AN 'X' UNDER THE 'DON'T KNOW' COLUMN. PAGE ----------------- 
+			 */
+
+			
+			//GIANT CELL LESION "YES" RADIO BUTTON
+			@FindBy(xpath = "//label[@for='QR~QID495#3~x1~1']")
+			public WebElement giantCellLesionYesProxyRadioButton;
+
+			//PIGMENTED VILONODULOUS SYNOVITUS "YES" RADIO BUTTON
+			@FindBy(xpath = "//label[@for='QR~QID495#3~x2~1']")
+			public WebElement pigmentedVilonodulousYesProxyRadioButton;
+
+			//PAPILOMATA... "YES" RADIO BUTTON
+			@FindBy(xpath = "//label[contains(@for,'QR~QID495#3~x3~1')]")
+			public WebElement papilomataYesProxyRadioButton;
+
+			//RHABDOMYOSARCOMA... "YES" RADIO BUTTON
+			@FindBy(xpath = "//label[contains(@for,'QR~QID495#3~x4~1')]")
+			public WebElement rhabdomyosarcomaYesProxyRadioButton;
+
+			//NEUROBLASTOMA..."YES" RADIO BUTTON
+			@FindBy(xpath = "//label[contains(@for,'QR~QID495#3~x5~1')]")
+			public WebElement neuroblastomaYesProxyRadioButton;
+
+			//OTHER TUMOR "YES" RADIO BUTTON
+			@FindBy(xpath = "//label[contains(@for,'QR~QID495#3~x6~1')]")
+			public WebElement otherTumorDisorderYesProxyRadioButton;
+
+			/*
+			 * ----------------- END OF PLEASE COMPLETE THE TABLE BELOW FOR EACH OF THE TUMORS LISTED. PLEASE INCLUDE PROXY AGE OR DATE WHEN SYMPTOMS FIRST
+			 * STARTED AND DIAGNOSIS (YOU DO NOT NEED TO INCLUDE BOTH AGE AND DATE). IF YOU DO NOT RECALL THE DETAILS, PLEASE PLACE AN 'X' UNDER THE 'DON'T KNOW' COLUMN. PAGE ----------------- 
+			 */
+			
+			/*
+			 * ----------------- BEGINNING OF PROXY PLEASE COMPLETE THE TABLE BELOW FOR EACH OF THE CONDITIONS LISTED. FOR EACH CONDITION, PLEASE LIST THE AGE OR DATE WHEN
+			 * SYMPTOMS FIRST OCCURRED AND WHEN THE DIAGNOSIS WAS MADE (YOU DO NOT NEED TO INCLUDE BOTH AGE AND DATE). IF YOU DO NOT RECALL THE DETAILS, PLACE AN 'X' IN
+			 * THE 'DON'T KNOW' COLUMN. PAGE -----------------
+			 */
+
+			//SENSORINEURAL "YES" RADIO BUTTON
+			@FindBy(xpath = "(//label[contains(@for,'QR~QID527#3~x1~1')])[1]")
+			public WebElement yesSensorineuralTreatmentProxyRadioButton;
+
+			//CONDUCTIVE HEARING TREATMENT "YES" RADIO BUTTON
+			@FindBy(xpath = "(//label[contains(@for,'QR~QID527#3~x2~1')])[1]")
+			public WebElement yesConductiveTreatmentProxyRadioButton;
+
+			//MIXED HEARING TREATMENT "YES" RADIO BUTTON
+			@FindBy(xpath = "(//label[contains(@for,'QR~QID527#3~x3~1')])[1]")
+			public WebElement yesMixedTreatmentProxyRadioButton;
+
+			//HEARING LOSS UNSURE TREATMENT "YES" RADIO BUTTON
+			@FindBy(xpath = "(//label[contains(@for,'QR~QID527#3~x4~1')])[1]")
+			public WebElement yesUnsureHearingLossTreatmentProxyRadioButton;
+
+			//OTHER TREATMENT "YES" RADIO BUTTON
+			@FindBy(xpath = "(//label[@for='QR~QID527#3~x6~1'])[1]")
+			public WebElement yesOtherTreatmentProxyRadioButton;
+
+			/*
+			 * ----------------- END OF PROXY PLEASE COMPLETE THE TABLE BELOW FOR EACH OF THE CONDITIONS LISTED. FOR EACH CONDITION, PLEASE LIST THE AGE OR DATE WHEN
+			 * SYMPTOMS FIRST OCCURRED AND WHEN THE DIAGNOSIS WAS MADE (YOU DO NOT NEED TO INCLUDE BOTH AGE AND DATE). IF YOU DO NOT RECALL THE DETAILS, PLACE AN 'X' IN
+			 * THE 'DON'T KNOW' COLUMN. PAGE ----------------- 
+			 */
+
 
 }
 
