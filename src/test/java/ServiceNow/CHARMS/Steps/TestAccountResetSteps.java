@@ -12,20 +12,13 @@ public class TestAccountResetSteps extends PageInitializer {
 	
 	
 	@Then("test account is reset to be used for next test execution")
-	public void test_account_is_reset_to_be_used_for_next_test_execution() throws TestingException {
-		
+	public void test_account_is_reset_to_be_used_for_next_test_execution() throws TestingException {		
 		testAccountResetImpl.resetTestAccount();
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewIFrame);
 		CommonUtils.switchToFrame(testAccountResetPage.nativeViewIFrame);
 		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewRunFixScriptButton);
 		testAccountResetPage.nativeViewRunFixScriptButton.click();
-		//WebDriverUtils.webDriver.switchTo().defaultContent();
-		
-		
-		
-		//CommonUtils.waitForVisibility(testAccountResetPage.nativeViewIFrameForProceedInBackgroundButton);
-		//CommonUtils.switchToFrame(testAccountResetPage.nativeViewIFrameForProceedInBackgroundButton);
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewProceedInBackgroundButton);
 		testAccountResetPage.nativeViewProceedInBackgroundButton.click();

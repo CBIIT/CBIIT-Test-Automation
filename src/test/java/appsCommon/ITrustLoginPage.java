@@ -16,7 +16,7 @@ import com.nci.automation.xceptions.TestingException;
 
 public class ITrustLoginPage extends CommonUtils{
 
-	@FindBy(xpath = "//a[contains(text(),'Log In')]")
+	@FindBy(xpath = "//ul[@class='nav navbar-nav navbar-right hidden-xs hidden-sm ng-scope']//li//a")
 	public WebElement loginLink;
 	
 	/** Username field*/
