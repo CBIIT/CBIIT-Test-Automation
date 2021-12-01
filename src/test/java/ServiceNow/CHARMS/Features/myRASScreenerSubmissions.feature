@@ -356,10 +356,6 @@ Feature: myRAS Screener Submissions from the Qualtrics Portal
     And proceeds with submitting the Eligibility Questionnaire
     Then the Eligibility Questionnaire is sucessfully submitted
     
-    @Progression
-    Scenario: Test Account Reset
-    Then test account is reset to be used for next test execution
-
     @RASSurveyPreview
 		Scenario: RASSurvey Preview Submission #submit page next button has been commented out/disabled 
 		Given a participant is on the Rassurvey Questionaire login page - myRAS Survey
