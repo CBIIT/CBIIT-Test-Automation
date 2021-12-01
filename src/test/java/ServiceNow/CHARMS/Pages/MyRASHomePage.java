@@ -42,6 +42,10 @@ public class MyRASHomePage {
 	@FindBy(xpath = "//button[normalize-space()='Go']")
 	public WebElement rasoptathyIndividualInformationQuestionnaireOneTimePinGoButton;
 
+	/* RAS Survey */
+	@FindBy(xpath = "//span[normalize-space()='RAS Survey']")
+	public WebElement rasSurvey;
+
 	/** --------------- END OF myRAS Home PAGE --------------- */
 
 	public MyRASHomePage() {

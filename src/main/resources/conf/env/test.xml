@@ -558,11 +558,10 @@
 		</db>
 
 	</application>
-	
-	<!-- Application ID for the CGBIIQ - CHARMS -->
-	<application id="CGBIIQ">
+		<!-- Application ID for RASSurvey  - CHARMS -->
+	<application id="RASSurvey">
 
-		<login_url>https://ncidccpssurveys.gov1.qualtrics.com/jfe/preview/SV_b3Mp5ULl2UeJTjo?Q_CHL
+		<login_url>https://ncidccpssurveys.gov1.qualtrics.com/jfe/preview/SV_8ILfY1imsK7xPzo?Q_CHL=pr
 		</login_url><!-- add test url -->
 
 		<role name="Role">
@@ -583,6 +582,5 @@
 		</db>
 
 	</application>
-	
-	
+
 </environment>
