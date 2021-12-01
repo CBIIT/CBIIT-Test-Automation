@@ -2,7 +2,7 @@ Feature: Test Cases on the Public Site
   
   Description: This is an automated suite for test cases under the Public Site
 
-	@SS-3453 @Smoke @matarodriguezko @Progression
+  @SS-3453 @Smoke @matarodriguezko @Progression
   Scenario: The Clear All button clears all the selection on the Biospecimen Counts Tab
     Given the user is on the CEDCD Biospecimen Tab
     And the user selects All Types from the Specimen Type drop down
@@ -12,14 +12,14 @@ Feature: Test Cases on the Public Site
     When the user clicks on the Clear All button
     Then all previously selected fields are no longer selected
 
-  @SS-3436 @Smoke @matarodriguezko 
+  @SS-3436 @Smoke @matarodriguezko
   Scenario: Selecting all Cohorts from the Biospecimen Tab
     Given the user is on the CEDCD Biospecimen Tab
     And the user clicks on the Specimen Type drop down
     And the user clicks on the All Types check box
     Then all Specimen tabs are selected
 
-  @SS-3439 @Smoke @matarodriguezko 
+  @SS-3439 @Smoke @matarodriguezko
   Scenario: Select Type Sorted Alphabetically
     Given the user is on the CEDCD Biospecimen Tab
     And the user clicks on the Specimen Types drop down
@@ -37,7 +37,7 @@ Feature: Test Cases on the Public Site
     When the user filters by females
     Then the results returned are for Female or All Cohorts
 
-  @SS-3430 @matarodriguezko 
+  @SS-3430 @matarodriguezko
   Scenario: Select All Cohorts
     Given the user is on the CEDCD Search Cohorts Tab
     And the user clicks on the select all check box
@@ -48,7 +48,7 @@ Feature: Test Cases on the Public Site
     Given the user is on the CEDCD Search Cohorts Tab
     Then the user sees updated Search Cohorts UI page
 
-  @SS-3446 @Smoke @matarodriguezko 
+  @SS-3446 @Smoke @matarodriguezko
   Scenario: Restoring Search Criteria after Switching Tabs.
     Given the user is on the CEDCD Search Cohorts Tab
     When the user filters by Depression study
@@ -67,8 +67,8 @@ Feature: Test Cases on the Public Site
     Given the user is on the CEDCD Search Cohorts Tab
     When the user clicks Agricultural Health Study
     Then the Agricultural Health Study icon is shown on the web page
-    
-    @Progression	@matarodriguezko
-    Scenario: Compare Production and QA sites Cancer Counts
+
+  @Progression @matarodriguezko
+  Scenario: Compare Production and QA sites Cancer Counts
     Given the user is on the CEDCD Production Site
     When The user navigates to Cancer Counts and selects the AHS cohort

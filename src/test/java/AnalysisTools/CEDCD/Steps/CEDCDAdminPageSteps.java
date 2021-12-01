@@ -17,6 +17,7 @@ public class CEDCDAdminPageSteps extends PageInitializer {
 	public void the_user_filters_and_selects_from_submitted_cohorts() {
 		
 		JavascriptUtils.clickByJS(cedcdAdminPage.cohortStatusDropDown);
+		MiscUtils.sleep(1000);
 		JavascriptUtils.clickByJS(cedcdAdminPage.cohortSubmittedStatus);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();

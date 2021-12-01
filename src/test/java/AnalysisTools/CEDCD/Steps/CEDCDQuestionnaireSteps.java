@@ -317,6 +317,11 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.c30FollowUpYesRadio.click();
 		CucumberLogUtils.logScreenShot();
 		
+		/** C31 radio buttons filled out */
+		cedcdCohortPage.c31BaselineYesRadio.click();
+		cedcdCohortPage.c31FollowUpYesRadio.click();
+		CucumberLogUtils.logScreenShot();
+		
 		/** Clicking the Other Medical Conditions tab for section C */
 		MiscUtils.sleep(2000);
 		cedcdCohortPage.otherMedicalConditionsTab.click();

@@ -37,10 +37,23 @@ public class CGBIIQPages extends CommonUtils {
 	@FindBy (xpath = "//label[@class='MultipleAnswer  ChoiceTextPositionLeft']")
 	public List<WebElement> multipleAnswers;
 	
+	/** Other Please specify text box */
+	
+	@FindBy (xpath = "//input[@type='text']")
+	public WebElement otherPleaseSpecifyTextBox;
+	
 	/** Switching to Questionnaire's Desktop view frame */
 	
 	@FindBy (xpath = "//iframe[@id='preview-view']")
 	public WebElement desktopFrame;
+	
+	/** This is the Number of Pregnancies Fathered radio button */
+	@FindBy (xpath= "//span[contains(text(),'Number of pregnancies fathered')]")
+	public WebElement numberOfPregnanciesFatheredRadioButton;
+	
+	/** This is the Number of Pregnancies Fathered text button */
+	@FindBy (xpath= "//input[@type='text']")
+	public WebElement numberOfPregnanciesFatheredTextBox;
 	
 	/** This is the element for users email */
 	@FindBy (xpath ="//input[@name='QR~Authentication-FL_18~0~TEXT']")
@@ -56,9 +69,9 @@ public class CGBIIQPages extends CommonUtils {
 	@FindBy (xpath = "//span[contains(text(),'I am completing this form for someone else')]")
 	public WebElement completingForSomeoneElseRadioButton;
 	
-	/** This is the text box for the Probands Name */
-	@FindBy (xpath = "//input[@type='TEXT']")
-	public WebElement probandsName;
+	/** This is the radio button for completing the questionnaire for Yourself */
+	@FindBy (xpath = "//span[contains(text(),'I am completing this form for myself')]")
+	public WebElement completingForSomeoneMyselfRadioButton;
 	
 	/**================================================================================*/
 	
@@ -66,11 +79,21 @@ public class CGBIIQPages extends CommonUtils {
 	@FindBy (xpath = "//span[contains(text(),'Female')]")
 	public WebElement probandFemaleSex;
 	
+	/** This is the element for selecting Male as the Proband's gender */
+	@FindBy (xpath = "//span[contains(text(),'Male')]")
+	public WebElement probandMaleSex;
+	
 	/**================================================================================*/
 	
 	/** The next couple elements specify Ethnicity and Race of Proband */
 	@FindBy (xpath = "(//span[contains(text(),'Hispanic or Latino')])[1]")
 	public WebElement probandsHispanicEthnicity;
+	
+	/**================================================================================*/
+	
+	/** This is the text box for the Probands Name */
+	@FindBy (xpath = "//input[@type='TEXT']")
+	public WebElement probandsName;
 	
 	/**================================================================================*/
 	
@@ -99,22 +122,36 @@ public class CGBIIQPages extends CommonUtils {
 	public WebElement probandsOtherRace;
 	
 	/** This element is for the the Other (please specify) race text box */
-	@FindBy (xpath = "//input[@class='TextEntryBox InputText QR-QID109-9-TEXT QWatchTimer']")
+	@FindBy (xpath = "//input[@type='text']")
 	public WebElement probandsOtherRaceTextbox;
 	
 	/**================================================================================*/
 	
-	/** Probands Guardian's Name */
+	/** Proxy Flow Probands Guardian's Name */
 	@FindBy (xpath = "//input[@name='QR~QID113#1~1~1~TEXT']")
-	public WebElement guardianName;
+	public WebElement guardianNameProxyFlow;
 	
-	/** Relationship of Guardian to Proband */
+	/** Proband Flow Probands Guardian's Name */
+	@FindBy (xpath = "//input[@name='QR~QID22#1~1~1~TEXT']")
+	public WebElement guardiansNameProbandFlow;
+	
+	/** Proxy Flow Relationship of Guardian to Proband */
 	@FindBy (xpath = "//input[@name='QR~QID113#2~1~1~TEXT']")
-	public WebElement guardianRelationshipToProband;
+	public WebElement guardianRelationshipToProbandProxyFlow;
+	
+	/** Probands Flow Relationship of Guardian to Proband */
+	@FindBy (xpath = "//input[@name='QR~QID22#2~1~1~TEXT']")
+	public WebElement guardiansRelationshipToProbandProbandFlow;
 	
 	/**================================================================================*/
 	
 	/** DOB of Proband */
+	
+	/** Previous month button */
+	@FindBy (xpath = "//span[@class='flatpickr-prev-month']")
+	public WebElement previousMonthButton;
+	
+	
 	/** First of the month Value */
 	@FindBy (xpath = "(//span[@class='flatpickr-day '])[1]")
 	public WebElement probandsDOBDay;
@@ -123,18 +160,34 @@ public class CGBIIQPages extends CommonUtils {
 	
 	/** City where Proband was born */
 	@FindBy (xpath = "//input[@id='QR~QID158~1']")
+	public WebElement probandCityProxyFlow;
+	
+	/** City where Proband was born */
+	@FindBy (xpath = "//input[@id='QR~QID24~1']")
 	public WebElement probandCity;
 	
 	/** State where Proband was born */
 	@FindBy (xpath = "//input[@id='QR~QID158~2']")
+	public WebElement probandStateProxyFlow;
+	
+	/** State where Proband was born */
+	@FindBy (xpath = "//input[@id='QR~QID24~2']")
 	public WebElement probandState;
 	
 	/** Country where Proband was born */
 	@FindBy (xpath = "//input[@id='QR~QID158~3']")
+	public WebElement probandCountryProxyFlow;
+	
+	/** Country where Proband was born */
+	@FindBy (xpath = "//input[@id='QR~QID24~3']")
 	public WebElement probandCountry;
 	
 	/** If nothing is know of the place of birth, fill out Don't know text box */
 	@FindBy (xpath = "//input[@id='QR~QID158~4']")
+	public WebElement probandDontKnowProxyFlow;
+	
+	/** If nothing is know of the place of birth, fill out Don't know text box */
+	@FindBy (xpath = "//input[@id='QR~QID24~4']")
 	public WebElement probandDontKnow;
 	
 	/**================================================================================*/
@@ -153,7 +206,12 @@ public class CGBIIQPages extends CommonUtils {
 	
 	/** Occupation text box of Proband */
 	@FindBy (xpath = "//input[@id='QR~QID120~4~TEXT']")
+	public WebElement probandsOccupationTextBoxProxyFlow;
+	
+	/** Occupation text box of Proband */
+	@FindBy (xpath = "//input[@type='text']")
 	public WebElement probandsOccupationTextBox;
+	
 	
 	/**================================================================================*/
 	
@@ -247,6 +305,30 @@ public class CGBIIQPages extends CommonUtils {
 	@FindBy (xpath = "//select[@id='QR~QID133#3~3']")
 	public WebElement unitOfMeasurementHeadCircumference;
 	
+	/** How much was the Proband when they were born? (in lbs) */
+	@FindBy (xpath = "//input[@name='QR~QID98#1~1~1~TEXT']")
+	public WebElement numericalWeightProband;
+	
+	/** How long was the Proband when they were born? (in Inches) */
+	@FindBy (xpath = "//input[@name='QR~QID98#1~2~1~TEXT']")
+	public WebElement numericalLengthProband;
+	
+	/** How long was the circumference of the Probands Head when they were born? (in Inches) */
+	@FindBy (xpath = "//input[@name='QR~QID98#1~3~1~TEXT']")
+	public WebElement numericalHeadCircumferenceProband;
+	
+	/** Unit of measurement for how much was the Proband when they were born? (in lbs) */
+	@FindBy (xpath = "//select[@id='QR~QID98#3~1']")
+	public WebElement unitOfMeasurementWeightProband;
+	
+	/** Unit of measurement for how long was the Proband when they were born? (in Inches) */
+	@FindBy (xpath = "//select[@id='QR~QID98#3~2']")
+	public WebElement unitOfMeasurementLengthProband;
+	
+	/** Unit of measurement for how long was the circumference of the Probands Head when they were born? (in Inches) */
+	@FindBy (xpath = "//select[@id='QR~QID98#3~3']")
+	public WebElement unitOfMeasurementHeadCircumferenceProband;
+	
 	/**================================================================================*/
 	
 	/** This webelement is the Adrenal Gland selection of the Please select or report the primary cancer(s) or benign tumor(s) that have been diagnosed */
@@ -313,47 +395,111 @@ public class CGBIIQPages extends CommonUtils {
 	@FindBy (xpath = "//select[@id='QR~QID168#3~1']")
 	public WebElement bestSummaryOfEvaluation;
 	
+	
+	
+	/** This is the gene or the panel that was tested Proband Flow */
+	@FindBy (xpath = "//select[@id='QR~QID70#4~1']")
+	public WebElement geneOrSyndromeTestedProbandFlow;
+	
+	/** Date testing occured in Month/Years Proband Flow */
+	@FindBy (xpath = "//input[@id='QR~QID70#1~1~1~TEXT']")
+	public WebElement dateOfTestingProbandFlow;
+	
+	/** Age of Proband when testing occured Proband Flow */
+	@FindBy (xpath = "//input[@id='QR~QID70#1~1~2~TEXT']")
+	public WebElement ageOfTestingProbandFlow;
+	
+	/** Name, City, State/Province and Country of Hospital where testing occured Proband Flow */
+	@FindBy (xpath = "//textarea[@id='QR~QID70#2~1~1~TEXT']")
+	public WebElement hospitalLocationProbandFlow;
+	
+	/** Selected answer that best summarizes the findings of the evaluation Proband Flow */
+	@FindBy (xpath = "//select[@id='QR~QID70#3~1']")
+	public WebElement bestSummaryOfEvaluationProbandFlow;
+	
 	/**================================================================================*/
 	
-	/** Current weight of Proband */
+	/** Current weight of Proband Proxy Flow */
 	@FindBy (xpath = "//input[@name='QR~QID140#1~1~1~TEXT']")
 	public WebElement numericalCurrentWeight;
 	
-	/** Current height of Proband */
+	/** Current height of Proband Proxy Flow */
 	@FindBy (xpath = "//input[@name='QR~QID140#1~2~1~TEXT']")
 	public WebElement numericalCurrentHeight;
 	
-	/** Weight of Proband at 18 years old */
+	/** Weight of Proband at 18 years old Proxy Flow */
 	@FindBy (xpath = "//input[@name='QR~QID140#1~3~1~TEXT']")
 	public WebElement numericalWeightAt18;
 	
-	/** Weight of Proband at 30 years old */
+	/** Weight of Proband at 30 years old Proxy Flow */
 	@FindBy (xpath = "//input[@name='QR~QID140#1~4~1~TEXT']")
 	public WebElement numericalWeightAt30;
 	
-	/** Weight of Proband at 40 years old */
+	/** Weight of Proband at 40 years old Proxy Flow */
 	@FindBy (xpath = "//input[@name='QR~QID140#1~5~1~TEXT']")
 	public WebElement numericalWeightAt40;
 	
-	/** Unit of measurement for Current weight of Proband */
+	/** Unit of measurement for Current weight of Proband Proxy Flow */
 	@FindBy (xpath = "//select[@id='QR~QID140#2~1']")
 	public WebElement UnitOfMeasurementCurrentWeight;
 	
-	/** Unit of measurement for Current height of Proband */
+	/** Unit of measurement for Current height of Proband Proxy Flow */
 	@FindBy (xpath = "//select[@id='QR~QID140#2~2']")
 	public WebElement UnitOfMeasurementCurrentHeight;
 	
-	/** Unit of measurement for weight of Proband at 18 years old */
+	/** Unit of measurement for weight of Proband at 18 years old Proxy Flow */
 	@FindBy (xpath = "//select[@id='QR~QID140#2~3']")
 	public WebElement UnitOfMeasurementWeightAt18;
 	
-	/** Unit of measurement for weight of Proband at 30 years old */
+	/** Unit of measurement for weight of Proband at 30 years old Proxy Flow */
 	@FindBy (xpath = "//select[@id='QR~QID140#2~4']")
 	public WebElement UnitOfMeasurementWeightAt30;
 	
-	/** Unit of measurement for weight of Proband at 40 years old */
+	/** Unit of measurement for weight of Proband at 40 years old Proxy Flow */
 	@FindBy (xpath = "//select[@id='QR~QID140#2~5']")
 	public WebElement UnitOfMeasurementWeightAt40;
+	
+	/**================================================================================*/
+	
+	/** Current weight of Proband */
+	@FindBy (xpath = "//input[@name='QR~QID101#1~1~1~TEXT']")
+	public WebElement numericalCurrentWeightProbandFlow;
+	
+	/** Current height of Proband */
+	@FindBy (xpath = "//input[@name='QR~QID101#1~2~1~TEXT']")
+	public WebElement numericalCurrentHeightProbandFlow;
+	
+	/** Weight of Proband at 18 years old */
+	@FindBy (xpath = "//input[@name='QR~QID101#1~3~1~TEXT']")
+	public WebElement numericalWeightAt18ProbandFlow;
+	
+	/** Weight of Proband at 30 years old */
+	@FindBy (xpath = "//input[@name='QR~QID101#1~4~1~TEXT']")
+	public WebElement numericalWeightAt30ProbandFlow;
+	
+	/** Weight of Proband at 40 years old */
+	@FindBy (xpath = "//input[@name='QR~QID101#1~5~1~TEXT']")
+	public WebElement numericalWeightAt40ProbandFlow;
+	
+	/** Unit of measurement for Current weight of Proband */
+	@FindBy (xpath = "//select[@id='QR~QID101#2~1']")
+	public WebElement UnitOfMeasurementCurrentWeightProbandFlow;
+	
+	/** Unit of measurement for Current height of Proband */
+	@FindBy (xpath = "//select[@id='QR~QID101#2~2']")
+	public WebElement UnitOfMeasurementCurrentHeightProbandFlow;
+	
+	/** Unit of measurement for weight of Proband at 18 years old */
+	@FindBy (xpath = "//select[@id='QR~QID101#2~3']")
+	public WebElement UnitOfMeasurementWeightAt18ProbandFlow;
+	
+	/** Unit of measurement for weight of Proband at 30 years old */
+	@FindBy (xpath = "//select[@id='QR~QID101#2~4']")
+	public WebElement UnitOfMeasurementWeightAt30ProbandFlow;
+	
+	/** Unit of measurement for weight of Proband at 40 years old */
+	@FindBy (xpath = "//select[@id='QR~QID101#2~5']")
+	public WebElement UnitOfMeasurementWeightAt40ProbandFlow;
 	
 	/**================================================================================*/
 	
@@ -399,11 +545,19 @@ public class CGBIIQPages extends CommonUtils {
 	@FindBy (xpath = "//input[@id='QR~QID162']")
 	public WebElement ageOfFirstPregnancy;
 	
+	/** The Probands age of their first pregnancy Proband Flow */
+	@FindBy (xpath = "//input[@type='TEXT']")
+	public WebElement ageOfFirstPregnancyProbandFlow;
+	
 	/**================================================================================*/
 	
 	/** Number of times the Proband has been pregnant */
 	@FindBy (xpath = "//input[@id='QR~QID160']")
 	public WebElement numberOfTimesProbandHasBeenPregnant;
+	
+	/** Number of times the Proband has been pregnant */
+	@FindBy (xpath = "//input[@type='TEXT']")
+	public WebElement numberOfTimesProbandHasBeenPregnantProbandFlow;
 	
 	/**================================================================================*/
 	
