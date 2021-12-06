@@ -69,11 +69,11 @@ public class SignatureVisualizationsPage extends CommonUtils {
 	public WebElement downloadDescriptionText;
 	
 	/** This is the Mutational Profiles section Tab at the top of the screen */
-	@FindBy (xpath = "(//button[contains(text(),'Mutational Profiles')])[1]")
+	@FindBy (xpath = "//*[@id='root']/div[2]/div[1]/div/div[1]/div/div[3]/button")
 	public WebElement mutationalProfileTab;
 	
 	/** This is the Sample Name text box under mutational profile tab */
-	@FindBy (xpath = "(//div[@class=' css-tlfecz-indicatorContainer'])[4]")
+	@FindBy (xpath = "//input[@id='mpSampleName']")
 	public WebElement mutationalProfileSampleNameTextBox;
 	
 	/** This is the Sample Name text box under mutational profile tab's "SB749362" value */
@@ -85,7 +85,7 @@ public class SignatureVisualizationsPage extends CommonUtils {
 	public WebElement cosineSimilarityTab;
 	
 	/** This is the CS Within Samples tab under the Cosine Similarities tab */
-	@FindBy (xpath = "//strong[contains(text(),'CS Within Samples')]")
+	@FindBy (xpath = "//*[@id=\"root\"]/div[2]/div[2]/div[2]/div/div/div[1]/div[1]/button/strong")
 	public WebElement csWithinSamplesTab;
 	
 	/** This is the Cosine Similarity Within Samples calculate button  */
@@ -133,7 +133,7 @@ public class SignatureVisualizationsPage extends CommonUtils {
 	public WebElement visualPublicSubmitButton;
 	
 	/** This is the plot returned on the Profiler Summary when using public data */
-	@FindBy (xpath = "//div[@class='react-transform-element TransformComponent-module_content__TZU5O ']")
+	@FindBy (xpath = "//*[@id='root']/div[2]/div[2]/div[2]/div")
 	public WebElement publicPlotOnProfilerSummary;
 	
 	/** This is the text header for the Profiler Summary */

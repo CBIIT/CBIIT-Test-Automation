@@ -100,7 +100,7 @@ public class SignatureVisualizationSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.loadExampleDataButton);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.submitButton);
-		MiscUtils.sleep(65000);
+		MiscUtils.sleep(60000);
 		CucumberLogUtils.logScreenShot();
 
 	}
@@ -171,6 +171,7 @@ public class SignatureVisualizationSteps extends PageInitializer {
 	public void the_user_clicks_on_Cosine_Similarity() {
 		
 		MiscUtils.sleep(2000);
+		CommonUtils.waitForClickability(signatureVisualizationsPage.cosineSimilarityTab);
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.cosineSimilarityTab);
 
 	}
@@ -225,6 +226,7 @@ public class SignatureVisualizationSteps extends PageInitializer {
 	public void then_navigates_to_the_Mutational_Profiles_tab() {
 		
 		MiscUtils.sleep(2000);
+		CommonUtils.waitForClickability(signatureVisualizationsPage.mutationalProfileTab);
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.mutationalProfileTab);
 
 	}
@@ -246,7 +248,7 @@ public class SignatureVisualizationSteps extends PageInitializer {
 	public void the_user_calculates_public_data() {
 		
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.visualPublicSubmitButton);
-		MiscUtils.sleep(17000);
+		MiscUtils.sleep(24000);
 		
 	}
 
@@ -254,7 +256,9 @@ public class SignatureVisualizationSteps extends PageInitializer {
 	public void the_Profiler_Summary_plot_is_displayed() {
 		
 		MiscUtils.sleep(2000);
-		CommonUtils.scrollIntoView(signatureVisualizationsPage.profilerSummaryHeaderText);
+//		CommonUtils.scrollIntoView(signatureVisualizationsPage.profilerSummaryHeaderText);
+		JavascriptUtils.scrollIntoView(signatureVisualizationsPage.profilerSummaryHeaderText);
+		JavascriptUtils.drawBlueBorder(signatureVisualizationsPage.publicPlotOnProfilerSummary);
 		CucumberLogUtils.logScreenShot();
 		Assert.assertTrue(signatureVisualizationsPage.publicPlotOnProfilerSummary.isDisplayed());
 		

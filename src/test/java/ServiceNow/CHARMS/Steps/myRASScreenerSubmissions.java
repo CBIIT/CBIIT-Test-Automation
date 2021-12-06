@@ -246,7 +246,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	@Given("selects Yes option for participant being adopted")
 	public void selects_Yes_option_for_being_adopted() {
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.isParticipantAdoptedYesOption);
 		rasopathyQuestionnairePage.isParticipantAdoptedYesOption.click();
 		rasopathyQuestionnairePage.studyNextButton.click();
@@ -255,7 +255,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	@Given("selects No option for participant being adopted")
 	public void selects_No_option_for_participant_being_adopted() {
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		rasopathyQuestionnairePage.isParticipantAdoptedNoOption.click();
 		rasopathyQuestionnairePage.studyNextButton.click();
 
@@ -267,7 +267,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	@Given("selects Yes for participant still being alive")
 	public void selects_Yes_for_still_being_alive() {
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.isParticipantStillAliveYesOption);
 		rasopathyQuestionnairePage.isParticipantStillAliveYesOption.click();
 		rasopathyQuestionnairePage.studyNextButton.click();
@@ -276,7 +276,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	@Given("selects No for participant still being alive")
 	public void selects_No_for_participant_still_being_alive() {
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		rasopathyQuestionnairePage.isParticipantStillAliveNoOption.click();
 		rasopathyQuestionnairePage.studyNextButton.click();
 
@@ -289,7 +289,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	@Given("selects participants Date of Death from the calendar picker")
 	public void selects_participants_Date_of_Death_from_the_calendar_picker() {
 
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.calendarDODMonthDropDown);
 		CommonUtils.selectDropDownValue("April", rasopathyQuestionnairePage.calendarDODMonthDropDown);
 		rasopathyQuestionnairePage.calendarDODYearTextBox.clear();
@@ -305,7 +305,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	@Given("selects Yes option for participant currently living in the United States")
 	public void selects_Yes_option_for_living_in_the_United_States() {
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.doesParticipantLiveInUnitedStatesYesOption);
 		rasopathyQuestionnairePage.doesParticipantLiveInUnitedStatesYesOption.click();
 		rasopathyQuestionnairePage.studyNextButton.click();
@@ -313,7 +313,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	@Given("selects No option for participant currently living in the United States")
 	public void selects_No_option_for_participant_currently_living_in_the_United_States() {
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		rasopathyQuestionnairePage.doesParticipantLiveInUnitedStatesNoOption.click();
 		rasopathyQuestionnairePage.studyNextButton.click();
 
@@ -326,7 +326,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	@Given("enters mailing address for where study materials can be sent, street {string} street {string} city {string} state {string} Province {string} Country {string}")
 	public void enters_mailing_address_for_where_study_materials_can_be_sent_street_street_city_state_Province_Country(
 			String street, String streetOption, String city, String state, String province, String country) {
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.addressForStudyMaterialsToBeSentStreetTextBox);
 		rasopathyQuestionnairePage.addressForStudyMaterialsToBeSentStreetTextBox.sendKeys(street);
 		rasopathyQuestionnairePage.addressForStudyMaterialsToBeSentStreet2TextBox.sendKeys(streetOption);
