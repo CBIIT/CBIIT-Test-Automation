@@ -218,6 +218,7 @@
 				<version>3.0.0-M4</version>
 				<configuration>
 					<includes>
+					<include>RunCHARMSProgressionTest.java</include>
 					</includes>
 					<testFailureIgnore>true</testFailureIgnore> <!-- to get report even when fails -->
 				</configuration>

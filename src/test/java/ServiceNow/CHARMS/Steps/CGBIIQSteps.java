@@ -211,7 +211,7 @@ public class CGBIIQSteps extends PageInitializer {
 	@When("adds the participant DOB in MMDDYYYY format - CGB IIQ")
 	public void adds_the_participant_DOB_in_MMDDYYYY_format__CGB_IIQ() {
 		MiscUtils.sleep(1500);
-		JavascriptUtils.clickByJS(cGBIIQPages.previousMonthButton);
+		JavascriptUtils.clickByJS(cGBIIQPages.previousYearButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.probandsDOBDay);
 		CucumberLogUtils.logScreenShot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
@@ -319,7 +319,7 @@ public class CGBIIQSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 	}
 
 	@When("selects the total combined yearly income for all the persons in participant household - CGB IIQ")
@@ -330,7 +330,7 @@ public class CGBIIQSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 	}
 
 	@When("selects the highest level of schooling participant has completed - CGB IIQ")
@@ -367,7 +367,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.conceivedBySpermAndEggDonation);
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CucumberLogUtils.logScreenShot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
@@ -423,7 +423,7 @@ public class CGBIIQSteps extends PageInitializer {
 		CommonUtils.selectDropDownValue(SiblingLastInitial, cGBIIQPages.siblingLastNameInitial);
 		CommonUtils.selectDropDownValue(RelationshipToProband, cGBIIQPages.siblingRelationshipToProband);
 		CucumberLogUtils.logScreenShot();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
 
@@ -472,11 +472,11 @@ public class CGBIIQSteps extends PageInitializer {
 		CommonUtils.selectDropDownValue(UnitMeasurementLength, cGBIIQPages.unitOfMeasurementLength);
 		CommonUtils.selectDropDownValue(UnitMeasurementHeadCircumference,
 				cGBIIQPages.unitOfMeasurementHeadCircumference);
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 	}
 
 	@When("the user clicks the forward arrow on the cancer and benign tumor history section of IIQ Survey page - CGB IIQ")
@@ -526,10 +526,10 @@ public class CGBIIQSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(cGBIIQPages.treatmentReceivedImmunotherapy);
 		JavascriptUtils.clickByJS(cGBIIQPages.treatmentReceivedOther);
 		CucumberLogUtils.logScreenShot();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 	}
 
 	@When("selects Yes if the participant ever been evaluated for ANY genetic disease or syndrome? - CGB IIQ")
@@ -560,11 +560,11 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.selectDropDownValue(GeneOrSyndromeTested, cGBIIQPages.geneOrSyndromeTested);
 		cGBIIQPages.dateOfTesting.sendKeys(DateDiagnosedMonthYear);
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		cGBIIQPages.ageOfDiagnosisInYear.sendKeys(AgeDiagnosed);
 		cGBIIQPages.hospitalLocation.sendKeys(HospitalLocationOfEvaluation);
 		CommonUtils.selectDropDownValue(ResultsOfEvaluation, cGBIIQPages.bestSummaryOfEvaluation);
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
@@ -935,11 +935,11 @@ public class CGBIIQSteps extends PageInitializer {
 		CommonUtils.selectDropDownValue(UnitMeasurementLength, cGBIIQPages.unitOfMeasurementLengthProband);
 		CommonUtils.selectDropDownValue(UnitMeasurementHeadCircumference,
 				cGBIIQPages.unitOfMeasurementHeadCircumferenceProband);
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CucumberLogUtils.logScreenShot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 
 	}
 
@@ -951,11 +951,11 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.selectDropDownValue(GeneOrSyndromeTested, cGBIIQPages.geneOrSyndromeTestedProbandFlow);
 		cGBIIQPages.dateOfTestingProbandFlow.sendKeys(DateDiagnosedMonthYear);
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		cGBIIQPages.ageOfDiagnosisInYear.sendKeys(AgeDiagnosed);
 		cGBIIQPages.hospitalLocationProbandFlow.sendKeys(HospitalLocationOfEvaluation);
 		CommonUtils.selectDropDownValue(ResultsOfEvaluation, cGBIIQPages.bestSummaryOfEvaluationProbandFlow);
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(2000);
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
@@ -1018,7 +1018,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	@When("on the CGB Statement of Confidentiality page clicks next arrow button")
 	public void on_the_CGB_Statement_of_Confidentiality_page_clicks_next_arrow_button() {	
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(cGBIIQPages.nextButton);
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);		
 		cGBIIQPages.nextButton.click();
@@ -1026,7 +1026,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	@When("on the CGB Instructions page clicks next arrow button")
 	public void on_the_CGB_Instructions_page_clicks_next_arrow_button() {	
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.nextButton);
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);	
 		cGBIIQPages.nextButton.click();
@@ -1034,7 +1034,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	@When("on the General Background Information section of IIQ Survey page clicks next arrow button")
 	public void on_the_General_Background_Information_section_of_IIQ_Survey_page_clicks_next_arrow_button() {	
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(cGBIIQPages.nextButton);
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();	
@@ -1042,7 +1042,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	@When("selects the radio button labelled I am completing this form for someone else")
 	public void selects_the_radio_button_labelled_I_am_completing_this_form_for_someone_else() {	
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(cGBIIQPages.completingForSomeoneElseRadioButton);
 		cGBIIQPages.completingForSomeoneElseRadioButton.click();
 		CucumberLogUtils.logScreenShot();
@@ -1052,7 +1052,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	@When("fills out the participant {string} for whom the user is completing the IIQ form.")
 	public void fills_out_the_participant_for_whom_the_user_is_completing_the_IIQ_form(String probandName) {		
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(cGBIIQPages.probandsName);
 		cGBIIQPages.probandsName.sendKeys(probandName);
 		CucumberLogUtils.logScreenShot();
@@ -1082,7 +1082,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	@When("selects what the participant is considered to be")
 	public void selects_what_the_participant_is_to_be() {		
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(cGBIIQPages.probandsHispanicEthnicity);
 		cGBIIQPages.probandsHispanicEthnicity.click();	
 		CucumberLogUtils.logScreenShot();
@@ -1092,7 +1092,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	@When("selects the Race of the participant")
 	public void selects_the_of_the_participant() {		
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(cGBIIQPages.probandsWhiteRace);
 		cGBIIQPages.probandsWhiteRace.click();	
 		cGBIIQPages.probandsBlackRace.click();	
@@ -1109,7 +1109,7 @@ public class CGBIIQSteps extends PageInitializer {
 	@When("selects if the participant is from the Ashkenazi Eastern European JewishDescent")
 	public void selects_if_the_participant_is_from_the_Ashkenazi_Eastern_European_JewishDescent() {
 		
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(cGBIIQPages.yesSelection);
 		cGBIIQPages.yesSelection.click();	
 		CucumberLogUtils.logScreenShot();
@@ -1120,7 +1120,7 @@ public class CGBIIQSteps extends PageInitializer {
 	@When("selects if the participant is Adopted")
 	public void selects_if_the_participant_is_Adopted() {
 		
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(cGBIIQPages.yesSelection);
 		cGBIIQPages.yesSelection.click();	
 		CucumberLogUtils.logScreenShot();
@@ -1131,7 +1131,7 @@ public class CGBIIQSteps extends PageInitializer {
 	@When("selects Yes for the participant raised by someone other than their biological parent")
 	public void selects_for_the_participant_raised_by_someone_other_than_their_biological_blood_parent() {
 		
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(cGBIIQPages.yesSelection);
 		cGBIIQPages.yesSelection.click();	
 		CucumberLogUtils.logScreenShot();
@@ -1143,7 +1143,7 @@ public class CGBIIQSteps extends PageInitializer {
 	@When("adds Information regarding individuals who raised the participant {string},{string}")
 	public void adds_Information_regarding_individuals_who_raised_the_participant(String nameOfGuardian, String relationshipOfGuardian) {
 		
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(cGBIIQPages.guardianNameProxyFlow);
 		cGBIIQPages.guardianNameProxyFlow.sendKeys(nameOfGuardian);
 		cGBIIQPages.guardianRelationshipToProbandProxyFlow.sendKeys(relationshipOfGuardian);
@@ -1156,13 +1156,13 @@ public class CGBIIQSteps extends PageInitializer {
 	@When("adds the participant DOB in MMDDYYYY format")
 	public void adds_the_participant_DOB_in_MMDDYYYY_format() {
 		
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(cGBIIQPages.probandsDOBDay);
+		cGBIIQPages.previousYearButton.click();
 		cGBIIQPages.probandsDOBDay.click();	
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();	
-		
 		
 	}
 
@@ -1170,10 +1170,10 @@ public class CGBIIQSteps extends PageInitializer {
 	public void adds_the_Demographic_information_of_the_participant_or(String City, String State, String Country) {
 		
 		MiscUtils.sleep(2000);
-		CommonUtils.waitForVisibility(cGBIIQPages.probandCity);
-		cGBIIQPages.probandCity.sendKeys(City);
-		cGBIIQPages.probandState.sendKeys(State);
-		cGBIIQPages.probandCountry.sendKeys(Country);
+		CommonUtils.waitForVisibility(cGBIIQPages.probandCityProxyFlow);
+		cGBIIQPages.probandCityProxyFlow.sendKeys(City);
+		cGBIIQPages.probandStateProxyFlow.sendKeys(State);
+		cGBIIQPages.probandCountryProxyFlow.sendKeys(Country);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();	
@@ -1263,7 +1263,7 @@ public class CGBIIQSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();	
-		MiscUtils.sleep(1000);		
+		MiscUtils.sleep(1500);		
 	}
 
 	@When("selects the total combined yearly income for all the persons in participant household")
@@ -1275,7 +1275,7 @@ public class CGBIIQSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();	
-		MiscUtils.sleep(1000);		
+		MiscUtils.sleep(1500);		
 	}
 
 	@When("selects the highest level of schooling participant has completed")
@@ -1316,7 +1316,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.conceivedBySpermAndEggDonation);
 		cGBIIQPages.conceivedBySpermAndEggDonation.click();	
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CucumberLogUtils.logScreenShot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();			
@@ -1376,7 +1376,7 @@ public class CGBIIQSteps extends PageInitializer {
 		CommonUtils.selectDropDownValue(SiblingLastInitial, cGBIIQPages.siblingLastNameInitial);
 		CommonUtils.selectDropDownValue(RelationshipToProband, cGBIIQPages.siblingRelationshipToProband);
 		CucumberLogUtils.logScreenShot();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		cGBIIQPages.nextButton.click();		
 	}
 
@@ -1425,11 +1425,11 @@ public class CGBIIQSteps extends PageInitializer {
 		CommonUtils.selectDropDownValue(UnitMeasurementWeight, cGBIIQPages.unitOfMeasurementWeight);
 		CommonUtils.selectDropDownValue(UnitMeasurementLength, cGBIIQPages.unitOfMeasurementLength);
 		CommonUtils.selectDropDownValue(UnitMeasurementHeadCircumference, cGBIIQPages.unitOfMeasurementHeadCircumference);
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();	
-		MiscUtils.sleep(1000);		
+		MiscUtils.sleep(1500);		
 	}
 
 	@When("the user clicks the forward arrow on the cancer and benign tumor history section of IIQ Survey page")
@@ -1481,10 +1481,10 @@ public class CGBIIQSteps extends PageInitializer {
 		cGBIIQPages.treatmentReceivedImmunotherapy.click();	
 		cGBIIQPages.treatmentReceivedOther.click();	
 		CucumberLogUtils.logScreenShot();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();	
-		MiscUtils.sleep(1000);	
+		MiscUtils.sleep(1500);	
 	}
 
 	@When("selects Yes if the participant ever been evaluated for ANY genetic disease or syndrome?")
@@ -1516,11 +1516,11 @@ public class CGBIIQSteps extends PageInitializer {
 		CommonUtils.waitForVisibility(cGBIIQPages.geneOrSyndromeTested);
 		CommonUtils.selectDropDownValue(GeneOrSyndromeTested, cGBIIQPages.geneOrSyndromeTested);
 		cGBIIQPages.dateOfTesting.sendKeys(DateDiagnosedMonthYear);
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		cGBIIQPages.ageOfDiagnosisInYear.sendKeys(AgeDiagnosed);
 		cGBIIQPages.hospitalLocation.sendKeys(HospitalLocationOfEvaluation);
 		CommonUtils.selectDropDownValue(ResultsOfEvaluation, cGBIIQPages.bestSummaryOfEvaluation);
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);

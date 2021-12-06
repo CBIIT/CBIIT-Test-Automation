@@ -15,7 +15,7 @@ public class MyRASHomePage {
 	public WebElement warningAgreeButton;
 
 	/* RASopathy Eligibility Questionnaire */
-	@FindBy(xpath = "//span[normalize-space()='Eligibility Questionnaire']")
+	@FindBy(xpath = "(//span[normalize-space()='Eligibility Questionnaire'])[2]")
 	public WebElement rasoptathyEligibilityQuestionnaire;
 
 	/* RASopathy Study Consent */
@@ -31,7 +31,7 @@ public class MyRASHomePage {
 	public WebElement charmsAutomatedTestTwoSignOutLink;
 
 	/* RASopathy Individual Information Questionnaire */
-	@FindBy(xpath = "//div[@class='custom-card-image ng-scope']//a[@aria-label='Review Individual Information Questionnaire']")
+	@FindBy(xpath = "//div[@class='custom-card-title']//a[@aria-label='Review Individual Information Questionnaire']")
 	public WebElement rasoptathyIndividualInformationQuestionnaire;
 
 	/* RASopathy Individual Information Questionnaire Pin text */
@@ -43,7 +43,7 @@ public class MyRASHomePage {
 	public WebElement rasoptathyIndividualInformationQuestionnaireOneTimePinGoButton;
 
 	/* RAS Survey */
-	@FindBy(xpath = "//span[normalize-space()='RAS Survey']")
+	@FindBy(xpath = "(//span[normalize-space()='RAS Survey'])[2]")
 	public WebElement rasSurvey;
 
 	/** --------------- END OF myRAS Home PAGE --------------- */

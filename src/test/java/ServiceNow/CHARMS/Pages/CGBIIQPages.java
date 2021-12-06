@@ -30,7 +30,7 @@ public class CGBIIQPages extends CommonUtils {
 	public WebElement noSelection;
 	
 	/** This is the element for the next button (Can be used for any next button on questoinnaire) */
-	@FindBy (xpath = "//input[@title='→']")
+	@FindBy (xpath = "//input[@name='NextButton']")
 	public WebElement nextButton;
 	
 	/** List of Elements to use when multiple answers can be selected */
@@ -148,8 +148,8 @@ public class CGBIIQPages extends CommonUtils {
 	/** DOB of Proband */
 	
 	/** Previous month button */
-	@FindBy (xpath = "//span[@class='flatpickr-prev-month']")
-	public WebElement previousMonthButton;
+	@FindBy (xpath = "//span[@class='arrowDown']")
+	public WebElement previousYearButton;
 	
 	
 	/** First of the month Value */
