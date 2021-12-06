@@ -30,7 +30,7 @@ public class CGBIIQPages extends CommonUtils {
 	public WebElement noSelection;
 	
 	/** This is the element for the next button (Can be used for any next button on questoinnaire) */
-	@FindBy (xpath = "//input[@title='→']")
+	@FindBy (xpath = "//input[@name='NextButton']")
 	public WebElement nextButton;
 	
 	/** List of Elements to use when multiple answers can be selected */
@@ -148,8 +148,8 @@ public class CGBIIQPages extends CommonUtils {
 	/** DOB of Proband */
 	
 	/** Previous month button */
-	@FindBy (xpath = "//span[@class='flatpickr-prev-month']")
-	public WebElement previousMonthButton;
+	@FindBy (xpath = "//span[@class='arrowDown']")
+	public WebElement previousYearButton;
 	
 	
 	/** First of the month Value */
@@ -160,7 +160,7 @@ public class CGBIIQPages extends CommonUtils {
 	
 	/** City where Proband was born */
 	@FindBy (xpath = "//input[@id='QR~QID158~1']")
-	public WebElement probandCityProxyFlow;
+	public WebElement city;
 	
 	/** City where Proband was born */
 	@FindBy (xpath = "//input[@id='QR~QID24~1']")
@@ -168,7 +168,7 @@ public class CGBIIQPages extends CommonUtils {
 	
 	/** State where Proband was born */
 	@FindBy (xpath = "//input[@id='QR~QID158~2']")
-	public WebElement probandStateProxyFlow;
+	public WebElement state;
 	
 	/** State where Proband was born */
 	@FindBy (xpath = "//input[@id='QR~QID24~2']")
@@ -176,7 +176,7 @@ public class CGBIIQPages extends CommonUtils {
 	
 	/** Country where Proband was born */
 	@FindBy (xpath = "//input[@id='QR~QID158~3']")
-	public WebElement probandCountryProxyFlow;
+	public WebElement country;
 	
 	/** Country where Proband was born */
 	@FindBy (xpath = "//input[@id='QR~QID24~3']")

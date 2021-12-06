@@ -1235,8 +1235,8 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
-
-	@Given("clicks + sign to add reason for hospitalization {string} and enters when it occureed {string} and enters hospital {string} for Please provide the information for each hospitalization in the table below. To add a new hospitalization, please click on the + sign in the upper left corner of the table. page - myRAS Survey")
+	
+	@Given("clicks + sign to add reason for hospitalization {string} and enters when it occureed {string} and enters hospital {string} for Please provide the information for eachhospitalization in the table below. To add a new hospitalization, please click on the + sign in the upper left corner of the table. page - myRAS Survey")
 	public void clicks_sign_to_add_reason_for_hospitalization_and_enters_when_it_occureed_and_enters_hospital_for_Please_provide_the_information_for_each_hospitalization_in_the_table_below_To_add_a_new_hospitalization_please_click_on_the_sign_in_the_upper_left_corner_of_the_table_page_myRAS_Survey(
 			String reasonForHospitalization, String dateOfHospitalization, String hospitalOfHospitalization) {
 
@@ -2219,7 +2219,7 @@ public void selects_All_that_apply_and_enters_other_alcoholic_beverage_for_What_
 	@Given("clicks YES button Do you have any mouth sores? page - myRAS Survey")
 	public void clicks_YES_button_Do_you_have_any_mouth_sores_page_myRAS_Survey() {
 
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
 		CucumberLogUtils.logScreenShot();
@@ -3868,7 +3868,7 @@ public void enters_All_details_for_Please_complete_the_table_below_for_each_of_t
 	
 	@Given("clicks Next button to end survey for You are almost done! To submit your responses, you must continue in the questionnaire by clicking the forward arrow below. The information you have provided will be reviewed by our study team. In the meantime, you should receive an email confirming this submission. page - myRAS Survey")
 	public void clicks_Next_button_to_end_survey_for_You_are_almost_done_To_submit_your_responses_you_must_continue_in_the_questionnaire_by_clicking_the_forward_arrow_below_The_information_you_have_provided_will_be_reviewed_by_our_study_team_In_the_meantime_you_should_receive_an_email_confirming_this_submission_page_myRAS_Survey() {
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		CucumberLogUtils.logScreenShot();
