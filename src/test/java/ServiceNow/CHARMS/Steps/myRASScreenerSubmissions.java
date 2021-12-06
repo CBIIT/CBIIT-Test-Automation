@@ -2162,7 +2162,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 		CommonUtils.waitForVisibility(myRASLoginPage.loginToMyRASButton);
 		myRASLoginPage.loginToMyRASButton.click();
-		oktaLoginPage.usernameTxtBox.sendKeys("charmsras4@yahoo.com");
+		oktaLoginPage.usernameTxtBox.sendKeys("charmsras5@yahoo.com");
 		oktaLoginPage.passwordTxtBox.sendKeys("RASTest2021$$");
 		CommonUtils.waitForVisibility(oktaLoginPage.loginBtn);
 		oktaLoginPage.loginBtn.click();
