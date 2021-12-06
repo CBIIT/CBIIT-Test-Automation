@@ -223,9 +223,9 @@ public class CGBIIQSteps extends PageInitializer {
 	public void adds_the_Demographic_information_of_the_participant_or__CGB_IIQ(String City, String State, String Country) {
 
 		MiscUtils.sleep(2000);
-		cGBIIQPages.probandCityProxyFlow.sendKeys(City);
-		cGBIIQPages.probandStateProxyFlow.sendKeys(State);
-		cGBIIQPages.probandCountryProxyFlow.sendKeys(Country);
+		cGBIIQPages.city.sendKeys(City);
+		cGBIIQPages.state.sendKeys(State);
+		cGBIIQPages.country.sendKeys(Country);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
@@ -1170,10 +1170,10 @@ public class CGBIIQSteps extends PageInitializer {
 	public void adds_the_Demographic_information_of_the_participant_or(String City, String State, String Country) {
 		
 		MiscUtils.sleep(2000);
-		CommonUtils.waitForVisibility(cGBIIQPages.probandCityProxyFlow);
-		cGBIIQPages.probandCityProxyFlow.sendKeys(City);
-		cGBIIQPages.probandStateProxyFlow.sendKeys(State);
-		cGBIIQPages.probandCountryProxyFlow.sendKeys(Country);
+		CommonUtils.waitForVisibility(cGBIIQPages.city);
+		cGBIIQPages.city.sendKeys(City);
+		cGBIIQPages.state.sendKeys(State);
+		cGBIIQPages.country.sendKeys(Country);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();	

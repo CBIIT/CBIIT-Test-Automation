@@ -160,7 +160,7 @@ public class CGBIIQPages extends CommonUtils {
 	
 	/** City where Proband was born */
 	@FindBy (xpath = "//input[@id='QR~QID158~1']")
-	public WebElement probandCityProxyFlow;
+	public WebElement city;
 	
 	/** City where Proband was born */
 	@FindBy (xpath = "//input[@id='QR~QID24~1']")
@@ -168,7 +168,7 @@ public class CGBIIQPages extends CommonUtils {
 	
 	/** State where Proband was born */
 	@FindBy (xpath = "//input[@id='QR~QID158~2']")
-	public WebElement probandStateProxyFlow;
+	public WebElement state;
 	
 	/** State where Proband was born */
 	@FindBy (xpath = "//input[@id='QR~QID24~2']")
@@ -176,7 +176,7 @@ public class CGBIIQPages extends CommonUtils {
 	
 	/** Country where Proband was born */
 	@FindBy (xpath = "//input[@id='QR~QID158~3']")
-	public WebElement probandCountryProxyFlow;
+	public WebElement country;
 	
 	/** Country where Proband was born */
 	@FindBy (xpath = "//input[@id='QR~QID24~3']")
