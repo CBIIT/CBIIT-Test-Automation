@@ -207,7 +207,7 @@ public class SignatureVisualizationSteps extends PageInitializer {
 		CommonUtils.waitForClickability(signatureVisualizationsPage.profileComparisonTab);
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.profileComparisonTab);
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.pcToReferenceTab);
-		MiscUtils.sleep(15000);
+		MiscUtils.sleep(20000);
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.compareSignatureInfoButton);
 		CucumberLogUtils.logScreenShot();
 		
@@ -247,8 +247,9 @@ public class SignatureVisualizationSteps extends PageInitializer {
 	@When("the user calculates public data")
 	public void the_user_calculates_public_data() {
 		
+		MiscUtils.sleep(10000);
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.visualPublicSubmitButton);
-		MiscUtils.sleep(24000);
+		MiscUtils.sleep(30000);
 		
 	}
 

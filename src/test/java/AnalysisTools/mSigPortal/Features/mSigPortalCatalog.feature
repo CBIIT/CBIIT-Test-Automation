@@ -7,4 +7,4 @@ Feature: mSigPortal Catalog Section
     Given the user is on the mSigPortal Home page
     When the user navigates to the Catalog page
     And the user calculates by clicking on the SBS Graph
-    Then a download link for the graph is displayed
+    Then a download link for the graph is displayed on the Catalog page

@@ -85,7 +85,7 @@ public class SignatureVisualizationsPage extends CommonUtils {
 	public WebElement cosineSimilarityTab;
 	
 	/** This is the CS Within Samples tab under the Cosine Similarities tab */
-	@FindBy (xpath = "//*[@id=\"root\"]/div[2]/div[2]/div[2]/div/div/div[1]/div[1]/button/strong")
+	@FindBy (xpath = "//strong[contains(text(),'CS Between Samples')]")
 	public WebElement csWithinSamplesTab;
 	
 	/** This is the Cosine Similarity Within Samples calculate button  */

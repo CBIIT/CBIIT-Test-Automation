@@ -54,7 +54,7 @@ Feature: mSigPortal Signature Visualizations tab
     And then navigates to the Mutational Profiles tab
     Then text can be entered in at the Sample Name text box
 
-  @Smoke @matarodriguezko
+  @Progression1 @matarodriguezko
   Scenario: The Plot on Profiler Summary is displayed
     Given the user is on the mSigPortal Home page
     And the user navigates to the Visualization section
