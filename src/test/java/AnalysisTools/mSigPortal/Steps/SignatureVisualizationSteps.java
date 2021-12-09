@@ -225,7 +225,7 @@ public class SignatureVisualizationSteps extends PageInitializer {
 	@When("then navigates to the Mutational Profiles tab")
 	public void then_navigates_to_the_Mutational_Profiles_tab() {
 		
-		MiscUtils.sleep(2000);
+		MiscUtils.sleep(5000);
 		CommonUtils.waitForClickability(signatureVisualizationsPage.mutationalProfileTab);
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.mutationalProfileTab);
 

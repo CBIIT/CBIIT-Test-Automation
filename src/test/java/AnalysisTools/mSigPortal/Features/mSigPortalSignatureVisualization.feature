@@ -1,6 +1,6 @@
 Feature: mSigPortal Signature Visualizations tab
 
-  @Progression1 @NCIATWP-3848 @matarodriguezko
+  @Progression @NCIATWP-3848 @matarodriguezko
   Scenario: Profile Comparison Chart is Displayed
     Given the user is on the mSigPortal Home page
     And the user navigates to the Visualization section
@@ -8,7 +8,7 @@ Feature: mSigPortal Signature Visualizations tab
     When the user calculates on Profile Comparison
     Then the chart is displayed
 
-  @Smoke @NCIATWP-3849 @matarodriguezko
+  @Progression @NCIATWP-3849 @matarodriguezko
   Scenario: Download Plot Link is enabled
     Given the user is on the mSigPortal Home page
     And the user navigates to the Visualization section
@@ -46,7 +46,7 @@ Feature: mSigPortal Signature Visualizations tab
     And the user clicks on the i icon when on the Profile Comparison tab
     Then the cosmic Signature pop up is displayed
 
-  @Smoke @NCIATWP-4020 @matarodriguezko
+  @Progression @NCIATWP-4020 @matarodriguezko
   Scenario: Mutational Profile Sample Name allows text in field
     Given the user is on the mSigPortal Home page
     And the user navigates to the Visualization section
@@ -54,7 +54,7 @@ Feature: mSigPortal Signature Visualizations tab
     And then navigates to the Mutational Profiles tab
     Then text can be entered in at the Sample Name text box
 
-  @Progression1 @matarodriguezko
+  @Smoke @matarodriguezko
   Scenario: The Plot on Profiler Summary is displayed
     Given the user is on the mSigPortal Home page
     And the user navigates to the Visualization section
