@@ -1,6 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.nih.nci.testing</groupId>
 	<artifactId>CBIIT-Test-Automation</artifactId>
@@ -61,13 +59,20 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- TestNG libraries -->
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.4.0</version>
+		</dependency>
+
 		<!-- common libraries -->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>htmlunit-driver</artifactId>
 			<version>2.26</version>
 		</dependency>
-
 
 
 		<dependency>
@@ -217,6 +222,11 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M4</version>
 				<configuration>
+					<includes>
+						<!-- <include>
+							RunCHARMSProgressionTest.java
+						</include> -->
+					</includes>
 					<testFailureIgnore>true</testFailureIgnore> <!-- to get report even when fails -->
 				</configuration>
 			</plugin>
@@ -244,7 +254,7 @@
 							<inputDirectory>${project.build.directory}</inputDirectory>
 							<jsonFiles>
 								<!-- supports wildcard or name pattern -->
-								<param>**/cucumber.json</param>   <!-- it will take .json file -->
+								<param>**/cucumber.json</param> <!-- it will take .json file -->
 							</jsonFiles>
 
 						</configuration>

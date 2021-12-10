@@ -815,7 +815,11 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	@FindBy(xpath = "//span[@class='navbar_ui_actions']//button[@value='cc01bb4cdbd7c810b86770c08c9619dc'][normalize-space()='Sign Consent']")
 	public WebElement nativeViewSignConsentButton;
 
-	/* ********** END OF Native View Elements for ALL pages ********** */
+	/* **************************************************** */
+
+	/** ----- BEGINNING OF Native view RAS Survey Data Verification ------- */
+
+	/* ********** END OF Native view RAS Survey Data Verification ********** */
 
 	/* **************************************************** */
 

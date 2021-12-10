@@ -2162,7 +2162,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 		CommonUtils.waitForVisibility(myRASLoginPage.loginToMyRASButton);
 		myRASLoginPage.loginToMyRASButton.click();
-		oktaLoginPage.usernameTxtBox.sendKeys("charmsras4@yahoo.com");
+		oktaLoginPage.usernameTxtBox.sendKeys("charmsras5@yahoo.com");
 		oktaLoginPage.passwordTxtBox.sendKeys("RASTest2021$$");
 		CommonUtils.waitForVisibility(oktaLoginPage.loginBtn);
 		oktaLoginPage.loginBtn.click();
@@ -2190,11 +2190,12 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		myRasStudyConsentPage.consentButton.click();
 
 		CommonUtils.waitForVisibility(myRasStudyConsentPage.signingPasswordTextBox);
+		MiscUtils.sleep(1000);
 		myRasStudyConsentPage.signingPasswordTextBox.sendKeys("RASTest2021$$");
 
 		CommonUtils.waitForVisibility(myRasStudyConsentPage.signButton);
 		myRasStudyConsentPage.signButton.click();
-		MiscUtils.sleep(1500);
+		MiscUtils.sleep(2500);
 
 		CommonUtils.waitForVisibility(myRasStudyConsentPage.yourConsentFormHasBeenSubmittedOKbutton);
 		myRasStudyConsentPage.yourConsentFormHasBeenSubmittedOKbutton.click();
