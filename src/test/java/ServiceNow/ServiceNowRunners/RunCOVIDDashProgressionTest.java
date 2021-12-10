@@ -1,8 +1,12 @@
 package ServiceNow.ServiceNowRunners;
 
 import java.io.File;
+
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
+
+import com.cucumber.listener.Reporter;
 import com.nci.automation.utils.LocalConfUtils;
 import com.nci.automation.web.ConfUtils;
 
@@ -14,7 +18,8 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = { "html:target/html-reports/cucumber-default-report", "json:target/cucumber.json",
 		"junit:target/cucumber.xml", "rerun:target/failed.txt",
-		"pretty" }, features = "src/test/java/ServiceNow/COVIDDash/Features", glue = "ServiceNow.COVIDDash.Steps", tags = "@progression", dryRun = false, monochrome = true, strict = true
+		"pretty",
+		"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html" }, features = "src/test/java/ServiceNow/COVIDDash/Features", glue = "ServiceNow.COVIDDash.Steps", tags = "@progression", dryRun = false, monochrome = true, strict = true
 
 )
 
@@ -32,6 +37,11 @@ public class RunCOVIDDashProgressionTest {
 		String reportsOutput = LocalConfUtils.getRootDir() + File.separator + "html-reports";
 		ConfUtils.setBaseResultsDir(reportsOutput);
 		System.out.println("Starting Test Execution...");
+	}
+
+	@AfterClass
+	public static void writeExtentReport() {
+		Reporter.loadXMLConfig(new File(LocalConfUtils.getReportConfigPath()));
 	}
 
 }
