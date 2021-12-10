@@ -1,7 +1,7 @@
 Feature: MyRAS Study Regression Scenarios
-    This feature file containts myRAS Study Regression Scenarios
+  This feature file containts myRAS Study Regression Scenarios
 
-  @juarezds @RegressionSelfSubmissionPartOne 
+  @juarezds @RegressionSelfSubmissionPartOne
   Scenario: Proxy Screener Submission with data verification
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -82,7 +82,7 @@ Feature: MyRAS Study Regression Scenarios
     And selects the submitted MyRAS screener record that has signed consent form from participant attached
     And the ServiceNow user signs the consent form
 
-  @juarezds @RegressionSelfSubmissionPartTwo 
+  @juarezds @RegressionSelfSubmissionPartTwo
   Scenario: CGB IIQ Submission
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -154,7 +154,7 @@ Feature: MyRAS Study Regression Scenarios
     And the user clicks the forward arrow button
     Then the end of the IIQ survey page "EndOfSurvey" is displayed
 
-  @juarezds @RegressionSelfSubmissionPartThree 
+  @juarezds @RegressionSelfSubmissionPartThree
   Scenario: RAS Survey Submission - Regression
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -414,7 +414,7 @@ Feature: MyRAS Study Regression Scenarios
     And enters other health issue "FOREIGN ACCENT SYNDROME" for If there are any other health issues present that have not been captured by this survey page. page - myRAS Survey
     And clicks Next button to end survey for You are almost done! To submit your responses, you must continue in the questionnaire by clicking the forward arrow below. The information you have provided will be reviewed by our study team. In the meantime, you should receive an email confirming this submission. page - myRAS Survey
 
-  @juarezds @RegressionProxySubmissionPartOne 
+  @juarezds @RegressionProxySubmissionPartOne
   Scenario: Proxy Screener Submission with data verification
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in via Okta with username "charmsras5@yahoo.com" and password "RASTest2021$$"
@@ -495,7 +495,7 @@ Feature: MyRAS Study Regression Scenarios
     And selects the submitted MyRAS screener record that has signed consent form from participant attached
     And the ServiceNow user signs the consent form
 
-  @juarezds @RegressionProxySubmissionPartTwo 
+  @juarezds @RegressionProxySubmissionPartTwo
   Scenario: CGB IIQ Submission
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in via Okta with username "charmsras5@yahoo.com" and password "RASTest2021$$"
@@ -567,7 +567,7 @@ Feature: MyRAS Study Regression Scenarios
     And the user clicks the forward arrow button
     Then the end of the IIQ survey page "EndOfSurvey" is displayed
 
-  @juarezds @RegressionProxySubmissionPartThree 
+  @juarezds @RegressionProxySubmissionPartThree
   Scenario: RAS Survey Submission - Regression
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in via Okta with username "charmsras5@yahoo.com" and password "RASTest2021$$"
@@ -826,3 +826,7 @@ Feature: MyRAS Study Regression Scenarios
     And select All that apply and enters "INNER EAR INFECTION" for Does Christina have any of the following issues with their ears? -myRASSurvey
     And enters "FOREIGN ACCENT SYNDROME" for If there are any other health issues present that have not been captured by this survey, please list them here -myRASSurvey
     And clicks Next button to end survey for You are almost done! To submit your responses, you must continue in the questionnaire by clicking the forward arrow below. The information you have provided will be reviewed by our study team. In the meantime, you should receive an email confirming this submission. page - myRAS Survey
+
+  @juarezds @Progression
+  Scenario: Test
+    Given data verification

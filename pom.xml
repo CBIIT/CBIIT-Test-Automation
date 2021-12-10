@@ -59,6 +59,14 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- TestNG libraries -->
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.4.0</version>
+		</dependency>
+
 		<!-- common libraries -->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
@@ -215,9 +223,9 @@
 				<version>3.0.0-M4</version>
 				<configuration>
 					<includes>
-						<include>
+						<!-- <include>
 							RunCHARMSProgressionTest.java
-						</include>
+						</include> -->
 					</includes>
 					<testFailureIgnore>true</testFailureIgnore> <!-- to get report even when fails -->
 				</configuration>
