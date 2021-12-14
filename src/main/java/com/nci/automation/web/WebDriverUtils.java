@@ -6,7 +6,9 @@ import java.awt.event.KeyEvent;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
-import org.apache.log4j.Logger;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -41,16 +43,16 @@ import io.github.bonigarcia.wdm.WebDriverManager;
  */
 public class WebDriverUtils {
 
-	private final static Logger logger = Logger.getLogger(WebDriverUtils.class);
+	private final static Logger logger = LogManager.getLogger(WebDriverUtils.class);
 	public static WebDriver webDriver;
-//	public static final String GET_EXE = ".exe";
-//	public static final String GET_LINUX = "_linux"; 
+	// public static final String GET_EXE = ".exe";
+	// public static final String GET_LINUX = "_linux";
 
 	/**
 	 * Get a web-driver to interact with the UI
 	 */
 	@SuppressWarnings("deprecation")
-	public static WebDriver getWebDriver() {  
+	public static WebDriver getWebDriver() {
 
 		String browser = ConfUtils.getProperty("browser");
 		String headless = ConfUtils.getProperty("headless");
@@ -60,23 +62,23 @@ public class WebDriverUtils {
 		if (webDriver == null) {
 			setDriverExecutables();
 
-			if(Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
+			if (Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
 
 				DesiredCapabilities cap = new DesiredCapabilities();
-				if(platformName.equalsIgnoreCase(Constants.IOS_MOBILE)) {
+				if (platformName.equalsIgnoreCase(Constants.IOS_MOBILE)) {
 					cap.setCapability("deviceName", "iOS");
 					cap.setCapability("platformName", "iOS");
-					cap.setCapability(CapabilityType.BROWSER_NAME, "Safari"); 
-					cap.setCapability(CapabilityType.VERSION, "14");		
-					cap.setCapability("udid", udid );
+					cap.setCapability(CapabilityType.BROWSER_NAME, "Safari");
+					cap.setCapability(CapabilityType.VERSION, "14");
+					cap.setCapability("udid", udid);
 					cap.setCapability("automationName", "XCUITest");
 
-				}else {
+				} else {
 					cap.setCapability("deviceName", "Android");
 					cap.setCapability("platformName", "Android");
-					cap.setCapability(CapabilityType.BROWSER_NAME, "Chrome"); 
-					cap.setCapability(CapabilityType.VERSION, "10");		
-					cap.setCapability("avd", avdName );
+					cap.setCapability(CapabilityType.BROWSER_NAME, "Chrome");
+					cap.setCapability(CapabilityType.VERSION, "10");
+					cap.setCapability("avd", avdName);
 
 				}
 				try {
@@ -87,23 +89,23 @@ public class WebDriverUtils {
 				}
 
 			} else if (Constants.BROWSER_CHROME.equals(browser)) {
-				
+
 				ChromeOptions chromeOptions = new ChromeOptions();
-				if (headless.equalsIgnoreCase("true")){
-//					chromeOptions.addArguments("--headless");
-//					chromeOptions.addArguments("window-size=1920,1080");
-//					chromeOptions.addArguments("--disable-dev-shm-usage");
-//					chromeOptions.addArguments("--disable-tmp-usage");
-//					chromeOptions.addArguments("--no-sandbox");
-//					chromeOptions.addArguments("--disable-infobars");
-//					chromeOptions.addArguments("--disable-extensions");
-//					chromeOptions.addArguments("--disable-gpu");
-//					chromeOptions.addArguments("enable-automation");
-//					chromeOptions.addArguments("--disable-browser-side-navigation");
-//					chromeOptions.addArguments("--profile-directory=Default");
-//					chromeOptions.addArguments("--disable-setuid-sandbox");
-//					chromeOptions.addArguments("--user-data-dir=~/.config/google-chrome");
-//					chromeOptions.setExperimentalOption("useAutomationExtension", false);
+				if (headless.equalsIgnoreCase("true")) {
+					// chromeOptions.addArguments("--headless");
+					// chromeOptions.addArguments("window-size=1920,1080");
+					// chromeOptions.addArguments("--disable-dev-shm-usage");
+					// chromeOptions.addArguments("--disable-tmp-usage");
+					// chromeOptions.addArguments("--no-sandbox");
+					// chromeOptions.addArguments("--disable-infobars");
+					// chromeOptions.addArguments("--disable-extensions");
+					// chromeOptions.addArguments("--disable-gpu");
+					// chromeOptions.addArguments("enable-automation");
+					// chromeOptions.addArguments("--disable-browser-side-navigation");
+					// chromeOptions.addArguments("--profile-directory=Default");
+					// chromeOptions.addArguments("--disable-setuid-sandbox");
+					// chromeOptions.addArguments("--user-data-dir=~/.config/google-chrome");
+					// chromeOptions.setExperimentalOption("useAutomationExtension", false);
 					webDriver = new ChromeDriver(chromeOptions);
 					System.out.println(chromeOptions.getVersion());
 				} else {
@@ -127,11 +129,11 @@ public class WebDriverUtils {
 					webDriver = new FirefoxDriver(fireOptions);
 				}
 
-			} else if(browser.equalsIgnoreCase(Constants.BROWSER_SAFARI)) {
+			} else if (browser.equalsIgnoreCase(Constants.BROWSER_SAFARI)) {
 				SafariOptions safariOptions = new SafariOptions();
 				if (headless.equalsIgnoreCase("true")) {
-					//safariOptions.setHeadless(true);
-					//safariOptions.addArguments("window-size=1920,1080");
+					// safariOptions.setHeadless(true);
+					// safariOptions.addArguments("window-size=1920,1080");
 					webDriver = new SafariDriver(safariOptions);
 				} else {
 					webDriver = new SafariDriver(safariOptions);
@@ -158,9 +160,9 @@ public class WebDriverUtils {
 		long implicitWaitInSeconds = Long.valueOf(LocalConfUtils.getProperty("implicitWaitInSeconds"));
 		webDriver.manage().timeouts().implicitlyWait(implicitWaitInSeconds, TimeUnit.SECONDS);
 
-		if(!Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)){ 
-			webDriver.manage().window().maximize();	
-		} 
+		if (!Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
+			webDriver.manage().window().maximize();
+		}
 
 		return webDriver;
 	}
@@ -243,7 +245,7 @@ public class WebDriverUtils {
 			driver = new InternetExplorerDriver();
 			driver.manage().window().maximize();
 			return driver;
-	
+
 		} else if (Constants.BROWSER_FIREFOX.contentEquals(browser)) {
 			driver = new FirefoxDriver();
 			driver.manage().window().maximize();

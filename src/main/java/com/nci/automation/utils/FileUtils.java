@@ -1,6 +1,5 @@
 package com.nci.automation.utils;
 
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataInputStream;
@@ -17,7 +16,9 @@ import java.util.List;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.xceptions.TestingException;
@@ -26,7 +27,7 @@ import com.nci.automation.xceptions.TestingException;
  * This class contains utility methods for file/folder manipulation
  */
 public class FileUtils {
-	private final static Logger LOG = Logger.getLogger(FileUtils.class);
+	private final static Logger LOG = LogManager.getLogger(FileUtils.class);
 
 	public static ArrayList<String> txtToArrayList(String filePath) {
 		ArrayList<String> ret = new ArrayList<String>();
@@ -135,7 +136,6 @@ public class FileUtils {
 		}
 	}
 
-
 	public static void appendToFile(String filePath, List<String> newLines) throws TestingException {
 
 		try {
@@ -164,6 +164,7 @@ public class FileUtils {
 
 	/**
 	 * Copy a file to a specified directory with a specified target file name
+	 * 
 	 * @param srcFilePath
 	 * @param destDir
 	 * @param destFileName
@@ -191,10 +192,9 @@ public class FileUtils {
 		return newFile;
 	}
 
-
-
 	/**
 	 * Given a file path, returns the file name
+	 * 
 	 * @param filepath
 	 * @return
 	 */
@@ -212,6 +212,7 @@ public class FileUtils {
 
 	/**
 	 * Given a file path, returns the file name without the .ext
+	 * 
 	 * @param filepath
 	 * @return
 	 */
@@ -227,6 +228,7 @@ public class FileUtils {
 
 	/**
 	 * Returns a list of file paths to files in a given folder
+	 * 
 	 * @param dirPath
 	 * @param pattern
 	 * @return
@@ -249,6 +251,7 @@ public class FileUtils {
 
 	/**
 	 * Appends given string to the end of a file name
+	 * 
 	 * @param fileName
 	 * @return
 	 */
@@ -320,6 +323,7 @@ public class FileUtils {
 
 	/**
 	 * Shortens a file name to the given max length
+	 * 
 	 * @param currentFileName
 	 * @param maxLength
 	 * @return
@@ -328,8 +332,9 @@ public class FileUtils {
 		if (StringUtils.isBlank(currentFileName) || currentFileName.length() <= maxLength)
 			return currentFileName;
 		else {
-//			String shortenedName = FilenameUtils.getBaseName(currentFileName).substring(0, maxLength)
-//									+ FilenameUtils.getExtension(currentFileName);
+			// String shortenedName =
+			// FilenameUtils.getBaseName(currentFileName).substring(0, maxLength)
+			// + FilenameUtils.getExtension(currentFileName);
 
 			String shortenedName = currentFileName.substring(currentFileName.length() - maxLength);
 

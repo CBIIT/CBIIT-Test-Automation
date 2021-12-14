@@ -1,8 +1,9 @@
 package com.nci.automation.common;
 
-import org.apache.log4j.Logger;
-
 import com.nci.automation.utils.CucumberLogUtils;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Implementation of CucumberLogger which can be used to log messages to
@@ -10,26 +11,26 @@ import com.nci.automation.utils.CucumberLogUtils;
  */
 public class CucumberLoggerImpl<T> implements CucumberLogger {
 
-	private static Logger LOG = Logger.getLogger(CucumberLoggerImpl.class);
+	private static Logger LOG = LogManager.getLogger(CucumberLoggerImpl.class);
 	private boolean shouldLogToConsole;
-	
+
 	@SuppressWarnings("unused")
 	private Class<T> loggerClazz;
-	
+
 	/**
 	 * Creates an instance of {@code CucumberLoggerImpl} class and returns it
 	 * This constructor enables the console logging.
 	 * 
 	 * @param loggerClazz
-	 *            the class to be user for logging, the console logging is
-	 *            enabled.
+	 *                    the class to be user for logging, the console logging is
+	 *                    enabled.
 	 */
 	CucumberLoggerImpl(Class<T> loggerClazz) {
 		this.loggerClazz = loggerClazz;
 
 		if (loggerClazz != null) {
 			shouldLogToConsole = true;
-			LOG = Logger.getLogger(loggerClazz);
+			LOG = LogManager.getLogger(loggerClazz);
 		}
 	}
 
@@ -50,7 +51,6 @@ public class CucumberLoggerImpl<T> implements CucumberLogger {
 
 	}
 
-	
 	public void logPass(String message, boolean shouldTakeScreenShot) {
 		CucumberLogUtils.logPass(message, shouldTakeScreenShot);
 
@@ -59,7 +59,6 @@ public class CucumberLoggerImpl<T> implements CucumberLogger {
 		}
 	}
 
-	
 	public void logFail(String message, boolean shouldTakeScreenShot) {
 		CucumberLogUtils.logFail(message, shouldTakeScreenShot);
 
@@ -76,7 +75,6 @@ public class CucumberLoggerImpl<T> implements CucumberLogger {
 		}
 	}
 
-	
 	public void logDebug(String message) {
 		CucumberLogUtils.logDebug(message);
 
@@ -85,7 +83,6 @@ public class CucumberLoggerImpl<T> implements CucumberLogger {
 		}
 	}
 
-	
 	public void logError(String message) {
 		CucumberLogUtils.logError(message);
 

@@ -1,12 +1,8 @@
 package ServiceNow.ServiceNowRunners;
 
 import java.io.File;
-
-import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
-
-import com.cucumber.listener.Reporter;
 import com.nci.automation.utils.LocalConfUtils;
 import com.nci.automation.web.ConfUtils;
 
@@ -37,11 +33,6 @@ public class RunCOVIDDashProgressionTest {
 		String reportsOutput = LocalConfUtils.getRootDir() + File.separator + "html-reports";
 		ConfUtils.setBaseResultsDir(reportsOutput);
 		System.out.println("Starting Test Execution...");
-	}
-
-	@AfterClass
-	public static void writeExtentReport() {
-		Reporter.loadXMLConfig(new File(LocalConfUtils.getReportConfigPath()));
 	}
 
 }

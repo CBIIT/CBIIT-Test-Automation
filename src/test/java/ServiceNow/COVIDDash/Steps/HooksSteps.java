@@ -3,8 +3,6 @@ package ServiceNow.COVIDDash.Steps;
 import java.io.File;
 import java.net.MalformedURLException;
 import org.apache.commons.lang.StringUtils;
-
-import com.cucumber.listener.Reporter;
 import com.nci.automation.common.QcTestResult;
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.DateUtils;
@@ -93,7 +91,6 @@ public class HooksSteps {
 			ScenarioContext.setCurrentQcResult(currentQcResult);
 			WebDriverUtils.closeWebDriver();
 			PageCache.getInstance().destroyInstances();
-			Reporter.loadXMLConfig(new File(LocalConfUtils.getReportConfigPath()));
 		}
 	}
 
