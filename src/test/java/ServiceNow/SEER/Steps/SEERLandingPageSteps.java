@@ -28,7 +28,7 @@ public class SEERLandingPageSteps extends PageInitializer {
 	@Then("under {string} the text displayed is")
 	public void under_the_text_displayed_is(String institutionalAccounts, String doYouHaveAnAccount) {
 		Assert.assertEquals(institutionalAccounts, seerLandingPage.institutionalAccountsHeaderText.getText());
-		Assert.assertEquals(doYouHaveAnAccount, seerLandingPage.doYouHaveAnAccountParagraph.getText());   
+		Assert.assertEquals(doYouHaveAnAccount, seerLandingPage.doYouHaveAnAccountParagraph.getText());
 	}
 
 	@Then("the text displayed is {string}")
@@ -36,7 +36,7 @@ public class SEERLandingPageSteps extends PageInitializer {
 		Assert.assertEquals(ifYouAreUnable, seerLandingPage.ifYouAreUnableToAuthenticateText.getText());
 		CucumberLogUtils.logScreenShot();
 	}
-	
+
 	@Then("under {string}, text displayed is")
 	public void under_text_displayed_is(String nonInstitutionalAccounts, String forAllOtherAccountsText) {
 		JavascriptUtils.scrollIntoView(seerLandingPage.nonInstitutionalAccountsHeaderText);
@@ -44,6 +44,5 @@ public class SEERLandingPageSteps extends PageInitializer {
 		Assert.assertEquals(forAllOtherAccountsText, seerLandingPage.forAllOtherAccountsParagraph.getText());
 		CucumberLogUtils.logScreenShot();
 	}
-
 
 }
