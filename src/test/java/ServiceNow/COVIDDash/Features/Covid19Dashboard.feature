@@ -1,5 +1,5 @@
 Feature: COVID19 Dashboard Scenarios
-  
+
   Description: This feature file tests COVIDDASH-7, 8, 20, 134, 135, 138, 136, 137, 140, 142, 143, 148
 
   @smoke @regression @juarezds
@@ -11,7 +11,7 @@ Feature: COVID19 Dashboard Scenarios
     Then user validates that Institute, Division, Email Address, and Phone Number fields are not editable
     And the user logs out
 
-    Examples: 
+    Examples:
       | PI Name      | istitName | dvsnName | piEmail  | piPhonNum  |
       | Diego Juarez | NCI       | OD       | @nih.gov | 2402766573 |
 
@@ -59,7 +59,7 @@ Feature: COVID19 Dashboard Scenarios
     And attaches multiple Related URL’s
     Then the User is able to successfully submit the study "77DJ88"
 
- @regression @juarezds
+  @regression @juarezds
   Scenario: Verifying a user is not able to submit a study form when not attaching an IRB Protocol Document
     Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application
     When the User enters all required information
@@ -69,7 +69,7 @@ Feature: COVID19 Dashboard Scenarios
     And sees a pop up with a message indicating study documentation is required before submitting
     And when selecting "Go Back"
     Then under Study Documentation the user sees the message " Study documentation is required. Please attach the appropriate file(s). "
-		And the user logs out
+    And the user logs out
 
   @regression @juarezds
   Scenario: Verifying Home Page verbiage
@@ -79,20 +79,20 @@ Feature: COVID19 Dashboard Scenarios
       """
       The COVID-19 Biorepository is available to all Intramural Research Program (IRP) Investigators with an IRB
       approved COVID-19 related study. This biorepository will serve two primary functions:
-      
-      1. Storage for biospecimens collected as part of an IRP IRB approved COVID-19 protocol in the NCI-Frederick 
+
+      1. Storage for biospecimens collected as part of an IRP IRB approved COVID-19 protocol in the NCI-Frederick
       Central Repository
-      2. Provide a catalogue of COVID-related studies with biospecimens to facilitate COVID-19 research for the 
+      2. Provide a catalogue of COVID-related studies with biospecimens to facilitate COVID-19 research for the
       wider scientific community
-      
+
       To ship and store biospecimens in the NCI-Frederick Repository, please complete the form to the left.
-      All fields are required. The IRB approved protocol must be submitted and please include any other 
+      All fields are required. The IRB approved protocol must be submitted and please include any other
       supporting documentation. Your request will be reviewed within 2 business days (as feasible). If approved,
-      you will be contacted with instructions on how to proceed with the transfer of your specimens with a 
+      you will be contacted with instructions on how to proceed with the transfer of your specimens with a
       manifest to the Repository.
-      
+
       If you have any questions, please contact Mandy Black blacka@mail.nih.gov.
-      
+
       Thank you for your interest in the COVID-19 Biorepository
       """
 
