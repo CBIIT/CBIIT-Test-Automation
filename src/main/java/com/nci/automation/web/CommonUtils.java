@@ -488,7 +488,7 @@ public class CommonUtils extends WebDriverUtils {
 	}
 
 	/**
-	 * Use below soft assertion function to soft assert any string value
+	 * Use below soft assertion function to soft assert
 	 */
 
 	static SoftAssert softAssertion;
