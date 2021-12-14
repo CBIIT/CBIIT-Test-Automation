@@ -18,7 +18,6 @@ import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 
-
 public class HooksSteps {
 
 	private static final String BUILD_NUMBER = "BUILD_NUMBER";
@@ -62,6 +61,7 @@ public class HooksSteps {
 		System.setProperty(HooksSteps.SCENARIO_NAME_TEXT, s.getName());// getScenarioName(scenario));
 		String resultsDirName = scenarioNameForFolderCreation;
 		ConfUtils.setResultsDir(resultsDirName);
+
 	}
 
 	/**

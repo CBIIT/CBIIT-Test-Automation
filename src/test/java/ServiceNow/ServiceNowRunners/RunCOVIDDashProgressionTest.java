@@ -1,6 +1,8 @@
 package ServiceNow.ServiceNowRunners;
 
 import java.io.File;
+
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import com.nci.automation.utils.LocalConfUtils;
@@ -14,7 +16,8 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = { "html:target/html-reports/cucumber-default-report", "json:target/cucumber.json",
 		"junit:target/cucumber.xml", "rerun:target/failed.txt",
-		"pretty" }, features = "src/test/java/ServiceNow/COVIDDash/Features", glue = "ServiceNow.COVIDDash.Steps", tags = "@progression", dryRun = false, monochrome = true, strict = true
+		"pretty",
+		"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html" }, features = "src/test/java/ServiceNow/COVIDDash/Features", glue = "ServiceNow.COVIDDash.Steps", tags = "@progression", dryRun = false, monochrome = true, strict = true
 
 )
 
@@ -33,5 +36,6 @@ public class RunCOVIDDashProgressionTest {
 		ConfUtils.setBaseResultsDir(reportsOutput);
 		System.out.println("Starting Test Execution...");
 	}
+
 
 }
