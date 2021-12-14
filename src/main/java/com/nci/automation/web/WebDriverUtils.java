@@ -6,7 +6,8 @@ import java.awt.event.KeyEvent;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -41,7 +42,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
  */
 public class WebDriverUtils {
 
-	private final static Logger logger = Logger.getLogger(WebDriverUtils.class);
+	private final static Logger logger = LogManager.getLogger(WebDriverUtils.class);
 	public static WebDriver webDriver;
 //	public static final String GET_EXE = ".exe";
 //	public static final String GET_LINUX = "_linux"; 

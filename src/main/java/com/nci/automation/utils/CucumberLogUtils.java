@@ -1,8 +1,9 @@
 package com.nci.automation.utils;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import static org.junit.Assert.assertTrue;
 import org.apache.commons.lang.exception.ExceptionUtils;
-import org.apache.log4j.Logger;
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.web.WebDriverUtils;
 
@@ -16,7 +17,7 @@ import cucumber.api.Scenario;
  */
 public class CucumberLogUtils {
 
-    private static Logger logger = Logger.getLogger(CucumberLogUtils.class);
+    private static Logger logger = LogManager.getLogger(CucumberLogUtils.class);
     public static boolean scenarioResult = true;
     
     /**

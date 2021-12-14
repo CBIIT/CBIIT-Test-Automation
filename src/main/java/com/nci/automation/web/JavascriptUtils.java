@@ -1,6 +1,7 @@
 package com.nci.automation.web;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +14,7 @@ import org.openqa.selenium.WebElement;
  */
 public class JavascriptUtils extends WebDriverUtils {
 	
-	private static Logger logger = Logger.getLogger(JavascriptUtils.class);
+	private static Logger logger = LogManager.getLogger(JavascriptUtils.class);
 	
 	
 	/**

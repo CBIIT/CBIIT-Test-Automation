@@ -1,12 +1,13 @@
 package com.nci.automation.utils;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 
 public class HashMapUtils {
 
-	private static Logger logger = Logger.getLogger(HashMapUtils.class);
+	private static Logger logger = LogManager.getLogger(HashMapUtils.class);
 	
 	public static void printHashMap(Map<String, String> map) {
 		for(String key : map.keySet()) { //map.values()

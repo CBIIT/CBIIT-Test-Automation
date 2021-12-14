@@ -1,6 +1,8 @@
 package com.nci.automation.common;
 
-import org.apache.log4j.Logger;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.nci.automation.utils.CucumberLogUtils;
 
@@ -10,7 +12,7 @@ import com.nci.automation.utils.CucumberLogUtils;
  */
 public class CucumberLoggerImpl<T> implements CucumberLogger {
 
-	private static Logger LOG = Logger.getLogger(CucumberLoggerImpl.class);
+	private static Logger LOG = LogManager.getLogger(CucumberLoggerImpl.class);
 	private boolean shouldLogToConsole;
 	
 	@SuppressWarnings("unused")
@@ -29,7 +31,7 @@ public class CucumberLoggerImpl<T> implements CucumberLogger {
 
 		if (loggerClazz != null) {
 			shouldLogToConsole = true;
-			LOG = Logger.getLogger(loggerClazz);
+			LOG = LogManager.getLogger(loggerClazz);
 		}
 	}
 

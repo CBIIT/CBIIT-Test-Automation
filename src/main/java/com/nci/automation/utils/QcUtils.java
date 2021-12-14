@@ -1,5 +1,7 @@
 package com.nci.automation.utils;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import static org.apache.commons.lang.StringUtils.contains;
 
 import java.io.File;
@@ -9,7 +11,6 @@ import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.apache.log4j.Logger;
 import com.jacob.activeX.ActiveXComponent;
 import com.jacob.com.ComThread;
 import com.jacob.com.Dispatch;
@@ -21,7 +22,7 @@ import com.jacob.com.Variant;
  */
 public class QcUtils {
 	
-	private static Logger logger = Logger.getLogger(QcUtils.class);
+	private static Logger logger = LogManager.getLogger(QcUtils.class);
 	
 	public void buildFeatureFile(String qcTestPlanFolder, String outputFolder) {
 

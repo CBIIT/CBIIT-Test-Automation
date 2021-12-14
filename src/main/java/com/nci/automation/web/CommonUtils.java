@@ -1,5 +1,7 @@
 package com.nci.automation.web;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -9,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -34,7 +35,7 @@ import com.nci.automation.utils.MiscUtils;
  */
 public class CommonUtils extends WebDriverUtils {
 
-	private static Logger logger = Logger.getLogger(CommonUtils.class); 
+	private static Logger logger = LogManager.getLogger(CommonUtils.class); 
 
 	/**
 	 * Use this method in need of clicking on a WebElement by selenium WebDriver.

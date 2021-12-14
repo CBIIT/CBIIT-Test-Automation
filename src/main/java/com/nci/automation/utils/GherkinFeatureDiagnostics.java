@@ -1,5 +1,7 @@
 package com.nci.automation.utils;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -13,7 +15,6 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.LineIterator;
 import org.apache.commons.lang.StringUtils;
 //import org.apache.commons.lang.tuple.Pair;
-import org.apache.log4j.Logger;
 
 /**
  * This class has functions that will get some states about cucumber gherkin
@@ -32,7 +33,7 @@ public class GherkinFeatureDiagnostics {
 	private final String[] NON_STEPS = { FEATURE_START, SCENARIO_START,
 			TAG_START, COMMENT_START };
 
-	private final Logger LOG = Logger.getLogger(GherkinFeatureDiagnostics.class);
+	private final Logger LOG = LogManager.getLogger(GherkinFeatureDiagnostics.class);
 
 	private final String featureResourceDir;
 

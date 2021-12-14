@@ -1,6 +1,7 @@
 package com.nci.automation.utils;
 
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataInputStream;
@@ -17,7 +18,6 @@ import java.util.List;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.xceptions.TestingException;
@@ -26,7 +26,7 @@ import com.nci.automation.xceptions.TestingException;
  * This class contains utility methods for file/folder manipulation
  */
 public class FileUtils {
-	private final static Logger LOG = Logger.getLogger(FileUtils.class);
+	private final static Logger LOG = LogManager.getLogger(FileUtils.class);
 
 	public static ArrayList<String> txtToArrayList(String filePath) {
 		ArrayList<String> ret = new ArrayList<String>();
