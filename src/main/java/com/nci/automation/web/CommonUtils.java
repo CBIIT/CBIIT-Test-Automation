@@ -488,12 +488,15 @@ public class CommonUtils extends WebDriverUtils {
 	/**
 	 * Use below soft assertion function to soft assert any string value
 	 */
-
+	
 	static SoftAssert softAssertion;
-
-	public static void softAssert(boolean condition) {
-
-		softAssertion = new SoftAssert();
-		softAssertion.assertTrue(condition);
-	}
+	
+	
+//	static SoftAssert softAssertion;
+//
+//	public static void softAssert(boolean condition) {
+//
+//		softAssertion = new SoftAssert();
+//		softAssertion.assertTrue(condition);
+//	}
 }
