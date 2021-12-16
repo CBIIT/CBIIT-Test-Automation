@@ -11,8 +11,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -24,6 +22,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.asserts.SoftAssert;
+
 import com.nci.automation.utils.LocalConfUtils;
 import com.nci.automation.utils.MiscUtils;
 
@@ -36,7 +36,6 @@ import com.nci.automation.utils.MiscUtils;
  */
 public class CommonUtils extends WebDriverUtils {
 
-	private static Logger logger = LogManager.getLogger(CommonUtils.class);
 	/**
 	 * Use this method in need of clicking on a WebElement by selenium WebDriver.
 	 * 
@@ -492,13 +491,10 @@ public class CommonUtils extends WebDriverUtils {
 	 */
 	
 	static SoftAssert softAssertion;
-	
-	
-//	static SoftAssert softAssertion;
-//
-//	public static void softAssert(boolean condition) {
-//
-//		softAssertion = new SoftAssert();
-//		softAssertion.assertTrue(condition);
-//	}
+
+	public static void softAssert(boolean condition) {
+
+		softAssertion = new SoftAssert();
+		softAssertion.assertTrue(condition);
+	}
 }
