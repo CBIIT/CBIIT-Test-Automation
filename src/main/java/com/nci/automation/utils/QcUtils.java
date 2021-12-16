@@ -17,13 +17,22 @@ import com.jacob.com.Dispatch;
 import com.jacob.com.LibraryLoader;
 import com.jacob.com.Variant;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * This class contains utility methods for QC interaction
  */
 public class QcUtils {
+<<<<<<< HEAD
 	
 	private static Logger logger = LogManager.getLogger(QcUtils.class);
 	
+=======
+
+	private static Logger logger = LogManager.getLogger(QcUtils.class);
+
+>>>>>>> aa721eccbbc96d66c235222a414c3327c8ef8065
 	public void buildFeatureFile(String qcTestPlanFolder, String outputFolder) {
 
 		ArrayList<String> featureFileArrayList;
@@ -48,25 +57,20 @@ public class QcUtils {
 		featureFileArrayList = runShellCmd(cmd);
 		featureFileArrayList = FileUtils.txtToArrayList(outFilePath);
 
-		for(i=0;i<featureFileArrayList.size();i++) {
+		for (i = 0; i < featureFileArrayList.size(); i++) {
 
 			if (featureFileArrayList.get(i).startsWith("Feature Tags: ")) {
 				featureFileArrayList.set(i, formatFeatureTags(featureFileArrayList.get(i)));
-			}
-			else if (featureFileArrayList.get(i).startsWith("Feature: ")) {
+			} else if (featureFileArrayList.get(i).startsWith("Feature: ")) {
 				featureFileArrayList.set(i, formatFeatureName(featureFileArrayList.get(i)));
 				featureName = getFeatureName(featureFileArrayList.get(i));
-			}
-			else if (featureFileArrayList.get(i).startsWith("Scenario Tags: ")) {
+			} else if (featureFileArrayList.get(i).startsWith("Scenario Tags: ")) {
 				featureFileArrayList.set(i, formatScenarioTags(featureFileArrayList.get(i)));
-			}
-			else if (featureFileArrayList.get(i).startsWith("  Scenario: ")) {
+			} else if (featureFileArrayList.get(i).startsWith("  Scenario: ")) {
 				featureFileArrayList.set(i, formatScenarioName(featureFileArrayList.get(i)));
-			}
-			else if ("".equals(featureFileArrayList.get(i).trim())) {
-				//This is an empty line. Do nothing
-			}
-			else { //This is a step
+			} else if ("".equals(featureFileArrayList.get(i).trim())) {
+				// This is an empty line. Do nothing
+			} else { // This is a step
 				featureFileArrayList.set(i, formatStep(featureFileArrayList.get(i)));
 			}
 		}
@@ -84,23 +88,23 @@ public class QcUtils {
 
 		int i;
 
-		//replace <br> with line break before clean up
+		// replace <br> with line break before clean up
 		step = step.replace("<br>", "--line_break--");
 
 		step = StringUtils.cleanUpHtmlTags(step);
 		ArrayList<String> arl = StringUtils.strToArrayList(step, "--line_break--");
 		arl = ArrayListUtils.removeEmptyElements(arl);
 
-		for(i=0;i<arl.size();i++) {
+		for (i = 0; i < arl.size(); i++) {
 			arl.set(i, "    " + arl.get(i));
 		}
 
-		//step = step.replace("{break_here}", System.getProperty("line.separator"));
+		// step = step.replace("{break_here}", System.getProperty("line.separator"));
 		step = StringUtils.arrayListToStr(arl, "");
 		return step;
 	}
 
-	//No formatting required at this time
+	// No formatting required at this time
 	private String formatScenarioName(String scenarioName) {
 		return scenarioName;
 	}
@@ -108,20 +112,20 @@ public class QcUtils {
 	private String formatScenarioTags(String scenarioTags) {
 
 		if (!scenarioTags.trim().isEmpty()) {
-			//No Scenario level tags exist
+			// No Scenario level tags exist
 			if ("Scenario Tags: ".equals(scenarioTags)) {
 				return "";
 			}
 			scenarioTags = StringUtils.trimAndReplaceDelim(scenarioTags, ",", " ");
 			return scenarioTags.replace("Scenario Tags: ", "  ");
 		}
-		//No scenario level tags exist in QC
+		// No scenario level tags exist in QC
 		else {
 			return "";
 		}
 	}
 
-	//No formatting required at this time
+	// No formatting required at this time
 	private String formatFeatureName(String featureName) {
 		return featureName;
 	}
@@ -136,7 +140,7 @@ public class QcUtils {
 
 			return StringUtils.trimAndReplaceDelim(featureTags, ",", " ");
 		}
-		//No feature level tags exist in QC
+		// No feature level tags exist in QC
 		else {
 			return "";
 		}
@@ -148,20 +152,18 @@ public class QcUtils {
 
 		runResults = FileUtils.txtToArrayList(resultsCsvPath);
 
-		if(runResults.isEmpty() || runResults == null) {
+		if (runResults.isEmpty() || runResults == null) {
 			logger.info(String.format("Results file %s is empty! QC update is aborted", resultsCsvPath));
-		}
-		else {
+		} else {
 			try {
-				for(String runResult : runResults) {
+				for (String runResult : runResults) {
 
 					String[] runResultArr = runResult.split(",");
 
 					ZipUtils.zip(runResultArr[2]);
 					updateQc(runResultArr[0], runResultArr[1], runResultArr[2] + ".zip");
 				}
-			}
-			catch(Exception e) {
+			} catch (Exception e) {
 				logger.error(e.getMessage(), e);
 			}
 		}
@@ -171,11 +173,10 @@ public class QcUtils {
 			String testAttachmentPath) {
 
 		if (!"true".equals(LocalConfUtils.getProperty("updateQc")) ||
-			"skipped".equals(testResult) ||
-			("false".equals(LocalConfUtils.getProperty("updateFailsToQC")) &&
-			 "failed".equalsIgnoreCase(testResult)) )
-		{
-			//Skip the QC update
+				"skipped".equals(testResult) ||
+				("false".equals(LocalConfUtils.getProperty("updateFailsToQC")) &&
+						"failed".equalsIgnoreCase(testResult))) {
+			// Skip the QC update
 			return;
 		}
 
@@ -201,7 +202,7 @@ public class QcUtils {
 		try {
 			qcConnObj = qcConnect();
 
-			//printFields(qcConnObj, "RUN");
+			// printFields(qcConnObj, "RUN");
 			testSetTreeManager = getTestSetTreeManager(qcConnObj);
 			testSetFolder = getTestSetFolder(testSetTreeManager, qcTestSetFolder);
 
@@ -209,48 +210,47 @@ public class QcUtils {
 
 			try {
 				testInstanceCount = Dispatch.call(testInstances, "Count").getInt();
-			}
-			catch(Exception e) {
+			} catch (Exception e) {
 				CucumberLogUtils.logError("Test instance '" + testName +
 						"' doesn't exist in the given test set");
 				ComThread.Release();
 				e.printStackTrace();
 			}
 
-			//CucumberLogUtils.logToConsole("Count: " + testInstanceCount);
+			// CucumberLogUtils.logToConsole("Count: " + testInstanceCount);
 
 			if (testInstanceCount > 1) {
-				for(i=1;i<=testInstanceCount;i++) {
+				for (i = 1; i <= testInstanceCount; i++) {
 					testInstance = Dispatch.call(testInstances, "Item", i).toDispatch();
-					if(Dispatch.get(testInstance, "TestName").getString().equals(testName))
-							break;
+					if (Dispatch.get(testInstance, "TestName").getString().equals(testName))
+						break;
 				}
-			}
-			else {
+			} else {
 				testInstance = Dispatch.call(testInstances, "Item", 1).toDispatch();
 			}
 
-			//CucumberLogUtils.logToConsole("Name: " + Dispatch.get(testInstance, "TestName").getString());
+			// CucumberLogUtils.logToConsole("Name: " + Dispatch.get(testInstance,
+			// "TestName").getString());
 
 			testRunFactory = getTestRunFactory(testInstance);
 			testRun = Dispatch.call(testRunFactory, "AddItem", "Test Run").toDispatch();
 
-			if(testResult.equalsIgnoreCase("passed"))
+			if (testResult.equalsIgnoreCase("passed"))
 				Dispatch.put(testRun, "Status", "Passed");
 			else
 				Dispatch.put(testRun, "Status", "Failed");
 
 			Dispatch.invoke(testRun, "Field", Dispatch.Put,
-			        new Object[]{"RN_TESTER_NAME", LocalConfUtils.getProperty("qcUsername")}, new int[1]);
+					new Object[] { "RN_TESTER_NAME", LocalConfUtils.getProperty("qcUsername") }, new int[1]);
 			Dispatch.invoke(testRun, "Field", Dispatch.Put,
-			        new Object[]{"RN_HOST", InetAddress.getLocalHost().getHostName()}, new int[1]);
+					new Object[] { "RN_HOST", InetAddress.getLocalHost().getHostName() }, new int[1]);
 			Dispatch.invoke(testRun, "Field", Dispatch.Put,
-			        new Object[]{"RN_DURATION", (new Random()).nextInt(60) + 30}, new int[1]);
+					new Object[] { "RN_DURATION", (new Random()).nextInt(60) + 30 }, new int[1]);
 
 			Dispatch.call(testRun, "Post");
 			Dispatch.call(testRun, "Refresh");
 
-			if(!testAttachmentPath.isEmpty()) {
+			if (!testAttachmentPath.isEmpty()) {
 
 				attachmentName = getAttachmentName(testAttachmentPath);
 				attachmentDir = getAttachmentDir(testAttachmentPath);
@@ -269,8 +269,7 @@ public class QcUtils {
 
 			ComThread.Release();
 			CucumberLogUtils.logInfo("Successfully updated test '" + testName + "' in QC");
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			ComThread.Release();
 			CucumberLogUtils.logError(e.getMessage());
 		}
@@ -301,8 +300,7 @@ public class QcUtils {
 
 			try {
 				testInstanceCount = Dispatch.call(testInstances, "Count").getInt();
-			}
-			catch(Exception e) {
+			} catch (Exception e) {
 				CucumberLogUtils.logError("Test instance '" + testName +
 						"' doesn't exist in the given test set");
 				ComThread.Release();
@@ -310,19 +308,17 @@ public class QcUtils {
 			}
 
 			if (testInstanceCount > 1) {
-				for(i=1;i<=testInstanceCount;i++) {
+				for (i = 1; i <= testInstanceCount; i++) {
 					testInstance = Dispatch.call(testInstances, "Item", i).toDispatch();
-					if(Dispatch.get(testInstance, "TestName").getString().equals(testName))
-							break;
+					if (Dispatch.get(testInstance, "TestName").getString().equals(testName))
+						break;
 				}
-			}
-			else {
+			} else {
 				testInstance = Dispatch.call(testInstances, "Item", 1).toDispatch();
 			}
 
 			testResult = Dispatch.get(testInstance, "Status").getString();
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			ComThread.Release();
 			CucumberLogUtils.logError(e.getMessage());
 		}
@@ -364,7 +360,7 @@ public class QcUtils {
 
 		scenarios = getScenarios(featureFilePath);
 
-		for(String testName : scenarios) {
+		for (String testName : scenarios) {
 			stepDescriptions = getStepDescriptions(featureFilePath, testName);
 			populateDesignStepsInTest(testName, stepDescriptions);
 		}
@@ -378,11 +374,11 @@ public class QcUtils {
 		String testStep;
 		int i;
 		String multiLineStep = "";
-		
+
 		featureFileLines = FileUtils.txtToArrayList(featureFilePath);
 
-		for(i=0;i<featureFileLines.size();i++) {
-			if(featureFileLines.get(i).contains("Scenario: " + testName))
+		for (i = 0; i < featureFileLines.size(); i++) {
+			if (featureFileLines.get(i).contains("Scenario: " + testName))
 				break;
 		}
 
@@ -395,12 +391,12 @@ public class QcUtils {
 				testSteps.add(testStep);
 			else {
 				if (!testStep.trim().isEmpty()) {
-					multiLineStep = testSteps.get(testSteps.size()-1);
+					multiLineStep = testSteps.get(testSteps.size() - 1);
 					multiLineStep += System.getProperty("line.separator") + testStep;
-					testSteps.set(testSteps.size()-1, multiLineStep);
+					testSteps.set(testSteps.size() - 1, multiLineStep);
 				}
 			}
-		} while (!(contains(featureFileLines.get(i), "Scenario:") || i == featureFileLines.size()-1));
+		} while (!(contains(featureFileLines.get(i), "Scenario:") || i == featureFileLines.size() - 1));
 
 		return testSteps;
 	}
@@ -412,8 +408,8 @@ public class QcUtils {
 
 		featureFileLines = FileUtils.txtToArrayList(featureFilePath);
 
-		for(String line : featureFileLines) {
-			if(contains(line, "Scenario:")) {
+		for (String line : featureFileLines) {
+			if (contains(line, "Scenario:")) {
 				line = line.replace("Scenario:", "").trim();
 				scenarios.add(line);
 			}
@@ -445,12 +441,12 @@ public class QcUtils {
 			testFactory = getTestFactory(testFolder);
 
 			testList = filterTestsByName(testFactory, testName);
-			//testList = Dispatch.call(testFactory, "NewList", "").toDispatch();
+			// testList = Dispatch.call(testFactory, "NewList", "").toDispatch();
 			testCount = Dispatch.get(testList, "Count").getInt();
-			//CucumberLogUtils.logToConsole("Test Count: " + testCount);
+			// CucumberLogUtils.logToConsole("Test Count: " + testCount);
 
 			if (testCount != 1) {
-				if(testCount < 1)
+				if (testCount < 1)
 					CucumberLogUtils.logError("Test '" + testName +
 							"' doesn't exist in the given test plan folder");
 				else
@@ -462,16 +458,15 @@ public class QcUtils {
 			test = Dispatch.call(testList, "Item", 1).toDispatch();
 			designStepFactory = getDesignStepFactory(test);
 
-			//Remove all the current steps in the test
+			// Remove all the current steps in the test
 			clearDesignSteps(designStepFactory);
 
-			//Add new steps to the test
+			// Add new steps to the test
 			addDesignSteps(test, designStepFactory, stepDescriptions);
-			
+
 			ComThread.Release();
 
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			ComThread.Release();
 			e.printStackTrace();
 		}
@@ -483,26 +478,25 @@ public class QcUtils {
 		Dispatch designStep = null;
 		int i;
 		ArrayList<ArrayList<String>> designSteps = getDesignStepsWithExpResults(stepDescriptions);
-		
+
 		try {
-			for(i=0;i<designSteps.size();i++) {
+			for (i = 0; i < designSteps.size(); i++) {
 				designStep = Dispatch.call(designStepFactory, "AddItem",
 						Variant.VariantNull).toDispatch();
 
-				Dispatch.put(designStep, "StepName", "Step " + (i+1));
+				Dispatch.put(designStep, "StepName", "Step " + (i + 1));
 				Dispatch.put(designStep, "StepDescription", designSteps.get(i).get(0));
 				Dispatch.put(designStep, "StepExpectedResult", designSteps.get(i).get(1));
 				Dispatch.call(designStep, "Post");
 			}
 
 			Dispatch.call(test, "Post");
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			Dispatch.call(test, "Post");
 		}
 
 	}
-	
+
 	private static ArrayList<ArrayList<String>> getDesignStepsWithExpResults(
 			ArrayList<String> descriptions) {
 
@@ -510,30 +504,29 @@ public class QcUtils {
 		int i;
 		int j;
 		String expectedResults = "";
-		
-		for (i=0;i<descriptions.size();i++) {
+
+		for (i = 0; i < descriptions.size(); i++) {
 
 			ArrayList<String> designStep = new ArrayList<String>();
-			
+
 			if (descriptions.get(i).trim().startsWith("Then")) {
 				break;
-			}
-			else {
+			} else {
 				designStep.add(descriptions.get(i));
 				designStep.add("");
 			}
-			
+
 			designSteps.add(designStep);
-			
+
 		}
-		
-		for (j=i;j<descriptions.size();j++) {
+
+		for (j = i; j < descriptions.size(); j++) {
 			expectedResults += descriptions.get(j) + System.getProperty("line.separator");
 		}
-		
-		designSteps.get(designSteps.size()-1).set(1, expectedResults);
+
+		designSteps.get(designSteps.size() - 1).set(1, expectedResults);
 		return designSteps;
-		
+
 	}
 
 	private static void clearDesignSteps(Dispatch designStepFactory) {
@@ -546,10 +539,10 @@ public class QcUtils {
 		currentSteps = getDesignSteps(designStepFactory);
 		currentStepCount = Dispatch.get(currentSteps, "Count").getInt();
 
-		//Test has some existing steps
-		if(currentStepCount != 0) {
+		// Test has some existing steps
+		if (currentStepCount != 0) {
 
-			for (i=1;i<=currentStepCount;i++) {
+			for (i = 1; i <= currentStepCount; i++) {
 				currentStep = Dispatch.call(currentSteps, "Item", i).toDispatch();
 				Dispatch.call(designStepFactory, "RemoveItem",
 						Dispatch.get(currentStep, "ID").getInt());
@@ -564,7 +557,7 @@ public class QcUtils {
 
 		testFilter = Dispatch.call(testFactory, "Filter").toDispatch();
 		Dispatch.invoke(testFilter, "Filter", Dispatch.Put,
-				new Object[]{"TS_NAME", testName}, new int[1]);
+				new Object[] { "TS_NAME", testName }, new int[1]);
 
 		return Dispatch.call(testFilter, "NewList").toDispatch();
 	}
@@ -635,38 +628,37 @@ public class QcUtils {
 		runFields = Dispatch.call(qcConnObj, "Fields", objName).toDispatch();
 		fieldCount = Dispatch.call(runFields, "Count").getInt();
 
-		for(i=1;i<=fieldCount;i++) {
+		for (i = 1; i <= fieldCount; i++) {
 			runField = Dispatch.call(runFields, "Item", i).toDispatch();
 			fieldProperty = Dispatch.call(runField, "Property").toDispatch();
 			logger.info(String.format("User Label: %s", Dispatch.call(fieldProperty, "UserLabel").getString()));
 			logger.info(String.format("DB Column: %s", Dispatch.call(fieldProperty, "DbColumnName").getString()));
 		}
 	}
-	
+
 	public static ArrayList<String> runShellCmd(String cmd) {
 
 		Process process;
 		InputStream in;
 		int ch;
 		String str = "";
-		
+
 		cmd = "cmd /c " + cmd;
-		
+
 		try {
 			process = Runtime.getRuntime().exec(cmd);
 			in = process.getInputStream();
-			
-			while((ch = in.read()) != -1) {
-				str += (char)ch;
+
+			while ((ch = in.read()) != -1) {
+				str += (char) ch;
 			}
-			
-		}
-		catch(IOException e) {
+
+		} catch (IOException e) {
 			e.getMessage();
 		}
-		
+
 		return StringUtils.strToArrayList(str, System.getProperty("line.separator"));
-		//return StringUtils.strToArrayList(str, "%n");
-		
+		// return StringUtils.strToArrayList(str, "%n");
+
 	}
 }

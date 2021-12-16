@@ -1,7 +1,10 @@
 package com.nci.automation.utils;
 
+<<<<<<< HEAD
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+=======
+>>>>>>> aa721eccbbc96d66c235222a414c3327c8ef8065
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataInputStream;
@@ -18,6 +21,12 @@ import java.util.List;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.StringUtils;
+<<<<<<< HEAD
+=======
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+>>>>>>> aa721eccbbc96d66c235222a414c3327c8ef8065
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.xceptions.TestingException;
@@ -135,7 +144,6 @@ public class FileUtils {
 		}
 	}
 
-
 	public static void appendToFile(String filePath, List<String> newLines) throws TestingException {
 
 		try {
@@ -164,6 +172,7 @@ public class FileUtils {
 
 	/**
 	 * Copy a file to a specified directory with a specified target file name
+	 * 
 	 * @param srcFilePath
 	 * @param destDir
 	 * @param destFileName
@@ -191,10 +200,9 @@ public class FileUtils {
 		return newFile;
 	}
 
-
-
 	/**
 	 * Given a file path, returns the file name
+	 * 
 	 * @param filepath
 	 * @return
 	 */
@@ -212,6 +220,7 @@ public class FileUtils {
 
 	/**
 	 * Given a file path, returns the file name without the .ext
+	 * 
 	 * @param filepath
 	 * @return
 	 */
@@ -227,6 +236,7 @@ public class FileUtils {
 
 	/**
 	 * Returns a list of file paths to files in a given folder
+	 * 
 	 * @param dirPath
 	 * @param pattern
 	 * @return
@@ -249,6 +259,7 @@ public class FileUtils {
 
 	/**
 	 * Appends given string to the end of a file name
+	 * 
 	 * @param fileName
 	 * @return
 	 */
@@ -320,6 +331,7 @@ public class FileUtils {
 
 	/**
 	 * Shortens a file name to the given max length
+	 * 
 	 * @param currentFileName
 	 * @param maxLength
 	 * @return
@@ -328,8 +340,9 @@ public class FileUtils {
 		if (StringUtils.isBlank(currentFileName) || currentFileName.length() <= maxLength)
 			return currentFileName;
 		else {
-//			String shortenedName = FilenameUtils.getBaseName(currentFileName).substring(0, maxLength)
-//									+ FilenameUtils.getExtension(currentFileName);
+			// String shortenedName =
+			// FilenameUtils.getBaseName(currentFileName).substring(0, maxLength)
+			// + FilenameUtils.getExtension(currentFileName);
 
 			String shortenedName = currentFileName.substring(currentFileName.length() - maxLength);
 

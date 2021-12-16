@@ -10,13 +10,20 @@ import org.openqa.selenium.WebElement;
  * This is a util class which contains all JavaScript common methods that will
  * be used through out the application. New JavaScript methods can be added any
  * time. Modifying the existing methods may result in build failure.
+ * 
  * @author Sohilz2
  */
 public class JavascriptUtils extends WebDriverUtils {
+<<<<<<< HEAD
 	
 	private static Logger logger = LogManager.getLogger(JavascriptUtils.class);
 	
 	
+=======
+
+	private static Logger logger = LogManager.getLogger(JavascriptUtils.class);
+
+>>>>>>> aa721eccbbc96d66c235222a414c3327c8ef8065
 	/**
 	 * Use this method in need of clicking on a WebElement internally. This is used
 	 * when WebDriver is failed to click on a WebElement UI.
@@ -149,8 +156,9 @@ public class JavascriptUtils extends WebDriverUtils {
 	/**
 	 * This method is to select values from bootstrap drop downs Pass the element
 	 * and date desired in String format as arguments
+	 * 
 	 * @param element
-	 * @param date to be selected
+	 * @param date    to be selected
 	 */
 	public static void selectDateByJS(WebElement element, String date) {
 		JavascriptExecutor js = (JavascriptExecutor) webDriver;
@@ -164,9 +172,9 @@ public class JavascriptUtils extends WebDriverUtils {
 	 * @param pixel
 	 * @param element
 	 */
-	public static void scrollUpWithinElement (WebElement element, int pixel) {
+	public static void scrollUpWithinElement(WebElement element, int pixel) {
 		JavascriptExecutor js = (JavascriptExecutor) webDriver;
-		js.executeScript("arguments[0].scrollTop = arguments[1];",element, pixel);
+		js.executeScript("arguments[0].scrollTop = arguments[1];", element, pixel);
 
 	}
 }
