@@ -18,13 +18,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.commons.lang.StringUtils;
-<<<<<<< HEAD
-=======
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
->>>>>>> aa721eccbbc96d66c235222a414c3327c8ef8065
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
@@ -44,11 +40,6 @@ import com.nci.automation.xceptions.TestingException;
 public class ExcelUtils {
 
 	private static Logger logger = LogManager.getLogger(ExcelUtils.class);
-<<<<<<< HEAD
-	
-=======
-
->>>>>>> aa721eccbbc96d66c235222a414c3327c8ef8065
 	/**
 	 * @param filePath
 	 * @param sql

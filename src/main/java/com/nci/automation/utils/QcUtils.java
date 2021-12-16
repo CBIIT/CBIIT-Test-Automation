@@ -24,15 +24,8 @@ import org.apache.logging.log4j.Logger;
  * This class contains utility methods for QC interaction
  */
 public class QcUtils {
-<<<<<<< HEAD
-	
-	private static Logger logger = LogManager.getLogger(QcUtils.class);
-	
-=======
 
 	private static Logger logger = LogManager.getLogger(QcUtils.class);
-
->>>>>>> aa721eccbbc96d66c235222a414c3327c8ef8065
 	public void buildFeatureFile(String qcTestPlanFolder, String outputFolder) {
 
 		ArrayList<String> featureFileArrayList;

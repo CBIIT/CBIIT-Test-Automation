@@ -3,21 +3,12 @@ package com.nci.automation.utils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.util.Map;
-
-<<<<<<< HEAD
-=======
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
->>>>>>> aa721eccbbc96d66c235222a414c3327c8ef8065
 
 public class HashMapUtils {
 
 	private static Logger logger = LogManager.getLogger(HashMapUtils.class);
-<<<<<<< HEAD
-	
-=======
-
->>>>>>> aa721eccbbc96d66c235222a414c3327c8ef8065
 	public static void printHashMap(Map<String, String> map) {
 		for (String key : map.keySet()) { // map.values()
 			CucumberLogUtils.logInfo("Key: " + key + ", Value: " + map.get(key));

@@ -11,12 +11,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
-<<<<<<< HEAD
-=======
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
->>>>>>> aa721eccbbc96d66c235222a414c3327c8ef8065
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -40,12 +36,7 @@ import com.nci.automation.utils.MiscUtils;
  */
 public class CommonUtils extends WebDriverUtils {
 
-<<<<<<< HEAD
-	private static Logger logger = LogManager.getLogger(CommonUtils.class); 
-=======
 	private static Logger logger = LogManager.getLogger(CommonUtils.class);
-
->>>>>>> aa721eccbbc96d66c235222a414c3327c8ef8065
 	/**
 	 * Use this method in need of clicking on a WebElement by selenium WebDriver.
 	 * 

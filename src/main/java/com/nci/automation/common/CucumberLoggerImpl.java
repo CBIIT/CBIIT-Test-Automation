@@ -1,14 +1,6 @@
 package com.nci.automation.common;
 
-<<<<<<< HEAD
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-=======
->>>>>>> aa721eccbbc96d66c235222a414c3327c8ef8065
 import com.nci.automation.utils.CucumberLogUtils;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

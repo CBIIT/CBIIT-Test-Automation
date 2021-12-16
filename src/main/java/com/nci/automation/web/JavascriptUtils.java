@@ -14,16 +14,7 @@ import org.openqa.selenium.WebElement;
  * @author Sohilz2
  */
 public class JavascriptUtils extends WebDriverUtils {
-<<<<<<< HEAD
-	
 	private static Logger logger = LogManager.getLogger(JavascriptUtils.class);
-	
-	
-=======
-
-	private static Logger logger = LogManager.getLogger(JavascriptUtils.class);
-
->>>>>>> aa721eccbbc96d66c235222a414c3327c8ef8065
 	/**
 	 * Use this method in need of clicking on a WebElement internally. This is used
 	 * when WebDriver is failed to click on a WebElement UI.

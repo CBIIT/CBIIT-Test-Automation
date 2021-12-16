@@ -1,10 +1,5 @@
 package com.nci.automation.utils;
 
-<<<<<<< HEAD
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-=======
->>>>>>> aa721eccbbc96d66c235222a414c3327c8ef8065
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataInputStream;
@@ -18,15 +13,10 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.StringUtils;
-<<<<<<< HEAD
-=======
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
->>>>>>> aa721eccbbc96d66c235222a414c3327c8ef8065
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.xceptions.TestingException;

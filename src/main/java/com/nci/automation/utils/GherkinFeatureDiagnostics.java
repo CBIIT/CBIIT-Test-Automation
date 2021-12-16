@@ -10,16 +10,12 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.LineIterator;
 import org.apache.commons.lang.StringUtils;
 //import org.apache.commons.lang.tuple.Pair;
-<<<<<<< HEAD
-=======
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
->>>>>>> aa721eccbbc96d66c235222a414c3327c8ef8065
 
 /**
  * This class has functions that will get some states about cucumber gherkin

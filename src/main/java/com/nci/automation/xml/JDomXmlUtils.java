@@ -11,11 +11,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
-<<<<<<< HEAD
-=======
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
->>>>>>> aa721eccbbc96d66c235222a414c3327c8ef8065
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
