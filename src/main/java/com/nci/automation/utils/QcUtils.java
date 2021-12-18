@@ -21,10 +21,7 @@ import com.jacob.com.Variant;
 public class QcUtils {
 
 	private static Logger logger = LogManager.getLogger(QcUtils.class);
-<<<<<<< HEAD
 
-=======
->>>>>>> 66600f0921abe0c57a2f86ff33061b1d41ef37c0
 	public void buildFeatureFile(String qcTestPlanFolder, String outputFolder) {
 
 		ArrayList<String> featureFileArrayList;
