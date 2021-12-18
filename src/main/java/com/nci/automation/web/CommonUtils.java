@@ -36,8 +36,11 @@ import com.nci.automation.utils.MiscUtils;
  */
 public class CommonUtils extends WebDriverUtils {
 
+<<<<<<< HEAD
 	private static Logger logger = LogManager.getLogger(CommonUtils.class);
 
+=======
+>>>>>>> 66600f0921abe0c57a2f86ff33061b1d41ef37c0
 	/**
 	 * Use this method in need of clicking on a WebElement by selenium WebDriver.
 	 * 
@@ -491,7 +494,7 @@ public class CommonUtils extends WebDriverUtils {
 	/**
 	 * Use below soft assertion function to soft assert
 	 */
-
+	
 	static SoftAssert softAssertion;
 
 	public static void softAssert(boolean condition) {

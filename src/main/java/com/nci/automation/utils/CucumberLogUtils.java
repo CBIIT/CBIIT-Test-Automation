@@ -4,6 +4,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import static org.junit.Assert.assertTrue;
 import org.apache.commons.lang.exception.ExceptionUtils;
+<<<<<<< HEAD
+=======
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+>>>>>>> 66600f0921abe0c57a2f86ff33061b1d41ef37c0
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.web.WebDriverUtils;
 

@@ -14,6 +14,11 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.LineIterator;
 import org.apache.commons.lang.StringUtils;
 //import org.apache.commons.lang.tuple.Pair;
+<<<<<<< HEAD
+=======
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+>>>>>>> 66600f0921abe0c57a2f86ff33061b1d41ef37c0
 
 /**
  * This class has functions that will get some states about cucumber gherkin
