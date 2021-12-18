@@ -1,13 +1,9 @@
 package ServiceNow.ATO.Pages;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -20,17 +16,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.google.common.io.Files;
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.DateUtils;
 import com.nci.automation.web.WebDriverUtils;
-
-import ServiceNow.ATO.Steps.HookSteps;
-import ServiceNow.ATO.Utils.DriverObjectFactory;
-
 
 public class BasePage {
 
@@ -38,12 +27,13 @@ public class BasePage {
 	private WebDriverWait wait;
 	public static int captureCount = 1;
 
-	static String TAB_HEADER = "//span[@class='tab_header']//span[contains(text(), 'tabName')]"; //Change tabName
-	
+	static String TAB_HEADER = "//span[@class='tab_header']//span[contains(text(), 'tabName')]"; // Change tabName
+
 	public BasePage() {
 		this.driver = WebDriverUtils.getWebDriver();
 		wait = new WebDriverWait(this.driver, 30);
 	}
+
 	protected WebElement getElementByXpath(String xpath) {
 		return driver.findElement(By.xpath(xpath));
 	}
@@ -53,11 +43,11 @@ public class BasePage {
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		element.click();
 	}
-	
-	public void setText(By locator,String text) {
+
+	public void setText(By locator, String text) {
 		driver.findElement(locator).sendKeys(text);
 	}
-	
+
 	protected void clickOnElementInIFrame(WebElement element) {
 		switchToFrame();
 		wait.until(ExpectedConditions.visibilityOf(element));
@@ -65,17 +55,16 @@ public class BasePage {
 		element.click();
 		switchToDefaultFrame();
 	}
-	
+
 	protected WebElement getElementByCssText(List<WebElement> list, String targetText) {
 		WebElement ele = null;
-		for(int i=0; i<list.size(); i++) {
-			if(list.get(i).getText().contains(targetText)) {
+		for (int i = 0; i < list.size(); i++) {
+			if (list.get(i).getText().contains(targetText)) {
 				return list.get(i);
 			}
 		}
 		return ele;
 	}
-	
 
 	protected void clickOnElementByXpath(String xpath) {
 		WebElement element = driver.findElement(By.xpath(xpath));
@@ -91,7 +80,7 @@ public class BasePage {
 			element.sendKeys(text);
 		}
 	}
-	
+
 	protected void enterTextInIFrame(WebElement element, String text) {
 		switchToFrame();
 		wait.until(ExpectedConditions.elementToBeClickable(element));
@@ -101,18 +90,17 @@ public class BasePage {
 		}
 		switchToDefaultFrame();
 	}
-	
 
 	protected void selectTodayDate(WebElement inputEle) throws InterruptedException {
 		clickOnElement(inputEle);
 		Thread.sleep(3000);
 		clickOnElement(driver.findElement(By.xpath("//td[text()='Go to Today']")));
 	}
-	
+
 	public void selectDatesTab() {
 		clickOnElement(driver.findElement(By.xpath("//span[text()='Dates']")));
 	}
-	
+
 	protected void selectTodayDateTime(WebElement inputEle) throws InterruptedException {
 		clickOnElement(inputEle);
 		Thread.sleep(4000);
@@ -128,13 +116,11 @@ public class BasePage {
 	protected void waitForElementToVisible(WebElement element) {
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
-	
-	
-	
+
 	protected void waitForElementIgnoreStaleException(By locator) {
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)							
-				.withTimeout(30, TimeUnit.SECONDS) 			
-				.pollingEvery(5, TimeUnit.SECONDS) 			
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+				.withTimeout(30, TimeUnit.SECONDS)
+				.pollingEvery(5, TimeUnit.SECONDS)
 				.ignoring(StaleElementReferenceException.class);
 		wait.until(ExpectedConditions.elementToBeClickable(locator));
 	}
@@ -151,7 +137,7 @@ public class BasePage {
 		Select select = new Select(selectEl);
 		select.selectByVisibleText(optionText);
 	}
-	
+
 	protected void selectOptionInIFrame(WebElement selectEl, String optionText) {
 		switchToFrame();
 		Select select = new Select(selectEl);
@@ -168,7 +154,7 @@ public class BasePage {
 		List<WebElement> f = driver.findElements(By.tagName("iframe"));
 		driver.switchTo().frame(0);
 	}
-	
+
 	protected void switchToDefaultFrame() {
 		driver.switchTo().defaultContent();
 	}
@@ -196,98 +182,104 @@ public class BasePage {
 	}
 
 	public void captureScreenshot(String fileName) {
-		//String destination = HookSteps.foldeName +"/"+ captureCount + ". " + fileName + ".png";
-		//TakesScreenshot ts = (TakesScreenshot) driver;
-		//File source = ts.getScreenshotAs(OutputType.FILE);
-		/*File finalDestination = new File(destination);
-		try {
-			FileUtils.copyFile(source, finalDestination);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		captureCount++;*/
+		// String destination = HookSteps.foldeName +"/"+ captureCount + ". " + fileName
+		// + ".png";
+		// TakesScreenshot ts = (TakesScreenshot) driver;
+		// File source = ts.getScreenshotAs(OutputType.FILE);
+		/*
+		 * File finalDestination = new File(destination);
+		 * try {
+		 * FileUtils.copyFile(source, finalDestination);
+		 * } catch (IOException e) {
+		 * e.printStackTrace();
+		 * }
+		 * captureCount++;
+		 */
 		if (ScenarioContext.scenario.get() == null) {
-            return;
-        }
+			return;
+		}
 		byte[] screenshot = ((TakesScreenshot) WebDriverUtils.getWebDriver()).getScreenshotAs(OutputType.BYTES);
-        ScenarioContext.scenario.get().write(DateUtils.getLogTime() + ": Screenshot: " + fileName);
-        if (ScenarioContext.isTakeScreenShots()) {
-            try {
+		ScenarioContext.scenario.get().write(DateUtils.getLogTime() + ": Screenshot: " + fileName);
+		if (ScenarioContext.isTakeScreenShots()) {
+			try {
 				ScenarioContext.scenario.get().embed(screenshot, "image/png");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-        }
+		}
 	}
+
 	public void clickOnButton(String btnName) {
-		String xpath = "//button[text()='"+btnName+"']";
+		String xpath = "//button[text()='" + btnName + "']";
 		switchToFrame();
 		clickOnElementByXpath(xpath);
 	}
+
 	public void clickOnButtonInIframe(String btnName) throws InterruptedException {
-		String xpath = "//button[text()='"+btnName+"']";
-		((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", getElementByXpath(xpath));
+		String xpath = "//button[text()='" + btnName + "']";
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", getElementByXpath(xpath));
 		driver.switchTo().defaultContent();
 		switchToFrame();
 		clickOnElementByXpath(xpath);
 		Thread.sleep(2000);
 	}
-	
+
 	public void clickOnButtonInIframeByXpath(String xpath) throws InterruptedException {
-		((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", getElementByXpath(xpath));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", getElementByXpath(xpath));
 		driver.switchTo().defaultContent();
 		switchToFrame();
 		clickOnElementByXpath(xpath);
 		Thread.sleep(2000);
 	}
+
 	public void selectOptionInField(String fieldName, String optionText) {
 		String xpath = "//span[text()='" + fieldName + "']/../../following-sibling::div/select";
 		WebElement element = driver.findElement(By.xpath(xpath));
 		selectOption(element, optionText);
 	}
-	
+
 	public void enterTextInTextArea(String fieldName, String value) {
 		String xpath = "//span[contains(text(),'" + fieldName + "')]/../../following-sibling::div//textarea";
 		getElementByXpath(xpath).clear();
 		getElementByXpath(xpath).sendKeys(value);
 	}
-	
+
 	public void enterTextByFieldName(String fieldName, String value) {
 		String xpath = "//span[contains(text(),'" + fieldName + "')]/../../following-sibling::div//input[@type='text']";
 		getElementByXpath(xpath).clear();
 		getElementByXpath(xpath).sendKeys(value);
 	}
-	
+
 	public void enterTextInSearchableField(String fieldName, String value) {
-		String xpath = "//span[contains(text(),'"+fieldName+"')]/../../following-sibling::div//input[@type='search']";
+		String xpath = "//span[contains(text(),'" + fieldName
+				+ "')]/../../following-sibling::div//input[@type='search']";
 		getElementByXpath(xpath).clear();
-		getElementByXpath(xpath).sendKeys(value+Keys.TAB);
+		getElementByXpath(xpath).sendKeys(value + Keys.TAB);
 	}
-	
+
 	public void switchToTab(String tabName) throws InterruptedException {
 		String xpath = TAB_HEADER.replace("tabName", tabName);
 		clickOnElementByXpath(xpath);
 		Thread.sleep(2000);
 	}
-	
+
 	public WebElement find(By locator) {
 		wait.until(ExpectedConditions.elementToBeClickable(locator));
 		return driver.findElement(locator);
 	}
-	
+
 	public Boolean isElementPresent(By locator) {
-		return (driver.findElements(locator).size()>0);
+		return (driver.findElements(locator).size() > 0);
 	}
-	
+
 	public Boolean isElementVisible(By locator) {
-		for (WebElement e:driver.findElements(locator)) {
-			if(e.isDisplayed()) {
+		for (WebElement e : driver.findElements(locator)) {
+			if (e.isDisplayed()) {
 				return true;
 			}
 		}
 		return false;
 	}
-	
-	
+
 }

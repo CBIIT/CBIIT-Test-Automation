@@ -22,6 +22,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.asserts.SoftAssert;
 
 import com.nci.automation.utils.LocalConfUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -35,7 +36,7 @@ import com.nci.automation.utils.MiscUtils;
  */
 public class CommonUtils extends WebDriverUtils {
 
-	private static Logger logger = LogManager.getLogger(CommonUtils.class); 
+	private static Logger logger = LogManager.getLogger(CommonUtils.class);
 
 	/**
 	 * Use this method in need of clicking on a WebElement by selenium WebDriver.
@@ -186,7 +187,7 @@ public class CommonUtils extends WebDriverUtils {
 	 * 
 	 * @param element
 	 */
-	public static void switchToFrame(WebElement element) { 
+	public static void switchToFrame(WebElement element) {
 		try {
 			webDriver.switchTo().frame(element);
 		} catch (NoSuchFrameException e) {
@@ -221,7 +222,7 @@ public class CommonUtils extends WebDriverUtils {
 			return false;
 		}
 	}
-	
+
 	public static boolean isElementDisplayed(By locator) {
 		try {
 			return webDriver.findElement(locator).isDisplayed();
@@ -408,7 +409,7 @@ public class CommonUtils extends WebDriverUtils {
 		email = ("test") + email + ("@email.com");
 		return email;
 	}
-	
+
 	/**
 	 * Use this String to pass an email concatenated with current date and time into
 	 * an email text box and you can pass same value (email+date+time) in another
@@ -429,10 +430,9 @@ public class CommonUtils extends WebDriverUtils {
 		dateAsString = dateAsString.replaceAll("[^A-Za-z0-9]", "");
 		return dateAsString;
 	}
-	
+
 	public static String date = getDateAsString();
 
-	
 	/**
 	 * Use this method to select a checkbox value
 	 */
@@ -448,44 +448,55 @@ public class CommonUtils extends WebDriverUtils {
 			}
 		}
 	}
-	
-	
+
 	/**
 	 * Use this method to open new tab
 	 */
-	public static void openNewTab () {
+	public static void openNewTab() {
 		JavascriptExecutor js = (JavascriptExecutor) WebDriverUtils.webDriver;
 		js.executeScript("window.open('about:blank','_blank');");
 	}
-	
+
 	/**
 	 * Use this method to switch to the next another open window
 	 */
 	public static void swicthToAnotherWindow() {
-		Set<String> handlingAllOpenWindows= WebDriverUtils.webDriver.getWindowHandles();
+		Set<String> handlingAllOpenWindows = WebDriverUtils.webDriver.getWindowHandles();
 		for (String nextWindow : handlingAllOpenWindows) {
 			WebDriverUtils.webDriver.switchTo().window(nextWindow);
-	   }
+		}
 	}
-	
+
 	public static void scrollIntoView(By locator) {
 		try {
 			WebElement element = WebDriverUtils.webDriver.findElement(locator);
-			Actions action = new Actions( WebDriverUtils.webDriver);
+			Actions action = new Actions(WebDriverUtils.webDriver);
 			action.moveToElement(element);
 			action.perform();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			throw e;
 		}
 	}
-	
+
 	public static void scrollIntoView(WebElement element) {
 		try {
-			Actions action = new Actions( WebDriverUtils.webDriver);
+			Actions action = new Actions(WebDriverUtils.webDriver);
 			action.moveToElement(element);
 			action.perform();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			throw e;
 		}
+	}
+
+	/**
+	 * Use below soft assertion function to soft assert
+	 */
+
+	static SoftAssert softAssertion;
+
+	public static void softAssert(boolean condition) {
+
+		softAssertion = new SoftAssert();
+		softAssertion.assertTrue(condition);
 	}
 }

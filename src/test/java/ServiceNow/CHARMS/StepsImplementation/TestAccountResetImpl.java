@@ -3,8 +3,6 @@ package ServiceNow.CHARMS.StepsImplementation;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
-import appsCommon.ITrustLoginPageImpl;
 import appsCommon.PageInitializer;
 
 public class TestAccountResetImpl extends PageInitializer {
@@ -12,7 +10,8 @@ public class TestAccountResetImpl extends PageInitializer {
 	/**
 	 * This method resets RASopathy Study Test Account Call this method at the end
 	 * of your test case to rerun test case with same test account
-	 * @throws TestingException 
+	 * 
+	 * @throws TestingException
 	 */
 
 	public void resetTestAccount() throws TestingException {
@@ -24,7 +23,7 @@ public class TestAccountResetImpl extends PageInitializer {
 		iTrustloginPage.enterPassword("Password");
 		iTrustloginPage.clickSignInButton();
 		MiscUtils.sleep(500);
-		
+
 	}
 
 }
