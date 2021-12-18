@@ -22,5 +22,8 @@ public class CatalogPages {
 	@FindBy (xpath = "//strong[contains(text(),'Signature Name:')]")
 	public WebElement catalogSignatureName;
 	
+	@FindBy (xpath = "//button[contains(text(),'Download Plot')]")
+	public WebElement downloadPlotOnEtiologyPage;
+	
 
 }

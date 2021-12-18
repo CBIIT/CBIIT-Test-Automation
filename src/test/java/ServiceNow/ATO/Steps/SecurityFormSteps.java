@@ -36,12 +36,11 @@ public class SecurityFormSteps {
 		securityFormStepsImpl.scenario = scenario;
 		this.scenario = scenario;
 	}
-	
 
 	@Then("User change the form status to {string}")
 	public void changeTheFormStatus(String status) {
 		securityFormStepsImpl.selectFormStatus(status);
-	    securityFormStepsImpl.selectFormStatus(status);
+		securityFormStepsImpl.selectFormStatus(status);
 	}
 
 	@Then("User assigns the form to {string}")
@@ -93,7 +92,7 @@ public class SecurityFormSteps {
 	public void fillsThePortsProtocolsServices() throws InterruptedException {
 		securityFormStepsImpl.clickOnPortsProtocalAndServices();
 		securityFormStepsImpl.fillPortsProtocolsAndServices();
-	    securityFormStepsImpl.fillPortsProtocolsAndServices();
+		securityFormStepsImpl.fillPortsProtocolsAndServices();
 	}
 
 	@Then("User fills the System Interconnections")
@@ -110,28 +109,28 @@ public class SecurityFormSteps {
 		ReportUtil.takeScreenShot(scenario, "Package details");
 	}
 
-//	@When("User clicks on package link")
-//	public void clickOnPackageLink() {
-//		System.out.println("package link = " + Constants.packageLinkText);
-//		atoStepsImpl.clickOnFirstPackage();
-//		// securityFormStepsImpl.clickOnPackageLink(Constants.packageLinkText);
-//
-//	}
-//
-//	
-//	@When("User clicks on ato system")
-//	public void selectAtoSystemFromList() {
-//		String atoSystemName = Constants.packageName;
-//		securityFormStepsImpl.clickOnAtoSystem(atoSystemName);
-//		ReportUtil.takeScreenShot(scenario, "Package details");
-//	}
-	
+	// @When("User clicks on package link")
+	// public void clickOnPackageLink() {
+	// System.out.println("package link = " + Constants.packageLinkText);
+	// atoStepsImpl.clickOnFirstPackage();
+	// // securityFormStepsImpl.clickOnPackageLink(Constants.packageLinkText);
+	//
+	// }
+	//
+	//
+	// @When("User clicks on ato system")
+	// public void selectAtoSystemFromList() {
+	// String atoSystemName = Constants.packageName;
+	// securityFormStepsImpl.clickOnAtoSystem(atoSystemName);
+	// ReportUtil.takeScreenShot(scenario, "Package details");
+	// }
+
 	@When("User clicks on package link")
 	public void clickOnPackageLink() {
 		System.out.println("package link = " + Constants.packageLinkText);
 		securityFormStepsImpl.clickOnPackageLink(Constants.packageLinkText);
 	}
-	
+
 	@When("User verifies all system details")
 	public void verifyAllSystemDetails() {
 		securityFormStepsImpl.verifyAllSystemDetails();
@@ -144,7 +143,7 @@ public class SecurityFormSteps {
 
 	@When("User will select the state as {string}")
 	public void selectState(String stateOption) {
-		//securityFormStepsImpl.selectState(stateOption);
+		// securityFormStepsImpl.selectState(stateOption);
 		securityFormStepsImpl.selectStateWithoutFrameSwicth(stateOption);
 	}
 
@@ -160,8 +159,5 @@ public class SecurityFormSteps {
 	@When("User updated the approved by value as {string}")
 	public void updateApprovedBy(String name) {
 	}
-	
-	
-	
 
 }

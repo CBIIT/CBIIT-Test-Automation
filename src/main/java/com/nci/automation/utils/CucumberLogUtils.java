@@ -1,10 +1,9 @@
 package com.nci.automation.utils;
 
-import static org.junit.Assert.assertTrue;
-import org.apache.commons.lang.exception.ExceptionUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
+import static org.junit.Assert.assertTrue;
+import org.apache.commons.lang.exception.ExceptionUtils;
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.web.WebDriverUtils;
 

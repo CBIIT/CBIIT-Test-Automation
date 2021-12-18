@@ -3,7 +3,6 @@ package ServiceNow.ATO.StepsImplementation;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 import ServiceNow.ATO.Pages.AtoPage;
@@ -84,17 +83,17 @@ public class AtoStepsImpl extends AtoPage {
 	public void gotoDatesSection() {
 		clickOnElementByXpath(datesSection);
 	}
-	
+
 	public void validateIfResumeButtonIsAvailable() throws Exception {
-		if(!isElementPresent(By.xpath("//button[text()='Resume Package']"))) {
+		if (!isElementPresent(By.xpath("//button[text()='Resume Package']"))) {
 			throw new Exception("Resume button not avilable on screen");
 		}
 	}
-	
+
 	public String getStartDate() {
 		return find(By.xpath(startDate)).getAttribute("value");
 	}
-	
+
 	public void setFormStatusToIssoPending() {
 		try {
 			waitForElementIgnoreStaleException(formControlDropdown);

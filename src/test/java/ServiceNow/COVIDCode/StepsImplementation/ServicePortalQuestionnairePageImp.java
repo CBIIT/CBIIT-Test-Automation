@@ -8,9 +8,7 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import java.util.List;
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
 import appsCommon.PageInitializer;
 
 public class ServicePortalQuestionnairePageImp extends PageInitializer {
@@ -26,14 +24,17 @@ public class ServicePortalQuestionnairePageImp extends PageInitializer {
 		servicePortalQuestionnairePage.startNewInitialQuestionnaireButton.click();
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.logScreenShot();
-		
-		CommonUtils.selectDropDownValue("User Group 1", servicePortalQuestionnairePage.enrollmentCreationUserGroupIDSelectDropDown);
-		//CommonUtils.selectDropDownValue(servicePortalQuestionnairePage.enrollmentCreationUserGroupIDSelectDropDown, " User Group 1");
-		//servicePortalQuestionnairePage.enrollmentCreationUserGroupIDSelectDropDown.click();
-		//List<WebElement> groupIDs = servicePortalQuestionnairePage.enrollmentCreationUserGroupIDValues;
-		//CommonUtils.selectValueFromBootStrapDropDown(groupIDs, " User Group 1");
+
+		CommonUtils.selectDropDownValue("User Group 1",
+				servicePortalQuestionnairePage.enrollmentCreationUserGroupIDSelectDropDown);
+		// CommonUtils.selectDropDownValue(servicePortalQuestionnairePage.enrollmentCreationUserGroupIDSelectDropDown,
+		// " User Group 1");
+		// servicePortalQuestionnairePage.enrollmentCreationUserGroupIDSelectDropDown.click();
+		// List<WebElement> groupIDs =
+		// servicePortalQuestionnairePage.enrollmentCreationUserGroupIDValues;
+		// CommonUtils.selectValueFromBootStrapDropDown(groupIDs, " User Group 1");
 		MiscUtils.sleep(2000);
-		
+
 		servicePortalQuestionnairePage.createEnrollmentButton.click();
 
 	}

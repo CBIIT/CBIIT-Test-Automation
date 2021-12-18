@@ -27,13 +27,13 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class LoginSteps {
-	
+
 	private Scenario scenario;
 	private LoginStepsImpl loginStepsImpl;
 	private CommonPage commonPage;
 	private BasePage basePage;
 	private NewProjectPage newProjectPage;
-	
+
 	@Before
 	public void before() {
 		this.loginStepsImpl = new LoginStepsImpl();
@@ -41,45 +41,43 @@ public class LoginSteps {
 		this.commonPage = PageFactory.initElements(DriverObjectFactory.getWebDriver(), CommonPage.class);
 		this.newProjectPage = PageFactory.initElements(DriverObjectFactory.getWebDriver(), NewProjectPage.class);
 	}
-  
+
 	@Given("User opens nih application in browser")
 	public void openApp() {
 		loginStepsImpl.openApp();
 	}
-	
+
 	@Given("User opens ATO application in browser")
 	public void openATOApp() {
 		loginStepsImpl.openApp();
 	}
-	
+
 	@Given("User opens Ato application url {string}")
 	public void openATOAppWithUrl(String url) {
 		loginStepsImpl.openApp(url);
 	}
-	
+
 	@Given("User opens fast ato app in browser")
-	public void openServiceApp( ) {
+	public void openServiceApp() {
 		loginStepsImpl.openServiceApp();
 	}
-	
-	@When("User will login to ato application") 
+
+	@When("User will login to ato application")
 	public void login() throws Exception {
-		if(loginStepsImpl.isLoginButtonDisplayed()) {
+		if (loginStepsImpl.isLoginButtonDisplayed()) {
 			loginStepsImpl.clckOnLoginButton();
 			loginStepsImpl.enterUsername(ConfUtils.getProperty("sgugulothuUsername"));
-			String decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
-			//loginStepsImpl.enterUsername(ConfUtils.getProperty("Username"));
-			 //decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("Password"));
+			String decyptedPass = EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
+			// loginStepsImpl.enterUsername(ConfUtils.getProperty("Username"));
+			// decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("Password"));
 			loginStepsImpl.enterPassword(decyptedPass);
-			//loginPage.enterUsername(ConfigFileReader.getConfigFileReader().getUserName());
-			//loginPage.enterPassword(ConfigFileReader.getConfigFileReader().getPassword());
+			// loginPage.enterUsername(ConfigFileReader.getConfigFileReader().getUserName());
+			// loginPage.enterPassword(ConfigFileReader.getConfigFileReader().getPassword());
 			basePage.captureScreenshot("Before Login");
 			loginStepsImpl.clickOnSignInButton();
 		}
-		
-		
+
 	}
-	
 
 	/*
 	 * @When("User will login to the application as \"([^\"]*)\" user") public void
@@ -93,7 +91,7 @@ public class LoginSteps {
 
 	@When("User will login to the application as \"([^\"]*)\" user")
 	public void loginByUsername(String username) throws InterruptedException, TestingException {
-		//COMPILER IS GETTING CONFUSED HERE
+		// COMPILER IS GETTING CONFUSED HERE
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
 		loginStepsImpl.clckOnLoginButton();
 		Thread.sleep(3000);
@@ -102,8 +100,7 @@ public class LoginSteps {
 		basePage.captureScreenshot("Before Login");
 		loginStepsImpl.clickOnSignInButton();
 	}
-	
-	
+
 	@When("User will login to the application as \"([^\"]*)\" user into fast ato")
 	public void loginByUsernameFastAto(String username) throws InterruptedException, TestingException {
 		loginStepsImpl.loginButtonFastAto();
@@ -114,8 +111,6 @@ public class LoginSteps {
 		loginStepsImpl.clickOnSignInButton();
 	}
 
-	
-	
 	@Given("user opens the fast ato page")
 	public void accessFastAtoPage() {
 		loginStepsImpl.openServiceApp();
@@ -126,55 +121,49 @@ public class LoginSteps {
 		loginStepsImpl.validateHeader();
 		basePage.captureScreenshot("Header Validation");
 	}
-	
-	
+
 	@Given("User will login to the fast ato application")
-	public void loginToFastAto(String userName) throws Exception{
+	public void loginToFastAto(String userName) throws Exception {
 		loginStepsImpl.openServiceApp();
-//		commonPage.clickOnLoginInToGetStartedButton();
-//		Thread.sleep(3000);
-//		loginPage.enterUsername(userName);
-//		loginPage.enterPassword(Constants.passwords.get(userName));
-//		basePage.captureScreenshot("Before Login");
-//		loginPage.clickOnSignInButton();
+		// commonPage.clickOnLoginInToGetStartedButton();
+		// Thread.sleep(3000);
+		// loginPage.enterUsername(userName);
+		// loginPage.enterPassword(Constants.passwords.get(userName));
+		// basePage.captureScreenshot("Before Login");
+		// loginPage.clickOnSignInButton();
 	}
-	
+
 	@Then("User clicks on {string} in header menu")
 	public void clickOnHeaderMenu(String menu) throws InterruptedException {
 		basePage.captureScreenshot("Navtive header");
 		loginStepsImpl.clickOnHeaderMenu(menu);
 		loginStepsImpl.waitForListToLoad();
-		basePage.captureScreenshot("Inside "+menu+" Menu");
+		basePage.captureScreenshot("Inside " + menu + " Menu");
 	}
-	
+
 	@Then("User filters value as {string}")
 	public void filtersValueAs(String value) {
 		loginStepsImpl.setFilterValue(value);
 	}
-	
+
 	@Then("User clicks on {string} package")
 	public void clickOnAllPackage(String name) throws InterruptedException {
 		loginStepsImpl.clickOnLeftSideMenuItem(name);
-		basePage.captureScreenshot("Clicking on "+name+" menu item");
+		basePage.captureScreenshot("Clicking on " + name + " menu item");
 	}
-	
+
 	@Then("User click on {string} button")
 	public void clickOnButton(String btnName) {
-		basePage.captureScreenshot("Before clicking on button "+btnName);
+		basePage.captureScreenshot("Before clicking on button " + btnName);
 		loginStepsImpl.clickOnButton(btnName);
-		basePage.captureScreenshot("After clicking on button "+btnName);
+		basePage.captureScreenshot("After clicking on button " + btnName);
 	}
-	
+
 	@Then("User click on {string} button in iframe")
 	public void click_on_button_in_iframe(String btnName) throws InterruptedException {
-		basePage.captureScreenshot("Before clicking on button "+btnName);
+		basePage.captureScreenshot("Before clicking on button " + btnName);
 		loginStepsImpl.clickOnButtonInIframe(btnName);
-		
+
 	}
-	
-	
-	
-	
-	
-	
+
 }

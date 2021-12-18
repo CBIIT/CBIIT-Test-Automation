@@ -1,9 +1,8 @@
 package com.nci.automation.utils;
 
-import java.util.Map;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import java.util.Map;
 
 public class HashMapUtils {
 
