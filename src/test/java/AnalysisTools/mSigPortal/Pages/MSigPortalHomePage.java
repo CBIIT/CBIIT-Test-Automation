@@ -24,5 +24,9 @@ public MSigPortalHomePage(){
 	/** This is the element for the Signature Explorer tab */
 	@FindBy (xpath = "//a[@id='Exploration-navbar']")
 	public WebElement signatureExplorerTab;
+	
+	/** This is the element for the Signature Explorer tab */
+	@FindBy (xpath = "(//a[contains(text(),'Catalog')])[1]")
+	public WebElement CatalogTab;
 
 }

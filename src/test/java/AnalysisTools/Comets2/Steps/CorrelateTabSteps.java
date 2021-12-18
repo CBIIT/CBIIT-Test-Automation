@@ -39,7 +39,7 @@ public class CorrelateTabSteps extends PageInitializer{
 		
 		/** This step will click on the Choose File button and click on Check Integrity to search */
 		MiscUtils.sleep(2000);
-		comets2Page.chooseFileButton.sendKeys("/Users/matarodriguezko/Downloads/cometsInput.xlsx");
+		comets2Page.chooseFileButton.sendKeys("/Users/matarodriguezko/Downloads/cometsInput (1).xlsx");
 		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();

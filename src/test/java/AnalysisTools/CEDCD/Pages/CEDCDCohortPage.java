@@ -106,7 +106,7 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** =============== Principal Investigator Section ===================== */
 
 	/** Principal Investigator section tab */
-	@FindBy(xpath = "//button[contains(text(),'Principal Investigators')]")
+	@FindBy(xpath = "//b[contains(text(),'Principal Investigators')]")
 	public WebElement principalInvestigatorTab;
 
 	/** A5 Add New Investigator button */
@@ -164,7 +164,7 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** =============== Eligibility & Enrollment Section ===================== */
 
 	/** Eligibility & Enrollment section tab */
-	@FindBy(xpath = "//button[contains(text(),'Eligibility & Enrollment')]")
+	@FindBy(xpath = "//b[contains(text(),'Eligibility & Enrollment')]")
 	public WebElement eligibilityAndEnrollmentTab;
 
 	/** A7 Eligibility Criteria's Eligible Sex radio button */
@@ -256,7 +256,7 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** =============== Recruitment Section ===================== */
 
 	/** Recruitment Section Tab */
-	@FindBy(xpath = "//button[contains(text(),'Recruitment')]")
+	@FindBy(xpath = "//b[contains(text(),'Recruitment')]")
 	public WebElement recruitmentTab;
 
 	/**
@@ -379,7 +379,7 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** =============== Documents Section ===================== */
 
 	/** Documents section tab */
-	@FindBy(xpath = "//button[contains(text(),'Documents')]")
+	@FindBy(xpath = "//b[contains(text(),'Documents')]")
 	public WebElement documentsTab;
 
 	/**
@@ -452,7 +452,7 @@ public class CEDCDCohortPage extends CommonUtils {
 	 */
 
 	/** Locators for Major Content Domains section */
-	@FindBy(xpath = "//button[contains(text(),'Major Content Domains')]")
+	@FindBy(xpath = "//b[contains(text(),'Major Content Domains')]")
 	public WebElement majorContentDomainstab;
 
 	/** C.1 Socio-economic Status Baseline No Value */
@@ -1089,11 +1089,41 @@ public class CEDCDCohortPage extends CommonUtils {
 	 */
 	@FindBy(xpath = "//input[@id='residenceFollowUp_1']")
 	public WebElement c30FollowUpYesRadio;
+	
+	/** =================================== */
+
+	/**
+	 * C.31 Sexual Orientation and Gender Identity (Beyond Male and Female Only) Baseline No
+	 * Value
+	 */
+	@FindBy(xpath = "//input[@id='sexgenderIdentityBaseLine_0']")
+	public WebElement c31BaselineNoRadio;
+
+	/**
+	 * C.31 Sexual Orientation and Gender Identity (Beyond Male and Female Only) Baseline Yes
+	 * Value
+	 */
+	@FindBy(xpath = "//input[@id='sexgenderIdentityBaseLine_1']")
+	public WebElement c31BaselineYesRadio;
+
+	/**
+	 * C.C.31 Sexual Orientation and Gender Identity (Beyond Male and Female Only) Baseline No
+	 * Value
+	 */
+	@FindBy(xpath = "//input[@id='sexgenderIdentityFollowUp_0']")
+	public WebElement c31FollowUpNoRadio;
+
+	/**
+	 * C.C.31 Sexual Orientation and Gender Identity (Beyond Male and Female Only) Baseline Yes
+	 * Value
+	 */
+	@FindBy(xpath = "//input[@id='sexgenderIdentityFollowUp_1']")
+	public WebElement c31FollowUpYesRadio;
 
 	/** =============== Other Medical Conditions Section ===================== */
 
 	/** Locators for Other Medical Conditions section */
-	@FindBy(xpath = "//button[contains(text(),'Other Medical Conditions')]")
+	@FindBy(xpath = "//b[contains(text(),'Other Medical Conditions')]")
 	public WebElement otherMedicalConditionsTab;
 
 	/** C.31 Do you have information on the following medical conditions? */
@@ -1213,7 +1243,7 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** =============== Cancer Related Conditions Section ===================== */
 
 	/** Locators for Cancer Related Conditions section */
-	@FindBy(xpath = "//button[contains(text(), 'Cancer Related Conditions' )]")
+	@FindBy(xpath = "//b[contains(text(), 'Cancer Related Conditions' )]")
 	public WebElement cancerRelatedConditionsTab;
 
 	/** C.32 Do you have information on the following cancer related conditions? */
@@ -1339,7 +1369,7 @@ public class CEDCDCohortPage extends CommonUtils {
 	 */	
 	
 	/** Biospecimens Collected Tabs for section G */
-	@FindBy (xpath = "//button[contains(text(),'Biospecimens Collected')]")
+	@FindBy (xpath = "//b[contains(text(),'Biospecimens Collected')]")
 	public WebElement biospecimensCollectedTab;
 	
 	/**Specify the types of specimens you collected, whether the specimen was collected at baseline, and/or collected at other time points.*/
@@ -1515,7 +1545,7 @@ public class CEDCDCohortPage extends CommonUtils {
 	public WebElement g8RadioYes;
 	
 	/** Additional Data Collected Section on section G */
-	@FindBy (xpath = "//button[contains(text(),'Additional Data Collected')]")
+	@FindBy (xpath = "//b[contains(text(),'Additional Data Collected')]")
 	public WebElement additionalDataCollectedTab;
 	
 	/** G.9 Genotyping Data (SNP) */
@@ -1579,7 +1609,7 @@ public class CEDCDCohortPage extends CommonUtils {
 	public WebElement g14RadioYes;
 	
 	/** Metabolic Data tab on Section G */
-	@FindBy (xpath = "//button[contains(text(),'Metabolomics Data')]")
+	@FindBy (xpath = "//b[contains(text(),'Metabolomics Data')]")
 	public WebElement metabolicDataTab;
 	
 	/** G.15 Metabolomic Data (from MS and/or NMR) */
@@ -1663,8 +1693,12 @@ public class CEDCDCohortPage extends CommonUtils {
 	public WebElement g15ITextBox;
 	
 	/** Biospecimen Counts tab for Section G */
-	@FindBy (xpath = "//button[contains(text(),'Biospecimens Counts')]")
+	@FindBy (xpath = "//b[contains(text(),'Biospecimens Counts')]")
 	public WebElement biospecimenCountsTab;
+	
+	/** This is the biospecimen counts section when on the questionnaire */
+	@FindBy (xpath = "(//span[contains(text(),'Biospecimen')])[4]")
+	public WebElement biospecimenTabOnQuestionnaire;
 	
 	/** WebElements for the G16 Table */
 	
@@ -2543,6 +2577,14 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** Confirmation for submission pop up button */
 	@FindBy (xpath = "(//button[contains(text(),'Submit')])[3]")
 	public WebElement confirmSubmitPopUpButton;
+	
+	/** This is the webelement for the Select a Cohort Please select the cohort you wish to update from the list below.  Text */
+	@FindBy (xpath = "//p[@class='welcome']")
+	public WebElement chooseACohortText;
+	
+	/** This is the element for the first cohort in the select a cohort  */
+	@FindBy (xpath = "//div[@class=' css-yk16xz-control']")
+	public WebElement firstCohortOnSelectACohortDropDown;
 	
 	public CEDCDCohortPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);

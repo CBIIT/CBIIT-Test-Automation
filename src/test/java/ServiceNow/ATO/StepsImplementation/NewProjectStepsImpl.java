@@ -5,12 +5,11 @@ import org.openqa.selenium.Keys;
 import ServiceNow.ATO.Pages.NewProjectPage;
 import ServiceNow.ATO.Utils.CommonUtil;
 
-public class NewProjectStepsImpl extends NewProjectPage{
+public class NewProjectStepsImpl extends NewProjectPage {
 
 	public NewProjectStepsImpl() {
 		super();
 	}
-
 
 	public void selectSystem(String system) throws InterruptedException {
 		switchToFrame();
@@ -20,7 +19,7 @@ public class NewProjectStepsImpl extends NewProjectPage{
 
 	public void selectApplicationHosting(String hostigSolution) {
 		switchToFrame();
-		selectOption(applicationHostDropdown , hostigSolution);
+		selectOption(applicationHostDropdown, hostigSolution);
 		switchToDefaultFrame();
 	}
 
@@ -28,16 +27,13 @@ public class NewProjectStepsImpl extends NewProjectPage{
 		String xpath = TAB_HEADER.replace("tabMame", "Contacts");
 		Thread.sleep(5000);
 		clickOnElementByXpath(xpath);
-		//TODO : Capture screenshot
 	}
-	
+
 	public void clickOnTab(String tabName) {
 		switchToFrame();
 		clickOnElement(getElementByCssText(tabs, tabName));
 		switchToDefaultFrame();
 	}
-	
-	
 
 	public void setDates() throws InterruptedException {
 		clickOnTab("Dates");
@@ -49,11 +45,11 @@ public class NewProjectStepsImpl extends NewProjectPage{
 		selectTodayDateTime(verifiedDate);
 		switchToDefaultFrame();
 	}
-	
+
 	public void gobackToAllPackages() {
 		clickOnElementByXpath("//button[@data-original-title=\"Back\"]");
 	}
-	
+
 	public void sortPackages() {
 		clickOnElementByXpath("//span[text()='Sort in ascending order']/parent::a");
 		clickOnElementByXpath("//span[text()='Sort in descending order']/parent::a");
@@ -68,7 +64,7 @@ public class NewProjectStepsImpl extends NewProjectPage{
 
 	public void clickOnPackageCode(String packageCode) throws InterruptedException {
 		switchToFrame();
-		clickOnElementByXpath("//table[contains(@id,'package_table')]//a[text()='" + packageCode +"']");
+		clickOnElementByXpath("//table[contains(@id,'package_table')]//a[text()='" + packageCode + "']");
 		CommonUtil.waitBrowser(3000);
 		switchToDefaultFrame();
 	}

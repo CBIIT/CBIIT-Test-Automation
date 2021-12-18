@@ -48,6 +48,20 @@ public class CEDCDAdminPage {
 	@FindBy(linkText = "Add New Cohort")
 	public WebElement addNewCohortlnk; 
 	
+	/** Cohort Status Drop down */
+	@FindBy (xpath = "//button[contains(text(),'Status')]")
+	public WebElement cohortStatusDropDown;
+	
+	/** Cohort Status Drop down Submitted Value */
+	@FindBy (xpath = "//label[contains(text(),'Submitted')]")
+	public WebElement cohortSubmittedStatus;
+	
+	/** This element is the first cohort study with the submitted status */
+	@FindBy (xpath = "(//a[contains(text(),'Review')])[1]")
+	public WebElement firstSubmittedCohort;
+	
+	
+	
 	
 	/**================================================= Add New Cohort Page WebElements =======================================================*/
 	
@@ -74,5 +88,32 @@ public class CEDCDAdminPage {
 	/** Submit Button */
 	@FindBy(xpath = "(//button[@type='submit'])[2]")
 	public WebElement cohortSubmitBtn; 
-
+	
+	/**================================================= Cohort Questionnaire Page WebElements =======================================================*/
+	
+	/** Approve Button */
+	@FindBy (xpath = "//button[contains(text(),'Approve')]")
+	public WebElement approveButton;
+	
+	/** Reject Button */
+	@FindBy (xpath = "//button[contains(text(),'Reject')]")
+	public WebElement rejectButton;
+	
+	/** The Publish Cohort confirmation pop up */
+	@FindBy (xpath = "//span[contains(text(),'Publish Cohort')]")
+	public WebElement publishCohortPopUp;
+	
+	/** Publish Button on the confirmation tab */
+	@FindBy (xpath = "//button[contains(text(),'Publish')]")
+	public WebElement publishButton;
+	
+	/** Cancel Button on the confirmation tab */
+	@FindBy (xpath = "//button[contains(text(),'Cancel')]")
+	public WebElement cancelButton; 
+	
+	/** =========================== General Web Elements on Admin Page ========================= */
+	
+	@FindBy (xpath = "//div[contains(text(),'Warning: Session Timeout')]")
+	public WebElement sessionTimeout;
+	
 }

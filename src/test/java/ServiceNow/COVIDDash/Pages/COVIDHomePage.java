@@ -12,7 +12,6 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import ServiceNow.COVIDDash.Utils.COVIDConstants;
 
-
 public class COVIDHomePage extends CommonUtils {
 
 	// add xpaths
@@ -169,20 +168,20 @@ public class COVIDHomePage extends CommonUtils {
 	 * dashboard page
 	 */
 	public void clickITrustRedirectButton() {
-		waitForThePresenceOfEl("//button[@ng-click='c.login()']",30);
+		waitForThePresenceOfEl("//button[@ng-click='c.login()']", 30);
 		JavascriptUtils.clickByJS(iTrustRedirectForLogin);
 	}
 
 	/** This method will search and select a PI */
 	public void searchPrincipalInvestigator(String investgatorName) {
+		CommonUtils.waitForVisibility(principalInvestigatorDD);
 		principalInvestigatorDD.click();
 		pISearchBox.sendKeys(investgatorName);
 		MiscUtils.sleep(700);
 		pISearchBox.sendKeys(Keys.ENTER);
-		MiscUtils.sleep(1300);
+		MiscUtils.sleep(1500);
 	}
 
-	
 	public WebElement instituteField() {
 		return instituteField;
 	}
@@ -284,6 +283,7 @@ public class COVIDHomePage extends CommonUtils {
 	}
 
 	public void selectCollectionFrequency() {
+		JavascriptUtils.scrollIntoView(collectionFrequencyDd);
 		JavascriptUtils.clickByJS(collectionFrequencyDd);
 		CommonUtils.selectDropDownValue(collectionFrequencyDd, 1);
 	}
@@ -304,6 +304,7 @@ public class COVIDHomePage extends CommonUtils {
 	public void attachStudyDocument() {
 		MiscUtils.sleep(1500);
 		attachmentButton.sendKeys(COVIDConstants.DOC_PATH);
+		MiscUtils.sleep(1000);
 		boolean isFileUploaded = uploadedFile.getText().contains(".docx");
 		Assert.assertTrue(isFileUploaded);
 	}
@@ -313,6 +314,7 @@ public class COVIDHomePage extends CommonUtils {
 		MiscUtils.sleep(1000);
 		urlField.sendKeys(COVIDConstants.TEST_URL);
 		JavascriptUtils.clickByJS(urlAddButton);
+		CommonUtils.waitForVisibility(urlSaveButton);
 		JavascriptUtils.clickByJS(urlSaveButton);
 		boolean addedURL = addedUrlLink.getText().contains(COVIDConstants.TEST_URL);
 		Assert.assertTrue(addedURL);
@@ -325,8 +327,10 @@ public class COVIDHomePage extends CommonUtils {
 	}
 
 	public void clickSubmitAndConfirmSubButton() {
+		CommonUtils.waitForVisibility(submitButton);
 		JavascriptUtils.clickByJS(submitButton);
-		MiscUtils.sleep(500);
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(confirmSubmitButton);
 		JavascriptUtils.clickByJS(confirmSubmitButton);
 	}
 

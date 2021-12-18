@@ -1,4 +1,6 @@
 package ServiceNow.NERD.Steps;
+import java.util.Set;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -29,7 +31,15 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 		CommonUtils.click(
 				nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot(); 
+		CucumberLogUtils.logScreenShot();
+		
+		
+		Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
+		for (String currentWindow1 : allWindowHandles1) {
+			WebDriverUtils.webDriver.switchTo().window(currentWindow1);
+		}
+		
+		
 		createNewSubmissionPage.titleTextBox.sendKeys("TestingCRSReviewer");
 		CommonUtils.selectDropDownValue("New", createNewSubmissionPage.pleaseSpecifyDropDown);
 		createNewSubmissionPage.acronymTextBox.sendKeys("Testing");
@@ -116,6 +126,12 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 		WebDriverUtils.webDriver.navigate().refresh();
 		MiscUtils.sleep(5000);
 		nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink.click();
+		
+		Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
+		for (String currentWindow1 : allWindowHandles1) {
+			WebDriverUtils.webDriver.switchTo().window(currentWindow1);
+		}
+		
 		MiscUtils.sleep(1000);
 		nerdDynamicXpaths.submitToCRSButton("TestingCRSReviewer").click();
 		JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmSubmissionYesButton);

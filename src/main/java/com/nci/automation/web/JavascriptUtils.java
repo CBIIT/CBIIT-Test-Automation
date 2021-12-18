@@ -1,6 +1,7 @@
 package com.nci.automation.web;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,13 +10,13 @@ import org.openqa.selenium.WebElement;
  * This is a util class which contains all JavaScript common methods that will
  * be used through out the application. New JavaScript methods can be added any
  * time. Modifying the existing methods may result in build failure.
+ * 
  * @author Sohilz2
  */
 public class JavascriptUtils extends WebDriverUtils {
-	
-	private static Logger logger = Logger.getLogger(JavascriptUtils.class);
-	
-	
+
+	private static Logger logger = LogManager.getLogger(JavascriptUtils.class);
+
 	/**
 	 * Use this method in need of clicking on a WebElement internally. This is used
 	 * when WebDriver is failed to click on a WebElement UI.
@@ -148,8 +149,9 @@ public class JavascriptUtils extends WebDriverUtils {
 	/**
 	 * This method is to select values from bootstrap drop downs Pass the element
 	 * and date desired in String format as arguments
+	 * 
 	 * @param element
-	 * @param date to be selected
+	 * @param date    to be selected
 	 */
 	public static void selectDateByJS(WebElement element, String date) {
 		JavascriptExecutor js = (JavascriptExecutor) webDriver;
@@ -163,9 +165,9 @@ public class JavascriptUtils extends WebDriverUtils {
 	 * @param pixel
 	 * @param element
 	 */
-	public static void scrollUpWithinElement (WebElement element, int pixel) {
+	public static void scrollUpWithinElement(WebElement element, int pixel) {
 		JavascriptExecutor js = (JavascriptExecutor) webDriver;
-		js.executeScript("arguments[0].scrollTop = arguments[1];",element, pixel);
+		js.executeScript("arguments[0].scrollTop = arguments[1];", element, pixel);
 
 	}
 }

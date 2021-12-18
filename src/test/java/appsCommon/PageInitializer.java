@@ -20,6 +20,7 @@ import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
 import AnalysisTools.PLCO.Pages.BrowsePhenotypePage;
 import AnalysisTools.PLCO.Pages.ExploreGWASPage;
 import AnalysisTools.PLCO.Pages.InformationPage;
+import AnalysisTools.mSigPortal.Pages.CatalogPages;
 import AnalysisTools.mSigPortal.Pages.MSigPortalHomePage;
 import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
 import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
@@ -50,15 +51,20 @@ import ServiceNow.AppTracker.Pages.VacancyManagerUserPage;
 import ServiceNow.AppTracker.StepsImplementation.AppTrackerLogInStepsImpl;
 import ServiceNow.AppTracker.StepsImplementation.VacancyManagerUserStepsImpl;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
+import ServiceNow.CHARMS.Pages.CGBIIQPage;
+import ServiceNow.CHARMS.Pages.CGBIIQPages;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
 import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
 import ServiceNow.CHARMS.Pages.MyRASHomePage;
 import ServiceNow.CHARMS.Pages.MyRASLoginPage;
+import ServiceNow.CHARMS.Pages.MyRASStudyConsentPage;
 import ServiceNow.CHARMS.Pages.OKTAloginPage;
 import ServiceNow.CHARMS.Pages.ProbandScreenerPage;
+import ServiceNow.CHARMS.Pages.RASSurveyPage;
 import ServiceNow.CHARMS.Pages.RASopathyQuestionnairePage;
+import ServiceNow.CHARMS.Pages.TestAccountResetPage;
 import ServiceNow.CHARMS.StepsImplementation.CHARMSHomePageImp;
-import ServiceNow.CHARMS.StepsImplementation.ProbandScreenerSubmissionImpl;
+import ServiceNow.CHARMS.StepsImplementation.RASSurveyStepsImpl;
 import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
 import ServiceNow.CICDBuild.Pages.DevOpsLoginPage;
 import ServiceNow.CICDBuild.Pages.DevOpsNativeViewPage;
@@ -138,10 +144,15 @@ public class PageInitializer {
 	protected static CHARMSHomePageImp charmsHomePageImpl;
 	protected static ClinicalGeneticsBranchPage clinicalGeneticsBranchPage;
 	protected static ProbandScreenerPage probandScreenerPage;
-	protected static ProbandScreenerSubmissionImpl probandScreenerSubmissionImpl;
 	protected static MyRASLoginPage myRASLoginPage;
 	protected static MyRASHomePage myRASHomePage;
 	protected static RASopathyQuestionnairePage rasopathyQuestionnairePage;
+	protected static TestAccountResetPage testAccountResetPage;
+	protected static MyRASStudyConsentPage myRasStudyConsentPage;
+	protected static CGBIIQPage cgbIIQPage;
+	protected static CGBIIQPages cGBIIQPages;
+	protected static RASSurveyPage rASSurveyPage;
+	protected static RASSurveyStepsImpl rASSurveyStepsImpl;
 
 	/** LDLink instances **/
 	protected static LDLinkHomePage ldLinkHomePage;
@@ -190,6 +201,7 @@ public class PageInitializer {
 	protected static SignatureVisualizationsPage signatureVisualizationsPage;
 	protected static MSigPortalHomePage mSigPortalHomePage;
 	protected static SignatureExplorerPages signatureExplorerPages;
+	protected static CatalogPages catalogPages;
 
 	/** Custom Business App Instances */
 	protected static AligningExpectationsPage aligningExpectationsPage;
@@ -255,7 +267,6 @@ public class PageInitializer {
 		charmsHomePageImpl = new CHARMSHomePageImp();
 		clinicalGeneticsBranchPage = new ClinicalGeneticsBranchPage();
 		probandScreenerPage = new ProbandScreenerPage();
-		probandScreenerSubmissionImpl = new ProbandScreenerSubmissionImpl();
 		devOpsLoginPage = new DevOpsLoginPage();
 		devOpsNativeViewPage = new DevOpsNativeViewPage();
 		devOpsAutomatedBuildStepsImplementation = new DevOpsAutomatedBuildStepsImplementation();
@@ -293,6 +304,7 @@ public class PageInitializer {
 		signatureVisualizationsPage = new SignatureVisualizationsPage ();
 		mSigPortalHomePage = new MSigPortalHomePage();
 		signatureExplorerPages = new SignatureExplorerPages();
+		catalogPages = new CatalogPages();
 		aligningExpectationsPage = new AligningExpectationsPage();
 		eidpDashboardPage = new DashboardPage();
 		eidpCommonPage = new CommonPage();
@@ -316,6 +328,12 @@ public class PageInitializer {
 		myRASLoginPage = new MyRASLoginPage();
 		myRASHomePage = new MyRASHomePage();
 		rasopathyQuestionnairePage = new RASopathyQuestionnairePage();
+		testAccountResetPage = new TestAccountResetPage();
+		myRasStudyConsentPage = new MyRASStudyConsentPage();
+		cgbIIQPage = new CGBIIQPage();
+		cGBIIQPages = new CGBIIQPages();
+		rASSurveyPage = new RASSurveyPage();
+		rASSurveyStepsImpl = new RASSurveyStepsImpl();
 		
 	
 		/**AppTracker**/

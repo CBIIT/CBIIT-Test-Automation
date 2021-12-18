@@ -1,5 +1,6 @@
 package AnalysisTools.CEDCD.Steps;
 
+import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
@@ -13,7 +14,8 @@ public class CEDCDStartUps extends PageInitializer{
 	/** This method takes you to the CEDCD homepage and logs a screenshot */
 	public void startUpCEDCDBrowser() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
-		MiscUtils.sleep(2000);
+		MiscUtils.sleep(3000);
+		CucumberLogUtils.logScreenShot();
 	}
 	
 	
