@@ -22,7 +22,7 @@ public class CoPrimaryMentorPage extends CommonUtils {
 
 	@FindBy(css = "[class='checkbox btn btn-primary validate-error']")
 	public WebElement markAsReviewedCheckboxNhgri;
-	
+
 	@FindBy(css = "[href*='/idp/review-general']")
 	private WebElement generalInformationTab;
 
@@ -70,7 +70,6 @@ public class CoPrimaryMentorPage extends CommonUtils {
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		CucumberLogUtils.logScreenShot("Last Screenshot");
@@ -131,11 +130,12 @@ public class CoPrimaryMentorPage extends CommonUtils {
 			e.printStackTrace();
 		}
 		try {
-		CucumberLogUtils.logScreenShot("Mark review");
+			CucumberLogUtils.logScreenShot("Mark review");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		try{CommonUtils.click(saveButton);
+		try {
+			CommonUtils.click(saveButton);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -144,9 +144,9 @@ public class CoPrimaryMentorPage extends CommonUtils {
 	public void markNHGRIasReviewed() {
 		CommonUtils.click(markAsReviewedCheckbox);
 		CucumberLogUtils.logScreenShot("Mark review");
-			
+
 	}
-	
+
 	public void clickOnReviewedButton() {
 		CommonUtils.click(reviewedButton);
 	}
@@ -160,7 +160,6 @@ public class CoPrimaryMentorPage extends CommonUtils {
 		try {
 			Thread.sleep(10000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		String locator = "//label[@class=\"checkbox btn btn-primary validate-error\"]";
@@ -176,14 +175,13 @@ public class CoPrimaryMentorPage extends CommonUtils {
 			CommonUtils.click(reviewedButton);
 		}
 	}
-	
+
 	public void clickOnApproveAndSubmitButtonNHGRI() {
-		if(markAsReviewedCheckbox.isDisplayed())
+		if (markAsReviewedCheckbox.isDisplayed())
 			CommonUtils.click(markAsReviewedCheckbox);
 		CucumberLogUtils.logScreenShot("Approve and submit");
 		CommonUtils.click(approvedAndSubmitButton);
 	}
-	
 
 	public void clickOnYesButton() {
 		CommonUtils.click(yesButton);

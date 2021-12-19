@@ -1,0 +1,442 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>ExtentReports</title>
+	<meta name="description" content="extent" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+	<meta name="apple-mobile-web-app-title" content="extent">
+	<meta name="mobile-web-app-capable" content="yes">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@832f979664f9d68bf618db3ac87498ac6c1a6390/logger/css/logger-style.css" type="text/css" />
+</head>
+	<body class="standard">
+		<div class="app" id="app">
+<div id="aside" class="app-aside fade box-shadow-x folded dark">
+	<div class="sidenav modal-dialog dk">
+		<div class="navbar">
+			<a href="#" class="navbar-brand">
+			<span class="d-inline small"><img src="https://cdn.rawgit.com/extent-framework/extent-github-cdn/d74480e/commons/img/logo.png"></span>
+			</a>
+		</div>
+		<div class="flex hide-scroll">
+			<div class="scroll">
+				<div class="nav-border b-primary">
+					<ul class="nav bg">
+						<li>
+							<a href="index.html">
+							<span class="nav-icon">
+							<i class="fa fa-align-left"></i>
+							</span>
+							<span class="nav-text">Tests</span>
+							</a>
+						</li>
+												<li>
+							<a href="tag.html">
+							<span class="nav-icon">
+							<i class="fa fa-tag"></i>
+							</span>
+							<span class="nav-text">Tags</span>
+							</a>
+						</li>
+						<li>
+							<a href="dashboard.html">
+							<span class="nav-icon">
+							<i class="fa fa-dashboard"></i>
+							</span>
+							<span class="nav-text">Dashboard</span>
+							</a>
+						</li>
+						<li class="pb-2 hidden-folded"></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="no-shrink">
+			<div class="nav-fold">
+				<a id="lightsout" class="d-flex p-2-3"><span><i class="fa fa-desktop"></i></span></a>
+				<div class="hidden-folded flex p-2-3 bg">
+					<div class="d-flex p-1">
+						<a href="http://github.com/extent-framework/extentreports" class="flex text-nowrap"><i class="fa fa-github"></i></a>
+						<a href="http://extentreports.com" class="px-2"><i class="fa fa-book"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>			<div id="content" class="app-content box-shadow-0" role="main">
+				<div id="content" class="app-content box-shadow-2 box-radius-2" role="main">
+					<div class="content-header white  box-shadow-2" id="content-header">
+						<div class="navbar navbar-expand-lg">
+							<a class="d-lg-none mx-2" data-toggle="modal" data-target="#aside">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+									<path d="M80 304h352v16H80zM80 248h352v16H80zM80 192h352v16H80z"/>
+								</svg>
+							</a>
+							<div class="navbar-text nav-title flex" id="pageTitle">Dashboard</div>
+							<ul class="nav nav-xs flex-row no-border pull-right">
+<li><a href="#" class="b-l"><span class="badge badge-pull">ExtentReports</span></a></li>
+<li><a href="#" class="b-l"><span class="badge badge-pull">Dec 14, 2021 05:08:09 PM</span></a></li>
+<li><a href="#" class="b-l"><span class="badge badge-pull">4.0</span></a></li>
+							</ul>
+						</div>
+					</div>
+<div class="content-main" id="content-main">
+	<div class="padding">
+		<div class="row">
+			<div class="col-6 col-lg-3">
+				<div class="box p-3">
+					<div class="d-flex">
+						<span class="">Features</span>
+					</div>
+					<div class="py-3 text-center text-md text-success">
+						1
+					</div>
+					<div class="d-flex">
+						<span class="flex text-muted">Out of which 1 passed</span>
+						<span><i class="fa fa-circle-o text-success"></i> 100.00%</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-6 col-lg-3">
+				<div class="box p-3">
+					<div class="d-flex">
+						<span class="">Scenarios</span>
+					</div>
+					<div class="py-3 text-center text-md text-primary">
+						1
+					</div>
+					<div class="d-flex">
+						<span class="flex text-muted">Out of which 1 passed</span>
+						<span><i class="fa fa-circle-o text-primary"></i> 100.00%</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-6 col-lg-3">
+				<div class="box p-3">
+					<div class="d-flex">
+						<span class="">Start</span>
+					</div>
+					<div class="py-3 text-center text-md">
+						Dec 14, 2021 05:08:09 PM
+					</div>
+					<div class="d-flex">
+						<span class="flex"></span>
+						<span><i class="fa fa-circle text-primary"></i></span>
+					</div>
+				</div>
+			</div>
+			<div class="col-6 col-lg-3">
+				<div class="box p-3">
+					<div class="d-flex">
+						<span class="">Time Taken</span>
+					</div>
+					<div class="py-3 text-center text-md">
+						0h 0m 28s+708ms
+					</div>
+					<div class="d-flex">
+						<span class="flex"></span>
+						<span><i class="fa fa-circle text-danger"></i></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="box">
+					<div class="box-header">
+						<h3>Features</h3>
+					</div>
+					<div class="box-body pb-4">
+						<div class="row">
+							<div class="col-lg-7">
+								<canvas id="pc" width="100" height="80">
+								</canvas>
+							</div>
+							<div class="col-lg-5">
+								<div class="list">
+									<div class="list-item">
+										<div><i class="badge badge-xs badge-o b-info"></i> &nbsp;Pass 100.00%</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="box-footer">
+						<small class="text-muted">1 passed, 0 failed and 0 skipped</small>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="box">
+					<div class="box-header">
+						<h3>Scenarios</h3>
+					</div>
+					<div class="box-body pb-4">
+						<div class="row">
+							<div class="col-lg-7">
+								<canvas id="cc" width="100" height="80">
+								</canvas>
+							</div>
+							<div class="col-lg-5">
+								<div class="list">
+									<div class="list-item">
+										<div><i class="badge badge-xs badge-o b-info"></i> &nbsp;Pass 100.00%</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="box-footer">
+						<small class="text-muted">1 passed, 0 failed and 0 skipped</small>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="box">
+					<div class="box-header">
+						<h3>Steps</h3>
+					</div>
+					<div class="box-body pb-4">
+						<div class="row">
+							<div class="col-lg-7">
+								<canvas id="gcc" width="100" height="80">
+								</canvas>
+							</div>
+							<div class="col-lg-5">
+								<div class="list">
+									<div class="list-item">
+										<div><i class="badge badge-xs badge-o b-info"></i> 100%</div>
+										<div class="list-body"><span class="text-muted">Passed</span></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="box-footer">
+						<small class="text-muted">6 passed, 0 failed and 0 skipped</small>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="box">
+					<div class="box-header">
+						<h3>Timeline</h3>
+					</div>
+					<div class="box-body">
+						<canvas id="timeline"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="box">
+					<div class="box-header">
+						<h3>Tags <i class="fa pull-right text-muted text-sm fa-tag"></i></h3>
+					</div>
+					<table class="table">
+						<tr>
+							<th></th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+						</tr>
+						<tr>
+							<td>@smoke</td>
+							<td>2</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>@regression</td>
+							<td>2</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>@juarezds</td>
+							<td>2</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>@test</td>
+							<td>2</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>				</div>
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@832f979664f9d68bf618db3ac87498ac6c1a6390/commons/js/dashboard.js"></script>
+<script>
+	function drawChart(ctx, config) {
+	    ctx.width = 100;
+	    ctx.height = 80;
+	    new Chart(ctx, config);
+	}
+	$(document).ready(function() {
+		(function drawParentChart() {
+			var config = {
+		        type: 'doughnut',
+		            data: {
+		                datasets: [{
+		                    borderColor: 'transparent',
+		                    data: [
+		                    	1, 0, 0, 0, 0, 0
+		                    ],
+		                    backgroundColor: [
+		                        "#00af00", "#F7464A", "#8b0000", "#ff6347", "#FDB45C", "#1e90ff"
+		                    ]
+		                }],
+		                labels: [ "Pass", "Fail", "Fatal", "Error", "Warning", "Skip" ]
+		            },
+		            options: {
+		            	responsive: true,
+		            	  maintainAspectRatio: false,
+		            	  legend: {
+		            	      position: "right",
+		            	      labels: {
+		            	    	  boxWidth: 7,
+		            	          fontSize: 12,
+		            	          fontColor: "#999"
+		            	      }
+		            	  },
+		            	  cutoutPercentage: 70
+		            }
+		        };
+	
+		        var ctx = document.getElementById("pc").getContext('2d');
+		        drawChart(ctx,config);
+		})();
+		(function drawChildChart() {
+			if (document.getElementById("cc")!=null) {
+				var config = {
+			        type: 'doughnut',
+			            data: {
+			                datasets: [{
+			                    borderColor: 'transparent',
+			                    data: [
+			                    	1, 0, 0, 0, 0, 0
+			                    ],
+			                    backgroundColor: [
+			                        "#00af00", "#F7464A", "#8b0000", "#ff6347", "#FDB45C", "#1e90ff"
+			                    ]
+			                }],
+			                labels: [ "Pass", "Fail", "Fatal", "Error", "Warning", "Skip" ]
+			            },
+			            options: {
+			            	responsive: true,
+			            	  maintainAspectRatio: false,
+			            	  legend: {
+			            	      position: "right",
+			            	      labels: {
+			            	    	  boxWidth: 7,
+			            	          fontSize: 12,
+			            	          fontColor: "#999"
+			            	      }
+			            	  },
+			            	  cutoutPercentage: 70
+			            }
+			        };
+	
+		        var ctx = document.getElementById("cc").getContext('2d');
+		        drawChart(ctx,config);
+			}
+		})();
+		(function drawGrandChildChart() {
+			if (document.getElementById("gcc")!=null) {
+				var config = {
+			        type: 'doughnut',
+			            data: {
+			                datasets: [{
+			                    borderColor: 'transparent',
+			                    data: [
+			                    	6, 0, 0, 0, 0, 0
+			                    ],
+			                    backgroundColor: [
+			                        "#00af00", "#F7464A", "#8b0000", "#ff6347", "#FDB45C", "#1e90ff"
+			                    ]
+			                }],
+			                labels: [ "Pass", "Fail", "Fatal", "Error", "Warning", "Skip" ]
+			            },
+			            options: {
+			            	responsive: true,
+			            	  maintainAspectRatio: false,
+			            	  legend: {
+			            	      position: "right",
+			            	      labels: {
+			            	    	  boxWidth: 7,
+			            	          fontSize: 12
+			            	      }
+			            	  },
+			            	  cutoutPercentage: 70
+			            }
+			        };
+		
+		        var ctx = document.getElementById("gcc").getContext('2d');
+		        drawChart(ctx,config);
+			}
+		})();
+	})
+    var timeline = {
+"COVID19 Dashboard Scenarios":21.586    };
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+        	color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+    (function drawTimelineChart() {
+        var datasets = [];
+        for (var key in timeline) {
+            datasets.push({ label:key, data: [ timeline[key] ], backgroundColor: getRandomColor(), borderWidth: 1 });
+        }
+        var ctx = document.getElementById('timeline').getContext('2d');
+        new Chart(ctx, {
+            type: 'horizontalBar',
+            data: {
+                datasets: datasets
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                tooltips: {
+                    mode: 'point'
+                },
+                scales: {
+                    xAxes: [{
+                        stacked: true,
+                        gridLines: false
+                    }],
+                    yAxes: [{
+                        stacked: true,
+                        gridLines: false,
+                        barThickness: 15
+                    }]
+                },
+                legend: {
+                    display: false
+                }
+            }
+        });
+    })();
+</script>	</body>
+</html>

@@ -1,8 +1,6 @@
 package ServiceNow.ServiceNowRunners;
 
 import java.io.File;
-
-import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import com.nci.automation.utils.LocalConfUtils;
@@ -36,6 +34,5 @@ public class RunCOVIDDashProgressionTest {
 		ConfUtils.setBaseResultsDir(reportsOutput);
 		System.out.println("Starting Test Execution...");
 	}
-
 
 }

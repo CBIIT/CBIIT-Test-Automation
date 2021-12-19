@@ -2,7 +2,6 @@ package ServiceNow.COVIDCode.StepsImplementation;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
@@ -132,22 +131,24 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 	}
 
 	/***
-	 * This method compare expected and actual list of drop down and assert it on Exposure and Risk Factors tab
+	 * This method compare expected and actual list of drop down and assert it on
+	 * Exposure and Risk Factors tab
 	 * Enrollment Questionnaire in service portal
 	 */
 
-	public void servicePortalEnrollmentQuestionnaireExposureAndRiskAssertValueFromBootStrapDropDown(List<WebElement> lists, String[] arrayList) {
+	public void servicePortalEnrollmentQuestionnaireExposureAndRiskAssertValueFromBootStrapDropDown(
+			List<WebElement> lists, String[] arrayList) {
 		MiscUtils.sleep(2000);
 		List<String> act = new ArrayList<String>();
-		for(WebElement l : lists){
-		  act.add(l.getText());
+		for (WebElement l : lists) {
+			act.add(l.getText());
 		}
 		List<String> exp = new ArrayList<String>(Arrays.asList(arrayList));
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
-	  Assert.assertEquals(act, exp);
+		Assert.assertEquals(act, exp);
 	}
-    
+
 	/***
 	 * This method selects Yes on consent drop down
 	 */
