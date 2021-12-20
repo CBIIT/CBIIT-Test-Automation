@@ -7306,7 +7306,7 @@ public void enters_All_details_for_Please_provide_any_details_known_for_the_cond
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.cHARMSEmailLogIn);
-		rASSurveyPage.cHARMSEmailLogIn.sendKeys("charmsras4@yahoo.com");
+		rASSurveyPage.cHARMSEmailLogIn.sendKeys("charmsras5@yahoo.com");
 		rASSurveyPage.cHARMSpasswordToLogIn.sendKeys(rasSurveyPin);
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();

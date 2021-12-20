@@ -82,7 +82,7 @@ Feature: MyRAS Study Regression Scenarios
     And selects the submitted MyRAS screener record that has signed consent form from participant attached
     And the ServiceNow user signs the consent form
 
-  @juarezds @RegressionSelfSubmissionPartTwo 
+  @juarezds @RegressionSelfSubmissionPartTwo  
   Scenario: CGB IIQ Submission
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -567,7 +567,7 @@ Feature: MyRAS Study Regression Scenarios
     And the user clicks the forward arrow button
     Then the end of the IIQ survey page "EndOfSurvey" is displayed
 
-  @juarezds @RegressionProxySubmissionPartThree 
+  @juarezds @RegressionProxySubmissionPartThree @Progression
   Scenario: RAS Survey Submission - Regression
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in via Okta with username "charmsras5@yahoo.com" and password "RASTest2021$$"

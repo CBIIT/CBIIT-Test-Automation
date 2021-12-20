@@ -3,10 +3,10 @@ Feature: myRAS Screener Submissions from the Qualtrics Portal
 
 	This feature file contains scenarios which verify data submitted via Qualtrics questionnaire in Native View
 
-	@juarezds @myRasScreenerSubmissionOnly
+	@juarezds @myRasScreenerSubmissionOnly 
 	Scenario: Proxy Screener Submission - for manual testing only - use if you need to submit screener quickly
 		Given a proxy is on the RASopathies Longitudinal Cohort Study login page
-		And logs in via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
+		And logs in via Okta with username "charmsras5@yahoo.com" and password "RASTest2021$$"
 		And clicks on Eligibility Questionnaire to begin questionnaire
 		And clicks next after reviewing the STUDY INTRODCTION
 		And selects I am completing this form for someone else option
@@ -14,7 +14,7 @@ Feature: myRAS Screener Submissions from the Qualtrics Portal
 		And enters First Name "FirstNameTest", Middle Name "MiddleNameTest", Last Name "lastNameTest" for What is your name?
 		And enters "Entering Other Relationship" for What is your relationship to the participant?
 		And selects Yes option for Are you the legal guardian of the participant?
-		And clicks next for The next set of questions will collect basic information about the participant. page
+		And clicks next for The next set of questions will collect basic information about the participant
 		And selects participants Date of Birth from the calendar picker
 		And selects Male option for participants Sex assigned at birth
 		And selects Yes option for participant being adopted
@@ -26,7 +26,7 @@ Feature: myRAS Screener Submissions from the Qualtrics Portal
 		And enters proxy home phone number "703-687-5816", cell phone number "703-687-5816", work phone number "703-687-5816" and selects cell phone number as Preferred Contact
 		And selects Not Hispanic/Latino option for Ethnicity of participant
 		And enters "Entering other Race" for other when selecting Race of participant
-		And selects Other option and enters "This is a test" for participant being in other research study
+		And selects Other option and enters "LFS Study" for is the participant participated in any other research study or registry group?
 		And proceeds with providing information for medical diagnosis
 		And enters "Diagnosed with other conditions" for participant being diagnosed with any of the listed conditions
 		And selects Yes option for participant being diagnosed with cancer
