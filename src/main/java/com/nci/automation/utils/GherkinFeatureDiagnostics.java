@@ -1,5 +1,7 @@
 package com.nci.automation.utils;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -8,12 +10,10 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.LineIterator;
 import org.apache.commons.lang.StringUtils;
 //import org.apache.commons.lang.tuple.Pair;
-import org.apache.log4j.Logger;
 
 /**
  * This class has functions that will get some states about cucumber gherkin
@@ -32,7 +32,7 @@ public class GherkinFeatureDiagnostics {
 	private final String[] NON_STEPS = { FEATURE_START, SCENARIO_START,
 			TAG_START, COMMENT_START };
 
-	private final Logger LOG = Logger.getLogger(GherkinFeatureDiagnostics.class);
+	private final Logger LOG = LogManager.getLogger(GherkinFeatureDiagnostics.class);
 
 	private final String featureResourceDir;
 
@@ -152,59 +152,59 @@ public class GherkinFeatureDiagnostics {
 		return modLine;
 	}
 
-//	/**
-//	 * Returns list of all step names in all scenarios under given directory.
-//	 * 
-//	 * @return Returns all steps under the given directory.
-//	 */
-//	public Pair<List<String>, Integer> getStepNames() throws IOException {
-//		List<String> stepNameList = new ArrayList<String>();
-//
-//		File sitFeatureDir = getSitFeaturesDir();
-//
-//		if (sitFeatureDir != null) {
-//			String[] exts = { FEATURE_FILE_EXT };
-//
-//			Collection<File> featureFiles = FileUtils.listFiles(sitFeatureDir,
-//					exts, true);
-//
-//			for (File file : featureFiles) {
-//				LineIterator lineIterator = FileUtils.lineIterator(file);
-//
-//				while (lineIterator.hasNext()) {
-//					String line = lineIterator.nextLine().trim();
-//
-//					if (isStep(line) && StringUtils.isNotBlank(line)) {
-//							stepNameList.add(line.trim());
-//					}
-//
-//				}
-//			}
-//
-//		}
-//
-//		List<List<String>> allSteps = getAllSteps(stepNameList);
-//		List<List<String>> uniqueSteps = getUniqueSteps(allSteps);
-//
-//		Collections.sort(uniqueSteps, new Comparator<List<String>>() {
-//
-//			public int compare(List<String> first, List<String> second) {
-//				String firstLine = first.get(0);
-//				String secondLine = second.get(0);
-//				String firstWord = firstLine.split("\\s")[0];
-//				String secondWord = secondLine.split("\\s")[0];
-//
-//				return secondWord.compareTo(firstWord);
-//			}
-//		});
-//
-//		List<String> flatList = flattenList(uniqueSteps);
-//		Pair<List<String>, Integer> stepNameCountPair = Pair.of(
-//				flatList,
-//				uniqueSteps.size());
-//
-//		return stepNameCountPair;
-//	}
+	// /**
+	// * Returns list of all step names in all scenarios under given directory.
+	// *
+	// * @return Returns all steps under the given directory.
+	// */
+	// public Pair<List<String>, Integer> getStepNames() throws IOException {
+	// List<String> stepNameList = new ArrayList<String>();
+	//
+	// File sitFeatureDir = getSitFeaturesDir();
+	//
+	// if (sitFeatureDir != null) {
+	// String[] exts = { FEATURE_FILE_EXT };
+	//
+	// Collection<File> featureFiles = FileUtils.listFiles(sitFeatureDir,
+	// exts, true);
+	//
+	// for (File file : featureFiles) {
+	// LineIterator lineIterator = FileUtils.lineIterator(file);
+	//
+	// while (lineIterator.hasNext()) {
+	// String line = lineIterator.nextLine().trim();
+	//
+	// if (isStep(line) && StringUtils.isNotBlank(line)) {
+	// stepNameList.add(line.trim());
+	// }
+	//
+	// }
+	// }
+	//
+	// }
+	//
+	// List<List<String>> allSteps = getAllSteps(stepNameList);
+	// List<List<String>> uniqueSteps = getUniqueSteps(allSteps);
+	//
+	// Collections.sort(uniqueSteps, new Comparator<List<String>>() {
+	//
+	// public int compare(List<String> first, List<String> second) {
+	// String firstLine = first.get(0);
+	// String secondLine = second.get(0);
+	// String firstWord = firstLine.split("\\s")[0];
+	// String secondWord = secondLine.split("\\s")[0];
+	//
+	// return secondWord.compareTo(firstWord);
+	// }
+	// });
+	//
+	// List<String> flatList = flattenList(uniqueSteps);
+	// Pair<List<String>, Integer> stepNameCountPair = Pair.of(
+	// flatList,
+	// uniqueSteps.size());
+	//
+	// return stepNameCountPair;
+	// }
 
 	private List<String> flattenList(List<List<String>> hiList) {
 		List<String> flatList = new ArrayList<String>();
@@ -262,9 +262,9 @@ public class GherkinFeatureDiagnostics {
 
 	private List<List<String>> getUniqueSteps(List<List<String>> allSteps) {
 		List<List<String>> uniqueSteps = new ArrayList<List<String>>();
-		
+
 		Set<String> stepSet = new HashSet<String>();
-		
+
 		for (List<String> stepList : allSteps) {
 			if (stepList != null && !stepList.isEmpty()) {
 				String replacedString = replaceParamsInSteps(stepList.get(0));

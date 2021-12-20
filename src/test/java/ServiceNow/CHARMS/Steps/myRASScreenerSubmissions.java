@@ -6,7 +6,6 @@ import java.util.Set;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -15,7 +14,6 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import ServiceNow.CHARMS.Pages.MyRASLoginPage;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -2162,7 +2160,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 		CommonUtils.waitForVisibility(myRASLoginPage.loginToMyRASButton);
 		myRASLoginPage.loginToMyRASButton.click();
-		oktaLoginPage.usernameTxtBox.sendKeys("charmsras4@yahoo.com");
+		oktaLoginPage.usernameTxtBox.sendKeys("charmsras5@yahoo.com");
 		oktaLoginPage.passwordTxtBox.sendKeys("RASTest2021$$");
 		CommonUtils.waitForVisibility(oktaLoginPage.loginBtn);
 		oktaLoginPage.loginBtn.click();
@@ -2190,11 +2188,12 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		myRasStudyConsentPage.consentButton.click();
 
 		CommonUtils.waitForVisibility(myRasStudyConsentPage.signingPasswordTextBox);
+		MiscUtils.sleep(1000);
 		myRasStudyConsentPage.signingPasswordTextBox.sendKeys("RASTest2021$$");
 
 		CommonUtils.waitForVisibility(myRasStudyConsentPage.signButton);
 		myRasStudyConsentPage.signButton.click();
-		MiscUtils.sleep(1500);
+		MiscUtils.sleep(2500);
 
 		CommonUtils.waitForVisibility(myRasStudyConsentPage.yourConsentFormHasBeenSubmittedOKbutton);
 		myRasStudyConsentPage.yourConsentFormHasBeenSubmittedOKbutton.click();

@@ -6,7 +6,6 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -160,17 +159,17 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 		CommonUtils.click(seerLandingPage.nonInstitutionalAccountsContinuetoEmailVerificationButton);
 	}
-	
+
 	@When("user enters email address for a Non-Institutional Account")
 	public void user_enters_email_address_for_a_Non_Institutional_Account() {
-	    CommonUtils.sendKeys(seerLandingPage.nonInstitutionalAccountsEmailAddressField, newEmail);
-	    CucumberLogUtils.logScreenShot();
+		CommonUtils.sendKeys(seerLandingPage.nonInstitutionalAccountsEmailAddressField, newEmail);
+		CucumberLogUtils.logScreenShot();
 		CommonUtils.click(seerLandingPage.nonInstitutionalAccountsContinuetoEmailVerificationButton);
 	}
-	
+
 	@When("the user enter an email address for a Non-Institutional Account")
 	public void the_user_enter_an_email_address_for_a_Non_Institutional_Account() {
-		
+
 		CommonUtils.sendKeys(seerLandingPage.nonInstitutionalAccountsEmailAddressField, newEmail);
 		CucumberLogUtils.logScreenShot();
 		CommonUtils.click(seerLandingPage.nonInstitutionalAccountsContinuetoEmailVerificationButton);
@@ -203,7 +202,7 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 	}
-	
+
 	@When("fills out all required fields on SEER Data registration page")
 	public void fills_out_all_required_fields_on_SEER_Data_registration_page() {
 		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationFirstNameField, "FirstName");
@@ -280,14 +279,18 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 						.getText());
 		CucumberLogUtils.logScreenShot();
 	}
-	
+
 	@Then("the following breadcrumbs are displayed {string}, {string}, {string}, {string}, {string}")
-	public void the_following_breadcrumbs_are_displayed(String homeBreadcrumb, String dataAndSoftwareBreadcrumb, String incidenceDatabaseBreadcrumb, String requestSeerIncidenceDataBreadcrumb, String submissionConfirmationBreadcrumb) {
-	    Assert.assertEquals(homeBreadcrumb, seerLandingPage.seerHomeBreadcrumb.getText());
-	    Assert.assertEquals(dataAndSoftwareBreadcrumb, seerLandingPage.seerDataAndSoftwareBreadcrumb.getText());
-	    Assert.assertEquals(incidenceDatabaseBreadcrumb, seerLandingPage.seerIncidenceDatabaseBreadcrumb.getText());
-	    Assert.assertEquals(requestSeerIncidenceDataBreadcrumb, seerLandingPage.seerRequestSeerIncidenceDataBreadcrumb.getText());
-	    Assert.assertEquals(submissionConfirmationBreadcrumb, seerLandingPage.seerSubmissionConfirmationBreadcrumb.getText());
-	    CucumberLogUtils.logScreenShot();
+	public void the_following_breadcrumbs_are_displayed(String homeBreadcrumb, String dataAndSoftwareBreadcrumb,
+			String incidenceDatabaseBreadcrumb, String requestSeerIncidenceDataBreadcrumb,
+			String submissionConfirmationBreadcrumb) {
+		Assert.assertEquals(homeBreadcrumb, seerLandingPage.seerHomeBreadcrumb.getText());
+		Assert.assertEquals(dataAndSoftwareBreadcrumb, seerLandingPage.seerDataAndSoftwareBreadcrumb.getText());
+		Assert.assertEquals(incidenceDatabaseBreadcrumb, seerLandingPage.seerIncidenceDatabaseBreadcrumb.getText());
+		Assert.assertEquals(requestSeerIncidenceDataBreadcrumb,
+				seerLandingPage.seerRequestSeerIncidenceDataBreadcrumb.getText());
+		Assert.assertEquals(submissionConfirmationBreadcrumb,
+				seerLandingPage.seerSubmissionConfirmationBreadcrumb.getText());
+		CucumberLogUtils.logScreenShot();
 	}
 }

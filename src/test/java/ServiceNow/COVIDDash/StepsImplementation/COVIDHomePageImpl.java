@@ -14,18 +14,12 @@ import ServiceNow.COVIDDash.Utils.COVIDConstants;
 import appsCommon.PageCache;
 import appsCommon.PageInitializer;
 
-
-
-
 public class COVIDHomePageImpl extends PageInitializer {
 
 	private static PageCache pageCache = PageCache.getInstance();
 
-
 	final static String covid = "covid-19-dashboard";
 	final static String attName = "value";
-	
-
 
 	public void navigateToCOVIDDashLoginPage() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("covid19dashboard"));
@@ -36,7 +30,7 @@ public class COVIDHomePageImpl extends PageInitializer {
 	public void clickOnLoginToAccessBtn() {
 		MiscUtils.sleep(1000);
 		covidHomePage.clickITrustRedirectButton();
-		
+
 	}
 
 	public void verifyUserLoggedIn() {
@@ -111,11 +105,12 @@ public class COVIDHomePageImpl extends PageInitializer {
 
 	public void verifyHomePageVerbiage(String verbage) {
 		String actualVerbage = covidHomePage.getHomePageVerbiageText().replaceAll("\\s", "");
-		String expectedVerbage=verbage.replaceAll("\\s", "");
+		String expectedVerbage = verbage.replaceAll("\\s", "");
 		Assert.assertTrue(actualVerbage.equals(expectedVerbage));
 	}
-	
-	public void successfullFormSubmission(String PIName, String IRBProtocolNumber, String StudyTitle, String StudySpecificAim ) {
+
+	public void successfullFormSubmission(String PIName, String IRBProtocolNumber, String StudyTitle,
+			String StudySpecificAim) {
 		pageCache.getCOVIDHomePageImpl().enterInvestigatorName(PIName);
 		covidHomePage.enterIBRProtocolNumber(IRBProtocolNumber);
 		covidHomePage.enterStudyTitle(StudyTitle);
@@ -125,7 +120,7 @@ public class COVIDHomePageImpl extends PageInitializer {
 		covidHomePage.attachStudyDocument();
 		covidHomePage.clickSubmitAndConfirmSubButton();
 	}
-	
+
 	public void attachingMultipleURLs() {
 		JavascriptUtils.clickByJS(pageCache.getCOVIDHomePage().urlButton());
 		MiscUtils.sleep(1000);
@@ -137,7 +132,8 @@ public class COVIDHomePageImpl extends PageInitializer {
 		JavascriptUtils.clickByJS(covidHomePage.urlAddButton());
 		covidHomePage.urlField().sendKeys(COVIDConstants.GOOGLE_URL);
 		JavascriptUtils.clickByJS(covidHomePage.urlAddButton());
-		JavascriptUtils.clickByJS(covidHomePage.urlSaveButton());	
+		JavascriptUtils.clickByJS(covidHomePage.urlSaveButton());
+		MiscUtils.sleep(1000);
 		boolean addedURL = covidHomePage.addedUrlLink().getText().contains(COVIDConstants.GOOGLE_URL);
 		Assert.assertTrue(addedURL);
 	}
