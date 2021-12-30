@@ -259,7 +259,7 @@ Feature: RAS Survey Scenarios (Preview)
         And enters other health issue "FOREIGN ACCENT SYNDROME" for If there are any other health issues present that have not been captured by this survey page. page - myRAS Survey
         And clicks Next button to end survey for You are almost done! To submit your responses, you must continue in the questionnaire by clicking the forward arrow below. The information you have provided will be reviewed by our study team. In the meantime, you should receive an email confirming this submission. page - myRAS Survey
 
-    @juarezds @RASSurveyPreview
+    @juarezds @RASSurveyPreview @Progression
     Scenario: RAS Survey Proxy Scenario  #submit page next button has been commented out/disabled
         Given a participant is on the Rassurvey Questionaire login page - myRAS Survey
         And logs in via Okta with username "diego1@test.com" and password "123456" on login page - myRAS Survey

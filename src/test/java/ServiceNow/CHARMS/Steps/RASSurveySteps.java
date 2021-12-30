@@ -4081,10 +4081,11 @@ public class RASSurveySteps extends PageInitializer {
 
 	}
 
+	// DEBUG HERE
 	@Given("selects All that apply and enters herbal supplements {string} and enters for first other medication {string} and enters for second medication {string} for Please select all medications Christinas mother took during her pregnancy with them.  - myRAS Survey")
 	public void selects_All_that_apply_and_enters_herbal_supplements_and_enters_for_first_other_medication_and_enters_for_second_medication_for_Please_select_all_medications_Christinas_mother_took_during_her_pregnancy_with_them_myRAS_Survey(
 			String herbalSupplement, String otherMedication1, String otherMedication2) {
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(rASSurveyPage.herbalSupplementTextBox);
 		rASSurveyStepsImpl
 				.selectingCheckBoxes("Unsure of what medications/supplements/vitamins taken during pregnancy");

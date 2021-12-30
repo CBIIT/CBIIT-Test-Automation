@@ -244,7 +244,7 @@ public class RASSurveyPage {
 	public WebElement hormonesCheckBox;
 
 	// HERBAL SUPPLEMENTS (PLEASE SPECIFY) TEXT BOX
-	@FindBy(xpath = "//input[@title='Herbal supplements (please specify)']")
+	@FindBy(xpath = "(//input[@class='TextEntryBox InputText QR-QID340-x13-TEXT QWatchTimer'])[1]")
 	public WebElement herbalSupplementTextBox;
 
 	// OTHER MEDICATION (PLEASE SPECIFY) TEXT BOX

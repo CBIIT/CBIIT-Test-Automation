@@ -827,6 +827,6 @@ Feature: MyRAS Study Regression Scenarios
     And enters "FOREIGN ACCENT SYNDROME" for If there are any other health issues present that have not been captured by this survey, please list them here -myRASSurvey
     And clicks Next button to end survey for You are almost done! To submit your responses, you must continue in the questionnaire by clicking the forward arrow below. The information you have provided will be reviewed by our study team. In the meantime, you should receive an email confirming this submission. page - myRAS Survey
 
-  @juarezds @Progression
+  @juarezds
   Scenario: Test
     Given data verification
