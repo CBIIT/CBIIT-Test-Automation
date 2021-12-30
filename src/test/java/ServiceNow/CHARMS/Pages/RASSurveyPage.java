@@ -4,6 +4,7 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
 public class RASSurveyPage {
@@ -135,6 +136,18 @@ public class RASSurveyPage {
 	@FindBy(xpath = "//select[@name='QR~QID318#3~2']")
 	public WebElement bioFathersAgeWhenBornDropDown;
 
+	// UNSURE/UNKNOWN RADIO BUTTON FOR ALL PAGES
+	@FindBy(xpath = "//span[contains(text(),'Unsure/Unknown')]")
+	public WebElement unsureUnknownRadioButton;
+
+	// MOTHER USURE/UNKNOWN WHERE BIOLOGICAL PARENT WAS BORN RADIO BUTTON
+	@FindBy(xpath = "//label[@for='QR~QID318#2~1~1']")
+	public WebElement motherUnsureUnknownBirthplaceRadioButton;
+
+	// FATHER USURE/UNKNOWN WHERE BIOLOGICAL PARENT WAS BORN RADIO BUTTON
+	@FindBy(xpath = "//label[@for='QR~QID318#2~2~1']")
+	public WebElement fatherUnsureUnknownBirthplaceRadioButton;
+
 	/*
 	 * ----------------- END OF PLEASE COMPLETE THE TABLE BELOW REGARDING YOUR
 	 * BIOLOGICAL PARENTS. PAGE -----------------
@@ -244,7 +257,7 @@ public class RASSurveyPage {
 	public WebElement hormonesCheckBox;
 
 	// HERBAL SUPPLEMENTS (PLEASE SPECIFY) TEXT BOX
-	@FindBy(xpath = "(//input[@class='TextEntryBox InputText QR-QID340-x13-TEXT QWatchTimer'])[1]")
+	@FindBy(xpath = "//input[@title='Herbal supplements (please specify)']")
 	public WebElement herbalSupplementTextBox;
 
 	// OTHER MEDICATION (PLEASE SPECIFY) TEXT BOX
@@ -272,207 +285,466 @@ public class RASSurveyPage {
 	@FindBy(xpath = "//input[@name='QR~QID62#1~x1~1~TEXT']")
 	public WebElement antibioticNameTextBox;
 
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - ANTIBIOTICS NAME OF MEDICATION
+	// TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#1~x1~1~TEXT'])[1]")
+	public WebElement antibioticNameForSomeoneElseTextBox;
+
 	// ANTIBIOTICS REASON MEDICATION PRESCRIBED TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#2~x1~1~TEXT']")
 	public WebElement antibioticReasonTextBox;
+
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - ANTIBIOTICS REASON MEDICATION
+	// PRESCRIBED TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#2~x1~1~TEXT'])[1]")
+	public WebElement antibioticReasonForSomeoneElseTextBox;
 
 	// ANTIBIOTICS LENGTH OF TIME MEDICATION WAS TAKEN (DURING PREGNANCY) DROP DOWN
 	@FindBy(xpath = "(//select[contains(@name,'QR~QID62#3~x1')])[1]")
 	public WebElement antibioticLenghtOfTimeMedicationWasTakenDropDown;
 
-	// VTAMINS NAME OF MEDICATION TEXT BOX
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - ANTIBIOTICS LENGTH OF TIME
+	// MEDICATION WAS TAKEN (DURING PREGNANCY) DROP DOWN
+	@FindBy(xpath = "(//select[@name='QR~QID340#3~x1'])[1]")
+	public WebElement antibioticLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown;
+
+	// VITAMINS NAME OF MEDICATION TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#1~x2~1~TEXT']")
 	public WebElement vitaminNameTextBox;
+
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - VITAMINS NAME OF MEDICATION TEXT
+	// BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#1~x2~1~TEXT'])[1]")
+	public WebElement vitaminNameForSomeoneElseTextBox;
 
 	// VITAMINS REASON MEDICATION PRESCRIBED TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#2~x2~1~TEXT']")
 	public WebElement vitaminReasonTextBox;
 
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - VITAMINS REASON MEDICATION
+	// PRESCRIBED TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#2~x2~1~TEXT'])[1]")
+	public WebElement vitaminReasonForSomeoneElseTextBox;
+
 	// VITAMINS LENGTH OF TIME MEDICATION WAS TAKEN (DURING PREGNANCY) DROP DOWN
 	@FindBy(xpath = "(//select[contains(@name,'QR~QID62#3~x2')])[1]")
 	public WebElement vitaminLenghtOfTimeMedicationWasTakenDropDown;
 
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - VITAMINS LENGTH OF TIME
+	// MEDICATION WAS TAKEN (DURING PREGNANCY) DROP DOWN
+	@FindBy(xpath = "(//select[@name='QR~QID340#3~x2'])[1]")
+	public WebElement vitaminLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown;
+
 	// ANTIHYPERTENSIVES (FOR HIGH BLOOD PRESSURE) NAME OF MEDICATION TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#1~x3~1~TEXT']")
 	public WebElement antihypertensivesNameTextBox;
+
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - ANTIHYPERTENSIVES (FOR HIGH
+	// BLOOD PRESSURE) NAME OF MEDICATION TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#1~x3~1~TEXT'])[1]")
+	public WebElement antihypertensivesNameForSomeoneElseTextBox;
 
 	// ANTIHYPERTENSIVES (FOR HIGH BLOOD PRESSURE) REASON MEDICATION PRESCRIBED TEXT
 	// BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#2~x3~1~TEXT']")
 	public WebElement antihypertensiveReasonTextBox;
 
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - ANTIHYPERTENSIVES (FOR HIGH
+	// BLOOD PRESSURE) REASON MEDICATION PRESCRIBED TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#2~x3~1~TEXT'])[1]")
+	public WebElement antihypertensiveReasonForSomeoneElseTextBox;
+
 	// ANTIHYPERTENSIVES (FOR HIGH BLOOD PRESSURE) LENGTH OF TIME MEDICATION WAS
 	// TAKEN (DURING PREGNANCY) DROP DOWN
 	@FindBy(xpath = "//tbody/tr[3]/td[9]/select[1]")
 	public WebElement antihypertensivesLenghtOfTimeMedicationWasTakenDropDown;
 
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - ANTIHYPERTENSIVES (FOR HIGH
+	// BLOOD PRESSURE) LENGTH OF TIME MEDICATION WAS TAKEN (DURING PREGNANCY) DROP
+	// DOWN
+	@FindBy(xpath = "(//select[@name='QR~QID340#3~x3'])[1]")
+	public WebElement antihypertensivesLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown;
+
 	// MEDICATION FOR HIGH BLOOD GLUCOSE (E.G. INSULIN) NAME OF MEDICATION TEXT BOX
-	@FindBy(xpath = "//input[@name='QR~QID62#1~x4~1~TEXT']")
-	public WebElement insulinMedicationNameTextBox;
+	@FindBy(xpath = "(//input[@name='QR~QID62#1~x4~1~TEXT'])[1]")
+	public WebElement medicationForHighBloodGlucoseNameTextBox;
+
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - MEDICATION FOR HIGH BLOOD
+	// GLUCOSE (E.G. INSULIN) NAME OF MEDICATION TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#1~x4~1~TEXT'])[1]")
+	public WebElement medicationForHighBloodGlucoseNameForSomeoneElseTextBox;
 
 	// MEDICATION FOR HIGH BLOOD GLUCOSE (E.G. INSULIN) REASON MEDICATION PRESCRIBED
 	// TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#2~x4~1~TEXT']")
-	public WebElement insulinReasonTextBox;
+	public WebElement medicationForHighBloodGlucoseReasonTextBox;
+
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - FOR HIGH BLOOD GLUCOSE (E.G.
+	// INSULIN) REASON MEDICATION PRESCRIBED TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#2~x4~1~TEXT'])[1]")
+	public WebElement medicationForHighBloodGlucoseReasonForSomeoneElseTextBox;
 
 	// MEDICATION FOR HIGH BLOOD GLUCOSE (E.G. INSULIN) LENGTH OF TIME MEDICATION
 	// WAS TAKEN (DURING PREGNANCY) DROP DOWN
 	@FindBy(xpath = "(//select[contains(@name,'QR~QID62#3~x4')])[1]")
-	public WebElement insulinLenghtOfTimeMedicationWasTakenDropDown;
+	public WebElement medicationForHighBloodGlucoseLenghtOfTimeMedicationWasTakenDropDown;
+
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - MEDICATION FOR HIGH BLOOD
+	// GLUCOSE (E.G. INSULIN) LENGTH OF TIME MEDICATION WAS TAKEN (DURING PREGNANCY)
+	// DROP DOWN
+	@FindBy(xpath = "(//select[@name='QR~QID340#3~x4'])[1]")
+	public WebElement medicationForHighBloodGlucoseLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown;
 
 	// ANTIEMETICS (FOR NAUSEA) NAME OF MEDICATION TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#1~x5~1~TEXT']")
 	public WebElement antiemeticsNameTextBox;
 
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - ANTIEMETICS (FOR NAUSEA) NAME OF
+	// MEDICATION TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#1~x5~1~TEXT'])[1]")
+	public WebElement antiemeticsNameForSomeoneElseTextBox;
+
 	// ANTIEMETICS (FOR NAUSEA) REASON MEDICATION PRESCRIBED TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#2~x5~1~TEXT']")
 	public WebElement antiemeticsReasonTextBox;
+
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - ANTIEMETICS (FOR NAUSEA) REASON
+	// MEDICATION PRESCRIBED TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#2~x5~1~TEXT'])[1]")
+	public WebElement antiemeticsReasonForSomeoneElseTextBox;
 
 	// ANTIEMETICS (FOR NAUSEA) LENGTH OF TIME MEDICATION WAS TAKEN (DURING
 	// PREGNANCY) DROP DOWN
 	@FindBy(xpath = "(//select[contains(@name,'QR~QID62#3~x5')])[1]")
 	public WebElement antiemeticsLenghtOfTimeMedicationWasTakenDropDown;
 
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - ANTIEMETICS (FOR NAUSEA) LENGTH
+	// OF TIME MEDICATION WAS TAKEN (DURING PREGNANCY) DROP DOWN
+	@FindBy(xpath = "(//select[@name='QR~QID340#3~x5'])[1]")
+	public WebElement antiemeticsLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown;
+
 	// HORMONES (E.G. DES, PROGESTERONE) NAME OF MEDICATION TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#1~x6~1~TEXT']")
 	public WebElement hormoneNameTextBox;
 
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - HORMONES (E.G. DES,
+	// PROGESTERONE) NAME OF MEDICATION TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#1~x6~1~TEXT'])[1]")
+	public WebElement hormoneNameForSomeoneElseTextBox;
+
 	// HORMONES (E.G. DES, PROGESTERONE) REASON MEDICATION PRESCRIBED TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#2~x6~1~TEXT']")
 	public WebElement hormoneReasonTextBox;
+
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - HORMONES (E.G. DES,
+	// PROGESTERONE) REASON MEDICATION PRESCRIBED TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#2~x6~1~TEXT'])[1]")
+	public WebElement hormoneReasonForSomeoneElseTextBox;
 
 	// HORMONES (E.G. DES, PROGESTERONE) LENGTH OF TIME MEDICATION WAS TAKEN (DURING
 	// PREGNANCY) DROP DOWN
 	@FindBy(xpath = "(//select[contains(@name,'QR~QID62#3~x6')])[1]")
 	public WebElement hormonesLenghtOfTimeMedicationWasTakenDropDown;
 
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - HORMONES (E.G. DES,
+	// PROGESTERONE) LENGTH OF TIME MEDICATION WAS TAKEN (DURING PREGNANCY) DROP
+	// DOWN
+	@FindBy(xpath = "(//select[@name='QR~QID340#3~x6'])[1]")
+	public WebElement hormonesLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown;
+
 	// ANTI-DEPRESSANTS NAME OF MEDICATION TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#1~x7~1~TEXT']")
 	public WebElement antidepressantNameTextBox;
 
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - ANTI-DEPRESSANTS NAME OF
+	// MEDICATION TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#1~x7~1~TEXT'])[1]")
+	public WebElement antidepressantNameForSomeoneElseTextBox;
+
 	// ANTI-DEPRESSANTS REASON MEDICATION PRESCRIBED TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#2~x7~1~TEXT']")
 	public WebElement antidepressantReasonTextBox;
+
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - ANTI-DEPRESSANTS REASON
+	// MEDICATION PRESCRIBED TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#2~x7~1~TEXT'])[1]")
+	public WebElement antidepressantReasonForSomeoneElseTextBox;
 
 	// ANTI-DEPRESSANTS LENGTH OF TIME MEDICATION WAS TAKEN (DURING PREGNANCY) DROP
 	// DOWN
 	@FindBy(xpath = "(//select)[7]")
 	public WebElement antiDepressantsLenghtOfTimeMedicationWasTakenDropDown;
 
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - ANTI-DEPRESSANTS LENGTH OF TIME
+	// MEDICATION WAS TAKEN (DURING PREGNANCY) DROP DOWN
+	@FindBy(xpath = "(//select[@name='QR~QID340#3~x7'])[1]")
+	public WebElement antiDepressantsLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown;
+
 	// DIURETICS NAME OF MEDICATION TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#1~x8~1~TEXT']")
 	public WebElement diureticNameTextBox;
+
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - DIURETICS NAME OF MEDICATION
+	// TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#1~x8~1~TEXT'])[1]")
+	public WebElement diureticNameForSomeoneElseTextBox;
 
 	// DIURETICS REASON MEDICATION PRESCRIBED TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#2~x8~1~TEXT']")
 	public WebElement diureticReasonTextBox;
 
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - DIURETICS REASON MEDICATION
+	// PRESCRIBED TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#2~x8~1~TEXT'])[1]")
+	public WebElement diureticReasonForSomeoneElseTextBox;
+
 	// DIURETICS LENGTH OF TIME MEDICATION WAS TAKEN (DURING PREGNANCY) DROP DOWN
 	@FindBy(xpath = "(//select[contains(@name,'QR~QID62#3~x8')])[1]")
 	public WebElement diureticsLenghtOfTimeMedicationWasTakenDropDown;
+
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - DIURETICS LENGTH OF TIME
+	// MEDICATION WAS TAKEN (DURING PREGNANCY) DROP DOWN
+	@FindBy(xpath = "(//select[@name='QR~QID340#3~x8'])[1]")
+	public WebElement diureticsLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown;
 
 	// PAIN RELIEVERS NAME OF MEDICATION TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#1~x9~1~TEXT']")
 	public WebElement painReliverNameTextBox;
 
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - PAIN RELIEVERS NAME OF
+	// MEDICATION TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#1~x9~1~TEXT'])[1]")
+	public WebElement painReliverNameForSomeoneElseTextBox;
+
 	// PAIN RELIEVERS REASON MEDICATION PRESCRIBED TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#2~x9~1~TEXT']")
 	public WebElement painReliverReasonTextBox;
+
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - PAIN RELIEVERS REASON MEDICATION
+	// PRESCRIBED TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#2~x9~1~TEXT'])[1]")
+	public WebElement painReliverReasonForSomeoneElseTextBox;
 
 	// PAIN RELIEVERS LENGTH OF TIME MEDICATION WAS TAKEN (DURING PREGNANCY) DROP
 	// DOWN
 	@FindBy(xpath = "(//select[contains(@name,'QR~QID62#3~x9')])[1]")
 	public WebElement painRelieversLenghtOfTimeMedicationWasTakenDropDown;
 
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - PAIN RELIEVERS LENGTH OF TIME
+	// MEDICATION WAS TAKEN (DURING PREGNANCY) DROP DOWN
+	@FindBy(xpath = "(//select[@name='QR~QID340#3~x9'])[1]")
+	public WebElement painRelieversLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown;
+
 	// MEDICATIONS FOR PRE-TERM LABOR (E.G. TERBUTALINE, MAGNESIUM SULFATE) NAME OF
 	// MEDICATION TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#1~x10~1~TEXT']")
 	public WebElement pretermLaborMedicationNameTextBox;
+
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - MEDICATIONS FOR PRE-TERM LABOR
+	// (E.G. TERBUTALINE, MAGNESIUM SULFATE) NAME OF MEDICATION TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#1~x10~1~TEXT'])[1]")
+	public WebElement pretermLaborMedicationNameForSomeoneElseTextBox;
 
 	// MEDICATIONS FOR PRE-TERM LABOR (E.G. TERBUTALINE, MAGNESIUM SULFATE) REASON
 	// MEDICATION PRESCRIBED TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#2~x10~1~TEXT']")
 	public WebElement pretermLaborReasonTextBox;
 
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - MEDICATIONS FOR PRE-TERM LABOR
+	// (E.G. TERBUTALINE, MAGNESIUM SULFATE) REASON MEDICATION PRESCRIBED TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#2~x10~1~TEXT'])[1]")
+	public WebElement pretermLaborReasonForSomeoneElseTextBox;
+
 	// MEDICATIONS FOR PRE-TERM LABOR (E.G. TERBUTALINE, MAGNESIUM SULFATE) LENGTH
 	// OF TIME MEDICATION WAS TAKEN (DURING PREGNANCY) DROP DOWN
 	@FindBy(xpath = "(//select[contains(@name,'QR~QID62#3~x10')])[1]")
 	public WebElement medicationsForPretermLaborLenghtOfTimeMedicationWasTakenDropDown;
 
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - MEDICATIONS FOR PRE-TERM LABOR
+	// (E.G. TERBUTALINE, MAGNESIUM SULFATE) LENGTH OF TIME MEDICATION WAS TAKEN
+	// (DURING PREGNANCY) DROP DOWN
+	@FindBy(xpath = "(//select[@name='QR~QID340#3~x10'])[1]")
+	public WebElement medicationsForPretermLaborLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown;
+
 	// THYROID MEDICATIONS NAME OF MEDICATION TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#1~x11~1~TEXT']")
 	public WebElement thyroidMedicationNameTextBox;
 
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - THYROID MEDICATIONS NAME OF
+	// MEDICATION TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#1~x11~1~TEXT'])[1]")
+	public WebElement thyroidMedicationNameForSomeoneElseTextBox;
+
 	// THYROID MEDICATIONS REASON MEDICATION PRESCRIBED TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#2~x11~1~TEXT']")
 	public WebElement thyroidReasonTextBox;
+
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - THYROID MEDICATIONS REASON
+	// MEDICATION PRESCRIBED TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#2~x11~1~TEXT'])[1]")
+	public WebElement thyroidReasonForSomeoneElseTextBox;
 
 	// THYROID MEDICATIONS LENGTH OF TIME MEDICATION WAS TAKEN (DURING PREGNANCY)
 	// DROP DOWN
 	@FindBy(xpath = "(//select[contains(@name,'QR~QID62#3~x11')])[1]")
 	public WebElement thyroidMedicationsLenghtOfTimeMedicationWasTakenDropDown;
 
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - THYROID MEDICATIONS LENGTH OF
+	// TIME MEDICATION WAS TAKEN (DURING PREGNANCY) DROP DOWN
+	@FindBy(xpath = "(//select[@name='QR~QID340#3~x11'])[1]")
+	public WebElement thyroidMedicationsLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown;
+
 	// ANTI-SEIZURE MEDICATIONS NAME OF MEDICATION TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#1~x12~1~TEXT']")
 	public WebElement antiSeizureNameTextBox;
 
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - ANTI-SEIZURE MEDICATIONS NAME OF
+	// MEDICATION TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#1~x12~1~TEXT'])[1]")
+	public WebElement antiSeizureNameForSomeoneElseTextBox;
+
 	// ANTI-SEIZURE MEDICATIONS REASON MEDICATION PRESCRIBED TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#2~x12~1~TEXT']")
 	public WebElement antiSeizureReasonTextBox;
+
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - ANTI-SEIZURE MEDICATIONS REASON
+	// MEDICATION PRESCRIBED TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#2~x12~1~TEXT'])[1]")
+	public WebElement antiSeizureReasonForSomeoneElseTextBox;
 
 	// ANTI-SEIZURE MEDICATIONS LENGTH OF TIME MEDICATION WAS TAKEN (DURING
 	// PREGNANCY) DROP DOWN
 	@FindBy(xpath = "(//select[contains(@name,'QR~QID62#3~x12')])[1]")
 	public WebElement antiSeizureMedicationsLenghtOfTimeMedicationWasTakenDropDown;
 
-	// OREGANO NAME OF MEDICATION TEXT BOX
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - ANTI-SEIZURE MEDICATIONS LENGTH
+	// OF TIME MEDICATION WAS TAKEN (DURING PREGNANCY) DROP DOWN
+	@FindBy(xpath = "(//select[@name='QR~QID340#3~x12'])[1]")
+	public WebElement antiSeizureMedicationsLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown;
+
+	// HERBAL SUPPLEMENT NAME OF MEDICATION TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#1~x13~1~TEXT']")
-	public WebElement oreganoNameTextBox;
+	public WebElement herbalSupplementNameTextBox;
 
-	// OREGANO REASON MEDICATION PRESCRIBED TEXT BOX
+	// HERBAL SUPPLEMENT PLEASE SPECIFY MEDICATION TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340~x13~TEXT'])[1]")
+	public WebElement herbalSupplementPleaseSpecifyTextBox;
+
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - OREGANO NAME OF MEDICATION TEXT
+	// BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#1~x13~1~TEXT'])[1]")
+	public WebElement herbalSupplementNameForSomeoneElseTextBox;
+
+	// HERBAL SUPPLEMENT REASON MEDICATION PRESCRIBED TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#2~x13~1~TEXT']")
-	public WebElement oreganoReasonTextBox;
+	public WebElement herbalSupplementReasonTextBox;
 
-	// OREGANO LENGTH OF TIME MEDICATION WAS TAKEN (DURING PREGNANCY) DROP DOWN
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - HERBAL SUPPLEMENT REASON
+	// MEDICATION PRESCRIBED TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#2~x13~1~TEXT'])[1]")
+	public WebElement herbalSupplementReasonForSomeoneElseTextBox;
+
+	// HERBAL SUPPLEMENT LENGTH OF TIME MEDICATION WAS TAKEN (DURING PREGNANCY) DROP
+	// DOWN
 	@FindBy(xpath = "(//select[contains(@name,'QR~QID62#3~x13')])[1]")
-	public WebElement oreganoLenghtOfTimeMedicationWasTakenDropDown;
+	public WebElement herbalSupplementLenghtOfTimeMedicationWasTakenDropDown;
+
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - HERBAL SUPPLEMENT LENGTH OF TIME
+	// MEDICATION WAS TAKEN (DURING PREGNANCY) DROP DOWN
+	@FindBy(xpath = "(//select[@name='QR~QID340#3~x13'])[1]")
+	public WebElement herbalSupplementLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown;
 
 	// TOTAL PARENTAL NUTRITION (TPN) NAME OF MEDICATION TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#1~x14~1~TEXT']")
 	public WebElement tpnNameTextBox;
 
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - TOTAL PARENTAL NUTRITION (TPN)
+	// NAME OF MEDICATION TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#1~x14~1~TEXT'])[1]")
+	public WebElement tpnNameForSomeoneElseTextBox;
+
 	// TOTAL PARENTAL NUTRITION (TPN) REASON MEDICATION PRESCRIBED TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#2~x14~1~TEXT']")
 	public WebElement tpnReasonTextBox;
+
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - TOTAL PARENTAL NUTRITION (TPN)
+	// REASON MEDICATION PRESCRIBED TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#2~x14~1~TEXT'])[1]")
+	public WebElement tpnReasonForSomeoneElseTextBox;
 
 	// TOTAL PARENTAL NUTRITION (TPN) LENGTH OF TIME MEDICATION WAS TAKEN (DURING
 	// PREGNANCY) DROP DOWN
 	@FindBy(xpath = "(//select[contains(@name,'QR~QID62#3~x14')])[1]")
 	public WebElement tpnLenghtOfTimeMedicationWasTakenDropDown;
 
-	// TUMERIC NAME OF MEDICATION TEXT BOX
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - TOTAL PARENTAL NUTRITION (TPN)
+	// LENGTH OF TIME MEDICATION WAS TAKEN (DURING PREGNANCY) DROP DOWN
+	@FindBy(xpath = "(//select[@name='QR~QID340#3~x14'])[1]")
+	public WebElement tpnLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown;
+
+	// OTHER MEDICATION PLEASE SPECIFY TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340~x15~TEXT'])[1]")
+	public WebElement otherMedicationNamePleaseSpecifyTextBox;
+
+	// OTHER MEDICATION NAME OF MEDICATION TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#1~x15~1~TEXT']")
-	public WebElement turmericNameTextBox;
+	public WebElement otherMedicationNameTextBox;
 
-	// TUMERIC REASON MEDICATION PRESCRIBED TEXT BOX
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - OTHER MEDICATION NAME OF
+	// MEDICATION TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#1~x15~1~TEXT'])[1]")
+	public WebElement otherMedicationNameForSomeoneElseTextBox;
+
+	// OTHER MEDICATION REASON MEDICATION PRESCRIBED TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#2~x15~1~TEXT']")
-	public WebElement turmericReasonTextBox;
+	public WebElement otherMedicationReasonTextBox;
 
-	// TUMERIC LENGTH OF TIME MEDICATION WAS TAKEN (DURING PREGNANCY) DROP DOWN
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - OTHER MEDICATION REASON
+	// MEDICATION PRESCRIBED TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#2~x15~1~TEXT'])[1]")
+	public WebElement otherMedicationReasonForSomeoneElseTextBox;
+
+	// OTHER MEDICATION LENGTH OF TIME MEDICATION WAS TAKEN (DURING PREGNANCY) DROP
+	// DOWN
 	@FindBy(xpath = "(//select[contains(@name,'QR~QID62#3~x15')])[1]")
-	public WebElement tumericLenghtOfTimeMedicationWasTakenDropDown;
+	public WebElement otherMedicationLenghtOfTimeMedicationWasTakenDropDown;
 
-	// MELATONIN NAME OF MEDICATION TEXT BOX
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - OTHERMEDICATION LENGTH OF TIME
+	// MEDICATION WAS TAKEN (DURING PREGNANCY) DROP DOWN
+	@FindBy(xpath = "(//select[@name='QR~QID340#3~x15'])[1]")
+	public WebElement otherMedicationLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown;
+
+	// OTHER MEDICATION2 NAME OF MEDICATION TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#1~x16~1~TEXT']")
-	public WebElement melatoninNameTextBox;
+	public WebElement otherMedication2NameTextBox;
 
-	// MELATONIN REASON MEDICATION PRESCRIBED TEXT BOX
+	// OTHER MEDICATION2 PLEASE SPECIFY TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340~x16~TEXT'])[1]")
+	public WebElement otherMedication2PleaseSpecifyForSomeoneElseTextBox;
+
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - OTHER MEDICATION2 NAME OF
+	// MEDICATION TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#1~x16~1~TEXT'])[1]")
+	public WebElement otherMedication2NameForSomeoneElseTextBox;
+
+	// OTHER MEDICATION2 REASON MEDICATION PRESCRIBED TEXT BOX
 	@FindBy(xpath = "//input[@name='QR~QID62#2~x16~1~TEXT']")
-	public WebElement melatoninReasonTextBox;
+	public WebElement otherMedication2ReasonTextBox;
 
-	// MELATONIN LENGTH OF TIME MEDICATION WAS TAKEN (DURING PREGNANCY) DROP DOWN
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - OTHER MEDICATION2 REASON
+	// MEDICATION PRESCRIBED TEXT BOX
+	@FindBy(xpath = "(//input[@name='QR~QID340#2~x16~1~TEXT'])[1]")
+	public WebElement otherMedication2ReasonForSomeoneElseTextBox;
+
+	// OTHER MEDICATION2 LENGTH OF TIME MEDICATION WAS TAKEN (DURING PREGNANCY) DROP
+	// DOWN
 	@FindBy(xpath = "(//select[contains(@name,'QR~QID62#3~x16')])[1]")
-	public WebElement melatoninLenghtOfTimeMedicationWasTakenDropDown;
+	public WebElement otherMedication2LenghtOfTimeMedicationWasTakenDropDown;
+
+	// I AM COMPLETING THIS FORM FOR SOMEONE ELSE - OTHER MEDICATION2 LENGTH OF TIME
+	// MEDICATION WAS TAKEN (DURING PREGNANCY) DROP DOWN
+	@FindBy(xpath = "(//select[@name='QR~QID340#3~x16'])[1]")
+	public WebElement otherMedication2LenghtOfTimeMedicationWasTakenForSomeoneElseDropDown;
 
 	/*
 	 * ----------------- END OF PLEASE PROVIDE DETAILS ON THE NAME OF THE MEDICATION
