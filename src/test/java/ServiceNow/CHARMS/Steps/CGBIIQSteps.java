@@ -1,6 +1,9 @@
 package ServiceNow.CHARMS.Steps;
 
+import org.apache.bcel.generic.Select;
 import org.junit.Assert;
+
+import CustomBusinessApp.EIDP.Util.CommonUtil;
 
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -20,7 +23,8 @@ public class CGBIIQSteps extends PageInitializer {
 	public void the_user_is_redirected_to_the_log_in_page_of_the_Individual_Information_Questionnaire__CGB_IIQ()
 			throws TestingException {
 
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CGBIIQ"));
+		WebDriverUtils.webDriver.get(
+				"https://ncidccpssurveys.gov1.qualtrics.com/jfe/preview/SV_b3Mp5ULl2UeJTjo?Q_CHL=preview&Q_SurveyVersionID=current");
 
 	}
 
@@ -60,7 +64,9 @@ public class CGBIIQSteps extends PageInitializer {
 	public void on_the_CGB_Statement_of_Confidentiality_page_clicks_next_arrow_button__CGB_IIQ() {
 
 		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(cGBIIQPages.statementOfConfidentialityText);
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
+		CommonUtils.waitForClickability(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
 	}
@@ -69,7 +75,9 @@ public class CGBIIQSteps extends PageInitializer {
 	public void on_the_CGB_Instructions_page_clicks_next_arrow_button__CGB_IIQ() {
 
 		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(cGBIIQPages.instructionsText);
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
+		CommonUtils.waitForClickability(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
 	}
@@ -78,7 +86,9 @@ public class CGBIIQSteps extends PageInitializer {
 	public void on_the_General_Background_Information_section_of_IIQ_Survey_page_clicks_next_arrow_button__CGB_IIQ() {
 
 		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(cGBIIQPages.generalBackgroundText);
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
+		CommonUtils.waitForClickability(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
 	}
@@ -404,22 +414,13 @@ public class CGBIIQSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
 
-	@When("selects whether the participant have a fraternal or identical twin - CGB IIQ")
-	public void selects_whether_the_participant_have_a_fraternal_or_identical_twin__CGB_IIQ() {
-
-		MiscUtils.sleep(2000);
-		JavascriptUtils.clickByJS(cGBIIQPages.fraternalTwinValue);
-		CucumberLogUtils.logScreenShot();
-		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
-		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
-	}
-
-	@When("adds the information for the names of the children in the twin or multiple birth {string},{string},{string},{string} - CGB IIQ")
-	public void adds_the_information_for_the_names_of_the_children_in_the_twin_or_multiple_birth__CGB_IIQ(String Twin,
+	@When("adds the information for the names of the children in the twin or multiple birth table {string},{string},{string} - CGB IIQ")
+	public void adds_the_information_for_the_names_of_the_children_in_the_twin_or_multiple_birth_table__CGB_IIQ(
 			String SiblingFirstName, String SiblingLastInitial, String RelationshipToProband) {
 
 		MiscUtils.sleep(2000);
-		CommonUtils.selectDropDownValue(Twin, cGBIIQPages.siblingBirthTypeDropdown);
+		// CommonUtils.selectDropDownValue(RelationshipToProband,
+		// cGBIIQPages.siblingBirthTypeDropdown);
 		cGBIIQPages.siblingFirstName.sendKeys(SiblingFirstName);
 		CommonUtils.selectDropDownValue(SiblingLastInitial, cGBIIQPages.siblingLastNameInitial);
 		CommonUtils.selectDropDownValue(RelationshipToProband, cGBIIQPages.siblingRelationshipToProband);
@@ -460,17 +461,47 @@ public class CGBIIQSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
 
-	@When("adds the participants birth {string}, {string} and {string} Numerical Value and {string}, {string} and {string} for Unit Of Measure - CGB IIQ")
+	@When("adds the participants birth weight {string} and Unit Of Measure {string} - CGB IIQ")
 	public void adds_the_participants_birth_and_Numerical_Value_and_and_for_Unit_Of_Measure__CGB_IIQ(
-			String NumericalWeight,
-			String NumericalLength, String NumericalHeadCircumference, String UnitMeasurementWeight,
+			String NumericalWeight, String UnitMeasurementWeight) {
+
+		MiscUtils.sleep(2000);
+		cGBIIQPages.numericalWeightProband.sendKeys(NumericalWeight);
+		MiscUtils.sleep(1500);
+		CommonUtils.selectDropDownValue(UnitMeasurementWeight, cGBIIQPages.unitOfMeasurementWeightProband);
+		CucumberLogUtils.logScreenShot();
+		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
+		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
+		MiscUtils.sleep(1500);
+	}
+
+	// Change to proband locators and fix xpaths on them
+	@When("adds the probands birth measurements {string} and {string} Numerical Value and {string} and {string} for Unit Of Measure - CGB IIQ")
+	public void adds_the_probands_birth_and_Numerical_Value_and_and_for_Unit_Of_Measure__CGB_IIQ(
+			String NumericalLength, String NumericalHeadCircumference,
 			String UnitMeasurementLength, String UnitMeasurementHeadCircumference) {
 
 		MiscUtils.sleep(2000);
-		cGBIIQPages.numericalWeight.sendKeys(NumericalWeight);
 		cGBIIQPages.numericalLength.sendKeys(NumericalLength);
 		cGBIIQPages.numericalHeadCircumference.sendKeys(NumericalHeadCircumference);
-		CommonUtils.selectDropDownValue(UnitMeasurementWeight, cGBIIQPages.unitOfMeasurementWeight);
+		CommonUtils.selectDropDownValue(UnitMeasurementLength, cGBIIQPages.unitOfMeasurementLength);
+		CommonUtils.selectDropDownValue(UnitMeasurementHeadCircumference,
+				cGBIIQPages.unitOfMeasurementHeadCircumference);
+		MiscUtils.sleep(1500);
+		CucumberLogUtils.logScreenShot();
+		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
+		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
+		MiscUtils.sleep(1500);
+	}
+
+	@When("adds the participants birth measurements {string} and {string} Numerical Value and {string} and {string} for Unit Of Measure - CGB IIQ")
+	public void adds_the_participants_birth_and_Numerical_Value_and_and_for_Unit_Of_Measure__CGB_IIQ(
+			String NumericalLength, String NumericalHeadCircumference,
+			String UnitMeasurementLength, String UnitMeasurementHeadCircumference) {
+
+		MiscUtils.sleep(2000);
+		cGBIIQPages.numericalLength.sendKeys(NumericalLength);
+		cGBIIQPages.numericalHeadCircumference.sendKeys(NumericalHeadCircumference);
 		CommonUtils.selectDropDownValue(UnitMeasurementLength, cGBIIQPages.unitOfMeasurementLength);
 		CommonUtils.selectDropDownValue(UnitMeasurementHeadCircumference,
 				cGBIIQPages.unitOfMeasurementHeadCircumference);
@@ -520,8 +551,8 @@ public class CGBIIQSteps extends PageInitializer {
 		cGBIIQPages.dateOfDiagnosisInYears.sendKeys(DateOfDiagnosisInYears);
 		MiscUtils.sleep(2000);
 		cGBIIQPages.ageOfDiagnosisInYear.sendKeys(AgeOfDiagnosisInYears);
-		cGBIIQPages.facilityAddressWhereProbandWasDiagnosed.sendKeys(NameAndAddressOfDiagnosisFacility);
-		cGBIIQPages.facilityAddressWhereProbandWasTreated.sendKeys(NameAndAddressOfTreatingFacility);
+		cGBIIQPages.facilityAddressWhereProbandWasDiagnosedTextArea.sendKeys(NameAndAddressOfDiagnosisFacility);
+		cGBIIQPages.facilityAddressWhereProbandWasTreatedTextArea.sendKeys(NameAndAddressOfTreatingFacility);
 		JavascriptUtils.clickByJS(cGBIIQPages.treatmentReceivedSurgery);
 		JavascriptUtils.clickByJS(cGBIIQPages.treatmentReceivedChemotherapy);
 		JavascriptUtils.clickByJS(cGBIIQPages.treatmentReceivedRadiation);
@@ -556,16 +587,16 @@ public class CGBIIQSteps extends PageInitializer {
 
 	@When("selects the details for the genetic evaluations that have been completed includes {string} summarization of the evaluation and adds the information {string}, {string}, {string}, and {string} - CGB IIQ")
 	public void selects_the_details_for_the_genetic_evaluations_that_have_been_completed_includes_summarization_of_the_evaluation_and_adds_the_information_and__CGB_IIQ(
-			String GeneOrSyndromeTested, String DateDiagnosedMonthYear, String AgeDiagnosed,
+			String GeneOrSyndromeTested, String DateDiagnosedMonthYear, String AgeTested,
 			String HospitalLocationOfEvaluation, String ResultsOfEvaluation) {
 
 		MiscUtils.sleep(2000);
-		CommonUtils.selectDropDownValue(GeneOrSyndromeTested, cGBIIQPages.geneOrSyndromeTested);
-		cGBIIQPages.dateOfTesting.sendKeys(DateDiagnosedMonthYear);
+		CommonUtils.selectDropDownValue(GeneOrSyndromeTested, cGBIIQPages.geneOrSyndromeTestedProbandFlow);
+		cGBIIQPages.dateOfTestingProbandFlow.sendKeys(DateDiagnosedMonthYear);
 		MiscUtils.sleep(1500);
-		cGBIIQPages.ageOfDiagnosisInYear.sendKeys(AgeDiagnosed);
-		cGBIIQPages.hospitalLocation.sendKeys(HospitalLocationOfEvaluation);
-		CommonUtils.selectDropDownValue(ResultsOfEvaluation, cGBIIQPages.bestSummaryOfEvaluation);
+		cGBIIQPages.ageOfTestingProbandFlow.sendKeys(AgeTested);
+		cGBIIQPages.hospitalLocationProbandFlow.sendKeys(HospitalLocationOfEvaluation);
+		CommonUtils.selectDropDownValue(ResultsOfEvaluation, cGBIIQPages.bestSummaryOfEvaluationProbandFlow);
 		MiscUtils.sleep(1500);
 		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(2000);
@@ -592,34 +623,44 @@ public class CGBIIQSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
 
-	@When("the user adds the participant height and weight at the indicated ages {string},{string},{string},{string},{string} and selects {string}, {string}, {string}, {string} and {string} for Unit of Measurements - CGB IIQ")
-	public void the_user_adds_the_participant_height_and_weight_at_the_indicated_ages_and_selects_and_for_Unit_of_Measurements__CGB_IIQ(
-			String CurrentWeight, String CurrentHeight, String WeightAt18YearsOld, String WeightAt30YearsOld,
-			String WeightAt40YearsOld, String CurrentWeightUnits, String CurrentHeightUnits,
-			String WeightAt18YearsOldUnits, String WeightAt30YearsOldUnits, String WeightAt40YearsOldUnits) {
-
+	@When("the user adds the participant height by proxy {string}, {string} - CGB IIQ")
+	public void the_user_adds_the_participant_height_by_proxy(String CurrentHeight, String CurrentHeightUnits) {
 		MiscUtils.sleep(2000);
-		cGBIIQPages.numericalCurrentWeight.sendKeys(CurrentWeight);
 		cGBIIQPages.numericalCurrentHeight.sendKeys(CurrentHeight);
-		cGBIIQPages.numericalWeightAt18.sendKeys(WeightAt18YearsOld);
-		cGBIIQPages.numericalWeightAt30.sendKeys(WeightAt30YearsOld);
-		cGBIIQPages.numericalWeightAt40.sendKeys(WeightAt40YearsOld);
-		CommonUtils.selectDropDownValue(CurrentWeightUnits, cGBIIQPages.UnitOfMeasurementCurrentWeight);
 		CommonUtils.selectDropDownValue(CurrentHeightUnits, cGBIIQPages.UnitOfMeasurementCurrentHeight);
-		CommonUtils.selectDropDownValue(WeightAt18YearsOldUnits, cGBIIQPages.UnitOfMeasurementWeightAt18);
-		CommonUtils.selectDropDownValue(WeightAt30YearsOldUnits, cGBIIQPages.UnitOfMeasurementWeightAt30);
-		CommonUtils.selectDropDownValue(WeightAt40YearsOldUnits, cGBIIQPages.UnitOfMeasurementWeightAt40);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
 
-	@When("selects the most participant has ever weighed {string} EXCLUDING WEIGHT DURING PREGNANCY - CGB IIQ")
-	public void selects_the_most_participant_has_ever_weighed_EXCLUDING_WEIGHT_DURING_PREGNANCY__CGB_IIQ(
-			String MostedEverWeighed) {
+	@When("the user adds the participant height by proband {string}, {string} - CGB IIQ")
+	public void the_user_adds_the_participant_height_by_proband(String CurrentHeight, String CurrentHeightUnits) {
+		MiscUtils.sleep(2000);
+		cGBIIQPages.numericalCurrentHeightProbandFlow.sendKeys(CurrentHeight);
+		CommonUtils.selectDropDownValue(CurrentHeightUnits, cGBIIQPages.UnitOfMeasurementCurrentHeightProbandFlow);
+		CucumberLogUtils.logScreenShot();
+		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
+		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
+	}
+
+	@When("the user adds the participant height and weight at the indicated ages aswell as highest weight {string},{string},{string},{string},{string} and selects {string}, {string}, {string}, {string} and {string} for Unit of Measurements - CGB IIQ")
+	public void the_user_adds_the_participant_height_and_weight_at_the_indicated_ages_and_selects_and_for_Unit_of_Measurements__CGB_IIQ(
+			String CurrentWeight, String HighestWeight, String WeightAt18YearsOld, String WeightAt30YearsOld,
+			String WeightAt40YearsOld, String CurrentWeightUnits, String HighestWeightUnits,
+			String WeightAt18YearsOldUnits,
+			String WeightAt30YearsOldUnits, String WeightAt40YearsOldUnits) {
 
 		MiscUtils.sleep(2000);
-		cGBIIQPages.mostProbandHasEverWeighed.sendKeys(MostedEverWeighed);
+		cGBIIQPages.numericalCurrentWeight.sendKeys(CurrentWeight);
+		cGBIIQPages.numericalHighestWeight.sendKeys(HighestWeight);
+		cGBIIQPages.numericalWeightAt18.sendKeys(WeightAt18YearsOld);
+		cGBIIQPages.numericalWeightAt30.sendKeys(WeightAt30YearsOld);
+		cGBIIQPages.numericalWeightAt40.sendKeys(WeightAt40YearsOld);
+		CommonUtils.selectDropDownValue(CurrentWeightUnits, cGBIIQPages.UnitOfMeasurementCurrentWeight);
+		CommonUtils.selectDropDownValue(HighestWeightUnits, cGBIIQPages.UnitOfMeasurementHighestWeight);
+		CommonUtils.selectDropDownValue(WeightAt18YearsOldUnits, cGBIIQPages.UnitOfMeasurementWeightAt18);
+		CommonUtils.selectDropDownValue(WeightAt30YearsOldUnits, cGBIIQPages.UnitOfMeasurementWeightAt30);
+		CommonUtils.selectDropDownValue(WeightAt40YearsOldUnits, cGBIIQPages.UnitOfMeasurementWeightAt40);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
@@ -946,7 +987,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	}
 
-	@When("selects details for the genetic evaluations that have been completed includes {string} summarization of the evaluation and adds the information {string}, {string}, {string}, and {string} - CGB IIQ")
+	@When("selects details for the genetic evaluations that have been completed by the proband includes {string} summarization of the evaluation and adds the information {string}, {string}, {string}, and {string} - CGB IIQ")
 	public void selects_details_for_the_genetic_evaluations_that_have_been_completed_includes_summarization_of_the_evaluation_and_adds_the_information_and(
 			String GeneOrSyndromeTested, String DateDiagnosedMonthYear, String AgeDiagnosed,
 			String HospitalLocationOfEvaluation, String ResultsOfEvaluation) {
@@ -958,6 +999,27 @@ public class CGBIIQSteps extends PageInitializer {
 		cGBIIQPages.ageOfDiagnosisInYear.sendKeys(AgeDiagnosed);
 		cGBIIQPages.hospitalLocationProbandFlow.sendKeys(HospitalLocationOfEvaluation);
 		CommonUtils.selectDropDownValue(ResultsOfEvaluation, cGBIIQPages.bestSummaryOfEvaluationProbandFlow);
+		MiscUtils.sleep(1500);
+		CucumberLogUtils.logScreenShot();
+		MiscUtils.sleep(2000);
+		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
+		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
+
+	}
+
+	// update locators
+	@When("selects details for the genetic evaluations that have been completed by the proxy includes {string} summarization of the evaluation and adds the information {string}, {string}, {string}, and {string} - CGB IIQ")
+	public void selects_details_for_the_genetic_evaluations_that_have_been_completed_proxy_includes_summarization_of_the_evaluation_and_adds_the_information_and(
+			String GeneOrSyndromeTested, String DateDiagnosedMonthYear, String AgeDiagnosed,
+			String HospitalLocationOfEvaluation, String ResultsOfEvaluation) {
+
+		MiscUtils.sleep(2000);
+		CommonUtils.selectDropDownValue(GeneOrSyndromeTested, cGBIIQPages.geneOrSyndromeTested);
+		cGBIIQPages.dateOfTesting.sendKeys(DateDiagnosedMonthYear);
+		MiscUtils.sleep(1500);
+		cGBIIQPages.ageOfDiagnosisInYear.sendKeys(AgeDiagnosed);
+		cGBIIQPages.hospitalLocation.sendKeys(HospitalLocationOfEvaluation);
+		CommonUtils.selectDropDownValue(ResultsOfEvaluation, cGBIIQPages.bestSummaryOfEvaluation);
 		MiscUtils.sleep(1500);
 		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(2000);
@@ -1039,7 +1101,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 	@When("on the General Background Information section of IIQ Survey page clicks next arrow button")
 	public void on_the_General_Background_Information_section_of_IIQ_Survey_page_clicks_next_arrow_button() {
-		MiscUtils.sleep(1500);
+		MiscUtils.sleep(3000);
 		CommonUtils.waitForVisibility(cGBIIQPages.nextButton);
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
@@ -1600,11 +1662,11 @@ public class CGBIIQSteps extends PageInitializer {
 	}
 
 	@When("selects at what {string} was the participant at their highest weight?")
-	public void selects_at_what_was_the_participant_at_their_highest_weight(String ageProbandWasTallestEver) {
+	public void selects_at_what_was_the_participant_at_their_highest_weight(String ageProbandWasHeaviestEver) {
 
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.ageProbandWeighedTheMost);
-		cGBIIQPages.ageProbandWeighedTheMost.sendKeys(ageProbandWasTallestEver);
+		cGBIIQPages.ageProbandWeighedTheMost.sendKeys(ageProbandWasHeaviestEver);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
