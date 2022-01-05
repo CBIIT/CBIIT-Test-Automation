@@ -12,6 +12,10 @@ RUN dnf -y update \
     rsync \
     wget \
     bzip2 \
+    mesa-libGL \
+    mesa-libGL-devel \
+    mesa-libEGL \
+    mesa-libEGL-devel \
     && dnf clean all
 
 RUN mkdir -p /deploy/cbiit-test-automation /deploy/cbiit-test-automation/logs
