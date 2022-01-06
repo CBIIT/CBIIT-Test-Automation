@@ -65,5 +65,5 @@ RUN rm -f /tmp/firefox-95.0.tar.bz2
 # Copy app
 COPY . /deploy/cbiit-test-automation/
 
-# # Run mvn install
-# RUN mvn clean install
+# Run mvn install (only dependencies, do not build or run tests)
+RUN mvn clean dependency:go-offline -DskipTests
