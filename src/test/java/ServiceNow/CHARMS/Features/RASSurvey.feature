@@ -1,7 +1,7 @@
 Feature: RAS Survey Scenarios (Preview)
     This feature file contains RAS Survey submission scenarios via Qualtrics Preview
 
-    @juarezds @RASSurveyPreview
+    @juarezds @RASSurveyPreview @Progression
     Scenario: RASSurvey Preview Self Submission #submit page next button has been commented out/disabled
         Given a participant is on the Rassurvey Questionaire login page - myRAS Survey
         And logs in via Okta with username "diego1@test.com" and password "123456" on login page - myRAS Survey

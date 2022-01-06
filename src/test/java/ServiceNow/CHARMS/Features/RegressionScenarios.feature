@@ -4,7 +4,7 @@ Feature: MyRAS Study Regression Scenarios
   @juarezds @RegressionSelfSubmissionPartOne
   Scenario: Proxy Screener Submission with data verification
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
-    And logs in via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
+    And logs in via Okta with username "charmsras5@yahoo.com" and password "RASTest2021$$"
     And clicks on Eligibility Questionnaire to begin questionnaire
     And clicks next after reviewing the STUDY INTRODCTION
     And selects I am completing this form for someone else option

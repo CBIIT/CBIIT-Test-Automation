@@ -274,6 +274,8 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.antiSeizureReasonTextBox.sendKeys("SEIZURES");
 		CommonUtils.selectDropDownValue("4 days",
 				rASSurveyPage.antiSeizureMedicationsLenghtOfTimeMedicationWasTakenDropDown);
+
+		// DEBUG HERE------------
 		rASSurveyPage.herbalSupplementNameTextBox.sendKeys("OREGANO");
 		rASSurveyPage.herbalSupplementReasonTextBox.sendKeys("DIGESTIVE SUPPORT");
 		CommonUtils.selectDropDownValue("9 months",

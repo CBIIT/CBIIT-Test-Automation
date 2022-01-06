@@ -209,10 +209,10 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	@Given("selects participants Date of Birth from the calendar picker")
 	public void selects_a_Date_of_Birth_from_the_calendar_picker() {
 		MiscUtils.sleep(1000);
-		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.calendarMonthDropDown);
-		CommonUtils.selectDropDownValue("April", rasopathyQuestionnairePage.calendarMonthDropDown);
 		rasopathyQuestionnairePage.calendarYearTextBox.clear();
 		rasopathyQuestionnairePage.calendarYearTextBox.sendKeys("1990");
+		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.calendarMonthDropDown);
+		CommonUtils.selectDropDownValue("April", rasopathyQuestionnairePage.calendarMonthDropDown);
 		rasopathyQuestionnairePage.calendarDayOption.click();
 		rasopathyQuestionnairePage.studyNextButton.click();
 
