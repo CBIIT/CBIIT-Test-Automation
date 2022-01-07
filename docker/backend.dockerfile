@@ -62,8 +62,11 @@ RUN tar xjf /tmp/firefox-95.0.tar.bz2 -C /tmp/ \
 
 RUN rm -f /tmp/firefox-95.0.tar.bz2
 
+# Copy pom.xml
+COPY pom.xml /deploy/cbiit-test-automation/
+
 # Run mvn install (only dependencies, do not build or run tests)
 RUN mvn clean dependency:go-offline -DskipTests
 
-# Copy app
+# Copy everything else
 COPY . /deploy/cbiit-test-automation/
