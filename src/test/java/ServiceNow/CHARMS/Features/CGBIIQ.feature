@@ -142,7 +142,7 @@ Feature: These are features pertaining to the CGB IIQ
     And the user clicks the forward arrow button - CGB IIQ
     Then the end of the IIQ survey page "EndOfSurvey" is displayed - CGB IIQ
 
-  @Smoke @matarodriguezko  #@Progression
+  @Smoke @matarodriguezko
   Scenario: Female Participant (Proband) A user lands on the CHARMS
     Given the user is redirected to the log in page of the Individual Information Questionnaire - CGB IIQ
     When types the email address in the textbook labeled Email - CGB IIQ
