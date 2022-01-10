@@ -175,7 +175,6 @@ Feature: MyRAS Study Regression Scenarios
     And click YES During her pregnancy with you, did your biological mother take any medications vitamins or supplements for any reason? page - myRAS Survey
     And selects All that apply for and enters herbal supplement "OREGANO", other medication "TUMERIC", and other medication "MELATONIN" for Please select all medications your mother took during her pregnancy with you. page - myRAS Survey
     And adds details in Please provide details on the name of the medication taken reason it was taken and approximate length of time it was taken. page - myRAS Survey
-    And clicks next Please provide details on the name of the medication taken reason it was taken and approximate length of time it was taken. page - myRAS Survey
     And clicks YES Did your biological mother use any tobacco products during her pregnancy with you? page - myRAS Survey
     And selects All that apply and enters other tobacco product "WAX" for What tobacco products did your biological mother use during her pregnancy with you? page - myRAS Survey
     And clicks YES Did your biological mother use any vaping products during her pregnancy with you? - myRAS Survey
@@ -589,6 +588,7 @@ Feature: MyRAS Study Regression Scenarios
     And selects All that apply and enters for infection "FLU", and enters for rash "ECZEMA" and enters for other complications "STREP THROAT" for Was the biological mother of Christina Ramirez diagnosed with any of the following conditions prior to or during her pregnancy with Christina Ramirez?  - myRAS Survey
     And click YES During her pregnancy with Christina Ramirez, did their biological mother take any medications, vitamins or supplements for any reason? - myRAS Survey
     And selects All that apply and enters herbal supplements "OREGANO" and enters for first other medication "TURMERIC" and enters for second medication "MELATONIN" for Please select all medications Christinas mother took during her pregnancy with them.  - myRAS Survey
+    And adds details for Christina in Please provide details on the name of the medication taken reason it was taken and approximate length of time it was taken. page - myRAS Survey
     And clicks YES Did Christinas biological mother use any tobacco products during her pregnancy with Christina?  - myRAS Survey
     And selects All that apply and enters for other "WAX" What tobacco products did Christinas biological mother use during her pregnancy with Christina?  - myRAS Survey
     And clicks YES Did Christinas biological mother use any vaping products during her pregnancy with Christina?  - myRAS Survey
@@ -656,7 +656,7 @@ Feature: MyRAS Study Regression Scenarios
     And clicks + sign to add reason for hospitalization "LONG TERM BLOODY NOSE" and enters "9 NOVEMBER 2020" for when it occured and enters for hospital "INOVA, FAIRFAX, VA, USA" for Please provide the information for each hospitalization in the table below. To add a new hospitalization, please click on the + sign in the upper left corner of the table. -myRAS Survey
     And clicks Next button The next set of questions will ask about GI (gastrointestinal) symptoms or conditions. -myRAS Survey
     And clicks YES button Has Christina ever been evaluated by a gastroenterologist?  These are doctors that specialize in the GI tract and liver. The GI tract includes your esophagus, stomach, small intestine, large intestine/colon, liver and pancreas.  Gastroenterologists often diagnose conditions such as inflammatory bowel disease Crohns disease or ulcerative colitis, Celiac disease, ulcers, and pancreas inflammation pancreatitis.   -myRAS Survey
-    And enters doctors name "DOCTOR PHIL VOSS " and enters city, state "FAIRFAX, VA " and enters hospital "INOVA" for Please provide the details for the gastroenterologist who completed the evaluation -myRAS Survey
+    And enters doctors name "DOCTOR PHIL VOSS" and enters city, state "FAIRFAX, VA" and enters hospital "INOVA" for Please provide the details for the gastroenterologist who completed the evaluation -myRAS Survey
     And clicks All that apply and enters for other "TROUBLE SWALLOWING" for Has Christina ever been diagnosed with any of the following feeding difficulties?  These issues often include problems eating food by mouth or keeping food from being vomited. -myRAS Survey
     And clicks age and enters "10 DAYS" for At what age was the nasogastric or nasojejunal tube placed? -myRAS Survey
     And clicks age and enters "20 DAYS" for At what age was the gastrostomy G- tube or gastrostomy-jejunostomy GJ tube placed? -myRAS Survey
@@ -827,6 +827,6 @@ Feature: MyRAS Study Regression Scenarios
     And enters "FOREIGN ACCENT SYNDROME" for If there are any other health issues present that have not been captured by this survey, please list them here -myRASSurvey
     And clicks Next button to end survey for You are almost done! To submit your responses, you must continue in the questionnaire by clicking the forward arrow below. The information you have provided will be reviewed by our study team. In the meantime, you should receive an email confirming this submission. page - myRAS Survey
 
-  @juarezds @Progression
+  @juarezds
   Scenario: Test
     Given data verification

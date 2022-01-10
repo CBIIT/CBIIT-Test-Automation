@@ -104,11 +104,17 @@ public class WebDriverUtils {
 					// chromeOptions.addArguments("--disable-setuid-sandbox");
 					// chromeOptions.addArguments("--user-data-dir=~/.config/google-chrome");
 					// chromeOptions.setExperimentalOption("useAutomationExtension", false);
+					chromeOptions.addArguments("--no-sandbox");
+					chromeOptions.addArguments("--headless");
+					chromeOptions.addArguments("--disable-dev-shm-usage");
 					webDriver = new ChromeDriver(chromeOptions);
 					System.out.println(chromeOptions.getVersion());
 				} else {
+					chromeOptions.addArguments("--no-sandbox");
+					chromeOptions.addArguments("--disable-dev-shm-usage");
+					System.out.println("Non headless-->" + chromeOptions.getVersion());
 					webDriver = new ChromeDriver(chromeOptions);
-					System.out.println(chromeOptions.getVersion());
+
 				}
 			} else if (browser.equalsIgnoreCase(Constants.BROWSER_IE)) {
 				DesiredCapabilities desiredCapabilities = DesiredCapabilities.internetExplorer();

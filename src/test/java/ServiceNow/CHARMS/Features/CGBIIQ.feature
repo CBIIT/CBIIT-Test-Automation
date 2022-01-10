@@ -1,5 +1,5 @@
 Feature: These are features pertaining to the CGB IIQ
-  
+
   Description: These scenarios will complete the CGB IIQ in the flows specified in the scenario
 
   @Smoke @matarodriguezko
@@ -36,23 +36,22 @@ Feature: These are features pertaining to the CGB IIQ
     And selects if the participant Preimplantation Genetic Diagnosis PGD used - CGB IIQ
     And selects option Yes if the participant is a twin or multiple birth - CGB IIQ
     And selects the option Twin for what type of birth was the participant - CGB IIQ
-    And selects whether the participant have a fraternal or identical twin - CGB IIQ
-    And adds the information for the names of the children in the twin or multiple birth "Twin","Bryan","L","Fraternal twin" - CGB IIQ
+    And adds the information for the names of the children in the twin or multiple birth table "Bryan","L","Fraternal twin" - CGB IIQ
     And selects the option Yes for the participants biological parents blood-related to each other - CGB IIQ
     And adds "Second cousins once removed" of the participant how the biological parents blood-related to each other - CGB IIQ
     And selects how was the participant born - CGB IIQ
-    And adds the participants birth "7", "17" and "10" Numerical Value and "pounds", "inches" and "inches" for Unit Of Measure - CGB IIQ
+    And adds the participants birth weight "7" and Unit Of Measure "pounds" - CGB IIQ
+    And adds the participants birth measurements "17" and "10" Numerical Value and "inches" and "inches" for Unit Of Measure - CGB IIQ
     And the user clicks the forward arrow on the cancer and benign tumor history section of IIQ Survey page - CGB IIQ
     And the user selects option Yes if participant ever been diagnosed with any cancer and or benign tumor - CGB IIQ
     And selects or adds the primary cancers or benign tumors that have been diagnosed - CGB IIQ
     And adds primary cancer or tumor information "2021","17","Baltimore Maryland","Fairfax Virginia" and selects what kind of the treatment received - CGB IIQ
     And selects Yes if the participant ever been evaluated for ANY genetic disease or syndrome? - CGB IIQ
-    And selects if participant ever had genetic counseling for ANY reason? - CGB IIQ
-    And selects the details for the genetic evaluations that have been completed includes "Li-Fraumeni Syndrome (TP53)" summarization of the evaluation and adds the information "12/19", "16", "John Hopkins Hospital, Baltimore, Maryland, United States of America", and "No abnormality found" - CGB IIQ
+    And selects details for the genetic evaluations that have been completed by the proxy includes "Li-Fraumeni Syndrome (TP53 gene)" summarization of the evaluation and adds the information "12/19", "16", "John Hopkins Hospital, Baltimore, Maryland, United States of America", and "No genetic change found/negative test" - CGB IIQ
     And selects Yes if the participant has copy of the genetic test results and would like to upload them to this questionnaire? - CGB IIQ
     And upload the genetic test results - CGB IIQ
-    And the user adds the participant height and weight at the indicated ages "170","6","130","170","180" and selects "pounds", "feet", "pounds", "pounds" and "pounds" for Unit of Measurements - CGB IIQ
-    And selects the most participant has ever weighed "180 lbs" EXCLUDING WEIGHT DURING PREGNANCY - CGB IIQ
+    And the user adds the participant height by proxy "6", "feet" - CGB IIQ
+    And the user adds the participant height and weight at the indicated ages aswell as highest weight "170","180","130","170","180" and selects "pounds", "pounds", "pounds", "pounds" and "pounds" for Unit of Measurements - CGB IIQ
     And selects at what "18" was the participant at their highest weight? - CGB IIQ
     And the user adds the "14" of the participant at first menstrual period - CGB IIQ
     And adds the last menstrual period "10/2021" - CGB IIQ
@@ -72,6 +71,18 @@ Feature: These are features pertaining to the CGB IIQ
     Then the user lands on the "You are almost done!" page - CGB IIQ
     And the user clicks the forward arrow button - CGB IIQ
     Then the end of the IIQ survey page "EndOfSurvey" is displayed - CGB IIQ
+  #/*Changes for Female Participant (Proxy) A user lands on the CHARMS*/
+  # Fixed the info pages button not being clicked           And on the General Background Information section of IIQ Survey page clicks next arrow button - CGB IIQ
+  # *(Combined with next step)(Step was removed)            And selects whether the participant have a fraternal or identical twin - CGB IIQ
+  # *(Combined with previous step)(Step was removed)        And adds the information for the names of the children in the twin or multiple birth "Twin","Bryan","L","Fraternal twin" - CGB IIQ
+  # (Split into two steps/pages)(Step was removed)          And adds the participants birth "7", "17" and "10" Numerical Value and "pounds", "inches" and "inches" for Unit Of Measure - CGB IIQ
+  # (Fixed facility address of diagnosis and treatment tag) And adds primary cancer or tumor information "2021","17","Baltimore Maryland","Fairfax Virginia" and selects what kind of the treatment received - CGB IIQ
+  # *(Removed)                                              And selects if participant ever had genetic counseling for ANY reason? - CGB IIQ
+  # (Changed locators to Proband path, and updated the visible text of dropdown to current wording)
+  #And selects the details for the genetic evaluations that have been completed includes "Li-Fraumeni Syndrome (TP53)" summarization of the evaluation and adds the information "12/19", "16", "John Hopkins Hospital, Baltimore, Maryland, United States of America", and "No abnormality found" - CGB IIQ
+  # *(Split into two steps/pages)(Step was removed)   And the user adds the participant height and weight at the indicated ages "170","6","130","170","180" and selects "pounds", "feet", "pounds", "pounds" and "pounds" for Unit of Measurements - CGB IIQ
+  # *(Combined with next step)                        And the user adds the participant height and weight at the indicated ages "170", "130","170","180" and selects "pounds", "pounds", "pounds" and "pounds" for Unit of Measurements - CGB IIQ
+  # *(Combined with previous step)(Step removed)      And selects the most participant has ever weighed "180 lbs" EXCLUDING WEIGHT DURING PREGNANCY - CGB IIQ
 
   @Smoke @matarodriguezko
   Scenario: Male Participant (Proxy) A user lands on the CHARMS
@@ -107,23 +118,22 @@ Feature: These are features pertaining to the CGB IIQ
     And selects if the participant Preimplantation Genetic Diagnosis PGD used - CGB IIQ
     And selects option Yes if the participant is a twin or multiple birth - CGB IIQ
     And selects the option Twin for what type of birth was the participant - CGB IIQ
-    And selects whether the participant have a fraternal or identical twin - CGB IIQ
-    And adds the information for the names of the children in the twin or multiple birth "Twin","Bryan","L","Fraternal twin" - CGB IIQ
+    And adds the information for the names of the children in the twin or multiple birth table "Bryan","L","Fraternal twin" - CGB IIQ
     And selects the option Yes for the participants biological parents blood-related to each other - CGB IIQ
     And adds "Second cousins once removed" of the participant how the biological parents blood-related to each other - CGB IIQ
     And selects how was the participant born - CGB IIQ
-    And adds the participants birth "7", "17" and "10" Numerical Value and "pounds", "inches" and "inches" for Unit Of Measure - CGB IIQ
+    And adds the participants birth weight "7" and Unit Of Measure "pounds" - CGB IIQ
+    And adds the probands birth measurements "17" and "10" Numerical Value and "inches" and "inches" for Unit Of Measure - CGB IIQ
     And the user clicks the forward arrow on the cancer and benign tumor history section of IIQ Survey page - CGB IIQ
     And the user selects option Yes if participant ever been diagnosed with any cancer and or benign tumor - CGB IIQ
     And selects or adds the primary cancers or benign tumors that have been diagnosed - CGB IIQ
     And adds primary cancer or tumor information "2021","17","Baltimore Maryland","Fairfax Virginia" and selects what kind of the treatment received - CGB IIQ
     And selects Yes if the participant ever been evaluated for ANY genetic disease or syndrome? - CGB IIQ
-    And selects if participant ever had genetic counseling for ANY reason? - CGB IIQ
-    And selects the details for the genetic evaluations that have been completed includes "Li-Fraumeni Syndrome (TP53)" summarization of the evaluation and adds the information "12/19", "16", "John Hopkins Hospital, Baltimore, Maryland, United States of America", and "No abnormality found" - CGB IIQ
+    And selects details for the genetic evaluations that have been completed by the proxy includes "Li-Fraumeni Syndrome (TP53 gene)" summarization of the evaluation and adds the information "12/19", "16", "John Hopkins Hospital, Baltimore, Maryland, United States of America", and "No genetic change found/negative test" - CGB IIQ
     And selects Yes if the participant has copy of the genetic test results and would like to upload them to this questionnaire? - CGB IIQ
     And upload the genetic test results - CGB IIQ
-    And the user adds the participant height and weight at the indicated ages "170","6","130","170","180" and selects "pounds", "feet", "pounds", "pounds" and "pounds" for Unit of Measurements - CGB IIQ
-    And selects the most participant has ever weighed "180 lbs" EXCLUDING WEIGHT DURING PREGNANCY - CGB IIQ
+    And the user adds the participant height by proxy "6", "feet" - CGB IIQ
+    And the user adds the participant height and weight at the indicated ages aswell as highest weight "170","180","130","170","180" and selects "pounds", "pounds", "pounds", "pounds" and "pounds" for Unit of Measurements - CGB IIQ
     And selects at what "18" was the participant at their highest weight? - CGB IIQ
     And selects how many "4" the proband has gotten a women pregnant - CGB IIQ
     And selects if Proband or Partner have sought help with fertility - CGB IIQ
@@ -165,30 +175,29 @@ Feature: These are features pertaining to the CGB IIQ
     And selects if the participant Preimplantation Genetic Diagnosis PGD used - CGB IIQ
     And selects option Yes if the participant is a twin or multiple birth - CGB IIQ
     And selects the option Twin for what type of birth was the participant - CGB IIQ
-    And selects whether the participant have a fraternal or identical twin - CGB IIQ
-    And adds the information for the names of the children in the twin or multiple birth "Twin","Bryan","L","Fraternal twin" - CGB IIQ
+    And adds the information for the names of the children in the twin or multiple birth table "Bryan","L","Fraternal twin" - CGB IIQ
     And selects the option Yes for the participants biological parents blood-related to each other - CGB IIQ
     And adds "Second cousins once removed" of the participant how the biological parents blood-related to each other - CGB IIQ
     And selects how was the participant born - CGB IIQ
-    And adds participants birth "7", "17" and "10" Numerical Value and "pounds", "inches" and "inches" for Unit Of Measure - CGB IIQ
+    And adds the participants birth weight "7" and Unit Of Measure "pounds" - CGB IIQ
+    And adds the participants birth measurements "17" and "10" Numerical Value and "inches" and "inches" for Unit Of Measure - CGB IIQ
     And the user clicks the forward arrow on the cancer and benign tumor history section of IIQ Survey page - CGB IIQ
     And the user selects option Yes if participant ever been diagnosed with any cancer and or benign tumor - CGB IIQ
     And selects or adds the primary cancers or benign tumors that have been diagnosed - CGB IIQ
     And adds primary cancer or tumor information "2021","17","Baltimore Maryland","Fairfax Virginia" and selects what kind of the treatment received - CGB IIQ
     And selects Yes if the participant ever been evaluated for ANY genetic disease or syndrome? - CGB IIQ
-    And selects if participant ever had genetic counseling for ANY reason? - CGB IIQ
-    And selects details for the genetic evaluations that have been completed includes "Li-Fraumeni Syndrome (TP53)" summarization of the evaluation and adds the information "12/19", "16", "John Hopkins Hospital, Baltimore, Maryland, United States of America", and "No abnormality found" - CGB IIQ
+    And selects details for the genetic evaluations that have been completed by the proband includes "Li-Fraumeni Syndrome (TP53 gene)" summarization of the evaluation and adds the information "12/19", "16", "John Hopkins Hospital, Baltimore, Maryland, United States of America", and "No genetic change found/negative test" - CGB IIQ
     And selects Yes if the participant has copy of the genetic test results and would like to upload them to this questionnaire? - CGB IIQ
     And upload the genetic test results - CGB IIQ
-    And the user adds participant height and weight at the indicated ages "170","6","130","170","180" and selects "pounds", "feet", "pounds", "pounds" and "pounds" for Unit of Measurements - CGB IIQ
-    And selects the most participant has ever weighed "180 lbs" EXCLUDING WEIGHT DURING PREGNANCY - CGB IIQ
+    And the user adds the participant height by proband "6", "feet" - CGB IIQ
+    And the user adds the participant height and weight at the indicated ages aswell as highest weight "170","180","130","170","180" and selects "pounds", "pounds", "pounds", "pounds" and "pounds" for Unit of Measurements - CGB IIQ
     And selects at what "18" was the participant at their highest weight? - CGB IIQ
     And the user adds the "14" of the participant at first menstrual period - CGB IIQ
     And adds the last menstrual period "10/2021" - CGB IIQ
     And selects the reason if participant period has not occurred for the last year or more - CGB IIQ
     And selects Yes if the participant ever been pregnant? - CGB IIQ
-    And adds participant "18" at their first pregnancy? - CGB IIQ
-    And adds the "4" participant has been pregnant? - CGB IIQ
+    And adds the participant "18" at their first pregnancy? - CGB IIQ
+    And adds the "4" the participant has been pregnant? - CGB IIQ
     And selects Yes if the participant has ever tried to become pregnant for more than one year without success - CGB IIQ
     And selects Yes for participant ever being consulted a doctor because of difficulty in getting pregnant - CGB IIQ
     And adds "40" was participant when they first consulted a doctor about difficulty in getting pregnant - CGB IIQ
@@ -247,7 +256,7 @@ Feature: These are features pertaining to the CGB IIQ
     And adds primary cancer or tumor information "2021","17","Baltimore Maryland","Fairfax Virginia" and selects what kind of the treatment received - CGB IIQ
     And selects Yes if the participant ever been evaluated for ANY genetic disease or syndrome? - CGB IIQ
     And selects if participant ever had genetic counseling for ANY reason? - CGB IIQ
-    And selects details for the genetic evaluations that have been completed includes "Li-Fraumeni Syndrome (TP53)" summarization of the evaluation and adds the information "12/19", "16", "John Hopkins Hospital, Baltimore, Maryland, United States of America", and "No abnormality found" - CGB IIQ
+    And selects details for the genetic evaluations that have been completed by the proband includes "Li-Fraumeni Syndrome (TP53 gene)" summarization of the evaluation and adds the information "12/19", "16", "John Hopkins Hospital, Baltimore, Maryland, United States of America", and "No genetic change found/negative test" - CGB IIQ
     And selects Yes if the participant has copy of the genetic test results and would like to upload them to this questionnaire? - CGB IIQ
     And upload the genetic test results - CGB IIQ
     And the user adds participant height and weight at the indicated ages "170","6","130","170","180" and selects "pounds", "feet", "pounds", "pounds" and "pounds" for Unit of Measurements - CGB IIQ
@@ -306,7 +315,8 @@ Feature: These are features pertaining to the CGB IIQ
     And adds primary cancer or tumor information "2021","17","Baltimore Maryland","Fairfax Virginia" and selects what kind of the treatment received
     And selects Yes if the participant ever been evaluated for ANY genetic disease or syndrome?
     And selects if participant ever had genetic counseling for ANY reason?
-    And selects the details for the genetic evaluations that have been completed includes "Li-Fraumeni Syndrome (TP53)" summarization of the evaluation and adds the information "12/19", "16", "John Hopkins Hospital, Baltimore, Maryland, United States of America", and "No abnormality found"
+    #And selects details for the genetic evaluations that have been completed by the proxy includes "Li-Fraumeni Syndrome (TP53)" summarization of the evaluation and adds the information "12/19", "16", "John Hopkins Hospital, Baltimore, Maryland, United States of America", and "No abnormality found" - CGB IIQ
+    And selects the details for the genetic evaluations that have been completed includes "Li-Fraumeni Syndrome (TP53 gene)" summarization of the evaluation and adds the information "12/19", "16", "John Hopkins Hospital, Baltimore, Maryland, United States of America", and "No abnormality found"
     And selects Yes if the participant has copy of the genetic test results and would like to upload them to this questionnaire?
     And upload the genetic test results
     And the user adds the participant height and weight at the indicated ages "170","6","130","170","180" and selects "pounds", "feet", "pounds", "pounds" and "pounds" for Unit of Measurements
