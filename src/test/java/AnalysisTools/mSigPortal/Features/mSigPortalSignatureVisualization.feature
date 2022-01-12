@@ -38,7 +38,7 @@ Feature: mSigPortal Signature Visualizations tab
     And the user clicks on Cosine Similarity
     Then the calculate button is enabled on all Cosine Tabs
 
-  @Smoke @NCIATWP-3985 @matarodriguezko
+  @Progression @NCIATWP-3985 @matarodriguezko
   Scenario: Profile Comparison i icon popup message
     Given the user is on the mSigPortal Home page
     And the user navigates to the Visualization section
