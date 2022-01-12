@@ -347,7 +347,7 @@ public class CGBIIQPages extends CommonUtils {
 	public WebElement numericalWeight;
 
 	/** How long was the Participant when they were born? (in Inches) */
-	@FindBy(xpath = "//input[@name='QR~QID171#1~2~1~TEXT']")
+	@FindBy(xpath = "//input[@name='QR~QID172#1~1~1~TEXT']")
 	public WebElement numericalLength;
 
 	/**
@@ -355,7 +355,7 @@ public class CGBIIQPages extends CommonUtils {
 	 * (in
 	 * Inches)
 	 */
-	@FindBy(xpath = "//input[@name='QR~QID171#1~3~1~TEXT']")
+	@FindBy(xpath = "//input[@name='QR~QID172#1~4~1~TEXT']")
 	public WebElement numericalHeadCircumference;
 
 	/**
@@ -369,7 +369,7 @@ public class CGBIIQPages extends CommonUtils {
 	 * Unit of measurement for how long was the Participant when they were born? (in
 	 * Inches)
 	 */
-	@FindBy(xpath = "//select[@id='QR~QID171#3~2']")
+	@FindBy(xpath = "//select[@id='QR~QID172#3~1']")
 	public WebElement unitOfMeasurementLength;
 
 	/**
@@ -377,7 +377,7 @@ public class CGBIIQPages extends CommonUtils {
 	 * Head
 	 * when they were born? (in Inches)
 	 */
-	@FindBy(xpath = "//select[@id='QR~QID171#3~3']")
+	@FindBy(xpath = "//select[@id='QR~QID172#3~4']")
 	public WebElement unitOfMeasurementHeadCircumference;
 
 	/** How much was the Proband when they were born? (in lbs) */
@@ -385,14 +385,14 @@ public class CGBIIQPages extends CommonUtils {
 	public WebElement numericalWeightProband;
 
 	/** How long was the Proband when they were born? (in Inches) */
-	@FindBy(xpath = "//input[@name='QR~QID98#1~2~1~TEXT']")
+	@FindBy(xpath = "//input[@name='QR~QID171#1~2~1~TEXT']")
 	public WebElement numericalLengthProband;
 
 	/**
 	 * How long was the circumference of the Probands Head when they were born? (in
 	 * Inches)
 	 */
-	@FindBy(xpath = "//input[@name='QR~QID172#1~4~1~TEXT']")
+	@FindBy(xpath = "//input[@name='QR~QID171#1~3~1~TEXT']")
 	public WebElement numericalHeadCircumferenceProband;
 
 	/**
@@ -406,15 +406,16 @@ public class CGBIIQPages extends CommonUtils {
 	 * Unit of measurement for how long was the Proband when they were born? (in
 	 * Inches)
 	 */
-	@FindBy(xpath = "//select[@id='QR~QID98#3~2']")
+	@FindBy(xpath = "//select[@id='QR~QID171#3~2']")
 	public WebElement unitOfMeasurementLengthProband;
 
 	/**
 	 * Unit of measurement for how long was the circumference of the Probands Head
 	 * when they were born? (in Inches)
 	 */
-	@FindBy(xpath = "//select[@id='QR~QID98#3~3']")
+	@FindBy(xpath = "//select[@id='QR~QID171#3~3']")
 	public WebElement unitOfMeasurementHeadCircumferenceProband;
+
 
 	/**
 	 * ================================================================================
@@ -498,8 +499,12 @@ public class CGBIIQPages extends CommonUtils {
 	public WebElement ageOfTesting;
 
 	/** Name, City, State/Province and Country of Hospital where testing occured. */
-	@FindBy(xpath = "//textarea[@id='QR~QID168#2~1~1~TEXT']")
+	@FindBy(xpath = "//input[@id='QR~QID70#2~1~1~TEXT']")
 	public WebElement hospitalLocation;
+	
+	/** Name, City, State/Province and Country of Hospital where testing occured. - NOT PREVIEW */
+	@FindBy(xpath = "//textarea[@name='QR~QID70#2~1~1~TEXT']")
+	public WebElement hospitalLocationNonPreview;
 
 	/** Selected answer that best summarizes the findings of the evaluation */
 	@FindBy(xpath = "//select[@id='QR~QID70#3~1']")
@@ -521,7 +526,7 @@ public class CGBIIQPages extends CommonUtils {
 	 * Name, City, State/Province and Country of Hospital where testing occured
 	 * Proband Flow
 	 */
-	@FindBy(xpath = "//textarea[@id='QR~QID70#2~1~1~TEXT']")
+	@FindBy(xpath = "//input[@id='QR~QID70#2~1~1~TEXT']")
 	public WebElement hospitalLocationProbandFlow;
 
 	/**
@@ -535,15 +540,15 @@ public class CGBIIQPages extends CommonUtils {
 	 * ================================================================================
 	 */
 
-	/** Current weight of Proband Proxy Flow */
+	/** Current weight of Proxy Flow */
 	@FindBy(xpath = "//input[@name='QR~QID174#1~1~1~TEXT']")
 	public WebElement numericalCurrentWeight;
 
-	/** Current height of Proband Proxy Flow */
+	/** Current height of Proxy Flow */
 	@FindBy(xpath = "//input[@name='QR~QID140#1~2~1~TEXT']")
 	public WebElement numericalCurrentHeight;
 
-	/** Highest weight of Proband Proxy Flow */
+	/** Highest weight of Proxy Flow */
 	@FindBy(xpath = "//input[@name='QR~QID174#1~2~1~TEXT']")
 	public WebElement numericalHighestWeight;
 
@@ -559,11 +564,11 @@ public class CGBIIQPages extends CommonUtils {
 	@FindBy(xpath = "//input[@name='QR~QID174#1~5~1~TEXT']")
 	public WebElement numericalWeightAt40;
 
-	/** Unit of measurement for Current weight of Proband Proxy Flow */
+	/** Unit of measurement for Current weight of Proxy Flow */
 	@FindBy(xpath = "//select[@id='QR~QID174#2~1']")
 	public WebElement UnitOfMeasurementCurrentWeight;
 
-	/** Unit of measurement for Highest weight of Proband Proxy Flow */
+	/** Unit of measurement for Highest weight of Proxy Flow */
 	@FindBy(xpath = "//select[@id='QR~QID174#2~2']")
 	public WebElement UnitOfMeasurementHighestWeight;
 
@@ -592,8 +597,12 @@ public class CGBIIQPages extends CommonUtils {
 	public WebElement numericalCurrentWeightProbandFlow;
 
 	/** Current height of Proband */
-	@FindBy(xpath = "//input[@name='QR~QID173#1~6~1~TEXT']")
+	@FindBy(xpath = "//input[@name='QR~QID101#1~2~1~TEXT']")
 	public WebElement numericalCurrentHeightProbandFlow;
+	
+	/** Highest weight of Proband Flow */
+	@FindBy(xpath = "//input[@name='QR~QID173#1~6~1~TEXT']")
+	public WebElement numericalHighestWeightProbandFlow;
 
 	/** Weight of Proband at 18 years old */
 	@FindBy(xpath = "//input[@name='QR~QID173#1~3~1~TEXT']")
@@ -611,8 +620,11 @@ public class CGBIIQPages extends CommonUtils {
 	@FindBy(xpath = "//select[@id='QR~QID173#2~1']")
 	public WebElement UnitOfMeasurementCurrentWeightProbandFlow;
 
-	/** Unit of measurement for Current height of Proband */
+	/** Unit of measurement for Current weight of Proband */
 	@FindBy(xpath = "//select[@id='QR~QID173#2~6']")
+	public WebElement UnitOfMeasurementHighestWeightProbandFlow;
+	/** Unit of measurement for Current height of Proband */
+	@FindBy(xpath = "//select[@id='QR~QID101#2~2']")
 	public WebElement UnitOfMeasurementCurrentHeightProbandFlow;
 
 	/** Unit of measurement for weight of Proband at 18 years old */
