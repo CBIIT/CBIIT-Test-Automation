@@ -6,6 +6,7 @@ import java.util.Set;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -14,6 +15,7 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
+import ServiceNow.CHARMS.Pages.MyRASLoginPage;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -210,9 +212,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	public void selects_a_Date_of_Birth_from_the_calendar_picker() {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.calendarMonthDropDown);
-		CommonUtils.selectDropDownValue("April", rasopathyQuestionnairePage.calendarMonthDropDown);
 		rasopathyQuestionnairePage.calendarYearTextBox.clear();
 		rasopathyQuestionnairePage.calendarYearTextBox.sendKeys("1990");
+		CommonUtils.selectDropDownValue("April", rasopathyQuestionnairePage.calendarMonthDropDown);
 		rasopathyQuestionnairePage.calendarDayOption.click();
 		rasopathyQuestionnairePage.studyNextButton.click();
 
@@ -605,85 +607,65 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	@Given("selects Feeding problems, failure to thrive, or other stomach\\/digestive problems option for participant being diagnosed with any of the listed conditions")
 	public void selects_Feeding_problems_failure_to_thrive_or_other_stomach_digestive_problems_option_for_participant_being_diagnosed_with_any_of_the_listed_conditions() {
 		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithConditionsFeedingProblemsOption);
 		rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithConditionsFeedingProblemsOption.click();
-
 	}
 
 	@Given("selects Neurocognitive developmental delay such as:Intellectual disability and language impairment option for participant being diagnosed with any of the listed conditions")
 	public void selects_Neurocognitive_developmental_delay_such_as_Intellectual_disability_and_language_impairment_option_for_participant_being_diagnosed_with_any_of_the_listed_conditions() {
-		MiscUtils.sleep(1000);
 		rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithConditionsNeurocognitiveDelayOption.click();
-
 	}
 
 	@Given("selects Skeletal deformities such as: Short stature, short webbed neck, unusual chest shape, curved spine, muscle or joint problems, limb overgrowth option for participant being diagnosed with any of the listed conditions")
 	public void selects_Skeletal_deformities_such_as_Short_stature_short_webbed_neck_unusual_chest_shape_curved_spine_muscle_or_joint_problems_limb_overgrowth_option_for_participant_being_diagnosed_with_any_of_the_listed_conditions() {
-		MiscUtils.sleep(1000);
 		rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithConditionsSkeletalDeformitiesOption.click();
-
 	}
 
 	@Given("selects Head craniofacial abnormalities such as: Large head, broad or high forehead, short nose, small chin, swelling or bleeding of the gums, abnormal shape or movement of teeth option for participant being diagnosed with any of the listed conditions")
 	public void selects_Head_craniofacial_abnormalities_such_as_Large_head_broad_or_high_forehead_short_nose_small_chin_swelling_or_bleeding_of_the_gums_abnormal_shape_or_movement_of_teeth_option_for_participant_being_diagnosed_with_any_of_the_listed_conditions() {
-		MiscUtils.sleep(1000);
 		rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithConditionsHeadCraniofacialAbnormalitiesOption.click();
 	}
 
 	@Given("selects Eye Ear abnormalities such as: Widely spaced eyes, eye diseases, droopy eye lids, sparse-absent eye lashes-eyebrows, low set ears, vision or hearing impairment option for participant being diagnosed with any of the listed conditions")
 	public void selects_Eye_Ear_abnormalities_such_as_Widely_spaced_eyes_eye_diseases_droopy_eye_lids_sparse_absent_eye_lashes_eyebrows_low_set_ears_vision_or_hearing_impairment_option_for_participant_being_diagnosed_with_any_of_the_listed_conditions() {
-		MiscUtils.sleep(1000);
 		rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithConditionsEyeEarAbnormalitiesOption.click();
-
 	}
 
 	@Given("selects skin\\/hair abnormalitiessuch as: soft loose skin, fine\\/thin\\/thick\\/dry\\/brittle\\/curly hair, slow growing hair, tumors or small skin tags near the nose or anus, lipomas, light to dark brown birth marks \\(cafe au lait spots), freckles in the armpits option for participant being diagnosed with any of the listed conditions")
 	public void selects_skin_hair_abnormalitiessuch_as_soft_loose_skin_fine_thin_thick_dry_brittle_curly_hair_slow_growing_hair_tumors_or_small_skin_tags_near_the_nose_or_anus_lipomas_light_to_dark_brown_birth_marks_cafe_au_lait_spots_freckles_in_the_armpits_option_for_participant_being_diagnosed_with_any_of_the_listed_conditions() {
-		MiscUtils.sleep(1000);
 		rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithConditionsSkinHairAbnormalitiesOption.click();
-
 	}
 
 	@Given("selects Heart problems such as cardiomyopathy or pulmonary valve stenosis option for participant being diagnosed with any of the listed conditions")
 	public void selects_Heart_problems_such_as_cardiomyopathy_or_pulmonary_valve_stenosis_option_for_participant_being_diagnosed_with_any_of_the_listed_conditions() {
-		MiscUtils.sleep(1000);
 		rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithConditionsHeartProblemsOption.click();
-
 	}
 
 	@Given("selects Genital abnormalities such as undescended testes for participant being diagnosed with any of the listed conditions")
 	public void selects_Genital_abnormalities_such_as_undescended_testes_for_participant_being_diagnosed_with_any_of_the_listed_conditions() {
-		MiscUtils.sleep(1000);
 		rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithConditionsGenitalAbnormalitiesOption.click();
-
 	}
 
 	@Given("selects Non-cancerous tumors for participant being diagnosed with any of the listed conditions")
 	public void selects_Non_cancerous_tumors_for_participant_being_diagnosed_with_any_of_the_listed_conditions() {
-		MiscUtils.sleep(1000);
 		rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithConditionsNonCancerousTumorsOption.click();
-
 	}
 
 	@Given("selects Lymphedema or participant being diagnosed with any of the listed conditions")
 	public void selects_Lymphedema_or_participant_being_diagnosed_with_any_of_the_listed_conditions() {
-		MiscUtils.sleep(1000);
 		rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithConditionsLymphedemaOption.click();
-
 	}
 
 	@Given("selects Other such as endocrine issues, bleeding disorders, seizures, tethered cord for participant being diagnosed with any of the listed conditions")
 	public void selects_Other_such_as_endocrine_issues_bleeding_disorders_seizures_tethered_cord_for_participant_being_diagnosed_with_any_of_the_listed_conditions() {
-		MiscUtils.sleep(1000);
 		rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithConditionsOtherOption.click();
-
 	}
 
 	@Given("enters {string} for participant being diagnosed with any of the listed conditions")
 	public void enters_for_participant_being_diagnosed_with_any_of_the_listed_conditions(String OtherOption) {
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(300);
 		rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithConditionsOtherOptionTextBox.sendKeys(OtherOption);
 		rasopathyQuestionnairePage.studyNextButton.click();
-
 	}
 
 	@Given("selects Never diagnosed with any of these conditions option for participant being diagnosed with any of the listed conditions")
@@ -2152,16 +2134,23 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	}
 
-	/* THE myRAS USER SIGNS THE CONSENT FORM IN THE SERVICE PORTAL */
-	@When("the myRAS user signs the consent form in the Service Portal")
-	public void the_myRAS_user_signs_the_consent_form_in_the_Service_Portal() throws TestingException {
-
+	/**
+	 * 
+	 * @param username
+	 * @param password
+	 * @throws TestingException
+	 * USE BELOW METHOD TO SIGN CONSENT FORM - USE SAME CREDENTIALS USED TO SUBMIT ELIGIBILITY QUESTIONNAIRE
+	 */
+	
+	@When("the myRas user signs in with Username {string} and Password {string}")
+	public void the_myRas_user_signs_in_with_Username_and_Password(String username, String password) throws TestingException {
+	
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("myRASLoginPage"));
 
 		CommonUtils.waitForVisibility(myRASLoginPage.loginToMyRASButton);
 		myRASLoginPage.loginToMyRASButton.click();
-		oktaLoginPage.usernameTxtBox.sendKeys("charmsras5@yahoo.com");
-		oktaLoginPage.passwordTxtBox.sendKeys("RASTest2021$$");
+		oktaLoginPage.usernameTxtBox.sendKeys(username);
+		oktaLoginPage.passwordTxtBox.sendKeys(password);
 		CommonUtils.waitForVisibility(oktaLoginPage.loginBtn);
 		oktaLoginPage.loginBtn.click();
 
@@ -2204,7 +2193,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 		CommonUtils.waitForVisibility(myRASHomePage.charmsAutomatedTestTwoSignOutLink);
 		myRASHomePage.charmsAutomatedTestTwoSignOutLink.click();
-
+	
 	}
 
 	/*
@@ -2300,9 +2289,11 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	static String cgbIIQOneTimePin;
 
-	@Given("enters email address and One Time Pin code to proceed with the form")
-	public void enters_email_address_and_One_Time_Pin_code_to_proceed_with_the_form() {
+	
+	@Given("enters email address {string} and One Time Pin code to proceed with the form")
+	public void enters_email_address_and_One_Time_Pin_code_to_proceed_with_the_form(String emailAddress) {
 
+		
 		CommonUtils.waitForVisibility(myRASHomePage.rasoptathyIndividualInformationQuestionnairePinText);
 
 		cgbIIQOneTimePin = myRASHomePage.rasoptathyIndividualInformationQuestionnairePinText.getText();
@@ -2317,20 +2308,18 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(cgbIIQPage.cgbIIQOneTimePinTextBox);
-		// MiscUtils.sleep(2000);
-		cgbIIQPage.cgbIIQOneTimeEmailTextBox.sendKeys("charmsras4@yahoo.com");
+		cgbIIQPage.cgbIIQOneTimeEmailTextBox.sendKeys(emailAddress);
 		cgbIIQPage.cgbIIQOneTimePinTextBox.sendKeys(cgbIIQOneTimePin);
 
-		// cgbIIQPage.cgbIIQOneTimeEmailTextBox.sendKeys("charmsras4@yahoo.com");
 
 		CucumberLogUtils.logScreenShot();
-		// MiscUtils.sleep(4000);
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 
 		/** DEBUG HERE --------- */
 		cGBIIQPages.nextButton.click();
 		MiscUtils.sleep(1000);
 		// MiscUtils.sleep(10000);
-
+	
 	}
+
 }
