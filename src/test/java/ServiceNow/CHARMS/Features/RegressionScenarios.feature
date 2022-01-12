@@ -1,7 +1,7 @@
 Feature: MyRAS Study Regression Scenarios
   This feature file containts myRAS Study Regression Scenarios
 
-  @juarezds @RegressionSelfSubmissionPartOne
+  @juarezds @RegressionSelfSubmissionPartOne @Progression
   Scenario: Proxy Screener Submission with data verification
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -77,17 +77,17 @@ Feature: MyRAS Study Regression Scenarios
     And the ServiceNow user submits the study for eligibility review
     And the ServiceNow user marks the study eligible
     And the ServiceNow user adds comments in the history section "Sending consent form to the participant" and sends consent form
-    When the myRAS user signs the consent form in the Service Portal
+    When the myRas user signs in with Username "charmsras4@yahoo.com" and Password "RASTest2021$$"
     When a ServiceNow user navigates to CHARMS Native view and opens records that are Awaiting PI Signature
     And selects the submitted MyRAS screener record that has signed consent form from participant attached
     And the ServiceNow user signs the consent form
 
-  @juarezds @RegressionSelfSubmissionPartTwo
+  @juarezds @RegressionSelfSubmissionPartTwo 
   Scenario: CGB IIQ Submission
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
-    And clicks on the Individual Information Questionnaire to begin the IIQ form
-    And enters email address and One Time Pin code to proceed with the form
+    And clicks on the Individual Information Questionnaire to begin the IIQ form    
+    And enters email address "charmsras4@yahoo.com" and One Time Pin code to proceed with the form
     And on the CGB Statement of Confidentiality page clicks next arrow button
     And on the CGB Instructions page clicks next arrow button
     And on the General Background Information section of IIQ Survey page clicks next arrow button
@@ -117,54 +117,53 @@ Feature: MyRAS Study Regression Scenarios
     And selects if the participant Preimplantation Genetic Diagnosis PGD used
     And selects option Yes if the participant is a twin or multiple birth
     And selects the option Twin for what type of birth was the participant
-    And selects whether the participant have a fraternal or identical twin
-    And adds the information for the names of the children in the twin or multiple birth "Twin","Bryan","L","Fraternal twin"
+    And adds the information for the names of the children in the twin or multiple birth table "Bryan","L","Fraternal twin" - CGB IIQ
     And selects the option Yes for the participants biological parents blood-related to each other
-    And adds "Second cousins once removed" of the participant how the biological parents blood-related to each other
-    And selects how was the participant born
-    And adds the participants birth "7", "17" and "10" Numerical Value and "pounds", "inches" and "inches" for Unit Of Measure
-    And the user clicks the forward arrow on the cancer and benign tumor history section of IIQ Survey page
-    And the user selects option Yes if participant ever been diagnosed with any cancer and or benign tumor
-    And selects or adds the primary cancers or benign tumors that have been diagnosed
-    And adds primary cancer or tumor information "2021","17","Baltimore Maryland","Fairfax Virginia" and selects what kind of the treatment received
-    And selects Yes if the participant ever been evaluated for ANY genetic disease or syndrome?
-    And selects if participant ever had genetic counseling for ANY reason?
-    And selects the details for the genetic evaluations that have been completed includes "Li-Fraumeni Syndrome (TP53)" summarization of the evaluation and adds the information "12/19", "16", "John Hopkins Hospital, Baltimore, Maryland, United States of America", and "No abnormality found"
-    And selects Yes if the participant has copy of the genetic test results and would like to upload them to this questionnaire?
-    And upload the genetic test results
-    And the user adds the participant height and weight at the indicated ages "170","6","130","170","180" and selects "pounds", "feet", "pounds", "pounds" and "pounds" for Unit of Measurements
-    And selects the most participant has ever weighed "180 lbs" EXCLUDING WEIGHT DURING PREGNANCY
-    And selects at what "18" was the participant at their highest weight?
-    And the user adds the "14" of the participant at first menstrual period
-    And adds the last menstrual period "10/2021"
-    And selects the reason if participant period has not occurred for the last year or more
-    And selects Yes if the participant ever been pregnant?
-    And adds the participant "18" at their first pregnancy?
-    And adds the "4" the participant has been pregnant?
-    And selects Yes if the participant has ever tried to become pregnant for more than one year without success
-    And selects Yes for participant ever being consulted a doctor because of difficulty in getting pregnant
-    And adds "40" was participant when they first consulted a doctor about difficulty in getting pregnant
-    And selects all diagnosis that was made to explain the difficulties getting pregnant
-    And on the Female Hormones section of IIQ Survey page clicks on the forward arrow button
-    And the user selects if participant has ever taken pills, injections or implants for birth control or for any other reason?
-    And selects Yes if participant has ever prescribed female hormones for this reason?
-    And adds at what "35" was participant prescribed female hormones for hormone replacement therapy?
-    And adds the total amount of time the participant has taken hormone replacement therapy "43"
-    Then the user lands on the "You are almost done!" page
-    And the user clicks the forward arrow button
-    Then the end of the IIQ survey page "EndOfSurvey" is displayed
+    And adds "Second cousins once removed" of the participant how the biological parents blood-related to each other - CGB IIQ
+    And selects how was the participant born - CGB IIQ
+    And adds the participants birth weight "7" and Unit Of Measure "pounds" - CGB IIQ
+    And adds the participants birth measurements "17" and "10" Numerical Value and "inches" and "inches" for Unit Of Measure - CGB IIQ
+    And the user clicks the forward arrow on the cancer and benign tumor history section of IIQ Survey page - CGB IIQ
+    And the user selects option Yes if participant ever been diagnosed with any cancer and or benign tumor - CGB IIQ
+    And selects or adds the primary cancers or benign tumors that have been diagnosed - CGB IIQ
+    And adds primary cancer or tumor information "2021","17","Baltimore Maryland","Fairfax Virginia" and selects what kind of the treatment received - CGB IIQ
+    And selects Yes if the participant ever been evaluated for ANY genetic disease or syndrome? - CGB IIQ
+    And selects the details for the genetic evaluations that have been completed includes "Li-Fraumeni Syndrome (TP53 gene)" summarization of the evaluation and adds the information "12/19", "16", "John Hopkins Hospital, Baltimore, Maryland, United States of America", and "No genetic change found/negative test"
+    And selects Yes if the participant has copy of the genetic test results and would like to upload them to this questionnaire? - CGB IIQ
+    And upload the genetic test results - CGB IIQ
+    And the user adds the participant height by proxy "6", "feet" - CGB IIQ
+    And the user adds the participant weight at the indicated ages "170","180","130","170","180" and selects "pounds", "pounds", "pounds", "pounds" and "pounds" for Unit of Measurements - CGB IIQ
+    And selects at what "18" was the participant at their highest weight? - CGB IIQ
+    And the user adds the "14" of the participant at first menstrual period - CGB IIQ
+    And adds the last menstrual period "10/2021" - CGB IIQ
+    And selects the reason if participant period has not occurred for the last year or more - CGB IIQ
+    And selects Yes if the participant ever been pregnant? - CGB IIQ
+    And adds the participant age "18" at their first pregnancy - CGB IIQ
+    And adds the number of times "4" the participant has been pregnant - CGB IIQ
+    And selects Yes if the participant has ever tried to become pregnant for more than one year without success - CGB IIQ
+    And selects Yes for participant ever being consulted a doctor because of difficulty in getting pregnant - CGB IIQ
+    And adds "40" was participant when they first consulted a doctor about difficulty in getting pregnant - CGB IIQ
+    And selects all diagnosis that was made to explain the difficulties getting pregnant - CGB IIQ
+    And on the Female Hormones section of IIQ Survey page clicks on the forward arrow button - CGB IIQ
+    And the user selects if participant has ever taken pills, injections or implants for birth control or for any other reason? - CGB IIQ
+    And selects Yes if participant has ever prescribed female hormones for this reason? - CGB IIQ
+    And adds at what "35" was participant prescribed female hormones for hormone replacement therapy? - CGB IIQ
+    And adds the total amount of time the participant has taken hormone replacement therapy "43" - CGB IIQ
+    Then the user lands on the "You are almost done!" page - CGB IIQ
+    And the user clicks the forward arrow button - CGB IIQ
+    Then the end of the IIQ survey page "EndOfSurvey" is displayed - CGB IIQ
 
-  @juarezds @RegressionSelfSubmissionPartThree
+  @juarezds @RegressionSelfSubmissionPartThree 
   Scenario: RAS Survey Submission - Regression
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
-    And clicks on the RAS Survey to begin the RAS Survey
-    And enters Okta email address and One Time Pin code to proceed with the RAS Survey
+    And clicks on the RAS Survey to begin the RAS Survey   
+    And enters Okta email address "charmsras4@yahoo.com" and One Time Pin code to proceed with the RAS Survey
     And clicks on survey next button after reviewing the survey details to start on the myRAS Survey questions. page - myRAS Survey
     And clicks next button on The first block of questions will collect basic demographic information. page - myRAS Survey
     And selects I am completing this form for myself option on who is completing this form page - myRAS Survey
     And clicks YES option for Have you ever been included in a published case report or otherwise represented in a public manner by a healthcare provider or researcher? page - myRAS Survey
-    And enters information about a previous cancer study "PUBLISHED IN ANOTHER CANCER STUDY" Please provide any additional information about the authors, year of publication or PubMed ID (PMID), if available. page - myRAS Survey
+    And enters information about a previous cancer study "SELF SUBMISSION TEST FLOW - PUBLISHED IN ANOTHER CANCER STUDY" Please provide any additional information about the authors, year of publication or PubMed ID (PMID), if available. page - myRAS Survey
     And clicks Next button for The next set of questions will ask about birth and neonatal history. page - myRAS Survey
     And enters Biological Mother birth city "LOS ANGELES", select Mothers Age "23" and enters Father birth city "PUERTO VALLARTA",and selects Fathers age "26" for What was your biological parents age in Years when you were born? page - myRAS Survey
     And clicks YES Were you diagnosed with hypoglycemia (low blood sugar) during the newborn period. page - myRAS Survey
@@ -588,7 +587,6 @@ Feature: MyRAS Study Regression Scenarios
     And selects All that apply and enters for infection "FLU", and enters for rash "ECZEMA" and enters for other complications "STREP THROAT" for Was the biological mother of Christina Ramirez diagnosed with any of the following conditions prior to or during her pregnancy with Christina Ramirez?  - myRAS Survey
     And click YES During her pregnancy with Christina Ramirez, did their biological mother take any medications, vitamins or supplements for any reason? - myRAS Survey
     And selects All that apply and enters herbal supplements "OREGANO" and enters for first other medication "TURMERIC" and enters for second medication "MELATONIN" for Please select all medications Christinas mother took during her pregnancy with them.  - myRAS Survey
-    And adds details for Christina in Please provide details on the name of the medication taken reason it was taken and approximate length of time it was taken. page - myRAS Survey
     And clicks YES Did Christinas biological mother use any tobacco products during her pregnancy with Christina?  - myRAS Survey
     And selects All that apply and enters for other "WAX" What tobacco products did Christinas biological mother use during her pregnancy with Christina?  - myRAS Survey
     And clicks YES Did Christinas biological mother use any vaping products during her pregnancy with Christina?  - myRAS Survey
@@ -656,7 +654,7 @@ Feature: MyRAS Study Regression Scenarios
     And clicks + sign to add reason for hospitalization "LONG TERM BLOODY NOSE" and enters "9 NOVEMBER 2020" for when it occured and enters for hospital "INOVA, FAIRFAX, VA, USA" for Please provide the information for each hospitalization in the table below. To add a new hospitalization, please click on the + sign in the upper left corner of the table. -myRAS Survey
     And clicks Next button The next set of questions will ask about GI (gastrointestinal) symptoms or conditions. -myRAS Survey
     And clicks YES button Has Christina ever been evaluated by a gastroenterologist?  These are doctors that specialize in the GI tract and liver. The GI tract includes your esophagus, stomach, small intestine, large intestine/colon, liver and pancreas.  Gastroenterologists often diagnose conditions such as inflammatory bowel disease Crohns disease or ulcerative colitis, Celiac disease, ulcers, and pancreas inflammation pancreatitis.   -myRAS Survey
-    And enters doctors name "DOCTOR PHIL VOSS" and enters city, state "FAIRFAX, VA" and enters hospital "INOVA" for Please provide the details for the gastroenterologist who completed the evaluation -myRAS Survey
+    And enters doctors name "DOCTOR PHIL VOSS " and enters city, state "FAIRFAX, VA " and enters hospital "INOVA" for Please provide the details for the gastroenterologist who completed the evaluation -myRAS Survey
     And clicks All that apply and enters for other "TROUBLE SWALLOWING" for Has Christina ever been diagnosed with any of the following feeding difficulties?  These issues often include problems eating food by mouth or keeping food from being vomited. -myRAS Survey
     And clicks age and enters "10 DAYS" for At what age was the nasogastric or nasojejunal tube placed? -myRAS Survey
     And clicks age and enters "20 DAYS" for At what age was the gastrostomy G- tube or gastrostomy-jejunostomy GJ tube placed? -myRAS Survey
