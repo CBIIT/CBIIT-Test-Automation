@@ -211,15 +211,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	@Given("selects participants Date of Birth from the calendar picker")
 	public void selects_a_Date_of_Birth_from_the_calendar_picker() {
 		MiscUtils.sleep(1000);
-<<<<<<< HEAD
-		rasopathyQuestionnairePage.calendarYearTextBox.clear();
-		rasopathyQuestionnairePage.calendarYearTextBox.sendKeys("1990");
-		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.calendarMonthDropDown);
-=======
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.calendarMonthDropDown);
 		rasopathyQuestionnairePage.calendarYearTextBox.clear();
 		rasopathyQuestionnairePage.calendarYearTextBox.sendKeys("1990");
->>>>>>> b6eec4bfc237030efc4433c3f1bb134046db3536
 		CommonUtils.selectDropDownValue("April", rasopathyQuestionnairePage.calendarMonthDropDown);
 		rasopathyQuestionnairePage.calendarDayOption.click();
 		rasopathyQuestionnairePage.studyNextButton.click();
@@ -613,7 +607,8 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	@Given("selects Feeding problems, failure to thrive, or other stomach\\/digestive problems option for participant being diagnosed with any of the listed conditions")
 	public void selects_Feeding_problems_failure_to_thrive_or_other_stomach_digestive_problems_option_for_participant_being_diagnosed_with_any_of_the_listed_conditions() {
 		MiscUtils.sleep(1000);
-		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithConditionsFeedingProblemsOption);
+		CommonUtils.waitForVisibility(
+				rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithConditionsFeedingProblemsOption);
 		rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithConditionsFeedingProblemsOption.click();
 	}
 
@@ -2145,12 +2140,14 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	 * @param username
 	 * @param password
 	 * @throws TestingException
-	 * USE BELOW METHOD TO SIGN CONSENT FORM - USE SAME CREDENTIALS USED TO SUBMIT ELIGIBILITY QUESTIONNAIRE
+	 *                          USE BELOW METHOD TO SIGN CONSENT FORM - USE SAME
+	 *                          CREDENTIALS USED TO SUBMIT ELIGIBILITY QUESTIONNAIRE
 	 */
-	
+
 	@When("the myRas user signs in with Username {string} and Password {string}")
-	public void the_myRas_user_signs_in_with_Username_and_Password(String username, String password) throws TestingException {
-	
+	public void the_myRas_user_signs_in_with_Username_and_Password(String username, String password)
+			throws TestingException {
+
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("myRASLoginPage"));
 
 		CommonUtils.waitForVisibility(myRASLoginPage.loginToMyRASButton);
@@ -2199,7 +2196,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 		CommonUtils.waitForVisibility(myRASHomePage.charmsAutomatedTestTwoSignOutLink);
 		myRASHomePage.charmsAutomatedTestTwoSignOutLink.click();
-	
+
 	}
 
 	/*
@@ -2295,11 +2292,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	static String cgbIIQOneTimePin;
 
-	
 	@Given("enters email address {string} and One Time Pin code to proceed with the form")
 	public void enters_email_address_and_One_Time_Pin_code_to_proceed_with_the_form(String emailAddress) {
 
-		
 		CommonUtils.waitForVisibility(myRASHomePage.rasoptathyIndividualInformationQuestionnairePinText);
 
 		cgbIIQOneTimePin = myRASHomePage.rasoptathyIndividualInformationQuestionnairePinText.getText();
@@ -2317,7 +2312,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		cgbIIQPage.cgbIIQOneTimeEmailTextBox.sendKeys(emailAddress);
 		cgbIIQPage.cgbIIQOneTimePinTextBox.sendKeys(cgbIIQOneTimePin);
 
-
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 
@@ -2325,7 +2319,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		cGBIIQPages.nextButton.click();
 		MiscUtils.sleep(1000);
 		// MiscUtils.sleep(10000);
-	
+
 	}
 
 }
