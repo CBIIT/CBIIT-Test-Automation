@@ -3079,7 +3079,6 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.clottingDisorderDiagnosisAgeTextBox.sendKeys("18");
 		rASSurveyPage.clottingDisorderMedicationTypeTextBox.sendKeys("PLASMA TRANSFUSION");
 		rASSurveyPage.clottingDisorderAddressTextBox.sendKeys("DELAWARE HOSPITAL, DE");
-		rASSurveyPage.otherBleedingTextBox.sendKeys("HEMOPHILIA");
 		rASSurveyPage.otherBleedingFirstSymptomsDateTextBox.sendKeys("05/15");
 		rASSurveyPage.otherBleedingFirstSymptomsAgeTextBox.sendKeys("25");
 		rASSurveyPage.otherBleedingDiagnosisDateTextBox.sendKeys("06/16");
@@ -7557,6 +7556,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(myRASHomePage.rasSurvey);
 		myRASHomePage.rasSurvey.click();
+		MiscUtils.sleep(65000);
 
 	}
 

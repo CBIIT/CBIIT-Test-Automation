@@ -415,6 +415,7 @@ public class CGBIIQSteps extends PageInitializer {
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
+
 	@When("selects whether the participant have a fraternal or identical twin - CGB IIQ")
 	public void selects_whether_the_participant_have_a_fraternal_or_identical_twin__CGB_IIQ() {
 
@@ -486,6 +487,7 @@ public class CGBIIQSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 		MiscUtils.sleep(1500);
 	}
+
 	@When("adds the participants birth weight {string} and Unit Of Measure {string} - CGB IIQ")
 	public void adds_the_participants_birth_and_Numerical_Value_and_and_for_Unit_Of_Measure__CGB_IIQ(
 			String NumericalWeight, String UnitMeasurementWeight) {
@@ -792,7 +794,8 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.ageWhenConsultedDrOverDifficultiesGettingPregnant);
-		cGBIIQPages.ageWhenConsultedDrOverDifficultiesGettingPregnant.sendKeys(AgeProbandConsultedDrOverFailedPregnancies);
+		cGBIIQPages.ageWhenConsultedDrOverDifficultiesGettingPregnant
+				.sendKeys(AgeProbandConsultedDrOverFailedPregnancies);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
@@ -879,11 +882,20 @@ public class CGBIIQSteps extends PageInitializer {
 	}
 
 	@Then("the end of the IIQ survey page {string} is displayed - CGB IIQ")
-	public void the_end_of_the_IIQ_survey_page_is_displayed__CGB_IIQ(String EndOfScreenerText) {
+	public void the_end_of_the_IIQ_survey_page_is_displayed__CGB_IIQ(String EndOfScreenerText) throws TestingException {
 
 		MiscUtils.sleep(2000);
 		Assert.assertTrue(cGBIIQPages.endOfSurveyText.getAttribute("id").contentEquals(EndOfScreenerText));
 		Assert.assertTrue(cGBIIQPages.endOfSurveyText.getAttribute("id").contentEquals(EndOfScreenerText));
+
+		// LOGOUT HERE
+		MiscUtils.sleep(3000);
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
+		MiscUtils.sleep(1500);
+		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewCCButton);
+		testAccountResetPage.nativeViewCCButton.click();
+		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewCCLogOutButton);
+		testAccountResetPage.nativeViewCCLogOutButton.click();
 
 	}
 
@@ -1629,7 +1641,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
-			
+
 	}
 
 	@When("selects Yes if the participant has copy of the genetic test results and would like to upload them to this questionnaire?")
@@ -1892,11 +1904,12 @@ public class CGBIIQSteps extends PageInitializer {
 	}
 
 	@Then("the end of the IIQ survey page {string} is displayed")
-	public void the_end_of_the_IIQ_survey_page_is_displayed(String EndOfScreenerText) {
+	public void the_end_of_the_IIQ_survey_page_is_displayed(String EndOfScreenerText) throws TestingException {
 
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.endOfSurveyText);
 		Assert.assertTrue(cGBIIQPages.endOfSurveyText.getAttribute("id").contentEquals(EndOfScreenerText));
+
 	}
 
 }

@@ -1320,6 +1320,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.submissionSuccessfulText);
 		MiscUtils.sleep(3000);
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
+		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewCCButton);
 		testAccountResetPage.nativeViewCCButton.click();
 		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewCCLogOutButton);
@@ -2288,6 +2289,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		CommonUtils.waitForVisibility(myRASHomePage.rasoptathyIndividualInformationQuestionnaire);
 		MiscUtils.sleep(1000);
 		myRASHomePage.rasoptathyIndividualInformationQuestionnaire.click();
+		MiscUtils.sleep(65000);
 	}
 
 	static String cgbIIQOneTimePin;
