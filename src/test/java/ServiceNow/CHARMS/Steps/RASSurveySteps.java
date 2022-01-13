@@ -3079,7 +3079,6 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.clottingDisorderDiagnosisAgeTextBox.sendKeys("18");
 		rASSurveyPage.clottingDisorderMedicationTypeTextBox.sendKeys("PLASMA TRANSFUSION");
 		rASSurveyPage.clottingDisorderAddressTextBox.sendKeys("DELAWARE HOSPITAL, DE");
-		rASSurveyPage.otherBleedingTextBox.sendKeys("HEMOPHILIA");
 		rASSurveyPage.otherBleedingFirstSymptomsDateTextBox.sendKeys("05/15");
 		rASSurveyPage.otherBleedingFirstSymptomsAgeTextBox.sendKeys("25");
 		rASSurveyPage.otherBleedingDiagnosisDateTextBox.sendKeys("06/16");
@@ -7557,13 +7556,15 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(myRASHomePage.rasSurvey);
 		myRASHomePage.rasSurvey.click();
+		MiscUtils.sleep(65000);
 
 	}
 
 	static String rasSurveyPin;
 
-	@Given("enters Okta email address and One Time Pin code to proceed with the RAS Survey")
-	public void enters_Okta_email_address_and_One_Time_Pin_code_to_proceed_with_the_RAS_Survey() {
+	@Given("enters Okta email address {string} and One Time Pin code to proceed with the RAS Survey")
+	public void enters_Okta_email_address_and_One_Time_Pin_code_to_proceed_with_the_RAS_Survey(
+			String oktaEmailAddress) {
 
 		/**
 		 * USING SAME PIN TEXT AND GO BUTTON LOCATORS AS CGB IIQ SINCE THEY ARE THE SAME
@@ -7582,7 +7583,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.cHARMSEmailLogIn);
-		rASSurveyPage.cHARMSEmailLogIn.sendKeys("charmsras4@yahoo.com");
+		rASSurveyPage.cHARMSEmailLogIn.sendKeys(oktaEmailAddress);
 		rASSurveyPage.cHARMSpasswordToLogIn.sendKeys(rasSurveyPin);
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();

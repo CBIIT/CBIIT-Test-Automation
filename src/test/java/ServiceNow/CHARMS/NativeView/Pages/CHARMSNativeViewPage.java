@@ -146,7 +146,7 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	/* **** BEGINNING OF NATIVE VIEW ELEMENTS FOR ALL PAGES ***** */
 
 	/*--------- Dashboard Link  */
-	@FindBy(xpath = "//body/div[5]/div[1]/div[1]/nav[1]/div[1]/div[3]/div[1]/div[1]/concourse-application-tree[1]/ul[1]/li[17]/ul[1]/li[5]/div[1]/div[1]/a[1]/div[1]/div[1]")
+	@FindBy(xpath = "//ul[contains(@aria-label,'Modules for Application: CHARMS')]//div//div[contains(@class,'sn-widget-list-title')][normalize-space()='Dashboard']")
 	public WebElement nativeViewDashboardLink;
 
 	/*--------- Native view frame -----------  */
