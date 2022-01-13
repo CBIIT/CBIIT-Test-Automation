@@ -1,6 +1,6 @@
 Feature: mSigPortal Signature Explorer tab
 
-  @Progression @matarodriguezko
+  @Progression1 @matarodriguezko
   Scenario: Tumor Mutational Burden graph on Signature Exploration Page is displayed
     Given the user is on the mSigPortal Home page
     When the user navigates to the Signature Explorer page
