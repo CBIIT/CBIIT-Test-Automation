@@ -2,14 +2,14 @@ Feature: These are features pertaining to the CGB IIQ
 
   Description: These scenarios will complete the CGB IIQ in the flows specified in the scenario
 
-  @Smoke @matarodriguezko 
+  @Smoke @matarodriguezko
   Scenario: Female Participant (Proxy) A user lands on the CHARMS
     Given the user is redirected to the log in page of the Individual Information Questionnaire - CGB IIQ
     When types the email address in the textbook labeled Email - CGB IIQ
     And types the One-time pin in the textbook labeled One Time pin - CGB IIQ
-    And on the CGB Statement of Confidentiality page clicks next arrow button - CGB IIQ  
+    And on the CGB Statement of Confidentiality page clicks next arrow button - CGB IIQ
     And on the CGB Instructions page clicks next arrow button - CGB IIQ
-    And on the General Background Information section of IIQ Survey page clicks next arrow button - CGB IIQ  
+    And on the General Background Information section of IIQ Survey page clicks next arrow button - CGB IIQ
     And selects the radio button labelled I am completing this form for someone else - CGB IIQ
     And fills out the participant "Jennifer Slogan" for whom the user is completing the IIQ form. - CGB IIQ
     And selects Female as the biological sex of the participant assigned at birth - CGB IIQ
@@ -72,7 +72,7 @@ Feature: These are features pertaining to the CGB IIQ
     And the user clicks the forward arrow button - CGB IIQ
     Then the end of the IIQ survey page "EndOfSurvey" is displayed - CGB IIQ
 
-  @Smoke @matarodriguezko 
+  @Smoke @matarodriguezko
   Scenario: Male Participant (Proxy) A user lands on the CHARMS
     Given the user is redirected to the log in page of the Individual Information Questionnaire - CGB IIQ
     When types the email address in the textbook labeled Email - CGB IIQ
@@ -130,11 +130,7 @@ Feature: These are features pertaining to the CGB IIQ
     And the user clicks the forward arrow button - CGB IIQ
     Then the end of the IIQ survey page "EndOfSurvey" is displayed - CGB IIQ
 
-<<<<<<< HEAD
   @Smoke @matarodriguezko
-=======
-  @Smoke @matarodriguezko 
->>>>>>> fe215731791a96f3ccc9238a35e30f71792d8b20
   Scenario: Female Participant (Proband) A user lands on the CHARMS
     Given the user is redirected to the log in page of the Individual Information Questionnaire - CGB IIQ
     When types the email address in the textbook labeled Email - CGB IIQ
@@ -203,7 +199,7 @@ Feature: These are features pertaining to the CGB IIQ
     And the user clicks the forward arrow button - CGB IIQ
     Then the end of the IIQ survey page "EndOfSurvey" is displayed - CGB IIQ
 
-  @Smoke @matarodriguezko 
+  @Smoke @matarodriguezko
   Scenario: Male Participant (Proband) A user lands on the CHARMS
     Given the user is redirected to the log in page of the Individual Information Questionnaire - CGB IIQ
     When types the email address in the textbook labeled Email - CGB IIQ
