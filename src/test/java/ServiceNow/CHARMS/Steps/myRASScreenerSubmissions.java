@@ -1336,7 +1336,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	@When("a ServiceNow user navigates to CHARMS Native view and opens records that are Waiting for Elegibility Review")
 	public void a_ServiceNow_user_navigates_to_CHARMS_Native_view_and_opens_records_that_are_Waiting_for_Elegibility_Review()
 			throws TestingException {
-		MiscUtils.sleep(2500);
+		MiscUtils.sleep(15000);
 		nativeViewLoginImpl.nativeViewLogin();
 		CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator);
 		nativeViewHomePage.nativeViewFilterNavigator.sendKeys("CHARMS");
