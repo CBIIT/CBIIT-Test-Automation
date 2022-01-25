@@ -18,7 +18,8 @@ public class NativeViewLoginImpl extends PageInitializer {
 		MiscUtils.sleep(5000);
 		CucumberLogUtils.logScreenShot();
 		// CommonUtils.waitForVisibility(iTrustloginPage.loginLink);
-		iTrustloginPage.loginLink.click();
+		// iTrustloginPage.loginLink.click();
+		JavascriptUtils.clickByJS(iTrustloginPage.loginLink);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 		loginImpl.loginToITrust();
