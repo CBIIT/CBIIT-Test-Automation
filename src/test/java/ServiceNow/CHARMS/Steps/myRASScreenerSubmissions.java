@@ -64,8 +64,8 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	@Given("clicks on Eligibility Questionnaire to begin questionnaire")
 	public void clicks_on_Eligibility_Questionnaire_to_begin_questionnaire() {
-		MiscUtils.sleep(20000);
-		CommonUtils.waitForVisibility(myRASHomePage.warningAgreeButton);
+		MiscUtils.sleep(5000);
+		// CommonUtils.waitForVisibility(myRASHomePage.warningAgreeButton);
 		myRASHomePage.warningAgreeButton.click();
 		CommonUtils.waitForVisibility(myRASHomePage.rasoptathyEligibilityQuestionnaire);
 		myRASHomePage.rasoptathyEligibilityQuestionnaire.click();
