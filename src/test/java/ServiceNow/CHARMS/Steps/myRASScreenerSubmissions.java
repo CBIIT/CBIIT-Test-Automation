@@ -2223,7 +2223,8 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewiFrameCHARMS);
 		CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewiFrameCHARMS);
 
-		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewAwaitingPISignatureLink);
+		MiscUtils.sleep(3000);
+		// CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewAwaitingPISignatureLink);
 		charmsNativeViewPage.nativeViewAwaitingPISignatureLink.click();
 
 	}
