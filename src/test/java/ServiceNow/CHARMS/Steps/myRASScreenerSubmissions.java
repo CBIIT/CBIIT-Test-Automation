@@ -64,10 +64,10 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	@Given("clicks on Eligibility Questionnaire to begin questionnaire")
 	public void clicks_on_Eligibility_Questionnaire_to_begin_questionnaire() {
-		MiscUtils.sleep(5000);
-		CommonUtils.waitForVisibility(myRASHomePage.warningAgreeButton);
+		MiscUtils.sleep(7000);
+		// CommonUtils.waitForVisibility(myRASHomePage.warningAgreeButton);
 		myRASHomePage.warningAgreeButton.click();
-		CommonUtils.waitForVisibility(myRASHomePage.rasoptathyEligibilityQuestionnaire);
+		// CommonUtils.waitForVisibility(myRASHomePage.rasoptathyEligibilityQuestionnaire);
 		myRASHomePage.rasoptathyEligibilityQuestionnaire.click();
 	}
 
@@ -1338,16 +1338,19 @@ public class myRASScreenerSubmissions extends PageInitializer {
 			throws TestingException {
 		MiscUtils.sleep(5000);
 		nativeViewLoginImpl.nativeViewLogin();
-		CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator);
+		// CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator);
 		nativeViewHomePage.nativeViewFilterNavigator.sendKeys("CHARMS");
 
-		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewDashboardLink);
+		MiscUtils.sleep(4000);
+		// CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewDashboardLink);
 		charmsNativeViewPage.nativeViewDashboardLink.click();
 
-		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewiFrameCHARMS);
+		MiscUtils.sleep(4000);
+		// CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewiFrameCHARMS);
 		CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewiFrameCHARMS);
 
-		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewWaitingForElegibilityReviewButton);
+		MiscUtils.sleep(4000);
+		// CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewWaitingForElegibilityReviewButton);
 		charmsNativeViewPage.nativeViewWaitingForElegibilityReviewButton.click();
 
 	}
