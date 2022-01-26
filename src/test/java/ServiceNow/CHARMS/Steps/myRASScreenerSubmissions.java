@@ -68,7 +68,8 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		CommonUtils.waitForVisibility(myRASHomePage.warningAgreeButton);
 		myRASHomePage.warningAgreeButton.click();
 		CommonUtils.waitForVisibility(myRASHomePage.rasoptathyEligibilityQuestionnaire);
-		myRASHomePage.rasoptathyEligibilityQuestionnaire.click();
+		// myRASHomePage.rasoptathyEligibilityQuestionnaire.click();
+		JavascriptUtils.clickByJS(myRASHomePage.rasoptathyEligibilityQuestionnaire);
 	}
 
 	/* END: Eligibility Questionnaire Link to click */
