@@ -65,9 +65,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	@Given("clicks on Eligibility Questionnaire to begin questionnaire")
 	public void clicks_on_Eligibility_Questionnaire_to_begin_questionnaire() {
 		MiscUtils.sleep(7000);
-		// CommonUtils.waitForVisibility(myRASHomePage.warningAgreeButton);
+		CommonUtils.waitForVisibility(myRASHomePage.warningAgreeButton);
 		myRASHomePage.warningAgreeButton.click();
-		// CommonUtils.waitForVisibility(myRASHomePage.rasoptathyEligibilityQuestionnaire);
+		CommonUtils.waitForVisibility(myRASHomePage.rasoptathyEligibilityQuestionnaire);
 		myRASHomePage.rasoptathyEligibilityQuestionnaire.click();
 	}
 
@@ -97,7 +97,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	@Given("selects I am completing this form for someone else option")
 	public void selects_I_am_completing_this_form_for_someone_else_option() {
 		MiscUtils.sleep(5000);
-		// CommonUtils.waitForVisibility(rasopathyQuestionnairePage.iAmCompletingThisFormForSomeoneElseOption);
+		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.iAmCompletingThisFormForSomeoneElseOption);
 		rasopathyQuestionnairePage.iAmCompletingThisFormForSomeoneElseOption.click();
 		rasopathyQuestionnairePage.studyNextButton.click();
 
@@ -1338,19 +1338,19 @@ public class myRASScreenerSubmissions extends PageInitializer {
 			throws TestingException {
 		MiscUtils.sleep(5000);
 		nativeViewLoginImpl.nativeViewLogin();
-		// CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator);
+		CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator);
 		nativeViewHomePage.nativeViewFilterNavigator.sendKeys("CHARMS");
 
 		MiscUtils.sleep(4000);
-		// CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewDashboardLink);
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewDashboardLink);
 		charmsNativeViewPage.nativeViewDashboardLink.click();
 
 		MiscUtils.sleep(4000);
-		// CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewiFrameCHARMS);
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewiFrameCHARMS);
 		CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewiFrameCHARMS);
 
 		MiscUtils.sleep(4000);
-		// CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewWaitingForElegibilityReviewButton);
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewWaitingForElegibilityReviewButton);
 		charmsNativeViewPage.nativeViewWaitingForElegibilityReviewButton.click();
 
 	}
