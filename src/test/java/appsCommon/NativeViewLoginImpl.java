@@ -17,7 +17,7 @@ public class NativeViewLoginImpl extends PageInitializer {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
 		MiscUtils.sleep(5000);
 		CucumberLogUtils.logScreenShot();
-		CommonUtils.waitForVisibility(iTrustloginPage.loginLink);
+		// CommonUtils.waitForVisibility(iTrustloginPage.loginLink);
 		iTrustloginPage.loginLink.click();
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
