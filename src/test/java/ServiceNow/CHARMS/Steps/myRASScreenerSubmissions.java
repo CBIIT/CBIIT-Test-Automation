@@ -197,7 +197,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	@Given("clicks next for The next set of questions will collect basic information about the participant")
 	public void clicks_next_for_The_next_set_of_questions_will_collect_basic_information_about_automated_name_page() {
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(5000);
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.studyNextButton);
 		rasopathyQuestionnairePage.studyNextButton.click();
 
