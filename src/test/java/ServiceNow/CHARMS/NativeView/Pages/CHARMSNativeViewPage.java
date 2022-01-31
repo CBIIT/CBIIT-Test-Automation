@@ -868,19 +868,24 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	 */
 
 	/**
-	 * ************************** BEGINNING OF DEMOGRAPHICS SECTION **************************
+	 * ************************** BEGINNING OF DEMOGRAPHICS SECTION
+	 * **************************
 	 * 
 	 */
-	
+
 	/* ----- Native view Rasopathy Survey button ------- */
 	@FindBy(xpath = "//div[contains(text(),'RASopathy Surveys')]")
 	public WebElement nativeViewRasSurveyRASopathySurveysButton;
-	
+
 	/* ----- Native view Rasopathy Survey Demographics tab ------- */
 	@FindBy(xpath = "//span[normalize-space()='Demographics']")
 	public WebElement nativeViewRasSurveyDemographicsTab;
-	
-	/* ----- Native view Rasopathy Survey "Included in published case report or in a different public manner" drop down ------- */
+
+	/*
+	 * ----- Native view Rasopathy Survey
+	 * "Included in published case report or in a different public manner" drop down
+	 * -------
+	 */
 
 	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.published_case']//option[@value='1'][normalize-space()='Yes']")
 	public WebElement nativeViewRasSurveyIncludedInPublishedCaseReportOrInADifferentPublicMannerDropDown;
@@ -944,116 +949,145 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	 * ************************** BEGINNING OF BIRTH & GESTATION SECTION
 	 * **************************
 	 */
-	
+
 	/* ----- Native view Rasopathy Survey Birth & Gestation tab ------- */
 
 	@FindBy(xpath = "//span[normalize-space()='Birth & Gestation']")
 	public WebElement nativeViewRasSurveyBirthAndGestationTab;
-	
-	/* ----- Native view Rasopathy Survey "Were you diagnosed with hypoglycemia (low blood sugar) during the newborn period" drop down ------- */
+
+	/*
+	 * ----- Native view Rasopathy Survey
+	 * "Were you diagnosed with hypoglycemia (low blood sugar) during the newborn period"
+	 * drop down -------
+	 */
 	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.hypoglycemia']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyWereYouDiagnosedWithHypoglycemiaLowBloodSugarDuringTheNewbornPeriodDropDown;
 
-	/* ----- Native view Rasopathy Survey "Issues identified in the participant prior to birth/Were you diagnosed with any of the following conditions during your mothers pregnancy?" text area ------- */
+	/*
+	 * ----- Native view Rasopathy Survey
+	 * "Issues identified in the participant prior to birth/Were you diagnosed with any of the following conditions during your mothers pregnancy?"
+	 * text area -------
+	 */
 	@FindBy(xpath = "//p[contains(text(),'Extra fluid in the neck area (nuchal edema), Extra')]")
 	public WebElement nativeViewRasSurveyIssuesIdentifiedInTheParticipantPriorToBirthTextArea;
-	
-	/* ----- Native view Rasopathy Survey Please Specify for "Issues identified in the participant prior to birth/Were you diagnosed with any of the following conditions during your mothers pregnancy?" text area ------- */
+
+	/*
+	 * ----- Native view Rasopathy Survey Please Specify for
+	 * "Issues identified in the participant prior to birth/Were you diagnosed with any of the following conditions during your mothers pregnancy?"
+	 * text area -------
+	 */
 	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.please_specify_issues_prior_birth']")
 	public WebElement nativeViewRasSurveyIssuesIdentifiedInTheParticipantPriorToBirthPleaseSpecifyTextBox;
-	
-	/* ----- Native view Rasopathy Survey "Did biological mother receive prenatal tests for birth defects/medical problems" Dropdown ------- */
+
+	/*
+	 * ----- Native view Rasopathy Survey
+	 * "Did biological mother receive prenatal tests for birth defects/medical problems"
+	 * Dropdown -------
+	 */
 	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.prenatal_testing']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyDidBiologicalMotherReceivePrenatalTestsForBirthDefectsMedicalProblemsDropDown;
-	
-	// ------- Native View Survey Participant mothers birth complications -----------
-	@FindBy (xpath = "//p[contains(text(),'Polyhydramnios (excess amniotic fluid), Proteinuri')]")
+
+	// ------- Native View Survey Participant mothers birth complications
+	// -----------
+	@FindBy(xpath = "//p[contains(text(),'Polyhydramnios (excess amniotic fluid), Proteinuri')]")
 	public WebElement nativeViewRasSurveyParticipantmothersbirthcomplications;
-	
-	// -------- Native View Survey birth mother's complication Infection text box -----
-	@FindBy (xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.infection_pregnancy_condition']")
+
+	// -------- Native View Survey birth mother's complication Infection text box
+	// -----
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.infection_pregnancy_condition']")
 	public WebElement nativeViewRasSurveymotherscomplicationinfectiontextbox;
-	
+
 	// -------- Native View Survey birth mother's complication Rash text box -----
-	@FindBy (xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.rash_pregnancy_condition']")
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.rash_pregnancy_condition']")
 	public WebElement nativeViewRasSurveyMothersComplicationRashTextbox;
-	
-	// -------- Native View Survey birth mother's other complication Other text box -----
-	@FindBy (xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.other_complication']")
+
+	// -------- Native View Survey birth mother's other complication Other text box
+	// -----
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.other_complication']")
 	public WebElement nativeViewRasSurveyMothersOtherComplicationTextbox;
-	
-	//--------- Native view Survey Were medications taken while biological mother was pregnant with the participant
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.medications_while_pregnant']//option[@value='1'][normalize-space()='Yes']")
+
+	// --------- Native view Survey Were medications taken while biological mother
+	// was pregnant with the participant
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.medications_while_pregnant']//option[@value='1'][normalize-space()='Yes']")
 	public WebElement nativeViewRasSurveyWereMedicationsTakenWhileBioMotherPregnant;
-	
-	//--------Native View Survey Did your biological mother use any tobacco products during her pregnancy with you?
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.tobacco_used_while_pregnant_mom']//option[@selected='SELECTED']")
+
+	// --------Native View Survey Did your biological mother use any tobacco
+	// products during her pregnancy with you?
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.tobacco_used_while_pregnant_mom']//option[@selected='SELECTED']")
 	public WebElement natiViewRasSurveyDidBioMotherUseTobaccoDuringPregnancy;
-	
-	//--------Native View Survey Tobacco products used by mother during pregnancy
-	@FindBy (xpath = "//p[contains(text(),'Cigarettes, Cigars, Pipes, Snuff, Chewing tobacco,')]")
+
+	// --------Native View Survey Tobacco products used by mother during pregnancy
+	@FindBy(xpath = "//p[contains(text(),'Cigarettes, Cigars, Pipes, Snuff, Chewing tobacco,')]")
 	public WebElement nativeViewRasSurveyTobaccoProductsUsedByMother;
-	
-	//---------Native View Survey Please Specify Other Tobacco textbox
-	@FindBy (xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.please_specify_tobacco']")
+
+	// ---------Native View Survey Please Specify Other Tobacco textbox
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.please_specify_tobacco']")
 	public WebElement nativeViewRasSurveyPleaseSpecifytextbox;
-	
-	//--------Native view Survey Were vaping products use by participants bio mom during pregnancy dropdown
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.were_vaping_products_used']//option[@selected='SELECTED']")
+
+	// --------Native view Survey Were vaping products use by participants bio mom
+	// during pregnancy dropdown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.were_vaping_products_used']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyVapingProductsUsedByMotherDuringPregnacyDropDown;
-	
-	//------Native View Survey Select all Vaping Products used by Mother
-	@FindBy (xpath = "//p[contains(text(),'Electronic cigarettes, Cig-a-likes, Minis, Vape pe')]")
+
+	// ------Native View Survey Select all Vaping Products used by Mother
+	@FindBy(xpath = "//p[contains(text(),'Electronic cigarettes, Cig-a-likes, Minis, Vape pe')]")
 	public WebElement nativeViewRasSurveyVapingProductsUsed;
-	
-	//-------Native View Survey Please Specify Other Vaping Products Used Text Box
-	@FindBy (xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.please_specify_vape_products']")
+
+	// -------Native View Survey Please Specify Other Vaping Products Used Text Box
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.please_specify_vape_products']")
 	public WebElement nativeViewRasSurveyPleaseSpecifyOtherVapingProductTextBox;
-	
-	//-----Native View Survey "Did your biological mother drink any alcoholic beverages during her pregnancy with you?" textbox
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.alcohol_while_pregnant']//option[@selected='SELECTED']")
+
+	// -----Native View Survey "Did your biological mother drink any alcoholic
+	// beverages during her pregnancy with you?" textbox
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.alcohol_while_pregnant']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyDidMotherDrinkAlcoholDuringPregnancyDropDown;
-	
-	//-------Native VIew Survey Selecting Alcohol Used By Mom during pregnancy
-	@FindBy (xpath = "//p[contains(text(),'Wine, Beer, Hard liquor, Liqueurs, Others (please ')]")
+
+	// -------Native VIew Survey Selecting Alcohol Used By Mom during pregnancy
+	@FindBy(xpath = "//p[contains(text(),'Wine, Beer, Hard liquor, Liqueurs, Others (please ')]")
 	public WebElement nativeViewRasSurveyAlcoholUsedByMotherDuringPregnancy;
-	
-	//-------Native View Survey Other Alcohol Please Specify Text Box
-	@FindBy (xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.please_specify_alcohol']")
+
+	// -------Native View Survey Other Alcohol Please Specify Text Box
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.please_specify_alcohol']")
 	public WebElement nativeViewRasSurveyOtherAlcoholPleaseSpecifyTextbox;
-	
-	//------Native View Survey Did participants bio mother use recreational drugs during pregnancy
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.drugs_used_during_pregnancy']//option[@selected='SELECTED']")
+
+	// ------Native View Survey Did participants bio mother use recreational drugs
+	// during pregnancy
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.drugs_used_during_pregnancy']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyDidMotherUseRecreationalDrugsDropdown;
-	
-	//------Native View Survey Drugs used by biological mother during pregnancy
-	@FindBy (xpath = "//p[contains(text(),'Cannabis (marijuana, weed, pot), Heroin, Cocaine, ')]")
+
+	// ------Native View Survey Drugs used by biological mother during pregnancy
+	@FindBy(xpath = "//p[contains(text(),'Cannabis (marijuana, weed, pot), Heroin, Cocaine, ')]")
 	public WebElement nativeViewRasSurveyDrugsUsedByBioMotherSelection;
-	
-	//--------Native View Survey Other Drugs Used Please Specify Text Box
-	@FindBy (xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.please_specify_drugs']")
+
+	// --------Native View Survey Other Drugs Used Please Specify Text Box
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.please_specify_drugs']")
 	public WebElement nativeViewRasSurveyOtherDrugsUsedByMotherPleaseSPecifyTextBox;
-	
-	//-------Native View Survey Biological mothers occupation while pregnant with the participant
-	@FindBy (xpath =  "//textarea[@name='x_naci_family_coho_rasopathy_iiq.occuption_while_pregnant']")
+
+	// -------Native View Survey Biological mothers occupation while pregnant with
+	// the participant
+	@FindBy(xpath = "//textarea[@name='x_naci_family_coho_rasopathy_iiq.occuption_while_pregnant']")
 	public WebElement nativeViewRasSurveyMothersOccupationWhilePregnantTextArea;
-	
-	//--------Native View Survey Biological fathers occupation while mother was pregnant with the participant
-	@FindBy (xpath = "//textarea[@name='x_naci_family_coho_rasopathy_iiq.fathers_occupation_while_pregnant']")
+
+	// --------Native View Survey Biological fathers occupation while mother was
+	// pregnant with the participant
+	@FindBy(xpath = "//textarea[@name='x_naci_family_coho_rasopathy_iiq.fathers_occupation_while_pregnant']")
 	public WebElement nativeViewRasSurveyFatherOccupationWhileMotherPregnantWithParticipantTextArea;
-	
-	//-------Native View Survey Did the participants mother ever live/work in a place where others use tobacco drop down
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.live_work_near_tobacco_usage']//option[@selected='SELECTED']")
+
+	// -------Native View Survey Did the participants mother ever live/work in a
+	// place where others use tobacco drop down
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.live_work_near_tobacco_usage']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyDidParticipantMotherLiveWhereTobaccoDropDown;
-	
-	//--------Native View Survey Tobacco products used around mother during pregnancy DropDown
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.tobacco_used_while_pregnant_mom']/option[@selected='SELECTED']")
+
+	// --------Native View Survey Tobacco products used around mother during
+	// pregnancy DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.tobacco_used_while_pregnant_mom']/option[@selected='SELECTED']")
 	public WebElement nativeVIewRasSurveyTobaccoProductsUsedAroundMotherDuringPregnancyDropDown;
-	
-	//--------Native View Survey OTHER Tobacco products used around mother during pregnancy Please Specify
-	@FindBy (xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.please_specify_tobacco_around']")
+
+	// --------Native View Survey OTHER Tobacco products used around mother during
+	// pregnancy Please Specify
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.please_specify_tobacco_around']")
 	public WebElement nativeViewRasSurveyOtherTobaccoUsedAroundMotherDuringPregPleaseSpecifyTextArea;
-	
+
 	/**
 	 * ************************** END OF BIRTH & GESTATION SECTION
 	 * **************************
@@ -1070,191 +1104,207 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	/*
 	 * ----- Has the participant had growth hormone testing DropDown-------
 	 */
-	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.growth_hormone_count']//option[@selected='SELECTED']")
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.growth_hormone_testing']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyGrowthHasTheParticipantHadGrowthHormoneTestingDropDown;
 	/*
-	 * ----- Has the participant ever been evaluated by an endocrinologist for any reason? DropDown-------
+	 * ----- Has the participant ever been evaluated by an endocrinologist for any
+	 * reason? DropDown-------
 	 */
 	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.endocrinologist_evaluation']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyGrowthHasTheParticipantEverBeenEvaledByAnEndrocrinologistDropDown;
-	
+
 	/*
 	 * ----- Doctor/medical provider name text box -------
 	 */
 	@FindBy(xpath = "//input[contains(@aria-label,'Doctor/medical provider name')]")
 	public WebElement nativeViewRasSurveyGrowthDoctorMedicalProviderNameTextBox;
-	
+
 	/*
 	 * -----Doctor/Medical Location(City, State, Country) text box -------
 	 */
 	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.endocrinologist_location']")
 	public WebElement nativeViewRasSurveyGrowthDoctorMedicalProviderLocationTextBox;
-	
+
 	/*
 	 * ----- Hospital or Health System Affiliation text box -------
 	 */
 	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.hosptial_or_health_system_affiliation']")
 	public WebElement nativeViewRasSurveyGrowthDoctorMedicalProviderHospitalOrHealthSystemAffiliationTextBox;
-	
+
 	/*
 	 * ------ Growth Hormone Test Results Text Area -----
 	 */
 	@FindBy(xpath = "//p[contains(text(),'Normal growth hormone levels, Growth hormone defic')]")
 	public WebElement nativeViewRasSurveyGrowthHormoneResultsTextArea;
-	
+
 	// ---------- Growth Hormone Results TextArea Please Specify TextBox ------
 	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.please_specify_growth_hormone']")
 	public WebElement nativeViewRasSurveyGrowthHormoneResultsTextAreaPleaseSpecifyTextBox;
-	
-	//------ Participant Received Growth Hormone Treatment DropDown ------
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.growth_hormone_count']//option[@selected='SELECTED']")
+
+	// ------ Participant Received Growth Hormone Treatment DropDown ------
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.growth_hormone_treatment']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyHasParticipantReceivedGrowthHormoneTreatmentDropDown;
-	
-	//------ Height before starting growth hormone textbox ------
-	@FindBy (xpath = "//input[contains(@aria-label,'Height before starting growth hormone')]")
+
+	// ------ Height before starting growth hormone textbox ------
+	@FindBy(xpath = "//input[contains(@aria-label,'Height before starting growth hormone')]")
 	public WebElement nativeViewRasSurveyHeightbeforestartinggrowthhormonetextbox;
-	
-	//------ How many times has the participant received growth hormone treatment DropDown
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.growth_hormone_count']//option[@selected='SELECTED']" )
+
+	// ------ How many times has the participant received growth hormone treatment
+	// DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.growth_hormone_count']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyHowManyTimeshastheParticipantReceivedGrowthHormoneTreatmentDropdown;
 
 	/**
 	 * ************************** END OF GROWTH SECTION
 	 * **************************
 	 */
-	
-	
+
 	/**
 	 * *************************** BEGGINING OF DEVELOPMENT SECTION
 	 * **************************
 	 */
-	
-	//---------- Native View Rasopathy Survey DEVELOPMENT Tab ----------
-	@FindBy (xpath = "//span[normalize-space()='Development']")
+
+	// ---------- Native View Rasopathy Survey DEVELOPMENT Tab ----------
+	@FindBy(xpath = "//span[normalize-space()='Development']")
 	public WebElement nativeViewRasSurveyDevelopmentTab;
-	
-	//------Native View Was the participant diagnosed with hypotonia as an infant or child? DropDown
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.diagnosed_with_hypotonia']//option[@selected='SELECTED']")
+
+	// ------Native View Was the participant diagnosed with hypotonia as an infant
+	// or child? DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.diagnosed_with_hypotonia']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyparticipantDiagnosedWithHypotoniaAsAnInfantOrChildDropDown;
 
-	//-------Native View At what age was the participant able to sit without support DropDown
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.sit_without_support']//option[@selected='SELECTED']")
+	// -------Native View At what age was the participant able to sit without
+	// support DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.sit_without_support']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyAgeAbleToSitWithoutSupportDropdown;
-	
-	//----- Native View At What Age Was The Participant Able To Walk Without Support DropDown
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.walk_without_support']//option[@selected='SELECTED']")
+
+	// ----- Native View At What Age Was The Participant Able To Walk Without
+	// Support DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.walk_without_support']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyAgeAbletoWalkWithoutSupportDropdown;
 
-	//--------Native View Has Participant Received Physical Therapy DropDown
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.physical_therapy']//option[@selected='SELECTED']")
+	// --------Native View Has Participant Received Physical Therapy DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.physical_therapy']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSUrveyReceivedReceivedPhysicalTherapyDropDown;
 
-	//-------Native View Age Participant Able to use simple two-word phrases? DropDown
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.use_two_phrases']//option[@selected='SELECTED']")
+	// -------Native View Age Participant Able to use simple two-word phrases?
+	// DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.use_two_phrases']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyAgeAbleUseSimpleTwoWordDropdown;
 
-	//-------Native View Curretn Speech Capabilities DropDown
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.speech_capabilities']//option[@selected='SELECTED']")
+	// -------Native View Curretn Speech Capabilities DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.speech_capabilities']//option[@selected='SELECTED']")
 	public WebElement nativeVIewRasSurveyCurrentSpeechCapabilitiesDropDown;
 
-	//-------Native View Has Participant Received Speech Therapy DropDown
-	@FindBy	(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.speech_therapy']//option[@selected='SELECTED']")
+	// -------Native View Has Participant Received Speech Therapy DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.speech_therapy']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyEverReceivedSpeechTherapyDropDown;
 
-	//-------Native View Diagnosed with cognitive development issues between ages 3 & 6 DropDown
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.cognitive_development_issues']//option[@selected='SELECTED']")
+	// -------Native View Diagnosed with cognitive development issues between ages 3
+	// & 6 DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.cognitive_development_issues']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyCognitiveDevIssuesBetweenThreeAndSixDropDown;
 
-	//-------Native View Did the participant receive occupation therapy between the ages of 3 & 6 DropDown
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.occupational_therapy']//option[@selected='SELECTED']//option[@selected='SELECTED']")
+	// -------Native View Did the participant receive occupation therapy between the
+	// ages of 3 & 6 DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.occupational_therapy']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyReceiveOccupationalTherapyBetween3And6DropDown;
 
-	//-------Native View Schooling between the ages of 6 and 10 DropDown
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.schooling_6_10']//option[@selected='SELECTED']")
+	// -------Native View Schooling between the ages of 6 and 10 DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.schooling_6_10']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveySchoolingBetweenSixAndTenDropDown;
-	
-	//-------Native View Schooling age 10 to 17
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.schooling_10_17']//option[@selected='SELECTED']")
+
+	// -------Native View Schooling age 10 to 17
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.schooling_10_17']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveySchoolingAge10To17Dropdown;
 
-	//-------Native View Current employment status DropDown
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.employment_status']//option[@selected='SELECTED']")
+	// -------Native View Current employment status DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.employment_status']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyCurrenEmpStatusDropdown;
 
-	//-------Native View Participants diagnosed learning differences Textarea
-	@FindBy (xpath = "//p[contains(text(),'Short attention span - includes attention deficit ')]")
+	// -------Native View Participants diagnosed learning differences Textarea
+	@FindBy(xpath = "//p[contains(text(),'Short attention span - includes attention deficit ')]")
 	public WebElement nativeViewRasSurveyDiagnosedLearningDifferencesTextArea;
-	
-	//-------Native View Diagnose Learning Other Please Specify Textbox
-	@FindBy (xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.please_specify_learning_diff']")
+
+	// -------Native View Diagnose Learning Other Please Specify Textbox
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.please_specify_learning_diff']")
 	public WebElement nativeViewRasSurveyDiagnoseOtherTextBox;
-	
-	//-------Native View Other Employment Status
-	@FindBy (xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.other_employment_status']")
+
+	// -------Native View Other Employment Status
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.other_employment_status']")
 	public WebElement nativeViewRasSurveyOtherEmpStatusTextbox;
-	
-	//-------Native View Participants highest level of schooling DropDown
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.highest_level_of_schooling_ras']//option[@selected='SELECTED']")
+
+	// -------Native View Participants highest level of schooling DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.highest_level_of_schooling_ras']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyHighestLevelOfSchoolingDropdown;
-	
- 
 
 	/**
 	 * *************************** END OF DEVELOPMENT SECTION
 	 * **************************
 	 */
 
-	 /**
-		 * ************************** BEGINNING OF HEART SECTION
-		 * **************************
+	/**
+	 * ************************** BEGINNING OF HEART SECTION
+	 * **************************
 	 */
 
-	 /* -------- Native view Rasopathy Survey Heart tab ---------- */
-	 @FindBy(xpath= "//span[normalize-space()='Heart']")
-	 public WebElement nativeViewRasSurveyHeartTab;
+	/* -------- Native view Rasopathy Survey Heart tab ---------- */
+	@FindBy(xpath = "//span[normalize-space()='Heart']")
+	public WebElement nativeViewRasSurveyHeartTab;
 
-	 /* ----- Has the participant been evaluated by a cardiologist? DropDown ------- */
-	 @FindBy(xpath="//select[@name='x_naci_family_coho_rasopathy_iiq.evaluated_by_cardiologist']//option[@selected='SELECTED']")
-	 public WebElement nativeViewRasSurveyHasTheParticipantBeenEvaluatedByACardiologistDropDown;
+	/*
+	 * ----- Has the participant been evaluated by a cardiologist? DropDown -------
+	 */
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.evaluated_by_cardiologist']//option[@selected='SELECTED']")
+	public WebElement nativeViewRasSurveyHasTheParticipantBeenEvaluatedByACardiologistDropDown;
 
-	 /* ----- Name of cardiologist Text Box ------- */
-	@FindBy(xpath="//input[@name='x_naci_family_coho_rasopathy_iiq.cardiologist_name']")
+	/* ----- Name of cardiologist Text Box ------- */
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.cardiologist_name']")
 	public WebElement nativeViewRasSurveyNameOfTheCardiologistTextBox;
 
 	/* ------ Heart Tab Location (City, State, Country) Text Box -------- */
-	@FindBy(xpath="//input[@name='x_naci_family_coho_rasopathy_iiq.cardiologist_location']")
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.cardiologist_location']")
 	public WebElement nativeViewRasSurveyHeartTabLocationCityStateCountryTextBox;
 
 	/* ------ Hosptial or Health Center Affiliation Text Box ------- */
 	@FindBy(xpath = "//input[contains(@aria-label,'Hosptial or Health Center Affiliation')]")
 	public WebElement nativeViewRasSurveyHospitalOrHealthCenterAffiliationTextBox;
 
-	/* ------ Has the participant received treatment for heart problems? Drop Down -------- */
+	/*
+	 * ------ Has the participant received treatment for heart problems? Drop Down
+	 * --------
+	 */
 	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.heart_treatment_received']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyHasTheParticicpantRecievedTreatmentForHearProblemsDropDown;
 
-	/* ------- Has the participant been diagnosed with a functional heart issue? Drop Down -------- */
+	/*
+	 * ------- Has the participant been diagnosed with a functional heart issue?
+	 * Drop Down --------
+	 */
 	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.functional_heart_issue']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyHasTheParticipantBeenDiagnosedWithAFuncitonalHeartIssueDropDown;
 
-	/* ------- Has the participant been diagnosed with structural heart issues? Drop Down ------- */
+	/*
+	 * ------- Has the participant been diagnosed with structural heart issues? Drop
+	 * Down -------
+	 */
 	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.heart_disease']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyHasTheParticipantBeenDIagnosedWithStructuralHeartIssuesDropDown;
 
 	/* ------- Participants diagnosed structural heart issues Text Area -------- */
-	@FindBy(xpath ="//p[contains(text(),'Pulmonary valve stenosis or pulmonary valve dyspla')]")
+	@FindBy(xpath = "//p[contains(text(),'Pulmonary valve stenosis or pulmonary valve dyspla')]")
 	public WebElement nativeViewRasSurveyParticipantsDiagnosedStructuralHeartIssuesTextArea;
 
 	/* ------- Please Specify Text Box ------- */
-	@FindBy (xpath ="//input[@name='x_naci_family_coho_rasopathy_iiq.please_specify_heart_issues']")
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.please_specify_heart_issues']")
 	public WebElement nativeViewRasSurveyDiagnosedStructuralHeartIssuesPleaseSpecifiyTextBox;
-	
+
 	/**
 	 * ************************** END OF HEART SECTION
 	 * **************************
 	 */
 
-	 /**
+	/**
 	 * ************************** BEGINNING OF MEDICAL HISTORY SECTION
 	 * **************************
 	 */
@@ -1263,7 +1313,9 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	@FindBy(xpath = "//span[normalize-space()='Medical History']")
 	public WebElement nativeViewRasSurveyMedicalHistoryTab;
 
-	/* ------- Does the participant have a primary care provider? Drop Down ------- */
+	/*
+	 * ------- Does the participant have a primary care provider? Drop Down -------
+	 */
 	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.primary_care']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyDoesTheParticipantHaveAPrimaryCareProviderDropDown;
 
@@ -1272,7 +1324,7 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	public WebElement nativeViewRasSurveyNameOfPrimaryCareProviderTextBox;
 
 	/* ------- Location of primary care provider Text Box ------- */
-	@FindBy(xpath= "//input[@name='x_naci_family_coho_rasopathy_iiq.pcp_location']")
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.pcp_location']")
 	public WebElement nativeViewRasSurveyLocationOfPrimaryCareProviderTextBox;
 
 	/* ------- Primary Care Provider Affiliation Text Box ------- */
@@ -1287,11 +1339,17 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.medication_allergy']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyIsTheParticipantAllergicToAnyMedicationsDropDown;
 
-	/* ------- Have you ever been diagnosed with a lymphatic system issue Drop Down ------- */
+	/*
+	 * ------- Have you ever been diagnosed with a lymphatic system issue Drop Down
+	 * -------
+	 */
 	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.lymphatic_diagnosis']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyHaveYouEverBeenDiagnosedWithALymphaticSystemIssueDropDown;
 
-	/* ------- Has the participant ever been evaluated by a nephrologist? Drop Down ------- */
+	/*
+	 * ------- Has the participant ever been evaluated by a nephrologist? Drop Down
+	 * -------
+	 */
 	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.nephrologist_evaluated']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyHasTheParticipantEverBeenEvaluatedByANephrologistDropDown;
 
@@ -1307,24 +1365,30 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	@FindBy(xpath = "//textarea[@name='x_naci_family_coho_rasopathy_iiq.nephrologist_affiliation']")
 	public WebElement nativeViewRasSurveyNephrologistAffilitionTextBox;
 
-	/* ------- Has the participant ever been diagnosed with a kidney problem Drop Down ------- */
+	/*
+	 * ------- Has the participant ever been diagnosed with a kidney problem Drop
+	 * Down -------
+	 */
 	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.diagnosed_kidney_problem']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyHasTheParticipantEverBeenDiagnosedWithAKidneyProblemDropDown;
 
-	/* ------- Hospitalized for any reason other than accidental injury or childbirth Drop Down ------ */
+	/*
+	 * ------- Hospitalized for any reason other than accidental injury or
+	 * childbirth Drop Down ------
+	 */
 	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.hospitalized_for_other_reason']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyHospitalizedForAnyReasonOtherThanAccidentalInjuryOrChildbirthDropDown;
 
 	/* ------- Is the participant allergic to any foods Drop Down ------- */
 	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.food_allergy']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyIsTheParticipantAllergicToAnyFoodsDropDown;
-	
+
 	/* ------- Is the participant allergic to other things? Drop Down ------- */
 	@FindBy(xpath = "//select[contains(@name,'x_naci_family_coho_rasopathy_iiq.allergic_other_things')]//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyIsTheParticipantAllergicToOtherThingsDropDown;
 
 	/* ------- Participant ear issues Text Area ------- */
-	@FindBy(xpath ="//div[@aria-label='Medical History form section']//p[@class='form-control-static'][contains(text(),'Excessive earwax, Chronic or recurrent ear infecti')]")
+	@FindBy(xpath = "//div[@aria-label='Medical History form section']//p[@class='form-control-static'][contains(text(),'Excessive earwax, Chronic or recurrent ear infecti')]")
 	public WebElement nativeViewRasSurveyParticipantEarIssuesTextArea;
 
 	/**
@@ -1332,56 +1396,57 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	 * **************************
 	 */
 
-
 	/**
 	 * ************************** BEGINNING OF BREATHING SECTION
 	 * **************************
 	 */
-	//Breathing tab locator -- span
-	@FindBy(xpath= "//span[normalize-space()='Breathing']")
-	 public WebElement nativeViewRasSurveyBreathingTab;
+	// Breathing tab locator -- span
+	@FindBy(xpath = "//span[normalize-space()='Breathing']")
+	public WebElement nativeViewRasSurveyBreathingTab;
 
-	 //Has the participant ever been evaluated by a pulmonologist? -- dropdown
-	@FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.pulmonologist_evaluation']/option[@selected='SELECTED']")
+	// Has the participant ever been evaluated by a pulmonologist? -- dropdown
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.pulmonologist_evaluation']/option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyHasTheParticipantBeenEvaledByPulmonologistDropDown;
 
-	//Pulmonologist name -- text box
-	@FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.pulmonologsit_name']")
+	// Pulmonologist name -- text box
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.pulmonologsit_name']")
 	public WebElement nativeViewRasSurveyPulmonologsitNameTextBox;
 
-	//Pulmonologist location -- text box
-	@FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.pulmonologist_location']")
+	// Pulmonologist location -- text box
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.pulmonologist_location']")
 	public WebElement nativeViewRasSurveyPulmonologsitLocationTextBox;
 
-	//Pulmonologist affiliation -- text box
-	@FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.pulmonologist_affiliation']")
+	// Pulmonologist affiliation -- text box
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.pulmonologist_affiliation']")
 	public WebElement nativeViewRasSurveyPulmonologsitAffiliationTextBox;
 
-	//Has the participant had wheezing or whistling in the chest? -- dropdown
-	@FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.wheezing_whistling_in_chest']/option[@selected='SELECTED']")
+	// Has the participant had wheezing or whistling in the chest? -- dropdown
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.wheezing_whistling_in_chest']/option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyHasTheParticipantHadWheezingorWhistlinginChestDropDown;
-	
-	//Has the participant been in the emergency room for a breathing problem? -- dropdown
-	@FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.emergency_room_for_breathing']/option[@selected='SELECTED']")
+
+	// Has the participant been in the emergency room for a breathing problem? --
+	// dropdown
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.emergency_room_for_breathing']/option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyHasTheParticipantBeenToTheEmergencyRoomForBreathingProblemsDropDown;
 
-	//Has a doctor diagnosed the participant with reactive airway disease or asthma? -- dropdown
-	@FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.diagnosed_with_asthma']/option[@selected='SELECTED']")
+	// Has a doctor diagnosed the participant with reactive airway disease or
+	// asthma? -- dropdown
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.diagnosed_with_asthma']/option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyHasADoctorDiagnosedParticipantWithReactiveAirwayDiseaseOrAsthmaDropDown;
 
-	//Has the participant been admitted to the hospital for a breathing problem? -- dropdown
-	@FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.admitted_to_the_hospital_for_breathing']/option[@selected='SELECTED']")
+	// Has the participant been admitted to the hospital for a breathing problem? --
+	// dropdown
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.admitted_to_the_hospital_for_breathing']/option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyHasTheParticipantBeenAdmittedToHospitalForBreathingProblemDropDown;
 
-	//All text boxes in breathing tab
-	@FindBy(xpath="//span[contains(@class,'tabs2_section tabs2_section_9 tabs2_section9 tab_section')]//span[contains(@class,'section')]//input[@type='text']")
+	// All text boxes in breathing tab
+	@FindBy(xpath = "//span[contains(@class,'tabs2_section tabs2_section_9 tabs2_section9 tab_section')]//span[contains(@class,'section')]//input[@type='text']")
 	public List<WebElement> nativeViewRasSurveyBreathingTabTextBoxs;
 
-	//All dropdown boxes in breathing tab
-	@FindBy(xpath="(//span[contains(@class,'tabs2_section tabs2_section_9 tabs2_section9 tab_section')]//span[contains(@class,'section')]//option[@selected='SELECTED'])")
+	// All dropdown boxes in breathing tab
+	@FindBy(xpath = "(//span[contains(@class,'tabs2_section tabs2_section_9 tabs2_section9 tab_section')]//span[contains(@class,'section')]//option[@selected='SELECTED'])")
 	public List<WebElement> nativeViewRasSurveyBreathingTabDropDowns;
 
-	
 	/**
 	 * ************************** END OF BREATHING SECTION
 	 * **************************
@@ -1391,212 +1456,221 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	 * ************************** BEGINNING OF MOUTH/DENTAL SECTION
 	 * **************************
 	 */
-	//Metal/Dental tab locator -- span
-	@FindBy(xpath= "//span[normalize-space()='Mouth/Dental']")
-	 public WebElement nativeViewRasSurveyMouth_DentalTab;
+	// Metal/Dental tab locator -- span
+	@FindBy(xpath = "//span[normalize-space()='Mouth/Dental']")
+	public WebElement nativeViewRasSurveyMouth_DentalTab;
 
-	//Does the participant receive regular dental care? -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.regular_dental_care']//option[@selected='SELECTED']")
+	// Does the participant receive regular dental care? -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.regular_dental_care']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyDoesTheParticipantRecieveRegularDentalCareDropDown;
 
-	//When did the participant last visit a dentist -- text box
-	@FindBy(xpath="//input[@name='x_naci_family_coho_rasopathy_iiq.last_dentist_visit']")
+	// When did the participant last visit a dentist -- text box
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.last_dentist_visit']")
 	public WebElement nativeViewRasSurveyNameTextBox;
 
-	//Name of dentist -- text box
-	@FindBy(xpath="//input[@name='x_naci_family_coho_rasopathy_iiq.dentist_name']")
+	// Name of dentist -- text box
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.dentist_name']")
 	public WebElement nativeViewRasSurveyDentistNameTextBox;
 
-	//Dentist location -- text box
-	@FindBy(xpath="//input[@id='x_naci_family_coho_rasopathy_iiq.dentist_location']")
+	// Dentist location -- text box
+	@FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.dentist_location']")
 	public WebElement nativeViewRasSurveyDentistLocationTextBox;
-	
-	//Dentist affiliation -- text box
-	@FindBy(xpath="//textarea[@id='x_naci_family_coho_rasopathy_iiq.dentist_affiliation']")
+
+	// Dentist affiliation -- text box
+	@FindBy(xpath = "//textarea[@id='x_naci_family_coho_rasopathy_iiq.dentist_affiliation']")
 	public WebElement nativeViewRasSurveyDentistAffiliationTextBox;
 
-	//Main reason for last dental visit -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.main_reason_for_last_dental_visit']//option[@selected='SELECTED']")
+	// Main reason for last dental visit -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.main_reason_for_last_dental_visit']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyMainReasonForLastDentalVisitDropDown;
-	
-	//Does the participant's gums bleed easily with tooth brushing now? -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.bleeding_gums']//option[@selected='SELECTED']")
+
+	// Does the participant's gums bleed easily with tooth brushing now? -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.bleeding_gums']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyDoesTheParticipantGumsBleedEasilyWithToothBrushingDropDown;
-	
-	//Does the participants teeth or gums hurt? -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.tooth_pain']//option[@selected='SELECTED']")
+
+	// Does the participants teeth or gums hurt? -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.tooth_pain']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyDoesTheParticipantsTeethOrGumsHurtDropDown;
-	
-	//Does the participant have periodontal or gum disease? -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.gum_disease']//option[@selected='SELECTED']")
+
+	// Does the participant have periodontal or gum disease? -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.gum_disease']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyGumDiseaseDropDown;
-	
-	//Has the participant had dental sealants placed? -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.dental_sealants_placed']//option[@selected='SELECTED']")
+
+	// Has the participant had dental sealants placed? -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.dental_sealants_placed']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveDentalSealantsyDropDown;
-	
-	//Does the participant have cavities now? -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.cavities']//option[@selected='SELECTED']")
+
+	// Does the participant have cavities now? -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.cavities']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveCavitiesyDropDown;
-	
-	//Has the participant had any dental filings? -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.dental_filings']//option[@selected='SELECTED']")
+
+	// Has the participant had any dental filings? -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.dental_filings']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyDentalFilingsDropDown;
-	
-	//How would the participant rate their hygiene routine -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.hygiene_rating']//option[@selected='SELECTED']")
+
+	// How would the participant rate their hygiene routine -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.hygiene_rating']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyHygienRatingDropDown;
-	
-	//Does the participants mouth usually feel dry? -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.dry_mouth']//option[@selected='SELECTED']")
+
+	// Does the participants mouth usually feel dry? -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.dry_mouth']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyDryMouthDropDown;
-	
-	//How would the participant rate their teeth and gums -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.teeth_gums_rating']//option[@selected='SELECTED']")
+
+	// How would the participant rate their teeth and gums -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.teeth_gums_rating']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyTeethGumsRatingDropDown;
-	
-	//Has the participant had any changes in their sense of smell? -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.sense_of_smell']//option[@selected='SELECTED']")
+
+	// Has the participant had any changes in their sense of smell? -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.sense_of_smell']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveySenseOfSmellDropDown;
-	
-	//Has the participant had any changes in your sense of taste? -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.sense_of_taste']//option[@selected='SELECTED']")
+
+	// Has the participant had any changes in your sense of taste? -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.sense_of_taste']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveySenseOfTasteDropDown;
-	
-	//Does the participant have jaw or temporomandibular joint paint -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.temporomandibular_joint_paint']//option[@selected='SELECTED']")
+
+	// Does the participant have jaw or temporomandibular joint paint -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.temporomandibular_joint_paint']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyTemporomandibularJointPaintDropDown;
-	
-	//Does the participant have frequent headaches? -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.frequent_headaches']//option[@selected='SELECTED']")
+
+	// Does the participant have frequent headaches? -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.frequent_headaches']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyFrequentHeadachesDropDown;
-	
-	//Has the participant had orthodonic treatment? -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.ortho_treatment']//option[@selected='SELECTED']")
+
+	// Has the participant had orthodonic treatment? -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.ortho_treatment']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyOrthoTreatmentDropDown;
-	
-	//Has the participant had any facial or dental trauma? -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.facial_dental_trauma']//option[@selected='SELECTED']")
+
+	// Has the participant had any facial or dental trauma? -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.facial_dental_trauma']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyFacialDentalTraumaDropDown;
-	
-	//Did the participant have palatal expansion? -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.palatal_expansion']//option[@selected='SELECTED']")
+
+	// Did the participant have palatal expansion? -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.palatal_expansion']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyPalatalExpansionDropDown;
-	
-	//Did the participant have dental surgery? -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.dental_surgery']//option[@selected='SELECTED']")
+
+	// Did the participant have dental surgery? -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.dental_surgery']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyDentalSurgeryDropDown;
-	
-	//Please specify -- textbox
-	@FindBy(xpath="//input[@id='x_naci_family_coho_rasopathy_iiq.please_specify_dental_surgery']")
+
+	// Please specify -- textbox
+	@FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.please_specify_dental_surgery']")
 	public WebElement nativeViewRasSurveyPleaseSpecifyDentalSurgeryTextBox;
-	
-	//Has the participant had elective jaw surgery -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.jaw_surgery']//option[@selected='SELECTED']")
+
+	// Has the participant had elective jaw surgery -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.jaw_surgery']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyJawSurgeryDropDown;
-	
-	//History of cancer in the mouth or jaw -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.cancer_of_mouth']//option[@selected='SELECTED']")
+
+	// History of cancer in the mouth or jaw -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.cancer_of_mouth']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyCancerOfMouthDropDown;
-	
-	//Please specify -- textbox
-	@FindBy(xpath="//input[@id='x_naci_family_coho_rasopathy_iiq.please_specify_mouth_cancer']")
+
+	// Please specify -- textbox
+	@FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.please_specify_mouth_cancer']")
 	public WebElement nativeViewRasSurveyPleaseSpecifyMouthCancerTextBox;
-	
-	//Does the participant have a family member with a syndrome or a jaw abnormality -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.relative_with_jaw_abnormality']//option[@selected='SELECTED']")
+
+	// Does the participant have a family member with a syndrome or a jaw
+	// abnormality -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.relative_with_jaw_abnormality']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyRelativeWithJawAbnormalityDropDown;
-	
-	//Please specify -- textbox
-	@FindBy(xpath="//input[@id='x_naci_family_coho_rasopathy_iiq.please_specify_jaw_abnormality']")
+
+	// Please specify -- textbox
+	@FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.please_specify_jaw_abnormality']")
 	public WebElement nativeViewRasSurveyPleaseSpecifyJawAbnormalityTextBox;
-	
-	//Does the participant have any numbness in or around the mouth -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.mouth_numbness']//option[@selected='SELECTED']")
+
+	// Does the participant have any numbness in or around the mouth -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.mouth_numbness']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyMouthNumbnessDropDown;
-	
-	//Does the participant have any mouth sores? -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.mouth_sores']//option[@selected='SELECTED']")
+
+	// Does the participant have any mouth sores? -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.mouth_sores']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyMouthSoresDropDown;
-	
-	//Do the participant's teeth feel sensitive to hot or cold food? -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.hot_cold_teeth_sensitivity']//option[@selected='SELECTED']")
+
+	// Do the participant's teeth feel sensitive to hot or cold food? -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.hot_cold_teeth_sensitivity']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyHotColdTeethSensitivityDropDown;
-	
-	//Does the participant have problems moving their lips, tongue, or mouth? -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.problems_moving_mouth']//option[@selected='SELECTED']")
+
+	// Does the participant have problems moving their lips, tongue, or mouth? --
+	// dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.problems_moving_mouth']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasProblemsMovingMouthSurveyDropDown;
-	
-	//Had trouble pronouncing words because of problems with teeth/mouth -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.trouble_pronouncing_words']//option[@selected='SELECTED']")
+
+	// Had trouble pronouncing words because of problems with teeth/mouth --
+	// dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.trouble_pronouncing_words']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasTroublePronouncingWordsSurveyDropDown;
-	
-	//Is anything unusual about the participant's teeth or mouth -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.unusual_teeth_mouth']//option[@selected='SELECTED']")
+
+	// Is anything unusual about the participant's teeth or mouth -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.unusual_teeth_mouth']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyUnusualTeethMouthDropDown;
-	
-	//Please specify -- textbox
-	@FindBy(xpath="//input[@id='x_naci_family_coho_rasopathy_iiq.please_specify_teeth_mouth']")
+
+	// Please specify -- textbox
+	@FindBy(xpath = "//input[@id='x_naci_family_coho_rasopathy_iiq.please_specify_teeth_mouth']")
 	public WebElement nativeViewRasSurveyPleaseSpecifyTeethMouthTextBox;
-	
-	//Has the participant had painful aching in thier mouth -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.painful_aching_in_mouth']//option[@selected='SELECTED']")
+
+	// Has the participant had painful aching in thier mouth -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.painful_aching_in_mouth']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasPainfulAchingInMouthSurveyDropDown;
-	
-	//Has the participant been self-concious because of their teeth/mouth -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.self_councious_teeth']//option[@selected='SELECTED']")
+
+	// Has the participant been self-concious because of their teeth/mouth --
+	// dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.self_councious_teeth']//option[@selected='SELECTED']")
 	public WebElement nativeViewSelfCounciousTeethRasSurvey;
-	
-	//Worsened sense of taste because of problems with teeth/mouth -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.worsened_sense_of_taste']//option[@selected='SELECTED']")
+
+	// Worsened sense of taste because of problems with teeth/mouth -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.worsened_sense_of_taste']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasWorsenedSenseOfTasteSurveyDropDown;
-	
-	//Uncomfortable eating any foods with their teeth/mouth -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.uncomfortable_eating_foods']//option[@selected='SELECTED']")
+
+	// Uncomfortable eating any foods with their teeth/mouth -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.uncomfortable_eating_foods']//option[@selected='SELECTED']")
 	public WebElement nativeViewUncomfortableEatingFoodsRasSurvey;
-	
-	//Has the participant felt tense because of problems with teeth/mouth -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.tense_teeth_mouth']//option[@selected='SELECTED']")
+
+	// Has the participant felt tense because of problems with teeth/mouth --
+	// dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.tense_teeth_mouth']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasTenseTeethMouthSurveyDropDown;
-	
-	//Unsatisfactory diet because of problems with teeth/mouth -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.diet_teeth_mouth']//option[@selected='SELECTED']")
+
+	// Unsatisfactory diet because of problems with teeth/mouth -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.diet_teeth_mouth']//option[@selected='SELECTED']")
 	public WebElement nativeViewDietTeethMouthRasSurveyDropDown;
-	
-	//Has the participant interrupted meals because of problems with teeth/mouth -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.interrupted_meals']//option[@selected='SELECTED']")
+
+	// Has the participant interrupted meals because of problems with teeth/mouth --
+	// dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.interrupted_meals']//option[@selected='SELECTED']")
 	public WebElement nativeViewInterruptedMealsRasSurveyDropDown;
-	
-	//Has the participant found it difficult to relax due to problems with teeth/mouth -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.difficult_to_relax']//option[@selected='SELECTED']")
+
+	// Has the participant found it difficult to relax due to problems with
+	// teeth/mouth -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.difficult_to_relax']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasDifficultToRelaxSurveyDropDown;
-	
-	//Has the participant been a bit embarrased because of teeth/mouth -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.embarrased_teeth_mouth']//option[@selected='SELECTED']")
+
+	// Has the participant been a bit embarrased because of teeth/mouth -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.embarrased_teeth_mouth']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasEmbarrasedTeethMouthSurveyDropDown;
 
-	//Irritable with others people because of problems with teeth/mouth -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.irritable_with_others']//option[@selected='SELECTED']")
+	// Irritable with others people because of problems with teeth/mouth -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.irritable_with_others']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasIrritableWithOthersSurveyDropDown;
-	
-	//Difficulty doing usual jobs because of problems with teeth/mouth -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.difficulty_doing_usual_jobs']//option[@selected='SELECTED']")
+
+	// Difficulty doing usual jobs because of problems with teeth/mouth -- dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.difficulty_doing_usual_jobs']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasDifficultyDoingUsualJobsSurveyDropDown;
-	
-	//Has the participant felt life was less satisfying due to their teeth/mouth -- dropdown
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.life_less_satisfying']//option[@selected='SELECTED']")
+
+	// Has the participant felt life was less satisfying due to their teeth/mouth --
+	// dropdown
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.life_less_satisfying']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasLifeLessSatisfyingSurveyDropDown;
-	
-	//Has the participant been totally unable to funciton because of teeth/m -- dropdown **** Mention wording
-	@FindBy(xpath="//select[@id='x_naci_family_coho_rasopathy_iiq.unable_to_function']//option[@selected='SELECTED']")
+
+	// Has the participant been totally unable to funciton because of teeth/m --
+	// dropdown **** Mention wording
+	@FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.unable_to_function']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyUnableToFunctionDropDown;
-	
-		/**
+
+	/**
 	 * ************************** END OF MOUTH/DENTAL SECTION
 	 * **************************
 	 */
 
-	 /**
+	/**
 	 * ************************** BEGINNING OF HAIR & SKIN SECTION
 	 * **************************
 	 */
@@ -1605,8 +1679,8 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	@FindBy(xpath = "//span[normalize-space()='Hair & Skin']")
 	public WebElement nativeViewRasSurveyHairAndSkinTab;
 
-	//Has participant been evaluated by a dermatologist? -- dropdown
-	@FindBy(xpath="//select[@name='x_naci_family_coho_rasopathy_iiq.dermatologist']")
+	// Has participant been evaluated by a dermatologist? -- dropdown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.dermatologist']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyHasParticipantBeenEvaluatedByADermatologistDropDown;
 
 	/* ------- Name of dermatologist Text Box ------- */
@@ -1617,7 +1691,10 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	@FindBy(xpath = "//input[contains(@aria-label,'City, State of dermatologist')]")
 	public WebElement nativeViewRasSurveyCityStateOfDermatologistTextBox;
 
-	/* ------- Hospital or Medical Center Affiliation of Dermatologist Text Box ------- */
+	/*
+	 * ------- Hospital or Medical Center Affiliation of Dermatologist Text Box
+	 * -------
+	 */
 	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.dermatologist_affiliation']")
 	public WebElement nativeViewRasSurveyHospitalOrMedicalCenterAffilitionOfDermatologistTextBox;
 
@@ -1653,7 +1730,10 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	@FindBy(xpath = "//input[contains(@aria-label,'Other skin tumors')]")
 	public WebElement nativeViewRasSurveyOtherSkinTumorsTextBox;
 
-	/* ------- Is the texture or amount of hair similar to a biological relatives? Drop Down ------- */
+	/*
+	 * ------- Is the texture or amount of hair similar to a biological relatives?
+	 * Drop Down -------
+	 */
 	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.similar_hair']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyIsTheTextureOrAmountOfHairSimilarToABiologicalRelativesDropDown;
 
@@ -1661,348 +1741,380 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	@FindBy(xpath = "//select[contains(@name,'x_naci_family_coho_rasopathy_iiq.hemangiomas')]//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyDoesTheParticipantHaveAnyHemangiomasDropDown;
 
-	 /**
+	/**
 	 * ************************** END OF HAIR & SKIN SECTION
 	 * **************************
 	 */
-	 /**
+	/**
 	 * ************************** BEGINNING OF SKELETAL SECTION
 	 * **************************
 	 */
 
-	 /* ------- Native View Rasopothy Survey Skeletal Tab ------- */
-	 @FindBy(xpath = "//span[normalize-space()='Skeletal']")
-	 public WebElement nativeViewRasSurveySkeletalTab;
+	/* ------- Native View Rasopothy Survey Skeletal Tab ------- */
+	@FindBy(xpath = "//span[normalize-space()='Skeletal']")
+	public WebElement nativeViewRasSurveySkeletalTab;
 
-	 /* ------- Has the participant been evaluated by an orthopaedic surgeon? Drop Down ------- */
-	 @FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.orthopaedic_surgeon']//option[@selected='SELECTED']")
-	 public WebElement nativeViewRasSurveyHasTheParticipantBeenEvaluatedByAnOrthopaedicSurgeonDropDown;
+	/*
+	 * ------- Has the participant been evaluated by an orthopaedic surgeon? Drop
+	 * Down -------
+	 */
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.orthopaedic_surgeon']//option[@selected='SELECTED']")
+	public WebElement nativeViewRasSurveyHasTheParticipantBeenEvaluatedByAnOrthopaedicSurgeonDropDown;
 
-	 /* ------- Name of orthopaedic surgeon Text Box ------- */
-	 @FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.ortho_name']")
-	 public WebElement nativeViewRasSurveyNameOfOrthopaedicSurgeonTextBox;
+	/* ------- Name of orthopaedic surgeon Text Box ------- */
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.ortho_name']")
+	public WebElement nativeViewRasSurveyNameOfOrthopaedicSurgeonTextBox;
 
-	 /* ------- Location of Orthopaedic surgeon Text Box ------- */
-	 @FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.ortho_location']")
-	 public WebElement nativeViewRasSurveyLocationOfOrthopaedicSurgeonTextBox;
+	/* ------- Location of Orthopaedic surgeon Text Box ------- */
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.ortho_location']")
+	public WebElement nativeViewRasSurveyLocationOfOrthopaedicSurgeonTextBox;
 
-	 /* ------- Orthopaedic surgeons hospital or medical center affiliation Text Box ------- */
-	 @FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.orthopaedic_surgeon_affiliation']")
-	 public WebElement nativeVIewRasSurveyOrthopaedicSurgeonsHospitalOrMedicalCenterAffiliationTextBox;
+	/*
+	 * ------- Orthopaedic surgeons hospital or medical center affiliation Text Box
+	 * -------
+	 */
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.orthopaedic_surgeon_affiliation']")
+	public WebElement nativeVIewRasSurveyOrthopaedicSurgeonsHospitalOrMedicalCenterAffiliationTextBox;
 
-	 /* ------- Diagnosed skeletal findings Text Area ------ */
-	 @FindBy(xpath = "//p[contains(@data-original-title,'Diagnosed skeletal findings')]")
-	 public WebElement nativeViewRasSurveyDiagnosedSkeletalFindingsTextArea;
+	/* ------- Diagnosed skeletal findings Text Area ------ */
+	@FindBy(xpath = "//p[contains(@data-original-title,'Diagnosed skeletal findings')]")
+	public WebElement nativeViewRasSurveyDiagnosedSkeletalFindingsTextArea;
 
-	 /* ------- Other skeletal findings Text Box ------ */
-	 @FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.other_skeletal_findings']")
-	 public WebElement nativeViewRasSurveyOtherSkeletalFindingsTextBox;
+	/* ------- Other skeletal findings Text Box ------ */
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.other_skeletal_findings']")
+	public WebElement nativeViewRasSurveyOtherSkeletalFindingsTextBox;
 
-	 /* ------- Does the participant have any issues with curving of the spine Drop Down ------ */
-	 @FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.curving_of_the_spine']//option[@selected='SELECTED']")
-	 public WebElement nativeViewRasSurveyDoesTheParticipantHaveAnyIssuesWithCurvingOfTheSpineDropDown;
+	/*
+	 * ------- Does the participant have any issues with curving of the spine Drop
+	 * Down ------
+	 */
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.curving_of_the_spine']//option[@selected='SELECTED']")
+	public WebElement nativeViewRasSurveyDoesTheParticipantHaveAnyIssuesWithCurvingOfTheSpineDropDown;
 
-	 /* ------- Has the participant's neck been described as short or webbed? Drop Down ------ */
-	 @FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.short_webbed_neck']//option[@selected='SELECTED']")
-	 public WebElement nativeViewRasSurveyHasTheParticipantsNeckBeenDescribedAsShortOrWebbedDropDown;
+	/*
+	 * ------- Has the participant's neck been described as short or webbed? Drop
+	 * Down ------
+	 */
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.short_webbed_neck']//option[@selected='SELECTED']")
+	public WebElement nativeViewRasSurveyHasTheParticipantsNeckBeenDescribedAsShortOrWebbedDropDown;
 
-	 /* ------- Has the participant ever been diagnosed with joint issues? Drop Down ------ */
-	 @FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.joint_issues']//option[@selected='SELECTED']")
-	 public WebElement nativeViewRasSurveyHasTheParticipantEverBeenDiagnosedWithJointIssuesDropDown;
+	/*
+	 * ------- Has the participant ever been diagnosed with joint issues? Drop Down
+	 * ------
+	 */
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.joint_issues']//option[@selected='SELECTED']")
+	public WebElement nativeViewRasSurveyHasTheParticipantEverBeenDiagnosedWithJointIssuesDropDown;
 
-	 /**
+	/**
 	 * ************************** END OF SKELETAL SECTION
 	 * **************************
 	 */
 
-	 /**
-	 * ************************** BEGINNING OF HEMATOLOGY, ONCOLOGY, IMMUNOLOGY SECTION
+	/**
+	 * ************************** BEGINNING OF HEMATOLOGY, ONCOLOGY, IMMUNOLOGY
+	 * SECTION
 	 * **************************
 	 */
-	 //Hematology, Oncology and Immunology tab locator -- span
-	@FindBy(xpath= "//span[normalize-space()='Hematology, Oncology and Immunology']")
+	// Hematology, Oncology and Immunology tab locator -- span
+	@FindBy(xpath = "//span[normalize-space()='Hematology, Oncology and Immunology']")
 	public WebElement nativeViewRasSurveyHematologyOncologyAndImmunologyTab;
 
-	//Has the participant ever had an evaluation by a hematologist or oncologist? -- dropdown
-	@FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.hematologist_oncologist']/option[@selected='SELECTED']")
+	// Has the participant ever had an evaluation by a hematologist or oncologist?
+	// -- dropdown
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.hematologist_oncologist']/option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyHasTheParticipantEverHadAnEvaledByAHematologistOrOncologistDropDown;
 
-	//Name of hematologist/oncologist -- text box
-	@FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.hematologist_name']")
+	// Name of hematologist/oncologist -- text box
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.hematologist_name']")
 	public WebElement nativeViewRasSurveyNameOfHematologist_OncologistTextBox;
-	
-	//Location of hematologist/oncologist -- text box
-	@FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.hematologist_location']")
+
+	// Location of hematologist/oncologist -- text box
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.hematologist_location']")
 	public WebElement nativeViewRasSurveyLocationOfHematologist_OncologistTextBox;
 
-	//Hematologist/Oncologist medical affiliation -- text box
-	@FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.hematologist_oncologist_medical_affiliation']")
+	// Hematologist/Oncologist medical affiliation -- text box
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.hematologist_oncologist_medical_affiliation']")
 	public WebElement nativeViewRasSurveyHematologist_OncologistMedicalAffiliationTextBox;
 
-	//Does the participant have any issues with bleeding or bruising? -- dropdown
-	@FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.bleeding_bruising']/option[@selected='SELECTED']")
+	// Does the participant have any issues with bleeding or bruising? -- dropdown
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.bleeding_bruising']/option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyDoesTheParticipantHaveIssuesWithBleedingOrBruisingDropDown;
 
-	//Does the participant have a history of frequent infections? -- dropdown
-	@FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.infections']/option[@selected='SELECTED']")
+	// Does the participant have a history of frequent infections? -- dropdown
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.infections']/option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyDoesTheParticipantHaveAHistoryOfFrequentInfectionsDropDown;
 
-	//Has the participant been diagnosed with an autoimmune disorder? -- dropdown
-	@FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.diagnosed_autoimmune']/option[@selected='SELECTED']")
+	// Has the participant been diagnosed with an autoimmune disorder? -- dropdown
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.diagnosed_autoimmune']/option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyHasTheParticipantBeenDiagnosedWithAnAutoimmuneDisorderDropDown;
 
-	//Does the participant have any known blood disorders or symptoms such disorders? -- dropdown ****Mention wording issue on question
-	@FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.known_blood_disorders']/option[@selected='SELECTED']")
+	// Does the participant have any known blood disorders or symptoms such
+	// disorders? -- dropdown ****Mention wording issue on question
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.known_blood_disorders']/option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyDoesTheParticipantHaveAnyKnownBloodDisordersOrSymptomsDropDown;
 
-	//Has the participant been evaluated by an immunologist or rheumatologist? -- dropdown
-	@FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.immunologist_rheumatologist']/option[@selected='SELECTED']")
+	// Has the participant been evaluated by an immunologist or rheumatologist? --
+	// dropdown
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.immunologist_rheumatologist']/option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyHasTheParticipantBeenEvaledByAnImmunologistOrRheumatologistDropDown;
 
-	//Name of immunologist/rheumatologist -- text box
-	@FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.immunologist_rheumatologist_name']]")
+	// Name of immunologist/rheumatologist -- text box
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.immunologist_rheumatologist_name']]")
 	public WebElement nativeViewRasSurveyNameOfImmunologist_rheumatologistTextBox;
-	
-	//Immunologist/rheumatologist location -- text box
-	@FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.immunologist_rheumatologist_location']")
+
+	// Immunologist/rheumatologist location -- text box
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.immunologist_rheumatologist_location']")
 	public WebElement nativeViewRasSurveyLocationOfImmunologist_rheumatologistTextBox;
-	
-	//Immunologist/rheumatologist affiliation -- text box
-	@FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.immunologist_rheumatologist_affiliation']")
+
+	// Immunologist/rheumatologist affiliation -- text box
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.immunologist_rheumatologist_affiliation']")
 	public WebElement nativeViewRasSurveyImmunologist_RheumaologistMedicalAffiliationTextBox;
 
-	//All text boxes in Hemato_Onco_Immuno tab
-	@FindBy(xpath="(//div[contains(@aria-label,'Hematology, Oncology and Immunology form section')]//input[@type='text'])")
+	// All text boxes in Hemato_Onco_Immuno tab
+	@FindBy(xpath = "(//div[contains(@aria-label,'Hematology, Oncology and Immunology form section')]//input[@type='text'])")
 	public List<WebElement> nativeViewRasSurveyHemato_Onco_ImmunoTabTextBoxs;
 
-	//All dropdown boxes in Hemato_Onco_Immuno tab
-	@FindBy(xpath="(//div[contains(@aria-label,'Hematology, Oncology and Immunology form section')]//option[@selected='SELECTED'])")
+	// All dropdown boxes in Hemato_Onco_Immuno tab
+	@FindBy(xpath = "(//div[contains(@aria-label,'Hematology, Oncology and Immunology form section')]//option[@selected='SELECTED'])")
 	public List<WebElement> nativeViewRasSurveyHemato_Onco_ImmunoTabDropDowns;
-	
+
 	/**
 	 * ************************** END OF HEMATOLOGY, ONCOLOGY, IMMUNOLOGY SECTION
 	 * **************************
 	 */
 
-	 /**
+	/**
 	 * ************************** BEGINNING OF BRAIN & NEUROLOGY SECTION
 	 * **************************
 	 */
-		@FindBy(xpath = "//span[normalize-space()='Brain & Neurology']")
-		public WebElement nativeViewRasSurveyBrainAndNeurologyTab;	
+	@FindBy(xpath = "//span[normalize-space()='Brain & Neurology']")
+	public WebElement nativeViewRasSurveyBrainAndNeurologyTab;
 
-	 // Has the participant ever been evaluated by a neurologist or neurosurgeon? -- dropdown
-		@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.evaluated_by_neurologist']/option[@selected='SELECTED']")
-		public WebElement nativeViewRasSurveyHasTheParticipantEverBeenEvaledByANeurologistOrNeurosurgeonDropDown;
+	// Has the participant ever been evaluated by a neurologist or neurosurgeon? --
+	// dropdown
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.evaluated_by_neurologist']/option[@selected='SELECTED']")
+	public WebElement nativeViewRasSurveyHasTheParticipantEverBeenEvaledByANeurologistOrNeurosurgeonDropDown;
 
-		// Name of neurologist -- text box
-		@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.name_of_neurologist']")
-		public WebElement nativeViewRasSurveyNameOfNeurologistTextBox;
+	// Name of neurologist -- text box
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.name_of_neurologist']")
+	public WebElement nativeViewRasSurveyNameOfNeurologistTextBox;
 
-		// Location of neurologist -- text box
-		@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.neurologist_location']")
-		public WebElement nativeViewRasSurveyLocationOfNeurologistTextBox;
+	// Location of neurologist -- text box
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.neurologist_location']")
+	public WebElement nativeViewRasSurveyLocationOfNeurologistTextBox;
 
-		// Neurologist affiliation -- text box
-		@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.neurologist_affiliation']")
-		public WebElement nativeViewRasSurveyNeurologistAffiliationTextBox;
+	// Neurologist affiliation -- text box
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.neurologist_affiliation']")
+	public WebElement nativeViewRasSurveyNeurologistAffiliationTextBox;
 
-		// Has the participant ever been diagnosed with a structural brain abnormality? -- dropdown
-		@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.diagnosed_brain_abnormality']/option[2]")
-		public WebElement nativeViewRasSurveyHasTheParticipantBeenDiagnosdWithAStructuralBrainAbnormalityDropDown;
+	// Has the participant ever been diagnosed with a structural brain abnormality?
+	// -- dropdown
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.diagnosed_brain_abnormality']/option[2]")
+	public WebElement nativeViewRasSurveyHasTheParticipantBeenDiagnosdWithAStructuralBrainAbnormalityDropDown;
 
-		// Evaluated by a psychiatrist, psychologist or behavioral pediatrician? -- dropdown
-		@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.evaluated_by_psychiatrist']/option[2]")
-		public WebElement nativeViewRasSurveyEvaluatedByAPsychiatristPsychologistOrBehavioralPediatricianDropDown;
+	// Evaluated by a psychiatrist, psychologist or behavioral pediatrician? --
+	// dropdown
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.evaluated_by_psychiatrist']/option[2]")
+	public WebElement nativeViewRasSurveyEvaluatedByAPsychiatristPsychologistOrBehavioralPediatricianDropDown;
 
-		// Does the participant have a history seizures?-- dropdown ****Wording issue
-		@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.seizure_history']/option[2]")
-		public WebElement nativeViewRasSurveyDoesTheParticipantHaveAHistorySeizuresDropDown;
+	// Does the participant have a history seizures?-- dropdown ****Wording issue
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.seizure_history']/option[2]")
+	public WebElement nativeViewRasSurveyDoesTheParticipantHaveAHistorySeizuresDropDown;
 
-		// Has the participant been diagnosed with a behavioral or psychiatric condition? -- dropdown
-		@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.diagnosed_psychiatric_condition']/option[2]")
-		public WebElement nativeViewRasSurveyHasTheParticipantBeenDiagnosedWIthABehavioralOrPsychiatricConditionDropDown;
+	// Has the participant been diagnosed with a behavioral or psychiatric
+	// condition? -- dropdown
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.diagnosed_psychiatric_condition']/option[2]")
+	public WebElement nativeViewRasSurveyHasTheParticipantBeenDiagnosedWIthABehavioralOrPsychiatricConditionDropDown;
 
-		// Name of physician -- text box
-		@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.name_of_physician']")
-		public WebElement nativeViewRasSurveyNameOfPhysicianTextBox;
+	// Name of physician -- text box
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.name_of_physician']")
+	public WebElement nativeViewRasSurveyNameOfPhysicianTextBox;
 
-		// Location of physician -- text box -- text box
-		@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.physician_location_psych']")
-		public WebElement nativeViewRasSurveyLocationOfPhysicianTextBox;
+	// Location of physician -- text box -- text box
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.physician_location_psych']")
+	public WebElement nativeViewRasSurveyLocationOfPhysicianTextBox;
 
-		// Psychiatrist affiliation -- text box
-		@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.psychiatrist_affiliation']")
-		public WebElement nativeViewRasSurveyPsychiatristAffiliationTextBox;
+	// Psychiatrist affiliation -- text box
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.psychiatrist_affiliation']")
+	public WebElement nativeViewRasSurveyPsychiatristAffiliationTextBox;
 
-		//Additional Neurological Conditions -- text box
-		@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.neuro_extra_condtions']")
-		public WebElement nativeViewRasSurveyAdditionalNeurologicalConditionsTextBox;
+	// Additional Neurological Conditions -- text box
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.neuro_extra_condtions']")
+	public WebElement nativeViewRasSurveyAdditionalNeurologicalConditionsTextBox;
 
 	/**
 	 * ************************** END OF BRAIN & NEUROLOGY SECTION
 	 * **************************
 	 */
 
-	 /**
+	/**
 	 * ************************** BEGINNING OF VISION/HEARING SECTION
 	 * **************************
 	 */
-	//Vision/Hearing tab locator -- span
-	@FindBy(xpath= "//span[normalize-space()='Vision & Hearing']")
+	// Vision/Hearing tab locator -- span
+	@FindBy(xpath = "//span[normalize-space()='Vision & Hearing']")
 	public WebElement nativeViewRasSurveyVision_HearingTab;
 
-	//Diagnosed with ptosis -- dropdown
-   @FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.ptosis_diagnosis']/option[@selected='SELECTED']")
-   public WebElement nativeViewRasSurveyDiagnosedWithPtosisDropDown;
+	// Diagnosed with ptosis -- dropdown
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.ptosis_diagnosis']/option[@selected='SELECTED']")
+	public WebElement nativeViewRasSurveyDiagnosedWithPtosisDropDown;
 
-   //Did the ptosis require treatment? -- dropdown
-   @FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.ptosis_treatment_required']/option[@selected='SELECTED']")
-   public WebElement nativeViewRasSurveyDidThePtosisRequireTreatmentDropDown;
+	// Did the ptosis require treatment? -- dropdown
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.ptosis_treatment_required']/option[@selected='SELECTED']")
+	public WebElement nativeViewRasSurveyDidThePtosisRequireTreatmentDropDown;
 
-   //Participant experienced hearing loss -- dropdown
-   @FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.hearing_loss']/option[@selected='SELECTED']")
-   public WebElement nativeViewRasSurveyParticipantExperiencedHearingLosssDropDown;
-   
-   //Issues with vision or eyesight
-   @FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.eye_issues']/option[@selected='SELECTED']")
-   public WebElement nativeViewRasSurveyIssuesWithVisionOrEyeSightDropDown;
+	// Participant experienced hearing loss -- dropdown
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.hearing_loss']/option[@selected='SELECTED']")
+	public WebElement nativeViewRasSurveyParticipantExperiencedHearingLosssDropDown;
 
-   //Participant experienced strabismus
-   @FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.strabismus']/option[@selected='SELECTED']")
-   public WebElement nativeViewRasSurveyParticipantExperiencedStrabismusDropDown;
+	// Issues with vision or eyesight
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.eye_issues']/option[@selected='SELECTED']")
+	public WebElement nativeViewRasSurveyIssuesWithVisionOrEyeSightDropDown;
 
-   //Participant experienced nystagmus
-   @FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.nystagmus']/option[@selected='SELECTED']")
-   public WebElement nativeViewRasSurveyParticipantExperiencedNystagmusDropDown;
+	// Participant experienced strabismus
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.strabismus']/option[@selected='SELECTED']")
+	public WebElement nativeViewRasSurveyParticipantExperiencedStrabismusDropDown;
 
-   //Participant ear issues -- p tag
-   @FindBy(xpath="//div[@aria-label='Vision & Hearing form section']//p[@class='form-control-static'][contains(text(),'Excessive earwax, Chronic or recurrent ear infecti')]")
-   public WebElement nativeViewRasSurveyParticipantEarIsssuesPTag;
+	// Participant experienced nystagmus
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.nystagmus']/option[@selected='SELECTED']")
+	public WebElement nativeViewRasSurveyParticipantExperiencedNystagmusDropDown;
 
-   //Please specify Participant ear issues -- text box
-   @FindBy(xpath="//*[@id='x_naci_family_coho_rasopathy_iiq.please_specify_ear_issues']")
-   public WebElement nativeViewRasSurveyPleaseSpecifyEarIssuesTextBox;
-   
-   //All dropdown boxes in vision/hearing tab
-	@FindBy(xpath="(//div[@aria-label='Vision & Hearing form section']//option[@selected='SELECTED'])")
-   public List<WebElement> nativeViewRasSurveyVision_HearingTabDropDowns;
+	// Participant ear issues -- p tag
+	@FindBy(xpath = "//div[@aria-label='Vision & Hearing form section']//p[@class='form-control-static'][contains(text(),'Excessive earwax, Chronic or recurrent ear infecti')]")
+	public WebElement nativeViewRasSurveyParticipantEarIsssuesPTag;
 
-   /**
-	* ************************** END OF VISION/HEARING SECTION
-	* **************************
-	*/
+	// Please specify Participant ear issues -- text box
+	@FindBy(xpath = "//*[@id='x_naci_family_coho_rasopathy_iiq.please_specify_ear_issues']")
+	public WebElement nativeViewRasSurveyPleaseSpecifyEarIssuesTextBox;
 
-		 /**
-	* ************************** BEGINNING OF FEEDING/NUTRITION/GASTRO
-	* **************************
-	*/
-	//Identifying Feeding, Nutri, Gas Tab
+	// All dropdown boxes in vision/hearing tab
+	@FindBy(xpath = "(//div[@aria-label='Vision & Hearing form section']//option[@selected='SELECTED'])")
+	public List<WebElement> nativeViewRasSurveyVision_HearingTabDropDowns;
+
+	/**
+	 * ************************** END OF VISION/HEARING SECTION
+	 * **************************
+	 */
+
+	/**
+	 * ************************** BEGINNING OF FEEDING/NUTRITION/GASTRO
+	 * **************************
+	 */
+	// Identifying Feeding, Nutri, Gas Tab
 	@FindBy(xpath = "//span[normalize-space()='Feeding, Nutrition & Gastro Symptoms']")
 	public WebElement nativeViewRasSurveyFeedingNutriGasTab;
 
-	//Has the patient ever seen a GI specialist
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.gi_specialist']//option[@selected='SELECTED']")
+	// Has the patient ever seen a GI specialist DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.gi_specialist']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyEverSeenGISpecialistDropdown;
 
-	//Has the participant had any symptoms that likely involved the GI system
-	@FindBy	(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.gi_symptoms']//option[@selected='SELECTED']")
+	// Has the participant had any symptoms that likely involved the GI system
+	// DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.gi_symptoms']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveySymptomsofGISystemDropdown;
 
-	//GI Specialist Name
-	@FindBy (xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.gi_specialist_name']")
+	// GI Specialist Name
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.gi_specialist_name']")
 	public WebElement nativeViewRasSurveyGiSpecialistNameTextbox;
 
-	//GI Specialist City, State
-	@FindBy (xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.gi_specialist_city_state']")
+	// GI Specialist City, State
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.gi_specialist_city_state']")
 	public WebElement nativeViewRasSurveySpecialistCityStateTextbox;
 
-	//GI Specialist Hospital / Health Center Affiliation
-	@FindBy (xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.ga_specialist_affiliation']")
+	// GI Specialist Hospital / Health Center Affiliation
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.ga_specialist_affiliation']")
 	public WebElement nativeViewRasSurveyHospitalAffiliationTextbox;
 
-	//Participant's diagnosed feeding difficulties
-	@FindBy (xpath = "//p[contains(text(),'Poor eater - declining food or unable to eat enoug')]")
+	// Participant's diagnosed feeding difficulties
+	@FindBy(xpath = "//p[contains(text(),'Poor eater - declining food or unable to eat enoug')]")
 	public WebElement nativeViewRasSurveyDiagnosedFeedingDifficultiesTextarea;
 
-	//Other Feeding Difficulties
-	@FindBy (xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.other_feeding_difficulties']")
+	// Other Feeding Difficulties
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.other_feeding_difficulties']")
 	public WebElement nativeViewRasSurveyOtherFeedingDifficultiesTextBox;
 
-	//Age NJ/NG-tube was placed
-	@FindBy (xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.age_nj_tube_placed']")
+	// Age NJ/NG-tube was placed
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.age_nj_tube_placed']")
 	public WebElement nativeViewRasSurveyAgeNJNGTubeTextbox;
 
-	//Age G/G-J tube was placed
-	@FindBy (xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.age_g_g_j_tube_was_placed']")
+	// Age G/G-J tube was placed
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.age_g_g_j_tube_was_placed']")
 	public WebElement nativeViewRasSurveyAgeGGJTubeTextbox;
 
-	//Age gastronomy tube(G/G-J) removed
-	@FindBy (xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.age_g_tube_removed']")
+	// Age gastronomy tube(G/G-J) removed
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.age_g_tube_removed']")
 	public WebElement nativeViewRasSurveyAgeGastroTubeRemovedTextbox;
 
-	//Toilet trained
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.toilet_trained']//option[@selected='SELECTED']")
+	// Toilet trained DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.toilet_trained']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyToiletTrainedDropdown;
 
-	//Age successfully toilet trained
-	@FindBy (xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.age_successfully_toilet_trained']")
+	// Age successfully toilet trained
+	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.age_successfully_toilet_trained']")
 	public WebElement nativeViewRasSurveyAgeSuccesfullyToiletTrainedTextbox;
 
-	//Any episodes of repeated urine accidents after being toilet trained?
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.repeated_urine_accidents']//option[@selected='SELECTED']")
+	// Any episodes of repeated urine accidents after being toilet trained? DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.repeated_urine_accidents']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyEpisodesRepeatedUrineafterTrainedDropdown;
 
-	//Does the patient consistently use the toilet for all urination?
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.toilet_urination']//option[@selected='SELECTED']")
+	// Does the patient consistently use the toilet for all urination? DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.toilet_urination']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyConsistentlyUseToiletUrinationDropdown;
 
-	//Does the patient consistently use the toilet for all bowel movements?
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.toilet_bowel_movements']//option[@selected='SELECTED']")
+	// Does the patient consistently use the toilet for all bowel movements?
+	// DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.toilet_bowel_movements']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyToiletForAllBowelMovementDropdown;
 
-	//Any episodes of repeated bowel movement accidents after being toilet trained?
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.bowel_accidents']//option[@selected='SELECTED']")
+	// Any episodes of repeated bowel movement accidents after being toilet trained?
+	// DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.bowel_accidents']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyRepeatedBowelAccidentsAfterTrainedDropdown;
 
-	//Pain with bowel movements
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.pain_with_bowel_movements']//option[@selected='SELECTED']")
+	// Pain with bowel movements DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.pain_with_bowel_movements']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyPainBowelMovementsDropdown;
 
-	//How many bowel movements do you have per week?
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.how_many_bowel_movements_do_you_have_per_week']")
-	public WebElement nativeViewRasSurveyBowelMovementsPerWeekTextbox;
+	// How many bowel movements do you have per week? DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.how_many_bowel_movements_do_you_have_per_week']//option[@selected='SELECTED']")
+	public WebElement nativeViewRasSurveyBowelMovementsPerWeekDropDown;
 
-	//Bristol Stool Chart Type
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.bristol_stool_chart_type']//option[@selected='SELECTED']")
+	// Bristol Stool Chart Type DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.bristol_stool_chart_type']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyBristolStoolChartDropdown;
 
-	//Longest time without a bowel movement
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.longest_time_without_a_bowel_movement']//option[@selected='SELECTED']")
+	// Longest time without a bowel movement DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.longest_time_without_a_bowel_movement']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyLongestTimeWithoutBowelMovementDropdown;
 
-	//Has the participant had a procedure, test or study to evaluate their GI?
-	@FindBy (xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.gi_procedure']//option[@selected='SELECTED']")
+	// Has the participant had a procedure, test or study to evaluate their GI?
+	// DropDown
+	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.gi_procedure']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyProcedureToEvaluateGIDropdown;
 
-	/**Dynamic Xpath */
-    public  WebElement dynamicXpath (String value) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("(//div[@tab_caption='GI Symptoms']/span//div//div//table//tbody//tr[@data-type='list2_row']//td[@class='vt']//a)[contains(text(),'"+ value +"')]"));
+	/** Dynamic Xpath */
+	public WebElement dynamicXpath(String value) {
+		return WebDriverUtils.webDriver.findElement(By.xpath(
+				"(//div[@tab_caption='GI Symptoms']/span//div//div//table//tbody//tr[@data-type='list2_row']//td[@class='vt']//a)[contains(text(),'"
+						+ value + "')]"));
 	}
-	public  WebElement cousinXpath (String value) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("(//div[@tab_caption='GI Symptoms']/span//div//div//table//tbody//tr[@data-type='list2_row']//td[@class='vt']//a)[contains(text(),'"+ value +"')]//parent::td//following-sibling::td//a"));
+
+	public WebElement cousinXpath(String value) {
+		return WebDriverUtils.webDriver.findElement(By.xpath(
+				"(//div[@tab_caption='GI Symptoms']/span//div//div//table//tbody//tr[@data-type='list2_row']//td[@class='vt']//a)[contains(text(),'"
+						+ value + "')]//parent::td//following-sibling::td//a"));
 	}
-	
-		@FindBy (xpath = "//span[normalize-space()='GI Symptoms (21)']")
+
+	@FindBy(xpath = "//span[normalize-space()='GI Symptoms (21)']")
 	public WebElement GItab;
-	 /**
-	* ************************** END OF FEEDING/NUTRITION/GASTRO
-	* **************************
-	*/
-   //Tabs in native view data table
-   @FindBy(xpath= "//body/div[contains(@class,'overflow_x_hidden-hotfix')]/div[1]//span[@class='tab_header']//span[@role='tab']")
-   public List<WebElement> nativeViewRasSurveyTableTabs;
-	 
+	/**
+	 * ************************** END OF FEEDING/NUTRITION/GASTRO
+	 * **************************
+	 */
+	// Tabs in native view data table
+	@FindBy(xpath = "//body/div[contains(@class,'overflow_x_hidden-hotfix')]/div[1]//span[@class='tab_header']//span[@role='tab']")
+	public List<WebElement> nativeViewRasSurveyTableTabs;
+
 	/* ********** END OF Native view RAS Survey Data Verification ********** */
 
 	/* **************************************************** */
