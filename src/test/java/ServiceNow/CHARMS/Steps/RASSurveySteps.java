@@ -3,13 +3,24 @@ package ServiceNow.CHARMS.Steps;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
+import java.util.List;
 import java.util.Set;
+
+import org.apache.commons.lang3.text.translate.NumericEntityEscaper;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
+import ServiceNow.CHARMS.Pages.RASSurveyPage;
+import com.nci.automation.web.CommonUtils;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
+import cucumber.api.junit.Cucumber;
 
 public class RASSurveySteps extends PageInitializer {
 
@@ -217,10 +228,10 @@ public class RASSurveySteps extends PageInitializer {
 	@Given("adds details in Please provide details on the name of the medication taken reason it was taken and approximate length of time it was taken. page - myRAS Survey")
 	public void adds_details_in_Please_provide_details_on_the_name_of_the_medication_taken_reason_it_was_taken_and_approximate_length_of_time_it_was_taken_page_myRAS_Survey() {
 
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(rASSurveyPage.antibioticNameTextBox);
-		rASSurveyPage.antibioticNameTextBox.sendKeys("NAMEOFANTIBIOTIC");
-		rASSurveyPage.antibioticReasonTextBox.sendKeys("INFECTION");
+		rASSurveyPage.antibioticNameTextBox.sendKeys("DOXYCYLINE");
+		rASSurveyPage.antibioticReasonTextBox.sendKeys("ACNE");
 		CommonUtils.selectDropDownValue("9 months", rASSurveyPage.antibioticLenghtOfTimeMedicationWasTakenDropDown);
 		rASSurveyPage.vitaminNameTextBox.sendKeys("VITAMIN B");
 		rASSurveyPage.vitaminReasonTextBox.sendKeys("SUPPORT");
@@ -229,14 +240,15 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.antihypertensiveReasonTextBox.sendKeys("BLOOD PRESSURE");
 		CommonUtils.selectDropDownValue("2 weeks",
 				rASSurveyPage.antihypertensivesLenghtOfTimeMedicationWasTakenDropDown);
-		rASSurveyPage.insulinMedicationNameTextBox.sendKeys("INSULIN");
-		rASSurveyPage.insulinReasonTextBox.sendKeys("DIABETES");
-		CommonUtils.selectDropDownValue("4 weeks", rASSurveyPage.insulinLenghtOfTimeMedicationWasTakenDropDown);
+		rASSurveyPage.medicationForHighBloodGlucoseNameTextBox.sendKeys("INSULIN");
+		rASSurveyPage.medicationForHighBloodGlucoseReasonTextBox.sendKeys("DIABETES");
+		CommonUtils.selectDropDownValue("4 weeks",
+				rASSurveyPage.medicationForHighBloodGlucoseLenghtOfTimeMedicationWasTakenDropDown);
 		rASSurveyPage.antiemeticsNameTextBox.sendKeys("ANTIEMETICS");
 		rASSurveyPage.antiemeticsReasonTextBox.sendKeys("ANTIEMETICS DEFICIENCY");
 		CommonUtils.selectDropDownValue("9 months", rASSurveyPage.antiemeticsLenghtOfTimeMedicationWasTakenDropDown);
 		rASSurveyPage.hormoneNameTextBox.sendKeys("PROGESTERONE");
-		rASSurveyPage.hormoneReasonTextBox.sendKeys("HORMONALINBALANCE");
+		rASSurveyPage.hormoneReasonTextBox.sendKeys("HORMONAL IMBALANCE");
 		CommonUtils.selectDropDownValue("4 months", rASSurveyPage.hormonesLenghtOfTimeMedicationWasTakenDropDown);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.antidepressantNameTextBox.sendKeys("ZOLOFT");
@@ -244,11 +256,11 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.selectDropDownValue("1 month", rASSurveyPage.antiDepressantsLenghtOfTimeMedicationWasTakenDropDown);
 		JavascriptUtils.scrollUp(800);
 		CucumberLogUtils.logScreenShot();
-		rASSurveyPage.diureticNameTextBox.sendKeys("DIUERTIC");
-		rASSurveyPage.diureticReasonTextBox.sendKeys("DIURETIC DEFICIENCY");
+		rASSurveyPage.diureticNameTextBox.sendKeys("METOLAZONE");
+		rASSurveyPage.diureticReasonTextBox.sendKeys("HIGH BLOOD PRESSURE");
 		CommonUtils.selectDropDownValue("7 days", rASSurveyPage.diureticsLenghtOfTimeMedicationWasTakenDropDown);
 		rASSurveyPage.painReliverNameTextBox.sendKeys("OXYCOTIN");
-		rASSurveyPage.painReliverReasonTextBox.sendKeys("EXTREMEPAIN");
+		rASSurveyPage.painReliverReasonTextBox.sendKeys("EXTREME PAIN");
 		CommonUtils.selectDropDownValue("4 days", rASSurveyPage.painRelieversLenghtOfTimeMedicationWasTakenDropDown);
 		rASSurveyPage.pretermLaborMedicationNameTextBox.sendKeys("PRETERM LABOR MEDICATION");
 		rASSurveyPage.pretermLaborReasonTextBox.sendKeys("PRETERM LABOR RISK");
@@ -262,30 +274,21 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.antiSeizureReasonTextBox.sendKeys("SEIZURES");
 		CommonUtils.selectDropDownValue("4 days",
 				rASSurveyPage.antiSeizureMedicationsLenghtOfTimeMedicationWasTakenDropDown);
-		rASSurveyPage.oreganoNameTextBox.sendKeys("OREGANO");
-		rASSurveyPage.oreganoReasonTextBox.sendKeys("DIGESTIVE SUPPORT");
-		CommonUtils.selectDropDownValue("9 months", rASSurveyPage.oreganoLenghtOfTimeMedicationWasTakenDropDown);
+		rASSurveyPage.herbalSupplementNameTextBox.sendKeys("OREGANO");
+		rASSurveyPage.herbalSupplementReasonTextBox.sendKeys("DIGESTIVE SUPPORT");
+		CommonUtils.selectDropDownValue("9 months",
+				rASSurveyPage.herbalSupplementLenghtOfTimeMedicationWasTakenDropDown);
 		rASSurveyPage.tpnNameTextBox.sendKeys("TPN");
 		rASSurveyPage.tpnReasonTextBox.sendKeys("TPN DEFICIENCY");
 		CommonUtils.selectDropDownValue("6 days", rASSurveyPage.tpnLenghtOfTimeMedicationWasTakenDropDown);
-		rASSurveyPage.turmericNameTextBox.sendKeys("TUMERIC");
-		rASSurveyPage.turmericReasonTextBox.sendKeys("INFLAMMATION");
-		CommonUtils.selectDropDownValue("3 days", rASSurveyPage.tumericLenghtOfTimeMedicationWasTakenDropDown);
-		rASSurveyPage.melatoninNameTextBox.sendKeys("MELATONIN");
-		rASSurveyPage.melatoninReasonTextBox.sendKeys("SLEEPING ISSUES");
-		CommonUtils.selectDropDownValue("6 days", rASSurveyPage.melatoninLenghtOfTimeMedicationWasTakenDropDown);
+		rASSurveyPage.otherMedicationNameTextBox.sendKeys("TUMERIC");
+		rASSurveyPage.otherMedicationReasonTextBox.sendKeys("INFLAMMATION");
+		CommonUtils.selectDropDownValue("3 days", rASSurveyPage.otherMedicationLenghtOfTimeMedicationWasTakenDropDown);
+		rASSurveyPage.otherMedication2NameTextBox.sendKeys("MELATONIN");
+		rASSurveyPage.otherMedication2ReasonTextBox.sendKeys("SLEEPING ISSUES");
+		CommonUtils.selectDropDownValue("6 days", rASSurveyPage.otherMedication2LenghtOfTimeMedicationWasTakenDropDown);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.antibioticNameTextBox);
 		CucumberLogUtils.logScreenShot();
-		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
-		rASSurveyPage.surveyNextButton.click();
-	}
-
-	@Given("clicks next Please provide details on the name of the medication taken reason it was taken and approximate length of time it was taken. page - myRAS Survey")
-	public void clicks_next_Please_provide_details_on_the_name_of_the_medication_taken_reason_it_was_taken_and_approximate_length_of_time_it_was_taken_page_myRAS_Survey() {
-
-		MiscUtils.sleep(1500);
-		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
@@ -296,7 +299,9 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		MiscUtils.sleep(1000);
 		rASSurveyPage.yesRadioButton.click();
+		MiscUtils.sleep(1000);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
@@ -1768,7 +1773,7 @@ public class RASSurveySteps extends PageInitializer {
 	public void selects_bowel_movement_per_week_amount_for_How_many_bowel_movements_do_you_have_per_week_page_myRAS_Survey(
 			String amountOfBowelMovements) {
 
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		CommonUtils.selectDropDownValue(amountOfBowelMovements,
 				rASSurveyPage.howManyBowelMovementsDoYouHavePerWeekDropDown);
@@ -1823,7 +1828,7 @@ public class RASSurveySteps extends PageInitializer {
 	public void selects_All_and_enters_for_other_GI_test_Please_indicate_which_of_the_following_procedures_have_been_performed_page_myRAS_Survey(
 			String otherGiTests) {
 
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.pleaseIndicateWhichOfTheFollowingProceduresHaveBeenPerformedPleaseSelectAllThatApplyOtherGITestPleaseSpecifyExamTextBox
@@ -2239,8 +2244,9 @@ public class RASSurveySteps extends PageInitializer {
 	@Given("clicks YES button Do you have any numbness in or around your mouth? page - myRAS Survey")
 	public void clicks_YES_button_Do_you_have_any_numbness_in_or_around_your_mouth_page_myRAS_Survey() {
 
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		MiscUtils.sleep(2000);
 		rASSurveyPage.yesRadioButton.click();
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
@@ -2261,6 +2267,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		MiscUtils.sleep(1000);
 		rASSurveyPage.yesRadioButton.click();
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
@@ -3072,7 +3079,6 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.clottingDisorderDiagnosisAgeTextBox.sendKeys("18");
 		rASSurveyPage.clottingDisorderMedicationTypeTextBox.sendKeys("PLASMA TRANSFUSION");
 		rASSurveyPage.clottingDisorderAddressTextBox.sendKeys("DELAWARE HOSPITAL, DE");
-		rASSurveyPage.otherBleedingTextBox.sendKeys("HEMOPHILIA");
 		rASSurveyPage.otherBleedingFirstSymptomsDateTextBox.sendKeys("05/15");
 		rASSurveyPage.otherBleedingFirstSymptomsAgeTextBox.sendKeys("25");
 		rASSurveyPage.otherBleedingDiagnosisDateTextBox.sendKeys("06/16");
@@ -3710,6 +3716,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
+		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}
@@ -4100,6 +4107,88 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.surveyNextButton.click();
 	}
 
+	@Given("adds details for Christina in Please provide details on the name of the medication taken reason it was taken and approximate length of time it was taken. page - myRAS Survey")
+	public void adds_details_for_Christina_in_Please_provide_details_on_the_name_of_the_medication_taken_reason_it_was_taken_and_approximate_length_of_time_it_was_taken_page_myRAS_Survey() {
+
+		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(rASSurveyPage.antibioticNameForSomeoneElseTextBox);
+		rASSurveyPage.antibioticNameForSomeoneElseTextBox.sendKeys("DOXYCYCLINE");
+		rASSurveyPage.antibioticReasonForSomeoneElseTextBox.sendKeys("INFECTION");
+		CommonUtils.selectDropDownValue("9 months",
+				rASSurveyPage.antibioticLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown);
+		rASSurveyPage.vitaminNameForSomeoneElseTextBox.sendKeys("VITAMIN B");
+		rASSurveyPage.vitaminReasonForSomeoneElseTextBox.sendKeys("SUPPORT");
+		CommonUtils.selectDropDownValue("5 months",
+				rASSurveyPage.vitaminLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown);
+		rASSurveyPage.antihypertensivesNameForSomeoneElseTextBox.sendKeys("PROPRANOLOL");
+		rASSurveyPage.antihypertensiveReasonForSomeoneElseTextBox.sendKeys("BLOOD PRESSURE");
+		CommonUtils.selectDropDownValue("2 weeks",
+				rASSurveyPage.antihypertensivesLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown);
+		rASSurveyPage.medicationForHighBloodGlucoseNameForSomeoneElseTextBox.sendKeys("INSULIN");
+		rASSurveyPage.medicationForHighBloodGlucoseReasonForSomeoneElseTextBox.sendKeys("DIABETES");
+		CommonUtils.selectDropDownValue("4 weeks",
+				rASSurveyPage.medicationForHighBloodGlucoseLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown);
+		rASSurveyPage.antiemeticsNameForSomeoneElseTextBox.sendKeys("ANTIEMETICS");
+		rASSurveyPage.antiemeticsReasonForSomeoneElseTextBox.sendKeys("ANTIEMETICS DEFICIENCY");
+		CommonUtils.selectDropDownValue("9 months",
+				rASSurveyPage.antiemeticsLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown);
+		rASSurveyPage.hormoneNameForSomeoneElseTextBox.sendKeys("PROGESTERONE");
+		rASSurveyPage.hormoneReasonForSomeoneElseTextBox.sendKeys("HORMONAL IMBALANCE");
+		CommonUtils.selectDropDownValue("4 months",
+				rASSurveyPage.hormonesLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown);
+		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.antidepressantNameForSomeoneElseTextBox.sendKeys("ZOLOFT");
+		rASSurveyPage.antidepressantReasonForSomeoneElseTextBox.sendKeys("DEPRESSION");
+		CommonUtils.selectDropDownValue("1 month",
+				rASSurveyPage.antiDepressantsLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown);
+		JavascriptUtils.scrollUp(800);
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.diureticNameForSomeoneElseTextBox.sendKeys("DIUERTIC");
+		rASSurveyPage.diureticReasonForSomeoneElseTextBox.sendKeys("DIURETIC DEFICIENCY");
+		CommonUtils.selectDropDownValue("7 days",
+				rASSurveyPage.diureticsLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown);
+		rASSurveyPage.painReliverNameForSomeoneElseTextBox.sendKeys("OXYCOTIN");
+		rASSurveyPage.painReliverReasonForSomeoneElseTextBox.sendKeys("EXTREMEPAIN");
+		CommonUtils.selectDropDownValue("4 days",
+				rASSurveyPage.painRelieversLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown);
+		rASSurveyPage.pretermLaborMedicationNameForSomeoneElseTextBox.sendKeys("PRETERM LABOR MEDICATION");
+		rASSurveyPage.pretermLaborReasonForSomeoneElseTextBox.sendKeys("PRETERM LABOR RISK");
+		CommonUtils.selectDropDownValue("3 weeks",
+				rASSurveyPage.medicationsForPretermLaborLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown);
+		rASSurveyPage.thyroidMedicationNameForSomeoneElseTextBox.sendKeys("THYROID MEDICATION");
+		rASSurveyPage.thyroidReasonForSomeoneElseTextBox.sendKeys("THYROID ILLNESS");
+		CommonUtils.selectDropDownValue("1 day",
+				rASSurveyPage.thyroidMedicationsLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown);
+		rASSurveyPage.antiSeizureNameForSomeoneElseTextBox.sendKeys("ANTI SEIZURE MEDICATION");
+		rASSurveyPage.antiSeizureReasonForSomeoneElseTextBox.sendKeys("SEIZURES");
+		CommonUtils.selectDropDownValue("4 days",
+				rASSurveyPage.antiSeizureMedicationsLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown);
+		rASSurveyPage.herbalSupplementNameForSomeoneElseTextBox.sendKeys("OREGANO");
+		rASSurveyPage.herbalSupplementPleaseSpecifyTextBox.sendKeys("OREGANO");
+		rASSurveyPage.herbalSupplementReasonForSomeoneElseTextBox.sendKeys("DIGESTIVE SUPPORT");
+		CommonUtils.selectDropDownValue("9 months",
+				rASSurveyPage.herbalSupplementLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown);
+		rASSurveyPage.tpnNameForSomeoneElseTextBox.sendKeys("TPN");
+		rASSurveyPage.tpnReasonForSomeoneElseTextBox.sendKeys("TPN DEFICIENCY");
+		CommonUtils.selectDropDownValue("6 days",
+				rASSurveyPage.tpnLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown);
+		rASSurveyPage.otherMedicationNameForSomeoneElseTextBox.sendKeys("TUMERIC");
+		rASSurveyPage.otherMedicationNamePleaseSpecifyTextBox.sendKeys("TUMERIC");
+		rASSurveyPage.otherMedicationReasonForSomeoneElseTextBox.sendKeys("INFLAMMATION");
+		CommonUtils.selectDropDownValue("3 days",
+				rASSurveyPage.otherMedicationLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown);
+		rASSurveyPage.otherMedication2NameForSomeoneElseTextBox.sendKeys("MELATONIN");
+		rASSurveyPage.otherMedication2PleaseSpecifyForSomeoneElseTextBox.sendKeys("MELATONIN");
+		rASSurveyPage.otherMedication2ReasonForSomeoneElseTextBox.sendKeys("SLEEPING ISSUES");
+		CommonUtils.selectDropDownValue("6 days",
+				rASSurveyPage.otherMedication2LenghtOfTimeMedicationWasTakenForSomeoneElseDropDown);
+		JavascriptUtils.scrollIntoView(rASSurveyPage.antibioticNameForSomeoneElseTextBox);
+		CucumberLogUtils.logScreenShot();
+		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
 	@Given("clicks YES Did Christinas biological mother use any tobacco products during her pregnancy with Christina?  - myRAS Survey")
 	public void clicks_YES_Did_Christinas_biological_mother_use_any_tobacco_products_during_her_pregnancy_with_Christina_myRAS_Survey() {
 		MiscUtils.sleep(1000);
@@ -4292,6 +4381,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
 		CucumberLogUtils.logScreenShot();
+		MiscUtils.sleep(1000);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5132,7 +5222,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.refuxHeartburnmedicationTakenYesRadioButton.click();
 		rASSurveyPage.ageOfMedicationTakenTexBox.sendKeys(ageOfHeartBurnMedication);
 		rASSurveyPage.MedicationTakenTexBox.sendKeys(heartBurnMedication);
+		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
+		MiscUtils.sleep(1000);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5302,7 +5394,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.isThereUrgencyNeedToRushToGoToTheBathroomYesRadioButton.click();
 		rASSurveyPage.doesDiarrheaOccurWithCrampyLowerBellyPainYesRadioButton.click();
 		rASSurveyPage.isTheDiarrheaEverBloodyYesRadioButton.click();
+		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
+		MiscUtils.sleep(1000);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6781,7 +6875,7 @@ public class RASSurveySteps extends PageInitializer {
 	@Given("clicks YES button for Has Christina ever been evaluated by an immunologist or rheumatologist? These are physicians who specialize in the immune system and how it functions. They diagnose conditions such as lupus autoimmune thyroiditis and psoriasis Page-myRAS Survey")
 	public void clicks_YES_button_for_Has_Christina_ever_been_evaluated_by_an_immunologist_or_rheumatologist_These_are_physicians_who_specialize_in_the_immune_system_and_how_it_functions_They_diagnose_conditions_such_as_lupus_autoimmune_thyroiditis_and_psoriasis_Page_myRAS_Survey() {
 
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
 		CucumberLogUtils.logScreenShot();
@@ -7462,13 +7556,15 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(myRASHomePage.rasSurvey);
 		myRASHomePage.rasSurvey.click();
+		MiscUtils.sleep(65000);
 
 	}
 
 	static String rasSurveyPin;
 
-	@Given("enters Okta email address and One Time Pin code to proceed with the RAS Survey")
-	public void enters_Okta_email_address_and_One_Time_Pin_code_to_proceed_with_the_RAS_Survey() {
+	@Given("enters Okta email address {string} and One Time Pin code to proceed with the RAS Survey")
+	public void enters_Okta_email_address_and_One_Time_Pin_code_to_proceed_with_the_RAS_Survey(
+			String oktaEmailAddress) {
 
 		/**
 		 * USING SAME PIN TEXT AND GO BUTTON LOCATORS AS CGB IIQ SINCE THEY ARE THE SAME
@@ -7487,8 +7583,29 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.cHARMSEmailLogIn);
-		rASSurveyPage.cHARMSEmailLogIn.sendKeys("charmsras4@yahoo.com");
+		rASSurveyPage.cHARMSEmailLogIn.sendKeys(oktaEmailAddress);
 		rASSurveyPage.cHARMSpasswordToLogIn.sendKeys(rasSurveyPin);
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever been included in a published case report or otherwise represented in a public manner by a healthcare provider or researcher? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_included_in_a_published_case_report_or_otherwise_represented_in_a_public_manner_by_a_healthcare_provider_or_researcher_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Please complete the table below regarding your biological parents. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Please_complete_the_table_below_regarding_your_biological_parents_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.bioMothersBirthCityTextBox);
+		rASSurveyPage.motherUnsureUnknownBirthplaceRadioButton.click();
+		rASSurveyPage.fatherUnsureUnknownBirthplaceRadioButton.click();
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 	}

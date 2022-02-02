@@ -1,7 +1,5 @@
 package com.nci.automation.web;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -11,6 +9,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -450,6 +452,25 @@ public class CommonUtils extends WebDriverUtils {
 	}
 
 	/**
+	 * Use this method to select a checkbox value & to check that checkbox is
+	 * displayed
+	 */
+
+	public static void selectCheckboxDisplayed(List<WebElement> checkboxList, String attribute, String value) {
+		for (WebElement checkbox : checkboxList) {
+
+			if (checkbox.isEnabled() && checkbox.isDisplayed()) {
+				String checkboxText = checkbox.getAttribute(attribute);
+				if (checkboxText.equals(value)) {
+					checkbox.click();
+					MiscUtils.sleep(500);
+					break;
+				}
+			}
+		}
+	}
+
+	/**
 	 * Use this method to open new tab
 	 */
 	public static void openNewTab() {
@@ -488,15 +509,18 @@ public class CommonUtils extends WebDriverUtils {
 		}
 	}
 
-	/**
-	 * Use below soft assertion function to soft assert
-	 */
+/*
+ * 
+ * Use below method to assert actual String value with an expected String value	
+ */
+	public static void assertEquals(String expected, String actual) {
+		
+		try {
+		Assert.assertEquals(expected, actual);
+		}
+		catch(AssertionError e) {
 
-	static SoftAssert softAssertion;
-
-	public static void softAssert(boolean condition) {
-
-		softAssertion = new SoftAssert();
-		softAssertion.assertTrue(condition);
+			e.printStackTrace();
+		}
 	}
 }
