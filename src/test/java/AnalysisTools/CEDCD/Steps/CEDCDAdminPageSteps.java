@@ -20,9 +20,11 @@ public class CEDCDAdminPageSteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		JavascriptUtils.clickByJS(cedcdAdminPage.cohortSubmittedStatus);
 		MiscUtils.sleep(1000);
+		JavascriptUtils.clickByJS(cedcdAdminPage.viewAllBtn);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(cedcdAdminPage.firstSubmittedCohort);
 		MiscUtils.sleep(5000);
+		CucumberLogUtils.logScreenShot();
 		
 	}
 
@@ -30,6 +32,7 @@ public class CEDCDAdminPageSteps extends PageInitializer {
 	public void the_user_checks_all_sections() {
 		
 		/** This step clicks on the next button on Section A */
+		CucumberLogUtils.logScreenShot();
 		CommonUtils.scrollIntoView(cedcdCohortPage.nextButton);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
