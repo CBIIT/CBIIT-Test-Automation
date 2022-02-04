@@ -104,6 +104,9 @@ public class WebDriverUtils {
 					// chromeOptions.addArguments("--disable-setuid-sandbox");
 					// chromeOptions.addArguments("--user-data-dir=~/.config/google-chrome");
 					// chromeOptions.setExperimentalOption("useAutomationExtension", false);
+					chromeOptions.addArguments("--no-sandbox");
+					chromeOptions.addArguments("--headless");
+					chromeOptions.addArguments("--disable-dev-shm-usage");
 					webDriver = new ChromeDriver(chromeOptions);
 					System.out.println(chromeOptions.getVersion());
 				} else {

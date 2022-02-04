@@ -3,10 +3,13 @@ package ServiceNow.CHARMS.Steps;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
+
+import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.lang3.text.translate.NumericEntityEscaper;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -49,6 +52,7 @@ public class RASSurveySteps extends PageInitializer {
 	@Given("clicks on survey next button after reviewing the survey details to start on the myRAS Survey questions. page - myRAS Survey")
 	public void clicks_on_survey_next_button_after_reviewing_the_survey_details_to_start_on_the_myRAS_Survey_questions_page_myRAS_Survey() {
 
+		// Question
 		MiscUtils.sleep(1200);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.nihBannerImage);
@@ -56,6 +60,7 @@ public class RASSurveySteps extends PageInitializer {
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
+
 	}
 
 	@Given("clicks next button on The first block of questions will collect basic demographic information. page - myRAS Survey")
@@ -3079,7 +3084,6 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.clottingDisorderDiagnosisAgeTextBox.sendKeys("18");
 		rASSurveyPage.clottingDisorderMedicationTypeTextBox.sendKeys("PLASMA TRANSFUSION");
 		rASSurveyPage.clottingDisorderAddressTextBox.sendKeys("DELAWARE HOSPITAL, DE");
-		rASSurveyPage.otherBleedingTextBox.sendKeys("HEMOPHILIA");
 		rASSurveyPage.otherBleedingFirstSymptomsDateTextBox.sendKeys("05/15");
 		rASSurveyPage.otherBleedingFirstSymptomsAgeTextBox.sendKeys("25");
 		rASSurveyPage.otherBleedingDiagnosisDateTextBox.sendKeys("06/16");
@@ -3943,13 +3947,22 @@ public class RASSurveySteps extends PageInitializer {
 	}
 
 	@Given("clicks Next button to end survey for You are almost done! To submit your responses, you must continue in the questionnaire by clicking the forward arrow below. The information you have provided will be reviewed by our study team. In the meantime, you should receive an email confirming this submission. page - myRAS Survey")
-	public void clicks_Next_button_to_end_survey_for_You_are_almost_done_To_submit_your_responses_you_must_continue_in_the_questionnaire_by_clicking_the_forward_arrow_below_The_information_you_have_provided_will_be_reviewed_by_our_study_team_In_the_meantime_you_should_receive_an_email_confirming_this_submission_page_myRAS_Survey() {
+	public void clicks_Next_button_to_end_survey_for_You_are_almost_done_To_submit_your_responses_you_must_continue_in_the_questionnaire_by_clicking_the_forward_arrow_below_The_information_you_have_provided_will_be_reviewed_by_our_study_team_In_the_meantime_you_should_receive_an_email_confirming_this_submission_page_myRAS_Survey() throws TestingException {
 		MiscUtils.sleep(1500);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 		MiscUtils.sleep(2000);
+		
+		// LOGOUT HERE
+		MiscUtils.sleep(3000);
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
+		MiscUtils.sleep(1500);
+		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewCCButton);
+		testAccountResetPage.nativeViewCCButton.click();
+		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewCCLogOutButton);
+		testAccountResetPage.nativeViewCCLogOutButton.click();
 	}
 
 	// ======================================================================================================================================BEGINNING
@@ -4165,7 +4178,6 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.selectDropDownValue("4 days",
 				rASSurveyPage.antiSeizureMedicationsLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown);
 		rASSurveyPage.herbalSupplementNameForSomeoneElseTextBox.sendKeys("OREGANO");
-		rASSurveyPage.herbalSupplementPleaseSpecifyTextBox.sendKeys("OREGANO");
 		rASSurveyPage.herbalSupplementReasonForSomeoneElseTextBox.sendKeys("DIGESTIVE SUPPORT");
 		CommonUtils.selectDropDownValue("9 months",
 				rASSurveyPage.herbalSupplementLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown);
@@ -4174,12 +4186,10 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.selectDropDownValue("6 days",
 				rASSurveyPage.tpnLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown);
 		rASSurveyPage.otherMedicationNameForSomeoneElseTextBox.sendKeys("TUMERIC");
-		rASSurveyPage.otherMedicationNamePleaseSpecifyTextBox.sendKeys("TUMERIC");
 		rASSurveyPage.otherMedicationReasonForSomeoneElseTextBox.sendKeys("INFLAMMATION");
 		CommonUtils.selectDropDownValue("3 days",
 				rASSurveyPage.otherMedicationLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown);
 		rASSurveyPage.otherMedication2NameForSomeoneElseTextBox.sendKeys("MELATONIN");
-		rASSurveyPage.otherMedication2PleaseSpecifyForSomeoneElseTextBox.sendKeys("MELATONIN");
 		rASSurveyPage.otherMedication2ReasonForSomeoneElseTextBox.sendKeys("SLEEPING ISSUES");
 		CommonUtils.selectDropDownValue("6 days",
 				rASSurveyPage.otherMedication2LenghtOfTimeMedicationWasTakenForSomeoneElseDropDown);
@@ -7557,13 +7567,15 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(myRASHomePage.rasSurvey);
 		myRASHomePage.rasSurvey.click();
+		MiscUtils.sleep(65000);
 
 	}
 
 	static String rasSurveyPin;
 
-	@Given("enters Okta email address and One Time Pin code to proceed with the RAS Survey")
-	public void enters_Okta_email_address_and_One_Time_Pin_code_to_proceed_with_the_RAS_Survey() {
+	@Given("enters Okta email address {string} and One Time Pin code to proceed with the RAS Survey")
+	public void enters_Okta_email_address_and_One_Time_Pin_code_to_proceed_with_the_RAS_Survey(
+			String oktaEmailAddress) {
 
 		/**
 		 * USING SAME PIN TEXT AND GO BUTTON LOCATORS AS CGB IIQ SINCE THEY ARE THE SAME
@@ -7588,6 +7600,10 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.surveyNextButton.click();
 	}
 
+	/**
+	 * BEGINNING OF UNSURE/UNKNOWN FLOW STEPS
+	 */
+
 	@Given("clicks Unsure\\/Unknown option for Have you ever been included in a published case report or otherwise represented in a public manner by a healthcare provider or researcher? page - myRAS Survey")
 	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_included_in_a_published_case_report_or_otherwise_represented_in_a_public_manner_by_a_healthcare_provider_or_researcher_page_myRAS_Survey() {
 
@@ -7609,8 +7625,883 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.surveyNextButton.click();
 	}
 
+	@Given("clicks Unsure\\/Unknown option for Were you diagnosed with hypoglycemia \\(low blood sugar) during the newborn period. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Were_you_diagnosed_with_hypoglycemia_low_blood_sugar_during_the_newborn_period_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknown2RadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("selects Unsure\\/Unknown option for Were you diagnosed with any of the following conditions during your mothers pregnancy? page - myRAS Survey")
+	public void selects_Unsure_Unknown_option_for_Were_you_diagnosed_with_any_of_the_following_conditions_during_your_mothers_pregnancy_page_myRAS_Survey() {
+
+		MiscUtils.sleep(2000);
+		CommonUtils.waitForVisibility(rASSurveyPage.unsureUnknownRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+
+	/**
+	 * BEGINNING OF LILY - UNSURE/UNKNOWN FLOW STEPS
+	 */
+	@Given("clicks Unsure\\/Unknown option for Do you have jaw or temporomandibular joint pain? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Do_you_have_jaw_or_temporomandibular_joint_pain_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Do you have frequent headaches? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Do_you_have_frequent_headaches_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you had any orthodontic treatment? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_had_any_orthodontic_treatment_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you had any facial or dental trauma? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_had_any_facial_or_dental_trauma_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you had elective jaw surgery? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_had_elective_jaw_surgery_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Do you have a history of cancer in the mouth or jaw? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Do_you_have_a_history_of_cancer_in_the_mouth_or_jaw_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Do you have a family member with a jaw abnormality? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Do_you_have_a_family_member_with_a_jaw_abnormality_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Do you have any numbness in or around your mouth? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Do_you_have_any_numbness_in_or_around_your_mouth_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Do you have any mouth sores? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Do_you_have_any_mouth_sores_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Do your teeth feel sensitive to hot or cold foods? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Do_your_teeth_feel_sensitive_to_hot_or_cold_foods_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Do you have problems moving your lips, tongue or mouth? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Do_you_have_problems_moving_your_lips_tongue_or_mouth_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Overall -- Is there anything unusual about your teeth or mouth, extra teeth, missing teeth, severe dental diseases, jawbone problems, enamel problems, etc.?  page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Overall_Is_there_anything_unusual_about_your_teeth_or_mouth_extra_teeth_missing_teeth_severe_dental_diseases_jawbone_problems_enamel_problems_etc_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you had trouble pronouncing any words because of problems with your teeth, mouth or dentures? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_had_trouble_pronouncing_any_words_because_of_problems_with_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you felt that your sense of taste has worsened because of problems with your teeth, mouth or dentures? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_felt_that_your_sense_of_taste_has_worsened_because_of_problems_with_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you had painful aching in your mouth? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_had_painful_aching_in_your_mouth_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you found it uncomfortable to eat any foods because of problems with your teeth, mouth or dentures? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_found_it_uncomfortable_to_eat_any_foods_because_of_problems_with_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Are you self-conscious because of your teeth, mouth or dentures? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Are_you_self_conscious_because_of_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you felt tense because of problems with your teeth, mouth or dentures? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_felt_tense_because_of_problems_with_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Has your diet been unsatisfactory because of problems with your teeth, mouth or dentures? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Has_your_diet_been_unsatisfactory_because_of_problems_with_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you found it difficult to relax because of problems with your teeth, mouth or dentures? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_found_it_difficult_to_relax_because_of_problems_with_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you been a bit embarrassed because of problems with your teeth, mouth or dentures? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_been_a_bit_embarrassed_because_of_problems_with_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you been irritable with other people because of problems with your teeth, mouth or dentures? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_been_irritable_with_other_people_because_of_problems_with_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you had difficulty doing your usual jobs because of problems with your teeth, mouth or dentures? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_had_difficulty_doing_your_usual_jobs_because_of_problems_with_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you felt that life in general is less satisfying because of problems with your teeth, mouth or dentures? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_felt_that_life_in_general_is_less_satisfying_because_of_problems_with_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you been totally unable to function because of problems with your teeth, mouth or dentures? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_been_totally_unable_to_function_because_of_problems_with_your_teeth_mouth_or_dentures_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks next button for The next set of questions ask about fluid balance and if any fluid builds up throughout the body. page - myRAS Survey")
+	public void clicks_next_button_for_The_next_set_of_questions_ask_about_fluid_balance_and_if_any_fluid_builds_up_throughout_the_body_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever been diagnosed with a lymphatic system issue? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_diagnosed_with_a_lymphatic_system_issue_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever been diagnosed with any of the following lymphatic system issues? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_diagnosed_with_any_of_the_following_lymphatic_system_issues_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+
+	@Given("enters {string} for Dont know Date or Age of First Symptoms and {string} for Dont know Date or Age Diagnosis and selects Unsure\\/Dont know Treatment for Please complete the table below to the best of your ability about the onset of symptoms, when you were diagnosed and if any procedures or medications were undertaken. page - myRAS Survey")
+	public void enters_for_Dont_know_Date_or_Age_of_First_Symptoms_and_for_Dont_know_Date_or_Age_Diagnosis_and_selects_Unsure_Dont_know_Treatment_for_Please_complete_the_table_below_to_the_best_of_your_ability_about_the_onset_of_symptoms_when_you_were_diagnosed_and_if_any_procedures_or_medications_were_undertaken_page_myRAS_Survey(String dontKnowDateOrAgeOfFirstSymptomsUnsureUnknown, String dontKnowDateOrAgeOfDiagnosisUnsureUnknown) {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.unsureUnknownDateOrAgeFirstSymptomsDontKnowTextBox.sendKeys(dontKnowDateOrAgeOfFirstSymptomsUnsureUnknown);
+		rASSurveyPage.unsureUnknownDateOrAgeDiagnosisDontKnowTextBox.sendKeys(dontKnowDateOrAgeOfDiagnosisUnsureUnknown);
+		rASSurveyPage.unsureDontKnowTreatmentRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks next on The next set of questions will ask about the kidneys. page - myRAS Survey")
+	public void clicks_next_on_The_next_set_of_questions_will_ask_about_the_kidneys_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever been evaluated by a nephrologist? These are doctors that specialize in the kidneys. They often diagnose conditions related to kidney function and help people get dialysis if their kidneys are not working well. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_evaluated_by_a_nephrologist_These_are_doctors_that_specialize_in_the_kidneys_They_often_diagnose_conditions_related_to_kidney_function_and_help_people_get_dialysis_if_their_kidneys_are_not_working_well_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever been diagnosed with a kidney problem? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_diagnosed_with_a_kidney_problem_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever been diagnosed with any of the following kidney problems? Please select all that apply. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_diagnosed_with_any_of_the_following_kidney_problems_Please_select_all_that_apply_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.unsureUnknownCheckBox.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks next on The next set of questions ask about hair and skin qualities. page - myRAS Survey")
+	public void clicks_next_on_The_next_set_of_questions_ask_about_hair_and_skin_qualities_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever been evaluated by a dermatologist? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_evaluated_by_a_dermatologist_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.unsureUnknownCheckBox.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+
+	@Given("Selects Other and enters {string} for please specify text box for Please choose the best term\\(s) to describe your hair. Please select all that apply. page - myRAS Survey")
+	public void selects_Other_and_enters_for_please_specify_text_box_for_Please_choose_the_best_term_s_to_describe_your_hair_Please_select_all_that_apply_page_myRAS_Survey(String otherHairConditionUnsureUnknown) {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.otherConditionTextBox.click();
+		rASSurveyPage.otherConditionTextBox.sendKeys(otherHairConditionUnsureUnknown);
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Is the texture or amount of your hair similar to biological family members, such as your mother, father, sibling, and children? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Is_the_texture_or_amount_of_your_hair_similar_to_biological_family_members_such_as_your_mother_father_sibling_and_children_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever been diagnosed with any of the following issues involving patches of thickened skin, also known as hyperkeratotis skin? Please select all that apply. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_diagnosed_with_any_of_the_following_issues_involving_patches_of_thickened_skin_also_known_as_hyperkeratotis_skin_Please_select_all_that_apply_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.unsureUnknownCheckBox.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Do you have any of the following pigmented skin findings? Select all that apply. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Do_you_have_any_of_the_following_pigmented_skin_findings_Select_all_that_apply_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.unsureUnknownCheckBox.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Do you have any hemangiomas? Hemangiomas are bright red marks on the skin made up of blood vessels, which may appear as a mass or lump. A hemangioma may appear in infancy or childhood and fade over time. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Do_you_have_any_hemangiomas_Hemangiomas_are_bright_red_marks_on_the_skin_made_up_of_blood_vessels_which_may_appear_as_a_mass_or_lump_A_hemangioma_may_appear_in_infancy_or_childhood_and_fade_over_time_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever been diagnosed with any of the following skin tumors? Please select all that apply. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_diagnosed_with_any_of_the_following_skin_tumors_Please_select_all_that_apply_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.unsureUnknownCheckBox.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks next on The next set of questions ask about skeletal conditions. Skeletal conditions involve the bones throughout the body. page - myRAS Survey")
+	public void clicks_next_on_The_next_set_of_questions_ask_about_skeletal_conditions_Skeletal_conditions_involve_the_bones_throughout_the_body_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever been evaluated by an orthopaedic surgeon? Orthopaedic surgeons are doctors who specialize in the bones and muscles. They diagnose and treat a range of conditions including broken bones, osteosarcoma, and torn ligaments. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_evaluated_by_an_orthopaedic_surgeon_Orthopaedic_surgeons_are_doctors_who_specialize_in_the_bones_and_muscles_They_diagnose_and_treat_a_range_of_conditions_including_broken_bones_osteosarcoma_and_torn_ligaments_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you been diagnosed with any of the following skeletal findings in the thoracic area? The thoracic area includes the chest and ribs. Please select all that apply. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_been_diagnosed_with_any_of_the_following_skeletal_findings_in_the_thoracic_area_The_thoracic_area_includes_the_chest_and_ribs_Please_select_all_that_apply_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.unsureUnknownCheckBox.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Do you have any issues with curving of the spine? This would often be diagnosed or evaluated by an orthopaedic surgeon. Examples include scoliosis and kyphosis. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Do_you_have_any_issues_with_curving_of_the_spine_This_would_often_be_diagnosed_or_evaluated_by_an_orthopaedic_surgeon_Examples_include_scoliosis_and_kyphosis_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever been diagnosed with any of the following types of curvature of the spine? Please select all that apply. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_diagnosed_with_any_of_the_following_types_of_curvature_of_the_spine_Please_select_all_that_apply_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.unsureUnknownCheckBox.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Has your neck been described as short or webbed? Individuals with a short, webbed neck may have a low hairline or extra skin where the neck meets the shoulders. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Has_your_neck_been_described_as_short_or_webbed_Individuals_with_a_short_webbed_neck_may_have_a_low_hairline_or_extra_skin_where_the_neck_meets_the_shoulders_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever been diagnosed with joint issues? These conditions are often diagnosed by neurologists, rheumatologists and orthopaedic surgeons. Examples include ulnar deviation, Achilles tendon contracture, hip dysplasia. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_diagnosed_with_joint_issues_These_conditions_are_often_diagnosed_by_neurologists_rheumatologists_and_orthopaedic_surgeons_Examples_include_ulnar_deviation_Achilles_tendon_contracture_hip_dysplasia_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever been diagnosed with the following joint issues? Please select all that apply. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_diagnosed_with_the_following_joint_issues_Please_select_all_that_apply_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.unsureUnknownCheckBox.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks next on The next set of questions ask about blood disorders. Blood disorders include immune system problems \\(white blood cells) or bleeding\\/clotting issues \\(platelets) or other bone marrow problems \\(where white blood cells, red blood cells and platelets are produced). page - myRAS Survey")
+	public void clicks_next_on_The_next_set_of_questions_ask_about_blood_disorders_Blood_disorders_include_immune_system_problems_white_blood_cells_or_bleeding_clotting_issues_platelets_or_other_bone_marrow_problems_where_white_blood_cells_red_blood_cells_and_platelets_are_produced_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever had an evaluation by a hematologist or oncologist? Hematologists are physicians who specialize in the blood system, including white blood cells, platelets, red blood cells and clotting factors. Oncologists are physicians who specialize in cancer. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_had_an_evaluation_by_a_hematologist_or_oncologist_Hematologists_are_physicians_who_specialize_in_the_blood_system_including_white_blood_cells_platelets_red_blood_cells_and_clotting_factors_Oncologists_are_physicians_who_specialize_in_cancer_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Do you have issues with bleeding or bruising? Examples include easy bruising, poor blood clotting. These conditions are often evaluated and diagnosed by a hematologist \\(a physician who specializes in the blood). page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Do_you_have_issues_with_bleeding_or_bruising_Examples_include_easy_bruising_poor_blood_clotting_These_conditions_are_often_evaluated_and_diagnosed_by_a_hematologist_a_physician_who_specializes_in_the_blood_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Do you have any of the following issues with bleeding or bruising? Please select all that apply. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Do_you_have_any_of_the_following_issues_with_bleeding_or_bruising_Please_select_all_that_apply_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.unsureUnknownCheckBox.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Do you have any known blood disorders or symptoms of blood disorders? Examples include an enlarged spleen, leukemia, low platelets or low blood cells. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Do_you_have_any_known_blood_disorders_or_symptoms_of_blood_disorders_Examples_include_an_enlarged_spleen_leukemia_low_platelets_or_low_blood_cells_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever been diagnosed with any of the following blood disorders or symptoms of blood disorders? Please select all that apply. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_diagnosed_with_any_of_the_following_blood_disorders_or_symptoms_of_blood_disorders_Please_select_all_that_apply_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.unsureUnknownCheckBox.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever been diagnosed with any of the following tumors? Please select all that apply. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_diagnosed_with_any_of_the_following_tumors_Please_select_all_that_apply_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.unsureUnknownCheckBox.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Do you have a history of frequent infections \\(typically recurrent sinus infections or pneumonia) or immunodeficiency? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Do_you_have_a_history_of_frequent_infections_typically_recurrent_sinus_infections_or_pneumonia_or_immunodeficiency_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever been evaluated by an immunologist or rheumatologist? These are physicians who specialize in the immune system and how it functions. They diagnose conditions such as lupus, autoimmune thyroiditis, and psoriasis. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_evaluated_by_an_immunologist_or_rheumatologist_These_are_physicians_who_specialize_in_the_immune_system_and_how_it_functions_They_diagnose_conditions_such_as_lupus_autoimmune_thyroiditis_and_psoriasis_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for How would you describe infection frequency and your immune system? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_How_would_you_describe_infection_frequency_and_your_immune_system_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.unsureUnknownCheckBox.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever been diagnosed with an autoimmune disorder? An autoimmune disorder is when the immune system attacks the body's own healthy tissues; can include Hashimoto thyroiditis, lupus, or autoimmune thrombocytopenia, etc. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_diagnosed_with_an_autoimmune_disorder_An_autoimmune_disorder_is_when_the_immune_system_attacks_the_body_s_own_healthy_tissues_can_include_Hashimoto_thyroiditis_lupus_or_autoimmune_thrombocytopenia_etc_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for With what autoimmune disorder have you been diagnosed? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_With_what_autoimmune_disorder_have_you_been_diagnosed_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.unsureUnknownCheckBox.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks next on The next set of questions ask about conditions associated with the central nervous system. The central nervous system includes the brain and spinal cord. page - myRAS Survey")
+	public void clicks_next_on_The_next_set_of_questions_ask_about_conditions_associated_with_the_central_nervous_system_The_central_nervous_system_includes_the_brain_and_spinal_cord_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever been evaluated by a neurologist or neurosurgeon? These are physicians who specialize in the brain and spinal cord. They diagnose conditions such as seizures, brain tumors, and brain malformations. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_evaluated_by_a_neurologist_or_neurosurgeon_These_are_physicians_who_specialize_in_the_brain_and_spinal_cord_They_diagnose_conditions_such_as_seizures_brain_tumors_and_brain_malformations_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever been diagnosed with a structural brain abnormality? Examples include Chiari {int} malformation, hydrocephalus, tethered spinal cord. These conditions are often diagnosed using a CT or MRI scan and evaluated by neurosurgeons. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_diagnosed_with_a_structural_brain_abnormality_Examples_include_Chiari_malformation_hydrocephalus_tethered_spinal_cord_These_conditions_are_often_diagnosed_using_a_CT_or_MRI_scan_and_evaluated_by_neurosurgeons_page_myRAS_Survey(Integer int1) {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever been diagnosed with any of the following issues of the brain? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_diagnosed_with_any_of_the_following_issues_of_the_brain_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.unsureUnknownCheckBox.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Do you have a history of seizures? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Do_you_have_a_history_of_seizures_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Please select all seizure disorders for which you have been diagnosed. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Please_select_all_seizure_disorders_for_which_you_have_been_diagnosed_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.unsureUnknownCheckBox.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever been evaluated by a psychiatrist, psychologist or behavioral pediatrician? These medical providers often diagnose conditions such as depression, anxiety, learning difficulties, and developmental disorders. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_evaluated_by_a_psychiatrist_psychologist_or_behavioral_pediatrician_These_medical_providers_often_diagnose_conditions_such_as_depression_anxiety_learning_difficulties_and_developmental_disorders_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever been diagnosed with a behavioral or psychiatric condition? Examples include mood disorders \\(depression), self-harm acts, anxiety, bipolar disorder, autism spectrum disorder, aggression. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_diagnosed_with_a_behavioral_or_psychiatric_condition_Examples_include_mood_disorders_depression_self_harm_acts_anxiety_bipolar_disorder_autism_spectrum_disorder_aggression_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever been diagnosed with a behavioral or psychiatric condition? Please select all that apply. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_diagnosed_with_a_behavioral_or_psychiatric_condition_Please_select_all_that_apply_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.unsureUnknownCheckBox.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("enters {string} and clicks next on Please list and describe any additional neurologic conditions here that were not covered by the previous questions. page - myRAS Survey")
+	public void enters_and_clicks_next_on_Please_list_and_describe_any_additional_neurologic_conditions_here_that_were_not_covered_by_the_previous_questions_page_myRAS_Survey(String otherNeurologicalConditionsUnsureUnknown) {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.additionalNeurologicConditionsTextBox.sendKeys(otherNeurologicalConditionsUnsureUnknown);
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks next on The next set of questions ask about vision and hearing. page - myRAS Survey")
+	public void clicks_next_on_The_next_set_of_questions_ask_about_vision_and_hearing_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever been diagnosed with ptosis \\(droopiness of the upper eyelid)? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_diagnosed_with_ptosis_droopiness_of_the_upper_eyelid_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Did you require treatment for ptosis? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Did_you_require_treatment_for_ptosis_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever had any issues with your vision or eyesight? Examples include nearsightedness \\(when things in the distance look fuzzy), astigmatism, {string}. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_had_any_issues_with_your_vision_or_eyesight_Examples_include_nearsightedness_when_things_in_the_distance_look_fuzzy_astigmatism_page_myRAS_Survey(String string) {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Please select all the vision\\/eyesight conditions for which you have been diagnosed. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Please_select_all_the_vision_eyesight_conditions_for_which_you_have_been_diagnosed_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.unsureUnknownCheckBox.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever experienced strabismus? Strabismus is when the eyes are not aligned properly; one may wander up, down or sideways. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_experienced_strabismus_Strabismus_is_when_the_eyes_are_not_aligned_properly_one_may_wander_up_down_or_sideways_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you ever experienced nystagmus? Nystagmus is when the eye makes sudden, uncontrolled movements, like tremors. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_experienced_nystagmus_Nystagmus_is_when_the_eye_makes_sudden_uncontrolled_movements_like_tremors_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Have you experienced hearing loss? page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Have_you_experienced_hearing_loss_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
+		rASSurveyPage.unsureUnknownRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("Selects Other and enters {string} for Have you experienced any of the following types of hearing loss? Please select all that apply. page - myRAS Survey")
+	public void selects_Other_and_enters_for_Have_you_experienced_any_of_the_following_types_of_hearing_loss_Please_select_all_that_apply_page_myRAS_Survey(String otherHearingLossUnsureUnknown) {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.otherConditionTextBox.click();
+		rASSurveyPage.otherConditionTextBox.sendKeys(otherHearingLossUnsureUnknown);
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+
+	@Given("Enters {string} for Dont know Date or age of first symptoms and {string} for Dont know Date or age of Diagnosis and selects Unsure\\/Dont Know Treatment option for Please complete the table below for each of the conditions listed. For each condition, please list the age or date when symptoms first occurred and when the diagnosis was made \\(you do not need to include both age and date). If you do not recall the details, place an X in the Don't know column. page - myRAS Survey")
+	public void enters_for_Dont_know_Date_or_age_of_first_symptoms_and_for_Dont_know_Date_or_age_of_Diagnosis_and_selects_Unsure_Dont_Know_Treatment_option_for_Please_complete_the_table_below_for_each_of_the_conditions_listed_For_each_condition_please_list_the_age_or_date_when_symptoms_first_occurred_and_when_the_diagnosis_was_made_you_do_not_need_to_include_both_age_and_date_If_you_do_not_recall_the_details_place_an_X_in_the_Don_t_know_column_page_myRAS_Survey(String dontKnowUnsureUnknownDateOrAgeOfFirstSymptomsHearingLoss, String dontKnowUnsureUnknownDateOrAgeOfDiagnosisHearingLoss) {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.unsureUnknownDateOrAgeFirstSymptomsDontKnowTextBox.sendKeys(dontKnowUnsureUnknownDateOrAgeOfFirstSymptomsHearingLoss);
+		rASSurveyPage.unsureUnknownDateOrAgeDiagnosisDontKnowTextBox.sendKeys(dontKnowUnsureUnknownDateOrAgeOfDiagnosisHearingLoss);
+		rASSurveyPage.unsureDontKnowTreatmentRadioButton.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("clicks Unsure\\/Unknown option for Do you have any of the following issues with your ears? Please select all that apply. page - myRAS Survey")
+	public void clicks_Unsure_Unknown_option_for_Do_you_have_any_of_the_following_issues_with_your_ears_Please_select_all_that_apply_page_myRAS_Survey() {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.unsureUnknownCheckBox.click();
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	@Given("enters {string} for If there are any other health issues present that have not been captured by this survey, please list them here: page - myRAS Survey")
+	public void enters_for_If_there_are_any_other_health_issues_present_that_have_not_been_captured_by_this_survey_please_list_them_here_page_myRAS_Survey(String otherIssuesUnsureUnknown) {
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
+		rASSurveyPage.anyOtherHealthIssuesTextBox.sendKeys(otherIssuesUnsureUnknown);
+		CucumberLogUtils.logScreenShot();
+		rASSurveyPage.surveyNextButton.click();
+	}
+
+	/**
+	 * END OF LILY - UNSURE/UNKNOWN FLOW STEPS
+	 */
+
+	/**
+	 * END OF UNSURE/UNKNOWN FLOW STEPS
+	 */
+
 	/**
 	 * END OF RAS SURVEY AUTOMATION INTEGRATION (NOT QUALTRICS PREVIEW)
+	 * 
+	 * @throws IOException
+	 * @throws InvalidFormatException
 	 */
+
+	// BELOW IS JUST A TESTING METHOD
+	@Given("testing data")
+	public void testing_data() throws InvalidFormatException, IOException {
+
+		rASSurveyStepsImpl.rasSurveyParticipantSelfSubmission();
+
+	}
 
 }
