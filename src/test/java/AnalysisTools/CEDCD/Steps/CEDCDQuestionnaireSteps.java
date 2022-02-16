@@ -582,7 +582,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	
 	@When("the user is logged in as Admin")
 	public void the_user_is_logged_in_as_Admin() throws TestingException {
-		JavascriptUtils.clearByJS(cedcdAdminPage.nihLoginBtn);
+		JavascriptUtils.clickByJS(cedcdAdminPage.nihLoginBtn);
 		CommonUtils.waitForClickability(iTrustloginPage.signInButton);
 		loginImpl.shomirITrustLogin();
 	}
