@@ -35,7 +35,6 @@ public class CEDCDAdminPageSteps extends PageInitializer {
 		
 		CucumberLogUtils.logScreenShot();
 		CommonUtils.scrollDown(0 , 1500);
-//		CommonUtils.scrollIntoView(cedcdCohortPage.nextButton);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(cedcdCohortPage.nextButton);
@@ -43,14 +42,12 @@ public class CEDCDAdminPageSteps extends PageInitializer {
 		
 //		/** This step clicks on the next button on Section B */
 		CommonUtils.scrollDown(0 , 1500);
-//		CommonUtils.scrollIntoView(cedcdCohortPage.nextButton);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(cedcdCohortPage.nextButton);
 
 //		/** This step clicks on the next button on Section C */
-		CommonUtils.scrollDown(0 , 1500);
-//		CommonUtils.scrollIntoView(cedcdCohortPage.nextButton);
+		CommonUtils.scrollDown(0 , 3000);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(cedcdCohortPage.nextButton);
@@ -58,30 +55,27 @@ public class CEDCDAdminPageSteps extends PageInitializer {
 		
 //		/** This step clicks on the next button on Section D */
 		CommonUtils.scrollDown(0 , 1500);
-//		CommonUtils.scrollIntoView(cedcdCohortPage.nextButton);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(cedcdCohortPage.nextButton);
 	
 //		/** This step clicks on the next button on Section E */
 		CommonUtils.scrollDown(0 , 1500);
-//		CommonUtils.scrollIntoView(cedcdCohortPage.nextButton);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(cedcdCohortPage.nextButton);
 	
 //		/** This step clicks on the next button on Section F */
 		CommonUtils.scrollDown(0 , 1500);
-//		CommonUtils.scrollIntoView(cedcdCohortPage.nextButton);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(cedcdCohortPage.nextButton);
 	
 //		/** This step clicks on the next button on Section G */
 		CommonUtils.scrollDown(0 , 1500);
-//		CommonUtils.scrollIntoView(cedcdAdminPage.approveButton);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
+		CommonUtils.waitForClickability(cedcdAdminPage.approveButton);
 		JavascriptUtils.clickByJS(cedcdAdminPage.approveButton);
 		
 	}
