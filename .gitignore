@@ -13,3 +13,6 @@ true
 /.DS_Store
 */.DS_Store/*
 reports/.DS_Store
+/.classpath/
+/.classpath
+*/.classpath/*
