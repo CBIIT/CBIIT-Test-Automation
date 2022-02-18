@@ -170,4 +170,17 @@ public class JavascriptUtils extends WebDriverUtils {
 		js.executeScript("arguments[0].scrollTop = arguments[1];", element, pixel);
 
 	}
+	/**
+	 * This method will scroll screen by the given pixel
+	 * 
+	 * @param pixel
+	 * @param pixel
+	 */
+	public static void scrollScreen(int x,int y) {
+		JavascriptExecutor js = (JavascriptExecutor) WebDriverUtils.webDriver;
+		js.executeScript("window.scrollBy("+x+","+y+")", "");
+	}
+	
+	
+	
 }

@@ -34,45 +34,45 @@ public class CEDCDAdminPageSteps extends PageInitializer {
 		/** This step clicks on the next button on Section A */
 		
 		CucumberLogUtils.logScreenShot();
-		CommonUtils.scrollDown(0 , 1500);
+		JavascriptUtils.scrollScreen(0 , 1500);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(cedcdCohortPage.nextButton);
 		
 		
 //		/** This step clicks on the next button on Section B */
-		CommonUtils.scrollDown(0 , 1500);
+		JavascriptUtils.scrollScreen(0 , 1500);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(cedcdCohortPage.nextButton);
 
 //		/** This step clicks on the next button on Section C */
-		CommonUtils.scrollDown(0 , 3000);
+		JavascriptUtils.scrollScreen(0 , 3000);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(cedcdCohortPage.nextButton);
  
 		
 //		/** This step clicks on the next button on Section D */
-		CommonUtils.scrollDown(0 , 1500);
+		JavascriptUtils.scrollScreen(0 , 1500);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(cedcdCohortPage.nextButton);
 	
 //		/** This step clicks on the next button on Section E */
-		CommonUtils.scrollDown(0 , 1500);
+		JavascriptUtils.scrollScreen(0 , 1500);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(cedcdCohortPage.nextButton);
 	
 //		/** This step clicks on the next button on Section F */
-		CommonUtils.scrollDown(0 , 1500);
+		JavascriptUtils.scrollScreen(0 , 1500);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(cedcdCohortPage.nextButton);
 	
 //		/** This step clicks on the next button on Section G */
-		CommonUtils.scrollDown(0 , 1500);
+		JavascriptUtils.scrollScreen(0 , 1500);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 		CommonUtils.waitForClickability(cedcdAdminPage.approveButton);

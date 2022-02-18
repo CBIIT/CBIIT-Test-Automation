@@ -509,10 +509,6 @@ public class CommonUtils extends WebDriverUtils {
 		}
 	}
 	
-	public static void scrollDown(int x,int y) {
-		JavascriptExecutor js = (JavascriptExecutor) WebDriverUtils.webDriver;
-		js.executeScript("window.scrollBy("+x+","+y+")", "");
-	}
 
 /*
  * 
