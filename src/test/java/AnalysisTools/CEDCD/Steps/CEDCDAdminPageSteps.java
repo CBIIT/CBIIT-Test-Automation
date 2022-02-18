@@ -20,9 +20,11 @@ public class CEDCDAdminPageSteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		JavascriptUtils.clickByJS(cedcdAdminPage.cohortSubmittedStatus);
 		MiscUtils.sleep(1000);
+		JavascriptUtils.clickByJS(cedcdAdminPage.viewAllBtn);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(cedcdAdminPage.firstSubmittedCohort);
 		MiscUtils.sleep(5000);
+		CucumberLogUtils.logScreenShot();
 		
 	}
 
@@ -30,51 +32,50 @@ public class CEDCDAdminPageSteps extends PageInitializer {
 	public void the_user_checks_all_sections() {
 		
 		/** This step clicks on the next button on Section A */
-		CommonUtils.scrollIntoView(cedcdCohortPage.nextButton);
+		
+		CucumberLogUtils.logScreenShot();
+		JavascriptUtils.scrollScreen(0 , 1500);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(cedcdCohortPage.nextButton);
 		
 		
-		/** This step clicks on the next button on Section B */
-		CommonUtils.scrollIntoView(cedcdCohortPage.nextButton);
+//		/** This step clicks on the next button on Section B */
+		JavascriptUtils.scrollScreen(0 , 1500);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(cedcdCohortPage.nextButton);
-		
-		
-		/** This step clicks on the next button on Section C */
-		CommonUtils.scrollIntoView(cedcdCohortPage.nextButton);
+
+//		/** This step clicks on the next button on Section C */
+		JavascriptUtils.scrollScreen(0 , 3000);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(cedcdCohortPage.nextButton);
+ 
 		
-		
-		/** This step clicks on the next button on Section D */
-		CommonUtils.scrollIntoView(cedcdCohortPage.nextButton);
+//		/** This step clicks on the next button on Section D */
+		JavascriptUtils.scrollScreen(0 , 1500);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(cedcdCohortPage.nextButton);
-		
-		
-		/** This step clicks on the next button on Section E */
-		CommonUtils.scrollIntoView(cedcdCohortPage.nextButton);
+	
+//		/** This step clicks on the next button on Section E */
+		JavascriptUtils.scrollScreen(0 , 1500);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(cedcdCohortPage.nextButton);
-		
-		
-		/** This step clicks on the next button on Section F */
-		CommonUtils.scrollIntoView(cedcdCohortPage.nextButton);
+	
+//		/** This step clicks on the next button on Section F */
+		JavascriptUtils.scrollScreen(0 , 1500);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.clickByJS(cedcdCohortPage.nextButton);
-		
-		
-		/** This step clicks on the next button on Section G */
-		CommonUtils.scrollIntoView(cedcdAdminPage.approveButton);
+	
+//		/** This step clicks on the next button on Section G */
+		JavascriptUtils.scrollScreen(0 , 1500);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenShot();
+		CommonUtils.waitForClickability(cedcdAdminPage.approveButton);
 		JavascriptUtils.clickByJS(cedcdAdminPage.approveButton);
 		
 	}
