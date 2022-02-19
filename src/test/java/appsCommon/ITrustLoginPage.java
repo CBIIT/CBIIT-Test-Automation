@@ -23,10 +23,18 @@ public class ITrustLoginPage extends CommonUtils{
 	@FindBy(xpath = "//input[@id='USER']")
 	public WebElement userNameField;
 
+	/**Sidedoor Username field*/
+	@FindBy(xpath = "//input[@id='user_name']")
+	public WebElement sideDoorUserNameField;
+
 	/** Password field */
 	@FindBy(xpath = "//input[@id='PASSWORD']")
 	public WebElement passwordField;
 	
+	/**Sidedoor Password field */
+	@FindBy(xpath = "//input[@id='user_password']")
+	public WebElement sideDoorPasswordField;
+
 	/** Sign in button */
 	@FindBy(xpath="//button[@type='submit']")
 	public WebElement signInButton;
@@ -62,6 +70,14 @@ public class ITrustLoginPage extends CommonUtils{
 		userNameField.clear();
 		sendKeys(userNameField, ConfUtils.getProperty(username));
 	}
+	/**
+	 * Enters user-name to Sidedoor
+	 * @throws TestingException
+	 */
+	public void enterSideDoorUsername(WebElement sideUserNameField, String username) throws TestingException {
+		sideDoorUserNameField.clear();
+		sendKeys(sideDoorUserNameField, ConfUtils.getProperty(username));
+	}
 	
 	/**
 	 * Enters password to ITrust
@@ -71,6 +87,15 @@ public class ITrustLoginPage extends CommonUtils{
 		passwordField.clear();
 		String decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty(password));
 		sendKeys(passwordField, decyptedPass);
+	}
+	/**
+	 * Enters password to Sidedoor
+	 * @throws TestingException
+	 */
+	public void enterSideDoorPassword(String password) throws TestingException {
+		sideDoorPasswordField.clear();
+		String decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty(password));
+		sendKeys(sideDoorPasswordField, decyptedPass);
 	}
 	
 	/**
