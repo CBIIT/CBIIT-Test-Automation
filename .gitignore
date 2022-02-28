@@ -21,3 +21,4 @@ reports/.DS_Store
 src/.DS_Store
 src/test/.DS_Store
 reports/
+.classpath
