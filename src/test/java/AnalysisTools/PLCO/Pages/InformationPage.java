@@ -8,45 +8,45 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
 public class InformationPage extends CommonUtils {
-	
+
 	public InformationPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
-	
+
 	/**** API ACCESS TAB ELEMENTS ***/
-	
-	/** API Acess Tab **/
-	@FindBy(xpath = "//*[@href='#/api-access']")
+
+	/** API Access Tab **/
+	@FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div[5]/a")
 	public WebElement lnkAPIAcess;
-	
-	/** API Acess Page Heading **/
-	@FindBy(xpath = "//h1[contains(text(), 'API Access')]")
-	public WebElement txtAPIAcessHeading;
-	
+
+	/** API Access Page Heading **/
+	@FindBy(xpath = "//h3[contains(text(), 'API Access')]")
+	public WebElement txtAPIAccessHeading;
+
 	/*** ABOUT TAB ELEMENTS ***/
-	
+
 	/** About Page Tab **/
 	@FindBy(linkText = "About")
-	public WebElement lnkAbout; 
-	
+	public WebElement lnkAbout;
+
 	/** About Page Github Link **/
 	@FindBy(linkText = "GitHub")
-	public WebElement lnkGitHub; 
-	
-	
+	public WebElement lnkGitHub;
+
 	/*** HOME TAB ELEMENTS ***/
-	
+
 	/** Home Page Github Link **/
 	@FindBy(linkText = "source code")
-	public WebElement lnkSourceCode; 
-	
-	
-	
-	/** TABS **/
-	
-	/** Explore GWAS Results **/
-	@FindBy(xpath = "(//*[@href='#/gwas'])[3]")
-	public WebElement lnkExploreGwasResults;
+	public WebElement lnkSourceCode;
 
+	/** TABS **/
+
+	/** About Tabs */
+	@FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div[6]/a")
+	public WebElement aboutTab;
+
+	/** Explore GWAS Results **/
+	@FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/a")
+	public WebElement lnkExploreGwasResults;
 
 }

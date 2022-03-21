@@ -3,27 +3,29 @@ package AnalysisTools.PLCO.Steps;
 import org.junit.Assert;
 
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
 
 import appsCommon.PageInitializer;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class InformationSteps extends PageInitializer {
 
-	@When("user selects API Acess tab")
-	public void user_selects_API_Acess_tab() {
+	@When("user selects API Access tab")
+	public void user_selects_API_Access_tab() {
 		informationPage.lnkAPIAcess.click();
 
 	}
 
-	@Then("API Acess page displays")
-	public void api_Acess_page_displays() {
+	@Then("API Access page displays")
+	public void api_Access_page_displays() {
 		CucumberLogUtils.logScreenShot();
 	}
 
 	@Then("API Acess page displays {string} heading")
 	public void api_Acess_page_displays_heading(String heading) {
-		Assert.assertTrue(informationPage.txtAPIAcessHeading.getText().contentEquals(heading));
+		Assert.assertTrue(informationPage.txtAPIAccessHeading.getText().contentEquals(heading));
 
 	}
 
@@ -52,7 +54,15 @@ public class InformationSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 	}
 
-	@When("user clicks explore on GWAS results")
+	@When("user navigates to the About page")
+	public void user_navigates_to_the_About_page() {
+
+		MiscUtils.sleep(2000);
+		informationPage.aboutTab.click();
+
+	}
+
+	@And("user clicks explore on GWAS results")
 	public void user_clicks_explore_on_GWAS_results() {
 		informationPage.lnkExploreGwasResults.click();
 	}
