@@ -2,13 +2,9 @@ package AnalysisTools.CEDCD.Steps;
 
 import java.util.Iterator;
 import java.util.Set;
-
-import org.junit.Assert;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
