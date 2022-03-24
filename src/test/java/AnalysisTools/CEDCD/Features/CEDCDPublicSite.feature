@@ -1,8 +1,8 @@
 Feature: Test Cases on the Public Site
-  
+
   Description: This is an automated suite for test cases under the Public Site
 
-  @SS-3453 @Smoke @matarodriguezko @Progression
+  @SS-3453 @Smoke @matarodriguezko
   Scenario: The Clear All button clears all the selection on the Biospecimen Counts Tab
     Given the user is on the CEDCD Biospecimen Tab
     And the user selects All Types from the Specimen Type drop down
@@ -68,7 +68,7 @@ Feature: Test Cases on the Public Site
     When the user clicks Agricultural Health Study
     Then the Agricultural Health Study icon is shown on the web page
 
-  @Progression1 @matarodriguezko
+  @matarodriguezko
   Scenario: Compare Production and QA sites Cancer Counts
     Given the user is on the CEDCD Production Site
     When The user navigates to Cancer Counts and selects the AHS cohort

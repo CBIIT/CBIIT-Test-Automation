@@ -25,3 +25,6 @@ reports/
 src/.DS_Store
 src/test/.DS_Store
 src/test/java/ServiceNow/CHARMS/.DS_Store
+/.classpath/
+/.classpath
+*/.classpath/*

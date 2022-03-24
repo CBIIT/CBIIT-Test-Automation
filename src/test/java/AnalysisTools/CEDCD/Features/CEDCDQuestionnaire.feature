@@ -11,7 +11,7 @@ Feature: Questionnaire
     And clicks submit
     Then Cohort is added
 
-    Examples: 
+    Examples:
       | Cohort Name             | Cohort Acronym | Notes                         |
       | Second Automated Cohort | SAC            | This Cohort Will Be Automated |
 
@@ -81,7 +81,7 @@ Feature: Questionnaire
     When a Cohort Owner logs in
     Then the Select a Cohort Page displays "Please select the cohort you wish to update from the list below."
 
-  @Progression1 @matarodriguezko
+  @matarodriguezko
   Scenario: A cohort changes their questionnaire
     Given the user is on the CEDCD homepage
     When a Cohort Owner logs in and selects their first questionnaire

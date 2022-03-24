@@ -825,9 +825,6 @@ Feature: MyRAS Study Regression Scenarios
     And enters "FOREIGN ACCENT SYNDROME" for If there are any other health issues present that have not been captured by this survey, please list them here -myRASSurvey
     And clicks Next button to end survey for You are almost done! To submit your responses, you must continue in the questionnaire by clicking the forward arrow below. The information you have provided will be reviewed by our study team. In the meantime, you should receive an email confirming this submission. page - myRAS Survey
 
-  @juarezds
-  Scenario: Test
-    Given data verification
 
   @juarezds @e2e-Regression @Regression
   Scenario: Proxy Screener Submission with data verification
@@ -1233,4 +1230,9 @@ Feature: MyRAS Study Regression Scenarios
     And select All that apply and enters other ear issue "INNER EAR INFECTION" for Do you have any of the following issues with your ears? page - myRAS Survey
     And enters other health issue "FOREIGN ACCENT SYNDROME" for If there are any other health issues present that have not been captured by this survey page. page - myRAS Survey
     And clicks Next button to end survey for You are almost done! To submit your responses, you must continue in the questionnaire by clicking the forward arrow below. The information you have provided will be reviewed by our study team. In the meantime, you should receive an email confirming this submission. page - myRAS Survey
+
+  @Progression
+  Scenario: Test
+    # Given data verification
+    Then all data submitted via the RAS Survey is verified in Native View
 

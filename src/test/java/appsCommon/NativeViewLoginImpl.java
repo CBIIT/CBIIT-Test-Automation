@@ -28,5 +28,13 @@ public class NativeViewLoginImpl extends PageInitializer {
 		CommonUtils.waitForVisibility(WebDriverUtils.webDriver.findElement(By.linkText("Native View")));
 		WebDriverUtils.webDriver.findElement(By.linkText("Native View")).click();
 	}
+	
+	public void sideDoorAccountLogin() throws TestingException{
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeviewSideDoor"));
+		MiscUtils.sleep(2000);
+		loginImpl.loginToNativeViewSideDoor();
+		MiscUtils.sleep(500);
+		WebDriverUtils.webDriver.switchTo().defaultContent();
+	}
 
 }
