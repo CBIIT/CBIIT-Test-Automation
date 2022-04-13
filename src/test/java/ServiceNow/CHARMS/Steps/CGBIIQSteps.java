@@ -24,7 +24,7 @@ public class CGBIIQSteps extends PageInitializer {
 			throws TestingException {
 
 		WebDriverUtils.webDriver.get(
-				"https://ncidccpssurveys.gov1.qualtrics.com/jfe/preview/SV_b3Mp5ULl2UeJTjo?Q_CHL=preview&Q_SurveyVersionID=current");
+				"https://ncidccpssurveys.gov1.qualtrics.com/jfe/preview/SV_37PVCadeAqdT6Ki?Q_CHL=preview&Q_SurveyVersionID=current");
 
 	}
 
@@ -47,7 +47,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		JavascriptUtils.clickByJS(cGBIIQPages.mobileViewSlider);
 		CommonUtils.switchToFrame(cGBIIQPages.desktopFrame);
-		cGBIIQPages.loginEmail.sendKeys("sonika34@test.com");
+		cGBIIQPages.loginEmail.sendKeys("diego1@test.com");
 
 	}
 
@@ -160,7 +160,7 @@ public class CGBIIQSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(cGBIIQPages.probandsAsianRace);
 		JavascriptUtils.clickByJS(cGBIIQPages.probandsOtherRace);
 		MiscUtils.sleep(500);
-		cGBIIQPages.probandsOtherRaceTextbox.sendKeys("Other Race");
+		cGBIIQPages.probandsOtherRaceTextbox.sendKeys("Other " + "\"" + "Race");
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
@@ -222,12 +222,20 @@ public class CGBIIQSteps extends PageInitializer {
 
 	@When("adds the participant DOB in MMDDYYYY format - CGB IIQ")
 	public void adds_the_participant_DOB_in_MMDDYYYY_format__CGB_IIQ() {
-		MiscUtils.sleep(1500);
-		JavascriptUtils.clickByJS(cGBIIQPages.previousYearButton);
-		JavascriptUtils.clickByJS(cGBIIQPages.probandsDOBDay);
-		CucumberLogUtils.logScreenShot();
-		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
-		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
+		// MiscUtils.sleep(1500);
+		// JavascriptUtils.clickByJS(cGBIIQPages.previousYearButton);
+		// JavascriptUtils.clickByJS(cGBIIQPages.probandsDOBDay);
+		// CucumberLogUtils.logScreenShot();
+		// CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
+		// JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
+
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.calendarMonthDropDown);
+		rasopathyQuestionnairePage.calendarYearTextBox.clear();
+		rasopathyQuestionnairePage.calendarYearTextBox.sendKeys("1990");
+		CommonUtils.selectDropDownValue("April", rasopathyQuestionnairePage.calendarMonthDropDown);
+		rasopathyQuestionnairePage.calendarDayOption.click();
+		rasopathyQuestionnairePage.studyNextButton.click();
 
 	}
 

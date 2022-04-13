@@ -30,7 +30,8 @@ public class RASSurveySteps extends PageInitializer {
 	@Given("a participant is on the Rassurvey Questionaire login page - myRAS Survey")
 	public void a_participant_is_on_the_Rassurvey_Questionaire_login_page_myRAS_Survey() throws TestingException {
 
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("RASSurvey"));
+		WebDriverUtils.webDriver.get(
+				"https://ncidccpssurveys.gov1.qualtrics.com/jfe/preview/SV_br9sHgfHPUz4Qcu?Q_CHL=preview&Q_SurveyVersionID=current");
 		CommonUtils.waitForVisibility(rASSurveyPage.mobileViewSlider);
 		rASSurveyPage.mobileViewSlider.click();
 		CommonUtils.switchToFrame(rASSurveyPage.surveyIFrame);
@@ -825,7 +826,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.chestPainOrTighteningAgeTextBox);
 		rASSurveyPage.chestPainOrTighteningAgeTextBox.sendKeys("11");
 		rASSurveyPage.chestPainOrTighteningDateTextBox.sendKeys("11/01");
-		rASSurveyPage.chestPainOrTighteningFirstHospitalEvaluationTextBox.sendKeys("CHEST PAIN");
+		rASSurveyPage.chestPainOrTighteningFirstHospitalEvaluationTextBox.sendKeys("CHEST \"bubba\" PAIN");
 		rASSurveyPage.chestPainOrTighteningFirstHospitalEvaluationAgeTextBox.sendKeys("12");
 		rASSurveyPage.chestPainOrTighteningFirstHospitalEvaluationDateTextBox.sendKeys("12/02");
 		rASSurveyPage.chestPainOrTighteningMostRecentHospitalEvaluationTextBox.sendKeys("NO CHEST PAIN");
@@ -2547,7 +2548,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.neonatalLymphedemaAgeOfDiagnosisTextBox.sendKeys("22");
 		rASSurveyPage.neonatalLymphedemaMedicationOrProcedureTextBox.sendKeys("KETOPROFEN");
 		rASSurveyPage.neonatalLymphedemaNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox
-				.sendKeys("INOVA URGENT CARE - NORTH ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
+				.sendKeys("INOVA URGENT' CARE - NORTH ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
 		rASSurveyPage.lymphedemaDateOfFirstSymptomsTextBox.sendKeys("04/04/18");
 		rASSurveyPage.lymphedemaAgeOfFirstSymptomsTextBox.sendKeys("24");
 		rASSurveyPage.lymphedemaDateOfDiagnosisTextBox.sendKeys("05/05/19");
@@ -2561,7 +2562,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.congenitalChylothoraxAgeOfDiagnosisTextBox.sendKeys("20");
 		rASSurveyPage.congenitalChylothoraxMedicationOrProcedureTextBox.sendKeys("OCTREOTIDE");
 		rASSurveyPage.congenitalChylothoraxNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox
-				.sendKeys("INOVA URGENT CARE - NORTH ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
+				.sendKeys("INOVA URGENT CARE - NORTH ARLINGTON, \"testing\" 4600 LEE HWY, ARLINGTON, VA , USA");
 		rASSurveyPage.pleuralEffusionChylothoraxDateOfFirstSymptomsTextBox.sendKeys("07/13/13");
 		rASSurveyPage.pleuralEffusionChylothoraxAgeOfFirstSymptomsTextBox.sendKeys("19");
 		rASSurveyPage.pleuralEffusionChylothoraxAgeOfDiagnosisTextBox.sendKeys("06/14/12");
@@ -2673,7 +2674,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.underdevelopedKidneyFirstSymptomsAgeTextBox.sendKeys("12");
 		rASSurveyPage.underdevelopedKidneyDiagnosisDateTextBox.sendKeys("12/02");
 		rASSurveyPage.underdevelopedKidneyDiagnosisAgeTextBox.sendKeys("13");
-		rASSurveyPage.underdevelopedKidneyMedicationTypeTextBox.sendKeys("TRANSPLANT");
+		rASSurveyPage.underdevelopedKidneyMedicationTypeTextBox.sendKeys("TRANSPLANT's");
 		rASSurveyPage.underdevelopedKidneyAddressTextBox.sendKeys("KECK MEDICAL CENTER OF USC, LA, CA");
 		rASSurveyPage.hydronephrosisFirstSymptomsDateTextBox.sendKeys("03/03");
 		rASSurveyPage.hydronephrosisFirstSymptomsAgeTextBox.sendKeys("13");
@@ -3947,14 +3948,15 @@ public class RASSurveySteps extends PageInitializer {
 	}
 
 	@Given("clicks Next button to end survey for You are almost done! To submit your responses, you must continue in the questionnaire by clicking the forward arrow below. The information you have provided will be reviewed by our study team. In the meantime, you should receive an email confirming this submission. page - myRAS Survey")
-	public void clicks_Next_button_to_end_survey_for_You_are_almost_done_To_submit_your_responses_you_must_continue_in_the_questionnaire_by_clicking_the_forward_arrow_below_The_information_you_have_provided_will_be_reviewed_by_our_study_team_In_the_meantime_you_should_receive_an_email_confirming_this_submission_page_myRAS_Survey() throws TestingException {
+	public void clicks_Next_button_to_end_survey_for_You_are_almost_done_To_submit_your_responses_you_must_continue_in_the_questionnaire_by_clicking_the_forward_arrow_below_The_information_you_have_provided_will_be_reviewed_by_our_study_team_In_the_meantime_you_should_receive_an_email_confirming_this_submission_page_myRAS_Survey()
+			throws TestingException {
 		MiscUtils.sleep(1500);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
 		MiscUtils.sleep(2000);
-		
+
 		// LOGOUT HERE
 		MiscUtils.sleep(3000);
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
@@ -5014,7 +5016,7 @@ public class RASSurveySteps extends PageInitializer {
 			String otherFirstAllergy, String otherFirstAllergyReaction, String otherSecondAllergy,
 			String otherSecondAllergyReaction) {
 
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(3000);
 		CommonUtils.waitForVisibility(rASSurveyPage.plusSignButton);
 		JavascriptUtils.clickByJS(rASSurveyPage.plusSignButton);
 		JavascriptUtils.clickByJS(rASSurveyPage.plusSignButton);
@@ -5882,7 +5884,7 @@ public class RASSurveySteps extends PageInitializer {
 
 	@Given("clicks YES button for Has Christina had any orthodontic treatment? -myRAS Survey")
 	public void clicks_YES_button_for_Has_Christina_had_any_orthodontic_treatment_myRAS_Survey() {
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
 		CucumberLogUtils.logScreenShot();
@@ -6219,19 +6221,19 @@ public class RASSurveySteps extends PageInitializer {
 				.sendKeys("INOVA URGENT CARE - NORTH ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
 		rASSurveyPage.lymphangiomaAgeOfFirstSymptomsTextBox.sendKeys("10");
 		rASSurveyPage.lymphangiomaAgeOfDiagnosisTextBox.sendKeys("11");
-		rASSurveyPage.lymphangiomaMedicationOrProcedureTextBox.sendKeys("SIROLIMUS");
+		rASSurveyPage.lymphangiomaMedicationOrProcedureTextBox.sendKeys("SIROLIMUS's");
 		rASSurveyPage.lymphangiomaNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox
 				.sendKeys("INOVA URGENT CARE - NORTH ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
 		rASSurveyPage.chronicAbdominalPainAgeOfFirstSymptomsBox.sendKeys("15");
 		rASSurveyPage.chronicAbdominalPainAgeOfDiagnosisBox.sendKeys("16");
 		rASSurveyPage.chronicAbdominalPainMedicationOrProcedureTextBox.sendKeys("TYLENOL");
 		rASSurveyPage.chronicAbdominalPainNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox
-				.sendKeys("INOVA URGENT CARE - NORTH ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
+				.sendKeys("INOVA URGENT CARE - NORTH \"testing\" ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
 		rASSurveyPage.poorLymphaticDrainageAgeOfFirstSymptomsTextBox.sendKeys("20");
 		rASSurveyPage.poorLymphaticDrainageAgeOfDiagnosisTextBox.sendKeys("21");
-		rASSurveyPage.poorLymphaticDrainageMedicationOrProcedureTextBox.sendKeys("ASTRAGALUS");
+		rASSurveyPage.poorLymphaticDrainageMedicationOrProcedureTextBox.sendKeys("ASTRA'GALUS");
 		rASSurveyPage.poorLymphaticDrainageNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox
-				.sendKeys("INOVA URGENT CARE - NORTH ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
+				.sendKeys("INOVA URGENT CARE - NORTH' ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
 		JavascriptUtils.scrollUp(1000);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.scrollIntoView(rASSurveyPage.neonatalLymphedemaAgeOfFirstSymptomsTextBox);
@@ -6305,12 +6307,12 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.minorIssuesWithKidneysDiagnosisDateTextBox.sendKeys("11/01");
 		rASSurveyPage.minorIssuesWithKidneysDiagnosisAgeTextBox.sendKeys("12");
 		rASSurveyPage.minorIssuesWithKidneysMedicationTypeTextBox.sendKeys("HEMODIALYSIS");
-		rASSurveyPage.minorIssuesWithKidneysAddressTextBox.sendKeys("UCLA MEDICAL CENTER, LA, CA");
+		rASSurveyPage.minorIssuesWithKidneysAddressTextBox.sendKeys("UCLA MEDICAL' CENTER, LA, CA");
 		rASSurveyPage.underdevelopedKidneyFirstSymptomsDateTextBox.sendKeys("02/02");
 		rASSurveyPage.underdevelopedKidneyFirstSymptomsAgeTextBox.sendKeys("12");
 		rASSurveyPage.underdevelopedKidneyDiagnosisDateTextBox.sendKeys("12/02");
 		rASSurveyPage.underdevelopedKidneyDiagnosisAgeTextBox.sendKeys("13");
-		rASSurveyPage.underdevelopedKidneyMedicationTypeTextBox.sendKeys("TRANSPLANT");
+		rASSurveyPage.underdevelopedKidneyMedicationTypeTextBox.sendKeys("TRANSPLANT's");
 		JavascriptUtils.scrollIntoView(rASSurveyPage.underdevelopedKidneyAddressTextBox);
 		rASSurveyPage.underdevelopedKidneyAddressTextBox.sendKeys("KECK MEDICAL CENTER OF USC, LA, CA");
 		rASSurveyPage.hydronephrosisFirstSymptomsDateTextBox.sendKeys("03/03");
@@ -6318,13 +6320,13 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.hydronephrosisDiagnosisDateTextBox.sendKeys("12/03");
 		rASSurveyPage.hydronephrosisDiagnosisAgeTextBox.sendKeys("14");
 		rASSurveyPage.hydronephrosisMedicationTypeTextBox.sendKeys("CATHETERISATION");
-		rASSurveyPage.hydronephrosisAddressTextBox.sendKeys("UCSF MEDICAL CENTER, SF, CA");
+		rASSurveyPage.hydronephrosisAddressTextBox.sendKeys("UCSF' MEDICAL CENTER', SF, CA");
 		rASSurveyPage.otherKidneyFirstSymptomsDateTextBox.sendKeys("04/04");
 		rASSurveyPage.otherKidneyFirstSymptomsAgeTextBox.sendKeys("14");
 		rASSurveyPage.otherKidneyDiagnosisDateTextBox.sendKeys("12/04");
 		rASSurveyPage.otherKidneyDiagnosisAgeTextBox.sendKeys("15");
 		rASSurveyPage.otherKidneyMedicationTypeTextBox.sendKeys("ISONIAZID");
-		rASSurveyPage.otherKidneyAddressTextBox.sendKeys("DOCTOR KID CLAY");
+		rASSurveyPage.otherKidneyAddressTextBox.sendKeys("DOCTOR \"KID\" CLAY");
 		JavascriptUtils.scrollUp(500);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
@@ -7645,7 +7647,6 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.surveyNextButton.click();
 	}
 
-
 	/**
 	 * BEGINNING OF LILY - UNSURE/UNKNOWN FLOW STEPS
 	 */
@@ -7928,14 +7929,16 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.surveyNextButton.click();
 	}
 
-
 	@Given("enters {string} for Dont know Date or Age of First Symptoms and {string} for Dont know Date or Age Diagnosis and selects Unsure\\/Dont know Treatment for Please complete the table below to the best of your ability about the onset of symptoms, when you were diagnosed and if any procedures or medications were undertaken. page - myRAS Survey")
-	public void enters_for_Dont_know_Date_or_Age_of_First_Symptoms_and_for_Dont_know_Date_or_Age_Diagnosis_and_selects_Unsure_Dont_know_Treatment_for_Please_complete_the_table_below_to_the_best_of_your_ability_about_the_onset_of_symptoms_when_you_were_diagnosed_and_if_any_procedures_or_medications_were_undertaken_page_myRAS_Survey(String dontKnowDateOrAgeOfFirstSymptomsUnsureUnknown, String dontKnowDateOrAgeOfDiagnosisUnsureUnknown) {
+	public void enters_for_Dont_know_Date_or_Age_of_First_Symptoms_and_for_Dont_know_Date_or_Age_Diagnosis_and_selects_Unsure_Dont_know_Treatment_for_Please_complete_the_table_below_to_the_best_of_your_ability_about_the_onset_of_symptoms_when_you_were_diagnosed_and_if_any_procedures_or_medications_were_undertaken_page_myRAS_Survey(
+			String dontKnowDateOrAgeOfFirstSymptomsUnsureUnknown, String dontKnowDateOrAgeOfDiagnosisUnsureUnknown) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		rASSurveyPage.unsureUnknownDateOrAgeFirstSymptomsDontKnowTextBox.sendKeys(dontKnowDateOrAgeOfFirstSymptomsUnsureUnknown);
-		rASSurveyPage.unsureUnknownDateOrAgeDiagnosisDontKnowTextBox.sendKeys(dontKnowDateOrAgeOfDiagnosisUnsureUnknown);
+		rASSurveyPage.unsureUnknownDateOrAgeFirstSymptomsDontKnowTextBox
+				.sendKeys(dontKnowDateOrAgeOfFirstSymptomsUnsureUnknown);
+		rASSurveyPage.unsureUnknownDateOrAgeDiagnosisDontKnowTextBox
+				.sendKeys(dontKnowDateOrAgeOfDiagnosisUnsureUnknown);
 		rASSurveyPage.unsureDontKnowTreatmentRadioButton.click();
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
@@ -7999,9 +8002,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.surveyNextButton.click();
 	}
 
-
 	@Given("Selects Other and enters {string} for please specify text box for Please choose the best term\\(s) to describe your hair. Please select all that apply. page - myRAS Survey")
-	public void selects_Other_and_enters_for_please_specify_text_box_for_Please_choose_the_best_term_s_to_describe_your_hair_Please_select_all_that_apply_page_myRAS_Survey(String otherHairConditionUnsureUnknown) {
+	public void selects_Other_and_enters_for_please_specify_text_box_for_Please_choose_the_best_term_s_to_describe_your_hair_Please_select_all_that_apply_page_myRAS_Survey(
+			String otherHairConditionUnsureUnknown) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
@@ -8279,7 +8282,8 @@ public class RASSurveySteps extends PageInitializer {
 	}
 
 	@Given("clicks Unsure\\/Unknown option for Have you ever been diagnosed with a structural brain abnormality? Examples include Chiari {int} malformation, hydrocephalus, tethered spinal cord. These conditions are often diagnosed using a CT or MRI scan and evaluated by neurosurgeons. page - myRAS Survey")
-	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_diagnosed_with_a_structural_brain_abnormality_Examples_include_Chiari_malformation_hydrocephalus_tethered_spinal_cord_These_conditions_are_often_diagnosed_using_a_CT_or_MRI_scan_and_evaluated_by_neurosurgeons_page_myRAS_Survey(Integer int1) {
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_been_diagnosed_with_a_structural_brain_abnormality_Examples_include_Chiari_malformation_hydrocephalus_tethered_spinal_cord_These_conditions_are_often_diagnosed_using_a_CT_or_MRI_scan_and_evaluated_by_neurosurgeons_page_myRAS_Survey(
+			Integer int1) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
@@ -8349,7 +8353,8 @@ public class RASSurveySteps extends PageInitializer {
 	}
 
 	@Given("enters {string} and clicks next on Please list and describe any additional neurologic conditions here that were not covered by the previous questions. page - myRAS Survey")
-	public void enters_and_clicks_next_on_Please_list_and_describe_any_additional_neurologic_conditions_here_that_were_not_covered_by_the_previous_questions_page_myRAS_Survey(String otherNeurologicalConditionsUnsureUnknown) {
+	public void enters_and_clicks_next_on_Please_list_and_describe_any_additional_neurologic_conditions_here_that_were_not_covered_by_the_previous_questions_page_myRAS_Survey(
+			String otherNeurologicalConditionsUnsureUnknown) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
@@ -8388,7 +8393,8 @@ public class RASSurveySteps extends PageInitializer {
 	}
 
 	@Given("clicks Unsure\\/Unknown option for Have you ever had any issues with your vision or eyesight? Examples include nearsightedness \\(when things in the distance look fuzzy), astigmatism, {string}. page - myRAS Survey")
-	public void clicks_Unsure_Unknown_option_for_Have_you_ever_had_any_issues_with_your_vision_or_eyesight_Examples_include_nearsightedness_when_things_in_the_distance_look_fuzzy_astigmatism_page_myRAS_Survey(String string) {
+	public void clicks_Unsure_Unknown_option_for_Have_you_ever_had_any_issues_with_your_vision_or_eyesight_Examples_include_nearsightedness_when_things_in_the_distance_look_fuzzy_astigmatism_page_myRAS_Survey(
+			String string) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
@@ -8438,7 +8444,8 @@ public class RASSurveySteps extends PageInitializer {
 	}
 
 	@Given("Selects Other and enters {string} for Have you experienced any of the following types of hearing loss? Please select all that apply. page - myRAS Survey")
-	public void selects_Other_and_enters_for_Have_you_experienced_any_of_the_following_types_of_hearing_loss_Please_select_all_that_apply_page_myRAS_Survey(String otherHearingLossUnsureUnknown) {
+	public void selects_Other_and_enters_for_Have_you_experienced_any_of_the_following_types_of_hearing_loss_Please_select_all_that_apply_page_myRAS_Survey(
+			String otherHearingLossUnsureUnknown) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
@@ -8448,14 +8455,17 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.surveyNextButton.click();
 	}
 
-
 	@Given("Enters {string} for Dont know Date or age of first symptoms and {string} for Dont know Date or age of Diagnosis and selects Unsure\\/Dont Know Treatment option for Please complete the table below for each of the conditions listed. For each condition, please list the age or date when symptoms first occurred and when the diagnosis was made \\(you do not need to include both age and date). If you do not recall the details, place an X in the Don't know column. page - myRAS Survey")
-	public void enters_for_Dont_know_Date_or_age_of_first_symptoms_and_for_Dont_know_Date_or_age_of_Diagnosis_and_selects_Unsure_Dont_Know_Treatment_option_for_Please_complete_the_table_below_for_each_of_the_conditions_listed_For_each_condition_please_list_the_age_or_date_when_symptoms_first_occurred_and_when_the_diagnosis_was_made_you_do_not_need_to_include_both_age_and_date_If_you_do_not_recall_the_details_place_an_X_in_the_Don_t_know_column_page_myRAS_Survey(String dontKnowUnsureUnknownDateOrAgeOfFirstSymptomsHearingLoss, String dontKnowUnsureUnknownDateOrAgeOfDiagnosisHearingLoss) {
+	public void enters_for_Dont_know_Date_or_age_of_first_symptoms_and_for_Dont_know_Date_or_age_of_Diagnosis_and_selects_Unsure_Dont_Know_Treatment_option_for_Please_complete_the_table_below_for_each_of_the_conditions_listed_For_each_condition_please_list_the_age_or_date_when_symptoms_first_occurred_and_when_the_diagnosis_was_made_you_do_not_need_to_include_both_age_and_date_If_you_do_not_recall_the_details_place_an_X_in_the_Don_t_know_column_page_myRAS_Survey(
+			String dontKnowUnsureUnknownDateOrAgeOfFirstSymptomsHearingLoss,
+			String dontKnowUnsureUnknownDateOrAgeOfDiagnosisHearingLoss) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		rASSurveyPage.unsureUnknownDateOrAgeFirstSymptomsDontKnowTextBox.sendKeys(dontKnowUnsureUnknownDateOrAgeOfFirstSymptomsHearingLoss);
-		rASSurveyPage.unsureUnknownDateOrAgeDiagnosisDontKnowTextBox.sendKeys(dontKnowUnsureUnknownDateOrAgeOfDiagnosisHearingLoss);
+		rASSurveyPage.unsureUnknownDateOrAgeFirstSymptomsDontKnowTextBox
+				.sendKeys(dontKnowUnsureUnknownDateOrAgeOfFirstSymptomsHearingLoss);
+		rASSurveyPage.unsureUnknownDateOrAgeDiagnosisDontKnowTextBox
+				.sendKeys(dontKnowUnsureUnknownDateOrAgeOfDiagnosisHearingLoss);
 		rASSurveyPage.unsureDontKnowTreatmentRadioButton.click();
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
@@ -8472,7 +8482,8 @@ public class RASSurveySteps extends PageInitializer {
 	}
 
 	@Given("enters {string} for If there are any other health issues present that have not been captured by this survey, please list them here: page - myRAS Survey")
-	public void enters_for_If_there_are_any_other_health_issues_present_that_have_not_been_captured_by_this_survey_please_list_them_here_page_myRAS_Survey(String otherIssuesUnsureUnknown) {
+	public void enters_for_If_there_are_any_other_health_issues_present_that_have_not_been_captured_by_this_survey_please_list_them_here_page_myRAS_Survey(
+			String otherIssuesUnsureUnknown) {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
