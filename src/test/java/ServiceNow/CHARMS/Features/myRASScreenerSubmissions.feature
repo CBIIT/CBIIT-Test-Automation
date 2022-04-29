@@ -104,7 +104,7 @@ Feature: myRAS Screener Submissions from the Qualtrics Portal
 		And for What are the main reasons for participating in this study? selects All options and for Participate in research enters "Reason one", for Identify a diagnosis enters "Reason two", for Receive genetic testing enters "Reason three", and for Other enters "Reason four"
 		And proceeds with submitting the Eligibility Questionnaire
 		Then the Eligibility Questionnaire is sucessfully submitted
-	# When a ServiceNow user navigates to CHARMS Native view and opens records that are Waiting for Elegibility Review
+		When a ServiceNow user navigates to CHARMS Native view and opens records that are Waiting for Elegibility Review
 	# And selects the submitted MyRAS screener record
 	# And verifies data submitted in Qualtrics is imported as expected in ServiceNow
 	# And verifies Personal Information data submitted in Qualtrics is imported as expected in the Family Member Details page of ServiceNow

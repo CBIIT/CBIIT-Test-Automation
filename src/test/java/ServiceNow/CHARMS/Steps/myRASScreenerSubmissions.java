@@ -96,7 +96,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	@Given("selects I am completing this form for someone else option")
 	public void selects_I_am_completing_this_form_for_someone_else_option() {
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.iAmCompletingThisFormForSomeoneElseOption);
 		rasopathyQuestionnairePage.iAmCompletingThisFormForSomeoneElseOption.click();
 		rasopathyQuestionnairePage.studyNextButton.click();
