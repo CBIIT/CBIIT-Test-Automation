@@ -4539,7 +4539,7 @@ public class RASSurveySteps extends PageInitializer {
 
 	@Given("clicks Attended typical classroom without support for Between the ages of ten and seventeen middle and high school age please select the option that best describes Christinas schooling. - myRAS Survey")
 	public void clicks_Attended_typical_elementary_school_without_support_for_Between_the_ages_of_ten_and_seventeen_middle_and_high_school_age_please_select_the_option_that_best_describes_Christinas_schooling_myRAS_Survey() {
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(rASSurveyPage.attendedTypicalclassroomOrlittleSupportProxyRadioButton);
 		rASSurveyPage.attendedTypicalclassroomOrlittleSupportProxyRadioButton.click();
 		CucumberLogUtils.logScreenShot();
@@ -4593,7 +4593,7 @@ public class RASSurveySteps extends PageInitializer {
 
 	@Given("clicks Next button The next set of questions will ask about medical conditions associated with the heart. - myRAS Survey")
 	public void clicks_Next_button_The_next_set_of_questions_will_ask_about_medical_conditions_associated_with_the_heart_myRAS_Survey() {
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();
@@ -4999,10 +4999,11 @@ public class RASSurveySteps extends PageInitializer {
 			String firstFoodAllergy, String firstFoodAllergyReaction, String secondFoodAllergy,
 			String secondFoodAllergyReaction) {
 
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(rASSurveyPage.plusSignButton);
-		JavascriptUtils.clickByJS(rASSurveyPage.plusSignButton);
-		JavascriptUtils.clickByJS(rASSurveyPage.plusSignButton);
+		rASSurveyPage.plusSignButton.click();
+		MiscUtils.sleep(1000);
+		rASSurveyPage.plusSignButton.click();
 		rASSurveyPage.firstFoodAllergyNamesProxyTextBox.sendKeys(firstFoodAllergy);
 		rASSurveyPage.firstFoodAllergyreactionProxyTextBox.sendKeys(firstFoodAllergyReaction);
 		rASSurveyPage.secondFoodAllergyNamesProxyTextBox.sendKeys(secondFoodAllergy);

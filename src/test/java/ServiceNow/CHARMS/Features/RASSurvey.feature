@@ -257,6 +257,7 @@ Feature: RAS Survey Scenarios (Preview)
         And select All that apply and enters other ear issue "INNER EAR INFECTION" for Do you have any of the following issues with your ears? page - myRAS Survey
         And enters other health issue "FOREIGN ACCENT SYNDROME" for If there are any other health issues present that have not been captured by this survey page. page - myRAS Survey
         And clicks Next button to end survey for You are almost done! To submit your responses, you must continue in the questionnaire by clicking the forward arrow below. The information you have provided will be reviewed by our study team. In the meantime, you should receive an email confirming this submission. page - myRAS Survey
+        Then all data submitted via the RAS Survey is verified in Native View
 
     @juarezds @RASSurveyPreview
     Scenario: RAS Survey Proxy Scenario  #submit page next button has been commented out/disabled
@@ -904,6 +905,7 @@ Feature: RAS Survey Scenarios (Preview)
         And Enters "X" for Dont know Date or age of first symptoms and "X" for Dont know Date or age of Diagnosis and selects Unsure/Dont Know Treatment option for Please complete the table below for each of the conditions listed. For each condition, please list the age or date when symptoms first occurred and when the diagnosis was made (you do not need to include both age and date). If you do not recall the details, place an X in the Don't know column. page - myRAS Survey
         And clicks Unsure/Unknown option for Do you have any of the following issues with your ears? Please select all that apply. page - myRAS Survey
         And enters "UNSURE/UNKNOWN" for If there are any other health issues present that have not been captured by this survey, please list them here: page - myRAS Survey
+
 
     Scenario: Testing
         Given a participant is on the Rassurvey Questionaire login page - myRAS Survey
