@@ -49,7 +49,7 @@ Feature: myRAS Screener Submissions from the Qualtrics Portal
 		Then the Eligibility Questionnaire is sucessfully submitted
 
 
-	@jains @myRASScreenerSubmission @E2E @Progression @Updated
+	@jains @myRASScreenerSubmission @E2E @Updated
 	Scenario: Proxy Screener Submission with data verification
 		Given a proxy is on the RASopathies Longitudinal Cohort Study login page
 		And logs in via Okta with username "charmsras1@yahoo.com" and password "RASTest2021$$"
