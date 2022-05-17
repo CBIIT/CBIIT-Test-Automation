@@ -259,7 +259,7 @@ Feature: RAS Survey Scenarios (Preview)
         And clicks Next button to end survey for You are almost done! To submit your responses, you must continue in the questionnaire by clicking the forward arrow below. The information you have provided will be reviewed by our study team. In the meantime, you should receive an email confirming this submission. page - myRAS Survey
         Then all data submitted via the RAS Survey is verified in Native View
 
-    @juarezds @RASSurveyPreview
+    @juarezds @RASSurveyPreview @Updating
     Scenario: RAS Survey Proxy Scenario  #submit page next button has been commented out/disabled
         Given a participant is on the Rassurvey Questionaire login page - myRAS Survey
         And logs in via Okta with username "diego2@test.com" and password "123456" on login page - myRAS Survey
