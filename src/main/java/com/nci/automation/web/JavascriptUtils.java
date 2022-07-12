@@ -151,7 +151,7 @@ public class JavascriptUtils extends WebDriverUtils {
 	 * and date desired in String format as arguments
 	 * 
 	 * @param element
-	 * @param date to be selected
+	 * @param date    to be selected
 	 */
 	public static void selectDateByJS(WebElement element, String date) {
 		JavascriptExecutor js = (JavascriptExecutor) webDriver;
@@ -174,8 +174,8 @@ public class JavascriptUtils extends WebDriverUtils {
 	/**
 	 * This method will scroll screen by the given pixel
 	 * 
-	 * @param pixel 
-	 * @param pixel 
+	 * @param pixel
+	 * @param pixel
 	 */
 	public static void scrollScreen(int x, int y) {
 		JavascriptExecutor js = (JavascriptExecutor) WebDriverUtils.webDriver;

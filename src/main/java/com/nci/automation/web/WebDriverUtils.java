@@ -29,8 +29,8 @@ import com.nci.automation.common.Constants;
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.LocalConfUtils;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
+//import io.appium.java_client.AppiumDriver;
+//import io.appium.java_client.MobileElement;
 import io.github.bonigarcia.wdm.OperatingSystem;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -79,12 +79,13 @@ public class WebDriverUtils {
 					cap.setCapability("avd", avdName);
 
 				}
-				try {
-					webDriver = new AppiumDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), cap);
-				} catch (MalformedURLException e) {
-					e.printStackTrace();
-					CucumberLogUtils.logFail("Mobile driver intlization filed", false);
-				}
+				// try {
+				// webDriver = new AppiumDriver<MobileElement>(new
+				// URL("http://localhost:4723/wd/hub"), cap);
+				// } catch (MalformedURLException e) {
+				// e.printStackTrace();
+				// CucumberLogUtils.logFail("Mobile driver intlization filed", false);
+				// }
 
 			} else if (Constants.BROWSER_CHROME.equals(browser)) {
 
