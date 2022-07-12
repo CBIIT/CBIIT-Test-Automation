@@ -158,7 +158,7 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	public WebElement nativeViewiFrameCHARMS;
 
 	/*--------- Native view Waiting for Eligibility Review button ---------- */
-	@FindBy(xpath = "//a[@rel='eligibility_status%3Dwaiting_for_eligibility']")
+	@FindBy(xpath = "/html/body/div[1]/div[4]/div[1]/div[2]/div[2]/div/div[1]/div[1]/div[2]/div[1]/div[3]/div/span/a")
 	public WebElement nativeViewWaitingForElegibilityReviewButton;
 
 	/*--------- Native view Family Member Details Preview Automated Test button---------- */
@@ -808,7 +808,7 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	public WebElement nativeViewLogOutButton;
 
 	/* ----- Native view Awaiting PI Signature link ----- */
-	@FindBy(xpath = "//a[@rel='enrollment_status%3D6']")
+	@FindBy(xpath = "/html/body/div[1]/div[4]/div[1]/div[2]/div[2]/div/div[7]/div[1]/div[2]/div[1]/div[3]/div/span/a")
 	public WebElement nativeViewAwaitingPISignatureLink;
 
 	/* ------ Native view Family Study Consent link ------ */

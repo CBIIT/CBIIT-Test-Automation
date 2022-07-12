@@ -116,14 +116,6 @@ public class WebDriverUtils {
 					webDriver = new ChromeDriver(chromeOptions);
 
 				}
-			} else if (browser.equalsIgnoreCase(Constants.BROWSER_IE)) {
-				DesiredCapabilities desiredCapabilities = DesiredCapabilities.internetExplorer();
-				desiredCapabilities.setCapability(
-						InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, Boolean.TRUE);
-				desiredCapabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, Boolean.TRUE);
-				desiredCapabilities.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, "ignore");
-				webDriver = new InternetExplorerDriver(desiredCapabilities);
-
 			} else if (browser.equalsIgnoreCase(Constants.BROWSER_FIREFOX)) {
 				FirefoxOptions fireOptions = new FirefoxOptions();
 				if (headless.equalsIgnoreCase("true")) {

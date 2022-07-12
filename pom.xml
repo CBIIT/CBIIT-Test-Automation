@@ -29,11 +29,11 @@
 		</dependency>
 
 		<!-- selenium libraries -->
-
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>3.141.59</version>
+			<version>4.3.0</version>
 		</dependency>
 
 
@@ -214,6 +214,13 @@
 			<artifactId>extentreports-cucumber4-adapter</artifactId>
 			<version>1.0.12</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.deque.html.axe-core</groupId>
+			<artifactId>selenium</artifactId>
+			<version>4.4.1</version>
+		</dependency>
+
 
 	</dependencies>
 

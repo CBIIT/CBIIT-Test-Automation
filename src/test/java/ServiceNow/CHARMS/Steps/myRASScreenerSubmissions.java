@@ -1,13 +1,27 @@
 package ServiceNow.CHARMS.Steps;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import com.deque.html.axecore.results.Results;
+import com.deque.html.axecore.results.Rule;
+import com.deque.html.axecore.selenium.AxeBuilder;
+import com.deque.html.axecore.selenium.AxeReporter;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -16,6 +30,7 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import ServiceNow.CHARMS.Pages.MyRASLoginPage;
+import ServiceNow.CHARMS.Pages.MyRASStudyConsentPage;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -31,7 +46,8 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	/* BEGINNING: RASopathies Longitudinal Cohort Study login page */
 
 	@Given("a proxy is on the RASopathies Longitudinal Cohort Study login page")
-	public void a_user_is_on_the_RASopathies_Longitudinal_Cohort_Study_login_page() throws TestingException {
+	public void a_user_is_on_the_RASopathies_Longitudinal_Cohort_Study_login_page()
+			throws TestingException, JsonIOException, JsonSyntaxException, FileNotFoundException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("myRASLoginPage"));
 
 	}
@@ -56,6 +72,10 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		CommonUtils.waitForVisibility(oktaLoginPage.loginBtn);
 		oktaLoginPage.loginBtn.click();
 
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(myRASHomePage.warningAgreeButton);
+		myRASHomePage.warningAgreeButton.click();
+
 	}
 
 	/* END: Logs in via Okta with user name and password */
@@ -64,10 +84,8 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	@Given("clicks on Eligibility Questionnaire to begin questionnaire")
 	public void clicks_on_Eligibility_Questionnaire_to_begin_questionnaire() {
-		MiscUtils.sleep(1000);
-		CommonUtils.waitForVisibility(myRASHomePage.warningAgreeButton);
-		myRASHomePage.warningAgreeButton.click();
 		CommonUtils.waitForVisibility(myRASHomePage.rasoptathyEligibilityQuestionnaire);
+
 		myRASHomePage.rasoptathyEligibilityQuestionnaire.click();
 	}
 
@@ -96,7 +114,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	@Given("selects I am completing this form for someone else option")
 	public void selects_I_am_completing_this_form_for_someone_else_option() {
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.iAmCompletingThisFormForSomeoneElseOption);
 		rasopathyQuestionnairePage.iAmCompletingThisFormForSomeoneElseOption.click();
 		rasopathyQuestionnairePage.studyNextButton.click();
@@ -271,6 +289,14 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.isParticipantStillAliveYesOption);
 		rasopathyQuestionnairePage.isParticipantStillAliveYesOption.click();
 		rasopathyQuestionnairePage.studyNextButton.click();
+
+	}
+
+	/*
+	 * ADDING BELOW QUESTION - UPDATED COUNTRY QUESTION
+	 */
+	@Given("selects country {string} for In which country does participant currently live?")
+	public void selects_country_for_In_which_country_does_participant_currently_live(String string) {
 
 	}
 
@@ -1337,7 +1363,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	public void a_ServiceNow_user_navigates_to_CHARMS_Native_view_and_opens_records_that_are_Waiting_for_Elegibility_Review()
 			throws TestingException {
 		MiscUtils.sleep(1000);
-		nativeViewLoginImpl.nativeViewLogin();
+		nativeViewLoginImpl.sideDoorAccountLogin();
 		CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator);
 		nativeViewHomePage.nativeViewFilterNavigator.sendKeys("CHARMS");
 
@@ -1363,17 +1389,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestButton);
 		charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestButton.click();
 		MiscUtils.sleep(3000);
-
-		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedFirstNameText);
-
-		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedFirstNameText
-				.getAttribute("value").contentEquals("Automated"));
-
-		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedLastNameText
-				.getAttribute("value").contentEquals("Test"));
-
-		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedContactHomePhoneText
-				.getAttribute("value").contentEquals("703-687-5816"));
 
 		CommonUtils.waitForVisibility(
 				charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton);
@@ -1486,7 +1501,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 		Assert.assertTrue("This is a Contact Info Tab mismatch data for the Legal Representative Name :",
 				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabLegalRepresentativeName
-						.getAttribute("value").contentEquals("FirstNameTest  MiddleNameTest  lastNameT"));
+						.getAttribute("value").contentEquals("FirstNameTest  MiddleNameTest  lastNameTest"));
 
 		Assert.assertTrue(
 				"This is a Contact Info Tab mismatch data for the What is your relationship to this person? :",
@@ -1782,9 +1797,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 		charmsNativeViewPage.nVFamilyMemberDetailsRecordPagePreviewReferralRecordButton.click();
 		MiscUtils.sleep(3000);
-		CommonUtils.switchToFrame(charmsNativeViewPage.nVFamilyMemberDetailsRecordPagePreviewReferralRecordIframe);
-		CommonUtils.waitForVisibility(
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordPagePreviewReferralRecordIframeOpenRecord);
+		// CommonUtils.switchToFrame(charmsNativeViewPage.nVFamilyMemberDetailsRecordPagePreviewReferralRecordIframe);
+		// CommonUtils.waitForVisibility(
+		// charmsNativeViewPage.nVFamilyMemberDetailsRecordPagePreviewReferralRecordIframeOpenRecord);
 		charmsNativeViewPage.nVFamilyMemberDetailsRecordPagePreviewReferralRecordIframeOpenRecord.click();
 
 		MiscUtils.sleep(1000);
@@ -1798,7 +1813,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 		Assert.assertTrue("This is a RAS Referaal Page mismatch data for the Legal Representative Name : ",
 				charmsNativeViewPage.nVRasReferralViewPageLegalRepresentativeName.getAttribute("value")
-						.contentEquals("FirstNameTest  MiddleNameTest  lastNameT"));
+						.contentEquals("FirstNameTest  MiddleNameTest  lastNameTest"));
 
 		Assert.assertTrue(
 				"This is a RAS Referaal Page mismatch data for the What is your relationship to this person?: ",
@@ -1816,7 +1831,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 						.contentEquals(""));
 
 		Assert.assertTrue("This is a RAS Referaal Page mismatch data for the Study : ",
-				charmsNativeViewPage.nVRasReferralViewPageStudy.getAttribute("value").contentEquals("RASopathy"));
+				charmsNativeViewPage.nVRasReferralViewPageStudy.getAttribute("value").contentEquals("RASopathies"));
 
 		Assert.assertTrue("This is a RAS Referaal Page mismatch data for the Family Member Record:",
 				charmsNativeViewPage.nVRasReferralViewPageFamilyMemberRecord.getAttribute("value")
@@ -2020,6 +2035,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
 				charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabHowDidYouHearAboutThisStudy.getText()
 						.contentEquals("Other"));
 
+		/*
+		 * RETEST BELOW BUG
+		 */
 		Assert.assertTrue(
 				"This is the Final Information tab -- > Please specify ? mismatch for the Referral Submitted in the Referral page : ",
 				charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabPleaseSpecify.getAttribute("value")
@@ -2064,7 +2082,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 		Assert.assertTrue(
 				"This is the Final Information tab -- > Are you a participant in any other research study or registry group? mismatch for the Referral Submitted in the Referral page : ",
 				charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabAreYouParticipantInAnyOtherResearchStudyOrRegistryGroup
-						.getText().contentEquals("fa088ca21becb410e541631ee54bcba7"));
+						.getText().contentEquals("Other"));
 
 		Assert.assertTrue(
 				"This is the Final Information tab -- > Comments mismatch for the Referral Submitted in the Referral page : ",
@@ -2100,11 +2118,118 @@ public class myRASScreenerSubmissions extends PageInitializer {
 				charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordMarkEligibleButton);
 		charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordMarkEligibleButton.click();
 		MiscUtils.sleep(1000);
+
+	}
+
+	/**
+	 * 
+	 * NEW WAY OF SENDING CONSENT FORM FOR AN ADULT
+	 * 1. CALL NEEDS TO BE COMPLETED
+	 * 
+	 * @throws TestingException
+	 */
+
+	@When("the ServiceNow user completes a consent call for an Adult")
+	public void the_ServiceNow_user_completes_a_consent_call_for_an_Adult() throws TestingException {
+
+		MiscUtils.sleep(3000);
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
+
+		nativeViewDashPage.clickNativeViewLink();
+
+		CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator);
+		nativeViewHomePage.nativeViewFilterNavigator.sendKeys("CHARMS");
+
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewDashboardLink);
+		charmsNativeViewPage.nativeViewDashboardLink.click();
+
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewiFrameCHARMS);
+		CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewiFrameCHARMS);
+
+		// Clicking on Awaiting Consent
+		WebDriverUtils.webDriver.findElement(By.xpath(
+				"/html/body/div[1]/div[4]/div[1]/div[2]/div[2]/div/div[4]/div[1]/div[2]/div[1]/div[3]/div/span/a"))
+				.click();
+
+		Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
+		for (String currentWindow1 : allWindowHandles1) {
+			WebDriverUtils.webDriver.switchTo().window(currentWindow1);
+		}
+
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestButton);
+		charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestButton.click();
+		MiscUtils.sleep(3000);
+
+		CommonUtils.waitForVisibility(
+				charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton);
+
+		charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton.click();
+
+		/**
+		 * Scrolling down to 'Consents'
+		 */
+
+		JavascriptUtils.scrollIntoView(
+				WebDriverUtils.webDriver.findElement(By.xpath("//span[normalize-space()='Consents (1)']")));
+
+		/**
+		 * Clicking on 'Consents'
+		 */
+		WebDriverUtils.webDriver.findElement(By.xpath("//span[normalize-space()='Consents (1)']")).click();
+
+		/**
+		 * Clicking on 'Consent Call Pending' record
+		 */
+
+		WebDriverUtils.webDriver.findElement(By.xpath(
+				"/html/body/div[2]/div[2]/div/div[3]/span/div[2]/div[4]/table/tbody/tr/td/div/table/tbody/tr/td[2]/a"))
+				.click();
+
+		/**
+		 * Clicking on 'Open Record'
+		 */
+		WebDriverUtils.webDriver.findElement(By.xpath("//a[normalize-space()='Open Record']")).click();
+
+		/**
+		 * SELECTING 'Pending' for Consent/Assent Status
+		 */
+		CommonUtils.selectDropDownValue("Pending", WebDriverUtils.webDriver.findElement(
+				By.xpath("//select[@aria-labelledby='label.x_naci_family_coho_fcsms_consent.participant_response']")));
+
+		/*
+		 * SELECTING 'CHARMS e-consent' for Response Type
+		 */
+
+		CommonUtils.selectDropDownValue("CHARMS e-consent", WebDriverUtils.webDriver.findElement(By
+				.xpath("//select[contains(@aria-labelledby,'label.x_naci_family_coho_fcsms_consent.response_type')]")));
+
+		/*
+		 * Clicking on 'Call Complete'
+		 */
+		WebDriverUtils.webDriver.findElement(By.xpath(
+				"//span[@class='navbar_ui_actions']//button[@value='7a9ed9a51b11c590e541631ee54bcbad'][normalize-space()='Call Complete']"))
+				.click();
+
+		/*
+		 * Logging out of ServiceNow
+		 */
+
+		MiscUtils.sleep(3000);
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
+		MiscUtils.sleep(1500);
+
+		CommonUtils.waitForVisibility(
+				WebDriverUtils.webDriver.findElement(By.xpath("//a[@class='dropdown-toggle']")));
+		WebDriverUtils.webDriver.findElement(By.xpath("//a[@class='dropdown-toggle']")).click();
+
+		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewCCLogOutButton);
+		testAccountResetPage.nativeViewCCLogOutButton.click();
+
 	}
 
 	/*
 	 * THE SERVICENOW USER ADDS COMMENTS IN THE HISTORY SECTION AND SENDS CONSENT
-	 * FORM
+	 * FORM - NOT IN USE ANYMORE!!!!!!!!
 	 */
 	@Given("the ServiceNow user adds comments in the history section {string} and sends consent form")
 	public void the_ServiceNow_user_adds_comments_in_the_history_section_and_sends_consent_form(String consentComment)
@@ -2133,6 +2258,59 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewLogOutButton);
 		charmsNativeViewPage.nativeViewLogOutButton.click();
+
+	}
+
+	@When("the myRAS user signs the consent form in the Service Portal")
+	public void the_myRAS_user_signs_the_consent_form_in_the_Service_Portal() throws TestingException {
+
+		CommonUtils.waitForVisibility(myRASHomePage.rasopathyStudyConsent);
+		myRASHomePage.rasopathyStudyConsent.click();
+
+		// SCROLLING DOWN TO FIRST CHECKBOX
+		JavascriptUtils.scrollIntoView(WebDriverUtils.webDriver.findElement(By.xpath("//input[@value='read']")));
+
+		// CLICKING ON FIRST CHECKBOX
+		WebDriverUtils.webDriver.findElement(By.xpath("//input[@value='read']")).click();
+
+		// CLICKING I AM IN THIS PERSON
+		WebDriverUtils.webDriver.findElement(By.xpath("//input[@aria-label='I am this person.']")).click();
+
+		// ASSERTING NEW CONSENT TEXT FOR 'I AM IN THIS PERSON'
+		// CommonUtils.assertEquals(
+		// " Please indicate if you give permission for your specimens and data to be
+		// stored and used for future research by selecting one of the following
+		// statements: ",
+		// WebDriverUtils.webDriver.findElement(By.xpath(
+		// "/html/body/div/section/main/div[2]/div/sp-page-row/div/div[2]/span/div/div[1]/div/div/div[4]/div[2]/div[6]/div/label/text()"))
+		// .getText());
+
+		// CLICKING 'I DO give permission for my coded specimens and data to be stored
+		// and used for future research.'
+		WebDriverUtils.webDriver.findElement(By.xpath(
+				"/html/body/div/section/main/div[2]/div/sp-page-row/div/div[2]/span/div/div[1]/div/div/div[4]/div[2]/div[7]/div[1]/input"))
+				.click();
+
+		// CLICKING I DO give permission for my coded specimens and data to be shared
+		// with other researchers and used by these researchers for future research.
+		WebDriverUtils.webDriver.findElement(By.xpath(
+				"//body[1]/div[1]/section[1]/main[1]/div[2]/div[1]/sp-page-row[1]/div[1]/div[2]/span[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[2]/div[10]/div[1]/input[1]"))
+				.click();
+
+		myRasStudyConsentPage.consentButton.click();
+		MiscUtils.sleep(2000);
+
+		myRasStudyConsentPage.signingPasswordTextBox.sendKeys("RASTest2021$$");
+
+		myRasStudyConsentPage.signButton.click();
+		MiscUtils.sleep(3000);
+
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
+		MiscUtils.sleep(1500);
+		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewCCButton);
+		testAccountResetPage.nativeViewCCButton.click();
+		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewCCLogOutButton);
+		testAccountResetPage.nativeViewCCLogOutButton.click();
 
 	}
 
@@ -2208,7 +2386,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	public void a_ServiceNow_user_navigates_to_CHARMS_Native_view_and_opens_records_that_are_Awaiting_PI_Signature()
 			throws TestingException {
 
-		nativeViewLoginImpl.nativeViewLogin();
+		nativeViewLoginImpl.sideDoorAccountLogin();
 
 		CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator);
 		nativeViewHomePage.nativeViewFilterNavigator.sendKeys("CHARMS");
@@ -2258,20 +2436,100 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	}
 
 	/* THE SERVICENOW USER SIGNS THE CONSENT FORM */
-	@Given("the ServiceNow user signs the consent form")
-	public void the_ServiceNow_user_signs_the_consent_form() throws TestingException {
 
-		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewSignConsentButton);
-		charmsNativeViewPage.nativeViewSignConsentButton.click();
+	@When("signs the consent form")
+	public void signs_the_consent_form() throws TestingException {
+		Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
+		for (String currentWindow1 : allWindowHandles1) {
+			WebDriverUtils.webDriver.switchTo().window(currentWindow1);
+		}
+
+		CommonUtils.waitForVisibility(
+				WebDriverUtils.webDriver.findElement(By.xpath("//a[@aria-label='Open record: Automated Test']")));
+		WebDriverUtils.webDriver.findElement(By.xpath("//a[@aria-label='Open record: Automated Test']")).click();
+		MiscUtils.sleep(2000);
+
+		JavascriptUtils.scrollIntoView(
+				WebDriverUtils.webDriver.findElement(By.xpath("//span[normalize-space()='Consents (1)']")));
+
+		/**
+		 * Clicking on 'Consents'
+		 */
+		WebDriverUtils.webDriver.findElement(By.xpath("//span[normalize-space()='Consents (1)']")).click();
+
+		WebDriverUtils.webDriver.findElement(By.xpath(
+				"/html/body/div[2]/div[2]/div/div[3]/span/div[2]/div[4]/table/tbody/tr/td/div/table/tbody/tr/td[2]/a"))
+				.click();
+
+		/**
+		 * Clicking on 'Open Record'
+		 */
+		WebDriverUtils.webDriver.findElement(By.xpath("//a[normalize-space()='Open Record']")).click();
+
+		CommonUtils.waitForVisibility(WebDriverUtils.webDriver
+				.findElement(By.xpath("//input[@name='x_naci_family_coho_fcsms_consent.consent_date']")));
+		// Entering Consent Date
+		JavascriptUtils.selectDateByJS(WebDriverUtils.webDriver
+				.findElement(By.xpath("//input[@name='x_naci_family_coho_fcsms_consent.consent_date']")), "05/05/2022");
+
+		// Entering 'Consent By'
+		WebDriverUtils.webDriver
+				.findElement(By.xpath("//input[@name='sys_display.x_naci_family_coho_fcsms_consent.consent_by']"))
+				.sendKeys("CBIIT Test Account");
+		WebDriverUtils.webDriver
+				.findElement(By.xpath("//input[@name='sys_display.x_naci_family_coho_fcsms_consent.consent_by']"))
+				.sendKeys(Keys.RETURN);
+
+		// Clicking 'Sign and Complete' button
+		WebDriverUtils.webDriver.findElement(By.xpath("(//*[contains(text(),'Sign and Complete')])[1]")).click();
+
 		MiscUtils.sleep(3000);
 
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
 
-		MiscUtils.sleep(1000);
-		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewDJButton);
-		charmsNativeViewPage.nativeViewDJButton.click();
-		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewLogOutButton);
-		charmsNativeViewPage.nativeViewLogOutButton.click();
+		MiscUtils.sleep(1500);
+
+		CommonUtils.waitForVisibility(
+				WebDriverUtils.webDriver.findElement(By.xpath("//a[@class='dropdown-toggle']")));
+		WebDriverUtils.webDriver.findElement(By.xpath("//a[@class='dropdown-toggle']")).click();
+
+		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewCCLogOutButton);
+		testAccountResetPage.nativeViewCCLogOutButton.click();
+
+	}
+
+	@Given("the ServiceNow user signs the consent form")
+	public void the_ServiceNow_user_signs_the_consent_form() throws TestingException {
+
+		CommonUtils.waitForVisibility(WebDriverUtils.webDriver
+				.findElement(By.xpath("//input[@name='x_naci_family_coho_fcsms_consent.consent_date']")));
+		// Entering Consent Date
+		JavascriptUtils.selectDateByJS(WebDriverUtils.webDriver
+				.findElement(By.xpath("//input[@name='x_naci_family_coho_fcsms_consent.consent_date']")), "05/05/2022");
+
+		// Entering 'Consent By'
+		WebDriverUtils.webDriver
+				.findElement(By.xpath("//input[@name='sys_display.x_naci_family_coho_fcsms_consent.consent_by']"))
+				.sendKeys("CBIIT Test Account");
+		WebDriverUtils.webDriver
+				.findElement(By.xpath("//input[@name='sys_display.x_naci_family_coho_fcsms_consent.consent_by']"))
+				.sendKeys(Keys.RETURN);
+
+		// Clicking 'Sign and Complete' button
+		WebDriverUtils.webDriver.findElement(By.xpath("(//*[contains(text(),'Sign and Complete')])[1]")).click();
+
+		MiscUtils.sleep(3000);
+
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
+
+		MiscUtils.sleep(1500);
+
+		CommonUtils.waitForVisibility(
+				WebDriverUtils.webDriver.findElement(By.xpath("//a[@class='dropdown-toggle']")));
+		WebDriverUtils.webDriver.findElement(By.xpath("//a[@class='dropdown-toggle']")).click();
+
+		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewCCLogOutButton);
+		testAccountResetPage.nativeViewCCLogOutButton.click();
 
 	}
 

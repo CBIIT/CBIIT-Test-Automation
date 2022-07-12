@@ -1,6 +1,6 @@
 Feature: Ruturning published Collaboration by the CRS Rreviewer/DOC Planning Contact
 
-  @Regression @SS-3893 @SS-3937 @juarezds 
+  @Regression @SS-3893 @SS-3937 @juarezds @Progression
   Scenario: Verifying "Please Specify" and "Fiscal Year" field values
     Given a published Collaboration has been returned to the DOC Planning Contact by the CRS Reviewer
     Then the "Please specify" and "Fiscal Year" field values are cleared and are required
@@ -44,11 +44,11 @@ Feature: Ruturning published Collaboration by the CRS Rreviewer/DOC Planning Con
 
   @Regression @New @SS-3939
   Scenario: Verifying the Collaboration submission return to Program Staff in the same DOC
-   Given a DOC Planning Contact creates a Collaboration submission
-   Then they are able to return the submission to a Program Staff in the same DOC
+    Given a DOC Planning Contact creates a Collaboration submission
+    Then they are able to return the submission to a Program Staff in the same DOC
 
 
-  @Regression @New @SS-3939 
+  @Regression @New @SS-3939
   Scenario: Verifying the Collaboration "Returned to Staff Member" in the Submission page
     Given a Collaboration has been returned to a Program Staff
     Then the Collaboration shows as "Returned to Staff Member" in the Submission page
@@ -58,7 +58,7 @@ Feature: Ruturning published Collaboration by the CRS Rreviewer/DOC Planning Con
   Scenario: Verifying the author will show as the Program Staff user who originally created the Submission
     Given a published Collaboration started by a Program Staff has been returned to the DOC Planning Contact
     And the DOC Planning Contact returns the Collaboration to the Program Staff
-   Then the author will show as the Program Staff user who originally created the Submission
+    Then the author will show as the Program Staff user who originally created the Submission
 
   @Regression @New @SS-3939
   Scenario: Verifying the DOC Planning Contact are able to return the Collaboration to a Program Staff user
