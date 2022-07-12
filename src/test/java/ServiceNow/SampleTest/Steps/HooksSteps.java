@@ -1,10 +1,8 @@
-package CustomBusinessApp.EIDP.Steps;
+package ServiceNow.SampleTest.Steps;
 
 import java.io.File;
 import java.net.MalformedURLException;
-
 import org.apache.commons.lang.StringUtils;
-
 import com.nci.automation.common.QcTestResult;
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.DateUtils;
@@ -19,7 +17,6 @@ import appsCommon.PageInitializer;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-
 
 public class HooksSteps {
 

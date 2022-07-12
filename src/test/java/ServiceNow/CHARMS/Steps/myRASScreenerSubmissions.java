@@ -292,6 +292,14 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	}
 
+	/*
+	 * ADDING BELOW QUESTION - UPDATED COUNTRY QUESTION
+	 */
+	@Given("selects country {string} for In which country does participant currently live?")
+	public void selects_country_for_In_which_country_does_participant_currently_live(String string) {
+
+	}
+
 	@Given("selects No for participant still being alive")
 	public void selects_No_for_participant_still_being_alive() {
 		MiscUtils.sleep(1500);
@@ -2027,6 +2035,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
 				charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabHowDidYouHearAboutThisStudy.getText()
 						.contentEquals("Other"));
 
+		/*
+		 * RETEST BELOW BUG
+		 */
 		Assert.assertTrue(
 				"This is the Final Information tab -- > Please specify ? mismatch for the Referral Submitted in the Referral page : ",
 				charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabPleaseSpecify.getAttribute("value")
