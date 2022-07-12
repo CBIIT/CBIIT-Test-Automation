@@ -319,7 +319,7 @@ Feature: myRAS Screener Submissions from the Qualtrics Portal
 		And proceeds with submitting the Eligibility Questionnaire
 		Then the Eligibility Questionnaire is sucessfully submitted
 
-	@jains @myRASScreenerSubmission
+	@jains @myRASScreenerSubmission @Progression
 	Scenario: proband Screener Submission for Male participant who is diagnosed with given options of cancer types and with selection of the multiple options
 		Given a proband is on the RASopathies Longitudinal Cohort Study login page
 		And logs in via Okta with username "charmsras6@gmail.com" and password "RASTest2021$$"

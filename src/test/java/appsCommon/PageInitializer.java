@@ -13,6 +13,7 @@ import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
 import AnalysisTools.ICRP.Pages.ICRPHomePage;
 import AnalysisTools.ICRP.Pages.ICRPSearchDatabase;
+import AnalysisTools.JPSurv.Pages.JPSurvHomePage;
 import AnalysisTools.Comets2.Pages.Comets2Page;
 import AnalysisTools.CEDCD.Steps.CEDCDStartUps;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
@@ -236,6 +237,9 @@ public class PageInitializer {
 	protected static ICRPHomePage icrpHomePage; 
 	protected static ICRPSearchDatabase icrpSearchDatabase; 
 	
+	/** JPSurv instances **/ 
+	protected static JPSurvHomePage jpsurvHomePage; 
+	
 	
 
 	public static void initializeAllPages() {
@@ -334,6 +338,7 @@ public class PageInitializer {
 		cGBIIQPages = new CGBIIQPages();
 		rASSurveyPage = new RASSurveyPage();
 		rASSurveyStepsImpl = new RASSurveyStepsImpl();
+		jpsurvHomePage = new JPSurvHomePage(); 
 		
 	
 		/**AppTracker**/
