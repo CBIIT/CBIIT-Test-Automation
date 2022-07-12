@@ -39,7 +39,7 @@
 
 		<!-- appium libraries -->
 		<!-- https://mvnrepository.com/artifact/io.appium/java-client -->
-		<!-- <dependency>
+		<!-- 		<dependency>
 			<groupId>io.appium</groupId>
 			<artifactId>java-client</artifactId>
 			<version>8.1.1</version>
@@ -70,11 +70,11 @@
 
 
 		<!-- common libraries -->
-		<dependency>
+		<!-- 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>htmlunit-driver</artifactId>
 			<version>2.26</version>
-		</dependency>
+		</dependency> -->
 
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -217,11 +217,11 @@
 		</dependency>
 
 
-		<dependency>
+		<!-- 		<dependency>
 			<groupId>com.deque.html.axe-core</groupId>
 			<artifactId>selenium</artifactId>
 			<version>4.4.1</version>
-		</dependency>
+		</dependency> -->
 
 
 	</dependencies>

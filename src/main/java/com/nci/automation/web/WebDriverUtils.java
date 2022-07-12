@@ -16,7 +16,6 @@ import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
@@ -109,11 +108,11 @@ public class WebDriverUtils {
 					chromeOptions.addArguments("--headless");
 					chromeOptions.addArguments("--disable-dev-shm-usage");
 					webDriver = new ChromeDriver(chromeOptions);
-					System.out.println(chromeOptions.getVersion());
+					// System.out.println(chromeOptions.getVersion());
 				} else {
 					chromeOptions.addArguments("--no-sandbox");
 					chromeOptions.addArguments("--disable-dev-shm-usage");
-					System.out.println("Non headless-->" + chromeOptions.getVersion());
+					// System.out.println("Non headless-->" + chromeOptions.getVersion());
 					webDriver = new ChromeDriver(chromeOptions);
 
 				}
@@ -135,8 +134,6 @@ public class WebDriverUtils {
 				} else {
 					webDriver = new SafariDriver(safariOptions);
 				}
-			} else if (browser.equalsIgnoreCase("htmlunitdriver")) {
-				webDriver = new HtmlUnitDriver();
 			} else if (browser.equalsIgnoreCase(Constants.BROWSER_PHANTOM)) {
 				DesiredCapabilities capabilities = new DesiredCapabilities();
 				capabilities.setJavascriptEnabled(true);
