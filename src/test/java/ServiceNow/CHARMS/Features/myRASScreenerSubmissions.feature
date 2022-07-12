@@ -49,10 +49,10 @@ Feature: myRAS Screener Submissions from the Qualtrics Portal
 		Then the Eligibility Questionnaire is sucessfully submitted
 
 
-	@jains @myRASScreenerSubmission @E2E
+	@jains @myRASScreenerSubmission @E2E @Updated
 	Scenario: Proxy Screener Submission with data verification
 		Given a proxy is on the RASopathies Longitudinal Cohort Study login page
-		And logs in via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
+		And logs in via Okta with username "charmsras1@yahoo.com" and password "RASTest2021$$"
 		And clicks on Eligibility Questionnaire to begin questionnaire
 		And clicks next after reviewing the STUDY INTRODCTION
 		And selects I am completing this form for someone else option
@@ -124,11 +124,8 @@ Feature: myRAS Screener Submissions from the Qualtrics Portal
 		And verifies Participant Genetic History data submitted Qualtrics is imported as expected in the Family Member Details page of ServiceNow
 		And the ServiceNow user submits the study for eligibility review
 		And the ServiceNow user marks the study eligible
-		And the ServiceNow user adds comments in the history section "Sending consent form to the participant" and sends consent form
-		When the myRAS user signs the consent form in the Service Portal
-		When a ServiceNow user navigates to CHARMS Native view and opens records that are Awaiting PI Signature
-		And selects the submitted MyRAS screener record that has signed consent form from participant attached
-		And the ServiceNow user signs the consent form
+		And the ServiceNow user completes a consent call for an Adult
+
 
 	@jains @myRASScreenerSubmission
 	Scenario: Proxy Screener Submission for male participant with selection of the multiple options

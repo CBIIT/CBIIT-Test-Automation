@@ -558,11 +558,13 @@
 		</db>
 
 	</application>
+
+
 	<!-- Application ID for RASSurvey  - CHARMS -->
+
 	<application id="RASSurvey">
 
-		<login_url>https://ncidccpssurveys.gov1.qualtrics.com/jfe/preview/SV_8ILfY1imsK7xPzo?Q_CHL=pr
-		</login_url> <!-- add test url -->
+		<login_url></login_url> <!-- add test url -->
 
 		<role name="Role">
 			<user id="regular">
@@ -582,5 +584,25 @@
 		</db>
 
 	</application>
+	<!-- Application ID for Native View Sidedoor-->
+	<application id="nativeviewSideDoor">
 
+		<login_url>https://service-test.nci.nih.gov/side_door.do</login_url> <!-- add test 
+			url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId> <!-- add encrypted test user -->
+				<password></password> <!-- add encrypted test pass -->
+			</user>
+		</role>
+		<db>
+			<default>
+				<driverclassname></driverclassname> <!-- Add driver class-name -->
+				<url></url> <!-- complete string url -->
+				<username></username> <!-- Add db username -->
+				<password></password> <!-- Add db password -->
+			</default>
+		</db>
+	</application>
 </environment>

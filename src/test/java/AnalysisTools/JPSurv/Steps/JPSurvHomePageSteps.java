@@ -106,8 +106,8 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	public void clickDownloadFullDatasetButton() {
 		CommonUtils.click(jpsurvHomePage.downloadFullDataSetButton);
 		try {
-			CommonUtils.getWaitObject().until(ExpectedConditions.not(ExpectedConditions.attributeContains(jpsurvHomePage.downloadFullDataSetButton.findElement(By.xpath("./span")), "class", "none")));
-			CommonUtils.getWaitObject().until(ExpectedConditions.attributeContains(jpsurvHomePage.downloadFullDataSetButton.findElement(By.xpath("./span")), "class", "none"));
+		//	CommonUtils.getWaitObject().until(ExpectedConditions.not(ExpectedConditions.attributeContains(jpsurvHomePage.downloadFullDataSetButton.findElement(By.xpath("./span")), "class", "none")));
+		//	CommonUtils.getWaitObject().until(ExpectedConditions.attributeContains(jpsurvHomePage.downloadFullDataSetButton.findElement(By.xpath("./span")), "class", "none"));
 		}catch(Exception e) {e.printStackTrace();}
 	}
 
@@ -135,8 +135,8 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	public void clickexportWorkspaceButton() {
 		CommonUtils.click(jpsurvHomePage.exportWorkspaceButton);
 		try {
-			CommonUtils.getWaitObject().until(ExpectedConditions.not(ExpectedConditions.attributeContains(jpsurvHomePage.exportWorkspaceButton.findElement(By.xpath("./span")), "class", "none")));
-			CommonUtils.getWaitObject().until(ExpectedConditions.attributeContains(jpsurvHomePage.exportWorkspaceButton.findElement(By.xpath("./span")), "class", "none"));
+		//	CommonUtils.getWaitObject().until(ExpectedConditions.not(ExpectedConditions.attributeContains(jpsurvHomePage.exportWorkspaceButton.findElement(By.xpath("./span")), "class", "none")));
+		//	CommonUtils.getWaitObject().until(ExpectedConditions.attributeContains(jpsurvHomePage.exportWorkspaceButton.findElement(By.xpath("./span")), "class", "none"));
 			Thread.sleep(2000);
 		}catch(Exception e) {}
 
