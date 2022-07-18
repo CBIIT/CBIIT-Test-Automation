@@ -290,7 +290,7 @@ public class CommonUtils extends WebDriverUtils {
 		return wait;
 	}
 
-	/**         
+	/**
 	 * This method will wait until element becomes clickable
 	 * 
 	 * @param element
@@ -508,18 +508,31 @@ public class CommonUtils extends WebDriverUtils {
 			throw e;
 		}
 	}
-	
 
-/*
- * 
- * Use below method to assert actual String value with an expected String value	
- */
+	/*
+	 * 
+	 * Use below method to assert actual String value with an expected String value
+	 */
 	public static void assertEquals(String expected, String actual) {
-		
+
 		try {
-		Assert.assertEquals(expected, actual);
+			Assert.assertEquals(expected, actual);
+		} catch (AssertionError e) {
+
+			e.printStackTrace();
 		}
-		catch(AssertionError e) {
+	}
+
+	/*
+	 * 
+	 * Use below method to assert actual String value with an expected String value
+	 * using assertTrue() method
+	 */
+	public static void assertTrue(String message, Boolean flag) {
+
+		try {
+			Assert.assertTrue(message, flag);
+		} catch (AssertionError e) {
 
 			e.printStackTrace();
 		}
