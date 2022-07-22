@@ -1,5 +1,6 @@
 package ServiceNow.COVIDDash.Pages;
 
+import java.time.Duration;
 import java.util.List;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
@@ -168,7 +169,7 @@ public class COVIDHomePage extends CommonUtils {
 	 * dashboard page
 	 */
 	public void clickITrustRedirectButton() {
-		waitForThePresenceOfEl("//button[@ng-click='c.login()']", 30);
+		waitForThePresenceOfEl("//button[@ng-click='c.login()']", Duration.ofSeconds(30));
 		JavascriptUtils.clickByJS(iTrustRedirectForLogin);
 	}
 

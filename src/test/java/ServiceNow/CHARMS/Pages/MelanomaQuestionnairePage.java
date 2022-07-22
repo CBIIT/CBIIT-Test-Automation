@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.nci.automation.web.WebDriverUtils;
 
-public class RASopathyQuestionnairePage {
+public class MelanomaQuestionnairePage {
 
 	/* ----- BEGINNING OF RASopathy Eligibility Questionnaire PAGE ---- */
 
@@ -37,15 +37,15 @@ public class RASopathyQuestionnairePage {
 	 */
 
 	/* First Name of the participant text box */
-	@FindBy(xpath = "//input[@name=\"QR~QID105~4~TEXT\"]")
+	@FindBy(xpath = "//input[@name='QR~QID2~4~TEXT']")
 	public WebElement firstNameTextBox;
 
 	/* Middle Name of the participant text box */
-	@FindBy(xpath = "//input[@name=\"QR~QID105~5~TEXT\"]")
+	@FindBy(xpath = "//input[@name='QR~QID2~5~TEXT']")
 	public WebElement middleNameTextBox;
 
 	/* Last Name of the participant text box */
-	@FindBy(xpath = "//input[@name=\"QR~QID105~6~TEXT\"]")
+	@FindBy(xpath = "//input[@name='QR~QID2~6~TEXT']")
 	public WebElement lastNameTextBox;
 
 	/*
@@ -126,6 +126,10 @@ public class RASopathyQuestionnairePage {
 	/* Calendar month drop down */
 	@FindBy(xpath = "//select[@aria-label='Month']")
 	public WebElement calendarMonthDropDown;
+
+	/* Date of birth text box */
+	@FindBy(xpath = "//input[@type='TEXT']")
+	public WebElement dateOfBirthTextBox;
 
 	/* Calendar year text box */
 	@FindBy(xpath = "//input[@aria-label='Year']")
@@ -282,6 +286,7 @@ public class RASopathyQuestionnairePage {
 	 * END OF Please list your phone numbers below. Please also select your
 	 * preferred contact number. PAGE
 	 */
+
 	/* ************************************************************************ */
 	/* -------- BEGINNING OF Ethnicity of "Name" PAGE --------------- */
 
@@ -300,6 +305,14 @@ public class RASopathyQuestionnairePage {
 	// "//span[contains(@class,'LabelWrapper')]//label[contains(@for,'QR~QID113~3')]")
 	@FindBy(xpath = "//span[contains(@class,'LabelWrapper')]//label[1]//span[text()='Unknown']")
 	public WebElement authenticityOfParticipantUnKnownOption;
+
+	/* biologicalMothersEthnicityHispanicLatinoOption option */
+	@FindBy(xpath = "//div[@role='main']//div//div//div//fieldset//div//span//label[@for='QR~QID135~1']")
+	public WebElement biologicalMothersEthnicityHispanicLatinoOption;
+
+	/* biologicalFathersEthnicityHispanicLatinoOption option */
+	@FindBy(xpath = "//div[@role='main']//div//div//div//fieldset//div//span//label[@for='QR~QID136~1']")
+	public WebElement biologicalFathersEthnicityHispanicLatinoOption;
 
 	/* -------- END OF Ethnicity of "Name" PAGE --------------- */
 	/* ************************************************************************ */
@@ -324,7 +337,7 @@ public class RASopathyQuestionnairePage {
 	@FindBy(xpath = "//span[contains(text(),'Other')]")
 	public WebElement raceOfParticipantOther;
 
-	@FindBy(xpath = "//input[@title='Other']")
+	@FindBy(xpath = "//input[@title='Other (please specify)']")
 	public WebElement raceOfParticipantOtherTextBox;
 
 	@FindBy(xpath = "//span[contains(text(),'Prefer not to answer')]")
@@ -336,6 +349,10 @@ public class RASopathyQuestionnairePage {
 	 * BEGINNING OF Is Automated Test a participant in any other research study or
 	 * registry group? Please specify.PAGE
 	 */
+
+	/** famililialMelanomaStudyOption option */
+	@FindBy(xpath = "//span[contains(text(),'Familial Melanoma Study')]")
+	public WebElement famililialMelanomaStudyOption;
 
 	@FindBy(xpath = "//span[contains(text(),'RASopathies Net')]")
 	public WebElement isParticipantInResopathiesNetOption;
@@ -1041,7 +1058,220 @@ public class RASopathyQuestionnairePage {
 	/* ************************************************************************ */
 	/* -------- END OF RASopathy Questionnaire PAGE ------------- */
 
-	public RASopathyQuestionnairePage() {
+	/* ************************************************************************ */
+	/* BEGINNING OF Melanoma PAGE */
+
+	/* haveYouBeenDiagnosedWithMelanomaOrSpitzTumorYesOption */
+	@FindBy(xpath = "//div[@role='main']//div//div//div//fieldset//div//span//label[@for='QR~QID118~1']")
+	public WebElement haveYouBeenDiagnosedWithMelanomaOrSpitzTumorYesOption;
+
+	/* melanomaOrSpitzTumorFirstType Drop Down */
+	@FindBy(xpath = "//select[@name='QR~QID131#1~1']")
+	public WebElement melanomaOrSpitzTumorFirstTypeDropDown;
+
+	/* melanomaOrSpitzTumorFirstAgeAtDiagnosis Text Box */
+	@FindBy(xpath = "//input[@name='QR~QID131#3~1~1~TEXT']")
+	public WebElement melanomaOrSpitzTumorFirstAgeAtDiagnosisTextBox;
+
+	/* melanomaOrSpitzTumorFirstYearOfDiagnosis Text Box */
+	@FindBy(xpath = "//input[@name='QR~QID131#4~1~1~TEXT']")
+	public WebElement melanomaOrSpitzTumorFirstYearOfDiagnosisTextBox;
+
+	/* melanomaOrSpitzTumorNameOfInstitutionOrClinicWhereBiopsyOccured Text Box */
+	@FindBy(xpath = "//input[@name='QR~QID131#8~1~1~TEXT']")
+	public WebElement melanomaOrSpitzTumorNameOfInstitutionOrClinicWhereBiopsyOccuredTextBox;
+
+	/* melanomaOrSpitzTumorNameOfInstitutionOrClinicWhereBiopsyOccured Text Box */
+	@FindBy(xpath = "//input[@name='QR~QID131#9~1~1~TEXT']")
+	public WebElement melanomaOrSpitzTumorNameOfPhysicianWhoPerformedBiopsyTextBox;
+
+	/* haveYouEverBeenDiagnosedWithNonMelanomaCancer Yes Option */
+	@FindBy(xpath = "//div[@role='main']//div//div//div//fieldset//div//span//label[@for='QR~QID117~1']")
+	public WebElement haveYouEverBeenDiagnosedWithNonMelanomaCancerYesOption;
+
+	/*
+	 * pleaseCompletePrimaryNonMelanomaCancersYouWereDiagnosedWithCancerFirst Drop
+	 * Down
+	 */
+	@FindBy(xpath = "//select[@name='QR~QID86#1~1']")
+	public WebElement pleaseCompletePrimaryNonMelanomaCancersYouWereDiagnosedWithCancerFirstDropDown;
+
+	/*
+	 * pleaseCompletePrimaryNonMelanomaCancersYouWereDiagnosedWithAgeAtDiagnosis
+	 * Text Box
+	 */
+	@FindBy(xpath = "//input[@name='QR~QID86#3~1~1~TEXT']")
+	public WebElement pleaseCompletePrimaryNonMelanomaCancersYouWereDiagnosedWithAgeAtDiagnosisTextBox;
+
+	/*
+	 * pleaseCompletePrimaryNonMelanomaCancersYouWereDiagnosedWithYearOfDiagnosis
+	 * Text Box
+	 */
+	@FindBy(xpath = "//input[@name='QR~QID86#4~1~1~TEXT']")
+	public WebElement pleaseCompletePrimaryNonMelanomaCancersYouWereDiagnosedWithYearOfDiagnosisTextBox;
+
+	/*
+	 * pleaseCompletePrimaryNonMelanomaCancersYouWereDiagnosedCurrentlyReceivingTreatment
+	 * Yes Option
+	 */
+	@FindBy(xpath = "//label[@for='QR~QID86#5~1~1']")
+	public WebElement pleaseCompletePrimaryNonMelanomaCancersYouWereDiagnosedCurrentlyReceivingTreatmentYesOption;
+
+	/*
+	 * haveYouEverHadGeneticTesting Yes Option
+	 */
+	@FindBy(xpath = "//label[@for='QR~QID120~1']//span")
+	public WebElement haveYouEverHadGeneticTestingYesOption;
+
+	/*
+	 * geneticChangesDetectedBAP1_Option Option
+	 */
+	@FindBy(xpath = "//div[@role='main']//div//div//div//fieldset//div//span//label[@for='QR~QID40~1']")
+	public WebElement geneticChangesDetectedBAP1_Option;
+
+	/*
+	 * doYouHaveACopyOfGeneticTestResults Yes Option
+	 */
+	@FindBy(xpath = "//div[@role='main']//div//div//div//fieldset//div//span//label[@for='QR~QID102~1']")
+	public WebElement doYouHaveACopyOfGeneticTestResultsYesOption;
+
+	/*
+	 * howWouldYouLikeToProvideGeneticTestResults Mail Option
+	 */
+	@FindBy(xpath = "//div[@role='main']//div//div//div//fieldset//div//span//label[@for='QR~QID125~3']")
+	public WebElement howWouldYouLikeToProvideGeneticTestResultsMailOption;
+
+	/*
+	 * haveAnyOfBiologicalRelativesBeenDiagnosedWithMelanoma Yes Option
+	 */
+	@FindBy(xpath = "//div[@role='main']//div//div//div//fieldset//div//span//label[@for='QR~QID43~1']")
+	public WebElement haveAnyOfBiologicalRelativesBeenDiagnosedWithMelanomaYesOption;
+
+	/*
+	 * indicateOriginalMelanoma Text Box
+	 */
+	@FindBy(xpath = "//input[@name='QR~QID148#7~1~1~TEXT']")
+	public WebElement indicateOriginalMelanomaTextBox;
+
+	/*
+	 * indicateOriginalMelanomaLastInitial Drop Down
+	 */
+	@FindBy(xpath = "//select[@name='QR~QID148#8~1']")
+	public WebElement indicateOriginalMelanomaLastInitialDropDown;
+
+	/*
+	 * indicateOriginalMelanomaLastMelanomaType Drop Down
+	 */
+	@FindBy(xpath = "//select[@name='QR~QID148#1~1']")
+	public WebElement indicateOriginalMelanomaLastMelanomaTypeDropDown;
+
+	/*
+	 * indicateOriginalMelanomaLastMelanomaAgeAtDiagnosis Text Box
+	 */
+	@FindBy(xpath = "//input[@name='QR~QID148#3~1~1~TEXT']")
+	public WebElement indicateOriginalMelanomaLastMelanomaAgeAtDiagnosisTextBox;
+
+	/*
+	 * indicateOriginalMelanomaLastMelanomaYearOfDiagnosis Text Box
+	 */
+	@FindBy(xpath = "//input[@name='QR~QID148#4~1~1~TEXT']")
+	public WebElement indicateOriginalMelanomaLastMelanomaYearOfDiagnosisTextBox;
+
+	/*
+	 * indicateOriginalMelanomaLastMelanomaRelation Drop Down
+	 */
+	@FindBy(xpath = "//select[@name='QR~QID148#5~1']")
+	public WebElement indicateOriginalMelanomaLastMelanomaRelationDropDown;
+
+	/*
+	 * indicateOriginalMelanomaLastMelanomaSideOfTheFamilyDropDown Drop Down
+	 */
+	@FindBy(xpath = "//select[@name='QR~QID148#6~1']")
+	public WebElement indicateOriginalMelanomaLastMelanomaSideOfTheFamilyDropDown;
+
+	/*
+	 * haveAnyOfYourBiologicalRelativesEverHadGeneticTesting Yes Option
+	 */
+	@FindBy(xpath = "//div[@role='main']//div//div//div//fieldset//div//span//label[@for='QR~QID151~1']")
+	public WebElement haveAnyOfYourBiologicalRelativesEverHadGeneticTestingYesOption;
+
+	/*
+	 * wereAnyGeneticChangesDetectedForTheFollowingGenes BAP1 Option
+	 */
+	@FindBy(xpath = "//div[@role='main']//div//div//div//fieldset//div//span//label[@for='QR~QID150~1']")
+	public WebElement wereAnyGeneticChangesDetectedForTheFollowingGenesBAP1Option;
+
+	/*
+	 * howDidYouHearAboutThisStudy WebSearch Option
+	 */
+	@FindBy(xpath = "//div[@role='main']//div//div//div//fieldset//div//span//label[@for='QR~QID126~1']")
+	public WebElement howDidYouHearAboutThisStudyWebSearchOption;
+
+	/*
+	 * haveYouOrOtherFamilyMembersEverParticipatedInAnotherStudyOnMelanoma Yes
+	 * Option
+	 */
+	@FindBy(xpath = "//div[@role='main']//div//div//div//fieldset//div//span//label[@for='QR~QID71~1']")
+	public WebElement haveYouOrOtherFamilyMembersEverParticipatedInAnotherStudyOnMelanomaYesOption;
+
+	/** PREVIOUS PARTICIPATION IN OTHER MELANOMA STUDIES TABLE */
+	/*
+	 * studyName Text Box
+	 */
+	@FindBy(xpath = "//input[@name='QR~QID97#1~1~1~TEXT']")
+	public WebElement studyNameTextBox;
+
+	/*
+	 * Family Relationship Text Box
+	 */
+	@FindBy(xpath = "//input[@name='QR~QID97#2~1~1~TEXT']")
+	public WebElement familyRelationshipTextBox;
+
+	/*
+	 * Study Contact Text Box
+	 */
+	@FindBy(xpath = "//input[@name='QR~QID97#3~1~1~TEXT']")
+	public WebElement studyContactTextBox;
+
+	/*
+	 * Study Phone Number Text Box
+	 */
+	@FindBy(xpath = "//input[@name='QR~QID97#4~1~1~TEXT']")
+	public WebElement studyPhoneNumberTextBox;
+
+	/*
+	 * Start year Text Box
+	 */
+	@FindBy(xpath = "//input[@name='QR~QID97#5~1~1~TEXT']")
+	public WebElement startYearTextBox;
+
+	/*
+	 * End year Text Box
+	 */
+	@FindBy(xpath = "//input[@name='QR~QID97#5~1~2~TEXT']")
+	public WebElement endYearTextBox;
+
+	/*
+	 * Institution Text Box
+	 */
+	@FindBy(xpath = "//input[@name='QR~QID97#6~1~1~TEXT']")
+	public WebElement institutionTextBox;
+
+	/** MAIN REASONS FOR PARTICIPATING IN STUDY */
+
+	/*
+	 * Participate in research check box
+	 */
+	@FindBy(xpath = "//div[@role='main']//div//div//div//fieldset//div//span//label[@for='QR~QID81~1']")
+	public WebElement participateInResearchCheckBox;
+
+	/*
+	 * Participate in research text box
+	 */
+	@FindBy(xpath = "(//span/input)[1]")
+	public WebElement participateInResearchTextBox;
+
+	public MelanomaQuestionnairePage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 

@@ -33,16 +33,17 @@
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>4.3.0</version>
+			<version>4.2.1</version>
 		</dependency>
 
 
 		<!-- appium libraries -->
-		<dependency>
+		<!-- https://mvnrepository.com/artifact/io.appium/java-client -->
+		<!-- 		<dependency>
 			<groupId>io.appium</groupId>
 			<artifactId>java-client</artifactId>
-			<version>7.4.1</version>
-		</dependency>
+			<version>8.1.1</version>
+		</dependency> -->
 
 		<!-- cucumber libraries -->
 
@@ -69,11 +70,11 @@
 
 
 		<!-- common libraries -->
-		<dependency>
+		<!-- 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>htmlunit-driver</artifactId>
 			<version>2.26</version>
-		</dependency>
+		</dependency> -->
 
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -215,11 +216,12 @@
 			<version>1.0.12</version>
 		</dependency>
 
-		<dependency>
+
+		<!-- 		<dependency>
 			<groupId>com.deque.html.axe-core</groupId>
 			<artifactId>selenium</artifactId>
 			<version>4.4.1</version>
-		</dependency>
+		</dependency> -->
 
 
 	</dependencies>
@@ -232,11 +234,11 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M4</version>
 				<configuration>
+					<useSystemClassLoader>false</useSystemClassLoader>
 					<includes>
 						<include>
 							RunCHARMSProgressionTest.java
 						</include>
-						-->
 					</includes>
 					<testFailureIgnore>true</testFailureIgnore> <!-- to get report even when fails -->
 				</configuration>

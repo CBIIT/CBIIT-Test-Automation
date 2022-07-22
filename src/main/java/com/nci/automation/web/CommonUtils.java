@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -252,7 +253,7 @@ public class CommonUtils extends WebDriverUtils {
 	 * {@code id} can be clicked in the page or {@code timeOut} whichever is
 	 * earlier.
 	 */
-	public static void waitUntilElemtTobeClickableById(long timeOut, String id) {
+	public static void waitUntilElemtTobeClickableById(Duration timeOut, String id) {
 		WebDriverWait webDriverWait = new WebDriverWait(webDriver, timeOut);
 		webDriverWait.until(ExpectedConditions.elementToBeClickable(By.id(id)));
 	}
@@ -262,7 +263,7 @@ public class CommonUtils extends WebDriverUtils {
 	 * {@code id} can be clicked in the page or {@code timeOut} whichever is
 	 * earlier.
 	 */
-	public static void waitUntilElemtTobeClickableByXpath(long timeOut, String xpathExcpression) {
+	public static void waitUntilElemtTobeClickableByXpath(Duration timeOut, String xpathExcpression) {
 		WebDriverWait webDriverWait = new WebDriverWait(webDriver, timeOut);
 		webDriverWait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpathExcpression)));
 	}
@@ -274,7 +275,7 @@ public class CommonUtils extends WebDriverUtils {
 	 * @param element Pass the WebElement on which synchronization to be applied.
 	 * @return This method will return boolean type either True or False.
 	 */
-	public static WebElement waitForThePresenceOfEl(String element, long timeOut) {
+	public static WebElement waitForThePresenceOfEl(String element, Duration timeOut) {
 		WebDriverWait wait = new WebDriverWait(webDriver, timeOut);
 		return wait.until(ExpectedConditions.presenceOfElementLocated((By.xpath(element))));
 	}
@@ -285,8 +286,7 @@ public class CommonUtils extends WebDriverUtils {
 	 * @return WebDriverWait
 	 */
 	public static WebDriverWait getWaitObject() {
-		long explicitWait = Long.valueOf(LocalConfUtils.getProperty("explicitWaitInSeconds"));
-		WebDriverWait wait = new WebDriverWait(webDriver, explicitWait);
+		WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(30));
 		return wait;
 	}
 
@@ -508,18 +508,31 @@ public class CommonUtils extends WebDriverUtils {
 			throw e;
 		}
 	}
-	
 
-/*
- * 
- * Use below method to assert actual String value with an expected String value	
- */
+	/*
+	 * 
+	 * Use below method to assert actual String value with an expected String value
+	 */
 	public static void assertEquals(String expected, String actual) {
-		
+
 		try {
-		Assert.assertEquals(expected, actual);
+			Assert.assertEquals(expected, actual);
+		} catch (AssertionError e) {
+
+			e.printStackTrace();
 		}
-		catch(AssertionError e) {
+	}
+
+	/*
+	 * 
+	 * Use below method to assert actual String value with an expected String value
+	 * using assertTrue() method
+	 */
+	public static void assertTrue(String message, Boolean flag) {
+
+		try {
+			Assert.assertTrue(message, flag);
+		} catch (AssertionError e) {
 
 			e.printStackTrace();
 		}

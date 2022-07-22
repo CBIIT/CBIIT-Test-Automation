@@ -13,6 +13,7 @@ import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
 import AnalysisTools.ICRP.Pages.ICRPHomePage;
 import AnalysisTools.ICRP.Pages.ICRPSearchDatabase;
+import AnalysisTools.JPSurv.Pages.JPSurvHomePage;
 import AnalysisTools.Comets2.Pages.Comets2Page;
 import AnalysisTools.CEDCD.Steps.CEDCDStartUps;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
@@ -30,6 +31,9 @@ import ServiceNow.CHARMS.Pages.CGBIIQPage;
 import ServiceNow.CHARMS.Pages.CGBIIQPages;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
 import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
+import ServiceNow.CHARMS.Pages.MelanomaHomePage;
+import ServiceNow.CHARMS.Pages.MelanomaLoginPage;
+import ServiceNow.CHARMS.Pages.MelanomaQuestionnairePage;
 import ServiceNow.CHARMS.Pages.MyRASHomePage;
 import ServiceNow.CHARMS.Pages.MyRASLoginPage;
 import ServiceNow.CHARMS.Pages.MyRASStudyConsentPage;
@@ -182,6 +186,14 @@ public class PageInitializer {
 	protected static ICRPHomePage icrpHomePage;
 	protected static ICRPSearchDatabase icrpSearchDatabase;
 
+	/** JPSurv instances **/
+	protected static JPSurvHomePage jpsurvHomePage;
+
+	/** Melanoma and Spitzoid Tumor instances **/
+	protected static MelanomaLoginPage melanomaLoginPage;
+	protected static MelanomaHomePage melanomaHomePage;
+	protected static MelanomaQuestionnairePage melanomaQuestionnairePage;
+
 	public static void initializeAllPages() {
 		// create instances of all pages and assign them to the variables
 		iTrustloginPage = new ITrustLoginPage();
@@ -258,6 +270,10 @@ public class PageInitializer {
 		cGBIIQPages = new CGBIIQPages();
 		rASSurveyPage = new RASSurveyPage();
 		rASSurveyStepsImpl = new RASSurveyStepsImpl();
+		jpsurvHomePage = new JPSurvHomePage();
+		melanomaLoginPage = new MelanomaLoginPage();
+		melanomaHomePage = new MelanomaHomePage();
+		melanomaQuestionnairePage = new MelanomaQuestionnairePage();
 
 	}
 }

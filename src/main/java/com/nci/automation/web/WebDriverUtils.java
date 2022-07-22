@@ -16,7 +16,6 @@ import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
@@ -29,8 +28,8 @@ import com.nci.automation.common.Constants;
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.LocalConfUtils;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
+//import io.appium.java_client.AppiumDriver;
+//import io.appium.java_client.MobileElement;
 import io.github.bonigarcia.wdm.OperatingSystem;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -79,12 +78,13 @@ public class WebDriverUtils {
 					cap.setCapability("avd", avdName);
 
 				}
-				try {
-					webDriver = new AppiumDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), cap);
-				} catch (MalformedURLException e) {
-					e.printStackTrace();
-					CucumberLogUtils.logFail("Mobile driver intlization filed", false);
-				}
+				// try {
+				// webDriver = new AppiumDriver<MobileElement>(new
+				// URL("http://localhost:4723/wd/hub"), cap);
+				// } catch (MalformedURLException e) {
+				// e.printStackTrace();
+				// CucumberLogUtils.logFail("Mobile driver intlization filed", false);
+				// }
 
 			} else if (Constants.BROWSER_CHROME.equals(browser)) {
 
@@ -108,11 +108,11 @@ public class WebDriverUtils {
 					chromeOptions.addArguments("--headless");
 					chromeOptions.addArguments("--disable-dev-shm-usage");
 					webDriver = new ChromeDriver(chromeOptions);
-					System.out.println(chromeOptions.getVersion());
+					// System.out.println(chromeOptions.getVersion());
 				} else {
 					chromeOptions.addArguments("--no-sandbox");
 					chromeOptions.addArguments("--disable-dev-shm-usage");
-					System.out.println("Non headless-->" + chromeOptions.getVersion());
+					// System.out.println("Non headless-->" + chromeOptions.getVersion());
 					webDriver = new ChromeDriver(chromeOptions);
 
 				}
@@ -134,8 +134,6 @@ public class WebDriverUtils {
 				} else {
 					webDriver = new SafariDriver(safariOptions);
 				}
-			} else if (browser.equalsIgnoreCase("htmlunitdriver")) {
-				webDriver = new HtmlUnitDriver();
 			} else if (browser.equalsIgnoreCase(Constants.BROWSER_PHANTOM)) {
 				DesiredCapabilities capabilities = new DesiredCapabilities();
 				capabilities.setJavascriptEnabled(true);
