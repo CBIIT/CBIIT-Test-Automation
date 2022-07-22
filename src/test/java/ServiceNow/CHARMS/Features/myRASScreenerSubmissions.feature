@@ -3,7 +3,7 @@ Feature: myRAS Screener Submissions from the Qualtrics Portal
 
 	This feature file contains scenarios which verify data submitted via Qualtrics questionnaire in Native View
 
-	@juarezds @myRasScreenerSubmissionOnly @Progression @choudhryma
+	@juarezds @myRasScreenerSubmissionOnly @choudhryma
 	Scenario: Proxy Screener Submission - for manual testing only - use if you need to submit screener quickly
 		Given a proxy is on the RASopathies Longitudinal Cohort Study login page
 		And logs in via Okta with username "charmsras1@yahoo.com" and password "RASTest2021$$"
