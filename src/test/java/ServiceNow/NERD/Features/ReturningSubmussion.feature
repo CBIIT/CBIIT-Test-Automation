@@ -42,7 +42,7 @@ Feature: Ruturning published Collaboration by the CRS Rreviewer/DOC Planning Con
     When the CRS Reviewer returns the submission once more
     Then a notification is sent to the DOC Planning Contact
 
-  @Regression @New @SS-3939
+  @Regression @New @SS-3939 @test
   Scenario: Verifying the Collaboration submission return to Program Staff in the same DOC
     Given a DOC Planning Contact creates a Collaboration submission
     Then they are able to return the submission to a Program Staff in the same DOC

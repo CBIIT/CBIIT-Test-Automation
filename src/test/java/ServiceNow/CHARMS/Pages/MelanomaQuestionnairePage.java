@@ -1126,7 +1126,7 @@ public class MelanomaQuestionnairePage {
 	/*
 	 * geneticChangesDetectedBAP1_Option Option
 	 */
-	@FindBy(xpath = "//div[@role='main']//div//div//div//fieldset//div//span//label[@for='QR~QID40~1']")
+	@FindBy(xpath = "//label[@id='QID40-1-label']")
 	public WebElement geneticChangesDetectedBAP1_Option;
 
 	/*
@@ -1270,6 +1270,14 @@ public class MelanomaQuestionnairePage {
 	 */
 	@FindBy(xpath = "(//span/input)[1]")
 	public WebElement participateInResearchTextBox;
+
+	/** ---- PROXY FLOW SUBMISSION ---- */
+
+	/*
+	 * nameOfPersonWhoMayBeEligibleForTheStudy Text Box
+	 */
+	@FindBy(xpath = "//input[@id='QR~QID105~4']")
+	public WebElement nameOfPersonWhoMayBeEligibleForTheStudyTextBox;
 
 	public MelanomaQuestionnairePage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
