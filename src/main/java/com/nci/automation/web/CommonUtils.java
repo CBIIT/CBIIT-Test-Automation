@@ -13,7 +13,7 @@ import java.util.Set;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.Assert;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -25,6 +25,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 import com.nci.automation.utils.LocalConfUtils;
@@ -528,13 +529,22 @@ public class CommonUtils extends WebDriverUtils {
 	 * Use below method to assert actual String value with an expected String value
 	 * using assertTrue() method
 	 */
-	public static void assertTrue(String message, Boolean flag) {
+	public static void assertTrue(Boolean flag) {
 
 		try {
-			Assert.assertTrue(message, flag);
+			Assert.assertTrue(flag);
 		} catch (AssertionError e) {
 
 			e.printStackTrace();
 		}
+	}
+
+	public static void assertTrueJUNIT(String message, Boolean flag) {
+		try {
+			org.junit.Assert.assertTrue(message, flag);
+		} catch (AssertionError e) {
+			e.printStackTrace();
+		}
+
 	}
 }

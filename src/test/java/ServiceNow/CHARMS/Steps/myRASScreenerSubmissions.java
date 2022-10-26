@@ -1544,7 +1544,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 				charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantRace.getText().contentEquals(
 						"Caucasian (white), Black/African American, Native Hawaiian/Other Pacific Islander, American Indian/Alaskan Native, Asian, Other"));
 
-		CommonUtils.assertTrue("Participant Race Other Text Field  do not match",
+		CommonUtils.assertTrueJUNIT("Participant Race Other Text Field  do not match",
 				charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantRaceOtherText
 						.getAttribute("value").contentEquals("Entering other Race"));
 
@@ -1563,7 +1563,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabDoesParticipantNeedLegalRepresentation
 						.getText().contentEquals("Yes"));
 
-		CommonUtils.assertTrue("This is a Contact Info Tab mismatch data for the Legal Representative Name :",
+		CommonUtils.assertTrueJUNIT("This is a Contact Info Tab mismatch data for the Legal Representative Name :",
 				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabLegalRepresentativeName
 						.getAttribute("value")
 						.contentEquals("FirstNameOfProxyTest  MiddleNameTest  lastNameOfProxyTest"));
@@ -1592,23 +1592,23 @@ public class myRASScreenerSubmissions extends PageInitializer {
 				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabStreetAddress.getAttribute("value")
 						.contentEquals("9609 Medical Center Dr New Avenue Park"));
 
-		CommonUtils.assertTrue("This is a Contact Info Tab mismatch data for the Contact State : ",
+		CommonUtils.assertTrueJUNIT("This is a Contact Info Tab mismatch data for the Contact State : ",
 				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabState.getAttribute("value")
 						.contentEquals("MD"));
 
-		CommonUtils.assertTrue("This is a Contact Info Tab mismatch data for the Contact City : ",
+		CommonUtils.assertTrueJUNIT("This is a Contact Info Tab mismatch data for the Contact City : ",
 				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabCity.getAttribute("value")
 						.contentEquals("Rockville"));
 
-		CommonUtils.assertTrue("This is a Contact Info Tab mismatch data for the Contact Country: ",
+		CommonUtils.assertTrueJUNIT("This is a Contact Info Tab mismatch data for the Contact Country: ",
 				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabCountry.getText()
 						.contentEquals("U.S.A"));
 
-		CommonUtils.assertTrue("This is a Contact Info Tab mismatch data for the Contact Zipcode : ",
+		CommonUtils.assertTrueJUNIT("This is a Contact Info Tab mismatch data for the Contact Zipcode : ",
 				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabZipcode.getAttribute("value")
 						.contentEquals("20850"));
 
-		CommonUtils.assertTrue("This is a Contact Info Tab mismatch data for the Contact Email : ",
+		CommonUtils.assertTrueJUNIT("This is a Contact Info Tab mismatch data for the Contact Email : ",
 				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabEmail.getAttribute("value")
 						.contentEquals("automatedTest@nci.gov"));
 
@@ -1881,7 +1881,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
 				charmsNativeViewPage.nVRasReferralViewPageDoesParticipantNeedLegalRepresentation.getText()
 						.contentEquals("Yes"));
 
-		CommonUtils.assertTrue("This is a RAS Referaal Page mismatch data for the Legal Representative Name : ",
+		CommonUtils.assertTrueJUNIT("This is a RAS Referaal Page mismatch data for the Legal Representative Name : ",
 				charmsNativeViewPage.nVRasReferralViewPageLegalRepresentativeName.getAttribute("value")
 						.contentEquals("FirstNameTest  MiddleNameTest  lastNameTest"));
 

@@ -68,6 +68,8 @@ import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
 import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
 import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
+import ServiceNow.NERD.Pages.NERDHomePage;
+import ServiceNow.NERD.Pages.NERDKnowledgebasePage;
 import ServiceNow.NERD.Pages.NERDSubmissionsPage;
 import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NativeViewImpersonateUser;
@@ -172,6 +174,8 @@ public class PageInitializer {
 	protected static NERDSubmissionsPage nerdCrsKnowledgeDatabaseSubmissionsPage;
 	protected static CreateNewSubmissionPage createNewSubmissionPage;
 	protected static NERDDynamicXPATHS nerdDynamicXpaths;
+	protected static NERDHomePage nerdHomePage;
+	protected static NERDKnowledgebasePage nerdKnowledgeBasePage;
 
 	/** Comets 2.0 Instances */
 	protected static Comets2Page comets2Page;
@@ -274,6 +278,8 @@ public class PageInitializer {
 		melanomaLoginPage = new MelanomaLoginPage();
 		melanomaHomePage = new MelanomaHomePage();
 		melanomaQuestionnairePage = new MelanomaQuestionnairePage();
+		nerdHomePage = new NERDHomePage();
+		nerdKnowledgeBasePage = new NERDKnowledgebasePage();
 
 	}
 }
