@@ -111,6 +111,7 @@ public class CRS_Reviewers_Steps extends PageInitializer {
         nativeViewLoginImpl.sideDoorAccountLogin();
         nativeViewImpersonateUser.impersonateToAnyCRSReviewer(crsReviewer);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+        MiscUtils.sleep(1500);
         CucumberLogUtils.logScreenShot();
     }
 
@@ -126,6 +127,7 @@ public class CRS_Reviewers_Steps extends PageInitializer {
     @When("the user clicks the NERD Knowledge Base")
     public void the_user_clicks_the_NERD_Knowledge_Base() {
         nerdHomePage.nerdKnowledgeBaseText.click();
+        MiscUtils.sleep(2000);
     }
 
     @Then("the user is redirected to the Knowledge Base view page")
@@ -158,8 +160,9 @@ public class CRS_Reviewers_Steps extends PageInitializer {
     @Then("the {string} accordion expands")
     public void the_accordion_expands(String itemsPerPageAccordionText) {
 
-        JavascriptUtils.scrollIntoView(NERDKnowledgebasePage
-                .dynamicXpathNERDKnowledgeBaseAccordionItemsPerPageText(itemsPerPageAccordionText));
+        CucumberLogUtils.logScreenShot();
+        // JavascriptUtils.scrollIntoView(NERDKnowledgebasePage
+        // .dynamicXpathNERDKnowledgeBaseAccordionItemsPerPageText(itemsPerPageAccordionText));
 
         boolean isTopAccomplishmentsAccordionItemPerPageDisplayed = NERDKnowledgebasePage
                 .dynamicXpathNERDKnowledgeBaseAccordionItemsPerPageText(itemsPerPageAccordionText).isDisplayed();

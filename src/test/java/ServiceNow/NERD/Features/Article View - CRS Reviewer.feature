@@ -1,4 +1,4 @@
-Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishment
+Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishments
 
     @Progression
     Scenario: CRS Reviewer Sees Published Top Accomplishments
