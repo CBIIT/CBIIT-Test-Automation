@@ -547,4 +547,11 @@ public class CommonUtils extends WebDriverUtils {
 		}
 
 	}
+
+	public static void switchToNextWindow() {
+		Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
+		for (String currentWindow1 : allWindowHandles1) {
+			WebDriverUtils.webDriver.switchTo().window(currentWindow1);
+		}
+	}
 }

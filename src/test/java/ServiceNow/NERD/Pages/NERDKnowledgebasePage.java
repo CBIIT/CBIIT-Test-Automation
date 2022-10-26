@@ -25,9 +25,7 @@ public class NERDKnowledgebasePage {
      */
 
     public static WebElement dynamicXpathNERDKnowledgeBaseAccordion(String accordion) {
-
         return WebDriverUtils.webDriver.findElement(By.xpath("//div[contains(text(),'" + accordion + "')]"));
-
     }
 
     /***
@@ -40,10 +38,8 @@ public class NERDKnowledgebasePage {
      */
 
     public static WebElement dynamicXpathNERDKnowledgeBaseAccordionItemsPerPageText(String accordionText) {
-
         return WebDriverUtils.webDriver.findElement(By.xpath("((//div[contains(text(),'" + accordionText
                 + "')]//parent::span//parent::a//parent::h4//parent::div//following-sibling::div)[2]/div/ul//following-sibling::div/ul//following-sibling::div)[2]"));
-
     }
 
     /***
@@ -53,10 +49,33 @@ public class NERDKnowledgebasePage {
      * @return
      */
     public static WebElement dynamicXpathNERDKnowledgeBaseAccordionList(String accordionText) {
-
         return WebDriverUtils.webDriver.findElement(By.xpath(
                 "(//div[contains(text(),'" + accordionText
                         + "')]//parent::span//parent::a//parent::h4//parent::div//following-sibling::div)[2]/div/ul"));
+    }
+
+    /**
+     * Use below method to dynamically locate a published article
+     * 
+     * @param publishedArticle
+     * @return
+     */
+    public static WebElement dynamicXpathNERDKnowledgeBaseTopAccomplishmentPublishedArticle(String publishedArticle) {
+        return WebDriverUtils.webDriver.findElement(By.xpath(
+                "//a[contains(text(),'" + publishedArticle + "')]"));
+    }
+
+    /**
+     * Use below method to inspect the title of an article once it has been opened
+     * 
+     * @param titleOfArticle
+     * @return
+     */
+
+    public static WebElement dynamicXpathNERDKnowledgeBasePublishedArticleTitle(String titleOfArticle) {
+
+        return WebDriverUtils.webDriver.findElement(By.xpath(
+                "//div[contains(text(),'" + titleOfArticle + "')]"));
 
     }
 
