@@ -96,11 +96,13 @@ public class myRASScreenerSubmissions extends PageInitializer {
 			WebDriverUtils.webDriver.switchTo().window(currentWindow1);
 		}
 
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(rasopathyQuestionnairePage.studyNextButton);
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.studyNextButton);
 		MiscUtils.sleep(2000);
-		rasopathyQuestionnairePage.studyNextButton.click();
+		JavascriptUtils.clickByJS(rasopathyQuestionnairePage.studyNextButton);
+		// rasopathyQuestionnairePage.studyNextButton.click();
+		MiscUtils.sleep(3000);
 
 	}
 

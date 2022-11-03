@@ -217,7 +217,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
     @When("selects White for What is your race?")
     public void selects_White_for_What_is_your_race() {
 
-        MiscUtils.sleep(1000);
+        MiscUtils.sleep(1500);
         CommonUtils.waitForVisibility(melanomaQuestionnairePage.raceOfParticipantOtherTextBox);
         melanomaQuestionnairePage.raceOfParticipantWhite.click();
         CucumberLogUtils.logScreenShot();
@@ -246,8 +246,9 @@ public class MelanomaScreenerSubmission extends PageInitializer {
 
     @When("selects Familial Melanoma Study for Are you a participant in any other research study or registry group?")
     public void selects_Familial_Melanoma_Study_for_Are_you_a_participant_in_any_other_research_study_or_registry_group() {
-        MiscUtils.sleep(1000);
+        MiscUtils.sleep(1500);
         CommonUtils.waitForVisibility(melanomaQuestionnairePage.famililialMelanomaStudyOption);
+        // JavascriptUtils.clearByJS(melanomaQuestionnairePage.famililialMelanomaStudyOption);
         melanomaQuestionnairePage.famililialMelanomaStudyOption.click();
         CucumberLogUtils.logScreenShot();
         melanomaQuestionnairePage.studyNextButton.click();
@@ -330,7 +331,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
     @When("selects BAP{int} for Were any genetic changes detected in the following genes?")
     public void selects_BAP_for_Were_any_genetic_changes_detected_in_the_following_genes(Integer int1) {
 
-        MiscUtils.sleep(1000);
+        MiscUtils.sleep(2000);
         melanomaQuestionnairePage.geneticChangesDetectedBAP1_Option.click();
         CucumberLogUtils.logScreenShot();
         JavascriptUtils.scrollIntoView(melanomaQuestionnairePage.studyNextButton);
@@ -481,6 +482,47 @@ public class MelanomaScreenerSubmission extends PageInitializer {
         CucumberLogUtils.logScreenShot();
         testAccountResetPage.nativeViewCCLogOutButton.click();
 
+    }
+
+    @When("selects I am completing this form for for someone else for Are you completing this form for someone else or for yourself?")
+    public void selects_I_am_completing_this_form_for_for_someone_else_for_Are_you_completing_this_form_for_someone_else_or_for_yourself() {
+        MiscUtils.sleep(1000);
+
+        Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
+        for (String currentWindow1 : allWindowHandles1) {
+            WebDriverUtils.webDriver.switchTo().window(currentWindow1);
+        }
+
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenShot();
+        JavascriptUtils.scrollIntoView(melanomaQuestionnairePage.studyNextButton);
+        CommonUtils.waitForVisibility(melanomaQuestionnairePage.studyNextButton);
+        CucumberLogUtils.logScreenShot();
+        MiscUtils.sleep(2000);
+        melanomaQuestionnairePage.studyNextButton.click();
+
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenShot();
+        JavascriptUtils.scrollIntoView(melanomaQuestionnairePage.studyNextButton);
+        CommonUtils.waitForVisibility(melanomaQuestionnairePage.studyNextButton);
+        CucumberLogUtils.logScreenShot();
+        MiscUtils.sleep(2000);
+        melanomaQuestionnairePage.studyNextButton.click();
+
+        MiscUtils.sleep(1000);
+
+        melanomaQuestionnairePage.iAmCompletingThisFormForSomeoneElseOption.click();
+        CucumberLogUtils.logScreenShot();
+        melanomaQuestionnairePage.studyNextButton.click();
+
+    }
+
+    @When("enters First name {string}, Middle Initial {string}, Last name {string} for What is the name of the person who may be eligible for this study?")
+    public void enters_First_name_Middle_Initial_Last_name_for_What_is_the_name_of_the_person_who_may_be_eligible_for_this_study(
+            String firstName, String middleInitial, String lastName) {
+
+        MiscUtils.sleep(1000);
+        melanomaQuestionnairePage.nameOfPersonWhoMayBeEligibleForTheStudyTextBox.sendKeys("keysToSend");
     }
 
 }
