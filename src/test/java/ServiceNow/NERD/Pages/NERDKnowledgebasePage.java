@@ -17,6 +17,11 @@ public class NERDKnowledgebasePage {
     @FindBy(xpath = "//*[contains(text(),'Top Accomplishments')]")
     public WebElement topAccomplishmentsText;
 
+    
+    public static WebElement dynamicAccordion(String value) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'" + value + "')]"));
+    }
+
     /***
      * Use the below method to locate any accordion by text
      * 

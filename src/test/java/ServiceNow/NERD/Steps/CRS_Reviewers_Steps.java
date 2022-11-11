@@ -20,286 +20,304 @@ import cucumber.api.java.en.When;
 
 public class CRS_Reviewers_Steps extends PageInitializer {
 
-    @Given("a CRS reviewer is logged into NERDs CRS Knowledge Management System")
-    public void a_CRS_reviewer_is_logged_into_NERDs_CRS_Knowledge_Management_System() throws TestingException {
-        nativeViewLoginImpl.sideDoorAccountLogin();
-        nativeViewImpersonateUser.impersonateToCRSReviewer();
-        NERDApplicationStepsImplementation.userIsOnSubmissionsPage("NERD");
-    }
-
-    @When("adding a new OM entry")
-    public void adding_a_new_OM_entry() {
-        NERDApplicationStepsImplementation.addingNewOM_Entry();
-    }
-
-    @Then("OM Content Type {string} displays")
-    public void om_Content_Type_displays(String omContentType) {
-        NERDApplicationStepsImplementation.verifyingOM_ContentType(omContentType);
-    }
-
-    @Then("the following check box options are also available, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
-    public void the_following_check_box_options_are_also_available(String administrationTransitionMaterial,
-            String congressionalJustification, String hhsRequests, String antiHarrassmentCivilityMaterial,
-            String donnasBlog, String furloughPlanning, String equityAndInclusionProgram,
-            String covid19LeadershipMessages) {
-
-        NERDApplicationStepsImplementation.verifyingOfOM_CheckBoxes(administrationTransitionMaterial,
-                congressionalJustification, hhsRequests, antiHarrassmentCivilityMaterial, donnasBlog, furloughPlanning,
-                equityAndInclusionProgram, covid19LeadershipMessages);
-    }
-
-    @Then("when selecting Other {string}")
-    public void when_selecting_Other(String otherOmContent) {
-        NERDApplicationStepsImplementation.selectingOfOtherOM_Content(otherOmContent);
-    }
-
-    @Then("the If Other is selected above, please specify {string} field displays")
-    public void the_If_Other_is_selected_above_please_specify_field_displays(String omContentTypeOtherPleaseSpecify) {
-        NERDApplicationStepsImplementation.pleaseSpecifyFieldIsDisplayed(omContentTypeOtherPleaseSpecify);
-    }
-
-    @Given("a CRS Reviewer is on the NERD Knowledge Base page")
-    public void a_CRS_Reviewer_is_on_the_NERD_Knowledge_Base_page() throws TestingException {
-        nerdLoginStepsImplementation.loginToNerd();
-        nativeViewImpersonateUser.impersonateToCRSReviewer();
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-        WebDriverUtils.webDriver.navigate().refresh();
-        MiscUtils.sleep(5000);
-        nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageNERDButton.click();
-        MiscUtils.sleep(8000);
-        CucumberLogUtils.logScreenShot();
-    }
-
-    @Given("clicks the {string} filter")
-    public void clicks_the_filter(String SpecialTopic) {
-        Assert.assertTrue(
-                nerdCrsKnowledgeDatabaseSubmissionsPage.nerdSpecialTopicsDD.getText().contentEquals(SpecialTopic));
-
-        JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.nerdSpecialTopicsDD);
-        MiscUtils.sleep(5000);
-        JavascriptUtils.scrollDown(2000);
-        CucumberLogUtils.logScreenShot();
-    }
-
-    @Then("the field options are {string}, {string}, {string},{string},{string},{string},{string},{string},{string},{string}, {string}")
-    public void the_field_options_are(String All, String BigdataDataSharing, String COVID19, String EarlyDetection,
-            String Metastatic, String MinorityhealthHealthdisparities, String Moonshot, String Pediatric, String Rare,
-            String TrainingWorkforcedevelopment, String Womenshealth) {
-        MiscUtils.sleep(1000);
-        String[] expectedValues = { All, BigdataDataSharing, COVID19, EarlyDetection, Metastatic,
-                MinorityhealthHealthdisparities, Moonshot, Pediatric, Rare,
-                TrainingWorkforcedevelopment, Womenshealth };
-
-        String[] actualValue = new String[expectedValues.length];
-
-        for (int i = 0; i < actualValue.length; i++) {
-            actualValue[i] = nerdCrsKnowledgeDatabaseSubmissionsPage.nerdSpecialTopicsDDvalues.get(i).getText().trim()
-                    .split("\\(")[0].replaceAll("&nbsp;", "").trim();
+        @Given("a CRS reviewer is logged into NERDs CRS Knowledge Management System")
+        public void a_CRS_reviewer_is_logged_into_NERDs_CRS_Knowledge_Management_System() throws TestingException {
+                nativeViewLoginImpl.sideDoorAccountLogin();
+                nativeViewImpersonateUser.impersonateToCRSReviewer();
+                NERDApplicationStepsImplementation.userIsOnSubmissionsPage("NERD");
         }
 
-        for (int i = 0; i < actualValue.length; i++) {
-            System.out.println(expectedValues[i]);
-            System.out.println(actualValue[i]);
-            Assert.assertEquals(expectedValues[i], actualValue[i]);
+        @When("adding a new OM entry")
+        public void adding_a_new_OM_entry() {
+                NERDApplicationStepsImplementation.addingNewOM_Entry();
         }
-        MiscUtils.sleep(1000);
-    }
 
-    @Given("a CRS Reviewer {string} is on the NERD Home Page")
-    public void a_CRS_Reviewer_is_on_the_NERD_Home_Page(String crsReviewer) throws TestingException {
+        @Then("OM Content Type {string} displays")
+        public void om_Content_Type_displays(String omContentType) {
+                NERDApplicationStepsImplementation.verifyingOM_ContentType(omContentType);
+        }
 
-        nativeViewLoginImpl.sideDoorAccountLogin();
-        nativeViewImpersonateUser.impersonateToAnyCRSReviewer(crsReviewer);
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-        MiscUtils.sleep(1500);
-        CucumberLogUtils.logScreenShot();
-    }
+        @Then("the following check box options are also available, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+        public void the_following_check_box_options_are_also_available(String administrationTransitionMaterial,
+                        String congressionalJustification, String hhsRequests, String antiHarrassmentCivilityMaterial,
+                        String donnasBlog, String furloughPlanning, String equityAndInclusionProgram,
+                        String covid19LeadershipMessages) {
 
-    @Then("there are three knowledge bases called {string}, {string}, and {string}")
-    public void there_are_three_knowledge_bases_called_and(String nerd, String rock, String moonshotEvaluation) {
+                NERDApplicationStepsImplementation.verifyingOfOM_CheckBoxes(administrationTransitionMaterial,
+                                congressionalJustification, hhsRequests, antiHarrassmentCivilityMaterial, donnasBlog,
+                                furloughPlanning,
+                                equityAndInclusionProgram, covid19LeadershipMessages);
+        }
 
-        CommonUtils.assertEquals(nerd, nerdHomePage.nerdKnowledgeBaseText.getText());
-        CommonUtils.assertEquals(rock, nerdHomePage.rockKnowledgeBaseText.getText());
-        CommonUtils.assertEquals(moonshotEvaluation, nerdHomePage.moonshotEvaluationKnowledgeBaseText.getText());
-        CucumberLogUtils.logScreenShot();
-    }
+        @Then("when selecting Other {string}")
+        public void when_selecting_Other(String otherOmContent) {
+                NERDApplicationStepsImplementation.selectingOfOtherOM_Content(otherOmContent);
+        }
 
-    @When("the user clicks the NERD Knowledge Base")
-    public void the_user_clicks_the_NERD_Knowledge_Base() {
-        nerdHomePage.nerdKnowledgeBaseText.click();
-        MiscUtils.sleep(2000);
-    }
+        @Then("the If Other is selected above, please specify {string} field displays")
+        public void the_If_Other_is_selected_above_please_specify_field_displays(
+                        String omContentTypeOtherPleaseSpecify) {
+                NERDApplicationStepsImplementation.pleaseSpecifyFieldIsDisplayed(omContentTypeOtherPleaseSpecify);
+        }
 
-    @Then("the user is redirected to the Knowledge Base view page")
-    public void the_user_is_redirected_to_the_Knowledge_Base_view_page() {
+        @Given("a CRS Reviewer is on the NERD Knowledge Base page")
+        public void a_CRS_Reviewer_is_on_the_NERD_Knowledge_Base_page() throws TestingException {
+                nerdLoginStepsImplementation.loginToNerd();
+                nativeViewImpersonateUser.impersonateToCRSReviewer();
+                WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+                WebDriverUtils.webDriver.navigate().refresh();
+                MiscUtils.sleep(5000);
+                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageNERDButton.click();
+                MiscUtils.sleep(8000);
+                CucumberLogUtils.logScreenShot();
+        }
 
-        Assert.assertTrue(nerdKnowledgeBasePage.nerdKnowledgeBaseViewText.isDisplayed());
-        MiscUtils.sleep(2000);
-        CucumberLogUtils.logScreenShot();
-    }
+        @Given("clicks the {string} filter")
+        public void clicks_the_filter(String SpecialTopic) {
+                Assert.assertTrue(
+                                nerdCrsKnowledgeDatabaseSubmissionsPage.nerdSpecialTopicsDD.getText()
+                                                .contentEquals(SpecialTopic));
 
-    @Then("there is a collapsed accordion with the header labeled {string}")
-    public void there_is_a_collapsed_accordion_with_the_header_labeled(String topAccomplishmentsAccordionText) {
+                JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.nerdSpecialTopicsDD);
+                MiscUtils.sleep(5000);
+                JavascriptUtils.scrollDown(2000);
+                CucumberLogUtils.logScreenShot();
+        }
 
-        boolean isTopAccomplishmentAccordionDisplayed = nerdKnowledgeBasePage.topAccomplishmentsText.getText()
-                .contains(topAccomplishmentsAccordionText);
+        @Then("the field options are {string}, {string}, {string},{string},{string},{string},{string},{string},{string},{string}, {string}")
+        public void the_field_options_are(String All, String BigdataDataSharing, String COVID19, String EarlyDetection,
+                        String Metastatic, String MinorityhealthHealthdisparities, String Moonshot, String Pediatric,
+                        String Rare,
+                        String TrainingWorkforcedevelopment, String Womenshealth) {
+                MiscUtils.sleep(1000);
+                String[] expectedValues = { All, BigdataDataSharing, COVID19, EarlyDetection, Metastatic,
+                                MinorityhealthHealthdisparities, Moonshot, Pediatric, Rare,
+                                TrainingWorkforcedevelopment, Womenshealth };
 
-        Assert.assertTrue(isTopAccomplishmentAccordionDisplayed);
+                String[] actualValue = new String[expectedValues.length];
 
-        CucumberLogUtils.logScreenShot();
-    }
+                for (int i = 0; i < actualValue.length; i++) {
+                        actualValue[i] = nerdCrsKnowledgeDatabaseSubmissionsPage.nerdSpecialTopicsDDvalues.get(i)
+                                        .getText().trim()
+                                        .split("\\(")[0].replaceAll("&nbsp;", "").trim();
+                }
 
-    @When("the user clicks the {string} accordion header")
-    public void the_user_clicks_the_accordion_header(String topAccomplishmentsAccordion) {
+                for (int i = 0; i < actualValue.length; i++) {
+                        System.out.println(expectedValues[i]);
+                        System.out.println(actualValue[i]);
+                        Assert.assertEquals(expectedValues[i], actualValue[i]);
+                }
+                MiscUtils.sleep(1000);
+        }
 
-        NERDKnowledgebasePage.dynamicXpathNERDKnowledgeBaseAccordion(topAccomplishmentsAccordion).click();
+        @Given("a CRS Reviewer {string} is on the NERD Home Page")
+        public void a_CRS_Reviewer_is_on_the_NERD_Home_Page(String crsReviewer) throws TestingException {
 
-        CucumberLogUtils.logScreenShot();
-    }
+                nativeViewLoginImpl.sideDoorAccountLogin();
+                nativeViewImpersonateUser.impersonateToAnyCRSReviewer(crsReviewer);
+                WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+                MiscUtils.sleep(1500);
+                CucumberLogUtils.logScreenShot();
+        }
 
-    @Then("the {string} accordion expands")
-    public void the_accordion_expands(String itemsPerPageAccordionText) {
+        @Then("there are three knowledge bases called {string}, {string}, and {string}")
+        public void there_are_three_knowledge_bases_called_and(String nerd, String rock, String moonshotEvaluation) {
 
-        CucumberLogUtils.logScreenShot();
-        // JavascriptUtils.scrollIntoView(NERDKnowledgebasePage
-        // .dynamicXpathNERDKnowledgeBaseAccordionItemsPerPageText(itemsPerPageAccordionText));
+                CommonUtils.assertEquals(nerd, nerdHomePage.nerdKnowledgeBaseText.getText());
+                CommonUtils.assertEquals(rock, nerdHomePage.rockKnowledgeBaseText.getText());
+                CommonUtils.assertEquals(moonshotEvaluation,
+                                nerdHomePage.moonshotEvaluationKnowledgeBaseText.getText());
+                CucumberLogUtils.logScreenShot();
+        }
 
-        boolean isTopAccomplishmentsAccordionItemPerPageDisplayed = NERDKnowledgebasePage
-                .dynamicXpathNERDKnowledgeBaseAccordionItemsPerPageText(itemsPerPageAccordionText).isDisplayed();
+        @When("the user clicks the NERD Knowledge Base")
+        public void the_user_clicks_the_NERD_Knowledge_Base() {
+                nerdHomePage.nerdKnowledgeBaseText.click();
+                MiscUtils.sleep(2000);
+        }
 
-        CommonUtils.assertTrue(isTopAccomplishmentsAccordionItemPerPageDisplayed);
+        @Then("the user is redirected to the Knowledge Base view page")
+        public void the_user_is_redirected_to_the_Knowledge_Base_view_page() {
 
-        CucumberLogUtils.logScreenShot();
-    }
+                Assert.assertTrue(nerdKnowledgeBasePage.nerdKnowledgeBaseViewText.isDisplayed());
+                MiscUtils.sleep(2000);
+                CucumberLogUtils.logScreenShot();
+        }
 
-    @Then("a list of all published {string} records is visible")
-    public void a_list_of_all_published_records_is_visible(String topAccomplishments) {
+        @Then("there is a collapsed accordion with the header labeled {string}")
+        public void there_is_a_collapsed_accordion_with_the_header_labeled(String dynamicAccordionText) {
 
-        boolean isListForPublishedTopAccomplishmentsDisplayed = NERDKnowledgebasePage
-                .dynamicXpathNERDKnowledgeBaseAccordionList(topAccomplishments).isDisplayed();
+                boolean isAccordionDisplayed = NERDKnowledgebasePage
+                                .dynamicAccordion(dynamicAccordionText).getText()
+                                .contains(dynamicAccordionText);
 
-        CommonUtils.assertTrue(isListForPublishedTopAccomplishmentsDisplayed);
-        CucumberLogUtils.logScreenShot();
-    }
+                Assert.assertTrue(isAccordionDisplayed);
 
-    @Given("a CRS Reviewer {string} is viewing the list of the published {string}")
-    public void a_CRS_Reviewer_is_viewing_the_list_of_the_published(String crsReviewer,
-            String topAccomplishmentsAccordion) throws TestingException {
-        nativeViewLoginImpl.sideDoorAccountLogin();
-        nativeViewImpersonateUser.impersonateToAnyCRSReviewer(crsReviewer);
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-        MiscUtils.sleep(1500);
-        CucumberLogUtils.logScreenShot();
-        nerdHomePage.nerdKnowledgeBaseText.click();
-        MiscUtils.sleep(2000);
-        NERDKnowledgebasePage.dynamicXpathNERDKnowledgeBaseAccordion(topAccomplishmentsAccordion).click();
-        CucumberLogUtils.logScreenShot();
-    }
+                CucumberLogUtils.logScreenShot();
+        }
 
-    @Then("there is a record called {string}")
-    public void there_is_a_record_called(String publishedArticleTitle) {
+        @When("the user clicks the {string} accordion header")
+        public void the_user_clicks_the_accordion_header(String topAccomplishmentsAccordion) {
 
-        boolean isArticleDisplayed = NERDKnowledgebasePage
-                .dynamicXpathNERDKnowledgeBaseTopAccomplishmentPublishedArticle(publishedArticleTitle).getText()
-                .contentEquals(publishedArticleTitle);
+                NERDKnowledgebasePage.dynamicXpathNERDKnowledgeBaseAccordion(topAccomplishmentsAccordion).click();
 
-        CommonUtils.assertTrue(isArticleDisplayed);
-        CucumberLogUtils.logScreenShot();
-    }
+                CucumberLogUtils.logScreenShot();
+        }
 
-    @When("the user clicks the title of the record {string}")
-    public void the_user_clicks_the_title_of_the_record(String titleOfPublishedArticle) {
+        @Then("the {string} accordion expands")
+        public void the_accordion_expands(String itemsPerPageAccordionText) {
 
-        NERDKnowledgebasePage.dynamicXpathNERDKnowledgeBaseTopAccomplishmentPublishedArticle(titleOfPublishedArticle)
-                .click();
-    }
+                CucumberLogUtils.logScreenShot();
+                // JavascriptUtils.scrollIntoView(NERDKnowledgebasePage
+                // .dynamicXpathNERDKnowledgeBaseAccordionItemsPerPageText(itemsPerPageAccordionText));
 
-    @Then("the user is redirected to the Article View of the {string} record")
-    public void the_user_is_redirected_to_the_Article_View_of_the_record(String titleOfPublishedArticle) {
+                boolean isTopAccomplishmentsAccordionItemPerPageDisplayed = NERDKnowledgebasePage
+                                .dynamicXpathNERDKnowledgeBaseAccordionItemsPerPageText(itemsPerPageAccordionText)
+                                .isDisplayed();
 
-        CommonUtils.swicthToAnotherWindow();
-        boolean isPublishedArticleDisplayed = NERDKnowledgebasePage
-                .dynamicXpathNERDKnowledgeBasePublishedArticleTitle(titleOfPublishedArticle).getText()
-                .contentEquals(titleOfPublishedArticle);
-        CommonUtils.assertTrue(isPublishedArticleDisplayed);
-        CucumberLogUtils.logScreenShot();
-    }
+                CommonUtils.assertTrue(isTopAccomplishmentsAccordionItemPerPageDisplayed);
 
-    @Then("the following fields and their associated data are visible for Top Accomplishments, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
-    public void the_following_fields_and_their_associated_data_are_visible_for_Top_Accomplishments(String category,
-            String rank, String title, String doc, String description, String cancerSiteType, String researchType,
-            String specialTopic, String references, String otherReferences, String collaborations, String fiscalYear,
-            String pointOfContact,
-            String pointOfContactEmail, String crsContact, String author) {
+                CucumberLogUtils.logScreenShot();
+        }
 
-        CucumberLogUtils.logScreenShot();
-        boolean isCategoryDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsCategoryText.getText()
-                .contentEquals(category);
-        CommonUtils.assertTrue(isCategoryDisplayed);
+        @Then("a list of all published {string} records is visible")
+        public void a_list_of_all_published_records_is_visible(String topAccomplishments) {
 
-        boolean isRankDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsRankText.getText()
-                .contentEquals(rank);
-        CommonUtils.assertTrue(isRankDisplayed);
+                boolean isListForPublishedTopAccomplishmentsDisplayed = NERDKnowledgebasePage
+                                .dynamicXpathNERDKnowledgeBaseAccordionList(topAccomplishments).isDisplayed();
 
-        boolean isTitleDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsTitleText.getText()
-                .contentEquals(title);
-        CommonUtils.assertTrue(isTitleDisplayed);
+                CommonUtils.assertTrue(isListForPublishedTopAccomplishmentsDisplayed);
+                CucumberLogUtils.logScreenShot();
+        }
 
-        boolean isDOCDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsDOCText.getText()
-                .contentEquals(doc);
-        CommonUtils.assertTrue(isDOCDisplayed);
+        @Given("a CRS Reviewer {string} is viewing the list of the published {string}")
+        public void a_CRS_Reviewer_is_viewing_the_list_of_the_published(String crsReviewer,
+                        String topAccomplishmentsAccordion) throws TestingException {
+                nativeViewLoginImpl.sideDoorAccountLogin();
+                nativeViewImpersonateUser.impersonateToAnyCRSReviewer(crsReviewer);
+                WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+                MiscUtils.sleep(1500);
+                CucumberLogUtils.logScreenShot();
+                nerdHomePage.nerdKnowledgeBaseText.click();
+                MiscUtils.sleep(2000);
+                NERDKnowledgebasePage.dynamicXpathNERDKnowledgeBaseAccordion(topAccomplishmentsAccordion).click();
+                CucumberLogUtils.logScreenShot();
+        }
 
-        boolean isDescriptionDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsDescriptionText.getText()
-                .contentEquals(description);
-        CommonUtils.assertTrue(isDescriptionDisplayed);
+        @Then("there is a record called {string}")
+        public void there_is_a_record_called(String publishedArticleTitle) {
 
-        boolean isCancerSiteType = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsCancerSiteTypeText.getText()
-                .contentEquals(cancerSiteType);
-        CommonUtils.assertTrue(isCancerSiteType);
+                boolean isArticleDisplayed = NERDKnowledgebasePage
+                                .dynamicXpathNERDKnowledgeBaseTopAccomplishmentPublishedArticle(publishedArticleTitle)
+                                .getText()
+                                .contentEquals(publishedArticleTitle);
 
-        boolean isResearchType = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsResearchTypeText.getText()
-                .contentEquals(researchType);
-        CommonUtils.assertTrue(isResearchType);
+                CommonUtils.assertTrue(isArticleDisplayed);
+                CucumberLogUtils.logScreenShot();
+        }
 
-        boolean isSpecialTopicDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsSpecialTopicText.getText()
-                .contentEquals(specialTopic);
-        CommonUtils.assertTrue(isSpecialTopicDisplayed);
+        @When("the user clicks the title of the record {string}")
+        public void the_user_clicks_the_title_of_the_record(String titleOfPublishedArticle) {
 
-        JavascriptUtils.scrollIntoView(nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsSpecialTopicText);
+                NERDKnowledgebasePage
+                                .dynamicXpathNERDKnowledgeBaseTopAccomplishmentPublishedArticle(titleOfPublishedArticle)
+                                .click();
+        }
 
-        CucumberLogUtils.logScreenShot();
+        @Then("the user is redirected to the Article View of the {string} record")
+        public void the_user_is_redirected_to_the_Article_View_of_the_record(String titleOfPublishedArticle) {
 
-        boolean isReferencesDislpayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsReferencesText.getText()
-                .contentEquals(references);
-        CommonUtils.assertTrue(isReferencesDislpayed);
+                CommonUtils.swicthToAnotherWindow();
+                boolean isPublishedArticleDisplayed = NERDKnowledgebasePage
+                                .dynamicXpathNERDKnowledgeBasePublishedArticleTitle(titleOfPublishedArticle).getText()
+                                .contentEquals(titleOfPublishedArticle);
+                CommonUtils.assertTrue(isPublishedArticleDisplayed);
+                CucumberLogUtils.logScreenShot();
+        }
 
-        boolean isOtherReferencesDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsOtherReferencesText
-                .getText().contentEquals(otherReferences);
-        CommonUtils.assertTrue(isOtherReferencesDisplayed);
+        @Then("the following fields and their associated data are visible for Top Accomplishments, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+        public void the_following_fields_and_their_associated_data_are_visible_for_Top_Accomplishments(String category,
+                        String rank, String title, String doc, String description, String cancerSiteType,
+                        String researchType,
+                        String specialTopic, String references, String otherReferences, String collaborations,
+                        String fiscalYear,
+                        String pointOfContact,
+                        String pointOfContactEmail, String crsContact, String author) {
 
-        boolean isCollaborationsDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsCollaborationsText
-                .getText().contentEquals(collaborations);
-        CommonUtils.assertTrue(isCollaborationsDisplayed);
+                CucumberLogUtils.logScreenShot();
+                boolean isCategoryDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsCategoryText.getText()
+                                .contentEquals(category);
+                CommonUtils.assertTrue(isCategoryDisplayed);
 
-        boolean isFiscalYearDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsFiscalYearText.getText()
-                .contentEquals(fiscalYear);
-        CommonUtils.assertTrue(isFiscalYearDisplayed);
+                boolean isRankDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsRankText.getText()
+                                .contentEquals(rank);
+                CommonUtils.assertTrue(isRankDisplayed);
 
-        boolean isPointOfContactDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsPointOfContactText
-                .getText().contentEquals(pointOfContact);
-        CommonUtils.assertTrue(isPointOfContactDisplayed);
+                boolean isTitleDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsTitleText.getText()
+                                .contentEquals(title);
+                CommonUtils.assertTrue(isTitleDisplayed);
 
-        boolean isPointOfContactEmailDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsPointOfContactEmailText
-                .getText().contentEquals(pointOfContactEmail);
-        CommonUtils.assertTrue(isPointOfContactEmailDisplayed);
+                boolean isDOCDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsDOCText.getText()
+                                .contentEquals(doc);
+                CommonUtils.assertTrue(isDOCDisplayed);
 
-        boolean isCRSContactDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsCRSContactText.getText()
-                .contentEquals(crsContact);
-        CommonUtils.assertTrue(isCRSContactDisplayed);
+                boolean isDescriptionDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsDescriptionText
+                                .getText()
+                                .contentEquals(description);
+                CommonUtils.assertTrue(isDescriptionDisplayed);
 
-        boolean isAuthorDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsAuthorText.getText()
-                .contentEquals(author);
-        CommonUtils.assertTrue(isAuthorDisplayed);
-    }
+                boolean isCancerSiteType = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsCancerSiteTypeText
+                                .getText()
+                                .contentEquals(cancerSiteType);
+                CommonUtils.assertTrue(isCancerSiteType);
+
+                boolean isResearchType = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsResearchTypeText.getText()
+                                .contentEquals(researchType);
+                CommonUtils.assertTrue(isResearchType);
+
+                boolean isSpecialTopicDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsSpecialTopicText
+                                .getText()
+                                .contentEquals(specialTopic);
+                CommonUtils.assertTrue(isSpecialTopicDisplayed);
+
+                JavascriptUtils.scrollIntoView(nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsSpecialTopicText);
+
+                CucumberLogUtils.logScreenShot();
+
+                boolean isReferencesDislpayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsReferencesText
+                                .getText()
+                                .contentEquals(references);
+                CommonUtils.assertTrue(isReferencesDislpayed);
+
+                boolean isOtherReferencesDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsOtherReferencesText
+                                .getText().contentEquals(otherReferences);
+                CommonUtils.assertTrue(isOtherReferencesDisplayed);
+
+                boolean isCollaborationsDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsCollaborationsText
+                                .getText().contentEquals(collaborations);
+                CommonUtils.assertTrue(isCollaborationsDisplayed);
+
+                boolean isFiscalYearDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsFiscalYearText
+                                .getText()
+                                .contentEquals(fiscalYear);
+                CommonUtils.assertTrue(isFiscalYearDisplayed);
+
+                boolean isPointOfContactDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsPointOfContactText
+                                .getText().contentEquals(pointOfContact);
+                CommonUtils.assertTrue(isPointOfContactDisplayed);
+
+                boolean isPointOfContactEmailDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsPointOfContactEmailText
+                                .getText().contentEquals(pointOfContactEmail);
+                CommonUtils.assertTrue(isPointOfContactEmailDisplayed);
+
+                boolean isCRSContactDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsCRSContactText
+                                .getText()
+                                .contentEquals(crsContact);
+                CommonUtils.assertTrue(isCRSContactDisplayed);
+
+                boolean isAuthorDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsAuthorText.getText()
+                                .contentEquals(author);
+                CommonUtils.assertTrue(isAuthorDisplayed);
+        }
 
 }
