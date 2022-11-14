@@ -16,3 +16,4 @@ reports/.DS_Store
 /.classpath/
 /.classpath
 */.classpath/*
+/test-output/
