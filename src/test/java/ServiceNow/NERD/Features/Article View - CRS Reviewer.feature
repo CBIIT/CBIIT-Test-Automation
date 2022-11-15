@@ -29,13 +29,13 @@ Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishments
 
   @juarezds @1
   Scenario: CRS Reviewer Sees Published Other Accomplishments
-    Given a CRS Reviewer is on the NERD Home Page
+    Given a CRS Reviewer "Diane Palmieri" is on the NERD Home Page
     Then there are three knowledge bases called "NERD", "ROCK", and "Moonshot Evaluation"
     When the user clicks the NERD Knowledge Base
     Then the user is redirected to the Knowledge Base view page
     And there is a collapsed accordion with the header labeled "Other Accomplishments"
     When the user clicks the "Other Accomplishments" accordion header
-    Then the accordion expands
+    Then the "Other Accomplishments" accordion expands
     And a list of all published "Other Accomplishments" records is visible
 
   @juarezds @2

@@ -145,13 +145,13 @@ public class CRS_Reviewers_Steps extends PageInitializer {
         }
 
         @Then("there is a collapsed accordion with the header labeled {string}")
-        public void there_is_a_collapsed_accordion_with_the_header_labeled(String dynamicAccordionText) {
+        public void there_is_a_collapsed_accordion_with_the_header_labeled(String topAccomplishmentsAccordionText) {
 
-                boolean isAccordionDisplayed = NERDKnowledgebasePage
-                                .dynamicAccordion(dynamicAccordionText).getText()
-                                .contains(dynamicAccordionText);
+                boolean isTopAccomplishmentAccordionDisplayed = NERDKnowledgebasePage
+                                .dynamicAccordion(topAccomplishmentsAccordionText).getText()
+                                .contains(topAccomplishmentsAccordionText);
 
-                Assert.assertTrue(isAccordionDisplayed);
+                Assert.assertTrue(isTopAccomplishmentAccordionDisplayed);
 
                 CucumberLogUtils.logScreenShot();
         }
