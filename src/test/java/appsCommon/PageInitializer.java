@@ -67,6 +67,7 @@ import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
 import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
+import ServiceNow.NERD.Pages.NERDCRSTCollaborationsPage;
 import ServiceNow.NERD.Pages.NERDCRSTopAccomplishmentsPage;
 import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
 import ServiceNow.NERD.Pages.NERDHomePage;
@@ -178,6 +179,7 @@ public class PageInitializer {
 	protected static NERDHomePage nerdHomePage;
 	protected static NERDKnowledgebasePage nerdKnowledgeBasePage;
 	protected static NERDCRSTopAccomplishmentsPage nerdCRSTopAccomplishmentsPage;
+	protected static NERDCRSTCollaborationsPage nerdCRSTCollaborationsPage; 
 
 	/** Comets 2.0 Instances */
 	protected static Comets2Page comets2Page;

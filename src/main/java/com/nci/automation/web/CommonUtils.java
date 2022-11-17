@@ -482,7 +482,7 @@ public class CommonUtils extends WebDriverUtils {
 	/**
 	 * Use this method to switch to the next another open window
 	 */
-	public static void swicthToAnotherWindow() {
+	public static void switchToAnotherWindow() {
 		Set<String> handlingAllOpenWindows = WebDriverUtils.webDriver.getWindowHandles();
 		for (String nextWindow : handlingAllOpenWindows) {
 			WebDriverUtils.webDriver.switchTo().window(nextWindow);

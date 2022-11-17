@@ -727,7 +727,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsList.click();
         MiscUtils.sleep(1000);
         nerdDynamicXpaths.publishedCollaboration(CommonUtils.email).click();
-        CommonUtils.swicthToAnotherWindow();
+        CommonUtils.switchToAnotherWindow();
         MiscUtils.sleep(1000);
         Assert.assertTrue("Verifying Article version number has been incremented", nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsVersionNumber1.getText().trim().contentEquals(versionNumber));
         JavascriptUtils.drawBlueBorder(nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsVersionNumber1);
@@ -748,7 +748,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsList.click();
         MiscUtils.sleep(1000);
         nerdDynamicXpaths.publishedCollaboration(CommonUtils.email).click();
-        CommonUtils.swicthToAnotherWindow();
+        CommonUtils.switchToAnotherWindow();
         MiscUtils.sleep(1000);
         Assert.assertTrue("Verifying Article version number has been incremented", nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsVersionNumber2.getText().trim().contentEquals(versionNumber));
         JavascriptUtils.drawBlueBorder(nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsVersionNumber2);

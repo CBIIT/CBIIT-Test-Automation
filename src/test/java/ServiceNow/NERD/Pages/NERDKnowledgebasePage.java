@@ -31,7 +31,10 @@ public class NERDKnowledgebasePage {
 
     public static WebElement dynamicXpathNERDKnowledgeBaseAccordion(String accordion) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//div[contains(text(),'" + accordion + "')]"));
+
     }
+
+    
 
     /***
      * Use the below method to locate the 'Items per page' text uniquely when
@@ -81,6 +84,11 @@ public class NERDKnowledgebasePage {
 
         return WebDriverUtils.webDriver.findElement(By.xpath(
                 "//div[contains(text(),'" + titleOfArticle + "')]"));
+
+    }
+
+    public static WebElement dynamicXpathNERDAccordian(String titleOfPublishedArticle){
+        return WebDriverUtils.webDriver.findElement(By.xpath("//h4[contains(text(),'" + titleOfPublishedArticle + "')]"));
 
     }
 

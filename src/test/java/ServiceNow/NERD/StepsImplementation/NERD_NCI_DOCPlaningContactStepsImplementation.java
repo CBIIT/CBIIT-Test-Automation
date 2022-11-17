@@ -222,7 +222,7 @@ public class NERD_NCI_DOCPlaningContactStepsImplementation extends PageInitializ
         MiscUtils.sleep(1000);
         nerdDynamicXpaths.editButton(submissionName).click();
         MiscUtils.sleep(2000);
-        CommonUtils.swicthToAnotherWindow();
+        CommonUtils.switchToAnotherWindow();
         CommonUtils.waitForVisibility(createNewSubmissionPage.pleaseSpecifyDropDown);
         CommonUtils.selectDropDownValue("Edited", createNewSubmissionPage.pleaseSpecifyDropDown);
         MiscUtils.sleep(1000);

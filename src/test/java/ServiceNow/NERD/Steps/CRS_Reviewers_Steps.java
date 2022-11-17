@@ -2,9 +2,11 @@ package ServiceNow.NERD.Steps;
 
 import java.util.Set;
 
+import ServiceNow.NERD.Pages.NERDCRSTCollaborationsPage;
 import ServiceNow.NERD.Pages.NERDKnowledgebasePage;
 import ServiceNow.NERD.StepsImplementation.NERDApplicationStepsImplementation;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -19,6 +21,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class CRS_Reviewers_Steps extends PageInitializer {
+
+        NERDCRSTCollaborationsPage nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
 
         @Given("a CRS reviewer is logged into NERDs CRS Knowledge Management System")
         public void a_CRS_reviewer_is_logged_into_NERDs_CRS_Knowledge_Management_System() throws TestingException {
@@ -217,8 +221,10 @@ public class CRS_Reviewers_Steps extends PageInitializer {
         }
 
         @When("the user clicks the title of the record {string}")
-        public void the_user_clicks_the_title_of_the_record(String titleOfPublishedArticle) {
+        public void the_user_clicks_the_title_of_the_record(String titleOfPublishedArticle)
+                        throws InterruptedException {
 
+                Thread.sleep(5000);
                 NERDKnowledgebasePage
                                 .dynamicXpathNERDKnowledgeBaseTopAccomplishmentPublishedArticle(titleOfPublishedArticle)
                                 .click();
@@ -227,12 +233,149 @@ public class CRS_Reviewers_Steps extends PageInitializer {
         @Then("the user is redirected to the Article View of the {string} record")
         public void the_user_is_redirected_to_the_Article_View_of_the_record(String titleOfPublishedArticle) {
 
-                CommonUtils.swicthToAnotherWindow();
+                CommonUtils.switchToAnotherWindow();
+
+                // boolean isPublishedArticleDisplayed = NERDKnowledgebasePage
+                // .dynamicXpathNERDKnowledgeBaseTopAccomplishmentPublishedArticle(
+                // titleOfPublishedArticle)
+                // .getText()
+                // .contentEquals(titleOfPublishedArticle);
+
                 boolean isPublishedArticleDisplayed = NERDKnowledgebasePage
-                                .dynamicXpathNERDKnowledgeBasePublishedArticleTitle(titleOfPublishedArticle).getText()
+                                .dynamicXpathNERDAccordian(titleOfPublishedArticle).getText()
                                 .contentEquals(titleOfPublishedArticle);
+
                 CommonUtils.assertTrue(isPublishedArticleDisplayed);
                 CucumberLogUtils.logScreenShot();
+        }
+
+        @Then("the following fields and their associated data are visible, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, and {string}")
+        public void the_following_fields_and_their_associated_data_are_visible_IF_RESEARCH_RESOURCES_IS_SELECTED_ABOVE_Specify_Type_NIH_strategic_alignment_HHS_Strategic_Plan_Alignment_Author(
+                        String category, String pleaseSpecify, String acronym, String fiscalYear, String description,
+                        String websiteURLs,
+                        String fyTheCollaborativeActivityOriginated, String leadDOC, String otherDOCs, String POC,
+                        String references,
+                        String nihICsODCollaborators, String HHSAgencyCollaborators,
+                        String OtherFederalAgencyCollaborators, String TribalStateLocalGovernmentCollaborators,
+                        String ForeignGovernmentCollaborators,
+                        String NonGovernmentalCollaborators, String OtherCollaborators,
+                        String SelectTypeOfCollaborativeActivity, String ifCommiteeIsSelectedAboveIsThisAFacaCommittee,
+                        String isThisCollaborationRelatedToaRegulatoryActivity,
+                        String wasNihFundingProvidedForThisActivity, String ProductsOutputs,
+                        String ifResearchResourceIsSelectedAboveSpecifyType, String nihStrategicAlignment,
+                        String hhsStrategicPlanAlignment, String Author) {
+
+                CucumberLogUtils.logScreenShot();
+                boolean isCategoryTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsCategoryText.getText()
+                                .contentEquals(category);
+                CommonUtils.assertTrue(isCategoryTextDisplayed);
+
+                boolean isPleaseSpecifyTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsPleaseSpecifyText
+                                .getText().contentEquals(pleaseSpecify);
+                CommonUtils.assertTrue(isPleaseSpecifyTextDisplayed);
+
+                boolean isAcronymTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsAcronymText.getText()
+                                .contentEquals(acronym);
+                CommonUtils.assertTrue(isAcronymTextDisplayed);
+
+                boolean isFiscalYearTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsFiscalYearText
+                                .getText().contentEquals(fiscalYear);
+                CommonUtils.assertTrue(isFiscalYearTextDisplayed);
+
+                boolean isDescriptionTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsDescriptionText
+                                .getText().contentEquals(description);
+                CommonUtils.assertTrue(isDescriptionTextDisplayed);
+
+                boolean isWebsiteURLsTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsWebsiteURLsText
+                                .getText().contentEquals(websiteURLs);
+                CommonUtils.assertTrue(isWebsiteURLsTextDisplayed);
+
+                boolean isfyTheCollaborativeActivityOriginatedTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsFYtheCollaboorativeActivityOriginatedText
+                                .getText().contentEquals(fyTheCollaborativeActivityOriginated);
+                CommonUtils.assertTrue(isfyTheCollaborativeActivityOriginatedTextDisplayed);
+
+                boolean isLeadDocTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsLeadDOCText.getText()
+                                .contentEquals(leadDOC);
+                CommonUtils.assertTrue(isLeadDocTextDisplayed);
+
+                boolean isOtherDocsTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsOtherDOCsText.getText()
+                                .contentEquals(otherDOCs);
+                CommonUtils.assertTrue(isOtherDocsTextDisplayed);
+
+                boolean isPOCTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsPOCText.getText()
+                                .contentEquals(POC);
+                CommonUtils.assertTrue(isPOCTextDisplayed);
+
+                boolean isReferencesTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsReferencesText
+                                .getText().contentEquals(references);
+                CommonUtils.assertTrue(isReferencesTextDisplayed);
+
+                boolean isnihICsODCollaboratorsTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsNihICsODCollaboratorsText
+                                .getText().contentEquals(nihICsODCollaborators);
+                CommonUtils.assertTrue(isnihICsODCollaboratorsTextDisplayed);
+
+                boolean isHHSAgencyCollaboratorsTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsHhsAgencyCollaboratorsText
+                                .getText().contentEquals(HHSAgencyCollaborators);
+                CommonUtils.assertTrue(isHHSAgencyCollaboratorsTextDisplayed);
+
+                boolean isOtherFederalAgencyCollaboratorsTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsOtherFederalAgencyCollaboratorsText
+                                .getText().contentEquals(OtherFederalAgencyCollaborators);
+                CommonUtils.assertTrue(isOtherFederalAgencyCollaboratorsTextDisplayed);
+
+                boolean isTribalStateLocalGovernmentCollaboratorsTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsTribalStateLocalGovernmentCollaboratorsText
+                                .getText().contentEquals(TribalStateLocalGovernmentCollaborators);
+                CommonUtils.assertTrue(isTribalStateLocalGovernmentCollaboratorsTextDisplayed);
+
+                boolean isForeignGovernmentCollaboratorsTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsForeginGovernmentCollaboratorsText
+                                .getText().contentEquals(ForeignGovernmentCollaborators);
+                CommonUtils.assertTrue(isForeignGovernmentCollaboratorsTextDisplayed);
+
+                boolean isNonGovernmentalCollaboratorsTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsNonGovernmentalCollaboratorsText
+                                .getText().contentEquals(NonGovernmentalCollaborators);
+                CommonUtils.assertTrue(isNonGovernmentalCollaboratorsTextDisplayed);
+
+                boolean isOtherCollaboratorsTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsOtherCollaboratorsText
+                                .getText().contentEquals(OtherCollaborators);
+                CommonUtils.assertTrue(isOtherCollaboratorsTextDisplayed);
+
+                boolean isSelectTypeOfCollaborativeActivityTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsSelectTypeOfCollaborativeActivityText
+                                .getText().contentEquals(SelectTypeOfCollaborativeActivity);
+                CommonUtils.assertTrue(isSelectTypeOfCollaborativeActivityTextDisplayed);
+
+                boolean isifCommiteeIsSelectedAboveIsThisAFacaCommitteeTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsIfCommitteeIsSelectedAboveIsThisAFacaCommitteeText
+                                .getText().contentEquals(ifCommiteeIsSelectedAboveIsThisAFacaCommittee);
+                CommonUtils.assertTrue(isifCommiteeIsSelectedAboveIsThisAFacaCommitteeTextDisplayed);
+
+                boolean isisThisCollaborationRelatedToaRegulatoryActivityTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsIsThisCollaborationRelatedToARegulatoryActivityText
+                                .getText().contentEquals(isThisCollaborationRelatedToaRegulatoryActivity);
+                CommonUtils.assertTrue(isisThisCollaborationRelatedToaRegulatoryActivityTextDisplayed);
+
+                boolean iswasNihFundingProvidedForThisActivityTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsWasNihFundingProvidedForThisActivityText
+                                .getText().contentEquals(wasNihFundingProvidedForThisActivity);
+                CommonUtils.assertTrue(iswasNihFundingProvidedForThisActivityTextDisplayed);
+
+                boolean isProductsOutputsTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsProductsOutputsText
+                                .getText().contentEquals(ProductsOutputs);
+                CommonUtils.assertTrue(isProductsOutputsTextDisplayed);
+
+                boolean isifResearchResourcesIsSelectedAboveSpecifyTypeTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsIfResearchResourceIsSelectedAboveSpecifyTypeText
+                                .getText().contentEquals(ifResearchResourceIsSelectedAboveSpecifyType);
+                CommonUtils.assertTrue(isifResearchResourcesIsSelectedAboveSpecifyTypeTextDisplayed);
+
+                boolean isnihStrategicAlignmentTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsNihStrategicAlignmentText
+                                .getText().contentEquals(nihStrategicAlignment);
+                CommonUtils.assertTrue(isnihStrategicAlignmentTextDisplayed);
+
+                boolean ishhsStrategicPlanAlignmentTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsHhsStrategicPlanAlignmentText
+                                .getText().contentEquals(hhsStrategicPlanAlignment);
+                CommonUtils.assertTrue(ishhsStrategicPlanAlignmentTextDisplayed);
+
+                boolean isAuthorTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsAuthorText.getText()
+                                .contentEquals(Author);
+                CommonUtils.assertTrue(isAuthorTextDisplayed);
+
+                // Write code here that turns the phrase above into concrete actions
+                // throw new cucumber.api.PendingException();
         }
 
         @Then("the following fields and their associated data are visible for Top Accomplishments, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
@@ -318,6 +461,7 @@ public class CRS_Reviewers_Steps extends PageInitializer {
                 boolean isAuthorDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsAuthorText.getText()
                                 .contentEquals(author);
                 CommonUtils.assertTrue(isAuthorDisplayed);
+
         }
 
 }
