@@ -228,6 +228,7 @@ public class CRS_Reviewers_Steps extends PageInitializer {
                 NERDKnowledgebasePage
                                 .dynamicXpathNERDKnowledgeBaseTopAccomplishmentPublishedArticle(titleOfPublishedArticle)
                                 .click();
+                CucumberLogUtils.logScreenShot();
         }
 
         @Then("the user is redirected to the Article View of the {string} record")
@@ -373,6 +374,7 @@ public class CRS_Reviewers_Steps extends PageInitializer {
                 boolean isAuthorTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsAuthorText.getText()
                                 .contentEquals(Author);
                 CommonUtils.assertTrue(isAuthorTextDisplayed);
+                CucumberLogUtils.logScreenShot();
 
                 // Write code here that turns the phrase above into concrete actions
                 // throw new cucumber.api.PendingException();
