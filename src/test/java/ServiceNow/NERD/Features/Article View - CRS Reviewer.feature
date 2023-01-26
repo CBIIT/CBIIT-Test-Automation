@@ -1,6 +1,6 @@
 Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishments
 
-  @juarezds @SS-4631 @ReadyForReview @Progression
+  @juarezds @SS-4631 @ReadyForReview @DONE
   Scenario: CRS Reviewer Sees Published Top Accomplishments
     Given a CRS Reviewer "Diane Palmieri" is on the NERD Home Page
     Then there are three knowledge bases called "NERD", "ROCK", and "Moonshot Evaluation"
@@ -11,7 +11,7 @@ Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishments
     Then the "Top Accomplishments" accordion expands
     And a list of all published "Top Accomplishments" records is visible
 
-  @juarezds @ReadyForReview
+  @juarezds @ReadyForReview @Progression
   Scenario: CRS Reviewer Sees Top Accomplishment Fields
     Given a CRS Reviewer "Diane Palmieri" is viewing the list of the published "Top Accomplishments"
     Then there is a record called "The genetics and epigenetics of susceptibility to dietary-induced non-alcoholic fatty liver disease"
