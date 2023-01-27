@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e040bdf-530f-440d-aeb1-be9b0c1a7868" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/conf/env/stage.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/conf/env/stage.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ServiceNow/COVIDDash/Resources/WordFileSample.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ServiceNow/COVIDDash/Resources/Family Cohort Study Consent.pdf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,13 +36,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="JUnit.RunICRPSmokeTest">
+}</component>
+  <component name="RunManager" selected="JUnit.RunCHARMSTestAccountResetTest">
     <configuration name="RunCEDCDSmokeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CBIIT-Test-Automation" />
       <extension name="coverage">
@@ -48,6 +53,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="AnalysisTools.AnalysisToolsRunners" />
       <option name="MAIN_CLASS_NAME" value="AnalysisTools.AnalysisToolsRunners.RunCEDCDSmokeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RunCHARMSTestAccountResetTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CBIIT-Test-Automation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ServiceNow.ServiceNowRunners.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ServiceNow.ServiceNowRunners" />
+      <option name="MAIN_CLASS_NAME" value="ServiceNow.ServiceNowRunners.RunCHARMSTestAccountResetTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -70,6 +90,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RunCHARMSTestAccountResetTest" />
         <item itemvalue="JUnit.RunICRPSmokeTest" />
         <item itemvalue="JUnit.RunCEDCDSmokeTest" />
       </list>
@@ -85,5 +106,8 @@
       <updated>1660942716148</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>
