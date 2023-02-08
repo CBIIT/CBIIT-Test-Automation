@@ -215,7 +215,7 @@ public class CRS_Reviewers_Steps extends PageInitializer {
                                 .dynamicXpathNERDKnowledgeBaseTopAccomplishmentPublishedArticle(publishedArticleTitle)
                                 .getText()
                                 .contentEquals(publishedArticleTitle);
-
+//DEBUG HERE
                 CommonUtils.assertTrue(isArticleDisplayed);
                 CucumberLogUtils.logScreenShot();
         }

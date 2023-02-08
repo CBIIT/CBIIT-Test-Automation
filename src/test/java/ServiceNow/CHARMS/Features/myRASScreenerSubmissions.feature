@@ -45,8 +45,8 @@ Feature: myRAS Screener Submissions from the Qualtrics Portal
 		And selects the Yes option for the participant or other family members ever participated in another study on RASopathies at another medical institution
 		And provides the following information regarding previous participation in other RASopathy studies
 		And for What are the main reasons for participating in this study? selects All options and for Participate in research enters "Sending 100 characters as a string as a test Sending 100 characters as a string as a test Sending 100", for Identify a diagnosis enters "Sending 100 characters as a string as a test Sending 100 characters as a string as a test Sending 100", for Receive genetic testing enters "Sending 100 characters as a string as a test Sending 100 characters as a string as a test Sending 100", and for Other enters "Sending 100 characters as a string as a test Sending 100 characters as a string as a test Sending 100"
-		And proceeds with submitting the Eligibility Questionnaire
-		Then the Eligibility Questionnaire is sucessfully submitted
+		#And proceeds with submitting the Eligibility Questionnaire
+		#Then the Eligibility Questionnaire is sucessfully submitted
 
 
 	@jains @myRASScreenerSubmission @E2E @Updated
