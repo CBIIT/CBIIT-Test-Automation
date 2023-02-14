@@ -48,6 +48,7 @@ public class ICRPSearchSteps extends PageInitializer {
 	public void user_clicks_search() {
 //		WebDriverWait wait = new WebDriverWait(WebDriverUtils.webDriver , 1800); 
 //		wait.until(ExpectedConditions.elementToBeClickable((By.xpath("//*[@class='btn btn-primary ml2']"))));
+		MiscUtils.sleep(5000);
 		icrpSearchDatabase.searchBtn.click();
 		MiscUtils.sleep(5000);
 	}
