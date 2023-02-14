@@ -23,8 +23,8 @@ public class ICRPSearchDatabase extends CommonUtils {
 	@FindBy(xpath = "//*[@tooltip='Enter search terms']")
 	public WebElement searchTxtbox;
 
-	@FindBy(xpath = "(//input[@type='radio'])[4]")
-	public WebElement exactPhraseRadioBtn;
+	@FindBy(xpath = "(//input[@type='radio'])[3]")
+	public WebElement anyOfTheKeywordsBtn;
 
 	@FindBy(xpath = "//tr[@class='ng-star-inserted']")
 	public List<WebElement> projTitles;
@@ -76,6 +76,9 @@ public class ICRPSearchDatabase extends CommonUtils {
 	
 	@FindBy(xpath = "//*[@href='/project/128199']")
 	public WebElement  proj3DPrinting;
+	
+	@FindBy(xpath ="//table/tbody/tr/td[1]/a")
+	public List<WebElement> projectTitles;
 	
 
 	public ICRPSearchDatabase() {
