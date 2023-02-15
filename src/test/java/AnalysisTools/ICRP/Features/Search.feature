@@ -78,3 +78,17 @@ And user clicks search database
 And user selects normal functioning 
 And user clicks search
 Then projects with research area as normal functioning display
+
+@Smoke @uddins2
+Scenario: user emails results
+Given user on ICRP home page
+When user clicks ICRP data
+And user clicks search database
+And user clicks email results
+And user enters name
+And user enters email
+And user clicks send email
+Then email is sent 
+
+
+

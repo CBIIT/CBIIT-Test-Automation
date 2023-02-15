@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
-public class ICRPSearchDatabase extends CommonUtils {
+public class ICRPSearchDatabasePage extends CommonUtils {
 
 	@FindBy(xpath = "//*[@class='btn btn-primary ml2']")
 	public WebElement searchBtn;
@@ -80,8 +80,22 @@ public class ICRPSearchDatabase extends CommonUtils {
 	@FindBy(xpath ="//table/tbody/tr/td[1]/a")
 	public List<WebElement> projectTitles;
 	
+	@FindBy(xpath = "(//*[contains(text(),' Email')])[1]")
+	public WebElement emailResultsBtn;
 
-	public ICRPSearchDatabase() {
+	@FindBy(xpath = "//input[@id='name']")
+	public WebElement emailNameTxtbox;	
+	
+	@FindBy(xpath = "//input[@placeholder='Enter multiple email recipients, separated by commas']")
+	public WebElement emailRecipientTxtbox;
+	
+	@FindBy(xpath = "//button[normalize-space()='Send Email']")
+	public WebElement emailSubmitBtn;
+	
+	@FindBy(xpath = "//div[contains(text(),'Your email has been sent successfully!')]")
+	public WebElement emailSuccessMsg;
+
+	public ICRPSearchDatabasePage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 

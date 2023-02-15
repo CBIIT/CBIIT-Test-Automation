@@ -12,7 +12,7 @@ import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortsCategoriesOfDat
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
 import AnalysisTools.ICRP.Pages.ICRPHomePage;
-import AnalysisTools.ICRP.Pages.ICRPSearchDatabase;
+import AnalysisTools.ICRP.Pages.ICRPSearchDatabasePage;
 import AnalysisTools.JPSurv.Pages.JPSurvHomePage;
 import AnalysisTools.Comets2.Pages.Comets2Page;
 import AnalysisTools.CEDCD.Steps.CEDCDStartUps;
@@ -181,7 +181,7 @@ public class PageInitializer {
 
 	/** ICRP instances **/
 	protected static ICRPHomePage icrpHomePage; 
-	protected static ICRPSearchDatabase icrpSearchDatabase; 
+	protected static ICRPSearchDatabasePage icrpSearchDatabasePage; 
 	
 	/** JPSurv instances **/ 
 	protected static JPSurvHomePage jpsurvHomePage; 
@@ -249,7 +249,7 @@ public class PageInitializer {
 		cedcdAdminPage = new CEDCDAdminPage();
 		cedcdCohortPage = new CEDCDCohortPage();
 		icrpHomePage = new ICRPHomePage();
-		icrpSearchDatabase = new ICRPSearchDatabase();
+		icrpSearchDatabasePage = new ICRPSearchDatabasePage();
 		comets2Page = new Comets2Page();
 		signatureVisualizationsPage = new SignatureVisualizationsPage();
 		mSigPortalHomePage = new MSigPortalHomePage();
