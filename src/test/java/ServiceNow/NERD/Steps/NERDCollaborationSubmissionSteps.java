@@ -1,9 +1,15 @@
 package ServiceNow.NERD.Steps;
 
+import ServiceNow.NERD.Pages.NERDDOCCollaborationsPage;
 import ServiceNow.NERD.StepsImplementation.NERDApplicationStepsImplementation;
-import ServiceNow.NERD.StepsImplementation.NERD_NCI_DOCPlaningContactStepsImplementation;
+import ServiceNow.NERD.StepsImplementation.NERD_NCI_DOC_PlanningContactStepsImplementation;
 import com.nci.automation.web.JavascriptUtils;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
@@ -12,6 +18,7 @@ import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import oracle.net.aso.c;
 
 public class NERDCollaborationSubmissionSteps extends PageInitializer {
     public static String title = "Title" + CommonUtils.getDateAsString();
@@ -68,7 +75,7 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
             String underReview) throws TestingException {
         NERDApplicationStepsImplementation.creatingOfNewSubmissionByStaffMember("AutomationTest");
         NERDApplicationStepsImplementation.verifyingSubmissionIsUnderReview("AutomationTest", underReview);
-        NERD_NCI_DOCPlaningContactStepsImplementation.deleteCreatedSubmissionByDocPlanningContact("AutomationTest");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.deleteCreatedSubmissionByDocPlanningContact("AutomationTest");
     }
 
     @Given("a Regular User has submitted a Collaboration")
@@ -80,13 +87,32 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
         NERDApplicationStepsImplementation.creatingOfNewSubmissionByStaffMember("Diego Test");
     }
 
-    @When("the DOC Planning Contact locates the record in their Collaboration queue")
-    public void the_DOC_Planning_Contact_locates_the_record_in_their_Collaboration_queue()
+    @When("the DOC Planning Contact locates the record {string} in their Collaboration queue")
+    public void the_DOC_Planning_Contact_locates_the_record_in_their_Collaboration_queue(String nameOfRecord)
             throws TestingException {
         nativeViewImpersonateUser.impersonateToDocPlanningContact();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         NERDApplicationStepsImplementation.clickingOnCollaborationsLink();
-        JavascriptUtils.scrollIntoView(nerdDynamicXpaths.publishedCollaboration(" "));
+        JavascriptUtils.scrollIntoView(nerdDynamicXpaths.publishedCollaboration(nameOfRecord));
     }
 
+    @When("clicks the Edit button for the record {string}")
+    public void clicks_the_Edit_button_for_the_record(String nameOfRecord) {
+        nerdDynamicXpaths.editButton(nameOfRecord).click();
+    }
+
+    @When("lands on the submission edit page for author {string}")
+    public void lands_on_the_submission_edit_page_for_author(String author) {
+        CommonUtils.switchToAnotherWindow();
+        MiscUtils.sleep(3000);
+        String actualText = NERDDOCCollaborationsPage.authorText(author).getText();
+        CommonUtils.assertEquals(actualText, author);
+    }
+
+    @Then("the Rank field is not visible and {string} collaboration is deleted for Automation Testing")
+    public void the_Rank_field_is_not_visible_and_collaboration_is_deleted_for_Automation_Testing(
+            String collaborationName) throws TestingException {
+        NERD_NCI_DOC_PlanningContactStepsImplementation
+                .verifyingRankFieldIsNotDisplayedOnCollaborationForm(collaborationName);
+    }
 }

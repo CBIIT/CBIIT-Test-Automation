@@ -2,7 +2,7 @@ package ServiceNow.NERD.Steps;
 
 import ServiceNow.NERD.StepsImplementation.NERDApplicationStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERD_NCI_CRSReviewerStepsImplementation;
-import ServiceNow.NERD.StepsImplementation.NERD_NCI_DOCPlaningContactStepsImplementation;
+import ServiceNow.NERD.StepsImplementation.NERD_NCI_DOC_PlanningContactStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERD_NCI_StaffMemberStepsImplementation;
 import org.junit.Assert;
 
@@ -26,7 +26,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
             throws TestingException {
         nativeViewLoginImpl.sideDoorAccountLogin();
         NERD_NCI_StaffMemberStepsImplementation.creatingOfSubmissionByProgramStaff("TestingCRSReviewer");
-        NERD_NCI_DOCPlaningContactStepsImplementation.submittingOfSubmissionToCRSReviewer("TestingCRSReviewer");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.submittingOfSubmissionToCRSReviewer("TestingCRSReviewer");
         NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer("TestingCRSReviewer");
         NERDApplicationStepsImplementation.returningOfSubmission("TestingCRSReviewer");
     }
@@ -35,7 +35,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
     public void the_and_field_values_are_cleared_and_are_required(String PleaseSpecify, String FiscalYear)
             throws TestingException {
         NERDApplicationStepsImplementation.openingNewTabToEditSubmission("TestingCRSReviewer");
-        NERD_NCI_DOCPlaningContactStepsImplementation.verifyingByDOCContactThatFieldsOfSubmissionAreClearedAndRequired("TestingCRSReviewer", PleaseSpecify, FiscalYear);
+        NERD_NCI_DOC_PlanningContactStepsImplementation.verifyingByDOCContactThatFieldsOfSubmissionAreClearedAndRequired("TestingCRSReviewer", PleaseSpecify, FiscalYear);
         NERDApplicationStepsImplementation.deletingOfSubmission("TestingCRSReviewer");
     }
 
@@ -45,13 +45,13 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
                 nerdDynamicXpaths.returnedToDOCText("TestingCRSReviewer").getText().contentEquals(ReturnedToDOC));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnedToDOCText("TestingCRSReviewer"));
         MiscUtils.sleep(2000);
-        NERD_NCI_DOCPlaningContactStepsImplementation.deleteCreatedSubmissionByDocPlanningContact("TestingCRSReviewer");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.deleteCreatedSubmissionByDocPlanningContact("TestingCRSReviewer");
     }
 
     @When("the DOC Planning Contact fills out the {string} and {string} field")
     public void the_DOC_Planning_Contact_fills_out_the_and_field(String PleaseSpecify, String FiscalYear)
             throws TestingException {
-        NERD_NCI_DOCPlaningContactStepsImplementation.fillingOutRequiredFieldsByDOCPlaningContact("TestingCRSReviewer", PleaseSpecify, FiscalYear);
+        NERD_NCI_DOC_PlanningContactStepsImplementation.fillingOutRequiredFieldsByDOCPlaningContact("TestingCRSReviewer", PleaseSpecify, FiscalYear);
     }
 
     @When("returns the Collaboration to the Program Staff")
@@ -88,24 +88,24 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
     public void the_submitted_Collaboration_shows_as_in_the_Submissions_page(String UnderReview)
             throws TestingException {
         NERDApplicationStepsImplementation.verifyingSubmissionIsUnderReview("TestingUnderReviewText", UnderReview);
-        NERD_NCI_DOCPlaningContactStepsImplementation.deleteCreatedSubmissionByDocPlanningContact("TestingUnderReviewText");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.deleteCreatedSubmissionByDocPlanningContact("TestingUnderReviewText");
     }
 
     @Given("a published Collaboration has been returned to the Program Staff with the article version number as {string}")
     public void a_published_Collaboration_has_been_returned_to_the_Program_Staff_with_the_article_version_number_as(String versionNumber) throws TestingException {
         nativeViewLoginImpl.sideDoorAccountLogin();
         NERD_NCI_StaffMemberStepsImplementation.creatingOfSubmissionByProgramStaff(CommonUtils.email);
-        NERD_NCI_DOCPlaningContactStepsImplementation.submittingOfSubmissionToCRSReviewer(CommonUtils.email);
+        NERD_NCI_DOC_PlanningContactStepsImplementation.submittingOfSubmissionToCRSReviewer(CommonUtils.email);
         NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer(CommonUtils.email);
         NERDApplicationStepsImplementation.returningOfSubmission(CommonUtils.email);
         NERDApplicationStepsImplementation.verifyingArticleVersionNumber(versionNumber);
-        NERD_NCI_DOCPlaningContactStepsImplementation.editingAndReturningSubmissionToProgramStaff(CommonUtils.email);
+        NERD_NCI_DOC_PlanningContactStepsImplementation.editingAndReturningSubmissionToProgramStaff(CommonUtils.email);
     }
 
     @When("the Program Staff resubmits the article to the DOC Planning Contact")
     public void the_Program_Staff_resubmits_the_article_to_the_DOC_Planning_Contact() throws TestingException {
         NERD_NCI_StaffMemberStepsImplementation.submittingOfApplicationToDocPlaningContact(CommonUtils.email);
-        NERD_NCI_DOCPlaningContactStepsImplementation.submittingOfSubmissionToCRSReviewer(CommonUtils.email);
+        NERD_NCI_DOC_PlanningContactStepsImplementation.submittingOfSubmissionToCRSReviewer(CommonUtils.email);
     }
 
     @Then("the article is incremented one major version number as {string}")
@@ -113,21 +113,21 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
         NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer(CommonUtils.email);
         NERDApplicationStepsImplementation.verifyingIncrementedArticleVersionNumber(versionNumber);
         NERDApplicationStepsImplementation.returningOfSubmissionToDOCPlaningContact(CommonUtils.email);
-        NERD_NCI_DOCPlaningContactStepsImplementation.deleteCreatedSubmissionByDocPlanningContact(CommonUtils.email);
+        NERD_NCI_DOC_PlanningContactStepsImplementation.deleteCreatedSubmissionByDocPlanningContact(CommonUtils.email);
     }
 
     @Given("a published Collaboration is returned to the DOC Planning Contact")
     public void a_published_Collaboration_is_returned_to_the_DOC_Planning_Contact() throws TestingException {
         nativeViewLoginImpl.sideDoorAccountLogin();
         NERD_NCI_StaffMemberStepsImplementation.creatingOfSubmissionByProgramStaff("CollaborationAutomationTest");
-        NERD_NCI_DOCPlaningContactStepsImplementation.submittingOfSubmissionToCRSReviewer("CollaborationAutomationTest");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.submittingOfSubmissionToCRSReviewer("CollaborationAutomationTest");
         NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer("CollaborationAutomationTest");
         NERDApplicationStepsImplementation.returningOfSubmission("CollaborationAutomationTest");
     }
 
     @Given("the DOC Planning Contact resubmits the submission")
     public void the_DOC_Planning_Contact_resubmits_the_submission() throws TestingException {
-        NERD_NCI_DOCPlaningContactStepsImplementation.resubmittingOfSubmissionByDOCContactToCRSREviewer("CollaborationAutomationTest");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.resubmittingOfSubmissionByDOCContactToCRSREviewer("CollaborationAutomationTest");
     }
 
     @When("the CRS Reviewer returns the submission once more")
@@ -140,13 +140,13 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnedToDOCText("CollaborationAutomationTest"));
         CucumberLogUtils.logScreenShot();
         MiscUtils.sleep(1000);
-        NERD_NCI_DOCPlaningContactStepsImplementation.deleteCreatedSubmissionByDocPlanningContact("CollaborationAutomationTest");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.deleteCreatedSubmissionByDocPlanningContact("CollaborationAutomationTest");
     }
 
     @Given("a DOC Planning Contact creates a Collaboration submission")
     public void a_DOC_Planning_Contact_creates_a_Collaboration_submission() throws TestingException {
         nativeViewLoginImpl.sideDoorAccountLogin();
-        NERD_NCI_DOCPlaningContactStepsImplementation.creatingOfCollaborationSubmissionByDOCPlaningContact(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink, "DOCPlanContactCreateCollabarationTest");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.creatingOfCollaborationSubmissionByDOCPlaningContact(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink, "DOCPlanContactCreateCollabarationTest");
     }
 
     @Then("they are able to return the submission to a Program Staff in the same DOC")
@@ -159,7 +159,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
     public void a_Collaboration_has_been_returned_to_a_Program_Staff() throws TestingException {
         nativeViewLoginImpl.sideDoorAccountLogin();
         NERD_NCI_StaffMemberStepsImplementation.creatingOfSubmissionByProgramStaff("TestCollaborationReturnToStaff");
-        NERD_NCI_DOCPlaningContactStepsImplementation.returningSubmissionToProgramStaffByDOCContact("TestCollaborationReturnToStaff");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.returningSubmissionToProgramStaffByDOCContact("TestCollaborationReturnToStaff");
     }
 
     @Then("the Collaboration shows as {string} in the Submission page")
@@ -172,14 +172,14 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
     public void a_published_Collaboration_started_by_a_Program_Staff_has_been_returned_to_the_DOC_Planning_Contact() throws TestingException {
         nativeViewLoginImpl.sideDoorAccountLogin();
         NERD_NCI_StaffMemberStepsImplementation.creatingOfSubmissionByProgramStaff("TestingAuthorSubmission");
-        NERD_NCI_DOCPlaningContactStepsImplementation.submittingOfSubmissionToCRSReviewer("TestingAuthorSubmission");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.submittingOfSubmissionToCRSReviewer("TestingAuthorSubmission");
         NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer("TestingAuthorSubmission");
         NERDApplicationStepsImplementation.returningOfSubmissionToDOCPlaningContact("TestingAuthorSubmission");
     }
 
     @Given("the DOC Planning Contact returns the Collaboration to the Program Staff")
     public void the_DOC_Planning_Contact_returns_the_Collaboration_to_the_Program_Staff() throws TestingException {
-        NERD_NCI_DOCPlaningContactStepsImplementation.returningSubmissionToProgramStaffByDOCContact("TestingAuthorSubmission");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.returningSubmissionToProgramStaffByDOCContact("TestingAuthorSubmission");
     }
 
     @Then("the author will show as the Program Staff user who originally created the Submission")
@@ -191,7 +191,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
     @Given("a DOC Planning Contact creates a Collaboration")
     public void a_DOC_Planning_Contact_creates_a_Collaboration() throws TestingException {
         nativeViewLoginImpl.sideDoorAccountLogin();
-        NERD_NCI_DOCPlaningContactStepsImplementation.creatingOfCollaborationSubmissionByDOCPlaningContact(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink, "DOCPlanContactCreateCollabarationSubmission");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.creatingOfCollaborationSubmissionByDOCPlaningContact(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink, "DOCPlanContactCreateCollabarationSubmission");
     }
 
     @Then("they are able to return the Collaboration to a Program Staff user")

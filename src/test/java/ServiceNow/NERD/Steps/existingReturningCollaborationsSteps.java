@@ -4,7 +4,7 @@ import java.util.Set;
 
 import ServiceNow.NERD.StepsImplementation.NERDApplicationStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERD_NCI_CRSReviewerStepsImplementation;
-import ServiceNow.NERD.StepsImplementation.NERD_NCI_DOCPlaningContactStepsImplementation;
+import ServiceNow.NERD.StepsImplementation.NERD_NCI_DOC_PlanningContactStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERD_NCI_StaffMemberStepsImplementation;
 import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -61,7 +61,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
     @Then("the status of the Collaboration reads {string}")
     public void the_status_of_the_Collaboration_reads(String returnedToDoc) throws TestingException {
         NERDApplicationStepsImplementation.verifyingReturnedDOCStatus("NCI Cancer Data Standards Repository and Registry (caDSR)", returnedToDoc);
-        NERD_NCI_DOCPlaningContactStepsImplementation.resubmittingOfSubmissionByDOCContactToCRSREviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.resubmittingOfSubmissionByDOCContactToCRSREviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
         NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
     }
 
@@ -79,7 +79,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
     public void a_DOC_Planning_Contact_is_on_the_Submissions_page() throws TestingException {
         nativeViewLoginImpl.sideDoorAccountLogin();
         NERD_NCI_CRSReviewerStepsImplementation.returningOfSubmissionByCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
-        NERD_NCI_DOCPlaningContactStepsImplementation.docPlaningContactIsOnSubmissionsPage("Submissions");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.docPlaningContactIsOnSubmissionsPage("Submissions");
 
     }
 
@@ -117,7 +117,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
             String nCICancerDataStandardsRepositoryAndRegistrycaDSR) throws TestingException {
         nativeViewLoginImpl.sideDoorAccountLogin();
         NERD_NCI_CRSReviewerStepsImplementation.returningOfSubmissionByCRSReviewer(nCICancerDataStandardsRepositoryAndRegistrycaDSR);
-        NERD_NCI_DOCPlaningContactStepsImplementation.docPlaningContactIsOnSubmissionsPage("Submissions");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.docPlaningContactIsOnSubmissionsPage("Submissions");
         NERDApplicationStepsImplementation.locatingOfCollaboration(nCICancerDataStandardsRepositoryAndRegistrycaDSR);
         NERDApplicationStepsImplementation.clickingOnEditButtonWhenReturningCollaboration(nCICancerDataStandardsRepositoryAndRegistrycaDSR, "Edit");
         NERDApplicationStepsImplementation.openingNewTabToEditSubmission(nCICancerDataStandardsRepositoryAndRegistrycaDSR);
@@ -169,7 +169,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
     public void the_status_of_the_Collaboration_will_read(String returnedToStaffMember) throws TestingException {
         NERDApplicationStepsImplementation.verifyingReturnedToStaffMemberStatus("NCI Cancer Data Standards Repository and Registry (caDSR)", returnedToStaffMember);
         NERD_NCI_StaffMemberStepsImplementation.editingAndSubmittingOfCollaborationToDOCPlaningContact("NCI Cancer Data Standards Repository and Registry (caDSR)");
-        NERD_NCI_DOCPlaningContactStepsImplementation.submittingOfSubmissionToCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.submittingOfSubmissionToCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
         NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
     }
 
@@ -187,7 +187,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
     public void a_Program_Staff_is_on_the_Submissions_page() throws TestingException {
         nativeViewLoginImpl.sideDoorAccountLogin();
         NERD_NCI_CRSReviewerStepsImplementation.returningOfSubmissionByCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
-        NERD_NCI_DOCPlaningContactStepsImplementation.editingAndReturningSubmissionToProgramStaff("NCI Cancer Data Standards Repository and Registry (caDSR)");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.editingAndReturningSubmissionToProgramStaff("NCI Cancer Data Standards Repository and Registry (caDSR)");
         NERD_NCI_StaffMemberStepsImplementation.locatingProgramStaffMemberToSubmissionsPage("NERD");
     }
 
@@ -200,7 +200,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
     public void the_and_fields_are_not_cleared_and_retain_the_values_entered_by_the_DOC_Planning_Contact(
             String pleaseSpecifyText, String fiscalYearText) throws TestingException {
         NERDApplicationStepsImplementation.verifyingThatFieldsOfSubmissionAreNotClearedAndRequired();
-        NERD_NCI_DOCPlaningContactStepsImplementation.submittingOfSubmissionToCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.submittingOfSubmissionToCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
         NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
     }
 
@@ -242,7 +242,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
     public void the_Status_of_the_Program_Staff_submission_reads(String nciCancerDataStandardsRepositoryAndRegistry,
                                                                  String underReview) throws TestingException {
         NERDApplicationStepsImplementation.verifyingSubmissionIsUnderReview(nciCancerDataStandardsRepositoryAndRegistry, underReview);
-        NERD_NCI_DOCPlaningContactStepsImplementation.submittingOfSubmissionToCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.submittingOfSubmissionToCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
         NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
 
     }
