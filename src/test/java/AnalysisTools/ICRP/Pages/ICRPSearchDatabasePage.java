@@ -94,6 +94,13 @@ public class ICRPSearchDatabasePage extends CommonUtils {
 	
 	@FindBy(xpath = "//div[contains(text(),'Your email has been sent successfully!')]")
 	public WebElement emailSuccessMsg;
+	
+	
+	@FindBy(xpath = "//button[normalize-space()='Export']")
+	public WebElement exportBtn;
+	
+	@FindBy(xpath = "//a[normalize-space()='Projects (Multi-Sheets)']")
+	public WebElement projectMultisheetBtn;
 
 	public ICRPSearchDatabasePage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);

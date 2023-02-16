@@ -251,5 +251,22 @@ public class ICRPSearchSteps extends PageInitializer {
 		
 		Assert.assertEquals("Your email has been sent successfully!", icrpSearchDatabasePage.emailSuccessMsg.getText());		
 	}
+	
+	
+	@When("user clicks export button")
+	public void user_clicks_export_button() {
+	    icrpSearchDatabasePage.exportBtn.click();
+	}
+	
+	@When("user clicks projects multisheet")
+	public void user_clicks_projects_multisheet() {
+		 icrpSearchDatabasePage.projectMultisheetBtn.click();
+	}
+	
+	@Then("data is exported")
+	public void data_is_exported() {
+		Assert.assertTrue(icrpSearchDatabasePage.projectTitles.get(1).isDisplayed());
+	   
+	}
 
 }

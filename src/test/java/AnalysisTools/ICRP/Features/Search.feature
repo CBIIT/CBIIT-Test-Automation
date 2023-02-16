@@ -90,5 +90,15 @@ And user enters email
 And user clicks send email
 Then email is sent 
 
+@Smoke @uddins2
+Scenario: user exports default projects
+Given user on ICRP home page
+When user clicks ICRP data
+And user clicks search database
+And user clicks export button
+And user clicks projects multisheet
+Then data is exported
+
+
 
 
