@@ -2,13 +2,10 @@ package ServiceNow.NERD.Steps;
 
 import ServiceNow.NERD.Pages.NERDDOCCollaborationsPage;
 import ServiceNow.NERD.StepsImplementation.NERDApplicationStepsImplementation;
+import ServiceNow.NERD.StepsImplementation.NERD_NCI_CRSReviewerStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERD_NCI_DOC_PlanningContactStepsImplementation;
 import com.nci.automation.web.JavascriptUtils;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
-import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
@@ -18,7 +15,6 @@ import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import oracle.net.aso.c;
 
 public class NERDCollaborationSubmissionSteps extends PageInitializer {
         public static String title = "Title" + CommonUtils.getDateAsString();
@@ -122,5 +118,43 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
                         String collaborationName) throws TestingException {
                 NERD_NCI_DOC_PlanningContactStepsImplementation
                                 .verifyingRankFieldIsNotDisplayedOnCollaborationForm(collaborationName);
+        }
+
+        @Given("a DOC Planning Contact clicks the Submit to CRS button for a Collaboration {string}")
+        public void a_DOC_Planning_Contact_clicks_the_Submit_to_CRS_button_for_a_Collaboration(String nameOfRecord)
+                        throws TestingException {
+
+                nativeViewLoginImpl.sideDoorAccountLogin();
+                WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+                NERDApplicationStepsImplementation.creatingNewSubmission(
+                                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink);
+                NERDApplicationStepsImplementation.creatingOfNewSubmissionByStaffMember("Diego Test");
+                nativeViewImpersonateUser.impersonateToDocPlanningContact();
+                WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+
+                NERDApplicationStepsImplementation.clickingOnCollaborationsLink();
+                MiscUtils.sleep(1000);
+                JavascriptUtils.scrollIntoView(nerdDynamicXpaths.publishedCollaboration(nameOfRecord));
+                nerdDynamicXpaths.submitToCRSButton(nameOfRecord).click();
+                CommonUtils.waitForVisibility(
+                                nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton);
+                nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton.click();
+                CommonUtils.waitForVisibility(
+                                nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
+                nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton.click();
+        }
+
+        @When("the CRS Reviewer locates the record {string} in the Submissions page")
+        public void the_CRS_Reviewer_locates_the_record_in_the_Submissions_page(String collaborationName)
+                        throws TestingException {
+                NERD_NCI_CRSReviewerStepsImplementation.crsReviewerIsOnSubmissionsPage(collaborationName);
+                CommonUtils.waitForVisibility(nerdDynamicXpaths.publishedCollaboration(collaborationName));
+                JavascriptUtils.scrollIntoView(nerdDynamicXpaths.publishedCollaboration(collaborationName));
+        }
+
+        @Then("the Rank field is not visible and {string} collaboration is deleted")
+        public void the_Rank_field_is_not_visible_and_collaboration_is_deleted(String collaborationName) {
+                NERD_NCI_CRSReviewerStepsImplementation
+                                .verifyingRankFieldIsNotDisplayedAndDeletingSubmission(collaborationName);
         }
 }

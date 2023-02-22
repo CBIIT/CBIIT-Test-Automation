@@ -12,10 +12,10 @@ Feature: Collaborations Scenerios
     And lands on the submission edit page for author "CBIIT Test Account"
     Then the Rank field is not visible and "Diego Test" collaboration is deleted for Automation Testing
 
-  @New @juarezds
+  @New @juarezds @DONE
   Scenario: NIH strategic alignment (Secondary Optional) and HHS Strategic Plan Alignment (Secondary Optional) field should not be visible
-    Given a DOC Planning Contact clicks the "Submit to CRS" button for a Collaboration
-    When the CRS Reviewer locates the record in the Submissions page
-    And clicks the "Edit" button for the record
-    And lands on the submission edit page
-    Then the "Rank" field is not visible
+    Given a DOC Planning Contact clicks the Submit to CRS button for a Collaboration "Diego Test"
+    When the CRS Reviewer locates the record "Diego Test" in the Submissions page
+    And clicks the Edit button for the record "Diego Test"
+    And lands on the submission edit page for author "CBIIT Test Account"
+    Then the Rank field is not visible and "Diego Test" collaboration is deleted

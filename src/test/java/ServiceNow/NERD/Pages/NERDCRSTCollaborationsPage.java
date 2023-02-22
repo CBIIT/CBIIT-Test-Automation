@@ -89,6 +89,14 @@ public class NERDCRSTCollaborationsPage {
     @FindBy(xpath = "//h4[contains(text(),'Author')]")
     public WebElement nerdCollaborationsAuthorText;
 
+    /** Cancel Button */
+    @FindBy(xpath = "//span[normalize-space()='Cancel']")
+    public WebElement cancelButton;
+
+    /** Yes Pop up button */
+    @FindBy(xpath = "//button[@ng-click='c.deleteSubmission()']")
+    public WebElement yesPopUpButton;
+
     public NERDCRSTCollaborationsPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
