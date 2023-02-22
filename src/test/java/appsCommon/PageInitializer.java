@@ -287,5 +287,6 @@ public class PageInitializer {
 		nerdKnowledgeBasePage = new NERDKnowledgebasePage();
 		nerdCRSTopAccomplishmentsPage = new NERDCRSTopAccomplishmentsPage();
 		nerdDOCCollaborationsPage = new NERDDOCCollaborationsPage();
+		nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
 	}
 }

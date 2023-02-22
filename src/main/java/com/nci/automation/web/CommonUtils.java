@@ -10,10 +10,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -26,9 +24,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
-
-import com.nci.automation.utils.LocalConfUtils;
 import com.nci.automation.utils.MiscUtils;
 
 /**
@@ -36,7 +31,7 @@ import com.nci.automation.utils.MiscUtils;
  * through out any application. New methods can be added at any time. Modifying
  * the existing methods may result in build failure. - Please
  * 
- * @author Sohil
+ * @author juarezds
  */
 public class CommonUtils extends WebDriverUtils {
 
