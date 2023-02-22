@@ -86,7 +86,7 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
         nativeViewImpersonateUser.impersonateToDocPlanningContact();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         NERDApplicationStepsImplementation.clickingOnCollaborationsLink();
-        JavascriptUtils.scrollIntoView(nerdDynamicXpaths.publishedCollaboration(" "));
+        JavascriptUtils.scrollIntoView(nerdDynamicXpaths.publishedCollaboration("Diego Test"));
     }
 
 }

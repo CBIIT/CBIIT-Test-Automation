@@ -4,7 +4,7 @@ Feature: Collaborations Scenerios
   Scenario: Saving Collaboration submission with data verification
     Given a Program Staff member is on the CRS Knowledge Management System "Submissions" page
 
-  @New @juarezds
+  @New @juarezds @Progression
   Scenario: NIH strategic alignment (Secondary Optional) and HHS Strategic Plan Alignment (Secondary Optional) field should not be visible
     Given a Regular User has submitted a Collaboration
     When the DOC Planning Contact locates the record in their Collaboration queue
