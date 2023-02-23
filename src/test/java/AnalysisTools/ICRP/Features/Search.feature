@@ -12,7 +12,7 @@ And user selects any of the keywords
 And user clicks search
 Then study titled "Glioma organoids as patient avatars to improve precision medicine" is displayed
 
-#failed
+
 @Smoke @uddins2 
 Scenario: User searches with default parameters 
 Given user on ICRP home page 

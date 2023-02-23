@@ -74,6 +74,7 @@ public class ICRPSearchSteps extends PageInitializer {
 	public void study_titled_is_displayed(String gliomaOrganoids) {
 //		Assert.assertTrue(icrpSearchDatabasePage.projTitles.size() == 1);
 //		Assert.assertTrue(icrpSearchDatabasePage.projGliomaOrganoids.getText().contentEquals(gliomaOrganoids));
+		MiscUtils.sleep(5000);
 		Assert.assertTrue(icrpSearchDatabasePage.projectTitles.get(1).isDisplayed());
 
 	}

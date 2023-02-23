@@ -15,10 +15,13 @@ public class JPSurvHomePage extends CommonUtils{
 		
 	}
 	
-	public String dicFilePath = "/Users/uddins2/git/CBIIT-Test-Automation/src/test/resources/SEER9_Survival_6CancerSitesByStage_1975_2007.dic";
-	public String txtFilePath = "/Users/uddins2/git/CBIIT-Test-Automation/src/test/resources/SEER9_Survival_6CancerSitesByStage_1975_2007.txt"; 
+	public String dicFilePath = "./src/test/resources/SEER9_Survival_6CancerSitesByStage_1975_2007.dic";
+	public String txtFilePath = "./src/test/resources/SEER9_Survival_6CancerSitesByStage_1975_2007.txt"; 
+	public String csvFilePath = "./src/test/resources/Breast_RelativeSurvival_Head_NA0.csv";
+	public String workspaceFilePath ="./src/test/resources/6f0198be-e61b-4528-815d-5716267aa5cc-Tutorial_JPSURV_2.jpsurv";
 	
-/**================================================= Input Section =======================================================*/
+	
+	/**================================================= Input Section =======================================================*/
 	
 	/** Files Format Text*/
 	@FindBy(xpath = "//*[@id = 'inputTypeLabel'")
@@ -29,7 +32,7 @@ public class JPSurvHomePage extends CommonUtils{
 	public WebElement dicRadioBtn; 
 	
 	/** CSV Radio Button */
-	@FindBy(xpath = "//*[@aria-label = 'csv'")
+	@FindBy(xpath = "//label[normalize-space()='CSV Files']")
 	public WebElement csvRadioBtn;
 	
 	/** Work Space Radio Button */
@@ -48,9 +51,25 @@ public class JPSurvHomePage extends CommonUtils{
 	@FindBy(xpath = "//*[@id='file_control']")
 	public WebElement fileInputTextbox; 
 	
+	/**CVS and Workspace Input **/
+	@FindBy(xpath = "//input[@id='fileSelect']")
+	public WebElement cvsAndWorkspaceFileInputTextbox; 
+	
 	/**Upload Btn **/
 	@FindBy(xpath = "//*[@id='upload_dictxt']")
 	public WebElement fileUploadBtn; 
+	
+	
+
+	
+	
+	/**Configure CSV Btn **/
+	@FindBy(xpath = "//button[@id='Adv_input']")
+	public WebElement configureCSVbtn; 
+	
+	/**Configure import Btn **/
+	@FindBy(xpath = "//label[normalize-space()='Workspace']")
+	public WebElement WorkspaceRadiobtn; 
 	
 	
 /**================================================= Cohort Model and Specification =======================================================*/
