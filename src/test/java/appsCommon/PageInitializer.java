@@ -1,6 +1,5 @@
 package appsCommon;
 
-import com.sun.xml.bind.v2.model.core.ID;
 import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
 import AnalysisTools.CEDCD.Pages.CEDCDBiospecimenCountsPage;
 import AnalysisTools.CEDCD.Pages.CEDCDCohortPage;
@@ -67,7 +66,9 @@ import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
 import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
+import ServiceNow.NERD.Pages.NERDCRSTCollaborationsPage;
 import ServiceNow.NERD.Pages.NERDCRSTopAccomplishmentsPage;
+import ServiceNow.NERD.Pages.NERDDOCCollaborationsPage;
 import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
 import ServiceNow.NERD.Pages.NERDHomePage;
 import ServiceNow.NERD.Pages.NERDKnowledgebasePage;
@@ -178,6 +179,8 @@ public class PageInitializer {
 	protected static NERDHomePage nerdHomePage;
 	protected static NERDKnowledgebasePage nerdKnowledgeBasePage;
 	protected static NERDCRSTopAccomplishmentsPage nerdCRSTopAccomplishmentsPage;
+	protected static NERDCRSTCollaborationsPage nerdCRSTCollaborationsPage; 
+	protected static NERDDOCCollaborationsPage nerdDOCCollaborationsPage;
 
 	/** Comets 2.0 Instances */
 	protected static Comets2Page comets2Page;
@@ -283,6 +286,7 @@ public class PageInitializer {
 		nerdHomePage = new NERDHomePage();
 		nerdKnowledgeBasePage = new NERDKnowledgebasePage();
 		nerdCRSTopAccomplishmentsPage = new NERDCRSTopAccomplishmentsPage();
-
+		nerdDOCCollaborationsPage = new NERDDOCCollaborationsPage();
+		nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
 	}
 }

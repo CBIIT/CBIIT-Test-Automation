@@ -10,10 +10,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -26,9 +24,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
-
-import com.nci.automation.utils.LocalConfUtils;
 import com.nci.automation.utils.MiscUtils;
 
 /**
@@ -36,7 +31,7 @@ import com.nci.automation.utils.MiscUtils;
  * through out any application. New methods can be added at any time. Modifying
  * the existing methods may result in build failure. - Please
  * 
- * @author Sohil
+ * @author juarezds
  */
 public class CommonUtils extends WebDriverUtils {
 
@@ -482,13 +477,16 @@ public class CommonUtils extends WebDriverUtils {
 	/**
 	 * Use this method to switch to the next another open window
 	 */
-	public static void swicthToAnotherWindow() {
+	public static void switchToAnotherWindow() {
 		Set<String> handlingAllOpenWindows = WebDriverUtils.webDriver.getWindowHandles();
 		for (String nextWindow : handlingAllOpenWindows) {
 			WebDriverUtils.webDriver.switchTo().window(nextWindow);
 		}
 	}
 
+	/*
+	 * Use this method to scroll into an element
+	 */
 	public static void scrollIntoView(By locator) {
 		try {
 			WebElement element = WebDriverUtils.webDriver.findElement(locator);
@@ -500,6 +498,9 @@ public class CommonUtils extends WebDriverUtils {
 		}
 	}
 
+	/*
+	 * Use this method to scroll into an element
+	 */
 	public static void scrollIntoView(WebElement element) {
 		try {
 			Actions action = new Actions(WebDriverUtils.webDriver);
@@ -512,7 +513,7 @@ public class CommonUtils extends WebDriverUtils {
 
 	/*
 	 * 
-	 * Use below method to assert actual String value with an expected String value
+	 * Use below method to assert expected String value with an actual String value
 	 */
 	public static void assertEquals(String expected, String actual) {
 
@@ -529,7 +530,7 @@ public class CommonUtils extends WebDriverUtils {
 	 * Use below method to assert actual String value with an expected String value
 	 * using assertTrue() method
 	 */
-	public static void assertTrue(Boolean flag) {
+	public static void assertTrue(boolean flag) {
 
 		try {
 			Assert.assertTrue(flag);
@@ -539,7 +540,10 @@ public class CommonUtils extends WebDriverUtils {
 		}
 	}
 
-	public static void assertTrueJUNIT(String message, Boolean flag) {
+	/*
+	 * Use this method to assert a boolean condition using JUnit assertion
+	 */
+	public static void assertTrueJUNIT(String message, boolean flag) {
 		try {
 			org.junit.Assert.assertTrue(message, flag);
 		} catch (AssertionError e) {
@@ -548,6 +552,21 @@ public class CommonUtils extends WebDriverUtils {
 
 	}
 
+	/*
+	 * Use this method to assert a boolean condition using TestNG assertion
+	 * -- INCLUDE A STRING MESSAGE SPECIFYING THE ASSERTION --
+	 */
+	public static void assertTrueTestNG(boolean flag, String message) {
+		try {
+			Assert.assertTrue(flag, message);
+		} catch (AssertionError e) {
+			e.printStackTrace();
+		}
+	}
+
+	/*
+	 * Use this method to switch to switch to a following window
+	 */
 	public static void switchToNextWindow() {
 		Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
 		for (String currentWindow1 : allWindowHandles1) {

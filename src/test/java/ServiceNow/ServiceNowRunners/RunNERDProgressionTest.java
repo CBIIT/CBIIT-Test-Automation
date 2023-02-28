@@ -6,9 +6,14 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = { "html:target/html-reports/cucumber-default-report", "json:target/cucumber.json",
+@CucumberOptions(plugin = { "html:target/html-reports/cucumber-default-report", "json:target/cucumber.json","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
 		"junit:target/cucumber.xml", "rerun:target/failed.txt",
-		"pretty" }, features = "src/test/java/ServiceNow/NERD/Features", glue = "ServiceNow.NERD.Steps", tags = "@Progression", dryRun = false, monochrome = true, strict = true
+		"pretty" }, features = "src/test/java/ServiceNow/NERD/Features", 
+		glue = "ServiceNow.NERD.Steps", 
+		tags = "@Progression", 
+		dryRun = false, 
+		monochrome = true, 
+		strict = true
 
 )
 
