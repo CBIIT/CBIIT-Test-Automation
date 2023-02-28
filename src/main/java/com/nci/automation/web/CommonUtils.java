@@ -484,6 +484,9 @@ public class CommonUtils extends WebDriverUtils {
 		}
 	}
 
+	/*
+	 * Use this method to scroll into an element
+	 */
 	public static void scrollIntoView(By locator) {
 		try {
 			WebElement element = WebDriverUtils.webDriver.findElement(locator);
@@ -495,6 +498,9 @@ public class CommonUtils extends WebDriverUtils {
 		}
 	}
 
+	/*
+	 * Use this method to scroll into an element
+	 */
 	public static void scrollIntoView(WebElement element) {
 		try {
 			Actions action = new Actions(WebDriverUtils.webDriver);
@@ -507,7 +513,7 @@ public class CommonUtils extends WebDriverUtils {
 
 	/*
 	 * 
-	 * Use below method to assert actual String value with an expected String value
+	 * Use below method to assert expected String value with an actual String value
 	 */
 	public static void assertEquals(String expected, String actual) {
 
@@ -524,7 +530,7 @@ public class CommonUtils extends WebDriverUtils {
 	 * Use below method to assert actual String value with an expected String value
 	 * using assertTrue() method
 	 */
-	public static void assertTrue(Boolean flag) {
+	public static void assertTrue(boolean flag) {
 
 		try {
 			Assert.assertTrue(flag);
@@ -534,7 +540,10 @@ public class CommonUtils extends WebDriverUtils {
 		}
 	}
 
-	public static void assertTrueJUNIT(String message, Boolean flag) {
+	/*
+	 * Use this method to assert a boolean condition using JUnit assertion
+	 */
+	public static void assertTrueJUNIT(String message, boolean flag) {
 		try {
 			org.junit.Assert.assertTrue(message, flag);
 		} catch (AssertionError e) {
@@ -543,6 +552,21 @@ public class CommonUtils extends WebDriverUtils {
 
 	}
 
+	/*
+	 * Use this method to assert a boolean condition using TestNG assertion
+	 * -- INCLUDE A STRING MESSAGE SPECIFYING THE ASSERTION --
+	 */
+	public static void assertTrueTestNG(boolean flag, String message) {
+		try {
+			Assert.assertTrue(flag, message);
+		} catch (AssertionError e) {
+			e.printStackTrace();
+		}
+	}
+
+	/*
+	 * Use this method to switch to switch to a following window
+	 */
 	public static void switchToNextWindow() {
 		Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
 		for (String currentWindow1 : allWindowHandles1) {
