@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.nci.automation.web.WebDriverUtils;
 
 public class NERDKnowledgebasePage {
@@ -17,7 +16,6 @@ public class NERDKnowledgebasePage {
     @FindBy(xpath = "//*[contains(text(),'Top Accomplishments')]")
     public WebElement topAccomplishmentsText;
 
-    
     public static WebElement dynamicAccordion(String value) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'" + value + "')]"));
     }
@@ -33,8 +31,6 @@ public class NERDKnowledgebasePage {
         return WebDriverUtils.webDriver.findElement(By.xpath("//div[contains(text(),'" + accordion + "')]"));
 
     }
-
-    
 
     /***
      * Use the below method to locate the 'Items per page' text uniquely when
@@ -87,8 +83,15 @@ public class NERDKnowledgebasePage {
 
     }
 
-    public static WebElement dynamicXpathNERDAccordian(String titleOfPublishedArticle){
-        return WebDriverUtils.webDriver.findElement(By.xpath("//h4[contains(text(),'" + titleOfPublishedArticle + "')]"));
+    /**
+     * Use this method to dynamically locate a submission accordian
+     * 
+     * @param titleOfPublishedArticle
+     * @return
+     */
+    public static WebElement dynamicXpathNERDAccordian(String titleOfPublishedArticle) {
+        return WebDriverUtils.webDriver
+                .findElement(By.xpath("//h4[contains(text(),'" + titleOfPublishedArticle + "')]"));
 
     }
 
