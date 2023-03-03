@@ -10,7 +10,7 @@ And user clicks search database
 And user searchs by "Cost" in search terms
 And user selects any of the keywords  
 And user clicks search
-Then study titled "Glioma organoids as patient avatars to improve precision medicine" is displayed
+Then results display
 
 
 @Smoke @uddins2 
@@ -49,18 +49,19 @@ And user selects cancer type as brain tumor
 And user clicks search
 Then projects with cancer type as Brain Tumor display
 
-#failed
 @Smoke @uddins 
 Scenario: User resets search
 Given user on ICRP home page
 When user clicks ICRP data
 And user clicks search database
-#And user selects exact phrase provided 
-#Then exact phrase provided is selected
+And user searchs by "Cost" in search terms
+And user selects any of the keywords  
+And user clicks search
 When user clicks reset 
-#Then exact phrase provided is unselected
+Then results display
 
-#failed
+
+
 @Smoke @uddins2 
 Scenario: User clears search 
 Given user on ICRP home page

@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
@@ -57,6 +58,7 @@ public class ICRPSearchSteps extends PageInitializer {
 	public void and_displays(String totalBaseProjects, String totalProjects) {
 		Assert.assertTrue(icrpSearchDatabasePage.totalBaseProj.getText().contentEquals(totalBaseProjects));
 		Assert.assertTrue(icrpSearchDatabasePage.totalProj.getText().contentEquals(totalProjects));
+		CucumberLogUtils.logScreenShot();
 	}
 
 	@When("user searchs by {string} in search terms")
@@ -70,11 +72,19 @@ public class ICRPSearchSteps extends PageInitializer {
 		icrpSearchDatabasePage.anyOfTheKeywordsBtn.click();
 	}
 
-	@Then("study titled {string} is displayed")
-	public void study_titled_is_displayed(String gliomaOrganoids) {
-//		Assert.assertTrue(icrpSearchDatabasePage.projTitles.size() == 1);
-//		Assert.assertTrue(icrpSearchDatabasePage.projGliomaOrganoids.getText().contentEquals(gliomaOrganoids));
+//	@Then("study titled {string} is displayed")
+//	public void study_titled_is_displayed(String gliomaOrganoids) {
+////		Assert.assertTrue(icrpSearchDatabasePage.projTitles.size() == 1);
+////		Assert.assertTrue(icrpSearchDatabasePage.projGliomaOrganoids.getText().contentEquals(gliomaOrganoids));
+//		MiscUtils.sleep(5000);
+//		Assert.assertTrue(icrpSearchDatabasePage.projectTitles.get(1).isDisplayed());
+//
+//	}
+	
+	@Then("results display")
+	public void results_display() {
 		MiscUtils.sleep(5000);
+		CucumberLogUtils.logScreenShot();
 		Assert.assertTrue(icrpSearchDatabasePage.projectTitles.get(1).isDisplayed());
 
 	}
@@ -94,6 +104,7 @@ public class ICRPSearchSteps extends PageInitializer {
 			Assert.assertTrue(icrpSearchDatabasePage.institutionUniversityOfColoradoDenver.get(i).getText()
 					.contentEquals(institutionName));
 		}
+		CucumberLogUtils.logScreenShot();
 
 	}
 
@@ -111,7 +122,7 @@ public class ICRPSearchSteps extends PageInitializer {
 	@Then("projects funded by Alexs Lemonade Stand Foundation displays")
 	public void projects_funded_by_Alexs_Lemonade_Stand_Foundation_displays() {
 		Assert.assertTrue(icrpSearchDatabasePage.fundingOrgALSF.getText().contentEquals("ALSF"));
-
+		CucumberLogUtils.logScreenShot();
 	}
 
 	@When("user selects cancer type as brain tumor")
@@ -165,6 +176,7 @@ public class ICRPSearchSteps extends PageInitializer {
 //		CommonUtils.swicthToAnotherWindow();
 //		Assert.assertTrue(icrpSearchDatabasePage.brainTumortxt.getText().contentEquals("Brain Tumor"));
 		Assert.assertTrue(icrpSearchDatabasePage.projectTitles.get(1).isDisplayed());
+		CucumberLogUtils.logScreenShot();
 	}
 
 //	@Then("exact phrase provided is selected")
@@ -181,12 +193,14 @@ public class ICRPSearchSteps extends PageInitializer {
 		JavascriptUtils.scrollDown(500);
 		MiscUtils.sleep(3000);
 		icrpSearchDatabasePage.resetBtn.click();
+		
 
 	}
 
 	@Then("exact phrase provided is unselected")
 	public void exact_phrase_provided_is_unselected() {
 		Assert.assertFalse(icrpSearchDatabasePage.resetBtn.isSelected());
+		CucumberLogUtils.logScreenShot();
 	}
 
 	@When("user clicks clear")
@@ -199,6 +213,7 @@ public class ICRPSearchSteps extends PageInitializer {
 	@Then("all projects are displayed")
 	public void all_projects_are_displayed() {
 		Assert.assertTrue(icrpSearchDatabasePage.projectTitles.get(1).isDisplayed());
+		CucumberLogUtils.logScreenShot();
 	}
 
 	@When("user selects normal functioning")
@@ -211,6 +226,7 @@ public class ICRPSearchSteps extends PageInitializer {
 	@Then("projects with research area as normal functioning display")
 	public void projects_with_research_area_as_normal_functioning_display() {
 		Assert.assertTrue(icrpSearchDatabasePage.projectTitles.get(1).isDisplayed());
+		CucumberLogUtils.logScreenShot();
 
 	}
 
@@ -250,7 +266,8 @@ public class ICRPSearchSteps extends PageInitializer {
 	@Then("email is sent")
 	public void email_is_sent() {
 		
-		Assert.assertEquals("Your email has been sent successfully!", icrpSearchDatabasePage.emailSuccessMsg.getText());		
+		Assert.assertEquals("Your email has been sent successfully!", icrpSearchDatabasePage.emailSuccessMsg.getText());	
+		CucumberLogUtils.logScreenShot();
 	}
 	
 	
@@ -267,6 +284,7 @@ public class ICRPSearchSteps extends PageInitializer {
 	@Then("data is exported")
 	public void data_is_exported() {
 		Assert.assertTrue(icrpSearchDatabasePage.projectTitles.get(1).isDisplayed());
+		CucumberLogUtils.logScreenShot();
 	   
 	}
 
