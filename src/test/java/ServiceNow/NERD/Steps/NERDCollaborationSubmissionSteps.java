@@ -154,6 +154,7 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
 
         @Then("the Rank field is not visible and {string} collaboration is deleted")
         public void the_Rank_field_is_not_visible_and_collaboration_is_deleted(String collaborationName) {
-                NERD_NCI_CRSReviewerStepsImplementation.verifyingRankFieldIsNotDisplayedAndDeletingSubmission(collaborationName);
+                NERD_NCI_CRSReviewerStepsImplementation
+                                .verifyingRankFieldIsNotDisplayedAndDeletingSubmission(collaborationName);
         }
 }
