@@ -129,7 +129,9 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                 MiscUtils.sleep(5000);
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink
                                 .click();
+                                MiscUtils.sleep(2000);
                 JavascriptUtils.scrollIntoView(nerdDynamicXpaths.deleteButton(submissionName));
+                MiscUtils.sleep(1000);
                 nerdDynamicXpaths.deleteButton(submissionName).click();
                 MiscUtils.sleep(1000);
                 JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmDeleteYesButton);

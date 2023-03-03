@@ -25,7 +25,7 @@ public class NERDDynamicXPATHS extends CommonUtils {
 
 	/** Delete Button */
 	public WebElement deleteButton(String value) {
-		return WebDriverUtils.webDriver.findElement(By.xpath("//a[text()='" + value + "']/following::button/span[contains(text(),'Delete')]"));
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//a[text()='" + value + "']/following::button/span[contains(text(),'Delete')])[1]"));
 	}
 
 	/** Return Button to Staff */

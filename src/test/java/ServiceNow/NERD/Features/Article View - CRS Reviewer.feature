@@ -1,6 +1,6 @@
 Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishments
 
-  @juarezds @SS-4631 @ReadyForReview @DONE
+  @juarezds @SS-4631 @ReadyForReview @DONE @Test
   Scenario: CRS Reviewer Sees Published Top Accomplishments
     Given a CRS Reviewer "Diane Palmieri" is on the NERD Home Page
     Then there are three knowledge bases called "NERD", "ROCK", and "Moonshot Evaluation"

@@ -1,4 +1,4 @@
-Feature: Collaborations Scenerios
+Feature: Collaboration Scenerios
   Description: This feature file contains collaboration category scenerios
 
   Scenario: Saving Collaboration submission with data verification
