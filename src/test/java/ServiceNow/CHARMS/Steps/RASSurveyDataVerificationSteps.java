@@ -7,14 +7,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import com.mysql.cj.jdbc.Driver;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -22,8 +20,6 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
-import CustomBusinessApp.EIDP.Util.CommonUtil;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
 import ServiceNow.CHARMS.StepsImplementation.RASSurveyStepsImpl;
 import appsCommon.PageInitializer;

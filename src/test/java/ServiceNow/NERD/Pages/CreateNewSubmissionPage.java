@@ -54,7 +54,7 @@ public class CreateNewSubmissionPage extends CommonUtils {
 	public WebElement fiscalYearDropDown;
 
 	/** Description text box iFrame */
-	@FindBy(xpath = "//iframe[@title='Rich Text Area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help']")
+	@FindBy(xpath = "//iframe[@title='Rich Text Area']")
 	public WebElement DescriptionTextBoxIframe;
 
 	/** Description text box */

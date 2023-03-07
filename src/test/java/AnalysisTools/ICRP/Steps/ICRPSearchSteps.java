@@ -117,7 +117,7 @@ public class ICRPSearchSteps extends PageInitializer {
 	@Then("projects with cancer type as Brain Tumor display")
 	public void projects_with_cancer_type_as_Brain_Tumor_display() {
 		icrpSearchDatabase.projGliomaOrganoids.click();
-		CommonUtils.swicthToAnotherWindow();
+		CommonUtils.switchToAnotherWindow();
 		Assert.assertTrue(icrpSearchDatabase.brainTumortxt.getText().contentEquals("Brain Tumor"));
 	}
 

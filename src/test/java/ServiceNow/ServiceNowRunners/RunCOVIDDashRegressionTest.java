@@ -36,6 +36,4 @@ public class RunCOVIDDashRegressionTest {
 		System.out.println("Starting Test Execution...");
 	}
 
-	
-
 }

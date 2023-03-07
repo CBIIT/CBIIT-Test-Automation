@@ -11,7 +11,7 @@ Feature: These are features pertaining to the CGB IIQ
     And on the CGB Instructions page clicks next arrow button - CGB IIQ
     And on the General Background Information section of IIQ Survey page clicks next arrow button - CGB IIQ
     And selects the radio button labelled I am completing this form for someone else - CGB IIQ
-    And fills out the participant "Jennifer Slogan" for whom the user is completing the IIQ form. - CGB IIQ
+    And fills out the participant "Jennifer' Slogan" for whom the user is completing the IIQ form. - CGB IIQ
     And selects Female as the biological sex of the participant assigned at birth - CGB IIQ
     And selects for which Sex the participant is identified - CGB IIQ
     And selects what the participant is considered to be - CGB IIQ
@@ -19,14 +19,14 @@ Feature: These are features pertaining to the CGB IIQ
     And selects if the participant is from the Ashkenazi Eastern European JewishDescent - CGB IIQ
     And selects if the participant is Adopted - CGB IIQ
     And selects Yes for the participant raised by someone other than their biological parent - CGB IIQ
-    And adds Information regarding individuals who raised the participant "Joanne","Step Mother" - CGB IIQ
+    And adds Information regarding individuals who raised the participant "Joan$ne","Step $ Mother" - CGB IIQ
     And adds the participant DOB in MMDDYYYY format - CGB IIQ
-    And adds the Demographic information of the participant "Bethesda", "Maryland", "United States" - CGB IIQ
+    And adds the Demographic information of the participant "Bethesda!", "Maryland", "United States" - CGB IIQ
     And selects the participant Biological Mothers Ancestral Background or add the free text for the box labelled Other SPECIFY - CGB IIQ
     And selects the participant Biological Fathers Ancestral Background or add the free text for the box labelled Other SPECIFY - CGB IIQ
     And selects the participant Familys Religious Background or add the free text for the box labelled Other SPECIFY - CGB IIQ
     And selects the participant Current Marital Status - CGB IIQ
-    And adds the participant "Software Engineer" - CGB IIQ
+    And adds the participant "Software & Engineer" - CGB IIQ
     And selects if the participant currently have health insurance? - CGB IIQ
     And selects the total combined yearly income for all the persons in participant household - CGB IIQ
     And selects the highest level of schooling participant has completed - CGB IIQ
@@ -38,14 +38,14 @@ Feature: These are features pertaining to the CGB IIQ
     And selects the option Twin for what type of birth was the participant - CGB IIQ
     And adds the information for the names of the children in the twin or multiple birth table "Bryan","L","Fraternal twin" - CGB IIQ
     And selects the option Yes for the participants biological parents blood-related to each other - CGB IIQ
-    And adds "Second cousins once removed" of the participant how the biological parents blood-related to each other - CGB IIQ
+    And adds "Second cousins 'once removed" of the participant how the biological parents blood-related to each other - CGB IIQ
     And selects how was the participant born - CGB IIQ
     And adds the participants birth weight "7" and Unit Of Measure "pounds" - CGB IIQ
     And adds the participants birth measurements "17" and "10" Numerical Value and "inches" and "inches" for Unit Of Measure - CGB IIQ
     And the user clicks the forward arrow on the cancer and benign tumor history section of IIQ Survey page - CGB IIQ
     And the user selects option Yes if participant ever been diagnosed with any cancer and or benign tumor - CGB IIQ
     And selects or adds the primary cancers or benign tumors that have been diagnosed - CGB IIQ
-    And adds primary cancer or tumor information "2021","17","Baltimore Maryland","Fairfax Virginia" and selects what kind of the treatment received - CGB IIQ
+    And adds primary cancer or tumor information "2021","17","Baltimore$$ Maryland","Fairfax' Virginia" and selects what kind of the treatment received - CGB IIQ
     And selects Yes if the participant ever been evaluated for ANY genetic disease or syndrome? - CGB IIQ
     And selects details for the genetic evaluations that have been completed by the proxy includes "Li-Fraumeni Syndrome (TP53 gene)" summarization of the evaluation and adds the information "12/19", "16", "John Hopkins Hospital, Baltimore, Maryland, United States of America", and "No genetic change found/negative test" - CGB IIQ
     And selects Yes if the participant has copy of the genetic test results and would like to upload them to this questionnaire? - CGB IIQ

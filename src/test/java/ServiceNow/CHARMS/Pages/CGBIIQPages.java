@@ -416,7 +416,6 @@ public class CGBIIQPages extends CommonUtils {
 	@FindBy(xpath = "//select[@id='QR~QID171#3~3']")
 	public WebElement unitOfMeasurementHeadCircumferenceProband;
 
-
 	/**
 	 * ================================================================================
 	 */
@@ -501,8 +500,11 @@ public class CGBIIQPages extends CommonUtils {
 	/** Name, City, State/Province and Country of Hospital where testing occured. */
 	@FindBy(xpath = "//input[@id='QR~QID70#2~1~1~TEXT']")
 	public WebElement hospitalLocation;
-	
-	/** Name, City, State/Province and Country of Hospital where testing occured. - NOT PREVIEW */
+
+	/**
+	 * Name, City, State/Province and Country of Hospital where testing occured. -
+	 * NOT PREVIEW
+	 */
 	@FindBy(xpath = "//textarea[@name='QR~QID70#2~1~1~TEXT']")
 	public WebElement hospitalLocationNonPreview;
 
@@ -599,7 +601,7 @@ public class CGBIIQPages extends CommonUtils {
 	/** Current height of Proband */
 	@FindBy(xpath = "//input[@name='QR~QID101#1~2~1~TEXT']")
 	public WebElement numericalCurrentHeightProbandFlow;
-	
+
 	/** Highest weight of Proband Flow */
 	@FindBy(xpath = "//input[@name='QR~QID173#1~6~1~TEXT']")
 	public WebElement numericalHighestWeightProbandFlow;
