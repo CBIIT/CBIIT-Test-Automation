@@ -12,7 +12,7 @@ public class MyRASLoginPage {
 	/** --------------- BEGINNING OF myRAS Login PAGE   ---------------  */
 	
 	/* Login To myRAS button */
-	@FindBy (xpath = "//button[normalize-space()='Login to myRAS']")
+	@FindBy (xpath = "(//a[@class='link ng-binding'][normalize-space()='login to myras'])[1]")
 	public WebElement loginToMyRASButton;
 	
 	

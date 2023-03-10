@@ -1,20 +1,19 @@
 package appsCommon;
 
-import com.sun.xml.bind.v2.model.core.ID;
 import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
 import AnalysisTools.CEDCD.Pages.CEDCDBiospecimenCountsPage;
 import AnalysisTools.CEDCD.Pages.CEDCDCohortPage;
 import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
+import AnalysisTools.CEDCD.Steps.CEDCDStartUps;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDAlphabetizedSelectTypesStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortNewPageLayOutStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
+import AnalysisTools.Comets2.Pages.Comets2Page;
 import AnalysisTools.ICRP.Pages.ICRPHomePage;
 import AnalysisTools.ICRP.Pages.ICRPSearchDatabase;
-import AnalysisTools.Comets2.Pages.Comets2Page;
-import AnalysisTools.CEDCD.Steps.CEDCDStartUps;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
 import AnalysisTools.PLCO.Pages.BrowsePhenotypePage;
@@ -24,7 +23,6 @@ import AnalysisTools.mSigPortal.Pages.CatalogPages;
 import AnalysisTools.mSigPortal.Pages.MSigPortalHomePage;
 import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
 import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
-import AnalysisTools.mSigPortal.Steps.SignatureVisualizationSteps;
 import CustomBusinessApp.EIDP.Pages.AligningExpectationsPage;
 import CustomBusinessApp.EIDP.Pages.BasePage;
 import CustomBusinessApp.EIDP.Pages.CareerGoalAndActivePage;
@@ -38,7 +36,6 @@ import CustomBusinessApp.EIDP.Pages.LoginPage;
 import CustomBusinessApp.EIDP.Pages.ProjectRelatedDeliverablePage;
 import CustomBusinessApp.EIDP.Pages.SearchPage;
 import CustomBusinessApp.EIDP.Pages.TraineeReviewPage;
-import CustomBusinessApp.EIDP.Steps.AligningExpectationsSteps;
 import CustomBusinessApp.EIDP.StepsImplementation.AlignExpectionsStepImpl;
 import CustomBusinessApp.EIDP.StepsImplementation.CareerGoalAndActiveStepImpl;
 import CustomBusinessApp.EIDP.StepsImplementation.EIDPLoginStepImpl;
@@ -55,6 +52,8 @@ import ServiceNow.CHARMS.Pages.CGBIIQPage;
 import ServiceNow.CHARMS.Pages.CGBIIQPages;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
 import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
+import ServiceNow.CHARMS.Pages.FHQSurveyPage;
+import ServiceNow.CHARMS.Pages.FHQSurveyPortalPage;
 import ServiceNow.CHARMS.Pages.MyRASHomePage;
 import ServiceNow.CHARMS.Pages.MyRASLoginPage;
 import ServiceNow.CHARMS.Pages.MyRASStudyConsentPage;
@@ -103,6 +102,7 @@ import ServiceNow.SEER.Pages.SEERUserRegistrationPage;
  * class created, create an object of it here inside the constructor
  */
 public class PageInitializer {
+	
 
 	// declare protected static variables of types of all the pages
 	/** iTrust instances */
@@ -135,6 +135,10 @@ public class PageInitializer {
 	protected static NativeViewLoginImpl nativeViewLoginImpl;
 	protected static NativeViewHomePage nativeViewHomePage;
 	protected static NativeViewImpersonateUser nativeViewImpersonateUser;
+	protected static NativeViewSideDoorLoginPage nativeViewSideDoorLoginPage;
+
+	
+	
 
 	/** CHARMS instances */
 	protected static CHARMSNativeViewPage charmsNativeViewPage;
@@ -153,6 +157,10 @@ public class PageInitializer {
 	protected static CGBIIQPages cGBIIQPages;
 	protected static RASSurveyPage rASSurveyPage;
 	protected static RASSurveyStepsImpl rASSurveyStepsImpl;
+	protected static FHQSurveyPage fHQSurveyPage;
+	protected static FHQSurveyPortalPage fHQSurveyPortalPage;
+	
+
 
 	/** LDLink instances **/
 	protected static LDLinkHomePage ldLinkHomePage;
@@ -334,6 +342,8 @@ public class PageInitializer {
 		cGBIIQPages = new CGBIIQPages();
 		rASSurveyPage = new RASSurveyPage();
 		rASSurveyStepsImpl = new RASSurveyStepsImpl();
+		fHQSurveyPortalPage = new FHQSurveyPortalPage();
+		
 		
 	
 		/**AppTracker**/
@@ -342,5 +352,12 @@ public class PageInitializer {
 		vacancyManagerUserStepsImpl = new VacancyManagerUserStepsImpl();
 		appTrackerLoginPage = new AppTrackerLoginPage();
 		appTrackerLoginStepsImpl = new AppTrackerLogInStepsImpl();	
+		
+		/** Native View instance */
+		nativeViewImpersonateUser=new NativeViewImpersonateUser();
+		nativeViewSideDoorLoginPage=new NativeViewSideDoorLoginPage();
+		fHQSurveyPage=new FHQSurveyPage();
+		
+		
 	}
 }

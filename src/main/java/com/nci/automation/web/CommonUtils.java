@@ -7,6 +7,7 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -473,9 +474,48 @@ public class CommonUtils extends WebDriverUtils {
 	/**
 	 * Use this method to open new tab
 	 */
+
 	public static void openNewTab() {
 		JavascriptExecutor js = (JavascriptExecutor) WebDriverUtils.webDriver;
 		js.executeScript("window.open('about:blank','_blank');");
+	}
+
+	/**
+	 * @Author @SonikaJain 
+	 * Switch to new tab opened by clicking a link
+	 */
+	public static void switchToAnotherTabWindow() {
+		String parent = WebDriverUtils.webDriver.getWindowHandle();
+		Set<String> s = WebDriverUtils.webDriver.getWindowHandles();
+		Iterator<String> I1 = s.iterator();
+
+		while (I1.hasNext()) {
+			String child_window = I1.next();
+
+			if (!parent.equals(child_window)) {
+				WebDriverUtils.webDriver.switchTo().window(child_window);
+
+				// System.out.println(WebDriverUtils.webDriver.switchTo().window(child_window).getTitle());
+
+			}
+		}
+	}
+	
+	/**
+	 * @Author @SonikaJain 
+	 * 	Click browser back button
+	 */
+	public static void clickBrowserBackButton() {
+		WebDriverUtils.webDriver.navigate().back(); 
+	}
+
+
+	/**
+	 * @Author @SonikaJain 
+	 * To maximize the window
+	 */
+	public static void maximizeWindow() {
+		WebDriverUtils.webDriver.manage().window().maximize();
 	}
 
 	/**
@@ -509,16 +549,15 @@ public class CommonUtils extends WebDriverUtils {
 		}
 	}
 
-/*
- * 
- * Use below method to assert actual String value with an expected String value	
- */
+	/*
+	 * 
+	 * Use below method to assert actual String value with an expected String value
+	 */
 	public static void assertEquals(String expected, String actual) {
-		
+
 		try {
-		Assert.assertEquals(expected, actual);
-		}
-		catch(AssertionError e) {
+			Assert.assertEquals(expected, actual);
+		} catch (AssertionError e) {
 
 			e.printStackTrace();
 		}
