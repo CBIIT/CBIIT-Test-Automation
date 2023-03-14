@@ -1,5 +1,7 @@
 package AnalysisTools.JPSurv.Steps;
 
+import static org.junit.Assert.assertTrue;
+
 import java.io.File;
 
 import org.junit.Assert;
@@ -41,7 +43,6 @@ public class JPSurvHomePageSteps extends PageInitializer {
 		File txtFile = new File(jpsurvHomePage.txtFilePath);
 		jpsurvHomePage.fileInputTextbox.sendKeys(dicFile.getAbsolutePath());
 		jpsurvHomePage.fileInputTextbox.sendKeys(txtFile.getAbsolutePath());
-		
 
 
 	}
@@ -94,6 +95,7 @@ public class JPSurvHomePageSteps extends PageInitializer {
 
 	@When("user click calculate button")
 	public void clickCalculateButton() {
+		MiscUtils.sleep(5000);
 		CommonUtils.click(jpsurvHomePage.calculateButton);
 	}
 
@@ -168,25 +170,13 @@ public class JPSurvHomePageSteps extends PageInitializer {
 		fileToDelete.delete();
 	}
 
-	public static void main(String[] args) {
-		String path = System.getProperty("user.home") + "/Downloads";
-		System.out.println(path);
-		File downloadFolder = new File(path);
-		for (File f : downloadFolder.listFiles()) {
-			if (!f.isDirectory() && f.getName().contains("SEER9_Survival_6CancerSitesByStage")
-					&& f.getAbsolutePath().endsWith(".jpsurv")) {
-				System.out.println(f.getAbsolutePath());
-				f.delete();
-			}
-		}
-	}
 
 	@When("user selects CSV Files")
 	public void user_selects_CSV_Files() {
 		jpsurvHomePage.csvRadioBtn.click();
 		File csvFile = new File(jpsurvHomePage.csvFilePath);
 		MiscUtils.sleep(5000);
-		jpsurvHomePage.cvsAndWorkspaceFileInputTextbox.sendKeys(csvFile.getAbsolutePath());
+		jpsurvHomePage.cvsFileInputTextbox.sendKeys(csvFile.getAbsolutePath());
 		
 //		
 //		JavascriptUtils.clickByJS(jpsurvHomePage.configureCSVbtn);
@@ -198,14 +188,192 @@ public class JPSurvHomePageSteps extends PageInitializer {
 		jpsurvHomePage.WorkspaceRadiobtn.click();;
 		File workspaceFile = new File(jpsurvHomePage.workspaceFilePath);
 		MiscUtils.sleep(5000);
-		jpsurvHomePage.cvsAndWorkspaceFileInputTextbox.sendKeys(workspaceFile.getAbsolutePath());
+		jpsurvHomePage.WorkspaceFileInputTextbox.sendKeys(workspaceFile.getAbsolutePath());
 		MiscUtils.sleep(5000);
 	}
 
 	@When("user clicks import")
 	public void user_clicks_import() {
+	    jpsurvHomePage.importButton.click();
+	}
+
+	@When("select Non-Hodgkin-Lymphoma")
+	public void select_Non_Hodgkin_Lymphoma() {
+		jpsurvHomePage.nonhodgkinlymphonmaCheckbox.click();
+		MiscUtils.sleep(5000);
+	}
+	
+	@When("select Calculate")
+	public void select_Calculate() {
+	  MiscUtils.sleep(5000);
+	  JavascriptUtils.clickByJS(jpsurvHomePage.calculateButton);
+	 
+	}
+	
+	@When("click Reset")
+	public void click_Reset() {
+	    jpsurvHomePage.showhidearrowButton.click();
+//	    JavascriptUtils.clickByJS(jpsurvHomePage.showhidearrowButton);
+	    MiscUtils.sleep(5000);
+	    jpsurvHomePage.resetButton.click();
 	    
 	}
 
+	@Then("page is reset")
+	public void page_is_reset() {	
+		Assert.assertTrue(jpsurvHomePage.csvRadioBtn.isDisplayed());
+	}
+	
+	@When("click download full dataset button")
+	public void click_download_full_dataset_button() {
+	   CommonUtils.deleteFile("/Downloads", "/JPSurv-Tutorial_JPSURV.xlsx");
+	   MiscUtils.sleep(5000);
+	   jpsurvHomePage.downloadFullDataSetButton.click();
+	   MiscUtils.sleep(5000);
+	}
+	
+	@Then("verify dataset download")
+	public void verify_dataset_download() {
+		 MiscUtils.sleep(5000);
+		 Assert.assertTrue(CommonUtils.isFileDownloaded("/Downloads", "/JPSurv-Tutorial_JPSURV.xlsx"));
+		 MiscUtils.sleep(5000);
+		 CommonUtils.deleteFile("/Downloads", "/JPSurv-Tutorial_JPSURV.xlsx");
+	}
+	
+	@Then("workspace results display")
+	public void workspace_results_display() {
+	   MiscUtils.sleep(5000);
+	   Assert.assertTrue(jpsurvHomePage.survivalVsYearAtDiagnosisTab.isDisplayed());
+	} 
+	
+	@When("enter email address")
+	public void enter_email_address() {
+		JavascriptUtils.scrollDown(5000);
+		 MiscUtils.sleep(5000);
+	    jpsurvHomePage.emailTextbox.sendKeys("shomir.uddin@nih.gov");
+	   
+	}
+	
+	@Then("click submit")
+	public void click_submit() {
+	    jpsurvHomePage.submitButton.click();
+	}
+	
+	@Then("verify email send")
+	public void verify_email_send() {
+		MiscUtils.sleep(5000);
+		Assert.assertTrue(jpsurvHomePage.submitemailConfirmation.isDisplayed());
+	}
+	
+	@When("user selects non-example Dic and Txt file")
+	public void user_selects_non_example_Dic_and_Txt_file() {
+
+		File dicFile = new File(jpsurvHomePage.nonExampledicFilePath);
+		File txtFile = new File(jpsurvHomePage.nonExampletxtFilePath);
+		jpsurvHomePage.fileInputTextbox.sendKeys(dicFile.getAbsolutePath());
+		jpsurvHomePage.fileInputTextbox.sendKeys(txtFile.getAbsolutePath());
+	}
+	
+	@When("user selects non-example workspace")
+	public void user_selects_non_example_workspace() {
+		jpsurvHomePage.WorkspaceRadiobtn.click();
+		MiscUtils.sleep(5000);
+		File workspaceFile = new File(jpsurvHomePage.nonExampleworkspaceFilePath);
+		MiscUtils.sleep(5000);
+		jpsurvHomePage.WorkspaceFileInputTextbox.sendKeys(workspaceFile.getAbsolutePath()); 
+	}
+	
+	@When("select {string} for age rec drop down")
+	public void select_for_age_rec_drop_down(String string) {
+	    CommonUtils.selectDropDownValue(string, jpsurvHomePage.ager_recDD);
+	}
+	
+	@When("select {string} for stage drop down")
+	public void select_for_stage_drop_down(String string) {
+		 CommonUtils.selectDropDownValue(string, jpsurvHomePage.stageDD); 
+	    
+	}
+
+	@When("select {string} for year drop down")
+	public void select_for_year_drop_down(String string) {
+	    
+		 CommonUtils.selectDropDownValue(string, jpsurvHomePage.yearDXDD);
+	}
+
+	@When("select {string} for interval drop down")
+	public void select_for_interval_drop_down(String string) {
+		 CommonUtils.selectDropDownValue(string, jpsurvHomePage.intervalDD);
+	    
+	}
+
+	@When("select {string} for alive at start drop down")
+	public void select_for_alive_at_start_drop_down(String string) {
+		 CommonUtils.selectDropDownValue(string, jpsurvHomePage.aliveAtStartDD);	    
+	}
+
+	@When("select {string} for  died drop down")
+	public void select_for_died_drop_down(String string) {
+		 CommonUtils.selectDropDownValue(string, jpsurvHomePage.diedDD);
+	    
+	}
+	
+	@When("select {string} for  lost to follow up")
+	public void select_for_lost_to_follow_up(String string) {
+		CommonUtils.selectDropDownValue(string, jpsurvHomePage.lostToFollowUpDD);
+	}
+
+
+	@When("select {string} for exp int drop down")
+	public void select_for_exp_int_drop_down(String string) {
+	     JavascriptUtils.scrollIntoView(jpsurvHomePage.seRelColumn);
+		 CommonUtils.selectDropDownValue(string, jpsurvHomePage.expIntDD); 
+	}
+
+	@When("select {string} for rel int drop down")
+	public void select_for_rel_int_drop_down(String string) {
+	    
+		 CommonUtils.selectDropDownValue(string, jpsurvHomePage.relIntDD);
+	}
+
+	@When("select {string} for rel cum drop down")
+	public void select_for_rel_cum_drop_down(String string) {
+	    
+		 CommonUtils.selectDropDownValue(string, jpsurvHomePage.relCumDD);  
+	}
+
+	@When("select {string} for rel sur int se drop down")
+	public void select_for_rel_sur_int_se_drop_down(String string) {
+		 CommonUtils.selectDropDownValue(string, jpsurvHomePage.seIntRelDD);
+	    
+	}
+
+	@When("select {string} for  rel sur cum se drop down")
+	public void select_for_rel_sur_cum_se_drop_down(String string) {
+		 CommonUtils.selectDropDownValue(string, jpsurvHomePage.seRelCumDD);
+	    
+	}
+	
+	@When("clicks save")
+	public void clicks_save() {
+		jpsurvHomePage.saveBtn.click();
+	}
+	
+	@When("clicks upload")
+	public void clicks_upload() {
+		MiscUtils.sleep(2000);
+	    jpsurvHomePage.uploadCSVbtn.click();
+	}
+	
+	@When("selects zero for age rec")
+	public void selects_zero_for_age_rec() {
+		MiscUtils.sleep(2000);
+		jpsurvHomePage.ageRecValue0Checkbox.click();
+	}
+
+	@When("selects zero for stage")
+	public void selects_zero_for_stage() {
+		jpsurvHomePage.stageValue0Checkbox.click();
+	}
+	
 
 }

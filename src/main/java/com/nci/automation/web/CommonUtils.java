@@ -1,7 +1,9 @@
 package com.nci.automation.web;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -508,7 +510,30 @@ public class CommonUtils extends WebDriverUtils {
 			throw e;
 		}
 	}
+	/**
+	 * Use this method to verify file download
+	 */
+	public static boolean isFileDownloaded(String downloadPath, String fileName) {
+		boolean temp=false;
+		Path path=Paths.get(System.getProperty("user.home")+downloadPath+fileName);
+		if(Files.exists(path)==true) {
+			if(Files.isRegularFile(path)) {
+			System.out.println("File is found");
+			temp=true;
+			}
+		}else {
+			System.out.println("File is found");
+		}
+		return temp;
+	}
 	
+	public static void deleteFile(String downloadPath, String fileName) {
+		File file=new File(System.getProperty("user.home")+downloadPath+fileName);
+		if(file.delete()) {
+			System.out.println("File is deleted");
+		}
+		
+	}
 
 /*
  * 

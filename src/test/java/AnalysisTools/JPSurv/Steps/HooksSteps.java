@@ -73,7 +73,7 @@ public class HooksSteps {
 	@After
 	public void genericTearDown(Scenario s) throws TestingException {
 
-		if (WebDriverUtils.webDriver != null) {
+		/*if (WebDriverUtils.webDriver != null) {
 			MiscUtils.sleep(2000);
 
 			System.out.println("Ending Scenario: " + s.getName());
@@ -91,7 +91,7 @@ public class HooksSteps {
 			ScenarioContext.setCurrentQcResult(currentQcResult);
 			WebDriverUtils.closeWebDriver();
 			PageCache.getInstance().destroyInstances();
-		}
+		}*/
 	}
 
 	@Before("@web")
