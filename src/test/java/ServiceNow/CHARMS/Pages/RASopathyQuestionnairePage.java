@@ -191,9 +191,9 @@ public class RASopathyQuestionnairePage {
 	/* ************************************************************************ */
 	/* BEGINNING OF Does "name" currently live in the United States? PAGE */
 
-	/* Yes option */
-	@FindBy(xpath = "//span[@class='LabelWrapper']//label[@for='QR~QID112~1']")
-	public WebElement doesParticipantLiveInUnitedStatesYesOption;
+	/* What country does participant currently live in? drop down */
+	@FindBy(xpath = "//select[@data-runtime-value='runtime.Selected']")
+	public WebElement whatCountryDoesParticipantCurrentlyLiveInDropDown;
 
 	/* No option */
 	@FindBy(xpath = "//span[@class='LabelWrapper']//label[@for='QR~QID111~2']")

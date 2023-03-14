@@ -5,15 +5,14 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -25,9 +24,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.asserts.SoftAssert;
-
-import com.nci.automation.utils.LocalConfUtils;
+import org.testng.Assert;
 import com.nci.automation.utils.MiscUtils;
 
 /**
@@ -35,7 +32,7 @@ import com.nci.automation.utils.MiscUtils;
  * through out any application. New methods can be added at any time. Modifying
  * the existing methods may result in build failure. - Please
  * 
- * @author Sohil
+ * @author juarezds
  */
 public class CommonUtils extends WebDriverUtils {
 
@@ -253,7 +250,7 @@ public class CommonUtils extends WebDriverUtils {
 	 * {@code id} can be clicked in the page or {@code timeOut} whichever is
 	 * earlier.
 	 */
-	public static void waitUntilElemtTobeClickableById(long timeOut, String id) {
+	public static void waitUntilElemtTobeClickableById(Duration timeOut, String id) {
 		WebDriverWait webDriverWait = new WebDriverWait(webDriver, timeOut);
 		webDriverWait.until(ExpectedConditions.elementToBeClickable(By.id(id)));
 	}
@@ -263,7 +260,7 @@ public class CommonUtils extends WebDriverUtils {
 	 * {@code id} can be clicked in the page or {@code timeOut} whichever is
 	 * earlier.
 	 */
-	public static void waitUntilElemtTobeClickableByXpath(long timeOut, String xpathExcpression) {
+	public static void waitUntilElemtTobeClickableByXpath(Duration timeOut, String xpathExcpression) {
 		WebDriverWait webDriverWait = new WebDriverWait(webDriver, timeOut);
 		webDriverWait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpathExcpression)));
 	}
@@ -275,7 +272,7 @@ public class CommonUtils extends WebDriverUtils {
 	 * @param element Pass the WebElement on which synchronization to be applied.
 	 * @return This method will return boolean type either True or False.
 	 */
-	public static WebElement waitForThePresenceOfEl(String element, long timeOut) {
+	public static WebElement waitForThePresenceOfEl(String element, Duration timeOut) {
 		WebDriverWait wait = new WebDriverWait(webDriver, timeOut);
 		return wait.until(ExpectedConditions.presenceOfElementLocated((By.xpath(element))));
 	}
@@ -286,8 +283,7 @@ public class CommonUtils extends WebDriverUtils {
 	 * @return WebDriverWait
 	 */
 	public static WebDriverWait getWaitObject() {
-		long explicitWait = Long.valueOf(LocalConfUtils.getProperty("explicitWaitInSeconds"));
-		WebDriverWait wait = new WebDriverWait(webDriver, explicitWait);
+		WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(30));
 		return wait;
 	}
 
@@ -521,13 +517,16 @@ public class CommonUtils extends WebDriverUtils {
 	/**
 	 * Use this method to switch to the next another open window
 	 */
-	public static void swicthToAnotherWindow() {
+	public static void switchToAnotherWindow() {
 		Set<String> handlingAllOpenWindows = WebDriverUtils.webDriver.getWindowHandles();
 		for (String nextWindow : handlingAllOpenWindows) {
 			WebDriverUtils.webDriver.switchTo().window(nextWindow);
 		}
 	}
 
+	/*
+	 * Use this method to scroll into an element
+	 */
 	public static void scrollIntoView(By locator) {
 		try {
 			WebElement element = WebDriverUtils.webDriver.findElement(locator);
@@ -539,6 +538,9 @@ public class CommonUtils extends WebDriverUtils {
 		}
 	}
 
+	/*
+	 * Use this method to scroll into an element
+	 */
 	public static void scrollIntoView(WebElement element) {
 		try {
 			Actions action = new Actions(WebDriverUtils.webDriver);
@@ -551,7 +553,11 @@ public class CommonUtils extends WebDriverUtils {
 
 	/*
 	 * 
+<<<<<<< HEAD
 	 * Use below method to assert actual String value with an expected String value
+=======
+	 * Use below method to assert expected String value with an actual String value
+>>>>>>> master
 	 */
 	public static void assertEquals(String expected, String actual) {
 
@@ -560,6 +566,55 @@ public class CommonUtils extends WebDriverUtils {
 		} catch (AssertionError e) {
 
 			e.printStackTrace();
+		}
+	}
+
+	/*
+	 * 
+	 * Use below method to assert actual String value with an expected String value
+	 * using assertTrue() method
+	 */
+	public static void assertTrue(boolean flag) {
+
+		try {
+			Assert.assertTrue(flag);
+		} catch (AssertionError e) {
+
+			e.printStackTrace();
+		}
+	}
+
+	/*
+	 * Use this method to assert a boolean condition using JUnit assertion
+	 */
+	public static void assertTrueJUNIT(String message, boolean flag) {
+		try {
+			org.junit.Assert.assertTrue(message, flag);
+		} catch (AssertionError e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	/*
+	 * Use this method to assert a boolean condition using TestNG assertion
+	 * -- INCLUDE A STRING MESSAGE SPECIFYING THE ASSERTION --
+	 */
+	public static void assertTrueTestNG(boolean flag, String message) {
+		try {
+			Assert.assertTrue(flag, message);
+		} catch (AssertionError e) {
+			e.printStackTrace();
+		}
+	}
+
+	/*
+	 * Use this method to switch to switch to a following window
+	 */
+	public static void switchToNextWindow() {
+		Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
+		for (String currentWindow1 : allWindowHandles1) {
+			WebDriverUtils.webDriver.switchTo().window(currentWindow1);
 		}
 	}
 }

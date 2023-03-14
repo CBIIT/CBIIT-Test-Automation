@@ -14,6 +14,7 @@ import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
 import AnalysisTools.Comets2.Pages.Comets2Page;
 import AnalysisTools.ICRP.Pages.ICRPHomePage;
 import AnalysisTools.ICRP.Pages.ICRPSearchDatabase;
+import AnalysisTools.JPSurv.Pages.JPSurvHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
 import AnalysisTools.PLCO.Pages.BrowsePhenotypePage;
@@ -23,30 +24,6 @@ import AnalysisTools.mSigPortal.Pages.CatalogPages;
 import AnalysisTools.mSigPortal.Pages.MSigPortalHomePage;
 import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
 import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
-import CustomBusinessApp.EIDP.Pages.AligningExpectationsPage;
-import CustomBusinessApp.EIDP.Pages.BasePage;
-import CustomBusinessApp.EIDP.Pages.CareerGoalAndActivePage;
-import CustomBusinessApp.EIDP.Pages.CoPrimaryMentorPage;
-import CustomBusinessApp.EIDP.Pages.CommonPage;
-import CustomBusinessApp.EIDP.Pages.DashboardPage;
-import CustomBusinessApp.EIDP.Pages.DelegatePage;
-import CustomBusinessApp.EIDP.Pages.GeneralInformationPage;
-import CustomBusinessApp.EIDP.Pages.IDPAwaitingResponsePage;
-import CustomBusinessApp.EIDP.Pages.LoginPage;
-import CustomBusinessApp.EIDP.Pages.ProjectRelatedDeliverablePage;
-import CustomBusinessApp.EIDP.Pages.SearchPage;
-import CustomBusinessApp.EIDP.Pages.TraineeReviewPage;
-import CustomBusinessApp.EIDP.StepsImplementation.AlignExpectionsStepImpl;
-import CustomBusinessApp.EIDP.StepsImplementation.CareerGoalAndActiveStepImpl;
-import CustomBusinessApp.EIDP.StepsImplementation.EIDPLoginStepImpl;
-import CustomBusinessApp.EIDP.StepsImplementation.GeneralInformationStepImpl;
-import CustomBusinessApp.EIDP.StepsImplementation.ProjectRelatedDeliverableStepImpl;
-import CustomBusinessApp.EIDP.StepsImplementation.SearchStepImpl;
-import ServiceNow.AppTracker.Pages.AppTrackerBasePage;
-import ServiceNow.AppTracker.Pages.AppTrackerLoginPage;
-import ServiceNow.AppTracker.Pages.VacancyManagerUserPage;
-import ServiceNow.AppTracker.StepsImplementation.AppTrackerLogInStepsImpl;
-import ServiceNow.AppTracker.StepsImplementation.VacancyManagerUserStepsImpl;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
 import ServiceNow.CHARMS.Pages.CGBIIQPage;
 import ServiceNow.CHARMS.Pages.CGBIIQPages;
@@ -54,6 +31,9 @@ import ServiceNow.CHARMS.Pages.CHARMSHomePage;
 import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
 import ServiceNow.CHARMS.Pages.FHQSurveyPage;
 import ServiceNow.CHARMS.Pages.FHQSurveyPortalPage;
+import ServiceNow.CHARMS.Pages.MelanomaHomePage;
+import ServiceNow.CHARMS.Pages.MelanomaLoginPage;
+import ServiceNow.CHARMS.Pages.MelanomaQuestionnairePage;
 import ServiceNow.CHARMS.Pages.MyRASHomePage;
 import ServiceNow.CHARMS.Pages.MyRASLoginPage;
 import ServiceNow.CHARMS.Pages.MyRASStudyConsentPage;
@@ -87,7 +67,12 @@ import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
 import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
+import ServiceNow.NERD.Pages.NERDCRSTCollaborationsPage;
+import ServiceNow.NERD.Pages.NERDCRSTopAccomplishmentsPage;
+import ServiceNow.NERD.Pages.NERDDOCCollaborationsPage;
 import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
+import ServiceNow.NERD.Pages.NERDHomePage;
+import ServiceNow.NERD.Pages.NERDKnowledgebasePage;
 import ServiceNow.NERD.Pages.NERDSubmissionsPage;
 import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NativeViewImpersonateUser;
@@ -169,7 +154,7 @@ public class PageInitializer {
 	/** PLCO instances **/
 	protected static ExploreGWASPage exploreGWASPage;
 	protected static BrowsePhenotypePage browsePhenotypePage;
-    protected static InformationPage informationPage;
+	protected static InformationPage informationPage;
 
 	/** ServiceNow DevOps instances */
 	protected static DevOpsLoginPage devOpsLoginPage;
@@ -179,7 +164,7 @@ public class PageInitializer {
 	/** CEDCD instances */
 	protected static CEDCDCohortPage cedcdCohortPage;
 	protected static CEDCDSearchCohortsPage cedcdSearchCohortsPage;
-	protected static CEDCDAdminPage  cedcdAdminPage;   
+	protected static CEDCDAdminPage cedcdAdminPage;
 	protected static CEDCDSearchFemaleCohortsStepImp cedcdSearchFemaleCohortsStepImp;
 	protected static CEDCDSelectAllCohortsStepImp cedcdSelectAllCohortsStepImp;
 	protected static CEDCDBiospecimenCountsPage cedcdBiospecimenCountsPage;
@@ -201,50 +186,32 @@ public class PageInitializer {
 	protected static NERDSubmissionsPage nerdCrsKnowledgeDatabaseSubmissionsPage;
 	protected static CreateNewSubmissionPage createNewSubmissionPage;
 	protected static NERDDynamicXPATHS nerdDynamicXpaths;
-	
+	protected static NERDHomePage nerdHomePage;
+	protected static NERDKnowledgebasePage nerdKnowledgeBasePage;
+	protected static NERDCRSTopAccomplishmentsPage nerdCRSTopAccomplishmentsPage;
+	protected static NERDCRSTCollaborationsPage nerdCRSTCollaborationsPage; 
+	protected static NERDDOCCollaborationsPage nerdDOCCollaborationsPage;
+
 	/** Comets 2.0 Instances */
 	protected static Comets2Page comets2Page;
-	
+
 	/** mSigPortal Instances */
 	protected static SignatureVisualizationsPage signatureVisualizationsPage;
 	protected static MSigPortalHomePage mSigPortalHomePage;
 	protected static SignatureExplorerPages signatureExplorerPages;
 	protected static CatalogPages catalogPages;
 
-	/** Custom Business App Instances */
-	protected static AligningExpectationsPage aligningExpectationsPage;
-	protected static DashboardPage eidpDashboardPage;
-	protected static CommonPage eidpCommonPage;
-	protected static LoginPage nihLoginPage;
-	protected static BasePage eidpBasePage;
-	protected static EIDPLoginStepImpl eidpLoginStepImpl;
-	protected static AlignExpectionsStepImpl aligningExpectationsStepImpl;
-	protected static GeneralInformationPage generalInformationPage;
-	protected static GeneralInformationStepImpl generalInformationStepImpl;
-	protected static CustomBusinessApp.EIDP.StepsImplementation.DashboardStepImpl eidpDashboardStepImpl;
-	protected static SearchPage searchPage;
-	protected static SearchStepImpl searchStepimpl;
-	protected static CareerGoalAndActivePage careerGoalAndActivePage;
-	protected static CareerGoalAndActiveStepImpl careerGoalAndActiveStepImpl;
-	protected static ProjectRelatedDeliverablePage projectRelatedDeliverablePage;
-	protected static ProjectRelatedDeliverableStepImpl projectRelatedDeliverableStepImpl;
-	protected static DelegatePage delegatePage;
-	protected static IDPAwaitingResponsePage iDPAwaitingResponsePage;
-	protected static TraineeReviewPage traineeReviewPage;
-	protected static CoPrimaryMentorPage coPrimaryMentorPage;
-
-	/** Service Now App Instances **/
-	protected static AppTrackerBasePage appTrackerBasePage;
-	protected static VacancyManagerUserPage vacancyManagerUserPage;
-	protected static VacancyManagerUserStepsImpl vacancyManagerUserStepsImpl;
-	protected static AppTrackerLoginPage appTrackerLoginPage;
-	protected static AppTrackerLogInStepsImpl appTrackerLoginStepsImpl;
-	
 	/** ICRP instances **/
-	protected static ICRPHomePage icrpHomePage; 
-	protected static ICRPSearchDatabase icrpSearchDatabase; 
-	
-	
+	protected static ICRPHomePage icrpHomePage;
+	protected static ICRPSearchDatabase icrpSearchDatabase;
+
+	/** JPSurv instances **/
+	protected static JPSurvHomePage jpsurvHomePage;
+
+	/** Melanoma and Spitzoid Tumor instances **/
+	protected static MelanomaLoginPage melanomaLoginPage;
+	protected static MelanomaHomePage melanomaHomePage;
+	protected static MelanomaQuestionnairePage melanomaQuestionnairePage;
 
 	public static void initializeAllPages() {
 		// create instances of all pages and assign them to the variables
@@ -306,33 +273,13 @@ public class PageInitializer {
 		informationPage = new InformationPage();
 		cedcdAdminPage = new CEDCDAdminPage();
 		cedcdCohortPage = new CEDCDCohortPage();
-		icrpHomePage = new ICRPHomePage(); 
-		icrpSearchDatabase = new ICRPSearchDatabase(); 
+		icrpHomePage = new ICRPHomePage();
+		icrpSearchDatabase = new ICRPSearchDatabase();
 		comets2Page = new Comets2Page();
-		signatureVisualizationsPage = new SignatureVisualizationsPage ();
+		signatureVisualizationsPage = new SignatureVisualizationsPage();
 		mSigPortalHomePage = new MSigPortalHomePage();
 		signatureExplorerPages = new SignatureExplorerPages();
 		catalogPages = new CatalogPages();
-		aligningExpectationsPage = new AligningExpectationsPage();
-		eidpDashboardPage = new DashboardPage();
-		eidpCommonPage = new CommonPage();
-		nihLoginPage = new LoginPage();
-		eidpBasePage = new BasePage();
-		eidpLoginStepImpl = new EIDPLoginStepImpl();
-		aligningExpectationsStepImpl = new AlignExpectionsStepImpl();
-		generalInformationPage = new GeneralInformationPage();
-		searchPage = new SearchPage();
-		searchStepimpl = new SearchStepImpl();
-		generalInformationStepImpl = new GeneralInformationStepImpl();
-		careerGoalAndActivePage = new CareerGoalAndActivePage();
-		careerGoalAndActiveStepImpl = new CareerGoalAndActiveStepImpl();
-		projectRelatedDeliverablePage = new ProjectRelatedDeliverablePage();
-		projectRelatedDeliverableStepImpl = new ProjectRelatedDeliverableStepImpl();
-		delegatePage = new DelegatePage();
-		iDPAwaitingResponsePage = new IDPAwaitingResponsePage();
-		traineeReviewPage = new TraineeReviewPage();
-		coPrimaryMentorPage = new CoPrimaryMentorPage();
-		eidpDashboardStepImpl = new CustomBusinessApp.EIDP.StepsImplementation.DashboardStepImpl();
 		myRASLoginPage = new MyRASLoginPage();
 		myRASHomePage = new MyRASHomePage();
 		rasopathyQuestionnairePage = new RASopathyQuestionnairePage();
@@ -343,21 +290,22 @@ public class PageInitializer {
 		rASSurveyPage = new RASSurveyPage();
 		rASSurveyStepsImpl = new RASSurveyStepsImpl();
 		fHQSurveyPortalPage = new FHQSurveyPortalPage();
-		
-		
-	
-		/**AppTracker**/
-		appTrackerBasePage = new AppTrackerBasePage();
-		vacancyManagerUserPage = new VacancyManagerUserPage();
-		vacancyManagerUserStepsImpl = new VacancyManagerUserStepsImpl();
-		appTrackerLoginPage = new AppTrackerLoginPage();
-		appTrackerLoginStepsImpl = new AppTrackerLogInStepsImpl();	
+			
 		
 		/** Native View instance */
 		nativeViewImpersonateUser=new NativeViewImpersonateUser();
 		nativeViewSideDoorLoginPage=new NativeViewSideDoorLoginPage();
 		fHQSurveyPage=new FHQSurveyPage();
-		
-		
+
+		jpsurvHomePage = new JPSurvHomePage();
+		melanomaLoginPage = new MelanomaLoginPage();
+		melanomaHomePage = new MelanomaHomePage();
+		melanomaQuestionnairePage = new MelanomaQuestionnairePage();
+		nerdHomePage = new NERDHomePage();
+		nerdKnowledgeBasePage = new NERDKnowledgebasePage();
+		nerdCRSTopAccomplishmentsPage = new NERDCRSTopAccomplishmentsPage();
+		nerdDOCCollaborationsPage = new NERDDOCCollaborationsPage();
+		nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
+
 	}
 }

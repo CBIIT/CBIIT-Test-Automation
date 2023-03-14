@@ -3,9 +3,11 @@ package AnalysisTools.CEDCD.Pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
-public class CEDCDAdminPage {
+public class CEDCDAdminPage extends CommonUtils {
 	
 	public CEDCDAdminPage(){
 		
@@ -56,9 +58,15 @@ public class CEDCDAdminPage {
 	@FindBy (xpath = "//label[contains(text(),'Submitted')]")
 	public WebElement cohortSubmittedStatus;
 	
+	/** View All Button */
+	@FindBy(xpath = "//*[@id='view_all']")
+	public WebElement viewAllBtn; 
+	
 	/** This element is the first cohort study with the submitted status */
 	@FindBy (xpath = "(//a[contains(text(),'Review')])[1]")
 	public WebElement firstSubmittedCohort;
+	
+	
 	
 	
 	

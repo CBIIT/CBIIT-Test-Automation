@@ -14,7 +14,7 @@ public class CreateNewSubmissionPage extends CommonUtils {
 	/** ------------ CREATE NEW COLLABORATION SECTION ----------- */
 
 	/** CRS Knowledge Management System Create New Submission Breadcrumb */
-	@FindBy(xpath = "//a[contains(text(), 'Create New Submission')]")
+	@FindBy(xpath = "//a[contains(text(), 'Create new Submission')]")
 	public WebElement crsKnowledgeManagementSystemCreateNewSubmissionBreadcrumb;
 
 	/** Title text box */
@@ -22,7 +22,7 @@ public class CreateNewSubmissionPage extends CommonUtils {
 	public WebElement titleTextBox;
 
 	/** Please Specify Text */
-	@FindBy(xpath = "//h4[text()='Please specify']")
+	@FindBy(xpath = "//div[@style='display:inline-flex;']/h4[contains(text(),'Please specify')]")
 	public WebElement pleaseSpecifyText;
 
 	/** Please Specify Drop Down */
@@ -42,7 +42,7 @@ public class CreateNewSubmissionPage extends CommonUtils {
 	public WebElement acronymTextBox;
 
 	/** Fiscal Year text */
-	@FindBy(xpath = "//h4[text()='Fiscal Year']")
+	@FindBy(xpath = "//h4[contains(text(),'Fiscal Year')]")
 	public WebElement fiscalYearText;
 
 	/** Fiscal Year asterisk */
@@ -54,7 +54,7 @@ public class CreateNewSubmissionPage extends CommonUtils {
 	public WebElement fiscalYearDropDown;
 
 	/** Description text box iFrame */
-	@FindBy(xpath = "//iframe[@title='Rich Text Area. Press ALT-F9 for menu. Press ALT-F10 for toolbar. Press ALT-0 for help']")
+	@FindBy(xpath = "//iframe[@title='Rich Text Area']")
 	public WebElement DescriptionTextBoxIframe;
 
 	/** Description text box */
@@ -182,7 +182,7 @@ public class CreateNewSubmissionPage extends CommonUtils {
 	/**
 	 * HHS Strategic Plan Alignment (Secondary Optional) Drop Down
 	 */
-	@FindBy(xpath = "//select[@id='x_26385_crs_kd_u_kb_hhs_strategic_plan_alignment_other'] ")
+	@FindBy(xpath = "//select[@id='x_26385_crs_kd_u_kb_hhs_strategic_plan_alignment_primary'] ")
 	public WebElement hhsStrategicPlanAlignment_SecondaryOptional_DropDown;
 
 	/** Attachment: Choose file Button */
@@ -208,6 +208,15 @@ public class CreateNewSubmissionPage extends CommonUtils {
 	/** Information Dialog Pop Up OK button */
 	@FindBy(xpath = "//button[@ng-repeat='button in options.buttons track by button.label']")
 	public WebElement informationDialogPopUpOKbutton;
+	
+	/** Edited DOC submission save button  */
+	@FindBy(xpath = "//button[@ng-if=\"c.data.status == 'DOC Review' && c.isDpc\"]")
+	public WebElement editedDOCSubmissionSaveButton;
+	
+	/** Edited Staff Member submission save button  */
+	@FindBy(xpath = "//button[@ng-click='c.saveSubmission()']")
+	public WebElement editedStaffMemberSubmissionSaveButton;
+	
 
 	/** ------------ END OF CREATE NEW COLLABORATION SECTION ----------- */
 
