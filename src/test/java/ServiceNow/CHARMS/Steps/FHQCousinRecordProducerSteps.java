@@ -162,10 +162,6 @@ public class FHQCousinRecordProducerSteps extends PageInitializer {
 
 		MiscUtils.sleep(300);
 
-		// ComponentTestResult dropdownTest =
-		// FHQUtil.selectRandomDropdown(fHQSurveyPortalPage.parentOfThisCousinDropDown,
-		// 0);
-
 		StepTestResult stepTestResult = new StepTestResult(
 				"Clicked the New button on the FHQ Cousin list view page to lands on the New FHQ Cousin record producer page");
 
@@ -364,10 +360,6 @@ public class FHQCousinRecordProducerSteps extends PageInitializer {
 
 		ComponentTestResult labelTest5 = FHQUtil.verifyLabel(fHQSurveyPortalPage.totalTubalEctopicMolarPregnanciesLabel,
 				"Total number of Tubal/Ectopic/Molar Pregnancies");
-
-		// ComponentTestResult dropdownTest4 =
-		// FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.cousinTotalTubalDropDown,
-		// FHQSurveyPageConstants.numberUpToN(20), 6);
 
 		ComponentTestResult dropdownTest4 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown2,
 				FHQSurveyPageConstants.numberUpToN(20), 8);
@@ -1388,15 +1380,6 @@ public class FHQCousinRecordProducerSteps extends PageInitializer {
 
 		System.out.println("Medical Conditions 1 Matched");
 
-//		ComponentTestResult labelTest52 = FHQUtil.verifyLabel(fHQSurveyPortalPage.relatedFamilyMemberDetailsOnCRPValue,
-//				"Related family member details 9");
-//
-//		Assert.assertTrue("Related family member details do not match ",
-//				fHQSurveyPortalPage.relatedFamilyMemberDetailsOnCRPValue.getText()
-//						.contentEquals("Related family member details 9"));
-//
-//		System.out.println("Related family member details Matched");
-
 		StepTestResult stepTestResult = new StepTestResult(
 				"Verified the new GrandChild added and all the field data in the completed record producer");
 
@@ -1455,7 +1438,6 @@ public class FHQCousinRecordProducerSteps extends PageInitializer {
 		stepTestResult.add(labelTest49);
 		stepTestResult.add(labelTest50);
 		stepTestResult.add(labelTest51);
-	//	stepTestResult.add(labelTest52);
 
 		scenarioReportList.add(stepTestResult);
 

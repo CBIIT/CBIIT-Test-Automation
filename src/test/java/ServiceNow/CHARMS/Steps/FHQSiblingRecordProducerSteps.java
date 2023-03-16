@@ -958,10 +958,6 @@ public class FHQSiblingRecordProducerSteps extends PageInitializer {
 		ComponentTestResult labelTest1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.includeAllChildrenBanner,
 				"Please include all biological children, living and deceased. Please do not include miscarriages, stillbirths, or abortions. These will be collected elsewhere.");
 
-		// ComponentTestResult dropdownTest =
-		// FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown1,
-		// FHQSurveyPageConstants.numberUpToN(20), 2);
-
 		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(
 				fHQSurveyPortalPage.howManyTotalChildrenSiblingHasDropDown, FHQSurveyPageConstants.numberUpToN(20), 4);
 
@@ -1058,12 +1054,6 @@ public class FHQSiblingRecordProducerSteps extends PageInitializer {
 		ComponentTestResult labelTest4 = FHQUtil.verifyLabel(fHQSurveyPortalPage.actionsEdit3, "");
 
 		ComponentTestResult labelTest5 = FHQUtil.verifyLabel(fHQSurveyPortalPage.actionsDelete3, "");
-
-		// ComponentTestResult labelTest4 =
-		// FHQUtil.verifyLabel(fHQSurveyPortalPage.childActionsEdit, "");
-		//
-		// ComponentTestResult labelTest5 =
-		// FHQUtil.verifyLabel(fHQSurveyPortalPage.childActionsDelete, "");
 
 		ComponentTestResult labelTest6 = FHQUtil.verifyLabel(fHQSurveyPortalPage.siblingChildFirstNameBannerValue,
 				"Sibling child FN");
@@ -1444,15 +1434,6 @@ public class FHQSiblingRecordProducerSteps extends PageInitializer {
 
 		System.out.println("Medical Conditions 1 Matched");
 
-//		ComponentTestResult labelTest48 = FHQUtil.verifyLabel(fHQSurveyPortalPage.relatedFamilyMemberDetailsOnCRPValue,
-//				"Related family member details 9");
-//
-//		Assert.assertTrue("Related family member details do not match ",
-//				fHQSurveyPortalPage.relatedFamilyMemberDetailsOnCRPValue.getText()
-//						.contentEquals("Related family member details 9"));
-//
-//		System.out.println("Related family member details Matched");
-
 		StepTestResult stepTestResult = new StepTestResult(
 				"Verified the new Child added and all the field data in the completed record producer");
 
@@ -1509,8 +1490,6 @@ public class FHQSiblingRecordProducerSteps extends PageInitializer {
 		stepTestResult.add(labelTest45);
 		stepTestResult.add(labelTest46);
 		stepTestResult.add(labelTest47);
-	//	stepTestResult.add(labelTest48);
-	
 
 		scenarioReportList.add(stepTestResult);
 

@@ -210,13 +210,6 @@ public class FHQGrandParentRecordProducerSteps extends PageInitializer {
 		ComponentTestResult dropdownTest6 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown1,
 				FHQSurveyPageConstants.yearOfBirthOrDeath(), 70);
 
-		// ComponentTestResult labelTest8 =
-		// FHQUtil.verifyLabel(fHQSurveyPortalPage.ageOfDeathLabel, "Age of Death");
-		//
-		// ComponentTestResult dropdownTest6 =
-		// FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown1,
-		// FHQSurveyPageConstants.ageOfDeath(), 70);
-
 		ComponentTestResult labelTest9 = FHQUtil.verifyLabel(fHQSurveyPortalPage.causeOfThisRelativeDeathLabel,
 				"What was the cause of this relative death?");
 
@@ -1328,15 +1321,6 @@ public class FHQGrandParentRecordProducerSteps extends PageInitializer {
 
 		System.out.println("Medical Conditions 1 Matched");
 
-//		ComponentTestResult labelTest48 = FHQUtil.verifyLabel(fHQSurveyPortalPage.relatedFamilyMemberDetailsOnCRPValue,
-//				"Related family member details 9");
-//
-//		Assert.assertTrue("Related family member details do not match ",
-//				fHQSurveyPortalPage.relatedFamilyMemberDetailsOnCRPValue.getText()
-//						.contentEquals("Related family member details 9"));
-//
-//		System.out.println("Related family member details Matched");
-
 		StepTestResult stepTestResult = new StepTestResult(
 				"Verified the new GrandParent added with all the data field in the completed record producer");
 
@@ -1393,7 +1377,6 @@ public class FHQGrandParentRecordProducerSteps extends PageInitializer {
 		stepTestResult.add(labelTest45);
 		stepTestResult.add(labelTest46);
 		stepTestResult.add(labelTest47);
-//		stepTestResult.add(labelTest48);
 
 		scenarioReportList.add(stepTestResult);
 

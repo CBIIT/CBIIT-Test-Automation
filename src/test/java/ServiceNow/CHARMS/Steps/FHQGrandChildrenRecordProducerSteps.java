@@ -1386,15 +1386,6 @@ public class FHQGrandChildrenRecordProducerSteps extends PageInitializer {
 
 		System.out.println("Medical Conditions 1 Matched");
 
-//		ComponentTestResult labelTest52 = FHQUtil.verifyLabel(fHQSurveyPortalPage.relatedFamilyMemberDetailsOnCRPValue,
-//				"Related family member details 9");
-//
-//		Assert.assertTrue("Related family member details do not match ",
-//				fHQSurveyPortalPage.relatedFamilyMemberDetailsOnCRPValue.getText()
-//						.contentEquals("Related family member details 9"));
-//
-//		System.out.println("Related family member details Matched");
-
 		StepTestResult stepTestResult = new StepTestResult(
 				"Verified the new GrandChild added and all the field data in the completed record producer");
 
@@ -1453,7 +1444,6 @@ public class FHQGrandChildrenRecordProducerSteps extends PageInitializer {
 		stepTestResult.add(labelTest49);
 		stepTestResult.add(labelTest50);
 		stepTestResult.add(labelTest51);
-//		stepTestResult.add(labelTest52);
 
 		scenarioReportList.add(stepTestResult);
 

@@ -595,23 +595,6 @@ public class FHQPartnerRecordProducerSteps extends PageInitializer {
 
 		System.out.println("Is there anything else you would like us to know about this relative Matched");
 
-//		ComponentTestResult labelTest26 = FHQUtil.verifyLabel(fHQSurveyPortalPage.relatedListsOnCRPValue,
-//				"Related Lists");
-//
-//		Assert.assertTrue("Related Lists do not match ",
-//				fHQSurveyPortalPage.relatedListsOnCRPValue.getText().contentEquals("Related Lists"));
-//
-//		System.out.println("Related Lists Matched");
-//
-//		ComponentTestResult labelTest27 = FHQUtil.verifyLabel(fHQSurveyPortalPage.relatedFamilyMemberDetailsOnCRPValue,
-//				"Related family member details 9");
-//
-//		Assert.assertTrue("Related family member details do not match ",
-//				fHQSurveyPortalPage.relatedFamilyMemberDetailsOnCRPValue.getText()
-//						.contentEquals("Related family member details 9"));
-//
-//		System.out.println("Related family member details Matched");
-
 		StepTestResult stepTestResult = new StepTestResult(
 				"Verified the new Partner added and all the field data in the completed record producer");
 
@@ -646,9 +629,7 @@ public class FHQPartnerRecordProducerSteps extends PageInitializer {
 		stepTestResult.add(labelTest23);
 		stepTestResult.add(labelTest24);
 		stepTestResult.add(labelTest25);
-//		stepTestResult.add(labelTest26);
-//		stepTestResult.add(labelTest27);
-
+		
 		scenarioReportList.add(stepTestResult);
 	}
 }

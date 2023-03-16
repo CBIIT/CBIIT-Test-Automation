@@ -273,9 +273,6 @@ public class FHQRecordProducersNativeViewSteps extends PageInitializer {
 	@Then("Please identify the number of each of the following pregnancy results. statement displays")
 	public void please_identify_the_number_of_each_of_the_following_pregnancy_results_statement_displays() {
 
-		// CommonUtils.switchToFrame(fHQSurveyPage.nVFHQRecordProducersIframe);
-		// MiscUtils.sleep(1000);
-
 		FHQUtil.fHQLabelHighlight(fHQSurveyPage.nVFHQPatientPersonalsPregnancyResultsLabel);
 		MiscUtils.sleep(1000);
 
@@ -319,10 +316,7 @@ public class FHQRecordProducersNativeViewSteps extends PageInitializer {
 
 	@When("selects the value one to thirty or Dont Know for the How many TOTAL pregnancies have you had or fathered? drop-down")
 	public void selects_the_value_one_to_thirty_or_Dont_Know_for_the_How_many_TOTAL_pregnancies_have_you_had_or_fathered_drop_down() {
-
 		CommonUtils.selectDropDownValue(fHQSurveyPage.nVFHQPatientPersonalsTotalPregnanciesFatheredDropDown, 2);
-		// fHQSurveyPage.nVFHQPatientPersonalsTotalPregnanciesFatheredDropDown.click();
-		// MiscUtils.sleep(2000);
 	}
 
 	@Then("Have all of your pregnancies been with your Current Partner? drop-down displays with values  Yes, No, Dont Know, Prefer not to answer")
@@ -346,7 +340,6 @@ public class FHQRecordProducersNativeViewSteps extends PageInitializer {
 		FHQUtil.fHQLabelUnHighlight(fHQSurveyPage.nVFHQPatientPersonalsAllPregnanciesWithCurrentPartnerDropDown);
 
 		CommonUtils.selectDropDownValue(fHQSurveyPage.nVFHQPatientPersonalsAllPregnanciesWithCurrentPartnerDropDown, 1);
-		// fHQSurveyPage.nVFHQPatientPersonalsAllPregnanciesWithCurrentPartnerDropDown.click();
 
 		StepTestResult stepTestResult = new StepTestResult(
 				"Have all of your pregnancies been with your Current Partner? drop-down displays with values  Yes, No, Dont Know, Prefer not to answer");
@@ -374,7 +367,6 @@ public class FHQRecordProducersNativeViewSteps extends PageInitializer {
 		FHQUtil.fHQLabelUnHighlight(fHQSurveyPage.nVFHQPatientPersonalsTotalLiveBirthsDropDown);
 
 		CommonUtils.selectDropDownValue(fHQSurveyPage.nVFHQPatientPersonalsTotalLiveBirthsDropDown, 2);
-		// fHQSurveyPage.nVFHQPatientPersonalsTotalLiveBirthsDropDown.click();
 
 		StepTestResult stepTestResult = new StepTestResult(
 				"Total Number of Live Births drop-down displays with values zero to twenty, Dont Know, Prefer Not to Answer");
@@ -400,7 +392,6 @@ public class FHQRecordProducersNativeViewSteps extends PageInitializer {
 				fHQSurveyPage.nVFHQPatientPersonalsTotalMiscarriagesDropDown, FHQSurveyPageConstants.numberUpToN(20));
 
 		CommonUtils.selectDropDownValue(fHQSurveyPage.nVFHQPatientPersonalsTotalMiscarriagesDropDown, 2);
-		// fHQSurveyPage.nVFHQPatientPersonalsTotalMiscarriagesDropDown.click();
 
 		FHQUtil.fHQLabelUnHighlight(fHQSurveyPage.nVFHQPatientPersonalsTotalMiscarriagesDropDown);
 
@@ -430,7 +421,6 @@ public class FHQRecordProducersNativeViewSteps extends PageInitializer {
 				fHQSurveyPage.nVFHQPatientPersonalsTotalStillbirthsDropDown, FHQSurveyPageConstants.numberUpToN(20));
 
 		CommonUtils.selectDropDownValue(fHQSurveyPage.nVFHQPatientPersonalsTotalStillbirthsDropDown, 2);
-		// fHQSurveyPage.nVFHQPatientPersonalsTotalStillbirthsDropDown.click();
 
 		FHQUtil.fHQLabelUnHighlight(fHQSurveyPage.nVFHQPatientPersonalsTotalStillbirthsDropDown);
 
@@ -461,7 +451,6 @@ public class FHQRecordProducersNativeViewSteps extends PageInitializer {
 
 		FHQUtil.fHQLabelUnHighlight(fHQSurveyPage.nVFHQPatientPersonalsTotalInducedAbortionsDropDown);
 		CommonUtils.selectDropDownValue(fHQSurveyPage.nVFHQPatientPersonalsTotalInducedAbortionsDropDown, 2);
-		// fHQSurveyPage.nVFHQPatientPersonalsTotalInducedAbortionsDropDown.click();
 
 		StepTestResult stepTestResult = new StepTestResult(
 				"Total Number of Induced Abortions drop-down displays with values zero to twenty, Dont Know, Prefer Not to Answer");
@@ -545,9 +534,9 @@ public class FHQRecordProducersNativeViewSteps extends PageInitializer {
 
 	@When("selects the value one to twenty or Dont Know for the How many total children do you have?")
 	public void selects_the_value_one_to_twenty_or_Dont_Know_for_the_How_many_total_children_do_you_have() {
-
+		
 		CommonUtils.selectDropDownValue(fHQSurveyPage.nVFHQPatientPersonalsTotalChildrenHaveDropDown, 2);
-		// fHQSurveyPage.nVFHQPatientPersonalsTotalChildrenHaveDropDown.click();
+	
 	}
 
 	@Then("The MRVS for children will show")
@@ -1318,8 +1307,6 @@ public class FHQRecordProducersNativeViewSteps extends PageInitializer {
 
 	@When("First Name text box displays for patient parent in the Add Row Page")
 	public void first_Name_text_box_displays_for_patient_parent_in_the_Add_Row_Page() {
-
-		// CommonUtils.switchToFrame(fHQSurveyPage.nVFHQPatientPersonalsSParentMRVSAddRowPageIframe);
 
 		FHQUtil.fHQLabelHighlight(fHQSurveyPage.nVFHQPatientPersonalsParentMRVSAddRowFirstNameLabel);
 		MiscUtils.sleep(1000);

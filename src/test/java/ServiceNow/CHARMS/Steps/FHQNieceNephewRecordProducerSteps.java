@@ -173,10 +173,6 @@ public class FHQNieceNephewRecordProducerSteps extends PageInitializer {
 
 		MiscUtils.sleep(300);
 
-		// ComponentTestResult dropdownTest = FHQUtil
-		// .selectRandomDropdown(fHQSurveyPortalPage.parentOfThisNieceNephewDropDown,
-		// 0);
-
 		StepTestResult stepTestResult = new StepTestResult(
 				"The Participant NieceNephew information is filled and verified");
 

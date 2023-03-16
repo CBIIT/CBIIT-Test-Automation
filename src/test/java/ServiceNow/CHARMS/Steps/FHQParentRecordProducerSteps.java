@@ -207,13 +207,6 @@ public class FHQParentRecordProducerSteps extends PageInitializer {
 		ComponentTestResult dropdownTest6 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown1,
 				FHQSurveyPageConstants.yearOfBirthOrDeath(), 70);
 
-		// ComponentTestResult labelTest8 =
-		// FHQUtil.verifyLabel(fHQSurveyPortalPage.ageOfDeathLabel, "Age of Death");
-
-		// ComponentTestResult dropdownTest6 =
-		// FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown1,
-		// FHQSurveyPageConstants.ageOfDeath(), 70);
-
 		ComponentTestResult labelTest9 = FHQUtil.verifyLabel(fHQSurveyPortalPage.causeOfThisRelativeDeathLabel,
 				"What was the cause of this relative death?");
 
@@ -1489,15 +1482,6 @@ public class FHQParentRecordProducerSteps extends PageInitializer {
 
 		System.out.println("Medical Conditions 1 Matched");
 
-//		ComponentTestResult labelTest50 = FHQUtil.verifyLabel(fHQSurveyPortalPage.relatedFamilyMemberDetailsOnCRPValue,
-//				"Related family member details 9");
-//
-//		Assert.assertTrue("Related family member details do not match ",
-//				fHQSurveyPortalPage.relatedFamilyMemberDetailsOnCRPValue.getText()
-//						.contentEquals("Related family member details 9"));
-//
-//		System.out.println("Related family member details Matched");
-
 		StepTestResult stepTestResult = new StepTestResult(
 				"Verified the new Parent added and all the field data in the completed record producer");
 
@@ -1556,10 +1540,6 @@ public class FHQParentRecordProducerSteps extends PageInitializer {
 		stepTestResult.add(labelTest47);
 		stepTestResult.add(labelTest48);
 		stepTestResult.add(labelTest49);
-		//stepTestResult.add(labelTest50);
-
-		//scenarioReportList.add(stepTestResult);
-
 	}
 
 	@When("click the FHQ Home button")
@@ -1578,7 +1558,6 @@ public class FHQParentRecordProducerSteps extends PageInitializer {
 	
 	@When("the ExtentReport is generated")
 	public void the_ExtentReport_is_generated() {
-		// ExtentReports , ExtentSparkReporter
 
 		String path =System.getProperty("user.dir")+"\\CBIIT-Test-Automation\\reports\\FHQRegression.html";
 
@@ -1587,8 +1566,6 @@ public class FHQParentRecordProducerSteps extends PageInitializer {
 		reporter.config().setReportName("FHQ Regression Automation Results");
 
 		reporter.config().setDocumentTitle("FHQ Regression Results");
-
-		//ExtentReports extent =new ExtentReports();
 
 		extent.attachReporter(reporter);
 

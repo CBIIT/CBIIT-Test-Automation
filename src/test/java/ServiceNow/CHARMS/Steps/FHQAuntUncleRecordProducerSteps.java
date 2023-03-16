@@ -58,13 +58,6 @@ public class FHQAuntUncleRecordProducerSteps extends PageInitializer {
 		ComponentTestResult labelTest3 = FHQUtil.verifyLabel(fHQSurveyPortalPage.rowsDetailsOnListView,
 				"The blue highlighted rows represent the incompleted family records");
 
-		// ComponentTestResult labelTest4 =
-		// FHQUtil.verifyLabel(fHQSurveyPortalPage.allDetailsOnListView, "All");
-		//
-		// ComponentTestResult labelTest5 =
-		// FHQUtil.verifyLabel(fHQSurveyPortalPage.parentRelationToPatientBannerOnListView,
-		// "Relation to Patient in (Biological Mother, Biological Father)");
-
 		ComponentTestResult labelTest6 = FHQUtil.verifyLabel(fHQSurveyPortalPage.firstNameOnListView, "First Name");
 
 		ComponentTestResult labelTest7 = FHQUtil.verifyLabel(fHQSurveyPortalPage.firstInitialOfLastNameOnListView,
@@ -103,8 +96,6 @@ public class FHQAuntUncleRecordProducerSteps extends PageInitializer {
 		stepTestResult.add(labelTest1);
 		stepTestResult.add(labelTest2);
 		stepTestResult.add(labelTest3);
-		// stepTestResult.add(labelTest4);
-		// stepTestResult.add(labelTest5);
 		stepTestResult.add(labelTest6);
 		stepTestResult.add(labelTest7);
 		stepTestResult.add(labelTest8);
@@ -170,10 +161,6 @@ public class FHQAuntUncleRecordProducerSteps extends PageInitializer {
 		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(
 				fHQSurveyPortalPage.relativeParticipantsMotherOrFatherSiblingDropDown,
 				FHQSurveyPageConstants.PARENT_SIBLING, 0);
-
-		// ComponentTestResult dropdownTest = FHQUtil
-		// .selectRandomDropdown(fHQSurveyPortalPage.relativeParticipantsMotherOrFatherSiblingDropDown,
-		// 0);
 
 		ComponentTestResult labelTest5 = FHQUtil.verifyLabel(fHQSurveyPortalPage.auntUncleTypeOfSiblingToParentLabel,
 				"Please define the type of sibling?");
@@ -1521,15 +1508,6 @@ public class FHQAuntUncleRecordProducerSteps extends PageInitializer {
 
 		System.out.println("Medical Conditions 1 Matched");
 
-//		ComponentTestResult labelTest50 = FHQUtil.verifyLabel(fHQSurveyPortalPage.relatedFamilyMemberDetailsOnCRPValue,
-//				"Related family member details 9");
-//
-//		Assert.assertTrue("Related family member details do not match ",
-//				fHQSurveyPortalPage.relatedFamilyMemberDetailsOnCRPValue.getText()
-//						.contentEquals("Related family member details 9"));
-//
-//		System.out.println("Related family member details Matched");
-
 		StepTestResult stepTestResult = new StepTestResult(
 				"Verified the new AuntUncle added and all the field data in the completed record producer");
 
@@ -1590,7 +1568,6 @@ public class FHQAuntUncleRecordProducerSteps extends PageInitializer {
 		stepTestResult.add(labelTest47);
 		stepTestResult.add(labelTest48);
 		stepTestResult.add(labelTest49);
-		//stepTestResult.add(labelTest50);
 
 		scenarioReportList.add(stepTestResult);
 

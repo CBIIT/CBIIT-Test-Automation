@@ -9,10 +9,8 @@ import com.nci.automation.web.WebDriverUtils;
 
 public class FHQSurveyPage extends CommonUtils {
 
-	public FHQSurveyPage() {
-
+	public FHQSurveyPage() 
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
-
 	}
 
 	/* Native View Filter Navigator */

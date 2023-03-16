@@ -321,22 +321,12 @@ public class FHQChildRecordProducerSteps extends PageInitializer {
 				fHQSurveyPortalPage.isOtherBiologicalParentOfThisRelativeChildDropDown,
 				FHQSurveyPageConstants.OTHER_BIOLOGICAL_PARENT, 3);
 
-		// ComponentTestResult labelTest1 =
-		// FHQUtil.verifyLabel(fHQSurveyPortalPage.otherBiologicalParentLabel,
-		// "Other Biological Parent");
-
-		// ComponentTestResult dropdownTest1 = FHQUtil.verifySelect2DropDowns(
-		// fHQSurveyPortalPage.otherBiologicalParentDropDown,
-		// FHQSurveyPageConstants.OTHER_BIOLOGICAL_PARENT, 1);
-
 		StepTestResult stepTestResult = new StepTestResult(
 				"The other biological parent of this Participant Child(SonDaughter) information details are filled and verified");
 
 		stepTestResult.add(labelTest);
 		stepTestResult.add(dropdownTest);
-		// stepTestResult.add(labelTest1);
-		// stepTestResult.add(dropdownTest1);
-
+		
 		scenarioReportList.add(stepTestResult);
 	}
 
@@ -1549,15 +1539,6 @@ public class FHQChildRecordProducerSteps extends PageInitializer {
 				fHQSurveyPortalPage.medicalConditionsInfoOnCRPValue.getText().contentEquals("Medical Conditions 1"));
 
 		System.out.println("Medical Conditions 1 Matched");
-
-//		ComponentTestResult labelTest52 = FHQUtil.verifyLabel(fHQSurveyPortalPage.relatedFamilyMemberDetailsOnCRPValue,
-//				"Related family member details 9");
-//
-//		Assert.assertTrue("Related family member details do not match ",
-//				fHQSurveyPortalPage.relatedFamilyMemberDetailsOnCRPValue.getText()
-//				.contentEquals("Related family member details 9"));
-//
-//		System.out.println("Related family member details Matched");
 
 		StepTestResult stepTestResult = new StepTestResult(
 				"Verified the new Child added and all the field data in the completed record producer");
