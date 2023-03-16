@@ -23,9 +23,6 @@ public class FHQUtil {
 	public static void fHQLabelHighlight(WebElement webElement) {
 
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) WebDriverUtils.webDriver;
-		
-//		jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:2px solid red; background:yellow')",
-//				webElement);
 
 		jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:2px solid red')",
 				webElement);
@@ -80,12 +77,8 @@ public class FHQUtil {
 		for (int i = 0; i < dropDownOptions.size(); i++) {
 
 			String options = dropDownOptions.get(i).getText();
-			// System.out.println("options-" + options + ";DropdownList values-" +
-			// dropdownList.get(i));
-
 			try {
 				Assert.assertTrue(options.equals(list.get(i)));
-				// reportList.add(new TestReport(options,dropdownList.get(i),"PASSED"));
 
 			} catch (AssertionError ae) {
 				result = "FAILED";
@@ -120,7 +113,6 @@ public class FHQUtil {
 		MiscUtils.sleep(1000);
 
 		webElement.click();
-	//	MiscUtils.sleep(1000);
 
 
 		String result = "PASSED";
@@ -129,11 +121,6 @@ public class FHQUtil {
 				.findElement(By.xpath("//div[@id='select2-drop']/ul[@class='select2-results']"));
 
 		List<WebElement> selectResultsAsListCollection = select2ElementResults.findElements(By.tagName("li"));
-
-		// for(WebElement item: selectResultsAsListCollection)
-		// {
-		// System.out.println(item.getText());
-		// }
 
 		int size = dropdownList.size();
 
@@ -147,12 +134,9 @@ public class FHQUtil {
 		for (int i = 0; i < size; i++) {
 
 			String options = selectResultsAsListCollection.get(i).getText();
-			// System.out.println("options-" + options + ";DropdownList values-" +
-			// dropdownList.get(i));
 
 			try {
 				Assert.assertTrue(options.equals(dropdownList.get(i)));
-				// reportList.add(new TestReport(options,dropdownList.get(i),"PASSED"));
 
 			} catch (AssertionError ae) {
 				result = "FAILED";
@@ -164,9 +148,6 @@ public class FHQUtil {
 		}
 
 		selectResultsAsListCollection.get(dropdownSelectedIndex).click();
-
-	//	FHQUtil.fHQLabelUnHighlight(webElement);
-	//	MiscUtils.sleep(1000);
 
 		ComponentTestResult componentTestResult = new ComponentTestResult();
 
@@ -188,9 +169,6 @@ public class FHQUtil {
 
 
 		String result = "PASSED";
-
-//		WebElement select2ElementResults = WebDriverUtils.webDriver
-//				.findElement(By.xpath("//div[@id='select2-drop']/ul[@class='select2-results']"));
 		
 		WebElement select2ElementResults = WebDriverUtils.webDriver.findElement(By.xpath("(//a[@class='select2-choice select2-default form-control'])[1]"));
 		
@@ -211,7 +189,6 @@ public class FHQUtil {
 			comparisionResultList.add(comparisionResult);
 		}
 
-		// FHQUtil.fHQLabelUnHighlight(webElement);
 		ComponentTestResult componentTestResult = new ComponentTestResult();
 
 		componentTestResult.setComparisionResultList(comparisionResultList);
@@ -234,7 +211,6 @@ public class FHQUtil {
 
 		try {
 			Assert.assertTrue(actualValue.equals(expectedValue));
-			// stepTestResultList.add(new TestReport(actualValue,expectedValue,"PASSED"));
 
 		} catch (AssertionError ae) {
 			result = "FAILED";
@@ -243,7 +219,7 @@ public class FHQUtil {
 		}
  
 		/* To unhightlight the Label */
-	//	FHQUtil.fHQLabelUnHighlight(webElement);
+
 		MiscUtils.sleep(500);
 
 		ComponentTestResult componentTestResult = new ComponentTestResult();
@@ -261,15 +237,8 @@ public class FHQUtil {
 
        webElement.click();
 
-	//	List<WebElement> selectResultsAsListCollection = select2ElementResults.findElements(By.tagName("spani"));
-		
-
-		@SuppressWarnings("unchecked")
+       @SuppressWarnings("unchecked")
 		List<WebElement> suggestionList = (List<WebElement>) WebDriverUtils.webDriver.findElement(By.xpath("(//div[@id='s2id_sp_formfield_grandchild_parent>span>i']"));
-		// for(WebElement item: selectResultsAsListCollection)
-		// {
-		// System.out.println(item.getText());
-		// }
 
 		suggestionList.get(0).click();
 		
