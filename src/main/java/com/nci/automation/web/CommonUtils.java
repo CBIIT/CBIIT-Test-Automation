@@ -484,15 +484,11 @@ public class CommonUtils extends WebDriverUtils {
 		String parent = WebDriverUtils.webDriver.getWindowHandle();
 		Set<String> s = WebDriverUtils.webDriver.getWindowHandles();
 		Iterator<String> I1 = s.iterator();
-
+	
 		while (I1.hasNext()) {
 			String child_window = I1.next();
-
 			if (!parent.equals(child_window)) {
 				WebDriverUtils.webDriver.switchTo().window(child_window);
-
-				// System.out.println(WebDriverUtils.webDriver.switchTo().window(child_window).getTitle());
-
 			}
 		}
 	}
