@@ -3,7 +3,7 @@ Feature: All FHQ Survey Record Producers validation in Native View
   
   Description: This feature file contains all scenarios which verify questionnaires for all FHQ Survey Record Producers in Native View
 
-#  @jains @Progression
+  @jains @FHQRegression
   Scenario: FHQ Patient Personal Record Producer with data verification
     Given a user is on the Native View side door login page
     And the user logs in the Native View using the Test Account credentials
@@ -13,10 +13,10 @@ Feature: All FHQ Survey Record Producers validation in Native View
     And To confirm your identity, please indicate your relationship to the participant drop-down displays with values I am the participant,I am the legal guardian or legal representative for the participant
     And Are you currently married or in a long term relationship? drop-down displays with values Yes, No, Prefer not to answer
     Then selects the value Yes for Are you currently married or in a long term relationship? drop-down
-    #   Then Please fill out the following about your current partner statement is displayed
-    #   And First Name text box displays
-    #    And First Initial of Last Name drop-down displays with values A-Z, Prefer not to answer, Dont Know
-    #   And Vital Status drop-down displays with values Alive, Deceased, Dont know, Prefer not to answer
+    Then Please fill out the following about your current partner statement is displayed
+    And First Name text box displays
+    And First Initial of Last Name drop-down displays with values A-Z, Prefer not to answer, Dont Know
+    And Vital Status drop-down displays with values Alive, Deceased, Dont know, Prefer not to answer
     Then Please identify the number of each of the following pregnancy results. statement displays
     Then How many TOTAL pregnancies have you had or fathered? drop-down displays with values one to thirty,Dont Know, Prefer not to answer
     When selects the value one to thirty or Dont Know for the How many TOTAL pregnancies have you had or fathered? drop-down

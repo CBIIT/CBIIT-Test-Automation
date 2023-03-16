@@ -38,12 +38,10 @@ public class JavascriptUtils extends WebDriverUtils {
 		JavascriptExecutor js = (JavascriptExecutor) webDriver;
 		js.executeScript("arguments[0].value = '';", element);
 	}
-	/* To scroll down the web page at the bottom of the page.*/
 	
-	public static void scrollDownByPage() {
-		
-		JavascriptExecutor js = ((JavascriptExecutor) webDriver);
-		
+	/* To scroll down the web page at the bottom of the page.*/
+	public static void scrollDownByPage() {	
+		JavascriptExecutor js = ((JavascriptExecutor) webDriver);	
 		 //This will scroll the web page till end.		
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 	}

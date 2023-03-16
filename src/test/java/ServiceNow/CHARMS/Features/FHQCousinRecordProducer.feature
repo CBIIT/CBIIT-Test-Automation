@@ -3,7 +3,7 @@ Feature: All FHQ Cousin Record Producers submisiion and verification in the FHQ 
   
   Description: This feature file contains all scenarios which verify questionnaires for New FHQ Cousin Record Producer submisiion and verification
 
-  #@jains @Progression
+  @jains @FHQRegression
   Scenario: New FHQ Cousin Record
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -12,7 +12,7 @@ Feature: All FHQ Cousin Record Producers submisiion and verification in the FHQ 
     And click the new Cousin added and verify the completed record producer data
     And click the FHQ Home button
 
- #@jains @Progression
+ @jains @FHQRegression
   Scenario: New FHQ Cousin Record
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -41,7 +41,7 @@ Feature: All FHQ Cousin Record Producers submisiion and verification in the FHQ 
     And click the new Cousin added and verify the completed record producer data
     And click the FHQ Home button
 
-  #@jains @Progression
+  @jains @FHQRegression
   Scenario: New FHQ Cousin Record
     Given a user is logged on FHQ Landing Page after filling out patient data using the Test Account credentials in Test side door login page
     And user clicks the Cousin Grid link on FHQ Grid page to land on the FHQ Cousin list view page

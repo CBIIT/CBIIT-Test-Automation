@@ -364,22 +364,6 @@ public class FHQSurveyPageConstants {
 		}
 	};
 
-//		@SuppressWarnings("serial")
-//		public static final ArrayList<String> GENDER_IDENTITY1 = new ArrayList<String>() {
-//			{
-//				add("-- None --");
-//				add("Male");
-//				add("Female");
-//				add("Transgender man/trans man/female-to-male (FTM)");
-//				add("Transgender woman/trans woman/male-to-female (MTF)");
-//				add("Genderqueer/Gender nonconforming/ neither exclusively male nor female");
-//				add("Agender");
-//				add("Additional gender category (write in)");
-//				add("Prefer not to answer");
-//				add("Don't Know");
-//			}
-//		};
-
 	@SuppressWarnings("serial")
 	public static final ArrayList<String> TYPE_OF_BIRTH = new ArrayList<String>() {
 		{
