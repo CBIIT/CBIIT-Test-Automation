@@ -4,17 +4,17 @@ import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
 import AnalysisTools.CEDCD.Pages.CEDCDBiospecimenCountsPage;
 import AnalysisTools.CEDCD.Pages.CEDCDCohortPage;
 import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
+import AnalysisTools.CEDCD.Steps.CEDCDStartUps;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDAlphabetizedSelectTypesStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortNewPageLayOutStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
+import AnalysisTools.Comets2.Pages.Comets2Page;
 import AnalysisTools.ICRP.Pages.ICRPHomePage;
 import AnalysisTools.ICRP.Pages.ICRPSearchDatabase;
 import AnalysisTools.JPSurv.Pages.JPSurvHomePage;
-import AnalysisTools.Comets2.Pages.Comets2Page;
-import AnalysisTools.CEDCD.Steps.CEDCDStartUps;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
 import AnalysisTools.PLCO.Pages.BrowsePhenotypePage;
@@ -24,12 +24,13 @@ import AnalysisTools.mSigPortal.Pages.CatalogPages;
 import AnalysisTools.mSigPortal.Pages.MSigPortalHomePage;
 import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
 import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
-import AnalysisTools.mSigPortal.Steps.SignatureVisualizationSteps;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
 import ServiceNow.CHARMS.Pages.CGBIIQPage;
 import ServiceNow.CHARMS.Pages.CGBIIQPages;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
 import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
+import ServiceNow.CHARMS.Pages.FHQSurveyPage;
+import ServiceNow.CHARMS.Pages.FHQSurveyPortalPage;
 import ServiceNow.CHARMS.Pages.MelanomaHomePage;
 import ServiceNow.CHARMS.Pages.MelanomaLoginPage;
 import ServiceNow.CHARMS.Pages.MelanomaQuestionnairePage;
@@ -86,6 +87,7 @@ import ServiceNow.SEER.Pages.SEERUserRegistrationPage;
  * class created, create an object of it here inside the constructor
  */
 public class PageInitializer {
+	
 
 	// declare protected static variables of types of all the pages
 	/** iTrust instances */
@@ -118,6 +120,10 @@ public class PageInitializer {
 	protected static NativeViewLoginImpl nativeViewLoginImpl;
 	protected static NativeViewHomePage nativeViewHomePage;
 	protected static NativeViewImpersonateUser nativeViewImpersonateUser;
+	protected static NativeViewSideDoorLoginPage nativeViewSideDoorLoginPage;
+
+	
+	
 
 	/** CHARMS instances */
 	protected static CHARMSNativeViewPage charmsNativeViewPage;
@@ -136,6 +142,10 @@ public class PageInitializer {
 	protected static CGBIIQPages cGBIIQPages;
 	protected static RASSurveyPage rASSurveyPage;
 	protected static RASSurveyStepsImpl rASSurveyStepsImpl;
+	protected static FHQSurveyPage fHQSurveyPage;
+	protected static FHQSurveyPortalPage fHQSurveyPortalPage;
+	
+
 
 	/** LDLink instances **/
 	protected static LDLinkHomePage ldLinkHomePage;
@@ -279,6 +289,14 @@ public class PageInitializer {
 		cGBIIQPages = new CGBIIQPages();
 		rASSurveyPage = new RASSurveyPage();
 		rASSurveyStepsImpl = new RASSurveyStepsImpl();
+		fHQSurveyPortalPage = new FHQSurveyPortalPage();
+			
+		
+		/** Native View instance */
+		nativeViewImpersonateUser=new NativeViewImpersonateUser();
+		nativeViewSideDoorLoginPage=new NativeViewSideDoorLoginPage();
+		fHQSurveyPage=new FHQSurveyPage();
+
 		jpsurvHomePage = new JPSurvHomePage();
 		melanomaLoginPage = new MelanomaLoginPage();
 		melanomaHomePage = new MelanomaHomePage();
@@ -288,5 +306,6 @@ public class PageInitializer {
 		nerdCRSTopAccomplishmentsPage = new NERDCRSTopAccomplishmentsPage();
 		nerdDOCCollaborationsPage = new NERDDOCCollaborationsPage();
 		nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
+
 	}
 }

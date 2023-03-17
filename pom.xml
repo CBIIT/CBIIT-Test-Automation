@@ -36,6 +36,13 @@
 			<version>4.2.1</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.7.1</version>
+		</dependency>
 
 		<!-- appium libraries -->
 		<!-- https://mvnrepository.com/artifact/io.appium/java-client -->
