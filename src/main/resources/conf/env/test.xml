@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <environment>
 	<!-- Below application ID's are for TEST/QA environments -->
-
 	<profile-name>automation</profile-name>
-
 	<!-- Application ID for covid19dashboard -->
 	<application id="covid19dashboard">
-
 		<login_url>https://service-test.nci.nih.gov/nih-covid-19-dashboard
 		</login_url> <!-- add test url -->
-
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -17,7 +13,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -26,15 +21,54 @@
 				<password></password> <!-- Add db password -->
 			</default>
 		</db>
-
 	</application>
-
+	<!-- ITPG URL-->
+	<application id="ITPGURl">
+		<login_url>https://service-test.nci.nih.gov/ncisp
+		</login_url> <!-- add test url -->
+		add test url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId> <!-- add encrypted test user -->
+				<password></password> <!-- add encrypted test pass -->
+			</user>
+		</role>
+		<db>
+			<default>
+				<driverclassname></driverclassname> <!-- Add driver class-name -->
+				<url></url> <!-- complete string url -->
+				<username></username> <!-- Add db username -->
+				<password></password> <!-- Add db password -->
+			</default>
+		</db>
+	</application>
+	<!-- CADSR Application-->
+	<application id="cadsrTestUrl">
+		<login_url>https://service-sandbox.nci.nih.gov/login.do
+		</login_url>
+		<!-- <login_url>https://service-test.nci.nih.gov/login.do
+		</login_url>-->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId> <!-- add encrypted test user -->
+				<password></password> <!-- add encrypted test pass -->
+			</user>
+		</role>
+		<db>
+			<default>
+				<driverclassname></driverclassname> <!-- Add driver class-name -->
+				<url></url> <!-- complete string url -->
+				<username></username> <!-- Add db username -->
+				<password></password> <!-- Add db password -->
+			</default>
+		</db>
+	</application>
 	<!-- Application ID for Native View -->
 	<application id="nativeview">
-
 		<login_url>https://service-test.nci.nih.gov/ncisp</login_url> <!-- add test 
 			url -->
-
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -42,7 +76,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -52,13 +85,10 @@
 			</default>
 		</db>
 	</application>
-
 	<!-- Application ID for CHARMS -->
 	<application id="CHARMS">
-
 		<login_url>https://service-test.nci.nih.gov/charms</login_url> <!-- add 
 			test url -->
-
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -66,7 +96,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -76,13 +105,10 @@
 			</default> <!-- comment -->
 		</db>
 	</application>
-
 	<!-- Application ID for COVIDCode -->
 	<application id="COVIDCode">
-
 		<login_url>https://service-test.nci.nih.gov/covidcode</login_url> <!-- add 
 			test url -->
-
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -90,7 +116,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -100,13 +125,10 @@
 			</default> <!-- comment -->
 		</db>
 	</application>
-
 	<!-- Application ID for LDLink -->
 	<application id="LDLink">
-
 		<login_url>https://ldlink-qa.nci.nih.gov/?tab=home</login_url> <!-- add 
 			test url -->
-
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -114,7 +136,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -124,13 +145,10 @@
 			</default> <!-- comment -->
 		</db>
 	</application>
-
 	<!-- Application ID for Analysistools -->
 	<application id="Analysistools">
-
 		<login_url>https://analysistools-qa.cancer.gov/</login_url> <!-- add test
 			url -->
-
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -138,7 +156,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -148,13 +165,10 @@
 			</default> <!-- comment -->
 		</db>
 	</application>
-
 	<!-- Application ID for PLCO -->
 	<application id="PLCO">
-
 		<login_url>https://exploregwas-qa.cancer.gov/plco-atlas/#/</login_url> <!-- 
 			add test url -->
-
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -162,7 +176,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -172,13 +185,10 @@
 			</default> <!-- comment -->
 		</db>
 	</application>
-
 	<!-- Application ID for CEDCD -->
 	<application id="CEDCD">
-
 		<login_url>https://cedcd-qa.nci.nih.gov/home
 		</login_url> <!-- add test url -->
-
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -186,7 +196,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -195,15 +204,11 @@
 				<password></password> <!-- Add db password -->
 			</default>
 		</db>
-
 	</application>
-
 	<!-- Application ID for mSigPortal -->
 	<application id="MSigPortal">
-
 		<login_url>https://analysistools-qa.cancer.gov/mutational-signatures/#/
 		</login_url> <!-- add test url -->
-
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -211,7 +216,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -220,14 +224,11 @@
 				<password></password> <!-- Add db password -->
 			</default>
 		</db>
-
 	</application>
 	<!-- Application ID for NERD -->
 	<application id="NERD">
-
 		<login_url>https://service-test.nci.nih.gov/nerd
 		</login_url> <!-- add test url -->
-
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -235,7 +236,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -244,15 +244,11 @@
 				<password></password> <!-- Add db password -->
 			</default>
 		</db>
-
 	</application>
-
 	<!-- Application ID for Comets Explorer -->
 	<application id="Comets2">
-
 		<login_url>https://www.comets-analytics-test.org/index.html
 		</login_url> <!-- add test url -->
-
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -260,7 +256,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -269,15 +264,11 @@
 				<password></password> <!-- Add db password -->
 			</default>
 		</db>
-
 	</application>
-
 	<!-- Application ID for SEER Data Access -->
 	<application id="SEERDataAccess">
-
 		<login_url>https://service-test.nci.nih.gov/seer-data-access
 		</login_url> <!-- add test url -->
-
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -285,7 +276,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -294,12 +284,9 @@
 				<password></password> <!-- Add db password -->
 			</default>
 		</db>
-
 	</application>
-
 	<!-- Application ID for NERD -->
 	<application id="NERD">
-
 		<login_url>https://service-test.nci.nih.gov/nerd
 		</login_url> <!-- add test url -->
 		<role name="Role">
@@ -309,7 +296,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -318,14 +304,11 @@
 				<password></password> <!-- Add db password -->
 			</default>
 		</db>
-
 	</application>
-
 	<!-- Application ID for EIDP -->
 	<application id="EidpUrlNHGRI">
 		<login_url>https://idp-test.cancer.gov/nhgri/idp/</login_url> <!-- add test 
 			url -->
-
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -333,7 +316,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -342,12 +324,10 @@
 				<password></password> <!-- Add db password -->
 			</default>
 		</db>
-
 	</application>
 	<application id="EidpUrlNCI">
 		<login_url>https://idp-test.cancer.gov/idp/</login_url> <!-- add test 
 			url -->
-
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -355,7 +335,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -364,9 +343,7 @@
 				<password></password> <!-- Add db password -->
 			</default>
 		</db>
-
 	</application>
-
 	<!-- Application ID for AppTracker -->
 	<application id="AppTracker">
 		<login_url>https://service-test.nci.nih.gov/nci-scss.do#/
@@ -380,7 +357,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -389,9 +365,7 @@
 				<password></password> <!-- Add db password -->
 			</default>
 		</db>
-
 	</application>
-
 	<!-- Application ID for AppTrackerNativeView -->
 	<application id="AppTrackerNativeView">
 		<login_url>window.open('https://service-test.nci.nih.gov/ncisp','_blank');
@@ -405,7 +379,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -414,16 +387,11 @@
 				<password></password> <!-- Add db password -->
 			</default>
 		</db>
-
 	</application>
-
-
 	<!-- Application ID for ICRP-->
 	<application id="ICRP">
-
 		<login_url>https://icrpartnership-test.org/
 		</login_url> <!-- add test url -->
-
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -431,7 +399,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -440,12 +407,9 @@
 				<password></password> <!-- Add db password -->
 			</default>
 		</db>
-
 	</application>
-
 	<!-- Application ID for SEER Data Access -->
 	<application id="SEERDataAccess">
-
 		<login_url>https://service-test.nci.nih.gov/seer-data-access
 		</login_url> <!-- add test url -->
 		<role name="Role">
@@ -455,7 +419,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -464,10 +427,8 @@
 				<password></password> <!-- Add db password -->
 			</default>
 		</db>
-
 	</application>
-
-	<!-- Application ID for AppTracker -->
+	<!-- ATO application URL-->
 	<application id="AtoTestUrl">
 		<login_url>https://service-test.nci.nih.gov/ncisp
 		</login_url> <!-- add test url -->
@@ -479,7 +440,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -488,7 +448,6 @@
 				<password></password> <!-- Add db password -->
 			</default>
 		</db>
-
 	</application>
 	<application id="FASTAtoTestUrl">
 		<login_url>https://service-test.nci.nih.gov/ncisp
@@ -501,7 +460,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -510,7 +468,6 @@
 				<password></password> <!-- Add db password -->
 			</default>
 		</db>
-
 	</application>
 	<application id="NIDCR">
 		<login_url>https://idp-test.cancer.gov/nidcr/idp/
@@ -522,7 +479,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -531,15 +487,11 @@
 				<password></password> <!-- Add db password -->
 			</default>
 		</db>
-
 	</application>
-
 	<!-- Application ID for myRAS Study - CHARMS -->
 	<application id="myRASLoginPage">
-
 		<login_url>https://service-test.nci.nih.gov/myras
 		</login_url> <!-- add test url -->
-
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -547,7 +499,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -556,16 +507,10 @@
 				<password></password> <!-- Add db password -->
 			</default>
 		</db>
-
 	</application>
-
-
 	<!-- Application ID for RASSurvey  - CHARMS -->
-
 	<application id="RASSurvey">
-
 		<login_url></login_url> <!-- add test url -->
-
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -573,7 +518,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -582,11 +526,9 @@
 				<password></password> <!-- Add db password -->
 			</default>
 		</db>
-
 	</application>
 	<!-- Application ID for Native View Sidedoor-->
 	<application id="nativeviewSideDoor">
-
 		<login_url>https://service-test.nci.nih.gov/side_door.do</login_url> <!-- add test 
 			url -->
 		<role name="Role">
@@ -605,12 +547,30 @@
 			</default>
 		</db>
 	</application>
-
 	<!-- Application ID for Melanoma and Spitzoid Tumor-->
 	<application id="melanoma">
-
 		<login_url>https://service-test.nci.nih.gov/mymelanoma</login_url> <!-- add test 
 			url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId> <!-- add encrypted test user -->
+				<password></password> <!-- add encrypted test pass -->
+			</user>
+		</role>
+		<db>
+			<default>
+				<driverclassname></driverclassname> <!-- Add driver class-name -->
+				<url></url> <!-- complete string url -->
+				<username></username> <!-- Add db username -->
+				<password></password> <!-- Add db password -->
+			</default>
+		</db>
+	</application>
+	<!--CCR HelpDesk -->
+	<application id="CCRHelpdesk">
+		<login_url>https://service-test.nci.nih.gov/ncisp?id=nci_sc_cat_item
+		</login_url> <!-- add test url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
