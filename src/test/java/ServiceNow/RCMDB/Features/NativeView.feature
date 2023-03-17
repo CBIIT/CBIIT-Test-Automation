@@ -5,6 +5,7 @@ Feature: Recordmanagement feature files
   Scenario: Naviate to the landing page and verify the labels
     Given user navigates to the Record management home page
     Then User logins to the application for RCMDB
+    Then Go to Native view of application
     Then verify that the page has all the exsisting labels
 
   @SNOWRMDB-10

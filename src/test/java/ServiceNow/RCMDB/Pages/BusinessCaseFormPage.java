@@ -412,8 +412,8 @@ public class BusinessCaseFormPage extends BasePage {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		clickOnElement(userName);
-		clickOnElement(configureWorkspace);
+		//clickOnElement(userName);
+		clickOnElement(nativeviewLink);
 		
 	}
 
@@ -660,11 +660,11 @@ public class BusinessCaseFormPage extends BasePage {
 				// Click on Email from side menu
 				CommonUtils.waitBrowser(5000);
 				
-					Assert.assertEquals(filteredIdeasList.get(0).getText(), "RM Tracking Record Imports");
-					Assert.assertEquals(filteredIdeasList.get(1).getText(), "Create New Record");
-					Assert.assertEquals(filteredIdeasList.get(2).getText(), "All Tracking Records");
-					Assert.assertEquals(filteredIdeasList.get(3).getText(), "Update Cost per Box");
-					Assert.assertEquals(filteredIdeasList.get(4).getText(), "Quarterly Costs");
+					Assert.assertEquals(driver.findElement(By.xpath("//div[text()='RM Tracking Record Imports']")).getText(), "RM Tracking Record Imports");
+					Assert.assertEquals(driver.findElement(By.xpath("//div[text()='Create New Record']")).getText(), "Create New Record");
+					Assert.assertEquals(driver.findElement(By.xpath("//div[text()='All Tracking Records']")).getText(), "All Tracking Records");
+					Assert.assertEquals(driver.findElement(By.xpath("//div[text()='Update Cost per Box']")).getText(), "Update Cost per Box");
+					Assert.assertEquals(driver.findElement(By.xpath("//div[text()='Quarterly Costs']")).getText(), "Quarterly Costs");
 					CucumberLogUtils.logScreenShot();
 					
 		

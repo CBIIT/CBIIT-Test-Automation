@@ -49,7 +49,6 @@ public class BusinessCaseFormSteps {
 		}
 	}
 
-
 	@Then("Start a new idea case")
 	public void startIdea() {
 		businessCaseFormPage.startANewIdea();
@@ -111,7 +110,7 @@ public class BusinessCaseFormSteps {
 		businessCaseFormPage.sortCreatedDateForIdeaCasesInDecendingOrder();
 		businessCaseFormPage.clickOnFirstIdeaCase();
 	}
-	
+
 	@Then("Update details on business form and submit")
 	public void FillBusinessForm() throws InterruptedException {
 		businessCaseFormPage.enterTextInBusinessNeedBox("TestingAutomtaionTesting");
@@ -132,7 +131,6 @@ public class BusinessCaseFormSteps {
 		businessCaseFormPage.approveRequestForm();
 	}
 
-
 	@Then("Open Request approval form and reject")
 	public void reject() {
 		businessCaseFormPage.rejectRequestForm();
@@ -142,14 +140,15 @@ public class BusinessCaseFormSteps {
 	public void askForMoreInfo() {
 		businessCaseFormPage.askForMoreInfoOnRequestForm();
 	}
-	
+
 	@Then("Verify Email notification with subject as {string}")
 	public void verifyEmail(String subject) throws InterruptedException {
 		boolean status = businessCaseFormPage.verifyEmail(subject);
-		
+
 		Assert.assertEquals(true, status);
-		
+
 	}
+
 	@Given("user navigates to the Record management home page")
 	public void user_navigates_to_the_Record_management_home_page() {
 		businessCaseFormPage.openApp();
@@ -158,131 +157,136 @@ public class BusinessCaseFormSteps {
 	@Then("verify that the page has all the exsisting labels")
 	public void verify_that_the_page_has_all_the_exsisting_labels() {
 		businessCaseFormPage.validateLabels();
-		
+
 	}
-	
+
 	@Then("Validate tracking log")
 	public void Validate_tracking_log() {
 		businessCaseFormPage.validateTrackingLog();
 		CucumberLogUtils.logScreenShot();
-		
+
 	}
-	
+
 	@Then("User clicks on Quaterly Costs")
 	public void User_clicks_on_Quaterly_Costs() {
 		businessCaseFormPage.clickOnQuaterlyCosts();
-		
+
 	}
-	
+
 	@Then("User clicks on RM Tracking Record Import")
 	public void User_clicks_on_RM_Tracking_Record_Import() {
 		businessCaseFormPage.clickOnCreateNewRMTrackingRecord();
 		CucumberLogUtils.logScreenShot();
-		
+
 	}
-	
+
 	@Then("Click on new Quaterly Cost")
 	public void Click_on_new_Quaterly_Cost() {
 		businessCaseFormPage.clickOnNewQuaterlyCost();
-		
+
 	}
-	
+
 	@Then("Click on new RM Tracking record")
 	public void Click_on_new_RM_Tracking_record() {
 		businessCaseFormPage.clickOnNewRMTrackingRecordButton();
 		CucumberLogUtils.logScreenShot();
-		
+
 	}
-	
+
 	@Then("Fill all the record details")
 	public void Fill_all_the_record_details() {
 		businessCaseFormPage.fillRMTrackingForm();
-		
+
 	}
-	
+
 	@Then("Fill all the Quaterly Cost details")
 	public void Fill_all_the_Quaterly_Cost_details() throws InterruptedException {
 		businessCaseFormPage.fillQuaterlyCostForm();
 		CucumberLogUtils.logScreenShot();
 	}
-	
+
 	@Then("Validate added recorded")
 	public void Validate_added_recorded() throws InterruptedException {
 		businessCaseFormPage.validateAddedRecorded();
-		
+
 	}
-	
+
 	@Then("Validate added new record")
 	public void Validate_added_new_recorded() throws InterruptedException {
 		businessCaseFormPage.validateAddedNewRecord();
-		
+
 	}
-	
+
 	@Then("User clicks on create new record button")
 	public void User_clicks_on_create_new_record_button() {
 		businessCaseFormPage.clickOnCreateNewRecord();
-		
+
 	}
-	
+
 	@Then("User clicks on all tracking records")
 	public void User_clicks_on_all_tracking_record_button() {
 		businessCaseFormPage.clickOnAllTrackingRecord();
 		CucumberLogUtils.logScreenShot();
-		
+
 	}
-	
+
 	@Then("Click on submit")
 	public void ClickOnSubmit() {
 		businessCaseFormPage.ClickOnSubmit();
 		CucumberLogUtils.logScreenShot();
-		
+
 	}
-	
+
 	@Then("Click on submit record")
 	public void Click_on_submit_record() {
 		businessCaseFormPage.ClickOnSubmitRecord();
 		CucumberLogUtils.logScreenShot();
 	}
-	
+
 	@Then("Click on submit button")
 	public void Click_on_submit_button() {
 		businessCaseFormPage.ClickOnSubmitButton();
 		CucumberLogUtils.logScreenShot();
-		
+
 	}
-	
+
 	@Then("Enter Disposition Authority more than accepted limit")
 	public void Enter_Disposition_Authority_more_than_accepted_limit() throws InterruptedException {
 		businessCaseFormPage.enterInvalidDispositionAuthority();
-		
-		
+
 	}
-	
+
 	@Then("Enter customer name manually")
 	public void Enter_customer_name_manually() throws InterruptedException {
 		businessCaseFormPage.enterCustomerNameManually();
 		CucumberLogUtils.logScreenShot();
-		
+
 	}
-	
+
 	@Then("User should see error message")
 	public void User_should_see_error_message() throws InterruptedException {
 		businessCaseFormPage.validateErrorMessage();
 		CucumberLogUtils.logScreenShot();
 	}
-	
+
 	@Then("Fill all the details")
 	public void Fill_all_the_details() throws InterruptedException {
 		businessCaseFormPage.fillTrackingRecordForm();
-		
+
 	}
-	
+
 	@When("User logins to the application for RCMDB")
 	public void login() throws Exception {
-			loginStepsImpl.enterUsername(ConfUtils.getProperty("sgugulothuUsername"));
-			String decyptedPass = EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
-			loginStepsImpl.enterPassword(decyptedPass);
-			CucumberLogUtils.logScreenShot("Application login");
-			loginStepsImpl.clickOnSignInButton();
+		if (loginStepsImpl.isLoginButtonDisplayed()) {
+			loginStepsImpl.clckOnLoginButton();
+		}
+		loginStepsImpl.enterUsername(ConfUtils.getProperty("sgugulothuUsername"));
+		String decyptedPass = EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
+		loginStepsImpl.enterPassword(decyptedPass);
+		CucumberLogUtils.logScreenShot("Application login");
+		loginStepsImpl.clickOnSignInButton();
 	}
+	
+	
+	
 }

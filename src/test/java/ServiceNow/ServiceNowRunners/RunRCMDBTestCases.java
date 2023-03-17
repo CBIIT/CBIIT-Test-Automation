@@ -12,7 +12,7 @@ import cucumber.api.junit.Cucumber;
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/ServiceNow/RCMDB/Features"
 		, glue="ServiceNow.RCMDB.Steps"
-		, tags="@SNOWRMDB-1"
+		, tags="@SNOWRMDB-10"
 		, dryRun = false
 		, monochrome=true
 		, strict = true
