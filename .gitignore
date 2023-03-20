@@ -24,3 +24,5 @@ reports/.DS_Store
 .classpath
 .project
 reports
+.DS_Store
+/.DS_Store
