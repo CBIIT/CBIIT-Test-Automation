@@ -112,6 +112,7 @@ public class WebDriverUtils {
 				} else {
 					chromeOptions.addArguments("--no-sandbox");
 					chromeOptions.addArguments("--disable-dev-shm-usage");
+					chromeOptions.addArguments("--remote-allow-origins=*");
 					// System.out.println("Non headless-->" + chromeOptions.getVersion());
 					webDriver = new ChromeDriver(chromeOptions);
 

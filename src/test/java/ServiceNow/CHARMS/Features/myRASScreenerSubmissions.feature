@@ -25,8 +25,12 @@ Feature: myRAS Screener Submissions from the Qualtrics Portal
 		And enters proxy email address "automatedTest@nci.gov" to confirm email address
 		And enters proxy home phone number "703-687-5816", cell phone number "703-687-5816", work phone number "703-687-5816" and selects cell phone number as Preferred Contact
 		And selects Not Hispanic/Latino option for Ethnicity of participant
-		And enters "Sending 100 characters as a string as a test Sending 100 characters as a string as a test Sending 100" for other when selecting Race of participant
-		And selects Other option and enters "Sending 100 characters as a string as a test Sending 100 characters as a string as a test Sending 100" for is the participant participated in any other research study or registry group?
+
+		And enters "Entering other Race" for other when selecting Race of participant
+		And selects Other option and enters "LFS Study" for is the participant participated in any other research study or registry group?
+#		And enters "Sending 100 characters as a string as a test Sending 100 characters as a string as a test Sending 100" for other when selecting Race of participant
+#		And selects Other option and enters "Sending 100 characters as a string as a test Sending 100 characters as a string as a test Sending 100" for is the participant participated in any other research study or registry group?
+
 		And proceeds with providing information for medical diagnosis
 		And enters "Sending 100 characters as a string as a test Sending 100 characters as a string as a test Sending 100" for participant being diagnosed with any of the listed conditions
 		And selects Yes option for participant being diagnosed with cancer
