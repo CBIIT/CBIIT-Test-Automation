@@ -477,14 +477,14 @@ public class CommonUtils extends WebDriverUtils {
 	}
 
 	/**
-	 * @Author @SonikaJain 
-	 * Switch to new tab opened by clicking a link
+	 * @Author @SonikaJain
+	 *         Switch to new tab opened by clicking a link
 	 */
 	public static void switchToAnotherTabWindow() {
 		String parent = WebDriverUtils.webDriver.getWindowHandle();
 		Set<String> s = WebDriverUtils.webDriver.getWindowHandles();
 		Iterator<String> I1 = s.iterator();
-	
+
 		while (I1.hasNext()) {
 			String child_window = I1.next();
 			if (!parent.equals(child_window)) {
@@ -492,19 +492,18 @@ public class CommonUtils extends WebDriverUtils {
 			}
 		}
 	}
-	
+
 	/**
-	 * @Author @SonikaJain 
-	 * 	Click browser back button
+	 * @Author @SonikaJain
+	 *         Click browser back button
 	 */
 	public static void clickBrowserBackButton() {
-		WebDriverUtils.webDriver.navigate().back(); 
+		WebDriverUtils.webDriver.navigate().back();
 	}
 
-
 	/**
-	 * @Author @SonikaJain 
-	 * To maximize the window
+	 * @Author @SonikaJain
+	 *         To maximize the window
 	 */
 	public static void maximizeWindow() {
 		WebDriverUtils.webDriver.manage().window().maximize();
@@ -549,16 +548,12 @@ public class CommonUtils extends WebDriverUtils {
 
 	/*
 	 * 
-<<<<<<< HEAD
-	 * Use below method to assert actual String value with an expected String value
-=======
 	 * Use below method to assert expected String value with an actual String value
->>>>>>> master
 	 */
-	public static void assertEquals(String expected, String actual) {
+	public static void assertEquals(String actual, String expected) {
 
 		try {
-			Assert.assertEquals(expected, actual);
+			Assert.assertEquals(actual, expected);
 		} catch (AssertionError e) {
 
 			e.printStackTrace();
