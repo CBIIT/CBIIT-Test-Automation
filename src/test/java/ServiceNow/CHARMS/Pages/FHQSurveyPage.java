@@ -9,7 +9,7 @@ import com.nci.automation.web.WebDriverUtils;
 
 public class FHQSurveyPage extends CommonUtils {
 
-	public FHQSurveyPage() 
+	public FHQSurveyPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 
@@ -527,8 +527,8 @@ public class FHQSurveyPage extends CommonUtils {
 	 */
 	@FindBy(xpath = "//button[@id=\"91d260691b198590e541631ee54bcb65removeAllRows\"]")
 	public WebElement nVFHQPatientPersonalsParentMRVSRemoveAllButton;
-	
-	/* Native View FHQ Patient Personals: Patient's  Parents Add Row Page label */
+
+	/* Native View FHQ Patient Personals: Patient's Parents Add Row Page label */
 	@FindBy(xpath = "//h2[@id=\"catalog_table_variable_dialog_title\"]")
 	public WebElement nVFHQPatientPersonalsParentMRVSAddRowPageLabel;
 

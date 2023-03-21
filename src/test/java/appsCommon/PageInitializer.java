@@ -78,6 +78,7 @@ import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NativeViewImpersonateUser;
 import ServiceNow.SEER.Pages.NativeViewSentViewPage;
 import ServiceNow.SEER.Pages.SEERDataAccessRequestPage;
+import ServiceNow.SEER.Pages.SEERExistingAccountPage;
 import ServiceNow.SEER.Pages.SEERIncidenceDatabaseDetailsPage;
 import ServiceNow.SEER.Pages.SEERLandingPage;
 import ServiceNow.SEER.Pages.SEERUserRegistrationPage;
@@ -87,7 +88,6 @@ import ServiceNow.SEER.Pages.SEERUserRegistrationPage;
  * class created, create an object of it here inside the constructor
  */
 public class PageInitializer {
-	
 
 	// declare protected static variables of types of all the pages
 	/** iTrust instances */
@@ -122,9 +122,6 @@ public class PageInitializer {
 	protected static NativeViewImpersonateUser nativeViewImpersonateUser;
 	protected static NativeViewSideDoorLoginPage nativeViewSideDoorLoginPage;
 
-	
-	
-
 	/** CHARMS instances */
 	protected static CHARMSNativeViewPage charmsNativeViewPage;
 	protected static TestAccountResetImpl testAccountResetImpl;
@@ -144,8 +141,6 @@ public class PageInitializer {
 	protected static RASSurveyStepsImpl rASSurveyStepsImpl;
 	protected static FHQSurveyPage fHQSurveyPage;
 	protected static FHQSurveyPortalPage fHQSurveyPortalPage;
-	
-
 
 	/** LDLink instances **/
 	protected static LDLinkHomePage ldLinkHomePage;
@@ -180,6 +175,7 @@ public class PageInitializer {
 	protected static SEERDataAccessRequestPage seerDataAccessRequestPage;
 	protected static NativeViewSentViewPage nativeViewSentViewPage;
 	protected static SEERIncidenceDatabaseDetailsPage seerIncidenceDatabaseDetailsPage;
+	protected static SEERExistingAccountPage seerExistingAccountPage;
 
 	/** NERD instances */
 	protected static NERDLoginStepsImplementation nerdLoginStepsImplementation;
@@ -189,7 +185,7 @@ public class PageInitializer {
 	protected static NERDHomePage nerdHomePage;
 	protected static NERDKnowledgebasePage nerdKnowledgeBasePage;
 	protected static NERDCRSTopAccomplishmentsPage nerdCRSTopAccomplishmentsPage;
-	protected static NERDCRSTCollaborationsPage nerdCRSTCollaborationsPage; 
+	protected static NERDCRSTCollaborationsPage nerdCRSTCollaborationsPage;
 	protected static NERDDOCCollaborationsPage nerdDOCCollaborationsPage;
 
 	/** Comets 2.0 Instances */
@@ -290,12 +286,11 @@ public class PageInitializer {
 		rASSurveyPage = new RASSurveyPage();
 		rASSurveyStepsImpl = new RASSurveyStepsImpl();
 		fHQSurveyPortalPage = new FHQSurveyPortalPage();
-			
-		
+
 		/** Native View instance */
-		nativeViewImpersonateUser=new NativeViewImpersonateUser();
-		nativeViewSideDoorLoginPage=new NativeViewSideDoorLoginPage();
-		fHQSurveyPage=new FHQSurveyPage();
+		nativeViewImpersonateUser = new NativeViewImpersonateUser();
+		nativeViewSideDoorLoginPage = new NativeViewSideDoorLoginPage();
+		fHQSurveyPage = new FHQSurveyPage();
 
 		jpsurvHomePage = new JPSurvHomePage();
 		melanomaLoginPage = new MelanomaLoginPage();
@@ -306,6 +301,8 @@ public class PageInitializer {
 		nerdCRSTopAccomplishmentsPage = new NERDCRSTopAccomplishmentsPage();
 		nerdDOCCollaborationsPage = new NERDDOCCollaborationsPage();
 		nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
+
+		seerExistingAccountPage = new SEERExistingAccountPage();
 
 	}
 }

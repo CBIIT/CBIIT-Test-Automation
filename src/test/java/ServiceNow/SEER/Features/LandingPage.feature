@@ -1,28 +1,31 @@
 Feature: SEER Data Access Landing Page Scenarios
 
-  @Smoke @ODS-264 @ODS-256 @juarezds @Smoke @Progression
-  Scenario: Verifying Request Database Access text
+  @Smoke @juarezds @ODS-329 @ODS-319 @Regression
+  Scenario: Test Update public submission page text for user who already has access
     Given a user is on the SEER Data Access landing page
-    Then the "Request Database Access" text displays as
+    When the user attempts to request research data with existing email address "diego@test.com"
+    Then user sees the following header "You Already Have Access to SEER Research Data"  and message pop-up with links:
       """
-      Request Database Access
+      Thank you for your request. Our records show that you already have access to the current SEER Research Data with this email address.
       
-      Attention: The Institutional Account route for requesting data is currently not working. As a temporary solution, please use the Non-Institutional route to request access to Research or Research Plus data, even if you have an eRA Commons account.
-      
-      To request access to the SEER Incidence Databases, you will first need to create a new SEER*Stat Account by registering your email address through the Non-Institutional Account route. This will give you access to the SEER Research Database.
-      
-      To upgrade your access to include the Research Plus Database, existing SEER*Stat account holders can upgrade their accounts using their registered email address and once again go the Non-Institutional route below. Completing the Non-Institutional route a second time will provide you with the form to request expanded access to Research Plus Database.
+      If you are interested in the SEER Research Plus data, which include additional variables, please read the requirements on How to Request Access to SEER Data. The Research Plus databases require user authentication through eRA Commons or an HHS PIV card.
       """
+    And "← Back to SEER Database details" button is also displayed
 
-  @Smoke @ODS-265 @ODS-263 @ODS-255 @juarezds @Progression
-  Scenario: Verifying Institutional Accounts and Non-Institutional Accounts text on landing page
+  @Smoke @juarezds @ODS-318 @ODS-321 @ODS-322 @ODS-323 @ODS-324 @ODS-325 @Regression
+  Scenario: Test Data access request landing page updates
     Given a user is on the SEER Data Access landing page
-    Then under "Institutional Accounts" the text displayed is
+    Then the SEER Data Access landing page has the following text displayed
       """
-      Are you affiliated with a research organization, state, or federal government?
-      """
-    And the text displayed is "* If you are unable to authenticate, please use the Non-institutional option."
-    And under "Non-Institutional Accounts", text displayed is
-      """
-      I am not affiliated with any research organization, state or federal government.
+      There are two data products available: SEER Research and SEER Research Plus. Access to the Research Plus databases requires user authentication.  Refer to Comparison of Data Products for current information.
+      
+      About Research Plus Data Access
+      To request access to the Research Plus Data, you must login with an eRA Commons account that is associated with an institutional email address (.edu, .gov, .org, or work email address) for user authentication.
+      Exceptions for federal government agencies: Requestors associated with the NIH, or the following other HHS Agencies should use their PIV Cards for user authentication: AHRQ, CDC, CMS, FDA, and IHS.
+      Information on how to obtain an eRA commons login can be found in the FAQ on the SEER webpage.
+      Users who are approved for access to the SEER Research Plus Databases will be eligible to request specialized databases.
+      
+      About Research Data Access
+      If you cannot obtain an eRA Commons account or do not need access to the additional variables available in the Research Plus Data, you can register for the Research Data.
+      Users with access only to the Research Data are not eligible to request specialized databases and cannot upgrade to Research Plus without an eRA Commons account or an HHS PIV card.
       """
