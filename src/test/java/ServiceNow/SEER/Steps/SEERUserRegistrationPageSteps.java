@@ -6,6 +6,8 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
+
+import ServiceNow.SEER.Constants.Registration_Constants;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -160,26 +162,62 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 
 	@When("fills out all required fields on SEER Data registration page")
 	public void fills_out_all_required_fields_on_SEER_Data_registration_page() {
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationFirstNameField, "FirstName");
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationLastNameField, "LastName");
+		/* ENTERING FIRST NAME */
+		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationFirstNameField,
+				Registration_Constants.FIRST_NAME);
+
+		/* ENTERING LAST NAME */
+		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationLastNameField,
+				Registration_Constants.LAST_NAME);
+
+		/**
+		 * VERIFYING EMAIL ADDRESS AND THAT EMAIL ADDRESS FIELD IS READ-ONLY
+		 */
 		Assert.assertEquals(newEmail,
 				seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("value"));
 		Assert.assertTrue(
 				seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("disabled").equals("true"));
 		MiscUtils.sleep(1000);
+
+		/* CLICKING ON ORGANIZATION DROP DOWN */
 		CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationOrganizationField, "American University");
+
+		/* ENTERING ORGANIZATION NAME */
+		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationOrganizationField,
+				Registration_Constants.ORGANIZATION_NAME);
 		MiscUtils.sleep(1000);
-		CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationCountryField);
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationCountryField, "United States of America");
+
+		/* ENTERING COUNTRY NAME */
+		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationCountryField,
+				Registration_Constants.COUNTRY_NAME);
+
+		/* SELECTING COUNTRY OPTION */
 		CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationCountryUSA);
 		MiscUtils.sleep(1000);
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationAddressField, "123 Street");
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationCityField, "City");
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationStateField, "LA");
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationZipcodeField, "12345");
+
+		/* ENTERING STREET ADDRESS */
+		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationAddressField,
+				Registration_Constants.STREET_ADDRESS);
+
+		/* ENTERING CITY NAME */
+		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationCityField, Registration_Constants.CITY_NAME);
+
+		/* ENTERING STATE */
+		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationStateField, Registration_Constants.STATE);
+
+		/* ENTERING ZIP CODE */
+		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationZipcodeField,
+				Registration_Constants.ZIP_CODE);
 		MiscUtils.sleep(1000);
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationPhoneField, "1234567890");
+
+		/* ENTERING PHONE NUMBER */
+		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationPhoneField,
+				Registration_Constants.PHONE_NUMBER);
+
+		/*
+		 * SELECTING VALUE FOR What best describes you for the purpose of requesting
+		 * this data?
+		 */
 		CommonUtils.selectDropDownValue("General Public",
 				seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
 		MiscUtils.sleep(2000);
