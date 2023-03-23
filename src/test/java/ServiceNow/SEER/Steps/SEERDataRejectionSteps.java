@@ -1,9 +1,9 @@
 package ServiceNow.SEER.Steps;
 
 import com.nci.automation.web.CommonUtils;
-
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.When;
 
 public class SEERDataRejectionSteps extends PageInitializer {
 
@@ -12,5 +12,11 @@ public class SEERDataRejectionSteps extends PageInitializer {
         CommonUtils.scrollIntoView(seerLandingPage.researchDataRequestsEmailAddressField);
         seerLandingPage.researchDataRequestsEmailAddressField.sendKeys("seer" + CommonUtils.email);
         seerLandingPage.registerForResearchDataButton.click();
+    }
+
+    @When("a SEER ODS Admin navigates to {string}")
+    public void a_SEER_ODS_Admin_navigates_to(String seerDataAccess) {
+        nativeViewLoginImpl.sideDoorAccountLogin();
+        nativeViewHomePage.nativeViewFilterNavigator.sendKeys(seerDataAccess);
     }
 }

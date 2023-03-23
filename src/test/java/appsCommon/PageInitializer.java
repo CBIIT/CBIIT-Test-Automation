@@ -82,6 +82,7 @@ import ServiceNow.SEER.Pages.SEERExistingAccountPage;
 import ServiceNow.SEER.Pages.SEERIncidenceDatabaseDetailsPage;
 import ServiceNow.SEER.Pages.SEERLandingPage;
 import ServiceNow.SEER.Pages.SEERUserRegistrationPage;
+import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 
 /**
  * This an initializer class which will initialize all pages classes. Once pages
@@ -176,6 +177,7 @@ public class PageInitializer {
 	protected static NativeViewSentViewPage nativeViewSentViewPage;
 	protected static SEERIncidenceDatabaseDetailsPage seerIncidenceDatabaseDetailsPage;
 	protected static SEERExistingAccountPage seerExistingAccountPage;
+	protected static SEERDataAccessRequestPageStepsImpl seerDataAccessRequestPageStepsImpl;
 
 	/** NERD instances */
 	protected static NERDLoginStepsImplementation nerdLoginStepsImplementation;
@@ -303,6 +305,7 @@ public class PageInitializer {
 		nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
 
 		seerExistingAccountPage = new SEERExistingAccountPage();
+		seerDataAccessRequestPageStepsImpl = new SEERDataAccessRequestPageStepsImpl();
 
 	}
 }

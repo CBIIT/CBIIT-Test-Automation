@@ -6,8 +6,6 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-
-import ServiceNow.SEER.Constants.Registration_Constants;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -95,13 +93,6 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 	}
 
-	@When("submitting the registration form")
-	public void submitting_the_registration_form() {
-		seerUserRegistrationPage.seerUserRegistrationSubmitButton.click();
-		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
-	}
-
 	@Then("the user is not able to submit the registration form because the State and Zip Code fields are required")
 	public void the_user_is_not_able_to_submit_the_registration_form_because_the_State_and_Zip_Code_fields_are_required() {
 		String seerRegistrationPage = WebDriverUtils.getWebDriver().getTitle();
@@ -162,66 +153,7 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 
 	@When("fills out all required fields on SEER Data registration page")
 	public void fills_out_all_required_fields_on_SEER_Data_registration_page() {
-		/* ENTERING FIRST NAME */
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationFirstNameField,
-				Registration_Constants.FIRST_NAME);
-
-		/* ENTERING LAST NAME */
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationLastNameField,
-				Registration_Constants.LAST_NAME);
-
-		/**
-		 * VERIFYING EMAIL ADDRESS AND THAT EMAIL ADDRESS FIELD IS READ-ONLY
-		 */
-		Assert.assertEquals(newEmail,
-				seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("value"));
-		Assert.assertTrue(
-				seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("disabled").equals("true"));
-		MiscUtils.sleep(1000);
-
-		/* CLICKING ON ORGANIZATION DROP DOWN */
-		CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
-
-		/* ENTERING ORGANIZATION NAME */
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationOrganizationField,
-				Registration_Constants.ORGANIZATION_NAME);
-		MiscUtils.sleep(1000);
-
-		/* ENTERING COUNTRY NAME */
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationCountryField,
-				Registration_Constants.COUNTRY_NAME);
-
-		/* SELECTING COUNTRY OPTION */
-		CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationCountryUSA);
-		MiscUtils.sleep(1000);
-
-		/* ENTERING STREET ADDRESS */
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationAddressField,
-				Registration_Constants.STREET_ADDRESS);
-
-		/* ENTERING CITY NAME */
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationCityField, Registration_Constants.CITY_NAME);
-
-		/* ENTERING STATE */
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationStateField, Registration_Constants.STATE);
-
-		/* ENTERING ZIP CODE */
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationZipcodeField,
-				Registration_Constants.ZIP_CODE);
-		MiscUtils.sleep(1000);
-
-		/* ENTERING PHONE NUMBER */
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationPhoneField,
-				Registration_Constants.PHONE_NUMBER);
-
-		/*
-		 * SELECTING VALUE FOR What best describes you for the purpose of requesting
-		 * this data?
-		 */
-		CommonUtils.selectDropDownValue("General Public",
-				seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
-		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		seerDataAccessRequestPageStepsImpl.fillingOutRegistrationForm();
 	}
 
 	@When("submits the registration form")
