@@ -16,3 +16,6 @@ reports/.DS_Store
 /.classpath/
 /.classpath
 */.classpath/*
+*/.idea/*
+/.idea/
+/.idea

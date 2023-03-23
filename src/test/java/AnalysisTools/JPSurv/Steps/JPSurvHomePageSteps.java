@@ -4,6 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 
+import cucumber.api.java.en.And;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -60,6 +61,7 @@ public class JPSurvHomePageSteps extends PageInitializer {
 
 	@When("user select year of diagnosis start {string}")
 	public void selectYearOfDiagnosisStart(String valueToSelect) {
+		CommonUtils.waitForVisibility(jpsurvHomePage.yearOfDiagnosisStartDropdown);
 		CommonUtils.selectDropDownValue(valueToSelect, jpsurvHomePage.yearOfDiagnosisStartDropdown);
 	}
 
@@ -374,6 +376,10 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	public void selects_zero_for_stage() {
 		jpsurvHomePage.stageValue0Checkbox.click();
 	}
-	
 
+
+	@And("user click on year of diagnosed")
+	public void userClickOnYearOfDiagnosed() {
+		jpsurvHomePage.yearOfDiagnosed.click();
+	}
 }

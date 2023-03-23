@@ -138,7 +138,7 @@ public class JPSurvHomePage extends CommonUtils{
 	public WebElement showhidearrowButton;
 	
 	/** Reset Button **/
-	@FindBy(xpath = "//input[@title='Reset all values']")
+	@FindBy(xpath = "//input[@value='Reset']")
 	public WebElement resetButton;
 	
 	/** Import Button for .jpsurv file **/
@@ -164,7 +164,9 @@ public class JPSurvHomePage extends CommonUtils{
 	/** Stage value 0 **/
 	@FindBy(xpath = "//label[@for='stage0']")
 	public WebElement stageValue0Checkbox;
-	
+	@FindBy(id= "1975")
+	public WebElement yearOfDiagnosed;
+
 	/**================================================= CSV Dropdown =====================================*/
 	
 	/** age_rec drop down **/

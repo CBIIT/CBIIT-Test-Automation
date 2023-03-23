@@ -6,6 +6,8 @@ import java.awt.event.KeyEvent;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
+
+import io.github.bonigarcia.wdm.config.OperatingSystem;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
@@ -30,8 +32,10 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.LocalConfUtils;
 //import io.appium.java_client.AppiumDriver;
 //import io.appium.java_client.MobileElement;
-import io.github.bonigarcia.wdm.OperatingSystem;
+//import io.github.bonigarcia.wdm.OperatingSystem;
 import io.github.bonigarcia.wdm.WebDriverManager;
+
+import static io.github.bonigarcia.wdm.WebDriverManager.*;
 
 /**
  * This class contains web driver related methods
@@ -111,6 +115,7 @@ public class WebDriverUtils {
 				} else {
 					chromeOptions.addArguments("--no-sandbox");
 					chromeOptions.addArguments("--disable-dev-shm-usage");
+					chromeOptions.addArguments("--remote-allow-origins=*");
 //					System.out.println("Non headless-->" + chromeOptions.getVersion());
 					webDriver = new ChromeDriver(chromeOptions);
 
@@ -173,43 +178,43 @@ public class WebDriverUtils {
 		if (browser.equalsIgnoreCase(Constants.BROWSER_CHROME)) {
 			if (osName.contains("Mac")) {
 				// System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH);
-				WebDriverManager.chromedriver().setup();
+				chromedriver().setup();
 			} else if (osName.contains("Window")) {
 				// System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH + GET_EXE);
-				WebDriverManager.chromedriver().operatingSystem(OperatingSystem.WIN).setup();
+				chromedriver().operatingSystem(OperatingSystem.WIN).setup();
 			} else if (osName.contains("Linux")) {
 				// System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH + GET_LINUX);
-				WebDriverManager.chromedriver().operatingSystem(OperatingSystem.LINUX).setup();
+				chromedriver().operatingSystem(OperatingSystem.LINUX).setup();
 			}
 		} else if (browser.equalsIgnoreCase(Constants.BROWSER_IE)) {
 			if (osName.contains("Mac")) {
 				// System.setProperty(Constants.IE_KEY, Constants.IE_PATH);
-				WebDriverManager.iedriver().setup();
+				iedriver().setup();
 			} else if (osName.contains("Windows")) {
 				// System.setProperty(Constants.IE_KEY, Constants.IE_PATH + GET_EXE);
-				WebDriverManager.iedriver().operatingSystem(OperatingSystem.WIN).setup();
+				iedriver().operatingSystem(OperatingSystem.WIN).setup();
 			} else if (osName.contains("Linux")) {
-				WebDriverManager.iedriver().operatingSystem(OperatingSystem.LINUX).setup();
+				iedriver().operatingSystem(OperatingSystem.LINUX).setup();
 			}
 		} else if (browser.equalsIgnoreCase(Constants.BROWSER_FIREFOX)) {
 			if (osName.contains("Mac")) {
 				// System.setProperty(Constants.FIREFOX_KEY, Constants.FIREFOX_PATH);
-				WebDriverManager.firefoxdriver().setup();
+				firefoxdriver().setup();
 			} else if (osName.contains("Windows")) {
 				// System.setProperty(Constants.FIREFOX_KEY, Constants.FIREFOX_PATH + GET_EXE);
-				WebDriverManager.firefoxdriver().operatingSystem(OperatingSystem.WIN).setup();
+				firefoxdriver().operatingSystem(OperatingSystem.WIN).setup();
 			} else if (osName.contains("Linux")) {
-				WebDriverManager.firefoxdriver().operatingSystem(OperatingSystem.LINUX).setup();
+				firefoxdriver().operatingSystem(OperatingSystem.LINUX).setup();
 			}
 		} else if (browser.equalsIgnoreCase(Constants.BROWSER_PHANTOM)) {
 			if (osName.contains("Mac")) {
 				// System.setProperty(Constants.PHANTOM_KEY, Constants.PHANTOM_PATH);
-				WebDriverManager.phantomjs().setup();
+				//WebDriverManager.phantomjs().setup();
 			} else if (osName.contains("Windows")) {
 				// System.setProperty(Constants.PHANTOM_KEY, Constants.PHANTOM_PATH + GET_EXE);
-				WebDriverManager.phantomjs().operatingSystem(OperatingSystem.WIN).setup();
+				//WebDriverManager.phantomjs().operatingSystem(OperatingSystem.WIN).setup();
 			} else if (osName.contains("Linux")) {
-				WebDriverManager.phantomjs().operatingSystem(OperatingSystem.LINUX).setup();
+				//WebDriverManager.phantomjs().operatingSystem(OperatingSystem.LINUX).setup();
 			}
 		}
 	}
