@@ -131,10 +131,11 @@ public class CRS_Reviewers_Steps extends PageInitializer {
                 CommonUtils.assertEquals(rock, nerdHomePage.rockKnowledgeBaseText.getText());
                 CommonUtils.assertEquals(moonshotEvaluation,
                                 nerdHomePage.moonshotEvaluationKnowledgeBaseText.getText());
-                JavascriptUtils.drawBlueBorder(nerdHomePage.nerdKnowledgeBaseText);  
+                JavascriptUtils.drawBlueBorder(nerdHomePage.nerdKnowledgeBaseText);
                 JavascriptUtils.drawBlueBorder(nerdHomePage.rockKnowledgeBaseText);
-                JavascriptUtils.drawBlueBorder(nerdHomePage.moonshotEvaluationKnowledgeBaseText);          
-                CucumberLogUtils.logScreenShot("--- THERE ARE THREE KNOWLEDGE BASES CALLED NERD, ROCK, and MOONSHOT EVALUTATION");
+                JavascriptUtils.drawBlueBorder(nerdHomePage.moonshotEvaluationKnowledgeBaseText);
+                CucumberLogUtils.logScreenShot(
+                                "--- THERE ARE THREE KNOWLEDGE BASES CALLED NERD, ROCK, and MOONSHOT EVALUTATION");
         }
 
         @When("the user clicks the NERD Knowledge Base")
@@ -219,7 +220,7 @@ public class CRS_Reviewers_Steps extends PageInitializer {
                                 .dynamicXpathNERDKnowledgeBaseTopAccomplishmentPublishedArticle(publishedArticleTitle)
                                 .getText()
                                 .contentEquals(publishedArticleTitle);
-//DEBUG HERE
+                // DEBUG HERE
                 CommonUtils.assertTrue(isArticleDisplayed);
                 CucumberLogUtils.logScreenShot();
         }
