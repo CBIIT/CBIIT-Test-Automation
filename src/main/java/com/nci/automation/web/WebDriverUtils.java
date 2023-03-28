@@ -113,6 +113,7 @@ public class WebDriverUtils {
 					webDriver = new ChromeDriver(chromeOptions);
 //					System.out.println(chromeOptions.getVersion());
 				} else {
+					System.setProperty("webdriver.http.factory", "jdk-http-client");
 					chromeOptions.addArguments("--no-sandbox");
 					chromeOptions.addArguments("--disable-dev-shm-usage");
 					chromeOptions.addArguments("--remote-allow-origins=*");
@@ -205,16 +206,6 @@ public class WebDriverUtils {
 				firefoxdriver().operatingSystem(OperatingSystem.WIN).setup();
 			} else if (osName.contains("Linux")) {
 				firefoxdriver().operatingSystem(OperatingSystem.LINUX).setup();
-			}
-		} else if (browser.equalsIgnoreCase(Constants.BROWSER_PHANTOM)) {
-			if (osName.contains("Mac")) {
-				// System.setProperty(Constants.PHANTOM_KEY, Constants.PHANTOM_PATH);
-				//WebDriverManager.phantomjs().setup();
-			} else if (osName.contains("Windows")) {
-				// System.setProperty(Constants.PHANTOM_KEY, Constants.PHANTOM_PATH + GET_EXE);
-				//WebDriverManager.phantomjs().operatingSystem(OperatingSystem.WIN).setup();
-			} else if (osName.contains("Linux")) {
-				//WebDriverManager.phantomjs().operatingSystem(OperatingSystem.LINUX).setup();
 			}
 		}
 	}

@@ -40,6 +40,14 @@
 			<version>4.8.1</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-http-jdk-client -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-http-jdk-client</artifactId>
+			<version>4.8.1</version>
+		</dependency>
+
+
 
 		<!-- appium libraries -->
 		<!-- https://mvnrepository.com/artifact/io.appium/java-client -->
