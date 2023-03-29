@@ -93,23 +93,11 @@ public class WebDriverUtils {
 
 				ChromeOptions chromeOptions = new ChromeOptions();
 				if (headless.equalsIgnoreCase("true")) {
-					// chromeOptions.addArguments("--headless");
-					// chromeOptions.addArguments("window-size=1920,1080");
-					// chromeOptions.addArguments("--disable-dev-shm-usage");
-					// chromeOptions.addArguments("--disable-tmp-usage");
-					// chromeOptions.addArguments("--no-sandbox");
-					// chromeOptions.addArguments("--disable-infobars");
-					// chromeOptions.addArguments("--disable-extensions");
-					// chromeOptions.addArguments("--disable-gpu");
-					// chromeOptions.addArguments("enable-automation");
-					// chromeOptions.addArguments("--disable-browser-side-navigation");
-					// chromeOptions.addArguments("--profile-directory=Default");
-					// chromeOptions.addArguments("--disable-setuid-sandbox");
-					// chromeOptions.addArguments("--user-data-dir=~/.config/google-chrome");
-					// chromeOptions.setExperimentalOption("useAutomationExtension", false);
+					System.setProperty("webdriver.http.factory", "jdk-http-client");
 					chromeOptions.addArguments("--no-sandbox");
 					chromeOptions.addArguments("--headless");
 					chromeOptions.addArguments("--disable-dev-shm-usage");
+					chromeOptions.addArguments("--remote-allow-origins=*");
 					webDriver = new ChromeDriver(chromeOptions);
 //					System.out.println(chromeOptions.getVersion());
 				} else {
