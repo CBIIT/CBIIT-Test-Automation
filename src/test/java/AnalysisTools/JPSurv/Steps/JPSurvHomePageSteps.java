@@ -312,17 +312,20 @@ public class JPSurvHomePageSteps extends PageInitializer {
 
 	@When("select {string} for alive at start drop down")
 	public void select_for_alive_at_start_drop_down(String string) {
-		 CommonUtils.selectDropDownValue(string, jpsurvHomePage.aliveAtStartDD);	    
+		 JavascriptUtils.scrollIntoView(jpsurvHomePage.aliveAtStartDD);
+		 CommonUtils.selectDropDownValue(string, jpsurvHomePage.aliveAtStartDD);
 	}
 
 	@When("select {string} for  died drop down")
 	public void select_for_died_drop_down(String string) {
+		 JavascriptUtils.scrollIntoView(jpsurvHomePage.diedDD);
 		 CommonUtils.selectDropDownValue(string, jpsurvHomePage.diedDD);
 	    
 	}
 	
 	@When("select {string} for  lost to follow up")
 	public void select_for_lost_to_follow_up(String string) {
+		JavascriptUtils.scrollIntoView(jpsurvHomePage.lostToFollowUpDD);
 		CommonUtils.selectDropDownValue(string, jpsurvHomePage.lostToFollowUpDD);
 	}
 
@@ -335,30 +338,33 @@ public class JPSurvHomePageSteps extends PageInitializer {
 
 	@When("select {string} for rel int drop down")
 	public void select_for_rel_int_drop_down(String string) {
-	    
+		 JavascriptUtils.scrollIntoView(jpsurvHomePage.relIntDD);
 		 CommonUtils.selectDropDownValue(string, jpsurvHomePage.relIntDD);
 	}
 
 	@When("select {string} for rel cum drop down")
 	public void select_for_rel_cum_drop_down(String string) {
-	    
+		 JavascriptUtils.scrollIntoView(jpsurvHomePage.relCumDD);
 		 CommonUtils.selectDropDownValue(string, jpsurvHomePage.relCumDD);  
 	}
 
 	@When("select {string} for rel sur int se drop down")
 	public void select_for_rel_sur_int_se_drop_down(String string) {
+		 JavascriptUtils.scrollIntoView(jpsurvHomePage.seIntRelDD);
 		 CommonUtils.selectDropDownValue(string, jpsurvHomePage.seIntRelDD);
 	    
 	}
 
 	@When("select {string} for  rel sur cum se drop down")
 	public void select_for_rel_sur_cum_se_drop_down(String string) {
+		 JavascriptUtils.scrollIntoView(jpsurvHomePage.seRelCumDD);
 		 CommonUtils.selectDropDownValue(string, jpsurvHomePage.seRelCumDD);
 	    
 	}
 	
 	@When("clicks save")
 	public void clicks_save() {
+
 		jpsurvHomePage.saveBtn.click();
 	}
 	
