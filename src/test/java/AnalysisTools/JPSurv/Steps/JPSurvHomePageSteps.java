@@ -304,6 +304,7 @@ public class JPSurvHomePageSteps extends PageInitializer {
 
 	@When("select {string} for interval drop down")
 	public void select_for_interval_drop_down(String string) {
+		 JavascriptUtils.scrollIntoView(jpsurvHomePage.intervalDD);
 		 MiscUtils.sleep(4000);
 		 CommonUtils.selectDropDownValue(string, jpsurvHomePage.intervalDD);
 	    

@@ -35,7 +35,7 @@ And click submit
 Then verify email send 
  
 
-@Smoke @uddins2 @Progression.
+@Smoke @uddins2 @Progression
 Scenario: User Upload example CSV file
 Given the user is on the JPSurv homepage
 When user selects CSV Files
