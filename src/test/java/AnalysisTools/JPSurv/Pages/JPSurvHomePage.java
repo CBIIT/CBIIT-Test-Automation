@@ -182,7 +182,7 @@ public class JPSurvHomePage extends CommonUtils{
 	public WebElement yearDXDD;
 	
 	/** Interval drop down **/
-	@FindBy(xpath = "//th[@id='type_4']/select")
+	@FindBy(xpath = "//th[@id='type_4']/select[@id='column_values']")
 	public WebElement intervalDD;
 	
 	/** Alive At Start drop down **/
