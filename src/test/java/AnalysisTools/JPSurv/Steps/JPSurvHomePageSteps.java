@@ -332,7 +332,7 @@ public class JPSurvHomePageSteps extends PageInitializer {
 
 	@When("select {string} for exp int drop down")
 	public void select_for_exp_int_drop_down(String string) {
-	     JavascriptUtils.scrollIntoView(jpsurvHomePage.seRelColumn);
+	     JavascriptUtils.scrollIntoView(jpsurvHomePage.expIntDD);
 		 CommonUtils.selectDropDownValue(string, jpsurvHomePage.expIntDD); 
 	}
 
