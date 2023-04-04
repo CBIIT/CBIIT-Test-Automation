@@ -66,7 +66,7 @@ When user selects workspace
 And user clicks import
 Then workspace results display
 
-@Smoke @uddins2 @Progression
+@Smoke @uddins2
 Scenario: User Click Reset Button
 Given the user is on the JPSurv homepage
 When user selects Dic and Txt file
@@ -77,7 +77,7 @@ And click Reset
 Then page is reset
 
 
-@Smoke @uddins2
+@Smoke @uddins2 @Progression
 Scenario: User Click Download Full Dataset
 Given the user is on the JPSurv homepage
 When user selects Dic and Txt file

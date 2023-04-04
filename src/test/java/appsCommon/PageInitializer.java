@@ -1,5 +1,6 @@
 package appsCommon;
 
+import AnalysisTools.cProSite.Pages.CProSiteExplorePage;
 import com.sun.xml.bind.v2.model.core.ID;
 import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
 import AnalysisTools.CEDCD.Pages.CEDCDBiospecimenCountsPage;
@@ -184,8 +185,12 @@ public class PageInitializer {
 	protected static ICRPSearchDatabasePage icrpSearchDatabasePage; 
 	
 	/** JPSurv instances **/ 
-	protected static JPSurvHomePage jpsurvHomePage; 
-	
+	protected static JPSurvHomePage jpsurvHomePage;
+
+	/**cProSite instances **/
+	protected static CProSiteExplorePage cProSiteExplorePage;
+
+
 
 
 	public static void initializeAllPages() {
@@ -264,9 +269,9 @@ public class PageInitializer {
 		cGBIIQPages = new CGBIIQPages();
 		rASSurveyPage = new RASSurveyPage();
 		rASSurveyStepsImpl = new RASSurveyStepsImpl();
-		jpsurvHomePage = new JPSurvHomePage(); 
-		
-	
+		jpsurvHomePage = new JPSurvHomePage();
+		cProSiteExplorePage = new CProSiteExplorePage();
+
 	
 
 	}
