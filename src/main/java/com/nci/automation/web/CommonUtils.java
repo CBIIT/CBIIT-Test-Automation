@@ -515,9 +515,9 @@ public class CommonUtils extends WebDriverUtils {
 	 */
 	public static boolean isFileDownloaded(String downloadPath, String fileName) {
 		boolean temp=false;
-		Path path=Paths.get(System.getProperty("user.home")+downloadPath+fileName);
-		System.out.println("Download Path is" + System.getProperty("user.home")+downloadPath);
-		System.out.println("File Path is" + System.getProperty("user.home")+downloadPath+fileName);
+		//Path path=statu.get(System.getProperty("user.home")+downloadPath+fileName);
+		Path path=Paths.get("/local/home/ncianalysis-agent"+downloadPath+fileName);
+		System.out.println("Download Path is" + path);
 		if(Files.exists(path)==true) {
 			if(Files.isRegularFile(path)) {
 			System.out.println("File is found");
