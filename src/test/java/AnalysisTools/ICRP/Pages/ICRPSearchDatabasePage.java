@@ -79,6 +79,10 @@ public class ICRPSearchDatabasePage extends CommonUtils {
 	
 	@FindBy(xpath ="//table/tbody/tr/td[1]/a")
 	public List<WebElement> projectTitles;
+
+	@FindBy(xpath ="//a[contains(text(),'Cost')]")
+	public List<WebElement> projectTitlesVal;
+
 	
 	@FindBy(xpath = "(//*[contains(text(),' Email')])[1]")
 	public WebElement emailResultsBtn;

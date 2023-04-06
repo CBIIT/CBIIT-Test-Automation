@@ -14,6 +14,13 @@ public class CProSiteExplorePage {
 
     @FindBy(xpath ="//input[@id='react-select-3-input']")
     public WebElement datasetDropdown;
+
+    @FindBy(xpath ="//input[@id='react-select-4-input']")
+    public WebElement analysisDropdown;
+    @FindBy(xpath ="//input[@id='react-select-6-input']")
+    public WebElement corelatedgeneDropdown;
+
+
     public CProSiteExplorePage(){
 
         PageFactory.initElements(WebDriverUtils.webDriver, this);

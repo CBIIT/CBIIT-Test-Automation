@@ -2,6 +2,7 @@ package AnalysisTools.ICRP.Steps;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -18,6 +19,8 @@ import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+
+import java.util.List;
 
 public class ICRPSearchSteps extends PageInitializer {
 
@@ -80,11 +83,13 @@ public class ICRPSearchSteps extends PageInitializer {
 //
 //	}
 	
-	@Then("results display")
-	public void results_display() {
+
+	@Then("results display {string}")
+	public void resultsDisplay(String searchVal) {
 		MiscUtils.sleep(5000);
 		Assert.assertTrue(icrpSearchDatabasePage.projectTitles.get(1).isDisplayed());
-
+		List<WebElement> val= (List<WebElement>) WebDriverUtils.webDriver.findElements(By.xpath("//a[contains(text(),'"+searchVal+"')]"));
+		Assert.assertTrue(val.get(0).isDisplayed());
 	}
 
 	@When("user searchs {string}")
@@ -270,13 +275,22 @@ public class ICRPSearchSteps extends PageInitializer {
 	
 	@When("user clicks projects multisheet")
 	public void user_clicks_projects_multisheet() {
+		MiscUtils.sleep(5000);
 		 icrpSearchDatabasePage.projectMultisheetBtn.click();
+		MiscUtils.sleep(15000);
 	}
 	
 	@Then("data is exported")
 	public void data_is_exported() {
 		Assert.assertTrue(icrpSearchDatabasePage.projectTitles.get(1).isDisplayed());
 	   
+	}
+	@Then("verify dataset download")
+	public void verify_dataset_download() {
+		MiscUtils.sleep(5000);
+		Assert.assertTrue(CommonUtils.isFileDownloaded1("/Downloads", "/ICRP_Search_Results_Export.xlsx"));
+		MiscUtils.sleep(5000);
+		//CommonUtils.deleteFile("/Downloads", "/JPSurv-Tutorial_JPSURV.xlsx");
 	}
 
 }

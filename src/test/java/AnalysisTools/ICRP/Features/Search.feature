@@ -10,7 +10,7 @@ And user clicks search database
 And user searchs by "Cost" in search terms
 And user selects any of the keywords  
 And user clicks search
-Then results display
+Then results display "Cost"
 
 
 @Smoke @uddins2 
@@ -91,7 +91,7 @@ And user enters email
 And user clicks send email
 Then email is sent 
 
-@Smoke @uddins2
+@Smoke @uddins2 @Progression
 Scenario: user exports default projects
 Given user on ICRP home page
 When user clicks ICRP data
@@ -99,6 +99,7 @@ And user clicks search database
 And user clicks export button
 And user clicks projects multisheet
 Then data is exported
+Then verify dataset download
 
 
 

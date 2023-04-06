@@ -236,9 +236,9 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	
 	@Then("verify dataset download")
 	public void verify_dataset_download() {
-		 MiscUtils.sleep(5000);
+		 MiscUtils.sleep(10000);
 		 Assert.assertTrue(CommonUtils.isFileDownloaded("/Downloads", "/JPSurv-Tutorial_JPSURV.xlsx"));
-		 MiscUtils.sleep(5000);
+		 MiscUtils.sleep(10000);
 		 CommonUtils.deleteFile("/Downloads", "/JPSurv-Tutorial_JPSURV.xlsx");
 	}
 	
