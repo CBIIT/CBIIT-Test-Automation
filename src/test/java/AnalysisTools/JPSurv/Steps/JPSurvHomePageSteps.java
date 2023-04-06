@@ -4,7 +4,9 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 
+
 import cucumber.api.java.en.And;
+import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -237,7 +239,7 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	@Then("verify dataset download")
 	public void verify_dataset_download() {
 		 MiscUtils.sleep(10000);
-		 Assert.assertTrue(CommonUtils.isFileDownloaded("/Downloads", "/JPSurv-Tutorial_JPSURV.xlsx"));
+		Assert.assertTrue(CommonUtils.isFileDownloaded("/Downloads", "/JPSurv-Tutorial_JPSURV.xlsx"));
 		 MiscUtils.sleep(10000);
 		 CommonUtils.deleteFile("/Downloads", "/JPSurv-Tutorial_JPSURV.xlsx");
 	}
