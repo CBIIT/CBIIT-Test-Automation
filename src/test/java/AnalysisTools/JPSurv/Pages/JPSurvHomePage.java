@@ -224,7 +224,8 @@ public class JPSurvHomePage extends CommonUtils{
 	/** se rel cum Column Value **/
 	@FindBy(xpath = "//input[@id='header_17']")
 	public WebElement seRelColumn;
-	
+	@FindBy(xpath = "//a")
+	public WebElement downloadFile;
 	/** Save Button **/
 	@FindBy(xpath = "//button[@onclick='save_params()']")
 	public WebElement saveBtn; 

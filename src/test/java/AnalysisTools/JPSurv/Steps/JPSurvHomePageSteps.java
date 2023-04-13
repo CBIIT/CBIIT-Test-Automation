@@ -241,7 +241,12 @@ public class JPSurvHomePageSteps extends PageInitializer {
 		 MiscUtils.sleep(10000);
 		Assert.assertTrue(CommonUtils.isFileDownloaded("/Downloads", "/JPSurv-Tutorial_JPSURV.xlsx"));
 		 MiscUtils.sleep(10000);
-		 CommonUtils.deleteFile("/Downloads", "/JPSurv-Tutorial_JPSURV.xlsx");
+		CommonUtils.deleteFile("/Downloads", "/JPSurv-Tutorial_JPSURV.xlsx");
+
+		//WebDriverUtils.webDriver.get("chrome://downloads");
+		//String fileName=jpsurvHomePage.downloadFile.getText();
+		//System.out.println("Download file name"+fileName);
+
 	}
 	
 	@Then("workspace results display")

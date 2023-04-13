@@ -70,4 +70,42 @@ public class CProSiteExplorePageSteps extends PageInitializer {
         JavascriptUtils.scrollDown(100);
         MiscUtils.sleep(3000);
     }
+
+    @And("user select protein and mRNA")
+    public void userSelectProteinAndMRNA() {
+        cProSiteExplorePage.proteinandmRNAcheckbox.click();
+        JavascriptUtils.scrollDown(100);
+        MiscUtils.sleep(3000);
+    }
+
+
+    @And("user click reset button")
+    public void userClickResetButton() {
+        MiscUtils.sleep(3000);
+        cProSiteExplorePage.resetButton.click();
+    }
+    @Then("page is reset")
+    public void page_is_reset() {
+        Assert.assertTrue(cProSiteExplorePage.intialverifer.isDisplayed());
+    }
+
+    @Then("results is display tumortype")
+    public void resultsIsDisplayTumortype() {
+        Assert.assertTrue(cProSiteExplorePage.tumorverifer.isDisplayed());
+    }
+
+    @And("user clicks export button")
+    public void userClicksExportButton() {
+        JavascriptUtils.scrollDown(200);
+        MiscUtils.sleep(3000);
+        cProSiteExplorePage.exportbutton.click();
+    }
+
+    @Then("verify dataset is download")
+    public void verifyDatasetIsDownload() {
+        MiscUtils.sleep(10000);
+        Assert.assertTrue(CommonUtils.isFileDownloaded("/Downloads", "/Protein_Abundance_Tumor_vs_Adjacent_Normal-CDK1.xlsx"));
+        MiscUtils.sleep(10000);
+        CommonUtils.deleteFile("/Downloads", "/Protein_Abundance_Tumor_vs_Adjacent_Normal-CDK1.xlsx");
+    }
 }

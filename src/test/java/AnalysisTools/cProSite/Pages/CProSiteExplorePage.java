@@ -9,6 +9,9 @@ public class CProSiteExplorePage {
 
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement submitButton;
+
+    @FindBy(xpath = "//button[@type='reset']")
+    public WebElement resetButton;
     @FindBy(xpath = "//button[text()='Summary']")
     public WebElement summary;
 
@@ -20,9 +23,17 @@ public class CProSiteExplorePage {
     @FindBy(xpath ="//input[@id='react-select-6-input']")
     public WebElement corelatedgeneDropdown;
 
+    @FindBy(xpath ="//input[@id='correlationMRNA']")
+    public WebElement proteinandmRNAcheckbox;
 
+    @FindBy(xpath ="//div[@class='m-2']")
+    public WebElement intialverifer;
+
+    @FindBy(xpath ="//a[contains(text(),'Export Data')]")
+    public WebElement exportbutton;
+    @FindBy(xpath ="//label[normalize-space()='Tumor Type']")
+    public WebElement tumorverifer;
     public CProSiteExplorePage(){
-
         PageFactory.initElements(WebDriverUtils.webDriver, this);
 
     }

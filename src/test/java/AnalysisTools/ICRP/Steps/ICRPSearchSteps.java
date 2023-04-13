@@ -1,5 +1,6 @@
 package AnalysisTools.ICRP.Steps;
 
+import cucumber.api.java.en.And;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -293,4 +294,14 @@ public class ICRPSearchSteps extends PageInitializer {
 		//CommonUtils.deleteFile("/Downloads", "/JPSurv-Tutorial_JPSURV.xlsx");
 	}
 
+    @And("click on reset button")
+    public void clickOnResetButton() {
+		icrpSearchDatabasePage.resetBtn.click();
+    }
+
+	@And("validate the search term data is removed")
+	public void validateTheSearchTermDataIsRemoved() {
+		String data=icrpSearchDatabasePage.searchTxtbox.getText();
+		Assert.assertNotEquals(data,"Cost");
+	}
 }

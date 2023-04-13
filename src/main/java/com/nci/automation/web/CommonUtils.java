@@ -515,8 +515,7 @@ public class CommonUtils extends WebDriverUtils {
 	 */
 	public static boolean isFileDownloaded(String downloadPath, String fileName) {
 		boolean temp=false;
-		//Path path=statu.get(System.getProperty("user.home")+downloadPath+fileName);
-		Path path=Paths.get("/local/home/ncianalysis-agent"+downloadPath+fileName);
+		Path path=Paths.get(System.getProperty("user.dir")+downloadPath+fileName);
 		System.out.println("Download Path is" + path);
 		if(Files.exists(path)==true) {
 			if(Files.isRegularFile(path)) {
@@ -524,7 +523,7 @@ public class CommonUtils extends WebDriverUtils {
 			temp=true;
 			}
 		}else {
-			System.out.println("File is found");
+			System.out.println("File is not found");
 		}
 		return temp;
 	}
@@ -533,7 +532,7 @@ public class CommonUtils extends WebDriverUtils {
 		String fileNamePar=fileName;
 	//	Path path = null;
 		//if(fileNamePar.startsWith("ICRP_Search_Results_Export")&& fileNamePar.endsWith(".xlsx")) {
-		Path path = Paths.get(System.getProperty("user.home") + downloadPath + fileNamePar.startsWith("ICRP_Search_Results_Export"));
+		Path path = Paths.get(System.getProperty("user.dir") + downloadPath + fileNamePar.startsWith("ICRP_Search_Results_Export"));
 		//}
 		if(Files.exists(path)==true) {
 			if(Files.isRegularFile(path)) {
@@ -547,7 +546,7 @@ public class CommonUtils extends WebDriverUtils {
 	}
 
 	public static void deleteFile(String downloadPath, String fileName) {
-		File file=new File(System.getProperty("user.home")+downloadPath+fileName);
+		File file=new File(System.getProperty("user.dir")+downloadPath+fileName);
 		if(file.delete()) {
 			System.out.println("File is deleted");
 		}

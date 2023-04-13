@@ -3,8 +3,11 @@ package com.nci.automation.web;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import io.github.bonigarcia.wdm.config.OperatingSystem;
@@ -93,6 +96,9 @@ public class WebDriverUtils {
 
 				ChromeOptions chromeOptions = new ChromeOptions();
 				if (headless.equalsIgnoreCase("true")) {
+					Map<String, Object> pref=new HashMap<String, Object>();
+					pref.put("download.default_directory",System.getProperty("user.dir")+ File.separator+"downloads");
+					chromeOptions.setExperimentalOption("prefs",pref);
 					System.setProperty("webdriver.http.factory", "jdk-http-client");
 					chromeOptions.addArguments("--no-sandbox");
 					chromeOptions.addArguments("--headless");
@@ -101,6 +107,9 @@ public class WebDriverUtils {
 					webDriver = new ChromeDriver(chromeOptions);
 //					System.out.println(chromeOptions.getVersion());
 				} else {
+					Map<String, Object> pref=new HashMap<String, Object>();
+					pref.put("download.default_directory",System.getProperty("user.dir")+ File.separator+"downloads");
+					chromeOptions.setExperimentalOption("prefs",pref);
 					System.setProperty("webdriver.http.factory", "jdk-http-client");
 					chromeOptions.addArguments("--no-sandbox");
 					chromeOptions.addArguments("--disable-dev-shm-usage");

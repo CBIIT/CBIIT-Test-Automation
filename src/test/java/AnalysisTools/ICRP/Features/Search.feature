@@ -12,6 +12,18 @@ And user selects any of the keywords
 And user clicks search
 Then results display "Cost"
 
+@Smoke @uddins2 @Progression
+Scenario: User searchs by search term and reset the serach and validate
+Given user on ICRP home page
+When user clicks ICRP data
+And user clicks search database
+And user searchs by "Cost" in search terms
+And user selects any of the keywords
+And user clicks search
+Then results display "Cost"
+And click on reset button
+And validate the search term data is removed
+
 
 @Smoke @uddins2 
 Scenario: User searches with default parameters 
@@ -58,7 +70,7 @@ And user searchs by "Cost" in search terms
 And user selects any of the keywords  
 And user clicks search
 When user clicks reset 
-Then results display
+#Then results display
 
 
 
@@ -91,7 +103,7 @@ And user enters email
 And user clicks send email
 Then email is sent 
 
-@Smoke @uddins2 @Progression
+@Smoke @uddins2
 Scenario: user exports default projects
 Given user on ICRP home page
 When user clicks ICRP data

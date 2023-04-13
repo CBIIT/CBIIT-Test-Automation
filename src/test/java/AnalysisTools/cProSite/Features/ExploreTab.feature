@@ -21,7 +21,7 @@ Feature: Explore Tab
     And user clicks submit
     Then results is displayed
 
-  @Smoke @uddins2 @Progression
+  @Smoke @uddins2
   Scenario: User submit selection with RNALevel CDK1 mRNa to another and DLC1
     Given user is on cProSite explore Tab
     When user changes the dataset to rnalevel
@@ -29,3 +29,46 @@ Feature: Explore Tab
     And user change correlated gene to DLC1
     And user clicks submit
     Then results is displayed
+
+  @Smoke @uddins2
+  Scenario: User submit selection with RNALevel CDK1 Protein and mRNA and DLC1
+    Given user is on cProSite explore Tab
+    When user changes the dataset to rnalevel
+    And  user change analysis to correlation
+    And user select protein and mRNA
+    And user clicks submit
+    Then results is display tumortype
+
+  @Smoke @uddins2
+  Scenario: User submit selection with Relative Protein Abundance correlation CDK1 to another protein and DLC1
+    Given user is on cProSite explore Tab
+    When  user change analysis to correlation
+    And user change correlated gene to DLC1
+    And user clicks submit
+    Then results is displayed
+
+  @Smoke @uddins2
+  Scenario: User submit selection with Phosphorylation Site  correlation CDK1 to another protein and DLC1
+    Given user is on cProSite explore Tab
+    When user changes the dataset to phosphorylation site
+    And  user change analysis to correlation
+    And user change correlated gene to DLC1
+    And user clicks submit
+    Then results is displayed
+
+  @Smoke @uddins2
+  Scenario: User reset calculation
+    Given user is on cProSite explore Tab
+    When user changes the dataset to phosphorylation site
+    And  user change analysis to correlation
+    And user change correlated gene to DLC1
+    And user clicks submit
+    And user click reset button
+    Then page is reset
+
+  @Smoke @uddins2  @Progression
+  Scenario: User export data
+    Given user is on cProSite explore Tab
+    When user clicks submit
+    And user clicks export button
+    Then verify dataset is download
