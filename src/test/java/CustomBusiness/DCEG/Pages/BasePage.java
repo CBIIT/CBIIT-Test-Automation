@@ -1,9 +1,6 @@
-
-
 package CustomBusiness.DCEG.Pages;
 
 import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -12,12 +9,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.*;
-
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-
 import CustomBusiness.EIDP.Util.CommonUtil;
-
 
 public class BasePage extends CommonUtils{
 
@@ -90,8 +84,4 @@ public class BasePage extends CommonUtils{
 		Select select = new Select(selectEl);
 		select.selectByIndex(2);
 	}
-	
-	
-	
-	
 }
