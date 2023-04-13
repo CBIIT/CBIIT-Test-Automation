@@ -1,6 +1,6 @@
 Feature: Branch Admin Adjunct Organization Flow
 
-  @BranchAdminAdjunctOrganization @Jira1129 @BranchAdminAdjunctRegression
+  @BranchAdminAdjunctOrganization @Jira1129 @Needs_review
   Scenario: TC01 Branch Admin with a DCEG Adjunct Org Association flow
     Given User logged in as "Gitau_Nancy"
     And User is on Clearance Requests tab
@@ -13,7 +13,7 @@ Feature: Branch Admin Adjunct Organization Flow
     And User clicks Search button
     Then User can verify that User can not operate on publications outside of their Adjunct org only-TDRP CGB
 
-  @BranchAdminAdjunctNegativeScenario @Jira1131 @BranchAdminAdjunctRegression
+  @BranchAdminAdjunctNegativeScenario @Jira1131 @Needs_review
   Scenario: TC02 Branch Admin with a DCEG Adjunct Org Association flow. Negative scenario editing clearance requests/publications
     Given User logged in as "Gitau_Nancy"
     And User is on Clearance Requests tab

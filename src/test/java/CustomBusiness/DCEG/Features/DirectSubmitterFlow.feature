@@ -1,6 +1,6 @@
 Feature: Direct Submitter
 
-  @DirectSubmitterPublication @Jira1079 @DirectSubmitterRegression
+  @DirectSubmitterPublication @Jira1079 @Needs_review
   Scenario: TC01 Creating a CR Publication type as requester being a submitter
     Given User logged in as "ALBANES_DEMETRIUS"
     When User is on Clearance Request tab
@@ -39,7 +39,7 @@ Feature: Direct Submitter
     And User can verify scheduled reviewer STEPHEN CHANOCK as Division Director
     And User withdraws the request
 
-  @DirectSubmitterPresentation @Jira1078 @DirectSubmitterRegression
+  @DirectSubmitterPresentation @Jira1078 @Needs_review
   Scenario: TC02 Creating a CR Presentation type as requester being a submitter
     Given User logged in as "ALBANES_DEMETRIUS"
     When User is on Clearance Request tab
@@ -74,7 +74,7 @@ Feature: Direct Submitter
     And User can verify scheduled reviewer STEPHEN CHANOCK as Division Director
     And User deletes the request
 
-  @ResetScenarioCreateRequest1 @DirectSubmitterRegression
+  @ResetScenarioCreateRequest1 @Needs_review
   Scenario: TC03 Direct Submitter Create request then Branch Chief returns for revision and disapproves
     Given User logged in as "ALBANES_DEMETRIUS"
     When User is on Clearance Request tab
@@ -112,7 +112,7 @@ Feature: Direct Submitter
     Then "CHRISTIAN_ABNET" dissaproves that CR
     Then User can verify the request was dissaproved
 
-  @BranchChiefRevisionDisapproval @Jira1089 @DirectSubmitterRegression
+  @BranchChiefRevisionDisapproval @Jira1089 @Needs_review
   Scenario: TC04 Direct Submitter.Branch Chief returns for revision and disapproves
     Given User logs in as "CHRISTIAN_ABNET"
     And User views the CR that requires their review
@@ -125,7 +125,7 @@ Feature: Direct Submitter
     Then "CHRISTIAN_ABNET" dissaproves that CR
     Then User can verify the request was dissaproved
 
-  @ResetScenarioCreateRequest2 @DirectSubmitterRegression
+  @ResetScenarioCreateRequest2 @Needs_review
   Scenario: TC05 Create request
     Given User logged in as "ALBANES_DEMETRIUS"
     When User is on Clearance Request tab
@@ -153,7 +153,7 @@ Feature: Direct Submitter
     And User lists authors for submisison
     Then User submits data for review
 
-  @BranchChiefchoosesYesConflictInterest @Jira1136 @DirectSubmitterRegression
+  @BranchChiefchoosesYesConflictInterest @Jira1136 @Needs_review
   Scenario: TC06 Direct Submitter.Branch Chief chooses yes for conflict for revision and removes a current reviewer
     Given User logs in as "CHRISTIAN_ABNET"
     And User views the CR that requires their review
@@ -161,7 +161,7 @@ Feature: Direct Submitter
     Then User chooses to remove current reviewer
     Then User can verify that CHRISTIAN ABNET was removed from the list of reviewers
 
-  @ResetScenarioCreateRequest3 @DirectSubmitterRegression
+  @ResetScenarioCreateRequest3 @Needs_review
   Scenario: TC07 Create request
     Given User logged in as "ALBANES_DEMETRIUS"
     When User is on Clearance Request tab
@@ -189,7 +189,7 @@ Feature: Direct Submitter
     And User lists authors for submisison
     Then User submits data for review
 
-  @BranchAdminRemovesPrDirector @Jira1132 @DirectSubmitterRegression
+  @BranchAdminRemovesPrDirector @Jira1132 @Needs_review
   Scenario: TC08 Branch Chief overrides the High Profile flag from 'Yes' to 'No'
     Given User logs in as "CHRISTIAN_ABNET"
     And User views the CR that requires their review
@@ -204,7 +204,7 @@ Feature: Direct Submitter
     Then "CHRISTIAN_ABNET" dissaproves that CR
     And User can verify the request was dissaproved
 
-  @ResetScenario_CreateRequest4 @DirectSubmitterRegression
+  @ResetScenario_CreateRequest4 @Needs_review
   Scenario: TC09 Create request
     Given User logged in as "ALBANES_DEMETRIUS"
     When User is on Clearance Request tab
@@ -232,7 +232,7 @@ Feature: Direct Submitter
     And User lists authors for submisison
     Then User submits data for review
 
-  @BranchChiefApprovesBranchChiefApprovesDivisionDirectorApproves @Jira1090 @DirectSubmitterRegression
+  @BranchChiefApprovesBranchChiefApprovesDivisionDirectorApproves @Jira1090 @Needs_review
   Scenario: TC10 Direct Submitter.Branch Chief approves.Branch Chief approves. Division Director approves. Program Director approves
     Given User logs in as "CHRISTIAN_ABNET"
     And User views the CR that requires their review
@@ -246,7 +246,7 @@ Feature: Direct Submitter
     And User approves the CR
     Then User can verify that the CR has status as Approved for Dissemination
 
-  @ResetScenarioCreateRequest5 @DirectSubmitterRegression
+  @ResetScenarioCreateRequest5 @Needs_review
   Scenario: TC11 Create request
     Given User logged in as "ALBANES_DEMETRIUS"
     When User is on Clearance Request tab
@@ -274,7 +274,7 @@ Feature: Direct Submitter
     And User lists authors for submisison
     Then User submits data for review
 
-  @BranchChiefReassignsDivisionDirectorApproves @Jira1091 @DirectSubmitterRegression
+  @BranchChiefReassignsDivisionDirectorApproves @Jira1091 @Needs_review
   Scenario: TC12 Direct Submitter. Branch Chief reassigns CR. Division Director approves CR
     Given User logs in as "CHRISTIAN_ABNET"
     And User views the CR that requires their review
@@ -288,7 +288,7 @@ Feature: Direct Submitter
     And User approves the CR
     Then User can verify that the CR has status as Approved for Dissemination
 
-  @ResetScenarioCreateRequest6 @DirectSubmitterRegression
+  @ResetScenarioCreateRequest6 @Needs_review
   Scenario: TC13 Create request
     Given User logged in as "ALBANES_DEMETRIUS"
     When User is on Clearance Request tab
@@ -316,7 +316,7 @@ Feature: Direct Submitter
     And User lists authors for submisison
     Then User submits data for review
 
-  @BranchChiefRemovesCurrentReviewerDivisionDirectorApproves @Jira1092 @DirectSubmitterRegression
+  @BranchChiefRemovesCurrentReviewerDivisionDirectorApproves @Jira1092 @Needs_review
   Scenario: TC14 Direct Submitter. Branch Chief removes current reviewer. Division Director approves
     Given User logs in as "CHRISTIAN_ABNET"
     And User views the CR that requires their review
@@ -328,7 +328,7 @@ Feature: Direct Submitter
     And User approves the CR
     Then User can verify that the CR has status as Approved for Dissemination
 
-  @ResetScenarioCreateRequest7 @DirectSubmitterRegression
+  @ResetScenarioCreateRequest7 @Needs_review
   Scenario: TC15 Create request
     Given User logged in as "ALBANES_DEMETRIUS"
     When User is on Clearance Request tab
@@ -356,7 +356,7 @@ Feature: Direct Submitter
     And User lists authors for submisison
     Then User submits data for review
 
-  @BranchChiefApprovesDivisionDirectoReturnsForRevision @Jira1097 @DirectSubmitterRegression
+  @BranchChiefApprovesDivisionDirectoReturnsForRevision @Jira1097 @Needs_review
   Scenario: TC16 Direct Submitter.Branch Chief approves.Program Director returns for revision
     Given User logs in as "CHRISTIAN_ABNET"
     And User views the CR that requires their review
@@ -368,7 +368,7 @@ Feature: Direct Submitter
     And Program Director chooses to return for revision
     Then User can verify that the request was returned back to Albanes Demetrius for revision
 
-  @ResetScenarioCreateRequest8 @DirectSubmitterRegression
+  @ResetScenarioCreateRequest8 @Needs_review
   Scenario: TC17 Create request
     Given User logged in as "ALBANES_DEMETRIUS"
     When User is on Clearance Request tab
@@ -396,7 +396,7 @@ Feature: Direct Submitter
     And User lists authors for submisison
     Then User submits data for review
 
-  @BranchChiefApprovesDivisionDirectorDissaproves @Jira1098 @DirectSubmitterRegression
+  @BranchChiefApprovesDivisionDirectorDissaproves @Jira1098 @Needs_review
   Scenario: TC18 Direct Submitter. Branch Chief approves.Division Director dissaproves
     Given User logs in as "CHRISTIAN_ABNET"
     And User views the CR that requires their review
@@ -410,7 +410,7 @@ Feature: Direct Submitter
     When Division director chooses to dissaprove
     Then User can confirm that the CR was terminated
 
-  @ResetScenarioCreateRequest9 @DirectSubmitterRegression
+  @ResetScenarioCreateRequest9 @Needs_review
   Scenario: TC19 Create request
     Given User logged in as "ALBANES_DEMETRIUS"
     When User is on Clearance Request tab
@@ -438,7 +438,7 @@ Feature: Direct Submitter
     And User lists authors for submisison
     Then User submits data for review
 
-  @BranchChiefApprovesDivisionDirectoRefers @Jira1099 @DirectSubmitterRegression
+  @BranchChiefApprovesDivisionDirectoRefers @Jira1099 @Needs_review
   Scenario: TC20 Direct Submitter.Branch Chief approves.Program Director approves. Division Director refers to a different approver
     Given User logs in as "CHRISTIAN_ABNET"
     And User views the CR that requires their review
@@ -456,7 +456,7 @@ Feature: Direct Submitter
     And User chooses no for conflict of interest question
     And AMANDA BLACK dissaapproves the CR
 
-  @ResetScenarioCreateRequest10 @DirectSubmitterRegression
+  @ResetScenarioCreateRequest10 @Needs_review
   Scenario: TC21 Create request
     Given User logged in as "ALBANES_DEMETRIUS"
     When User is on Clearance Request tab
@@ -484,7 +484,7 @@ Feature: Direct Submitter
     And User lists authors for submisison
     Then User submits data for review
 
-  @BranchChiefApprovesDivisionDirectorApproves @Jira1104 @DirectSubmitterRegression
+  @BranchChiefApprovesDivisionDirectorApproves @Jira1104 @Needs_review
   Scenario: TC22 Direct Submitter. Branch Chief approves. Division Director approves
     Given User logs in as "CHRISTIAN_ABNET"
     And User views the CR that requires their review

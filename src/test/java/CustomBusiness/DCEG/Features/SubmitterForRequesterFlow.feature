@@ -1,6 +1,6 @@
 Feature: Submitter on behalf of Requester Flow
 
-  @RequesterAsSubmitterPublicationPending @Jira1080 @regressionRS
+  @RequesterAsSubmitterPublicationPending @Jira1080 @Needs_review
   Scenario: TC01 Creating a clearance request on behalf as requester by being a submitter with submission type of Publication
     Given User logged in as "PATRICIA_MADIGAN"
     When User is on Clearance Request tab
@@ -28,7 +28,7 @@ Feature: Submitter on behalf of Requester Flow
     And User lists authors for submisison
     Then User submits for verification
 
-  @RequesterAsSubmitterPresentationPending @Jira1081 @regressionRS
+  @RequesterAsSubmitterPresentationPending @Jira1081 @Needs_review
   Scenario: TC02 Submitter for Requestor.Creating a CR Presentation type
     Given User logged in as "PATRICIA_MADIGAN"
     When User is on Clearance Request tab

@@ -3,32 +3,32 @@ Feature: Regular User flow
   Background: common steps
     Given User logged in as "ALBANES_DEMETRIUS"
 
-  @regUserAddNonNHIGroup @Jira1113 @regUserRegression
+  @regUserAddNonNHIGroup @Jira1113 @Needs_review
   Scenario: TC01 Regular User. Add Non-NIH Group
     When User on an editable publication
     And User chooses to add non-NIH group
     And User inputs group name
     Then User can successfully add non-NIH group
 
-  @regUserAddNonNHIAuthor @Jira1112 @regUserRegression
+  @regUserAddNonNHIAuthor @Jira1112 @Needs_review
   Scenario: TC02 Regular User.Add Non-NIH Author
     When User on an editable publication
     And User chooses to add non-nhi author
     Then User can verify that non-nih author was added successfully
 
-  @regUserManuallyAddAuthor @Jira1111 @regUserRegression
+  @regUserManuallyAddAuthor @Jira1111 @Needs_review
   Scenario: TC03 Regular User. Search NIH Authors.Manually add an NIH author.
     When User on an editable publication
     And User is able to perform an NIH author search
     Then User can manually add an NIH author
 
-  @regUserAuthorMatching @Jira1110 @regUserRegression
+  @regUserAuthorMatching @Jira1110 @Needs_review
   Scenario: TC04 Regular user. Author Matching
     When User on an editable publication
     And user inputs PubMed id as 33737737
     Then User can verify that author match has been applied
 
-  @regUserViewCRWithinBranch @Jira1086 @regUserRegression
+  @regUserViewCRWithinBranch @Jira1086 @Needs_review
   Scenario: TC05 Regular User.View Clearance Request only within his branch
     And User is on Clearance Requests tab
     And User navigates to CR Search subtab
@@ -39,7 +39,7 @@ Feature: Regular User flow
     When User clicks Search
     Then User can verify that view button is available for a CR that is within his branch
 
-  @regUserEditCRUserIsRequestor @Jira1084 @regUserRegression
+  @regUserEditCRUserIsRequestor @Jira1084 @Needs_review
   Scenario: TC06 Regular User. Edit Clearance Request only where user is a requestor
     And User is on Clearance Requests tab
     And User navigates to CR Search subtab
@@ -50,7 +50,7 @@ Feature: Regular User flow
     When User clicks Search
     And User can edit only a CR where he is specified as a requestor
 
-  @regUserSearchForPublication @Jira1082 @regUserRegression
+  @regUserSearchForPublication @Jira1082 @Needs_review
   Scenario: TC07 Regular User search for Publications
     And User is on Publications tab
     And User navigates to Publications Search subtab
@@ -73,7 +73,7 @@ Feature: Regular User flow
     And User clicks Search button
     And User can verify that returned search for publications in Not Published/Abandoned status is across DCEG
 
-  @editPublicationsUserIsRequestor @Jira1077 @regUserRegression
+  @editPublicationsUserIsRequestor @Jira1077 @Needs_review
   Scenario: TC08 Regular User. Edit publications only when regular user is a requestor
     And User is on Publications tab
     And User navigates to Publications Search subtab
