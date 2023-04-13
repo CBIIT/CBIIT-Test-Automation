@@ -2,14 +2,12 @@ package CustomBusiness.DCEG.Steps;
 
 import java.awt.Robot;
 import java.util.NoSuchElementException;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -17,12 +15,10 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import io.appium.java_client.android.nativekey.KeyEvent;
 
 public class DirectSubmitterSteps extends PageInitializer {
 
@@ -141,7 +137,7 @@ public class DirectSubmitterSteps extends PageInitializer {
 
 	@Then("\"([^\"]*)\" revises the CR under Active Submissions tab")
 	public void revises_the_CR_under_Active_Submissions_tab(String UserName) throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl1(UserName));
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(UserName));
 		CommonUtils.click(directSubmitterPage.activeSubmissionsTab);
 		MiscUtils.sleep(2000);
 		CommonUtils.click(directSubmitterPage.viewFirstPublication);
@@ -153,7 +149,7 @@ public class DirectSubmitterSteps extends PageInitializer {
 
 	@Then("\"([^\"]*)\" dissaproves that CR")
 	public void dissaproves_that_CR(String UserName) throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl1(UserName));
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(UserName));
 		CommonUtils.click(directSubmitterPage.viewFirstPublication);
 		MiscUtils.sleep(2000);
 		CommonUtils.click(directSubmitterPage.noConflictOfInterest);
@@ -287,7 +283,7 @@ public class DirectSubmitterSteps extends PageInitializer {
 
 	@Then("\"([^\"]*)\" can view the CR under My Pending Reviews tab")
 	public void user_can_view_the_CR_under_My_Pending_Reviews_tab(String UserName) throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl1(UserName));
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(UserName));
 		CommonUtils.click(directSubmitterPage.viewFirstPublication);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();

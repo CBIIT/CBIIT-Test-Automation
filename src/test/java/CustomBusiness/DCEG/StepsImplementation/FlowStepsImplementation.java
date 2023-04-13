@@ -66,7 +66,7 @@ public class FlowStepsImplementation extends PageInitializer {
 	}
 	
 	public void dcegLogin(String UserName) throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl1(UserName));
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(UserName));
 		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "Username");
 		iTrustloginPage.enterPassword("Password");
 		MiscUtils.sleep(3000);
