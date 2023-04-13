@@ -30,7 +30,6 @@ import cucumber.api.java.en.When;
 
 public class RequesterAsSubmitterStep extends PageInitializer {
 
-	// @RequesterAsSubmitter
 	@Given("User logged in as PATRICIA MADIGAN")
 	public void user_logged_in_as_PATRICIA_MADIGAN() throws TestingException {
 		flowStepsImplementation.dcegLoginMadigan();
