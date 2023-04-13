@@ -2,18 +2,15 @@ package CustomBusiness.DCEG.StepsImplementation;
 
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.When;
-
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.NoSuchElementException;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.EncryptionUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -366,8 +363,5 @@ public class FlowStepsImplementation extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(5000);
-		
-		
 	}
-
 }

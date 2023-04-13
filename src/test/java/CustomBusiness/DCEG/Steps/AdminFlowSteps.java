@@ -1,7 +1,6 @@
 package CustomBusiness.DCEG.Steps;
 
 import static org.junit.Assert.assertTrue;
-
 import java.awt.AWTException;
 import java.util.List;
 import java.util.Map;
