@@ -1,7 +1,7 @@
 Feature: Admin Flow
 
   #end to end CR Publication type creation
-  @AdminPublicationPending @Jira1119 @regressionAdmin
+  @AdminPublicationPending @Jira1119 @Needs_review
   Scenario: TC01 Admin creating a CR Publication type on behalf of a requester
     Given User logged in as "GEOFFREY_TOBIAS"
     And User can verify that Researcher ID tab is present
@@ -38,7 +38,7 @@ Feature: Admin Flow
     And User deletes the request
 
   #end to end CR Presentation type creation
-  @AdminPresentationPending @Jira1093 @regressionAdmin
+  @AdminPresentationPending @Jira1093 @Needs_review
   Scenario: TC02 Admin creating a CR Presentation type on behalf of a requester
     Given User logged in as "GEOFFREY_TOBIAS"
     And User can verify that Researcher ID tab is present
@@ -74,7 +74,7 @@ Feature: Admin Flow
     And User can verify scheduled reviewer STEPHEN CHANOCK as Division Director
     And User deletes the request
 
-  @AdminViewCR @Jira1106 @regressionAdmin
+  @AdminViewCR @Jira1106 @Needs_review
   Scenario: TC03 Admin. Can view Clearance Requests across DCEG
     Given User logged in as "GEOFFREY_TOBIAS"
     And User is on Clearance Requests tab
@@ -82,7 +82,7 @@ Feature: Admin Flow
     When User clicks Search
     Then User can verify that User can view any request
 
-  @AdminViewPublications @Jira1103 @regressionAdmin
+  @AdminViewPublications @Jira1103 @Needs_review
   Scenario: TC04 Admin. Can view Publications across DCEG
     Given User logged in as "GEOFFREY_TOBIAS"
     And User is on Publications tab
@@ -90,7 +90,7 @@ Feature: Admin Flow
     When User clicks Search button
     Then User can verify that User can view any publication across DCEG
 
-  @ResearcherIDSearch @Jira1096 @correct @regressionAdmin
+  @ResearcherIDSearch @Jira1096 @Needs_review
   Scenario Outline: <TC> Researcher ID Search by "<users>" and validate Create a researcher ID option is available
     Given User logged one of the following "<users>"
     And User can verify that Researcher ID tab is present
@@ -113,7 +113,7 @@ Feature: Admin Flow
       | Division director |TC07|
       | Program director  |TC08|
 
-  @AdminCanEditPublicationsAcrossDCEG @Jira1095 @regressionAdmin
+  @AdminCanEditPublicationsAcrossDCEG @Jira1095 @Needs_review
   Scenario: TC09 Admin. Can edit Publications across DCEG
     Given User logged in as "GEOFFREY_TOBIAS"
     And User is on Publications tab
@@ -137,7 +137,7 @@ Feature: Admin Flow
     And User clicks Search button
     Then User can verify that publications status can be reset to Published
 
-  @AdminCanEditClearanceRequestsAcrossDCEG @Jira1094 @regressionAdmin
+  @AdminCanEditClearanceRequestsAcrossDCEG @Jira1094 @Needs_review
   Scenario: TC10 Admin. Can edit Clearance Requests across DCEG
     Given User logged in as "GEOFFREY_TOBIAS"
     And User is on Clearance Requests tab
@@ -150,7 +150,7 @@ Feature: Admin Flow
     And User can verify that submitted for verification clearance requests are editable
     And User can verify that returned for revision clearance requests are editable
 
-  @AdminTabReassignment @Jira1088 @correct @regressionAdmin
+  @AdminTabReassignment @Jira1088 @Needs_review
   Scenario: TC11 Admin tab.Reassignment module
     Given User logged in as "GEOFFREY_TOBIAS"
     When User clicks on Admin Tab
