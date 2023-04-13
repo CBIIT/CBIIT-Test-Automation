@@ -532,7 +532,7 @@ public class AdminFlowSteps extends PageInitializer {
 	
 	@Then("Swtich user to \"([^\"]*)\"")
 	public void switch_user_to(String UserName) throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl1(UserName));
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(UserName));
 	}
 
 	@When("User picks Publication Status as Pending Submission")

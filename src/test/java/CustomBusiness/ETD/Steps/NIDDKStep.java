@@ -1,5 +1,5 @@
 
-package CustomBusinessApp.ETD.Steps;
+package CustomBusiness.ETD.Steps;
 
 import org.testng.Assert;
 

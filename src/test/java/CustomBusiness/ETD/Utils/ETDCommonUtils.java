@@ -4,6 +4,7 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -86,7 +87,7 @@ public class ETDCommonUtils {
 	}
   /** wait till Alert is Present**/
 	public static void waitUtilsAlertIsPresent(long timeOut, WebDriver webDriver) {
-		WebDriverWait webDriverWait = new WebDriverWait(webDriver,timeOut);
+		WebDriverWait webDriverWait = new WebDriverWait(webDriver,Duration.ofSeconds(10));
 		webDriverWait.until(ExpectedConditions.alertIsPresent());
 	
 }

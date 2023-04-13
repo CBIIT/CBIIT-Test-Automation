@@ -1,5 +1,7 @@
 package CustomBusiness.EIDP.Pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -67,7 +69,7 @@ public class DelegatePage extends CommonUtils {
 	}
 
 	public String getDeleteMessage() {
-		WebDriverWait wait = new WebDriverWait(getWebDriver(), 30);
+		WebDriverWait wait = new WebDriverWait(getWebDriver(),Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.textToBePresentInElement(
 				WebDriverUtils.getWebDriver().findElement(By.id("delegateSuccessMsg")),
 				"Delegate deleted successfully."));

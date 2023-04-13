@@ -2,6 +2,8 @@
 
 package CustomBusiness.DCEG.Pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.*;
 
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
@@ -26,7 +28,7 @@ public class BasePage extends CommonUtils{
 	public BasePage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 		this.driver = WebDriverUtils.getWebDriver();
-		wait = new WebDriverWait(this.driver, 30);
+		wait = new WebDriverWait(this.driver, Duration.ofSeconds(30));
 	}
 	protected void clickOnElement(WebElement element) {
 		wait.until(ExpectedConditions.visibilityOf(element));

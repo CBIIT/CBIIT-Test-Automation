@@ -42,6 +42,9 @@ public class TraineeReviewPage extends CommonUtils {
 	@FindBy(css = "a[href*='/idp/trainingDetails']")
 	private WebElement reviewAndTakeActionButton;
 
+	@FindBy(xpath =  "//*[@id='ackRenewalDecision']")
+	private WebElement ackRenewaldecision;
+
 	public TraineeReviewPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
@@ -67,7 +70,7 @@ public class TraineeReviewPage extends CommonUtils {
 		
 		CommonUtils.click(saveButton);
 		try {
-			CommonUtils.click(By.xpath("//*[@id='ackRenewalDecision']"));
+			CommonUtils.click(ackRenewaldecision);
 			CommonUtils.click(saveButton);
 		}catch(Exception e) {
 			

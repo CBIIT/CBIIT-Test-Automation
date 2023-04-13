@@ -2,6 +2,7 @@ package CustomBusiness.EIDP.Pages;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -30,7 +31,8 @@ public class BasePage extends CommonUtils{
 	public BasePage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 		this.driver = WebDriverUtils.getWebDriver();
-		wait = new WebDriverWait(this.driver, 30);
+		wait = new WebDriverWait(this.driver, Duration.ofSeconds(30));
+	
 	}
 	protected void clickOnElement(WebElement element) {
 		wait.until(ExpectedConditions.visibilityOf(element));

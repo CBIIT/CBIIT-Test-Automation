@@ -12,7 +12,7 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
-import CustomBusinessApp.EIDP.Util.CommonUtil;
+import CustomBusiness.EIDP.Util.CommonUtil;
 import CustomBusiness.EIDP.Util.SharedData;
 
 public class CoPrimaryMentorPage extends CommonUtils {

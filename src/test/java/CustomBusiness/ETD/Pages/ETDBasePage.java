@@ -1,7 +1,8 @@
-package CustomBusinessApp.ETD.Pages;
+package CustomBusiness.ETD.Pages;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Calendar;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
@@ -21,7 +22,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
-import CustomBusinessApp.EIDP.Util.CommonUtil;
+import CustomBusiness.EIDP.Util.CommonUtil;
 
 
 
@@ -34,7 +35,7 @@ public class ETDBasePage extends CommonUtils {
 	public ETDBasePage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 		this.driver = WebDriverUtils.getWebDriver();
-		wait = new WebDriverWait(this.driver, 30);
+		wait = new WebDriverWait(this.driver,Duration.ofSeconds(30));
 	}
 
 	protected void clickOnElement(WebElement element) {
