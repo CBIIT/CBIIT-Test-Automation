@@ -546,7 +546,7 @@ public class CommonUtils extends WebDriverUtils {
 	}
 
 	public static void deleteFile(String downloadPath, String fileName) {
-		File file=new File(System.getProperty("user.dir")+downloadPath+fileName);
+		File file=new File(System.getProperty("user.dir")+fileName);
 		if(file.delete()) {
 			System.out.println("File is deleted");
 		}

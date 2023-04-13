@@ -97,7 +97,7 @@ public class WebDriverUtils {
 				ChromeOptions chromeOptions = new ChromeOptions();
 				if (headless.equalsIgnoreCase("true")) {
 					Map<String, Object> pref=new HashMap<String, Object>();
-					pref.put("download.default_directory",System.getProperty("user.dir")+ File.separator+"downloads");
+					pref.put("download.default_directory",System.getProperty("user.dir"));
 					chromeOptions.setExperimentalOption("prefs",pref);
 					System.setProperty("webdriver.http.factory", "jdk-http-client");
 					chromeOptions.addArguments("--no-sandbox");
@@ -108,7 +108,7 @@ public class WebDriverUtils {
 //					System.out.println(chromeOptions.getVersion());
 				} else {
 					Map<String, Object> pref=new HashMap<String, Object>();
-					pref.put("download.default_directory",System.getProperty("user.dir")+ File.separator+"downloads");
+					pref.put("download.default_directory",System.getProperty("user.dir"));
 					chromeOptions.setExperimentalOption("prefs",pref);
 					System.setProperty("webdriver.http.factory", "jdk-http-client");
 					chromeOptions.addArguments("--no-sandbox");
