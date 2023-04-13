@@ -1,13 +1,13 @@
 Feature: Branch Admin Flow
 
-  @BranchAdminSearchPublication @Jira1109 @BranchAdminRegression
+  @BranchAdminSearchPublication @Jira1109 @Needs_review
   Scenario: TC01 Branch Admin. Can view publications across DCEG
     Given User logged in as "SADIE_HOLMES"
     And User is on Publications tab
     When User applies wide search
     Then User can view any publication across DCEG
 
-  @BranchAdminViewHighProfileCR @Jira1108 @BranchAdminRegression
+  @BranchAdminViewHighProfileCR @Jira1108 @Needs_review
   Scenario: TC02 Branch Admin. Can view high profile CR within their NED. Can view non hp CR across DCEG
     Given User logged in as "SADIE_HOLMES"
     And User is on Publications tab
@@ -16,7 +16,7 @@ Feature: Branch Admin Flow
     When User applies  non high profile publications search to Publications
     Then User can view non high profile entries within their NED
 
-  @BranchAdminEditsCR @Jira1085 @BranchAdminRegression
+  @BranchAdminEditsCR @Jira1085 @Needs_review
   Scenario: TC03 Branch Admin scope of actions
     Given User logged in as "SADIE_HOLMES"
     When User submits a Clearance Request where requestor is SADIE HOLMES
@@ -29,7 +29,7 @@ Feature: Branch Admin Flow
     When User clicks Search
     Then User can verify that User can operate on a clearance request that only belongs to OFFICE OF THE DIRECTOR
 
-  @BranchAdminEditsPublications @Jira1083 @BranchAdminRegression
+  @BranchAdminEditsPublications @Jira1083 @Needs_review
   Scenario: TC04 Branch Admin. Can only edit Publication within their NED
     Given User logged in as "SADIE_HOLMES"
     And User is on Publications tab
