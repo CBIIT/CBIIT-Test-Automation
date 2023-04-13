@@ -515,7 +515,7 @@ public class CommonUtils extends WebDriverUtils {
 	 */
 	public static boolean isFileDownloaded(String downloadPath, String fileName) {
 		boolean temp=false;
-		Path path=Paths.get(System.getProperty("user.dir")+downloadPath+fileName);
+		Path path=Paths.get(System.getProperty("user.dir")+fileName);
 		System.out.println("Download Path is" + path);
 		if(Files.exists(path)==true) {
 			if(Files.isRegularFile(path)) {
