@@ -5,7 +5,6 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -13,7 +12,6 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -166,22 +164,4 @@ public class BranchAdminAdjunctOrgSteps extends PageInitializer {
 			}
 		}
 	}
-
-//	@Then("User can verify that User can not operate on publications other than TDRP CGB")
-//	public void user_can_verify_that_User_can_not_operate_on_publications_other_than_TDRP_CGB() {
-//		JavascriptUtils.clickByJS(adminFlowPage.publication30247);
-//		CommonUtils.sendKeys(adminFlowPage.publicationTitle, "Edited publication title");
-//		WebDriverUtils.webDriver.navigate().back();
-//		MiscUtils.sleep(3000);
-//		System.out.println("TDRP CGB entry can be edited");
-//		CommonUtils.click(adminFlowPage.publicationOEEB);
-//		MiscUtils.sleep(3000);
-//		JavascriptUtils.scrollIntoView(adminFlowPage.inactivePublicationTitle);
-//		MiscUtils.sleep(2000);
-//		Assert.assertTrue(adminFlowPage.inactivePublicationTitle.isDisplayed());
-//		CucumberLogUtils.logScreenShot();
-//		System.out.println("Publication OEEB is readView");
-//
-//	}
-
 }

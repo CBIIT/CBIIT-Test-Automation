@@ -2,9 +2,7 @@ package CustomBusiness.DCEG.Steps;
 
 import java.io.File;
 import java.net.MalformedURLException;
-
 import org.apache.commons.lang.StringUtils;
-
 import com.nci.automation.common.QcTestResult;
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.DateUtils;
@@ -13,13 +11,11 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import appsCommon.PageCache;
 import appsCommon.PageInitializer;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-
 
 public class DCEGHooksSteps {
 
@@ -107,5 +103,4 @@ public class DCEGHooksSteps {
 		// use this for web specific clean up
 		System.out.println("web specific clean up");
 	}
-
 }

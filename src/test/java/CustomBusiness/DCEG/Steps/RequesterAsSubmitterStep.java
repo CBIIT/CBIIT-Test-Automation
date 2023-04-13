@@ -3,12 +3,10 @@ package CustomBusiness.DCEG.Steps;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -16,7 +14,6 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import CustomBusiness.EIDP.Util.CommonUtil;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
@@ -26,7 +23,6 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -273,7 +269,6 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 		JavascriptUtils.clickByJS(createCRPage.myActiveSubmissions);
 		MiscUtils.sleep(4000);
 		CucumberLogUtils.logScreenShot();
-
 	}
 
 	@Then("User deletes the request")
@@ -354,5 +349,4 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 	}
-
 }
