@@ -3,7 +3,6 @@ package CustomBusiness.DCEG.Pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
@@ -239,7 +238,4 @@ public class CreateCRPage extends CommonUtils {
 	/*ALBANES DEMETRIUS*/
 	@FindBy(xpath = "//input[@id='submitForReviewCR']")
 	public WebElement submitForReview;
-	
-
-
 }

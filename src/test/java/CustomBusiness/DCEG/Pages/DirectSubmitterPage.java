@@ -3,7 +3,6 @@ package CustomBusiness.DCEG.Pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
@@ -100,7 +99,7 @@ public class DirectSubmitterPage extends CommonUtils {
 	public WebElement confirmRemoveReviewer;
 
 	/**Removed from list of reviewers Alert*/
-	@FindBy(xpath = "	//p[contains(text(),'has been removed from the list of reviewers. ')]")
+	@FindBy(xpath = "//p[contains(text(),'has been removed from the list of reviewers. ')]")
 	public WebElement removedFromListRevAlert;
 	
 	/**High Profile NO*/
@@ -135,16 +134,7 @@ public class DirectSubmitterPage extends CommonUtils {
 	@FindBy(xpath = "//p[contains(text(),'Returned for Revision.')]")
 	public WebElement returnedForRevisionAlert;
 	
-	
 	/**NO High Profile*/
 	@FindBy(xpath = "//label//input[@id='highProfileNo']")
 	public WebElement noHighProfile;
-	
-	
-	
-	
-	
-	
-	
-
 }
