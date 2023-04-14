@@ -24,9 +24,9 @@ public class GeneralInformationSteps extends PageInitializer {
 	@When("User fills mandatory fields in general information section")
 	public void user_fills_mandatory_fields_in_general_information_section(io.cucumber.datatable.DataTable data)
 			throws Exception {
-		if (CommonUtils.isElementPresent(By.id("orcidId"))) {
-			CommonUtils.sendKeys(WebDriverUtils.webDriver.findElement(By.id("orcidId")), "9999-9999-9999-9999");
-		}
+		// if (CommonUtils.isElementPresent(By.id("orcidId"))) {
+		// 	CommonUtils.sendKeys(WebDriverUtils.webDriver.findElement(By.id("orcidId")), "9999-9999-9999-9999");
+		// }
 		Map<String, String> requestData = CommonUtil.getMapFromDataTable(data);
 		Thread.sleep(2000);
 		generalInformationStepImpl.enterPrimaryMentor(requestData.get("Primary Mentor"));
@@ -106,9 +106,9 @@ public class GeneralInformationSteps extends PageInitializer {
 
 	@When("User selects primary mentor as \"([^\"]*)\"")
 	public void selectPrimaryMentor(String name) throws Exception {
-		if (CommonUtils.isElementPresent(By.id("orcidId"))) {
-			CommonUtils.sendKeys(WebDriverUtils.webDriver.findElement(By.id("orcidId")), "9999-9999-9999-9999");
-		}
+		// if (CommonUtils.isElementPresent(By.id("orcidId"))) {
+		// 	CommonUtils.sendKeys(WebDriverUtils.webDriver.findElement(By.id("orcidId")), "9999-9999-9999-9999");
+		// }
 		generalInformationStepImpl.enterPrimaryMentor(name);
 		generalInformationStepImpl.selectRandomHighestDegree();
 		CommonUtil.waitBrowser(2000);

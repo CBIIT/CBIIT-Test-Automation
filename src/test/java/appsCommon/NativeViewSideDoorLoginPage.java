@@ -18,15 +18,15 @@ public class NativeViewSideDoorLoginPage extends CommonUtils {
 	 */
 
 	/** User name field **/
-	@FindBy(xpath = "//input[@name=\"user_name\"]")
+	@FindBy(xpath = "//input[@name='user_name']")
 	public WebElement nativeViewSideDoorUserName;
 
 	/** Password field **/
-	@FindBy(xpath = "//input[@name=\"user_password\"]")
+	@FindBy(xpath = "//input[@name='user_password']")
 	public WebElement nativeViewSideDoorPassword;
 
 	/** Log in Button **/
-	@FindBy(xpath = "//button[@name=\"not_important\"]")
+	@FindBy(xpath = "//button[@name='not_important']")
 	public WebElement nativeViewSideDoorLogInButton;
 
 	/* initialize all variables */
@@ -49,7 +49,6 @@ public class NativeViewSideDoorLoginPage extends CommonUtils {
 	/* Clicks Side Door URI sign-in button */
 	public void clickSignInButton() {
 		JavascriptUtils.clickByJS(nativeViewSideDoorLogInButton);
-
 	}
 
 }

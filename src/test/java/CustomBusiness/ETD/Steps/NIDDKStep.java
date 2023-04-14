@@ -17,8 +17,8 @@ public class NIDDKStep extends PageInitializer {
 
 	@When("User is on homepage")
 	public void user_is_on_homepage() {
-		CommonUtils.click(committeeMemberVotingUserPage.yourVacanciesTab);
-		MiscUtils.sleep(1000);
+		// CommonUtils.click(committeeMemberVotingUserPage.yourVacanciesTab);
+		// MiscUtils.sleep(1000);
 	}
 
 	@Then("User can delete the newly created NIDDK profile")

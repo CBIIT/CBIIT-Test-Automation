@@ -82,6 +82,7 @@ import ServiceNow.SEER.Pages.SEERExistingAccountPage;
 import ServiceNow.SEER.Pages.SEERIncidenceDatabaseDetailsPage;
 import ServiceNow.SEER.Pages.SEERLandingPage;
 import ServiceNow.SEER.Pages.SEERUserRegistrationPage;
+import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import CustomBusiness.DCEG.Pages.AdminFlowPage;
 import CustomBusiness.DCEG.Pages.BranchAdminPage;
 import CustomBusiness.DCEG.Pages.CreateCRPage;
@@ -205,6 +206,7 @@ public class PageInitializer {
 	protected static NativeViewSentViewPage nativeViewSentViewPage;
 	protected static SEERIncidenceDatabaseDetailsPage seerIncidenceDatabaseDetailsPage;
 	protected static SEERExistingAccountPage seerExistingAccountPage;
+	protected static SEERDataAccessRequestPageStepsImpl seerDataAccessRequestPageStepsImpl;
 
 	/** NERD instances */
 	protected static NERDLoginStepsImplementation nerdLoginStepsImplementation;
@@ -364,6 +366,7 @@ public class PageInitializer {
 		nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
 
 		seerExistingAccountPage = new SEERExistingAccountPage();
+		seerDataAccessRequestPageStepsImpl = new SEERDataAccessRequestPageStepsImpl();
 
 		/*custom Business App */
 		nativeViewLoginImpl = new NativeViewLoginImpl();

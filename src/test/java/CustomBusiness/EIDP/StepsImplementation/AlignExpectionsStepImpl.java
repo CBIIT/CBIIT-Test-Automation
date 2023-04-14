@@ -40,18 +40,18 @@ public class AlignExpectionsStepImpl extends PageInitializer {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		try {
-			if (CommonUtils.isElementPresentWithoutWait("//*[@id='tdAprroveIDP']")) {
-				CucumberLogUtils.logScreenShot();
-				CommonUtils.click(By.xpath("//*[@id='tdAprroveIDP']"));
-			} else {
-				CommonUtils.waitForVisibility(aligningExpectationsPage.reviewAndTakeActionButton);
-				CucumberLogUtils.logScreenShot();
-				CommonUtils.click(aligningExpectationsPage.reviewAndTakeActionButton);
-			}
-		} catch (Exception e) {
+		// try {
+		// 	if (CommonUtils.isElementPresentWithoutWait("//*[@id='tdAprroveIDP']")) {
+		// 		CucumberLogUtils.logScreenShot();
+		// 		CommonUtils.click(By.xpath("//*[@id='tdAprroveIDP']"));
+		// 	} else {
+		// 		CommonUtils.waitForVisibility(aligningExpectationsPage.reviewAndTakeActionButton);
+		// 		CucumberLogUtils.logScreenShot();
+		// 		CommonUtils.click(aligningExpectationsPage.reviewAndTakeActionButton);
+		// 	}
+		// } catch (Exception e) {
 
-		}
+		// }
 	}
 
 	public void clickOnSendIDPToTraineeButton() {

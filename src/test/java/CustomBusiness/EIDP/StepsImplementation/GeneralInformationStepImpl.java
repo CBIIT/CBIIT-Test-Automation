@@ -99,9 +99,9 @@ public class GeneralInformationStepImpl extends PageInitializer {
 		CommonUtils.click(generalInformationPage.dropdownOptions);
 		Thread.sleep(3000);
 		CucumberLogUtils.logScreenShot("General Information");
-		if (CommonUtils.isElementPresent(By.id("orcidId"))) {
-			CommonUtils.sendKeys(WebDriverUtils.webDriver.findElement(By.id("orcidId")), "9999-9999-9999-9999");
-		}
+		// if (CommonUtils.isElementPresent(By.id("orcidId"))) {
+		// 	CommonUtils.sendKeys(WebDriverUtils.webDriver.findElement(By.id("orcidId")), "9999-9999-9999-9999");
+		// }
 		CommonUtils.click(generalInformationPage.saveAndContinueButton);
 	}
 

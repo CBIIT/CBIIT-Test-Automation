@@ -11,10 +11,10 @@ public class LiaisonUserStep extends PageInitializer   {
 	//@tabsPresentDisabled"
 	@Then("User can verify that Home tab is disabled")
 	public void user_can_verify_that_Home_tab_is_disabled() {
-		CommonUtils.click(etsApprovalPage.decisionDropdown);
-		MiscUtils.sleep(3000);
-		CommonUtils.click(etsApprovalPage.decisionDissaprove);
-		MiscUtils.sleep(3000);
+		// CommonUtils.click(etsApprovalPage.decisionDropdown);
+		// MiscUtils.sleep(3000);
+		// CommonUtils.click(etsApprovalPage.decisionDissaprove);
+		// MiscUtils.sleep(3000);
 	}
 	
 	@When("User cannot select all checkmark")

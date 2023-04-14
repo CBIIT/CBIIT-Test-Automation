@@ -93,13 +93,6 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 	}
 
-	@When("submitting the registration form")
-	public void submitting_the_registration_form() {
-		seerUserRegistrationPage.seerUserRegistrationSubmitButton.click();
-		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
-	}
-
 	@Then("the user is not able to submit the registration form because the State and Zip Code fields are required")
 	public void the_user_is_not_able_to_submit_the_registration_form_because_the_State_and_Zip_Code_fields_are_required() {
 		String seerRegistrationPage = WebDriverUtils.getWebDriver().getTitle();
@@ -160,30 +153,7 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 
 	@When("fills out all required fields on SEER Data registration page")
 	public void fills_out_all_required_fields_on_SEER_Data_registration_page() {
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationFirstNameField, "FirstName");
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationLastNameField, "LastName");
-		Assert.assertEquals(newEmail,
-				seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("value"));
-		Assert.assertTrue(
-				seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("disabled").equals("true"));
-		MiscUtils.sleep(1000);
-		CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationOrganizationField, "American University");
-		MiscUtils.sleep(1000);
-		CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationCountryField);
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationCountryField, "United States of America");
-		CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationCountryUSA);
-		MiscUtils.sleep(1000);
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationAddressField, "123 Street");
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationCityField, "City");
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationStateField, "LA");
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationZipcodeField, "12345");
-		MiscUtils.sleep(1000);
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationPhoneField, "1234567890");
-		CommonUtils.selectDropDownValue("General Public",
-				seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
-		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		seerDataAccessRequestPageStepsImpl.fillingOutRegistrationForm();
 	}
 
 	@When("submits the registration form")

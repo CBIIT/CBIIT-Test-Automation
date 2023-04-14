@@ -6,7 +6,7 @@ Feature: SEER User Registration Scenarios
     And user proceeds with email verification for Research Data Requests
     When entering required information
     And entering and selecting "United States of America" for Country field
-    And submitting the registration form
+    And submits the registration form
     Then the user is not able to submit the registration form because the State and Zip Code fields are required
 
   @ODS-284 @juarezds @NEEDS_UPDATE

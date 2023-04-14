@@ -1,6 +1,6 @@
 Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishments
 
-  @juarezds @SS-4631 @ReadyForReview @DONE @Test
+  @juarezds @SS-4631 @Regression
   Scenario: CRS Reviewer Sees Published Top Accomplishments
     Given a CRS Reviewer "Diane Palmieri" is on the NERD Home Page
     Then there are three knowledge bases called "NERD", "ROCK", and "Moonshot Evaluation"
@@ -11,7 +11,7 @@ Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishments
     Then the "Top Accomplishments" accordion expands
     And a list of all published "Top Accomplishments" records is visible
 
-  @juarezds @ReadyForReview @DONE
+  @juarezds @Regression
   Scenario: CRS Reviewer Sees Top Accomplishment Fields
     Given a CRS Reviewer "Diane Palmieri" is viewing the list of the published "Top Accomplishments"
     Then there is a record called "Effect of Aspirin on Cancer Incidence and Mortality in Older Adults."
@@ -19,7 +19,7 @@ Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishments
     Then the user is redirected to the Article View of the "Effect of Aspirin on Cancer Incidence and Mortality in Older Adults." record
     And the following fields and their associated data are visible for Top Accomplishments, "Category", "Rank", "Title", "DOC", "Description", "Cancer Site/Type", "Research Type", "Special Topic", "References", "Other References", "Collaborations", "Fiscal Year", "Point of Contact", "Point of Contact Email", "CRS Contact", "Author"
 
-  @juarezds @ReadyForReview @DONE
+  @juarezds @Regression
   Scenario: Article View Test Automation - CRS Reviewer Views Collaboration
     Given a CRS Reviewer "Diane Palmieri" is on the NERD Home Page
     Then there are three knowledge bases called "NERD", "ROCK", and "Moonshot Evaluation"
@@ -27,7 +27,7 @@ Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishments
     Then the user is redirected to the Knowledge Base view page
     And there is a collapsed accordion with the header labeled "Collaborations"
 
-  @juarezds @ReadyForReview @DONE
+  @juarezds @Regression
   Scenario: CRS Reviewer Sees Published Other Accomplishments
     Given a CRS Reviewer "Diane Palmieri" is on the NERD Home Page
     Then there are three knowledge bases called "NERD", "ROCK", and "Moonshot Evaluation"
@@ -38,7 +38,7 @@ Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishments
     Then the "Other Accomplishments" accordion expands
     And a list of all published "Other Accomplishments" records is visible
 
-  @juarezds @ReadyForReview @DONE
+  @juarezds @Regression
   Scenario: CRS Reviewer Sees Published Collaborations
     Given a CRS Reviewer "Diane Palmieri" is on the NERD Home Page
     Then there are three knowledge bases called "NERD", "ROCK", and "Moonshot Evaluation"
@@ -49,7 +49,7 @@ Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishments
     Then the "Collaborations" accordion expands
     And a list of all published "Collaborations" records is visible
 
-  @juarezds @ReadyForReview @DONE
+  @juarezds @Regression
   Scenario: CRS Reviewer Sees Top Accomplishment Fields
     Given a CRS Reviewer "Diane Palmieri" is viewing the list of the published "Collaborations"
     Then there is a record called "Biobanking and Cohort Network (BCNet) at IARC/WHO"
