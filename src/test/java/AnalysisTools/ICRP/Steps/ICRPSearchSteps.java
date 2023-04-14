@@ -286,12 +286,12 @@ public class ICRPSearchSteps extends PageInitializer {
 		Assert.assertTrue(icrpSearchDatabasePage.projectTitles.get(1).isDisplayed());
 	   
 	}
-	@Then("verify dataset download")
-	public void verify_dataset_download() {
-		MiscUtils.sleep(5000);
-		Assert.assertTrue(CommonUtils.isFileDownloaded1("/downloads", "/ICRP_Search_Results_Export.xlsx"));
-		MiscUtils.sleep(5000);
-		CommonUtils.deleteFile("/downloads", "/JPSurv-Tutorial_JPSURV.xlsx");
+	@Then("verify dataset download {string}")
+	public void verifyDatasetDownload(String fileName) {
+		MiscUtils.sleep(10000);
+		Assert.assertTrue(CommonUtils.isFileDownloaded(fileName));
+		MiscUtils.sleep(10000);
+		CommonUtils.deleteFile(fileName);
 	}
 
     @And("click on reset button")

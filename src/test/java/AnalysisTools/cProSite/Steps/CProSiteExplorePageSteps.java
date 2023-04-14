@@ -101,11 +101,12 @@ public class CProSiteExplorePageSteps extends PageInitializer {
         cProSiteExplorePage.exportbutton.click();
     }
 
-    @Then("verify dataset is download")
-    public void verifyDatasetIsDownload() {
+    @Then("verify dataset download {string}")
+    public void verifyDatasetDownload(String fileName) {
         MiscUtils.sleep(10000);
-        Assert.assertTrue(CommonUtils.isFileDownloaded("/Downloads", "/Protein_Abundance_Tumor_vs_Adjacent_Normal-CDK1.xlsx"));
+        Assert.assertTrue(CommonUtils.isFileDownloaded(fileName));
         MiscUtils.sleep(10000);
-        CommonUtils.deleteFile("/Downloads", "/Protein_Abundance_Tumor_vs_Adjacent_Normal-CDK1.xlsx");
+        CommonUtils.deleteFile(fileName);
     }
+
 }

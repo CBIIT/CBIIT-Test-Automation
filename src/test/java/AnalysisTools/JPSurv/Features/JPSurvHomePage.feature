@@ -85,7 +85,7 @@ And user clicks upload
 And select Non-Hodgkin-Lymphoma
 And select Calculate
 And click download full dataset button
-Then verify dataset download
+Then verify dataset download "JPSurv-Tutorial_JPSURV.xlsx"
 
 @Smoke @uddins2
 Scenario: User Uploads non-example Dic and Txt File

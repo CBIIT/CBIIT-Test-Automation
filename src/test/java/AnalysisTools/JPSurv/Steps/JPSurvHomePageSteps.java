@@ -230,23 +230,18 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	
 	@When("click download full dataset button")
 	public void click_download_full_dataset_button() {
-	   CommonUtils.deleteFile("/Downloads", "/JPSurv-Tutorial_JPSURV.xlsx");
+	   CommonUtils.deleteFile( "/JPSurv-Tutorial_JPSURV.xlsx");
 	   MiscUtils.sleep(5000);
 	   jpsurvHomePage.downloadFullDataSetButton.click();
 	   MiscUtils.sleep(5000);
 	}
-	
-	@Then("verify dataset download")
-	public void verify_dataset_download() {
-		 MiscUtils.sleep(10000);
-		Assert.assertTrue(CommonUtils.isFileDownloaded("/downloads", "/JPSurv-Tutorial_JPSURV.xlsx"));
-		 MiscUtils.sleep(10000);
-		CommonUtils.deleteFile("/downloads", "/JPSurv-Tutorial_JPSURV.xlsx");
 
-		//WebDriverUtils.webDriver.get("chrome://downloads");
-		//String fileName=jpsurvHomePage.downloadFile.getText();
-		//System.out.println("Download file name"+fileName);
-
+	@Then("verify dataset download {string}")
+	public void verifyDatasetDownload(String fileName) {
+		 MiscUtils.sleep(10000);
+		Assert.assertTrue(CommonUtils.isFileDownloaded(fileName));
+		 MiscUtils.sleep(10000);
+		CommonUtils.deleteFile(fileName);
 	}
 	
 	@Then("workspace results display")
@@ -397,4 +392,6 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	public void userClickOnYearOfDiagnosed() {
 		jpsurvHomePage.yearOfDiagnosed.click();
 	}
+
+
 }

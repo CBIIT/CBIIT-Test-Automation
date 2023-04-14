@@ -513,9 +513,9 @@ public class CommonUtils extends WebDriverUtils {
 	/**
 	 * Use this method to verify file download
 	 */
-	public static boolean isFileDownloaded(String downloadPath, String fileName) {
+	public static boolean isFileDownloaded(String fileName) {
 		boolean temp=false;
-		Path path=Paths.get(System.getProperty("user.dir")+fileName);
+		Path path=Paths.get(System.getProperty("user.dir")+ "/" + fileName);
 		System.out.println("Download Path is" + path);
 		if(Files.exists(path)==true) {
 			if(Files.isRegularFile(path)) {
@@ -527,26 +527,8 @@ public class CommonUtils extends WebDriverUtils {
 		}
 		return temp;
 	}
-	public static boolean isFileDownloaded1(String downloadPath, String fileName) {
-		boolean temp=false;
-		String fileNamePar=fileName;
-	//	Path path = null;
-		//if(fileNamePar.startsWith("ICRP_Search_Results_Export")&& fileNamePar.endsWith(".xlsx")) {
-		Path path = Paths.get(System.getProperty("user.dir") + downloadPath + fileNamePar.startsWith("ICRP_Search_Results_Export"));
-		//}
-		if(Files.exists(path)==true) {
-			if(Files.isRegularFile(path)) {
-				System.out.println("File is found");
-				temp=true;
-			}
-		}else {
-			System.out.println("File is found");
-		}
-		return temp;
-	}
-
-	public static void deleteFile(String downloadPath, String fileName) {
-		File file=new File(System.getProperty("user.dir")+fileName);
+	public static void deleteFile(String fileName) {
+		File file=new File(System.getProperty("user.dir") + "/" + fileName);
 		if(file.delete()) {
 			System.out.println("File is deleted");
 		}
