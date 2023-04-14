@@ -4,12 +4,10 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-
 import CustomBusiness.EIDP.Util.CommonUtil;
 import appsCommon.PageInitializer;
 
@@ -34,7 +32,6 @@ public class GeneralInformationStepImpl extends PageInitializer {
 			CommonUtil.waitBrowser(2000);
 			CommonUtils.click(generalInformationPage.dropdownOptions);
 		}
-
 	}
 
 	public void enterLabBranchName(String name) {
@@ -46,7 +43,6 @@ public class GeneralInformationStepImpl extends PageInitializer {
 			CommonUtil.waitBrowser(2000);
 			CommonUtils.click(generalInformationPage.dropdownOptions);
 		}
-
 	}
 
 	public void selectCoPrimaryMentor(String name) {
@@ -58,7 +54,6 @@ public class GeneralInformationStepImpl extends PageInitializer {
 			CommonUtil.waitBrowser(2000);
 			CommonUtils.click(generalInformationPage.dropdownOptions);
 		}
-
 	}
 
 	public void selectRandomHighestDegree() {
@@ -108,7 +103,6 @@ public class GeneralInformationStepImpl extends PageInitializer {
 			CommonUtils.sendKeys(WebDriverUtils.webDriver.findElement(By.id("orcidId")), "9999-9999-9999-9999");
 		}
 		CommonUtils.click(generalInformationPage.saveAndContinueButton);
-
 	}
 
 	public void doYouHaveCoPrimaryMentory(Boolean isCoPrimary) {
@@ -155,5 +149,4 @@ public class GeneralInformationStepImpl extends PageInitializer {
 			CommonUtils.click(generalInformationPage.ProceedButton);
 		}
 	}
-
 }

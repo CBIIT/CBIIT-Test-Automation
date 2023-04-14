@@ -10,13 +10,8 @@ public class Constants {
 		passwords.put("gugulothus2", "Baara12@");
 	}
 	
-	
 	public static enum DelegationTypes {
 		TEMPORARY,
 		PERMANENT
 	}
-	
-	
-	 
-
 }

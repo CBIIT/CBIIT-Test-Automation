@@ -2,12 +2,10 @@
 package CustomBusiness.ETD.Steps;
 
 import org.testng.Assert;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
-
 import appsCommon.PageInitializer;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
@@ -70,6 +68,4 @@ public class NIDDKStep extends PageInitializer {
 			System.out.println("Alert is present ");
 		}
 	}
-
-
 }

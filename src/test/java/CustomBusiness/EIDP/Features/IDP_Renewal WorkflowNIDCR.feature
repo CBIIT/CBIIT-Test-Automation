@@ -1,7 +1,7 @@
 @NIDCRRE
 Feature: Regression testing
 
-  @InitiatesIDP_RenewalNIDCR @RegressionNIDCR @Smoke
+  @InitiatesIDP_RenewalNIDCR @Regression @Smoke @Zamant2 @Needs_review
   Scenario: IDP request creates and decline and approve
     When User will login to the application as "gugulothus2" user on "NIDCR"
     And Logged in user changes the user to "Hauser,Belinda"
@@ -56,7 +56,7 @@ Feature: Regression testing
     And User clicks on the trainee specific IDP request for renewal
     And Finish Idp process
 
-  @ReviseExistingIDRenewalNIDCR @RegressionNIDCR
+  @ReviseExistingIDRenewalNIDCR @Regression @Zamant2 @Needs_review
   Scenario: Revise Existing IDP
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "NIDCR"
@@ -69,7 +69,7 @@ Feature: Regression testing
     And User clicks on save and send mail button
     Then User will click on ok button
 
-  @IDPOnHoldRenewalNIDCR @Regression
+  @IDPOnHoldRenewalNIDCR @Regression @Zamant2 @Needs_review
   Scenario: IDP is placed on HOLD
     When User will login to the application as "gugulothus2" user on "NIDCR"
     And Logged in user changes the user to "Hauser,Belinda"
@@ -132,7 +132,7 @@ Feature: Regression testing
     And Review and Take Action and finish
 
   #And User adds new project with deliverables
-  @releaseOnHoldRenewalNidcr @Regressionnhgri @XYZTT
+  @releaseOnHoldRenewalNidcr @Regression @Zamant2 @Needs_review
   Scenario: Release IDP placed on hold
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "NIDCR"
@@ -146,7 +146,7 @@ Feature: Regression testing
     And Logged in user changes the user to trainee
     Then Trainee verifies IDP request status as "Under Primary Mentor's Review"
 
-  @CancelIdpRenewalNIDCR @Regressionnhgri @XYZTT
+  @CancelIdpRenewalNIDCR @Regression @Zamant2 @Needs_review
   Scenario: Cancel IDP
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "NIDCR"
@@ -160,7 +160,7 @@ Feature: Regression testing
     And Logged in user changes the user to trainee
     Then Trainee verifies IDP request status as "Cancelled"
 
-  @UndoCancelIdpRenewalNIDCR @Regressionnhgri 
+  @UndoCancelIdpRenewalNIDCR @Regression @Zamant2 @Needs_review
   Scenario: Undo Cancel IDP
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "NIDCR"
@@ -172,7 +172,7 @@ Feature: Regression testing
     And User reads the trainee name from undo cancel idp confirmation window
     And User enters comments and clicks on yes button on undo cancel idp window
 
-  @AddAndDeleteTempDelegateRenewalNIDCR @Regressionnhgri  @XYZTT
+  @AddAndDeleteTempDelegateRenewalNIDCR @Regression @Zamant2 @Needs_review
   Scenario: Add/Delete Temporary Delegates
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "NIDCR"
@@ -186,7 +186,7 @@ Feature: Regression testing
     When User deletes "Zhong Chen" from delegators table
     Then User check delegate delete message
 
-  @AddAndDeletePermanentDelegateRenewalNIDCR @Regressionnhgri @XYZTT
+  @AddAndDeletePermanentDelegateRenewalNIDCR @Regression @Zamant2 @Needs_review
   Scenario: Add/Delete Permanent Delegates
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "NIDCR"
@@ -200,7 +200,7 @@ Feature: Regression testing
     When User deletes "Zhong Chen" from delegators table
     Then User check delegate delete message
 
-  @DelegateInitiatesIDPRenewalNIDCR @Regressionnhgri @XYZTT
+  @DelegateInitiatesIDPRenewalNIDCR @Regression @Zamant2 @Needs_review
   Scenario: TD Delegate initiates IDP
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "NIDCR"
@@ -248,7 +248,7 @@ Feature: Regression testing
     And User clicks on the trainee specific IDP request for renewal
     Then Finish Idp process
 
-  @ExistSurveyNIDCR @Regressionnhgri @XYZTT
+  @ExistSurveyNIDCR @Regression @Zamant2 @Needs_review
   Scenario: TD/AO Initiates the Exit Survey for the Fellow/Employee
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "NIDCR"

@@ -2,12 +2,10 @@ package CustomBusiness.EIDP.Steps;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-
 import CustomBusiness.EIDP.Util.CommonUtil;
 import CustomBusiness.EIDP.Util.SharedData;
 import appsCommon.PageInitializer;

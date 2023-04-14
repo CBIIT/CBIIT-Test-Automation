@@ -1,7 +1,7 @@
 @Smoketest @NCI
 Feature: Regression testing
 
-  @InitiatesIDPNCI @Regression @Smoke1 @InitiatesIDPNCI @SATYA1
+  @InitiatesIDPNCI @Regression @Smoke @Zamant2 @Needs_review
   Scenario: TC01 IDP request creates and decline and approve
     ##Given User opens nih application in browser
     When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"
@@ -66,7 +66,7 @@ Feature: Regression testing
     And User clicks on APPROVE IDP button
     And User clicks on yes button on trainee page
 
-  @sendBackIDPNCI @Regression @SednBackIDPNCI @SATYA1 @failed
+  @sendBackIDPNCI @Regression @Zamant2 @Needs_review
   Scenario: TC02 Send back to primary mentor flow
     #Given User opens nih application in browser
     When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"
@@ -148,7 +148,7 @@ Feature: Regression testing
     And User clicks on APPROVE IDP button
     And User clicks on yes button on trainee page
 
-  @ReviseExistingIDPNCI @Regression @SATYA1
+  @ReviseExistingIDPNCI @Regression @Zamant2 @Needs_review
   Scenario: TC03 Revise Existing IDP
     #Given User opens nih application in browser
     When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"
@@ -161,7 +161,7 @@ Feature: Regression testing
     And User clicks on save and send mail button
     Then User will click on ok button
 
-  @IDPOnHoldNCI @Regression @IDPOnHoldNCI @SATYA1 @failed
+  @IDPOnHoldNCI @Regression @Zamant2 @Needs_review
   Scenario: TC04 IDP is placed on HOLD
     #Given User opens nih application in browser
     When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"
@@ -184,7 +184,7 @@ Feature: Regression testing
     And User will click on revew and take action button
     Then User verifies IDP will be placed on hold message
 
-  @releaseOnHoldNCI @Regression @SATYA1
+  @ReleaseOnHoldNCI @Regression @Zamant2 @Needs_review
   Scenario: TC05 Release IDP placed on hold
     #Given User opens nih application in browser
     When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"
@@ -198,7 +198,7 @@ Feature: Regression testing
     And Logged in user changes the user to trainee
     Then Trainee verifies IDP request status as "Under Primary Mentor's Review"
 
-  @CancelIdpnNCI @Regression @SATYA1
+  @CancelIdpnNCI @Regression @Zamant2 @Needs_review
   Scenario: TC06 Cancel IDP
     #Given User opens nih application in browser
     When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"
@@ -212,7 +212,7 @@ Feature: Regression testing
     And Logged in user changes the user to trainee
     Then Trainee verifies IDP request status as "Cancelled"
 
-  @UndoCancelIdpNCI @Regression @SATYA1
+  @UndoCancelIdpNCI @Regression @Zamant2 @Needs_review
   Scenario: TC07 Undo Cancel IDP
     #Given User opens nih application in browser
     When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"
@@ -225,7 +225,7 @@ Feature: Regression testing
     And User enters comments and clicks on yes button on undo cancel idp window
     And Logged in user changes the user to trainee
 
-  @AddAndDeleteTempDelegateNCI @SATYA1
+  @AddAndDeleteTempDelegateNCI @Zamant2 @Needs_review
   Scenario: TC08 Add/Delete Temporary Delegates
     #Given User opens nih application in browser
     When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"
@@ -239,7 +239,7 @@ Feature: Regression testing
     When User deletes "Satya Gugulothu" from delegators table
     Then User check delegate delete message
 
-  @AddAndDeletePermanentDelegateNCI @Regression @SATYA1
+  @AddAndDeletePermanentDelegateNCI @Regression @Zamant2 @Needs_review
   Scenario: TC09 Add/Delete Permanent Delegates
     #Given User opens nih application in browser
     When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"
@@ -253,7 +253,7 @@ Feature: Regression testing
     When User deletes "Satya Gugulothu" from delegators table
     Then User check delegate delete message
 
-  @DelegateInitiatesIDPNCI @Regression @SATYA1 @failed
+  @DelegateInitiatesIDPNCI @Regression @Zamant2 @Needs_review
   Scenario: TC10 TD Delegate initiates IDP
     #Given User opens nih application in browser
     When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"
@@ -310,7 +310,7 @@ Feature: Regression testing
     And User clicks on APPROVE IDP button
     And User clicks on yes button on trainee page
 
-  @ExistSurveyNCI @Regression @SATYA1 @Smoke1
+  @ExistSurveyNCI @Regression @Zamant2 @Needs_review
   Scenario: TC11 TD/AO Initiates the Exit Survey for the Fellow/Employee
     #Given User opens nih application in browser
     When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"
@@ -321,7 +321,7 @@ Feature: Regression testing
     And User clicks on yes button of modal
     Then User will click on ok button
 
-  @TDReleaseHoldNCI
+  @TDReleaseHoldNCI @Zamant2 @Needs_review
   Scenario: TC12 TD Delegates Release IDP placed on HOLD
     #Given User opens nih application in browser
     When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"
@@ -335,7 +335,7 @@ Feature: Regression testing
     And Logged in user changes the user to trainee
     Then Trainee verifies IDP request status as "Under Primary Mentor's Review"
 
-  @RegressionNCI @Smoke1 @SearchFirstNameLastName @ALINA
+  @Regression @SearchFirstNameLastName @ALINA @Needs_review
   Scenario Outline: TC13 IDP Search request
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "EidpUrlNCI"
@@ -351,7 +351,7 @@ Feature: Regression testing
       | Trainee First Name | Trainee Last Name |
       | Olga               | Kim               |
 
-  @RegressionNCI @Smoke @ClassificationTypesErika @ALINA
+  @Regression @Smoke @ClassificationTypesErika @ALINA @Needs_review
   Scenario Outline: <TC> IDP Search request specifying  Classification type
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "EidpUrlNCI"
@@ -366,7 +366,7 @@ Feature: Regression testing
       | Fellow              | TC14 |
       | Employee            | TC15 |
 
-  @Regression @Smoke @TrainingOrganization @ALINA
+  @Regression @Smoke @TrainingOrganization @ALINA @Needs_review
   Scenario Outline: TC16 IDP Search request specifying  Training Organization and Training Lab, Branch, or Office
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "EidpUrlNCI"
@@ -381,7 +381,7 @@ Feature: Regression testing
       | CCR                   | TC16 |
       | CBIIT                 | TC17 |
 
-  @RegressionNCI @Smoke @PrimaryMentor @ALINA
+  @RegressionNCI @Smoke @PrimaryMentor @ALINA @Needs_review
   Scenario Outline: TC18 IDP Search Request by selecting Primary Mentor
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "EidpUrlNCI"
@@ -395,7 +395,7 @@ Feature: Regression testing
       | Primary Mentor |
       | Jay Berzofsky  |
 
-  @RegressionNCI @Smoke @SpecifyingFullName @ALINA
+  @RegressionNCI @Smoke @SpecifyingFullName @ALINA @Needs_review
   Scenario Outline: TC19 IDP Search request as Gloria Calloway specifying a full name
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "EidpUrlNCI"
@@ -409,7 +409,7 @@ Feature: Regression testing
       | Trainee First Name | Trainee Last Name |
       | Kate               | Brown             |
 
-  @RegressionNCI @Smoke @ClassificationTypesGloria @ALINA
+  @RegressionNCI @Smoke @ClassificationTypesGloria @ALINA @Needs_review
   Scenario Outline: <TC> IDP Search request as Gloria Calloway  specifying  Classification type
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "EidpUrlNCI"
@@ -424,7 +424,7 @@ Feature: Regression testing
       | Employee            | TC21 |
 
   #negative input is NHU22
-  @Regression @Smoke @NIHSAC @ALINA1
+  @Regression @Smoke @NIHSAC @ALINA @Needs_review
   Scenario Outline: <TC>Search request as Gloria Calloway specifying NIH SAC
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "EidpUrlNCI"

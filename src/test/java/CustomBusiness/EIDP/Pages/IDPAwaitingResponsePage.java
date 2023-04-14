@@ -2,17 +2,14 @@ package CustomBusiness.EIDP.Pages;
 
 import java.awt.color.CMMException;
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Wait;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-
 import CustomBusiness.EIDP.Util.SharedData;
 import cucumber.runtime.Utils;
 
@@ -305,9 +302,6 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 	public void projectInfoNoRevision() throws InterruptedException {
 		System.out.println("projectInfoNoRevision");
 		CommonUtils.waitForVisibility(commentsAndFeedBackBtn);
-		// String
-		// str=WebDriverUtils.getWebDriver().findElement(By.xpath("//input[@id='revisionRadioButtonNo']")).getAttribute("checked");
-		// System.out.println("checked value"+str);
 		if (NoRevisionRadioBtn.isSelected()) {
 			CommonUtils.waitForVisibility(saveAndContinueBtn);
 			CucumberLogUtils.logScreenShot("Project Info No Revision");
@@ -334,9 +328,6 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 	public void careerGoalNoRevision() throws InterruptedException {
 		System.out.println("careerGoalNoRevision");
 		CommonUtils.waitForVisibility(commentsAndFeedBackBtn);
-		// String
-		// str=WebDriverUtils.getWebDriver().findElement(By.xpath("//input[@id='revisionRadioButtonNo']")).getAttribute("checked");
-		// System.out.println("checked value"+str);
 		if (NoRevisionRadioBtn.isSelected()) {
 			CommonUtils.waitForVisibility(saveAndContinueBtn);
 			CucumberLogUtils.logScreenShot("Career Goal No Revision");
@@ -361,9 +352,6 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 	public void aliginingExpectations() throws InterruptedException {
 		System.out.println("aliginingExpectations");
 		CommonUtils.waitForVisibility(commentsAndFeedBackBtn);
-		// String
-		// str=WebDriverUtils.getWebDriver().findElement(By.xpath("//input[@id='revisionRadioButtonNo']")).getAttribute("checked");
-		// System.out.println("checked value"+str);
 		if (NoRevisionRadioBtn.isSelected()) {
 			CommonUtils.waitForVisibility(saveAndContinueBtn);
 			CucumberLogUtils.logScreenShot("Allign Expectaions");

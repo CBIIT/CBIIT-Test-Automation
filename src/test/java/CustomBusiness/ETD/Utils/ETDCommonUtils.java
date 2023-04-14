@@ -7,7 +7,6 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Iterator;
 import java.util.Set;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -89,9 +88,5 @@ public class ETDCommonUtils {
 	public static void waitUtilsAlertIsPresent(long timeOut, WebDriver webDriver) {
 		WebDriverWait webDriverWait = new WebDriverWait(webDriver,Duration.ofSeconds(10));
 		webDriverWait.until(ExpectedConditions.alertIsPresent());
-	
-}
 	}
-
-
-
+}

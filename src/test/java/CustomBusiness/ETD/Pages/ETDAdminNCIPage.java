@@ -4,7 +4,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
@@ -325,7 +324,6 @@ public class ETDAdminNCIPage extends CommonUtils {
 	@FindBy(xpath = "//td[@class=' dt-checkboxes-cell']")
 	public WebElement plusSign;
 	
-	
 	/**nameSearchField*/
 	@FindBy(xpath = "//input[@id='fullNameWithOrgPapth']")
 	public WebElement nameSearchField;
@@ -390,7 +388,6 @@ public class ETDAdminNCIPage extends CommonUtils {
 	@FindBy(xpath = "//tbody/tr[2]/td[5]/button[2]")
 	public WebElement deleteDorsey;
 	
-	
 	/**delete Dorsey*/
 	@FindBy(xpath = "//tr[@class='even']//button[@aria-label='delete button']")
 	public WebElement deleteHaskins;
@@ -419,7 +416,4 @@ public class ETDAdminNCIPage extends CommonUtils {
 	@FindBy(xpath = "//span[@id='select2-tierLevel-container']")
 	public WebElement tier2;
 	
-	
-	
-
 }

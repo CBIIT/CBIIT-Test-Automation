@@ -15,12 +15,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-
 import CustomBusiness.EIDP.Util.CommonUtil;
-
 
 public class BasePage extends CommonUtils{
 
@@ -93,9 +90,5 @@ public class BasePage extends CommonUtils{
 	public void selectOptionByIndex(WebElement selectEl ) {
 		Select select = new Select(selectEl);
 		select.selectByIndex(2);
-	}
-	
-	
-	
-	
+	}	
 }

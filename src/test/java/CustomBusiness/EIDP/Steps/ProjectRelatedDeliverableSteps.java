@@ -1,10 +1,8 @@
 package CustomBusiness.EIDP.Steps;
 
 import org.openqa.selenium.By;
-
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-
 import CustomBusiness.EIDP.Util.CommonUtil;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Then;

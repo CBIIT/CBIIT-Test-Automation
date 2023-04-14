@@ -3,12 +3,10 @@ package CustomBusiness.ETD.Steps;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -16,7 +14,6 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import CustomBusiness.EIDP.Util.CommonUtil;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
@@ -37,7 +34,6 @@ public class ETDAdminFlowStep extends PageInitializer {
 		CommonUtils.click(etdAdminNCIPage.organizationDropdown);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
-
 	}
 
 	@When("User can see only profile related to their top IC")
@@ -50,7 +46,6 @@ public class ETDAdminFlowStep extends PageInitializer {
 	@When("User chooses to view {string}")
 	public void user_chooses_to_view(String tab) throws TestingException {
 		etdFlowStepsImpl.selectTab(tab);
-
 	}
 
 	@Then("user can verify that subsequent content of each {string}is displayed")
@@ -163,14 +158,12 @@ public class ETDAdminFlowStep extends PageInitializer {
 		} else {
 			System.out.println("Button is disabled");
 		}
-
 	}
 
 	@Then("User can assign an admin role successfully")
 	public void user_can_assign_an_admin_role_successfully() {
 		CommonUtils.click(etdAdminNCIPage.saveButton);
 		MiscUtils.sleep(2000);
-
 	}
 
 	@Then("User can delete the newly created profile")
@@ -189,7 +182,6 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.click(etdAdminNCIPage.confirmationDelete);
 		MiscUtils.sleep(2000);
-
 	}
 
 	@Then("newly assigned admin is able to log in")
@@ -265,7 +257,6 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.click(etdAdminNCIPage.confirmationDelete);
 		MiscUtils.sleep(2000);
-
 	}
 
 	// @manageRolesCancel
@@ -302,7 +293,6 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(etdAdminNCIPage.searchFilter, name);
 		MiscUtils.sleep(2000);
-
 	}
 
 	@Then("User can successfully edit that profile")
@@ -319,7 +309,6 @@ public class ETDAdminFlowStep extends PageInitializer {
 		CommonUtils.click(etdAdminNCIPage.saveButton);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
-
 	}
 
 	@Then("User resets profile data")
@@ -369,7 +358,6 @@ public class ETDAdminFlowStep extends PageInitializer {
 		if (result) {
 			System.out.println("Alert is present ");
 		}
-
 	}
 
 	// @sortingManageRolesTabAdmin
@@ -412,7 +400,6 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.click(etdAdminNCIPage.dropdownNCI);
 		MiscUtils.sleep(3000);
-
 	}
 
 	@Then("User can verify that an appropriate SAC appears")
@@ -460,7 +447,6 @@ public class ETDAdminFlowStep extends PageInitializer {
 		JavascriptUtils.scrollIntoView(etdAdminNCIPage.searchButton);
 		CommonUtils.click(etdAdminNCIPage.searchButton);
 		MiscUtils.sleep(30000);
-		
 	}
 
 	@Then("User verifies the applied search is present")
@@ -480,7 +466,6 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(etdAdminNCIPage.filterManageETD, "AALAI, MARRIAM");
 		MiscUtils.sleep(2000);
-
 	}
 
 	@When("User verifies that Date Acknowledged and Acknowledged by are NOT Null.")
@@ -490,7 +475,6 @@ public class ETDAdminFlowStep extends PageInitializer {
 		Assert.assertEquals("CLIFFORD, DAVID", etdAdminNCIPage.acknowledgedByDavid.getText());
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
-
 	}
 
 	@When("User logs in as that person")
@@ -628,8 +612,6 @@ public class ETDAdminFlowStep extends PageInitializer {
 		CommonUtils.click(etdAdminNCIPage.plusSign);
 		MiscUtils.sleep(2000);
 		CommonUtils.click(etdAdminNCIPage.editAction);
-		
-	
 	}
 
 	@When("User resets that profile")
@@ -655,7 +637,6 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.click(etdAdminNCIPage.confirmAlert);
 		MiscUtils.sleep(2000);
-		
 	}
 
 	// @manageETDAdminVerifyFieldsofSearchViewNOtesNCI
@@ -696,7 +677,6 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.click(etdAdminNCIPage.name);
 		MiscUtils.sleep(2000);
-
 	}
 
 	@Then("User can see Actions options appear")
@@ -756,7 +736,6 @@ public class ETDAdminFlowStep extends PageInitializer {
 		CommonUtils.click(etdAdminNCIPage.confirmAlert);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.logScreenShot();
-
 	}
 
 	@Then("User can successfully accomplish that step")
@@ -764,7 +743,6 @@ public class ETDAdminFlowStep extends PageInitializer {
 		Assert.assertEquals("", etdAdminNCIPage.dateNullValue.getText());
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.logScreenShot();
-
 	}
 
 	@Then("User resets the scenario")
@@ -777,7 +755,6 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.click(etdAdminNCIPage.saveButtonAcknowledge);
 		MiscUtils.sleep(2000);
-
 	}
 
 	// @manageETDBulkReset
@@ -813,7 +790,6 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.click(etdAdminNCIPage.searchButton);
 		MiscUtils.sleep(5000);
-
 	}
 
 	@Then("User can verify that new hires are located under this tier")
@@ -832,7 +808,6 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(1000);
 		Assert.assertEquals("", etdAdminNCIPage.acknowledgedByAberItan.getText());
 		MiscUtils.sleep(1000);
-
 	}
 
 	@Then("User can verify that Date Acknowledged and Acknowledged by data entries are not present")
@@ -926,7 +901,6 @@ public class ETDAdminFlowStep extends PageInitializer {
 		for (WebElement each : namesList) {
 			System.out.println(each.getText());
 		}
-
 	}
 
 	// @validateICChangesNonEmployee
@@ -942,7 +916,6 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.click(etdAdminNCIPage.searchButton);
 		MiscUtils.sleep(5000);
-
 	}
 
 	@Then("User can verify the IC search displayed is correct")
@@ -952,7 +925,6 @@ public class ETDAdminFlowStep extends PageInitializer {
 		for (WebElement each : namesList) {
 			System.out.println("Tier  " + each.getText());
 		}
-
 	}
 	//@notAuthorizedHomeTab
 	@Then("User will see message {string}")
@@ -971,5 +943,4 @@ public class ETDAdminFlowStep extends PageInitializer {
 	public void user_verifies_the_applied_search_for_is_present(String content) {
 		etdFlowStepsImpl.verifyContentTier(content);
 	}
-	
 }

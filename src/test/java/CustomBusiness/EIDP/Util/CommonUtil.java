@@ -3,7 +3,6 @@ package CustomBusiness.EIDP.Util;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import io.cucumber.datatable.DataTable;
 
 public class CommonUtil {
@@ -37,6 +36,4 @@ public class CommonUtil {
 			System.out.println(ex.getMessage());
 		}
 	}
-	
-	
 }

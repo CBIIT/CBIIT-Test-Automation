@@ -1,12 +1,10 @@
 package CustomBusiness.ETD.Steps;
 
 import org.testng.Assert;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
-
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Then;
 
@@ -50,6 +48,4 @@ public class OHRStep extends PageInitializer  {
 		Assert.assertTrue(etdAdminNCIPage.carolynProfile.isDisplayed());
 		MiscUtils.sleep(2000);
 	}
-
-
 }

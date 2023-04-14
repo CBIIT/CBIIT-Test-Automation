@@ -1,13 +1,9 @@
 package CustomBusiness.EIDP.Steps;
 
 import static org.junit.Assert.fail;
-
 import java.util.Map;
-
 import org.junit.Assert;
-
 import com.nci.automation.utils.MiscUtils;
-
 import CustomBusiness.EIDP.Util.CommonUtil;
 import CustomBusiness.EIDP.Util.Constants.DelegationTypes;
 import appsCommon.PageInitializer;
@@ -47,7 +43,6 @@ public class DelegateSteps extends PageInitializer {
 
 	@Then("User checks \"([^\"]*)\" is added as delegate")
 	public void verifyDelegateIsAdded(String name) {
-
 		Assert.assertTrue(delegatePage.isDelegatePresentInTable(name));
 	}
 

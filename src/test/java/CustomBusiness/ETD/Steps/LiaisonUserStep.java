@@ -1,10 +1,8 @@
 package CustomBusiness.ETD.Steps;
 
 import org.testng.Assert;
-
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -24,7 +22,4 @@ public class LiaisonUserStep extends PageInitializer   {
 	    Assert.assertTrue(etdAdminNCIPage.disabledSelectAll.isDisplayed());
 	    MiscUtils.sleep(3000);
 	}
-
-
-
 }

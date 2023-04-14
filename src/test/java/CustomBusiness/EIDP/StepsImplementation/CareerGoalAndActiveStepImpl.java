@@ -2,15 +2,12 @@
 package CustomBusiness.EIDP.StepsImplementation;
 
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-
 import CustomBusiness.EIDP.Util.CommonUtil;
 import appsCommon.PageInitializer;
 
@@ -24,8 +21,8 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 		Thread.sleep(2000);
 		CucumberLogUtils.logScreenShot("Career Goal");
 		CommonUtils.click(careerGoalAndActivePage.saveAndContinueButton);
-
 	}
+
 	public void fillCarrerGoalActiviteNHGRI() throws Exception {
 		CommonUtils.waitForVisibility(careerGoalAndActivePage.saveAndContinueButton);
 		selectCareerGoal();
@@ -34,7 +31,6 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 		Thread.sleep(2000);
 		CucumberLogUtils.logScreenShot("Career Goal");
 		CommonUtils.click(careerGoalAndActivePage.saveAndContinueButton);
-
 	}
 
 	public void fillCarrerGoalActiviteForRenewIdp() throws Exception {
@@ -46,7 +42,6 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 		completeSKills();
 		CucumberLogUtils.logScreenShot("Career Goal");
 		CommonUtils.click(careerGoalAndActivePage.saveAndContinueButton);
-
 	}
 	
 	public void fillCarrerGoalActiviteForNIDCRRenewIdp() throws Exception {
@@ -58,7 +53,6 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 		completeSKills();
 		CucumberLogUtils.logScreenShot("Career Goal");
 		CommonUtils.click(careerGoalAndActivePage.saveAndContinueButton);
-
 	}
 
 	public void clickOnSaveAndContinueButton() {

@@ -1,7 +1,7 @@
 @NICDR @TryAllNIDCRInitial
 Feature: NIDCR work flows
 
-  @Smoke @NIDCRINITIALDIRECTORFLOW
+  @Smoke @NIDCRINITIALDIRECTORFLOW @Zamant2 @Needs_review
   Scenario: IDP request create by trainee and approve by director flow
     #Given User opens nidcra application in browser
     Given User will login to the application as "gugulothus2" user on "NIDCR"
@@ -47,7 +47,7 @@ Feature: NIDCR work flows
     And User clicks on the trainee specific IDP request for renewal
     And Finish Idp process
 
-  @TDReviewReturnToPM @TDReviewReturnToPMNIDCR
+  @TDReviewReturnToPM @TDReviewReturnToPMNIDCR @Zamant2 @Needs_review
   Scenario: Send the IDP to PM From TD Review
     #Given User opens nidcra application in browser
     When User will login to the application as "gugulothus2" user on "NIDCR"
@@ -91,7 +91,7 @@ Feature: NIDCR work flows
     And Logged in user changes the user to "Walrath,Jessica"
     #Then User verifies trainnee request is displayed
 
-  @TDSendBackToFellow @TDSendBackToFellowNIDCR
+  @TDSendBackToFellow @TDSendBackToFellowNIDCR @Zamant2 @Needs_review
   Scenario: Send the IDP to fellow From TD Review
     #Given User opens nidcra application in browser
     When User will login to the application as "gugulothus2" user on "NIDCR"
@@ -134,6 +134,7 @@ Feature: NIDCR work flows
     And User clicks on Yes button
     And Logged in user changes the user to trainee
 
+  @Zamant2 @Needs_review
   #The below scenario covers 1) IDP Declined by PM 2) IDPs Sent to TD Queue
   #@NIDCRAPMDecline @NIDCRAPMDeclineNIDCR
   #Scenario: Send the IDP to fellow From TD Review
@@ -164,7 +165,7 @@ Feature: NIDCR work flows
     #And Logged in user changes the user to "Walrath,Jessica"
     #Then User clicks on the trainee specific IDP request for renewal
 
-  @ReviseExistingIDPnidcr @Regressionnidcr @ReviseExistingIDPNIDCR
+  @ReviseExistingIDPnidcr @Regression @ReviseExistingIDPNIDCR @Zamant2 @Needs_review
   Scenario: Revise Existing IDP
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "NIDCR"
@@ -177,7 +178,7 @@ Feature: NIDCR work flows
     And User clicks on save and send mail button
     Then User will click on ok button
 
-  @IDPOnHoldnidcr @RegressionNHGRI @Karan
+  @IDPOnHoldnidcr @Regression @Karan @Needs_review
   Scenario: IDP is placed on HOLD
     ##Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "NIDCR"
@@ -227,7 +228,7 @@ Feature: NIDCR work flows
     And User will click on revew and take action button
     Then User verifies IDP will be placed on hold message
 
-  @releaseOnHoldnidcr @RegressionNHGRI @Karan
+  @releaseOnHoldnidcr @Regression @Karan @Needs_review
   Scenario: Release IDP placed on hold
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "NIDCR"
@@ -241,7 +242,7 @@ Feature: NIDCR work flows
     And Logged in user changes the user to trainee
     Then Trainee verifies IDP request status as "Under Primary Mentor's Review"
 
-  @CancelIdpnidcr @RegressionNHGRI
+  @CancelIdpnidcr @Regression @Zamant2 @Needs_review
   Scenario: Cancel IDP
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "NIDCR"
@@ -255,7 +256,7 @@ Feature: NIDCR work flows
     And Logged in user changes the user to trainee
     Then Trainee verifies IDP request status as "Cancelled"
 
-  @UndoCancelIdpnidcr @RegressionNHGRI
+  @UndoCancelIdpnidcr @Regression @Zamant2 @Needs_review
   Scenario: Undo Cancel IDP
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "NIDCR"
@@ -268,7 +269,7 @@ Feature: NIDCR work flows
     And User enters comments and clicks on yes button on undo cancel idp window
     And Logged in user changes the user to trainee
 
-  @AddAndDeleteTempDelegatenidcr @RegressionNHGRI @TryTest
+  @AddAndDeleteTempDelegatenidcr @Regression @Zamant2 @Needs_review
   Scenario: Add/Delete Temporary Delegates
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "NIDCR"
@@ -282,7 +283,7 @@ Feature: NIDCR work flows
     When User deletes "Ava Albertini" from delegators table
     Then User check delegate delete message
 
- @DelegateInitiatesIDPnidcr @RegressionNHGRI
+ @DelegateInitiatesIDPnidcr @Regression @Zamant2 @Needs_review
   Scenario: TD Delegate initiates IDP
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "NIDCR"
@@ -312,7 +313,7 @@ Feature: NIDCR work flows
     #When User deletes "Ava Albertini" from delegators table
     #Then User check delegate delete message
 
-  @AddAndDeletePermanentDelegatenidcr @RegressionNHGRI  @Karan
+  @AddAndDeletePermanentDelegatenidcr @Regression @Karan @Needs_review
   Scenario: Add/Delete Permanent Delegates
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "NIDCR"
@@ -326,7 +327,7 @@ Feature: NIDCR work flows
     When User deletes "Ava Albertini" from delegators table
     Then User check delegate delete message
 
-  @ExistSurveynidcr @RegressionNHGRI
+  @ExistSurveynidcr @Regression @Zamant2 @Needs_review
   Scenario: TD/AO Initiates the Exit Survey for the Fellow/Employee
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "NIDCR"
@@ -337,7 +338,7 @@ Feature: NIDCR work flows
     And User clicks on yes button of modal
     Then User will click on ok button
 
-  @TDReleaseHoldnidcr @RegressionNHGRI @Karan12
+  @TDReleaseHoldnidcr @Regression @Karan @Needs_review
   Scenario: TD Delegates Release IDP placed on HOLD
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user on "NIDCR"

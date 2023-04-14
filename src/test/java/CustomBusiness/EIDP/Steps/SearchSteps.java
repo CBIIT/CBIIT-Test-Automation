@@ -1,16 +1,13 @@
 package CustomBusiness.EIDP.Steps;
 
 import java.util.Map;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-
 import CustomBusiness.EIDP.Util.CommonUtil;
 import CustomBusiness.EIDP.Util.SharedData;
 import appsCommon.PageInitializer;
@@ -111,7 +108,6 @@ public class SearchSteps extends PageInitializer {
 	@When("User searches for completed idp request")
 	public void searchCompletedIDP() {
 		searchStepimpl.selectSearchForDropdown("Non-NCI (Fellows Only)");
-
 	}
 
 	@When("User selects search option as \"([^\"]*)\"")
@@ -147,7 +143,6 @@ public class SearchSteps extends PageInitializer {
 
 	@When("User selects nci training organization as \"([^\"]*)\"")
 	public void selectNCITrainingOrganization(String optionVal) {
-
 		searchStepimpl.selectNCITrainingOrganization(optionVal);
 	}
 
@@ -310,7 +305,6 @@ public class SearchSteps extends PageInitializer {
 		CommonUtil.waitBrowser(5000);
 		JavascriptUtils.scrollDown(1000);
 		CommonUtil.waitBrowser(5000);
-
 	}
 
 	@Then("verify expected results as {string} and {string}")
@@ -322,13 +316,11 @@ public class SearchSteps extends PageInitializer {
 	@When("User will select {string} as Classification type")
 	public void user_will_select_as_Fellow(String userClassification) {
 		searchStepimpl.selectClassificationType(userClassification);
-
 	}
 
 	@Then("User will verify first page results classification type are {string}")
 	public void user_will_verify_expected_results(String expectedClassificationType) {
 		searchStepimpl.verifyFirmlyClassificationType(expectedClassificationType);
-
 	}
 
 	@When("User will select {string} as Primary Mentor")
@@ -341,7 +333,6 @@ public class SearchSteps extends PageInitializer {
 	public void user_will_verify_expected_result_as(String primaryMentorName) {
 		JavascriptUtils.scrollDown(2000);
 		searchStepimpl.verifyTraineeUnderPrimaryMentor(primaryMentorName);
-
 	}
 
 	@When("User will click Search button on Gloria Calloway page")
@@ -391,5 +382,4 @@ public class SearchSteps extends PageInitializer {
 		searchStepimpl.verifyNIHSAAC(NIHSAC);
 
 	}
-
 }

@@ -1,12 +1,10 @@
 package CustomBusiness.ETD.StepsImplementation;
 
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.EncryptionUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -16,7 +14,6 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import appsCommon.PageInitializer;
 
 public class ETDFlowStepsImpl extends PageInitializer {
@@ -56,7 +53,6 @@ public class ETDFlowStepsImpl extends PageInitializer {
 			CommonUtils.click(etdAdminNCIPage.manageRolesTab);
 			MiscUtils.sleep(2000);
 		}
-
 	}
 
 	public void verifyContent(String content) {
@@ -77,7 +73,6 @@ public class ETDFlowStepsImpl extends PageInitializer {
 			MiscUtils.sleep(2000);
 			CucumberLogUtils.logScreenShot();
 		}
-
 	}
 
 	public void selectTierUser(String tier) {
@@ -111,7 +106,6 @@ public class ETDFlowStepsImpl extends PageInitializer {
 			CommonUtils.click(etdAdminNCIPage.dropdownChangeUser);
 			MiscUtils.sleep(3000);
 		}
-
 	}
 
 	public void selectAlert(String alert) {
@@ -131,9 +125,7 @@ public class ETDFlowStepsImpl extends PageInitializer {
 			Assert.assertTrue(etdAdminNCIPage.tier3DAlert.isDisplayed());
 			MiscUtils.sleep(2000);
 			CucumberLogUtils.logScreenShot();
-
 		}
-
 	}
 
 	public void selectTier(String tier) {
@@ -194,7 +186,6 @@ public class ETDFlowStepsImpl extends PageInitializer {
 			MiscUtils.sleep(3000);
 			CucumberLogUtils.logScreenShot();
 		}
-
 	}
 	public void verifyContentTier(String content) {
 		if (content.equalsIgnoreCase("contentAll")) {
@@ -236,8 +227,6 @@ public class ETDFlowStepsImpl extends PageInitializer {
 				System.out.println("Tier  " + each.getText());
 			}
 			CucumberLogUtils.logScreenShot();
-
 		}
-
 	}
 }

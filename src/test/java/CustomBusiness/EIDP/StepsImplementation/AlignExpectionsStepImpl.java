@@ -2,11 +2,9 @@ package CustomBusiness.EIDP.StepsImplementation;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-
 import appsCommon.PageInitializer;
 
 public class AlignExpectionsStepImpl extends PageInitializer {
@@ -40,7 +38,6 @@ public class AlignExpectionsStepImpl extends PageInitializer {
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
@@ -71,11 +68,9 @@ public class AlignExpectionsStepImpl extends PageInitializer {
 			CommonUtils.click(aligningExpectationsPage.reviewAndTakeActionButton);
 		}
 		CommonUtils.click(aligningExpectationsPage.sendIDPToTraineeButton);
-
 	}
 
 	private WebElement find(By id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

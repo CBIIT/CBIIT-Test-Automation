@@ -1,7 +1,7 @@
 @NHGRIREnewal
 Feature: Regression testing
 
-  @InitiatesIDP_RenewalNhgri @Regressionnhgri @Smoke
+  @InitiatesIDP_RenewalNhgri @Regression @Smoke @Zamant2 @Needs_review
   Scenario: IDP request creates and decline and approve
     When User will login to the application as "gugulothus2" user
     And Logged in user changes the user to "Plante,Faith"
@@ -63,7 +63,7 @@ Feature: Regression testing
     And User clicks on APPROVE IDP button
     And User clicks on yes button on trainee page
 
-  @ReviseExistingIDRenewalPNHGRI @Regressionnhgri
+  @ReviseExistingIDRenewalPNHGRI @Regression @Zamant2 @Needs_review
   Scenario: Revise Existing IDP
     When User will login to the application as "gugulothus2" user
     And Logged in user changes the user to "Plante,Faith"
@@ -75,7 +75,7 @@ Feature: Regression testing
     And User clicks on save and send mail button
     Then User will click on ok button
 
-  @IDPOnHoldRenewalNHGRI @Regressionnhgri
+  @IDPOnHoldRenewalNHGRI @Regression @Zamant2 @Needs_review
   Scenario: IDP is placed on HOLD
     When User will login to the application as "gugulothus2" user
     And Logged in user changes the user to "Plante,Faith"
@@ -143,7 +143,7 @@ Feature: Regression testing
     And Review and Take Action and finish
 
   
-  @releaseOnHoldRenewalNHGRI @Regressionnhgri
+  @releaseOnHoldRenewalNHGRI @Regression @Zamant2 @Needs_review
   Scenario: Release IDP placed on hold
     When User will login to the application as "gugulothus2" user
     And Logged in user changes the user to "Plante,Faith"
@@ -156,7 +156,7 @@ Feature: Regression testing
     And Logged in user changes the user to trainee
     Then Trainee verifies IDP request status as "Under Primary Mentor's Review"
 
-  @CancelIdpRenewalNHGRI @Regressionnhgri
+  @CancelIdpRenewalNHGRI @Regression @Zamant2 @Needs_review
   Scenario: Cancel IDP
     When User will login to the application as "gugulothus2" user
     And Logged in user changes the user to "Plante,Faith"
@@ -169,7 +169,7 @@ Feature: Regression testing
     And Logged in user changes the user to trainee
     Then Trainee verifies IDP request status as "Cancelled"
 
-  @UndoCancelIdpRenewalNHGRI @Regressionnhgri
+  @UndoCancelIdpRenewalNHGRI @Regression @Zamant2 @Needs_review
   Scenario: Undo Cancel IDP
     When User will login to the application as "gugulothus2" user
     And Logged in user changes the user to "Plante,Faith"
@@ -180,7 +180,7 @@ Feature: Regression testing
     And User reads the trainee name from undo cancel idp confirmation window
     And User enters comments and clicks on yes button on undo cancel idp window
 
-  @AddAndDeleteTempDelegateRenewalNHGRI @Regressionnhgri
+  @AddAndDeleteTempDelegateRenewalNHGRI @Regression @Zamant2 @Needs_review
   Scenario: Add/Delete Temporary Delegates
     When User will login to the application as "gugulothus2" user
     And Logged in user changes the user to "Plante,Faith"
@@ -193,7 +193,7 @@ Feature: Regression testing
     When User deletes "Sarah Bates" from delegators table
     Then User check delegate delete message
 
-  @AddAndDeletePermanentDelegateRenewalNGHRI @Regressionnhgri
+  @AddAndDeletePermanentDelegateRenewalNGHRI @Regression @Zamant2 @Needs_review
   Scenario: Add/Delete Permanent Delegates
     When User will login to the application as "gugulothus2" user
     And Logged in user changes the user to "Plante,Faith"
@@ -206,7 +206,7 @@ Feature: Regression testing
     When User deletes "Sarah Bates" from delegators table
     Then User check delegate delete message
 
-  @DelegateInitiatesIDPRenewalNHGRI @Regressionnhgri
+  @DelegateInitiatesIDPRenewalNHGRI @Regression @Zamant2 @Needs_review
   Scenario: TD Delegate initiates IDP
 
     When User will login to the application as "gugulothus2" user
@@ -254,7 +254,7 @@ Feature: Regression testing
     And User clicks on the trainee specific IDP request for renewal
     Then Finish Idp process
 
-  @ExistSurveyNHGRI @Regressionnhgri
+  @ExistSurveyNHGRI @Regression @Zamant2 @Needs_review
   Scenario: TD/AO Initiates the Exit Survey for the Fellow/Employee
     #Given User opens nih application in browser
     When User will login to the application as "gugulothus2" user

@@ -1,7 +1,7 @@
 @NHGRIALL
 Feature: Regression testing
 
-  @InitiatesIDPnhgri @Smoke @RegressionNHGRI1  
+  @InitiatesIDPnhgri @Smoke @Regression @Zamant2 @Needs_review
   Scenario: IDP request creates and decline and approve
     When User will login to the application as "gugulothus2" user
     And Logged in user changes the user to "Plante,Faith"
@@ -60,7 +60,7 @@ Feature: Regression testing
     And User clicks on APPROVE IDP button
     And User clicks on yes button on trainee page
 
-  @InitiatesIDPnhgriWithUniversity
+  @InitiatesIDPnhgriWithUniversity @Zamant2 @Needs_review
   Scenario: IDP request creates and decline and approve
     When User will login to the application as "gugulothus2" user
     And Logged in user changes the user to "Plante,Faith"
@@ -119,7 +119,7 @@ Feature: Regression testing
     And User clicks on APPROVE IDP button
     And User clicks on yes button on trainee page
 
-  @sendBackIDPnhgri @RegressionNHGRI
+  @sendBackIDPnhgri @Regression @Zamant2 @Needs_review
   Scenario: Send back to primary mentor flow
     When User will login to the application as "gugulothus2" user
     And Logged in user changes the user to "Plante,Faith"
@@ -193,7 +193,7 @@ Feature: Regression testing
     And User clicks on APPROVE IDP button
     And User clicks on yes button on trainee page
 
-  @ReviseExistingIDPnhgri @RegressionNHGRI
+  @ReviseExistingIDPnhgri @Regression @Zamant2 @Needs_review
   Scenario: Revise Existing IDP
     When User will login to the application as "gugulothus2" user
     And Logged in user changes the user to "Plante,Faith"
@@ -205,7 +205,7 @@ Feature: Regression testing
     And User clicks on save and send mail button
     Then User will click on ok button
 
-  @IDPOnHoldnghri @RegressionNHGRI
+  @IDPOnHoldnghri @Regression @Zamant2 @Needs_review
   Scenario: IDP is placed on HOLD
     When User will login to the application as "gugulothus2" user
     And Logged in user changes the user to "Plante,Faith"
@@ -259,7 +259,7 @@ Feature: Regression testing
     And User will click on revew and take action button
     Then User verifies IDP will be placed on hold message
 
-  @releaseOnHoldnhgri @RegressionNHGRI
+  @releaseOnHoldnhgri @Regression @Zamant2 @Needs_review
   Scenario: Release IDP placed on hold
     When User will login to the application as "gugulothus2" user
     And Logged in user changes the user to "Plante,Faith"
@@ -272,7 +272,7 @@ Feature: Regression testing
     And Logged in user changes the user to trainee
     Then Trainee verifies IDP request status as "Under Primary Mentor's Review"
 
-  @CancelIdpnhgri @RegressionNHGRI
+  @CancelIdpnhgri @Regression @Zamant2 @Needs_review
   Scenario: Cancel IDP
     When User will login to the application as "gugulothus2" user
     And Logged in user changes the user to "Plante,Faith"
@@ -285,7 +285,7 @@ Feature: Regression testing
     And Logged in user changes the user to trainee
     Then Trainee verifies IDP request status as "Cancelled"
 
-  @UndoCancelIdpnhgri @RegressionNHGRI
+  @UndoCancelIdpnhgri @Regression @Zamant2 @Needs_review
   Scenario: Undo Cancel IDP
     When User will login to the application as "gugulothus2" user
     And Logged in user changes the user to "Plante,Faith"
@@ -297,7 +297,7 @@ Feature: Regression testing
     And User enters comments and clicks on yes button on undo cancel idp window
     And Logged in user changes the user to trainee
 
-  @AddAndDeleteTempDelegatenhgri @RegressionNHGRI
+  @AddAndDeleteTempDelegatenhgri @Regression @Zamant2 @Needs_review
   Scenario: Add/Delete Temporary Delegates
     When User will login to the application as "gugulothus2" user
     And Logged in user changes the user to "Plante,Faith"
@@ -310,7 +310,7 @@ Feature: Regression testing
     When User deletes "Kathleen Craft" from delegators table
     Then User check delegate delete message
 
-  @AddAndDeletePermanentDelegatenhgri @RegressionNHGRI
+  @AddAndDeletePermanentDelegatenhgri @Regression @Zamant2 @Needs_review
   Scenario: Add/Delete Permanent Delegates
     When User will login to the application as "gugulothus2" user
     And Logged in user changes the user to "Plante,Faith"
@@ -323,7 +323,7 @@ Feature: Regression testing
     When User deletes "Kathleen Craft" from delegators table
     Then User check delegate delete message
 
-  @DelegateInitiatesIDPnhgri @RegressionNHGRI
+  @DelegateInitiatesIDPnhgri @Regression @Zamant2 @Needs_review
   Scenario: TD Delegate initiates IDP
     When User will login to the application as "gugulothus2" user
     And Logged in user changes the user to "Plante,Faith"
@@ -350,7 +350,7 @@ Feature: Regression testing
     And User will click on revew and take action button
     And User clicks on Send IDP to the Primary Mentor button
 
-  @ExistSurveynhgri @RegressionNHGRI @Karan1
+  @ExistSurveynhgri @Regression @Zamant2 @Needs_review
   Scenario: TD/AO Initiates the Exit Survey for the Fellow/Employee
     When User will login to the application as "gugulothus2" user
     And Logged in user changes the user to "Craft,Kathleen"
@@ -360,7 +360,7 @@ Feature: Regression testing
     And User clicks on yes button of modal
     Then User will click on ok button
 
-  @TDReleaseHoldnhgri @RegressionNHGRI @Karan1
+  @TDReleaseHoldnhgri @Regression @Zamant2 @Needs_review
   Scenario: TD Delegates Release IDP placed on HOLD
     When User will login to the application as "gugulothus2" user
     And Logged in user changes the user to "Plante,Faith"

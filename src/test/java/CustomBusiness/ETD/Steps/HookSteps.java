@@ -1,17 +1,13 @@
 package CustomBusiness.ETD.Steps;
 
 import java.io.File;
-
 import org.apache.commons.lang.StringUtils;
-
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.DateUtils;
 import com.nci.automation.utils.LocalConfUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.WebDriverUtils;
-
-//import CustomBusinessApp.EIDP.Steps.HooksSteps;
 import appsCommon.PageInitializer;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
@@ -73,5 +69,4 @@ public class HookSteps {
 	public void tearDown() {
 		WebDriverUtils.closeWebDriver();
 	}
-
 }

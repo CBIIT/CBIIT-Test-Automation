@@ -1,7 +1,6 @@
-@RegressionNCI @tz
+@RegressionNCI
 Feature: Regression testing
-@NCIRenewal
-  @InitiatesIDP_Renewal @Regression @Smoke
+@NCIRenewal @InitiatesIDP_Renewal @Regression @Smoke @Zamant2 @Needs_review
   Scenario: TC01 IDP request creates and decline and approve
     ##Given User opens nih application in browser
     When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"
@@ -66,7 +65,7 @@ Feature: Regression testing
     And User clicks on APPROVE IDP button
     And User clicks on yes button on trainee page
 
-  @sendBackIDP @Regression @sendBackIDPNCIRenewal
+  @sendBackIDP @Regression @sendBackIDPNCIRenewal @Zamant2 @Needs_review
   Scenario: TC02 Send back to primary mentor flow
     ##Given User opens nih application in browser
     When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"
@@ -102,7 +101,7 @@ Feature: Regression testing
     And User reviews comments and feedbacks in all the tabs
     And User clicks on SUBMIT button
 
-  @ReviseExistingIDP @Regression
+  @ReviseExistingIDP @Regression @Zamant2 @Needs_review
   Scenario: TC03 Revise Existing IDP
     #Given User opens nih application in browser
     When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"
@@ -116,7 +115,7 @@ Feature: Regression testing
     Then User will click on ok button
 
  
-  @IDPOnHold @Regression
+  @IDPOnHold @Regression @Zamant2 @Needs_review
   Scenario: TC04 IDP is placed on HOLD
     #Given User opens nih application in browser
     When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"
@@ -136,7 +135,7 @@ Feature: Regression testing
     And Review and Take Action and finish
 
 
-  @releaseOnHold @Regression
+  @releaseOnHold @Regression @Zamant2 @Needs_review
   Scenario: TC05 Release IDP placed on hold
     #Given User opens nih application in browser
     When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"
@@ -150,7 +149,7 @@ Feature: Regression testing
     And Logged in user changes the user to trainee
     Then Trainee verifies IDP request status as "Under Primary Mentor's Review"
 
-  @CancelIdp @Regression
+  @CancelIdp @Regression @Zamant2 @Needs_review
   Scenario: TC06 Cancel IDP
     #Given User opens nih application in browser
     When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"
@@ -164,7 +163,7 @@ Feature: Regression testing
     And Logged in user changes the user to trainee
     Then Trainee verifies IDP request status as "Cancelled"
 
-  @UndoCancelIdp @Regression 
+  @UndoCancelIdp @Regression @Zamant2 @Needs_review
   Scenario: TC07 Undo Cancel IDP
     #Given User opens nih application in browser
     When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"
@@ -177,7 +176,7 @@ Feature: Regression testing
     And User enters comments and clicks on yes button on undo cancel idp window
     And Logged in user changes the user to trainee
 
-  @AddAndDeleteTempDelegate @Regression 
+  @AddAndDeleteTempDelegate @Regression @Zamant2 @Needs_review
   Scenario: TC08 Add/Delete Temporary Delegates
     #Given User opens nih application in browser
     When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"
@@ -191,7 +190,7 @@ Feature: Regression testing
     When User deletes "Satya Gugulothu" from delegators table
     Then User check delegate delete message
 
-  @AddAndDeletePermanentDelegate @Regression 
+  @AddAndDeletePermanentDelegate @Regression @Zamant2 @Needs_review
   Scenario: TC09 Add/Delete Permanent Delegates
     #Given User opens nih application in browser
     When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"
@@ -206,7 +205,7 @@ Feature: Regression testing
     Then User check delegate delete message
 
 
-  @DelegateInitiatesIDP @Regression
+  @DelegateInitiatesIDP @Regression @Zamant2 @Needs_review
   Scenario: TC10 TD Delegate initiates IDP
     #Given User opens nih application in browser
     When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"
@@ -263,7 +262,7 @@ Feature: Regression testing
     And User clicks on APPROVE IDP button
     And User clicks on yes button on trainee page
 
-  @ExistSurvey @Regression
+  @ExistSurvey @Regression @Zamant2 @Needs_review
   Scenario: TC11 TD/AO Initiates the Exit Survey for the Fellow/Employee
     #Given User opens nih application in browser
     When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"
@@ -274,7 +273,7 @@ Feature: Regression testing
     And User clicks on yes button of modal
     Then User will click on ok button
     
-  @ExistSurvey @Regression
+  @ExistSurvey @Regression @Zamant2 @Needs_review
   Scenario: TC12 TD/AO Initiates the Exit Survey for the Fellow/Employee
     #Given User opens nih application in browser
     When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"

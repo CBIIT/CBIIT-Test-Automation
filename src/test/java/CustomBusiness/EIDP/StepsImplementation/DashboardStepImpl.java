@@ -1,16 +1,13 @@
 package CustomBusiness.EIDP.StepsImplementation;
 
 import java.util.List;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-
 import CustomBusiness.EIDP.Util.SharedData;
 import appsCommon.PageInitializer;
 
@@ -207,7 +204,6 @@ public class DashboardStepImpl extends PageInitializer {
 				.findElement(By.xpath("//a[text()='" + traineeName + "']//ancestor::tr//a[@title='Proceed']"));
 		Thread.sleep(5000);
 		button.click();
-
 	}
 
 	public String getIDPRequestStatus() {
@@ -286,5 +282,4 @@ public class DashboardStepImpl extends PageInitializer {
 		WebDriverUtils.getWebDriver().findElement(By.xpath("//button[@onclick=\"form_submit_verifyMeetingPM()\"]"))
 				.click();
 	}
-
 }

@@ -3,7 +3,7 @@ Feature: ETD Flow NIDDK Admin
 Background: common steps
 Given User is on ETD home page and user is "BULL, MELBOURNE"
 
-@tabsPresentNIDDK @regression1
+@tabsPresentNIDDK @Regression @Needs_review
 Scenario Outline: Verify Present Tabs NIDDK
 When User clicks on organization dropdown
 And User can see only profile related to their top IC
@@ -17,14 +17,14 @@ Examples:
 |Manage ETD|
 |Manage Roles|
 
-@manageRolesAddAnAdminNIDDK @regression1
+@manageRolesAddAnAdminNIDDK @Regression @Needs_review
 Scenario: Managing Roles negative outcome
 When User clicks on Manage Roles tab
 And User clicks add button
 And User searches for a user that is already an admin as "BULL, MELBOURNE"
 Then User can verify the alert message 
 
-@manageRolesAdminNIDDK @regression1
+@manageRolesAdminNIDDK @Regression @Needs_review
 Scenario: Assign as an admin
 When User clicks on Manage Roles tab
 And User clicks add button
@@ -37,7 +37,7 @@ Then newly assigned NIDDK admin is able to log in
 And User can delete the newly created NIDDK profile
 
 
-@manageRolesLiaisonNIDDK @regression1
+@manageRolesLiaisonNIDDK @Regression @Needs_review
 Scenario: Assign as an ETD liaison
 When User clicks on Manage Roles tab
 And User clicks add button
@@ -50,7 +50,7 @@ Then User does not see that organization in dropdopwn choices
 And User can assign a liaison role successfully
 And User can delete the newly created NIDDK profile
 
-@filterOutManageRolesTabAdminPostiveNIDDK @regression1
+@filterOutManageRolesTabAdminPostiveNIDDK @Regression @Needs_review
 Scenario: filter out profiles
 When User clicks on Manage Roles tab
 Then user can see the filter option present
@@ -58,14 +58,14 @@ And User inputs a profile into search box as "GRIMME, ACADIA"
 Then User can verify that NIDDK profile is present
 
 
-@filterOutManageRolesTabAdminNegativeNIDDK @regression1
+@filterOutManageRolesTabAdminNegativeNIDDK @Regression @Needs_review
 Scenario: filter out profiles
 When User clicks on Manage Roles tab
 Then user can see the filter option present
 And User inputs a profile into search box as "ADAM, TRENGO"
 Then User can verify that NIDDK profile is not present
 
-@manageETDTierNIDKK  @regression1
+@manageETDTierNIDKK  @Regression @Needs_review
 Scenario Outline: Wide Search
 When User clicks on Manage ETD Tab
 Then User can verify Search button is enabled
@@ -79,10 +79,3 @@ Examples:
 |Tier II |
 |Tier III|
 |Tier III-D|
-
-
-
-
-
-
-

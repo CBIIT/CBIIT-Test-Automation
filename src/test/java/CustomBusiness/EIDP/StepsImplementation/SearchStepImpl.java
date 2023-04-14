@@ -1,19 +1,15 @@
 package CustomBusiness.EIDP.StepsImplementation;
 
 import java.util.List;
-
 import org.junit.Assert;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-
 import CustomBusiness.EIDP.Pages.BasePage;
 import CustomBusiness.EIDP.Util.CommonUtil;
 import CustomBusiness.EIDP.Util.SharedData;
@@ -63,7 +59,6 @@ public class SearchStepImpl extends PageInitializer {
 		CommonUtils.click(option);
 		CommonUtils.click(searchPage.trainneLastName);
 		CommonUtils.click(searchPage.searchButton);
-
 	}
 
 	public void selectActiveCompletedIDP() throws Exception {
@@ -255,7 +250,6 @@ public class SearchStepImpl extends PageInitializer {
 						.findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
 			}
 		}
-
 	}
 
 	public void selectActiveTrainee() throws Exception {
@@ -289,7 +283,6 @@ public class SearchStepImpl extends PageInitializer {
 						.findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
 			}
 		}
-
 	}
 
 	public void selectReviewExistingIDP() throws Exception {
@@ -318,7 +311,6 @@ public class SearchStepImpl extends PageInitializer {
 						.findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
 			}
 		}
-
 	}
 
 	public Boolean isIDPFormDisplayed() {
@@ -410,7 +402,6 @@ public class SearchStepImpl extends PageInitializer {
 	public void clickOnPopUpYesButton() {
 		String xpath = "//button[text()='Yes' and not(@id)]";
 		WebDriverUtils.getWebDriver().findElement(By.xpath(xpath)).click();
-
 	}
 
 	public void clickOnSearchButton() {
@@ -448,7 +439,6 @@ public class SearchStepImpl extends PageInitializer {
 
 	public void selectPrimaryMentorName() {
 		CommonUtils.click(searchPage.selectPrimaryMentor);
-
 	}
 
 	public void verifyTraineeUnderPrimaryMentor(String primaryMentor) {
@@ -468,7 +458,6 @@ public class SearchStepImpl extends PageInitializer {
 			row.click();
 			MiscUtils.sleep(5000);
 		}
-
 	}
 
 	public void clickOnSearchButtonGloriaCalloway() {
@@ -493,7 +482,6 @@ public class SearchStepImpl extends PageInitializer {
 
 	public void selectTrainingOrganization(String organizationName) {
 		CommonUtils.click(searchPage.selectTrainingOrganizationDropdown);
-
 	}
 
 	public void verifyTraineeOrganization(String nameOrg) {
@@ -509,10 +497,8 @@ public class SearchStepImpl extends PageInitializer {
 			if (each.getText().equals(nameOrg)) {
 				Assert.assertTrue(each.getText().equals(nameOrg));
 				MiscUtils.sleep(3000);
-
 			}
 		}
-
 	}
 
 	public void verifyClassificationType(String type) {
@@ -529,13 +515,11 @@ public class SearchStepImpl extends PageInitializer {
 			Assert.assertEquals(type.toUpperCase(), actualType);
 			CucumberLogUtils.logScreenShot();
 			eachRow.click();
-
 		}
 	}
 
 	public void selectDropdownNIHSACGloriaCalloway(String SACname) {
 		CommonUtils.selectDropDownValue(searchPage.chooseDropdownNIHSACGloriaCalloway, SACname);
-
 	}
 
 	public void verifyNIHSAAC(String name) {
@@ -552,5 +536,4 @@ public class SearchStepImpl extends PageInitializer {
 			}
 		}
 	}
-
 }

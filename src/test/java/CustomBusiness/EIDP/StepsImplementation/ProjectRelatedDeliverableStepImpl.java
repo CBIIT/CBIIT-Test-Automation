@@ -1,18 +1,15 @@
 package CustomBusiness.EIDP.StepsImplementation;
 
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-
 import CustomBusiness.EIDP.Util.CommonUtil;
 import appsCommon.PageInitializer;
 
@@ -51,7 +48,6 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer {
 		CommonUtils.sendKeys(projectRelatedDeliverablePage.publicationDescription, "Publication description");
 		CucumberLogUtils.logScreenShot("Publication Detils");
 		CommonUtils.click(projectRelatedDeliverablePage.addDeliverablesButton);
-
 	}
 
 	public void enterClassesCoursesWorkshop() {
@@ -130,7 +126,6 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer {
 			CommonUtils.waitForVisibility(projectRelatedDeliverablePage.projectsAndTrainingSave);
 			CommonUtils.click(projectRelatedDeliverablePage.projectsAndTrainingSave);
 		}
-
 	}
 
 	public void markAllDeliverablesOfTheProjectCompletedNew() {
@@ -210,7 +205,6 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer {
 			WebDriverUtils.getWebDriver().findElement(By.id("datepicker3")).sendKeys("01/15/2021");
 			projectRelatedDeliverablePage.addDeliverablesButton.click();
 		}
-
 	}
 
 	public void markAllProjectRelatedTrainningsAreCompleted() {
@@ -267,7 +261,6 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer {
 		}
 		CommonUtil.waitBrowser(6000);
 		WebDriverUtils.getWebDriver().findElement(By.id("projectsAndTrainingSave")).click();
-
 	}
 
 	public void selectProjectStatus(String status) {
@@ -290,7 +283,6 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer {
 		eidpBasePage.waitForElementToLoad(By.cssSelector(".editProject"));
 		CommonUtil.waitBrowser(2000);
 		CommonUtils.click(editProjectIcon);
-
 	}
 
 	public void editAllDeliverables() throws Exception {

@@ -1,17 +1,13 @@
 package CustomBusiness.EIDP.Pages;
 
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-//import org.springframework.context.annotation.CommonAnnotationBeanPostProcessor;
-
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-
 import CustomBusiness.EIDP.Util.CommonUtil;
 
 public class GeneralInformationPage extends CommonUtils{

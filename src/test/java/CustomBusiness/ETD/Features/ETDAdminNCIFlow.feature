@@ -3,14 +3,14 @@ Feature: ETD Flow Admin NCI
 Background: common steps
 Given User is on ETD home page and user is "CLIFFORD, DAVID"
 
-@manageRolesAddAnAdminNCI  @regression
+@manageRolesAddAnAdminNCI  @Regression @Needs_review
 Scenario: Managing Roles negative outcome
 When User clicks on Manage Roles tab
 And User clicks add button
 And User searches for a user that is already an admin as "Nekrashevich, Alena"
 Then User can verify the alert message
 
-@tabsPresentNCI @regression
+@tabsPresentNCI @Regression @Needs_review
 Scenario Outline: Verify Present Tabs
 When User clicks on organization dropdown
 And User can see only profile related to their top IC
@@ -24,20 +24,20 @@ Examples:
 |Manage ETD|
 |Manage Roles|
 
-@overrideUser @regression
+@overrideUser @Regression @Needs_review
 Scenario:Login as the same User Negative Outcome
 When User log is as "CLIFFORD, DAVID"
 Then User can verify that the User is still logged in as "CLIFFORD, DAVID"
 
 
-@manageRolesadminDeletingProfile @regression
+@manageRolesadminDeletingProfile @Regression @Needs_review
 Scenario: Admin deletes profile
 When User clicks on Manage Roles tab
 And User inputs in Search bar their name
 Then User can not delete their profile
 
 
-@manageRolesAdminNCI  @regression
+@manageRolesAdminNCI  @Regression @Needs_review
 Scenario: Assign as an admin
 When User clicks on Manage Roles tab
 And User clicks add button
@@ -49,7 +49,7 @@ And User can assign an admin role successfully
 Then newly assigned admin is able to log in
 And User can delete the newly created profile
 
-@manageRolesLiaisonNCI @regression
+@manageRolesLiaisonNCI @Regression @Needs_review
 Scenario: Assign as an ETD liaison
 When User clicks on Manage Roles tab
 And User clicks add button
@@ -64,7 +64,7 @@ Then User does not see that organization in dropdopwn choices
 And User can assign a liaison role successfully
 And User can delete the created profile
 
-@manageRolesAddUserOperationsNCI @regression
+@manageRolesAddUserOperationsNCI @Regression @Needs_review
 Scenario: assigning operations
 When User clicks on Manage Roles tab
 And User clicks add button
@@ -73,7 +73,7 @@ And User assigns an ETD liaison role
 And User chooses an Organization/SAC from the dropdown
 Then User can successfully delete that organization choice
 
-@manageRolesCancelNCI @regression
+@manageRolesCancelNCI @Regression @Needs_review
 Scenario: Cancel operation
 When User clicks on Manage Roles tab
 And User clicks add button
@@ -84,7 +84,7 @@ And User can assign another organization successfully
 Then user can verify that SAVE button is enabled
 And User can cancel the whole operation
 
-@manageRolesMultipleGroupsAccessNCI @regression
+@manageRolesMultipleGroupsAccessNCI @Regression @Needs_review
 Scenario: Multiple groups access
 When User clicks on Manage Roles tab
 And User clicks add button
@@ -95,7 +95,7 @@ And User can assign another organization successfully
 Then user can verify that the access is added successfully
 And User can delete the newly created profile
 
-@manageRolesEditExistingUserNCI @regression
+@manageRolesEditExistingUserNCI @Regression @Needs_review
 Scenario: Edit existing user
 When User clicks on Manage Roles tab
 And User picks an existing profile as "ADAM, TRENGO"
@@ -103,7 +103,7 @@ Then User can successfully edit that profile
 And User resets profile data
 
 
-@filterOutManageRolesTabAdminPostiveNCI @regression
+@filterOutManageRolesTabAdminPostiveNCI @Regression @Needs_review
 Scenario: filter out profiles
 When User clicks on Manage Roles tab
 Then user can see the filter option present
@@ -111,14 +111,14 @@ And User inputs a profile into search box as "ADAM, TRENGO"
 Then User can verify that profile is present
 
 
-@filterOutManageRolesTabAdminNegativeNCI @regression
+@filterOutManageRolesTabAdminNegativeNCI @Regression @Needs_review
 Scenario: filter out profiles
 When User clicks on Manage Roles tab
 Then user can see the filter option present
 And User inputs a profile into search box as "EGGERT, BILL"
 Then User can verify that profile is not present
 
-@manageRolesSortingAdminNCI @regression
+@manageRolesSortingAdminNCI @Regression @Needs_review
 Scenario: sorting
 When User clicks on Manage Roles tab
 And user can see tabs as Name, Organization, Role, Actions
@@ -126,7 +126,7 @@ Then User can sort in ascending order
 And User can sort in descending order 
 
 
-@manageETDAdminOrganizationChoiceNCI @regression
+@manageETDAdminOrganizationChoiceNCI @Regression @Needs_review
 Scenario: Managing ETD fields
 When User clicks on Manage ETD Tab
 And User can choose an organization from the dropdown
@@ -136,7 +136,7 @@ Then User can see profiles "names" related to the NCI applied search
 And User can export results successfully
 
 
-@manageETDWideSearchPerNCI  @regression
+@manageETDWideSearchPerNCI  @Regression @Needs_review
 Scenario: Wide Search applied
 When User clicks on Manage ETD Tab
 Then User can verify Search button is enabled
@@ -144,7 +144,7 @@ Then User clicks on Search
 Then User verifies the applied search is present
 
 
-@NCITierUsersNCIs @regression
+@NCITierUsersNCIs @Regression @Needs_review
 Scenario Outline: Home Tab for Tier 1
 Given User logged in as a '<Tier User>'
 When User is on Home Tab
@@ -157,7 +157,7 @@ Examples:
 |Tier Use3D|content of Tier4|
 
 
-@manageETDReminders @regression 
+@manageETDReminders @Regression @Needs_review 
 Scenario: Reminders count is reset
 When User clicks on Manage ETD Tab
 And User selects a profile with a reminder date present
@@ -165,7 +165,7 @@ When User resets that profile
 Then User can verify that reminder info is NULL
 And User resets that action
 
-@manageETDTier  @regression
+@manageETDTier  @Regression @Needs_review
 Scenario Outline: Wide Search
 When User clicks on Manage ETD Tab
 Then User can verify Search button is enabled
@@ -180,9 +180,7 @@ Examples:
 |Tier III  |content3  |
 |Tier III-D|content4  |
 
-
-
-@manageETDAdminVerifyFieldsofSearchViewNOtesNCI @regression
+@manageETDAdminVerifyFieldsofSearchViewNOtesNCI @Regression @Needs_review
 Scenario: Managing ETD fields
 When User clicks on Manage ETD Tab
 And User loads a wide search
@@ -197,7 +195,7 @@ And User can edit existing notes
 Then User can save applied changes
 
 
-@manageETDNCIUserAcknowledgedTier @regression
+@manageETDNCIUserAcknowledgedTier @Regression @Needs_review
 Scenario: User acknowledged Tier
 When User clicks on Manage ETD Tab
 And User loads a wide search
@@ -206,7 +204,7 @@ And User verifies that Date Acknowledged and Acknowledged by are NOT Null.
 And User logs in as that person
 Then User can see an alert on the acknowledged tier
 
-@manageETDresetAcknowledgementNCI @regression
+@manageETDresetAcknowledgementNCI @Regression @Needs_review
 Scenario: Reset Acknowledgement
 When User clicks on Manage ETD Tab
 And User loads a wide search
@@ -216,7 +214,7 @@ And User resets the scenario
 
 
 
-@manageETDBulkReset @regression
+@manageETDBulkReset @Regression @Needs_review
 Scenario: Bulk reset
 When User clicks on Manage ETD Tab
 And User loads a wide search
@@ -225,14 +223,14 @@ Then User clicks on Bulk Reset Button
 #And User can verify that Bulk reset only applies on the page level 
 
 
-@manageETDTier3D @regression
+@manageETDTier3D @Regression @Needs_review
 Scenario: Tier III-D
 When User clicks on Manage ETD Tab
 And User picks a tier "Tier III-D" from dropdown
 Then User can verify that new hires are located under this tier
 
 
-@manageETDDateAcknowledged @regression
+@manageETDDateAcknowledged @Regression @Needs_review
 Scenario: Reset Acknowledgement
 When User clicks on Manage ETD Tab
 And User loads a wide search
@@ -240,41 +238,9 @@ And User picks a profile that has not acknowledged their tier designation
 Then User can verify that Date Acknowledged and Acknowledged by data entries are not present
 
 
-@manageETDEmergencyLetterAlert @regression
+@manageETDEmergencyLetterAlert @Regression @Needs_review
 Scenario: Reset Acknowledgement
 When User clicks on Manage ETD Tab
 And User loads a wide search
 And User logs in as "DAVIS, BRIAN"
 Then User can verify that home tab is not authorized
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

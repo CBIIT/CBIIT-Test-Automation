@@ -1,17 +1,14 @@
 package CustomBusiness.EIDP.Pages;
 
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-
 import CustomBusiness.EIDP.Util.CommonUtil;
 import CustomBusiness.EIDP.Util.SharedData;
 
@@ -73,7 +70,6 @@ public class CoPrimaryMentorPage extends CommonUtils {
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		CucumberLogUtils.logScreenShot("Last Screenshot");
@@ -83,7 +79,6 @@ public class CoPrimaryMentorPage extends CommonUtils {
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
@@ -107,7 +102,6 @@ public class CoPrimaryMentorPage extends CommonUtils {
 		} catch (Exception e) {
 
 		}
-
 		// Project related deliverables / training
 		try {
 			if (isElementDisplayed(markAsReviewedCheckbox)) {
@@ -192,7 +186,6 @@ public class CoPrimaryMentorPage extends CommonUtils {
 		try {
 			Thread.sleep(10000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		CucumberLogUtils.logScreenShot("Approve and submit");
@@ -215,7 +208,6 @@ public class CoPrimaryMentorPage extends CommonUtils {
 		try {
 			Thread.sleep(10000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		CucumberLogUtils.logScreenShot("Approve and submit");

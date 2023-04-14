@@ -5,16 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-
 import com.nci.automation.web.WebDriverUtils;
-
 import CustomBusiness.EIDP.Util.CommonUtil;
 
-
 public class LoginPage extends CommonUtil{
-	
-//	public final String nidcrURL = "https://idp-test.cancer.gov/nidcr/idp/";
-//	public final String url = "https://idp-test.cancer.gov/";
 	
 	@FindBy(how = How.ID, id = "USER")
 	public WebElement username;
@@ -49,7 +43,6 @@ public class LoginPage extends CommonUtil{
 	
 	public LoginPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
-	}
-	
+	}	
 	
 }
