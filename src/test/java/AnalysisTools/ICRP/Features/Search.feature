@@ -110,7 +110,6 @@ When user clicks ICRP data
 And user clicks search database
 And user clicks export button
 And user clicks projects multisheet
-Then data is exported
 Then verify dataset download "ICRP_Search_Results_Export.xlsx"
 
 

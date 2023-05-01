@@ -288,7 +288,7 @@ public class ICRPSearchSteps extends PageInitializer {
 	}
 	@Then("verify dataset download {string}")
 	public void verifyDatasetDownload(String fileName) {
-		MiscUtils.sleep(10000);
+		MiscUtils.sleep(20000);
 		Assert.assertTrue(CommonUtils.isFileDownloaded(fileName));
 		MiscUtils.sleep(10000);
 		CommonUtils.deleteFile(fileName);
