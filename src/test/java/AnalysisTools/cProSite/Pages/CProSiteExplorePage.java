@@ -33,6 +33,10 @@ public class CProSiteExplorePage {
     public WebElement exportbutton;
     @FindBy(xpath ="//label[normalize-space()='Tumor Type']")
     public WebElement tumorverifer;
+
+    @FindBy(xpath ="//input[@id='react-select-5-input']")
+    public WebElement dropdowngene;
+
     public CProSiteExplorePage(){
         PageFactory.initElements(WebDriverUtils.webDriver, this);
 

@@ -12,8 +12,8 @@ And user selects any of the keywords
 And user clicks search
 Then results display "Cost"
 
-@Smoke @uddins2 @Progression
-Scenario: User searchs by search term and reset the serach and validate
+@Smoke @uddins2
+Scenario: User resets search
 Given user on ICRP home page
 When user clicks ICRP data
 And user clicks search database
@@ -25,7 +25,7 @@ And click on reset button
 And validate the search term data is removed
 
 
-@Smoke @uddins2 
+@Smoke @uddins2 @Progression
 Scenario: User searches with default parameters 
 Given user on ICRP home page 
 When user clicks ICRP data

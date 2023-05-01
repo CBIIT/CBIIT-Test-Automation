@@ -109,4 +109,11 @@ public class CProSiteExplorePageSteps extends PageInitializer {
         CommonUtils.deleteFile(fileName);
     }
 
+    @And("user change Gene")
+    public void userChangeGene() {
+        MiscUtils.sleep(3000);
+        JavascriptUtils.scrollDown(200);
+        cProSiteExplorePage.dropdowngene.sendKeys("ABCA7");
+        cProSiteExplorePage.dropdowngene.sendKeys(Keys.ENTER);
+    }
 }

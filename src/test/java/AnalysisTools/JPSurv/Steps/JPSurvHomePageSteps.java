@@ -216,9 +216,9 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	
 	@When("click Reset")
 	public void click_Reset() {
+		MiscUtils.sleep(5000);
 	    jpsurvHomePage.showhidearrowButton.click();
-//	    JavascriptUtils.clickByJS(jpsurvHomePage.showhidearrowButton);
-	    MiscUtils.sleep(5000);
+		MiscUtils.sleep(5000);
 	    jpsurvHomePage.resetButton.click();
 	    
 	}
@@ -238,7 +238,7 @@ public class JPSurvHomePageSteps extends PageInitializer {
 
 	@Then("verify dataset download {string}")
 	public void verifyDatasetDownload(String fileName) {
-		 MiscUtils.sleep(10000);
+		 MiscUtils.sleep(20000);
 		Assert.assertTrue(CommonUtils.isFileDownloaded(fileName));
 		 MiscUtils.sleep(10000);
 		CommonUtils.deleteFile(fileName);

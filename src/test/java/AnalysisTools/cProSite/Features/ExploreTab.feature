@@ -66,9 +66,20 @@ Feature: Explore Tab
     And user click reset button
     Then page is reset
 
-  @Smoke @uddins2  @Progression
+  @Smoke @uddins2
   Scenario: User export data
     Given user is on cProSite explore Tab
     When user clicks submit
     And user clicks export button
     Then verify dataset download "Protein_Abundance_Tumor_vs_Adjacent_Normal-CDK1.xlsx"
+
+  @Smoke @uddins2  @Progression
+  Scenario: User submit selection with Correlation Gene Correlated Gene
+    Given user is on cProSite explore Tab
+    When user change analysis to correlation
+    And user change Gene
+    And user change correlated gene to DLC1
+    And user clicks submit
+    Then results is displayed
+
+
