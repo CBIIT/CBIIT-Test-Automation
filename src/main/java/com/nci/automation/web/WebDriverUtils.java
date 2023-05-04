@@ -3,11 +3,8 @@ package com.nci.automation.web;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
-
 import com.nci.automation.utils.FrameworkConstants;
 import io.github.bonigarcia.wdm.config.OperatingSystem;
 import org.apache.logging.log4j.LogManager;
@@ -21,36 +18,26 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
 import com.nci.automation.common.Constants;
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.LocalConfUtils;
-//import io.appium.java_client.AppiumDriver;
-//import io.appium.java_client.MobileElement;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
  * This class contains web driver related methods
  *
- * @author sohilz2
+ * @author juarezds
  */
 public class WebDriverUtils {
 
     private final static Logger logger = LogManager.getLogger(WebDriverUtils.class);
     public static WebDriver webDriver;
 
-    /**
-     * Get a web-driver to interact with the UI
-     */
-    @SuppressWarnings("deprecation")
     public static WebDriver getWebDriver() {
 
         String browser = ConfUtils.getProperty("browser");
@@ -72,10 +59,8 @@ public class WebDriverUtils {
                 return null;
             }
         }
-
         long implicitWaitInSeconds = Long.valueOf(LocalConfUtils.getProperty("implicitWaitInSeconds"));
         webDriver.manage().timeouts().implicitlyWait(implicitWaitInSeconds, TimeUnit.SECONDS);
-
         if (!Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
             webDriver.manage().window().maximize();
         }
@@ -85,7 +70,7 @@ public class WebDriverUtils {
     /**
      * This method sets the path to executable drivers based on the operating
      * system. No setting needs to be changed if switching to another operating
-     * system. - POSSIBLY REMOVE SINCE IT IS NOT BEING USED?
+     * system. ---- POSSIBLY REMOVE SINCE IT IS NOT BEING USED?----
      */
     private static void setDriverExecutables() {
         System.setProperty(ChromeDriverService.CHROME_DRIVER_LOG_PROPERTY, "true");
@@ -197,7 +182,6 @@ public class WebDriverUtils {
         driver.navigate().refresh();
     }
 
-
     public static void launchChrome() {
         String osName = FrameworkConstants.GET_OS_NAME;
         if (osName.contains("Windows")) {
@@ -305,7 +289,5 @@ public class WebDriverUtils {
             webDriver.manage().deleteAllCookies();
             webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         }
-
     }
 }
-
