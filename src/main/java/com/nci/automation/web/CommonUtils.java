@@ -10,12 +10,11 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -27,9 +26,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.asserts.SoftAssert;
-
-import com.nci.automation.utils.LocalConfUtils;
+import org.testng.Assert;
 import com.nci.automation.utils.MiscUtils;
 
 /**
@@ -37,7 +34,7 @@ import com.nci.automation.utils.MiscUtils;
  * through out any application. New methods can be added at any time. Modifying
  * the existing methods may result in build failure. - Please
  * 
- * @author Sohil
+ * @author juarezds
  */
 public class CommonUtils extends WebDriverUtils {
 
@@ -292,7 +289,7 @@ public class CommonUtils extends WebDriverUtils {
 		return wait;
 	}
 
-	/**         
+	/**
 	 * This method will wait until element becomes clickable
 	 * 
 	 * @param element
@@ -475,21 +472,58 @@ public class CommonUtils extends WebDriverUtils {
 	/**
 	 * Use this method to open new tab
 	 */
+
 	public static void openNewTab() {
 		JavascriptExecutor js = (JavascriptExecutor) WebDriverUtils.webDriver;
 		js.executeScript("window.open('about:blank','_blank');");
 	}
 
 	/**
+	 * @Author @SonikaJain
+	 *         Switch to new tab opened by clicking a link
+	 */
+	public static void switchToAnotherTabWindow() {
+		String parent = WebDriverUtils.webDriver.getWindowHandle();
+		Set<String> s = WebDriverUtils.webDriver.getWindowHandles();
+		Iterator<String> I1 = s.iterator();
+
+		while (I1.hasNext()) {
+			String child_window = I1.next();
+			if (!parent.equals(child_window)) {
+				WebDriverUtils.webDriver.switchTo().window(child_window);
+			}
+		}
+	}
+
+	/**
+	 * @Author @SonikaJain
+	 *         Click browser back button
+	 */
+	public static void clickBrowserBackButton() {
+		WebDriverUtils.webDriver.navigate().back();
+	}
+
+	/**
+	 * @Author @SonikaJain
+	 *         To maximize the window
+	 */
+	public static void maximizeWindow() {
+		WebDriverUtils.webDriver.manage().window().maximize();
+	}
+
+	/**
 	 * Use this method to switch to the next another open window
 	 */
-	public static void swicthToAnotherWindow() {
+	public static void switchToAnotherWindow() {
 		Set<String> handlingAllOpenWindows = WebDriverUtils.webDriver.getWindowHandles();
 		for (String nextWindow : handlingAllOpenWindows) {
 			WebDriverUtils.webDriver.switchTo().window(nextWindow);
 		}
 	}
 
+	/*
+	 * Use this method to scroll into an element
+	 */
 	public static void scrollIntoView(By locator) {
 		try {
 			WebElement element = WebDriverUtils.webDriver.findElement(locator);
@@ -501,6 +535,9 @@ public class CommonUtils extends WebDriverUtils {
 		}
 	}
 
+	/*
+	 * Use this method to scroll into an element
+	 */
 	public static void scrollIntoView(WebElement element) {
 		try {
 			Actions action = new Actions(WebDriverUtils.webDriver);
@@ -510,6 +547,7 @@ public class CommonUtils extends WebDriverUtils {
 			throw e;
 		}
 	}
+<<<<<<< HEAD
 	/**
 	 * Use this method to verify file download
 	 */
@@ -534,19 +572,69 @@ public class CommonUtils extends WebDriverUtils {
 		}
 		
 	}
+=======
+>>>>>>> 29e7eb2276a2cd21a2fbade1d460e137ec0e21a5
 
-/*
- * 
- * Use below method to assert actual String value with an expected String value	
- */
-	public static void assertEquals(String expected, String actual) {
-		
+	/*
+	 * 
+	 * Use below method to assert expected String value with an actual String value
+	 */
+	public static void assertEquals(String actual, String expected) {
+
 		try {
-		Assert.assertEquals(expected, actual);
-		}
-		catch(AssertionError e) {
+			Assert.assertEquals(actual, expected);
+		} catch (AssertionError e) {
 
 			e.printStackTrace();
+		}
+	}
+
+	/*
+	 * 
+	 * Use below method to assert actual String value with an expected String value
+	 * using assertTrue() method
+	 */
+	public static void assertTrue(boolean flag) {
+
+		try {
+			Assert.assertTrue(flag);
+		} catch (AssertionError e) {
+
+			e.printStackTrace();
+		}
+	}
+
+	/*
+	 * Use this method to assert a boolean condition using JUnit assertion
+	 */
+	public static void assertTrueJUNIT(String message, boolean flag) {
+		try {
+			org.junit.Assert.assertTrue(message, flag);
+		} catch (AssertionError e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	/*
+	 * Use this method to assert a boolean condition using TestNG assertion
+	 * -- INCLUDE A STRING MESSAGE SPECIFYING THE ASSERTION --
+	 */
+	public static void assertTrueTestNG(boolean flag, String message) {
+		try {
+			Assert.assertTrue(flag, message);
+		} catch (AssertionError e) {
+			e.printStackTrace();
+		}
+	}
+
+	/*
+	 * Use this method to switch to switch to a following window
+	 */
+	public static void switchToNextWindow() {
+		Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
+		for (String currentWindow1 : allWindowHandles1) {
+			WebDriverUtils.webDriver.switchTo().window(currentWindow1);
 		}
 	}
 }

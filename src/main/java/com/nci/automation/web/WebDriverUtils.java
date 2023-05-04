@@ -85,12 +85,13 @@ public class WebDriverUtils {
 					cap.setCapability("avd", avdName);
 
 				}
-//				try {
-//					webDriver = new AppiumDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), cap);
-//				} catch (MalformedURLException e) {
-//					e.printStackTrace();
-//					CucumberLogUtils.logFail("Mobile driver intlization filed", false);
-//				}
+				// try {
+				// webDriver = new AppiumDriver<MobileElement>(new
+				// URL("http://localhost:4723/wd/hub"), cap);
+				// } catch (MalformedURLException e) {
+				// e.printStackTrace();
+				// CucumberLogUtils.logFail("Mobile driver intlization filed", false);
+				// }
 
 			} else if (Constants.BROWSER_CHROME.equals(browser)) {
 
@@ -105,7 +106,7 @@ public class WebDriverUtils {
 					chromeOptions.addArguments("--disable-dev-shm-usage");
 					chromeOptions.addArguments("--remote-allow-origins=*");
 					webDriver = new ChromeDriver(chromeOptions);
-//					System.out.println(chromeOptions.getVersion());
+					// System.out.println(chromeOptions.getVersion());
 				} else {
 					Map<String, Object> pref=new HashMap<String, Object>();
 					pref.put("download.default_directory",System.getProperty("user.dir"));
@@ -114,7 +115,11 @@ public class WebDriverUtils {
 					chromeOptions.addArguments("--no-sandbox");
 					chromeOptions.addArguments("--disable-dev-shm-usage");
 					chromeOptions.addArguments("--remote-allow-origins=*");
+<<<<<<< HEAD
 //					System.out.println("Non headless-->" + chromeOptions.getVersion());
+=======
+					// System.out.println("Non headless-->" + chromeOptions.getVersion());
+>>>>>>> 29e7eb2276a2cd21a2fbade1d460e137ec0e21a5
 					webDriver = new ChromeDriver(chromeOptions);
 
 				}

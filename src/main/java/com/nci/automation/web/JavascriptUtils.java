@@ -38,6 +38,13 @@ public class JavascriptUtils extends WebDriverUtils {
 		JavascriptExecutor js = (JavascriptExecutor) webDriver;
 		js.executeScript("arguments[0].value = '';", element);
 	}
+	
+	/* To scroll down the web page at the bottom of the page.*/
+	public static void scrollDownByPage() {	
+		JavascriptExecutor js = ((JavascriptExecutor) webDriver);	
+		 //This will scroll the web page till end.		
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+	}
 
 	/**
 	 * Use this method in need of scrolling to the very bottom of the page.
@@ -151,7 +158,7 @@ public class JavascriptUtils extends WebDriverUtils {
 	 * and date desired in String format as arguments
 	 * 
 	 * @param element
-	 * @param date to be selected
+	 * @param date    to be selected
 	 */
 	public static void selectDateByJS(WebElement element, String date) {
 		JavascriptExecutor js = (JavascriptExecutor) webDriver;
@@ -174,8 +181,8 @@ public class JavascriptUtils extends WebDriverUtils {
 	/**
 	 * This method will scroll screen by the given pixel
 	 * 
-	 * @param pixel 
-	 * @param pixel 
+	 * @param pixel
+	 * @param pixel
 	 */
 	public static void scrollScreen(int x, int y) {
 		JavascriptExecutor js = (JavascriptExecutor) WebDriverUtils.webDriver;

@@ -1,22 +1,25 @@
 package appsCommon;
 
+<<<<<<< HEAD
 import AnalysisTools.cProSite.Pages.CProSiteExplorePage;
 import com.sun.xml.bind.v2.model.core.ID;
+=======
+>>>>>>> 29e7eb2276a2cd21a2fbade1d460e137ec0e21a5
 import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
 import AnalysisTools.CEDCD.Pages.CEDCDBiospecimenCountsPage;
 import AnalysisTools.CEDCD.Pages.CEDCDCohortPage;
 import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
+import AnalysisTools.CEDCD.Steps.CEDCDStartUps;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDAlphabetizedSelectTypesStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortNewPageLayOutStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
+import AnalysisTools.Comets2.Pages.Comets2Page;
 import AnalysisTools.ICRP.Pages.ICRPHomePage;
 import AnalysisTools.ICRP.Pages.ICRPSearchDatabasePage;
 import AnalysisTools.JPSurv.Pages.JPSurvHomePage;
-import AnalysisTools.Comets2.Pages.Comets2Page;
-import AnalysisTools.CEDCD.Steps.CEDCDStartUps;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
 import AnalysisTools.PLCO.Pages.BrowsePhenotypePage;
@@ -26,12 +29,16 @@ import AnalysisTools.mSigPortal.Pages.CatalogPages;
 import AnalysisTools.mSigPortal.Pages.MSigPortalHomePage;
 import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
 import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
-import AnalysisTools.mSigPortal.Steps.SignatureVisualizationSteps;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
 import ServiceNow.CHARMS.Pages.CGBIIQPage;
 import ServiceNow.CHARMS.Pages.CGBIIQPages;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
 import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
+import ServiceNow.CHARMS.Pages.FHQSurveyPage;
+import ServiceNow.CHARMS.Pages.FHQSurveyPortalPage;
+import ServiceNow.CHARMS.Pages.MelanomaHomePage;
+import ServiceNow.CHARMS.Pages.MelanomaLoginPage;
+import ServiceNow.CHARMS.Pages.MelanomaQuestionnairePage;
 import ServiceNow.CHARMS.Pages.MyRASHomePage;
 import ServiceNow.CHARMS.Pages.MyRASLoginPage;
 import ServiceNow.CHARMS.Pages.MyRASStudyConsentPage;
@@ -65,15 +72,51 @@ import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
 import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
+import ServiceNow.NERD.Pages.NERDCRSTCollaborationsPage;
+import ServiceNow.NERD.Pages.NERDCRSTopAccomplishmentsPage;
+import ServiceNow.NERD.Pages.NERDDOCCollaborationsPage;
 import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
+import ServiceNow.NERD.Pages.NERDHomePage;
+import ServiceNow.NERD.Pages.NERDKnowledgebasePage;
 import ServiceNow.NERD.Pages.NERDSubmissionsPage;
 import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NativeViewImpersonateUser;
 import ServiceNow.SEER.Pages.NativeViewSentViewPage;
 import ServiceNow.SEER.Pages.SEERDataAccessRequestPage;
+import ServiceNow.SEER.Pages.SEERExistingAccountPage;
 import ServiceNow.SEER.Pages.SEERIncidenceDatabaseDetailsPage;
 import ServiceNow.SEER.Pages.SEERLandingPage;
 import ServiceNow.SEER.Pages.SEERUserRegistrationPage;
+import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
+import CustomBusiness.DCEG.Pages.AdminFlowPage;
+import CustomBusiness.DCEG.Pages.BranchAdminPage;
+import CustomBusiness.DCEG.Pages.CreateCRPage;
+import CustomBusiness.DCEG.Pages.DirectSubmitterPage;
+import CustomBusiness.DCEG.Pages.RegularUserFlowPage;
+import CustomBusiness.DCEG.Steps.RegularUserFlowSteps;
+import CustomBusiness.DCEG.StepsImplementation.FlowStepsImplementation;
+import CustomBusiness.EIDP.Pages.AligningExpectationsPage;
+import CustomBusiness.EIDP.Pages.BasePage;
+import CustomBusiness.EIDP.Pages.CareerGoalAndActivePage;
+import CustomBusiness.EIDP.Pages.CoPrimaryMentorPage;
+import CustomBusiness.EIDP.Pages.CommonPage;
+import CustomBusiness.EIDP.Pages.DashboardPage;
+import CustomBusiness.EIDP.Pages.DelegatePage;
+import CustomBusiness.EIDP.Pages.GeneralInformationPage;
+import CustomBusiness.EIDP.Pages.IDPAwaitingResponsePage;
+import CustomBusiness.EIDP.Pages.LoginPage;
+import CustomBusiness.EIDP.Pages.ProjectRelatedDeliverablePage;
+import CustomBusiness.EIDP.Pages.SearchPage;
+import CustomBusiness.EIDP.Pages.TraineeReviewPage;
+import CustomBusiness.EIDP.StepsImplementation.AlignExpectionsStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.CareerGoalAndActiveStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.EIDPLoginStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.GeneralInformationStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.ProjectRelatedDeliverableStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.SearchStepImpl;
+import CustomBusiness.ETD.Pages.ETDAdminNCIPage;
+import CustomBusiness.ETD.Pages.ETDBasePage;
+import CustomBusiness.ETD.StepsImplementation.ETDFlowStepsImpl;
 
 /**
  * This an initializer class which will initialize all pages classes. Once pages
@@ -112,6 +155,7 @@ public class PageInitializer {
 	protected static NativeViewLoginImpl nativeViewLoginImpl;
 	protected static NativeViewHomePage nativeViewHomePage;
 	protected static NativeViewImpersonateUser nativeViewImpersonateUser;
+	protected static NativeViewSideDoorLoginPage nativeViewSideDoorLoginPage;
 
 	/** CHARMS instances */
 	protected static CHARMSNativeViewPage charmsNativeViewPage;
@@ -130,6 +174,8 @@ public class PageInitializer {
 	protected static CGBIIQPages cGBIIQPages;
 	protected static RASSurveyPage rASSurveyPage;
 	protected static RASSurveyStepsImpl rASSurveyStepsImpl;
+	protected static FHQSurveyPage fHQSurveyPage;
+	protected static FHQSurveyPortalPage fHQSurveyPortalPage;
 
 	/** LDLink instances **/
 	protected static LDLinkHomePage ldLinkHomePage;
@@ -164,12 +210,19 @@ public class PageInitializer {
 	protected static SEERDataAccessRequestPage seerDataAccessRequestPage;
 	protected static NativeViewSentViewPage nativeViewSentViewPage;
 	protected static SEERIncidenceDatabaseDetailsPage seerIncidenceDatabaseDetailsPage;
+	protected static SEERExistingAccountPage seerExistingAccountPage;
+	protected static SEERDataAccessRequestPageStepsImpl seerDataAccessRequestPageStepsImpl;
 
 	/** NERD instances */
 	protected static NERDLoginStepsImplementation nerdLoginStepsImplementation;
 	protected static NERDSubmissionsPage nerdCrsKnowledgeDatabaseSubmissionsPage;
 	protected static CreateNewSubmissionPage createNewSubmissionPage;
 	protected static NERDDynamicXPATHS nerdDynamicXpaths;
+	protected static NERDHomePage nerdHomePage;
+	protected static NERDKnowledgebasePage nerdKnowledgeBasePage;
+	protected static NERDCRSTopAccomplishmentsPage nerdCRSTopAccomplishmentsPage;
+	protected static NERDCRSTCollaborationsPage nerdCRSTCollaborationsPage;
+	protected static NERDDOCCollaborationsPage nerdDOCCollaborationsPage;
 
 	/** Comets 2.0 Instances */
 	protected static Comets2Page comets2Page;
@@ -181,6 +234,7 @@ public class PageInitializer {
 	protected static CatalogPages catalogPages;
 
 	/** ICRP instances **/
+<<<<<<< HEAD
 	protected static ICRPHomePage icrpHomePage; 
 	protected static ICRPSearchDatabasePage icrpSearchDatabasePage; 
 	
@@ -191,7 +245,50 @@ public class PageInitializer {
 	protected static CProSiteExplorePage cProSiteExplorePage;
 
 
+=======
+	protected static ICRPHomePage icrpHomePage;
+	protected static ICRPSearchDatabase icrpSearchDatabase;
+>>>>>>> 29e7eb2276a2cd21a2fbade1d460e137ec0e21a5
 
+	/** JPSurv instances **/
+	protected static JPSurvHomePage jpsurvHomePage;
+
+	/** Melanoma and Spitzoid Tumor instances **/
+	protected static MelanomaLoginPage melanomaLoginPage;
+	protected static MelanomaHomePage melanomaHomePage;
+	protected static MelanomaQuestionnairePage melanomaQuestionnairePage;
+
+	/** Custom Business App Instances */
+	protected static AligningExpectationsPage aligningExpectationsPage;
+	protected static DashboardPage eidpDashboardPage;
+	protected static CommonPage eidpCommonPage;
+	protected static LoginPage nihLoginPage;
+	protected static BasePage eidpBasePage;
+	protected static EIDPLoginStepImpl eidpLoginStepImpl;
+	protected static AlignExpectionsStepImpl aligningExpectationsStepImpl;
+	protected static GeneralInformationPage generalInformationPage;
+	protected static GeneralInformationStepImpl generalInformationStepImpl;
+	protected static CustomBusiness.EIDP.StepsImplementation.DashboardStepImpl eidpDashboardStepImpl;
+	protected static SearchPage searchPage;
+	protected static SearchStepImpl searchStepimpl;
+	protected static CareerGoalAndActivePage careerGoalAndActivePage;
+	protected static CareerGoalAndActiveStepImpl careerGoalAndActiveStepImpl;
+	protected static ProjectRelatedDeliverablePage projectRelatedDeliverablePage;
+	protected static ProjectRelatedDeliverableStepImpl projectRelatedDeliverableStepImpl;
+	protected static DelegatePage delegatePage;
+	protected static IDPAwaitingResponsePage iDPAwaitingResponsePage;
+	protected static TraineeReviewPage traineeReviewPage;
+	protected static CoPrimaryMentorPage coPrimaryMentorPage;
+	protected static CreateCRPage createCRPage;
+	protected static FlowStepsImplementation flowStepsImplementation;
+	protected static DirectSubmitterPage directSubmitterPage;
+	protected static AdminFlowPage adminFlowPage;
+	protected static RegularUserFlowSteps regularUserFlowSteps;
+	protected static BranchAdminPage branchAdminPage;
+	protected static RegularUserFlowPage regularUserFlowPage;
+	protected static ETDFlowStepsImpl etdFlowStepsImpl;
+	protected static ETDAdminNCIPage etdAdminNCIPage;
+	protected static ETDBasePage etdBasePage;
 
 	public static void initializeAllPages() {
 		// create instances of all pages and assign them to the variables
@@ -269,10 +366,66 @@ public class PageInitializer {
 		cGBIIQPages = new CGBIIQPages();
 		rASSurveyPage = new RASSurveyPage();
 		rASSurveyStepsImpl = new RASSurveyStepsImpl();
+<<<<<<< HEAD
 		jpsurvHomePage = new JPSurvHomePage();
 		cProSiteExplorePage = new CProSiteExplorePage();
 
 	
+=======
+		fHQSurveyPortalPage = new FHQSurveyPortalPage();
+>>>>>>> 29e7eb2276a2cd21a2fbade1d460e137ec0e21a5
 
+		/** Native View instance */
+		nativeViewImpersonateUser = new NativeViewImpersonateUser();
+		nativeViewSideDoorLoginPage = new NativeViewSideDoorLoginPage();
+		fHQSurveyPage = new FHQSurveyPage();
+
+		jpsurvHomePage = new JPSurvHomePage();
+		melanomaLoginPage = new MelanomaLoginPage();
+		melanomaHomePage = new MelanomaHomePage();
+		melanomaQuestionnairePage = new MelanomaQuestionnairePage();
+		nerdHomePage = new NERDHomePage();
+		nerdKnowledgeBasePage = new NERDKnowledgebasePage();
+		nerdCRSTopAccomplishmentsPage = new NERDCRSTopAccomplishmentsPage();
+		nerdDOCCollaborationsPage = new NERDDOCCollaborationsPage();
+		nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
+
+		seerExistingAccountPage = new SEERExistingAccountPage();
+		seerDataAccessRequestPageStepsImpl = new SEERDataAccessRequestPageStepsImpl();
+
+		/*custom Business App */
+		nativeViewLoginImpl = new NativeViewLoginImpl();
+		nativeViewHomePage = new NativeViewHomePage();
+		aligningExpectationsPage = new AligningExpectationsPage();
+		eidpDashboardPage = new DashboardPage();
+		eidpCommonPage = new CommonPage();
+		nihLoginPage = new LoginPage();
+		eidpBasePage = new BasePage();
+		eidpLoginStepImpl = new EIDPLoginStepImpl();
+		aligningExpectationsStepImpl = new AlignExpectionsStepImpl();
+		generalInformationPage = new GeneralInformationPage();
+		searchPage = new SearchPage();
+		searchStepimpl = new SearchStepImpl();
+		generalInformationStepImpl = new GeneralInformationStepImpl();
+		careerGoalAndActivePage = new CareerGoalAndActivePage();
+		careerGoalAndActiveStepImpl = new CareerGoalAndActiveStepImpl();
+		projectRelatedDeliverablePage = new ProjectRelatedDeliverablePage();
+		projectRelatedDeliverableStepImpl = new ProjectRelatedDeliverableStepImpl();
+		delegatePage = new DelegatePage();
+		iDPAwaitingResponsePage = new IDPAwaitingResponsePage();
+		traineeReviewPage = new TraineeReviewPage();
+		coPrimaryMentorPage = new CoPrimaryMentorPage();
+		eidpDashboardStepImpl = new CustomBusiness.EIDP.StepsImplementation.DashboardStepImpl();
+		createCRPage = new CreateCRPage();
+		flowStepsImplementation = new FlowStepsImplementation();
+		directSubmitterPage = new DirectSubmitterPage();
+		adminFlowPage = new AdminFlowPage();
+		regularUserFlowSteps = new RegularUserFlowSteps();
+		branchAdminPage = new BranchAdminPage();
+		regularUserFlowPage = new RegularUserFlowPage();
+		/**ETD **/
+		etdFlowStepsImpl = new ETDFlowStepsImpl();
+		etdAdminNCIPage  = new ETDAdminNCIPage();
+		etdBasePage = new ETDBasePage();
 	}
 }

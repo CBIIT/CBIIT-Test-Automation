@@ -20,3 +20,16 @@ reports/.DS_Store
 */.idea/*
 /.idea/
 /.idea
+/test-output/
+.apt_generated
+.apt_generated_tests
+.vscode
+.settings
+.classpath
+.project
+reports
+.DS_Store
+/.DS_Store
+/bin/
+.idea/
+
