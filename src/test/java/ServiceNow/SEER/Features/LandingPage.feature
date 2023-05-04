@@ -1,6 +1,6 @@
 Feature: SEER Data Access Landing Page Scenarios
 
-  @Smoke @juarezds @ODS-329 @ODS-319 @Regression @Progression
+  @Smoke @juarezds @ODS-329 @ODS-319 @Regression
   Scenario: Test Update public submission page text for user who already has access
     Given a user is on the SEER Data Access landing page
     When the user attempts to request research data with existing email address "diego@test.com"
@@ -17,15 +17,15 @@ Feature: SEER Data Access Landing Page Scenarios
     Given a user is on the SEER Data Access landing page
     Then the SEER Data Access landing page has the following text displayed
       """
-      There are two data products available: SEER Research and SEER Research Plus. Access to the Research Plus databases requires user authentication.  Refer to Comparison of Data Products for current information.
-      
-      About Research Plus Data Access
-      To request access to the Research Plus Data, you must login with an eRA Commons account that is associated with an institutional email address (.edu, .gov, .org, or work email address) for user authentication.
-      Exceptions for federal government agencies: Requestors associated with the NIH, or the following other HHS Agencies should use their PIV Cards for user authentication: AHRQ, CDC, CMS, FDA, and IHS.
-      Information on how to obtain an eRA commons login can be found in the FAQ on the SEER webpage.
-      Users who are approved for access to the SEER Research Plus Databases will be eligible to request specialized databases.
-      
-      About Research Data Access
-      If you cannot obtain an eRA Commons account or do not need access to the additional variables available in the Research Plus Data, you can register for the Research Data.
-      Users with access only to the Research Data are not eligible to request specialized databases and cannot upgrade to Research Plus without an eRA Commons account or an HHS PIV card.
+There are two data products available: SEER Research and SEER Research Plus. Access to the Research Plus databases requires user authentication.  Refer to Comparison of Data Products for current information.
+
+About Research Plus Data Access
+To request access to the Research Plus Data, you must login with an eRA Commons account that is associated with an institutional email address (.edu, .gov, .org, or work email address) for user authentication.
+Requestors associated with HHS agencies should login with their PIV cards to request the data.
+Information on how to obtain an eRA commons login can be found in the FAQ on the SEER webpage.
+Users who are approved for access to the SEER Research Plus Databases will be eligible to request specialized databases.
+
+About Research Data Access
+If you cannot obtain an eRA Commons account or do not need access to the additional variables available in the Research Plus Data, you can register for the Research Data.
+Users with access only to the Research Data are not eligible to request specialized databases and cannot upgrade to Research Plus without an eRA Commons account or an HHS PIV card.
       """
