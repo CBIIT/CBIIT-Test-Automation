@@ -9,6 +9,7 @@ public class Constants {
 
 	// Browser identifiers
 	public static final String BROWSER_IE = "ie";
+	public static final String BROWSER_EDGE = "edge";
 	public static final String BROWSER_FIREFOX = "firefox";
 	public static final String BROWSER_CHROME = "chrome";
 	public static final String BROWSER_HTML_UNIT_DRIVER = "htmlunitdriver";

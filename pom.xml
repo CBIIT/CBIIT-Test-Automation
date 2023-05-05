@@ -27,7 +27,7 @@
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
-			<version>3.8.1</version>
+			<version>5.3.2</version>
 		</dependency>
 
 		<!-- selenium libraries -->
@@ -35,7 +35,7 @@
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>4.8.3</version>
+			<version>4.9.0</version>
 		</dependency>
 
 		<!-- appium libraries -->
@@ -237,7 +237,7 @@
 					<useSystemClassLoader>false</useSystemClassLoader>
 					<includes>
 						<include>
-							
+
 						</include>
 					</includes>
 					<testFailureIgnore>true</testFailureIgnore> <!-- to get report even when fails -->
