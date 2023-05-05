@@ -1,10 +1,10 @@
 @Smoketest @NCI
 Feature: Regression testing
 
-  @InitiatesIDPNCI @Regression @Smoke @Zamant2 @Needs_review
+  @InitiatesIDPNCI @Regression @Smoke @Zamant2 @Needs_review @tz
   Scenario: TC01 IDP request creates and decline and approve
     ##Given User opens nih application in browser
-    When User will login to the application as "sgugulothuUsername" user on "EidpUrlNCI"
+    When User will login to the application as "Username" user on "EidpUrlNCI"
     And Logged in user changes the user to "Ginsburg,Erika"
     And User will click on search in dashboard
     And User creates IDP request

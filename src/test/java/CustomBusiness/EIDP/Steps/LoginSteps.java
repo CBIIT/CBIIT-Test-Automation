@@ -9,19 +9,9 @@ import cucumber.api.java.en.When;
 
 public class LoginSteps extends PageInitializer {
 
-//	@Given("User opens nih application in browser")
-//	public void openApp() {
-//		nihLoginPage.openApp("nih");
-//	}
-//	
-//	@Given("User opens nidcra application in browser")
-//	public void openNIDCRApp() {
-//		nihLoginPage.openApp("nidcra");
-//	}
-
 	@When("User will login to the application as {string} user on {string}")
-	public void loginByUsernameOn(String username, String url) throws InterruptedException, TestingException {
-		eidpLoginStepImpl.ApplicationLogin("sgugulothuUsername", "sgugulothuPassword", url);
+	public void loginByUsernameOn(String username, String appUrl) throws InterruptedException, TestingException {
+		eidpLoginStepImpl.ApplicationLogin(username, "Password", appUrl);
 	}
 
 	@When("User will login to the application as \"([^\"]*)\" user")
@@ -33,16 +23,6 @@ public class LoginSteps extends PageInitializer {
 		} else {
 			eidpLoginStepImpl.eidpApplicationLogin("Username", "Password");
 		}
-//		 // eidpLoginStepImpl.eidpApplicationLogin("Username", "Password");
-
-//		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
-//		loginStepsImpl.clckOnLoginButton();
-//		Thread.sleep(3000);
-//		loginStepsImpl.enterUsername(username);
-//		loginStepsImpl.enterPassword(Constants.passwords.get(username));
-//		basePage.captureScreenshot("Before Login");
-//		loginStepsImpl.clickOnSignInButton();
-
 	}
 
 	@When("Logged in user changes the user to \"([^\"]*)\"")
