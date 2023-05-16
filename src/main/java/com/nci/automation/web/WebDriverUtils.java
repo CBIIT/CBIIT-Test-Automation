@@ -68,58 +68,6 @@ public class WebDriverUtils {
     }
 
     /**
-     * This method sets the path to executable drivers based on the operating
-     * system. No setting needs to be changed if switching to another operating
-     * system. ---- POSSIBLY REMOVE SINCE IT IS NOT BEING USED?----
-     */
-    private static void setDriverExecutables() {
-        System.setProperty(ChromeDriverService.CHROME_DRIVER_LOG_PROPERTY, "true");
-        String browser = ConfUtils.getProperty("browser");
-        String osName = Constants.GET_OS_NAME;
-
-        if (browser.equalsIgnoreCase(Constants.BROWSER_CHROME)) {
-            if (osName.contains("Mac")) {
-                // System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH);
-                WebDriverManager.chromedriver().setup();
-            } else if (osName.contains("Window")) {
-                // System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH + GET_EXE);
-            } else if (osName.contains("Linux")) {
-                // System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH + GET_LINUX);
-            }
-        } else if (browser.equalsIgnoreCase(Constants.BROWSER_IE)) {
-            if (osName.contains("Mac")) {
-                // System.setProperty(Constants.IE_KEY, Constants.IE_PATH);
-                WebDriverManager.iedriver().setup();
-            } else if (osName.contains("Windows")) {
-                // System.setProperty(Constants.IE_KEY, Constants.IE_PATH + GET_EXE);
-                //WebDriverManager.iedriver().operatingSystem(OperatingSystem.WIN).setup();
-            } else if (osName.contains("Linux")) {
-                //WebDriverManager.iedriver().operatingSystem(OperatingSystem.LINUX).setup();
-            }
-        } else if (browser.equalsIgnoreCase(Constants.BROWSER_FIREFOX)) {
-            if (osName.contains("Mac")) {
-                // System.setProperty(Constants.FIREFOX_KEY, Constants.FIREFOX_PATH);
-                WebDriverManager.firefoxdriver().setup();
-            } else if (osName.contains("Windows")) {
-                // System.setProperty(Constants.FIREFOX_KEY, Constants.FIREFOX_PATH + GET_EXE);
-                //	WebDriverManager.firefoxdriver().operatingSystem(OperatingSystem.WIN).setup();
-            } else if (osName.contains("Linux")) {
-                //	WebDriverManager.firefoxdriver().operatingSystem(OperatingSystem.LINUX).setup();
-            }
-        } else if (browser.equalsIgnoreCase(Constants.BROWSER_PHANTOM)) {
-            if (osName.contains("Mac")) {
-                // System.setProperty(Constants.PHANTOM_KEY, Constants.PHANTOM_PATH);
-                //WebDriverManager.phantomjs().setup();
-            } else if (osName.contains("Windows")) {
-                // System.setProperty(Constants.PHANTOM_KEY, Constants.PHANTOM_PATH + GET_EXE);
-                //WebDriverManager.phantomjs().operatingSystem(OperatingSystem.WIN).setup();
-            } else if (osName.contains("Linux")) {
-                //WebDriverManager.phantomjs().operatingSystem(OperatingSystem.LINUX).setup();
-            }
-        }
-    }
-
-    /**
      * This method will close the current web-driver
      */
     public static void closeWebDriver() {
@@ -146,21 +94,6 @@ public class WebDriverUtils {
             CucumberLogUtils.logError("Couldn't take screenshot");
         }
         return screenshot;
-    }
-
-    public static void suppressAlert() {
-        Robot robot = null;
-        String browser = ScenarioContext.getBrowserID();
-        if (Constants.BROWSER_IE.equals(browser)) {
-            try {
-                robot = new Robot();
-            } catch (AWTException e) {
-                logger.error(String.format("Error occured while supressing alert"));
-            }
-            // press enter to save the file
-            robot.keyPress(KeyEvent.VK_ENTER);
-            robot.keyRelease(KeyEvent.VK_ENTER);
-        }
     }
 
     /**
