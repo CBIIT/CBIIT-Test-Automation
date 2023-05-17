@@ -1,5 +1,6 @@
 package ServiceNow.SEER.StepsImplementation;
 
+import ServiceNow.SEER.Constants.DUA_Constants;
 import org.testng.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -70,6 +71,22 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         CommonUtils.selectDropDownValue("General Public",
                 seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
         MiscUtils.sleep(2000);
+        CucumberLogUtils.logScreenShot();
+    }
+
+    public static void verifyingAgreements() {
+        String actualTreatmentDataLimitationsAgreementText = seerDataAccessRequestPage.seerDataAccessTreatmentDataLimitationsAgreement.getText();
+        CommonUtils.assertEquals(actualTreatmentDataLimitationsAgreementText, DUA_Constants.SEER_ACKNOWLEDGMENT_OF_TREATMENT_DATA_LIMITATIONS);
+        CucumberLogUtils.logScreenShot();
+
+        CommonUtils.scrollIntoView(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationText);
+        String actualDataUseAgreementCertificationText = seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationText.getText();
+        CommonUtils.assertEquals(actualDataUseAgreementCertificationText, DUA_Constants.DATA_USE_AGREEMENT_CERTIFICATION);
+        CucumberLogUtils.logScreenShot();
+
+        CommonUtils.scrollIntoView(seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceText);
+        String actualDataAccessBestPracticeAssuranceText = seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceText.getText();
+        CommonUtils.assertEquals(actualDataAccessBestPracticeAssuranceText, DUA_Constants.BEST_PRACTICE_ASSURANCE);
         CucumberLogUtils.logScreenShot();
     }
 }
