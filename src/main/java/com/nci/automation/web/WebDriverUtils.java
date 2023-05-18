@@ -66,7 +66,7 @@ public class WebDriverUtils {
 					cap.setCapability("deviceName", "iOS");
 					cap.setCapability("platformName", "iOS");
 					cap.setCapability(CapabilityType.BROWSER_NAME, "Safari");
-					cap.setCapability(CapabilityType.VERSION, "14");
+					cap.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, "14");
 					cap.setCapability("udid", udid);
 					cap.setCapability("automationName", "XCUITest");
 
@@ -74,7 +74,7 @@ public class WebDriverUtils {
 					cap.setCapability("deviceName", "Android");
 					cap.setCapability("platformName", "Android");
 					cap.setCapability(CapabilityType.BROWSER_NAME, "Chrome");
-					cap.setCapability(CapabilityType.VERSION, "10");
+					cap.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, "10");
 					cap.setCapability("avd", avdName);
 
 				}

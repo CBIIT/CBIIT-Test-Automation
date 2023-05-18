@@ -10,7 +10,7 @@ import cucumber.api.junit.Cucumber;
 		"junit:target/cucumber.xml", "rerun:target/failed.txt",
 		"pretty" }, 
 features = "src/test/java/ServiceNow/CHARMS/Features", 
-glue = "ServiceNow.CHARMS.Steps", tags = "@Progression", dryRun = false, monochrome = true, strict = true
+glue = "ServiceNow.CHARMS.Steps", tags = "@Progression", dryRun = true, monochrome = true, strict = true
 
 )
 

@@ -31,6 +31,8 @@ import ServiceNow.CHARMS.Pages.CHARMSHomePage;
 import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
 import ServiceNow.CHARMS.Pages.FHQSurveyPage;
 import ServiceNow.CHARMS.Pages.FHQSurveyPortalPage;
+import ServiceNow.CHARMS.Pages.FanconiEligibilityQuestionnairePage;
+import ServiceNow.CHARMS.Pages.FanconiLoginPage;
 import ServiceNow.CHARMS.Pages.MelanomaHomePage;
 import ServiceNow.CHARMS.Pages.MelanomaLoginPage;
 import ServiceNow.CHARMS.Pages.MelanomaQuestionnairePage;
@@ -144,6 +146,8 @@ public class PageInitializer {
 	protected static RASSurveyStepsImpl rASSurveyStepsImpl;
 	protected static FHQSurveyPage fHQSurveyPage;
 	protected static FHQSurveyPortalPage fHQSurveyPortalPage;
+	protected static FanconiEligibilityQuestionnairePage fanconiEligibilityQuestionnairePage;
+	protected static FanconiLoginPage fanconiLoginPage;
 	
 
 
@@ -290,7 +294,8 @@ public class PageInitializer {
 		rASSurveyPage = new RASSurveyPage();
 		rASSurveyStepsImpl = new RASSurveyStepsImpl();
 		fHQSurveyPortalPage = new FHQSurveyPortalPage();
-			
+		fanconiEligibilityQuestionnairePage = new FanconiEligibilityQuestionnairePage();
+		fanconiLoginPage = new FanconiLoginPage();
 		
 		/** Native View instance */
 		nativeViewImpersonateUser=new NativeViewImpersonateUser();
@@ -306,6 +311,7 @@ public class PageInitializer {
 		nerdCRSTopAccomplishmentsPage = new NERDCRSTopAccomplishmentsPage();
 		nerdDOCCollaborationsPage = new NERDDOCCollaborationsPage();
 		nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
+		
 
 	}
 }

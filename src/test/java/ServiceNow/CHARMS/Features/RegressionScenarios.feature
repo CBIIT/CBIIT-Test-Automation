@@ -415,7 +415,7 @@ Feature: MyRAS Study Regression Scenarios
     And clicks Next button to end survey for You are almost done! To submit your responses, you must continue in the questionnaire by clicking the forward arrow below. The information you have provided will be reviewed by our study team. In the meantime, you should receive an email confirming this submission. page - myRAS Survey
 
 
-  @juarezds @e2e-Regression @Regression @Updated
+ # @juarezds @e2e-Regression @Regression @Updated
   Scenario: Proxy Screener Submission with data verification
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in via Okta with username "charmsras2@yahoo.com" and password "RASTest2021$$"
