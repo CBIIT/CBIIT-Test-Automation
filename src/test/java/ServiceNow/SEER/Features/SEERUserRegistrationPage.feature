@@ -1,11 +1,11 @@
 Feature: SEER User Registration Scenarios
 
-  @ODS-283 @juarezds @NEEDS_UPDATE
+  @ODS-283 @juarezds @Regression
   Scenario: Verifying Sate and Zip code fields are required when selecting United States of America for Country field
     Given a user is on the SEER Data Access landing page
     And user proceeds with email verification for Research Data Requests
-    When entering required information
-    And entering and selecting "United States of America" for Country field
+    When entering and selecting "United States of America" for Country field
+    And entering required information except State and Zip code
     And submits the registration form
     Then the user is not able to submit the registration form because the State and Zip Code fields are required
 

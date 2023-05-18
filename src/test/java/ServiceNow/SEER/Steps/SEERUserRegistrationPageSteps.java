@@ -16,7 +16,6 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 
 	@When("fills out the SEER Registration form")
 	public void fills_out_the_SEER_Registration_form() {
-
 		seerUserRegistrationPage.seerUserRegistrationFirstNameField.sendKeys("Test");
 		seerUserRegistrationPage.seerUserRegistrationMiddleNameField.sendKeys("Tester");
 		seerUserRegistrationPage.seerUserRegistrationLastNameField.sendKeys("Testing");
@@ -48,7 +47,6 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 		JavascriptUtils.scrollIntoView(seerLandingPage.researchDataRequestsEmailAddressField);
 		CommonUtils.waitForVisibility(seerLandingPage.researchDataRequestsEmailAddressField);
 		CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, "test@mail.com");
-
 		/*
 		 * ----- UPDATE BELOW -----
 		 */
@@ -58,8 +56,8 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 	}
 
-	@When("entering required information")
-	public void entering_required_information() {
+	@When("entering required information except State and Zip code")
+	public void entering_required_information_except_State_and_Zip_code() {
 		String seerRegistrationPage = WebDriverUtils.getWebDriver().getTitle();
 		Assert.assertTrue(seerRegistrationPage.contentEquals("SEER User Registration - ODS SEER Data Access Request"));
 		seerUserRegistrationPage.seerUserRegistrationFirstNameField.sendKeys("Test");
@@ -76,6 +74,12 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 		seerUserRegistrationPage.seerUserRegistrationJobTitleField.sendKeys("Tester");
 		JavascriptUtils.scrollIntoView(seerUserRegistrationPage.seerUserRegistrationEmailField);
 		MiscUtils.sleep(2000);
+		seerUserRegistrationPage.seerUserRegistrationAddressField.sendKeys("330 Ivy Lane, Apartment 6");
+		seerUserRegistrationPage.seerUserRegistrationCityField.sendKeys("NYC");
+		seerUserRegistrationPage.seerUserRegistrationPhoneField.sendKeys("6306543343");
+		CommonUtils.selectDropDownValue("General Public",
+				seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
+		MiscUtils.sleep(2000);
 	}
 
 	@When("entering and selecting {string} for Country field")
@@ -85,12 +89,6 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 		seerUserRegistrationPage.seerUserRegistrationCountryUSA.click();
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
-		seerUserRegistrationPage.seerUserRegistrationAddressField.sendKeys("330 Ivy Lane, Apartment 6");
-		seerUserRegistrationPage.seerUserRegistrationCityField.sendKeys("NYC");
-		seerUserRegistrationPage.seerUserRegistrationPhoneField.sendKeys("6306543343");
-		CommonUtils.selectDropDownValue("General Public",
-				seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
-		MiscUtils.sleep(2000);
 	}
 
 	@Then("the user is not able to submit the registration form because the State and Zip Code fields are required")
@@ -117,7 +115,6 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 
 	@When("the user enter an email address for a Non-Institutional Account")
 	public void the_user_enter_an_email_address_for_a_Non_Institutional_Account() {
-
 		CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, newEmail);
 		CucumberLogUtils.logScreenShot();
 		CommonUtils.click(seerLandingPage.registerForResearchDataButton);
