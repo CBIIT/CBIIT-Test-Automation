@@ -2,6 +2,8 @@ package ServiceNow.SEER.Steps;
 
 import java.util.Iterator;
 import java.util.Set;
+
+import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -444,6 +446,8 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 	public void the_bread_crumb_displays(String seerIncidenceDatabaseLink) {
 		CommonUtils.waitForVisibility(seerLandingPage.seerIncidenceDatabaseBreadcrumb);
 		Assert.assertEquals(seerIncidenceDatabaseLink, seerLandingPage.seerIncidenceDatabaseBreadcrumb.getText());
+		JavascriptUtils.drawBlueBorder(seerLandingPage.seerIncidenceDatabaseBreadcrumb);
+		CucumberLogUtils.logScreenShot();
 	}
 
 	@Then("when clicking, user is directed to {string}")
@@ -454,8 +458,7 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 		String actualSeerCancerGovDataUrl = WebDriverUtils.getWebDriver().getCurrentUrl();
 		Assert.assertEquals(seerIncidenceDatabaseUrl, actualSeerCancerGovDataUrl);
-		MiscUtils.sleep(2000);
-		WebDriverUtils.getWebDriver().navigate().back();
+		CucumberLogUtils.logScreenShot();
 	}
 
 	@When("the user enters an email address for a Non-Institutional Account")
@@ -474,9 +477,7 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 
 	@Then("user is directed to the {string} page")
 	public void user_is_directed_to_the_page(String seerRegistrationIsCompleteText) {
-		CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationIsCompleteHeader);
-		Assert.assertEquals(seerRegistrationIsCompleteText,
-				seerUserRegistrationPage.seerUserRegistrationIsCompleteHeader.getText());
+		SEERDataAccessRequestPageStepsImpl.userIsDirectedToThePage(seerRegistrationIsCompleteText);
 	}
 
 	@When("user confirms their email address by clicking on the email verifation link sent to the users email address")
