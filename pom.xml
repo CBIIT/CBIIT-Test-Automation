@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.nih.nci.testing</groupId>
 	<artifactId>CBIIT-Test-Automation</artifactId>
@@ -25,23 +27,16 @@
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
-			<version>3.8.1</version>
+			<version>5.3.2</version>
 		</dependency>
 
 		<!-- selenium libraries -->
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
-<dependency>
-    <groupId>org.seleniumhq.selenium</groupId>
-    <artifactId>selenium-java</artifactId>
-    <version>4.9.1</version>
-</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
-		
 		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>7.7.1</version>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>4.9.0</version>
 		</dependency>
 
 		<!-- appium libraries -->
@@ -71,7 +66,7 @@
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>7.4.0</version>
+			<version>7.7.1</version>
 		</dependency>
 
 
@@ -243,7 +238,7 @@
 					<useSystemClassLoader>false</useSystemClassLoader>
 					<includes>
 						<include>
-							RunNERDProgressionTest.java
+
 						</include>
 					</includes>
 					<testFailureIgnore>true</testFailureIgnore> <!-- to get report even when fails -->
@@ -287,4 +282,3 @@
 	<name>CBIIT-Test-Automation</name>
 
 </project>
- 

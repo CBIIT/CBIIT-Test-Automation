@@ -14,25 +14,9 @@ import cucumber.api.java.en.When;
 public class SEERUserRegistrationPageSteps extends PageInitializer {
 	public static String newEmail = "seer" + CommonUtils.email;
 
-	@When("the user enters an email address as {string} and continues with the email verification for Non-Institutional Accounts")
-	public void the_user_enters_an_email_address_as_and_continues_with_the_email_verification_for_Non_Institutional_Accounts(
-			String emailAddress) {
-		Assert.assertTrue("Verifying that the User entering email address for Non-Institutional Accounts",
-				seerLandingPage.nonInstitutionalAccountsHeaderText.getText()
-						.contentEquals("Non-Institutional Accounts"));
-		MiscUtils.sleep(2000);
-		JavascriptUtils.scrollIntoView(seerLandingPage.nonInstitutionalAccountsEmailAddressField);
-		MiscUtils.sleep(2000);
-		CommonUtils.sendKeys(seerLandingPage.nonInstitutionalAccountsEmailAddressField, emailAddress);
-		MiscUtils.sleep(2000);
-		seerLandingPage.nonInstitutionalAccountsContinuetoEmailVerificationButton.click();
-		MiscUtils.sleep(2000);
-	}
-
 	@When("fills out the SEER Registration form")
 	public void fills_out_the_SEER_Registration_form() {
-		String seerRegistrationPage = WebDriverUtils.getWebDriver().getTitle();
-		Assert.assertTrue(seerRegistrationPage.contentEquals("SEER User Registration - ODS SEER Data Access Request"));
+
 		seerUserRegistrationPage.seerUserRegistrationFirstNameField.sendKeys("Test");
 		seerUserRegistrationPage.seerUserRegistrationMiddleNameField.sendKeys("Tester");
 		seerUserRegistrationPage.seerUserRegistrationLastNameField.sendKeys("Testing");
@@ -46,7 +30,6 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		seerUserRegistrationPage.seerUserRegistrationJobTitleField.sendKeys("Tester");
 		JavascriptUtils.scrollIntoView(seerUserRegistrationPage.seerUserRegistrationEmailField);
-		MiscUtils.sleep(2000);
 		seerUserRegistrationPage.seerUserRegistrationCountryField.click();
 		seerUserRegistrationPage.seerUserRegistrationCountryField.sendKeys("United States of America");
 		seerUserRegistrationPage.seerUserRegistrationCountryUSA.click();
@@ -60,38 +43,17 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 	}
 
-	@When("for {string} selects {string}")
-	public void for_selects(String expectedWhichofTheseBestDescribeYouText,
-			String UndergraduateOrGraduateStudentValue) {
-		Assert.assertTrue(seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouText.getText()
-				.contentEquals(expectedWhichofTheseBestDescribeYouText));
-		CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
-		CommonUtils.selectDropDownValue(UndergraduateOrGraduateStudentValue,
-				seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
-		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
-	}
+	@Given("user proceeds with email verification for Research Data Requests")
+	public void user_proceeds_with_email_verification_for_Research_Data_Requests() {
+		JavascriptUtils.scrollIntoView(seerLandingPage.researchDataRequestsEmailAddressField);
+		CommonUtils.waitForVisibility(seerLandingPage.researchDataRequestsEmailAddressField);
+		CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, "test@mail.com");
 
-	@Then("the user is directed back to the landing page with a message indicating the user must request access via the Institutional Accounts option")
-	public void the_user_is_directed_back_to_the_landing_page_with_a_message_indicating_the_user_must_request_access_via_the_Institutional_Accounts_option() {
-		String landingPage = WebDriverUtils.getWebDriver().getTitle();
-		Assert.assertTrue(landingPage.contentEquals("SEER Incidence Data Request - ODS SEER Data Access Request"));
-		CommonUtils.waitForVisibility(seerLandingPage.warningTextForUndergraduateOrGraduateStudents);
-		Assert.assertTrue(
-				"Verifying the message indicating the user must request access via the Institutional Accounts option",
-				seerLandingPage.warningTextForUndergraduateOrGraduateStudents.getText().contentEquals(
-						"Undergraduate or Graduate Students should apply for Institutional access using their Institution affiliated email account."));
-		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
-	}
-
-	@Given("user proceeds with email verification for a Non-Institutional Account")
-	public void user_proceeds_with_email_verification_for_a_Non_Institutional_Account() {
-		JavascriptUtils.scrollIntoView(seerLandingPage.nonInstitutionalAccountsEmailAddressField);
-		CommonUtils.waitForVisibility(seerLandingPage.nonInstitutionalAccountsEmailAddressField);
-		CommonUtils.sendKeys(seerLandingPage.nonInstitutionalAccountsEmailAddressField, "test@mail.com");
-		CommonUtils.waitForVisibility(seerLandingPage.nonInstitutionalAccountsContinuetoEmailVerificationButton);
-		seerLandingPage.nonInstitutionalAccountsContinuetoEmailVerificationButton.click();
+		/*
+		 * ----- UPDATE BELOW -----
+		 */
+		CommonUtils.waitForVisibility(seerLandingPage.registerForResearchDataButton);
+		seerLandingPage.registerForResearchDataButton.click();
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 	}
@@ -131,13 +93,6 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 	}
 
-	@When("submitting the registration form")
-	public void submitting_the_registration_form() {
-		seerUserRegistrationPage.seerUserRegistrationSubmitButton.click();
-		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
-	}
-
 	@Then("the user is not able to submit the registration form because the State and Zip Code fields are required")
 	public void the_user_is_not_able_to_submit_the_registration_form_because_the_State_and_Zip_Code_fields_are_required() {
 		String seerRegistrationPage = WebDriverUtils.getWebDriver().getTitle();
@@ -153,26 +108,19 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 	}
 
-	@When("the user enters an email address for Non-Institutional Account")
-	public void the_user_enters_an_email_address_for_Non_Institutional_Account() {
-		CommonUtils.sendKeys(seerLandingPage.nonInstitutionalAccountsEmailAddressField, newEmail);
-		CucumberLogUtils.logScreenShot();
-		CommonUtils.click(seerLandingPage.nonInstitutionalAccountsContinuetoEmailVerificationButton);
-	}
-
 	@When("user enters email address for a Non-Institutional Account")
 	public void user_enters_email_address_for_a_Non_Institutional_Account() {
-		CommonUtils.sendKeys(seerLandingPage.nonInstitutionalAccountsEmailAddressField, newEmail);
+		CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, newEmail);
 		CucumberLogUtils.logScreenShot();
-		CommonUtils.click(seerLandingPage.nonInstitutionalAccountsContinuetoEmailVerificationButton);
+		CommonUtils.click(seerLandingPage.registerForResearchDataButton);
 	}
 
 	@When("the user enter an email address for a Non-Institutional Account")
 	public void the_user_enter_an_email_address_for_a_Non_Institutional_Account() {
 
-		CommonUtils.sendKeys(seerLandingPage.nonInstitutionalAccountsEmailAddressField, newEmail);
+		CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, newEmail);
 		CucumberLogUtils.logScreenShot();
-		CommonUtils.click(seerLandingPage.nonInstitutionalAccountsContinuetoEmailVerificationButton);
+		CommonUtils.click(seerLandingPage.registerForResearchDataButton);
 	}
 
 	@When("fills out all required fields on the SEER Data registration page")
@@ -205,30 +153,7 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 
 	@When("fills out all required fields on SEER Data registration page")
 	public void fills_out_all_required_fields_on_SEER_Data_registration_page() {
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationFirstNameField, "FirstName");
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationLastNameField, "LastName");
-		Assert.assertEquals(newEmail,
-				seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("value"));
-		Assert.assertTrue(
-				seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("disabled").equals("true"));
-		MiscUtils.sleep(1000);
-		CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationOrganizationField, "American University");
-		MiscUtils.sleep(1000);
-		CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationCountryField);
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationCountryField, "United States of America");
-		CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationCountryUSA);
-		MiscUtils.sleep(1000);
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationAddressField, "123 Street");
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationCityField, "City");
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationStateField, "LA");
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationZipcodeField, "12345");
-		MiscUtils.sleep(1000);
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationPhoneField, "1234567890");
-		CommonUtils.selectDropDownValue("General Public",
-				seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
-		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		seerDataAccessRequestPageStepsImpl.fillingOutRegistrationForm();
 	}
 
 	@When("submits the registration form")

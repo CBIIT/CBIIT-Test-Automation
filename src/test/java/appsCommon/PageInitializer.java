@@ -80,16 +80,46 @@ import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NativeViewImpersonateUser;
 import ServiceNow.SEER.Pages.NativeViewSentViewPage;
 import ServiceNow.SEER.Pages.SEERDataAccessRequestPage;
+import ServiceNow.SEER.Pages.SEERExistingAccountPage;
 import ServiceNow.SEER.Pages.SEERIncidenceDatabaseDetailsPage;
 import ServiceNow.SEER.Pages.SEERLandingPage;
 import ServiceNow.SEER.Pages.SEERUserRegistrationPage;
+import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
+import CustomBusiness.DCEG.Pages.AdminFlowPage;
+import CustomBusiness.DCEG.Pages.BranchAdminPage;
+import CustomBusiness.DCEG.Pages.CreateCRPage;
+import CustomBusiness.DCEG.Pages.DirectSubmitterPage;
+import CustomBusiness.DCEG.Pages.RegularUserFlowPage;
+import CustomBusiness.DCEG.Steps.RegularUserFlowSteps;
+import CustomBusiness.DCEG.StepsImplementation.FlowStepsImplementation;
+import CustomBusiness.EIDP.Pages.AligningExpectationsPage;
+import CustomBusiness.EIDP.Pages.BasePage;
+import CustomBusiness.EIDP.Pages.CareerGoalAndActivePage;
+import CustomBusiness.EIDP.Pages.CoPrimaryMentorPage;
+import CustomBusiness.EIDP.Pages.CommonPage;
+import CustomBusiness.EIDP.Pages.DashboardPage;
+import CustomBusiness.EIDP.Pages.DelegatePage;
+import CustomBusiness.EIDP.Pages.GeneralInformationPage;
+import CustomBusiness.EIDP.Pages.IDPAwaitingResponsePage;
+import CustomBusiness.EIDP.Pages.LoginPage;
+import CustomBusiness.EIDP.Pages.ProjectRelatedDeliverablePage;
+import CustomBusiness.EIDP.Pages.SearchPage;
+import CustomBusiness.EIDP.Pages.TraineeReviewPage;
+import CustomBusiness.EIDP.StepsImplementation.AlignExpectionsStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.CareerGoalAndActiveStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.EIDPLoginStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.GeneralInformationStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.ProjectRelatedDeliverableStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.SearchStepImpl;
+import CustomBusiness.ETD.Pages.ETDAdminNCIPage;
+import CustomBusiness.ETD.Pages.ETDBasePage;
+import CustomBusiness.ETD.StepsImplementation.ETDFlowStepsImpl;
 
 /**
  * This an initializer class which will initialize all pages classes. Once pages
  * class created, create an object of it here inside the constructor
  */
 public class PageInitializer {
-	
 
 	// declare protected static variables of types of all the pages
 	/** iTrust instances */
@@ -124,9 +154,6 @@ public class PageInitializer {
 	protected static NativeViewImpersonateUser nativeViewImpersonateUser;
 	protected static NativeViewSideDoorLoginPage nativeViewSideDoorLoginPage;
 
-	
-	
-
 	/** CHARMS instances */
 	protected static CHARMSNativeViewPage charmsNativeViewPage;
 	protected static TestAccountResetImpl testAccountResetImpl;
@@ -148,8 +175,6 @@ public class PageInitializer {
 	protected static FHQSurveyPortalPage fHQSurveyPortalPage;
 	protected static FanconiEligibilityQuestionnairePage fanconiEligibilityQuestionnairePage;
 	protected static FanconiLoginPage fanconiLoginPage;
-	
-
 
 	/** LDLink instances **/
 	protected static LDLinkHomePage ldLinkHomePage;
@@ -184,6 +209,8 @@ public class PageInitializer {
 	protected static SEERDataAccessRequestPage seerDataAccessRequestPage;
 	protected static NativeViewSentViewPage nativeViewSentViewPage;
 	protected static SEERIncidenceDatabaseDetailsPage seerIncidenceDatabaseDetailsPage;
+	protected static SEERExistingAccountPage seerExistingAccountPage;
+	protected static SEERDataAccessRequestPageStepsImpl seerDataAccessRequestPageStepsImpl;
 
 	/** NERD instances */
 	protected static NERDLoginStepsImplementation nerdLoginStepsImplementation;
@@ -193,7 +220,7 @@ public class PageInitializer {
 	protected static NERDHomePage nerdHomePage;
 	protected static NERDKnowledgebasePage nerdKnowledgeBasePage;
 	protected static NERDCRSTopAccomplishmentsPage nerdCRSTopAccomplishmentsPage;
-	protected static NERDCRSTCollaborationsPage nerdCRSTCollaborationsPage; 
+	protected static NERDCRSTCollaborationsPage nerdCRSTCollaborationsPage;
 	protected static NERDDOCCollaborationsPage nerdDOCCollaborationsPage;
 
 	/** Comets 2.0 Instances */
@@ -216,6 +243,38 @@ public class PageInitializer {
 	protected static MelanomaLoginPage melanomaLoginPage;
 	protected static MelanomaHomePage melanomaHomePage;
 	protected static MelanomaQuestionnairePage melanomaQuestionnairePage;
+
+	/** Custom Business App Instances */
+	protected static AligningExpectationsPage aligningExpectationsPage;
+	protected static DashboardPage eidpDashboardPage;
+	protected static CommonPage eidpCommonPage;
+	protected static LoginPage nihLoginPage;
+	protected static BasePage eidpBasePage;
+	protected static EIDPLoginStepImpl eidpLoginStepImpl;
+	protected static AlignExpectionsStepImpl aligningExpectationsStepImpl;
+	protected static GeneralInformationPage generalInformationPage;
+	protected static GeneralInformationStepImpl generalInformationStepImpl;
+	protected static CustomBusiness.EIDP.StepsImplementation.DashboardStepImpl eidpDashboardStepImpl;
+	protected static SearchPage searchPage;
+	protected static SearchStepImpl searchStepimpl;
+	protected static CareerGoalAndActivePage careerGoalAndActivePage;
+	protected static CareerGoalAndActiveStepImpl careerGoalAndActiveStepImpl;
+	protected static ProjectRelatedDeliverablePage projectRelatedDeliverablePage;
+	protected static ProjectRelatedDeliverableStepImpl projectRelatedDeliverableStepImpl;
+	protected static DelegatePage delegatePage;
+	protected static IDPAwaitingResponsePage iDPAwaitingResponsePage;
+	protected static TraineeReviewPage traineeReviewPage;
+	protected static CoPrimaryMentorPage coPrimaryMentorPage;
+	protected static CreateCRPage createCRPage;
+	protected static FlowStepsImplementation flowStepsImplementation;
+	protected static DirectSubmitterPage directSubmitterPage;
+	protected static AdminFlowPage adminFlowPage;
+	protected static RegularUserFlowSteps regularUserFlowSteps;
+	protected static BranchAdminPage branchAdminPage;
+	protected static RegularUserFlowPage regularUserFlowPage;
+	protected static ETDFlowStepsImpl etdFlowStepsImpl;
+	protected static ETDAdminNCIPage etdAdminNCIPage;
+	protected static ETDBasePage etdBasePage;
 
 	public static void initializeAllPages() {
 		// create instances of all pages and assign them to the variables
@@ -296,11 +355,11 @@ public class PageInitializer {
 		fHQSurveyPortalPage = new FHQSurveyPortalPage();
 		fanconiEligibilityQuestionnairePage = new FanconiEligibilityQuestionnairePage();
 		fanconiLoginPage = new FanconiLoginPage();
-		
+
 		/** Native View instance */
-		nativeViewImpersonateUser=new NativeViewImpersonateUser();
-		nativeViewSideDoorLoginPage=new NativeViewSideDoorLoginPage();
-		fHQSurveyPage=new FHQSurveyPage();
+		nativeViewImpersonateUser = new NativeViewImpersonateUser();
+		nativeViewSideDoorLoginPage = new NativeViewSideDoorLoginPage();
+		fHQSurveyPage = new FHQSurveyPage();
 
 		jpsurvHomePage = new JPSurvHomePage();
 		melanomaLoginPage = new MelanomaLoginPage();
@@ -313,5 +372,42 @@ public class PageInitializer {
 		nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
 		
 
+		seerExistingAccountPage = new SEERExistingAccountPage();
+		seerDataAccessRequestPageStepsImpl = new SEERDataAccessRequestPageStepsImpl();
+
+		/*custom Business App */
+		nativeViewLoginImpl = new NativeViewLoginImpl();
+		nativeViewHomePage = new NativeViewHomePage();
+		aligningExpectationsPage = new AligningExpectationsPage();
+		eidpDashboardPage = new DashboardPage();
+		eidpCommonPage = new CommonPage();
+		nihLoginPage = new LoginPage();
+		eidpBasePage = new BasePage();
+		eidpLoginStepImpl = new EIDPLoginStepImpl();
+		aligningExpectationsStepImpl = new AlignExpectionsStepImpl();
+		generalInformationPage = new GeneralInformationPage();
+		searchPage = new SearchPage();
+		searchStepimpl = new SearchStepImpl();
+		generalInformationStepImpl = new GeneralInformationStepImpl();
+		careerGoalAndActivePage = new CareerGoalAndActivePage();
+		careerGoalAndActiveStepImpl = new CareerGoalAndActiveStepImpl();
+		projectRelatedDeliverablePage = new ProjectRelatedDeliverablePage();
+		projectRelatedDeliverableStepImpl = new ProjectRelatedDeliverableStepImpl();
+		delegatePage = new DelegatePage();
+		iDPAwaitingResponsePage = new IDPAwaitingResponsePage();
+		traineeReviewPage = new TraineeReviewPage();
+		coPrimaryMentorPage = new CoPrimaryMentorPage();
+		eidpDashboardStepImpl = new CustomBusiness.EIDP.StepsImplementation.DashboardStepImpl();
+		createCRPage = new CreateCRPage();
+		flowStepsImplementation = new FlowStepsImplementation();
+		directSubmitterPage = new DirectSubmitterPage();
+		adminFlowPage = new AdminFlowPage();
+		regularUserFlowSteps = new RegularUserFlowSteps();
+		branchAdminPage = new BranchAdminPage();
+		regularUserFlowPage = new RegularUserFlowPage();
+		/**ETD **/
+		etdFlowStepsImpl = new ETDFlowStepsImpl();
+		etdAdminNCIPage  = new ETDAdminNCIPage();
+		etdBasePage = new ETDBasePage();
 	}
 }

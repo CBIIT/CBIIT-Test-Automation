@@ -121,7 +121,7 @@ public class CRS_Reviewers_Steps extends PageInitializer {
                 nativeViewImpersonateUser.impersonateToAnyCRSReviewer(crsReviewer);
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 MiscUtils.sleep(1500);
-                CucumberLogUtils.logScreenShot();
+                CucumberLogUtils.logScreenShot("--- A CRS REVIEWER IS ON THE NERD HOME PAGE ---");
         }
 
         @Then("there are three knowledge bases called {string}, {string}, and {string}")
@@ -131,13 +131,18 @@ public class CRS_Reviewers_Steps extends PageInitializer {
                 CommonUtils.assertEquals(rock, nerdHomePage.rockKnowledgeBaseText.getText());
                 CommonUtils.assertEquals(moonshotEvaluation,
                                 nerdHomePage.moonshotEvaluationKnowledgeBaseText.getText());
-                CucumberLogUtils.logScreenShot();
+                JavascriptUtils.drawBlueBorder(nerdHomePage.nerdKnowledgeBaseText);
+                JavascriptUtils.drawBlueBorder(nerdHomePage.rockKnowledgeBaseText);
+                JavascriptUtils.drawBlueBorder(nerdHomePage.moonshotEvaluationKnowledgeBaseText);
+                CucumberLogUtils.logScreenShot(
+                                "--- THERE ARE THREE KNOWLEDGE BASES CALLED NERD, ROCK, and MOONSHOT EVALUTATION");
         }
 
         @When("the user clicks the NERD Knowledge Base")
         public void the_user_clicks_the_NERD_Knowledge_Base() {
                 nerdHomePage.nerdKnowledgeBaseText.click();
                 MiscUtils.sleep(2000);
+                CucumberLogUtils.logScreenShot("--- THE USER CLICKS THE NERD KNOWLEDGE BASE ---");
         }
 
         @Then("the user is redirected to the Knowledge Base view page")
@@ -145,7 +150,7 @@ public class CRS_Reviewers_Steps extends PageInitializer {
 
                 Assert.assertTrue(nerdKnowledgeBasePage.nerdKnowledgeBaseViewText.isDisplayed());
                 MiscUtils.sleep(2000);
-                CucumberLogUtils.logScreenShot();
+                CucumberLogUtils.logScreenShot("--- THE USER IS REDIRECTED TO THE KNOWLEDGE BASE VIEW PAGE ---");
         }
 
         @Then("there is a collapsed accordion with the header labeled {string}")
@@ -157,7 +162,7 @@ public class CRS_Reviewers_Steps extends PageInitializer {
 
                 Assert.assertTrue(isTopAccomplishmentAccordionDisplayed);
 
-                CucumberLogUtils.logScreenShot();
+                CucumberLogUtils.logScreenShot("--- THERE IS A COLLAPSED ACCORDION ---");
         }
 
         @When("the user clicks the {string} accordion header")
@@ -165,7 +170,7 @@ public class CRS_Reviewers_Steps extends PageInitializer {
 
                 NERDKnowledgebasePage.dynamicXpathNERDKnowledgeBaseAccordion(topAccomplishmentsAccordion).click();
 
-                CucumberLogUtils.logScreenShot();
+                CucumberLogUtils.logScreenShot("--- WHEN THE USER CLICKS THE ACCORDION HEADER ---");
         }
 
         @Then("the {string} accordion expands")
@@ -181,7 +186,7 @@ public class CRS_Reviewers_Steps extends PageInitializer {
 
                 CommonUtils.assertTrue(isTopAccomplishmentsAccordionItemPerPageDisplayed);
 
-                CucumberLogUtils.logScreenShot();
+                CucumberLogUtils.logScreenShot("--- THEN THE ACCORDION EXPANDS ---");
         }
 
         @Then("a list of all published {string} records is visible")
@@ -191,7 +196,7 @@ public class CRS_Reviewers_Steps extends PageInitializer {
                                 .dynamicXpathNERDKnowledgeBaseAccordionList(topAccomplishments).isDisplayed();
 
                 CommonUtils.assertTrue(isListForPublishedTopAccomplishmentsDisplayed);
-                CucumberLogUtils.logScreenShot();
+                CucumberLogUtils.logScreenShot("--- AND A LIST OF ALL PUBLISHED RECORDS IS VISIBLE ---");
         }
 
         @Given("a CRS Reviewer {string} is viewing the list of the published {string}")
@@ -215,7 +220,7 @@ public class CRS_Reviewers_Steps extends PageInitializer {
                                 .dynamicXpathNERDKnowledgeBaseTopAccomplishmentPublishedArticle(publishedArticleTitle)
                                 .getText()
                                 .contentEquals(publishedArticleTitle);
-//DEBUG HERE
+                // DEBUG HERE
                 CommonUtils.assertTrue(isArticleDisplayed);
                 CucumberLogUtils.logScreenShot();
         }
