@@ -24,7 +24,7 @@ public class BasePage extends CommonUtils{
 		this.driver = WebDriverUtils.getWebDriver();
 		wait = new WebDriverWait(this.driver, Duration.ofSeconds(30));
 	}
-	protected void clickOnElement(WebElement element) {
+	protected void clickOnElements(WebElement element) {
 		wait.until(ExpectedConditions.visibilityOf(element));
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		element.click();
