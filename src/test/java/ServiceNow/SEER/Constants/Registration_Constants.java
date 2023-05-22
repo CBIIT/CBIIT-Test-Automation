@@ -3,10 +3,10 @@ package ServiceNow.SEER.Constants;
 public class Registration_Constants {
 
     /** FIRST NAME */
-    public static final String FIRST_NAME = "FirstName";
+    public static final String FIRST_NAME = "George";
 
     /** LAST NAME */
-    public static final String LAST_NAME = "LastName";
+    public static final String LAST_NAME = "Test";
 
     /** ORGANIZATION NAME */
     public static final String ORGANIZATION_NAME = "American University";

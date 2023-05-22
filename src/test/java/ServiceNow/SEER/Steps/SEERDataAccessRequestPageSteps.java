@@ -2,6 +2,8 @@ package ServiceNow.SEER.Steps;
 
 import java.util.Iterator;
 import java.util.Set;
+
+import ServiceNow.SEER.Constants.Registration_Constants;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -504,6 +506,7 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 		CommonUtils.click(nativeViewSentViewPage.NativeViewPreviewVerifyEmailOpenRecordButton);
+		MiscUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(nativeViewSentViewPage.nativeViewPreviewVerifyEmailPreviewHTMLBodyLink);
 		MiscUtils.sleep(2000);
 		CommonUtils.click(nativeViewSentViewPage.nativeViewPreviewVerifyEmailPreviewHTMLBodyLink);
@@ -512,7 +515,7 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		Assert.assertTrue(nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataHeader.getText()
 				.contentEquals("SEER Incidence Data: Verify your email address"));
-		Assert.assertTrue(nativeViewSentViewPage.nativeViewPreviewEmailHelloNameText.getText().contains("FirstName"));
+		Assert.assertTrue(nativeViewSentViewPage.nativeViewPreviewEmailHelloNameText.getText().contains(Registration_Constants.FIRST_NAME));
 		MiscUtils.sleep(2000);
 		String mainPageHandle = WebDriverUtils.getWebDriver().getWindowHandle();
 		CommonUtils.click(nativeViewSentViewPage.nativeViewPreviewEmailVerifyEMAILlink);
@@ -551,13 +554,13 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 	public void also_has_to_agree_by_typing_initials_to_the_Data_Use_Agreement_Certification_and_Best_Practice_Assurance() {
 		JavascriptUtils.scrollUpWithinElement(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationText,
 				8000);
-		CommonUtils.sendKeys(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationInitials, "FL");
+		CommonUtils.sendKeys(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationInitials, Registration_Constants.FIRST_NAME.charAt(0) + "" + Registration_Constants.LAST_NAME.charAt(0));
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 		JavascriptUtils.scrollUpWithinElement(seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceText, 8000);
-		CommonUtils.sendKeys(seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceInitials, "FL");
+		CommonUtils.sendKeys(seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceInitials, Registration_Constants.FIRST_NAME.charAt(0) + "" + Registration_Constants.LAST_NAME.charAt(0));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+//		CucumberLogUtils.logScreenShot();
 	}
 
 	@When("successfully submitting the SEER Data Request form")

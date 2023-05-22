@@ -17,7 +17,6 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
 
     public static void fillingOutRegistrationForm() {
         /* ENTERING FIRST NAME */
-
         CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationFirstNameField);
         CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationFirstNameField,
                 Registration_Constants.FIRST_NAME);

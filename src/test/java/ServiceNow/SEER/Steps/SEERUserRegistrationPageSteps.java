@@ -75,30 +75,7 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 
 	@When("fills out all required fields on the SEER Data registration page")
 	public void fills_out_all_required_fields_on_the_SEER_Data_registration_page() {
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationFirstNameField, "FirstName");
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationLastNameField, "LastName");
-		Assert.assertEquals(newEmail,
-				seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("value"));
-		Assert.assertTrue(
-				seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("disabled").equals("true"));
-		MiscUtils.sleep(1000);
-		CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationOrganizationField, "American University");
-		MiscUtils.sleep(1000);
-		CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationCountryField);
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationCountryField, "United States of America");
-		CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationCountryUSA);
-		MiscUtils.sleep(1000);
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationAddressField, "123 Street");
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationCityField, "City");
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationStateField, "LA");
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationZipcodeField, "12345");
-		MiscUtils.sleep(1000);
-		CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationPhoneField, "1234567890");
-		CommonUtils.selectDropDownValue("General Public",
-				seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
-		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		SEERDataAccessRequestPageStepsImpl.fillingOutRegistrationForm();
 	}
 
 	@When("fills out all required fields on SEER Data registration page")

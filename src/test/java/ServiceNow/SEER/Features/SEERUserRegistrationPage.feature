@@ -1,6 +1,6 @@
 Feature: SEER User Registration Scenarios
 
-  @ODS-283 @juarezds @Regression @Smoke @Needs_review
+  @ODS-283 @juarezds @Regression @Smoke
   Scenario: Verifying Sate and Zip code fields are required when selecting United States of America for Country field
     Given a user is on the SEER Data Access landing page
     And user proceeds with email verification for Research Data Requests
@@ -9,7 +9,7 @@ Feature: SEER User Registration Scenarios
     And submits the registration form
     Then the user is not able to submit the registration form because the State and Zip Code fields are required
 
-  @ODS-284 @juarezds @Regression @Smoke @Needs_review
+  @ODS-284 @juarezds @Regression @Smoke
   Scenario: Verifying "Thank you - your registration is complete." page contents
     Given a user is on the SEER Data Access landing page
     When user enters email address for a Non-Institutional Account
@@ -56,7 +56,7 @@ Feature: SEER User Registration Scenarios
     And the 'SEER Incidence Database' bread crumb displays
     And when clicking, user is directed to "https://seer.cancer.gov/data/"
 
-  @ODS-286 @juarezds @Regression @Needs_review
+  @ODS-286 @juarezds @Regression
   Scenario: Verifying bread crumbs on "Thank you - your registration is complete." page
     Given a user is on the SEER Data Access landing page
     When user enters email address for a Non-Institutional Account
