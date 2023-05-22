@@ -14,7 +14,7 @@ public class NativeViewLoginImpl extends PageInitializer {
 	public void nativeViewLogin() throws TestingException {
 
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
-		MiscUtils.sleep(000);
+		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot();
 		CommonUtils.waitForVisibility(iTrustloginPage.loginLink);
 		iTrustloginPage.loginLink.click();
