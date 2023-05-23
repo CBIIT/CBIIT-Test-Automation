@@ -64,7 +64,23 @@ public class SEERDataAccessRequestPage extends CommonUtils {
 	/** SEER Data Access Request: Treatment Usage Explanation Text Box */
 	@FindBy (xpath = "//textarea[@ng-model = 'data.access.treatment_usage_explanation']")
 	public WebElement seerDataAccessTreatmentUsageExplanationTextBox;
-		
+
+	/**SEER Data Access Request: I understand the limitation of treatment data Content*/
+	@FindBy(xpath ="//input[contains(@ng-model,'data.access.limitation_initials')]")
+	public WebElement iUnderstandTheLimitationOfTreatmentDataContentText;
+
+	/**SEER Data Access Request: I understand the limitation of treatment data Content Text*/
+	@FindBy(xpath ="//div[@id = 'treatment_data_limitations_agreement']")
+	public WebElement iUnderstandTheLimitationOfTreatmentDataContentTextLastParagraph;
+
+	/**SEER Data Access Request: I understand the limitation of treatment data Initials field*/
+	@FindBy(xpath =" //input[@ng-model='data.access.limitation_initials']")
+	public WebElement iUnderstandTheLimitationOfTreatmentDataInitialsfield;
+
+	/**SEER Data Access Request: I understand the limitation of treatment data Header text*/
+	@FindBy(xpath ="//label[normalize-space()='I understand the limitation of treatment data.']")
+	public WebElement iUnderstandTheLimitationOfTreatmentDataInitialsfieldHeader;
+
 	/** SEER Data Access Request: Data Use Agreement Certification Header text */
 	@FindBy(xpath = "//label[text()='Data Use Agreement Certification']")
 	public WebElement seerDataAccessDataUseAgreementCertificationHeaderText;
@@ -116,18 +132,7 @@ public class SEERDataAccessRequestPage extends CommonUtils {
 	/** SEER Data Access Your Data Access Request Is Complete Header */
 	@FindBy (xpath = "//h3[text() = ' Thank you - your data access request is complete. ']")
 	public WebElement seerDataAccessYourDataAccessRequestIsCompleteHeader;
-	
-	/**SEER Data Access Request: I understand the limitation of treatment data Content Text*/
-	@FindBy(xpath ="//div[@id='treatment_data_limitations_agreement']")
-	public WebElement iUnderstandTheLimitationOfTreatmentDataContentText;
-	
-	/**SEER Data Access Request: I understand the limitation of treatment data Content Text Last Paragraph*/
-	@FindBy(xpath ="//div[@id= 'treatment_data_limitations_agreement']/p[25]")
-	public WebElement iUnderstandTheLimitationOfTreatmentDataContentTextLastParagraph;
-	
-	/**SEER Data Access Request: I understand the limitation of treatment data Initials field*/
-	@FindBy(xpath ="//input[@ng-model='data.access.limitation_initials']")
-	public WebElement iUnderstandTheLimitationOfTreatmentDataInitialsfield;
+
 	
 	/** ------------ END OF SEER DATA ACCESS REQUEST PAGE -----------*/
 	

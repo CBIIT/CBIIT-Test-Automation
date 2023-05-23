@@ -12,8 +12,13 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = {"html:target/html-reports/cucumber-default-report", "json:target/cucumber.json",
         "junit:target/cucumber.xml", "rerun:target/failed.txt",
-        "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}, features = "src/test/java/ServiceNow/SEER/Features", glue = "ServiceNow.SEER.Steps", tags = "@Progression", dryRun = false, monochrome = true, strict = true
-
+        "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
+        features = "src/test/java/ServiceNow/SEER/Features",
+        glue = "ServiceNow.SEER.Steps",
+        tags = "@Progression",
+        dryRun = false,
+        monochrome = true,
+        strict = true
 )
 
 /**
@@ -27,7 +32,6 @@ public class RunSEERProgressionTest {
 
     @BeforeClass
     public static void runSetup() {
-
         String reportsOutput = LocalConfUtils.getRootDir() + File.separator + "html-reports";
         ConfUtils.setBaseResultsDir(reportsOutput);
         System.out.println("Starting Test Execution...");
