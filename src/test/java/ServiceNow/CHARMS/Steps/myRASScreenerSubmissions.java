@@ -42,9 +42,8 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	@Given("a proxy is on the RASopathies Longitudinal Cohort Study login page")
 	public void a_user_is_on_the_RASopathies_Longitudinal_Cohort_Study_login_page()
-			throws TestingException, JsonIOException, JsonSyntaxException, FileNotFoundException {
+			throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("myRASLoginPage"));
-
 	}
 
 	@Given("a proband is on the RASopathies Longitudinal Cohort Study login page")

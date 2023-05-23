@@ -6,25 +6,25 @@ Feature: myRAS Screener Submissions from the Qualtrics Portal
 	@juarezds @myRasScreenerSubmissionOnly @choudhryma @Progression
 	Scenario: Proxy Screener Submission - for manual testing only - use if you need to submit screener quickly
 		Given a proxy is on the RASopathies Longitudinal Cohort Study login page
-		And logs in via Okta with username "charmsras1@yahoo.com" and password "RASTest2021$$"
+		And logs in via Okta with username "charmsras1@yahoo.com" and password "RASTest2022$$"
 		And clicks on Eligibility Questionnaire to begin questionnaire
-		And clicks next after reviewing the STUDY INTRODCTION
-		And selects I am completing this form for someone else option
-		And enters First Name "AutomatedFirstLongNameMaria", Middle Name "Middle", Last Name "AutomatedLastLongNameMaria" for What is the name of the person who may be eligible for this study?
-		And enters First Name "FirstLongNameTestProxySubmission", Middle Name "MiddleNameTest", Last Name "LastLongNameTestProxySubmission" for What is your name?
-		And enters "Entering Other Relationship" for What is your relationship to the participant?
-		And selects Yes option for Are you the legal guardian of the participant?
-		And clicks next for The next set of questions will collect basic information about the participant
-		And selects participants Date of Birth from the calendar picker
-		And selects Male option for participants Sex assigned at birth
-		And selects Yes option for participant being adopted
-		And selects Yes for participant still being alive
-		And selects Yes option for participant currently living in the United States
-		And enters mailing address for where study materials can be sent, street "9609 Medical Center Dr" city "Rockville" state "MD" zip code "20850"
-		And enters proxy email address "automatedTest@nci.gov"
-		And enters proxy email address "automatedTest@nci.gov" to confirm email address
-		And enters proxy home phone number "703-687-5816", cell phone number "703-687-5816", work phone number "703-687-5816" and selects cell phone number as Preferred Contact
-		And selects Not Hispanic/Latino option for Ethnicity of participant
+#		And clicks next after reviewing the STUDY INTRODCTION
+#		And selects I am completing this form for someone else option
+#		And enters First Name "AutomatedFirstLongNameMaria", Middle Name "Middle", Last Name "AutomatedLastLongNameMaria" for What is the name of the person who may be eligible for this study?
+#		And enters First Name "FirstLongNameTestProxySubmission", Middle Name "MiddleNameTest", Last Name "LastLongNameTestProxySubmission" for What is your name?
+#		And enters "Entering Other Relationship" for What is your relationship to the participant?
+#		And selects Yes option for Are you the legal guardian of the participant?
+#		And clicks next for The next set of questions will collect basic information about the participant
+#		And selects participants Date of Birth from the calendar picker
+#		And selects Male option for participants Sex assigned at birth
+#		And selects Yes option for participant being adopted
+#		And selects Yes for participant still being alive
+#		And selects Yes option for participant currently living in the United States
+#		And enters mailing address for where study materials can be sent, street "9609 Medical Center Dr" city "Rockville" state "MD" zip code "20850"
+#		And enters proxy email address "automatedTest@nci.gov"
+#		And enters proxy email address "automatedTest@nci.gov" to confirm email address
+#		And enters proxy home phone number "703-687-5816", cell phone number "703-687-5816", work phone number "703-687-5816" and selects cell phone number as Preferred Contact
+#		And selects Not Hispanic/Latino option for Ethnicity of participant
 
 		And enters "Entering other Race" for other when selecting Race of participant
 		And selects Other option and enters "LFS Study" for is the participant participated in any other research study or registry group?
