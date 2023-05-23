@@ -15,119 +15,9 @@ import appsCommon.PageInitializer;
 public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
     public static String newEmail = "seer" + CommonUtils.email;
 
-    public static void fillingOutRegistrationForm() {
-        /* ENTERING FIRST NAME */
-        CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationFirstNameField);
-        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationFirstNameField,
-                Registration_Constants.FIRST_NAME);
+    public static String newEmailThankYou = "seerThankYou" + CommonUtils.email;
 
-        /* ENTERING LAST NAME */
-        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationLastNameField,
-                Registration_Constants.LAST_NAME);
-
-        /**
-         * VERIFYING EMAIL ADDRESS AND THAT EMAIL ADDRESS FIELD IS READ-ONLY
-         */
-        Assert.assertEquals(newEmail,
-                seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("value"));
-        Assert.assertTrue(
-                seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("disabled").equals("true"));
-        MiscUtils.sleep(1000);
-
-        /* CLICKING ON ORGANIZATION DROP DOWN */
-        CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
-
-        /* ENTERING ORGANIZATION NAME */
-        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationOrganizationField,
-                Registration_Constants.ORGANIZATION_NAME);
-        MiscUtils.sleep(1000);
-
-        /* ENTERING COUNTRY NAME */
-        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationCountryField,
-                Registration_Constants.COUNTRY_NAME);
-
-        /* SELECTING COUNTRY OPTION */
-        CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationCountryUSA);
-        MiscUtils.sleep(1000);
-
-        /* ENTERING STREET ADDRESS */
-        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationAddressField,
-                Registration_Constants.STREET_ADDRESS);
-
-        /* ENTERING CITY NAME */
-        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationCityField, Registration_Constants.CITY_NAME);
-
-        /* ENTERING STATE */
-        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationStateField, Registration_Constants.STATE);
-
-        /* ENTERING ZIP CODE */
-        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationZipcodeField,
-                Registration_Constants.ZIP_CODE);
-        MiscUtils.sleep(1000);
-
-        /* ENTERING PHONE NUMBER */
-        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationPhoneField,
-                Registration_Constants.PHONE_NUMBER);
-
-        /*
-         * SELECTING VALUE FOR What best describes you for the purpose of requesting
-         * this data?
-         */
-        CommonUtils.selectDropDownValue("General Public",
-                seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
-        MiscUtils.sleep(2000);
-        CucumberLogUtils.logScreenShot();
-    }
-
-    public static void fillingOutRegistrationFormWithoutStateAndZip() {
-        /* ENTERING FIRST NAME */
-
-        CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationFirstNameField);
-        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationFirstNameField,
-                Registration_Constants.FIRST_NAME);
-
-        /* ENTERING LAST NAME */
-        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationLastNameField,
-                Registration_Constants.LAST_NAME);
-
-        /**
-         * VERIFYING EMAIL ADDRESS AND THAT EMAIL ADDRESS FIELD IS READ-ONLY
-         */
-        Assert.assertEquals(newEmail,
-                seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("value"));
-        Assert.assertTrue(
-                seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("disabled").equals("true"));
-        MiscUtils.sleep(1000);
-
-        /* CLICKING ON ORGANIZATION DROP DOWN */
-        CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
-
-        /* ENTERING ORGANIZATION NAME */
-        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationOrganizationField,
-                Registration_Constants.ORGANIZATION_NAME);
-        MiscUtils.sleep(1000);
-
-        /* ENTERING STREET ADDRESS */
-        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationAddressField,
-                Registration_Constants.STREET_ADDRESS);
-
-        /* ENTERING CITY NAME */
-        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationCityField, Registration_Constants.CITY_NAME);
-
-
-        /* ENTERING PHONE NUMBER */
-        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationPhoneField,
-                Registration_Constants.PHONE_NUMBER);
-
-        /*
-         * SELECTING VALUE FOR What best describes you for the purpose of requesting
-         * this data?
-         */
-        CommonUtils.selectDropDownValue("General Public",
-                seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
-        MiscUtils.sleep(2000);
-        CucumberLogUtils.logScreenShot();
-    }
+    public static String newEmailThankNI = "seerThankYouNI" + CommonUtils.email;
 
     public static void verifyingAgreements() {
         String actualTreatmentDataLimitationsAgreementText = seerDataAccessRequestPage.seerDataAccessTreatmentDataLimitationsAgreement.getText();
@@ -148,7 +38,16 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
     public static void enterEmailAddress() {
         JavascriptUtils.scrollIntoView(seerLandingPage.researchDataRequestsEmailAddressField);
         CommonUtils.waitForVisibility(seerLandingPage.researchDataRequestsEmailAddressField);
-        CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, newEmail);
+        CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, newEmailThankYou);
+        CucumberLogUtils.logScreenShot();
+        CommonUtils.click(seerLandingPage.registerForResearchDataButton);
+        MiscUtils.sleep(2000);
+    }
+
+    public static void enterEmailAddressNI() {
+        JavascriptUtils.scrollIntoView(seerLandingPage.researchDataRequestsEmailAddressField);
+        CommonUtils.waitForVisibility(seerLandingPage.researchDataRequestsEmailAddressField);
+        CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, newEmailThankNI);
         CucumberLogUtils.logScreenShot();
         CommonUtils.click(seerLandingPage.registerForResearchDataButton);
         MiscUtils.sleep(2000);

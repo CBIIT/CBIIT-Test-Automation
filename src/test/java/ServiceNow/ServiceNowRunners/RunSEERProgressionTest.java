@@ -19,7 +19,6 @@ import cucumber.api.junit.Cucumber;
         dryRun = false,
         monochrome = true,
         strict = true
-
 )
 
 /**
@@ -33,7 +32,6 @@ public class RunSEERProgressionTest {
 
     @BeforeClass
     public static void runSetup() {
-
         String reportsOutput = LocalConfUtils.getRootDir() + File.separator + "html-reports";
         ConfUtils.setBaseResultsDir(reportsOutput);
         System.out.println("Starting Test Execution...");

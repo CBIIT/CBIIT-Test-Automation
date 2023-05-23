@@ -52,7 +52,6 @@ public class SEERLandingPageSteps extends PageInitializer {
 
 	@Then("the SEER Data Access landing page has the following text displayed")
 	public void the_SEER_Data_Access_landing_page_has_the_following_text_displayed(String expectedLandingPageText) {
-
 		String actualLandingPageText = seerLandingPage.landingPageText.getText();
 		System.out.println(actualLandingPageText);
 		CommonUtils.assertEquals(actualLandingPageText, expectedLandingPageText);
