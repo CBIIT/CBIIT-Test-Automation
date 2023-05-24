@@ -1,6 +1,5 @@
 package ServiceNow.SEER.Steps;
 
-import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;

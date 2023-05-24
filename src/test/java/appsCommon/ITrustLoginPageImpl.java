@@ -63,5 +63,4 @@ public class ITrustLoginPageImpl extends PageInitializer {
 		iTrustloginPage.clickSignInButton();
 		MiscUtils.sleep(500);
 	}
-
 }

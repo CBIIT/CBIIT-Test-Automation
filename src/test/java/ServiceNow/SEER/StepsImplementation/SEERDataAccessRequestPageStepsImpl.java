@@ -1,21 +1,31 @@
 package ServiceNow.SEER.StepsImplementation;
 
 import ServiceNow.SEER.Constants.DUA_Constants;
-import com.nci.automation.web.EnvUtils;
+import ServiceNow.SEER.Constants.SEERDataAccessRequest_Constants;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import org.testng.Assert;
+import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import ServiceNow.SEER.Constants.Registration_Constants;
 import appsCommon.PageInitializer;
 
-public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
-    public static String newEmail = "seer" + CommonUtils.email;
+import java.util.Iterator;
+import java.util.Set;
 
-    public static String newEmailThankYou = "seerThankYou" + CommonUtils.email;
+public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
+
+
+    public static String newEmailThankYou283 = "seerThankYou283" + CommonUtils.email;
+
+    public static String newEmailThankYou284 = "seerThankYou284" + CommonUtils.email;
+
+    public static String newEmailThankYou285 = "seerThankYou285" + CommonUtils.email;
+
+    public static String newEmailThankYou286 = "seerThankYou286" + CommonUtils.email;
 
     public static String newEmailThankNI = "seerThankYouNI" + CommonUtils.email;
 
@@ -35,10 +45,37 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenShot();
     }
 
-    public static void enterEmailAddress() {
+    public static void enterEmailAddress283() {
         JavascriptUtils.scrollIntoView(seerLandingPage.researchDataRequestsEmailAddressField);
         CommonUtils.waitForVisibility(seerLandingPage.researchDataRequestsEmailAddressField);
-        CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, newEmailThankYou);
+        CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, newEmailThankYou283);
+        CucumberLogUtils.logScreenShot();
+        CommonUtils.click(seerLandingPage.registerForResearchDataButton);
+        MiscUtils.sleep(2000);
+    }
+
+    public static void enterEmailAddress284() {
+        JavascriptUtils.scrollIntoView(seerLandingPage.researchDataRequestsEmailAddressField);
+        CommonUtils.waitForVisibility(seerLandingPage.researchDataRequestsEmailAddressField);
+        CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, newEmailThankYou284);
+        CucumberLogUtils.logScreenShot();
+        CommonUtils.click(seerLandingPage.registerForResearchDataButton);
+        MiscUtils.sleep(2000);
+    }
+
+    public static void enterEmailAddress285() {
+        JavascriptUtils.scrollIntoView(seerLandingPage.researchDataRequestsEmailAddressField);
+        CommonUtils.waitForVisibility(seerLandingPage.researchDataRequestsEmailAddressField);
+        CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, newEmailThankYou285);
+        CucumberLogUtils.logScreenShot();
+        CommonUtils.click(seerLandingPage.registerForResearchDataButton);
+        MiscUtils.sleep(2000);
+    }
+
+    public static void enterEmailAddress286() {
+        JavascriptUtils.scrollIntoView(seerLandingPage.researchDataRequestsEmailAddressField);
+        CommonUtils.waitForVisibility(seerLandingPage.researchDataRequestsEmailAddressField);
+        CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, newEmailThankYou286);
         CucumberLogUtils.logScreenShot();
         CommonUtils.click(seerLandingPage.registerForResearchDataButton);
         MiscUtils.sleep(2000);
@@ -71,17 +108,6 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenShot();
     }
 
-    public static void userIsDirectedToThePage(String seerRegistrationIsCompleteText) {
-        CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationIsCompleteHeader);
-        org.junit.Assert.assertEquals(seerRegistrationIsCompleteText,
-                seerUserRegistrationPage.seerUserRegistrationIsCompleteHeader.getText());
-        JavascriptUtils.drawBlueBorder(seerUserRegistrationPage.seerUserRegistrationIsCompleteHeader);
-    }
-
-    public static void aUserIsOnTheSEERDataAccessLandingPage() throws TestingException {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SEERDataAccess"));
-        CucumberLogUtils.logScreenShot();
-    }
 
     public static void submitsTheRegistrationForm() {
         CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationSubmitButton);
@@ -147,5 +173,321 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
                         .getText());
         JavascriptUtils.drawBlueBorder(seerUserRegistrationPage.seerUserRegistrationSeerIsSupportedByTheSurveillanceResearchProgramText);
         CucumberLogUtils.logScreenShot();
+    }
+
+    public static void userVerifiesEmailAddressByClickingOnTheEmailVerificationLinkThatIsSentToTheUserAfterSubmittingASEERUserRegistrationForm()
+            throws TestingException {
+        nativeViewLoginImpl.sideDoorAccountLogin();
+        /** Waiting for email to be sent and searchable */
+        MiscUtils.sleep(50000);
+        nativeViewEnrollementsPage.filterNavigator.sendKeys("mailbox");
+        MiscUtils.sleep(1000);
+        JavascriptUtils.scrollIntoView(nativeViewSentViewPage.nativeViewmailboxSentLink);
+        MiscUtils.sleep(1000);
+        nativeViewSentViewPage.nativeViewmailboxSentLink.click();
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenShot();
+        CommonUtils.switchToFrame(nativeViewSentViewPage.nativeViewFrame);
+        MiscUtils.sleep(1000);
+        CommonUtils.selectDropDownValue("Recipients", nativeViewSentViewPage.nativeViewSearchDropDown);
+        MiscUtils.sleep(1000);
+        nativeViewSentViewPage.nativeViewSentSearchField.sendKeys("SEER282" + CommonUtils.email);
+        MiscUtils.sleep(1000);
+        nativeViewSentViewPage.nativeViewSentSearchField.sendKeys(Keys.ENTER);
+        MiscUtils.sleep(2000);
+        nativeViewSentViewPage.nativeViewCreatedButton.click();
+        MiscUtils.sleep(2000);
+        nativeViewSentViewPage.nativeViewCreatedButton.click();
+        MiscUtils.sleep(1000);
+        nativeViewSentViewPage.nativeViewPreviewVerifyEmailIcon.click();
+        MiscUtils.sleep(3000);
+        nativeViewSentViewPage.NativeViewPreviewVerifyEmailOpenRecordButton.click();
+        MiscUtils.sleep(1000);
+        JavascriptUtils.scrollIntoView(nativeViewSentViewPage.nativeViewPreviewVerifyEmailPreviewHTMLBodyLink);
+        MiscUtils.sleep(1000);
+        nativeViewSentViewPage.nativeViewPreviewVerifyEmailPreviewHTMLBodyLink.click();
+        CommonUtils.switchToFrame(nativeViewSentViewPage.nativeViewPreviewEmailIFRAME);
+        MiscUtils.sleep(1000);
+        org.junit.Assert.assertTrue(nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataHeader.getText()
+                .contentEquals("SEER Incidence Data: Verify your email address"));
+        Assert.assertTrue(nativeViewSentViewPage.nativeViewPreviewEmailHelloNameText.getText()
+                .contentEquals("Hello " + Registration_Constants.NI_FIRST_NAME + ","));
+        CommonUtils.waitForVisibility(nativeViewSentViewPage.nativeViewPreviewEmailVerifyEMAILlink);
+        nativeViewSentViewPage.nativeViewPreviewEmailVerifyEMAILlink.click();
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenShot();
+    }
+
+    public static void theUserIsDirectedToThePage(String landingPageHeaderText) {
+        Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
+        for (String currentWindow1 : allWindowHandles1) {
+            WebDriverUtils.webDriver.switchTo().window(currentWindow1);
+        }
+        String landingPageTitle = WebDriverUtils.getWebDriver().getTitle();
+        Assert.assertTrue(landingPageTitle.contentEquals("SEER Data Access Request - ODS SEER Data Access Request"));
+                CommonUtils.waitForVisibility(seerDataAccessRequestPage.seerDataAccessRequestHeader);
+        Assert.assertTrue(
+                seerDataAccessRequestPage.seerDataAccessRequestHeader.getText().contentEquals(landingPageHeaderText));
+    }
+
+    public static void theFieldContainsTheNameOfTheRequestorInReadOnlyFormat(String requestedFor) {
+        Assert.assertTrue(seerDataAccessRequestPage.requestedForText.getText().contentEquals(requestedFor));
+        Assert.assertEquals(Registration_Constants.NI_FIRST_NAME + " " + Registration_Constants.NI_MIDDLE_NAME + " " + Registration_Constants.NI_LAST_NAME,
+                seerDataAccessRequestPage.seerDataAccessRequestedForReadOnlyTextBox.getAttribute("value"));
+        Assert.assertTrue(seerDataAccessRequestPage.seerDataAccessRequestedForReadOnlyTextBox.getAttribute("disabled")
+                .equals("true"));
+    }
+
+    public static void theFieldDisplaysWithInReadOnlyFormat(String databaseType, String seerResearchDatabase) {
+        Assert.assertTrue(
+                seerDataAccessRequestPage.seerDataAccessDatabaseTypeText.getText().contentEquals(databaseType));
+        Assert.assertTrue(seerDataAccessRequestPage.seerDataAccessDatabaseTypeReadOnlyTextBox.getText()
+                .contains(seerResearchDatabase));
+        Assert.assertTrue(seerDataAccessRequestPage.seerDataAccessDatabaseTypeReadOnlyTextBox.getAttribute("disabled")
+                .equals("true"));
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenShot();
+    }
+
+    public static void theUserCanSelectAGeneralPurposeForUsingTheData() {
+        Assert.assertTrue(seerDataAccessRequestPage.seerDataAccessRequestWhatIsYourGeneralPurposeUsingTheDataText
+                .getText().contentEquals("What is your general purpose for using the data?"));
+        CommonUtils.selectDropDownValue("Administrative",
+                seerDataAccessRequestPage.seerDataAccessRequestWhatIsYourGeneralPurposeForUsingTheDataDD);
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenShot();
+    }
+
+    public static void beforeEnteringInitialsForTheTextBoxForInitialsIsDisplaysWithTheUsersInitialsInReadOnlyMode(String IUnderstandTheLimitationsOfTreatmentData) {
+        JavascriptUtils.scrollIntoView(
+                seerDataAccessRequestPage.seerDataAccessRequestWhatIsYourGeneralPurposeForUsingTheDataDD);
+        Assert.assertTrue(seerDataAccessRequestPage.iUnderstandTheLimitationOfTreatmentDataInitialsfieldHeader.getText()
+                .contentEquals(IUnderstandTheLimitationsOfTreatmentData));
+        Assert.assertTrue(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationInitialsText.getText()
+                .contentEquals("Initials"));
+        Assert.assertTrue(seerDataAccessRequestPage.iUnderstandTheLimitationOfTreatmentDataInitialsfield.getAttribute("disabled")
+                .equals("true"));
+    }
+
+    public static void theIUnderstandTheLimitationsOfTreatmentDataTextAgreementDisplayed() {
+        CommonUtils.waitForVisibility(seerDataAccessRequestPage.iUnderstandTheLimitationOfTreatmentDataContentTextLastParagraph);
+        Assert.assertEquals(SEERDataAccessRequest_Constants.I_UNDERSTAND_THE_LIMITATIONS_OF_TREATEMENT_DATA,seerDataAccessRequestPage.iUnderstandTheLimitationOfTreatmentDataContentTextLastParagraph.getText());
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenShot();
+    }
+
+    public static void beforeEnteringInitialsForTheInitialsTextBoxDisplaysWithTheUsersInitialsInReadOnlyMode(
+            String dataUseAgreementCertification) {
+        JavascriptUtils.scrollIntoView(
+                seerDataAccessRequestPage.seerDataAccessRequestWhatIsYourGeneralPurposeForUsingTheDataDD);
+        Assert.assertTrue(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationHeaderText.getText()
+                .contentEquals(dataUseAgreementCertification));
+        Assert.assertTrue(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationInitials.getAttribute("disabled")
+                .equals("true"));
+        Assert.assertTrue(seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceInitials.getAttribute("disabled")
+                .equals("true"));
+        Assert.assertTrue(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationInitials
+                .getAttribute("disabled").equals("true"));
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenShot();
+    }
+
+    public static void theDataUseAgreementCertificationTextAgreementDisplayed() {
+        CommonUtils.waitForVisibility(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationText);
+        Assert.assertEquals(SEERDataAccessRequest_Constants.DATA_USE_AGREE_EMT_CERTIFFICATION,seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationText.getText());
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenShot();
+    }
+
+    public static void beforeEnteringInitialsForTheUsersInitialsDisplayInReadOnlyFormat(
+            String bestPracticeAssurance) {
+        Assert.assertTrue(seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceHeaderText.getText()
+                .contentEquals(bestPracticeAssurance));
+        Assert.assertTrue(seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceInitialsText.getText()
+                .contentEquals("Initials"));
+        Assert.assertNotNull("Verifying that the Initials field's value is null",
+                seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceInitials.getAttribute("value")
+                        .equals("false"));
+        Assert.assertTrue(seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceInitials.getAttribute("disabled")
+                .equals("true"));
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenShot();
+    }
+
+    public static void theBestPracticeAssuranceTextDisplayed() {
+        CommonUtils.waitForVisibility(seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceText);
+        Assert.assertEquals(SEERDataAccessRequest_Constants.BEAT_PRACTICE_ASSURANCE,seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceText.getText());
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenShot();
+    }
+
+    public static void whenTheUserScrollsDownEachAgreement() {
+        JavascriptUtils.scrollUpWithinElement(seerDataAccessRequestPage.iUnderstandTheLimitationOfTreatmentDataContentTextLastParagraph,
+                8000);
+        MiscUtils.sleep(2000);
+        JavascriptUtils.scrollUpWithinElement(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationText,
+                8000);
+        MiscUtils.sleep(2000);
+        JavascriptUtils.scrollUpWithinElement(seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceText, 8000);
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenShot();
+    }
+
+    public static void theUserIsAbleToEnterIntials() {
+        seerDataAccessRequestPage.iUnderstandTheLimitationOfTreatmentDataInitialsfield.sendKeys(Registration_Constants.NI_FIRST_NAME.charAt(0) + "" + Registration_Constants.NI_LAST_NAME.charAt(0));
+        JavascriptUtils.drawBlueBorder(seerDataAccessRequestPage.iUnderstandTheLimitationOfTreatmentDataInitialsfield);
+        seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationInitials.sendKeys(Registration_Constants.NI_FIRST_NAME.charAt(0) + "" + Registration_Constants.NI_LAST_NAME.charAt(0));
+        JavascriptUtils.drawBlueBorder(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationInitials);
+        seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceInitials.sendKeys(Registration_Constants.NI_FIRST_NAME.charAt(0) + "" + Registration_Constants.NI_LAST_NAME.charAt(0));
+        JavascriptUtils.drawBlueBorder(seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceInitials);
+        MiscUtils.sleep(500);
+        CucumberLogUtils.logScreenShot();
+    }
+
+    public static void seerInformationIsDisplayedOnTheBottomOfThePageAsFollows(String expectedText) {
+        Assert.assertTrue(seerDataAccessRequestPage.seerDataAccessSEERIsSupportedByTheBottomText.getText()
+                .contentEquals(expectedText));
+        MiscUtils.sleep(1000);
+    }
+
+    public static void afterEnteringRequiredInformationTheUserIsAbleToSuccessfullySubmitTheSEERDataAccessRequestForm() {
+        CommonUtils.waitForVisibility(seerDataAccessRequestPage.seerDataAccessSubmitButton);
+        seerDataAccessRequestPage.seerDataAccessSubmitButton.click();
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenShot();
+        String seerRegistrationIsCompletePage = WebDriverUtils.getWebDriver().getTitle();
+        Assert.assertEquals("SEER Data Request Confirmation - ODS SEER Data Access Request",
+                seerRegistrationIsCompletePage);
+        Assert.assertEquals("Thank you - your data access request is complete.",
+                seerDataAccessRequestPage.seerDataAccessYourDataAccessRequestIsCompleteHeader.getText());
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenShot();
+    }
+
+    public static void theBreadCrumbDisplays(String seerIncidenceDatabaseLink) {
+        CommonUtils.waitForVisibility(seerLandingPage.seerIncidenceDatabaseBreadcrumb);
+        Assert.assertEquals(seerIncidenceDatabaseLink, seerLandingPage.seerIncidenceDatabaseBreadcrumb.getText());
+    }
+
+    public static void whenClickingUserIsDirectedTo(String seerIncidenceDatabaseUrl) {
+        CommonUtils.waitForVisibility(seerLandingPage.seerIncidenceDatabaseBreadcrumb);
+        CommonUtils.click(seerLandingPage.seerIncidenceDatabaseBreadcrumb);
+        MiscUtils.sleep(2000);
+        CucumberLogUtils.logScreenShot();
+        String actualSeerCancerGovDataUrl = WebDriverUtils.getWebDriver().getCurrentUrl();
+        Assert.assertEquals(seerIncidenceDatabaseUrl, actualSeerCancerGovDataUrl);
+        MiscUtils.sleep(2000);
+        WebDriverUtils.getWebDriver().navigate().back();
+    }
+
+    public static void theUserEntersAnEmailAddressForANonInstitutionalAccount() {
+        CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, CommonUtils.email);
+        CommonUtils.click(seerLandingPage.registerForResearchDataButton);
+        CucumberLogUtils.logScreenShot();
+    }
+
+    public static void theUserIsOnThePage(String seerUserRegistrationHeader) {
+        CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationHeaderText);
+        Assert.assertEquals(seerUserRegistrationHeader,
+                seerUserRegistrationPage.seerUserRegistrationHeaderText.getText());
+    }
+
+    public static void userIsDirectedToTheRegistrationPage(String seerRegistrationIsCompleteText) {
+        CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationIsCompleteHeader);
+        Assert.assertEquals(seerRegistrationIsCompleteText,
+                seerUserRegistrationPage.seerUserRegistrationIsCompleteHeader.getText());
+    }
+
+    public static void userConfirmsTheirEmailAddressByClickingOnTheEmailVerificationLinkSentToTheUsersEmailAddress()
+            throws TestingException {
+        nativeViewLoginImpl.sideDoorAccountLogin();
+        /** Waiting for email to be sent and searchable */
+        MiscUtils.sleep(50000);
+        nativeViewEnrollementsPage.filterNavigator.sendKeys("mailbox");
+        MiscUtils.sleep(1000);
+        JavascriptUtils.scrollIntoView(nativeViewSentViewPage.nativeViewmailboxSentLink);
+        MiscUtils.sleep(1000);
+        nativeViewSentViewPage.nativeViewmailboxSentLink.click();
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenShot();
+        CommonUtils.switchToFrame(nativeViewSentViewPage.nativeViewFrame);
+        MiscUtils.sleep(10000);
+        CommonUtils.selectDropDownValue("Recipients", nativeViewSentViewPage.nativeViewSearchDropDown);
+        MiscUtils.sleep(1000);
+        nativeViewSentViewPage.nativeViewSentSearchField.sendKeys("seerThankYou285" + CommonUtils.email);
+        MiscUtils.sleep(1000);
+        nativeViewSentViewPage.nativeViewSentSearchField.sendKeys(Keys.ENTER);
+        MiscUtils.sleep(2000);
+        nativeViewSentViewPage.nativeViewCreatedButton.click();
+        MiscUtils.sleep(2000);
+        nativeViewSentViewPage.nativeViewCreatedButton.click();
+        MiscUtils.sleep(1000);
+        nativeViewSentViewPage.nativeViewPreviewVerifyEmailIcon.click();
+        MiscUtils.sleep(3000);
+        CucumberLogUtils.logScreenShot();
+        CommonUtils.click(nativeViewSentViewPage.NativeViewPreviewVerifyEmailOpenRecordButton);
+        MiscUtils.sleep(2000);
+        JavascriptUtils.scrollIntoView(nativeViewSentViewPage.nativeViewPreviewVerifyEmailPreviewHTMLBodyLink);
+        MiscUtils.sleep(2000);
+        CommonUtils.click(nativeViewSentViewPage.nativeViewPreviewVerifyEmailPreviewHTMLBodyLink);
+        CucumberLogUtils.logScreenShot();
+        CommonUtils.switchToFrame(nativeViewSentViewPage.nativeViewPreviewEmailIFRAME);
+        MiscUtils.sleep(2000);
+        Assert.assertTrue(nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataHeader.getText()
+                .contentEquals("SEER Incidence Data: Verify your email address"));
+        Assert.assertTrue(nativeViewSentViewPage.nativeViewPreviewEmailHelloNameText.getText().contains(Registration_Constants.FIRST_NAME));
+        MiscUtils.sleep(2000);
+        String mainPageHandle = WebDriverUtils.getWebDriver().getWindowHandle();
+        CommonUtils.click(nativeViewSentViewPage.nativeViewPreviewEmailVerifyEMAILlink);
+        MiscUtils.sleep(2000);
+        Set<String> allWindows = WebDriverUtils.getWebDriver().getWindowHandles();
+        Iterator<String> it = allWindows.iterator();
+        while (it.hasNext()) {
+            String childHandle = it.next();
+            if (!childHandle.equals(mainPageHandle)) {
+                WebDriverUtils.getWebDriver().switchTo().window(childHandle);
+            }
+        }
+    }
+
+    public static void theUserIsDirectedToPage(String seerDataAccessRequestPageText) {
+        MiscUtils.sleep(2000);
+        Assert.assertEquals(seerDataAccessRequestPageText,
+                seerDataAccessRequestPage.seerDataAccessRequestHeader.getText());
+    }
+
+    public static void theUserHasToSelectAGeneralPurposeForUsingTheData() {
+        Assert.assertTrue(seerDataAccessRequestPage.seerDataAccessRequestedForReadOnlyTextBox.getAttribute("disabled")
+                .equals("true"));
+        MiscUtils.sleep(2000);
+        Assert.assertTrue(seerDataAccessRequestPage.seerDataAccessDatabaseTypeReadOnlyTextBox.getAttribute("disabled")
+                .equals("true"));
+        CommonUtils.selectDropDownValue("Administrative",
+                seerDataAccessRequestPage.seerDataAccessRequestWhatIsYourGeneralPurposeForUsingTheDataDD);
+        CucumberLogUtils.logScreenShot();
+        MiscUtils.sleep(2000);
+    }
+
+    public static void alsoHasToAgreeByTypingInitialsToTheDataUseAgreementCertificationAndBestPracticeAssurance() {
+        JavascriptUtils.scrollUpWithinElement(seerDataAccessRequestPage.iUnderstandTheLimitationOfTreatmentDataContentTextLastParagraph,
+                8000);
+        CommonUtils.sendKeys(seerDataAccessRequestPage.iUnderstandTheLimitationOfTreatmentDataInitialsfield, Registration_Constants.FIRST_NAME.charAt(0) + "" + Registration_Constants.LAST_NAME.charAt(0));
+        MiscUtils.sleep(2000);
+        JavascriptUtils.scrollUpWithinElement(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationText,
+                8000);
+        CommonUtils.sendKeys(seerDataAccessRequestPage.seerDataAccessDataUseAgreementCertificationInitials, Registration_Constants.FIRST_NAME.charAt(0) + "" + Registration_Constants.LAST_NAME.charAt(0));
+        MiscUtils.sleep(2000);
+        CucumberLogUtils.logScreenShot();
+        JavascriptUtils.scrollUpWithinElement(seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceText, 8000);
+        CommonUtils.sendKeys(seerDataAccessRequestPage.seerDataAccessBestPracticeAssuranceInitials, Registration_Constants.FIRST_NAME.charAt(0) + "" + Registration_Constants.LAST_NAME.charAt(0));
+        MiscUtils.sleep(2000);
+        CucumberLogUtils.logScreenShot();
+    }
+
+    public static void thePageDisplays(String yourDataAccessRequestIsCompleteHeader) {
+        MiscUtils.sleep(2000);
+        CucumberLogUtils.logScreenShot();
+        Assert.assertEquals(yourDataAccessRequestIsCompleteHeader,
+                seerDataAccessRequestPage.seerDataAccessYourDataAccessRequestIsCompleteHeader.getText());
     }
 }

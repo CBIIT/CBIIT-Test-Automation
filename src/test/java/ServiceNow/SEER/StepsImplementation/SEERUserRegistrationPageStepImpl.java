@@ -44,12 +44,9 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
         CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationOrganizationField,
                 Registration_Constants.ORGANIZATION_NAME);
-        if(!Registration_Constants.COUNTRY_NAME.equals(seerUserRegistrationPage.seerUserRegistrationCountryField.getAttribute("value"))) {
-            MiscUtils.sleep(1000);
             seerUserRegistrationPage.seerUserRegistrationCountryField.click();
             seerUserRegistrationPage.seerUserRegistrationCountryField.sendKeys(Registration_Constants.COUNTRY_NAME);
             seerUserRegistrationPage.seerUserRegistrationCountryUSA.click();
-        }
         MiscUtils.sleep(1000);
         CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationAddressField,
                 Registration_Constants.STREET_ADDRESS);
@@ -135,7 +132,7 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SEERDataAccess"));
         CommonUtils.waitForVisibility(seerLandingPage.researchDataRequestsEmailAddressField);
         JavascriptUtils.scrollIntoView(seerLandingPage.researchDataRequestsEmailAddressField);
-        CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, CommonUtils.email);
+        CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, "SEER282" + CommonUtils.email);
         CommonUtils.waitForVisibility(seerLandingPage.registerForResearchDataButton);
         seerLandingPage.registerForResearchDataButton.click();
         MiscUtils.sleep(2000);
@@ -145,21 +142,18 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         seerUserRegistrationPage.seerUserRegistrationFirstNameField.sendKeys(Registration_Constants.NI_FIRST_NAME);
         seerUserRegistrationPage.seerUserRegistrationMiddleNameField.sendKeys(Registration_Constants.NI_MIDDLE_NAME);
         seerUserRegistrationPage.seerUserRegistrationLastNameField.sendKeys(Registration_Constants.NI_LAST_NAME);
-        org.junit.Assert.assertEquals(CommonUtils.email,
+        org.junit.Assert.assertEquals("SEER282" + CommonUtils.email,
                 seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("value"));
         org.junit.Assert.assertTrue(
                 seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("disabled").equals("true"));
         CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
         seerUserRegistrationPage.seerUserRegistrationOrganizationField.click();
         seerUserRegistrationPage.seerUserRegistrationOrganizationField.sendKeys(Registration_Constants.NI_ORGANIZATION_NAME);
-        MiscUtils.sleep(2000);
         seerUserRegistrationPage.seerUserRegistrationJobTitleField.sendKeys(Registration_Constants.NI_JOB_TITLE);
         JavascriptUtils.scrollIntoView(seerUserRegistrationPage.seerUserRegistrationEmailField);
         seerUserRegistrationPage.seerUserRegistrationCountryField.click();
         seerUserRegistrationPage.seerUserRegistrationCountryField.sendKeys(Registration_Constants.NI_COUNTRY_NAME);
         seerUserRegistrationPage.seerUserRegistrationCountryUSA.click();
-        MiscUtils.sleep(2000);
-        CucumberLogUtils.logScreenShot();
         seerUserRegistrationPage.seerUserRegistrationAddressField.sendKeys(Registration_Constants.NI_STREET_ADDRESS);
         seerUserRegistrationPage.seerUserRegistrationCityField.sendKeys(Registration_Constants.NI_CITY_NAME);
         seerUserRegistrationPage.seerUserRegistrationStateField.sendKeys(Registration_Constants.NI_STATE);
@@ -168,9 +162,9 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
         CommonUtils.selectDropDownValue(Registration_Constants.GENERAL_PURPOSE_FOR_USING_THE_DATA,
                 seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
+        CucumberLogUtils.logScreenShot();
         seerUserRegistrationPage.seerUserRegistrationSubmitButton.click();
         MiscUtils.sleep(2000);
-        CucumberLogUtils.logScreenShot();
         String seerRegistrationIsCompletePage = WebDriverUtils.getWebDriver().getTitle();
         org.junit.Assert.assertEquals("SEER Data Confirmation - ODS SEER Data Access Request", seerRegistrationIsCompletePage);
         org.junit.Assert.assertEquals("Thank you - your registration is complete.",

@@ -18,5 +18,4 @@ public class DUA_AgreementsSteps extends PageInitializer {
     public void dua_Agreements_are_verified() {
         SEERDataAccessRequestPageStepsImpl.verifyingAgreements();
     }
-
 }

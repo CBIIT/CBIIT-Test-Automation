@@ -28,7 +28,7 @@ public class NativeViewSentViewPage extends CommonUtils {
 	public WebElement nativeViewSentSearchField;
 	
 	/**Native View Created Button*/
-	@FindBy(xpath = "//table/tbody/tr/td/div/table/thead/tr[1]/th[3]/span/a")
+	@FindBy(xpath = "//table[@id='sys_email_table']//th[@name='sys_created_on']//a[@role='button']")
 	public WebElement nativeViewCreatedButton;
 	
 	/**Native View Preview Verify Email I icon*/
@@ -60,7 +60,7 @@ public class NativeViewSentViewPage extends CommonUtils {
 	public WebElement nativeViewPreviewEmailVerifyEMAILlink;
 	
 	/** Native View Sorting Created Data In Order Link */
-	@FindBy (xpath = "//tr[@id = 'hdr_sys_email']/th[3]/span/a")
+	@FindBy (xpath = "//table[@id='sys_email_table']//th[@name='sys_created_on']//a[@role='button']")
 	public WebElement sortingCreatedDataInOrderLink;
 	
 	/** --------------- END OF NATIVE VIEW SENT VIEW PAGE --------------- */
