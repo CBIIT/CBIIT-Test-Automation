@@ -162,8 +162,6 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
         MiscUtils.sleep(1000);
         nativeViewSentViewPage.nativeViewSentSearchField.sendKeys(Keys.ENTER);
         MiscUtils.sleep(2000);
-        nativeViewSentViewPage.nativeViewCreatedButton.click();
-        MiscUtils.sleep(1000);
         nativeViewEmailsPage.nativeViewEmailsPreviewVerifyEmailIcon.click();
         MiscUtils.sleep(3000);
         CucumberLogUtils.logScreenShot();

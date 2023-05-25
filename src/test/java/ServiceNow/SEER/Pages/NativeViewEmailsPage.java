@@ -19,7 +19,7 @@ public class NativeViewEmailsPage extends CommonUtils {
     public WebElement emailsMenu;
 
     /**Native View Emails Preview Verify Email I icon*/
-    @FindBy(xpath = "//*[@id=\'sys_email_table\']/tbody//child::td[2]//child::a")
+    @FindBy(xpath = "//td[normalize-space()='Your SEER Data Access Request has been rejected']//parent::tr//child::td[2]//child::a")
     public WebElement nativeViewEmailsPreviewVerifyEmailIcon;
 
     public NativeViewEmailsPage() {
