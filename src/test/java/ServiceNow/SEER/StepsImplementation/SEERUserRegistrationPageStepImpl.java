@@ -1,7 +1,6 @@
 package ServiceNow.SEER.StepsImplementation;
 
 import ServiceNow.SEER.Constants.Registration_Constants;
-import ServiceNow.SEER.Constants.SEERDataAccessRequest_Constants;
 import appsCommon.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;

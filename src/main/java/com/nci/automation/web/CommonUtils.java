@@ -6,11 +6,7 @@ import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -199,6 +195,20 @@ public class CommonUtils extends WebDriverUtils {
 
         try {
             webDriver.switchTo().frame(index);
+        } catch (NoSuchFrameException e) {
+            System.out.println("Frame is not present.");
+        }
+    }
+
+    /**
+     * This method will switch to default frame
+     *
+     */
+
+    public static void switchToDefaultContent() {
+
+        try {
+            webDriver.switchTo().defaultContent();
         } catch (NoSuchFrameException e) {
             System.out.println("Frame is not present.");
         }
@@ -411,6 +421,26 @@ public class CommonUtils extends WebDriverUtils {
      */
 
     public static String email = getEmail();
+
+    /**
+     * Use this method to pass a random LaastName as a String
+     *
+     * @return
+     */
+    public static String lastNAmeRandomizer() {
+        int leftLimit = 97; // letter 'a'
+        int rightLimit = 122; // letter 'z'
+        int targetStringLength = 10;
+        Random random = new Random();
+
+        String generatedString = random.ints(leftLimit, rightLimit + 1)
+                .limit(targetStringLength)
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
+        String generatedLastName = generatedString.substring(0, 1).toUpperCase() + generatedString.substring(1);
+        return generatedLastName;
+    }
+
 
     /**
      * Use this method to pass date as a string. You can concatinate with any String
