@@ -18,6 +18,7 @@ public class SEERLandingPageSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 	}
 
+
 	@When("the user attempts to request research data with existing email address {string}")
 	public void the_user_attempts_to_request_research_data_with_existing_email_address(String existingEmailAddress) {
 		SEERLandingPageStepImpl.theUserAttemptsToRequestResearchDataWithExistingEmailAddress(existingEmailAddress);

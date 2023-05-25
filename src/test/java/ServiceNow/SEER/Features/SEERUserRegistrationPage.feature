@@ -65,3 +65,12 @@ Feature: SEER User Registration Scenarios
     Then user is directed to the 'Thank you - your registration is complete.' page
     Then the following breadcrumbs are displayed "Home", "SEER Data & Software", "SEER Incidence Database", "Request SEER Incidence Data", "Submission Confirmation"
 
+  @ODS-396_ODS-399 @juarezds @Regression
+  Scenario: Verifying that ASCII characters including periods and Commas can be used in the address field - Partialy
+    Given a user is on the SEER Data Access landing page
+    When user enter an email address for a Non-Institutional Account
+    And fills out all required fields on SEER Data registration page
+    And submits the registration form
+    Then user is directed to the 'Thank you - your registration is complete.' page
+
+

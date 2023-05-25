@@ -21,7 +21,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
     public static String newEmailThankYou284 = "seerThankYou284" + CommonUtils.email;
     public static String newEmailThankYou285 = "seerThankYou285" + CommonUtils.email;
     public static String newEmailThankYou286 = "seerThankYou286" + CommonUtils.email;
-    public static String newEmailThankNI = "seerThankYouNI" + CommonUtils.email;
+    public static String newEmailThankYou399 = "seerThankYou399" + CommonUtils.email;
 
     public static void verifyingAgreements() {
         String actualTreatmentDataLimitationsAgreementText = seerDataAccessRequestPage.seerDataAccessTreatmentDataLimitationsAgreement.getText();
@@ -73,10 +73,10 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         MiscUtils.sleep(2000);
     }
 
-    public static void enterEmailAddressNI() {
+    public static void enterEmailAddress399() {
         JavascriptUtils.scrollIntoView(seerLandingPage.researchDataRequestsEmailAddressField);
         CommonUtils.waitForVisibility(seerLandingPage.researchDataRequestsEmailAddressField);
-        CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, newEmailThankNI);
+        CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, newEmailThankYou399);
         CucumberLogUtils.logScreenShot();
         CommonUtils.click(seerLandingPage.registerForResearchDataButton);
         MiscUtils.sleep(2000);

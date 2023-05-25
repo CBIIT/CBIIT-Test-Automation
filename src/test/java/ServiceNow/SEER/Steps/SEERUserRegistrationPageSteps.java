@@ -46,6 +46,11 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 		SEERDataAccessRequestPageStepsImpl.enterEmailAddress285();
 	}
 
+	@When("user enter an email address for a Non-Institutional Account")
+	public void user_enter_an_email_address_for_a_Non_Institutional_Account() {
+		SEERDataAccessRequestPageStepsImpl.enterEmailAddress399();
+		}
+
 	@When("fills out all required fields on the SEER Data registration page")
 	public void fills_out_all_required_fields_on_the_SEER_Data_registration_page() {
 		SEERUserRegistrationPageStepImpl.validateEmailFieldReadOnly();

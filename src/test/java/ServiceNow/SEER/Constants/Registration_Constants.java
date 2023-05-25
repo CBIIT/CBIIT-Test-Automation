@@ -17,7 +17,7 @@ public class Registration_Constants {
     public static final String COUNTRY_NAME = "United States of America";
 
     /* STREET ADDRESS */
-    public static final String STREET_ADDRESS = "9520 Burning Branch Road";
+    public static final String STREET_ADDRESS = "330.23 Ivy_one Lane'-, Apartment 6";
 
     /* CITY NAME */
     public static final String CITY_NAME = "Burke";
@@ -55,7 +55,7 @@ public class Registration_Constants {
     public static final String NI_COUNTRY_NAME = "United States of America";
 
     /* NON-INSTITUTIONAL STREET ADDRESS */
-    public static final String NI_STREET_ADDRESS = "330 Ivy Lane, Apartment 6";
+    public static final String NI_STREET_ADDRESS = "330.23 Ivy_one Lane'-, Apartment 6";
 
     /* NON-INSTITUTIONAL CITY NAME */
     public static final String NI_CITY_NAME = "NYC";

@@ -1,6 +1,6 @@
 Feature: SEER Data Access Request Scenarios
 
-  @ODS-374 @ODS-375 @ODS-376 @juarezds @Regression
+  @ODS-387_ODS-374 @ODS-389_ODS-376 @ODS-388_ODS-375 @juarezds @Regression
   Scenario: Non-Institutional flow - Verifying SEER Data Access Request page contents and agreements for Non-Institutional flow
     Given a SEER User Registration has been successfully submitted
     And user verifies email address by clicking on the email verification link that is sent to the user after submitting a SEER User registration form
