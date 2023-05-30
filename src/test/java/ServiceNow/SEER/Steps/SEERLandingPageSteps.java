@@ -2,6 +2,7 @@ package ServiceNow.SEER.Steps;
 
 import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
@@ -9,6 +10,7 @@ import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class SEERLandingPageSteps extends PageInitializer {
 
@@ -18,30 +20,43 @@ public class SEERLandingPageSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 	}
 
-	@Then("the {string} text displays as")
-	public void the_text_displays_as(String requestDatabaseAccessHeader, String requestDatabaseAccessParagraph) {
-		Assert.assertEquals(requestDatabaseAccessHeader, seerLandingPage.requestDatabaseAccessHeader.getText());
-		Assert.assertEquals(requestDatabaseAccessParagraph, seerLandingPage.requestDatabaseAccessText.getText());
+	@When("the user attempts to request research data with existing email address {string}")
+	public void the_user_attempts_to_request_research_data_with_existing_email_address(String existingEmailAddress) {
+		CommonUtils.scrollIntoView(seerLandingPage.researchDataRequestsEmailAddressField);
+		seerLandingPage.researchDataRequestsEmailAddressField.sendKeys(existingEmailAddress);
+		seerLandingPage.registerForResearchDataButton.click();
 	}
 
-	@Then("under {string} the text displayed is")
-	public void under_the_text_displayed_is(String institutionalAccounts, String doYouHaveAnAccount) {
-		Assert.assertEquals(institutionalAccounts, seerLandingPage.institutionalAccountsHeaderText.getText());
-		Assert.assertEquals(doYouHaveAnAccount, seerLandingPage.doYouHaveAnAccountParagraph.getText());
-	}
+	@Then("user sees the following header {string}  and message pop-up with links:")
+	public void user_sees_the_following_header_and_message_pop_up_with_links(String expectedHeaderText,
+																			 String expectedParagraph) {
 
-	@Then("the text displayed is {string}")
-	public void the_text_displayed_is(String ifYouAreUnable) {
-		Assert.assertEquals(ifYouAreUnable, seerLandingPage.ifYouAreUnableToAuthenticateText.getText());
+		CommonUtils.waitForVisibility(seerExistingAccountPage.headerText);
+		String actualHeaderText = seerExistingAccountPage.headerText.getText();
+		JavascriptUtils.drawBlueBorder(seerExistingAccountPage.headerText);
+		CommonUtils.assertEquals(actualHeaderText, expectedHeaderText);
+
+		String actualParagraphText = seerExistingAccountPage.paragraph.getText();
+		JavascriptUtils.drawBlueBorder(seerExistingAccountPage.paragraph);
+		CommonUtils.assertEquals(actualParagraphText, expectedParagraph);
 		CucumberLogUtils.logScreenShot();
 	}
 
-	@Then("under {string}, text displayed is")
-	public void under_text_displayed_is(String nonInstitutionalAccounts, String forAllOtherAccountsText) {
-		JavascriptUtils.scrollIntoView(seerLandingPage.nonInstitutionalAccountsHeaderText);
-		Assert.assertEquals(nonInstitutionalAccounts, seerLandingPage.nonInstitutionalAccountsHeaderText.getText());
-		Assert.assertEquals(forAllOtherAccountsText, seerLandingPage.forAllOtherAccountsParagraph.getText());
+	@Then("{string} button is also displayed")
+	public void button_is_also_displayed(String expectedButtonText) {
+		String actualButtonText = seerExistingAccountPage.backToSeerDatabaseDetailsButton.getText();
+		JavascriptUtils.drawBlueBorder(seerExistingAccountPage.backToSeerDatabaseDetailsButton);
+		CommonUtils.assertEquals(actualButtonText, expectedButtonText);
 		CucumberLogUtils.logScreenShot();
 	}
 
+	@Then("the SEER Data Access landing page has the following text displayed")
+	public void the_SEER_Data_Access_landing_page_has_the_following_text_displayed(String expectedLandingPageText) {
+		String actualLandingPageText = seerLandingPage.landingPageText.getText();
+		System.out.println(actualLandingPageText);
+		CommonUtils.assertEquals(actualLandingPageText, expectedLandingPageText);
+		JavascriptUtils.scrollDown(300);
+		JavascriptUtils.drawBlueBorder(seerLandingPage.landingPageText);
+		CucumberLogUtils.logScreenShot();
+	}
 }

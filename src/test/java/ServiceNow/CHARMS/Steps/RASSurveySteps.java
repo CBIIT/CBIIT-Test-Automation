@@ -7597,7 +7597,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.cHARMSEmailLogIn);
-		rASSurveyPage.cHARMSEmailLogIn.sendKeys(oktaEmailAddress);
+		rASSurveyPage.cHARMSEmailLogIn.sendKeys("charmsras5@yahoo.com");
 		rASSurveyPage.cHARMSpasswordToLogIn.sendKeys(rasSurveyPin);
 		CucumberLogUtils.logScreenShot();
 		rASSurveyPage.surveyNextButton.click();

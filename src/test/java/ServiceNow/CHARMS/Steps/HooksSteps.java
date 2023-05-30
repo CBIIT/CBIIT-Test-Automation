@@ -53,13 +53,12 @@ public class HooksSteps {
 		if (!StringUtils.isEmpty(buildNumber)) {
 			scenarioNameForFolderCreation = buildNumber + File.separatorChar + scenarioNameForFolderCreation;
 		} else {
-			// create artifacts in new folder with current time-stamp
 			scenarioNameForFolderCreation = DateUtils.getFormatedDate("MM-dd-yyyy") + File.separatorChar
 					+ scenarioNameForFolderCreation;
 		}
 		System.setProperty(ScenarioContext.USE_SCENARIO_NAME_PROPERTY, "true");
 		System.setProperty(ScenarioContext.SCENARIO_NAME_PROPERTY_NAME, scenarioNameForFolderCreation);
-		System.setProperty(HooksSteps.SCENARIO_NAME_TEXT, s.getName());// getScenarioName(scenario));
+		System.setProperty(HooksSteps.SCENARIO_NAME_TEXT, s.getName());
 		String resultsDirName = scenarioNameForFolderCreation;
 		ConfUtils.setResultsDir(resultsDirName);
 	}

@@ -36,5 +36,13 @@ src/test/java/ServiceNow/CHARMS/.DS_Store
 .classpath
 .project
 reports
-.idea
-/workspace.xml
+.DS_Store
+/.DS_Store
+/bin/
+.idea/
+src/.DS_Store
+src/test/.DS_Store
+src/test/java/.DS_Store
+src/test/java/ServiceNow/.DS_Store
+CBIIT-Test-Automation.iml
+src/test/java/ServiceNow/SEER/Steps/TestMisc.java

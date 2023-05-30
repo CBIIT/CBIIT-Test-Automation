@@ -25,6 +25,10 @@ public class OKTAloginPage extends CommonUtils {
 	@FindBy (xpath = "//input[@type='submit']")
 	public WebElement loginBtn;
 	
+	/** Agree button*/
+	@FindBy (xpath = "(//button[normalize-space()='Agree'])[1]")
+	public WebElement agreeBtn;
+	
 	/* Send Push Button */
 	@FindBy (xpath = "//input[@value='Send Push']")
 	public WebElement sendPushButton;
