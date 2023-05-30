@@ -2,6 +2,7 @@ package ServiceNow.SEER.Pages;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -40,7 +41,16 @@ public class SEERUserRegistrationPage extends CommonUtils {
 	/**SEER User Registration Organization field*/
 	@FindBy (xpath ="//input[@ng-model='data.user.organization']")
 	public WebElement seerUserRegistrationOrganizationField;
-	
+
+	/**SEER User Registration Organizations*/
+	@FindBy (xpath ="//*[@id=\'organizations\']/option")
+	public List<WebElement> seerUserRegistrationOrganizations;
+
+	/**SEER User Registration Organization Name*/
+	public static WebElement seerUserRegistrationOrganizationName(String organizationName) {
+		return WebDriverUtils.webDriver.findElement (By.xpath( "//option[@value='" + organizationName +"']"));
+	}
+
 	/**SEER User Registration Organization Drop Drown Values*/
 	@FindBy(xpath = "//div/div/form/div[3]/div[1]/input/following-sibling::datalist/option")
 	public List<WebElement> seerUserRegistrationOrganizationDropDrownValues;

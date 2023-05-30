@@ -29,7 +29,7 @@ public class Registration_Constants {
     public static final String ZIP_CODE = "22015";
 
     /* PHONE NUMBER */
-    public static final String PHONE_NUMBER = "703-687-5816";
+    public static final String PHONE_NUMBER = "+1 703-687-5816";
 
     /** --------------- SEER NON-INSTITUTIONAL USER REGISTRATION FORM CONSTANTS--------------- */
 

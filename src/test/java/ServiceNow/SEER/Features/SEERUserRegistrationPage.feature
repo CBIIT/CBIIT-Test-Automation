@@ -65,8 +65,8 @@ Feature: SEER User Registration Scenarios
     Then user is directed to the 'Thank you - your registration is complete.' page
     Then the following breadcrumbs are displayed "Home", "SEER Data & Software", "SEER Incidence Database", "Request SEER Incidence Data", "Submission Confirmation"
 
-  @ODS-396_ODS-399 @juarezds @Regression
-  Scenario: Verifying that ASCII characters including periods and Commas can be used in the address field - Partialy
+  @ODS-372_ODS-385 @ODS-396_ODS-399 @juarezds @Regression
+  Scenario: Verifying that ASCII characters including periods and Commas can be used in the address field - Partially
     Given a user is on the SEER Data Access landing page
     When user enter an email address for a Non-Institutional Account
     And fills out all required fields on SEER Data registration page
@@ -81,5 +81,9 @@ Feature: SEER User Registration Scenarios
     Requestors associated with HHS agencies should login with their PIV cards to request the data.
     """
 
-
-
+  @ODS-371_ODS-384 @juarezds @Regression
+  Scenario: Verifying that ASCII characters including periods and Commas can be used in the address field - Partially
+    Given a user is on the SEER Data Access landing page
+    When user enter an email address for a Non-Institutional Account
+    And fills out all required fields on SEER Data registration page except Organization
+    Then user should not be able to select "If non-institutional, enter Not Applicable." as an Organization option

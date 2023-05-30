@@ -9,7 +9,11 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
+
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+
+import java.util.List;
 
 public class SEERUserRegistrationPageStepImpl extends PageInitializer {
 
@@ -65,6 +69,55 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
                 seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
         MiscUtils.sleep(2000);
         CucumberLogUtils.logScreenShot();
+    }
+
+    public static void fillingOutRegistrationFormOrganizationNotFound() {
+        MiscUtils.sleep(1000);
+        CommonUtils. waitForVisibility(seerUserRegistrationPage.seerUserRegistrationFirstNameField);
+        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationFirstNameField,
+                Registration_Constants.FIRST_NAME);
+
+        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationLastNameField,
+                Registration_Constants.LAST_NAME);
+        MiscUtils.sleep(1000);
+        CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
+        seerUserRegistrationPage.seerUserRegistrationCountryField.click();
+        seerUserRegistrationPage.seerUserRegistrationCountryField.sendKeys(Registration_Constants.COUNTRY_NAME);
+        seerUserRegistrationPage.seerUserRegistrationCountryUSA.click();
+        MiscUtils.sleep(1000);
+        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationAddressField,
+                Registration_Constants.STREET_ADDRESS);
+        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationCityField, Registration_Constants.CITY_NAME);
+        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationStateField, Registration_Constants.STATE);
+        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationZipcodeField,
+                Registration_Constants.ZIP_CODE);
+        MiscUtils.sleep(1000);
+        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationPhoneField,
+                Registration_Constants.PHONE_NUMBER);
+
+        /**
+         * SELECTING VALUE FOR What best describes you for the purpose of requesting
+         * this data?
+         */
+        CommonUtils.selectDropDownValue(Registration_Constants.GENERAL_PURPOSE_FOR_USING_THE_DATA,
+                seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
+        MiscUtils.sleep(2000);
+        CucumberLogUtils.logScreenShot();
+    }
+
+    public static void userShouldNotBeAleToSelectAsAnOrganizationOption(String organizationOption) {
+        for (WebElement organization : seerUserRegistrationPage.seerUserRegistrationOrganizations){
+            String org = organization.getAttribute("value");
+            if(org.contains(organizationOption)){
+                CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationOrganizationField,
+                        organizationOption.substring(0, 5));
+                CucumberLogUtils.logScreenShot();
+                MiscUtils.sleep(2000);
+                CucumberLogUtils.logScreenShot();
+                CommonUtils.assertTrue(!org.equals(organizationOption));
+                break;
+            }
+        }
     }
 
     public static void fillingOutRegistrationFormWithoutStateAndZip() {
