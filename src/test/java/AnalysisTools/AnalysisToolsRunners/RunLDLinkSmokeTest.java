@@ -12,8 +12,9 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = { "html:target/html-reports/cucumber-default-report", "json:target/cucumber.json",
-		"junit:target/cucumber.xml", "rerun:target/failed.txt",
+@CucumberOptions(plugin = {
+		"html:target/html-reports/cucumber-default-report", "json:target/cucumber.json", "junit:target/cucumber.xml",
+		"rerun:target/failed.txt",
 		"pretty" }, features = "src/test/java/AnalysisTools/LDLink/Features", glue = "AnalysisTools.LDLink.Steps", tags = "@Smoke", dryRun = false, monochrome = true, strict = true
 
 )
@@ -27,5 +28,4 @@ public class RunLDLinkSmokeTest {
 		ConfUtils.setBaseResultsDir(reportsOutput);
 		System.out.println("Starting Test Execution...");
 	}
-
 }

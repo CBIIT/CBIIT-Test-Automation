@@ -79,18 +79,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	@Given("clicks on Eligibility Questionnaire to begin questionnaire")
 	public void clicks_on_Eligibility_Questionnaire_to_begin_questionnaire() {
-<<<<<<< HEAD
-		MiscUtils.sleep(7000);
-		CommonUtils.waitForVisibility(myRASHomePage.warningAgreeButton);
-		myRASHomePage.warningAgreeButton.click();
-		CommonUtils.waitForVisibility(myRASHomePage.rasoptathyEligibilityQuestionnaire);
-		// myRASHomePage.rasoptathyEligibilityQuestionnaire.click();
-		JavascriptUtils.clickByJS(myRASHomePage.rasoptathyEligibilityQuestionnaire);
-=======
 		CommonUtils.waitForVisibility(myRASHomePage.rasoptathyEligibilityQuestionnaire);
 
 		myRASHomePage.rasoptathyEligibilityQuestionnaire.click();
->>>>>>> 1038f18828cccc3cba4e077715fc7cd1f786ca8d
 	}
 
 	/* END: Eligibility Questionnaire Link to click */
@@ -121,13 +112,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
 	@Given("selects I am completing this form for someone else option")
 	public void selects_I_am_completing_this_form_for_someone_else_option() {
-<<<<<<< HEAD
-		MiscUtils.sleep(5000);
-		// CommonUtils.waitForVisibility(rasopathyQuestionnairePage.iAmCompletingThisFormForSomeoneElseOption);
-=======
+
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(rasopathyQuestionnairePage.iAmCompletingThisFormForSomeoneElseOption);
->>>>>>> 1038f18828cccc3cba4e077715fc7cd1f786ca8d
 		rasopathyQuestionnairePage.iAmCompletingThisFormForSomeoneElseOption.click();
 		rasopathyQuestionnairePage.studyNextButton.click();
 
@@ -1439,13 +1426,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	@When("a ServiceNow user navigates to CHARMS Native view and opens records that are Waiting for Elegibility Review")
 	public void a_ServiceNow_user_navigates_to_CHARMS_Native_view_and_opens_records_that_are_Waiting_for_Elegibility_Review()
 			throws TestingException {
-<<<<<<< HEAD
-		MiscUtils.sleep(5000);
-		nativeViewLoginImpl.nativeViewLogin();
-=======
+
 		MiscUtils.sleep(1000);
 		nativeViewLoginImpl.sideDoorAccountLogin();
->>>>>>> 1038f18828cccc3cba4e077715fc7cd1f786ca8d
 		CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator);
 		nativeViewHomePage.nativeViewFilterNavigator.sendKeys("CHARMS");
 
