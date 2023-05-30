@@ -18,6 +18,10 @@ public class SEERLandingPageSteps extends PageInitializer {
 		CucumberLogUtils.logScreenShot();
 	}
 
+	@Then("a user should see \\(which Federal Government Agencies can sign in with a PIV):")
+	public void a_user_should_see_which_Federal_Government_Agencies_can_sign_in_with_a_PIV(String PIVCardLoginMessage) {
+		SEERLandingPageStepImpl.userSeesTheFollowingPIVCardLoginMessage(PIVCardLoginMessage);
+	}
 
 	@When("the user attempts to request research data with existing email address {string}")
 	public void the_user_attempts_to_request_research_data_with_existing_email_address(String existingEmailAddress) {

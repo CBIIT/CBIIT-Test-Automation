@@ -25,6 +25,13 @@ public class SEERLandingPageStepImpl extends PageInitializer {
         CucumberLogUtils.logScreenShot();
     }
 
+    public static void userSeesTheFollowingPIVCardLoginMessage(String expectedPIVCardLoginMessage) {
+        String actualPIVCardLoginMessageText = seerExistingAccountPage.pIVCardLoginMessageText.getText();
+        JavascriptUtils.drawBlueBorder(seerExistingAccountPage.pIVCardLoginMessageText);
+        CommonUtils.assertEquals(actualPIVCardLoginMessageText, expectedPIVCardLoginMessage);
+        CucumberLogUtils.logScreenShot();
+    }
+
     public static void buttonIsAlsoDisplayed(String expectedButtonText) {
         String actualButtonText = seerExistingAccountPage.backToSeerDatabaseDetailsButton.getText();
         JavascriptUtils.drawBlueBorder(seerExistingAccountPage.backToSeerDatabaseDetailsButton);

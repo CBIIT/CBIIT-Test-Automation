@@ -427,7 +427,7 @@ public class CommonUtils extends WebDriverUtils {
      *
      * @return
      */
-    public static String lastNAmeRandomizer() {
+    public static String lastNameRandomizer() {
         int leftLimit = 97; // letter 'a'
         int rightLimit = 122; // letter 'z'
         int targetStringLength = 10;

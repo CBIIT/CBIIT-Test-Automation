@@ -56,7 +56,7 @@ Feature: SEER User Registration Scenarios
     And the 'SEER Incidence Database' bread crumb displays
     And when clicking, user is directed to "https://seer.cancer.gov/data/"
 
-  @ODS-286 @juarezds @Regression
+  @ODS-273_ODS-386 @ODS-286 @juarezds @Regression
   Scenario: Verifying bread crumbs on "Thank you - your registration is complete." page
     Given a user is on the SEER Data Access landing page
     When user enters email address for a Non-Institutional Account
@@ -72,5 +72,14 @@ Feature: SEER User Registration Scenarios
     And fills out all required fields on SEER Data registration page
     And submits the registration form
     Then user is directed to the 'Thank you - your registration is complete.' page
+
+  @ODS-370_ODS-392 @juarezds @Regression
+  Scenario: Verifying that "Requestors associated with HHS agencies should login with their PIV cards to request the data." is present
+    Given a user is on the SEER Data Access landing page
+    Then a user should see (which Federal Government Agencies can sign in with a PIV):
+    """
+    Requestors associated with HHS agencies should login with their PIV cards to request the data.
+    """
+
 
 

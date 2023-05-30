@@ -10,7 +10,7 @@ public class SEERDataRejection_Constants {
     public static final String FIRST_NAME = "RFirst";
 
     /* LAST NAME */
-    public static final String LAST_NAME = CommonUtils.lastNAmeRandomizer();
+    public static final String LAST_NAME = CommonUtils.lastNameRandomizer();
 
     /* ORGANIZATION NAME */
     public static final String ORGANIZATION_NAME = "American University";
