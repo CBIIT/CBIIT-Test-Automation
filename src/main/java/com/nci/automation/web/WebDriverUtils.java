@@ -38,10 +38,8 @@ public class WebDriverUtils {
 	private final static Logger logger = LogManager.getLogger(WebDriverUtils.class);
 	public static WebDriver webDriver;
 
-
 	public static WebDriver getWebDriver() {
 
-	
 		String browser = ConfUtils.getProperty("browser");
 		String headless = ConfUtils.getProperty("headless");
 
@@ -70,8 +68,6 @@ public class WebDriverUtils {
 		return webDriver;
 	}
 
-	
-
 	/**
 	 * This method will close the current web-driver
 	 */
@@ -84,16 +80,13 @@ public class WebDriverUtils {
 		}
 	}
 
-	
-
 	/**
-     * Use this method in need of taking screenshot
-     *
-     * @return image in byte codes
-     */
-    public static byte[] getScreenShot() {
+	 * Use this method in need of taking screenshot
+	 *
+	 * @return image in byte codes
+	 */
+	public static byte[] getScreenShot() {
 
-	
 		byte[] screenshot = null;
 		ScenarioContext.webDriver.get();
 		try {
@@ -103,8 +96,6 @@ public class WebDriverUtils {
 		}
 		return screenshot;
 	}
-
-	
 
 	/**
 	 * Fetches current URL from browser window
@@ -121,7 +112,6 @@ public class WebDriverUtils {
 		return url;
 	}
 
-	
 	public static void refreshPage(WebDriver driver) {
 		driver.navigate().refresh();
 	}
@@ -234,174 +224,4 @@ public class WebDriverUtils {
 			webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		}
 	}
-
-	
-
-	
-	
-
-	
-
-		
-		
-
-		
-			
-				
-			
-				
-			
-				
-			
-				
-			
-				
-			
-				
-						
-				
-			
-		
-		
-		
-		
-			
-		
-		
-	
-
-	
-	 
-	 
-	
-		
-			
-			
-			
-			
-		
-	
-
-	
-	 
-	 
-	 
-	 
-	
-
-		
-		
-		
-			
-		
-			
-		
-		
-	
-
-	
-	 
-	 
-	 
-	 
-	 
-	
-		
-
-		
-			
-		
-		
-	
-
-	
-		
-	
-
-	
-		
-		
-			
-			
-			
-			
-			
-		
-			
-			
-			
-			
-			
-		
-			
-			
-			
-			
-		
-	
-
-	
-		
-		
-		
-		
-		
-			
-			
-			
-			
-			
-			
-		
-			
-			
-			
-			
-			
-		
-	
-
-	
-		
-		
-			
-			
-			
-			
-			
-		
-			
-			
-			
-			
-			
-		
-			
-			
-			
-			
-		
-	
-
-	
-		
-		
-			
-			
-			
-			
-			
-		
-			
-			
-			
-			
-			
-		
-			
-			
-			
-		
-	
-
-	 
+}
