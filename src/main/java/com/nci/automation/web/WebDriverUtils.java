@@ -49,8 +49,6 @@ public class WebDriverUtils {
 
 	private final static Logger logger = LogManager.getLogger(WebDriverUtils.class);
 	public static WebDriver webDriver;
-	// public static final String GET_EXE = ".exe";
-	// public static final String GET_LINUX = "_linux";
 
 	/**
 	 * Get a web-driver to interact with the UI
@@ -60,100 +58,20 @@ public class WebDriverUtils {
 
 		String browser = ConfUtils.getProperty("browser");
 		String headless = ConfUtils.getProperty("headless");
-		String avdName = ConfUtils.getProperty("avdName");
-		String platformName = ConfUtils.getProperty("platformName");
-		String udid = ConfUtils.getProperty("udid");
+
 		if (webDriver == null) {
-			setDriverExecutables();
-
 			if (Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
-
-				DesiredCapabilities cap = new DesiredCapabilities();
-				if (platformName.equalsIgnoreCase(Constants.IOS_MOBILE)) {
-					cap.setCapability("deviceName", "iOS");
-					cap.setCapability("platformName", "iOS");
-					cap.setCapability(CapabilityType.BROWSER_NAME, "Safari");
-					cap.setCapability(CapabilityType.VERSION, "14");
-					cap.setCapability("udid", udid);
-					cap.setCapability("automationName", "XCUITest");
-
-				} else {
-					cap.setCapability("deviceName", "Android");
-					cap.setCapability("platformName", "Android");
-					cap.setCapability(CapabilityType.BROWSER_NAME, "Chrome");
-					cap.setCapability(CapabilityType.VERSION, "10");
-					cap.setCapability("avd", avdName);
-
-				}
-				// try {
-				// webDriver = new AppiumDriver<MobileElement>(new
-				// URL("http://localhost:4723/wd/hub"), cap);
-				// } catch (MalformedURLException e) {
-				// e.printStackTrace();
-				// CucumberLogUtils.logFail("Mobile driver intlization filed", false);
-				// }
-
-			} else if (Constants.BROWSER_CHROME.equals(browser)) {
-
-				ChromeOptions chromeOptions = new ChromeOptions();
-				if (headless.equalsIgnoreCase("true")) {
-					Map<String, Object> pref=new HashMap<String, Object>();
-					pref.put("download.default_directory",System.getProperty("user.dir"));
-					chromeOptions.setExperimentalOption("prefs",pref);
-					System.setProperty("webdriver.http.factory", "jdk-http-client");
-					chromeOptions.addArguments("--no-sandbox");
-					chromeOptions.addArguments("--headless");
-					chromeOptions.addArguments("--disable-dev-shm-usage");
-					chromeOptions.addArguments("--remote-allow-origins=*");
-					webDriver = new ChromeDriver(chromeOptions);
-					// System.out.println(chromeOptions.getVersion());
-				} else {
-					Map<String, Object> pref=new HashMap<String, Object>();
-					pref.put("download.default_directory",System.getProperty("user.dir"));
-					chromeOptions.setExperimentalOption("prefs",pref);
-					System.setProperty("webdriver.http.factory", "jdk-http-client");
-					chromeOptions.addArguments("--no-sandbox");
-					chromeOptions.addArguments("--disable-dev-shm-usage");
-					chromeOptions.addArguments("--remote-allow-origins=*");
-<<<<<<< HEAD
-//					System.out.println("Non headless-->" + chromeOptions.getVersion());
-=======
-					// System.out.println("Non headless-->" + chromeOptions.getVersion());
->>>>>>> 29e7eb2276a2cd21a2fbade1d460e137ec0e21a5
-					webDriver = new ChromeDriver(chromeOptions);
-
-				}
+				launchMobile();
+			} else if (Constants.BROWSER_CHROME.equalsIgnoreCase(browser)) {
+				launchChrome();
 			} else if (browser.equalsIgnoreCase(Constants.BROWSER_FIREFOX)) {
-				FirefoxOptions fireOptions = new FirefoxOptions();
-				if (headless.equalsIgnoreCase("true")) {
-					fireOptions.setHeadless(true);
-					webDriver = new FirefoxDriver(fireOptions);
-				} else {
-					webDriver = new FirefoxDriver(fireOptions);
-				}
-
+				launchFirefox();
 			} else if (browser.equalsIgnoreCase(Constants.BROWSER_SAFARI)) {
-				SafariOptions safariOptions = new SafariOptions();
-				if (headless.equalsIgnoreCase("true")) {
-					// safariOptions.setHeadless(true);
-					// safariOptions.addArguments("window-size=1920,1080");
-					webDriver = new SafariDriver(safariOptions);
-				} else {
-					webDriver = new SafariDriver(safariOptions);
-				}
-			} else if (browser.equalsIgnoreCase(Constants.BROWSER_PHANTOM)) {
-				DesiredCapabilities capabilities = new DesiredCapabilities();
-				capabilities.setJavascriptEnabled(true);
-				capabilities.setCapability("takesScreenshot", true);
-				capabilities.setCapability(PhantomJSDriverService.PHANTOMJS_CLI_ARGS,
-						new String[] { "--web-security=no", "--ignore-ssl-errors=yes" });
-
-				String[] phantomArgs = new String[] { "--webdriver-loglevel=NONE" };
-				capabilities.setCapability(PhantomJSDriverService.PHANTOMJS_CLI_ARGS, phantomArgs);
-				webDriver = new PhantomJSDriver(capabilities);
+				launchSafari();
+			} else if (browser.equalsIgnoreCase(Constants.BROWSER_EDGE)) {
+				launchEdge();
 			} else {
-				CucumberLogUtils.logFail("Unsupported browser in localConf.properties file! "
-						+ "Browser has to be 'ie' or 'firefox' or 'phantomjs'", false);
+				CucumberLogUtils.logFail("Unsupported browser in localEnv.properties file! " + "PLEASE ENTER VALID BROWSER NAME", false);
 				return null;
 			}
 		}
@@ -164,14 +82,13 @@ public class WebDriverUtils {
 		if (!Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
 			webDriver.manage().window().maximize();
 		}
-
 		return webDriver;
 	}
 
 	/**
 	 * This method sets the path to executable drivers based on the operating
 	 * system. No setting needs to be changed if switching to another operating
-	 * system.
+	 * system. - POSSIBLY REMOVE SINCE IT IS NOT BEING USED?
 	 */
 	private static void setDriverExecutables() {
 		System.setProperty(ChromeDriverService.CHROME_DRIVER_LOG_PROPERTY, "true");
@@ -181,33 +98,41 @@ public class WebDriverUtils {
 		if (browser.equalsIgnoreCase(Constants.BROWSER_CHROME)) {
 			if (osName.contains("Mac")) {
 				// System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH);
-				chromedriver().setup();
+				WebDriverManager.chromedriver().setup();
 			} else if (osName.contains("Window")) {
 				// System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH + GET_EXE);
-				chromedriver().operatingSystem(OperatingSystem.WIN).setup();
 			} else if (osName.contains("Linux")) {
 				// System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH + GET_LINUX);
-				chromedriver().operatingSystem(OperatingSystem.LINUX).setup();
 			}
 		} else if (browser.equalsIgnoreCase(Constants.BROWSER_IE)) {
 			if (osName.contains("Mac")) {
 				// System.setProperty(Constants.IE_KEY, Constants.IE_PATH);
-				iedriver().setup();
+				WebDriverManager.iedriver().setup();
 			} else if (osName.contains("Windows")) {
 				// System.setProperty(Constants.IE_KEY, Constants.IE_PATH + GET_EXE);
-				iedriver().operatingSystem(OperatingSystem.WIN).setup();
+				//WebDriverManager.iedriver().operatingSystem(OperatingSystem.WIN).setup();
 			} else if (osName.contains("Linux")) {
-				iedriver().operatingSystem(OperatingSystem.LINUX).setup();
+				//WebDriverManager.iedriver().operatingSystem(OperatingSystem.LINUX).setup();
 			}
 		} else if (browser.equalsIgnoreCase(Constants.BROWSER_FIREFOX)) {
 			if (osName.contains("Mac")) {
 				// System.setProperty(Constants.FIREFOX_KEY, Constants.FIREFOX_PATH);
-				firefoxdriver().setup();
+				WebDriverManager.firefoxdriver().setup();
 			} else if (osName.contains("Windows")) {
 				// System.setProperty(Constants.FIREFOX_KEY, Constants.FIREFOX_PATH + GET_EXE);
-				firefoxdriver().operatingSystem(OperatingSystem.WIN).setup();
+				//	WebDriverManager.firefoxdriver().operatingSystem(OperatingSystem.WIN).setup();
 			} else if (osName.contains("Linux")) {
-				firefoxdriver().operatingSystem(OperatingSystem.LINUX).setup();
+				//	WebDriverManager.firefoxdriver().operatingSystem(OperatingSystem.LINUX).setup();
+			}
+		} else if (browser.equalsIgnoreCase(Constants.BROWSER_PHANTOM)) {
+			if (osName.contains("Mac")) {
+				// System.setProperty(Constants.PHANTOM_KEY, Constants.PHANTOM_PATH);
+				//WebDriverManager.phantomjs().setup();
+			} else if (osName.contains("Windows")) {
+				// System.setProperty(Constants.PHANTOM_KEY, Constants.PHANTOM_PATH + GET_EXE);
+				//WebDriverManager.phantomjs().operatingSystem(OperatingSystem.WIN).setup();
+			} else if (osName.contains("Linux")) {
+				//WebDriverManager.phantomjs().operatingSystem(OperatingSystem.LINUX).setup();
 			}
 		}
 	}
@@ -225,61 +150,8 @@ public class WebDriverUtils {
 	}
 
 	/**
-	 * The method will provide a new driver (complete new browser).
-	 * 
-	 * @return
-	 */
-	public static WebDriver getNewDriver() {
-		String browser = ScenarioContext.getBrowserID();
-		WebDriver driver;
-		if (Constants.BROWSER_IE.equals(browser)) {
-			driver = new InternetExplorerDriver();
-			driver.manage().window().maximize();
-			return driver;
-
-		} else if (Constants.BROWSER_FIREFOX.contentEquals(browser)) {
-			driver = new FirefoxDriver();
-			driver.manage().window().maximize();
-			return driver;
-
-		} else if (Constants.BROWSER_CHROME.equals(browser)) {
-			driver = new ChromeDriver();
-			driver.manage().window().maximize();
-			return driver;
-
-		} else {
-			CucumberLogUtils.logFail("Unsupported browser in localConf.properties file! "
-					+ "Browser has to be 'ie' or 'firefox' or 'headless chrome, firefox'", false);
-			return null;
-		}
-	}
-
-	/**
-	 * Use this method to get new sauce driver
-	 * 
-	 * @param capabilities
-	 * @return
-	 */
-	public static WebDriver getNewSauceDriver(DesiredCapabilities capabilities) {
-		WebDriver driver = null;
-		String url = "http://ondemand.saucelabs.com:80/wd/hub";
-
-		// set time zone to ET if no time zone is set
-		// to show right test execution time on sauce dashboard
-		if (capabilities.getCapability("time-zone") == null)
-			capabilities.setCapability("time-zone", "New York");
-		try {
-			driver = new RemoteWebDriver(new URL(url), capabilities);
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-		ScenarioContext.sauceSessionId.set((((RemoteWebDriver) driver).getSessionId()).toString());
-		return driver;
-	}
-
-	/**
 	 * Use this method in need of taking screenshot
-	 * 
+	 *
 	 * @return image in byte codes
 	 */
 	public static byte[] getScreenShot() {
@@ -292,24 +164,6 @@ public class WebDriverUtils {
 			CucumberLogUtils.logError("Couldn't take screenshot");
 		}
 		return screenshot;
-	}
-
-	/**
-	 * Use this method to navigate to an external url
-	 * 
-	 * @param url
-	 */
-	public static void navToExternalPage(String url) {
-
-		WebDriver driver = ScenarioContext.webDriver.get();
-		driver.get(url);
-		try {
-			Thread.sleep(1000);
-			suppressAlert();
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			logger.error(String.format("Navigation to external url %s failed", url), e);
-		}
 	}
 
 	public static void suppressAlert() {
@@ -329,7 +183,7 @@ public class WebDriverUtils {
 
 	/**
 	 * Fetches current URL from browser window
-	 * 
+	 *
 	 * @param driver
 	 * @return
 	 */
@@ -342,15 +196,118 @@ public class WebDriverUtils {
 		return url;
 	}
 
-	public static void navigateForward(WebDriver driver) {
-		driver.navigate().forward();
-	}
-
-	public static void navigateBack(WebDriver driver) {
-		driver.navigate().back();
-	}
-
 	public static void refreshPage(WebDriver driver) {
 		driver.navigate().refresh();
+	}
+
+
+	public static void launchChrome() {
+		String osName = FrameworkConstants.GET_OS_NAME;
+		if (osName.contains("Windows")) {
+			WebDriverManager.chromedriver().operatingSystem(OperatingSystem.WIN).setup();
+			webDriver = new ChromeDriver();
+			webDriver.manage().window().maximize();
+			webDriver.manage().deleteAllCookies();
+			webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		} else if (osName.contains("Mac")) {
+			WebDriverManager.chromedriver().operatingSystem(OperatingSystem.MAC).setup();
+			webDriver = new ChromeDriver();
+			webDriver.manage().window().maximize();
+			webDriver.manage().deleteAllCookies();
+			webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		} else if (osName.contains("Linux")) {
+			WebDriverManager.chromedriver().operatingSystem(OperatingSystem.LINUX).setup();
+			ChromeOptions chromeOptions = new ChromeOptions();
+			chromeOptions.addArguments("--headless=new");
+			webDriver = new ChromeDriver(chromeOptions);
+		}
+	}
+
+	public static void launchMobile() {
+		String avdName = ConfUtils.getProperty("avdName");
+		String platformName = ConfUtils.getProperty("platformName");
+		String udid = ConfUtils.getProperty("udid");
+		DesiredCapabilities cap = new DesiredCapabilities();
+		if (platformName.equalsIgnoreCase(Constants.IOS_MOBILE)) {
+			cap.setCapability("deviceName", "iOS");
+			cap.setCapability("platformName", "iOS");
+			cap.setCapability(CapabilityType.BROWSER_NAME, "Safari");
+			cap.setCapability(CapabilityType.VERSION, "14");
+			cap.setCapability("udid", udid);
+			cap.setCapability("automationName", "XCUITest");
+		} else {
+			cap.setCapability("deviceName", "Android");
+			cap.setCapability("platformName", "Android");
+			cap.setCapability(CapabilityType.BROWSER_NAME, "Chrome");
+			cap.setCapability(CapabilityType.VERSION, "10");
+			cap.setCapability("avd", avdName);
+		}
+	}
+
+	public static void launchFirefox() {
+		String osName = FrameworkConstants.GET_OS_NAME;
+		if (osName.contains("Windows")) {
+			WebDriverManager.firefoxdriver().operatingSystem(OperatingSystem.WIN).setup();
+			webDriver = new FirefoxDriver();
+			webDriver.manage().window().maximize();
+			webDriver.manage().deleteAllCookies();
+			webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		} else if (osName.contains("Mac")) {
+			WebDriverManager.firefoxdriver().operatingSystem(OperatingSystem.MAC).setup();
+			webDriver = new FirefoxDriver();
+			webDriver.manage().window().maximize();
+			webDriver.manage().deleteAllCookies();
+			webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		} else if (osName.contains("Linux")) {
+			WebDriverManager.firefoxdriver().operatingSystem(OperatingSystem.LINUX).setup();
+			FirefoxOptions fireOptions = new FirefoxOptions();
+			fireOptions.addArguments("--headless=new");
+			webDriver = new FirefoxDriver(fireOptions);
+		}
+	}
+
+	public static void launchSafari() {
+		String osName = FrameworkConstants.GET_OS_NAME;
+		if (osName.contains("Windows")) {
+			WebDriverManager.safaridriver().operatingSystem(OperatingSystem.WIN).setup();
+			webDriver = new SafariDriver();
+			webDriver.manage().window().maximize();
+			webDriver.manage().deleteAllCookies();
+			webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		} else if (osName.contains("Mac")) {
+			WebDriverManager.safaridriver().operatingSystem(OperatingSystem.MAC).setup();
+			webDriver = new SafariDriver();
+			webDriver.manage().window().maximize();
+			webDriver.manage().deleteAllCookies();
+			webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		} else if (osName.contains("Linux")) {
+			WebDriverManager.safaridriver().operatingSystem(OperatingSystem.LINUX).setup();
+			SafariOptions safariOptions = new SafariOptions();
+			webDriver = new SafariDriver();
+		}
+	}
+
+	public static void launchEdge() {
+		String osName = FrameworkConstants.GET_OS_NAME;
+		if (osName.contains("Windows")) {
+			WebDriverManager.edgedriver().operatingSystem(OperatingSystem.WIN).setup();
+			webDriver = new EdgeDriver();
+			webDriver.manage().window().maximize();
+			webDriver.manage().deleteAllCookies();
+			webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		} else if (osName.contains("Mac")) {
+			WebDriverManager.edgedriver().operatingSystem(OperatingSystem.MAC).setup();
+			webDriver = new EdgeDriver();
+			webDriver.manage().window().maximize();
+			webDriver.manage().deleteAllCookies();
+			webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		} else if (osName.contains("Linux")) {
+			WebDriverManager.edgedriver().operatingSystem(OperatingSystem.LINUX).setup();
+			webDriver = new EdgeDriver();
+			webDriver.manage().window().maximize();
+			webDriver.manage().deleteAllCookies();
+			webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		}
+
 	}
 }

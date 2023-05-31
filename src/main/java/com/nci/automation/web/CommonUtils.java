@@ -1,9 +1,7 @@
 package com.nci.automation.web;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -33,7 +31,7 @@ import com.nci.automation.utils.MiscUtils;
  * This is a utility class which contains all common methods that will be used
  * through out any application. New methods can be added at any time. Modifying
  * the existing methods may result in build failure. - Please
- * 
+ *
  * @author juarezds
  */
 public class CommonUtils extends WebDriverUtils {
@@ -42,7 +40,7 @@ public class CommonUtils extends WebDriverUtils {
 
 	/**
 	 * Use this method in need of clicking on a WebElement by selenium WebDriver.
-	 * 
+	 *
 	 * @param element Pass the desired WebElement to be clicked.
 	 */
 	public static void click(WebElement element) {
@@ -53,7 +51,7 @@ public class CommonUtils extends WebDriverUtils {
 	/**
 	 * Use this method in need of entering value to a text box through selenium
 	 * WebDriver.
-	 * 
+	 *
 	 * @param element Pass the element to which the text needs to be entered.
 	 * @param value   Pass the desired text/value in the second parameter.
 	 */
@@ -65,7 +63,7 @@ public class CommonUtils extends WebDriverUtils {
 	/**
 	 * Use this method in need of entering keyboard keys into a WebElement by
 	 * selenium WebDriver.
-	 * 
+	 *
 	 * @param element     Pass the element to which the key needs to be entered.
 	 * @param keyboardKey Pass the desired keyboardKey to be entered to an element.
 	 */
@@ -76,7 +74,7 @@ public class CommonUtils extends WebDriverUtils {
 	/**
 	 * Use this method in need of retrieving the text of an element through selenium
 	 * WebDriver.
-	 * 
+	 *
 	 * @param element Pass the element from which the text to be retrieved.
 	 * @return This method returns a string object.
 	 */
@@ -87,7 +85,7 @@ public class CommonUtils extends WebDriverUtils {
 	/**
 	 * Use this over loaded method in need of selecting an element of dropDown by
 	 * VisbleText.
-	 * 
+	 *
 	 * @param dropDownElement Pass the WebElement of the desired dropDown.
 	 * @param ValueOfDropDown Pass the Visible text of DropDown to be selected.
 	 */
@@ -99,7 +97,7 @@ public class CommonUtils extends WebDriverUtils {
 	/**
 	 * Use this over loaded method in need of selecting an element of dropDown by
 	 * Value.
-	 * 
+	 *
 	 * @param dropDownElement Pass the value to be selected.
 	 * @param ValueOfDropDown Pass the WebElement of the dropDown.
 	 */
@@ -111,7 +109,7 @@ public class CommonUtils extends WebDriverUtils {
 	/**
 	 * Use this over loaded method in need of selecting an element of dropDown by
 	 * index.
-	 * 
+	 *
 	 * @param dropDownElement      WebElement of the dropDown.
 	 * @param indexOfDropDownValue Pass the index
 	 */
@@ -122,7 +120,7 @@ public class CommonUtils extends WebDriverUtils {
 
 	/**
 	 * this method will accept the alert
-	 * 
+	 *
 	 * @throws will throw NoAlertExeption if alert is not present.
 	 */
 
@@ -138,7 +136,7 @@ public class CommonUtils extends WebDriverUtils {
 
 	/**
 	 * this method will dismiss the alert
-	 * 
+	 *
 	 * @throws will throw NoAlertExeption if alert is not present.
 	 */
 
@@ -154,7 +152,7 @@ public class CommonUtils extends WebDriverUtils {
 
 	/**
 	 * this method will get the alert text
-	 * 
+	 *
 	 * @throws will throw NoAlertExeption if alert is not present.
 	 */
 
@@ -171,7 +169,7 @@ public class CommonUtils extends WebDriverUtils {
 
 	/**
 	 * This method will switch to the frame
-	 * 
+	 *
 	 * @param nameOrId
 	 */
 
@@ -186,7 +184,7 @@ public class CommonUtils extends WebDriverUtils {
 
 	/**
 	 * use this method in need of switching to the frame
-	 * 
+	 *
 	 * @param element
 	 */
 	public static void switchToFrame(WebElement element) {
@@ -199,7 +197,7 @@ public class CommonUtils extends WebDriverUtils {
 
 	/**
 	 * This method will switch to the frame
-	 * 
+	 *
 	 * @param index
 	 */
 	public static void switchToFrame(int index) {
@@ -213,7 +211,7 @@ public class CommonUtils extends WebDriverUtils {
 
 	/**
 	 * This method will determine if element is present on ui or not.
-	 * 
+	 *
 	 * @param element
 	 * @return
 	 */
@@ -235,7 +233,7 @@ public class CommonUtils extends WebDriverUtils {
 
 	/**
 	 * This method will determine if the element is enabled or disabled.
-	 * 
+	 *
 	 * @param element
 	 * @return
 	 */
@@ -270,7 +268,7 @@ public class CommonUtils extends WebDriverUtils {
 	/**
 	 * Use this method in need of waiting for 30s for an element based on
 	 * availability of elementToBeSelected.
-	 * 
+	 *
 	 * @param element Pass the WebElement on which synchronization to be applied.
 	 * @return This method will return boolean type either True or False.
 	 */
@@ -281,7 +279,7 @@ public class CommonUtils extends WebDriverUtils {
 
 	/**
 	 * This method will create an Object of WebDriverWait
-	 * 
+	 *
 	 * @return WebDriverWait
 	 */
 	public static WebDriverWait getWaitObject() {
@@ -291,7 +289,7 @@ public class CommonUtils extends WebDriverUtils {
 
 	/**
 	 * This method will wait until element becomes clickable
-	 * 
+	 *
 	 * @param element
 	 */
 	public static void waitForClickability(WebElement element) {
@@ -300,7 +298,7 @@ public class CommonUtils extends WebDriverUtils {
 
 	/**
 	 * This method will wait until element becomes visible
-	 * 
+	 *
 	 * @param element
 	 */
 	public static void waitForVisibility(WebElement element) {
@@ -309,7 +307,7 @@ public class CommonUtils extends WebDriverUtils {
 
 	/**
 	 * This method will wait until element becomes invisible
-	 * 
+	 *
 	 * @param element
 	 */
 	public static void waitForInvisibility(WebElement element) {
@@ -318,7 +316,7 @@ public class CommonUtils extends WebDriverUtils {
 
 	/**
 	 * This method will select the specified day from the specified calendar table
-	 * 
+	 *
 	 * @param table
 	 * @param day
 	 */
@@ -361,7 +359,7 @@ public class CommonUtils extends WebDriverUtils {
 
 	/**
 	 * Use this method in need of removing all characters except Alphabets
-	 * 
+	 *
 	 * @param yourValue
 	 * @return Will return the updated value
 	 */
@@ -371,7 +369,7 @@ public class CommonUtils extends WebDriverUtils {
 
 	/**
 	 * Use this method in need of removing all characters except Numbers
-	 * 
+	 *
 	 * @param yourValue
 	 * @return Will return the updated value
 	 */
@@ -547,36 +545,9 @@ public class CommonUtils extends WebDriverUtils {
 			throw e;
 		}
 	}
-<<<<<<< HEAD
-	/**
-	 * Use this method to verify file download
-	 */
-	public static boolean isFileDownloaded(String fileName) {
-		boolean temp=false;
-		Path path=Paths.get(System.getProperty("user.dir")+ "/" + fileName+"*"+"xlsx");
-		System.out.println("Download Path is" + path);
-		if(Files.exists(path)==true) {
-			if(Files.isRegularFile(path)) {
-			System.out.println("File is found");
-			temp=true;
-			}
-		}else {
-			System.out.println("File is not found");
-		}
-		return temp;
-	}
-	public static void deleteFile(String fileName) {
-		File file=new File(System.getProperty("user.dir") + "/" + fileName);
-		if(file.delete()) {
-			System.out.println("File is deleted");
-		}
-		
-	}
-=======
->>>>>>> 29e7eb2276a2cd21a2fbade1d460e137ec0e21a5
 
 	/*
-	 * 
+	 *
 	 * Use below method to assert expected String value with an actual String value
 	 */
 	public static void assertEquals(String actual, String expected) {
@@ -590,7 +561,7 @@ public class CommonUtils extends WebDriverUtils {
 	}
 
 	/*
-	 * 
+	 *
 	 * Use below method to assert actual String value with an expected String value
 	 * using assertTrue() method
 	 */
