@@ -18,6 +18,7 @@ import AnalysisTools.JPSurv.Pages.JPSurvHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
 import AnalysisTools.LDLink.Pages.AnalysisToolsLandingPage;
 import AnalysisTools.LDLink.Pages.LDAssocPage;
+import AnalysisTools.LDLink.Pages.LDExpressPage;
 import AnalysisTools.PLCO.Pages.BrowsePhenotypePage;
 import AnalysisTools.PLCO.Pages.ExploreGWASPage;
 import AnalysisTools.PLCO.Pages.InformationPage;
@@ -176,6 +177,7 @@ public class PageInitializer {
 	/** LDLink instances **/
 	protected static LDLinkHomePage ldLinkHomePage;
 	protected static LDAssocPage ldAssocPage;
+	protected static LDExpressPage ldExpressPage;
 
 	/** Analysis Tools Landing Page instances */
 	protected static AnalysisToolsLandingPage analysisToolsLandingPage;
@@ -300,6 +302,7 @@ public class PageInitializer {
 		analysisToolsLandingPage = new AnalysisToolsLandingPage();
 		ldLinkHomePage = new LDLinkHomePage();
 		ldAssocPage = new LDAssocPage();
+		ldExpressPage = new LDExpressPage();
 		exploreGWASPage = new ExploreGWASPage();
 		charmsHomePage = new CHARMSHomePage();
 		oktaLoginPage = new OKTAloginPage();

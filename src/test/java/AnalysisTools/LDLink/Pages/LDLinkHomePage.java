@@ -17,6 +17,10 @@ public class LDLinkHomePage extends CommonUtils {
     @FindBy(xpath = "(//h2[contains(text(),'LDassoc')])[1]")
     public WebElement ldAssocWindow;
 
+    /* This is the LDexpress module selector that opens the module */
+    @FindBy(xpath = "(//h2[contains(text(),'LDexpress')])[1]")
+    public WebElement ldExpressWindow;
+
     public LDLinkHomePage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

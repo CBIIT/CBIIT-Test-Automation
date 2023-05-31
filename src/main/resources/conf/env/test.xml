@@ -5,7 +5,8 @@
     <!-- Application ID for covid19dashboard -->
     <application id="covid19dashboard">
         <login_url>https://service-test.nci.nih.gov/nih-covid-19-dashboard
-        </login_url> <!-- add test url -->
+        </login_url> <!-- add test
+        url -->
         <role name="Role">
             <user id="regular">
                 <name>regular</name>
@@ -25,9 +26,8 @@
     <!-- ITPG URL-->
     <application id="ITPGURl">
         <login_url>https://service-test.nci.nih.gov/ncisp
-        </login_url> <!-- add test url -->
-        add test url -->
-        <role name="Role">
+        </login_url> <!-- add test url --> add test url --> <role
+            name="Role">
             <user id="regular">
                 <name>regular</name>
                 <userId></userId> <!-- add encrypted test user -->
@@ -152,7 +152,7 @@
     </application>
     <!-- Application ID for LDLink -->
     <application id="LDLink">
-        <login_url>https://ldlink-qa.nci.nih.gov/?tab=home</login_url> <!-- add
+        <login_url>https://ldlink-qa.nih.gov/?tab=home</login_url> <!-- add
 			test url -->
         <role name="Role">
             <user id="regular">
@@ -233,7 +233,8 @@
     <!-- Application ID for mSigPortal -->
     <application id="MSigPortal">
         <login_url>https://analysistools-qa.cancer.gov/mutational-signatures/#/
-        </login_url> <!-- add test url -->
+        </login_url> <!-- add
+        test url -->
         <role name="Role">
             <user id="regular">
                 <name>regular</name>
@@ -394,9 +395,11 @@
     <!-- Application ID for AppTrackerNativeView -->
     <application id="AppTrackerNativeView">
         <login_url>window.open('https://service-test.nci.nih.gov/ncisp','_blank');
-        </login_url> <!-- add test url -->
+        </login_url> <!-- add
+        test url -->
         <login_url>window.open('https://service-test.nci.nih.gov/ncisp','_blank');
-        </login_url> <!-- add test url -->
+        </login_url> <!-- add
+        test url -->
         <role name="Role">
             <user id="regular">
                 <name>regular</name>
@@ -456,9 +459,8 @@
     <!-- ATO application URL-->
     <application id="AtoTestUrl">
         <login_url>https://service-test.nci.nih.gov/ncisp
-        </login_url> <!-- add test url -->
-        add test url -->
-        <role name="Role">
+        </login_url> <!-- add test url --> add test url --> <role
+            name="Role">
             <user id="regular">
                 <name>regular</name>
                 <userId></userId> <!-- add encrypted test user -->
@@ -476,9 +478,8 @@
     </application>
     <application id="FASTAtoTestUrl">
         <login_url>https://service-test.nci.nih.gov/ncisp
-        </login_url> <!-- add test url -->
-        add test url -->
-        <role name="Role">
+        </login_url> <!-- add test url --> add test url --> <role
+            name="Role">
             <user id="regular">
                 <name>regular</name>
                 <userId></userId> <!-- add encrypted test user -->
@@ -592,10 +593,12 @@
             </default>
         </db>
     </application>
-    <!--CCR HelpDesk -->
+    <!--CCR
+    HelpDesk -->
     <application id="CCRHelpdesk">
         <login_url>https://service-test.nci.nih.gov/ncisp?id=nci_sc_cat_item
-        </login_url> <!-- add test url -->
+        </login_url> <!-- add test
+        url -->
         <role name="Role">
             <user id="regular">
                 <name>regular</name>
@@ -612,7 +615,8 @@
             </default>
         </db>
     </application>
-    <!--Record Management -->
+    <!--Record
+    Management -->
     <application id="RCMDB">
         <login_url>https://service-test.nci.nih.gov/ncisp
         </login_url> <!-- add test url -->
