@@ -60,6 +60,7 @@ public class SearchSteps extends PageInitializer {
 
 	@When("User creates IDP request")
 	public void createIDPrequest(DataTable dataTable) throws Exception {
+
 		Map<String, String> requestData = CommonUtil.getMapFromDataTable(dataTable);
 		if (!requestData.get("Search For").isEmpty()) {
 			searchStepimpl.selectSearchForDropdown(requestData.get("Search For"));

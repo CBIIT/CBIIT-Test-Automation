@@ -29,7 +29,7 @@ public class SEERLandingPageSteps extends PageInitializer {
 
 	@Then("user sees the following header {string}  and message pop-up with links:")
 	public void user_sees_the_following_header_and_message_pop_up_with_links(String expectedHeaderText,
-			String expectedParagraph) {
+																			 String expectedParagraph) {
 
 		CommonUtils.waitForVisibility(seerExistingAccountPage.headerText);
 		String actualHeaderText = seerExistingAccountPage.headerText.getText();
@@ -52,8 +52,8 @@ public class SEERLandingPageSteps extends PageInitializer {
 
 	@Then("the SEER Data Access landing page has the following text displayed")
 	public void the_SEER_Data_Access_landing_page_has_the_following_text_displayed(String expectedLandingPageText) {
-
 		String actualLandingPageText = seerLandingPage.landingPageText.getText();
+		System.out.println(actualLandingPageText);
 		CommonUtils.assertEquals(actualLandingPageText, expectedLandingPageText);
 		JavascriptUtils.scrollDown(300);
 		JavascriptUtils.drawBlueBorder(seerLandingPage.landingPageText);

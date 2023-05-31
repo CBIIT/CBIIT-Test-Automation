@@ -32,6 +32,10 @@ public class SEERUserRegistrationPage extends CommonUtils {
 	/** SEER User Registration Email field */
 	@FindBy(xpath = "//div/div/form/div[2]/div/input[1]")
 	public WebElement seerUserRegistrationEmailField;
+
+	/** SEER User Registration Email field bread crumb */
+	@FindBy(xpath = "//input[@id='emailInput']")
+	public WebElement seerUserRegistrationEmailFieldBreadCrumb;
 	
 	/**SEER User Registration Organization field*/
 	@FindBy (xpath ="//input[@ng-model='data.user.organization']")
@@ -48,13 +52,9 @@ public class SEERUserRegistrationPage extends CommonUtils {
 	/**SEER User Registration Country field*/
 	@FindBy (xpath = "//input[@ng-model='data.country_search']")
 	public WebElement seerUserRegistrationCountryField;
-	
-	/**SEER User Registration Country drop down*/
-	@FindBy(xpath = "//div[4]/div/ul/li")
-	public List<WebElement> seerUserRegistrationCountryDropDrown;
-	
+
 	/**SEER User Registration Country USA*/
-	@FindBy(xpath="//div/div/form/div[4]/div/ul/li/a")
+	@FindBy(xpath="//a[@class='ng-binding']")
 	public WebElement seerUserRegistrationCountryUSA;
 	
 	/**SEER User Registration Address field*/

@@ -41,8 +41,8 @@ public class LoginPage extends BasePage{
 	@FindBy(how = How.CSS, css = "input[type='search']")
 	public WebElement searchableChangeUserInput;
 	
-	@FindBy(how = How.CLASS_NAME, className = ".select2-search.select2-search--dropdown.select2-search__field")
-	public WebElement searchableChangeUserInputForFellow;
+	 @FindBy(how = How.CLASS_NAME, className = ".select2-search.select2-search--dropdown.select2-search__field")
+	 public WebElement searchableChangeUserInputForFellow;
 	
 	@FindBy(how = How.XPATH, xpath = "//ul[contains(@class,'hidden-sm')]//a[text()='Log in']")
 	public WebElement loginButton;
@@ -64,8 +64,6 @@ public class LoginPage extends BasePage{
 	public List<WebElement> filteredList;
 	
 	public LoginPage() {
-		//PageFactory.initElements(DriverObjectFactory.getWebDriver(), this);
 		PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
 	}
-	
 }

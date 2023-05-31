@@ -33,11 +33,7 @@ public class LoginPage extends CommonUtil{
 	
 	@FindBy(how = How.CSS, css = "input[type='search']")
 	public WebElement searchableChangeUserInput;
-	
-	@FindBy(how = How.CLASS_NAME, className = ".select2-search.select2-search--dropdown .select2-search__field")
-	public WebElement searchableChangeUserInputForFellow;
-	
-	
+
 	@FindBy(how = How.CSS, css = "li[role='treeitem']")
 	public WebElement changeUserOption;
 	

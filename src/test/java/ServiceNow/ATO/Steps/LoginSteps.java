@@ -42,11 +42,6 @@ public class LoginSteps {
 		this.newProjectPage = PageFactory.initElements(DriverObjectFactory.getWebDriver(), NewProjectPage.class);
 	}
 
-	@Given("User opens nih application in browser")
-	public void openApp() {
-		loginStepsImpl.openApp();
-	}
-
 	@Given("User opens ATO application in browser")
 	public void openATOApp() {
 		loginStepsImpl.openApp();

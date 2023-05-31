@@ -5,12 +5,7 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -31,7 +26,7 @@ public class BasePage extends CommonUtils{
 		wait = new WebDriverWait(this.driver, Duration.ofSeconds(30));
 	
 	}
-	protected void clickOnElement(WebElement element) {
+	protected void clickOnElements(WebElement element) {
 		wait.until(ExpectedConditions.visibilityOf(element));
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		element.click();
@@ -65,19 +60,7 @@ public class BasePage extends CommonUtils{
 		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 	}
 	
-	protected void clickOnStaleElement(WebElement ele) {
-		int count = 0;
-		while(count < 5) {
-			try {
-				ele.click();
-				break;
-			} catch(Exception ex) {
-				CommonUtil.waitBrowser(2000);
-				count++;
-			}
-		}
-	}
-	
+
 	public void scrollToElement(WebElement element) {
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 	}
