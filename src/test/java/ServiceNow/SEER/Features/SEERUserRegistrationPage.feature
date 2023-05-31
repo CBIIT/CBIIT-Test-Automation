@@ -31,7 +31,7 @@ Feature: SEER User Registration Scenarios
       SEER is supported by the Surveillance Research Program (SRP) in NCI's Division of Cancer Control and Population Sciences (DCCPS). SRP provides national leadership in the science of cancer surveillance as well as analytical tools and methodological expertise in collecting, analyzing, interpreting, and disseminating reliable population-based statistics.
       """
 
-  @ODS-285 @juarezds @Regression @Smoke
+  @ODS-285 @ODS-342_357 @juarezds @Regression @Smoke
   Scenario: Verifying 'SEER Incidence Database' bread crumb directs user to https://seer.cancer.gov/data/
     Given a user is on the SEER Data Access landing page
     Then the 'SEER Incidence Database' bread crumb displays
@@ -80,10 +80,3 @@ Feature: SEER User Registration Scenarios
     """
     Requestors associated with HHS agencies should login with their PIV cards to request the data.
     """
-
-  @ODS-371_ODS-384 @juarezds @Regression
-  Scenario: Verifying that ASCII characters including periods and Commas can be used in the address field - Partially
-    Given a user is on the SEER Data Access landing page
-    When user enter an email address for a Non-Institutional Account
-    And fills out all required fields on SEER Data registration page except Organization
-    Then user should not be able to select "If non-institutional, enter Not Applicable." as an Organization option

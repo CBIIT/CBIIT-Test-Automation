@@ -4,7 +4,6 @@ import appsCommon.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
-import cucumber.api.java.en.When;
 
 public class SEERLandingPageStepImpl extends PageInitializer {
 

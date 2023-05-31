@@ -26,5 +26,4 @@ public class SEERExistingAccountPage {
     public SEERExistingAccountPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
-
 }

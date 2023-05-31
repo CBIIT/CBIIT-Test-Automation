@@ -74,5 +74,3 @@ public class Registration_Constants {
     /* NON-INSTITUTIONAL ZIP CODE */
     public static final String GENERAL_PURPOSE_FOR_USING_THE_DATA = "General Public";
 }
-
-

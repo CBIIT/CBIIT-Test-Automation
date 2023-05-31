@@ -33,6 +33,8 @@ public class SEERDataRejection_Constants {
     /* PHONE NUMBER */
     public static final String PHONE_NUMBER = "703-687-5816";
 
+    public static final String IT_IS_UNCLEAR_EMAIL_TEXT = "It is unclear who the Signing Official at your Institution is.The Requestor and Signing Official should not be the same individual. If there is no other person designated as Signing Official in your organization, please contact us.  Refer toSEER Data FAQs for help determining";
+
     /** --------------- MISC REGISTRATION FORM CONSTANTS--------------- */
 
     /* GENERAL PURPOSE FOR USING THE DATA */

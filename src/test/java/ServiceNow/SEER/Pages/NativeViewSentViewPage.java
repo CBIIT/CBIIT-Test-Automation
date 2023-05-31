@@ -37,7 +37,7 @@ public class NativeViewSentViewPage extends CommonUtils {
 	public WebElement nativeViewCreatedButton;
 	
 	/**Native View Preview Verify Email I icon*/
-	@FindBy(xpath = "//*[@data-type='list2_popup']")
+	@FindBy(xpath = "//td[normalize-space()='Verify your email address - SEER Data Access User Registration']//parent::tr//child::td[2]//child::a")
 	public WebElement nativeViewPreviewVerifyEmailIcon;
 	
 	/**Native View Preview Email Open Record Button*/
@@ -55,6 +55,26 @@ public class NativeViewSentViewPage extends CommonUtils {
 	/**Native View Preview Email SEER Incidence Data: Verify your email address Header */
 	@FindBy(xpath = "//span[contains(text(),'SEER Incidence Data')]")
 	public WebElement nativeViewPreviewEmailSEERIncidenceDataHeader;
+
+	/**Native View Preview Email SEER Incidence Data: It is unclear who the Signing Official at your Institution Section Text*/
+	@FindBy(xpath = "/html/body/table/tbody/tr/td/table/tbody/tr[3]/td/ul[2]/li/ul/li[1]/span")
+	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedItIsUnclearText;
+
+	/**Native View Preview Email SEER Incidence Data: It is unclear who the Signing Official at your Institution is Text Part 1 */
+	@FindBy(xpath = "//strong[contains(text(),'It is unclear who the Signing Official at your Ins')]")
+	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedItIsUnclearTextOne;
+
+	/**Native View Preview Email SEER Incidence Data: It is unclear who the Signing Official at your Institution is Text Part 2 */
+	@FindBy(xpath = "//em[contains(text(),'The Requestor and Signing Official should not be t')]")
+	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedItIsUnclearTextTwo;
+
+	/**Native View Preview Email SEER Incidence Data: It is unclear who the Signing Official at your Institution is Text Part 3 */
+	@FindBy(xpath = "//span[normalize-space()='for help determining']")
+	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedItIsUnclearTextThree;
+
+	/**Native View Preview Email SEER Incidence Data: It is unclear who the Signing Official at your Institution is Text SEER Data FAQs Link*/
+	@FindBy(xpath = "//a[@href='https://seer.cancer.gov/data/faqs.html#signing-official']")
+	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedItIsUnclearSeerDataFaqsLink;
 	
 	/** Native View Review Email Hello NAME text*/
 	@FindBy(xpath = "/html/body/table/tbody/tr/td/table/tbody/tr[3]/td/p[1]/span")

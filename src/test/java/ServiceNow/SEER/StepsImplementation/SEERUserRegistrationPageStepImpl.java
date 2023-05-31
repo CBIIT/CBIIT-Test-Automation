@@ -9,11 +9,8 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-
-import java.util.List;
 
 public class SEERUserRegistrationPageStepImpl extends PageInitializer {
 
@@ -37,28 +34,24 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
 
     public static void fillingOutRegistrationForm() {
         MiscUtils.sleep(1000);
-        CommonUtils. waitForVisibility(seerUserRegistrationPage.seerUserRegistrationFirstNameField);
+        CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationFirstNameField);
         CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationFirstNameField,
                 Registration_Constants.FIRST_NAME);
-
         CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationLastNameField,
                 Registration_Constants.LAST_NAME);
-        MiscUtils.sleep(1000);
-        CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
+        CommonUtils.clickOnElement(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
         CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationOrganizationField,
                 Registration_Constants.ORGANIZATION_NAME);
             seerUserRegistrationPage.seerUserRegistrationCountryField.click();
             seerUserRegistrationPage.seerUserRegistrationCountryField.sendKeys(Registration_Constants.COUNTRY_NAME);
             seerUserRegistrationPage.seerUserRegistrationCountryUSA.click();
-        MiscUtils.sleep(1000);
-        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationAddressField,
+        CommonUtils.sendKeysToElement(seerUserRegistrationPage.seerUserRegistrationAddressField,
                 Registration_Constants.STREET_ADDRESS);
         CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationCityField, Registration_Constants.CITY_NAME);
         CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationStateField, Registration_Constants.STATE);
         CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationZipcodeField,
                 Registration_Constants.ZIP_CODE);
-        MiscUtils.sleep(1000);
-        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationPhoneField,
+        CommonUtils.sendKeysToElement(seerUserRegistrationPage.seerUserRegistrationPhoneField,
                 Registration_Constants.PHONE_NUMBER);
 
         /**
@@ -67,7 +60,7 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
          */
         CommonUtils.selectDropDownValue(Registration_Constants.GENERAL_PURPOSE_FOR_USING_THE_DATA,
                 seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
-        MiscUtils.sleep(2000);
+        MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenShot();
     }
 
@@ -76,23 +69,20 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         CommonUtils. waitForVisibility(seerUserRegistrationPage.seerUserRegistrationFirstNameField);
         CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationFirstNameField,
                 Registration_Constants.FIRST_NAME);
-
         CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationLastNameField,
                 Registration_Constants.LAST_NAME);
-        MiscUtils.sleep(1000);
-        CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
+        CommonUtils.clickOnElement(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
         seerUserRegistrationPage.seerUserRegistrationCountryField.click();
         seerUserRegistrationPage.seerUserRegistrationCountryField.sendKeys(Registration_Constants.COUNTRY_NAME);
         seerUserRegistrationPage.seerUserRegistrationCountryUSA.click();
-        MiscUtils.sleep(1000);
-        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationAddressField,
+        CommonUtils.sendKeysToElement(seerUserRegistrationPage.seerUserRegistrationAddressField,
                 Registration_Constants.STREET_ADDRESS);
         CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationCityField, Registration_Constants.CITY_NAME);
         CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationStateField, Registration_Constants.STATE);
         CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationZipcodeField,
                 Registration_Constants.ZIP_CODE);
         MiscUtils.sleep(1000);
-        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationPhoneField,
+        CommonUtils.sendKeysToElement(seerUserRegistrationPage.seerUserRegistrationPhoneField,
                 Registration_Constants.PHONE_NUMBER);
 
         /**
@@ -101,7 +91,7 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
          */
         CommonUtils.selectDropDownValue(Registration_Constants.GENERAL_PURPOSE_FOR_USING_THE_DATA,
                 seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
-        MiscUtils.sleep(2000);
+        MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenShot();
     }
 
@@ -112,7 +102,7 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
                 CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationOrganizationField,
                         organizationOption.substring(0, 5));
                 CucumberLogUtils.logScreenShot();
-                MiscUtils.sleep(2000);
+                MiscUtils.sleep(1000);
                 CucumberLogUtils.logScreenShot();
                 CommonUtils.assertTrue(!org.equals(organizationOption));
                 break;
@@ -132,12 +122,10 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
          */
          Assert.assertTrue(
                 seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("disabled").equals("true"));
-        MiscUtils.sleep(1000);
-        CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
-        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationOrganizationField,
+        CommonUtils.clickOnElement(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
+        CommonUtils.sendKeysToElement(seerUserRegistrationPage.seerUserRegistrationOrganizationField,
                 Registration_Constants.ORGANIZATION_NAME);
-        MiscUtils.sleep(1000);
-        CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationAddressField,
+        CommonUtils.sendKeysToElement(seerUserRegistrationPage.seerUserRegistrationAddressField,
                 Registration_Constants.STREET_ADDRESS);
         CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationCityField, Registration_Constants.CITY_NAME);
         CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationPhoneField,
@@ -149,7 +137,7 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
          */
         CommonUtils.selectDropDownValue(Registration_Constants.GENERAL_PURPOSE_FOR_USING_THE_DATA,
                 seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
-        MiscUtils.sleep(2000);
+        MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenShot();
     }
 
@@ -164,20 +152,19 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
         seerUserRegistrationPage.seerUserRegistrationOrganizationField.click();
         seerUserRegistrationPage.seerUserRegistrationOrganizationField.sendKeys(Registration_Constants.NI_ORGANIZATION_NAME);
-        MiscUtils.sleep(2000);
-        seerUserRegistrationPage.seerUserRegistrationJobTitleField.sendKeys(Registration_Constants.NI_JOB_TITLE);
+        CommonUtils.sendKeysToElement(seerUserRegistrationPage.seerUserRegistrationJobTitleField,Registration_Constants.NI_JOB_TITLE);
         JavascriptUtils.scrollIntoView(seerUserRegistrationPage.seerUserRegistrationEmailField);
         seerUserRegistrationPage.seerUserRegistrationCountryField.click();
         seerUserRegistrationPage.seerUserRegistrationCountryField.sendKeys(Registration_Constants.NI_COUNTRY_NAME);
         seerUserRegistrationPage.seerUserRegistrationCountryUSA.click();
-        MiscUtils.sleep(2000);
+        MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenShot();
         seerUserRegistrationPage.seerUserRegistrationAddressField.sendKeys(Registration_Constants.NI_STREET_ADDRESS);
         seerUserRegistrationPage.seerUserRegistrationCityField.sendKeys(Registration_Constants.NI_CITY_NAME);
         seerUserRegistrationPage.seerUserRegistrationStateField.sendKeys(Registration_Constants.NI_STATE);
         seerUserRegistrationPage.seerUserRegistrationZipcodeField.sendKeys(Registration_Constants.NI_ZIP_CODE);
         seerUserRegistrationPage.seerUserRegistrationPhoneField.sendKeys(Registration_Constants.NI_PHONE_NUMBER);
-        MiscUtils.sleep(2000);
+        MiscUtils.sleep(1000);
     }
 
     public static void aSEERUserRegistrationHasBeenSuccessfullySubmitted() throws TestingException {

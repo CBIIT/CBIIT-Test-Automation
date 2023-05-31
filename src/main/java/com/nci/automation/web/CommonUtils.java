@@ -650,4 +650,21 @@ public class CommonUtils extends WebDriverUtils {
             }
         }
     }
+
+    /**
+     * USE THIS METHOD TO SEND KEYS TO STALE ELEMENTS
+     * @param ele
+     */
+    public static void sendKeysToElement(WebElement ele, String text) {
+        int count = 0;
+        while (count < 5) {
+            try {
+                ele.sendKeys(text);
+                break;
+            } catch (WebDriverException ex) {
+                MiscUtils.sleep(2000);
+                count++;
+            }
+        }
+    }
 }

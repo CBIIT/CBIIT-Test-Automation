@@ -120,4 +120,3 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 				incidenceDatabaseBreadcrumb, requestSeerIncidenceDataBreadcrumb, submissionConfirmationBreadcrumb);
 	}
 }
-
