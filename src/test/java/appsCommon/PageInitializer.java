@@ -16,7 +16,8 @@ import AnalysisTools.ICRP.Pages.ICRPHomePage;
 import AnalysisTools.ICRP.Pages.ICRPSearchDatabase;
 import AnalysisTools.JPSurv.Pages.JPSurvHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
-import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
+import AnalysisTools.LDLink.Pages.AnalysisToolsLandingPage;
+import AnalysisTools.LDLink.Pages.LDAssocPage;
 import AnalysisTools.PLCO.Pages.BrowsePhenotypePage;
 import AnalysisTools.PLCO.Pages.ExploreGWASPage;
 import AnalysisTools.PLCO.Pages.InformationPage;
@@ -174,7 +175,10 @@ public class PageInitializer {
 
 	/** LDLink instances **/
 	protected static LDLinkHomePage ldLinkHomePage;
-	protected static LDLinkLandingPage ldLinkLandingPage;
+	protected static LDAssocPage ldAssocPage;
+
+	/** Analysis Tools Landing Page instances */
+	protected static AnalysisToolsLandingPage analysisToolsLandingPage;
 
 	/** PLCO instances **/
 	protected static ExploreGWASPage exploreGWASPage;
@@ -293,8 +297,9 @@ public class PageInitializer {
 		charmsNativeViewPage = new CHARMSNativeViewPage();
 		testAccountResetImpl = new TestAccountResetImpl();
 		servicePortalSurveyPage = new ServicePortalSurveyPage();
-		ldLinkLandingPage = new LDLinkLandingPage();
+		analysisToolsLandingPage = new AnalysisToolsLandingPage();
 		ldLinkHomePage = new LDLinkHomePage();
+		ldAssocPage = new LDAssocPage();
 		exploreGWASPage = new ExploreGWASPage();
 		charmsHomePage = new CHARMSHomePage();
 		oktaLoginPage = new OKTAloginPage();
@@ -368,7 +373,7 @@ public class PageInitializer {
 		seerExistingAccountPage = new SEERExistingAccountPage();
 		seerDataAccessRequestPageStepsImpl = new SEERDataAccessRequestPageStepsImpl();
 
-		/*custom Business App */
+		/* custom Business App */
 		nativeViewLoginImpl = new NativeViewLoginImpl();
 		nativeViewHomePage = new NativeViewHomePage();
 		aligningExpectationsPage = new AligningExpectationsPage();
@@ -398,9 +403,9 @@ public class PageInitializer {
 		regularUserFlowSteps = new RegularUserFlowSteps();
 		branchAdminPage = new BranchAdminPage();
 		regularUserFlowPage = new RegularUserFlowPage();
-		/**ETD **/
+		/** ETD **/
 		etdFlowStepsImpl = new ETDFlowStepsImpl();
-		etdAdminNCIPage  = new ETDAdminNCIPage();
+		etdAdminNCIPage = new ETDAdminNCIPage();
 		etdBasePage = new ETDBasePage();
 	}
 }

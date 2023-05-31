@@ -86,7 +86,8 @@ public class HooksSteps {
 				scenarioResult = "Failed";
 			}
 
-			QcTestResult currentQcResult = new QcTestResult(scenarioName, scenarioResult, scenarioResultsDir);
+			QcTestResult currentQcResult = new QcTestResult(scenarioName, scenarioResult,
+					scenarioResultsDir);
 			ScenarioContext.setCurrentQcResult(currentQcResult);
 			WebDriverUtils.closeWebDriver();
 			PageCache.getInstance().destroyInstances();

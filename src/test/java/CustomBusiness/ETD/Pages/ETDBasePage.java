@@ -31,7 +31,7 @@ public class ETDBasePage extends CommonUtils {
 	public ETDBasePage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 		this.driver = WebDriverUtils.getWebDriver();
-		wait = new WebDriverWait(this.driver,Duration.ofSeconds(30));
+		wait = new WebDriverWait(this.driver, Duration.ofSeconds(30));
 	}
 
 	protected void clickOnElements(WebElement element) {
@@ -101,21 +101,21 @@ public class ETDBasePage extends CommonUtils {
 		actions.moveToElement(element).perform();
 
 	}
-	
-	 //Get The Current Day
-    public String getCurrentDay (){
-        //Create a Calendar Object
-        Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
- 
-        //Get Current Day as a number
-        int todayInt = calendar.get(Calendar.DAY_OF_MONTH);
-        System.out.println("Today Int: " + todayInt +"\n");
- 
-        //Integer to String Conversion
-        String todayStr = Integer.toString(todayInt);
-        System.out.println("Today Str: " + todayStr + "\n");
- 
-        return todayStr;
-    }
-	
+
+	// Get The Current Day
+	public String getCurrentDay() {
+		// Create a Calendar Object
+		Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+
+		// Get Current Day as a number
+		int todayInt = calendar.get(Calendar.DAY_OF_MONTH);
+		System.out.println("Today Int: " + todayInt + "\n");
+
+		// Integer to String Conversion
+		String todayStr = Integer.toString(todayInt);
+		System.out.println("Today Str: " + todayStr + "\n");
+
+		return todayStr;
+	}
+
 }

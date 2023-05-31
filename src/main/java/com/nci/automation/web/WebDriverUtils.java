@@ -60,7 +60,8 @@ public class WebDriverUtils {
 				return null;
 			}
 		}
-		long implicitWaitInSeconds = Long.valueOf(LocalConfUtils.getProperty("implicitWaitInSeconds"));
+		long implicitWaitInSeconds = Long
+				.valueOf(Integer.parseInt(LocalConfUtils.getProperty("implicitWaitInSeconds")));
 		webDriver.manage().timeouts().implicitlyWait(implicitWaitInSeconds, TimeUnit.SECONDS);
 		if (!Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
 			webDriver.manage().window().maximize();

@@ -4,10 +4,10 @@
 
 	<profile-name>automation</profile-name>
 
-		<!-- Application ID for LDLink -->
+	<!-- Application ID for LDLink -->
 	<application id="LDLink">
 
-		<login_url>https://ldlink.nci.nih.gov/?tab=home</login_url><!-- add prod 
+		<login_url>https://ldlink.nih.gov/?tab=home</login_url><!-- add prod 
 			url -->
 
 		<role name="Role">
@@ -27,8 +27,8 @@
 			</default><!-- comment -->
 		</db>
 	</application>
-	
-	
+
+
 	<!-- Application ID for Analysistools -->
 	<application id="Analysistools">
 
@@ -52,9 +52,9 @@
 			</default><!-- comment -->
 		</db>
 	</application>
-	
-	
-		<!-- Application ID for CEDCD -->
+
+
+	<!-- Application ID for CEDCD -->
 	<application id="CEDCD">
 
 		<login_url>https://cedcd.nci.nih.gov/</login_url><!-- add prod 
@@ -77,9 +77,9 @@
 			</default><!-- comment -->
 		</db>
 	</application>
-	
-	
-		<!-- Application ID for ICRP -->
+
+
+	<!-- Application ID for ICRP -->
 	<application id="ICRP">
 
 		<login_url>https://icrpartnership.org/</login_url><!-- add prod 
@@ -102,9 +102,9 @@
 			</default><!-- comment -->
 		</db>
 	</application>
-	
-	
-		<!-- Application ID for ICRP -->
+
+
+	<!-- Application ID for ICRP -->
 	<application id="JPSurv">
 
 		<login_url>https://analysistools.cancer.gov/jpsurv/#</login_url><!-- add prod 
@@ -127,13 +127,6 @@
 			</default><!-- comment -->
 		</db>
 	</application>
-	
-	
-
-
-
-
-	
 
 
 </environment>
