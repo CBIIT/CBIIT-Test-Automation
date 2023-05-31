@@ -3,19 +3,9 @@ package com.nci.automation.web;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
-<<<<<<< HEAD
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-
-=======
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 import com.nci.automation.utils.FrameworkConstants;
->>>>>>> 79793860e206e17295eb9c3a100b256d8df9fe64
 import io.github.bonigarcia.wdm.config.OperatingSystem;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -38,8 +28,6 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.LocalConfUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-import static io.github.bonigarcia.wdm.WebDriverManager.*;
-
 /**
  * This class contains web driver related methods
  *
@@ -49,7 +37,6 @@ public class WebDriverUtils {
 
     private final static Logger logger = LogManager.getLogger(WebDriverUtils.class);
     public static WebDriver webDriver;
-
 
     public static WebDriver getWebDriver() {
 
@@ -170,7 +157,6 @@ public class WebDriverUtils {
             cap.setCapability("avd", avdName);
         }
     }
-
 
     public static void launchFirefox() {
         String osName = FrameworkConstants.GET_OS_NAME;

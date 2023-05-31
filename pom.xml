@@ -7,9 +7,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>11</java.version>
-		<maven.compiler.source>11</maven.compiler.source>
-		<maven.compiler.target>11</maven.compiler.target>
+		<java.version>1.8</java.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
 	<dependencies>
@@ -24,13 +24,11 @@
 
 
 		<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
-		<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
 			<version>5.3.2</version>
 		</dependency>
-
 
 		<!-- selenium libraries -->
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
@@ -40,22 +38,13 @@
 			<version>4.9.0</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-http-jdk-client -->
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-http-jdk-client</artifactId>
-			<version>4.8.1</version>
-		</dependency>
-
-
-
 		<!-- appium libraries -->
 		<!-- https://mvnrepository.com/artifact/io.appium/java-client -->
 		<!-- 		<dependency>
-                    <groupId>io.appium</groupId>
-                    <artifactId>java-client</artifactId>
-                    <version>8.1.1</version>
-                </dependency> -->
+			<groupId>io.appium</groupId>
+			<artifactId>java-client</artifactId>
+			<version>8.1.1</version>
+		</dependency> -->
 
 		<!-- cucumber libraries -->
 
@@ -76,16 +65,16 @@
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>7.4.0</version>
+			<version>7.7.1</version>
 		</dependency>
 
 
 		<!-- common libraries -->
 		<!-- 		<dependency>
-                    <groupId>org.seleniumhq.selenium</groupId>
-                    <artifactId>htmlunit-driver</artifactId>
-                    <version>2.26</version>
-                </dependency> -->
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>htmlunit-driver</artifactId>
+			<version>2.26</version>
+		</dependency> -->
 
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -229,10 +218,10 @@
 
 
 		<!-- 		<dependency>
-                    <groupId>com.deque.html.axe-core</groupId>
-                    <artifactId>selenium</artifactId>
-                    <version>4.4.1</version>
-                </dependency> -->
+			<groupId>com.deque.html.axe-core</groupId>
+			<artifactId>selenium</artifactId>
+			<version>4.4.1</version>
+		</dependency> -->
 
 
 	</dependencies>
@@ -248,6 +237,7 @@
 					<useSystemClassLoader>false</useSystemClassLoader>
 					<includes>
 						<include>
+
 						</include>
 					</includes>
 					<testFailureIgnore>true</testFailureIgnore> <!-- to get report even when fails -->
@@ -284,18 +274,6 @@
 					</execution>
 				</executions>
 			</plugin>
-
-
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>11</source>
-					<target>11</target>
-				</configuration>
-			</plugin>
-
 
 		</plugins>
 	</build>

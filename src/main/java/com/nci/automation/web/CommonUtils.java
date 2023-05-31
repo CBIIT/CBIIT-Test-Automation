@@ -29,6 +29,37 @@ import com.nci.automation.utils.MiscUtils;
  *
  * @author juarezds
  */
+package com.nci.automation.web;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import com.nci.automation.utils.MiscUtils;
+
+/**
+ * This is a utility class which contains all common methods that will be used
+ * through out any application. New methods can be added at any time. Modifying
+ * the existing methods may result in build failure. - Please
+ *
+ * @author juarezds
+ */
 public class CommonUtils extends WebDriverUtils {
 
     private static Logger logger = LogManager.getLogger(CommonUtils.class);

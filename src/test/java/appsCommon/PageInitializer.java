@@ -1,10 +1,5 @@
 package appsCommon;
 
-<<<<<<< HEAD
-import AnalysisTools.cProSite.Pages.CProSiteExplorePage;
-import com.sun.xml.bind.v2.model.core.ID;
-=======
->>>>>>> 29e7eb2276a2cd21a2fbade1d460e137ec0e21a5
 import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
 import AnalysisTools.CEDCD.Pages.CEDCDBiospecimenCountsPage;
 import AnalysisTools.CEDCD.Pages.CEDCDCohortPage;
@@ -18,7 +13,7 @@ import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
 import AnalysisTools.Comets2.Pages.Comets2Page;
 import AnalysisTools.ICRP.Pages.ICRPHomePage;
-import AnalysisTools.ICRP.Pages.ICRPSearchDatabasePage;
+import AnalysisTools.ICRP.Pages.ICRPSearchDatabase;
 import AnalysisTools.JPSurv.Pages.JPSurvHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
@@ -117,6 +112,8 @@ import CustomBusiness.EIDP.StepsImplementation.SearchStepImpl;
 import CustomBusiness.ETD.Pages.ETDAdminNCIPage;
 import CustomBusiness.ETD.Pages.ETDBasePage;
 import CustomBusiness.ETD.StepsImplementation.ETDFlowStepsImpl;
+import AnalysisTools.cProSite.Pages.CProSiteExplorePage;
+import AnalysisTools.JPSurv.Pages.JPSurvHomePage;
 
 /**
  * This an initializer class which will initialize all pages classes. Once pages
@@ -204,6 +201,18 @@ public class PageInitializer {
 	protected static CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp cedcdSearchCohortsCategoriesOfDataOfDataSortedStepImp;
 	protected static CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp cedcdBiospecimenCountsAlphabeticalCancerTypeStepImp;
 
+	/** ICRP instances **/
+
+	protected static ICRPHomePage icrpHomePage;
+	protected static ICRPSearchDatabasePage icrpSearchDatabasePage;
+
+	/** JPSurv instances **/
+	protected static JPSurvHomePage jpsurvHomePage;
+
+	/**cProSite instances **/
+	protected static CProSiteExplorePage cProSiteExplorePage;
+
+
 	/** SEER instances */
 	protected static SEERLandingPage seerLandingPage;
 	protected static SEERUserRegistrationPage seerUserRegistrationPage;
@@ -234,21 +243,8 @@ public class PageInitializer {
 	protected static CatalogPages catalogPages;
 
 	/** ICRP instances **/
-<<<<<<< HEAD
-	protected static ICRPHomePage icrpHomePage; 
-	protected static ICRPSearchDatabasePage icrpSearchDatabasePage; 
-	
-	/** JPSurv instances **/ 
-	protected static JPSurvHomePage jpsurvHomePage;
-
-	/**cProSite instances **/
-	protected static CProSiteExplorePage cProSiteExplorePage;
-
-
-=======
 	protected static ICRPHomePage icrpHomePage;
 	protected static ICRPSearchDatabase icrpSearchDatabase;
->>>>>>> 29e7eb2276a2cd21a2fbade1d460e137ec0e21a5
 
 	/** JPSurv instances **/
 	protected static JPSurvHomePage jpsurvHomePage;
@@ -351,7 +347,7 @@ public class PageInitializer {
 		cedcdAdminPage = new CEDCDAdminPage();
 		cedcdCohortPage = new CEDCDCohortPage();
 		icrpHomePage = new ICRPHomePage();
-		icrpSearchDatabasePage = new ICRPSearchDatabasePage();
+		icrpSearchDatabase = new ICRPSearchDatabase();
 		comets2Page = new Comets2Page();
 		signatureVisualizationsPage = new SignatureVisualizationsPage();
 		mSigPortalHomePage = new MSigPortalHomePage();
@@ -366,14 +362,7 @@ public class PageInitializer {
 		cGBIIQPages = new CGBIIQPages();
 		rASSurveyPage = new RASSurveyPage();
 		rASSurveyStepsImpl = new RASSurveyStepsImpl();
-<<<<<<< HEAD
-		jpsurvHomePage = new JPSurvHomePage();
-		cProSiteExplorePage = new CProSiteExplorePage();
-
-	
-=======
 		fHQSurveyPortalPage = new FHQSurveyPortalPage();
->>>>>>> 29e7eb2276a2cd21a2fbade1d460e137ec0e21a5
 
 		/** Native View instance */
 		nativeViewImpersonateUser = new NativeViewImpersonateUser();
