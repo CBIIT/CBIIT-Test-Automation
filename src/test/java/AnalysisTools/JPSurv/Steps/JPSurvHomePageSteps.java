@@ -52,7 +52,7 @@ public class JPSurvHomePageSteps extends PageInitializer {
 
 	@When("user clicks upload")
 	public void user_clicks_upload() {
-//		jpsurvHomePage.fileUploadBtn.click();
+        jpsurvHomePage.fileUploadBtn.click();
 		JavascriptUtils.clickByJS(jpsurvHomePage.fileUploadBtn);
 	}
 

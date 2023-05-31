@@ -675,7 +675,7 @@
 		</db>
 	</application>
 	
-    
+
     <!-- Application ID for Melanoma and Spitzoid Tumor-->
     <application id="melanoma">
         <login_url>https://service-test.nci.nih.gov/mymelanoma</login_url> <!-- add test
