@@ -620,5 +620,27 @@ public class CommonUtils extends WebDriverUtils {
             }
         }
     }
+
+    public static boolean isFileDownloaded(String fileName) {
+        boolean temp=false;
+        Path path=Paths.get(System.getProperty("user.dir")+ "/" + fileName+"*"+"xlsx");
+        System.out.println("Download Path is" + path);
+        if(Files.exists(path)==true) {
+            if(Files.isRegularFile(path)) {
+                System.out.println("File is found");
+                temp=true;
+            }
+        }else {
+            System.out.println("File is not found");
+        }
+        return temp;
+    }
+    public static void deleteFile(String fileName) {
+        File file=new File(System.getProperty("user.dir") + "/" + fileName);
+        if(file.delete()) {
+            System.out.println("File is deleted");
+        }
+
+    }
 }
 
