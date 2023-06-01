@@ -36,5 +36,4 @@ public class RunSEERProgressionTest {
         ConfUtils.setBaseResultsDir(reportsOutput);
         System.out.println("Starting Test Execution...");
     }
-
 }

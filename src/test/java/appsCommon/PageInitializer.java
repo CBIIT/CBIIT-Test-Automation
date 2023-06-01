@@ -198,6 +198,8 @@ public class PageInitializer {
 	protected static SEERLandingPage seerLandingPage;
 	protected static SEERUserRegistrationPage seerUserRegistrationPage;
 	protected static SEERDataAccessRequestPage seerDataAccessRequestPage;
+
+	protected static NativeViewCustomersPage nativeViewCustomersPage;
 	protected static NativeViewSentViewPage nativeViewSentViewPage;
 	protected static NativeViewAccessRequestPage nativeViewAccessRequestPage;
 	protected static NativeViewEmailsPage nativeViewEmailsPage;
@@ -353,7 +355,7 @@ public class PageInitializer {
 		nativeViewImpersonateUser = new NativeViewImpersonateUser();
 		nativeViewSideDoorLoginPage = new NativeViewSideDoorLoginPage();
 		fHQSurveyPage = new FHQSurveyPage();
-
+		nativeViewCustomersPage = new NativeViewCustomersPage();
 		jpsurvHomePage = new JPSurvHomePage();
 		melanomaLoginPage = new MelanomaLoginPage();
 		melanomaHomePage = new MelanomaHomePage();
@@ -363,7 +365,6 @@ public class PageInitializer {
 		nerdCRSTopAccomplishmentsPage = new NERDCRSTopAccomplishmentsPage();
 		nerdDOCCollaborationsPage = new NERDDOCCollaborationsPage();
 		nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
-
 		seerExistingAccountPage = new SEERExistingAccountPage();
 		seerDataAccessRequestPageStepsImpl = new SEERDataAccessRequestPageStepsImpl();
 

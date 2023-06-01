@@ -1,5 +1,6 @@
 package ServiceNow.SEER.StepsImplementation;
 
+import ServiceNow.SEER.Constants.Registration_Constants;
 import ServiceNow.SEER.Constants.SEERDataRejection_Constants;
 import ServiceNow.SEER.Pages.NativeViewAccessRequestPage;
 import appsCommon.PageInitializer;
@@ -62,6 +63,45 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
         CucumberLogUtils.logScreenShot();
     }
 
+    public static void verifyPrePopulatedSEERDataRegistrationForm() {
+        MiscUtils.sleep(1000);
+        JavascriptUtils.scrollIntoView(seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
+        SEERUserRegistrationPageStepImpl.validateEmailFieldReadOnly();
+        JavascriptUtils.drawBlueBorder(seerUserRegistrationPage.seerUserRegistrationEmailField);
+        CommonUtils.assertTrue(
+                seerUserRegistrationPage.seerUserRegistrationFirstNameField.getAttribute("class").contains(Registration_Constants.REGISTRATION_FORM_DISABLED_FIELD_ATTRIBUTE_VALUE));
+        JavascriptUtils.drawBlueBorder(seerUserRegistrationPage.seerUserRegistrationFirstNameField);
+        CommonUtils.assertTrue(
+                seerUserRegistrationPage.seerUserRegistrationLastNameField.getAttribute("class").contains(Registration_Constants.REGISTRATION_FORM_DISABLED_FIELD_ATTRIBUTE_VALUE));
+        JavascriptUtils.drawBlueBorder(seerUserRegistrationPage.seerUserRegistrationLastNameField);
+        CommonUtils.assertTrue(
+                seerUserRegistrationPage.seerUserRegistrationOrganizationField.getAttribute("class").contains(Registration_Constants.REGISTRATION_FORM_DISABLED_FIELD_ATTRIBUTE_VALUE));
+        JavascriptUtils.drawBlueBorder(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
+        CommonUtils.assertTrue(
+                seerUserRegistrationPage.seerUserRegistrationCountryField.getAttribute("class").contains(Registration_Constants.REGISTRATION_FORM_DISABLED_FIELD_ATTRIBUTE_VALUE));
+        JavascriptUtils.drawBlueBorder(seerUserRegistrationPage.seerUserRegistrationCountryField);
+        CommonUtils.assertTrue(
+                seerUserRegistrationPage.seerUserRegistrationAddressField.getAttribute("class").contains(Registration_Constants.REGISTRATION_FORM_DISABLED_FIELD_ATTRIBUTE_VALUE));
+        JavascriptUtils.drawBlueBorder(seerUserRegistrationPage.seerUserRegistrationAddressField);
+        CommonUtils.assertTrue(
+                seerUserRegistrationPage.seerUserRegistrationCityField.getAttribute("class").contains(Registration_Constants.REGISTRATION_FORM_DISABLED_FIELD_ATTRIBUTE_VALUE));
+        JavascriptUtils.drawBlueBorder(seerUserRegistrationPage.seerUserRegistrationCityField);
+        CommonUtils.assertTrue(
+                seerUserRegistrationPage.seerUserRegistrationStateField.getAttribute("class").contains(Registration_Constants.REGISTRATION_FORM_DISABLED_FIELD_ATTRIBUTE_VALUE));
+        JavascriptUtils.drawBlueBorder(seerUserRegistrationPage.seerUserRegistrationStateField);
+        CommonUtils.assertTrue(
+                seerUserRegistrationPage.seerUserRegistrationZipcodeField.getAttribute("class").contains(Registration_Constants.REGISTRATION_FORM_DISABLED_FIELD_ATTRIBUTE_VALUE));
+        JavascriptUtils.drawBlueBorder(seerUserRegistrationPage.seerUserRegistrationZipcodeField);
+        CommonUtils.assertTrue(
+                seerUserRegistrationPage.seerUserRegistrationPhoneField.getAttribute("class").contains(Registration_Constants.REGISTRATION_FORM_DISABLED_FIELD_ATTRIBUTE_VALUE));
+        JavascriptUtils.drawBlueBorder(seerUserRegistrationPage.seerUserRegistrationPhoneField);
+        CommonUtils.assertTrue(
+                seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField.getAttribute("class").contains(Registration_Constants.REGISTRATION_FORM_DISABLED_FIELD_ATTRIBUTE_VALUE));
+        JavascriptUtils.drawBlueBorder(seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
+        MiscUtils.sleep(500);
+        CucumberLogUtils.logScreenShot();
+    }
+
     public static void aSEERODSAdminNnavigatesTo(String SEERText, String accessRequestsText) {
         nativeViewEnrollementsPage.filterNavigator.sendKeys(SEERText);
         MiscUtils.sleep(1000);
@@ -98,6 +138,26 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
         nativeViewAccessRequestPage.nativeViewAccessSaveClientButton.click();
         MiscUtils.sleep(1000);
         CommonUtils.switchToDefaultContent();
+    }
+
+    public static void createsANewAccessRequestForSeerResearchDatabase(String registerForResearchData) {
+        CommonUtils.switchToDefaultContent();
+        SEERDataRejectionStepImpl.aSEERODSAdminNnavigatesTo("","Access Requests");
+        nativeViewAccessRequestPage.accessRequestNewButton.click();
+        MiscUtils.sleep(1000);
+        Assert.assertTrue(nativeViewAccessRequestPage.accessRequestText.getText()
+                .contentEquals("Access Request"));
+        nativeViewAccessRequestPage.nativeViewAccessRequestCustomerTextBox.sendKeys(SEERDataRejection_Constants.FIRST_NAME + " " + SEERDataRejection_Constants.LAST_NAME);
+        MiscUtils.sleep(1000);
+        nativeViewAccessRequestPage.nativeViewAccessRequestCustomerTextBox.sendKeys(Keys.ENTER);
+        nativeViewAccessRequestPage.nativeViewAccessRequestDatasetTextBox.sendKeys(registerForResearchData);
+        MiscUtils.sleep(1000);
+        nativeViewAccessRequestPage.nativeViewAccessRequestDatasetTextBox.sendKeys(Keys.ENTER);
+        MiscUtils.sleep(500);
+        CucumberLogUtils.logScreenShot();
+        CommonUtils.clickOnElement(nativeViewAccessRequestPage.nativeViewAccessSaveClientButtonBottom);
+        MiscUtils.sleep(500);
+        CucumberLogUtils.logScreenShot();
     }
 
     public static void whenTheAdminRejectsTheAccessRequests() {

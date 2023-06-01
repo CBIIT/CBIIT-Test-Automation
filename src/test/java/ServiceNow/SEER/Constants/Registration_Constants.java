@@ -73,4 +73,7 @@ public class Registration_Constants {
 
     /* NON-INSTITUTIONAL ZIP CODE */
     public static final String GENERAL_PURPOSE_FOR_USING_THE_DATA = "General Public";
+
+    /* NON-INSTITUTIONAL REGISTRATION FORM DISABLED FIELD ATTRIBUTE VALUE */
+    public static final String REGISTRATION_FORM_DISABLED_FIELD_ATTRIBUTE_VALUE = "ng-untouched";
 }

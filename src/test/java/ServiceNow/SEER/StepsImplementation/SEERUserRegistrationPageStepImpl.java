@@ -210,4 +210,21 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
                 seerUserRegistrationPage.seerUserRegistrationIsCompleteHeader.getText());
         CucumberLogUtils.logScreenShot();
     }
+
+    public static void theUserShouldSeePageWhenReRegistering(String youAlreadyHaveAccessToSeerResearchData) throws TestingException{
+        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SEERDataAccess"));
+        SEERDataAccessRequestPageStepsImpl.enterEmailAddress349();
+        CommonUtils.waitForVisibility(seerUserRegistrationPage.seerYouAlreadyHaveAccessToSeerResearchDataHeader);
+        JavascriptUtils.drawBlueBorder(seerUserRegistrationPage.seerYouAlreadyHaveAccessToSeerResearchDataHeader);
+        org.junit.Assert.assertEquals(youAlreadyHaveAccessToSeerResearchData,
+                seerUserRegistrationPage.seerYouAlreadyHaveAccessToSeerResearchDataHeader.getText());
+    }
+
+    public static void theLandingPageHasLinkForSeerResearchPlusInstruction(String youAlreadyHaveAccessToSeerResearchData){
+        JavascriptUtils.drawBlueBorder(seerUserRegistrationPage.seerHowToRequestAccessToSeerDataLink);
+        org.junit.Assert.assertEquals(youAlreadyHaveAccessToSeerResearchData,
+                seerUserRegistrationPage.seerHowToRequestAccessToSeerDataLink.getText());
+        CucumberLogUtils.logScreenShot();
+        MiscUtils.sleep(10000);
+    }
 }

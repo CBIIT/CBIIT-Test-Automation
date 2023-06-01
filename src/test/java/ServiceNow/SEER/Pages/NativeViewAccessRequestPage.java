@@ -41,6 +41,10 @@ public class NativeViewAccessRequestPage extends CommonUtils {
     @FindBy(xpath = "//input[@id='sys_display.x_g_nci_seer_data_access.customer']")
     public WebElement nativeViewAccessRequestCustomerTextBox;
 
+    /**NativeView Access Request No Records To Display Text*/
+    @FindBy(xpath = "//td[normalize-space()='No records to display']")
+    public WebElement nativeViewAccessRequestNoRecordsToDisplayText;
+
     /**NativeView Access Request Dataset field*/
     @FindBy(xpath = "//input[@id='sys_display.x_g_nci_seer_data_access.dataset']")
     public WebElement nativeViewAccessRequestDatasetTextBox;
@@ -73,10 +77,19 @@ public class NativeViewAccessRequestPage extends CommonUtils {
     @FindBy(xpath = "//*[@id=\'sysverb_insert_and_stay_bottom\']")
     public WebElement nativeViewAccessSaveClientButtonBottom;
 
+    /**NativeView Access Request Update Client Button */
     @FindBy(xpath = "//*[@id=\'sysverb_update_and_stay_bottom\']")
     public WebElement nativeViewAccessSaveRejectedClientButtonBottom;
 
-    /**NativeView Access Request Update Client Button */
+    /**NativeView Account Button */
+    @FindBy(xpath = "//span[@class='user-name hidden-xs hidden-sm hidden-md']")
+    public WebElement nativeViewAccountButton;
+
+    /**NativeView Log Out Button */
+    @FindBy(xpath = "//a[normalize-space()='Log out']")
+    public WebElement nativeViewLogOutButton;
+
+    /**NativeView Account Button */
     @FindBy(xpath = "//*[@id=\'sysverb_update_bottom\']")
     public WebElement nativeViewAccessUpdateClientButtonBottom;
 

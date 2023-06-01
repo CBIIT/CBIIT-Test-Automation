@@ -1,7 +1,6 @@
 package ServiceNow.SEER.Pages;
 
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -111,7 +110,15 @@ public class SEERUserRegistrationPage extends CommonUtils {
 	/** SEER User Registration Is Complete Header */
 	@FindBy (xpath = " //h3[text() = ' Thank you - your registration is complete. ']")
 	public WebElement seerUserRegistrationIsCompleteHeader;
-	
+
+	/** SEER You Already Have Access To SEER Research Data Header */
+	@FindBy (xpath = "//h3[normalize-space()='You Already Have Access to SEER Research Data']")
+	public WebElement seerYouAlreadyHaveAccessToSeerResearchDataHeader;
+
+	/** SEER How To Request Access To SEER Data Link */
+	@FindBy (xpath = "//a[normalize-space()='How to Request Access to SEER Data.']")
+	public WebElement seerHowToRequestAccessToSeerDataLink;
+
 	/** SEER User Registration Incidence Database Details Link */
 	@FindBy (xpath = " //a[text() = ' SEER Incidence Database details ']")
 	public WebElement seerUserRegistrationIncidenceDatabaseDetailsLink;
