@@ -1,6 +1,6 @@
 Feature: This feature file encompasses test cases on the LDassoc module of LDlink
 
-    @Smoke @matakevin
+    @Smoke @Regression @matakevin
     Scenario: Calculating the example file on LDassoc
         Given a LDlink user opens home page
         When the user clicks on the LDassoc module
