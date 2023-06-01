@@ -40,7 +40,7 @@ public class NativeViewSentViewPage extends CommonUtils {
 	public WebElement NativeViewPreviewVerifyEmailOpenRecordButton;
 	
 	/**Native View Preview Email Preview HTML Body Link*/
-	@FindBy(xpath = "//*[contains(text(), 'Preview HTML Body')]")
+	@FindBy(xpath = "//*[contains(text(), 'preview_email')]//parent::li//child::a")
 	public WebElement nativeViewPreviewVerifyEmailPreviewHTMLBodyLink;
 	
 	/**Native View Preview Email IFRAME */

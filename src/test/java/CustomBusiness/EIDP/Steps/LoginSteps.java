@@ -5,13 +5,24 @@ import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import CustomBusiness.EIDP.Util.SharedData;
 import appsCommon.PageInitializer;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 
 public class LoginSteps extends PageInitializer {
 
-	@When("User will login to the application as {string} user on {string}")
-	public void loginByUsernameOn(String username, String appUrl) throws InterruptedException, TestingException {
-		eidpLoginStepImpl.ApplicationLogin(username, "Password", appUrl);
+//	@Given("User opens nih application in browser")
+//	public void openApp() {
+//		nihLoginPage.openApp("nih");
+//	}
+//	
+//	@Given("User opens nidcra application in browser")
+//	public void openNIDCRApp() {
+//		nihLoginPage.openApp("nidcra");
+//	}
+
+	@Given("User logs in to EIDP {string} as {string} and {string}")
+	public void user_logs_in_to_EIDP_as_and(String url, String username, String password) throws TestingException {
+		eidpLoginStepImpl.ApplicationLogin(username, password, url);
 	}
 
 	@When("User will login to the application as \"([^\"]*)\" user")

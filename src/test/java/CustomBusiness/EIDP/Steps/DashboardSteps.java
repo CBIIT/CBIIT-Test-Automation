@@ -16,13 +16,8 @@ public class DashboardSteps extends PageInitializer {
 
 	@When("User will click on search in dashboard")
 	public void clickOnSearch() {
-		try {
 			eidpDashboardStepImpl.clickOnSearch();
-			CucumberLogUtils.logScreenShot("After Search");
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+			CucumberLogUtils.logScreenShot();
 	}
 
 	@When("User click on Search button")

@@ -8,7 +8,7 @@ import com.nci.automation.xceptions.TestingException;
 public class ITrustLoginPageImpl extends PageInitializer {
 
 	public void loginToITrust() throws TestingException {
-		MiscUtils.sleep(2000);
+		MiscUtils.sleep(3000);
 		CommonUtils.waitForVisibility(iTrustloginPage.userNameField);
 		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "Username");
 		iTrustloginPage.enterPassword("Password");

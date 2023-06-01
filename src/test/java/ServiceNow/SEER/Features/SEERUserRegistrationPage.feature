@@ -1,31 +1,28 @@
 Feature: SEER User Registration Scenarios
 
-  @ODS-283 @juarezds @NEEDS_UPDATE
+  @ODS-283 @juarezds @Regeression @Smoke
   Scenario: Verifying Sate and Zip code fields are required when selecting United States of America for Country field
     Given a user is on the SEER Data Access landing page
     And user proceeds with email verification for Research Data Requests
-    When entering required information
-    And entering and selecting "United States of America" for Country field
+    When entering and selecting "United States of America" for Country field
+    And entering required information except State and Zip code
     And submits the registration form
     Then the user is not able to submit the registration form because the State and Zip Code fields are required
 
-  @ODS-284 @juarezds @NEEDS_UPDATE
+  @ODS-284 @juarezds @Regression @Smoke
   Scenario: Verifying "Thank you - your registration is complete." page contents
     Given a user is on the SEER Data Access landing page
+    When user enters email address for a Non-Institutional Account
     And fills out all required fields on SEER Data registration page
     And submits the registration form
-    Then the "Thank you - your registration is complete." page displays
+    Then the user lands on the "Thank you - your registration is complete." page
     And the page header displays as "SEER Incidence Database details"
     And the following text also displays
       """
       Thank you - your registration is complete.
       You will recieve a confirmation email with more instructions momentarily.
       Once the email address you have submitted has been verified you can login and complete the Data Access Request form.
-      
-      What to expect when completing the data access request form:
-      The electronic Data Access Request form requires a brief description of your intended use of the data (based on the type of data being requested). You will also be required to review and agree to the Data Use Agreement (DUA).
-      You will also be required to review and agree to the Best Practices for Securing NCI-supported Registry Data.
-      Once your access is approved, you will receive a username and password for accessing the data through SEER*Stat Software.
+
       ← Back to SEER Database details
       """
     And the <- Back to SEER Database details button displays
@@ -34,7 +31,7 @@ Feature: SEER User Registration Scenarios
       SEER is supported by the Surveillance Research Program (SRP) in NCI's Division of Cancer Control and Population Sciences (DCCPS). SRP provides national leadership in the science of cancer surveillance as well as analytical tools and methodological expertise in collecting, analyzing, interpreting, and disseminating reliable population-based statistics.
       """
 
-  @ODS-285 @juarezds @NEEDS_UPDATE
+  @ODS-285 @juarezds @Regression
   Scenario: Verifying 'SEER Incidence Database' bread crumb directs user to https://seer.cancer.gov/data/
     Given a user is on the SEER Data Access landing page
     Then the 'SEER Incidence Database' bread crumb displays
@@ -59,7 +56,7 @@ Feature: SEER User Registration Scenarios
     And the 'SEER Incidence Database' bread crumb displays
     And when clicking, user is directed to "https://seer.cancer.gov/data/"
 
-  @ODS-286 @juarezds @NEEDS_UPDATE
+  @ODS-286 @juarezds @Regression
   Scenario: Verifying bread crumbs on "Thank you - your registration is complete." page
     Given a user is on the SEER Data Access landing page
     When user enters email address for a Non-Institutional Account
@@ -67,5 +64,4 @@ Feature: SEER User Registration Scenarios
     And submits the registration form
     Then user is directed to the 'Thank you - your registration is complete.' page
     Then the following breadcrumbs are displayed "Home", "SEER Data & Software", "SEER Incidence Database", "Request SEER Incidence Data", "Submission Confirmation"
-    And the 'SEER Incidence Database' bread crumb displays
-    And when clicking, user is directed to "https://seer.cancer.gov/data/"
+

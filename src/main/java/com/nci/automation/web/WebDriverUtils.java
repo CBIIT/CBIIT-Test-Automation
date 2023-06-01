@@ -3,11 +3,8 @@ package com.nci.automation.web;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
-
 import com.nci.automation.utils.FrameworkConstants;
 import io.github.bonigarcia.wdm.config.OperatingSystem;
 import org.apache.logging.log4j.LogManager;
@@ -21,36 +18,26 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
 import com.nci.automation.common.Constants;
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.LocalConfUtils;
-//import io.appium.java_client.AppiumDriver;
-//import io.appium.java_client.MobileElement;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
  * This class contains web driver related methods
  *
- * @author sohilz2
+ * @author juarezds
  */
 public class WebDriverUtils {
 
     private final static Logger logger = LogManager.getLogger(WebDriverUtils.class);
     public static WebDriver webDriver;
 
-    /**
-     * Get a web-driver to interact with the UI
-     */
-    @SuppressWarnings("deprecation")
     public static WebDriver getWebDriver() {
 
         String browser = ConfUtils.getProperty("browser");
@@ -72,66 +59,12 @@ public class WebDriverUtils {
                 return null;
             }
         }
-
         long implicitWaitInSeconds = Long.valueOf(LocalConfUtils.getProperty("implicitWaitInSeconds"));
         webDriver.manage().timeouts().implicitlyWait(implicitWaitInSeconds, TimeUnit.SECONDS);
-
         if (!Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
             webDriver.manage().window().maximize();
         }
         return webDriver;
-    }
-
-    /**
-     * This method sets the path to executable drivers based on the operating
-     * system. No setting needs to be changed if switching to another operating
-     * system. - POSSIBLY REMOVE SINCE IT IS NOT BEING USED?
-     */
-    private static void setDriverExecutables() {
-        System.setProperty(ChromeDriverService.CHROME_DRIVER_LOG_PROPERTY, "true");
-        String browser = ConfUtils.getProperty("browser");
-        String osName = Constants.GET_OS_NAME;
-
-        if (browser.equalsIgnoreCase(Constants.BROWSER_CHROME)) {
-            if (osName.contains("Mac")) {
-                // System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH);
-                WebDriverManager.chromedriver().setup();
-            } else if (osName.contains("Window")) {
-                // System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH + GET_EXE);
-            } else if (osName.contains("Linux")) {
-                // System.setProperty(Constants.CHROME_KEY, Constants.CHROME_PATH + GET_LINUX);
-            }
-        } else if (browser.equalsIgnoreCase(Constants.BROWSER_IE)) {
-            if (osName.contains("Mac")) {
-                // System.setProperty(Constants.IE_KEY, Constants.IE_PATH);
-                WebDriverManager.iedriver().setup();
-            } else if (osName.contains("Windows")) {
-                // System.setProperty(Constants.IE_KEY, Constants.IE_PATH + GET_EXE);
-                //WebDriverManager.iedriver().operatingSystem(OperatingSystem.WIN).setup();
-            } else if (osName.contains("Linux")) {
-                //WebDriverManager.iedriver().operatingSystem(OperatingSystem.LINUX).setup();
-            }
-        } else if (browser.equalsIgnoreCase(Constants.BROWSER_FIREFOX)) {
-            if (osName.contains("Mac")) {
-                // System.setProperty(Constants.FIREFOX_KEY, Constants.FIREFOX_PATH);
-                WebDriverManager.firefoxdriver().setup();
-            } else if (osName.contains("Windows")) {
-                // System.setProperty(Constants.FIREFOX_KEY, Constants.FIREFOX_PATH + GET_EXE);
-                //	WebDriverManager.firefoxdriver().operatingSystem(OperatingSystem.WIN).setup();
-            } else if (osName.contains("Linux")) {
-                //	WebDriverManager.firefoxdriver().operatingSystem(OperatingSystem.LINUX).setup();
-            }
-        } else if (browser.equalsIgnoreCase(Constants.BROWSER_PHANTOM)) {
-            if (osName.contains("Mac")) {
-                // System.setProperty(Constants.PHANTOM_KEY, Constants.PHANTOM_PATH);
-                //WebDriverManager.phantomjs().setup();
-            } else if (osName.contains("Windows")) {
-                // System.setProperty(Constants.PHANTOM_KEY, Constants.PHANTOM_PATH + GET_EXE);
-                //WebDriverManager.phantomjs().operatingSystem(OperatingSystem.WIN).setup();
-            } else if (osName.contains("Linux")) {
-                //WebDriverManager.phantomjs().operatingSystem(OperatingSystem.LINUX).setup();
-            }
-        }
     }
 
     /**
@@ -163,21 +96,6 @@ public class WebDriverUtils {
         return screenshot;
     }
 
-    public static void suppressAlert() {
-        Robot robot = null;
-        String browser = ScenarioContext.getBrowserID();
-        if (Constants.BROWSER_IE.equals(browser)) {
-            try {
-                robot = new Robot();
-            } catch (AWTException e) {
-                logger.error(String.format("Error occured while supressing alert"));
-            }
-            // press enter to save the file
-            robot.keyPress(KeyEvent.VK_ENTER);
-            robot.keyRelease(KeyEvent.VK_ENTER);
-        }
-    }
-
     /**
      * Fetches current URL from browser window
      *
@@ -196,7 +114,6 @@ public class WebDriverUtils {
     public static void refreshPage(WebDriver driver) {
         driver.navigate().refresh();
     }
-
 
     public static void launchChrome() {
         String osName = FrameworkConstants.GET_OS_NAME;
@@ -305,7 +222,5 @@ public class WebDriverUtils {
             webDriver.manage().deleteAllCookies();
             webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         }
-
     }
 }
-
