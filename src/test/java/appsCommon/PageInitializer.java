@@ -13,7 +13,7 @@ import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
 import AnalysisTools.Comets2.Pages.Comets2Page;
 import AnalysisTools.ICRP.Pages.ICRPHomePage;
-import AnalysisTools.ICRP.Pages.ICRPSearchDatabase;
+import AnalysisTools.ICRP.Pages.ICRPSearchDatabasePage;
 import AnalysisTools.JPSurv.Pages.JPSurvHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
@@ -113,7 +113,7 @@ import CustomBusiness.ETD.Pages.ETDAdminNCIPage;
 import CustomBusiness.ETD.Pages.ETDBasePage;
 import CustomBusiness.ETD.StepsImplementation.ETDFlowStepsImpl;
 import AnalysisTools.cProSite.Pages.CProSiteExplorePage;
-import AnalysisTools.JPSurv.Pages.JPSurvHomePage;
+
 
 /**
  * This an initializer class which will initialize all pages classes. Once pages
@@ -242,13 +242,6 @@ public class PageInitializer {
 	protected static SignatureExplorerPages signatureExplorerPages;
 	protected static CatalogPages catalogPages;
 
-	/** ICRP instances **/
-	protected static ICRPHomePage icrpHomePage;
-	protected static ICRPSearchDatabase icrpSearchDatabase;
-
-	/** JPSurv instances **/
-	protected static JPSurvHomePage jpsurvHomePage;
-
 	/** Melanoma and Spitzoid Tumor instances **/
 	protected static MelanomaLoginPage melanomaLoginPage;
 	protected static MelanomaHomePage melanomaHomePage;
@@ -347,7 +340,7 @@ public class PageInitializer {
 		cedcdAdminPage = new CEDCDAdminPage();
 		cedcdCohortPage = new CEDCDCohortPage();
 		icrpHomePage = new ICRPHomePage();
-		icrpSearchDatabase = new ICRPSearchDatabase();
+		icrpSearchDatabasePage = new ICRPSearchDatabasePage();
 		comets2Page = new Comets2Page();
 		signatureVisualizationsPage = new SignatureVisualizationsPage();
 		mSigPortalHomePage = new MSigPortalHomePage();

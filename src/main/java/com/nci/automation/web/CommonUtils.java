@@ -1,7 +1,9 @@
 package com.nci.automation.web;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -81,8 +83,8 @@ public class CommonUtils extends WebDriverUtils {
      * Use this over loaded method in need of selecting an element of dropDown by
      * VisbleText.
      *
-     * @param dropDownElement Pass the WebElement of the desired dropDown.
-     * @param ValueOfDropDown Pass the Visible text of DropDown to be selected.
+     * param dropDownElement Pass the WebElement of the desired dropDown.
+     * param ValueOfDropDown Pass the Visible text of DropDown to be selected.
      */
     public static void selectDropDownValue(String VisibleTextOfDD, WebElement dropDownWebEl) {
         Select select = new Select(dropDownWebEl);
@@ -93,8 +95,8 @@ public class CommonUtils extends WebDriverUtils {
      * Use this over loaded method in need of selecting an element of dropDown by
      * Value.
      *
-     * @param dropDownElement Pass the value to be selected.
-     * @param ValueOfDropDown Pass the WebElement of the dropDown.
+     * param dropDownElement Pass the value to be selected.
+     * param ValueOfDropDown Pass the WebElement of the dropDown.
      */
     public static void selectDropDownValue(WebElement element, String value) {
         Select select = new Select(element);
@@ -105,8 +107,8 @@ public class CommonUtils extends WebDriverUtils {
      * Use this over loaded method in need of selecting an element of dropDown by
      * index.
      *
-     * @param dropDownElement      WebElement of the dropDown.
-     * @param indexOfDropDownValue Pass the index
+     * param dropDownElement      WebElement of the dropDown.
+     * param indexOfDropDownValue Pass the index
      */
     public static void selectDropDownValue(WebElement dropDownElement, int index) {
         Select select = new Select(dropDownElement);
@@ -116,7 +118,7 @@ public class CommonUtils extends WebDriverUtils {
     /**
      * this method will accept the alert
      *
-     * @throws will throw NoAlertExeption if alert is not present.
+     * throws will throw NoAlertExeption if alert is not present.
      */
 
     public static void acceptAlert() {
@@ -132,7 +134,7 @@ public class CommonUtils extends WebDriverUtils {
     /**
      * this method will dismiss the alert
      *
-     * @throws will throw NoAlertExeption if alert is not present.
+     * throws will throw NoAlertExeption if alert is not present.
      */
 
     public static void dismissAlert() {
@@ -148,7 +150,7 @@ public class CommonUtils extends WebDriverUtils {
     /**
      * this method will get the alert text
      *
-     * @throws will throw NoAlertExeption if alert is not present.
+     * throws will throw NoAlertExeption if alert is not present.
      */
 
     public static String getAlertText() {
@@ -606,6 +608,7 @@ public class CommonUtils extends WebDriverUtils {
 
     /**
      * USE THIS METHOD TO CLICK ON STALE ELEMENTS
+     *
      * @param ele
      */
     public static void clickOnElement(WebElement ele) {
@@ -622,25 +625,25 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     public static boolean isFileDownloaded(String fileName) {
-        boolean temp=false;
-        Path path=Paths.get(System.getProperty("user.dir")+ "/" + fileName+"*"+"xlsx");
+        boolean temp = false;
+        Path path = Paths.get(System.getProperty("user.dir") + "/" + fileName + "*" + "xlsx");
         System.out.println("Download Path is" + path);
-        if(Files.exists(path)==true) {
-            if(Files.isRegularFile(path)) {
+        if (Files.exists(path) == true) {
+            if (Files.isRegularFile(path)) {
                 System.out.println("File is found");
-                temp=true;
+                temp = true;
             }
-        }else {
+        } else {
             System.out.println("File is not found");
         }
         return temp;
     }
+
     public static void deleteFile(String fileName) {
-        File file=new File(System.getProperty("user.dir") + "/" + fileName);
-        if(file.delete()) {
+        File file = new File(System.getProperty("user.dir") + "/" + fileName);
+        if (file.delete()) {
             System.out.println("File is deleted");
         }
-
     }
 }
 
