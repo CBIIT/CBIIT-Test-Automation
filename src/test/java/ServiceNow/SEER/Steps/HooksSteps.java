@@ -11,7 +11,6 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import appsCommon.PageCache;
 import appsCommon.PageInitializer;
 import cucumber.api.Scenario;
@@ -104,6 +103,5 @@ public class HooksSteps {
 		// use this for web specific clean up
 		System.out.println("web specific clean up");
 	}
-
 }
 
