@@ -1,6 +1,6 @@
 Feature: SEER Data Access Landing Page Scenarios
 
-  @Smoke @juarezds @ODS-329 @ODS-319 @Regression
+@ODS-319_ODS-329 @bucurgb @Regression @Smoke
   Scenario: Test Update public submission page text for user who already has access
     Given a user is on the SEER Data Access landing page
     When the user attempts to request research data with existing email address "diego@test.com"
@@ -12,7 +12,7 @@ Feature: SEER Data Access Landing Page Scenarios
       """
     And "← Back to SEER Database details" button is also displayed
 
-  @Smoke @juarezds @ODS-318 @ODS-321 @ODS-322 @ODS-323 @ODS-324 @ODS-325 @Regression
+@ODS-318_ODS-338 @ODS-321_ODS-331 @ODS-322_ODS-332 @ODS-323_ODS-333 @ODS-324_ODS-335 @ODS-325_ODS-334 @bucurgb @Regression @Smoke
   Scenario: Test Data access request landing page updates
     Given a user is on the SEER Data Access landing page
     Then the SEER Data Access landing page has the following text displayed
