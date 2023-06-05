@@ -1,6 +1,5 @@
 package ServiceNow.SEER.Pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -51,14 +50,46 @@ public class NativeViewSentViewPage extends CommonUtils {
 	/**Native View Preview Email IFRAME */
 	@FindBy(id = "email_preview_iframe")
 	public WebElement nativeViewPreviewEmailIFRAME;
-	
+
 	/**Native View Preview Email SEER Incidence Data: Verify your email address Header */
 	@FindBy(xpath = "//span[contains(text(),'SEER Incidence Data')]")
 	public WebElement nativeViewPreviewEmailSEERIncidenceDataHeader;
 
+	/**Native View Preview Rejection Email SEER Incidence Data: Thank you for submitting  */
+	@FindBy(xpath = "//span[contains(text(),'Thank you for submitting your request for SEER Res')]")
+	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedThankYouForSubmitting;
+
+	/**Native View Preview Rejection Email SEER Incidence Data: Requests for SEER Research Plus Data must meet the following requirements: Text */
+	@FindBy(xpath = "//span[contains(text(),'Requests for SEER Research Plus Data must meet the')]")
+	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedRequestsRorSeerResearchPlusText;
+
+	/**Native View Preview Rejection Email SEER Incidence Data: Use an institution-affiliated email address Text */
+	@FindBy(xpath = "//span[normalize-space()='Use an institution-affiliated email address.']")
+	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedUseAnInstitutionAffiliatedText;
+
+	/**Native View Preview Rejection Email SEER Incidence Data: List an institution in the Organization field Text */
+	@FindBy(xpath = "//span[contains(text(),'List an institution in the')]")
+	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedListAnInstitutionInTheOrganizationFieldText;
+
+	/**Native View Preview Rejection Email SEER Incidence Data: Use an appropriate Signing Official affiliated with your institution. Text */
+	@FindBy(xpath = "//span[contains(text(),'Use an appropriate Signing Official affiliated wit')]")
+	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedUseAnAppropriateSigningOfficialText;
+
+	/**Native View Preview Rejection Email SEER Incidence Data: This request has been rejected based on one or more of the possible issues listed below. Text */
+	@FindBy(xpath = "//span[contains(text(),'This request has been rejected based on one or mor')]")
+	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedThisRequestHasBeenRejectedBasedOnText;
+
+	/**Native View Preview Rejection Email SEER Incidence Data: Email addresses for the Signing Official and Requestor must be affiliated  Text */
+	@FindBy(xpath = "//strong[contains(text(),'Email addresses for the Signing Official and Reque')]")
+	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedEmailAddressesForTheSigningOfficialAndRequestorText;
+
+	/**Native View Preview Rejection Email SEER Incidence Data: Requests using open email accounts such as Gmail, iCloud  Text */
+	@FindBy(xpath = "//em[contains(text(),'Requests using open email accounts such as Gmail, ')]")
+	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedRequestsUsingOpenEmailText;
+
 	/**Native View Preview Email SEER Incidence Data: It is unclear who the Signing Official at your Institution Section Text*/
-	@FindBy(xpath = "/html/body/table/tbody/tr/td/table/tbody/tr[3]/td/ul[2]/li/ul/li[1]/span")
-	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedItIsUnclearText;
+	@FindBy(xpath = "/html[1]/body[1]/table[1]/tbody[1]/tr[1]/td[1]")
+	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedEmailText;
 
 	/**Native View Preview Email SEER Incidence Data: It is unclear who the Signing Official at your Institution is Text Part 1 */
 	@FindBy(xpath = "//strong[contains(text(),'It is unclear who the Signing Official at your Ins')]")
@@ -75,7 +106,43 @@ public class NativeViewSentViewPage extends CommonUtils {
 	/**Native View Preview Email SEER Incidence Data: It is unclear who the Signing Official at your Institution is Text SEER Data FAQs Link*/
 	@FindBy(xpath = "//a[@href='https://seer.cancer.gov/data/faqs.html#signing-official']")
 	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedItIsUnclearSeerDataFaqsLink;
-	
+
+	/**Native View Preview Email SEER Incidence Data: The Organization field was left blank. Text */
+	@FindBy(xpath = "//strong[contains(text(),'The Organization field was left blank.')]")
+	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedTheOrganizationFieldWasLeftBlankText;
+
+	/**Native View Preview Email SEER Incidence Data: The Institution/University/Company of the Text */
+	@FindBy(xpath = "//span[contains(text(),'The Institution/University/Company of the requesto')]")
+	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedTheInstitutionUniversityCompanyText;
+
+	/**Native View Preview Email SEER Incidence Data: //span[contains(text(),'must be listed.')] */
+	@FindBy(xpath = "//span[contains(text(),'must be listed.')]")
+	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedMustBeListedText;
+
+	/**Native View Preview Email SEER Incidence Data: To resubmit your request, please go to Text */
+	@FindBy(xpath = "//span[normalize-space()='To resubmit your request, please go to']")
+	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedToResubmitYourRequestText;
+
+	/**Native View Preview Email SEER Incidence Data: SEER Data access Link */
+	@FindBy(xpath = "//span[normalize-space()='https://seerdataaccess.cancer.gov/seer-data-access']")
+	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedSeerDataAccessLink;
+
+	/**Native View Preview Email SEER Incidence Data: Note Text */
+	@FindBy(xpath = "//span[normalize-space()='Note:']")
+	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedNoteText;
+
+	/**Native View Preview Email SEER Incidence Data:  you cannot edit your email address after you’ve already submitted a request.Text */
+	@FindBy(xpath = "//span[contains(text(),'you cannot edit your email address after you’ve al')]")
+	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedYouCannotEditYourEmailText;
+
+	/**Native View Preview Email SEER Incidence Data: seerstat Email */
+	@FindBy(xpath = "//a[normalize-space()='seerstat@imsweb.com']")
+	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedSeersrtatEmail;
+
+	/**Native View Preview Email SEER Incidence Data: for help Text */
+	@FindBy(xpath = "//span[normalize-space()='for help.']")
+	public WebElement nativeViewPreviewEmailSEERIncidenceDataRejectedForHelpText;
+
 	/** Native View Review Email Hello NAME text*/
 	@FindBy(xpath = "/html/body/table/tbody/tr/td/table/tbody/tr[3]/td/p[1]/span")
 	public WebElement nativeViewPreviewEmailHelloNameText;

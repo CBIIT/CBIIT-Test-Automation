@@ -76,4 +76,31 @@ public class Registration_Constants {
 
     /* NON-INSTITUTIONAL REGISTRATION FORM DISABLED FIELD ATTRIBUTE VALUE */
     public static final String REGISTRATION_FORM_DISABLED_FIELD_ATTRIBUTE_VALUE = "ng-untouched";
+
+    /* SEER USER REGISTRATION ODS SEER DATA ACCESS REQUEST PAGE NAME */
+    public static final String SEER_USER_REGISTRATION_ODS_DATA_ACCESS_REQUEST = "SEER User Registration - ODS SEER Data Access Request";
+
+    /* SEER USER REGISTRATION ODS SEER DATA ACCESS REQUEST PAGE NAME */
+    public static final String SEER_DATA_CONFIRMATION_ODS_DATA_ACCESS_REQUEST = "SEER Data Confirmation - ODS SEER Data Access Request";
+
+    /* SEER USER REGISTRATION ODS SEER DATA REQUEST CONFIRMATION PAGE NAME */
+    public static final String SEER_DATA_REQUEST_CONFIRMATION_ODS_DATA_ACCESS_REQUEST = "SEER Data Request Confirmation - ODS SEER Data Access Request";
+
+    /* SEER USER REGISTRATION ODS SEER DATA ACCESS CONFIRMATION REQUEST PAGE NAME */
+    public static final String SEER_DATA_ACCESS_CONFIRMATION_ODS_DATA_ACCESS_REQUEST = "SEER Data Access Request - ODS SEER Data Access Request";
+
+    /* SEER USER REGISTRATION THANK YOU YOUR REGISTRATION IS COMPLETE MESSAGE*/
+    public static final String THANK_YOU_REGISTRATION_IS_COMPLETE_MESSAGE = "Thank you - your registration is complete.";
+
+    /* SEER USER REGISTRATION THANK YOU YOUR DATA ACCESS REQUEST IS COMPLETE MESSAGE*/
+    public static final String THANK_YOU_DATA_ACCESS_REQUEST_IS_COMPLETE_MESSAGE = "Thank you - your data access request is complete.";
+
+    /* SEER VERIFYING STATE FIELD IS REQUIRED TEXT */
+    public static final String VERIFYING_STATE_FIELD_IS_REQUIRED_TEXT = "Verifying State field is required";
+
+    /* SEER VERIFYING ZIP CODE FIELD IS REQUIRED TEXT */
+    public static final String VERIFYING_ZIP_CODE_FIELD_IS_REQUIRED_TEXT  = "Verifying Zip Code field is required";
+
+    /* SEER BACK TO SEER DATABASE DETAILS BUTTON TEXT */
+    public static final String BACK_TO_SEER_DATABASE_DETAILS_BUTTON_TEXT  = "← Back to SEER Database details";
 }

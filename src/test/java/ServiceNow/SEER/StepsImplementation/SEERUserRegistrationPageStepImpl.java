@@ -14,23 +14,16 @@ import org.testng.Assert;
 
 public class SEERUserRegistrationPageStepImpl extends PageInitializer {
 
-    public static String newEmail = "seer" + CommonUtils.email;
+    public static String newEmail282 = "SEER282" + CommonUtils.email;
 
     public static void validateEmailFieldReadOnly() {
         /**
          * VERIFYING EMAIL ADDRESS AND THAT EMAIL ADDRESS FIELD IS READ-ONLY
          */
+
         Assert.assertTrue(
                 seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("disabled").equals("true"));
     }
-
-    public static void validateEmailFieldReadOnlyNI() {
-        /**
-         * VERIFYING NON-INSTITUTIONAL EMAIL ADDRESS AND THAT EMAIL ADDRESS FIELD IS READ-ONLY
-         */
-         Assert.assertTrue(
-                seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("disabled").equals("true"));
-      }
 
     public static void fillingOutRegistrationForm() {
         MiscUtils.sleep(1000);
@@ -120,7 +113,7 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         /**
          * VERIFYING EMAIL ADDRESS AND THAT EMAIL ADDRESS FIELD IS READ-ONLY
          */
-         Assert.assertTrue(
+         CommonUtils.assertTrue(
                 seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("disabled").equals("true"));
         CommonUtils.clickOnElement(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
         CommonUtils.sendKeysToElement(seerUserRegistrationPage.seerUserRegistrationOrganizationField,
@@ -145,9 +138,9 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         seerUserRegistrationPage.seerUserRegistrationFirstNameField.sendKeys(Registration_Constants.NI_FIRST_NAME);
         seerUserRegistrationPage.seerUserRegistrationMiddleNameField.sendKeys(Registration_Constants.NI_MIDDLE_NAME);
         seerUserRegistrationPage.seerUserRegistrationLastNameField.sendKeys(Registration_Constants.NI_LAST_NAME);
-        org.junit.Assert.assertEquals(CommonUtils.email,
+        CommonUtils.assertEquals(CommonUtils.email,
                 seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("value"));
-        org.junit.Assert.assertTrue(
+        CommonUtils.assertTrue(
                 seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("disabled").equals("true"));
         CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
         seerUserRegistrationPage.seerUserRegistrationOrganizationField.click();
@@ -171,19 +164,19 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SEERDataAccess"));
         CommonUtils.waitForVisibility(seerLandingPage.researchDataRequestsEmailAddressField);
         JavascriptUtils.scrollIntoView(seerLandingPage.researchDataRequestsEmailAddressField);
-        CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, "SEER282" + CommonUtils.email);
+        CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, newEmail282);
         CommonUtils.waitForVisibility(seerLandingPage.registerForResearchDataButton);
         seerLandingPage.registerForResearchDataButton.click();
         MiscUtils.sleep(2000);
         String seerRegistrationPage = WebDriverUtils.getWebDriver().getTitle();
         MiscUtils.sleep(1000);
-        org.junit.Assert.assertTrue(seerRegistrationPage.contentEquals("SEER User Registration - ODS SEER Data Access Request"));
-        seerUserRegistrationPage.seerUserRegistrationFirstNameField.sendKeys(Registration_Constants.NI_FIRST_NAME);
+        CommonUtils.assertEquals(Registration_Constants.SEER_USER_REGISTRATION_ODS_DATA_ACCESS_REQUEST, seerRegistrationPage);
+               seerUserRegistrationPage.seerUserRegistrationFirstNameField.sendKeys(Registration_Constants.NI_FIRST_NAME);
         seerUserRegistrationPage.seerUserRegistrationMiddleNameField.sendKeys(Registration_Constants.NI_MIDDLE_NAME);
         seerUserRegistrationPage.seerUserRegistrationLastNameField.sendKeys(Registration_Constants.NI_LAST_NAME);
-        org.junit.Assert.assertEquals("SEER282" + CommonUtils.email,
+        CommonUtils.assertEquals(newEmail282,
                 seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("value"));
-        org.junit.Assert.assertTrue(
+        CommonUtils.assertTrue(
                 seerUserRegistrationPage.seerUserRegistrationEmailField.getAttribute("disabled").equals("true"));
         CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationOrganizationField);
         seerUserRegistrationPage.seerUserRegistrationOrganizationField.click();
@@ -205,8 +198,8 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         seerUserRegistrationPage.seerUserRegistrationSubmitButton.click();
         MiscUtils.sleep(2000);
         String seerRegistrationIsCompletePage = WebDriverUtils.getWebDriver().getTitle();
-        org.junit.Assert.assertEquals("SEER Data Confirmation - ODS SEER Data Access Request", seerRegistrationIsCompletePage);
-        org.junit.Assert.assertEquals("Thank you - your registration is complete.",
+        CommonUtils.assertEquals(Registration_Constants.SEER_DATA_CONFIRMATION_ODS_DATA_ACCESS_REQUEST, seerRegistrationIsCompletePage);
+        CommonUtils.assertEquals(Registration_Constants.THANK_YOU_REGISTRATION_IS_COMPLETE_MESSAGE,
                 seerUserRegistrationPage.seerUserRegistrationIsCompleteHeader.getText());
         CucumberLogUtils.logScreenShot();
     }
@@ -214,7 +207,7 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
     public static void theUserShouldSeePageWhenReRegistering(String youAlreadyHaveAccessToSeerResearchData) throws TestingException{
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SEERDataAccess"));
         SEERDataAccessRequestPageStepsImpl.enterEmailAddress349();
-        CommonUtils.waitForVisibility(seerUserRegistrationPage.seerYouAlreadyHaveAccessToSeerResearchDataHeader);
+        MiscUtils.sleep(2000);
         JavascriptUtils.drawBlueBorder(seerUserRegistrationPage.seerYouAlreadyHaveAccessToSeerResearchDataHeader);
         org.junit.Assert.assertEquals(youAlreadyHaveAccessToSeerResearchData,
                 seerUserRegistrationPage.seerYouAlreadyHaveAccessToSeerResearchDataHeader.getText());
@@ -222,9 +215,8 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
 
     public static void theLandingPageHasLinkForSeerResearchPlusInstruction(String youAlreadyHaveAccessToSeerResearchData){
         JavascriptUtils.drawBlueBorder(seerUserRegistrationPage.seerHowToRequestAccessToSeerDataLink);
-        org.junit.Assert.assertEquals(youAlreadyHaveAccessToSeerResearchData,
+        CommonUtils.assertEquals(youAlreadyHaveAccessToSeerResearchData,
                 seerUserRegistrationPage.seerHowToRequestAccessToSeerDataLink.getText());
         CucumberLogUtils.logScreenShot();
-        MiscUtils.sleep(10000);
     }
 }

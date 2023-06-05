@@ -65,7 +65,7 @@ Feature: SEER User Registration Scenarios
     Then user is directed to the 'Thank you - your registration is complete.' page
     Then the following breadcrumbs are displayed "Home", "SEER Data & Software", "SEER Incidence Database", "Request SEER Incidence Data", "Submission Confirmation"
 
-  @ODS-372_ODS-385 @ODS-396_ODS-399 @George @Regression
+  @ODS-372_ODS-385 @ODS-396_ODS-399 @bucurgb @Regression
   Scenario: Verifying that ASCII characters including periods and Commas can be used in the address field - Partially
     Given a user is on the SEER Data Access landing page
     When user enter an email address for a Non-Institutional Account
@@ -81,7 +81,7 @@ Feature: SEER User Registration Scenarios
     Requestors associated with HHS agencies should login with their PIV cards to request the data.
     """
 
-  @ODS-362_ODS-345 @ODS-363_ODS-345 @ODS-363_ODS-345 @George @Regression
+  @ODS-362_ODS-345 @ODS-363_ODS-345 @ODS-363_ODS-345 @bucurgb @Regression
   Scenario: SEER Research Database user access logic cycle
     Given a new user who does not have an active SEER Research Database access request
     When enter email for SEER Research Database and click on the Register for Research Data

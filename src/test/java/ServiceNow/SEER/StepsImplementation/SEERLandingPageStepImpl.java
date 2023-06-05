@@ -40,7 +40,6 @@ public class SEERLandingPageStepImpl extends PageInitializer {
 
     public static void theSEERDataAccessLandingPageHasTheFollowingTextDisplayed(String expectedLandingPageText) {
         String actualLandingPageText = seerLandingPage.landingPageText.getText();
-        System.out.println(actualLandingPageText);
         CommonUtils.assertEquals(actualLandingPageText, expectedLandingPageText);
         JavascriptUtils.scrollDown(300);
         JavascriptUtils.drawBlueBorder(seerLandingPage.landingPageText);

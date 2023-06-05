@@ -9,7 +9,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class NativeViewAccessRequestPage extends CommonUtils {
 
-
     /** --------------- NATIVE VIEW ACCESS REQUEST PAGE --------------- */
 
     /** Native View SEER Access Requested Link */

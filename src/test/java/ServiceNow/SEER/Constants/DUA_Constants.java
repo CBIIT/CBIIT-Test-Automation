@@ -2,6 +2,7 @@ package ServiceNow.SEER.Constants;
 
 public class DUA_Constants {
 
+    /** --------------- DUA CONSTANTS--------------- */
     public static final String SEER_DATA_ACCESS_REQUEST = "https://seerdataaccess-test.cancer.gov/seer-data-access?id=seer_data_access_request&sysparm_user=e23e23a41bfd6910af3bed7bbc4bcb7e";
 
     public static final String SEER_DATA_ACCESS_REQUEST_INSTITUTION = "https://seerdataaccess-test.cancer.gov/seer-data-access?id=seer_data_access_request&sysparm_user=96c2ddd91bb96d10cc42ddb6bc4bcb5c";
@@ -214,7 +215,7 @@ public class DUA_Constants {
     public static final String NCCR_REASEARCH_DATA_USER_AGREEMENT ="National Childhood Cancer Registry (NCCR) Research Data Use Agreement\n" +
             "This National Childhood Cancer Registry (NCCR) Research Data Use Agreement (DUA) (the “Agreement”) outlines the terms and conditions for access to data in the National Cancer Institute (NCI) NCCR Research, Research Plus, Specialized, and Customized Databases (collectively, the “Databases”). The parties to this Agreement include the “Authorized User”, indicated in this data use request, and the NIH. The effective date of this Agreement is the date of Authorized User’s acceptance of the agreement (“Effective Date”). This agreement must be renewed annually, one year from Authorized User’s Effective Date.\n" +
             "PREAMBLE\n" +
-            "1. The NCCR Program developed the Databases to support research and makes them available through the SEER software offerings.\n" +
+            "The NCCR Program developed the Databases to support research and makes them available through the SEER software offerings.\n" +
             "This Agreement governs Authorized User’s use and disclosure of data obtained from the Databases and data derived from that data (collectively referred to in this Agreement as “Data”).\n" +
             "For Research Projects that involve multiple individuals, a DUA must be executed separately by each individual participating in the research project.\n" +
             "To protect and assure the confidentiality and privacy of all persons represented in the data, Authorized User to these Databases are expected to adhere to all terms of use outlined in this DUA.\n" +

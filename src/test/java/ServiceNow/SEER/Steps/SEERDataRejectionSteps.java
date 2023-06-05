@@ -19,7 +19,7 @@ public class SEERDataRejectionSteps extends PageInitializer {
 
     @Given("fills out all required fields on SEER Data registration form")
     public void fills_out_all_required_fields_on_SEER_Data_registration_form() {
-        SEERDataRejectionStepImpl.fillsOutAllRequiredFieldsOnSEERDataRegistrationForm();
+        SEERDataRejectionStepImpl.fillsOutAllRequiredFieldsOnSEERDataRegistrationFormRejected();
     }
 
     @Given("a SEER ODS Admin navigates the Native View portal")
@@ -29,7 +29,7 @@ public class SEERDataRejectionSteps extends PageInitializer {
 
     @When("a SEER ODS Admin navigates to {string},{string}")
     public void a_SEER_ODS_Admin_navigates_to(String SEERText, String accessRequestsText) {
-        SEERDataRejectionStepImpl.aSEERODSAdminNnavigatesTo(SEERText,accessRequestsText);
+        SEERDataRejectionStepImpl.aSEERODSAdminNavigatesTo(SEERText,accessRequestsText);
     }
 
     @When("creates a new Access Request")
