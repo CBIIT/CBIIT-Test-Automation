@@ -57,8 +57,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         nativeViewLoginImpl.sideDoorAccountLogin();
     }
 
-
-
     @Given("a proxy is on the RASopathies Longitudinal Cohort Study login page")
     public void a_user_is_on_the_RASopathies_Longitudinal_Cohort_Study_login_page() throws TestingException {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("myRASLoginPage"));
@@ -67,7 +65,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
     @Given("a proband is on the RASopathies Longitudinal Cohort Study login page")
     public void a_proband_is_on_the_RASopathies_Longitudinal_Cohort_Study_login_page() throws TestingException {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("myRASLoginPage"));
-
     }
 
     /* END: RASopathies Longitudinal Cohort Study login page */
@@ -83,11 +80,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
         oktaLoginPage.passwordTxtBox.sendKeys(password);
         CommonUtils.waitForVisibility(oktaLoginPage.loginBtn);
         oktaLoginPage.loginBtn.click();
-
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(myRASHomePage.warningAgreeButton);
         myRASHomePage.warningAgreeButton.click();
-
     }
 
     /* END: Logs in via Okta with user name and password */
@@ -97,7 +92,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
     @Given("clicks on Eligibility Questionnaire to begin questionnaire")
     public void clicks_on_Eligibility_Questionnaire_to_begin_questionnaire() {
         CommonUtils.waitForVisibility(myRASHomePage.rasoptathyEligibilityQuestionnaire);
-
         CommonUtils.clickOnElement(myRASHomePage.rasoptathyEligibilityQuestionnaire);
     }
 
@@ -124,7 +118,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.iAmCompletingThisFormForSomeoneElseOption);
         rasopathyQuestionnairePage.iAmCompletingThisFormForSomeoneElseOption.click();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     @Given("selects I am completing this form for myself option")
@@ -132,7 +125,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.iAmCompletingThisFormForMyselfOption.click();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     /* END: For WHom the form is being submitted Page */
@@ -141,20 +133,17 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
     @Given("enters First Name {string}, Middle Name {string}, Last Name {string} for What is the name of the person who may be eligible for this study?")
     public void enters_First_Name_Middle_Name_Last_Name_for_What_is_the_name_of_the_person_who_may_be_eligible_for_this_study(String firstName, String middleName, String lastName) {
-
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.firstNameTextBox);
         rasopathyQuestionnairePage.firstNameTextBox.sendKeys(firstName);
         rasopathyQuestionnairePage.middleNameTextBox.sendKeys(middleName);
         rasopathyQuestionnairePage.lastNameTextBox.sendKeys(lastName);
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     /* END:name of the person who may be eligible for this study? Page */
     /* ******************************************************* */
     /* BEGINNING: What is your name? Page */
-
     @Given("enters First Name {string}, Middle Name {string}, Last Name {string} for What is your name?")
     public void enters_First_Name_Middle_Name_Last_Name_for_What_is_your_name(String firstName, String middleName, String lastName) {
         MiscUtils.sleep(1000);
@@ -163,33 +152,27 @@ public class myRASScreenerSubmissions extends PageInitializer {
         rasopathyQuestionnairePage.middleNameWhatIsYourNameTextBox.sendKeys(middleName);
         rasopathyQuestionnairePage.lastNameWhatIsYourNameTextBox.sendKeys(lastName);
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     /* END: What is your name? Page */
     /* ******************************************************* */
     /* BEGINNING: What is your relationship to the participant? Page */
-
     @Given("selects Parent for What is your relationship to the participant?")
     public void selects_Parent_for_What_is_your_relationship_to_the_participant() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.whatIsYourRelationshipParentOption.click();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
 
     /* END:What is your relationship to the participant? Page */
     /* ******************************************************* */
     /* BEGINNING: Options for Are you the legal guardian of the participant? Page */
-
-
     @Given("selects No option for Are you the legal guardian of the participant?")
     public void selects_No_option_for_Are_you_the_legal_guardian_of_the_participant() {
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.areYouTheLegalGuardianNoOption);
         rasopathyQuestionnairePage.areYouTheLegalGuardianNoOption.click();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     /* END: Options for Are you the legal guardian of the participant? Page */
@@ -198,7 +181,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
      * BEGINNING: The next set of questions will collect basic information about the
      * participant Page
      */
-
 
     /*
      * END: The next set of questions will collect basic information about the
@@ -216,7 +198,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         CommonUtils.selectDropDownValue("April", rasopathyQuestionnairePage.calendarMonthDropDown);
         rasopathyQuestionnairePage.calendarDayOption.click();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     /* END: participants Date of Birth from the from the calendar picker? Page */
@@ -228,7 +209,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.sexMaleOptionAssignedAtBirth.click();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     @Given("selects Female option for participants Sex assigned at birth")
@@ -236,7 +216,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.sexFemaleOptionAssignedAtBirth.click();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     /* END: Options for participants Sex assigned at birth Page */
@@ -249,7 +228,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.isParticipantAdoptedYesOption);
         rasopathyQuestionnairePage.isParticipantAdoptedYesOption.click();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     @Given("selects No option for participant being adopted")
@@ -257,13 +235,11 @@ public class myRASScreenerSubmissions extends PageInitializer {
         MiscUtils.sleep(1500);
         rasopathyQuestionnairePage.isParticipantAdoptedNoOption.click();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     /* END: Options for participant being adopted Page */
     /* ******************************************************* */
     /* BEGINNING: Options for participant still being alive Page */
-
 
     /*
      * ADDING BELOW QUESTION - UPDATED COUNTRY QUESTION
@@ -278,7 +254,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         MiscUtils.sleep(1500);
         rasopathyQuestionnairePage.isParticipantStillAliveNoOption.click();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     /* END: Options for participant still being alive Page */
@@ -287,7 +262,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
     @Given("selects participants Date of Death from the calendar picker")
     public void selects_participants_Date_of_Death_from_the_calendar_picker() {
-
         MiscUtils.sleep(1500);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.calendarDODMonthDropDown);
         CommonUtils.selectDropDownValue("April", rasopathyQuestionnairePage.calendarDODMonthDropDown);
@@ -295,7 +269,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         rasopathyQuestionnairePage.calendarDODYearTextBox.sendKeys("1995");
         rasopathyQuestionnairePage.calendarDODDayOption.click();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     /* END: DOB of the Participant */
@@ -308,7 +281,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         MiscUtils.sleep(1500);
         rasopathyQuestionnairePage.doesParticipantLiveInUnitedStatesNoOption.click();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     /* END: Option for participant currently living in the United States */
@@ -326,7 +298,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         rasopathyQuestionnairePage.addressForStudyMaterialsToBeSentProvinceTextBox.sendKeys(province);
         rasopathyQuestionnairePage.addressForStudyMaterialsToBeSentCountryTextBox.sendKeys(country);
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
 
@@ -339,7 +310,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         rasopathyQuestionnairePage.addressForStudyMaterialsToBeSentStateTextBox.sendKeys(state);
         rasopathyQuestionnairePage.addressForStudyMaterialsToBeSentZipCodeTextBox.sendKeys(zipCode);
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     /* END: Enters mailing address for where study materials can be sent */
@@ -352,7 +322,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.whatIsYourEmailAddressTextBox);
         rasopathyQuestionnairePage.whatIsYourEmailAddressTextBox.sendKeys(probandEmailAddress);
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     @Given("enters proband email address {string} to confirm email address")
@@ -377,7 +346,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         rasopathyQuestionnairePage.pleaseSelectCellPhonePreferredContactCheckBox.click();
         CucumberLogUtils.logScreenShot();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     @Given("enters proband home phone number {string}, cell phone number {string}, work phone number {string} and selects home phone number as Preferred Contact")
@@ -389,9 +357,7 @@ public class myRASScreenerSubmissions extends PageInitializer {
         rasopathyQuestionnairePage.pleaseSelectHomePhonePreferredContactCheckBox.click();
         CucumberLogUtils.logScreenShot();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
-
 
     @Given("enters proband home phone number {string}, cell phone number {string}, work phone number {string} and selects Work phone number as Preferred Contact")
     public void enters_proband_home_phone_number_cell_phone_number_work_phone_number_and_selects_Work_phone_number_as_Preferred_Contact(String homePhoneNumber, String cellPhoneNumber, String workPhoneNumber) {
@@ -403,7 +369,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         rasopathyQuestionnairePage.pleaseSelectWorkPhonePreferredContactCheckBox.click();
         CucumberLogUtils.logScreenShot();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
     /* END: Enters Phone Numbers details */
     /* ******************************************************* */
@@ -420,13 +385,11 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
     @Given("selects Not Hispanic\\/Latino option for Ethnicity of participant")
     public void selects_Not_Hispanic_Latino_option_for_Ethnicity_of_participant() {
-
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.authenticityOfParticipantNotHispanicLatinoOption);
         rasopathyQuestionnairePage.authenticityOfParticipantNotHispanicLatinoOption.click();
         CucumberLogUtils.logScreenShot();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     @Given("selects Unknown option for Ethnicity of participant")
@@ -436,7 +399,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         rasopathyQuestionnairePage.authenticityOfParticipantUnKnownOption.click();
         CucumberLogUtils.logScreenShot();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     /* END: Select Ethnicity of the participant */
@@ -445,10 +407,8 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
     @Given("selects White, Black\\/African American, Native Hawaiian\\/Pacific Islander, American Indian\\/Alaskan Native, Asian and enters {string} for other when selecting Race of participant")
     public void selects_White_Black_African_American_Native_Hawaiian_Pacific_Islander_American_Indian_Alaskan_Native_Asian_and_enters_for_other_when_selecting_Race_of_participant(String otherRace) {
-
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.raceOfParticipantOtherTextBox);
-
         rasopathyQuestionnairePage.raceOfParticipantWhite.click();
         rasopathyQuestionnairePage.raceOfParticipantBlackAfricanAmerican.click();
         rasopathyQuestionnairePage.raceOfParticipantnativeHawaiianPacificIslander.click();
@@ -466,7 +426,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         rasopathyQuestionnairePage.raceOfParticipantPreferNotToAnswer.click();
         CucumberLogUtils.logScreenShot();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     /* END: Selecting Race of the participant being */
@@ -485,7 +444,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         rasopathyQuestionnairePage.isParticipantInOtherResearchStudyOptionTextBox.sendKeys(otherText);
         CucumberLogUtils.logScreenShot();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     @Given("selects Rasopathies Net and enters {string} for Family Advocacy Group and enters {string} for other for is the participant participated in any other research study or registry group?")
@@ -499,7 +457,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         rasopathyQuestionnairePage.isParticipantInOtherResearchStudyOptionTextBox.sendKeys(otherText);
         CucumberLogUtils.logScreenShot();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     @Given("selects I am not involved in any other research study or registry group for is the participant participated in any other research study or registry group?")
@@ -508,7 +465,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         rasopathyQuestionnairePage.isParticipantNotInvolvedInAnyStudyGroupOption.click();
         CucumberLogUtils.logScreenShot();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     @Given("selects Not sure for is the participant participated in any other research study or registry group?")
@@ -517,7 +473,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         rasopathyQuestionnairePage.isParticipantNotSureOption.click();
         CucumberLogUtils.logScreenShot();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     /* END: Selects for participant being in other research study */
@@ -613,7 +568,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithCancerNoOption.click();
         CucumberLogUtils.logScreenShot();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     @Given("for participants primary cancers diagnosed selects cancer types {string}, {string}, {string}, {string} and selects age at diagnosis for primary cancers entered for all options {string}, {string}, {string}, {string} and year of diagnosis {string}, {string}, {string}, {string} and selects No option for currently receiving treatment")
@@ -625,29 +579,23 @@ public class myRASScreenerSubmissions extends PageInitializer {
         CommonUtils.selectDropDownValue(secondCancerType, rasopathyQuestionnairePage.primaryCancerSecondDropDown);
         CommonUtils.selectDropDownValue(thirdCancerType, rasopathyQuestionnairePage.primaryCancerThirdDropDown);
         CommonUtils.selectDropDownValue(fourthCancerType, rasopathyQuestionnairePage.primaryCancerFourthDropDown);
-
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.ageAtDiagnosisFirstTextBox);
         rasopathyQuestionnairePage.ageAtDiagnosisFirstTextBox.sendKeys(firstCancerTypeAge);
         rasopathyQuestionnairePage.ageAtDiagnosisSecondTextBox.sendKeys(secondCancerTypeAge);
         rasopathyQuestionnairePage.ageAtDiagnosisThirdTextBox.sendKeys(thirdCancerTypeAge);
         rasopathyQuestionnairePage.ageAtDiagnosisFourthTextBox.sendKeys(fourthCancerTypeAge);
-
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.yearOfDiagnosisFirstTextBox);
         rasopathyQuestionnairePage.yearOfDiagnosisFirstTextBox.sendKeys(firstCancerYearOfDiagnosis);
         rasopathyQuestionnairePage.yearOfDiagnosisSecondTextBox.sendKeys(secondCancerYearOfDiagnosis);
         rasopathyQuestionnairePage.yearOfDiagnosisThirdTextBox.sendKeys(thirdCancerYearOfDiagnosis);
         rasopathyQuestionnairePage.yearOfDiagnosisFourthTextBox.sendKeys(fourthCancerYearOfDiagnosis);
-
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.currentlyReceivingNoTreatmentFirstRadioButton);
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentFirstRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentSecondRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentThirdRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentFourthRadioButton.click();
-
         CucumberLogUtils.logScreenShot();
-
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     @Given("for participants primary cancers diagnosed selects cancer types {string}, {string}, {string}, {string} and enters Other cancers options {string}, {string}, {string}, {string} and selects age at diagnosis for primary cancers entered for all options {string}, {string}, {string}, {string} and year of diagnosis {string}, {string}, {string}, {string} and selects No option for currently receiving treatment")
@@ -659,35 +607,28 @@ public class myRASScreenerSubmissions extends PageInitializer {
         CommonUtils.selectDropDownValue(secondCancerType, rasopathyQuestionnairePage.primaryCancerSecondDropDown);
         CommonUtils.selectDropDownValue(thirdCancerType, rasopathyQuestionnairePage.primaryCancerThirdDropDown);
         CommonUtils.selectDropDownValue(fourthCancerType, rasopathyQuestionnairePage.primaryCancerFourthDropDown);
-
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.otherCancerOptionFirst);
         rasopathyQuestionnairePage.otherCancerOptionFirst.sendKeys(otherCancerType1);
         rasopathyQuestionnairePage.otherCancerOptionSecond.sendKeys(otherCancerType2);
         rasopathyQuestionnairePage.otherCancerOptionThird.sendKeys(otherCancerType3);
         rasopathyQuestionnairePage.otherCancerOptionFourth.sendKeys(otherCancerType4);
-
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.ageAtDiagnosisFirstTextBox);
         rasopathyQuestionnairePage.ageAtDiagnosisFirstTextBox.sendKeys(firstCancerTypeAge);
         rasopathyQuestionnairePage.ageAtDiagnosisSecondTextBox.sendKeys(secondCancerTypeAge);
         rasopathyQuestionnairePage.ageAtDiagnosisThirdTextBox.sendKeys(thirdCancerTypeAge);
         rasopathyQuestionnairePage.ageAtDiagnosisFourthTextBox.sendKeys(fourthCancerTypeAge);
-
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.yearOfDiagnosisFirstTextBox);
         rasopathyQuestionnairePage.yearOfDiagnosisFirstTextBox.sendKeys(firstCancerYearOfDiagnosis);
         rasopathyQuestionnairePage.yearOfDiagnosisSecondTextBox.sendKeys(secondCancerYearOfDiagnosis);
         rasopathyQuestionnairePage.yearOfDiagnosisThirdTextBox.sendKeys(thirdCancerYearOfDiagnosis);
         rasopathyQuestionnairePage.yearOfDiagnosisFourthTextBox.sendKeys(fourthCancerYearOfDiagnosis);
-
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.currentlyReceivingTreatmentFirstRadioButton);
         rasopathyQuestionnairePage.currentlyReceivingTreatmentFirstRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingTreatmentSecondRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingTreatmentThirdRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingTreatmentFourthRadioButton.click();
-
         CucumberLogUtils.logScreenShot();
-
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     @Given("for participants primary cancers diagnosed selects cancer types {string}, {string}, {string}, {string} and enters Other cancers options {string}, {string}, {string}, {string} and selects age at diagnosis for primary cancers entered for all options {string}, {string}, {string}, {string} and year of diagnosis {string}, {string}, {string}, {string} and selects Yes option for currently receiving treatment")
@@ -699,35 +640,28 @@ public class myRASScreenerSubmissions extends PageInitializer {
         CommonUtils.selectDropDownValue(secondCancerType, rasopathyQuestionnairePage.primaryCancerSecondDropDown);
         CommonUtils.selectDropDownValue(thirdCancerType, rasopathyQuestionnairePage.primaryCancerThirdDropDown);
         CommonUtils.selectDropDownValue(fourthCancerType, rasopathyQuestionnairePage.primaryCancerFourthDropDown);
-
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.otherCancerOptionFirst);
         rasopathyQuestionnairePage.otherCancerOptionFirst.sendKeys(otherCancerType1);
         rasopathyQuestionnairePage.otherCancerOptionSecond.sendKeys(otherCancerType2);
         rasopathyQuestionnairePage.otherCancerOptionThird.sendKeys(otherCancerType3);
         rasopathyQuestionnairePage.otherCancerOptionFourth.sendKeys(otherCancerType4);
-
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.ageAtDiagnosisFirstTextBox);
         rasopathyQuestionnairePage.ageAtDiagnosisFirstTextBox.sendKeys(firstCancerTypeAge);
         rasopathyQuestionnairePage.ageAtDiagnosisSecondTextBox.sendKeys(secondCancerTypeAge);
         rasopathyQuestionnairePage.ageAtDiagnosisThirdTextBox.sendKeys(thirdCancerTypeAge);
         rasopathyQuestionnairePage.ageAtDiagnosisFourthTextBox.sendKeys(fourthCancerTypeAge);
-
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.yearOfDiagnosisFirstTextBox);
         rasopathyQuestionnairePage.yearOfDiagnosisFirstTextBox.sendKeys(firstCancerYearOfDiagnosis);
         rasopathyQuestionnairePage.yearOfDiagnosisSecondTextBox.sendKeys(secondCancerYearOfDiagnosis);
         rasopathyQuestionnairePage.yearOfDiagnosisThirdTextBox.sendKeys(thirdCancerYearOfDiagnosis);
         rasopathyQuestionnairePage.yearOfDiagnosisFourthTextBox.sendKeys(fourthCancerYearOfDiagnosis);
-
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.currentlyReceivingTreatmentFirstRadioButton);
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentFirstRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentSecondRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentThirdRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentFourthRadioButton.click();
-
         CucumberLogUtils.logScreenShot();
-
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     /* END: Selects option for participant being diagnosed with cancer */
@@ -737,16 +671,13 @@ public class myRASScreenerSubmissions extends PageInitializer {
      * syndrome, Noonan syndrome with multiple lentigines, Costello syndrome
      */
 
-
     @Given("selects No option for participant being diagnosed with a Rasopathy")
     public void selects_No_option_for_participant_being_diagnosed_with_a_Rasopathy() {
-
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.hasProxyBeenDiagnosedWithaRasopathyNoOption);
         rasopathyQuestionnairePage.hasProxyBeenDiagnosedWithaRasopathyNoOption.click();
         CucumberLogUtils.logScreenShot();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     @Given("selects No option for proband being diagnosed with a Rasopathy such as Noonan syndrome, Noonan syndrome with multiple lentigines, Costello syndrome")
@@ -768,12 +699,10 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
     @Given("selects Dont Know for selecting a specific RASopathy diagnosed of the participant")
     public void selects_Dont_Know_for_selecting_a_specific_RASopathy_diagnosed_of_the_participant() {
-
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.participantSpecificRasopathyDontKnowOption.click();
         CucumberLogUtils.logScreenShot();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     /* END: selecting a specific RASopathy diagnosed of the participant */
@@ -801,32 +730,26 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
     @Given("selects No option to family members of participants having been diagnosed with a RASopathy")
     public void selects_No_option_to_family_members_of_participants_having_been_diagnosed_with_a_RASopathy() {
-
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.participantsFamilyMembersBeenDiagnosedNoOption.click();
         CucumberLogUtils.logScreenShot();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     @Given("selects I have no information on my biological relatives option to family members of participants having been diagnosed with a RASopathy")
     public void selects_I_have_no_information_on_my_biological_relatives_option_to_family_members_of_participants_having_been_diagnosed_with_a_RASopathy() {
-
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.participantsFamilyMembersBeenDiagnosedhaveNoInformationOption.click();
         CucumberLogUtils.logScreenShot();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     @Given("selects I have no information on my biological relatives option for Have any of your biological relatives been diagnosed with a RASopathy?")
     public void selects_I_have_no_information_on_my_biological_relatives_option_for_Have_any_of_your_biological_relatives_been_diagnosed_with_a_RASopathy() {
-
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.probandFamilyMembersBeenDiagnosedIDontKnowOption.click();
         CucumberLogUtils.logScreenShot();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     /*
@@ -839,22 +762,18 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
     @Given("selects No option to participant having had genetic testing")
     public void selects_No_option_to_participant_having_had_genetic_testing() {
-
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.participantsEverHadGeneticTestingNoOption.click();
         CucumberLogUtils.logScreenShot();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     @Given("selects Not sure option to participant having had genetic testing")
     public void selects_Not_sure_option_to_participant_having_had_genetic_testing() {
-
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.participantsEverHadGeneticTestingNotSureOption.click();
         CucumberLogUtils.logScreenShot();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     /* END: options for participant having had genetic testing */
@@ -892,7 +811,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         rasopathyQuestionnairePage.howDidYouHearAboutWebSearchOption.click();
         CucumberLogUtils.logScreenShot();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     @Given("selects Family member for how did you hear about this study?")
@@ -901,7 +819,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         rasopathyQuestionnairePage.howDidYouHearAboutFamilyMemberOption.click();
         CucumberLogUtils.logScreenShot();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     @Given("selects Support Group for how did you hear about this study?")
@@ -910,7 +827,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         rasopathyQuestionnairePage.howDidYouHearAboutSupportGroupOption.click();
         CucumberLogUtils.logScreenShot();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     @Given("selects Genetic counselor option and enters {string} for how did you hear about this study?")
@@ -920,7 +836,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         rasopathyQuestionnairePage.howDidYouHearAboutGeneticCounselorTextBox.sendKeys(GeneticCounselorText);
         CucumberLogUtils.logScreenShot();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     /* END: How did you hear about this study. */
@@ -933,22 +848,18 @@ public class myRASScreenerSubmissions extends PageInitializer {
 
     @Given("selects No option for the participant or other family members ever participated in another study on RASopathies at another medical institution")
     public void selects_No_option_for_the_participant_or_other_family_members_ever_participated_in_another_study_on_RASopathies_at_another_medical_institution() {
-
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.hasParticipantOrOtherFamilyMemberParticipatedInOtherStudyNoOption.click();
         CucumberLogUtils.logScreenShot();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     @Given("selects the Not sure option for the participant or other family members ever participated in another study on RASopathies at another medical institution")
     public void selects_the_Not_sure_option_for_the_participant_or_other_family_members_ever_participated_in_another_study_on_RASopathies_at_another_medical_institution() {
-
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.hasParticipantOrOtherFamilyMemberParticipatedInOtherStudyNotSureOption.click();
         CucumberLogUtils.logScreenShot();
         rasopathyQuestionnairePage.studyNextButton.click();
-
     }
 
     /*
@@ -1001,7 +912,6 @@ public class myRASScreenerSubmissions extends PageInitializer {
         CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewWaitingForElegibilityReviewButton);
         CucumberLogUtils.logScreenShot();
         charmsNativeViewPage.nativeViewWaitingForElegibilityReviewButton.click();
-
     }
 
     /* SELECTS THE SUBMITTED MYRAS SCREENER RECORD */
@@ -1011,15 +921,11 @@ public class myRASScreenerSubmissions extends PageInitializer {
         for (String currentWindow1 : allWindowHandles1) {
             WebDriverUtils.webDriver.switchTo().window(currentWindow1);
         }
-
         CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestButton);
         charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestButton.click();
         MiscUtils.sleep(3000);
-
         CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton);
-
         charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton.click();
-
     }
 
     /* VERIFIES DATA SUBMITTED IN QUALTRICS IS IMPORTED AS EXPECTED IN SERVICENOW */
@@ -1883,11 +1789,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
         CucumberLogUtils.logScreenShot();
         JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 
-        /** DEBUG HERE --------- */
+        /** DEBUG HERE --------- ISSUE WAS FOUND TEST CASE WILL BE UPDATED */
         cGBIIQPages.nextButton.click();
         MiscUtils.sleep(1000);
         // MiscUtils.sleep(10000);
-
     }
-
 }
