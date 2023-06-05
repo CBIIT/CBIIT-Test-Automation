@@ -371,12 +371,7 @@ public class BusinessCaseFormPage extends BasePage {
 	}
 
 	public void openApp() {
-		try {
-			Thread.sleep(3000);
 			driver.get(EnvUtils.getApplicationUrl("AtoTestUrl"));
-		} catch (TestingException | InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 
 }

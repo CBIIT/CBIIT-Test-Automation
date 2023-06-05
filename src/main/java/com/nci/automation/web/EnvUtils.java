@@ -18,9 +18,13 @@ public class EnvUtils {
 	 * @return String object
 	 * @throws TestingException
 	 */
-	public static String getApplicationUrl(String appName) throws TestingException {
+	public static String getApplicationUrl(String appName) {
         final String appURL = "//application[@id='"+ appName +"']/login_url";
-        return getConfigValue(appURL);
+        try {
+            return getConfigValue(appURL);
+        } catch (TestingException e) {
+            throw new RuntimeException(e);
+        }
     }
 	
 

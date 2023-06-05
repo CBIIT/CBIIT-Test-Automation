@@ -124,6 +124,9 @@ public class RASopathyQuestionnairePage {
     /* ************************************************************************ */
     /* -------- BEGINNING OF Date of birth of "name" PAGE ------- */
 
+    @FindBy(xpath = "//input[@placeholder='MM/DD/YYYY']")
+    public WebElement dateOfBirthTextBox;
+
     /* Calendar month drop down */
     @FindBy(xpath = "//select[@aria-label='Month']")
     public WebElement calendarMonthDropDown;
@@ -1051,11 +1054,57 @@ public class RASopathyQuestionnairePage {
 
     /**
      * USE THIS METHOD TO DYNAMICALLY LOCATE TEXT BOXES ON RAS SCREENER
+     *
      * @param text
      * @return
      */
     public WebElement dynamicTextBoxLocator(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::label//parent::span//parent::td/following-sibling::td/input"));
+    }
+
+    /***
+     * USE THIS METHOD TO DYNAMICALLY LOCATE PHONE NUMBER TEXT BOXES ON RAS SCREENER
+     * @param text
+     * @return
+     */
+    public WebElement dynamicTextBoxLocatorForPhoneNumbers(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::label/following-sibling::input"));
+    }
+
+    /***
+     * USE THIS METHOD TO DYNAMICALLY LOCATE PHONE NUMBER CHECK BOXES ON RAS SCREENER
+     * @param text
+     * @return
+     */
+    public WebElement dynamicPhoneNumberCheckBox(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::label//parent::div//parent::span//parent::th/following-sibling::td/label"));
+    }
+
+    /***
+     * USE THIS METHOD TO DYNAMICALLY LOCATE EMAIL ADDRESS TEXT BOXES ON RAS SCREENER
+     * @param text
+     * @return
+     */
+    public WebElement dynamicEmailAddressTextBox(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::legend/following-sibling::div/div/input"));
+    }
+
+    /***
+     * USE THIS METHOD TO DYNAMICALLY LOCATE TEXT BOXES ON HOW DID YOU HEAR ABOUT THIS STUDY PAGE ON RAS SCREENER
+     * @param text
+     * @return
+     */
+    public WebElement dynamicLocatorForHowDidYouHearAboutStudyTextBoxes(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::label//parent::span/input"));
+    }
+
+    /***
+     * USE THIS METHOD TO DYNAMICALLY LOCATE ELEMENTS ON MAIN REASONS FOR PARTICIPATING IN STUDY PAGE
+     * @param text
+     * @return
+     */
+    public WebElement dynamicLocatorForMainReasonForParticipatingInStudy(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::span//parent::label/following-sibling::input"));
     }
 
     public RASopathyQuestionnairePage() {
