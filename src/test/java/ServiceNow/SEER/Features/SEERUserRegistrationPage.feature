@@ -1,6 +1,6 @@
 Feature: SEER User Registration Scenarios
 
-  @ODS-283 @juarezds @Regression @Smoke
+  @ODS-283 @bucurgb @Regression @Smoke
   Scenario: Verifying Sate and Zip code fields are required when selecting United States of America for Country field
     Given a user is on the SEER Data Access landing page
     And user proceeds with email verification for Research Data Requests
@@ -9,7 +9,7 @@ Feature: SEER User Registration Scenarios
     And submits the registration form
     Then the user is not able to submit the registration form because the State and Zip Code fields are required
 
-  @ODS-284 @juarezds @Regression @Smoke
+  @ODS-284 @bucurgb @Regression @Smoke
   Scenario: Verifying "Thank you - your registration is complete." page contents
     Given a user is on the SEER Data Access landing page
     When the user enters email address for a Non-Institutional Account
@@ -31,7 +31,7 @@ Feature: SEER User Registration Scenarios
       SEER is supported by the Surveillance Research Program (SRP) in NCI's Division of Cancer Control and Population Sciences (DCCPS). SRP provides national leadership in the science of cancer surveillance as well as analytical tools and methodological expertise in collecting, analyzing, interpreting, and disseminating reliable population-based statistics.
       """
 
-  @ODS-285 @ODS-342_357 @juarezds @Regression @Smoke
+  @ODS-285 @ODS-342_357 @bucurgb @Regression @Smoke
   Scenario: Verifying 'SEER Incidence Database' bread crumb directs user to https://seer.cancer.gov/data/
     Given a user is on the SEER Data Access landing page
     Then the 'SEER Incidence Database' bread crumb displays
@@ -56,7 +56,7 @@ Feature: SEER User Registration Scenarios
     And the 'SEER Incidence Database' bread crumb displays
     And when clicking, user is directed to "https://seer.cancer.gov/data/"
 
-  @ODS-273_ODS-386 @ODS-286 @juarezds @Regression
+  @ODS-273_ODS-386 @ODS-286 @bucurgb @Regression
   Scenario: Verifying bread crumbs on "Thank you - your registration is complete." page
     Given a user is on the SEER Data Access landing page
     When user enters email address for a Non-Institutional Account
@@ -73,7 +73,7 @@ Feature: SEER User Registration Scenarios
     And submits the registration form
     Then user is directed to the 'Thank you - your registration is complete.' page
 
-  @ODS-370_ODS-392 @juarezds @Regression
+  @ODS-370_ODS-392 @bucurgb @Regression
   Scenario: Verifying that "Requestors associated with HHS agencies should login with their PIV cards to request the data." is present
     Given a user is on the SEER Data Access landing page
     Then a user should see (which Federal Government Agencies can sign in with a PIV):
