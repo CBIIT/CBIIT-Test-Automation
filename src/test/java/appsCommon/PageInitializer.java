@@ -78,12 +78,7 @@ import ServiceNow.NERD.Pages.NERDKnowledgebasePage;
 import ServiceNow.NERD.Pages.NERDSubmissionsPage;
 import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NativeViewImpersonateUser;
-import ServiceNow.SEER.Pages.NativeViewSentViewPage;
-import ServiceNow.SEER.Pages.SEERDataAccessRequestPage;
-import ServiceNow.SEER.Pages.SEERExistingAccountPage;
-import ServiceNow.SEER.Pages.SEERIncidenceDatabaseDetailsPage;
-import ServiceNow.SEER.Pages.SEERLandingPage;
-import ServiceNow.SEER.Pages.SEERUserRegistrationPage;
+import ServiceNow.SEER.Pages.*;
 import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import CustomBusiness.DCEG.Pages.AdminFlowPage;
 import CustomBusiness.DCEG.Pages.BranchAdminPage;
@@ -207,7 +202,11 @@ public class PageInitializer {
 	protected static SEERLandingPage seerLandingPage;
 	protected static SEERUserRegistrationPage seerUserRegistrationPage;
 	protected static SEERDataAccessRequestPage seerDataAccessRequestPage;
+
+	protected static NativeViewCustomersPage nativeViewCustomersPage;
 	protected static NativeViewSentViewPage nativeViewSentViewPage;
+	protected static NativeViewAccessRequestPage nativeViewAccessRequestPage;
+	protected static NativeViewEmailsPage nativeViewEmailsPage;
 	protected static SEERIncidenceDatabaseDetailsPage seerIncidenceDatabaseDetailsPage;
 	protected static SEERExistingAccountPage seerExistingAccountPage;
 	protected static SEERDataAccessRequestPageStepsImpl seerDataAccessRequestPageStepsImpl;
@@ -326,6 +325,8 @@ public class PageInitializer {
 		seerUserRegistrationPage = new SEERUserRegistrationPage();
 		seerDataAccessRequestPage = new SEERDataAccessRequestPage();
 		nativeViewSentViewPage = new NativeViewSentViewPage();
+		nativeViewAccessRequestPage = new NativeViewAccessRequestPage();
+		nativeViewEmailsPage = new NativeViewEmailsPage();
 		seerIncidenceDatabaseDetailsPage = new SEERIncidenceDatabaseDetailsPage();
 		nerdLoginStepsImplementation = new NERDLoginStepsImplementation();
 		nerdCrsKnowledgeDatabaseSubmissionsPage = new NERDSubmissionsPage();
@@ -360,7 +361,7 @@ public class PageInitializer {
 		nativeViewImpersonateUser = new NativeViewImpersonateUser();
 		nativeViewSideDoorLoginPage = new NativeViewSideDoorLoginPage();
 		fHQSurveyPage = new FHQSurveyPage();
-
+		nativeViewCustomersPage = new NativeViewCustomersPage();
 		jpsurvHomePage = new JPSurvHomePage();
 		melanomaLoginPage = new MelanomaLoginPage();
 		melanomaHomePage = new MelanomaHomePage();
@@ -370,7 +371,6 @@ public class PageInitializer {
 		nerdCRSTopAccomplishmentsPage = new NERDCRSTopAccomplishmentsPage();
 		nerdDOCCollaborationsPage = new NERDDOCCollaborationsPage();
 		nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
-
 		seerExistingAccountPage = new SEERExistingAccountPage();
 		seerDataAccessRequestPageStepsImpl = new SEERDataAccessRequestPageStepsImpl();
 

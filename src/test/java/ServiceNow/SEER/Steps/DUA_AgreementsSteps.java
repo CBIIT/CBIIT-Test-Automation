@@ -19,4 +19,13 @@ public class DUA_AgreementsSteps extends PageInitializer {
         SEERDataAccessRequestPageStepsImpl.verifyingAgreements();
     }
 
+    @Given("a user is on the SEER Data Access Research Plus Request")
+    public void a_user_is_on_the_SEER_Data_Access_Research_Plus_Request() {
+        WebDriverUtils.webDriver.get(DUA_Constants.SEER_DATA_ACCESS_REQUEST_INSTITUTION);
+    }
+
+    @Then("DUA Research Plus Agreements are verified")
+    public void dua_Research_Plus_Agreements_are_verified() {
+        SEERDataAccessRequestPageStepsImpl.verifyingResearchPlusAgreements();
+    }
 }
