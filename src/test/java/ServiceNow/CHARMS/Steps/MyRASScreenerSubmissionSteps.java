@@ -1,24 +1,10 @@
 package ServiceNow.CHARMS.Steps;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
-
-import ServiceNow.CHARMS.Constants.CHARMSConstants;
-import ServiceNow.CHARMS.Constants.RAS_SCREENER_CONSTANTS;
-import ServiceNow.CHARMS.Pages.RASopathyQuestionnairePage;
-import com.nci.automation.dao.ExcelReader;
 import org.junit.Assert;
 import org.openqa.selenium.*;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonIOException;
-import com.google.gson.JsonParser;
-import com.google.gson.JsonSyntaxException;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -26,8 +12,6 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import ServiceNow.CHARMS.Pages.MyRASLoginPage;
-import ServiceNow.CHARMS.Pages.MyRASStudyConsentPage;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -35,7 +19,7 @@ import cucumber.api.java.en.When;
 
 /* @author jains18 */
 
-public class myRASScreenerSubmissions extends PageInitializer {
+public class MyRASScreenerSubmissionSteps extends PageInitializer {
 
     private String referralNumber;
     private HashMap<String, String> geneticSyndromeMap = new HashMap<>();
@@ -47,8 +31,9 @@ public class myRASScreenerSubmissions extends PageInitializer {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(applicationID));
     }
 
-    @When("the participant submits a screener with selecting No option for all questions")
-    public void the_participant_submits_a_screener_with_selecting_No_option_for_all_questions() {
+    @When("the participant submits a screener for scenario one from excel sheet {string}")
+    public void the_participant_submits_a_screener_for_scenario_one_from_excel_sheet(String sheetName) {
+        testDataManager.dataInitializer(sheetName);
         rasScreenerStepsImpl.rasScreenerSubmissionScenario1();
     }
 

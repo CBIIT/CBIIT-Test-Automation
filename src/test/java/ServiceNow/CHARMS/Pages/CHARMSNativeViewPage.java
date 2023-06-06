@@ -2128,14 +2128,6 @@ public class CHARMSNativeViewPage extends CommonUtils {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//*[text()='" + text + "']//parent::div//parent::div//parent::div)[1]/div[1]/following-sibling::div/div/div[3]/div/div/span/a"));
     }
 
-    /***
-     * USE THIS METHOD TO DYNAMICALLY LOCATE RECORD BUTTONS ON
-     * @param text
-     * @return
-     */
-    public WebElement dynamicRecordButtonLocator(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("(//td[contains(text(),'" + text + "')]//ancestor::td/div/table/tbody/tr/td)[2]"));
-    }
 
     /* ********** END OF Native view RAS Survey Data Verification ********** */
 

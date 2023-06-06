@@ -1,7 +1,6 @@
 package ServiceNow.CHARMS.Steps;
 
 import java.util.ArrayList;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import com.nci.automation.utils.MiscUtils;
@@ -9,7 +8,6 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import ServiceNow.CHARMS.Constants.FHQSurveyPageConstants;
 import ServiceNow.CHARMS.Pages.FHQSurveyPortalPage;
 import ServiceNow.CHARMS.Utils.ComponentTestResult;
