@@ -55,6 +55,13 @@ public class myRASScreenerSubmissions extends PageInitializer {
     @Then("data submitted for scenario one is verified in native view against scenario one excel sheet")
     public void data_submitted_for_scenario_one_is_verified_in_native_view_against_scenario_one_excel_sheet() {
         nativeViewLoginImpl.sideDoorAccountLogin();
+        CommonUtils.sendKeysToElement(nativeViewHomePage.nativeViewFilterNavigator, "CHARMS");
+        CommonUtils.clickOnElement(WebDriverUtils.webDriver.findElement(By.xpath("(//div[text()='Dashboard'])[3]")));
+        CommonUtils.switchToFrame("gsft_main");
+        CommonUtils.clickOnElement(charmsNativeViewPage.dynamicDashboardModuleLinkLocator("Need Eligibility Review"));
+        CommonUtils.switchToNextWindow();
+        CommonUtils.clickOnElement(WebDriverUtils.webDriver.findElement(By.xpath("(//td[contains(text(),'DiegoTest JuarezTest')]//ancestor::td/div/table/tbody/tr/td)[2]")));
+        CommonUtils.clickOnElement(WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'Open Record')]")));
     }
 
     @Given("a proxy is on the RASopathies Longitudinal Cohort Study login page")
