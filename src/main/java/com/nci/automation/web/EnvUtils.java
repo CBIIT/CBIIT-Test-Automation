@@ -10,27 +10,30 @@ import com.nci.automation.xml.JDomXmlUtils;
  * @author sohilz2
  */
 public class EnvUtils {
-	
-	
+
 	/**
 	 * This method will return the application URL. make sure you have 
 	 * proper URL placed in all environment xml files.
 	 * @return String object
 	 * @throws TestingException
 	 */
-	public static String getApplicationUrl(String appName) throws TestingException {
-        final String appURL = "//application[@id='"+ appName +"']/login_url";
-        return getConfigValue(appURL);
-    }
-	
 
-    
+	public static String getApplicationUrl(String appName) {
+        final String appURL = "//application[@id='"+ appName +"']/login_url";
+        try {
+            return getConfigValue(appURL);
+        } catch (TestingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 	/**
 	 * This method will return the application user-name. make sure you have 
 	 * proper user-name placed in all environment xmls.
 	 * @return String object
 	 * @throws TestingException
 	 */
+
     public static String getUserName(String role) throws TestingException {
         final String userIdXPath = "//role/user[@id='%s']/userId";
         return EncryptionUtils.decrypt(getConfigValue(userIdXPath, role));
@@ -61,6 +64,7 @@ public class EnvUtils {
 	 * @return String object
 	 * @throws TestingException
 	 */
+
     public static String getDatabaseUsername() throws TestingException {
     	final String dbUserNameXPath = "//db/default/username";
         return getConfigValue(dbUserNameXPath);
@@ -71,6 +75,7 @@ public class EnvUtils {
 	 * @return String object
 	 * @throws TestingException
 	 */
+
     public static String getDatabasePassword() throws TestingException {
     	final String dbPasswordXPath = "//db/default/password";
         return EncryptionUtils.decrypt(getConfigValue(dbPasswordXPath));
@@ -130,7 +135,6 @@ public class EnvUtils {
 
     public static String getConfigValue(String configElementXPathTemplate, Object... args) throws TestingException {
     	final String configElementXPath = String.format(configElementXPathTemplate, args);
-        //CucumberLogUtils.logDebug("Executing XPath against local environment file: " + configElementXPath);
         String envFilePath = ConfUtils.getEnvFileResourcePath();
         String configElementValue = null;
 
@@ -139,7 +143,6 @@ public class EnvUtils {
         } catch (IOException ioException) {
             throw new TestingException("IO Error while reading the xml file from the config Path: " + configElementXPath, ioException);
         }
-
         return configElementValue;
     }
     
@@ -152,19 +155,4 @@ public class EnvUtils {
         final String appURL = "//application[@id='"+ appName +"']/landing_url";
         return getConfigValue(appURL);
     }
-    
-//  public static String getDatabaseURL(String dbName) throws TestingException {
-//	final String dbUrlXPath = "//db/"+ dbName+ "/url";
-//    return getConfigValue(dbUrlXPath);
-//}
-//
-//public static String getDatabaseUsername(String dbName) throws TestingException {
-//	final String dbUserNameXPath = "//db/"+ dbName+ "/username";
-//    return getConfigValue(dbUserNameXPath);
-//}
-//
-//public static String getDatabasePassword(String dbName) throws TestingException {
-//	final String dbPasswordXPath = "//db/"+ dbName+ "/password";
-//    return getConfigValue(dbPasswordXPath);
-//}
 }

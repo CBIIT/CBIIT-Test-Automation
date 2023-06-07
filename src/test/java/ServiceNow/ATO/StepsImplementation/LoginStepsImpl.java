@@ -19,7 +19,7 @@ public class LoginStepsImpl extends LoginPage {
 		try {
 			Thread.sleep(3000);
 			driver.get(EnvUtils.getApplicationUrl("AtoTestUrl"));
-		} catch (TestingException | InterruptedException e) {
+		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}

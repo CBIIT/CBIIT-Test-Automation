@@ -2,18 +2,15 @@ package ServiceNow.CHARMS.Steps;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
-
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import ServiceNow.CHARMS.Constants.FHQSurveyPageConstants;
 import ServiceNow.CHARMS.Utils.ComponentTestResult;
 import ServiceNow.CHARMS.Utils.FHQUtil;

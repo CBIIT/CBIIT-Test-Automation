@@ -3,54 +3,14 @@ Feature: myRAS Screener Submissions from the Qualtrics Portal
 
 	This feature file contains scenarios which verify data submitted via Qualtrics questionnaire in Native View
 
-	@juarezds @myRasScreenerSubmissionOnly @choudhryma @Progression
-	Scenario: Proxy Screener Submission - for manual testing only - use if you need to submit screener quickly
-		Given a proxy is on the RASopathies Longitudinal Cohort Study login page
-		And logs in via Okta with username "charmsras1@yahoo.com" and password "RASTest2021$$"
+	@juarezds @myRasScreenerSubmissionOnly @InProgress
+	Scenario: Participant Screener Self Submission Scenario 1
+		This scenario selects 'No' to all questions
+		Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
+		And logs in via Okta with username "charmsras5@yahoo.com" and password "RASTest2023$$"
 		And clicks on Eligibility Questionnaire to begin questionnaire
-		And clicks next after reviewing the STUDY INTRODCTION
-		And selects I am completing this form for someone else option
-		And enters First Name "AutomatedFirstLongNameMaria", Middle Name "Middle", Last Name "AutomatedLastLongNameMaria" for What is the name of the person who may be eligible for this study?
-		And enters First Name "FirstLongNameTestProxySubmission", Middle Name "MiddleNameTest", Last Name "LastLongNameTestProxySubmission" for What is your name?
-		And enters "Entering Other Relationship" for What is your relationship to the participant?
-		And selects Yes option for Are you the legal guardian of the participant?
-		And clicks next for The next set of questions will collect basic information about the participant
-		And selects participants Date of Birth from the calendar picker
-		And selects Male option for participants Sex assigned at birth
-		And selects Yes option for participant being adopted
-		And selects Yes for participant still being alive
-		And selects Yes option for participant currently living in the United States
-		And enters mailing address for where study materials can be sent, street "9609 Medical Center Dr" city "Rockville" state "MD" zip code "20850"
-		And enters proxy email address "automatedTest@nci.gov"
-		And enters proxy email address "automatedTest@nci.gov" to confirm email address
-		And enters proxy home phone number "703-687-5816", cell phone number "703-687-5816", work phone number "703-687-5816" and selects cell phone number as Preferred Contact
-		And selects Not Hispanic/Latino option for Ethnicity of participant
-
-		And enters "Entering other Race" for other when selecting Race of participant
-		And selects Other option and enters "LFS Study" for is the participant participated in any other research study or registry group?
-#		And enters "Sending 100 characters as a string as a test Sending 100 characters as a string as a test Sending 100" for other when selecting Race of participant
-#		And selects Other option and enters "Sending 100 characters as a string as a test Sending 100 characters as a string as a test Sending 100" for is the participant participated in any other research study or registry group?
-
-		And proceeds with providing information for medical diagnosis
-		And enters "Sending 100 characters as a string as a test Sending 100 characters as a string as a test Sending 100" for participant being diagnosed with any of the listed conditions
-		And selects Yes option for participant being diagnosed with cancer
-		And for participants primary cancers diagnosed selects cancer types "Leukemia", "Brain tumor (ie, glioma)", "Rhabdomyosarcoma", "Skin cancer (ie, melanoma)" and selects age at diagnosis for primary cancers entered for all options "20", "21", "22", "23" and year of diagnosis "2000", "2001", "2002", "2003" and selects Yes option for currently receiving treatment
-		And selects Yes option for participant being diagnosed with a Rasopathy
-		And selects Other and enters "Sending 100 characters as a string as a test Sending 100 characters as a string as a test Sending 100" for selecting a specific RASopathy diagnosed of the participant
-		And enters participants age in years "20" of diagnosis
-		And enters participants year of diagnosis "2010"
-		And proceeds with providing genetic testing information
-		And selects Yes option to family members of participants having been diagnosed with a RASopathy
-		And selects Yes option to participant having had genetic testing
-		And selects No option to participant having a copy of genetic test results
-		And selects all the option for any genetic changes detected for the following syndromes for the participant
-		And the user proceeds on answering few remaining questions regarding the study
-		And selects Other option and enters "Sending 100 characters as a string as a test Sending 100 characters as a string as a test Sending 100" for how did you hear about this study?
-		And selects the Yes option for the participant or other family members ever participated in another study on RASopathies at another medical institution
-		And provides the following information regarding previous participation in other RASopathy studies
-		And for What are the main reasons for participating in this study? selects All options and for Participate in research enters "Sending 100 characters as a string as a test Sending 100 characters as a string as a test Sending 100", for Identify a diagnosis enters "Sending 100 characters as a string as a test Sending 100 characters as a string as a test Sending 100", for Receive genetic testing enters "Sending 100 characters as a string as a test Sending 100 characters as a string as a test Sending 100", and for Other enters "Sending 100 characters as a string as a test Sending 100 characters as a string as a test Sending 100"
-		#And proceeds with submitting the Eligibility Questionnaire
-		#Then the Eligibility Questionnaire is sucessfully submitted
+		When the participant submits a screener for scenario one from excel sheet "Scenario1"
+		Then data submitted for scenario one is verified in native view against scenario one excel sheet
 
 
 	@jains @myRASScreenerSubmission @E2E @Updated
