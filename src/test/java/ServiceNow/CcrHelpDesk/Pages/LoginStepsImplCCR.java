@@ -30,12 +30,7 @@ public class LoginStepsImplCCR extends BasePage {
 	public WebElement nativeviewLink;
 
 	public void openApp() {
-		try {
-			Thread.sleep(3000);
 			driver.get(EnvUtils.getApplicationUrl("CCRHelpdesk") + "&sys_id=350223aa1bc515906daea681f54bcb89");
-		} catch (TestingException | InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 
 	public void openApp(String url) {
