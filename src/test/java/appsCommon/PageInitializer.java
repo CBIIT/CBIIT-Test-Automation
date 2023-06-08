@@ -295,7 +295,6 @@ public class PageInitializer {
 		/** COVIDDash Instance Variables */
 		covidHomePage = new COVIDHomePage();
 		submissionPage = new SubmissionsPage();
-		nativeViewDashPage = new NativeViewDashboardPage();
 		covidHomePageImpl = new COVIDHomePageImpl();
 
 		/** COVIDcode Instance Variables */
