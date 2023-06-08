@@ -3,6 +3,7 @@ package ServiceNow.CHARMS.Steps;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
+
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -39,14 +40,24 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
 
     @Then("data submitted for scenario one is verified in native view against scenario one excel sheet")
     public void data_submitted_for_scenario_one_is_verified_in_native_view_against_scenario_one_excel_sheet() {
+        testDataManager.dataInitializer("Scenario1");
         nativeViewLoginImpl.sideDoorAccountLogin();
         CommonUtils.sendKeysToElement(nativeViewHomePage.nativeViewFilterNavigator, "CHARMS");
-        CommonUtils.clickOnElement(WebDriverUtils.webDriver.findElement(By.xpath("(//div[text()='Dashboard'])[3]")));
+        CommonUtils.clickOnElement(charmsNativeViewPage.dashboardModuleLink);
         CommonUtils.switchToFrame("gsft_main");
         CommonUtils.clickOnElement(charmsNativeViewPage.dynamicDashboardModuleLinkLocator("Need Eligibility Review"));
         CommonUtils.switchToNextWindow();
-        CommonUtils.clickOnElement(WebDriverUtils.webDriver.findElement(By.xpath("(//td[contains(text(),'DiegoTest JuarezTest')]//ancestor::td/div/table/tbody/tr/td)[2]")));
-        CommonUtils.clickOnElement(WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'Open Record')]")));
+        // use name from excel sheet
+        CommonUtils.clickOnElement(participantDetailsPage.dynamicRecordButtonLocator(testDataManager.firstName + rasScreenerConstants.space + testDataManager.lastName));
+        CommonUtils.clickOnElement(participantDetailsPage.openRecordButton);
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.nameTextBox), testDataManager.firstName + rasScreenerConstants.space + testDataManager.lastName, "-- VERIFYING FULL NAME --");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.firstNameTextBox), testDataManager.firstName, "-- VERIFYING FIRST NAME --");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.middleInitialTextBox), testDataManager.middleInitial, "-- VERIFYING MIDDLE INITIAL --");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.lastNameTextBox), testDataManager.lastName, "-- VERIFYING LAST NAME");
+        CommonUtils.clickOnElement(participantDetailsPage.demographicsTab);
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.dateOfBirthTextBox), testDataManager.whatIsYourDateOfBirth, "-- VERIFYING DATE OF BIRTH --");
+
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getTextOfDropDownElement(participantDetailsPage.biologicalGenderMaleDropDownOption), testDataManager.sexAssignedAtBirthOption, "-- VERIFYING BIOLOGICAL GENDER --");
     }
 
     @Given("a proxy is on the RASopathies Longitudinal Cohort Study login page")

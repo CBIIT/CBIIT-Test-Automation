@@ -202,7 +202,6 @@ public class CommonUtils extends WebDriverUtils {
 
     /**
      * This method will switch to default frame
-     *
      */
 
     public static void switchToDefaultContent() {
@@ -587,6 +586,20 @@ public class CommonUtils extends WebDriverUtils {
 
     /*
      *
+     * Use below method to assert expected String value with an actual String value with a message
+     */
+    public static void assertEqualsWithMessage(String actual, String expected, String message) {
+
+        try {
+            Assert.assertEquals(actual, expected, message);
+        } catch (AssertionError e) {
+
+            e.printStackTrace();
+        }
+    }
+
+    /*
+     *
      * Use below method to assert actual String value with an expected String value
      * using assertTrue() method
      */
@@ -636,6 +649,7 @@ public class CommonUtils extends WebDriverUtils {
 
     /**
      * USE THIS METHOD TO CLICK ON STALE ELEMENTS
+     *
      * @param ele
      */
     public static void clickOnElement(WebElement ele) {
@@ -653,6 +667,7 @@ public class CommonUtils extends WebDriverUtils {
 
     /**
      * USE THIS METHOD TO SEND KEYS TO STALE ELEMENTS
+     *
      * @param ele
      */
     public static void sendKeysToElement(WebElement ele, String text) {
@@ -666,5 +681,23 @@ public class CommonUtils extends WebDriverUtils {
                 count++;
             }
         }
+    }
+
+    /***
+     * USE THIS METHOD TO GET THE ATTRIBUTE VALUE OF THE VALUE ATTRIBUTE
+     * @param element
+     * @return
+     */
+    public static String getAttributeValueOfValueAttribute(WebElement element) {
+        return element.getAttribute("value");
+    }
+
+    /***
+     * USE THIS METHOD TO GET THE TEXT OF A DROPDOWN VALUE
+     * @param dropDownElementText
+     * @return
+     */
+    public static String getTextOfDropDownElement(WebElement dropDownElementText){
+        return dropDownElementText.getText();
     }
 }

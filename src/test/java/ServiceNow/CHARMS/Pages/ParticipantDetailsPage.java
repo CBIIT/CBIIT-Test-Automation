@@ -1,8 +1,10 @@
 package ServiceNow.CHARMS.Pages;
 
+import com.mysql.cj.x.protobuf.MysqlxCrud;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class ParticipantDetailsPage {
@@ -13,10 +15,41 @@ public class ParticipantDetailsPage {
      * @return
      */
     public WebElement dynamicRecordButtonLocator(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("(//td[contains(text(),'" + text + "')]//ancestor::td/div/table/tbody/tr/td)[2]"));
+        return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::tr/td[2]"));
     }
 
-    public ParticipantDetailsPage(){
+    /* OPEN RECORD BUTTON */
+    @FindBy(xpath = "//*[contains(text(),'Open Record')]")
+    public WebElement openRecordButton;
+
+    /* NAME TEXT BOX */
+    @FindBy(xpath = "//input[@aria-label='Name']")
+    public WebElement nameTextBox;
+
+    /* FIRST NAME TEXT BOX*/
+    @FindBy(xpath = "//input[@aria-label='First Name']")
+    public WebElement firstNameTextBox;
+
+    /* MIDDLE INITIAL TEXT BOX */
+    @FindBy(xpath = "//input[@aria-label='Middle Name']")
+    public WebElement middleInitialTextBox;
+
+    /* LAST NAME TEXT BOX */
+    @FindBy(xpath = "//input[@aria-label='Last Name']")
+    public WebElement lastNameTextBox;
+
+    /* DEMOGRAPHICS TAB */
+    @FindBy(xpath = "//span[contains(text(),'Demographics')]")
+    public WebElement demographicsTab;
+
+    /* DATE OF BIRTH TEXT BOX*/
+    @FindBy(xpath = "//div[@id='label.x_naci_family_coho_family_history_details.date_of_birth_month_day_year']/following-sibling::div/span/input")
+    public WebElement dateOfBirthTextBox;
+
+    /* BIOLOGICAL GENDER DROPDOWN MALE OPTION */
+    @FindBy(xpath = "//select[@aria-labelledby='label.x_naci_family_coho_family_history_details.biological_gender']/option[3]")
+    public WebElement biologicalGenderMaleDropDownOption;
+    public ParticipantDetailsPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
 }
