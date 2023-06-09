@@ -4,7 +4,7 @@ Feature: Regression testing
   Background:
     Given User logs in to EIDP "EidpUrlNCI" as "Username" and "Password"
 
-  @InitiatesIDPNCI @Regression @Smoke @Zamant2 @Needs_review @Progression
+  @InitiatesIDPNCI @Regression @Smoke @Zamant2 @Progression
   Scenario: TC01 IDP request creates and decline and approve
     And Logged in user changes the user to "Ginsburg,Erika"
     And User will click on search in dashboard
