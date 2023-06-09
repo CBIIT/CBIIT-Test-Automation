@@ -28,7 +28,6 @@ public class AligningExpectationsSteps extends PageInitializer {
 
 	@When("User will click on revew and take action button")
 	public void user_will_click_on_revew_and_take_action_button() {
-		MiscUtils.sleep(4000);
 		System.out.println("TRAINEE NAME = " + SharedData.traineeName);
 		aligningExpectationsStepImpl.clickOnReviewAndTakeActionButton();
 	}

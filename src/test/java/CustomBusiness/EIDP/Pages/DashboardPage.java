@@ -4,7 +4,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
+
 import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
@@ -21,19 +21,19 @@ public class DashboardPage extends CommonUtils{
 	@FindBy(xpath ="//li[@id='manageDelegatetabs']")
 	public WebElement manageDelegateTab;
 	
-	@FindBy(how = How.CSS, css="a[href*='/idp/general'][class='btn btn-primary']")
+	@FindBy(css="a[href*='/idp/general'][class='btn btn-primary']")
 	public WebElement startIDPButton;
 	
 	@FindBy(xpath = "//a[text()='Proceed']")
 	public WebElement proceedButton;
 	
-	@FindBy(how = How.CSS, css = "input[value='Send IDP to the Primary Mentor']")
+	@FindBy(css = "input[value='Send IDP to the Primary Mentor']")
 	public WebElement sendIDPToPrimaryMentoryButton;
 	
-	@FindBy(how = How.CSS, css = "#tab1 h3")
+	@FindBy(css = "#tab1 h3")
 	public WebElement idpMessage;
 	
-	@FindBy(how = How.CSS, css = "[data-cat='admin ']")
+	@FindBy(css = "[data-cat='admin ']")
 	public WebElement idpAwaitingResponseButton;
 	
 	@FindBy(xpath = "//a[text()='Verify Meeting']")
@@ -47,7 +47,9 @@ public class DashboardPage extends CommonUtils{
 	
 	@FindBy(id = "(//select[@name='mentorsTable_length'])[1]")
 	public WebElement show100;
-	
+
+	@FindBy(xpath = "//li[@id=\"mentorsTable_next\"]/a")
+	public WebElement mentorsTableNext;
 	
 	public DashboardPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);

@@ -36,22 +36,12 @@ public class AlignExpectionsStepImpl extends PageInitializer {
 
 	public void clickOnReviewAndTakeActionButton() {
 		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
+			CommonUtils.waitForClickability(aligningExpectationsPage.reviewAndTakeActionButton);
+			CommonUtils.click(aligningExpectationsPage.reviewAndTakeActionButton);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		// try {
-		// 	if (CommonUtils.isElementPresentWithoutWait("//*[@id='tdAprroveIDP']")) {
-		// 		CucumberLogUtils.logScreenShot();
-		// 		CommonUtils.click(By.xpath("//*[@id='tdAprroveIDP']"));
-		// 	} else {
-		// 		CommonUtils.waitForVisibility(aligningExpectationsPage.reviewAndTakeActionButton);
-		// 		CucumberLogUtils.logScreenShot();
-		// 		CommonUtils.click(aligningExpectationsPage.reviewAndTakeActionButton);
-		// 	}
-		// } catch (Exception e) {
 
-		// }
 	}
 
 	public void clickOnSendIDPToTraineeButton() {

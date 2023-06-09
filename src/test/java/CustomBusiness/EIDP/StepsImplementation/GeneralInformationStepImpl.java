@@ -1,7 +1,7 @@
 package CustomBusiness.EIDP.StepsImplementation;
 
 import java.util.List;
-
+import java.util.Map;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -9,7 +9,9 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import CustomBusiness.EIDP.Util.CommonUtil;
+import CustomBusiness.EIDP.Util.SharedData;
 import appsCommon.PageInitializer;
+import io.cucumber.datatable.DataTable;
 
 public class GeneralInformationStepImpl extends PageInitializer {
 	public void selectCurrentYearOfTrainingDropdown(String year) {
@@ -70,49 +72,55 @@ public class GeneralInformationStepImpl extends PageInitializer {
 		eidpBasePage.selectOptionByIndex(generalInformationPage.currentTitle);
 	}
 
-	public void fillGeneralInformation() throws Exception {
-		CommonUtils.click(generalInformationPage.primaryMentorsName);
-		CommonUtils.waitForVisibility(generalInformationPage.searchInputField);
-		CommonUtils.sendKeys(generalInformationPage.searchInputField, "Berzofsky,Jay");
-		Thread.sleep(6000);
-		CommonUtils.click(generalInformationPage.dropdownOptions);
-		Thread.sleep(1000);
-		CommonUtils.click(generalInformationPage.labBranchNameDropdown);
-		Thread.sleep(1000);
-		CommonUtils.click(generalInformationPage.dropdownOptions);
-		Thread.sleep(1000);
-		CommonUtils.waitForVisibility(generalInformationPage.searchInputField);
-		Thread.sleep(1000);
-		CommonUtils.sendKeys(generalInformationPage.searchInputField, "Lipkowitz,Stan");
-		Thread.sleep(4000);
-		CommonUtils.click(generalInformationPage.dropdownOptions);
-		Thread.sleep(1000);
+	public void fillGeneralInformation(DataTable dataTable) throws Exception {
+		Map<String, String> requestDt = CommonUtil.getMapFromDataTable(dataTable);
+		//Selecting highest degree
+		CommonUtils.waitForClickability(generalInformationPage.highestDegreeDropdown);
 		eidpBasePage.selectOptionByIndex(generalInformationPage.highestDegreeDropdown);
-		Thread.sleep(5000);
-		doYouHaveCoPrimaryMentory(true);
+		//Selecting Primary Mentor
+		if (!requestDt.get("Primary Mentor").isEmpty()) {
+			SharedData.primaryMentorName = requestDt.get("Primary Mentor");
+			CommonUtils.click(generalInformationPage.primaryMentorsName);
+			CommonUtils.sendKeys(generalInformationPage.searchInputField, (SharedData.primaryMentorName));
+			MiscUtils.sleep(2000);
+			CommonUtils.click(generalInformationPage.dropdownOptions);
+		}
+		//Selecting Co-PM
+		if (!requestDt.get("Co-PM").isEmpty()) {
+			SharedData.coPmName = requestDt.get("Co-PM");
+			doYouHaveCoPrimaryMentory(true);
+			Thread.sleep(1000);
+			CommonUtils.click(generalInformationPage.coPrimaryMentorsName);
+			CommonUtils.waitForVisibility(generalInformationPage.searchInputField);
+			CommonUtils.sendKeys(generalInformationPage.searchInputField, (SharedData.coPmName));
+			MiscUtils.sleep(3000);
+			CommonUtils.click(generalInformationPage.dropdownOptions);
+		} else {
+			doYouHaveCoPrimaryMentory(false);
+		}
+		//Selecting LBO Chief
+		if (!requestDt.get("LBO").isEmpty()) {
+			SharedData.lbo = requestDt.get("LBO");
+			CommonUtils.click(generalInformationPage.labBranchNameDropdown);
+			CommonUtils.sendKeys(generalInformationPage.searchInputField, (SharedData.lbo));
+			MiscUtils.sleep(2000);
+			CommonUtils.click(generalInformationPage.dropdownOptions);
+		}
+
 		Thread.sleep(1000);
-		CommonUtils.click(generalInformationPage.coPrimaryMentorsName);
-		Thread.sleep(2000);
-		CommonUtils.waitForVisibility(generalInformationPage.searchInputField);
-		CommonUtils.sendKeys(generalInformationPage.searchInputField, "Cole, Steven");
-		Thread.sleep(3000);
-		CommonUtils.click(generalInformationPage.dropdownOptions);
-		Thread.sleep(3000);
 		CucumberLogUtils.logScreenShot("General Information");
-		// if (CommonUtils.isElementPresent(By.id("orcidId"))) {
-		// 	CommonUtils.sendKeys(WebDriverUtils.webDriver.findElement(By.id("orcidId")), "9999-9999-9999-9999");
-		// }
+		//clicking on Save and Continue
 		CommonUtils.click(generalInformationPage.saveAndContinueButton);
 	}
 
 	public void doYouHaveCoPrimaryMentory(Boolean isCoPrimary) {
 		if (isCoPrimary) {
-			MiscUtils.sleep(3000);
+			MiscUtils.sleep(1000);
 			WebDriverUtils.webDriver.findElement(By.id("coprimMentorYes")).click();
-			MiscUtils.sleep(3000);
 		} else {
+			MiscUtils.sleep(1000);
 			WebDriverUtils.webDriver.findElement(By.id("coprimMentorNo")).click();
-			MiscUtils.sleep(3000);
+
 		}
 	}
 

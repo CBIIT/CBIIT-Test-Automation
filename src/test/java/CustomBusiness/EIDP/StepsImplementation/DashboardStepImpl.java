@@ -8,6 +8,8 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
+
+import CustomBusiness.EIDP.Pages.DashboardPage;
 import CustomBusiness.EIDP.Util.SharedData;
 import appsCommon.PageInitializer;
 
@@ -22,6 +24,7 @@ public class DashboardStepImpl extends PageInitializer {
 	}
 
 	public void clickOnSearch() {
+		CommonUtils.waitForClickability(eidpDashboardPage.search);
 		CommonUtils.click(eidpDashboardPage.search);
 	}
 
@@ -43,7 +46,6 @@ public class DashboardStepImpl extends PageInitializer {
 
 	public void clickOnStartIDPButton() {
 		CommonUtils.waitForVisibility(eidpDashboardPage.startIDPButton);
-		MiscUtils.sleep(2000);
 		CommonUtils.click(eidpDashboardPage.startIDPButton);
 	}
 
@@ -67,6 +69,7 @@ public class DashboardStepImpl extends PageInitializer {
 	}
 
 	public void clickOnIDPAwaitResponsButton() {
+		CommonUtils.waitForClickability(eidpDashboardPage.idpAwaitingResponseButton);
 		CommonUtils.click(eidpDashboardPage.idpAwaitingResponseButton);
 	}
 
@@ -115,12 +118,8 @@ public class DashboardStepImpl extends PageInitializer {
 	}
 
 	public Boolean selectIDPRequestOfTrainee() throws Exception {
-		if (WebDriverUtils.getWebDriver().findElements(By.xpath("//div[@id='d1']/span[text()='IDP Awaiting Response']"))
-				.size() > 0) {
-			WebDriverUtils.getWebDriver().findElement(By.xpath("//div[@id='d1']/span[text()='IDP Awaiting Response']"))
-					.click();
-		}
-
+		CommonUtils.waitForClickability(eidpDashboardPage.idpAwaitingResponseButton);
+		eidpDashboardPage.idpAwaitingResponseButton.click();
 		Boolean isSelected = false;
 		String traineeName = SharedData.traineeName;
 		if (!traineeName.contains(",")) {
@@ -168,9 +167,8 @@ public class DashboardStepImpl extends PageInitializer {
 					+ "') and contains(text(),'" + str + "')]/parent::td/following-sibling::td//a/img[@alt='Proceed']"))
 					.click();
 		} else {
-			if (CommonUtils.isElementEnabled(
-					WebDriverUtils.getWebDriver().findElement(By.xpath("//li[@id=\"mentorsTable_next\"]/a")))) {
-				WebDriverUtils.getWebDriver().findElement(By.xpath("//li[@id=\"mentorsTable_next\"]/a")).click();
+			if (CommonUtils.isElementEnabled(eidpDashboardPage.mentorsTableNext)) {
+				eidpDashboardPage.mentorsTableNext.click();
 				clickProceedButtonOfTraineeNHGRI();
 			} else {
 				throw new Exception("Unable to find the trainne to proceed");

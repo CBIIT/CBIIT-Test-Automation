@@ -323,6 +323,7 @@ public class SearchStepImpl extends PageInitializer {
     }
 
     public void clickOnOkButton() {
+        CommonUtils.waitForVisibility(searchPage.okButton);
         CommonUtils.click(searchPage.okButton);
     }
 

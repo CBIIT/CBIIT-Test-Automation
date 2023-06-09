@@ -38,12 +38,8 @@ public class DashboardSteps extends PageInitializer {
 
 	@When("User will click on IDP Awaiting response button")
 	public void clickOnIDPAwaitingResponse() {
-		try {
 			eidpDashboardStepImpl.clickOnIDPAwaitResponsButton();
 			CucumberLogUtils.logScreenShot();
-		} catch (Exception e) {
-
-		}
 	}
 
 	@When("User will clickOn start idp button")
@@ -195,7 +191,7 @@ public class DashboardSteps extends PageInitializer {
 	@When("User clicks on Decline IDP button")
 	public void clickOnDeclineIDPButton() throws Exception {
 		generalInformationStepImpl.clickOnGeneralInformationTab();
-		SharedData.traineeName = generalInformationStepImpl.getTraineeName();
+		//SharedData.traineeName = generalInformationStepImpl.getTraineeName();
 		generalInformationStepImpl.clickOnDeclineIDPButton();
 		eidpCommonPage.clickOnOkButton();
 	}

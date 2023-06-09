@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import CustomBusiness.EIDP.Pages.CoPrimaryMentorPage;
@@ -39,8 +40,10 @@ public class CoPrimaryMentorSteps extends PageInitializer {
 
 	@When("User clicks on REVIEWED button")
 	public void clickOnReviewedButton() {
+		MiscUtils.sleep(2000);
 		coPrimaryMentorPage.clickOnReviewedButton();
-		eidpCommonPage.waitForGoBackToHomeQueueButtonVisible();
+		MiscUtils.sleep(2000);
+		//eidpCommonPage.waitForGoBackToHomeQueueButtonVisible();
 	}
 
 	@When("User clicks on REVIEWED button then approves and submit")
@@ -51,6 +54,11 @@ public class CoPrimaryMentorSteps extends PageInitializer {
 		} catch (Exception e) {
 
 		}
+	}
+
+	@When("User clicks on Marks as REVIEWED button on LBO page")
+	public void clickOnReviewedLBO() {
+			coPrimaryMentorPage.markAsReviewed();
 	}
 
 	@Then("Finish Idp process")

@@ -3,9 +3,12 @@ package CustomBusiness.EIDP.Steps;
 import java.util.Map;
 import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.web.CommonUtils;
+
 import CustomBusiness.EIDP.Util.CommonUtil;
 import CustomBusiness.EIDP.Util.SharedData;
 import appsCommon.PageInitializer;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
 
@@ -29,7 +32,7 @@ public class IDPAwaitingResponseSteps extends PageInitializer {
 		changeUserToTrainnee();
 		Thread.sleep(4000);
 		eidpDashboardStepImpl.clickOnStartIDPButton();
-		generalInformationStepImpl.fillGeneralInformation();
+		//generalInformationStepImpl.fillGeneralInformation();
 		projectRelatedDeliverableStepImpl.fillProjectDeliverableData();
 		careerGoalAndActiveStepImpl.fillCarrerGoalActivite();
 		aligningExpectationsStepImpl.fillAligningExpectations();
@@ -42,16 +45,7 @@ public class IDPAwaitingResponseSteps extends PageInitializer {
 	public void changeUserToTrainnee() throws Exception {
 
 		String updatedUserName = SharedData.traineeName;
-		if (!SharedData.traineeName.contains(",")) {
-			String[] temp = SharedData.traineeName.split(" ");
-			if (temp.length > 2) {
-				updatedUserName = temp[1] + " " + temp[2] + "," + temp[0];
-			} else {
-				updatedUserName = temp[1] + "," + temp[0];
-			}
-		}
-		System.out.println("trainee name = " + updatedUserName);
-		eidpLoginStepImpl.changeUserToTrainee(updatedUserName);
+		eidpLoginStepImpl.changeUser(eidpLoginStepImpl.lastNameFirstName(updatedUserName));
 	}
 
 	@When("User will click on proceed button of trainee")
@@ -66,7 +60,7 @@ public class IDPAwaitingResponseSteps extends PageInitializer {
 
 	@When("Logged in user changes the user to {string}And User will click on IDP Awaiting response button")
 	public void logged_in_user_changes_the_user_to_And_User_will_click_on_IDP_Awaiting_response_button(String str) {
-		eidpLoginStepImpl.changeUserToTrainee(SharedData.traineeName);
+		eidpLoginStepImpl.changeUser(SharedData.traineeName);
 
 		iDPAwaitingResponsePage.clickonIDpWaitigResponse();
 		iDPAwaitingResponsePage.selecTraineeName(SharedData.traineeName);
@@ -87,7 +81,7 @@ public class IDPAwaitingResponseSteps extends PageInitializer {
 	@When("User clicks on SEND IDP TO THE TRAINEE button")
 	public void clickOnSendIDPToTraineeButton() throws Exception {
 		aligningExpectationsStepImpl.clickOnSendIDPToTraineeButton();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 	}
 
 	@When("User clicks on SUBMIT button")
@@ -96,9 +90,13 @@ public class IDPAwaitingResponseSteps extends PageInitializer {
 		eidpCommonPage.waitForGoBackToHomePageButtonVisible();
 	}
 
-	@When("User validates fields in all the tabs and values and clicks on No Revision option")
-	public void user_validates_fields_in_all_the_tabs_and_values_and_clicks_on_No_Revision_option()
-			throws InterruptedException {
+	@Then("User clicks on Verify Meeting Checkbox")
+	public void verifyMeetingChkBox() {
+		CommonUtils.click(aligningExpectationsPage.verifyMeetingCheckBox);
+	}
+
+	@When("User clicks on No Revision option in all tabs")
+	public void user_clicks_on_No_Revision_option() throws InterruptedException {
 		iDPAwaitingResponsePage.generalInfoNoRevision();
 		iDPAwaitingResponsePage.projectInfoNoRevision();
 		iDPAwaitingResponsePage.careerGoalNoRevision();

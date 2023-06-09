@@ -8,7 +8,6 @@ import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import appsCommon.PageInitializer;
 
 public class EIDPLoginStepImpl extends PageInitializer {
@@ -27,6 +26,7 @@ public class EIDPLoginStepImpl extends PageInitializer {
 	 */
 	public void ApplicationLogin(String username, String password,String appName) throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(appName));
+		CommonUtils.waitForVisibility(nihLoginPage.username);
 		CommonUtils.sendKeys(nihLoginPage.username, ConfUtils.getProperty(username));
 		String decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty(password));
 		CommonUtils.sendKeys(nihLoginPage.password, decyptedPass);
@@ -52,29 +52,41 @@ public class EIDPLoginStepImpl extends PageInitializer {
 			CommonUtils.clickOnElement(nihLoginPage.changeUserButton);
 			CommonUtils.clickOnElement(nihLoginPage.changeUserDropdown);
 			CommonUtils.sendKeys(nihLoginPage.searchableChangeUserInput, username);
-			MiscUtils.sleep(1000);
 			CucumberLogUtils.logScreenShot();
+			MiscUtils.sleep(3000);
 			CommonUtils.clickOnElement(nihLoginPage.changeUserOption);
+	
 	}
 
-	public void changeUserToTrainee(String username) {
-		try {
+	// public void changeUserToTrainee(String username) {
+	// 	try {
+	// 		MiscUtils.sleep(3000);
+	// 		eidpBasePage.scrollToElement(nihLoginPage.changeUserButton);
+	// 		CommonUtils.click(nihLoginPage.changeUserButton);
+	// 		CommonUtils.click(nihLoginPage.changeUserDropdown);
+	// 		Thread.sleep(1000);
+	// 		CommonUtils.sendKeys(nihLoginPage.searchableChangeUserInput, username);
+	// 		CommonUtils.waitForVisibility(nihLoginPage.changeUserOption);
+	// 		CucumberLogUtils.logScreenShot();
+	// 		CommonUtils.click(nihLoginPage.changeUserOption);
+	// 		Thread.sleep(1000);
 
-			Thread.sleep(3000);
-			eidpBasePage.scrollToElement(nihLoginPage.changeUserButton);
-			CommonUtils.click(nihLoginPage.changeUserButton);
-			CommonUtils.click(nihLoginPage.changeUserDropdown);
-			Thread.sleep(1000);
-			CommonUtils.sendKeys(nihLoginPage.searchableChangeUserInput, username);
-			Thread.sleep(3000);
-			CommonUtils.waitForVisibility(nihLoginPage.changeUserOption);
-			CucumberLogUtils.logScreenShot();
-			CommonUtils.click(nihLoginPage.changeUserOption);
-			Thread.sleep(1000);
+	// 	} catch (Exception ex) {
+	// 		System.out.println(ex.getMessage());
+	// 	}
 
-		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
+	// }
+
+	public String lastNameFirstName(String userName){
+		if (!userName.contains(",")) {
+			String[] temp = userName.split(" ");
+			if (temp.length > 2) {
+				userName = temp[1] + " " + temp[2] + "," + temp[0];
+			} else {
+				userName = temp[1] + "," + temp[0];
+			}
 		}
-
+		System.out.println("Updated name as LastName, FirstName = " + userName);
+		return userName;
 	}
 }

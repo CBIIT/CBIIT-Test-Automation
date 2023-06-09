@@ -174,6 +174,7 @@ public class CoPrimaryMentorPage extends CommonUtils {
 	}
 
 	public void clickOnReviewedButton() {
+		CommonUtils.waitForClickability(reviewedButton);
 		CommonUtils.click(reviewedButton);
 	}
 
@@ -182,12 +183,7 @@ public class CoPrimaryMentorPage extends CommonUtils {
 	}
 
 	public void clickOnApproveAndSubmitButton() {
-
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		//MiscUtils.sleep(3000);
 		CucumberLogUtils.logScreenShot("Approve and submit");
 
 		String locator = "//*[@id='tdAprroveIDP']";
@@ -201,6 +197,7 @@ public class CoPrimaryMentorPage extends CommonUtils {
 			CommonUtils.click(markAsReviewedCheckbox);
 			CommonUtils.click(approvedAndSubmitButton);
 		}
+		MiscUtils.sleep(1000);
 	}
 
 	public void clickOnApproveAndSubmitButtonFORNCI() {

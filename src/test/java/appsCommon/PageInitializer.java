@@ -103,6 +103,7 @@ import CustomBusiness.EIDP.Pages.LoginPage;
 import CustomBusiness.EIDP.Pages.ProjectRelatedDeliverablePage;
 import CustomBusiness.EIDP.Pages.SearchPage;
 import CustomBusiness.EIDP.Pages.TraineeReviewPage;
+import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
 import CustomBusiness.EIDP.StepsImplementation.AlignExpectionsStepImpl;
 import CustomBusiness.EIDP.StepsImplementation.CareerGoalAndActiveStepImpl;
 import CustomBusiness.EIDP.StepsImplementation.EIDPLoginStepImpl;
@@ -260,6 +261,7 @@ public class PageInitializer {
 	protected static DelegatePage delegatePage;
 	protected static IDPAwaitingResponsePage iDPAwaitingResponsePage;
 	protected static TraineeReviewPage traineeReviewPage;
+	protected static TraineeReviewStepsImpl traineeReviewStepImpl;
 	protected static CoPrimaryMentorPage coPrimaryMentorPage;
 	protected static CreateCRPage createCRPage;
 	protected static FlowStepsImplementation flowStepsImplementation;
@@ -389,6 +391,7 @@ public class PageInitializer {
 		delegatePage = new DelegatePage();
 		iDPAwaitingResponsePage = new IDPAwaitingResponsePage();
 		traineeReviewPage = new TraineeReviewPage();
+		traineeReviewStepImpl = new TraineeReviewStepsImpl();
 		coPrimaryMentorPage = new CoPrimaryMentorPage();
 		eidpDashboardStepImpl = new CustomBusiness.EIDP.StepsImplementation.DashboardStepImpl();
 		createCRPage = new CreateCRPage();

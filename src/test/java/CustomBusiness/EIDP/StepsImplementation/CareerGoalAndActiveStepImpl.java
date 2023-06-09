@@ -16,7 +16,7 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 	public void fillCarrerGoalActivite() throws Exception {
 		CommonUtils.waitForVisibility(careerGoalAndActivePage.saveAndContinueButton);
 		selectCareerGoal();
-		Thread.sleep(4000);
+		Thread.sleep(1000);
 		fillSkill();
 		Thread.sleep(2000);
 		CucumberLogUtils.logScreenShot("Career Goal");
@@ -60,8 +60,7 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 	}
 
 	public void selectCareerGoal() throws Exception {
-		List<WebElement> goals = WebDriverUtils.getWebDriver()
-				.findElements(By.cssSelector("[data-target^='#academic']"));
+		List<WebElement> goals = careerGoalAndActivePage.goals;
 		// Added check so that element is clicked only when the menu is collapsed
 		if (goals.get(0).getAttribute("class").contains("collapsed")) {
 			goals.get(0).click();
@@ -70,8 +69,7 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 			goals.get(0).click();
 		}
 		Thread.sleep(3000);
-		List<WebElement> goalOptions = WebDriverUtils.getWebDriver()
-				.findElements(By.cssSelector(".controls.line.ta_interestGroup.collapse.in label"));
+		List<WebElement> goalOptions = careerGoalAndActivePage.goalOptions;
 		if (goalOptions.size() == 0) {
 			WebDriverUtils.getWebDriver().findElement(By.cssSelector("[data-target='#academic24']")).click();
 			Thread.sleep(3000);
@@ -125,9 +123,9 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 		CommonUtils.click(careerGoalAndActivePage.communicationSkillButton);
 		CommonUtils.waitForVisibility(careerGoalAndActivePage.typeDropdown);
 		eidpBasePage.selectOption(careerGoalAndActivePage.typeDropdown, "Writing");
-		if (CommonUtils.isElementDisplayed(careerGoalAndActivePage.careerExplorationStatus)) {
-			CommonUtils.click(careerGoalAndActivePage.careerExplorationStatus);
-		}
+		//if (CommonUtils.isElementDisplayed(careerGoalAndActivePage.careerExplorationStatus)) {
+		//	CommonUtils.click(careerGoalAndActivePage.careerExplorationStatus);
+		//}
 		CommonUtils.sendKeys(careerGoalAndActivePage.description,
 				"Automation script writing skill set enter for testing");
 		CommonUtils.click(careerGoalAndActivePage.doneButton);

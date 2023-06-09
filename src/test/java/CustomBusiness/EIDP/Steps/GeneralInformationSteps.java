@@ -16,8 +16,8 @@ import io.cucumber.datatable.DataTable;
 public class GeneralInformationSteps extends PageInitializer {
 
 	@When("User fills mandatory fields in general information")
-	public void fillGeneralInformation() throws Exception {
-		generalInformationStepImpl.fillGeneralInformation();
+	public void fillGeneralInformation(DataTable dataTable) throws Exception {
+		generalInformationStepImpl.fillGeneralInformation(dataTable);
 		CucumberLogUtils.logScreenShot("Generarl info completed");
 	}
 

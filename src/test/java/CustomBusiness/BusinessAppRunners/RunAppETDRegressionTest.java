@@ -11,7 +11,7 @@ import cucumber.api.junit.Cucumber;
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/CustomBusiness/ETD/Features"
 		, glue="CustomBusiness.ETD.Steps"
-    	, tags="@regression"
+    	, tags="@Regression"
         , dryRun =false,
 		junit = "--step-notifications"		
 		)

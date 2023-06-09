@@ -70,7 +70,7 @@ public class SearchSteps extends PageInitializer {
 			searchStepimpl.selectClassificationType(requestData.get("Classification Type"));
 		}
 		searchStepimpl.clickOnSearchButton();
-		searchStepimpl.selectActiveTraineeNHGRI();
+		searchStepimpl.selectActiveTrainee();
 		Assert.assertTrue(searchStepimpl.isIDPFormDisplayed());
 		CucumberLogUtils.logScreenShot("owner details page");
 		searchStepimpl.selectNCITrainingOrganization(requestData.get("NCI Training Organization"));

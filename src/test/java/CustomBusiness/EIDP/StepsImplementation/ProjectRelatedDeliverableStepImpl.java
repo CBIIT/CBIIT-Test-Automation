@@ -25,7 +25,7 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer {
 				"Test reponsibilities :: analysis and understand and report");
 		enterPublication();
 		CommonUtils.click(projectRelatedDeliverablePage.saveAndContinueButton);
-		Thread.sleep(4000);
+		//Thread.sleep(4000);
 		enterClassesCoursesWorkshop();
 		CucumberLogUtils.logScreenShot("Project Deliverable");
 		CommonUtils.click(projectRelatedDeliverablePage.saveAndContinueButton);
@@ -38,11 +38,11 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer {
 
 	public void enterPublication() {
 		CommonUtils.click(projectRelatedDeliverablePage.publicationButton);
-		MiscUtils.sleep(2000);
+		//MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(projectRelatedDeliverablePage.selectTypeDropdown);
 		eidpBasePage.selectOption(projectRelatedDeliverablePage.selectTypeDropdown, "Manuscript");
 		CommonUtils.waitForVisibility(projectRelatedDeliverablePage.targetMonthStartDropdown);
-		eidpBasePage.selectOption(projectRelatedDeliverablePage.targetMonthStartDropdown, "February");
+		eidpBasePage.selectOption(projectRelatedDeliverablePage.targetMonthStartDropdown, "December");
 		eidpBasePage.selectOption(projectRelatedDeliverablePage.targetYearDropdown, "2023");
 		CommonUtils.sendKeys(projectRelatedDeliverablePage.publicationtitle, "Publication title for automation");
 		CommonUtils.sendKeys(projectRelatedDeliverablePage.publicationDescription, "Publication description");
@@ -52,14 +52,14 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer {
 
 	public void enterClassesCoursesWorkshop() {
 		eidpBasePage.waitForElementToLoad(By.id("workshopSubmission"));
-		CommonUtil.waitBrowser(2000);
-		MiscUtils.sleep(2000);
+		//CommonUtil.waitBrowser(2000);
+		//MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(projectRelatedDeliverablePage.classesCoursesWorkshopButton);
 		CommonUtils.click(projectRelatedDeliverablePage.classesCoursesWorkshopButton);
 		MiscUtils.sleep(2000);
 		CommonUtils.click(projectRelatedDeliverablePage.travelNoRadioButton);
-		CommonUtils.sendKeys(projectRelatedDeliverablePage.classesStartDate, "09/20/2020");
-		CommonUtils.sendKeys(projectRelatedDeliverablePage.classesToDate, "10/20/2020");
+		CommonUtils.sendKeys(projectRelatedDeliverablePage.classesStartDate, "05/20/2023");
+		CommonUtils.sendKeys(projectRelatedDeliverablePage.classesToDate, "10/20/2023");
 		CommonUtils.click(projectRelatedDeliverablePage.classRoomLocation);
 		CommonUtils.sendKeys(projectRelatedDeliverablePage.classRoomLocation, "New york");
 		CommonUtils.sendKeys(projectRelatedDeliverablePage.classroomtitle, "Sample class");
