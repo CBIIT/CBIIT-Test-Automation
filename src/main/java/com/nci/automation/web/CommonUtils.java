@@ -691,13 +691,4 @@ public class CommonUtils extends WebDriverUtils {
     public static String getAttributeValueOfValueAttribute(WebElement element) {
         return element.getAttribute("value");
     }
-
-    /***
-     * USE THIS METHOD TO GET THE TEXT OF A DROPDOWN VALUE
-     * @param dropDownElementText
-     * @return
-     */
-    public static String getTextOfDropDownElement(WebElement dropDownElementText){
-        return dropDownElementText.getText();
-    }
 }

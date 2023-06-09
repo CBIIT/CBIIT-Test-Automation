@@ -49,6 +49,22 @@ public class ParticipantDetailsPage {
     /* BIOLOGICAL GENDER DROPDOWN MALE OPTION */
     @FindBy(xpath = "//select[@aria-labelledby='label.x_naci_family_coho_family_history_details.biological_gender']/option[3]")
     public WebElement biologicalGenderMaleDropDownOption;
+
+    /* IS PARTICIPANT ADOPTED NO OPTION */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_family_history_details.adopted']/option[2]")
+    public WebElement isParticipantAdoptedNoOption;
+
+    /* PARTICIPANT RACE PREFER NOT TO ANSWER OPTION */
+    @FindBy(xpath = "//p[contains(text(),'Prefer not to answer')]")
+    public WebElement participantRacePreferNotToAnswerOption;
+
+    /* NOT HISPANIC/LATINO ETHNICITY DROP DOWN OPTION*/
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_family_history_details.ethnicity']/option[3]")
+    public WebElement notHispanicLatinoEthnicityDropDownOption;
+
+    /* CONTACT INFO TAB */
+    @FindBy(xpath = "//span[contains(text(),'Contact Info')]")
+    public WebElement contactInfoTab;
     public ParticipantDetailsPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

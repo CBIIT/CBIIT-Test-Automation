@@ -53,11 +53,15 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.nameTextBox), testDataManager.firstName + rasScreenerConstants.space + testDataManager.lastName, "-- VERIFYING FULL NAME --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.firstNameTextBox), testDataManager.firstName, "-- VERIFYING FIRST NAME --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.middleInitialTextBox), testDataManager.middleInitial, "-- VERIFYING MIDDLE INITIAL --");
-        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.lastNameTextBox), testDataManager.lastName, "-- VERIFYING LAST NAME");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.lastNameTextBox), testDataManager.lastName, "-- VERIFYING LAST NAME --");
         CommonUtils.clickOnElement(participantDetailsPage.demographicsTab);
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.dateOfBirthTextBox), testDataManager.whatIsYourDateOfBirth, "-- VERIFYING DATE OF BIRTH --");
+        rasScreenerStepsImpl.verifyingDropDownOption(participantDetailsPage.biologicalGenderMaleDropDownOption, "-- VERIFYING BIOLOGICAL GENDER --");
+        rasScreenerStepsImpl.verifyingDropDownOption(participantDetailsPage.isParticipantAdoptedNoOption, "-- VERIFYING IF THE PARTICIPANT IS ADOPTED --");
+        CommonUtils.assertEqualsWithMessage(participantDetailsPage.participantRacePreferNotToAnswerOption.getText(), testDataManager.whatIsYourRace, "-- VERIFYING RACE --");
+        rasScreenerStepsImpl.verifyingDropDownOption(participantDetailsPage.notHispanicLatinoEthnicityDropDownOption, "-- VERIFYING ETHNICITY --");
+        CommonUtils.clickOnElement(participantDetailsPage.contactInfoTab);
 
-        CommonUtils.assertEqualsWithMessage(CommonUtils.getTextOfDropDownElement(participantDetailsPage.biologicalGenderMaleDropDownOption), testDataManager.sexAssignedAtBirthOption, "-- VERIFYING BIOLOGICAL GENDER --");
     }
 
     @Given("a proxy is on the RASopathies Longitudinal Cohort Study login page")
