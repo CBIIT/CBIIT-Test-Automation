@@ -25,7 +25,6 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer {
 				"Test reponsibilities :: analysis and understand and report");
 		enterPublication();
 		CommonUtils.click(projectRelatedDeliverablePage.saveAndContinueButton);
-		//Thread.sleep(4000);
 		enterClassesCoursesWorkshop();
 		CucumberLogUtils.logScreenShot("Project Deliverable");
 		CommonUtils.click(projectRelatedDeliverablePage.saveAndContinueButton);
@@ -38,7 +37,6 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer {
 
 	public void enterPublication() {
 		CommonUtils.click(projectRelatedDeliverablePage.publicationButton);
-		//MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(projectRelatedDeliverablePage.selectTypeDropdown);
 		eidpBasePage.selectOption(projectRelatedDeliverablePage.selectTypeDropdown, "Manuscript");
 		CommonUtils.waitForVisibility(projectRelatedDeliverablePage.targetMonthStartDropdown);
@@ -52,8 +50,6 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer {
 
 	public void enterClassesCoursesWorkshop() {
 		eidpBasePage.waitForElementToLoad(By.id("workshopSubmission"));
-		//CommonUtil.waitBrowser(2000);
-		//MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(projectRelatedDeliverablePage.classesCoursesWorkshopButton);
 		CommonUtils.click(projectRelatedDeliverablePage.classesCoursesWorkshopButton);
 		MiscUtils.sleep(2000);
