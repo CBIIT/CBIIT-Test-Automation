@@ -1,6 +1,5 @@
 package ServiceNow.CHARMS.Steps;
 
-
 import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;

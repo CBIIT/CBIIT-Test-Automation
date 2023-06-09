@@ -3,7 +3,6 @@ package ServiceNow.SEER.Pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
@@ -30,10 +29,8 @@ public class SEERDataAccessRequestPage extends CommonUtils {
 	/** SEER Data Access Request:Database Type Read Only Text Box */
 	@FindBy (xpath = "//select[@id = 'dataset_pick']")
 	public WebElement seerDataAccessDatabaseTypeReadOnlyTextBox;
-	
-	/**
-	 * SEER Data Access Request: What is your general purpose using the data? text
-	 */
+
+	 /** SEER Data Access Request: What is your general purpose using the data? text */
 	@FindBy(xpath = "//label[text()='What is your general purpose for using the data?']")
 	public WebElement seerDataAccessRequestWhatIsYourGeneralPurposeUsingTheDataText;
 	
@@ -60,7 +57,39 @@ public class SEERDataAccessRequestPage extends CommonUtils {
 	/** SEER Data Access Request: Treatment Data Limitations Agreement */
 	@FindBy (xpath = "//div[@id = 'treatment_data_limitations_agreement']")
 	public WebElement seerDataAccessTreatmentDataLimitationsAgreement;
-	
+
+	/** SEER Data Access Request: SEER Acknowledgment of Treatment Data Limitations Heading */
+	@FindBy (xpath = "//strong[normalize-space()='SEER Acknowledgment of Treatment Data Limitations']")
+	public WebElement seerAcknowledgmentOfTreatmentDataLimitationsHeading;
+
+	/** SEER Data Access Request: SEER Acknowledgment of Treatment Data Limitations Body */
+	@FindBy (xpath = "//*[@id=\"treatment_data_limitations_agreement\"]/p[3]")
+	public WebElement seerAcknowledgmentOfTreatmentDataLimitationsBody;
+
+	/** SEER Data Access Request: SEER Research Data Use Agreement Heading */
+	@FindBy (xpath = "//*[@id=\'data_use_agreement\']/p[1]/strong")
+	public WebElement seerResearchDataUseAgreementHeading;
+
+	/** SEER Data Access Request: SEER Research Data Use Agreement Body */
+	@FindBy (xpath = "//*[@id=\'data_use_agreement\']/p[2]")
+	public WebElement seerResearchDataUseAgreementBody;
+
+	/** SEER Data Access Request: Best Practices Assurance for Securing NCI-supported Registry Data Heading */
+	@FindBy (xpath = "//span[contains(text(),'Best Practices Assurance for Securing NCI-supporte')]")
+	public WebElement seerBestPracticesAssuranceForSecuringNCISupportedRegistryDataHeading;
+
+	/** SEER Data Access Request: Best Practices Assurance for Securing NCI-supported Registry Data Body */
+	@FindBy (xpath = "//p[contains(text(),'This document is intended to provide guidance for ')]")
+	public WebElement seerBestPracticesAssuranceForSecuringNCISupportedRegistryDataBody;
+
+	/** SEER Data Access Request: National Childhood Cancer Registry (NCCR) Research Data Use Agreement Heading */
+	@FindBy (xpath = "//strong[contains(text(),'National Childhood Cancer Registry (NCCR) Research')]")
+	public WebElement seerNationalChildhoodCancerRegistryNCCRResearchDataUseAgreementHeading;
+
+	/** SEER Data Access Request: National Childhood Cancer Registry (NCCR) Research Data Use Agreement Body */
+	@FindBy (xpath = "//*[@id=\'nccr_data_use_agreement\']/p[2]")
+	public WebElement seerNationalChildhoodCancerRegistryNCCRResearchDataUseAgreementBody;
+
 	/** SEER Data Access Request: Treatment Usage Explanation Text Box */
 	@FindBy (xpath = "//textarea[@ng-model = 'data.access.treatment_usage_explanation']")
 	public WebElement seerDataAccessTreatmentUsageExplanationTextBox;
@@ -112,6 +141,10 @@ public class SEERDataAccessRequestPage extends CommonUtils {
 	/** SEER Data Access Request: Best Practice Assurance Initials */
 	@FindBy (xpath = "//input[@ng-model = 'data.access.cuba_initials']")
 	public WebElement seerDataAccessBestPracticeAssuranceInitials;
+
+	/** SEER Data Access Request: NCCR Research Data Use Agreement Text */
+	@FindBy (xpath = "//*[@id=\'nccr_data_use_agreement\']")
+	public WebElement seerDataAccessNCCRReasearchDataUseAgreementText;
 	
 	/** SEER Data Access Request: Submit Button */
 	@FindBy (xpath = "//button[text() = 'Submit']")
@@ -135,7 +168,6 @@ public class SEERDataAccessRequestPage extends CommonUtils {
 
 	
 	/** ------------ END OF SEER DATA ACCESS REQUEST PAGE -----------*/
-	
 	
 	public SEERDataAccessRequestPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);

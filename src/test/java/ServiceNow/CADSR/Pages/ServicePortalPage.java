@@ -335,21 +335,11 @@ public class ServicePortalPage extends BasePage {
 	}
 
 	public void openApp() {
-		try {
-			Thread.sleep(3000);
 			driver.get(EnvUtils.getApplicationUrl("cadsrTestUrl"));
-		} catch (TestingException | InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 
 	public void openHomePage() {
-		try {
-			Thread.sleep(3000);
 			driver.get(EnvUtils.getApplicationUrl("cadsrUrl"));
-		} catch (TestingException | InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 
 	public void startANewRequest() {
