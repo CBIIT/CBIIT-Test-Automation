@@ -65,6 +65,43 @@ public class ParticipantDetailsPage {
     /* CONTACT INFO TAB */
     @FindBy(xpath = "//span[contains(text(),'Contact Info')]")
     public WebElement contactInfoTab;
+
+    /* CONTACT STREET ADDRESS */
+    @FindBy(xpath = "//input[@aria-label='Contact Street Address']")
+    public WebElement contactStreetAddress;
+
+    /* CONTACT STATE */
+    @FindBy(xpath = "//input[@aria-label='Contact State']")
+    public WebElement contactState;
+
+    /* CONTACT CITY */
+    @FindBy(xpath = "//input[@aria-label='Contact City']")
+    public WebElement contactCity;
+
+    /* CONTACT ZIP CODE */
+    @FindBy(xpath = "//input[@aria-label='Contact Zip Code']")
+    public WebElement contactZipCode;
+
+    /* CONTACT EMAIL */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_family_history_details.email_address']")
+    public WebElement contactEmailAddress;
+
+    /* CONTACT HOME PHONE */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_family_history_details.phone']")
+    public WebElement contactHomePhone;
+
+    /* CONTACT CELL PHONE */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_family_history_details.cell_phone']")
+    public WebElement contactCellPhone;
+
+    /* CONTACT WORK PHONE */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_family_history_details.work_phone']")
+    public WebElement contactWorkPhone;
+
+    /* CONTACT PREFERRED PHONE */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_family_history_details.preferred_phone']")
+    public WebElement contactPreferredPhone;
+
     public ParticipantDetailsPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

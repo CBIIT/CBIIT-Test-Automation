@@ -61,6 +61,17 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(participantDetailsPage.participantRacePreferNotToAnswerOption.getText(), testDataManager.whatIsYourRace, "-- VERIFYING RACE --");
         rasScreenerStepsImpl.verifyingDropDownOption(participantDetailsPage.notHispanicLatinoEthnicityDropDownOption, "-- VERIFYING ETHNICITY --");
         CommonUtils.clickOnElement(participantDetailsPage.contactInfoTab);
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactStreetAddress), testDataManager.street + rasScreenerConstants.space + testDataManager.street2, "-- VERIFYING CONTACT STREET ADDRESS --");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactState), testDataManager.state, "-- VERIFYING CONTACT STATE --");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactCity), testDataManager.city, "- VERIFYING CONTACT CITY --");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactZipCode), testDataManager.zipcode, "-- VERIFYING ZIP CODE --");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactEmailAddress), testDataManager.emailAddress, "-- VERIFYING CONTACT EMAIL ADDRESS --");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactHomePhone), testDataManager.homePhoneNumber, "-- VERIFYING CONTACT HOME PHONE --");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactCellPhone), testDataManager.cellPhoneNumber, "-- VERIFYING CONTACT CELL PHONE --");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactWorkPhone), testDataManager.workPhoneNumber, "-- VERIFYING CONTACT WORK PHONE --");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactPreferredPhone), testDataManager.cellPhoneNumber, "-- VERIFYING PREFERRED PHONE --");
+
+
 
     }
 
