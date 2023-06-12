@@ -47,12 +47,8 @@ public class CoPrimaryMentorSteps extends PageInitializer {
 
 	@When("User clicks on REVIEWED button then approves and submit")
 	public void clickOnReviewedButtonApproveAndSubmit() {
-		try {
 			coPrimaryMentorPage.markAsReviewed();
 			coPrimaryMentorPage.clickOnApproveAndSubmitButton();
-		} catch (Exception e) {
-
-		}
 	}
 
 	@When("User clicks on Marks as REVIEWED button on LBO page")
@@ -67,11 +63,7 @@ public class CoPrimaryMentorSteps extends PageInitializer {
 
 	@When("User clicks on APPROVE AND SUBMIT button")
 	public void clickOnApproveAndSubmitButton() {
-		try {
 			coPrimaryMentorPage.clickOnApproveAndSubmitButton();
-		} catch (Exception e) {
-
-		}
 	}
 
 	@When("User clicks on APPROVE AND SUBMIT button for nci")
