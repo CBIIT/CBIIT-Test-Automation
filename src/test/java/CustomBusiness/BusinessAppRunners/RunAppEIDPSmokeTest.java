@@ -11,8 +11,9 @@ import cucumber.api.junit.Cucumber;
 		, features="src/test/java/CustomBusiness/EIDP/Features"
 		, glue="CustomBusiness.EIDP.Steps"
 		, tags="@Smoke "
-		, dryRun = false,
-		junit = "--step-notifications")
+		, dryRun = false
+		, monochrome = true
+		, strict = true)
 public class RunAppEIDPSmokeTest {
 
 }
