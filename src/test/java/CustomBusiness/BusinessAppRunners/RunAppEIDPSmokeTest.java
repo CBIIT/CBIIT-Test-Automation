@@ -13,6 +13,6 @@ import cucumber.api.junit.Cucumber;
 		, tags="@Smoke "
 		, dryRun = false,
 		junit = "--step-notifications")
-public class RunAppEIDPSanityTest {
+public class RunAppEIDPSmokeTest {
 
 }
