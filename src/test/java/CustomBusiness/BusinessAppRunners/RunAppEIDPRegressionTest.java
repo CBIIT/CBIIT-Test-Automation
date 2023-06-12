@@ -10,9 +10,10 @@ import cucumber.api.junit.Cucumber;
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/CustomBusiness/EIDP/Features"
 		, glue="CustomBusiness.EIDP.Steps"
-		, tags="@tz"
-		, dryRun = false,
-		junit = "--step-notifications")
+		, tags = "@Regression"
+		, dryRun = false
+		, monochrome = true
+		, strict = true)
 public class RunAppEIDPRegressionTest {
 
 }

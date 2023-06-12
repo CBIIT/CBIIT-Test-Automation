@@ -11,9 +11,10 @@ import cucumber.api.junit.Cucumber;
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/CustomBusiness/ETD/Features"
 		, glue="CustomBusiness.ETD.Steps"
-    	, tags="@Progression"
-        , dryRun =false,
-		junit = "--step-notifications"		
+		, tags = "@Progression"
+		, dryRun = false
+		, monochrome = true
+		, strict = true		
 		)
 	
 public class RunAppETDProgressionTest { 

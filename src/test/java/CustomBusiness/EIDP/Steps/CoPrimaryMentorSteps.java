@@ -43,7 +43,6 @@ public class CoPrimaryMentorSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		coPrimaryMentorPage.clickOnReviewedButton();
 		MiscUtils.sleep(2000);
-		//eidpCommonPage.waitForGoBackToHomeQueueButtonVisible();
 	}
 
 	@When("User clicks on REVIEWED button then approves and submit")
