@@ -67,7 +67,6 @@ public class SearchPage extends CommonUtils {
 	public WebElement nciCurrentIDPStatus;
 
 	@FindBy(id = "initiate-trainee")
-
 	public WebElement traineeName;
 
 	@FindBy(className = "bootbox-body")
@@ -138,6 +137,18 @@ public class SearchPage extends CommonUtils {
 
 	@FindBy(xpath = "//*[@id='trainees_without_idp_div']")
 	public WebElement traineeWithoutIDPCHeckBox;
+
+	@FindBy(xpath = "//span/input[@class='select2-search__field']")
+	public WebElement searchBoxInput;
+
+	@FindBy(xpath = "//SELECT[@name='advanced_search_results_length']")
+	public WebElement advancedSearchResultLength;
+
+	@FindBy(id = "advanced_search_results")
+	public WebElement advancedSearchResults;
+
+
+	
 
 	/***
 	 * USE THIS METHOD TO DYNAMICALLY SELECT CLASSIFICATION TYPE

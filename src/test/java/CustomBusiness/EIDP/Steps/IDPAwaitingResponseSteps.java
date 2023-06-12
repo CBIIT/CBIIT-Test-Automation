@@ -4,7 +4,6 @@ import java.util.Map;
 import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
-
 import CustomBusiness.EIDP.Util.CommonUtil;
 import CustomBusiness.EIDP.Util.SharedData;
 import appsCommon.PageInitializer;
@@ -32,7 +31,6 @@ public class IDPAwaitingResponseSteps extends PageInitializer {
 		changeUserToTrainnee();
 		Thread.sleep(4000);
 		eidpDashboardStepImpl.clickOnStartIDPButton();
-		//generalInformationStepImpl.fillGeneralInformation();
 		projectRelatedDeliverableStepImpl.fillProjectDeliverableData();
 		careerGoalAndActiveStepImpl.fillCarrerGoalActivite();
 		aligningExpectationsStepImpl.fillAligningExpectations();

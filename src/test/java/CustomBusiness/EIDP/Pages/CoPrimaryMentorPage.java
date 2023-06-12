@@ -53,6 +53,12 @@ public class CoPrimaryMentorPage extends CommonUtils {
 	@FindBy(id = "returnToPMComments")
 	private WebElement primaryMentorComments;
 
+	@FindBy(xpath =  "//div[4]/form/ul/li[2]/a")
+	private WebElement returnToPM;
+
+	@FindBy(xpath =  "//button[@onclick = 'form_submit_returnToPM()']")
+	private WebElement returnToPMonPopUpWindow;
+
 	public CoPrimaryMentorPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
@@ -183,9 +189,7 @@ public class CoPrimaryMentorPage extends CommonUtils {
 	}
 
 	public void clickOnApproveAndSubmitButton() {
-		//MiscUtils.sleep(3000);
 		CucumberLogUtils.logScreenShot("Approve and submit");
-
 		String locator = "//*[@id='tdAprroveIDP']";
 		if (WebDriverUtils.getWebDriver().findElements(By.xpath(locator)).size() > 0) {
 			CommonUtils.click(approvedAndSubmitButton);
@@ -257,12 +261,10 @@ public class CoPrimaryMentorPage extends CommonUtils {
 		try {
 			if (markAsReviewedCheckbox.isDisplayed())
 				CommonUtils.click(markAsReviewedCheckbox);
-			List<WebElement> buttonEles = WebDriverUtils.getWebDriver()
-					.findElements(By.cssSelector(".pager.wizard #tdReturnToPM"));
-			CommonUtils.click(buttonEles.get(buttonEles.size() - 1));
+			CommonUtils.click(returnToPM);
+			CommonUtils.waitForVisibility(primaryMentorComments);
 			CommonUtils.sendKeys(primaryMentorComments, "Return to primary mentor flow");
-			CommonUtils.click(
-					WebDriverUtils.getWebDriver().findElement(By.cssSelector("[onclick='form_submit_returnToPM()']")));
+			CommonUtils.click(returnToPMonPopUpWindow);
 		} catch (Exception e) {
 
 		}

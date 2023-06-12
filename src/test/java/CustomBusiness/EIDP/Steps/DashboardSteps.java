@@ -191,7 +191,6 @@ public class DashboardSteps extends PageInitializer {
 	@When("User clicks on Decline IDP button")
 	public void clickOnDeclineIDPButton() throws Exception {
 		generalInformationStepImpl.clickOnGeneralInformationTab();
-		//SharedData.traineeName = generalInformationStepImpl.getTraineeName();
 		generalInformationStepImpl.clickOnDeclineIDPButton();
 		eidpCommonPage.clickOnOkButton();
 	}

@@ -123,9 +123,6 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 		CommonUtils.click(careerGoalAndActivePage.communicationSkillButton);
 		CommonUtils.waitForVisibility(careerGoalAndActivePage.typeDropdown);
 		eidpBasePage.selectOption(careerGoalAndActivePage.typeDropdown, "Writing");
-		//if (CommonUtils.isElementDisplayed(careerGoalAndActivePage.careerExplorationStatus)) {
-		//	CommonUtils.click(careerGoalAndActivePage.careerExplorationStatus);
-		//}
 		CommonUtils.sendKeys(careerGoalAndActivePage.description,
 				"Automation script writing skill set enter for testing");
 		CommonUtils.click(careerGoalAndActivePage.doneButton);
@@ -151,11 +148,9 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 	}
 
 	public void editCareerTrainingActivites() {
-//		waitForElementToLoad(By.id("maincontent"));
 		CommonUtil.waitBrowser(2000);
 		List<WebElement> editIcons = WebDriverUtils.getWebDriver().findElements(By.cssSelector("[title='Edit']"));
 		for (int i = 0; i < editIcons.size(); i++) {
-//			waitForElementToLoad(By.cssSelector("[title='Edit']"));
 			CommonUtils.click(editIcons.get(i));
 			CommonUtil.waitBrowser(3000);
 			List<WebElement> careerStatus = WebDriverUtils.getWebDriver().findElements(By.xpath(
@@ -164,10 +159,6 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 			CommonUtils.click(careerStatus.get(careerStatus.size() - 1).findElement(By.tagName("label")));
 			CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.id("addMore")));
 			CommonUtil.waitBrowser(2000);
-			// String modalName =
-			// WebDriverUtils.getWebDriver().findElement(By.cssSelector(".modal.fade.modal-lg.in
-			// .modal-title")).getText();
-			// editProjectRelatedTrainning(modalName);
 		}
 		CommonUtils.click(careerGoalAndActivePage.saveAndContinueButton);
 		CommonUtil.waitBrowser(5000);
@@ -181,25 +172,17 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 			editIcons.get(i).click();
 			CommonUtils.click(
 					WebDriverUtils.getWebDriver().findElements(By.cssSelector(".modal-lg.in label.radio")).get(2));
-			// WebDriverUtils.getWebDriver().findElements(By.cssSelector(".modal-lg.in
-			// label.radio")).get(2).click();
-			// doneButton.click();
 			MiscUtils.sleep(3000);
 			try{editIcons.get(0).click();}catch(Exception e) {
 				
 			}
 			CommonUtils.click(
 					WebDriverUtils.getWebDriver().findElements(By.cssSelector(".modal-lg.in label.radio")).get(2));
-			// WebDriverUtils.getWebDriver().findElements(By.cssSelector(".modal-lg.in
-			// label.radio")).get(2).click();
-			// doneButton.click();
 			CommonUtils.click(WebDriverUtils.getWebDriver().findElement(
 					By.xpath("//*[contains(@class, 'modal-lg')][contains(@class, 'in')]//*[text()='Done']")));
-			// WebDriverUtils.getWebDriver().findElement(By.xpath("//*[contains(@class,
-			// 'modal-lg')][contains(@class, 'in')]//*[text()='Done']")).click();
+
 		}
 		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.id("careerGoalsSubmitSave")));
-		// WebDriverUtils.getWebDriver().findElement(By.id("careerGoalsSubmitSave")).click();
 		CommonUtil.waitBrowser(4000);
 	}
 
