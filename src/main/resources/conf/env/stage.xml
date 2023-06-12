@@ -3,7 +3,6 @@
 	<!-- Below application ID's are for STAGE environments -->
 
 	<profile-name>automation</profile-name>
-	<application>
 	<!-- Application ID for covid19dashboard -->
 	<application id="covid19dashboard">
 
@@ -191,7 +190,6 @@
 				<password></password> <!-- Add db password -->
 			</default>
 		</db>
-	</application>
 	</application>
 	<!-- Application ID for EIDP -->
 	<application id="EidpUrlNHGRI">
