@@ -65,14 +65,19 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactState), testDataManager.state, "-- VERIFYING CONTACT STATE --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactCity), testDataManager.city, "- VERIFYING CONTACT CITY --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactZipCode), testDataManager.zipcode, "-- VERIFYING ZIP CODE --");
+        rasScreenerStepsImpl.verifyingDropDownOption(participantDetailsPage.contactCountry, "-- VERIFYING CONTACT COUNTRY --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactEmailAddress), testDataManager.emailAddress, "-- VERIFYING CONTACT EMAIL ADDRESS --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactHomePhone), testDataManager.homePhoneNumber, "-- VERIFYING CONTACT HOME PHONE --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactCellPhone), testDataManager.cellPhoneNumber, "-- VERIFYING CONTACT CELL PHONE --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactWorkPhone), testDataManager.workPhoneNumber, "-- VERIFYING CONTACT WORK PHONE --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactPreferredPhone), testDataManager.cellPhoneNumber, "-- VERIFYING PREFERRED PHONE --");
-
-
-
+        CommonUtils.clickOnElement(participantDetailsPage.medicalInformationTab);
+        rasScreenerStepsImpl.verifyingDropDownOption(participantDetailsPage.hasAPhysicianEverDiagnosedThisParticipantWithCancerNoOption, "-- VERIFYING IF PARTICIPANT HAS BEEN DIAGNOSED WITH CANCER");
+        rasScreenerStepsImpl.verifyingDropDownOption(participantDetailsPage.vitalStatusYesDropDownOption, "-- VERIFYING VITAL STATUS --");
+        rasScreenerStepsImpl.verifyingDropDownOption(participantDetailsPage.hasTheParticipantEverHadGeneticTesting, "-- VERIFYING IF THE PARTICIPANT HAS HAD GENETIC TESTING --");
+        CommonUtils.clickOnElement(participantDetailsPage.rasopathyHistoryTab);
+        rasScreenerStepsImpl.verifyingDropDownOption(participantDetailsPage.haveYouBeenDiagnosedWithARasopathy, "-- VERIFYING IF PARTICIPANT HAS BEEN DIAGNOSED WITH A RASOPATHY --");
+        rasScreenerStepsImpl.verifyingDropDownOption(participantDetailsPage.haveAnyOfYourBiologicalRelativesBeenDiagnosedWithARasopathyNoInfoOption, "-- VERIFYING IF BIOLOGICAL RELATIVES HAVE BEEN DIAGNOSED WITH A RASOPATHY --");
     }
 
     @Given("a proxy is on the RASopathies Longitudinal Cohort Study login page")

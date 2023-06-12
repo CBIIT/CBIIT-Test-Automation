@@ -38,6 +38,10 @@ public class ParticipantDetailsPage {
     @FindBy(xpath = "//input[@aria-label='Last Name']")
     public WebElement lastNameTextBox;
 
+    /**
+     * DEMOGRAPHICS SECTION
+     */
+
     /* DEMOGRAPHICS TAB */
     @FindBy(xpath = "//span[contains(text(),'Demographics')]")
     public WebElement demographicsTab;
@@ -62,6 +66,9 @@ public class ParticipantDetailsPage {
     @FindBy(xpath = "//select[@id='x_naci_family_coho_family_history_details.ethnicity']/option[3]")
     public WebElement notHispanicLatinoEthnicityDropDownOption;
 
+    /**
+     * CONTACT INFORMATION SECTION
+     */
     /* CONTACT INFO TAB */
     @FindBy(xpath = "//span[contains(text(),'Contact Info')]")
     public WebElement contactInfoTab;
@@ -81,6 +88,10 @@ public class ParticipantDetailsPage {
     /* CONTACT ZIP CODE */
     @FindBy(xpath = "//input[@aria-label='Contact Zip Code']")
     public WebElement contactZipCode;
+
+    /* CONTACT COUNTRY */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_family_history_details.country']")
+    public WebElement contactCountry;
 
     /* CONTACT EMAIL */
     @FindBy(xpath = "//input[@id='x_naci_family_coho_family_history_details.email_address']")
@@ -102,6 +113,40 @@ public class ParticipantDetailsPage {
     @FindBy(xpath = "//input[@id='x_naci_family_coho_family_history_details.preferred_phone']")
     public WebElement contactPreferredPhone;
 
+    /***
+     * MEDICAL INFORMATION SECTION
+     */
+    /* MEDICAL INFORMATION TAB */
+    @FindBy(xpath = "//span[contains(text(),'Medical Information')]")
+    public WebElement medicalInformationTab;
+
+    /* HAS A PHYSICIAN EVER DIAGNOSED THIS PARTICIPANT WITH CANCER? NO OPTION*/
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_family_history_details.has_cancer']/option[4]")
+    public WebElement hasAPhysicianEverDiagnosedThisParticipantWithCancerNoOption;
+
+    /* VITAL STATUS YES DROP DOWN OPTION */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_family_history_details.person_alive']/option[2]")
+    public WebElement vitalStatusYesDropDownOption;
+
+    /* HAS THE PARTICIPANT EVER HAD GENETIC TESTING? */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_family_history_details.genetic_testing']/option[4]")
+    public WebElement hasTheParticipantEverHadGeneticTesting;
+
+    /***
+     * RASOPATHY HISTORY SECTION
+     */
+
+    /* RASOPATHY HISTORY TAB*/
+    @FindBy(xpath = "//span[contains(text(),'RASopathy History')]")
+    public WebElement rasopathyHistoryTab;
+
+    /* HAVE YOU BEEN DIAGNOSED WITH A RASOPATHY? */
+    @FindBy(xpath = "//select[@id='sys_readonly.x_naci_family_coho_family_history_details.ras_screenerras_screener_reference.rasopathy_diagnosis']/option[4]")
+    public WebElement haveYouBeenDiagnosedWithARasopathy;
+
+    /* HAVE ANY OF YOUR BIOLOGICAL RELATIVES BEEN DIAGNOSED WITH A RASOPATHY? NO INFO ON BIOLOGICAL RELATIVES OPTION */
+    @FindBy(xpath = "//select[@id='sys_readonly.x_naci_family_coho_family_history_details.ras_screenerras_screener_reference.realtives_rasopathy_diagnosis']/option[4]")
+    public WebElement haveAnyOfYourBiologicalRelativesBeenDiagnosedWithARasopathyNoInfoOption;
     public ParticipantDetailsPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

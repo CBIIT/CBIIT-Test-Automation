@@ -167,6 +167,8 @@ public class PageInitializer {
     public static TestDataManager testDataManager;
     public static ParticipantDetailsPage participantDetailsPage;
 
+    public static ReferralTablePage referralTablePage;
+
     /**
      * LDLink instances
      **/
