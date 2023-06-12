@@ -10,7 +10,7 @@ import cucumber.api.junit.Cucumber;
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/CustomBusiness/EIDP/Features"
 		, glue="CustomBusiness.EIDP.Steps"
-		, tags="@Smoke "
+		, tags="@Smoke"
 		, dryRun = false
 		, monochrome = true
 		, strict = true)
