@@ -78,6 +78,9 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         CommonUtils.clickOnElement(participantDetailsPage.rasopathyHistoryTab);
         rasScreenerStepsImpl.verifyingDropDownOption(participantDetailsPage.haveYouBeenDiagnosedWithARasopathy, "-- VERIFYING IF PARTICIPANT HAS BEEN DIAGNOSED WITH A RASOPATHY --");
         rasScreenerStepsImpl.verifyingDropDownOption(participantDetailsPage.haveAnyOfYourBiologicalRelativesBeenDiagnosedWithARasopathyNoInfoOption, "-- VERIFYING IF BIOLOGICAL RELATIVES HAVE BEEN DIAGNOSED WITH A RASOPATHY --");
+
+        CommonUtils.clickOnElement(referralTablePage.referralPreviewButton);
+        CommonUtils.clickOnElement(referralTablePage.openRecordButton);
     }
 
     @Given("a proxy is on the RASopathies Longitudinal Cohort Study login page")
