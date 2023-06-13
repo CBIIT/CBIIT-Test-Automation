@@ -36,6 +36,10 @@ src/.DS_Store
 src/test/.DS_Store
 src/test/java/.DS_Store
 src/test/java/ServiceNow/.DS_Store
+src/test/java/ServiceNow/CHARMS/.DS_Store
+src/test/java/ServiceNow/COVIDDash/.DS_Store
 CBIIT-Test-Automation.iml
 src/test/java/ServiceNow/SEER/Steps/TestMisc.java
+src/main/java/com/nci/automation/dao/PasswordEncrypter.java
+src/main/.DS_Store
 

@@ -20,6 +20,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 public class FHQRegressionSteps extends PageInitializer {
 
+
     private ArrayList<StepTestResult> scenarioReportList = new ArrayList<StepTestResult>();
 
     @Then("clicks the home button")

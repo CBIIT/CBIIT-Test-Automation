@@ -670,6 +670,7 @@ public class CommonUtils extends WebDriverUtils {
         }
     }
 
+
     public static boolean isFileDownloaded(String fileName) {
         boolean temp = false;
         Path path = Paths.get(System.getProperty("user.dir") + "/" + fileName + "*" + "xlsx");
@@ -691,4 +692,5 @@ public class CommonUtils extends WebDriverUtils {
             System.out.println("File is deleted");
         }
     }
+
 }

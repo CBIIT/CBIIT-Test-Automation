@@ -8,6 +8,7 @@ import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
 public class SEERDataRejectionSteps extends PageInitializer {
 
     @Given("an authenticated ODS SEER Data user with an eRA Commons account is on the SEER Data Access landing page")

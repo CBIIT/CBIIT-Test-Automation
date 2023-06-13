@@ -31,7 +31,8 @@ Feature: SEER User Registration Scenarios
       SEER is supported by the Surveillance Research Program (SRP) in NCI's Division of Cancer Control and Population Sciences (DCCPS). SRP provides national leadership in the science of cancer surveillance as well as analytical tools and methodological expertise in collecting, analyzing, interpreting, and disseminating reliable population-based statistics.
       """
 
-  @ODS-285 @ODS-342_357 @bucurgb @Regression @Smoke
+
+  @ODS-285 @bucurgb @Regression @Smoke
   Scenario: Verifying 'SEER Incidence Database' bread crumb directs user to https://seer.cancer.gov/data/
     Given a user is on the SEER Data Access landing page
     Then the 'SEER Incidence Database' bread crumb displays

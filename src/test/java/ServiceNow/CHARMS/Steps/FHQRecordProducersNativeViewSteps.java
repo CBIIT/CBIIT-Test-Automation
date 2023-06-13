@@ -2,8 +2,6 @@ package ServiceNow.CHARMS.Steps;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
-
-import io.cucumber.java.en.And;
 import org.openqa.selenium.By;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -18,6 +16,7 @@ import appsCommon.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.en.And;
 
 public class FHQRecordProducersNativeViewSteps extends PageInitializer {
 
