@@ -207,4 +207,12 @@ public class SEERDataAccessRequest_Constants {
             "\n" +
             "United States Government Configuration Baseline (USGCB)\n" +
             "USGCB (http://usgcb.nist.gov) provides security configuration baselines for information technology products widely used across the federal government including desktop computers.";
+
+    /** --------------- MISC ACCESS REQUEST CONSTANTS--------------- */
+
+    /* SEER INCIDENT DATA VERIFY EMAIL ADDRESS TEXT */
+    public static final String SEER_INCIDENT_DATA_VERIFY_EMAIL_ADDRESS_TEXT  = "SEER Incidence Data: Verify your email address";
+
+    /* SEER WHAT IS THE GENERAL PURPOSE FOR USING THE DATA TEXT */
+    public static final String WHAT_IS_THE_GENERAL_PURPOSE_TEXT  = "What is your general purpose for using the data?";
 }

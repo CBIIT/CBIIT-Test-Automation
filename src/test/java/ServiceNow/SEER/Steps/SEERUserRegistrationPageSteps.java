@@ -2,16 +2,11 @@ package ServiceNow.SEER.Steps;
 
 import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import ServiceNow.SEER.StepsImplementation.SEERUserRegistrationPageStepImpl;
-import org.junit.Assert;
-import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.JavascriptUtils;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 public class SEERUserRegistrationPageSteps extends PageInitializer {
 	public static String newEmail = "seer" + CommonUtils.email;
 
@@ -22,7 +17,7 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 
 	@Given("user proceeds with email verification for Research Data Requests")
 	public void user_proceeds_with_email_verification_for_Research_Data_Requests() {
-		SEERDataAccessRequestPageStepsImpl.enterEmailAddress();
+		SEERDataAccessRequestPageStepsImpl.enterEmailAddress283();
 	}
 
 	@When("entering required information except State and Zip code")
@@ -42,12 +37,28 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 
 	@When("user enters email address for a Non-Institutional Account")
 	public void user_enters_email_address_for_a_Non_Institutional_Account() {
-		SEERDataAccessRequestPageStepsImpl.enterEmailAddressNI();
+		SEERDataAccessRequestPageStepsImpl.enterEmailAddress286();
 	}
 
 	@When("the user enter an email address for a Non-Institutional Account")
 	public void the_user_enter_an_email_address_for_a_Non_Institutional_Account() {
-		SEERDataAccessRequestPageStepsImpl.enterEmailAddress();
+		SEERDataAccessRequestPageStepsImpl.enterEmailAddress285();
+	}
+
+	@When("user enter an email address for a Non-Institutional Account")
+	public void user_enter_an_email_address_for_a_Non_Institutional_Account() {
+		SEERDataAccessRequestPageStepsImpl.enterEmailAddress399();
+		}
+
+	@When("fills out all required fields on SEER Data registration page except Organization")
+	public void fills_out_all_required_fields_on_SEER_Data_registration_page_except_Organization() {
+		SEERUserRegistrationPageStepImpl.validateEmailFieldReadOnly();
+		SEERUserRegistrationPageStepImpl.fillingOutRegistrationFormOrganizationNotFound();
+	}
+
+	@Then("user should not be able to select {string} as an Organization option")
+	public void user_should_not_be_able_to_select_as_an_Organization_option(String organizationOption) {
+		SEERUserRegistrationPageStepImpl.userShouldNotBeAleToSelectAsAnOrganizationOption(organizationOption);
 	}
 
 	@When("fills out all required fields on the SEER Data registration page")
@@ -56,9 +67,14 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 		SEERUserRegistrationPageStepImpl.fillingOutRegistrationForm();
 	}
 
+	@When("the user enters email address for a Non-Institutional Account")
+	public void the_user_enters_email_address_for_a_Non_Institutional_Account() {
+		SEERDataAccessRequestPageStepsImpl.enterEmailAddress284();
+	}
+
 	@When("fills out all required fields on SEER Data registration page")
 	public void fills_out_all_required_fields_on_SEER_Data_registration_page() {
-		SEERUserRegistrationPageStepImpl.validateEmailFieldReadOnlyNI();
+		SEERUserRegistrationPageStepImpl.validateEmailFieldReadOnly();
 		SEERUserRegistrationPageStepImpl.fillingOutRegistrationForm();
 	}
 
@@ -101,4 +117,3 @@ public class SEERUserRegistrationPageSteps extends PageInitializer {
 				incidenceDatabaseBreadcrumb, requestSeerIncidenceDataBreadcrumb, submissionConfirmationBreadcrumb);
 	}
 }
-

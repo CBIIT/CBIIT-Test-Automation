@@ -2,6 +2,10 @@ package AnalysisTools.JPSurv.Steps;
 
 import java.io.File;
 import java.net.MalformedURLException;
+
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import org.apache.commons.lang.StringUtils;
 import com.nci.automation.common.QcTestResult;
 import com.nci.automation.common.ScenarioContext;
@@ -14,9 +18,7 @@ import com.nci.automation.xceptions.TestingException;
 
 import appsCommon.PageCache;
 import appsCommon.PageInitializer;
-import cucumber.api.Scenario;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
+
 
 
 public class HooksSteps {
@@ -73,7 +75,7 @@ public class HooksSteps {
 	@After
 	public void genericTearDown(Scenario s) throws TestingException {
 
-		/*if (WebDriverUtils.webDriver != null) {
+		if (WebDriverUtils.webDriver != null) {
 			MiscUtils.sleep(2000);
 
 			System.out.println("Ending Scenario: " + s.getName());
@@ -91,7 +93,7 @@ public class HooksSteps {
 			ScenarioContext.setCurrentQcResult(currentQcResult);
 			WebDriverUtils.closeWebDriver();
 			PageCache.getInstance().destroyInstances();
-		}*/
+		}
 	}
 
 	@Before("@web")

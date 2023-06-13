@@ -3,11 +3,9 @@ package ServiceNow.CHARMS.Steps;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Set;
-
 import org.apache.commons.lang3.text.translate.NumericEntityEscaper;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
@@ -22,8 +20,10 @@ import com.nci.automation.xceptions.TestingException;
 import ServiceNow.CHARMS.Pages.RASSurveyPage;
 import com.nci.automation.web.CommonUtils;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.junit.Cucumber;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+//import cucumber.api.junit.Cucumber;
 
 public class RASSurveySteps extends PageInitializer {
 

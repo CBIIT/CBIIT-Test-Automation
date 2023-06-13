@@ -9,9 +9,9 @@ import com.nci.automation.web.WebDriverUtils;
 import CustomBusiness.EIDP.Util.CommonUtil;
 import CustomBusiness.EIDP.Util.SharedData;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 public class DashboardSteps extends PageInitializer {
 
 	@When("User will click on search in dashboard")

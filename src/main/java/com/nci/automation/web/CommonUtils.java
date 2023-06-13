@@ -8,20 +8,17 @@ import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+//import org.testng.Assert;
 import com.nci.automation.utils.MiscUtils;
 
 /**
@@ -83,8 +80,8 @@ public class CommonUtils extends WebDriverUtils {
      * Use this over loaded method in need of selecting an element of dropDown by
      * VisbleText.
      *
-     * param dropDownElement Pass the WebElement of the desired dropDown.
-     * param ValueOfDropDown Pass the Visible text of DropDown to be selected.
+     * @param //dropDownElement Pass the WebElement of the desired dropDown.
+     * @param //ValueOfDropDown Pass the Visible text of DropDown to be selected.
      */
     public static void selectDropDownValue(String VisibleTextOfDD, WebElement dropDownWebEl) {
         Select select = new Select(dropDownWebEl);
@@ -95,8 +92,8 @@ public class CommonUtils extends WebDriverUtils {
      * Use this over loaded method in need of selecting an element of dropDown by
      * Value.
      *
-     * param dropDownElement Pass the value to be selected.
-     * param ValueOfDropDown Pass the WebElement of the dropDown.
+     * @param //dropDownElement Pass the value to be selected.
+     * @param //ValueOfDropDown Pass the WebElement of the dropDown.
      */
     public static void selectDropDownValue(WebElement element, String value) {
         Select select = new Select(element);
@@ -107,8 +104,8 @@ public class CommonUtils extends WebDriverUtils {
      * Use this over loaded method in need of selecting an element of dropDown by
      * index.
      *
-     * param dropDownElement      WebElement of the dropDown.
-     * param indexOfDropDownValue Pass the index
+     * @param dropDownElement      WebElement of the dropDown.
+     * @param //indexOfDropDownValue Pass the index
      */
     public static void selectDropDownValue(WebElement dropDownElement, int index) {
         Select select = new Select(dropDownElement);
@@ -118,7 +115,7 @@ public class CommonUtils extends WebDriverUtils {
     /**
      * this method will accept the alert
      *
-     * throws will throw NoAlertExeption if alert is not present.
+     * @throws //will throw NoAlertExeption if alert is not present.
      */
 
     public static void acceptAlert() {
@@ -134,7 +131,7 @@ public class CommonUtils extends WebDriverUtils {
     /**
      * this method will dismiss the alert
      *
-     * throws will throw NoAlertExeption if alert is not present.
+     * @throws //will throw NoAlertExeption if alert is not present.
      */
 
     public static void dismissAlert() {
@@ -150,7 +147,7 @@ public class CommonUtils extends WebDriverUtils {
     /**
      * this method will get the alert text
      *
-     * throws will throw NoAlertExeption if alert is not present.
+     * @throws //will throw NoAlertExeption if alert is not present.
      */
 
     public static String getAlertText() {
@@ -201,6 +198,20 @@ public class CommonUtils extends WebDriverUtils {
 
         try {
             webDriver.switchTo().frame(index);
+        } catch (NoSuchFrameException e) {
+            System.out.println("Frame is not present.");
+        }
+    }
+
+    /**
+     * This method will switch to default frame
+     *
+     */
+
+    public static void switchToDefaultContent() {
+
+        try {
+            webDriver.switchTo().defaultContent();
         } catch (NoSuchFrameException e) {
             System.out.println("Frame is not present.");
         }
@@ -415,6 +426,26 @@ public class CommonUtils extends WebDriverUtils {
     public static String email = getEmail();
 
     /**
+     * Use this method to pass a random LaastName as a String
+     *
+     * @return
+     */
+    public static String lastNameRandomizer() {
+        int leftLimit = 97; // letter 'a'
+        int rightLimit = 122; // letter 'z'
+        int targetStringLength = 10;
+        Random random = new Random();
+
+        String generatedString = random.ints(leftLimit, rightLimit + 1)
+                .limit(targetStringLength)
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
+        String generatedLastName = generatedString.substring(0, 1).toUpperCase() + generatedString.substring(1);
+        return generatedLastName;
+    }
+
+
+    /**
      * Use this method to pass date as a string. You can concatinate with any String
      * and get unique name
      */
@@ -590,7 +621,7 @@ public class CommonUtils extends WebDriverUtils {
      */
     public static void assertTrueTestNG(boolean flag, String message) {
         try {
-            Assert.assertTrue(flag, message);
+            Assert.assertTrue(message,flag);
         } catch (AssertionError e) {
             e.printStackTrace();
         }
@@ -608,7 +639,6 @@ public class CommonUtils extends WebDriverUtils {
 
     /**
      * USE THIS METHOD TO CLICK ON STALE ELEMENTS
-     *
      * @param ele
      */
     public static void clickOnElement(WebElement ele) {
@@ -616,6 +646,23 @@ public class CommonUtils extends WebDriverUtils {
         while (count < 5) {
             try {
                 ele.click();
+                break;
+            } catch (WebDriverException ex) {
+                MiscUtils.sleep(2000);
+                count++;
+            }
+        }
+    }
+
+    /**
+     * USE THIS METHOD TO SEND KEYS TO STALE ELEMENTS
+     * @param ele
+     */
+    public static void sendKeysToElement(WebElement ele, String text) {
+        int count = 0;
+        while (count < 5) {
+            try {
+                ele.sendKeys(text);
                 break;
             } catch (WebDriverException ex) {
                 MiscUtils.sleep(2000);
@@ -646,4 +693,3 @@ public class CommonUtils extends WebDriverUtils {
         }
     }
 }
-

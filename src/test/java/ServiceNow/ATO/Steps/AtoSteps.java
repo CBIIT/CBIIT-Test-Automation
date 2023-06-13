@@ -9,8 +9,10 @@ import java.util.Date;
 import java.util.TimeZone;
 
 import ServiceNow.ATO.StepsImplementation.AtoStepsImpl;
-import cucumber.api.java.Before;
-import cucumber.api.java.en.Then;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class AtoSteps {
 	private AtoStepsImpl atoStepsImpl;

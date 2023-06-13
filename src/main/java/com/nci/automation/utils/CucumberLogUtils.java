@@ -1,5 +1,6 @@
 package com.nci.automation.utils;
 
+import io.cucumber.java.Scenario;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import static org.junit.Assert.assertTrue;
@@ -7,7 +8,7 @@ import org.apache.commons.lang.exception.ExceptionUtils;
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.web.WebDriverUtils;
 
-import cucumber.api.Scenario;
+//import io.cucumber.java.Scenario;
 
 /**
  * This class contains cucumber related log utilities
@@ -30,9 +31,9 @@ public class CucumberLogUtils {
         if (ScenarioContext.scenario.get() == null) {
             return;
         }
-        ScenarioContext.scenario.get().write(DateUtils.getLogTime() + ": Screenshot: " + msg);
+       // ScenarioContext.scenario.get().write(DateUtils.getLogTime() + ": Screenshot: " + msg);
         if (ScenarioContext.isTakeScreenShots()) {
-            ScenarioContext.scenario.get().embed(WebDriverUtils.getScreenShot(), "image/png");
+          //  ScenarioContext.scenario.get().embed(WebDriverUtils.getScreenShot(), "image/png");
         }
     }
 
@@ -43,9 +44,9 @@ public class CucumberLogUtils {
         if (ScenarioContext.scenario.get() == null) {
             return;
         }
-        ScenarioContext.scenario.get().write(DateUtils.getLogTime() + ": Screenshot: ");
+       // ScenarioContext.scenario.get().write(DateUtils.getLogTime() + ": Screenshot: ");
         if (ScenarioContext.isTakeScreenShots()) {
-            ScenarioContext.scenario.get().embed(WebDriverUtils.getScreenShot(), "image/png");
+          //  ScenarioContext.scenario.get().embed(WebDriverUtils.getScreenShot(), "image/png");
         }
     }
 
@@ -58,9 +59,9 @@ public class CucumberLogUtils {
         if (ScenarioContext.scenario.get() == null) {
             return;
         }
-        scenario.write(DateUtils.getLogTime() + ": Screenshot: ");
+       // scenario.write(DateUtils.getLogTime() + ": Screenshot: ");
         if (ScenarioContext.isTakeScreenShots()) {
-            scenario.embed(WebDriverUtils.getScreenShot(), "image/png");
+          //  scenario.embed(WebDriverUtils.getScreenShot(), "image/png");
         }
     }
 
@@ -74,7 +75,7 @@ public class CucumberLogUtils {
             return;
         }
         logger.info(msg);
-        ScenarioContext.scenario.get().write(DateUtils.getLogTime() + ": INFO: " + MiscUtils.makeStringHtmlSafe(msg));
+      //  ScenarioContext.scenario.get().write(DateUtils.getLogTime() + ": INFO: " + MiscUtils.makeStringHtmlSafe(msg));
     }
 
     /**
@@ -92,7 +93,7 @@ public class CucumberLogUtils {
         htmlString.append("target='_blank'");
         htmlString.append(">");
         htmlString.append(hyperlinkMsg).append("</a>");
-        ScenarioContext.scenario.get().write(htmlString.toString());
+      //  ScenarioContext.scenario.get().write(htmlString.toString());
     }
 
     /**
@@ -105,10 +106,10 @@ public class CucumberLogUtils {
         if (ScenarioContext.scenario.get() == null) {
             return;
         }
-        ScenarioContext.scenario.get().write(DateUtils.getLogTime() + ": PASS: " + msg);
+     //   ScenarioContext.scenario.get().write(DateUtils.getLogTime() + ": PASS: " + msg);
         logger.info(String.format(":PASS:=%s", msg));
         if (takeScreenShot && ScenarioContext.isTakeScreenShots()) {
-            ScenarioContext.scenario.get().embed(WebDriverUtils.getScreenShot(), "image/png");
+         //   ScenarioContext.scenario.get().embed(WebDriverUtils.getScreenShot(), "image/png");
         }
     }
 
@@ -124,7 +125,7 @@ public class CucumberLogUtils {
             return;
         }
         if (takeScreenshot && ScenarioContext.isTakeScreenShots()) {
-            ScenarioContext.scenario.get().embed(WebDriverUtils.getScreenShot(), "image/png");
+         //   ScenarioContext.scenario.get().embed(WebDriverUtils.getScreenShot(), "image/png");
         }
         logger.error(String.format(":FAIL:=%s", msg));
         assertTrue(DateUtils.getLogTime() + ": FAIL: " + msg, false);
@@ -136,8 +137,7 @@ public class CucumberLogUtils {
         }
         if (ScenarioContext.isLogLevelDebug()) {
             logger.debug(msg);
-            ScenarioContext.scenario.get().write(
-                    DateUtils.getLogTime() + ": DEBUG: " + MiscUtils.makeStringHtmlSafe(msg));
+        //    ScenarioContext.scenario.get().write(DateUtils.getLogTime() + ": DEBUG: " + MiscUtils.makeStringHtmlSafe(msg));
         }
     }
 
@@ -153,7 +153,7 @@ public class CucumberLogUtils {
             return;
         }
         logger.error(msg);
-        ScenarioContext.scenario.get().write(DateUtils.getLogTime() + ": ERROR: " + MiscUtils.makeStringHtmlSafe(msg));
+       // ScenarioContext.scenario.get().write(DateUtils.getLogTime() + ": ERROR: " + MiscUtils.makeStringHtmlSafe(msg));
         scenarioResult = false;
     }
 
@@ -171,7 +171,7 @@ public class CucumberLogUtils {
         if (ScenarioContext.scenario.get() == null) {
             return;
         }
-        ScenarioContext.scenario.get().write(htmlContent);
+      // ScenarioContext.scenario.get().write(htmlContent);
     }
 
 }

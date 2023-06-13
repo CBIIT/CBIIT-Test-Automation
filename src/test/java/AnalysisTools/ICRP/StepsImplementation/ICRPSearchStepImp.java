@@ -9,9 +9,7 @@ import appsCommon.PageInitializer;
 public class ICRPSearchStepImp extends PageInitializer {
 	
 	
-	public void getProjectTtile() {
-		List<WebElement> titles = icrpSearchDatabasePage.projectTitles;
-	}
+
 	
 
 }

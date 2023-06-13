@@ -15,16 +15,10 @@ public class JPSurvHomePage extends CommonUtils{
 		
 	}
 	
-	public String dicFilePath = "./src/test/resources/Tutorial_JPSURV.dic";
-	public String txtFilePath = "./src/test/resources/Tutorial_JPSURV.txt"; 
-	public String nonExampledicFilePath = "./src/test/resources/75surv_jpsurv_example_CTPR.dic";
-	public String nonExampletxtFilePath = "./src/test/resources/75surv_jpsurv_example_CTPR.txt"; 
-	public String csvFilePath = "./src/test/resources/Breast_RelativeSurvival_Head_NA0.csv";
-	public String workspaceFilePath ="./src/test/resources/6f0198be-e61b-4528-815d-5716267aa5cc-Tutorial_JPSURV_2.jpsurv";
-	public String nonExampleworkspaceFilePath ="./src/test/resources/1458ff97-5106-49ef-a3c4-9df94babe692-75surv_jpsurv_example_CTPR.jpsurv";
+	public String dicFilePath = "/Users/uddins2/git/CBIIT-Test-Automation/src/test/resources/SEER9_Survival_6CancerSitesByStage_1975_2007.dic";
+	public String txtFilePath = "/Users/uddins2/git/CBIIT-Test-Automation/src/test/resources/SEER9_Survival_6CancerSitesByStage_1975_2007.txt"; 
 	
-	
-	/**================================================= Input Section =======================================================*/
+/**================================================= Input Section =======================================================*/
 	
 	/** Files Format Text*/
 	@FindBy(xpath = "//*[@id = 'inputTypeLabel'")
@@ -35,7 +29,7 @@ public class JPSurvHomePage extends CommonUtils{
 	public WebElement dicRadioBtn; 
 	
 	/** CSV Radio Button */
-	@FindBy(xpath = "//label[normalize-space()='CSV Files']")
+	@FindBy(xpath = "//*[@aria-label = 'csv'")
 	public WebElement csvRadioBtn;
 	
 	/** Work Space Radio Button */
@@ -54,29 +48,9 @@ public class JPSurvHomePage extends CommonUtils{
 	@FindBy(xpath = "//*[@id='file_control']")
 	public WebElement fileInputTextbox; 
 	
-	/** Workspace input **/
-	@FindBy(xpath = "//input[@id='fileSelect']")
-	public WebElement WorkspaceFileInputTextbox; 
-	
-	/**CVS Input **/
-	@FindBy(id = "file_control_csv")
-	public WebElement cvsFileInputTextbox; 
-	
 	/**Upload Btn **/
 	@FindBy(xpath = "//*[@id='upload_dictxt']")
 	public WebElement fileUploadBtn; 
-	
-	/**Configure CSV Btn **/
-	@FindBy(xpath = "//button[@id='Adv_input']")
-	public WebElement configureCSVbtn; 
-	
-	/**Upload CSV Btn **/
-	@FindBy(xpath = "//button[@id='upload_csv']")
-	public WebElement uploadCSVbtn; 
-	
-	/**Configure import Btn **/
-	@FindBy(xpath = "//label[normalize-space()='Workspace']")
-	public WebElement WorkspaceRadiobtn; 
 	
 	
 /**================================================= Cohort Model and Specification =======================================================*/
@@ -104,10 +78,6 @@ public class JPSurvHomePage extends CommonUtils{
 	/** Non-Hodgkin_Lymphoma check box**/
 	@FindBy(id = "Male")
 	public WebElement maleCheckbox; 
-	
-	/** Non-Hodgkin_Lymphoma check box**/
-	@FindBy(xpath = "(//label[normalize-space()='Non-Hodgkin Lymphoma'])[1]")
-	public WebElement nonhodgkinlymphonmaCheckbox;
 
 	/** Chronic_Myeloid_Leukemia check box**/
 	@FindBy(id = "All_stages")
@@ -125,110 +95,15 @@ public class JPSurvHomePage extends CommonUtils{
 	@FindBy(xpath = "//ul[@id='jpsurv-tabs']//a[text()='Survival vs. Year at Diagnosis']")
 	public WebElement survivalVsYearAtDiagnosisTab; 
 	
-	/** Download full dataset button**/
-	@FindBy(xpath = "//button[@id='full-dataset-link']")
+	/** calculate button**/
+	@FindBy(id = "full-dataset-link")
 	public WebElement downloadFullDataSetButton; 
 	
 	/** calculate button**/
-	@FindBy(xpath = "exportButton")
+	@FindBy(id = "exportButton")
 	public WebElement exportWorkspaceButton; 
-	
-	/** show/hide parameters arrow button button **/
-	@FindBy(xpath = "//i[@id='icon']")
-	public WebElement showhidearrowButton;
-	
-	/** Reset Button **/
-	@FindBy(xpath = "//input[@value='Reset']")
-	public WebElement resetButton;
-	
-	/** Import Button for .jpsurv file **/
-	@FindBy(xpath = "//button[@id='upload_session']")
-	public WebElement importButton;
 
-	/** Email textbox **/
-	@FindBy(xpath = "//input[@id='e-mail']")
-	public WebElement emailTextbox;
 
-	/** submit button **/
-	@FindBy(xpath = "//input[@id='calculate']")
-	public WebElement submitButton;
-	
-	/** Confirmation of submission by email **/
-	@FindBy(xpath = "//h2[normalize-space()='Calculation in Queue']")
-	public WebElement submitemailConfirmation;
-	
-	/** Age rec value 0 **/
-	@FindBy(xpath = "//label[@for='age_rec0']")
-	public WebElement ageRecValue0Checkbox;
-	
-	/** Stage value 0 **/
-	@FindBy(xpath = "//label[@for='stage0']")
-	public WebElement stageValue0Checkbox;
-	@FindBy(id= "1975")
-	public WebElement yearOfDiagnosed;
 
-	/**================================================= CSV Dropdown =====================================*/
-	
-	/** age_rec drop down **/
-	@FindBy(xpath = "//th[@id='type_1']/select")
-	public WebElement ager_recDD;
-	
-	/** Stage drop down **/
-	@FindBy(xpath = "//th[@id='type_2']/select")
-	public WebElement stageDD;
-	
-	/** year drop down **/
-	@FindBy(xpath = "//th[@id='type_3']/select")
-	public WebElement yearDXDD;
-	
-	/** Interval drop down **/
-	@FindBy(xpath = "//th[@id='type_4']/select[@id='column_values']")
-	public WebElement intervalDD;
-	
-	/** Alive At Start drop down **/
-	@FindBy(xpath = "//th[@id='type_5']/select")
-	public WebElement aliveAtStartDD;
-	
-	/** Died drop down **/
-	@FindBy(xpath = "//th[@id='type_6']/select")
-	public WebElement diedDD;
-	
-	/** Lost to followup drop down **/
-	@FindBy(xpath = "//th[@id='type_7']/select")
-	public WebElement lostToFollowUpDD;
-	
-	/** Exp_int drop down **/
-	@FindBy(xpath = "//th[@id='type_10']/select")
-	public WebElement expIntDD;
-	
-	/** Exp_int Column Value **/
-	@FindBy(xpath = "//input[@id='header_10']")
-	public WebElement expIntColumn;
-	
-		/** rel int drop down **/
-	@FindBy(xpath = "//th[@id='type_12']/select")
-	public WebElement relIntDD;
-	
-	/**rel cum drop down **/
-	@FindBy(xpath = "//th[@id='type_13']/select")
-	public WebElement relCumDD;
-	
-	/** se rel int drop down **/
-	@FindBy(xpath = "//th[@id='type_16']/select")
-	public WebElement seIntRelDD;
-	
-	/** se rel cum drop down **/
-	@FindBy(xpath = "//th[@id='type_17']/select")
-	public WebElement seRelCumDD;
-	
-	/** se rel cum Column Value **/
-	@FindBy(xpath = "//input[@id='header_17']")
-	public WebElement seRelColumn;
-	@FindBy(xpath = "//a")
-	public WebElement downloadFile;
-	/** Save Button **/
-	@FindBy(xpath = "//button[@onclick='save_params()']")
-	public WebElement saveBtn; 
-	
-	
+
 }

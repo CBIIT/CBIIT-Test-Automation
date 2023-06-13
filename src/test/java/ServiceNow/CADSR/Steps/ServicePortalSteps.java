@@ -1,5 +1,8 @@
 package ServiceNow.CADSR.Steps;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import org.testng.Assert;
 
 import com.nci.automation.common.QcTestResult;
@@ -14,12 +17,9 @@ import com.nci.automation.xceptions.TestingException;
 import ServiceNow.CADSR.Pages.ServicePortalPage;
 import ServiceNow.CADSR.StepsImplementation.LoginStepsImpl;
 import appsCommon.PageCache;
-import cucumber.api.Scenario;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class ServicePortalSteps {
 	private ServicePortalPage servicePortalPage;

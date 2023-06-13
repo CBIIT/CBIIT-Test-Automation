@@ -23,6 +23,9 @@ public class ICRPSearchDatabasePage extends CommonUtils {
 	@FindBy(xpath = "//*[@tooltip='Enter search terms']")
 	public WebElement searchTxtbox;
 
+	@FindBy(xpath = "(//input[@type='radio'])[4]")
+	public WebElement exactPhraseRadioBtn;
+
 	@FindBy(xpath = "(//input[@type='radio'])[3]")
 	public WebElement anyOfTheKeywordsBtn;
 
@@ -73,39 +76,38 @@ public class ICRPSearchDatabasePage extends CommonUtils {
 
 	@FindBy(xpath = "//*[contains(text(),'1.1 Normal Functioning')]")
 	public WebElement normalFunctioningChkbox;
-	
+
 	@FindBy(xpath = "//*[@href='/project/128199']")
 	public WebElement  proj3DPrinting;
-	
+
 	@FindBy(xpath ="//table/tbody/tr/td[1]/a")
 	public List<WebElement> projectTitles;
 
 	@FindBy(xpath ="//a[contains(text(),'Cost')]")
 	public List<WebElement> projectTitlesVal;
 
-	
+
 	@FindBy(xpath = "(//*[contains(text(),' Email')])[1]")
 	public WebElement emailResultsBtn;
 
 	@FindBy(xpath = "//input[@id='name']")
-	public WebElement emailNameTxtbox;	
-	
+	public WebElement emailNameTxtbox;
+
 	@FindBy(xpath = "//input[@placeholder='Enter multiple email recipients, separated by commas']")
 	public WebElement emailRecipientTxtbox;
-	
+
 	@FindBy(xpath = "//button[normalize-space()='Send Email']")
 	public WebElement emailSubmitBtn;
-	
+
 	@FindBy(xpath = "//div[contains(text(),'Your email has been sent successfully!')]")
 	public WebElement emailSuccessMsg;
-	
-	
+
+
 	@FindBy(xpath = "//button[normalize-space()='Export']")
 	public WebElement exportBtn;
-	
+
 	@FindBy(xpath = "//a[normalize-space()='Projects (Multi-Sheets)']")
 	public WebElement projectMultisheetBtn;
-
 	public ICRPSearchDatabasePage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}

@@ -4,7 +4,7 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageCache;
-import cucumber.api.java.en.*;
+import io.cucumber.java.en.Then;
 
 
 public class SubmissionsPageSteps {

@@ -27,9 +27,9 @@ import com.nci.automation.xceptions.TestingException;
 import ServiceNow.CHARMS.Pages.MyRASLoginPage;
 import ServiceNow.CHARMS.Pages.MyRASStudyConsentPage;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 /* @author jains18 */
 

@@ -9,9 +9,9 @@ import com.nci.automation.web.ConfUtils;
 import ServiceNow.CcrHelpDesk.Pages.CCRHelpDeskPage;
 import ServiceNow.CcrHelpDesk.Pages.LoginStepsImplCCR;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class CCRHelpDeskSteps extends PageInitializer {
 	
@@ -105,13 +105,13 @@ public class CCRHelpDeskSteps extends PageInitializer {
 	@Then("validate that the following fields are available to enter details Room  Number")
 	public void validate_that_the_following_fields_are_available_to_enter_details_Room_Number() {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new cucumber.api.PendingException();
+//	    throw new cucumber.api.PendingException();
 	}
 
 	@Then("validate that the following fields are available to enter details Building")
 	public void validate_that_the_following_fields_are_available_to_enter_details_Building() {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new cucumber.api.PendingException();
+//	    throw new cucumber.api.PendingException();
 	}
 
 	@Then("validate that the following fields are available to enter details Application Name – List of applications needed.")
@@ -299,7 +299,7 @@ public class CCRHelpDeskSteps extends PageInitializer {
 	@Given("I am an authenticated Admin Fulfiller on the CCR\\/OIT")
 	public void i_am_an_authenticated_Admin_Fulfiller_on_the_CCR_OIT() {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new cucumber.api.PendingException();
+//	    throw new cucumber.api.PendingException();
 	}
 
 

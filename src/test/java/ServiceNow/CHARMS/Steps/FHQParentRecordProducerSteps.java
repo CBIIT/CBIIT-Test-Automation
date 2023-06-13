@@ -1,23 +1,20 @@
 package ServiceNow.CHARMS.Steps;
 
 import java.util.ArrayList;
-
 import org.junit.Assert;
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-
 import ServiceNow.CHARMS.Constants.FHQSurveyPageConstants;
 import ServiceNow.CHARMS.Utils.ComponentTestResult;
 import ServiceNow.CHARMS.Utils.FHQUtil;
 import ServiceNow.CHARMS.Utils.StepTestResult;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class FHQParentRecordProducerSteps extends PageInitializer {
 
