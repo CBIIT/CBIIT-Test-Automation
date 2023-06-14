@@ -69,14 +69,7 @@ import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
-import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
-import ServiceNow.NERD.Pages.NERDCRSTCollaborationsPage;
-import ServiceNow.NERD.Pages.NERDCRSTopAccomplishmentsPage;
-import ServiceNow.NERD.Pages.NERDDOCCollaborationsPage;
-import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
-import ServiceNow.NERD.Pages.NERDHomePage;
-import ServiceNow.NERD.Pages.NERDKnowledgebasePage;
-import ServiceNow.NERD.Pages.NERDSubmissionsPage;
+import ServiceNow.NERD.Pages.*;
 import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NativeViewImpersonateUser;
 import ServiceNow.SEER.Pages.*;
@@ -194,6 +187,7 @@ public class PageInitializer {
 	public static NERDCRSTopAccomplishmentsPage nerdCRSTopAccomplishmentsPage;
 	public static NERDCRSTCollaborationsPage nerdCRSTCollaborationsPage;
 	public static NERDDOCCollaborationsPage nerdDOCCollaborationsPage;
+	public static NERDCRSTOtherAccomplishmentsPage nerdcrstOtherAccomplishmentsPage;
 
 	/** --------------- CUSTOM BUSINESS APP INSTANCES --------------- */
 	/** EIDP instances */
@@ -275,6 +269,7 @@ public class PageInitializer {
 	public static NativeViewLoginImpl nativeViewLoginImpl;
 	public static NativeViewHomePage nativeViewHomePage;
 	public static NativeViewImpersonateUser nativeViewImpersonateUser;
+	public static NativeViewImpersonateUserPage nativeViewImpersonateUserPage;
 	public static NativeViewSideDoorLoginPage nativeViewSideDoorLoginPage;
 	public static NativeViewEnrollmentsPage nativeViewEnrollementsPage;
 	public static NativeViewEnrollmentViewPage nativeViewEnrollmentViewPage;
@@ -362,6 +357,7 @@ public class PageInitializer {
 		nerdCRSTopAccomplishmentsPage = new NERDCRSTopAccomplishmentsPage();
 		nerdDOCCollaborationsPage = new NERDDOCCollaborationsPage();
 		nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
+		nerdcrstOtherAccomplishmentsPage = new NERDCRSTOtherAccomplishmentsPage();
 
 		/** --------------- CUSTOM BUSINESS APP INSTANCE VARIABLES --------------- */
 		/** EIDP Instance Variables */
@@ -443,6 +439,7 @@ public class PageInitializer {
 		nativeViewLoginImpl = new NativeViewLoginImpl();
 		nativeViewHomePage = new NativeViewHomePage();
 		nativeViewImpersonateUser = new NativeViewImpersonateUser();
+		nativeViewImpersonateUserPage = new NativeViewImpersonateUserPage();
 		nativeViewSideDoorLoginPage = new NativeViewSideDoorLoginPage();
 		nativeViewEnrollementsPage = new NativeViewEnrollmentsPage();
 		nativeViewEnrollmentViewPage = new NativeViewEnrollmentViewPage();

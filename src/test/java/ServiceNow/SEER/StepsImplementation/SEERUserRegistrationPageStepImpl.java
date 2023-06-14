@@ -14,7 +14,7 @@ import org.testng.Assert;
 
 public class SEERUserRegistrationPageStepImpl extends PageInitializer {
 
-    public static String newEmail282 = "SEER282" + CommonUtils.email;
+    public static String newEmail282 = "seerThankYou282" + CommonUtils.email;
 
     public static void validateEmailFieldReadOnly() {
         /**

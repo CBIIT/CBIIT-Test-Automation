@@ -2,7 +2,7 @@ Feature: CRS Reviewers Test Scenarios
 
 Description: This feature file contains test scenarios related to CRS Reviewers
    
-  @Regression @juarezds
+  @SS-3450 @Regression @juarezds @NeedsVerification
   Scenario: Verifying New OM Category Type - Service Portal
     Given a CRS reviewer is logged into NERDs CRS Knowledge Management System
     When adding a new OM entry

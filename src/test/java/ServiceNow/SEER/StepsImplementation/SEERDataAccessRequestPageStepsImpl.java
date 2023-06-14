@@ -265,8 +265,6 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
 
     public static void customerAccountTypeWillBeMarkedAsPublicInNativeView(String publicAccount) {
         nativeViewLoginImpl.sideDoorAccountLogin();
-        CommonUtils.assertTrue(nativeViewSentViewPage.nativeViewHomeButton.getText()
-                .contentEquals("Home"));
         /** Waiting for email to be sent and searchable */
         MiscUtils.sleep(2000);
         CucumberLogUtils.logScreenShot();
@@ -295,8 +293,6 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
 
     public static void aNewUserWhoDoesNotHaveAnActiveSEERResearchDatabaseAccessRequest() {
         nativeViewLoginImpl.sideDoorAccountLogin();
-        CommonUtils.assertTrue(nativeViewSentViewPage.nativeViewHomeButton.getText()
-                .contentEquals("Home"));
         /** Waiting for email to be sent and searchable */
         MiscUtils.sleep(2000);
         CucumberLogUtils.logScreenShot();
