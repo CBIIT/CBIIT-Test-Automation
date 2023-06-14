@@ -10,7 +10,7 @@ import cucumber.api.junit.Cucumber;
 		"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 		features = "src/test/java/ServiceNow/NERD/Features",
 		glue = "ServiceNow.NERD.Steps",
-		tags = "@test",
+		tags = "@Regression",
 		dryRun = false,
 		monochrome = true,
 		strict = true
