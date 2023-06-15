@@ -52,7 +52,7 @@ public class SEERDataRejection_Constants {
     /* REJECTION EMAIL TEXT PART 5 */
     public static final String TO_RESUBMIT_YOUR_REQUEST = "To resubmit your request, please go tohttps://seerdataaccess.cancer.gov/seer-data-accessNote:you cannot edit your email address after you’ve already submitted a request.  If your request was rejected because of your email address, please contactseerstat@imsweb.comfor help.";
 
-    /** --------------- MISC REGISTRATION FORM CONSTANTS--------------- */
+    /** --------------- MISC REJECTION CONSTANTS--------------- */
 
     /* GENERAL PURPOSE FOR USING THE DATA */
     public static final String GENERAL_PURPOSE_FOR_USING_THE_DATA = "General Public";
