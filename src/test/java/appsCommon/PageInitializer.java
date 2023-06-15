@@ -25,6 +25,7 @@ import AnalysisTools.mSigPortal.Pages.MSigPortalHomePage;
 import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
 import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
+import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsNVPage;
 import ServiceNow.CHARMS.Pages.CGBIIQPage;
 import ServiceNow.CHARMS.Pages.CGBIIQPages;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
@@ -33,6 +34,7 @@ import ServiceNow.CHARMS.Pages.FHQSurveyPage;
 import ServiceNow.CHARMS.Pages.FHQSurveyPortalPage;
 import ServiceNow.CHARMS.Pages.FanconiEligibilityQuestionnairePage;
 import ServiceNow.CHARMS.Pages.FanconiLoginPage;
+import ServiceNow.CHARMS.Pages.FanconiScreenerNVPage;
 import ServiceNow.CHARMS.Pages.MelanomaHomePage;
 import ServiceNow.CHARMS.Pages.MelanomaLoginPage;
 import ServiceNow.CHARMS.Pages.MelanomaQuestionnairePage;
@@ -174,7 +176,10 @@ public class PageInitializer {
 	protected static FHQSurveyPage fHQSurveyPage;
 	protected static FHQSurveyPortalPage fHQSurveyPortalPage;
 	protected static FanconiEligibilityQuestionnairePage fanconiEligibilityQuestionnairePage;
+	protected static FanconiScreenerNVPage fanconiScreenerNVPage;		
 	protected static FanconiLoginPage fanconiLoginPage;
+	protected static CHARMSParticipantDetailsNVPage cHARMSParticipantDetailsNVPage;
+	
 
 	/** LDLink instances **/
 	protected static LDLinkHomePage ldLinkHomePage;
@@ -353,9 +358,11 @@ public class PageInitializer {
 		rASSurveyPage = new RASSurveyPage();
 		rASSurveyStepsImpl = new RASSurveyStepsImpl();
 		fHQSurveyPortalPage = new FHQSurveyPortalPage();
-		fanconiEligibilityQuestionnairePage = new FanconiEligibilityQuestionnairePage();
 		fanconiLoginPage = new FanconiLoginPage();
-
+		fanconiEligibilityQuestionnairePage = new FanconiEligibilityQuestionnairePage();
+		fanconiScreenerNVPage =new FanconiScreenerNVPage();
+		cHARMSParticipantDetailsNVPage = new CHARMSParticipantDetailsNVPage();
+		
 		/** Native View instance */
 		nativeViewImpersonateUser = new NativeViewImpersonateUser();
 		nativeViewSideDoorLoginPage = new NativeViewSideDoorLoginPage();

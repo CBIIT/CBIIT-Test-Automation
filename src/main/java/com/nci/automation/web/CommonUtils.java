@@ -93,6 +93,29 @@ public class CommonUtils extends WebDriverUtils {
 		Select select = new Select(dropDownWebEl);
 		select.selectByVisibleText(VisibleTextOfDD);
 	}
+	
+	/**
+	 * Use this over loaded method in need of selecting an element of dropDown by
+	 * Index.
+	 * 
+	 * @param dropDownElement Pass the WebElement of the desired dropDown.
+	 * @param ValueOfDropDown Pass the required Index of DropDown to be selected.
+	 */
+	public static void selectDropDownIndex(int index, WebElement dropDownWebEl) {
+		Select select = new Select(dropDownWebEl);
+		select.selectByIndex(index);
+	}
+	
+	public static void selectDropDownIndexFromList(int index,int loop, List<WebElement> dropDownWebEl) {
+		
+		for(int j=0;j<=loop;++j ) {
+		Select select = new Select(dropDownWebEl.get(j));
+		select.selectByIndex(index);
+		MiscUtils.sleep(1000);
+		}
+		
+	}
+	
 
 	/**
 	 * Use this over loaded method in need of selecting an element of dropDown by

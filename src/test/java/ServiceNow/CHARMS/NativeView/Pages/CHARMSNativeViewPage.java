@@ -1155,8 +1155,7 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	public WebElement nativeViewRasSurveyHowManyTimeshastheParticipantReceivedGrowthHormoneTreatmentDropdown;
 
 	/**
-	 * ************************** END OF GROWTH SECTION
-	 * **************************
+	 * ************************** END OF GROWTH SECTION **************************
 	 */
 
 	/**
@@ -1300,8 +1299,7 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	public WebElement nativeViewRasSurveyDiagnosedStructuralHeartIssuesPleaseSpecifiyTextBox;
 
 	/**
-	 * ************************** END OF HEART SECTION
-	 * **************************
+	 * ************************** END OF HEART SECTION **************************
 	 */
 
 	/**
@@ -1806,14 +1804,12 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	public WebElement nativeViewRasSurveyHasTheParticipantEverBeenDiagnosedWithJointIssuesDropDown;
 
 	/**
-	 * ************************** END OF SKELETAL SECTION
-	 * **************************
+	 * ************************** END OF SKELETAL SECTION **************************
 	 */
 
 	/**
 	 * ************************** BEGINNING OF HEMATOLOGY, ONCOLOGY, IMMUNOLOGY
-	 * SECTION
-	 * **************************
+	 * SECTION **************************
 	 */
 	// Hematology, Oncology and Immunology tab locator -- span
 	@FindBy(xpath = "//span[normalize-space()='Hematology, Oncology and Immunology']")
