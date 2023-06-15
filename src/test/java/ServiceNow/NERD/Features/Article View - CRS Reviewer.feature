@@ -17,7 +17,7 @@ Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishments
       | NERD             | ROCK             | Moonshot Evaluation | Other Accomplishments |
       | NERD             | ROCK             | Moonshot Evaluation | Collaborations        |
 
-  @SS-4631 @bucurgb @Regression @Progression
+  @SS-4631 @bucurgb @Regression
   Scenario Outline: CRS Reviewer Sees Top Accomplishment Fields
     Given a CRS Reviewer is viewing the list of the published "Top Accomplishments"
     Then there is a record called "<recordName>"
