@@ -4,12 +4,13 @@ import java.io.File;
 import java.util.Map;
 import java.util.Properties;
 
+import io.cucumber.java.Scenario;
 import org.openqa.selenium.WebDriver;
 
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.ExcelUtils;
 
-import cucumber.api.Scenario;
+//import io.cucumber.java.Scenario;
 
 /**
  * This class is the global scenario context.

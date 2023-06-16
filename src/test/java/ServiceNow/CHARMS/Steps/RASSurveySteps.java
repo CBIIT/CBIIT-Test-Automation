@@ -20,8 +20,10 @@ import com.nci.automation.xceptions.TestingException;
 import ServiceNow.CHARMS.Pages.RASSurveyPage;
 import com.nci.automation.web.CommonUtils;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.junit.Cucumber;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+//import cucumber.api.junit.Cucumber;
 
 public class RASSurveySteps extends PageInitializer {
 

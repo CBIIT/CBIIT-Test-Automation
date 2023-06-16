@@ -1,13 +1,15 @@
 package ServiceNow.ATO.Steps;
 
+import io.cucumber.java.Before;
 import org.openqa.selenium.support.PageFactory;
 
 import ServiceNow.ATO.Pages.BasePage;
 import ServiceNow.ATO.Pages.NewProjectPage;
 import ServiceNow.ATO.StepsImplementation.NewProjectStepsImpl;
 import ServiceNow.ATO.Utils.DriverObjectFactory;
-import cucumber.api.java.Before;
-import cucumber.api.java.en.Then;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class NewProjectSteps {
 	private NewProjectStepsImpl newProjectStepsImpl;

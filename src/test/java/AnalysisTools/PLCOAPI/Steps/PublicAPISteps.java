@@ -8,8 +8,9 @@ import com.nci.automation.services.RestApiHelper;
 import com.nci.automation.web.CommonUtils;
 
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import junit.framework.Assert;
 
 
