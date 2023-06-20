@@ -1,6 +1,8 @@
 package ServiceNow.NERD.Pages;
 
 import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -8,6 +10,12 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
 public class CreateNewSubmissionPage extends CommonUtils {
+
+
+	/** COLLABORATIONS Button */
+	@FindBy(xpath = "(//div[@class='ng-binding ng-scope'])[3]")
+	public WebElement nerdCollaborationsButton;
+
 
 	/** ------------ CREATE NEW SUBMISSION PAGE ----------- */
 
@@ -58,8 +66,12 @@ public class CreateNewSubmissionPage extends CommonUtils {
 	public WebElement DescriptionTextBoxIframe;
 
 	/** Description text box */
-	@FindBy(xpath = "//body[@id='tinymce']")
+	@FindBy(xpath = "/bo/dy[@id='tinymce']")
 	public WebElement DescriptionTextBox;
+
+	/** Collaborations Description text box */
+	@FindBy(xpath = "//*[@id='tinymce']")
+	public WebElement collaborationsDescriptionTextBox;
 
 	/** FY the Collaborative Activity Originated Drop Down */
 	@FindBy(xpath = "//select[@id='x_26385_crs_kd_u_kb_fiscal_year_originated']")
@@ -242,8 +254,18 @@ public class CreateNewSubmissionPage extends CommonUtils {
 	@FindBy(xpath = "//div[@id = 'crs-article']/div/div/div/div[1]/div[43]/div[2]/div/input")
 	public WebElement crsKnowledgeManagementSystemUploadedFile;
 
+	/**
+	 * Use this method to dynamically locate Collaboration by Title Name
+	 *
+	 * @param authorText
+	 * @return
+	 */
+	public static WebElement authorText(String authorText) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("//div[contains(text(),'" + authorText + "')]"));
+	}
+
 	/*** CRS Knowledge Management System "AutomationTest" Under Review Text */
-	@FindBy(xpath = "//a[contains(text(),'AutomationTest')]/following::div[2]")
+	@FindBy(xpath = "///md-list-item[1]//div[2]//div[1]")
 	public WebElement crsKnowledgeManagementSystemAutomationTestUnderReviewText;
 
 	/** CRS Knowledge Management System "AutomationTest" Delete Button */

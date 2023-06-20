@@ -2,6 +2,7 @@ package ServiceNow.NERD.StepsImplementation;
 
 import AnalysisTools.PLCOAPI.Steps.PublicAPISteps;
 import ServiceNow.COVIDDash.Utils.COVIDConstants;
+import ServiceNow.NERD.Constants.NCI_Staff_Members_Constants;
 import appsCommon.PageInitializer;
 
 import java.util.Set;
@@ -33,6 +34,51 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         for (String currentWindow1 : allWindowHandles1) {
             WebDriverUtils.webDriver.switchTo().window(currentWindow1);
         }
+        CucumberLogUtils.logScreenShot();
+        CommonUtils.sendKeys(createNewSubmissionPage.titleTextBox, NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_TITLE_TEXT_BOX);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.pleaseSpecifyDropDown, NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_PLEASE_SPECIFY_DROP_DOWN);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.fiscalYearDropDown, NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_FISCAL_YEAR_DROP_DOWN);
+        CommonUtils.switchToFrame(createNewSubmissionPage.DescriptionTextBoxIframe);
+        CommonUtils.sendKeys(createNewSubmissionPage.collaborationsDescriptionTextBox,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_DESCRIPTION_TEXT_BOX);
+        MiscUtils.sleep(2000);
+        WebDriverUtils.webDriver.switchTo().defaultContent();
+        MiscUtils.sleep(2000);
+        CucumberLogUtils.logScreenShot();
+        MiscUtils.sleep(2000);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.fyTheCollaborativeActivityOriginatedDropDown, NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_FY_THE_COLLABORATIVE_ACTIVITY_ORIGINATED_DROP_DOWN);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.leadDOCDropDown, NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_LEAD_DOC_DROP_DOWN);
+        CommonUtils.sendKeys(createNewSubmissionPage.pocTextBox, NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_POC_TEXT_BOX);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.nihICs_ODcollaboratorsDropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_NIH_ICS_OD_COLLABORATORS_DROP_DOWN);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.hhsAgencyCollaboratorsDropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_HHS_AGENCY_COLLABORATORS_DROP_DOWN);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.otherFederalAgencyCollaboratorsDropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_OTHER_FEDERAL_AGENCY_COLLABORATORS_DROP_DOWN);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.tribalStateLocalGovernmentCollaboratorsDropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_TRIBAL_STATE_LOCAL_GOVERNMENT_COLLABORATORS_DROP_DOWN);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.foreignGovernmentCollaboratorsDropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_FOREIGN_GOVERNMENT_COLLABORATORS_DROP_DOWN);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.nonGovernmentalCollaboratorsDropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_NON_GOVERNMENTAL_COLLABORATORS_DROP_DOWN);
+        CommonUtils.click(createNewSubmissionPage.selectTypeOfCollaborativeActivityListResourceDevelopmentCheckBox);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.isThisCollaborationRelatedToRegulatoryActivityDropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_IS_THIS_COLLABORATION_RELATED_TO_A_REGULATORY_ACTIVITY_DROP_DOWN);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.wasNIHFundingProvidedForThisActivityDropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_WAS_NIH_FUNDING_PROVIDED_FOR_THIS_ACTIVITY_DROP_DOWN);
+        CommonUtils.click(createNewSubmissionPage.productsOutputsListResearchToolDevelopmentCheckBox);
+        JavascriptUtils.scrollIntoView(createNewSubmissionPage.submitButton);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.nihStrategicAlignment_Primary_DropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_NIH_STRATEGIC_ALIGNMENT_DROP_DOWN);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.hhsStrategicPlanAlignment_Primary_DropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_HHS_STRATEGIC_PLAN_ALIGNMENT_DROP_DOWN);
+        CommonUtils.click(createNewSubmissionPage.submitButton);
+        CommonUtils.click(createNewSubmissionPage.popUpConfirmationYesButton);
+        MiscUtils.sleep(3000);
+        CucumberLogUtils.logScreenShot();
+        MiscUtils.sleep(3000);
+        CommonUtils.click(createNewSubmissionPage.popUpSubmissionConfirmationOkButton);
+        MiscUtils.sleep(2000);
+    }
+
+    public static void theCreatedCollaborationsSubmissionIsDisplaysInTheCollaborationsCategorySectionWithTheStatus(String expectedUnderReviewText) {
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenShot();
+        createNewSubmissionPage.nerdCollaborationsButton.click();
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenShot();
+        String actualUnderReviewText = nerdDynamicXpaths.underReviewText(NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_TITLE_TEXT_BOX).getText();
+        CommonUtils.assertEquals(expectedUnderReviewText, actualUnderReviewText);
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_TITLE_TEXT_BOX));
         CucumberLogUtils.logScreenShot();
     }
 
