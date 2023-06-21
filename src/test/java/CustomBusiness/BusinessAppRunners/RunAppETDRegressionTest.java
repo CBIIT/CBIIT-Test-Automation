@@ -8,7 +8,9 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(plugin= {"html:target/html-reports/cucumber-default-report"
 		, "json:target/cucumber.json"
 		, "junit:target/cucumber.xml"
-		, "rerun:target/failed.txt","pretty"}
+		, "rerun:target/failed.txt"
+		, "pretty"
+		, "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 		, features="src/test/java/CustomBusiness/ETD/Features"
 		, glue="CustomBusiness.ETD.Steps"
 		, tags = "@Regression"
@@ -18,4 +20,5 @@ import cucumber.api.junit.Cucumber;
 		)
 	
 public class RunAppETDRegressionTest {
+
 }

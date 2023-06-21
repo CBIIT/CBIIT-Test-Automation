@@ -1,17 +1,25 @@
 package CustomBusiness.EIDP.Pages;
 
-import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import CustomBusiness.EIDP.Util.CommonUtil;
 import CustomBusiness.EIDP.Util.Constants.DelegationTypes;
 
 public class DelegatePage extends CommonUtils {
+
+	@FindBy(xpath = "//*[@id=\"delegateSuccessMsg\"]")
+	public WebElement deleteSuccessMsg;
+
+	@FindBy(id = "delete-delegate-btn")
+	public WebElement deleteButton;
+
 	public void selectDelegationType(DelegationTypes type) throws Exception {
 		String idVal = "";
 		if (type.equals(DelegationTypes.TEMPORARY)) {
@@ -57,19 +65,15 @@ public class DelegatePage extends CommonUtils {
 	public void deleteDelegator(String name) {
 		String xpathVal = "//a[text()='" + name + "']//ancestor::tr//*[@aria-label='Delete']";
 		WebDriverUtils.getWebDriver().findElement(By.xpath(xpathVal)).click();
-
+		clickOnDeleteButton();
 	}
 
 	public void clickOnDeleteButton() {
 		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.xpath("//button[@id='delete-delegate-btn']")));
-
 	}
 
 	public String getDeleteMessage() {
-		WebDriverWait wait = new WebDriverWait(getWebDriver(),Duration.ofSeconds(30));
-		wait.until(ExpectedConditions.textToBePresentInElement(
-				WebDriverUtils.getWebDriver().findElement(By.id("delegateSuccessMsg")),
-				"Delegate deleted successfully."));
-		return WebDriverUtils.getWebDriver().findElement(By.id("delegateSuccessMsg")).getText();
+		CommonPage.waitForVisibility(WebDriverUtils.getWebDriver().findElement(By.id("delegateSuccessMsg")));
+		 return WebDriverUtils.getWebDriver().findElement(By.id("delegateSuccessMsg")).getText();
 	}
 }

@@ -1,9 +1,7 @@
-@NIDCRRE
 Feature: Regression testing
 
   @InitiatesIDP_RenewalNIDCR @Regression @Smoke @Zamant2 @Needs_review
-  Scenario: IDP request creates and decline and approve
-    When User will login to the application as "gugulothus2" user on "NIDCR"
+  Scenario:TC01 IDP request creates and decline and approve for Renewal
     And Logged in user changes the user to "Hauser,Belinda"
     And User will click on search in dashboard
     And Search with inputs
@@ -20,7 +18,7 @@ Feature: Regression testing
     And User adds new project with deliverables
     And User fills mandatory fields in career goals page for NIDCR renew idp
     And User fills mandatory fields in aligning expecations page
-    And User will click on revew and take action button
+    And User will click on review and take action button
     And User clicks on Send IDP to the Primary Mentor button
     And Logged in user changes the user to "Walrath,Jessica"
     And User clicks on the trainee specific IDP request for renewal
@@ -31,7 +29,7 @@ Feature: Regression testing
     And Logged in user changes the user to "Walrath,Jessica"
     And User will click on IDP Awaiting response button
     And User clicks on the trainee specific IDP request for renewal
-    And User validates fields in all the tabs and values and clicks on No Revision option
+    And User clicks on No Revision option in all tabs
     And User clicks on REVIEW AND TAKE ACTION button
     And User clicks on SEND IDP TO THE TRAINEE button
     And Logged in user changes the user to trainee
@@ -56,22 +54,8 @@ Feature: Regression testing
     And User clicks on the trainee specific IDP request for renewal
     And Finish Idp process
 
-  @ReviseExistingIDRenewalNIDCR @Regression @Zamant2 @Needs_review
-  Scenario: Revise Existing IDP
-    #Given User opens nih application in browser
-    When User will login to the application as "gugulothus2" user on "NIDCR"
-    And Logged in user changes the user to "Hauser,Belinda"
-    And User will click on search in dashboard
-    And User selects "Current IDP Status" as "Completed"
-    And User click on "Revise Existing IDP" on the grid
-    And User clicks on yes button in pop up
-    And Select the reason as "Primary Mentor Changed" checkbox
-    And User clicks on save and send mail button
-    Then User will click on ok button
-
   @IDPOnHoldRenewalNIDCR @Regression @Zamant2 @Needs_review
-  Scenario: IDP is placed on HOLD
-    When User will login to the application as "gugulothus2" user on "NIDCR"
+  Scenario:TC02 IDP is placed on HOLD for Renewal
     And Logged in user changes the user to "Hauser,Belinda"
     And User will click on search in dashboard
     And Search with inputs
@@ -88,7 +72,7 @@ Feature: Regression testing
     And User adds new project with deliverables
     And User fills mandatory fields in career goals page for NIDCR renew idp
     And User fills mandatory fields in aligning expecations page
-    And User will click on revew and take action button
+    And User will click on review and take action button
     And User clicks on Send IDP to the Primary Mentor button
     And Logged in user changes the user to "Walrath,Jessica"
     And User clicks on the trainee specific IDP request for renewal
@@ -99,7 +83,7 @@ Feature: Regression testing
     And Logged in user changes the user to "Walrath,Jessica"
     And User will click on IDP Awaiting response button
     And User clicks on the trainee specific IDP request for renewal
-    And User validates fields in all the tabs and values and clicks on No Revision option
+    And User clicks on No Revision option in all tabs
     And User clicks on REVIEW AND TAKE ACTION button
     And User clicks on SEND IDP TO THE TRAINEE button
     And Logged in user changes the user to trainee
@@ -130,131 +114,3 @@ Feature: Regression testing
     And Edit general information
     And User selects primary mentor as "Chander, Preethi"
     And Review and Take Action and finish
-
-  #And User adds new project with deliverables
-  @releaseOnHoldRenewalNidcr @Regression @Zamant2 @Needs_review
-  Scenario: Release IDP placed on hold
-    #Given User opens nih application in browser
-    When User will login to the application as "gugulothus2" user on "NIDCR"
-    And Logged in user changes the user to "Hauser,Belinda"
-    And User will click on search in dashboard
-    And User selects "Current IDP Status" as "On Hold"
-    And User clicks on search button
-    And User click on "Release Hold" on the grid
-    And User reads the primary mentor name from release hold confirmation window
-    And User enters release hold comments and clicks on ok button
-    And Logged in user changes the user to trainee
-    Then Trainee verifies IDP request status as "Under Primary Mentor's Review"
-
-  @CancelIdpRenewalNIDCR @Regression @Zamant2 @Needs_review
-  Scenario: Cancel IDP
-    #Given User opens nih application in browser
-    When User will login to the application as "gugulothus2" user on "NIDCR"
-    And Logged in user changes the user to "Hauser,Belinda"
-    And User will click on search in dashboard
-    And User selects "Current IDP Status" as "Under Trainee's Review"
-    And User clicks on search button
-    And User click on "Cancel IDP" on the grid
-    And User reads the trainee name from cancel idp confirmation window
-    And User enters comments and clicks on yes button on cancel idp window
-    And Logged in user changes the user to trainee
-    Then Trainee verifies IDP request status as "Cancelled"
-
-  @UndoCancelIdpRenewalNIDCR @Regression @Zamant2 @Needs_review
-  Scenario: Undo Cancel IDP
-    #Given User opens nih application in browser
-    When User will login to the application as "gugulothus2" user on "NIDCR"
-    And Logged in user changes the user to "Hauser,Belinda"
-    And User will click on search in dashboard
-    And User selects "Current IDP Status" as "Cancelled"
-    And User clicks on search button
-    And User click on "Undo Cancel IDP" on the grid
-    And User reads the trainee name from undo cancel idp confirmation window
-    And User enters comments and clicks on yes button on undo cancel idp window
-
-  @AddAndDeleteTempDelegateRenewalNIDCR @Regression @Zamant2 @Needs_review
-  Scenario: Add/Delete Temporary Delegates
-    #Given User opens nih application in browser
-    When User will login to the application as "gugulothus2" user on "NIDCR"
-    And Logged in user changes the user to "Hauser,Belinda"
-    And User will click on manage delegate button in dashboard
-    And User select delegation type as "Temporary"
-    And User adds new delegate
-      | Name       | Start Date | End Date   |
-      | Chen,Zhong | 10/29/2021 | 01/29/2022 |
-    Then User checks "Zhong Chen" is added as delegate
-    When User deletes "Zhong Chen" from delegators table
-    Then User check delegate delete message
-
-  @AddAndDeletePermanentDelegateRenewalNIDCR @Regression @Zamant2 @Needs_review
-  Scenario: Add/Delete Permanent Delegates
-    #Given User opens nih application in browser
-    When User will login to the application as "gugulothus2" user on "NIDCR"
-    And Logged in user changes the user to "Hauser,Belinda"
-    And User will click on manage delegate button in dashboard
-    And User select delegation type as "Permanent"
-    And User adds new delegate
-      | Name       |    |
-      | Chen,Zhong | 10 |
-    Then User checks "Zhong Chen" is added as delegate
-    When User deletes "Zhong Chen" from delegators table
-    Then User check delegate delete message
-
-  @DelegateInitiatesIDPRenewalNIDCR @Regression @Zamant2 @Needs_review
-  Scenario: TD Delegate initiates IDP
-    #Given User opens nih application in browser
-    When User will login to the application as "gugulothus2" user on "NIDCR"
-    And Logged in user changes the user to "Hauser,Belind"
-    And User will click on search in dashboard
-    And User creates IDP request
-      | Search For                         | Classification Type | NCI Training Organization |
-      | NIDCR (Fellows and Employees Only) | Employee            | DIR                       |
-    And Logged in user changes the user to trainee
-    And User will clickOn start idp button
-    And User fills general information for delegate idp case
-      | Primary Mentor  | Lab Driector name | Co Primary Mentor |
-      | Walrath,Jessica | Hauser,Belinda    |                   |
-    And User fills mandatory fields in project deliverable page
-    And User fills mandatory fields in career goals page
-    And User fills mandatory fields in aligning expecations page
-    And User will click on revew and take action button
-    And User clicks on Send IDP to the Primary Mentor button
-    And Logged in user changes the user to "Walrath,Jessica"
-    And User will click on IDP Awaiting response button
-    And User clicks on the trainee specific IDP request for renewal
-    And User validates fields in all the tabs and values and clicks on No Revision option
-    And User clicks on REVIEW AND TAKE ACTION button
-    And User clicks on SEND IDP TO THE TRAINEE button
-    And Logged in user changes the user to trainee
-    And Trainee verifies IDP request status as "Under Trainee's Review"
-    And User will clickOn proceed button
-    And User reviews comments and feedbacks in all the tabs
-    And User clicks on SUBMIT button
-    And Logged in user changes the user to "Hauser,Belinda"
-    And User will click on IDP Awaiting response button
-    And User clicks on the trainee specific IDP request for renewal
-    And Director user review, approve & submit
-    And Logged in user changes the user to "Walrath,Jessica"
-    And User will click on IDP Awaiting response button
-    And User clicks on the trainee specific IDP request for renewal
-    And User clicks on Verify meeting and accept IDP button
-    And User enters verify meeting checkbox and submits
-    And Logged in user changes the user to trainee
-    And User clicks on VERIFY MEETING button
-    And User clicks on Verify meeting and accept IDP button
-    And User enters verify meeting checkbox and submits
-    And Logged in user changes the user to "Hauser,Belinda"
-    And User will click on IDP Awaiting response button
-    And User clicks on the trainee specific IDP request for renewal
-    Then Finish Idp process
-
-  @ExistSurveyNIDCR @Regression @Zamant2 @Needs_review
-  Scenario: TD/AO Initiates the Exit Survey for the Fellow/Employee
-    #Given User opens nih application in browser
-    When User will login to the application as "gugulothus2" user on "NIDCR"
-    And Logged in user changes the user to "Hauser,Belinda"
-    And User will click on search in dashboard
-    And User clicks on search button
-    And User click on "Exist Survey" on the grid
-    And User clicks on yes button of modal
-    Then User will click on ok button

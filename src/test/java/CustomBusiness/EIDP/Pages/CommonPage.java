@@ -39,6 +39,10 @@ public class CommonPage extends CommonUtils{
 	
 	@FindBy(css = "[class*='checkbox btn btn-primary']")
 	private WebElement markAsReviewed;
+
+	@FindBy(xpath = "//a[@onclick='sendBackToTrainee()']")
+	private WebElement sendToTraineeButton;
+
 	
 	public CommonPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
@@ -60,14 +64,12 @@ public class CommonPage extends CommonUtils{
 	}
 	
 	public void clickOnbutton(String buttonText) {
-		WebElement buttonEle = WebDriverUtils.getWebDriver().findElement(By.xpath("//*[text()='" + buttonText + "']"));
-		CucumberLogUtils.logScreenShot("Before Clicking "+buttonText+" Button");
 		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.xpath("//*[text()='" + buttonText + "']")));
 		CucumberLogUtils.logScreenShot("After Clicking "+buttonText+" Button");
 	}
 	
 	public void clickOnSendBackToTrinee() {
-		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.cssSelector("[data-target='#myModal']")));
+		CommonUtils.click(sendToTraineeButton);
 	}
 	
 	public void clickOnYesButtonOnTrainee() {

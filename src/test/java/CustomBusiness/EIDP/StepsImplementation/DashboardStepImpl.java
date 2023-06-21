@@ -90,7 +90,7 @@ public class DashboardStepImpl extends PageInitializer {
 		if (!traineeName.contains(",")) {
 			traineeName = SharedData.traineeName.split(" ")[1] + ", " + SharedData.traineeName.split(" ")[0];
 		}
-		MiscUtils.sleep(8000);
+		MiscUtils.sleep(5000);
 		for (byte i = 1; i <= 8; i++) {
 			List<WebElement> pendingReviews = WebDriverUtils.getWebDriver()
 					.findElements(By.xpath("//table[@id='mentorsTable']//tr/td[1]/a"));
@@ -103,7 +103,7 @@ public class DashboardStepImpl extends PageInitializer {
 					break;
 				}
 			}
-			MiscUtils.sleep(8000);
+			MiscUtils.sleep(5000);
 			if (isSelected) {
 				break;
 			} else {

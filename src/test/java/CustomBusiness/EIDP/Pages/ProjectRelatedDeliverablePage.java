@@ -9,7 +9,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-import CustomBusiness.EIDP.Util.CommonUtil;
 
 public class ProjectRelatedDeliverablePage extends CommonUtils{
 
@@ -37,7 +36,7 @@ public class ProjectRelatedDeliverablePage extends CommonUtils{
 	@FindBy(id = "selectType")
 	public WebElement selectTypeDropdown;
 	
-	@FindBy(id = "publicationSubTypeSelect")
+	@FindBy(id = "selectType")
 	public WebElement publicationSubTypeSelect;
 	
 	@FindBy(id = "month_start")
@@ -93,6 +92,15 @@ public class ProjectRelatedDeliverablePage extends CommonUtils{
 	
 	@FindBy(id = "projectsAndTrainingSave")
 	public WebElement projectsAndTrainingSave;
+
+	@FindBy(css = "#tab_0 [aria-label='edit']")
+	public List<WebElement> projectEditButtons;
+
+	@FindBy(id = "projStatus_297")
+	public WebElement completeRadioButton;
+
+	@FindBy(xpath = "//label[contains(text(), 'In Preparation')]")
+	public WebElement inPrepRadioButton;
 	
 	public ProjectRelatedDeliverablePage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);

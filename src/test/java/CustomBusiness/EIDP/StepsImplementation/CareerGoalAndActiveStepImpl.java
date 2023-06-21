@@ -189,8 +189,6 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 	public void addNewCareerGoal() {
 		CommonUtils.waitForVisibility(careerGoalAndActivePage.communicationSkillButton);
 		careerGoalAndActivePage.communicationSkillButton.click();
-		CommonUtil.waitBrowser(2000);
-		WebDriverUtils.getWebDriver().findElements(By.cssSelector(".modal-lg.in label.radio")).get(1).click();
 		eidpBasePage.selectOption(careerGoalAndActivePage.typeDropdown, "Speaking");
 		careerGoalAndActivePage.description.sendKeys("This is the test of communcation skills part of IDP");
 		careerGoalAndActivePage.doneButton.click();

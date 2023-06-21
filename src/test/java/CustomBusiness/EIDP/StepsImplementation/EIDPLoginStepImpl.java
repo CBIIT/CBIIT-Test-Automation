@@ -53,7 +53,7 @@ public class EIDPLoginStepImpl extends PageInitializer {
 			CommonUtils.clickOnElement(nihLoginPage.changeUserDropdown);
 			CommonUtils.sendKeys(nihLoginPage.searchableChangeUserInput, username);
 			CucumberLogUtils.logScreenShot();
-			MiscUtils.sleep(3000);
+			MiscUtils.sleep(4000);
 			CommonUtils.clickOnElement(nihLoginPage.changeUserOption);
 	
 	}

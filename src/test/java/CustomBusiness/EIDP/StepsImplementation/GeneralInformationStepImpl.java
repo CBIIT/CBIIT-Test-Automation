@@ -29,9 +29,8 @@ public class GeneralInformationStepImpl extends PageInitializer {
 	public void enterPrimaryMentor(String name) {
 		if (name != null) {
 			CommonUtils.click(generalInformationPage.primaryMentorsName);
-			CommonUtils.waitForVisibility(generalInformationPage.searchInputField);
 			CommonUtils.sendKeys(generalInformationPage.searchInputField, name);
-			CommonUtil.waitBrowser(2000);
+			MiscUtils.sleep(2000);
 			CommonUtils.click(generalInformationPage.dropdownOptions);
 		}
 	}
@@ -59,10 +58,10 @@ public class GeneralInformationStepImpl extends PageInitializer {
 	}
 
 	public void selectRandomHighestDegree() {
-		MiscUtils.sleep(3000);
+		MiscUtils.sleep(1000);
 		if (CommonUtils.isElementDisplayed(generalInformationPage.highestDegreeDropdown2)) {
 			eidpBasePage.selectOptionByIndex(generalInformationPage.highestDegreeDropdown2);
-			MiscUtils.sleep(3000);
+			MiscUtils.sleep(1000);
 		} else if (CommonUtils.isElementDisplayed(generalInformationPage.highestDegreeDropdown)) {
 			eidpBasePage.selectOptionByIndex(generalInformationPage.highestDegreeDropdown);
 		}

@@ -1,9 +1,10 @@
-@NHGRIALL
 Feature: Regression testing
 
-  @InitiatesIDPnhgri @Smoke @Regression @Zamant2 @Needs_review
-  Scenario: IDP request creates and decline and approve
-    When User will login to the application as "gugulothus2" user
+  Background:
+    Given User logs in to EIDP "EidpUrlNHGRI" as "Username" and "Password"
+
+  @InitiatesIDPnhgri @Smoke @Regression @Zamant2
+  Scenario: TC01 IDP request creates and decline and approve
     And Logged in user changes the user to "Plante,Faith"
     And User will click on search in dashboard
     And User creates IDP NGHRI request
@@ -13,29 +14,29 @@ Feature: Regression testing
     And User will clickOn start idp button
     And User fills mandatory fields in general information section
       | Primary Mentor | Lab Driector name | Co Primary Mentor |
-      | Laric,Pnina    | Ferguson,Kimberly | Henke,Joseph      |
+      | Rider,Renee    | Green,Eric        | Anderson,Stacie   |
     And User fills mandatory fields in project deliverable page
     And User fills mandatory fields in career goals page NHGRI
     And User fills mandatory fields in aligning expecations page
-    And User will click on revew and take action button
+    And User will click on review and take action button
     And User clicks on Send IDP to the Primary Mentor button
-    And Logged in user changes the user to "Laric,Pnina"
+    And Logged in user changes the user to "Rider,Renee"
     And User clicks on the trainee specific IDP NHGRI request
     And User clicks on Decline IDP button
     And Logged in user changes the user to trainee
     And User will clickOn proceed button
     And User clicks on Send IDP to the Primary Mentor button
-    And Logged in user changes the user to "Laric,Pnina"
+    And Logged in user changes the user to "Rider,Renee"
     And User clicks on the trainee specific IDP NHGRI request
-    And User validates fields in all the tabs and values and clicks on No Revision option
+    And User clicks on No Revision option in all tabs
     And User clicks on REVIEW AND TAKE ACTION button
+    Then User clicks on Verify Meeting Checkbox
     And User clicks on SEND IDP TO THE TRAINEE button
     And Logged in user changes the user to trainee
-    And Trainee verifies IDP request status as "Under Trainee's Review"
-    And Logged in user changes the user to trainee
     And User reviews comments and feedbacks in all the tabs
+    Then User clicks on Verify Meeting Checkbox
     And User clicks on SUBMIT button
-    And Logged in user changes the user to "Henke,Joseph"
+    And Logged in user changes the user to "Anderson,Stacie"
     And User clicks on the trainee specific IDP being co-primary mentor
     And User marks all the fields as reviewed in all the tabs
     And User clicks on REVIEW AND TAKE ACTION button
@@ -45,24 +46,15 @@ Feature: Regression testing
     And User clicks on the trainee specific IDP being co-primary mentor
     And User clicks on APPROVE AND SUBMIT button NHGRI
     And User clicks on Yes button
-    And Logged in user changes the user to trainee
-    And User clicks on VERIFY MEETING button
-    And User clicks on Verify meeting and accept IDP button
-    And User enters meeting date and submits
-    And Logged in user changes the user to "Laric,Pnina"
-    And User clicks on proceed button of the trainee specific IDP NHGRI request
-    And User clicks on Verify meeting and accept IDP button
-    And User enters meeting date and submits and waits for home queue
-    And Logged in user changes the user to "Ferguson,Kimberly"
+    And Logged in user changes the user to "Green,Eric"
     And User will click on IDP Awaiting response button
     And User clicks on the trainee specific IDP being co-primary mentor
-    And User marks all the fields as reviewed in all the tabs being LBO
+    Then User clicks on Marks as REVIEWED button on LBO page
     And User clicks on APPROVE IDP button
     And User clicks on yes button on trainee page
 
-  @InitiatesIDPnhgriWithUniversity @Zamant2 @Needs_review
-  Scenario: IDP request creates and decline and approve
-    When User will login to the application as "gugulothus2" user
+  @InitiatesIDPnhgriWithUniversity @Zamant2
+  Scenario: TC02 IDP request creates with University details and approve
     And Logged in user changes the user to "Plante,Faith"
     And User will click on search in dashboard
     And User creates IDP NGHRI request with university details
@@ -72,29 +64,23 @@ Feature: Regression testing
     And User will clickOn start idp button
     And User fills mandatory fields in general information section
       | Primary Mentor | Lab Driector name | Co Primary Mentor |
-      | Laric,Pnina    | Ferguson,Kimberly | Henke,Joseph      |
+      | Rider,Renee    | Green,Eric        | Anderson,Stacie   |
     And User fills mandatory fields in project deliverable page
     And User fills mandatory fields in career goals page NHGRI
     And User fills mandatory fields in aligning expecations page
-    And User will click on revew and take action button
+    And User will click on review and take action button
     And User clicks on Send IDP to the Primary Mentor button
-    And Logged in user changes the user to "Laric,Pnina"
+    And Logged in user changes the user to "Rider,Renee"
     And User clicks on the trainee specific IDP NHGRI request
-    And User clicks on Decline IDP button
-    And Logged in user changes the user to trainee
-    And User will clickOn proceed button
-    And User clicks on Send IDP to the Primary Mentor button
-    And Logged in user changes the user to "Laric,Pnina"
-    And User clicks on the trainee specific IDP NHGRI request
-    And User validates fields in all the tabs and values and clicks on No Revision option
+    And User clicks on No Revision option in all tabs
     And User clicks on REVIEW AND TAKE ACTION button
+    Then User clicks on Verify Meeting Checkbox
     And User clicks on SEND IDP TO THE TRAINEE button
     And Logged in user changes the user to trainee
-    And Trainee verifies IDP request status as "Under Trainee's Review"
-    And Logged in user changes the user to trainee
     And User reviews comments and feedbacks in all the tabs
+    Then User clicks on Verify Meeting Checkbox
     And User clicks on SUBMIT button
-    And Logged in user changes the user to "Henke,Joseph"
+    And Logged in user changes the user to "Anderson,Stacie"
     And User clicks on the trainee specific IDP being co-primary mentor
     And User marks all the fields as reviewed in all the tabs
     And User clicks on REVIEW AND TAKE ACTION button
@@ -104,56 +90,42 @@ Feature: Regression testing
     And User clicks on the trainee specific IDP being co-primary mentor
     And User clicks on APPROVE AND SUBMIT button NHGRI
     And User clicks on Yes button
-    And Logged in user changes the user to trainee
-    And User clicks on VERIFY MEETING button
-    And User clicks on Verify meeting and accept IDP button
-    And User enters meeting date and submits
-    And Logged in user changes the user to "Laric,Pnina"
-    And User clicks on proceed button of the trainee specific IDP NHGRI request
-    And User clicks on Verify meeting and accept IDP button
-    And User enters meeting date and submits and waits for home queue
-    And Logged in user changes the user to "Ferguson,Kimberly"
+    And Logged in user changes the user to "Green,Eric"
     And User will click on IDP Awaiting response button
     And User clicks on the trainee specific IDP being co-primary mentor
     And User marks all the fields as reviewed in all the tabs being LBO
     And User clicks on APPROVE IDP button
     And User clicks on yes button on trainee page
 
-  @sendBackIDPnhgri @Regression @Zamant2 @Needs_review
-  Scenario: Send back to primary mentor flow
-    When User will login to the application as "gugulothus2" user
+  @sendBackIDPnhgri @Regression @Zamant2
+  Scenario: TC03 Send back to primary mentor flow
     And Logged in user changes the user to "Plante,Faith"
     And User will click on search in dashboard
     And User creates IDP NGHRI request
-      | Search For                         | Classification Type | NHGRI Training Organization |
-      | NHGRI (Fellows and Employees Only) | All                 | DIR                         |
+      | Search For                         | Classification Type | NHGRI Training Organization | IDP Type |
+      | NHGRI (Fellows and Employees Only) | All                 | DIR                         |          |
     And Logged in user changes the user to trainee
     And User will clickOn start idp button
     And User fills mandatory fields in general information section
       | Primary Mentor | Lab Driector name | Co Primary Mentor |
-      | Laric,Pnina    | Ferguson,Kimberly | Henke,Joseph      |
+      | Rider,Renee    | Green,Eric        | Anderson,Stacie   |
     And User fills mandatory fields in project deliverable page
     And User fills mandatory fields in career goals page NHGRI
     And User fills mandatory fields in aligning expecations page
-    And User will click on revew and take action button
+    And User will click on review and take action button
     And User clicks on Send IDP to the Primary Mentor button
-    And Logged in user changes the user to "Laric,Pnina"
+    And Logged in user changes the user to "Rider,Renee"
     And User clicks on the trainee specific IDP NHGRI request
-    And User clicks on Decline IDP button
-    And Logged in user changes the user to trainee
-    And User will clickOn proceed button
-    And User clicks on Send IDP to the Primary Mentor button
-    And Logged in user changes the user to "Laric,Pnina"
-    And User clicks on the trainee specific IDP NHGRI request
-    And User validates fields in all the tabs and values and clicks on No Revision option
+    And User clicks on No Revision option in all tabs
     And User clicks on REVIEW AND TAKE ACTION button
+    Then User clicks on Verify Meeting Checkbox
     And User clicks on SEND IDP TO THE TRAINEE button
     And Logged in user changes the user to trainee
-    And Trainee verifies IDP request status as "Under Trainee's Review"
     And User will clickOn proceed button
     And User reviews comments and feedbacks in all the tabs
+    Then User clicks on Verify Meeting Checkbox
     And User clicks on SUBMIT button
-    And Logged in user changes the user to "Henke,Joseph"
+    And Logged in user changes the user to "Anderson,Stacie"
     And User clicks on the trainee specific IDP being co-primary mentor
     And User marks all the fields as reviewed in all the tabs
     And User clicks on REVIEW AND TAKE ACTION button
@@ -162,13 +134,15 @@ Feature: Regression testing
     And User will click on IDP Awaiting response button
     And User clicks on the trainee specific IDP being co-primary mentor
     And User clicks on RETURN TO THE PRIMARY MENTOR button
-    And Logged in user changes the user to "Laric,Pnina"
+    And Logged in user changes the user to "Rider,Renee"
     And User clicks on proceed button of the trainee specific IDP NHGRI request
+    Then User clicks on Verify Meeting Checkbox
     And User clicks on SEND BACK TO TRAINEE button
     And Logged in user changes the user to trainee
     And User will clickOn proceed button
+    Then User clicks on Verify Meeting Checkbox
     And User clicks on SUBMIT button
-    And Logged in user changes the user to "Henke,Joseph"
+    And Logged in user changes the user to "Anderson,Stacie"
     And User clicks on the trainee specific IDP being co-primary mentor
     And User marks all the fields as reviewed in all the tabs
     And User clicks on REVIEW AND TAKE ACTION button
@@ -178,24 +152,15 @@ Feature: Regression testing
     And User clicks on the trainee specific IDP being co-primary mentor
     And User clicks on APPROVE AND SUBMIT button NHGRI
     And User clicks on Yes button
-    And Logged in user changes the user to trainee
-    And User clicks on VERIFY MEETING button
-    And User clicks on Verify meeting and accept IDP button
-    And User enters meeting date and submits
-    And Logged in user changes the user to "Laric,Pnina"
-    And User clicks on proceed button of the trainee specific IDP NHGRI request
-    And User clicks on Verify meeting and accept IDP button
-    And User enters meeting date and submits and waits for home queue
-    And Logged in user changes the user to "Ferguson,Kimberly"
+    And Logged in user changes the user to "Green,Eric"
     And User will click on IDP Awaiting response button
     And User clicks on the trainee specific IDP being co-primary mentor
     And User marks all the fields as reviewed in all the tabs being LBO
     And User clicks on APPROVE IDP button
     And User clicks on yes button on trainee page
 
-  @ReviseExistingIDPnhgri @Regression @Zamant2 @Needs_review
-  Scenario: Revise Existing IDP
-    When User will login to the application as "gugulothus2" user
+  @ReviseExistingIDPnhgri @Regression @Zamant2
+  Scenario: TC04 Revise Existing IDP
     And Logged in user changes the user to "Plante,Faith"
     And User will click on search in dashboard
     And User selects "Current IDP Status" as "Completed"
@@ -205,9 +170,8 @@ Feature: Regression testing
     And User clicks on save and send mail button
     Then User will click on ok button
 
-  @IDPOnHoldnghri @Regression @Zamant2 @Needs_review
-  Scenario: IDP is placed on HOLD
-    When User will login to the application as "gugulothus2" user
+  @IDPOnHoldnghri @Regression @Zamant2
+  Scenario:TC05 IDP is placed on HOLD
     And Logged in user changes the user to "Plante,Faith"
     And User will click on search in dashboard
     And User creates IDP NGHRI request
@@ -217,29 +181,23 @@ Feature: Regression testing
     And User will clickOn start idp button
     And User fills mandatory fields in general information section
       | Primary Mentor | Lab Driector name | Co Primary Mentor |
-      | Laric,Pnina    | Ferguson,Kimberly | Henke,Joseph      |
+      | Rider,Renee    | Green,Eric        | Anderson,Stacie   |
     And User fills mandatory fields in project deliverable page
     And User fills mandatory fields in career goals page NHGRI
     And User fills mandatory fields in aligning expecations page
-    And User will click on revew and take action button
+    And User will click on review and take action button
     And User clicks on Send IDP to the Primary Mentor button
-    And Logged in user changes the user to "Laric,Pnina"
+    And Logged in user changes the user to "Rider,Renee"
     And User clicks on the trainee specific IDP NHGRI request
-    And User clicks on Decline IDP button
-    And Logged in user changes the user to trainee
-    And User will clickOn proceed button
-    And User clicks on Send IDP to the Primary Mentor button
-    And Logged in user changes the user to "Laric,Pnina"
-    And User clicks on the trainee specific IDP NHGRI request
-    And User validates fields in all the tabs and values and clicks on No Revision option
+    And User clicks on No Revision option in all tabs
     And User clicks on REVIEW AND TAKE ACTION button
+    Then User clicks on Verify Meeting Checkbox
     And User clicks on SEND IDP TO THE TRAINEE button
     And Logged in user changes the user to trainee
-    And Trainee verifies IDP request status as "Under Trainee's Review"
-    And Logged in user changes the user to trainee
     And User reviews comments and feedbacks in all the tabs
+    Then User clicks on Verify Meeting Checkbox
     And User clicks on SUBMIT button
-    And Logged in user changes the user to "Henke,Joseph"
+    And Logged in user changes the user to "Anderson,Stacie"
     And User clicks on the trainee specific IDP being co-primary mentor
     And User marks all the fields as reviewed in all the tabs
     And User clicks on REVIEW AND TAKE ACTION button
@@ -256,12 +214,8 @@ Feature: Regression testing
     And Logged in user changes the user to trainee
     And User will click on General Information section
     And User selects primary mentor as exactly "Burgess,Shawn"
-    And User will click on revew and take action button
+    And User will click on review and take action button
     Then User verifies IDP will be placed on hold message
-
-  @releaseOnHoldnhgri @Regression @Zamant2 @Needs_review
-  Scenario: Release IDP placed on hold
-    When User will login to the application as "gugulothus2" user
     And Logged in user changes the user to "Plante,Faith"
     And User will click on search in dashboard
     And User selects "Current IDP Status" as "On Hold"
@@ -272,9 +226,9 @@ Feature: Regression testing
     And Logged in user changes the user to trainee
     Then Trainee verifies IDP request status as "Under Primary Mentor's Review"
 
-  @CancelIdpnhgri @Regression @Zamant2 @Needs_review
-  Scenario: Cancel IDP
-    When User will login to the application as "gugulothus2" user
+
+  @CancelIdpnhgri @Regression @Zamant2
+  Scenario:TC07 Cancel IDP
     And Logged in user changes the user to "Plante,Faith"
     And User will click on search in dashboard
     And User selects "Current IDP Status" as "Under Trainee's Review"
@@ -282,12 +236,9 @@ Feature: Regression testing
     And User click on "Cancel IDP" on the grid
     And User reads the trainee name from cancel idp confirmation window
     And User enters comments and clicks on yes button on cancel idp window
-    And Logged in user changes the user to trainee
-    Then Trainee verifies IDP request status as "Cancelled"
 
-  @UndoCancelIdpnhgri @Regression @Zamant2 @Needs_review
-  Scenario: Undo Cancel IDP
-    When User will login to the application as "gugulothus2" user
+  @UndoCancelIdpnhgri @Regression @Zamant2
+  Scenario:TC08 Undo Cancel IDP
     And Logged in user changes the user to "Plante,Faith"
     And User will click on search in dashboard
     And User selects "Current IDP Status" as "Cancelled"
@@ -297,80 +248,57 @@ Feature: Regression testing
     And User enters comments and clicks on yes button on undo cancel idp window
     And Logged in user changes the user to trainee
 
-  @AddAndDeleteTempDelegatenhgri @Regression @Zamant2 @Needs_review
-  Scenario: Add/Delete Temporary Delegates
-    When User will login to the application as "gugulothus2" user
+  @AddAndDeleteTempDelegatenhgri @Regression @Zamant2
+  Scenario:TC09 Add/Delete Temporary Delegates
     And Logged in user changes the user to "Plante,Faith"
     And User will click on manage delegate button in dashboard
     And User select delegation type as "Temporary"
     And User adds new delegate
-      | Name           | Start Date | End Date   |
-      | Craft,Kathleen | 10/29/2021 | 01/29/2022 |
-    Then User checks "Kathleen Craft" is added as delegate
-    When User deletes "Kathleen Craft" from delegators table
-    Then User check delegate delete message
+      | Name        | Start Date | End Date   |
+      | Craft,Katie | 10/29/2023 | 01/29/2025 |
+    Then User checks "Katie Craft" is added as delegate
+    When User deletes "Katie Craft" from delegators table
 
-  @AddAndDeletePermanentDelegatenhgri @Regression @Zamant2 @Needs_review
-  Scenario: Add/Delete Permanent Delegates
-    When User will login to the application as "gugulothus2" user
+  @AddAndDeletePermanentDelegatenhgri @Regression @Zamant2
+  Scenario:TC10 Add/Delete Permanent Delegates
     And Logged in user changes the user to "Plante,Faith"
     And User will click on manage delegate button in dashboard
     And User select delegation type as "Permanent"
     And User adds new delegate
-      | Name           |
-      | Craft,Kathleen |
-    Then User checks "Kathleen Craft" is added as delegate
-    When User deletes "Kathleen Craft" from delegators table
-    Then User check delegate delete message
+      | Name        |
+      | Craft,Katie |
+    Then User checks "Katie Craft" is added as delegate
+    When User deletes "Katie Craft" from delegators table
 
-  @DelegateInitiatesIDPnhgri @Regression @Zamant2 @Needs_review
-  Scenario: TD Delegate initiates IDP
-    When User will login to the application as "gugulothus2" user
+  @DelegateInitiatesIDPnhgri @Regression @Zamant2
+  Scenario:TC11 TD Delegate initiates IDP
     And Logged in user changes the user to "Plante,Faith"
     And User will click on manage delegate button in dashboard
     And User select delegation type as "Permanent"
     And User adds new delegate
-      | Name           |
-      | Craft,Kathleen |
-    Then User checks "Kathleen Craft" is added as delegate
+      | Name        |
+      | Craft,Katie |
+    Then User checks "Katie Craft" is added as delegate
     And User will click on Search tab
-    And Logged in user changes the user to "Craft,Kathleen"
+    And Logged in user changes the user to "Craft,Katie"
     And User will click on search in dashboard
     And User creates IDP NGHRI request
       | Search For                         | Classification Type | NHGRI Training Organization |
       | NHGRI (Fellows and Employees Only) | All                 | DIR                         |
     And Logged in user changes the user to trainee
-    And User will clickOn start idp button
-    And User fills mandatory fields in general information section
-      | Primary Mentor | Lab Driector name | Co Primary Mentor |
-      | Laric,Pnina    | Ferguson,Kimberly | Henke,Joseph      |
-    And User fills mandatory fields in project deliverable page
-    And User fills mandatory fields in career goals page NHGRI
-    And User fills mandatory fields in aligning expecations page
-    And User will click on revew and take action button
-    And User clicks on Send IDP to the Primary Mentor button
+    Then Trainee verifies IDP request status as "Under Primary Mentor's Review"
 
-  @ExistSurveynhgri @Regression @Zamant2 @Needs_review
-  Scenario: TD/AO Initiates the Exit Survey for the Fellow/Employee
-    When User will login to the application as "gugulothus2" user
-    And Logged in user changes the user to "Craft,Kathleen"
+  @ExistSurveynhgri @Regression @Zamant2
+  Scenario:TC12 TD/AO Initiates the Exit Survey for the Fellow/Employee
+    And Logged in user changes the user to "Craft,Katie"
     And User will click on search in dashboard
     And User clicks on search button
     And User click on "Exist Survey" on the grid
     And User clicks on yes button of modal
     Then User will click on ok button
 
-  @TDReleaseHoldnhgri @Regression @Zamant2 @Needs_review
-  Scenario: TD Delegates Release IDP placed on HOLD
-    When User will login to the application as "gugulothus2" user
-    And Logged in user changes the user to "Plante,Faith"
-    And User will click on manage delegate button in dashboard
-    And User select delegation type as "Permanent"
-    And User adds new delegate
-      | Name        |
-      | Hurle,Belen |
-    Then User checks "Belen Hurle" is added as delegate
-    And User clicks on Home button
+  @TDReleaseHoldnhgri @Regression @Zamant2
+  Scenario:TC13 TD Delegates Release IDP placed on HOLD
     And Logged in user changes the user to "Hurle,Belen"
     And User will click on search in dashboard
     And User selects "Current IDP Status" as "Under Training Director's Review"
@@ -383,7 +311,7 @@ Feature: Regression testing
     And Logged in user changes the user to trainee
     And User will click on General Information section
     And User selects primary mentor as exactly "Burgess,Shawn"
-    And User will click on revew and take action button
+    And User will click on review and take action button
     Then User verifies IDP will be placed on hold message
     And Logged in user changes the user to "Hurle,Belen"
     And User will click on search in dashboard

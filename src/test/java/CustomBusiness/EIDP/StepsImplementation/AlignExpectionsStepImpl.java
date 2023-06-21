@@ -35,13 +35,8 @@ public class AlignExpectionsStepImpl extends PageInitializer {
 	}
 
 	public void clickOnReviewAndTakeActionButton() {
-		try {
 			CommonUtils.waitForClickability(aligningExpectationsPage.reviewAndTakeActionButton);
 			CommonUtils.click(aligningExpectationsPage.reviewAndTakeActionButton);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
 	}
 
 	public void clickOnSendIDPToTraineeButton() {

@@ -66,16 +66,13 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer {
 	}
 
 	public void addWorkShipDetailsWithStatus() {
-		eidpBasePage.waitForElementToLoad(By.id("workshopSubmission"));
-		CommonUtil.waitBrowser(2000);
+		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(projectRelatedDeliverablePage.classesCoursesWorkshopButton);
 		CommonUtils.click(projectRelatedDeliverablePage.classesCoursesWorkshopButton);
-		CommonUtil.waitBrowser(2000);
-		WebDriverUtils.getWebDriver().findElements(By.cssSelector("#trackClassActStatus > .controls > label")).get(1)
-				.click();
+		MiscUtils.sleep(1000);
 		CommonUtils.click(projectRelatedDeliverablePage.travelNoRadioButton);
-		CommonUtils.sendKeys(projectRelatedDeliverablePage.classesStartDate, "02/20/2021" + Keys.TAB);
-		CommonUtils.sendKeys(projectRelatedDeliverablePage.classesToDate, "10/20/2021" + Keys.TAB);
+		CommonUtils.sendKeys(projectRelatedDeliverablePage.classesStartDate, "02/20/2023" + Keys.TAB);
+		CommonUtils.sendKeys(projectRelatedDeliverablePage.classesToDate, "10/20/2023" + Keys.TAB);
 		CommonUtils.sendKeys(projectRelatedDeliverablePage.classRoomLocation, "Virtual");
 		CommonUtils.sendKeys(projectRelatedDeliverablePage.classroomtitle, "Sample class");
 		CommonUtils.sendKeys(projectRelatedDeliverablePage.classDescrption,
@@ -85,7 +82,6 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer {
 	}
 
 	public void addNewProject() {
-		CommonUtil.waitBrowser(7000);
 		CommonUtils.waitForVisibility(projectRelatedDeliverablePage.addNewProjectButton);
 		CommonUtils.click(projectRelatedDeliverablePage.addNewProjectButton);
 		CommonUtils.waitForVisibility(projectRelatedDeliverablePage.projectTitle);
@@ -95,28 +91,21 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer {
 		CommonUtils.sendKeys(projectRelatedDeliverablePage.responsibilities,
 				"Test reponsibilities :: analysis and understand and report");
 		CommonUtils.click(projectRelatedDeliverablePage.publicationButton);
-		CommonUtils.waitForClickability(projectRelatedDeliverablePage.publicationSubTypeSelect);
-		eidpBasePage.selectOption(projectRelatedDeliverablePage.publicationSubTypeSelect, "Manuscript");
-		CommonUtils.click(
-				WebDriverUtils.getWebDriver().findElement(By.xpath("//label[contains(text(), 'In Preparation')]")));
+		CommonUtils.waitForClickability(projectRelatedDeliverablePage.selectTypeDropdown);
+		eidpBasePage.selectOption(projectRelatedDeliverablePage.selectTypeDropdown, "Manuscript");
 		CommonUtils.sendKeys(projectRelatedDeliverablePage.publicationtitle, "Publication title for automation");
 		CommonUtils.sendKeys(projectRelatedDeliverablePage.publicationDescription, "Publication description");
 		eidpBasePage.selectOption(projectRelatedDeliverablePage.targetDateMonth, "December");
-		eidpBasePage.selectOption(projectRelatedDeliverablePage.targetDateYear, "2021");
+		eidpBasePage.selectOption(projectRelatedDeliverablePage.targetDateYear, "2024");
 		CommonUtils.click(projectRelatedDeliverablePage.addDeliverablesButton);
 	}
 
 	public void markAllExistingProjectsAsCompleted() {
-		List<WebElement> projectEditButtons = WebDriverUtils.getWebDriver()
-				.findElements(By.cssSelector("#tab_0 [aria-label='edit']"));
-		for (int i = 0; i < projectEditButtons.size(); i++) {
-			CommonUtil.waitBrowser(5000);
-			projectEditButtons = WebDriverUtils.getWebDriver()
-					.findElements(By.cssSelector("#tab_0 [aria-label='edit']"));
-			CommonUtils.click(projectEditButtons.get(i)); // click on project edit icon
+		for (int i = 0; i < projectRelatedDeliverablePage.projectEditButtons.size(); i++) {
+			MiscUtils.sleep(5000);
+			CommonUtils.click(projectRelatedDeliverablePage.projectEditButtons.get(i)); 
 			MiscUtils.sleep(3000);
-			CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.id("projStatus_297"))); // click on complete
-																									// radio button
+			CommonUtils.click(projectRelatedDeliverablePage.completeRadioButton); 
 			markAllDeliverablesOfTheProjectCompleted();
 			MiscUtils.sleep(3000);
 			CommonUtils.waitForVisibility(projectRelatedDeliverablePage.projectsAndTrainingSave);
@@ -204,16 +193,11 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer {
 	}
 
 	public void markAllProjectRelatedTrainningsAreCompleted() {
-		CommonUtils.waitForVisibility(projectRelatedDeliverablePage.classesCoursesWorkshopButton);
 		List<WebElement> trainningActivitiesEditIcons = WebDriverUtils.getWebDriver()
 				.findElements(By.cssSelector(".delivChoice .fa.fa-pencil"));
 		for (int i = 0; i < trainningActivitiesEditIcons.size(); i++) {
-			CommonUtil.waitBrowser(4000);
-			trainningActivitiesEditIcons = WebDriverUtils.getWebDriver()
-					.findElements(By.cssSelector(".delivChoice .fa.fa-pencil"));
-			CommonUtil.waitBrowser(2000);
 			trainningActivitiesEditIcons.get(i).click();
-			CommonUtil.waitBrowser(2000);
+			MiscUtils.sleep(2000);
 			String currentTrainningType = WebDriverUtils.getWebDriver()
 					.findElement(By.cssSelector(".modal-lg.in #myModalLabel")).getText();
 			if ("Interest/Working Group Participation".equalsIgnoreCase(currentTrainningType.trim())) {
@@ -223,8 +207,8 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer {
 						.get(3).click();
 				WebDriverUtils.getWebDriver().findElement(By.id("datepicker34")).clear();
 				WebDriverUtils.getWebDriver().findElement(By.id("datepicker33")).clear();
-				WebDriverUtils.getWebDriver().findElement(By.id("datepicker34")).sendKeys("01/15/2021");
-				WebDriverUtils.getWebDriver().findElement(By.id("datepicker33")).sendKeys("01/15/2021");
+				WebDriverUtils.getWebDriver().findElement(By.id("datepicker34")).sendKeys("07/15/2023");
+				WebDriverUtils.getWebDriver().findElement(By.id("datepicker33")).sendKeys("12/15/2023");
 				WebDriverUtils.getWebDriver().findElement(By.id("interestGroupLocation")).clear();
 				WebDriverUtils.getWebDriver().findElement(By.id("interestGroupLocation")).sendKeys("Virtual");
 				WebDriverUtils.getWebDriver().findElement(By.id("addGroupParticipation")).click();
@@ -236,8 +220,8 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer {
 						.get(2).click();
 				WebDriverUtils.getWebDriver().findElement(By.id("datepicker9")).clear();
 				WebDriverUtils.getWebDriver().findElement(By.id("datepicker10")).clear();
-				WebDriverUtils.getWebDriver().findElement(By.id("datepicker9")).sendKeys("01/01/2021");
-				WebDriverUtils.getWebDriver().findElement(By.id("datepicker10")).sendKeys("01/01/2021");
+				WebDriverUtils.getWebDriver().findElement(By.id("datepicker9")).sendKeys("07/15/2023");
+				WebDriverUtils.getWebDriver().findElement(By.id("datepicker10")).sendKeys("12/15/2023");
 				WebDriverUtils.getWebDriver().findElement(By.id("classroomLocation")).clear();
 				WebDriverUtils.getWebDriver().findElement(By.id("classroomLocation")).sendKeys("Virtual");
 				WebDriverUtils.getWebDriver().findElement(By.id("addworkshops")).click();
@@ -248,8 +232,8 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer {
 						.get(2).click();
 				WebDriverUtils.getWebDriver().findElement(By.id("datepicker12")).clear();
 				WebDriverUtils.getWebDriver().findElement(By.id("datepicker13")).clear();
-				WebDriverUtils.getWebDriver().findElement(By.id("datepicker12")).sendKeys("01/01/2021");
-				WebDriverUtils.getWebDriver().findElement(By.id("datepicker13")).sendKeys("01/15/2021");
+				WebDriverUtils.getWebDriver().findElement(By.id("datepicker12")).sendKeys("07/15/2023");
+				WebDriverUtils.getWebDriver().findElement(By.id("datepicker13")).sendKeys("12/15/2023");
 				WebDriverUtils.getWebDriver().findElement(By.id("othersLocation")).clear();
 				WebDriverUtils.getWebDriver().findElement(By.id("othersLocation")).sendKeys("Virtual");
 				WebDriverUtils.getWebDriver().findElement(By.id("addOthersTrainingActivities")).click();

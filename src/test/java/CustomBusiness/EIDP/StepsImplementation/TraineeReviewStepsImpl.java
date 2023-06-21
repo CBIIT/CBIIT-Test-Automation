@@ -1,17 +1,7 @@
 package CustomBusiness.EIDP.StepsImplementation;
 
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
-import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.JavascriptUtils;
-import com.nci.automation.web.WebDriverUtils;
-import CustomBusiness.EIDP.Pages.BasePage;
 import CustomBusiness.EIDP.Util.CommonUtil;
-import CustomBusiness.EIDP.Util.SharedData;
 import appsCommon.PageInitializer;
 
 public class TraineeReviewStepsImpl extends PageInitializer{
@@ -31,9 +21,10 @@ public class TraineeReviewStepsImpl extends PageInitializer{
 		CommonUtils.click(traineeReviewPage.mentorExpectationsTab);
 		CommonUtils.click(traineeReviewPage.reviewedNoFeedbackRadioButton);
 		CommonUtils.click(traineeReviewPage.saveButton);
-		CommonUtils.click(traineeReviewPage.ackRenewaldecision);
-		CommonUtils.click(traineeReviewPage.saveButton);
+		if(CommonUtils.isElementDisplayed(traineeReviewPage.ackRenewaldecision)){
+			CommonUtils.click(traineeReviewPage.ackRenewaldecision);
+			CommonUtils.click(traineeReviewPage.saveButton);
+		}
 		CommonUtils.click(traineeReviewPage.reviewAndTakeActionButton);
-
 	}
 }

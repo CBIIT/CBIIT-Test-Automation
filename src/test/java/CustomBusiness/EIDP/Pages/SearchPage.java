@@ -147,8 +147,8 @@ public class SearchPage extends CommonUtils {
 	@FindBy(id = "advanced_search_results")
 	public WebElement advancedSearchResults;
 
-
-	
+	@FindBy(xpath = "//button[@data-bb-handler='confirm' and contains(text(),'Yes')]")
+	public WebElement yesButtonforRenewal;
 
 	/***
 	 * USE THIS METHOD TO DYNAMICALLY SELECT CLASSIFICATION TYPE

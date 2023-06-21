@@ -41,7 +41,6 @@ public class IDPAwaitingResponseSteps extends PageInitializer {
 	}
 
 	public void changeUserToTrainnee() throws Exception {
-
 		String updatedUserName = SharedData.traineeName;
 		eidpLoginStepImpl.changeUser(eidpLoginStepImpl.lastNameFirstName(updatedUserName));
 	}
@@ -59,7 +58,6 @@ public class IDPAwaitingResponseSteps extends PageInitializer {
 	@When("Logged in user changes the user to {string}And User will click on IDP Awaiting response button")
 	public void logged_in_user_changes_the_user_to_And_User_will_click_on_IDP_Awaiting_response_button(String str) {
 		eidpLoginStepImpl.changeUser(SharedData.traineeName);
-
 		iDPAwaitingResponsePage.clickonIDpWaitigResponse();
 		iDPAwaitingResponsePage.selecTraineeName(SharedData.traineeName);
 

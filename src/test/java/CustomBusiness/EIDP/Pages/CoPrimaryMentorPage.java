@@ -73,11 +73,7 @@ public class CoPrimaryMentorPage extends CommonUtils {
 		CommonUtils.click(markAsReviewedCheckbox);
 		CommonUtils.click(approveIDP);
 		CommonUtils.click(finalYesButton);
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenShot("Last Screenshot");
 	}
 
@@ -185,21 +181,18 @@ public class CoPrimaryMentorPage extends CommonUtils {
 	}
 
 	public void markAsReviewed() {
+		MiscUtils.sleep(2000);
 		CommonUtils.click(markAsReviewed);
 	}
 
 	public void clickOnApproveAndSubmitButton() {
 		CucumberLogUtils.logScreenShot("Approve and submit");
+		MiscUtils.sleep(2000);
 		String locator = "//*[@id='tdAprroveIDP']";
 		if (WebDriverUtils.getWebDriver().findElements(By.xpath(locator)).size() > 0) {
 			CommonUtils.click(approvedAndSubmitButton);
 		} else {
 			CommonUtils.click(reviewedButton);
-		}
-		locator = "//*[@id='errorAlertTD']";
-		if (WebDriverUtils.getWebDriver().findElements(By.xpath(locator)).size() > 0) {
-			CommonUtils.click(markAsReviewedCheckbox);
-			CommonUtils.click(approvedAndSubmitButton);
 		}
 		MiscUtils.sleep(1000);
 	}

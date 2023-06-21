@@ -26,7 +26,7 @@ public class AligningExpectationsSteps extends PageInitializer {
 		aligningExpectationsStepImpl.clickOnSaveButton();
 	}
 
-	@When("User will click on revew and take action button")
+	@When("User will click on review and take action button")
 	public void user_will_click_on_revew_and_take_action_button() {
 		System.out.println("TRAINEE NAME = " + SharedData.traineeName);
 		aligningExpectationsStepImpl.clickOnReviewAndTakeActionButton();
@@ -38,22 +38,14 @@ public class AligningExpectationsSteps extends PageInitializer {
 
 	@When("User verifies IDP will be placed on hold message")
 	public void verifyIDPHoldMsg() {
-		try {
-			MiscUtils.sleep(6000);
+			MiscUtils.sleep(2000);
 			eidpDashboardStepImpl.clickOnSendIDPToPrimaryMentorButton();
-			MiscUtils.sleep(4000);
+			MiscUtils.sleep(2000);
 			String msg = aligningExpectationsStepImpl.getHoldMsg();
 			System.out.println("hold message = " + msg);
 			eidpCommonPage.clickOnYesButton();
-			// Your IDP will be placed on hold since you updated the following field(s):
 			Assert.assertTrue(
 					msg.contains("Your IDP will be placed on hold since you updated the following field(s):"));
-
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-
-		}
-
 	}
 
 }
