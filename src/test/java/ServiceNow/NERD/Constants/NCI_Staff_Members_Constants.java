@@ -4,6 +4,10 @@ import com.nci.automation.web.CommonUtils;
 
 public class NCI_Staff_Members_Constants {
 
+
+    /* CRS KNOWLEDGE MANAGEMENT SYSTEM TEXT MAIN PAGE */
+    public static final String CRS_KNOWLEDGE_MANAGEMENT_SYSTEM_TEXT_MAIN_PAGE  = "CRS Knowledge Management System";
+
     /* CRS COLLABORATION NEW SUBMISSION TITLE TEXT BOX */
     public static final String CRS_COLLABORATION_NEW_SUBMISSION_TITLE_TEXT_BOX  = "Testing Category" + CommonUtils.lastNameRandomizer();
 

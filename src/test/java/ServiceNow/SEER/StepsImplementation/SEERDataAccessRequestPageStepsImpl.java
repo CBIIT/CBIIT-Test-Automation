@@ -25,6 +25,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
     public static String newEmailThankYou349 = "seerThankYou349" + CommonUtils.email;
 
     public static void verifyingAgreements() {
+        MiscUtils.sleep(2000);
         String actualTreatmentDataLimitationsAgreementText = seerDataAccessRequestPage.seerDataAccessTreatmentDataLimitationsAgreement.getText();
         CommonUtils.assertEquals(actualTreatmentDataLimitationsAgreementText, DUA_Constants.SEER_ACKNOWLEDGMENT_OF_TREATMENT_DATA_LIMITATIONS);
         CucumberLogUtils.logScreenShot();

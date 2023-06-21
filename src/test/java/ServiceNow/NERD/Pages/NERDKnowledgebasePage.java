@@ -8,6 +8,10 @@ import com.nci.automation.web.WebDriverUtils;
 
 public class NERDKnowledgebasePage {
 
+    /** NERD CSR Knowledge Management System Main page text */
+    @FindBy(xpath = "//*[@id='crs-kd-nav']/div")
+    public WebElement nerdCRSKnowledgeMainText;
+
     /** NERD Knowledge base view page text */
     @FindBy(xpath = "//div[@for='kbSelect']")
     public WebElement nerdKnowledgeBaseViewText;

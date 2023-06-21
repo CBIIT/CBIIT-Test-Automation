@@ -6,6 +6,7 @@ import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
 import ServiceNow.NERD.StepsImplementation.NERDApplicationStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERD_NCI_CRSReviewerStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERD_NCI_DOC_PlanningContactStepsImplementation;
+import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.JavascriptUtils;
 import org.junit.Assert;
 import com.nci.automation.utils.MiscUtils;
@@ -62,11 +63,16 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
             throws TestingException {
         nativeViewLoginImpl.sideDoorAccountLogin();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+        MiscUtils.sleep(1000);
+        CommonUtils.assertEquals(NCI_Staff_Members_Constants.CRS_KNOWLEDGE_MANAGEMENT_SYSTEM_TEXT_MAIN_PAGE, nerdKnowledgeBasePage.nerdCRSKnowledgeMainText.getText());
+        JavascriptUtils.drawBlueBorder(
+                nerdKnowledgeBasePage.nerdCRSKnowledgeMainText);
         Assert.assertEquals(submissionsPage,
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageSubmissionsLink
                         .getText());
         JavascriptUtils.drawBlueBorder(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageSubmissionsLink);
+        CucumberLogUtils.logScreenShot();
     }
 
     @Given("creates a new submission for Collaboration category")
@@ -77,7 +83,7 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
 
     @Then("the created Collaborations submission is displays in the Collaborations category section with the status {string}")
     public void the_created_Collaborations_submission_is_displays_in_the_Collaborations_category_section_with_the_status(String expectedUnderReviewText) {
-    NERDApplicationStepsImplementation.theCreatedCollaborationsSubmissionIsDisplaysInTheCollaborationsCategorySectionWithTheStatus(expectedUnderReviewText);
+        NERDApplicationStepsImplementation.theCreatedCollaborationsSubmissionIsDisplaysInTheCollaborationsCategorySectionWithTheStatus(expectedUnderReviewText);
     }
 
 
