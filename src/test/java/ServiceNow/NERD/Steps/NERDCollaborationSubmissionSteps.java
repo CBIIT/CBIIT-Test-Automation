@@ -6,6 +6,7 @@ import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
 import ServiceNow.NERD.StepsImplementation.NERDApplicationStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERD_NCI_CRSReviewerStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERD_NCI_DOC_PlanningContactStepsImplementation;
+import ServiceNow.NERD.StepsImplementation.NERD_NCI_StaffMemberStepsImplementation;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.JavascriptUtils;
 import org.junit.Assert;
@@ -61,18 +62,7 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
     @Given("a Program Staff member is on the CRS Knowledge Management System {string} page")
     public void a_Program_Staff_member_is_on_the_CRS_Knowledge_Management_System_page(String submissionsPage)
             throws TestingException {
-        nativeViewLoginImpl.sideDoorAccountLogin();
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-        MiscUtils.sleep(1000);
-        CommonUtils.assertEquals(NCI_Staff_Members_Constants.CRS_KNOWLEDGE_MANAGEMENT_SYSTEM_TEXT_MAIN_PAGE, nerdKnowledgeBasePage.nerdCRSKnowledgeMainText.getText());
-        JavascriptUtils.drawBlueBorder(
-                nerdKnowledgeBasePage.nerdCRSKnowledgeMainText);
-        Assert.assertEquals(submissionsPage,
-                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageSubmissionsLink
-                        .getText());
-        JavascriptUtils.drawBlueBorder(
-                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageSubmissionsLink);
-        CucumberLogUtils.logScreenShot();
+        NERD_NCI_StaffMemberStepsImplementation.aProgramStaffMemberIsOnTheCRSKnowledgeManagementSystemPage(submissionsPage);
     }
 
     @Given("creates a new submission for Collaboration category")
