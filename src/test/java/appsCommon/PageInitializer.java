@@ -107,7 +107,9 @@ import CustomBusiness.EIDP.StepsImplementation.SearchStepImpl;
 import CustomBusiness.ETD.Pages.ETDAdminNCIPage;
 import CustomBusiness.ETD.Pages.ETDBasePage;
 import CustomBusiness.ETD.StepsImplementation.ETDFlowStepsImpl;
-
+import GrantsApps.ChangePassword.Pages.ChangePasswordBasePage;
+import GrantsApps.ChangePassword.Pages.ChangePasswordPage;
+import GrantsApps.ChangePassword.StepsImplementation.ChangePasswordStepsImpl;
 /**
  * This an initializer class which will initialize all pages classes. Once pages
  * class created, create an object of it here inside the constructor
@@ -271,6 +273,11 @@ public class PageInitializer {
 	protected static ETDAdminNCIPage etdAdminNCIPage;
 	protected static ETDBasePage etdBasePage;
 
+	/** Grants Apps Instances */
+	protected static ChangePasswordBasePage changePasswordBasePage;
+	protected static ChangePasswordPage changePasswordPage;
+	protected static ChangePasswordStepsImpl changePasswordStepsImpl;
+
 	public static void initializeAllPages() {
 		// create instances of all pages and assign them to the variables
 		iTrustloginPage = new ITrustLoginPage();
@@ -402,5 +409,9 @@ public class PageInitializer {
 		etdFlowStepsImpl = new ETDFlowStepsImpl();
 		etdAdminNCIPage  = new ETDAdminNCIPage();
 		etdBasePage = new ETDBasePage();
+
+		/** Grants ChangePassword app **/
+		changePasswordPage = new ChangePasswordPage();
+		changePasswordStepsImpl = new ChangePasswordStepsImpl();
 	}
 }
