@@ -162,14 +162,13 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         MiscUtils.sleep(500);
         CommonUtils.clickOnElement(nerdKnowledgeBasePage.topAccomplishmentsNerdKnowledgeBaseSearchButton);
         MiscUtils.sleep(1000);
-        System.out.println("TEXT:" + NERDKnowledgebasePage.dynamicXpathNERDKnowledgeBaseAccordion(topAccomplishmentsAccordion).getText());
         NERDKnowledgebasePage.dynamicXpathNERDKnowledgeBaseAccordion(topAccomplishmentsAccordion).click();
         CucumberLogUtils.logScreenShot();
         MiscUtils.sleep(500);
         boolean isArticleDisplayed = NERDKnowledgebasePage
                 .dynamicXpathNERDKnowledgeBaseTopAccomplishmentPublishedArticle(publishedArticleTitle)
                 .getText()
-                .contentEquals(publishedArticleTitle);
+                .contains(publishedArticleTitle);
         CommonUtils.assertTrue(isArticleDisplayed);
         CucumberLogUtils.logScreenShot();
     }

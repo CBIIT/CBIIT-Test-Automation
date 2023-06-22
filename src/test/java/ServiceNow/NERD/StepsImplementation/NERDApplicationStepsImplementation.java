@@ -188,6 +188,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowTextField.click();
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowTextField
                 .sendKeys(ReturningSubmissions_Constants.RETURN_TO_STUFF_MEMBER_MESSAGE);
+        MiscUtils.sleep(5000);
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowYESbutton);
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowYESbutton.click();
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
@@ -399,7 +400,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         MiscUtils.sleep(2000);
         CommonUtils.selectCheckbox(createNewSubmissionPage.crsKnowledgeManagementSystemOtherDOCsList, "aria-label",
                 "CBIIT");
-        MiscUtils.sleep(2000);
+        MiscUtils.sleep(3000);
         CucumberLogUtils.logScreenShot();
         CommonUtils.sendKeys(createNewSubmissionPage.pocTextBox, "Test");
         CommonUtils.selectDropDownValue(createNewSubmissionPage.nihICs_ODcollaboratorsDropDown, "Other");
@@ -704,6 +705,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink.click();
         JavascriptUtils
                 .scrollIntoView(nerdDynamicXpaths.publishedCollaboration(submissionName));
+        MiscUtils.sleep(1000);
         CommonUtils.assertTrue(nerdDynamicXpaths.underReviewText(submissionName).getText()
                 .equals(UnderReview));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(submissionName));
@@ -761,7 +763,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         MiscUtils.sleep(7000);
         nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsList.click();
         MiscUtils.sleep(1000);
-        nerdDynamicXpaths.publishedCollaboration(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER).click();
+        JavascriptUtils.clickByJS(nerdDynamicXpaths.publishedCollaboration(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER));
         CommonUtils.switchToAnotherWindow();
         MiscUtils.sleep(1000);
         Assert.assertTrue(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER,
@@ -819,7 +821,6 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      * @param buttonName
      */
     public static void clickingOnYESButtonWhenReturningCollaboration(String buttonName) {
-        // CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmReturnYesButton);
         CommonUtils.assertTrue(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.confirmReturnYesButton.getText().equals(buttonName));
         MiscUtils.sleep(1000);

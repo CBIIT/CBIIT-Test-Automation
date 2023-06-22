@@ -8,25 +8,25 @@ public class ReturningSubmissions_Constants {
     public static final String COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER = "TestingCRSReviewer" + CommonUtils.lastNameRandomizer();
 
     /* COLLABORATIONS NEW SUBMISSION NAME UNDER REVIEW TEXT  */
-    public static final String COLLABORATIONS_NEW_SUBMISSION_NAME_UNDER_REVIEW_TEXT = "TestingUnderReviewText";
+    public static final String COLLABORATIONS_NEW_SUBMISSION_NAME_UNDER_REVIEW_TEXT = "TestingUnderReviewText" + CommonUtils.lastNameRandomizer();
 
     /* COLLABORATIONS NEW SUBMISSION NAME AUTOMATION  */
-    public static final String COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION = "CollaborationAutomationTest";
+    public static final String COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION = "CollaborationAutomationTest" + CommonUtils.lastNameRandomizer();
 
     /* COLLABORATIONS NEW SUBMISSION VERSION NUMBER  */
     public static final String COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER = "CollaborationAutomationTest" + CommonUtils.lastNameRandomizer();
 
     /* COLLABORATIONS NEW SUBMISSION NAME DOC PLAN CONTACT */
-    public static final String COLLABORATIONS_NEW_SUBMISSION_NAME_DOC_PLAN_CONTACT = "DOCPlanContactCreateCollabarationTest";
+    public static final String COLLABORATIONS_NEW_SUBMISSION_NAME_DOC_PLAN_CONTACT = "DOCPlanContactCreateCollabarationTest" + CommonUtils.lastNameRandomizer();
 
     /* COLLABORATIONS NEW SUBMISSION NAME DOC PLAN CONTACT SUBMISSION */
-    public static final String COLLABORATIONS_NEW_SUBMISSION_NAME_DOC_PLAN_CONTACT_SUBMISSION = "DOCPlanContactCreateCollabarationSubmission";
+    public static final String COLLABORATIONS_NEW_SUBMISSION_NAME_DOC_PLAN_CONTACT_SUBMISSION = "DOCPlanContactCreateCollabarationSubmission" + CommonUtils.lastNameRandomizer();
 
     /* COLLABORATIONS NEW SUBMISSION NAME RETURN TO STUFF */
-    public static final String COLLABORATIONS_NEW_SUBMISSION_NAME_RETURN_TO_STUFF = "TestCollaborationReturnToStaff";
+    public static final String COLLABORATIONS_NEW_SUBMISSION_NAME_RETURN_TO_STUFF = "TestCollaborationReturnToStaff" + CommonUtils.lastNameRandomizer();
 
     /* COLLABORATIONS NEW SUBMISSION NAME AUTHOR */
-    public static final String COLLABORATIONS_NEW_SUBMISSION_NAME_AUTHOR = "TestingAuthorSubmission";
+    public static final String COLLABORATIONS_NEW_SUBMISSION_NAME_AUTHOR = "TestingAuthorSubmission" + CommonUtils.lastNameRandomizer();
 
     /* RETURN TO STUFF MEMBER MESSAGE */
     public static final String RETURN_TO_STUFF_MEMBER_MESSAGE = "Return DOC Test to Staff Member";

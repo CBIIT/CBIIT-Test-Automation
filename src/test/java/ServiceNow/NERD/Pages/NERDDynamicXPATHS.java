@@ -100,7 +100,7 @@ public class NERDDynamicXPATHS extends CommonUtils {
 
 	/** Returned to DOC text */
 	public WebElement returnedToDOCText(String value) {
-		return WebDriverUtils.webDriver.findElement(By.xpath("//a[text()='" + value + "']/following::div[3]"));
+		return WebDriverUtils.webDriver.findElement(By.xpath("//a[normalize-space()='" + value + "']//parent::h3//parent::div//parent::div//child::div[3]/child::div"));
 	}
 
 	/**

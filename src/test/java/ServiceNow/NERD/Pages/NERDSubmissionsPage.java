@@ -276,6 +276,10 @@ public class NERDSubmissionsPage extends CommonUtils {
 	@FindBy(xpath = "//button[@ng-click='c.submitSubmission()']")
 	public WebElement confirmPopUpWindowYESbutton;
 
+	/** Submissions: Confirm pop up window YES button CRS*/
+	@FindBy(xpath = "//*[@id='dialogContent_1']//child::div[3]//child::button[1]")
+	public WebElement confirmPopUpWindowYESbuttonCRS;
+
 	/** Submissions: Published Text */
 	@FindBy(xpath = "//md-list-item[1]//div[1]//div[3]//div[3]")
 	public WebElement publishedText;

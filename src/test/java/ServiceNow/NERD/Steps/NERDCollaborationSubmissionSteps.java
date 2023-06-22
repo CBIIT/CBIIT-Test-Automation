@@ -45,7 +45,6 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
                         String metastatic,
                         String meetingWorkshopConference, String minorityHealthHealtDisparities, String pediatric,
                         String reportGuidancePolicy) {
-
                 NERDApplicationStepsImplementation.checkBoxOptionsAreDisplayed(covid19, communications, rare,
                                 bigDataDataSharing, researchResourcesAndInfrastructure, sexGenderDifferences,
                                 partnerships,

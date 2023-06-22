@@ -37,11 +37,12 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
                 CommonUtils.waitForVisibility(nerdDynamicXpaths
                                 .publishedCollaboration(submissionName));
                 nerdDynamicXpaths.publishToNERDButton(submissionName).click();
-                CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton);
-                nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton.click();
-                CommonUtils.waitForVisibility(
-                                nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
-                nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton.click();
+                MiscUtils.sleep(5000);
+                CucumberLogUtils.logScreenShot();
+                JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbuttonCRS);
+                MiscUtils.sleep(1000);
+                CucumberLogUtils.logScreenShot();
+                JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
         }
 
         /**
@@ -59,8 +60,9 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
                 CommonUtils.selectValueFromBootStrapDropDown(
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenuValues,
                                 "Submissions");
-                CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown);
-                nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown.click();
+                MiscUtils.sleep(2000);
+//                CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown);
+                JavascriptUtils.clickByJS( nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown);
                 CommonUtils.waitForVisibility(
                                 nerdDynamicXpaths.publishedCollaboration(submissionName));
                 nerdDynamicXpaths.returnButton(submissionName).click();

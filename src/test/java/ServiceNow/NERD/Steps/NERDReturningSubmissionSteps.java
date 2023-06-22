@@ -146,7 +146,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
     @Given("a DOC Planning Contact creates a Collaboration submission")
     public void a_DOC_Planning_Contact_creates_a_Collaboration_submission() throws TestingException {
         nativeViewLoginImpl.sideDoorAccountLogin();
-        NERD_NCI_DOC_PlanningContactStepsImplementation.creatingOfCollaborationSubmissionByDOCPlaningContact(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink, "DOCPlanContactCreateCollabarationTest");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.creatingOfCollaborationSubmissionByDOCPlaningContact(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink, ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_DOC_PLAN_CONTACT);
     }
 
     @Then("they are able to return the submission to a Program Staff in the same DOC")
@@ -191,7 +191,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
     @Given("a DOC Planning Contact creates a Collaboration")
     public void a_DOC_Planning_Contact_creates_a_Collaboration() throws TestingException {
         nativeViewLoginImpl.sideDoorAccountLogin();
-        NERD_NCI_DOC_PlanningContactStepsImplementation.creatingOfCollaborationSubmissionByDOCPlaningContact(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink, "DOCPlanContactCreateCollabarationSubmission");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.creatingOfCollaborationSubmissionByDOCPlaningContact(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink, ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_DOC_PLAN_CONTACT_SUBMISSION);
     }
 
     @Then("they are able to return the Collaboration to a Program Staff user")

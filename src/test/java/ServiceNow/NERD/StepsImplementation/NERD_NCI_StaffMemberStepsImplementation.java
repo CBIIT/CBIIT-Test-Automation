@@ -36,6 +36,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton);
         MiscUtils.sleep(2000);
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.underReviewText(submissionName));
+        MiscUtils.sleep(1000);
         Assert.assertTrue(nerdDynamicXpaths.underReviewText(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER).getText().contentEquals("Under Review"));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(submissionName));
         CucumberLogUtils.logScreenShot();
