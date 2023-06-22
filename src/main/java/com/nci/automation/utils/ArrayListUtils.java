@@ -37,13 +37,13 @@ public class ArrayListUtils {
 
 	public static void print(ArrayList<String> arl) {
 		for (String s : arl) {
-			CucumberLogUtils.logInfo(s);
+
 		}
 	}
 
 	public static void print(List<String> list) {
 		for (String s : list) {
-			CucumberLogUtils.logInfo(s);
+
 		}
 	}
 
@@ -171,7 +171,7 @@ public class ArrayListUtils {
 		}
 
 		if (fail) {
-			CucumberLogUtils.logInfo("The following mismatches were found:\n" + mismatches.toString());
+
 			return false;
 		} else {
 			return true;
