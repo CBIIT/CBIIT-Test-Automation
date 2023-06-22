@@ -89,5 +89,37 @@ public class CucumberLogUtils {
         System.out.println(Thread.currentThread().getName() + " : " + DateUtils.getLogTime() + ": CONSOLE: " + msg);
     }
 
+    public static void logScreenShot(String msg) {
+        if (ScenarioContext.scenario.get() == null) {
+            return;
+        }
+
+        if (ScenarioContext.isTakeScreenShots()) {
+
+        }
+    }
+
+    /**
+     * This method will log screenshot to the reports
+     */
+    public static void logScreenShot() {
+        if (ScenarioContext.scenario.get() == null) {
+            return;
+        }
+
+        if (ScenarioContext.isTakeScreenShots()) {
+
+        }
+
+
+    }
+
+    public static void logInfo(String msg) {
+        if (ScenarioContext.scenario.get() == null) {
+            return;
+        }
+        logger.info(msg);
+
+    }
 
 }
