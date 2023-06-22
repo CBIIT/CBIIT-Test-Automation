@@ -13,13 +13,14 @@ import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
 import AnalysisTools.Comets2.Pages.Comets2Page;
 import AnalysisTools.ICRP.Pages.ICRPHomePage;
-import AnalysisTools.ICRP.Pages.ICRPSearchDatabase;
+import AnalysisTools.ICRP.Pages.ICRPSearchDatabasePage;
 import AnalysisTools.JPSurv.Pages.JPSurvHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
 import AnalysisTools.PLCO.Pages.BrowsePhenotypePage;
 import AnalysisTools.PLCO.Pages.ExploreGWASPage;
 import AnalysisTools.PLCO.Pages.InformationPage;
+import AnalysisTools.cProSite.Pages.CProSiteExplorePage;
 import AnalysisTools.mSigPortal.Pages.CatalogPages;
 import AnalysisTools.mSigPortal.Pages.MSigPortalHomePage;
 import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
@@ -133,7 +134,7 @@ public class PageInitializer {
 	public static ITrustLoginPage iTrustloginPage;
 	public static ITrustLoginPageImpl loginImpl;
 
-    /** --------------- SERVICENOW INSTANCES --------------- */
+	/** --------------- SERVICENOW INSTANCES --------------- */
 	/** COVIDDash instances */
 	public static COVIDHomePage covidHomePage;
 	public static SubmissionsPage submissionPage;
@@ -248,6 +249,8 @@ public class PageInitializer {
 	public static LDLinkHomePage ldLinkHomePage;
 	public static LDLinkLandingPage ldLinkLandingPage;
 
+
+
 	/** PLCO instances **/
 	public static ExploreGWASPage exploreGWASPage;
 	public static BrowsePhenotypePage browsePhenotypePage;
@@ -277,10 +280,13 @@ public class PageInitializer {
 
 	/** ICRP instances **/
 	public static ICRPHomePage icrpHomePage;
-	public static ICRPSearchDatabase icrpSearchDatabase;
+	public static ICRPSearchDatabasePage icrpSearchDatabasePage;
 
 	/** JPSurv instances **/
 	public static JPSurvHomePage jpsurvHomePage;
+
+	/** CProSite instances **/
+	public static CProSiteExplorePage cProSiteExplorePage;
 
 	/** --------------- NATIVE VIEW INSTANCES --------------- */
 	public static NativeViewLoginImpl nativeViewLoginImpl;
@@ -447,10 +453,13 @@ public class PageInitializer {
 
 		/** ICRP Instance Variables **/
 		icrpHomePage = new ICRPHomePage();
-		icrpSearchDatabase = new ICRPSearchDatabase();
+		icrpSearchDatabasePage = new ICRPSearchDatabasePage();
 
 		/** JPSurv Instance Variables **/
 		jpsurvHomePage = new JPSurvHomePage();
+
+		/** CProSite Instance Variables **/
+		cProSiteExplorePage = new CProSiteExplorePage();
 
 		/** --------------- NATIVE VIEW INSTANCE VARIABLES --------------- */
 		nativeViewLoginImpl = new NativeViewLoginImpl();

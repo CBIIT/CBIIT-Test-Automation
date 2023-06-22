@@ -13,9 +13,10 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
 
 /* @author jains18 */
 
@@ -336,7 +337,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.pleaseListCellPhoneNumberTextBox.sendKeys(foreigncellPhoneNumber);
         rasopathyQuestionnairePage.pleaseListWorkPhoneNumberTextBox.sendKeys(foreignWorkPhoneNumber);
         rasopathyQuestionnairePage.pleaseSelectCellPhonePreferredContactCheckBox.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -347,7 +348,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.pleaseListCellPhoneNumberTextBox.sendKeys(foreigncellPhoneNumber);
         rasopathyQuestionnairePage.pleaseListWorkPhoneNumberTextBox.sendKeys(foreignWorkPhoneNumber);
         rasopathyQuestionnairePage.pleaseSelectHomePhonePreferredContactCheckBox.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -359,7 +360,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.pleaseListCellPhoneNumberTextBox.sendKeys(cellPhoneNumber);
         rasopathyQuestionnairePage.pleaseListWorkPhoneNumberTextBox.sendKeys(homePhoneNumber);
         rasopathyQuestionnairePage.pleaseSelectWorkPhonePreferredContactCheckBox.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
     /* END: Enters Phone Numbers details */
@@ -371,7 +372,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.authenticityOfParticipantHispanicLatinoOption);
         rasopathyQuestionnairePage.authenticityOfParticipantHispanicLatinoOption.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -380,7 +381,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.authenticityOfParticipantNotHispanicLatinoOption);
         rasopathyQuestionnairePage.authenticityOfParticipantNotHispanicLatinoOption.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -389,7 +390,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.authenticityOfParticipantUnKnownOption);
         rasopathyQuestionnairePage.authenticityOfParticipantUnKnownOption.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -408,7 +409,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.raceOfParticipantAsian.click();
         rasopathyQuestionnairePage.raceOfParticipantOther.click();
         rasopathyQuestionnairePage.raceOfParticipantOtherTextBox.sendKeys(otherRace);
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -416,7 +417,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_Prefer_not_to_answer_for_other_when_selecting_Race_of_participant() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.raceOfParticipantPreferNotToAnswer.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -434,7 +435,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.isParticipantInFamilyAdvocacyGroupOptionTextBox.sendKeys(familyAdvocacyGroup);
         rasopathyQuestionnairePage.isParticipantInOtherResearchStudyOption.click();
         rasopathyQuestionnairePage.isParticipantInOtherResearchStudyOptionTextBox.sendKeys(otherText);
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -447,7 +448,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.isParticipantInFamilyAdvocacyGroupOptionTextBox.sendKeys(familyAdvocacyGroup);
         rasopathyQuestionnairePage.isParticipantInOtherResearchStudyOption.click();
         rasopathyQuestionnairePage.isParticipantInOtherResearchStudyOptionTextBox.sendKeys(otherText);
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -455,7 +456,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_I_am_not_involved_in_any_other_research_study_or_registry_group_for_is_the_participant_participated_in_any_other_research_study_or_registry_group() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.isParticipantNotInvolvedInAnyStudyGroupOption.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -463,7 +464,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_Not_sure_for_is_the_participant_participated_in_any_other_research_study_or_registry_group() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.isParticipantNotSureOption.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -540,7 +541,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_Never_diagnosed_with_any_of_these_conditions_option_for_participant_being_diagnosed_with_any_of_the_listed_conditions() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithConditionsNeverDiagnosedOption.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
 
     }
@@ -558,7 +559,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithCancerNoOption);
         rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithCancerNoOption.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -586,7 +587,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentSecondRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentThirdRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentFourthRadioButton.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -619,7 +620,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.currentlyReceivingTreatmentSecondRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingTreatmentThirdRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingTreatmentFourthRadioButton.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -652,7 +653,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentSecondRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentThirdRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentFourthRadioButton.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -668,7 +669,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.hasProxyBeenDiagnosedWithaRasopathyNoOption);
         rasopathyQuestionnairePage.hasProxyBeenDiagnosedWithaRasopathyNoOption.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -677,7 +678,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.hasProbandBeenDiagnosedWithaRasopathyNoOption);
         rasopathyQuestionnairePage.hasProbandBeenDiagnosedWithaRasopathyNoOption.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -693,7 +694,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_Dont_Know_for_selecting_a_specific_RASopathy_diagnosed_of_the_participant() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.participantSpecificRasopathyDontKnowOption.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -724,7 +725,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_No_option_to_family_members_of_participants_having_been_diagnosed_with_a_RASopathy() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.participantsFamilyMembersBeenDiagnosedNoOption.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -732,7 +733,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_I_have_no_information_on_my_biological_relatives_option_to_family_members_of_participants_having_been_diagnosed_with_a_RASopathy() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.participantsFamilyMembersBeenDiagnosedhaveNoInformationOption.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -740,7 +741,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_I_have_no_information_on_my_biological_relatives_option_for_Have_any_of_your_biological_relatives_been_diagnosed_with_a_RASopathy() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.probandFamilyMembersBeenDiagnosedIDontKnowOption.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -756,7 +757,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_No_option_to_participant_having_had_genetic_testing() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.participantsEverHadGeneticTestingNoOption.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -764,7 +765,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_Not_sure_option_to_participant_having_had_genetic_testing() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.participantsEverHadGeneticTestingNotSureOption.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -801,7 +802,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_Websearch_for_how_did_you_hear_about_this_study() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.howDidYouHearAboutWebSearchOption.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -809,7 +810,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_Family_member_for_how_did_you_hear_about_this_study() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.howDidYouHearAboutFamilyMemberOption.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -817,7 +818,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_Support_Group_for_how_did_you_hear_about_this_study() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.howDidYouHearAboutSupportGroupOption.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -826,7 +827,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.howDidYouHearAboutGeneticCounselorOption.click();
         rasopathyQuestionnairePage.howDidYouHearAboutGeneticCounselorTextBox.sendKeys(GeneticCounselorText);
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -842,7 +843,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_No_option_for_the_participant_or_other_family_members_ever_participated_in_another_study_on_RASopathies_at_another_medical_institution() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.hasParticipantOrOtherFamilyMemberParticipatedInOtherStudyNoOption.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -850,7 +851,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_the_Not_sure_option_for_the_participant_or_other_family_members_ever_participated_in_another_study_on_RASopathies_at_another_medical_institution() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.hasParticipantOrOtherFamilyMemberParticipatedInOtherStudyNotSureOption.click();
-        CucumberLogUtils.logScreenShot();
+        
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -902,7 +903,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewiFrameCHARMS);
 
         CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewWaitingForElegibilityReviewButton);
-        CucumberLogUtils.logScreenShot();
+        
         charmsNativeViewPage.nativeViewWaitingForElegibilityReviewButton.click();
     }
 
@@ -1778,7 +1779,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         cgbIIQPage.cgbIIQOneTimeEmailTextBox.sendKeys("charmsras5@yahoo.com");
         cgbIIQPage.cgbIIQOneTimePinTextBox.sendKeys(cgbIIQOneTimePin);
 
-        CucumberLogUtils.logScreenShot();
+        
         JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 
         /** DEBUG HERE --------- ISSUE WAS FOUND TEST CASE WILL BE UPDATED */

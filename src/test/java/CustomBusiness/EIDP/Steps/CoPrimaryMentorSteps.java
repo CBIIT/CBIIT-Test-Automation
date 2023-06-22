@@ -10,9 +10,9 @@ import com.nci.automation.web.WebDriverUtils;
 import CustomBusiness.EIDP.Pages.CoPrimaryMentorPage;
 import CustomBusiness.EIDP.Pages.CommonPage;
 import appsCommon.PageInitializer;
-import cucumber.api.Scenario;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class CoPrimaryMentorSteps extends PageInitializer {
 
