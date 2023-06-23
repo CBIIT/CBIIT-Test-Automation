@@ -55,7 +55,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                                 nerdDynamicXpaths.submitToCRSButton(submissionName)
                                                 .getText().equals("Submit to CRS"));
                 CucumberLogUtils.logScreenShot();
-                MiscUtils.sleep(1000);
+                MiscUtils.sleep(2000);
                 nerdDynamicXpaths.submitToCRSButton(submissionName).click();
                 CommonUtils.waitForVisibility(
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton);
@@ -169,6 +169,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                         String FiscalYear) throws TestingException {
                 nativeViewImpersonateUser.impersonateToDocPlanningContact();
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+                MiscUtils.sleep(2000);
                 CommonUtils.waitForVisibility(
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink

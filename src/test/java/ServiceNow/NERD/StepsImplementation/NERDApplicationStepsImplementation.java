@@ -84,6 +84,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
     public static void returningOfSubmission(String submissionName) {
         MiscUtils.sleep(3000);
         JavascriptUtils.clickByJS(nerdDynamicXpaths.returnButton(submissionName));
+        MiscUtils.sleep(5000);
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowTextField.sendKeys(submissionName);
         CucumberLogUtils.logScreenShot();
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowYESbutton.click();
@@ -119,7 +120,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink.click();
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.returnButtonToStaff(submissionName));
         MiscUtils.sleep(1000);
-        nerdDynamicXpaths.returnButtonToStaff(submissionName).click();
+        JavascriptUtils.clickByJS(nerdDynamicXpaths.returnButtonToStaff(submissionName));
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField);
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField
@@ -143,7 +144,8 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink.click();
         MiscUtils.sleep(4000);
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.returnButtonToDOC(submissionName));
-        nerdDynamicXpaths.returnButtonToDOC(submissionName).click();
+        MiscUtils.sleep(500);
+        JavascriptUtils.clickByJS(nerdDynamicXpaths.returnButtonToDOC(submissionName));
         MiscUtils.sleep(2000);
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowDropDown.click();
         MiscUtils.sleep(2000);

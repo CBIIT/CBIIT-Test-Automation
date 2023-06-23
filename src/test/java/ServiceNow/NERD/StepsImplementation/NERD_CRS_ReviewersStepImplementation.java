@@ -130,6 +130,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
 
     public static void theAccordionExpands(String itemsPerPageAccordionText) {
         CucumberLogUtils.logScreenShot();
+        MiscUtils.sleep(1500);
         boolean isTopAccomplishmentsAccordionItemPerPageDisplayed = NERDKnowledgebasePage
                 .dynamicXpathNERDKnowledgeBaseAccordionItemsPerPageText(itemsPerPageAccordionText)
                 .isDisplayed();
@@ -157,6 +158,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
     }
 
     public void thereIsARecordCalled(String publishedArticleTitle) {
+        MiscUtils.sleep(5000);
         CommonUtils.waitForVisibility(NERDKnowledgebasePage.dynamicXpathNERDKnowledgeBaseAccordion(topAccomplishmentsAccordion));
         CommonUtils.sendKeysToElement(nerdKnowledgeBasePage.topAccomplishmentsNerdKnowledgeBaseSearchTextBox, publishedArticleTitle);
         MiscUtils.sleep(500);
@@ -175,6 +177,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
 
     public static void theUserClicksTheTitleOfTheRecord(String titleOfPublishedArticle)
             throws InterruptedException {
+        MiscUtils.sleep(5000);
         CommonUtils.waitForVisibility(NERDKnowledgebasePage
                 .dynamicXpathNERDKnowledgeBaseTopAccomplishmentPublishedArticle(titleOfPublishedArticle));
         CommonUtils.clickOnElement(NERDKnowledgebasePage

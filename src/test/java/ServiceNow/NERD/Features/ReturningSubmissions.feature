@@ -1,4 +1,3 @@
-give me 2 min im on a call
 Feature: Ruturning published Collaboration by the CRS Rreviewer/DOC Planning Contact
 
   @SS-3893 @SS-3937 @bucurgb @Regression
