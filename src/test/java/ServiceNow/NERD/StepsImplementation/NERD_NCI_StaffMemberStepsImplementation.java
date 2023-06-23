@@ -1,6 +1,7 @@
 package ServiceNow.NERD.StepsImplementation;
 
 import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
+import ServiceNow.NERD.Constants.ReturningSubmissions_Constants;
 import appsCommon.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -35,7 +36,8 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton);
         MiscUtils.sleep(2000);
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.underReviewText(submissionName));
-        Assert.assertTrue(nerdDynamicXpaths.underReviewText(CommonUtils.email).getText().contentEquals("Under Review"));
+        MiscUtils.sleep(1000);
+        Assert.assertTrue(nerdDynamicXpaths.underReviewText(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER).getText().contentEquals("Under Review"));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(submissionName));
         CucumberLogUtils.logScreenShot();
         MiscUtils.sleep(5000);

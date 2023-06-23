@@ -72,15 +72,25 @@ import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
 import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
 import ServiceNow.NERD.Pages.NERDCRSTCollaborationsPage;
+import ServiceNow.NERD.Pages.NERDCRSTOtherAccomplishmentsPage;
 import ServiceNow.NERD.Pages.NERDCRSTopAccomplishmentsPage;
 import ServiceNow.NERD.Pages.NERDDOCCollaborationsPage;
 import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
 import ServiceNow.NERD.Pages.NERDHomePage;
 import ServiceNow.NERD.Pages.NERDKnowledgebasePage;
 import ServiceNow.NERD.Pages.NERDSubmissionsPage;
+import ServiceNow.NERD.Pages.NativeViewImpersonateUserPage;
 import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NativeViewImpersonateUser;
-import ServiceNow.SEER.Pages.*;
+import ServiceNow.SEER.Pages.NativeViewAccessRequestPage;
+import ServiceNow.SEER.Pages.NativeViewCustomersPage;
+import ServiceNow.SEER.Pages.NativeViewEmailsPage;
+import ServiceNow.SEER.Pages.NativeViewSentViewPage;
+import ServiceNow.SEER.Pages.SEERDataAccessRequestPage;
+import ServiceNow.SEER.Pages.SEERExistingAccountPage;
+import ServiceNow.SEER.Pages.SEERIncidenceDatabaseDetailsPage;
+import ServiceNow.SEER.Pages.SEERLandingPage;
+import ServiceNow.SEER.Pages.SEERUserRegistrationPage;
 import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import CustomBusiness.DCEG.Pages.AdminFlowPage;
 import CustomBusiness.DCEG.Pages.BranchAdminPage;
@@ -195,6 +205,7 @@ public class PageInitializer {
 	public static NERDCRSTopAccomplishmentsPage nerdCRSTopAccomplishmentsPage;
 	public static NERDCRSTCollaborationsPage nerdCRSTCollaborationsPage;
 	public static NERDDOCCollaborationsPage nerdDOCCollaborationsPage;
+	public static NERDCRSTOtherAccomplishmentsPage nerdcrstOtherAccomplishmentsPage;
 
 	/** --------------- CUSTOM BUSINESS APP INSTANCES --------------- */
 	/** EIDP instances */
@@ -281,6 +292,7 @@ public class PageInitializer {
 	public static NativeViewLoginImpl nativeViewLoginImpl;
 	public static NativeViewHomePage nativeViewHomePage;
 	public static NativeViewImpersonateUser nativeViewImpersonateUser;
+	public static NativeViewImpersonateUserPage nativeViewImpersonateUserPage;
 	public static NativeViewSideDoorLoginPage nativeViewSideDoorLoginPage;
 	public static NativeViewEnrollmentsPage nativeViewEnrollementsPage;
 	public static NativeViewEnrollmentViewPage nativeViewEnrollmentViewPage;
@@ -368,6 +380,7 @@ public class PageInitializer {
 		nerdCRSTopAccomplishmentsPage = new NERDCRSTopAccomplishmentsPage();
 		nerdDOCCollaborationsPage = new NERDDOCCollaborationsPage();
 		nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
+		nerdcrstOtherAccomplishmentsPage = new NERDCRSTOtherAccomplishmentsPage();
 
 		/** --------------- CUSTOM BUSINESS APP INSTANCE VARIABLES --------------- */
 		/** EIDP Instance Variables */
@@ -452,6 +465,7 @@ public class PageInitializer {
 		nativeViewLoginImpl = new NativeViewLoginImpl();
 		nativeViewHomePage = new NativeViewHomePage();
 		nativeViewImpersonateUser = new NativeViewImpersonateUser();
+		nativeViewImpersonateUserPage = new NativeViewImpersonateUserPage();
 		nativeViewSideDoorLoginPage = new NativeViewSideDoorLoginPage();
 		nativeViewEnrollementsPage = new NativeViewEnrollmentsPage();
 		nativeViewEnrollmentViewPage = new NativeViewEnrollmentViewPage();

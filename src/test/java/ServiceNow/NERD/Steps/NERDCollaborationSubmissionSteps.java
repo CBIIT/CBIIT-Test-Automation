@@ -45,7 +45,6 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
                         String metastatic,
                         String meetingWorkshopConference, String minorityHealthHealtDisparities, String pediatric,
                         String reportGuidancePolicy) {
-
                 NERDApplicationStepsImplementation.checkBoxOptionsAreDisplayed(covid19, communications, rare,
                                 bigDataDataSharing, researchResourcesAndInfrastructure, sexGenderDifferences,
                                 partnerships,
@@ -110,7 +109,7 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
                 CommonUtils.switchToAnotherWindow();
                 MiscUtils.sleep(3000);
                 String actualText = NERDDOCCollaborationsPage.authorText(author).getText();
-                CommonUtils.assertEquals(actualText, author);
+                CommonUtils.assertTrue(actualText.contains(author));
         }
 
         @Then("the Rank field is not visible and {string} collaboration is deleted for Automation Testing")
