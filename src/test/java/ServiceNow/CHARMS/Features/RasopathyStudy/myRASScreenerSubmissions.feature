@@ -6,10 +6,10 @@ Feature: myRAS Screener Submissions from the Qualtrics Portal
 	@juarezds @myRasScreenerSubmissionOnly @InProgress @Progression
 	Scenario: Participant Screener Self Submission Scenario 1
 		This scenario selects 'No' to all questions
-		#Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-		#And logs in via Okta with username "charmsras5@yahoo.com" and password "RASTest2023$$"
-		#And clicks on Eligibility Questionnaire to begin questionnaire
-		#When the participant submits a screener for scenario one from excel sheet "Scenario1"
+		Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
+		And logs in via Okta with username "charmsras5@yahoo.com" and password "RASTest2023$$"
+		And clicks on Eligibility Questionnaire to begin questionnaire
+		When the participant submits a screener for scenario one from excel sheet "Scenario1"
 		Then data submitted for scenario one is verified in native view against scenario one excel sheet
 
 
