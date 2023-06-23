@@ -13,13 +13,14 @@ import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
 import AnalysisTools.Comets2.Pages.Comets2Page;
 import AnalysisTools.ICRP.Pages.ICRPHomePage;
-import AnalysisTools.ICRP.Pages.ICRPSearchDatabase;
+import AnalysisTools.ICRP.Pages.ICRPSearchDatabasePage;
 import AnalysisTools.JPSurv.Pages.JPSurvHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
 import AnalysisTools.PLCO.Pages.BrowsePhenotypePage;
 import AnalysisTools.PLCO.Pages.ExploreGWASPage;
 import AnalysisTools.PLCO.Pages.InformationPage;
+import AnalysisTools.cProSite.Pages.CProSiteExplorePage;
 import AnalysisTools.mSigPortal.Pages.CatalogPages;
 import AnalysisTools.mSigPortal.Pages.MSigPortalHomePage;
 import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
@@ -54,15 +55,25 @@ import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
 import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
 import ServiceNow.NERD.Pages.NERDCRSTCollaborationsPage;
+import ServiceNow.NERD.Pages.NERDCRSTOtherAccomplishmentsPage;
 import ServiceNow.NERD.Pages.NERDCRSTopAccomplishmentsPage;
 import ServiceNow.NERD.Pages.NERDDOCCollaborationsPage;
 import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
 import ServiceNow.NERD.Pages.NERDHomePage;
 import ServiceNow.NERD.Pages.NERDKnowledgebasePage;
 import ServiceNow.NERD.Pages.NERDSubmissionsPage;
+import ServiceNow.NERD.Pages.NativeViewImpersonateUserPage;
 import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NativeViewImpersonateUser;
-import ServiceNow.SEER.Pages.*;
+import ServiceNow.SEER.Pages.NativeViewAccessRequestPage;
+import ServiceNow.SEER.Pages.NativeViewCustomersPage;
+import ServiceNow.SEER.Pages.NativeViewEmailsPage;
+import ServiceNow.SEER.Pages.NativeViewSentViewPage;
+import ServiceNow.SEER.Pages.SEERDataAccessRequestPage;
+import ServiceNow.SEER.Pages.SEERExistingAccountPage;
+import ServiceNow.SEER.Pages.SEERIncidenceDatabaseDetailsPage;
+import ServiceNow.SEER.Pages.SEERLandingPage;
+import ServiceNow.SEER.Pages.SEERUserRegistrationPage;
 import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import CustomBusiness.DCEG.Pages.AdminFlowPage;
 import CustomBusiness.DCEG.Pages.BranchAdminPage;
@@ -106,11 +117,11 @@ public class PageInitializer {
     public static ITrustLoginPage iTrustloginPage;
     public static ITrustLoginPageImpl loginImpl;
 
-    /** --------------- SERVICENOW INSTANCES --------------- */
-    /** COVIDDash instances */
-    public static COVIDHomePage covidHomePage;
-    public static SubmissionsPage submissionPage;
-    public static COVIDHomePageImpl covidHomePageImpl;
+	/** --------------- SERVICENOW INSTANCES --------------- */
+	/** COVIDDash instances */
+	public static COVIDHomePage covidHomePage;
+	public static SubmissionsPage submissionPage;
+	public static COVIDHomePageImpl covidHomePageImpl;
 
     /** COVIDcode instances */
     public static COVIDCodeLoginPage covidCodeLoginPage;
@@ -169,16 +180,17 @@ public class PageInitializer {
     public static SEERExistingAccountPage seerExistingAccountPage;
     public static SEERDataAccessRequestPageStepsImpl seerDataAccessRequestPageStepsImpl;
 
-    /** NERD instances */
-    public static NERDLoginStepsImplementation nerdLoginStepsImplementation;
-    public static NERDSubmissionsPage nerdCrsKnowledgeDatabaseSubmissionsPage;
-    public static CreateNewSubmissionPage createNewSubmissionPage;
-    public static NERDDynamicXPATHS nerdDynamicXpaths;
-    public static NERDHomePage nerdHomePage;
-    public static NERDKnowledgebasePage nerdKnowledgeBasePage;
-    public static NERDCRSTopAccomplishmentsPage nerdCRSTopAccomplishmentsPage;
-    public static NERDCRSTCollaborationsPage nerdCRSTCollaborationsPage;
-    public static NERDDOCCollaborationsPage nerdDOCCollaborationsPage;
+	/** NERD instances */
+	public static NERDLoginStepsImplementation nerdLoginStepsImplementation;
+	public static NERDSubmissionsPage nerdCrsKnowledgeDatabaseSubmissionsPage;
+	public static CreateNewSubmissionPage createNewSubmissionPage;
+	public static NERDDynamicXPATHS nerdDynamicXpaths;
+	public static NERDHomePage nerdHomePage;
+	public static NERDKnowledgebasePage nerdKnowledgeBasePage;
+	public static NERDCRSTopAccomplishmentsPage nerdCRSTopAccomplishmentsPage;
+	public static NERDCRSTCollaborationsPage nerdCRSTCollaborationsPage;
+	public static NERDDOCCollaborationsPage nerdDOCCollaborationsPage;
+	public static NERDCRSTOtherAccomplishmentsPage nerdcrstOtherAccomplishmentsPage;
 
     /** --------------- CUSTOM BUSINESS APP INSTANCES --------------- */
     /** EIDP instances */
@@ -222,10 +234,10 @@ public class PageInitializer {
     public static LDLinkHomePage ldLinkHomePage;
     public static LDLinkLandingPage ldLinkLandingPage;
 
-    /** PLCO instances **/
-    public static ExploreGWASPage exploreGWASPage;
-    public static BrowsePhenotypePage browsePhenotypePage;
-    public static InformationPage informationPage;
+	/** PLCO instances **/
+	public static ExploreGWASPage exploreGWASPage;
+	public static BrowsePhenotypePage browsePhenotypePage;
+	public static InformationPage informationPage;
 
     /** CEDCD instances */
     public static CEDCDCohortPage cedcdCohortPage;
@@ -249,26 +261,30 @@ public class PageInitializer {
     public static SignatureExplorerPages signatureExplorerPages;
     public static CatalogPages catalogPages;
 
-    /** ICRP instances **/
-    public static ICRPHomePage icrpHomePage;
-    public static ICRPSearchDatabase icrpSearchDatabase;
+	/** ICRP instances **/
+	public static ICRPHomePage icrpHomePage;
+	public static ICRPSearchDatabasePage icrpSearchDatabasePage;
 
     /** JPSurv instances **/
     public static JPSurvHomePage jpsurvHomePage;
 
-    /** --------------- NATIVE VIEW INSTANCES --------------- */
-    public static NativeViewLoginImpl nativeViewLoginImpl;
-    public static NativeViewHomePage nativeViewHomePage;
-    public static NativeViewImpersonateUser nativeViewImpersonateUser;
-    public static NativeViewSideDoorLoginPage nativeViewSideDoorLoginPage;
-    public static NativeViewEnrollmentsPage nativeViewEnrollementsPage;
-    public static NativeViewEnrollmentViewPage nativeViewEnrollmentViewPage;
-    public static NativeViewStepsImpl nativeViewStepsImpl;
-    public static NativeViewCustomersPage nativeViewCustomersPage;
-    public static NativeViewSentViewPage nativeViewSentViewPage;
-    public static NativeViewAccessRequestPage nativeViewAccessRequestPage;
-    public static NativeViewEmailsPage nativeViewEmailsPage;
-    public static NativeViewDashboardPage nativeViewDashPage;
+	/** CProSite instances **/
+	public static CProSiteExplorePage cProSiteExplorePage;
+
+	/** --------------- NATIVE VIEW INSTANCES --------------- */
+	public static NativeViewLoginImpl nativeViewLoginImpl;
+	public static NativeViewHomePage nativeViewHomePage;
+	public static NativeViewImpersonateUser nativeViewImpersonateUser;
+	public static NativeViewImpersonateUserPage nativeViewImpersonateUserPage;
+	public static NativeViewSideDoorLoginPage nativeViewSideDoorLoginPage;
+	public static NativeViewEnrollmentsPage nativeViewEnrollementsPage;
+	public static NativeViewEnrollmentViewPage nativeViewEnrollmentViewPage;
+	public static NativeViewStepsImpl nativeViewStepsImpl;
+	public static NativeViewCustomersPage nativeViewCustomersPage;
+	public static NativeViewSentViewPage nativeViewSentViewPage;
+	public static NativeViewAccessRequestPage nativeViewAccessRequestPage;
+	public static NativeViewEmailsPage nativeViewEmailsPage;
+	public static NativeViewDashboardPage nativeViewDashPage;
 
     public static void initializeAllPages() {
         /** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
@@ -339,16 +355,17 @@ public class PageInitializer {
         seerExistingAccountPage = new SEERExistingAccountPage();
         seerDataAccessRequestPageStepsImpl = new SEERDataAccessRequestPageStepsImpl();
 
-        /** NERD Instance Variables */
-        nerdLoginStepsImplementation = new NERDLoginStepsImplementation();
-        nerdCrsKnowledgeDatabaseSubmissionsPage = new NERDSubmissionsPage();
-        createNewSubmissionPage = new CreateNewSubmissionPage();
-        nerdDynamicXpaths = new NERDDynamicXPATHS();
-        nerdHomePage = new NERDHomePage();
-        nerdKnowledgeBasePage = new NERDKnowledgebasePage();
-        nerdCRSTopAccomplishmentsPage = new NERDCRSTopAccomplishmentsPage();
-        nerdDOCCollaborationsPage = new NERDDOCCollaborationsPage();
-        nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
+		/** NERD Instance Variables */
+		nerdLoginStepsImplementation = new NERDLoginStepsImplementation();
+		nerdCrsKnowledgeDatabaseSubmissionsPage = new NERDSubmissionsPage();
+		createNewSubmissionPage = new CreateNewSubmissionPage();
+		nerdDynamicXpaths = new NERDDynamicXPATHS();
+		nerdHomePage = new NERDHomePage();
+		nerdKnowledgeBasePage = new NERDKnowledgebasePage();
+		nerdCRSTopAccomplishmentsPage = new NERDCRSTopAccomplishmentsPage();
+		nerdDOCCollaborationsPage = new NERDDOCCollaborationsPage();
+		nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
+		nerdcrstOtherAccomplishmentsPage = new NERDCRSTOtherAccomplishmentsPage();
 
         /** --------------- CUSTOM BUSINESS APP INSTANCE VARIABLES --------------- */
         /** EIDP Instance Variables */
@@ -419,25 +436,29 @@ public class PageInitializer {
         signatureExplorerPages = new SignatureExplorerPages();
         catalogPages = new CatalogPages();
 
-        /** ICRP Instance Variables **/
-        icrpHomePage = new ICRPHomePage();
-        icrpSearchDatabase = new ICRPSearchDatabase();
+		/** ICRP Instance Variables **/
+		icrpHomePage = new ICRPHomePage();
+		icrpSearchDatabasePage = new ICRPSearchDatabasePage();
 
         /** JPSurv Instance Variables **/
         jpsurvHomePage = new JPSurvHomePage();
 
-        /** --------------- NATIVE VIEW INSTANCE VARIABLES --------------- */
-        nativeViewLoginImpl = new NativeViewLoginImpl();
-        nativeViewHomePage = new NativeViewHomePage();
-        nativeViewImpersonateUser = new NativeViewImpersonateUser();
-        nativeViewSideDoorLoginPage = new NativeViewSideDoorLoginPage();
-        nativeViewEnrollementsPage = new NativeViewEnrollmentsPage();
-        nativeViewEnrollmentViewPage = new NativeViewEnrollmentViewPage();
-        nativeViewCustomersPage = new NativeViewCustomersPage();
-        nativeViewStepsImpl = new NativeViewStepsImpl();
-        nativeViewSentViewPage = new NativeViewSentViewPage();
-        nativeViewAccessRequestPage = new NativeViewAccessRequestPage();
-        nativeViewEmailsPage = new NativeViewEmailsPage();
-        nativeViewDashPage = new NativeViewDashboardPage();
-    }
+		/** CProSite Instance Variables **/
+		cProSiteExplorePage = new CProSiteExplorePage();
+
+		/** --------------- NATIVE VIEW INSTANCE VARIABLES --------------- */
+		nativeViewLoginImpl = new NativeViewLoginImpl();
+		nativeViewHomePage = new NativeViewHomePage();
+		nativeViewImpersonateUser = new NativeViewImpersonateUser();
+		nativeViewImpersonateUserPage = new NativeViewImpersonateUserPage();
+		nativeViewSideDoorLoginPage = new NativeViewSideDoorLoginPage();
+		nativeViewEnrollementsPage = new NativeViewEnrollmentsPage();
+		nativeViewEnrollmentViewPage = new NativeViewEnrollmentViewPage();
+		nativeViewCustomersPage = new NativeViewCustomersPage();
+		nativeViewStepsImpl = new NativeViewStepsImpl();
+		nativeViewSentViewPage = new NativeViewSentViewPage();
+		nativeViewAccessRequestPage = new NativeViewAccessRequestPage();
+		nativeViewEmailsPage = new NativeViewEmailsPage();
+		nativeViewDashPage = new NativeViewDashboardPage();
+	}
 }

@@ -4,6 +4,8 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import org.openqa.selenium.support.PageFactory;
 
 import ServiceNow.ATO.Pages.CommonPage;
@@ -11,9 +13,9 @@ import ServiceNow.ATO.Pages.IdentityAndAccessManagementPage;
 import ServiceNow.ATO.StepsImplementation.IdentityAndAccessManagementStepsImpl;
 import ServiceNow.ATO.Utils.CommonUtils;
 import ServiceNow.ATO.Utils.DriverObjectFactory;
-import cucumber.api.Scenario;
-import cucumber.api.java.Before;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.cucumber.datatable.DataTable;
 
 public class IdentityAndAccessManagementSteps {

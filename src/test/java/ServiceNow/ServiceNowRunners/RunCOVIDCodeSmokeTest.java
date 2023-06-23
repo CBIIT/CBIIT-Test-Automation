@@ -2,14 +2,16 @@ package ServiceNow.ServiceNowRunners;
 
 import java.io.File;
 
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
 import com.nci.automation.utils.LocalConfUtils;
 import com.nci.automation.web.ConfUtils;
 
-import cucumber.api.CucumberOptions;
-import cucumber.api.junit.Cucumber;
+//import cucumber.api.CucumberOptions;
+//import cucumber.api.junit.Cucumber;
 
 
 

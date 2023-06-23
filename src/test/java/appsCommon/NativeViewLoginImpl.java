@@ -38,6 +38,7 @@ public class NativeViewLoginImpl extends PageInitializer {
         loginImpl.loginToNativeViewSideDoor();
         MiscUtils.sleep(500);
         WebDriverUtils.webDriver.switchTo().defaultContent();
+        MiscUtils.sleep(1000);
     }
 
 }

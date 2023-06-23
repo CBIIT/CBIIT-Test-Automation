@@ -1,5 +1,6 @@
 package ServiceNow.ATO.Steps;
 
+import io.cucumber.java.Before;
 import org.junit.Assert;
 
 import com.nci.automation.utils.CucumberLogUtils;
@@ -8,10 +9,9 @@ import com.nci.automation.web.ConfUtils;
 
 import ServiceNow.ATO.Pages.BusinessCaseFormPage;
 import ServiceNow.ATO.StepsImplementation.LoginStepsImpl;
-import cucumber.api.java.Before;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class BusinessCaseFormSteps {
 

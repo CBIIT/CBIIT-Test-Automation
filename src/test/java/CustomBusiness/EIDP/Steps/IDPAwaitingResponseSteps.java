@@ -6,7 +6,9 @@ import com.nci.automation.utils.CucumberLogUtils;
 import CustomBusiness.EIDP.Util.CommonUtil;
 import CustomBusiness.EIDP.Util.SharedData;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.cucumber.datatable.DataTable;
 
 public class IDPAwaitingResponseSteps extends PageInitializer {

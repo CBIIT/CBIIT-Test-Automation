@@ -10,7 +10,7 @@ public class HashMapUtils {
 
 	public static void printHashMap(Map<String, String> map) {
 		for (String key : map.keySet()) { // map.values()
-			CucumberLogUtils.logInfo("Key: " + key + ", Value: " + map.get(key));
+
 		}
 	}
 
