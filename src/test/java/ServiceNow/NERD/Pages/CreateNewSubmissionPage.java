@@ -42,7 +42,7 @@ public class CreateNewSubmissionPage extends CommonUtils {
 	public List<WebElement> pleaseSpecifyDropDownValues;
 
 	/** Please Specify asterisk */
-	@FindBy(xpath = "(//i[@class='fa fa-asterisk'])[3]")
+	@FindBy(xpath = "(//i[@class='fa fa-asterisk'])[4]")
 	public WebElement pleaseSpecifyAsterisk;
 
 	/** Acronym text box */
@@ -54,7 +54,7 @@ public class CreateNewSubmissionPage extends CommonUtils {
 	public WebElement fiscalYearText;
 
 	/** Fiscal Year asterisk */
-	@FindBy(xpath = "(//i[@class='fa fa-asterisk'])[4]")
+	@FindBy(xpath = "(//i[@class='fa fa-asterisk'])[5]")
 	public WebElement fiscalYearAsterisk;
 
 	/** Fiscal Year Drop Down */
@@ -66,7 +66,7 @@ public class CreateNewSubmissionPage extends CommonUtils {
 	public WebElement DescriptionTextBoxIframe;
 
 	/** Description text box */
-	@FindBy(xpath = "/bo/dy[@id='tinymce']")
+	@FindBy(xpath = "//*[@id='tinymce']")
 	public WebElement DescriptionTextBox;
 
 	/** Collaborations Description text box */

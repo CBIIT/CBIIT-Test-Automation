@@ -15,7 +15,7 @@ public class EnvUtils {
 	 * This method will return the application URL. make sure you have 
 	 * proper URL placed in all environment xml files.
 	 * @return String object
-	 * @throws TestingException
+	 * @throws //TestingException
 	 */
 
 	public static String getApplicationUrl(String appName) {
@@ -31,7 +31,7 @@ public class EnvUtils {
 	 * This method will return the application user-name. make sure you have 
 	 * proper user-name placed in all environment xmls.
 	 * @return String object
-	 * @throws TestingException
+	 * @throws //TestingException
 	 */
 
     public static String getUserName(String role) throws TestingException {
@@ -42,7 +42,7 @@ public class EnvUtils {
 	/**
 	 * This method will return the application decrypted password.
 	 * @return String object
-	 * @throws TestingException
+	 * @throws //TestingException
 	 */
     public static String getPassword(String role) throws TestingException {
         final String userPasswordXPath = "//role/user[@id='%s']/password";
@@ -52,7 +52,7 @@ public class EnvUtils {
 	/**
 	 * This method will return the database URL.
 	 * @return String object
-	 * @throws TestingException
+	 * @throws //TestingException
 	 */
     public static String getDatabaseURL() throws TestingException {
     	final String dbUrlXPath = "//db/default/url";
@@ -62,7 +62,7 @@ public class EnvUtils {
 	/**
 	 * This method will return the database user-name.
 	 * @return String object
-	 * @throws TestingException
+	 * @throws //TestingException
 	 */
 
     public static String getDatabaseUsername() throws TestingException {
@@ -73,7 +73,7 @@ public class EnvUtils {
     /**
 	 * This method will return the database decrypted password.
 	 * @return String object
-	 * @throws TestingException
+	 * @throws //TestingException
 	 */
 
     public static String getDatabasePassword() throws TestingException {

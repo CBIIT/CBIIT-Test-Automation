@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.web.JavascriptUtils;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class CEDCDBiospecimenCountsSelectTypesAlphabeticallySteps extends PageInitializer {
 
