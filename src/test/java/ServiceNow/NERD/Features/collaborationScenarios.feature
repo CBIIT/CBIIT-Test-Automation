@@ -4,7 +4,7 @@ Feature: Collaboration Scenerios
   Scenario: Saving Collaboration submission with data verification
     Given a Program Staff member is on the CRS Knowledge Management System "Submissions" page
 
-  @SS-4265 @juarezds @Regression
+  @SS-4265 @SS-4296 @juarezds @Regression
   Scenario: NIH strategic alignment (Secondary Optional) and HHS Strategic Plan Alignment (Secondary Optional) field should not be visible
     Given a Regular User has submitted a Collaboration
     When the DOC Planning Contact locates the record "Diego Test" in their Collaboration queue
@@ -12,7 +12,7 @@ Feature: Collaboration Scenerios
     And lands on the submission edit page for author "CBIIT Test Account"
     Then the Rank field is not visible and "Diego Test" collaboration is deleted for Automation Testing
 
-  @SS-4264 @New @juarezds @Regression
+  @SS-4266 @SS-4296 @juarezds @Regression
   Scenario: NIH strategic alignment (Secondary Optional) and HHS Strategic Plan Alignment (Secondary Optional) field should not be visible
     Given a DOC Planning Contact clicks the Submit to CRS button for a Collaboration "Diego Test"
     When the CRS Reviewer locates the record "Diego Test" in the Submissions page
