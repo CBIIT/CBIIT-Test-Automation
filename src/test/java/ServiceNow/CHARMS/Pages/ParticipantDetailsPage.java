@@ -1,6 +1,5 @@
 package ServiceNow.CHARMS.Pages;
 
-import com.mysql.cj.x.protobuf.MysqlxCrud;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
