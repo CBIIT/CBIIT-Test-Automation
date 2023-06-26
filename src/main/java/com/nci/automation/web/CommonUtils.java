@@ -11,12 +11,12 @@ import java.time.Duration;
 import java.util.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import com.nci.automation.utils.MiscUtils;
 
 /**
@@ -632,7 +632,7 @@ public class CommonUtils extends WebDriverUtils {
      */
     public static void assertTrueTestNG(boolean flag, String message) {
         try {
-            Assert.assertTrue(message,flag);
+            Assert.assertTrue(flag, message);
         } catch (AssertionError e) {
             e.printStackTrace();
         }

@@ -46,7 +46,8 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         CommonUtils.sendKeysToElement(nativeViewHomePage.nativeViewFilterNavigator, "CHARMS");
         CommonUtils.clickOnElement(charmsNativeViewPage.dashboardModuleLink);
         CommonUtils.switchToFrame("gsft_main");
-        CommonUtils.clickOnElement(charmsNativeViewPage.dynamicDashboardModuleLinkLocator("Need Eligibility Review"));
+        CommonUtils.scrollIntoView(charmsNativeViewPage.dynamicDashboardModuleLinkLocator("Eligibility Review Needed"));
+        CommonUtils.clickOnElement(charmsNativeViewPage.dynamicDashboardModuleLinkLocator("Eligibility Review Needed"));
         CommonUtils.switchToNextWindow();
         // use name from excel sheet
         CommonUtils.clickOnElement(participantDetailsPage.dynamicRecordButtonLocator(testDataManager.firstName + rasScreenerConstants.space + testDataManager.lastName));
