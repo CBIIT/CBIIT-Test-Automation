@@ -7,8 +7,10 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.NoSuchFrameException;
+import org.openqa.selenium.WebElement;
 
 public class RasScreenerStepsImpl extends PageInitializer {
     /***
@@ -312,9 +314,16 @@ public class RasScreenerStepsImpl extends PageInitializer {
         logOutOfNativeView();
     }
 
+    /***
+     * USE THIS METHOD TO LOG OUT OF NATIVE VIEW
+     */
     public static void logOutOfNativeView() {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
         CommonUtils.clickOnElement(nativeViewHomePage.profileModule);
         CommonUtils.clickOnElement(nativeViewHomePage.logOutButton);
+    }
+
+    public void verifyingDropDownOption(WebElement element, String message) {
+        CommonUtils.assertEqualsWithMessage(element.getAttribute("selected"), "true", message);
     }
 }
