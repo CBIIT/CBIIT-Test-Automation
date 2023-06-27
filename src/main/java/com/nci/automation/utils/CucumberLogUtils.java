@@ -1,12 +1,14 @@
 package com.nci.automation.utils;
 
+import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.Scenario;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import static org.junit.Assert.assertTrue;
 import org.apache.commons.lang.exception.ExceptionUtils;
 import com.nci.automation.common.ScenarioContext;
-
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 
 /**
@@ -89,5 +91,8 @@ public class CucumberLogUtils {
         System.out.println(Thread.currentThread().getName() + " : " + DateUtils.getLogTime() + ": CONSOLE: " + msg);
     }
 
-
+    public static void takeScreenShot(Scenario scenario){
+        final byte[] screenshot = ((TakesScreenshot) WebDriverUtils.webDriver).getScreenshotAs(OutputType.BYTES);
+        scenario.attach(screenshot, "image/png", scenario.getName());
+    }
 }

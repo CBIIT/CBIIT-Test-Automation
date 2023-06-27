@@ -3,6 +3,7 @@ package AnalysisTools.CEDCD.StepsImplementation;
 import java.util.ArrayList;
 import java.util.List;
 
+import AnalysisTools.CEDCD.Steps.HooksSteps;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
@@ -21,7 +22,7 @@ public class CEDCDSelectAllCohortsStepImp extends PageInitializer {
 	public void clickOnSelectAllCheckbox() {
 		JavascriptUtils.clickByJS(cedcdSearchCohortsPage.searchCohortSelectAllCheckbox);
 //		JavascriptUtils.scrollIntoView(cedcdSearchCohortsPage.bCFRCohort);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		cedcdSearchCohortsPage.viewSelectedCohortDataButton.click();
 	}
 

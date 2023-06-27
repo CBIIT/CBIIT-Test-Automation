@@ -42,7 +42,7 @@ public class CucumberLoggerImpl<T> implements CucumberLogger {
 	}
 
 	public void logScreenShot(String message) {
-		CucumberLogUtils.logScreenShot(message);
+		//CucumberLogUtils.logScreenShot(message);
 
 		if (shouldLogToConsole) {
 			LOG.info(message);
@@ -51,7 +51,7 @@ public class CucumberLoggerImpl<T> implements CucumberLogger {
 	}
 
 	public void logPass(String message, boolean shouldTakeScreenShot) {
-		CucumberLogUtils.logPass(message, shouldTakeScreenShot);
+		//CucumberLogUtils.logPass(message, shouldTakeScreenShot);
 
 		if (shouldLogToConsole) {
 			LOG.info(message);
@@ -67,7 +67,7 @@ public class CucumberLoggerImpl<T> implements CucumberLogger {
 	}
 
 	public void logInfo(String message) {
-		CucumberLogUtils.logInfo(message);
+		//CucumberLogUtils.logInfo(message);
 
 		if (shouldLogToConsole) {
 			LOG.info(message);

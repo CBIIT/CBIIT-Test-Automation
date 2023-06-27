@@ -1,4 +1,4 @@
-package AnalysisTools.ICRP.Steps;
+package AnalysisTools.MicroArray.Steps;
 
 import appsCommon.PageCache;
 import appsCommon.PageInitializer;

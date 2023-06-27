@@ -1,7 +1,12 @@
 package CustomBusiness.ETD.Steps;
 
 import java.io.File;
+import java.net.MalformedURLException;
 
+import CustomBusiness.EIDP.Steps.HooksSteps;
+import appsCommon.PageCache;
+import com.nci.automation.common.QcTestResult;
+import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -13,29 +18,24 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.WebDriverUtils;
 import appsCommon.PageInitializer;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 
 public class HookSteps {
-	public static String foldeName = "";
 	private static final String BUILD_NUMBER = "BUILD_NUMBER";
 	public static String SCENARIO_NAME_TEXT = "scenarioNameText";
-
-	@Before(order = 0)
-	public void before(Scenario s) {
-		//System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/drivers/geckodriver.exe");
-		//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/drivers/chromedriver.exe");
-
-		/*String basePath = System.getProperty("user.dir") + "/Screenshots/";
-		File directory = new File(basePath);
-		if (!directory.exists()) {
-			directory.mkdir();
-		}
-		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-		String newPath = basePath + "Report-" + dateName + "/";
-		File directory1 = new File(newPath);
-		directory1.mkdir();
-		foldeName = directory1.toString();*/
+	public static Scenario scenario;
+	/**
+	 * This method will run before each scenario
+	 *
+	 * @param s
+	 * @throws TestingException
+	 */
+	@Before
+	public void genericSetUp(Scenario s) throws TestingException {
 		WebDriverUtils.getWebDriver();
+		this.scenario=s;
 		MiscUtils.sleep(2000);
 		PageInitializer.initializeAllPages();
 		ScenarioContext.localConf = LocalConfUtils.loadLocalConf();
@@ -62,13 +62,54 @@ public class HookSteps {
 		}
 		System.setProperty(ScenarioContext.USE_SCENARIO_NAME_PROPERTY, "true");
 		System.setProperty(ScenarioContext.SCENARIO_NAME_PROPERTY_NAME, scenarioNameForFolderCreation);
-		System.setProperty(SCENARIO_NAME_TEXT, s.getName());// getScenarioName(scenario));
+		System.setProperty(HooksSteps.SCENARIO_NAME_TEXT, s.getName());// getScenarioName(scenario));
 		String resultsDirName = scenarioNameForFolderCreation;
 		ConfUtils.setResultsDir(resultsDirName);
 	}
 
-	@After(order = 0)
-	public void tearDown() {
-		WebDriverUtils.closeWebDriver();
+	/**
+	 * This method runs after each scenario
+	 *
+	 * @throws TestingException
+	 * @throws MalformedURLException
+	 */
+	@After
+	public void genericTearDown(Scenario s) throws TestingException {
+		if (s.isFailed()) {
+			final byte[] screenshot = ((TakesScreenshot) WebDriverUtils.webDriver).getScreenshotAs(OutputType.BYTES);
+			s.attach(screenshot, "image/png", s.getName());
+		}
+		if (WebDriverUtils.webDriver != null) {
+			MiscUtils.sleep(2000);
+
+			System.out.println("Ending Scenario: " + s.getName());
+			String scenarioName = ScenarioContext.getScenarioName();
+			String scenarioResult = ScenarioContext.scenario.get().getStatus().toString();
+			String scenarioResultsDir = ConfUtils.getResultsDir();
+
+			if (scenarioResult.contentEquals("passed"))
+				scenarioResult = "Passed";
+			else {
+				scenarioResult = "Failed";
+			}
+
+			QcTestResult currentQcResult = new QcTestResult(scenarioName, scenarioResult, scenarioResultsDir);
+			ScenarioContext.setCurrentQcResult(currentQcResult);
+			WebDriverUtils.closeWebDriver();
+			PageCache.getInstance().destroyInstances();
+		}
 	}
+
+	@Before("@web")
+	public void webSetUp(Scenario s) {
+		// use this for web specific setup
+		System.out.println("web specific setup");
+	}
+
+	@After("@web")
+	public void webTearDown() throws MalformedURLException {
+		// use this for web specific clean up
+		System.out.println("web specific clean up");
+	}
+
 }

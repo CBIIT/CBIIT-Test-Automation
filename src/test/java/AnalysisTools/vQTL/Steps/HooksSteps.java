@@ -1,4 +1,4 @@
-package AnalysisTools.ICRP.Steps;
+package AnalysisTools.vQTL.Steps;
 
 import appsCommon.PageCache;
 import appsCommon.PageInitializer;

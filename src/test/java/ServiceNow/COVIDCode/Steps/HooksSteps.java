@@ -21,12 +21,15 @@ import appsCommon.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 
 public class HooksSteps {
 
 	private static final String BUILD_NUMBER = "BUILD_NUMBER";
 	public static String SCENARIO_NAME_TEXT = "scenarioNameText";
+	public static Scenario scenario;
 
 	/**
 	 * This method will run before each scenario
@@ -37,6 +40,7 @@ public class HooksSteps {
 	@Before
 	public void genericSetUp(Scenario s) throws TestingException {
 		WebDriverUtils.getWebDriver();
+		this.scenario=s;
 		MiscUtils.sleep(2000);
 		PageInitializer.initializeAllPages();
 		ScenarioContext.localConf = LocalConfUtils.loadLocalConf();
@@ -76,7 +80,10 @@ public class HooksSteps {
 	 */
 	@After
 	public void genericTearDown(Scenario s) throws TestingException {
-
+		if (s.isFailed()) {
+			final byte[] screenshot = ((TakesScreenshot) WebDriverUtils.webDriver).getScreenshotAs(OutputType.BYTES);
+			s.attach(screenshot, "image/png", s.getName());
+		}
 		if (WebDriverUtils.webDriver != null) {
 			MiscUtils.sleep(2000);
 

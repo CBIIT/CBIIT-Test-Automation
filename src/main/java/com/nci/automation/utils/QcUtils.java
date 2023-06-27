@@ -257,7 +257,7 @@ public class QcUtils {
 			}
 
 			ComThread.Release();
-			CucumberLogUtils.logInfo("Successfully updated test '" + testName + "' in QC");
+			//CucumberLogUtils.logInfo("Successfully updated test '" + testName + "' in QC");
 		} catch (Exception e) {
 			ComThread.Release();
 			CucumberLogUtils.logError(e.getMessage());
