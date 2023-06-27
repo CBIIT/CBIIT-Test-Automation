@@ -1,5 +1,7 @@
 package GrantsApps.ChangePassword.Steps;
 
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -7,21 +9,18 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import GrantsApps.ChangePassword.StepsImplementation.ChangePasswordStepsImpl;
-import GrantsApps.ChangePassword.Util.ReportUtil;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
+
 
 public class ChangePasswordSteps extends PageInitializer {
     public String newPassword = ChangePasswordStepsImpl.generateNewPassword();
 
-    @Given("User is on landing page")
-    public void user_is_on_landing_page() throws TestingException {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ChangePassword"));
+    @Given("User is on landing page {string}")
+    public void user_is_on_landing_page(String url) throws TestingException {
+        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(url));
         MiscUtils.sleep(1000);
         loginImpl.elizabethiTrustLogin();
         MiscUtils.sleep(1000);
-        ReportUtil.captureScreenshot("Landing page"); // do research
     }
 
     @Given("User enters New Password according to password policy")

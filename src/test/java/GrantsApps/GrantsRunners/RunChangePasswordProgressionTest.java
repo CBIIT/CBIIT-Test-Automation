@@ -1,9 +1,9 @@
 package GrantsApps.GrantsRunners;
 
-import org.junit.runner.RunWith;
 
-import cucumber.api.CucumberOptions;
-import cucumber.api.junit.Cucumber;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = {"html:target/html-reports/cucumber-default-report"
@@ -12,7 +12,7 @@ import cucumber.api.junit.Cucumber;
         , "rerun:target/failed.txt", "pretty"}
         , features = "src/test/java/GrantsApps/ChangePassword/Features"
         , glue = "GrantsApps.ChangePassword.Steps"
-        , tags = "@CHANGPASS-8"
+        , tags = "@Smoke"
         , dryRun = false
         , monochrome = false
         , strict = true
