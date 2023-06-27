@@ -12,26 +12,26 @@ Feature: Test Cases on the Public Site
     When the user clicks on the Clear All button
     Then all previously selected fields are no longer selected
 
-  @SS-3436 @Smoke @matarodriguezko
+  @SS-3436 @Progression @matarodriguezko
   Scenario: Selecting all Cohorts from the Biospecimen Tab
     Given the user is on the CEDCD Biospecimen Tab
     And the user clicks on the Specimen Type drop down
     And the user clicks on the All Types check box
     Then all Specimen tabs are selected
 
-  @SS-3439 @Smoke @matarodriguezko
+  @SS-3439 @Progression @matarodriguezko
   Scenario: Select Type Sorted Alphabetically
     Given the user is on the CEDCD Biospecimen Tab
     And the user clicks on the Specimen Types drop down
     Then the alphabetized Specimen Types are displayed
 
-  @SS-3509 @Smoke @matarodriguezko
+  @SS-3509 @Progression @matarodriguezko
   Scenario: Cancer Type Drop Down is sorted Alphabetically
     Given the user is on the CEDCD Biospecimen tab
     When the user clicks on the Cancer Types drop down
     Then the drop down is sorted alphabetically
 
-  @SS-3428 @Smoke @matarodriguezko
+  @SS-3428 @Progression @matarodriguezko
   Scenario: Eligible Female Cohorts returned on the Search Cohorts Tab
     Given the user is on the CEDCD Search Cohorts Tab
     When the user filters by females

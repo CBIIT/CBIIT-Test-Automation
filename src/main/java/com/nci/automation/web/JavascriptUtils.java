@@ -1,5 +1,7 @@
 package com.nci.automation.web;
 
+import java.io.File;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
@@ -38,12 +40,12 @@ public class JavascriptUtils extends WebDriverUtils {
 		JavascriptExecutor js = (JavascriptExecutor) webDriver;
 		js.executeScript("arguments[0].value = '';", element);
 	}
-	
-	/* To scroll down the web page at the bottom of the page.*/
-	public static void scrollDownByPage() {	
-		JavascriptExecutor js = ((JavascriptExecutor) webDriver);	
-		 //This will scroll the web page till end.		
-        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+
+	/* To scroll down the web page at the bottom of the page. */
+	public static void scrollDownByPage() {
+		JavascriptExecutor js = ((JavascriptExecutor) webDriver);
+		// This will scroll the web page till end.
+		js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 	}
 
 	/**
@@ -187,6 +189,18 @@ public class JavascriptUtils extends WebDriverUtils {
 	public static void scrollScreen(int x, int y) {
 		JavascriptExecutor js = (JavascriptExecutor) WebDriverUtils.webDriver;
 		js.executeScript("window.scrollBy(" + x + "," + y + ")", "");
+	}
+
+	/**
+	 * Use this method in need of sending a file on a WebElement internally. This is
+	 * used
+	 * when WebDriver is failed to click on a WebElement UI.
+	 * 
+	 * @param web Element
+	 */
+	public static void sendKeysByJS(WebElement element, String input) {
+		JavascriptExecutor js = (JavascriptExecutor) webDriver;
+		js.executeScript("arguments[0].setAttribute('value', '" + input + "')", element);
 	}
 
 }

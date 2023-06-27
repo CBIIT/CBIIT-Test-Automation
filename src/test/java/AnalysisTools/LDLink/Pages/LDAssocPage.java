@@ -24,6 +24,30 @@ public class LDAssocPage extends CommonUtils {
     @FindBy(xpath = "//h3[contains(text(),'Association Results')]")
     public WebElement associationResultsText;
 
+    /** This is the xpath to the Browse Input box to upload a file */
+    @FindBy(xpath = "//input[@id='ldassoc-file-label']")
+    public WebElement fileUploadInputBox;
+
+    /** This is the xpath to the Variant drop down */
+    @FindBy(xpath = "//button[@id='region-codes-menu1']")
+    public WebElement variantDropDown;
+
+    /** This is the xpath to the Variant drop down value */
+    @FindBy(xpath = "(//a[contains(text(),'Variant')])[1]")
+    public WebElement variantDropDownValue;
+
+    /** This is the xpath to the Variant drop down */
+    @FindBy(xpath = "(//input[@id='region-variant-index']")
+    public WebElement rsNumberInputOnVariantDropDown;
+
+    /** This is the xpath to the Population drop down */
+    @FindBy(xpath = "(//button[contains(text(),'Select Population')])[1]")
+    public WebElement populationDropDown;
+
+    /** This is the xpath to the Population drop down value */
+    @FindBy(xpath = "((//label[contains(text(),' (YRI) Yoruba in Ibadan, Nigera ')])[1]")
+    public WebElement populationYriDropDownValue;
+
     public LDAssocPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

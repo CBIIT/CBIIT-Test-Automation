@@ -1,13 +1,19 @@
 package AnalysisTools.LDLink.Steps;
 
+import java.io.File;
+
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.JavascriptUtils;
 
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class LDAssocSteps extends PageInitializer {
 
@@ -31,6 +37,25 @@ public class LDAssocSteps extends PageInitializer {
         Assert.assertEquals(associationResultsText, actualAssociationText);
         Assert.assertTrue(ldAssocPage.associationResultsText.isDisplayed());
         CucumberLogUtils.logScreenShot();
+    }
+
+    @When("the user uploads {string}, selects Variant drop down, enters {string} and YRI population and calculates")
+    public void the_user_uploads_selects_Variant_drop_down_enters_and_YRI_population_and_calculates(String ldAssocFile,
+            String ldAssocRsNumber) {
+        MiscUtils.sleep(3000);
+        File ldAssocInputFile = new File(ldAssocFile);
+        JavascriptUtils.sendKeysByJS(ldAssocPage.fileUploadInputBox, ldAssocInputFile.getAbsolutePath());
+        CommonUtils.sendKeys(ldAssocPage.fileUploadInputBox, ldAssocFile);
+        MiscUtils.sleep(2000);
+        CommonUtils.click(ldAssocPage.variantDropDown);
+        CommonUtils.click(ldAssocPage.variantDropDownValue);
+        CommonUtils.sendKeys(ldAssocPage.rsNumberInputOnVariantDropDown,
+                ldAssocRsNumber);
+        CommonUtils.click(ldAssocPage.populationDropDown);
+        CommonUtils.click(ldAssocPage.populationYriDropDownValue);
+        MiscUtils.sleep(2000);
+        CucumberLogUtils.logScreenShot();
+        CommonUtils.click(ldAssocPage.submitOnLDassoc);
     }
 
 }
