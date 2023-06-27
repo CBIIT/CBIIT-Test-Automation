@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
@@ -169,7 +168,7 @@ public class ExcelReader {
 	 * @param sheetName is the name of the sheet in the excel file
 	 * @return will return the excel sheet data as map in Key, Value format 
 	 */
-	public static Map<String, String> excelIntoHashMap(String filePath, String sheetName) throws IOException{
+	public static Map<String, String> excelIntoHashMap(String filePath, String sheetName) {
 
 		Map<String,String> excelData= new HashMap<String,String>();
 		DataFormatter formatter = new DataFormatter();
@@ -199,7 +198,7 @@ public class ExcelReader {
 			}
 			book.close();
 			file.close();
-		} catch (FileNotFoundException e) {
+		} catch(IOException e){
 			e.printStackTrace();
 		}
 		return excelData;

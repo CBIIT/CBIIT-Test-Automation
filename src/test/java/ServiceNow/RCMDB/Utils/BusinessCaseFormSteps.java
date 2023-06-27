@@ -8,10 +8,10 @@ import com.nci.automation.web.ConfUtils;
 
 import ServiceNow.ITPG.Pages.BusinessCaseFormPage;
 import ServiceNow.ITPG.StepsImplementation.LoginStepsImpl;
-import cucumber.api.java.Before;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class BusinessCaseFormSteps {
 
@@ -125,7 +125,7 @@ public class BusinessCaseFormSteps {
 		businessCaseFormPage.sortCreatedDateForIdeaCasesInDecendingOrder();
 		businessCaseFormPage.clickOnFirstIdeaCase();
 	}
-	
+
 	@Then("Update details on business form and submit")
 	public void FillBusinessForm() throws InterruptedException {
 		businessCaseFormPage.enterTextInBusinessNeedBox("TestingAutomtaionTesting");
@@ -156,13 +156,13 @@ public class BusinessCaseFormSteps {
 	public void askForMoreInfo() {
 		businessCaseFormPage.askForMoreInfoOnRequestForm();
 	}
-	
+
 	@Then("Verify Email notification with subject as {string}")
 	public void verifyEmail(String subject) throws InterruptedException {
 		boolean status = businessCaseFormPage.verifyEmail(subject);
-		
+
 		Assert.assertEquals(true, status);
-		
+
 	}
-	
+
 }

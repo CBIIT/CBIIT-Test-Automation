@@ -3,8 +3,9 @@ package AnalysisTools.PLCO.Steps;
 import org.testng.Assert;
 
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 
 public class BrowsePhenotypeSteps extends PageInitializer {

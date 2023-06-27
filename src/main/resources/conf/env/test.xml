@@ -653,4 +653,76 @@
             </default>
         </db>
     </application>
+
+    <!-- Application ID for cProSite-->
+    <application id="cProSite">
+        <login_url>https://cprosite-qa.ccr.cancer.gov/#/
+        </login_url> <!-- add test url -->
+        <role name="Role">
+            <user id="regular">
+                <name>regular</name>
+                <userId></userId> <!-- add encrypted test user -->
+                <password></password> <!-- add encrypted test pass -->
+            </user>
+        </role>
+        <db>
+            <default>
+                <driverclassname></driverclassname> <!-- Add driver class-name -->
+                <url></url> <!-- complete string url -->
+                <username></username> <!-- Add db username -->
+                <password></password> <!-- Add db password -->
+            </default>
+        </db>
+    </application>
+<<<<<<< HEAD
+=======
+
+
+
+    <!-- Application ID for JPsurv-->
+    <application id="JPSurv">
+
+        <login_url>https://analysistools-qa.cancer.gov/jpsurv/
+        </login_url> <!-- add test url -->
+
+        <role name="Role">
+            <user id="regular">
+                <name>regular</name>
+                <userId></userId> <!-- add encrypted test user -->
+                <password></password> <!-- add encrypted test pass -->
+            </user>
+        </role>
+        <db>
+            <default>
+                <driverclassname></driverclassname> <!-- Add driver class-name -->
+                <url></url> <!-- complete string url -->
+                <username></username> <!-- Add db username -->
+                <password></password> <!-- Add db password -->
+            </default>
+        </db>
+    </application>
+
+    <!-- Application ID for ICRP-->
+    <application id="ICRP">
+        <login_url>https://icrpartnership-test.org/
+        </login_url> <!-- add test url -->
+        <role name="Role">
+            <user id="regular">
+                <name>regular</name>
+                <userId></userId> <!-- add encrypted test user -->
+                <password></password> <!-- add encrypted test pass -->
+            </user>
+        </role>
+        <db>
+            <default>
+                <driverclassname></driverclassname> <!-- Add driver class-name -->
+                <url></url> <!-- complete string url -->
+                <username></username> <!-- Add db username -->
+                <password></password> <!-- Add db password -->
+            </default>
+        </db>
+    </application>
+
+
+>>>>>>> 8b29fa514e30434ab3f4b3e8a67c69cd929045fd
 </environment>

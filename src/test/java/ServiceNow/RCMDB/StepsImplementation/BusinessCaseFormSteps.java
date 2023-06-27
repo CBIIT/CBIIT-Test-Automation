@@ -8,9 +8,10 @@ import com.nci.automation.web.ConfUtils;
 
 import ServiceNow.ITPG.Pages.BusinessCaseFormPage;
 import ServiceNow.ITPG.StepsImplementation.LoginStepsImpl;
-import cucumber.api.java.Before;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class BusinessCaseFormSteps {
 

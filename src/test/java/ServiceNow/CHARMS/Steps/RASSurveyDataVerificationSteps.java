@@ -1,30 +1,17 @@
 package ServiceNow.CHARMS.Steps;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import org.apache.logging.log4j.core.layout.SyslogLayout;
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import com.mysql.cj.jdbc.Driver;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
-import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
-import ServiceNow.CHARMS.StepsImplementation.RASSurveyStepsImpl;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class RASSurveyDataVerificationSteps extends PageInitializer {
 
