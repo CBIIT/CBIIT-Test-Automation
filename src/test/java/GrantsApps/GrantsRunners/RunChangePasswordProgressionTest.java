@@ -12,7 +12,7 @@ import cucumber.api.junit.Cucumber;
         , "rerun:target/failed.txt", "pretty"}
         , features = "src/test/java/GrantsApps/ChangePassword/Features"
         , glue = "GrantsApps.ChangePassword.Steps"
-        , tags = "@Smoke"
+        , tags = "@CHANGPASS-8"
         , dryRun = false
         , monochrome = false
         , strict = true
