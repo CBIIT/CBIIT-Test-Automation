@@ -37,9 +37,7 @@ public class ChangePasswordPage extends CommonUtils {
     @FindBy(xpath = "//span[@id='passwordTwo.errors']")
     public WebElement failureMessageOldPassword;
 
-    /**Password assertion**/
-//	@FindBy(xpath = "//h2[contains(text(),'Change I2E / Data Mart password for user: KAURS3')]")
-//	public WebElement pageTitle;
+
 
 
 

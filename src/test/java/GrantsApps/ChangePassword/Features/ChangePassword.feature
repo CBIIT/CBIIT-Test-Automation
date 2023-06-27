@@ -1,46 +1,50 @@
 Feature: I want to use this template for my feature file
 
-  @PasswordPolicySuccess  @andreyeve
+  @PasswordPolicySuccess  @andreyeve @CHANGPASS-8
   Scenario: User successfully changes Password
    Given User is on landing page
-   And User fills in Enter New Password field according to the rules
-   And User fills in Confirm New Password field according to the rules 
+   And User enters New Password according to password policy
+   And User confirms New Password
    Then User can see the successful outcome
    
 
- @PasswordPolicyCharacterLimitFailure @andreyeve  @Regression @Smoke
-  Scenario: User unsuccessfully changes Password
+ @PasswordPolicyCharacterLimitFailure @CHANGPASS-9 @andreyeve  @Regression @Smoke
+  Scenario: Verify User is not able to Change Password due to Character limit failure
    Given User is on landing page
    And User enters New Password "ChangeePasswo" without following the character limit rule
    And User confirms New Password "ChangeePasswo"
    Then User can not see the successful outcome
    
-   @PasswordPolicyLoginNameFailure @andreyeve
-   Scenario: User unsuccessfully changes Password
+   @PasswordPolicyLoginNameFailure @CHANGPASS-10 @andreyeve @Regression @Smoke
+   Scenario: Verify User is not able to Change Password due to Login NameFailure
    Given User is on landing page
-   And User fills in Enter New Password field with his login name
-   And User fills in Confirm New Password field with his login name
+   And User enters New Password with their username "andreyeve123456"
+   And User confirms New Password "andreyeve123456"
    Then User can not see the successful outcome
    
-   @PasswordPolicyReuseOldPasswordFailure @andreyeve
-   Scenario: User unsuccessfully changes Password
+   @PasswordPolicyReuseOldPasswordFailure @CHANGPASS-11 @andreyeve @Regression
+   Scenario: Verify User is not able to Change Password due to reuse of Old Password
    Given User is on landing page
-   And User fills in Enter New Password field with his Old Password
-   And User fills in Confirm New Password field with his Old Password
-   Then User can not reuse old password
+   And User enters New Password according to password policy
+   And User confirms New Password
+   Then User can see the successful outcome
+   And User is back on landing page
+   And User enters New Password that is the same as their old Password
+   And User confirms New Password
+   Then User can not change password
   
-   @PasswordPolicyUnallowedCharacters @andreyeve
-   Scenario: User unsuccessfully changes Password
+   @PasswordPolicyUnallowedCharacters @CHANGPASS-12 @andreyeve @Regression
+   Scenario: Verify User is not able to  Change Password successfully due to un-allowed characters
    Given User is on landing page
-   And User fills in Enter New Password field with unallowed characters
-   And User fills in Confirm New Password field with unallowed characters
-   Then User can not see the successful outcome
-   
-   @PasswordPolicyWithoutAllAllowedCharacters @andreyeve
-   Scenario: User unsuccessfully changes Password
-   Given User is on landing page
-   And User fills in Enter New Password field without all allowed characters
-   And User fills in Confirm New Password field without all allowed characters
+   And User fills in Enter New Password field with un-allowed characters "ChangeePasswo& 1"
+   And User confirms New Password "ChangeePasswo& 1"
    Then User can not see the successful outcome
 
-   
+ @PasswordPolicyAllRequiredCharacters @CHANGPASS-13 @andreyeve @Regression
+ Scenario: Verify user is not able to Change Password without required characters
+  Given User is on landing page
+  And User fills in Enter New Password field without all required characters "changepassword12"
+  And User confirms New Password "changepassword12"
+  Then User can not see the successful outcome
+
+
