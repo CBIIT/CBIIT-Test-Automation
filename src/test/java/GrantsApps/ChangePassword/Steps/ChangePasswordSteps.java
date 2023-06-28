@@ -76,6 +76,3 @@ public class ChangePasswordSteps extends PageInitializer {
         CommonUtils.sendKeysToElement(changePasswordPage.passwordFieldOne, reqCharacters);
     }
 }
-
-
-

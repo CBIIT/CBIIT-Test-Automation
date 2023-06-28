@@ -14,4 +14,3 @@ public class ChangePasswordStepsImpl extends PageInitializer {
         return sb.toString();
     }
 }
-
