@@ -1,15 +1,22 @@
-Feature: myRAS Screener Submissions from the Qualtrics Portal
-	Description: This feature file contains scenarios which submits myRAS Screener and verify questionnaire data submitted via Qualtrics is imported as expected in Native View
+Feature: myRAS Screener Submissions
+	Description: This feature file contains scenarios which submit myRAS Screeners and verifies questionnaire datas in Native View
 
-	This feature file contains scenarios which verify data submitted via Qualtrics questionnaire in Native View
-
-	@juarezds @myRasScreenerSubmissionOnly @InProgress
+	@juarezds @myRasScreenerSubmissionOnly @InProgress 
 	Scenario: Participant Screener Self Submission Scenario 1
 		This scenario selects 'No' to all questions
+		#Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
+		#And logs in via Okta with username "charmsras5@yahoo.com" and password "RASTest2023$$"
+		#And clicks on Eligibility Questionnaire to begin questionnaire
+		#When the participant submits a screener for scenario one from excel sheet "Scenario1"
+		Then data submitted for scenario one is verified in native view against scenario one excel sheet
+
+	@bucurgb @myRasScreenerSubmissionOnly @Updating
+	Scenario: Participant Screener Self Submission Scenario 2
+	This scenario selects 'No' to all questions
 		Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-		And logs in via Okta with username "charmsras5@yahoo.com" and password "RASTest2023$$"
+		And logs in via Okta with username "charmsras6@yahoo.com" and password "RASTest2023$$"
 		And clicks on Eligibility Questionnaire to begin questionnaire
-		When the participant submits a screener for scenario one from excel sheet "Scenario1"
+		When the participant submits a screener for scenario one from excel sheet "Scenario2"
 		Then data submitted for scenario one is verified in native view against scenario one excel sheet
 
 

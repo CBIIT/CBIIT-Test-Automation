@@ -91,7 +91,7 @@ public class NativeViewSteps {
 	public void verifystate(String expectedState) throws Exception {
 		Thread.sleep(2000);
 		String actualState = nativeViewPage.getState();
-		CucumberLogUtils.logScreenShot("Request State");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		if (actualState != null) {
 			actualState = actualState.trim();
 			Assert.assertEquals(expectedState, actualState);

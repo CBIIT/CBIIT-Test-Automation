@@ -1,5 +1,6 @@
 package CustomBusiness.EIDP.StepsImplementation;
 
+import CustomBusiness.EIDP.Steps.HooksSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -16,7 +17,7 @@ public class AlignExpectionsStepImpl extends PageInitializer {
 			CommonUtils.click(aligningExpectationsPage.additionalCommentNoRadioButton);
 		}
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.click(aligningExpectationsPage.saveButton);
 		Thread.sleep(6000);
 	}
@@ -42,11 +43,11 @@ public class AlignExpectionsStepImpl extends PageInitializer {
 		}
 		// try {
 		// 	if (CommonUtils.isElementPresentWithoutWait("//*[@id='tdAprroveIDP']")) {
-		// 		CucumberLogUtils.logScreenShot();
+		// 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		// 		CommonUtils.click(By.xpath("//*[@id='tdAprroveIDP']"));
 		// 	} else {
 		// 		CommonUtils.waitForVisibility(aligningExpectationsPage.reviewAndTakeActionButton);
-		// 		CucumberLogUtils.logScreenShot();
+		// 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		// 		CommonUtils.click(aligningExpectationsPage.reviewAndTakeActionButton);
 		// 	}
 		// } catch (Exception e) {
@@ -55,7 +56,7 @@ public class AlignExpectionsStepImpl extends PageInitializer {
 	}
 
 	public void clickOnSendIDPToTraineeButton() {
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		if (CommonUtils.isElementDisplayed(By.id("344"))) {
 			CommonUtils.click(aligningExpectationsPage.renewalOption);
 		}

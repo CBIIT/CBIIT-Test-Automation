@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.web.JavascriptUtils;
 import appsCommon.PageInitializer;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 

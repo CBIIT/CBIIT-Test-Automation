@@ -9,15 +9,14 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.*;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import com.nci.automation.utils.MiscUtils;
 
 /**
@@ -204,7 +203,6 @@ public class CommonUtils extends WebDriverUtils {
 
     /**
      * This method will switch to default frame
-     *
      */
 
     public static void switchToDefaultContent() {
@@ -589,6 +587,20 @@ public class CommonUtils extends WebDriverUtils {
 
     /*
      *
+     * Use below method to assert expected String value with an actual String value with a message
+     */
+    public static void assertEqualsWithMessage(String actual, String expected, String message) {
+
+        try {
+            Assert.assertEquals(actual, expected, message);
+        } catch (AssertionError e) {
+
+            e.printStackTrace();
+        }
+    }
+
+    /*
+     *
      * Use below method to assert actual String value with an expected String value
      * using assertTrue() method
      */
@@ -620,7 +632,7 @@ public class CommonUtils extends WebDriverUtils {
      */
     public static void assertTrueTestNG(boolean flag, String message) {
         try {
-            Assert.assertTrue(message,flag);
+            Assert.assertTrue(flag, message);
         } catch (AssertionError e) {
             e.printStackTrace();
         }
@@ -638,6 +650,7 @@ public class CommonUtils extends WebDriverUtils {
 
     /**
      * USE THIS METHOD TO CLICK ON STALE ELEMENTS
+     *
      * @param ele
      */
     public static void clickOnElement(WebElement ele) {
@@ -655,6 +668,7 @@ public class CommonUtils extends WebDriverUtils {
 
     /**
      * USE THIS METHOD TO SEND KEYS TO STALE ELEMENTS
+     *
      * @param ele
      */
     public static void sendKeysToElement(WebElement ele, String text) {
@@ -670,6 +684,14 @@ public class CommonUtils extends WebDriverUtils {
         }
     }
 
+    /***
+     * USE THIS METHOD TO GET THE ATTRIBUTE VALUE OF THE VALUE ATTRIBUTE
+     * @param element
+     * @return
+     */
+    public static String getAttributeValueOfValueAttribute(WebElement element) {
+        return element.getAttribute("value");
+    }
 
     public static boolean isFileDownloaded(String fileName) {
         boolean temp = false;
@@ -692,5 +714,4 @@ public class CommonUtils extends WebDriverUtils {
             System.out.println("File is deleted");
         }
     }
-
 }

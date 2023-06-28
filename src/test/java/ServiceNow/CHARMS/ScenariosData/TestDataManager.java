@@ -7,11 +7,12 @@ import java.util.Map;
 
 public class TestDataManager extends PageInitializer {
 
-    public Map<String, String> testDataForRasScreenerScenario1;
+    public Map<String, String> testDataForRasScreenerSubmission;
     public String areYouCompletingThisFormForSomeoneElseOrYourself;
     public String firstName;
     public String middleInitial;
     public  String lastName;
+    public String whatIsYourDateOfBirth;
     public String dateOfBirthMonth;
     public String dateOfBirthYear;
     public String sexAssignedAtBirthOption;
@@ -45,39 +46,40 @@ public class TestDataManager extends PageInitializer {
         /**
          * FETCHING DATA FROM EXCEL BEFORE SUBMITTING SCREENER
          */
-        testDataForRasScreenerScenario1 = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SELF_SUBMISSION_SCENARIOS_DATA, sheetName);
+        testDataForRasScreenerSubmission = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SELF_SUBMISSION_SCENARIOS_DATA, sheetName);
 
-        areYouCompletingThisFormForSomeoneElseOrYourself = testDataForRasScreenerScenario1.get(rasScreenerConstants.areYouCompletingThisFormForSomeoneElse);
-        firstName = testDataForRasScreenerScenario1.get(rasScreenerConstants.firstName);
-        middleInitial = testDataForRasScreenerScenario1.get(rasScreenerConstants.middleInitial);
-        lastName = testDataForRasScreenerScenario1.get(rasScreenerConstants.lastName);
-        dateOfBirthMonth = testDataForRasScreenerScenario1.get(rasScreenerConstants.dateOfBirthMonth);
-        dateOfBirthYear = testDataForRasScreenerScenario1.get(rasScreenerConstants.dateOfBirthYear);
-        sexAssignedAtBirthOption = testDataForRasScreenerScenario1.get(rasScreenerConstants.sexAssignedAtBirthOption);
-        areYouAdoptedOption = testDataForRasScreenerScenario1.get(rasScreenerConstants.areYouAdoptedOption);
-        countryOption = testDataForRasScreenerScenario1.get(rasScreenerConstants.whichCountryDoYouCurrentlyLiveInOption);
-        street = testDataForRasScreenerScenario1.get(rasScreenerConstants.streetAddress);
-        street2 = testDataForRasScreenerScenario1.get(rasScreenerConstants.street2Address);
-        city = testDataForRasScreenerScenario1.get(rasScreenerConstants.cityText);
-        state = testDataForRasScreenerScenario1.get(rasScreenerConstants.stateText);
-        zipcode = testDataForRasScreenerScenario1.get(rasScreenerConstants.zipCodeText);
-        emailAddress = testDataForRasScreenerScenario1.get(rasScreenerConstants.emailAddress);
-        emailAddressConfirm = testDataForRasScreenerScenario1.get(rasScreenerConstants.confirmEmailAddress);
-        homePhoneNumber = testDataForRasScreenerScenario1.get(rasScreenerConstants.homePhoneNumber);
-        cellPhoneNumber = testDataForRasScreenerScenario1.get(rasScreenerConstants.cellPhoneNumber);
-        workPhoneNumber = testDataForRasScreenerScenario1.get(rasScreenerConstants.workPhoneNumber);
-        whatIsYourEthnicity = testDataForRasScreenerScenario1.get(rasScreenerConstants.whatIsYourEthnicity);
-        whatIsYourRace = testDataForRasScreenerScenario1.get(rasScreenerConstants.whatIsYourRace);
-        areYouAParticipantInOtherStudyGroup = testDataForRasScreenerScenario1.get(rasScreenerConstants.areYouAParticipantInOtherStudyGroup);
-        haveYouBeenDiagnosedWithFollowingConditions = testDataForRasScreenerScenario1.get(rasScreenerConstants.haveYouBeenDiagnosedWithTheFollowingConditions);
-        haveYouBeenDiagnosedWithCancer = testDataForRasScreenerScenario1.get(rasScreenerConstants.haveYouEverBeenDiagnosedWithCancer);
-        haveYouBeenDiagnosedWithARasopathy = testDataForRasScreenerScenario1.get(rasScreenerConstants.haveYouBeenDiagnosedWithARasopathy);
-        haveAnyOfYourBiologicalRelativesBeenDiagnosedWithARasopathy = testDataForRasScreenerScenario1.get(rasScreenerConstants.haveAnyBiologicalRelativesBeenDiagnosedWithARasopathy);
-        haveYouEverHadGeneticTesting = testDataForRasScreenerScenario1.get(rasScreenerConstants.haveYouEverHadGeneticTesting);
-        howDidYouHearAboutThisStudy = testDataForRasScreenerScenario1.get(rasScreenerConstants.howDidYouHearAboutThisStudy);
-        howDidYouHearAboutThisStudyOtherReason = testDataForRasScreenerScenario1.get(rasScreenerConstants.howDidYouHearAboutThisStudyOtherReason);
-        haveYouOrOtherFamilyMembersParticipatedInOtherStudy = testDataForRasScreenerScenario1.get(rasScreenerConstants.haveYouOrOtherFamilyMembersParticipatedInOtherStudy);
-        whatAreMainReasonsForParticipatingInStudy = testDataForRasScreenerScenario1.get(rasScreenerConstants.whatAreTheMainReasonsForParticipatingInThisStudy);
-        whatAreMainReasonsForParticipatingInStudyOtherReason = testDataForRasScreenerScenario1.get(rasScreenerConstants.getWhatAreTheMainReasonsForParticipatingInThisStudyOtherReason);
+        areYouCompletingThisFormForSomeoneElseOrYourself = testDataForRasScreenerSubmission.get(rasScreenerConstants.areYouCompletingThisFormForSomeoneElse);
+        firstName = testDataForRasScreenerSubmission.get(rasScreenerConstants.firstName);
+        middleInitial = testDataForRasScreenerSubmission.get(rasScreenerConstants.middleInitial);
+        lastName = testDataForRasScreenerSubmission.get(rasScreenerConstants.lastName);
+        whatIsYourDateOfBirth = testDataForRasScreenerSubmission.get(rasScreenerConstants.whatIsYourDateOfBirth);
+        dateOfBirthMonth = testDataForRasScreenerSubmission.get(rasScreenerConstants.dateOfBirthMonth);
+        dateOfBirthYear = testDataForRasScreenerSubmission.get(rasScreenerConstants.dateOfBirthYear);
+        sexAssignedAtBirthOption = testDataForRasScreenerSubmission.get(rasScreenerConstants.sexAssignedAtBirthOption);
+        areYouAdoptedOption = testDataForRasScreenerSubmission.get(rasScreenerConstants.areYouAdoptedOption);
+        countryOption = testDataForRasScreenerSubmission.get(rasScreenerConstants.whichCountryDoYouCurrentlyLiveInOption);
+        street = testDataForRasScreenerSubmission.get(rasScreenerConstants.streetAddress);
+        street2 = testDataForRasScreenerSubmission.get(rasScreenerConstants.street2Address);
+        city = testDataForRasScreenerSubmission.get(rasScreenerConstants.cityText);
+        state = testDataForRasScreenerSubmission.get(rasScreenerConstants.stateText);
+        zipcode = testDataForRasScreenerSubmission.get(rasScreenerConstants.zipCodeText);
+        emailAddress = testDataForRasScreenerSubmission.get(rasScreenerConstants.emailAddress);
+        emailAddressConfirm = testDataForRasScreenerSubmission.get(rasScreenerConstants.confirmEmailAddress);
+        homePhoneNumber = testDataForRasScreenerSubmission.get(rasScreenerConstants.homePhoneNumber);
+        cellPhoneNumber = testDataForRasScreenerSubmission.get(rasScreenerConstants.cellPhoneNumber);
+        workPhoneNumber = testDataForRasScreenerSubmission.get(rasScreenerConstants.workPhoneNumber);
+        whatIsYourEthnicity = testDataForRasScreenerSubmission.get(rasScreenerConstants.whatIsYourEthnicity);
+        whatIsYourRace = testDataForRasScreenerSubmission.get(rasScreenerConstants.whatIsYourRace);
+        areYouAParticipantInOtherStudyGroup = testDataForRasScreenerSubmission.get(rasScreenerConstants.areYouAParticipantInOtherStudyGroup);
+        haveYouBeenDiagnosedWithFollowingConditions = testDataForRasScreenerSubmission.get(rasScreenerConstants.haveYouBeenDiagnosedWithTheFollowingConditions);
+        haveYouBeenDiagnosedWithCancer = testDataForRasScreenerSubmission.get(rasScreenerConstants.haveYouEverBeenDiagnosedWithCancer);
+        haveYouBeenDiagnosedWithARasopathy = testDataForRasScreenerSubmission.get(rasScreenerConstants.haveYouBeenDiagnosedWithARasopathy);
+        haveAnyOfYourBiologicalRelativesBeenDiagnosedWithARasopathy = testDataForRasScreenerSubmission.get(rasScreenerConstants.haveAnyBiologicalRelativesBeenDiagnosedWithARasopathy);
+        haveYouEverHadGeneticTesting = testDataForRasScreenerSubmission.get(rasScreenerConstants.haveYouEverHadGeneticTesting);
+        howDidYouHearAboutThisStudy = testDataForRasScreenerSubmission.get(rasScreenerConstants.howDidYouHearAboutThisStudy);
+        howDidYouHearAboutThisStudyOtherReason = testDataForRasScreenerSubmission.get(rasScreenerConstants.howDidYouHearAboutThisStudyOtherReason);
+        haveYouOrOtherFamilyMembersParticipatedInOtherStudy = testDataForRasScreenerSubmission.get(rasScreenerConstants.haveYouOrOtherFamilyMembersParticipatedInOtherStudy);
+        whatAreMainReasonsForParticipatingInStudy = testDataForRasScreenerSubmission.get(rasScreenerConstants.whatAreTheMainReasonsForParticipatingInThisStudy);
+        whatAreMainReasonsForParticipatingInStudyOtherReason = testDataForRasScreenerSubmission.get(rasScreenerConstants.getWhatAreTheMainReasonsForParticipatingInThisStudyOtherReason);
     }
 }

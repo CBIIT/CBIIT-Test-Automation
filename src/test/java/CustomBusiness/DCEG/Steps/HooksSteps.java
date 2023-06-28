@@ -1,34 +1,34 @@
-package CustomBusiness.ETD.Steps;
+package CustomBusiness.DCEG.Steps;
 
-import java.io.File;
-import java.net.MalformedURLException;
-
-import CustomBusiness.EIDP.Steps.HooksSteps;
 import appsCommon.PageCache;
+import appsCommon.PageInitializer;
 import com.nci.automation.common.QcTestResult;
-import com.nci.automation.xceptions.TestingException;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
-import org.apache.commons.lang.StringUtils;
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.DateUtils;
 import com.nci.automation.utils.LocalConfUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.WebDriverUtils;
-import appsCommon.PageInitializer;
+import com.nci.automation.xceptions.TestingException;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
+import org.apache.commons.lang.StringUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
+import java.io.File;
+import java.net.MalformedURLException;
 
-public class HookSteps {
+
+public class HooksSteps {
+
 	private static final String BUILD_NUMBER = "BUILD_NUMBER";
 	public static String SCENARIO_NAME_TEXT = "scenarioNameText";
 	public static Scenario scenario;
 	/**
 	 * This method will run before each scenario
-	 *
+	 * 
 	 * @param s
 	 * @throws TestingException
 	 */
@@ -69,7 +69,7 @@ public class HookSteps {
 
 	/**
 	 * This method runs after each scenario
-	 *
+	 * 
 	 * @throws TestingException
 	 * @throws MalformedURLException
 	 */

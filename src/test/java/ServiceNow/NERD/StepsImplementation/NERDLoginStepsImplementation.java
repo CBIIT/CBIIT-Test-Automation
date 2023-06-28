@@ -1,5 +1,6 @@
 package ServiceNow.NERD.StepsImplementation;
 
+import ServiceNow.NERD.Steps.HooksSteps;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.EnvUtils;
@@ -13,9 +14,9 @@ public class NERDLoginStepsImplementation extends PageInitializer{
 	public void loginToNerd() throws TestingException {
 		WebDriverUtils.getWebDriver();
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		loginImpl.loginToITrust();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 }

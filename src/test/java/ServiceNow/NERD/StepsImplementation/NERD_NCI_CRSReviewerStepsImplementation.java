@@ -1,5 +1,6 @@
 package ServiceNow.NERD.StepsImplementation;
 
+import ServiceNow.NERD.Steps.HooksSteps;
 import appsCommon.PageInitializer;
 
 import static org.junit.Assert.assertTrue;
@@ -37,11 +38,12 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
                 CommonUtils.waitForVisibility(nerdDynamicXpaths
                                 .publishedCollaboration(submissionName));
                 nerdDynamicXpaths.publishToNERDButton(submissionName).click();
-                CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton);
-                nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton.click();
-                CommonUtils.waitForVisibility(
-                                nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
-                nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton.click();
+                MiscUtils.sleep(5000);
+                CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+                JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbuttonCRS);
+                MiscUtils.sleep(1000);
+                CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+                JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
         }
 
         /**
@@ -59,8 +61,9 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
                 CommonUtils.selectValueFromBootStrapDropDown(
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenuValues,
                                 "Submissions");
-                CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown);
-                nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown.click();
+                MiscUtils.sleep(2000);
+//                CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown);
+                JavascriptUtils.clickByJS( nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown);
                 CommonUtils.waitForVisibility(
                                 nerdDynamicXpaths.publishedCollaboration(submissionName));
                 nerdDynamicXpaths.returnButton(submissionName).click();
@@ -75,7 +78,7 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
                 CommonUtils.waitForVisibility(
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
                 nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton.click();
-                CucumberLogUtils.logScreenShot();
+                CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
                 MiscUtils.sleep(2000);
         }
 
@@ -91,7 +94,7 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu);
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu.click();
                 WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'Submissions')]")).click();
-                CucumberLogUtils.logScreenShot();
+                CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
                 CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown);
                 nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown.click();
                 MiscUtils.sleep(2000);
@@ -106,7 +109,7 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
                 WebElement element = WebDriverUtils.webDriver
                                 .findElement(By.xpath("//*[@id='crs-article']/div/div/div/div[1]/div[4]/div[1]/i"));
                 Assert.assertTrue(element.getDomAttribute("aria-hidden").contentEquals("true"));
-                CucumberLogUtils.logScreenShot("VERIFYING RANK FIELD IS NOT DISPLAYED");
+                CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         }
 
         /**
