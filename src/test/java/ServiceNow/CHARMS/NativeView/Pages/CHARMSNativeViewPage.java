@@ -199,6 +199,10 @@ public class CHARMSNativeViewPage extends CommonUtils {
 
 	@FindBy(xpath = "//input[contains(@name,\"sys_display.x_naci_family_coho_family_history_details.proband_screener\")]")
 	public WebElement nativeViewFamilyMemberDetailsAutomatedTestRecordReferral;
+	
+	@FindBy(xpath ="(//span[normalize-space()='All Participant Details'])[1]")
+	public WebElement nVAllParticipantDetailsLink;
+	
 
 	/* *************************************************************** */
 

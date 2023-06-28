@@ -37,7 +37,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		Set<String> allWindowHandles = WebDriverUtils.webDriver.getWindowHandles();
 		for (String currentWindow : allWindowHandles) {
 			WebDriverUtils.webDriver.switchTo().window(currentWindow);
-			MiscUtils.sleep(1000);
+			MiscUtils.sleep(2000);
 		}
 
 		// Excel Data Reader
@@ -48,17 +48,13 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 					.getData("/Users/jains18/git/CBIIT-Test-Automation/src/main/resources/data.xlsx", "Sheet1");
 			CurrentRow = excelDataMapList.get(0);
 
-			// String firstName = CurrentRow.get("FirstName");
-			// String middleName = CurrentRow.get("MiddleName");
-			// String lastName = CurrentRow.get("LastName");
-
 		} catch (InvalidFormatException | IOException e) {
 			e.printStackTrace();
 		}
 
 		JavascriptUtils.scrollIntoView(fanconiEligibilityQuestionnairePage.nextButton);
 		CommonUtils.waitForVisibility(fanconiEligibilityQuestionnairePage.nextButton);
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Initial Study related details
 		for (int i = 1; i <= 6; ++i) {
@@ -74,7 +70,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// What is your name?
 		fanconiEligibilityQuestionnairePage.firstNameTextBox.sendKeys(CurrentRow.get("FirstName"));
@@ -83,7 +79,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Are or were you a participant in the NIH Inherited Bone Marrow Failure
 		// Syndrome study?
@@ -91,104 +87,104 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		CharmsUtil.selectRadioButtonValue(
 				fanconiEligibilityQuestionnairePage.participateBoneMarrowSyndromeStudyRBtonList,
 				CurrentRow.get("ParticipationBoneMarrowSyndromeStudy"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// The next set of questions will collect basic information about you.
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// What is your date of birth?
 		CommonUtils.waitForVisibility(fanconiEligibilityQuestionnairePage.calendarMonthDropDown);
 
-		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.calendarMonthDropDown,
+		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.calendarMonthDropDown,
 				CurrentRow.get("DOBMonth"));
 
 		fanconiEligibilityQuestionnairePage.calendarYearTextBox.clear();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		fanconiEligibilityQuestionnairePage.calendarYearTextBox.sendKeys(CurrentRow.get("DOBYear"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		fanconiEligibilityQuestionnairePage.calendarDayOption.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// What was your sex assigned at birth, on your original birth certificate?
 		// fanconiEligibilityQuestionnairePage.sexAssignedOption.get(1).click();
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.sexAssignedRBtonList,
 				CurrentRow.get("SexAssigned"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// What is your current gender? (select one)
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.currentGenderRBtonList,
 				CurrentRow.get("CurrentGender"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// What are your pronouns?
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.pronounsRBtonList,
 				CurrentRow.get("Pronouns"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Are you adopted?
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.adoptedRBtonList,
 				CurrentRow.get("IsAdopted"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// In which country do you currently live DropDown List?
-		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.countrylivedDropDownList,
+		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.countrylivedDropDownList,
 				CurrentRow.get("CountryLived"));
 
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Please provide the mailing address where study materials can be sent needed.
 		fanconiEligibilityQuestionnairePage.streetTextBox.sendKeys(CurrentRow.get("StreetAddress1"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		fanconiEligibilityQuestionnairePage.additionalStreetTextBox.sendKeys(CurrentRow.get("StreetAddress2"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		fanconiEligibilityQuestionnairePage.cityTextBox.sendKeys(CurrentRow.get("City"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		fanconiEligibilityQuestionnairePage.stateTextBox.sendKeys(CurrentRow.get("State"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		fanconiEligibilityQuestionnairePage.zipCodeTextBox.sendKeys(CurrentRow.get("ZipCode"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// What is your email address?
 		fanconiEligibilityQuestionnairePage.emailAddressTextBox.sendKeys(CurrentRow.get("EmailAddress"));
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Please confirm your email address.
 		fanconiEligibilityQuestionnairePage.confirmEmailAddressTextBox
@@ -196,154 +192,122 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Please list your phone numbers below.
 		fanconiEligibilityQuestionnairePage.homePhoneNumberTextBox.sendKeys(CurrentRow.get("HomePhoneNumber"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		fanconiEligibilityQuestionnairePage.preferredHomePhoneNumberTextBox.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		fanconiEligibilityQuestionnairePage.cellPhoneNumberTextBox.sendKeys(CurrentRow.get("CellPhoneNumber"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		fanconiEligibilityQuestionnairePage.workPhoneNumberTextBox.sendKeys(CurrentRow.get("WorkPhoneNumber"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// What is your ethnicity?
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.ethnicityRBtonList,
 				CurrentRow.get("Ethnicity"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// What is your race? Please select all that apply.
-		for (int j = 1; j <= 5; ++j) {
+		for (int j = 1; j <= 6; ++j) {
 
 			CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.raceRBtonList,
 					CurrentRow.get("Race" + j));
 
 			// fanconiEligibilityQuestionnairePage.raceRBtonList.get(j).click();
-			MiscUtils.sleep(1000);
+			MiscUtils.sleep(2000);
 		}
+
 		fanconiEligibilityQuestionnairePage.otherRaceNameTextBox.sendKeys(CurrentRow.get("OtherRace"));
-		MiscUtils.sleep(1000);
+
+		System.out.println("Other Race :" + CurrentRow.get("OtherRace"));
+
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Have you ever participated in a Fanconi anemia study at another medical
 		// institution, university, government agency or other site?
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				CurrentRow.get("ParticipationInOtherStudies"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Please specify the study(ies) or registry group(s) regarding participation in
 		// other studies.
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				CurrentRow.get("SpecifyParticipationInOtherStudies0"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// for (int j = 1; j <= 5; ++j) {
 		// CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 		// CurrentRow.get("SpecifyParticipationInOtherStudies1"));
 
 		fanconiEligibilityQuestionnairePage.commonRBtonList.get(1).click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		fanconiEligibilityQuestionnairePage.fanconiAnemiaResearcStudyAt1TextBox
 				.sendKeys(CurrentRow.get("SpecifyParticipationInOtherStudiesDetails1"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		fanconiEligibilityQuestionnairePage.commonRBtonList.get(2).click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		fanconiEligibilityQuestionnairePage.fanconiAnemiaResearcStudyAt2TextBox
 				.sendKeys(CurrentRow.get("SpecifyParticipationInOtherStudiesDetails2"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		fanconiEligibilityQuestionnairePage.commonRBtonList.get(3).click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		fanconiEligibilityQuestionnairePage.fanconiAnemiaResearcStudyOther1TextBox
 				.sendKeys(CurrentRow.get("SpecifyParticipationInOtherStudiesDetails3"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		fanconiEligibilityQuestionnairePage.commonRBtonList.get(4).click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		fanconiEligibilityQuestionnairePage.fanconiAnemiaResearcStudyOther2TextBox
 				.sendKeys(CurrentRow.get("SpecifyParticipationInOtherStudiesDetails4"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		fanconiEligibilityQuestionnairePage.commonRBtonList.get(5).click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		fanconiEligibilityQuestionnairePage.fanconiAnemiaResearcStudyOther3TextBox
 				.sendKeys(CurrentRow.get("SpecifyParticipationInOtherStudiesDetails5"));
-		MiscUtils.sleep(1000);
-
-		/*
-		 * fanconiEligibilityQuestionnairePage.commonRBtonList.get(0).click(); //
-		 * Fanconi Anemia Research Fund MiscUtils.sleep(1000);
-		 * fanconiEligibilityQuestionnairePage.commonRBtonList.get(1).click(); //
-		 * Fanconi Anemia Research Study at 1 MiscUtils.sleep(1000);
-		 * fanconiEligibilityQuestionnairePage.fanconiAnemiaResearcStudyAt1TextBox
-		 * .sendKeys("Fanconi Anemia Research Study INS 1"); MiscUtils.sleep(1000);
-		 * fanconiEligibilityQuestionnairePage.commonRBtonList.get(2).click(); //
-		 * Fanconi Anemia Research Study at 2 MiscUtils.sleep(1000);
-		 * fanconiEligibilityQuestionnairePage.fanconiAnemiaResearcStudyAt2TextBox
-		 * .sendKeys("Fanconi Anemia Research Study INS 2"); MiscUtils.sleep(1000);
-		 * fanconiEligibilityQuestionnairePage.commonRBtonList.get(3).click(); //Other 1
-		 * MiscUtils.sleep(1000);
-		 * fanconiEligibilityQuestionnairePage.fanconiAnemiaResearcStudyOther1TextBox
-		 * .sendKeys(" Other Fanconi Anemia Research Study 1"); MiscUtils.sleep(1000);
-		 * fanconiEligibilityQuestionnairePage.commonRBtonList.get(4).click(); //Other 2
-		 * MiscUtils.sleep(1000);
-		 * fanconiEligibilityQuestionnairePage.fanconiAnemiaResearcStudyOther2TextBox
-		 * .sendKeys(" Other Fanconi Anemia Research Study 2"); MiscUtils.sleep(1000);
-		 * fanconiEligibilityQuestionnairePage.commonRBtonList.get(5).click(); //Other 3
-		 * MiscUtils.sleep(1000);
-		 * fanconiEligibilityQuestionnairePage.fanconiAnemiaResearcStudyOther3TextBox
-		 * .sendKeys(" Other Fanconi Anemia Research Study 3"); MiscUtils.sleep(1000);
-		 */
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
+
+		System.out.println(" Other STudy Name  " + CurrentRow.get("SpecifyParticipationInOtherStudiesDetails4"));
+		System.out.println(" Other STudy Name  " + CurrentRow.get("SpecifyParticipationInOtherStudiesDetails5"));
 
 		// Please complete the table below to provide additional information regarding
 		// participation in other studies.
-
-		System.out.println(fanconiEligibilityQuestionnairePage.otherStudyNameList.get(0).getAttribute("name"));
-		System.out.println(fanconiEligibilityQuestionnairePage.otherStudyNameList.get(1).getAttribute("name"));
-
-		// fanconiEligibilityQuestionnairePage.otherStudyNameRBtonList.get(0).sendKeys(CurrentRow.get("OtherStudyName"));
-		// fanconiEligibilityQuestionnairePage.otherStudyNameRBtonList.get(1).sendKeys(CurrentRow.get("OtherStudyName1"));
-
-		// fanconiEligibilityQuestionnairePage.otherStudyNameRBtonList.get(0).sendKeys("Study
-		// 1");
-		// fanconiEligibilityQuestionnairePage.otherStudyNameRBtonList.get(1).sendKeys("Study
-		// 2");
-
-		System.out.println(fanconiEligibilityQuestionnairePage.otherStudyNameList.get(0).getText());
-		System.out.println(fanconiEligibilityQuestionnairePage.otherStudyNameList.get(1).getText());
-
-		MiscUtils.sleep(1000);
 
 		// Other Study Name
 		for (int i = 1; i <= 3; ++i) {
 
 			String data = null;
+
 			data = (CurrentRow.get("OtherStudyName" + i));
-			System.out.println("data = " + data);
+
+			System.out.println("Other Study Name data = " + data);
 
 			fanconiEligibilityQuestionnairePage.otherStudyNameList.get(i - 1).sendKeys(data);
-			MiscUtils.sleep(1000);
+			MiscUtils.sleep(2000);
 		}
 
 		// Other Study Contact Person
@@ -351,10 +315,11 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
 			String data = null;
 			data = (CurrentRow.get("OtherStudyContactPerson" + i));
-			System.out.println("data = " + data);
+
+			System.out.println("Other Study Contact Person data = " + data);
 
 			fanconiEligibilityQuestionnairePage.otherStudyContactPersonList.get(i - 1).sendKeys(data);
-			MiscUtils.sleep(1000);
+			MiscUtils.sleep(2000);
 		}
 
 		// Other Study Phone Number
@@ -362,10 +327,11 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
 			String data = null;
 			data = (CurrentRow.get("OtherStudyPhoneNumber" + i));
-			System.out.println("data = " + data);
+
+			System.out.println("Other Study Contact Person data = " + data);
 
 			fanconiEligibilityQuestionnairePage.otherStudyPhoneNumberList.get(i - 1).sendKeys(data);
-			MiscUtils.sleep(1000);
+			MiscUtils.sleep(2000);
 		}
 
 		// Other Study Institution
@@ -373,15 +339,15 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
 			String data = null;
 			data = (CurrentRow.get("OtherStudyInstitution" + i));
-			System.out.println("data = " + data);
+			System.out.println("Other Study Institution data = " + data);
 
 			fanconiEligibilityQuestionnairePage.otherStudyInstitutionList.get(i - 1).sendKeys(data);
-			MiscUtils.sleep(1000);
+			MiscUtils.sleep(2000);
 		}
 
 		// Other Study Currently Participating
 		for (int i = 1; i <= 3; ++i) {
-			CharmsUtil.selectDropDownValue(
+			CharmsUtil.selectValueFromDropDownList(
 					fanconiEligibilityQuestionnairePage.otherStudyCurrentlyParticipatingDropDownList.get(i - 1),
 					CurrentRow.get("OtherStudyCurrentlyParticipation" + i));
 
@@ -393,27 +359,27 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
 			String data = null;
 			data = (CurrentRow.get("OtherStudyParticipationYear" + i));
-			System.out.println("data = " + data);
+			System.out.println("Start year and End Year data = " + data);
 
 			fanconiEligibilityQuestionnairePage.otherStudyNoLongerStartYearList.get(i - 1).sendKeys(data);
-			MiscUtils.sleep(1000);
+			MiscUtils.sleep(2000);
 		}
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// To determine eligibility, we need to collect information about your Fanconi
 		// anemia diagnosis and any genetic testing performed.
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Have you been diagnosed with Fanconi anemia?
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				CurrentRow.get("DiagnosedWithFanconiAnemia"));
 
 		// fanconiEligibilityQuestionnairePage.commonRBtonList.get(0).click(); //YES
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
@@ -426,15 +392,15 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				CurrentRow.get("DiagnosedWithFanconiAnemiaAgeOrDate"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		fanconiEligibilityQuestionnairePage.ageParticipantDiagnosedWithFanconiTextBox
 				.sendKeys(CurrentRow.get("DiagnosedWithFanconiAnemiaAge"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Have you had a chromosome breakage test for FA (sometimes also called MMC or
 		// DEB test) on a blood sample?
@@ -442,35 +408,35 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 				CurrentRow.get("ChromosomeBreakageTest"));
 
 		// fanconiEligibilityQuestionnairePage.commonRBtonList.get(0).click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Where was the chromosome breakage test performed?
 		// waitUntilElemtTobeClickableByXpath(fanconiEligibilityQuestionnairePage.commonOptions.get(0).click());
 		// WebDriverUtils.webDriver.navigate().refresh();
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				CurrentRow.get("ChromosomeBreakageTestPerformed"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// fanconiEligibilityQuestionnairePage.commonRBtonList.get(0).click();
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// What was the chromosome breakage test result?
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				CurrentRow.get("ChromosomeBreakageTestResult"));
 		// fanconiEligibilityQuestionnairePage.commonRBtonList.get(0).click(); //
 		// Diagnostic of Fanconi anemia
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// How would you like to provide the chromosome breakage test results to
 		// us?Please select one.
@@ -478,73 +444,73 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		// fanconiEligibilityQuestionnairePage.commonRBtonList.get(0).click(); //FAX
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				CurrentRow.get("ChromosomeBreakageTestResultProvide"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// If you have a copy of the chromosome breakage test results, please upload a
 		// copy here.
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Have you ever had complementation testing or genetic testing for Fanconi
 		// anemia genes?
 		// fanconiEligibilityQuestionnairePage.commonRBtonList.get(0).click(); //Yes
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				CurrentRow.get("ComplementationGeneticTesting"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Was the genetic testing positive for Fanconi anemia (did the complementation
 		// or genetic testing identify a specific gene for Fanconi anemia)?
 		// fanconiEligibilityQuestionnairePage.commonRBtonList.get(0).click();
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				CurrentRow.get("GeneticTestingPositiveOrNegative"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(1200);
 
 		// Indicate which mutations/variants were found below(if you have the
 		// information).
 
-		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.geneNameDropDownList,
+		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.geneNameDropDownList,
 				CurrentRow.get("GeneName"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		fanconiEligibilityQuestionnairePage.mutationVariant1TextBox.sendKeys(CurrentRow.get("MutationVariant1"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
-		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.inheritedFrom1DropDownList,
+		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.inheritedFrom1DropDownList,
 				CurrentRow.get("InheritedFrom1"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		fanconiEligibilityQuestionnairePage.mutationVariant2TextBox.sendKeys(CurrentRow.get("MutationVariant2"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
-		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.inheritedFrom2DropDownList,
+		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.inheritedFrom2DropDownList,
 				CurrentRow.get("InheritedFrom2"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		/*
 		 * CommonUtils.selectDropDownIndex(1,
 		 * fanconiEligibilityQuestionnairePage.geneNameDropDownList);
-		 * MiscUtils.sleep(1000);
+		 * MiscUtils.sleep(2000);
 		 * fanconiEligibilityQuestionnairePage.mutationVariant1TextBox.sendKeys(
-		 * "p.Asp23llefs"); MiscUtils.sleep(1000); //
+		 * "p.Asp23llefs"); MiscUtils.sleep(2000); //
 		 * fanconiEligibilityQuestionnairePage.inheritedFrom1DropDownList.get(0).click()
 		 * ; CommonUtils.selectDropDownIndex(1,
 		 * fanconiEligibilityQuestionnairePage.inheritedFrom1DropDownList);
-		 * MiscUtils.sleep(1000);
+		 * MiscUtils.sleep(2000);
 		 * fanconiEligibilityQuestionnairePage.mutationVariant2TextBox.sendKeys(
-		 * "632456ghyui"); MiscUtils.sleep(1000); //
+		 * "632456ghyui"); MiscUtils.sleep(2000); //
 		 * fanconiEligibilityQuestionnairePage.inheritedFrom1DropDownList.get(0).click()
 		 * ; CommonUtils.selectDropDownIndex(1,
 		 * fanconiEligibilityQuestionnairePage.inheritedFrom2DropDownList);
@@ -552,33 +518,33 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Do you have a copy of the genetic test results?
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				CurrentRow.get("GeneticTestResults"));
 		// fanconiEligibilityQuestionnairePage.commonRBtonList.get(0).click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// How would you like to provide the genetic test results to us? Please select
 		// one.
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				CurrentRow.get("GeneticTestResultsProvide"));
 		// fanconiEligibilityQuestionnairePage.commonRBtonList.get(0).click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		// If you would like to upload the genetic test results, please do so here.
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Have you been told that you have any of the following features?
 		// Please select yes, no, or unknown/unsure for each statement below.
@@ -591,17 +557,17 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Have you ever been diagnosed with bone marrow failure?
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				CurrentRow.get("DiagnosedWithBoneMarrowFailure"));
 		// fanconiEligibilityQuestionnairePage.commonRBtonList.get(0).click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Please complete the table below to provide information about when you were
 		// diagnosed with bone marrow failure/aplastic anemia or low blood counts.
@@ -609,63 +575,65 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		/* Do you want report date or age of diagnosis? */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.reportDateOrAgeOfDiagnosisDropDownList);
-		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.reportDateOrAgeOfDiagnosisDropDownList,
+		CharmsUtil.selectValueFromDropDownList(
+				fanconiEligibilityQuestionnairePage.reportDateOrAgeOfDiagnosisDropDownList,
 				CurrentRow.get("DateOrAgeOfDiagnosis"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		/* Month of diagnosis */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.monthOfDiagnosisDropDownList);
-		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.monthOfDiagnosisDropDownList,
+		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.monthOfDiagnosisDropDownList,
 				CurrentRow.get("MonthOfDiagnosis"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		/* Year of diagnosis */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.yearOfDiagnosisDropDownList);
-		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.yearOfDiagnosisDropDownList,
+		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.yearOfDiagnosisDropDownList,
 				CurrentRow.get("YearOfDiagnosis"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		/* Age at diagnosis(If diagnosed under 1 year, please select 0) */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.ageAtDiagnosisDropDownList);
-		// MiscUtils.sleep(1000);
+		// MiscUtils.sleep(2000);
 
 		/* Was treatment received? */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.wasTreatmentReceivedDropDownList);
-		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.wasTreatmentReceivedDropDownList,
+		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.wasTreatmentReceivedDropDownList,
 				CurrentRow.get("WasTreatmentReceived"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		/*
 		 * Treatment:If treatment received, please specify treatment (for example
 		 * androgren, eltrombopag, other)
 		 */
 		fanconiEligibilityQuestionnairePage.treatmentReceivedTextBox.sendKeys(CurrentRow.get("Treatment"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		/* Did you receive or are you receiving blood transfusions? */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.didYouReceiveBloodTransfusionDropDownList);
-		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.didYouReceiveBloodTransfusionDropDownList,
+		CharmsUtil.selectValueFromDropDownList(
+				fanconiEligibilityQuestionnairePage.didYouReceiveBloodTransfusionDropDownList,
 				CurrentRow.get("BloodTransfusionReceive"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Have you ever been diagnosed with myelodysplastic syndrome (MDS)?
 		// fanconiEligibilityQuestionnairePage.commonRBtonList.get(0).click();
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				CurrentRow.get("MyelodysplasticSyndromeDiagnosed"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// When were you diagnosed with myelodysplastic syndrome (MDS)? Please enter the
 		// age or date when you were diagnosed with MDS below.
@@ -673,10 +641,11 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				CurrentRow.get("MyelodysplasticSyndromeDiagnosedAgeOrDate"));
+		MiscUtils.sleep(1000);
 
 		fanconiEligibilityQuestionnairePage.ageParticipantDiagnosedWithMDSTextBox
 				.sendKeys(CurrentRow.get("MyelodysplasticSyndromeDiagnosedAge"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
@@ -686,15 +655,15 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		// fanconiEligibilityQuestionnairePage.commonRBtonList.get(0).click();
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				CurrentRow.get("EverReceivedBoneMarrowTransplant"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		fanconiEligibilityQuestionnairePage.treatmentInstitutionTextBox
 				.sendKeys(CurrentRow.get("BoneMarrowTransplantTreatmentInstitution"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Please complete the table below to provide information about when you had a
 		// bone marrow, stem cell, or cord blood transplant.
@@ -702,64 +671,64 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		/* Do you want to report date or age of your transplant? */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.wantToReportDateOrAgeDropDownList);
-		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.wantToReportDateOrAgeDropDownList,
+		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.wantToReportDateOrAgeDropDownList,
 				CurrentRow.get("ReportDateOrAgeOfTransplant"));
 
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		/* Month of transplant */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.monthOfTransplantDropDownList);
-		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.monthOfTransplantDropDownList,
+		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.monthOfTransplantDropDownList,
 				CurrentRow.get("MonthOfTransplant"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		/* Year of transplant */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.yearOfTransplantDropDownList);
-		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.yearOfTransplantDropDownList,
+		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.yearOfTransplantDropDownList,
 				CurrentRow.get("YearOfTransplant"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		/* Age at transplant (If diagnosed under 1 year, please select 0) */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.ageAtTransplantDropDownList);
-		// MiscUtils.sleep(1000);
+		// MiscUtils.sleep(2000);
 
 		/* Donor type */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.donarTypeDropDownList);
-		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.donorTypeDropDownList,
+		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.donorTypeDropDownList,
 				CurrentRow.get("DonorType"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		/* Transplant donor match */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.transpalntDonarTypeDropDownList);
-		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.transpalntDonarTypeDropDownList,
+		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.transpalntDonarTypeDropDownList,
 				CurrentRow.get("TransplantDonorMatch"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		/* Stem cell source */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.stemCellSourceDropDownList);
 		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.stemCellSourceDropDownList,
 				CurrentRow.get("StemCellSource"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Have you ever been diagnosed with cancer?
 		// fanconiEligibilityQuestionnairePage.commonRBtonList.get(0).click();
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				CurrentRow.get("DiagnosedWithCancer"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Please complete the table below by selecting which type of primary cancer(s)
 		// you were diagnosed with and at what age and year they occurred.
@@ -767,103 +736,104 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		/* Tumor Type */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.tumorTypeDropDownList);
-		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.tumorTypeDropDownList,
+		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.tumorTypeDropDownList,
 				CurrentRow.get("TumorType"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		/* Additional Details */
 		fanconiEligibilityQuestionnairePage.tumorAdditionalDetailsTextBox
 				.sendKeys(CurrentRow.get("TumorAdditionalDetails"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		/* Do you want to report date or age of diagnosis? */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.tumorDateOrAgeOfDiagnosisDropDownList);
-		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.tumorDateOrAgeOfDiagnosisDropDownList,
+		CharmsUtil.selectValueFromDropDownList(
+				fanconiEligibilityQuestionnairePage.tumorDateOrAgeOfDiagnosisDropDownList,
 				CurrentRow.get("ReportDateOrAgeOfDiagnosis"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		/* Month of diagnosis */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.tumorMonthOfDiagnosisDropDownList);
-		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.tumorMonthOfDiagnosisDropDownList,
+		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.tumorMonthOfDiagnosisDropDownList,
 				CurrentRow.get("TumorMonthOfDiagnosis"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		/* Year of diagnosis */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.tumorYearOfDiagnosisDropDownList);
-		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.tumorYearOfDiagnosisDropDownList,
+		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.tumorYearOfDiagnosisDropDownList,
 				CurrentRow.get("TumorYearOfDiagnosis"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		/* Age at diagnosis in years */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.tumorAgeOfDiagnosisDropDownList);
 		// CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.tumorAgeOfDiagnosisDropDownList,
 		// CurrentRow.get("TumorAgeAtDiagnosis"));
-		// MiscUtils.sleep(1000);
+		// MiscUtils.sleep(2000);
 
 		/* Are you currently receiving treatment? */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.areYouCurrentlyReceivingTreatmentDropDownList);
-		CharmsUtil.selectDropDownValue(
+		CharmsUtil.selectValueFromDropDownList(
 				fanconiEligibilityQuestionnairePage.areYouCurrentlyReceivingTreatmentDropDownList,
 				CurrentRow.get("TumorTreatmentCurrentlyReceiving"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		/* Treatment Institution */
 		fanconiEligibilityQuestionnairePage.tumorTreatmentInstitutionTextBox
 				.sendKeys(CurrentRow.get("TreatmentInstitution"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		/* Treating Physician */
 		fanconiEligibilityQuestionnairePage.tumorTreatingPhysicianTextBox.sendKeys(CurrentRow.get("TreatingPhysician"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		/* Name of institution or clinic where biopsy occurred */
 		fanconiEligibilityQuestionnairePage.tumorInstitutionClinicTextBox
 				.sendKeys(CurrentRow.get("InstitutionBiopsyOccured"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		/* Name of physician who performed the biopsy */
 		fanconiEligibilityQuestionnairePage.tumorPhysicianNameTextBox
 				.sendKeys(CurrentRow.get("PhysicianPerformedBiopsy"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// What current medication(s) are you receiving? (if any)
 		// fanconiEligibilityQuestionnairePage.currentMedicationOption.click();
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.currentMedicationOption,
 				CurrentRow.get("CurrentMedication"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		fanconiEligibilityQuestionnairePage.currentMedicationTextBox.sendKeys(CurrentRow.get("CurrentMedicationList"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// We will now ask a few remaining questions regarding this study.
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// How did you hear about this study?
 		// fanconiEligibilityQuestionnairePage.commonRBtonList.get(0).click();
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				CurrentRow.get("HearAboutThisStudy"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 		fanconiEligibilityQuestionnairePage.physicianNameTextBox
 				.sendKeys(CurrentRow.get("HearAboutThisStudyPhysicianText"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// In case we require additional medical information to determine if you are
 		// eligible to participate in our research study, please provide us with the
@@ -871,25 +841,25 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		// familiar with your case:
 		fanconiEligibilityQuestionnairePage.healthCareProviderNameTextBox
 				.sendKeys(CurrentRow.get("HealthCareProviderName"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		fanconiEligibilityQuestionnairePage.healthCareProviderAddressTextBox
 				.sendKeys(CurrentRow.get("HealthCareProviderAddress"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		fanconiEligibilityQuestionnairePage.healthCareProviderPhoneNumberTextBox
 				.sendKeys(CurrentRow.get("HealthCareProviderPhoneNumber"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Do we have your permission to call this individual to seek more information?
 		// fanconiEligibilityQuestionnairePage.commonRBtonList.get(0).click();
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				CurrentRow.get("SeekMoreInformation"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
@@ -901,42 +871,42 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		// fanconiEligibilityQuestionnairePage.commonRBtonList.get(0).click();
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				CurrentRow.get("ReasonForStudyParticipation1"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		fanconiEligibilityQuestionnairePage.participateInResearchTextBox
 				.sendKeys(CurrentRow.get("ReasonForStudyParticipationDetails1"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// fanconiEligibilityQuestionnairePage.commonRBtonList.get(1).click();
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				CurrentRow.get("ReasonForStudyParticipation2"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		fanconiEligibilityQuestionnairePage.screenForPotentialCancerDiagnosisTextBox
 				.sendKeys(CurrentRow.get("ReasonForStudyParticipationDetails2"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// fanconiEligibilityQuestionnairePage.commonRBtonList.get(2).click();
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				CurrentRow.get("ReasonForStudyParticipation3"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		fanconiEligibilityQuestionnairePage.receiveGeneticTestingTextBox
 				.sendKeys(CurrentRow.get("ReasonForStudyParticipationDetails3"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// fanconiEligibilityQuestionnairePage.commonRBtonList.get(3).click();
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				CurrentRow.get("ReasonForStudyParticipation4"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		fanconiEligibilityQuestionnairePage.otherTextBox
 				.sendKeys(CurrentRow.get("ReasonForStudyParticipationDetails4"));
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 	}
 
 	@Then("clicks the submit button")
@@ -944,9 +914,9 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
 		// Click Next Button
 		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1500);
-		fanconiEligibilityQuestionnairePage.nextButton.click();
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(3000);
+		// fanconiEligibilityQuestionnairePage.nextButton.click();
+		// MiscUtils.sleep(2000);
 	}
 
 	@Given("the study nurse log in Native View")
@@ -965,7 +935,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		iTrustloginPage.userNameField.sendKeys("jains18");
 		MiscUtils.sleep(500);
 
-		iTrustloginPage.passwordField.sendKeys("Sj0601**Sj0601**");
+		iTrustloginPage.passwordField.sendKeys("Sj0701**Sj0701**");
 		MiscUtils.sleep(2000);
 
 		iTrustloginPage.signInButton.click();
@@ -976,10 +946,14 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
 		CommonUtils.maximizeWindow();
 		CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator);
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator);
 		nativeViewHomePage.nativeViewFilterNavigator.sendKeys("CHARMS");
+		
+		CommonUtils.waitForVisibility(charmsNativeViewPage.nVAllParticipantDetailsLink);
+		charmsNativeViewPage.nVAllParticipantDetailsLink.click();
+		
 
 		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewDashboardLink);
 		charmsNativeViewPage.nativeViewDashboardLink.click();
@@ -989,7 +963,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
 		fanconiScreenerNVPage.nVFamilyMembersPreviewButton.click();
 
-		MiscUtils.sleep(1000);
+		MiscUtils.sleep(2000);
 
 		/*
 		 * Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
@@ -1124,7 +1098,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 				cHARMSParticipantDetailsNVPage.nVParticipantPersonalInformationTabLastName, CurrentRow.get("LastName"));
 
 		StepTestResult personelInformationTabVerificationResult = new StepTestResult(
-				"Personel Information on Participant Details page is verified ");
+				"Personel Information Tab data on Participant Details page is verified ");
 
 		personelInformationTabVerificationResult.add(relationshipToYouAssert);
 		personelInformationTabVerificationResult.add(firstNameAssert);
@@ -1189,7 +1163,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 				.verifyLabel(cHARMSParticipantDetailsNVPage.nVParticipantDemographicsTabtAge, "75");
 
 		StepTestResult demographicInformationTabVerificationResult = new StepTestResult(
-				"Demographic Information on Participant Details page is verified ");
+				"Demographic Information Tab data on Participant Details page is verified ");
 
 		demographicInformationTabVerificationResult.add(biologicalGenderAssert);
 		demographicInformationTabVerificationResult.add(identifiedGenderAssert);
@@ -1257,7 +1231,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 				CurrentRow.get("HomePhoneNumber"));
 
 		StepTestResult contactInformationTabVerificationResult = new StepTestResult(
-				"Contact Information on Participant Details page is verified ");
+				"Contact Information Tab data on Participant Details page is verified ");
 
 		contactInformationTabVerificationResult.add(legalRepresentationAssert);
 		contactInformationTabVerificationResult.add(streetAddressAssert);
@@ -1296,7 +1270,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 				.verifyLabel(cHARMSParticipantDetailsNVPage.nVParticipantMedicalInfoTabCohort, "Field");
 
 		StepTestResult medicalInformationTabVerificationResult = new StepTestResult(
-				"Contact Information on Participant Details page is verified ");
+				"Contact Information Tab data on Participant Details page is verified ");
 
 		medicalInformationTabVerificationResult.add(participantDiagnoseeWithCancerAssert);
 		medicalInformationTabVerificationResult.add(participantEverHadGeneticTestingAssert);

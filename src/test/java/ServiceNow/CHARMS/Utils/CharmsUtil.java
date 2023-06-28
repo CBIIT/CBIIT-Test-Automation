@@ -114,6 +114,26 @@ public class CharmsUtil {
 
 	/* @author SonikaJain */
 	/* Method to select a value from the Drop down List */
+	public static boolean selectValueFromDropDownList(WebElement webElement, String selectedValue) {
+
+		Select dropDown = new Select(webElement);
+		List<WebElement> e = dropDown.getOptions();
+		int itemCount = e.size();
+
+		for (int l = 0; l < itemCount; l++) {
+			if (e.get(l).getText().equals(selectedValue)) {
+				e.get(l).click();
+				System.out.println(e.get(l).getText());
+				return true;
+			}
+			// System.out.println(e.get(l).getText());
+		}
+		return false;
+
+	}
+
+	/* @author SonikaJain */
+	/* Method to select a value from the Drop down List */
 	public static boolean selectDropDownValue(WebElement webElement, String selectedValue) {
 
 		Select dropDown = new Select(webElement);
@@ -140,9 +160,10 @@ public class CharmsUtil {
 		for (int l = 0; l < itemCount; l++) {
 			if (radioButtonList.get(l).getText().equals(selectedValue)) {
 				radioButtonList.get(l).click();
+				System.out.println(radioButtonList.get(l).getText());
 				return true;
 			}
-			System.out.println(radioButtonList.get(l).getText());
+
 		}
 		return false;
 
