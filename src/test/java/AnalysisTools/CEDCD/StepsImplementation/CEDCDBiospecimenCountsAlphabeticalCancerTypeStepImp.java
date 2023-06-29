@@ -2,6 +2,8 @@ package AnalysisTools.CEDCD.StepsImplementation;
 
 import java.util.ArrayList;
 import java.util.Collections;
+
+import AnalysisTools.CEDCD.Steps.HooksSteps;
 import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
 import appsCommon.PageInitializer;
@@ -23,7 +25,7 @@ public class CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp extends PageIni
 
 		Collections.sort(cancerTypeDropDownSortAlphabetically);
 		Assert.assertEquals(cancerTypeDropDownSortAlphabetically, cancerTypeDropDown);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 	}
 

@@ -1,5 +1,6 @@
 package ServiceNow.COVIDCode.StepsImplementation;
 
+import ServiceNow.COVIDCode.Steps.HooksSteps;
 import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -13,11 +14,11 @@ public class COVIDCodeLoginStepsImpl extends PageInitializer {
 
 	public void covidCodeServicePortalLogin() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.clickByJS(covidCodeLoginPage.LogInButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		loginImpl.loginToITrust();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		MiscUtils.sleep(2000);
 	}
 
@@ -26,12 +27,12 @@ public class COVIDCodeLoginStepsImpl extends PageInitializer {
 		String expectedTitle = "COVIDcode Home - COVIDcode";
 		String actualTitle = WebDriverUtils.webDriver.getTitle();
 		Assert.assertEquals("Verifying COVIDcode homepage title", expectedTitle, actualTitle);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	public void verifyingNIHDashboardHeader() throws TestingException {
 		String actualText = servicePortalQuestionnairePage.nihUserDashboardHeader.getText();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		String expectedText = "NIH User Dashboard";
 		MiscUtils.sleep(2000);
 		Assert.assertEquals("Verifying COVIDcode Study Provider sees the CNIH User Dashboard", expectedText,

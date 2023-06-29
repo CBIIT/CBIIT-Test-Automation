@@ -42,7 +42,7 @@ public class RASSurveyDataVerificationSteps extends PageInitializer {
 		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewRasSurveyTestRecordPreviewButton);
 		charmsNativeViewPage.nativeViewRasSurveyTestRecordPreviewButton.click();
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 		// Open Automated Test Record
 		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewRasSurveyOpenRecordButton);
@@ -1164,7 +1164,7 @@ public class RASSurveyDataVerificationSteps extends PageInitializer {
 		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewRasSurveyTestRecordPreviewButton);
 		charmsNativeViewPage.nativeViewRasSurveyTestRecordPreviewButton.click();
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 		// Open Automated Test Record
 		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewRasSurveyOpenRecordButton);

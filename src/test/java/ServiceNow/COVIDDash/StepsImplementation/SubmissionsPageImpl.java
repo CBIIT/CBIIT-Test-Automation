@@ -2,6 +2,7 @@ package ServiceNow.COVIDDash.StepsImplementation;
 
 import java.util.List;
 
+import ServiceNow.COVIDDash.Steps.HooksSteps;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
@@ -47,7 +48,7 @@ public class SubmissionsPageImpl extends PageInitializer {
 		Assert.assertTrue(pdngTExists);
 		boolean rjctTExists = submissionPage.getRejectedStudiesTableText().contains(rejectedStudies);
 		Assert.assertTrue(rjctTExists);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 }

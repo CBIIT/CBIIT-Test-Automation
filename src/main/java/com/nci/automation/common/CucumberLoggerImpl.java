@@ -43,7 +43,6 @@ public class CucumberLoggerImpl<T> implements CucumberLogger {
 
 	public void logScreenShot(String message) {
 
-
 		if (shouldLogToConsole) {
 			LOG.info(message);
 		}
@@ -66,7 +65,6 @@ public class CucumberLoggerImpl<T> implements CucumberLogger {
 	}
 
 	public void logInfo(String message) {
-
 		if (shouldLogToConsole) {
 			LOG.info(message);
 		}

@@ -23,10 +23,10 @@ public class CEDCDAdminPageSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(cedcdAdminPage.cohortSubmittedStatus);
 		MiscUtils.sleep(1000);
 		JavascriptUtils.clickByJS(cedcdAdminPage.viewAllBtn);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.clickByJS(cedcdAdminPage.firstSubmittedCohort);
 		MiscUtils.sleep(5000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		
 	}
 
@@ -35,48 +35,48 @@ public class CEDCDAdminPageSteps extends PageInitializer {
 		
 		/** This step clicks on the next button on Section A */
 		
-		CucumberLogUtils.logScreenShot();
+		//CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollScreen(0 , 1500);
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.clickByJS(cedcdCohortPage.nextButton);
 		
 		
 //		/** This step clicks on the next button on Section B */
 		JavascriptUtils.scrollScreen(0 , 1500);
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.clickByJS(cedcdCohortPage.nextButton);
 
 //		/** This step clicks on the next button on Section C */
 		JavascriptUtils.scrollScreen(0 , 3000);
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.clickByJS(cedcdCohortPage.nextButton);
  
 		
 //		/** This step clicks on the next button on Section D */
 		JavascriptUtils.scrollScreen(0 , 1500);
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.clickByJS(cedcdCohortPage.nextButton);
 	
 //		/** This step clicks on the next button on Section E */
 		JavascriptUtils.scrollScreen(0 , 1500);
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.clickByJS(cedcdCohortPage.nextButton);
 	
 //		/** This step clicks on the next button on Section F */
 		JavascriptUtils.scrollScreen(0 , 1500);
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.clickByJS(cedcdCohortPage.nextButton);
 	
 //		/** This step clicks on the next button on Section G */
 		JavascriptUtils.scrollScreen(0 , 1500);
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.waitForClickability(cedcdAdminPage.approveButton);
 		JavascriptUtils.clickByJS(cedcdAdminPage.approveButton);
 		
@@ -87,11 +87,11 @@ public class CEDCDAdminPageSteps extends PageInitializer {
 		
 		/** This step is confirming the Publishing of the cohort */
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Assert.assertTrue(cedcdAdminPage.publishCohortPopUp.isDisplayed());
 		JavascriptUtils.clickByJS(cedcdAdminPage.publishButton);
 		MiscUtils.sleep(500);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		
 	}
 	

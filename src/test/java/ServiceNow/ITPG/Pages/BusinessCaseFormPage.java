@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.List;
 import java.util.Set;
 
+import ServiceNow.ITPG.Steps.HooksSteps;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -277,7 +278,7 @@ public class BusinessCaseFormPage extends BasePage {
 
 	public void impersonateUser(String userName) {
 		clickOnElement(nativeViewButtonNew);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(impersonateOption);
 		JavascriptUtils.clickByJS(impersonateOption);
 		clickOnElement(find(By.xpath("//a[text()='" + userName + "']")));
