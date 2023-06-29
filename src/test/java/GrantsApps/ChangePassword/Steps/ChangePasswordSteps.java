@@ -17,7 +17,6 @@ public class ChangePasswordSteps extends PageInitializer {
     @Given("User is on landing page {string}")
     public void user_is_on_landing_page(String url) throws TestingException {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(url));
-        MiscUtils.sleep(1000);
         loginImpl.elizabethiTrustLogin();
     }
 
