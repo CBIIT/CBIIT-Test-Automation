@@ -1,6 +1,9 @@
 package GrantsApps.ChangePassword.StepsImplementation;
+
 import java.util.Random;
+
 import appsCommon.PageInitializer;
+
 public class ChangePasswordStepsImpl extends PageInitializer {
     public static String generateNewPassword() {
         int len = 20;
