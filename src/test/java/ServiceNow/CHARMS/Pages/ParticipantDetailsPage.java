@@ -21,6 +21,26 @@ public class ParticipantDetailsPage {
     @FindBy(xpath = "//*[contains(text(),'Open Record')]")
     public WebElement openRecordButton;
 
+    /* FIRST NAME RECORD PREVIEW FIELD */
+    @FindBy(xpath = "//div[@class='form-group is-prefilled'][2]/div[2]/input")
+    public WebElement firstNameRecordPreviewField;
+
+    /* LAST NAME RECORD PREVIEW FIELD */
+    @FindBy(xpath = "//input[@id='sys_readonly.x_naci_family_coho_family_history_details.last_name']")
+    public WebElement lastNameRecordPreviewField;
+
+    /* MIDDLE NAME RECORD PREVIEW FIELD */
+    @FindBy(xpath = "//input[@id='sys_readonly.x_naci_family_coho_family_history_details.middle_name']")
+    public WebElement middleNameRecordPreviewField;
+
+    /* CONTACT HOME PHONE RECORD PREVIEW FIELD */
+    @FindBy(xpath = "//input[@id='sys_readonly.x_naci_family_coho_family_history_details.phone']")
+    public WebElement contactHomePhoneRecordPreviewField;
+
+    /* CONTACT EMAIL RECORD PREVIEW FIELD */
+    @FindBy(xpath = "//input[@id='sys_readonly.x_naci_family_coho_family_history_details.email_address']")
+    public WebElement contactEmailRecordPreviewField;
+
     /* NAME TEXT BOX */
     @FindBy(xpath = "//input[@aria-label='Name']")
     public WebElement nameTextBox;

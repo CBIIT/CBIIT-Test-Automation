@@ -2134,6 +2134,12 @@ public class CHARMSNativeViewPage extends CommonUtils {
     @FindBy(xpath = "(//div[text()='Dashboard'])[3]")
     public WebElement dashboardModuleLink;
 
+    /**
+     * NATIVE VIEW iFRAME
+     */
+    @FindBy(xpath = "//iframe[@id='gsft_main']")
+    public WebElement nativeViewIframe;
+
     /* ********** END OF Native view RAS Survey Data Verification ********** */
 
     /* **************************************************** */

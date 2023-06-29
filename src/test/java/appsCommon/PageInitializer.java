@@ -159,7 +159,7 @@ public class PageInitializer {
     public static FHQSurveyPortalPage fHQSurveyPortalPage;
     public static TestDataManager testDataManager;
     public static ParticipantDetailsPage participantDetailsPage;
-    public static ReferralTablePage referralTablePage;
+    public static ScreenerRecordTablePage screenerRecordTablePage;
 
     // Melanoma and Spitzoid Tumor instances
     public static MelanomaLoginPage melanomaLoginPage;
@@ -334,7 +334,7 @@ public class PageInitializer {
         fHQSurveyPortalPage = new FHQSurveyPortalPage();
         fHQSurveyPage = new FHQSurveyPage();
         participantDetailsPage = new ParticipantDetailsPage();
-        referralTablePage = new ReferralTablePage();
+        screenerRecordTablePage = new ScreenerRecordTablePage();
 
         // Melanoma and Spitzoid Tumor instances
         melanomaLoginPage = new MelanomaLoginPage();

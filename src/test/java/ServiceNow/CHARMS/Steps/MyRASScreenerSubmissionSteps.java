@@ -3,6 +3,8 @@ package ServiceNow.CHARMS.Steps;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
+
+import ServiceNow.CHARMS.Constants.CHARMSConstants;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 
@@ -41,12 +43,21 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         nativeViewLoginImpl.sideDoorAccountLogin();
         CommonUtils.sendKeysToElement(nativeViewHomePage.nativeViewFilterNavigator, "CHARMS");
         CommonUtils.clickOnElement(charmsNativeViewPage.dashboardModuleLink);
-        CommonUtils.switchToFrame("gsft_main");
-        CommonUtils.scrollIntoView(charmsNativeViewPage.dynamicDashboardModuleLinkLocator("Eligibility Review Needed"));
+        CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewiFrameCHARMS);
+
+        JavascriptUtils.scrollIntoView(charmsNativeViewPage.dynamicDashboardModuleLinkLocator("Eligibility Review Needed"));
         CommonUtils.clickOnElement(charmsNativeViewPage.dynamicDashboardModuleLinkLocator("Eligibility Review Needed"));
         CommonUtils.switchToNextWindow();
-        // use name from excel sheet
+//        // use data from excel sheet
         CommonUtils.clickOnElement(participantDetailsPage.dynamicRecordButtonLocator(testDataManager.firstName + rasScreenerConstants.space + testDataManager.lastName));
+
+//        // Verifying Participant Details record preview
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.firstNameRecordPreviewField), testDataManager.firstName, "-- VERIFYING PREVIEW RECORD FIRST NAME --");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.lastNameRecordPreviewField), testDataManager.lastName, "-- VERIFYING PREVIEW RECORD LAST NAME --");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.middleNameRecordPreviewField), testDataManager.middleInitial, "-- VERIFYING PREVIEW RECORD MIDDLE NAME --");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactHomePhoneRecordPreviewField), testDataManager.homePhoneNumber, "-- VERIFYING PREVIEW RECORD CONTACT HOME PHONE NUMBER --");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactEmailRecordPreviewField), testDataManager.emailAddress, "-- VERIFYING PREVIEW RECORD CONTACT EMAIL ADDRESS --");
+
         CommonUtils.clickOnElement(participantDetailsPage.openRecordButton);
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.nameTextBox), testDataManager.firstName + rasScreenerConstants.space + testDataManager.lastName, "-- VERIFYING FULL NAME --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.firstNameTextBox), testDataManager.firstName, "-- VERIFYING FIRST NAME --");
@@ -77,8 +88,15 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasScreenerStepsImpl.verifyingDropDownOption(participantDetailsPage.haveYouBeenDiagnosedWithARasopathy, "-- VERIFYING IF PARTICIPANT HAS BEEN DIAGNOSED WITH A RASOPATHY --");
         rasScreenerStepsImpl.verifyingDropDownOption(participantDetailsPage.haveAnyOfYourBiologicalRelativesBeenDiagnosedWithARasopathyNoInfoOption, "-- VERIFYING IF BIOLOGICAL RELATIVES HAVE BEEN DIAGNOSED WITH A RASOPATHY --");
 
-        CommonUtils.clickOnElement(referralTablePage.referralPreviewButton);
-        CommonUtils.clickOnElement(referralTablePage.openRecordButton);
+        // Opening Referral table and verifying data
+        CommonUtils.clickOnElement(screenerRecordTablePage.referralPreviewButton);
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.screenerPreviewFamilyMemberRecordField), testDataManager.firstName + rasScreenerConstants.space + testDataManager.lastName, "-- VERIFYING SCREENER PREVIEW RECORD FAMILY MEMBER RECORD NAME --");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.screenerPreviewContactEmailAddressField), testDataManager.emailAddress, "-- VERIFYING SCREENER PREVIEW RECORD CONTACT EMAIL ADDRESS FIELD --");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.screenerPreviewStudyField), rasScreenerConstants.RAS_STUDY, "-- VERIFYING SCREENER PREVIEW STUDY FIELD --");
+        CommonUtils.clickOnElement(screenerRecordTablePage.openRecordButton);
+
+
+
     }
 
     @Given("a proxy is on the RASopathies Longitudinal Cohort Study login page")
