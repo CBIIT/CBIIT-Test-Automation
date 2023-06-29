@@ -28,6 +28,54 @@ public class ScreenerRecordTablePage {
     @FindBy(xpath = "//input[@id='x_naci_family_coho_ras_referral.study_label']")
     public WebElement screenerPreviewStudyField;
 
+    /* SCREENER STUDY FIELD */
+    @FindBy(xpath = "//input[@id='sys_display.x_naci_family_coho_ras_referral.study']")
+    public WebElement screenerStudyField;
+
+    /* FAMILY MEMBER RECORD FIELD */
+    @FindBy(xpath = "//input[@id='sys_display.x_naci_family_coho_ras_referral.family_member_record']")
+    public WebElement familyMemberRecordField;
+
+    /* CONTACT EMAIL FIELD */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_ras_referral.family_member_record.email_address']")
+    public WebElement contactEmailField;
+
+    /* CONTACT HOME PHONE FIELD */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_ras_referral.family_member_record.phone']")
+    public WebElement contactHomePhoneField;
+
+    /* CONTACT CELL PHONE FIELD */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_ras_referral.family_member_record.cell_phone']")
+    public WebElement contactCellPhoneField;
+
+    /* CONTACT WORK PHONE FIELD */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_ras_referral.family_member_record.work_phone']")
+    public WebElement contactWorkPhoneField;
+
+    /* CONTACT COUNTRY UNITED STATES OF AMERICA OPTION FIELD */
+    @FindBy(xpath = "//select[@id='x_naci_family_coho_ras_referral.family_member_record.country']/option[2]")
+    public WebElement contactCountryUSAOption;
+
+    /* CONTACT STATE FIELD */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_ras_referral.family_member_record.state']")
+    public WebElement contactStateField;
+
+    /* CONTACT STREET ADDRESS FIELD */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_ras_referral.family_member_record.street_address']")
+    public WebElement contactStreetAddressField;
+
+    /* CONTACT CITY FIELD */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_ras_referral.family_member_record.city']")
+    public WebElement contactCityField;
+
+    /* CONTACT ZIP CODE FIELD */
+    @FindBy(xpath = "//input[@id='x_naci_family_coho_ras_referral.family_member_record.zipcode']")
+    public WebElement contactZipCodeField;
+
+    /* DEMOGRAPHICS PARTICIPANT RACE PREFER NOT TO ANSWER OPTION */
+    @FindBy(xpath = "//p[@id='x_naci_family_coho_ras_referral.family_member_record.race_nonedit']")
+    public WebElement demographicsParticipantRacePreferNotToAnswerOption;
+
     /**
      * USE THIS METHOD TO DYNAMICALLY LOCATE TABS IN SCREENER TABLE
      * @param text
