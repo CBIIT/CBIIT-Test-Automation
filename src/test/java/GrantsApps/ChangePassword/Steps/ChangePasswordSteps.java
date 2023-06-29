@@ -19,7 +19,6 @@ public class ChangePasswordSteps extends PageInitializer {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(url));
         MiscUtils.sleep(1000);
         loginImpl.elizabethiTrustLogin();
-        MiscUtils.sleep(1000);
     }
 
     @Given("User enters New Password according to password policy")
@@ -37,7 +36,6 @@ public class ChangePasswordSteps extends PageInitializer {
     public void user_can_see_the_successful_outcome() {
         CommonUtils.clickOnElement(changePasswordPage.changeButton);
         Assert.assertTrue(changePasswordPage.successMessage.isDisplayed());
-        MiscUtils.sleep(1000);
         System.out.println("Password was changed successfully");
     }
 
@@ -55,7 +53,6 @@ public class ChangePasswordSteps extends PageInitializer {
     public void user_can_not_change_password() {
         CommonUtils.clickOnElement(changePasswordPage.changeButton);
         Assert.assertTrue(changePasswordPage.failureMessageOldPassword.isDisplayed());
-        MiscUtils.sleep(1000);
     }
 
     @Given("User enters New Password {string} without following the character limit rule")
@@ -73,7 +70,6 @@ public class ChangePasswordSteps extends PageInitializer {
     public void user_can_not_see_the_successful_outcome() {
         CommonUtils.clickOnElement(changePasswordPage.changeButton);
         Assert.assertTrue(changePasswordPage.failureMessageCharacterLimit.isDisplayed());
-        MiscUtils.sleep(1000);
     }
 
     @Given("User enters New Password with their username {string}")
