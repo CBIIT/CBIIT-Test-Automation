@@ -2,9 +2,10 @@ package ServiceNow.NERD.Steps;
 
 import java.util.Set;
 
+import ServiceNow.NERD.Constants.ReturningSubmissions_Constants;
 import ServiceNow.NERD.StepsImplementation.NERDApplicationStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERD_NCI_CRSReviewerStepsImplementation;
-import ServiceNow.NERD.StepsImplementation.NERD_NCI_DOCPlaningContactStepsImplementation;
+import ServiceNow.NERD.StepsImplementation.NERD_NCI_DOC_PlanningContactStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERD_NCI_StaffMemberStepsImplementation;
 import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -15,9 +16,9 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 
 public class existingReturningCollaborationsSteps extends PageInitializer {
@@ -30,7 +31,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
     @Given("a CRS Reviewer is on the Submissions page")
     public void a_CRS_Reviewer_is_on_the_Submissions_page() throws TestingException {
         nativeViewLoginImpl.sideDoorAccountLogin();
-        NERD_NCI_CRSReviewerStepsImplementation.crsReviewerIsOnSubmissionsPage("Submissions");
+        NERD_NCI_CRSReviewerStepsImplementation.crsReviewerIsOnSubmissionsPage(ReturningSubmissions_Constants.BOOTSTRAP_DROPDOWN_SELECT_SUBMISSIONS);
     }
 
     @Given("locates the Collaboration titled {string}")
@@ -41,7 +42,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
     @When("the user clicks the Return button")
     public void the_user_clicks_the_Return_button() throws TestingException {
         nerdDynamicXpaths.returnButton("NCI Cancer Data Standards Repository and Registry (caDSR)").click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
     @Then("the user is able to enter a comment")
@@ -49,7 +50,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowTextField);
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowTextField
                 .sendKeys("Returning to Doc - Automated Test");
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
     }
 
@@ -61,7 +62,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
     @Then("the status of the Collaboration reads {string}")
     public void the_status_of_the_Collaboration_reads(String returnedToDoc) throws TestingException {
         NERDApplicationStepsImplementation.verifyingReturnedDOCStatus("NCI Cancer Data Standards Repository and Registry (caDSR)", returnedToDoc);
-        NERD_NCI_DOCPlaningContactStepsImplementation.resubmittingOfSubmissionByDOCContactToCRSREviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.resubmittingOfSubmissionByDOCContactToCRSREviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
         NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
     }
 
@@ -79,7 +80,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
     public void a_DOC_Planning_Contact_is_on_the_Submissions_page() throws TestingException {
         nativeViewLoginImpl.sideDoorAccountLogin();
         NERD_NCI_CRSReviewerStepsImplementation.returningOfSubmissionByCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
-        NERD_NCI_DOCPlaningContactStepsImplementation.docPlaningContactIsOnSubmissionsPage("Submissions");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.docPlaningContactIsOnSubmissionsPage("Submissions");
 
     }
 
@@ -117,7 +118,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
             String nCICancerDataStandardsRepositoryAndRegistrycaDSR) throws TestingException {
         nativeViewLoginImpl.sideDoorAccountLogin();
         NERD_NCI_CRSReviewerStepsImplementation.returningOfSubmissionByCRSReviewer(nCICancerDataStandardsRepositoryAndRegistrycaDSR);
-        NERD_NCI_DOCPlaningContactStepsImplementation.docPlaningContactIsOnSubmissionsPage("Submissions");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.docPlaningContactIsOnSubmissionsPage(ReturningSubmissions_Constants.BOOTSTRAP_DROPDOWN_SELECT_SUBMISSIONS);
         NERDApplicationStepsImplementation.locatingOfCollaboration(nCICancerDataStandardsRepositoryAndRegistrycaDSR);
         NERDApplicationStepsImplementation.clickingOnEditButtonWhenReturningCollaboration(nCICancerDataStandardsRepositoryAndRegistrycaDSR, "Edit");
         NERDApplicationStepsImplementation.openingNewTabToEditSubmission(nCICancerDataStandardsRepositoryAndRegistrycaDSR);
@@ -169,7 +170,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
     public void the_status_of_the_Collaboration_will_read(String returnedToStaffMember) throws TestingException {
         NERDApplicationStepsImplementation.verifyingReturnedToStaffMemberStatus("NCI Cancer Data Standards Repository and Registry (caDSR)", returnedToStaffMember);
         NERD_NCI_StaffMemberStepsImplementation.editingAndSubmittingOfCollaborationToDOCPlaningContact("NCI Cancer Data Standards Repository and Registry (caDSR)");
-        NERD_NCI_DOCPlaningContactStepsImplementation.submittingOfSubmissionToCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.submittingOfSubmissionToCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
         NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
     }
 
@@ -187,7 +188,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
     public void a_Program_Staff_is_on_the_Submissions_page() throws TestingException {
         nativeViewLoginImpl.sideDoorAccountLogin();
         NERD_NCI_CRSReviewerStepsImplementation.returningOfSubmissionByCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
-        NERD_NCI_DOCPlaningContactStepsImplementation.editingAndReturningSubmissionToProgramStaff("NCI Cancer Data Standards Repository and Registry (caDSR)");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.editingAndReturningSubmissionToProgramStaff("NCI Cancer Data Standards Repository and Registry (caDSR)");
         NERD_NCI_StaffMemberStepsImplementation.locatingProgramStaffMemberToSubmissionsPage("NERD");
     }
 
@@ -200,7 +201,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
     public void the_and_fields_are_not_cleared_and_retain_the_values_entered_by_the_DOC_Planning_Contact(
             String pleaseSpecifyText, String fiscalYearText) throws TestingException {
         NERDApplicationStepsImplementation.verifyingThatFieldsOfSubmissionAreNotClearedAndRequired();
-        NERD_NCI_DOCPlaningContactStepsImplementation.submittingOfSubmissionToCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.submittingOfSubmissionToCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
         NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
     }
 
@@ -229,7 +230,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
         Assert.assertTrue(nerdDynamicXpaths.underReviewText(nciCancerDataStandardsRepositoryAndRegistry).getText()
                 .equals(underReview));
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.underReviewText(nciCancerDataStandardsRepositoryAndRegistry));
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
     }
 
@@ -242,7 +243,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
     public void the_Status_of_the_Program_Staff_submission_reads(String nciCancerDataStandardsRepositoryAndRegistry,
                                                                  String underReview) throws TestingException {
         NERDApplicationStepsImplementation.verifyingSubmissionIsUnderReview(nciCancerDataStandardsRepositoryAndRegistry, underReview);
-        NERD_NCI_DOCPlaningContactStepsImplementation.submittingOfSubmissionToCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
+        NERD_NCI_DOC_PlanningContactStepsImplementation.submittingOfSubmissionToCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
         NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
 
     }
@@ -265,8 +266,6 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
 
     @When("then the DOC Planning Contact clicks the {string} button")
     public void then_the_DOC_Planning_Contact_clicks_the_button(String yes) throws TestingException {
-        //   NERDApplicationStepsImplementation.clickingOnYESButtonWhenReturningCollaboration(yes);
-        //    CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton);
         JavascriptUtils.scrollIntoView(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton);
         System.out.println(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton.getAttribute("textContent").trim());
         System.out.println(yes);
@@ -281,8 +280,6 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
 
     @Then("the status of the submission reads {string}")
     public void the_status_of_the_submission_reads(String underCrsReview) throws TestingException {
-
-        // NERDApplicationStepsImplementation.verifyingSubmissionIsUnderReview("NCI Cancer Data Standards Repository and Registry (caDSR)", underCrsReview);
         JavascriptUtils
                 .scrollIntoView(nerdDynamicXpaths.underReviewText("NCI Cancer Data Standards Repository and Registry (caDSR)"));
         System.out.println(nerdDynamicXpaths.underReviewText("NCI Cancer Data Standards Repository and Registry (caDSR)").getText());
@@ -292,10 +289,8 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
         JavascriptUtils.drawBlueBorder(
                 nerdDynamicXpaths.underReviewText("NCI Cancer Data Standards Repository and Registry (caDSR)"));
         MiscUtils.sleep(3000);
-        CucumberLogUtils.logScreenShot();
-
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
-
     }
 
     /*
@@ -344,7 +339,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
         Assert.assertTrue(
                 nerdDynamicXpaths.submitToCRSButton("NCI Cancer Data Standards Repository and Registry (caDSR)")
                         .getText().equals("Submit to CRS"));
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         MiscUtils.sleep(1000);
         nerdDynamicXpaths.submitToCRSButton("NCI Cancer Data Standards Repository and Registry (caDSR)").click();
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton);
@@ -361,7 +356,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu.click();
         CommonUtils.selectValueFromBootStrapDropDown(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenuValues,
-                "Submissions");
+                ReturningSubmissions_Constants.BOOTSTRAP_DROPDOWN_SELECT_SUBMISSIONS);
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown);
         nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown.click();
         CommonUtils.waitForVisibility(
@@ -376,7 +371,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
                         .getText().equals(publishToNerd));
         nerdDynamicXpaths.publishToNERDButton("NCI Cancer Data Standards Repository and Registry (caDSR)").click();
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
     }
 
@@ -387,7 +382,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
         JavascriptUtils.scrollIntoView(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton);
         Assert.assertTrue(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton.getText().equals(yes));
         MiscUtils.sleep(1000);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton.click();
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
         nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton.click();
@@ -403,7 +398,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu.click();
         CommonUtils.selectValueFromBootStrapDropDown(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenuValues,
-                "Submissions");
+                ReturningSubmissions_Constants.BOOTSTRAP_DROPDOWN_SELECT_SUBMISSIONS);
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown);
         nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown.click();
         CommonUtils.waitForVisibility(
@@ -412,7 +407,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
                 nerdDynamicXpaths.publishedCollaboration("NCI Cancer Data Standards Repository and Registry (caDSR)"));
         Assert.assertTrue(nerdCrsKnowledgeDatabaseSubmissionsPage.publishedText.isDisplayed());
         MiscUtils.sleep(1000);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
     @Then("the status reads {string}")
@@ -422,7 +417,7 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
                 nerdDynamicXpaths.publishedCollaboration("NCI Cancer Data Standards Repository and Registry (caDSR)"));
         JavascriptUtils.drawRedBorder(nerdCrsKnowledgeDatabaseSubmissionsPage.publishedText);
         MiscUtils.sleep(1000);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         Assert.assertTrue(nerdCrsKnowledgeDatabaseSubmissionsPage.publishedText.getText().equals(published));
     }
 

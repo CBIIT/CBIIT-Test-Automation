@@ -1,6 +1,7 @@
 
 package ServiceNow.COVIDCode.StepsImplementation;
 
+import ServiceNow.COVIDCode.Steps.HooksSteps;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -15,15 +16,15 @@ public class ServicePortalQuestionnairePageImp extends PageInitializer {
 
 	public void startNewInitialQuestionnaire() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		covidCodeLoginPage.LogInButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		loginImpl.loginToITrust();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		servicePortalQuestionnairePage.startNewInitialQuestionnaireButton.click();
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 		CommonUtils.selectDropDownValue("User Group 1",
 				servicePortalQuestionnairePage.enrollmentCreationUserGroupIDSelectDropDown);
@@ -41,14 +42,14 @@ public class ServicePortalQuestionnairePageImp extends PageInitializer {
 
 	public void startNewFollowUpQuestionnaire() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		covidCodeLoginPage.LogInButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		loginImpl.loginToITrust();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		servicePortalQuestionnairePage.startNewFollowUpButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		servicePortalQuestionnairePage.enrollmentLookUpPatientIDSearchDropDown.click();
 		CommonUtils.selectValueFromBootStrapDropDown(
 				servicePortalQuestionnairePage.enrollmentLookUpPatientIDSearchValues, "HCC0001198");

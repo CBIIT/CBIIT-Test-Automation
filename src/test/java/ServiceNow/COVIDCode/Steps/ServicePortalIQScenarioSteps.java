@@ -11,24 +11,24 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class ServicePortalIQScenarioSteps extends PageInitializer {
 
 	@Given("a user in the CovidCode App Admins group has saved a draft Initial Questionnaire")
 	public void a_user_in_the_CovidCode_App_Admins_group_has_saved_a_draft_Initial_Questionnaire() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		covidCodeLoginPage.LogInButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		loginImpl.loginToITrust();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		servicePortalQuestionnairePage.startNewInitialQuestionnaireButton.click();
 		MiscUtils.sleep(5000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown.click();
 		MiscUtils.sleep(1000);
 		CommonUtils.selectDropDownValue("User Group 2", servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown);
@@ -51,7 +51,7 @@ public class ServicePortalIQScenarioSteps extends PageInitializer {
 		MiscUtils.sleep(3000);
 		covidCodeEQPage.COVIDcodeHomeButton.click();
 		MiscUtils.sleep(5000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 
@@ -60,14 +60,14 @@ public class ServicePortalIQScenarioSteps extends PageInitializer {
 	
 	   Assert.assertTrue(servicePortalQuestionnairePage.draftIQTableFirstRow.getText().contains("11122245"));
 	   Assert.assertTrue(servicePortalQuestionnairePage.draftIQTableFirstRowUserGroupIDField.getText().contentEquals("Group 2"));
-	   CucumberLogUtils.logScreenShot();
+	   CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	  
 	}
 
 	@Then("the user can resume draft by clicking the Open button")
 	public void the_user_can_resume_draft_by_clicking_the_Open_button() {
 		 servicePortalQuestionnairePage.draftInitialOpenButton.click();
-		 CucumberLogUtils.logScreenShot();
+		 CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 	
 	@Given("COVIDcode user is on the Disease Course section on the Initial Questionnaire form")
@@ -94,18 +94,18 @@ public class ServicePortalIQScenarioSteps extends PageInitializer {
 	public void free_text_field_with_text_is_displayed(String specify) {
 		followUpFormPage.diseaseCourseSymptomsOtherTextField.click();
 		followUpFormPage.diseaseCourseSymptomsOtherTextField.sendKeys(specify);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 	}
 	
 	@Given("an enrollment form has been filled out")
 	public void an_enrollment_form_has_been_filled_out() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		covidCodeLoginPage.LogInButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		loginImpl.loginToITrust();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		// Start New initial questionnaire, select Group1 and click on create Enrollment
 		// Button
 		JavascriptUtils.clickByJS(servicePortalQuestionnairePage.startNewInitialQuestionnaireButton);
@@ -132,7 +132,7 @@ public class ServicePortalIQScenarioSteps extends PageInitializer {
 	@Then("a pop up with the message {string} displays")
 	public void a_pop_up_with_the_message_displays(String confirmSubmissionPopUpText) {
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Assert.assertEquals(confirmSubmissionPopUpText, covidCodeEQPage.enrollmentQuestionnaireConfirmSubmissionPopUpText.getText());
 	}
 

@@ -14,9 +14,9 @@ import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import ServiceNow.COVIDCode.StepsImplementation.ServicePortalEQPageImpl;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 
@@ -170,7 +170,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 		CommonUtils.selectValueFromBootStrapDropDown(
 				covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseDrugTreatmentsDropDownValues, ConvalescentPlasma);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("on the Initial Questionnaire form in Service Portal")
@@ -211,7 +211,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 	public void a_message_displays(String errorMessage) {
 		Assert.assertTrue(
 				covidCodeEQPage.enrollmentQuestionnaireInchesErrorMessage.getText().contentEquals(errorMessage));
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("on the enrollment form in Service Portal")
@@ -230,7 +230,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 		JavascriptUtils.drawRedBorder(covidCodeEQPage.enrollmentQuestionnaireHaveYouOfficiallyBeenDiagnosedText);
 		Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireHaveYouOfficiallyBeenDiagnosedText.getText()
 				.contentEquals(question));
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Given("a COVIDcode user is on the Initial Questionnaire form in Service Portal")
@@ -255,7 +255,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 		JavascriptUtils.drawRedBorder(covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseWhichOrgansFailedText);
 		Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseWhichOrgansFailedText.getText().trim()
 				.contentEquals(whichOrganShowedFailure));
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("the field options are: Liver, Kidney, Lungs, Heart, Central Nervous system, Hematologic System, Other, Other \\(free text field)")
@@ -268,7 +268,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 				covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseOrgansFailedDropDownValues, arrayList);
 		CommonUtils.selectValueFromBootStrapDropDown(
 				covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseOrgansFailedDropDownValues, "Other");
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Given("a COVIDcode user has logged into the COVIDcode application in Service Portal")
@@ -293,7 +293,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 		covidCodeEQPage.enrollmentQuestionnairePatientStateTextBox.sendKeys("VA");
 		covidCodeEQPage.enrollmentQuestionnairePatientZipCodeTextBox.sendKeys("20210");
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("the user enters {string}, {string}, {string} information")
@@ -358,7 +358,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 			MiscUtils.sleep(1000);
 		}
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("selects Yes to being symptomatic")
@@ -376,7 +376,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 		WebDriverUtils.webDriver.findElement(By.xpath("/html/body/div[14]/div/input")).sendKeys(Keys.ENTER);
 		// covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticSearchBox.sendKeys(Keys.ENTER);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("selects {string}, {string}")
@@ -398,7 +398,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		covidCodeEQPage.enrollmentQuestionnaireWhatTypeOfTestDidThePatientReceiveSearchBox.sendKeys(Keys.ENTER);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("in exposures and Risk Factors section enters {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
@@ -578,7 +578,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 			MiscUtils.sleep(1000);
 		}
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("selects Yes to having received the vaccine")
@@ -591,7 +591,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		covidCodeEQPage.enrollmentQuestionnaireVaccineHaveYouReceivedYourFirstCovidSearchBox.sendKeys(Keys.ENTER);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("enters vaccine information {string}, {string}")
@@ -624,7 +624,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 		covidCodeEQPage.enrollmentQuestionnaireVaccineWhatDateDidYouReceiveTheFirstVaccineSearchBox
 				.sendKeys("01/03/2021");
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("enters Disease Course information")
@@ -677,7 +677,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		covidCodeEQPage.enrollmentQuestionnaireDiseaseCourseOrganFailureSearchBox.sendKeys(Keys.ENTER);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("the user is able to successfully submit the Initial Questionnaire")
@@ -688,7 +688,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 		// covidCodeEQPage.enrollmentQuestionnaireSubmitButton.click();
 		// MiscUtils.sleep(2000);
 		// covidCodeEQPage.enrollmentQuestionnaireSubmitYesButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 	}
 
@@ -735,7 +735,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		covidCodeEQPage.enrollmentQuestionnaireSubmitYesButton.click();
 		MiscUtils.sleep(8000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("a Study Staff Nurse navigates to native view to view the submitted enrollment and verify NIH Medical Record number")
@@ -744,7 +744,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 		MiscUtils.sleep(3000);
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		WebDriverUtils.webDriver.findElement(By.linkText("Native View")).click();
 		MiscUtils.sleep(2000);
 		WebDriverUtils.webDriver.findElement(By.linkText("Native View")).click();
@@ -758,7 +758,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 		MiscUtils.sleep(3000);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewNihMedcalRecordNumber.click();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("the Study Staff Nurse is able to edit NIH Medical Record field")
@@ -770,7 +770,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 		Assert.assertTrue(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewNihMedcalRecordNumber
 				.getAttribute("value").contentEquals("444"));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Given("a COVIDcode user is on the Service Portal Initial Questionnaire form")
@@ -781,7 +781,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 		CommonUtils.selectDropDownValue(servicePortalQuestionnairePage.enrollmentCreationUserGroupIDSelectDropDown, 2);
 		servicePortalQuestionnairePage.createEnrollmentButton.click();
 		MiscUtils.sleep(5000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("the user is able to see the {string} field in Service Portal")
@@ -789,7 +789,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 		Assert.assertTrue(
 				covidCodeEQPage.enrollmentQuestionnaireHospitalNameText.getText().contentEquals(hospitalName));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Given("a COVIDCode user is on the Initial questionnaire page")
@@ -799,7 +799,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 		servicePortalQuestionnairePage.enrollmentCreationUserGroupIDSelectDropDown.click();
 		CommonUtils.selectDropDownValue(servicePortalQuestionnairePage.enrollmentCreationUserGroupIDSelectDropDown, 1);
 		servicePortalQuestionnairePage.createEnrollmentButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("the system does not allow any future dates to be selected for any date picker")
@@ -815,7 +815,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 		Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireDOBSelectedDateCannotBeInTheFutureText.getText()
 				.contentEquals("Selected date cannot be in the future."));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		covidCodeEQPage.symptomologyTab.click();
 		covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticDropdown.click();
 		covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticSearchBox.sendKeys("Yes");
@@ -836,7 +836,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 				covidCodeEQPage.enrollmentQuestionnaireWhenOfficiallyDiagnosedCalendarSelectedDateCannotBeInTheFutureText
 						.getText().contentEquals("Selected date cannot be in the future."));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		covidCodeEQPage.enrollmentQuestionnaireVaccineTab.click();
 		covidCodeEQPage.enrollmentQuestionnaireVaccineHaveYouReceivedYourFirstCovidDD.click();
 		covidCodeEQPage.enrollmentQuestionnaireVaccineHaveYouReceivedYourFirstCovidSearchBox.sendKeys("Yes");
@@ -865,7 +865,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 				covidCodeEQPage.enrollmentQuestionnaireVaccineWhatDateDidYouReceiveTheSecondVaccineSelectedDateCannotBeInTheFutureText
 						.getText().contentEquals("Selected date cannot be in the future."));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 	}
 }

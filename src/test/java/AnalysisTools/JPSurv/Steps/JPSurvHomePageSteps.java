@@ -2,8 +2,13 @@ package AnalysisTools.JPSurv.Steps;
 
 import java.io.File;
 
+import com.nci.automation.utils.CucumberLogUtils;
+import io.cucumber.java.After;
+import io.cucumber.java.Scenario;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
@@ -14,9 +19,9 @@ import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class JPSurvHomePageSteps extends PageInitializer {
 	
@@ -24,9 +29,8 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	@Given("the user is on the JPSurv homepage")
 	public void the_user_is_on_the_JPSurv_homepage() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("JPSurv"));
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
-	
-	
 	@When("user selects Dic and Txt file")
 	public void user_selects_Dic_and_Txt_file() {
 		//jpsurvHomePage.fileInputTextbox.sendKeys("/Users/uddins2/git/CBIIT-Test-Automation/src/test/resources/SEER9_Survival_6CancerSitesByStage_1975_2007.dic");
@@ -40,10 +44,10 @@ public class JPSurvHomePageSteps extends PageInitializer {
 		
 		
 		File dicFile = new File(jpsurvHomePage.dicFilePath);
-		File txtFile = new File(jpsurvHomePage.txtFilePath); 
+		File txtFile = new File(jpsurvHomePage.txtFilePath);
 		jpsurvHomePage.fileInputTextbox.sendKeys(dicFile.getAbsolutePath());
-		jpsurvHomePage.fileInputTextbox.sendKeys(txtFile.getAbsolutePath()); 
-		
+		jpsurvHomePage.fileInputTextbox.sendKeys(txtFile.getAbsolutePath());
+
 	}
 	
 	@When("user clicks upload")
@@ -162,8 +166,17 @@ public class JPSurvHomePageSteps extends PageInitializer {
 		fileToDelete.delete();
 	}
 
-	
-	
+
+//	@After
+//	public static void tearDown(Scenario scenario) {
+//		//validate if scenario has failed
+//		if (scenario.isFailed()) {
+//			final byte[] screenshot = ((TakesScreenshot) WebDriverUtils.webDriver).getScreenshotAs(OutputType.BYTES);
+//			scenario.attach(screenshot, "image/png", scenario.getName());
+//		}
+//
+//
+//	}
 	public static void main(String[] args) {
 		String path = System.getProperty("user.home")+"/Downloads";
 		System.out.println(path);

@@ -1,11 +1,10 @@
 package ServiceNow.SEER.Pages;
 
 import java.util.List;
-
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
@@ -32,11 +31,24 @@ public class SEERUserRegistrationPage extends CommonUtils {
 	/** SEER User Registration Email field */
 	@FindBy(xpath = "//div/div/form/div[2]/div/input[1]")
 	public WebElement seerUserRegistrationEmailField;
+
+	/** SEER User Registration Email field bread crumb */
+	@FindBy(xpath = "//input[@id='emailInput']")
+	public WebElement seerUserRegistrationEmailFieldBreadCrumb;
 	
 	/**SEER User Registration Organization field*/
 	@FindBy (xpath ="//input[@ng-model='data.user.organization']")
 	public WebElement seerUserRegistrationOrganizationField;
-	
+
+	/**SEER User Registration Organizations*/
+	@FindBy (xpath ="//*[@id=\'organizations\']/option")
+	public List<WebElement> seerUserRegistrationOrganizations;
+
+	/**SEER User Registration Organization Name*/
+	public static WebElement seerUserRegistrationOrganizationName(String organizationName) {
+		return WebDriverUtils.webDriver.findElement (By.xpath( "//option[@value='" + organizationName +"']"));
+	}
+
 	/**SEER User Registration Organization Drop Drown Values*/
 	@FindBy(xpath = "//div/div/form/div[3]/div[1]/input/following-sibling::datalist/option")
 	public List<WebElement> seerUserRegistrationOrganizationDropDrownValues;
@@ -48,13 +60,9 @@ public class SEERUserRegistrationPage extends CommonUtils {
 	/**SEER User Registration Country field*/
 	@FindBy (xpath = "//input[@ng-model='data.country_search']")
 	public WebElement seerUserRegistrationCountryField;
-	
-	/**SEER User Registration Country drop down*/
-	@FindBy(xpath = "//div[4]/div/ul/li")
-	public List<WebElement> seerUserRegistrationCountryDropDrown;
-	
+
 	/**SEER User Registration Country USA*/
-	@FindBy(xpath="//div/div/form/div[4]/div/ul/li/a")
+	@FindBy(xpath="//a[@class='ng-binding']")
 	public WebElement seerUserRegistrationCountryUSA;
 	
 	/**SEER User Registration Address field*/
@@ -102,7 +110,15 @@ public class SEERUserRegistrationPage extends CommonUtils {
 	/** SEER User Registration Is Complete Header */
 	@FindBy (xpath = " //h3[text() = ' Thank you - your registration is complete. ']")
 	public WebElement seerUserRegistrationIsCompleteHeader;
-	
+
+	/** SEER You Already Have Access To SEER Research Data Header */
+	@FindBy (xpath = "//h3[normalize-space()='You Already Have Access to SEER Research Data']")
+	public WebElement seerYouAlreadyHaveAccessToSeerResearchDataHeader;
+
+	/** SEER How To Request Access To SEER Data Link */
+	@FindBy (xpath = "//a[normalize-space()='How to Request Access to SEER Data.']")
+	public WebElement seerHowToRequestAccessToSeerDataLink;
+
 	/** SEER User Registration Incidence Database Details Link */
 	@FindBy (xpath = " //a[text() = ' SEER Incidence Database details ']")
 	public WebElement seerUserRegistrationIncidenceDatabaseDetailsLink;
