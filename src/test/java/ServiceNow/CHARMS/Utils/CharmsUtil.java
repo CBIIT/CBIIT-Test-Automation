@@ -116,7 +116,7 @@ public class CharmsUtil {
 		
 		SoftAssert softAssert = new SoftAssert();
 		softAssert.assertEquals(actualValue,expectedValues,"Value is Matching");
-			System.out.println("Assertion Passed for :" + assertResult + actualValue + "is equal to " +expectedValue );	
+			System.out.println("Assertion Passed for :-" + assertResult + actualValue + "is equal to " +expectedValue );	
 		
 	}
 
