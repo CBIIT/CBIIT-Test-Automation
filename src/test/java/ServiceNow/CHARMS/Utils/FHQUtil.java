@@ -37,7 +37,7 @@ public class FHQUtil {
 
 	}
 
-	public static void printDropDownListValue(WebElement webElement) {
+	public static void printDropDownValue(WebElement webElement) {
 
 		Select dropDown = new Select(webElement);
 		List<WebElement> e = dropDown.getOptions();

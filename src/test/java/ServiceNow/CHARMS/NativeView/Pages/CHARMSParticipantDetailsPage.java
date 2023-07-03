@@ -11,14 +11,39 @@ import java.util.List;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
-public class CHARMSParticipantDetailsNVPage extends CommonUtils {
+public class CHARMSParticipantDetailsPage extends CommonUtils {
 
 	/* VERIFIES DATA In Participant Details Page */
 
-	public CHARMSParticipantDetailsNVPage() {
+	public CHARMSParticipantDetailsPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
+	
+	/* *************************************************************** */
+	/* VERIFIES NAVIGATION PANEL */
+	/* *************************************************************** */
+	
+	/* CHARMS Navigation-> All Participant Details in Navigation Panel */
+	@FindBy(xpath = "(//span[@class='nav-favorite-title ng-binding'][normalize-space()='Families'])[1]")
+	public static WebElement nVFamiliesLinkInNavigator;
+	
+	
+	/* CHARMS Navigation-> All Participant Details in Navigation Panel */
+	@FindBy(xpath = "(//span[normalize-space()='All Participant Details'])[1]")
+	public static WebElement nVAllParticipantDetailsLinkInNavigator;
 
+	/* *************************************************************** */
+	/* VERIFIES PARTICIPANT DETAILS LIST VIEW */
+	/* *************************************************************** */
+	
+	/* Participant List View-> iFrame */
+	@FindBy(xpath = "//iframe[@id='gsft_main']")
+	public static WebElement nVParticipantDetailsListViewiFrame;
+	
+
+	
+	
+	
 	/* *************************************************************** */
 	/* VERIFIES GENERAL INFORMATION DATA */
 	/* *************************************************************** */
@@ -38,11 +63,15 @@ public class CHARMSParticipantDetailsNVPage extends CommonUtils {
 	/* Participant--> Family Member ID TextBox */
 	@FindBy(xpath = "(//input[@name='x_naci_family_coho_family_history_details.family_member_id'])[1]")
 	public WebElement nVParticipantFamilyMemberID;
+	
+	/* Participant--> May we have your permission to contact this relative? DropDown */
+	@FindBy(xpath = "(//select[@id='x_naci_family_coho_family_history_details.permission_to_contact'])[1]")
+	public WebElement nVpermissionToContactThisRelative;
 
 	/*
 	 * Participant--> May we have your permission to contact this relative? DropDown
 	 */
-	@FindBy(xpath = "(//select[@name='x_naci_family_coho_family_history_details.permission_to_contact'])[1]")
+	@FindBy(xpath = "(//select[@id='x_naci_family_coho_family_history_details.permission_to_contact'])[1]")
 	public WebElement nVParticipantPermissionToContactRelative;
 
 	/* Participant--> Study */
@@ -50,15 +79,24 @@ public class CHARMSParticipantDetailsNVPage extends CommonUtils {
 	public WebElement nVParticipantStudy;
 
 	/* Participant--> Eligibility Status */
-	@FindBy(xpath = "//select[contains(@name,'sys_readonly.x_naci_family_coho_family_history_details.eligibility_status')]/option[@selected='SELECTED']")
+	@FindBy(xpath = "//select[contains(@name,'sys_readonly.x_naci_family_coho_family_history_details.eligibility_status')]")
 	public WebElement nVParticipantEligibilityStatus;
+	
+	/* Participant--> Eligibility Status */
+	@FindBy(xpath = "//select[@id='sys_readonly.x_naci_family_coho_family_history_details.eligibility_status']//option[@selected='SELECTED']")
+	public WebElement nVParticipantEligibilityStatus1;
+	
 
 	/* Participant--> Enrollment Status */
-	@FindBy(xpath = "//select[@name='sys_readonly.x_naci_family_coho_family_history_details.enrollment_status']/option[@selected='SELECTED']")
+	@FindBy(xpath = "//select[@name='sys_readonly.x_naci_family_coho_family_history_details.enrollment_status']//option[@selected='SELECTED']")
 	public WebElement nVParticipantEnrollmentStatus;
+	
+	/* Participant--> Enrollment Status */
+	@FindBy(xpath = "(//select[@id='sys_readonly.x_naci_family_coho_family_history_details.enrollment_status'])[1]")
+	public WebElement nVParticipantEnrollmentStatus1;
 
 	/* Participant--> Referral */
-	@FindBy(xpath = "(//input[@name='sys_display.x_naci_family_coho_family_history_details.proband_screener'])[1]")
+	@FindBy(xpath = "(//input[@id='sys_display.x_naci_family_coho_family_history_details.proband_screener'])[1]")
 	public WebElement nVParticipantReferral;
 
 	/* Participant--> Assigned To */
@@ -109,6 +147,14 @@ public class CHARMSParticipantDetailsNVPage extends CommonUtils {
 	@FindBy(xpath = "(//button[@aria-labelledby='x_naci_family_coho_family_history_details.race_title_text'])[1]")
 	public WebElement nVParticipantDemographicsTabRace;
 
+	
+	/* DEMOGRAPHICS tab-> Participant Race  details (Select all that apply) */
+	@FindBy(xpath = "(//p[@id='x_naci_family_coho_family_history_details.race_nonedit'])[1]")
+	public WebElement nVParticipantDemographicsTabRaceDetails;
+	
+	
+			
+			
 	/* DEMOGRAPHICS tab-> Participant Race Other TextBox */
 	@FindBy(xpath = "(//input[@name='x_naci_family_coho_family_history_details.other_race'])[1]")
 	public WebElement nVParticipantDemographicsTabRaceOtherText;

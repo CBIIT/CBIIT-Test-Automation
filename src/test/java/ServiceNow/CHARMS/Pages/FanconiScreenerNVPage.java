@@ -26,12 +26,20 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	/* *************************************************************** */
 
 	/* NV Fanconi Screener: Participant Details Preview button */
-	@FindBy(xpath = "(//a[@aria-label='Preview record: Fanconi-1 tester-1'])[1]")
+	@FindBy(xpath = "(//a[@title='Preview Fanconi-1 tester-1'])[1]")
 	public WebElement nVFamilyMembersPreviewButton;
+	
+	/* NV Fanconi Screener: Participant Details Preview button */
+	@FindBy(xpath = "(//a[@title='Preview Fanconi-1 tester-1'])[1]")
+	public WebElement nVParticipantDetailsPreviewButton;
 
 	/* NV Fanconi Screener: Participant Details Open Record button */
 	@FindBy(xpath = "(//a[normalize-space()='Open Record'])[1]")
 	public WebElement nVFamilyMembersOpenRecordButton;
+	
+	/* NV Fanconi Screener: Participant Details Open Record button */
+	@FindBy(xpath = "(//a[normalize-space()='Open Record'])[1]")
+	public WebElement nVParticipantDetailsOpenRecordButton;
 
 	/* *************************************************************** */
 	/* ********** LOCATORS In General Section ***************** */

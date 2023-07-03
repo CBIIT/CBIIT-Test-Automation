@@ -25,7 +25,7 @@ import AnalysisTools.mSigPortal.Pages.MSigPortalHomePage;
 import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
 import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
-import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsNVPage;
+import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
 import ServiceNow.CHARMS.Pages.CGBIIQPage;
 import ServiceNow.CHARMS.Pages.CGBIIQPages;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
@@ -178,7 +178,7 @@ public class PageInitializer {
 	protected static FanconiEligibilityQuestionnairePage fanconiEligibilityQuestionnairePage;
 	protected static FanconiScreenerNVPage fanconiScreenerNVPage;		
 	protected static FanconiLoginPage fanconiLoginPage;
-	protected static CHARMSParticipantDetailsNVPage cHARMSParticipantDetailsNVPage;
+	protected static CHARMSParticipantDetailsPage cHARMSParticipantDetailsPage;
 	
 
 	/** LDLink instances **/
@@ -361,7 +361,7 @@ public class PageInitializer {
 		fanconiLoginPage = new FanconiLoginPage();
 		fanconiEligibilityQuestionnairePage = new FanconiEligibilityQuestionnairePage();
 		fanconiScreenerNVPage =new FanconiScreenerNVPage();
-		cHARMSParticipantDetailsNVPage = new CHARMSParticipantDetailsNVPage();
+		cHARMSParticipantDetailsPage = new CHARMSParticipantDetailsPage();
 		
 		/** Native View instance */
 		nativeViewImpersonateUser = new NativeViewImpersonateUser();

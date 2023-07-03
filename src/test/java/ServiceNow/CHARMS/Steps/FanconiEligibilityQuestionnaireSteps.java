@@ -20,6 +20,7 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 
+import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
 import ServiceNow.CHARMS.Utils.CharmsUtil;
 import ServiceNow.CHARMS.Utils.ComponentTestResult;
 import ServiceNow.CHARMS.Utils.StepTestResult;
@@ -46,7 +47,8 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		try {
 			List<Map<String, String>> excelDataMapList = excelReader
 					.getData("/Users/jains18/git/CBIIT-Test-Automation/src/main/resources/data.xlsx", "Sheet1");
-			CurrentRow = excelDataMapList.get(0);
+			// CurrentRow = excelDataMapList.get(0);
+			CurrentRow = excelDataMapList.get(1);
 
 		} catch (InvalidFormatException | IOException e) {
 			e.printStackTrace();
@@ -100,7 +102,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		// What is your date of birth?
 		CommonUtils.waitForVisibility(fanconiEligibilityQuestionnairePage.calendarMonthDropDown);
 
-		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.calendarMonthDropDown,
+		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.calendarMonthDropDown,
 				CurrentRow.get("DOBMonth"));
 
 		fanconiEligibilityQuestionnairePage.calendarYearTextBox.clear();
@@ -154,7 +156,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 
 		// In which country do you currently live DropDown List?
-		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.countrylivedDropDownList,
+		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.countrylivedDropDownList,
 				CurrentRow.get("CountryLived"));
 
 		MiscUtils.sleep(2000);
@@ -347,7 +349,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
 		// Other Study Currently Participating
 		for (int i = 1; i <= 3; ++i) {
-			CharmsUtil.selectValueFromDropDownList(
+			CharmsUtil.selectDropDownValue(
 					fanconiEligibilityQuestionnairePage.otherStudyCurrentlyParticipatingDropDownList.get(i - 1),
 					CurrentRow.get("OtherStudyCurrentlyParticipation" + i));
 
@@ -481,21 +483,21 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		// Indicate which mutations/variants were found below(if you have the
 		// information).
 
-		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.geneNameDropDownList,
+		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.geneNameDropDownList,
 				CurrentRow.get("GeneName"));
 		MiscUtils.sleep(2000);
 
 		fanconiEligibilityQuestionnairePage.mutationVariant1TextBox.sendKeys(CurrentRow.get("MutationVariant1"));
 		MiscUtils.sleep(2000);
 
-		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.inheritedFrom1DropDownList,
+		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.inheritedFrom1DropDownList,
 				CurrentRow.get("InheritedFrom1"));
 		MiscUtils.sleep(2000);
 
 		fanconiEligibilityQuestionnairePage.mutationVariant2TextBox.sendKeys(CurrentRow.get("MutationVariant2"));
 		MiscUtils.sleep(2000);
 
-		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.inheritedFrom2DropDownList,
+		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.inheritedFrom2DropDownList,
 				CurrentRow.get("InheritedFrom2"));
 		MiscUtils.sleep(2000);
 
@@ -575,7 +577,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		/* Do you want report date or age of diagnosis? */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.reportDateOrAgeOfDiagnosisDropDownList);
-		CharmsUtil.selectValueFromDropDownList(
+		CharmsUtil.selectDropDownValue(
 				fanconiEligibilityQuestionnairePage.reportDateOrAgeOfDiagnosisDropDownList,
 				CurrentRow.get("DateOrAgeOfDiagnosis"));
 		MiscUtils.sleep(2000);
@@ -583,14 +585,14 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		/* Month of diagnosis */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.monthOfDiagnosisDropDownList);
-		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.monthOfDiagnosisDropDownList,
+		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.monthOfDiagnosisDropDownList,
 				CurrentRow.get("MonthOfDiagnosis"));
 		MiscUtils.sleep(2000);
 
 		/* Year of diagnosis */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.yearOfDiagnosisDropDownList);
-		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.yearOfDiagnosisDropDownList,
+		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.yearOfDiagnosisDropDownList,
 				CurrentRow.get("YearOfDiagnosis"));
 		MiscUtils.sleep(2000);
 
@@ -602,7 +604,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		/* Was treatment received? */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.wasTreatmentReceivedDropDownList);
-		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.wasTreatmentReceivedDropDownList,
+		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.wasTreatmentReceivedDropDownList,
 				CurrentRow.get("WasTreatmentReceived"));
 		MiscUtils.sleep(2000);
 
@@ -616,7 +618,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		/* Did you receive or are you receiving blood transfusions? */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.didYouReceiveBloodTransfusionDropDownList);
-		CharmsUtil.selectValueFromDropDownList(
+		CharmsUtil.selectDropDownValue(
 				fanconiEligibilityQuestionnairePage.didYouReceiveBloodTransfusionDropDownList,
 				CurrentRow.get("BloodTransfusionReceive"));
 		MiscUtils.sleep(2000);
@@ -671,7 +673,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		/* Do you want to report date or age of your transplant? */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.wantToReportDateOrAgeDropDownList);
-		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.wantToReportDateOrAgeDropDownList,
+		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.wantToReportDateOrAgeDropDownList,
 				CurrentRow.get("ReportDateOrAgeOfTransplant"));
 
 		MiscUtils.sleep(2000);
@@ -679,14 +681,14 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		/* Month of transplant */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.monthOfTransplantDropDownList);
-		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.monthOfTransplantDropDownList,
+		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.monthOfTransplantDropDownList,
 				CurrentRow.get("MonthOfTransplant"));
 		MiscUtils.sleep(2000);
 
 		/* Year of transplant */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.yearOfTransplantDropDownList);
-		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.yearOfTransplantDropDownList,
+		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.yearOfTransplantDropDownList,
 				CurrentRow.get("YearOfTransplant"));
 		MiscUtils.sleep(2000);
 
@@ -698,14 +700,14 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		/* Donor type */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.donarTypeDropDownList);
-		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.donorTypeDropDownList,
+		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.donorTypeDropDownList,
 				CurrentRow.get("DonorType"));
 		MiscUtils.sleep(2000);
 
 		/* Transplant donor match */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.transpalntDonarTypeDropDownList);
-		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.transpalntDonarTypeDropDownList,
+		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.transpalntDonarTypeDropDownList,
 				CurrentRow.get("TransplantDonorMatch"));
 		MiscUtils.sleep(2000);
 
@@ -736,7 +738,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		/* Tumor Type */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.tumorTypeDropDownList);
-		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.tumorTypeDropDownList,
+		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.tumorTypeDropDownList,
 				CurrentRow.get("TumorType"));
 		MiscUtils.sleep(2000);
 
@@ -748,7 +750,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		/* Do you want to report date or age of diagnosis? */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.tumorDateOrAgeOfDiagnosisDropDownList);
-		CharmsUtil.selectValueFromDropDownList(
+		CharmsUtil.selectDropDownValue(
 				fanconiEligibilityQuestionnairePage.tumorDateOrAgeOfDiagnosisDropDownList,
 				CurrentRow.get("ReportDateOrAgeOfDiagnosis"));
 		MiscUtils.sleep(2000);
@@ -756,14 +758,14 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		/* Month of diagnosis */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.tumorMonthOfDiagnosisDropDownList);
-		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.tumorMonthOfDiagnosisDropDownList,
+		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.tumorMonthOfDiagnosisDropDownList,
 				CurrentRow.get("TumorMonthOfDiagnosis"));
 		MiscUtils.sleep(2000);
 
 		/* Year of diagnosis */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.tumorYearOfDiagnosisDropDownList);
-		CharmsUtil.selectValueFromDropDownList(fanconiEligibilityQuestionnairePage.tumorYearOfDiagnosisDropDownList,
+		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.tumorYearOfDiagnosisDropDownList,
 				CurrentRow.get("TumorYearOfDiagnosis"));
 		MiscUtils.sleep(2000);
 
@@ -777,7 +779,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		/* Are you currently receiving treatment? */
 		// CommonUtils.selectDropDownIndex(1,
 		// fanconiEligibilityQuestionnairePage.areYouCurrentlyReceivingTreatmentDropDownList);
-		CharmsUtil.selectValueFromDropDownList(
+		CharmsUtil.selectDropDownValue(
 				fanconiEligibilityQuestionnairePage.areYouCurrentlyReceivingTreatmentDropDownList,
 				CurrentRow.get("TumorTreatmentCurrentlyReceiving"));
 		MiscUtils.sleep(2000);
@@ -924,7 +926,6 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		// Logging into native view
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
 
 		CommonUtils.waitForVisibility(iTrustloginPage.loginLink);
 		iTrustloginPage.loginLink.click();
@@ -950,18 +951,19 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
 		CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator);
 		nativeViewHomePage.nativeViewFilterNavigator.sendKeys("CHARMS");
-		
-		CommonUtils.waitForVisibility(charmsNativeViewPage.nVAllParticipantDetailsLink);
-		charmsNativeViewPage.nVAllParticipantDetailsLink.click();
-		
 
-		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewDashboardLink);
-		charmsNativeViewPage.nativeViewDashboardLink.click();
+		MiscUtils.sleep(1000);
+		CommonUtils.waitForVisibility(CHARMSParticipantDetailsPage.nVFamiliesLinkInNavigator);
+		// CHARMSParticipantDetailsPage.nVFamiliesLinkInNavigator.click();
 
-		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewiFrameCHARMS);
-		CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewiFrameCHARMS);
+		CommonUtils.waitForVisibility(CHARMSParticipantDetailsPage.nVAllParticipantDetailsLinkInNavigator);
+		CHARMSParticipantDetailsPage.nVAllParticipantDetailsLinkInNavigator.click();
 
-		fanconiScreenerNVPage.nVFamilyMembersPreviewButton.click();
+		CommonUtils.waitForVisibility(CHARMSParticipantDetailsPage.nVParticipantDetailsListViewiFrame);
+		CommonUtils.switchToFrame(CHARMSParticipantDetailsPage.nVParticipantDetailsListViewiFrame);
+
+		CommonUtils.waitForVisibility(fanconiScreenerNVPage.nVParticipantDetailsPreviewButton);
+		fanconiScreenerNVPage.nVParticipantDetailsPreviewButton.click();
 
 		MiscUtils.sleep(2000);
 
@@ -970,8 +972,8 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		 * for (String currentWindow1 : allWindowHandles1) {
 		 * WebDriverUtils.webDriver.switchTo().window(currentWindow1);}
 		 */
-
-		fanconiScreenerNVPage.nVFamilyMembersOpenRecordButton.click();
+		CommonUtils.waitForVisibility(fanconiScreenerNVPage.nVParticipantDetailsOpenRecordButton);
+		fanconiScreenerNVPage.nVParticipantDetailsOpenRecordButton.click();
 
 	}
 
@@ -992,69 +994,92 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		} catch (InvalidFormatException | IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println(
-				"Subject ID Assertion ****** " + cHARMSParticipantDetailsNVPage.nVParticipantSubjectID.getText());
 
-		System.out.println("Full Name Assertion:****** " + (CurrentRow.get("FirstName") + CurrentRow.get("LastName")));
-
-		System.out.println("Generation ID Assertion : ********"
-				+ cHARMSParticipantDetailsNVPage.nVParticipantGenerationID.getText());
-
-		System.out.println("Family Member ID Assertion : ********"
-				+ cHARMSParticipantDetailsNVPage.nVParticipantFamilyMemberID.getText());
-
-		System.out.println(
-				"Study Name Assertion : ********" + cHARMSParticipantDetailsNVPage.nVParticipantStudy.getText());
-
-		System.out.println("Eligibility Status Assertion : ************* "
-				+ cHARMSParticipantDetailsNVPage.nVParticipantEligibilityStatus.getText());
-
-		System.out.println("Enrollment Status Assertion : ********"
-				+ cHARMSParticipantDetailsNVPage.nVParticipantEnrollmentStatus.getText());
-
-		String referral = cHARMSParticipantDetailsNVPage.nVParticipantReferral.getAttribute("value");
-
-		System.out.println("Referral Assertion : ********" + referral);
-
-		System.out.println(
-				"Assigned To Assertion : ********" + cHARMSParticipantDetailsNVPage.nVParticipantAssignedTo.getText());
-
+		/*
+		 * System.out.println( "Subject ID Assertion ****** " +
+		 * cHARMSParticipantDetailsPage.nVParticipantSubjectID.getText());
+		 * 
+		 * System.out.println("Full Name Assertion:****** " +
+		 * (CurrentRow.get("FirstName") + CurrentRow.get("LastName")));
+		 * 
+		 * System.out.println("Generation ID Assertion : ********" +
+		 * cHARMSParticipantDetailsPage.nVParticipantGenerationID.getText());
+		 * 
+		 * System.out.println("Family Member ID Assertion : ********" +
+		 * cHARMSParticipantDetailsPage.nVParticipantFamilyMemberID.getText());
+		 * 
+		 * System.out .println("Study Name Assertion : ********" +
+		 * cHARMSParticipantDetailsPage.nVParticipantStudy.getText());
+		 * 
+		 * System.out.println("Eligibility Status Assertion : ************* " +
+		 * cHARMSParticipantDetailsPage.nVParticipantEligibilityStatus.getText());
+		 * 
+		 * System.out.println("Enrollment Status Assertion : ********" +
+		 * cHARMSParticipantDetailsPage.nVParticipantEnrollmentStatus.getText());
+		 * 
+		 * String referral =
+		 * cHARMSParticipantDetailsPage.nVParticipantReferral.getAttribute("value");
+		 * 
+		 * System.out.println("Referral Assertion : ********" + referral);
+		 * 
+		 * System.out.println( "Assigned To Assertion : ********" +
+		 * cHARMSParticipantDetailsPage.nVParticipantAssignedTo.getText());
+		 */
 		// Subject ID Assertion
 		ComponentTestResult subjectIDAssert = CharmsUtil
-				.verifyLabel(cHARMSParticipantDetailsNVPage.nVParticipantSubjectID, "");
+				.verifyDataField(cHARMSParticipantDetailsPage.nVParticipantSubjectID, "");
 
 		// Participant Name Assertion
-		ComponentTestResult participantNameAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsNVPage.nVParticipantName,
+		ComponentTestResult participantNameAssert = CharmsUtil.verifyDataField(
+				cHARMSParticipantDetailsPage.nVParticipantName,
 				(CurrentRow.get("FirstName") + " " + CurrentRow.get("LastName")));
 
 		// Generation ID Assertion
 		ComponentTestResult generationIDAssert = CharmsUtil
-				.verifyLabel(cHARMSParticipantDetailsNVPage.nVParticipantGenerationID, "");
+				.verifyDataField(cHARMSParticipantDetailsPage.nVParticipantGenerationID, "");
 
 		// Family Member ID Assertion
 		ComponentTestResult familyMemberIDAssert = CharmsUtil
-				.verifyLabel(cHARMSParticipantDetailsNVPage.nVParticipantFamilyMemberID, "");
+				.verifyDataField(cHARMSParticipantDetailsPage.nVParticipantFamilyMemberID, "");
+
+		// May we have your permission to contact this relative? Assertion
+
+		String permissionToContactRelative = cHARMSParticipantDetailsPage.nVpermissionToContactThisRelative
+				.getAttribute("value");
+
+		System.out.println("New DATA : " + permissionToContactRelative);
+
+		ComponentTestResult permissionToContactThisRelativeAssert = CharmsUtil.verifyDataField(
+				cHARMSParticipantDetailsPage.nVpermissionToContactThisRelative,
+				cHARMSParticipantDetailsPage.nVpermissionToContactThisRelative.getAttribute("value"));
 
 		// Study Name Assertion
-		ComponentTestResult studyNameAssert = CharmsUtil.verifyLabel(cHARMSParticipantDetailsNVPage.nVParticipantStudy,
-				"Fanconi");
+		ComponentTestResult studyNameAssert = CharmsUtil
+				.verifyDataField(cHARMSParticipantDetailsPage.nVParticipantStudy, "Fanconi");
+		
+		// Eligibility Status Assertion
+		CharmsUtil.verifyDropDownValue(cHARMSParticipantDetailsPage.nVParticipantEligibilityStatus, "Waiting for Eligibility","Eligibility Status Assertion");
+		
+		
 
 		// Eligibility Status Assertion
-		ComponentTestResult eligibilityStatusAssert = CharmsUtil
-				.verifyLabel(cHARMSParticipantDetailsNVPage.nVParticipantEligibilityStatus, "Waiting for Eligibility");
+	//	ComponentTestResult eligibilityStatusAssert = CharmsUtil.verifyDropDownValue(cHARMSParticipantDetailsPage.nVParticipantEligibilityStatus, "Waiting for Eligibility");
+		
+		ComponentTestResult eligibilityStatusAssert = CharmsUtil.verifyDataField(
+							cHARMSParticipantDetailsPage.nVParticipantEligibilityStatus1, "Waiting for Eligibility");
 
 		// Enrollment Status Assertion
 		ComponentTestResult enrollmentStatusAssert = CharmsUtil
-				.verifyLabel(cHARMSParticipantDetailsNVPage.nVParticipantEnrollmentStatus, "New Screener Received");
+				.verifyDataField(cHARMSParticipantDetailsPage.nVParticipantEnrollmentStatus, "New Screener Received");
 
 		// Referral Assertion
-		// ComponentTestResult referralAssert =
-		// CharmsUtil.verifyLabel(cHARMSParticipantDetailsNVPage.nVParticipantRefferal,"");
+		String referralValue = cHARMSParticipantDetailsPage.nVParticipantReferral.getAttribute("value");
+		ComponentTestResult referralAssert = CharmsUtil
+				.verifyDataField(cHARMSParticipantDetailsPage.nVParticipantReferral, referralValue);
 
 		// Assigned To Assertion
 		ComponentTestResult assignedToAssert = CharmsUtil
-				.verifyLabel(cHARMSParticipantDetailsNVPage.nVParticipantAssignedTo, "");
+				.verifyDataField(cHARMSParticipantDetailsPage.nVParticipantAssignedTo, "");
 
 		StepTestResult generalInformationTabVerificationResult = new StepTestResult(
 				"General Information on Participant Details page is verified ");
@@ -1063,9 +1088,11 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		generalInformationTabVerificationResult.add(participantNameAssert);
 		generalInformationTabVerificationResult.add(generationIDAssert);
 		generalInformationTabVerificationResult.add(familyMemberIDAssert);
+		generalInformationTabVerificationResult.add(permissionToContactThisRelativeAssert);
 		generalInformationTabVerificationResult.add(studyNameAssert);
 		generalInformationTabVerificationResult.add(eligibilityStatusAssert);
 		generalInformationTabVerificationResult.add(enrollmentStatusAssert);
+		generalInformationTabVerificationResult.add(referralAssert);
 		generalInformationTabVerificationResult.add(assignedToAssert);
 
 		scenarioReportList.add(generalInformationTabVerificationResult);
@@ -1073,29 +1100,29 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		/************************************************/
 		/* Personal Information on Participant Details page is verified */
 		/************************************************/
-
-		cHARMSParticipantDetailsNVPage.nVParticipantPersonalInformationTab.click();
+		
+		CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantPersonalInformationTab);
+		cHARMSParticipantDetailsPage.nVParticipantPersonalInformationTab.click();
 
 		System.out.println("Relationship to You Assert : ***"
-				+ cHARMSParticipantDetailsNVPage.nVParticipantPersonalInformationTabRelationshipToYou.getText());
+				+ cHARMSParticipantDetailsPage.nVParticipantPersonalInformationTabRelationshipToYou.getText());
 
 		// Relationship to You Assertion
 		ComponentTestResult relationshipToYouAssert = CharmsUtil
-				.verifyLabel(cHARMSParticipantDetailsNVPage.nVParticipantPersonalInformationTabRelationshipToYou, "");
+				.verifyDataField(cHARMSParticipantDetailsPage.nVParticipantPersonalInformationTabRelationshipToYou, "");
 
 		// First Name Assertion
-		ComponentTestResult firstNameAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsNVPage.nVParticipantPersonalInformationTabFirstName,
-				CurrentRow.get("FirstName"));
+		ComponentTestResult firstNameAssert = CharmsUtil.verifyDataField(
+				cHARMSParticipantDetailsPage.nVParticipantPersonalInformationTabFirstName, CurrentRow.get("FirstName"));
 
 		// Middle Name Assertion
-		ComponentTestResult middleNameAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsNVPage.nVParticipantPersonalInformationTabMiddleName,
+		ComponentTestResult middleNameAssert = CharmsUtil.verifyDataField(
+				cHARMSParticipantDetailsPage.nVParticipantPersonalInformationTabMiddleName,
 				CurrentRow.get("MiddleName"));
 
 		// Last Name Assertion
-		ComponentTestResult lastNameAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsNVPage.nVParticipantPersonalInformationTabLastName, CurrentRow.get("LastName"));
+		ComponentTestResult lastNameAssert = CharmsUtil.verifyDataField(
+				cHARMSParticipantDetailsPage.nVParticipantPersonalInformationTabLastName, CurrentRow.get("LastName"));
 
 		StepTestResult personelInformationTabVerificationResult = new StepTestResult(
 				"Personel Information Tab data on Participant Details page is verified ");
@@ -1111,56 +1138,60 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		/* Demographics on Participant Details page is verified */
 		/************************************************/
 
-		cHARMSParticipantDetailsNVPage.nVParticipantDemographicsTab.click();
+		CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantDemographicsTab);
+		cHARMSParticipantDetailsPage.nVParticipantDemographicsTab.click();
 
 		// Biological Gender Assertion
-		ComponentTestResult biologicalGenderAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsNVPage.nVParticipantDemographicsTabBiologicalGender,
+		ComponentTestResult biologicalGenderAssert = CharmsUtil.verifyDataField(
+				cHARMSParticipantDetailsPage.nVParticipantDemographicsTabBiologicalGender,
 				CurrentRow.get("SexAssigned"));
 
 		// Identified Gender Assertion
-		ComponentTestResult identifiedGenderAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsNVPage.nVParticipantDemographicsTabIdentifiedGender,
+		ComponentTestResult identifiedGenderAssert = CharmsUtil.verifyDataField(
+				cHARMSParticipantDetailsPage.nVParticipantDemographicsTabIdentifiedGender,
 				CurrentRow.get("CurrentGender"));
+		
+		// Participant Race link (Select all that apply) Assertion
+		CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantDemographicsTabRace);
+		
+		System.out.println("New RACE : " + cHARMSParticipantDetailsPage.nVParticipantDemographicsTabRaceDetails.getText());
 
-		// Participant Race (Select all that apply) Assertion
-		ComponentTestResult raceAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsNVPage.nVParticipantDemographicsTabRace,
-				"Caucasian (white), Black/African American, Native Hawaiian/Other Pacific Islander, American Indian/Alaskan Native, Asian, Other");
-
+		// Participant Race Details (Select all that apply) Assertion
+		ComponentTestResult raceAssert = CharmsUtil.verifyDataField(
+				cHARMSParticipantDetailsPage.nVParticipantDemographicsTabRaceDetails, CurrentRow.get("RaceList"));
+				
 		// Participant Other Race (Select all that apply) Assertion
-		ComponentTestResult otherRaceAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsNVPage.nVParticipantDemographicsTabRaceOtherText, CurrentRow.get("OtherRace"));
+		ComponentTestResult otherRaceAssert = CharmsUtil.verifyDataField(
+				cHARMSParticipantDetailsPage.nVParticipantDemographicsTabRaceOtherText, CurrentRow.get("OtherRace"));
 
 		// Ethnicity Assertion
-		ComponentTestResult ethnicityAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsNVPage.nVParticipantDemographicsTabEthnicity, CurrentRow.get("Ethnicity"));
+		ComponentTestResult ethnicityAssert = CharmsUtil.verifyDataField(
+				cHARMSParticipantDetailsPage.nVParticipantDemographicsTabEthnicity, CurrentRow.get("Ethnicity"));
 
 		// Pronouns Assertion
-		ComponentTestResult pronounsAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsNVPage.nVParticipantDemographicsTabPronouns, CurrentRow.get("Pronouns"));
+		ComponentTestResult pronounsAssert = CharmsUtil.verifyDataField(
+				cHARMSParticipantDetailsPage.nVParticipantDemographicsTabPronouns, CurrentRow.get("Pronouns"));
 
 		// Other Pronouns Assertion
-		// ComponentTestResult OtherPronounsAssert = CharmsUtil.verifyLabel(
-		// cHARMSParticipantDetailsNVPage.nVParticipantDemographicsTabPronounsOtherText,
-		// "");
+		 ComponentTestResult OtherPronounsAssert = CharmsUtil.verifyDataField(cHARMSParticipantDetailsPage.nVParticipantDemographicsTabPronounsOtherText,
+		"");
 
 		// Is the participant adopted? Assertion
-		ComponentTestResult IsParticipantAdoptedAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsNVPage.nVParticipantDemographicsTabIsTheParticipantAdopted,
+		ComponentTestResult IsParticipantAdoptedAssert = CharmsUtil.verifyDataField(
+				cHARMSParticipantDetailsPage.nVParticipantDemographicsTabIsTheParticipantAdopted,
 				CurrentRow.get("IsAdopted"));
 
 		// Date of Birth Assertion
 		ComponentTestResult dateOfBirthAssert = CharmsUtil
-				.verifyLabel(cHARMSParticipantDetailsNVPage.nVParticipantDemographicsTabDOB, CurrentRow.get("DOB"));
+				.verifyDataField(cHARMSParticipantDetailsPage.nVParticipantDemographicsTabDOB, CurrentRow.get("DOB"));
 
 		// If Date of Birth is unkown, is this person 18 years old or older Assertion
 		ComponentTestResult dateOfBirthUnknownAssert = CharmsUtil
-				.verifyLabel(cHARMSParticipantDetailsNVPage.nVParticipantDemographicsTabIfDOBUnknownAge18, "");
+				.verifyDataField(cHARMSParticipantDetailsPage.nVParticipantDemographicsTabIfDOBUnknownAge18, "");
 
 		// Age Assertion
 		ComponentTestResult ageAssert = CharmsUtil
-				.verifyLabel(cHARMSParticipantDetailsNVPage.nVParticipantDemographicsTabtAge, "75");
+				.verifyDataField(cHARMSParticipantDetailsPage.nVParticipantDemographicsTabtAge, "75");
 
 		StepTestResult demographicInformationTabVerificationResult = new StepTestResult(
 				"Demographic Information Tab data on Participant Details page is verified ");
@@ -1171,6 +1202,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		demographicInformationTabVerificationResult.add(otherRaceAssert);
 		demographicInformationTabVerificationResult.add(ethnicityAssert);
 		demographicInformationTabVerificationResult.add(pronounsAssert);
+		demographicInformationTabVerificationResult.add(OtherPronounsAssert);
 		demographicInformationTabVerificationResult.add(IsParticipantAdoptedAssert);
 		demographicInformationTabVerificationResult.add(dateOfBirthAssert);
 		demographicInformationTabVerificationResult.add(dateOfBirthUnknownAssert);
@@ -1182,52 +1214,53 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		/* Contact Info on Participant Details page is verified */
 		/************************************************/
 
-		cHARMSParticipantDetailsNVPage.nVParticipantContactInfoTab.click();
+		CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantContactInfoTab);
+		cHARMSParticipantDetailsPage.nVParticipantContactInfoTab.click();
 
 		// Does the participant need legal representation? Assertion
 		ComponentTestResult legalRepresentationAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsNVPage.nVParticipantContactInfoTabAreYouTheLegalGuardianOfThisPerson, "No");
+				cHARMSParticipantDetailsPage.nVParticipantContactInfoTabAreYouTheLegalGuardianOfThisPerson, "No");
 
 		// Contact Street Address Assertion
 		ComponentTestResult streetAddressAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsNVPage.nVParticipantContactInfoTabStreetAddress,
+				cHARMSParticipantDetailsPage.nVParticipantContactInfoTabStreetAddress,
 				CurrentRow.get("StreetAddress1") + " " + CurrentRow.get("StreetAddress2"));
 
 		// Contact State Assertion
 		ComponentTestResult stateAssert = CharmsUtil
-				.verifyLabel(cHARMSParticipantDetailsNVPage.nVParticipantContactInfoTabState, CurrentRow.get("State"));
+				.verifyLabel(cHARMSParticipantDetailsPage.nVParticipantContactInfoTabState, CurrentRow.get("State"));
 
 		// Contact City Assertion
 		ComponentTestResult cityAssert = CharmsUtil
-				.verifyLabel(cHARMSParticipantDetailsNVPage.nVParticipantContactInfoTabCity, CurrentRow.get("City"));
+				.verifyLabel(cHARMSParticipantDetailsPage.nVParticipantContactInfoTabCity, CurrentRow.get("City"));
 
 		// Contact Zip Code Assertion
 		ComponentTestResult zipCodeAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsNVPage.nVParticipantContactInfoTabZipcode, CurrentRow.get("ZipCode"));
+				cHARMSParticipantDetailsPage.nVParticipantContactInfoTabZipcode, CurrentRow.get("ZipCode"));
 
 		// Contact Country Assertion
 		ComponentTestResult countryAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsNVPage.nVParticipantContactInfoTabCountry, CurrentRow.get("CountryLived"));
+				cHARMSParticipantDetailsPage.nVParticipantContactInfoTabCountry, CurrentRow.get("CountryLived"));
 
 		// Contact Email Assertion
 		ComponentTestResult emailAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsNVPage.nVParticipantContactInfoTabEmail, CurrentRow.get("EmailAddress"));
+				cHARMSParticipantDetailsPage.nVParticipantContactInfoTabEmail, CurrentRow.get("EmailAddress"));
 
 		// Contact Home Phone Assertion
 		ComponentTestResult homePhoneAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsNVPage.nVParticipantContactInfoTabHomePhone, CurrentRow.get("HomePhoneNumber"));
+				cHARMSParticipantDetailsPage.nVParticipantContactInfoTabHomePhone, CurrentRow.get("HomePhoneNumber"));
 
 		// Contact Cell Phone Assertion
 		ComponentTestResult cellPhoneAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsNVPage.nVParticipantContactInfoTabCellPhone, CurrentRow.get("CellPhoneNumber"));
+				cHARMSParticipantDetailsPage.nVParticipantContactInfoTabCellPhone, CurrentRow.get("CellPhoneNumber"));
 
 		// Contact Work Phone Assertion
 		ComponentTestResult workPhoneAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsNVPage.nVParticipantContactInfoTabWorkPhone, CurrentRow.get("WorkPhoneNumber"));
+				cHARMSParticipantDetailsPage.nVParticipantContactInfoTabWorkPhone, CurrentRow.get("WorkPhoneNumber"));
 
 		// Contact Preferred phone Assertion
 		ComponentTestResult preferredPhoneAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsNVPage.nVParticipantContactInfoTabPreferredPhone,
+				cHARMSParticipantDetailsPage.nVParticipantContactInfoTabPreferredPhone,
 				CurrentRow.get("HomePhoneNumber"));
 
 		StepTestResult contactInformationTabVerificationResult = new StepTestResult(
@@ -1251,23 +1284,23 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		/* Medical Info on Participant Details page is verified */
 		/************************************************/
 
-		cHARMSParticipantDetailsNVPage.nVParticipantMedicalInfoTab.click();
+		cHARMSParticipantDetailsPage.nVParticipantMedicalInfoTab.click();
 
 		// Has a physician ever diagnosed this participant with cancer? Assertion
 		ComponentTestResult participantDiagnoseeWithCancerAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsNVPage.nVParticipantMedicalInfoTabParticipantDiagnosedWithCancer, "Yes");
+				cHARMSParticipantDetailsPage.nVParticipantMedicalInfoTabParticipantDiagnosedWithCancer, "Yes");
 
 		// Has the participant ever had genetic testing? Assertion
 		ComponentTestResult participantEverHadGeneticTestingAssert = CharmsUtil
-				.verifyLabel(cHARMSParticipantDetailsNVPage.nVParticipantMedicalInfoTabEverHadGeneticTesting, "Yes");
+				.verifyLabel(cHARMSParticipantDetailsPage.nVParticipantMedicalInfoTabEverHadGeneticTesting, "Yes");
 
 		// Vital Status Assertion
 		ComponentTestResult vitalStatusAssert = CharmsUtil
-				.verifyLabel(cHARMSParticipantDetailsNVPage.nVParticipantMedicalInfoTabVitalStatus, "Not answered");
+				.verifyLabel(cHARMSParticipantDetailsPage.nVParticipantMedicalInfoTabVitalStatus, "Not answered");
 
 		// Cohort Assertion
 		ComponentTestResult cohortAssert = CharmsUtil
-				.verifyLabel(cHARMSParticipantDetailsNVPage.nVParticipantMedicalInfoTabCohort, "Field");
+				.verifyLabel(cHARMSParticipantDetailsPage.nVParticipantMedicalInfoTabCohort, "Field");
 
 		StepTestResult medicalInformationTabVerificationResult = new StepTestResult(
 				"Contact Information Tab data on Participant Details page is verified ");
@@ -1294,13 +1327,13 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		/* Fanconi Study Screener:General Information */
 		/***********************************************/
 
-		// Number Assertion
-		System.out.println(referral);
-
-		ComponentTestResult fanconiScreenerNumberAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerNumber, referral);
-
-		// Does the participant need legal representation Assertion
+		/*
+		 * // Number Assertion System.out.println(referral);
+		 * 
+		 * ComponentTestResult fanconiScreenerNumberAssert = CharmsUtil
+		 * .verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerNumber, referral);
+		 * 
+		 */	// Does the participant need legal representation Assertion
 		ComponentTestResult fanconiScreenerDoesParticipantNeedLeglRepAssert1 = CharmsUtil
 				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerDoesParticipantNeedLegalRepresentation, "No");
 
@@ -1324,12 +1357,12 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		// Eligibility Status Assertion
 		ComponentTestResult fanconiScreenerEligibilityStatusAssert = CharmsUtil.verifyDataField(
 				fanconiScreenerNVPage.nVFanconiScreenerEligibilityStatus,
-				cHARMSParticipantDetailsNVPage.nVParticipantEligibilityStatus.getText());
+				cHARMSParticipantDetailsPage.nVParticipantEligibilityStatus.getText());
 
 		// Enrollment Status Assertion
 		ComponentTestResult fanconiScreenerEnrollmentStatusAssert = CharmsUtil.verifyDataField(
 				fanconiScreenerNVPage.nVFanconiScreenerEnrollmentStatus,
-				cHARMSParticipantDetailsNVPage.nVParticipantEnrollmentStatus.getText());
+				cHARMSParticipantDetailsPage.nVParticipantEnrollmentStatus.getText());
 
 		// Date Consent Requested Assertion
 		ComponentTestResult fanconiScreenerDateConsentRequestedAssert = CharmsUtil
@@ -1342,7 +1375,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		StepTestResult fanconiScreenerGeneralVerificationResult = new StepTestResult(
 				"Fanconi Study Screener:General Information page is verified ");
 
-		fanconiScreenerGeneralVerificationResult.add(fanconiScreenerNumberAssert);
+		//fanconiScreenerGeneralVerificationResult.add(fanconiScreenerNumberAssert);
 		fanconiScreenerGeneralVerificationResult.add(fanconiScreenerDoesParticipantNeedLeglRepAssert1);
 		fanconiScreenerGeneralVerificationResult.add(fanconiScreenerStudyNameAssert);
 		fanconiScreenerGeneralVerificationResult.add(fanconiScreenerFamilyMemberRecordAssert);
