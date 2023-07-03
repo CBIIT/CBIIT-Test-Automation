@@ -1,7 +1,7 @@
-Feature: myRAS Screener Submissions
+Feature: RAS Screener Scenarios
 	Description: This feature file contains scenarios which submit myRAS Screeners and verifies questionnaire datas in Native View
 
-	@juarezds @myRasScreenerSubmissionOnly @InProgress @Progression
+	@juarezds @myRasScreenerSubmissionOnly @InProgress
 	Scenario: Participant Screener Self Submission Scenario 1
 		This scenario selects 'No' to all questions
 		#Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
