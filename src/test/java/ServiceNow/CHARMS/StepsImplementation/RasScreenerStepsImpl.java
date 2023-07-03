@@ -336,6 +336,7 @@ public class RasScreenerStepsImpl extends PageInitializer {
         CommonUtils.sendKeysToElement(nativeViewHomePage.nativeViewFilterNavigator, "CHARMS");
         CommonUtils.clickOnElement(charmsNativeViewPage.dashboardModuleLink);
         CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewiFrameCHARMS);
+        CucumberLogUtils.logScreenShot();
         JavascriptUtils.scrollIntoView(charmsNativeViewPage.dynamicDashboardModuleLinkLocator("Eligibility Review Needed"));
         CommonUtils.clickOnElement(charmsNativeViewPage.dynamicDashboardModuleLinkLocator("Eligibility Review Needed"));
         CommonUtils.switchToNextWindow();
