@@ -13,41 +13,26 @@ import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
 import AnalysisTools.Comets2.Pages.Comets2Page;
 import AnalysisTools.ICRP.Pages.ICRPHomePage;
-import AnalysisTools.ICRP.Pages.ICRPSearchDatabase;
+import AnalysisTools.ICRP.Pages.ICRPSearchDatabasePage;
 import AnalysisTools.JPSurv.Pages.JPSurvHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkHomePage;
 import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
 import AnalysisTools.PLCO.Pages.BrowsePhenotypePage;
 import AnalysisTools.PLCO.Pages.ExploreGWASPage;
 import AnalysisTools.PLCO.Pages.InformationPage;
+import AnalysisTools.cProSite.Pages.CProSiteExplorePage;
 import AnalysisTools.mSigPortal.Pages.CatalogPages;
 import AnalysisTools.mSigPortal.Pages.MSigPortalHomePage;
 import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
 import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
-import ServiceNow.CHARMS.NativeView.Pages.CHARMSNativeViewPage;
-import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
-import ServiceNow.CHARMS.Pages.CGBIIQPage;
-import ServiceNow.CHARMS.Pages.CGBIIQPages;
-import ServiceNow.CHARMS.Pages.CHARMSHomePage;
-import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
-import ServiceNow.CHARMS.Pages.FHQSurveyPage;
-import ServiceNow.CHARMS.Pages.FHQSurveyPortalPage;
-import ServiceNow.CHARMS.Pages.FanconiEligibilityQuestionnairePage;
-import ServiceNow.CHARMS.Pages.FanconiLoginPage;
-import ServiceNow.CHARMS.Pages.FanconiScreenerNVPage;
-import ServiceNow.CHARMS.Pages.MelanomaHomePage;
-import ServiceNow.CHARMS.Pages.MelanomaLoginPage;
-import ServiceNow.CHARMS.Pages.MelanomaQuestionnairePage;
-import ServiceNow.CHARMS.Pages.MyRASHomePage;
-import ServiceNow.CHARMS.Pages.MyRASLoginPage;
-import ServiceNow.CHARMS.Pages.MyRASStudyConsentPage;
-import ServiceNow.CHARMS.Pages.OKTAloginPage;
-import ServiceNow.CHARMS.Pages.ProbandScreenerPage;
-import ServiceNow.CHARMS.Pages.RASSurveyPage;
-import ServiceNow.CHARMS.Pages.RASopathyQuestionnairePage;
-import ServiceNow.CHARMS.Pages.TestAccountResetPage;
+import GrantsApps.ChangePassword.Pages.ChangePasswordPage;
+import GrantsApps.ChangePassword.StepsImplementation.ChangePasswordStepsImpl;
+import ServiceNow.CHARMS.Constants.RAS_SCREENER_CONSTANTS;
+import ServiceNow.CHARMS.Pages.*;
+import ServiceNow.CHARMS.ScenariosData.TestDataManager;
 import ServiceNow.CHARMS.StepsImplementation.CHARMSHomePageImp;
 import ServiceNow.CHARMS.StepsImplementation.RASSurveyStepsImpl;
+import ServiceNow.CHARMS.StepsImplementation.RasScreenerStepsImpl;
 import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
 import ServiceNow.CICDBuild.Pages.DevOpsLoginPage;
 import ServiceNow.CICDBuild.Pages.DevOpsNativeViewPage;
@@ -72,14 +57,19 @@ import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
 import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
 import ServiceNow.NERD.Pages.NERDCRSTCollaborationsPage;
+import ServiceNow.NERD.Pages.NERDCRSTOtherAccomplishmentsPage;
 import ServiceNow.NERD.Pages.NERDCRSTopAccomplishmentsPage;
 import ServiceNow.NERD.Pages.NERDDOCCollaborationsPage;
 import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
 import ServiceNow.NERD.Pages.NERDHomePage;
 import ServiceNow.NERD.Pages.NERDKnowledgebasePage;
 import ServiceNow.NERD.Pages.NERDSubmissionsPage;
+import ServiceNow.NERD.Pages.NativeViewImpersonateUserPage;
 import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NativeViewImpersonateUser;
+import ServiceNow.SEER.Pages.NativeViewAccessRequestPage;
+import ServiceNow.SEER.Pages.NativeViewCustomersPage;
+import ServiceNow.SEER.Pages.NativeViewEmailsPage;
 import ServiceNow.SEER.Pages.NativeViewSentViewPage;
 import ServiceNow.SEER.Pages.SEERDataAccessRequestPage;
 import ServiceNow.SEER.Pages.SEERExistingAccountPage;
@@ -123,298 +113,362 @@ import CustomBusiness.ETD.StepsImplementation.ETDFlowStepsImpl;
  */
 public class PageInitializer {
 
-	// declare protected static variables of types of all the pages
-	/** iTrust instances */
-	protected static ITrustLoginPage iTrustloginPage;
-	protected static ITrustLoginPageImpl loginImpl;
+    /** --------------- APPSCOMMON INSTANCES --------------- */
+    // declare public static variables of types of all the pages
+    /** iTrust instances */
+    public static ITrustLoginPage iTrustloginPage;
+    public static ITrustLoginPageImpl loginImpl;
 
-	/** COVID19 Dashboard instances */
-	protected static COVIDHomePage covidHomePage;
-	protected static SubmissionsPage submissionPage;
-	protected static NativeViewDashboardPage nativeViewDashPage;
-	protected static COVIDHomePageImpl covidHomePageImpl;
+    /** --------------- GRANTS INSTANCES --------------- */
+    public static ChangePasswordPage changePasswordPage;
+    public static ChangePasswordStepsImpl changePasswordStepsImpl;
 
-	/** COVIDcode instances */
-	protected static COVIDCodeLoginPage covidCodeLoginPage;
-	protected static EnrollmentQuestionnairePage covidCodeEQPage;
-	protected static ServicePortalEQPageImpl covidCodeEQPageImpl;
-	protected static NativeViewEnrollmentsPage nativeViewEnrollementsPage;
-	protected static NativeViewEnrollmentViewPage nativeViewEnrollmentViewPage;
-	protected static NativeViewStepsImpl nativeViewStepsImpl;
-	protected static FollowUpFormPage followUpFormPage;
-	protected static FollowUpFormPageImpl followUpFormPageImpl;
-	protected static COVIDCodeLoginStepsImpl covidCodeLoginStepsImpl;
-	protected static ServicePortalSurveyPage servicePortalSurveyPage;
-	protected static SignOutVerificationStepImp signOutVerificationStepImp;
-	protected static ServicePortalQuestionnairePage servicePortalQuestionnairePage;
-	protected static ServicePortalQuestionnairePageImp servicePortalQuestionnairePageImp;
-	protected static DashboardStepImpl dashboardStepImpl;
+    /** --------------- SERVICENOW INSTANCES --------------- */
+    /** COVIDDash instances */
+    public static COVIDHomePage covidHomePage;
+    public static SubmissionsPage submissionPage;
+    public static COVIDHomePageImpl covidHomePageImpl;
 
-	/** Native View instance */
-	protected static NativeViewLoginImpl nativeViewLoginImpl;
-	protected static NativeViewHomePage nativeViewHomePage;
-	protected static NativeViewImpersonateUser nativeViewImpersonateUser;
-	protected static NativeViewSideDoorLoginPage nativeViewSideDoorLoginPage;
+    /** COVIDcode instances */
+    public static COVIDCodeLoginPage covidCodeLoginPage;
+    public static EnrollmentQuestionnairePage covidCodeEQPage;
+    public static ServicePortalEQPageImpl covidCodeEQPageImpl;
+    public static FollowUpFormPage followUpFormPage;
+    public static FollowUpFormPageImpl followUpFormPageImpl;
+    public static COVIDCodeLoginStepsImpl covidCodeLoginStepsImpl;
+    public static ServicePortalSurveyPage servicePortalSurveyPage;
+    public static SignOutVerificationStepImp signOutVerificationStepImp;
+    public static ServicePortalQuestionnairePage servicePortalQuestionnairePage;
+    public static ServicePortalQuestionnairePageImp servicePortalQuestionnairePageImp;
+    public static DashboardStepImpl dashboardStepImpl;
 
-	/** CHARMS instances */
-	protected static CHARMSNativeViewPage charmsNativeViewPage;
-	protected static TestAccountResetImpl testAccountResetImpl;
-	protected static CHARMSHomePage charmsHomePage;
-	protected static OKTAloginPage oktaLoginPage;
-	protected static CHARMSHomePageImp charmsHomePageImpl;
-	protected static ClinicalGeneticsBranchPage clinicalGeneticsBranchPage;
-	protected static ProbandScreenerPage probandScreenerPage;
-	protected static MyRASLoginPage myRASLoginPage;
-	protected static MyRASHomePage myRASHomePage;
-	protected static RASopathyQuestionnairePage rasopathyQuestionnairePage;
-	protected static TestAccountResetPage testAccountResetPage;
-	protected static MyRASStudyConsentPage myRasStudyConsentPage;
-	protected static CGBIIQPage cgbIIQPage;
-	protected static CGBIIQPages cGBIIQPages;
-	protected static RASSurveyPage rASSurveyPage;
-	protected static RASSurveyStepsImpl rASSurveyStepsImpl;
-	protected static FHQSurveyPage fHQSurveyPage;
-	protected static FHQSurveyPortalPage fHQSurveyPortalPage;
-	protected static FanconiEligibilityQuestionnairePage fanconiEligibilityQuestionnairePage;
-	protected static FanconiScreenerNVPage fanconiScreenerNVPage;		
-	protected static FanconiLoginPage fanconiLoginPage;
-	protected static CHARMSParticipantDetailsPage cHARMSParticipantDetailsPage;
-	
+    /** CHARMS instances */
+    public static CHARMSNativeViewPage charmsNativeViewPage;
+    public static TestAccountResetImpl testAccountResetImpl;
+    public static CHARMSHomePage charmsHomePage;
+    public static OKTAloginPage oktaLoginPage;
+    public static CHARMSHomePageImp charmsHomePageImpl;
+    public static ClinicalGeneticsBranchPage clinicalGeneticsBranchPage;
+    public static ProbandScreenerPage probandScreenerPage;
+    public static MyRASLoginPage myRASLoginPage;
+    public static MyRASHomePage myRASHomePage;
+    public static RASopathyQuestionnairePage rasopathyQuestionnairePage;
+    public static RasScreenerStepsImpl rasScreenerStepsImpl;
+    public static RAS_SCREENER_CONSTANTS rasScreenerConstants;
+    public static TestAccountResetPage testAccountResetPage;
+    public static MyRASStudyConsentPage myRasStudyConsentPage;
+    public static CGBIIQPage cgbIIQPage;
+    public static CGBIIQPages cGBIIQPages;
+    public static RASSurveyPage rASSurveyPage;
+    public static RASSurveyStepsImpl rASSurveyStepsImpl;
+    public static FHQSurveyPage fHQSurveyPage;
+    public static FHQSurveyPortalPage fHQSurveyPortalPage;
+    public static TestDataManager testDataManager;
+    public static ParticipantDetailsPage participantDetailsPage;
+    public static ReferralTablePage referralTablePage;
 
-	/** LDLink instances **/
-	protected static LDLinkHomePage ldLinkHomePage;
-	protected static LDLinkLandingPage ldLinkLandingPage;
+    // Melanoma and Spitzoid Tumor instances
+    public static MelanomaLoginPage melanomaLoginPage;
+    public static MelanomaHomePage melanomaHomePage;
+    public static MelanomaQuestionnairePage melanomaQuestionnairePage;
 
-	/** PLCO instances **/
-	protected static ExploreGWASPage exploreGWASPage;
-	protected static BrowsePhenotypePage browsePhenotypePage;
-	protected static InformationPage informationPage;
+    /** CICDBuild instances */
+    //ServiceNow DevOps instances
+    public static DevOpsLoginPage devOpsLoginPage;
+    public static DevOpsNativeViewPage devOpsNativeViewPage;
+    public static DevOpsAutomatedBuildStepsImplementation devOpsAutomatedBuildStepsImplementation;
 
-	/** ServiceNow DevOps instances */
-	protected static DevOpsLoginPage devOpsLoginPage;
-	protected static DevOpsNativeViewPage devOpsNativeViewPage;
-	protected static DevOpsAutomatedBuildStepsImplementation devOpsAutomatedBuildStepsImplementation;
+    /** SEER instances */
+    public static SEERLandingPage seerLandingPage;
+    public static SEERUserRegistrationPage seerUserRegistrationPage;
+    public static SEERDataAccessRequestPage seerDataAccessRequestPage;
+    public static SEERIncidenceDatabaseDetailsPage seerIncidenceDatabaseDetailsPage;
+    public static SEERExistingAccountPage seerExistingAccountPage;
+    public static SEERDataAccessRequestPageStepsImpl seerDataAccessRequestPageStepsImpl;
 
-	/** CEDCD instances */
-	protected static CEDCDCohortPage cedcdCohortPage;
-	protected static CEDCDSearchCohortsPage cedcdSearchCohortsPage;
-	protected static CEDCDAdminPage cedcdAdminPage;
-	protected static CEDCDSearchFemaleCohortsStepImp cedcdSearchFemaleCohortsStepImp;
-	protected static CEDCDSelectAllCohortsStepImp cedcdSelectAllCohortsStepImp;
-	protected static CEDCDBiospecimenCountsPage cedcdBiospecimenCountsPage;
-	protected static CEDCDSearchCohortNewPageLayOutStepImp cedcdSearchCohortNewPageLayOutStepImp;
-	protected static CEDCDAlphabetizedSelectTypesStepImp cedcdAlphabetizedSelectTypesStepImp;
-	protected static CEDCDStartUps cedcdStartUps;
-	protected static CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp cedcdSearchCohortsCategoriesOfDataOfDataSortedStepImp;
-	protected static CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp cedcdBiospecimenCountsAlphabeticalCancerTypeStepImp;
+    /** NERD instances */
+    public static NERDLoginStepsImplementation nerdLoginStepsImplementation;
+    public static NERDSubmissionsPage nerdCrsKnowledgeDatabaseSubmissionsPage;
+    public static CreateNewSubmissionPage createNewSubmissionPage;
+    public static NERDDynamicXPATHS nerdDynamicXpaths;
+    public static NERDHomePage nerdHomePage;
+    public static NERDKnowledgebasePage nerdKnowledgeBasePage;
+    public static NERDCRSTopAccomplishmentsPage nerdCRSTopAccomplishmentsPage;
+    public static NERDCRSTCollaborationsPage nerdCRSTCollaborationsPage;
+    public static NERDDOCCollaborationsPage nerdDOCCollaborationsPage;
+    public static NERDCRSTOtherAccomplishmentsPage nerdcrstOtherAccomplishmentsPage;
 
-	/** SEER instances */
-	protected static SEERLandingPage seerLandingPage;
-	protected static SEERUserRegistrationPage seerUserRegistrationPage;
-	protected static SEERDataAccessRequestPage seerDataAccessRequestPage;
-	protected static NativeViewSentViewPage nativeViewSentViewPage;
-	protected static SEERIncidenceDatabaseDetailsPage seerIncidenceDatabaseDetailsPage;
-	protected static SEERExistingAccountPage seerExistingAccountPage;
-	protected static SEERDataAccessRequestPageStepsImpl seerDataAccessRequestPageStepsImpl;
+    /** --------------- CUSTOM BUSINESS APP INSTANCES --------------- */
+    /** EIDP instances */
+    public static AligningExpectationsPage aligningExpectationsPage;
+    public static DashboardPage eidpDashboardPage;
+    public static CommonPage eidpCommonPage;
+    public static LoginPage nihLoginPage;
+    public static BasePage eidpBasePage;
+    public static EIDPLoginStepImpl eidpLoginStepImpl;
+    public static AlignExpectionsStepImpl aligningExpectationsStepImpl;
+    public static GeneralInformationPage generalInformationPage;
+    public static GeneralInformationStepImpl generalInformationStepImpl;
+    public static CustomBusiness.EIDP.StepsImplementation.DashboardStepImpl eidpDashboardStepImpl;
+    public static SearchPage searchPage;
+    public static SearchStepImpl searchStepimpl;
+    public static CareerGoalAndActivePage careerGoalAndActivePage;
+    public static CareerGoalAndActiveStepImpl careerGoalAndActiveStepImpl;
+    public static ProjectRelatedDeliverablePage projectRelatedDeliverablePage;
+    public static ProjectRelatedDeliverableStepImpl projectRelatedDeliverableStepImpl;
+    public static DelegatePage delegatePage;
+    public static IDPAwaitingResponsePage iDPAwaitingResponsePage;
+    public static TraineeReviewPage traineeReviewPage;
+    public static CoPrimaryMentorPage coPrimaryMentorPage;
 
-	/** NERD instances */
-	protected static NERDLoginStepsImplementation nerdLoginStepsImplementation;
-	protected static NERDSubmissionsPage nerdCrsKnowledgeDatabaseSubmissionsPage;
-	protected static CreateNewSubmissionPage createNewSubmissionPage;
-	protected static NERDDynamicXPATHS nerdDynamicXpaths;
-	protected static NERDHomePage nerdHomePage;
-	protected static NERDKnowledgebasePage nerdKnowledgeBasePage;
-	protected static NERDCRSTopAccomplishmentsPage nerdCRSTopAccomplishmentsPage;
-	protected static NERDCRSTCollaborationsPage nerdCRSTCollaborationsPage;
-	protected static NERDDOCCollaborationsPage nerdDOCCollaborationsPage;
+    /** DCEG instances */
+    public static CreateCRPage createCRPage;
+    public static FlowStepsImplementation flowStepsImplementation;
+    public static DirectSubmitterPage directSubmitterPage;
+    public static AdminFlowPage adminFlowPage;
+    public static RegularUserFlowSteps regularUserFlowSteps;
+    public static BranchAdminPage branchAdminPage;
+    public static RegularUserFlowPage regularUserFlowPage;
 
-	/** Comets 2.0 Instances */
-	protected static Comets2Page comets2Page;
+    /** ETD instances */
+    public static ETDFlowStepsImpl etdFlowStepsImpl;
+    public static ETDAdminNCIPage etdAdminNCIPage;
+    public static ETDBasePage etdBasePage;
 
-	/** mSigPortal Instances */
-	protected static SignatureVisualizationsPage signatureVisualizationsPage;
-	protected static MSigPortalHomePage mSigPortalHomePage;
-	protected static SignatureExplorerPages signatureExplorerPages;
-	protected static CatalogPages catalogPages;
+    /** --------------- ANALYSIS TOOLS INSTANCES --------------- */
+    /** LDLink instances **/
+    public static LDLinkHomePage ldLinkHomePage;
+    public static LDLinkLandingPage ldLinkLandingPage;
 
-	/** ICRP instances **/
-	protected static ICRPHomePage icrpHomePage;
-	protected static ICRPSearchDatabase icrpSearchDatabase;
+    /** PLCO instances **/
+    public static ExploreGWASPage exploreGWASPage;
+    public static BrowsePhenotypePage browsePhenotypePage;
+    public static InformationPage informationPage;
 
-	/** JPSurv instances **/
-	protected static JPSurvHomePage jpsurvHomePage;
+    /** CEDCD instances */
+    public static CEDCDCohortPage cedcdCohortPage;
+    public static CEDCDSearchCohortsPage cedcdSearchCohortsPage;
+    public static CEDCDAdminPage cedcdAdminPage;
+    public static CEDCDSearchFemaleCohortsStepImp cedcdSearchFemaleCohortsStepImp;
+    public static CEDCDSelectAllCohortsStepImp cedcdSelectAllCohortsStepImp;
+    public static CEDCDBiospecimenCountsPage cedcdBiospecimenCountsPage;
+    public static CEDCDSearchCohortNewPageLayOutStepImp cedcdSearchCohortNewPageLayOutStepImp;
+    public static CEDCDAlphabetizedSelectTypesStepImp cedcdAlphabetizedSelectTypesStepImp;
+    public static CEDCDStartUps cedcdStartUps;
+    public static CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp cedcdSearchCohortsCategoriesOfDataOfDataSortedStepImp;
+    public static CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp cedcdBiospecimenCountsAlphabeticalCancerTypeStepImp;
 
-	/** Melanoma and Spitzoid Tumor instances **/
-	protected static MelanomaLoginPage melanomaLoginPage;
-	protected static MelanomaHomePage melanomaHomePage;
-	protected static MelanomaQuestionnairePage melanomaQuestionnairePage;
+    /** Comets 2.0 Instances */
+    public static Comets2Page comets2Page;
 
-	/** Custom Business App Instances */
-	protected static AligningExpectationsPage aligningExpectationsPage;
-	protected static DashboardPage eidpDashboardPage;
-	protected static CommonPage eidpCommonPage;
-	protected static LoginPage nihLoginPage;
-	protected static BasePage eidpBasePage;
-	protected static EIDPLoginStepImpl eidpLoginStepImpl;
-	protected static AlignExpectionsStepImpl aligningExpectationsStepImpl;
-	protected static GeneralInformationPage generalInformationPage;
-	protected static GeneralInformationStepImpl generalInformationStepImpl;
-	protected static CustomBusiness.EIDP.StepsImplementation.DashboardStepImpl eidpDashboardStepImpl;
-	protected static SearchPage searchPage;
-	protected static SearchStepImpl searchStepimpl;
-	protected static CareerGoalAndActivePage careerGoalAndActivePage;
-	protected static CareerGoalAndActiveStepImpl careerGoalAndActiveStepImpl;
-	protected static ProjectRelatedDeliverablePage projectRelatedDeliverablePage;
-	protected static ProjectRelatedDeliverableStepImpl projectRelatedDeliverableStepImpl;
-	protected static DelegatePage delegatePage;
-	protected static IDPAwaitingResponsePage iDPAwaitingResponsePage;
-	protected static TraineeReviewPage traineeReviewPage;
-	protected static CoPrimaryMentorPage coPrimaryMentorPage;
-	protected static CreateCRPage createCRPage;
-	protected static FlowStepsImplementation flowStepsImplementation;
-	protected static DirectSubmitterPage directSubmitterPage;
-	protected static AdminFlowPage adminFlowPage;
-	protected static RegularUserFlowSteps regularUserFlowSteps;
-	protected static BranchAdminPage branchAdminPage;
-	protected static RegularUserFlowPage regularUserFlowPage;
-	protected static ETDFlowStepsImpl etdFlowStepsImpl;
-	protected static ETDAdminNCIPage etdAdminNCIPage;
-	protected static ETDBasePage etdBasePage;
+    /** mSigPortal Instances */
+    public static SignatureVisualizationsPage signatureVisualizationsPage;
+    public static MSigPortalHomePage mSigPortalHomePage;
+    public static SignatureExplorerPages signatureExplorerPages;
+    public static CatalogPages catalogPages;
 
-	public static void initializeAllPages() {
-		// create instances of all pages and assign them to the variables
-		iTrustloginPage = new ITrustLoginPage();
-		loginImpl = new ITrustLoginPageImpl();
-		covidHomePage = new COVIDHomePage();
-		submissionPage = new SubmissionsPage();
-		nativeViewDashPage = new NativeViewDashboardPage();
-		covidHomePageImpl = new COVIDHomePageImpl();
-		covidCodeEQPage = new EnrollmentQuestionnairePage();
-		covidCodeEQPageImpl = new ServicePortalEQPageImpl();
-		covidCodeLoginPage = new COVIDCodeLoginPage();
-		nativeViewEnrollementsPage = new NativeViewEnrollmentsPage();
-		nativeViewEnrollmentViewPage = new NativeViewEnrollmentViewPage();
-		followUpFormPage = new FollowUpFormPage();
-		followUpFormPageImpl = new FollowUpFormPageImpl();
-		covidCodeLoginStepsImpl = new COVIDCodeLoginStepsImpl();
-		nativeViewLoginImpl = new NativeViewLoginImpl();
-		nativeViewHomePage = new NativeViewHomePage();
-		charmsNativeViewPage = new CHARMSNativeViewPage();
-		testAccountResetImpl = new TestAccountResetImpl();
-		servicePortalSurveyPage = new ServicePortalSurveyPage();
-		ldLinkLandingPage = new LDLinkLandingPage();
-		ldLinkHomePage = new LDLinkHomePage();
-		exploreGWASPage = new ExploreGWASPage();
-		charmsHomePage = new CHARMSHomePage();
-		oktaLoginPage = new OKTAloginPage();
-		charmsHomePageImpl = new CHARMSHomePageImp();
-		clinicalGeneticsBranchPage = new ClinicalGeneticsBranchPage();
-		probandScreenerPage = new ProbandScreenerPage();
-		devOpsLoginPage = new DevOpsLoginPage();
-		devOpsNativeViewPage = new DevOpsNativeViewPage();
-		devOpsAutomatedBuildStepsImplementation = new DevOpsAutomatedBuildStepsImplementation();
-		signOutVerificationStepImp = new SignOutVerificationStepImp();
-		cedcdSearchCohortsPage = new CEDCDSearchCohortsPage();
-		cedcdSearchFemaleCohortsStepImp = new CEDCDSearchFemaleCohortsStepImp();
-		cedcdSelectAllCohortsStepImp = new CEDCDSelectAllCohortsStepImp();
-		cedcdBiospecimenCountsPage = new CEDCDBiospecimenCountsPage();
-		cedcdSearchCohortNewPageLayOutStepImp = new CEDCDSearchCohortNewPageLayOutStepImp();
-		cedcdAlphabetizedSelectTypesStepImp = new CEDCDAlphabetizedSelectTypesStepImp();
-		cedcdStartUps = new CEDCDStartUps();
-		cedcdSearchCohortsCategoriesOfDataOfDataSortedStepImp = new CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp();
-		cedcdBiospecimenCountsAlphabeticalCancerTypeStepImp = new CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp();
-		servicePortalQuestionnairePage = new ServicePortalQuestionnairePage();
-		servicePortalQuestionnairePageImp = new ServicePortalQuestionnairePageImp();
-		dashboardStepImpl = new DashboardStepImpl();
-		nativeViewStepsImpl = new NativeViewStepsImpl();
-		seerLandingPage = new SEERLandingPage();
-		seerUserRegistrationPage = new SEERUserRegistrationPage();
-		seerDataAccessRequestPage = new SEERDataAccessRequestPage();
-		nativeViewSentViewPage = new NativeViewSentViewPage();
-		seerIncidenceDatabaseDetailsPage = new SEERIncidenceDatabaseDetailsPage();
-		nerdLoginStepsImplementation = new NERDLoginStepsImplementation();
-		nerdCrsKnowledgeDatabaseSubmissionsPage = new NERDSubmissionsPage();
-		createNewSubmissionPage = new CreateNewSubmissionPage();
-		nativeViewImpersonateUser = new NativeViewImpersonateUser();
-		nerdDynamicXpaths = new NERDDynamicXPATHS();
-		browsePhenotypePage = new BrowsePhenotypePage();
-		informationPage = new InformationPage();
-		cedcdAdminPage = new CEDCDAdminPage();
-		cedcdCohortPage = new CEDCDCohortPage();
-		icrpHomePage = new ICRPHomePage();
-		icrpSearchDatabase = new ICRPSearchDatabase();
-		comets2Page = new Comets2Page();
-		signatureVisualizationsPage = new SignatureVisualizationsPage();
-		mSigPortalHomePage = new MSigPortalHomePage();
-		signatureExplorerPages = new SignatureExplorerPages();
-		catalogPages = new CatalogPages();
-		myRASLoginPage = new MyRASLoginPage();
-		myRASHomePage = new MyRASHomePage();
-		rasopathyQuestionnairePage = new RASopathyQuestionnairePage();
-		testAccountResetPage = new TestAccountResetPage();
-		myRasStudyConsentPage = new MyRASStudyConsentPage();
-		cgbIIQPage = new CGBIIQPage();
-		cGBIIQPages = new CGBIIQPages();
-		rASSurveyPage = new RASSurveyPage();
-		rASSurveyStepsImpl = new RASSurveyStepsImpl();
-		fHQSurveyPortalPage = new FHQSurveyPortalPage();
-		fanconiLoginPage = new FanconiLoginPage();
-		fanconiEligibilityQuestionnairePage = new FanconiEligibilityQuestionnairePage();
-		fanconiScreenerNVPage =new FanconiScreenerNVPage();
-		cHARMSParticipantDetailsPage = new CHARMSParticipantDetailsPage();
-		
-		/** Native View instance */
-		nativeViewImpersonateUser = new NativeViewImpersonateUser();
-		nativeViewSideDoorLoginPage = new NativeViewSideDoorLoginPage();
-		fHQSurveyPage = new FHQSurveyPage();
+    /** ICRP instances **/
+    public static ICRPHomePage icrpHomePage;
+    public static ICRPSearchDatabasePage icrpSearchDatabasePage;
 
-		jpsurvHomePage = new JPSurvHomePage();
-		melanomaLoginPage = new MelanomaLoginPage();
-		melanomaHomePage = new MelanomaHomePage();
-		melanomaQuestionnairePage = new MelanomaQuestionnairePage();
-		nerdHomePage = new NERDHomePage();
-		nerdKnowledgeBasePage = new NERDKnowledgebasePage();
-		nerdCRSTopAccomplishmentsPage = new NERDCRSTopAccomplishmentsPage();
-		nerdDOCCollaborationsPage = new NERDDOCCollaborationsPage();
-		nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
-		
+    /** JPSurv instances **/
+    public static JPSurvHomePage jpsurvHomePage;
 
-		seerExistingAccountPage = new SEERExistingAccountPage();
-		seerDataAccessRequestPageStepsImpl = new SEERDataAccessRequestPageStepsImpl();
+    /** CProSite instances **/
+    public static CProSiteExplorePage cProSiteExplorePage;
 
-		/*custom Business App */
-		nativeViewLoginImpl = new NativeViewLoginImpl();
-		nativeViewHomePage = new NativeViewHomePage();
-		aligningExpectationsPage = new AligningExpectationsPage();
-		eidpDashboardPage = new DashboardPage();
-		eidpCommonPage = new CommonPage();
-		nihLoginPage = new LoginPage();
-		eidpBasePage = new BasePage();
-		eidpLoginStepImpl = new EIDPLoginStepImpl();
-		aligningExpectationsStepImpl = new AlignExpectionsStepImpl();
-		generalInformationPage = new GeneralInformationPage();
-		searchPage = new SearchPage();
-		searchStepimpl = new SearchStepImpl();
-		generalInformationStepImpl = new GeneralInformationStepImpl();
-		careerGoalAndActivePage = new CareerGoalAndActivePage();
-		careerGoalAndActiveStepImpl = new CareerGoalAndActiveStepImpl();
-		projectRelatedDeliverablePage = new ProjectRelatedDeliverablePage();
-		projectRelatedDeliverableStepImpl = new ProjectRelatedDeliverableStepImpl();
-		delegatePage = new DelegatePage();
-		iDPAwaitingResponsePage = new IDPAwaitingResponsePage();
-		traineeReviewPage = new TraineeReviewPage();
-		coPrimaryMentorPage = new CoPrimaryMentorPage();
-		eidpDashboardStepImpl = new CustomBusiness.EIDP.StepsImplementation.DashboardStepImpl();
-		createCRPage = new CreateCRPage();
-		flowStepsImplementation = new FlowStepsImplementation();
-		directSubmitterPage = new DirectSubmitterPage();
-		adminFlowPage = new AdminFlowPage();
-		regularUserFlowSteps = new RegularUserFlowSteps();
-		branchAdminPage = new BranchAdminPage();
-		regularUserFlowPage = new RegularUserFlowPage();
-		/**ETD **/
-		etdFlowStepsImpl = new ETDFlowStepsImpl();
-		etdAdminNCIPage  = new ETDAdminNCIPage();
-		etdBasePage = new ETDBasePage();
-	}
+    /** --------------- NATIVE VIEW INSTANCES --------------- */
+    public static NativeViewLoginImpl nativeViewLoginImpl;
+    public static NativeViewHomePage nativeViewHomePage;
+    public static NativeViewImpersonateUser nativeViewImpersonateUser;
+    public static NativeViewImpersonateUserPage nativeViewImpersonateUserPage;
+    public static NativeViewSideDoorLoginPage nativeViewSideDoorLoginPage;
+    public static NativeViewEnrollmentsPage nativeViewEnrollementsPage;
+    public static NativeViewEnrollmentViewPage nativeViewEnrollmentViewPage;
+    public static NativeViewStepsImpl nativeViewStepsImpl;
+    public static NativeViewCustomersPage nativeViewCustomersPage;
+    public static NativeViewSentViewPage nativeViewSentViewPage;
+    public static NativeViewAccessRequestPage nativeViewAccessRequestPage;
+    public static NativeViewEmailsPage nativeViewEmailsPage;
+    public static NativeViewDashboardPage nativeViewDashPage;
+
+    public static void initializeAllPages() {
+        /** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
+        // create instances of all pages and assign them to the variables
+        iTrustloginPage = new ITrustLoginPage();
+        loginImpl = new ITrustLoginPageImpl();
+
+        /** --------------- SERVICENOW INSTANCE VARIABLES --------------- */
+        /** COVIDDash Instance Variables */
+        covidHomePage = new COVIDHomePage();
+        submissionPage = new SubmissionsPage();
+        covidHomePageImpl = new COVIDHomePageImpl();
+
+        /** COVIDcode Instance Variables */
+        covidCodeEQPage = new EnrollmentQuestionnairePage();
+        covidCodeEQPageImpl = new ServicePortalEQPageImpl();
+        covidCodeLoginPage = new COVIDCodeLoginPage();
+        followUpFormPage = new FollowUpFormPage();
+        followUpFormPageImpl = new FollowUpFormPageImpl();
+        servicePortalSurveyPage = new ServicePortalSurveyPage();
+        covidCodeLoginStepsImpl = new COVIDCodeLoginStepsImpl();
+        signOutVerificationStepImp = new SignOutVerificationStepImp();
+        servicePortalQuestionnairePage = new ServicePortalQuestionnairePage();
+        servicePortalQuestionnairePageImp = new ServicePortalQuestionnairePageImp();
+        dashboardStepImpl = new DashboardStepImpl();
+
+        /** CHARMS Instance Variables */
+        charmsNativeViewPage = new CHARMSNativeViewPage();
+        testAccountResetImpl = new TestAccountResetImpl();
+        charmsHomePage = new CHARMSHomePage();
+        oktaLoginPage = new OKTAloginPage();
+        charmsHomePageImpl = new CHARMSHomePageImp();
+        clinicalGeneticsBranchPage = new ClinicalGeneticsBranchPage();
+        probandScreenerPage = new ProbandScreenerPage();
+        myRASLoginPage = new MyRASLoginPage();
+        myRASHomePage = new MyRASHomePage();
+        rasScreenerStepsImpl = new RasScreenerStepsImpl();
+        rasopathyQuestionnairePage = new RASopathyQuestionnairePage();
+        rasScreenerConstants = new RAS_SCREENER_CONSTANTS();
+        testAccountResetPage = new TestAccountResetPage();
+        myRasStudyConsentPage = new MyRASStudyConsentPage();
+        testDataManager = new TestDataManager();
+        cgbIIQPage = new CGBIIQPage();
+        cGBIIQPages = new CGBIIQPages();
+        rASSurveyPage = new RASSurveyPage();
+        rASSurveyStepsImpl = new RASSurveyStepsImpl();
+        fHQSurveyPortalPage = new FHQSurveyPortalPage();
+        fHQSurveyPage = new FHQSurveyPage();
+        participantDetailsPage = new ParticipantDetailsPage();
+        referralTablePage = new ReferralTablePage();
+
+        // Melanoma and Spitzoid Tumor instances
+        melanomaLoginPage = new MelanomaLoginPage();
+        melanomaHomePage = new MelanomaHomePage();
+        melanomaQuestionnairePage = new MelanomaQuestionnairePage();
+
+        /** CICDBuild Instance Variables */
+        //ServiceNow DevOps instances
+        devOpsLoginPage = new DevOpsLoginPage();
+        devOpsNativeViewPage = new DevOpsNativeViewPage();
+        devOpsAutomatedBuildStepsImplementation = new DevOpsAutomatedBuildStepsImplementation();
+
+        /** SEER Instance Variables */
+        seerLandingPage = new SEERLandingPage();
+        seerUserRegistrationPage = new SEERUserRegistrationPage();
+        seerDataAccessRequestPage = new SEERDataAccessRequestPage();
+        seerIncidenceDatabaseDetailsPage = new SEERIncidenceDatabaseDetailsPage();
+        seerExistingAccountPage = new SEERExistingAccountPage();
+        seerDataAccessRequestPageStepsImpl = new SEERDataAccessRequestPageStepsImpl();
+
+        /** NERD Instance Variables */
+        nerdLoginStepsImplementation = new NERDLoginStepsImplementation();
+        nerdCrsKnowledgeDatabaseSubmissionsPage = new NERDSubmissionsPage();
+        createNewSubmissionPage = new CreateNewSubmissionPage();
+        nerdDynamicXpaths = new NERDDynamicXPATHS();
+        nerdHomePage = new NERDHomePage();
+        nerdKnowledgeBasePage = new NERDKnowledgebasePage();
+        nerdCRSTopAccomplishmentsPage = new NERDCRSTopAccomplishmentsPage();
+        nerdDOCCollaborationsPage = new NERDDOCCollaborationsPage();
+        nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
+        nerdcrstOtherAccomplishmentsPage = new NERDCRSTOtherAccomplishmentsPage();
+
+        /** --------------- CUSTOM BUSINESS APP INSTANCE VARIABLES --------------- */
+        /** EIDP Instance Variables */
+        aligningExpectationsPage = new AligningExpectationsPage();
+        eidpDashboardPage = new DashboardPage();
+        eidpCommonPage = new CommonPage();
+        nihLoginPage = new LoginPage();
+        eidpBasePage = new BasePage();
+        eidpLoginStepImpl = new EIDPLoginStepImpl();
+        aligningExpectationsStepImpl = new AlignExpectionsStepImpl();
+        generalInformationPage = new GeneralInformationPage();
+        generalInformationStepImpl = new GeneralInformationStepImpl();
+        searchPage = new SearchPage();
+        eidpDashboardStepImpl = new CustomBusiness.EIDP.StepsImplementation.DashboardStepImpl();
+        searchStepimpl = new SearchStepImpl();
+        careerGoalAndActivePage = new CareerGoalAndActivePage();
+        careerGoalAndActiveStepImpl = new CareerGoalAndActiveStepImpl();
+        projectRelatedDeliverablePage = new ProjectRelatedDeliverablePage();
+        projectRelatedDeliverableStepImpl = new ProjectRelatedDeliverableStepImpl();
+        delegatePage = new DelegatePage();
+        iDPAwaitingResponsePage = new IDPAwaitingResponsePage();
+        traineeReviewPage = new TraineeReviewPage();
+        coPrimaryMentorPage = new CoPrimaryMentorPage();
+
+        /** DCEG Instance Variables */
+        createCRPage = new CreateCRPage();
+        flowStepsImplementation = new FlowStepsImplementation();
+        directSubmitterPage = new DirectSubmitterPage();
+        adminFlowPage = new AdminFlowPage();
+        regularUserFlowSteps = new RegularUserFlowSteps();
+        branchAdminPage = new BranchAdminPage();
+        regularUserFlowPage = new RegularUserFlowPage();
+
+        /** ETD Instance Variables */
+        etdFlowStepsImpl = new ETDFlowStepsImpl();
+        etdAdminNCIPage  = new ETDAdminNCIPage();
+        etdBasePage = new ETDBasePage();
+
+        /** --------------- ANALYSIS TOOLS INSTANCE VARIABLES --------------- */
+        /** LDLink Instance Variables **/
+        ldLinkLandingPage = new LDLinkLandingPage();
+        ldLinkHomePage = new LDLinkHomePage();
+
+        /** PLCO Instance Variables **/
+        exploreGWASPage = new ExploreGWASPage();
+        browsePhenotypePage = new BrowsePhenotypePage();
+        informationPage = new InformationPage();
+
+        /** CEDCD Instance Variables */
+        cedcdCohortPage = new CEDCDCohortPage();
+        cedcdSearchCohortsPage = new CEDCDSearchCohortsPage();
+        cedcdAdminPage = new CEDCDAdminPage();
+        cedcdSearchFemaleCohortsStepImp = new CEDCDSearchFemaleCohortsStepImp();
+        cedcdSelectAllCohortsStepImp = new CEDCDSelectAllCohortsStepImp();
+        cedcdBiospecimenCountsPage = new CEDCDBiospecimenCountsPage();
+        cedcdSearchCohortNewPageLayOutStepImp = new CEDCDSearchCohortNewPageLayOutStepImp();
+        cedcdAlphabetizedSelectTypesStepImp = new CEDCDAlphabetizedSelectTypesStepImp();
+        cedcdStartUps = new CEDCDStartUps();
+        cedcdSearchCohortsCategoriesOfDataOfDataSortedStepImp = new CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp();
+        cedcdBiospecimenCountsAlphabeticalCancerTypeStepImp = new CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp();
+
+        /** Comets 2.0 Instance Variables */
+        comets2Page = new Comets2Page();
+
+        /** mSigPortal Instance Variables */
+        signatureVisualizationsPage = new SignatureVisualizationsPage();
+        mSigPortalHomePage = new MSigPortalHomePage();
+        signatureExplorerPages = new SignatureExplorerPages();
+        catalogPages = new CatalogPages();
+
+        /** ICRP Instance Variables **/
+        icrpHomePage = new ICRPHomePage();
+        icrpSearchDatabasePage = new ICRPSearchDatabasePage();
+
+        /** JPSurv Instance Variables **/
+        jpsurvHomePage = new JPSurvHomePage();
+
+        /** CProSite Instance Variables **/
+        cProSiteExplorePage = new CProSiteExplorePage();
+
+        /** --------------- NATIVE VIEW INSTANCE VARIABLES --------------- */
+        nativeViewLoginImpl = new NativeViewLoginImpl();
+        nativeViewHomePage = new NativeViewHomePage();
+        nativeViewImpersonateUser = new NativeViewImpersonateUser();
+        nativeViewImpersonateUserPage = new NativeViewImpersonateUserPage();
+        nativeViewSideDoorLoginPage = new NativeViewSideDoorLoginPage();
+        nativeViewEnrollementsPage = new NativeViewEnrollmentsPage();
+        nativeViewEnrollmentViewPage = new NativeViewEnrollmentViewPage();
+        nativeViewCustomersPage = new NativeViewCustomersPage();
+        nativeViewStepsImpl = new NativeViewStepsImpl();
+        nativeViewSentViewPage = new NativeViewSentViewPage();
+        nativeViewAccessRequestPage = new NativeViewAccessRequestPage();
+        nativeViewEmailsPage = new NativeViewEmailsPage();
+        nativeViewDashPage = new NativeViewDashboardPage();
+
+        /** Grants ChangePassword app **/
+        changePasswordPage = new ChangePasswordPage();
+        changePasswordStepsImpl = new ChangePasswordStepsImpl();
+    }
 }

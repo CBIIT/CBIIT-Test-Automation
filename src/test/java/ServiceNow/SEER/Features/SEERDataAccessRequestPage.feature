@@ -1,6 +1,6 @@
 Feature: SEER Data Access Request Scenarios
 
-  @ODS-282 @juarezds @NEEDS_UPDATE
+  @ODS-376 @ODS-389 @ODS-375 @ODS-388 @bucurgb @Regression
   Scenario: Non-Institutional flow - Verifying SEER Data Access Request page contents and agreements for Non-Institutional flow
     Given a SEER User Registration has been successfully submitted
     And user verifies email address by clicking on the email verification link that is sent to the user after submitting a SEER User registration form
@@ -8,6 +8,8 @@ Feature: SEER Data Access Request Scenarios
     And the 'Requested for' field contains the name of the requestor in read-only format
     And the 'Database type' field displays with 'SEER Research Database' in read-only format
     And the user can select a general purpose for using the data
+    And before entering initials for 'I understand the limitation of treatment data.' the text box for initials is displays with the users initials in read-only mode
+    And the I Understand the limitations of treatment data text agreement displayed
     And before entering initials for 'Data Use Agreement Certification' the Initials text box displays with the users initials in read-only mode
     And the Data Use Agreement Certification text agreement displayed
     And before entering initials for 'Best Practice Assurance', the users initials display in read only format

@@ -34,7 +34,7 @@ public class ETDBasePage extends CommonUtils {
 		wait = new WebDriverWait(this.driver,Duration.ofSeconds(30));
 	}
 
-	protected void clickOnElement(WebElement element) {
+	protected void clickOnElements(WebElement element) {
 		wait.until(ExpectedConditions.visibilityOf(element));
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		element.click();

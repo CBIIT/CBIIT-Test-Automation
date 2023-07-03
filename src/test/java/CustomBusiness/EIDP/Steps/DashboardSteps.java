@@ -9,20 +9,15 @@ import com.nci.automation.web.WebDriverUtils;
 import CustomBusiness.EIDP.Util.CommonUtil;
 import CustomBusiness.EIDP.Util.SharedData;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 public class DashboardSteps extends PageInitializer {
 
 	@When("User will click on search in dashboard")
 	public void clickOnSearch() {
-		try {
 			eidpDashboardStepImpl.clickOnSearch();
-			CucumberLogUtils.logScreenShot("After Search");
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User click on Search button")
@@ -38,14 +33,14 @@ public class DashboardSteps extends PageInitializer {
 	@When("User will click on manage delegate button in dashboard")
 	public void clickOnManageDelegate() {
 		eidpDashboardStepImpl.clickOnManageDelegate();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User will click on IDP Awaiting response button")
 	public void clickOnIDPAwaitingResponse() {
 		try {
 			eidpDashboardStepImpl.clickOnIDPAwaitResponsButton();
-			CucumberLogUtils.logScreenShot();
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		} catch (Exception e) {
 
 		}
@@ -54,7 +49,7 @@ public class DashboardSteps extends PageInitializer {
 	@When("User will clickOn start idp button")
 	public void clickOnStartIDPButton() throws Exception {
 		eidpDashboardStepImpl.clickOnStartIDPButton();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("user will click on revise idp button")
@@ -77,13 +72,13 @@ public class DashboardSteps extends PageInitializer {
 	@When("User clicks on VERIFY MEETING button")
 	public void clickOnVerifyMeetingButton() {
 		eidpDashboardStepImpl.clickOnVerifyMeetingButton();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User clicks on Verify meeting and accept IDP button")
 	public void verifyMeetingAndAccept() {
 		eidpCommonPage.clickOnVerifyMeetingAndAcceptIDPButton();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User enters meeting date and submits")
@@ -94,7 +89,7 @@ public class DashboardSteps extends PageInitializer {
 			eidpCommonPage.waitForGoBackToHomePageButtonVisible();
 		} catch (Exception e) {
 		}
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User enters verify meeting checkbox and submits")
@@ -161,25 +156,25 @@ public class DashboardSteps extends PageInitializer {
 	@When("User clicks on the trainee specific IDP NHGRI request")
 	public void selectIncompleteIDPrequestOfTrainneeNHGRI() throws Exception {
 		eidpDashboardStepImpl.selectIDPRequestOfTraineeNHGRI();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User clicks on the trainee specific IDP request")
 	public void selectIncompleteIDPrequestOfTrainnee() throws Exception {
 		eidpDashboardStepImpl.selectIDPRequestOfTrainee();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User clicks on the trainee specific IDP being co-primary mentor")
 	public void user_clicks_on_the_trainee_specific_IDP_being_co_primary_mentor() throws Exception {
 		eidpDashboardStepImpl.clickProceedButtonOfTraineeCoPrimaryMentorNHGRI();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User clicks on the trainee specific IDP request for renewal")
 	public void selectIncompleteIDPrequestOfTrainneeForRenewal() throws Exception {
 		eidpDashboardStepImpl.selectIDPRequestOfTraineeForRenewal();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("Complete Process")
@@ -208,7 +203,7 @@ public class DashboardSteps extends PageInitializer {
 	@Then("Trainee verifies IDP request status as \"([^\"]*)\"")
 	public void verifyRequestStatus(String expectedStatus) {
 		String actualStatus = eidpDashboardStepImpl.getIDPRequestStatus();
-		CucumberLogUtils.logScreenShot("Request Status");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		if (actualStatus != null) {
 			actualStatus = actualStatus.trim();
 			Assert.assertEquals(expectedStatus, actualStatus);

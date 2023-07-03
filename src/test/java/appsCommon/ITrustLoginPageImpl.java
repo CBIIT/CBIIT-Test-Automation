@@ -8,7 +8,7 @@ import com.nci.automation.xceptions.TestingException;
 public class ITrustLoginPageImpl extends PageInitializer {
 
 	public void loginToITrust() throws TestingException {
-		MiscUtils.sleep(2000);
+		MiscUtils.sleep(3000);
 		CommonUtils.waitForVisibility(iTrustloginPage.userNameField);
 		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "Username");
 		iTrustloginPage.enterPassword("Password");
@@ -45,7 +45,14 @@ public class ITrustLoginPageImpl extends PageInitializer {
 		iTrustloginPage.clickSignInButton();
 		MiscUtils.sleep(500);
 	}
-
+	public void elizabethiTrustLogin() throws TestingException {
+		MiscUtils.sleep(2000);
+		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "andreyeveUsername");
+		iTrustloginPage.enterPassword("andreyevePassword");
+		// CucumberLogUtils.logScreenShot();
+		iTrustloginPage.clickSignInButton();
+		MiscUtils.sleep(500);
+	}
 	public void loginToNativeViewSideDoor() {
 		MiscUtils.sleep(2000);
 		WebDriverUtils.webDriver.switchTo().frame(0);
@@ -63,5 +70,4 @@ public class ITrustLoginPageImpl extends PageInitializer {
 		iTrustloginPage.clickSignInButton();
 		MiscUtils.sleep(500);
 	}
-
 }

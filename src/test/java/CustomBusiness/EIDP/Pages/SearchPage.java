@@ -140,6 +140,16 @@ public class SearchPage extends CommonUtils {
 	@FindBy(how = How.XPATH, xpath = "//*[@id='trainees_without_idp_div']")
 	public WebElement traineeWithoutIDPCHeckBox;
 
+	/***
+	 * USE THIS METHOD TO DYNAMICALLY SELECT CLASSIFICATION TYPE
+	 * @param type
+	 * @return
+	 */
+	public WebElement classificationType(String type){
+		return WebDriverUtils.webDriver.findElement(
+				By.xpath("//*[@id='select2-trainee-classifications-results']//li[text()='" + type + "']"));
+	}
+
 	public SearchPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}

@@ -2,6 +2,7 @@ package CustomBusiness.EIDP.StepsImplementation;
 
 import java.util.List;
 
+import CustomBusiness.EIDP.Steps.HooksSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -98,7 +99,7 @@ public class GeneralInformationStepImpl extends PageInitializer {
 		Thread.sleep(3000);
 		CommonUtils.click(generalInformationPage.dropdownOptions);
 		Thread.sleep(3000);
-		CucumberLogUtils.logScreenShot("General Information");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		// if (CommonUtils.isElementPresent(By.id("orcidId"))) {
 		// 	CommonUtils.sendKeys(WebDriverUtils.webDriver.findElement(By.id("orcidId")), "9999-9999-9999-9999");
 		// }

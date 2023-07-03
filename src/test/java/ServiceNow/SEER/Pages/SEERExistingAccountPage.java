@@ -15,6 +15,10 @@ public class SEERExistingAccountPage {
     @FindBy(xpath = "//div[@class='box']/div/p[1]")
     public WebElement paragraph;
 
+    /** PIV Card Login Message Text */
+    @FindBy(xpath = "//p[contains(text(),'Requestors associated with HHS agencies should log')]")
+    public WebElement pIVCardLoginMessageText;
+
     /** Back to SEER Database Details button */
     @FindBy(xpath = "//a[@class='button']")
     public WebElement backToSeerDatabaseDetailsButton;
@@ -22,5 +26,4 @@ public class SEERExistingAccountPage {
     public SEERExistingAccountPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
-
 }

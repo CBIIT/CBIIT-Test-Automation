@@ -2,6 +2,8 @@ package CustomBusiness.EIDP.Pages;
 
 import java.awt.color.CMMException;
 import java.util.List;
+
+import CustomBusiness.EIDP.Steps.HooksSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,7 +13,7 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import CustomBusiness.EIDP.Util.SharedData;
-import cucumber.runtime.Utils;
+//import cucumber.runtime.Utils;
 
 public class IDPAwaitingResponsePage extends CommonUtils {
 
@@ -265,7 +267,7 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 		CommonUtils.waitForVisibility(NoRevisionRadioBtn);
 		if (NoRevisionRadioBtn.isSelected()) {
 			CommonUtils.waitForVisibility(saveAndContinueBtn);
-			CucumberLogUtils.logScreenShot("General Info No Revision");
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 			saveAndContinueBtn.click();
 
 		} else {
@@ -285,7 +287,7 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 			}
 
 			CommonUtils.waitForVisibility(saveAndContinueBtn);
-			CucumberLogUtils.logScreenShot("General Info No Revision");
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 			saveAndContinueBtn.click();
 
 		}
@@ -304,7 +306,7 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 		CommonUtils.waitForVisibility(commentsAndFeedBackBtn);
 		if (NoRevisionRadioBtn.isSelected()) {
 			CommonUtils.waitForVisibility(saveAndContinueBtn);
-			CucumberLogUtils.logScreenShot("Project Info No Revision");
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 			saveAndContinueBtn.click();
 
 		} else {
@@ -319,7 +321,7 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 					.sendKeys("No revision");
 
 			CommonUtils.waitForVisibility(saveAndContinueBtn);
-			CucumberLogUtils.logScreenShot("Project Info No Revision");
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 			saveAndContinueBtn.click();
 		}
 
@@ -330,7 +332,7 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 		CommonUtils.waitForVisibility(commentsAndFeedBackBtn);
 		if (NoRevisionRadioBtn.isSelected()) {
 			CommonUtils.waitForVisibility(saveAndContinueBtn);
-			CucumberLogUtils.logScreenShot("Career Goal No Revision");
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 			saveAndContinueBtn.click();
 		} else {
 			System.out.println("null loop");
@@ -344,7 +346,7 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 					.sendKeys("No revision");
 
 			CommonUtils.waitForVisibility(saveAndContinueBtn);
-			CucumberLogUtils.logScreenShot("Career Goal No Revision");
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 			saveAndContinueBtn.click();
 		}
 	}
@@ -354,7 +356,7 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 		CommonUtils.waitForVisibility(commentsAndFeedBackBtn);
 		if (NoRevisionRadioBtn.isSelected()) {
 			CommonUtils.waitForVisibility(saveAndContinueBtn);
-			CucumberLogUtils.logScreenShot("Allign Expectaions");
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 			saveAndContinueBtn.click();
 		} else {
@@ -369,7 +371,7 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 					.sendKeys("No revision");
 
 			CommonUtils.waitForVisibility(saveAndContinueBtn);
-			CucumberLogUtils.logScreenShot("Allign Expectaions");
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 			saveAndContinueBtn.click();
 		}
 	}

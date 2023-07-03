@@ -4,7 +4,7 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageCache;
-import cucumber.api.java.en.*;
+import io.cucumber.java.en.Then;
 
 
 public class SubmissionsPageSteps {
@@ -21,7 +21,7 @@ public class SubmissionsPageSteps {
 	public void is_able_to_see_two_tables_names_and(String pendingStudies, String rejectedStudies) {
 		MiscUtils.sleep(2000);
 		pageCache.getSubmissionsPageImpl().verifySubmissionsTablesExists(pendingStudies, rejectedStudies);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("the submitted study is displayed and options to Approve or Reject are available")
@@ -29,7 +29,7 @@ public class SubmissionsPageSteps {
 		pageCache.getNativeViewDashboardPageImpl().impersonateUser("Sharon Savage");
 		MiscUtils.sleep(3000);
 		pageCache.getSubmissionsPage().verifyApproveRejectButton();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 	}
 }

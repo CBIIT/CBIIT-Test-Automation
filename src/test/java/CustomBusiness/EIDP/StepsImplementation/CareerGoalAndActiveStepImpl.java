@@ -2,6 +2,8 @@
 package CustomBusiness.EIDP.StepsImplementation;
 
 import java.util.List;
+
+import CustomBusiness.EIDP.Steps.HooksSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -19,7 +21,7 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 		Thread.sleep(4000);
 		fillSkill();
 		Thread.sleep(2000);
-		CucumberLogUtils.logScreenShot("Career Goal");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.click(careerGoalAndActivePage.saveAndContinueButton);
 	}
 
@@ -29,7 +31,7 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 		Thread.sleep(4000);
 		fillSkillNGHRI();
 		Thread.sleep(2000);
-		CucumberLogUtils.logScreenShot("Career Goal");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.click(careerGoalAndActivePage.saveAndContinueButton);
 	}
 
@@ -40,7 +42,7 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 		fillSkill();
 		Thread.sleep(2000);
 		completeSKills();
-		CucumberLogUtils.logScreenShot("Career Goal");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.click(careerGoalAndActivePage.saveAndContinueButton);
 	}
 	
@@ -51,7 +53,7 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 		fillSkill();
 		Thread.sleep(2000);
 		completeSKills();
-		CucumberLogUtils.logScreenShot("Career Goal");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.click(careerGoalAndActivePage.saveAndContinueButton);
 	}
 

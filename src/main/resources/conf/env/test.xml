@@ -22,7 +22,7 @@
 			</default>
 		</db>
 	</application>
-	<!-- ITPG URL-->
+	<!-- ITPG URL -->
 	<application id="ITPGURl">
 		<login_url>https://service-test.nci.nih.gov/ncisp
 		</login_url> <!-- add test url -->
@@ -43,12 +43,11 @@
 			</default>
 		</db>
 	</application>
-	<!-- CADSR Application-->
+	<!-- CADSR Application -->
 	<application id="cadsrTestUrl">
 		<login_url>https://service-sandbox.nci.nih.gov/login.do
 		</login_url>
-		<!-- <login_url>https://service-test.nci.nih.gov/login.do
-		</login_url>-->
+		<!-- <login_url>https://service-test.nci.nih.gov/login.do </login_url> -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -67,8 +66,7 @@
 	</application>
 	<!-- Application ID for Native View -->
 	<application id="nativeview">
-		<login_url>https://service-test.nci.nih.gov/ncisp</login_url> <!-- add test 
-			url -->
+		<login_url>https://service-test.nci.nih.gov/ncisp</login_url> <!-- add test url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -89,8 +87,7 @@
 	<!-- Application ID for Native View through Side Door -->
 	<application id="nativeViewSideDoor">
 
-		<login_url>https://service-test.nci.nih.gov/side_door.do</login_url> <!-- add test 
-			url -->
+		<login_url>https://service-test.nci.nih.gov/side_door.do</login_url> <!-- add test url -->
 
 		<role name="Role">
 			<user id="regular">
@@ -109,11 +106,10 @@
 			</default>
 		</db>
 	</application>
-	
+
 	<!-- Application ID for CHARMS -->
 	<application id="CHARMS">
-		<login_url>https://service-test.nci.nih.gov/charms</login_url> <!-- add 
-			test url -->
+		<login_url>https://service-test.nci.nih.gov/charms</login_url> <!-- add test url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -132,8 +128,7 @@
 	</application>
 	<!-- Application ID for COVIDCode -->
 	<application id="COVIDCode">
-		<login_url>https://service-test.nci.nih.gov/covidcode</login_url> <!-- add 
-			test url -->
+		<login_url>https://service-test.nci.nih.gov/covidcode</login_url> <!-- add test url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -152,8 +147,7 @@
 	</application>
 	<!-- Application ID for LDLink -->
 	<application id="LDLink">
-		<login_url>https://ldlink-qa.nci.nih.gov/?tab=home</login_url> <!-- add 
-			test url -->
+		<login_url>https://ldlink-qa.nci.nih.gov/?tab=home</login_url> <!-- add test url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -172,8 +166,7 @@
 	</application>
 	<!-- Application ID for Analysistools -->
 	<application id="Analysistools">
-		<login_url>https://analysistools-qa.cancer.gov/</login_url> <!-- add test
-			url -->
+		<login_url>https://analysistools-qa.cancer.gov/</login_url> <!-- add test url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -192,8 +185,7 @@
 	</application>
 	<!-- Application ID for PLCO -->
 	<application id="PLCO">
-		<login_url>https://exploregwas-qa.cancer.gov/plco-atlas/#/</login_url> <!-- 
-			add test url -->
+		<login_url>https://exploregwas-qa.cancer.gov/plco-atlas/#/</login_url> <!-- add test url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -332,8 +324,7 @@
 	</application>
 	<!-- Application ID for EIDP -->
 	<application id="EidpUrlNHGRI">
-		<login_url>https://idp-test.cancer.gov/nhgri/idp/</login_url> <!-- add test 
-			url -->
+		<login_url>https://idp-test.cancer.gov/nhgri/idp/</login_url> <!-- add test url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -351,8 +342,7 @@
 		</db>
 	</application>
 	<application id="EidpUrlNCI">
-		<login_url>https://idp-test.cancer.gov/idp/</login_url> <!-- add test 
-			url -->
+		<login_url>https://idp-test.nih.gov/nci/idp/</login_url> <!-- add test url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -373,8 +363,7 @@
 	<application id="AppTracker">
 		<login_url>https://service-test.nci.nih.gov/nci-scss.do#/
 		</login_url> <!-- add test url -->
-		<login_url>https://service-test.nci.nih.gov/nci-scss.do#/</login_url> <!-- 
-			add test url -->
+		<login_url>https://service-test.nci.nih.gov/nci-scss.do#/</login_url> <!-- add test url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -413,7 +402,7 @@
 			</default>
 		</db>
 	</application>
-	<!-- Application ID for ICRP-->
+	<!-- Application ID for ICRP -->
 	<application id="ICRP">
 		<login_url>https://icrpartnership-test.org/
 		</login_url> <!-- add test url -->
@@ -453,7 +442,7 @@
 			</default>
 		</db>
 	</application>
-	<!-- ATO application URL-->
+	<!-- ATO application URL -->
 	<application id="AtoTestUrl">
 		<login_url>https://service-test.nci.nih.gov/ncisp
 		</login_url> <!-- add test url -->
@@ -533,7 +522,7 @@
 			</default>
 		</db>
 	</application>
-	<!-- Application ID for RASSurvey  - CHARMS -->
+	<!-- Application ID for RASSurvey - CHARMS -->
 	<application id="RASSurvey">
 		<login_url></login_url> <!-- add test url -->
 		<role name="Role">
@@ -552,10 +541,9 @@
 			</default>
 		</db>
 	</application>
-	<!-- Application ID for Native View Sidedoor-->
+	<!-- Application ID for Native View Sidedoor -->
 	<application id="nativeviewSideDoor">
-		<login_url>https://service-test.nci.nih.gov/side_door.do</login_url> <!-- add test 
-			url -->
+		<login_url>https://service-test.nci.nih.gov/side_door.do</login_url> <!-- add test url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -572,10 +560,9 @@
 			</default>
 		</db>
 	</application>
-	<!-- Application ID for Melanoma and Spitzoid Tumor-->
+	<!-- Application ID for Melanoma and Spitzoid Tumor -->
 	<application id="melanoma">
-		<login_url>https://service-test.nci.nih.gov/mymelanoma</login_url> <!-- add test 
-			url -->
+		<login_url>https://service-test.nci.nih.gov/mymelanoma</login_url> <!-- add test url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -592,12 +579,11 @@
 			</default>
 		</db>
 	</application>
-	
-		<!-- Application ID for Fanconi Study Login Page-->
+
+	<!-- Application ID for Fanconi Study Login Page -->
 	<application id="fanconiLogin">
-		<login_url>https://service-test.nci.nih.gov/fanconi</login_url> <!-- add test 
-			url -->		
-			<role name="Role">
+		<login_url>https://service-test.nci.nih.gov/fanconi</login_url> <!-- add test url -->
+		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
 				<userId></userId> <!-- add encrypted test user -->
@@ -638,7 +624,7 @@
 	<application id="RCMDB">
 		<login_url>https://service-test.nci.nih.gov/ncisp
 		</login_url> <!-- add test url -->
-					<role name="Role">
+		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
 				<userId></userId> <!-- add encrypted test user -->
@@ -654,5 +640,93 @@
 			</default>
 		</db>
 	</application>
-		
+
+	<!-- Application ID for cProSite -->
+	<application id="cProSite">
+
+		<login_url>https://cprosite-qa.ccr.cancer.gov/#/
+		</login_url> <!-- add test url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId> <!-- add encrypted test user -->
+				<password></password> <!-- add encrypted test pass -->
+			</user>
+		</role>
+		<db>
+			<default>
+				<driverclassname></driverclassname> <!-- Add driver class-name -->
+				<url></url> <!-- complete string url -->
+				<username></username> <!-- Add db username -->
+				<password></password> <!-- Add db password -->
+			</default>
+		</db>
+	</application>
+
+
+
+	<!-- Application ID for JPsurv -->
+	<application id="JPSurv">
+
+		<login_url>https://analysistools-qa.cancer.gov/jpsurv/
+		</login_url> <!-- add test url -->
+
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId> <!-- add encrypted test user -->
+				<password></password> <!-- add encrypted test pass -->
+			</user>
+		</role>
+		<db>
+			<default>
+				<driverclassname></driverclassname> <!-- Add driver class-name -->
+				<url></url> <!-- complete string url -->
+				<username></username> <!-- Add db username -->
+				<password></password> <!-- Add db password -->
+			</default>
+		</db>
+	</application>
+
+	<!-- Application ID for ICRP -->
+	<application id="ICRP">
+		<login_url>https://icrpartnership-test.org/
+		</login_url> <!-- add test url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId> <!-- add encrypted test user -->
+				<password></password> <!-- add encrypted test pass -->
+			</user>
+		</role>
+		<db>
+			<default>
+				<driverclassname></driverclassname> <!-- Add driver class-name -->
+				<url></url> <!-- complete string url -->
+				<username></username> <!-- Add db username -->
+				<password></password> <!-- Add db password -->
+			</default>
+		</db>
+	</application>
+	<!-- Application ID for ChangePassword -->
+	<application id="ChangePassword">
+		<login_url>https://i2e-test.nci.nih.gov/changepassword/
+		</login_url> <!-- add test url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId> <!-- add encrypted test user -->
+				<password></password> <!-- add encrypted test pass -->
+			</user>
+		</role>
+		<db>
+			<default>
+				<driverclassname></driverclassname> <!-- Add driver class-name -->
+				<url></url> <!-- complete string url -->
+				<username></username> <!-- Add db username -->
+				<password></password> <!-- Add db password -->
+			</default>
+		</db>
+	</application>
+
 </environment>

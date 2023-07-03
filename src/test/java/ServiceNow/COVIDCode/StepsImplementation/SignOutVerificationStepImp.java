@@ -1,5 +1,6 @@
 package ServiceNow.COVIDCode.StepsImplementation;
 
+import ServiceNow.COVIDCode.Steps.HooksSteps;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.EnvUtils;
@@ -17,10 +18,10 @@ public class SignOutVerificationStepImp extends PageInitializer {
 	 */
 	public void covidCodeServicePortalLogIn() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		iTrustloginPage.covidCodeLogInButton();
 		loginImpl.loginToITrust();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	/**
@@ -28,10 +29,10 @@ public class SignOutVerificationStepImp extends PageInitializer {
 	 * user is signed in and when user logs out
 	 */
 	public void covidCodeServicePortalLogOut() {
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.clickByJS(iTrustloginPage.profileDropDown);
 		JavascriptUtils.clickByJS(iTrustloginPage.covidCodeSignOutButton);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 }
