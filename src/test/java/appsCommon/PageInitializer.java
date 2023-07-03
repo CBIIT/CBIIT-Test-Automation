@@ -28,6 +28,7 @@ import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
 import GrantsApps.ChangePassword.Pages.ChangePasswordPage;
 import GrantsApps.ChangePassword.StepsImplementation.ChangePasswordStepsImpl;
 import ServiceNow.CHARMS.Constants.RAS_SCREENER_CONSTANTS;
+import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
 import ServiceNow.CHARMS.Pages.*;
 import ServiceNow.CHARMS.ScenariosData.TestDataManager;
 import ServiceNow.CHARMS.StepsImplementation.CHARMSHomePageImp;
@@ -166,6 +167,10 @@ public class PageInitializer {
     public static TestDataManager testDataManager;
     public static ParticipantDetailsPage participantDetailsPage;
     public static ReferralTablePage referralTablePage;
+    public static FanconiEligibilityQuestionnairePage fanconiEligibilityQuestionnairePage;
+	public static FanconiScreenerNVPage fanconiScreenerNVPage;		
+	public static FanconiLoginPage fanconiLoginPage;
+	public static CHARMSParticipantDetailsPage cHARMSParticipantDetailsPage;
 
     // Melanoma and Spitzoid Tumor instances
     public static MelanomaLoginPage melanomaLoginPage;
@@ -341,6 +346,10 @@ public class PageInitializer {
         fHQSurveyPage = new FHQSurveyPage();
         participantDetailsPage = new ParticipantDetailsPage();
         referralTablePage = new ReferralTablePage();
+    	fanconiLoginPage = new FanconiLoginPage();
+		fanconiEligibilityQuestionnairePage = new FanconiEligibilityQuestionnairePage();
+		fanconiScreenerNVPage =new FanconiScreenerNVPage();
+		cHARMSParticipantDetailsPage = new CHARMSParticipantDetailsPage();
 
         // Melanoma and Spitzoid Tumor instances
         melanomaLoginPage = new MelanomaLoginPage();

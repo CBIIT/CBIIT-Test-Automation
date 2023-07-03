@@ -134,7 +134,7 @@ Feature: NIDCR work flows
     And User clicks on Yes button
     And Logged in user changes the user to trainee
 
-  @Zamant2 @Needs_review
+ # @Zamant2 @Needs_review
   #The below scenario covers 1) IDP Declined by PM 2) IDPs Sent to TD Queue
   #@NIDCRAPMDecline @NIDCRAPMDeclineNIDCR
   #Scenario: Send the IDP to fellow From TD Review
