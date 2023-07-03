@@ -504,7 +504,7 @@ public class ServicePortalSteps {
 
 	@After
 	public void genericTearDown(Scenario s) throws TestingException {
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		if (WebDriverUtils.webDriver != null) {
 			WebDriverUtils.closeWebDriver();
 			PageCache.getInstance().destroyInstances();

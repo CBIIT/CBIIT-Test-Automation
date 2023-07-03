@@ -37,7 +37,7 @@ public class COVIDCodeLoginSteps extends PageInitializer {
 		CommonUtils.selectDropDownValue(servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown,
 				UserGroupID);
 		JavascriptUtils.clickByJS(servicePortalQuestionnairePage.createEnrollmentButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		MiscUtils.sleep(2000);
 	}
 
@@ -48,7 +48,7 @@ public class COVIDCodeLoginSteps extends PageInitializer {
 		Assert.assertEquals("Verifying COVIDcode Enrollment Questionnaire header", expectedlText, actualText);
 		JavascriptUtils.drawBlueBorder(covidCodeEQPage.COVIDcodeEnrollmentQuestionnaireHeader);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 	}
 
@@ -60,7 +60,7 @@ public class COVIDCodeLoginSteps extends PageInitializer {
 		Assert.assertEquals("Verifying COVIDcode Enrollment Questionnaire Paragraph", expectedlText, actualText);
 		JavascriptUtils.drawBlueBorder(covidCodeEQPage.enrollmentQuestionnaireParagraph);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 }

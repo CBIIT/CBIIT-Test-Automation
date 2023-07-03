@@ -3,6 +3,8 @@ package ServiceNow.COVIDCode.StepsImplementation;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import ServiceNow.COVIDCode.Steps.HooksSteps;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -145,7 +147,7 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 		}
 		List<String> exp = new ArrayList<String>(Arrays.asList(arrayList));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Assert.assertEquals(act, exp);
 	}
 

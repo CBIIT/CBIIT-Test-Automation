@@ -82,7 +82,7 @@ public class CoPrimaryMentorSteps extends PageInitializer {
 		try {
 			coPrimaryMentorPage.clickOnYesButton();
 			eidpCommonPage.waitForGoBackToHomeQueueButtonVisible();
-			CucumberLogUtils.logScreenShot("After Clicking on Yes Button");
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		} catch (Exception e) {
 
 		}

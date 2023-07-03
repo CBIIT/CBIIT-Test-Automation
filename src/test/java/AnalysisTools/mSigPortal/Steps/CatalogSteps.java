@@ -25,7 +25,7 @@ public class CatalogSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(catalogPages.signaturesSearchIcon);
 		MiscUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(catalogPages.catalogSignatureName);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		
 
 	}
@@ -36,7 +36,7 @@ public class CatalogSteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(catalogPages.downloadPlotOnEtiologyPage);
 		JavascriptUtils.drawRedBorder(catalogPages.downloadPlotOnEtiologyPage);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		
 	}
 

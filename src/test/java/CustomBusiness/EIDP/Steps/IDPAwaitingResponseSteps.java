@@ -22,11 +22,11 @@ public class IDPAwaitingResponseSteps extends PageInitializer {
 		searchStepimpl.selectClassificationType(requestData.get("Classification Type"));
 		searchStepimpl.selectActiveTraineeNHGRI();
 		Assert.assertTrue(searchStepimpl.isIDPFormDisplayed());
-		CucumberLogUtils.logScreenShot("owner details page");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		searchStepimpl.selectNCITrainingOrganization(requestData.get(" NHGRI Training Organization"));
 		searchStepimpl.clickOnSaveAndSendMailButton();
 		Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
-		CucumberLogUtils.logScreenShot("IDP intiation message success");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		searchStepimpl.clickOnOkButton();
 		changeUserToTrainnee();
 		Thread.sleep(4000);

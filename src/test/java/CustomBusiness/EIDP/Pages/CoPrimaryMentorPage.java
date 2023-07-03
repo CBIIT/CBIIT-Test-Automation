@@ -1,6 +1,8 @@
 package CustomBusiness.EIDP.Pages;
 
 import java.util.List;
+
+import CustomBusiness.EIDP.Steps.HooksSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -72,7 +74,7 @@ public class CoPrimaryMentorPage extends CommonUtils {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		CucumberLogUtils.logScreenShot("Last Screenshot");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	public void markAsReviewedInAllTabs() {
@@ -154,7 +156,7 @@ public class CoPrimaryMentorPage extends CommonUtils {
 			e.printStackTrace();
 		}
 		try {
-			CucumberLogUtils.logScreenShot("Mark review");
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -169,7 +171,7 @@ public class CoPrimaryMentorPage extends CommonUtils {
 
 	public void markNHGRIasReviewed() {
 		CommonUtils.click(markAsReviewedCheckbox);
-		CucumberLogUtils.logScreenShot("Mark review");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 	}
 
@@ -188,7 +190,7 @@ public class CoPrimaryMentorPage extends CommonUtils {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		CucumberLogUtils.logScreenShot("Approve and submit");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 		String locator = "//*[@id='tdAprroveIDP']";
 		if (WebDriverUtils.getWebDriver().findElements(By.xpath(locator)).size() > 0) {
@@ -210,7 +212,7 @@ public class CoPrimaryMentorPage extends CommonUtils {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		CucumberLogUtils.logScreenShot("Approve and submit");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		try {
 			try {
 				String locator = "//*[@id='aprroveByTDModal']";
@@ -244,7 +246,7 @@ public class CoPrimaryMentorPage extends CommonUtils {
 	public void clickOnApproveAndSubmitButtonNHGRI() {
 		if (markAsReviewedCheckbox.isDisplayed())
 			CommonUtils.click(markAsReviewedCheckbox);
-		CucumberLogUtils.logScreenShot("Approve and submit");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.click(approvedAndSubmitButton);
 	}
 

@@ -1,6 +1,8 @@
 package CustomBusiness.EIDP.StepsImplementation;
 
 import java.util.List;
+
+import CustomBusiness.EIDP.Steps.HooksSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -27,7 +29,7 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer {
 		CommonUtils.click(projectRelatedDeliverablePage.saveAndContinueButton);
 		Thread.sleep(4000);
 		enterClassesCoursesWorkshop();
-		CucumberLogUtils.logScreenShot("Project Deliverable");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.click(projectRelatedDeliverablePage.saveAndContinueButton);
 	}
 
@@ -46,7 +48,7 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer {
 		eidpBasePage.selectOption(projectRelatedDeliverablePage.targetYearDropdown, "2023");
 		CommonUtils.sendKeys(projectRelatedDeliverablePage.publicationtitle, "Publication title for automation");
 		CommonUtils.sendKeys(projectRelatedDeliverablePage.publicationDescription, "Publication description");
-		CucumberLogUtils.logScreenShot("Publication Detils");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.click(projectRelatedDeliverablePage.addDeliverablesButton);
 	}
 
