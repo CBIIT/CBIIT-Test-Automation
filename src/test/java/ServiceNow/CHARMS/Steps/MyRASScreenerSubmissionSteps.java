@@ -3,9 +3,11 @@ package ServiceNow.CHARMS.Steps;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
-import org.junit.Assert;
-import org.openqa.selenium.*;
+import ServiceNow.CHARMS.Constants.CHARMSConstants;
 import com.nci.automation.utils.CucumberLogUtils;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
@@ -13,11 +15,9 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-
-/* @author jains18 */
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class MyRASScreenerSubmissionSteps extends PageInitializer {
 
@@ -39,14 +39,11 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
 
     @Then("data submitted for scenario one is verified in native view against scenario one excel sheet")
     public void data_submitted_for_scenario_one_is_verified_in_native_view_against_scenario_one_excel_sheet() {
-        nativeViewLoginImpl.sideDoorAccountLogin();
-        CommonUtils.sendKeysToElement(nativeViewHomePage.nativeViewFilterNavigator, "CHARMS");
-        CommonUtils.clickOnElement(WebDriverUtils.webDriver.findElement(By.xpath("(//div[text()='Dashboard'])[3]")));
-        CommonUtils.switchToFrame("gsft_main");
-        CommonUtils.clickOnElement(charmsNativeViewPage.dynamicDashboardModuleLinkLocator("Need Eligibility Review"));
-        CommonUtils.switchToNextWindow();
-        CommonUtils.clickOnElement(WebDriverUtils.webDriver.findElement(By.xpath("(//td[contains(text(),'DiegoTest JuarezTest')]//ancestor::td/div/table/tbody/tr/td)[2]")));
-        CommonUtils.clickOnElement(WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'Open Record')]")));
+        rasScreenerStepsImpl.verifying_RAS_Screener_Scenario_1_Data();
+
+        /******* VERIFY ENROLLMENT STATUS BELOW ********/
+        CommonUtils.clickOnElement(screenerRecordTablePage.dynamicLocatorForStudyButtons("Submit for Eligibility Review"));
+        CommonUtils.clickOnElement(screenerRecordTablePage.dynamicLocatorForStudyButtons("Mark Eligible"));
     }
 
     @Given("a proxy is on the RASopathies Longitudinal Cohort Study login page")
@@ -336,7 +333,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.pleaseListCellPhoneNumberTextBox.sendKeys(foreigncellPhoneNumber);
         rasopathyQuestionnairePage.pleaseListWorkPhoneNumberTextBox.sendKeys(foreignWorkPhoneNumber);
         rasopathyQuestionnairePage.pleaseSelectCellPhonePreferredContactCheckBox.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -347,7 +344,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.pleaseListCellPhoneNumberTextBox.sendKeys(foreigncellPhoneNumber);
         rasopathyQuestionnairePage.pleaseListWorkPhoneNumberTextBox.sendKeys(foreignWorkPhoneNumber);
         rasopathyQuestionnairePage.pleaseSelectHomePhonePreferredContactCheckBox.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -359,7 +356,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.pleaseListCellPhoneNumberTextBox.sendKeys(cellPhoneNumber);
         rasopathyQuestionnairePage.pleaseListWorkPhoneNumberTextBox.sendKeys(homePhoneNumber);
         rasopathyQuestionnairePage.pleaseSelectWorkPhonePreferredContactCheckBox.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
     /* END: Enters Phone Numbers details */
@@ -371,7 +368,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.authenticityOfParticipantHispanicLatinoOption);
         rasopathyQuestionnairePage.authenticityOfParticipantHispanicLatinoOption.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -380,7 +377,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.authenticityOfParticipantNotHispanicLatinoOption);
         rasopathyQuestionnairePage.authenticityOfParticipantNotHispanicLatinoOption.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -389,7 +386,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.authenticityOfParticipantUnKnownOption);
         rasopathyQuestionnairePage.authenticityOfParticipantUnKnownOption.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -408,7 +405,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.raceOfParticipantAsian.click();
         rasopathyQuestionnairePage.raceOfParticipantOther.click();
         rasopathyQuestionnairePage.raceOfParticipantOtherTextBox.sendKeys(otherRace);
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -416,7 +413,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_Prefer_not_to_answer_for_other_when_selecting_Race_of_participant() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.raceOfParticipantPreferNotToAnswer.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -434,7 +431,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.isParticipantInFamilyAdvocacyGroupOptionTextBox.sendKeys(familyAdvocacyGroup);
         rasopathyQuestionnairePage.isParticipantInOtherResearchStudyOption.click();
         rasopathyQuestionnairePage.isParticipantInOtherResearchStudyOptionTextBox.sendKeys(otherText);
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -447,7 +444,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.isParticipantInFamilyAdvocacyGroupOptionTextBox.sendKeys(familyAdvocacyGroup);
         rasopathyQuestionnairePage.isParticipantInOtherResearchStudyOption.click();
         rasopathyQuestionnairePage.isParticipantInOtherResearchStudyOptionTextBox.sendKeys(otherText);
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -455,7 +452,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_I_am_not_involved_in_any_other_research_study_or_registry_group_for_is_the_participant_participated_in_any_other_research_study_or_registry_group() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.isParticipantNotInvolvedInAnyStudyGroupOption.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -463,7 +460,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_Not_sure_for_is_the_participant_participated_in_any_other_research_study_or_registry_group() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.isParticipantNotSureOption.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -540,7 +537,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_Never_diagnosed_with_any_of_these_conditions_option_for_participant_being_diagnosed_with_any_of_the_listed_conditions() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithConditionsNeverDiagnosedOption.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
 
     }
@@ -558,7 +555,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithCancerNoOption);
         rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithCancerNoOption.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -586,7 +583,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentSecondRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentThirdRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentFourthRadioButton.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -619,7 +616,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.currentlyReceivingTreatmentSecondRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingTreatmentThirdRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingTreatmentFourthRadioButton.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -652,7 +649,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentSecondRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentThirdRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentFourthRadioButton.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -668,7 +665,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.hasProxyBeenDiagnosedWithaRasopathyNoOption);
         rasopathyQuestionnairePage.hasProxyBeenDiagnosedWithaRasopathyNoOption.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -677,7 +674,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.hasProbandBeenDiagnosedWithaRasopathyNoOption);
         rasopathyQuestionnairePage.hasProbandBeenDiagnosedWithaRasopathyNoOption.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -693,7 +690,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_Dont_Know_for_selecting_a_specific_RASopathy_diagnosed_of_the_participant() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.participantSpecificRasopathyDontKnowOption.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -724,7 +721,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_No_option_to_family_members_of_participants_having_been_diagnosed_with_a_RASopathy() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.participantsFamilyMembersBeenDiagnosedNoOption.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -732,7 +729,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_I_have_no_information_on_my_biological_relatives_option_to_family_members_of_participants_having_been_diagnosed_with_a_RASopathy() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.participantsFamilyMembersBeenDiagnosedhaveNoInformationOption.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -740,7 +737,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_I_have_no_information_on_my_biological_relatives_option_for_Have_any_of_your_biological_relatives_been_diagnosed_with_a_RASopathy() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.probandFamilyMembersBeenDiagnosedIDontKnowOption.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -756,7 +753,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_No_option_to_participant_having_had_genetic_testing() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.participantsEverHadGeneticTestingNoOption.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -764,7 +761,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_Not_sure_option_to_participant_having_had_genetic_testing() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.participantsEverHadGeneticTestingNotSureOption.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -801,7 +798,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_Websearch_for_how_did_you_hear_about_this_study() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.howDidYouHearAboutWebSearchOption.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -809,7 +806,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_Family_member_for_how_did_you_hear_about_this_study() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.howDidYouHearAboutFamilyMemberOption.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -817,7 +814,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_Support_Group_for_how_did_you_hear_about_this_study() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.howDidYouHearAboutSupportGroupOption.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -826,7 +823,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.howDidYouHearAboutGeneticCounselorOption.click();
         rasopathyQuestionnairePage.howDidYouHearAboutGeneticCounselorTextBox.sendKeys(GeneticCounselorText);
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -842,7 +839,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_No_option_for_the_participant_or_other_family_members_ever_participated_in_another_study_on_RASopathies_at_another_medical_institution() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.hasParticipantOrOtherFamilyMemberParticipatedInOtherStudyNoOption.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -850,7 +847,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_the_Not_sure_option_for_the_participant_or_other_family_members_ever_participated_in_another_study_on_RASopathies_at_another_medical_institution() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.hasParticipantOrOtherFamilyMemberParticipatedInOtherStudyNotSureOption.click();
-        CucumberLogUtils.logScreenShot();
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -902,7 +899,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewiFrameCHARMS);
 
         CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewWaitingForElegibilityReviewButton);
-        CucumberLogUtils.logScreenShot();
+
         charmsNativeViewPage.nativeViewWaitingForElegibilityReviewButton.click();
     }
 
@@ -961,21 +958,21 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTab.click();
         MiscUtils.sleep(3000);
 
-        Assert.assertTrue("Is the participant adopted Data Field do not match", charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabBiologicalGender.getText().contentEquals("Male"));
+        Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabBiologicalGender.getText().contentEquals("Male"));
 
-        Assert.assertTrue("Participants identified gender Data Field do not match", charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantsIdentifiedGender.getText().contentEquals("-- None --"));
+        Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantsIdentifiedGender.getText().contentEquals("-- None --"));
 
-        Assert.assertTrue("Is the participant Ethinicity Data Field do not match", charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabEthnicity.getText().contentEquals("Not Hispanic/Latino"));
+        Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabEthnicity.getText().contentEquals("Not Hispanic/Latino"));
 
-        Assert.assertTrue("Is the participant adopted Data Field do not match", charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabIsTheParticipantAdopted.getText().contentEquals("Yes"));
+        Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabIsTheParticipantAdopted.getText().contentEquals("Yes"));
 
-        Assert.assertTrue("Participant DOB Data Field do not match", charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantDOB.getAttribute("value").contentEquals("04/01/1990"));
+        Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantDOB.getAttribute("value").contentEquals("04/01/1990"));
 
-        Assert.assertTrue("If Date of Birth is unkown, is this person 18 years old or older Data Field do not match", charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabIfDOBUnknownAge18.getText().contentEquals("-- None --"));
+        Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabIfDOBUnknownAge18.getText().contentEquals("-- None --"));
 
-        Assert.assertTrue("Participant Age Data Field is not blank", charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantAge.getText().contentEquals(""));
+        Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantAge.getText().contentEquals(""));
 
-        Assert.assertTrue("Participant Race (Select all that apply) Data Field do not match", charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantRace.getText().contentEquals("Caucasian (white), Black/African American, Native Hawaiian/Other Pacific Islander, American Indian/Alaskan Native, Asian, Other"));
+        Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantRace.getText().contentEquals("Caucasian (white), Black/African American, Native Hawaiian/Other Pacific Islander, American Indian/Alaskan Native, Asian, Other"));
 
         CommonUtils.assertTrueJUNIT("Participant Race Other Text Field  do not match", charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantRaceOtherText.getAttribute("value").contentEquals("Entering other Race"));
 
@@ -989,7 +986,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
 
         charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTab.click();
         MiscUtils.sleep(3000);
-        Assert.assertTrue("This is a Contact Info Tab mismatch data for the Does the participant need legal representation?: ", charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabDoesParticipantNeedLegalRepresentation.getText().contentEquals("Yes"));
+        Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabDoesParticipantNeedLegalRepresentation.getText().contentEquals("Yes"));
 
         CommonUtils.assertTrueJUNIT("This is a Contact Info Tab mismatch data for the Legal Representative Name :", charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabLegalRepresentativeName.getAttribute("value").contentEquals("FirstNameOfProxyTest  MiddleNameTest  lastNameOfProxyTest"));
         // Assert.assertTrue("This is a Contact Info Tab mismatch data for the Legal
@@ -998,13 +995,13 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         // .getAttribute("value")
         // .contentEquals("FirstNameOfProxyTest MiddleNameTest lastNameOfProxyTest"));
 
-        Assert.assertTrue("This is a Contact Info Tab mismatch data for the What is your relationship to this person? :", charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabWhatIsYourRelationshipToThisPerson.getText().contentEquals("Other"));
+        Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabWhatIsYourRelationshipToThisPerson.getText().contentEquals("Other"), "This is a Contact Info Tab mismatch data for the What is your relationship to this person? :");
 
-        Assert.assertTrue("This is a Contact Info Tab mismatch data for the Are you the legal guardian of this person? : ", charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabAreYouTheLegalGuardianOfThisPerson.getText().contentEquals("Yes"));
+        Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabAreYouTheLegalGuardianOfThisPerson.getText().contentEquals("Yes"), "This is a Contact Info Tab mismatch data for the Are you the legal guardian of this person? : ");
 
-        Assert.assertTrue("This is a Contact Info Tab mismatch data for the Please specify your relationship to the participant : ", charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabSpecifyYourRelationshipToTheParticipant.getAttribute("value").contentEquals(""));
+        Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabSpecifyYourRelationshipToTheParticipant.getAttribute("value").contentEquals(""), "This is a Contact Info Tab mismatch data for the Please specify your relationship to the participant : ");
 
-        Assert.assertTrue("This is a Contact Info Tab mismatch data for the Contact Street Address : ", charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabStreetAddress.getAttribute("value").contentEquals("9609 Medical Center Dr New Avenue Park"));
+        Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabStreetAddress.getAttribute("value").contentEquals("9609 Medical Center Dr New Avenue Park"), "This is a Contact Info Tab mismatch data for the Contact Street Address : ");
 
         CommonUtils.assertTrueJUNIT("This is a Contact Info Tab mismatch data for the Contact State : ", charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabState.getAttribute("value").contentEquals("MD"));
 
@@ -1016,11 +1013,11 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
 
         CommonUtils.assertTrueJUNIT("This is a Contact Info Tab mismatch data for the Contact Email : ", charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabEmail.getAttribute("value").contentEquals("automatedTest@nci.gov"));
 
-        Assert.assertTrue("This is a Contact Info Tab mismatch data for the Contact Home Phone : ", charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabHomePhone.getAttribute("value").contentEquals("703-687-5816"));
+        Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabHomePhone.getAttribute("value").contentEquals("703-687-5816"), "This is a Contact Info Tab mismatch data for the Contact Home Phone : ");
 
-        Assert.assertTrue("This is a Contact Info Tab mismatch data for the Contact Cell Phone : ", charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabCellPhone.getAttribute("value").contentEquals("703-687-5816"));
+        Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabCellPhone.getAttribute("value").contentEquals("703-687-5816"), "This is a Contact Info Tab mismatch data for the Contact Cell Phone : ");
 
-        Assert.assertTrue("This is a Contact Info Tab mismatch data for the Contact Work Phone : ", charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabWorkPhone.getAttribute("value").contentEquals("703-687-5816"));
+        Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabWorkPhone.getAttribute("value").contentEquals("703-687-5816"), "This is a Contact Info Tab mismatch data for the Contact Work Phone : ");
 
     }
 
@@ -1032,11 +1029,11 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
 
         charmsNativeViewPage.nVFamilyMemberDetailsRecordMedicalInfoTab.click();
         MiscUtils.sleep(3000);
-        Assert.assertTrue("This is a Medical Information Tab mismatch data for the Has a physician ever diagnosed this participant with cancer? : ", charmsNativeViewPage.nVFamilyMemberDetailsRecordMedicalInfoPhysicianDiagnosedParticipantWithCancer.getText().contentEquals("Yes"));
+        Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordMedicalInfoPhysicianDiagnosedParticipantWithCancer.getText().contentEquals("Yes"), "This is a Medical Information Tab mismatch data for the Has a physician ever diagnosed this participant with cancer? : ");
 
-        Assert.assertTrue("This is a Medical Information Tab mismatch data for the Has the participant ever had genetic testing? : ", charmsNativeViewPage.nVFamilyMemberDetailsRecordMedicalInfoParticipantEverHadGeneticTesting.getText().contentEquals("Yes"));
+        Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordMedicalInfoParticipantEverHadGeneticTesting.getText().contentEquals("Yes"), "This is a Medical Information Tab mismatch data for the Has the participant ever had genetic testing? : ");
 
-        Assert.assertTrue("This is a Medical Information Tab mismatch data for the Vital Status : ", charmsNativeViewPage.nVFamilyMemberDetailsRecordMedicalInfoParticipantVitalStatus.getText().contentEquals("Alive"));
+        Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordMedicalInfoParticipantVitalStatus.getText().contentEquals("Alive"), "This is a Medical Information Tab mismatch data for the Vital Status : ");
 
     }
 
@@ -1049,15 +1046,15 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         charmsNativeViewPage.nVReferralPatientIntakeFormPreviewOpenRecordButton.click();
 
         MiscUtils.sleep(3000);
-        Assert.assertTrue("This is Participant Cancer History mismatch data for Cancer Type or Site for Skin cancer  : ", charmsNativeViewPage.nVReferralPatientCancerIntakeFormCancerTypeOrSite.getAttribute("value").contentEquals("Skin cancer (i.e.Melanoma)"));
+        Assert.assertTrue(charmsNativeViewPage.nVReferralPatientCancerIntakeFormCancerTypeOrSite.getAttribute("value").contentEquals("Skin cancer (i.e.Melanoma)"), "This is Participant Cancer History mismatch data for Cancer Type or Site for Skin cancer  : ");
 
-        Assert.assertTrue("This is Participant Cancer History mismatch data for Currently being treated for Skin cancer : ", charmsNativeViewPage.nVReferralPatientCancerIntakeFormCurrentlyBeingTreated.getText().contentEquals("Yes"));
+        Assert.assertTrue(charmsNativeViewPage.nVReferralPatientCancerIntakeFormCurrentlyBeingTreated.getText().contentEquals("Yes"), "This is Participant Cancer History mismatch data for Currently being treated for Skin cancer : ");
 
-        Assert.assertTrue("This is Participant Cancer History mismatch data for Year of diagnosis for Skin cancer: ", charmsNativeViewPage.nVReferralPatientCancerIntakeFormYearOfDiagnosis.getAttribute("value").contentEquals("2003"));
+        Assert.assertTrue(charmsNativeViewPage.nVReferralPatientCancerIntakeFormYearOfDiagnosis.getAttribute("value").contentEquals("2003"), "This is Participant Cancer History mismatch data for Year of diagnosis for Skin cancer: ");
 
-        Assert.assertTrue("This is Participant Cancer History mismatch data for How old was the research participant when the cancer was diagnosed? for Skin cancer: ", charmsNativeViewPage.nVReferralPatientCancerIntakeFormHowOldWasParticipantWhenCancerWasDiagnosed.getAttribute("value").contentEquals("23"));
+        Assert.assertTrue(charmsNativeViewPage.nVReferralPatientCancerIntakeFormHowOldWasParticipantWhenCancerWasDiagnosed.getAttribute("value").contentEquals("23"), "This is Participant Cancer History mismatch data for How old was the research participant when the cancer was diagnosed? for Skin cancer: ");
 
-        Assert.assertTrue("This is Participant Cancer History mismatch data for If unknown, please select an age range for Skin cancer : ", charmsNativeViewPage.nVReferralPatientCancerIntakeFormIfUnknownSelectAgeRange.getText().contentEquals("-- None --"));
+        Assert.assertTrue(charmsNativeViewPage.nVReferralPatientCancerIntakeFormIfUnknownSelectAgeRange.getText().contentEquals("-- None --"), "This is Participant Cancer History mismatch data for If unknown, please select an age range for Skin cancer : ");
 
         charmsNativeViewPage.nVReferralParticipantIntakeFormBackButton.click();
 
@@ -1068,15 +1065,15 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         charmsNativeViewPage.nVReferralPatientIntakeFormPreviewOpenRecordButton.click();
 
         MiscUtils.sleep(3000);
-        Assert.assertTrue("This is Participant Cancer History mismatch data for Cancer Type or Site cancer for Breast Left  : ", charmsNativeViewPage.nVReferralPatientCancerIntakeFormCancerTypeOrSite.getAttribute("value").contentEquals("Breast left"));
+        Assert.assertTrue(charmsNativeViewPage.nVReferralPatientCancerIntakeFormCancerTypeOrSite.getAttribute("value").contentEquals("Breast left"), "This is Participant Cancer History mismatch data for Cancer Type or Site cancer for Breast Left  : ");
 
-        Assert.assertTrue("This is Participant Cancer History mismatch data for Currently being treated for Breast Left : ", charmsNativeViewPage.nVReferralPatientCancerIntakeFormCurrentlyBeingTreated.getText().contentEquals("Yes"));
+        Assert.assertTrue(charmsNativeViewPage.nVReferralPatientCancerIntakeFormCurrentlyBeingTreated.getText().contentEquals("Yes"), "This is Participant Cancer History mismatch data for Currently being treated for Breast Left : ");
 
-        Assert.assertTrue("This is Participant Cancer History mismatch data for Year of diagnosis for Breast Left: ", charmsNativeViewPage.nVReferralPatientCancerIntakeFormYearOfDiagnosis.getAttribute("value").contentEquals("2002"));
+        Assert.assertTrue(charmsNativeViewPage.nVReferralPatientCancerIntakeFormYearOfDiagnosis.getAttribute("value").contentEquals("2002"), "This is Participant Cancer History mismatch data for Year of diagnosis for Breast Left: ");
 
-        Assert.assertTrue("This is Participant Cancer History mismatch data for How old was the research participant when the cancer was diagnosed? for Breast Left: ", charmsNativeViewPage.nVReferralPatientCancerIntakeFormHowOldWasParticipantWhenCancerWasDiagnosed.getAttribute("value").contentEquals("22"));
+        Assert.assertTrue(charmsNativeViewPage.nVReferralPatientCancerIntakeFormHowOldWasParticipantWhenCancerWasDiagnosed.getAttribute("value").contentEquals("22"), "This is Participant Cancer History mismatch data for How old was the research participant when the cancer was diagnosed? for Breast Left: ");
 
-        Assert.assertTrue("This is Participant Cancer History mismatch data for If unknown, please select an age range for Breast Left : ", charmsNativeViewPage.nVReferralPatientCancerIntakeFormIfUnknownSelectAgeRange.getText().contentEquals("-- None --"));
+        Assert.assertTrue(charmsNativeViewPage.nVReferralPatientCancerIntakeFormIfUnknownSelectAgeRange.getText().contentEquals("-- None --"), "This is Participant Cancer History mismatch data for If unknown, please select an age range for Breast Left : ");
 
         charmsNativeViewPage.nVReferralParticipantIntakeFormBackButton.click();
 
@@ -1087,15 +1084,15 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         charmsNativeViewPage.nVReferralPatientIntakeFormPreviewOpenRecordButton.click();
 
         MiscUtils.sleep(3000);
-        Assert.assertTrue("This is Participant Cancer History mismatch data for Cancer Type or Site cancer for Anal Cancer: ", charmsNativeViewPage.nVReferralPatientCancerIntakeFormCancerTypeOrSite.getAttribute("value").contentEquals("Anal cancer"));
+        Assert.assertTrue(charmsNativeViewPage.nVReferralPatientCancerIntakeFormCancerTypeOrSite.getAttribute("value").contentEquals("Anal cancer"), "This is Participant Cancer History mismatch data for Cancer Type or Site cancer for Anal Cancer: ");
 
-        Assert.assertTrue("This is Participant Cancer History mismatch data for Currently being treated for Anal Cancer : ", charmsNativeViewPage.nVReferralPatientCancerIntakeFormCurrentlyBeingTreated.getText().contentEquals("Yes"));
+        Assert.assertTrue(charmsNativeViewPage.nVReferralPatientCancerIntakeFormCurrentlyBeingTreated.getText().contentEquals("Yes"), "This is Participant Cancer History mismatch data for Currently being treated for Anal Cancer : ");
 
-        Assert.assertTrue("This is Participant Cancer History mismatch data for Year of diagnosis for Anal Cancer : ", charmsNativeViewPage.nVReferralPatientCancerIntakeFormYearOfDiagnosis.getAttribute("value").contentEquals("2001"));
+        Assert.assertTrue(charmsNativeViewPage.nVReferralPatientCancerIntakeFormYearOfDiagnosis.getAttribute("value").contentEquals("2001"), "This is Participant Cancer History mismatch data for Year of diagnosis for Anal Cancer : ");
 
-        Assert.assertTrue("This is Participant Cancer History mismatch data for How old was the research participant when the cancer was diagnosed? for Anal Cancer : ", charmsNativeViewPage.nVReferralPatientCancerIntakeFormHowOldWasParticipantWhenCancerWasDiagnosed.getAttribute("value").contentEquals("21"));
+        Assert.assertTrue(charmsNativeViewPage.nVReferralPatientCancerIntakeFormHowOldWasParticipantWhenCancerWasDiagnosed.getAttribute("value").contentEquals("21"), "This is Participant Cancer History mismatch data for How old was the research participant when the cancer was diagnosed? for Anal Cancer : ");
 
-        Assert.assertTrue("This is Participant Cancer History mismatch data for If unknown, please select an age range for Anal Cancer : ", charmsNativeViewPage.nVReferralPatientCancerIntakeFormIfUnknownSelectAgeRange.getText().contentEquals("-- None --"));
+        Assert.assertTrue(charmsNativeViewPage.nVReferralPatientCancerIntakeFormIfUnknownSelectAgeRange.getText().contentEquals("-- None --"), "This is Participant Cancer History mismatch data for If unknown, please select an age range for Anal Cancer : ");
 
         charmsNativeViewPage.nVReferralParticipantIntakeFormBackButton.click();
 
@@ -1106,15 +1103,15 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         charmsNativeViewPage.nVReferralPatientIntakeFormPreviewOpenRecordButton.click();
 
         MiscUtils.sleep(3000);
-        Assert.assertTrue("This is Participant Cancer History mismatch data for Cancer Type or Site cancer for Adrenal Gland: ", charmsNativeViewPage.nVReferralPatientCancerIntakeFormCancerTypeOrSite.getAttribute("value").contentEquals("Adrenal Gland"));
+        Assert.assertTrue(charmsNativeViewPage.nVReferralPatientCancerIntakeFormCancerTypeOrSite.getAttribute("value").contentEquals("Adrenal Gland"), "This is Participant Cancer History mismatch data for Cancer Type or Site cancer for Adrenal Gland: ");
 
-        Assert.assertTrue("This is Participant Cancer History mismatch data for Currently being treated for Adrenal Gland : ", charmsNativeViewPage.nVReferralPatientCancerIntakeFormCurrentlyBeingTreated.getText().contentEquals("Yes"));
+        Assert.assertTrue(charmsNativeViewPage.nVReferralPatientCancerIntakeFormCurrentlyBeingTreated.getText().contentEquals("Yes"), "This is Participant Cancer History mismatch data for Currently being treated for Adrenal Gland : ");
 
-        Assert.assertTrue("This is Participant Cancer History mismatch data for Year of diagnosis for Adrenal Gland : ", charmsNativeViewPage.nVReferralPatientCancerIntakeFormYearOfDiagnosis.getAttribute("value").contentEquals("2000"));
+        Assert.assertTrue(charmsNativeViewPage.nVReferralPatientCancerIntakeFormYearOfDiagnosis.getAttribute("value").contentEquals("2000"), "This is Participant Cancer History mismatch data for Year of diagnosis for Adrenal Gland : ");
 
-        Assert.assertTrue("This is Participant Cancer History mismatch data for How old was the research participant when the cancer was diagnosed? for Adrenal Gland : ", charmsNativeViewPage.nVReferralPatientCancerIntakeFormHowOldWasParticipantWhenCancerWasDiagnosed.getAttribute("value").contentEquals("20"));
+        Assert.assertTrue(charmsNativeViewPage.nVReferralPatientCancerIntakeFormHowOldWasParticipantWhenCancerWasDiagnosed.getAttribute("value").contentEquals("20"), "This is Participant Cancer History mismatch data for How old was the research participant when the cancer was diagnosed? for Adrenal Gland : ");
 
-        Assert.assertTrue("This is Participant Cancer History mismatch data for If unknown, please select an age range for Adrenal Gland : ", charmsNativeViewPage.nVReferralPatientCancerIntakeFormIfUnknownSelectAgeRange.getText().contentEquals("-- None --"));
+        Assert.assertTrue(charmsNativeViewPage.nVReferralPatientCancerIntakeFormIfUnknownSelectAgeRange.getText().contentEquals("-- None --"), "This is Participant Cancer History mismatch data for If unknown, please select an age range for Adrenal Gland : ");
 
         charmsNativeViewPage.nVReferralParticipantIntakeFormBackButton.click();
 
@@ -1165,9 +1162,9 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
                             MiscUtils.sleep(1000);
 
                             MiscUtils.sleep(2000);
-                            Assert.assertTrue("This is Participant Genetic History mismatch data for Test Result? : ", charmsNativeViewPage.nVParticipantGeneticTestResult.getAttribute("value").contentEquals("Positive"));
+                            Assert.assertTrue(charmsNativeViewPage.nVParticipantGeneticTestResult.getAttribute("value").contentEquals("Positive"), "This is Participant Genetic History mismatch data for Test Result? : ");
 
-                            Assert.assertTrue("This is Participant Genetic History mismatch data for Intake Form REFERRAL ID: ", charmsNativeViewPage.nVParticipantGeneticIntakeFormReferralId.getAttribute("value").contentEquals(referralNumber));
+                            Assert.assertTrue(charmsNativeViewPage.nVParticipantGeneticIntakeFormReferralId.getAttribute("value").contentEquals(referralNumber), "This is Participant Genetic History mismatch data for Intake Form REFERRAL ID: ");
 
                             charmsNativeViewPage.nVReferralParticipantIntakeFormBackButton.click();
                             MiscUtils.sleep(2000);
@@ -1186,7 +1183,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     @When("verifies data submitted in Qualtrics is imported as expected in the RAS Referral page of ServiceNow")
     public void verifies_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_RAS_Referral_page_of_ServiceNow() {
 
-        Assert.assertTrue("This is RAS REFERRAL field mismatch data for the auto Populated Referral Number: ", charmsNativeViewPage.nVFamilyMemberDetailsRecordPageReferral.getAttribute("value").contentEquals(referralNumber));
+        Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordPageReferral.getAttribute("value").contentEquals(referralNumber), "This is RAS REFERRAL field mismatch data for the auto Populated Referral Number: ");
 
         charmsNativeViewPage.nVFamilyMemberDetailsRecordPagePreviewReferralRecordButton.click();
         MiscUtils.sleep(3000);
@@ -1196,27 +1193,27 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         charmsNativeViewPage.nVFamilyMemberDetailsRecordPagePreviewReferralRecordIframeOpenRecord.click();
 
         MiscUtils.sleep(1000);
-        Assert.assertTrue("The RAS REFERRAL BAR TITLE NOT DISPLAYED: ", charmsNativeViewPage.nVRasReferralViewPageRASReferralBarTitle.isDisplayed());
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageRASReferralBarTitle.isDisplayed(), "The RAS REFERRAL BAR TITLE NOT DISPLAYED: ");
 
-        Assert.assertTrue("This is a RAS Referaal Page mismatch data for the Does the participant need legal representation?: ", charmsNativeViewPage.nVRasReferralViewPageDoesParticipantNeedLegalRepresentation.getText().contentEquals("Yes"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageDoesParticipantNeedLegalRepresentation.getText().contentEquals("Yes"), "This is a RAS Referaal Page mismatch data for the Does the participant need legal representation?: ");
 
         CommonUtils.assertTrueJUNIT("This is a RAS Referaal Page mismatch data for the Legal Representative Name : ", charmsNativeViewPage.nVRasReferralViewPageLegalRepresentativeName.getAttribute("value").contentEquals("FirstNameTest  MiddleNameTest  lastNameTest"));
 
-        Assert.assertTrue("This is a RAS Referaal Page mismatch data for the What is your relationship to this person?: ", charmsNativeViewPage.nVRasReferralViewPageWhatIsYourRelationshipToThisPerson.getText().contentEquals("Other"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageWhatIsYourRelationshipToThisPerson.getText().contentEquals("Other"), "This is a RAS Referaal Page mismatch data for the What is your relationship to this person?: ");
 
-        Assert.assertTrue("This is a RAS Referaal Page mismatch data for the Are you the legal guardian of this person?: ", charmsNativeViewPage.nVRasReferralViewPageAreYouTheLegalGuardianOfThisPerson.getText().contentEquals("Yes"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageAreYouTheLegalGuardianOfThisPerson.getText().contentEquals("Yes"), "This is a RAS Referaal Page mismatch data for the Are you the legal guardian of this person?: ");
 
-        Assert.assertTrue("This is a RAS Referaal Page mismatch data for thecPlease specify your relationship to the participant : ", charmsNativeViewPage.nVRasReferralViewPagespecifyYourRelationshipToTheParticipant.getAttribute("value").contentEquals(""));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPagespecifyYourRelationshipToTheParticipant.getAttribute("value").contentEquals(""), "This is a RAS Referaal Page mismatch data for thecPlease specify your relationship to the participant : ");
 
-        Assert.assertTrue("This is a RAS Referaal Page mismatch data for the Study : ", charmsNativeViewPage.nVRasReferralViewPageStudy.getAttribute("value").contentEquals("RASopathies"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageStudy.getAttribute("value").contentEquals("RASopathies"), "This is a RAS Referaal Page mismatch data for the Study : ");
 
-        Assert.assertTrue("This is a RAS Referaal Page mismatch data for the Family Member Record:", charmsNativeViewPage.nVRasReferralViewPageFamilyMemberRecord.getAttribute("value").contentEquals("Automated Test"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageFamilyMemberRecord.getAttribute("value").contentEquals("Automated Test"), "This is a RAS Referaal Page mismatch data for the Family Member Record:");
 
-        Assert.assertTrue("This is a RAS Referaal Page mismatch data for the Vital Status: ", charmsNativeViewPage.nVRasReferralViewPageVitalStatus.getText().contentEquals("Alive"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageVitalStatus.getText().contentEquals("Alive"), "This is a RAS Referaal Page mismatch data for the Vital Status: ");
 
-        Assert.assertTrue("This is a RAS Referaal Page mismatch data for the Eligibility Status : ", charmsNativeViewPage.nVRasReferralViewPageEligibilityStatus.getText().contentEquals("Waiting for Eligibility"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageEligibilityStatus.getText().contentEquals("Waiting for Eligibility"), "This is a RAS Referaal Page mismatch data for the Eligibility Status : ");
 
-        Assert.assertTrue("This is a RAS Referaal Page mismatch data for the Enrollment Status : ", charmsNativeViewPage.nVRasReferralViewPageEnrollmentStatus.getText().contentEquals("New Screener Received"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageEnrollmentStatus.getText().contentEquals("New Screener Received"), "This is a RAS Referaal Page mismatch data for the Enrollment Status : ");
 
     }
 
@@ -1226,23 +1223,23 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
 
         charmsNativeViewPage.nVRasReferralViewPageContactInformationTab.click();
         MiscUtils.sleep(3000);
-        Assert.assertTrue("This is the Contact Info tab --> Contact Email mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactEmail.getAttribute("value").contentEquals("automatedTest@nci.gov"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactEmail.getAttribute("value").contentEquals("automatedTest@nci.gov"), "This is the Contact Info tab --> Contact Email mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the Contact Info tab --> Contact Home Phone mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactHomePhone.getAttribute("value").contentEquals("703-687-5816"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactHomePhone.getAttribute("value").contentEquals("703-687-5816"), "This is the Contact Info tab --> Contact Home Phone mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the Contact Info tab --> Contact Cell Phone mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactCellPhone.getAttribute("value").contentEquals("703-687-5816"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactCellPhone.getAttribute("value").contentEquals("703-687-5816"), "This is the Contact Info tab --> Contact Cell Phone mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the Contact Info tab --> Contact Work Phone mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactWorkPhone.getAttribute("value").contentEquals("703-687-5816"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactWorkPhone.getAttribute("value").contentEquals("703-687-5816"), "This is the Contact Info tab --> Contact Work Phone mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the Contact Info tab --> Country of Birth mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageContactInformationTabCountryOfBirth.getText().contentEquals("-- None --"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageContactInformationTabCountryOfBirth.getText().contentEquals("-- None --"), "This is the Contact Info tab --> Country of Birth mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the Contact Info tab --> Contact Street Address mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactStreetAddress.getAttribute("value").contentEquals("9609 Medical Center Dr New Avenue Park"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactStreetAddress.getAttribute("value").contentEquals("9609 Medical Center Dr New Avenue Park"), "This is the Contact Info tab --> Contact Street Address mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the Contact Info tab --> Contact City mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactCity.getAttribute("value").contentEquals("Rockville"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactCity.getAttribute("value").contentEquals("Rockville"), "This is the Contact Info tab --> Contact City mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the Contact Info tab --> Contact State mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactState.getAttribute("value").contentEquals("Maryland "));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactState.getAttribute("value").contentEquals("Maryland "), "This is the Contact Info tab --> Contact State mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the Contact Info tab --> Contact ZipCode mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactZipCode.getAttribute("value").contentEquals("20850"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactZipCode.getAttribute("value").contentEquals("20850"), "This is the Contact Info tab --> Contact ZipCode mismatch for the Referral Submitted in the Referral page : ");
 
     }
 
@@ -1252,15 +1249,15 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
 
         charmsNativeViewPage.nVRasReferralViewPageDemographicsTab.click();
         MiscUtils.sleep(3000);
-        Assert.assertTrue("This is the Demographics tab -- > Participant Race mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageDemographicsTabParticipantRace.getText().contentEquals("Caucasian (white), Black/African American, Native Hawaiian/Other Pacific Islander, American Indian/Alaskan Native, Asian, Other"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageDemographicsTabParticipantRace.getText().contentEquals("Caucasian (white), Black/African American, Native Hawaiian/Other Pacific Islander, American Indian/Alaskan Native, Asian, Other"), "This is the Demographics tab -- > Participant Race mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the Demographics tab -- > Other mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageDemographicsTabOther.getAttribute("value").contentEquals("Entering other Race"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageDemographicsTabOther.getAttribute("value").contentEquals("Entering other Race"), "This is the Demographics tab -- > Other mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the Demographics tab -- > Biological Gender mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageDemographicsTabBiologicalGender.getText().contentEquals("Male"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageDemographicsTabBiologicalGender.getText().contentEquals("Male"), "This is the Demographics tab -- > Biological Gender mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the Demographics tab -- > Date of Birth mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageDemographicsTabDateOfBirth.getAttribute("value").contentEquals("04/01/1990"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageDemographicsTabDateOfBirth.getAttribute("value").contentEquals("04/01/1990"), "This is the Demographics tab -- > Date of Birth mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the Demographics tab -- > Ethnicity mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageDemographicsTabEthnicity.getText().contentEquals("Not Hispanic/Latino"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageDemographicsTabEthnicity.getText().contentEquals("Not Hispanic/Latino"), "This is the Demographics tab -- > Ethnicity mismatch for the Referral Submitted in the Referral page : ");
 
     }
 
@@ -1270,21 +1267,21 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
 
         charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTab.click();
         MiscUtils.sleep(3000);
-        Assert.assertTrue("This is the RASopathy History tab -- > Have you been diagnosed with a RASopathy? mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabHaveYouBeenDiagnosedWithRASopathy.getText().contentEquals("Yes"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabHaveYouBeenDiagnosedWithRASopathy.getText().contentEquals("Yes"), "This is the RASopathy History tab -- > Have you been diagnosed with a RASopathy? mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the RASopathy History tab -- > RASopathy diagnosis mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabRASopathyDiagnosis.getText().contentEquals("Other"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabRASopathyDiagnosis.getText().contentEquals("Other"), "This is the RASopathy History tab -- > RASopathy diagnosis mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the RASopathy History tab -- > Please specify mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabASopathyDiagnosisPleaseSpecify.getAttribute("value").contentEquals(" Entering Other RASopathy"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabASopathyDiagnosisPleaseSpecify.getAttribute("value").contentEquals(" Entering Other RASopathy"), "This is the RASopathy History tab -- > Please specify mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the RASopathy History tab -- > Age (in years) at diagnosis : ", charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabAgeInYearsAtDiagnosis.getAttribute("value").contentEquals("20"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabAgeInYearsAtDiagnosis.getAttribute("value").contentEquals("20"), "This is the RASopathy History tab -- > Age (in years) at diagnosis : ");
 
-        Assert.assertTrue("This is the RASopathy History tab -- > Year of diagnosis mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabYearOfDiagnosis.getAttribute("value").contentEquals("2010"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabYearOfDiagnosis.getAttribute("value").contentEquals("2010"), "This is the RASopathy History tab -- > Year of diagnosis mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the RASopathy History tab -- > Has the participant been diagnosed with any of the following Conditions? mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabHasParticipantBeenDiagnosedWithAnyOfTheFollowingConditions.getText().contentEquals("Feeding problems or failure to thrive, Neurocognitive/ Developmental Delay such as: Intellectual disability and language impairment, Skeletal deformities such as: Short stature, short webbed neck, unusual chest shape, curved spine, muscle or joint problems, limb overgrowth, Head/Craniofacial Abnormalities such as: Large head, broad or high forehead, short nose, small chin, swelling or bleeding of the gums, abnormal shape or movement of teeth, Eye/Ear abnormalities such as: Widely spaced eyes, eye diseases, droopy eye lids, sparse/absent eye lashes/eyebrows, low set ears, hearing loss, Skin/hair abnormalities such as: soft loose skin, fine/thin/thick/dry/brittle/curly hair, slow growing hair, tumors or small skin tags near the nose or anus, lipomas, light to dark brown birth marks (cafe au lait spots), freckles in the armpits, Heart problems such as cardiomyopathy, Genital abnormalities such as undescended testes, Other: such as endocrine issues, bleeding disorders, seizures, Non-cancerous tumors, Lymphedema"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabHasParticipantBeenDiagnosedWithAnyOfTheFollowingConditions.getText().contentEquals("Feeding problems or failure to thrive, Neurocognitive/ Developmental Delay such as: Intellectual disability and language impairment, Skeletal deformities such as: Short stature, short webbed neck, unusual chest shape, curved spine, muscle or joint problems, limb overgrowth, Head/Craniofacial Abnormalities such as: Large head, broad or high forehead, short nose, small chin, swelling or bleeding of the gums, abnormal shape or movement of teeth, Eye/Ear abnormalities such as: Widely spaced eyes, eye diseases, droopy eye lids, sparse/absent eye lashes/eyebrows, low set ears, hearing loss, Skin/hair abnormalities such as: soft loose skin, fine/thin/thick/dry/brittle/curly hair, slow growing hair, tumors or small skin tags near the nose or anus, lipomas, light to dark brown birth marks (cafe au lait spots), freckles in the armpits, Heart problems such as cardiomyopathy, Genital abnormalities such as undescended testes, Other: such as endocrine issues, bleeding disorders, seizures, Non-cancerous tumors, Lymphedema"), "This is the RASopathy History tab -- > Has the participant been diagnosed with any of the following Conditions? mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the RASopathy History tab -- > Other conditions mismatch for the Referral Submitted in the Referral page :  ", charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabOtherConditions.getAttribute("value").contentEquals(""));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabOtherConditions.getAttribute("value").contentEquals(""), "This is the RASopathy History tab -- > Other conditions mismatch for the Referral Submitted in the Referral page :  ");
 
-        Assert.assertTrue("This is the RASopathy History tab -- > Have any of your biological relatives been diagnosed with a RASopathy? mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabHaveAnyOfYourBiologicalRelativesBeenDiagnosedWithRASopathy.getText().contentEquals("No info on biological relatives"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabHaveAnyOfYourBiologicalRelativesBeenDiagnosedWithRASopathy.getText().contentEquals("No info on biological relatives"), "This is the RASopathy History tab -- > Have any of your biological relatives been diagnosed with a RASopathy? mismatch for the Referral Submitted in the Referral page : ");
 
     }
 
@@ -1294,7 +1291,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
 
         charmsNativeViewPage.nVRasReferralViewPageCancerHistoryTab.click();
         MiscUtils.sleep(3000);
-        Assert.assertTrue("This is the Cancer History tab -- > Has a physician ever diagnosed this participant with cancer? mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageCancerHistoryTabHasPhysicianEverDiagnosedParticipantWithCancer.getText().contentEquals("Yes"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageCancerHistoryTabHasPhysicianEverDiagnosedParticipantWithCancer.getText().contentEquals("Yes"), "This is the Cancer History tab -- > Has a physician ever diagnosed this participant with cancer? mismatch for the Referral Submitted in the Referral page : ");
 
     }
 
@@ -1303,13 +1300,13 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void verifies_Genetic_Testing_History_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_RAS_Referral_page_of_ServiceNow() {
         charmsNativeViewPage.nVRasReferralViewPageGeneticTestingHistoryTab.click();
 
-        Assert.assertTrue("This is the Genetic Testing History tab -- > Has the participant ever had genetic testing? mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageGeneticTestingHistoryTabHasParticipantEverHadGeneticTesting.getText().contentEquals("Yes"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageGeneticTestingHistoryTabHasParticipantEverHadGeneticTesting.getText().contentEquals("Yes"), "This is the Genetic Testing History tab -- > Has the participant ever had genetic testing? mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the Genetic Testing History tab -- > Does the participant have a copy of the genetic test results? mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageGeneticTestingHistoryTabDoesParticipantHaveCopyOfGeneticTestResults.getText().contentEquals("No"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageGeneticTestingHistoryTabDoesParticipantHaveCopyOfGeneticTestResults.getText().contentEquals("No"), "This is the Genetic Testing History tab -- > Does the participant have a copy of the genetic test results? mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the Genetic Testing History tab -- > Participants preferred method of delivering genetic test results mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageGeneticTestingHistoryTabParticipantPreferredMethodOfDeliveringGeneticTestResults.getText().contentEquals("Not answered"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageGeneticTestingHistoryTabParticipantPreferredMethodOfDeliveringGeneticTestResults.getText().contentEquals("Not answered"), "This is the Genetic Testing History tab -- > Participants preferred method of delivering genetic test results mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the Genetic Testing History tab -- > Have any relatives been genetically tested for inherited cancer syndromes? mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageGeneticTestingHistoryTabHaveAnyRelativesBeenGeneticallyTestedFoInheritedCancerSyndromes.getText().contentEquals("Not answered"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageGeneticTestingHistoryTabHaveAnyRelativesBeenGeneticallyTestedFoInheritedCancerSyndromes.getText().contentEquals("Not answered"), "This is the Genetic Testing History tab -- > Have any relatives been genetically tested for inherited cancer syndromes? mismatch for the Referral Submitted in the Referral page : ");
 
     }
 
@@ -1319,30 +1316,30 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
 
         charmsNativeViewPage.nVRasReferralViewPageFinalInformationTab.click();
         MiscUtils.sleep(3000);
-        Assert.assertTrue("This is the Final Information tab -- > How did you hear about this study? mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabHowDidYouHearAboutThisStudy.getText().contentEquals("Other"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabHowDidYouHearAboutThisStudy.getText().contentEquals("Other"), "This is the Final Information tab -- > How did you hear about this study? mismatch for the Referral Submitted in the Referral page : ");
 
         /*
          * RETEST BELOW BUG
          */
-        Assert.assertTrue("This is the Final Information tab -- > Please specify ? mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabPleaseSpecify.getAttribute("value").contentEquals(""));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabPleaseSpecify.getAttribute("value").contentEquals(""), "This is the Final Information tab -- > Please specify ? mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the Final Information tab -- > Has the participant or any family member participated in any cancer study? mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabHasParticipantOrAnyFamilyMemberParticipatedInAnyCancerStudy.getText().contentEquals("Not answered"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabHasParticipantOrAnyFamilyMemberParticipatedInAnyCancerStudy.getText().contentEquals("Not answered"), "This is the Final Information tab -- > Has the participant or any family member participated in any cancer study? mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the Final Information tab -- > Are any relatives currently receiving cancer care or follow-up? mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabAreAnyRelativesCurrentlyReceivingCancerCareOrFollowUp.getText().contentEquals("Not answered"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabAreAnyRelativesCurrentlyReceivingCancerCareOrFollowUp.getText().contentEquals("Not answered"), "This is the Final Information tab -- > Are any relatives currently receiving cancer care or follow-up? mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the Final Information tab -- > Main reasons for participating in this study? Select all that apply mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabMainReasonsForParticipatingInThisStudy.getText().contentEquals("Participate in research, Identify a diagnosis, Receive genetic testing, Other"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabMainReasonsForParticipatingInThisStudy.getText().contentEquals("Participate in research, Identify a diagnosis, Receive genetic testing, Other"), "This is the Final Information tab -- > Main reasons for participating in this study? Select all that apply mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the Final Information tab -- > Identify a diagnosis mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabIdentifyDiagnosis.getAttribute("value").contentEquals("Reason two"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabIdentifyDiagnosis.getAttribute("value").contentEquals("Reason two"), "This is the Final Information tab -- > Identify a diagnosis mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the Final Information tab -- > Receive genetic testing mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabReceiveGeneticTesting.getAttribute("value").contentEquals("Reason three"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabReceiveGeneticTesting.getAttribute("value").contentEquals("Reason three"), "This is the Final Information tab -- > Receive genetic testing mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the Final Information tab -- > Participate in research mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabParticipateInResearch.getAttribute("value").contentEquals("Reason one"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabParticipateInResearch.getAttribute("value").contentEquals("Reason one"), "This is the Final Information tab -- > Participate in research mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the Final Information tab -- > Other mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabOther.getAttribute("value").contentEquals("Reason four"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabOther.getAttribute("value").contentEquals("Reason four"), "This is the Final Information tab -- > Other mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the Final Information tab -- > Are you a participant in any other research study or registry group? mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabAreYouParticipantInAnyOtherResearchStudyOrRegistryGroup.getText().contentEquals("Other"));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabAreYouParticipantInAnyOtherResearchStudyOrRegistryGroup.getText().contentEquals("Other"), "This is the Final Information tab -- > Are you a participant in any other research study or registry group? mismatch for the Referral Submitted in the Referral page : ");
 
-        Assert.assertTrue("This is the Final Information tab -- > Comments mismatch for the Referral Submitted in the Referral page : ", charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabComments.getAttribute("value").contentEquals(""));
+        Assert.assertTrue(charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabComments.getAttribute("value").contentEquals(""), "This is the Final Information tab -- > Comments mismatch for the Referral Submitted in the Referral page : ");
 
     }
 
@@ -1778,7 +1775,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         cgbIIQPage.cgbIIQOneTimeEmailTextBox.sendKeys("charmsras5@yahoo.com");
         cgbIIQPage.cgbIIQOneTimePinTextBox.sendKeys(cgbIIQOneTimePin);
 
-        CucumberLogUtils.logScreenShot();
+
         JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 
         /** DEBUG HERE --------- ISSUE WAS FOUND TEST CASE WILL BE UPDATED */

@@ -5,8 +5,9 @@ import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
 
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class InformationSteps extends PageInitializer {
 
@@ -18,7 +19,7 @@ public class InformationSteps extends PageInitializer {
 
 	@Then("API Acess page displays")
 	public void api_Acess_page_displays() {
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("API Acess page displays {string} heading")
@@ -39,7 +40,7 @@ public class InformationSteps extends PageInitializer {
 
 	@Then("user goes to source code from About page")
 	public void user_goes_to_source_code_from_About_page() {
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("user clicks on source code")
@@ -49,7 +50,7 @@ public class InformationSteps extends PageInitializer {
 
 	@Then("user goes to PLCO source code on github")
 	public void user_goes_to_PLCO_source_code_on_github() {
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("user clicks explore on GWAS results")

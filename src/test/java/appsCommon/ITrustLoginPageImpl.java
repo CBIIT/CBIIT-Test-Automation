@@ -45,7 +45,14 @@ public class ITrustLoginPageImpl extends PageInitializer {
 		iTrustloginPage.clickSignInButton();
 		MiscUtils.sleep(500);
 	}
-
+	public void elizabethiTrustLogin() throws TestingException {
+		MiscUtils.sleep(2000);
+		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "andreyeveUsername");
+		iTrustloginPage.enterPassword("andreyevePassword");
+		// CucumberLogUtils.logScreenShot();
+		iTrustloginPage.clickSignInButton();
+		MiscUtils.sleep(500);
+	}
 	public void loginToNativeViewSideDoor() {
 		MiscUtils.sleep(2000);
 		WebDriverUtils.webDriver.switchTo().frame(0);

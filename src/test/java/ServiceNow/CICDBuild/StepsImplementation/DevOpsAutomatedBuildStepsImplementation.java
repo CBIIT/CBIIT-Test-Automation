@@ -1,6 +1,8 @@
 package ServiceNow.CICDBuild.StepsImplementation;
 
 import java.util.List;
+
+import ServiceNow.CICDBuild.Steps.HooksSteps;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -36,7 +38,7 @@ public class DevOpsAutomatedBuildStepsImplementation extends PageInitializer {
 		//WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='user_info_dropdown']")).click();
 		//MiscUtils.sleep(2000);
 		//WebDriverUtils.webDriver.findElement(By.xpath("//*[@href='logout.do']")).click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	public void selectingApplicationAsDeploymentType(String application) {

@@ -9,9 +9,9 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class NativeViewGroupingsVerificationSteps extends PageInitializer {
 
@@ -82,7 +82,7 @@ public class NativeViewGroupingsVerificationSteps extends PageInitializer {
 	public void a_COVIDCode_Enrollments_table_with_a_list_of_records_displays() {
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Assert.assertEquals("COVIDcode Enrollments",
 				nativeViewEnrollementsPage.covidCodeEnrollmentsContextMenuLink.getText());
 		WebDriverUtils.webDriver.switchTo().defaultContent();
@@ -98,7 +98,7 @@ public class NativeViewGroupingsVerificationSteps extends PageInitializer {
 	public void a_Disease_Course_table_with_a_list_of_records_displays() {
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Assert.assertEquals("Disease Courses", nativeViewEnrollementsPage.diseaseCoursesContextMenuLink.getText());
 		WebDriverUtils.webDriver.switchTo().defaultContent();
 	}
@@ -113,7 +113,7 @@ public class NativeViewGroupingsVerificationSteps extends PageInitializer {
 	public void a_COVIDCode_Follow_Ups_table_with_a_list_of_records_displays() {
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Assert.assertEquals("COVIDcode Follow Ups", nativeViewEnrollementsPage.followUpsContextMenuLink.getText());
 		WebDriverUtils.webDriver.switchTo().defaultContent();
 	}
@@ -128,7 +128,7 @@ public class NativeViewGroupingsVerificationSteps extends PageInitializer {
 	public void a_COVIDCode_Dashboard_table_with_a_list_of_records_displays() {
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Assert.assertEquals("COVIDcode Dashboard",
 				nativeViewEnrollementsPage.covidCodeDashboardContextMenuLink.getText());
 		WebDriverUtils.webDriver.switchTo().defaultContent();
@@ -140,10 +140,10 @@ public class NativeViewGroupingsVerificationSteps extends PageInitializer {
 		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.filterNavigator);
 		nativeViewEnrollementsPage.filterNavigator.sendKeys("CovidCode App");
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.nativeViewPanelNavigatorSpecimensLink);
 		nativeViewEnrollementsPage.nativeViewPanelNavigatorSpecimensLink.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
 		MiscUtils.sleep(1000);
 	}
@@ -155,17 +155,17 @@ public class NativeViewGroupingsVerificationSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		nativeViewEnrollementsPage.specimensOpenRecordButton.click();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("for Specimens records, a new field option for the Sample Outcome drop down {string} displays")
 	public void for_Specimens_records_a_new_field_option_for_the_Sample_Outcome_drop_down_displays(String hold) {
 		CommonUtils.selectDropDownValue(hold, nativeViewEnrollementsPage.specimensSampleOutcomeDD);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		MiscUtils.sleep(2000);
 		Assert.assertTrue(nativeViewEnrollementsPage.specimensSampleOutcomeDD.getText().contains(hold));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Given("a COVIDcode user is logs into native view")
@@ -204,7 +204,7 @@ public class NativeViewGroupingsVerificationSteps extends PageInitializer {
 		String selectedValue = s.getFirstSelectedOption().getText();
 		Assert.assertTrue(selectedValue.contentEquals(group));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Given("a COVIDcode User is on the Follow Up form")
@@ -218,7 +218,7 @@ public class NativeViewGroupingsVerificationSteps extends PageInitializer {
 		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.covidCodeEnrollmentsNewButton);
 		nativeViewEnrollementsPage.covidCodeEnrollmentsNewButton.click();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("navigating to the Symptomology tab")
@@ -227,7 +227,7 @@ public class NativeViewGroupingsVerificationSteps extends PageInitializer {
 		JavascriptUtils.scrollIntoView(nativeViewEnrollmentViewPage.nativeViewFollowUpSymptomologyTab);
 		nativeViewEnrollmentViewPage.nativeViewFollowUpSymptomologyTab.click();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 	}
 
@@ -244,7 +244,7 @@ public class NativeViewGroupingsVerificationSteps extends PageInitializer {
 		Assert.assertTrue(nativeViewEnrollmentViewPage.nativeViewFollowUpSymptomologyHaveYouOfficiallyBeenDiagnosedText
 				.getText().contentEquals(dateOfficiallyDiagnosed));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("when selecting {string} to Were you symptomatic?")
@@ -252,7 +252,7 @@ public class NativeViewGroupingsVerificationSteps extends PageInitializer {
 		CommonUtils.selectDropDownValue(yes,
 				nativeViewEnrollmentViewPage.nativeViewFollowUpSymptomologyWereYouSymptomaticDD);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("when did you first develop symptoms of COVID{int}? date picker displays")
@@ -261,7 +261,7 @@ public class NativeViewGroupingsVerificationSteps extends PageInitializer {
 				nativeViewEnrollmentViewPage.nativeViewFollowUpSymptomologyWhenDidYouFirstDevelopSymptomsTextLabel
 						.getText().contentEquals("When did you first develop symptoms of COVID-19?"));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 }

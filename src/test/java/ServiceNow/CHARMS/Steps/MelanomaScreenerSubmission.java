@@ -9,9 +9,10 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.When;
-import cucumber.api.junit.Cucumber;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+//import cucumber.api.junit.Cucumber;
 
 public class MelanomaScreenerSubmission extends PageInitializer {
 
@@ -31,7 +32,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
         oktaLoginPage.usernameTxtBox.sendKeys(username);
         oktaLoginPage.passwordTxtBox.sendKeys(password);
         CommonUtils.waitForVisibility(oktaLoginPage.loginBtn);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         oktaLoginPage.loginBtn.click();
 
         MiscUtils.sleep(1000);
@@ -42,7 +43,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
     @When("clicks on Eligibility Questionnaire")
     public void clicks_on_Eligibility_Questionnaire() {
 
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaHomePage.melanomaEligibilityQuestionnaire.click();
 
     }
@@ -56,24 +57,24 @@ public class MelanomaScreenerSubmission extends PageInitializer {
         }
 
         MiscUtils.sleep(1000);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         JavascriptUtils.scrollIntoView(melanomaQuestionnairePage.studyNextButton);
         CommonUtils.waitForVisibility(melanomaQuestionnairePage.studyNextButton);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         MiscUtils.sleep(2000);
         melanomaQuestionnairePage.studyNextButton.click();
 
         MiscUtils.sleep(1000);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         JavascriptUtils.scrollIntoView(melanomaQuestionnairePage.studyNextButton);
         CommonUtils.waitForVisibility(melanomaQuestionnairePage.studyNextButton);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         MiscUtils.sleep(2000);
         melanomaQuestionnairePage.studyNextButton.click();
 
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.iAmCompletingThisFormForMyselfOption.click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         rasopathyQuestionnairePage.studyNextButton.click();
 
     }
@@ -87,10 +88,10 @@ public class MelanomaScreenerSubmission extends PageInitializer {
         melanomaQuestionnairePage.firstNameTextBox.sendKeys(firstName);
         melanomaQuestionnairePage.middleNameTextBox.sendKeys(middleName);
         melanomaQuestionnairePage.lastNameTextBox.sendKeys(lastName);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
         MiscUtils.sleep(1000);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
     }
 
@@ -100,7 +101,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(melanomaQuestionnairePage.dateOfBirthTextBox);
         melanomaQuestionnairePage.dateOfBirthTextBox.sendKeys(dateOfBirth);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
     }
 
@@ -109,7 +110,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
 
         MiscUtils.sleep(1000);
         melanomaQuestionnairePage.sexFemaleOptionAssignedAtBirth.click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
     }
 
@@ -119,7 +120,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
         MiscUtils.sleep(1500);
         CommonUtils.waitForVisibility(melanomaQuestionnairePage.isParticipantAdoptedYesOption);
         melanomaQuestionnairePage.isParticipantAdoptedYesOption.click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
     }
 
@@ -130,7 +131,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
         CommonUtils.waitForVisibility(melanomaQuestionnairePage.whatCountryDoesParticipantCurrentlyLiveInDropDown);
         CommonUtils.selectDropDownValue("United States of America",
                 melanomaQuestionnairePage.whatCountryDoesParticipantCurrentlyLiveInDropDown);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
     }
 
@@ -144,7 +145,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
         melanomaQuestionnairePage.addressForStudyMaterialsToBeSentCityTextBox.sendKeys(city);
         melanomaQuestionnairePage.addressForStudyMaterialsToBeSentStateTextBox.sendKeys(state);
         melanomaQuestionnairePage.addressForStudyMaterialsToBeSentZipCodeTextBox.sendKeys(zipCode);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
     }
 
@@ -154,7 +155,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(melanomaQuestionnairePage.whatIsYourEmailAddressTextBox);
         melanomaQuestionnairePage.whatIsYourEmailAddressTextBox.sendKeys(emailAddress);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
     }
 
@@ -164,7 +165,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(melanomaQuestionnairePage.pleaseConfirmYourEmailAddressTextBox);
         melanomaQuestionnairePage.pleaseConfirmYourEmailAddressTextBox.sendKeys(emailAddress);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
 
     }
@@ -178,7 +179,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
         rasopathyQuestionnairePage.pleaseListCellPhoneNumberTextBox.sendKeys(cellPhoneNumber);
         rasopathyQuestionnairePage.pleaseListWorkPhoneNumberTextBox.sendKeys(workPhoneNumber);
         rasopathyQuestionnairePage.pleaseSelectCellPhonePreferredContactCheckBox.click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -188,7 +189,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(melanomaQuestionnairePage.authenticityOfParticipantHispanicLatinoOption);
         melanomaQuestionnairePage.authenticityOfParticipantHispanicLatinoOption.click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
     }
 
@@ -197,7 +198,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(melanomaQuestionnairePage.biologicalMothersEthnicityHispanicLatinoOption);
         melanomaQuestionnairePage.biologicalMothersEthnicityHispanicLatinoOption.click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
 
     }
@@ -207,7 +208,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(melanomaQuestionnairePage.biologicalFathersEthnicityHispanicLatinoOption);
         melanomaQuestionnairePage.biologicalFathersEthnicityHispanicLatinoOption.click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
 
     }
@@ -218,7 +219,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
         MiscUtils.sleep(1500);
         CommonUtils.waitForVisibility(melanomaQuestionnairePage.raceOfParticipantOtherTextBox);
         melanomaQuestionnairePage.raceOfParticipantWhite.click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
 
     }
@@ -229,7 +230,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(melanomaQuestionnairePage.raceOfParticipantOtherTextBox);
         melanomaQuestionnairePage.raceOfParticipantWhite.click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
     }
 
@@ -238,7 +239,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(melanomaQuestionnairePage.raceOfParticipantOtherTextBox);
         melanomaQuestionnairePage.raceOfParticipantWhite.click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
     }
 
@@ -248,7 +249,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
         CommonUtils.waitForVisibility(melanomaQuestionnairePage.famililialMelanomaStudyOption);
         // JavascriptUtils.clearByJS(melanomaQuestionnairePage.famililialMelanomaStudyOption);
         melanomaQuestionnairePage.famililialMelanomaStudyOption.click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
     }
 
@@ -256,11 +257,11 @@ public class MelanomaScreenerSubmission extends PageInitializer {
     public void selects_Yes_to_Have_you_been_diagnosed_with_a_melanoma_or_a_Spitz_tumor() {
 
         MiscUtils.sleep(1000);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
         MiscUtils.sleep(1000);
         melanomaQuestionnairePage.haveYouBeenDiagnosedWithMelanomaOrSpitzTumorYesOption.click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
     }
 
@@ -275,7 +276,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
                 .sendKeys(nameOfInstitution);
         melanomaQuestionnairePage.melanomaOrSpitzTumorNameOfPhysicianWhoPerformedBiopsyTextBox
                 .sendKeys(nameOfPhysician);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
 
     }
@@ -285,7 +286,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
 
         MiscUtils.sleep(1000);
         melanomaQuestionnairePage.haveYouEverBeenDiagnosedWithNonMelanomaCancerYesOption.click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
 
     }
@@ -307,11 +308,11 @@ public class MelanomaScreenerSubmission extends PageInitializer {
         melanomaQuestionnairePage.pleaseCompletePrimaryNonMelanomaCancersYouWereDiagnosedCurrentlyReceivingTreatmentYesOption
                 .click();
 
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
         melanomaQuestionnairePage.studyNextButton.click();
         MiscUtils.sleep(1000);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
 
     }
@@ -321,7 +322,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
 
         MiscUtils.sleep(1000);
         melanomaQuestionnairePage.haveYouEverHadGeneticTestingYesOption.click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
 
     }
@@ -331,7 +332,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
 
         MiscUtils.sleep(2000);
         melanomaQuestionnairePage.geneticChangesDetectedBAP1_Option.click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         JavascriptUtils.scrollIntoView(melanomaQuestionnairePage.studyNextButton);
         melanomaQuestionnairePage.studyNextButton.click();
 
@@ -341,7 +342,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
     public void selects_Yes_to_Do_you_have_a_copy_of_the_genetic_test_results() {
         MiscUtils.sleep(1000);
         melanomaQuestionnairePage.doYouHaveACopyOfGeneticTestResultsYesOption.click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
 
     }
@@ -351,11 +352,11 @@ public class MelanomaScreenerSubmission extends PageInitializer {
 
         MiscUtils.sleep(1000);
         melanomaQuestionnairePage.howWouldYouLikeToProvideGeneticTestResultsMailOption.click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
         MiscUtils.sleep(2000);
         JavascriptUtils.scrollIntoView(melanomaQuestionnairePage.studyNextButton);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
 
     }
@@ -364,7 +365,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
     public void selects_Yes_option_for_Have_any_of_your_biological_relatives_been_diagnosed_with_a_melanoma() {
         MiscUtils.sleep(1000);
         melanomaQuestionnairePage.haveAnyOfBiologicalRelativesBeenDiagnosedWithMelanomaYesOption.click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
     }
 
@@ -388,7 +389,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
         CommonUtils.selectDropDownValue("Maternal",
                 melanomaQuestionnairePage.indicateOriginalMelanomaLastMelanomaSideOfTheFamilyDropDown);
 
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
         melanomaQuestionnairePage.studyNextButton.click();
     }
@@ -397,7 +398,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
     public void selects_Yes_for_Have_any_of_your_biological_relatives_ever_had_genetic_testing() {
         MiscUtils.sleep(1000);
         melanomaQuestionnairePage.haveAnyOfYourBiologicalRelativesEverHadGeneticTestingYesOption.click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
     }
 
@@ -406,10 +407,10 @@ public class MelanomaScreenerSubmission extends PageInitializer {
 
         MiscUtils.sleep(1000);
         melanomaQuestionnairePage.wereAnyGeneticChangesDetectedForTheFollowingGenesBAP1Option.click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         JavascriptUtils.scrollIntoView(melanomaQuestionnairePage.studyNextButton);
         melanomaQuestionnairePage.studyNextButton.click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         MiscUtils.sleep(1000);
         melanomaQuestionnairePage.studyNextButton.click();
 
@@ -419,7 +420,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
     public void selects_Websearch_for_How_did_you_hear_about_this_study() {
         MiscUtils.sleep(1000);
         melanomaQuestionnairePage.howDidYouHearAboutThisStudyWebSearchOption.click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
 
     }
@@ -428,7 +429,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
     public void selects_Yes_to_Have_you_or_other_family_members_ever_participated_in_another_study_on_melanoma_at_another_medical_institution_university_government_agency_or_other_site() {
         MiscUtils.sleep(1000);
         melanomaQuestionnairePage.haveYouOrOtherFamilyMembersEverParticipatedInAnotherStudyOnMelanomaYesOption.click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
 
     }
@@ -447,7 +448,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
         melanomaQuestionnairePage.startYearTextBox.sendKeys(startYear);
         melanomaQuestionnairePage.endYearTextBox.sendKeys(endYear);
         melanomaQuestionnairePage.institutionTextBox.sendKeys(institution);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
 
     }
@@ -459,7 +460,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
         melanomaQuestionnairePage.participateInResearchCheckBox.click();
         melanomaQuestionnairePage.participateInResearchTextBox.sendKeys(
                 reason);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
     }
 
@@ -467,7 +468,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
     public void submits_Melanoma_Screener() throws TestingException {
         MiscUtils.sleep(1000);
         JavascriptUtils.scrollIntoView(melanomaQuestionnairePage.studyNextButton);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
 
         /** LOGGING OUT */
@@ -477,7 +478,7 @@ public class MelanomaScreenerSubmission extends PageInitializer {
         CommonUtils.waitForVisibility(testAccountResetPage.nativeViewCCButton);
         testAccountResetPage.nativeViewCCButton.click();
         CommonUtils.waitForVisibility(testAccountResetPage.nativeViewCCLogOutButton);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         testAccountResetPage.nativeViewCCLogOutButton.click();
 
     }
@@ -492,25 +493,25 @@ public class MelanomaScreenerSubmission extends PageInitializer {
         }
 
         MiscUtils.sleep(1000);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         JavascriptUtils.scrollIntoView(melanomaQuestionnairePage.studyNextButton);
         CommonUtils.waitForVisibility(melanomaQuestionnairePage.studyNextButton);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         MiscUtils.sleep(2000);
         melanomaQuestionnairePage.studyNextButton.click();
 
         MiscUtils.sleep(1000);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         JavascriptUtils.scrollIntoView(melanomaQuestionnairePage.studyNextButton);
         CommonUtils.waitForVisibility(melanomaQuestionnairePage.studyNextButton);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         MiscUtils.sleep(2000);
         melanomaQuestionnairePage.studyNextButton.click();
 
         MiscUtils.sleep(1000);
 
         melanomaQuestionnairePage.iAmCompletingThisFormForSomeoneElseOption.click();
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         melanomaQuestionnairePage.studyNextButton.click();
 
     }

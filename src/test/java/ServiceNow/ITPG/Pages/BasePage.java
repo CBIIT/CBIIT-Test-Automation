@@ -227,10 +227,10 @@ public class BasePage {
 			return;
 		}
 		byte[] screenshot = ((TakesScreenshot) WebDriverUtils.getWebDriver()).getScreenshotAs(OutputType.BYTES);
-		ScenarioContext.scenario.get().write(DateUtils.getLogTime() + ": Screenshot: " + fileName);
+//		ScenarioContext.scenario.get().write(DateUtils.getLogTime() + ": Screenshot: " + fileName);
 		if (ScenarioContext.isTakeScreenShots()) {
 			try {
-				ScenarioContext.scenario.get().embed(screenshot, "image/png");
+//				ScenarioContext.scenario.get().embed(screenshot, "image/png");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

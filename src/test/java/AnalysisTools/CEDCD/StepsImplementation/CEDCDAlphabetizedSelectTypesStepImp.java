@@ -3,6 +3,7 @@ package AnalysisTools.CEDCD.StepsImplementation;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import AnalysisTools.CEDCD.Steps.HooksSteps;
 import org.junit.Assert;
 
 import com.nci.automation.utils.CucumberLogUtils;
@@ -36,7 +37,7 @@ public class CEDCDAlphabetizedSelectTypesStepImp extends PageInitializer{
 		System.out.println(actualSpecimenTypeValues);
 		
 		Assert.assertEquals(firstArraylist, actualSpecimenTypeValues);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		
 	}
 

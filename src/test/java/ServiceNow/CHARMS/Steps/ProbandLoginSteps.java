@@ -7,16 +7,16 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class ProbandLoginSteps extends PageInitializer {
 	
 	@Given("a Proband is on the CHARMS home page")
 	public void a_Proband_is_on_the_CHARMS_home_page() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CHARMS"));
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("the Proband logs in with existing valid credentials")
@@ -29,7 +29,7 @@ public class ProbandLoginSteps extends PageInitializer {
 	public void the_page_displays(String clinicalGeneticsBranchText) {
 		Assert.assertTrue(clinicalGeneticsBranchPage.clinicalGeneticsBranchText.getText().contentEquals(clinicalGeneticsBranchText));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 
