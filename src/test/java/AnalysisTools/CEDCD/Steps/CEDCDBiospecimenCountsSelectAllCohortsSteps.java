@@ -28,7 +28,7 @@ public class CEDCDBiospecimenCountsSelectAllCohortsSteps extends PageInitializer
 		
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		cedcdStartUps.setUpOnBiospecimenTabPage();
 		
 	}
@@ -57,7 +57,7 @@ public class CEDCDBiospecimenCountsSelectAllCohortsSteps extends PageInitializer
 	@Then("all Specimen tabs are selected")
 	public void all_Specimen_tabs_are_selected() {
 		Assert.assertTrue(cedcdBiospecimenCountsPage.specimenTypeDropDownAllTypeValue.isEnabled());
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		
 		
 	}

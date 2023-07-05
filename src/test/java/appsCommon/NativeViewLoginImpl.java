@@ -15,14 +15,14 @@ public class NativeViewLoginImpl extends PageInitializer {
 
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
         MiscUtils.sleep(2000);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         CommonUtils.waitForVisibility(iTrustloginPage.loginLink);
         iTrustloginPage.loginLink.click();
         MiscUtils.sleep(2000);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         loginImpl.loginToITrust();
         MiscUtils.sleep(2000);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         CommonUtils.waitForVisibility(WebDriverUtils.webDriver.findElement(By.linkText("Native View")));
         WebDriverUtils.webDriver.findElement(By.linkText("Native View")).click();
     }

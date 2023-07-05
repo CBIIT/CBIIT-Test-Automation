@@ -42,7 +42,7 @@ public class BusinessCaseFormSteps {
 	public void verifystate(String expectedState) throws Exception {
 		Thread.sleep(5000);
 		String actualState = businessCaseFormPage.getState();
-		CucumberLogUtils.logScreenShot("Request State");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		if (actualState != null) {
 			actualState = actualState.trim();
 			Assert.assertEquals(expectedState, actualState);

@@ -1,5 +1,6 @@
 package ServiceNow.RCMDB.StepsImplementation;
 
+import ServiceNow.RCMDB.Steps.HooksSteps;
 import org.junit.Assert;
 
 import com.nci.automation.utils.CucumberLogUtils;
@@ -93,7 +94,7 @@ public class PortalViewSteps {
 	public void verifystate(String expectedState) throws Exception {
 		Thread.sleep(2000);
 		String actualState = portalViewPage.getState();
-		CucumberLogUtils.logScreenShot("Request State");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		if (actualState != null) {
 			actualState = actualState.trim();
 			Assert.assertEquals(expectedState, actualState);

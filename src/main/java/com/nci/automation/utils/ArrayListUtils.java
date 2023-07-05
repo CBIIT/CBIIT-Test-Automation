@@ -171,7 +171,6 @@ public class ArrayListUtils {
 		}
 
 		if (fail) {
-
 			return false;
 		} else {
 			return true;

@@ -30,7 +30,7 @@ public class DirectSubmitterSteps extends PageInitializer {
 	public void user_can_verify_that_Program_Director_was_added_as_a_Scheduled_Reviewer() {
 		JavascriptUtils.scrollIntoView(directSubmitterPage.programDirector);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Assert.assertTrue(directSubmitterPage.programDirector.isDisplayed());
 		boolean result = true;
 		if (result) {
@@ -44,17 +44,17 @@ public class DirectSubmitterSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(directSubmitterPage.withdrawCommentField, "comments added");
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.click(directSubmitterPage.withdrawConfirmation);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("User puts no for High Profile section")
 	public void user_puts_no_for_High_Profile_section() {
 		CommonUtils.click(createCRPage.highProfileNO);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("User can verify that Program Director was removed")
@@ -73,7 +73,7 @@ public class DirectSubmitterSteps extends PageInitializer {
 	public void user_assigns_confirms_again_that_paper_is_High_profile() {
 		CommonUtils.click(createCRPage.highProfileYES);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("User adds added additional reviewers ahead of the default reviewers")
@@ -82,12 +82,12 @@ public class DirectSubmitterSteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.click(directSubmitterPage.apelbergDropdown);
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.sendKeys(directSubmitterPage.additionalRevField, "CAMPOS");
 		MiscUtils.sleep(1000);
 		CommonUtils.click(directSubmitterPage.camposDropdown);
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Given("User logs in as CHRISTIAN ABNET")
@@ -99,21 +99,21 @@ public class DirectSubmitterSteps extends PageInitializer {
 	public void user_views_the_CR_that_requires_their_review() {
 		CommonUtils.click(directSubmitterPage.viewFirstPublication);
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Given("User chooses no for conflict of interest question")
 	public void user_chooses_no_for_conflict_of_interest_question() {
 		CommonUtils.click(directSubmitterPage.noConflictOfInterest);
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("User chooses to return for revision")
 	public void user_chooses_to_return_for_revision() {
 		CommonUtils.click(directSubmitterPage.actionsDropdown);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Select se = new Select(WebDriverUtils.webDriver.findElement(By.id("selectAction")));
 		se.selectByValue("6");
 	}
@@ -122,7 +122,7 @@ public class DirectSubmitterSteps extends PageInitializer {
 	public void user_enters_comments() {
 		CommonUtils.sendKeys(directSubmitterPage.commentsField, "Comments added");
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("User clicks Process Action button")
@@ -131,7 +131,7 @@ public class DirectSubmitterSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.click(directSubmitterPage.confirmReturnRevision);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("\"([^\"]*)\" revises the CR under Active Submissions tab")
@@ -143,7 +143,7 @@ public class DirectSubmitterSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(directSubmitterPage.submissionTitle, "Edited Publication Title");
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("\"([^\"]*)\" dissaproves that CR")
@@ -155,31 +155,31 @@ public class DirectSubmitterSteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.click(directSubmitterPage.actionsDropdown);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Select se = new Select(WebDriverUtils.webDriver.findElement(By.id("selectAction")));
 		se.selectByValue("7");
 		CommonUtils.sendKeys(directSubmitterPage.commentsField, "Comments added");
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.click(directSubmitterPage.processActionButton);
 		MiscUtils.sleep(2000);
 		CommonUtils.click(directSubmitterPage.dissaprove);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("User can verify the request was dissaproved")
 	public void user_can_verify_the_request_was_dissaproved() {
 		Assert.assertTrue(directSubmitterPage.disapprovedAlert.isDisplayed());
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Given("User chooses yes for conflict of interest question")
 	public void user_chooses_yes_for_conflict_of_interest_question() {
 		CommonUtils.click(directSubmitterPage.yesConflictOfInterest);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 	}
 
@@ -187,17 +187,17 @@ public class DirectSubmitterSteps extends PageInitializer {
 	public void user_chooses_to_remove_current_reviewer() {
 		CommonUtils.click(directSubmitterPage.actionsDropdown);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Select se = new Select(WebDriverUtils.webDriver.findElement(By.id("selectAction")));
 		se.selectByValue("10");
 		CommonUtils.sendKeys(directSubmitterPage.commentsField, "Comments added");
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.click(directSubmitterPage.processActionButton);
 		MiscUtils.sleep(2000);
 		CommonUtils.click(directSubmitterPage.confirmRemoveReviewer);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("User can verify that CHRISTIAN ABNET was removed from the list of reviewers")
@@ -213,7 +213,7 @@ public class DirectSubmitterSteps extends PageInitializer {
 	public void user_puts_no_for_High_Profile_paper() {
 		CommonUtils.click(directSubmitterPage.highProfileNo);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("User can confirm that program director is removed form reviewers")
@@ -225,19 +225,19 @@ public class DirectSubmitterSteps extends PageInitializer {
 			System.out.println("Program Director was removed");
 		}
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Given("User chooses to refer the CR")
 	public void user_chooses_to_refer_the_CR() {
 		CommonUtils.click(directSubmitterPage.actionsDropdown);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Select se = new Select(WebDriverUtils.webDriver.findElement(By.id("selectAction")));
 		se.selectByValue("8");
 		CommonUtils.sendKeys(directSubmitterPage.commentsField, "Comments added");
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 	}
 
@@ -245,11 +245,11 @@ public class DirectSubmitterSteps extends PageInitializer {
 	public void user_chooses_to_approve() {
 		CommonUtils.click(directSubmitterPage.actionsDropdown);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Select se = new Select(WebDriverUtils.webDriver.findElement(By.id("selectAction")));
 		se.selectByValue("5");
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 	}
 
@@ -264,7 +264,7 @@ public class DirectSubmitterSteps extends PageInitializer {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("dcegGarcia"));
 		CommonUtils.click(directSubmitterPage.viewFirstPublication);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 	}
 
@@ -272,11 +272,11 @@ public class DirectSubmitterSteps extends PageInitializer {
 	public void christian_ABNET_recommends_the_CR_for_approval() {
 		CommonUtils.click(directSubmitterPage.actionsDropdown);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Select se = new Select(WebDriverUtils.webDriver.findElement(By.id("selectAction")));
 		se.selectByValue("5");
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 	}
 
@@ -285,7 +285,7 @@ public class DirectSubmitterSteps extends PageInitializer {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(UserName));
 		CommonUtils.click(directSubmitterPage.viewFirstPublication);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 	}
 
@@ -293,13 +293,13 @@ public class DirectSubmitterSteps extends PageInitializer {
 	public void user_approves_the_CR() {
 		CommonUtils.click(directSubmitterPage.actionsDropdown);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Select se = new Select(WebDriverUtils.webDriver.findElement(By.id("selectAction")));
 		se.selectByValue("11");
 		MiscUtils.sleep(2000);
 		CommonUtils.click(directSubmitterPage.processActionButton);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("User can verify that the CR has status as Approved for Dissemination")
@@ -315,7 +315,7 @@ public class DirectSubmitterSteps extends PageInitializer {
 	public void user_chooses_to_reassign_the_CR_to_Amanda_Black() {
 		CommonUtils.click(directSubmitterPage.actionsDropdown);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Select se = new Select(WebDriverUtils.webDriver.findElement(By.id("selectAction")));
 		se.selectByValue("9");
 		MiscUtils.sleep(2000);
@@ -325,7 +325,7 @@ public class DirectSubmitterSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.click(directSubmitterPage.processActionButton);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Given("Amanda Black can verify that the previous reviewer was Christian Abnett")
@@ -339,24 +339,24 @@ public class DirectSubmitterSteps extends PageInitializer {
 		if (result) {
 			System.out.println("Abnet Christian is a previous reviewer");
 		}
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User removes current reviewer")
 	public void user_removes_current_reviewer() {
 		CommonUtils.click(directSubmitterPage.actionsDropdown);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Select se = new Select(WebDriverUtils.webDriver.findElement(By.id("selectAction")));
 		se.selectByValue("10");
 		CommonUtils.sendKeys(directSubmitterPage.commentsField, "Comments added");
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.click(directSubmitterPage.processActionButton);
 		MiscUtils.sleep(2000);
 		CommonUtils.click(directSubmitterPage.confirmRemoveReviewer);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User can verify that the next reviewer is displayed")
@@ -383,17 +383,17 @@ public class DirectSubmitterSteps extends PageInitializer {
 	public void divsion_Director_chooses_to_return_for_revision() {
 		CommonUtils.click(directSubmitterPage.actionsDropdown);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Select se = new Select(WebDriverUtils.webDriver.findElement(By.id("selectAction")));
 		se.selectByValue("6");
 		CommonUtils.sendKeys(directSubmitterPage.commentsField, "Comments added");
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.click(directSubmitterPage.processActionButton);
 		MiscUtils.sleep(2000);
 		CommonUtils.click(directSubmitterPage.confirmReturnRevision);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("User can verify that the request was returned back to Albanes Demetrius for revision")
@@ -411,24 +411,24 @@ public class DirectSubmitterSteps extends PageInitializer {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("dcegChanock"));
 		CommonUtils.click(directSubmitterPage.viewFirstPublication);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.click(directSubmitterPage.noConflictOfInterest);
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.click(directSubmitterPage.actionsDropdown);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Select se = new Select(WebDriverUtils.webDriver.findElement(By.id("selectAction")));
 		se.selectByValue("7");
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(directSubmitterPage.commentsField, "Comments added");
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.click(directSubmitterPage.processActionButton);
 		MiscUtils.sleep(2000);
 		CommonUtils.click(directSubmitterPage.confirmDissaprove);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 	}
 
@@ -446,7 +446,7 @@ public class DirectSubmitterSteps extends PageInitializer {
 	public void divsion_Director_chooses_to_refer_to_Amanda_Black() {
 		CommonUtils.click(directSubmitterPage.actionsDropdown);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Select se = new Select(WebDriverUtils.webDriver.findElement(By.id("selectAction")));
 		se.selectByValue("8");
 		CommonUtils.sendKeys(directSubmitterPage.additionalRevField, "Black");
@@ -455,7 +455,7 @@ public class DirectSubmitterSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.click(directSubmitterPage.processActionButton);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 	}
 
@@ -464,24 +464,24 @@ public class DirectSubmitterSteps extends PageInitializer {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("dcegBlack"));
 		CommonUtils.click(directSubmitterPage.viewFirstPublication);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Given("AMANDA BLACK dissaapproves the CR")
 	public void amanda_BLACK_dissaapproves_the_CR() {
 		CommonUtils.click(directSubmitterPage.actionsDropdown);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Select se = new Select(WebDriverUtils.webDriver.findElement(By.id("selectAction")));
 		se.selectByValue("7");
 		CommonUtils.sendKeys(directSubmitterPage.commentsField, "Comments added");
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.click(directSubmitterPage.processActionButton);
 		MiscUtils.sleep(2000);
 		CommonUtils.click(directSubmitterPage.dissaprove);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User denies that the paper is High Profile")
@@ -489,7 +489,7 @@ public class DirectSubmitterSteps extends PageInitializer {
 		JavascriptUtils.scrollIntoView(directSubmitterPage.noHighProfile);
 		CommonUtils.click(directSubmitterPage.noHighProfile);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 }
