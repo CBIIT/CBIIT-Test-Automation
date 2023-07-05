@@ -58,7 +58,7 @@ Feature: Ruturning published Collaboration by the CRS Rreviewer/DOC Planning Con
     And the DOC Planning Contact returns the Collaboration to the Program Staff
     Then the author will show as the Program Staff user who originally created the Submission
 
-  @New @SS-3939 @SS-3894 @bucurgb @Regression
+  @SS-3939 @SS-3894 @bucurgb @Regression
   Scenario: Verifying the DOC Planning Contact are able to return the Collaboration to a Program Staff user
     Given a DOC Planning Contact creates a Collaboration
     Then they are able to return the Collaboration to a Program Staff user
