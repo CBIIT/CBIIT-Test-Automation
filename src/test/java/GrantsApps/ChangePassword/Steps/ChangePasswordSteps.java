@@ -1,5 +1,6 @@
 package GrantsApps.ChangePassword.Steps;
 
+import com.nci.automation.utils.CucumberLogUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
@@ -18,29 +19,34 @@ public class ChangePasswordSteps extends PageInitializer {
     public void user_is_on_landing_page(String url) throws TestingException {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(url));
         loginImpl.elizabethiTrustLogin();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
     @Given("User enters New Password according to password policy")
     public void user_enters_New_Password_according_to_password_policy() {
         CommonUtils.sendKeysToElement(changePasswordPage.passwordFieldOne, newPassword);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
     @Given("User confirms New Password")
     public void user_confirms_New_Password() {
         CommonUtils.clickOnElement(changePasswordPage.passwordFieldTwo);
         CommonUtils.sendKeysToElement(changePasswordPage.passwordFieldTwo, newPassword);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
     @Then("User can see the successful outcome")
     public void user_can_see_the_successful_outcome() {
         CommonUtils.clickOnElement(changePasswordPage.changeButton);
         Assert.assertTrue(changePasswordPage.successMessage.isDisplayed());
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         System.out.println("Password was changed successfully");
     }
 
     @Given("User is back on landing page")
     public void user_is_back_on_landing_page() throws TestingException {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ChangePassword"));
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
     @Given("User enters New Password that is the same as their old Password")
@@ -52,6 +58,7 @@ public class ChangePasswordSteps extends PageInitializer {
     public void user_can_not_change_password() {
         CommonUtils.clickOnElement(changePasswordPage.changeButton);
         Assert.assertTrue(changePasswordPage.failureMessageOldPassword.isDisplayed());
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
     @Given("User enters New Password {string} without following the character limit rule")
@@ -63,12 +70,14 @@ public class ChangePasswordSteps extends PageInitializer {
     public void user_confirms_New_Password(String password) {
         CommonUtils.clickOnElement(changePasswordPage.passwordFieldTwo);
         CommonUtils.sendKeysToElement(changePasswordPage.passwordFieldTwo, password);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
     @Then("User can not see the successful outcome")
     public void user_can_not_see_the_successful_outcome() {
         CommonUtils.clickOnElement(changePasswordPage.changeButton);
         Assert.assertTrue(changePasswordPage.failureMessageCharacterLimit.isDisplayed());
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
     @Given("User enters New Password with their username {string}")
