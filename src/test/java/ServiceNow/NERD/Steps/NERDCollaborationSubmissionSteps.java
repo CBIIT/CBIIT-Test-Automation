@@ -67,7 +67,7 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
 
     @Given("creates a new submission for Collaboration category")
     public void creates_a_new_submission_for_Collaboration_category() {
-        NERDApplicationStepsImplementation.creatingNewSubmission(
+        NERDApplicationStepsImplementation.creatingNewCollaborationSubmission(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink);
     }
 

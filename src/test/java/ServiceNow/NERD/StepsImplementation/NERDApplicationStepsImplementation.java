@@ -28,7 +28,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      *
      * @param SubmissionType
      */
-    public static void creatingNewSubmission(WebElement SubmissionType) {
+    public static void creatingNewCollaborationSubmission(WebElement SubmissionType) {
         MiscUtils.sleep(1000);
         CommonUtils.waitForClickability(SubmissionType);
         SubmissionType.click();
@@ -81,6 +81,23 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         String actualUnderReviewText = nerdDynamicXpaths.underReviewText(NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_TITLE_TEXT_BOX).getText();
         CommonUtils.assertEquals(expectedUnderReviewText, actualUnderReviewText);
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_TITLE_TEXT_BOX));
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenShot();
+    }
+
+    /**
+     * This method will create new Submission by Staff Member
+     *
+     * @param SubmissionType
+     */
+    public static void creatingNewSubmission(WebElement SubmissionType) {
+        MiscUtils.sleep(1000);
+        CommonUtils.waitForClickability(SubmissionType);
+        SubmissionType.click();
+        Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
+        for (String currentWindow1 : allWindowHandles1) {
+            WebDriverUtils.webDriver.switchTo().window(currentWindow1);
+        }
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenShot();
     }
