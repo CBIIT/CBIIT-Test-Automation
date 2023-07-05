@@ -40,7 +40,7 @@ public class COVIDHomePageSteps extends PageInitializer{
 	@Given("user validates that Institute, Division, Email Address, and Phone Number fields are not editable")
 	public void user_validates_that_Institute_Division_Email_Address_and_Phone_Number_fields_are_not_editabel() {
 		pageCache.getCOVIDHomePageImpl().verifyFieldsAreDiabled();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("the User selects a principal Investigator by typing their name in the principal Investigator search box. {string}")
@@ -146,7 +146,7 @@ public class COVIDHomePageSteps extends PageInitializer{
 
 	@When("does not attach an IRB Protocol Document")
 	public void does_not_attach_an_IRB_Protocol_Document() {
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("attempts to confirm and submit the study form")
@@ -156,12 +156,12 @@ public class COVIDHomePageSteps extends PageInitializer{
 
 	@Then("the user is not able to successfully submit the study form")
 	public void the_user_is_not_able_to_successfully_submit_the_study_form() {
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("sees a pop up with a message indicating study documentation is required before submitting")
 	public void sees_a_pop_up_with_the_message() {
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("when selecting {string}")
@@ -173,7 +173,7 @@ public class COVIDHomePageSteps extends PageInitializer{
 	public void under_Study_Documentation_the_user_sees_the_message(String message) {
 		String studyDocErrorMessage = pageCache.getCOVIDHomePage().studyDocumentationErrorMessage().getText();
 		Assert.assertTrue(studyDocErrorMessage.contains("required"));
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("the user is on the submissions home page")

@@ -1,5 +1,6 @@
 package ServiceNow.SEER.StepsImplementation;
 
+import ServiceNow.SEER.Steps.HooksSteps;
 import appsCommon.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -22,21 +23,21 @@ public class SEERLandingPageStepImpl extends PageInitializer {
         String actualParagraphText = seerExistingAccountPage.paragraph.getText();
         JavascriptUtils.drawBlueBorder(seerExistingAccountPage.paragraph);
         CommonUtils.assertEquals(actualParagraphText, expectedParagraph);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
     public static void userSeesTheFollowingPIVCardLoginMessage(String expectedPIVCardLoginMessage) {
         String actualPIVCardLoginMessageText = seerExistingAccountPage.pIVCardLoginMessageText.getText();
         JavascriptUtils.drawBlueBorder(seerExistingAccountPage.pIVCardLoginMessageText);
         CommonUtils.assertEquals(actualPIVCardLoginMessageText, expectedPIVCardLoginMessage);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
     public static void buttonIsAlsoDisplayed(String expectedButtonText) {
         String actualButtonText = seerExistingAccountPage.backToSeerDatabaseDetailsButton.getText();
         JavascriptUtils.drawBlueBorder(seerExistingAccountPage.backToSeerDatabaseDetailsButton);
         CommonUtils.assertEquals(actualButtonText, expectedButtonText);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
     public static void theSEERDataAccessLandingPageHasTheFollowingTextDisplayed(String expectedLandingPageText) {
@@ -44,6 +45,6 @@ public class SEERLandingPageStepImpl extends PageInitializer {
         CommonUtils.assertEquals(actualLandingPageText, expectedLandingPageText);
         JavascriptUtils.scrollDown(300);
         JavascriptUtils.drawBlueBorder(seerLandingPage.landingPageText);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 }

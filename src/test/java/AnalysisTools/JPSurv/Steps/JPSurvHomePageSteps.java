@@ -2,6 +2,7 @@ package AnalysisTools.JPSurv.Steps;
 
 import java.io.File;
 
+import com.nci.automation.utils.CucumberLogUtils;
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
 import org.junit.Assert;
@@ -28,6 +29,7 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	@Given("the user is on the JPSurv homepage")
 	public void the_user_is_on_the_JPSurv_homepage() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("JPSurv"));
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 	@When("user selects Dic and Txt file")
 	public void user_selects_Dic_and_Txt_file() {
@@ -165,16 +167,16 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	}
 
 
-	@After
-	public static void tearDown(Scenario scenario) {
-		//validate if scenario has failed
-		if (scenario.isFailed()) {
-			final byte[] screenshot = ((TakesScreenshot) WebDriverUtils.webDriver).getScreenshotAs(OutputType.BYTES);
-			scenario.attach(screenshot, "image/png", scenario.getName());
-		}
-
-
-	}
+//	@After
+//	public static void tearDown(Scenario scenario) {
+//		//validate if scenario has failed
+//		if (scenario.isFailed()) {
+//			final byte[] screenshot = ((TakesScreenshot) WebDriverUtils.webDriver).getScreenshotAs(OutputType.BYTES);
+//			scenario.attach(screenshot, "image/png", scenario.getName());
+//		}
+//
+//
+//	}
 	public static void main(String[] args) {
 		String path = System.getProperty("user.home")+"/Downloads";
 		System.out.println(path);

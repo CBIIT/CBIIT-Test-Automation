@@ -1,5 +1,6 @@
 package CustomBusiness.EIDP.StepsImplementation;
 
+import CustomBusiness.EIDP.Steps.HooksSteps;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.EncryptionUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -50,7 +51,7 @@ public class EIDPLoginStepImpl extends PageInitializer {
 			CommonUtils.clickOnElement(nihLoginPage.changeUserDropdown);
 			CommonUtils.sendKeys(nihLoginPage.searchableChangeUserInput, username);
 			MiscUtils.sleep(1000);
-			CucumberLogUtils.logScreenShot();
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 			CommonUtils.clickOnElement(nihLoginPage.changeUserOption);
 	}
 
@@ -65,7 +66,7 @@ public class EIDPLoginStepImpl extends PageInitializer {
 			CommonUtils.sendKeys(nihLoginPage.searchableChangeUserInput, username);
 			Thread.sleep(3000);
 			CommonUtils.waitForVisibility(nihLoginPage.changeUserOption);
-			CucumberLogUtils.logScreenShot();
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 			CommonUtils.click(nihLoginPage.changeUserOption);
 			Thread.sleep(1000);
 

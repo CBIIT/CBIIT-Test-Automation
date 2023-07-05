@@ -21,10 +21,10 @@ public class OHRStep extends PageInitializer  {
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, "HASKINS, APRILE");
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.click(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("User can delete the newly created OHR profile")
@@ -36,7 +36,7 @@ public class OHRStep extends PageInitializer  {
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser,"WARTONICK, JEAN");
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.click(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
 		CommonUtils.click(etdAdminNCIPage.deleteHaskins);

@@ -24,7 +24,7 @@ public class CProSiteExplorePageSteps extends PageInitializer {
     public void userIsOnCProSiteExploreTab() throws TestingException {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("cProSite"));
         MiscUtils.sleep(3000);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
     @When("user clicks submit")

@@ -3,6 +3,7 @@ package ServiceNow.NERD.StepsImplementation;
 import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.NERD.Constants.NCI_Staff_Members_Constants;
 import ServiceNow.NERD.Constants.ReturningSubmissions_Constants;
+import ServiceNow.NERD.Steps.HooksSteps;
 import appsCommon.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -40,7 +41,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         MiscUtils.sleep(1000);
         Assert.assertTrue(nerdDynamicXpaths.underReviewText(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER).getText().contentEquals("Under Review"));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(submissionName));
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         MiscUtils.sleep(5000);
     }
 
@@ -126,7 +127,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
     public static void locatingProgramStaffMemberToSubmissionsPage(String applicationName) throws TestingException {
         nativeViewImpersonateUser.impersonateToStaffMemberCBIIT();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(applicationName));
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         CommonUtils.waitForVisibility(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink.click();

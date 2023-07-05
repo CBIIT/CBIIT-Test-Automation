@@ -3,6 +3,7 @@ package CustomBusiness.DCEG.Steps;
 import java.io.File;
 import java.net.MalformedURLException;
 
+import AnalysisTools.LDLink.Steps.HooksSteps;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -17,23 +18,25 @@ import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageCache;
 import appsCommon.PageInitializer;
-
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 
 public class DCEGHooksSteps {
 
 	private static final String BUILD_NUMBER = "BUILD_NUMBER";
 	public static String SCENARIO_NAME_TEXT = "scenarioNameText";
-
+	public static Scenario scenario;
 	/**
 	 * This method will run before each scenario
-	 * 
+	 *
 	 * @param s
 	 * @throws TestingException
 	 */
 	@Before
 	public void genericSetUp(Scenario s) throws TestingException {
 		WebDriverUtils.getWebDriver();
+		this.scenario=s;
 		MiscUtils.sleep(2000);
 		PageInitializer.initializeAllPages();
 		ScenarioContext.localConf = LocalConfUtils.loadLocalConf();
@@ -60,20 +63,23 @@ public class DCEGHooksSteps {
 		}
 		System.setProperty(ScenarioContext.USE_SCENARIO_NAME_PROPERTY, "true");
 		System.setProperty(ScenarioContext.SCENARIO_NAME_PROPERTY_NAME, scenarioNameForFolderCreation);
-		System.setProperty(DCEGHooksSteps.SCENARIO_NAME_TEXT, s.getName());// getScenarioName(scenario));
+		System.setProperty(HooksSteps.SCENARIO_NAME_TEXT, s.getName());// getScenarioName(scenario));
 		String resultsDirName = scenarioNameForFolderCreation;
 		ConfUtils.setResultsDir(resultsDirName);
 	}
 
 	/**
 	 * This method runs after each scenario
-	 * 
+	 *
 	 * @throws TestingException
 	 * @throws MalformedURLException
 	 */
 	@After
 	public void genericTearDown(Scenario s) throws TestingException {
-
+		if (s.isFailed()) {
+			final byte[] screenshot = ((TakesScreenshot) WebDriverUtils.webDriver).getScreenshotAs(OutputType.BYTES);
+			s.attach(screenshot, "image/png", s.getName());
+		}
 		if (WebDriverUtils.webDriver != null) {
 			MiscUtils.sleep(2000);
 
@@ -106,4 +112,5 @@ public class DCEGHooksSteps {
 		// use this for web specific clean up
 		System.out.println("web specific clean up");
 	}
+
 }

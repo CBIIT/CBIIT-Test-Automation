@@ -43,7 +43,7 @@ public class CEDCDBiospecimenCountClearAllSteps extends PageInitializer {
 	public void the_user_searches_results() throws InterruptedException  {
 
 		JavascriptUtils.clickByJS(cedcdBiospecimenCountsPage.biospecimenSubmitBtn);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Thread.sleep(1000);
 		
 
@@ -53,7 +53,7 @@ public class CEDCDBiospecimenCountClearAllSteps extends PageInitializer {
 	@When("the user clicks on the Clear All button")
 	public void the_user_clicks_on_the_Clear_All_button() {
 		JavascriptUtils.clickByJS(cedcdBiospecimenCountsPage.biospecimenClearAllBtn);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	/**

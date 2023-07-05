@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import ServiceNow.CHARMS.Steps.HooksSteps;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -280,16 +281,16 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		MiscUtils.sleep(1200);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.nihBannerImage);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks next button on The first block of questions will collect basic
 		// demographic information. page - myRAS Survey
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// selects I am completing this form for myself option on who is completing this
@@ -297,7 +298,7 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.completingFormForSelfRadioButton);
 		rASSurveyPage.completingFormForSelfRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks YES option for Have you ever been included in a published case report
@@ -306,7 +307,7 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// enters information about a previous cancer study {string} Please provide any
@@ -315,14 +316,14 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.pleaseProvideAdditionalInfoIfAvailableTextbox);
 		rASSurveyPage.pleaseProvideAdditionalInfoIfAvailableTextbox.sendKeys(additionalInfo);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks Next button for The next set of questions will ask about birth and
 		// neonatal history. page - myRAS Survey
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// enters Biological Mother birth city {string}, select Mothers Age {string} and
@@ -335,7 +336,7 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		rASSurveyPage.bioFatherBirthCityTextBox.sendKeys(fathersBirthCity);
 		CommonUtils.selectDropDownValue(mothersAge, rASSurveyPage.bioMothersAgeWhenBornDropDown);
 		CommonUtils.selectDropDownValue(fathersAge, rASSurveyPage.bioFathersAgeWhenBornDropDown);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks YES Were you diagnosed with hypoglycemia \\(low blood sugar) during
@@ -343,7 +344,7 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// selects All that apply and enters in other prenatal condition {string} for
@@ -353,10 +354,10 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherConditionTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes(unsureUnknown);
 		JavascriptUtils.scrollUp(1300);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.otherConditionTextBox);
 		rASSurveyPage.otherConditionTextBox.sendKeys(otherPrenatalCondition);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// click YES During her pregnancy with you, did your mother have any prenatal
@@ -365,7 +366,7 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// selects All normal results and enters other prenatal test {string} for Please
@@ -379,12 +380,12 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		rASSurveyPage.chronicVillaSamplingRadioButton.click();
 		rASSurveyPage.fetalBloodSamplingRadioButton.click();
 		rASSurveyPage.stressTestRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.xRayRadioButton.click();
 		rASSurveyPage.otherRadioButton.click();
 		rASSurveyPage.otherTestTextBox.sendKeys(otherPrenatalTest);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// selects All that apply and enters mothers prenatal type of infection {string}
@@ -395,12 +396,12 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.typeOfInfectionTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes(unsureUnknown, motherConditions);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.nihBannerImage);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.typeOfInfectionTextBox.sendKeys(prenatalInfection);
 		rASSurveyPage.rashTextBox.sendKeys(prenatalRash);
 		rASSurveyPage.otherComplicationsTextBox.sendKeys(otherPrenatalComplications);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.hypertensionTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// click YES During her pregnancy with you, did your biological mother take any
@@ -408,7 +409,7 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// selects All that apply for and enters herbal supplement {string}, other
@@ -422,11 +423,11 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		rASSurveyPage.otherMedicationTextBox.sendKeys(otherMedication1);
 		rASSurveyPage.otherMedicationTextBox2.sendKeys(otherMedication2);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.nihBannerImage);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.hormonesCheckBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.otherMedicationTextBox2);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// adds details in Please provide details on the name of the medication taken
@@ -462,7 +463,7 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		CommonUtils.selectDropDownValue(lengthofTimeSeven,
 				rASSurveyPage.antiDepressantsLenghtOfTimeMedicationWasTakenDropDown);
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.diureticNameTextBox.sendKeys(nameOfMedicationEight);
 		rASSurveyPage.diureticReasonTextBox.sendKeys(reasonForMedicationEight);
 		CommonUtils.selectDropDownValue(lengthOfTimeEight,
@@ -499,9 +500,9 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		CommonUtils.selectDropDownValue(lengthOfTimeSixteen,
 				rASSurveyPage.otherMedication2LenghtOfTimeMedicationWasTakenDropDown);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.antibioticNameTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks YES Did your biological mother use any tobacco products during her
@@ -512,7 +513,7 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		rASSurveyPage.yesRadioButton.click();
 		MiscUtils.sleep(1000);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// selects All that apply and enters other tobacco product {string} for What
@@ -522,9 +523,9 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes(unsureUnknown);
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherTobaccoProducts);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks YES Did your biological mother use any vaping products during her
@@ -532,7 +533,7 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// selects All that apply and enters other vape product {string} for Which
@@ -542,9 +543,9 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes(unsureUnknown);
 		JavascriptUtils.scrollUp(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherVapeProducts);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks YES Did your biological mother drink any alcoholic beverages during
@@ -552,7 +553,7 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// selects All that apply and enters other alcoholic beverage {string} for What
@@ -563,9 +564,9 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes(unsureUnknown);
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherAlcoholicBeverages);
 		JavascriptUtils.scrollUp(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks YES Did your biological mother use any recreational drugs during her
@@ -573,7 +574,7 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// selects All that apply and enters other recreational drug {string} for What
@@ -583,10 +584,10 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes(unsureUnknown);
 		JavascriptUtils.scrollUp(600);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherRecreationalDrugs);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks YES Did your biological mother ever live or work in a place where
@@ -595,7 +596,7 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// selects All that apply and enters other products used around your mother
@@ -605,9 +606,9 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes(unsureUnknown);
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherPrenatalProducts);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// adds Please describe your biological parents occupation\\(s) during your
@@ -618,9 +619,9 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.biologicalMotherOccupationTextBox);
 		rASSurveyPage.biologicalMotherOccupationTextBox.sendKeys(mothersOccupation);
 		rASSurveyPage.biologicalFatherOccupationTextBox.sendKeys(fathersOccupation);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// enters height in cm for biological mother height {string} and biological
@@ -633,7 +634,7 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		rASSurveyPage.biologicalFatherHeightTextBox.sendKeys(fathersHeight);
 		rASSurveyPage.unitOfMeasureFatherRadioButton.click();
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks next The next set of questions will ask about hormone-related growth.
@@ -642,7 +643,7 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		// page - myRAS Survey
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks YES Have you ever been evaluated by an endocrinologist for any reason?
@@ -653,9 +654,9 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		// Survey
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// enters Endocrinologist medical provider name {string}, medical provider city,
@@ -667,14 +668,14 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		CommonUtils.sendKeys(rASSurveyPage.doctorMedicalProviderNameTextBox, endocrinologistMedicalProvider);
 		CommonUtils.sendKeys(rASSurveyPage.locatioCityStateCountryTextBox, endocrinologistLocation);
 		CommonUtils.sendKeys(rASSurveyPage.hospitalOrHealthSystemAffiliationTextBox, endocrinologistHospital);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks YES Have you ever had growth hormone testing? page - myRAS Survey
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// selects All options that apply enters other hormone testing {string} for What
@@ -682,9 +683,9 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		MiscUtils.sleep(1000);
 		rASSurveyStepsImpl.selectingCheckBoxes(unsureUnknownTwo);
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherHormoneTesting);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks YES Have you ever received growth hormone treatment? page - myRAS
@@ -692,7 +693,7 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// enters height before growth hormone treatment {string} for What was your
@@ -701,7 +702,7 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.whatWasYourHeightBeforeStartingGrowthHormoneRadioButton);
 		rASSurveyPage.whatWasYourHeightBeforeStartingGrowthHormoneRadioButton.click();
 		rASSurveyPage.heightTextBox.sendKeys(growthHormoneTreatment);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// selects number of growth hormone treatment {string} for How many times have
@@ -710,7 +711,7 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.howManyTimesHaveYouReceivedGrowthHormoneTreatmentDropDown);
 		CommonUtils.selectDropDownValue(numberOfgrowthHormoneTreatments,
 				rASSurveyPage.howManyTimesHaveYouReceivedGrowthHormoneTreatmentDropDown);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// adds details in Please provide the details of growth hormone replacement by
@@ -727,9 +728,9 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		rASSurveyPage.growthHormoneTreatment3AgeStoppedTextBox.sendKeys(treatmentThreeAgeStopped);
 		rASSurveyPage.growthHormoneTreatment3AreYouStillOnGrowthHormoneNoRadioButton.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks Next button The next set of questions will ask about development.
@@ -737,7 +738,7 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		// understanding language. page - myRAS Survey
 		MiscUtils.sleep(1200);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks YES Were you ever diagnosed with hypotonia as an infant or child? This
@@ -746,7 +747,7 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks twelve-eighteen months option At what age were you able to sit without
@@ -755,9 +756,9 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.atWhatAgeWereYouAbleToSitWithoutSupportCheckRadioButton);
 		rASSurveyPage.atWhatAgeWereYouAbleToSitWithoutSupportCheckRadioButton.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks twelve-eighteen months option At what age were you able to walk
@@ -766,16 +767,16 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.atWhatAgeWereYouAbleToWalkWithoutSupportCheckRadioButton);
 		rASSurveyPage.atWhatAgeWereYouAbleToWalkWithoutSupportCheckRadioButton.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks YES Have you ever received physical therapy? page - myRAS Survey
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks twenty-four to thirthy-six months option At what age were you able to
@@ -784,9 +785,9 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.twentyFourToThirthySixMonthsRadioButton);
 		rASSurveyPage.twentyFourToThirthySixMonthsRadioButton.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// selects Simple speech compared to people of the same age How would you
@@ -794,14 +795,14 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.simpleSpeechComparedToPeopleOfTheSameAgeRadioButton);
 		rASSurveyPage.simpleSpeechComparedToPeopleOfTheSameAgeRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks YES Have you ever received speech therapy? page - myRAS Survey
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks Severe Cognitive Delay Between the ages of three and six years old
@@ -812,9 +813,9 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.severeCognitiveDelayRadioButton);
 		rASSurveyPage.severeCognitiveDelayRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.severeCognitiveDelayRadioButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks YES Didyou receive occupational therapy between three and six years of
@@ -824,7 +825,7 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks Attended typical elementary school without support Between the ages of
@@ -833,9 +834,9 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.attendedTypicalElementarySchoolWithoutSupportRadioButton);
 		rASSurveyPage.attendedTypicalElementarySchoolWithoutSupportRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.attendedTypicalElementarySchoolWithoutSupportRadioButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks Attended typical elementary school without support Between the ages of
@@ -844,9 +845,9 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.attendedTypicalclassroomOrlittleSupportRadioButton);
 		rASSurveyPage.attendedTypicalclassroomOrlittleSupportRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.attendedTypicalclassroomOrlittleSupportRadioButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 		// clicks Bachelors degree four-year college with BA, BS, AB, Please indicate
@@ -855,9 +856,9 @@ public class RASSurveyStepsImpl extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.BachelorsDegreeRadioButton);
 		rASSurveyPage.BachelorsDegreeRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.BachelorsDegreeRadioButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -865,7 +866,7 @@ public class RASSurveyStepsImpl extends PageInitializer {
 	/**
 	 * Use this method to assert all text boxes in a tab in native view
 	 *
-	 * @param String the attribute you want to get from the element, @param
+	 * @param //String the attribute you want to get from the element, @param
 	 *               List<String>
 	 *               the data in the text boxes, @param List<WebElement> the text
 	 *               box
@@ -885,7 +886,7 @@ public class RASSurveyStepsImpl extends PageInitializer {
 	/**
 	 * Use this method to assert all drop downs in a tab in native view
 	 *
-	 * @param List<String> the possible selection options in the drop downs for the
+	 * @param //List<String> the possible selection options in the drop downs for the
 	 *                     tab, @param List<WebElement> list of the drop down box
 	 *                     xpaths
 	 */
@@ -904,7 +905,7 @@ public class RASSurveyStepsImpl extends PageInitializer {
 	/**
 	 * Use this method to assert native view data table and all its data in the tabs
 	 * 
-	 * @param List<WebElement> list of all the tabs in the data table on native view
+	 * @param //List<WebElement> list of all the tabs in the data table on native view
 	 */
 	public void assertTable(List<WebElement> elements) throws InvalidFormatException, IOException {
 

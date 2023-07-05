@@ -20,7 +20,7 @@ public class ITrustLoginPageSteps extends PageInitializer {
 	@When("logs in by entering iTrust credentials")
 	public void logs_in_by_entering_iTrust_credentials() throws TestingException {
 		pageCache.getITrustLoginPageImpl().loginToITrust();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 }
