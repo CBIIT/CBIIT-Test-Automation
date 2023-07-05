@@ -18,8 +18,6 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class NERDApplicationStepsImplementation extends PageInitializer {
@@ -37,7 +35,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         for (String currentWindow1 : allWindowHandles1) {
             WebDriverUtils.webDriver.switchTo().window(currentWindow1);
         }
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         CommonUtils.sendKeys(createNewSubmissionPage.titleTextBox, NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_TITLE_TEXT_BOX);
         CommonUtils.selectDropDownValue(createNewSubmissionPage.pleaseSpecifyDropDown, NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_PLEASE_SPECIFY_DROP_DOWN);
         CommonUtils.selectDropDownValue(createNewSubmissionPage.fiscalYearDropDown, NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_FISCAL_YEAR_DROP_DOWN);
@@ -46,7 +44,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         MiscUtils.sleep(2000);
         WebDriverUtils.webDriver.switchTo().defaultContent();
         MiscUtils.sleep(2000);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         MiscUtils.sleep(2000);
         CommonUtils.selectDropDownValue(createNewSubmissionPage.fyTheCollaborativeActivityOriginatedDropDown, NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_FY_THE_COLLABORATIVE_ACTIVITY_ORIGINATED_DROP_DOWN);
         CommonUtils.selectDropDownValue(createNewSubmissionPage.leadDOCDropDown, NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_LEAD_DOC_DROP_DOWN);
@@ -67,7 +65,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         CommonUtils.click(createNewSubmissionPage.submitButton);
         CommonUtils.click(createNewSubmissionPage.popUpConfirmationYesButton);
         MiscUtils.sleep(3000);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         MiscUtils.sleep(3000);
         CommonUtils.click(createNewSubmissionPage.popUpSubmissionConfirmationOkButton);
         MiscUtils.sleep(2000);
@@ -75,15 +73,15 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
 
     public static void theCreatedCollaborationsSubmissionIsDisplaysInTheCollaborationsCategorySectionWithTheStatus(String expectedUnderReviewText) {
         MiscUtils.sleep(1000);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         createNewSubmissionPage.nerdCollaborationsButton.click();
         MiscUtils.sleep(1000);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         String actualUnderReviewText = nerdDynamicXpaths.underReviewText(NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_TITLE_TEXT_BOX).getText();
         CommonUtils.assertEquals(expectedUnderReviewText, actualUnderReviewText);
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_TITLE_TEXT_BOX));
         MiscUtils.sleep(1000);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
     /**
@@ -272,7 +270,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
     public static void userIsOnSubmissionsPage(String applicationName) throws TestingException {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(applicationName));
         WebDriverUtils.webDriver.navigate().refresh();
-        MiscUtils.sleep(1000);
+        MiscUtils.sleep(5000);
         CommonUtils.waitForVisibility(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageNERDButton);
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageNERDButton.click();

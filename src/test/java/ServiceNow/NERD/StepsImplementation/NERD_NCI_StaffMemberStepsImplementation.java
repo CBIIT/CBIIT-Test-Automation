@@ -146,7 +146,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
                         .getText());
         JavascriptUtils.drawBlueBorder(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageSubmissionsLink);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
 }

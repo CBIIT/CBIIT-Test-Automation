@@ -12,8 +12,8 @@ Description: This feature file contains test scenarios related to CRS Reviewers
     Then the If Other is selected above, please specify "If Other is selected above, please specify" field displays
 
 
-  @SS-3871 @SS-3938 @Regression
+  @SS-3871 @SS-3938 @Regression @Progression
   Scenario: Test Special topics filter missing "Women's Health"
     Given a CRS reviewer is logged into NERDs CRS Knowledge Management System
     And clicks the "Special Topic" filter
-    Then the field options are "All", "Big data/Data Sharing", "COVID-19","Communications","Early Detection","Metastatic","Minority health/Health disparities","Moonshot","Partnerships","Pediatric","Rare", "Report/Guidance/Policy", "Sex/Gender differences", "Training/Workforce development", "Women's health", and "Workforce"
+    Then the field options are "All", "Big data/Data sharing", "COVID-19","Communications","Early Detection","Metastatic","Minority health/Health disparities","Moonshot","Partnerships","Pediatric","Rare", "Report/Guidance/Policy", "Sex/Gender differences", "Training/Workforce development", "Women's health", and "Workforce"
