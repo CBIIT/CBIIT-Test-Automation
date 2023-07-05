@@ -102,7 +102,7 @@ public class CommonUtils extends WebDriverUtils {
      * Use this over loaded method in need of selecting an element of dropDown by
      * index.
      *
-     * @param dropDownElement      WebElement of the dropDown.
+     * @param dropDownElement        WebElement of the dropDown.
      * @param //indexOfDropDownValue Pass the index
      */
     public static void selectDropDownValue(WebElement dropDownElement, int index) {
@@ -712,6 +712,23 @@ public class CommonUtils extends WebDriverUtils {
         File file = new File(System.getProperty("user.dir") + "/" + fileName);
         if (file.delete()) {
             System.out.println("File is deleted");
+        }
+    }
+
+    /***
+     * USE THIS METHOD TO VERIFY IF A VALUE HAS BEEN SELECTED IN A DROP DOWN, IF IT IS NOT SELECTED, A NoSuchElementException IS THROWN THAT IS ALSO HANDLED WITH THIS METHOD
+     * @param element
+     * @param expectedValue
+     * @param message
+     */
+    public static void verifyingDropDownValueIsSelected(WebElement element, String expectedValue, String message) {
+        Select select = new Select(element);
+        try {
+            Assert.assertEquals(select.getFirstSelectedOption().getText(), expectedValue, message);
+        } catch (AssertionError e) {
+            e.printStackTrace();
+        } catch (WebDriverException e) {
+            e.printStackTrace();
         }
     }
 }
