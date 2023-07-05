@@ -3,9 +3,11 @@ package ServiceNow.CHARMS.Steps;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
+import ServiceNow.CHARMS.Constants.CHARMSConstants;
+import com.nci.automation.utils.CucumberLogUtils;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
@@ -37,48 +39,11 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
 
     @Then("data submitted for scenario one is verified in native view against scenario one excel sheet")
     public void data_submitted_for_scenario_one_is_verified_in_native_view_against_scenario_one_excel_sheet() {
-        testDataManager.dataInitializer("Scenario1");
-        nativeViewLoginImpl.sideDoorAccountLogin();
-        CommonUtils.sendKeysToElement(nativeViewHomePage.nativeViewFilterNavigator, "CHARMS");
-        CommonUtils.clickOnElement(charmsNativeViewPage.dashboardModuleLink);
-        CommonUtils.switchToFrame("gsft_main");
-        CommonUtils.scrollIntoView(charmsNativeViewPage.dynamicDashboardModuleLinkLocator("Eligibility Review Needed"));
-        CommonUtils.clickOnElement(charmsNativeViewPage.dynamicDashboardModuleLinkLocator("Eligibility Review Needed"));
-        CommonUtils.switchToNextWindow();
-        // use name from excel sheet
-        CommonUtils.clickOnElement(participantDetailsPage.dynamicRecordButtonLocator(testDataManager.firstName + rasScreenerConstants.space + testDataManager.lastName));
-        CommonUtils.clickOnElement(participantDetailsPage.openRecordButton);
-        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.nameTextBox), testDataManager.firstName + rasScreenerConstants.space + testDataManager.lastName, "-- VERIFYING FULL NAME --");
-        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.firstNameTextBox), testDataManager.firstName, "-- VERIFYING FIRST NAME --");
-        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.middleInitialTextBox), testDataManager.middleInitial, "-- VERIFYING MIDDLE INITIAL --");
-        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.lastNameTextBox), testDataManager.lastName, "-- VERIFYING LAST NAME --");
-        CommonUtils.clickOnElement(participantDetailsPage.demographicsTab);
-        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.dateOfBirthTextBox), testDataManager.whatIsYourDateOfBirth, "-- VERIFYING DATE OF BIRTH --");
-        rasScreenerStepsImpl.verifyingDropDownOption(participantDetailsPage.biologicalGenderMaleDropDownOption, "-- VERIFYING BIOLOGICAL GENDER --");
-        rasScreenerStepsImpl.verifyingDropDownOption(participantDetailsPage.isParticipantAdoptedNoOption, "-- VERIFYING IF THE PARTICIPANT IS ADOPTED --");
-        CommonUtils.assertEqualsWithMessage(participantDetailsPage.participantRacePreferNotToAnswerOption.getText(), testDataManager.whatIsYourRace, "-- VERIFYING RACE --");
-        rasScreenerStepsImpl.verifyingDropDownOption(participantDetailsPage.notHispanicLatinoEthnicityDropDownOption, "-- VERIFYING ETHNICITY --");
-        CommonUtils.clickOnElement(participantDetailsPage.contactInfoTab);
-        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactStreetAddress), testDataManager.street + rasScreenerConstants.space + testDataManager.street2, "-- VERIFYING CONTACT STREET ADDRESS --");
-        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactState), testDataManager.state, "-- VERIFYING CONTACT STATE --");
-        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactCity), testDataManager.city, "- VERIFYING CONTACT CITY --");
-        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactZipCode), testDataManager.zipcode, "-- VERIFYING ZIP CODE --");
-        rasScreenerStepsImpl.verifyingDropDownOption(participantDetailsPage.contactCountry, "-- VERIFYING CONTACT COUNTRY --");
-        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactEmailAddress), testDataManager.emailAddress, "-- VERIFYING CONTACT EMAIL ADDRESS --");
-        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactHomePhone), testDataManager.homePhoneNumber, "-- VERIFYING CONTACT HOME PHONE --");
-        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactCellPhone), testDataManager.cellPhoneNumber, "-- VERIFYING CONTACT CELL PHONE --");
-        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactWorkPhone), testDataManager.workPhoneNumber, "-- VERIFYING CONTACT WORK PHONE --");
-        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactPreferredPhone), testDataManager.cellPhoneNumber, "-- VERIFYING PREFERRED PHONE --");
-        CommonUtils.clickOnElement(participantDetailsPage.medicalInformationTab);
-        rasScreenerStepsImpl.verifyingDropDownOption(participantDetailsPage.hasAPhysicianEverDiagnosedThisParticipantWithCancerNoOption, "-- VERIFYING IF PARTICIPANT HAS BEEN DIAGNOSED WITH CANCER");
-        rasScreenerStepsImpl.verifyingDropDownOption(participantDetailsPage.vitalStatusYesDropDownOption, "-- VERIFYING VITAL STATUS --");
-        rasScreenerStepsImpl.verifyingDropDownOption(participantDetailsPage.hasTheParticipantEverHadGeneticTesting, "-- VERIFYING IF THE PARTICIPANT HAS HAD GENETIC TESTING --");
-        CommonUtils.clickOnElement(participantDetailsPage.rasopathyHistoryTab);
-        rasScreenerStepsImpl.verifyingDropDownOption(participantDetailsPage.haveYouBeenDiagnosedWithARasopathy, "-- VERIFYING IF PARTICIPANT HAS BEEN DIAGNOSED WITH A RASOPATHY --");
-        rasScreenerStepsImpl.verifyingDropDownOption(participantDetailsPage.haveAnyOfYourBiologicalRelativesBeenDiagnosedWithARasopathyNoInfoOption, "-- VERIFYING IF BIOLOGICAL RELATIVES HAVE BEEN DIAGNOSED WITH A RASOPATHY --");
+        rasScreenerStepsImpl.verifying_RAS_Screener_Scenario_1_Data();
 
-        CommonUtils.clickOnElement(referralTablePage.referralPreviewButton);
-        CommonUtils.clickOnElement(referralTablePage.openRecordButton);
+        /******* VERIFY ENROLLMENT STATUS BELOW ********/
+        CommonUtils.clickOnElement(screenerRecordTablePage.dynamicLocatorForStudyButtons("Submit for Eligibility Review"));
+        CommonUtils.clickOnElement(screenerRecordTablePage.dynamicLocatorForStudyButtons("Mark Eligible"));
     }
 
     @Given("a proxy is on the RASopathies Longitudinal Cohort Study login page")
@@ -368,7 +333,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.pleaseListCellPhoneNumberTextBox.sendKeys(foreigncellPhoneNumber);
         rasopathyQuestionnairePage.pleaseListWorkPhoneNumberTextBox.sendKeys(foreignWorkPhoneNumber);
         rasopathyQuestionnairePage.pleaseSelectCellPhonePreferredContactCheckBox.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -379,7 +344,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.pleaseListCellPhoneNumberTextBox.sendKeys(foreigncellPhoneNumber);
         rasopathyQuestionnairePage.pleaseListWorkPhoneNumberTextBox.sendKeys(foreignWorkPhoneNumber);
         rasopathyQuestionnairePage.pleaseSelectHomePhonePreferredContactCheckBox.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -391,7 +356,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.pleaseListCellPhoneNumberTextBox.sendKeys(cellPhoneNumber);
         rasopathyQuestionnairePage.pleaseListWorkPhoneNumberTextBox.sendKeys(homePhoneNumber);
         rasopathyQuestionnairePage.pleaseSelectWorkPhonePreferredContactCheckBox.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
     /* END: Enters Phone Numbers details */
@@ -403,7 +368,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.authenticityOfParticipantHispanicLatinoOption);
         rasopathyQuestionnairePage.authenticityOfParticipantHispanicLatinoOption.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -412,7 +377,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.authenticityOfParticipantNotHispanicLatinoOption);
         rasopathyQuestionnairePage.authenticityOfParticipantNotHispanicLatinoOption.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -421,7 +386,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.authenticityOfParticipantUnKnownOption);
         rasopathyQuestionnairePage.authenticityOfParticipantUnKnownOption.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -440,7 +405,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.raceOfParticipantAsian.click();
         rasopathyQuestionnairePage.raceOfParticipantOther.click();
         rasopathyQuestionnairePage.raceOfParticipantOtherTextBox.sendKeys(otherRace);
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -448,7 +413,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_Prefer_not_to_answer_for_other_when_selecting_Race_of_participant() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.raceOfParticipantPreferNotToAnswer.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -466,7 +431,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.isParticipantInFamilyAdvocacyGroupOptionTextBox.sendKeys(familyAdvocacyGroup);
         rasopathyQuestionnairePage.isParticipantInOtherResearchStudyOption.click();
         rasopathyQuestionnairePage.isParticipantInOtherResearchStudyOptionTextBox.sendKeys(otherText);
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -479,7 +444,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.isParticipantInFamilyAdvocacyGroupOptionTextBox.sendKeys(familyAdvocacyGroup);
         rasopathyQuestionnairePage.isParticipantInOtherResearchStudyOption.click();
         rasopathyQuestionnairePage.isParticipantInOtherResearchStudyOptionTextBox.sendKeys(otherText);
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -487,7 +452,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_I_am_not_involved_in_any_other_research_study_or_registry_group_for_is_the_participant_participated_in_any_other_research_study_or_registry_group() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.isParticipantNotInvolvedInAnyStudyGroupOption.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -495,7 +460,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_Not_sure_for_is_the_participant_participated_in_any_other_research_study_or_registry_group() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.isParticipantNotSureOption.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -572,7 +537,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_Never_diagnosed_with_any_of_these_conditions_option_for_participant_being_diagnosed_with_any_of_the_listed_conditions() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithConditionsNeverDiagnosedOption.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
 
     }
@@ -590,7 +555,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithCancerNoOption);
         rasopathyQuestionnairePage.hasParticipantBeenDiagnosedWithCancerNoOption.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -618,7 +583,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentSecondRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentThirdRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentFourthRadioButton.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -651,7 +616,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.currentlyReceivingTreatmentSecondRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingTreatmentThirdRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingTreatmentFourthRadioButton.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -684,7 +649,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentSecondRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentThirdRadioButton.click();
         rasopathyQuestionnairePage.currentlyReceivingNoTreatmentFourthRadioButton.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -700,7 +665,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.hasProxyBeenDiagnosedWithaRasopathyNoOption);
         rasopathyQuestionnairePage.hasProxyBeenDiagnosedWithaRasopathyNoOption.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -709,7 +674,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.hasProbandBeenDiagnosedWithaRasopathyNoOption);
         rasopathyQuestionnairePage.hasProbandBeenDiagnosedWithaRasopathyNoOption.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -725,7 +690,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_Dont_Know_for_selecting_a_specific_RASopathy_diagnosed_of_the_participant() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.participantSpecificRasopathyDontKnowOption.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -756,7 +721,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_No_option_to_family_members_of_participants_having_been_diagnosed_with_a_RASopathy() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.participantsFamilyMembersBeenDiagnosedNoOption.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -764,7 +729,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_I_have_no_information_on_my_biological_relatives_option_to_family_members_of_participants_having_been_diagnosed_with_a_RASopathy() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.participantsFamilyMembersBeenDiagnosedhaveNoInformationOption.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -772,7 +737,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_I_have_no_information_on_my_biological_relatives_option_for_Have_any_of_your_biological_relatives_been_diagnosed_with_a_RASopathy() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.probandFamilyMembersBeenDiagnosedIDontKnowOption.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -788,7 +753,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_No_option_to_participant_having_had_genetic_testing() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.participantsEverHadGeneticTestingNoOption.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -796,7 +761,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_Not_sure_option_to_participant_having_had_genetic_testing() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.participantsEverHadGeneticTestingNotSureOption.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -833,7 +798,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_Websearch_for_how_did_you_hear_about_this_study() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.howDidYouHearAboutWebSearchOption.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -841,7 +806,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_Family_member_for_how_did_you_hear_about_this_study() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.howDidYouHearAboutFamilyMemberOption.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -849,7 +814,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_Support_Group_for_how_did_you_hear_about_this_study() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.howDidYouHearAboutSupportGroupOption.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -858,7 +823,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.howDidYouHearAboutGeneticCounselorOption.click();
         rasopathyQuestionnairePage.howDidYouHearAboutGeneticCounselorTextBox.sendKeys(GeneticCounselorText);
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -874,7 +839,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_No_option_for_the_participant_or_other_family_members_ever_participated_in_another_study_on_RASopathies_at_another_medical_institution() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.hasParticipantOrOtherFamilyMemberParticipatedInOtherStudyNoOption.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -882,7 +847,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     public void selects_the_Not_sure_option_for_the_participant_or_other_family_members_ever_participated_in_another_study_on_RASopathies_at_another_medical_institution() {
         MiscUtils.sleep(1000);
         rasopathyQuestionnairePage.hasParticipantOrOtherFamilyMemberParticipatedInOtherStudyNotSureOption.click();
-        
+
         rasopathyQuestionnairePage.studyNextButton.click();
     }
 
@@ -934,7 +899,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewiFrameCHARMS);
 
         CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewWaitingForElegibilityReviewButton);
-        
+
         charmsNativeViewPage.nativeViewWaitingForElegibilityReviewButton.click();
     }
 
@@ -1810,7 +1775,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         cgbIIQPage.cgbIIQOneTimeEmailTextBox.sendKeys("charmsras5@yahoo.com");
         cgbIIQPage.cgbIIQOneTimePinTextBox.sendKeys(cgbIIQOneTimePin);
 
-        
+
         JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 
         /** DEBUG HERE --------- ISSUE WAS FOUND TEST CASE WILL BE UPDATED */
