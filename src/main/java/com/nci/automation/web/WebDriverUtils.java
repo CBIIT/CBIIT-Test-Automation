@@ -26,7 +26,6 @@ import com.nci.automation.common.Constants;
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.LocalConfUtils;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
  * This class contains web driver related methods
@@ -118,19 +117,16 @@ public class WebDriverUtils {
     public static void launchChrome() {
         String osName = FrameworkConstants.GET_OS_NAME;
         if (osName.contains("Windows")) {
-            WebDriverManager.chromedriver().operatingSystem(OperatingSystem.WIN).setup();
             webDriver = new ChromeDriver();
             webDriver.manage().window().maximize();
             webDriver.manage().deleteAllCookies();
             webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         } else if (osName.contains("Mac")) {
-            WebDriverManager.chromedriver().operatingSystem(OperatingSystem.MAC).setup();
             webDriver = new ChromeDriver();
             webDriver.manage().window().maximize();
             webDriver.manage().deleteAllCookies();
             webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         } else if (osName.contains("Linux")) {
-            WebDriverManager.chromedriver().operatingSystem(OperatingSystem.LINUX).setup();
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--headless=new");
             webDriver = new ChromeDriver(chromeOptions);
