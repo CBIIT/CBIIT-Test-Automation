@@ -10,6 +10,7 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.asserts.SoftAssert;
 
 import com.nci.automation.dao.ExcelReader;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -22,15 +23,13 @@ import com.nci.automation.xceptions.TestingException;
 
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
 import ServiceNow.CHARMS.Utils.CharmsUtil;
-import ServiceNow.CHARMS.Utils.ComponentTestResult;
-import ServiceNow.CHARMS.Utils.StepTestResult;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
 
 public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
-
-	private ArrayList<StepTestResult> scenarioReportList = new ArrayList<StepTestResult>();
 
 	@Then("fills the Fanconi Eligibility Questionnaire form")
 	public void fills_the_Fanconi_Eligibility_Questionnaire_form() {
@@ -931,7 +930,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 		iTrustloginPage.loginLink.click();
 		MiscUtils.sleep(2000);
 
-		CucumberLogUtils.logScreenShot();
+		//CucumberLogUtils.logScreenShot();
 
 		iTrustloginPage.userNameField.sendKeys("jains18");
 		MiscUtils.sleep(500);
@@ -980,963 +979,125 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 	@Then("data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page in Native View")
 	public void data_submitted_via_the_Fanconi_Eligibility_Questionnaire_is_verified_in_Participant_Details_page_in_Native_View()
 			throws InvalidFormatException, IOException, TestingException {
+	
+		SoftAssert softAssert = new SoftAssert();
+	
+		String	excelSheet=  "/Users/jains18/git/CBIIT-Test-Automation/src/main/resources/data.xlsx";
+	
+	Map<String, String> currentRow = CharmsUtil.testManagerData(excelSheet,"FanconiScreener",0);
+	
+	/************************************************/
+	/* General Information on Participant Details page is verified */
+	/************************************************/
+	
+			// Subject ID Assertion	
+			CharmsUtil.assertTextBoxData(softAssert,cHARMSParticipantDetailsPage.nVParticipantSubjectID, ""," Subject ID of the General Information on Participant Details page ");
 
-		// Excel Data Reader
-		ExcelReader excelReader = new ExcelReader();
+			// Participant Name Assertion
+			CharmsUtil.assertTextBoxData(softAssert,cHARMSParticipantDetailsPage.nVParticipantName,(currentRow.get("FirstName") + " " + currentRow.get("LastName"))," Participant Name of the General Information on Participant Details page ");
+			
+			// Generation ID Assertion
+			CharmsUtil.assertTextBoxData(softAssert,cHARMSParticipantDetailsPage.nVParticipantGenerationID, "", " Generation ID of the General Information on Participant Details page ");
 
-		Map<String, String> CurrentRow = null;
-
-		try {
-			List<Map<String, String>> excelDataMapList = excelReader
-					.getData("/Users/jains18/git/CBIIT-Test-Automation/src/main/resources/data.xlsx", "Sheet1");
-			CurrentRow = excelDataMapList.get(0);
-
-		} catch (InvalidFormatException | IOException e) {
-			e.printStackTrace();
-		}
-
-		/*
-		 * System.out.println( "Subject ID Assertion ****** " +
-		 * cHARMSParticipantDetailsPage.nVParticipantSubjectID.getText());
-		 * 
-		 * System.out.println("Full Name Assertion:****** " +
-		 * (CurrentRow.get("FirstName") + CurrentRow.get("LastName")));
-		 * 
-		 * System.out.println("Generation ID Assertion : ********" +
-		 * cHARMSParticipantDetailsPage.nVParticipantGenerationID.getText());
-		 * 
-		 * System.out.println("Family Member ID Assertion : ********" +
-		 * cHARMSParticipantDetailsPage.nVParticipantFamilyMemberID.getText());
-		 * 
-		 * System.out .println("Study Name Assertion : ********" +
-		 * cHARMSParticipantDetailsPage.nVParticipantStudy.getText());
-		 * 
-		 * System.out.println("Eligibility Status Assertion : ************* " +
-		 * cHARMSParticipantDetailsPage.nVParticipantEligibilityStatus.getText());
-		 * 
-		 * System.out.println("Enrollment Status Assertion : ********" +
-		 * cHARMSParticipantDetailsPage.nVParticipantEnrollmentStatus.getText());
-		 * 
-		 * String referral =
-		 * cHARMSParticipantDetailsPage.nVParticipantReferral.getAttribute("value");
-		 * 
-		 * System.out.println("Referral Assertion : ********" + referral);
-		 * 
-		 * System.out.println( "Assigned To Assertion : ********" +
-		 * cHARMSParticipantDetailsPage.nVParticipantAssignedTo.getText());
-		 */
-		// Subject ID Assertion
-		ComponentTestResult subjectIDAssert = CharmsUtil
-				.verifyDataField(cHARMSParticipantDetailsPage.nVParticipantSubjectID, "");
-
-		// Participant Name Assertion
-		ComponentTestResult participantNameAssert = CharmsUtil.verifyDataField(
-				cHARMSParticipantDetailsPage.nVParticipantName,
-				(CurrentRow.get("FirstName") + " " + CurrentRow.get("LastName")));
-
-		// Generation ID Assertion
-		ComponentTestResult generationIDAssert = CharmsUtil
-				.verifyDataField(cHARMSParticipantDetailsPage.nVParticipantGenerationID, "");
-
-		// Family Member ID Assertion
-		ComponentTestResult familyMemberIDAssert = CharmsUtil
-				.verifyDataField(cHARMSParticipantDetailsPage.nVParticipantFamilyMemberID, "");
-
-		// May we have your permission to contact this relative? Assertion
-
-		String permissionToContactRelative = cHARMSParticipantDetailsPage.nVpermissionToContactThisRelative
-				.getAttribute("value");
-
-		System.out.println("New DATA : " + permissionToContactRelative);
-
-		ComponentTestResult permissionToContactThisRelativeAssert = CharmsUtil.verifyDataField(
-				cHARMSParticipantDetailsPage.nVpermissionToContactThisRelative,
-				cHARMSParticipantDetailsPage.nVpermissionToContactThisRelative.getAttribute("value"));
-
-		// Study Name Assertion
-		ComponentTestResult studyNameAssert = CharmsUtil
-				.verifyDataField(cHARMSParticipantDetailsPage.nVParticipantStudy, "Fanconi");
+			// Family Member ID Assertion
+			CharmsUtil.assertTextBoxData(softAssert,cHARMSParticipantDetailsPage.nVParticipantFamilyMemberID, "", " Family Member ID of the General Information on Participant Details page ");
+			
+			// May we have your permission to contact this relative? Assertion
+			CharmsUtil.assertTextBoxData(softAssert,cHARMSParticipantDetailsPage.nVpermissionToContactThisRelative,
+					"Yes"," May we have your permission to contact this relative of the General Information on Participant Details page ");
+			
+			// Study Name Assertion
+			CharmsUtil.assertTextBoxData(softAssert,cHARMSParticipantDetailsPage.nVParticipantStudy, "Fanconi", " Study Name of the General Information on Participant Details page ");
+			
+			// Eligibility Status Assertion
+			CharmsUtil.assertTextBoxData(softAssert,cHARMSParticipantDetailsPage.nVParticipantEligibilityStatus, "Waiting for Eligibility"," Eligibility Status of the General Information on Participant Details page ");
+			
+			// Enrollment Status Assertion
+			CharmsUtil.assertTextBoxData(softAssert,cHARMSParticipantDetailsPage.nVParticipantEnrollmentStatus, "New Screener Received", " Enrollment Status of the General Information on Participant Details page ");
 		
-		// Eligibility Status Assertion
-		CharmsUtil.verifyDropDownValue(cHARMSParticipantDetailsPage.nVParticipantEligibilityStatus, "Waiting for Eligibility","Eligibility Status Assertion");
-		
-		
-
-		// Eligibility Status Assertion
-	//	ComponentTestResult eligibilityStatusAssert = CharmsUtil.verifyDropDownValue(cHARMSParticipantDetailsPage.nVParticipantEligibilityStatus, "Waiting for Eligibility");
-		
-		ComponentTestResult eligibilityStatusAssert = CharmsUtil.verifyDataField(
-							cHARMSParticipantDetailsPage.nVParticipantEligibilityStatus1, "Waiting for Eligibility");
-
-		// Enrollment Status Assertion
-		ComponentTestResult enrollmentStatusAssert = CharmsUtil
-				.verifyDataField(cHARMSParticipantDetailsPage.nVParticipantEnrollmentStatus, "New Screener Received");
-
-		// Referral Assertion
-		String referralValue = cHARMSParticipantDetailsPage.nVParticipantReferral.getAttribute("value");
-		ComponentTestResult referralAssert = CharmsUtil
-				.verifyDataField(cHARMSParticipantDetailsPage.nVParticipantReferral, referralValue);
-
-		// Assigned To Assertion
-		ComponentTestResult assignedToAssert = CharmsUtil
-				.verifyDataField(cHARMSParticipantDetailsPage.nVParticipantAssignedTo, "");
-
-		StepTestResult generalInformationTabVerificationResult = new StepTestResult(
-				"General Information on Participant Details page is verified ");
-
-		generalInformationTabVerificationResult.add(subjectIDAssert);
-		generalInformationTabVerificationResult.add(participantNameAssert);
-		generalInformationTabVerificationResult.add(generationIDAssert);
-		generalInformationTabVerificationResult.add(familyMemberIDAssert);
-		generalInformationTabVerificationResult.add(permissionToContactThisRelativeAssert);
-		generalInformationTabVerificationResult.add(studyNameAssert);
-		generalInformationTabVerificationResult.add(eligibilityStatusAssert);
-		generalInformationTabVerificationResult.add(enrollmentStatusAssert);
-		generalInformationTabVerificationResult.add(referralAssert);
-		generalInformationTabVerificationResult.add(assignedToAssert);
-
-		scenarioReportList.add(generalInformationTabVerificationResult);
-
-		/************************************************/
-		/* Personal Information on Participant Details page is verified */
-		/************************************************/
-		
-		CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantPersonalInformationTab);
-		cHARMSParticipantDetailsPage.nVParticipantPersonalInformationTab.click();
-
-		System.out.println("Relationship to You Assert : ***"
-				+ cHARMSParticipantDetailsPage.nVParticipantPersonalInformationTabRelationshipToYou.getText());
-
-		// Relationship to You Assertion
-		ComponentTestResult relationshipToYouAssert = CharmsUtil
-				.verifyDataField(cHARMSParticipantDetailsPage.nVParticipantPersonalInformationTabRelationshipToYou, "");
-
-		// First Name Assertion
-		ComponentTestResult firstNameAssert = CharmsUtil.verifyDataField(
-				cHARMSParticipantDetailsPage.nVParticipantPersonalInformationTabFirstName, CurrentRow.get("FirstName"));
-
-		// Middle Name Assertion
-		ComponentTestResult middleNameAssert = CharmsUtil.verifyDataField(
-				cHARMSParticipantDetailsPage.nVParticipantPersonalInformationTabMiddleName,
-				CurrentRow.get("MiddleName"));
-
-		// Last Name Assertion
-		ComponentTestResult lastNameAssert = CharmsUtil.verifyDataField(
-				cHARMSParticipantDetailsPage.nVParticipantPersonalInformationTabLastName, CurrentRow.get("LastName"));
-
-		StepTestResult personelInformationTabVerificationResult = new StepTestResult(
-				"Personel Information Tab data on Participant Details page is verified ");
-
-		personelInformationTabVerificationResult.add(relationshipToYouAssert);
-		personelInformationTabVerificationResult.add(firstNameAssert);
-		personelInformationTabVerificationResult.add(middleNameAssert);
-		personelInformationTabVerificationResult.add(lastNameAssert);
-
-		scenarioReportList.add(personelInformationTabVerificationResult);
-
-		/************************************************/
-		/* Demographics on Participant Details page is verified */
-		/************************************************/
-
-		CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantDemographicsTab);
-		cHARMSParticipantDetailsPage.nVParticipantDemographicsTab.click();
-
-		// Biological Gender Assertion
-		ComponentTestResult biologicalGenderAssert = CharmsUtil.verifyDataField(
-				cHARMSParticipantDetailsPage.nVParticipantDemographicsTabBiologicalGender,
-				CurrentRow.get("SexAssigned"));
-
-		// Identified Gender Assertion
-		ComponentTestResult identifiedGenderAssert = CharmsUtil.verifyDataField(
-				cHARMSParticipantDetailsPage.nVParticipantDemographicsTabIdentifiedGender,
-				CurrentRow.get("CurrentGender"));
-		
-		// Participant Race link (Select all that apply) Assertion
-		CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantDemographicsTabRace);
-		
-		System.out.println("New RACE : " + cHARMSParticipantDetailsPage.nVParticipantDemographicsTabRaceDetails.getText());
-
-		// Participant Race Details (Select all that apply) Assertion
-		ComponentTestResult raceAssert = CharmsUtil.verifyDataField(
-				cHARMSParticipantDetailsPage.nVParticipantDemographicsTabRaceDetails, CurrentRow.get("RaceList"));
-				
-		// Participant Other Race (Select all that apply) Assertion
-		ComponentTestResult otherRaceAssert = CharmsUtil.verifyDataField(
-				cHARMSParticipantDetailsPage.nVParticipantDemographicsTabRaceOtherText, CurrentRow.get("OtherRace"));
-
-		// Ethnicity Assertion
-		ComponentTestResult ethnicityAssert = CharmsUtil.verifyDataField(
-				cHARMSParticipantDetailsPage.nVParticipantDemographicsTabEthnicity, CurrentRow.get("Ethnicity"));
-
-		// Pronouns Assertion
-		ComponentTestResult pronounsAssert = CharmsUtil.verifyDataField(
-				cHARMSParticipantDetailsPage.nVParticipantDemographicsTabPronouns, CurrentRow.get("Pronouns"));
-
-		// Other Pronouns Assertion
-		 ComponentTestResult OtherPronounsAssert = CharmsUtil.verifyDataField(cHARMSParticipantDetailsPage.nVParticipantDemographicsTabPronounsOtherText,
-		"");
-
-		// Is the participant adopted? Assertion
-		ComponentTestResult IsParticipantAdoptedAssert = CharmsUtil.verifyDataField(
-				cHARMSParticipantDetailsPage.nVParticipantDemographicsTabIsTheParticipantAdopted,
-				CurrentRow.get("IsAdopted"));
-
-		// Date of Birth Assertion
-		ComponentTestResult dateOfBirthAssert = CharmsUtil
-				.verifyDataField(cHARMSParticipantDetailsPage.nVParticipantDemographicsTabDOB, CurrentRow.get("DOB"));
-
-		// If Date of Birth is unkown, is this person 18 years old or older Assertion
-		ComponentTestResult dateOfBirthUnknownAssert = CharmsUtil
-				.verifyDataField(cHARMSParticipantDetailsPage.nVParticipantDemographicsTabIfDOBUnknownAge18, "");
-
-		// Age Assertion
-		ComponentTestResult ageAssert = CharmsUtil
-				.verifyDataField(cHARMSParticipantDetailsPage.nVParticipantDemographicsTabtAge, "75");
-
-		StepTestResult demographicInformationTabVerificationResult = new StepTestResult(
-				"Demographic Information Tab data on Participant Details page is verified ");
-
-		demographicInformationTabVerificationResult.add(biologicalGenderAssert);
-		demographicInformationTabVerificationResult.add(identifiedGenderAssert);
-		demographicInformationTabVerificationResult.add(raceAssert);
-		demographicInformationTabVerificationResult.add(otherRaceAssert);
-		demographicInformationTabVerificationResult.add(ethnicityAssert);
-		demographicInformationTabVerificationResult.add(pronounsAssert);
-		demographicInformationTabVerificationResult.add(OtherPronounsAssert);
-		demographicInformationTabVerificationResult.add(IsParticipantAdoptedAssert);
-		demographicInformationTabVerificationResult.add(dateOfBirthAssert);
-		demographicInformationTabVerificationResult.add(dateOfBirthUnknownAssert);
-		demographicInformationTabVerificationResult.add(ageAssert);
-
-		scenarioReportList.add(demographicInformationTabVerificationResult);
-
-		/************************************************/
-		/* Contact Info on Participant Details page is verified */
-		/************************************************/
-
-		CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantContactInfoTab);
-		cHARMSParticipantDetailsPage.nVParticipantContactInfoTab.click();
-
-		// Does the participant need legal representation? Assertion
-		ComponentTestResult legalRepresentationAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsPage.nVParticipantContactInfoTabAreYouTheLegalGuardianOfThisPerson, "No");
-
-		// Contact Street Address Assertion
-		ComponentTestResult streetAddressAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsPage.nVParticipantContactInfoTabStreetAddress,
-				CurrentRow.get("StreetAddress1") + " " + CurrentRow.get("StreetAddress2"));
-
-		// Contact State Assertion
-		ComponentTestResult stateAssert = CharmsUtil
-				.verifyLabel(cHARMSParticipantDetailsPage.nVParticipantContactInfoTabState, CurrentRow.get("State"));
-
-		// Contact City Assertion
-		ComponentTestResult cityAssert = CharmsUtil
-				.verifyLabel(cHARMSParticipantDetailsPage.nVParticipantContactInfoTabCity, CurrentRow.get("City"));
-
-		// Contact Zip Code Assertion
-		ComponentTestResult zipCodeAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsPage.nVParticipantContactInfoTabZipcode, CurrentRow.get("ZipCode"));
-
-		// Contact Country Assertion
-		ComponentTestResult countryAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsPage.nVParticipantContactInfoTabCountry, CurrentRow.get("CountryLived"));
-
-		// Contact Email Assertion
-		ComponentTestResult emailAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsPage.nVParticipantContactInfoTabEmail, CurrentRow.get("EmailAddress"));
-
-		// Contact Home Phone Assertion
-		ComponentTestResult homePhoneAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsPage.nVParticipantContactInfoTabHomePhone, CurrentRow.get("HomePhoneNumber"));
-
-		// Contact Cell Phone Assertion
-		ComponentTestResult cellPhoneAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsPage.nVParticipantContactInfoTabCellPhone, CurrentRow.get("CellPhoneNumber"));
-
-		// Contact Work Phone Assertion
-		ComponentTestResult workPhoneAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsPage.nVParticipantContactInfoTabWorkPhone, CurrentRow.get("WorkPhoneNumber"));
-
-		// Contact Preferred phone Assertion
-		ComponentTestResult preferredPhoneAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsPage.nVParticipantContactInfoTabPreferredPhone,
-				CurrentRow.get("HomePhoneNumber"));
-
-		StepTestResult contactInformationTabVerificationResult = new StepTestResult(
-				"Contact Information Tab data on Participant Details page is verified ");
-
-		contactInformationTabVerificationResult.add(legalRepresentationAssert);
-		contactInformationTabVerificationResult.add(streetAddressAssert);
-		contactInformationTabVerificationResult.add(stateAssert);
-		contactInformationTabVerificationResult.add(cityAssert);
-		contactInformationTabVerificationResult.add(zipCodeAssert);
-		contactInformationTabVerificationResult.add(countryAssert);
-		contactInformationTabVerificationResult.add(emailAssert);
-		contactInformationTabVerificationResult.add(homePhoneAssert);
-		contactInformationTabVerificationResult.add(cellPhoneAssert);
-		contactInformationTabVerificationResult.add(workPhoneAssert);
-		contactInformationTabVerificationResult.add(preferredPhoneAssert);
-
-		scenarioReportList.add(personelInformationTabVerificationResult);
-
-		/************************************************/
-		/* Medical Info on Participant Details page is verified */
-		/************************************************/
-
-		cHARMSParticipantDetailsPage.nVParticipantMedicalInfoTab.click();
-
-		// Has a physician ever diagnosed this participant with cancer? Assertion
-		ComponentTestResult participantDiagnoseeWithCancerAssert = CharmsUtil.verifyLabel(
-				cHARMSParticipantDetailsPage.nVParticipantMedicalInfoTabParticipantDiagnosedWithCancer, "Yes");
-
-		// Has the participant ever had genetic testing? Assertion
-		ComponentTestResult participantEverHadGeneticTestingAssert = CharmsUtil
-				.verifyLabel(cHARMSParticipantDetailsPage.nVParticipantMedicalInfoTabEverHadGeneticTesting, "Yes");
-
-		// Vital Status Assertion
-		ComponentTestResult vitalStatusAssert = CharmsUtil
-				.verifyLabel(cHARMSParticipantDetailsPage.nVParticipantMedicalInfoTabVitalStatus, "Not answered");
-
-		// Cohort Assertion
-		ComponentTestResult cohortAssert = CharmsUtil
-				.verifyLabel(cHARMSParticipantDetailsPage.nVParticipantMedicalInfoTabCohort, "Field");
-
-		StepTestResult medicalInformationTabVerificationResult = new StepTestResult(
-				"Contact Information Tab data on Participant Details page is verified ");
-
-		medicalInformationTabVerificationResult.add(participantDiagnoseeWithCancerAssert);
-		medicalInformationTabVerificationResult.add(participantEverHadGeneticTestingAssert);
-		medicalInformationTabVerificationResult.add(vitalStatusAssert);
-		medicalInformationTabVerificationResult.add(cohortAssert);
-
-		/*********************************************************************/
-		/*
-		 * THE FANCONI ELIGIBILITY QUESTIONNAIRE DATA FROM PORTAL IS VERIFIED IN FANCONI
-		 * STUDY SCREENER PAGE FROM NATIVE VIEW
-		 */
-		/*********************************************************************/
-
-		// Click the Fanconi study Preview button
-		fanconiScreenerNVPage.nVFanconiScreenerPreviewRecordButton.click();
-
-		// Click the Open record button
-		fanconiScreenerNVPage.nVOpenRecordButton.click();
-
-		/*************************************************/
-		/* Fanconi Study Screener:General Information */
-		/***********************************************/
-
-		/*
-		 * // Number Assertion System.out.println(referral);
-		 * 
-		 * ComponentTestResult fanconiScreenerNumberAssert = CharmsUtil
-		 * .verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerNumber, referral);
-		 * 
-		 */	// Does the participant need legal representation Assertion
-		ComponentTestResult fanconiScreenerDoesParticipantNeedLeglRepAssert1 = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerDoesParticipantNeedLegalRepresentation, "No");
-
-		// Study Assertion
-		ComponentTestResult fanconiScreenerStudyNameAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerStudy, "Fanconi");
-
-		// Family Member Record Assertion
-		ComponentTestResult fanconiScreenerFamilyMemberRecordAssert = CharmsUtil.verifyDataField(
-				fanconiScreenerNVPage.nVFanconiScreenerFamilyMemberRecord,
-				(CurrentRow.get("FirstName") + " " + CurrentRow.get("LastName")));
-
-		// Vital Status Assertion
-		ComponentTestResult fanconiScreenerVitalStatusAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerVitalStatus, "Not answered");
-
-		// Date of death Assertion
-		ComponentTestResult fanconiScreenerDateOfDeathAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerFamilyMemberRecord, "");
-
-		// Eligibility Status Assertion
-		ComponentTestResult fanconiScreenerEligibilityStatusAssert = CharmsUtil.verifyDataField(
-				fanconiScreenerNVPage.nVFanconiScreenerEligibilityStatus,
-				cHARMSParticipantDetailsPage.nVParticipantEligibilityStatus.getText());
-
-		// Enrollment Status Assertion
-		ComponentTestResult fanconiScreenerEnrollmentStatusAssert = CharmsUtil.verifyDataField(
-				fanconiScreenerNVPage.nVFanconiScreenerEnrollmentStatus,
-				cHARMSParticipantDetailsPage.nVParticipantEnrollmentStatus.getText());
-
-		// Date Consent Requested Assertion
-		ComponentTestResult fanconiScreenerDateConsentRequestedAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerDateConsentRequested, "");
-
-		// Consent Reminder Count Assertion
-		ComponentTestResult fanconiScreenerConsentReminderCountAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerConsentReminderCount, "0");
-
-		StepTestResult fanconiScreenerGeneralVerificationResult = new StepTestResult(
-				"Fanconi Study Screener:General Information page is verified ");
-
-		//fanconiScreenerGeneralVerificationResult.add(fanconiScreenerNumberAssert);
-		fanconiScreenerGeneralVerificationResult.add(fanconiScreenerDoesParticipantNeedLeglRepAssert1);
-		fanconiScreenerGeneralVerificationResult.add(fanconiScreenerStudyNameAssert);
-		fanconiScreenerGeneralVerificationResult.add(fanconiScreenerFamilyMemberRecordAssert);
-		fanconiScreenerGeneralVerificationResult.add(fanconiScreenerVitalStatusAssert);
-		fanconiScreenerGeneralVerificationResult.add(fanconiScreenerDateOfDeathAssert);
-		fanconiScreenerGeneralVerificationResult.add(fanconiScreenerEligibilityStatusAssert);
-		fanconiScreenerGeneralVerificationResult.add(fanconiScreenerEnrollmentStatusAssert);
-		fanconiScreenerGeneralVerificationResult.add(fanconiScreenerDateConsentRequestedAssert);
-		fanconiScreenerGeneralVerificationResult.add(fanconiScreenerConsentReminderCountAssert);
-
-		/*********************************************************************/
-		/* Contact Information in Fanconi Study screener page is verified */
-		/*********************************************************************/
-
-		// fanconiScreenerNVPage.nVFanconiScreenerrContactInfoTab.click();
-
-		// First Name Assertion
-		ComponentTestResult FanconiScreenerFirstNameAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerFirstName, CurrentRow.get("FirstName"));
-
-		// Middle Name Assertion
-		ComponentTestResult fanconiScreenerMiddleNameAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerMiddleName, CurrentRow.get("MiddleName"));
-
-		// Last Name Assertion
-		ComponentTestResult fanconiScreenerLastNameAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerLastName, CurrentRow.get("LastName"));
-
-		// Proxy First Name Assertion
-		ComponentTestResult fanconiScreenerProxyFirstNameAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerProxyFirstName, CurrentRow.get("FirstName"));
-
-		// Proxy Middle Name Assertion
-		ComponentTestResult fanconiScreenerProxyMiddleNameAssert = CharmsUtil.verifyDataField(
-				fanconiScreenerNVPage.nVFanconiScreenerProxyMiddleName, CurrentRow.get("ProxyMiddleName"));
-
-		// Proxy Last Name Assertion
-		ComponentTestResult fanconiScreenerProxyLastNameAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerProxyLastName, CurrentRow.get("ProxyLastName"));
-
-		// Contact Street Address Assertion
-		ComponentTestResult fanconiScreenerStreetAddressAssert = CharmsUtil.verifyDataField(
-				fanconiScreenerNVPage.nVFanconiScreenerStreetAddress,
-				CurrentRow.get("StreetAddress1") + " " + CurrentRow.get("StreetAddress2"));
-
-		// Contact State Assertion
-		ComponentTestResult fanconiScreenerStateAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerState, CurrentRow.get("State"));
-
-		// Contact City Assertion
-		ComponentTestResult fanconiScreenerCityAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerCity, CurrentRow.get("City"));
-
-		// Contact Zip Code Assertion
-		ComponentTestResult fanconiScreenerZipCodeAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerZipcode, CurrentRow.get("ZipCode"));
-
-		// Contact Country Assertion
-		ComponentTestResult fanconiScreenerCountryAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerCountry, CurrentRow.get("CountryLived"));
-
-		// Contact Email Assertion
-		ComponentTestResult fanconiScreenerEmailAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerEmail, CurrentRow.get("EmailAddress"));
-
-		// Contact Home Phone Assertion
-		ComponentTestResult fanconiScreenerHomePhoneAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerHomePhone, CurrentRow.get("HomePhoneNumber"));
-
-		// Contact Cell Phone Assertion
-		ComponentTestResult fanconiScreenerCellPhoneAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerCellPhone, CurrentRow.get("CellPhoneNumber"));
-
-		// Contact Work Phone Assertion
-		ComponentTestResult fanconiScreenerWorkPhoneAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerWorkPhone, CurrentRow.get("WorkPhoneNumber"));
-
-		// Contact Preferred phone Assertion
-		ComponentTestResult fanconiScreenerPreferredPhoneAssert = CharmsUtil.verifyDataField(
-				fanconiScreenerNVPage.nVFanconiScreenerPreferredPhone, CurrentRow.get("HomePhoneNumber"));
-
-		StepTestResult fanconiScreenerContactInformationVerificationResult = new StepTestResult(
-				"Contact Information on Participant Details page is verified ");
-
-		fanconiScreenerContactInformationVerificationResult.add(FanconiScreenerFirstNameAssert);
-		fanconiScreenerContactInformationVerificationResult.add(fanconiScreenerMiddleNameAssert);
-		fanconiScreenerContactInformationVerificationResult.add(fanconiScreenerLastNameAssert);
-		fanconiScreenerContactInformationVerificationResult.add(fanconiScreenerProxyFirstNameAssert);
-		fanconiScreenerContactInformationVerificationResult.add(fanconiScreenerProxyMiddleNameAssert);
-		fanconiScreenerContactInformationVerificationResult.add(fanconiScreenerProxyLastNameAssert);
-		fanconiScreenerContactInformationVerificationResult.add(fanconiScreenerStreetAddressAssert);
-		fanconiScreenerContactInformationVerificationResult.add(fanconiScreenerStateAssert);
-		fanconiScreenerContactInformationVerificationResult.add(fanconiScreenerCityAssert);
-		fanconiScreenerContactInformationVerificationResult.add(fanconiScreenerZipCodeAssert);
-		fanconiScreenerContactInformationVerificationResult.add(fanconiScreenerCountryAssert);
-		fanconiScreenerContactInformationVerificationResult.add(fanconiScreenerEmailAssert);
-		fanconiScreenerContactInformationVerificationResult.add(fanconiScreenerHomePhoneAssert);
-		fanconiScreenerContactInformationVerificationResult.add(fanconiScreenerCellPhoneAssert);
-		fanconiScreenerContactInformationVerificationResult.add(fanconiScreenerWorkPhoneAssert);
-		fanconiScreenerContactInformationVerificationResult.add(fanconiScreenerPreferredPhoneAssert);
-
-		/************************************************/
-		/* Demographics in Fanconi Study screener page is verified */
-		/************************************************/
-
-		fanconiScreenerNVPage.nVFanconiScreenerDemographicsTab.click();
-
-		// Date of Birth Assertion
-		ComponentTestResult fanconiScreenerDateOfBirthAssert = CharmsUtil
-				.verifyLabel(fanconiScreenerNVPage.nVFanconiScreenerDOB, CurrentRow.get("DOB"));
-
-		// Biological Gender Assertion
-		ComponentTestResult fanconiScreenerBiologicalGenderAssert = CharmsUtil
-				.verifyLabel(fanconiScreenerNVPage.nVFanconiScreenerBiologicalGender, CurrentRow.get("SexAssigned"));
-
-		// Identified Gender Assertion
-		ComponentTestResult fanconiScreenerIdentifiedGenderAssert = CharmsUtil
-				.verifyLabel(fanconiScreenerNVPage.nVFanconiScreenerIdentifiedGender, CurrentRow.get("CurrentGender"));
-
-		// Participant Race (Select all that apply) Assertion
-		ComponentTestResult fanconiScreenerRaceAssert = CharmsUtil.verifyLabel(
-				fanconiScreenerNVPage.nVFanconiScreenerRace,
-				"Caucasian (white), Black/African American, Native Hawaiian/Other Pacific Islander, American Indian/Alaskan Native, Asian, Other");
-
-		// Participant Other Race Assertion
-		ComponentTestResult fanconiScreenerOtherRaceAssert = CharmsUtil
-				.verifyLabel(fanconiScreenerNVPage.nVFanconiScreenerRaceOtherText, CurrentRow.get("OtherRace"));
-
-		// Is the participant adopted? Assertion
-		ComponentTestResult fanconiScreenerIsParticipantAdoptedAssert = CharmsUtil.verifyLabel(
-				fanconiScreenerNVPage.nVFanconiScreenerIsTheParticipantAdopted, CurrentRow.get("IsAdopted"));
-
-		// Ethnicity Assertion
-		ComponentTestResult fanconiScreenerEthnicityAssert = CharmsUtil
-				.verifyLabel(fanconiScreenerNVPage.nVFanconiScreenerEthnicity, CurrentRow.get("Ethnicity"));
-
-		// Pronouns Assertion
-		ComponentTestResult fanconiScreenerPronounsAssert = CharmsUtil
-				.verifyLabel(fanconiScreenerNVPage.nVFanconiScreenerPronouns, CurrentRow.get("Pronouns"));
-
-		// Other Pronouns Assertion
-		ComponentTestResult fanconiScreenerOtherPronounsAssert = CharmsUtil
-				.verifyLabel(fanconiScreenerNVPage.nVFanconiScreenerPronounsOtherText, "");
-
-		StepTestResult fanconiScreenerDemographicsVerificationResult = new StepTestResult(
-				"Fanconi Study Screener:Demographics tab data is verified ");
-
-		fanconiScreenerDemographicsVerificationResult.add(fanconiScreenerDateOfBirthAssert);
-		fanconiScreenerDemographicsVerificationResult.add(fanconiScreenerBiologicalGenderAssert);
-		fanconiScreenerDemographicsVerificationResult.add(fanconiScreenerIdentifiedGenderAssert);
-		fanconiScreenerDemographicsVerificationResult.add(fanconiScreenerRaceAssert);
-		fanconiScreenerDemographicsVerificationResult.add(fanconiScreenerOtherRaceAssert);
-		fanconiScreenerDemographicsVerificationResult.add(fanconiScreenerIsParticipantAdoptedAssert);
-		fanconiScreenerDemographicsVerificationResult.add(fanconiScreenerEthnicityAssert);
-		fanconiScreenerDemographicsVerificationResult.add(fanconiScreenerPronounsAssert);
-		fanconiScreenerDemographicsVerificationResult.add(fanconiScreenerOtherPronounsAssert);
-
-		/********************************************************/
-		/** Fanconi History in Fanconi Study Screener page is verified **/
-		/********************************************************/
-
-		// History of Fanconi anemia study involvement Assertion
-		ComponentTestResult fanconiScreenerHistoryOfFanconiAnemiaStudyInvolvementAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerHistoryOfFanconiAnemiaStudyInvolvement, null);
-
-		// Fanconi anemia diagnosis? Assertion
-		ComponentTestResult fanconiScreenerFanconiAnemiaDiagnosisAssert = CharmsUtil
-				.verifySelect2DropDowns(fanconiScreenerNVPage.nVFanconiScreenerFanconiAnemiaDiagnosis, null, 0);
-
-		// Age at Fanconi diagnosis Assertion
-		ComponentTestResult fanconiScreenerAgeAtFanconiDiagnosisAssert = CharmsUtil
-				.verifySelect2DropDowns(fanconiScreenerNVPage.nVFanconiScreenerAgeAtFanconiDiagnosis, null, 0);
-
-		// Date of Fanconi diagnosis Assertion
-		ComponentTestResult fanconiScreenerDateOfFanconiDiagnosisAssert = CharmsUtil
-				.verifySelect2DropDowns(fanconiScreenerNVPage.nVFanconiScreenerDateOfFanconiDiagnosis, null, 0);
-
-		StepTestResult fanconiScreenerFanconiHistoryVerificationResult = new StepTestResult(
-				"Fanconi Study Screener:Fanconi History tab data is verified ");
-
-		fanconiScreenerFanconiHistoryVerificationResult
-				.add(fanconiScreenerHistoryOfFanconiAnemiaStudyInvolvementAssert);
-		fanconiScreenerFanconiHistoryVerificationResult.add(fanconiScreenerFanconiAnemiaDiagnosisAssert);
-		fanconiScreenerFanconiHistoryVerificationResult.add(fanconiScreenerAgeAtFanconiDiagnosisAssert);
-		fanconiScreenerFanconiHistoryVerificationResult.add(fanconiScreenerDateOfFanconiDiagnosisAssert);
-
-		/********************************************************/
-		/** Genetic Testing History in Fanconi Study Screener page is verified **/
-		/********************************************************/
-
-		// Complementation Testing previously done? Assertion
-		ComponentTestResult fanconiScreenerIsComplementationTestingPreviouslyDoneAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerIsComplementationTestingPreviouslyDone, null);
-
-		// Genetic testing positive for Fanconi? Assertion
-		ComponentTestResult fanconiScreenerGeneticTestingPositiveAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerGeneticTestingPositiveForFanconi, null);
-
-		// Does the participant have a copy of the genetic test results? Assertion
-		ComponentTestResult fanconiScreenerGeneticTestResultCopyAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerDoesGeneticTestResultCopy, null);
-
-		// Participants preferred method of delivering genetic test results Assertion
-		ComponentTestResult fanconiScreenerGeneticTestResultsDeliveryMethodAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerGeneticTestResultsDeliveryMethod, null);
-
-		StepTestResult fanconiScreenerGeneticTestingHistoryVerificationResult = new StepTestResult(
-				"Fanconi Study Screener:Genetic Testing History tab data is verified ");
-
-		fanconiScreenerGeneticTestingHistoryVerificationResult
-				.add(fanconiScreenerIsComplementationTestingPreviouslyDoneAssert);
-		fanconiScreenerGeneticTestingHistoryVerificationResult.add(fanconiScreenerGeneticTestingPositiveAssert);
-		fanconiScreenerGeneticTestingHistoryVerificationResult.add(fanconiScreenerGeneticTestResultCopyAssert);
-		fanconiScreenerGeneticTestingHistoryVerificationResult
-				.add(fanconiScreenerGeneticTestResultsDeliveryMethodAssert);
-
-		/************************************************************/
-		/* FA Genes Tested in Fanconi Study Screener page is verified */
-		/************************************************************/
-
-		// FA Genes Tested Checkboxes Assertion
-
-		/********************************************************/
-		/** Medical History in Fanconi Study Screener page is verified **/
-		/********************************************************/
-
-		// Ever diagnosed with Cancer? Assertion
-		ComponentTestResult fanconiScreenerEverDiagnosedWithCancerAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerEverDiagnosedWithCancer, null);
-
-		// Chromosome breakage test on blood Assertion
-		ComponentTestResult fanconiScreenerChromosomeBreakageTestOnBloodAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerChromosomeBreakageTestOnBlood, null);
-
-		// Chromosome breakage test location Assertion
-		ComponentTestResult fanconiScreenerChromosomeBreakageTestLocationAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerChromosomeBreakageTestLocation, null);
-
-		// Chromosome breakage result Assertion
-		ComponentTestResult fanconiScreenerChromosomeBreakageResultAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerChromosomeBreakageResult, null);
-
-		// Chromosome breakage test on skin Assertion
-		ComponentTestResult fanconiScreenerChromosomeBreakageTestOnSkinAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerChromosomeBreakageTestOnSkin, null);
-
-		// Chromosome breakage skin test result Assertion
-		ComponentTestResult fanconiScreenerChromosomeBreakageSkinTestResultAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerChromosomeBreakageSkinTestResult, null);
-
-		// Chromosome Breakage Blood Test Result Delivery Assertion
-		ComponentTestResult fanconiScreenerChromosomeBreakageBloodTestResultDeliveryAssert = CharmsUtil.verifyDropDowns(
-				fanconiScreenerNVPage.nVFanconiScreenerChromosomeBreakageBloodTestResultDelivery, null);
-
-		// Diagnosed with Myelodsplastic Syndrome (MDS) Assertion
-		ComponentTestResult fanconiScreenerDiagnosedWithMyelodsplasticSyndromeAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerDiagnosedWithMyelodsplasticSyndrome, null);
-
-		// Age when myelodysplastic syndrome diagnosed Assertion
-		ComponentTestResult fanconiScreenerAgeWhenMyelodysplasticSyndromeDiagnosedAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerAgeWhenMyelodysplasticSyndromeDiagnosed, null);
-
-		// Date when myelodysplastic syndrome diagnosed Assertion
-		ComponentTestResult fanconiScreenerDateWhenMyelodysplasticSyndromeDiagnosedAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerDateWhenMyelodysplasticSyndromeDiagnosed, null);
-
-		// Ever received transplant (bone marrow/stem cell/ cord blood)? Assertion
-		ComponentTestResult fanconiScreenerEverReceivedBoneMarrowTransplantAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerEverReceivedBoneMarrowTransplant, null);
-
-		// Transplant treatment institution (bone marrow/stem cell/ cord blood)
-		// Assertion
-		ComponentTestResult fanconiScreenerTransplantTreatmentInstitutionAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerTransplantTreatmentInstitution, null);
-
-		// Age at transplant Assertion
-		ComponentTestResult fanconiScreenerAgeAtTransplantAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerAgeAtTransplant, null);
-
-		// Month of transplant Assertion
-		ComponentTestResult fanconiScreenerMonthOfTransplantAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerMonthOfTransplant, null);
-
-		// Year of transplant Assertion
-		ComponentTestResult fanconiScreenerYearOfTransplantAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerYearOfTransplant, null);
-
-		// Donor type Assertion
-		ComponentTestResult fanconiScreenerDonorTypeAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerDonorType, null);
-
-		// Transplant donor match Assertion
-		ComponentTestResult fanconiScreenerTransplantDonorMatchAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerTransplantDonorMatch, null);
-
-		// Stem cell source Assertion
-		ComponentTestResult fanconiScreenerStemCellSourceAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerStemCellSource, null);
-
-		// Current Medications Assertion
-		ComponentTestResult fanconiScreenerCurrentMedicationsAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerCurrentMedications, null);
-
-		// Health Care Provider Name Assertion
-		ComponentTestResult fanconiScreenerHealthCarProviderNameAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerHealthCarProviderName, null);
-
-		// Health Care Provider Address Assertion
-		ComponentTestResult fanconiScreenerHealthCareProviderAddressAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerHealthCareProviderAddress, null);
-
-		// Health Care Provider Phone Number Assertion
-		ComponentTestResult fanconiScreenerHealthCareProviderPhoneNumberAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerHealthCareProviderPhoneNumber, null);
-
-		// Permission to contact Provider Assertion
-		ComponentTestResult fanconiScreenerPermissionToContactProviderAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerPermissionToContactProvider, null);
-
-		// Bone marrow failure? Assertion
-		ComponentTestResult fanconiScreenerBoneMarrowFailureAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerBoneMarrowFailure, null);
-
-		// Bone marrow failure age at diagnosis Assertion
-		ComponentTestResult fanconiScreenerBoneMarrowFailureAgeAtDiagnosisAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerBoneMarrowFailureAgeAtDiagnosis, null);
-
-		// Bone marrow failure month of diagnosis Assertion
-		ComponentTestResult fanconiScreenerBoneMarrowFailureMonthOfDiagnosisAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerBoneMarrowFailureMonthOfDiagnosis, null);
-
-		// Bone marrow failure year of diagnosis Assertion
-		ComponentTestResult fanconiScreenerBoneMarrowFailureYearOfDiagnosisAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerBoneMarrowFailureYearOfDiagnosis, null);
-
-		// Bone marrow failure was treatment received? Assertion
-		ComponentTestResult fanconiScreenerBoneMarrowFailureWasTreatmentReceivedAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerBoneMarrowFailureWasTreatmentReceived, null);
-
-		// Treatment Assertion
-		ComponentTestResult fanconiScreenerTreatmentAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerTreatment, null);
-
-		// Received blood transfusions
-		ComponentTestResult fanconiScreenerReceivedBloodTransfusionsAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerReceivedBloodTransfusions, null);
-
-		StepTestResult fanconiScreenerMedicalHistoryVerificationResult = new StepTestResult(
-				"Fanconi Study Screener: Medical History tab data is verified ");
-
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerEverDiagnosedWithCancerAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerChromosomeBreakageTestOnBloodAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerChromosomeBreakageTestLocationAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerChromosomeBreakageResultAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerChromosomeBreakageTestOnSkinAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerChromosomeBreakageSkinTestResultAssert);
-		fanconiScreenerMedicalHistoryVerificationResult
-				.add(fanconiScreenerChromosomeBreakageBloodTestResultDeliveryAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerDiagnosedWithMyelodsplasticSyndromeAssert);
-		fanconiScreenerMedicalHistoryVerificationResult
-				.add(fanconiScreenerAgeWhenMyelodysplasticSyndromeDiagnosedAssert);
-		fanconiScreenerMedicalHistoryVerificationResult
-				.add(fanconiScreenerDateWhenMyelodysplasticSyndromeDiagnosedAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerEverReceivedBoneMarrowTransplantAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerTransplantTreatmentInstitutionAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerAgeAtTransplantAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerMonthOfTransplantAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerYearOfTransplantAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerDonorTypeAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerTransplantDonorMatchAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerStemCellSourceAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerCurrentMedicationsAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerHealthCarProviderNameAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerHealthCareProviderAddressAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerHealthCareProviderPhoneNumberAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerPermissionToContactProviderAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerBoneMarrowFailureAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerBoneMarrowFailureAgeAtDiagnosisAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerBoneMarrowFailureMonthOfDiagnosisAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerBoneMarrowFailureYearOfDiagnosisAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerBoneMarrowFailureWasTreatmentReceivedAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerTreatmentAssert);
-		fanconiScreenerMedicalHistoryVerificationResult.add(fanconiScreenerReceivedBloodTransfusionsAssert);
-
-		/********************************************************/
-		/** Participant Features in Fanconi Study Screener page is verified **/
-		/********************************************************/
-
-		// Low birth weight Assertion
-		ComponentTestResult fanconiScreenerLowBirthWeightAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerLowBirthWeight, null);
-
-		// Feeding problems or Failure to thrive Assertion
-		ComponentTestResult fanconiScreenerFeedingProblemsOrFailureToThriveAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerFeedingProblemsOrFailureToThrive, null);
-
-		// Short stature Assertion
-		ComponentTestResult fanconiScreenerShortStatureAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerShortStature, null);
-
-		// Neurocognitive/ Developmental delay Assertion
-		ComponentTestResult fanconiScreenerDevelopmentalDelayAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerDevelopmentalDelay, null);
-
-		// Skin abnormalities Assertion
-		ComponentTestResult fanconiScreenerSkinAbnormalitiesAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerSkinAbnormalities, null);
-
-		// Head/Craniofacial abnormalities Assertion
-		ComponentTestResult fanconiScreenerHeadCraniofacialAbnormalitiesAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerHeadCraniofacialAbnormalities, null);
-
-		// Mouth abnormalities Assertion
-		ComponentTestResult fanconiScreenerMouthAbnormalitiesAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerMouthAbnormalities, null);
-
-		// Eye abnormalities Assertion
-		ComponentTestResult fanconiScreenerEyeAbnormalitiesAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerEyeAbnormalities, null);
-
-		// Ear abnormalities Assertion
-		ComponentTestResult fanconiScreenerEarAbnormalitiesAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerEarAbnormalities, null);
-
-		// Extremity abnormalities Assertion
-		ComponentTestResult fanconiScreenerExtremityAbnormalitiesAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerExtremityAbnormalities, null);
-
-		// Skeletal deformities Assertion
-		ComponentTestResult fanconiScreenerSkeletalDeformitiesAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerSkeletalDeformities, null);
-
-		// Heart problems Assertion
-		ComponentTestResult fanconiScreenerHeartProblemsAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerHeartProblems, null);
-
-		// Heart problems other Assertion
-		ComponentTestResult fanconiScreenerHeartProblemsOtherAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerHeartProblemsOther, null);
-
-		// Kidney abnormalities Assertion
-		ComponentTestResult fanconiScreenerKidneyAbnormalitiesAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerKidneyAbnormalities, null);
-
-		// Genital abnormalities Assertion
-		ComponentTestResult fanconiScreenerGenitalAbnormalitiesAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerGenitalAbnormalities, null);
-
-		// Fertility problems, hypogonadism Assertion
-		ComponentTestResult fanconiScreenerFertilityProblemsHypogonadismAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerFertilityProblemsHypogonadism, null);
-
-		// Endocrine problems Assertion
-		ComponentTestResult fanconiScreenerEndocrineProblemsAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerEndocrineProblems, null);
-
-		// Metabolic disorders Assertion
-		ComponentTestResult fanconiScreenerMetabolicDisordersAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerMetabolicDisorders, null);
-
-		StepTestResult fanconiScreenerParticipantFeaturesVerificationResult = new StepTestResult(
-				"Fanconi Study Screener: Participant Features tab data is verified ");
-
-		fanconiScreenerParticipantFeaturesVerificationResult.add(fanconiScreenerLowBirthWeightAssert);
-		fanconiScreenerParticipantFeaturesVerificationResult.add(fanconiScreenerFeedingProblemsOrFailureToThriveAssert);
-		fanconiScreenerParticipantFeaturesVerificationResult.add(fanconiScreenerShortStatureAssert);
-		fanconiScreenerParticipantFeaturesVerificationResult.add(fanconiScreenerDevelopmentalDelayAssert);
-		fanconiScreenerParticipantFeaturesVerificationResult.add(fanconiScreenerSkinAbnormalitiesAssert);
-		fanconiScreenerParticipantFeaturesVerificationResult.add(fanconiScreenerHeadCraniofacialAbnormalitiesAssert);
-		fanconiScreenerParticipantFeaturesVerificationResult.add(fanconiScreenerMouthAbnormalitiesAssert);
-		fanconiScreenerParticipantFeaturesVerificationResult.add(fanconiScreenerEyeAbnormalitiesAssert);
-		fanconiScreenerParticipantFeaturesVerificationResult.add(fanconiScreenerEarAbnormalitiesAssert);
-		fanconiScreenerParticipantFeaturesVerificationResult.add(fanconiScreenerExtremityAbnormalitiesAssert);
-		fanconiScreenerParticipantFeaturesVerificationResult.add(fanconiScreenerSkeletalDeformitiesAssert);
-		fanconiScreenerParticipantFeaturesVerificationResult.add(fanconiScreenerHeartProblemsAssert);
-		fanconiScreenerParticipantFeaturesVerificationResult.add(fanconiScreenerHeartProblemsOtherAssert);
-		fanconiScreenerParticipantFeaturesVerificationResult.add(fanconiScreenerKidneyAbnormalitiesAssert);
-		fanconiScreenerParticipantFeaturesVerificationResult.add(fanconiScreenerGenitalAbnormalitiesAssert);
-		fanconiScreenerParticipantFeaturesVerificationResult.add(fanconiScreenerFertilityProblemsHypogonadismAssert);
-		fanconiScreenerParticipantFeaturesVerificationResult.add(fanconiScreenerEndocrineProblemsAssert);
-		fanconiScreenerParticipantFeaturesVerificationResult.add(fanconiScreenerMetabolicDisordersAssert);
-
-		/********************************************************/
-		/** Final Information in Fanconi Study Screener page is verified **/
-		/********************************************************/
-
-		// Particpant in NIH Inherited Bone Marrow Failure Syndrome study? Assertion
-		ComponentTestResult fanconiScreenerParticpantInNIHInheritedBoneMarrowFailureSyndromeStudyAssert = CharmsUtil
-				.verifyDropDowns(
-						fanconiScreenerNVPage.nVFanconiScreenerParticpantInNIHInheritedBoneMarrowFailureSyndromeStudy,
-						null);
-
-		// Main reasons for participating in this study? Select all that apply.
-		// Assertion
-		ComponentTestResult fanconiScreenerMainReasonsForParticipatingInStudyAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerMainReasonsForParticipatingInStudy, null);
-
-		// Participate in research Assertion
-		ComponentTestResult fanconiScreenerParticipateInResearchAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerParticipateInResearch, null);
-
-		// Screen for potential cancer diagnosis Assertion
-		ComponentTestResult fanconiScreenerScreenForPotentialCancerDiagnosisAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerScreenForPotentialCancerDiagnosis, null);
-
-		// Receive genetic testing Assertion
-		ComponentTestResult fanconiScreenerReceiveGeneticTestingAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerReceiveGeneticTesting, null);
-
-		// Other reason for participation Assertion
-		ComponentTestResult fanconiScreenerOtherReasonForParticipationAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerOtherReasonForParticipation, null);
-
-		// Previous studies Assertion
-		ComponentTestResult fanconiScreenerPreviousStudiesAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerPreviousStudies, null);
-
-		// How did you hear about this study? Assertion
-		ComponentTestResult fanconiScreenerHowDidYouHearAboutThisStudyAssert = CharmsUtil
-				.verifyDropDowns(fanconiScreenerNVPage.nVFanconiScreenerHowDidYouHearAboutThisStudy, null);
-
-		// Physician Assertion
-		ComponentTestResult fanconiScreenerPhysicianAssert = CharmsUtil
-				.verifyDataField(fanconiScreenerNVPage.nVFanconiScreenerPhysician, null);
-
-		StepTestResult fanconiScreenerFinalInformationVerificationResult = new StepTestResult(
-				"Fanconi Study Screener: Final Information tab data is verified ");
-
-		fanconiScreenerFinalInformationVerificationResult
-				.add(fanconiScreenerParticpantInNIHInheritedBoneMarrowFailureSyndromeStudyAssert);
-		fanconiScreenerFinalInformationVerificationResult.add(fanconiScreenerMainReasonsForParticipatingInStudyAssert);
-		fanconiScreenerFinalInformationVerificationResult.add(fanconiScreenerParticipateInResearchAssert);
-		fanconiScreenerFinalInformationVerificationResult.add(fanconiScreenerScreenForPotentialCancerDiagnosisAssert);
-		fanconiScreenerFinalInformationVerificationResult.add(fanconiScreenerReceiveGeneticTestingAssert);
-		fanconiScreenerFinalInformationVerificationResult.add(fanconiScreenerOtherReasonForParticipationAssert);
-		fanconiScreenerFinalInformationVerificationResult.add(fanconiScreenerPreviousStudiesAssert);
-		fanconiScreenerFinalInformationVerificationResult.add(fanconiScreenerHowDidYouHearAboutThisStudyAssert);
-		fanconiScreenerFinalInformationVerificationResult.add(fanconiScreenerPhysicianAssert);
-
-		/********************************************************/
-		/*
-		 * Intake participates in another study in Fanconi Study Screener page is
-		 * verified
-		 */
-		/********************************************************/
-
-		/********************************************************/
-		/* Genetic Mutation/Variants in Fanconi Study Screener page is verified */
-		/********************************************************/
-
-		/********************************************************/
-		/*
-		 * Fanconi Screener: Patient Cancer History in Fanconi Study Screener page is
-		 * verified
-		 */
-		/********************************************************/
-
-		for (StepTestResult tr : scenarioReportList) {
-			System.out.println(tr.toString());
-
-		}
-
-	}
+			// Referral Assertion
+			String referralValue = cHARMSParticipantDetailsPage.nVParticipantReferral.getAttribute("value");
+			CharmsUtil.assertTextBoxData(softAssert,cHARMSParticipantDetailsPage.nVParticipantReferral, referralValue, " Referral of the General Information on Participant Details page ");
+
+			// Assigned To Assertion	
+			CharmsUtil.assertTextBoxData(softAssert,cHARMSParticipantDetailsPage.nVParticipantAssignedTo, "", " Assigned To of the General Information on Participant Details page ");
+			
+			/************************************************/
+			/* Personal Information on Participant Details page is verified */
+			/************************************************/
+			
+			CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantPersonalInformationTab);
+			cHARMSParticipantDetailsPage.nVParticipantPersonalInformationTab.click();
+			
+			// Relationship to You Assertion
+			CharmsUtil.assertTextBoxData(softAssert,cHARMSParticipantDetailsPage.nVParticipantPersonalInformationTabRelationshipToYou, "proband", " Relationship to You of the Personal Information on Participant Details page ");
+
+			// First Name Assertion
+			CharmsUtil.assertTextBoxData(softAssert,
+			cHARMSParticipantDetailsPage.nVParticipantPersonalInformationTabFirstName, currentRow.get("FirstName"), "First Name of the Personal Information on Participant Details page ");
+
+			// Middle Name Assertion
+			CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantPersonalInformationTabMiddleName,currentRow.get("MiddleName"), " Middle Name of the Personal Information on Participant Details page ");
+
+			// Last Name Assertion
+			CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantPersonalInformationTabLastName, currentRow.get("LastName"), " Last Name of the Personal Information on Participant Details page ");
+			
+			
+			/************************************************/
+			/* Demographics on Participant Details page is verified */
+			/************************************************/
+
+			CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantDemographicsTab);
+			cHARMSParticipantDetailsPage.nVParticipantDemographicsTab.click();
+
+			// Biological Gender Assertion
+			CharmsUtil.assertDropDownData(softAssert,cHARMSParticipantDetailsPage.nVParticipantDemographicsTabBiologicalGender,
+			currentRow.get("SexAssigned"), " Biological Gender of the Demographics on Participant Details page ");
+
+			// Identified Gender Assertion
+			CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.nVParticipantDemographicsTabIdentifiedGender,
+			currentRow.get("CurrentGender"), " Identified Gender of the Demographics on Participant Details page ");
+			
+			// Participant Race link (Select all that apply) Assertion
+			CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantDemographicsTabRace);
+			System.out.println("New RACE : " + cHARMSParticipantDetailsPage.nVParticipantDemographicsTabRaceDetails.getText());
+
+			// Participant Race Details (Select all that apply) Assertion
+			CharmsUtil.assertTextBoxData(softAssert,
+			cHARMSParticipantDetailsPage.nVParticipantDemographicsTabRaceDetails, currentRow.get("RaceList"), " Participant Race link of the Demographics on Participant Details page ");
+			
+			// Participant Other Race (Select all that apply) Assertion
+			CharmsUtil.assertTextBoxData(softAssert,
+			cHARMSParticipantDetailsPage.nVParticipantDemographicsTabRaceOtherText, currentRow.get("OtherRace"), " Participant Other Race of the Demographics on Participant Details page ");
+
+			// Ethnicity Assertion
+			CharmsUtil.assertDropDownData(softAssert,
+			cHARMSParticipantDetailsPage.nVParticipantDemographicsTabEthnicity, currentRow.get("Ethnicity"), " Ethnicity of the Demographics on Participant Details page ");
+
+			// Pronouns Assertion
+			CharmsUtil.assertDropDownData(softAssert,
+			cHARMSParticipantDetailsPage.nVParticipantDemographicsTabPronouns, currentRow.get("Pronouns"), " Pronouns of the Demographics on Participant Details page ");
+
+			// Other Pronouns Assertion
+			CharmsUtil.assertTextBoxData(softAssert,cHARMSParticipantDetailsPage.nVParticipantDemographicsTabPronounsOtherText,
+			"", " Other Pronouns of the Demographics on Participant Details page ");
+
+			// Is the participant adopted? Assertion
+			CharmsUtil.assertDropDownData(softAssert,
+			cHARMSParticipantDetailsPage.nVParticipantDemographicsTabIsTheParticipantAdopted,
+			currentRow.get("IsAdopted"), " Is the participant adopted of the Demographics on Participant Details page ");
+
+			// Date of Birth Assertion
+			
+			 CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantDemographicsTabDOB, currentRow.get("DOB"), " Date of Birth of the Demographics on Participant Details page ");
+
+			// If Date of Birth is unkown, is this person 18 years old or older Assertion
+			CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.nVParticipantDemographicsTabIfDOBUnknownAge18, "", " If Date of Birth is unkown of the Demographics on Participant Details page ");
+
+			// Age Assertion
+			CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantDemographicsTabtAge, "75", " Age of the Demographics on Participant Details page ");
+			
+			softAssert.assertAll();
+
+	}		
 }

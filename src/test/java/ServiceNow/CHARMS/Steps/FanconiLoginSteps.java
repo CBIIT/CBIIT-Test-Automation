@@ -12,8 +12,8 @@ import com.nci.automation.xceptions.TestingException;
 
 import ServiceNow.CHARMS.Pages.FanconiLoginPage;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
+import io.cucumber.java.en.Given;
+
 
 public class FanconiLoginSteps extends PageInitializer {
 	
