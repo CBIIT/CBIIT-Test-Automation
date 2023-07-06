@@ -49,7 +49,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         CommonUtils.assertTrue(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.nerdSpecialTopicsDD.getText()
                         .contentEquals(SpecialTopic));
-        JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.nerdSpecialTopicsDD);
+        CommonUtils.clickOnElement(nerdCrsKnowledgeDatabaseSubmissionsPage.nerdSpecialTopicsDD);
         JavascriptUtils.scrollDown(2000);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
