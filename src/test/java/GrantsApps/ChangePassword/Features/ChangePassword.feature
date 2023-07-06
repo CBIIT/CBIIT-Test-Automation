@@ -23,12 +23,12 @@ Feature: The following scenarios verify the functionality on Change Password pag
 
   @PasswordPolicyReuseOldPasswordFailure @CHANGPASS-11 @andreyeve @Regression
   Scenario: Verify User is not able to Change Password due to reuse of Old Password
-    And User enters New Password according to password policy
-    And User confirms New Password
+    And Enters New Password according to password policy
+    And Confirms New Password
     Then User can see the successful outcome
     And User is back on landing page
     And User enters New Password that is the same as their old Password
-    And User confirms New Password
+    And Confirms New Password
     Then User can not change password
 
   @PasswordPolicyUnallowedCharacters @CHANGPASS-12 @andreyeve @Regression
