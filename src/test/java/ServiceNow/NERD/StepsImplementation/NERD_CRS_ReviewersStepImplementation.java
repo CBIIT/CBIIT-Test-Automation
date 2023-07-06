@@ -116,6 +116,9 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
     }
 
     public static void thereIsACollapsedAccordionWithRheHeaderLabeled(String topAccomplishmentsAccordionText) {
+        MiscUtils.sleep(5000);
+        CommonUtils.waitForVisibility(NERDKnowledgebasePage
+                .dynamicAccordion(topAccomplishmentsAccordionText));
         boolean isTopAccomplishmentAccordionDisplayed = NERDKnowledgebasePage
                 .dynamicAccordion(topAccomplishmentsAccordionText).getText()
                 .contains(topAccomplishmentsAccordionText);

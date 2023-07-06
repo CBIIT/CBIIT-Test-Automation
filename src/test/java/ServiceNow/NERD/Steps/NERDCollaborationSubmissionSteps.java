@@ -101,6 +101,8 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
 
         @When("clicks the Edit button for the record {string}")
         public void clicks_the_Edit_button_for_the_record(String nameOfRecord) {
+                MiscUtils.sleep(1000);
+                CommonUtils.waitForClickability(nerdDynamicXpaths.editButton(nameOfRecord));
                 nerdDynamicXpaths.editButton(nameOfRecord).click();
         }
 
