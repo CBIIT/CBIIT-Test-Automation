@@ -1,15 +1,11 @@
 package ServiceNow.NERD.Steps;
 
-import ServiceNow.NERD.Constants.NCI_Staff_Members_Constants;
 import ServiceNow.NERD.Pages.NERDDOCCollaborationsPage;
-import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
 import ServiceNow.NERD.StepsImplementation.NERDApplicationStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERD_NCI_CRSReviewerStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERD_NCI_DOC_PlanningContactStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERD_NCI_StaffMemberStepsImplementation;
-import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.JavascriptUtils;
-import org.junit.Assert;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
@@ -27,16 +23,12 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
     public void user_is_on_the_COVID19_Activities_submissions_page() throws TestingException {
         nativeViewLoginImpl.sideDoorAccountLogin();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-        NERDApplicationStepsImplementation
-                .creatingNewSubmission(
-                        nerdCrsKnowledgeDatabaseSubmissionsPage.covid19CreateNewSubmissionButton);
+        NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.covid19CreateNewSubmissionButton);
     }
 
     @Then("the section {string} displays")
     public void the_section_displays(String thisActivityAlignsWithTheFollowingNIHCovid19StrategicPlan) {
-        NERDApplicationStepsImplementation
-                .sectionOfCovid_19_SubmissionIsDisplayed(
-                        thisActivityAlignsWithTheFollowingNIHCovid19StrategicPlan);
+        NERDApplicationStepsImplementation.sectionOfCovid_19_SubmissionIsDisplayed(thisActivityAlignsWithTheFollowingNIHCovid19StrategicPlan);
     }
 
     @Then("the following check box options are also displayed {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
@@ -55,7 +47,6 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
                 technologyDevelopment, trainingWorkforceDevelopment, workforce, metastatic,
                 meetingWorkshopConference,
                 minorityHealthHealtDisparities, pediatric, reportGuidancePolicy);
-
     }
 
     @Given("a Program Staff member is on the CRS Knowledge Management System {string} page")
@@ -74,7 +65,6 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
     public void the_created_Collaborations_submission_is_displays_in_the_Collaborations_category_section_with_the_status(String expectedUnderReviewText) {
         NERDApplicationStepsImplementation.theCreatedCollaborationsSubmissionIsDisplaysInTheCollaborationsCategorySectionWithTheStatus(expectedUnderReviewText);
     }
-
 
     @Then("the created Collaborations submission is displayed in the Collaborations category section with the status {string}")
     public void the_created_Collaborations_submission_is_display_in_the_Collaborations_category_section_with_the_status(
