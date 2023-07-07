@@ -1,7 +1,6 @@
 package ServiceNow.NERD.Pages;
 
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,11 +10,9 @@ import com.nci.automation.web.WebDriverUtils;
 
 public class CreateNewSubmissionPage extends CommonUtils {
 
-
 	/** COLLABORATIONS Button */
 	@FindBy(xpath = "(//div[@class='ng-binding ng-scope'])[3]")
 	public WebElement nerdCollaborationsButton;
-
 
 	/** ------------ CREATE NEW SUBMISSION PAGE ----------- */
 

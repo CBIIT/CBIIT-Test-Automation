@@ -7,9 +7,7 @@ import ServiceNow.NERD.Constants.ReturningSubmissions_Constants;
 import ServiceNow.NERD.Constants.TopAccomplishmentsSubmission_Constants;
 import ServiceNow.NERD.Steps.HooksSteps;
 import appsCommon.PageInitializer;
-
 import java.util.Set;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;

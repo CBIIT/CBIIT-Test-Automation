@@ -49,7 +49,6 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
                                                                    String metastatic,
                                                                    String meetingWorkshopConference, String minorityHealthHealtDisparities, String pediatric,
                                                                    String reportGuidancePolicy) {
-
         NERDApplicationStepsImplementation.checkBoxOptionsAreDisplayed(covid19, communications, rare,
                 bigDataDataSharing, researchResourcesAndInfrastructure, sexGenderDifferences,
                 partnerships,
@@ -127,7 +126,6 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
     @Given("a DOC Planning Contact clicks the Submit to CRS button for a Collaboration {string}")
     public void a_DOC_Planning_Contact_clicks_the_Submit_to_CRS_button_for_a_Collaboration(String nameOfRecord)
             throws TestingException {
-
         nativeViewLoginImpl.sideDoorAccountLogin();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         NERDApplicationStepsImplementation.creatingNewSubmission(
