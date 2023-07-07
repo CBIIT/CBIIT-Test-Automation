@@ -157,16 +157,19 @@ public class WebDriverUtils {
     public static void launchFirefox() {
         String osName = FrameworkConstants.GET_OS_NAME;
         if (osName.contains("Windows")) {
+            WebDriverManager.firefoxdriver().operatingSystem(OperatingSystem.WIN).setup();
             webDriver = new FirefoxDriver();
             webDriver.manage().window().maximize();
             webDriver.manage().deleteAllCookies();
             webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         } else if (osName.contains("Mac")) {
+            WebDriverManager.firefoxdriver().operatingSystem(OperatingSystem.MAC).setup();
             webDriver = new FirefoxDriver();
             webDriver.manage().window().maximize();
             webDriver.manage().deleteAllCookies();
             webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         } else if (osName.contains("Linux")) {
+            WebDriverManager.firefoxdriver().operatingSystem(OperatingSystem.LINUX).setup();
             FirefoxOptions fireOptions = new FirefoxOptions();
             fireOptions.addArguments("--headless=new");
             webDriver = new FirefoxDriver(fireOptions);
@@ -176,16 +179,19 @@ public class WebDriverUtils {
     public static void launchSafari() {
         String osName = FrameworkConstants.GET_OS_NAME;
         if (osName.contains("Windows")) {
+            WebDriverManager.safaridriver().operatingSystem(OperatingSystem.WIN).setup();
             webDriver = new SafariDriver();
             webDriver.manage().window().maximize();
             webDriver.manage().deleteAllCookies();
             webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         } else if (osName.contains("Mac")) {
+            WebDriverManager.safaridriver().operatingSystem(OperatingSystem.MAC).setup();
             webDriver = new SafariDriver();
             webDriver.manage().window().maximize();
             webDriver.manage().deleteAllCookies();
             webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         } else if (osName.contains("Linux")) {
+            WebDriverManager.safaridriver().operatingSystem(OperatingSystem.LINUX).setup();
             SafariOptions safariOptions = new SafariOptions();
             webDriver = new SafariDriver();
         }
@@ -194,16 +200,19 @@ public class WebDriverUtils {
     public static void launchEdge() {
         String osName = FrameworkConstants.GET_OS_NAME;
         if (osName.contains("Windows")) {
+            WebDriverManager.edgedriver().operatingSystem(OperatingSystem.WIN).setup();
             webDriver = new EdgeDriver();
             webDriver.manage().window().maximize();
             webDriver.manage().deleteAllCookies();
             webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         } else if (osName.contains("Mac")) {
+            WebDriverManager.edgedriver().operatingSystem(OperatingSystem.MAC).setup();
             webDriver = new EdgeDriver();
             webDriver.manage().window().maximize();
             webDriver.manage().deleteAllCookies();
             webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         } else if (osName.contains("Linux")) {
+            WebDriverManager.edgedriver().operatingSystem(OperatingSystem.LINUX).setup();
             webDriver = new EdgeDriver();
             webDriver.manage().window().maximize();
             webDriver.manage().deleteAllCookies();

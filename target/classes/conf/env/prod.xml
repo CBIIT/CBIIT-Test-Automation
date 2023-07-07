@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<environment>
+	<!-- Below application ID's are for PROD environments -->
+
+	<profile-name>automation</profile-name>
+
+		<!-- Application ID for LDLink -->
+	<application id="LDLink">
+
+		<login_url>https://ldlink.nci.nih.gov/?tab=home</login_url><!-- add prod 
+			url -->
+
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default><!-- comment -->
+		</db>
+	</application>
+	
+	
+	<!-- Application ID for Analysistools -->
+	<application id="Analysistools">
+
+		<login_url>https://analysistools.cancer.gov/</login_url><!-- add prod 
+			url -->
+
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default><!-- comment -->
+		</db>
+	</application>
+	
+	
+		<!-- Application ID for CEDCD -->
+	<application id="CEDCD">
+
+		<login_url>https://cedcd.nci.nih.gov/</login_url><!-- add prod 
+			url -->
+
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default><!-- comment -->
+		</db>
+	</application>
+	
+	
+		<!-- Application ID for ICRP -->
+	<application id="ICRP">
+
+		<login_url>https://icrpartnership.org/</login_url><!-- add prod 
+			url -->
+
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default><!-- comment -->
+		</db>
+	</application>
+	
+	
+		<!-- Application ID for ICRP -->
+	<application id="JPSurv">
+
+		<login_url>https://analysistools.cancer.gov/jpsurv/#</login_url><!-- add prod 
+			url -->
+
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default><!-- comment -->
+		</db>
+	</application>
+	
+	
+
+
+
+
+	
+
+
+</environment>
