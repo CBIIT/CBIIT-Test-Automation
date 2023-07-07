@@ -17,8 +17,6 @@ public class Covid19ActivitiesSubmissionsSteps extends PageInitializer {
                 covid19StrategicPlanCheckBoxOptionsAreAlsoDisplayed(priority1ImproveFundamentalKnowledge, priority2AdvanceResearchToImproveDetection,
                         priority1SupportToAdvanceTreatment, priority4AccelerateResearchToImprovePrevention,
                         priority5PreventAndRedressPoorCOVID19Outcomes, other);
-
-
     }
 
 }

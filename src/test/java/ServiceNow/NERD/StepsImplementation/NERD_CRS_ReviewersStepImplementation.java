@@ -12,7 +12,6 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
 
     public String topAccomplishmentsAccordion;

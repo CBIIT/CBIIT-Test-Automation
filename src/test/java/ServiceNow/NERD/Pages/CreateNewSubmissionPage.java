@@ -261,10 +261,6 @@ public class CreateNewSubmissionPage extends CommonUtils {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//div[contains(text(),'" + authorText + "')]"));
 	}
 
-	/*** CRS Knowledge Management System "AutomationTest" Under Review Text */
-	@FindBy(xpath = "///md-list-item[1]//div[2]//div[1]")
-	public WebElement crsKnowledgeManagementSystemAutomationTestUnderReviewText;
-
 	/** CRS Knowledge Management System "AutomationTest" Delete Button */
 	@FindBy(xpath = "//a[contains(text(),'AutomationTest')]/following::button[4]")
 	public WebElement crsKnowledgeManagementSystemAutomationTestDeleteButton;

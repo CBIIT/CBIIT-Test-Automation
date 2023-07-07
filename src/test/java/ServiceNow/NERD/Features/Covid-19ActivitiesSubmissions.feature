@@ -1,5 +1,4 @@
 Feature: Covid-19 Activities Submission page Scenerios
-  Description: This feature file contains Covid-19 Activities Submission page scenerios
 
   @SS-3419 @SS-3449 @inProgress
   Scenario: Verifying additional question on COVID submission and entry form - Service Portal

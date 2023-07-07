@@ -1,7 +1,5 @@
 Feature: NCI Staff Member Test Scenarios
 
-  Description: This feature file contains scenarios related to NCI Staff Members
-
   @SS-4187 @SS-2218 @chaudhryma @Regression @Smoke
   Scenario: Program Staff member Collaborations Submission
     Given a Program Staff member is on the CRS Knowledge Management System "Submissions" page
