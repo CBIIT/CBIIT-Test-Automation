@@ -100,6 +100,14 @@ public class NERDSubmissionsPage extends CommonUtils {
 	@FindBy(xpath = "//h4[normalize-space()='OM Content Type']")
 	public WebElement omContentTypeHeaderText;
 
+	/** CRS Published only Check Box */
+	@FindBy(xpath = "//*[@id='published']")
+	public WebElement publishedOnlyCheckBox;
+
+	/** CRS Published only Text*/
+	@FindBy(xpath = "//div[normalize-space()='Published Only:']")
+	public WebElement publishedOnlyText;
+
 	/**
 	 * 
 	 * Beginning Of OM Content Type List Of WebElements

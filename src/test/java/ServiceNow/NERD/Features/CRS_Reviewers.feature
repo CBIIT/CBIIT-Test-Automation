@@ -1,6 +1,4 @@
-Feature: CRS Reviewers Test Scenarios 
-
-Description: This feature file contains test scenarios related to CRS Reviewers
+Feature: CRS Reviewers Test Scenarios
    
   @SS-3450 @bucurgb @Regression @Smoke
   Scenario: Verifying New OM Category Type - Service Portal

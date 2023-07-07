@@ -56,4 +56,7 @@ public class SEERDataRejection_Constants {
 
     /* GENERAL PURPOSE FOR USING THE DATA */
     public static final String GENERAL_PURPOSE_FOR_USING_THE_DATA = "General Public";
+
+    /* SEER RESEARCH PLUS AND NCCR DATA */
+    public static final String SEER_RESEARCH_PLUS_AND_NCCR_DATA = "SEER Research Plus and NCCR Data";
 }

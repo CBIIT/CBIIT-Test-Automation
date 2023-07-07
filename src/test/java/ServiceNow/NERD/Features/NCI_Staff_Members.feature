@@ -1,8 +1,6 @@
 Feature: NCI Staff Member Test Scenarios
-  
-  Description: This feature file contains scenarios related to NCI Staff Members
 
-  @NEEDSUpdate @SS-4187 @juarezds 
+  @NEEDSUpdate @SS-4187 @juarezds
   Scenario: Program Staff member Collaborations Submission
     Given a Program Staff member is on the CRS Knowledge Management System "Submissions" page
     And creates a new submission for Collaboration category
