@@ -29,7 +29,7 @@ public class RasScreenerStepsImpl extends PageInitializer {
         rasScreenerStepsImpl.clickOnScreenerNextButton();
 
         try {
-            rasopathyQuestionnairePage.dynamicLocator(testDataManager.areYouCompletingThisFormForSomeoneElseOrYourself).click();
+            CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicLocator(testDataManager.areYouCompletingThisFormForSomeoneElseOrYourself));
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         } catch (NoSuchElementException e) {
             e.printStackTrace();

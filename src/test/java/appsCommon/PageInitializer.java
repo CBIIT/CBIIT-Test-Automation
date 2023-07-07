@@ -27,6 +27,7 @@ import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
 import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
 import GrantsApps.ChangePassword.Pages.ChangePasswordPage;
 import GrantsApps.ChangePassword.StepsImplementation.ChangePasswordStepsImpl;
+import ServiceNow.BrownBag.Pages.SEERLandingPage2;
 import ServiceNow.CHARMS.Constants.RAS_SCREENER_CONSTANTS;
 import ServiceNow.CHARMS.Pages.*;
 import ServiceNow.CHARMS.ScenariosData.TestDataManager;
@@ -112,6 +113,8 @@ import CustomBusiness.ETD.StepsImplementation.ETDFlowStepsImpl;
  * class created, create an object of it here inside the constructor
  */
 public class PageInitializer {
+
+    public static SEERLandingPage2 seerLandingPage2;
 
     /** --------------- APPSCOMMON INSTANCES --------------- */
     // declare public static variables of types of all the pages
@@ -470,5 +473,7 @@ public class PageInitializer {
         /** Grants ChangePassword app **/
         changePasswordPage = new ChangePasswordPage();
         changePasswordStepsImpl = new ChangePasswordStepsImpl();
+
+        seerLandingPage2 = new SEERLandingPage2();
     }
 }

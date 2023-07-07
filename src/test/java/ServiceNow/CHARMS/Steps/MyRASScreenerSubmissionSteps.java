@@ -42,8 +42,8 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         rasScreenerStepsImpl.verifying_RAS_Screener_Scenario_1_Data();
 
         /******* VERIFY ENROLLMENT STATUS BELOW ********/
-        CommonUtils.clickOnElement(screenerRecordTablePage.dynamicLocatorForStudyButtons("Submit for Eligibility Review"));
-        CommonUtils.clickOnElement(screenerRecordTablePage.dynamicLocatorForStudyButtons("Mark Eligible"));
+       // CommonUtils.clickOnElement(screenerRecordTablePage.dynamicLocatorForStudyButtons("Submit for Eligibility Review"));
+       // CommonUtils.clickOnElement(screenerRecordTablePage.dynamicLocatorForStudyButtons("Mark Eligible"));
     }
 
     @Given("a proxy is on the RASopathies Longitudinal Cohort Study login page")

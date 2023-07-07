@@ -268,7 +268,7 @@
 				<configuration>
 					<useSystemClassLoader>false</useSystemClassLoader>
 					<includes>
-						<include></include>
+						<include>RunCHARMSProgressionTest.java</include>
 					</includes>
 					<testFailureIgnore>true</testFailureIgnore> <!-- to get report even when fails -->
 				</configuration>
