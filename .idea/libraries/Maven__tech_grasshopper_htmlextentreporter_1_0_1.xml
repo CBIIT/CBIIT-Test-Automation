@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Maven: tech.grasshopper:htmlextentreporter:1.0.1" type="java-imported" external-system-id="Maven">
+    <properties groupId="tech.grasshopper" artifactId="htmlextentreporter" version="1.0.1" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/tech/grasshopper/htmlextentreporter/1.0.1/htmlextentreporter-1.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/tech/grasshopper/htmlextentreporter/1.0.1/htmlextentreporter-1.0.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/tech/grasshopper/htmlextentreporter/1.0.1/htmlextentreporter-1.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

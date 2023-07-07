@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Maven: dev.failsafe:failsafe:3.3.1" type="java-imported" external-system-id="Maven">
+    <properties groupId="dev.failsafe" artifactId="failsafe" version="3.3.1" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/dev/failsafe/failsafe/3.3.1/failsafe-3.3.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/dev/failsafe/failsafe/3.3.1/failsafe-3.3.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/dev/failsafe/failsafe/3.3.1/failsafe-3.3.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

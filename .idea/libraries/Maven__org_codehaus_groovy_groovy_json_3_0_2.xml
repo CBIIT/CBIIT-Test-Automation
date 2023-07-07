@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Maven: org.codehaus.groovy:groovy-json:3.0.2" type="java-imported" external-system-id="Maven">
+    <properties groupId="org.codehaus.groovy" artifactId="groovy-json" version="3.0.2" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy-json/3.0.2/groovy-json-3.0.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy-json/3.0.2/groovy-json-3.0.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy-json/3.0.2/groovy-json-3.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

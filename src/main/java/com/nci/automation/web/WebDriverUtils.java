@@ -1,16 +1,18 @@
 package com.nci.automation.web;
 
-import com.nci.automation.common.Constants;
-import com.nci.automation.common.ScenarioContext;
-import com.nci.automation.utils.CucumberLogUtils;
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 import com.nci.automation.utils.FrameworkConstants;
-import com.nci.automation.utils.LocalConfUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -19,9 +21,11 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
+import com.nci.automation.common.Constants;
+import com.nci.automation.common.ScenarioContext;
+import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.LocalConfUtils;
 
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 /**
  * This class contains web driver related methods

@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Maven: tech.grasshopper:rest-assured-cucumber-pdf-report:1.4.1" type="java-imported" external-system-id="Maven">
+    <properties groupId="tech.grasshopper" artifactId="rest-assured-cucumber-pdf-report" version="1.4.1" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/tech/grasshopper/rest-assured-cucumber-pdf-report/1.4.1/rest-assured-cucumber-pdf-report-1.4.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/tech/grasshopper/rest-assured-cucumber-pdf-report/1.4.1/rest-assured-cucumber-pdf-report-1.4.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/tech/grasshopper/rest-assured-cucumber-pdf-report/1.4.1/rest-assured-cucumber-pdf-report-1.4.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

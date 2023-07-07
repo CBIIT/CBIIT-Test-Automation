@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Maven: com.google.auto.service:auto-service-annotations:1.0.1" type="java-imported" external-system-id="Maven">
+    <properties groupId="com.google.auto.service" artifactId="auto-service-annotations" version="1.0.1" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/auto/service/auto-service-annotations/1.0.1/auto-service-annotations-1.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/auto/service/auto-service-annotations/1.0.1/auto-service-annotations-1.0.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/auto/service/auto-service-annotations/1.0.1/auto-service-annotations-1.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

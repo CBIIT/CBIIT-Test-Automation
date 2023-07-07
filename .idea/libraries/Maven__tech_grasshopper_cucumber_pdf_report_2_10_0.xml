@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Maven: tech.grasshopper:cucumber-pdf-report:2.10.0" type="java-imported" external-system-id="Maven">
+    <properties groupId="tech.grasshopper" artifactId="cucumber-pdf-report" version="2.10.0" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/tech/grasshopper/cucumber-pdf-report/2.10.0/cucumber-pdf-report-2.10.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/tech/grasshopper/cucumber-pdf-report/2.10.0/cucumber-pdf-report-2.10.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/tech/grasshopper/cucumber-pdf-report/2.10.0/cucumber-pdf-report-2.10.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Maven: tech.grasshopper:extentreports-cucumber6-adapter:2.13.0" type="java-imported" external-system-id="Maven">
+    <properties groupId="tech.grasshopper" artifactId="extentreports-cucumber6-adapter" version="2.13.0" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/tech/grasshopper/extentreports-cucumber6-adapter/2.13.0/extentreports-cucumber6-adapter-2.13.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/tech/grasshopper/extentreports-cucumber6-adapter/2.13.0/extentreports-cucumber6-adapter-2.13.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/tech/grasshopper/extentreports-cucumber6-adapter/2.13.0/extentreports-cucumber6-adapter-2.13.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

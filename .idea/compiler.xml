@@ -10,5 +10,8 @@
         <module name="CBIIT-Test-Automation" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="CBIIT-Test-Automation" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
