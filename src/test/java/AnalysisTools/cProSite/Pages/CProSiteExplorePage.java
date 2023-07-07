@@ -15,6 +15,9 @@ public class CProSiteExplorePage {
     @FindBy(xpath = "//button[text()='Summary']")
     public WebElement summary;
 
+    @FindBy(xpath = "//button[text()='Summary View']")
+    public WebElement summaryView;
+
     @FindBy(xpath ="//input[@id='react-select-3-input']")
     public WebElement datasetDropdown;
 
@@ -36,6 +39,12 @@ public class CProSiteExplorePage {
 
     @FindBy(xpath ="//input[@id='react-select-5-input']")
     public WebElement dropdowngene;
+
+    @FindBy(xpath ="(//*[@viewBox='0 0 20 20'])[13]")
+    public WebElement cancelAllTumorTypeButton;
+
+    @FindBy(xpath = "//*[@id='react-select-2-input']")
+    public WebElement tumorTypeDropDown;
 
     public CProSiteExplorePage(){
         PageFactory.initElements(WebDriverUtils.webDriver, this);

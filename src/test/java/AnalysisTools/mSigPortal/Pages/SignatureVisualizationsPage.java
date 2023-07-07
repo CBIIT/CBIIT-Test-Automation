@@ -139,6 +139,7 @@ public class SignatureVisualizationsPage extends CommonUtils {
 	/** This is the text header for the Profiler Summary */
 	@FindBy (xpath = "//b[contains(text(),'Number of Mutations Per Sample with Regard to Mutational Profile')]")
 	public WebElement profilerSummaryHeaderText;
-	
+	@FindBy (xpath = "//div[4]//div[2]//button[1]")
+	public WebElement submitButton1;
 
 }

@@ -1,5 +1,6 @@
 package AnalysisTools.mSigPortal.Steps;
 
+import io.cucumber.java.en.And;
 import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -21,6 +22,7 @@ public class SignatureVisualizationSteps extends PageInitializer {
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
+
 	}
 
 	@When("the user submits with an incorrect file type")
@@ -35,9 +37,9 @@ public class SignatureVisualizationSteps extends PageInitializer {
 
 	@Given("the user navigates to the Visualization section")
 	public void the_user_navigates_to_the_Visualization_section() {
-
 		JavascriptUtils.clickByJS(mSigPortalHomePage.signatureVisualizationTab);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+
 
 	}
 
@@ -57,6 +59,7 @@ public class SignatureVisualizationSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.removeFilesButton);
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.loadExampleDataButton);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+
 
 	}
 
@@ -83,7 +86,6 @@ public class SignatureVisualizationSteps extends PageInitializer {
 
 	@Then("the chart is displayed")
 	public void the_chart_is_displayed() {
-
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Assert.assertTrue(signatureVisualizationsPage.plotReturnedOnProfileComparison.isDisplayed());
 
@@ -102,11 +104,11 @@ public class SignatureVisualizationSteps extends PageInitializer {
 		MiscUtils.sleep(60000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
+
 	}
 
 	@Then("the download plot link is displayed")
 	public void the_download_plot_link_is_displayed() {
-
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Assert.assertTrue(signatureVisualizationsPage.downloadPlotOnProfileSummary.isEnabled());
 		
@@ -121,7 +123,6 @@ public class SignatureVisualizationSteps extends PageInitializer {
 
 	@Then("the results were successfully analyzed")
 	public void the_results_were_successfully_analyzed() {
-
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Assert.assertTrue(
 				signatureVisualizationsPage.downloadDescriptionText.toString().contains("successfully analyzed"));
@@ -152,6 +153,7 @@ public class SignatureVisualizationSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.removeFilesButton);
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.loadExampleDataButton);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+
 		
 	}
 
@@ -183,14 +185,12 @@ public class SignatureVisualizationSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Assert.assertTrue(signatureVisualizationsPage.csWithinSamplesCalculateButton.isEnabled());
-		
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.csToReferenceTab);
 		MiscUtils.sleep(1000);
 		JavascriptUtils.drawRedBorder(signatureVisualizationsPage.csToReferenceSignaturesCalculateButton);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Assert.assertTrue(signatureVisualizationsPage.csToReferenceSignaturesCalculateButton.isEnabled());
-		
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.csToPublicDataTab);
 		MiscUtils.sleep(1000);
 		JavascriptUtils.drawRedBorder(signatureVisualizationsPage.csToPublicDataCalculateButton);
@@ -209,6 +209,7 @@ public class SignatureVisualizationSteps extends PageInitializer {
 		MiscUtils.sleep(20000);
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.compareSignatureInfoButton);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+
 		
 
 	}
@@ -218,6 +219,7 @@ public class SignatureVisualizationSteps extends PageInitializer {
 		
 		JavascriptUtils.drawBlueBorder(signatureVisualizationsPage.signatureInfoPopUpBox);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+
 		
 	}
 	
@@ -240,6 +242,7 @@ public class SignatureVisualizationSteps extends PageInitializer {
 		JavascriptUtils.drawRedBorder(signatureVisualizationsPage.mutationalProfileSampleNameBorder);
 		Thread.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+
 
 	}
 	
@@ -265,4 +268,13 @@ public class SignatureVisualizationSteps extends PageInitializer {
 	}
 
 
+	@And("the user click submit")
+	public void theUserClickSubmit() {
+		signatureVisualizationsPage.submitButton1.click();
+	}
+
+	@Then("the sample count plot is displayed")
+	public void theSampleCountPlotIsDisplayed() {
+		Assert.assertTrue(signatureVisualizationsPage.profilerSummaryHeaderText.isDisplayed());
+	}
 }

@@ -116,4 +116,27 @@ public class CProSiteExplorePageSteps extends PageInitializer {
         cProSiteExplorePage.dropdowngene.sendKeys("ABCA7");
         cProSiteExplorePage.dropdowngene.sendKeys(Keys.ENTER);
     }
+
+    @Then("results is displayed for phosphorylationsite")
+    public void resultsIsDisplayedForPhosphorylationsite() {
+        Assert.assertTrue(cProSiteExplorePage.summaryView.isDisplayed());
+    }
+
+
+    @Then("results is displayed for phosphorylationprotein")
+    public void resultsIsDisplayedForPhosphorylationprotein() {
+        Assert.assertTrue(cProSiteExplorePage.summaryView.isDisplayed());
+    }
+
+    @When("user removes all tumor types")
+    public void userRemovesAllTumorTypes() {
+        cProSiteExplorePage.cancelAllTumorTypeButton.click();
+    }
+
+
+    @And("user selects brain cancer")
+    public void userSelectsBrainCancer() {
+        cProSiteExplorePage.tumorTypeDropDown.sendKeys("Brain Cancer");
+        cProSiteExplorePage.tumorTypeDropDown.sendKeys(Keys.RETURN);
+    }
 }
