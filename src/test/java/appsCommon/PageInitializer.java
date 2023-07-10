@@ -55,16 +55,7 @@ import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
-import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
-import ServiceNow.NERD.Pages.NERDCRSTCollaborationsPage;
-import ServiceNow.NERD.Pages.NERDCRSTOtherAccomplishmentsPage;
-import ServiceNow.NERD.Pages.NERDCRSTopAccomplishmentsPage;
-import ServiceNow.NERD.Pages.NERDDOCCollaborationsPage;
-import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
-import ServiceNow.NERD.Pages.NERDHomePage;
-import ServiceNow.NERD.Pages.NERDKnowledgebasePage;
-import ServiceNow.NERD.Pages.NERDSubmissionsPage;
-import ServiceNow.NERD.Pages.NativeViewImpersonateUserPage;
+import ServiceNow.NERD.Pages.*;
 import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NativeViewImpersonateUser;
 import ServiceNow.SEER.Pages.NativeViewAccessRequestPage;
@@ -197,6 +188,7 @@ public class PageInitializer {
     public static NERDCRSTCollaborationsPage nerdCRSTCollaborationsPage;
     public static NERDDOCCollaborationsPage nerdDOCCollaborationsPage;
     public static NERDCRSTOtherAccomplishmentsPage nerdcrstOtherAccomplishmentsPage;
+    public static Covid19ActivitiesSubmissionsPage covid19ActivitiesSubmissionsPage;
 
     /** --------------- CUSTOM BUSINESS APP INSTANCES --------------- */
     /** EIDP instances */
@@ -372,6 +364,7 @@ public class PageInitializer {
         nerdDOCCollaborationsPage = new NERDDOCCollaborationsPage();
         nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
         nerdcrstOtherAccomplishmentsPage = new NERDCRSTOtherAccomplishmentsPage();
+        covid19ActivitiesSubmissionsPage = new Covid19ActivitiesSubmissionsPage();
 
         /** --------------- CUSTOM BUSINESS APP INSTANCE VARIABLES --------------- */
         /** EIDP Instance Variables */
