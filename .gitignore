@@ -21,6 +21,7 @@ reports/.DS_Store
 /.idea/
 /.idea
 /test-output/
+test-output
 .apt_generated
 .apt_generated_tests
 .vscode
