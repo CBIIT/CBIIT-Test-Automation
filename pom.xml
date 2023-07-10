@@ -23,6 +23,7 @@
 			<artifactId>slf4j-api</artifactId>
 			<version>2.0.0-alpha1</version>
 		</dependency>
+
 		<!-- selenium libraries -->
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>
@@ -84,14 +85,7 @@
 			<version>31.0.1-jre</version>
 		</dependency>
 
-
 		<!-- common libraries -->
-		<!-- 		<dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>htmlunit-driver</artifactId>
-            <version>2.26</version>
-        </dependency> -->
-
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
@@ -118,10 +112,7 @@
 			<artifactId>poi-ooxml</artifactId>
 			<version>5.2.0</version>
 		</dependency>
-
-
 		<!-- rest-assured libraries -->
-
 		<dependency>
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>
@@ -135,15 +126,12 @@
 		</dependency>
 
 		<!-- mySQL libraries -->
-
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.19</version>
 		</dependency>
-
 		<!-- xml libraries -->
-
 		<dependency>
 			<groupId>xml-apis</groupId>
 			<artifactId>xml-apis</artifactId>
@@ -170,18 +158,13 @@
 			<artifactId>log4j-core</artifactId>
 			<version>2.17.0</version>
 		</dependency>
-
 		<!-- phantom-js libraries -->
-
 		<dependency>
 			<groupId>com.codeborne</groupId>
 			<artifactId>phantomjsdriver</artifactId>
 			<version>1.4.4</version>
 		</dependency>
-
-
 		<!-- mixed libraries -->
-
 		<dependency>
 			<groupId>com.saucelabs</groupId>
 			<artifactId>saucerest</artifactId>
@@ -205,30 +188,30 @@
 			<artifactId>opencsv</artifactId>
 			<version>2.3</version>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>com.oracle.ojdbc</groupId>
 			<artifactId>ojdbc8</artifactId>
 			<version>19.3.0.0</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.freemarker</groupId>
 			<artifactId>freemarker</artifactId>
 			<version>2.3.30</version>
 		</dependency>
+
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 			<version>2.8.6</version>
 		</dependency>
-
 		<!-- Cucumber ExtentReport Adapter -->
 		<dependency>
 			<groupId>tech.grasshopper</groupId>
 			<artifactId>extentreports-cucumber6-adapter</artifactId>
 			<version>${extentreports.cucumber6.adapter.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
@@ -248,13 +231,9 @@
 			<version>1.18.28</version>
 			<scope>provided</scope>
 		</dependency>
-
-
 	</dependencies>
-
 	<build>
 		<plugins>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
@@ -293,15 +272,11 @@
 								<!-- supports wildcard or name pattern -->
 								<param>**/cucumber.json</param> <!-- it will take .json file -->
 							</jsonFiles>
-
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
-
 		</plugins>
 	</build>
-
 	<name>CBIIT-Test-Automation</name>
-
 </project>
