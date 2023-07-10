@@ -9,8 +9,7 @@ Feature: CRS Reviewers Test Scenarios
     And when selecting Other "Other"
     Then the If Other is selected above, please specify "If Other is selected above, please specify" field displays
 
-
-  @SS-3871 @SS-3938 @Regression
+  @SS-3871 @SS-3938 @chaudhryma @Regression
   Scenario: Test Special topics filter missing "Women's Health"
     Given a CRS reviewer is logged into NERDs CRS Knowledge Management System
     And clicks the "Special Topic" filter
