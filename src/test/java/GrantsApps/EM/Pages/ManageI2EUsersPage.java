@@ -49,6 +49,9 @@ public class ManageI2EUsersPage {
     @FindBy(xpath = "//div[@role='document']//div//app-add-role-modal//form//div//div//div//app-nci-organization-dropdown//div//nz-tree-select//div//input[@autocomplete='off']")
     public WebElement roleOrganizationDropDown;
 
+    /** Add Role 2 **/
+    @FindBy(xpath = "//button[@id='roleCheckout-btn']")
+    public WebElement addRoleButtonInsideModule;
     public ManageI2EUsersPage(){
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

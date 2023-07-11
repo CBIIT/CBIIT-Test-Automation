@@ -8,6 +8,7 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
@@ -54,6 +55,12 @@ public class EMFlowSteps extends PageInitializer {
         CommonUtils.clickOnElement(DynamicLocators.dynamicContainsTextLocatorWithSpanTagName(text));
 
         //CommonUtils.sendKeys(manageI2EUsersPage.I2ERoleDropDownTextBox, Keys.ENTER);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+    }
+
+    @Then("User clicks on Add Role button Inside Module")
+    public void user_clicks_on_Add_Role_button_Inside_Module() {
+        CommonUtils.clickOnElement(manageI2EUsersPage.addRoleButtonInsideModule);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 }

@@ -10,12 +10,7 @@ Feature: EM Flow Sprint One
     When User clicks "Add Role" button
     And selects "I2E Technical Support" from I2E Role drop down
     And selects "CENTER FOR BIOMEDICAL INFORMATICS & INFORMATION TECHNOLOGY (OD CBIIT)" from Role Organization drop down
-#    When User clicks I2E Role drop down
-#    When User selects  I2E Technical Support Role
-#    Then User can verify that Business Area drop down is prepopulated with Administrative value
-#    And User can verify that all the DOCs contain "CBIIT" in Role Organization drop down list
-#    And User selects "CENTER FOR BIOMEDICAL INFORMATICS & INFORMATION TECHNOLOGY (OD CBIIT)" value in the Role Organization drop down list
-#    And User clicks on Add Role button Inside Module
+    And User clicks on Add Role button Inside Module
 #    Then User can verify that the ItwoE Technical Support Role is displayed in the Active User Roles grid
 #    When User clicks Add Role button
 #    And User clicks I2E Role drop down
