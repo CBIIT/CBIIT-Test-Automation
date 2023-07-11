@@ -26,8 +26,6 @@ import com.nci.automation.common.Constants;
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.LocalConfUtils;
-import io.github.bonigarcia.wdm.WebDriverManager;
-
 
 /**
  * This class contains web driver related methods
