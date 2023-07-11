@@ -1,5 +1,6 @@
 package ServiceNow.NERD.StepsImplementation;
 
+import ServiceNow.NERD.Constants.NERDOGSRMemberOfCongress_Constants;
 import ServiceNow.NERD.Pages.NERDOGCRAddNewEntryPage;
 import ServiceNow.NERD.Pages.NativeViewMembersOfCongressPage;
 import ServiceNow.NERD.Steps.HooksSteps;
@@ -11,8 +12,11 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,6 +76,19 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
                 congressNumber = true;
             }
         }
+        CommonUtils.sendKeys(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressDropDown, Keys.ENTER);
+        MiscUtils.sleep(1000);
+        CommonUtils.sendKeys(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressDropDown, NERDOGSRMemberOfCongress_Constants.NERD_OGCR_MEMBER_OF_CONGRESS_SENATOR);
+        CommonUtils.waitForVisibility(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressSerchDropDown);
+        JavascriptUtils.scrollIntoView(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressSerchDropDown);
+        CommonUtils.clickOnElement(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressSerchDropDown);
+        CommonUtils.assertEquals(NERDOGCRAddNewEntryPage.nerdOgsrNewEntryCongressSelectedDropDown("" + 1).getText(), (NERDOGSRMemberOfCongress_Constants.NERD_OGCR_MEMBER_OF_CONGRESS_REPRESENTATIVE));
+        CommonUtils.assertEquals(NERDOGCRAddNewEntryPage.nerdOgsrNewEntryCongressSelectedDropDown("" + 2).getText(), (NERDOGSRMemberOfCongress_Constants.NERD_OGCR_MEMBER_OF_CONGRESS_SENATOR));
+        JavascriptUtils.drawBlueBorder(NERDOGCRAddNewEntryPage.nerdOgsrNewEntryCongressSelectedDropDown("" + 1));
+        JavascriptUtils.drawBlueBorder(NERDOGCRAddNewEntryPage.nerdOgsrNewEntryCongressSelectedDropDown("" + 2));
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        MiscUtils.sleep(1000);
     }
 
     /**
@@ -79,11 +96,14 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
      *
      */
     public static void newEntryMemberOfCongressNativeViewVerification(String active) throws TestingException {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
         CommonUtils.waitForVisibility(nativeViewImpersonateUserPage.nativeViewNameButton);
         CommonUtils.clickOnElement(nativeViewImpersonateUserPage.nativeViewNameButton);
         CommonUtils.waitForVisibility(nativeViewImpersonateUserPage.nativeViewLogOutButton);
+        MiscUtils.sleep(1000);
         CommonUtils.clickOnElement(nativeViewImpersonateUserPage.nativeViewLogOutButton);
+        MiscUtils.sleep(1000);
+        Alert alt = WebDriverUtils.webDriver.switchTo().alert();
+        alt.accept();
         nativeViewLoginImpl.sideDoorAccountLogin();
         MiscUtils.sleep(1000);
         if(nativeViewEnrollementsPage.filterNavigatorIconButton.isDisplayed()){
@@ -126,7 +146,7 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
             MiscUtils.sleep(1000);
             CommonUtils.clickOnElement(nativeViewMembersOfCongressPage.membersOfCongresNextPageButton);
             MiscUtils.sleep(1000);
-        }
+           }
            boolean congressNameNumber = false;
            int j = 2;
            MiscUtils.sleep(1500);

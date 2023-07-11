@@ -17,11 +17,11 @@ public class NativeViewImpersonateUserPage extends CommonUtils {
     public WebElement nativeViewLinkMainPage;
 
     /** Native View Name Button */
-    @FindBy(xpath = "//*[@id='profile-dropdown']/span/div/div//child::div")
+    @FindBy(xpath = "//*[@id='crs-kd-nav']/div/div[1]/div//button")
     public WebElement nativeViewNameButton;
 
     /** Native View Log Out Button */
-    @FindBy(xpath = "//a[normalize-space()='Log out']")
+    @FindBy(xpath = "//*[@id='crs-kd-nav']/div/div[1]/div/ul/li[8]/a")
     public WebElement nativeViewLogOutButton;
 
     public NativeViewImpersonateUserPage() {

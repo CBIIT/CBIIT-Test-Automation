@@ -12,7 +12,15 @@ public class NERDOGCRAddNewEntryPage {
     @FindBy(xpath = "//*[@id='s2id_autogen15']")
     public WebElement nerdOgcrNewEntryMemberOfCongressDropDown;
 
+    /** NERD OGCR New Congressman search Drop Down */
+    @FindBy(xpath = "//*[@id='select2-drop']//child::ul//child::li[1]//child::div")
+    public WebElement nerdOgcrNewEntryMemberOfCongressSerchDropDown;
 
+    /** NERD OGCR New Entry Congress Selected Drop Down */
+    public static WebElement nerdOgsrNewEntryCongressSelectedDropDown(String value) {
+        return WebDriverUtils.webDriver
+                .findElement(By.xpath("//*[@id='s2id_sp_formfield_member_of_congress']//child::ul//child::li[" + value + "]"));
+    }
 
     /** NERD OGCR New Entry Congress Person First Name */
     public static WebElement nerdOgsrNewEntryCongressPersonFirstName(String value) {
