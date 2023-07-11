@@ -1,8 +1,4 @@
 Feature: Collaboration Scenerios
-  Description: This feature file contains collaboration category scenerios
-
-  Scenario: Saving Collaboration submission with data verification
-    Given a Program Staff member is on the CRS Knowledge Management System "Submissions" page
 
   @SS-4265 @SS-4296 @juarezds @Regression
   Scenario: NIH strategic alignment (Secondary Optional) and HHS Strategic Plan Alignment (Secondary Optional) field should not be visible
