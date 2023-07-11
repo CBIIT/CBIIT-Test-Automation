@@ -28,6 +28,13 @@ public class NERDSubmissionsPage extends CommonUtils {
 	@FindBy(xpath = "//div[contains(text(), 'Collaborations')]/a")
 	public WebElement crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink;
 
+	/**
+	 * CRS Knowledge Management System Submissions Page OGCR Create New
+	 * Submission link
+	 */
+	@FindBy(xpath = "//div[contains(text(), 'OGCR')]/a")
+	public WebElement crsKnowledgeManagementSystemSubmissionsPageOGCRCreateNewSubmissionLink;
+
 	/** CRS Knowledge Management System Submissions Page Collaborations link */
 	@FindBy(xpath = "(//div[@class='ng-binding ng-scope'])[3]")
 	public WebElement crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink;

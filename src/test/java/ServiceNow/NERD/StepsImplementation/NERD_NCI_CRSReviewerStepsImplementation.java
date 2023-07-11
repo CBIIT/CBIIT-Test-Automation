@@ -62,7 +62,6 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenuValues,
                                 "Submissions");
                 MiscUtils.sleep(2000);
-//                CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown);
                 JavascriptUtils.clickByJS( nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown);
                 CommonUtils.waitForVisibility(
                                 nerdDynamicXpaths.publishedCollaboration(submissionName));

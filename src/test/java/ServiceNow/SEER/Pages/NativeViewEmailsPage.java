@@ -2,6 +2,7 @@ package ServiceNow.SEER.Pages;
 
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -11,7 +12,7 @@ public class NativeViewEmailsPage extends CommonUtils {
     /** --------------- NATIVE VIEW EMAILS PAGE --------------- */
 
     /**NativeView Emails Button */
-    @FindBy(xpath = "//*[@id=\'8d620b63c611227b008368697b0b8d7b\']/div/div")
+    @FindBy(xpath = "//*[@id='8d620b63c611227b008368697b0b8d7b']/div/div")
     public WebElement nativeViewAccessEmailsButton;
 
     /**Native View Emails Dropdown Menu*/

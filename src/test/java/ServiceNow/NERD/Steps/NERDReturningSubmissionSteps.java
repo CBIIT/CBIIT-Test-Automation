@@ -113,6 +113,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
         NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER);
         NERDApplicationStepsImplementation.verifyingIncrementedArticleVersionNumber(versionNumber);
         NERDApplicationStepsImplementation.returningOfSubmissionToDOCPlaningContact(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER);
+        NERDApplicationStepsImplementation.checkingEmailWasNotReceived();
         NERD_NCI_DOC_PlanningContactStepsImplementation.deleteCreatedSubmissionByDocPlanningContact(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER);
     }
 

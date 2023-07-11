@@ -2,10 +2,12 @@ package ServiceNow.NERD.StepsImplementation;
 
 import AnalysisTools.PLCOAPI.Steps.PublicAPISteps;
 import ServiceNow.COVIDDash.Utils.COVIDConstants;
+import ServiceNow.NERD.Constants.CRSReviewers_Constants;
 import ServiceNow.NERD.Constants.ReturningSubmissions_Constants;
 import ServiceNow.NERD.Constants.TopAccomplishmentsSubmission_Constants;
 import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
 import ServiceNow.NERD.Steps.HooksSteps;
+import ServiceNow.SEER.Constants.SEERNativeView_Constants;
 import appsCommon.PageInitializer;
 
 import java.util.List;
@@ -22,14 +24,13 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class NERDApplicationStepsImplementation extends PageInitializer {
 
-    NERDDynamicXPATHS nerdDynamicXPATHSObj = new NERDDynamicXPATHS();
-
-    /**
+     /**
      * This method will create new Submission by Staff Member
      *
      * @param SubmissionType
@@ -200,11 +201,40 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         MiscUtils.sleep(5000);
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowYESbutton);
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowYESbutton.click();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton.click();
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         MiscUtils.sleep(2000);
+    }
 
+    public static void checkingEmailWasNotReceived() throws TestingException {
+        nativeViewImpersonateUser.impersonateToStaffMemberCBIIT();
+        MiscUtils.sleep(500);
+        CommonUtils.clickOnElement(nativeViewImpersonateUserPage.nativeViewLinkMainPage);
+        MiscUtils.sleep(500);
+        nativeViewEnrollementsPage.filterNavigator.clear();
+        MiscUtils.sleep(500);
+        nativeViewEnrollementsPage.filterNavigator.sendKeys("Emails");
+        MiscUtils.sleep(1000);
+        JavascriptUtils.scrollIntoView(nativeViewEmailsPage.nativeViewAccessEmailsButton);
+        JavascriptUtils.clickByJS(nativeViewEmailsPage.nativeViewAccessEmailsButton);
+        MiscUtils.sleep(1000);
+        CommonUtils.switchToFrame(nativeViewAccessRequestPage.accessRequestIFrame);
+        MiscUtils.sleep(1000);
+        CommonUtils.assertTrue(nativeViewEmailsPage.emailsMenu.getText()
+                .contentEquals("Emails"));
+        CommonUtils.selectDropDownValue("Recipients", nativeViewSentViewPage.nativeViewSearchDropDown);
+        CommonUtils.sendKeysToElement(nativeViewSentViewPage.nativeViewSentSearchField, CRSReviewers_Constants.CRS_DOC_PLANNING_CONTACT_REVIEWER_EMAIL);
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        nativeViewSentViewPage.nativeViewSentSearchField.sendKeys(Keys.ENTER);
+        MiscUtils.sleep(1000);
+        CommonUtils.assertTrue(nativeViewAccessRequestPage.nativeViewAccessRequestNoRecordsToDisplayText.getText().contentEquals(SEERNativeView_Constants.NATIVE_VIEW_NO_RECORD_TO_DISPLAY_TEXT));
+        JavascriptUtils.drawBlueBorder(nativeViewAccessRequestPage.nativeViewAccessRequestNoRecordsToDisplayText);
+        MiscUtils.sleep(500);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
     /**
