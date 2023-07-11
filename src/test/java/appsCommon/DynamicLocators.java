@@ -17,4 +17,13 @@ public class DynamicLocators {
     public static WebElement dynamicContainsTextLocator(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'" + text + "')]"));
     }
+
+    /***
+     * USE THIS METHOD TO DYNAMICALLY LOCATE ELEMENTS BASED ON TEXT WITH SPAN TAG NAME
+     * @param text
+     * @return
+     */
+    public static WebElement dynamicContainsTextLocatorWithSpanTagName(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//span[contains(text(),'" + text + "')]"));
+    }
 }

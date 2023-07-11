@@ -27,6 +27,8 @@ import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
 import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
 import GrantsApps.ChangePassword.Pages.ChangePasswordPage;
 import GrantsApps.ChangePassword.StepsImplementation.ChangePasswordStepsImpl;
+import GrantsApps.EM.Pages.ManageI2EUsersPage;
+import GrantsApps.EM.StepImplementation.EMStepsImplementation;
 import ServiceNow.BrownBag.Pages.SEERLandingPage2;
 import ServiceNow.CHARMS.Constants.RAS_SCREENER_CONSTANTS;
 import ServiceNow.CHARMS.Pages.*;
@@ -125,6 +127,8 @@ public class PageInitializer {
     /** --------------- GRANTS INSTANCES --------------- */
     public static ChangePasswordPage changePasswordPage;
     public static ChangePasswordStepsImpl changePasswordStepsImpl;
+    public static EMStepsImplementation emStepsImplementation;
+    public static ManageI2EUsersPage manageI2EUsersPage;
 
     /** --------------- SERVICENOW INSTANCES --------------- */
     /** COVIDDash instances */
@@ -473,6 +477,8 @@ public class PageInitializer {
         /** Grants ChangePassword app **/
         changePasswordPage = new ChangePasswordPage();
         changePasswordStepsImpl = new ChangePasswordStepsImpl();
+        emStepsImplementation = new EMStepsImplementation();
+        manageI2EUsersPage = new ManageI2EUsersPage();
 
         seerLandingPage2 = new SEERLandingPage2();
     }
