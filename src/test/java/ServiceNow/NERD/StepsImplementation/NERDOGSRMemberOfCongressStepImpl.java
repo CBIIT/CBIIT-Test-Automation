@@ -3,7 +3,6 @@ package ServiceNow.NERD.StepsImplementation;
 import ServiceNow.NERD.Pages.NERDOGCRAddNewEntryPage;
 import ServiceNow.NERD.Pages.NativeViewMembersOfCongressPage;
 import ServiceNow.NERD.Steps.HooksSteps;
-import ServiceNow.SEER.Pages.NativeViewEmailsPage;
 import appsCommon.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
