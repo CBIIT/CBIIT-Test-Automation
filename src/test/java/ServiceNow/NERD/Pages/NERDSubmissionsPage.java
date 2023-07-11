@@ -333,7 +333,7 @@ public class NERDSubmissionsPage extends CommonUtils {
 	public WebElement nerdSpecialTopicsDD;
 
 	/** NERD Special Topics Drop Down Values */
-	@FindBy(xpath = "//div[@class='filter-section ng-scope open']/ul/li ")
+	@FindBy(xpath = "//div[contains(@class,'filter-section ng-scope open')]//li")
 	public List<WebElement> nerdSpecialTopicsDDvalues;
 
 	/** NERD Collaborations List */

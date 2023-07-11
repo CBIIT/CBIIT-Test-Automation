@@ -58,14 +58,14 @@ public class CRS_Reviewers_Steps extends PageInitializer {
         NERD_CRS_ReviewersStepImplementation.clicksTheFilter(specialTopic);
     }
 
-    @Then("the field options are {string}, {string}, {string},{string},{string},{string},{string},{string},{string},{string}, {string}")
-    public void the_field_options_are(String All, String BigdataDataSharing, String COVID19, String EarlyDetection,
-                                      String Metastatic, String MinorityhealthHealthdisparities, String Moonshot, String Pediatric,
-                                      String Rare, String TrainingWorkforcedevelopment, String Womenshealth) {
-        NERD_CRS_ReviewersStepImplementation.theFieldOptionsAre(All, BigdataDataSharing, COVID19, EarlyDetection,
-                Metastatic, MinorityhealthHealthdisparities, Moonshot, Pediatric,
-                Rare, TrainingWorkforcedevelopment, Womenshealth);
-    }
+    @Then("the field options are {string}, {string}, {string},{string},{string},{string},{string},{string},{string},{string},{string}, {string}, {string}, {string}, {string}, and {string}")
+    public void the_field_options_are_and(String all, String bigDataDataSharing, String covid19, String communications, String earlyDetection, String metastatic,
+                                          String minorityHealthHealthDisparities, String moonshot, String partnerships, String pediatric, String rare, String reportGuidancePolicy,
+                                          String sexGenderDifferences, String trainingWorkforceDevelopment, String womensHealth, String workforce) {
+        NERD_CRS_ReviewersStepImplementation.theFieldOptionsAre(all, bigDataDataSharing, covid19, communications, earlyDetection,
+                metastatic, minorityHealthHealthDisparities, moonshot, partnerships, pediatric, rare,
+                reportGuidancePolicy, sexGenderDifferences, trainingWorkforceDevelopment, womensHealth, workforce);
+   }
 
     @Given("a CRS Reviewer {string} and email {string} is on the NERD Home Page")
     public void a_CRS_Reviewer_and_email_is_on_the_NERD_Home_Page(String crsReviewer, String approvedEmail) throws TestingException {

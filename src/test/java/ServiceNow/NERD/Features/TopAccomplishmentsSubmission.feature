@@ -7,4 +7,3 @@ Feature: Top Accomplishments Submission
     And fills out all required fields
     Then the Program Staff Member is able to Save the submission
     And on the CRS Knowledge Management System page, the Program Staff member sees options to Submit, Edit, and Delete
-

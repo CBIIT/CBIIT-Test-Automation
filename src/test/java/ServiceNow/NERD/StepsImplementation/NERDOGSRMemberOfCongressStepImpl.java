@@ -85,7 +85,11 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
         CommonUtils.waitForVisibility(nativeViewImpersonateUserPage.nativeViewLogOutButton);
         CommonUtils.clickOnElement(nativeViewImpersonateUserPage.nativeViewLogOutButton);
         nativeViewLoginImpl.sideDoorAccountLogin();
-        MiscUtils.sleep(500);
+        MiscUtils.sleep(1000);
+        if(nativeViewEnrollementsPage.filterNavigatorIconButton.isDisplayed()){
+            CommonUtils.clickOnElement(nativeViewEnrollementsPage.filterNavigatorIconButton);
+            CommonUtils.waitForVisibility(nativeViewEnrollementsPage.filterNavigator);
+        }
         nativeViewEnrollementsPage.filterNavigator.clear();
         MiscUtils.sleep(500);
         nativeViewEnrollementsPage.filterNavigator.sendKeys("Congress");
