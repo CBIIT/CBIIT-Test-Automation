@@ -44,3 +44,4 @@ src/main/java/com/nci/automation/dao/PasswordEncrypter.java
 src/main/.DS_Store
 src/test/java/ServiceNow/BrownBag
 src/main/resources/conf/.DS_Store
+src/test/resources/.DS_Store
