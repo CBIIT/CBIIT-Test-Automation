@@ -1,7 +1,6 @@
 package ServiceNow.NERD.StepsImplementation;
 
 import ServiceNow.NERD.Constants.ReturningSubmissions_Constants;
-import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
 import ServiceNow.NERD.Steps.HooksSteps;
 import appsCommon.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -14,7 +13,6 @@ import com.nci.automation.xceptions.TestingException;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import java.util.Set;
 
 public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitializer {

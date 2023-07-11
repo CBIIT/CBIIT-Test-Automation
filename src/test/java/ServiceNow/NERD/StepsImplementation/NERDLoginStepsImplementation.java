@@ -6,7 +6,6 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import appsCommon.PageInitializer;
 
 public class NERDLoginStepsImplementation extends PageInitializer{

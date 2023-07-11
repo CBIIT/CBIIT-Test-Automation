@@ -15,8 +15,6 @@ import com.nci.automation.xceptions.TestingException;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-
 import java.util.ArrayList;
 import java.util.List;
 
