@@ -60,7 +60,6 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
         CommonUtils.sendKeys(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressDropDown, Keys.ENTER);
         MiscUtils.sleep(1000);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        MiscUtils.sleep(5000);
         boolean congressNumber = false;
         int i = 1;
         while (!congressNumber) {
@@ -109,28 +108,42 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
         CommonUtils.clickOnElement(nativeViewMembersOfCongressPage.membersOfCongressRunButton);
         MiscUtils.sleep(500);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        while (nativeViewMembersOfCongressPage.membersOfCongresNextPageButton.isEnabled()){
-             boolean congressNameNumber = false;
-             int j = 2;
+       while (nativeViewMembersOfCongressPage.membersOfCongresNextPageButton.isEnabled()){
              MiscUtils.sleep(1500);
-             while (!congressNameNumber) {
-                 try {String actualNativeViewCongressPersonName = NativeViewMembersOfCongressPage.nativeViewCongressPersonFirstName("" + j).getText() + " " + NativeViewMembersOfCongressPage.nativeViewCongressPersonLastName("" + j).getText();
-                     j++;
-                     int v = 0;
-                     for (int n = 0; n < formCongressPeopleList.size() - 1 ; n++){
-                         if(actualNativeViewCongressPersonName.equals(formCongressPeopleList.get(n))){
-                             v++;
+             for (int jl = 2 ; jl < 21; jl++) {String actualNativeViewCongressPersonName = NativeViewMembersOfCongressPage.nativeViewCongressPersonFirstName("" + jl).getText() + " " + NativeViewMembersOfCongressPage.nativeViewCongressPersonLastName("" + jl).getText();
+                 int vl = 0;
+                     for (int nl = 0; nl < formCongressPeopleList.size(); nl++){
+                         if(actualNativeViewCongressPersonName.equals(formCongressPeopleList.get(nl))){
+                             vl++;
                          }
                      }
-                     CommonUtils.assertTrue(v == 1);
-                 }catch (NoSuchElementException e){
-                     congressNameNumber = true;
+                     CommonUtils.assertTrue(vl == 1);
                  }
-             }
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
             MiscUtils.sleep(1000);
             CommonUtils.clickOnElement(nativeViewMembersOfCongressPage.membersOfCongresNextPageButton);
+            MiscUtils.sleep(1000);
         }
-        MiscUtils.sleep(5000);
+           boolean congressNameNumber = false;
+           int j = 2;
+           MiscUtils.sleep(1500);
+           while (!congressNameNumber) {
+               try {
+                   String actualNativeViewCongressPersonName = NativeViewMembersOfCongressPage.nativeViewCongressPersonFirstName("" + j).getText() + " " + NativeViewMembersOfCongressPage.nativeViewCongressPersonLastName("" + j).getText();
+                   j++;
+                   int v = 0;
+                   for (int n = 0; n < formCongressPeopleList.size(); n++) {
+                       if (actualNativeViewCongressPersonName.equals(formCongressPeopleList.get(n))) {
+                           v++;
+                       }
+                   }
+                   CommonUtils.assertTrue(v == 1);
+               } catch (NoSuchElementException e) {
+                   congressNameNumber = true;
+               }
+           }
+           CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+           MiscUtils.sleep(1000);
+           CommonUtils.clickOnElement(nativeViewMembersOfCongressPage.membersOfCongresNextPageButton);
     }
 }
