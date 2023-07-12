@@ -1,7 +1,6 @@
 package ServiceNow.NERD.StepsImplementation;
 
 import ServiceNow.NERD.Constants.ReturningSubmissions_Constants;
-import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
 import ServiceNow.NERD.Steps.HooksSteps;
 import appsCommon.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -14,7 +13,6 @@ import com.nci.automation.xceptions.TestingException;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import java.util.Set;
 
 public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitializer {
@@ -170,7 +168,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                         String FiscalYear) throws TestingException {
                 nativeViewImpersonateUser.impersonateToDocPlanningContact();
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-                MiscUtils.sleep(2000);
+                MiscUtils.sleep(7000);
                 CommonUtils.waitForVisibility(
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink
@@ -209,9 +207,9 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                 nativeViewImpersonateUser.impersonateToDocPlanningContact();
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 WebDriverUtils.webDriver.navigate().refresh();
-                MiscUtils.sleep(5000);
-                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink
-                                .click();
+                MiscUtils.sleep(7000);
+                CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
+                JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
                 MiscUtils.sleep(1000);
                 CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
                 nerdDynamicXpaths.submitToCRSButton(submissionName).click();
@@ -257,8 +255,8 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 WebDriverUtils.webDriver.navigate().refresh();
                 MiscUtils.sleep(5000);
-                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink
-                                .click();
+                CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
+                JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
                 MiscUtils.sleep(3000);
                 nerdDynamicXpaths.editButton(submissionName).click();
                 MiscUtils.sleep(2000);
@@ -298,9 +296,9 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                 nativeViewImpersonateUser.impersonateToDocPlanningContact();
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 WebDriverUtils.webDriver.navigate().refresh();
-                MiscUtils.sleep(1000);
-//                CommonUtils.waitForVisibility(
-//                                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
+                MiscUtils.sleep(7000);
+                CommonUtils.waitForVisibility(
+                                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
                 JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
 
                 JavascriptUtils.scrollIntoView(nerdDynamicXpaths.returnButtonToStaff(submissionName));

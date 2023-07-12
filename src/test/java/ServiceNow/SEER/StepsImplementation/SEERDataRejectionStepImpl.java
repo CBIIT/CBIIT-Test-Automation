@@ -206,7 +206,7 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
         nativeViewAccessRequestPage.nativeViewAccessRequestCustomerTextBox.sendKeys(SEERDataRejection_Constants.FIRST_NAME + " " + SEERDataRejection_Constants.LAST_NAME);
         MiscUtils.sleep(1000);
         nativeViewAccessRequestPage.nativeViewAccessRequestCustomerTextBox.sendKeys(Keys.ENTER);
-        nativeViewAccessRequestPage.nativeViewAccessRequestDatasetTextBox.sendKeys("SEER Research Plus");
+        nativeViewAccessRequestPage.nativeViewAccessRequestDatasetTextBox.sendKeys(SEERDataRejection_Constants.SEER_RESEARCH_PLUS_AND_NCCR_DATA);
         MiscUtils.sleep(1000);
         nativeViewAccessRequestPage.nativeViewAccessRequestDatasetTextBox.sendKeys(Keys.ENTER);
         MiscUtils.sleep(500);

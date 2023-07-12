@@ -2,13 +2,9 @@ package ServiceNow.NERD.StepsImplementation;
 
 import ServiceNow.NERD.Steps.HooksSteps;
 import appsCommon.PageInitializer;
-
-import static org.junit.Assert.assertTrue;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -62,7 +58,6 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenuValues,
                                 "Submissions");
                 MiscUtils.sleep(2000);
-//                CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown);
                 JavascriptUtils.clickByJS( nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown);
                 CommonUtils.waitForVisibility(
                                 nerdDynamicXpaths.publishedCollaboration(submissionName));

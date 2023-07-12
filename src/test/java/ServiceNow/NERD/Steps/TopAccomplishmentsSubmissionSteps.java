@@ -4,7 +4,6 @@ import ServiceNow.NERD.StepsImplementation.NERDApplicationStepsImplementation;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import appsCommon.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
