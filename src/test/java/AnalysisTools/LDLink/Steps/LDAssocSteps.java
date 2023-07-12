@@ -13,7 +13,6 @@ import com.nci.automation.web.JavascriptUtils;
 import appsCommon.PageInitializer;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class LDAssocSteps extends PageInitializer {
 

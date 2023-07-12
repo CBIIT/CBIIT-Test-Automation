@@ -22,6 +22,8 @@ import AnalysisTools.LDLink.Pages.LDExpressPage;
 import AnalysisTools.PLCO.Pages.BrowsePhenotypePage;
 import AnalysisTools.PLCO.Pages.ExploreGWASPage;
 import AnalysisTools.PLCO.Pages.InformationPage;
+import AnalysisTools.ezQTL.Pages.EZQTLAnalysesPage;
+import AnalysisTools.ezQTL.Pages.EZQTLHomePage;
 import AnalysisTools.mSigPortal.Pages.CatalogPages;
 import AnalysisTools.mSigPortal.Pages.MSigPortalHomePage;
 import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
@@ -174,6 +176,10 @@ public class PageInitializer {
 	protected static LDAssocPage ldAssocPage;
 	protected static LDExpressPage ldExpressPage;
 
+	/** ezQTL instances **/
+	protected static EZQTLHomePage ezQTLHomePage;
+	protected static EZQTLAnalysesPage ezQTLAnalysesPage;
+
 	/** Analysis Tools Landing Page instances */
 	protected static AnalysisToolsLandingPage analysisToolsLandingPage;
 
@@ -302,6 +308,8 @@ public class PageInitializer {
 		ldLinkHomePage = new LDLinkHomePage();
 		ldAssocPage = new LDAssocPage();
 		ldExpressPage = new LDExpressPage();
+		ezQTLHomePage = new EZQTLHomePage();
+		ezQTLAnalysesPage = new EZQTLAnalysesPage();
 		exploreGWASPage = new ExploreGWASPage();
 		charmsHomePage = new CHARMSHomePage();
 		oktaLoginPage = new OKTAloginPage();
