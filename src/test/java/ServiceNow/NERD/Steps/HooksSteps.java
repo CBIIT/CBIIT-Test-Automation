@@ -16,10 +16,8 @@ import io.cucumber.java.Scenario;
 import org.apache.commons.lang.StringUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-
 import java.io.File;
 import java.net.MalformedURLException;
-
 
 public class HooksSteps {
 
@@ -28,7 +26,7 @@ public class HooksSteps {
 	public static Scenario scenario;
 	/**
 	 * This method will run before each scenario
-	 * 
+	 *
 	 * @param s
 	 * @throws TestingException
 	 */
@@ -69,7 +67,7 @@ public class HooksSteps {
 
 	/**
 	 * This method runs after each scenario
-	 * 
+	 *
 	 * @throws TestingException
 	 * @throws MalformedURLException
 	 */
@@ -111,5 +109,4 @@ public class HooksSteps {
 		// use this for web specific clean up
 		System.out.println("web specific clean up");
 	}
-
 }

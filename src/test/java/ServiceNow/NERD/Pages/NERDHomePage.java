@@ -19,6 +19,10 @@ public class NERDHomePage {
     @FindBy(xpath = "//h5[normalize-space()='Moonshot Evaluation']")
     public WebElement moonshotEvaluationKnowledgeBaseText;
 
+    /** OGCR Knowledge base home page text */
+    @FindBy(xpath = "//h5[normalize-space()='OGCR']")
+    public WebElement ogcrKnowledgeBaseText;
+
     public NERDHomePage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

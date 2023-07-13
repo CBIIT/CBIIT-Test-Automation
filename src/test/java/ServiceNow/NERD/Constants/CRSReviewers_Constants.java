@@ -11,14 +11,26 @@ public class CRSReviewers_Constants {
     /* CRS DOC PLANNING CONTACT REVIEWER NAME  */
     public static final String CRS_DOC_PLANNING_CONTACT_REVIEWER_NAME = "Karen Ortner";
 
+    /* CRS DOC PLANNING CONTACT REVIEWER EMAIL  */
+    public static final String CRS_DOC_PLANNING_CONTACT_REVIEWER_EMAIL = "ortnerk@nih.gov";
+
     /* CRS UNIQUE REVIEWER NAME */
     public static final String CRS_REVIEWER_UNIQUE_NAME = "Grace Liou";
+
+    /* CRS UNIQUE REVIEWER EMAIL */
+    public static final String CRS_REVIEWER_UNIQUE_EMAIL= "grace.liou@nih.gov";
 
     /* CRS REVIEWER NAME */
     public static final String CRS_REVIEWER_NAME = "Elizabeth Hoffman";
 
-    /* CRS REVIEWER NAME */
+    /* CRS REVIEWER EMAIL */
     public static final String CRS_REVIEWER_EMAIL = "hoffmanela@nih.gov";
+
+    /* OGCR REVIEWER NAME */
+    public static final String OGCR_REVIEWER_NAME = "Sonia Hawkins";
+
+    /* OGCR REVIEWER EMAIL */
+    public static final String OGCR_REVIEWER_EMAIL = "calcagnosl@nih.gov";
 
     /* CRS KNOWLEDGE MANAGEMENT SYSTEM CATEGORIES */
     public static final String CRS_KNOWLEDGE_MANAGEMENT_SYSTEM_CATEGORIES = "";

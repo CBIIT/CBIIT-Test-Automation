@@ -1,6 +1,5 @@
 package ServiceNow.NERD.StepsImplementation;
 
-import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.NERD.Constants.NCI_Staff_Members_Constants;
 import ServiceNow.NERD.Constants.ReturningSubmissions_Constants;
 import ServiceNow.NERD.Steps.HooksSteps;
