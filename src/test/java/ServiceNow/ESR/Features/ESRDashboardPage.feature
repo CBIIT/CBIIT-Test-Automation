@@ -4,9 +4,9 @@ Feature: ESR Dashboard Page
 
     @ESR-540 @ESR-541 @Progression @sarwarahmed1
     Scenario: Test an authenticated user access the ESR dashboard page
-        Given a user is on the NCI at your service homepage
-        When a user logs in with valid credentials
-        And user clicks on Native View
-        And user navigates to Engineering Service Request
-        And user clicks on Dashboard
+        Given a user logs in with valid credentials on the NCI at your service page
+        When user is on the NCI Native View page
+        And user clicks on the arrow dropdown for dashboards
+        And user searches "ESR Dashboard" in the search bar
+        And the user clicks on ESR Dashboard
         Then user is directed to the ESR Dashboard page
