@@ -490,6 +490,5 @@ public class PageInitializer {
         /** Grants ChangePassword app **/
         changePasswordPage = new ChangePasswordPage();
         changePasswordStepsImpl = new ChangePasswordStepsImpl();
-
     }
 }
