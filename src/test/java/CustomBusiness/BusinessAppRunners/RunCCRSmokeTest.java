@@ -28,11 +28,4 @@ import com.nci.automation.web.ConfUtils;
  */
 
 public class RunCCRSmokeTest {
-
-    @BeforeClass
-    public static void runSetup() {
-        String reportsOutput = LocalConfUtils.getRootDir() + File.separator + "html-reports";
-        ConfUtils.setBaseResultsDir(reportsOutput);
-        System.out.println("Starting Test Execution...");
-    }
 }

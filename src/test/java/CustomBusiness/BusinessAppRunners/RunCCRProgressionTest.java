@@ -14,7 +14,7 @@ import com.nci.automation.web.ConfUtils;
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         features = "src/test/java/CustomBusiness/CCR/Features",
         glue = "CustomBusiness.CCR.Steps",
-        tags = "@Progression",
+        tags = "@landingPage",
         dryRun = false,
         monochrome = true,
         strict = true
@@ -28,11 +28,4 @@ import com.nci.automation.web.ConfUtils;
  */
 
 public class RunCCRProgressionTest {
-
-    @BeforeClass
-    public static void runSetup() {
-        String reportsOutput = LocalConfUtils.getRootDir() + File.separator + "html-reports";
-        ConfUtils.setBaseResultsDir(reportsOutput);
-        System.out.println("Starting Test Execution...");
-    }
 }

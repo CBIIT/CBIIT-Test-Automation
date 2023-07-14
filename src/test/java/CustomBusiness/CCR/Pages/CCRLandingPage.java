@@ -16,18 +16,4 @@ public class CCRLandingPage extends CommonUtils {
     /** Positions Tab */
     @FindBy(xpath = "//ul[@class='nav navbar-nav']//a[contains(text(),'Positions')]")
     public WebElement positionsTab;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
