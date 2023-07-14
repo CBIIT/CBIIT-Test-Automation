@@ -16,7 +16,6 @@ import io.cucumber.java.Scenario;
 import org.apache.commons.lang.StringUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-
 import java.io.File;
 import java.net.MalformedURLException;
 public class HooksSteps {
@@ -60,7 +59,7 @@ public class HooksSteps {
         }
         System.setProperty(ScenarioContext.USE_SCENARIO_NAME_PROPERTY, "true");
         System.setProperty(ScenarioContext.SCENARIO_NAME_PROPERTY_NAME, scenarioNameForFolderCreation);
-        System.setProperty(CustomBusiness.DCEG.Steps.HooksSteps.SCENARIO_NAME_TEXT, s.getName());// getScenarioName(scenario));
+        System.setProperty(HooksSteps.SCENARIO_NAME_TEXT, s.getName());// getScenarioName(scenario));
         String resultsDirName = scenarioNameForFolderCreation;
         ConfUtils.setResultsDir(resultsDirName);
     }
@@ -79,7 +78,6 @@ public class HooksSteps {
         }
         if (WebDriverUtils.webDriver != null) {
             MiscUtils.sleep(2000);
-
             System.out.println("Ending Scenario: " + s.getName());
             String scenarioName = ScenarioContext.getScenarioName();
             String scenarioResult = ScenarioContext.scenario.get().getStatus().toString();
@@ -109,5 +107,4 @@ public class HooksSteps {
         // use this for web specific clean up
         System.out.println("web specific clean up");
     }
-
 }
