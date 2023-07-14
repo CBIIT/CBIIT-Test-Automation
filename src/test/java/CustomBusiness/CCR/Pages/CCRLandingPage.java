@@ -7,20 +7,18 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class CCRLandingPage extends CommonUtils {
+
     public CCRLandingPage() {
         PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
     }
-    /** LogIn dropdown */
-    @FindBy(xpath = "//li[@class='dropdown ng-scope']")
-    public WebElement logInDropdwn;
 
-    /** Internal users option */
-    @FindBy(xpath = "//li//a[contains(text(),'Internal Users')]")
-    public WebElement internalUsersOption;
+    /** Home Tab */
+    @FindBy(xpath = "//ul[@class='nav navbar-nav']//a[contains(text(),'Home')]")
+    public WebElement homeTab;
 
-    /** CCR Careers hyperlink */
-    @FindBy(xpath = "//a[@href='https://ccr.cancer.gov/careers']")
-    public WebElement ccrCareersHyperlink;
+    /** Positions Tab */
+    @FindBy(xpath = "//ul[@class='nav navbar-nav']//a[contains(text(),'Positions')]")
+    public WebElement positionsTab;
 
 
 

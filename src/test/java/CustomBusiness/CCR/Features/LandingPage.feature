@@ -5,4 +5,5 @@ Feature: CCR Landing Page Scenarios
 
   @Alena @Regression @Smoke @Progression @landingPage
   Scenario: Verify CCR Landing Page items
-    And User can navigate to "CCR Careers" Hyperlink
+    And User can see tabs displayed
+    |Home|Positions|
