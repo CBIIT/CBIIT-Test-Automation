@@ -14,4 +14,3 @@ public class CCRLogInStepsImplementation extends PageInitializer {
         MiscUtils.sleep(2000);
     }
 }
-
