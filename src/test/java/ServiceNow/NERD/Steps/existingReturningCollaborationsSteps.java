@@ -20,7 +20,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-
 public class existingReturningCollaborationsSteps extends PageInitializer {
 
     /*
@@ -51,7 +50,6 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowTextField
                 .sendKeys("Returning to Doc - Automated Test");
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-
     }
 
     @Then("click the {string} button")
@@ -425,6 +423,4 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
      * ------------------------------------------------------------- END EIGHTH
      * SCENARIO -------------------------------------------------------------
      */
-
-
 }

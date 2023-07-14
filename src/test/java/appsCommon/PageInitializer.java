@@ -298,6 +298,12 @@ public class PageInitializer {
     public static NativeViewDashboardPage nativeViewDashPage;
     public static NativeViewMembersOfCongressPage nativeViewMembersOfCongressPage;
 
+    public static NativeViewCHARMSDashboardPage nativeViewCHARMSDashboardPage;
+
+    public  static  NativeViewCHARMSParticipantDetailsPage nativeViewCHARMSParticipantDetailsPage;
+
+    public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
+
     public static void initializeAllPages() {
         /** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
         // create instances of all pages and assign them to the variables
@@ -476,6 +482,9 @@ public class PageInitializer {
         nativeViewEmailsPage = new NativeViewEmailsPage();
         nativeViewDashPage = new NativeViewDashboardPage();
         nativeViewMembersOfCongressPage = new NativeViewMembersOfCongressPage();
+        nativeViewCHARMSDashboardPage = new NativeViewCHARMSDashboardPage();
+        nativeViewCHARMSParticipantDetailsPage = new NativeViewCHARMSParticipantDetailsPage();
+        nativeViewCHARMSParticipantConsentPage = new NativeViewCHARMSParticipantConsentPage();
 
         /** Grants ChangePassword app **/
         changePasswordPage = new ChangePasswordPage();
