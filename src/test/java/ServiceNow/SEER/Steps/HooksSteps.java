@@ -16,10 +16,8 @@ import io.cucumber.java.Scenario;
 import org.apache.commons.lang.StringUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-
 import java.io.File;
 import java.net.MalformedURLException;
-
 
 public class HooksSteps {
 
@@ -46,13 +44,11 @@ public class HooksSteps {
 		scenarioName = scenarioName.replace("|", "");
 		scenarioName = scenarioName.trim();
 		String scenarioNameForFolderCreation = scenarioName;
-
 		if (!scenarioName.equals(s.getName())) {
 			String exampleName = s.getName().replace("|", "");
 			exampleName = exampleName.trim();
 			scenarioNameForFolderCreation = s.getName() + File.separatorChar + exampleName;
 		}
-
 		if (!StringUtils.isEmpty(buildNumber)) {
 			scenarioNameForFolderCreation = buildNumber + File.separatorChar + scenarioNameForFolderCreation;
 		} else {
@@ -81,7 +77,6 @@ public class HooksSteps {
 		}
 		if (WebDriverUtils.webDriver != null) {
 			MiscUtils.sleep(2000);
-
 			System.out.println("Ending Scenario: " + s.getName());
 			String scenarioName = ScenarioContext.getScenarioName();
 			String scenarioResult = ScenarioContext.scenario.get().getStatus().toString();
@@ -92,7 +87,6 @@ public class HooksSteps {
 			else {
 				scenarioResult = "Failed";
 			}
-
 			QcTestResult currentQcResult = new QcTestResult(scenarioName, scenarioResult, scenarioResultsDir);
 			ScenarioContext.setCurrentQcResult(currentQcResult);
 			WebDriverUtils.closeWebDriver();

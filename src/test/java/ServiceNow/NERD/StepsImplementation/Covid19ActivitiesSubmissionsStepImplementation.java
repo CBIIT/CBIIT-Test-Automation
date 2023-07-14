@@ -21,7 +21,7 @@ public class Covid19ActivitiesSubmissionsStepImplementation extends PageInitiali
      */
     public static void covid19StrategicPlanCheckBoxOptionsAreAlsoDisplayed(String priority1ImproveFundamentalKnowledge, String priority2AdvanceResearchToImproveDetection,
                                                                            String priority3SupportToAdvanceTreatment, String priority4AccelerateResearchToImprovePrevention,
-                                                       String priority5PreventAndRedressPoorCOVID19Outcomes, String other) {
+                                                                           String priority5PreventAndRedressPoorCOVID19Outcomes, String other) {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.thisActivityAlignsWithTheFollowingNIHCovid19StrategicPlanText);
@@ -31,7 +31,7 @@ public class Covid19ActivitiesSubmissionsStepImplementation extends PageInitiali
         for (int i = 0; i < actualCheckBoxesValue.length; i++) {
             actualCheckBoxesValue[i] = covid19ActivitiesSubmissionsPage.nihCovid19StrategicPlanCheckBoxes.get(i)
                     .getText();
-          CommonUtils.clickOnElement(Covid19ActivitiesSubmissionsPage.nihCovid19StrategicPlanCheckBoxesSingleElement(actualCheckBoxesValue[i]));
+            CommonUtils.clickOnElement(Covid19ActivitiesSubmissionsPage.nihCovid19StrategicPlanCheckBoxesSingleElement(actualCheckBoxesValue[i]));
         }
         for (int j = 0; j < actualCheckBoxesValue.length; j++) {
             JavascriptUtils.drawBlueBorder(covid19ActivitiesSubmissionsPage.nihCovid19StrategicPlanCheckBoxes.get(j));

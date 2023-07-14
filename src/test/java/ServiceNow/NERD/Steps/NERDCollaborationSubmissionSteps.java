@@ -93,10 +93,12 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.publishedCollaboration(nameOfRecord));
     }
 
-    @When("clicks the Edit button for the record {string}")
-    public void clicks_the_Edit_button_for_the_record(String nameOfRecord) {
-        nerdDynamicXpaths.editButton(nameOfRecord).click();
-    }
+        @When("clicks the Edit button for the record {string}")
+        public void clicks_the_Edit_button_for_the_record(String nameOfRecord) {
+                MiscUtils.sleep(1000);
+                CommonUtils.waitForClickability(nerdDynamicXpaths.editButton(nameOfRecord));
+                nerdDynamicXpaths.editButton(nameOfRecord).click();
+        }
 
     @When("lands on the submission edit page for author {string}")
     public void lands_on_the_submission_edit_page_for_author(String author) {

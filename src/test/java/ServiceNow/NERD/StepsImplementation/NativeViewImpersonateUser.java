@@ -78,4 +78,20 @@ public class NativeViewImpersonateUser extends PageInitializer {
         MiscUtils.sleep(5000);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
+
+    public void impersonateOGCRUser() throws TestingException {
+        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
+        MiscUtils.sleep(2000);
+        nativeViewImpersonateUserPage.nativeViewLink.click();
+        MiscUtils.sleep(5000);
+        nativeViewDashPage.clickUserDropDown();
+        MiscUtils.sleep(2000);
+        nativeViewDashPage.clickImpersonateUserLink();
+        MiscUtils.sleep(2000);
+        nativeViewDashPage.clickImpersonateSearchDD();
+        MiscUtils.sleep(3000);
+        nativeViewDashPage.enterTextImpersntSearchBox(CRSReviewers_Constants.OGCR_REVIEWER_NAME);
+        MiscUtils.sleep(5000);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+    }
 }

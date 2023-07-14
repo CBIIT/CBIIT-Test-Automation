@@ -51,4 +51,10 @@ public class ReturningSubmissions_Constants {
 
     /* ARIA LABEL CHECK BOX */
     public static final String ARIA_LABEL_CHECK_BOX = "aria-label";
+
+    /* TOP ACCOMPLISHMENTS CATEGORY */
+    public static final String TOP_ACCOMPLISHMENTS_CATEGORY = "Top Accomplishments";
+
+    /* SUBMISSION PUBLISHED TEXT */
+    public static final String SUBMISSION_PUBLISHED_TEXT = "Published";
 }

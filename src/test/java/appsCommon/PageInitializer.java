@@ -57,7 +57,19 @@ import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
-import ServiceNow.NERD.Pages.*;
+import ServiceNow.NERD.Pages.Covid19ActivitiesSubmissionsPage;
+import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
+import ServiceNow.NERD.Pages.NERDCRSTCollaborationsPage;
+import ServiceNow.NERD.Pages.NERDCRSTOtherAccomplishmentsPage;
+import ServiceNow.NERD.Pages.NERDCRSTopAccomplishmentsPage;
+import ServiceNow.NERD.Pages.NERDDOCCollaborationsPage;
+import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
+import ServiceNow.NERD.Pages.NERDHomePage;
+import ServiceNow.NERD.Pages.NERDKnowledgebasePage;
+import ServiceNow.NERD.Pages.NERDOGCRAddNewEntryPage;
+import ServiceNow.NERD.Pages.NERDSubmissionsPage;
+import ServiceNow.NERD.Pages.NativeViewImpersonateUserPage;
+import ServiceNow.NERD.Pages.NativeViewMembersOfCongressPage;
 import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NativeViewImpersonateUser;
 import ServiceNow.SEER.Pages.NativeViewAccessRequestPage;
@@ -190,6 +202,7 @@ public class PageInitializer {
     public static NERDCRSTCollaborationsPage nerdCRSTCollaborationsPage;
     public static NERDDOCCollaborationsPage nerdDOCCollaborationsPage;
     public static NERDCRSTOtherAccomplishmentsPage nerdcrstOtherAccomplishmentsPage;
+    public static NERDOGCRAddNewEntryPage nERDOGCRAddNewEntryPage;
     public static Covid19ActivitiesSubmissionsPage covid19ActivitiesSubmissionsPage;
 
     /** --------------- CUSTOM BUSINESS APP INSTANCES --------------- */
@@ -289,6 +302,7 @@ public class PageInitializer {
     public static NativeViewAccessRequestPage nativeViewAccessRequestPage;
     public static NativeViewEmailsPage nativeViewEmailsPage;
     public static NativeViewDashboardPage nativeViewDashPage;
+    public static NativeViewMembersOfCongressPage nativeViewMembersOfCongressPage;
 
     public static void initializeAllPages() {
         /** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
@@ -371,6 +385,8 @@ public class PageInitializer {
         nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
         nerdcrstOtherAccomplishmentsPage = new NERDCRSTOtherAccomplishmentsPage();
         covid19ActivitiesSubmissionsPage = new Covid19ActivitiesSubmissionsPage();
+        nERDOGCRAddNewEntryPage = new NERDOGCRAddNewEntryPage();
+
 
         /** --------------- CUSTOM BUSINESS APP INSTANCE VARIABLES --------------- */
         /** EIDP Instance Variables */
@@ -469,6 +485,7 @@ public class PageInitializer {
         nativeViewAccessRequestPage = new NativeViewAccessRequestPage();
         nativeViewEmailsPage = new NativeViewEmailsPage();
         nativeViewDashPage = new NativeViewDashboardPage();
+        nativeViewMembersOfCongressPage = new NativeViewMembersOfCongressPage();
 
         /** Grants ChangePassword app **/
         changePasswordPage = new ChangePasswordPage();

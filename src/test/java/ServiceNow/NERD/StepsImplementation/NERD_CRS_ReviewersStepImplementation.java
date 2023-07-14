@@ -115,11 +115,14 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
     }
 
     public static void thereIsACollapsedAccordionWithRheHeaderLabeled(String topAccomplishmentsAccordionText) {
+        MiscUtils.sleep(7000);
+        CommonUtils.waitForVisibility(NERDKnowledgebasePage
+                .dynamicAccordion(topAccomplishmentsAccordionText));
         boolean isTopAccomplishmentAccordionDisplayed = NERDKnowledgebasePage
                 .dynamicAccordion(topAccomplishmentsAccordionText).getText()
                 .contains(topAccomplishmentsAccordionText);
         CommonUtils.assertTrue(isTopAccomplishmentAccordionDisplayed);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);;
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
     public static void theUserClicksTheAccordionHeader(String topAccomplishmentsAccordion) {
@@ -157,7 +160,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
     }
 
     public void thereIsARecordCalled(String publishedArticleTitle) {
-        MiscUtils.sleep(5000);
+        MiscUtils.sleep(10000);
         CommonUtils.waitForVisibility(NERDKnowledgebasePage.dynamicXpathNERDKnowledgeBaseAccordion(topAccomplishmentsAccordion));
         CommonUtils.sendKeysToElement(nerdKnowledgeBasePage.topAccomplishmentsNerdKnowledgeBaseSearchTextBox, publishedArticleTitle);
         MiscUtils.sleep(500);
