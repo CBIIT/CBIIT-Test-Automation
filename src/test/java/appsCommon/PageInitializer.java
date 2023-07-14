@@ -25,6 +25,8 @@ import AnalysisTools.mSigPortal.Pages.CatalogPages;
 import AnalysisTools.mSigPortal.Pages.MSigPortalHomePage;
 import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
 import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
+import CustomBusiness.CCR.Pages.CCRLandingPage;
+import CustomBusiness.CCR.StepsImplementation.CCRLogInStepsImplementation;
 import GrantsApps.ChangePassword.Pages.ChangePasswordPage;
 import GrantsApps.ChangePassword.StepsImplementation.ChangePasswordStepsImpl;
 import ServiceNow.CHARMS.Constants.RAS_SCREENER_CONSTANTS;
@@ -282,6 +284,10 @@ public class PageInitializer {
     /** CProSite instances **/
     public static CProSiteExplorePage cProSiteExplorePage;
 
+    /** CCR instances **/
+    public static CCRLandingPage cCRLandingPage;
+    public static CCRLogInStepsImplementation cCRLogInStepsImplementation;
+
     /** --------------- NATIVE VIEW INSTANCES --------------- */
     public static NativeViewLoginImpl nativeViewLoginImpl;
     public static NativeViewHomePage nativeViewHomePage;
@@ -460,6 +466,10 @@ public class PageInitializer {
 
         /** CProSite Instance Variables **/
         cProSiteExplorePage = new CProSiteExplorePage();
+
+        /** CCR Instance Variables **/
+        cCRLandingPage = new CCRLandingPage();
+        cCRLogInStepsImplementation = new CCRLogInStepsImplementation();
 
         /** --------------- NATIVE VIEW INSTANCE VARIABLES --------------- */
         nativeViewLoginImpl = new NativeViewLoginImpl();
