@@ -15,8 +15,9 @@ Feature: CRS Reviewers Test Scenarios
     And clicks the "Special Topic" filter
     Then the field options are "All", "Big data/Data sharing", "COVID-19","Communications","Early Detection","Metastatic","Minority health/Health disparities","Moonshot","Partnerships","Pediatric","Rare", "Report/Guidance/Policy", "Sex/Gender differences", "Training/Workforce development", "Women's health", and "Workforce"
 
-  @SS-3481 @SS-3499 @chaudhryma @Progression
+  @SS-3481 @SS-3499 @chaudhryma @Regression
   Scenario: Verifying COVID added to OM category type
     Given a CRS reviewer is logged into NERDs CRS Knowledge Management System
     When adding a new OM entry
-    Then COVID-19 Leadership Messages "COVID-19 Leadership Messages" OM Content Type displays as an option
+    Then OM Content Type "OM Content Type" displays
+    Then the following check box option is displayed as COVID19 Leadership Messages "COVID-19 Leadership Messages"
