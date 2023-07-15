@@ -1,11 +1,7 @@
 package ServiceNow.CcrHelpDesk.Steps;
 
-import org.openqa.selenium.By;
-import org.testng.Assert;
-
 import com.nci.automation.utils.EncryptionUtils;
 import com.nci.automation.web.ConfUtils;
-
 import ServiceNow.CcrHelpDesk.Pages.CCRHelpDeskPage;
 import ServiceNow.CcrHelpDesk.Pages.LoginStepsImplCCR;
 import appsCommon.PageInitializer;
@@ -33,7 +29,6 @@ public class CCRHelpDeskSteps extends PageInitializer {
 		String decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
 		loginStepsImpl.enterPassword(decyptedPass);
 		loginStepsImpl.clickOnSignInButton();
-		
 	}
 	
 	
@@ -104,14 +99,10 @@ public class CCRHelpDeskSteps extends PageInitializer {
 
 	@Then("validate that the following fields are available to enter details Room  Number")
 	public void validate_that_the_following_fields_are_available_to_enter_details_Room_Number() {
-	    // Write code here that turns the phrase above into concrete actions
-//	    throw new cucumber.api.PendingException();
 	}
 
 	@Then("validate that the following fields are available to enter details Building")
 	public void validate_that_the_following_fields_are_available_to_enter_details_Building() {
-	    // Write code here that turns the phrase above into concrete actions
-//	    throw new cucumber.api.PendingException();
 	}
 
 	@Then("validate that the following fields are available to enter details Application Name – List of applications needed.")
@@ -179,8 +170,6 @@ public class CCRHelpDeskSteps extends PageInitializer {
 		ccrHelpDesk.validateFieldsArePresentOnNativeView("Description");
 	}
 
-	
-
 	@Then("validate that this field is available Requested By -required")
 	public void validate_that_this_field_is_available_Requested_By_required() {
 		ccrHelpDesk.validateFieldsArePresentOnNativeView("Requested by");
@@ -200,7 +189,6 @@ public class CCRHelpDeskSteps extends PageInitializer {
 	public void validate_that_this_field_is_available_Description_required() {
 		ccrHelpDesk.validateFieldsArePresentOnNativeView("Description");
 	}
-
 
 	@Then("validate that this field is available State \\(Required)")
 	public void validate_that_this_field_is_available_State_Required() {
@@ -262,7 +250,6 @@ public class CCRHelpDeskSteps extends PageInitializer {
 		ccrHelpDesk.validateFieldsArePresentOnNativeView("Notes");
 	}
 
-
 	@Then("validate that this field is available Emails")
 	public void validate_that_this_field_is_available_Emails() {
 		ccrHelpDesk.validateFieldsArePresentOnNativeViewWithNewLocator("Emails");
@@ -283,9 +270,6 @@ public class CCRHelpDeskSteps extends PageInitializer {
 		ccrHelpDesk.validateFieldsArePresentOnNativeViewWithNewLocator("Subject");
 	}
 
-
-
-
 	@When("I click on {string} in CCR\\/OIT Help  Desk menu")
 	public void i_click_on_in_CCR_OIT_Help_Desk_menu(String string) {
 		ccrHelpDesk.seelctFromFilterMenu(string);
@@ -298,10 +282,7 @@ public class CCRHelpDeskSteps extends PageInitializer {
 
 	@Given("I am an authenticated Admin Fulfiller on the CCR\\/OIT")
 	public void i_am_an_authenticated_Admin_Fulfiller_on_the_CCR_OIT() {
-	    // Write code here that turns the phrase above into concrete actions
-//	    throw new cucumber.api.PendingException();
 	}
-
 
 	@Then("I should see the following choices have been added Created by")
 	public void i_should_see_the_following_choices_have_been_added_Created_by() {
@@ -322,5 +303,4 @@ public class CCRHelpDeskSteps extends PageInitializer {
 	public void i_should_see_the_following_choices_have_been_added_Updated_by() {
 		ccrHelpDesk.validateFieldsArePresentOnNativeViewWithNewLocator("Updated by");
 	}
-
 }
