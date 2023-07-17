@@ -15,7 +15,7 @@ import com.nci.automation.web.ConfUtils;
         features = "src/test/java/CustomBusiness/CCR/Features",
         glue = "CustomBusiness.CCR.Steps",
         tags = "@fillApplication",
-        dryRun = true,
+        dryRun = false,
         monochrome = true,
         strict = true
 )

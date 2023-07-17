@@ -25,6 +25,8 @@ import AnalysisTools.mSigPortal.Pages.CatalogPages;
 import AnalysisTools.mSigPortal.Pages.MSigPortalHomePage;
 import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
 import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
+import CustomBusiness.CCR.Pages.CCRApplicationPage;
+import CustomBusiness.CCR.Pages.CCRDynamicXpaths;
 import CustomBusiness.CCR.Pages.CCRLandingPage;
 import CustomBusiness.CCR.StepsImplementation.CCRLogInStepsImplementation;
 import GrantsApps.ChangePassword.Pages.ChangePasswordPage;
@@ -287,6 +289,8 @@ public class PageInitializer {
     /** CCR instances **/
     public static CCRLandingPage cCRLandingPage;
     public static CCRLogInStepsImplementation cCRLogInStepsImplementation;
+    public static CCRDynamicXpaths cCRDynamicXpaths;
+    public static CCRApplicationPage cCRApplicationPage;
 
     /** --------------- NATIVE VIEW INSTANCES --------------- */
     public static NativeViewLoginImpl nativeViewLoginImpl;
@@ -470,6 +474,9 @@ public class PageInitializer {
         /** CCR Instance Variables **/
         cCRLandingPage = new CCRLandingPage();
         cCRLogInStepsImplementation = new CCRLogInStepsImplementation();
+        cCRLogInStepsImplementation = new CCRLogInStepsImplementation();
+        cCRDynamicXpaths = new CCRDynamicXpaths();
+        cCRApplicationPage = new CCRApplicationPage();
 
         /** --------------- NATIVE VIEW INSTANCE VARIABLES --------------- */
         nativeViewLoginImpl = new NativeViewLoginImpl();
