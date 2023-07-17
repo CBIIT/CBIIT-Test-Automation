@@ -228,6 +228,7 @@ public class PageInitializer {
 	public static IDPAwaitingResponsePage iDPAwaitingResponsePage;
 	public static TraineeReviewPage traineeReviewPage;
 	public static CoPrimaryMentorPage coPrimaryMentorPage;
+    public static TraineeReviewStepsImpl traineeReviewStepsImpl;
 
     /** DCEG instances */
     public static CreateCRPage createCRPage;
@@ -411,6 +412,7 @@ public class PageInitializer {
 		iDPAwaitingResponsePage = new IDPAwaitingResponsePage();
 		traineeReviewPage = new TraineeReviewPage();
 		coPrimaryMentorPage = new CoPrimaryMentorPage();
+        traineeReviewStepsImpl = new TraineeReviewStepsImpl();
 
         /** DCEG Instance Variables */
         createCRPage = new CreateCRPage();
