@@ -14,8 +14,8 @@ import com.nci.automation.web.ConfUtils;
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         features = "src/test/java/CustomBusiness/CCR/Features",
         glue = "CustomBusiness.CCR.Steps",
-        tags = "@landingPage",
-        dryRun = false,
+        tags = "@fillApplication",
+        dryRun = true,
         monochrome = true,
         strict = true
 )
