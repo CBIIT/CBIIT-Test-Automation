@@ -12,7 +12,7 @@ import io.cucumber.java.en.When;
 public class CCRHelpDeskSteps extends PageInitializer {
 	
 	private LoginStepsImplCCR loginStepsImpl = new LoginStepsImplCCR();
-	private CCRHelpDeskPage ccrHelpDesk	=	new CCRHelpDeskPage();
+	private CCRHelpDeskPage ccrHelpDesk	= new CCRHelpDeskPage();
 	
 	@Given("User opens CCR HelpDesk application in browser")
 	public void user_opens_CCR_HelpDesk_application_in_browser() {
