@@ -1,4 +1,4 @@
-Feature: Regression testing
+Feature: NIDCR Renewal workflow Regression testing
 
   @InitiatesIDP_RenewalNIDCR @Regression @Smoke @Zamant2 @Needs_review
   Scenario:TC01 IDP request creates and decline and approve for Renewal

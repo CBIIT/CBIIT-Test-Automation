@@ -18,9 +18,9 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 	public void fillCarrerGoalActivite() throws Exception {
 		CommonUtils.waitForVisibility(careerGoalAndActivePage.saveAndContinueButton);
 		selectCareerGoal();
-		Thread.sleep(1000);
+		MiscUtils.sleep(1000);
 		fillSkill();
-		Thread.sleep(2000);
+		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.click(careerGoalAndActivePage.saveAndContinueButton);
 	}
@@ -70,11 +70,11 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 				|| goals.get(0).getAttribute("aria-expanded").equals("false")) {
 			goals.get(0).click();
 		}
-		Thread.sleep(3000);
+		MiscUtils.sleep(3000);
 		List<WebElement> goalOptions = careerGoalAndActivePage.goalOptions;
 		if (goalOptions.size() == 0) {
 			WebDriverUtils.getWebDriver().findElement(By.cssSelector("[data-target='#academic24']")).click();
-			Thread.sleep(3000);
+			MiscUtils.sleep(3000);
 			goalOptions = WebDriverUtils.getWebDriver()
 					.findElements(By.cssSelector(".controls.line.ta_interestGroup.collapse.in label"));
 		}

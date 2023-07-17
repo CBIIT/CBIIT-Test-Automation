@@ -1,4 +1,4 @@
-Feature: NIDCR work flows
+Feature: NIDCR Initial workflow Regression testing
 
   Background:
     Given User logs in to EIDP "EidpUrlNIDCR" as "Username" and "Password"

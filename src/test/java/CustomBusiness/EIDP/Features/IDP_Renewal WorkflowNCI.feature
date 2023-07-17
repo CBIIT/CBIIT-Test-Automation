@@ -1,4 +1,4 @@
-Feature: Regression testing
+Feature: NCI Renewal workflow Regression testing
 
 Background:
     Given User logs in to EIDP "EidpUrlNCI" as "Username" and "Password"

@@ -1,4 +1,4 @@
-Feature: Regression testing
+Feature: NHGRI Renewal workflow Regression testing
 
 Background:
     Given User logs in to EIDP "EidpUrlNIDCR" as "Username" and "Password"

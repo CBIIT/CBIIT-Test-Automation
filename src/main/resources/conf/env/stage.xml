@@ -193,7 +193,7 @@
 	</application>
 	<!-- Application ID for EIDP -->
 	<application id="EidpUrlNHGRI">
-		<login_url>https://idp-stage.cancer.gov/nhgri/idp/</login_url> <!-- add stage 
+		<login_url>https://idp-stage.nih.gov/nhgri/idp</login_url> <!-- add stage 
 			url -->
 		<role name="Role">
 			<user id="regular">
@@ -212,7 +212,7 @@
 		</db>
 	</application>
 	<application id="EidpUrlNCI">
-		<login_url>https://idp-stage.cancer.gov/idp/</login_url> <!-- add stage 
+		<login_url>https://idp-stage.nih.gov/nci/idp</login_url> <!-- add stage 
 			url -->
 		<role name="Role">
 			<user id="regular">

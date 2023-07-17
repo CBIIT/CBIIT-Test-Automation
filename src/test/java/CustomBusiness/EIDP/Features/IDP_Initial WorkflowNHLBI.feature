@@ -1,4 +1,4 @@
-Feature: Regression testing
+Feature: NHLBI Initial workflow Regression testing
 
   Background:
     Given User logs in to EIDP "EidpUrlNHLBI" as "Username" and "Password"

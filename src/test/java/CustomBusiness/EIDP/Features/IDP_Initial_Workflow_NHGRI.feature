@@ -1,4 +1,4 @@
-Feature: Regression testing
+Feature: NHGRI Initial workflow Regression testing
 
   Background:
     Given User logs in to EIDP "EidpUrlNHGRI" as "Username" and "Password"
