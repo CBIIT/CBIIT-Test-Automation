@@ -42,7 +42,7 @@ public class NERDOGCRAddNewEntryPage {
     @FindBy(xpath = "//*[@id='s2id_autogen16']")
     public WebElement nerdOgcrNewEntrySpecialTopicDropDown;
 
-    /** NERD OGCR New Entry Congress Person First Name */
+    /** NERD OGCR NEW ENTRY PAGE SPECIAL TOPIC DROP DOWN VALUES */
     public static WebElement nerdOgcrNewEntrySpecialTopicDropDownValues(String value) {
         return WebDriverUtils.webDriver
                 .findElement(By.xpath("//*[@id='s2id_autogen16_results']/li[" + value + "]"));
