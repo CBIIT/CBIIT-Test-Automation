@@ -1,6 +1,8 @@
 package ServiceNow.NERD.StepsImplementation;
 
-import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
+import ServiceNow.NERD.Constants.NCI_Staff_Members_Constants;
+import ServiceNow.NERD.Constants.ReturningSubmissions_Constants;
+import ServiceNow.NERD.Steps.HooksSteps;
 import appsCommon.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -10,9 +12,7 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import org.junit.Assert;
-
 import java.util.Set;
-
 
 public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
 
@@ -35,9 +35,10 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton);
         MiscUtils.sleep(2000);
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.underReviewText(submissionName));
-        Assert.assertTrue(nerdDynamicXpaths.underReviewText(CommonUtils.email).getText().contentEquals("Under Review"));
+        MiscUtils.sleep(1000);
+        Assert.assertTrue(nerdDynamicXpaths.underReviewText(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER).getText().contentEquals("Under Review"));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(submissionName));
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         MiscUtils.sleep(5000);
     }
 
@@ -123,10 +124,26 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
     public static void locatingProgramStaffMemberToSubmissionsPage(String applicationName) throws TestingException {
         nativeViewImpersonateUser.impersonateToStaffMemberCBIIT();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(applicationName));
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         CommonUtils.waitForVisibility(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink.click();
+    }
+
+    public static void aProgramStaffMemberIsOnTheCRSKnowledgeManagementSystemPage(String submissionsPage)
+            throws TestingException {
+        nativeViewLoginImpl.sideDoorAccountLogin();
+        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+        MiscUtils.sleep(1000);
+        CommonUtils.assertEquals(NCI_Staff_Members_Constants.CRS_KNOWLEDGE_MANAGEMENT_SYSTEM_TEXT_MAIN_PAGE, nerdKnowledgeBasePage.nerdCRSKnowledgeMainText.getText());
+        JavascriptUtils.drawBlueBorder(
+                nerdKnowledgeBasePage.nerdCRSKnowledgeMainText);
+        Assert.assertEquals(submissionsPage,
+                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageSubmissionsLink
+                        .getText());
+        JavascriptUtils.drawBlueBorder(
+                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageSubmissionsLink);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
 }

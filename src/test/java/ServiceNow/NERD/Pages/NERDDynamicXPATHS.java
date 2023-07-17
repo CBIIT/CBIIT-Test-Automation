@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
+import java.util.List;
 
 public class NERDDynamicXPATHS extends CommonUtils {
 
@@ -27,6 +28,16 @@ public class NERDDynamicXPATHS extends CommonUtils {
 	public WebElement deleteButton(String value) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//a[text()='" + value + "']/following::button/span[contains(text(),'Delete')])[1]"));
 	}
+
+	/** DOC Planning Submissions Categories */
+	public WebElement docPlanningSubmissionCategories(String value) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//div[contains(@class,'panel-default panel ng-isolate-scope')])[" + value + "]//child::div//child::h4"));
+	}
+	/** DOC Planning Top Accomplishments Published texts */
+    public static List<WebElement> docPlaningPublishedSubmissions(String value) {
+	List<WebElement> docPlanningPublishedList = WebDriverUtils.webDriver.findElements(By.xpath("(//div[contains(@class,'panel-default panel ng-isolate-scope')])[" + value + "]//child::div//child::h4//parent::span//parent::a//parent::h4//parent::div//parent::div//child::div[2]//child::div//child::md-content//child::md-content//child::md-list//child::md-list-item//child::div//child::div[3]//child::div[3]"));
+	return docPlanningPublishedList;
+    }
 
 	/** Return Button to Staff */
 	public WebElement returnButtonToStaff(String value) {
@@ -100,7 +111,7 @@ public class NERDDynamicXPATHS extends CommonUtils {
 
 	/** Returned to DOC text */
 	public WebElement returnedToDOCText(String value) {
-		return WebDriverUtils.webDriver.findElement(By.xpath("//a[text()='" + value + "']/following::div[3]"));
+		return WebDriverUtils.webDriver.findElement(By.xpath("//a[normalize-space()='" + value + "']//parent::h3//parent::div//parent::div//child::div[3]/child::div"));
 	}
 
 	/**
@@ -157,5 +168,4 @@ public class NERDDynamicXPATHS extends CommonUtils {
 	 * ------------ THE END OF COLLABORATION SUBMISSIONSIONS BY STAFF MEMBER
 	 * -----------
 	 */
-
 }

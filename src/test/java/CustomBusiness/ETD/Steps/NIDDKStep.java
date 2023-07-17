@@ -8,9 +8,9 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import appsCommon.PageInitializer;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class NIDDKStep extends PageInitializer {
 	// @profileNIDDK
@@ -30,7 +30,7 @@ public class NIDDKStep extends PageInitializer {
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser,"BULL, MELBOURNE");
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.click(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
 		CommonUtils.click(etdAdminNCIPage.deleteDorsey);
@@ -48,10 +48,10 @@ public class NIDDKStep extends PageInitializer {
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, "DORSEY, NOVELLA");
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.click(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 	
 	@Then("User can verify that NIDDK profile is present")

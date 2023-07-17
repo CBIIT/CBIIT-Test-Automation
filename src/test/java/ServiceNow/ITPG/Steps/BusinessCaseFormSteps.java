@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import io.cucumber.java.Before;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -18,10 +19,9 @@ import com.nci.automation.web.JavascriptUtils;
 
 import ServiceNow.ITPG.Pages.BusinessCaseFormPage;
 import ServiceNow.ITPG.StepsImplementation.LoginStepsImpl;
-import cucumber.api.java.Before;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class BusinessCaseFormSteps {
 
@@ -52,7 +52,7 @@ public class BusinessCaseFormSteps {
 	public void verifystate(String expectedState) throws Exception {
 		Thread.sleep(7000);
 		String actualState = businessCaseFormPage.getState();
-		CucumberLogUtils.logScreenShot("Request State");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		if (actualState != null) {
 			actualState = actualState.trim();
 			Assert.assertEquals(expectedState, actualState);
@@ -66,11 +66,11 @@ public class BusinessCaseFormSteps {
 		}
 		loginStepsImpl.enterUsername(ConfUtils.getProperty("sgugulothuUsername"));
 		String decyptedPass = EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
-		CucumberLogUtils.logScreenShot("Application login");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		// loginStepsImpl.enterUsername(ConfUtils.getProperty("Username"));
 		// decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("Password"));
 		loginStepsImpl.enterPassword(decyptedPass);
-		CucumberLogUtils.logScreenShot("Application login");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		// loginPage.enterUsername(ConfigFileReader.getConfigFileReader().getUserName());
 		// loginPage.enterPassword(ConfigFileReader.getConfigFileReader().getPassword());
 		loginStepsImpl.clickOnSignInButton();

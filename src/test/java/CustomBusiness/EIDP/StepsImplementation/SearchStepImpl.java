@@ -2,6 +2,7 @@ package CustomBusiness.EIDP.StepsImplementation;
 
 import java.util.List;
 
+import CustomBusiness.EIDP.Steps.HooksSteps;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -436,7 +437,9 @@ public class SearchStepImpl extends PageInitializer {
             eidpBasePage.scrollToElement(element);
             String actualName = element.getText();
             Assert.assertEquals(primaryMentor, actualName);
-            CucumberLogUtils.logScreenShot();
+            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+            row.click();
+            MiscUtils.sleep(5000);
         }
     }
 
@@ -493,7 +496,7 @@ public class SearchStepImpl extends PageInitializer {
             eidpBasePage.scrollToElement(typeOfClassification);
             String actualType = typeOfClassification.getText();
             Assert.assertEquals(type.toUpperCase(), actualType);
-            CucumberLogUtils.logScreenShot();
+            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
             eachRow.click();
         }
     }

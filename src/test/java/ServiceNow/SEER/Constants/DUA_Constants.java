@@ -3,9 +3,9 @@ package ServiceNow.SEER.Constants;
 public class DUA_Constants {
 
     /** --------------- DUA CONSTANTS--------------- */
-    public static final String SEER_DATA_ACCESS_REQUEST = "https://seerdataaccess-test.cancer.gov/seer-data-access?id=seer_data_access_request&sysparm_user=e23e23a41bfd6910af3bed7bbc4bcb7e";
+    public static final String SEER_DATA_ACCESS_REQUEST = "https://service-test.nci.nih.gov/seer-data-access?id=seer_data_access_request&sysparm_user=d733020b1b77e550cc42ddb6bc4bcb25";
 
-    public static final String SEER_DATA_ACCESS_REQUEST_INSTITUTION = "https://seerdataaccess-test.cancer.gov/seer-data-access?id=seer_data_access_request&sysparm_user=96c2ddd91bb96d10cc42ddb6bc4bcb5c";
+    public static final String SEER_DATA_ACCESS_REQUEST_INSTITUTION = "https://service-test.nci.nih.gov/seer-data-access?id=seer_data_access_request&sysparm_user=65f4a13a1b33a550cc42ddb6bc4bcb73";
     public static final String SEER_ACKNOWLEDGMENT_OF_TREATMENT_DATA_LIMITATIONS = "SEER Acknowledgment of Treatment Data Limitations\n" +
             "For the 1975-2020 Data (November 2022 Submission)\n" +
             "Surveillance, Epidemiology, and End Results (SEER) releases information on radiation therapy (RT) and chemotherapy given as part of the first course of treatment. RT data are classified by the type of RT received or “no/unknown – no evidence of radiation was found in the medical records examined”. Chemotherapy data are categorized as either “yes – patient had chemotherapy” or “no/unknown – no evidence of chemotherapy was found in the medical records examined”.  SEER registries also collect information on when treatment started. The months from diagnosis to treatment is calculated using the month and year treatment started and the month and year of diagnosis. Treatment could include surgery, radiation therapy, chemotherapy, hormone, immunotherapy, and/or active surveillance.\n" +

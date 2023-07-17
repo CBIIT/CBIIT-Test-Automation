@@ -1,5 +1,6 @@
 package CustomBusiness.EIDP.Pages;
 
+import CustomBusiness.EIDP.Steps.HooksSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,7 +9,7 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
-public class CommonPage extends CommonUtils{
+public class CommonPage extends CommonUtils {
 
 	@FindBy(xpath = "//button[contains(text(),'OK')]")
 	private WebElement okButton;
@@ -54,18 +55,18 @@ public class CommonPage extends CommonUtils{
 	
 	public void clickOnYesButton() {
 		CommonUtils.click(this.yesButton);
-		CucumberLogUtils.logScreenShot("After Clicking Yes Button");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 	
 	public void clickOnModalFooterYesButton() {
-		CucumberLogUtils.logScreenShot("Before Clicking Button");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.cssSelector(".modal-footer [data-bb-handler='confirm']")));
-		CucumberLogUtils.logScreenShot("After Clicking Button");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 	
 	public void clickOnbutton(String buttonText) {
 		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.xpath("//*[text()='" + buttonText + "']")));
-		CucumberLogUtils.logScreenShot("After Clicking "+buttonText+" Button");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 	
 	public void clickOnSendBackToTrinee() {

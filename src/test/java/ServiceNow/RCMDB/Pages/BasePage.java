@@ -1,14 +1,10 @@
 package ServiceNow.RCMDB.Pages;
 
-import java.io.File;
-import java.io.IOException;
 import java.time.Duration;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -21,16 +17,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.google.common.io.Files;
 import com.nci.automation.common.ScenarioContext;
-import com.nci.automation.utils.DateUtils;
 import com.nci.automation.web.WebDriverUtils;
-
-import ServiceNow.ITPG.Steps.HookSteps;
-import ServiceNow.ITPG.Utils.DriverObjectFactory;
 
 public class BasePage {
 
@@ -218,10 +208,10 @@ public class BasePage {
 			return;
 		}
 		byte[] screenshot = ((TakesScreenshot) WebDriverUtils.getWebDriver()).getScreenshotAs(OutputType.BYTES);
-		ScenarioContext.scenario.get().write(DateUtils.getLogTime() + ": Screenshot: " + fileName);
+//		ScenarioContext.scenario.get().write(DateUtils.getLogTime() + ": Screenshot: " + fileName);
 		if (ScenarioContext.isTakeScreenShots()) {
 			try {
-				ScenarioContext.scenario.get().embed(screenshot, "image/png");
+//				ScenarioContext.scenario.get().embed(screenshot, "image/png");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

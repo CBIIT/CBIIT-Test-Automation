@@ -1,16 +1,16 @@
 package AnalysisTools.AnalysisToolsRunners;
 
 import java.io.File;
+
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
 import com.nci.automation.utils.LocalConfUtils;
 import com.nci.automation.web.ConfUtils;
 
-//import io.cucumber.junit.Cucumber; //for cucumber 4.3 version
-//import io.cucumber.junit.CucumberOptions; // this is for cucumber 4.8 version
-import cucumber.api.CucumberOptions;
-import cucumber.api.junit.Cucumber;			
+
 
 
 @RunWith(Cucumber.class)

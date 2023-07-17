@@ -1,7 +1,6 @@
 package CustomBusiness.EIDP.Steps;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -10,8 +9,9 @@ import com.nci.automation.web.WebDriverUtils;
 import CustomBusiness.EIDP.Pages.CoPrimaryMentorPage;
 import CustomBusiness.EIDP.Pages.CommonPage;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class CoPrimaryMentorSteps extends PageInitializer {
 
@@ -78,8 +78,9 @@ public class CoPrimaryMentorSteps extends PageInitializer {
 	public void clickOnYesButton() {
 			coPrimaryMentorPage.clickOnYesButton();
 			eidpCommonPage.waitForGoBackToHomeQueueButtonVisible();
-			CucumberLogUtils.logScreenShot("After Clicking on Yes Button");
-	}
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+	} 
+	
 
 	@When("User clicks on APPROVE IDP button")
 	public void approveIDP() {

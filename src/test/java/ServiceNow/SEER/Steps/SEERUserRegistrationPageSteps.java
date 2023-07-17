@@ -4,10 +4,9 @@ import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import ServiceNow.SEER.StepsImplementation.SEERUserRegistrationPageStepImpl;
 import com.nci.automation.web.CommonUtils;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 public class SEERUserRegistrationPageSteps extends PageInitializer {
 	public static String newEmail = "seer" + CommonUtils.email;
 

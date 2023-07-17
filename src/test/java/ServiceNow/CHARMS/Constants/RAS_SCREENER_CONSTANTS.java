@@ -38,4 +38,6 @@ public class RAS_SCREENER_CONSTANTS {
     public final String haveYouOrOtherFamilyMembersParticipatedInOtherStudy = "Have you or other family members ever participated in another study on RASopathies at another medical institution, university, government agency or other site?";
     public final String whatAreTheMainReasonsForParticipatingInThisStudy = "What are the main reasons for participating in this study?  Select all that apply.  Please elaborate on the reason in the corresponding textbox.";
     public final String getWhatAreTheMainReasonsForParticipatingInThisStudyOtherReason = "What are the main reasons for participating in this study?  Select all that apply.  Please elaborate on the reason in the corresponding textbox. Other reason";
+    public final String space = " ";
+    public final String RAS_STUDY = "RASopathy";
 }

@@ -105,9 +105,7 @@ public class GeneralInformationStepImpl extends PageInitializer {
 			MiscUtils.sleep(2000);
 			CommonUtils.click(generalInformationPage.dropdownOptions);
 		}
-
-		Thread.sleep(1000);
-		CucumberLogUtils.logScreenShot("General Information");
+		MiscUtils.sleep(1000);
 		//clicking on Save and Continue
 		CommonUtils.click(generalInformationPage.saveAndContinueButton);
 	}

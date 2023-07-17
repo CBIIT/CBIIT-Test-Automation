@@ -28,6 +28,13 @@ public class NERDSubmissionsPage extends CommonUtils {
 	@FindBy(xpath = "//div[contains(text(), 'Collaborations')]/a")
 	public WebElement crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink;
 
+	/**
+	 * CRS Knowledge Management System Submissions Page OGCR Create New
+	 * Submission link
+	 */
+	@FindBy(xpath = "//div[contains(text(), 'OGCR')]/a")
+	public WebElement crsKnowledgeManagementSystemSubmissionsPageOGCRCreateNewSubmissionLink;
+
 	/** CRS Knowledge Management System Submissions Page Collaborations link */
 	@FindBy(xpath = "(//div[@class='ng-binding ng-scope'])[3]")
 	public WebElement crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink;
@@ -61,7 +68,7 @@ public class NERDSubmissionsPage extends CommonUtils {
 	public WebElement topAccomplishmentSubmissionsPageLink;
 
 	/** CRS Top Accomplishments Submission Page - Fiscal Year 2019 */
-	@FindBy(xpath = "//body/div[@ng-class=\"{'sp-loading': main.firstPage, 'sp-can-animate': main.doAnimate}\"]/section[@aria-label='CRS Knowledge Database Portal page content']/main/div[@ng-repeat='container in containers']/div[@ng-class='::main.getContainerClasses(container)']/sp-page-row[@ng-repeat='row in ::container.rows track by row.sys_id']/div/div[@ng-repeat='column in columns track by column.sys_id']/span[@ng-repeat='rectangle in column.widgets track by rectangle.instance_id']/div[@data='data']/div/div[@ng-if=\"c.xpage == 'new_submission'\"]/div/div[@data='data']/div/div/div/div/div/div[@ng-repeat='entry in c.schema track by $index']/div[@ng-if=\"entry.type == 'checkbox'\"]/div[@ng-repeat='item in entry.items track by $index']/md-checkbox[@aria-label='2019']/div[1]")
+	@FindBy(xpath = "//*[@id='x_26385_crs_kd_u_kb_fiscal_year']/div[2]/div[1]/md-checkbox")
 	public WebElement topAccomplishmentFiscalYear2019;
 
 	/** CRS Top Accomplishments Submission Page - Fiscal Year 2021 */
@@ -99,6 +106,14 @@ public class NERDSubmissionsPage extends CommonUtils {
 	/** OM Content Type Header Text */
 	@FindBy(xpath = "//h4[normalize-space()='OM Content Type']")
 	public WebElement omContentTypeHeaderText;
+
+	/** CRS Published only Check Box */
+	@FindBy(xpath = "//*[@id='published']")
+	public WebElement publishedOnlyCheckBox;
+
+	/** CRS Published only Text*/
+	@FindBy(xpath = "//div[normalize-space()='Published Only:']")
+	public WebElement publishedOnlyText;
 
 	/**
 	 * 
@@ -276,6 +291,10 @@ public class NERDSubmissionsPage extends CommonUtils {
 	@FindBy(xpath = "//button[@ng-click='c.submitSubmission()']")
 	public WebElement confirmPopUpWindowYESbutton;
 
+	/** Submissions: Confirm pop up window YES button CRS*/
+	@FindBy(xpath = "//*[@id='dialogContent_1']//child::div[3]//child::button[1]")
+	public WebElement confirmPopUpWindowYESbuttonCRS;
+
 	/** Submissions: Published Text */
 	@FindBy(xpath = "//md-list-item[1]//div[1]//div[3]//div[3]")
 	public WebElement publishedText;
@@ -314,7 +333,7 @@ public class NERDSubmissionsPage extends CommonUtils {
 	public WebElement nerdSpecialTopicsDD;
 
 	/** NERD Special Topics Drop Down Values */
-	@FindBy(xpath = "//div[@class='filter-section ng-scope open']/ul/li ")
+	@FindBy(xpath = "//div[contains(@class,'filter-section ng-scope open')]//li")
 	public List<WebElement> nerdSpecialTopicsDDvalues;
 
 	/** NERD Collaborations List */
@@ -330,7 +349,7 @@ public class NERDSubmissionsPage extends CommonUtils {
 	public WebElement collaborationsVersionNumber1;
 
 	/** NERD Collaborations Version number */
-	@FindBy(partialLinkText = "Version 2.0")
+	@FindBy(xpath = "//*[@id='crs-article']/div/div[2]/div[1]/div[2]/div[1]/a")
 	public WebElement collaborationsVersionNumber2;
 
 	/** NERD Collaborations Version number generic */

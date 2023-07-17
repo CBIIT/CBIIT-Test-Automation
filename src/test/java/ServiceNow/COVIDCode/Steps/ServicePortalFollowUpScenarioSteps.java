@@ -12,9 +12,9 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class ServicePortalFollowUpScenarioSteps extends PageInitializer {
 
@@ -22,15 +22,15 @@ public class ServicePortalFollowUpScenarioSteps extends PageInitializer {
 	public void a_user_in_the_CovidCode_App_Admins_group_has_saved_a_draft_Follow_up_Questionnaire()
 			throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		covidCodeLoginPage.LogInButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		loginImpl.loginToITrust();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		servicePortalQuestionnairePage.startNewInitialQuestionnaireButton.click();
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown.click();
 		MiscUtils.sleep(1000);
 		CommonUtils.selectDropDownValue("User Group 2", servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown);
@@ -67,7 +67,7 @@ public class ServicePortalFollowUpScenarioSteps extends PageInitializer {
 		JavascriptUtils.scrollIntoView(covidCodeEQPage.COVIDcodeHomeButton);
 		covidCodeEQPage.COVIDcodeHomeButton.click();
 		MiscUtils.sleep(5000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("the draft is shown in the Draft Follow up Questionnaires table on the Home Page")
@@ -79,13 +79,13 @@ public class ServicePortalFollowUpScenarioSteps extends PageInitializer {
 		servicePortalQuestionnairePage.draftFollowUpLastUpdated.click();
 		MiscUtils.sleep(1000);
 		Assert.assertTrue(servicePortalQuestionnairePage.draftFollowUpFirstRow.getText().contains("11122288"));
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("the user can resume draft follow up questionnaire by clicking the Open button")
 	public void the_user_can_resume_draft_follow_up_questionnaire_by_clicking_the_Open_button() {
 		servicePortalQuestionnairePage.draftFollowUpFirstOpenButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		MiscUtils.sleep(5000);
 	}
 
@@ -115,7 +115,7 @@ public class ServicePortalFollowUpScenarioSteps extends PageInitializer {
 	public void a_free_text_field_text_is_displayed(String freeTextSpecify) {
 		followUpFormPage.diseaseCourseSymptomsOtherTextField.click();
 		followUpFormPage.diseaseCourseSymptomsOtherTextField.sendKeys(freeTextSpecify);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Given("COVIDCode App Admin user is in the Portal")
@@ -151,6 +151,6 @@ public class ServicePortalFollowUpScenarioSteps extends PageInitializer {
 		CommonUtils.selectValueFromBootStrapDropDown(followUpFormPage.diseaseCourseDrugTreatmentsDropDownValues,
 				Plasma);
 		MiscUtils.sleep(5000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 }

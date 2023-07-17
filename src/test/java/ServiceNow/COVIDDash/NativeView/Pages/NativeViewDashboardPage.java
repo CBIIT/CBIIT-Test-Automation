@@ -33,13 +33,12 @@ public class NativeViewDashboardPage extends CommonUtils {
     @FindBy(xpath = "//input[@id='s2id_autogen2_search']")
     private WebElement impersonateSearchBox;
 
+    /**Native View Dashboard Page Search Text Box*/
+    @FindBy(xpath = "//input[@id='s2id_autogen2_search']")
+    public WebElement impersonateSearchBoxMultipleImpersonator;
+
     @FindBy(xpath = "//button[@class='btn-icon close icon-cross']")
     private WebElement impersonateWindowCloseBtn;
-
-    // initialize all variables
-    public NativeViewDashboardPage() {
-        PageFactory.initElements(WebDriverUtils.webDriver, this);
-    }
 
     public void clickLoginLink() {
         JavascriptUtils.clickByJS(loginLink);
@@ -80,8 +79,15 @@ public class NativeViewDashboardPage extends CommonUtils {
         impersonateSearchBox.sendKeys(Keys.ENTER);
     }
 
+    /**Native View Dashboard Impersonator Locator By Email */
+    public static WebElement dynamicImpersonatorLocatorByEmail(String approverEmail) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//div[normalize-space()='" + approverEmail + "']//parent::div//parent::li"));
+    }
+
     public String textUserDropDown() {
         return  userDropDown.getText();
     }
+
+    public NativeViewDashboardPage() {PageFactory.initElements(WebDriverUtils.webDriver, this);}
 
 }

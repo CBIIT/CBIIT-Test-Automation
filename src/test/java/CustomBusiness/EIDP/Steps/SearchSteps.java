@@ -11,8 +11,9 @@ import com.nci.automation.web.WebDriverUtils;
 import CustomBusiness.EIDP.Util.CommonUtil;
 import CustomBusiness.EIDP.Util.SharedData;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.cucumber.datatable.DataTable;
 
 public class SearchSteps extends PageInitializer {
@@ -28,11 +29,11 @@ public class SearchSteps extends PageInitializer {
 		searchStepimpl.clickOnSearchButton();
 		searchStepimpl.selectActiveTraineeNHGRI();
 		Assert.assertTrue(searchStepimpl.isIDPFormDisplayed());
-		CucumberLogUtils.logScreenShot("owner details page");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		searchStepimpl.selectNCITrainingOrganization(requestData.get("NHGRI Training Organization"));
 		searchStepimpl.clickOnSaveAndSendMailButton();
 		Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
-		CucumberLogUtils.logScreenShot("IDP intiation message success");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		searchStepimpl.clickOnOkButton();
 	}
 	
@@ -50,11 +51,11 @@ public class SearchSteps extends PageInitializer {
 		searchStepimpl.clickOnSearchButton();
 		searchStepimpl.selectActiveTraineeNHGRI();
 		Assert.assertTrue(searchStepimpl.isIDPFormDisplayed());
-		CucumberLogUtils.logScreenShot("owner details page");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		searchStepimpl.selectNCITrainingOrganization(requestData.get("NHGRI Training Organization"));
 		searchStepimpl.clickOnSaveAndSendMailButton();
 		Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
-		CucumberLogUtils.logScreenShot("IDP intiation message success");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		searchStepimpl.clickOnOkButton();
 	}
 
@@ -77,18 +78,18 @@ public class SearchSteps extends PageInitializer {
 			select_the_reason_as_checkbox("Routine 6 Month follow up");
 			searchStepimpl.clickOnSaveAndSendMailButton();
 			Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
-			CucumberLogUtils.logScreenShot("IDP intiation message success");
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 			searchStepimpl.clickOnOkButton();
 		} else{
 			searchStepimpl.checkTraineeWithoutIDPCheckbox();
 			searchStepimpl.clickOnSearchButton();
 			searchStepimpl.selectActiveTrainee();	
 			Assert.assertTrue(searchStepimpl.isIDPFormDisplayed());
-			CucumberLogUtils.logScreenShot("owner details page");
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 			searchStepimpl.selectNCITrainingOrganization(requestData.get("NCI Training Organization"));
 			searchStepimpl.clickOnSaveAndSendMailButton();
 			Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
-			CucumberLogUtils.logScreenShot("IDP intiation message success");
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 			searchStepimpl.clickOnOkButton();
 		}
 			
@@ -152,7 +153,7 @@ public class SearchSteps extends PageInitializer {
 	@Then("User will verify initiate IDP form is opned")
 	public void verifyIDPFormOpen() {
 		Assert.assertTrue(searchStepimpl.isIDPFormDisplayed());
-		CucumberLogUtils.logScreenShot("owner details page");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User selects nci training organization as \"([^\"]*)\"")
@@ -174,7 +175,7 @@ public class SearchSteps extends PageInitializer {
 	@Then("User will verify IDP initiation is successful")
 	public void verifyIDPInitiationSuccessful() throws Exception {
 		Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
-		CucumberLogUtils.logScreenShot("IDP intiation message success");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	// Revise

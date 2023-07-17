@@ -20,8 +20,10 @@ import com.nci.automation.xceptions.TestingException;
 import ServiceNow.CHARMS.Pages.RASSurveyPage;
 import com.nci.automation.web.CommonUtils;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.junit.Cucumber;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+//import cucumber.api.junit.Cucumber;
 
 public class RASSurveySteps extends PageInitializer {
 
@@ -33,7 +35,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.mobileViewSlider);
 		rASSurveyPage.mobileViewSlider.click();
 		CommonUtils.switchToFrame(rASSurveyPage.surveyIFrame);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Given("logs in via Okta with username {string} and password {string} on login page - myRAS Survey")
@@ -44,7 +46,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.cHARMSEmailLogIn);
 		rASSurveyPage.cHARMSEmailLogIn.sendKeys(username);
 		rASSurveyPage.cHARMSpasswordToLogIn.sendKeys(password);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -55,9 +57,9 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1200);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.nihBannerImage);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -67,7 +69,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -77,7 +79,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.completingFormForSelfRadioButton);
 		rASSurveyPage.completingFormForSelfRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -87,7 +89,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -99,7 +101,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.pleaseProvideAdditionalInfoIfAvailableTextbox);
 		rASSurveyPage.pleaseProvideAdditionalInfoIfAvailableTextbox.sendKeys(additionalInfo);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -108,7 +110,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -122,7 +124,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.bioFatherBirthCityTextBox.sendKeys(fathersBirthCity);
 		CommonUtils.selectDropDownValue(mothersAge, rASSurveyPage.bioMothersAgeWhenBornDropDown);
 		CommonUtils.selectDropDownValue(fathersAge, rASSurveyPage.bioFathersAgeWhenBornDropDown);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -132,7 +134,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -144,10 +146,10 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherConditionTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		JavascriptUtils.scrollUp(1300);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.otherConditionTextBox);
 		rASSurveyPage.otherConditionTextBox.sendKeys(otherPrenatalCondition);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -157,7 +159,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -173,12 +175,12 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.chronicVillaSamplingRadioButton.click();
 		rASSurveyPage.fetalBloodSamplingRadioButton.click();
 		rASSurveyPage.stressTestRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.xRayRadioButton.click();
 		rASSurveyPage.otherRadioButton.click();
 		rASSurveyPage.otherTestTextBox.sendKeys(otherPrenatalTest);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -190,12 +192,12 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.typeOfInfectionTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown", "Mother did not have any of these conditions");
 		JavascriptUtils.scrollIntoView(rASSurveyPage.nihBannerImage);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.typeOfInfectionTextBox.sendKeys(prenatalInfection);
 		rASSurveyPage.rashTextBox.sendKeys(prenatalRash);
 		rASSurveyPage.otherComplicationsTextBox.sendKeys(otherPrenatalComplications);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.hypertensionTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -205,7 +207,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -221,11 +223,11 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherMedicationTextBox.sendKeys(otherMedication1);
 		rASSurveyPage.otherMedicationTextBox2.sendKeys(otherMedication2);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.nihBannerImage);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.hormonesCheckBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.otherMedicationTextBox2);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -259,7 +261,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.antidepressantReasonTextBox.sendKeys("DEPRESSION");
 		CommonUtils.selectDropDownValue("1 month", rASSurveyPage.antiDepressantsLenghtOfTimeMedicationWasTakenDropDown);
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.diureticNameTextBox.sendKeys("METOLAZONE");
 		rASSurveyPage.diureticReasonTextBox.sendKeys("HIGH BLOOD PRESSURE");
 		CommonUtils.selectDropDownValue("7 days", rASSurveyPage.diureticsLenghtOfTimeMedicationWasTakenDropDown);
@@ -292,9 +294,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherMedication2ReasonTextBox.sendKeys("SLEEPING ISSUES");
 		CommonUtils.selectDropDownValue("6 days", rASSurveyPage.otherMedication2LenghtOfTimeMedicationWasTakenDropDown);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.antibioticNameTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -307,7 +309,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.yesRadioButton.click();
 		MiscUtils.sleep(1000);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -319,9 +321,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherTobaccoProducts);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -331,7 +333,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -343,9 +345,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		JavascriptUtils.scrollUp(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherVapeProducts);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -355,7 +357,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -368,9 +370,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherAlcoholicBeverages);
 		JavascriptUtils.scrollUp(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -380,7 +382,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -392,10 +394,10 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		JavascriptUtils.scrollUp(600);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherRecreationalDrugs);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -405,7 +407,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -417,9 +419,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherPrenatalProducts);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -431,9 +433,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.biologicalMotherOccupationTextBox);
 		rASSurveyPage.biologicalMotherOccupationTextBox.sendKeys(mothersOccupation);
 		rASSurveyPage.biologicalFatherOccupationTextBox.sendKeys(fathersOccupation);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -448,7 +450,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.biologicalFatherHeightTextBox.sendKeys(fathersHeight);
 		rASSurveyPage.unitOfMeasureFatherRadioButton.click();
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -457,7 +459,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -465,9 +467,9 @@ public class RASSurveySteps extends PageInitializer {
 	public void clicks_YES_Have_you_ever_been_evaluated_by_an_endocrinologist_for_any_reason_These_are_doctors_that_specialize_in_the_endocrine_system_which_is_made_up_of_many_glands_that_secrete_hormones_Hormones_play_a_role_in_many_things_in_the_body_including_growth_metabolism_and_salt_regulation_Endocrinologists_often_diagnose_conditions_such_as_diabetes_and_thyroid_problems_page_myRAS_Survey() {
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -480,7 +482,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.sendKeys(rASSurveyPage.doctorMedicalProviderNameTextBox, endocrinologistMedicalProvider);
 		CommonUtils.sendKeys(rASSurveyPage.locatioCityStateCountryTextBox, endocrinologistLocation);
 		CommonUtils.sendKeys(rASSurveyPage.hospitalOrHealthSystemAffiliationTextBox, endocrinologistHospital);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -490,7 +492,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -501,9 +503,9 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherHormoneTesting);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -513,7 +515,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -525,7 +527,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.whatWasYourHeightBeforeStartingGrowthHormoneRadioButton);
 		rASSurveyPage.whatWasYourHeightBeforeStartingGrowthHormoneRadioButton.click();
 		rASSurveyPage.heightTextBox.sendKeys(growthHormoneTreatment);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -537,7 +539,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.howManyTimesHaveYouReceivedGrowthHormoneTreatmentDropDown);
 		CommonUtils.selectDropDownValue(numberOfgrowthHormoneTreatments,
 				rASSurveyPage.howManyTimesHaveYouReceivedGrowthHormoneTreatmentDropDown);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -556,9 +558,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.growthHormoneTreatment3AgeStoppedTextBox.sendKeys("29");
 		rASSurveyPage.growthHormoneTreatment3AreYouStillOnGrowthHormoneNoRadioButton.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -567,7 +569,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1200);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -577,7 +579,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -588,9 +590,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.atWhatAgeWereYouAbleToSitWithoutSupportCheckRadioButton);
 		rASSurveyPage.atWhatAgeWereYouAbleToSitWithoutSupportCheckRadioButton.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -601,9 +603,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.atWhatAgeWereYouAbleToWalkWithoutSupportCheckRadioButton);
 		rASSurveyPage.atWhatAgeWereYouAbleToWalkWithoutSupportCheckRadioButton.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -613,7 +615,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -624,9 +626,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.twentyFourToThirthySixMonthsRadioButton);
 		rASSurveyPage.twentyFourToThirthySixMonthsRadioButton.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -636,7 +638,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.simpleSpeechComparedToPeopleOfTheSameAgeRadioButton);
 		rASSurveyPage.simpleSpeechComparedToPeopleOfTheSameAgeRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -646,7 +648,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -656,9 +658,9 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.severeCognitiveDelayRadioButton);
 		rASSurveyPage.severeCognitiveDelayRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.severeCognitiveDelayRadioButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -668,7 +670,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -678,9 +680,9 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.attendedTypicalElementarySchoolWithoutSupportRadioButton);
 		rASSurveyPage.attendedTypicalElementarySchoolWithoutSupportRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.attendedTypicalElementarySchoolWithoutSupportRadioButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -690,9 +692,9 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.attendedTypicalclassroomOrlittleSupportRadioButton);
 		rASSurveyPage.attendedTypicalclassroomOrlittleSupportRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.attendedTypicalclassroomOrlittleSupportRadioButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -702,9 +704,9 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.BachelorsDegreeRadioButton);
 		rASSurveyPage.BachelorsDegreeRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.BachelorsDegreeRadioButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -714,9 +716,9 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.workingFullTimeRadioButton);
 		rASSurveyPage.workingFullTimeRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.workingFullTimeRadioButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -728,9 +730,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown", "No known learning differences");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherLearningDifferences);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.otherPleaseSpecifyTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -739,7 +741,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -748,7 +750,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -758,7 +760,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -772,7 +774,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.locationCityStateCountryTextBox.sendKeys(cardiologistLocation);
 		rASSurveyPage.hospitalOrHealthCenterAffiliationTextBox.sendKeys(cardiologistHospital);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -783,7 +785,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -796,9 +798,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherStructuralHeartIssues);
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -809,9 +811,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyStepsImpl.selectingCheckBoxes("Never had any of these symptoms");
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -848,7 +850,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.heartPalpitationsIrregularHeartBeatMostRecentHospitalEvaluationTextBox
 				.sendKeys("ABNORMALLY FAST PALPITATIONS");
 		JavascriptUtils.scrollUp(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 		// -------------LEG CRAMPING SECTION-------------
 
@@ -924,9 +926,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.transientIschemicAttackMostRecentHospitalEvaluationTextBox
 				.sendKeys("EXTREME TRANSIENT ISCHEMIC ATTACK");
 		JavascriptUtils.scrollIntoView(rASSurveyPage.chestPainOrTighteningAgeTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -936,7 +938,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -950,9 +952,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.medicationTextBox.sendKeys(otherHeartMedication);
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherHeartTreatment);
 		JavascriptUtils.scrollUp(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -996,9 +998,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherMostRecentTreatmentDateTextBox.sendKeys("10/10");
 		rASSurveyPage.otherMostRecentTreatmentLocationTextBox.sendKeys("HOLY CROSS, BOISE, IDAHO, US");
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1008,7 +1010,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1018,7 +1020,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1030,10 +1032,10 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/unknown");
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherFunctionalHeartIssues);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1068,9 +1070,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.OtherHeartIssuesTreatmentAndMedicationTextBox.sendKeys("TYLENOL");
 		rASSurveyPage.otherHeartIssuesHospitalOfTreatmentTextBox.sendKeys("MEDICAL CENTER");
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1079,7 +1081,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1089,7 +1091,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1102,9 +1104,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherRASopathies);
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1113,7 +1115,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1124,7 +1126,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1139,7 +1141,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.PrimaryCareProviderHospitalorMedicalCenterAffiliationTextBox
 				.sendKeys(primaryCareProviderHospital);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1152,9 +1154,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.allergiesToFoodRadioButton.click();
 		rASSurveyPage.allergiesToAnythingElseRadioButton.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1168,7 +1170,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.medicationNamestextBox.sendKeys(medicationAllergy);
 		rASSurveyPage.allergiesReactionsTextBox.sendKeys(allergicReaction);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1186,9 +1188,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.secondFoodAllergyNamestextBox.sendKeys(secondFoodAllergy);
 		rASSurveyPage.secondFoodAllergyreactiontextBox.sendKeys(secondFoodAllergyReaction);
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1206,9 +1208,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.secondOtherAllergyNamesTextBox.sendKeys(otherSecondFoodAllergy);
 		rASSurveyPage.secondOtherAllergyReactionTextBox.sendKeys(otherSecondFoodAllergyReaction);
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1218,7 +1220,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1234,9 +1236,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.selectDropDownValue(reasonForSurgery, rASSurveyPage.reasonSurgeryDropDown);
 		rASSurveyPage.surgeryHospitalTextBox.sendKeys(surgeryHospital);
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1246,7 +1248,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1261,9 +1263,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.dateOfHospitalizationTextBox.sendKeys(dateOfHospitalization);
 		rASSurveyPage.placeOfHospitalizationTextBox.sendKeys(hospitalOfHospitalization);
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1272,7 +1274,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1282,9 +1284,9 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1298,7 +1300,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.cityStateOfGastroenterologistTextBox.sendKeys(gastroenterologistLocation);
 		rASSurveyPage.hospitalOfGastroenterologistTextBox.sendKeys(gastroenterologistHospital);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1310,10 +1312,10 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxesAnd("No known feeding difficulties", "Unsure/unknown");
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherFeedingDifficulties);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1325,7 +1327,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.tubePlacedRadioButton);
 		rASSurveyPage.tubePlacedRadioButton.click();
 		rASSurveyPage.tubePlacedTextBox.sendKeys(amountOfTubePlacementTime);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1337,7 +1339,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.tubePlacedJejunostomyPlacedRadioButton);
 		rASSurveyPage.tubePlacedJejunostomyPlacedRadioButton.click();
 		rASSurveyPage.tubePlacedTextBox.sendKeys(amountOfGastrostomyTimePlaced);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1349,7 +1351,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.tubePlacedJejunostomyRemovedRadioButton);
 		rASSurveyPage.tubePlacedJejunostomyRemovedRadioButton.click();
 		rASSurveyPage.tubePlacedTextBox.sendKeys(amountOfGastrostomyTimeRemoved);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1359,9 +1361,9 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1372,14 +1374,14 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/unknown");
 		JavascriptUtils.scrollUp(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.FoodGettingStuckWhileSwallowingCheckBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollDown(1400);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.GallbladderProblemsCheckBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1395,7 +1397,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.RefluxHeartBurnPreviousSymptomRadioButton.click();
 		rASSurveyPage.NauseaPreviousSymptomRadioButton.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.AbdominalPainPreviousSymptomRadioButton.click();
 		rASSurveyPage.VomitingPreviousSymptomRadioButton.click();
 		rASSurveyPage.FeelFullQuicklyPreviousSymptomRadioButton.click();
@@ -1412,9 +1414,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.UnintentionalOrWeighLossPreviousSymptomRadioButton.click();
 		rASSurveyPage.DecreasedAppetitePreviousSymptomRadioButton.click();
 		JavascriptUtils.scrollIntoView(rASSurveyPage.NauseaPreviousSymptomRadioButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1426,7 +1428,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.pneumoniaYesRadioButton.click();
 		rASSurveyPage.evaluationWithXrayYesRadioButton.click();
 		rASSurveyPage.AspirationOnSwallowStudyYesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1440,7 +1442,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.refuxHeartburnmedicationTakenYesRadioButton.click();
 		rASSurveyPage.ageOfMedicationTakenTexBox.sendKeys(ageOfHeartBurnMedication);
 		rASSurveyPage.MedicationTakenTexBox.sendKeys(heartBurnMedication);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1455,7 +1457,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.haveAnyNauseaMedicationsBeenTakenYesRadioButton.click();
 		rASSurveyPage.ageAtWhichNauseaMedicationswereTakenAndTheMedicationNameTextBox.sendKeys(ageOfNausea);
 		rASSurveyPage.naauseaMedicationNameTextBox.sendKeys(nauseaMedication);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1471,7 +1473,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.isThePainSimilarWithEachEpisodeYesRadioButton.click();
 		rASSurveyPage.haveTheseEpisodesBeenHappeningAtLeastSixMonthsYesRadioButton.click();
 		rASSurveyPage.abdominalPainsOccurAtLeast4MonthsFor2MonthsYesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.isPainAssociatedWithHavingBowelMovementsYesRadioButton.click();
 		rASSurveyPage.associatedWithChangeInBowelMovementFrequencyYesRadioButton.click();
 		rASSurveyPage.associatedWithChangeInBowelMovementConsistencyYesRadioButton.click();
@@ -1486,9 +1488,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.isAbdominalPainAssociatedWithIrritationToBrightLightYesRadioButton.click();
 		rASSurveyPage.isAbdominalPainAssociatedWithLookingPaleYesRadioButton.click();
 		JavascriptUtils.scrollIntoView(rASSurveyPage.isThePainSimilarWithEachEpisodeYesRadioButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1498,7 +1500,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1510,7 +1512,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.howManyMediationsHaveBeenTakenForAbdominalDropDown);
 		CommonUtils.selectDropDownValue(amountOfAbdominalMedication,
 				rASSurveyPage.howManyMediationsHaveBeenTakenForAbdominalDropDown);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.surveyNextButton.click();
 	}
@@ -1524,7 +1526,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.pleaseIncludeAgeWhenEachAbdominalMedicationWasTakenTextBox.sendKeys(ageOfAbdominalMedication);
 		rASSurveyPage.pleaseSpecifyTheAbdominalMedicationNameTextBox.sendKeys(typeOfAbdominalMedication);
 		rASSurveyPage.pleaseIncludeAbdominalDetailsTextBox.sendKeys(detailsOfAbdominalMedication);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1542,9 +1544,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.doEpisodesOfVomitingSeemSimilarToEachOtherWhenTheyOccurYesRadioButton.click();
 		rASSurveyPage.areThereWeeksToMonthsWithoutSymptomsOfNauseaVomitingBetweenEpisodesYesRadioButton.click();
 		rASSurveyPage.everVomitedBloodYesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1554,7 +1556,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1566,7 +1568,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.howManyMedicationsHaveBeenTakenForVomitingDropDown);
 		CommonUtils.selectDropDownValue(amountOfVomitingMedications,
 				rASSurveyPage.howManyMedicationsHaveBeenTakenForVomitingDropDown);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1582,7 +1584,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.pleaseIncludeAgeWhenEachMedication2WasTakenTextBox.sendKeys(secondAgeOfVomitingMedication);
 		rASSurveyPage.pleaseSpecifyNameOfMedication2TakenForVomitingTextBox.sendKeys(secondTypeOfVomitingMedication);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1592,7 +1594,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyStepsImpl.selectingCheckBoxes();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1606,7 +1608,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.whatAgeDidJaundiceOccurPleaseSpecifyIfDaysWeeksMonthsYearsOld1DayTextBox
 				.sendKeys(amountOfJaundiceTime);
 		rASSurveyPage.howLongDidJaundiceLastTextBox.sendKeys(amountOfTimeJaundiceLasted);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1616,7 +1618,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1629,7 +1631,7 @@ public class RASSurveySteps extends PageInitializer {
 				rASSurveyPage.describeFoodsThatYouAvoidBecauseYouDoNotLikeTheTextureOrOtherPhysicalQualitiesOfTheFoodEggsTextBox);
 		rASSurveyPage.describeFoodsThatYouAvoidBecauseYouDoNotLikeTheTextureOrOtherPhysicalQualitiesOfTheFoodEggsTextBox
 				.sendKeys(foodsToAvoid);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1641,7 +1643,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.isThereUrgencyNeedToRushToGoToTheBathroomYesRadioButton.click();
 		rASSurveyPage.doesDiarrheaOccurWithCrampyLowerBellyPainYesRadioButton.click();
 		rASSurveyPage.isTheDiarrheaEverBloodyYesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1655,9 +1657,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.whatMedicationsHaveBeenUsedToTreatDiarrheaTextBox.sendKeys(medicationOfEpisodes);
 		rASSurveyPage.atWhatAgeWereMedicationsUsedToTreatDiarrheaTextBox.sendKeys(ageDuringEpisodes);
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1675,9 +1677,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.bloodOnToiletPaperOrInTheStoolYesRadioButton.click();
 		rASSurveyPage.havingBowelMovementsInPlacesInappropriateOrNotSociallyAcceptableYesRadioButton.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1690,7 +1692,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.whatMedicationsHaveBeenUsedToTreatEncopresisTextBox.sendKeys(encopresisMedication);
 		rASSurveyPage.atWhatAgeWereTheseMedicationsUsedTextBox.sendKeys(encopresisAge);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1704,7 +1706,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.overWhatTimePeriodDidThisWeightLossOccur30DaysTextBox.sendKeys(timeOfWeightLost);
 		rASSurveyPage.hasTheWeightBeenGainedBackYesNoYesTextBox.sendKeys(gainedBackWeight);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -1720,7 +1722,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.whatSupplementalNutritionHaveBeenTakenPleaseSelectAllThatApplyTubeFeedingCheckBox.click();
 		rASSurveyPage.whatSupplementalNutritionHaveBeenTakenPleaseSelectAllThatApplyTPNCheckBox.click();
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1730,7 +1732,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1743,7 +1745,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.selectDropDownValue(ageOfToiletTraining,
 				rASSurveyPage.atWhatAgeApproximatelyWereYouToiletTrainedDropDown);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1755,7 +1757,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.isTheToiletConsistentlyUsedForAllUrinationYesRadioButton.click();
 		rASSurveyPage.haveThereBeenAnyEpisodesOfRepeatedUrinaryAccidentsAfterBeingToiletTrainedYesRadioButton.click();
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1769,7 +1771,7 @@ public class RASSurveySteps extends PageInitializer {
 				.click();
 		rASSurveyPage.isTherePainWithBowelMovementsYesRadioButton.click();
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1782,7 +1784,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.selectDropDownValue(amountOfBowelMovements,
 				rASSurveyPage.howManyBowelMovementsDoYouHavePerWeekDropDown);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1795,7 +1797,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.selectDropDownValue(longestAmountOfTimeWithoutBowelMovement,
 				rASSurveyPage.whatIsTheLongestAmountOfTimeThatHasPassedWithoutYouHavingABowelMovementDropDown);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1805,16 +1807,16 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(
 				rASSurveyPage.bristolStoolChartShownBelowAndSelectTheChoiceThatBestRepresentsWhatTypicalBowelMovementsLookLikeType1RadioButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollDown(300);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollDown(450);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.bristolStoolChartShownBelowAndSelectTheChoiceThatBestRepresentsWhatTypicalBowelMovementsLookLikeType1RadioButton
 				.click();
 		JavascriptUtils.scrollIntoView(
 				rASSurveyPage.bristolStoolChartShownBelowAndSelectTheChoiceThatBestRepresentsWhatTypicalBowelMovementsLookLikeType1RadioButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1824,7 +1826,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1838,9 +1840,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.pleaseIndicateWhichOfTheFollowingProceduresHaveBeenPerformedPleaseSelectAllThatApplyOtherGITestPleaseSpecifyExamTextBox
 				.sendKeys(otherGiTests);
 		JavascriptUtils.scrollUp(1200);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1879,7 +1881,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.upperGiSwallowStudyExPainEtcTestTextBox.sendKeys("HAD PAIN");
 		rASSurveyPage.upperGiSwallowStudyExPolypUlcerTestTextBox.sendKeys("POSITIVE");
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.upperGiSwallowStudyHospitalNameCityStateProvinceCountryTextBox.sendKeys("INOVA, FAIRFAX VA");
 		rASSurveyPage.upperGiSwallowStudyPleaseSelectThisColumnIfOnlyOneProcedureHasBeenPerformedRadioButton.click();
 		rASSurveyPage.modifiedBariumSwallowStudyMmYyOrDontKnowTextBox.sendKeys("07/07");
@@ -1893,7 +1895,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.gastricEmptyingStudyExPainEtcTestTextBox.sendKeys("HAD PAIN");
 		rASSurveyPage.gastricEmptyingStudyExPolypUlcerTestTextBox.sendKeys("POSITIVE");
 		JavascriptUtils.scrollUp(200);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.gastricEmptyingStudyHospitalNameCityStateProvinceCountryTextBox.sendKeys("INOVA, FAIRFAX VA");
 		rASSurveyPage.gastricEmptyingStudyPleaseSelectThisColumnIfOnlyOneProcedureHasBeenPerformedRadioButton.click();
 		rASSurveyPage.analFissuresExamMmYyOrDontKnowTextBox.sendKeys("09/09");
@@ -1902,7 +1904,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.analFissuresExamHospitalNameCityStateProvinceCountryTextBox.sendKeys("INOVA, FAIRFAX VA");
 		rASSurveyPage.analFissuresExamPleaseSelectThisColumnIfOnlyOneProcedureHasBeenPerformedRadioButton.click();
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1911,7 +1913,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1600);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1921,7 +1923,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1934,7 +1936,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.nameOfPhysicianTextBox.sendKeys(pulmonologistDoctor);
 		rASSurveyPage.locationPulmonologistCityStateCountryTextBox.sendKeys(pulmonologistLocation);
 		rASSurveyPage.hospitalAndMedicalCenterAffiliationTestTextBox.sendKeys(pulmonologistHospital);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1944,7 +1946,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1954,7 +1956,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1964,7 +1966,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1974,7 +1976,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1983,7 +1985,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -1993,7 +1995,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2007,7 +2009,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.cityStateTextBox.sendKeys(dentistLocation);
 		rASSurveyPage.medicalCenterOrDentalGroupAffiliationTextBox.sendKeys(dentistMedicalCenter);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2018,7 +2020,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.whenDidYouLastVisitADentistTextBox);
 		rASSurveyPage.whenDidYouLastVisitADentistTextBox.sendKeys(lastDentistVisit);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2029,7 +2031,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.cleaningRadioButton);
 		rASSurveyPage.cleaningRadioButton.click();
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2039,7 +2041,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2049,7 +2051,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2059,7 +2061,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2069,7 +2071,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1300);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2079,7 +2081,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2089,7 +2091,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2099,7 +2101,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1200);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2110,9 +2112,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.overallHealthOfTeethAndGumsFairRadioButton);
 		rASSurveyPage.overallHealthOfTeethAndGumsFairRadioButton.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2122,9 +2124,9 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.overallRateDentalHygeneFairRadioButton);
 		rASSurveyPage.overallRateDentalHygeneFairRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2134,7 +2136,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2144,7 +2146,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2154,7 +2156,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2164,7 +2166,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2174,7 +2176,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2184,7 +2186,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2194,7 +2196,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1200);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2206,7 +2208,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.didTheFacialOrDentalTraumaRequireSurgeryYesRadioButton);
 		rASSurveyPage.didTheFacialOrDentalTraumaRequireSurgeryYesRadioButton.click();
 		rASSurveyPage.yesPleaseSpecifyTextBox.sendKeys(dentalSurgery);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2216,7 +2218,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1200);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2229,7 +2231,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.doYouHaveAHistoryOfCancerInTheMouthOrJawYesRadioButton.click();
 		rASSurveyPage.yesPleaseSpecifyTextBox.sendKeys(otherJawCancer);
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2241,7 +2243,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.doYouHaveAFamilyMemberWithJawAbnormalityYesRadioButton);
 		rASSurveyPage.doYouHaveAFamilyMemberWithJawAbnormalityYesRadioButton.click();
 		rASSurveyPage.yesPleaseSpecifyTextBox.sendKeys(jawAbnormality);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2252,7 +2254,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		MiscUtils.sleep(2000);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2262,7 +2264,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2273,7 +2275,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		MiscUtils.sleep(1000);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2283,7 +2285,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2297,7 +2299,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.overallIsThereAnythingUnusualAboutYourTeethOrMouthYesPleaseSpecifyWhatIsUnusualRadioButton
 				.click();
 		rASSurveyPage.yesPleaseSpecifyWhatIsUnusualRadioButton.sendKeys(unusualDentalCondition);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2309,9 +2311,9 @@ public class RASSurveySteps extends PageInitializer {
 				rASSurveyPage.troublePronouncingWordsBecauseOfProblemsWithTeethMouthOrDenturesOcassionallyRadioButton);
 		rASSurveyPage.troublePronouncingWordsBecauseOfProblemsWithTeethMouthOrDenturesOcassionallyRadioButton.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		;
 		rASSurveyPage.surveyNextButton.click();
 	}
@@ -2325,9 +2327,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.haveYouFeltYourSenseOfTasteWorsenedBecauseOfProblemsWithTeethMouthOrDenturesOcassionallyRadioButton
 				.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2337,9 +2339,9 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.haveYouHadPainfulAchingInYourMouthOcassionallyRadioButton);
 		rASSurveyPage.haveYouHadPainfulAchingInYourMouthOcassionallyRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2352,9 +2354,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.haveYouFoundItUnconfortableToEatFoodsBecauseOfProblemsWithTeethMouthOrDenturesOcassionallyRadioButton
 				.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2365,9 +2367,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(
 				rASSurveyPage.areYouSelfConsciousBecauseOfYourTeethMouthOrDenturesOccasionallyRadioButton);
 		rASSurveyPage.areYouSelfConsciousBecauseOfYourTeethMouthOrDenturesOccasionallyRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2378,9 +2380,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(
 				rASSurveyPage.haveYouFeltTenseBecauseOfProblemsWithYourTeethMouthOrDenturesOccasionallyRadioButton);
 		rASSurveyPage.haveYouFeltTenseBecauseOfProblemsWithYourTeethMouthOrDenturesOccasionallyRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2392,9 +2394,9 @@ public class RASSurveySteps extends PageInitializer {
 				rASSurveyPage.hasYourDietBeenUnsatisfactoryBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton);
 		rASSurveyPage.hasYourDietBeenUnsatisfactoryBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton
 				.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2406,9 +2408,9 @@ public class RASSurveySteps extends PageInitializer {
 				rASSurveyPage.haveYouHadToInterruptMealsBeacuseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton);
 		rASSurveyPage.haveYouHadToInterruptMealsBeacuseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton
 				.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2421,9 +2423,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.haveYouFoundItDifficultToRelaxBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton
 				.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2436,9 +2438,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.haveYouBeenABitEmbarrassedBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton
 				.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2451,9 +2453,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.haveYouBeenIrritableWithOtherPeopleBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton
 				.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2465,7 +2467,7 @@ public class RASSurveySteps extends PageInitializer {
 				rASSurveyPage.haveYouHadDifficultyDoingYourUsualJobsBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton);
 		rASSurveyPage.haveYouHadDifficultyDoingYourUsualJobsBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton
 				.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2478,9 +2480,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.haveYouFeltThatLifeInGeneralIsLessSatisfyingBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton
 				.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2493,9 +2495,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.haveYouBeenTotallyUnableToFunctionBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyRadioButton
 				.click();
 		JavascriptUtils.scrollUp(900);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2505,7 +2507,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2515,7 +2517,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -2528,10 +2530,10 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		JavascriptUtils.scrollIntoView(rASSurveyPage.nihBannerImage);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherLymphaticConditon);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2590,13 +2592,13 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.poorLymphaticDrainageNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox
 				.sendKeys("INOVA URGENT CARE - NORTH ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
 		JavascriptUtils.scrollIntoView(rASSurveyPage.nihBannerImage);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.dateHeaderText);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.dateRow3TextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -2606,7 +2608,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2616,7 +2618,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2629,7 +2631,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.informationForNephrologistNameOfDoctorTextBox.sendKeys(neuphrologistDoctor);
 		rASSurveyPage.informationForNephrologistCityStateTextBox.sendKeys(neuphrologistLocation);
 		rASSurveyPage.informationForANephrologistHospitalOrMedicalAffiliationTextBox.sendKeys(neuphrologistHospital);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2639,7 +2641,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2650,10 +2652,10 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(kidneyProblem);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2687,11 +2689,11 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherKidneyMedicationTypeTextBox.sendKeys("ISONIAZID");
 		rASSurveyPage.otherKidneyAddressTextBox.sendKeys("DOCTOR KID CLAY");
 		JavascriptUtils.scrollIntoView(rASSurveyPage.nihBannerImage);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.dateHeaderText);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2700,7 +2702,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1200);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2710,7 +2712,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2723,7 +2725,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.nameOfPhysicianDermatologistTextBox.sendKeys(dermatologistDoctor);
 		rASSurveyPage.cityStateDermatologistTextBox.sendKeys(dermatologistLocation);
 		rASSurveyPage.hospitalOrMedicalCenterAffiliationDermatologistTextBox.sendKeys(dermatologistHospital);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2736,9 +2738,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes();
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherHairCondition);
 		JavascriptUtils.scrollUp(900);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2748,7 +2750,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2761,9 +2763,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxesAnd("No known thickened/hyperkeratotic skin issues", "Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherSkinIssue);
 		JavascriptUtils.scrollUp(900);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2777,9 +2779,9 @@ public class RASSurveySteps extends PageInitializer {
 		;
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherPigmentedSkinIssue);
 		JavascriptUtils.scrollUp(900);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2790,9 +2792,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.threeOrMoreHemangiomasRadioButton);
 		rASSurveyPage.threeOrMoreHemangiomasRadioButton.click();
 		JavascriptUtils.scrollUp(900);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2805,9 +2807,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxesAnd("No known skin tumors", "Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherSkinTumor);
 		JavascriptUtils.scrollUp(900);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2816,7 +2818,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2826,7 +2828,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2839,7 +2841,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.nameOfPhysicianOrthopaedicTextBox.sendKeys(orthapaedicDoctor);
 		rASSurveyPage.cityStateOrthopaedicTextBox.sendKeys(orthapaedicLocation);
 		rASSurveyPage.hospitalOrMedicalCenterAffiliationOrthopaedicTextBox.sendKeys(orthapaedicHospital);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2852,9 +2854,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxesAnd("No known thoracic area skeletal issues", "Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherSkeletalCondition);
 		JavascriptUtils.scrollUp(900);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2864,7 +2866,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2877,9 +2879,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherSpineCondition);
 		JavascriptUtils.scrollUp(900);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.otherPleaseSpecifyTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2898,7 +2900,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.kyphosisDiagnosisDateTextBox.sendKeys("03/05");
 		rASSurveyPage.kyphosisDiagnosisAgeTextBox.sendKeys("15");
 		JavascriptUtils.scrollUp(900);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.kyphosisTreatmentTextBox.sendKeys("SPINAL FUSION SURGERY");
 		rASSurveyPage.kyphoscoliosisFirstSymptomsDateTextBox.sendKeys("04/06");
 		rASSurveyPage.kyphoscoliosisFirstSymptomsAgeTextBox.sendKeys("16");
@@ -2911,7 +2913,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherSpineDiagnosisAgeTextBox.sendKeys("19");
 		rASSurveyPage.otherSpineTreatmentTextBox.sendKeys("SPINAL STEROID INJECTIONS");
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -2922,7 +2924,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2932,7 +2934,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2945,9 +2947,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherJointIssue);
 		JavascriptUtils.scrollUp(900);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -2987,15 +2989,15 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherJointDiagnosisAgeTextBox.sendKeys("19");
 		rASSurveyPage.otherJointTreatmentTextBox.sendKeys("NSAIDS");
 		JavascriptUtils.scrollIntoView(rASSurveyPage.nihBannerImage);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.dateHeaderText);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.dateRow2TextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.dateRow3TextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.otherJointFirstSymptomsDateTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3004,7 +3006,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3014,9 +3016,9 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3029,7 +3031,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.nameOfPhysicianHematologistTextBox.sendKeys(hematologistDoctor);
 		rASSurveyPage.cityStateHematologistTextBox.sendKeys(hematologistLocation);
 		rASSurveyPage.hospitalOrMedicalCenterAffiliationHematologistTextBox.sendKeys(hematologistHospital);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3039,7 +3041,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesBleedingRadioButton);
 		JavascriptUtils.clickByJS(rASSurveyPage.yesBleedingRadioButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3052,9 +3054,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherBloodIssue);
 		JavascriptUtils.scrollUp(900);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3070,7 +3072,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.easyBruisingMedicationTypeTextBox.sendKeys("VITAMIN K CREAM");
 		rASSurveyPage.easyBruisingAddressTextBox.sendKeys("INOVA HOSPITAL FAIRFAX, VA");
 		JavascriptUtils.scrollUp(900);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.plateletDysfunctionFirstSymptomsDateTextBox.sendKeys("05/05");
 		rASSurveyPage.plateletDysfunctionFirstSymptomsAgeTextBox.sendKeys("15");
 		rASSurveyPage.plateletDysfunctionDiagnosisDateTextBox.sendKeys("06/06");
@@ -3090,7 +3092,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherBleedingMedicationTypeTextBox.sendKeys("BLOOD TRANSFUSION");
 		rASSurveyPage.otherBleedingAddressTextBox.sendKeys("CLEVELAND CLINIC, OH");
 		JavascriptUtils.scrollIntoView(rASSurveyPage.easyBruisingFirstSymptomsDateTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3100,7 +3102,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3112,10 +3114,10 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		JavascriptUtils.scrollUp(900);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.otherLeukemiaTextBox.sendKeys(otherLeukemia);
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherBloodDisorder);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3173,13 +3175,13 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherBloodDisordersMedicationTypeTextBox.sendKeys("TARGETED THERAPY");
 		rASSurveyPage.otherBloodDisordersAddressTextBox.sendKeys("CLEVELAND CLINIC, OH");
 		JavascriptUtils.scrollIntoView(rASSurveyPage.nihBannerImage);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.dateRow1TextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.dateRow3TextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3192,9 +3194,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxesAnd("No known tumors", "Unsure/Unknown");
 		rASSurveyPage.otherConditionTextBox.sendKeys(otherTumor);
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3234,11 +3236,11 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherTumorDisorderDiagnosisAgeTextBox.sendKeys("21");
 		rASSurveyPage.otherTumorDisorderYesRadioButton.click();
 		JavascriptUtils.scrollIntoView(rASSurveyPage.nihBannerImage);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.giantCellLesionFirstSymptomsDateTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.neuroblastomaFirstSymptomsDateTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3248,7 +3250,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3258,7 +3260,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3271,7 +3273,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.nameOfPhysicianImmunologistTextBox.sendKeys(immunologistDoctor);
 		rASSurveyPage.cityStateImmunologistTextBox.sendKeys(immunologistLocation);
 		rASSurveyPage.hospitalOrMedicalCenterAffiliationImmunologistTextBox.sendKeys(immunologistHospital);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3284,9 +3286,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherInfectionFrequency);
 		JavascriptUtils.scrollUp(1200);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3307,7 +3309,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.frequentInfectionsFormalDiagnosisDiagnosisDateTextBox.sendKeys("07/07");
 		rASSurveyPage.frequentInfectionsFormalDiagnosisDiagnosisAgeTextBox.sendKeys("7");
 		JavascriptUtils.scrollUp(700);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.frequentInfectionsFormalDiagnosisMedicationTypeTextBox.sendKeys("NSAIDS");
 		rASSurveyPage.frequentInfectionsFormalDiagnosisAddressTextBox.sendKeys("INOVA FAIRFAX HOSPITAL");
 		rASSurveyPage.otherFrequentInfectionsFormalFirstSymptomsDateTextBox.sendKeys("07/07");
@@ -3317,7 +3319,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherFrequentInfectionsFormalDiagnosisMedicationTypeTextBox.sendKeys("NAPROXEN");
 		rASSurveyPage.otherFrequentInfectionsFormalDiagnosisAddressTextBox.sendKeys("DOCTOR ROCHELLE VIYA");
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3327,7 +3329,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3340,10 +3342,10 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherAutomimmuneTextBox.sendKeys(otherAutoimmuneCondition);
 		JavascriptUtils.scrollUp(900);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherAutoimmuneBloodCondition);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3364,7 +3366,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.lupusDiagnosisAgeTextBox.sendKeys("8");
 		rASSurveyPage.lupusMedicationTypeTextBox.sendKeys("NSAIDS");
 		JavascriptUtils.scrollUp(500);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.lupusAddressTextBox.sendKeys("DOCTOR JOSE MORENO, GEORGE WASHINGTON UNIVERSITY HOSPITAL, DC");
 		rASSurveyPage.psoriasisFirstSymptomsDateTextBox.sendKeys("09/09");
 		rASSurveyPage.psoriasisFirstSymptomsAgeTextBox.sendKeys("9");
@@ -3386,7 +3388,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherAutomimmuneBloodConditionAddressTextBox
 				.sendKeys("DOCTOR JOHN LENNON, BRIDGEPOINT HOSPITAL CAPITOL HILL, DC");
 		JavascriptUtils.scrollIntoView(rASSurveyPage.autoimmuneThyroiditisFirstSymptomsDateTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3395,7 +3397,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1200);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3405,7 +3407,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3418,7 +3420,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.nameOfPhysicianNeurologistTextBox.sendKeys(neurologistDoctor);
 		rASSurveyPage.cityStateNeurologistTextBox.sendKeys(neurologistLocation);
 		rASSurveyPage.hospitalOrMedicalCenterAffiliationNeurologistTextBox.sendKeys(neurologistHospital);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3429,9 +3431,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3443,9 +3445,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherBrainIssue);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3470,9 +3472,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.syringomyeliaDiagnosisAgeTextBox.sendKeys("14");
 		rASSurveyPage.syringomyeliaMedicationTypeTextBox.sendKeys("SURGERY SHUNT AGE 14");
 		JavascriptUtils.scrollUp(900);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollDown(300);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.tetheredFirstSymptomsDateTextBox.sendKeys("04/04");
 		rASSurveyPage.tetheredFirstSymptomsAgeTextBox.sendKeys("14");
 		rASSurveyPage.tetheredDiagnosisDateTextBox.sendKeys("12/04");
@@ -3489,11 +3491,11 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherNeurologicalDiagnosisAgeTextBox.sendKeys("15");
 		rASSurveyPage.otherNeurologicalMedicationTypeTextBox.sendKeys("VITAMIN SUPPLEMENT AGE 15");
 		JavascriptUtils.scrollIntoView(rASSurveyPage.chiariMalformationFirstSymptomsDateTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.syringomyeliaFirstSymptomsDateTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.tetheredFirstSymptomsDateTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3503,7 +3505,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -3517,9 +3519,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherSeizureType);
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3538,7 +3540,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.epilepsyResolvedDiagnosisDateTextBox.sendKeys("12/02");
 		rASSurveyPage.epilepsyResolvedDiagnosisAgeTextBox.sendKeys("13");
 		JavascriptUtils.scrollUp(900);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.epilepsyResolvedMedicationTypeTextBox.sendKeys("PHENYTOIN AGE 13");
 		rASSurveyPage.epilepsyOngoingFirstSymptomsDateTextBox.sendKeys("03/03");
 		rASSurveyPage.epilepsyOngoingFirstSymptomsAgeTextBox.sendKeys("13");
@@ -3556,9 +3558,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherEpilepsyDiagnosisAgeTextBox.sendKeys("15");
 		rASSurveyPage.otherEpilepsyMedicationTypeTextBox.sendKeys("PHENOBARBITAL AGE 15");
 		JavascriptUtils.scrollIntoView(rASSurveyPage.febrileFirstSymptomsDateTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3568,7 +3570,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3581,7 +3583,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.nameOfPhysicianPsychologistTextBox.sendKeys(behavioralDoctor);
 		rASSurveyPage.cityStatePsychologistTextBox.sendKeys(behavioralLocation);
 		rASSurveyPage.hospitalOrMedicalCenterAffiliationPsychologistTextBox.sendKeys(behavioralHospital);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3592,7 +3594,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3607,11 +3609,11 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherBehavorialCondition);
 		JavascriptUtils.scrollUp(900);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollDown(400);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3636,7 +3638,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.bipolarDiagnosisAgeTextBox.sendKeys("17");
 		rASSurveyPage.bipolarTreatmentTextBox.sendKeys("LITHIUM");
 		JavascriptUtils.scrollUp(900);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.anxietyFirstSymptomsDateTextBox.sendKeys("07/07");
 		rASSurveyPage.anxietyFirstSymptomsAgeTextBox.sendKeys("18");
 		rASSurveyPage.anxietyDiagnosisDateTextBox.sendKeys("08/08");
@@ -3649,7 +3651,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.moodProblemsTreatmentTextBox.sendKeys("ZOLOFT");
 		rASSurveyPage.obsessionsFirstSymptomsDateTextBox.sendKeys("12/11");
 		JavascriptUtils.scrollIntoView(rASSurveyPage.autismFirstSymptomsDateTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.obsessionsFirstSymptomsAgeTextBox.sendKeys("21");
 		rASSurveyPage.obsessionsDiagnosisDateTextBox.sendKeys("12/12");
 		rASSurveyPage.obsessionsDiagnosisAgeTextBox.sendKeys("22");
@@ -3660,7 +3662,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.ptsdDiagnosisAgeTextBox.sendKeys("25");
 		rASSurveyPage.ptsdTreatmentTextBox.sendKeys("THERAPY");
 		JavascriptUtils.scrollIntoView(rASSurveyPage.anxietyFirstSymptomsDateTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.selfHarmFirstSymptomsDateTextBox.sendKeys("05/15");
 		rASSurveyPage.selfHarmFirstSymptomsAgeTextBox.sendKeys("26");
 		rASSurveyPage.selfHarmDiagnosisDateTextBox.sendKeys("08/16");
@@ -3669,7 +3671,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.agressionFirstSymptomsDateTextBox.sendKeys("05/16");
 		rASSurveyPage.agressionFirstSymptomsAgeTextBox.sendKeys("28");
 		JavascriptUtils.scrollIntoView(rASSurveyPage.obsessionsFirstSymptomsAgeTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.agressionDiagnosisDateTextBox.sendKeys("08/17");
 		rASSurveyPage.agressionDiagnosisAgeTextBox.sendKeys("29");
 		rASSurveyPage.agressionTreatmentTextBox.sendKeys("THERAPY");
@@ -3679,7 +3681,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherBehavioralDiagnosisAgeTextBox.sendKeys("31");
 		rASSurveyPage.otherBehavioralTreatmentTextBox.sendKeys("SPECIAL EDUCATION CLASSES");
 		JavascriptUtils.scrollIntoView(rASSurveyPage.selfHarmFirstSymptomsDateTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3691,7 +3693,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.additionalNeurologicConditionsTextBox);
 		rASSurveyPage.additionalNeurologicConditionsTextBox.sendKeys(otherNeurologicCondition);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3700,7 +3702,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3710,7 +3712,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3721,7 +3723,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3731,7 +3733,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3744,9 +3746,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherVisionCondition);
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3765,7 +3767,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.nearsightednessDiagnosisDateTextBox.sendKeys("04/04");
 		rASSurveyPage.nearsightednessDiagnosisAgeTextBox.sendKeys("14");
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.nearsightednessTreatmentTextBox.sendKeys("LASER IN-SITU KERATOMILEUSIS");
 		rASSurveyPage.farsightednessFirstSymptomsDateTextBox.sendKeys("05/05");
 		rASSurveyPage.farsightednessFirstSymptomsAgeTextBox.sendKeys("15");
@@ -3788,11 +3790,11 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherEyeSightDiagnosisAgeTextBox.sendKeys("22");
 		rASSurveyPage.otherEyeSightMedicationTypeTextBox.sendKeys("LOWER INTRAOCULAR PRESSURE");
 		JavascriptUtils.scrollIntoView(rASSurveyPage.neurologicalVisualFirstSymptomsDateTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.nearsightednessDiagnosisAgeTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3802,7 +3804,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3819,9 +3821,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.strabismusDiagnosisAgeTextBox.sendKeys(strabismusDiagnosisAge);
 		rASSurveyPage.occlusionTreatmentTextBox.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3831,7 +3833,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3846,12 +3848,12 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.nystagmusFirstSymptomsAgeTextBox.sendKeys(nystagmusFirstSymptomsAge);
 		rASSurveyPage.nystagmusDiagnosisDateTextBox.sendKeys(nystagmusDiagnosisDate);
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.nystagmusDiagnosisAgeTextBox.sendKeys(nystagmusDiagnosisAge);
 		rASSurveyPage.yesNystagmusTreatmentRadioButton.click();
 		rASSurveyPage.mildNystagmusRadioButton.click();
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3861,7 +3863,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3874,9 +3876,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherHearingLoss);
 		JavascriptUtils.scrollUp(900);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3904,7 +3906,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.unsureHearingLossFirstSymptomsDateTextBox.sendKeys("03/11");
 		rASSurveyPage.unsureHearingLossFirstSymptomsAgeTextBox.sendKeys("24");
 		JavascriptUtils.scrollUp(400);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.unsureHearingLossDiagnosisDateTextBox.sendKeys("05/11");
 		rASSurveyPage.unsureHearingLossDiagnosisAgeTextBox.sendKeys("27");
 		rASSurveyPage.yesUnsureHearingLossTreatmentRadioButton.click();
@@ -3915,7 +3917,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherHearingLossDiagnosisAgeTextBox.sendKeys("26");
 		rASSurveyPage.yesOtherTreatmentRadioButton.click();
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3928,9 +3930,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxesAnd("Unsure/Unknown", "No known ear issues");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherEarIssues);
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3941,7 +3943,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.anyOtherHealthIssuesTextBox.sendKeys(otherHealthIssues);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3951,7 +3953,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1500);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 		MiscUtils.sleep(2000);
 
@@ -3974,7 +3976,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		rASSurveyPage.completingFormForSomeoneElse.click();
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3986,7 +3988,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.personMiddleInitialCompletingQuestionnaire.sendKeys(middleInitial);
 		rASSurveyPage.personLastNameCompletingQuestionnaire.sendKeys(lastName);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -3995,7 +3997,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		rASSurveyPage.yesIsChristinaStillAlive.click();
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4004,7 +4006,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4017,7 +4019,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.biologicalFatherBirthCityTextBox.sendKeys(fathersBirthCity);
 		CommonUtils.selectDropDownValue(mothersAge, rASSurveyPage.biologicalMothersAgeWhenBornDropDown);
 		CommonUtils.selectDropDownValue(fathersAge, rASSurveyPage.biologicalFathersAgeWhenBornDropDown);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -4027,7 +4029,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4038,9 +4040,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherConditionTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherConditionTextBox.sendKeys(condition);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4049,7 +4051,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -4067,11 +4069,11 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.stressTestProxyRadioButton.click();
 		rASSurveyPage.xRayProxyRadioButton.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.otherProxyRadioButton.click();
 		rASSurveyPage.otherTestProxyTextBox.sendKeys(GENETIC);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4085,9 +4087,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.rashTextBox.sendKeys(prenatalRash);
 		rASSurveyPage.otherComplicationsTextBox.sendKeys(otherPrenatalComplications);
 		JavascriptUtils.scrollUp(500);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.xpathForAllCheckBoxes.get(6));
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -4097,7 +4099,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -4113,11 +4115,11 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherMedicationProxyTextBox.sendKeys(otherMedication1);
 		rASSurveyPage.otherMedicationProxyTextBox2.sendKeys(otherMedication2);
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.xpathForAllCheckBoxes.get(5));
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4156,7 +4158,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.selectDropDownValue("1 month",
 				rASSurveyPage.antiDepressantsLenghtOfTimeMedicationWasTakenForSomeoneElseDropDown);
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.diureticNameForSomeoneElseTextBox.sendKeys("DIUERTIC");
 		rASSurveyPage.diureticReasonForSomeoneElseTextBox.sendKeys("DIURETIC DEFICIENCY");
 		CommonUtils.selectDropDownValue("7 days",
@@ -4194,9 +4196,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.selectDropDownValue("6 days",
 				rASSurveyPage.otherMedication2LenghtOfTimeMedicationWasTakenForSomeoneElseDropDown);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.antibioticNameForSomeoneElseTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4205,7 +4207,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4216,9 +4218,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherTobaccoProducts);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4227,7 +4229,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4239,9 +4241,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherTobaccoProducts);
 		JavascriptUtils.scrollUp(400);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4250,7 +4252,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4262,9 +4264,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherAlcoholicBeverages);
 		JavascriptUtils.scrollUp(400);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4273,7 +4275,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4285,9 +4287,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherRecreationalDrugs);
 		JavascriptUtils.scrollUp(400);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4296,7 +4298,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4308,7 +4310,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherPrenatalProducts);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4319,7 +4321,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.biologicalMotherOccupationProxyTextBox);
 		rASSurveyPage.biologicalMotherOccupationProxyTextBox.sendKeys(mothersOccupation);
 		rASSurveyPage.biologicalFatherOccupationProxyTextBox.sendKeys(fathersOccupation);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4332,7 +4334,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.unitOfMeasureMotherProxyRadioButton.click();
 		rASSurveyPage.biologicalFatherHeightProxyTextBox.sendKeys(fathersHeight);
 		rASSurveyPage.unitOfMeasureFatherProxyRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4340,7 +4342,7 @@ public class RASSurveySteps extends PageInitializer {
 	public void clicks_next_The_next_set_of_questions_will_ask_about_hormone_related_growth_Growth_is_influenced_by_many_things_including_nutrition_parental_height_genetics_and_secreted_hormones_that_tell_the_body_to_grow_taller_myRAS_Survey() {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4349,7 +4351,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4361,7 +4363,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.sendKeys(rASSurveyPage.doctorMedicalProviderNameProxyTextBox, endocrinologistMedicalProvider);
 		CommonUtils.sendKeys(rASSurveyPage.locatioCityStateCountryProxyTextBox, endocrinologistLocation);
 		CommonUtils.sendKeys(rASSurveyPage.hospitalOrHealthSystemAffiliationProxyTextBox, endocrinologistHospital);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4370,7 +4372,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4380,9 +4382,9 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherHormoneTesting);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4391,7 +4393,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		MiscUtils.sleep(1000);
 		rASSurveyPage.surveyNextButton.click();
 	}
@@ -4403,7 +4405,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.whatWasYourHeightBeforeStartingGrowthHormoneRadioButton);
 		rASSurveyPage.whatWasYourHeightBeforeStartingGrowthHormoneRadioButton.click();
 		rASSurveyPage.heightTextBox.sendKeys(growthHormoneTreatment);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4414,7 +4416,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.howManyTimesHaveYouReceivedGrowthHormoneTreatmentDropDown);
 		CommonUtils.selectDropDownValue(numberOfgrowthHormoneTreatments,
 				rASSurveyPage.howManyTimesHaveYouReceivedGrowthHormoneTreatmentDropDown);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4422,7 +4424,7 @@ public class RASSurveySteps extends PageInitializer {
 	public void adds_details_in_Please_provide_the_details_of_growth_hormone_replacement_by_completing_the_table_below_myRAS_Survey() {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4430,7 +4432,7 @@ public class RASSurveySteps extends PageInitializer {
 	public void clicks_Next_button_The_next_set_of_questions_will_ask_about_development_Development_includes_things_such_as_crawling_walking_and_speaking_understanding_language_myRAS_Survey() {
 		MiscUtils.sleep(1200);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -4440,7 +4442,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4449,9 +4451,9 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.atWhatAgeWereYouAbleToSitWithoutSupportProxyCheckRadioButton);
 		rASSurveyPage.atWhatAgeWereYouAbleToSitWithoutSupportProxyCheckRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4460,9 +4462,9 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(rASSurveyPage.atWhatAgeWereYouAbleToWalkWithoutSupportProxyCheckRadioButton);
 		rASSurveyPage.atWhatAgeWereYouAbleToWalkWithoutSupportProxyCheckRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4471,7 +4473,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4480,9 +4482,9 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.twentyFourToThirthySixMonthsProxyRadioButton);
 		rASSurveyPage.twentyFourToThirthySixMonthsProxyRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4491,7 +4493,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.simpleSpeechComparedToPeopleOfTheSameAgeRadioButton);
 		rASSurveyPage.simpleSpeechComparedToPeopleOfTheSameAgeRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4500,7 +4502,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4509,9 +4511,9 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.severeCognitiveDelayRadioButton);
 		rASSurveyPage.severeCognitiveDelayRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4520,7 +4522,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4529,9 +4531,9 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.attendedTypicalElementarySchoolWithoutSupportRadioButton);
 		rASSurveyPage.attendedTypicalElementarySchoolWithoutSupportRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4540,9 +4542,9 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(rASSurveyPage.attendedTypicalclassroomOrlittleSupportProxyRadioButton);
 		rASSurveyPage.attendedTypicalclassroomOrlittleSupportProxyRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4551,9 +4553,9 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.BachelorsDegreeRadioButton);
 		rASSurveyPage.BachelorsDegreeRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4562,9 +4564,9 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.workingFullTimeRadioButton);
 		rASSurveyPage.workingFullTimeRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4575,9 +4577,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown", "No known learning differences");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherLearningDifferences);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4585,7 +4587,7 @@ public class RASSurveySteps extends PageInitializer {
 	public void clicks_Next_button_for_If_Christina_has_ever_had_formal_IQ_testing_and_have_a_copy_please_upload_it_here_Please_note_only_PDFs_are_accepted_myRAS_Survey() {
 		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4593,7 +4595,7 @@ public class RASSurveySteps extends PageInitializer {
 	public void clicks_Next_button_The_next_set_of_questions_will_ask_about_medical_conditions_associated_with_the_heart_myRAS_Survey() {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4602,7 +4604,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4614,7 +4616,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.nameOfDoctorOrMedicalProviderProxyTextBox.sendKeys(cardiologistDoctor);
 		rASSurveyPage.locationCityStateCountryProxyTextBox.sendKeys(cardiologistLocation);
 		rASSurveyPage.hospitalOrHealthCenterAffiliationProxyTextBox.sendKeys(cardiologistHospital);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4623,7 +4625,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4635,9 +4637,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherStructuralHeartIssues);
 		JavascriptUtils.scrollUp(500);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4647,9 +4649,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyStepsImpl.selectingCheckBoxes("Never had any of these symptoms");
 		JavascriptUtils.scrollUp(500);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4759,9 +4761,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.transientIschemicAttackMostRecentHospitalEvaluationTextBox
 				.sendKeys("EXTREME TRANSIENT ISCHEMIC ATTACK");
 		JavascriptUtils.scrollUp(500);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4770,7 +4772,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4782,9 +4784,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.medicationTextBox.sendKeys(otherHeartMedication);
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherHeartTreatment);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -4828,9 +4830,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherMostRecentTreatmentDateProxyTextBox.sendKeys("10/10");
 		rASSurveyPage.otherMostRecentTreatmentLocationProxyTextBox.sendKeys("HOLY CROSS G,BOISE,IDAHO,US");
 		JavascriptUtils.scrollUp(500);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4840,7 +4842,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4850,7 +4852,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4861,9 +4863,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherFunctionalHeartIssues);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -4891,9 +4893,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.OtherHeartIssuesTreatmentAndMedicationProxyTextBox.sendKeys("TYLENOL");
 		rASSurveyPage.otherHeartIssuesHospitalOfTreatmentProxyTextBox.sendKeys("MEDICAL CENTER");
 		JavascriptUtils.scrollUp(500);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -4903,7 +4905,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4913,7 +4915,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4926,9 +4928,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(rasopathies);
 		JavascriptUtils.scrollUp(500);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4937,7 +4939,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4948,7 +4950,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
 		JavascriptUtils.scrollDown(200);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4961,7 +4963,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.PrimaryCareProviderLocationProxyTextBox.sendKeys(primaryCareProviderLocation);
 		rASSurveyPage.PrimaryCareProviderHospitalorMedicalCenterAffiliationProxyTextBox
 				.sendKeys(primaryCareProviderHospital);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4973,9 +4975,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.allergiesToMedicinesProxyRadioButton.click();
 		rASSurveyPage.allergiesToFoodProxyRadioButton.click();
 		rASSurveyPage.allergiesToAnythingElseProxyRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -4988,7 +4990,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.plusSignButton.click();
 		rASSurveyPage.medicationNamesProxyTextBox.sendKeys(medicationAllergy);
 		rASSurveyPage.allergiesReactionsProxyTextBox.sendKeys(allergicReaction);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5006,7 +5008,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.firstFoodAllergyreactionProxyTextBox.sendKeys(firstFoodAllergyReaction);
 		rASSurveyPage.secondFoodAllergyNamesProxyTextBox.sendKeys(secondFoodAllergy);
 		rASSurveyPage.secondFoodAllergyreactionProxyTextBox.sendKeys(secondFoodAllergyReaction);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5024,7 +5026,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.secondOtherAllergyNamesProxyTextBox.sendKeys(otherSecondAllergy);
 		rASSurveyPage.secondOtherAllergyReactionProxyTextBox.sendKeys(otherSecondAllergyReaction);
 		JavascriptUtils.scrollDown(200);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5034,7 +5036,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5049,9 +5051,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.selectDropDownValue(reasonForSurgery, rASSurveyPage.reasonSurgeryDropDown);
 		rASSurveyPage.surgeryHospitalTextBox.sendKeys(surgeryHospital);
 		JavascriptUtils.scrollUp(500);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5060,7 +5062,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5074,9 +5076,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.reasonOfHospitalizationProxyTextBox.sendKeys(reasonForHospitalization);
 		rASSurveyPage.dateOfHospitalizationProxyTextBox.sendKeys(dateOfHospitalization);
 		rASSurveyPage.placeOfHospitalizationProxyTextBox.sendKeys(hospitalOfHospitalization);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5084,7 +5086,7 @@ public class RASSurveySteps extends PageInitializer {
 	public void clicks_Next_button_The_next_set_of_questions_will_ask_about_GI_gastrointestinal_symptoms_or_conditions_myRAS_Survey() {
 		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5093,9 +5095,9 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5107,7 +5109,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.nameOfGastroenterologistTextBox.sendKeys(gastroenterologistDoctor);
 		rASSurveyPage.cityStateOfGastroenterologistTextBox.sendKeys(gastroenterologistLocation);
 		rASSurveyPage.hospitalOfGastroenterologistTextBox.sendKeys(gastroenterologistHospital);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5119,9 +5121,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxesAnd("No known feeding difficulties", "Unsure/unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherFeedingDifficulties);
 		JavascriptUtils.scrollUp(500);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5132,7 +5134,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.tubePlacedRadioButton);
 		rASSurveyPage.tubePlacedRadioButton.click();
 		rASSurveyPage.tubePlacedTextBox.sendKeys(amountOfTubePlacementTime);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5143,7 +5145,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.tubePlacedJejunostomyPlacedRadioButton);
 		rASSurveyPage.tubePlacedJejunostomyPlacedRadioButton.click();
 		rASSurveyPage.tubePlacedTextBox.sendKeys(amountOfGastrostomyTimePlaced);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5154,7 +5156,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.tubePlacedJejunostomyRemovedRadioButton);
 		rASSurveyPage.tubePlacedJejunostomyRemovedRadioButton.click();
 		rASSurveyPage.tubePlacedTextBox.sendKeys(amountOfGastrostomyTimeRemoved);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5163,7 +5165,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5173,9 +5175,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/unknown");
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5206,11 +5208,11 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.UnintentionalOrWeighLossPreviousSymptomRadioButton.click();
 		rASSurveyPage.DecreasedAppetitePreviousSymptomRadioButton.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.VomitingPreviousSymptomRadioButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5221,7 +5223,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.pneumoniaYesRadioButton.click();
 		rASSurveyPage.evaluationWithXrayYesRadioButton.click();
 		rASSurveyPage.AspirationOnSwallowStudyYesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5235,7 +5237,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.ageOfMedicationTakenTexBox.sendKeys(ageOfHeartBurnMedication);
 		rASSurveyPage.MedicationTakenTexBox.sendKeys(heartBurnMedication);
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		MiscUtils.sleep(1000);
 		rASSurveyPage.surveyNextButton.click();
 	}
@@ -5266,9 +5268,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.isAbdominalPainAssociatedWithIrritationToBrightLightYesRadioButton.click();
 		rASSurveyPage.isAbdominalPainAssociatedWithLookingPaleYesRadioButton.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.associatedWithChangeInBowelMovementConsistencyYesRadioButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -5278,7 +5280,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5287,7 +5289,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.howManyMediationsHaveBeenTakenForAbdominalDropDown);
 		CommonUtils.selectDropDownValue(medications, rASSurveyPage.howManyMediationsHaveBeenTakenForAbdominalDropDown);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5299,7 +5301,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.pleaseIncludeAgeWhenEachAbdominalMedicationWasTakenTextBox.sendKeys(ageOfAbdominalMedication);
 		rASSurveyPage.pleaseSpecifyTheAbdominalMedicationNameTextBox.sendKeys(typeOfAbdominalMedication);
 		rASSurveyPage.pleaseIncludeAbdominalDetailsTextBox.sendKeys(detailsOfAbdominalMedication);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5316,9 +5318,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.doEpisodesOfVomitingSeemSimilarToEachOtherWhenTheyOccurYesRadioButton.click();
 		rASSurveyPage.areThereWeeksToMonthsWithoutSymptomsOfNauseaVomitingBetweenEpisodesYesRadioButton.click();
 		rASSurveyPage.everVomitedBloodYesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5327,7 +5329,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5338,7 +5340,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.howManyMedicationsHaveBeenTakenForVomitingDropDown);
 		CommonUtils.selectDropDownValue(amountOfVomitingMedications,
 				rASSurveyPage.howManyMedicationsHaveBeenTakenForVomitingDropDown);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5352,7 +5354,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.pleaseSpecifyNameOfVommitingMedicationTakenForVomitingTextBox.sendKeys(typeVomitingMedication);
 		rASSurveyPage.pleaseIncludeAgeWhenEachMedication2WasTakenTextBox.sendKeys(ageOfVomitingSecondMedication);
 		rASSurveyPage.pleaseSpecifyNameOfMedication2TakenForVomitingTextBox.sendKeys(secondTypeOfVomitingMedication);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5361,7 +5363,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyStepsImpl.selectingCheckBoxes();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5374,7 +5376,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.whatAgeDidJaundiceOccurPleaseSpecifyIfDaysWeeksMonthsYearsOld1DayTextBox
 				.sendKeys(amountOfJaundiceTime);
 		rASSurveyPage.howLongDidJaundiceLastTextBox.sendKeys(amountOfTimeJaundiceLasted);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5383,7 +5385,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5395,7 +5397,7 @@ public class RASSurveySteps extends PageInitializer {
 				rASSurveyPage.describeFoodsThatYouAvoidBecauseYouDoNotLikeTheTextureOrOtherPhysicalQualitiesOfTheFoodEggsProxyTextBox);
 		rASSurveyPage.describeFoodsThatYouAvoidBecauseYouDoNotLikeTheTextureOrOtherPhysicalQualitiesOfTheFoodEggsProxyTextBox
 				.sendKeys(foodsToAvoid);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5407,7 +5409,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.doesDiarrheaOccurWithCrampyLowerBellyPainYesRadioButton.click();
 		rASSurveyPage.isTheDiarrheaEverBloodyYesRadioButton.click();
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		MiscUtils.sleep(1000);
 		rASSurveyPage.surveyNextButton.click();
 	}
@@ -5420,9 +5422,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.whenDiarrheaOccursHowManyEpisodesOccurInOneDayTextBox.sendKeys(amountOfEpisodes);
 		rASSurveyPage.whatMedicationsHaveBeenUsedToTreatDiarrheaTextBox.sendKeys(medicationOfEpisodes);
 		rASSurveyPage.atWhatAgeWereMedicationsUsedToTreatDiarrheaTextBox.sendKeys(ageDuringEpisodes);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5438,9 +5440,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.largeBowelMovementsThatClogTheToiletYesRadioButton.click();
 		rASSurveyPage.bloodOnToiletPaperOrInTheStoolYesRadioButton.click();
 		rASSurveyPage.havingBowelMovementsInPlacesInappropriateOrNotSociallyAcceptableYesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5451,7 +5453,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.whatMedicationsHaveBeenUsedToTreatEncopresisTextBox);
 		rASSurveyPage.whatMedicationsHaveBeenUsedToTreatEncopresisTextBox.sendKeys(encopresisMedication);
 		rASSurveyPage.atWhatAgeWereTheseMedicationsUsedTextBox.sendKeys(encopresisAge);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5463,7 +5465,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.howMuchWeightHasBeenLostTextBox.sendKeys(amountOfWeightLost);
 		rASSurveyPage.overWhatTimePeriodDidThisWeightLossOccur30DaysTextBox.sendKeys(timeOfWeightLost);
 		rASSurveyPage.hasTheWeightBeenGainedBackYesNoYesTextBox.sendKeys(gainedBackWeight);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5476,7 +5478,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.whatSupplementalNutritionHaveBeenTakenPleaseSelectAllThatApplyDrinkPediasureCheckBox.click();
 		rASSurveyPage.whatSupplementalNutritionHaveBeenTakenPleaseSelectAllThatApplyTubeFeedingCheckBox.click();
 		rASSurveyPage.whatSupplementalNutritionHaveBeenTakenPleaseSelectAllThatApplyTPNCheckBox.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5485,7 +5487,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5496,7 +5498,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		CommonUtils.selectDropDownValue(ageOfToiletTraining,
 				rASSurveyPage.atWhatAgeApproximatelyWereYouToiletTrainedProxyDropDown);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5506,7 +5508,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.isTheToiletConsistentlyUsedForAllUrinationYesRadioButton);
 		rASSurveyPage.isTheToiletConsistentlyUsedForAllUrinationYesRadioButton.click();
 		rASSurveyPage.haveThereBeenAnyEpisodesOfRepeatedUrinaryAccidentsAfterBeingToiletTrainedYesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5518,7 +5520,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.haveThereBeenAnyEpisodesOfRepeatedBowelMovementAccidentsAfterBeingToiletTrainedYesRadioButton
 				.click();
 		rASSurveyPage.isTherePainWithBowelMovementsYesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5529,7 +5531,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		CommonUtils.selectDropDownValue(amountOfBowelMovements,
 				rASSurveyPage.howManyBowelMovementsDoYouHavePerWeekProxyDropDown);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5540,7 +5542,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		CommonUtils.selectDropDownValue(time,
 				rASSurveyPage.whatIsTheLongestAmountOfTimeThatHasPassedWithoutYouHavingABowelMovementProxyDropDown);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5554,12 +5556,12 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.bristolStoolChartShownBelowAndSelectTheChoiceThatBestRepresentsWhatTypicalBowelMovementsLookLikeType1RadioButton
 				.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollDown(500);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(
 				rASSurveyPage.bristolStoolChartShownBelowAndSelectTheChoiceThatBestRepresentsWhatTypicalBowelMovementsLookLikeType1RadioButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5568,7 +5570,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5581,10 +5583,10 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.pleaseIndicateWhichOfTheFollowingProceduresHaveBeenPerformedPleaseSelectAllThatApplyOtherGITestPleaseSpecifyExamTextBox
 				.sendKeys(otherGiTests);
 		JavascriptUtils.scrollUp(500);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(
 				rASSurveyPage.pleaseIndicateWhichOfTheFollowingProceduresHaveBeenPerformedPleaseSelectAllThatApplyOtherGITestPleaseSpecifyExamTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5642,11 +5644,11 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.analFissuresExamHospitalNameCityStateProvinceCountryTextBox.sendKeys("INOVA, FAIRFAX VA");
 		rASSurveyPage.analFissuresExamPleaseSelectThisColumnIfOnlyOneProcedureHasBeenPerformedRadioButton.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.digitalRectalExamMmYyOrDontKnowTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5654,7 +5656,7 @@ public class RASSurveySteps extends PageInitializer {
 	public void clicks_Next_button_for_The_next_set_of_questions_ask_about_breathing_and_the_lungs_myRAS_Survey() {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5663,7 +5665,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5675,7 +5677,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.nameOfPhysicianProxyTextBox.sendKeys(pulmonologistDoctor);
 		rASSurveyPage.locationPulmonologistCityStateCountryProxyTextBox.sendKeys(pulmonologistLocation);
 		rASSurveyPage.hospitalAndMedicalCenterAffiliationTestProxyTextBox.sendKeys(pulmonologistHospital);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5684,7 +5686,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5693,7 +5695,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5702,7 +5704,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5711,7 +5713,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5719,7 +5721,7 @@ public class RASSurveySteps extends PageInitializer {
 	public void clicks_Next_button_for_The_next_set_of_questions_will_ask_about_oral_health_and_dental_history_myRAS_Survey() {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5728,7 +5730,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5741,7 +5743,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.nameOfDentistTextBox.sendKeys(dentistName);
 		rASSurveyPage.cityStateTextBox.sendKeys(dentistLocation);
 		rASSurveyPage.medicalCenterOrDentalGroupAffiliationTextBox.sendKeys(medicalCenter);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5751,7 +5753,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.whenDidYouLastVisitADentistTextBox);
 		rASSurveyPage.whenDidYouLastVisitADentistTextBox.sendKeys(lastVisit);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5760,7 +5762,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.cleaningProxyRadioButton);
 		rASSurveyPage.cleaningProxyRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5769,7 +5771,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5778,7 +5780,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5787,7 +5789,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5796,7 +5798,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5805,7 +5807,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5814,7 +5816,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5823,7 +5825,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5832,7 +5834,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.overallHealthOfTeethAndGumsFairProxyRadioButton);
 		rASSurveyPage.overallHealthOfTeethAndGumsFairProxyRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5841,7 +5843,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.overallRateDentalHygeneFairProxyRadioButton);
 		rASSurveyPage.overallRateDentalHygeneFairProxyRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5850,7 +5852,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5859,7 +5861,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5868,7 +5870,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5877,7 +5879,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5886,7 +5888,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5895,7 +5897,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5904,7 +5906,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5915,7 +5917,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.didTheFacialOrDentalTraumaRequireSurgeryYesRadioButton);
 		rASSurveyPage.didTheFacialOrDentalTraumaRequireSurgeryYesRadioButton.click();
 		rASSurveyPage.yesPleaseSpecifyTextBox.sendKeys(jawSurgery);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5924,7 +5926,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -5934,7 +5936,7 @@ public class RASSurveySteps extends PageInitializer {
 			String mouthCancer) {
 		MiscUtils.sleep(1000);
 		rASSurveyPage.yesPleaseSpecifyTextBox.sendKeys(mouthCancer);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5943,7 +5945,7 @@ public class RASSurveySteps extends PageInitializer {
 			String jawAbnormality) {
 		MiscUtils.sleep(1000);
 		rASSurveyPage.yesPleaseSpecifyTextBox.sendKeys(jawAbnormality);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -5953,7 +5955,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5962,7 +5964,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5971,7 +5973,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5980,7 +5982,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -5993,7 +5995,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.overallIsThereAnythingUnusualAboutYourTeethOrMouthYesPleaseSpecifyWhatIsUnusualProxyRadioButton
 				.click();
 		rASSurveyPage.yesPleaseSpecifyWhatIsUnusualRadioButton.sendKeys(anythingUnusual);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6005,7 +6007,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.troublePronouncingWordsBecauseOfProblemsWithTeethMouthOrDenturesOcassionallyProxyRadioButton
 				.click();
 		JavascriptUtils.scrollDown(75);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6017,7 +6019,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.haveYouFeltYourSenseOfTasteWorsenedBecauseOfProblemsWithTeethMouthOrDenturesOcassionallyProxyRadioButton
 				.click();
 		JavascriptUtils.scrollDown(75);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6027,7 +6029,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.haveYouHadPainfulAchingInYourMouthOcassionallyProxyRadioButton);
 		rASSurveyPage.haveYouHadPainfulAchingInYourMouthOcassionallyProxyRadioButton.click();
 		JavascriptUtils.scrollDown(75);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6039,7 +6041,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.haveYouFoundItUnconfortableToEatFoodsBecauseOfProblemsWithTeethMouthOrDenturesOcassionallyProxyRadioButton
 				.click();
 		JavascriptUtils.scrollDown(75);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6050,7 +6052,7 @@ public class RASSurveySteps extends PageInitializer {
 				rASSurveyPage.areYouSelfConsciousBecauseOfYourTeethMouthOrDenturesOccasionallyProxyRadioButton);
 		rASSurveyPage.areYouSelfConsciousBecauseOfYourTeethMouthOrDenturesOccasionallyProxyRadioButton.click();
 		JavascriptUtils.scrollDown(75);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6061,7 +6063,7 @@ public class RASSurveySteps extends PageInitializer {
 				rASSurveyPage.haveYouFeltTenseBecauseOfProblemsWithYourTeethMouthOrDenturesOccasionallyProxyRadioButton);
 		rASSurveyPage.haveYouFeltTenseBecauseOfProblemsWithYourTeethMouthOrDenturesOccasionallyProxyRadioButton.click();
 		JavascriptUtils.scrollDown(75);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6073,7 +6075,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.hasYourDietBeenUnsatisfactoryBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyProxyRadioButton
 				.click();
 		JavascriptUtils.scrollDown(75);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6085,7 +6087,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.haveYouHadToInterruptMealsBeacuseOfProblemsWithTeethMouthOrDenturesOccasionallyProxyRadioButton
 				.click();
 		JavascriptUtils.scrollDown(75);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6097,7 +6099,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.haveYouFoundItDifficultToRelaxBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyProxyRadioButton
 				.click();
 		JavascriptUtils.scrollDown(75);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6109,7 +6111,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.haveYouBeenABitEmbarrassedBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyProxyRadioButton
 				.click();
 		JavascriptUtils.scrollDown(75);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6121,7 +6123,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.haveYouBeenIrritableWithOtherPeopleBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyProxyRadioButton
 				.click();
 		JavascriptUtils.scrollDown(75);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6133,7 +6135,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.haveYouHadDifficultyDoingYourUsualJobsBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyProxyRadioButton
 				.click();
 		JavascriptUtils.scrollDown(75);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6145,7 +6147,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.haveYouFeltThatLifeInGeneralIsLessSatisfyingBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyProxyRadioButton
 				.click();
 		JavascriptUtils.scrollDown(75);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6157,7 +6159,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.haveYouBeenTotallyUnableToFunctionBecauseOfProblemsWithTeethMouthOrDenturesOccasionallyProxyRadioButton
 				.click();
 		JavascriptUtils.scrollDown(75);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6165,7 +6167,7 @@ public class RASSurveySteps extends PageInitializer {
 	public void clicks_Next_button_The_next_set_of_questions_ask_about_fluid_balance_and_if_any_fluid_builds_up_throughout_the_body_myRAS_Survey() {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6174,7 +6176,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6186,9 +6188,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherLymphaticDiagnosis);
 		JavascriptUtils.scrollUp(500);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.otherPleaseSpecifyTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6234,11 +6236,11 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.poorLymphaticDrainageNameOfTreatingHospitalOrPhysicianAndAddressOfHospitalTextBox
 				.sendKeys("INOVA URGENT CARE - NORTH' ARLINGTON, 4600 LEE HWY, ARLINGTON, VA , USA");
 		JavascriptUtils.scrollUp(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.neonatalLymphedemaAgeOfFirstSymptomsTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -6247,7 +6249,7 @@ public class RASSurveySteps extends PageInitializer {
 	public void click_Next_button_for_The_next_set_of_questions_will_ask_about_the_kidneys_myRAS_Survey() {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -6257,7 +6259,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6270,7 +6272,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.informationForNephrologistNameOfDoctorTextBox.sendKeys(neuphrologistDoctor);
 		rASSurveyPage.informationForNephrologistCityStateTextBox.sendKeys(neuphrologistLocation);
 		rASSurveyPage.informationForANephrologistHospitalOrMedicalAffiliationTextBox.sendKeys(neuphrologistHospital);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -6280,7 +6282,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6291,9 +6293,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherDiagnosedKidneyProblems);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6327,9 +6329,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherKidneyMedicationTypeTextBox.sendKeys("ISONIAZID");
 		rASSurveyPage.otherKidneyAddressTextBox.sendKeys("DOCTOR \"KID\" CLAY");
 		JavascriptUtils.scrollUp(500);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6337,7 +6339,7 @@ public class RASSurveySteps extends PageInitializer {
 	public void clicks_Next_button_for_The_next_set_of_questions_ask_about_hair_and_skin_qualities_myRAS_Survey() {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6346,7 +6348,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -6360,7 +6362,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.nameOfPhysicianDermatologistProxyTextBox.sendKeys(dermatologistDoctor);
 		rASSurveyPage.cityStateProxyTextBox.sendKeys(dermatologistLocation);
 		rASSurveyPage.hospitalOrMedicalCenterAffiliationProxyTextBox.sendKeys(dermatologistHospital);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6373,9 +6375,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes();
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherHairCondition);
 		JavascriptUtils.scrollUp(500);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6384,7 +6386,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -6398,9 +6400,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxesAnd("No known thickened/hyperkeratotic skin issues", "Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherSkinIssue);
 		JavascriptUtils.scrollUp(500);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -6413,9 +6415,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxesAnd("Unsure/Unknown", "No known pigmented skin findings");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherPigmentedSkinIssue);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6425,7 +6427,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.threeOrMoreHemangiomasRadioButton);
 		rASSurveyPage.threeOrMoreHemangiomasRadioButton.click();
 		JavascriptUtils.scrollDown(75);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6437,9 +6439,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxesAnd("No known skin tumors", "Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherSkinTumor);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6448,7 +6450,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6458,7 +6460,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6471,7 +6473,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.nameOfPhysicianProxyTextBox.sendKeys(orthapaedicDoctor);
 		rASSurveyPage.cityStateProxyTextBox.sendKeys(orthapaedicLocation);
 		rASSurveyPage.hospitalOrMedicalCenterAffiliationProxyTextBox.sendKeys(orthapaedicHospital);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6483,9 +6485,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxesAnd("No known thoracic area skeletal issues", "Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherSkeletalCondition);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6495,7 +6497,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6507,9 +6509,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherSpineCondition);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6539,9 +6541,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherSpineDiagnosisAgeTextBox.sendKeys("19");
 		rASSurveyPage.otherSpineTreatmentTextBox.sendKeys("SPINAL STEROID INJECTIONS");
 		JavascriptUtils.scrollUp(500);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -6552,7 +6554,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6562,7 +6564,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6575,9 +6577,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherJointIssue);
 		JavascriptUtils.scrollUp(500);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6618,13 +6620,13 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherJointDiagnosisAgeTextBox.sendKeys("19");
 		rASSurveyPage.otherJointTreatmentTextBox.sendKeys("NSAIDS");
 		JavascriptUtils.scrollUp(1500);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.ulnarDeviationFirstSymptomsDateTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.achillesTendonFirstSymptomsDateTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6633,7 +6635,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6643,7 +6645,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6656,7 +6658,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.nameOfPhysicianProxyTextBox.sendKeys(hematologistDoctor);
 		rASSurveyPage.cityStateProxyTextBox.sendKeys(hematologistLocation);
 		rASSurveyPage.hospitalOrMedicalCenterAffiliationProxyTextBox.sendKeys(hematologistHospital);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6666,7 +6668,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6678,9 +6680,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherBloodIssue);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6715,13 +6717,13 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherBleedingMedicationTypeTextBox.sendKeys("BLOOD TRANSFUSION");
 		rASSurveyPage.otherBleedingAddressTextBox.sendKeys("CLEVELAND CLINIC, OH");
 		JavascriptUtils.scrollUp(1200);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.easyBruisingFirstSymptomsDateTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.plateletDysfunctionFirstSymptomsDateTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -6732,7 +6734,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6746,9 +6748,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherLeukemiaTextBox.sendKeys(otherLeukemia);
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherBloodDisorder);
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -6807,11 +6809,11 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherBloodDisordersMedicationTypeTextBox.sendKeys("TARGETED THERAPY");
 		rASSurveyPage.otherBloodDisordersAddressTextBox.sendKeys("CLEVELAND CLINIC, OH");
 		JavascriptUtils.scrollUp(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.splenomegalyFirstSymptomsDateTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6825,9 +6827,9 @@ public class RASSurveySteps extends PageInitializer {
 		JavascriptUtils.scrollIntoView(rASSurveyPage.otherConditionTextBox);
 		rASSurveyPage.otherConditionTextBox.sendKeys(otherTumor);
 		JavascriptUtils.scrollUp(500);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6867,9 +6869,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherTumorDisorderDiagnosisAgeTextBox.sendKeys("21");
 		rASSurveyPage.otherTumorDisorderYesProxyRadioButton.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.pigmentedVilonodulousFirstSymptomsDateTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -6880,7 +6882,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6890,7 +6892,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6903,7 +6905,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.nameOfPhysicianProxyTextBox.sendKeys(immunologistDoctor);
 		rASSurveyPage.cityStateProxyTextBox.sendKeys(immunologistLocation);
 		rASSurveyPage.hospitalOrMedicalCenterAffiliationProxyTextBox.sendKeys(immunologistHospital);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6915,9 +6917,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherInfectionFrequency);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6946,9 +6948,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherFrequentInfectionsFormalDiagnosisMedicationTypeTextBox.sendKeys("NAPROXEN");
 		rASSurveyPage.otherFrequentInfectionsFormalDiagnosisAddressTextBox.sendKeys("DOCTOR ROCHELLE VIYA");
 		JavascriptUtils.scrollUp(500);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -6959,7 +6961,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -6972,9 +6974,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherAutomimmuneTextBox.sendKeys(otherAutoimmuneCondition);
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherAutoimmuneBloodCondition);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7015,11 +7017,11 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherAutomimmuneBloodConditionAddressTextBox
 				.sendKeys("DOCTOR JOHN LENNON, BRIDGEPOINT HOSPITAL CAPITOL HILL, DC");
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollDown(400);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7028,7 +7030,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7038,7 +7040,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7051,7 +7053,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.nameOfPhysicianProxyTextBox.sendKeys(neurologistDoctor);
 		rASSurveyPage.cityStateProxyTextBox.sendKeys(neurologistLocation);
 		rASSurveyPage.hospitalOrMedicalCenterAffiliationProxyTextBox.sendKeys(neurologistHospital);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7061,7 +7063,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7073,9 +7075,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherBrainIssue);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7115,13 +7117,13 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherNeurologicalDiagnosisAgeTextBox.sendKeys("15");
 		rASSurveyPage.otherNeurologicalMedicationTypeTextBox.sendKeys("VITAMIN SUPPLEMENT AGE 15");
 		JavascriptUtils.scrollUp(1400);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollDown(400);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollDown(400);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 
 	}
@@ -7132,7 +7134,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7144,9 +7146,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherSeizureType);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7181,9 +7183,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherEpilepsyDiagnosisAgeTextBox.sendKeys("15");
 		rASSurveyPage.otherEpilepsyMedicationTypeTextBox.sendKeys("PHENOBARBITAL AGE 15");
 		JavascriptUtils.scrollUp(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7193,7 +7195,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7206,7 +7208,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.nameOfPhysicianProxyTextBox.sendKeys(behavioralDoctor);
 		rASSurveyPage.cityStateProxyTextBox.sendKeys(behavioralLocation);
 		rASSurveyPage.hospitalOrMedicalCenterAffiliationProxyTextBox.sendKeys(behavioralHospital);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7216,7 +7218,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7229,11 +7231,11 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherBehavorialCondition);
 		JavascriptUtils.scrollUp(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.xpathForAllCheckBoxes.get(3));
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7293,13 +7295,13 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherBehavioralDiagnosisAgeTextBox.sendKeys("31");
 		rASSurveyPage.otherBehavioralTreatmentTextBox.sendKeys("SPECIAL EDUCATION CLASSES");
 		JavascriptUtils.scrollUp(1400);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollDown(400);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollDown(400);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7310,7 +7312,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.additionalNeurologicConditionsTextBox);
 		rASSurveyPage.additionalNeurologicConditionsTextBox.sendKeys(otherNeurologicCondition);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7318,7 +7320,7 @@ public class RASSurveySteps extends PageInitializer {
 	public void clicks_Next_button_for_The_next_set_of_questions_ask_about_vision_and_hearing_page_myRASSurvey() {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7328,7 +7330,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7338,7 +7340,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7348,7 +7350,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7361,9 +7363,9 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherVisionCondition);
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7403,11 +7405,11 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherEyeSightDiagnosisAgeTextBox.sendKeys("22");
 		rASSurveyPage.otherEyeSightMedicationTypeTextBox.sendKeys("LOWER INTRAOCULAR PRESSURE");
 		JavascriptUtils.scrollUp(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.neurologicalVisualFirstSymptomsDateTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7417,7 +7419,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7433,7 +7435,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.strabismusDiagnosisDateTextBox.sendKeys(strabismusDiagnosisDate);
 		rASSurveyPage.strabismusDiagnosisAgeTextBox.sendKeys(strabismusDiagnosisAge);
 		rASSurveyPage.occlusionTreatmentTextBox.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7443,7 +7445,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7460,7 +7462,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.nystagmusDiagnosisAgeTextBox.sendKeys(nystagmusDiagnosisAge);
 		rASSurveyPage.yesNystagmusTreatmentRadioButton.click();
 		rASSurveyPage.mildNystagmusRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7470,7 +7472,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.yesRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7482,9 +7484,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxes("Unsure/Unknown");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherHearingLoss);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7522,11 +7524,11 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.otherHearingLossDiagnosisAgeTextBox.sendKeys("26");
 		rASSurveyPage.yesOtherTreatmentProxyRadioButton.click();
 		JavascriptUtils.scrollUp(800);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.sensorineuralFirstSymptomsDateTextBox);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7538,9 +7540,9 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.otherPleaseSpecifyTextBox);
 		rASSurveyStepsImpl.selectingCheckBoxesAnd("Unsure/Unknown", "No known ear issues");
 		rASSurveyPage.otherPleaseSpecifyTextBox.sendKeys(otherEarIssues);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7551,7 +7553,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.anyOtherHealthIssuesTextBox.sendKeys(otherHealthIssues);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7597,7 +7599,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.cHARMSEmailLogIn);
 		rASSurveyPage.cHARMSEmailLogIn.sendKeys("charmsras5@yahoo.com");
 		rASSurveyPage.cHARMSpasswordToLogIn.sendKeys(rasSurveyPin);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7611,7 +7613,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7622,7 +7624,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.bioMothersBirthCityTextBox);
 		rASSurveyPage.motherUnsureUnknownBirthplaceRadioButton.click();
 		rASSurveyPage.fatherUnsureUnknownBirthplaceRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7632,7 +7634,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknown2RadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7642,7 +7644,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(rASSurveyPage.unsureUnknownRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7655,7 +7657,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7665,7 +7667,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7675,7 +7677,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7685,7 +7687,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7695,7 +7697,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7705,7 +7707,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7715,7 +7717,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7725,7 +7727,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7735,7 +7737,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7745,7 +7747,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7755,7 +7757,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7765,7 +7767,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7775,7 +7777,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7785,7 +7787,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7795,7 +7797,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7805,7 +7807,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7815,7 +7817,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7825,7 +7827,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7835,7 +7837,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7845,7 +7847,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7855,7 +7857,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7865,7 +7867,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7875,7 +7877,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7885,7 +7887,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7895,7 +7897,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7904,7 +7906,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7914,7 +7916,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7924,7 +7926,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7939,7 +7941,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.unsureUnknownDateOrAgeDiagnosisDontKnowTextBox
 				.sendKeys(dontKnowDateOrAgeOfDiagnosisUnsureUnknown);
 		rASSurveyPage.unsureDontKnowTreatmentRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7948,7 +7950,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7958,7 +7960,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7968,7 +7970,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7978,7 +7980,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.unsureUnknownCheckBox.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7987,7 +7989,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -7997,7 +7999,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.unsureUnknownCheckBox.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8009,7 +8011,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.otherConditionTextBox.click();
 		rASSurveyPage.otherConditionTextBox.sendKeys(otherHairConditionUnsureUnknown);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8019,7 +8021,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8029,7 +8031,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.unsureUnknownCheckBox.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8039,7 +8041,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.unsureUnknownCheckBox.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8049,7 +8051,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8059,7 +8061,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.unsureUnknownCheckBox.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8068,7 +8070,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8078,7 +8080,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8088,7 +8090,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.unsureUnknownCheckBox.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8098,7 +8100,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8108,7 +8110,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.unsureUnknownCheckBox.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8118,7 +8120,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8128,7 +8130,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8138,7 +8140,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.unsureUnknownCheckBox.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8147,7 +8149,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8157,7 +8159,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8167,7 +8169,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8177,7 +8179,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.unsureUnknownCheckBox.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8187,7 +8189,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8197,7 +8199,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.unsureUnknownCheckBox.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8207,7 +8209,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.unsureUnknownCheckBox.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8217,7 +8219,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8227,7 +8229,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8237,7 +8239,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.unsureUnknownCheckBox.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8247,7 +8249,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8257,7 +8259,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.unsureUnknownCheckBox.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8266,7 +8268,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8276,7 +8278,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8287,7 +8289,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8297,7 +8299,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.unsureUnknownCheckBox.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8307,7 +8309,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8317,7 +8319,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.unsureUnknownCheckBox.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8327,7 +8329,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8337,7 +8339,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8347,7 +8349,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.unsureUnknownCheckBox.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8358,7 +8360,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.additionalNeurologicConditionsTextBox.sendKeys(otherNeurologicalConditionsUnsureUnknown);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8367,7 +8369,7 @@ public class RASSurveySteps extends PageInitializer {
 
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8377,7 +8379,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8387,7 +8389,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8398,7 +8400,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8408,7 +8410,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.unsureUnknownCheckBox.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8418,7 +8420,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8428,7 +8430,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8438,7 +8440,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.yesRadioButton);
 		rASSurveyPage.unsureUnknownRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8450,7 +8452,7 @@ public class RASSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.otherConditionTextBox.click();
 		rASSurveyPage.otherConditionTextBox.sendKeys(otherHearingLossUnsureUnknown);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8466,7 +8468,7 @@ public class RASSurveySteps extends PageInitializer {
 		rASSurveyPage.unsureUnknownDateOrAgeDiagnosisDontKnowTextBox
 				.sendKeys(dontKnowUnsureUnknownDateOrAgeOfDiagnosisHearingLoss);
 		rASSurveyPage.unsureDontKnowTreatmentRadioButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8476,7 +8478,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.unsureUnknownCheckBox.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 
@@ -8487,7 +8489,7 @@ public class RASSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(rASSurveyPage.surveyNextButton);
 		rASSurveyPage.anyOtherHealthIssuesTextBox.sendKeys(otherIssuesUnsureUnknown);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		rASSurveyPage.surveyNextButton.click();
 	}
 

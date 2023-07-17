@@ -2128,12 +2128,21 @@ public class CHARMSNativeViewPage extends CommonUtils {
         return WebDriverUtils.webDriver.findElement(By.xpath("(//*[text()='" + text + "']//parent::div//parent::div//parent::div)[1]/div[1]/following-sibling::div/div/div[3]/div/div/span/a"));
     }
 
+    /**
+     * Dashboard module link
+     */
+    @FindBy(xpath = "(//div[text()='Dashboard'])[3]")
+    public WebElement dashboardModuleLink;
+
+    /**
+     * NATIVE VIEW iFRAME
+     */
+    @FindBy(xpath = "//iframe[@id='gsft_main']")
+    public WebElement nativeViewIframe;
 
     /* ********** END OF Native view RAS Survey Data Verification ********** */
 
     /* **************************************************** */
-
-
     public CHARMSNativeViewPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

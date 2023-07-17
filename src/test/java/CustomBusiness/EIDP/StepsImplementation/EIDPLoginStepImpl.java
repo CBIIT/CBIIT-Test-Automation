@@ -1,5 +1,6 @@
 package CustomBusiness.EIDP.StepsImplementation;
 
+import CustomBusiness.EIDP.Steps.HooksSteps;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.EncryptionUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -52,8 +53,8 @@ public class EIDPLoginStepImpl extends PageInitializer {
 			CommonUtils.clickOnElement(nihLoginPage.changeUserButton);
 			CommonUtils.clickOnElement(nihLoginPage.changeUserDropdown);
 			CommonUtils.sendKeys(nihLoginPage.searchableChangeUserInput, username);
-			CucumberLogUtils.logScreenShot();
-			MiscUtils.sleep(4000);
+			MiscUtils.sleep(1000);
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 			CommonUtils.clickOnElement(nihLoginPage.changeUserOption);
 	
 	}
@@ -69,5 +70,24 @@ public class EIDPLoginStepImpl extends PageInitializer {
 		}
 		System.out.println("Updated name as LastName, FirstName = " + userName);
 		return userName;
+	}
+
+	public void changeUserToTrainee(String username) {
+		try {
+			Thread.sleep(3000);
+			eidpBasePage.scrollToElement(nihLoginPage.changeUserButton);
+			CommonUtils.click(nihLoginPage.changeUserButton);
+			CommonUtils.click(nihLoginPage.changeUserDropdown);
+			Thread.sleep(1000);
+			CommonUtils.sendKeys(nihLoginPage.searchableChangeUserInput, username);
+			Thread.sleep(3000);
+			CommonUtils.waitForVisibility(nihLoginPage.changeUserOption);
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CommonUtils.click(nihLoginPage.changeUserOption);
+			Thread.sleep(1000);
+
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+		}
 	}
 }

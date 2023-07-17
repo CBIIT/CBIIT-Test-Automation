@@ -1,5 +1,7 @@
 package AnalysisTools.CEDCD.Steps;
 
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 import com.nci.automation.utils.CucumberLogUtils;
@@ -7,8 +9,8 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.JavascriptUtils;
 
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+//import cucumber.api.java.en.Then;
+//import cucumber.api.java.en.When;
 
 public class CEDCDBiospecimenCountClearAllSteps extends PageInitializer {
 
@@ -41,7 +43,7 @@ public class CEDCDBiospecimenCountClearAllSteps extends PageInitializer {
 	public void the_user_searches_results() throws InterruptedException  {
 
 		JavascriptUtils.clickByJS(cedcdBiospecimenCountsPage.biospecimenSubmitBtn);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Thread.sleep(1000);
 		
 
@@ -51,7 +53,7 @@ public class CEDCDBiospecimenCountClearAllSteps extends PageInitializer {
 	@When("the user clicks on the Clear All button")
 	public void the_user_clicks_on_the_Clear_All_button() {
 		JavascriptUtils.clickByJS(cedcdBiospecimenCountsPage.biospecimenClearAllBtn);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	/**

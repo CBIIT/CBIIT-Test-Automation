@@ -1,5 +1,6 @@
 package AnalysisTools.CEDCD.StepsImplementation;
 
+import AnalysisTools.CEDCD.Steps.HooksSteps;
 import org.junit.Assert;
 
 import com.nci.automation.utils.CucumberLogUtils;
@@ -15,7 +16,7 @@ public class CEDCDSearchCohortNewPageLayOutStepImp extends PageInitializer{
 		JavascriptUtils.drawBlueBorder(cedcdSearchCohortsPage.cohortEligibilityRequirementsSection);
 		JavascriptUtils.drawRedBorder(cedcdSearchCohortsPage.cohortEnrollmentSection);
 		JavascriptUtils.drawBlueBorder(cedcdSearchCohortsPage.cohortDataAndSpecimenCollectedSection);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Assert.assertTrue(cedcdSearchCohortsPage.cohortEligibilityRequirementsSection.isDisplayed());
 		Assert.assertTrue(cedcdSearchCohortsPage.cohortEnrollmentSection.isDisplayed());
 		Assert.assertTrue(cedcdSearchCohortsPage.cohortDataAndSpecimenCollectedSection.isDisplayed());
