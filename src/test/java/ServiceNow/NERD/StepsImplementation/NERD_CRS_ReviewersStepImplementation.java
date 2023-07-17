@@ -66,7 +66,6 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
                 metastatic, minorityHealthHealthDisparities, moonshot, partnerships, pediatric, rare,
                 reportGuidancePolicy, sexGenderDifferences, trainingWorkforceDevelopment, womensHealth, workforce};
         String[] actualValue = new String[expectedValues.length];
-
         for (int i = 0; i < actualValue.length; i++) {
             actualValue[i] = nerdCrsKnowledgeDatabaseSubmissionsPage.nerdSpecialTopicsDDvalues.get(i)
                     .getText().trim();
