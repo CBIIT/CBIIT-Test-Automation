@@ -34,6 +34,7 @@ public class ESRDashboardPageSteps extends PageInitializer {
     @Then("user is directed to the create ESR page where {string} and {string} are displayed")
     public void user_is_directed_to_the_create_esr_page_where_and_are_displayed(String expectedOrganizationalAffiliationTextForESR, String expectedShoppingCartTextESR) {
         CommonUtils.waitForVisibility(nciNativeViewPage.organizationalAffiliationTextForESR);
+
         String actualOrganizationalAffiliationTextForESR = nciNativeViewPage.organizationalAffiliationTextForESR.getText();
         CommonUtils.assertEquals(expectedOrganizationalAffiliationTextForESR, actualOrganizationalAffiliationTextForESR);
 
