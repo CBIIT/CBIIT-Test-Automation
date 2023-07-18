@@ -27,5 +27,4 @@ public class NCINativeViewPage {
     /** Organizational Affiliation text in ESR */
     @FindBy(xpath = "//span[@aria-label='Organizational Affiliation']")
     public WebElement organizationalAffiliationTextForESR;
-
 }

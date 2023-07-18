@@ -397,7 +397,6 @@ public class PageInitializer {
 
         nciNativeViewPage = new NCINativeViewPage();
 
-
         /** --------------- CUSTOM BUSINESS APP INSTANCE VARIABLES --------------- */
         /** EIDP Instance Variables */
         aligningExpectationsPage = new AligningExpectationsPage();
