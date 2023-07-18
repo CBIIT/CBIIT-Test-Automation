@@ -47,6 +47,10 @@ public class CRS_Reviewers_Steps extends PageInitializer {
             String omContentTypeOtherPleaseSpecify) {
         NERDApplicationStepsImplementation.pleaseSpecifyFieldIsDisplayed(omContentTypeOtherPleaseSpecify);
     }
+    @Then("the following check box option is displayed as COVID19 Leadership Messages {string}")
+    public void the_following_check_box_option_is_displayed_as_covid_leadership_messages( String covid19LeadershipMessages) {
+        NERD_CRS_ReviewersStepImplementation.theFollowingCheckBoxOptionIsDisplayed(covid19LeadershipMessages);
+    }
 
     @Given("a CRS Reviewer is on the NERD Knowledge Base page")
     public void a_CRS_Reviewer_is_on_the_NERD_Knowledge_Base_page() throws TestingException {

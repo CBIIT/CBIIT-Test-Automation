@@ -21,7 +21,7 @@ public class NERDOGSRMemberOfCongressSteps extends PageInitializer {
 
     @When("the OGCR user clicks the Add New Entry button")
     public void the_ogcr_user_clicks_the_add_new_entry_button() {
-        NERDOGSRMemberOfCongressStepImpl.theOgcrUserClicksTheOutton();
+        NERDOGSRMemberOfCongressStepImpl.theOgcrUserClicksTheButton();
     }
 
     @Then("the Member of Congress drop down field only includes options that have the {string} flag enabled in the Member of Congress table")

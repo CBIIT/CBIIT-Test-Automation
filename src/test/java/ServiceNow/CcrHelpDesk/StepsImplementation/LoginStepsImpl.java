@@ -1,15 +1,11 @@
 package ServiceNow.CcrHelpDesk.StepsImplementation;
 
 import java.util.Set;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
-import com.nci.automation.xceptions.TestingException;
-
 import ServiceNow.ITPG.Pages.LoginPage;
 import ServiceNow.ITPG.Utils.CommonUtils;
 
@@ -60,7 +56,6 @@ public class LoginStepsImpl extends LoginPage {
 		driver.findElement(By.id("user_name")).sendKeys(username);
 		driver.findElement(By.id("user_password")).sendKeys(password);
 		driver.findElement(By.id("sysverb_login")).click();
-
 	}
 
 	/** Native View Button New **/
@@ -139,7 +134,6 @@ public class LoginStepsImpl extends LoginPage {
 		waitForElementToLoad(By.cssSelector(".list2_body"));
 		switchToDefaultFrame();
 		enterText(filterId, value);
-
 	}
 
 	public void clickOnButtonInIframe(String btnName) throws InterruptedException {
