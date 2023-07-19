@@ -12,25 +12,39 @@ Feature: CCR Landing Page Scenarios
   Scenario Outline: Fill In An Application As An Internal User
     And User navigates to "Biostatistician" open vacancy
     And User clicks Apply Now button
-    And User enters "<firstname>" into a first name field
-    And User enter "<middlename>" into a middle name field
-    And User enter "<lastname>" into a last name field
-    And User enter "<email>" into an email field
-    And User enter "<phone>" into a phone field
-    And User enter "<businessphone>" into a business phone field
+    And User enters "<firstName>" into a first name field
+    And User enter "<middleName>" into a middle name field
+    And User enters "<lastName>" into a last name field
+    And User enters "<email>" into an email field
+    And User enters "<phone>" into a phone field
+    And User enters "<businessPhone>" into a business phone field
     And User selects " Ph.D. " from a degree dropdown
-    And User enter "<otherdegree(s)>" into an other degree field
+    And User enters "<otherDegree(s)>" into an other degree field
     And User confirms that User is a US Citizen
-    And User clicks Basic Information Section Next button
-    And User enter "<address>" into an address field
-    And User enter "<address2>" into an address2 field
-    And User enter "<city>" into a city field
-    And User enter "<state>" into a state field
-    And User enter "<zip>" into a zip field
-    And User selects United States from a country dropdown
-    And User clicks Address Section Next button
+    And User clicks Next button for "Basic Information" section
+    And User enters "<address>" into an address field
+    And User enters "<address2>" into an address2 field
+    And User enters "<city>" into a city field
+    And User enters "<state>" into a state field
+    And User enters "<zip>" into a zip field
+    And User selects United States from a country dropdown for "Address" section
+    And User clicks Next button for "Address" section
+    And User enters "<department>" into a department field
+    And User enters "<institution>" into an institution field
+    And User enters "<businessAddress>" into a business address field
+    And User enters "<businessAddress2>" into a business address2 field
+    And User enters "<businessCity>" into a business city field
+    And User enters "<businessState>" into a business state field
+    And User enters "<businessZip>" into a business zip field
+    And User selects United States from a country dropdown for "Business Address" section
+    And User clicks Next button for "Business Address" section
+    And User uploads "Letter of Interest" document
+    And User uploads "CV/Bibliography" document
+    And User uploads "Upload Diversity Statement" document
+    And User clicks Next button for "Required Documents" section
+
 
     Examples:
-      | firstname | middlename | lastname | email           | phone      | businessphone | otherdegree(s) | address   | address2 | city  | state | zip   |
-      | Elena     | Maria      | Beloli   | elena@gmail.com | 2012212343 | 2023323454    | MBA            |  7 Mills  | Drive    | Reston| VA    | 20453 |
+      | firstName | middleName | lastName | email           | phone      | businessPhone | otherDegree(s) | address   | address2 | city  | state | zip   | department | institution | businessAddress |  businessAddress2 | businessCity | businessState | businessZip |
+      | Elena     | Maria      | Beloli   | elena@gmail.com | 2012212343 | 2023323454    | MBA            |  7 Mills  | Drive    | Reston| VA    | 20453 | Research   |  NCI        | 43 Cal Dr       |  Full Circuit     | Mclean       | VA            | 20567       |
 

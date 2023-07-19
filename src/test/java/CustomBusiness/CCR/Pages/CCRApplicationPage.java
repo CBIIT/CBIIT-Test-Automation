@@ -58,4 +58,32 @@ public class CCRApplicationPage extends CommonUtils {
     /** Next Button Address Section*/
     @FindBy(xpath = "(//div//button[contains(text(),' Next ')])[2]")
     public WebElement nextButtonAddressSection;
+    /** Next Button Business Address Section*/
+    @FindBy(xpath = "(//div//button[contains(text(),' Next ')])[3]")
+    public WebElement nextButtonBusinessAddressSection;
+    /** Next Button Required Documents Section*/
+    @FindBy(xpath = "(//div//button[contains(text(),' Next ')])[4]")
+    public WebElement nextButtonRequiredDocumentsSection;
+    /**  Department Field */
+    @FindBy(xpath = "//input[@name='business_department']")
+    public WebElement departmentField;
+    /**  Institution Field */
+    @FindBy(xpath = "//input[@name='business_institution']")
+    public WebElement institutionField;
+    /**  Business Address Field */
+    @FindBy(xpath = "//input[@name='business_address']")
+    public WebElement businessAddressField;
+    /**  Business Address2 Field */
+    @FindBy(xpath = "//input[@name='business_address_2']")
+    public WebElement businessAddress2Field;
+    /**  Business City Field */
+    @FindBy(xpath = "//input[@name='business_city']")
+    public WebElement businessCityField;
+    /**  Business State Field */
+    @FindBy(xpath = "//input[@name='business_state']")
+    public WebElement businessStateField;
+    /**  Business Zip Field */
+    @FindBy(xpath = "//input[@name='business_zip']")
+    public WebElement businessZipField;
+
 }

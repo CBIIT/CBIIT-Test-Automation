@@ -1,0 +1,74 @@
+package CustomBusiness.CCR.StepsImplementation;
+
+
+import CustomBusiness.CCR.Constants.CCR_CONSTANTS;
+import appsCommon.PageInitializer;
+import com.nci.automation.utils.MiscUtils;
+import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.EnvUtils;
+import com.nci.automation.web.WebDriverUtils;
+import com.nci.automation.xceptions.TestingException;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+public class CCRStepsImplementation extends PageInitializer {
+    public void ccrLogin() throws TestingException {
+        nativeViewLoginImpl.sideDoorAccountLogin();
+        MiscUtils.sleep(2000);
+        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CCR"));
+        MiscUtils.sleep(2000);
+    }
+
+    public void clickNextButton(String sectionName) throws TestingException {
+        switch (sectionName) {
+            case "Basic Information":
+                CommonUtils.waitForVisibility(cCRApplicationPage.nextButtonBasicInfoSection);
+                CommonUtils.clickOnElement(cCRApplicationPage.nextButtonBasicInfoSection);
+                break;
+            case "Address":
+                CommonUtils.waitForVisibility(cCRApplicationPage.nextButtonAddressSection);
+                CommonUtils.clickOnElement(cCRApplicationPage.nextButtonAddressSection);
+                break;
+            case "Business Address":
+                CommonUtils.waitForVisibility(cCRApplicationPage.nextButtonBusinessAddressSection);
+                CommonUtils.clickOnElement(cCRApplicationPage.nextButtonBusinessAddressSection);
+                break;
+            case "Required Documents":
+                CommonUtils.waitForVisibility(cCRApplicationPage.nextButtonRequiredDocumentsSection);
+                CommonUtils.clickOnElement(cCRApplicationPage.nextButtonRequiredDocumentsSection);
+                break;
+        }
+    }
+
+    public void chooseUSA(String sectionName) throws TestingException {
+        switch (sectionName) {
+            case "Address":
+                Select se = new Select(WebDriverUtils.webDriver
+                        .findElement(By.xpath("//select[@id='country']")));
+                se.selectByValue("060f782fdb51f30054d8ff621f96190a");
+                break;
+            case "Business Address":
+                Select s = new Select(WebDriverUtils.webDriver
+                        .findElement(By.xpath("//select[@id='business_country']")));
+                s.selectByValue("060f782fdb51f30054d8ff621f96190a");
+                break;
+        }
+    }
+    public void uploadDocuments(String document) throws TestingException {
+        switch (document) {
+            case "Letter of Interest":
+                WebElement uploadFile1 = WebDriverUtils.getWebDriver().findElement(By.xpath("(//div[@class='input-group-btn']//button[contains(text(),' Choose File ')])[1]"));
+                uploadFile1.sendKeys(CCR_CONSTANTS.LetterOfInterest);
+                break;
+            case "CV/Bibliography":
+                WebElement uploadFile2 = WebDriverUtils.getWebDriver().findElement(By.xpath("(//div[@class='input-group-btn']//button[contains(text(),' Choose File ')])[2]"));
+                uploadFile2.sendKeys(CCR_CONSTANTS.CV);
+                break;
+            case "Upload Diversity Statement":
+                WebElement uploadFile3 = WebDriverUtils.getWebDriver().findElement(By.xpath("(//div[@class='input-group-btn']//button[contains(text(),' Choose File ')])[3]"));
+                uploadFile3.sendKeys(CCR_CONSTANTS.DiversityStatement);
+                break;
+        }
+    }
+}

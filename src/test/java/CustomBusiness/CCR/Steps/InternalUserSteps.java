@@ -17,7 +17,7 @@ public class InternalUserSteps extends PageInitializer {
     public void user_is_on_ccr_landing_page_and_user_is(String user) throws TestingException {
         switch (user) {
             case "internal user":
-                cCRLogInStepsImplementation.ccrLogin();
+                cCRStepsImplementation.ccrLogin();
                 break;
         }
     }
@@ -46,23 +46,23 @@ public class InternalUserSteps extends PageInitializer {
         CommonUtils.waitForVisibility(cCRApplicationPage.middleNameField);
         CommonUtils.sendKeys(cCRApplicationPage.middleNameField,middleName);
     }
-    @Given("User enter {string} into a last name field")
-    public void user_enter_into_a_last_name_field(String lastName) {
+    @Given("User enters {string} into a last name field")
+    public void user_enters_into_a_last_name_field(String lastName) {
         CommonUtils.waitForVisibility(cCRApplicationPage.lastNameField);
         CommonUtils.sendKeys(cCRApplicationPage.lastNameField,lastName);
     }
-    @Given("User enter {string} into an email field")
-    public void user_enter_into_an_email_field(String email) {
+    @Given("User enters {string} into an email field")
+    public void user_enters_into_an_email_field(String email) {
         CommonUtils.waitForVisibility(cCRApplicationPage.emailField);
         CommonUtils.sendKeys(cCRApplicationPage.emailField,email);
     }
-    @Given("User enter {string} into a phone field")
-    public void user_enter_into_a_phone_field(String phone) {
+    @Given("User enters {string} into a phone field")
+    public void user_enters_into_a_phone_field(String phone) {
         CommonUtils.waitForVisibility(cCRApplicationPage.phoneField);
         CommonUtils.sendKeys(cCRApplicationPage.phoneField,phone);
     }
-    @Given("User enter {string} into a business phone field")
-    public void user_enter_into_a_business_phone_field(String businessPhone) {
+    @Given("User enters {string} into a business phone field")
+    public void user_enters_into_a_business_phone_field(String businessPhone) {
         CommonUtils.waitForVisibility(cCRApplicationPage. businessPhoneField);
         CommonUtils.sendKeys(cCRApplicationPage. businessPhoneField,businessPhone);
     }
@@ -71,8 +71,8 @@ public class InternalUserSteps extends PageInitializer {
         Select se = new Select(WebDriverUtils.webDriver
                 .findElement(By.xpath("//select[@id='degree']")));
         se.selectByVisibleText(phd);
-    }    @Given("User enter {string} into an other degree field")
-    public void user_enter_into_an_other_degree_field(String otherDegrees) {
+    }    @Given("User enters {string} into an other degree field")
+    public void user_enters_into_an_other_degree_field(String otherDegrees) {
         CommonUtils.waitForVisibility(cCRApplicationPage.otherDegreesField);
         CommonUtils.sendKeys(cCRApplicationPage.otherDegreesField,otherDegrees);
     }
@@ -80,46 +80,80 @@ public class InternalUserSteps extends PageInitializer {
     public void user_confirms_that_user_is_a_us_citizen() {
         CommonUtils.clickOnElement(cCRApplicationPage.yesUSCitizenOption);
     }
-    @Given("User clicks Basic Information Section Next button")
-    public void user_clicks_basic_information_section_next_button() {
-        CommonUtils.waitForVisibility(cCRApplicationPage.nextButtonBasicInfoSection);
-        CommonUtils.clickOnElement(cCRApplicationPage.nextButtonBasicInfoSection);
-    }
-    @Given("User enter {string} into an address field")
-    public void user_enter_into_an_address_field(String address) {
+    @Given("User enters {string} into an address field")
+    public void user_enters_into_an_address_field(String address) {
         CommonUtils.waitForVisibility(cCRApplicationPage.addressField);
         CommonUtils.sendKeys(cCRApplicationPage.addressField,address);
     }
-    @Given("User enter {string} into an address2 field")
-    public void user_enter_into_an_address2_field(String address2) {
+    @Given("User enters {string} into an address2 field")
+    public void user_enters_into_an_address2_field(String address2) {
         CommonUtils.waitForVisibility(cCRApplicationPage.address2Field);
         CommonUtils.sendKeys(cCRApplicationPage.address2Field,address2);;
     }
-    @Given("User enter {string} into a city field")
-    public void user_enter_into_a_city_field(String city) {
+    @Given("User enters {string} into a city field")
+    public void user_enters_into_a_city_field(String city) {
         CommonUtils.waitForVisibility(cCRApplicationPage.cityField);
         CommonUtils.sendKeys(cCRApplicationPage.cityField,city);
     }
-    @Given("User enter {string} into a state field")
-    public void user_enter_into_a_state_field(String state) {
+    @Given("User enters {string} into a state field")
+    public void user_enters_into_a_state_field(String state) {
         CommonUtils.waitForVisibility(cCRApplicationPage.stateField);
         CommonUtils.sendKeys(cCRApplicationPage.stateField,state);
     }
-    @Given("User enter {string} into a zip field")
-    public void user_enter_into_a_zip_field(String zip) {
+    @Given("User enters {string} into a zip field")
+    public void user_enters_into_a_zip_field(String zip) {
         CommonUtils.waitForVisibility(cCRApplicationPage.zipcodeField);
         CommonUtils.sendKeys(cCRApplicationPage.zipcodeField,zip);
     }
-    @Given("User selects United States from a country dropdown")
-    public void user_selects_united_states_from_a_country_dropdown() {
-        Select se = new Select(WebDriverUtils.webDriver
-                .findElement(By.xpath("//select[@id='country']")));
-        se.selectByValue("060f782fdb51f30054d8ff621f96190a");
+    @Given("User selects United States from a country dropdown for {string} section")
+    public void user_selects_united_states_from_a_country_dropdown_for_section(String country) throws TestingException {
+        cCRStepsImplementation.chooseUSA(country);
     }
-    @Given("User clicks Address Section Next button")
-    public void user_clicks_address_section_next_button() {
-        CommonUtils.waitForVisibility(cCRApplicationPage.nextButtonAddressSection);
-        CommonUtils.clickOnElement(cCRApplicationPage.nextButtonAddressSection);
+   @Given("User clicks Next button for {string} section")
+   public void user_clicks_next_button_for_section(String sectionName) throws TestingException {
+    cCRStepsImplementation.clickNextButton(sectionName);
+   }
+    @Given("User enters {string} into a department field")
+    public void user_enters_into_a_department_field(String department) {
+        CommonUtils.waitForVisibility(cCRApplicationPage.departmentField);
+        CommonUtils.sendKeys(cCRApplicationPage.departmentField,department);
     }
+    @Given("User enters {string} into an institution field")
+    public void user_enters_into_an_institution_field(String institution) {
+        CommonUtils.waitForVisibility(cCRApplicationPage.institutionField);
+        CommonUtils.sendKeys(cCRApplicationPage.institutionField,institution);
+    }
+    @Given("User enters {string} into a business address field")
+    public void user_enters_into_a_business_address_field(String businessAddress) {
+        CommonUtils.waitForVisibility(cCRApplicationPage.businessAddressField);
+        CommonUtils.sendKeys(cCRApplicationPage.businessAddressField,businessAddress);
+    }
+    @Given("User enters {string} into a business address2 field")
+    public void user_enters_into_a_business_address2_field(String businessAddress2) {
+        CommonUtils.waitForVisibility(cCRApplicationPage.businessAddress2Field);
+        CommonUtils.sendKeys(cCRApplicationPage.businessAddress2Field,businessAddress2);
+    }
+    @Given("User enters {string} into a business city field")
+    public void user_enters_into_a_business_city_field(String businessCity) {
+        CommonUtils.waitForVisibility(cCRApplicationPage.businessCityField);
+        CommonUtils.sendKeys(cCRApplicationPage.businessCityField,businessCity);
+    }
+    @Given("User enters {string} into a business state field")
+    public void user_enters_into_a_business_state_field(String businessState) {
+        CommonUtils.waitForVisibility(cCRApplicationPage.businessStateField);
+        CommonUtils.sendKeys(cCRApplicationPage.businessStateField,businessState);
+    }
+    @Given("User enters {string} into a business zip field")
+    public void user_enters_into_a_business_zip_field(String businessZip) {
+        CommonUtils.waitForVisibility(cCRApplicationPage.businessZipField);
+        CommonUtils.sendKeys(cCRApplicationPage.businessZipField,businessZip);
+    }
+    @Given("User uploads {string} document")
+    public void user_uploads_document(String document) throws TestingException {
+        cCRStepsImplementation.uploadDocuments(document);
+        MiscUtils.sleep(7000);
+    }
+
+
 
 }

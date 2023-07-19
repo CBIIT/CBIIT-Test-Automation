@@ -25,10 +25,11 @@ import AnalysisTools.mSigPortal.Pages.CatalogPages;
 import AnalysisTools.mSigPortal.Pages.MSigPortalHomePage;
 import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
 import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
+import CustomBusiness.CCR.Constants.CCR_CONSTANTS;
 import CustomBusiness.CCR.Pages.CCRApplicationPage;
 import CustomBusiness.CCR.Pages.CCRDynamicXpaths;
 import CustomBusiness.CCR.Pages.CCRLandingPage;
-import CustomBusiness.CCR.StepsImplementation.CCRLogInStepsImplementation;
+import CustomBusiness.CCR.StepsImplementation.CCRStepsImplementation;
 import GrantsApps.ChangePassword.Pages.ChangePasswordPage;
 import GrantsApps.ChangePassword.StepsImplementation.ChangePasswordStepsImpl;
 import ServiceNow.CHARMS.Constants.RAS_SCREENER_CONSTANTS;
@@ -288,9 +289,11 @@ public class PageInitializer {
 
     /** CCR instances **/
     public static CCRLandingPage cCRLandingPage;
-    public static CCRLogInStepsImplementation cCRLogInStepsImplementation;
+    public static CCRStepsImplementation cCRStepsImplementation;
     public static CCRDynamicXpaths cCRDynamicXpaths;
     public static CCRApplicationPage cCRApplicationPage;
+    public static CCR_CONSTANTS cCRConstants;
+
 
     /** --------------- NATIVE VIEW INSTANCES --------------- */
     public static NativeViewLoginImpl nativeViewLoginImpl;
@@ -473,10 +476,11 @@ public class PageInitializer {
 
         /** CCR Instance Variables **/
         cCRLandingPage = new CCRLandingPage();
-        cCRLogInStepsImplementation = new CCRLogInStepsImplementation();
-        cCRLogInStepsImplementation = new CCRLogInStepsImplementation();
+        cCRStepsImplementation = new CCRStepsImplementation();
+        cCRStepsImplementation = new CCRStepsImplementation();
         cCRDynamicXpaths = new CCRDynamicXpaths();
         cCRApplicationPage = new CCRApplicationPage();
+        cCRConstants = new CCR_CONSTANTS();
 
         /** --------------- NATIVE VIEW INSTANCE VARIABLES --------------- */
         nativeViewLoginImpl = new NativeViewLoginImpl();
