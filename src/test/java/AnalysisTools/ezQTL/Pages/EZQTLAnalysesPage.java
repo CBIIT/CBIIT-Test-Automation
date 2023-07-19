@@ -73,17 +73,65 @@ public class EZQTLAnalysesPage extends CommonUtils {
     @FindBy(xpath = "//input[@id='qtlPublic']")
     public WebElement publicAssociationDataCheckBox;
 
-    /* This is the Chromosome drop down */
+    /* This is the first Chromosome drop down */
     @FindBy(xpath = "(//div[@class=' css-1hwfws3'])[9]")
-    public WebElement selectChromosomeDropDown;
+    public WebElement selectFirstChromosomeDropDown;
 
-    /* This is the chromosome 21 value on the Chromosome drop down */
-    @FindBy(xpath = "//div[contains(text(),'21')]")
-    public WebElement selectChromosomeDropDown21Value;
+    /* This is the second Chromosome drop down */
+    @FindBy(xpath = "(//div[@class=' css-1hwfws3'])[10]")
+    public WebElement selectSecondChromosomeDropDown;
 
-    /* This is the position text box */
-    @FindBy(xpath = "//input[@id='select_position']")
-    public WebElement positionTextBox;
+    /* This is the third Chromosome drop down */
+    @FindBy(xpath = "(//div[@class=' css-1hwfws3'])[11]")
+    public WebElement selectThirdChromosomeDropDown;
+
+    /* This is the fourth Chromosome drop down */
+    @FindBy(xpath = "(//div[@class=' css-1hwfws3'])[12]")
+    public WebElement selectFourthChromosomeDropDown;
+
+    /* This is the fifth Chromosome drop down */
+    @FindBy(xpath = "(//div[@class=' css-1hwfws3'])[13]")
+    public WebElement selectFifthChromosomeDropDown;
+
+    /* This is the chromosome 21 value on the first Chromosome drop down */
+    @FindBy(xpath = "(//div[contains(text(),'21')])[1]")
+    public WebElement selectFirstChromosomeDropDown21Value;
+
+    /* This is the chromosome 21 value on the second Chromosome drop down */
+    @FindBy(xpath = "(//div[contains(text(),'21')])[2]")
+    public WebElement selectSecondChromosomeDropDown21Value;
+
+    /* This is the chromosome 21 value on the third Chromosome drop down */
+    @FindBy(xpath = "(//div[contains(text(),'21')])[3]")
+    public WebElement selectThirdChromosomeDropDown21Value;
+
+    /* This is the chromosome 21 value on the fourth Chromosome drop down */
+    @FindBy(xpath = "(//div[contains(text(),'21')])[4]")
+    public WebElement selectFourthChromosomeDropDown21Value;
+
+    /* This is the chromosome 21 value on the fifth Chromosome drop down */
+    @FindBy(xpath = "(//div[contains(text(),'21')])[5]")
+    public WebElement selectFifthChromosomeDropDown21Value;
+
+    /* This is the first position text box */
+    @FindBy(xpath = "(//input[@id='select_position'])[1]")
+    public WebElement firstPositionTextBox;
+
+    /* This is the second position text box */
+    @FindBy(xpath = "(//input[@id='select_position'])[2]")
+    public WebElement secondPositionTextBox;
+
+    /* This is the third position text box */
+    @FindBy(xpath = "(//input[@id='select_position'])[3]")
+    public WebElement thirdPositionTextBox;
+
+    /* This is the fouth position text box */
+    @FindBy(xpath = "(//input[@id='select_position'])[4]")
+    public WebElement fourthPositionTextBox;
+
+    /* This is the fifth position text box */
+    @FindBy(xpath = "(//input[@id='select_position'])[5]")
+    public WebElement fifthPositionTextBox;
 
     /* This is the Load Sample Data link on the Analysis page */
     @FindBy(xpath = "//a[@href='#/qtls/sample']")
@@ -116,6 +164,28 @@ public class EZQTLAnalysesPage extends CommonUtils {
     /* This is the Locus QC tab on the Analysis page */
     @FindBy(xpath = "//a[@id='controlled-tab-example-tab-locus-download']")
     public WebElement locusDownloadTab;
+
+    /* This is the "+ Add Locus" button to allow to run more than one locus */
+    @FindBy(xpath = "//button[contains(text(),'+ Add Locus')]")
+    public WebElement addLocusButton;
+
+    /*
+     * This is the Download Results button on the Locus Download sub-tab on Analyses
+     * tab
+     */
+    @FindBy(xpath = "//button[contains(text(),'Download Results')]")
+    public WebElement downloadResultsButton;
+
+    /*
+     * This is the Download Results button on the Locus Download sub-tab on Analyses
+     * tab
+     */
+    @FindBy(xpath = "//a[contains(text(),' Download Example ReadMe Information')]")
+    public WebElement downloadExampleReadMeInformationButton;
+
+    /* This is the LD Association Data drop down */
+    @FindBy(xpath = "/html/body/div/main/div/div/div/div[2]/div/div/div[2]/div/div/div[1]/form/div[1]/div/div[1]/div/div/div[1]")
+    public WebElement ldAssociationDataDropDrop;
 
     public EZQTLAnalysesPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);

@@ -1,18 +1,26 @@
 package AnalysisTools.ezQTL.Steps;
 
 import org.junit.Assert;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
-
+import com.nci.automation.web.WebDriverUtils;
+import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializer;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class AnalysesTabSteps extends PageInitializer {
+
+    @Given("The user is on the ezQTL Analyses page")
+    public void the_user_is_on_the_ezQTL_Analyses_page() throws TestingException {
+        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ezQTL"));
+        CommonUtils.click(ezQTLHomePage.analysesTabButton);
+        MiscUtils.sleep(2000);
+    }
 
     @When("the user submits a job to the queue")
     public void the_user_submits_a_job_to_the_queue() {
@@ -52,12 +60,12 @@ public class AnalysesTabSteps extends PageInitializer {
         CommonUtils.clickOnElement(ezQTLAnalysesPage.publicAssociationDataCheckBox);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.publicGwasSourceDataCheckBox);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.publicLdPublicDataCheckBox);
-        CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectChromosomeDropDown);
-        CommonUtils.waitForClickability(ezQTLAnalysesPage.selectChromosomeDropDown);
-        CommonUtils.click(ezQTLAnalysesPage.selectChromosomeDropDown);
-        CommonUtils.click(ezQTLAnalysesPage.selectChromosomeDropDown21Value);
+        CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
+        CommonUtils.waitForClickability(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
+        CommonUtils.click(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
+        CommonUtils.click(ezQTLAnalysesPage.selectFirstChromosomeDropDown21Value);
         MiscUtils.sleep(1000);
-        CommonUtils.sendKeys(ezQTLAnalysesPage.positionTextBox, "42743496");
+        CommonUtils.sendKeys(ezQTLAnalysesPage.firstPositionTextBox, "42743496");
         CommonUtils.clickOnElement(ezQTLAnalysesPage.submitJobtoQueueCheckbox);
         CommonUtils.sendKeys(ezQTLAnalysesPage.queueJobName, "Automation Job");
         CommonUtils.sendKeys(ezQTLAnalysesPage.queueEmail, "kevin.matarodriguez@nih.gov");
@@ -90,6 +98,83 @@ public class AnalysesTabSteps extends PageInitializer {
         CommonUtils.waitForClickability(ezQTLAnalysesPage.locusDownloadTab);
         CommonUtils.assertEquals(ezQTLAnalysesPage.locusDownloadTab.getText(), locusDownload);
 
+    }
+
+    @When("the user searches using public data and five locus parameters")
+    public void the_user_searches_using_public_data_and_five_locus_parameters() {
+
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.publicAssociationDataCheckBox);
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.publicGwasSourceDataCheckBox);
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.publicLdPublicDataCheckBox);
+
+        CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
+        CommonUtils.waitForClickability(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
+        CommonUtils.click(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
+        CommonUtils.click(ezQTLAnalysesPage.selectFirstChromosomeDropDown21Value);
+        MiscUtils.sleep(1000);
+        CommonUtils.sendKeys(ezQTLAnalysesPage.firstPositionTextBox, "42743496");
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.addLocusButton);
+
+        CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectSecondChromosomeDropDown);
+        CommonUtils.waitForClickability(ezQTLAnalysesPage.selectSecondChromosomeDropDown);
+        CommonUtils.click(ezQTLAnalysesPage.selectSecondChromosomeDropDown);
+        CommonUtils.click(ezQTLAnalysesPage.selectSecondChromosomeDropDown21Value);
+        MiscUtils.sleep(1000);
+        CommonUtils.sendKeys(ezQTLAnalysesPage.secondPositionTextBox, "42743496");
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.addLocusButton);
+
+        CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectThirdChromosomeDropDown);
+        CommonUtils.waitForClickability(ezQTLAnalysesPage.selectThirdChromosomeDropDown);
+        CommonUtils.click(ezQTLAnalysesPage.selectThirdChromosomeDropDown);
+        CommonUtils.click(ezQTLAnalysesPage.selectThirdChromosomeDropDown21Value);
+        MiscUtils.sleep(1000);
+        CommonUtils.sendKeys(ezQTLAnalysesPage.thirdPositionTextBox, "42743496");
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.addLocusButton);
+
+        CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectFourthChromosomeDropDown);
+        CommonUtils.waitForClickability(ezQTLAnalysesPage.selectFourthChromosomeDropDown);
+        CommonUtils.click(ezQTLAnalysesPage.selectFourthChromosomeDropDown);
+        CommonUtils.click(ezQTLAnalysesPage.selectFourthChromosomeDropDown21Value);
+        MiscUtils.sleep(1000);
+        CommonUtils.sendKeys(ezQTLAnalysesPage.fourthPositionTextBox, "42743496");
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.addLocusButton);
+
+        CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectFifthChromosomeDropDown);
+        CommonUtils.waitForClickability(ezQTLAnalysesPage.selectFifthChromosomeDropDown);
+        CommonUtils.click(ezQTLAnalysesPage.selectFifthChromosomeDropDown);
+        CommonUtils.click(ezQTLAnalysesPage.selectFifthChromosomeDropDown21Value);
+        MiscUtils.sleep(1000);
+        CommonUtils.sendKeys(ezQTLAnalysesPage.fifthPositionTextBox, "42743496");
+
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.submitJobtoQueueCheckbox);
+        CommonUtils.sendKeys(ezQTLAnalysesPage.queueJobName, "Automation Job");
+        CommonUtils.sendKeys(ezQTLAnalysesPage.queueEmail, "kevin.matarodriguez@nih.gov");
+        MiscUtils.sleep(2000);
+        CommonUtils.click(ezQTLAnalysesPage.submitButton);
+    }
+
+    @Then("the both download links are clickable")
+    public void the_both_download_links_are_clickable() {
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.locusDownloadTab);
+        CommonUtils.waitForClickability(ezQTLAnalysesPage.downloadResultsButton);
+        Assert.assertTrue(ezQTLAnalysesPage.downloadResultsButton.isDisplayed());
+        CommonUtils.waitForClickability(ezQTLAnalysesPage.downloadExampleReadMeInformationButton);
+        Assert.assertTrue(ezQTLAnalysesPage.downloadExampleReadMeInformationButton.isDisplayed());
+    }
+
+    @When("recalculates on the Locus LD")
+    public void recalculates_on_the_Locus_LD() {
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.locusLdTab);
+        CommonUtils.waitForClickability(ezQTLAnalysesPage.ldAssociationDataDropDrop);
+        MiscUtils.sleep(5000);
+        JavascriptUtils.sendKeysByJS(ezQTLAnalysesPage.ldAssociationDataDropDrop, "qtl");
+        MiscUtils.sleep(5000);
+        // CommonUtils.sendKeys(ezQTLAnalysesPage.ldAssociationDataDropDrop, "QTL");
+        MiscUtils.sleep(5000);
+    }
+
+    @Then("the {string} link is displayed")
+    public void the_link_is_displayed(String string) {
     }
 
 }

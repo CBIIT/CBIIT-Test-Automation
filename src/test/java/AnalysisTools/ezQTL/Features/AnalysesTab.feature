@@ -1,4 +1,5 @@
 Feature: Scenarios under the Analyses tab on ezQTL
+
     @Smoke @matakevin
     Scenario:Submitting queue using User provided sample files
         Given The user is on the ezQTL Analyses page
@@ -16,3 +17,29 @@ Feature: Scenarios under the Analyses tab on ezQTL
         Given The user is on the ezQTL Analyses page
         When the user clicks on the Load Sample Data link
         Then the "Locus QC", "Locus LD", "Locus Alignment", "Locus Colocalization", "Locus Table", "Locus Quantification", "Locus Download" text is displayed
+
+    @Smoke @matakevin
+    Scenario:Calculating multiple locus jobs
+        Given The user is on the ezQTL Analyses page
+        When the user searches using public data and five locus parameters
+        Then the "Your job was successfully submitted to the queue. You will recieve an email at kevin.matarodriguez@nih.gov with your results." text is displayed
+
+    @Smoke @matakevin
+    Scenario:Download Links are clickable and display correctly
+        Given The user is on the ezQTL Analyses page
+        When the user clicks on the Load Sample Data link
+        Then the both download links are clickable
+
+
+    @ProgressionCOMEBACKTO @matakevin
+    Scenario:Calculating on Analyses' Locus LD tab
+        Given The user is on the ezQTL Analyses page
+        When the user clicks on the Load Sample Data link
+        And recalculates on the Locus LD
+        Then the "Download Plot" link is displayed
+
+    @ProgressionCOMEBACKTO @matakevin
+    Scenario:Recalculate on all Analyses tabs
+        Given The user is on the ezQTL Analyses page
+        When the user clicks on the Load Sample Data link
+        And recalculates on the Locus LD
