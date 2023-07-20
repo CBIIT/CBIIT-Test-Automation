@@ -46,7 +46,7 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
      * This method will navigate the OGSR new entry form
      *
      */
-    public static void theOgcrUserClicksTheOutton() {
+    public static void theOgcrUserClicksTheButton() {
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageOGCRCreateNewSubmissionLink);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageOGCRCreateNewSubmissionLink);
