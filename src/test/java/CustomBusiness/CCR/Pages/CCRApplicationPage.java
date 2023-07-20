@@ -109,4 +109,16 @@ public class CCRApplicationPage extends CommonUtils {
     /** Close Application Submitted Button **/
     @FindBy(xpath = "//button[@class='btn btn-primary mx-2']")
     public WebElement closeApplicationSubmittedButton;
+    /** Upload File1 **/
+    @FindBy(xpath = "(//div[@class='input-group-btn']//button[contains(text(),' Choose File ')])[1]")
+    public WebElement uploadFile1;
+    /** Upload File2 **/
+    @FindBy(xpath = "(//div[@class='input-group-btn']//button[contains(text(),' Choose File ')])[2]")
+    public WebElement uploadFile2;
+    /** Upload File3 **/
+    @FindBy(xpath = "(//div[@class='input-group-btn']//button[contains(text(),' Choose File ')])[3]")
+    public WebElement uploadFile3;
+    /** Outreach Source Dropdown **/
+    @FindBy(xpath = "//select[@id='outreach_source']")
+    public WebElement outreachSourceDropdown;
 }

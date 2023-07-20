@@ -55,15 +55,15 @@ public class CCRStepsImplementation extends PageInitializer {
     public void uploadDocuments(String document) throws TestingException {
         switch (document) {
             case "Letter of Interest":
-                WebElement uploadFile1 = WebDriverUtils.getWebDriver().findElement(By.xpath("(//div[@class='input-group-btn']//button[contains(text(),' Choose File ')])[1]"));
+                WebElement uploadFile1 = cCRApplicationPage.uploadFile1;
                 uploadFile1.sendKeys(CCR_CONSTANTS.LetterOfInterest);
                 break;
             case "CV/Bibliography":
-                WebElement uploadFile2 = WebDriverUtils.getWebDriver().findElement(By.xpath("(//div[@class='input-group-btn']//button[contains(text(),' Choose File ')])[2]"));
+                WebElement uploadFile2 = cCRApplicationPage.uploadFile2;
                 uploadFile2.sendKeys(CCR_CONSTANTS.CV);
                 break;
             case "Upload Diversity Statement":
-                WebElement uploadFile3 = WebDriverUtils.getWebDriver().findElement(By.xpath("(//div[@class='input-group-btn']//button[contains(text(),' Choose File ')])[3]"));
+                WebElement uploadFile3 = cCRApplicationPage.uploadFile3;
                 uploadFile3.sendKeys(CCR_CONSTANTS.DiversityStatement);
                 break;
         }
@@ -71,35 +71,35 @@ public class CCRStepsImplementation extends PageInitializer {
     public void selectOutreachSource(String source){
         switch (source) {
             case "Contacted By Member":
-                Select s1 = new Select(WebDriverUtils.webDriver.findElement(By.xpath("//select[@id='outreach_source']")));
+                Select s1 = new Select(cCRApplicationPage.outreachSourceDropdown);
                 s1.selectByVisibleText(" Directly contacted by a member of the search committee or an NCI employee. ");
                 break;
             case "Colleague":
-                Select s2 = new Select(WebDriverUtils.webDriver.findElement(By.xpath("//select[@id='outreach_source']")));
+                Select s2 = new Select(cCRApplicationPage.outreachSourceDropdown);
                 s2.selectByVisibleText(" Advisor/colleague in my current organization. If known, please indicate how they found out. ");
                 break;
             case "Internet Search":
-                Select s3 = new Select(WebDriverUtils.webDriver.findElement(By.xpath("//select[@id='outreach_source']")));
+                Select s3 = new Select(cCRApplicationPage.outreachSourceDropdown);
                 s3.selectByVisibleText(" Internet/Google search. Please indicate keywords used. ");
                 break;
             case "Social Media":
-                Select s4 = new Select(WebDriverUtils.webDriver.findElement(By.xpath("//select[@id='outreach_source']")));
+                Select s4 = new Select(cCRApplicationPage.outreachSourceDropdown);
                 s4.selectByVisibleText(" CCR social media, including Facebook, Twitter, Instagram, Linkedin. Please indicate which specifically. ");
                 break;
             case "Online Journal":
-                Select s5 = new Select(WebDriverUtils.webDriver.findElement(By.xpath("//select[@id='outreach_source']")));
+                Select s5 = new Select(cCRApplicationPage.outreachSourceDropdown);
                 s5.selectByVisibleText(" On-line journal advertisement or career fair. Please identify which journal/meeting. ");
                 break;
             case "GMPAP":
-                Select s6 = new Select(WebDriverUtils.webDriver.findElement(By.xpath("//select[@id='outreach_source']")));
+                Select s6 = new Select(cCRApplicationPage.outreachSourceDropdown);
                 s6.selectByVisibleText(" Geographic Management of Cancer Health Disparities Program (GMaP). ");
                 break;
             case "Other":
-                Select s7 = new Select(WebDriverUtils.webDriver.findElement(By.xpath("//select[@id='outreach_source']")));
+                Select s7 = new Select(cCRApplicationPage.outreachSourceDropdown);
                 s7.selectByVisibleText(" Other (please specify) ");
                 break;
             case "Don't recall":
-                Select s8 = new Select(WebDriverUtils.webDriver.findElement(By.xpath("//select[@id='outreach_source']")));
+                Select s8 = new Select(cCRApplicationPage.outreachSourceDropdown);
                 s8.selectByVisibleText(" Don't recall. ");
                 break;
         }
