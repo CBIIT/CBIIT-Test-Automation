@@ -2,7 +2,6 @@ package CustomBusiness.CCR.Steps;
 
 import CustomBusiness.EIDP.Util.CommonUtil;
 import appsCommon.PageInitializer;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
@@ -31,10 +30,9 @@ public class InternalUserSteps extends PageInitializer {
     public void user_navigates_to_open_vacancy(String text) {
         CommonUtils.clickOnElement(cCRDynamicXpaths.openVacancy(text));
     }
-    @Given("User clicks Apply Now button")
-    public void user_clicks_apply_now_button() {
-        CommonUtils.waitForClickability(cCRApplicationPage.applyNowButton);
-        CommonUtils.clickOnElement(cCRApplicationPage.applyNowButton);
+    @Given("User clicks {string} button")
+    public void user_clicks_button(String button) {
+        cCRStepsImplementation.clickButton(button);
     }
     @Given("User enters {string} into a first name field")
     public void user_enters_into_a_first_name_field(String firstName) {
@@ -111,7 +109,7 @@ public class InternalUserSteps extends PageInitializer {
     }
    @Given("User clicks Next button for {string} section")
    public void user_clicks_next_button_for_section(String sectionName) throws TestingException {
-    cCRStepsImplementation.clickNextButton(sectionName);
+       cCRStepsImplementation.clickNextButton(sectionName);
    }
     @Given("User enters {string} into a department field")
     public void user_enters_into_a_department_field(String department) {
@@ -151,9 +149,22 @@ public class InternalUserSteps extends PageInitializer {
     @Given("User uploads {string} document")
     public void user_uploads_document(String document) throws TestingException {
         cCRStepsImplementation.uploadDocuments(document);
-        MiscUtils.sleep(7000);
     }
-
-
-
+    @Given("User selects an outreach source as {string}")
+    public void user_selects_an_outreach_source_as(String source) {
+        cCRStepsImplementation.selectOutreachSource(source);
+    }
+    @Given("User selects {string} for the question on simplicity of uploading application materials")
+    public void user_selects_for_the_question_on_simplicity_of_uploading_application_materials(String option) {
+        cCRStepsImplementation.selectUploadingMaterialsOption(option);
+    }
+    @Given("User selects {string} for the question on whether the ad posted on the website contains enough information to decide on applying for a job")
+    public void user_selects_for_the_question_on_whether_the_ad_posted_on_the_website_contains_enough_information_to_decide_on_applying_for_a_job(String option) {
+        cCRStepsImplementation.selectAdInformationOption(option);
+    }
+    @Given("User inputs {string} in the changing process text field")
+    public void user_inputs_in_the_changing_process_text_field(String text) {
+        CommonUtils.waitForVisibility(cCRApplicationPage.textFieldSuggestions);
+        CommonUtils.sendKeys(cCRApplicationPage.textFieldSuggestions,text);
+    }
 }

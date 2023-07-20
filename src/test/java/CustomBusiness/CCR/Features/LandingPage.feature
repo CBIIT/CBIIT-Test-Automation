@@ -11,7 +11,7 @@ Feature: CCR Landing Page Scenarios
   @Nekrashevich @Regression @Smoke @fillApplication
   Scenario Outline: Fill In An Application As An Internal User
     And User navigates to "Biostatistician" open vacancy
-    And User clicks Apply Now button
+    And User clicks "Apply Now" button
     And User enters "<firstName>" into a first name field
     And User enter "<middleName>" into a middle name field
     And User enters "<lastName>" into a last name field
@@ -42,7 +42,11 @@ Feature: CCR Landing Page Scenarios
     And User uploads "CV/Bibliography" document
     And User uploads "Upload Diversity Statement" document
     And User clicks Next button for "Required Documents" section
-
+    And User selects an outreach source as "Contacted By Member"
+    And User selects "Yes" for the question on simplicity of uploading application materials
+    And User selects "Yes" for the question on whether the ad posted on the website contains enough information to decide on applying for a job
+    And User inputs "No suggestions at the moment" in the changing process text field
+    And User clicks "Submit" button
 
     Examples:
       | firstName | middleName | lastName | email           | phone      | businessPhone | otherDegree(s) | address   | address2 | city  | state | zip   | department | institution | businessAddress |  businessAddress2 | businessCity | businessState | businessZip |

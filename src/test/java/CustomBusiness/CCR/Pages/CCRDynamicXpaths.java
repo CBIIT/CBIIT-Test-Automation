@@ -11,7 +11,6 @@ public class CCRDynamicXpaths extends CommonUtils {
         PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
     }
     public WebElement openVacancy(String value) {
-        return WebDriverUtils.webDriver
-                .findElement(By.xpath("//h2//strong[contains(text(),'" + value + "')]"));
+        return WebDriverUtils.webDriver.findElement(By.xpath("//h2//strong[contains(text(),'" + value + "')]"));
     }
 }

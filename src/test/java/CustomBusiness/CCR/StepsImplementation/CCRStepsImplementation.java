@@ -1,6 +1,5 @@
 package CustomBusiness.CCR.StepsImplementation;
 
-
 import CustomBusiness.CCR.Constants.CCR_CONSTANTS;
 import appsCommon.PageInitializer;
 import com.nci.automation.utils.MiscUtils;
@@ -19,7 +18,6 @@ public class CCRStepsImplementation extends PageInitializer {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CCR"));
         MiscUtils.sleep(2000);
     }
-
     public void clickNextButton(String sectionName) throws TestingException {
         switch (sectionName) {
             case "Basic Information":
@@ -40,7 +38,6 @@ public class CCRStepsImplementation extends PageInitializer {
                 break;
         }
     }
-
     public void chooseUSA(String sectionName) throws TestingException {
         switch (sectionName) {
             case "Address":
@@ -68,6 +65,78 @@ public class CCRStepsImplementation extends PageInitializer {
             case "Upload Diversity Statement":
                 WebElement uploadFile3 = WebDriverUtils.getWebDriver().findElement(By.xpath("(//div[@class='input-group-btn']//button[contains(text(),' Choose File ')])[3]"));
                 uploadFile3.sendKeys(CCR_CONSTANTS.DiversityStatement);
+                break;
+        }
+    }
+    public void selectOutreachSource(String source){
+        switch (source) {
+            case "Contacted By Member":
+                Select s1 = new Select(WebDriverUtils.webDriver.findElement(By.xpath("//select[@id='outreach_source']")));
+                s1.selectByVisibleText(" Directly contacted by a member of the search committee or an NCI employee. ");
+                break;
+            case "Colleague":
+                Select s2 = new Select(WebDriverUtils.webDriver.findElement(By.xpath("//select[@id='outreach_source']")));
+                s2.selectByVisibleText(" Advisor/colleague in my current organization. If known, please indicate how they found out. ");
+                break;
+            case "Internet Search":
+                Select s3 = new Select(WebDriverUtils.webDriver.findElement(By.xpath("//select[@id='outreach_source']")));
+                s3.selectByVisibleText(" Internet/Google search. Please indicate keywords used. ");
+                break;
+            case "Social Media":
+                Select s4 = new Select(WebDriverUtils.webDriver.findElement(By.xpath("//select[@id='outreach_source']")));
+                s4.selectByVisibleText(" CCR social media, including Facebook, Twitter, Instagram, Linkedin. Please indicate which specifically. ");
+                break;
+            case "Online Journal":
+                Select s5 = new Select(WebDriverUtils.webDriver.findElement(By.xpath("//select[@id='outreach_source']")));
+                s5.selectByVisibleText(" On-line journal advertisement or career fair. Please identify which journal/meeting. ");
+                break;
+            case "GMPAP":
+                Select s6 = new Select(WebDriverUtils.webDriver.findElement(By.xpath("//select[@id='outreach_source']")));
+                s6.selectByVisibleText(" Geographic Management of Cancer Health Disparities Program (GMaP). ");
+                break;
+            case "Other":
+                Select s7 = new Select(WebDriverUtils.webDriver.findElement(By.xpath("//select[@id='outreach_source']")));
+                s7.selectByVisibleText(" Other (please specify) ");
+                break;
+            case "Don't recall":
+                Select s8 = new Select(WebDriverUtils.webDriver.findElement(By.xpath("//select[@id='outreach_source']")));
+                s8.selectByVisibleText(" Don't recall. ");
+                break;
+        }
+    }
+    public void selectUploadingMaterialsOption(String option) {
+        switch (option) {
+            case "Yes":
+                CommonUtils.clickOnElement(cCRApplicationPage.yesOptionSimplicityOfUploadingMaterials);
+                break;
+            case "No":
+                CommonUtils.clickOnElement(cCRApplicationPage.noOptionSimplicityOfUploadingMaterials);
+                break;
+        }
+    }
+        public void selectAdInformationOption(String option){
+            switch (option) {
+                case "Yes":
+                    CommonUtils.clickOnElement(cCRApplicationPage.yesPostedAd);
+                    break;
+                case "No":
+                    CommonUtils.clickOnElement(cCRApplicationPage.noPostedAd);
+                    break;
+               }
+           }
+    public void clickButton(String button){
+        switch (button) {
+            case "Apply Now":
+                CommonUtils.waitForClickability(cCRApplicationPage.applyNowButton);
+                CommonUtils.clickOnElement(cCRApplicationPage.applyNowButton);
+                break;
+            case "Submit":
+                CommonUtils.waitForVisibility(cCRApplicationPage.submitButton);
+                CommonUtils.clickOnElement(cCRApplicationPage.submitButton);
+                CommonUtils.waitForVisibility(cCRApplicationPage.submitConfirmationButton);
+                CommonUtils.clickOnElement(cCRApplicationPage.submitConfirmationButton);
+                CommonUtils.waitForVisibility(cCRApplicationPage.closeApplicationSubmittedButton);
+                CommonUtils.clickOnElement(cCRApplicationPage.closeApplicationSubmittedButton);
                 break;
         }
     }
