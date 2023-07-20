@@ -83,12 +83,16 @@ public class NativeViewCHARMSParticipantConsentPage {
     @FindBy(xpath = "//*[@id='hard_consent_received']")
     public WebElement rasStudyConsentHardCopyReceivedButton;
 
+    /**Native View Ras Complete Consent Button*/
+    @FindBy(xpath = "//*[@id='complete_consent']")
+    public WebElement rasStudyConsentCompletedConsentButton;
+
     /**Native View Ras Study Participant Records Ready To Progress Message*/
     @FindBy(xpath = "//div[normalize-space()='Participant record ready to progress.']")
     public WebElement rasStudyConsentParticipantRecordsReadyToProgressMessage;
 
     /**Native View Ras Study Consent Record Completed Message*/
-    @FindBy(xpath = "//div[normalize-space()='Participant record ready to progress.']")
+    @FindBy(xpath = "//div[normalize-space()='Consent record completed and Family record is now active!']")
     public WebElement rasStudyConsentConsentRecordCompletedMessageMessage;
 
     public NativeViewCHARMSParticipantConsentPage() {

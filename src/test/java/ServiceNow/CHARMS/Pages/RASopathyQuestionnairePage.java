@@ -14,6 +14,22 @@ public class RASopathyQuestionnairePage {
     @FindBy(xpath = "//input[@title='→']")
     public WebElement studyNextButton;
 
+    /* This Form Canot Be Saved Text */
+    @FindBy(xpath = "//p[contains(text(),'If you are unable to complete the online questionn')]")
+    public WebElement thisFormCannotBeSavedText;
+
+    /* If You Are Unable To Complete Text */
+    @FindBy(xpath = "//p[contains(text(),'If you are unable to complete the online questionn')]")
+    public WebElement ifYouAreUnableToCompleteText;
+
+    /* Have Any Of Your Relatives Been Diagnosed No Radio Button */
+    @FindBy(xpath = "//*[@id='QID43']/div[3]/div/fieldset/div/ul/li[2]/span")
+    public WebElement haveAnyOfYourRelativesBeenDiagnosedNoRadioButton ;
+
+    /* Have You Ever Had Genetic Testing No Radio Button */
+    @FindBy(xpath = "//*[@id='QID120-2-label']")
+    public WebElement haveYouEverHadGeneticTestingNoRadioButton ;
+
     /* ************************************************************************ */
     /*
      * BEGINNING OF Are you completing this form for someone else or for yourself?

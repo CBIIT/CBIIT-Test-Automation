@@ -27,12 +27,12 @@ import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
 import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
 import GrantsApps.ChangePassword.Pages.ChangePasswordPage;
 import GrantsApps.ChangePassword.StepsImplementation.ChangePasswordStepsImpl;
-import ServiceNow.CHARMS.Constants.RAS_SCREENER_CONSTANTS;
+import ServiceNow.CHARMS.Constants.RASScreenerScenario1_Constants;
 import ServiceNow.CHARMS.Pages.*;
-import ServiceNow.CHARMS.ScenariosData.TestDataManager;
+import ServiceNow.CHARMS.ScenariosData.TestDataManagerScenario1;
 import ServiceNow.CHARMS.StepsImplementation.CHARMSHomePageImp;
 import ServiceNow.CHARMS.StepsImplementation.RASSurveyStepsImpl;
-import ServiceNow.CHARMS.StepsImplementation.RasScreenerStepsImpl;
+import ServiceNow.CHARMS.StepsImplementation.RasScreenerScenario1StepsImpl;
 import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
 import ServiceNow.CICDBuild.Pages.DevOpsLoginPage;
 import ServiceNow.CICDBuild.Pages.DevOpsNativeViewPage;
@@ -156,8 +156,9 @@ public class PageInitializer {
     public static MyRASLoginPage myRASLoginPage;
     public static MyRASHomePage myRASHomePage;
     public static RASopathyQuestionnairePage rasopathyQuestionnairePage;
-    public static RasScreenerStepsImpl rasScreenerStepsImpl;
-    public static RAS_SCREENER_CONSTANTS rasScreenerConstants;
+    public static MyRASIIQFormPage myRASIIQFormPage;
+    public static RasScreenerScenario1StepsImpl rasScreenerScenario1StepsImpl;
+    public static RASScreenerScenario1_Constants rASScreenerScenario1_Constants;
     public static TestAccountResetPage testAccountResetPage;
     public static MyRASStudyConsentPage myRasStudyConsentPage;
     public static CGBIIQPage cgbIIQPage;
@@ -166,7 +167,7 @@ public class PageInitializer {
     public static RASSurveyStepsImpl rASSurveyStepsImpl;
     public static FHQSurveyPage fHQSurveyPage;
     public static FHQSurveyPortalPage fHQSurveyPortalPage;
-    public static TestDataManager testDataManager;
+    public static TestDataManagerScenario1 testDataManagerScenario1;
     public static ParticipantDetailsPage participantDetailsPage;
     public static ScreenerRecordTablePage screenerRecordTablePage;
 
@@ -339,12 +340,12 @@ public class PageInitializer {
         probandScreenerPage = new ProbandScreenerPage();
         myRASLoginPage = new MyRASLoginPage();
         myRASHomePage = new MyRASHomePage();
-        rasScreenerStepsImpl = new RasScreenerStepsImpl();
+        rasScreenerScenario1StepsImpl = new RasScreenerScenario1StepsImpl();
         rasopathyQuestionnairePage = new RASopathyQuestionnairePage();
-        rasScreenerConstants = new RAS_SCREENER_CONSTANTS();
+        rASScreenerScenario1_Constants = new RASScreenerScenario1_Constants();
         testAccountResetPage = new TestAccountResetPage();
         myRasStudyConsentPage = new MyRASStudyConsentPage();
-        testDataManager = new TestDataManager();
+        testDataManagerScenario1 = new TestDataManagerScenario1();
         cgbIIQPage = new CGBIIQPage();
         cGBIIQPages = new CGBIIQPages();
         rASSurveyPage = new RASSurveyPage();
@@ -353,6 +354,7 @@ public class PageInitializer {
         fHQSurveyPage = new FHQSurveyPage();
         participantDetailsPage = new ParticipantDetailsPage();
         screenerRecordTablePage = new ScreenerRecordTablePage();
+        myRASIIQFormPage = new MyRASIIQFormPage();
 
         // Melanoma and Spitzoid Tumor instances
         melanomaLoginPage = new MelanomaLoginPage();

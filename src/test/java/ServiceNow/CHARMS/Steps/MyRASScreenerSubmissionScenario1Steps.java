@@ -3,13 +3,12 @@ package ServiceNow.CHARMS.Steps;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
-import ServiceNow.CHARMS.Constants.CHARMSConstants;
+
 import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
 import ServiceNow.COVIDDash.Utils.COVIDConstants;
 import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import com.nci.automation.utils.CucumberLogUtils;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -22,7 +21,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class MyRASScreenerSubmissionSteps extends PageInitializer {
+public class MyRASScreenerSubmissionScenario1Steps extends PageInitializer {
 
     private String referralNumber;
     private HashMap<String, String> geneticSyndromeMap = new HashMap<>();
@@ -34,24 +33,29 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(applicationID));
     }
 
-    @When("the participant submits a screener for scenario one from excel sheet {string}")
-    public void the_participant_submits_a_screener_for_scenario_one_from_excel_sheet(String sheetName) {
-        testDataManager.dataInitializer(sheetName);
-    if(sheetName.contains("Scenario1")) {
-        rasScreenerStepsImpl.rasScreenerSubmissionScenario1();
+    @When("the participant submits a screener from excel sheet {string}")
+    public void the_participant_submits_a_screener_from_excel_sheet(String sheetName) {
+        testDataManagerScenario1.dataInitializerRasScreenerSurveyScenario1(sheetName);
+    if(sheetName.contains("screenerScenario1")) {
+        rasScreenerScenario1StepsImpl.rasScreenerSubmissionScenario1();
     }
 //    if(sheetName.contains("Scenario2")) {
 //        rasScreenerStepsImpl.rasScreenerSubmissionScenario2();
 //    }
     }
 
-    @Then("data submitted for scenario one is verified in native view against scenario one excel sheet")
-    public void data_submitted_for_scenario_one_is_verified_in_native_view_against_scenario_one_excel_sheet() {
-//        rasScreenerStepsImpl.verifying_RAS_Screener_Scenario_1_Data();
+    @Then("data submitted for scenario is verified in native view against corresponding scenario from the excel sheet")
+    public void data_submitted_for_scenario_is_verified_in_native_view_against_corresponding_scenario_from_the_excel_sheet() {
+//        String parentWindowHandle = WebDriverUtils.webDriver.getWindowHandle();
+//        rasScreenerScenario1StepsImpl.verifying_RAS_Screener_Scenario_1_Data();
 
         /******* NATIVE VIEW CONSENT FLOW PROCESS ********/
 
+
+//        WebDriverUtils.webDriver.switchTo().window(parentWindowHandle);
+
         nativeViewLoginImpl.sideDoorAccountLogin();
+
         MiscUtils.sleep(1000);
         if(nativeViewEnrollementsPage.filterNavigatorIconButton.isDisplayed()){
             CommonUtils.clickOnElement(nativeViewEnrollementsPage.filterNavigatorIconButton);
@@ -75,6 +79,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         CommonUtils.waitForVisibility(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator("DiegoTest JuarezTest")); //Add this inted of name when running entire test:testDataManager.firstName + " " + testDataManager.lastName
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator("DiegoTest JuarezTest"));//Add this inted of name when running entire test:testDataManager.firstName + " " + testDataManager.lastName
+        MiscUtils.sleep(1000);
         if(CommonUtils.isElementDisplayed(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton)){
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
             CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
@@ -111,8 +116,8 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentResponseTypeDropDown, 2);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVerionCalendar);
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentDateCalendar);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentDateCalendar);
+        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, "Rene Aguilar");
         CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, Keys.ENTER);
@@ -124,28 +129,42 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         MiscUtils.sleep(500);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallCompleteButton);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseCallCompleteButton);
+        MiscUtils.sleep(1000);
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAddFileButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAddFileButton);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileButton,
                 COVIDConstants.IIQ_STUDY_DOCUMENTATION_PDF_PATH);
-        MiscUtils.sleep(1000);
+        MiscUtils.sleep(2000);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileCloseButton);
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentHardCopyReceivedButton);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentHardCopyReceivedButton);
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompletedConsentButton);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompletedConsentButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantRecordsReadyToProgressMessage);
-        CommonUtils.assertEqualsWithMessage(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantRecordsReadyToProgressMessage.getText(), "Participant record ready to progress", "---- VERIFYING PARTICIPANT RECORD READY TO PROGRESS MESSAGE ----");
+        CommonUtils.assertEqualsWithMessage(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantRecordsReadyToProgressMessage.getText(), "Participant record ready to progress.", "---- VERIFYING PARTICIPANT RECORD READY TO PROGRESS MESSAGE ----");
         CommonUtils.assertEqualsWithMessage(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentRecordCompletedMessageMessage.getText(), "Consent record completed and Family record is now active!", "---- VERIFYING CONSENT RECORD COMPLETED AND FAMILY RECORD IS NOW ACTIVE! MESSAGE ----");
-        MiscUtils.sleep(5000);
+        MiscUtils.sleep(500);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         SEERDataAccessRequestPageStepsImpl.nativeViewLogOut();
 
         /******* VERIFY ENROLLMENT STATUS BELOW ********/
 
+
+
 //        CommonUtils.clickOnElement(screenerRecordTablePage.dynamicLocatorForStudyButtons("Submit for Eligibility Review"));
 //        CommonUtils.clickOnElement(screenerRecordTablePage.dynamicLocatorForStudyButtons("Mark Eligible"));
+    }
+
+    @Given("the participant submits a Individual Information Questionnaire for excel sheet {string}")
+    public void the_participant_submits_a_individual_information_questionnaire_for_excel_sheet(String sheetNameIiq) {
+        testDataManagerScenario1.dataInitializerRasScreenerIiqFormScenario1(sheetNameIiq);
+        WebDriverUtils.webDriver.get("https://ncidccpssurveys.gov1.qualtrics.com/jfe/form/SV_37PVCadeAqdT6Ki?family_member_id=5671bd521bafa1106daea681f54bcb68&study=RASopathies");
+        rasScreenerScenario1StepsImpl.rasScreenerIIQFormScenario1();
+
     }
 
     @Given("a proxy is on the RASopathies Longitudinal Cohort Study login page")
@@ -193,7 +212,9 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     @Given("clicks next after reviewing the STUDY INTRODUCTION")
     public void clicks_next_after_reviewing_the_STUDY_INTRODUCTION() {
         CommonUtils.switchToNextWindow();
-        JavascriptUtils.scrollIntoView(rasopathyQuestionnairePage.studyNextButton);
+        MiscUtils.sleep(2000);
+        JavascriptUtils.scrollIntoView(rasopathyQuestionnairePage.thisFormCannotBeSavedText);
+        JavascriptUtils.scrollIntoView(rasopathyQuestionnairePage.ifYouAreUnableToCompleteText);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.studyNextButton);
         CommonUtils.clickOnElement(rasopathyQuestionnairePage.studyNextButton);
         MiscUtils.sleep(2000);
