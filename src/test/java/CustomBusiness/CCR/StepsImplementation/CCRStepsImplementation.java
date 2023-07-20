@@ -12,12 +12,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class CCRStepsImplementation extends PageInitializer {
+
     public void ccrLogin() throws TestingException {
         nativeViewLoginImpl.sideDoorAccountLogin();
         MiscUtils.sleep(2000);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CCR"));
         MiscUtils.sleep(2000);
     }
+
     public void clickNextButton(String sectionName) throws TestingException {
         switch (sectionName) {
             case "Basic Information":
@@ -38,6 +40,7 @@ public class CCRStepsImplementation extends PageInitializer {
                 break;
         }
     }
+
     public void chooseUSA(String sectionName) throws TestingException {
         switch (sectionName) {
             case "Address":
@@ -52,11 +55,12 @@ public class CCRStepsImplementation extends PageInitializer {
                 break;
         }
     }
+
     public void uploadDocuments(String document) throws TestingException {
         switch (document) {
             case "Letter of Interest":
                 WebElement uploadFile1 = cCRApplicationPage.uploadFile1;
-                uploadFile1.sendKeys(CCR_CONSTANTS.LetterOfInterest);
+                uploadFile1.sendKeys(CCR_CONSTANTS.LETTER_OF_INTEREST);
                 break;
             case "CV/Bibliography":
                 WebElement uploadFile2 = cCRApplicationPage.uploadFile2;
@@ -64,10 +68,11 @@ public class CCRStepsImplementation extends PageInitializer {
                 break;
             case "Upload Diversity Statement":
                 WebElement uploadFile3 = cCRApplicationPage.uploadFile3;
-                uploadFile3.sendKeys(CCR_CONSTANTS.DiversityStatement);
+                uploadFile3.sendKeys(CCR_CONSTANTS.DIVERSITY_STATEMENT);
                 break;
         }
     }
+
     public void selectOutreachSource(String source){
         switch (source) {
             case "Contacted By Member":
@@ -104,6 +109,7 @@ public class CCRStepsImplementation extends PageInitializer {
                 break;
         }
     }
+
     public void selectUploadingMaterialsOption(String option) {
         switch (option) {
             case "Yes":
@@ -114,16 +120,18 @@ public class CCRStepsImplementation extends PageInitializer {
                 break;
         }
     }
-        public void selectAdInformationOption(String option){
-            switch (option) {
-                case "Yes":
-                    CommonUtils.clickOnElement(cCRApplicationPage.yesPostedAd);
-                    break;
-                case "No":
-                    CommonUtils.clickOnElement(cCRApplicationPage.noPostedAd);
-                    break;
-               }
-           }
+
+    public void selectAdInformationOption(String option){
+        switch (option) {
+            case "Yes":
+                CommonUtils.clickOnElement(cCRApplicationPage.yesPostedAd);
+                break;
+            case "No":
+                CommonUtils.clickOnElement(cCRApplicationPage.noPostedAd);
+                break;
+        }
+    }
+
     public void clickButton(String button){
         switch (button) {
             case "Apply Now":
