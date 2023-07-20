@@ -291,7 +291,6 @@ public class PageInitializer {
     public static CCRLogInStepsImplementation cCRLogInStepsImplementation;
 
     /** ESR INSTANCES */
-
     public static NCINativeViewPage nciNativeViewPage;
 
     /** --------------- NATIVE VIEW INSTANCES --------------- */
@@ -394,7 +393,6 @@ public class PageInitializer {
         nERDOGCRAddNewEntryPage = new NERDOGCRAddNewEntryPage();
 
         /** ESR INSTANCE VARIABLES */
-
         nciNativeViewPage = new NCINativeViewPage();
 
         /** --------------- CUSTOM BUSINESS APP INSTANCE VARIABLES --------------- */
