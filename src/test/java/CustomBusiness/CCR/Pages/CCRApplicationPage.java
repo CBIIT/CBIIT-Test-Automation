@@ -145,7 +145,7 @@ public class CCRApplicationPage extends CommonUtils {
     public WebElement closeApplicationSubmittedButton;
 
     /** Upload File1 **/
-    @FindBy(xpath = "(//div[@class='input-group-btn']//button)[1]")
+    @FindBy(xpath = "(//input[@type='text'])[1]")
     public WebElement uploadFile1;
 
     /** Upload File2 **/
