@@ -44,13 +44,11 @@ public class CCRStepsImplementation extends PageInitializer {
     public void chooseUSA(String sectionName) throws TestingException {
         switch (sectionName) {
             case "Address":
-                Select se = new Select(WebDriverUtils.webDriver
-                        .findElement(By.xpath("//select[@id='country']")));
+                Select se = new Select(WebDriverUtils.webDriver.findElement(By.xpath("//select[@id='country']")));
                 se.selectByValue("060f782fdb51f30054d8ff621f96190a");
                 break;
             case "Business Address":
-                Select s = new Select(WebDriverUtils.webDriver
-                        .findElement(By.xpath("//select[@id='business_country']")));
+                Select s = new Select(WebDriverUtils.webDriver.findElement(By.xpath("//select[@id='business_country']")));
                 s.selectByValue("060f782fdb51f30054d8ff621f96190a");
                 break;
         }

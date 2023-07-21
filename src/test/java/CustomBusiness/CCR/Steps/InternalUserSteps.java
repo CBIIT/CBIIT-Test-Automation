@@ -179,7 +179,7 @@ public class InternalUserSteps extends PageInitializer {
     @Given("User uploads {string} document")
     public void user_uploads_document(String document) throws TestingException {
         cCRStepsImplementation.uploadDocuments(document);
-        MiscUtils.sleep(5000);
+        MiscUtils.sleep(8000);
     }
 
     @Given("User selects an outreach source as {string}")
