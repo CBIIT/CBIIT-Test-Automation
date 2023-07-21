@@ -159,4 +159,11 @@ public class CCRApplicationPage extends CommonUtils {
     /** Outreach Source Dropdown **/
     @FindBy(xpath = "//select[@id='outreach_source']")
     public WebElement outreachSourceDropdown;
+
+    /** Country Dropdown **/
+    @FindBy(xpath = "//select[@id='country']")
+    public WebElement countryDropdown;
+
+    @FindBy(xpath = "//select[@id='business_country']")
+    public WebElement countryBusinessDropdown;
 }

@@ -52,7 +52,24 @@ import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
+<<<<<<< HEAD
 import ServiceNow.NERD.Pages.*;
+=======
+import ServiceNow.ESR.Pages.NCINativeViewPage;
+import ServiceNow.NERD.Pages.Covid19ActivitiesSubmissionsPage;
+import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
+import ServiceNow.NERD.Pages.NERDCRSTCollaborationsPage;
+import ServiceNow.NERD.Pages.NERDCRSTOtherAccomplishmentsPage;
+import ServiceNow.NERD.Pages.NERDCRSTopAccomplishmentsPage;
+import ServiceNow.NERD.Pages.NERDDOCCollaborationsPage;
+import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
+import ServiceNow.NERD.Pages.NERDHomePage;
+import ServiceNow.NERD.Pages.NERDKnowledgebasePage;
+import ServiceNow.NERD.Pages.NERDOGCRAddNewEntryPage;
+import ServiceNow.NERD.Pages.NERDSubmissionsPage;
+import ServiceNow.NERD.Pages.NativeViewImpersonateUserPage;
+import ServiceNow.NERD.Pages.NativeViewMembersOfCongressPage;
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NativeViewImpersonateUser;
 import ServiceNow.SEER.Pages.*;
@@ -151,6 +168,7 @@ public class PageInitializer {
     public static NERDOGCRAddNewEntryPage nERDOGCRAddNewEntryPage;
     public static Covid19ActivitiesSubmissionsPage covid19ActivitiesSubmissionsPage;
 
+
     /** --------------- CUSTOM BUSINESS APP INSTANCES --------------- */
     /** EIDP instances */
     public static AligningExpectationsPage aligningExpectationsPage;
@@ -235,6 +253,9 @@ public class PageInitializer {
     public static CCRStepsImplementation cCRStepsImplementation;
     public static CCRDynamicXpaths cCRDynamicXpaths;
     public static CCRApplicationPage cCRApplicationPage;
+
+    /** ESR INSTANCES */
+    public static NCINativeViewPage nciNativeViewPage;
 
     /** --------------- NATIVE VIEW INSTANCES --------------- */
     public static NativeViewLoginImpl nativeViewLoginImpl;
@@ -335,6 +356,8 @@ public class PageInitializer {
         covid19ActivitiesSubmissionsPage = new Covid19ActivitiesSubmissionsPage();
         nERDOGCRAddNewEntryPage = new NERDOGCRAddNewEntryPage();
 
+        /** ESR INSTANCE VARIABLES */
+        nciNativeViewPage = new NCINativeViewPage();
 
         /** --------------- CUSTOM BUSINESS APP INSTANCE VARIABLES --------------- */
         /** EIDP Instance Variables */

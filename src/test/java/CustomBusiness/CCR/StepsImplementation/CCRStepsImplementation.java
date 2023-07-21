@@ -7,7 +7,6 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -44,11 +43,11 @@ public class CCRStepsImplementation extends PageInitializer {
     public void chooseUSA(String sectionName) throws TestingException {
         switch (sectionName) {
             case "Address":
-                Select se = new Select(WebDriverUtils.webDriver.findElement(By.xpath("//select[@id='country']")));
+                Select se = new Select(cCRApplicationPage.countryDropdown);
                 se.selectByValue("060f782fdb51f30054d8ff621f96190a");
                 break;
             case "Business Address":
-                Select s = new Select(WebDriverUtils.webDriver.findElement(By.xpath("//select[@id='business_country']")));
+                Select s = new Select(cCRApplicationPage.countryBusinessDropdown);
                 s.selectByValue("060f782fdb51f30054d8ff621f96190a");
                 break;
         }
