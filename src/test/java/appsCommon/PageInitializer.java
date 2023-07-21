@@ -28,7 +28,30 @@ import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
 import GrantsApps.ChangePassword.Pages.ChangePasswordPage;
 import GrantsApps.ChangePassword.StepsImplementation.ChangePasswordStepsImpl;
 import ServiceNow.CHARMS.Constants.RASScreenerScenario1_Constants;
-import ServiceNow.CHARMS.Pages.*;
+import ServiceNow.CHARMS.Pages.CGBIIQPage;
+import ServiceNow.CHARMS.Pages.CGBIIQPages;
+import ServiceNow.CHARMS.Pages.CHARMSHomePage;
+import ServiceNow.CHARMS.Pages.CHARMSNativeViewPage;
+import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
+import ServiceNow.CHARMS.Pages.FHQSurveyPage;
+import ServiceNow.CHARMS.Pages.FHQSurveyPortalPage;
+import ServiceNow.CHARMS.Pages.MelanomaHomePage;
+import ServiceNow.CHARMS.Pages.MelanomaLoginPage;
+import ServiceNow.CHARMS.Pages.MelanomaQuestionnairePage;
+import ServiceNow.CHARMS.Pages.MyRASHomePage;
+import ServiceNow.CHARMS.Pages.MyRASIIQFormPage;
+import ServiceNow.CHARMS.Pages.MyRASLoginPage;
+import ServiceNow.CHARMS.Pages.MyRASStudyConsentPage;
+import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
+import ServiceNow.CHARMS.Pages.NativeViewCHARMSParticipantConsentPage;
+import ServiceNow.CHARMS.Pages.NativeViewCHARMSParticipantDetailsPage;
+import ServiceNow.CHARMS.Pages.OKTAloginPage;
+import ServiceNow.CHARMS.Pages.ParticipantDetailsPage;
+import ServiceNow.CHARMS.Pages.ProbandScreenerPage;
+import ServiceNow.CHARMS.Pages.RASSurveyPage;
+import ServiceNow.CHARMS.Pages.RASopathyQuestionnairePage;
+import ServiceNow.CHARMS.Pages.ScreenerRecordTablePage;
+import ServiceNow.CHARMS.Pages.TestAccountResetPage;
 import ServiceNow.CHARMS.ScenariosData.TestDataManagerScenario1;
 import ServiceNow.CHARMS.StepsImplementation.CHARMSHomePageImp;
 import ServiceNow.CHARMS.StepsImplementation.RASSurveyStepsImpl;
@@ -301,7 +324,7 @@ public class PageInitializer {
 
     public static NativeViewCHARMSDashboardPage nativeViewCHARMSDashboardPage;
 
-    public  static  NativeViewCHARMSParticipantDetailsPage nativeViewCHARMSParticipantDetailsPage;
+    public  static NativeViewCHARMSParticipantDetailsPage nativeViewCHARMSParticipantDetailsPage;
 
     public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
 

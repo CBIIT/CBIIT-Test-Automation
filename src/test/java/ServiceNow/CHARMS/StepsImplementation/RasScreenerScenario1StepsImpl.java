@@ -396,6 +396,71 @@ public class RasScreenerScenario1StepsImpl extends PageInitializer {
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         }
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
+        try {
+            CommonUtils.waitForClickability(rasopathyQuestionnairePage.dynamicLocator(testDataManagerScenario1.whatIsYourRaceCheckBox));
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(testDataManagerScenario1.whatIsYourRaceCheckBox));
+            MiscUtils.sleep(2000);
+            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(testDataManagerScenario1.whatIsYourRaceCheckBox));
+            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(testDataManagerScenario1.whatIsYourRaceCheckBox));
+            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        }
+        rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
+        try {
+            CommonUtils.waitForClickability(rasopathyQuestionnairePage.dynamicLocator(testDataManagerScenario1.areYouOfAshkenazyJewishDescentRadioButton));
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(testDataManagerScenario1.areYouOfAshkenazyJewishDescentRadioButton));
+            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(testDataManagerScenario1.areYouOfAshkenazyJewishDescentRadioButton));
+            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        }
+        rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
+        try {
+            CommonUtils.waitForClickability(rasopathyQuestionnairePage.dynamicLocator(testDataManagerScenario1.areYouAdoptedRadioButton));
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(testDataManagerScenario1.areYouAdoptedRadioButton));
+            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(testDataManagerScenario1.areYouAdoptedRadioButton));
+            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        }
+        rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
+        try {
+            CommonUtils.waitForClickability(rasopathyQuestionnairePage.dynamicLocator(testDataManagerScenario1.wereYouRaisedPrimarilyRadioButton));
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(testDataManagerScenario1.wereYouRaisedPrimarilyRadioButton));
+            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(testDataManagerScenario1.wereYouRaisedPrimarilyRadioButton));
+            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        }
+        rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
+//
+//        try {
+//            rasopathyQuestionnairePage.calendarYearTextBox.clear();
+//            rasopathyQuestionnairePage.calendarYearTextBox.sendKeys(testDataManagerScenario1.dateOfBirthYear);
+//            CommonUtils.selectDropDownValue(testDataManagerScenario1.dateOfBirthMonth, rasopathyQuestionnairePage.calendarMonthDropDown);
+//            rasopathyQuestionnairePage.calendarDayOption.click();
+//            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+//        } catch (NoSuchElementException e) {
+//            e.printStackTrace();
+//            rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
+//            rasopathyQuestionnairePage.calendarYearTextBox.clear();
+//            rasopathyQuestionnairePage.calendarYearTextBox.sendKeys(testDataManagerScenario1.dateOfBirthYear);
+//            CommonUtils.selectDropDownValue(testDataManagerScenario1.dateOfBirthMonth, rasopathyQuestionnairePage.calendarMonthDropDown);
+//            rasopathyQuestionnairePage.calendarDayOption.click();
+//            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+//        }
+//        rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
+
 
 
 

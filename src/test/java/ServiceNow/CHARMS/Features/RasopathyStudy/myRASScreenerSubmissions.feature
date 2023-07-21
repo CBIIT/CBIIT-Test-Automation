@@ -7,9 +7,9 @@ Feature: RAS Screener Scenarios
 
 	@juarezds @myRasScreenerSubmissionOnly @InProgress @Progression
 	Scenario: Participant Screener Self Submission Scenario 1
-		This scenario selects 'No' to all questions
+#		This scenario selects 'No' to all questions
 #		Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-#		And logs in via Okta with username "charmsras1@yahoo.com" and password "RASTest2022$$"
+#		And logs in via Okta with username "charmsras5@yahoo.com" and password "RASTest2023$$"
 #		And clicks on Eligibility Questionnaire to begin questionnaire
 #		When the participant submits a screener from excel sheet "screenerScenario1"
 #		Then data submitted for scenario is verified in native view against corresponding scenario from the excel sheet

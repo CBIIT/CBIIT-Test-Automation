@@ -3,7 +3,6 @@ package ServiceNow.CHARMS.Steps;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
-
 import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
 import ServiceNow.COVIDDash.Utils.COVIDConstants;
 import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
@@ -93,6 +92,7 @@ public class MyRASScreenerSubmissionScenario1Steps extends PageInitializer {
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         CommonUtils.assertEqualsWithMessage(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText.getText(), "Consent added!", "---- VERIFYING SCREENER RECORD RASOPATHY HISTORY DATA ----");
+
         /* BEGINNING: CONSENT FLOW PROCESS */
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsButton);
