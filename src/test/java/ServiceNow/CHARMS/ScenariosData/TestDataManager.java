@@ -3,6 +3,7 @@ package ServiceNow.CHARMS.ScenariosData;
 import ServiceNow.CHARMS.Constants.CHARMSConstants;
 import appsCommon.PageInitializer;
 import com.nci.automation.dao.ExcelReader;
+
 import java.util.Map;
 
 public class TestDataManager extends PageInitializer {
@@ -11,7 +12,7 @@ public class TestDataManager extends PageInitializer {
     public String areYouCompletingThisFormForSomeoneElseOrYourself;
     public String firstName;
     public String middleInitial;
-    public  String lastName;
+    public String lastName;
     public String whatIsYourDateOfBirth;
     public String dateOfBirthMonth;
     public String dateOfBirthYear;
@@ -42,7 +43,7 @@ public class TestDataManager extends PageInitializer {
     public String whatAreMainReasonsForParticipatingInStudy;
     public String whatAreMainReasonsForParticipatingInStudyOtherReason;
 
-    public void dataInitializer(String sheetName){
+    public void dataInitializer(String sheetName) {
         /**
          * FETCHING DATA FROM EXCEL BEFORE SUBMITTING SCREENER
          */
@@ -81,5 +82,7 @@ public class TestDataManager extends PageInitializer {
         haveYouOrOtherFamilyMembersParticipatedInOtherStudy = testDataForRasScreenerSubmission.get(rasScreenerConstants.haveYouOrOtherFamilyMembersParticipatedInOtherStudy);
         whatAreMainReasonsForParticipatingInStudy = testDataForRasScreenerSubmission.get(rasScreenerConstants.whatAreTheMainReasonsForParticipatingInThisStudy);
         whatAreMainReasonsForParticipatingInStudyOtherReason = testDataForRasScreenerSubmission.get(rasScreenerConstants.getWhatAreTheMainReasonsForParticipatingInThisStudyOtherReason);
+
+
     }
 }

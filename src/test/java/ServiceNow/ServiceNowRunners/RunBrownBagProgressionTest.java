@@ -8,9 +8,12 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(plugin = { "html:target/html-reports/cucumber-default-report", "json:target/cucumber.json",
 		"junit:target/cucumber.xml", "rerun:target/failed.txt",
 		"pretty" }, 
-features = "src/test/java/ServiceNow/BrownBag/Features",
-glue = "ServiceNow.BrownBag.Steps", tags = "@Progression", dryRun = false, monochrome = true, strict = true
-
+		features = "src/test/java/ServiceNow/BrownBag/Features",
+        glue = "ServiceNow.BrownBag.Steps",
+		tags = "@Progression",
+		dryRun = false,
+		monochrome = true,
+		strict = true
 )
 
 /**

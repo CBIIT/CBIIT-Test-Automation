@@ -29,6 +29,7 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
     @Given("a participant is on the RASopathies Longitudinal Cohort Study login page {string}")
     public void a_participant_is_on_the_RASopathies_Longitudinal_Cohort_Study_login_page(String applicationID) {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(applicationID));
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
     @When("the participant submits a screener for scenario one from excel sheet {string}")
