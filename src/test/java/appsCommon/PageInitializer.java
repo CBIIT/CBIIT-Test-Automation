@@ -57,6 +57,7 @@ import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
+import ServiceNow.ESR.Pages.NCINativeViewPage;
 import ServiceNow.NERD.Pages.Covid19ActivitiesSubmissionsPage;
 import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
 import ServiceNow.NERD.Pages.NERDCRSTCollaborationsPage;
@@ -290,6 +291,9 @@ public class PageInitializer {
     public static CCRLandingPage cCRLandingPage;
     public static CCRLogInStepsImplementation cCRLogInStepsImplementation;
 
+    /** ESR INSTANCES */
+    public static NCINativeViewPage nciNativeViewPage;
+
     /** --------------- NATIVE VIEW INSTANCES --------------- */
     public static NativeViewLoginImpl nativeViewLoginImpl;
     public static NativeViewHomePage nativeViewHomePage;
@@ -389,6 +393,8 @@ public class PageInitializer {
         covid19ActivitiesSubmissionsPage = new Covid19ActivitiesSubmissionsPage();
         nERDOGCRAddNewEntryPage = new NERDOGCRAddNewEntryPage();
 
+        /** ESR INSTANCE VARIABLES */
+        nciNativeViewPage = new NCINativeViewPage();
 
 		/** --------------- CUSTOM BUSINESS APP INSTANCE VARIABLES --------------- */
 		/** EIDP Instance Variables */
