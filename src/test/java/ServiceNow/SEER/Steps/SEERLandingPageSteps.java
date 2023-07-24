@@ -9,16 +9,16 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class SEERLandingPageSteps extends PageInitializer {
 
 	@Given("a user is on the SEER Data Access landing page")
 	public void a_user_is_on_the_SEER_Data_Access_landing_page() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SEERDataAccess"));
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Given("a new user who does not have an active SEER Research Database access request")
@@ -30,7 +30,7 @@ public class SEERLandingPageSteps extends PageInitializer {
 	@When("enter email for SEER Research Database and click on the Register for Research Data")
 	public void enter_email_for_SEER_Research_Database_and_click_on_the_Register_for_Research_Data() throws TestingException{
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SEERDataAccess"));
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		SEERDataAccessRequestPageStepsImpl.enterEmailAddress349();
 	}
 

@@ -3,7 +3,6 @@ package ServiceNow.NERD.Pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.nci.automation.web.WebDriverUtils;
 
 public class NERDCRSTopAccomplishmentsPage {
@@ -74,7 +73,6 @@ public class NERDCRSTopAccomplishmentsPage {
 
     public NERDCRSTopAccomplishmentsPage() {
 
-        PageFactory.initElements(WebDriverUtils.webDriver, this);
+    PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
-
 }

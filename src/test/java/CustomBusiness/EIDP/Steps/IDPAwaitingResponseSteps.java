@@ -6,7 +6,9 @@ import com.nci.automation.utils.CucumberLogUtils;
 import CustomBusiness.EIDP.Util.CommonUtil;
 import CustomBusiness.EIDP.Util.SharedData;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.cucumber.datatable.DataTable;
 
 public class IDPAwaitingResponseSteps extends PageInitializer {
@@ -20,11 +22,11 @@ public class IDPAwaitingResponseSteps extends PageInitializer {
 		searchStepimpl.selectClassificationType(requestData.get("Classification Type"));
 		searchStepimpl.selectActiveTraineeNHGRI();
 		Assert.assertTrue(searchStepimpl.isIDPFormDisplayed());
-		CucumberLogUtils.logScreenShot("owner details page");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		searchStepimpl.selectNCITrainingOrganization(requestData.get(" NHGRI Training Organization"));
 		searchStepimpl.clickOnSaveAndSendMailButton();
 		Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
-		CucumberLogUtils.logScreenShot("IDP intiation message success");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		searchStepimpl.clickOnOkButton();
 		changeUserToTrainnee();
 		Thread.sleep(4000);

@@ -4,8 +4,8 @@ import ServiceNow.SEER.Constants.DUA_Constants;
 import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import appsCommon.PageInitializer;
 import com.nci.automation.web.WebDriverUtils;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 
 public class DUA_AgreementsSteps extends PageInitializer {
 

@@ -1,6 +1,9 @@
 package CustomBusiness.DCEG.Steps;
 
 import java.util.List;
+
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -10,8 +13,8 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+//import cucumber.api.java.en.Then;
+//import cucumber.api.java.en.When;
 
 public class RegularUserFlowSteps extends PageInitializer {
 
@@ -19,10 +22,10 @@ public class RegularUserFlowSteps extends PageInitializer {
 	public void user_on_an_editable_publication() {
 		CommonUtils.click(adminFlowPage.publicationsTab);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.click(directSubmitterPage.viewFirstPublication);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User chooses to add non-NIH group")
@@ -30,7 +33,7 @@ public class RegularUserFlowSteps extends PageInitializer {
 		JavascriptUtils.scrollIntoView(regularUserFlowPage.addNonNHIGroup);
 		CommonUtils.click(regularUserFlowPage.addNonNHIGroup);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 	}
 
@@ -42,7 +45,7 @@ public class RegularUserFlowSteps extends PageInitializer {
 		JavascriptUtils.scrollIntoView(regularUserFlowPage.addGroupButton);
 		JavascriptUtils.clickByJS(regularUserFlowPage.addGroupButton);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("User can successfully add non-NIH group")
@@ -66,7 +69,7 @@ public class RegularUserFlowSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.click(regularUserFlowPage.addAuthorButton);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("User can verify that non-nih author was added successfully")
@@ -85,7 +88,7 @@ public class RegularUserFlowSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.click(regularUserFlowPage.madiganP);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 	}
 
@@ -105,7 +108,7 @@ public class RegularUserFlowSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.click(regularUserFlowPage.pubMedImportButton);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("User can verify that author match has been applied")
@@ -132,7 +135,7 @@ public class RegularUserFlowSteps extends PageInitializer {
 				}
 			}
 			MiscUtils.sleep(3000);
-			CucumberLogUtils.logScreenShot();
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
@@ -151,14 +154,14 @@ public class RegularUserFlowSteps extends PageInitializer {
 				}
 			}
 			MiscUtils.sleep(3000);
-			CucumberLogUtils.logScreenShot();
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
 				MiscUtils.sleep(4000);
 				each.click();
 				CommonUtils.sendKeys(regularUserFlowPage.titleField, "Edited title");
 				MiscUtils.sleep(2000);
-				CucumberLogUtils.logScreenShot();
+				CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 				CommonUtils.click(regularUserFlowPage.cancelButton);
 				MiscUtils.sleep(2000);
 				break;
@@ -177,7 +180,7 @@ public class RegularUserFlowSteps extends PageInitializer {
 					System.out.println("Pending Submission item is present");
 				}
 			}
-			CucumberLogUtils.logScreenShot();
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
@@ -197,7 +200,7 @@ public class RegularUserFlowSteps extends PageInitializer {
 				}
 			}
 			MiscUtils.sleep(3000);
-			CucumberLogUtils.logScreenShot();
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
@@ -217,7 +220,7 @@ public class RegularUserFlowSteps extends PageInitializer {
 				}
 			}
 			MiscUtils.sleep(3000);
-			CucumberLogUtils.logScreenShot();
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
@@ -237,7 +240,7 @@ public class RegularUserFlowSteps extends PageInitializer {
 				}
 			}
 			MiscUtils.sleep(3000);
-			CucumberLogUtils.logScreenShot();
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
@@ -257,7 +260,7 @@ public class RegularUserFlowSteps extends PageInitializer {
 				}
 			}
 			MiscUtils.sleep(3000);
-			CucumberLogUtils.logScreenShot();
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
@@ -277,7 +280,7 @@ public class RegularUserFlowSteps extends PageInitializer {
 				}
 			}
 			MiscUtils.sleep(3000);
-			CucumberLogUtils.logScreenShot();
+			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
 				MiscUtils.sleep(4000);
@@ -285,7 +288,7 @@ public class RegularUserFlowSteps extends PageInitializer {
 				CommonUtils.sendKeys(regularUserFlowPage.titleFieldPublication, "Edited title");
 				MiscUtils.sleep(2000);
 				System.out.println("Pending Submission item is editable");
-				CucumberLogUtils.logScreenShot();
+				CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 				CommonUtils.click(regularUserFlowPage.cancelButtonPublication);
 				MiscUtils.sleep(2000);
 				break;

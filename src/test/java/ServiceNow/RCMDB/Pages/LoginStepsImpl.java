@@ -15,13 +15,7 @@ public class LoginStepsImpl extends LoginPage {
 	}
 
 	public void openApp() {
-		// driver.get(ConfigFileReader.getConfigFileReader().getAtoUrl());
-		try {
-			Thread.sleep(30000);
 			driver.get(EnvUtils.getApplicationUrl("AtoTestUrl"));
-		} catch (TestingException | InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 	
 	public void openApp(String url)  {

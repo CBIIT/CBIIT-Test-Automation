@@ -1,8 +1,13 @@
 package AnalysisTools.LDLink.Steps;
 
+<<<<<<< HEAD
 import java.io.File;
 import java.net.MalformedURLException;
 import org.apache.commons.lang.StringUtils;
+=======
+import appsCommon.PageCache;
+import appsCommon.PageInitializer;
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 import com.nci.automation.common.QcTestResult;
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.DateUtils;
@@ -11,18 +16,32 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
+<<<<<<< HEAD
 
 import appsCommon.PageCache;
 import appsCommon.PageInitializer;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+=======
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
+import org.apache.commons.lang.StringUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+
+import java.io.File;
+import java.net.MalformedURLException;
+
+
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 
 public class HooksSteps {
 
 	private static final String BUILD_NUMBER = "BUILD_NUMBER";
 	public static String SCENARIO_NAME_TEXT = "scenarioNameText";
-
+	public static Scenario scenario;
 	/**
 	 * This method will run before each scenario
 	 * 
@@ -32,6 +51,10 @@ public class HooksSteps {
 	@Before
 	public void genericSetUp(Scenario s) throws TestingException {
 		WebDriverUtils.getWebDriver();
+<<<<<<< HEAD
+=======
+		this.scenario=s;
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 		MiscUtils.sleep(2000);
 		PageInitializer.initializeAllPages();
 		ScenarioContext.localConf = LocalConfUtils.loadLocalConf();
@@ -71,7 +94,10 @@ public class HooksSteps {
 	 */
 	@After
 	public void genericTearDown(Scenario s) throws TestingException {
-
+		if (s.isFailed()) {
+			final byte[] screenshot = ((TakesScreenshot) WebDriverUtils.webDriver).getScreenshotAs(OutputType.BYTES);
+			s.attach(screenshot, "image/png", s.getName());
+		}
 		if (WebDriverUtils.webDriver != null) {
 			MiscUtils.sleep(2000);
 
@@ -106,4 +132,8 @@ public class HooksSteps {
 		System.out.println("web specific clean up");
 	}
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4

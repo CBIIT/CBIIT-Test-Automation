@@ -1,5 +1,6 @@
 package ServiceNow.COVIDDash.StepsImplementation;
 
+import ServiceNow.COVIDDash.Steps.HooksSteps;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
@@ -23,8 +24,7 @@ public class COVIDHomePageImpl extends PageInitializer {
 
 	public void navigateToCOVIDDashLoginPage() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("covid19dashboard"));
-		CucumberLogUtils.logInfo(EnvUtils.getExecutionEnv());
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	public void clickOnLoginToAccessBtn() {
@@ -36,20 +36,19 @@ public class COVIDHomePageImpl extends PageInitializer {
 	public void verifyUserLoggedIn() {
 		MiscUtils.sleep(3000);
 		Assert.assertTrue(WebDriverUtils.webDriver.getCurrentUrl().contains(covid));
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	public void loginToCovidDashboard() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("covid19dashboard"));
-		CucumberLogUtils.logInfo(EnvUtils.getExecutionEnv());
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		MiscUtils.sleep(2000);
 		covidHomePage.clickITrustRedirectButton();
 		MiscUtils.sleep(2060);
 		loginImpl.loginToITrust();
 		iTrustloginPage.clickSignInButton();
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	public void verifyFieldsAreDiabled() {
@@ -69,7 +68,7 @@ public class COVIDHomePageImpl extends PageInitializer {
 		Assert.assertEquals(dvsn, covidHomePage.divisionField().getAttribute(attName));
 		Assert.assertEquals(piEml, covidHomePage.emailAddressField().getAttribute(attName).substring(12));
 		Assert.assertEquals(piPhn, covidHomePage.phonNumberField().getAttribute(attName));
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	public void submitButtonIsDisbaled() {

@@ -6,9 +6,9 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 public class CEDCDSearchCohortsCohortsURLSteps extends PageInitializer {
 
 	/**
@@ -19,7 +19,7 @@ public class CEDCDSearchCohortsCohortsURLSteps extends PageInitializer {
 	public void the_user_clicks_Agricultural_Health_Study() {
 
 		JavascriptUtils.drawRedBorder(cedcdSearchCohortsPage.AHSURL);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.clickByJS(cedcdSearchCohortsPage.AHSURL);
 
 	}
@@ -58,6 +58,6 @@ public class CEDCDSearchCohortsCohortsURLSteps extends PageInitializer {
 	}
 
 	// Assert.assertEquals(expectedAHSText, actualAHSText);;
-	// CucumberLogUtils.logScreenShot();
+	// CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 }

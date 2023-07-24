@@ -1,16 +1,7 @@
 package ServiceNow.ITPG.Utils;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.safari.SafariDriver;
-
 import com.nci.automation.web.WebDriverUtils;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
-
 
 public class DriverObjectFactory {
 	private static WebDriver driver;

@@ -1,6 +1,8 @@
 package ServiceNow.COVIDCode.StepsImplementation;
 
 import java.util.List;
+
+import ServiceNow.COVIDCode.Steps.HooksSteps;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -16,12 +18,12 @@ public class FollowUpFormPageImpl extends PageInitializer{
 	
 	public void accessingFollowUpForm() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		covidCodeLoginPage.LogInButton.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		loginImpl.loginToITrust();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		//ADDING TEMPORARY WORK AROUND TO LOG INTO FOLLOW UP FORM
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
 		servicePortalQuestionnairePage.startNewFollowUpButton.click();
@@ -34,7 +36,7 @@ public class FollowUpFormPageImpl extends PageInitializer{
 		followUpFormPage.enrollmentSearchTxtBox.sendKeys("AutomatedFN");
 		MiscUtils.sleep(3000);
 		followUpFormPage.enrollmentSearchTxtBox.sendKeys(Keys.ENTER);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 	
 	public void searchEnrollmentByPatientIDLastNameFirstNameNIHMedicalRecordNumber() {
@@ -42,7 +44,7 @@ public class FollowUpFormPageImpl extends PageInitializer{
 		followUpFormPage.enrollmentSearchTxtBox.sendKeys("AutomatedFN");	
 		MiscUtils.sleep(3000);
 		followUpFormPage.enrollmentSearchTxtBox.sendKeys(Keys.ENTER);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		followUpFormPage.enrollmentSearchXbutton.click();
 		followUpFormPage.enrollmentSearchDropDown.click();
 		//followUpFormPage.enrollmentSearchTxtBox.sendKeys("NVAutomatedLN");
@@ -51,13 +53,13 @@ public class FollowUpFormPageImpl extends PageInitializer{
 		String name=existingFormsList.get(0).getText();
 		followUpFormPage.enrollmentSearchTxtBox.sendKeys(name);
 		followUpFormPage.enrollmentSearchValuesAfterInput.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		followUpFormPage.enrollmentSearchXbutton.click();
 		followUpFormPage.enrollmentSearchDropDown.click();
 		followUpFormPage.enrollmentSearchTxtBox.sendKeys("HCC");
 		MiscUtils.sleep(3000);
 		followUpFormPage.enrollmentSearchTxtBox.sendKeys(Keys.ENTER);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		followUpFormPage.enrollmentSearchXbutton.click();
 	}
 	
@@ -66,14 +68,14 @@ public class FollowUpFormPageImpl extends PageInitializer{
 		followUpFormPage.enrollmentSearchTxtBox.sendKeys("AutomatedLN");	
 		MiscUtils.sleep(3000);
 		followUpFormPage.enrollmentSearchTxtBox.sendKeys(Keys.ENTER);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 	public void accessingFollowUpFormDiseaseCourseSection() {
 		JavascriptUtils.scrollIntoView(followUpFormPage.diseaseCourseNewButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		followUpFormPage.diseaseCourseNewButton.click();
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 	
 	public void verifyingExposuresAndRiskFactorsQuestion(String patientsSelfReportedHealth, String medicalConditionsText, String patientCancerTypeText, String immunizationsUpToDateText, String patientReceivedVaccinationsText, String patientsWalkingPaceText, String hoursSpentSittingText, String patientVapeCigarettesText, String patientSmokeAtLeast100cigarettesText, String patientConsumeAlcoholicBeveragesText, String hoursSpentExercisingText) {
@@ -82,7 +84,7 @@ public class FollowUpFormPageImpl extends PageInitializer{
 		Assert.assertTrue(followUpFormPage.exposuresAndRiskFactorsCancerQuestionText.getText().contentEquals(patientCancerTypeText));
 		Assert.assertTrue(followUpFormPage.exposuresAndRiskFactorsImmunizationsQuestionText.getText().contentEquals(immunizationsUpToDateText));
 		Assert.assertTrue(followUpFormPage.exposuresAndRiskFactorsVacinationsReceivedQuestionText.getText().contentEquals(patientReceivedVaccinationsText));
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Assert.assertTrue(followUpFormPage.exposiresAndRiskFactorsWalkingPaceQuestionText.getText().contentEquals(patientsWalkingPaceText));
 		JavascriptUtils.scrollIntoView(followUpFormPage.exposuresAndRiskFactorsHoursSpentSittingQuestionText);
 		Assert.assertTrue(followUpFormPage.exposuresAndRiskFactorsHoursSpentSittingQuestionText.getText().contentEquals(hoursSpentSittingText));
@@ -93,7 +95,7 @@ public class FollowUpFormPageImpl extends PageInitializer{
 		Assert.assertTrue(followUpFormPage.exposuresAndRiskFactorsAlcoholConsumptionQuestionText.getText().contentEquals(patientConsumeAlcoholicBeveragesText));
 		JavascriptUtils.scrollIntoView(followUpFormPage.exposuresAndRiskFactorsHoursPerWeekSpentQuestionText);
 		Assert.assertTrue(followUpFormPage.exposuresAndRiskFactorsHoursPerWeekSpentQuestionText.getText().contentEquals(hoursSpentExercisingText));
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 }

@@ -1,8 +1,7 @@
 package AnalysisTools.PLCO.Steps;
 
-import java.io.File;
-import java.net.MalformedURLException;
-import org.apache.commons.lang.StringUtils;
+import appsCommon.PageCache;
+import appsCommon.PageInitializer;
 import com.nci.automation.common.QcTestResult;
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.DateUtils;
@@ -11,18 +10,27 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import appsCommon.PageCache;
-import appsCommon.PageInitializer;
-import cucumber.api.Scenario;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
+import org.apache.commons.lang.StringUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+
+import java.io.File;
+import java.net.MalformedURLException;
+
+
+//import io.cucumber.java.Scenario;
+//import cucumber.api.java.After;
+//import io.cucumber.java.Before;
+
 
 public class HooksSteps {
 
 	private static final String BUILD_NUMBER = "BUILD_NUMBER";
 	public static String SCENARIO_NAME_TEXT = "scenarioNameText";
-	private static String featureName = null;
-
+	public static Scenario scenario;
 	/**
 	 * This method will run before each scenario
 	 * 
@@ -31,8 +39,8 @@ public class HooksSteps {
 	 */
 	@Before
 	public void genericSetUp(Scenario s) throws TestingException {
-
 		WebDriverUtils.getWebDriver();
+		this.scenario=s;
 		MiscUtils.sleep(2000);
 		PageInitializer.initializeAllPages();
 		ScenarioContext.localConf = LocalConfUtils.loadLocalConf();
@@ -72,7 +80,10 @@ public class HooksSteps {
 	 */
 	@After
 	public void genericTearDown(Scenario s) throws TestingException {
-
+		if (s.isFailed()) {
+			final byte[] screenshot = ((TakesScreenshot) WebDriverUtils.webDriver).getScreenshotAs(OutputType.BYTES);
+			s.attach(screenshot, "image/png", s.getName());
+		}
 		if (WebDriverUtils.webDriver != null) {
 			MiscUtils.sleep(2000);
 
@@ -104,14 +115,6 @@ public class HooksSteps {
 	public void webTearDown() throws MalformedURLException {
 		// use this for web specific clean up
 		System.out.println("web specific clean up");
-	}
-
-	private String getFeatureFileNameFromScenarioId(Scenario scenario) {
-		String[] tab = scenario.getId().split("/");
-		int rawFeatureNameLength = tab.length;
-		String featureName = tab[rawFeatureNameLength - 1].split(":")[0];
-		System.out.println("featureName: " + featureName);
-		return featureName;
 	}
 
 }

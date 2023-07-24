@@ -9,10 +9,9 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.xceptions.TestingException;
 
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 public class COVIDCodeLoginSteps extends PageInitializer {
 
 	@Given("a COVIDcode Study Provider user is on the COVIDcode study homepage")
@@ -38,7 +37,7 @@ public class COVIDCodeLoginSteps extends PageInitializer {
 		CommonUtils.selectDropDownValue(servicePortalQuestionnairePage.EnrollmentCreationUserGroupIDSelectDropDown,
 				UserGroupID);
 		JavascriptUtils.clickByJS(servicePortalQuestionnairePage.createEnrollmentButton);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		MiscUtils.sleep(2000);
 	}
 
@@ -49,7 +48,7 @@ public class COVIDCodeLoginSteps extends PageInitializer {
 		Assert.assertEquals("Verifying COVIDcode Enrollment Questionnaire header", expectedlText, actualText);
 		JavascriptUtils.drawBlueBorder(covidCodeEQPage.COVIDcodeEnrollmentQuestionnaireHeader);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 	}
 
@@ -61,7 +60,7 @@ public class COVIDCodeLoginSteps extends PageInitializer {
 		Assert.assertEquals("Verifying COVIDcode Enrollment Questionnaire Paragraph", expectedlText, actualText);
 		JavascriptUtils.drawBlueBorder(covidCodeEQPage.enrollmentQuestionnaireParagraph);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 }

@@ -636,9 +636,118 @@
             </default>
         </db>
     </application>
+
     <!-- Application ID for ezQTL-->
     <application id="ezQTL">
         <login_url>https://analysistools-qa.cancer.gov/ezqtl/#/home
+        </login_url> <!-- add test url -->
+
+        <role name="Role">
+            <user id="regular">
+                <name>regular</name>
+                <userId></userId> <!-- add encrypted test user -->
+                <password></password> <!-- add encrypted test pass -->
+            </user>
+        </role>
+        <db>
+            <default>
+                <driverclassname></driverclassname> <!-- Add driver class-name -->
+                <url></url> <!-- complete string url -->
+                <username></username> <!-- Add db username -->
+                <password></password> <!-- Add db password -->
+            </default>
+        </db>
+    </application>
+
+    <!-- Application ID for cProSite-->
+    <application id="cProSite">
+
+        <login_url>https://cprosite-qa.ccr.cancer.gov/#/
+        </login_url> <!-- add test url -->
+        <role name="Role">
+            <user id="regular">
+                <name>regular</name>
+                <userId></userId> <!-- add encrypted test user -->
+                <password></password> <!-- add encrypted test pass -->
+            </user>
+        </role>
+        <db>
+            <default>
+                <driverclassname></driverclassname> <!-- Add driver class-name -->
+                <url></url> <!-- complete string url -->
+                <username></username> <!-- Add db username -->
+                <password></password> <!-- Add db password -->
+            </default>
+        </db>
+    </application>
+
+
+    <!-- Application ID for JPsurv-->
+    <application id="JPSurv">
+
+        <login_url>https://analysistools-qa.cancer.gov/jpsurv/
+        </login_url> <!-- add test url -->
+
+        <role name="Role">
+            <user id="regular">
+                <name>regular</name>
+                <userId></userId> <!-- add encrypted test user -->
+                <password></password> <!-- add encrypted test pass -->
+            </user>
+        </role>
+        <db>
+            <default>
+                <driverclassname></driverclassname> <!-- Add driver class-name -->
+                <url></url> <!-- complete string url -->
+                <username></username> <!-- Add db username -->
+                <password></password> <!-- Add db password -->
+            </default>
+        </db>
+    </application>
+
+    <!-- Application ID for ICRP-->
+    <application id="ICRP">
+        <login_url>https://icrpartnership-test.org/
+        </login_url> <!-- add test url -->
+        <role name="Role">
+            <user id="regular">
+                <name>regular</name>
+                <userId></userId> <!-- add encrypted test user -->
+                <password></password> <!-- add encrypted test pass -->
+            </user>
+        </role>
+        <db>
+            <default>
+                <driverclassname></driverclassname> <!-- Add driver class-name -->
+                <url></url> <!-- complete string url -->
+                <username></username> <!-- Add db username -->
+                <password></password> <!-- Add db password -->
+            </default>
+        </db>
+    </application>
+    <!-- Application ID for ChangePassword-->
+    <application id="ChangePassword">
+        <login_url>https://i2e-test.nci.nih.gov/changepassword/
+        </login_url> <!-- add test url -->
+        <role name="Role">
+            <user id="regular">
+                <name>regular</name>
+                <userId></userId> <!-- add encrypted test user -->
+                <password></password> <!-- add encrypted test pass -->
+            </user>
+        </role>
+        <db>
+            <default>
+                <driverclassname></driverclassname> <!-- Add driver class-name -->
+                <url></url> <!-- complete string url -->
+                <username></username> <!-- Add db username -->
+                <password></password> <!-- Add db password -->
+            </default>
+        </db>
+    </application>
+    <!-- Application ID for CCR-->
+    <application id="CCR">
+        <login_url>https://service-test.nci.nih.gov/ccr-careers
         </login_url> <!-- add test url -->
         <role name="Role">
             <user id="regular">

@@ -1,7 +1,9 @@
 package CustomBusiness.EIDP.Steps;
 
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class TraineeReviewSteps extends PageInitializer{
 

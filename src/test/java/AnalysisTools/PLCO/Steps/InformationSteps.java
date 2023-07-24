@@ -6,9 +6,15 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 
 import appsCommon.PageInitializer;
+<<<<<<< HEAD
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+=======
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 
 public class InformationSteps extends PageInitializer {
 
@@ -18,9 +24,15 @@ public class InformationSteps extends PageInitializer {
 
 	}
 
+<<<<<<< HEAD
 	@Then("API Access page displays")
 	public void api_Access_page_displays() {
 		CucumberLogUtils.logScreenShot();
+=======
+	@Then("API Acess page displays")
+	public void api_Acess_page_displays() {
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 	}
 
 	@Then("API Acess page displays {string} heading")
@@ -41,7 +53,7 @@ public class InformationSteps extends PageInitializer {
 
 	@Then("user goes to source code from About page")
 	public void user_goes_to_source_code_from_About_page() {
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("user clicks on source code")
@@ -51,7 +63,7 @@ public class InformationSteps extends PageInitializer {
 
 	@Then("user goes to PLCO source code on github")
 	public void user_goes_to_PLCO_source_code_on_github() {
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("user navigates to the About page")

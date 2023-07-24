@@ -1,5 +1,7 @@
 package ServiceNow.ATO.Steps;
 
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
@@ -10,10 +12,9 @@ import ServiceNow.ATO.StepsImplementation.SecurityFormStepsImpl;
 import ServiceNow.ATO.Utils.Constants;
 import ServiceNow.ATO.Utils.DriverObjectFactory;
 import ServiceNow.ATO.Utils.ReportUtil;
-import cucumber.api.Scenario;
-import cucumber.api.java.Before;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class SecurityFormSteps extends BasePage {
 

@@ -1,19 +1,14 @@
 package com.nci.automation.web;
 
-import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 import com.nci.automation.utils.FrameworkConstants;
-import io.github.bonigarcia.wdm.config.OperatingSystem;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -26,7 +21,6 @@ import com.nci.automation.common.Constants;
 import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.LocalConfUtils;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
  * This class contains web driver related methods
@@ -117,6 +111,7 @@ public class WebDriverUtils {
 		driver.navigate().refresh();
 	}
 
+<<<<<<< HEAD
 	public static void launchChrome() {
 		String osName = FrameworkConstants.GET_OS_NAME;
 		if (osName.contains("Windows")) {
@@ -138,6 +133,26 @@ public class WebDriverUtils {
 			webDriver = new ChromeDriver(chromeOptions);
 		}
 	}
+=======
+    public static void launchChrome() {
+        String osName = FrameworkConstants.GET_OS_NAME;
+        if (osName.contains("Windows")) {
+            webDriver = new ChromeDriver();
+            webDriver.manage().window().maximize();
+            webDriver.manage().deleteAllCookies();
+            webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        } else if (osName.contains("Mac")) {
+            webDriver = new ChromeDriver();
+            webDriver.manage().window().maximize();
+            webDriver.manage().deleteAllCookies();
+            webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        } else if (osName.contains("Linux")) {
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.addArguments("--headless=new");
+            webDriver = new ChromeDriver(chromeOptions);
+        }
+    }
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 
 	public static void launchMobile() {
 		String avdName = ConfUtils.getProperty("avdName");
@@ -160,6 +175,7 @@ public class WebDriverUtils {
 		}
 	}
 
+<<<<<<< HEAD
 	public static void launchFirefox() {
 		String osName = FrameworkConstants.GET_OS_NAME;
 		if (osName.contains("Windows")) {
@@ -226,3 +242,62 @@ public class WebDriverUtils {
 		}
 	}
 }
+=======
+    public static void launchFirefox() {
+        String osName = FrameworkConstants.GET_OS_NAME;
+        if (osName.contains("Windows")) {
+            webDriver = new FirefoxDriver();
+            webDriver.manage().window().maximize();
+            webDriver.manage().deleteAllCookies();
+            webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        } else if (osName.contains("Mac")) {
+            webDriver = new FirefoxDriver();
+            webDriver.manage().window().maximize();
+            webDriver.manage().deleteAllCookies();
+            webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        } else if (osName.contains("Linux")) {
+            FirefoxOptions fireOptions = new FirefoxOptions();
+            fireOptions.addArguments("--headless=new");
+            webDriver = new FirefoxDriver(fireOptions);
+        }
+    }
+
+    public static void launchSafari() {
+        String osName = FrameworkConstants.GET_OS_NAME;
+        if (osName.contains("Windows")) {
+            webDriver = new SafariDriver();
+            webDriver.manage().window().maximize();
+            webDriver.manage().deleteAllCookies();
+            webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        } else if (osName.contains("Mac")) {
+            webDriver = new SafariDriver();
+            webDriver.manage().window().maximize();
+            webDriver.manage().deleteAllCookies();
+            webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        } else if (osName.contains("Linux")) {
+            SafariOptions safariOptions = new SafariOptions();
+            webDriver = new SafariDriver();
+        }
+    }
+
+    public static void launchEdge() {
+        String osName = FrameworkConstants.GET_OS_NAME;
+        if (osName.contains("Windows")) {
+            webDriver = new EdgeDriver();
+            webDriver.manage().window().maximize();
+            webDriver.manage().deleteAllCookies();
+            webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        } else if (osName.contains("Mac")) {
+            webDriver = new EdgeDriver();
+            webDriver.manage().window().maximize();
+            webDriver.manage().deleteAllCookies();
+            webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        } else if (osName.contains("Linux")) {
+            webDriver = new EdgeDriver();
+            webDriver.manage().window().maximize();
+            webDriver.manage().deleteAllCookies();
+            webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        }
+    }
+}
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4

@@ -11,9 +11,9 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class CEDCDQuestionnaireSteps extends PageInitializer {
 
@@ -21,7 +21,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	public void the_user_is_on_the_CEDCD_homepage() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Given("a Admin user adds a Cohort Study linked to Cohort Owner")
@@ -40,7 +40,11 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdAdminPage.cohortOwnerTxtBox.sendKeys(Keys.RETURN);
 		cedcdAdminPage.notesTxtBox.sendKeys("This Cohort Will Be Automated");
 		JavascriptUtils.clickByJS(cedcdAdminPage.cohortSubmitBtn);
+<<<<<<< HEAD
 		CucumberLogUtils.logScreenShot();
+=======
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);	
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cedcdAdminPage.logoutButton);
 	}
@@ -91,7 +95,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.a4bCountryCode.sendKeys("");
 		cedcdCohortPage.a4bPhone.sendKeys("7031112345");
 		cedcdCohortPage.a4bEmail.sendKeys("kevinmata@mail.com");
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 		/** Entering all data for the Principal Investigators tab */
 		MiscUtils.sleep(2000);
@@ -105,7 +109,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		cedcdCohortPage.sameAs4aCheckbox.click();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 		/** Entering all data for the Eligibility and Enrollments tab */
 		cedcdCohortPage.eligibilityAndEnrollmentTab.click();
@@ -127,7 +131,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.currentMedianAge.sendKeys("45");
 		cedcdCohortPage.currentMeanAge.sendKeys("43");
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 		/** Entering all data for the Recruitment tab */
 		cedcdCohortPage.recruitmentTab.click();
@@ -148,8 +152,13 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.a13OtherPleaseSpecifyTextbox.sendKeys("A13 Automated Key Presses");
 		cedcdCohortPage.a12OtherPleaseSpecifyTextbox.click();
 		cedcdCohortPage.a13OtherPleaseSpecifyTextbox.click();
+<<<<<<< HEAD
 
 		CucumberLogUtils.logScreenShot();
+=======
+		
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 		MiscUtils.sleep(2000);
 
 		/**
@@ -162,16 +171,27 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cedcdCohortPage.saveAndContinueButton);
 		MiscUtils.sleep(2000);
+<<<<<<< HEAD
 		// cedcdCohortPage.saveAndContinueButton.click();
 		CucumberLogUtils.logScreenShot();
 
+=======
+		//cedcdCohortPage.saveAndContinueButton.click();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 		/** Selecting enrollment date for section B */
 		MiscUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(cedcdCohortPage.enrollmentDateBox);
 		MiscUtils.sleep(2000);
 		cedcdCohortPage.enrollmentDateBox.sendKeys("04/06/2021");
+<<<<<<< HEAD
 		CucumberLogUtils.logScreenShot();
 
+=======
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 		/** Saving sections and proceeding to next section */
 		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(cedcdCohortPage.saveAndContinueButton);
@@ -218,7 +238,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		/** C10 radio buttons filled out */
 		cedcdCohortPage.c10BaselineYesRadio.click();
 		cedcdCohortPage.c10FollowUpYesRadio.click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 		/** C11 radio buttons filled out */
 		MiscUtils.sleep(2000);
@@ -255,7 +275,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.c16BaselineYesRadio.click();
 		cedcdCohortPage.c16FollowUpYesRadio.click();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 		/** C17 radio buttons filled out */
 		cedcdCohortPage.c17BaselineYesRadio.click();
@@ -297,7 +317,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.c26BaselineYesRadio.click();
 		cedcdCohortPage.c26FollowUpYesRadio.click();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 		/** C27 radio buttons filled out */
 		cedcdCohortPage.c27BaselineYesRadio.click();
@@ -314,6 +334,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		/** C30 radio buttons filled out */
 		cedcdCohortPage.c30BaselineYesRadio.click();
 		cedcdCohortPage.c30FollowUpYesRadio.click();
+<<<<<<< HEAD
 		CucumberLogUtils.logScreenShot();
 
 		/** C31 radio buttons filled out */
@@ -321,6 +342,15 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.c31FollowUpYesRadio.click();
 		CucumberLogUtils.logScreenShot();
 
+=======
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		
+		/** C31 radio buttons filled out */
+		cedcdCohortPage.c31BaselineYesRadio.click();
+		cedcdCohortPage.c31FollowUpYesRadio.click();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 		/** Clicking the Other Medical Conditions tab for section C */
 		MiscUtils.sleep(2000);
 		cedcdCohortPage.otherMedicalConditionsTab.click();
@@ -355,8 +385,13 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		/** Cognitive Decline Yes selection for baseline and follow ups */
 		cedcdCohortPage.c31CognitiveDeclineBaselineYesRadio.click();
 		cedcdCohortPage.c31CognitiveDeclineFollowUpYesRadio.click();
+<<<<<<< HEAD
 		CucumberLogUtils.logScreenShot();
 
+=======
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 		/** Clicking the Cancer Related Conditions tab for section C */
 		MiscUtils.sleep(2000);
 		cedcdCohortPage.cancerRelatedConditionsTab.click();
@@ -367,8 +402,13 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.c32CancerLateEffectsCheckbox.click();
 		cedcdCohortPage.c32CancerOtherCheckbox.click();
 		CommonUtils.sendKeys(cedcdCohortPage.c32CancerOtherSpecifyTextbox, "C32 Text Box Test");
+<<<<<<< HEAD
 		CucumberLogUtils.logScreenShot();
 
+=======
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 		/** Saving sections and proceeding to next section */
 		MiscUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(cedcdCohortPage.saveAndContinueButton);
@@ -380,20 +420,25 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.cancerInformationTab.click();
 		cedcdCohortPage.d2AscertainedDateTextBox.sendKeys("4/13/2021");
 		cedcdCohortPage.d2AscertainedDateTextBox.sendKeys(Keys.RETURN);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		cedcdCohortPage.SectionDCheckBoxes.get(0).click();
 		cedcdCohortPage.SectionDRadioButton.get(0).click();
 		cedcdCohortPage.SectionDRadioButton.get(2).click();
 		cedcdCohortPage.SectionDRadioButton.get(4).click();
 		cedcdCohortPage.SectionDRadioButton.get(6).click();
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		cedcdCohortPage.SectionDRadioButton.get(8).click();
 		cedcdCohortPage.SectionDRadioButton.get(10).click();
 		cedcdCohortPage.SectionDRadioButton.get(12).click();
 		cedcdCohortPage.SectionDRadioButton.get(14).click();
 		cedcdCohortPage.SectionDCheckBoxes.get(15).click();
+<<<<<<< HEAD
 		CucumberLogUtils.logScreenShot();
 
+=======
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 		/** Saving sections and proceeding to next section */
 		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(cedcdCohortPage.saveAndContinueButton);
@@ -427,7 +472,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		 * mortality follow-up question
 		 */
 		cedcdCohortPage.e5MortalityTextBox.sendKeys("4200");
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		MiscUtils.sleep(2000);
 
 		/** Saving sections and proceeding to next section */
@@ -444,8 +489,13 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.SectionFRadioButtons.get(7).click();
 		cedcdCohortPage.sectionFWebsiteTextBox.sendKeys("https://wordcounter.net/");
 		cedcdCohortPage.SectionFRadioButtons.get(8).click();
+<<<<<<< HEAD
 		CucumberLogUtils.logScreenShot();
 
+=======
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 		/** Saving sections and proceeding to next section */
 		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(cedcdCohortPage.saveAndContinueButton);
@@ -461,8 +511,13 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		cedcdCohortPage.g1FollowUpYesValue.click();
 		cedcdCohortPage.g1OtherBloodDerivativeFollowUpCheckBox.click();
 		cedcdCohortPage.g1PlasmaFollowUpCheckBox.click();
+<<<<<<< HEAD
 		CucumberLogUtils.logScreenShot();
 
+=======
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 		/** Answering G.2 Buccal/Saliva */
 		cedcdCohortPage.g2BaselineRadioYes.click();
 		cedcdCohortPage.g2FollowUpRadioYes.click();
@@ -497,8 +552,13 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		 * have information on where the blocks are kept/stored?
 		 */
 		cedcdCohortPage.g8RadioYes.click();
+<<<<<<< HEAD
 		CucumberLogUtils.logScreenShot();
 
+=======
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 		/** Switching to Additional Data Collected tab */
 		cedcdCohortPage.additionalDataCollectedTab.click();
 
@@ -524,8 +584,13 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 
 		/** Answering G.14 Microbiome Data (16S RNA, metagenomics) */
 		cedcdCohortPage.g14RadioYes.click();
+<<<<<<< HEAD
 		CucumberLogUtils.logScreenShot();
 
+=======
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 		/** Switching to Metabolomics Data tab */
 		cedcdCohortPage.metabolicDataTab.click();
 
@@ -568,12 +633,18 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		 * Orbitrap mass spectrometry, QTOF mass spectrometry)?
 		 */
 		cedcdCohortPage.g15FTextBox.sendKeys("QTOF Mass Spectrometry");
+<<<<<<< HEAD
 		CucumberLogUtils.logScreenShot();
 
 		/**
 		 * Answering G.15g Which separation platform(s) was used (e.g., GC, HILIC, RPLC,
 		 * Ion pairing LC)?
 		 */
+=======
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		
+		/** Answering G.15g Which separation platform(s) was used (e.g., GC, HILIC, RPLC, Ion pairing LC)? */
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 		cedcdCohortPage.g15GTextBox.sendKeys("Ion pairing LC and HILIC");
 
 		/** Answering G.15h How many metabolites were measured? */
@@ -581,8 +652,13 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 
 		/** Answering G.15i What year were samples analyzed? */
 		cedcdCohortPage.g15ITextBox.sendKeys("2000");
+<<<<<<< HEAD
 		CucumberLogUtils.logScreenShot();
 
+=======
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 		/** Click on the Biospecimens Counts */
 		cedcdCohortPage.biospecimenCountsTab.click();
 
@@ -597,12 +673,17 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		CommonUtils.scrollIntoView(cedcdCohortPage.submitForReviewButton);
 		CommonUtils.waitForVisibility(cedcdCohortPage.submitForReviewButton);
 		cedcdCohortPage.submitForReviewButton.click();
+<<<<<<< HEAD
 		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(3000);
+=======
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		MiscUtils.sleep(3000);	
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 		/** Confiriming submission */
 		cedcdCohortPage.confirmSubmitPopUpButton.click();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("the Cohort Study Questionnaire is successfully submitted")
@@ -651,7 +732,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 
 	@Then("Cohort is added")
 	public void Cohort_is_added() {
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 	}
 
@@ -1076,7 +1157,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		/** Saving on section E of the questionnaire */
 		cedcdCohortPage.saveButton.click();
 		Thread.sleep(1000);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Thread.sleep(1000);
 	}
 
@@ -1273,7 +1354,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 
 		CommonUtils.waitForVisibility(cedcdCohortPage.chooseACohortText);
 		JavascriptUtils.drawRedBorder(cedcdCohortPage.chooseACohortText);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Assert.assertTrue(cedcdCohortPage.chooseACohortText.getText().equals(ChooseACohortText));
 
 	}
@@ -1285,9 +1366,14 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(cedcdAdminPage.nihLoginBtn);
 		loginImpl.loginToITrust();
 		MiscUtils.sleep(2000);
+<<<<<<< HEAD
 		CucumberLogUtils.logScreenShot();
 		Assert.assertTrue(cedcdCohortPage.chooseACohortText.getText()
 				.equals("Please select the cohort you wish to update from the list below."));
+=======
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		Assert.assertTrue(cedcdCohortPage.chooseACohortText.getText().equals("Please select the cohort you wish to update from the list below."));
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 		cedcdCohortPage.firstCohortOnSelectACohortDropDown.click();
 		MiscUtils.sleep(1000);
 		// cedcdCohortPage.firstCohortOnSelectACohortDropDown.sendKeys("plco");
@@ -1318,13 +1404,23 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		CommonUtils.scrollIntoView(cedcdCohortPage.submitForReviewButton);
 		CommonUtils.waitForVisibility(cedcdCohortPage.submitForReviewButton);
 		JavascriptUtils.clickByJS(cedcdCohortPage.submitForReviewButton);
+<<<<<<< HEAD
 		CucumberLogUtils.logScreenShot();
 		MiscUtils.sleep(3000);
+=======
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		MiscUtils.sleep(3000);	
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 		/** Confiriming submission */
 		CommonUtils.scrollIntoView(cedcdCohortPage.confirmSubmitPopUpButton);
 		cedcdCohortPage.confirmSubmitPopUpButton.click();
 		MiscUtils.sleep(2000);
+<<<<<<< HEAD
 		CucumberLogUtils.logScreenShot();
 
+=======
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		
+>>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 	}
 }

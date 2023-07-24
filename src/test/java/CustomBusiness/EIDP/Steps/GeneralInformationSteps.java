@@ -9,8 +9,9 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import CustomBusiness.EIDP.Util.CommonUtil;
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.cucumber.datatable.DataTable;
 
 public class GeneralInformationSteps extends PageInitializer {
@@ -18,7 +19,7 @@ public class GeneralInformationSteps extends PageInitializer {
 	@When("User fills mandatory fields in general information")
 	public void fillGeneralInformation() throws Exception {
 		generalInformationStepImpl.fillGeneralInformation();
-		CucumberLogUtils.logScreenShot("Generarl info completed");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User fills mandatory fields in general information section")
@@ -49,7 +50,7 @@ public class GeneralInformationSteps extends PageInitializer {
 		}
 		generalInformationStepImpl.selectRandomHighestDegree();
 		CommonUtil.waitBrowser(2000);
-		CucumberLogUtils.logScreenShot("General Info");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		generalInformationStepImpl.clickOnSaveAndContinueButton();
 	}
 
@@ -69,7 +70,7 @@ public class GeneralInformationSteps extends PageInitializer {
 		 */
 		generalInformationStepImpl.selectRandomHighestDegree();
 		CommonUtil.waitBrowser(2000);
-		CucumberLogUtils.logScreenShot("General Info");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		generalInformationStepImpl.clickOnSaveAndContinueButton();
 		MiscUtils.sleep(1000);
 	}
@@ -94,7 +95,7 @@ public class GeneralInformationSteps extends PageInitializer {
 		}
 		generalInformationStepImpl.selectRandomHighestDegree();
 		CommonUtil.waitBrowser(2000);
-		CucumberLogUtils.logScreenShot("General Info");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		generalInformationStepImpl.clickOnSaveAndContinueButton();
 		MiscUtils.sleep(1000);
 	}
@@ -150,7 +151,7 @@ public class GeneralInformationSteps extends PageInitializer {
 
 		}
 		CommonUtil.waitBrowser(2000);
-		CucumberLogUtils.logScreenShot("IDP Hold Screenshot");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 	}
 

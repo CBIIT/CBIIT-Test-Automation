@@ -12,6 +12,7 @@ true
 /.metadata/
 /.metadata
 */.metadata/*
+.DS_Store
 /.DS_Store/
 /.DS_Store
 */.DS_Store/*
@@ -28,7 +29,11 @@ src/test/java/ServiceNow/CHARMS/.DS_Store
 /.classpath/
 /.classpath
 */.classpath/*
+*/.idea/*
+/.idea/
+/.idea
 /test-output/
+test-output
 .apt_generated
 .apt_generated_tests
 .vscode
@@ -47,5 +52,9 @@ src/test/java/ServiceNow/.DS_Store
 src/test/java/ServiceNow/CHARMS/.DS_Store
 src/test/java/ServiceNow/COVIDDash/.DS_Store
 CBIIT-Test-Automation.iml
+src/test/java/ServiceNow/SEER/Steps/TestMisc.java
 src/main/java/com/nci/automation/dao/PasswordEncrypter.java
 src/main/.DS_Store
+src/test/java/ServiceNow/BrownBag
+src/main/resources/conf/.DS_Store
+src/test/resources/.DS_Store

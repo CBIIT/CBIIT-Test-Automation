@@ -1,5 +1,6 @@
 package ServiceNow.RCMDB.Utils;
 
+import ServiceNow.RCMDB.Steps.HooksSteps;
 import org.junit.Assert;
 
 import com.nci.automation.utils.CucumberLogUtils;
@@ -9,11 +10,10 @@ import com.nci.automation.web.ConfUtils;
 import ServiceNow.ITPG.Pages.BusinessCaseFormPage;
 import ServiceNow.ITPG.Pages.PortalViewPage;
 import ServiceNow.ITPG.StepsImplementation.LoginStepsImpl;
-import cucumber.api.java.Before;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-
+import io.cucumber.java.Before;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 public class PortalViewSteps {
 	
 	private PortalViewPage portalViewPage;
@@ -93,7 +93,7 @@ public class PortalViewSteps {
 	public void verifystate(String expectedState) throws Exception {
 		Thread.sleep(2000);
 		String actualState = portalViewPage.getState();
-		CucumberLogUtils.logScreenShot("Request State");
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		if (actualState != null) {
 			actualState = actualState.trim();
 			Assert.assertEquals(expectedState, actualState);

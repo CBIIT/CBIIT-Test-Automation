@@ -15,9 +15,9 @@ import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import junit.framework.Assert;
 
 public class ExploreGWASSteps extends PageInitializer {
@@ -121,7 +121,7 @@ public class ExploreGWASSteps extends PageInitializer {
 		// //}
 
 		JavascriptUtils.scrollIntoView(exploreGWASPage.dspManhattanPlot);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	public boolean isElementDisplayed() {
@@ -167,7 +167,7 @@ public class ExploreGWASSteps extends PageInitializer {
 	public void clicks_submit_for_results_to_load() {
 		exploreGWASPage.subSummaryResults.click();
 		JavascriptUtils.scrollIntoView(exploreGWASPage.dspManhattanPlot);
-		CucumberLogUtils.logScreenShot();
+		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("selects variant lookup tab")
