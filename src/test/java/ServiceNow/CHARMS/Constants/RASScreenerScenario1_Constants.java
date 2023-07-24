@@ -5,46 +5,45 @@ public class RASScreenerScenario1_Constants {
     /**
      * THIS CLASS CONTAINS RAS SCREENER CONSTANTS - RAS Survey Constants
      */
-    public final String areYouCompletingThisFormForSomeoneElse = "Are you completing this form for someone else or for yourself?";
-    public final String firstName = "First name";
-    public final String middleInitial = "Middle Initial";
-    public final String lastName = "Last name";
-    public final String whatIsYourDateOfBirth = "What is your date of birth?";
-    public final String dateOfBirthMonth = "Date of birth month";
-    public final String dateOfBirthYear = "Date of birth year";
-    public final String sexAssignedAtBirthOption = "What was your sex assigned at birth?";
-    public final String areYouAdoptedOption = "Are you adopted?";
-    public final String whichCountryDoYouCurrentlyLiveInOption = "In which country do you currently live?";
-    public final String streetAddress = "Street";
-    public final String street2Address = "Street 2 (optional)";
-    public final String cityText = "City";
-    public final String stateText = "State (Abbreviation)";
-    public final String zipCodeText = "Zip Code";
-    public final String emailAddress = "What is your email address?";
-    public final String confirmEmailAddress = "Please confirm your email address";
-    public final String homePhoneNumber = "Home phone number";
-    public final String cellPhoneNumber = "Cell phone number";
-    public final String workPhoneNumber = "Work phone number";
-    public final String whatIsYourEthnicity = "What is your ethnicity?";
-    public final String whatIsYourRace = "What is your race? Please select all that apply.";
-    public final String areYouAParticipantInOtherStudyGroup = "Are you a participant in any other research study or registry group?  Please specify.";
-    public final String haveYouBeenDiagnosedWithTheFollowingConditions = "Have you ever been diagnosed with the following conditions?  Select all that apply.  If you do not see the exact condition diagnosed, please select the closest answer.";
-    public final String haveYouEverBeenDiagnosedWithCancer = "Have you ever been diagnosed with cancer?";
-    public final String haveYouBeenDiagnosedWithARasopathy = "Have you been diagnosed with a RASopathy such as Noonan syndrome, Noonan syndrome with multiple lentigines, Costello syndrome, cardiofaciocutaneous syndrome, Legius syndrome, capillary arteriovenous malformation syndrome, hereditary gingival fibromatosis or SYNGAP1 syndrome?";
-    public final String haveAnyBiologicalRelativesBeenDiagnosedWithARasopathy = "Have any of your biological relatives been diagnosed with a RASopathy?";
-    public final String haveYouEverHadGeneticTesting = "Have you ever had genetic testing?";
-    public final String howDidYouHearAboutThisStudy = "How did you hear about this study?  If a specific health care provider referred you to this study, please include their name in the corresponding text box.";
-    public final String howDidYouHearAboutThisStudyOtherReason = "How did you hear about this study?  If a specific health care provider referred you to this study, please include their name in the corresponding text box. Other reason";
-    public final String haveYouOrOtherFamilyMembersParticipatedInOtherStudy = "Have you or other family members ever participated in another study on RASopathies at another medical institution, university, government agency or other site?";
-    public final String whatAreTheMainReasonsForParticipatingInThisStudy = "What are the main reasons for participating in this study?  Select all that apply.  Please elaborate on the reason in the corresponding textbox.";
-    public final String getWhatAreTheMainReasonsForParticipatingInThisStudyOtherReason = "What are the main reasons for participating in this study?  Select all that apply.  Please elaborate on the reason in the corresponding textbox. Other reason";
-    public final String space = " ";
+    public final String ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE = "Are you completing this form for someone else or for yourself?";
+    public final String FIRST_NAME = "First name";
+    public final String MIDDLE_INITIAL = "Middle Initial";
+    public final String LAST_NAME = "Last name";
+    public final String WHAT_IS_YOUR_DATE_OF_BIRTH = "What is your date of birth?";
+    public final String DATE_OF_BIRTH_MONTH = "Date of birth month";
+    public final String DATE_OF_BIRTH_YEAR = "Date of birth year";
+    public final String SEX_ASSIGNED_AT_BIRTH_OPTION = "What was your sex assigned at birth?";
+    public final String ARE_YOU_ADOPTED_OPTION = "Are you adopted?";
+    public final String WHICH_COUNTRY_DO_YOU_CURRENTLY_LIVE_IN_OPTION = "In which country do you currently live?";
+    public final String STREET_ADDRESS = "Street";
+    public final String STREET_2_ADDRESS = "Street 2 (optional)";
+    public final String CITY_TEXT = "City";
+    public final String STATE_TEXT = "State (Abbreviation)";
+    public final String ZIP_CODE_TEXT = "Zip Code";
+    public final String EMAIL_ADDRESS = "What is your email address?";
+    public final String CONFIRM_EMAIL_ADDRESS = "Please confirm your email address";
+    public final String HOME_PHONE_NUMBER = "Home phone number";
+    public final String CELL_PHONE_NUMBER = "Cell phone number";
+    public final String WORK_PHONE_NUMBER = "Work phone number";
+    public final String WHAT_IS_YOUR_ETHNICITY  = "What is your ethnicity?";
+    public final String WHAT_IS_YOUR_RACE = "What is your race? Please select all that apply.";
+    public final String ARE_YOU_A_PARTICIPANT_IN_OTHER_STUDY_GROUP = "Are you a participant in any other research study or registry group?  Please specify.";
+    public final String HAVE_YOU_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS = "Have you ever been diagnosed with the following conditions?  Select all that apply.  If you do not see the exact condition diagnosed, please select the closest answer.";
+    public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_CANCER = "Have you ever been diagnosed with cancer?";
+    public final String HAVE_YOU_BEEN_DIAGNOSED_WITH_A_RASOPATHY = "Have you been diagnosed with a RASopathy such as Noonan syndrome, Noonan syndrome with multiple lentigines, Costello syndrome, cardiofaciocutaneous syndrome, Legius syndrome, capillary arteriovenous malformation syndrome, hereditary gingival fibromatosis or SYNGAP1 syndrome?";
+    public final String HAVE_ANY_BIOLOGICAL_RELATIVES_BEEN_DIAGNOSED_WITH_ARASOPATHY = "Have any of your biological relatives been diagnosed with a RASopathy?";
+    public final String HAVE_YOU_EVER_HAD_GENETIC_TESTING = "Have you ever had genetic testing?";
+    public final String HOW_DID_YOU_HEAR_ABOUT_THIS_STUDY = "How did you hear about this study?  If a specific health care provider referred you to this study, please include their name in the corresponding text box.";
+    public final String HOW_DID_YOU_HEAR_ABOUT_THIS_STUDY_OTHER_REASON = "How did you hear about this study?  If a specific health care provider referred you to this study, please include their name in the corresponding text box. Other reason";
+    public final String HAVE_YOU_OR_OTHER_FAMILY_MEMBERS_PARTICIPATED_IN_OTHER_STUDY = "Have you or other family members ever participated in another study on RASopathies at another medical institution, university, government agency or other site?";
+    public final String WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_IN_THIS_STUDY = "What are the main reasons for participating in this study?  Select all that apply.  Please elaborate on the reason in the corresponding textbox.";
+    public final String WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_IN_THIS_STUDY_OTHER_REASON = "What are the main reasons for participating in this study?  Select all that apply.  Please elaborate on the reason in the corresponding textbox. Other reason";
+    public final String SPACE = " ";
     public final String RAS_STUDY = "RASopathy";
 
     /**
      * THIS CLASS CONTAINS RAS SCREENER CONSTANTS - IIQ Form Constants
      */
-
     public final String PLEASE_LOG_IN_EMAIL_TEXT_BOX = "Please log in. Email";
     public final String PLEASE_LOG_IN_ONE_TIME_PIN_TEXT_BOX = "Please log in. One Time Pin";
     public final String ARE_YOU_ADOPTED_RADIO_BUTTON = "Are you adopted?";
@@ -73,10 +72,13 @@ public class RASScreenerScenario1_Constants {
     public final String WHAT_IS_YOUR_DATE_OF_BIRTH_MONTH_DROP_DOWN = "What is your date of birth? Month";
     public final String WHAT_IS_YOUR_DATE_OF_BIRTH_DAY_DROP_DOWN = "What is your date of birth? Day";
     public final String WHAT_IS_YOUR_DATE_OF_BIRTH_YEAR_DROP_DOWN = "What is your date of birth? Year";
-        public final String WHERE_WERE_YOU_BORN_CITY_TEXT_BOX = "Where were you born? If you do not know, place an X in the box next to don't know City";
+    public final String WHERE_WERE_YOU_BORN_CITY_TEXT_BOX = "Where were you born? If you do not know, place an X in the box next to don't know City";
     public final String WHERE_WERE_YOU_BORN_COUNTRY_TEXT_BOX = "Where were you born? If you do not know, place an X in the box next to don't know Country";
     public final String WHERE_WERE_YOU_BORN_STATE_TEXT_BOX = "Where were you born? If you do not know, place an X in the box next to don't know State";
     public final String WHERE_WERE_YOU_BORN_DONTKNOW_TEXT_BOX = "Where were you born? If you do not know, place an X in the box next to don't know Country Don't know";
+    public final String WHERE_WERE_YOU_BORN_CITY_TEXT_BOX_QUESTION = "City";
+    public final String WHERE_WERE_YOU_BORN_COUNTRY_TEXT_BOX_QUESTION = "State/Province";
+    public final String WHERE_WERE_YOU_BORN_STATE_TEXT_BOX_QUESTION = "Country";
     public final String MOST_PEOPLE_HAVE_ANCESTORS_CHECK_BOX = "Most people have ancestors who come from other parts of the world. What is your biological mother's ancestral background? Please check all that apply.";
     public final String WHAT_IS_YOUR_BIOLOGICAL_FATHER_ANCESTRAL_BACKGROUND_TEXT_BOX = "What is your biological father's ancestral background? Please select all that apply.";
     public final String WHAT_IS_YOUR_FAMMILYS_RELIGIOUS_BACKGROUND_CHECK_BOX = "What is your family's religious background? Please select all that apply.";
@@ -96,7 +98,8 @@ public class RASScreenerScenario1_Constants {
     public final String PLEASE_FILL_OUT_BIRT_HEAD_UNIT_DROP_DOWN = "Please fill out your length and head circumference at birth in the table below. Unit of measure (Estimate is OK)";
     public final String PLEASE_FILL_OUT_BIRT_HEAD_CIRCUMFERENCE_NUMERIC_TEXT_BOX = "Please fill out your length and head circumference at birth in the table below. Head circumference numerical value (Estimate is OK)";
     public final String PLEASE_FILL_OUT_BIRT_HEAD_CIRCUMFERENCE_UNIT_DROP_DOWN = "Please fill out your length and head circumference at birth in the table below. Head circumference unit of measure (Estimate is OK)";
-    public final String THIS_SECTION_WILL_ASK_ABOUT_CANCER_TEXT = "TThis section will ask about cancer and benign tumor history. Please fill out this information to the best of your knowledge.";
+    public final String THIS_SECTION_WILL_ASK_ABOUT_CANCER_TEXT = "This section will ask about cancer and benign tumor history.\n" +
+            "Please fill out this information to the best of your knowledge. ";
     public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_CANCER_RADIO_BUTTON = "Have you ever been diagnosed with any cancer and/or benign tumor?";
     public final String HAVE_YOU_EVER_HAD_MEDICAL_GENETIC_TESTING_RADIO_BUTTON = "Have you ever had medical genetic testing (excluding ancestry testing)?";
     public final String PLEASE_FILL_THE_TABLE_BELOW_WITH_HEIGHT_NUMERIC_TEXT_BOX = "Please complete the table below indicating your current height. Current height Numerical value (Estimate is OK)";
@@ -110,10 +113,7 @@ public class RASScreenerScenario1_Constants {
     public final String AT_WHAT_AGE_WERE_YOU_AT_THE_HIGHEST_WEIGHT_TEXT_BOX = "At what age were you at your highest weight? Please specify if in months or years.";
     public final String HAVE_YOU_SOUGHT_MEDICAL_ADVICE_REGARDING_FERTILITY_RADIO_BUTTON = "Have you or your partner ever sought medical advice regarding fertility?";
     public final String YOU_ARE_ALMOST_DONE_TEXT = "You are almost done! \n" +
-            " \n" +
-            "To submit your responses, you must continue in the questionnaire by clicking the forward arrow below. \n" +
-            " \n" +
-            "The information you have provided will be reviewed by our study team. In the meantime, you should receive an email confirming this submission. \n" +
-            " \n" +
-            "Please feel free to call at any time if you have any questions regarding this protocol and ask to speak with the study nurse. Our toll-free phone number is 1-800-518-8474 or 301-212-5250. Thank you for your willingness to consider joining our research effort. We could not do vital studies like this without the help of dedicated patients and families.\n";
+            "  To submit your responses, you must continue in the questionnaire by clicking the forward arrow below. \n" +
+            "  The information you have provided will be reviewed by our study team. In the meantime, you should receive an email confirming this submission. \n" +
+            "  Please feel free to call at any time if you have any questions regarding this protocol and ask to speak with the study nurse. Our toll-free phone number is 1-800-518-8474 or 301-212-5250. Thank you for your willingness to consider joining our research effort. We could not do vital studies like this without the help of dedicated patients and families.";
 }

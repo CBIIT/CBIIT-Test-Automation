@@ -1,12 +1,7 @@
 package ServiceNow.CHARMS.Steps;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
-import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
-import ServiceNow.COVIDDash.Utils.COVIDConstants;
-import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
-import com.nci.automation.utils.CucumberLogUtils;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 import com.nci.automation.utils.MiscUtils;
@@ -23,9 +18,6 @@ import io.cucumber.java.en.When;
 public class MyRASScreenerSubmissionScenario1Steps extends PageInitializer {
 
     private String referralNumber;
-    private HashMap<String, String> geneticSyndromeMap = new HashMap<>();
-
-    /* BEGINNING: RASopathies Longitudinal Cohort Study login page */
 
     @Given("a participant is on the RASopathies Longitudinal Cohort Study login page {string}")
     public void a_participant_is_on_the_RASopathies_Longitudinal_Cohort_Study_login_page(String applicationID) {
@@ -34,137 +26,18 @@ public class MyRASScreenerSubmissionScenario1Steps extends PageInitializer {
 
     @When("the participant submits a screener from excel sheet {string}")
     public void the_participant_submits_a_screener_from_excel_sheet(String sheetName) {
-        testDataManagerScenario1.dataInitializerRasScreenerSurveyScenario1(sheetName);
-    if(sheetName.contains("screenerScenario1")) {
-        rasScreenerScenario1StepsImpl.rasScreenerSubmissionScenario1();
-    }
-//    if(sheetName.contains("Scenario2")) {
-//        rasScreenerStepsImpl.rasScreenerSubmissionScenario2();
-//    }
+        rasScreenerScenario1StepsImpl.rasScreenerScenarioSelector(sheetName);
     }
 
     @Then("data submitted for scenario is verified in native view against corresponding scenario from the excel sheet")
     public void data_submitted_for_scenario_is_verified_in_native_view_against_corresponding_scenario_from_the_excel_sheet() {
-//        String parentWindowHandle = WebDriverUtils.webDriver.getWindowHandle();
-//        rasScreenerScenario1StepsImpl.verifying_RAS_Screener_Scenario_1_Data();
-
-        /******* NATIVE VIEW CONSENT FLOW PROCESS ********/
-
-
-//        WebDriverUtils.webDriver.switchTo().window(parentWindowHandle);
-
-        nativeViewLoginImpl.sideDoorAccountLogin();
-
-        MiscUtils.sleep(1000);
-        if(nativeViewEnrollementsPage.filterNavigatorIconButton.isDisplayed()){
-            CommonUtils.clickOnElement(nativeViewEnrollementsPage.filterNavigatorIconButton);
-            CommonUtils.waitForVisibility(nativeViewEnrollementsPage.filterNavigator);
-        }
-        nativeViewEnrollementsPage.filterNavigator.clear();
-        MiscUtils.sleep(500);
-        nativeViewEnrollementsPage.filterNavigator.sendKeys("CHARMS");
-        CommonUtils.waitForClickability(nativeViewCHARMSDashboardPage.nativeViewCharmsDashboardButton);
-        JavascriptUtils.scrollIntoView(nativeViewCHARMSDashboardPage.nativeViewCharmsDashboardButton);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        JavascriptUtils.clickByJS(nativeViewCHARMSDashboardPage.nativeViewCharmsDashboardButton);
-        CommonUtils.waitForVisibility(nativeViewAccessRequestPage.accessRequestIFrame);
-        CommonUtils.switchToFrame(nativeViewAccessRequestPage.accessRequestIFrame);
-        CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyMenu);
-        CommonUtils.assertTrue(nativeViewCHARMSDashboardPage.rasStudyMenu.getText()
-                .contains("RAS Study"));
-        CommonUtils.assertTrueTestNG(nativeViewCHARMSDashboardPage.rasStudyMenu.getText()
-                .contains("RAS Study"), "");
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.waitForVisibility(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator("DiegoTest JuarezTest")); //Add this inted of name when running entire test:testDataManager.firstName + " " + testDataManager.lastName
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator("DiegoTest JuarezTest"));//Add this inted of name when running entire test:testDataManager.firstName + " " + testDataManager.lastName
-        MiscUtils.sleep(1000);
-        if(CommonUtils.isElementDisplayed(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton)){
-            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-            CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
-        }
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubmitForEligibilityButton);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubmitForEligibilityButton);
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsMarkEligibleButton);
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.assertEqualsWithMessage(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentAddedText.getText(), "Consent added!", "---- VERIFYING SCREENER RECORD RASOPATHY HISTORY DATA ----");
-
-        /* BEGINNING: CONSENT FLOW PROCESS */
-        JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsButton);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsButton);
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
-        CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
-        MiscUtils.sleep(500);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeCalendar);
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeAcceptButton);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleDateCalendar);
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleVerionCalendar);
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-        CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentResponseTypeDropDown, 2);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentDateCalendar);
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
-        CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, "Rene Aguilar");
-        CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentByTextBox, Keys.ENTER);
-        CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCurrentDropDown, 1);
-        CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentAssentStatusDropDown, 4);
-        CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureSpecimensAndDataDropDown, 4);
-        CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureUseCollaboratorsDropDown, 4);
-        CommonUtils.selectDropDownValue(nativeViewCHARMSParticipantConsentPage.rasStudyConsentFutureIdentifiableUseCollaboratorsDropDown, 4);
-        MiscUtils.sleep(500);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallCompleteButton);
-        MiscUtils.sleep(1000);
-        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAddFileButton);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAddFileButton);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileButton,
-                COVIDConstants.IIQ_STUDY_DOCUMENTATION_PDF_PATH);
-        MiscUtils.sleep(2000);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileCloseButton);
-        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentHardCopyReceivedButton);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentHardCopyReceivedButton);
-        CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompletedConsentButton);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCompletedConsentButton);
-        CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantRecordsReadyToProgressMessage);
-        CommonUtils.assertEqualsWithMessage(nativeViewCHARMSParticipantConsentPage.rasStudyConsentParticipantRecordsReadyToProgressMessage.getText(), "Participant record ready to progress.", "---- VERIFYING PARTICIPANT RECORD READY TO PROGRESS MESSAGE ----");
-        CommonUtils.assertEqualsWithMessage(nativeViewCHARMSParticipantConsentPage.rasStudyConsentConsentRecordCompletedMessageMessage.getText(), "Consent record completed and Family record is now active!", "---- VERIFYING CONSENT RECORD COMPLETED AND FAMILY RECORD IS NOW ACTIVE! MESSAGE ----");
-        MiscUtils.sleep(500);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        SEERDataAccessRequestPageStepsImpl.nativeViewLogOut();
-
-        /******* VERIFY ENROLLMENT STATUS BELOW ********/
-
-
-
-//        CommonUtils.clickOnElement(screenerRecordTablePage.dynamicLocatorForStudyButtons("Submit for Eligibility Review"));
-//        CommonUtils.clickOnElement(screenerRecordTablePage.dynamicLocatorForStudyButtons("Mark Eligible"));
+        rasScreenerScenario1StepsImpl.verifying_RAS_Screener_Scenario_1_Data();
+        rasScreenerScenario1StepsImpl.nativeViewConsentFlowProcessScenario1();
     }
 
     @Given("the participant submits a Individual Information Questionnaire for excel sheet {string}")
     public void the_participant_submits_a_individual_information_questionnaire_for_excel_sheet(String sheetNameIiq) {
-        testDataManagerScenario1.dataInitializerRasScreenerIiqFormScenario1(sheetNameIiq);
-        WebDriverUtils.webDriver.get("https://ncidccpssurveys.gov1.qualtrics.com/jfe/form/SV_37PVCadeAqdT6Ki?family_member_id=5671bd521bafa1106daea681f54bcb68&study=RASopathies");
-        rasScreenerScenario1StepsImpl.rasScreenerIIQFormScenario1();
-
+        rasScreenerScenario1StepsImpl.rasScreenerIIQFormScenario1(sheetNameIiq);
     }
 
     @Given("a proxy is on the RASopathies Longitudinal Cohort Study login page")
@@ -177,37 +50,15 @@ public class MyRASScreenerSubmissionScenario1Steps extends PageInitializer {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("myRASLoginPage"));
     }
 
-    /* END: RASopathies Longitudinal Cohort Study login page */
-    /* ******************************************************* */
-    /* BEGINNING: Logs in via Okta with user name and password */
-
     @Given("logs in via Okta with username {string} and password {string}")
     public void logs_in_via_Okta_with_username_and_password(String username, String password) {
-        MiscUtils.sleep(1000);
-        CommonUtils.waitForVisibility(myRASLoginPage.loginToMyRASButton);
-        myRASLoginPage.loginToMyRASButton.click();
-        oktaLoginPage.usernameTxtBox.sendKeys(username);
-        oktaLoginPage.passwordTxtBox.sendKeys(password);
-        CommonUtils.waitForVisibility(oktaLoginPage.loginBtn);
-        oktaLoginPage.loginBtn.click();
-        MiscUtils.sleep(1000);
-        CommonUtils.waitForVisibility(myRASHomePage.warningAgreeButton);
-        myRASHomePage.warningAgreeButton.click();
+        rasScreenerScenario1StepsImpl.logsInViaOktaWithUsernameAndPassword(username, password);
     }
-
-    /* END: Logs in via Okta with user name and password */
-    /* ******************************************************* */
-    /* BEGINNING: Eligibility Questionnaire Link to click */
 
     @Given("clicks on Eligibility Questionnaire to begin questionnaire")
     public void clicks_on_Eligibility_Questionnaire_to_begin_questionnaire() {
-        CommonUtils.waitForVisibility(myRASHomePage.rasoptathyEligibilityQuestionnaire);
-        CommonUtils.clickOnElement(myRASHomePage.rasoptathyEligibilityQuestionnaire);
+        rasScreenerScenario1StepsImpl.clicksOnEligibilityQuestionnaireToBeginQuestionnaire();
     }
-
-    /* END: Eligibility Questionnaire Link to click */
-    /* ******************************************************* */
-    /* BEGINNING: STUDY INTRODCTION Page */
 
     @Given("clicks next after reviewing the STUDY INTRODUCTION")
     public void clicks_next_after_reviewing_the_STUDY_INTRODUCTION() {
@@ -219,10 +70,6 @@ public class MyRASScreenerSubmissionScenario1Steps extends PageInitializer {
         CommonUtils.clickOnElement(rasopathyQuestionnairePage.studyNextButton);
         MiscUtils.sleep(2000);
     }
-
-    /* END: STUDY INTRODCTION Page */
-    /* ******************************************************* */
-    /* BEGINNING: For Whom the form is being submitted Page */
 
     @Given("selects I am completing this form for someone else option")
     public void selects_I_am_completing_this_form_for_someone_else_option() {

@@ -154,6 +154,14 @@ public class RASopathyQuestionnairePage {
     @FindBy(xpath = "//span[@aria-label='April 1, 1990']")
     public WebElement calendarDayOption;
 
+    /* IIQ Calendar day option */
+    @FindBy(xpath = "//span[@aria-label='November 10, 2004']")
+    public WebElement iIQcalendarDayOption;
+
+    /* IIQ Address Don't Know Text Box*/
+    @FindBy(xpath = "//*[@id='QR~QID24~4']")
+    public WebElement iIQAddressDontKnowTextBox;
+
     /* -------- END OF Date of birth of "name" PAGE --------------- */
     /* ************************************************************************ */
     /* --- BEGINNING OF Sex of "name" assigned at birth PAGE----- */
@@ -1120,6 +1128,15 @@ public class RASopathyQuestionnairePage {
      */
     public WebElement dynamicLocatorForMainReasonForParticipatingInStudy(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::span//parent::label/following-sibling::input"));
+    }
+
+    /***
+     * USE THIS METHOD TO DYNAMICALLY LOCATE MOST PEOPLE ANCESTORS CHECK BOXES ON IIQ FORM
+     * @param text
+     * @return
+     */
+    public WebElement dynamicCheckBoxMostAncestorsIiqForm(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::label//parent::div//parent::span//parent::th/following-sibling::td/label"));
     }
 
     public RASopathyQuestionnairePage() {
