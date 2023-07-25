@@ -145,7 +145,7 @@ public class CCRApplicationPage extends CommonUtils {
     public WebElement closeApplicationSubmittedButton;
 
     /** Upload File1 **/
-    @FindBy(xpath = "(//input[@type='text'])[1]")
+    @FindBy(xpath = "(//button[contains(text(),' Choose File ')])[1]")
     public WebElement uploadFile1;
 
     /** Upload File2 **/
@@ -164,6 +164,7 @@ public class CCRApplicationPage extends CommonUtils {
     @FindBy(xpath = "//select[@id='country']")
     public WebElement countryDropdown;
 
+    /** Business Country Dropdown **/
     @FindBy(xpath = "//select[@id='business_country']")
     public WebElement countryBusinessDropdown;
 }

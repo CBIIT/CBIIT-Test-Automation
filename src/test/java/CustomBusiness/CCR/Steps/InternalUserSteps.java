@@ -10,6 +10,8 @@ import io.cucumber.java.en.Given;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
+
+import java.awt.*;
 import java.util.Map;
 
 public class InternalUserSteps extends PageInitializer {
@@ -177,7 +179,7 @@ public class InternalUserSteps extends PageInitializer {
     }
 
     @Given("User uploads {string} document")
-    public void user_uploads_document(String document) throws TestingException {
+    public void user_uploads_document(String document) throws TestingException, AWTException {
         cCRStepsImplementation.uploadDocuments(document);
         MiscUtils.sleep(8000);
     }

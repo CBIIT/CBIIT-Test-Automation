@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         features = "src/test/java/CustomBusiness/CCR/Features",
         glue = "CustomBusiness.CCR.Steps",
-        tags = "@Progression",
+        tags = "@fillApplication",
         dryRun = false,
         monochrome = true,
         strict = true

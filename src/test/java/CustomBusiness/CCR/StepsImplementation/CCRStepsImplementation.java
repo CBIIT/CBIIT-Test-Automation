@@ -2,10 +2,8 @@ package CustomBusiness.CCR.StepsImplementation;
 
 import CustomBusiness.CCR.Constants.CCR_CONSTANTS;
 import appsCommon.PageInitializer;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
-import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import org.openqa.selenium.WebElement;
@@ -13,11 +11,9 @@ import org.openqa.selenium.support.ui.Select;
 
 public class CCRStepsImplementation extends PageInitializer {
 
-    public void ccrLogin() throws TestingException {
+    public void ccrLogin(){
         nativeViewLoginImpl.sideDoorAccountLogin();
-        MiscUtils.sleep(2000);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CCR"));
-        MiscUtils.sleep(2000);
     }
 
     public void clickNextButton(String sectionName) throws TestingException {
@@ -54,13 +50,11 @@ public class CCRStepsImplementation extends PageInitializer {
         }
     }
 
-    public void uploadDocuments(String document) throws TestingException {
+    public void uploadDocuments(String document){
         switch (document) {
             case "Letter of Interest":
-                WebElement uploadFile1 = cCRApplicationPage.uploadFile1;
-                JavascriptUtils.scrollIntoView(uploadFile1);
+                WebElement uploadFile1 = cCRApplicationPage.uploadFile2;
                 uploadFile1.sendKeys(CCR_CONSTANTS.LETTER_OF_INTEREST);
-                MiscUtils.sleep(10000);
                 break;
             case "CV/Bibliography":
                 WebElement uploadFile2 = cCRApplicationPage.uploadFile2;

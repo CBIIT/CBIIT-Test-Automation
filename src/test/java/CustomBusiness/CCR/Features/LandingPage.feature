@@ -8,7 +8,7 @@ Feature: CCR Landing Page Scenarios
     And User can see tabs displayed
     |Home|Positions|
 
-  @Nekrashevich @Regression @Smoke @fillApplication
+  @Nekrashevich @Regression @Smoke @fillApplication @CAMS-9
   Scenario Outline: Fill In An Application As An Internal User
     And User navigates to "Biostatistician" open vacancy
     And User clicks "Apply Now" button
