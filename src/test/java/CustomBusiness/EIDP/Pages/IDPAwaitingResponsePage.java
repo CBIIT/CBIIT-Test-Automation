@@ -1,151 +1,190 @@
 package CustomBusiness.EIDP.Pages;
 
-import java.awt.color.CMMException;
-import java.util.List;
-
 import CustomBusiness.EIDP.Steps.HooksSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Wait;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import CustomBusiness.EIDP.Util.SharedData;
-//import cucumber.runtime.Utils;
 
 public class IDPAwaitingResponsePage extends CommonUtils {
 
+	/* ------ No Revision Radio button ------ */
 	@FindBy(css = "label[for='revisionRadioButtonNo']")
 	private WebElement revisionRadioButtonNo;
 
+	/* ------ IDP awaiting response icon------ */
 	@FindBy(xpath = "//span[contains(text(),'IDP Awaiting Response')]")
 	private WebElement idpWaitingresponseIcon;
 
+	/* ------ Trainee Name ------ */
 	@FindBy(xpath = "//td[@class='sorting_1']/a")
 	private WebElement traineeNames;
 
+	/* ------ IDP header ------ */
 	@FindBy(xpath = "//div[@id='tdResponse']/div/legend/h4")
 	private WebElement IDPHeader;
 
+	/* ------ Number of Rows in IDP awaiting response table ------ */
 	@FindBy(xpath = "//*[@id='primaryMentorsawaitingResponseTable']/tbody/tr")
 	private WebElement NoofRows;
 
+	/* ------ Trainee General tab ------ */
 	@FindBy(xpath = "//label[@for='traineeName']")
 	private WebElement General;
 
+	/* ------ No Revision radio button in general tab ------ */
 	@FindBy(xpath = "//input[@id='revisionRadioButtonNo']")
 	private WebElement NoRevisionRadioBtn;
 
+	/* ------ Comments and feeback text area ------ */
 	@FindBy(xpath = "//textarea[@name='feedbackText']")
 	private WebElement commentsAndFeedback;
 
+	/* ------ Save and continue button ------ */
 	@FindBy(xpath = "//input[@id='saveAndNextButton']")
 	private WebElement saveAndContinueBtn;
 
+	/* ------ Comments and feedback button ------ */
 	@FindBy(xpath = "//legend[contains(text(),'Comments/Feedback')]")
 	private WebElement commentsAndFeedBackBtn;
 
+	/* ------ IDP awaiting table ------ */
 	@FindBy(xpath = "//*[@id='primaryMentorsawaitingResponseTable']")
 	private WebElement tableIDP;
 
+	/* ------ Select all mentors checkbox ------ */
 	@FindBy(xpath = "//input[@id='selectAllMentor']")
 	private WebElement selectAllMentorChkBox;
 
+	/* ------ Select all trainee checkbox ------ */
 	@FindBy(xpath = "//input[@id='selectAllTrainee']")
 	private WebElement selectAllTraineeChkBox;
 
+	/* ------ Save button ------ */
 	@FindBy(xpath = "//input[@id='saveAndPreviousBtn']")
 	private WebElement saveBtn;
 
+	/* ------ Review and take action button ------ */
 	@FindBy(xpath = "//input[@id='saveAndPreviousBtn']/../a")
 	private WebElement reviewAndActionBtn;
 
+	/* ------ Core work schedule  checkbox ------ */
 	@FindBy(xpath = "//input[@id='coreWorkSchedule']")
 	private WebElement workSceduleChkbox;
 
+	/* ------ Core hours text ------ */
 	@FindBy(xpath = "//textarea[@name='coreHoursText']")
 	private WebElement coreHoursText;
 
+	/* ------ Vacation policy text ------ */
 	@FindBy(xpath = "//textarea[@name='vacationPoliciesText']")
 	private WebElement policiesText;
 
+	/* ------ Core meeting checkbox ------ */
 	@FindBy(xpath = "//input[@id='coreMeetingFrequency']")
 	private WebElement coreMettingChkBox;
 
+	/* ------ Meeting frequency daily radio button ------ */
 	@FindBy(xpath = "//input[@id='meetingFrequencyId1']")
 	private WebElement dailyRadioBtn;
 
+	/* ------ Meeting time text ------ */
 	@FindBy(xpath = "//textarea[@name='meetingTimeText']")
 	private WebElement meetingTimeText;
 
+	/* ------ Communication preferences checkbox ------ */
 	@FindBy(xpath = "//input[@id='coreMeetingAttendance']")
 	private WebElement communicationPreferencesChkbox;
 
+	/* ------ Communication Preference Text ------ */
 	@FindBy(xpath = "//textarea[@name='communicationPreferencesText']")
 	private WebElement communicationPreferenceText;
 
+	/* ------ Feedback Checkbox ------ */
 	@FindBy(xpath = "//input[@id='coreFeedback']")
 	private WebElement feedbackChkBox;
 
+	/* ------ Work products Text ------ */
 	@FindBy(xpath = "//textarea[@name='workProductsText']")
 	private WebElement workProductsText;
 
+	/* ------ Career planning Text ------ */
 	@FindBy(xpath = "//textarea[@name='careerPlanningText']")
 	private WebElement careerPlanningText;
 
+	/* ------ Core Professional attendance checkbox ------ */
 	@FindBy(xpath = "//input[@id='coreProfessionalAttendance']")
 	private WebElement coreProfessionalAttendancechkBox;
 
+	/* ------ Group meetings text ------ */
 	@FindBy(xpath = "//textarea[@name='groupMeetingsText']")
 	private WebElement groupMeetingsText;
 
+	/* ------ Professional meeting text ------ */
 	@FindBy(xpath = "//textarea[@name='professionalMeetingsText']")
 	private WebElement professionalMeetingsText;
 
+	/* ------ Career Development text ------ */
 	@FindBy(xpath = "//textarea[@name='careerDevelopmentText']")
 	private WebElement careerDevelopmentText;
 
+	/* ------ Core conduct research checkbox ------ */
 	@FindBy(xpath = "//input[@id='coreConductResearch']")
 	private WebElement coreConductResearchchkBox;
 
+	/* ------ Work record storage text ------ */
 	@FindBy(xpath = "//textarea[@name='workRecordStorageText']")
 	private WebElement workRecordStorageText;
 
+	/* ------ Core Renewal checkbox ------ */
 	@FindBy(xpath = "//input[@id='coreRenewal']")
 	private WebElement coreRenewalchkBox;
 
+	/* ------ Renewal decision text ------ */
 	@FindBy(xpath = "//textarea[@name='renewalDecisionText']")
 	private WebElement renewalDecisionText;
 
+	/* ------ OK button after clicking on decline ------ */
 	@FindBy(xpath = "//button[contains(text(),'OK')]")
 	private WebElement declineBtnOk;
 
+	/* ------ General information tab ------ */
 	@FindBy(css = "a[href='/idp/review-general']")
 	private WebElement generalInfromationTab;
 
+	/* ------ Project and related deliverables Tab ------ */
 	@FindBy(css = "a[href='/idp/review-projects']")
 	private WebElement projectAndRelatedDelivierablesOrTrainningTab;
 
+	/* ------ Career goals and activities Tab ------ */
 	@FindBy(css = "a[href='/idp/review-career76T']")
 	private WebElement carieerGoalsAndActivitiesTab;
 
+	/* ------ Aligning Expectations Tab ------ */
 	@FindBy(css = "a[href='/idp/review-alignExpectations']")
 	private WebElement aligningExpectationsTab;
 
+	/* ------ Mentors expactation Tab ------ */
 	@FindBy(css = "a[href='/idp/mentor-expectations']")
 	private WebElement mentorExpectationsTab;
 
+	/* ------ Request Revision Radio button ------ */
 	@FindBy(css = "label[for='revisionRadioButtonYes']")
 	private WebElement requestRevisionRadioButton;
 
+	/* ------ NO revision Radio button ------ */
 	@FindBy(css = "label[for='revisionRadioButtonNo']")
 	private WebElement noRevisionRadioButton;
 
+	/* ------ Request for revision comments box ------ */
 	@FindBy(id = "reviewText1")
 	private WebElement requestRevisionComment;
 
+	/* ------ Co-PM lebel ------ */
 	@FindBy(id = "label_copm_1")
 	private WebElement coPrimaryMentorLabel;
 

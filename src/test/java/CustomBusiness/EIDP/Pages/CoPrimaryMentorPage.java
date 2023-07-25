@@ -15,48 +15,63 @@ import CustomBusiness.EIDP.Util.SharedData;
 
 public class CoPrimaryMentorPage extends CommonUtils {
 
+	/* ------ Checkbox for Mark as Reviewed ------ */
 	@FindBy(xpath = "//*[contains(@class,'checkbox btn btn-primary')]")
 	public WebElement markAsReviewedCheckbox;
 
+	/* ------ Checkbox for NHGRI Mark as Reviewed ------ */
 	@FindBy(css = "[class='checkbox btn btn-primary validate-error']")
 	public WebElement markAsReviewedCheckboxNhgri;
 
+	/* ------ General information tab ------ */
 	@FindBy(css = "[href*='/idp/review-general']")
 	public WebElement generalInformationTab;
 
+	/* ------ Save and Continue Button ------ */
 	@FindBy(id = "saveAndNextButton")
 	public WebElement saveAndContinueButton;
 
+	/* ------ Save button ------ */
 	@FindBy(id = "saveButton")
 	public WebElement saveButton;
 
+	/* ------ IDP reviewed button ------ */
 	@FindBy(id = "approveSubmit")
 	public WebElement reviewedButton;
 
+	/* ------ Final Mark as Reviewed checkbox ------ */
 	@FindBy(id = "markasReviewedAllPagesCheck")
 	public WebElement markAsReviewed;
 
+	/* ------ TD approves IDP button ------ */
 	@FindBy(id = "tdAprroveIDP")
 	public WebElement approvedAndSubmitButton;
 
+	/* ------ NCI TD approves and submit button ------ */
 	@FindBy(id = "aprroveByTDModal")
 	public WebElement approvedAndSubmitButtonNCI;
 
+	/* ------ Yes button after TD approves IDP ------ */
 	@FindBy(css = "button[onclick='form_submit_approveByTD(this)']")
 	public WebElement yesButton;
 
+	/* ------ Yes button after LBO approves IDP ------ */
 	@FindBy(xpath = "//*[@onclick=\"form_submit_approveByLBO()\"]")
 	public WebElement finalYesButton;
 
+	/* ------ LBO approves IDP button ------ */
 	@FindBy(id = "lboAprroveIDP")
 	public WebElement approveIDP;
 
+	/* ------ Button for returning to PM comments section ------ */
 	@FindBy(id = "returnToPMComments")
 	public WebElement primaryMentorComments;
 
+	/* ------ Button for returning IDP to PM ------ */
 	@FindBy(xpath =  "//div[4]/form/ul/li[2]/a")
 	public WebElement returnToPM;
 
+	/* ------ Return to PM on popup window ------ */
 	@FindBy(xpath =  "//button[@onclick = 'form_submit_returnToPM()']")
 	public WebElement returnToPMonPopUpWindow;
 

@@ -11,36 +11,43 @@ import com.nci.automation.web.WebDriverUtils;
 
 public class CommonPage extends CommonUtils {
 
+	/* ------ Click on OK button ------ */
 	@FindBy(xpath = "//button[contains(text(),'OK')]")
 	public WebElement okButton;
 	
+	/* ------ Button to go back to home queue ------ */
 	@FindBy(xpath = "//*[text()='Go back to your Queue']")
 	public WebElement goBackToHomeQueue;
 	
+	/* ------ Button to go back to home page ------ */
 	@FindBy(xpath = "//*[text()='Go back to your Home page']")
 	public WebElement goBackToHomePage;
 	
-	@FindBy(xpath = "//*[text()='Go back to your Queue']")
-	public WebElement goBackToYourQueue;
-	
+	/* ------ Submit button ------ */
 	@FindBy(css = "[value='Submit']")
 	public WebElement submitButton;
 	
+	/* ------ Save button ------ */
 	@FindBy(css = "[value='Save']")
 	public WebElement saveButton;
 	
+	/* ------ Yes button ------ */
 	@FindBy(xpath = "//*[text()='Yes']")
 	public WebElement yesButton;
 	
+	/* ------ Verify meeting and accept IDP button ------ */
 	@FindBy(css = "[value='Verify Meeting And Accept IDP']")
 	public WebElement verifyMeetingAndAcceptIDPButton;
 	
+	/* ------ Meeting date ------ */
 	@FindBy(id= "meetingdate")
 	public WebElement meetingDate;
 	
+	/* ------ Mark as reviewed checkbox ------ */
 	@FindBy(css = "[class*='checkbox btn btn-primary']")
 	public WebElement markAsReviewed;
 
+	/* ------ Send IDP to Trainee button ------ */
 	@FindBy(xpath = "//a[@onclick='sendBackToTrainee()']")
 	public WebElement sendToTraineeButton;
 
@@ -103,7 +110,7 @@ public class CommonPage extends CommonUtils {
 	}
 	
 	public void waitForGoBackToYourQueueButtonVisible() {
-		CommonUtils.waitForVisibility(goBackToYourQueue);
+		CommonUtils.waitForVisibility(goBackToHomeQueue);
 	}
 	
 	public void clickOnMarkAsReviewed() {

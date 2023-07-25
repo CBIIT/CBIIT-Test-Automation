@@ -11,9 +11,11 @@ import CustomBusiness.EIDP.Util.Constants.DelegationTypes;
 
 public class DelegatePage extends CommonUtils {
 
+	/* ------ Delegate added success message ------ */
 	@FindBy(xpath = "//*[@id=\"delegateSuccessMsg\"]")
 	public WebElement deleteSuccessMsg;
 
+	/* ------ Delegate delete button ------ */
 	@FindBy(id = "delete-delegate-btn")
 	public WebElement deleteButton;
 
