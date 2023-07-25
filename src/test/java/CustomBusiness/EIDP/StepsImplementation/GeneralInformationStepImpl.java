@@ -88,7 +88,7 @@ public class GeneralInformationStepImpl extends PageInitializer {
 		if (!requestDt.get("Co-PM").isEmpty()) {
 			SharedData.coPmName = requestDt.get("Co-PM");
 			doYouHaveCoPrimaryMentory(true);
-			Thread.sleep(1000);
+			MiscUtils.sleep(1000);
 			CommonUtils.click(generalInformationPage.coPrimaryMentorsName);
 			CommonUtils.waitForVisibility(generalInformationPage.searchInputField);
 			CommonUtils.sendKeys(generalInformationPage.searchInputField, (SharedData.coPmName));

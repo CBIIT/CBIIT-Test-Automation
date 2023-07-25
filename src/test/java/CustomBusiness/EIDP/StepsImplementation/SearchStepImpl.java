@@ -30,7 +30,6 @@ public class SearchStepImpl extends PageInitializer {
         } else if (dropDownName.equalsIgnoreCase("IDP Type")) {
             CommonUtils.click(searchPage.idpType);
         } else {
-            // default
             CommonUtils.click(searchPage.currentIDPStatusDropdown);
         }
         CommonUtils.click(searchPage.searchBoxInput);

@@ -12,37 +12,37 @@ import com.nci.automation.web.WebDriverUtils;
 public class CommonPage extends CommonUtils {
 
 	@FindBy(xpath = "//button[contains(text(),'OK')]")
-	private WebElement okButton;
+	public WebElement okButton;
 	
 	@FindBy(xpath = "//*[text()='Go back to your Queue']")
-	private WebElement goBackToHomeQueue;
+	public WebElement goBackToHomeQueue;
 	
 	@FindBy(xpath = "//*[text()='Go back to your Home page']")
-	private WebElement goBackToHomePage;
+	public WebElement goBackToHomePage;
 	
 	@FindBy(xpath = "//*[text()='Go back to your Queue']")
-	private WebElement goBackToYourQueue;
+	public WebElement goBackToYourQueue;
 	
 	@FindBy(css = "[value='Submit']")
-	private WebElement submitButton;
+	public WebElement submitButton;
 	
 	@FindBy(css = "[value='Save']")
-	private WebElement saveButton;
+	public WebElement saveButton;
 	
 	@FindBy(xpath = "//*[text()='Yes']")
-	private WebElement yesButton;
+	public WebElement yesButton;
 	
 	@FindBy(css = "[value='Verify Meeting And Accept IDP']")
-	private WebElement verifyMeetingAndAcceptIDPButton;
+	public WebElement verifyMeetingAndAcceptIDPButton;
 	
 	@FindBy(id= "meetingdate")
-	private WebElement meetingDate;
+	public WebElement meetingDate;
 	
 	@FindBy(css = "[class*='checkbox btn btn-primary']")
-	private WebElement markAsReviewed;
+	public WebElement markAsReviewed;
 
 	@FindBy(xpath = "//a[@onclick='sendBackToTrainee()']")
-	private WebElement sendToTraineeButton;
+	public WebElement sendToTraineeButton;
 
 	
 	public CommonPage() {

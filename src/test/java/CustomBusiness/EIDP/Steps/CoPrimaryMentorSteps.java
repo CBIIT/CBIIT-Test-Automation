@@ -81,7 +81,6 @@ public class CoPrimaryMentorSteps extends PageInitializer {
 			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	} 
 	
-
 	@When("User clicks on APPROVE IDP button")
 	public void approveIDP() {
 		coPrimaryMentorPage.clickOnApproveIDPButton();

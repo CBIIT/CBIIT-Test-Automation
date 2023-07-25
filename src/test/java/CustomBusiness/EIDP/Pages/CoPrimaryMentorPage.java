@@ -22,43 +22,43 @@ public class CoPrimaryMentorPage extends CommonUtils {
 	public WebElement markAsReviewedCheckboxNhgri;
 
 	@FindBy(css = "[href*='/idp/review-general']")
-	private WebElement generalInformationTab;
+	public WebElement generalInformationTab;
 
 	@FindBy(id = "saveAndNextButton")
-	private WebElement saveAndContinueButton;
+	public WebElement saveAndContinueButton;
 
 	@FindBy(id = "saveButton")
-	private WebElement saveButton;
+	public WebElement saveButton;
 
 	@FindBy(id = "approveSubmit")
-	private WebElement reviewedButton;
+	public WebElement reviewedButton;
 
 	@FindBy(id = "markasReviewedAllPagesCheck")
-	private WebElement markAsReviewed;
+	public WebElement markAsReviewed;
 
 	@FindBy(id = "tdAprroveIDP")
-	private WebElement approvedAndSubmitButton;
+	public WebElement approvedAndSubmitButton;
 
 	@FindBy(id = "aprroveByTDModal")
-	private WebElement approvedAndSubmitButtonNCI;
+	public WebElement approvedAndSubmitButtonNCI;
 
 	@FindBy(css = "button[onclick='form_submit_approveByTD(this)']")
-	private WebElement yesButton;
+	public WebElement yesButton;
 
 	@FindBy(xpath = "//*[@onclick=\"form_submit_approveByLBO()\"]")
-	private WebElement finalYesButton;
+	public WebElement finalYesButton;
 
 	@FindBy(id = "lboAprroveIDP")
-	private WebElement approveIDP;
+	public WebElement approveIDP;
 
 	@FindBy(id = "returnToPMComments")
-	private WebElement primaryMentorComments;
+	public WebElement primaryMentorComments;
 
 	@FindBy(xpath =  "//div[4]/form/ul/li[2]/a")
-	private WebElement returnToPM;
+	public WebElement returnToPM;
 
 	@FindBy(xpath =  "//button[@onclick = 'form_submit_returnToPM()']")
-	private WebElement returnToPMonPopUpWindow;
+	public WebElement returnToPMonPopUpWindow;
 
 	public CoPrimaryMentorPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
