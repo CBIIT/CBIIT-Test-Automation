@@ -3,9 +3,10 @@ package ServiceNow.CHARMS.ScenariosData;
 import ServiceNow.CHARMS.Constants.CHARMSConstants;
 import appsCommon.PageInitializer;
 import com.nci.automation.dao.ExcelReader;
+
 import java.util.Map;
 
-public class TestDataManagerScenario1 extends PageInitializer {
+public class TestDataManagerScenario2 extends PageInitializer {
 
     /**
      * RAS SCREENER SURVEY VARIABLES
@@ -106,7 +107,7 @@ public class TestDataManagerScenario1 extends PageInitializer {
         /**
          * FETCHING DATA FROM EXCEL BEFORE SUBMITTING SCREENER
          */
-        testDataForRasScreenerSubmissionScenario1 = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_ONE_DATA, sheetName);
+        testDataForRasScreenerSubmissionScenario1 = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_TWO_DATA, sheetName);
         areYouCompletingThisFormForSomeoneElseOrYourself = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE);
         firstName = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.FIRST_NAME);
         middleInitial = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.MIDDLE_INITIAL);
@@ -146,7 +147,7 @@ public class TestDataManagerScenario1 extends PageInitializer {
         /**
          * FETCHING DATA FROM EXCEL BEFORE SUBMITTING IIQ FORM
          */
-        testDataForRasScreenerSubmissionIiqScenario1 = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_ONE_DATA, sheetName);
+        testDataForRasScreenerSubmissionIiqScenario1 = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_TWO_DATA, sheetName);
         pleaseLogInEmailTextBox = testDataForRasScreenerSubmissionIiqScenario1.get(rASScreenerScenario1_Constants.PLEASE_LOG_IN_EMAIL_TEXT_BOX);
         pleaseLogInOneTimePinTextBox = testDataForRasScreenerSubmissionIiqScenario1.get(rASScreenerScenario1_Constants.PLEASE_LOG_IN_ONE_TIME_PIN_TEXT_BOX);
         areYouAdoptedRadioButton = testDataForRasScreenerSubmissionIiqScenario1.get(rASScreenerScenario1_Constants.ARE_YOU_ADOPTED_RADIO_BUTTON);
