@@ -34,6 +34,20 @@ public class NERDOGCRAddNewEntryPage {
                 .findElement(By.xpath("//*[@id='s2id_autogen15_results']/li[" + value + "]//child::div//child::div[3]"));
     }
 
+    /** NERD OGCR NEW ENTRY PAGE SPECIAL TOPIC DROP DOWN */
+    @FindBy(xpath = "//span[normalize-space()='Special Topic']")
+    public WebElement nerdOgcrNewEntrySpecialTopic;
+
+    /** NERD OGCR NEW ENTRY PAGE SPECIAL TOPIC DROP DOWN */
+    @FindBy(xpath = "//*[@id='s2id_autogen16']")
+    public WebElement nerdOgcrNewEntrySpecialTopicDropDown;
+
+    /** NERD OGCR NEW ENTRY PAGE SPECIAL TOPIC DROP DOWN VALUES */
+    public static WebElement nerdOgcrNewEntrySpecialTopicDropDownValues(String value) {
+        return WebDriverUtils.webDriver
+                .findElement(By.xpath("//*[@id='s2id_autogen16_results']/li[" + value + "]"));
+    }
+
     public NERDOGCRAddNewEntryPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

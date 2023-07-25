@@ -25,6 +25,8 @@ import AnalysisTools.mSigPortal.Pages.CatalogPages;
 import AnalysisTools.mSigPortal.Pages.MSigPortalHomePage;
 import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
 import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
+import CustomBusiness.CCR.Pages.CCRLandingPage;
+import CustomBusiness.CCR.StepsImplementation.CCRLogInStepsImplementation;
 import GrantsApps.ChangePassword.Pages.ChangePasswordPage;
 import GrantsApps.ChangePassword.StepsImplementation.ChangePasswordStepsImpl;
 import ServiceNow.CHARMS.Constants.RASScreenerScenario1_Constants;
@@ -78,6 +80,7 @@ import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
+import ServiceNow.ESR.Pages.NCINativeViewPage;
 import ServiceNow.NERD.Pages.Covid19ActivitiesSubmissionsPage;
 import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
 import ServiceNow.NERD.Pages.NERDCRSTCollaborationsPage;
@@ -227,6 +230,7 @@ public class PageInitializer {
     public static NERDOGCRAddNewEntryPage nERDOGCRAddNewEntryPage;
     public static Covid19ActivitiesSubmissionsPage covid19ActivitiesSubmissionsPage;
 
+
     /** --------------- CUSTOM BUSINESS APP INSTANCES --------------- */
     /** EIDP instances */
     public static AligningExpectationsPage aligningExpectationsPage;
@@ -305,6 +309,13 @@ public class PageInitializer {
 
     /** CProSite instances **/
     public static CProSiteExplorePage cProSiteExplorePage;
+
+    /** CCR instances **/
+    public static CCRLandingPage cCRLandingPage;
+    public static CCRLogInStepsImplementation cCRLogInStepsImplementation;
+
+    /** ESR INSTANCES */
+    public static NCINativeViewPage nciNativeViewPage;
 
     /** --------------- NATIVE VIEW INSTANCES --------------- */
     public static NativeViewLoginImpl nativeViewLoginImpl;
@@ -412,6 +423,8 @@ public class PageInitializer {
         covid19ActivitiesSubmissionsPage = new Covid19ActivitiesSubmissionsPage();
         nERDOGCRAddNewEntryPage = new NERDOGCRAddNewEntryPage();
 
+        /** ESR INSTANCE VARIABLES */
+        nciNativeViewPage = new NCINativeViewPage();
 
         /** --------------- CUSTOM BUSINESS APP INSTANCE VARIABLES --------------- */
         /** EIDP Instance Variables */
@@ -491,6 +504,10 @@ public class PageInitializer {
 
         /** CProSite Instance Variables **/
         cProSiteExplorePage = new CProSiteExplorePage();
+
+        /** CCR Instance Variables **/
+        cCRLandingPage = new CCRLandingPage();
+        cCRLogInStepsImplementation = new CCRLogInStepsImplementation();
 
         /** --------------- NATIVE VIEW INSTANCE VARIABLES --------------- */
         nativeViewLoginImpl = new NativeViewLoginImpl();

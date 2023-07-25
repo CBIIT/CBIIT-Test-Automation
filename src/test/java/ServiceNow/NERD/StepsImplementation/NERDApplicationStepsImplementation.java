@@ -415,6 +415,18 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
+    public static void verifyingOfOM_CheckBox(String covid19LeadershipMessages) {
+        MiscUtils.sleep(1000);
+        CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.covid19LeadershipMessagesText);
+        CommonUtils.assertTrue(nerdCrsKnowledgeDatabaseSubmissionsPage.covid19LeadershipMessagesText.getText()
+            .contentEquals(covid19LeadershipMessages)
+               && nerdCrsKnowledgeDatabaseSubmissionsPage.covid19LeadershipMessagesText.isDisplayed()
+              && nerdCrsKnowledgeDatabaseSubmissionsPage.covid19LeadershipMessagesText.isEnabled());
+        CommonUtils.clickOnElement(nerdCrsKnowledgeDatabaseSubmissionsPage.covid19LeadershipMessagesText);
+        JavascriptUtils.drawBlueBorder(nerdCrsKnowledgeDatabaseSubmissionsPage.covid19LeadershipMessagesText);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+    }
+
     /**
      * This method will verify that Checkbox options are Displayed
      *
@@ -942,7 +954,6 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
                     .getText().equals(buttonName));
             nerdDynamicXpaths.editButton(submissionName).click();
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-
         }
     }
 
