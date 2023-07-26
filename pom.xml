@@ -86,12 +86,6 @@
 			<artifactId>org.apache.commons.io</artifactId>
 			<version>2.4</version>
 		</dependency>
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>31.0.1-jre</version>
-		</dependency>
-
 
 		<!-- common libraries -->
 		<!-- 		<dependency>
