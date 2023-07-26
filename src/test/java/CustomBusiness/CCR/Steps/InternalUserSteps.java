@@ -6,8 +6,6 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.Given;
 import org.junit.Assert;
-
-import java.awt.*;
 import java.util.Map;
 
 public class InternalUserSteps extends PageInitializer {
