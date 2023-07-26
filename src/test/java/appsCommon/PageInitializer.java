@@ -53,21 +53,14 @@ import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
 import ServiceNow.ESR.Pages.NCINativeViewPage;
-import ServiceNow.NERD.Pages.Covid19ActivitiesSubmissionsPage;
-import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
-import ServiceNow.NERD.Pages.NERDCRSTCollaborationsPage;
-import ServiceNow.NERD.Pages.NERDCRSTOtherAccomplishmentsPage;
-import ServiceNow.NERD.Pages.NERDCRSTopAccomplishmentsPage;
-import ServiceNow.NERD.Pages.NERDDOCCollaborationsPage;
-import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
-import ServiceNow.NERD.Pages.NERDHomePage;
-import ServiceNow.NERD.Pages.NERDKnowledgebasePage;
-import ServiceNow.NERD.Pages.NERDOGCRAddNewEntryPage;
-import ServiceNow.NERD.Pages.NERDSubmissionsPage;
-import ServiceNow.NERD.Pages.NativeViewImpersonateUserPage;
-import ServiceNow.NERD.Pages.NativeViewMembersOfCongressPage;
+import ServiceNow.NERD.Pages.*;
 import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NativeViewImpersonateUser;
+import ServiceNow.SCSS.Pages.OWMVacancyPage;
+import ServiceNow.SCSS.Pages.StadtmanVacancyPage;
+import ServiceNow.SCSS.StepsImplementation.OWMVacancyStepsImplementation;
+import ServiceNow.SCSS.StepsImplementation.SCSSLoginStepsImplementation;
+import ServiceNow.SCSS.StepsImplementation.StadtmanVacancyStepsImplementation;
 import ServiceNow.SEER.Pages.*;
 import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 
@@ -164,6 +157,12 @@ public class PageInitializer {
     public static NERDOGCRAddNewEntryPage nERDOGCRAddNewEntryPage;
     public static Covid19ActivitiesSubmissionsPage covid19ActivitiesSubmissionsPage;
 
+    /** SCSS instances */
+    public static OWMVacancyPage owmVacancyPage;
+    public static StadtmanVacancyPage stadtmanVacancyPage;
+    public static StadtmanVacancyStepsImplementation stadtmanVacancyStepsImplementation;
+    public static OWMVacancyStepsImplementation oWMVacancyStepsImplementation;
+    public static SCSSLoginStepsImplementation sCCSLoginStepsImplementation;
 
     /** --------------- CUSTOM BUSINESS APP INSTANCES --------------- */
     /** EIDP instances */
@@ -354,6 +353,14 @@ public class PageInitializer {
 
         /** ESR INSTANCE VARIABLES */
         nciNativeViewPage = new NCINativeViewPage();
+
+        /** SCSS Instance Variables */
+        owmVacancyPage = new OWMVacancyPage();
+        stadtmanVacancyPage = new StadtmanVacancyPage();
+        oWMVacancyStepsImplementation = new OWMVacancyStepsImplementation();
+        stadtmanVacancyStepsImplementation = new StadtmanVacancyStepsImplementation();
+        sCCSLoginStepsImplementation = new SCSSLoginStepsImplementation();
+
 
         /** --------------- CUSTOM BUSINESS APP INSTANCE VARIABLES --------------- */
         /** EIDP Instance Variables */
