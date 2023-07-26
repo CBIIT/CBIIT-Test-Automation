@@ -2,8 +2,10 @@ package CustomBusiness.CCR.StepsImplementation;
 
 import CustomBusiness.CCR.Constants.CCR_CONSTANTS;
 import appsCommon.PageInitializer;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
+import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import org.openqa.selenium.WebElement;
@@ -53,12 +55,14 @@ public class CCRStepsImplementation extends PageInitializer {
     public void uploadDocuments(String document){
         switch (document) {
             case "Letter of Interest":
-                WebElement uploadFile1 = cCRApplicationPage.uploadFile2;
-                uploadFile1.sendKeys(CCR_CONSTANTS.LETTER_OF_INTEREST);
+                MiscUtils.sleep(2000);
+                System.out.println("method");
+                JavascriptUtils.scrollIntoView(cCRApplicationPage.uploadFile1);
+                CommonUtils.sendKeys(cCRApplicationPage.uploadFile1,"text");
                 break;
             case "CV/Bibliography":
-                WebElement uploadFile2 = cCRApplicationPage.uploadFile2;
-                uploadFile2.sendKeys(CCR_CONSTANTS.CV);
+                MiscUtils.sleep(2000);
+                CommonUtils.sendKeys(cCRApplicationPage.uploadFile1,CCR_CONSTANTS.CV);
                 break;
             case "Upload Diversity Statement":
                 WebElement uploadFile3 = cCRApplicationPage.uploadFile3;

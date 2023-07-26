@@ -2,14 +2,10 @@ package CustomBusiness.CCR.Steps;
 
 import CustomBusiness.EIDP.Util.CommonUtil;
 import appsCommon.PageInitializer;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.Given;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
 import java.util.Map;
@@ -80,9 +76,7 @@ public class InternalUserSteps extends PageInitializer {
 
     @Given("User selects {string} from a degree dropdown")
     public void user_selects_from_a_degree_dropdown(String phd) {
-        Select se = new Select(WebDriverUtils.webDriver
-                .findElement(By.xpath("//select[@id='degree']")));
-        se.selectByVisibleText(phd);
+        CommonUtils.selectDropDownValue(" Ph.D. ",cCRApplicationPage.degreeDropdown);
     }
 
     @Given("User enters {string} into an other degree field")
@@ -181,7 +175,6 @@ public class InternalUserSteps extends PageInitializer {
     @Given("User uploads {string} document")
     public void user_uploads_document(String document) throws TestingException, AWTException {
         cCRStepsImplementation.uploadDocuments(document);
-        MiscUtils.sleep(8000);
     }
 
     @Given("User selects an outreach source as {string}")
