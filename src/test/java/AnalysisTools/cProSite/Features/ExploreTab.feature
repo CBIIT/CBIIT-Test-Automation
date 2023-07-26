@@ -73,7 +73,7 @@ Feature: Explore Tab
     And user clicks export button
     Then verify dataset download "Protein_Abundance_Tumor_vs_Adjacent_Normal-CDK1.xlsx"
 
-  @Smoke @uddins2  @Progression
+  @Smoke @uddins2 @Regression
   Scenario: User submit selection with Correlation Gene Correlated Gene
     Given user is on cProSite explore Tab
     When user change analysis to correlation
@@ -82,4 +82,10 @@ Feature: Explore Tab
     And user clicks submit
     Then results is displayed
 
-
+  @Smoke @uddins2 @Regression
+  Scenario: User selects just brain cancer
+    Given user is on cProSite explore Tab
+    When user removes all tumor types
+    And user selects brain cancer
+    And user clicks submit
+    Then results is displayed

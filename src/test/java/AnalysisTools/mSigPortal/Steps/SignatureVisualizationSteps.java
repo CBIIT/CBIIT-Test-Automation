@@ -9,6 +9,7 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializer;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -261,6 +262,16 @@ public class SignatureVisualizationSteps extends PageInitializer {
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Assert.assertTrue(signatureVisualizationsPage.publicPlotOnProfilerSummary.isDisplayed());
 
+	}
+
+	@And("the user click submit")
+	public void theUserClickSubmit() {
+		signatureVisualizationsPage.submitButton1.click();
+	}
+
+	@Then("the sample count plot is displayed")
+	public void theSampleCountPlotIsDisplayed() {
+		Assert.assertTrue(signatureVisualizationsPage.profilerSummaryHeaderText.isDisplayed());
 	}
 
 }

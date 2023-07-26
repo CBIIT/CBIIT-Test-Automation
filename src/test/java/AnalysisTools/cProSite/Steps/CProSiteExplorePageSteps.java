@@ -1,6 +1,5 @@
 package AnalysisTools.cProSite.Steps;
 
-
 import appsCommon.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -16,9 +15,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 
-
 public class CProSiteExplorePageSteps extends PageInitializer {
-
 
     @Given("user is on cProSite explore Tab")
     public void userIsOnCProSiteExploreTab() throws TestingException {
@@ -40,11 +37,11 @@ public class CProSiteExplorePageSteps extends PageInitializer {
     @When("user changes the dataset to phosphorylation site")
     public void userChangesTheDatasetToPhosphorylationSite() {
 
-
         cProSiteExplorePage.datasetDropdown.sendKeys("Phosphorylation Site");
         cProSiteExplorePage.datasetDropdown.sendKeys(Keys.ENTER);
 
     }
+
     @When("user changes the dataset to phosphorylationprotein")
     public void userChangesTheDatasetToPhosphorylationprotein() {
         cProSiteExplorePage.datasetDropdown.sendKeys("Phosphorylation/Protein");
@@ -78,12 +75,12 @@ public class CProSiteExplorePageSteps extends PageInitializer {
         MiscUtils.sleep(3000);
     }
 
-
     @And("user click reset button")
     public void userClickResetButton() {
         MiscUtils.sleep(3000);
         cProSiteExplorePage.resetButton.click();
     }
+
     @Then("page is reset")
     public void page_is_reset() {
         Assert.assertTrue(cProSiteExplorePage.intialverifer.isDisplayed());
@@ -115,5 +112,26 @@ public class CProSiteExplorePageSteps extends PageInitializer {
         JavascriptUtils.scrollDown(200);
         cProSiteExplorePage.dropdowngene.sendKeys("ABCA7");
         cProSiteExplorePage.dropdowngene.sendKeys(Keys.ENTER);
+    }
+
+    @Then("results is displayed for phosphorylationsite")
+    public void resultsIsDisplayedForPhosphorylationsite() {
+        Assert.assertTrue(cProSiteExplorePage.summaryView.isDisplayed());
+    }
+
+    @Then("results is displayed for phosphorylationprotein")
+    public void resultsIsDisplayedForPhosphorylationprotein() {
+        Assert.assertTrue(cProSiteExplorePage.summaryView.isDisplayed());
+    }
+
+    @When("user removes all tumor types")
+    public void userRemovesAllTumorTypes() {
+        cProSiteExplorePage.cancelAllTumorTypeButton.click();
+    }
+
+    @And("user selects brain cancer")
+    public void userSelectsBrainCancer() {
+        cProSiteExplorePage.tumorTypeDropDown.sendKeys("Brain Cancer");
+        cProSiteExplorePage.tumorTypeDropDown.sendKeys(Keys.RETURN);
     }
 }

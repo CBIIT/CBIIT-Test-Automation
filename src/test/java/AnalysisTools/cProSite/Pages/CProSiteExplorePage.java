@@ -15,32 +15,40 @@ public class CProSiteExplorePage {
     @FindBy(xpath = "//button[text()='Summary']")
     public WebElement summary;
 
-    @FindBy(xpath ="//input[@id='react-select-3-input']")
+    @FindBy(xpath = "//button[text()='Summary View']")
+    public WebElement summaryView;
+
+    @FindBy(xpath = "//input[@id='react-select-3-input']")
     public WebElement datasetDropdown;
 
-    @FindBy(xpath ="//input[@id='react-select-4-input']")
+    @FindBy(xpath = "//input[@id='react-select-4-input']")
     public WebElement analysisDropdown;
-    @FindBy(xpath ="//input[@id='react-select-6-input']")
+    @FindBy(xpath = "//input[@id='react-select-6-input']")
     public WebElement corelatedgeneDropdown;
 
-    @FindBy(xpath ="//input[@id='correlationMRNA']")
+    @FindBy(xpath = "//input[@id='correlationMRNA']")
     public WebElement proteinandmRNAcheckbox;
 
-    @FindBy(xpath ="//div[@class='m-2']")
+    @FindBy(xpath = "//div[@class='m-2']")
     public WebElement intialverifer;
 
-    @FindBy(xpath ="//a[contains(text(),'Export Data')]")
+    @FindBy(xpath = "//a[contains(text(),'Export Data')]")
     public WebElement exportbutton;
-    @FindBy(xpath ="//label[normalize-space()='Tumor Type']")
+    @FindBy(xpath = "//label[normalize-space()='Tumor Type']")
     public WebElement tumorverifer;
 
-    @FindBy(xpath ="//input[@id='react-select-5-input']")
+    @FindBy(xpath = "//input[@id='react-select-5-input']")
     public WebElement dropdowngene;
 
-    public CProSiteExplorePage(){
+    @FindBy(xpath = "(//*[@viewBox='0 0 20 20'])[13]")
+    public WebElement cancelAllTumorTypeButton;
+
+    @FindBy(xpath = "//*[@id='react-select-2-input']")
+    public WebElement tumorTypeDropDown;
+
+    public CProSiteExplorePage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
 
     }
-
 
 }
