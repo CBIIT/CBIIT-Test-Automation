@@ -5,7 +5,6 @@ import org.junit.Assert;
 import com.nci.automation.web.JavascriptUtils;
 
 import appsCommon.PageInitializer;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -15,15 +14,18 @@ public class CEDCDSearchCohortsRestoringSearchCriteriaAfterSwitchingTabsSteps ex
 	 * This step clicks specifically on the 'Depression value from the drop down'
 	 */
 	@When("the user filters by Depression study")
-		public void the_user_filters_by_Depression_study() {
+	public void the_user_filters_by_Depression_study() {
 		JavascriptUtils.clickByJS(cedcdSearchCohortsPage.categoriesOfDataCollectedDropDown);
 		JavascriptUtils.clickByJS(cedcdSearchCohortsPage.categoriesOfDataCollectedDepressionValue);
 		JavascriptUtils.clickByJS(cedcdSearchCohortsPage.searchCohortResultBtn);
-		
+
 	}
 
-	/** This step clicks on a different tab on the page 
-	 * @throws InterruptedException */
+	/**
+	 * This step clicks on a different tab on the page
+	 * 
+	 * @throws InterruptedException
+	 */
 	@When("the user clicks on a different tab")
 	public void the_user_clicks_on_a_different_tab() throws InterruptedException {
 		JavascriptUtils.clickByJS(cedcdBiospecimenCountsPage.biospecimenTab);
@@ -36,6 +38,7 @@ public class CEDCDSearchCohortsRestoringSearchCriteriaAfterSwitchingTabsSteps ex
 		JavascriptUtils.clickByJS(cedcdSearchCohortsPage.searchCohortTab);
 
 	}
+
 	/**
 	 * This step verifies that the previous selected value (depression) is still
 	 * selected

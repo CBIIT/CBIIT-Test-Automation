@@ -20,6 +20,10 @@ import org.openqa.selenium.TakesScreenshot;
 import java.io.File;
 import java.net.MalformedURLException;
 
+//import io.cucumber.java.Scenario;
+//import cucumber.api.java.After;
+//import io.cucumber.java.Before;
+
 public class HooksSteps {
 
 	private static final String BUILD_NUMBER = "BUILD_NUMBER";
@@ -93,8 +97,7 @@ public class HooksSteps {
 				scenarioResult = "Failed";
 			}
 
-			QcTestResult currentQcResult = new QcTestResult(scenarioName, scenarioResult,
-					scenarioResultsDir);
+			QcTestResult currentQcResult = new QcTestResult(scenarioName, scenarioResult, scenarioResultsDir);
 			ScenarioContext.setCurrentQcResult(currentQcResult);
 			WebDriverUtils.closeWebDriver();
 			PageCache.getInstance().destroyInstances();
