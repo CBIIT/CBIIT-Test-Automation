@@ -18,7 +18,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.NoSuchFrameException;
 import org.openqa.selenium.WebElement;
 
-public class RasScreenerScenario1StepsImpl extends PageInitializer {
+public class RasScreenerScenario2StepsImpl extends PageInitializer {
     /***
      * USE THIS METHOD TO CLICK ON SCREENER NEXT BUTTON
      */
