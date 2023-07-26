@@ -137,14 +137,6 @@ public class PageInitializer {
     public static ParticipantDetailsPage participantDetailsPage;
     public static ScreenerRecordTablePage screenerRecordTablePage;
 
-    /** ezQTL instances **/
-    protected static EZQTLHomePage ezQTLHomePage;
-    protected static EZQTLAnalysesPage ezQTLAnalysesPage;
-    protected static EZQTLDocumentationPage ezQTLDocumentationPage;
-    protected static EZQTLPublicDataSourcePage ezQTLPublicDataSourcePage;
-
-    /** Analysis Tools Landing Page instances */
-    protected static AnalysisToolsLandingPage analysisToolsLandingPage;
     // Melanoma and Spitzoid Tumor instances
     public static MelanomaLoginPage melanomaLoginPage;
     public static MelanomaHomePage melanomaHomePage;
@@ -216,10 +208,20 @@ public class PageInitializer {
     public static ETDBasePage etdBasePage;
 
     /** --------------- ANALYSIS TOOLS INSTANCES --------------- */
+
+    /** Analysis Tools Landing Page instances */
+    public static AnalysisToolsLandingPage analysisToolsLandingPage;
+
     /** LDLink instances **/
     public static LDLinkHomePage ldLinkHomePage;
     public static LDAssocPage ldAssocPage;
     public static LDExpressPage ldExpressPage;
+
+    /** ezQTL instances **/
+    public static EZQTLHomePage ezQTLHomePage;
+    public static EZQTLAnalysesPage ezQTLAnalysesPage;
+    public static EZQTLDocumentationPage ezQTLDocumentationPage;
+    public static EZQTLPublicDataSourcePage ezQTLPublicDataSourcePage;
 
     /** PLCO instances **/
     public static ExploreGWASPage exploreGWASPage;
@@ -407,10 +409,20 @@ public class PageInitializer {
         etdBasePage = new ETDBasePage();
 
         /** --------------- ANALYSIS TOOLS INSTANCE VARIABLES --------------- */
+
+        /** Analysis Tools Landing Page Variables **/
+        analysisToolsLandingPage = new AnalysisToolsLandingPage();
+
         /** LDLink Instance Variables **/
         ldLinkHomePage = new LDLinkHomePage();
         ldExpressPage = new LDExpressPage();
         ldAssocPage = new LDAssocPage();
+
+        /** ezQTL Instance Variables **/
+        ezQTLHomePage = new EZQTLHomePage();
+        ezQTLAnalysesPage = new EZQTLAnalysesPage();
+        ezQTLDocumentationPage = new EZQTLDocumentationPage();
+        ezQTLPublicDataSourcePage = new EZQTLPublicDataSourcePage();
 
         /** PLCO Instance Variables **/
         exploreGWASPage = new ExploreGWASPage();
