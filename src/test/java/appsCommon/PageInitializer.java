@@ -5,12 +5,7 @@ import AnalysisTools.CEDCD.Pages.CEDCDBiospecimenCountsPage;
 import AnalysisTools.CEDCD.Pages.CEDCDCohortPage;
 import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
 import AnalysisTools.CEDCD.Steps.CEDCDStartUps;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDAlphabetizedSelectTypesStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortNewPageLayOutStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
+import AnalysisTools.CEDCD.StepsImplementation.*;
 import AnalysisTools.Comets2.Pages.Comets2Page;
 import AnalysisTools.ICRP.Pages.ICRPHomePage;
 import AnalysisTools.ICRP.Pages.ICRPSearchDatabasePage;
@@ -31,8 +26,19 @@ import AnalysisTools.mSigPortal.Pages.CatalogPages;
 import AnalysisTools.mSigPortal.Pages.MSigPortalHomePage;
 import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
 import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
+import CustomBusiness.CCR.Pages.CCRApplicationPage;
+import CustomBusiness.CCR.Pages.CCRDynamicXpaths;
 import CustomBusiness.CCR.Pages.CCRLandingPage;
-import CustomBusiness.CCR.StepsImplementation.CCRLogInStepsImplementation;
+import CustomBusiness.CCR.StepsImplementation.CCRStepsImplementation;
+import CustomBusiness.DCEG.Pages.*;
+import CustomBusiness.DCEG.Steps.RegularUserFlowSteps;
+import CustomBusiness.DCEG.StepsImplementation.FlowStepsImplementation;
+import CustomBusiness.EIDP.Pages.BasePage;
+import CustomBusiness.EIDP.Pages.*;
+import CustomBusiness.EIDP.StepsImplementation.*;
+import CustomBusiness.ETD.Pages.ETDAdminNCIPage;
+import CustomBusiness.ETD.Pages.ETDBasePage;
+import CustomBusiness.ETD.StepsImplementation.ETDFlowStepsImpl;
 import GrantsApps.ChangePassword.Pages.ChangePasswordPage;
 import GrantsApps.ChangePassword.StepsImplementation.ChangePasswordStepsImpl;
 import ServiceNow.CHARMS.Constants.RAS_SCREENER_CONSTANTS;
@@ -45,20 +51,9 @@ import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
 import ServiceNow.CICDBuild.Pages.DevOpsLoginPage;
 import ServiceNow.CICDBuild.Pages.DevOpsNativeViewPage;
 import ServiceNow.CICDBuild.StepsImplementation.DevOpsAutomatedBuildStepsImplementation;
-import ServiceNow.COVIDCode.Pages.COVIDCodeLoginPage;
-import ServiceNow.COVIDCode.Pages.EnrollmentQuestionnairePage;
-import ServiceNow.COVIDCode.Pages.FollowUpFormPage;
-import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentViewPage;
-import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentsPage;
-import ServiceNow.COVIDCode.Pages.ServicePortalQuestionnairePage;
-import ServiceNow.COVIDCode.Pages.ServicePortalSurveyPage;
-import ServiceNow.COVIDCode.StepsImplementation.COVIDCodeLoginStepsImpl;
+import ServiceNow.COVIDCode.Pages.*;
 import ServiceNow.COVIDCode.StepsImplementation.DashboardStepImpl;
-import ServiceNow.COVIDCode.StepsImplementation.FollowUpFormPageImpl;
-import ServiceNow.COVIDCode.StepsImplementation.NativeViewStepsImpl;
-import ServiceNow.COVIDCode.StepsImplementation.ServicePortalEQPageImpl;
-import ServiceNow.COVIDCode.StepsImplementation.ServicePortalQuestionnairePageImp;
-import ServiceNow.COVIDCode.StepsImplementation.SignOutVerificationStepImp;
+import ServiceNow.COVIDCode.StepsImplementation.*;
 import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
@@ -79,45 +74,8 @@ import ServiceNow.NERD.Pages.NativeViewImpersonateUserPage;
 import ServiceNow.NERD.Pages.NativeViewMembersOfCongressPage;
 import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NativeViewImpersonateUser;
-import ServiceNow.SEER.Pages.NativeViewAccessRequestPage;
-import ServiceNow.SEER.Pages.NativeViewCustomersPage;
-import ServiceNow.SEER.Pages.NativeViewEmailsPage;
-import ServiceNow.SEER.Pages.NativeViewSentViewPage;
-import ServiceNow.SEER.Pages.SEERDataAccessRequestPage;
-import ServiceNow.SEER.Pages.SEERExistingAccountPage;
-import ServiceNow.SEER.Pages.SEERIncidenceDatabaseDetailsPage;
-import ServiceNow.SEER.Pages.SEERLandingPage;
-import ServiceNow.SEER.Pages.SEERUserRegistrationPage;
+import ServiceNow.SEER.Pages.*;
 import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
-import CustomBusiness.DCEG.Pages.AdminFlowPage;
-import CustomBusiness.DCEG.Pages.BranchAdminPage;
-import CustomBusiness.DCEG.Pages.CreateCRPage;
-import CustomBusiness.DCEG.Pages.DirectSubmitterPage;
-import CustomBusiness.DCEG.Pages.RegularUserFlowPage;
-import CustomBusiness.DCEG.Steps.RegularUserFlowSteps;
-import CustomBusiness.DCEG.StepsImplementation.FlowStepsImplementation;
-import CustomBusiness.EIDP.Pages.AligningExpectationsPage;
-import CustomBusiness.EIDP.Pages.BasePage;
-import CustomBusiness.EIDP.Pages.CareerGoalAndActivePage;
-import CustomBusiness.EIDP.Pages.CoPrimaryMentorPage;
-import CustomBusiness.EIDP.Pages.CommonPage;
-import CustomBusiness.EIDP.Pages.DashboardPage;
-import CustomBusiness.EIDP.Pages.DelegatePage;
-import CustomBusiness.EIDP.Pages.GeneralInformationPage;
-import CustomBusiness.EIDP.Pages.IDPAwaitingResponsePage;
-import CustomBusiness.EIDP.Pages.LoginPage;
-import CustomBusiness.EIDP.Pages.ProjectRelatedDeliverablePage;
-import CustomBusiness.EIDP.Pages.SearchPage;
-import CustomBusiness.EIDP.Pages.TraineeReviewPage;
-import CustomBusiness.EIDP.StepsImplementation.AlignExpectionsStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.CareerGoalAndActiveStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.EIDPLoginStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.GeneralInformationStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.ProjectRelatedDeliverableStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.SearchStepImpl;
-import CustomBusiness.ETD.Pages.ETDAdminNCIPage;
-import CustomBusiness.ETD.Pages.ETDBasePage;
-import CustomBusiness.ETD.StepsImplementation.ETDFlowStepsImpl;
 
 /**
  * This an initializer class which will initialize all pages classes. Once pages
@@ -302,7 +260,9 @@ public class PageInitializer {
 
     /** CCR instances **/
     public static CCRLandingPage cCRLandingPage;
-    public static CCRLogInStepsImplementation cCRLogInStepsImplementation;
+    public static CCRStepsImplementation cCRStepsImplementation;
+    public static CCRDynamicXpaths cCRDynamicXpaths;
+    public static CCRApplicationPage cCRApplicationPage;
 
     /** ESR INSTANCES */
     public static NCINativeViewPage nciNativeViewPage;
@@ -491,7 +451,10 @@ public class PageInitializer {
 
         /** CCR Instance Variables **/
         cCRLandingPage = new CCRLandingPage();
-        cCRLogInStepsImplementation = new CCRLogInStepsImplementation();
+        cCRStepsImplementation = new CCRStepsImplementation();
+        cCRStepsImplementation = new CCRStepsImplementation();
+        cCRDynamicXpaths = new CCRDynamicXpaths();
+        cCRApplicationPage = new CCRApplicationPage();
 
         /** --------------- NATIVE VIEW INSTANCE VARIABLES --------------- */
         nativeViewLoginImpl = new NativeViewLoginImpl();
