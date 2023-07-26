@@ -10,8 +10,6 @@ import org.junit.runner.RunWith;
 import com.nci.automation.utils.LocalConfUtils;
 import com.nci.automation.web.ConfUtils;
 
-
-
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = {
 		"html:target/html-reports/cucumber-default-report", "json:target/cucumber.json", "junit:target/cucumber.xml",

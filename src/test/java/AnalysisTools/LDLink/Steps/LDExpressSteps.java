@@ -6,11 +6,9 @@ import org.openqa.selenium.Keys;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.JavascriptUtils;
-
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class LDExpressSteps extends PageInitializer {
     @When("the user clicks on the LDexpress module")
@@ -35,7 +33,7 @@ public class LDExpressSteps extends PageInitializer {
         CommonUtils.waitForClickability(ldExpressPage.selectTissueDropDown);
         CommonUtils.click(ldExpressPage.selectTissueDropDown);
         CommonUtils.click(ldExpressPage.brainAmygdalaOptionOnTissueDropDown);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
         CommonUtils.click(ldExpressPage.submitOnLdExpress);
         MiscUtils.sleep(15000);

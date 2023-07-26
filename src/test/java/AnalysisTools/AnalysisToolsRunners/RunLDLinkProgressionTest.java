@@ -9,8 +9,8 @@ import com.nci.automation.web.ConfUtils;
 
 //import io.cucumber.junit.Cucumber; //for cucumber 4.3 version
 //import io.cucumber.junit.CucumberOptions; // this is for cucumber 4.8 version
-import cucumber.api.CucumberOptions;
-import cucumber.api.junit.Cucumber;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = { "html:target/html-reports/cucumber-default-report", "json:target/cucumber.json",

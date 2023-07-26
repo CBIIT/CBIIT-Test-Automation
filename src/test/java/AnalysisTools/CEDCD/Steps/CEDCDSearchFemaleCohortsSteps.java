@@ -2,16 +2,9 @@ package AnalysisTools.CEDCD.Steps;
 
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializer;
-<<<<<<< HEAD
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-=======
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import junit.framework.Assert;
->>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 
 public class CEDCDSearchFemaleCohortsSteps extends PageInitializer {
 

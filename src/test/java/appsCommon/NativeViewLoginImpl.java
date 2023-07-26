@@ -13,21 +13,6 @@ public class NativeViewLoginImpl extends PageInitializer {
 
     public void nativeViewLogin() throws TestingException {
 
-<<<<<<< HEAD
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
-		MiscUtils.sleep(5000);
-		CucumberLogUtils.logScreenShot();
-		CommonUtils.waitForVisibility(iTrustloginPage.loginLink);
-		iTrustloginPage.loginLink.click();
-		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
-		loginImpl.loginToITrust();
-		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
-		CommonUtils.waitForVisibility(WebDriverUtils.webDriver.findElement(By.linkText("Native View")));
-		WebDriverUtils.webDriver.findElement(By.linkText("Native View")).click();
-	}
-=======
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
         MiscUtils.sleep(2000);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
@@ -41,7 +26,6 @@ public class NativeViewLoginImpl extends PageInitializer {
         CommonUtils.waitForVisibility(WebDriverUtils.webDriver.findElement(By.linkText("Native View")));
         WebDriverUtils.webDriver.findElement(By.linkText("Native View")).click();
     }
->>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 
     /**
      * USE THIS METHOD TO LOG IN WITH SIDEDOOR ACCOUNT INTO ServiceNow

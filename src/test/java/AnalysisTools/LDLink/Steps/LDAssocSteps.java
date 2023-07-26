@@ -1,18 +1,14 @@
 package AnalysisTools.LDLink.Steps;
 
 import java.io.File;
-
 import org.junit.Assert;
-import org.openqa.selenium.JavascriptExecutor;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
-
 import appsCommon.PageInitializer;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class LDAssocSteps extends PageInitializer {
 
@@ -35,7 +31,7 @@ public class LDAssocSteps extends PageInitializer {
         String actualAssociationText = ldAssocPage.associationResultsText.getText();
         Assert.assertEquals(associationResultsText, actualAssociationText);
         Assert.assertTrue(ldAssocPage.associationResultsText.isDisplayed());
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
     @When("the user uploads {string}, selects Variant drop down, enters {string} and YRI population and calculates")
@@ -53,7 +49,7 @@ public class LDAssocSteps extends PageInitializer {
         CommonUtils.click(ldAssocPage.populationDropDown);
         CommonUtils.click(ldAssocPage.populationYriDropDownValue);
         MiscUtils.sleep(2000);
-        CucumberLogUtils.logScreenShot();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         CommonUtils.click(ldAssocPage.submitOnLDassoc);
     }
 

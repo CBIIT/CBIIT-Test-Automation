@@ -12,6 +12,7 @@ import appsCommon.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
 public class SignatureVisualizationSteps extends PageInitializer {
 
 	@Given("the user is on the mSigPortal Home page")
@@ -99,13 +100,8 @@ public class SignatureVisualizationSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.loadExampleDataButton);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.submitButton);
-<<<<<<< HEAD
-		MiscUtils.sleep(2000);
-		CucumberLogUtils.logScreenShot();
-=======
 		MiscUtils.sleep(60000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
->>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 
 	}
 
@@ -156,13 +152,7 @@ public class SignatureVisualizationSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.loadExampleDataButton);
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.removeFilesButton);
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.loadExampleDataButton);
-<<<<<<< HEAD
-		CucumberLogUtils.logScreenShot();
-=======
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		
-	}
->>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 
 	}
 
@@ -218,12 +208,7 @@ public class SignatureVisualizationSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.pcToReferenceTab);
 		MiscUtils.sleep(20000);
 		JavascriptUtils.clickByJS(signatureVisualizationsPage.compareSignatureInfoButton);
-<<<<<<< HEAD
-		CucumberLogUtils.logScreenShot();
-=======
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		
->>>>>>> 92078d40046069db66850893bb269e74285e7ad4
 
 	}
 
@@ -231,13 +216,8 @@ public class SignatureVisualizationSteps extends PageInitializer {
 	public void the_cosmic_Signature_pop_up_is_displayed() {
 
 		JavascriptUtils.drawBlueBorder(signatureVisualizationsPage.signatureInfoPopUpBox);
-<<<<<<< HEAD
-		CucumberLogUtils.logScreenShot();
-
-=======
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		
->>>>>>> 92078d40046069db66850893bb269e74285e7ad4
+
 	}
 
 	@When("then navigates to the Mutational Profiles tab")
