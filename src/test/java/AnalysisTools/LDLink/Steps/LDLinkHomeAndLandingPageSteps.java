@@ -39,7 +39,6 @@ public class LDLinkHomeAndLandingPageSteps extends PageInitializer {
 				.isDisplayed();
 		Assert.assertTrue(ldLinkDescriptionTextIsDisplayed);
 		Assert.assertEquals(ldLinkDescriptionText, ldLinkDescriptionOnLandingPage);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
 	}
 
@@ -53,7 +52,6 @@ public class LDLinkHomeAndLandingPageSteps extends PageInitializer {
 		String ldLinkHomePageText = ldLinkHomePage.ldLinkHomePageDescriptionText.getText();
 		System.out.println(ldLinkHomePageText);
 		assertEquals(ldLinkHomePageDescription, ldLinkHomePageText);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("a LDlink user opens home page")
