@@ -182,7 +182,6 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 					WebDriverUtils.getWebDriver().findElements(By.cssSelector(".modal-lg.in label.radio")).get(2));
 			CommonUtils.click(WebDriverUtils.getWebDriver().findElement(
 					By.xpath("//*[contains(@class, 'modal-lg')][contains(@class, 'in')]//*[text()='Done']")));
-
 		}
 		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.id("careerGoalsSubmitSave")));
 		CommonUtil.waitBrowser(4000);
