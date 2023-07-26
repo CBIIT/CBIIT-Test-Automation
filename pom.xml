@@ -7,9 +7,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>17</java.version>
-		<maven.compiler.source>17</maven.compiler.source>
-		<maven.compiler.target>17</maven.compiler.target>
+		<java.version>1.8</java.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 		<extentreports.cucumber6.adapter.version>2.13.0</extentreports.cucumber6.adapter.version>
 		<extentreports.version>5.0.9</extentreports.version>
 		<testng.version>7.7.1</testng.version>
