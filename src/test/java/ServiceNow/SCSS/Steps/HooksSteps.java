@@ -49,7 +49,6 @@ public class HooksSteps {
             exampleName = exampleName.trim();
             scenarioNameForFolderCreation = s.getName() + File.separatorChar + exampleName;
         }
-
         if (!StringUtils.isEmpty(buildNumber)) {
             scenarioNameForFolderCreation = buildNumber + File.separatorChar + scenarioNameForFolderCreation;
         } else {
@@ -88,7 +87,6 @@ public class HooksSteps {
             else {
                 scenarioResult = "Failed";
             }
-
             QcTestResult currentQcResult = new QcTestResult(scenarioName, scenarioResult, scenarioResultsDir);
             ScenarioContext.setCurrentQcResult(currentQcResult);
             WebDriverUtils.closeWebDriver();
