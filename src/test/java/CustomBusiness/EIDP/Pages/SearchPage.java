@@ -187,6 +187,42 @@ public class SearchPage extends CommonUtils {
 	@FindBy(xpath = "//button[@data-bb-handler='confirm' and contains(text(),'Yes')]")
 	public WebElement yesButtonforRenewal;
 
+	/* ------ Trainee name text------ */
+	@FindBy(xpath = "//span[@class='dtr-title' and text()='Primary Mentor']/following-sibling::span/a")
+	public WebElement traineeNameText;
+
+	/* ------ Classification Type Text------ */
+	@FindBy(xpath = "//span[@class='dtr-data' and text()='EMPLOYEE']")
+	public WebElement classificationTypeText;
+	
+	/* ------ Initiate IDP active buttons ------ */
+	@FindBy(xpath = "//button[@class='btn btn-primary initiateAnother'][not(@disabled)]")
+	public List<WebElement> activeButtons;
+
+	/* ------ On Hold IDP active buttons ------ */
+	@FindBy(xpath = "//button[@class='btn btn-primary holdIDP'][not(@disabled)]")
+	public List<WebElement> holdIDPActiveButtons;
+
+	/* ------ Cancel IDP active buttons ------ */
+	@FindBy(xpath = "//button[@class='btn btn-primary'][not(@disabled)]")
+	public List<WebElement> cancelIDPActiveButtons;
+
+	/* ------ Undo IDP active buttons ------ */
+	@FindBy(xpath = "//button[@class='btn btn-primary'][not(@disabled)]")
+	public List<WebElement> undoIDPActiveButtons;
+	
+	/* ------ Exit survey IDP active buttons ------ */
+	@FindBy(xpath = "//button[@class='btn btn-primary exitSurvey'][not(@disabled)]")
+	public List<WebElement> exitSurveyIDPActiveButtons;
+
+	/* ------ Rows in PM table ------ */
+	@FindBy(css = "td.sorting_2")
+	public List<WebElement> rowsPM;
+
+	/* ------ Rows in Verification Type table ------ */
+	@FindBy(css = "td.sorting_1.dtr-control::before")
+	public List<WebElement> rowsVerificationType;
+
 	/***
 	 * USE THIS METHOD TO DYNAMICALLY SELECT CLASSIFICATION TYPE
 	 * @param type
@@ -195,6 +231,16 @@ public class SearchPage extends CommonUtils {
 	public WebElement classificationType(String type){
 		return WebDriverUtils.webDriver.findElement(
 				By.xpath("//*[@id='select2-trainee-classifications-results']//li[text()='" + type + "']"));
+	}
+
+	/***
+	 * USE THIS METHOD TO DYNAMICALLY SELECT STATUS OPTION TYPE
+	 * @param optionType
+	 * @return
+	 */
+	public WebElement statusOption(String optionType){
+		return WebDriverUtils.webDriver.findElement(
+				By.xpath("//li[@role='treeitem'][text()=\"" + optionType + "\"]"));
 	}
 
 	public SearchPage() {
