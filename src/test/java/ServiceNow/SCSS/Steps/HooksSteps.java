@@ -56,6 +56,7 @@ public class HooksSteps {
             scenarioNameForFolderCreation = DateUtils.getFormatedDate("MM-dd-yyyy") + File.separatorChar
                     + scenarioNameForFolderCreation;
         }
+
         System.setProperty(ScenarioContext.USE_SCENARIO_NAME_PROPERTY, "true");
         System.setProperty(ScenarioContext.SCENARIO_NAME_PROPERTY_NAME, scenarioNameForFolderCreation);
         System.setProperty(CustomBusiness.CCR.Steps.HooksSteps.SCENARIO_NAME_TEXT, s.getName());// getScenarioName(scenario));
