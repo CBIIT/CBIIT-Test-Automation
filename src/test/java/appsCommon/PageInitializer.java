@@ -318,7 +318,7 @@ public class PageInitializer {
         participantDetailsPage = new ParticipantDetailsPage();
         screenerRecordTablePage = new ScreenerRecordTablePage();
 
-        // Melanoma and Spitzoid Tumor instances
+        /** Melanoma and Spitzoid Tumor instances */
         melanomaLoginPage = new MelanomaLoginPage();
         melanomaHomePage = new MelanomaHomePage();
         melanomaQuestionnairePage = new MelanomaQuestionnairePage();
@@ -360,7 +360,6 @@ public class PageInitializer {
         oWMVacancyStepsImplementation = new OWMVacancyStepsImplementation();
         stadtmanVacancyStepsImplementation = new StadtmanVacancyStepsImplementation();
         sCCSLoginStepsImplementation = new SCSSLoginStepsImplementation();
-
 
         /** --------------- CUSTOM BUSINESS APP INSTANCE VARIABLES --------------- */
         /** EIDP Instance Variables */
