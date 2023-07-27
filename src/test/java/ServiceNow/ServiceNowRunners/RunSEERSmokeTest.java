@@ -35,5 +35,4 @@ public class RunSEERSmokeTest {
 		ConfUtils.setBaseResultsDir(reportsOutput);
 		System.out.println("Starting Test Execution...");
 	}
-
 }

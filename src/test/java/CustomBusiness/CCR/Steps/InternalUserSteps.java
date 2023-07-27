@@ -171,7 +171,7 @@ public class InternalUserSteps extends PageInitializer {
     }
 
     @Given("User uploads {string} document")
-    public void user_uploads_document(String document){
+    public void user_uploads_document(String document) throws TestingException {
         cCRStepsImplementation.uploadDocuments(document);
     }
 
