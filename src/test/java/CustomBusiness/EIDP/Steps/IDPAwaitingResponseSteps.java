@@ -31,7 +31,7 @@ public class IDPAwaitingResponseSteps extends PageInitializer {
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		searchStepimpl.clickOnOkButton();
 		changeUserToTrainnee();
-		Thread.sleep(4000);
+		MiscUtils.sleep(4000);
 		eidpDashboardStepImpl.clickOnStartIDPButton();
 		projectRelatedDeliverableStepImpl.fillProjectDeliverableData();
 		careerGoalAndActiveStepImpl.fillCarrerGoalActivite();

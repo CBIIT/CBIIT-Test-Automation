@@ -195,54 +195,43 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer {
 	}
 
 	public void markAllProjectRelatedTrainningsAreCompleted() {
-		List<WebElement> trainningActivitiesEditIcons = WebDriverUtils.getWebDriver()
-				.findElements(By.cssSelector(".delivChoice .fa.fa-pencil"));
-		for (int i = 0; i < trainningActivitiesEditIcons.size(); i++) {
-			trainningActivitiesEditIcons.get(i).click();
+		
+		for (int i = 0; i < projectRelatedDeliverablePage.trainningActivitiesEditIcons.size(); i++) {
+			projectRelatedDeliverablePage.trainningActivitiesEditIcons.get(i).click();
 			MiscUtils.sleep(2000);
-			String currentTrainningType = WebDriverUtils.getWebDriver()
-					.findElement(By.cssSelector(".modal-lg.in #myModalLabel")).getText();
+			String currentTrainningType = projectRelatedDeliverablePage.trainingTypeText.getText();
 			if ("Interest/Working Group Participation".equalsIgnoreCase(currentTrainningType.trim())) {
-				WebDriverUtils.getWebDriver()
-						.findElements(
-								By.xpath("//*[@id='ta_interestGroup2']//div[@class='controls']//label[@class='radio']"))
-						.get(3).click();
-				WebDriverUtils.getWebDriver().findElement(By.id("datepicker34")).clear();
-				WebDriverUtils.getWebDriver().findElement(By.id("datepicker33")).clear();
-				WebDriverUtils.getWebDriver().findElement(By.id("datepicker34")).sendKeys("07/15/2023");
-				WebDriverUtils.getWebDriver().findElement(By.id("datepicker33")).sendKeys("12/15/2023");
-				WebDriverUtils.getWebDriver().findElement(By.id("interestGroupLocation")).clear();
-				WebDriverUtils.getWebDriver().findElement(By.id("interestGroupLocation")).sendKeys("Virtual");
-				WebDriverUtils.getWebDriver().findElement(By.id("addGroupParticipation")).click();
+				projectRelatedDeliverablePage.interestGroups.get(3).click();
+				projectRelatedDeliverablePage.workDateFrom.clear();
+				projectRelatedDeliverablePage.workDateTo.clear();
+				projectRelatedDeliverablePage.workDateFrom.sendKeys("07/15/2023");
+				projectRelatedDeliverablePage.workDateTo.sendKeys("12/15/2023");
+				projectRelatedDeliverablePage.interestGroupLocation.clear();
+				projectRelatedDeliverablePage.interestGroupLocation.sendKeys("Virtual");
+				projectRelatedDeliverablePage.addGroupPerticipation.click();
 
 			} else if ("Classes/Courses/Workshops".equalsIgnoreCase(currentTrainningType.trim())) {
-				WebDriverUtils.getWebDriver()
-						.findElements(By.xpath(
-								"//*[@id='ta_classCourses2']//*[@aria-labelledby='trackClassActStatusLegend']//label"))
-						.get(2).click();
-				WebDriverUtils.getWebDriver().findElement(By.id("datepicker9")).clear();
-				WebDriverUtils.getWebDriver().findElement(By.id("datepicker10")).clear();
-				WebDriverUtils.getWebDriver().findElement(By.id("datepicker9")).sendKeys("07/15/2023");
-				WebDriverUtils.getWebDriver().findElement(By.id("datepicker10")).sendKeys("12/15/2023");
-				WebDriverUtils.getWebDriver().findElement(By.id("classroomLocation")).clear();
-				WebDriverUtils.getWebDriver().findElement(By.id("classroomLocation")).sendKeys("Virtual");
-				WebDriverUtils.getWebDriver().findElement(By.id("addworkshops")).click();
+				projectRelatedDeliverablePage.classCourseStatuses.get(2).click();
+				projectRelatedDeliverablePage.classesStartDate.clear();
+				projectRelatedDeliverablePage.classesToDate.clear();
+				projectRelatedDeliverablePage.classesStartDate.sendKeys("07/15/2023");
+				projectRelatedDeliverablePage.classesToDate.sendKeys("12/15/2023");
+				projectRelatedDeliverablePage.classRoomLocation.clear();
+				projectRelatedDeliverablePage.classRoomLocation.sendKeys("Virtual");
+				projectRelatedDeliverablePage.addworkshopsButton.click();
 			} else {
-				WebDriverUtils.getWebDriver()
-						.findElements(By.xpath(
-								"//*[@id='ta_presentations']//*[@aria-labelledby='trackOtherActStatusLegend']//label"))
-						.get(2).click();
-				WebDriverUtils.getWebDriver().findElement(By.id("datepicker12")).clear();
-				WebDriverUtils.getWebDriver().findElement(By.id("datepicker13")).clear();
-				WebDriverUtils.getWebDriver().findElement(By.id("datepicker12")).sendKeys("07/15/2023");
-				WebDriverUtils.getWebDriver().findElement(By.id("datepicker13")).sendKeys("12/15/2023");
-				WebDriverUtils.getWebDriver().findElement(By.id("othersLocation")).clear();
-				WebDriverUtils.getWebDriver().findElement(By.id("othersLocation")).sendKeys("Virtual");
-				WebDriverUtils.getWebDriver().findElement(By.id("addOthersTrainingActivities")).click();
+				projectRelatedDeliverablePage.otherActStatuses.get(2).click();
+				projectRelatedDeliverablePage.otherStartDate.clear();
+				projectRelatedDeliverablePage.otherToDate.clear();
+				projectRelatedDeliverablePage.otherStartDate.sendKeys("07/15/2023");
+				projectRelatedDeliverablePage.otherToDate.sendKeys("12/15/2023");
+				projectRelatedDeliverablePage.othersLocation.clear();
+				projectRelatedDeliverablePage.othersLocation.sendKeys("Virtual");
+				projectRelatedDeliverablePage.addOthersTrainingActivities.click();
 			}
 		}
-		CommonUtil.waitBrowser(6000);
-		WebDriverUtils.getWebDriver().findElement(By.id("projectsAndTrainingSave")).click();
+		MiscUtils.sleep(6000);
+		projectRelatedDeliverablePage.projectsAndTrainingSave.click();
 	}
 
 	public void selectProjectStatus(String status) {

@@ -1,6 +1,8 @@
 package CustomBusiness.EIDP.Pages;
 
 import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -76,6 +78,18 @@ public class ProjectRelatedDeliverablePage extends CommonUtils{
 	/* ------ Class to date selection ------ */
 	@FindBy(id = "datepicker10")
 	public WebElement classesToDate;
+
+	/* ------ Other start date selection ------ */
+	@FindBy(id = "datepicker12")
+	public WebElement otherStartDate;
+	
+	/* ------ Class to date selection ------ */
+	@FindBy(id = "datepicker13")
+	public WebElement otherToDate;
+
+	/* ------ Others location text box ------ */
+	@FindBy(id = "othersLocation")
+	public WebElement othersLocation;
 	
 	/* ------ Class room location text box ------ */
 	@FindBy(id = "classroomLocation")
@@ -124,6 +138,46 @@ public class ProjectRelatedDeliverablePage extends CommonUtils{
 	/* ------ In Preparation Radio button ------ */
 	@FindBy(xpath = "//label[contains(text(), 'In Preparation')]")
 	public WebElement inPrepRadioButton;
+
+	/* ------ Training Type Text ------ */
+	@FindBy(css = ".modal-lg.in #myModalLabel")
+	public WebElement trainingTypeText;
+
+	/* ------ Work date from ------ */
+	@FindBy(id = "datepicker34")
+	public WebElement workDateFrom;
+
+	/* ------ Work date to ------ */
+	@FindBy(id = "datepicker33")
+	public WebElement workDateTo;
+
+	/* ------ Interest Group Location ------ */
+	@FindBy(id = "interestGroupLocation")
+	public WebElement interestGroupLocation;
+
+	/* ------ Add group perticipation button ------ */
+	@FindBy(id = "addGroupParticipation")
+	public WebElement addGroupPerticipation;
+
+	/* ------ Others Training Activity ------ */
+	@FindBy(id = "addOthersTrainingActivities")
+	public WebElement addOthersTrainingActivities;
+
+	/* ------ List of training activity Icons ------ */
+	@FindBy(css = ".delivChoice .fa.fa-pencil")
+	public List<WebElement> trainningActivitiesEditIcons;
+
+	/* ------ List of Interest/working groups ------ */
+	@FindBy(xpath = "//*[@id='ta_interestGroup2']//div[@class='controls']//label[@class='radio']")
+	public List<WebElement> interestGroups;
+
+	/* ------ List of Class course statuses ------ */
+	@FindBy(xpath = "//*[@id='ta_classCourses2']//*[@aria-labelledby='trackClassActStatusLegend']//label")
+	public List<WebElement> classCourseStatuses;
+
+	/* ------ List of Other Activity statuses ------ */
+	@FindBy(xpath = "//*[@id='ta_presentations']//*[@aria-labelledby='trackOtherActStatusLegend']//label")
+	public List<WebElement> otherActStatuses;
 	
 	public ProjectRelatedDeliverablePage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);

@@ -1,8 +1,6 @@
-
 package CustomBusiness.EIDP.StepsImplementation;
 
 import java.util.List;
-
 import CustomBusiness.EIDP.Steps.HooksSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -10,7 +8,6 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-import CustomBusiness.EIDP.Util.CommonUtil;
 import appsCommon.PageInitializer;
 
 public class CareerGoalAndActiveStepImpl extends PageInitializer {
@@ -62,27 +59,23 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 	}
 
 	public void selectCareerGoal() throws Exception {
-		List<WebElement> goals = careerGoalAndActivePage.goals;
 		// Added check so that element is clicked only when the menu is collapsed
-		if (goals.get(0).getAttribute("class").contains("collapsed")) {
-			goals.get(0).click();
-		} else if (goals.get(0).getAttribute("aria-expanded") == null
-				|| goals.get(0).getAttribute("aria-expanded").equals("false")) {
-			goals.get(0).click();
+		if (careerGoalAndActivePage.goals.get(0).getAttribute("class").contains("collapsed")) {
+			careerGoalAndActivePage.goals.get(0).click();
+		} else if (careerGoalAndActivePage.goals.get(0).getAttribute("aria-expanded") == null
+				|| careerGoalAndActivePage.goals.get(0).getAttribute("aria-expanded").equals("false")) {
+			careerGoalAndActivePage.goals.get(0).click();
 		}
 		MiscUtils.sleep(3000);
-		List<WebElement> goalOptions = careerGoalAndActivePage.goalOptions;
-		if (goalOptions.size() == 0) {
-			WebDriverUtils.getWebDriver().findElement(By.cssSelector("[data-target='#academic24']")).click();
+		if (careerGoalAndActivePage.goalOptions.size() == 0) {
+			careerGoalAndActivePage.academicOption.click();
 			MiscUtils.sleep(3000);
-			goalOptions = WebDriverUtils.getWebDriver()
-					.findElements(By.cssSelector(".controls.line.ta_interestGroup.collapse.in label"));
 		}
-		goalOptions.get(2).click();
-		goalOptions.get(3).click();
-		goalOptions.get(4).click();
-		goalOptions.get(5).click();
-		CommonUtils.click(goals.get(0));
+		careerGoalAndActivePage.goalOptions.get(2).click();
+		careerGoalAndActivePage.goalOptions.get(3).click();
+		careerGoalAndActivePage.goalOptions.get(4).click();
+		careerGoalAndActivePage.goalOptions.get(5).click();
+		CommonUtils.click(careerGoalAndActivePage.goals.get(0));
 	}
 	
 	public void selectCareerGoalNIDCR() throws Exception {
@@ -150,41 +143,31 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 	}
 
 	public void editCareerTrainingActivites() {
-		CommonUtil.waitBrowser(2000);
-		List<WebElement> editIcons = WebDriverUtils.getWebDriver().findElements(By.cssSelector("[title='Edit']"));
-		for (int i = 0; i < editIcons.size(); i++) {
-			CommonUtils.click(editIcons.get(i));
-			CommonUtil.waitBrowser(3000);
-			List<WebElement> careerStatus = WebDriverUtils.getWebDriver().findElements(By.xpath(
-					"//*[text()=' Please indicate the status of this career exploration:']//ancestor::div[@role='group']"));
-
-			CommonUtils.click(careerStatus.get(careerStatus.size() - 1).findElement(By.tagName("label")));
-			CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.id("addMore")));
-			CommonUtil.waitBrowser(2000);
+		MiscUtils.sleep(2000);
+		for (int i = 0; i < careerGoalAndActivePage.editIcons.size(); i++) {
+			CommonUtils.click(careerGoalAndActivePage.editIcons.get(i));
+			MiscUtils.sleep(3000);
+			CommonUtils.click(careerGoalAndActivePage.careerStatuses.get(careerGoalAndActivePage.careerStatuses.size() - 1)
+			.findElement(By.tagName("label")));
+			CommonUtils.click(careerGoalAndActivePage.addMoreButton);
+			MiscUtils.sleep(2000);
 		}
 		CommonUtils.click(careerGoalAndActivePage.saveAndContinueButton);
-		CommonUtil.waitBrowser(5000);
+		MiscUtils.sleep(3000);
 	}
 
 	public void markAllExistingCareerGoalsAsCompleted() {
-		List<WebElement> editIcons = WebDriverUtils.getWebDriver().findElements(By.cssSelector("[title='Edit']"));
-		for (int i = 0; i < editIcons.size(); i++) {
-			CommonUtil.waitBrowser(4000);
-			editIcons = WebDriverUtils.getWebDriver().findElements(By.cssSelector("[title='Edit']"));
-			editIcons.get(i).click();
-			CommonUtils.click(
-					WebDriverUtils.getWebDriver().findElements(By.cssSelector(".modal-lg.in label.radio")).get(2));
+		for (int i = 0; i < careerGoalAndActivePage.editIcons.size(); i++) {
+			MiscUtils.sleep(4000);
+			careerGoalAndActivePage.editIcons.get(i).click();
+			CommonUtils.click(careerGoalAndActivePage.editRadiobuttons.get(2));
 			MiscUtils.sleep(3000);
-			try{editIcons.get(0).click();}catch(Exception e) {
-				
-			}
-			CommonUtils.click(
-					WebDriverUtils.getWebDriver().findElements(By.cssSelector(".modal-lg.in label.radio")).get(2));
-			CommonUtils.click(WebDriverUtils.getWebDriver().findElement(
-					By.xpath("//*[contains(@class, 'modal-lg')][contains(@class, 'in')]//*[text()='Done']")));
+			careerGoalAndActivePage.editIcons.get(0).click();
+			CommonUtils.click(careerGoalAndActivePage.editRadiobuttons.get(2));
+			CommonUtils.click(careerGoalAndActivePage.doneButton);
 		}
 		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.id("careerGoalsSubmitSave")));
-		CommonUtil.waitBrowser(4000);
+		MiscUtils.sleep(4000);
 	}
 
 	public void addNewCareerGoal() {

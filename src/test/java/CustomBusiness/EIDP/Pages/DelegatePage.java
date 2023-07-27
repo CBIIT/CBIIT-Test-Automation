@@ -19,6 +19,19 @@ public class DelegatePage extends CommonUtils {
 	@FindBy(id = "delete-delegate-btn")
 	public WebElement deleteButton;
 
+	/* ------ Delegate deleted success message ------ */
+	@FindBy(id = "delegateSuccessMsg")
+	public WebElement delegateDeleteSuccessMsg;
+
+	/***
+     * USE THIS METHOD TO DYNAMICALLY LOCATE ELEMENTS
+     * @param name
+     * @return
+     */
+    public static WebElement dalegatedynamicLocator(String name) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//a[text()='" + name + "']//ancestor::tr//*[@aria-label='Delete']"));
+    }
+
 	public void selectDelegationType(DelegationTypes type) throws Exception {
 		String idVal = "";
 		if (type.equals(DelegationTypes.TEMPORARY)) {
@@ -62,17 +75,16 @@ public class DelegatePage extends CommonUtils {
 	}
 
 	public void deleteDelegator(String name) {
-		String xpathVal = "//a[text()='" + name + "']//ancestor::tr//*[@aria-label='Delete']";
-		WebDriverUtils.getWebDriver().findElement(By.xpath(xpathVal)).click();
+		dalegatedynamicLocator(name).click();
 		clickOnDeleteButton();
 	}
 
 	public void clickOnDeleteButton() {
-		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.xpath("//button[@id='delete-delegate-btn']")));
+		CommonUtils.click(deleteButton);
 	}
 
 	public String getDeleteMessage() {
-		CommonPage.waitForVisibility(WebDriverUtils.getWebDriver().findElement(By.id("delegateSuccessMsg")));
-		 return WebDriverUtils.getWebDriver().findElement(By.id("delegateSuccessMsg")).getText();
+		CommonPage.waitForVisibility(delegateDeleteSuccessMsg);
+		 return delegateDeleteSuccessMsg.getText();
 	}
 }

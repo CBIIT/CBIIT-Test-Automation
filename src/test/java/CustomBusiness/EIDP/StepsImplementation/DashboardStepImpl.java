@@ -1,14 +1,11 @@
 package CustomBusiness.EIDP.StepsImplementation;
 
 import java.util.List;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import CustomBusiness.EIDP.Pages.DashboardPage;
 import CustomBusiness.EIDP.Util.SharedData;
 import appsCommon.PageInitializer;
 
@@ -19,7 +16,7 @@ public class DashboardStepImpl extends PageInitializer {
 	}
 
 	public void selectVerifyMeetingCheckbox() {
-		WebDriverUtils.getWebDriver().findElement(By.cssSelector(".checkbox.btn.btn-primary")).click();
+		eidpDashboardPage.meetingCheckbox.click();
 	}
 
 	public void clickOnSearch() {
@@ -32,9 +29,7 @@ public class DashboardStepImpl extends PageInitializer {
 	}
 
 	public void clickOnReviseIDP() throws Exception {
-		List<WebElement> allElements = WebDriverUtils.getWebDriver()
-				.findElements(By.xpath("//img[@data-original-title=\"Revise existing IDP\"]"));
-		for (WebElement e : allElements) {
+		for (WebElement e : eidpDashboardPage.reviseExistingIDPs) {
 			if (e.isEnabled()) {
 				e.click();
 				return;
@@ -92,13 +87,9 @@ public class DashboardStepImpl extends PageInitializer {
 		}
 		MiscUtils.sleep(5000);
 		for (byte i = 1; i <= 8; i++) {
-			List<WebElement> pendingReviews = WebDriverUtils.getWebDriver()
-					.findElements(By.xpath("//table[@id='mentorsTable']//tr/td[1]/a"));
-			for (WebElement each : pendingReviews) {
+			for (WebElement each : eidpDashboardPage.pendingReviews) {
 				if (each.getText().equals(traineeName)) {
-					WebElement pendingReviewsTraineeButton = WebDriverUtils.getWebDriver().findElement(By
-							.xpath("(//a[text()='" + traineeName + "']//ancestor::tr//a[@title='Pending Review'])[1]"));
-					pendingReviewsTraineeButton.click();
+					eidpDashboardPage.pendingReviewsTraineeButton(traineeName).click();
 					isSelected = true;
 					break;
 				}
@@ -107,9 +98,7 @@ public class DashboardStepImpl extends PageInitializer {
 			if (isSelected) {
 				break;
 			} else {
-				WebElement nextButton = WebDriverUtils.getWebDriver()
-						.findElement(By.xpath("//li[@id='mentorsTable_next']/a[contains(text(), 'Next')]"));
-				nextButton.click();
+				eidpDashboardPage.nextButton.click();
 				MiscUtils.sleep(5000);
 			}
 		}
@@ -124,17 +113,12 @@ public class DashboardStepImpl extends PageInitializer {
 		if (!traineeName.contains(",")) {
 			traineeName = SharedData.traineeName.split(" ")[1] + ", " + SharedData.traineeName.split(" ")[0];
 		}
-		List<WebElement> pendingReviews = WebDriverUtils.getWebDriver()
-				.findElements(By.xpath("//a[text()='" + traineeName + "']//ancestor::tr//a[@title='Pending Review']"));
-		if (pendingReviews.size() > 0) {
-			pendingReviews.get(0).click();
+		if (eidpDashboardPage.pendingReviewsTrainee(traineeName).size() > 0) {
+			eidpDashboardPage.pendingReviewsTrainee(traineeName).get(0).click();
 			isSelected = true;
 		}
 		if (!isSelected) {
-			WebDriverUtils.getWebDriver().findElement(By.xpath(
-					"//tr//a[text()='" + traineeName + "']/parent::td/following-sibling::td//a[@title='Proceed']"))
-					.click();
-
+			eidpDashboardPage.traineeProceedButton(traineeName).click();
 		}
 		return isSelected;
 	}
