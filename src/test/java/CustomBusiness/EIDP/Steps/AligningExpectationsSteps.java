@@ -1,11 +1,5 @@
 package CustomBusiness.EIDP.Steps;
 
-import java.util.List;
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.WebDriverUtils;
 import org.junit.Assert;
 import com.nci.automation.utils.MiscUtils;
 import CustomBusiness.EIDP.Util.SharedData;
@@ -49,5 +43,4 @@ public class AligningExpectationsSteps extends PageInitializer {
 			Assert.assertTrue(
 					msg.contains("Your IDP will be placed on hold since you updated the following field(s):"));
 	}
-
 }

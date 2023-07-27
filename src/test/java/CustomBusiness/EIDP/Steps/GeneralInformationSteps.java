@@ -38,11 +38,7 @@ public class GeneralInformationSteps extends PageInitializer {
 		} else {
 			generalInformationStepImpl.doYouHaveCoPrimaryMentory(false);
 		}
-		try {
-			generalInformationStepImpl.selectRandomCurrentTitle();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		generalInformationStepImpl.selectRandomCurrentTitle();
 		generalInformationStepImpl.selectRandomHighestDegree();
 		CommonUtil.waitBrowser(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);

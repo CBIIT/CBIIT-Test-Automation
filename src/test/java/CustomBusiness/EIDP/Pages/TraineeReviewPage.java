@@ -55,5 +55,4 @@ public class TraineeReviewPage extends CommonUtils {
 	public TraineeReviewPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
-	
 }
