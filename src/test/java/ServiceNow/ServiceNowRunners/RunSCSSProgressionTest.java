@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/ServiceNow/SCSS/Features"
 	    , glue="ServiceNow.SCSS.Steps"
-		, tags="@q"
+		, tags="@Progression"
     	, dryRun =false
 		, monochrome=false
 		, strict =true
