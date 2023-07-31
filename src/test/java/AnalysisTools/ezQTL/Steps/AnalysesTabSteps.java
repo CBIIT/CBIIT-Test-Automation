@@ -111,7 +111,7 @@ public class AnalysesTabSteps extends PageInitializer {
         CommonUtils.waitForClickability(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
         CommonUtils.click(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
         CommonUtils.click(ezQTLAnalysesPage.selectFirstChromosomeDropDown21Value);
-        MiscUtils.sleep(1000);
+        MiscUtils.sleep(2000);
         CommonUtils.sendKeys(ezQTLAnalysesPage.firstPositionTextBox, "42743496");
         CommonUtils.clickOnElement(ezQTLAnalysesPage.addLocusButton);
 
@@ -119,7 +119,7 @@ public class AnalysesTabSteps extends PageInitializer {
         CommonUtils.waitForClickability(ezQTLAnalysesPage.selectSecondChromosomeDropDown);
         CommonUtils.click(ezQTLAnalysesPage.selectSecondChromosomeDropDown);
         CommonUtils.click(ezQTLAnalysesPage.selectSecondChromosomeDropDown21Value);
-        MiscUtils.sleep(1000);
+        MiscUtils.sleep(2000);
         CommonUtils.sendKeys(ezQTLAnalysesPage.secondPositionTextBox, "42743496");
         CommonUtils.clickOnElement(ezQTLAnalysesPage.addLocusButton);
 
@@ -127,7 +127,7 @@ public class AnalysesTabSteps extends PageInitializer {
         CommonUtils.waitForClickability(ezQTLAnalysesPage.selectThirdChromosomeDropDown);
         CommonUtils.click(ezQTLAnalysesPage.selectThirdChromosomeDropDown);
         CommonUtils.click(ezQTLAnalysesPage.selectThirdChromosomeDropDown21Value);
-        MiscUtils.sleep(1000);
+        MiscUtils.sleep(2000);
         CommonUtils.sendKeys(ezQTLAnalysesPage.thirdPositionTextBox, "42743496");
         CommonUtils.clickOnElement(ezQTLAnalysesPage.addLocusButton);
 
@@ -135,7 +135,7 @@ public class AnalysesTabSteps extends PageInitializer {
         CommonUtils.waitForClickability(ezQTLAnalysesPage.selectFourthChromosomeDropDown);
         CommonUtils.click(ezQTLAnalysesPage.selectFourthChromosomeDropDown);
         CommonUtils.click(ezQTLAnalysesPage.selectFourthChromosomeDropDown21Value);
-        MiscUtils.sleep(1000);
+        MiscUtils.sleep(2000);
         CommonUtils.sendKeys(ezQTLAnalysesPage.fourthPositionTextBox, "42743496");
         CommonUtils.clickOnElement(ezQTLAnalysesPage.addLocusButton);
 
@@ -143,7 +143,7 @@ public class AnalysesTabSteps extends PageInitializer {
         CommonUtils.waitForClickability(ezQTLAnalysesPage.selectFifthChromosomeDropDown);
         CommonUtils.click(ezQTLAnalysesPage.selectFifthChromosomeDropDown);
         CommonUtils.click(ezQTLAnalysesPage.selectFifthChromosomeDropDown21Value);
-        MiscUtils.sleep(1000);
+        MiscUtils.sleep(2000);
         CommonUtils.sendKeys(ezQTLAnalysesPage.fifthPositionTextBox, "42743496");
 
         CommonUtils.clickOnElement(ezQTLAnalysesPage.submitJobtoQueueCheckbox);
