@@ -1,11 +1,9 @@
 package ServiceNow.COVIDCode.Pages;
 
 import java.util.List;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
@@ -16,6 +14,10 @@ public class NativeViewEnrollmentsPage extends CommonUtils {
 	/** Filter Navigator search bar */
 	@FindBy(css = "#filter")
 	public WebElement filterNavigator;
+
+	/** Filter Navigator Icon Button*/
+	@FindBy(xpath = "//*[@id='nav_west_north']/form")
+	public WebElement filterNavigatorIconButton;
 
 	/** Native View Frame */
 	@FindBy(id = "gsft_main")

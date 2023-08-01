@@ -28,6 +28,13 @@ public class NERDSubmissionsPage extends CommonUtils {
 	@FindBy(xpath = "//div[contains(text(), 'Collaborations')]/a")
 	public WebElement crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink;
 
+	/**
+	 * CRS Knowledge Management System Submissions Page OGCR Create New
+	 * Submission link
+	 */
+	@FindBy(xpath = "//div[contains(text(), 'OGCR')]/a")
+	public WebElement crsKnowledgeManagementSystemSubmissionsPageOGCRCreateNewSubmissionLink;
+
 	/** CRS Knowledge Management System Submissions Page Collaborations link */
 	@FindBy(xpath = "(//div[@class='ng-binding ng-scope'])[3]")
 	public WebElement crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink;
@@ -99,6 +106,14 @@ public class NERDSubmissionsPage extends CommonUtils {
 	/** OM Content Type Header Text */
 	@FindBy(xpath = "//h4[normalize-space()='OM Content Type']")
 	public WebElement omContentTypeHeaderText;
+
+	/** CRS Published only Check Box */
+	@FindBy(xpath = "//*[@id='published']")
+	public WebElement publishedOnlyCheckBox;
+
+	/** CRS Published only Text*/
+	@FindBy(xpath = "//div[normalize-space()='Published Only:']")
+	public WebElement publishedOnlyText;
 
 	/**
 	 * 
@@ -318,7 +333,7 @@ public class NERDSubmissionsPage extends CommonUtils {
 	public WebElement nerdSpecialTopicsDD;
 
 	/** NERD Special Topics Drop Down Values */
-	@FindBy(xpath = "//div[@class='filter-section ng-scope open']/ul/li ")
+	@FindBy(xpath = "//div[contains(@class,'filter-section ng-scope open')]//li")
 	public List<WebElement> nerdSpecialTopicsDDvalues;
 
 	/** NERD Collaborations List */

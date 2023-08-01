@@ -1,12 +1,9 @@
 package ServiceNow.CHARMS.Steps;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
-import ServiceNow.CHARMS.Constants.CHARMSConstants;
 import com.nci.automation.utils.CucumberLogUtils;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -19,12 +16,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class MyRASScreenerSubmissionSteps extends PageInitializer {
+public class MyRASScreenerSubmissionScenario1Steps extends PageInitializer {
 
     private String referralNumber;
-    private HashMap<String, String> geneticSyndromeMap = new HashMap<>();
-
-    /* BEGINNING: RASopathies Longitudinal Cohort Study login page */
 
     @Given("a participant is on the RASopathies Longitudinal Cohort Study login page {string}")
     public void a_participant_is_on_the_RASopathies_Longitudinal_Cohort_Study_login_page(String applicationID) {
@@ -32,19 +26,21 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
-    @When("the participant submits a screener for scenario one from excel sheet {string}")
-    public void the_participant_submits_a_screener_for_scenario_one_from_excel_sheet(String sheetName) {
-        testDataManager.dataInitializer(sheetName);
-        rasScreenerStepsImpl.rasScreenerSubmissionScenario1();
+    @When("the participant submits a screener from excel sheet {string}")
+    public void the_participant_submits_a_screener_from_excel_sheet(String sheetName) {
+        rasScreenerScenario1StepsImpl.rasScreenerScenarioSelector(sheetName);
     }
 
-    @Then("data submitted for scenario one is verified in native view against scenario one excel sheet")
-    public void data_submitted_for_scenario_one_is_verified_in_native_view_against_scenario_one_excel_sheet() {
-        rasScreenerStepsImpl.verifying_RAS_Screener_Scenario_1_Data();
+    @Then("data submitted for scenario is verified in native view against corresponding scenario from the excel sheet")
+    public void data_submitted_for_scenario_is_verified_in_native_view_against_corresponding_scenario_from_the_excel_sheet() {
+        rasScreenerScenario1StepsImpl.verifying_RAS_Screener_Scenario_1_Data();
+        rasScreenerScenario1StepsImpl.nativeViewConsentFlowProcessScenario1();
+    }
 
-        /******* VERIFY ENROLLMENT STATUS BELOW ********/
-       // CommonUtils.clickOnElement(screenerRecordTablePage.dynamicLocatorForStudyButtons("Submit for Eligibility Review"));
-       // CommonUtils.clickOnElement(screenerRecordTablePage.dynamicLocatorForStudyButtons("Mark Eligible"));
+
+    @Given("the participant submits a Individual Information Questionnaire for excel sheet {string}")
+    public void the_participant_submits_a_individual_information_questionnaire_for_excel_sheet(String sheetNameIiq) {
+        rasScreenerScenario1StepsImpl.rasScreenerIIQFormScenario1(sheetNameIiq);
     }
 
     @Given("a proxy is on the RASopathies Longitudinal Cohort Study login page")
@@ -57,50 +53,26 @@ public class MyRASScreenerSubmissionSteps extends PageInitializer {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("myRASLoginPage"));
     }
 
-    /* END: RASopathies Longitudinal Cohort Study login page */
-    /* ******************************************************* */
-    /* BEGINNING: Logs in via Okta with user name and password */
-
     @Given("logs in via Okta with username {string} and password {string}")
     public void logs_in_via_Okta_with_username_and_password(String username, String password) {
-        MiscUtils.sleep(1000);
-        CommonUtils.waitForVisibility(myRASLoginPage.loginToMyRASButton);
-        myRASLoginPage.loginToMyRASButton.click();
-        oktaLoginPage.usernameTxtBox.sendKeys(username);
-        oktaLoginPage.passwordTxtBox.sendKeys(password);
-        CommonUtils.waitForVisibility(oktaLoginPage.loginBtn);
-        oktaLoginPage.loginBtn.click();
-        MiscUtils.sleep(1000);
-        CommonUtils.waitForVisibility(myRASHomePage.warningAgreeButton);
-        myRASHomePage.warningAgreeButton.click();
+        rasScreenerScenario1StepsImpl.logsInViaOktaWithUsernameAndPassword(username, password);
     }
-
-    /* END: Logs in via Okta with user name and password */
-    /* ******************************************************* */
-    /* BEGINNING: Eligibility Questionnaire Link to click */
 
     @Given("clicks on Eligibility Questionnaire to begin questionnaire")
     public void clicks_on_Eligibility_Questionnaire_to_begin_questionnaire() {
-        CommonUtils.waitForVisibility(myRASHomePage.rasoptathyEligibilityQuestionnaire);
-        CommonUtils.clickOnElement(myRASHomePage.rasoptathyEligibilityQuestionnaire);
+        rasScreenerScenario1StepsImpl.clicksOnEligibilityQuestionnaireToBeginQuestionnaire();
     }
-
-    /* END: Eligibility Questionnaire Link to click */
-    /* ******************************************************* */
-    /* BEGINNING: STUDY INTRODCTION Page */
 
     @Given("clicks next after reviewing the STUDY INTRODUCTION")
     public void clicks_next_after_reviewing_the_STUDY_INTRODUCTION() {
         CommonUtils.switchToNextWindow();
-        JavascriptUtils.scrollIntoView(rasopathyQuestionnairePage.studyNextButton);
+        MiscUtils.sleep(2000);
+        JavascriptUtils.scrollIntoView(rasopathyQuestionnairePage.thisFormCannotBeSavedText);
+        JavascriptUtils.scrollIntoView(rasopathyQuestionnairePage.ifYouAreUnableToCompleteText);
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.studyNextButton);
         CommonUtils.clickOnElement(rasopathyQuestionnairePage.studyNextButton);
         MiscUtils.sleep(2000);
     }
-
-    /* END: STUDY INTRODCTION Page */
-    /* ******************************************************* */
-    /* BEGINNING: For Whom the form is being submitted Page */
 
     @Given("selects I am completing this form for someone else option")
     public void selects_I_am_completing_this_form_for_someone_else_option() {

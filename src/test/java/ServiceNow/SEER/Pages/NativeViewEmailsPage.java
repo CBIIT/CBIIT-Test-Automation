@@ -11,7 +11,7 @@ public class NativeViewEmailsPage extends CommonUtils {
     /** --------------- NATIVE VIEW EMAILS PAGE --------------- */
 
     /**NativeView Emails Button */
-    @FindBy(xpath = "//*[@id=\'8d620b63c611227b008368697b0b8d7b\']/div/div")
+    @FindBy(xpath = "//*[@id='8d620b63c611227b008368697b0b8d7b']/div/div")
     public WebElement nativeViewAccessEmailsButton;
 
     /**Native View Emails Dropdown Menu*/

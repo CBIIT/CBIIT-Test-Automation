@@ -1,14 +1,15 @@
 package ServiceNow.NERD.StepsImplementation;
 
-import AnalysisTools.PLCOAPI.Steps.PublicAPISteps;
 import ServiceNow.COVIDDash.Utils.COVIDConstants;
+import ServiceNow.NERD.Constants.CRSReviewers_Constants;
+import ServiceNow.NERD.Constants.NCI_Staff_Members_Constants;
 import ServiceNow.NERD.Constants.ReturningSubmissions_Constants;
 import ServiceNow.NERD.Constants.TopAccomplishmentsSubmission_Constants;
+import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
 import ServiceNow.NERD.Steps.HooksSteps;
+import ServiceNow.SEER.Constants.SEERNativeView_Constants;
 import appsCommon.PageInitializer;
-
 import java.util.Set;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -17,11 +18,74 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 public class NERDApplicationStepsImplementation extends PageInitializer {
+
+     /**
+    /**
+     * This method will create new Submission by Staff Member
+     *
+     * @param SubmissionType
+     */
+    public static void creatingNewCollaborationSubmission(WebElement SubmissionType) {
+        MiscUtils.sleep(1000);
+        CommonUtils.waitForClickability(SubmissionType);
+        SubmissionType.click();
+        Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
+        for (String currentWindow1 : allWindowHandles1) {
+            WebDriverUtils.webDriver.switchTo().window(currentWindow1);
+        }
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CommonUtils.sendKeys(createNewSubmissionPage.titleTextBox, NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_TITLE_TEXT_BOX);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.pleaseSpecifyDropDown, NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_PLEASE_SPECIFY_DROP_DOWN);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.fiscalYearDropDown, NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_FISCAL_YEAR_DROP_DOWN);
+        CommonUtils.switchToFrame(createNewSubmissionPage.DescriptionTextBoxIframe);
+        MiscUtils.sleep(1000);
+        CommonUtils.sendKeys(createNewSubmissionPage.collaborationsDescriptionTextBox,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_DESCRIPTION_TEXT_BOX);
+        MiscUtils.sleep(2000);
+        WebDriverUtils.webDriver.switchTo().defaultContent();
+        MiscUtils.sleep(2000);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        MiscUtils.sleep(2000);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.fyTheCollaborativeActivityOriginatedDropDown, NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_FY_THE_COLLABORATIVE_ACTIVITY_ORIGINATED_DROP_DOWN);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.leadDOCDropDown, NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_LEAD_DOC_DROP_DOWN);
+        CommonUtils.sendKeys(createNewSubmissionPage.pocTextBox, NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_POC_TEXT_BOX);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.nihICs_ODcollaboratorsDropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_NIH_ICS_OD_COLLABORATORS_DROP_DOWN);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.hhsAgencyCollaboratorsDropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_HHS_AGENCY_COLLABORATORS_DROP_DOWN);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.otherFederalAgencyCollaboratorsDropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_OTHER_FEDERAL_AGENCY_COLLABORATORS_DROP_DOWN);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.tribalStateLocalGovernmentCollaboratorsDropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_TRIBAL_STATE_LOCAL_GOVERNMENT_COLLABORATORS_DROP_DOWN);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.foreignGovernmentCollaboratorsDropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_FOREIGN_GOVERNMENT_COLLABORATORS_DROP_DOWN);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.nonGovernmentalCollaboratorsDropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_NON_GOVERNMENTAL_COLLABORATORS_DROP_DOWN);
+        CommonUtils.click(createNewSubmissionPage.selectTypeOfCollaborativeActivityListResourceDevelopmentCheckBox);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.isThisCollaborationRelatedToRegulatoryActivityDropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_IS_THIS_COLLABORATION_RELATED_TO_A_REGULATORY_ACTIVITY_DROP_DOWN);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.wasNIHFundingProvidedForThisActivityDropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_WAS_NIH_FUNDING_PROVIDED_FOR_THIS_ACTIVITY_DROP_DOWN);
+        CommonUtils.click(createNewSubmissionPage.productsOutputsListResearchToolDevelopmentCheckBox);
+        JavascriptUtils.scrollIntoView(createNewSubmissionPage.submitButton);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.nihStrategicAlignment_Primary_DropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_NIH_STRATEGIC_ALIGNMENT_DROP_DOWN);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.hhsStrategicPlanAlignment_Primary_DropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_HHS_STRATEGIC_PLAN_ALIGNMENT_DROP_DOWN);
+        CommonUtils.click(createNewSubmissionPage.submitButton);
+        CommonUtils.click(createNewSubmissionPage.popUpConfirmationYesButton);
+        MiscUtils.sleep(3000);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        MiscUtils.sleep(3000);
+        CommonUtils.click(createNewSubmissionPage.popUpSubmissionConfirmationOkButton);
+        MiscUtils.sleep(2000);
+    }
+
+    public static void theCreatedCollaborationsSubmissionIsDisplaysInTheCollaborationsCategorySectionWithTheStatus(String expectedUnderReviewText) {
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        createNewSubmissionPage.nerdCollaborationsButton.click();
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        String actualUnderReviewText = nerdDynamicXpaths.underReviewText(NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_TITLE_TEXT_BOX).getText();
+        CommonUtils.assertEquals(expectedUnderReviewText, actualUnderReviewText);
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_TITLE_TEXT_BOX));
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+    }
 
     /**
      * This method will create new Submission by Staff Member
@@ -194,11 +258,40 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         MiscUtils.sleep(5000);
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowYESbutton);
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowYESbutton.click();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton.click();
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         MiscUtils.sleep(2000);
+    }
 
+    public static void checkingEmailWasNotReceived() throws TestingException {
+        nativeViewImpersonateUser.impersonateToStaffMemberCBIIT();
+        MiscUtils.sleep(500);
+        CommonUtils.clickOnElement(nativeViewImpersonateUserPage.nativeViewLinkMainPage);
+        MiscUtils.sleep(500);
+        nativeViewEnrollementsPage.filterNavigator.clear();
+        MiscUtils.sleep(500);
+        nativeViewEnrollementsPage.filterNavigator.sendKeys("Emails");
+        MiscUtils.sleep(1000);
+        JavascriptUtils.scrollIntoView(nativeViewEmailsPage.nativeViewAccessEmailsButton);
+        JavascriptUtils.clickByJS(nativeViewEmailsPage.nativeViewAccessEmailsButton);
+        MiscUtils.sleep(1000);
+        CommonUtils.switchToFrame(nativeViewAccessRequestPage.accessRequestIFrame);
+        MiscUtils.sleep(1000);
+        CommonUtils.assertTrue(nativeViewEmailsPage.emailsMenu.getText()
+                .contentEquals("Emails"));
+        CommonUtils.selectDropDownValue("Recipients", nativeViewSentViewPage.nativeViewSearchDropDown);
+        CommonUtils.sendKeysToElement(nativeViewSentViewPage.nativeViewSentSearchField, CRSReviewers_Constants.CRS_DOC_PLANNING_CONTACT_REVIEWER_EMAIL);
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        nativeViewSentViewPage.nativeViewSentSearchField.sendKeys(Keys.ENTER);
+        MiscUtils.sleep(1000);
+        CommonUtils.assertTrue(nativeViewAccessRequestPage.nativeViewAccessRequestNoRecordsToDisplayText.getText().contentEquals(SEERNativeView_Constants.NATIVE_VIEW_NO_RECORD_TO_DISPLAY_TEXT));
+        JavascriptUtils.drawBlueBorder(nativeViewAccessRequestPage.nativeViewAccessRequestNoRecordsToDisplayText);
+        MiscUtils.sleep(500);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
     /**
@@ -209,7 +302,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
     public static void userIsOnSubmissionsPage(String applicationName) throws TestingException {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(applicationName));
         WebDriverUtils.webDriver.navigate().refresh();
-        MiscUtils.sleep(1000);
+        MiscUtils.sleep(5000);
         CommonUtils.waitForVisibility(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageNERDButton);
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageNERDButton.click();
@@ -322,6 +415,18 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
+    public static void verifyingOfOM_CheckBox(String covid19LeadershipMessages) {
+        MiscUtils.sleep(1000);
+        CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.covid19LeadershipMessagesText);
+        CommonUtils.assertTrue(nerdCrsKnowledgeDatabaseSubmissionsPage.covid19LeadershipMessagesText.getText()
+            .contentEquals(covid19LeadershipMessages)
+               && nerdCrsKnowledgeDatabaseSubmissionsPage.covid19LeadershipMessagesText.isDisplayed()
+              && nerdCrsKnowledgeDatabaseSubmissionsPage.covid19LeadershipMessagesText.isEnabled());
+        CommonUtils.clickOnElement(nerdCrsKnowledgeDatabaseSubmissionsPage.covid19LeadershipMessagesText);
+        JavascriptUtils.drawBlueBorder(nerdCrsKnowledgeDatabaseSubmissionsPage.covid19LeadershipMessagesText);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+    }
+
     /**
      * This method will verify that Checkbox options are Displayed
      *
@@ -408,7 +513,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         CommonUtils.sendKeys(createNewSubmissionPage.pocTextBox, "Test");
         CommonUtils.selectDropDownValue(createNewSubmissionPage.nihICs_ODcollaboratorsDropDown, "Other");
         MiscUtils.sleep(1000);
-        Assert.assertEquals("IF OTHER IS SELECTED ABOVE, please specify",
+        CommonUtils.assertEquals("IF OTHER IS SELECTED ABOVE, please specify",
                 createNewSubmissionPage.nihICs_ODCollaboratorsIfOtherIsSelectedAbovePleaseSpecifyText.getText());
         CommonUtils.sendKeys(createNewSubmissionPage.nihICs_ODCollaboratorsIfOtherIsSelectedAbovePleaseSpecifyTextBox,
                 "Test");
@@ -689,7 +794,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
                     CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
                 }
             }
-            Assert.assertTrue(match);
+            CommonUtils.assertTrue(match);
         }
         MiscUtils.sleep(1000);
         createNewSubmissionPage.cancelButton.click();
@@ -764,7 +869,8 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageHOMEButton.click();
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageNERDButton.click();
         MiscUtils.sleep(7000);
-        nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsList.click();
+        CommonUtils.waitForVisibility( nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsList);
+        JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsList);
         MiscUtils.sleep(1000);
         JavascriptUtils.clickByJS(nerdDynamicXpaths.publishedCollaboration(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER));
         CommonUtils.switchToAnotherWindow();
@@ -786,15 +892,15 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         JavascriptUtils.refreshPage(WebDriverUtils.webDriver);
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageHOMEButton.click();
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageNERDButton.click();
-        MiscUtils.sleep(7000);
-        nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsList.click();
+        CommonUtils.waitForVisibility( nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsList);
+        JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsList);
         MiscUtils.sleep(2000);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         JavascriptUtils.clickByJS(nerdDynamicXpaths.publishedCollaboration(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER));
         CommonUtils.switchToAnotherWindow();
         MiscUtils.sleep(1000);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        Assert.assertTrue(nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsVersionNumber2.getText().contentEquals(versionNumber));
+        CommonUtils.assertTrue(nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsVersionNumber2.getText().contentEquals(versionNumber));
         JavascriptUtils.drawBlueBorder(nerdCrsKnowledgeDatabaseSubmissionsPage.collaborationsVersionNumber2);
         MiscUtils.sleep(5000);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
@@ -808,12 +914,12 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
     public static void verifyingTheAuthorOfCreatedSubmission(String submissionName) {
         String authorExpected = nerdDynamicXpaths.authorTextDocSubmission(submissionName).getText();
         MiscUtils.sleep(3000);
-        Assert.assertEquals(authorExpected, nerdDynamicXpaths.authorTextDocSubmission(submissionName).getText());
+        CommonUtils.assertEquals(authorExpected, nerdDynamicXpaths.authorTextDocSubmission(submissionName).getText());
         MiscUtils.sleep(3000);
         JavascriptUtils.scrollUp(300);
         MiscUtils.sleep(3000);
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.authorTextDocSubmission(submissionName));
-        MiscUtils.sleep(5000);
+        MiscUtils.sleep(500);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         MiscUtils.sleep(5000);
     }
@@ -848,7 +954,6 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
                     .getText().equals(buttonName));
             nerdDynamicXpaths.editButton(submissionName).click();
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-
         }
     }
 
@@ -1028,4 +1133,52 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
+    /**
+     * This method will log in as a DOC Planing contact and will click on the submission in the hamburger menu
+     *
+     */
+   public static void aDocPlanningContactIsOnTheCrsKnowledgeManagementSystemHomePage() throws TestingException {
+        nativeViewLoginImpl.sideDoorAccountLogin();
+        nativeViewImpersonateUser.impersonateToDocPlanningContact();
+       WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+       CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+       CommonUtils.waitForVisibility(
+               nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu);
+       nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu.click();
+       CommonUtils.selectValueFromBootStrapDropDown(
+               nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenuValues,
+               ReturningSubmissions_Constants.BOOTSTRAP_DROPDOWN_SELECT_SUBMISSIONS);
+       MiscUtils.sleep(500);
+       CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+    }
+
+    /**
+     * This method will click on the Published Only check box
+     *
+     */
+
+    public static void selectingThePublishedOnlyCheckbox() {
+       NERD_CRS_ReviewersStepImplementation.thereIsACollapsedAccordionWithRheHeaderLabeled(ReturningSubmissions_Constants.TOP_ACCOMPLISHMENTS_CATEGORY);
+       CommonUtils.clickOnElement(nerdCrsKnowledgeDatabaseSubmissionsPage.publishedOnlyCheckBox);
+       JavascriptUtils.drawBlueBorder(nerdCrsKnowledgeDatabaseSubmissionsPage.publishedOnlyText);
+       CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+    }
+
+    /**
+     * This method will click if only Published submissions are shown
+     *
+     */
+    public static void theDocPlanningContactIsAbleToSeeOnlyPublishedSubmissions() {
+        for (int i = 1; i < 5; i++) {
+            CommonUtils.clickOnElement(nerdDynamicXpaths.docPlanningSubmissionCategories("" + i));
+            MiscUtils.sleep(500);
+            for (WebElement pText : NERDDynamicXPATHS.docPlaningPublishedSubmissions("" + i)) {
+                String actualPublishedText = pText.getText();
+                JavascriptUtils.drawBlueBorder(pText);
+                CommonUtils.assertTrue(actualPublishedText.equals(ReturningSubmissions_Constants.SUBMISSION_PUBLISHED_TEXT));
+            }
+            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+            CommonUtils.clickOnElement(nerdDynamicXpaths.docPlanningSubmissionCategories("" + i));
+        }
+    }
 }

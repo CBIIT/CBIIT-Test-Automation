@@ -26,6 +26,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
     public static String newEmailThankYou349 = "seerThankYou349" + CommonUtils.email;
 
     public static void verifyingAgreements() {
+        MiscUtils.sleep(2000);
         String actualTreatmentDataLimitationsAgreementText = seerDataAccessRequestPage.seerDataAccessTreatmentDataLimitationsAgreement.getText();
         CommonUtils.assertEquals(actualTreatmentDataLimitationsAgreementText, DUA_Constants.SEER_ACKNOWLEDGMENT_OF_TREATMENT_DATA_LIMITATIONS);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
@@ -261,7 +262,6 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         MiscUtils.sleep(1000);
         nativeViewAccessRequestPage.nativeViewLogOutButton.click();
         MiscUtils.sleep(1000);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
     public static void customerAccountTypeWillBeMarkedAsPublicInNativeView(String publicAccount) {
@@ -296,7 +296,6 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
 
     public static void aNewUserWhoDoesNotHaveAnActiveSEERResearchDatabaseAccessRequest() {
         nativeViewLoginImpl.sideDoorAccountLogin();
-        System.out.println("URL:" + CommonUtils.getCurrentURL(WebDriverUtils.getWebDriver()));
         CommonUtils.assertTrue(CommonUtils.getCurrentURL(WebDriverUtils.getWebDriver())
                 .contentEquals(SEERNativeView_Constants.NATIVE_VIEW_HOME_PAGE_URL));
         /** Waiting for email to be sent and searchable */

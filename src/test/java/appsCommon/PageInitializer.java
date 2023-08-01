@@ -25,17 +25,53 @@ import AnalysisTools.mSigPortal.Pages.CatalogPages;
 import AnalysisTools.mSigPortal.Pages.MSigPortalHomePage;
 import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
 import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
+import CustomBusiness.CCR.Pages.CCRApplicationPage;
+import CustomBusiness.CCR.Pages.CCRDynamicXpaths;
+import CustomBusiness.CCR.Pages.CCRLandingPage;
+import CustomBusiness.CCR.StepsImplementation.CCRStepsImplementation;
+import CustomBusiness.DCEG.Pages.*;
+import CustomBusiness.DCEG.Steps.RegularUserFlowSteps;
+import CustomBusiness.DCEG.StepsImplementation.FlowStepsImplementation;
+import CustomBusiness.EIDP.Pages.BasePage;
+import CustomBusiness.EIDP.Pages.*;
+import CustomBusiness.EIDP.StepsImplementation.*;
+import CustomBusiness.ETD.Pages.ETDAdminNCIPage;
+import CustomBusiness.ETD.Pages.ETDBasePage;
+import CustomBusiness.ETD.StepsImplementation.ETDFlowStepsImpl;
 import GrantsApps.ChangePassword.Pages.ChangePasswordPage;
 import GrantsApps.ChangePassword.StepsImplementation.ChangePasswordStepsImpl;
 import GrantsApps.EM.Pages.ManageI2EUsersPage;
 import GrantsApps.EM.StepImplementation.EMStepsImplementation;
 import ServiceNow.BrownBag.Pages.SEERLandingPage2;
-import ServiceNow.CHARMS.Constants.RAS_SCREENER_CONSTANTS;
-import ServiceNow.CHARMS.Pages.*;
-import ServiceNow.CHARMS.ScenariosData.TestDataManager;
+import ServiceNow.CHARMS.Constants.RASScreenerScenario1_Constants;
+import ServiceNow.CHARMS.Pages.CGBIIQPage;
+import ServiceNow.CHARMS.Pages.CGBIIQPages;
+import ServiceNow.CHARMS.Pages.CHARMSHomePage;
+import ServiceNow.CHARMS.Pages.CHARMSNativeViewPage;
+import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
+import ServiceNow.CHARMS.Pages.FHQSurveyPage;
+import ServiceNow.CHARMS.Pages.FHQSurveyPortalPage;
+import ServiceNow.CHARMS.Pages.MelanomaHomePage;
+import ServiceNow.CHARMS.Pages.MelanomaLoginPage;
+import ServiceNow.CHARMS.Pages.MelanomaQuestionnairePage;
+import ServiceNow.CHARMS.Pages.MyRASHomePage;
+import ServiceNow.CHARMS.Pages.MyRASIIQFormPage;
+import ServiceNow.CHARMS.Pages.MyRASLoginPage;
+import ServiceNow.CHARMS.Pages.MyRASStudyConsentPage;
+import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
+import ServiceNow.CHARMS.Pages.NativeViewCHARMSParticipantConsentPage;
+import ServiceNow.CHARMS.Pages.NativeViewCHARMSParticipantDetailsPage;
+import ServiceNow.CHARMS.Pages.OKTAloginPage;
+import ServiceNow.CHARMS.Pages.ParticipantDetailsPage;
+import ServiceNow.CHARMS.Pages.ProbandScreenerPage;
+import ServiceNow.CHARMS.Pages.RASSurveyPage;
+import ServiceNow.CHARMS.Pages.RASopathyQuestionnairePage;
+import ServiceNow.CHARMS.Pages.ScreenerRecordTablePage;
+import ServiceNow.CHARMS.Pages.TestAccountResetPage;
+import ServiceNow.CHARMS.ScenariosData.TestDataManagerScenario1;
 import ServiceNow.CHARMS.StepsImplementation.CHARMSHomePageImp;
 import ServiceNow.CHARMS.StepsImplementation.RASSurveyStepsImpl;
-import ServiceNow.CHARMS.StepsImplementation.RasScreenerStepsImpl;
+import ServiceNow.CHARMS.StepsImplementation.RasScreenerScenario1StepsImpl;
 import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
 import ServiceNow.CICDBuild.Pages.DevOpsLoginPage;
 import ServiceNow.CICDBuild.Pages.DevOpsNativeViewPage;
@@ -58,6 +94,8 @@ import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
+import ServiceNow.ESR.Pages.NCINativeViewPage;
+import ServiceNow.NERD.Pages.Covid19ActivitiesSubmissionsPage;
 import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
 import ServiceNow.NERD.Pages.NERDCRSTCollaborationsPage;
 import ServiceNow.NERD.Pages.NERDCRSTOtherAccomplishmentsPage;
@@ -66,8 +104,10 @@ import ServiceNow.NERD.Pages.NERDDOCCollaborationsPage;
 import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
 import ServiceNow.NERD.Pages.NERDHomePage;
 import ServiceNow.NERD.Pages.NERDKnowledgebasePage;
+import ServiceNow.NERD.Pages.NERDOGCRAddNewEntryPage;
 import ServiceNow.NERD.Pages.NERDSubmissionsPage;
 import ServiceNow.NERD.Pages.NativeViewImpersonateUserPage;
+import ServiceNow.NERD.Pages.NativeViewMembersOfCongressPage;
 import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NativeViewImpersonateUser;
 import ServiceNow.SEER.Pages.NativeViewAccessRequestPage;
@@ -80,35 +120,6 @@ import ServiceNow.SEER.Pages.SEERIncidenceDatabaseDetailsPage;
 import ServiceNow.SEER.Pages.SEERLandingPage;
 import ServiceNow.SEER.Pages.SEERUserRegistrationPage;
 import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
-import CustomBusiness.DCEG.Pages.AdminFlowPage;
-import CustomBusiness.DCEG.Pages.BranchAdminPage;
-import CustomBusiness.DCEG.Pages.CreateCRPage;
-import CustomBusiness.DCEG.Pages.DirectSubmitterPage;
-import CustomBusiness.DCEG.Pages.RegularUserFlowPage;
-import CustomBusiness.DCEG.Steps.RegularUserFlowSteps;
-import CustomBusiness.DCEG.StepsImplementation.FlowStepsImplementation;
-import CustomBusiness.EIDP.Pages.AligningExpectationsPage;
-import CustomBusiness.EIDP.Pages.BasePage;
-import CustomBusiness.EIDP.Pages.CareerGoalAndActivePage;
-import CustomBusiness.EIDP.Pages.CoPrimaryMentorPage;
-import CustomBusiness.EIDP.Pages.CommonPage;
-import CustomBusiness.EIDP.Pages.DashboardPage;
-import CustomBusiness.EIDP.Pages.DelegatePage;
-import CustomBusiness.EIDP.Pages.GeneralInformationPage;
-import CustomBusiness.EIDP.Pages.IDPAwaitingResponsePage;
-import CustomBusiness.EIDP.Pages.LoginPage;
-import CustomBusiness.EIDP.Pages.ProjectRelatedDeliverablePage;
-import CustomBusiness.EIDP.Pages.SearchPage;
-import CustomBusiness.EIDP.Pages.TraineeReviewPage;
-import CustomBusiness.EIDP.StepsImplementation.AlignExpectionsStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.CareerGoalAndActiveStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.EIDPLoginStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.GeneralInformationStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.ProjectRelatedDeliverableStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.SearchStepImpl;
-import CustomBusiness.ETD.Pages.ETDAdminNCIPage;
-import CustomBusiness.ETD.Pages.ETDBasePage;
-import CustomBusiness.ETD.StepsImplementation.ETDFlowStepsImpl;
 
 /**
  * This an initializer class which will initialize all pages classes. Once pages
@@ -160,8 +171,9 @@ public class PageInitializer {
     public static MyRASLoginPage myRASLoginPage;
     public static MyRASHomePage myRASHomePage;
     public static RASopathyQuestionnairePage rasopathyQuestionnairePage;
-    public static RasScreenerStepsImpl rasScreenerStepsImpl;
-    public static RAS_SCREENER_CONSTANTS rasScreenerConstants;
+    public static MyRASIIQFormPage myRASIIQFormPage;
+    public static RasScreenerScenario1StepsImpl rasScreenerScenario1StepsImpl;
+    public static RASScreenerScenario1_Constants rASScreenerScenario1_Constants;
     public static TestAccountResetPage testAccountResetPage;
     public static MyRASStudyConsentPage myRasStudyConsentPage;
     public static CGBIIQPage cgbIIQPage;
@@ -170,7 +182,7 @@ public class PageInitializer {
     public static RASSurveyStepsImpl rASSurveyStepsImpl;
     public static FHQSurveyPage fHQSurveyPage;
     public static FHQSurveyPortalPage fHQSurveyPortalPage;
-    public static TestDataManager testDataManager;
+    public static TestDataManagerScenario1 testDataManagerScenario1;
     public static ParticipantDetailsPage participantDetailsPage;
     public static ScreenerRecordTablePage screenerRecordTablePage;
 
@@ -204,6 +216,9 @@ public class PageInitializer {
     public static NERDCRSTCollaborationsPage nerdCRSTCollaborationsPage;
     public static NERDDOCCollaborationsPage nerdDOCCollaborationsPage;
     public static NERDCRSTOtherAccomplishmentsPage nerdcrstOtherAccomplishmentsPage;
+    public static NERDOGCRAddNewEntryPage nERDOGCRAddNewEntryPage;
+    public static Covid19ActivitiesSubmissionsPage covid19ActivitiesSubmissionsPage;
+
 
     /** --------------- CUSTOM BUSINESS APP INSTANCES --------------- */
     /** EIDP instances */
@@ -284,6 +299,15 @@ public class PageInitializer {
     /** CProSite instances **/
     public static CProSiteExplorePage cProSiteExplorePage;
 
+    /** CCR instances **/
+    public static CCRLandingPage cCRLandingPage;
+    public static CCRStepsImplementation cCRStepsImplementation;
+    public static CCRDynamicXpaths cCRDynamicXpaths;
+    public static CCRApplicationPage cCRApplicationPage;
+
+    /** ESR INSTANCES */
+    public static NCINativeViewPage nciNativeViewPage;
+
     /** --------------- NATIVE VIEW INSTANCES --------------- */
     public static NativeViewLoginImpl nativeViewLoginImpl;
     public static NativeViewHomePage nativeViewHomePage;
@@ -298,6 +322,13 @@ public class PageInitializer {
     public static NativeViewAccessRequestPage nativeViewAccessRequestPage;
     public static NativeViewEmailsPage nativeViewEmailsPage;
     public static NativeViewDashboardPage nativeViewDashPage;
+    public static NativeViewMembersOfCongressPage nativeViewMembersOfCongressPage;
+
+    public static NativeViewCHARMSDashboardPage nativeViewCHARMSDashboardPage;
+
+    public  static NativeViewCHARMSParticipantDetailsPage nativeViewCHARMSParticipantDetailsPage;
+
+    public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
 
     public static void initializeAllPages() {
         /** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
@@ -334,12 +365,12 @@ public class PageInitializer {
         probandScreenerPage = new ProbandScreenerPage();
         myRASLoginPage = new MyRASLoginPage();
         myRASHomePage = new MyRASHomePage();
-        rasScreenerStepsImpl = new RasScreenerStepsImpl();
+        rasScreenerScenario1StepsImpl = new RasScreenerScenario1StepsImpl();
         rasopathyQuestionnairePage = new RASopathyQuestionnairePage();
-        rasScreenerConstants = new RAS_SCREENER_CONSTANTS();
+        rASScreenerScenario1_Constants = new RASScreenerScenario1_Constants();
         testAccountResetPage = new TestAccountResetPage();
         myRasStudyConsentPage = new MyRASStudyConsentPage();
-        testDataManager = new TestDataManager();
+        testDataManagerScenario1 = new TestDataManagerScenario1();
         cgbIIQPage = new CGBIIQPage();
         cGBIIQPages = new CGBIIQPages();
         rASSurveyPage = new RASSurveyPage();
@@ -348,6 +379,7 @@ public class PageInitializer {
         fHQSurveyPage = new FHQSurveyPage();
         participantDetailsPage = new ParticipantDetailsPage();
         screenerRecordTablePage = new ScreenerRecordTablePage();
+        myRASIIQFormPage = new MyRASIIQFormPage();
 
         // Melanoma and Spitzoid Tumor instances
         melanomaLoginPage = new MelanomaLoginPage();
@@ -379,6 +411,11 @@ public class PageInitializer {
         nerdDOCCollaborationsPage = new NERDDOCCollaborationsPage();
         nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
         nerdcrstOtherAccomplishmentsPage = new NERDCRSTOtherAccomplishmentsPage();
+        covid19ActivitiesSubmissionsPage = new Covid19ActivitiesSubmissionsPage();
+        nERDOGCRAddNewEntryPage = new NERDOGCRAddNewEntryPage();
+
+        /** ESR INSTANCE VARIABLES */
+        nciNativeViewPage = new NCINativeViewPage();
 
         /** --------------- CUSTOM BUSINESS APP INSTANCE VARIABLES --------------- */
         /** EIDP Instance Variables */
@@ -459,6 +496,13 @@ public class PageInitializer {
         /** CProSite Instance Variables **/
         cProSiteExplorePage = new CProSiteExplorePage();
 
+        /** CCR Instance Variables **/
+        cCRLandingPage = new CCRLandingPage();
+        cCRStepsImplementation = new CCRStepsImplementation();
+        cCRStepsImplementation = new CCRStepsImplementation();
+        cCRDynamicXpaths = new CCRDynamicXpaths();
+        cCRApplicationPage = new CCRApplicationPage();
+
         /** --------------- NATIVE VIEW INSTANCE VARIABLES --------------- */
         nativeViewLoginImpl = new NativeViewLoginImpl();
         nativeViewHomePage = new NativeViewHomePage();
@@ -473,6 +517,10 @@ public class PageInitializer {
         nativeViewAccessRequestPage = new NativeViewAccessRequestPage();
         nativeViewEmailsPage = new NativeViewEmailsPage();
         nativeViewDashPage = new NativeViewDashboardPage();
+        nativeViewMembersOfCongressPage = new NativeViewMembersOfCongressPage();
+        nativeViewCHARMSDashboardPage = new NativeViewCHARMSDashboardPage();
+        nativeViewCHARMSParticipantDetailsPage = new NativeViewCHARMSParticipantDetailsPage();
+        nativeViewCHARMSParticipantConsentPage = new NativeViewCHARMSParticipantConsentPage();
 
         /** Grants ChangePassword app **/
         changePasswordPage = new ChangePasswordPage();

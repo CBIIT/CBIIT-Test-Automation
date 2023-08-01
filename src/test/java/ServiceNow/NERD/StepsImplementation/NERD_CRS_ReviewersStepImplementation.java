@@ -33,6 +33,10 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
                 equityAndInclusionProgram, covid19LeadershipMessages);
     }
 
+    public static void theFollowingCheckBoxOptionIsDisplayed(String covid19LeadershipMessages) {
+        NERDApplicationStepsImplementation.verifyingOfOM_CheckBox(covid19LeadershipMessages);
+    }
+
     public static void aCRSReviewerIsOnTheNERDKnowledgeBasePage() throws TestingException {
         nerdLoginStepsImplementation.loginToNerd();
         nativeViewImpersonateUser.impersonateToCRSReviewer();
@@ -45,35 +49,34 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
     }
 
     public static void clicksTheFilter(String SpecialTopic) {
+        MiscUtils.sleep(5000);
         CommonUtils.assertTrue(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.nerdSpecialTopicsDD.getText()
                         .contentEquals(SpecialTopic));
-        JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.nerdSpecialTopicsDD);
-        MiscUtils.sleep(5000);
+        CommonUtils.clickOnElement(nerdCrsKnowledgeDatabaseSubmissionsPage.nerdSpecialTopicsDD);
         JavascriptUtils.scrollDown(2000);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
-    public static void theFieldOptionsAre(String All, String BigdataDataSharing, String COVID19, String EarlyDetection,
-                                          String Metastatic, String MinorityhealthHealthdisparities, String Moonshot, String Pediatric,
-                                          String Rare,
-                                          String TrainingWorkforcedevelopment, String Womenshealth) {
-        MiscUtils.sleep(1000);
-        String[] expectedValues = {All, BigdataDataSharing, COVID19, EarlyDetection, Metastatic,
-                MinorityhealthHealthdisparities, Moonshot, Pediatric, Rare,
-                TrainingWorkforcedevelopment, Womenshealth};
+    public static void theFieldOptionsAre(String all ,String bigDataDataSharing, String covid19, String communications, String earlyDetection,
+                                          String metastatic, String minorityHealthHealthDisparities, String moonshot, String partnerships, String pediatric,
+                                          String rare, String reportGuidancePolicy, String sexGenderDifferences, String trainingWorkforceDevelopment, String womensHealth, String workforce)
+    {
+        String[] expectedValues = {all, bigDataDataSharing, covid19, communications, earlyDetection,
+                metastatic, minorityHealthHealthDisparities, moonshot, partnerships, pediatric, rare,
+                reportGuidancePolicy, sexGenderDifferences, trainingWorkforceDevelopment, womensHealth, workforce};
         String[] actualValue = new String[expectedValues.length];
         for (int i = 0; i < actualValue.length; i++) {
             actualValue[i] = nerdCrsKnowledgeDatabaseSubmissionsPage.nerdSpecialTopicsDDvalues.get(i)
-                    .getText().trim()
-                    .split("\\(")[0].replaceAll("&nbsp;", "").trim();
+                    .getText().trim();
+            actualValue[i]=actualValue[i] .split("\\(")[0].replaceAll("&nbsp;", "").trim();
         }
-        for (int i = 0; i < actualValue.length; i++) {
-            System.out.println(expectedValues[i]);
-            System.out.println(actualValue[i]);
-            CommonUtils.assertEquals(expectedValues[i], actualValue[i]);
+        for (int j = 0; j < actualValue.length; j++) {
+            JavascriptUtils.drawBlueBorder(nerdCrsKnowledgeDatabaseSubmissionsPage.nerdSpecialTopicsDDvalues.get(j));
+            CommonUtils.assertEquals(expectedValues[j], actualValue[j]);
         }
-        MiscUtils.sleep(1000);
+        MiscUtils.sleep(500);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
     public static void aCRSReviewerAndEmailIOnTheNERDHomePage(String crsReviewer, String approvedEmail) throws TestingException {
@@ -116,11 +119,14 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
     }
 
     public static void thereIsACollapsedAccordionWithRheHeaderLabeled(String topAccomplishmentsAccordionText) {
+        MiscUtils.sleep(7000);
+        CommonUtils.waitForVisibility(NERDKnowledgebasePage
+                .dynamicAccordion(topAccomplishmentsAccordionText));
         boolean isTopAccomplishmentAccordionDisplayed = NERDKnowledgebasePage
                 .dynamicAccordion(topAccomplishmentsAccordionText).getText()
                 .contains(topAccomplishmentsAccordionText);
         CommonUtils.assertTrue(isTopAccomplishmentAccordionDisplayed);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);;
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
     public static void theUserClicksTheAccordionHeader(String topAccomplishmentsAccordion) {
@@ -158,7 +164,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
     }
 
     public void thereIsARecordCalled(String publishedArticleTitle) {
-        MiscUtils.sleep(5000);
+        MiscUtils.sleep(10000);
         CommonUtils.waitForVisibility(NERDKnowledgebasePage.dynamicXpathNERDKnowledgeBaseAccordion(topAccomplishmentsAccordion));
         CommonUtils.sendKeysToElement(nerdKnowledgeBasePage.topAccomplishmentsNerdKnowledgeBaseSearchTextBox, publishedArticleTitle);
         MiscUtils.sleep(500);
