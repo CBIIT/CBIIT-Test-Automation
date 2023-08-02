@@ -29,12 +29,32 @@ import CustomBusiness.CCR.Pages.CCRApplicationPage;
 import CustomBusiness.CCR.Pages.CCRDynamicXpaths;
 import CustomBusiness.CCR.Pages.CCRLandingPage;
 import CustomBusiness.CCR.StepsImplementation.CCRStepsImplementation;
-import CustomBusiness.DCEG.Pages.*;
+import CustomBusiness.DCEG.Pages.AdminFlowPage;
+import CustomBusiness.DCEG.Pages.BranchAdminPage;
+import CustomBusiness.DCEG.Pages.CreateCRPage;
+import CustomBusiness.DCEG.Pages.DirectSubmitterPage;
+import CustomBusiness.DCEG.Pages.RegularUserFlowPage;
 import CustomBusiness.DCEG.Steps.RegularUserFlowSteps;
 import CustomBusiness.DCEG.StepsImplementation.FlowStepsImplementation;
+import CustomBusiness.EIDP.Pages.AligningExpectationsPage;
 import CustomBusiness.EIDP.Pages.BasePage;
-import CustomBusiness.EIDP.Pages.*;
-import CustomBusiness.EIDP.StepsImplementation.*;
+import CustomBusiness.EIDP.Pages.CareerGoalAndActivePage;
+import CustomBusiness.EIDP.Pages.CoPrimaryMentorPage;
+import CustomBusiness.EIDP.Pages.CommonPage;
+import CustomBusiness.EIDP.Pages.DashboardPage;
+import CustomBusiness.EIDP.Pages.DelegatePage;
+import CustomBusiness.EIDP.Pages.GeneralInformationPage;
+import CustomBusiness.EIDP.Pages.IDPAwaitingResponsePage;
+import CustomBusiness.EIDP.Pages.LoginPage;
+import CustomBusiness.EIDP.Pages.ProjectRelatedDeliverablePage;
+import CustomBusiness.EIDP.Pages.SearchPage;
+import CustomBusiness.EIDP.Pages.TraineeReviewPage;
+import CustomBusiness.EIDP.StepsImplementation.AlignExpectionsStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.CareerGoalAndActiveStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.EIDPLoginStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.GeneralInformationStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.ProjectRelatedDeliverableStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.SearchStepImpl;
 import CustomBusiness.ETD.Pages.ETDAdminNCIPage;
 import CustomBusiness.ETD.Pages.ETDBasePage;
 import CustomBusiness.ETD.StepsImplementation.ETDFlowStepsImpl;
@@ -107,6 +127,11 @@ import ServiceNow.NERD.Pages.NativeViewImpersonateUserPage;
 import ServiceNow.NERD.Pages.NativeViewMembersOfCongressPage;
 import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NativeViewImpersonateUser;
+import ServiceNow.SCSS.Pages.OWMVacancyPage;
+import ServiceNow.SCSS.Pages.StadtmanVacancyPage;
+import ServiceNow.SCSS.StepsImplementation.OWMVacancyStepsImplementation;
+import ServiceNow.SCSS.StepsImplementation.SCSSLoginStepsImplementation;
+import ServiceNow.SCSS.StepsImplementation.StadtmanVacancyStepsImplementation;
 import ServiceNow.SEER.Pages.NativeViewAccessRequestPage;
 import ServiceNow.SEER.Pages.NativeViewCustomersPage;
 import ServiceNow.SEER.Pages.NativeViewEmailsPage;
@@ -212,6 +237,12 @@ public class PageInitializer {
     public static NERDOGCRAddNewEntryPage nERDOGCRAddNewEntryPage;
     public static Covid19ActivitiesSubmissionsPage covid19ActivitiesSubmissionsPage;
 
+    /** SCSS instances */
+    public static OWMVacancyPage owmVacancyPage;
+    public static StadtmanVacancyPage stadtmanVacancyPage;
+    public static StadtmanVacancyStepsImplementation stadtmanVacancyStepsImplementation;
+    public static OWMVacancyStepsImplementation oWMVacancyStepsImplementation;
+    public static SCSSLoginStepsImplementation sCCSLoginStepsImplementation;
 
     /** --------------- CUSTOM BUSINESS APP INSTANCES --------------- */
     /** EIDP instances */
@@ -374,7 +405,7 @@ public class PageInitializer {
         screenerRecordTablePage = new ScreenerRecordTablePage();
         myRASIIQFormPage = new MyRASIIQFormPage();
 
-        // Melanoma and Spitzoid Tumor instances
+        /** Melanoma and Spitzoid Tumor instances */
         melanomaLoginPage = new MelanomaLoginPage();
         melanomaHomePage = new MelanomaHomePage();
         melanomaQuestionnairePage = new MelanomaQuestionnairePage();
@@ -409,6 +440,13 @@ public class PageInitializer {
 
         /** ESR INSTANCE VARIABLES */
         nciNativeViewPage = new NCINativeViewPage();
+
+        /** SCSS Instance Variables */
+        owmVacancyPage = new OWMVacancyPage();
+        stadtmanVacancyPage = new StadtmanVacancyPage();
+        oWMVacancyStepsImplementation = new OWMVacancyStepsImplementation();
+        stadtmanVacancyStepsImplementation = new StadtmanVacancyStepsImplementation();
+        sCCSLoginStepsImplementation = new SCSSLoginStepsImplementation();
 
         /** --------------- CUSTOM BUSINESS APP INSTANCE VARIABLES --------------- */
         /** EIDP Instance Variables */
