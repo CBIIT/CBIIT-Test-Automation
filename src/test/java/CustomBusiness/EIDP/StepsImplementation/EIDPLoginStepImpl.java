@@ -73,22 +73,16 @@ public class EIDPLoginStepImpl extends PageInitializer {
 	}
 
 	public void changeUserToTrainee(String username) {
-		try {
-			
-			Thread.sleep(3000);
+			MiscUtils.sleep(3000);
 			eidpBasePage.scrollToElement(nihLoginPage.changeUserButton);
 			CommonUtils.click(nihLoginPage.changeUserButton);
 			CommonUtils.click(nihLoginPage.changeUserDropdown);
-			Thread.sleep(1000);
+			MiscUtils.sleep(1000);
 			CommonUtils.sendKeys(nihLoginPage.searchableChangeUserInput, username);
-			Thread.sleep(3000);
+			MiscUtils.sleep(3000);
 			CommonUtils.waitForVisibility(nihLoginPage.changeUserOption);
 			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 			CommonUtils.click(nihLoginPage.changeUserOption);
-			Thread.sleep(1000);
-
-		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
-		}
+			MiscUtils.sleep(1000);
 	}
 }
