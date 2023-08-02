@@ -81,7 +81,8 @@ public class MyRASScreenerSubmissionScenario1Steps extends PageInitializer {
 //        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1partOne();
 //        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1partTwo();
 //        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1partThree();
-        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1partFour();
+//        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1partFour();
+        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1partFive();
     }
 
     @Given("clicks next after reviewing the STUDY INTRODUCTION")

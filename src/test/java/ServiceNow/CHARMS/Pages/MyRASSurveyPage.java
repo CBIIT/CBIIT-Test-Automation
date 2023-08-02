@@ -142,6 +142,10 @@ public class MyRASSurveyPage {
     @FindBy(xpath = "//span[contains(text(),'Other (please specify)')]//parent::label//parent::span//child::input")
     public WebElement otherPleaseSpecifyTextBox;
 
+    /* RAS SURVEY AGE PLEASE SPECIFY TEXT BOX*/
+    @FindBy(xpath = "//span[contains(text(),'Age (specify if in days, weeks, months or years)')]//parent::label//parent::span//child::input")
+    public WebElement agePleaseSpecifyTextBox;
+
     /* RAS SURVEY MEDICATION TEXT BOX*/
     @FindBy(xpath = "//*[@id='QR~QID101~1~TEXT']")
     public WebElement medicationPleaseSpecifyTextBox;
@@ -178,10 +182,17 @@ public class MyRASSurveyPage {
     }
 
     /*
-   USE THIS METHOD TO ENTER TEXT IN PLEASE PROVIDE DETAILS ON THE NAME OF THE MEDICATION TAKEN RADIO BUTTOPN
-   */
+    USE THIS METHOD TO ENTER TEXT IN PLEASE PROVIDE DETAILS ON THE NAME OF THE MEDICATION TAKEN RADIO BUTTOPN
+    */
     public WebElement enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(int indexOne, int indextwo) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//div[@class='QuestionBody']//child::tbody//tr[" + indexOne + "]//child::td[" + indextwo + "]//label"));
+    }
+
+    /*
+ USE THIS METHOD TO ENTER TEXT IN PLEASE PROVIDE DETAILS ON THE NAME OF THE MEDICATION TAKEN RADIO BUTTOPN
+ */
+    public WebElement gaggingRadioButton(int indexOne, int indextwo) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='Buttons']//parent::div[1]//child::div[3]//child::div//child::fieldset//child::div//child::table//child::tbody//child::tr[" + indexOne + "]//child::td[" + indextwo + "]//label"));
     }
 
     /*

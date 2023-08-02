@@ -667,7 +667,7 @@ public class RASScreenerScenario1_Constants {
     public final String PLEASE_PROVIDE_THE_DETAILS_FOR_THE_GASTROENTEROLOGIST_LOCATION = "Please provide the details for the gastroenterologist who completed the evaluation. Location";
     public final String PLEASE_PROVIDE_THE_DETAILS_FOR_THE_GASTROENTEROLOGIST_HOSPITAL = "Please provide the details for the gastroenterologist who completed the evaluation. Hospital";
     public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_FEEDING_DIFFICULTIES_OPTION_1 = "Have you ever been diagnosed with any of the following feeding difficulties?  These issues often include problems eating food by mouth or keeping food from being vomited.  Please select all that apply. Option 1";
-    public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_FEEDING_DIFFICULTIES_OPTION_2 = "Have you ever been diagnosed with any of the following feeding difficulties?  These issues often include problems eating food by mouth or keeping food from being vomited.  Please select all that apply. Option 2";
+    public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_FEEDING_DIFFICULTIES_OPTION_2 = "Have you ever been diagnosed with any of the following feeding difficulties?  These issues often include problems eating food by mouth or keeping food from being vomited.  Please select all that apply.Option 2";
     public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_FEEDING_DIFFICULTIES_OPTION_3 = "Have you ever been diagnosed with any of the following feeding difficulties?  These issues often include problems eating food by mouth or keeping food from being vomited.  Please select all that apply. Option 3";
     public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_FEEDING_DIFFICULTIES_OPTION_4 = "Have you ever been diagnosed with any of the following feeding difficulties?  These issues often include problems eating food by mouth or keeping food from being vomited.  Please select all that apply. Option 4";
     public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_FEEDING_DIFFICULTIES_OPTION_5 = "Have you ever been diagnosed with any of the following feeding difficulties?  These issues often include problems eating food by mouth or keeping food from being vomited.  Please select all that apply. Option 5";
@@ -686,10 +686,37 @@ public class RASScreenerScenario1_Constants {
     public final String PLEASE_COMPLETE_ALL_FOODS_TO_WHICH_YOU_ARE_ALLERGIC_COLUMN_2 = "Please complete the table below for all foods to which you are allergic. To add a new food, please click on the '+' button in the upper left corner of the table. Once a new food is added, please indicate the name of the food and the reaction that occurred after eating the food. Please be as specific as possible and include only food.  If you are also allergic to other things, such as bee stings, we will ask about those in the next question. Column 2";
     public final String PLEASE_COMPLETE_ALL_OTHER_TO_WHICH_YOU_ARE_ALLERGIC_COLUMN_1 = "Please complete the table below for all other items to which you are allergic that were not included in medication or food allergies. To add a new item, please click on the '+' button in the upper left corner of the table. Once a new item is added, please indicate the name of the item and the reaction that occurred after exposure to the item. Please be as specific as possible. Column 1";
     public final String PLEASE_COMPLETE_ALL_OTHER_TO_WHICH_YOU_ARE_ALLERGIC_COLUMN_2 = "Please complete the table below for all other items to which you are allergic that were not included in medication or food allergies. To add a new item, please click on the '+' button in the upper left corner of the table. Once a new item is added, please indicate the name of the item and the reaction that occurred after exposure to the item. Please be as specific as possible. Column 2";
-//    public final String
-//    public final String
-//    public final String
-//    public final String
+    public final String WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_1 = "Which of the following symptoms related to the GI system have occurred?  Please select all that apply. Option 1";
+    public final String WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_2 = "Which of the following symptoms related to the GI system have occurred?  Please select all that apply. Option 2";
+    public final String WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_3 = "Which of the following symptoms related to the GI system have occurred?  Please select all that apply. Option 3";
+    public final String WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_4 = "Which of the following symptoms related to the GI system have occurred?  Please select all that apply. Option 4";
+    public final String WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_5 = "Which of the following symptoms related to the GI system have occurred?  Please select all that apply. Option 5";
+    public final String WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_6 = "Which of the following symptoms related to the GI system have occurred?  Please select all that apply. Option 6";
+    public final String WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_7 = "Which of the following symptoms related to the GI system have occurred?  Please select all that apply. Option 7";
+    public final String WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_8 = "Which of the following symptoms related to the GI system have occurred?  Please select all that apply. Option 8";
+    public final String WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_9 = "Which of the following symptoms related to the GI system have occurred?  Please select all that apply. Option 9";
+    public final String WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_10 = "Which of the following symptoms related to the GI system have occurred?  Please select all that apply. Option 10";
+    public final String WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_11 = "Which of the following symptoms related to the GI system have occurred?  Please select all that apply. Option 11";
+    public final String WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_12 = "Which of the following symptoms related to the GI system have occurred?  Please select all that apply. Option 12";
+    public final String WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_13 = "Which of the following symptoms related to the GI system have occurred?  Please select all that apply. Option 13";
+    public final String WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_14 = "Which of the following symptoms related to the GI system have occurred?  Please select all that apply. Option 14";
+    public final String WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_15 = "Which of the following symptoms related to the GI system have occurred?  Please select all that apply. Option 15";
+    public final String WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_16 = "Which of the following symptoms related to the GI system have occurred?  Please select all that apply. Option 16";
+    public final String WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_17 = "Which of the following symptoms related to the GI system have occurred?  Please select all that apply. Option 17";
+    public final String WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_18 = "Which of the following symptoms related to the GI system have occurred?  Please select all that apply. Option 18";
+    public final String WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_19 = "Which of the following symptoms related to the GI system have occurred?  Please select all that apply. Option 19";
+    public final String WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_20 = "Which of the following symptoms related to the GI system have occurred?  Please select all that apply. Option 20";
+    public final String WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_21 = "Which of the following symptoms related to the GI system have occurred?  Please select all that apply. Option 21";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_HEARTBURN_COLUMN_1 = "Please complete the table below regarding heartburn/reflux symptoms age";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_HEARTBURN_COLUMN_2 = "Please complete the table below regarding heartburn/reflux symptoms medication";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_NAUSEA_COLUMN_1 = "Please complete the table below regarding heartburn/reflux symptoms age";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_NAUSEA_COLUMN_2 = "Please complete the table below regarding nausea symptoms.Medication";
+    public final String HAVE_ANY_MEDICATIONS_EVER_BEEN_TAKEN_FOR_ABDOMINAL_PAIN = "Have any medications ever been taken for abdominal pain?";
+    public final String HOW_MANY_MEDICATIONS_HAVE_BEEN_TAKEN_FOR_ABDOMINAL_PAIN = "How many medications have been taken for abdominal pain?";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_THE_MEDICATIONS_COLUMN_1 = "Please complete the table below regarding the medications taken for abdominal pain to the best of your ability. Age";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_THE_MEDICATIONS_COLUMN_2 = "Please complete the table below regarding the medications taken for abdominal pain to the best of your ability.medication name";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_THE_MEDICATIONS_COLUMN_3 = "Please complete the table below regarding the medications taken for abdominal pain to the best of your ability. Details";
+    public final String HAS_ANY_MEDICATION_EVER_BEEN_TAKEN_FOR_VOMITING = "Has any medication ever been taken for vomiting?";
 //    public final String
 //    public final String
 //    public final String

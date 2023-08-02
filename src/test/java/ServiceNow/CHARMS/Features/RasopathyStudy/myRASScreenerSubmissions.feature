@@ -22,7 +22,7 @@ Feature: RAS Screener Scenarios
 	This scenario selects 'No' to all questions
 		Then data submitted for scenario is verified in native view against corresponding scenario from the excel sheet
 
-	@juarezds @InProgress
+	@juarezds @InProgress @Progression
 	Scenario: Submitting the RAS Survey
 	This scenario is completing the forms for someone else and selects 'No' to all questions
 		Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"

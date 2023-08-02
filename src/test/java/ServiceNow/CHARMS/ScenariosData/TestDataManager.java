@@ -538,11 +538,37 @@ public class TestDataManager extends PageInitializer {
     public String pleaseCompleteAllFoodsToWhichYouAreAllergicColumn2;
     public String pleaseCompleteAllOtherToWhichYouAreAllergicColumn1;
     public String pleaseCompleteAllOtherToWhichYouAreAllergicColumn2;
-//    public String
-//    public String
-
-    //    public String
-//    public String
+    public String whichOfTheFollowingSymptomsRelatedToTheGIOption1;
+    public String whichOfTheFollowingSymptomsRelatedToTheGIOption2;
+    public String whichOfTheFollowingSymptomsRelatedToTheGIOption3;
+    public String whichOfTheFollowingSymptomsRelatedToTheGIOption4;
+    public String whichOfTheFollowingSymptomsRelatedToTheGIOption5;
+    public String whichOfTheFollowingSymptomsRelatedToTheGIOption6;
+    public String whichOfTheFollowingSymptomsRelatedToTheGIOption7;
+    public String whichOfTheFollowingSymptomsRelatedToTheGIOption8;
+    public String whichOfTheFollowingSymptomsRelatedToTheGIOption9;
+    public String whichOfTheFollowingSymptomsRelatedToTheGIOption10;
+    public String whichOfTheFollowingSymptomsRelatedToTheGIOption11;
+    public String whichOfTheFollowingSymptomsRelatedToTheGIOption12;
+    public String whichOfTheFollowingSymptomsRelatedToTheGIOption13;
+    public String whichOfTheFollowingSymptomsRelatedToTheGIOption14;
+    public String whichOfTheFollowingSymptomsRelatedToTheGIOption15;
+    public String whichOfTheFollowingSymptomsRelatedToTheGIOption16;
+    public String whichOfTheFollowingSymptomsRelatedToTheGIOption17;
+    public String whichOfTheFollowingSymptomsRelatedToTheGIOption18;
+    public String whichOfTheFollowingSymptomsRelatedToTheGIOption19;
+    public String whichOfTheFollowingSymptomsRelatedToTheGIOption20;
+    public String whichOfTheFollowingSymptomsRelatedToTheGIOption21;
+    public String pleaseCompleteTheTableBelowRegardingHeartburnColumn1;
+    public String pleaseCompleteTheTableBelowRegardingHeartburnColumn2;
+    public String pleaseCompleteTheTableBelowRegardingNauseaColumn1;
+    public String pleaseCompleteTheTableBelowRegardingNauseaColumn2;
+    public String haveAnyMedicationsEverBeenTakenForAbdominalPain;
+    public String howManyMedicationsHaveBeenTakenForAbdominalPain;
+    public String pleaseCompleteTheTableBelowRegardingTheMedicationsColumn1;
+    public String pleaseCompleteTheTableBelowRegardingTheMedicationsColumn2;
+    public String pleaseCompleteTheTableBelowRegardingTheMedicationsColumn3;
+    public String hasAnyMedicationEverBeenTakenForVomiting;
 //    public String
 //    public String
 
@@ -1065,7 +1091,7 @@ public class TestDataManager extends PageInitializer {
             haveYouEverBeenEvaluatedByAGastroenterologist = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_BEEN_EVALUATED_BY_A_GASTROENTEROLOGIST);
             pleaseProvideTheDetailsForTheGastroenterologistDoctor = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_DETAILS_FOR_THE_GASTROENTEROLOGIST_DOCTOR);
             pleaseProvideTheDetailsForTheGastroenterologistLocation = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_DETAILS_FOR_THE_GASTROENTEROLOGIST_LOCATION);
-            pleaseProvideTheDetailsForTheGastroenterologistHospital = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_FOR_EACH_HOSPITALIZATION_COLUMN_1);
+            pleaseProvideTheDetailsForTheGastroenterologistHospital = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_DETAILS_FOR_THE_GASTROENTEROLOGIST_HOSPITAL);
             haveYouEverBeenDiagnosedWithAnyOfTheFollowingFeedingDifficultiesOption1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_FEEDING_DIFFICULTIES_OPTION_1);
             haveYouEverBeenDiagnosedWithAnyOfTheFollowingFeedingDifficultiesOption2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_FEEDING_DIFFICULTIES_OPTION_2);
             haveYouEverBeenDiagnosedWithAnyOfTheFollowingFeedingDifficultiesOption3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_FEEDING_DIFFICULTIES_OPTION_3);
@@ -1086,5 +1112,36 @@ public class TestDataManager extends PageInitializer {
             pleaseCompleteAllFoodsToWhichYouAreAllergicColumn2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_ALL_FOODS_TO_WHICH_YOU_ARE_ALLERGIC_COLUMN_2);
             pleaseCompleteAllOtherToWhichYouAreAllergicColumn1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_ALL_OTHER_TO_WHICH_YOU_ARE_ALLERGIC_COLUMN_1);
             pleaseCompleteAllOtherToWhichYouAreAllergicColumn2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_ALL_OTHER_TO_WHICH_YOU_ARE_ALLERGIC_COLUMN_2);
+            whichOfTheFollowingSymptomsRelatedToTheGIOption1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_1);
+            whichOfTheFollowingSymptomsRelatedToTheGIOption2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_2);
+            whichOfTheFollowingSymptomsRelatedToTheGIOption3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_3);
+            whichOfTheFollowingSymptomsRelatedToTheGIOption4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_4);
+            whichOfTheFollowingSymptomsRelatedToTheGIOption5 = testDataRasSurvey.get(rASScreenerScenario1_Constants.WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_5);
+            whichOfTheFollowingSymptomsRelatedToTheGIOption6 = testDataRasSurvey.get(rASScreenerScenario1_Constants.WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_6);
+            whichOfTheFollowingSymptomsRelatedToTheGIOption7 = testDataRasSurvey.get(rASScreenerScenario1_Constants.WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_7);
+            whichOfTheFollowingSymptomsRelatedToTheGIOption8 = testDataRasSurvey.get(rASScreenerScenario1_Constants.WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_8);
+            whichOfTheFollowingSymptomsRelatedToTheGIOption9 = testDataRasSurvey.get(rASScreenerScenario1_Constants.WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_9);
+            whichOfTheFollowingSymptomsRelatedToTheGIOption10 = testDataRasSurvey.get(rASScreenerScenario1_Constants.WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_10);
+            whichOfTheFollowingSymptomsRelatedToTheGIOption11 = testDataRasSurvey.get(rASScreenerScenario1_Constants.WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_11);
+            whichOfTheFollowingSymptomsRelatedToTheGIOption12 = testDataRasSurvey.get(rASScreenerScenario1_Constants.WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_12);
+            whichOfTheFollowingSymptomsRelatedToTheGIOption13 = testDataRasSurvey.get(rASScreenerScenario1_Constants.WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_13);
+            whichOfTheFollowingSymptomsRelatedToTheGIOption14 = testDataRasSurvey.get(rASScreenerScenario1_Constants.WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_14);
+            whichOfTheFollowingSymptomsRelatedToTheGIOption15 = testDataRasSurvey.get(rASScreenerScenario1_Constants.WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_15);
+            whichOfTheFollowingSymptomsRelatedToTheGIOption16 = testDataRasSurvey.get(rASScreenerScenario1_Constants.WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_16);
+            whichOfTheFollowingSymptomsRelatedToTheGIOption17 = testDataRasSurvey.get(rASScreenerScenario1_Constants.WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_17);
+            whichOfTheFollowingSymptomsRelatedToTheGIOption18 = testDataRasSurvey.get(rASScreenerScenario1_Constants.WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_18);
+            whichOfTheFollowingSymptomsRelatedToTheGIOption19 = testDataRasSurvey.get(rASScreenerScenario1_Constants.WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_19);
+            whichOfTheFollowingSymptomsRelatedToTheGIOption20 = testDataRasSurvey.get(rASScreenerScenario1_Constants.WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_20);
+            whichOfTheFollowingSymptomsRelatedToTheGIOption21 = testDataRasSurvey.get(rASScreenerScenario1_Constants.WHICH_OF_THE_FOLLOWING_SYMPTOMS_RELATED_TO_THE_GI_OPTION_21);
+            pleaseCompleteTheTableBelowRegardingHeartburnColumn1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_HEARTBURN_COLUMN_1);
+            pleaseCompleteTheTableBelowRegardingHeartburnColumn2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_HEARTBURN_COLUMN_2);
+            pleaseCompleteTheTableBelowRegardingNauseaColumn1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_NAUSEA_COLUMN_1);
+            pleaseCompleteTheTableBelowRegardingNauseaColumn2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_NAUSEA_COLUMN_2);
+            haveAnyMedicationsEverBeenTakenForAbdominalPain = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_ANY_MEDICATIONS_EVER_BEEN_TAKEN_FOR_ABDOMINAL_PAIN);
+            howManyMedicationsHaveBeenTakenForAbdominalPain = testDataRasSurvey.get(rASScreenerScenario1_Constants.HOW_MANY_MEDICATIONS_HAVE_BEEN_TAKEN_FOR_ABDOMINAL_PAIN);
+            pleaseCompleteTheTableBelowRegardingTheMedicationsColumn1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_THE_MEDICATIONS_COLUMN_1);
+            pleaseCompleteTheTableBelowRegardingTheMedicationsColumn2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_THE_MEDICATIONS_COLUMN_2);
+            pleaseCompleteTheTableBelowRegardingTheMedicationsColumn3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_THE_MEDICATIONS_COLUMN_3);
+            hasAnyMedicationEverBeenTakenForVomiting = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAS_ANY_MEDICATION_EVER_BEEN_TAKEN_FOR_VOMITING);
         }
     }
