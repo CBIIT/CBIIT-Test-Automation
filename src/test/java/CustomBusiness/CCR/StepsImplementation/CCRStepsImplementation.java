@@ -146,4 +146,13 @@ public class CCRStepsImplementation extends PageInitializer {
                 break;
         }
     }
+    public void verifyDisplayedTab(String tab) {
+        if (tab.equals ("Home")) {
+       CommonUtils.waitForVisibility(cCRLandingPage.homeTab);
+       CommonUtils.assertTrue(cCRLandingPage.homeTab.isDisplayed());
+        } else {
+       CommonUtils.waitForVisibility(cCRLandingPage.positionsTab);
+       CommonUtils.assertTrue(cCRLandingPage.positionsTab.isDisplayed());
+        }
+    }
 }
