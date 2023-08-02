@@ -87,6 +87,14 @@ public class GeneralInformationPage extends CommonUtils{
 	/* ------ Advance search tab ------ */
 	@FindBy(xpath ="//li[@id='advancedSearchtabs']")
 	public WebElement searchSection;
+
+	/* ------ Co PM YES button ------ */
+	@FindBy(id = "coprimMentorYes")
+	public WebElement coPMYES;
+
+	/* ------ Co PM NO button ------ */
+	@FindBy(id = "coprimMentorNo")
+	public WebElement coPMNO;
 	
 	public GeneralInformationPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);

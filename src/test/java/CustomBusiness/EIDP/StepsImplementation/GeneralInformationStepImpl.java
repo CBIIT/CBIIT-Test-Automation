@@ -113,10 +113,10 @@ public class GeneralInformationStepImpl extends PageInitializer {
 	public void doYouHaveCoPrimaryMentory(Boolean isCoPrimary) {
 		if (isCoPrimary) {
 			MiscUtils.sleep(1000);
-			WebDriverUtils.webDriver.findElement(By.id("coprimMentorYes")).click();
+			generalInformationPage.coPMYES.click();
 		} else {
 			MiscUtils.sleep(1000);
-			WebDriverUtils.webDriver.findElement(By.id("coprimMentorNo")).click();
+			generalInformationPage.coPMNO.click();
 		}
 	}
 
