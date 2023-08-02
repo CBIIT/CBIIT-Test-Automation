@@ -66,7 +66,7 @@ import ServiceNow.CHARMS.Pages.RASSurveyPage;
 import ServiceNow.CHARMS.Pages.RASopathyQuestionnairePage;
 import ServiceNow.CHARMS.Pages.ScreenerRecordTablePage;
 import ServiceNow.CHARMS.Pages.TestAccountResetPage;
-import ServiceNow.CHARMS.ScenariosData.TestDataManagerScenario1;
+import ServiceNow.CHARMS.ScenariosData.TestDataManager;
 import ServiceNow.CHARMS.StepsImplementation.CHARMSHomePageImp;
 import ServiceNow.CHARMS.StepsImplementation.RASSurveyStepsImpl;
 import ServiceNow.CHARMS.StepsImplementation.RasScreenerScenario1StepsImpl;
@@ -176,7 +176,7 @@ public class PageInitializer {
     public static RASSurveyStepsImpl rASSurveyStepsImpl;
     public static FHQSurveyPage fHQSurveyPage;
     public static FHQSurveyPortalPage fHQSurveyPortalPage;
-    public static TestDataManagerScenario1 testDataManagerScenario1;
+    public static TestDataManager testDataManager;
     public static ParticipantDetailsPage participantDetailsPage;
     public static ScreenerRecordTablePage screenerRecordTablePage;
     public static MyRASSurveyPage myRASSurveyPage;
@@ -365,7 +365,7 @@ public class PageInitializer {
         rASScreenerScenario1_Constants = new RASScreenerScenario1_Constants();
         testAccountResetPage = new TestAccountResetPage();
         myRasStudyConsentPage = new MyRASStudyConsentPage();
-        testDataManagerScenario1 = new TestDataManagerScenario1();
+        testDataManager = new TestDataManager();
         cgbIIQPage = new CGBIIQPage();
         cGBIIQPages = new CGBIIQPages();
         rASSurveyPage = new RASSurveyPage();

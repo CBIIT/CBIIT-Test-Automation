@@ -52,6 +52,14 @@ public class MyRASSurveyPage {
     @FindBy(xpath = "//*[@id='QID301']/div[3]/div")
     public WebElement theNextTwoQuestionsWillAskAboutRASopathyDiagnosesText;
 
+    /* RAS SURVEY THE NEXT SET OF QUESTIONS WILL ASK ABOUT GENERAL MEDICAL HISTORY TEXT */
+    @FindBy(xpath = "//*[@id='QID303']/div[3]/div")
+    public WebElement theNextTwoQuestionsWillAskAboutMedicalHistoryText;
+
+    /* RAS SURVEY THE NEXT SET OF QUESTIONS WILL ASK ABOUT GI  TEXT */
+    @FindBy(xpath = "//*[@id='QID304']/div[3]/div")
+    public WebElement theNextTwoQuestionsWillAskAboutGiText;
+
     /* RAS SURVEY CATHETER INTERVENTION CHECK BOX */
     @FindBy(xpath = "//*[@id='QID101-2-label']")
     public WebElement catheterInterventionTextBox;
@@ -59,6 +67,14 @@ public class MyRASSurveyPage {
     /* RAS SURVEY WHAT IS THE HEIGHT OF YOUR BIOLOGICAL MOTHER AND FATHER TEXT */
     @FindBy(xpath = "//*[@id='QID75']/div[3]/div/fieldset/legend/label")
     public WebElement whatIsTheHeightOfYourBiologicalMotherAndFatherText;
+
+    /* RAS SURVEY PLEASE COMPLETE THE TABLE BELOW FOR ALL FOODS TEXT */
+    @FindBy(xpath = "//*[@id='QID378']/div[3]/div/fieldset/legend/label")
+    public WebElement pleaseCompleteTheTableBelowForAllFoodsText;
+
+    /* RAS SURVEY PLEASE COMPLETE THE TABLE BELOW FOR ALL OTHER TEXT */
+    @FindBy(xpath = "//*[@id='QID379']/div[3]/div/fieldset/legend/label")
+    public WebElement pleaseCompleteTheTableBelowForAllOtherText;
 
     /* RAS SURVEY HAVE YOU EVER BEEN DIAGNOSED WITH ANY FUNCTIONAL HEART ISSUE TEXT */
     @FindBy(xpath = "//*[@id='QID322']/div[3]/div/fieldset/legend/div")
@@ -128,6 +144,10 @@ public class MyRASSurveyPage {
     @FindBy(xpath = "//*[@id='QR~QID101~1~TEXT']")
     public WebElement medicationPleaseSpecifyTextBox;
 
+    /* RAS SURVEY ADD BUTTON*/
+    @FindBy(xpath = "//*[@id='add']")
+    public WebElement addButton;
+
     /*
         USE THIS METHOD TO DYNAMICALLY CLICK ON NORMAL RADIO BUTTONS
      */
@@ -164,6 +184,13 @@ public class MyRASSurveyPage {
     */
     public WebElement enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationdropDown(int index) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//div[@class='QuestionBody']//child::tbody//tr[" + index + "]//child::td[9]//child::select"));
+    }
+
+    /*
+    USE THIS METHOD TO ENTER TEXT IN PLEASE PROVIDE DETAILS ON THE NAME OF THE MEDICATION TAKEN DROPDOWN
+    */
+    public WebElement dynamicDropDownTwo(int index, int indexTwo) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//div[@class='QuestionBody']//child::tbody//tr[" + index + "]//child::td[" + indexTwo + "]//child::select"));
     }
 
     /*
