@@ -18,6 +18,18 @@ public class MyRASHomePage {
 	@FindBy(xpath = "(//span[normalize-space()='Eligibility Questionnaire'])[2]")
 	public WebElement rasoptathyEligibilityQuestionnaire;
 
+	/* RASopathy RAS Survey Button */
+	@FindBy(xpath = "(//div[@ng-repeat='survey in c.data.dSurveys'])[6]")
+	public WebElement rasoptathyRasSurveyButton;
+
+	/* RASopathy RAS Survey Go Button */
+	@FindBy(xpath = "//button[@id='icYesConfirm']")
+	public WebElement rasoptathyRasSurveyGoButton;
+
+	/* RASopathy RAS Survey Pin */
+	@FindBy(xpath = "//p[@align='center']//parent::div//child::h3")
+	public WebElement rasoptathyRasSurveyPin;
+
 	/* RASopathy Study Consent */
 	@FindBy(xpath = "//div[@class='custom-card-image']//a[@aria-label='Consent']")
 	public WebElement rasopathyStudyConsent;

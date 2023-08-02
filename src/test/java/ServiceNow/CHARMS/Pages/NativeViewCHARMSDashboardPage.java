@@ -12,9 +12,17 @@ public class NativeViewCHARMSDashboardPage {
     @FindBy(xpath = "(//div[@class='sn-widget-list-title'][normalize-space()='Dashboard'])[3]")
     public WebElement nativeViewCharmsDashboardButton;
 
+    /** Native View Dashboard Button */
+    @FindBy(xpath = "//div[contains(text(),'All Participant Details')]//parent::div//parent::a")
+    public WebElement nativeViewAllParticipantsDetailsButton;
+
     /**Native View Ras Study Dropdown Menu*/
     @FindBy(xpath = "//*[@id='navbar']/div[1]/span")
     public WebElement rasStudyMenu;
+
+    /**Native View Ras Study Dropdown Menu*/
+    @FindBy(xpath = "//a[@title='Participant Details Context Menu']")
+    public WebElement rasStudyParticipantsDetailsMenu;
 
     /** Native View Ras Study New Screener Received Dynamic Locator */
     public static WebElement nativeViewnewScreenerReceivedLocator(String value) {

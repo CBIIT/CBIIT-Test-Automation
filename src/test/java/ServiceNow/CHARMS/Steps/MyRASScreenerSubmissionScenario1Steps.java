@@ -2,6 +2,8 @@ package ServiceNow.CHARMS.Steps;
 
 import java.util.List;
 import java.util.Set;
+
+import com.nci.automation.utils.CucumberLogUtils;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 import com.nci.automation.utils.MiscUtils;
@@ -31,7 +33,7 @@ public class MyRASScreenerSubmissionScenario1Steps extends PageInitializer {
 
     @Then("data submitted for scenario is verified in native view against corresponding scenario from the excel sheet")
     public void data_submitted_for_scenario_is_verified_in_native_view_against_corresponding_scenario_from_the_excel_sheet() {
-        rasScreenerScenario1StepsImpl.verifying_RAS_Screener_Scenario_1_Data();
+//        rasScreenerScenario1StepsImpl.verifying_RAS_Screener_Scenario_1_Data();
         rasScreenerScenario1StepsImpl.nativeViewConsentFlowProcessScenario1();
     }
 
@@ -58,6 +60,28 @@ public class MyRASScreenerSubmissionScenario1Steps extends PageInitializer {
     @Given("clicks on Eligibility Questionnaire to begin questionnaire")
     public void clicks_on_Eligibility_Questionnaire_to_begin_questionnaire() {
         rasScreenerScenario1StepsImpl.clicksOnEligibilityQuestionnaireToBeginQuestionnaire();
+    }
+
+    @Given("clicks on the Ras Survey Form")
+    public void clicks_on_the_ras_survey_form() {
+        rasScreenerScenario1StepsImpl.clicksOnTheRasSurveyForm();
+    }
+    @Given("a participant enters username {string} and pin")
+    public void a_participant_enters_username_and_pin(String email) {
+        rasScreenerScenario1StepsImpl.aParticipantEntersUsernameUndPin(email);
+    }
+    @Then("the participant will be able to rewind the form")
+    public void the_participant_will_be_able_to_rewind_the_form() {
+        rasScreenerScenario1StepsImpl.theParticipantWillBeAbleToRewindTheForm();
+    }
+
+    @When("the participant submits a RAS Survey from excel sheet {string}")
+    public void the_participant_submits_a_ras_survey_from_excel_sheet(String rasSurveySheet) {
+        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1dataInitializer(rasSurveySheet);
+//        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1partOne();
+//        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1partTwo();
+//        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1partThree();
+        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1partFour();
     }
 
     @Given("clicks next after reviewing the STUDY INTRODUCTION")

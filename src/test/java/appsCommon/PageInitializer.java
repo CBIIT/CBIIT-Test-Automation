@@ -55,6 +55,7 @@ import ServiceNow.CHARMS.Pages.MyRASHomePage;
 import ServiceNow.CHARMS.Pages.MyRASIIQFormPage;
 import ServiceNow.CHARMS.Pages.MyRASLoginPage;
 import ServiceNow.CHARMS.Pages.MyRASStudyConsentPage;
+import ServiceNow.CHARMS.Pages.MyRASSurveyPage;
 import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
 import ServiceNow.CHARMS.Pages.NativeViewCHARMSParticipantConsentPage;
 import ServiceNow.CHARMS.Pages.NativeViewCHARMSParticipantDetailsPage;
@@ -178,6 +179,7 @@ public class PageInitializer {
     public static TestDataManagerScenario1 testDataManagerScenario1;
     public static ParticipantDetailsPage participantDetailsPage;
     public static ScreenerRecordTablePage screenerRecordTablePage;
+    public static MyRASSurveyPage myRASSurveyPage;
 
     // Melanoma and Spitzoid Tumor instances
     public static MelanomaLoginPage melanomaLoginPage;
@@ -373,6 +375,7 @@ public class PageInitializer {
         participantDetailsPage = new ParticipantDetailsPage();
         screenerRecordTablePage = new ScreenerRecordTablePage();
         myRASIIQFormPage = new MyRASIIQFormPage();
+        myRASSurveyPage = new MyRASSurveyPage();
 
         // Melanoma and Spitzoid Tumor instances
         melanomaLoginPage = new MelanomaLoginPage();

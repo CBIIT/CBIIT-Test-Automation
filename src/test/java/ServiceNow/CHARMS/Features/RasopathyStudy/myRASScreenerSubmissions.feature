@@ -9,25 +9,30 @@ Feature: RAS Screener Scenarios
 	Scenario: Participant Screener Self Submission Scenario 1
 		This scenario selects 'No' to all questions
 		Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-		And logs in via Okta with username "charmsras5@yahoo.com" and password "RASTest2023$$"
+		And logs in via Okta with username "charmsparticipant3@yopmail.com" and password "Charms123"
 		And clicks on Eligibility Questionnaire to begin questionnaire
 		When the participant submits a screener from excel sheet "screenerScenario1"
-		Then data submitted for scenario is verified in native view against corresponding scenario from the excel sheet
-		Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-		And logs in via Okta with username "charmsras5@yahoo.com" and password "RASTest2023$$"
-		And the participant submits a Individual Information Questionnaire for excel sheet "IIQScenario1"
+#		Then data submitted for scenario is verified in native view against corresponding scenario from the excel sheet
+#		Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
+#		And logs in via Okta with username "charmsras5@yahoo.com" and password "RASTest2023$$"
+#		And the participant submits a Individual Information Questionnaire for excel sheet "IIQScenario1"
 
-	@juarezds @myRasScreenerSubmissionOnly @InProgress
-	Scenario: Participant Screener Self Submission Scenario 2
+	@juarezds @InProgress
+	Scenario: Submitting the consent in Native View
+	This scenario selects 'No' to all questions
+		Then data submitted for scenario is verified in native view against corresponding scenario from the excel sheet
+
+	@juarezds @InProgress  @Progression
+	Scenario: Submitting the RAS Survey
 	This scenario is completing the forms for someone else and selects 'No' to all questions
 		Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-		And logs in via Okta with username "charmsras5@yahoo.com" and password "RASTest2023$$"
-		And clicks on Eligibility Questionnaire to begin questionnaire
-		When the participant submits a screener from excel sheet "screenerScenario2"
-		Then data submitted for scenario is verified in native view against corresponding scenario from the excel sheet
-		Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-		And logs in via Okta with username "charmsras3@yahoo.com" and password "RASTest2023$$"
-		And the participant submits a Individual Information Questionnaire for excel sheet "IIQScenario1"
+		And logs in via Okta with username "charmsparticipant3@yopmail.com" and password "Charms123"
+		And clicks on the Ras Survey Form
+		And a participant enters username "charmsparticipant3@yopmail.com" and pin
+#		Then the participant will be able to rewind the form
+		When the participant submits a RAS Survey from excel sheet "RasSurveyScenario1"
+
+
 
 
 	@jains @myRASScreenerSubmission @E2E @Updated

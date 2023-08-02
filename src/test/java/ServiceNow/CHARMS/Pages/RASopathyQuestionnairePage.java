@@ -14,6 +14,14 @@ public class RASopathyQuestionnairePage {
     @FindBy(xpath = "//input[@title='→']")
     public WebElement studyNextButton;
 
+    /* RAS Survey Save and Next button (THIS WORKS FOR ALL NEXT BUTTONS) */
+    @FindBy(xpath = "//*[@id='NextButton']")
+    public WebElement rasSurveySaveAndNextButton;
+
+    /* RAS Survey Previous button (THIS WORKS FOR ALL NEXT BUTTONS) */
+    @FindBy(xpath = "//*[@id='PreviousButton']")
+    public WebElement rasSurveyPreviousButton;
+
     /* This Form Canot Be Saved Text */
     @FindBy(xpath = "//p[contains(text(),'If you are unable to complete the online questionn')]")
     public WebElement thisFormCannotBeSavedText;

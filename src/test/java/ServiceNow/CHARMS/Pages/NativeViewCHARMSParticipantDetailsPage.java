@@ -11,6 +11,10 @@ public class NativeViewCHARMSParticipantDetailsPage {
     @FindBy(xpath = "//*[@id='study_panel_review']")
     public WebElement nativeViewPatientDetailsSubmitForEligibilityButton;
 
+    /** Native View Subject Flag Button */
+    @FindBy(xpath = "//*[@id='tabs2_section']/span[6]/span[1]")
+    public WebElement nativeSubjectFlagButton;
+
     /** Native View Participant Details Mark As Eligible Button */
     @FindBy(xpath = "//*[@id='mark_eligible']")
     public WebElement nativeViewPatientDetailsMarkEligibleButton;
