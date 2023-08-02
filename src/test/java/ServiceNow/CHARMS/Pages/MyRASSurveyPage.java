@@ -76,6 +76,8 @@ public class MyRASSurveyPage {
     @FindBy(xpath = "//*[@id='QID379']/div[3]/div/fieldset/legend/label")
     public WebElement pleaseCompleteTheTableBelowForAllOtherText;
 
+    /* RAS SURVEY PLEASE COMPLETE THE TABLE BELOW FOR ALL OTHER TEXT */
+
     /* RAS SURVEY HAVE YOU EVER BEEN DIAGNOSED WITH ANY FUNCTIONAL HEART ISSUE TEXT */
     @FindBy(xpath = "//*[@id='QID322']/div[3]/div/fieldset/legend/div")
     public WebElement haveYouEverBeenDiagnosedWithAnyFunctionalHeartIssueText;
@@ -163,8 +165,11 @@ public class MyRASSurveyPage {
     }
 
     /*
+    USE THIS METHOD TO ENTER TEXT IN PLEASE PROVIDE DETAILS IN TEXT AREA TEXT BOX
+    */
+    public WebElement enterTextInTextAreaTextBox(int indexOne, int indextwo) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//div[@class='QuestionBody']//child::tbody//tr[" + indexOne + "]//child::td[" + indextwo + "]//textarea"));
     }
-
     /*
     USE THIS METHOD TO ENTER TEXT IN PLEASE PROVIDE DETAILS ON THE NAME OF THE MEDICATION TAKEN TEXT BOX
     */

@@ -1973,8 +1973,8 @@ public class RasScreenerScenario1StepsImpl extends PageInitializer {
         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 7), testDataManager.pleaseProvideTheInformationForEachHospitalizationColumn3);
         myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 8).clear();
         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 8), testDataManager.pleaseProvideTheInformationForEachHospitalizationColumn4);
-        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 11).clear();
-        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 11), testDataManager.pleaseProvideTheInformationForEachHospitalizationColumn5);
+        myRASSurveyPage.enterTextInTextAreaTextBox(1, 11).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInTextAreaTextBox(1, 11), testDataManager.pleaseProvideTheInformationForEachHospitalizationColumn5);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.theNextTwoQuestionsWillAskAboutGiText);
