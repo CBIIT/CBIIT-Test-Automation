@@ -1,12 +1,9 @@
 package CustomBusiness.CCR.Steps;
 
-import CustomBusiness.EIDP.Util.CommonUtil;
 import appsCommon.PageInitializer;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.Given;
-import org.junit.Assert;
-import java.util.Map;
 
 public class InternalUserSteps extends PageInitializer {
 
@@ -19,11 +16,9 @@ public class InternalUserSteps extends PageInitializer {
         }
     }
 
-    @Given("User can see tabs displayed")
-    public void user_can_see_tabs_displayed(io.cucumber.datatable.DataTable data) {
-        Map<String, String> options = CommonUtil.getMapFromDataTable(data);
-        Assert.assertTrue(options.get("Option1"), cCRLandingPage.homeTab.isDisplayed());
-        Assert.assertTrue(options.get("Option2"), cCRLandingPage.positionsTab.isDisplayed());
+    @Given("User can see {string} tab displayed")
+    public void user_can_see_tab_displayed(String tab) {
+        cCRStepsImplementation.verifyDisplayedTab(tab);
     }
 
     @Given("User navigates to {string} open vacancy")
