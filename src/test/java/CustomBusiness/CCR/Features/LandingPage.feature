@@ -5,8 +5,8 @@ Feature: CCR Landing Page Scenarios
 
   @Nekrashevich @Regression @Smoke @landingPage
   Scenario: Verify CCR Landing Page items
-    And User can see tabs displayed
-    |Home|Positions|
+    And User can see "Home" tab displayed
+    And User can see "Positions" tab displayed
 
   @Nekrashevich @Regression @Smoke @fillApplication @CAMS-9
   Scenario Outline: Fill In An Application As An Internal User
