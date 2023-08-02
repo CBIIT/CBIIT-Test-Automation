@@ -74,6 +74,7 @@ public class EIDPLoginStepImpl extends PageInitializer {
 
 	public void changeUserToTrainee(String username) {
 		try {
+			
 			Thread.sleep(3000);
 			eidpBasePage.scrollToElement(nihLoginPage.changeUserButton);
 			CommonUtils.click(nihLoginPage.changeUserButton);
