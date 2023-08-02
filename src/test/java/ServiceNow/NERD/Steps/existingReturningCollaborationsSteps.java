@@ -1,7 +1,6 @@
 package ServiceNow.NERD.Steps;
 
 import java.util.Set;
-
 import ServiceNow.NERD.Constants.ReturningSubmissions_Constants;
 import ServiceNow.NERD.StepsImplementation.NERDApplicationStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERD_NCI_CRSReviewerStepsImplementation;
@@ -19,7 +18,6 @@ import appsCommon.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
 
 public class existingReturningCollaborationsSteps extends PageInitializer {
 
@@ -51,7 +49,6 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
         nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNpopUpWindowTextField
                 .sendKeys("Returning to Doc - Automated Test");
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-
     }
 
     @Then("click the {string} button")
@@ -425,6 +422,4 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
      * ------------------------------------------------------------- END EIGHTH
      * SCENARIO -------------------------------------------------------------
      */
-
-
 }

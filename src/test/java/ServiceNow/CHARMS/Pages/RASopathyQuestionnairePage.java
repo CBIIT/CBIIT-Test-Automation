@@ -14,6 +14,22 @@ public class RASopathyQuestionnairePage {
     @FindBy(xpath = "//input[@title='→']")
     public WebElement studyNextButton;
 
+    /* This Form Canot Be Saved Text */
+    @FindBy(xpath = "//p[contains(text(),'If you are unable to complete the online questionn')]")
+    public WebElement thisFormCannotBeSavedText;
+
+    /* If You Are Unable To Complete Text */
+    @FindBy(xpath = "//p[contains(text(),'If you are unable to complete the online questionn')]")
+    public WebElement ifYouAreUnableToCompleteText;
+
+    /* Have Any Of Your Relatives Been Diagnosed No Radio Button */
+    @FindBy(xpath = "//*[@id='QID43']/div[3]/div/fieldset/div/ul/li[2]/span")
+    public WebElement haveAnyOfYourRelativesBeenDiagnosedNoRadioButton ;
+
+    /* Have You Ever Had Genetic Testing No Radio Button */
+    @FindBy(xpath = "//*[@id='QID120-2-label']")
+    public WebElement haveYouEverHadGeneticTestingNoRadioButton ;
+
     /* ************************************************************************ */
     /*
      * BEGINNING OF Are you completing this form for someone else or for yourself?
@@ -137,6 +153,14 @@ public class RASopathyQuestionnairePage {
     /* Calendar day option */
     @FindBy(xpath = "//span[@aria-label='April 1, 1990']")
     public WebElement calendarDayOption;
+
+    /* IIQ Calendar day option */
+    @FindBy(xpath = "//span[@aria-label='November 10, 2004']")
+    public WebElement iIQcalendarDayOption;
+
+    /* IIQ Address Don't Know Text Box*/
+    @FindBy(xpath = "//*[@id='QR~QID24~4']")
+    public WebElement iIQAddressDontKnowTextBox;
 
     /* -------- END OF Date of birth of "name" PAGE --------------- */
     /* ************************************************************************ */
@@ -1104,6 +1128,15 @@ public class RASopathyQuestionnairePage {
      */
     public WebElement dynamicLocatorForMainReasonForParticipatingInStudy(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::span//parent::label/following-sibling::input"));
+    }
+
+    /***
+     * USE THIS METHOD TO DYNAMICALLY LOCATE MOST PEOPLE ANCESTORS CHECK BOXES ON IIQ FORM
+     * @param text
+     * @return
+     */
+    public WebElement dynamicCheckBoxMostAncestorsIiqForm(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::label//parent::div//parent::span//parent::th/following-sibling::td/label"));
     }
 
     public RASopathyQuestionnairePage() {
