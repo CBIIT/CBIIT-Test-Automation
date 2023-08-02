@@ -117,7 +117,6 @@ public class GeneralInformationStepImpl extends PageInitializer {
 		} else {
 			MiscUtils.sleep(1000);
 			WebDriverUtils.webDriver.findElement(By.id("coprimMentorNo")).click();
-
 		}
 	}
 
