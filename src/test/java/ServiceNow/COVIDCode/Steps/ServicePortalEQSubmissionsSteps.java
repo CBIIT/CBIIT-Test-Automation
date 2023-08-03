@@ -181,7 +181,7 @@ public class ServicePortalEQSubmissionsSteps extends PageInitializer {
 	@When("on the Demographics Information section")
 	public void on_the_Demographics_Information_section() {
 		MiscUtils.sleep(500);
-		CommonUtils.click(covidCodeEQPage.demographicsTab);
+		CommonUtils.clickOnElement(covidCodeEQPage.demographicsTab);
 	}
 
 	@When("selecting Feet\\/Inches for Height")

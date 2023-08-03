@@ -270,23 +270,23 @@ public class RasScreenerScenario2StepsImpl extends PageInitializer {
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
         try {
             CommonUtils.waitForVisibility(rasopathyQuestionnairePage.haveAnyOfYourRelativesBeenDiagnosedNoRadioButton);
-            CommonUtils.click(rasopathyQuestionnairePage.haveAnyOfYourRelativesBeenDiagnosedNoRadioButton);
+            CommonUtils.clickOnElement(rasopathyQuestionnairePage.haveAnyOfYourRelativesBeenDiagnosedNoRadioButton);
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         } catch (NoSuchElementException e) {
             e.printStackTrace();
             rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-            CommonUtils.click(rasopathyQuestionnairePage.haveAnyOfYourRelativesBeenDiagnosedNoRadioButton);
+            CommonUtils.clickOnElement(rasopathyQuestionnairePage.haveAnyOfYourRelativesBeenDiagnosedNoRadioButton);
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         }
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
         try {
             CommonUtils.waitForVisibility(rasopathyQuestionnairePage.haveYouEverHadGeneticTestingNoRadioButton);
-            CommonUtils.click(rasopathyQuestionnairePage.haveYouEverHadGeneticTestingNoRadioButton);
+            CommonUtils.clickOnElement(rasopathyQuestionnairePage.haveYouEverHadGeneticTestingNoRadioButton);
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         } catch (NoSuchElementException e) {
             e.printStackTrace();
             rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-            CommonUtils.click(rasopathyQuestionnairePage.haveYouEverHadGeneticTestingNoRadioButton);
+            CommonUtils.clickOnElement(rasopathyQuestionnairePage.haveYouEverHadGeneticTestingNoRadioButton);
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         }
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();

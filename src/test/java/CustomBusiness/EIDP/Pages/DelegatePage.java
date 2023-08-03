@@ -50,7 +50,7 @@ public class DelegatePage extends CommonUtils {
 		selectSearchInput.click();
 		selectSearchInput.sendKeys(name);
 		CommonUtil.waitBrowser(3000);
-		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.cssSelector("li[role='treeitem']")));
+		CommonUtils.clickOnElement(WebDriverUtils.getWebDriver().findElement(By.cssSelector("li[role='treeitem']")));
 
 	}
 
@@ -63,11 +63,11 @@ public class DelegatePage extends CommonUtils {
 	}
 
 	public void clickOnAddbutton() {
-		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.cssSelector("[title='Add']")));
+		CommonUtils.clickOnElement(WebDriverUtils.getWebDriver().findElement(By.cssSelector("[title='Add']")));
 	}
 
 	public void clickOnPermanentDelegateAddButton() {
-		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.id("add-delegate-perm")));
+		CommonUtils.clickOnElement(WebDriverUtils.getWebDriver().findElement(By.id("add-delegate-perm")));
 	}
 
 	public Boolean isDelegatePresentInTable(String name) {
@@ -80,7 +80,7 @@ public class DelegatePage extends CommonUtils {
 	}
 
 	public void clickOnDeleteButton() {
-		CommonUtils.click(deleteButton);
+		CommonUtils.clickOnElement(deleteButton);
 	}
 
 	public String getDeleteMessage() {

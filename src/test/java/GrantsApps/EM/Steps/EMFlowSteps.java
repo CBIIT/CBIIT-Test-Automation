@@ -43,7 +43,7 @@ public class EMFlowSteps extends PageInitializer {
 
     @When("selects {string} from I2E Role drop down")
     public void selects_from_i2e_role_drop_down(String text) {
-        CommonUtils.click(manageI2EUsersPage.I2ERoleDropD);
+        CommonUtils.clickOnElement(manageI2EUsersPage.I2ERoleDropD);
         CommonUtils.sendKeysToElement(manageI2EUsersPage.I2ERoleDropDownTextBox, text);
         CommonUtils.sendKeys(manageI2EUsersPage.I2ERoleDropDownTextBox, Keys.ENTER);
     }

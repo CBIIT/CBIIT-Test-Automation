@@ -57,48 +57,48 @@ public class CommonPage extends CommonUtils {
 	}
 	
 	public void clickOnOkButton() {
-		CommonUtils.click(this.okButton);
+		CommonUtils.clickOnElement(this.okButton);
 	}
 	
 	public void clickOnYesButton() {
-		CommonUtils.click(this.yesButton);
+		CommonUtils.clickOnElement(this.yesButton);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 	
 	public void clickOnModalFooterYesButton() {
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.cssSelector(".modal-footer [data-bb-handler='confirm']")));
+		CommonUtils.clickOnElement(WebDriverUtils.getWebDriver().findElement(By.cssSelector(".modal-footer [data-bb-handler='confirm']")));
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 	
 	public void clickOnbutton(String buttonText) {
-		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.xpath("//*[text()='" + buttonText + "']")));
+		CommonUtils.clickOnElement(WebDriverUtils.getWebDriver().findElement(By.xpath("//*[text()='" + buttonText + "']")));
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 	
 	public void clickOnSendBackToTrinee() {
-		CommonUtils.click(sendToTraineeButton);
+		CommonUtils.clickOnElement(sendToTraineeButton);
 	}
 	
 	public void clickOnYesButtonOnTrainee() {
-		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.cssSelector("button[onclick='form_submit_approveByLBO()']")));
+		CommonUtils.clickOnElement(WebDriverUtils.getWebDriver().findElement(By.cssSelector("button[onclick='form_submit_approveByLBO()']")));
 	}
 	
 	public void clickOnSubmitButton() {
-		CommonUtils.click(submitButton);
+		CommonUtils.clickOnElement(submitButton);
 	}
 	
 	public void clickOnSaveButton() {
-		CommonUtils.click(saveButton);
+		CommonUtils.clickOnElement(saveButton);
 	}
 	
 	public void clickOnVerifyMeetingAndAcceptIDPButton() {
-		CommonUtils.click(verifyMeetingAndAcceptIDPButton);
+		CommonUtils.clickOnElement(verifyMeetingAndAcceptIDPButton);
 	}
 	
 	public void enterToday() {
-		CommonUtils.click(meetingDate);
-		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.cssSelector(".today.day")));
+		CommonUtils.clickOnElement(meetingDate);
+		CommonUtils.clickOnElement(WebDriverUtils.getWebDriver().findElement(By.cssSelector(".today.day")));
 	}
 	
 	public void waitForGoBackToHomeQueueButtonVisible() {
@@ -114,7 +114,7 @@ public class CommonPage extends CommonUtils {
 	}
 	
 	public void clickOnMarkAsReviewed() {
-		CommonUtils.click(markAsReviewed);
+		CommonUtils.clickOnElement(markAsReviewed);
 	}
 	
 }

@@ -43,7 +43,7 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 
 	@When("User clicks on Create Clearance Request")
 	public void user_clicks_on_Create_Clearance_Request() {
-		CommonUtils.click(createCRPage.createClearanceRequestButton);
+		CommonUtils.clickOnElement(createCRPage.createClearanceRequestButton);
 		MiscUtils.sleep(2000);
 	}
 
@@ -56,9 +56,9 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 
 	@When("User chooses from dropdown CAS ID option General Program Administration")
 	public void user_chooses_from_dropdown_CAS_ID_option_General_Program_Administration() {
-		CommonUtils.click(createCRPage.casDropdown);
+		CommonUtils.clickOnElement(createCRPage.casDropdown);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(createCRPage.genProgramAdministration);
+		CommonUtils.clickOnElement(createCRPage.genProgramAdministration);
 		MiscUtils.sleep(2000);
 	}
 
@@ -66,7 +66,7 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 	public void user_adds_a_requester_as_ALBANES_DEMETRIUS() {
 		CommonUtils.sendKeys(createCRPage.requesterField, "ALBA");
 		MiscUtils.sleep(2000);
-		CommonUtils.click(createCRPage.albanesDemetrius);
+		CommonUtils.clickOnElement(createCRPage.albanesDemetrius);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
@@ -87,15 +87,15 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 
 	@When("User picks Submission Type as Publication")
 	public void user_picks_Submission_Type_as_Publication() {
-		CommonUtils.click(createCRPage.publication);
+		CommonUtils.clickOnElement(createCRPage.publication);
 		MiscUtils.sleep(2000);
 	}
 
 	@When("User selects publication type from  Publication Type dropdown")
 	public void user_selects_publication_type_from_Publication_Type_dropdown() {
-		CommonUtils.click(createCRPage.publicationDropdown);
+		CommonUtils.clickOnElement(createCRPage.publicationDropdown);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(createCRPage.originJournlPublicationDropdown);
+		CommonUtils.clickOnElement(createCRPage.originJournlPublicationDropdown);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
@@ -109,35 +109,35 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 
 	@When("User confirms NIH Rights, PMC")
 	public void user_confirms_NIH_Rights_PMC() {
-		CommonUtils.click(createCRPage.nihRightConfirm);
+		CommonUtils.clickOnElement(createCRPage.nihRightConfirm);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User confirms the Publisher Credibility question")
 	public void user_confirms_the_Publisher_Credibility_question() {
-		CommonUtils.click(createCRPage.publisherCredibilityConfirm);
+		CommonUtils.clickOnElement(createCRPage.publisherCredibilityConfirm);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User confirms Genomic Data Generation question")
 	public void user_confirms_Genomic_Data_Generation_question() {
-		CommonUtils.click(createCRPage.genomicDataGenerationConfirm);
+		CommonUtils.clickOnElement(createCRPage.genomicDataGenerationConfirm);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User denies Laboratory Resources question")
 	public void user_denies_Laboratory_Resources_question() {
-		CommonUtils.click(createCRPage.labResourcesDeny);
+		CommonUtils.clickOnElement(createCRPage.labResourcesDeny);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 	
 	@When("User confirms Laboratory Resources question")
 	public void user_confirms_Laboratory_Resources_question() {
-		CommonUtils.click(createCRPage.labResourcesDeny);
+		CommonUtils.clickOnElement(createCRPage.labResourcesDeny);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
@@ -145,7 +145,7 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 	@When("User submits a Review Material as Manuscript")
 	public void user_submits_a_Review_Material_as_Manuscript() {
 		JavascriptUtils.scrollIntoView(createCRPage.manuscriptChoice);
-		CommonUtils.click(createCRPage.manuscriptChoice);
+		CommonUtils.clickOnElement(createCRPage.manuscriptChoice);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		flowStepsImplementation.uploadManuscript();
@@ -156,7 +156,7 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 	@When("User submits a Review Material as Data Sharing Plan Publication")
 	public void user_submits_a_Review_Material_as_Data_Sharing_Plan_Publication() {
 		JavascriptUtils.scrollIntoView(createCRPage.dataSharingPlanPublication);
-		CommonUtils.click(createCRPage.dataSharingPlanPublication);
+		CommonUtils.clickOnElement(createCRPage.dataSharingPlanPublication);
 		MiscUtils.sleep(5000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		flowStepsImplementation.uploadDataSharing();
@@ -167,7 +167,7 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 	@When("User submits a Review Material as Data Sharing Plan Presentation")
 	public void user_submits_a_Review_Material_as_Data_Sharing_Plan_Presentation() {
 		JavascriptUtils.scrollIntoView(createCRPage.dataSharingPlanPresentation);
-		CommonUtils.click(createCRPage.dataSharingPlanPresentation);
+		CommonUtils.clickOnElement(createCRPage.dataSharingPlanPresentation);
 		MiscUtils.sleep(5000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		flowStepsImplementation.uploadDataSharing();
@@ -177,42 +177,42 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 
 	@When("User marks Patent\\/Invention as Employee Invention Report filed")
 	public void user_marks_Patent_Invention_as_Employee_Invention_Report_filed() {
-		CommonUtils.click(createCRPage.employeeInventionChoice);
+		CommonUtils.clickOnElement(createCRPage.employeeInventionChoice);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User denies Select Agents question")
 	public void user_denies_Select_Agents_question() {
-		CommonUtils.click(createCRPage.selectAgentNo);
+		CommonUtils.clickOnElement(createCRPage.selectAgentNo);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User confirms Helix Biowulf question")
 	public void user_confirms_Helix_Biowulf_question() {
-		CommonUtils.click(createCRPage.helixBiowulfYES);
+		CommonUtils.clickOnElement(createCRPage.helixBiowulfYES);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User confirms using Clinical Center's BTRIS system")
 	public void user_confirms_using_Clinical_Center_s_BTRIS_system() {
-		CommonUtils.click(createCRPage.btrisYES);
+		CommonUtils.clickOnElement(createCRPage.btrisYES);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User denies dual use")
 	public void user_denies_dual_use() {
-		CommonUtils.click(createCRPage.dualUseNO);
+		CommonUtils.clickOnElement(createCRPage.dualUseNO);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User confirms that the paper is High Profile")
 	public void user_confirms_that_the_paper_is_High_Profile() {
-		CommonUtils.click(createCRPage.highProfileYES);
+		CommonUtils.clickOnElement(createCRPage.highProfileYES);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
@@ -255,7 +255,7 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 
 	@Then("User submits for verification")
 	public void user_submits_for_verification() {
-		CommonUtils.click(createCRPage.submitForVerification);
+		CommonUtils.clickOnElement(createCRPage.submitForVerification);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		MiscUtils.sleep(7000);
@@ -273,7 +273,7 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 		JavascriptUtils.scrollIntoView(createCRPage.deleteButton);
 		JavascriptUtils.clickByJS(createCRPage.deleteButton);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(createCRPage.deleteClearanceReqConfirmation);
+		CommonUtils.clickOnElement(createCRPage.deleteClearanceReqConfirmation);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
@@ -281,17 +281,17 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 
 	@When("User picks Submission Type as Presentation")
 	public void user_picks_Submission_Type_as_Presentation() {
-		CommonUtils.click(createCRPage.presentationType);
+		CommonUtils.clickOnElement(createCRPage.presentationType);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User selects presentation type as Meeting Abstract")
 	public void user_selects_presentation_type_as_Meeting_Abstract() {
-		CommonUtils.click(createCRPage.presentationDropdown);
+		CommonUtils.clickOnElement(createCRPage.presentationDropdown);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(createCRPage.meetingAbstract);
+		CommonUtils.clickOnElement(createCRPage.meetingAbstract);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
@@ -319,7 +319,7 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 
 	@When("User puts no for  Laboratory Resources question")
 	public void user_puts_no_for_Laboratory_Resources_question() {
-		CommonUtils.click(createCRPage.labResourcesNO);
+		CommonUtils.clickOnElement(createCRPage.labResourcesNO);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
@@ -342,7 +342,7 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 	@Then("User submits data for review")
 	public void user_submits_data_for_review() {
 		JavascriptUtils.scrollIntoView(createCRPage.submitForVerification);
-		CommonUtils.click(createCRPage.submitForVerificationButton);
+		CommonUtils.clickOnElement(createCRPage.submitForVerificationButton);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}

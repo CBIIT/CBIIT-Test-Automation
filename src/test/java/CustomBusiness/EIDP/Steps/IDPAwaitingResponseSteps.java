@@ -90,7 +90,7 @@ public class IDPAwaitingResponseSteps extends PageInitializer {
 
 	@Then("User clicks on Verify Meeting Checkbox")
 	public void verifyMeetingChkBox() {
-		CommonUtils.click(aligningExpectationsPage.verifyMeetingCheckBox);
+		CommonUtils.clickOnElement(aligningExpectationsPage.verifyMeetingCheckBox);
 	}
 
 	@When("User clicks on No Revision option in all tabs")
