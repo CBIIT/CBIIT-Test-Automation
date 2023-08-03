@@ -1,99 +1,181 @@
 package CustomBusiness.EIDP.Pages;
 
 import java.util.List;
-import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-import CustomBusiness.EIDP.Util.CommonUtil;
 
 public class ProjectRelatedDeliverablePage extends CommonUtils{
 
-	@FindBy(how = How.ID, id = "projectTitle")
+	/* ------ Project title ------ */
+	@FindBy(id = "projectTitle")
 	public WebElement projectTitle;
 	
-	@FindBy(how = How.ID, id="trainingActivitiesTab")
+	/* ------ Training activity button ------ */
+	@FindBy(id="trainingActivitiesTab")
 	public WebElement trainingActivityButton;
 	
-	@FindBy(how = How.ID, id = "field-RP-01")
+	/* ------ Description field ------ */
+	@FindBy(id = "field-RP-01")
 	public WebElement description;
 	
-	@FindBy(how = How.ID, id = "field-RP-02")
+	/* ------ Responsibilities tab ------ */
+	@FindBy(id = "field-RP-02")
 	public WebElement responsibilities;
 	
-	@FindBy(how = How.ID, id = "projectsAndTrainingSubmit")
+	/* ------ Save and continue button ------ */
+	@FindBy(id = "projectsAndTrainingSubmit")
 	public WebElement saveAndContinueButton;
 	
-	@FindBy(how = How.ID, id = "addDeliverablesButton")
+	/* ------ Add deliverables done button ------ */
+	@FindBy(id = "addDeliverablesButton")
 	public WebElement doneButton;
 	
-	@FindBy(how = How.ID, id = "publicationButton")
+	/* ------ Publication button ------ */
+	@FindBy(id = "publicationButton")
 	public WebElement publicationButton;
 	
+	/* ------ Select type dropdown ------ */
 	@FindBy(id = "selectType")
 	public WebElement selectTypeDropdown;
 	
-	@FindBy(id = "publicationSubTypeSelect")
-	public WebElement publicationSubTypeSelect;
-	
-	@FindBy(how = How.ID, id = "month_start")
+	/* ------ Target start month dropdown ------ */
+	@FindBy(id = "month_start")
 	public WebElement targetMonthStartDropdown;
 	
-	@FindBy(how = How.ID, id = "year_start")
+	/* ------ Target start year dropdown ------ */
+	@FindBy(id = "year_start")
 	public WebElement targetYearDropdown;
 	
-	@FindBy(how = How.ID, id = "presentationFields5Title")
+	/* ------ Publication presentation title field ------ */
+	@FindBy(id = "presentationFields5Title")
 	public WebElement publicationtitle;
 	
-	@FindBy(how = How.ID, id = "field-RTA-03")
+	/* ------ Publication description box ------ */
+	@FindBy(id = "field-RTA-03")
 	public WebElement publicationDescription;
 	
-	@FindBy(how = How.ID, id = "addDeliverablesButton")
+	/* ------ Add deliverables button ------ */
+	@FindBy(id = "addDeliverablesButton")
 	public WebElement addDeliverablesButton;
 	
-	@FindBy(how = How.ID, id = "workshopSubmission")
+	/* ------ Workshop submission button ------ */
+	@FindBy(id = "workshopSubmission")
 	public WebElement classesCoursesWorkshopButton;
 	
-	@FindBy(how = How.ID, id = "noTravel1")
+	/* ------ Radio button for NO travel ------ */
+	@FindBy(id = "noTravel1")
 	public WebElement travelNoRadioButton;
 	
-	@FindBy(how = How.ID, id = "datepicker9")
+	/* ------ Class start date selection ------ */
+	@FindBy(id = "datepicker9")
 	public WebElement classesStartDate;
 	
-	@FindBy(how = How.ID, id = "datepicker10")
+	/* ------ Class to date selection ------ */
+	@FindBy(id = "datepicker10")
 	public WebElement classesToDate;
+
+	/* ------ Other start date selection ------ */
+	@FindBy(id = "datepicker12")
+	public WebElement otherStartDate;
 	
-	@FindBy(how = How.ID, id = "classroomLocation")
+	/* ------ Class to date selection ------ */
+	@FindBy(id = "datepicker13")
+	public WebElement otherToDate;
+
+	/* ------ Others location text box ------ */
+	@FindBy(id = "othersLocation")
+	public WebElement othersLocation;
+	
+	/* ------ Class room location text box ------ */
+	@FindBy(id = "classroomLocation")
 	public WebElement classRoomLocation;
 	
-	@FindBy(how = How.ID, id = "classroomtitle")
+	/* ------ Class room title text box ------ */
+	@FindBy(id = "classroomtitle")
 	public WebElement classroomtitle;
 	
-	@FindBy(how = How.ID, id = "field-RTA-classroom")
+	/* ------ Classroom description text box ------ */
+	@FindBy(id = "field-RTA-classroom")
 	public WebElement classDescrption;
 	
-	@FindBy(how = How.ID, id = "noclassProjectLink")
+	/* ------ NO existing project radio button ------ */
+	@FindBy(id = "noclassProjectLink")
 	public WebElement existingProjectNoRadioButton;
 	
-	@FindBy(how = How.ID, id = "addworkshops")
+	/* ------ Add workshop button ------ */
+	@FindBy(id = "addworkshops")
 	public WebElement addworkshopsButton;
 	
+	/* ------ Add new project button ------ */
 	@FindBy(id = "addnewProject")
 	public WebElement addNewProjectButton;
 	
+	/* ------ Target starting month ------ */
 	@FindBy(id = "month_start")
 	public WebElement targetDateMonth;
 	
+	/* ------ Target starting year ------ */
 	@FindBy(id = "year_start")
 	public WebElement targetDateYear;
 	
+	/* ------ Save button for project and training ------ */
 	@FindBy(id = "projectsAndTrainingSave")
 	public WebElement projectsAndTrainingSave;
+
+	/* ------ List of Project edit Buttons ------ */
+	@FindBy(css = "#tab_0 [aria-label='edit']")
+	public List<WebElement> projectEditButtons;
+
+	/* ------ Project completed Radio Button ------ */
+	@FindBy(id = "projStatus_297")
+	public WebElement completeRadioButton;
+
+	/* ------ In Preparation Radio button ------ */
+	@FindBy(xpath = "//label[contains(text(), 'In Preparation')]")
+	public WebElement inPrepRadioButton;
+
+	/* ------ Training Type Text ------ */
+	@FindBy(css = ".modal-lg.in #myModalLabel")
+	public WebElement trainingTypeText;
+
+	/* ------ Work date from ------ */
+	@FindBy(id = "datepicker34")
+	public WebElement workDateFrom;
+
+	/* ------ Work date to ------ */
+	@FindBy(id = "datepicker33")
+	public WebElement workDateTo;
+
+	/* ------ Interest Group Location ------ */
+	@FindBy(id = "interestGroupLocation")
+	public WebElement interestGroupLocation;
+
+	/* ------ Add group perticipation button ------ */
+	@FindBy(id = "addGroupParticipation")
+	public WebElement addGroupPerticipation;
+
+	/* ------ Others Training Activity ------ */
+	@FindBy(id = "addOthersTrainingActivities")
+	public WebElement addOthersTrainingActivities;
+
+	/* ------ List of training activity Icons ------ */
+	@FindBy(css = ".delivChoice .fa.fa-pencil")
+	public List<WebElement> trainningActivitiesEditIcons;
+
+	/* ------ List of Interest/working groups ------ */
+	@FindBy(xpath = "//*[@id='ta_interestGroup2']//div[@class='controls']//label[@class='radio']")
+	public List<WebElement> interestGroups;
+
+	/* ------ List of Class course statuses ------ */
+	@FindBy(xpath = "//*[@id='ta_classCourses2']//*[@aria-labelledby='trackClassActStatusLegend']//label")
+	public List<WebElement> classCourseStatuses;
+
+	/* ------ List of Other Activity statuses ------ */
+	@FindBy(xpath = "//*[@id='ta_presentations']//*[@aria-labelledby='trackOtherActStatusLegend']//label")
+	public List<WebElement> otherActStatuses;
 	
 	public ProjectRelatedDeliverablePage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);

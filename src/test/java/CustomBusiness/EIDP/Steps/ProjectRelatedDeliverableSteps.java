@@ -1,6 +1,6 @@
 package CustomBusiness.EIDP.Steps;
 
-import org.openqa.selenium.By;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import CustomBusiness.EIDP.Util.CommonUtil;
@@ -18,7 +18,10 @@ public class ProjectRelatedDeliverableSteps extends PageInitializer {
 
 	@Then("User fills mandatory fields in project deliverable page for renew")
 	public void continueAfterProjectDetails() {
-		projectRelatedDeliverableStepImpl.clickOnProjectRelatedTraining();
+		projectRelatedDeliverableStepImpl.markAllExistingProjectsAsCompleted();
+		MiscUtils.sleep(3000);
+		projectRelatedDeliverableStepImpl.markAllProjectRelatedTrainningsAreCompleted();
+		MiscUtils.sleep(3000);
 	}
 
 	@When("User edits the existing IDP details in all the tabs")
@@ -56,26 +59,12 @@ public class ProjectRelatedDeliverableSteps extends PageInitializer {
 
 	@When("User adds new project with deliverables")
 	public void addNewProject() {
-
-		projectRelatedDeliverableStepImpl.markAllExistingProjectsAsCompleted();
-		CommonUtil.waitBrowser(3000);
-
-		try {
-			projectRelatedDeliverableStepImpl.markAllExistingProjectsAsCompleted();
-		} catch (Exception e) {
-
-		}
-
 		projectRelatedDeliverableStepImpl.addNewProject();
-		CommonUtil.waitBrowser(3000);
-		projectRelatedDeliverableStepImpl.selectProjectStatus("In Progress");
+		MiscUtils.sleep(3000);
 		eidpCommonPage.clickOnbutton("Save and Continue");
-		CommonUtil.waitBrowser(7000);
-		projectRelatedDeliverableStepImpl.markAllProjectRelatedTrainningsAreCompleted();
-		CommonUtil.waitBrowser(3000);
 		projectRelatedDeliverableStepImpl.addWorkShipDetailsWithStatus();
-		CommonUtil.waitBrowser(4000);
+		MiscUtils.sleep(3000);
 		eidpCommonPage.clickOnbutton("Save and Continue");
-		CommonUtil.waitBrowser(6000);
+		MiscUtils.sleep(3000);
 	}
 }

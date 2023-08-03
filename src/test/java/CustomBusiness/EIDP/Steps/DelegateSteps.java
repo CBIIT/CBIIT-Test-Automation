@@ -39,7 +39,6 @@ public class DelegateSteps extends PageInitializer {
 		} else {
 			delegatePage.clickOnPermanentDelegateAddButton();
 		}
-		CommonUtil.waitBrowser(4000);
 	}
 
 	@Then("User checks \"([^\"]*)\" is added as delegate")
@@ -50,12 +49,7 @@ public class DelegateSteps extends PageInitializer {
 	@When("User deletes \"([^\"]*)\" from delegators table")
 	public void deleteDelegator(String name) {
 		delegatePage.deleteDelegator(name);
-		MiscUtils.sleep(3000);
-		delegatePage.clickOnDeleteButton();
-	}
-
-	@Then("User check delegate delete message")
-	public void verifyDeleteMessage() {
+		MiscUtils.sleep(2000);
 		Assert.assertEquals("Delegate deleted successfully.", delegatePage.getDeleteMessage());
 	}
 
