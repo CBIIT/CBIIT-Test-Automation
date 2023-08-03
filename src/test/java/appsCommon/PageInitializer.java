@@ -91,6 +91,8 @@ import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
+import ServiceNow.ETracking.Pages.EtrackAssetsRecords_NativeViewPage;
+import ServiceNow.GCP.Pages.GCPNotifications_NativeViewPage;
 import ServiceNow.ESR.Pages.NCINativeViewPage;
 import ServiceNow.NERD.Pages.Covid19ActivitiesSubmissionsPage;
 import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
@@ -259,6 +261,12 @@ public class PageInitializer {
     public static StadtmanVacancyStepsImplementation stadtmanVacancyStepsImplementation;
     public static OWMVacancyStepsImplementation oWMVacancyStepsImplementation;
     public static SCSSLoginStepsImplementation sCCSLoginStepsImplementation;
+
+    /** eTracking instances */
+    public static EtrackAssetsRecords_NativeViewPage etrackAssetsRecords_NativeViewPage;
+
+    /** GCP instances */
+    public static GCPNotifications_NativeViewPage gCPNotifications_NativeViewPage;
 
     /** --------------- CUSTOM BUSINESS APP INSTANCES --------------- */
     /** EIDP instances */
@@ -579,5 +587,13 @@ public class PageInitializer {
         manageI2EUsersPage = new ManageI2EUsersPage();
 
         seerLandingPage2 = new SEERLandingPage2();
+
+
+        /** eTracking INSTANCE VARIABLES */
+        etrackAssetsRecords_NativeViewPage = new EtrackAssetsRecords_NativeViewPage();
+
+        /** GCP INSTANCE VARIABLES */
+        gCPNotifications_NativeViewPage = new  GCPNotifications_NativeViewPage();
+
     }
 }
