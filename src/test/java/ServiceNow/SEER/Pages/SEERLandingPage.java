@@ -111,6 +111,14 @@ public class SEERLandingPage extends CommonUtils {
 	@FindBy(xpath = "//p[contains(text(),  ' Request SEER Research Plus Databases ')]")
 	public WebElement requestSeerResearchPlusDatabasesParagraph;
 
+	/** SEER Research Plus Login Button */
+	@FindBy(xpath = "//a[normalize-space()='Research Plus Login']")
+	public WebElement seerResearchPlusLoginButton;
+
+	/** SEER Research Plus Sign In - NIH Login Page Title */
+	@FindBy(xpath = "//b[normalize-space()='(NIH Login: Staging Environment)']//parent::h1")
+	public WebElement seerResearchPlusSignInNIHLoginTitle;
+
 	/**
 	 * --------------- End Of Upgrade an existing SEER*Stat Account Section
 	 * ---------------
