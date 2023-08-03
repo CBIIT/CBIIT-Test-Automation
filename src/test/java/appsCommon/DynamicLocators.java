@@ -19,6 +19,15 @@ public class DynamicLocators {
     }
 
     /***
+     * USE THIS METHOD TO DYNAMICALLY LOCATE ELEMENTS BASED ON EXACT TEXT
+     * @param text
+     * @return
+     */
+    public static WebElement dynamicTextLocator(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//*[text()='" + text + "'])[1]"));
+    }
+
+    /***
      * USE THIS METHOD TO DYNAMICALLY LOCATE ELEMENTS BASED ON TEXT WITH SPAN TAG NAME
      * @param text
      * @return
