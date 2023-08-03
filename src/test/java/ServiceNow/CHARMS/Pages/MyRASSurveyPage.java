@@ -60,6 +60,10 @@ public class MyRASSurveyPage {
     @FindBy(xpath = "//*[@id='QID304']/div[3]/div")
     public WebElement theNextTwoQuestionsWillAskAboutGiText;
 
+    /* RAS SURVEY PLEASE COMPLETE THE TABLE BELOW REGARDING NAUSEA SYMPTOMS TEXT */
+    @FindBy(xpath = "//*[@id='QID130']/div[3]/div")
+    public WebElement pleaseCompleteTheTableBelowRegardingNauseaSymptomsText;
+
     /* RAS SURVEY CATHETER INTERVENTION CHECK BOX */
     @FindBy(xpath = "//*[@id='QID101-2-label']")
     public WebElement catheterInterventionTextBox;
@@ -207,6 +211,13 @@ public class MyRASSurveyPage {
     */
     public WebElement dynamicDropDownTwo(int index, int indexTwo) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//div[@class='QuestionBody']//child::tbody//tr[" + index + "]//child::td[" + indexTwo + "]//child::select"));
+    }
+
+    /*
+    USE THIS METHOD FOR MEDICATION FOR ABDOMINAL PAIN DROPDOWN
+    */
+    public WebElement medicationForAbdominalPainDropDownTwo() {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='QR~QID344']"));
     }
 
     /*

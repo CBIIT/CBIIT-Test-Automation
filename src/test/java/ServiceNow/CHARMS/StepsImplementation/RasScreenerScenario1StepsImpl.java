@@ -2066,6 +2066,60 @@ public class RasScreenerScenario1StepsImpl extends PageInitializer {
         JavascriptUtils.clickByJS(myRASSurveyPage.gaggingRadioButton(3, 1));
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        CommonUtils.waitForClickability(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(1, 3));
+        JavascriptUtils.clickByJS(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(1, 3));
+        JavascriptUtils.clickByJS(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(1, 8));
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 13).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 13), testDataManager.pleaseCompleteTheTableBelowRegardingHeartburnColumn1);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 14).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 14), testDataManager.pleaseCompleteTheTableBelowRegardingHeartburnColumn2);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        CommonUtils.waitForClickability(myRASSurveyPage.pleaseCompleteTheTableBelowRegardingNauseaSymptomsText);
+        JavascriptUtils.clickByJS(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(1, 3));
+        JavascriptUtils.clickByJS(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(1, 8));
+        JavascriptUtils.clickByJS(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(1, 13));
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 18).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 18), testDataManager.pleaseCompleteTheTableBelowRegardingHeartburnColumn1);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 19).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 19), testDataManager.pleaseCompleteTheTableBelowRegardingHeartburnColumn2);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        CommonUtils.waitForClickability(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(1, 3));
+        for (int v = 1; v < 20 ; v++){
+            JavascriptUtils.clickByJS(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(v, 3));
+        }
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicLocator(testDataManager.haveAnyMedicationsEverBeenTakenForAbdominalPain));
+        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(testDataManager.haveAnyMedicationsEverBeenTakenForAbdominalPain));
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.medicationForAbdominalPainDropDownTwo());
+        CommonUtils.selectDropDownValue(testDataManager.howManyMedicationsHaveBeenTakenForAbdominalPain, myRASSurveyPage.medicationForAbdominalPainDropDownTwo());
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3));
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3), testDataManager.pleaseCompleteTheTableBelowRegardingTheMedicationsColumn1);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 4).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 4), testDataManager.pleaseCompleteTheTableBelowRegardingTheMedicationsColumn2);
+        myRASSurveyPage.enterTextInTextAreaTextBox(1, 7).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInTextAreaTextBox(1, 7), testDataManager.pleaseCompleteTheTableBelowRegardingTheMedicationsColumn3);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        CommonUtils.waitForClickability(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(1, 3));
+        for (int x = 1; x < 8 ; x++){
+            JavascriptUtils.clickByJS(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(x, 3));
+        }
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicLocator(testDataManager.hasAnyMedicationEverBeenTakenForVomiting));
+        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(testDataManager.hasAnyMedicationEverBeenTakenForVomiting));
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+
 
 
         MiscUtils.sleep(5000);
