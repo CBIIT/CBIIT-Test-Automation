@@ -22,8 +22,8 @@ public class ETDFlowStepsImpl extends PageInitializer {
 
 	public void etdLogin(String userName) throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ETD"));
-		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "nekrashevicha2Username");
-		iTrustloginPage.enterPassword("nekrashevicha2Password");
+		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "Username");
+		iTrustloginPage.enterPassword("Password");
 		MiscUtils.sleep(3000);
 		iTrustloginPage.clickSignInButton();
 		MiscUtils.sleep(3000);

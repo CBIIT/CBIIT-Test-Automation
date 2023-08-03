@@ -1,11 +1,5 @@
 package CustomBusiness.EIDP.Steps;
 
-import java.util.List;
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.WebDriverUtils;
 import org.junit.Assert;
 import com.nci.automation.utils.MiscUtils;
 import CustomBusiness.EIDP.Util.SharedData;
@@ -28,9 +22,8 @@ public class AligningExpectationsSteps extends PageInitializer {
 		aligningExpectationsStepImpl.clickOnSaveButton();
 	}
 
-	@When("User will click on revew and take action button")
+	@When("User will click on review and take action button")
 	public void user_will_click_on_revew_and_take_action_button() {
-		MiscUtils.sleep(4000);
 		System.out.println("TRAINEE NAME = " + SharedData.traineeName);
 		aligningExpectationsStepImpl.clickOnReviewAndTakeActionButton();
 	}
@@ -41,22 +34,13 @@ public class AligningExpectationsSteps extends PageInitializer {
 
 	@When("User verifies IDP will be placed on hold message")
 	public void verifyIDPHoldMsg() {
-		try {
-			MiscUtils.sleep(6000);
+			MiscUtils.sleep(2000);
 			eidpDashboardStepImpl.clickOnSendIDPToPrimaryMentorButton();
-			MiscUtils.sleep(4000);
+			MiscUtils.sleep(2000);
 			String msg = aligningExpectationsStepImpl.getHoldMsg();
 			System.out.println("hold message = " + msg);
 			eidpCommonPage.clickOnYesButton();
-			// Your IDP will be placed on hold since you updated the following field(s):
 			Assert.assertTrue(
 					msg.contains("Your IDP will be placed on hold since you updated the following field(s):"));
-
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-
-		}
-
 	}
-
 }

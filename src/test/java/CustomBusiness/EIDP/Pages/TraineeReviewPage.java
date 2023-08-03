@@ -1,79 +1,58 @@
 package CustomBusiness.EIDP.Pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-import CustomBusiness.EIDP.Util.CommonUtil;
 
 public class TraineeReviewPage extends CommonUtils {
 
+	/* ------ General info Tab ------ */
 	@FindBy(css = "a[href*='/idp/general']")
-	private WebElement generalInfromationTab;
+	public WebElement generalInfromationTab;
 
+	/* ------ Project related tab ------ */
 	@FindBy(css = "a[href*='/idp/projects']")
-	private WebElement projectRelatedTab;
+	public WebElement projectRelatedTab;
 
+	/* ------ Project related training tab ------ */
 	@FindBy(id = "trainingActivitiesTab")
-	private WebElement projectRelatedTrainningTab;
+	public WebElement projectRelatedTrainningTab;
 
+	/* ------ Career goals tab ------ */
 	@FindBy(css = "a[href*='/idp/career']")
-	private WebElement careerGoalsTab;
+	public WebElement careerGoalsTab;
 
+	/* ------ Align expectation tab ------ */
 	@FindBy(css = "a[href*='/idp/alignExpectations']")
-	private WebElement alignExpectationsTab;
+	public WebElement alignExpectationsTab;
 
+	/* ------ Mentors expectation tab ------ */
 	@FindBy(css = "a[href*='/idp/mentor-expectations']")
-	private WebElement mentorExpectationsTab;
+	public WebElement mentorExpectationsTab;
 
+	/* ------ Mark as read checkbox ------ */
 	@FindBy(id = "changeMarkasread")
-	private WebElement markAsReadCheckbox;
+	public WebElement markAsReadCheckbox;
 
+	/* ------ Radio button for Reviewd and NO feedback ------ */
 	@FindBy(css = "label[for='revisionRadioButtonNo']")
-	private WebElement reviewedNoFeedbackRadioButton;
+	public WebElement reviewedNoFeedbackRadioButton;
 
+	/* ------ Save button ------ */
 	@FindBy(id = "saveButton")
-	private WebElement saveButton;
+	public WebElement saveButton;
 
+	/* ------ Review and Take action button ------ */
 	@FindBy(css = "a[href*='/idp/trainingDetails']")
-	private WebElement reviewAndTakeActionButton;
+	public WebElement reviewAndTakeActionButton;
 
+	/* ------ Acknowledge Renewal decision radio button ------ */
 	@FindBy(xpath =  "//*[@id='ackRenewalDecision']")
-	private WebElement ackRenewaldecision;
+	public WebElement ackRenewaldecision;
 
 	public TraineeReviewPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
-	}
-
-	public void reivewIDPRequest() {
-		CommonUtil.waitBrowser(4000);
-		CommonUtils.click(generalInfromationTab);
-		CommonUtils.click(markAsReadCheckbox);
-
-		CommonUtils.click(projectRelatedTab);
-		CommonUtils.click(markAsReadCheckbox);
-		CommonUtils.click(projectRelatedTrainningTab);
-		CommonUtils.click(markAsReadCheckbox);
-
-		CommonUtils.click(careerGoalsTab);
-		CommonUtils.click(markAsReadCheckbox);
-
-		CommonUtils.click(alignExpectationsTab);
-		CommonUtils.click(markAsReadCheckbox);
-		
-		CommonUtils.click(mentorExpectationsTab);
-		CommonUtils.click(reviewedNoFeedbackRadioButton);
-		
-		CommonUtils.click(saveButton);
-		try {
-			CommonUtils.click(ackRenewaldecision);
-			CommonUtils.click(saveButton);
-		}catch(Exception e) {
-			
-		}
-		CommonUtils.click(reviewAndTakeActionButton);
-
 	}
 }

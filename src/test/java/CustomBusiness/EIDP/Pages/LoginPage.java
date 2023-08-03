@@ -1,40 +1,47 @@
 package CustomBusiness.EIDP.Pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.web.WebDriverUtils;
 import CustomBusiness.EIDP.Util.CommonUtil;
 
 public class LoginPage extends CommonUtil{
 	
-	@FindBy(how = How.ID, id = "USER")
+	/* ------ User name ------ */
+	@FindBy(id = "USER")
 	public WebElement username;
 	
-	@FindBy(how = How.ID, id = "PASSWORD")
+	/* ------ Password------ */
+	@FindBy(id = "PASSWORD")
 	public WebElement password;
 	
-	@FindBy(how = How.CSS, css = "button[onclick='return submitForm(1);']")
+	/* ------ Sign in button ------ */
+	@FindBy(css = "button[onclick='return submitForm(1);']")
 	public WebElement signInButton;
 	
-	@FindBy(how = How.CSS, css = ".fa.fa-user")
+	/* ------ Change User button ------ */
+	@FindBy(css = ".fa.fa-user")
 	public WebElement changeUserButton;
 	
-	@FindBy(how = How.XPATH, xpath = "//button[@id='dropdown-change-user']")
+	/* ------ Change user ------ */
+	@FindBy( xpath = "//button[@id='dropdown-change-user']")
 	public WebElement changeUser;  
 	
-	@FindBy(how = How.XPATH, xpath = "//input[@id='undefinedTypeahead']")
+	/* ------ Change user input box ------ */
+	@FindBy( xpath = "//input[@id='undefinedTypeahead']")
 	public WebElement changeUserInput;
 	
-	@FindBy(how = How.ID, id= "select2-input-changeUser-container")
+	/* ------ Change user dropdown ------ */
+	@FindBy(id= "select2-input-changeUser-container")
 	public WebElement changeUserDropdown;
 	
-	@FindBy(how = How.CSS, css = "input[type='search']")
+	/* ------ change user search ------ */
+	@FindBy(css = "input[type='search']")
 	public WebElement searchableChangeUserInput;
-
-	@FindBy(how = How.CSS, css = "li[role='treeitem']")
+	
+	/* ------ Change user option ------ */
+	@FindBy(css = "li[role='treeitem']")
 	public WebElement changeUserOption;
 	
 	public LoginPage() {

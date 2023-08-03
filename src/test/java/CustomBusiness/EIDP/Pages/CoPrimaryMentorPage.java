@@ -1,7 +1,6 @@
 package CustomBusiness.EIDP.Pages;
 
 import java.util.List;
-
 import CustomBusiness.EIDP.Steps.HooksSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -16,44 +15,65 @@ import CustomBusiness.EIDP.Util.SharedData;
 
 public class CoPrimaryMentorPage extends CommonUtils {
 
+	/* ------ Checkbox for Mark as Reviewed ------ */
 	@FindBy(xpath = "//*[contains(@class,'checkbox btn btn-primary')]")
 	public WebElement markAsReviewedCheckbox;
 
+	/* ------ Checkbox for NHGRI Mark as Reviewed ------ */
 	@FindBy(css = "[class='checkbox btn btn-primary validate-error']")
 	public WebElement markAsReviewedCheckboxNhgri;
 
+	/* ------ General information tab ------ */
 	@FindBy(css = "[href*='/idp/review-general']")
-	private WebElement generalInformationTab;
+	public WebElement generalInformationTab;
 
+	/* ------ Save and Continue Button ------ */
 	@FindBy(id = "saveAndNextButton")
-	private WebElement saveAndContinueButton;
+	public WebElement saveAndContinueButton;
 
+	/* ------ Save button ------ */
 	@FindBy(id = "saveButton")
-	private WebElement saveButton;
+	public WebElement saveButton;
 
+	/* ------ IDP reviewed button ------ */
 	@FindBy(id = "approveSubmit")
-	private WebElement reviewedButton;
+	public WebElement reviewedButton;
 
+	/* ------ Final Mark as Reviewed checkbox ------ */
 	@FindBy(id = "markasReviewedAllPagesCheck")
-	private WebElement markAsReviewed;
+	public WebElement markAsReviewed;
 
+	/* ------ TD approves IDP button ------ */
 	@FindBy(id = "tdAprroveIDP")
-	private WebElement approvedAndSubmitButton;
+	public WebElement approvedAndSubmitButton;
 
+	/* ------ NCI TD approves and submit button ------ */
 	@FindBy(id = "aprroveByTDModal")
-	private WebElement approvedAndSubmitButtonNCI;
+	public WebElement approvedAndSubmitButtonNCI;
 
+	/* ------ Yes button after TD approves IDP ------ */
 	@FindBy(css = "button[onclick='form_submit_approveByTD(this)']")
-	private WebElement yesButton;
+	public WebElement yesButton;
 
+	/* ------ Yes button after LBO approves IDP ------ */
 	@FindBy(xpath = "//*[@onclick=\"form_submit_approveByLBO()\"]")
-	private WebElement finalYesButton;
+	public WebElement finalYesButton;
 
+	/* ------ LBO approves IDP button ------ */
 	@FindBy(id = "lboAprroveIDP")
-	private WebElement approveIDP;
+	public WebElement approveIDP;
 
+	/* ------ Button for returning to PM comments section ------ */
 	@FindBy(id = "returnToPMComments")
-	private WebElement primaryMentorComments;
+	public WebElement primaryMentorComments;
+
+	/* ------ Button for returning IDP to PM ------ */
+	@FindBy(xpath =  "//div[4]/form/ul/li[2]/a")
+	public WebElement returnToPM;
+
+	/* ------ Return to PM on popup window ------ */
+	@FindBy(xpath =  "//button[@onclick = 'form_submit_returnToPM()']")
+	public WebElement returnToPMonPopUpWindow;
 
 	public CoPrimaryMentorPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
@@ -69,11 +89,7 @@ public class CoPrimaryMentorPage extends CommonUtils {
 		CommonUtils.click(markAsReviewedCheckbox);
 		CommonUtils.click(approveIDP);
 		CommonUtils.click(finalYesButton);
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
@@ -176,33 +192,25 @@ public class CoPrimaryMentorPage extends CommonUtils {
 	}
 
 	public void clickOnReviewedButton() {
+		CommonUtils.waitForClickability(reviewedButton);
 		CommonUtils.click(reviewedButton);
 	}
 
 	public void markAsReviewed() {
+		MiscUtils.sleep(2000);
 		CommonUtils.click(markAsReviewed);
 	}
 
 	public void clickOnApproveAndSubmitButton() {
-
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-
+		MiscUtils.sleep(2000);
 		String locator = "//*[@id='tdAprroveIDP']";
 		if (WebDriverUtils.getWebDriver().findElements(By.xpath(locator)).size() > 0) {
 			CommonUtils.click(approvedAndSubmitButton);
 		} else {
 			CommonUtils.click(reviewedButton);
 		}
-		locator = "//*[@id='errorAlertTD']";
-		if (WebDriverUtils.getWebDriver().findElements(By.xpath(locator)).size() > 0) {
-			CommonUtils.click(markAsReviewedCheckbox);
-			CommonUtils.click(approvedAndSubmitButton);
-		}
+		MiscUtils.sleep(1000);
 	}
 
 	public void clickOnApproveAndSubmitButtonFORNCI() {
@@ -262,12 +270,10 @@ public class CoPrimaryMentorPage extends CommonUtils {
 		try {
 			if (markAsReviewedCheckbox.isDisplayed())
 				CommonUtils.click(markAsReviewedCheckbox);
-			List<WebElement> buttonEles = WebDriverUtils.getWebDriver()
-					.findElements(By.cssSelector(".pager.wizard #tdReturnToPM"));
-			CommonUtils.click(buttonEles.get(buttonEles.size() - 1));
+			CommonUtils.click(returnToPM);
+			CommonUtils.waitForVisibility(primaryMentorComments);
 			CommonUtils.sendKeys(primaryMentorComments, "Return to primary mentor flow");
-			CommonUtils.click(
-					WebDriverUtils.getWebDriver().findElement(By.cssSelector("[onclick='form_submit_returnToPM()']")));
+			CommonUtils.click(returnToPMonPopUpWindow);
 		} catch (Exception e) {
 
 		}

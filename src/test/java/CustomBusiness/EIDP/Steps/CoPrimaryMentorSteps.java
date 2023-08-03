@@ -1,10 +1,9 @@
 package CustomBusiness.EIDP.Steps;
 
 import org.junit.Assert;
-import org.junit.Before;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import CustomBusiness.EIDP.Pages.CoPrimaryMentorPage;
@@ -39,18 +38,20 @@ public class CoPrimaryMentorSteps extends PageInitializer {
 
 	@When("User clicks on REVIEWED button")
 	public void clickOnReviewedButton() {
+		MiscUtils.sleep(4000);
 		coPrimaryMentorPage.clickOnReviewedButton();
-		eidpCommonPage.waitForGoBackToHomeQueueButtonVisible();
+		MiscUtils.sleep(2000);
 	}
 
 	@When("User clicks on REVIEWED button then approves and submit")
 	public void clickOnReviewedButtonApproveAndSubmit() {
-		try {
 			coPrimaryMentorPage.markAsReviewed();
 			coPrimaryMentorPage.clickOnApproveAndSubmitButton();
-		} catch (Exception e) {
+	}
 
-		}
+	@When("User clicks on Marks as REVIEWED button on LBO page")
+	public void clickOnReviewedLBO() {
+			coPrimaryMentorPage.markAsReviewed();
 	}
 
 	@Then("Finish Idp process")
@@ -60,11 +61,7 @@ public class CoPrimaryMentorSteps extends PageInitializer {
 
 	@When("User clicks on APPROVE AND SUBMIT button")
 	public void clickOnApproveAndSubmitButton() {
-		try {
 			coPrimaryMentorPage.clickOnApproveAndSubmitButton();
-		} catch (Exception e) {
-
-		}
 	}
 
 	@When("User clicks on APPROVE AND SUBMIT button for nci")
@@ -79,15 +76,11 @@ public class CoPrimaryMentorSteps extends PageInitializer {
 
 	@When("User clicks on Yes button")
 	public void clickOnYesButton() {
-		try {
 			coPrimaryMentorPage.clickOnYesButton();
 			eidpCommonPage.waitForGoBackToHomeQueueButtonVisible();
 			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		} catch (Exception e) {
-
-		}
-	}
-
+	} 
+	
 	@When("User clicks on APPROVE IDP button")
 	public void approveIDP() {
 		coPrimaryMentorPage.clickOnApproveIDPButton();
