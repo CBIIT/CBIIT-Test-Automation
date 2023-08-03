@@ -18,7 +18,7 @@ public class GCPNotifications_NativeViewStepImpl extends PageInitializer {
     public static void theUserTypesSystemNotificationsInTheFilterNavigator() {
         nativeViewEnrollementsPage.filterNavigator.clear();
         CommonUtils.waitForVisibility(gCPNotifications_NativeViewPage.nVFilterNavigator);
-        gCPNotifications_NativeViewPage.nVFilterNavigator.sendKeys(GCPNotifications_NativeView_Constants.NATIVE_VIEW_ASSETS_FILTER_NAVIGATION_SEARCH_TEXT_BOX);
+        CommonUtils.sendKeys(gCPNotifications_NativeViewPage.nVFilterNavigator,GCPNotifications_NativeView_Constants.NATIVE_VIEW_ASSETS_FILTER_NAVIGATION_SEARCH_TEXT_BOX);
         gCPNotifications_NativeViewPage.nVFilterNavigator.click();
         CommonUtils.sendKeys(gCPNotifications_NativeViewPage.nVFilterNavigator, Keys.ENTER);
     }
