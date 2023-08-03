@@ -38,7 +38,9 @@ public class WebDriverUtils {
         String headless = ConfUtils.getProperty("headless");
 
         if (webDriver == null) {
-            if (Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
+            if (headless.equalsIgnoreCase(Constants.TRUE)) {
+            lunchInHeadlessMode();
+            } else if (Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
                 launchMobile();
             } else if (Constants.BROWSER_CHROME.equalsIgnoreCase(browser)) {
                 launchChrome();
@@ -48,7 +50,8 @@ public class WebDriverUtils {
                 launchSafari();
             } else if (browser.equalsIgnoreCase(Constants.BROWSER_EDGE)) {
                 launchEdge();
-            } else {
+            }
+            else {
                 CucumberLogUtils.logFail("Unsupported browser in localEnv.properties file! " + "PLEASE ENTER VALID BROWSER NAME", false);
                 return null;
             }
@@ -126,6 +129,12 @@ public class WebDriverUtils {
             chromeOptions.addArguments("--headless=new");
             webDriver = new ChromeDriver(chromeOptions);
         }
+    }
+
+    public static void lunchInHeadlessMode() {
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless=new");
+        webDriver = new ChromeDriver(chromeOptions);
     }
 
     public static void launchMobile() {

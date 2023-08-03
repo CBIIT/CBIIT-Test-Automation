@@ -72,15 +72,37 @@ public class MyRASSurveyPage {
     @FindBy(xpath = "//*[@id='QID75']/div[3]/div/fieldset/legend/label")
     public WebElement whatIsTheHeightOfYourBiologicalMotherAndFatherText;
 
+    /* RAS SURVEY WHAT IS THE LONGEST AMOUNT OF TIME THAT HAS PASSED  TEXT */
+    @FindBy(xpath = "//*[@id='QID155']/div[3]/div/fieldset/legend/label")
+    public WebElement whatIsTheLongestAmountOfTimeThatHasPassedText;
+
     /* RAS SURVEY PLEASE COMPLETE THE TABLE BELOW FOR ALL FOODS TEXT */
     @FindBy(xpath = "//*[@id='QID378']/div[3]/div/fieldset/legend/label")
     public WebElement pleaseCompleteTheTableBelowForAllFoodsText;
 
+    /* RAS SURVEY PLEASE PROVIDE INFORMATION FOR THE MOST RECENT PROCEDURE TEXT */
+    @FindBy(xpath = "//*[@id='QID161']/div[3]/div/fieldset/legend/label")
+    public WebElement pleaseProvideInformationForTheMostRecentProcedureText;
+
+    /* RAS SURVEY PLEASE COMPLETE THE TABLE BELOW REGARDING WEIGHT LOSS TEXT */
+    @FindBy(xpath = "//*[@id='QID328']/div[3]/div/fieldset/legend/label")
+    public WebElement pleaseCompleteTheTableBelowRegardingWeightLossText;
+
+    /* RAS SURVEY HAVE ANY OF THE FOLLOWING SYMPTOMS OCCURRED 4 TEXT */
+    @FindBy(xpath = "//*[@id='QID136']/div[3]/div/fieldset/legend/div")
+    public WebElement haveAnyOfTheFollowingSymptomsOccurred4Text;
+
+    /* RAS SURVEY PLEASE COMPLETE THE NEXT SET OF QUESTIONS REGARDING VOMITING TEXT */
+    @FindBy(xpath = "//*[@id='QID134']/div[3]/div/fieldset/legend/label")
+    public WebElement pleaseCompleteTheNextSetOfQuestionsRegardingVomitingText;
+
+    /* RAS SURVEY PLEASE COMPLETE THE INFORMATION BELOW REGARDING BOWEL TEXT */
+    @FindBy(xpath = "//*[@id='QID146']/div[3]/div/fieldset/legend/label")
+    public WebElement pleaseCompleteTheInformationBelowRegardingBowelText;
+
     /* RAS SURVEY PLEASE COMPLETE THE TABLE BELOW FOR ALL OTHER TEXT */
     @FindBy(xpath = "//*[@id='QID379']/div[3]/div/fieldset/legend/label")
     public WebElement pleaseCompleteTheTableBelowForAllOtherText;
-
-    /* RAS SURVEY PLEASE COMPLETE THE TABLE BELOW FOR ALL OTHER TEXT */
 
     /* RAS SURVEY HAVE YOU EVER BEEN DIAGNOSED WITH ANY FUNCTIONAL HEART ISSUE TEXT */
     @FindBy(xpath = "//*[@id='QID322']/div[3]/div/fieldset/legend/div")
@@ -122,6 +144,10 @@ public class MyRASSurveyPage {
     @FindBy(xpath = "//*[@id='QR~QID41~8~TEXT']")
     public WebElement pleaseIndicateTheResultsOfThePrenatalTestsOtherTextBox;
 
+    /* RAS SURVEY PLEASE INDICATE THE RESULTS OF THE PRENATAL TESTS OTHER TEXT BOX*/
+    @FindBy(xpath = "//*[@id='QR~QID141']")
+    public WebElement toWhatFoodsAreYouAverseTextBox;
+
     /* RAS SURVEY PULMONARY VALVE BUTTON */
     @FindBy(xpath = "//*[@id='QID98-1-label']/span")
     public WebElement pulmonaryValveButton;
@@ -146,6 +172,10 @@ public class MyRASSurveyPage {
     @FindBy(xpath = "//span[contains(text(),'Other (please specify)')]//parent::label//parent::span//child::input")
     public WebElement otherPleaseSpecifyTextBox;
 
+    /* RAS SURVEY OTHER PLEASE SPECIFY DYNAMIC TEXT BOX*/
+    @FindBy(xpath = "//span[contains(text(),'Other GI test (please specify)')]//parent::label//parent::span//child::input")
+    public WebElement otherGiPleaseSpecifyTextBox;
+
     /* RAS SURVEY AGE PLEASE SPECIFY TEXT BOX*/
     @FindBy(xpath = "//span[contains(text(),'Age (specify if in days, weeks, months or years)')]//parent::label//parent::span//child::input")
     public WebElement agePleaseSpecifyTextBox;
@@ -157,6 +187,13 @@ public class MyRASSurveyPage {
     /* RAS SURVEY ADD BUTTON*/
     @FindBy(xpath = "//*[@id='add']")
     public WebElement addButton;
+
+    /*
+    USE THIS METHOD TO DYNAMICALLY ENTER TEXT IN OPTIONS SELECTED
+    */
+    public WebElement dynamicOtheriPleaseSpecifyTextBox(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//span[contains(text(),'" + text + "')]//parent::label//parent::span//child::input"));
+    }
 
     /*
         USE THIS METHOD TO DYNAMICALLY CLICK ON NORMAL RADIO BUTTONS
@@ -217,7 +254,7 @@ public class MyRASSurveyPage {
     USE THIS METHOD FOR MEDICATION FOR ABDOMINAL PAIN DROPDOWN
     */
     public WebElement medicationForAbdominalPainDropDownTwo() {
-        return WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='QR~QID344']"));
+        return WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='Buttons']//parent::div[1]//child::div[3]//child::div//child::fieldset//child::div//child::select"));
     }
 
     /*

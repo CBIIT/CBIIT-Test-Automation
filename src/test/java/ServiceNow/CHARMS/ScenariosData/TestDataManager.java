@@ -569,9 +569,130 @@ public class TestDataManager extends PageInitializer {
     public String pleaseCompleteTheTableBelowRegardingTheMedicationsColumn2;
     public String pleaseCompleteTheTableBelowRegardingTheMedicationsColumn3;
     public String hasAnyMedicationEverBeenTakenForVomiting;
+    public String howManyMedicationsHaveBeenTakenForVomiting;
+    public String pleaseCompleteTheListMedicationsTakenForVomitingColumn1;
+    public String pleaseCompleteTheListMedicationsTakenForVomitingColumn2;
+    public String haveAnyOfTheFollowingSymptomsOccurred4Option1;
+    public String haveAnyOfTheFollowingSymptomsOccurred4Option2;
+    public String haveAnyOfTheFollowingSymptomsOccurred4Option3;
+    public String pleaseAnswerTheBelowQuestionsRegardingJaundiceTextBox1;
+    public String pleaseAnswerTheBelowQuestionsRegardingJaundiceTextBox2;
+    public String doYouTakeALactoseSupplement;
+    public String toWhatFoodsAreYouAverse;
+    public String pleaseCompleteTheTableBelowRegardingDiarrheaOption1;
+    public String pleaseCompleteTheTableBelowRegardingDiarrheaOption2;
+    public String pleaseCompleteTheTableBelowRegardingDiarrheaOption3;
+    public String pleaseCompleteTheTableBelowRegardingEncopresisOption1;
+    public String pleaseCompleteTheTableBelowRegardingEncopresisOption2;
+    public String pleaseCompleteTheTableBelowRegardingWeightLossOption1;
+    public String pleaseCompleteTheTableBelowRegardingWeightLossOption2;
+    public String pleaseCompleteTheTableBelowRegardingWeightLossOption3;
+    public String areYouToiletTrained;
+    public String atWhatAgeWereYouToiletTrained;
+    public String howManyBowelMovementsDoYouHavePerWeek;
+    public String whatIsTheLongestAmountOfTimeThatHasPassedWithout;
+    public String pleaseUseTheBristolStoolChart;
+    public String haveYouEverHadAProcedureTestOrStudyToEvaluate;
+    public String pleaseIndicateWhichOfTheFollowingProceduresOption1;
+    public String pleaseIndicateWhichOfTheFollowingProceduresOption2;
+    public String pleaseIndicateWhichOfTheFollowingProceduresOption3;
+    public String pleaseIndicateWhichOfTheFollowingProceduresOption4;
+    public String pleaseIndicateWhichOfTheFollowingProceduresOption5;
+    public String pleaseIndicateWhichOfTheFollowingProceduresOption6;
+    public String pleaseIndicateWhichOfTheFollowingProceduresOption7;
+    public String pleaseIndicateWhichOfTheFollowingProceduresOption8;
+    public String pleaseIndicateWhichOfTheFollowingProceduresOption9;
+    public String pleaseIndicateWhichOfTheFollowingProceduresOption90ther;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option1;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option2;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option3;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option4;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option5;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option6;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option7;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option8;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option9;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option1;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option2;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option3;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option4;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option5;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option6;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option7;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option8;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option9;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option1;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option2;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option3;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option4;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option5;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option6;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option7;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option8;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option9;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option1;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option2;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option3;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option4;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option5;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option6;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option7;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option8;
+    public String pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option9;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option1;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option2;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option3;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option4;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option5;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option6;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option7;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option8;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option9;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option1;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option2;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option3;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option4;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option5;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option6;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option7;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option8;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option9;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option1;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option2;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option3;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option4;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option5;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option6;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option7;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option8;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option9;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option1;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option2;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option3;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option4;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option5;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option6;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option7;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option8;
+    public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option9;
+    public String theNextSetOfQuestionsAskAboutBreathingAndTheLungs;
 //    public String
 //    public String
-
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
 
 
 
@@ -1143,5 +1264,112 @@ public class TestDataManager extends PageInitializer {
             pleaseCompleteTheTableBelowRegardingTheMedicationsColumn2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_THE_MEDICATIONS_COLUMN_2);
             pleaseCompleteTheTableBelowRegardingTheMedicationsColumn3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_THE_MEDICATIONS_COLUMN_3);
             hasAnyMedicationEverBeenTakenForVomiting = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAS_ANY_MEDICATION_EVER_BEEN_TAKEN_FOR_VOMITING);
+            howManyMedicationsHaveBeenTakenForVomiting = testDataRasSurvey.get(rASScreenerScenario1_Constants.HOW_MANY_MEDICATIONS_HAVE_BEEN_TAKEN_FOR_VOMITING);
+            pleaseCompleteTheListMedicationsTakenForVomitingColumn1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_LIST_MEDICATIONS_TAKEN_FOR_VOMITING_COLUMN_1);
+            pleaseCompleteTheListMedicationsTakenForVomitingColumn2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_LIST_MEDICATIONS_TAKEN_FOR_VOMITING_COLUMN_2);
+            haveAnyOfTheFollowingSymptomsOccurred4Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_ANY_OF_THE_FOLLOWING_SYMPTOMS_OCCURRED_4_OPTION_1);
+            haveAnyOfTheFollowingSymptomsOccurred4Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_ANY_OF_THE_FOLLOWING_SYMPTOMS_OCCURRED_4_OPTION_2);
+            haveAnyOfTheFollowingSymptomsOccurred4Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_ANY_OF_THE_FOLLOWING_SYMPTOMS_OCCURRED_4_OPTION_3);
+            pleaseAnswerTheBelowQuestionsRegardingJaundiceTextBox1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_ANSWER_THE_BELOW_QUESTIONS_REGARDING_JAUNDICE_TEXT_BOX_1);
+            pleaseAnswerTheBelowQuestionsRegardingJaundiceTextBox2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_ANSWER_THE_BELOW_QUESTIONS_REGARDING_JAUNDICE_TEXT_BOX_2);
+            doYouTakeALactoseSupplement = testDataRasSurvey.get(rASScreenerScenario1_Constants.DO_YOU_TAKE_A_LACTOSE_SUPPLEMENT);
+            toWhatFoodsAreYouAverse = testDataRasSurvey.get(rASScreenerScenario1_Constants.TO_WHAT_FOODS_ARE_YOU_AVERSE);
+            pleaseCompleteTheTableBelowRegardingDiarrheaOption1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_DIARRHEA_OPTION_1);
+            pleaseCompleteTheTableBelowRegardingDiarrheaOption2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_DIARRHEA_OPTION_2);
+            pleaseCompleteTheTableBelowRegardingDiarrheaOption3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_DIARRHEA_OPTION_3);
+            pleaseCompleteTheTableBelowRegardingEncopresisOption1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_ENCOPRESIS_OPTION_1);
+            pleaseCompleteTheTableBelowRegardingEncopresisOption2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_ENCOPRESIS_OPTION_2);
+            pleaseCompleteTheTableBelowRegardingWeightLossOption1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_WEIGHT_LOSS_OPTION_1);
+            pleaseCompleteTheTableBelowRegardingWeightLossOption2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_WEIGHT_LOSS_OPTION_2);
+            pleaseCompleteTheTableBelowRegardingWeightLossOption3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_WEIGHT_LOSS_OPTION_3);
+            areYouToiletTrained = testDataRasSurvey.get(rASScreenerScenario1_Constants.ARE_YOU_TOILET_TRAINED);
+            atWhatAgeWereYouToiletTrained = testDataRasSurvey.get(rASScreenerScenario1_Constants.AT_WHAT_AGE_WERE_YOU_TOILET_TRAINED);
+            howManyBowelMovementsDoYouHavePerWeek = testDataRasSurvey.get(rASScreenerScenario1_Constants.HOW_MANY_BOWEL_MOVEMENTS_DO_YOU_HAVE_PER_WEEK);
+            whatIsTheLongestAmountOfTimeThatHasPassedWithout = testDataRasSurvey.get(rASScreenerScenario1_Constants.WHAT_IS_THE_LONGEST_AMOUNT_OF_TIME_THAT_HAS_PASSED_WITHOUT);
+            pleaseUseTheBristolStoolChart = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_USE_THE_BRISTOL_STOOL_CHART);
+            haveYouEverHadAProcedureTestOrStudyToEvaluate = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_HAD_A_PROCEDURE_TEST_OR_STUDY_TO_EVALUATE);
+            pleaseIndicateWhichOfTheFollowingProceduresOption1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_INDICATE_WHICH_OF_THE_FOLLOWING_PROCEDURES_OPTION_1);
+            pleaseIndicateWhichOfTheFollowingProceduresOption2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_INDICATE_WHICH_OF_THE_FOLLOWING_PROCEDURES_OPTION_2);
+            pleaseIndicateWhichOfTheFollowingProceduresOption3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_INDICATE_WHICH_OF_THE_FOLLOWING_PROCEDURES_OPTION_3);
+            pleaseIndicateWhichOfTheFollowingProceduresOption4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_INDICATE_WHICH_OF_THE_FOLLOWING_PROCEDURES_OPTION_4);
+            pleaseIndicateWhichOfTheFollowingProceduresOption5 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_INDICATE_WHICH_OF_THE_FOLLOWING_PROCEDURES_OPTION_5);
+            pleaseIndicateWhichOfTheFollowingProceduresOption6 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_INDICATE_WHICH_OF_THE_FOLLOWING_PROCEDURES_OPTION_6);
+            pleaseIndicateWhichOfTheFollowingProceduresOption7 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_INDICATE_WHICH_OF_THE_FOLLOWING_PROCEDURES_OPTION_7);
+            pleaseIndicateWhichOfTheFollowingProceduresOption8 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_INDICATE_WHICH_OF_THE_FOLLOWING_PROCEDURES_OPTION_8);
+            pleaseIndicateWhichOfTheFollowingProceduresOption9 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_INDICATE_WHICH_OF_THE_FOLLOWING_PROCEDURES_OPTION_9);
+            pleaseIndicateWhichOfTheFollowingProceduresOption90ther = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_INDICATE_WHICH_OF_THE_FOLLOWING_PROCEDURES_OPTION_9_OTHER);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_1_OPTION_1);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_1_OPTION_2);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_1_OPTION_3);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_1_OPTION_4);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option5 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_1_OPTION_5);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option6 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_1_OPTION_6);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option7 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_1_OPTION_7);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option8 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_1_OPTION_8);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn1Option9 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_1_OPTION_9);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_2_OPTION_1);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_2_OPTION_2);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_2_OPTION_3);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_2_OPTION_4);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option5 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_2_OPTION_5);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option6 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_2_OPTION_6);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option7 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_2_OPTION_7);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option8 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_2_OPTION_8);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn2Option9 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_2_OPTION_9);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_3_OPTION_1);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_3_OPTION_2);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_3_OPTION_3);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_3_OPTION_4);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option5 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_3_OPTION_5);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option6 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_3_OPTION_6);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option7 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_3_OPTION_7);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option8 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_3_OPTION_8);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn3Option9 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_3_OPTION_9);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_4_OPTION_1);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_4_OPTION_2);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_4_OPTION_3);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_4_OPTION_4);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option5 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_4_OPTION_5);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option6 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_4_OPTION_6);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option7 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_4_OPTION_7);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option8 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_4_OPTION_8);
+            pleaseProvideTheInformationBelowForTheFirstProcedureColumn4Option9 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_FIRST_PROCEDURE_COLUMN_4_OPTION_9);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_1_OPTION_1);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_1_OPTION_2);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_1_OPTION_3);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_1_OPTION_4);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option5 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_1_OPTION_5);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option6 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_1_OPTION_6);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option7 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_1_OPTION_7);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option8 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_1_OPTION_8);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn1Option9 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_1_OPTION_9);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_2_OPTION_1);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_2_OPTION_2);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_2_OPTION_3);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_2_OPTION_4);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option5 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_2_OPTION_5);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option6 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_2_OPTION_6);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option7 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_2_OPTION_7);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option8 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_2_OPTION_8);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn2Option9 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_2_OPTION_9);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_3_OPTION_1);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_3_OPTION_2);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_3_OPTION_3);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_3_OPTION_4);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option5 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_3_OPTION_5);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option6 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_3_OPTION_6);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option7 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_3_OPTION_7);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option8 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_3_OPTION_8);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn3Option9 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_3_OPTION_9);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_4_OPTION_1);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_4_OPTION_2);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_4_OPTION_3);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_4_OPTION_4);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option5 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_4_OPTION_5);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option6 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_4_OPTION_6);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option7 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_4_OPTION_7);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option8 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_4_OPTION_8);
+            pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option9 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_4_OPTION_9);
+            theNextSetOfQuestionsAskAboutBreathingAndTheLungs = testDataRasSurvey.get(rASScreenerScenario1_Constants.THE_NEXT_SET_OF_QUESTIONS_ASK_ABOUT_BREATHING_AND_THE_LUNGS);
         }
     }
