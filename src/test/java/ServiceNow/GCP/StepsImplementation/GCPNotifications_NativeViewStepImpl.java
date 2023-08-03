@@ -58,7 +58,6 @@ public class GCPNotifications_NativeViewStepImpl extends PageInitializer {
         CommonUtils.waitForVisibility(gCPNotifications_NativeViewPage.nVGCPGCPEmployeeTrainingExpiredNotificationBodyTitle);
         JavascriptUtils.drawBlueBorder(gCPNotifications_NativeViewPage.nVGCPGCPEmployeeTrainingExpiredNotificationBodyTitle);
         CommonUtils.switchToFrame(gCPNotifications_NativeViewPage.nVGCPGCPEmployeeTrainingExpiredNotificationBodyiFrame);
-        MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(gCPNotifications_NativeViewPage.nVGCPGCPEmployeeTrainingExpiredNotificationBodyContent);
         JavascriptUtils.drawBlueBorder(gCPNotifications_NativeViewPage.nVGCPGCPEmployeeTrainingExpiredNotificationBodyContent);
         CommonUtils.assertEqualsWithMessage(gCPNotifications_NativeViewPage.nVGCPGCPEmployeeTrainingExpiredNotificationBodyContent.getText(), GCPNotifications_NativeView_Constants.NATIVE_VIEW_GCP_EMPLOYEE_TRAINING_EXPIRED_NOTIFICATION_CONTENT, "verifying Notification Content");
