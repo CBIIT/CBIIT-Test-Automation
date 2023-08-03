@@ -17,23 +17,19 @@ import io.cucumber.datatable.DataTable;
 public class GeneralInformationSteps extends PageInitializer {
 
 	@When("User fills mandatory fields in general information")
-	public void fillGeneralInformation() throws Exception {
-		generalInformationStepImpl.fillGeneralInformation();
+	public void fillGeneralInformation(DataTable dataTable) throws Exception {
+		generalInformationStepImpl.fillGeneralInformation(dataTable);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User fills mandatory fields in general information section")
 	public void user_fills_mandatory_fields_in_general_information_section(io.cucumber.datatable.DataTable data)
 			throws Exception {
-		// if (CommonUtils.isElementPresent(By.id("orcidId"))) {
-		// 	CommonUtils.sendKeys(WebDriverUtils.webDriver.findElement(By.id("orcidId")), "9999-9999-9999-9999");
-		// }
 		Map<String, String> requestData = CommonUtil.getMapFromDataTable(data);
-		Thread.sleep(2000);
 		generalInformationStepImpl.enterPrimaryMentor(requestData.get("Primary Mentor"));
-		Thread.sleep(2000);
+		MiscUtils.sleep(2000);
 		generalInformationStepImpl.enterLabBranchName(requestData.get("Lab Driector name"));
-		Thread.sleep(2000);
+		MiscUtils.sleep(2000);
 		String coPrimaryMentor = requestData.get("Co Primary Mentor");
 		System.out.println("coPrimaryMentor = " + coPrimaryMentor);
 		if (coPrimaryMentor != null && !"".equals(coPrimaryMentor)) {
@@ -42,12 +38,7 @@ public class GeneralInformationSteps extends PageInitializer {
 		} else {
 			generalInformationStepImpl.doYouHaveCoPrimaryMentory(false);
 		}
-
-		try {
-			generalInformationStepImpl.selectRandomCurrentTitle();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		generalInformationStepImpl.selectRandomCurrentTitle();
 		generalInformationStepImpl.selectRandomHighestDegree();
 		CommonUtil.waitBrowser(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
@@ -56,18 +47,6 @@ public class GeneralInformationSteps extends PageInitializer {
 
 	@When("User fills general information for renewal")
 	public void fillGeneralInformationForRenewal(DataTable data) throws Exception {
-		/*
-		 * Map<String, String> requestData = CommonUtil.getMapFromDataTable(data);
-		 * generalInformationStepImpl.enterPrimaryMentor(requestData.
-		 * get("Primary Mentor"));
-		 * generalInformationStepImpl.enterLabBranchName(requestData.
-		 * get("Lab Driector name")); String coPrimaryMentor =
-		 * requestData.get("Co Primary Mentor"); System.out.println("coPrimaryMentor = "
-		 * + coPrimaryMentor); if (coPrimaryMentor != null &&
-		 * !"".equals(coPrimaryMentor)) {
-		 * generalInformationStepImpl.doYouHaveCoPrimaryMentory(true);
-		 * generalInformationStepImpl.selectCoPrimaryMentor(coPrimaryMentor); }
-		 */
 		generalInformationStepImpl.selectRandomHighestDegree();
 		CommonUtil.waitBrowser(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
@@ -107,12 +86,9 @@ public class GeneralInformationSteps extends PageInitializer {
 
 	@When("User selects primary mentor as \"([^\"]*)\"")
 	public void selectPrimaryMentor(String name) throws Exception {
-		// if (CommonUtils.isElementPresent(By.id("orcidId"))) {
-		// 	CommonUtils.sendKeys(WebDriverUtils.webDriver.findElement(By.id("orcidId")), "9999-9999-9999-9999");
-		// }
 		generalInformationStepImpl.enterPrimaryMentor(name);
 		generalInformationStepImpl.selectRandomHighestDegree();
-		CommonUtil.waitBrowser(2000);
+		MiscUtils.sleep(2000);
 		generalInformationStepImpl.clickOnSaveAndContinueButton();
 	}
 

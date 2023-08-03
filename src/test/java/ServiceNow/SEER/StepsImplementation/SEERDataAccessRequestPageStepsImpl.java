@@ -262,7 +262,6 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         MiscUtils.sleep(1000);
         nativeViewAccessRequestPage.nativeViewLogOutButton.click();
         MiscUtils.sleep(1000);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
     public static void customerAccountTypeWillBeMarkedAsPublicInNativeView(String publicAccount) {

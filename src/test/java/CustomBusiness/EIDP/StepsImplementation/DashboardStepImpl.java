@@ -1,12 +1,10 @@
 package CustomBusiness.EIDP.StepsImplementation;
 
 import java.util.List;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import CustomBusiness.EIDP.Util.SharedData;
 import appsCommon.PageInitializer;
@@ -18,10 +16,11 @@ public class DashboardStepImpl extends PageInitializer {
 	}
 
 	public void selectVerifyMeetingCheckbox() {
-		WebDriverUtils.getWebDriver().findElement(By.cssSelector(".checkbox.btn.btn-primary")).click();
+		eidpDashboardPage.meetingCheckbox.click();
 	}
 
 	public void clickOnSearch() {
+		CommonUtils.waitForClickability(eidpDashboardPage.search);
 		CommonUtils.click(eidpDashboardPage.search);
 	}
 
@@ -30,9 +29,7 @@ public class DashboardStepImpl extends PageInitializer {
 	}
 
 	public void clickOnReviseIDP() throws Exception {
-		List<WebElement> allElements = WebDriverUtils.getWebDriver()
-				.findElements(By.xpath("//img[@data-original-title=\"Revise existing IDP\"]"));
-		for (WebElement e : allElements) {
+		for (WebElement e : eidpDashboardPage.reviseExistingIDPs) {
 			if (e.isEnabled()) {
 				e.click();
 				return;
@@ -43,7 +40,6 @@ public class DashboardStepImpl extends PageInitializer {
 
 	public void clickOnStartIDPButton() {
 		CommonUtils.waitForVisibility(eidpDashboardPage.startIDPButton);
-		MiscUtils.sleep(2000);
 		CommonUtils.click(eidpDashboardPage.startIDPButton);
 	}
 
@@ -67,6 +63,7 @@ public class DashboardStepImpl extends PageInitializer {
 	}
 
 	public void clickOnIDPAwaitResponsButton() {
+		CommonUtils.waitForClickability(eidpDashboardPage.idpAwaitingResponseButton);
 		CommonUtils.click(eidpDashboardPage.idpAwaitingResponseButton);
 	}
 
@@ -88,26 +85,20 @@ public class DashboardStepImpl extends PageInitializer {
 		if (!traineeName.contains(",")) {
 			traineeName = SharedData.traineeName.split(" ")[1] + ", " + SharedData.traineeName.split(" ")[0];
 		}
-		MiscUtils.sleep(8000);
+		MiscUtils.sleep(5000);
 		for (byte i = 1; i <= 8; i++) {
-			List<WebElement> pendingReviews = WebDriverUtils.getWebDriver()
-					.findElements(By.xpath("//table[@id='mentorsTable']//tr/td[1]/a"));
-			for (WebElement each : pendingReviews) {
+			for (WebElement each : eidpDashboardPage.pendingReviews) {
 				if (each.getText().equals(traineeName)) {
-					WebElement pendingReviewsTraineeButton = WebDriverUtils.getWebDriver().findElement(By
-							.xpath("(//a[text()='" + traineeName + "']//ancestor::tr//a[@title='Pending Review'])[1]"));
-					pendingReviewsTraineeButton.click();
+					eidpDashboardPage.pendingReviewsTraineeButton(traineeName).click();
 					isSelected = true;
 					break;
 				}
 			}
-			MiscUtils.sleep(8000);
+			MiscUtils.sleep(5000);
 			if (isSelected) {
 				break;
 			} else {
-				WebElement nextButton = WebDriverUtils.getWebDriver()
-						.findElement(By.xpath("//li[@id='mentorsTable_next']/a[contains(text(), 'Next')]"));
-				nextButton.click();
+				eidpDashboardPage.nextButton.click();
 				MiscUtils.sleep(5000);
 			}
 		}
@@ -115,28 +106,19 @@ public class DashboardStepImpl extends PageInitializer {
 	}
 
 	public Boolean selectIDPRequestOfTrainee() throws Exception {
-		if (WebDriverUtils.getWebDriver().findElements(By.xpath("//div[@id='d1']/span[text()='IDP Awaiting Response']"))
-				.size() > 0) {
-			WebDriverUtils.getWebDriver().findElement(By.xpath("//div[@id='d1']/span[text()='IDP Awaiting Response']"))
-					.click();
-		}
-
+		CommonUtils.waitForClickability(eidpDashboardPage.idpAwaitingResponseButton);
+		eidpDashboardPage.idpAwaitingResponseButton.click();
 		Boolean isSelected = false;
 		String traineeName = SharedData.traineeName;
 		if (!traineeName.contains(",")) {
 			traineeName = SharedData.traineeName.split(" ")[1] + ", " + SharedData.traineeName.split(" ")[0];
 		}
-		List<WebElement> pendingReviews = WebDriverUtils.getWebDriver()
-				.findElements(By.xpath("//a[text()='" + traineeName + "']//ancestor::tr//a[@title='Pending Review']"));
-		if (pendingReviews.size() > 0) {
-			pendingReviews.get(0).click();
+		if (eidpDashboardPage.pendingReviewsTrainee(traineeName).size() > 0) {
+			eidpDashboardPage.pendingReviewsTrainee(traineeName).get(0).click();
 			isSelected = true;
 		}
 		if (!isSelected) {
-			WebDriverUtils.getWebDriver().findElement(By.xpath(
-					"//tr//a[text()='" + traineeName + "']/parent::td/following-sibling::td//a[@title='Proceed']"))
-					.click();
-
+			eidpDashboardPage.traineeProceedButton(traineeName).click();
 		}
 		return isSelected;
 	}
@@ -168,9 +150,8 @@ public class DashboardStepImpl extends PageInitializer {
 					+ "') and contains(text(),'" + str + "')]/parent::td/following-sibling::td//a/img[@alt='Proceed']"))
 					.click();
 		} else {
-			if (CommonUtils.isElementEnabled(
-					WebDriverUtils.getWebDriver().findElement(By.xpath("//li[@id=\"mentorsTable_next\"]/a")))) {
-				WebDriverUtils.getWebDriver().findElement(By.xpath("//li[@id=\"mentorsTable_next\"]/a")).click();
+			if (CommonUtils.isElementEnabled(eidpDashboardPage.mentorsTableNext)) {
+				eidpDashboardPage.mentorsTableNext.click();
 				clickProceedButtonOfTraineeNHGRI();
 			} else {
 				throw new Exception("Unable to find the trainne to proceed");

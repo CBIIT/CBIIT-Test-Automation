@@ -1,36 +1,65 @@
 package CustomBusiness.EIDP.Pages;
 
 import java.util.List;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-import CustomBusiness.EIDP.Util.CommonUtil;
-
 
 public class CareerGoalAndActivePage extends CommonUtils{
 
-	@FindBy(how = How.ID, id = "careerGoalsSubmit")
+	/* ------ Career Goals save and continue button ------ */
+	@FindBy(id = "careerGoalsSubmit")
 	public WebElement saveAndContinueButton;
 	
-	@FindBy(how = How.ID, id = "skillsButton0")
+	/* ------ Communication skills button ------ */
+	@FindBy(id = "skillsButton0")
 	public WebElement communicationSkillButton;
 	
-	@FindBy(how = How.ID, id = "select")
+	/* ------ IDP type dropdown ------ */
+	@FindBy(id = "select")
 	public WebElement typeDropdown;
 	
-	@FindBy(how = How.XPATH, xpath="//div[@id=\"radioButtons_c100\"]/label[1]")
+	/* ------ Career Exploration status ------ */
+	@FindBy(xpath="//div[@id=\"radioButtons_c100\"]/label[1]")
 	public WebElement careerExplorationStatus;
 	
-	@FindBy(how = How.ID, id = "field-RTA-01")
+	/* ------ Description on career goals page ------ */
+	@FindBy(id = "field-RTA-01")
 	public WebElement description;
-	
-	
-	@FindBy(how = How.ID, id = "addMore")
+
+	/* ------ Career Goal Academic option ------ */
+	@FindBy(css = "[data-target='#academic24']")
+	public WebElement academicOption;
+
+	/* ------ Add More button ------ */
+	@FindBy(id = "addMore")
+	public WebElement addMoreButton;
+
+	/* ------ Done button ------ */
+	@FindBy(xpath = "//*[contains(@class, 'modal-lg')][contains(@class, 'in')]//*[text()='Done']")
 	public WebElement doneButton;
+
+	/* ------ List of Goals ------ */
+	@FindBy(css = "[data-target^='#academic']")
+	public List<WebElement> goals;
+
+	/* ------ List of Goal options ------ */
+	@FindBy(css = ".controls.line.ta_interestGroup.collapse.in label")
+	public List<WebElement> goalOptions;
+
+	/* ------ Edit icons ------ */
+	@FindBy(css = "[title='Edit']")
+	public List<WebElement> editIcons;
+
+	/* ------ careerStatuses ------ */
+	@FindBy(xpath = "//*[text()=' Please indicate the status of this career exploration:']//ancestor::div[@role='group']")
+	public List<WebElement> careerStatuses;
+
+	/* ------ edit radio buttons ------ */
+	@FindBy(css = ".modal-lg.in label.radio")
+	public List<WebElement> editRadiobuttons;
 	
 	public CareerGoalAndActivePage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
