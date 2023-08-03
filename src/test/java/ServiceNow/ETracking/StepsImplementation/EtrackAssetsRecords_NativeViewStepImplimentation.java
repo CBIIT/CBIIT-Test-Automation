@@ -23,7 +23,7 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         nativeViewImpersonateUser.impersonateEtrackingUser();
         nativeViewEnrollementsPage.filterNavigator.clear();
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVeTrackingFilterNavigator);
-        etrackAssetsRecords_NativeViewPage.nVeTrackingFilterNavigator.sendKeys("eTracking");
+        etrackAssetsRecords_NativeViewPage.nVeTrackingFilterNavigator.sendKeys(EtrackAssetsRecords_NativeView_Constants.ETRACKING_NATIVE_VIEW_FILTER_NAVIGATION_SEARCH_BOX);
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVeTrackingTab);
         CommonUtils.waitForClickability(etrackAssetsRecords_NativeViewPage.nVEtrackingAssetsTab);
         JavascriptUtils.clickByJS(etrackAssetsRecords_NativeViewPage.nVEtrackingAssetsTab);
@@ -42,7 +42,7 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CommonUtils.selectDropDownValue(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDown, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_STATUS_DROP_DOWN);
         etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordSubmitButton.click();
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchDropDown);
-        CommonUtils.selectDropDownValue(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchDropDown, "barcode");
+        CommonUtils.selectDropDownValue(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchDropDown, EtrackAssetsRecords_NativeView_Constants.ETRACKING_NATIVE_VIEW_ASSETS_ALL_RECORD_SEARCH_DROP_DOWN);
         CommonUtils.sendKeysToElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchTextBox, Keys.ENTER);
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.eTrackAssetLocator(EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX));
@@ -63,7 +63,7 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
 
     public static void theRecordIsDeleted() {
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchDropDown);
-        CommonUtils.selectDropDownValue(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchDropDown, "barcode");
+        CommonUtils.selectDropDownValue(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchDropDown, EtrackAssetsRecords_NativeView_Constants.ETRACKING_NATIVE_VIEW_ASSETS_ALL_RECORD_SEARCH_DROP_DOWN);
         CommonUtils.sendKeysToElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchTextBox, Keys.ENTER);
         CommonUtils.assertTrue(nativeViewAccessRequestPage.nativeViewAccessRequestNoRecordsToDisplayText.getText().contentEquals(SEERNativeView_Constants.NATIVE_VIEW_NO_RECORD_TO_DISPLAY_TEXT));
@@ -75,7 +75,7 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         nativeViewImpersonateUser.impersonateEtrackingUser();
         nativeViewEnrollementsPage.filterNavigator.clear();
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVeTrackingFilterNavigator);
-        etrackAssetsRecords_NativeViewPage.nVeTrackingFilterNavigator.sendKeys("eTracking");
+        etrackAssetsRecords_NativeViewPage.nVeTrackingFilterNavigator.sendKeys(EtrackAssetsRecords_NativeView_Constants.ETRACKING_NATIVE_VIEW_FILTER_NAVIGATION_SEARCH_BOX);
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVeTrackingTab);
         CommonUtils.waitForClickability(etrackAssetsRecords_NativeViewPage.nVEtrackingAssetsTab);
         JavascriptUtils.clickByJS(etrackAssetsRecords_NativeViewPage.nVEtrackingAssetsTab);
@@ -109,7 +109,7 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CommonUtils.selectDropDownValue(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDown, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_STATUS_DROP_DOWN);
         etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordSubmitButton.click();
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchDropDown);
-        CommonUtils.selectDropDownValue(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchDropDown, "barcode");
+        CommonUtils.selectDropDownValue(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchDropDown, EtrackAssetsRecords_NativeView_Constants.ETRACKING_NATIVE_VIEW_ASSETS_ALL_RECORD_SEARCH_DROP_DOWN);
         CommonUtils.sendKeysToElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchTextBox, Keys.ENTER);
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.eTrackAssetLocator(EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX));
@@ -180,6 +180,3 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CommonUtils.assertTrue(!barcode.equals(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberLabel.getText()));
     }
 }
-
-
-

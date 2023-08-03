@@ -18,7 +18,7 @@ public class GCPNotifications_NativeViewStepImpl extends PageInitializer {
     public static void theUserTypesSystemNotificationsInTheFilterNavigator() {
         nativeViewEnrollementsPage.filterNavigator.clear();
         CommonUtils.waitForVisibility(gCPNotifications_NativeViewPage.nVFilterNavigator);
-        gCPNotifications_NativeViewPage.nVFilterNavigator.sendKeys("System Notification");
+        gCPNotifications_NativeViewPage.nVFilterNavigator.sendKeys(GCPNotifications_NativeView_Constants.NATIVE_VIEW_ASSETS_FILTER_NAVIGATION_SEARCH_TEXT_BOX);
         gCPNotifications_NativeViewPage.nVFilterNavigator.click();
         CommonUtils.sendKeys(gCPNotifications_NativeViewPage.nVFilterNavigator, Keys.ENTER);
     }
@@ -35,7 +35,7 @@ public class GCPNotifications_NativeViewStepImpl extends PageInitializer {
     public static void searchesGcpEmployeeTrainingExpiredForTheNameFilter() {
         CommonUtils.switchToFrame(etrackAssetsRecords_NativeViewPage.accessRequestIFrame);
         CommonUtils.waitForVisibility(gCPNotifications_NativeViewPage.nVGCPRecordSearchDropDown);
-        CommonUtils.selectDropDownValue(gCPNotifications_NativeViewPage.nVGCPRecordSearchDropDown, "name");
+        CommonUtils.selectDropDownValue(gCPNotifications_NativeViewPage.nVGCPRecordSearchDropDown, GCPNotifications_NativeView_Constants.GCP_NATIVE_VIEW_RECORD_SEARCH_DROP_DOWN);
         CommonUtils.sendKeysToElement(gCPNotifications_NativeViewPage.nVGCPSearchTextBox, GCPNotifications_NativeView_Constants.NATIVE_VIEW_GCP_SEARCH_TEXT_BOX );
         CommonUtils.sendKeys(gCPNotifications_NativeViewPage.nVGCPSearchTextBox, Keys.ENTER);
     }

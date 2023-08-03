@@ -8,6 +8,12 @@ public class GCPNotifications_NativeView_Constants {
     /* ADMIN EMAIL */
     public static final String ADMIN_USER_EMAIL = "songjay@nih.gov";
 
+    /* NATIVE VIEW FILTER NAVIGATION SEARCH TEXT BOX */
+    public static final String NATIVE_VIEW_ASSETS_FILTER_NAVIGATION_SEARCH_TEXT_BOX = "System Notification";
+
+    /* GCP NATIVE VIEW RECORD SEARCH DROP DOWN */
+    public static final String GCP_NATIVE_VIEW_RECORD_SEARCH_DROP_DOWN = "name";
+
     /* NATIVE VIEW GCP SEARCH TEXT BOX*/
     public static final String NATIVE_VIEW_GCP_SEARCH_TEXT_BOX = "GCP Employee Training expired";
 

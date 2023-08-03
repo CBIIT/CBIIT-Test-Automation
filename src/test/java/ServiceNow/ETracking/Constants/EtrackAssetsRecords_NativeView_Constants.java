@@ -5,6 +5,12 @@ public class EtrackAssetsRecords_NativeView_Constants {
     /* ETRACKING USER NAME */
     public static final String ETRACKING_USER_NAME = "Jeffrey Alderdice";
 
+    /* ETRACKING NATIVE VIEW FILTER NAVIGATION SEARCH BOX */
+   public static final String ETRACKING_NATIVE_VIEW_FILTER_NAVIGATION_SEARCH_BOX = "eTracking";
+
+    /* ETRACKING NATIVE VIEW ASSETS ALL RECORD SEARCH DROP DOWN */
+    public static final String ETRACKING_NATIVE_VIEW_ASSETS_ALL_RECORD_SEARCH_DROP_DOWN = "barcode";
+
     /* ETRACKING ASSETS NEW RECORD DECAL NUMBER TEXT BOX */
     public static final String ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX  = "New Decal Number 123 Test";
 
