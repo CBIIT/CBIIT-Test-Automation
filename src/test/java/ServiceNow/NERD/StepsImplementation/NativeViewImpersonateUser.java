@@ -1,6 +1,8 @@
 package ServiceNow.NERD.StepsImplementation;
 
 import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
+import ServiceNow.ETracking.Constants.EtrackAssetsRecords_NativeView_Constants;
+import ServiceNow.GCP.Constants.GCPNotifications_NativeView_Constants;
 import ServiceNow.NERD.Constants.CRSReviewers_Constants;
 import ServiceNow.NERD.Steps.HooksSteps;
 import com.nci.automation.web.CommonUtils;
@@ -93,5 +95,41 @@ public class NativeViewImpersonateUser extends PageInitializer {
         nativeViewDashPage.enterTextImpersntSearchBox(CRSReviewers_Constants.OGCR_REVIEWER_NAME);
         MiscUtils.sleep(5000);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+    }
+
+    public void impersonateEtrackingUser() throws TestingException {
+        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
+        MiscUtils.sleep(2000);
+        nativeViewImpersonateUserPage.nativeViewLink.click();
+        MiscUtils.sleep(5000);
+        nativeViewDashPage.clickUserDropDown();
+        MiscUtils.sleep(2000);
+        nativeViewDashPage.clickImpersonateUserLink();
+        MiscUtils.sleep(2000);
+        nativeViewDashPage.clickImpersonateSearchDD();
+        MiscUtils.sleep(3000);
+        nativeViewDashPage.enterTextImpersntSearchBox(EtrackAssetsRecords_NativeView_Constants.ETRACKING_USER_NAME);
+        MiscUtils.sleep(5000);
+        nativeViewImpersonateUserPage.nativeViewLink.click();
+        MiscUtils.sleep(2000);
+//        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+    }
+
+    public void impersonateAdminUser() throws TestingException {
+        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
+        MiscUtils.sleep(2000);
+        nativeViewImpersonateUserPage.nativeViewLink.click();
+        MiscUtils.sleep(5000);
+        nativeViewDashPage.clickUserDropDown();
+        MiscUtils.sleep(2000);
+        nativeViewDashPage.clickImpersonateUserLink();
+        MiscUtils.sleep(2000);
+        nativeViewDashPage.clickImpersonateSearchDD();
+        MiscUtils.sleep(3000);
+        nativeViewDashPage.enterTextImpersntSearchBox(GCPNotifications_NativeView_Constants.ADMIN_USER_EMAIL);
+        MiscUtils.sleep(5000);
+        nativeViewImpersonateUserPage.nativeViewLink.click();
+        MiscUtils.sleep(2000);
+//        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 }

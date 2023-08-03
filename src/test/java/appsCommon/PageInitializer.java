@@ -57,6 +57,8 @@ import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
+import ServiceNow.ETracking.Pages.EtrackAssetsRecords_NativeViewPage;
+import ServiceNow.GCP.Pages.GCPNotifications_NativeViewPage;
 import ServiceNow.NERD.Pages.Covid19ActivitiesSubmissionsPage;
 import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
 import ServiceNow.NERD.Pages.NERDCRSTCollaborationsPage;
@@ -204,6 +206,12 @@ public class PageInitializer {
     public static NERDCRSTOtherAccomplishmentsPage nerdcrstOtherAccomplishmentsPage;
     public static NERDOGCRAddNewEntryPage nERDOGCRAddNewEntryPage;
     public static Covid19ActivitiesSubmissionsPage covid19ActivitiesSubmissionsPage;
+
+    /** eTracking instances */
+    public static EtrackAssetsRecords_NativeViewPage etrackAssetsRecords_NativeViewPage;
+
+    /** GCP instances */
+    public static GCPNotifications_NativeViewPage gCPNotifications_NativeViewPage;
 
     /** --------------- CUSTOM BUSINESS APP INSTANCES --------------- */
     /** EIDP instances */
@@ -387,7 +395,6 @@ public class PageInitializer {
         covid19ActivitiesSubmissionsPage = new Covid19ActivitiesSubmissionsPage();
         nERDOGCRAddNewEntryPage = new NERDOGCRAddNewEntryPage();
 
-
         /** --------------- CUSTOM BUSINESS APP INSTANCE VARIABLES --------------- */
         /** EIDP Instance Variables */
         aligningExpectationsPage = new AligningExpectationsPage();
@@ -490,5 +497,11 @@ public class PageInitializer {
         /** Grants ChangePassword app **/
         changePasswordPage = new ChangePasswordPage();
         changePasswordStepsImpl = new ChangePasswordStepsImpl();
+
+        /** eTracking INSTANCE VARIABLES */
+        etrackAssetsRecords_NativeViewPage = new EtrackAssetsRecords_NativeViewPage();
+
+        /** GCP INSTANCE VARIABLES */
+        gCPNotifications_NativeViewPage = new  GCPNotifications_NativeViewPage();
     }
 }

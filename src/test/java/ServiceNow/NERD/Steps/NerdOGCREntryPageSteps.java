@@ -2,6 +2,8 @@ package ServiceNow.NERD.Steps;
 
 import ServiceNow.NERD.StepsImplementation.NerdOGCREntryPageStepsImplementation;
 import appsCommon.PageInitializer;
+import com.nci.automation.xceptions.TestingException;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 public class NerdOGCREntryPageSteps extends PageInitializer {
@@ -12,5 +14,24 @@ public class NerdOGCREntryPageSteps extends PageInitializer {
                                                                                                  String mCDEarlyDetection, String moonshot, String pediatric, String rare, String sTARAct, String survivorship) {
         NerdOGCREntryPageStepsImplementation.newEntrySpecialTopicDropDownValues(DDValuePayline, bigDataDataSharing, CCDI, COVID19, healthDisparities,
                 lowDoseRadiation, mCDEarlyDetection, moonshot, pediatric, rare, sTARAct, survivorship);
+    }
+
+    @Then("I should Only see the following options in the OCGR Content Type dropdown list {string}, {string}, {string} , {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
+    public void i_should_only_see_the_following_options_in_the_ocgr_content_type_dropdown_list(String none, String billSummaryText, String biography, String brainBrief, String cACR,
+                                                                                               String formalCorrespondence, String gAOOIG, String hearingBriefingVisitSummary, String informalCorrespondence, String preparatoryDocument,
+                                                                                               String presentationLegislativeUpdate, String qFR, String significantItem, String technicalAssistance, String other) {
+        NerdOGCREntryPageStepsImplementation.newEntryOGCRContentTypeDropDownValues(none, billSummaryText, biography, brainBrief, cACR,
+                formalCorrespondence, gAOOIG, hearingBriefingVisitSummary, informalCorrespondence, preparatoryDocument,
+                presentationLegislativeUpdate, qFR, significantItem, technicalAssistance, other);
+    }
+
+    @Given("clicks the {string} Drop down filter")
+    public void clicks_the_drop_down_filter(String memberOfCongress) {
+        NerdOGCREntryPageStepsImplementation.clicksTheDropDownFilter(memberOfCongress);
+    }
+
+    @Then("All Drop Down field options are same as the Add New Entry form page for the Member of Congress field.")
+    public void all_drop_down_field_options_are_same_as_the_add_new_entry_form_page_for_the_member_of_congress_field() throws TestingException {
+        NerdOGCREntryPageStepsImplementation.allDropDownFieldOptionsAreSameAsTheAddNewEntryFormPageForTheField();
     }
 }
