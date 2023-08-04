@@ -26,27 +26,27 @@ public class SearchStepImpl extends PageInitializer {
 
     public void selectStatus(String statusOption, String dropDownName) {
         if (dropDownName.equalsIgnoreCase("Current IDP Status")) {
-            CommonUtils.click(searchPage.currentIDPStatusDropdown);
+            CommonUtils.clickOnElement(searchPage.currentIDPStatusDropdown);
         } else if (dropDownName.equalsIgnoreCase("IDP Type")) {
-            CommonUtils.click(searchPage.idpType);
+            CommonUtils.clickOnElement(searchPage.idpType);
         } else {
-            CommonUtils.click(searchPage.currentIDPStatusDropdown);
+            CommonUtils.clickOnElement(searchPage.currentIDPStatusDropdown);
         }
-        CommonUtils.click(searchPage.searchBoxInput);
+        CommonUtils.clickOnElement(searchPage.searchBoxInput);
         CommonUtils.sendKeys(searchPage.searchBoxInput,statusOption);
-        CommonUtils.click(searchPage.statusOption(statusOption));
-        CommonUtils.click(searchPage.searchButton);
+        CommonUtils.clickOnElement(searchPage.statusOption(statusOption));
+        CommonUtils.clickOnElement(searchPage.searchButton);
     }
 
     public void checkTraineeWithoutIDPCheckbox() {
-        CommonUtils.click(searchPage.traineesWithoutIDPCheckbox);
+        CommonUtils.clickOnElement(searchPage.traineesWithoutIDPCheckbox);
     }
 
     public void selectClassificationType(String type) {
-        CommonUtils.click(searchPage.classificationTypeInput);
-        CommonUtils.click(searchPage.classificationType(type));
-        CommonUtils.click(searchPage.trainneLastName);
-        CommonUtils.click(searchPage.searchButton);
+        CommonUtils.clickOnElement(searchPage.classificationTypeInput);
+        CommonUtils.clickOnElement(searchPage.classificationType(type));
+        CommonUtils.clickOnElement(searchPage.trainneLastName);
+        CommonUtils.clickOnElement(searchPage.searchButton);
     }
 
     public void selectActiveCompletedIDP() throws Exception {
@@ -55,7 +55,7 @@ public class SearchStepImpl extends PageInitializer {
         Boolean isSelected = false;
         while (!isSelected) {
             if (searchPage.activeButtons.size() > 0) {
-                CommonUtils.click(searchPage.activeButtons.get(0));
+                CommonUtils.clickOnElement(searchPage.activeButtons.get(0));
                 isSelected = true;
             } else {
                 searchPage.nextButton.click();
@@ -70,7 +70,7 @@ public class SearchStepImpl extends PageInitializer {
         Boolean isSelected = false;
         while (!isSelected) {
             if (searchPage.holdIDPActiveButtons.size() > 0) {
-                CommonUtils.click(searchPage.holdIDPActiveButtons.get(0));
+                CommonUtils.clickOnElement(searchPage.holdIDPActiveButtons.get(0));
                 isSelected = true;
             } else {
                 if (searchPage.nextButton.isEnabled()) {
@@ -88,7 +88,7 @@ public class SearchStepImpl extends PageInitializer {
         Boolean isSelected = false;
         while (!isSelected) {
             if (searchPage.cancelIDPActiveButtons.size() > 0) {
-                CommonUtils.click(searchPage.cancelIDPActiveButtons.get(0));
+                CommonUtils.clickOnElement(searchPage.cancelIDPActiveButtons.get(0));
                 isSelected = true;
             } else {
                 if (searchPage.nextButton.isEnabled()) {
@@ -105,7 +105,7 @@ public class SearchStepImpl extends PageInitializer {
         Boolean isSelected = false;
         while (!isSelected) {
             if (searchPage.undoIDPActiveButtons.size() > 0) {
-                CommonUtils.click(searchPage.undoIDPActiveButtons.get(0));
+                CommonUtils.clickOnElement(searchPage.undoIDPActiveButtons.get(0));
                 isSelected = true;
             } else {
                 if (searchPage.nextButton.isEnabled()) {
@@ -122,7 +122,7 @@ public class SearchStepImpl extends PageInitializer {
         Boolean isSelected = false;
         while (!isSelected) {
             if (searchPage.exitSurveyIDPActiveButtons.size() > 0) {
-                CommonUtils.click(searchPage.exitSurveyIDPActiveButtons.get(0));
+                CommonUtils.clickOnElement(searchPage.exitSurveyIDPActiveButtons.get(0));
                 isSelected = true;
             } else {
                 if (searchPage.nextButton.isEnabled()) {
@@ -273,21 +273,21 @@ public class SearchStepImpl extends PageInitializer {
     }
 
     public void clickOnCloseButton() {
-        CommonUtils.click(searchPage.closeButton);
+        CommonUtils.clickOnElement(searchPage.closeButton);
     }
 
     public void clickOnSaveAndSendMailButton() {
-        CommonUtils.click(searchPage.saveAndSendEmail);
+        CommonUtils.clickOnElement(searchPage.saveAndSendEmail);
     }
 
     public void clickOnOkButton() {
         CommonUtils.waitForVisibility(searchPage.okButton);
-        CommonUtils.click(searchPage.okButton);
+        CommonUtils.clickOnElement(searchPage.okButton);
     }
 
     public void clickYesButtonForRenewal() {
         CommonUtils.waitForVisibility(searchPage.yesButtonforRenewal);
-        CommonUtils.click(searchPage.yesButtonforRenewal);
+        CommonUtils.clickOnElement(searchPage.yesButtonforRenewal);
     }
 
     public void selectNCITrainingOrganization(String optionText) {
@@ -296,9 +296,9 @@ public class SearchStepImpl extends PageInitializer {
 
     public void selectTrainneTitle(String title) {
         try {
-            CommonUtils.click(searchPage.fellowTrainingTitleDropdownClick);
+            CommonUtils.clickOnElement(searchPage.fellowTrainingTitleDropdownClick);
             CommonUtils.sendKeys(searchPage.fellowTrainingTitleDropdown, title);
-            CommonUtils.click(searchPage.fellowTrainingTitleSelections);
+            CommonUtils.clickOnElement(searchPage.fellowTrainingTitleSelections);
         } catch (Exception e) {
             throw e;
         }
@@ -366,16 +366,16 @@ public class SearchStepImpl extends PageInitializer {
 
     public void clickOnSearchButton() {
         CommonUtils.waitForClickability(searchPage.searchButton);
-        CommonUtils.click(searchPage.searchButton);
+        CommonUtils.clickOnElement(searchPage.searchButton);
     }
 
     public void setTraineesWithoutIDP() {
-        CommonUtils.click(searchPage.traineeWithoutIDPCHeckBox);
+        CommonUtils.clickOnElement(searchPage.traineeWithoutIDPCHeckBox);
     }
 
     // Method for IDPCheckbox
     public void checkTraineeWithIDPCheckbox() {
-        CommonUtils.click(searchPage.traineesWithIDPCheckbox);
+        CommonUtils.clickOnElement(searchPage.traineesWithIDPCheckbox);
     }
 
     public void enterTraineeFirstName(String enterName) {
@@ -398,7 +398,7 @@ public class SearchStepImpl extends PageInitializer {
     }
 
     public void selectPrimaryMentorName() {
-        CommonUtils.click(searchPage.selectPrimaryMentor);
+        CommonUtils.clickOnElement(searchPage.selectPrimaryMentor);
     }
 
     public void verifyTraineeUnderPrimaryMentor(String primaryMentor) {
@@ -417,7 +417,7 @@ public class SearchStepImpl extends PageInitializer {
     }
 
     public void clickOnSearchButtonGloriaCalloway() {
-        CommonUtils.click(searchPage.searchButtonCallowayGloria);
+        CommonUtils.clickOnElement(searchPage.searchButtonCallowayGloria);
     }
 
     public void verifyGloriaCallowayExpectedName(String expectedFirstName, String expectedLastName) {
@@ -427,18 +427,18 @@ public class SearchStepImpl extends PageInitializer {
     }
 
     public void selectClassificationTypeGloriaCalloway(String type) {
-        CommonUtils.click(searchPage.classificationTypeInput);
+        CommonUtils.clickOnElement(searchPage.classificationTypeInput);
         CommonUtils.selectDropDownValue(type, searchPage.classificationTypeDropDownGloriaGalloway);
     }
 
     public void selectPrimaryMentorName(String nameMentor) {
-        CommonUtils.click(searchPage.selectPrimaryMentor);
+        CommonUtils.clickOnElement(searchPage.selectPrimaryMentor);
         CommonUtils.selectDropDownValue(nameMentor, searchPage.choosePrimaryMentor);
-        CommonUtils.click(searchPage.selectPrimaryMentor);
+        CommonUtils.clickOnElement(searchPage.selectPrimaryMentor);
     }
 
     public void selectTrainingOrganization(String organizationName) {
-        CommonUtils.click(searchPage.selectTrainingOrganizationDropdown);
+        CommonUtils.clickOnElement(searchPage.selectTrainingOrganizationDropdown);
     }
 
     public void verifyTraineeOrganization(String nameOrg) {

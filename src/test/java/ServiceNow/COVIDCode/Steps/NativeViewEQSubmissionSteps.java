@@ -764,7 +764,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		nativeViewStepsImpl.nativeViewNavigateToCovidCodeEnrollmentQuestionnaire();
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(nativeViewEnrollementsPage.covidCodeEnrollmentsNewButton);
+		CommonUtils.clickOnElement(nativeViewEnrollementsPage.covidCodeEnrollmentsNewButton);
 		;
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		CommonUtils.selectDropDownValue(groupNumber,
@@ -800,7 +800,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 
 	@When("the COVIDcode Admin user uploads files in various formats")
 	public void the_COVIDcode_Admin_user_uploads_files_in_various_formats() {
-		CommonUtils.click(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewAddAttachmentTopButton);
+		CommonUtils.clickOnElement(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewAddAttachmentTopButton);
 		MiscUtils.sleep(3000);
 		CommonUtils.sendKeys(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewChooseFileAttachmentsButton,
 				COVIDConstants.DOC_PATH);
@@ -814,19 +814,19 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		Assert.assertEquals("[download]",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewChooseFileAttachmentsDownloadText.getText());
 		MiscUtils.sleep(1000);
-		CommonUtils.click(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewChooseFileAttachmentsCloseButton);
+		CommonUtils.clickOnElement(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewChooseFileAttachmentsCloseButton);
 	}
 
 	@When("the COVIDcode Admin user submits the Initial Questionnaire")
 	public void the_COVIDcode_Admin_user_submits_the_Initial_Questionnaire() {
 		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSubmitForReviewButton);
-		CommonUtils.click(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSubmitForReviewButton);
+		CommonUtils.clickOnElement(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSubmitForReviewButton);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("the COVIDcode Admin user should be able to see the files uploaded")
 	public void the_COVIDcode_Admin_user_should_be_able_to_see_the_files_uploaded() {
-		CommonUtils.click(nativeViewEnrollmentViewPage.nativeViewAllBreadCrumbLink);
+		CommonUtils.clickOnElement(nativeViewEnrollmentViewPage.nativeViewAllBreadCrumbLink);
 		MiscUtils.sleep(5000);
 		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.covidCodeEnrollmentsSearchDropDown);
 		CommonUtils.selectDropDownValue(nativeViewEnrollementsPage.covidCodeEnrollmentsSearchDropDown, "zztextsearchyy");
@@ -838,16 +838,16 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(nativeViewSentViewPage.nativeViewPreviewVerifyEmailIcon);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(nativeViewSentViewPage.NativeViewPreviewVerifyEmailOpenRecordButton);
+		CommonUtils.clickOnElement(nativeViewSentViewPage.NativeViewPreviewVerifyEmailOpenRecordButton);
 		MiscUtils.sleep(2000);
 		Assert.assertTrue(
 				nativeViewEnrollementsPage.nativeViewDownloadAttachmentLink.getText().contentEquals("[download]"));
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDeleteTopButton);
+		CommonUtils.clickOnElement(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDeleteTopButton);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDeleteDeleteSubmissionPopUpDeleteButton);
+		CommonUtils.clickOnElement(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDeleteDeleteSubmissionPopUpDeleteButton);
 
 	}
 
@@ -920,7 +920,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
 		MiscUtils.sleep(500);
 		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewFollowUpAllBreadCrumbLink);
-		CommonUtils.click(nativeViewEnrollmentViewPage.nativeViewFollowUpAllBreadCrumbLink);	
+		CommonUtils.clickOnElement(nativeViewEnrollmentViewPage.nativeViewFollowUpAllBreadCrumbLink);
 		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.covidCodeFollowUpsGroup1link);
 		nativeViewEnrollementsPage.covidCodeFollowUpsGroup1link.click();
 		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesNewButton);

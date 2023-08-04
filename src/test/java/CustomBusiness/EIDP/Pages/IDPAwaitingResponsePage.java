@@ -195,12 +195,12 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 	public void clickOnProceedOfTrainee() {
 		String xpath = "//table[@id='primaryMentorsawaitingResponseTable']//tbody//tr//td//a[text()='"
 				+ SharedData.traineeName + "']//ancestor::tr//td//img";
-		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.xpath(xpath)));
+		CommonUtils.clickOnElement(WebDriverUtils.getWebDriver().findElement(By.xpath(xpath)));
 	}
 
 	public void clickonIDpWaitigResponse() {
 		CommonUtils.waitForVisibility(idpWaitingresponseIcon);
-		CommonUtils.click(idpWaitingresponseIcon);
+		CommonUtils.clickOnElement(idpWaitingresponseIcon);
 
 	}
 
@@ -472,14 +472,14 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 	}
 
 	public void validateAllTabsWithRequestRevision() {
-		CommonUtils.click(this.generalInfromationTab);
+		CommonUtils.clickOnElement(this.generalInfromationTab);
 		selectRevisionRequiredWithComment("Test");
-		CommonUtils.click(this.saveAndContinueBtn);
+		CommonUtils.clickOnElement(this.saveAndContinueBtn);
 
 	}
 
 	public void selectRevisionRequiredWithComment(String comment) {
-		CommonUtils.click(this.requestRevisionRadioButton);
+		CommonUtils.clickOnElement(this.requestRevisionRadioButton);
 		CommonUtils.sendKeys(this.requestRevisionComment, comment);
 
 	}

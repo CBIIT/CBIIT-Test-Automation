@@ -1,18 +1,22 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.nih.nci.testing</groupId>
-	<artifactId>CBIIT-Test-Automation</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.8</java.version>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<extentreports.cucumber6.adapter.version>2.13.0</extentreports.cucumber6.adapter.version>
-		<extentreports.version>5.0.9</extentreports.version>
-		<testng.version>7.7.1</testng.version>
-		<cucumber.version>6.11.0</cucumber.version>
-	</properties>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.nih.nci.testing</groupId>
+    <artifactId>CBIIT-Test-Automation</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <extentreports.cucumber6.adapter.version>2.13.0</extentreports.cucumber6.adapter.version>
+        <extentreports.version>5.0.9</extentreports.version>
+        <testng.version>7.7.1</testng.version>
+        <maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
+        <maven.compiler.source.version>11</maven.compiler.source.version>
+        <maven.compiler.target.version>11</maven.compiler.target.version>
+        <cucumber.version>6.11.0</cucumber.version>
+    </properties>
 
 	<dependencies>
 
@@ -231,6 +235,14 @@
 			<version>1.18.28</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-testng</artifactId>
+			<version>7.12.1</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>

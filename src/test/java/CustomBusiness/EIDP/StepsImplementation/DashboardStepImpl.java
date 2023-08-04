@@ -12,7 +12,7 @@ import appsCommon.PageInitializer;
 public class DashboardStepImpl extends PageInitializer {
 
 	public void clickOnSubmitButton() {
-		CommonUtils.click(eidpDashboardPage.submitButton);
+		CommonUtils.clickOnElement(eidpDashboardPage.submitButton);
 	}
 
 	public void selectVerifyMeetingCheckbox() {
@@ -21,11 +21,11 @@ public class DashboardStepImpl extends PageInitializer {
 
 	public void clickOnSearch() {
 		CommonUtils.waitForClickability(eidpDashboardPage.search);
-		CommonUtils.click(eidpDashboardPage.search);
+		CommonUtils.clickOnElement(eidpDashboardPage.search);
 	}
 
 	public void clickOnManageDelegate() {
-		CommonUtils.click(eidpDashboardPage.manageDelegate);
+		CommonUtils.clickOnElement(eidpDashboardPage.manageDelegate);
 	}
 
 	public void clickOnReviseIDP() throws Exception {
@@ -40,20 +40,20 @@ public class DashboardStepImpl extends PageInitializer {
 
 	public void clickOnStartIDPButton() {
 		CommonUtils.waitForVisibility(eidpDashboardPage.startIDPButton);
-		CommonUtils.click(eidpDashboardPage.startIDPButton);
+		CommonUtils.clickOnElement(eidpDashboardPage.startIDPButton);
 	}
 
 	public void clickOnProceedButton() {
 		CommonUtils.waitForVisibility(eidpDashboardPage.proceedButton);
-		CommonUtils.click(eidpDashboardPage.proceedButton);
+		CommonUtils.clickOnElement(eidpDashboardPage.proceedButton);
 	}
 
 	public void clickOnSendIDPToPrimaryMentorButton() {
-		CommonUtils.click(eidpDashboardPage.sendIDPToPrimaryMentoryButton);
+		CommonUtils.clickOnElement(eidpDashboardPage.sendIDPToPrimaryMentoryButton);
 	}
 
 	public void clickOnVerifyMeetingButton() {
-		CommonUtils.click(eidpDashboardPage.verifyMeetingButton);
+		CommonUtils.clickOnElement(eidpDashboardPage.verifyMeetingButton);
 	}
 
 	public Boolean isIDPSentMessage() {
@@ -64,7 +64,7 @@ public class DashboardStepImpl extends PageInitializer {
 
 	public void clickOnIDPAwaitResponsButton() {
 		CommonUtils.waitForClickability(eidpDashboardPage.idpAwaitingResponseButton);
-		CommonUtils.click(eidpDashboardPage.idpAwaitingResponseButton);
+		CommonUtils.clickOnElement(eidpDashboardPage.idpAwaitingResponseButton);
 	}
 
 	public Boolean selectFirstPendingReviewIDP() {
@@ -72,7 +72,7 @@ public class DashboardStepImpl extends PageInitializer {
 		List<WebElement> reviews = WebDriverUtils.getWebDriver()
 				.findElements(By.cssSelector("a[title='Pending Review']"));
 		if (reviews.size() > 0) {
-			CommonUtils.click(reviews.get(0));
+			CommonUtils.clickOnElement(reviews.get(0));
 			isSelected = true;
 		}
 		return isSelected;
@@ -192,7 +192,7 @@ public class DashboardStepImpl extends PageInitializer {
 	}
 
 	public void clickOnSearchButton() {
-		CommonUtils.click(eidpDashboardPage.searchButton);
+		CommonUtils.clickOnElement(eidpDashboardPage.searchButton);
 	}
 
 	public Boolean selectIDPRequestOfTraineeForRenewal() throws Exception {

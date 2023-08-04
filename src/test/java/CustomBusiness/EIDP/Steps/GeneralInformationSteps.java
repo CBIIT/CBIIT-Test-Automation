@@ -102,17 +102,17 @@ public class GeneralInformationSteps extends PageInitializer {
 
 	@When("User will click on Search tab")
 	public void user_will_click_on_Seacrh_tab() {
-		CommonUtils.click(generalInformationPage.searchSection);
+		CommonUtils.clickOnElement(generalInformationPage.searchSection);
 	}
 
 	@When("User clicks on Proceed button")
 	public void user_clicks_on_Proceed_button() {
-		CommonUtils.click(generalInformationPage.ProceedButton);
+		CommonUtils.clickOnElement(generalInformationPage.ProceedButton);
 	}
 
 	@Then("User will click on General Information section")
 	public void user_will_click_on_General_Information_section() {
-		CommonUtils.click(generalInformationPage.clickOnCompletedGeneralInfobutton);
+		CommonUtils.clickOnElement(generalInformationPage.clickOnCompletedGeneralInfobutton);
 
 	}
 

@@ -18,7 +18,7 @@ public class EIDPLoginStepImpl extends PageInitializer {
 		CommonUtils.sendKeys(nihLoginPage.username, ConfUtils.getProperty(username));
 		String decyptedPass = EncryptionUtils.decrypt(ConfUtils.getProperty(password));
 		CommonUtils.sendKeys(nihLoginPage.password, decyptedPass);
-		CommonUtils.click(nihLoginPage.signInButton);
+		CommonUtils.clickOnElement(nihLoginPage.signInButton);
 		MiscUtils.sleep(3000);
 	}
 	 /**
@@ -31,7 +31,7 @@ public class EIDPLoginStepImpl extends PageInitializer {
 		CommonUtils.sendKeys(nihLoginPage.username, ConfUtils.getProperty(username));
 		String decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty(password));
 		CommonUtils.sendKeys(nihLoginPage.password, decyptedPass);
-		CommonUtils.click(nihLoginPage.signInButton);
+		CommonUtils.clickOnElement(nihLoginPage.signInButton);
 		MiscUtils.sleep(3000);
 	}
 
@@ -44,7 +44,7 @@ public class EIDPLoginStepImpl extends PageInitializer {
 	}
 
 	public void clickOnSignInButton() {
-		CommonUtils.click(nihLoginPage.signInButton);
+		CommonUtils.clickOnElement(nihLoginPage.signInButton);
 
 	}
 
@@ -75,14 +75,14 @@ public class EIDPLoginStepImpl extends PageInitializer {
 	public void changeUserToTrainee(String username) {
 			MiscUtils.sleep(3000);
 			eidpBasePage.scrollToElement(nihLoginPage.changeUserButton);
-			CommonUtils.click(nihLoginPage.changeUserButton);
-			CommonUtils.click(nihLoginPage.changeUserDropdown);
+			CommonUtils.clickOnElement(nihLoginPage.changeUserButton);
+			CommonUtils.clickOnElement(nihLoginPage.changeUserDropdown);
 			MiscUtils.sleep(1000);
 			CommonUtils.sendKeys(nihLoginPage.searchableChangeUserInput, username);
 			MiscUtils.sleep(3000);
 			CommonUtils.waitForVisibility(nihLoginPage.changeUserOption);
 			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-			CommonUtils.click(nihLoginPage.changeUserOption);
+			CommonUtils.clickOnElement(nihLoginPage.changeUserOption);
 			MiscUtils.sleep(1000);
 	}
 }

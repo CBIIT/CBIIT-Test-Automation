@@ -19,7 +19,7 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 		fillSkill();
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(careerGoalAndActivePage.saveAndContinueButton);
+		CommonUtils.clickOnElement(careerGoalAndActivePage.saveAndContinueButton);
 	}
 
 	public void fillCarrerGoalActiviteNHGRI() throws Exception {
@@ -29,7 +29,7 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 		fillSkillNGHRI();
 		Thread.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(careerGoalAndActivePage.saveAndContinueButton);
+		CommonUtils.clickOnElement(careerGoalAndActivePage.saveAndContinueButton);
 	}
 
 	public void fillCarrerGoalActiviteForRenewIdp() throws Exception {
@@ -40,7 +40,7 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 		Thread.sleep(2000);
 		completeSKills();
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(careerGoalAndActivePage.saveAndContinueButton);
+		CommonUtils.clickOnElement(careerGoalAndActivePage.saveAndContinueButton);
 	}
 	
 	public void fillCarrerGoalActiviteForNIDCRRenewIdp() throws Exception {
@@ -51,11 +51,11 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 		Thread.sleep(2000);
 		completeSKills();
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(careerGoalAndActivePage.saveAndContinueButton);
+		CommonUtils.clickOnElement(careerGoalAndActivePage.saveAndContinueButton);
 	}
 
 	public void clickOnSaveAndContinueButton() {
-		CommonUtils.click(careerGoalAndActivePage.saveAndContinueButton);
+		CommonUtils.clickOnElement(careerGoalAndActivePage.saveAndContinueButton);
 	}
 
 	public void selectCareerGoal() throws Exception {
@@ -75,7 +75,7 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 		careerGoalAndActivePage.goalOptions.get(3).click();
 		careerGoalAndActivePage.goalOptions.get(4).click();
 		careerGoalAndActivePage.goalOptions.get(5).click();
-		CommonUtils.click(careerGoalAndActivePage.goals.get(0));
+		CommonUtils.clickOnElement(careerGoalAndActivePage.goals.get(0));
 	}
 	
 	public void selectCareerGoalNIDCR() throws Exception {
@@ -98,29 +98,29 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 					.findElements(By.cssSelector(".controls.line.ta_interestGroup.collapse.in label"));
 		}
 		try{goalOptions.get(2).click();}catch(Exception e) {
-			CommonUtils.click(goals.get(0));
+			CommonUtils.clickOnElement(goals.get(0));
 		}
 		goalOptions.get(3).click();
 		goalOptions.get(4).click();
-		CommonUtils.click(goals.get(0));
+		CommonUtils.clickOnElement(goals.get(0));
 	}
 
 	public void fillSkillNGHRI() throws Exception {
-		CommonUtils.click(careerGoalAndActivePage.communicationSkillButton);
+		CommonUtils.clickOnElement(careerGoalAndActivePage.communicationSkillButton);
 		CommonUtils.waitForVisibility(careerGoalAndActivePage.typeDropdown);
 		eidpBasePage.selectOption(careerGoalAndActivePage.typeDropdown, "Writing");
 		CommonUtils.sendKeys(careerGoalAndActivePage.description,
 				"Automation script writing skill set enter for testing");
-		CommonUtils.click(careerGoalAndActivePage.doneButton);
+		CommonUtils.clickOnElement(careerGoalAndActivePage.doneButton);
 	}
 
 	public void fillSkill() throws Exception {
-		CommonUtils.click(careerGoalAndActivePage.communicationSkillButton);
+		CommonUtils.clickOnElement(careerGoalAndActivePage.communicationSkillButton);
 		CommonUtils.waitForVisibility(careerGoalAndActivePage.typeDropdown);
 		eidpBasePage.selectOption(careerGoalAndActivePage.typeDropdown, "Writing");
 		CommonUtils.sendKeys(careerGoalAndActivePage.description,
 				"Automation script writing skill set enter for testing");
-		CommonUtils.click(careerGoalAndActivePage.doneButton);
+		CommonUtils.clickOnElement(careerGoalAndActivePage.doneButton);
 	}
 
 	public void completeSKills() {
@@ -135,9 +135,9 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 			if (skillStatus.get(i).getText().equals("")) {
 				List<WebElement> editButtons = WebDriverUtils.getWebDriver()
 						.findElements(By.xpath("//table[@id='com_speaking']//button[@title='Edit']"));
-				CommonUtils.click(editButtons.get(i));
-				CommonUtils.click(careerGoalAndActivePage.careerExplorationStatus);
-				CommonUtils.click(careerGoalAndActivePage.doneButton);
+				CommonUtils.clickOnElement(editButtons.get(i));
+				CommonUtils.clickOnElement(careerGoalAndActivePage.careerExplorationStatus);
+				CommonUtils.clickOnElement(careerGoalAndActivePage.doneButton);
 			}
 		}
 	}
@@ -145,14 +145,14 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 	public void editCareerTrainingActivites() {
 		MiscUtils.sleep(2000);
 		for (int i = 0; i < careerGoalAndActivePage.editIcons.size(); i++) {
-			CommonUtils.click(careerGoalAndActivePage.editIcons.get(i));
+			CommonUtils.clickOnElement(careerGoalAndActivePage.editIcons.get(i));
 			MiscUtils.sleep(3000);
-			CommonUtils.click(careerGoalAndActivePage.careerStatuses.get(careerGoalAndActivePage.careerStatuses.size() - 1)
+			CommonUtils.clickOnElement(careerGoalAndActivePage.careerStatuses.get(careerGoalAndActivePage.careerStatuses.size() - 1)
 			.findElement(By.tagName("label")));
-			CommonUtils.click(careerGoalAndActivePage.addMoreButton);
+			CommonUtils.clickOnElement(careerGoalAndActivePage.addMoreButton);
 			MiscUtils.sleep(2000);
 		}
-		CommonUtils.click(careerGoalAndActivePage.saveAndContinueButton);
+		CommonUtils.clickOnElement(careerGoalAndActivePage.saveAndContinueButton);
 		MiscUtils.sleep(3000);
 	}
 
@@ -160,13 +160,13 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 		for (int i = 0; i < careerGoalAndActivePage.editIcons.size(); i++) {
 			MiscUtils.sleep(4000);
 			careerGoalAndActivePage.editIcons.get(i).click();
-			CommonUtils.click(careerGoalAndActivePage.editRadiobuttons.get(2));
+			CommonUtils.clickOnElement(careerGoalAndActivePage.editRadiobuttons.get(2));
 			MiscUtils.sleep(3000);
 			careerGoalAndActivePage.editIcons.get(0).click();
-			CommonUtils.click(careerGoalAndActivePage.editRadiobuttons.get(2));
-			CommonUtils.click(careerGoalAndActivePage.doneButton);
+			CommonUtils.clickOnElement(careerGoalAndActivePage.editRadiobuttons.get(2));
+			CommonUtils.clickOnElement(careerGoalAndActivePage.doneButton);
 		}
-		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.id("careerGoalsSubmitSave")));
+		CommonUtils.clickOnElement(WebDriverUtils.getWebDriver().findElement(By.id("careerGoalsSubmitSave")));
 		MiscUtils.sleep(4000);
 	}
 

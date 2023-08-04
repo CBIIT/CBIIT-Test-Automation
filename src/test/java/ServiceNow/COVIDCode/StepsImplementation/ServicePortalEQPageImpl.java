@@ -61,7 +61,7 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 		covidCodeEQPage.enrollmentQuestionnairePatientCityTextBox.sendKeys("Rockville");
 		covidCodeEQPage.enrollmentQuestionnairePatientStateTextBox.sendKeys("MD");
 		covidCodeEQPage.enrollmentQuestionnairePatientZipCodeTextBox.sendKeys("12345");
-		CommonUtils.click(covidCodeEQPage.demographicsTab);
+		CommonUtils.clickOnElement(covidCodeEQPage.demographicsTab);
 		JavascriptUtils.selectDateByJS(covidCodeEQPage.enrollmentQuestionnaireDateFormCompletedBox, "04-06-2020");
 		JavascriptUtils.selectDateByJS(covidCodeEQPage.enrollmentQuestionnaireDOBbox, "04-01-2000");
 		covidCodeEQPage.enrollmentQuestionnaireBiologicalSexDropdown.click();

@@ -8,23 +8,23 @@ public class TraineeReviewStepsImpl extends PageInitializer{
     
     public void reivewIDPRequest() {
 		CommonUtil.waitBrowser(4000);
-		CommonUtils.click(traineeReviewPage.generalInfromationTab);
-		CommonUtils.click(traineeReviewPage.markAsReadCheckbox);
-		CommonUtils.click(traineeReviewPage.projectRelatedTab);
-		CommonUtils.click(traineeReviewPage.markAsReadCheckbox);
-		CommonUtils.click(traineeReviewPage.projectRelatedTrainningTab);
-		CommonUtils.click(traineeReviewPage.markAsReadCheckbox);
-		CommonUtils.click(traineeReviewPage.careerGoalsTab);
-		CommonUtils.click(traineeReviewPage.markAsReadCheckbox);
-		CommonUtils.click(traineeReviewPage.alignExpectationsTab);
-		CommonUtils.click(traineeReviewPage.markAsReadCheckbox);
-		CommonUtils.click(traineeReviewPage.mentorExpectationsTab);
-		CommonUtils.click(traineeReviewPage.reviewedNoFeedbackRadioButton);
-		CommonUtils.click(traineeReviewPage.saveButton);
+		CommonUtils.clickOnElement(traineeReviewPage.generalInfromationTab);
+		CommonUtils.clickOnElement(traineeReviewPage.markAsReadCheckbox);
+		CommonUtils.clickOnElement(traineeReviewPage.projectRelatedTab);
+		CommonUtils.clickOnElement(traineeReviewPage.markAsReadCheckbox);
+		CommonUtils.clickOnElement(traineeReviewPage.projectRelatedTrainningTab);
+		CommonUtils.clickOnElement(traineeReviewPage.markAsReadCheckbox);
+		CommonUtils.clickOnElement(traineeReviewPage.careerGoalsTab);
+		CommonUtils.clickOnElement(traineeReviewPage.markAsReadCheckbox);
+		CommonUtils.clickOnElement(traineeReviewPage.alignExpectationsTab);
+		CommonUtils.clickOnElement(traineeReviewPage.markAsReadCheckbox);
+		CommonUtils.clickOnElement(traineeReviewPage.mentorExpectationsTab);
+		CommonUtils.clickOnElement(traineeReviewPage.reviewedNoFeedbackRadioButton);
+		CommonUtils.clickOnElement(traineeReviewPage.saveButton);
 		if(CommonUtils.isElementDisplayed(traineeReviewPage.ackRenewaldecision)){
-			CommonUtils.click(traineeReviewPage.ackRenewaldecision);
-			CommonUtils.click(traineeReviewPage.saveButton);
+			CommonUtils.clickOnElement(traineeReviewPage.ackRenewaldecision);
+			CommonUtils.clickOnElement(traineeReviewPage.saveButton);
 		}
-		CommonUtils.click(traineeReviewPage.reviewAndTakeActionButton);
+		CommonUtils.clickOnElement(traineeReviewPage.reviewAndTakeActionButton);
 	}
 }
