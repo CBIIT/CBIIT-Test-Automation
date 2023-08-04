@@ -189,10 +189,31 @@ public class MyRASSurveyPage {
     public WebElement addButton;
 
     /*
+    USE THIS METHOD TO DYNAMICALLY LOCATE TEXT BOX FOR PLEASE SPECIFY
+   */
+    public WebElement dynamicPleaseSpecifyTextBox(String otherText) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//span[contains(text(),'" + otherText + "')]//parent::label//parent::span//child::input"));
+    }
+
+    /*
     USE THIS METHOD TO DYNAMICALLY ENTER TEXT IN OPTIONS SELECTED
     */
     public WebElement dynamicOtheriPleaseSpecifyTextBox(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//span[contains(text(),'" + text + "')]//parent::label//parent::span//child::input"));
+    }
+
+    /*
+    USE THIS METHOD TO DYNAMICALLY LOCATE TEXT OR QUESTION AT TOP OF PAGE
+    */
+    public WebElement dynamicTopText(int pageNumber) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='QID" + pageNumber + "']/div[3]/div"));
+    }
+
+    /*
+    USE THIS METHOD TO DYNAMICALLY LOCATE ONE LONG TEXT BOX PER PAGE
+    */
+    public WebElement dynamicOneTextBox(int pageNumber) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='QR~QID" + pageNumber + "']"));
     }
 
     /*

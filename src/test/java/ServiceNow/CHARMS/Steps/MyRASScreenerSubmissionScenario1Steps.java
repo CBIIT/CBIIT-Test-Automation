@@ -78,12 +78,14 @@ public class MyRASScreenerSubmissionScenario1Steps extends PageInitializer {
     @When("the participant submits a RAS Survey from excel sheet {string}")
     public void the_participant_submits_a_ras_survey_from_excel_sheet(String rasSurveySheet) {
         rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1dataInitializer(rasSurveySheet);
-//        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1partOne();
-//        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1partTwo();
-//        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1partThree();
-//        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1partFour();
-//        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1partFive();
-        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1partSix();
+//        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1PartOne();
+//        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1PartTwo();
+//        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1PartThree();
+//        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1PartFour();
+//        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1PartFive();
+//        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1PartSix();
+//        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1PartSeven();
+        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1PartEight();
     }
 
     @Given("clicks next after reviewing the STUDY INTRODUCTION")

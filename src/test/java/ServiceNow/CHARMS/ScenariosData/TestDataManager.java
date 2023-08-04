@@ -676,6 +676,174 @@ public class TestDataManager extends PageInitializer {
     public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option8;
     public String pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option9;
     public String theNextSetOfQuestionsAskAboutBreathingAndTheLungs;
+    public String haveYouEverHadAnEvaluationByAPulmonologist;
+    public String pleaseProvideTheInformationBelowForThePulmonologistOption1;
+    public String pleaseProvideTheInformationBelowForThePulmonologistOption2;
+    public String pleaseProvideTheInformationBelowForThePulmonologistOption3;
+    public String haveYouEverHadWheezingOrWhistling;
+    public String haveYouBeenDiagnosedWithReactiveAirwayDisease;
+    public String haveYouEverBeenSeenInTheEmergencyRoomForABreathing;
+    public String haveYouEverBeenSeenInTheHospitalForABreathing;
+    public String theNextSetOfQuestionsWillAskAboutOralHealthAndDental;
+    public String doYouReceiveRegularDentalCare;
+    public String pleaseProvideTheInformationBelowForWhereDentalOption1;
+    public String pleaseProvideTheInformationBelowForWhereDentalOption2;
+    public String pleaseProvideTheInformationBelowForWhereDentalOption3;
+    public String whenDidYouLastVisitADentist;
+    public String whatWasTheReasonForYourLastDentalVisitOption;
+    public String doYourGumsBleedRegularlyWithToothBrushing;
+    public String doYourTeethOrGumsHurtRegularly;
+    public String doYouHavePeriodontalOrGumDisease;
+    public String haveYouHadDentalSealantsPlaced;
+    public String doYouCurrentlyHaveCavities;
+    public String haveYouPreviouslyHadAnyDentalFillings;
+    public String doesYourMouthUsuallyFeelDry;
+    public String overallHowWouldYouRateTheOverallHealth;
+    public String overallHowWouldYouRateYourDentalHygieneRoutine;
+    public String haveYouHadAnyChangesInYourSenseOfSmell;
+    public String haveYouHadAnyChangesInYourSenseOfTaste;
+    public String doYouHaveJawOrTemporomandibularJointPain;
+    public String doYouHaveFrequentHeadaches;
+    public String haveYouHadAnyOrthodonticTreatment;
+    public String haveYouHadAPalatalExpansion;
+    public String haveYouHadAnyFacialOrDentalTrauma;
+    public String didTheFacialOrDentalTraumaRequireSurgery;
+    public String didTheFacialOrDentalTraumaRequireSurgeryPlease;
+    public String haveYouHadElectiveJawSurgery;
+    public String doYouHaveAHistoryOfCancerInTheMouthOrJaw;
+    public String doYouHaveAHistoryOfCancerInTheMouthOrJawPlease;
+    public String doYouHaveAFamilyMemberWithAJawAbnormality;
+    public String doYouHaveAFamilyMemberWithAJawAbnormalityPlease;
+    public String doYouHaveAnyNumbnessInOrAroundYourMouth;
+    public String doYouHaveAnyMouthSores;
+    public String doYourTeethFeelSensitiveToHotOrColdFoods;
+    public String doYouHaveProblemsMovingYourLipsTongueOrMouth;
+    public String overallIsThereAnythingUnusualAboutYourTeethOrMouth;
+    public String overallIsThereAnythingUnusualAboutYourTeethOrMouthPlease;
+    public String haveYouHadTroublePronouncingAnyWords;
+    public String haveYouFeltThatYourSenseOfTasteHasWorsened;
+    public String haveYouHadPainfulAchingInYourMouth;
+    public String haveYouFoundItUncomfortableToEatAnyFoods;
+    public String areYouSelfConsciousBecauseOfYourTeeth;
+    public String haveYouFeltTenseBecauseOfProblems;
+    public String hasYourDietBeenUnsatisfactoryBecause;
+    public String haveYouHadToInterruptMealsBecauseOfProblems;
+    public String haveYouFoundItDifficultToRelaxBecause;
+    public String haveYouBeenABitEmbarrassedBecause;
+    public String haveYouBeenIrritableWithOtherPeopleBecause;
+    public String haveYouHadDifficultyDoingYourUsualJobs;
+    public String haveYouFeltThatLifeInGeneralIsLessSatisfying;
+    public String haveYouBeenTotallyUnableToFunctionBecause;
+    public String theNextSetOfQuestionsAskAboutFluidBalance;
+    public String haveYouEverBeenDiagnosedWithALymphaticSystemIssue;
+    public String haveYouEverBeenDiagnosedWithAnyOfTheFollowingLymphaticOption1;
+    public String haveYouEverBeenDiagnosedWithAnyOfTheFollowingLymphaticOption2;
+    public String haveYouEverBeenDiagnosedWithAnyOfTheFollowingLymphaticOption3;
+    public String haveYouEverBeenDiagnosedWithAnyOfTheFollowingLymphaticOption4;
+    public String haveYouEverBeenDiagnosedWithAnyOfTheFollowingLymphaticOption5;
+    public String haveYouEverBeenDiagnosedWithAnyOfTheFollowingLymphaticOption6;
+    public String haveYouEverBeenDiagnosedWithAnyOfTheFollowingLymphaticOption7;
+    public String haveYouEverBeenDiagnosedWithAnyOfTheFollowingLymphaticOption7Other;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn1Option1;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn1Option2;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn1Option3;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn1Option4;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn1Option5;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn1Option6;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn1Option7;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn2Option1;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn2Option2;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn2Option3;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn2Option4;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn2Option5;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn2Option6;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn2Option7;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn3Option1;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn3Option2;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn3Option3;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn3Option4;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn3Option5;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn3Option6;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn3Option7;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn4Option1;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn4Option2;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn4Option3;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn4Option4;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn4Option5;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn4Option6;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn4Option7;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn5Option1;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn5Option2;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn5Option3;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn5Option4;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn5Option5;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn5Option6;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn5Option7;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn6Option1;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn6Option2;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn6Option3;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn6Option4;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn6Option5;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn6Option6;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn6Option7;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn7Option1;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn7Option2;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn7Option3;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn7Option4;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn7Option5;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn7Option6;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn7Option7;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn8Option1;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn8Option2;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn8Option3;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn8Option4;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn8Option5;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn8Option6;
+    public String pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn8Option7;
+    public String theNextSetOfQuestionsWillAskAboutTheKidneys;
+    public String haveYouEverBeenEvaluatedByANephrologist;
+    public String pleaseListTheInformationBelowForTheNephrologistOption1;
+    public String pleaseListTheInformationBelowForTheNephrologistOption2;
+    public String pleaseListTheInformationBelowForTheNephrologistOption3;
+    public String haveYouEverBeenDiagnosedWithAKidneyProblem;
+    public String haveYouEverBeenDiagnosedWithAnyOfTheFollowingKidneyProblemsOption1;
+    public String haveYouEverBeenDiagnosedWithAnyOfTheFollowingKidneyProblemsOption2;
+    public String haveYouEverBeenDiagnosedWithAnyOfTheFollowingKidneyProblemsOption3;
+    public String haveYouEverBeenDiagnosedWithAnyOfTheFollowingKidneyProblemsOption4;
+    public String haveYouEverBeenDiagnosedWithAnyOfTheFollowingKidneyProblemsOption4Other;
+    public String pleaseCompleteTheTableRegardingKidneyColumn1Option1;
+    public String pleaseCompleteTheTableRegardingKidneyColumn1Option2;
+    public String pleaseCompleteTheTableRegardingKidneyColumn1Option3;
+    public String pleaseCompleteTheTableRegardingKidneyColumn1Option4;
+    public String pleaseCompleteTheTableRegardingKidneyColumn2Option1;
+    public String pleaseCompleteTheTableRegardingKidneyColumn2Option2;
+    public String pleaseCompleteTheTableRegardingKidneyColumn2Option3;
+    public String pleaseCompleteTheTableRegardingKidneyColumn2Option4;
+    public String pleaseCompleteTheTableRegardingKidneyColumn3Option1;
+    public String pleaseCompleteTheTableRegardingKidneyColumn3Option2;
+    public String pleaseCompleteTheTableRegardingKidneyColumn3Option3;
+    public String pleaseCompleteTheTableRegardingKidneyColumn3Option4;
+    public String pleaseCompleteTheTableRegardingKidneyColumn4Option1;
+    public String pleaseCompleteTheTableRegardingKidneyColumn4Option2;
+    public String pleaseCompleteTheTableRegardingKidneyColumn4Option3;
+    public String pleaseCompleteTheTableRegardingKidneyColumn4Option4;
+    public String pleaseCompleteTheTableRegardingKidneyColumn5Option1;
+    public String pleaseCompleteTheTableRegardingKidneyColumn5Option2;
+    public String pleaseCompleteTheTableRegardingKidneyColumn5Option3;
+    public String pleaseCompleteTheTableRegardingKidneyColumn5Option4;
+    public String pleaseCompleteTheTableRegardingKidneyColumn6Option1;
+    public String pleaseCompleteTheTableRegardingKidneyColumn6Option2;
+    public String pleaseCompleteTheTableRegardingKidneyColumn6Option3;
+    public String pleaseCompleteTheTableRegardingKidneyColumn6Option4;
+    public String pleaseCompleteTheTableRegardingKidneyColumn7Option1;
+    public String pleaseCompleteTheTableRegardingKidneyColumn7Option2;
+    public String pleaseCompleteTheTableRegardingKidneyColumn7Option3;
+    public String pleaseCompleteTheTableRegardingKidneyColumn7Option4;
+    public String pleaseCompleteTheTableRegardingKidneyColumn8Option1;
+    public String pleaseCompleteTheTableRegardingKidneyColumn8Option2;
+    public String pleaseCompleteTheTableRegardingKidneyColumn8Option3;
+    public String pleaseCompleteTheTableRegardingKidneyColumn8Option4;
+    public String theNextSetOfQuestionsAskAboutHairAndSkinQualities;
 //    public String
 //    public String
 //    public String
@@ -693,8 +861,29 @@ public class TestDataManager extends PageInitializer {
 //    public String
 //    public String
 //    public String
-
-
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//
 
     public void dataInitializerRasScreener(String sheetName) {
         /**
@@ -1371,5 +1560,173 @@ public class TestDataManager extends PageInitializer {
             pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option8 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_4_OPTION_8);
             pleaseProvideTheInformationBelowForMostRecentProcedureColumn4Option9 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_MOST_RECENT_PROCEDURE_COLUMN_4_OPTION_9);
             theNextSetOfQuestionsAskAboutBreathingAndTheLungs = testDataRasSurvey.get(rASScreenerScenario1_Constants.THE_NEXT_SET_OF_QUESTIONS_ASK_ABOUT_BREATHING_AND_THE_LUNGS);
+            haveYouEverHadAnEvaluationByAPulmonologist = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_HAD_AN_EVALUATION_BY_A_PULMONOLOGIST);
+            pleaseProvideTheInformationBelowForThePulmonologistOption1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_PULMONOLOGIST_OPTION_1);
+            pleaseProvideTheInformationBelowForThePulmonologistOption2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_PULMONOLOGIST_OPTION_2);
+            pleaseProvideTheInformationBelowForThePulmonologistOption3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_PULMONOLOGIST_OPTION_3);
+            haveYouEverHadWheezingOrWhistling = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_HAD_WHEEZING_OR_WHISTLING);
+            haveYouBeenDiagnosedWithReactiveAirwayDisease = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_BEEN_DIAGNOSED_WITH_REACTIVE_AIRWAY_DISEASE);
+            haveYouEverBeenSeenInTheEmergencyRoomForABreathing = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_BEEN_SEEN_IN_THE_EMERGENCY_ROOM_FOR_A_BREATHING);
+            haveYouEverBeenSeenInTheHospitalForABreathing = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_BEEN_SEEN_IN_THE_HOSPITAL_FOR_A_BREATHING);
+            theNextSetOfQuestionsWillAskAboutOralHealthAndDental = testDataRasSurvey.get(rASScreenerScenario1_Constants.THE_NEXT_SET_OF_QUESTIONS_WILL_ASK_ABOUT_ORAL_HEALTH_AND_DENTAL);
+            doYouReceiveRegularDentalCare = testDataRasSurvey.get(rASScreenerScenario1_Constants.DO_YOU_RECEIVE_REGULAR_DENTAL_CARE);
+            pleaseProvideTheInformationBelowForWhereDentalOption1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_WHERE_DENTAL_OPTION_1);
+            pleaseProvideTheInformationBelowForWhereDentalOption2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_WHERE_DENTAL_OPTION_2);
+            pleaseProvideTheInformationBelowForWhereDentalOption3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_WHERE_DENTAL_OPTION_3);
+            whenDidYouLastVisitADentist = testDataRasSurvey.get(rASScreenerScenario1_Constants.WHEN_DID_YOU_LAST_VISIT_A_DENTIST);
+            whatWasTheReasonForYourLastDentalVisitOption = testDataRasSurvey.get(rASScreenerScenario1_Constants.WHAT_WAS_THE_REASON_FOR_YOUR_LAST_DENTAL_VISIT);
+            doYourGumsBleedRegularlyWithToothBrushing = testDataRasSurvey.get(rASScreenerScenario1_Constants.DO_YOUR_GUMS_BLEED_REGULARLY_WITH_TOOTH_BRUSHING);
+            doYourTeethOrGumsHurtRegularly = testDataRasSurvey.get(rASScreenerScenario1_Constants.DO_YOUR_TEETH_OR_GUMS_HURT_REGULARLY);
+            doYouHavePeriodontalOrGumDisease = testDataRasSurvey.get(rASScreenerScenario1_Constants.DO_YOU_HAVE_PERIODONTAL_OR_GUM_DISEASE);
+            haveYouHadDentalSealantsPlaced = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_HAD_DENTAL_SEALANTS_PLACED);
+            doYouCurrentlyHaveCavities = testDataRasSurvey.get(rASScreenerScenario1_Constants.DO_YOU_CURRENTLY_HAVE_CAVITIES);
+            haveYouPreviouslyHadAnyDentalFillings = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_PREVIOUSLY_HAD_ANY_DENTAL_FILLINGS);
+            doesYourMouthUsuallyFeelDry = testDataRasSurvey.get(rASScreenerScenario1_Constants.DOES_YOUR_MOUTH_USUALLY_FEEL_DRY);
+            overallHowWouldYouRateTheOverallHealth = testDataRasSurvey.get(rASScreenerScenario1_Constants.OVERALL_HOW_WOULD_YOU_RATE_THE_OVERALL_HEALTH);
+            overallHowWouldYouRateYourDentalHygieneRoutine = testDataRasSurvey.get(rASScreenerScenario1_Constants.OVERALL_HOW_WOULD_YOU_RATE_YOUR_DENTAL_HYGIENE_ROUTINE);
+            haveYouHadAnyChangesInYourSenseOfSmell = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_HAD_ANY_CHANGES_IN_YOUR_SENSE_OF_SMELL);
+            haveYouHadAnyChangesInYourSenseOfTaste = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_HAD_ANY_CHANGES_IN_YOUR_SENSE_OF_TASTE);
+            doYouHaveJawOrTemporomandibularJointPain = testDataRasSurvey.get(rASScreenerScenario1_Constants.DO_YOU_HAVE_JAW_OR_TEMPOROMANDIBULAR_JOINT_PAIN);
+            doYouHaveFrequentHeadaches = testDataRasSurvey.get(rASScreenerScenario1_Constants.DO_YOU_HAVE_FREQUENT_HEADACHES);
+            haveYouHadAnyOrthodonticTreatment = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_HAD_ANY_ORTHODONTIC_TREATMENT);
+            haveYouHadAPalatalExpansion = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_HAD_A_PALATAL_EXPANSION);
+            haveYouHadAnyFacialOrDentalTrauma = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_HAD_ANY_FACIAL_OR_DENTAL_TRAUMA);
+            didTheFacialOrDentalTraumaRequireSurgery = testDataRasSurvey.get(rASScreenerScenario1_Constants.DID_THE_FACIAL_OR_DENTAL_TRAUMA_REQUIRE_SURGERY);
+            didTheFacialOrDentalTraumaRequireSurgeryPlease = testDataRasSurvey.get(rASScreenerScenario1_Constants.DID_THE_FACIAL_OR_DENTAL_TRAUMA_REQUIRE_SURGERY_PLEASE);
+            haveYouHadElectiveJawSurgery = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_HAD_ELECTIVE_JAW_SURGERY);
+            doYouHaveAHistoryOfCancerInTheMouthOrJaw = testDataRasSurvey.get(rASScreenerScenario1_Constants.DO_YOU_HAVE_A_HISTORY_OF_CANCER_IN_THE_MOUTH_OR_JAW);
+            doYouHaveAHistoryOfCancerInTheMouthOrJawPlease = testDataRasSurvey.get(rASScreenerScenario1_Constants.DO_YOU_HAVE_A_HISTORY_OF_CANCER_IN_THE_MOUTH_OR_JAW_PLEASE);
+            doYouHaveAFamilyMemberWithAJawAbnormality = testDataRasSurvey.get(rASScreenerScenario1_Constants.DO_YOU_HAVE_A_FAMILY_MEMBER_WITH_A_JAW_ABNORMALITY);
+            doYouHaveAFamilyMemberWithAJawAbnormalityPlease = testDataRasSurvey.get(rASScreenerScenario1_Constants.DO_YOU_HAVE_A_FAMILY_MEMBER_WITH_A_JAW_ABNORMALITY_PLEASE);
+            doYouHaveAnyNumbnessInOrAroundYourMouth = testDataRasSurvey.get(rASScreenerScenario1_Constants.DO_YOU_HAVE_ANY_NUMBNESS_IN_OR_AROUND_YOUR_MOUTH);
+            doYouHaveAnyMouthSores = testDataRasSurvey.get(rASScreenerScenario1_Constants.DO_YOU_HAVE_ANY_MOUTH_SORES);
+            doYourTeethFeelSensitiveToHotOrColdFoods = testDataRasSurvey.get(rASScreenerScenario1_Constants.DO_YOUR_TEETH_FEEL_SENSITIVE_TO_HOT_OR_COLD_FOODS);
+            doYouHaveProblemsMovingYourLipsTongueOrMouth = testDataRasSurvey.get(rASScreenerScenario1_Constants.DO_YOU_HAVE_PROBLEMS_MOVING_YOUR_LIPS_TONGUE_OR_MOUTH);
+            overallIsThereAnythingUnusualAboutYourTeethOrMouth = testDataRasSurvey.get(rASScreenerScenario1_Constants.OVERALL_IS_THERE_ANYTHING_UNUSUAL_ABOUT_YOUR_TEETH_OR_MOUTH);
+            overallIsThereAnythingUnusualAboutYourTeethOrMouthPlease = testDataRasSurvey.get(rASScreenerScenario1_Constants.OVERALL_IS_THERE_ANYTHING_UNUSUAL_ABOUT_YOUR_TEETH_OR_MOUTH_PLEASE);
+            haveYouHadTroublePronouncingAnyWords = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_HAD_TROUBLE_PRONOUNCING_ANY_WORDS);
+            haveYouFeltThatYourSenseOfTasteHasWorsened = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_FELT_THAT_YOUR_SENSE_OF_TASTE_HAS_WORSENED);
+            haveYouHadPainfulAchingInYourMouth = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_HAD_PAINFUL_ACHING_IN_YOUR_MOUTH);
+            haveYouFoundItUncomfortableToEatAnyFoods = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_FOUND_IT_UNCOMFORTABLE_TO_EAT_ANY_FOODS);
+            areYouSelfConsciousBecauseOfYourTeeth = testDataRasSurvey.get(rASScreenerScenario1_Constants.ARE_YOU_SELF_CONSCIOUS_BECAUSE_OF_YOUR_TEETH);
+            haveYouFeltTenseBecauseOfProblems = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_FELT_TENSE_BECAUSE_OF_PROBLEMS);
+            hasYourDietBeenUnsatisfactoryBecause = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAS_YOUR_DIET_BEEN_UNSATISFACTORY_BECAUSE);
+            haveYouHadToInterruptMealsBecauseOfProblems = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_HAD_TO_INTERRUPT_MEALS_BECAUSE_OF_PROBLEMS);
+            haveYouFoundItDifficultToRelaxBecause = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_FOUND_IT_DIFFICULT_TO_RELAX_BECAUSE);
+            haveYouBeenABitEmbarrassedBecause = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_BEEN_A_BIT_EMBARRASSED_BECAUSE);
+            haveYouBeenIrritableWithOtherPeopleBecause = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_BEEN_IRRITABLE_WITH_OTHER_PEOPLE_BECAUSE);
+            haveYouHadDifficultyDoingYourUsualJobs = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_HAD_DIFFICULTY_DOING_YOUR_USUAL_JOBS);
+            haveYouFeltThatLifeInGeneralIsLessSatisfying = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_FELT_THAT_LIFE_IN_GENERAL_IS_LESS_SATISFYING);
+            haveYouBeenTotallyUnableToFunctionBecause = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_BEEN_TOTALLY_UNABLE_TO_FUNCTION_BECAUSE);
+            theNextSetOfQuestionsAskAboutFluidBalance = testDataRasSurvey.get(rASScreenerScenario1_Constants.THE_NEXT_SET_OF_QUESTIONS_ASK_ABOUT_FLUID_BALANCE);
+            haveYouEverBeenDiagnosedWithALymphaticSystemIssue = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_A_LYMPHATIC_SYSTEM_ISSUE);
+            haveYouEverBeenDiagnosedWithAnyOfTheFollowingLymphaticOption1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_LYMPHATIC_OPTION_1);
+            haveYouEverBeenDiagnosedWithAnyOfTheFollowingLymphaticOption2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_LYMPHATIC_OPTION_2);
+            haveYouEverBeenDiagnosedWithAnyOfTheFollowingLymphaticOption3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_LYMPHATIC_OPTION_3);
+            haveYouEverBeenDiagnosedWithAnyOfTheFollowingLymphaticOption4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_LYMPHATIC_OPTION_4);
+            haveYouEverBeenDiagnosedWithAnyOfTheFollowingLymphaticOption5 = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_LYMPHATIC_OPTION_5);
+            haveYouEverBeenDiagnosedWithAnyOfTheFollowingLymphaticOption6 = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_LYMPHATIC_OPTION_6);
+            haveYouEverBeenDiagnosedWithAnyOfTheFollowingLymphaticOption7 = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_LYMPHATIC_OPTION_7);
+            haveYouEverBeenDiagnosedWithAnyOfTheFollowingLymphaticOption7Other = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_LYMPHATIC_OPTION_7_OTHER);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn1Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_1_OPTION_1);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn1Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_1_OPTION_2);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn1Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_1_OPTION_3);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn1Option4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_1_OPTION_4);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn1Option5 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_1_OPTION_5);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn1Option6 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_1_OPTION_6);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn1Option7 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_1_OPTION_7);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn2Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_2_OPTION_1);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn2Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_2_OPTION_2);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn2Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_2_OPTION_3);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn2Option4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_2_OPTION_4);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn2Option5 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_2_OPTION_5);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn2Option6 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_2_OPTION_6);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn2Option7 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_2_OPTION_7);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn3Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_3_OPTION_1);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn3Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_3_OPTION_2);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn3Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_3_OPTION_3);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn3Option4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_3_OPTION_4);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn3Option5 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_3_OPTION_5);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn3Option6 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_3_OPTION_6);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn3Option7 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_3_OPTION_7);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn4Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_4_OPTION_1);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn4Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_4_OPTION_2);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn4Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_4_OPTION_3);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn4Option4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_4_OPTION_4);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn4Option5 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_4_OPTION_5);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn4Option6 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_4_OPTION_6);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn4Option7 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_4_OPTION_7);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn5Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_5_OPTION_1);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn5Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_5_OPTION_2);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn5Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_5_OPTION_3);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn5Option4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_5_OPTION_4);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn5Option5 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_5_OPTION_5);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn5Option6 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_5_OPTION_6);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn5Option7 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_5_OPTION_7);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn6Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_6_OPTION_1);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn6Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_6_OPTION_2);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn6Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_6_OPTION_3);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn6Option4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_6_OPTION_4);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn6Option5 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_6_OPTION_5);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn6Option6 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_6_OPTION_6);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn6Option7 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_6_OPTION_7);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn7Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_7_OPTION_1);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn7Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_7_OPTION_2);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn7Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_7_OPTION_3);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn7Option4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_7_OPTION_4);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn7Option5 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_7_OPTION_5);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn7Option6 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_7_OPTION_6);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn7Option7 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_7_OPTION_7);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn8Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_8_OPTION_1);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn8Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_8_OPTION_2);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn8Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_8_OPTION_3);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn8Option4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_8_OPTION_4);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn8Option5 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_8_OPTION_5);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn8Option6 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_8_OPTION_6);
+            pleaseCompleteToTheBestOfYourAbilityAboutTheOnsetColumn8Option7 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_ABOUT_THE_ONSET_COLUMN_8_OPTION_7);
+            theNextSetOfQuestionsWillAskAboutTheKidneys = testDataRasSurvey.get(rASScreenerScenario1_Constants.THE_NEXT_SET_OF_QUESTIONS_WILL_ASK_ABOUT_THE_KIDNEYS);
+            haveYouEverBeenEvaluatedByANephrologist = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_BEEN_EVALUATED_BY_A_NEPHROLOGIST);
+            pleaseListTheInformationBelowForTheNephrologistOption1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_LIST_THE_INFORMATION_BELOW_FOR_THE_NEPHROLOGIST_OPTION_1);
+            pleaseListTheInformationBelowForTheNephrologistOption2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_LIST_THE_INFORMATION_BELOW_FOR_THE_NEPHROLOGIST_OPTION_2);
+            pleaseListTheInformationBelowForTheNephrologistOption3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_LIST_THE_INFORMATION_BELOW_FOR_THE_NEPHROLOGIST_OPTION_3);
+            haveYouEverBeenDiagnosedWithAKidneyProblem = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_A_KIDNEY_PROBLEM);
+            haveYouEverBeenDiagnosedWithAnyOfTheFollowingKidneyProblemsOption1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_KIDNEY_PROBLEMS_OPTION_1);
+            haveYouEverBeenDiagnosedWithAnyOfTheFollowingKidneyProblemsOption2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_KIDNEY_PROBLEMS_OPTION_2);
+            haveYouEverBeenDiagnosedWithAnyOfTheFollowingKidneyProblemsOption3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_KIDNEY_PROBLEMS_OPTION_3);
+            haveYouEverBeenDiagnosedWithAnyOfTheFollowingKidneyProblemsOption4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_KIDNEY_PROBLEMS_OPTION_4);
+            haveYouEverBeenDiagnosedWithAnyOfTheFollowingKidneyProblemsOption4Other = testDataRasSurvey.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_KIDNEY_PROBLEMS_OPTION_4_OTHER);
+            pleaseCompleteTheTableRegardingKidneyColumn1Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_1_OPTION_1);
+            pleaseCompleteTheTableRegardingKidneyColumn1Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_1_OPTION_2);
+            pleaseCompleteTheTableRegardingKidneyColumn1Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_1_OPTION_3);
+            pleaseCompleteTheTableRegardingKidneyColumn1Option4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_1_OPTION_4);
+            pleaseCompleteTheTableRegardingKidneyColumn2Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_2_OPTION_1);
+            pleaseCompleteTheTableRegardingKidneyColumn2Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_2_OPTION_2);
+            pleaseCompleteTheTableRegardingKidneyColumn2Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_2_OPTION_3);
+            pleaseCompleteTheTableRegardingKidneyColumn2Option4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_2_OPTION_4);
+            pleaseCompleteTheTableRegardingKidneyColumn3Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_3_OPTION_1);
+            pleaseCompleteTheTableRegardingKidneyColumn3Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_3_OPTION_2);
+            pleaseCompleteTheTableRegardingKidneyColumn3Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_3_OPTION_3);
+            pleaseCompleteTheTableRegardingKidneyColumn3Option4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_3_OPTION_4);
+            pleaseCompleteTheTableRegardingKidneyColumn4Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_4_OPTION_1);
+            pleaseCompleteTheTableRegardingKidneyColumn4Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_4_OPTION_2);
+            pleaseCompleteTheTableRegardingKidneyColumn4Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_4_OPTION_3);
+            pleaseCompleteTheTableRegardingKidneyColumn4Option4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_4_OPTION_4);
+            pleaseCompleteTheTableRegardingKidneyColumn5Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_5_OPTION_1);
+            pleaseCompleteTheTableRegardingKidneyColumn5Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_5_OPTION_2);
+            pleaseCompleteTheTableRegardingKidneyColumn5Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_5_OPTION_3);
+            pleaseCompleteTheTableRegardingKidneyColumn5Option4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_5_OPTION_4);
+            pleaseCompleteTheTableRegardingKidneyColumn6Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_6_OPTION_1);
+            pleaseCompleteTheTableRegardingKidneyColumn6Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_6_OPTION_2);
+            pleaseCompleteTheTableRegardingKidneyColumn6Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_6_OPTION_3);
+            pleaseCompleteTheTableRegardingKidneyColumn6Option4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_6_OPTION_4);
+            pleaseCompleteTheTableRegardingKidneyColumn7Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_7_OPTION_1);
+            pleaseCompleteTheTableRegardingKidneyColumn7Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_7_OPTION_2);
+            pleaseCompleteTheTableRegardingKidneyColumn7Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_7_OPTION_3);
+            pleaseCompleteTheTableRegardingKidneyColumn7Option4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_7_OPTION_4);
+            pleaseCompleteTheTableRegardingKidneyColumn8Option1 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_8_OPTION_1);
+            pleaseCompleteTheTableRegardingKidneyColumn8Option2 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_8_OPTION_2);
+            pleaseCompleteTheTableRegardingKidneyColumn8Option3 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_8_OPTION_3);
+            pleaseCompleteTheTableRegardingKidneyColumn8Option4 = testDataRasSurvey.get(rASScreenerScenario1_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_8_OPTION_4);
+            theNextSetOfQuestionsAskAboutHairAndSkinQualities = testDataRasSurvey.get(rASScreenerScenario1_Constants.THE_NEXT_SET_OF_QUESTIONS_ASK_ABOUT_HAIR_AND_SKIN_QUALITIES);
         }
     }

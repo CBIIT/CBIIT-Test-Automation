@@ -33,14 +33,9 @@ public class WebDriverUtils {
     public static WebDriver webDriver;
 
     public static WebDriver getWebDriver() {
-
         String browser = ConfUtils.getProperty("browser");
-        String headless = ConfUtils.getProperty("headless");
-
         if (webDriver == null) {
-            if (headless.equalsIgnoreCase(Constants.TRUE)) {
-            lunchInHeadlessMode();
-            } else if (Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
+            if (Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
                 launchMobile();
             } else if (Constants.BROWSER_CHROME.equalsIgnoreCase(browser)) {
                 launchChrome();
@@ -82,7 +77,6 @@ public class WebDriverUtils {
      * @return image in byte codes
      */
     public static byte[] getScreenShot() {
-
         byte[] screenshot = null;
         ScenarioContext.webDriver.get();
         try {
@@ -101,7 +95,6 @@ public class WebDriverUtils {
      */
     public static String getCurrentURL(WebDriver driver) {
         String url = "";
-
         if (driver != null) {
             url = driver.getCurrentUrl();
         }
@@ -114,7 +107,12 @@ public class WebDriverUtils {
 
     public static void launchChrome() {
         String osName = FrameworkConstants.GET_OS_NAME;
-        if (osName.contains("Windows")) {
+        String headless = ConfUtils.getProperty("headless");
+        if (headless.equalsIgnoreCase(Constants.TRUE)) {
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.addArguments("--headless=new");
+            webDriver = new ChromeDriver(chromeOptions);
+        } else if (osName.contains("Windows")) {
             webDriver = new ChromeDriver();
             webDriver.manage().window().maximize();
             webDriver.manage().deleteAllCookies();
@@ -129,12 +127,6 @@ public class WebDriverUtils {
             chromeOptions.addArguments("--headless=new");
             webDriver = new ChromeDriver(chromeOptions);
         }
-    }
-
-    public static void lunchInHeadlessMode() {
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--headless=new");
-        webDriver = new ChromeDriver(chromeOptions);
     }
 
     public static void launchMobile() {
