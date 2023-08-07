@@ -1,8 +1,11 @@
 package ServiceNow.SCSS.Steps;
 
 import appsCommon.PageInitializer;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.JavascriptUtils;
 import io.cucumber.java.en.Given;
+import org.testng.Assert;
 
 public class OWMVacancySteps  extends PageInitializer {
 
@@ -15,5 +18,59 @@ public class OWMVacancySteps  extends PageInitializer {
     public void user_is_on_SCSS_landing_page() {
         CommonUtils.waitForVisibility(owmVacancyPage.scssLandingPageTitle);
         CommonUtils.assertTrue(owmVacancyPage.scssLandingPageTitle.isDisplayed());
+    }
+
+    @Given("User navigates to tab {string}")
+    public void user_navigates_to_tab(String string) {
+        CommonUtils.waitForVisibility(owmVacancyPage.vacancyDashboardTab);
+        CommonUtils.clickOnElement(owmVacancyPage.vacancyDashboardTab);
+    }
+
+    @Given("User clicks button {string}")
+    public void user_clicks_button(String button) {
+        oWMVacancyStepsImplementation.clickButton(button);
+    }
+
+   @Given("User fills in Vacancy Title as {string}")
+    public void user_fills_in_vacancy_title_as(String vacTitle) {
+       CommonUtils.waitForVisibility(owmVacancyPage.vacancyTitleField);
+       CommonUtils.sendKeys(owmVacancyPage.vacancyTitleField,vacTitle);
+   }
+
+   @Given("User fills in field Vacancy Description as {string}")
+   public void user_fills_in_field_vacancy_description_as(String description) {
+       CommonUtils.sendKeys(owmVacancyPage.vacancyDescriptionField,description);
+    }
+
+    @Given("User marks option as checked for Allow HR Specialist to Triage")
+    public void user_marks_option_as_checked_for_allow_hr_specialist_to_triage() {
+        CommonUtils.clickOnElement(owmVacancyPage.allowHRSpecialistToTriageCheckbox);
+    }
+
+    @Given("User selects open and close date")
+    public void user_selects_open_and_close_date() {
+        oWMVacancyStepsImplementation.selectOpenCloseDate(24,69);
+        MiscUtils.sleep(3000);
+    }
+
+    @Given("User selects {string} as a Position Classification choice")
+    public void user_selects_as_a_position_classification_choice(String position) {
+        oWMVacancyStepsImplementation.selectPositionClassification(position);
+    }
+
+    @Given("User verifies that {string} is a contact for Appointment Package Initiator")
+    public void user_verifies_that_is_a_contact_for_appointment_package_initiator(String person) {
+        JavascriptUtils.scrollIntoView(owmVacancyPage.apptPackageInitiatorField);
+        Assert.assertEquals(owmVacancyPage.apptPackageInitiatorField.getAttribute("title"),person);
+    }
+
+    @Given("User picks {string} for Organizational Code")
+    public void user_picks_for_organizational_code(String code) {
+        oWMVacancyStepsImplementation.selectOrganizationalCode(code);
+    }
+
+    @Given("User confirms that Cover letter document is marked as optional")
+    public void user_confirms_that_cover_letter_document_is_marked_as_optional() {
+        Assert.assertTrue(owmVacancyPage.coverLetterOptionalCheckmark.isSelected());
     }
 }

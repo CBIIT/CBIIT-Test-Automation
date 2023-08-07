@@ -55,6 +55,7 @@ import CustomBusiness.EIDP.StepsImplementation.EIDPLoginStepImpl;
 import CustomBusiness.EIDP.StepsImplementation.GeneralInformationStepImpl;
 import CustomBusiness.EIDP.StepsImplementation.ProjectRelatedDeliverableStepImpl;
 import CustomBusiness.EIDP.StepsImplementation.SearchStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
 import CustomBusiness.ETD.Pages.ETDAdminNCIPage;
 import CustomBusiness.ETD.Pages.ETDBasePage;
 import CustomBusiness.ETD.StepsImplementation.ETDFlowStepsImpl;
@@ -62,9 +63,32 @@ import GrantsApps.ChangePassword.Pages.ChangePasswordPage;
 import GrantsApps.ChangePassword.StepsImplementation.ChangePasswordStepsImpl;
 import GrantsApps.EM.Pages.ManageI2EUsersPage;
 import GrantsApps.EM.StepImplementation.EMStepsImplementation;
-import ServiceNow.BrownBag.Pages.SEERLandingPage2;
 import ServiceNow.CHARMS.Constants.RASScreenerScenario1_Constants;
-import ServiceNow.CHARMS.Pages.*;
+import ServiceNow.CHARMS.Pages.CGBIIQPage;
+import ServiceNow.CHARMS.Pages.CGBIIQPages;
+import ServiceNow.CHARMS.Pages.CHARMSHomePage;
+import ServiceNow.CHARMS.Pages.CHARMSNativeViewPage;
+import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
+import ServiceNow.CHARMS.Pages.FHQSurveyPage;
+import ServiceNow.CHARMS.Pages.FHQSurveyPortalPage;
+import ServiceNow.CHARMS.Pages.MelanomaHomePage;
+import ServiceNow.CHARMS.Pages.MelanomaLoginPage;
+import ServiceNow.CHARMS.Pages.MelanomaQuestionnairePage;
+import ServiceNow.CHARMS.Pages.MyRASHomePage;
+import ServiceNow.CHARMS.Pages.MyRASIIQFormPage;
+import ServiceNow.CHARMS.Pages.MyRASLoginPage;
+import ServiceNow.CHARMS.Pages.MyRASStudyConsentPage;
+import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
+import ServiceNow.CHARMS.Pages.NativeViewCHARMSParticipantConsentPage;
+import ServiceNow.CHARMS.Pages.NativeViewCHARMSParticipantDetailsPage;
+import ServiceNow.CHARMS.Pages.OKTAloginPage;
+import ServiceNow.CHARMS.Pages.ParticipantDetailsPage;
+import ServiceNow.CHARMS.Pages.ProbandScreenerPage;
+import ServiceNow.CHARMS.Pages.RAS_Survey_Native_View_Page;
+import ServiceNow.CHARMS.Pages.RAS_Survey_Page;
+import ServiceNow.CHARMS.Pages.RASopathyQuestionnairePage;
+import ServiceNow.CHARMS.Pages.ScreenerRecordTablePage;
+import ServiceNow.CHARMS.Pages.TestAccountResetPage;
 import ServiceNow.CHARMS.ScenariosData.TestDataManagerScenario1;
 import ServiceNow.CHARMS.StepsImplementation.CHARMSHomePageImp;
 import ServiceNow.CHARMS.StepsImplementation.RASSurveyStepsImpl;
@@ -91,9 +115,9 @@ import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
+import ServiceNow.ESR.Pages.NCINativeViewPage;
 import ServiceNow.ETracking.Pages.EtrackAssetsRecords_NativeViewPage;
 import ServiceNow.GCP.Pages.GCPNotifications_NativeViewPage;
-import ServiceNow.ESR.Pages.NCINativeViewPage;
 import ServiceNow.NERD.Pages.Covid19ActivitiesSubmissionsPage;
 import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
 import ServiceNow.NERD.Pages.NERDCRSTCollaborationsPage;
@@ -124,36 +148,6 @@ import ServiceNow.SEER.Pages.SEERIncidenceDatabaseDetailsPage;
 import ServiceNow.SEER.Pages.SEERLandingPage;
 import ServiceNow.SEER.Pages.SEERUserRegistrationPage;
 import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
-import CustomBusiness.DCEG.Pages.AdminFlowPage;
-import CustomBusiness.DCEG.Pages.BranchAdminPage;
-import CustomBusiness.DCEG.Pages.CreateCRPage;
-import CustomBusiness.DCEG.Pages.DirectSubmitterPage;
-import CustomBusiness.DCEG.Pages.RegularUserFlowPage;
-import CustomBusiness.DCEG.Steps.RegularUserFlowSteps;
-import CustomBusiness.DCEG.StepsImplementation.FlowStepsImplementation;
-import CustomBusiness.EIDP.Pages.AligningExpectationsPage;
-import CustomBusiness.EIDP.Pages.BasePage;
-import CustomBusiness.EIDP.Pages.CareerGoalAndActivePage;
-import CustomBusiness.EIDP.Pages.CoPrimaryMentorPage;
-import CustomBusiness.EIDP.Pages.CommonPage;
-import CustomBusiness.EIDP.Pages.DashboardPage;
-import CustomBusiness.EIDP.Pages.DelegatePage;
-import CustomBusiness.EIDP.Pages.GeneralInformationPage;
-import CustomBusiness.EIDP.Pages.IDPAwaitingResponsePage;
-import CustomBusiness.EIDP.Pages.LoginPage;
-import CustomBusiness.EIDP.Pages.ProjectRelatedDeliverablePage;
-import CustomBusiness.EIDP.Pages.SearchPage;
-import CustomBusiness.EIDP.Pages.TraineeReviewPage;
-import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
-import CustomBusiness.EIDP.StepsImplementation.AlignExpectionsStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.CareerGoalAndActiveStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.EIDPLoginStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.GeneralInformationStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.ProjectRelatedDeliverableStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.SearchStepImpl;
-import CustomBusiness.ETD.Pages.ETDAdminNCIPage;
-import CustomBusiness.ETD.Pages.ETDBasePage;
-import CustomBusiness.ETD.StepsImplementation.ETDFlowStepsImpl;
 
 /**
  * This an initializer class which will initialize all pages classes. Once pages
@@ -161,7 +155,7 @@ import CustomBusiness.ETD.StepsImplementation.ETDFlowStepsImpl;
  */
 public class PageInitializer {
 
-    public static SEERLandingPage2 seerLandingPage2;
+//    public static SEERLandingPage2 seerLandingPage2;
 
     /** --------------- APPSCOMMON INSTANCES --------------- */
     // declare public static variables of types of all the pages
@@ -586,7 +580,7 @@ public class PageInitializer {
         emStepsImplementation = new EMStepsImplementation();
         manageI2EUsersPage = new ManageI2EUsersPage();
 
-        seerLandingPage2 = new SEERLandingPage2();
+      //  seerLandingPage2 = new SEERLandingPage2();
 
 
         /** eTracking INSTANCE VARIABLES */
