@@ -3,6 +3,7 @@ package ServiceNow.SCSS.Pages;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import java.util.List;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -94,5 +95,49 @@ public class OWMVacancyPage  extends CommonUtils {
     @FindBy(xpath = "//button//span[contains(text(),'save')]")
     public WebElement saveButton;
 
+    /** Save and Finalize button **/
+    @FindBy(xpath = "//button//span[contains(text(),'save and finalize')]")
+    public WebElement saveAndFinalizeButton;
 
+    /** Select Committee Member dropdown **/
+    @FindBy(xpath = "//div[@class=' css-yk16xz-control']")
+    public WebElement selectComMemberDropdown;
+
+    /** Committee Member **/
+    public WebElement committeeMember(String value) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//div[@class='reference-field css-2b097c-container']//*[contains(text(),'" + value + "')]"));
+    }
+
+    /** Role **/
+    public WebElement role(String value) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//span[contains(text(),'" + value + "')]"));
+    }
+
+    /** Action Save button **/
+    @FindBy(xpath = "//button[@class='ant-btn ant-btn-link ActionButton']//span[contains(text(),'save')]")
+    public WebElement actionSaveButton;
+
+    /** Executive Secretary (non-voting) role **/
+    @FindBy(xpath = "//div[contains(text(),'Executive Secretary (non-voting)')]")
+    public WebElement exeSecretaryRole;
+
+    /** Add Member button **/
+    @FindBy(xpath = "//button//span[contains(text(),' add member')]")
+    public WebElement addMemberButton;
+
+    /** Role dropdwon **/
+    @FindBy(xpath = "//div[@class='ant-select-selector']//span[@title='Member (voting)']")
+    public WebElement roleDropdownMemberVoting;
+
+    /** ok Confirmation Alert **/
+    @FindBy(xpath = "//span[normalize-space()='OK']")
+    public WebElement okConfirmationAlert;
+
+    /** Vacancy Finalized Alert **/
+    @FindBy(xpath = "//span[normalize-space()='OK']")
+    public WebElement vacancyFinalizedAlert;
+
+    /** Close Confirmation Alert **/
+    @FindBy(xpath = "//span[normalize-space()='Close']")
+    public WebElement closeConfirmationAlert;
 }

@@ -155,8 +155,6 @@ import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
  */
 public class PageInitializer {
 
-//    public static SEERLandingPage2 seerLandingPage2;
-
     /** --------------- APPSCOMMON INSTANCES --------------- */
     // declare public static variables of types of all the pages
     /** iTrust instances */
@@ -579,8 +577,6 @@ public class PageInitializer {
         changePasswordStepsImpl = new ChangePasswordStepsImpl();
         emStepsImplementation = new EMStepsImplementation();
         manageI2EUsersPage = new ManageI2EUsersPage();
-
-      //  seerLandingPage2 = new SEERLandingPage2();
 
 
         /** eTracking INSTANCE VARIABLES */
