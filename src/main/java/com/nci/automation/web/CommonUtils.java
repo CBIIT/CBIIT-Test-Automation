@@ -31,28 +31,6 @@ public class CommonUtils extends WebDriverUtils {
     private static Logger logger = LogManager.getLogger(CommonUtils.class);
 
     /**
-     * Use this method in need of clicking on a WebElement by selenium WebDriver.
-     *
-     * @param element Pass the desired WebElement to be clicked.
-     */
-    public static void click(WebElement element) {
-        waitForClickability(element);
-        element.click();
-    }
-
-    /**
-     * Use this method in need of entering value to a text box through selenium
-     * WebDriver.
-     *
-     * @param element Pass the element to which the text needs to be entered.
-     * @param value   Pass the desired text/value in the second parameter.
-     */
-    public static void sendKeys(WebElement element, String value) {
-        element.clear();
-        element.sendKeys(value);
-    }
-
-    /**
      * Use this method in need of entering keyboard keys into a WebElement by
      * selenium WebDriver.
      *
@@ -737,5 +715,17 @@ public class CommonUtils extends WebDriverUtils {
         } catch (WebDriverException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Use this method in need of entering value to a text box through selenium
+     * WebDriver.
+     *
+     * @param element Pass the element to which the text needs to be entered.
+     * @param value   Pass the desired text/value in the second parameter.
+     */
+    public static void sendKeys(WebElement element, String value) {
+        element.clear();
+        element.sendKeys(value);
     }
 }

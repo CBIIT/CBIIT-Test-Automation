@@ -142,7 +142,7 @@ public class SEERDataAccessRequestPageSteps extends PageInitializer {
 
 	@When("successfully submitting the SEER Data Request form")
 	public void successfully_submitting_the_SEER_Data_Request_form() {
-		CommonUtils.click(seerDataAccessRequestPage.seerDataAccessSubmitButton);
+		CommonUtils.clickOnElement(seerDataAccessRequestPage.seerDataAccessSubmitButton);
 	}
 
 	@Then("the page {string} displays")

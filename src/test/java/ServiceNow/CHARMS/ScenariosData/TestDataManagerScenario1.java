@@ -106,40 +106,46 @@ public class TestDataManagerScenario1 extends PageInitializer {
         /**
          * FETCHING DATA FROM EXCEL BEFORE SUBMITTING SCREENER
          */
-        testDataForRasScreenerSubmissionScenario1 = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_ONE_DATA, sheetName);
-        areYouCompletingThisFormForSomeoneElseOrYourself = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE);
-        firstName = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.FIRST_NAME);
-        middleInitial = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.MIDDLE_INITIAL);
-        lastName = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.LAST_NAME);
-        whatIsYourDateOfBirth = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.WHAT_IS_YOUR_DATE_OF_BIRTH);
-        dateOfBirthMonth = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.DATE_OF_BIRTH_MONTH);
-        dateOfBirthYear = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.DATE_OF_BIRTH_YEAR);
-        sexAssignedAtBirthOption = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.SEX_ASSIGNED_AT_BIRTH_OPTION);
-        areYouAdoptedOption = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.ARE_YOU_ADOPTED_OPTION);
-        countryOption = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.WHICH_COUNTRY_DO_YOU_CURRENTLY_LIVE_IN_OPTION);
-        street = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.STREET_ADDRESS);
-        street2 = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.STREET_2_ADDRESS);
-        city = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.CITY_TEXT);
-        state = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.STATE_TEXT);
-        zipcode = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.ZIP_CODE_TEXT);
-        emailAddress = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.EMAIL_ADDRESS);
-        emailAddressConfirm = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.CONFIRM_EMAIL_ADDRESS);
-        homePhoneNumber = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.HOME_PHONE_NUMBER);
-        cellPhoneNumber = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.CELL_PHONE_NUMBER);
-        workPhoneNumber = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.WORK_PHONE_NUMBER);
-        whatIsYourEthnicity = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.WHAT_IS_YOUR_ETHNICITY);
-        whatIsYourRace = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.WHAT_IS_YOUR_RACE);
-        areYouAParticipantInOtherStudyGroup = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.ARE_YOU_A_PARTICIPANT_IN_OTHER_STUDY_GROUP);
-        haveYouBeenDiagnosedWithFollowingConditions = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.HAVE_YOU_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS);
-        haveYouBeenDiagnosedWithCancer = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_CANCER);
-        haveYouBeenDiagnosedWithARasopathy = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.HAVE_YOU_BEEN_DIAGNOSED_WITH_A_RASOPATHY);
-        haveAnyOfYourBiologicalRelativesBeenDiagnosedWithARasopathy = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.HAVE_ANY_BIOLOGICAL_RELATIVES_BEEN_DIAGNOSED_WITH_ARASOPATHY);
-        haveYouEverHadGeneticTesting = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_HAD_GENETIC_TESTING);
-        howDidYouHearAboutThisStudy = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.HOW_DID_YOU_HEAR_ABOUT_THIS_STUDY);
-        howDidYouHearAboutThisStudyOtherReason = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.HOW_DID_YOU_HEAR_ABOUT_THIS_STUDY_OTHER_REASON);
-        haveYouOrOtherFamilyMembersParticipatedInOtherStudy = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.HAVE_YOU_OR_OTHER_FAMILY_MEMBERS_PARTICIPATED_IN_OTHER_STUDY);
-        whatAreMainReasonsForParticipatingInStudy = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_IN_THIS_STUDY);
-        whatAreMainReasonsForParticipatingInStudyOtherReason = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_IN_THIS_STUDY_OTHER_REASON);
+        if(sheetName.equals("screenerScenario1")) {
+            testDataForRasScreenerSubmissionScenario1 = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_ONE_DATA, sheetName);
+            areYouCompletingThisFormForSomeoneElseOrYourself = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE);
+            firstName = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.FIRST_NAME);
+            middleInitial = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.MIDDLE_INITIAL);
+            lastName = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.LAST_NAME);
+            whatIsYourDateOfBirth = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.WHAT_IS_YOUR_DATE_OF_BIRTH);
+            dateOfBirthMonth = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.DATE_OF_BIRTH_MONTH);
+            dateOfBirthYear = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.DATE_OF_BIRTH_YEAR);
+            sexAssignedAtBirthOption = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.SEX_ASSIGNED_AT_BIRTH_OPTION);
+            areYouAdoptedOption = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.ARE_YOU_ADOPTED_OPTION);
+            countryOption = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.WHICH_COUNTRY_DO_YOU_CURRENTLY_LIVE_IN_OPTION);
+            street = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.STREET_ADDRESS);
+            street2 = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.STREET_2_ADDRESS);
+            city = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.CITY_TEXT);
+            state = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.STATE_TEXT);
+            zipcode = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.ZIP_CODE_TEXT);
+            emailAddress = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.EMAIL_ADDRESS);
+            emailAddressConfirm = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.CONFIRM_EMAIL_ADDRESS);
+            homePhoneNumber = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.HOME_PHONE_NUMBER);
+            cellPhoneNumber = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.CELL_PHONE_NUMBER);
+            workPhoneNumber = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.WORK_PHONE_NUMBER);
+            whatIsYourEthnicity = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.WHAT_IS_YOUR_ETHNICITY);
+            whatIsYourRace = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.WHAT_IS_YOUR_RACE);
+            areYouAParticipantInOtherStudyGroup = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.ARE_YOU_A_PARTICIPANT_IN_OTHER_STUDY_GROUP);
+            haveYouBeenDiagnosedWithFollowingConditions = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.HAVE_YOU_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS);
+            haveYouBeenDiagnosedWithCancer = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_CANCER);
+            haveYouBeenDiagnosedWithARasopathy = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.HAVE_YOU_BEEN_DIAGNOSED_WITH_A_RASOPATHY);
+            haveAnyOfYourBiologicalRelativesBeenDiagnosedWithARasopathy = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.HAVE_ANY_BIOLOGICAL_RELATIVES_BEEN_DIAGNOSED_WITH_ARASOPATHY);
+            haveYouEverHadGeneticTesting = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.HAVE_YOU_EVER_HAD_GENETIC_TESTING);
+            howDidYouHearAboutThisStudy = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.HOW_DID_YOU_HEAR_ABOUT_THIS_STUDY);
+            howDidYouHearAboutThisStudyOtherReason = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.HOW_DID_YOU_HEAR_ABOUT_THIS_STUDY_OTHER_REASON);
+            haveYouOrOtherFamilyMembersParticipatedInOtherStudy = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.HAVE_YOU_OR_OTHER_FAMILY_MEMBERS_PARTICIPATED_IN_OTHER_STUDY);
+            whatAreMainReasonsForParticipatingInStudy = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_IN_THIS_STUDY);
+            whatAreMainReasonsForParticipatingInStudyOtherReason = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_IN_THIS_STUDY_OTHER_REASON);
+        } else if(sheetName.equals("the next sheet name")){
+            testDataForRasScreenerSubmissionScenario1 = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_ONE_DATA, sheetName);
+
+
+        }
     }
 
     public void dataInitializerRasScreenerIiqFormScenario1(String sheetName) {

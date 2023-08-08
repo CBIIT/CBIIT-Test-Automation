@@ -22,37 +22,37 @@ public class ETDFlowStepsImpl extends PageInitializer {
 
 	public void etdLogin(String userName) throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ETD"));
-		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "nekrashevicha2Username");
-		iTrustloginPage.enterPassword("nekrashevicha2Password");
+		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "Username");
+		iTrustloginPage.enterPassword("Password");
 		MiscUtils.sleep(3000);
 		iTrustloginPage.clickSignInButton();
 		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(etdAdminNCIPage.changeUserButtonNCI);
 		JavascriptUtils.clickByJS(etdAdminNCIPage.changeUserButtonNCI);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(etdAdminNCIPage.inputFieldChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.inputFieldChangeUser);
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, userName);
 		//JavascriptUtils.enterValueByJS(etdAdminNCIPage.inputFieldChangeUser, userName);
 		MiscUtils.sleep(4000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(etdAdminNCIPage.dropdownChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	public void selectTab(String tab) {
 		if (tab.equalsIgnoreCase("Home")) {
-			CommonUtils.click(etdAdminNCIPage.homeTab);
+			CommonUtils.clickOnElement(etdAdminNCIPage.homeTab);
 			MiscUtils.sleep(2000);
 		} else if (tab.equalsIgnoreCase("About ETD")) {
-			CommonUtils.click(etdAdminNCIPage.aboutETDTab);
+			CommonUtils.clickOnElement(etdAdminNCIPage.aboutETDTab);
 			MiscUtils.sleep(2000);
 		} else if (tab.equalsIgnoreCase("Manage ETD")) {
-			CommonUtils.click(etdAdminNCIPage.manageETDTab);
+			CommonUtils.clickOnElement(etdAdminNCIPage.manageETDTab);
 			MiscUtils.sleep(2000);
 		} else {
-			CommonUtils.click(etdAdminNCIPage.manageRolesTab);
+			CommonUtils.clickOnElement(etdAdminNCIPage.manageRolesTab);
 			MiscUtils.sleep(2000);
 		}
 	}
@@ -81,31 +81,31 @@ public class ETDFlowStepsImpl extends PageInitializer {
 		JavascriptUtils.scrollIntoView(etdAdminNCIPage.changeUserButtonNCI);
 		JavascriptUtils.clickByJS(etdAdminNCIPage.changeUserButtonNCI);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(etdAdminNCIPage.inputFieldChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.inputFieldChangeUser);
 		MiscUtils.sleep(4000);
 		if (tier.equalsIgnoreCase("Tier User1")) {
 			CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, "ABER, ETAN");
 			MiscUtils.sleep(4000);
 			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-			CommonUtils.click(etdAdminNCIPage.dropdownChangeUser);
+			CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 			MiscUtils.sleep(3000);
 		} else if (tier.equalsIgnoreCase("Tier User2")) {
 			CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, "ADAMS, GREGORY");
 			MiscUtils.sleep(4000);
 			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-			CommonUtils.click(etdAdminNCIPage.dropdownChangeUser);
+			CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 			MiscUtils.sleep(3000);
 		} else if (tier.equalsIgnoreCase("Tier User3")) {
 			CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, "BILD, ANDREA");
 			MiscUtils.sleep(4000);
 			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-			CommonUtils.click(etdAdminNCIPage.dropdownChangeUser);
+			CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 			MiscUtils.sleep(3000);
 		} else {
 			CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, "BERG, LESLIE");
 			MiscUtils.sleep(4000);
 			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-			CommonUtils.click(etdAdminNCIPage.dropdownChangeUser);
+			CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 			MiscUtils.sleep(3000);
 		}
 	}
@@ -132,59 +132,59 @@ public class ETDFlowStepsImpl extends PageInitializer {
 
 	public void selectTier(String tier) {
 		if (tier.equalsIgnoreCase("All")) {
-			CommonUtils.click(etdAdminNCIPage.searchButton);
+			CommonUtils.clickOnElement(etdAdminNCIPage.searchButton);
 			MiscUtils.sleep(30000);
 			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		} else if (tier.equalsIgnoreCase("Tier I")) {
-			CommonUtils.click(etdAdminNCIPage.tierDropdown);
+			CommonUtils.clickOnElement(etdAdminNCIPage.tierDropdown);
 			MiscUtils.sleep(30000);
-			CommonUtils.click(etdAdminNCIPage.tierSearch);
+			CommonUtils.clickOnElement(etdAdminNCIPage.tierSearch);
 			MiscUtils.sleep(2000);
 			CommonUtils.sendKeys(etdAdminNCIPage.tierSearch, "Tier I");
 			MiscUtils.sleep(2000);
 			etdAdminNCIPage.tierSearch.sendKeys(Keys.ENTER);
 			MiscUtils.sleep(7000);
 			JavascriptUtils.scrollIntoView(etdAdminNCIPage.searchButton);
-			CommonUtils.click(etdAdminNCIPage.searchButton);
+			CommonUtils.clickOnElement(etdAdminNCIPage.searchButton);
 			MiscUtils.sleep(3000);
 			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		} else if (tier.equalsIgnoreCase("Tier II   ")) {
-			CommonUtils.click(etdAdminNCIPage.tierDropdown);
+			CommonUtils.clickOnElement(etdAdminNCIPage.tierDropdown);
 			MiscUtils.sleep(2000);
-			CommonUtils.click(etdAdminNCIPage.tierSearch);
+			CommonUtils.clickOnElement(etdAdminNCIPage.tierSearch);
 			MiscUtils.sleep(2000);
 			CommonUtils.sendKeys(etdAdminNCIPage.tierSearch, "Tier II");
 			MiscUtils.sleep(2000);
 			etdAdminNCIPage.tierSearch.sendKeys(Keys.ENTER);
 			MiscUtils.sleep(2000);
 			JavascriptUtils.scrollIntoView(etdAdminNCIPage.searchButton);
-			CommonUtils.click(etdAdminNCIPage.searchButton);
+			CommonUtils.clickOnElement(etdAdminNCIPage.searchButton);
 			MiscUtils.sleep(3000);
 			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		} else if (tier.equalsIgnoreCase("Tier III")) {
-			CommonUtils.click(etdAdminNCIPage.tierDropdown);
+			CommonUtils.clickOnElement(etdAdminNCIPage.tierDropdown);
 			MiscUtils.sleep(30000);
-			CommonUtils.click(etdAdminNCIPage.tierSearch);
+			CommonUtils.clickOnElement(etdAdminNCIPage.tierSearch);
 			MiscUtils.sleep(2000);
 			CommonUtils.sendKeys(etdAdminNCIPage.tierSearch, "Tier III");
 			MiscUtils.sleep(2000);
 			etdAdminNCIPage.tierSearch.sendKeys(Keys.ENTER);
 			MiscUtils.sleep(2000);
 			JavascriptUtils.scrollIntoView(etdAdminNCIPage.searchButton);
-			CommonUtils.click(etdAdminNCIPage.searchButton);
+			CommonUtils.clickOnElement(etdAdminNCIPage.searchButton);
 			MiscUtils.sleep(3000);
 			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		} else {
-			CommonUtils.click(etdAdminNCIPage.tierDropdown);
+			CommonUtils.clickOnElement(etdAdminNCIPage.tierDropdown);
 			MiscUtils.sleep(30000);
-			CommonUtils.click(etdAdminNCIPage.tierSearch);
+			CommonUtils.clickOnElement(etdAdminNCIPage.tierSearch);
 			MiscUtils.sleep(2000);
 			CommonUtils.sendKeys(etdAdminNCIPage.tierSearch, "Tier III-D");
 			MiscUtils.sleep(2000);
 			etdAdminNCIPage.tierSearch.sendKeys(Keys.ENTER);
 			MiscUtils.sleep(2000);
 			JavascriptUtils.scrollIntoView(etdAdminNCIPage.searchButton);
-			CommonUtils.click(etdAdminNCIPage.searchButton);
+			CommonUtils.clickOnElement(etdAdminNCIPage.searchButton);
 			MiscUtils.sleep(3000);
 			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		}

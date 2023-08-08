@@ -29,7 +29,7 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
         CommonUtils.waitForVisibility(seerLandingPage.researchDataRequestsEmailAddressField);
         CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, newEmailThankYou320);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.click(seerLandingPage.registerForResearchDataButton);
+        CommonUtils.clickOnElement(seerLandingPage.registerForResearchDataButton);
         MiscUtils.sleep(1000);
     }
 

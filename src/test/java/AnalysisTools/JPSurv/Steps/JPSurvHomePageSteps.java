@@ -94,7 +94,7 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	@When("user click calculate button")
 	public void clickCalculateButton() {
 		MiscUtils.sleep(5000);
-		CommonUtils.click(jpsurvHomePage.calculateButton);
+		CommonUtils.clickOnElement(jpsurvHomePage.calculateButton);
 	}
 
 	@Then("user verify survival vs year at diagnosis tab displayed")
@@ -105,7 +105,7 @@ public class JPSurvHomePageSteps extends PageInitializer {
 
 	@When("user click download full data set button")
 	public void clickDownloadFullDatasetButton() {
-		CommonUtils.click(jpsurvHomePage.downloadFullDataSetButton);
+		CommonUtils.clickOnElement(jpsurvHomePage.downloadFullDataSetButton);
 		try {
 			// CommonUtils.getWaitObject().until(ExpectedConditions.not(ExpectedConditions.attributeContains(jpsurvHomePage.downloadFullDataSetButton.findElement(By.xpath("./span")),
 			// "class", "none")));
@@ -137,7 +137,7 @@ public class JPSurvHomePageSteps extends PageInitializer {
 
 	@When("user click export workspace button")
 	public void clickexportWorkspaceButton() {
-		CommonUtils.click(jpsurvHomePage.exportWorkspaceButton);
+		CommonUtils.clickOnElement(jpsurvHomePage.exportWorkspaceButton);
 		try {
 			// CommonUtils.getWaitObject().until(ExpectedConditions.not(ExpectedConditions.attributeContains(jpsurvHomePage.exportWorkspaceButton.findElement(By.xpath("./span")),
 			// "class", "none")));

@@ -13,6 +13,9 @@
 		<extentreports.cucumber6.adapter.version>2.13.0</extentreports.cucumber6.adapter.version>
 		<extentreports.version>5.0.9</extentreports.version>
 		<testng.version>7.7.1</testng.version>
+		<maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
+		<maven.compiler.source.version>11</maven.compiler.source.version>
+		<maven.compiler.target.version>11</maven.compiler.target.version>
 		<cucumber.version>6.11.0</cucumber.version>
 	</properties>
 
@@ -247,6 +250,12 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-testng</artifactId>
+			<version>7.12.1</version>
+		</dependency>
 
 	</dependencies>
 

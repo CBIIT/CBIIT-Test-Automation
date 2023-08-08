@@ -1,5 +1,6 @@
 package ServiceNow.NERD.StepsImplementation;
 
+import ServiceNow.NERD.Constants.NERDOGSRMemberOfCongress_Constants;
 import ServiceNow.NERD.Pages.NERDOGCRAddNewEntryPage;
 import ServiceNow.NERD.Steps.HooksSteps;
 import appsCommon.PageInitializer;
@@ -7,9 +8,17 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
+import com.nci.automation.xceptions.TestingException;
+import io.cucumber.java.en.Given;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class NerdOGCREntryPageStepsImplementation extends PageInitializer {
+
+    public static List<String> formPortalCongressPeopleList = new ArrayList<>();
+    public static List<String> formCongressPeopleList = new ArrayList<>();
 
     public static void newEntrySpecialTopicDropDownValues(String DDValuePayline, String bigDataDataSharing,
                                                           String CCDI, String COVID19, String healthDisparities, String lowDoseRadiation,
@@ -31,5 +40,109 @@ public class NerdOGCREntryPageStepsImplementation extends PageInitializer {
             CommonUtils.assertEqualsWithMessage(expectedSpecialTopicValues[j - 1], actualSpecialTopicValue[j - 1], "Verify NERD OGCR new Entry Special Topic Drop Down Values");
         }
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+    }
+
+    public static void newEntryOGCRContentTypeDropDownValues(String none, String billSummaryText, String biography, String brainBrief, String cACR,
+                                                             String formalCorrespondence, String gAOOIG, String hearingBriefingVisitSummary, String informalCorrespondence, String preparatoryDocument,
+                                                             String presentationLegislativeUpdate, String qFR, String significantItem, String technicalAssistance, String other) {
+        String[] expectedOGCRContentTypeValues = {none, billSummaryText, biography, brainBrief, cACR,
+                formalCorrespondence, gAOOIG, hearingBriefingVisitSummary, informalCorrespondence, preparatoryDocument,
+                presentationLegislativeUpdate, qFR, significantItem, technicalAssistance, other};
+        String[] actualOGCRContentTypeValue = new String[expectedOGCRContentTypeValues.length];
+        CommonUtils.waitForVisibility(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryOGCRContentType);
+        MiscUtils.sleep(1000);
+        JavascriptUtils.drawBlueBorder(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryOGCRContentType);
+        CommonUtils.clickOnElement(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryOGCRContentTypeDropDown);
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        for (int i = 1; i < actualOGCRContentTypeValue.length - 1; i++) {
+            actualOGCRContentTypeValue[i - 1] = NERDOGCRAddNewEntryPage.nerdOgcrNewEntryGCRContentTypeDropDownValues("" + i).getText();
+        }
+        for (int j = 1; j < actualOGCRContentTypeValue.length - 1; j++) {
+            JavascriptUtils.drawBlueBorder(NERDOGCRAddNewEntryPage.nerdOgcrNewEntryGCRContentTypeDropDownValues("" + j ));
+            CommonUtils.assertEqualsWithMessage(expectedOGCRContentTypeValues[j - 1], actualOGCRContentTypeValue[j - 1], "Verify NERD OGCR new Entry OGCR Content Type Drop Down Values");
+        }
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+    }
+
+    @Given("clicks the {string} Drop down filter")
+    public static void clicksTheDropDownFilter(String memberOfCongress) {
+        MiscUtils.sleep(5000);
+        CommonUtils.assertTrue(
+                nERDOGCRAddNewEntryPage.nerdOgcrPortalPageMemberOfCongressFilter.getText()
+                        .contentEquals(memberOfCongress));
+        CommonUtils.clickOnElement(nERDOGCRAddNewEntryPage.nerdOgcrPortalPageMemberOfCongressFilter);
+        JavascriptUtils.scrollDown(2000);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+    }
+
+    public static void newEntryMemberOfCongressInfoDropDownValues() throws TestingException {
+        CommonUtils.waitForVisibility(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressDropDown);
+        CommonUtils.sendKeys(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressDropDown, Keys.ENTER);
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        boolean congressNumber = false;
+        int i = 1;
+        while (!congressNumber) {
+            try {
+                String actualCongressPersonInfo = NERDOGCRAddNewEntryPage.nerdOgsrNewEntryCongressPersonInfo("" + i).getText();
+                JavascriptUtils.scrollIntoView(NERDOGCRAddNewEntryPage.nerdOgsrNewEntryCongressPersonInfo("" + i));
+                i++;
+                formCongressPeopleList.add(actualCongressPersonInfo);
+            } catch (NoSuchElementException e) {
+                congressNumber = true;
+            }
+        }
+        CommonUtils.sendKeys(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressDropDown, Keys.ENTER);
+        MiscUtils.sleep(1000);
+        CommonUtils.sendKeys(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressDropDown, NERDOGSRMemberOfCongress_Constants.NERD_OGCR_MEMBER_OF_CONGRESS_SENATOR);
+        CommonUtils.waitForVisibility(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressSerchDropDown);
+        JavascriptUtils.scrollIntoView(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressSerchDropDown);
+        CommonUtils.clickOnElement(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressSerchDropDown);
+        CommonUtils.assertEquals(NERDOGCRAddNewEntryPage.nerdOgsrNewEntryCongressSelectedDropDown("" + 1).getText(), (NERDOGSRMemberOfCongress_Constants.NERD_OGCR_MEMBER_OF_CONGRESS_REPRESENTATIVE));
+        CommonUtils.assertEquals(NERDOGCRAddNewEntryPage.nerdOgsrNewEntryCongressSelectedDropDown("" + 2).getText(), (NERDOGSRMemberOfCongress_Constants.NERD_OGCR_MEMBER_OF_CONGRESS_SENATOR));
+        JavascriptUtils.drawBlueBorder(NERDOGCRAddNewEntryPage.nerdOgsrNewEntryCongressSelectedDropDown("" + 1));
+        JavascriptUtils.drawBlueBorder(NERDOGCRAddNewEntryPage.nerdOgsrNewEntryCongressSelectedDropDown("" + 2));
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        MiscUtils.sleep(1000);
+    }
+
+    public static void allDropDownFieldOptionsAreSameAsTheAddNewEntryFormPageForTheField() throws TestingException {
+        CommonUtils.waitForVisibility(nERDOGCRAddNewEntryPage.nerdOgcrPortalPageMemberOfCongressFilter);
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        boolean congressNumber = false;
+        int i = 2;
+        while (!congressNumber) {
+            try {
+                String actualPortalCongressPersonInfo = NERDOGCRAddNewEntryPage.nerdOgcrPortalPageMemberOfCongressFilterDropDownValues("" + i).getText();
+                String[] portalCongressPerson = actualPortalCongressPersonInfo.split("\\)");
+                JavascriptUtils.scrollIntoView(NERDOGCRAddNewEntryPage.nerdOgcrPortalPageMemberOfCongressFilterDropDownValues("" + i));
+                formPortalCongressPeopleList.add(portalCongressPerson[0].trim() + ")");
+                JavascriptUtils.drawBlueBorder(NERDOGCRAddNewEntryPage.nerdOgcrPortalPageMemberOfCongressFilterDropDownValues("" + i));
+                i++;
+            } catch (NoSuchElementException e) {
+                congressNumber = true;
+            }
+        }
+        JavascriptUtils.scrollIntoView(nERDOGCRAddNewEntryPage.nerdOgcrPortalPageMemberOfCongressSelectAll);
+        CommonUtils.waitForClickability(nERDOGCRAddNewEntryPage.nerdOgcrPortalPageMemberOfCongressSelectAll);
+        CommonUtils.clickOnElement(nERDOGCRAddNewEntryPage.nerdOgcrPortalPageMemberOfCongressSelectAll);
+        CommonUtils.waitForVisibility(nERDOGCRAddNewEntryPage.nerdOgcrPortalPageMemberOfCongressSelectedFieldArea);
+        JavascriptUtils.drawBlueBorder(nERDOGCRAddNewEntryPage.nerdOgcrPortalPageMemberOfCongressSelectedFieldArea);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        MiscUtils.sleep(1000);
+        CommonUtils.clickOnElement(nERDOGCRAddNewEntryPage.nerdOgcrPortalPageMemberOfCongressSelectAll);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        NERDOGSRMemberOfCongressStepImpl.theOgcrUserClicksTheButton();
+        newEntryMemberOfCongressInfoDropDownValues();
+        for(int a = 0 ; a < formPortalCongressPeopleList.size(); a++ ){
+            int v = 0;
+            if(formCongressPeopleList.get(a).equals(formPortalCongressPeopleList.get(a))){
+                v++;
+            }
+            CommonUtils.assertTrue(v == 1);
+        }
     }
 }

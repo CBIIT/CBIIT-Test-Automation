@@ -26,16 +26,16 @@ public class NIDDKStep extends PageInitializer {
 		JavascriptUtils.scrollIntoView(etdAdminNCIPage.changeUserButtonNCI);
 		JavascriptUtils.clickByJS(etdAdminNCIPage.changeUserButtonNCI);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(etdAdminNCIPage.inputFieldChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.inputFieldChangeUser);
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser,"BULL, MELBOURNE");
 		MiscUtils.sleep(4000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(etdAdminNCIPage.dropdownChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(etdAdminNCIPage.deleteDorsey);
+		CommonUtils.clickOnElement(etdAdminNCIPage.deleteDorsey);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.confirmationDelete);
+		CommonUtils.clickOnElement(etdAdminNCIPage.confirmationDelete);
 		MiscUtils.sleep(2000);
 	}
 
@@ -44,12 +44,12 @@ public class NIDDKStep extends PageInitializer {
 		JavascriptUtils.scrollIntoView(etdAdminNCIPage.changeUserButtonNCI);
 		JavascriptUtils.clickByJS(etdAdminNCIPage.changeUserButtonNCI);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(etdAdminNCIPage.inputFieldChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.inputFieldChangeUser);
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, "DORSEY, NOVELLA");
 		MiscUtils.sleep(4000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(etdAdminNCIPage.dropdownChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
