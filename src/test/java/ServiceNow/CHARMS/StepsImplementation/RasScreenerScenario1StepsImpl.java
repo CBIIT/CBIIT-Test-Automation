@@ -48,9 +48,9 @@ public class RasScreenerScenario1StepsImpl extends PageInitializer {
      */
     public void rasScreenerScenarioSelector(String sheetName) {
         testDataManager.dataInitializerRasScreener(sheetName);
-        if(sheetName.contains("screenerScenario1")) {
+        if(sheetName.contentEquals("screenerScenario1")) {
             rasScreenerScenario1StepsImpl.rasScreenerSubmissionScenario1();
-        }else if(sheetName.contains("screenerScenario2")) {
+        }else if(sheetName.contentEquals("screenerScenario2")) {
             rasScreenerScenario1StepsImpl.rasScreenerSubmissionScenario1();
         }
     }
@@ -147,16 +147,16 @@ public class RasScreenerScenario1StepsImpl extends PageInitializer {
         }
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
         try {
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.FIRST_NAME).sendKeys(testDataManager.firstName);
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.MIDDLE_INITIAL).sendKeys(testDataManager.middleInitial);
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.LAST_NAME).sendKeys(testDataManager.lastName);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.FIRST_NAME).sendKeys(testDataManager.firstName);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.MIDDLE_INITIAL).sendKeys(testDataManager.middleInitial);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.LAST_NAME).sendKeys(testDataManager.lastName);
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         } catch (NoSuchElementException e) {
             e.printStackTrace();
             rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.FIRST_NAME).sendKeys(testDataManager.firstName);
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.MIDDLE_INITIAL).sendKeys(testDataManager.middleInitial);
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.LAST_NAME).sendKeys(testDataManager.lastName);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.FIRST_NAME).sendKeys(testDataManager.firstName);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.MIDDLE_INITIAL).sendKeys(testDataManager.middleInitial);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.LAST_NAME).sendKeys(testDataManager.lastName);
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         }
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
@@ -209,56 +209,56 @@ public class RasScreenerScenario1StepsImpl extends PageInitializer {
         }
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
         try {
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.STREET_ADDRESS).sendKeys(testDataManager.street);
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.STREET_2_ADDRESS).sendKeys(testDataManager.street2);
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.CITY_TEXT).sendKeys(testDataManager.city);
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.STATE_TEXT).sendKeys(testDataManager.state);
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.ZIP_CODE_TEXT).sendKeys(testDataManager.zipcode);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.STREET_ADDRESS).sendKeys(testDataManager.street);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.STREET_2_ADDRESS).sendKeys(testDataManager.street2);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.CITY_TEXT).sendKeys(testDataManager.city);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.STATE_TEXT).sendKeys(testDataManager.state);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.ZIP_CODE_TEXT).sendKeys(testDataManager.zipcode);
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         } catch (NoSuchElementException e) {
             e.printStackTrace();
             rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.STREET_ADDRESS).sendKeys(testDataManager.street);
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.STREET_2_ADDRESS).sendKeys(testDataManager.street2);
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.CITY_TEXT).sendKeys(testDataManager.city);
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.STATE_TEXT).sendKeys(testDataManager.state);
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.ZIP_CODE_TEXT).sendKeys(testDataManager.zipcode);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.STREET_ADDRESS).sendKeys(testDataManager.street);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.STREET_2_ADDRESS).sendKeys(testDataManager.street2);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.CITY_TEXT).sendKeys(testDataManager.city);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.STATE_TEXT).sendKeys(testDataManager.state);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.ZIP_CODE_TEXT).sendKeys(testDataManager.zipcode);
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         }
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
         try {
-            rasopathyQuestionnairePage.dynamicEmailAddressTextBox(rASScreenerScenario1_Constants.CONFIRM_EMAIL_ADDRESS).sendKeys(testDataManager.emailAddress);
+            rasopathyQuestionnairePage.dynamicEmailAddressTextBox(ras_Screener_Constants.CONFIRM_EMAIL_ADDRESS).sendKeys(testDataManager.emailAddress);
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         } catch (NoSuchElementException e) {
             e.printStackTrace();
             rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-            rasopathyQuestionnairePage.dynamicEmailAddressTextBox(rASScreenerScenario1_Constants.CONFIRM_EMAIL_ADDRESS).sendKeys(testDataManager.emailAddress);
+            rasopathyQuestionnairePage.dynamicEmailAddressTextBox(ras_Screener_Constants.CONFIRM_EMAIL_ADDRESS).sendKeys(testDataManager.emailAddress);
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         }
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
         try {
-            rasopathyQuestionnairePage.dynamicEmailAddressTextBox(rASScreenerScenario1_Constants.CONFIRM_EMAIL_ADDRESS).sendKeys(testDataManager.emailAddressConfirm);
+            rasopathyQuestionnairePage.dynamicEmailAddressTextBox(ras_Screener_Constants.CONFIRM_EMAIL_ADDRESS).sendKeys(testDataManager.emailAddressConfirm);
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         } catch (NoSuchElementException e) {
             e.printStackTrace();
             rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-            rasopathyQuestionnairePage.dynamicEmailAddressTextBox(rASScreenerScenario1_Constants.CONFIRM_EMAIL_ADDRESS).sendKeys(testDataManager.emailAddressConfirm);
+            rasopathyQuestionnairePage.dynamicEmailAddressTextBox(ras_Screener_Constants.CONFIRM_EMAIL_ADDRESS).sendKeys(testDataManager.emailAddressConfirm);
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         }
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
         try {
-            rasopathyQuestionnairePage.dynamicTextBoxLocatorForPhoneNumbers(rASScreenerScenario1_Constants.HOME_PHONE_NUMBER).sendKeys(testDataManager.homePhoneNumber);
-            rasopathyQuestionnairePage.dynamicTextBoxLocatorForPhoneNumbers(rASScreenerScenario1_Constants.CELL_PHONE_NUMBER).sendKeys(testDataManager.cellPhoneNumber);
-            rasopathyQuestionnairePage.dynamicTextBoxLocatorForPhoneNumbers(rASScreenerScenario1_Constants.WORK_PHONE_NUMBER).sendKeys(testDataManager.workPhoneNumber);
-            rasopathyQuestionnairePage.dynamicPhoneNumberCheckBox(rASScreenerScenario1_Constants.CELL_PHONE_NUMBER).click();
+            rasopathyQuestionnairePage.dynamicTextBoxLocatorForPhoneNumbers(ras_Screener_Constants.HOME_PHONE_NUMBER).sendKeys(testDataManager.homePhoneNumber);
+            rasopathyQuestionnairePage.dynamicTextBoxLocatorForPhoneNumbers(ras_Screener_Constants.CELL_PHONE_NUMBER).sendKeys(testDataManager.cellPhoneNumber);
+            rasopathyQuestionnairePage.dynamicTextBoxLocatorForPhoneNumbers(ras_Screener_Constants.WORK_PHONE_NUMBER).sendKeys(testDataManager.workPhoneNumber);
+            rasopathyQuestionnairePage.dynamicPhoneNumberCheckBox(ras_Screener_Constants.CELL_PHONE_NUMBER).click();
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         } catch (NoSuchFrameException e) {
             e.printStackTrace();
             rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-            rasopathyQuestionnairePage.dynamicTextBoxLocatorForPhoneNumbers(rASScreenerScenario1_Constants.HOME_PHONE_NUMBER).sendKeys(testDataManager.homePhoneNumber);
-            rasopathyQuestionnairePage.dynamicTextBoxLocatorForPhoneNumbers(rASScreenerScenario1_Constants.CELL_PHONE_NUMBER).sendKeys(testDataManager.cellPhoneNumber);
-            rasopathyQuestionnairePage.dynamicTextBoxLocatorForPhoneNumbers(rASScreenerScenario1_Constants.WORK_PHONE_NUMBER).sendKeys(testDataManager.workPhoneNumber);
-            rasopathyQuestionnairePage.dynamicPhoneNumberCheckBox(rASScreenerScenario1_Constants.CELL_PHONE_NUMBER).click();
+            rasopathyQuestionnairePage.dynamicTextBoxLocatorForPhoneNumbers(ras_Screener_Constants.HOME_PHONE_NUMBER).sendKeys(testDataManager.homePhoneNumber);
+            rasopathyQuestionnairePage.dynamicTextBoxLocatorForPhoneNumbers(ras_Screener_Constants.CELL_PHONE_NUMBER).sendKeys(testDataManager.cellPhoneNumber);
+            rasopathyQuestionnairePage.dynamicTextBoxLocatorForPhoneNumbers(ras_Screener_Constants.WORK_PHONE_NUMBER).sendKeys(testDataManager.workPhoneNumber);
+            rasopathyQuestionnairePage.dynamicPhoneNumberCheckBox(ras_Screener_Constants.CELL_PHONE_NUMBER).click();
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         }
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
@@ -634,24 +634,24 @@ public class RasScreenerScenario1StepsImpl extends PageInitializer {
         }
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
         try {
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.WHERE_WERE_YOU_BORN_CITY_TEXT_BOX_QUESTION).clear();
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.WHERE_WERE_YOU_BORN_CITY_TEXT_BOX_QUESTION).sendKeys(testDataManager.whereWereYouBornCityTextBox);
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.WHERE_WERE_YOU_BORN_STATE_TEXT_BOX_QUESTION).clear();
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.WHERE_WERE_YOU_BORN_STATE_TEXT_BOX_QUESTION).sendKeys(testDataManager.whereWereYouBornStateTextBox);
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.WHERE_WERE_YOU_BORN_COUNTRY_TEXT_BOX_QUESTION).clear();
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.WHERE_WERE_YOU_BORN_COUNTRY_TEXT_BOX_QUESTION).sendKeys(testDataManager.whereWereYouBornCountryTextBox);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.WHERE_WERE_YOU_BORN_CITY_TEXT_BOX_QUESTION).clear();
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.WHERE_WERE_YOU_BORN_CITY_TEXT_BOX_QUESTION).sendKeys(testDataManager.whereWereYouBornCityTextBox);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.WHERE_WERE_YOU_BORN_STATE_TEXT_BOX_QUESTION).clear();
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.WHERE_WERE_YOU_BORN_STATE_TEXT_BOX_QUESTION).sendKeys(testDataManager.whereWereYouBornStateTextBox);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.WHERE_WERE_YOU_BORN_COUNTRY_TEXT_BOX_QUESTION).clear();
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.WHERE_WERE_YOU_BORN_COUNTRY_TEXT_BOX_QUESTION).sendKeys(testDataManager.whereWereYouBornCountryTextBox);
             rasopathyQuestionnairePage.iIQAddressDontKnowTextBox.clear();
             rasopathyQuestionnairePage.iIQAddressDontKnowTextBox.sendKeys(testDataManager.whereWereYouBornDontKnowTextBox);
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         } catch (NoSuchElementException e) {
             e.printStackTrace();
             rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.WHERE_WERE_YOU_BORN_CITY_TEXT_BOX_QUESTION).clear();
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.WHERE_WERE_YOU_BORN_CITY_TEXT_BOX_QUESTION).sendKeys(testDataManager.whereWereYouBornCityTextBox);
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.WHERE_WERE_YOU_BORN_STATE_TEXT_BOX_QUESTION).clear();
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.WHERE_WERE_YOU_BORN_STATE_TEXT_BOX_QUESTION).sendKeys(testDataManager.whereWereYouBornStateTextBox);
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.WHERE_WERE_YOU_BORN_COUNTRY_TEXT_BOX_QUESTION).clear();
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(rASScreenerScenario1_Constants.WHERE_WERE_YOU_BORN_COUNTRY_TEXT_BOX_QUESTION).sendKeys(testDataManager.whereWereYouBornCountryTextBox);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.WHERE_WERE_YOU_BORN_CITY_TEXT_BOX_QUESTION).clear();
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.WHERE_WERE_YOU_BORN_CITY_TEXT_BOX_QUESTION).sendKeys(testDataManager.whereWereYouBornCityTextBox);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.WHERE_WERE_YOU_BORN_STATE_TEXT_BOX_QUESTION).clear();
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.WHERE_WERE_YOU_BORN_STATE_TEXT_BOX_QUESTION).sendKeys(testDataManager.whereWereYouBornStateTextBox);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.WHERE_WERE_YOU_BORN_COUNTRY_TEXT_BOX_QUESTION).clear();
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.WHERE_WERE_YOU_BORN_COUNTRY_TEXT_BOX_QUESTION).sendKeys(testDataManager.whereWereYouBornCountryTextBox);
             rasopathyQuestionnairePage.iIQAddressDontKnowTextBox.clear();
             rasopathyQuestionnairePage.iIQAddressDontKnowTextBox.sendKeys(testDataManager.whereWereYouBornDontKnowTextBox);
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
@@ -757,7 +757,7 @@ public class RasScreenerScenario1StepsImpl extends PageInitializer {
         }
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
         CommonUtils.waitForVisibility(myRASIIQFormPage.screenerIiqFormThisSectionAsksDetailedMedicalHistoryText);
-        CommonUtils.assertEqualsWithMessage(rASScreenerScenario1_Constants.THIS_SECTION_ASKS_YOU_TEXT, myRASIIQFormPage.screenerIiqFormThisSectionAsksDetailedMedicalHistoryText.getText(), "-- VERIFYING THIS SECTION ASKS DETAILED MEDICAL HISTORY TEXT --");
+        CommonUtils.assertEqualsWithMessage(ras_Screener_Constants.THIS_SECTION_ASKS_YOU_TEXT, myRASIIQFormPage.screenerIiqFormThisSectionAsksDetailedMedicalHistoryText.getText(), "-- VERIFYING THIS SECTION ASKS DETAILED MEDICAL HISTORY TEXT --");
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
         try {
             CommonUtils.waitForClickability(rasopathyQuestionnairePage.dynamicLocator(testDataManager.wereYouConceivedUsingVitroRadioButton));
@@ -817,7 +817,7 @@ public class RasScreenerScenario1StepsImpl extends PageInitializer {
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
         CommonUtils.waitForVisibility(myRASIIQFormPage.screenerIiqFormThisSectionWillAskAboutCancerText);
-        CommonUtils.assertEqualsWithMessage(rASScreenerScenario1_Constants.THIS_SECTION_WILL_ASK_ABOUT_CANCER_TEXT, myRASIIQFormPage.screenerIiqFormThisSectionWillAskAboutCancerText.getText(), "-- VERIFYING THIS SECTION WILL ASK ABOUT CANCER TEXT --");
+        CommonUtils.assertEqualsWithMessage(ras_Screener_Constants.THIS_SECTION_WILL_ASK_ABOUT_CANCER_TEXT, myRASIIQFormPage.screenerIiqFormThisSectionWillAskAboutCancerText.getText(), "-- VERIFYING THIS SECTION WILL ASK ABOUT CANCER TEXT --");
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
         try {
             CommonUtils.waitForClickability(rasopathyQuestionnairePage.dynamicLocator(testDataManager.haveYouEverBeenDiagnosedWithAnyCancerRadioButton));
@@ -874,7 +874,7 @@ public class RasScreenerScenario1StepsImpl extends PageInitializer {
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
         CommonUtils.waitForVisibility(myRASIIQFormPage.screenerIiqFormYouAreAlmostDoneText);
-        CommonUtils.assertEqualsWithMessage(rASScreenerScenario1_Constants.YOU_ARE_ALMOST_DONE_TEXT, myRASIIQFormPage.screenerIiqFormYouAreAlmostDoneText.getText(), "-- VERIFYING YOU ARE ALMOST DONE TEXT --");
+        CommonUtils.assertEqualsWithMessage(ras_Screener_Constants.YOU_ARE_ALMOST_DONE_TEXT, myRASIIQFormPage.screenerIiqFormYouAreAlmostDoneText.getText(), "-- VERIFYING YOU ARE ALMOST DONE TEXT --");
     }
 
     /***
@@ -2797,7 +2797,7 @@ public class RasScreenerScenario1StepsImpl extends PageInitializer {
         CommonUtils.switchToNextWindow();
         CucumberLogUtils.logToConsole("---- RETRIEVING DATA FROM EXCEL ----");
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.clickOnElement(participantDetailsPage.dynamicRecordButtonLocator(testDataManager.firstName + rASScreenerScenario1_Constants.SPACE + testDataManager.lastName));
+        CommonUtils.clickOnElement(participantDetailsPage.dynamicRecordButtonLocator(testDataManager.firstName + ras_Screener_Constants.SPACE + testDataManager.lastName));
         CucumberLogUtils.logToConsole("---- VERIFYING PARTICIPANT RECORD PREVIEW DATA ----");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.firstNameRecordPreviewField), testDataManager.firstName, "-- VERIFYING PREVIEW RECORD FIRST NAME --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.lastNameRecordPreviewField), testDataManager.lastName, "-- VERIFYING PREVIEW RECORD LAST NAME --");
@@ -2807,7 +2807,7 @@ public class RasScreenerScenario1StepsImpl extends PageInitializer {
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         CommonUtils.clickOnElement(participantDetailsPage.openRecordButton);
         CucumberLogUtils.logToConsole("---- VERIFYING PARTICIPANT NAME DATA ----");
-        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.nameTextBox), testDataManager.firstName + rASScreenerScenario1_Constants.SPACE + testDataManager.lastName, "-- VERIFYING FULL NAME --");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.nameTextBox), testDataManager.firstName + ras_Screener_Constants.SPACE + testDataManager.lastName, "-- VERIFYING FULL NAME --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.firstNameTextBox), testDataManager.firstName, "-- VERIFYING FIRST NAME --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.middleInitialTextBox), testDataManager.middleInitial, "-- VERIFYING MIDDLE INITIAL --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.lastNameTextBox), testDataManager.lastName, "-- VERIFYING LAST NAME --");
@@ -2822,7 +2822,7 @@ public class RasScreenerScenario1StepsImpl extends PageInitializer {
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         CommonUtils.clickOnElement(participantDetailsPage.contactInfoTab);
         CucumberLogUtils.logToConsole("---- VERIFYING PARTICIPANT CONTACT INFORMATION DATA ----");
-        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactStreetAddress), testDataManager.street + rASScreenerScenario1_Constants.SPACE + testDataManager.street2, "-- VERIFYING CONTACT STREET ADDRESS --");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactStreetAddress), testDataManager.street + ras_Screener_Constants.SPACE + testDataManager.street2, "-- VERIFYING CONTACT STREET ADDRESS --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactState), testDataManager.state, "-- VERIFYING CONTACT STATE --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactCity), testDataManager.city, "- VERIFYING CONTACT CITY --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactZipCode), testDataManager.zipcode, "-- VERIFYING ZIP CODE --");
@@ -2846,21 +2846,21 @@ public class RasScreenerScenario1StepsImpl extends PageInitializer {
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         CucumberLogUtils.logToConsole("---- OPENING AND VERIFYING SCREENER RECORD DATA ----");
         CommonUtils.clickOnElement(screenerRecordTablePage.referralPreviewButton);
-        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.screenerPreviewFamilyMemberRecordField), testDataManager.firstName + rASScreenerScenario1_Constants.SPACE + testDataManager.lastName, "-- VERIFYING SCREENER PREVIEW RECORD FAMILY MEMBER RECORD NAME --");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.screenerPreviewFamilyMemberRecordField), testDataManager.firstName + ras_Screener_Constants.SPACE + testDataManager.lastName, "-- VERIFYING SCREENER PREVIEW RECORD FAMILY MEMBER RECORD NAME --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.screenerPreviewContactEmailAddressField), testDataManager.emailAddress, "-- VERIFYING SCREENER PREVIEW RECORD CONTACT EMAIL ADDRESS FIELD --");
-        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.screenerPreviewStudyField), rASScreenerScenario1_Constants.RAS_STUDY, "-- VERIFYING SCREENER PREVIEW STUDY FIELD --");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.screenerPreviewStudyField), ras_Screener_Constants.RAS_STUDY, "-- VERIFYING SCREENER PREVIEW STUDY FIELD --");
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         CommonUtils.clickOnElement(screenerRecordTablePage.openRecordButton);
         CucumberLogUtils.logToConsole("---- VERIFYING SCREENER RECORD NAME AND CONTACT INFORMATION DATA ----");
-        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.screenerStudyField), rASScreenerScenario1_Constants.RAS_STUDY, "-- VERIFYING STUDY FIELD --");
-        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.familyMemberRecordField), testDataManager.firstName + rASScreenerScenario1_Constants.SPACE + testDataManager.lastName, "-- VERIFYING FAMILY MEMBER RECORD FIELD --");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.screenerStudyField), ras_Screener_Constants.RAS_STUDY, "-- VERIFYING STUDY FIELD --");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.familyMemberRecordField), testDataManager.firstName + ras_Screener_Constants.SPACE + testDataManager.lastName, "-- VERIFYING FAMILY MEMBER RECORD FIELD --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.contactEmailField), testDataManager.emailAddress, "-- VERIFYING CONTACT EMAIL FIELD --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.contactHomePhoneField), testDataManager.homePhoneNumber, "-- VERIFYING CONTACT HOME PHONE NUMBER --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.contactCellPhoneField), testDataManager.cellPhoneNumber, "-- VERIFYING CONTACT CELL PHONE NUMBER --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.contactWorkPhoneField), testDataManager.workPhoneNumber, "-- VERIFYING CONTACT WORK PHONE NUMBER --");
         CommonUtils.verifyingDropDownValueIsSelected(screenerRecordTablePage.contactCountryDropDown, testDataManager.countryOption, "-- VERIFYING COUNTRY CONTACT FIELD --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.contactStateField), testDataManager.state, "-- VERIFYING STATE --");
-        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.contactStreetAddressField), testDataManager.street + rASScreenerScenario1_Constants.SPACE + testDataManager.street2, "-- VERIFYING CONTACT STREET ADDRESS --");
+        CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.contactStreetAddressField), testDataManager.street + ras_Screener_Constants.SPACE + testDataManager.street2, "-- VERIFYING CONTACT STREET ADDRESS --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.contactCityField), testDataManager.city, "-- VERIFYING CONTACT CITY --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.contactZipCodeField), testDataManager.zipcode, "-- VERIFYING ZIP CODE --");
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);

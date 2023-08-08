@@ -3,8 +3,7 @@ Feature: RAS Screener Scenarios
 
 	@juarezds @myRasScreenerSubmissionOnly @InProgress
 	Scenario: Participant Screener Self Submission Scenario 1
-	This scenario selects 'No' to all questions
-		Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
+	    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
 		And logs in via Okta with username "charmsparticipant3@yopmail.com" and password "Charms123"
 		And clicks on Eligibility Questionnaire to begin questionnaire
 		When the participant submits a screener from excel sheet "screenerScenario1"

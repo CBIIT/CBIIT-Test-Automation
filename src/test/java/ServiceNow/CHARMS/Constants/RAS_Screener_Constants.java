@@ -1,6 +1,6 @@
 package ServiceNow.CHARMS.Constants;
 
-public class RASScreenerScenario1_Constants {
+public class RAS_Screener_Constants {
 
     /**
      * THIS CLASS CONTAINS RAS SCREENER CONSTANTS - RAS Screener Constants

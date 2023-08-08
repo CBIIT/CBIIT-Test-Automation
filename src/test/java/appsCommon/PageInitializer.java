@@ -62,7 +62,7 @@ import GrantsApps.ChangePassword.Pages.ChangePasswordPage;
 import GrantsApps.ChangePassword.StepsImplementation.ChangePasswordStepsImpl;
 import GrantsApps.EM.Pages.ManageI2EUsersPage;
 import GrantsApps.EM.StepImplementation.EMStepsImplementation;
-import ServiceNow.CHARMS.Constants.RASScreenerScenario1_Constants;
+import ServiceNow.CHARMS.Constants.RAS_Screener_Constants;
 import ServiceNow.CHARMS.Pages.CGBIIQPage;
 import ServiceNow.CHARMS.Pages.CGBIIQPages;
 import ServiceNow.CHARMS.Pages.CHARMSHomePage;
@@ -200,7 +200,7 @@ public class PageInitializer {
     public static RASopathyQuestionnairePage rasopathyQuestionnairePage;
     public static MyRASIIQFormPage myRASIIQFormPage;
     public static RasScreenerScenario1StepsImpl rasScreenerScenario1StepsImpl;
-    public static RASScreenerScenario1_Constants rASScreenerScenario1_Constants;
+    public static RAS_Screener_Constants ras_Screener_Constants;
     public static TestAccountResetPage testAccountResetPage;
     public static MyRASStudyConsentPage myRasStudyConsentPage;
     public static CGBIIQPage cgbIIQPage;
@@ -410,7 +410,7 @@ public class PageInitializer {
         myRASHomePage = new MyRASHomePage();
         rasScreenerScenario1StepsImpl = new RasScreenerScenario1StepsImpl();
         rasopathyQuestionnairePage = new RASopathyQuestionnairePage();
-        rASScreenerScenario1_Constants = new RASScreenerScenario1_Constants();
+        ras_Screener_Constants = new RAS_Screener_Constants();
         testAccountResetPage = new TestAccountResetPage();
         myRasStudyConsentPage = new MyRASStudyConsentPage();
         testDataManager = new TestDataManager();

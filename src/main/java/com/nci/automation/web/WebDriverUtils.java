@@ -2,7 +2,6 @@ package com.nci.automation.web;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
-
 import com.nci.automation.utils.FrameworkConstants;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
