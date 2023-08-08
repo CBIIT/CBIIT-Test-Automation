@@ -58,19 +58,19 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         CommonUtils.selectDropDownValue(createNewSubmissionPage.tribalStateLocalGovernmentCollaboratorsDropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_TRIBAL_STATE_LOCAL_GOVERNMENT_COLLABORATORS_DROP_DOWN);
         CommonUtils.selectDropDownValue(createNewSubmissionPage.foreignGovernmentCollaboratorsDropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_FOREIGN_GOVERNMENT_COLLABORATORS_DROP_DOWN);
         CommonUtils.selectDropDownValue(createNewSubmissionPage.nonGovernmentalCollaboratorsDropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_NON_GOVERNMENTAL_COLLABORATORS_DROP_DOWN);
-        CommonUtils.click(createNewSubmissionPage.selectTypeOfCollaborativeActivityListResourceDevelopmentCheckBox);
+        CommonUtils.clickOnElement(createNewSubmissionPage.selectTypeOfCollaborativeActivityListResourceDevelopmentCheckBox);
         CommonUtils.selectDropDownValue(createNewSubmissionPage.isThisCollaborationRelatedToRegulatoryActivityDropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_IS_THIS_COLLABORATION_RELATED_TO_A_REGULATORY_ACTIVITY_DROP_DOWN);
         CommonUtils.selectDropDownValue(createNewSubmissionPage.wasNIHFundingProvidedForThisActivityDropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_WAS_NIH_FUNDING_PROVIDED_FOR_THIS_ACTIVITY_DROP_DOWN);
-        CommonUtils.click(createNewSubmissionPage.productsOutputsListResearchToolDevelopmentCheckBox);
+        CommonUtils.clickOnElement(createNewSubmissionPage.productsOutputsListResearchToolDevelopmentCheckBox);
         JavascriptUtils.scrollIntoView(createNewSubmissionPage.submitButton);
         CommonUtils.selectDropDownValue(createNewSubmissionPage.nihStrategicAlignment_Primary_DropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_NIH_STRATEGIC_ALIGNMENT_DROP_DOWN);
         CommonUtils.selectDropDownValue(createNewSubmissionPage.hhsStrategicPlanAlignment_Primary_DropDown,NCI_Staff_Members_Constants.CRS_COLLABORATION_NEW_SUBMISSION_HHS_STRATEGIC_PLAN_ALIGNMENT_DROP_DOWN);
-        CommonUtils.click(createNewSubmissionPage.submitButton);
-        CommonUtils.click(createNewSubmissionPage.popUpConfirmationYesButton);
+        CommonUtils.clickOnElement(createNewSubmissionPage.submitButton);
+        CommonUtils.clickOnElement(createNewSubmissionPage.popUpConfirmationYesButton);
         MiscUtils.sleep(3000);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         MiscUtils.sleep(3000);
-        CommonUtils.click(createNewSubmissionPage.popUpSubmissionConfirmationOkButton);
+        CommonUtils.clickOnElement(createNewSubmissionPage.popUpSubmissionConfirmationOkButton);
         MiscUtils.sleep(2000);
     }
 
@@ -112,10 +112,10 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         JavascriptUtils
                 .scrollIntoView(nerdCrsKnowledgeDatabaseSubmissionsPage.topAccomplishmentNewSubmissionSaveButton);
         MiscUtils.sleep(2000);
-        CommonUtils.click(nerdCrsKnowledgeDatabaseSubmissionsPage.topAccomplishmentNewSubmissionSaveButton);
+        CommonUtils.clickOnElement(nerdCrsKnowledgeDatabaseSubmissionsPage.topAccomplishmentNewSubmissionSaveButton);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         MiscUtils.sleep(2000);
-        CommonUtils.click(createNewSubmissionPage.popUpSubmissionConfirmationOkButton);
+        CommonUtils.clickOnElement(createNewSubmissionPage.popUpSubmissionConfirmationOkButton);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
@@ -545,12 +545,12 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         CommonUtils.sendKeys(createNewSubmissionPage.chooseFileButton, COVIDConstants.DOC_PATH);
         MiscUtils.sleep(1000);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.click(createNewSubmissionPage.submitButton);
-        CommonUtils.click(createNewSubmissionPage.popUpConfirmationYesButton);
+        CommonUtils.clickOnElement(createNewSubmissionPage.submitButton);
+        CommonUtils.clickOnElement(createNewSubmissionPage.popUpConfirmationYesButton);
         MiscUtils.sleep(3000);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         MiscUtils.sleep(3000);
-        CommonUtils.click(createNewSubmissionPage.popUpSubmissionConfirmationOkButton);
+        CommonUtils.clickOnElement(createNewSubmissionPage.popUpSubmissionConfirmationOkButton);
     }
 
     /**
@@ -665,13 +665,13 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         CommonUtils.assertEquals("Delete", nerdDynamicXpaths.deleteCRSButton(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME).getText());
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         MiscUtils.sleep(2000);
-        CommonUtils.click(nerdDynamicXpaths.deleteCRSButton(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME));
+        CommonUtils.clickOnElement(nerdDynamicXpaths.deleteCRSButton(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME));
         MiscUtils.sleep(2000);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.click(createNewSubmissionPage.crsKnowledgeManagementSystemConfirmDeleteButton);
+        CommonUtils.clickOnElement(createNewSubmissionPage.crsKnowledgeManagementSystemConfirmDeleteButton);
         MiscUtils.sleep(2000);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.click(createNewSubmissionPage.informationDialogPopUpOKbutton);
+        CommonUtils.clickOnElement(createNewSubmissionPage.informationDialogPopUpOKbutton);
         MiscUtils.sleep(2000);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }

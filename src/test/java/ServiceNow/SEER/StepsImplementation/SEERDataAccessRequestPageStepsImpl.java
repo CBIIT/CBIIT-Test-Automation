@@ -82,7 +82,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         CommonUtils.waitForVisibility(seerLandingPage.researchDataRequestsEmailAddressField);
         CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, newEmailThankYou283);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.click(seerLandingPage.registerForResearchDataButton);
+        CommonUtils.clickOnElement(seerLandingPage.registerForResearchDataButton);
         MiscUtils.sleep(1000);
     }
 
@@ -91,7 +91,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         CommonUtils.waitForVisibility(seerLandingPage.researchDataRequestsEmailAddressField);
         CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, newEmailThankYou284);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.click(seerLandingPage.registerForResearchDataButton);
+        CommonUtils.clickOnElement(seerLandingPage.registerForResearchDataButton);
         MiscUtils.sleep(1000);
     }
 
@@ -100,7 +100,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         CommonUtils.waitForVisibility(seerLandingPage.researchDataRequestsEmailAddressField);
         CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, newEmailThankYou285);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.click(seerLandingPage.registerForResearchDataButton);
+        CommonUtils.clickOnElement(seerLandingPage.registerForResearchDataButton);
         MiscUtils.sleep(1000);
     }
 
@@ -109,7 +109,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         CommonUtils.waitForVisibility(seerLandingPage.researchDataRequestsEmailAddressField);
         CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, newEmailThankYou286);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.click(seerLandingPage.registerForResearchDataButton);
+        CommonUtils.clickOnElement(seerLandingPage.registerForResearchDataButton);
         MiscUtils.sleep(1000);
     }
 
@@ -118,7 +118,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         CommonUtils.waitForVisibility(seerLandingPage.researchDataRequestsEmailAddressField);
         CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, newEmailThankYou399);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.click(seerLandingPage.registerForResearchDataButton);
+        CommonUtils.clickOnElement(seerLandingPage.registerForResearchDataButton);
         MiscUtils.sleep(1000);
     }
 
@@ -127,7 +127,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         CommonUtils.waitForVisibility(seerLandingPage.researchDataRequestsEmailAddressField);
         CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, newEmailThankYou349);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.click(seerLandingPage.registerForResearchDataButton);
+        CommonUtils.clickOnElement(seerLandingPage.registerForResearchDataButton);
         MiscUtils.sleep(1000);
     }
 
@@ -151,7 +151,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
 
     public static void submitsTheRegistrationForm() {
         CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationSubmitButton);
-        CommonUtils.click(seerUserRegistrationPage.seerUserRegistrationSubmitButton);
+        CommonUtils.clickOnElement(seerUserRegistrationPage.seerUserRegistrationSubmitButton);
         MiscUtils.sleep(1000);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
@@ -240,7 +240,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         MiscUtils.sleep(2000);
         JavascriptUtils.scrollIntoView(nativeViewSentViewPage.nativeViewPreviewVerifyEmailPreviewHTMLBodyLink);
         MiscUtils.sleep(2000);
-        CommonUtils.click(nativeViewSentViewPage.nativeViewPreviewVerifyEmailPreviewHTMLBodyLink);
+        CommonUtils.clickOnElement(nativeViewSentViewPage.nativeViewPreviewVerifyEmailPreviewHTMLBodyLink);
         CommonUtils.switchToFrame(nativeViewSentViewPage.nativeViewPreviewEmailIFRAME);
         MiscUtils.sleep(1000);
         CommonUtils.assertTrue(nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataHeader.getText()
@@ -469,7 +469,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
 
     public static void whenClickingUserIsDirectedTo(String seerIncidenceDatabaseUrl) {
         CommonUtils.waitForVisibility(seerLandingPage.seerIncidenceDatabaseBreadcrumb);
-        CommonUtils.click(seerLandingPage.seerIncidenceDatabaseBreadcrumb);
+        CommonUtils.clickOnElement(seerLandingPage.seerIncidenceDatabaseBreadcrumb);
         MiscUtils.sleep(1000);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         String actualSeerCancerGovDataUrl = WebDriverUtils.getWebDriver().getCurrentUrl();
@@ -480,7 +480,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
 
     public static void theUserEntersAnEmailAddressForANonInstitutionalAccount() {
         CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, CommonUtils.email);
-        CommonUtils.click(seerLandingPage.registerForResearchDataButton);
+        CommonUtils.clickOnElement(seerLandingPage.registerForResearchDataButton);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
@@ -520,7 +520,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         MiscUtils.sleep(2000);
         JavascriptUtils.scrollIntoView(nativeViewSentViewPage.nativeViewPreviewVerifyEmailPreviewHTMLBodyLink);
         MiscUtils.sleep(2000);
-        CommonUtils.click(nativeViewSentViewPage.nativeViewPreviewVerifyEmailPreviewHTMLBodyLink);
+        CommonUtils.clickOnElement(nativeViewSentViewPage.nativeViewPreviewVerifyEmailPreviewHTMLBodyLink);
         CommonUtils.switchToFrame(nativeViewSentViewPage.nativeViewPreviewEmailIFRAME);
         MiscUtils.sleep(1000);
             CommonUtils.assertTrue(nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataHeader.getText()
@@ -528,7 +528,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
             CommonUtils.assertTrue(nativeViewSentViewPage.nativeViewPreviewEmailHelloNameText.getText().contains(Registration_Constants.FIRST_NAME));
         MiscUtils.sleep(2000);
         String mainPageHandle = WebDriverUtils.getWebDriver().getWindowHandle();
-        CommonUtils.click(nativeViewSentViewPage.nativeViewPreviewEmailVerifyEMAILlink);
+        CommonUtils.clickOnElement(nativeViewSentViewPage.nativeViewPreviewEmailVerifyEMAILlink);
         MiscUtils.sleep(2000);
         Set<String> allWindows = WebDriverUtils.getWebDriver().getWindowHandles();
         Iterator<String> it = allWindows.iterator();

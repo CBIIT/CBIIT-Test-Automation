@@ -215,4 +215,8 @@ public class SEERDataAccessRequest_Constants {
 
     /* SEER WHAT IS THE GENERAL PURPOSE FOR USING THE DATA TEXT */
     public static final String WHAT_IS_THE_GENERAL_PURPOSE_TEXT  = "What is your general purpose for using the data?";
+
+    /* SEER RESEARCH PLUS LOGIN SIGN-IN NIH LOGIN PAGE TITLE */
+    public static final String SEER_RESEARCH_PLUS_LOGIN_SIGN_IN_NIH_LOGIN_PAGE_TITLE  = "Sign in (NIH Login: Staging Environment)";
+
 }

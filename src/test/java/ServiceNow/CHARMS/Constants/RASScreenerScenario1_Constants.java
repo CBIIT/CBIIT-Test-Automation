@@ -6,9 +6,15 @@ public class RASScreenerScenario1_Constants {
      * THIS CLASS CONTAINS RAS SCREENER CONSTANTS - RAS Screener Constants
      */
     public final String ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE = "Are you completing this form for someone else or for yourself?";
+    public final String WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST = "What is the name of the person who may be eligible for this study? Firt Name";
+    public final String WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_MIDDLE = "What is the name of the person who may be eligible for this study? MI";
+    public final String WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST = "What is the name of the person who may be eligible for this study? Last Name";
+
     public final String FIRST_NAME = "First name";
     public final String MIDDLE_INITIAL = "Middle Initial";
     public final String LAST_NAME = "Last name";
+    public final String WHAT_IS_YOUR_RELATIONSHIP_TO = "What is your relationship to The person?";
+
     public final String WHAT_IS_YOUR_DATE_OF_BIRTH = "What is your date of birth?";
     public final String DATE_OF_BIRTH_MONTH = "Date of birth month";
     public final String DATE_OF_BIRTH_YEAR = "Date of birth year";
@@ -992,48 +998,4 @@ public class RASScreenerScenario1_Constants {
     public final String PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_8_OPTION_3 = "Please complete the table below to the best of your ability regarding date of onset of symptoms, diagnosis and if any medications or procedures were undertaken.  If you do not recall the details for each condition listed, please place an 'X' in the box. Minor Column 8 Option 3";
     public final String PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_8_OPTION_4 = "Please complete the table below to the best of your ability regarding date of onset of symptoms, diagnosis and if any medications or procedures were undertaken.  If you do not recall the details for each condition listed, please place an 'X' in the box. Minor Column 8 Option 4";
     public final String THE_NEXT_SET_OF_QUESTIONS_ASK_ABOUT_HAIR_AND_SKIN_QUALITIES = "The next set of questions ask about hair and skin qualities.";
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
 }

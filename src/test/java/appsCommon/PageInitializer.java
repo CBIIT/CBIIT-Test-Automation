@@ -29,17 +29,39 @@ import CustomBusiness.CCR.Pages.CCRApplicationPage;
 import CustomBusiness.CCR.Pages.CCRDynamicXpaths;
 import CustomBusiness.CCR.Pages.CCRLandingPage;
 import CustomBusiness.CCR.StepsImplementation.CCRStepsImplementation;
-import CustomBusiness.DCEG.Pages.*;
+import CustomBusiness.DCEG.Pages.AdminFlowPage;
+import CustomBusiness.DCEG.Pages.BranchAdminPage;
+import CustomBusiness.DCEG.Pages.CreateCRPage;
+import CustomBusiness.DCEG.Pages.DirectSubmitterPage;
+import CustomBusiness.DCEG.Pages.RegularUserFlowPage;
 import CustomBusiness.DCEG.Steps.RegularUserFlowSteps;
 import CustomBusiness.DCEG.StepsImplementation.FlowStepsImplementation;
+import CustomBusiness.EIDP.Pages.AligningExpectationsPage;
 import CustomBusiness.EIDP.Pages.BasePage;
-import CustomBusiness.EIDP.Pages.*;
-import CustomBusiness.EIDP.StepsImplementation.*;
+import CustomBusiness.EIDP.Pages.CareerGoalAndActivePage;
+import CustomBusiness.EIDP.Pages.CoPrimaryMentorPage;
+import CustomBusiness.EIDP.Pages.CommonPage;
+import CustomBusiness.EIDP.Pages.DashboardPage;
+import CustomBusiness.EIDP.Pages.DelegatePage;
+import CustomBusiness.EIDP.Pages.GeneralInformationPage;
+import CustomBusiness.EIDP.Pages.IDPAwaitingResponsePage;
+import CustomBusiness.EIDP.Pages.LoginPage;
+import CustomBusiness.EIDP.Pages.ProjectRelatedDeliverablePage;
+import CustomBusiness.EIDP.Pages.SearchPage;
+import CustomBusiness.EIDP.Pages.TraineeReviewPage;
+import CustomBusiness.EIDP.StepsImplementation.AlignExpectionsStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.CareerGoalAndActiveStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.EIDPLoginStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.GeneralInformationStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.ProjectRelatedDeliverableStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.SearchStepImpl;
 import CustomBusiness.ETD.Pages.ETDAdminNCIPage;
 import CustomBusiness.ETD.Pages.ETDBasePage;
 import CustomBusiness.ETD.StepsImplementation.ETDFlowStepsImpl;
 import GrantsApps.ChangePassword.Pages.ChangePasswordPage;
 import GrantsApps.ChangePassword.StepsImplementation.ChangePasswordStepsImpl;
+import GrantsApps.EM.Pages.ManageI2EUsersPage;
+import GrantsApps.EM.StepImplementation.EMStepsImplementation;
 import ServiceNow.CHARMS.Constants.RASScreenerScenario1_Constants;
 import ServiceNow.CHARMS.Pages.CGBIIQPage;
 import ServiceNow.CHARMS.Pages.CGBIIQPages;
@@ -62,7 +84,8 @@ import ServiceNow.CHARMS.Pages.NativeViewCHARMSParticipantDetailsPage;
 import ServiceNow.CHARMS.Pages.OKTAloginPage;
 import ServiceNow.CHARMS.Pages.ParticipantDetailsPage;
 import ServiceNow.CHARMS.Pages.ProbandScreenerPage;
-import ServiceNow.CHARMS.Pages.RASSurveyPage;
+import ServiceNow.CHARMS.Pages.RAS_Survey_Native_View_Page;
+import ServiceNow.CHARMS.Pages.RAS_Survey_Page;
 import ServiceNow.CHARMS.Pages.RASopathyQuestionnairePage;
 import ServiceNow.CHARMS.Pages.ScreenerRecordTablePage;
 import ServiceNow.CHARMS.Pages.TestAccountResetPage;
@@ -92,6 +115,8 @@ import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
+import ServiceNow.ETracking.Pages.EtrackAssetsRecords_NativeViewPage;
+import ServiceNow.GCP.Pages.GCPNotifications_NativeViewPage;
 import ServiceNow.ESR.Pages.NCINativeViewPage;
 import ServiceNow.NERD.Pages.Covid19ActivitiesSubmissionsPage;
 import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
@@ -108,6 +133,11 @@ import ServiceNow.NERD.Pages.NativeViewImpersonateUserPage;
 import ServiceNow.NERD.Pages.NativeViewMembersOfCongressPage;
 import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NativeViewImpersonateUser;
+import ServiceNow.SCSS.Pages.OWMVacancyPage;
+import ServiceNow.SCSS.Pages.StadtmanVacancyPage;
+import ServiceNow.SCSS.StepsImplementation.OWMVacancyStepsImplementation;
+import ServiceNow.SCSS.StepsImplementation.SCSSLoginStepsImplementation;
+import ServiceNow.SCSS.StepsImplementation.StadtmanVacancyStepsImplementation;
 import ServiceNow.SEER.Pages.NativeViewAccessRequestPage;
 import ServiceNow.SEER.Pages.NativeViewCustomersPage;
 import ServiceNow.SEER.Pages.NativeViewEmailsPage;
@@ -118,6 +148,36 @@ import ServiceNow.SEER.Pages.SEERIncidenceDatabaseDetailsPage;
 import ServiceNow.SEER.Pages.SEERLandingPage;
 import ServiceNow.SEER.Pages.SEERUserRegistrationPage;
 import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
+import CustomBusiness.DCEG.Pages.AdminFlowPage;
+import CustomBusiness.DCEG.Pages.BranchAdminPage;
+import CustomBusiness.DCEG.Pages.CreateCRPage;
+import CustomBusiness.DCEG.Pages.DirectSubmitterPage;
+import CustomBusiness.DCEG.Pages.RegularUserFlowPage;
+import CustomBusiness.DCEG.Steps.RegularUserFlowSteps;
+import CustomBusiness.DCEG.StepsImplementation.FlowStepsImplementation;
+import CustomBusiness.EIDP.Pages.AligningExpectationsPage;
+import CustomBusiness.EIDP.Pages.BasePage;
+import CustomBusiness.EIDP.Pages.CareerGoalAndActivePage;
+import CustomBusiness.EIDP.Pages.CoPrimaryMentorPage;
+import CustomBusiness.EIDP.Pages.CommonPage;
+import CustomBusiness.EIDP.Pages.DashboardPage;
+import CustomBusiness.EIDP.Pages.DelegatePage;
+import CustomBusiness.EIDP.Pages.GeneralInformationPage;
+import CustomBusiness.EIDP.Pages.IDPAwaitingResponsePage;
+import CustomBusiness.EIDP.Pages.LoginPage;
+import CustomBusiness.EIDP.Pages.ProjectRelatedDeliverablePage;
+import CustomBusiness.EIDP.Pages.SearchPage;
+import CustomBusiness.EIDP.Pages.TraineeReviewPage;
+import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
+import CustomBusiness.EIDP.StepsImplementation.AlignExpectionsStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.CareerGoalAndActiveStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.EIDPLoginStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.GeneralInformationStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.ProjectRelatedDeliverableStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.SearchStepImpl;
+import CustomBusiness.ETD.Pages.ETDAdminNCIPage;
+import CustomBusiness.ETD.Pages.ETDBasePage;
+import CustomBusiness.ETD.StepsImplementation.ETDFlowStepsImpl;
 
 /**
  * This an initializer class which will initialize all pages classes. Once pages
@@ -134,6 +194,8 @@ public class PageInitializer {
     /** --------------- GRANTS INSTANCES --------------- */
     public static ChangePasswordPage changePasswordPage;
     public static ChangePasswordStepsImpl changePasswordStepsImpl;
+    public static EMStepsImplementation emStepsImplementation;
+    public static ManageI2EUsersPage manageI2EUsersPage;
 
     /** --------------- SERVICENOW INSTANCES --------------- */
     /** COVIDDash instances */
@@ -172,7 +234,7 @@ public class PageInitializer {
     public static MyRASStudyConsentPage myRasStudyConsentPage;
     public static CGBIIQPage cgbIIQPage;
     public static CGBIIQPages cGBIIQPages;
-    public static RASSurveyPage rASSurveyPage;
+    public static RAS_Survey_Page rAS_Survey_Page;
     public static RASSurveyStepsImpl rASSurveyStepsImpl;
     public static FHQSurveyPage fHQSurveyPage;
     public static FHQSurveyPortalPage fHQSurveyPortalPage;
@@ -180,6 +242,8 @@ public class PageInitializer {
     public static ParticipantDetailsPage participantDetailsPage;
     public static ScreenerRecordTablePage screenerRecordTablePage;
     public static MyRASSurveyPage myRASSurveyPage;
+
+    public static RAS_Survey_Native_View_Page ras_survey_native_view;
 
     // Melanoma and Spitzoid Tumor instances
     public static MelanomaLoginPage melanomaLoginPage;
@@ -214,6 +278,18 @@ public class PageInitializer {
     public static NERDOGCRAddNewEntryPage nERDOGCRAddNewEntryPage;
     public static Covid19ActivitiesSubmissionsPage covid19ActivitiesSubmissionsPage;
 
+    /** SCSS instances */
+    public static OWMVacancyPage owmVacancyPage;
+    public static StadtmanVacancyPage stadtmanVacancyPage;
+    public static StadtmanVacancyStepsImplementation stadtmanVacancyStepsImplementation;
+    public static OWMVacancyStepsImplementation oWMVacancyStepsImplementation;
+    public static SCSSLoginStepsImplementation sCCSLoginStepsImplementation;
+
+    /** eTracking instances */
+    public static EtrackAssetsRecords_NativeViewPage etrackAssetsRecords_NativeViewPage;
+
+    /** GCP instances */
+    public static GCPNotifications_NativeViewPage gCPNotifications_NativeViewPage;
 
     /** --------------- CUSTOM BUSINESS APP INSTANCES --------------- */
     /** EIDP instances */
@@ -237,6 +313,7 @@ public class PageInitializer {
     public static IDPAwaitingResponsePage iDPAwaitingResponsePage;
     public static TraineeReviewPage traineeReviewPage;
     public static CoPrimaryMentorPage coPrimaryMentorPage;
+    public static TraineeReviewStepsImpl traineeReviewStepsImpl;
 
     /** DCEG instances */
     public static CreateCRPage createCRPage;
@@ -368,16 +445,17 @@ public class PageInitializer {
         testDataManager = new TestDataManager();
         cgbIIQPage = new CGBIIQPage();
         cGBIIQPages = new CGBIIQPages();
-        rASSurveyPage = new RASSurveyPage();
+        rAS_Survey_Page = new RAS_Survey_Page();
         rASSurveyStepsImpl = new RASSurveyStepsImpl();
         fHQSurveyPortalPage = new FHQSurveyPortalPage();
         fHQSurveyPage = new FHQSurveyPage();
         participantDetailsPage = new ParticipantDetailsPage();
         screenerRecordTablePage = new ScreenerRecordTablePage();
         myRASIIQFormPage = new MyRASIIQFormPage();
+        ras_survey_native_view = new RAS_Survey_Native_View_Page();
         myRASSurveyPage = new MyRASSurveyPage();
 
-        // Melanoma and Spitzoid Tumor instances
+        /** Melanoma and Spitzoid Tumor instances */
         melanomaLoginPage = new MelanomaLoginPage();
         melanomaHomePage = new MelanomaHomePage();
         melanomaQuestionnairePage = new MelanomaQuestionnairePage();
@@ -413,6 +491,13 @@ public class PageInitializer {
         /** ESR INSTANCE VARIABLES */
         nciNativeViewPage = new NCINativeViewPage();
 
+        /** SCSS Instance Variables */
+        owmVacancyPage = new OWMVacancyPage();
+        stadtmanVacancyPage = new StadtmanVacancyPage();
+        oWMVacancyStepsImplementation = new OWMVacancyStepsImplementation();
+        stadtmanVacancyStepsImplementation = new StadtmanVacancyStepsImplementation();
+        sCCSLoginStepsImplementation = new SCSSLoginStepsImplementation();
+
         /** --------------- CUSTOM BUSINESS APP INSTANCE VARIABLES --------------- */
         /** EIDP Instance Variables */
         aligningExpectationsPage = new AligningExpectationsPage();
@@ -435,6 +520,7 @@ public class PageInitializer {
         iDPAwaitingResponsePage = new IDPAwaitingResponsePage();
         traineeReviewPage = new TraineeReviewPage();
         coPrimaryMentorPage = new CoPrimaryMentorPage();
+        traineeReviewStepsImpl = new TraineeReviewStepsImpl();
 
         /** DCEG Instance Variables */
         createCRPage = new CreateCRPage();
@@ -521,5 +607,14 @@ public class PageInitializer {
         /** Grants ChangePassword app **/
         changePasswordPage = new ChangePasswordPage();
         changePasswordStepsImpl = new ChangePasswordStepsImpl();
+        emStepsImplementation = new EMStepsImplementation();
+        manageI2EUsersPage = new ManageI2EUsersPage();
+
+        /** eTracking INSTANCE VARIABLES */
+        etrackAssetsRecords_NativeViewPage = new EtrackAssetsRecords_NativeViewPage();
+
+        /** GCP INSTANCE VARIABLES */
+        gCPNotifications_NativeViewPage = new  GCPNotifications_NativeViewPage();
+
     }
 }

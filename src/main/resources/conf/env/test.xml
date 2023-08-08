@@ -332,7 +332,7 @@
     </application>
     <!-- Application ID for EIDP -->
     <application id="EidpUrlNHGRI">
-        <login_url>https://idp-test.cancer.gov/nhgri/idp/</login_url> <!-- add test
+        <login_url>https://idp-test.nih.gov/nhgri/idp</login_url> <!-- add test
 			url -->
         <role name="Role">
             <user id="regular">
@@ -351,7 +351,45 @@
         </db>
     </application>
     <application id="EidpUrlNCI">
-        <login_url>https://idp-test.nih.gov/nci/idp/</login_url> <!-- add test
+        <login_url>https://idp-test.nih.gov/nci/idp</login_url> <!-- add test
+			url -->
+        <role name="Role">
+            <user id="regular">
+                <name>regular</name>
+                <userId></userId> <!-- add encrypted test user -->
+                <password></password> <!-- add encrypted test pass -->
+            </user>
+        </role>
+        <db>
+            <default>
+                <driverclassname></driverclassname> <!-- Add driver class-name -->
+                <url></url> <!-- complete string url -->
+                <username></username> <!-- Add db username -->
+                <password></password> <!-- Add db password -->
+            </default>
+        </db>
+    </application>
+    <application id="EidpUrlNIDCR">
+        <login_url>https://idp-test.nih.gov/nidcr/idp</login_url> <!-- add test
+			url -->
+        <role name="Role">
+            <user id="regular">
+                <name>regular</name>
+                <userId></userId> <!-- add encrypted test user -->
+                <password></password> <!-- add encrypted test pass -->
+            </user>
+        </role>
+        <db>
+            <default>
+                <driverclassname></driverclassname> <!-- Add driver class-name -->
+                <url></url> <!-- complete string url -->
+                <username></username> <!-- Add db username -->
+                <password></password> <!-- Add db password -->
+            </default>
+        </db>
+    </application>
+    <application id="EidpUrlNHLBI">
+        <login_url>https://idp-test.nih.gov/nhlbi/idp</login_url> <!-- add test
 			url -->
         <role name="Role">
             <user id="regular">
@@ -632,6 +670,28 @@
             </default>
         </db>
     </application>
+    <!-- Application ID for ETD -->
+	<application id="ETD">
+		<login_url>https://etd-test.nci.nih.gov/etd/search#
+		</login_url> <!-- add test url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId> <!-- add encrypted test user -->
+				<password></password> <!-- add encrypted test pass -->
+			</user>
+		</role>
+
+		<db>
+			<default>
+				<driverclassname></driverclassname> <!-- Add driver class-name -->
+				<url></url> <!-- complete string url -->
+				<username></username> <!-- Add db username -->
+				<password></password> <!-- Add db password -->
+			</default>
+		</db>
+
+	</application>
 
     <!-- Application ID for cProSite-->
     <application id="cProSite">
@@ -720,9 +780,50 @@
             </default>
         </db>
     </application>
+
+    <!-- ENTERPRISE MAINTENANCE -->
+    <application id="EM">
+        <login_url>https://i2e-test.nci.nih.gov/em</login_url> <!-- add test url -->
+        <role name="Role">
+            <user id="regular">
+                <name>regular</name>
+                <userId></userId> <!-- add encrypted test user -->
+                <password></password> <!-- add encrypted test pass -->
+            </user>
+        </role>
+        <db>
+            <default>
+                <driverclassname></driverclassname> <!-- Add driver class-name -->
+                <url></url> <!-- complete string url -->
+                <username></username> <!-- Add db username -->
+                <password></password> <!-- Add db password -->
+            </default>
+        </db>
+    </application>
+
     <!-- Application ID for CCR-->
     <application id="CCR">
         <login_url>https://service-test.nci.nih.gov/ccr-careers
+        </login_url> <!-- add test url -->
+        <role name="Role">
+            <user id="regular">
+                <name>regular</name>
+                <userId></userId> <!-- add encrypted test user -->
+                <password></password> <!-- add encrypted test pass -->
+            </user>
+        </role>
+        <db>
+            <default>
+                <driverclassname></driverclassname> <!-- Add driver class-name -->
+                <url></url> <!-- complete string url -->
+                <username></username> <!-- Add db username -->
+                <password></password> <!-- Add db password -->
+            </default>
+        </db>
+    </application>
+    <!-- Application ID for SCSS Portal View-->
+    <application id="SCSSPortalView">
+        <login_url>https://service-test.nci.nih.gov/nci-scss.do#/
         </login_url> <!-- add test url -->
         <role name="Role">
             <user id="regular">

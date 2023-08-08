@@ -33,9 +33,9 @@ public class BranchAdminAdjunctOrgSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(adminFlowPage.draftClRequestStatus);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(adminFlowPage.searchButton);
+		CommonUtils.clickOnElement(adminFlowPage.searchButton);
 		MiscUtils.sleep(4000);
-		CommonUtils.click(adminFlowPage.draftTDRPCGB);
+		CommonUtils.clickOnElement(adminFlowPage.draftTDRPCGB);
 		MiscUtils.sleep(3000);
 		CommonUtils.sendKeys(adminFlowPage.journalName, "Edited journal name");
 		MiscUtils.sleep(3000);
@@ -45,14 +45,14 @@ public class BranchAdminAdjunctOrgSteps extends PageInitializer {
 
 	@Given("User can edit a Submitted for Verification cr listed under TDRP CGB")
 	public void user_can_edit_a_Submitted_for_Verification_cr_listed_under_TDRP_CGB() {
-		CommonUtils.click(adminFlowPage.searchActiveTab);
+		CommonUtils.clickOnElement(adminFlowPage.searchActiveTab);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(adminFlowPage.submittedForVerificationClRequestStatus);
+		CommonUtils.clickOnElement(adminFlowPage.submittedForVerificationClRequestStatus);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(adminFlowPage.searchButton);
+		CommonUtils.clickOnElement(adminFlowPage.searchButton);
 		MiscUtils.sleep(4000);
-		CommonUtils.click(adminFlowPage.submittedForVerificationTDRPCGB);
+		CommonUtils.clickOnElement(adminFlowPage.submittedForVerificationTDRPCGB);
 		MiscUtils.sleep(3000);
 		CommonUtils.sendKeys(adminFlowPage.journalName, "Edited journal name");
 		MiscUtils.sleep(3000);
@@ -61,14 +61,14 @@ public class BranchAdminAdjunctOrgSteps extends PageInitializer {
 
 	@Given("User can edit a Returned for Revision cr listed under TDRP CGB")
 	public void user_can_edit_a_Returned_for_Revision_cr_listed_under_TDRP_CGB() {
-		CommonUtils.click(adminFlowPage.searchActiveTab);
+		CommonUtils.clickOnElement(adminFlowPage.searchActiveTab);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(adminFlowPage.returnedForRevisionClRequestStatus);
+		CommonUtils.clickOnElement(adminFlowPage.returnedForRevisionClRequestStatus);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(adminFlowPage.searchButton);
+		CommonUtils.clickOnElement(adminFlowPage.searchButton);
 		MiscUtils.sleep(4000);
-		CommonUtils.click(adminFlowPage.returnedForRevisionTDRPCGB);
+		CommonUtils.clickOnElement(adminFlowPage.returnedForRevisionTDRPCGB);
 		MiscUtils.sleep(3000);
 		CommonUtils.sendKeys(adminFlowPage.journalName, "Edited journal name");
 		MiscUtils.sleep(3000);
@@ -77,7 +77,7 @@ public class BranchAdminAdjunctOrgSteps extends PageInitializer {
 
 	@Then("User can verify that User can not operate on publications outside of their Adjunct org only-TDRP CGB")
 	public void user_can_verify_that_User_can_not_on_publications_outside_of_their_Adjunct_org_only_TDRP_CGB() {
-		CommonUtils.click(adminFlowPage.publication301442TDRPCGB);
+		CommonUtils.clickOnElement(adminFlowPage.publication301442TDRPCGB);
 		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(adminFlowPage.disabledJournalName);
 		MiscUtils.sleep(2000);
@@ -96,7 +96,7 @@ public class BranchAdminAdjunctOrgSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(adminFlowPage.draftClRequestStatus);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(adminFlowPage.searchButton);
+		CommonUtils.clickOnElement(adminFlowPage.searchButton);
 		MiscUtils.sleep(4000);
 		List<WebElement> entry = WebDriverUtils.webDriver.findElements(By.xpath("//td[6]"));
 		for (WebElement each : entry) {
@@ -119,10 +119,10 @@ public class BranchAdminAdjunctOrgSteps extends PageInitializer {
 	public void user_can_not_edit_a_Submitted_for_Verification_cr_that_is_not_listed_under_TDRP_CGB() {
 		JavascriptUtils.clickByJS(adminFlowPage.searchActiveTab);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(adminFlowPage.submittedForVerificationClRequestStatus);
+		CommonUtils.clickOnElement(adminFlowPage.submittedForVerificationClRequestStatus);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(adminFlowPage.searchButton);
+		CommonUtils.clickOnElement(adminFlowPage.searchButton);
 		MiscUtils.sleep(4000);
 		List<WebElement> entry = WebDriverUtils.webDriver.findElements(By.xpath("//td[6]"));
 		for (WebElement each : entry) {
@@ -144,10 +144,10 @@ public class BranchAdminAdjunctOrgSteps extends PageInitializer {
 	public void user_can_not_edit_a_Returned_for_Revision_cr_that_is_not_listed_under_TDRP_CGB() {
 		JavascriptUtils.clickByJS(adminFlowPage.searchActiveTab);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(adminFlowPage.returnedForRevisionClRequestStatus);
+		CommonUtils.clickOnElement(adminFlowPage.returnedForRevisionClRequestStatus);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(adminFlowPage.searchButton);
+		CommonUtils.clickOnElement(adminFlowPage.searchButton);
 		MiscUtils.sleep(4000);
 		List<WebElement> entry = WebDriverUtils.webDriver.findElements(By.xpath("//td[6]"));
 		for (WebElement each : entry) {

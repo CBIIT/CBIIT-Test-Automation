@@ -844,52 +844,17 @@ public class TestDataManager extends PageInitializer {
     public String pleaseCompleteTheTableRegardingKidneyColumn8Option3;
     public String pleaseCompleteTheTableRegardingKidneyColumn8Option4;
     public String theNextSetOfQuestionsAskAboutHairAndSkinQualities;
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//    public String
-//
+    public String whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyFirst;
+    public String whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyMi;
+    public String whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyLast;
 
     public void dataInitializerRasScreener(String sheetName) {
         /**
          * FETCHING DATA FROM EXCEL BEFORE SUBMITTING SCREENER
          */
-            testDataForRasScreener = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_ONE_DATA, sheetName);
+        testDataForRasScreener = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_ONE_DATA, sheetName);
+
+        if (sheetName.equals("screenerScenario1")) {
             areYouCompletingThisFormForSomeoneElseOrYourself = testDataForRasScreener.get(rASScreenerScenario1_Constants.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE);
             firstName = testDataForRasScreener.get(rASScreenerScenario1_Constants.FIRST_NAME);
             middleInitial = testDataForRasScreener.get(rASScreenerScenario1_Constants.MIDDLE_INITIAL);
@@ -923,7 +888,11 @@ public class TestDataManager extends PageInitializer {
             haveYouOrOtherFamilyMembersParticipatedInOtherStudy = testDataForRasScreener.get(rASScreenerScenario1_Constants.HAVE_YOU_OR_OTHER_FAMILY_MEMBERS_PARTICIPATED_IN_OTHER_STUDY);
             whatAreMainReasonsForParticipatingInStudy = testDataForRasScreener.get(rASScreenerScenario1_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_IN_THIS_STUDY);
             whatAreMainReasonsForParticipatingInStudyOtherReason = testDataForRasScreener.get(rASScreenerScenario1_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_IN_THIS_STUDY_OTHER_REASON);
+        } else if (sheetName.equals("screenerScenario2")) {
+            areYouCompletingThisFormForSomeoneElseOrYourself = testDataForRasScreener.get(rASScreenerScenario1_Constants.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE);
+
         }
+    }
 
     public void dataInitializerIiq(String sheetName) {
         /**

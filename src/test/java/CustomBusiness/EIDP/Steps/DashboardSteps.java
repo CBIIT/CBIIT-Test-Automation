@@ -18,6 +18,7 @@ public class DashboardSteps extends PageInitializer {
 	public void clickOnSearch() {
 			eidpDashboardStepImpl.clickOnSearch();
 			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			MiscUtils.sleep(2000);
 	}
 
 	@When("User click on Search button")
@@ -38,12 +39,8 @@ public class DashboardSteps extends PageInitializer {
 
 	@When("User will click on IDP Awaiting response button")
 	public void clickOnIDPAwaitingResponse() {
-		try {
 			eidpDashboardStepImpl.clickOnIDPAwaitResponsButton();
 			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		} catch (Exception e) {
-
-		}
 	}
 
 	@When("User will clickOn start idp button")
@@ -195,7 +192,6 @@ public class DashboardSteps extends PageInitializer {
 	@When("User clicks on Decline IDP button")
 	public void clickOnDeclineIDPButton() throws Exception {
 		generalInformationStepImpl.clickOnGeneralInformationTab();
-		SharedData.traineeName = generalInformationStepImpl.getTraineeName();
 		generalInformationStepImpl.clickOnDeclineIDPButton();
 		eidpCommonPage.clickOnOkButton();
 	}
@@ -223,12 +219,12 @@ public class DashboardSteps extends PageInitializer {
 
 	@Then("User clicks on Home button")
 	public void user_clicks_on_Home_button() {
-		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.xpath("//a[@title='Home']")));
+		CommonUtils.clickOnElement(WebDriverUtils.getWebDriver().findElement(By.xpath("//a[@title='Home']")));
 	}
 
 	@Then("User will click on manage delegate tab")
 	public void user_will_click_on_manage_delegate_tab() {
-		CommonUtils.click(eidpDashboardPage.manageDelegateTab);
+		CommonUtils.clickOnElement(eidpDashboardPage.manageDelegateTab);
 	}
 
 }

@@ -39,7 +39,7 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
 			}
-			CommonUtils.click(adminFlowPage.paginationRight);
+			CommonUtils.clickOnElement(adminFlowPage.paginationRight);
 
 		}
 	}
@@ -53,7 +53,7 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
 			}
-			CommonUtils.click(adminFlowPage.paginationRight);
+			CommonUtils.clickOnElement(adminFlowPage.paginationRight);
 
 		}
 	}
@@ -67,7 +67,7 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
 			}
-			CommonUtils.click(adminFlowPage.paginationRight);
+			CommonUtils.clickOnElement(adminFlowPage.paginationRight);
 
 		}
 	}
@@ -89,22 +89,22 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 
 	@When("User can status of one request to Published")
 	public void user_can_status_of_one_request_to_Published() {
-		CommonUtils.click(adminFlowPage.viewFirstRequest);
+		CommonUtils.clickOnElement(adminFlowPage.viewFirstRequest);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(adminFlowPage.publicationStatusDropdown);
+		CommonUtils.clickOnElement(adminFlowPage.publicationStatusDropdown);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(adminFlowPage.publicationStatusDropdown);
+		CommonUtils.clickOnElement(adminFlowPage.publicationStatusDropdown);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User applies wide search")
 	public void user_applies_wide_search() {
-		CommonUtils.click(adminFlowPage.publicationsTabSearch);
+		CommonUtils.clickOnElement(adminFlowPage.publicationsTabSearch);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(adminFlowPage.publicationsTabSearchButton);
-		CommonUtils.click(adminFlowPage.publicationsTabSearchButton);
+		CommonUtils.clickOnElement(adminFlowPage.publicationsTabSearchButton);
 		MiscUtils.sleep(4000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
@@ -117,20 +117,20 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
 			}
-			CommonUtils.click(adminFlowPage.paginationRight);
+			CommonUtils.clickOnElement(adminFlowPage.paginationRight);
 		}
 	}
 
 	@When("User applies high profile publications search to Publications")
 	public void user_applies_high_profile_publications_search_to_Publications() {
-		CommonUtils.click(adminFlowPage.publicationsTabSearch);
+		CommonUtils.clickOnElement(adminFlowPage.publicationsTabSearch);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(adminFlowPage.highProfileCheckbox);
-		CommonUtils.click(adminFlowPage.highProfileCheckbox);
+		CommonUtils.clickOnElement(adminFlowPage.highProfileCheckbox);
 		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(adminFlowPage.publicationsTabSearchButton);
-		CommonUtils.click(adminFlowPage.publicationsTabSearchButton);
+		CommonUtils.clickOnElement(adminFlowPage.publicationsTabSearchButton);
 		MiscUtils.sleep(4000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
@@ -143,21 +143,21 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
 			}
-			CommonUtils.click(adminFlowPage.paginationRight);
+			CommonUtils.clickOnElement(adminFlowPage.paginationRight);
 		}
 	}
 
 	@When("User applies  non high profile publications search to Publications")
 	public void user_applies_non_high_profile_publications_search_to_Publications() {
-		CommonUtils.click(adminFlowPage.clRequestTab);
+		CommonUtils.clickOnElement(adminFlowPage.clRequestTab);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(adminFlowPage.publicationsTab);
+		CommonUtils.clickOnElement(adminFlowPage.publicationsTab);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(adminFlowPage.publicationsTabSearch);
+		CommonUtils.clickOnElement(adminFlowPage.publicationsTabSearch);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		JavascriptUtils.scrollIntoView(adminFlowPage.publicationsTabSearchButton);
-		CommonUtils.click(adminFlowPage.publicationsTabSearchButton);
+		CommonUtils.clickOnElement(adminFlowPage.publicationsTabSearchButton);
 		MiscUtils.sleep(4000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
@@ -169,7 +169,7 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
 			}
-			CommonUtils.click(adminFlowPage.paginationRight);
+			CommonUtils.clickOnElement(adminFlowPage.paginationRight);
 		}
 	}
 
@@ -190,15 +190,15 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 	public void user_marks_off_Clearance_Request_Status_with_states(io.cucumber.datatable.DataTable data) {
 		Map<String, String> states = CommonUtil.getMapFromDataTable(data);
 		Assert.assertTrue(adminFlowPage.draftStatus.isDisplayed(), states.get("state1"));
-		CommonUtils.click(adminFlowPage.draftStatus);
+		CommonUtils.clickOnElement(adminFlowPage.draftStatus);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Assert.assertTrue(adminFlowPage.submittedForVerStatus.isDisplayed(), states.get("state2"));
-		CommonUtils.click(adminFlowPage.submittedForVerStatus);
+		CommonUtils.clickOnElement(adminFlowPage.submittedForVerStatus);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 		Assert.assertTrue(adminFlowPage.returnedForRevStatus.isDisplayed(), states.get("state2"));
-		CommonUtils.click(adminFlowPage.returnedForRevStatus);
+		CommonUtils.clickOnElement(adminFlowPage.returnedForRevStatus);
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
@@ -207,7 +207,7 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 	public void user_can_verify_that_User_can_operate_on_a_clearance_request_that_only_belongs_to_OFFICE_OF_THE_DIRECTOR() {
 		MiscUtils.sleep(3000);
 		if (branchAdminPage.firstODentry.getText().contains("OD")) {
-			CommonUtils.click(branchAdminPage.firstView);
+			CommonUtils.clickOnElement(branchAdminPage.firstView);
 		}
 		System.out.print("Branch Admin can view only OD Clearance Requests");
 	}

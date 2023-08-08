@@ -1,6 +1,5 @@
 package CustomBusiness.EIDP.Pages;
 
-
 import CustomBusiness.EIDP.Steps.HooksSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -12,85 +11,94 @@ import com.nci.automation.web.WebDriverUtils;
 
 public class CommonPage extends CommonUtils {
 
+	/* ------ Click on OK button ------ */
 	@FindBy(xpath = "//button[contains(text(),'OK')]")
-	private WebElement okButton;
+	public WebElement okButton;
 	
+	/* ------ Button to go back to home queue ------ */
 	@FindBy(xpath = "//*[text()='Go back to your Queue']")
-	private WebElement goBackToHomeQueue;
+	public WebElement goBackToHomeQueue;
 	
+	/* ------ Button to go back to home page ------ */
 	@FindBy(xpath = "//*[text()='Go back to your Home page']")
-	private WebElement goBackToHomePage;
+	public WebElement goBackToHomePage;
 	
-	@FindBy(xpath = "//*[text()='Go back to your Queue']")
-	private WebElement goBackToYourQueue;
-	
+	/* ------ Submit button ------ */
 	@FindBy(css = "[value='Submit']")
-	private WebElement submitButton;
+	public WebElement submitButton;
 	
+	/* ------ Save button ------ */
 	@FindBy(css = "[value='Save']")
-	private WebElement saveButton;
+	public WebElement saveButton;
 	
+	/* ------ Yes button ------ */
 	@FindBy(xpath = "//*[text()='Yes']")
-	private WebElement yesButton;
+	public WebElement yesButton;
 	
+	/* ------ Verify meeting and accept IDP button ------ */
 	@FindBy(css = "[value='Verify Meeting And Accept IDP']")
-	private WebElement verifyMeetingAndAcceptIDPButton;
+	public WebElement verifyMeetingAndAcceptIDPButton;
 	
+	/* ------ Meeting date ------ */
 	@FindBy(id= "meetingdate")
-	private WebElement meetingDate;
+	public WebElement meetingDate;
 	
+	/* ------ Mark as reviewed checkbox ------ */
 	@FindBy(css = "[class*='checkbox btn btn-primary']")
-	private WebElement markAsReviewed;
+	public WebElement markAsReviewed;
+
+	/* ------ Send IDP to Trainee button ------ */
+	@FindBy(xpath = "//a[@onclick='sendBackToTrainee()']")
+	public WebElement sendToTraineeButton;
+
 	
 	public CommonPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 	
 	public void clickOnOkButton() {
-		CommonUtils.click(this.okButton);
+		CommonUtils.clickOnElement(this.okButton);
 	}
 	
 	public void clickOnYesButton() {
-		CommonUtils.click(this.yesButton);
+		CommonUtils.clickOnElement(this.yesButton);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 	
 	public void clickOnModalFooterYesButton() {
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.cssSelector(".modal-footer [data-bb-handler='confirm']")));
+		CommonUtils.clickOnElement(WebDriverUtils.getWebDriver().findElement(By.cssSelector(".modal-footer [data-bb-handler='confirm']")));
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 	
 	public void clickOnbutton(String buttonText) {
-		WebElement buttonEle = WebDriverUtils.getWebDriver().findElement(By.xpath("//*[text()='" + buttonText + "']"));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.xpath("//*[text()='" + buttonText + "']")));
+		CommonUtils.clickOnElement(WebDriverUtils.getWebDriver().findElement(By.xpath("//*[text()='" + buttonText + "']")));
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 	
 	public void clickOnSendBackToTrinee() {
-		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.cssSelector("[data-target='#myModal']")));
+		CommonUtils.clickOnElement(sendToTraineeButton);
 	}
 	
 	public void clickOnYesButtonOnTrainee() {
-		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.cssSelector("button[onclick='form_submit_approveByLBO()']")));
+		CommonUtils.clickOnElement(WebDriverUtils.getWebDriver().findElement(By.cssSelector("button[onclick='form_submit_approveByLBO()']")));
 	}
 	
 	public void clickOnSubmitButton() {
-		CommonUtils.click(submitButton);
+		CommonUtils.clickOnElement(submitButton);
 	}
 	
 	public void clickOnSaveButton() {
-		CommonUtils.click(saveButton);
+		CommonUtils.clickOnElement(saveButton);
 	}
 	
 	public void clickOnVerifyMeetingAndAcceptIDPButton() {
-		CommonUtils.click(verifyMeetingAndAcceptIDPButton);
+		CommonUtils.clickOnElement(verifyMeetingAndAcceptIDPButton);
 	}
 	
 	public void enterToday() {
-		CommonUtils.click(meetingDate);
-		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.cssSelector(".today.day")));
+		CommonUtils.clickOnElement(meetingDate);
+		CommonUtils.clickOnElement(WebDriverUtils.getWebDriver().findElement(By.cssSelector(".today.day")));
 	}
 	
 	public void waitForGoBackToHomeQueueButtonVisible() {
@@ -102,11 +110,11 @@ public class CommonPage extends CommonUtils {
 	}
 	
 	public void waitForGoBackToYourQueueButtonVisible() {
-		CommonUtils.waitForVisibility(goBackToYourQueue);
+		CommonUtils.waitForVisibility(goBackToHomeQueue);
 	}
 	
 	public void clickOnMarkAsReviewed() {
-		CommonUtils.click(markAsReviewed);
+		CommonUtils.clickOnElement(markAsReviewed);
 	}
 	
 }

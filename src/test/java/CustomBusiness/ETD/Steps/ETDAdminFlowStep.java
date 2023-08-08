@@ -31,7 +31,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 
 	@When("User clicks on organization dropdown")
 	public void user_clicks_on_organization_dropdown() {
-		CommonUtils.click(etdAdminNCIPage.organizationDropdown);
+		CommonUtils.clickOnElement(etdAdminNCIPage.organizationDropdown);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
@@ -60,11 +60,11 @@ public class ETDAdminFlowStep extends PageInitializer {
 		JavascriptUtils.scrollIntoView(etdAdminNCIPage.changeUserButtonNCI);
 		JavascriptUtils.clickByJS(etdAdminNCIPage.changeUserButtonNCI);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(etdAdminNCIPage.inputFieldChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.inputFieldChangeUser);
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, user);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.dropdownChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(1000);
 	}
 
@@ -77,7 +77,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 	// @manageRolesadminDeletingProfile
 	@When("User inputs in Search bar their name")
 	public void user_inputs_in_Search_bar_their_name() {
-		CommonUtils.click(etdAdminNCIPage.searchFilter);
+		CommonUtils.clickOnElement(etdAdminNCIPage.searchFilter);
 		MiscUtils.sleep(2000);
 		//CommonUtils.sendKeys(etdAdminNCIPage.searchFilter, "CLIFFORD, DAVID");
 		JavascriptUtils.enterValueByJS(etdAdminNCIPage.searchFilter, "CLIFFORD, DAVID");
@@ -92,7 +92,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 	// @manageRolesNegative
 	@When("User clicks on Manage Roles tab")
 	public void user_clicks_on_Manage_Roles_tab() {
-		CommonUtils.click(etdAdminNCIPage.manageRolesTab);
+		CommonUtils.clickOnElement(etdAdminNCIPage.manageRolesTab);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
@@ -106,17 +106,17 @@ public class ETDAdminFlowStep extends PageInitializer {
 
 	@When("User clicks add button")
 	public void user_clicks_add_button() {
-		CommonUtils.click(etdAdminNCIPage.addButton);
+		CommonUtils.clickOnElement(etdAdminNCIPage.addButton);
 		MiscUtils.sleep(2000);
 	}
 
 	@When("User searches for a user that is already an admin as {string}")
 	public void user_searches_for_a_user_that_is_already_an_admin_as(String name) {
-		CommonUtils.click(etdAdminNCIPage.searchNameField);
+		CommonUtils.clickOnElement(etdAdminNCIPage.searchNameField);
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(etdAdminNCIPage.searchNameField, name);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.dropdownChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
@@ -124,27 +124,27 @@ public class ETDAdminFlowStep extends PageInitializer {
 	// @manageRolesAdmin
 	@When("User searches for a user that is not an admin as {string}")
 	public void user_searches_for_a_user_that_is_not_an_admin_as(String name) {
-		CommonUtils.click(etdAdminNCIPage.searchNameField);
+		CommonUtils.clickOnElement(etdAdminNCIPage.searchNameField);
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(etdAdminNCIPage.searchNameField, name);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.dropdownChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User assigns an admin role")
 	public void user_assigns_an_admin_role() {
-		CommonUtils.click(etdAdminNCIPage.roleAdmin);
+		CommonUtils.clickOnElement(etdAdminNCIPage.roleAdmin);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User chooses an Organization\\/SAC from the dropdown")
 	public void user_chooses_an_Organization_SAC_from_the_dropdown() {
-		CommonUtils.click(etdAdminNCIPage.dropdownOrganization);
+		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownOrganization);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.dropdownNCI);
+		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownNCI);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
@@ -162,7 +162,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 
 	@Then("User can assign an admin role successfully")
 	public void user_can_assign_an_admin_role_successfully() {
-		CommonUtils.click(etdAdminNCIPage.saveButton);
+		CommonUtils.clickOnElement(etdAdminNCIPage.saveButton);
 		MiscUtils.sleep(2000);
 	}
 
@@ -171,16 +171,16 @@ public class ETDAdminFlowStep extends PageInitializer {
 		JavascriptUtils.scrollIntoView(etdAdminNCIPage.changeUserButtonNCI);
 		JavascriptUtils.clickByJS(etdAdminNCIPage.changeUserButtonNCI);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(etdAdminNCIPage.inputFieldChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.inputFieldChangeUser);
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, "CLIFFORD, DAVID");
 		MiscUtils.sleep(4000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(etdAdminNCIPage.dropdownChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(etdAdminNCIPage.deleteBarbara);
+		CommonUtils.clickOnElement(etdAdminNCIPage.deleteBarbara);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.confirmationDelete);
+		CommonUtils.clickOnElement(etdAdminNCIPage.confirmationDelete);
 		MiscUtils.sleep(2000);
 	}
 
@@ -189,12 +189,12 @@ public class ETDAdminFlowStep extends PageInitializer {
 		JavascriptUtils.scrollIntoView(etdAdminNCIPage.changeUserButtonNCI);
 		JavascriptUtils.clickByJS(etdAdminNCIPage.changeUserButtonNCI);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(etdAdminNCIPage.inputFieldChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.inputFieldChangeUser);
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, "Agu, Barbara");
 		MiscUtils.sleep(4000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(etdAdminNCIPage.dropdownChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
@@ -202,7 +202,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 	// @manageRolesLiaison
 	@When("User assigns an ETD liaison role")
 	public void user_assigns_an_ETD_liaison_role() {
-		CommonUtils.click(etdAdminNCIPage.roleETDLiaison);
+		CommonUtils.clickOnElement(etdAdminNCIPage.roleETDLiaison);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
@@ -225,16 +225,16 @@ public class ETDAdminFlowStep extends PageInitializer {
 
 	@Then("User can assign another organization successfully")
 	public void user_can_assign_another_organization_successfully() {
-		CommonUtils.click(etdAdminNCIPage.dropdownOrganization);
+		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownOrganization);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.dropdownNCI);
+		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownNCI);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User assigns the same organization")
 	public void user_assigns_the_same_organization() {
-		CommonUtils.click(etdAdminNCIPage.dropdownOrganization);
+		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownOrganization);
 		MiscUtils.sleep(2000);
 	}
 
@@ -253,16 +253,16 @@ public class ETDAdminFlowStep extends PageInitializer {
 
 	@Then("User can delete the created profile")
 	public void user_can_delete_the_created_profile() {
-		CommonUtils.click(etdAdminNCIPage.deleteBarbara);
+		CommonUtils.clickOnElement(etdAdminNCIPage.deleteBarbara);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.confirmationDelete);
+		CommonUtils.clickOnElement(etdAdminNCIPage.confirmationDelete);
 		MiscUtils.sleep(2000);
 	}
 
 	// @manageRolesCancel
 	@Then("User can cancel the whole operation")
 	public void user_can_cancel_the_whole_operation() {
-		CommonUtils.click(etdAdminNCIPage.cancelButton);
+		CommonUtils.clickOnElement(etdAdminNCIPage.cancelButton);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
@@ -270,7 +270,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 	// @manageRolesMultipleGroupsAccessNCI
 	@Then("user can verify that the access is added successfully")
 	public void user_can_verify_that_the_access_is_added_successfully() {
-		CommonUtils.click(etdAdminNCIPage.saveButton);
+		CommonUtils.clickOnElement(etdAdminNCIPage.saveButton);
 		MiscUtils.sleep(2000);
 		Assert.assertEquals("NCI (HNC)", etdAdminNCIPage.orgNCIHNC.getText());
 		MiscUtils.sleep(1000);
@@ -282,14 +282,14 @@ public class ETDAdminFlowStep extends PageInitializer {
 	// @addUserOperations
 	@Then("User can successfully delete that organization choice")
 	public void user_can_successfully_delete_that_organization_choice() {
-		CommonUtils.click(etdAdminNCIPage.deleteOrganization);
+		CommonUtils.clickOnElement(etdAdminNCIPage.deleteOrganization);
 		MiscUtils.sleep(2000);
 	}
 
 	// @manageRolesEditExistingUser
 	@When("User picks an existing profile as {string}")
 	public void user_picks_an_existing_profile_as(String name) {
-		CommonUtils.click(etdAdminNCIPage.searchFilter);
+		CommonUtils.clickOnElement(etdAdminNCIPage.searchFilter);
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(etdAdminNCIPage.searchFilter, name);
 		MiscUtils.sleep(2000);
@@ -297,35 +297,35 @@ public class ETDAdminFlowStep extends PageInitializer {
 
 	@Then("User can successfully edit that profile")
 	public void user_can_successfully_edit_that_profile() {
-		CommonUtils.click(etdAdminNCIPage.editButton);
+		CommonUtils.clickOnElement(etdAdminNCIPage.editButton);
 		MiscUtils.sleep(1000);
-		CommonUtils.click(etdAdminNCIPage.roleETDLiaison);
+		CommonUtils.clickOnElement(etdAdminNCIPage.roleETDLiaison);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(etdAdminNCIPage.dropdownOrganization);
+		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownOrganization);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.dropdownNCI);
+		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownNCI);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.saveButton);
+		CommonUtils.clickOnElement(etdAdminNCIPage.saveButton);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("User resets profile data")
 	public void user_resets_profile_data() {
-		CommonUtils.click(etdAdminNCIPage.searchFilter);
+		CommonUtils.clickOnElement(etdAdminNCIPage.searchFilter);
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(etdAdminNCIPage.searchFilter, "ADAM, TRENGO");
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.editButton);
+		CommonUtils.clickOnElement(etdAdminNCIPage.editButton);
 		MiscUtils.sleep(1000);
-		CommonUtils.click(etdAdminNCIPage.roleAdmin);
+		CommonUtils.clickOnElement(etdAdminNCIPage.roleAdmin);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(etdAdminNCIPage.dropdownOrganization);
+		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownOrganization);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.dropdownNCI);
+		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownNCI);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(etdAdminNCIPage.saveButton);
+		CommonUtils.clickOnElement(etdAdminNCIPage.saveButton);
 		MiscUtils.sleep(2000);
 	}
 
@@ -344,7 +344,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 
 	@Then("User inputs a profile into search box as {string}")
 	public void user_inputs_a_profile_into_search_box_as(String name) {
-		CommonUtils.click(etdAdminNCIPage.searchFilter);
+		CommonUtils.clickOnElement(etdAdminNCIPage.searchFilter);
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(etdAdminNCIPage.searchFilter, name);
 		MiscUtils.sleep(2000);
@@ -389,16 +389,16 @@ public class ETDAdminFlowStep extends PageInitializer {
 	// @manageETDAdminVerifyFields
 	@When("User clicks on Manage ETD Tab")
 	public void user_clicks_on_Manage_ETD_Tab() {
-		CommonUtils.click(etdAdminNCIPage.manageETDTab);
+		CommonUtils.clickOnElement(etdAdminNCIPage.manageETDTab);
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("User can choose an organization from the dropdown")
 	public void user_can_choose_an_organization_from_the_dropdown() {
-		CommonUtils.click(etdAdminNCIPage.organizationDropdown);
+		CommonUtils.clickOnElement(etdAdminNCIPage.organizationDropdown);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.dropdownNCI);
+		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownNCI);
 		MiscUtils.sleep(3000);
 	}
 
@@ -410,7 +410,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 
 	@When("User clicks Search button")
 	public void user_clicks_Search_button() {
-		CommonUtils.click(etdAdminNCIPage.searchButton);
+		CommonUtils.clickOnElement(etdAdminNCIPage.searchButton);
 		MiscUtils.sleep(4000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
@@ -445,7 +445,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 	@Then("User clicks on Search")
 	public void user_clicks_on_Search() {
 		JavascriptUtils.scrollIntoView(etdAdminNCIPage.searchButton);
-		CommonUtils.click(etdAdminNCIPage.searchButton);
+		CommonUtils.clickOnElement(etdAdminNCIPage.searchButton);
 		MiscUtils.sleep(30000);
 	}
 
@@ -462,7 +462,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 	// @manageETDNCIUserReset
 	@When("User picks a profile that has acknowledged their tier")
 	public void user_picks_a_profile_that_has_acknowledged_their_tier() {
-		CommonUtils.click(etdAdminNCIPage.filterManageETD);
+		CommonUtils.clickOnElement(etdAdminNCIPage.filterManageETD);
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(etdAdminNCIPage.filterManageETD, "AALAI, MARRIAM");
 		MiscUtils.sleep(2000);
@@ -482,27 +482,27 @@ public class ETDAdminFlowStep extends PageInitializer {
 		JavascriptUtils.scrollIntoView(etdAdminNCIPage.changeUserButtonNCI);
 		JavascriptUtils.clickByJS(etdAdminNCIPage.changeUserButtonNCI);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(etdAdminNCIPage.inputFieldChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.inputFieldChangeUser);
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, "AALAI, MARRIAM");
 		MiscUtils.sleep(4000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(etdAdminNCIPage.dropdownChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
 	}
 
 	@When("User loads a wide search")
 	public void user_loads_a_wide_search() {
-		CommonUtils.click(etdAdminNCIPage.searchButton);
+		CommonUtils.clickOnElement(etdAdminNCIPage.searchButton);
 		MiscUtils.sleep(9000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("User can see an alert on the acknowledged tier")
 	public void user_can_see_an_alert_on_the_acknowledged_tier() {
-		CommonUtils.click(etdAdminNCIPage.aboutETDTab);
+		CommonUtils.clickOnElement(etdAdminNCIPage.aboutETDTab);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(etdAdminNCIPage.homeTab);
+		CommonUtils.clickOnElement(etdAdminNCIPage.homeTab);
 		MiscUtils.sleep(3000);
 		Assert.assertEquals("Our records indicate that you have already acknowledged your Emergency Tier Designation.",
 				etdAdminNCIPage.tierIsAcknowledged.getText());
@@ -513,7 +513,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 	// @manageETDNCIUserNotAcknowledgedTier
 	@When("User picks a profile that has not acknowledged their tier")
 	public void user_picks_a_profile_that_has_not_acknowledged_their_tier() {
-		CommonUtils.click(etdAdminNCIPage.filterManageETD);
+		CommonUtils.clickOnElement(etdAdminNCIPage.filterManageETD);
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(etdAdminNCIPage.filterManageETD, "	ABRAMS, NATALIE");
 		MiscUtils.sleep(2000);
@@ -524,12 +524,12 @@ public class ETDAdminFlowStep extends PageInitializer {
 		JavascriptUtils.scrollIntoView(etdAdminNCIPage.changeUserButtonNCI);
 		JavascriptUtils.clickByJS(etdAdminNCIPage.changeUserButtonNCI);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(etdAdminNCIPage.inputFieldChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.inputFieldChangeUser);
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, "ABRAMS, NATALIE");
 		MiscUtils.sleep(4000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(etdAdminNCIPage.dropdownChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
 	}
 
@@ -539,20 +539,20 @@ public class ETDAdminFlowStep extends PageInitializer {
 		JavascriptUtils.scrollIntoView(etdAdminNCIPage.changeUserButtonNCI);
 		JavascriptUtils.clickByJS(etdAdminNCIPage.changeUserButtonNCI);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(etdAdminNCIPage.inputFieldChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.inputFieldChangeUser);
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, "ABER, ETAN");
 		MiscUtils.sleep(4000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(etdAdminNCIPage.dropdownChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
 	}
 
 	@When("User is on Home Tab")
 	public void user_is_on_Home_Tab() {
-		CommonUtils.click(etdAdminNCIPage.aboutETDTab);
+		CommonUtils.clickOnElement(etdAdminNCIPage.aboutETDTab);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(etdAdminNCIPage.homeTab);
+		CommonUtils.clickOnElement(etdAdminNCIPage.homeTab);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
@@ -601,24 +601,24 @@ public class ETDAdminFlowStep extends PageInitializer {
 	// @manageETDReminders
 	@When("User selects a profile with a reminder date present")
 	public void user_selects_a_profile_with_a_reminder_date_present() {
-		CommonUtils.click(etdAdminNCIPage.nameSearchField);
+		CommonUtils.clickOnElement(etdAdminNCIPage.nameSearchField);
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(etdAdminNCIPage.nameSearchField, "HASTINGS, WHITNEY");
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.nameWhitney);
+		CommonUtils.clickOnElement(etdAdminNCIPage.nameWhitney);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.searchButton);
+		CommonUtils.clickOnElement(etdAdminNCIPage.searchButton);
 		MiscUtils.sleep(6000);
-		CommonUtils.click(etdAdminNCIPage.plusSign);
+		CommonUtils.clickOnElement(etdAdminNCIPage.plusSign);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.editAction);
+		CommonUtils.clickOnElement(etdAdminNCIPage.editAction);
 	}
 
 	@When("User resets that profile")
 	public void user_resets_that_profile() {
-		CommonUtils.click(etdAdminNCIPage.acknowledgeOnBehalfOfUserW);
+		CommonUtils.clickOnElement(etdAdminNCIPage.acknowledgeOnBehalfOfUserW);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.saveButtonAcknowledge);
+		CommonUtils.clickOnElement(etdAdminNCIPage.saveButtonAcknowledge);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
@@ -631,11 +631,11 @@ public class ETDAdminFlowStep extends PageInitializer {
 	
 	@Then("User resets that action")
 	public void user_resets_that_action() {
-		CommonUtils.click(etdAdminNCIPage.plusSign);
+		CommonUtils.clickOnElement(etdAdminNCIPage.plusSign);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.resetAcknowledgement);
+		CommonUtils.clickOnElement(etdAdminNCIPage.resetAcknowledgement);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.confirmAlert);
+		CommonUtils.clickOnElement(etdAdminNCIPage.confirmAlert);
 		MiscUtils.sleep(2000);
 	}
 
@@ -671,17 +671,17 @@ public class ETDAdminFlowStep extends PageInitializer {
 
 	@When("User picks an NCI profile to view")
 	public void user_picks_an_NCI_profile_to_view() {
-		CommonUtils.click(etdAdminNCIPage.nameSearchField);
+		CommonUtils.clickOnElement(etdAdminNCIPage.nameSearchField);
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(etdAdminNCIPage.nameSearchField, "AALAI, MARRIAM");
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.name);
+		CommonUtils.clickOnElement(etdAdminNCIPage.name);
 		MiscUtils.sleep(2000);
 	}
 
 	@Then("User can see Actions options appear")
 	public void user_can_see_Actions_options_appear() {
-		CommonUtils.click(etdAdminNCIPage.plusSign);
+		CommonUtils.clickOnElement(etdAdminNCIPage.plusSign);
 		MiscUtils.sleep(2000);
 		Assert.assertTrue(etdAdminNCIPage.editAction.isDisplayed());
 		MiscUtils.sleep(2000);
@@ -691,23 +691,23 @@ public class ETDAdminFlowStep extends PageInitializer {
 
 	@Then("User can add an exception flag")
 	public void user_can_add_an_exception_flag() {
-		CommonUtils.click(etdAdminNCIPage.editAction);
+		CommonUtils.clickOnElement(etdAdminNCIPage.editAction);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(etdAdminNCIPage.flag);
+		CommonUtils.clickOnElement(etdAdminNCIPage.flag);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("User can remove an exception flag")
 	public void user_can_remove_an_exception_flag() {
-		CommonUtils.click(etdAdminNCIPage.flag);
+		CommonUtils.clickOnElement(etdAdminNCIPage.flag);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("User can edit existing notes")
 	public void user_can_edit_existing_notes() {
-		CommonUtils.click(etdAdminNCIPage.generalNotesField);
+		CommonUtils.clickOnElement(etdAdminNCIPage.generalNotesField);
 		MiscUtils.sleep(3000);
 		CommonUtils.sendKeys(etdAdminNCIPage.generalNotesField, "Send notes for test purpose");
 		MiscUtils.sleep(3000);
@@ -715,7 +715,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 
 	@Then("User can save applied changes")
 	public void user_can_save_applied_changes() {
-		CommonUtils.click(etdAdminNCIPage.saveButtonAcknowledge);
+		CommonUtils.clickOnElement(etdAdminNCIPage.saveButtonAcknowledge);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
@@ -723,17 +723,17 @@ public class ETDAdminFlowStep extends PageInitializer {
 	// @manageETDresetAcknowledgementNCI
 	@When("User resets acknowledgement for a NCI profile")
 	public void user_resets_acknowledgement_for_a_NCI_profile() {
-		CommonUtils.click(etdAdminNCIPage.nameSearchField);
+		CommonUtils.clickOnElement(etdAdminNCIPage.nameSearchField);
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(etdAdminNCIPage.nameSearchField, "AALAI, MARRIAM");
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.name);
+		CommonUtils.clickOnElement(etdAdminNCIPage.name);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.plusSign);
+		CommonUtils.clickOnElement(etdAdminNCIPage.plusSign);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.resetAcknowledgement);
+		CommonUtils.clickOnElement(etdAdminNCIPage.resetAcknowledgement);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(etdAdminNCIPage.confirmAlert);
+		CommonUtils.clickOnElement(etdAdminNCIPage.confirmAlert);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
@@ -747,28 +747,28 @@ public class ETDAdminFlowStep extends PageInitializer {
 
 	@Then("User resets the scenario")
 	public void user_resets_the_scenario() {
-		CommonUtils.click(etdAdminNCIPage.plusSign);
+		CommonUtils.clickOnElement(etdAdminNCIPage.plusSign);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.editAction);
+		CommonUtils.clickOnElement(etdAdminNCIPage.editAction);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(etdAdminNCIPage.acknowledged);
+		CommonUtils.clickOnElement(etdAdminNCIPage.acknowledged);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.saveButtonAcknowledge);
+		CommonUtils.clickOnElement(etdAdminNCIPage.saveButtonAcknowledge);
 		MiscUtils.sleep(2000);
 	}
 
 	// @manageETDBulkReset
 	@When("User selects all checkmark")
 	public void user_selects_all_checkmark() {
-		CommonUtils.click(etdAdminNCIPage.selectAll);
+		CommonUtils.clickOnElement(etdAdminNCIPage.selectAll);
 		MiscUtils.sleep(2000);
 	}
 
 	@Then("User clicks on Bulk Reset Button")
 	public void user_clicks_on_Bulk_Reset_Button() {
-		CommonUtils.click(etdAdminNCIPage.bulkReset);
+		CommonUtils.clickOnElement(etdAdminNCIPage.bulkReset);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.confirmAlert);
+		CommonUtils.clickOnElement(etdAdminNCIPage.confirmAlert);
 		MiscUtils.sleep(2000);
 	}
 
@@ -780,15 +780,15 @@ public class ETDAdminFlowStep extends PageInitializer {
 	// @manageETDTir3D
 	@When("User picks a tier {string} from dropdown")
 	public void user_picks_a_tier_from_dropdown(String string) {
-		CommonUtils.click(etdAdminNCIPage.tierDropdown);
+		CommonUtils.clickOnElement(etdAdminNCIPage.tierDropdown);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.input);
+		CommonUtils.clickOnElement(etdAdminNCIPage.input);
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(etdAdminNCIPage.input, "Tier III-D");
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.input1Choice);
+		CommonUtils.clickOnElement(etdAdminNCIPage.input1Choice);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.searchButton);
+		CommonUtils.clickOnElement(etdAdminNCIPage.searchButton);
 		MiscUtils.sleep(5000);
 	}
 
@@ -815,16 +815,16 @@ public class ETDAdminFlowStep extends PageInitializer {
 		JavascriptUtils.scrollIntoView(etdAdminNCIPage.changeUserButtonNCI);
 		JavascriptUtils.clickByJS(etdAdminNCIPage.changeUserButtonNCI);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(etdAdminNCIPage.inputFieldChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.inputFieldChangeUser);
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, "ABER, ETAN");
 		MiscUtils.sleep(4000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(etdAdminNCIPage.dropdownChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(etdAdminNCIPage.aboutETDTab);
+		CommonUtils.clickOnElement(etdAdminNCIPage.aboutETDTab);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(etdAdminNCIPage.homeTab);
+		CommonUtils.clickOnElement(etdAdminNCIPage.homeTab);
 		Assert.assertTrue(etdAdminNCIPage.tier1Alert.isDisplayed());
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
@@ -836,19 +836,19 @@ public class ETDAdminFlowStep extends PageInitializer {
 		JavascriptUtils.scrollIntoView(etdAdminNCIPage.changeUserButtonNCI);
 		JavascriptUtils.clickByJS(etdAdminNCIPage.changeUserButtonNCI);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(etdAdminNCIPage.inputFieldChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.inputFieldChangeUser);
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, user);
 		MiscUtils.sleep(4000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(etdAdminNCIPage.dropdownChangeUser);
+		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@Then("User can verify that home tab is not authorized")
 	public void user_can_verify_that_home_tab_is_not_authorized() {
-		CommonUtils.click(etdAdminNCIPage.homeTab);
+		CommonUtils.clickOnElement(etdAdminNCIPage.homeTab);
 		MiscUtils.sleep(3000);
 		Assert.assertTrue(etdAdminNCIPage.notAuthorized.isDisplayed());
 		MiscUtils.sleep(2000);
@@ -858,9 +858,9 @@ public class ETDAdminFlowStep extends PageInitializer {
 	// @TierAcknowledgedEmployee
 	@When("User clicks on About ETD Tab")
 	public void user_clicks_on_About_ETD_Tab() {
-		CommonUtils.click(etdAdminNCIPage.aboutETDTab);
+		CommonUtils.clickOnElement(etdAdminNCIPage.aboutETDTab);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(etdAdminNCIPage.homeTab);
+		CommonUtils.clickOnElement(etdAdminNCIPage.homeTab);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
@@ -875,22 +875,22 @@ public class ETDAdminFlowStep extends PageInitializer {
 	// @validateTierChangesNonEmployee
 	@When("User is on Manage ETD Tab")
 	public void user_is_on_Manage_ETD_Tab() {
-		CommonUtils.click(etdAdminNCIPage.manageETDTab);
+		CommonUtils.clickOnElement(etdAdminNCIPage.manageETDTab);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	@When("User picks Tier {int}")
 	public void user_picks_Tier(Integer int1) {
-		CommonUtils.click(etdAdminNCIPage.tierDropdown);
+		CommonUtils.clickOnElement(etdAdminNCIPage.tierDropdown);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.input);
+		CommonUtils.clickOnElement(etdAdminNCIPage.input);
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(etdAdminNCIPage.input, "Tier I");
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.input1Choice);
+		CommonUtils.clickOnElement(etdAdminNCIPage.input1Choice);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.searchButton);
+		CommonUtils.clickOnElement(etdAdminNCIPage.searchButton);
 		MiscUtils.sleep(5000);
 	}
 
@@ -906,15 +906,15 @@ public class ETDAdminFlowStep extends PageInitializer {
 	// @validateICChangesNonEmployee
 	@When("User picks organization as NCI DCTD \\(HNCB)")
 	public void user_picks_organization_as_NCI_DCTD_HNCB() {
-		CommonUtils.click(etdAdminNCIPage.organizationDropdown);
+		CommonUtils.clickOnElement(etdAdminNCIPage.organizationDropdown);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.orgSearchField);
+		CommonUtils.clickOnElement(etdAdminNCIPage.orgSearchField);
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(etdAdminNCIPage.orgSearchField, "NCI OD (HNC1)");
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.input1Choice);
+		CommonUtils.clickOnElement(etdAdminNCIPage.input1Choice);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(etdAdminNCIPage.searchButton);
+		CommonUtils.clickOnElement(etdAdminNCIPage.searchButton);
 		MiscUtils.sleep(5000);
 	}
 
