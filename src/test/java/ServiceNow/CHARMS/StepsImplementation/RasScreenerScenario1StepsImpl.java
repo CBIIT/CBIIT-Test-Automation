@@ -227,12 +227,12 @@ public class RasScreenerScenario1StepsImpl extends PageInitializer {
         }
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
         try {
-            rasopathyQuestionnairePage.dynamicEmailAddressTextBox(rASScreenerScenario1_Constants.EMAIL_ADDRESS).sendKeys(testDataManager.emailAddress);
+            rasopathyQuestionnairePage.dynamicEmailAddressTextBox(rASScreenerScenario1_Constants.CONFIRM_EMAIL_ADDRESS).sendKeys(testDataManager.emailAddress);
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         } catch (NoSuchElementException e) {
             e.printStackTrace();
             rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-            rasopathyQuestionnairePage.dynamicEmailAddressTextBox(rASScreenerScenario1_Constants.EMAIL_ADDRESS).sendKeys(testDataManager.emailAddress);
+            rasopathyQuestionnairePage.dynamicEmailAddressTextBox(rASScreenerScenario1_Constants.CONFIRM_EMAIL_ADDRESS).sendKeys(testDataManager.emailAddress);
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         }
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
