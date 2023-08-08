@@ -106,7 +106,7 @@ public class TestDataManagerScenario1 extends PageInitializer {
         /**
          * FETCHING DATA FROM EXCEL BEFORE SUBMITTING SCREENER
          */
-        if(sheetName.equals("RASScreenerscenario1")) {
+        if(sheetName.equals("screenerScenario1")) {
             testDataForRasScreenerSubmissionScenario1 = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_ONE_DATA, sheetName);
             areYouCompletingThisFormForSomeoneElseOrYourself = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE);
             firstName = testDataForRasScreenerSubmissionScenario1.get(rASScreenerScenario1_Constants.FIRST_NAME);
