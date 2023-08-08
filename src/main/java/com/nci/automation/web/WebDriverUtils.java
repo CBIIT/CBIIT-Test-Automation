@@ -2,6 +2,7 @@ package com.nci.automation.web;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
+
 import com.nci.automation.utils.FrameworkConstants;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -45,8 +46,7 @@ public class WebDriverUtils {
                 launchSafari();
             } else if (browser.equalsIgnoreCase(Constants.BROWSER_EDGE)) {
                 launchEdge();
-            }
-            else {
+            } else {
                 CucumberLogUtils.logFail("Unsupported browser in localEnv.properties file! " + "PLEASE ENTER VALID BROWSER NAME", false);
                 return null;
             }
@@ -108,20 +108,29 @@ public class WebDriverUtils {
     public static void launchChrome() {
         String osName = FrameworkConstants.GET_OS_NAME;
         String headless = ConfUtils.getProperty("headless");
-        if (headless.equalsIgnoreCase(Constants.TRUE)) {
-            ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.addArguments("--headless=new");
-            webDriver = new ChromeDriver(chromeOptions);
-        } else if (osName.contains("Windows")) {
-            webDriver = new ChromeDriver();
-            webDriver.manage().window().maximize();
-            webDriver.manage().deleteAllCookies();
-            webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        } else if (osName.contains("Mac")) {
-            webDriver = new ChromeDriver();
-            webDriver.manage().window().maximize();
-            webDriver.manage().deleteAllCookies();
-            webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+
+        if (osName.contains("Windows")) {
+            if(headless.equalsIgnoreCase(Constants.TRUE)) {
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--headless=new");
+                webDriver = new ChromeDriver(chromeOptions);
+            }else {
+                webDriver = new ChromeDriver();
+                webDriver.manage().window().maximize();
+                webDriver.manage().deleteAllCookies();
+                webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+            }
+           } else if (osName.contains("Mac")) {
+            if(headless.equalsIgnoreCase(Constants.TRUE)) {
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--headless=new");
+                webDriver = new ChromeDriver(chromeOptions);
+            }else {
+                webDriver = new ChromeDriver();
+                webDriver.manage().window().maximize();
+                webDriver.manage().deleteAllCookies();
+                webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+            }
         } else if (osName.contains("Linux")) {
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--headless=new");
