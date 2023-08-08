@@ -17,12 +17,12 @@ Feature: RAS Screener Scenarios
 #		And logs in via Okta with username "charmsras5@yahoo.com" and password "RASTest2023$$"
 #		And the participant submits a Individual Information Questionnaire for excel sheet "IIQScenario1"
 
-	@juarezds @InProgress
+	@juarezds @InProgress @Progression
 	Scenario: Submitting the consent in Native View
 	This scenario selects 'No' to all questions
 		Then data submitted for scenario is verified in native view against corresponding scenario from the excel sheet
 
-	@juarezds @InProgress @Progression
+	@juarezds @InProgress
 	Scenario: Submitting the RAS Survey
 	This scenario is completing the forms for someone else and selects 'No' to all questions
 		Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"

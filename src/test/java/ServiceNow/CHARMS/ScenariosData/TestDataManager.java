@@ -925,7 +925,6 @@ public class TestDataManager extends PageInitializer {
             whatAreMainReasonsForParticipatingInStudyOtherReason = testDataForRasScreener.get(rASScreenerScenario1_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_IN_THIS_STUDY_OTHER_REASON);
         }
 
-
     public void dataInitializerIiq(String sheetName) {
         /**
          * FETCHING DATA FROM EXCEL BEFORE SUBMITTING IIQ FORM
