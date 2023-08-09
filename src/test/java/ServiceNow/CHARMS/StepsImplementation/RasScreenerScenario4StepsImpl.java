@@ -1,22 +1,13 @@
 package ServiceNow.CHARMS.StepsImplementation;
 
-import ServiceNow.CHARMS.Constants.CHARMSConstants;
-import ServiceNow.CHARMS.Constants.CHARMSRASScreenerConstants;
-import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
 import ServiceNow.CHARMS.Steps.HooksSteps;
-import ServiceNow.COVIDDash.Utils.COVIDConstants;
-import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import appsCommon.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
-import com.nci.automation.web.WebDriverUtils;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.NoSuchFrameException;
-import org.openqa.selenium.WebElement;
 
 public class RasScreenerScenario4StepsImpl extends PageInitializer {
 
