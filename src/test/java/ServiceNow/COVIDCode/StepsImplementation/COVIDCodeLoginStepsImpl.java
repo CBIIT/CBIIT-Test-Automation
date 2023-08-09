@@ -14,11 +14,11 @@ public class COVIDCodeLoginStepsImpl extends PageInitializer {
 
 	public void covidCodeServicePortalLogin() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.clickByJS(covidCodeLoginPage.LogInButton);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		loginImpl.loginToITrust();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(2000);
 	}
 
@@ -27,12 +27,12 @@ public class COVIDCodeLoginStepsImpl extends PageInitializer {
 		String expectedTitle = "COVIDcode Home - COVIDcode";
 		String actualTitle = WebDriverUtils.webDriver.getTitle();
 		Assert.assertEquals("Verifying COVIDcode homepage title", expectedTitle, actualTitle);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	public void verifyingNIHDashboardHeader() throws TestingException {
 		String actualText = servicePortalQuestionnairePage.nihUserDashboardHeader.getText();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		String expectedText = "NIH User Dashboard";
 		MiscUtils.sleep(2000);
 		Assert.assertEquals("Verifying COVIDcode Study Provider sees the CNIH User Dashboard", expectedText,

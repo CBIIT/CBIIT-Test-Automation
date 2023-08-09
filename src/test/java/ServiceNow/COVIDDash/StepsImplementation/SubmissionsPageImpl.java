@@ -48,7 +48,7 @@ public class SubmissionsPageImpl extends PageInitializer {
 		Assert.assertTrue(pdngTExists);
 		boolean rjctTExists = submissionPage.getRejectedStudiesTableText().contains(rejectedStudies);
 		Assert.assertTrue(rjctTExists);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 }

@@ -62,11 +62,9 @@ import GrantsApps.ChangePassword.Pages.ChangePasswordPage;
 import GrantsApps.ChangePassword.StepsImplementation.ChangePasswordStepsImpl;
 import GrantsApps.EM.Pages.ManageI2EUsersPage;
 import GrantsApps.EM.StepImplementation.EMStepsImplementation;
-import ServiceNow.BrownBag.Pages.SEERLandingPage2;
 import ServiceNow.CHARMS.Constants.RASScreenerScenario1_Constants;
 import ServiceNow.CHARMS.Pages.*;
 import ServiceNow.CHARMS.ScenariosData.TestDataManagerScenario1;
-import ServiceNow.CHARMS.StepsImplementation.CHARMSHomePageImp;
 import ServiceNow.CHARMS.StepsImplementation.RASSurveyStepsImpl;
 import ServiceNow.CHARMS.StepsImplementation.RasScreenerScenario1StepsImpl;
 import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
@@ -124,44 +122,15 @@ import ServiceNow.SEER.Pages.SEERIncidenceDatabaseDetailsPage;
 import ServiceNow.SEER.Pages.SEERLandingPage;
 import ServiceNow.SEER.Pages.SEERUserRegistrationPage;
 import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
-import CustomBusiness.DCEG.Pages.AdminFlowPage;
-import CustomBusiness.DCEG.Pages.BranchAdminPage;
-import CustomBusiness.DCEG.Pages.CreateCRPage;
-import CustomBusiness.DCEG.Pages.DirectSubmitterPage;
-import CustomBusiness.DCEG.Pages.RegularUserFlowPage;
-import CustomBusiness.DCEG.Steps.RegularUserFlowSteps;
-import CustomBusiness.DCEG.StepsImplementation.FlowStepsImplementation;
-import CustomBusiness.EIDP.Pages.AligningExpectationsPage;
-import CustomBusiness.EIDP.Pages.BasePage;
-import CustomBusiness.EIDP.Pages.CareerGoalAndActivePage;
-import CustomBusiness.EIDP.Pages.CoPrimaryMentorPage;
-import CustomBusiness.EIDP.Pages.CommonPage;
-import CustomBusiness.EIDP.Pages.DashboardPage;
-import CustomBusiness.EIDP.Pages.DelegatePage;
-import CustomBusiness.EIDP.Pages.GeneralInformationPage;
-import CustomBusiness.EIDP.Pages.IDPAwaitingResponsePage;
-import CustomBusiness.EIDP.Pages.LoginPage;
-import CustomBusiness.EIDP.Pages.ProjectRelatedDeliverablePage;
-import CustomBusiness.EIDP.Pages.SearchPage;
-import CustomBusiness.EIDP.Pages.TraineeReviewPage;
 import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
-import CustomBusiness.EIDP.StepsImplementation.AlignExpectionsStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.CareerGoalAndActiveStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.EIDPLoginStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.GeneralInformationStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.ProjectRelatedDeliverableStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.SearchStepImpl;
-import CustomBusiness.ETD.Pages.ETDAdminNCIPage;
-import CustomBusiness.ETD.Pages.ETDBasePage;
-import CustomBusiness.ETD.StepsImplementation.ETDFlowStepsImpl;
+import com.nci.automation.web.WebDriverUtils;
 
 /**
  * This an initializer class which will initialize all pages classes. Once pages
  * class created, create an object of it here inside the constructor
  */
-public class PageInitializer {
+public class PageInitializer extends WebDriverUtils {
 
-    public static SEERLandingPage2 seerLandingPage2;
 
     /** --------------- APPSCOMMON INSTANCES --------------- */
     // declare public static variables of types of all the pages
@@ -199,7 +168,6 @@ public class PageInitializer {
     public static TestAccountResetImpl testAccountResetImpl;
     public static CHARMSHomePage charmsHomePage;
     public static OKTAloginPage oktaLoginPage;
-    public static CHARMSHomePageImp charmsHomePageImpl;
     public static ClinicalGeneticsBranchPage clinicalGeneticsBranchPage;
     public static ProbandScreenerPage probandScreenerPage;
     public static MyRASLoginPage myRASLoginPage;
@@ -409,7 +377,6 @@ public class PageInitializer {
         testAccountResetImpl = new TestAccountResetImpl();
         charmsHomePage = new CHARMSHomePage();
         oktaLoginPage = new OKTAloginPage();
-        charmsHomePageImpl = new CHARMSHomePageImp();
         clinicalGeneticsBranchPage = new ClinicalGeneticsBranchPage();
         probandScreenerPage = new ProbandScreenerPage();
         myRASLoginPage = new MyRASLoginPage();
@@ -585,8 +552,6 @@ public class PageInitializer {
         changePasswordStepsImpl = new ChangePasswordStepsImpl();
         emStepsImplementation = new EMStepsImplementation();
         manageI2EUsersPage = new ManageI2EUsersPage();
-
-        seerLandingPage2 = new SEERLandingPage2();
 
 
         /** eTracking INSTANCE VARIABLES */

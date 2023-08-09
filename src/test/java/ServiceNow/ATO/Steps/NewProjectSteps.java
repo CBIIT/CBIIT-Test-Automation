@@ -29,8 +29,6 @@ public class NewProjectSteps {
 	@Then("User selects the Application hosting solution as {string}")
 	public void selectApplicationHost(String hostigSolution) {
 		newProjectStepsImpl.selectApplicationHosting(hostigSolution);
-		basePage.captureScreenshot("System Information app hot solution");
-
 	}
 
 	@Then("Goto dates tab and set approver name as {string}")
@@ -47,7 +45,6 @@ public class NewProjectSteps {
 	@Then("User clicks on the contacts tab")
 	public void clickOnContactsTab() throws InterruptedException {
 		newProjectStepsImpl.clickOnTab("Contacts");
-		basePage.captureScreenshot("contact tab");
 	}
 
 	@Then("go back and sort packages")
@@ -121,13 +118,11 @@ public class NewProjectSteps {
 	@Then("User selects the dates")
 	public void selectDates() throws InterruptedException {
 		newProjectStepsImpl.setDate();
-		basePage.captureScreenshot("Dates tab data");
 	}
 	
 	@Then("User enters the dates")
 	public void enterDates() throws InterruptedException {
 		newProjectStepsImpl.enterDates();
-		basePage.captureScreenshot("Dates tab data");
 	}
 
 	@Then("User enters the note as {string}")

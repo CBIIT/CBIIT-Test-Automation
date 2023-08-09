@@ -38,7 +38,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         MiscUtils.sleep(1000);
         Assert.assertTrue(nerdDynamicXpaths.underReviewText(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER).getText().contentEquals("Under Review"));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(submissionName));
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(5000);
     }
 
@@ -124,7 +124,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
     public static void locatingProgramStaffMemberToSubmissionsPage(String applicationName) throws TestingException {
         nativeViewImpersonateUser.impersonateToStaffMemberCBIIT();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(applicationName));
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink.click();
@@ -143,7 +143,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
                         .getText());
         JavascriptUtils.drawBlueBorder(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageSubmissionsLink);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
 }

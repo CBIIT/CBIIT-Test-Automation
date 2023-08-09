@@ -91,7 +91,7 @@ public class NativeViewSteps {
 	public void verifystate(String expectedState) throws Exception {
 		Thread.sleep(2000);
 		String actualState = nativeViewPage.getState();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		if (actualState != null) {
 			actualState = actualState.trim();
 			Assert.assertEquals(expectedState, actualState);
@@ -145,7 +145,7 @@ public class NativeViewSteps {
 	}
 	
 	@Then("take the final page screenshot and add it to the report")
-	public void takeScreenshot() {
+	public void logScreenshot() {
 		
 	}
 

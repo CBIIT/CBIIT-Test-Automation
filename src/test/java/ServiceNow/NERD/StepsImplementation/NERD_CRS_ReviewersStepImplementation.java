@@ -45,7 +45,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         MiscUtils.sleep(5000);
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageNERDButton.click();
         MiscUtils.sleep(8000);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void clicksTheFilter(String SpecialTopic) {
@@ -55,7 +55,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
                         .contentEquals(SpecialTopic));
         CommonUtils.clickOnElement(nerdCrsKnowledgeDatabaseSubmissionsPage.nerdSpecialTopicsDD);
         JavascriptUtils.scrollDown(2000);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void theFieldOptionsAre(String all ,String bigDataDataSharing, String covid19, String communications, String earlyDetection,
@@ -76,7 +76,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
             CommonUtils.assertEquals(expectedValues[j], actualValue[j]);
         }
         MiscUtils.sleep(500);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void aCRSReviewerAndEmailIOnTheNERDHomePage(String crsReviewer, String approvedEmail) throws TestingException {
@@ -84,7 +84,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         nativeViewImpersonateUser.impersonateToAnyCRSReviewerNerd(crsReviewer, approvedEmail);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         MiscUtils.sleep(1500);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);;
+        CucumberLogUtils.logScreenshot();;
     }
 
     public static void aCRSReviewerIsOnTheNERDHomePage() throws TestingException {
@@ -92,7 +92,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         nativeViewImpersonateUser.impersonateToAnyCRSReviewerNerd(CRSReviewers_Constants.CRS_REVIEWER_NAME, CRSReviewers_Constants.CRS_REVIEWER_EMAIL);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         MiscUtils.sleep(1500);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void thereAreThreeKnowledgeBasesCalledAnd(String nerd, String rock, String moonshotEvaluation) {
@@ -103,19 +103,19 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         JavascriptUtils.drawBlueBorder(nerdHomePage.nerdKnowledgeBaseText);
         JavascriptUtils.drawBlueBorder(nerdHomePage.rockKnowledgeBaseText);
         JavascriptUtils.drawBlueBorder(nerdHomePage.moonshotEvaluationKnowledgeBaseText);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void theUserClicksTheNERDKnowledgeBase() {
         nerdHomePage.nerdKnowledgeBaseText.click();
         MiscUtils.sleep(2000);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);;
+        CucumberLogUtils.logScreenshot();;
     }
 
     public static void theUserIsRedirectedToTheKnowledgeBaseViewPage() {
         CommonUtils.assertTrue(nerdKnowledgeBasePage.nerdKnowledgeBaseViewText.isDisplayed());
         MiscUtils.sleep(2000);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);;
+        CucumberLogUtils.logScreenshot();;
     }
 
     public static void thereIsACollapsedAccordionWithRheHeaderLabeled(String topAccomplishmentsAccordionText) {
@@ -126,29 +126,29 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
                 .dynamicAccordion(topAccomplishmentsAccordionText).getText()
                 .contains(topAccomplishmentsAccordionText);
         CommonUtils.assertTrue(isTopAccomplishmentAccordionDisplayed);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void theUserClicksTheAccordionHeader(String topAccomplishmentsAccordion) {
         NERDKnowledgebasePage.dynamicXpathNERDKnowledgeBaseAccordion(topAccomplishmentsAccordion).click();
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void theAccordionExpands(String itemsPerPageAccordionText) {
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(1500);
         boolean isTopAccomplishmentsAccordionItemPerPageDisplayed = NERDKnowledgebasePage
                 .dynamicXpathNERDKnowledgeBaseAccordionItemsPerPageText(itemsPerPageAccordionText)
                 .isDisplayed();
         CommonUtils.assertTrue(isTopAccomplishmentsAccordionItemPerPageDisplayed);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void aListOfAllPublishedRecordsIsVisible(String topAccomplishments) {
         boolean isListForPublishedTopAccomplishmentsDisplayed = NERDKnowledgebasePage
                 .dynamicXpathNERDKnowledgeBaseAccordionList(topAccomplishments).isDisplayed();
         CommonUtils.assertTrue(isListForPublishedTopAccomplishmentsDisplayed);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);;
+        CucumberLogUtils.logScreenshot();;
     }
 
     public void aCRSReviewerIsViewingTheListOfThePublished(String topAccomplishmentsAccordion) throws TestingException {
@@ -157,10 +157,10 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         nativeViewImpersonateUser.impersonateToAnyCRSReviewerNerd(CRSReviewers_Constants.CRS_REVIEWER_NAME, CRSReviewers_Constants.CRS_REVIEWER_EMAIL);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         MiscUtils.sleep(1500);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         nerdHomePage.nerdKnowledgeBaseText.click();
         MiscUtils.sleep(1500);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public void thereIsARecordCalled(String publishedArticleTitle) {
@@ -171,14 +171,14 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         CommonUtils.clickOnElement(nerdKnowledgeBasePage.topAccomplishmentsNerdKnowledgeBaseSearchButton);
         MiscUtils.sleep(1000);
         NERDKnowledgebasePage.dynamicXpathNERDKnowledgeBaseAccordion(topAccomplishmentsAccordion).click();
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(500);
         boolean isArticleDisplayed = NERDKnowledgebasePage
                 .dynamicXpathNERDKnowledgeBaseTopAccomplishmentPublishedArticle(publishedArticleTitle)
                 .getText()
                 .contains(publishedArticleTitle);
         CommonUtils.assertTrue(isArticleDisplayed);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void theUserClicksTheTitleOfTheRecord(String titleOfPublishedArticle)
@@ -188,7 +188,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
                 .dynamicXpathNERDKnowledgeBaseTopAccomplishmentPublishedArticle(titleOfPublishedArticle));
         CommonUtils.clickOnElement(NERDKnowledgebasePage
                 .dynamicXpathNERDKnowledgeBaseTopAccomplishmentPublishedArticle(titleOfPublishedArticle));
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void theUserIsRedirectedToTheArticleViewOfTheRecord(String titleOfPublishedArticle) {
@@ -198,7 +198,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
                 .dynamicXpathNERDAccordian(titleOfPublishedArticle).getText()
                 .contentEquals(titleOfPublishedArticle);
         CommonUtils.assertTrue(isPublishedArticleDisplayed);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void theFollowingFieldsAndTheirAssociatedDataAreVisibleIfResearchResourceIsSelectedAboveSpecifyTypeNihStrategicAlignmentHhsStrategicPlanAlignmentAuthor(
@@ -215,7 +215,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
             String wasNihFundingProvidedForThisActivity, String productsOutputs,
             String ifResearchResourceIsSelectedAboveSpecifyType, String nihStrategicAlignment,
             String hhsStrategicPlanAlignment, String author) {
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         boolean isCategoryTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsCategoryText.getText()
                 .contentEquals(category);
         CommonUtils.assertTrue(isCategoryTextDisplayed);
@@ -297,7 +297,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
         boolean isAuthorTextDisplayed = nerdCRSTCollaborationsPage.nerdCollaborationsAuthorText.getText()
                 .contentEquals(author);
         CommonUtils.assertTrue(isAuthorTextDisplayed);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void theFollowingFieldsAndTheirAssociatedDataAreVisibleForTopAccomplishments(String category,
@@ -307,7 +307,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
                                                                                                String fiscalYear,
                                                                                                String pointOfContact,
                                                                                                String pointOfContactEmail, String crsContact, String author) {
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         boolean isCategoryDisplayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsCategoryText.getText()
                 .contentEquals(category);
         CommonUtils.assertTrue(isCategoryDisplayed);
@@ -336,7 +336,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
                 .contentEquals(specialTopic);
         CommonUtils.assertTrue(isSpecialTopicDisplayed);
         JavascriptUtils.scrollIntoView(nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsSpecialTopicText);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         boolean isReferencesDislpayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsReferencesText
                 .getText()
                 .contentEquals(references);
@@ -369,7 +369,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
     public static void theFollowingFieldsAndTheirAssociatedDataAreVisibleForOtherAccomplishments(String category, String doc, String otherAccomplishmentType, String description, String cancerSiteType,
                                                                                                  String researchType, String specialTopic, String references, String otherReferences, String collaborations,
                                                                                                  String fiscalYear, String pointOfContact, String crsContact, String author) {
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         boolean isCategoryDisplayed = NERDCRSTOtherAccomplishmentsPage.otherAccomplishmentsFieldName(category).getText()
                 .contentEquals(category);
         CommonUtils.assertTrue(isCategoryDisplayed);
@@ -395,7 +395,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
                 .contentEquals(specialTopic);
         CommonUtils.assertTrue(isSpecialTopicDisplayed);
         JavascriptUtils.scrollIntoView(nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsSpecialTopicText);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         boolean isReferencesDislpayed = nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsReferencesText
                 .getText()
                 .contentEquals(references);

@@ -29,7 +29,7 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	@Given("the user is on the JPSurv homepage")
 	public void the_user_is_on_the_JPSurv_homepage() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("JPSurv"));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 	@When("user selects Dic and Txt file")
 	public void user_selects_Dic_and_Txt_file() {

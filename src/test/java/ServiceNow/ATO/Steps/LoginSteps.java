@@ -4,23 +4,16 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.support.PageFactory;
 
-import com.nci.automation.common.QcTestResult;
-import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.EncryptionUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.ConfUtils;
-import com.nci.automation.web.EnvUtils;
-import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 
 import ServiceNow.ATO.Pages.BasePage;
 import ServiceNow.ATO.Pages.CommonPage;
-import ServiceNow.ATO.Pages.LoginPage;
 import ServiceNow.ATO.Pages.NewProjectPage;
 import ServiceNow.ATO.StepsImplementation.LoginStepsImpl;
 import ServiceNow.ATO.Utils.Constants;
 import ServiceNow.ATO.Utils.DriverObjectFactory;
-import appsCommon.PageCache;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -69,7 +62,6 @@ public class LoginSteps {
 		loginStepsImpl.enterPassword(decyptedPass);
 		// loginPage.enterUsername(ConfigFileReader.getConfigFileReader().getUserName());
 		// loginPage.enterPassword(ConfigFileReader.getConfigFileReader().getPassword());
-		basePage.captureScreenshot("Before Login");
 		loginStepsImpl.clickOnSignInButton();
 	}
 
@@ -101,7 +93,6 @@ public class LoginSteps {
 		Thread.sleep(3000);
 		loginStepsImpl.enterUsername(username);
 		loginStepsImpl.enterPassword(Constants.passwords.get(username));
-		basePage.captureScreenshot("Before Login");
 		loginStepsImpl.clickOnSignInButton();
 	}
 
@@ -113,7 +104,6 @@ public class LoginSteps {
 	@Then("User navigates to fast ato page and validates the header")
 	public void validateFastAtoHeader() {
 		loginStepsImpl.validateHeader();
-		basePage.captureScreenshot("Header Validation");
 	}
 
 	@Given("User will login to the fast ato application")
@@ -129,10 +119,8 @@ public class LoginSteps {
 
 	@Then("User clicks on {string} in header menu")
 	public void clickOnHeaderMenu(String menu) throws InterruptedException {
-		basePage.captureScreenshot("Navtive header");
 		loginStepsImpl.clickOnHeaderMenu(menu);
 		loginStepsImpl.waitForListToLoad();
-		basePage.captureScreenshot("Inside " + menu + " Menu");
 	}
 
 	@Then("User filters value as {string}")
@@ -143,21 +131,15 @@ public class LoginSteps {
 	@Then("User clicks on {string} package")
 	public void clickOnAllPackage(String name) throws InterruptedException {
 		loginStepsImpl.clickOnLeftSideMenuItem(name);
-		basePage.captureScreenshot("Clicking on " + name + " menu item");
 	}
 
 	@Then("User click on {string} button")
 	public void clickOnButton(String btnName) {
-		basePage.captureScreenshot("Before clicking on button " + btnName);
 		loginStepsImpl.clickOnButton(btnName);
-		basePage.captureScreenshot("After clicking on button " + btnName);
 	}
 
 	@Then("User click on {string} button in iframe")
 	public void click_on_button_in_iframe(String btnName) throws InterruptedException {
-		basePage.captureScreenshot("Before clicking on button " + btnName);
 		loginStepsImpl.clickOnButtonInIframe(btnName);
-
 	}
-
 }

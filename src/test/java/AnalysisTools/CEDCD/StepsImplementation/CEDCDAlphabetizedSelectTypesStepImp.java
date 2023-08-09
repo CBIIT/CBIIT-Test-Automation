@@ -37,7 +37,7 @@ public class CEDCDAlphabetizedSelectTypesStepImp extends PageInitializer{
 		System.out.println(actualSpecimenTypeValues);
 		
 		Assert.assertEquals(firstArraylist, actualSpecimenTypeValues);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		
 	}
 

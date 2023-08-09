@@ -44,8 +44,7 @@ public class LocalConfUtils {
 					localConfResourcesPath);
 			localConf = loadSystemProperties(localConf);
 		} catch (Exception e) {
-			CucumberLogUtils.logError("Failed to load properties from the path: "
-					+ localConfResourcesPath);
+			e.printStackTrace();
 		}
 
 		return localConf;

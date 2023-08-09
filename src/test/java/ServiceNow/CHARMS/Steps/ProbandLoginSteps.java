@@ -16,20 +16,14 @@ public class ProbandLoginSteps extends PageInitializer {
 	@Given("a Proband is on the CHARMS home page")
 	public void a_Proband_is_on_the_CHARMS_home_page() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CHARMS"));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
-	@When("the Proband logs in with existing valid credentials")
-	public void the_Proband_logs_in_with_existing_valid_credentials() {
-		charmsHomePageImpl.charmsLogin();
-		//added
-	}
-	
 	@Then("the {string} page displays")
 	public void the_page_displays(String clinicalGeneticsBranchText) {
 		Assert.assertTrue(clinicalGeneticsBranchPage.clinicalGeneticsBranchText.getText().contentEquals(clinicalGeneticsBranchText));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 

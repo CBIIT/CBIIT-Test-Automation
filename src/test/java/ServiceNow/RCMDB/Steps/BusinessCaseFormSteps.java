@@ -42,7 +42,7 @@ public class BusinessCaseFormSteps {
 	public void verifystate(String expectedState) throws Exception {
 		Thread.sleep(7000);
 		String actualState = businessCaseFormPage.getState();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		if (actualState != null) {
 			actualState = actualState.trim();
 			Assert.assertEquals(expectedState, actualState);
@@ -163,7 +163,7 @@ public class BusinessCaseFormSteps {
 	@Then("Validate tracking log")
 	public void Validate_tracking_log() {
 		businessCaseFormPage.validateTrackingLog();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
@@ -176,7 +176,7 @@ public class BusinessCaseFormSteps {
 	@Then("User clicks on RM Tracking Record Import")
 	public void User_clicks_on_RM_Tracking_Record_Import() {
 		businessCaseFormPage.clickOnCreateNewRMTrackingRecord();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
@@ -189,7 +189,7 @@ public class BusinessCaseFormSteps {
 	@Then("Click on new RM Tracking record")
 	public void Click_on_new_RM_Tracking_record() {
 		businessCaseFormPage.clickOnNewRMTrackingRecordButton();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
@@ -202,7 +202,7 @@ public class BusinessCaseFormSteps {
 	@Then("Fill all the Quaterly Cost details")
 	public void Fill_all_the_Quaterly_Cost_details() throws InterruptedException {
 		businessCaseFormPage.fillQuaterlyCostForm();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("Validate added recorded")
@@ -226,27 +226,27 @@ public class BusinessCaseFormSteps {
 	@Then("User clicks on all tracking records")
 	public void User_clicks_on_all_tracking_record_button() {
 		businessCaseFormPage.clickOnAllTrackingRecord();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
 	@Then("Click on submit")
 	public void ClickOnSubmit() {
 		businessCaseFormPage.ClickOnSubmit();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
 	@Then("Click on submit record")
 	public void Click_on_submit_record() {
 		businessCaseFormPage.ClickOnSubmitRecord();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("Click on submit button")
 	public void Click_on_submit_button() {
 		businessCaseFormPage.ClickOnSubmitButton();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
@@ -259,14 +259,14 @@ public class BusinessCaseFormSteps {
 	@Then("Enter customer name manually")
 	public void Enter_customer_name_manually() throws InterruptedException {
 		businessCaseFormPage.enterCustomerNameManually();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
 	@Then("User should see error message")
 	public void User_should_see_error_message() throws InterruptedException {
 		businessCaseFormPage.validateErrorMessage();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("Fill all the details")
@@ -283,7 +283,7 @@ public class BusinessCaseFormSteps {
 		loginStepsImpl.enterUsername(ConfUtils.getProperty("sgugulothuUsername"));
 		String decyptedPass = EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
 		loginStepsImpl.enterPassword(decyptedPass);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		loginStepsImpl.clickOnSignInButton();
 	}
 	

@@ -306,7 +306,7 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 		CommonUtils.waitForVisibility(NoRevisionRadioBtn);
 		if (NoRevisionRadioBtn.isSelected()) {
 			CommonUtils.waitForVisibility(saveAndContinueBtn);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			saveAndContinueBtn.click();
 
 		} else {
@@ -326,7 +326,7 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 			}
 
 			CommonUtils.waitForVisibility(saveAndContinueBtn);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			saveAndContinueBtn.click();
 
 		}
@@ -345,7 +345,7 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 		CommonUtils.waitForVisibility(commentsAndFeedBackBtn);
 		if (NoRevisionRadioBtn.isSelected()) {
 			CommonUtils.waitForVisibility(saveAndContinueBtn);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			saveAndContinueBtn.click();
 
 		} else {
@@ -360,7 +360,7 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 					.sendKeys("No revision");
 
 			CommonUtils.waitForVisibility(saveAndContinueBtn);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			saveAndContinueBtn.click();
 		}
 
@@ -371,7 +371,7 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 		CommonUtils.waitForVisibility(commentsAndFeedBackBtn);
 		if (NoRevisionRadioBtn.isSelected()) {
 			CommonUtils.waitForVisibility(saveAndContinueBtn);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			saveAndContinueBtn.click();
 		} else {
 			System.out.println("null loop");
@@ -385,7 +385,7 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 					.sendKeys("No revision");
 
 			CommonUtils.waitForVisibility(saveAndContinueBtn);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			saveAndContinueBtn.click();
 		}
 	}
@@ -395,7 +395,7 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 		CommonUtils.waitForVisibility(commentsAndFeedBackBtn);
 		if (NoRevisionRadioBtn.isSelected()) {
 			CommonUtils.waitForVisibility(saveAndContinueBtn);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 
 			saveAndContinueBtn.click();
 		} else {
@@ -410,7 +410,7 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 					.sendKeys("No revision");
 
 			CommonUtils.waitForVisibility(saveAndContinueBtn);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			saveAndContinueBtn.click();
 		}
 	}

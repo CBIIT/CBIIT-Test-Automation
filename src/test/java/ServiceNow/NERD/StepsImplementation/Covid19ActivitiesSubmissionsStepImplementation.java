@@ -38,6 +38,6 @@ public class Covid19ActivitiesSubmissionsStepImplementation extends PageInitiali
             CommonUtils.assertEquals(expectedCheckBoxesValues[j], actualCheckBoxesValue[j]);
         }
         MiscUtils.sleep(500);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 }
