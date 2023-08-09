@@ -12,6 +12,10 @@ public class MyRASSurveyPage {
     @FindBy(xpath = "//*[@id='LogoContainer']//parent::div//child::div[3]//child::div//child::div[2]//child::div[3]")
     public WebElement rasSurveyText;
 
+    /* RAS SCREENER TEXT*/
+    @FindBy(xpath = "//*[@id='Header']//parent::div//parent::div//child::div[4]//child::div//child::div[2]//child::div[3]//child::div")
+    public WebElement rasScreenerText;
+
     /* RAS SURVEY THANK YOU FOR STARTING TEXT*/
     @FindBy(xpath = "//*[@id='QID316']/div[3]/div/div[1]/p[1]/span")
     public WebElement rasSurveyThankYouForStartingText;
@@ -172,6 +176,10 @@ public class MyRASSurveyPage {
     @FindBy(xpath = "//span[contains(text(),'Other (please specify)')]//parent::label//parent::span//child::input")
     public WebElement otherPleaseSpecifyTextBox;
 
+    /* RAS SURVEY YES RADIO BUTTON*/
+    @FindBy(xpath = "//*[text()='Yes']")
+    public WebElement rasSurveyYesRadioButton;
+
     /* RAS SURVEY OTHER PLEASE SPECIFY DYNAMIC TEXT BOX*/
     @FindBy(xpath = "//span[contains(text(),'Other GI test (please specify)')]//parent::label//parent::span//child::input")
     public WebElement otherGiPleaseSpecifyTextBox;
@@ -207,6 +215,19 @@ public class MyRASSurveyPage {
     */
     public WebElement dynamicTopText(int pageNumber) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='QID" + pageNumber + "']/div[3]/div"));
+    }
+    /*
+    USE THIS METHOD TO DYNAMICALLY LOCATE TEXT AT TOP OF PAGE
+    */
+    public WebElement dynamicTopTextBox(int pageNumber) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='QID" + pageNumber + "']/div[3]/div//child::fieldset//following-sibling::div//child::div//child::input"));
+    }
+
+    /*
+    USE THIS METHOD TO DYNAMICALLY LOCATE TEXT BOXES INS CREENER CHECK BOX OPTIONS
+    */
+    public WebElement screenerDynamicOtherTextBox(String text) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//span[contains(text(),'" + text + "')]//parent::span//parent::label//parent::span//child::input"));
     }
 
     /*
@@ -251,8 +272,8 @@ public class MyRASSurveyPage {
     }
 
     /*
- USE THIS METHOD TO ENTER TEXT IN PLEASE PROVIDE DETAILS ON THE NAME OF THE MEDICATION TAKEN RADIO BUTTOPN
- */
+    USE THIS METHOD TO ENTER TEXT IN PLEASE PROVIDE DETAILS ON THE NAME OF THE MEDICATION TAKEN RADIO BUTTOPN
+    */
     public WebElement gaggingRadioButton(int indexOne, int indextwo) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='Buttons']//parent::div[1]//child::div[3]//child::div//child::fieldset//child::div//child::table//child::tbody//child::tr[" + indexOne + "]//child::td[" + indextwo + "]//label"));
     }
@@ -262,6 +283,13 @@ public class MyRASSurveyPage {
     */
     public WebElement enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationdropDown(int index) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//div[@class='QuestionBody']//child::tbody//tr[" + index + "]//child::td[9]//child::select"));
+    }
+
+    /*
+    USE THIS METHOD TO DYNAMICLY SELECT FROM DROPDOWN
+    */
+    public WebElement selectFromDynamicdropDown(int index) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//div[@class='QuestionBody']//child::tbody//tr[" + index + "]//child::td[3]//child::select"));
     }
 
     /*

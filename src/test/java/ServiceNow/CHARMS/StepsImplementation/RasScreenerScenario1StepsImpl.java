@@ -47,11 +47,12 @@ public class RasScreenerScenario1StepsImpl extends PageInitializer {
      * THIS METHOD WILL SELECT THE SCREENER SUBMISSION ACCORDING TO THE SHEET CHOSEN IN THE FEATURE FILE
      */
     public void rasScreenerScenarioSelector(String sheetName) {
-        ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
         if(sheetName.contentEquals("screenerScenario1")) {
+            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
             rasScreenerScenario1StepsImpl.rasScreenerSubmissionScenario1();
-        }else if(sheetName.contentEquals("screenerScenario2")) {
-            rasScreenerScenario1StepsImpl.rasScreenerSubmissionScenario1();
+        }else if(sheetName.contentEquals("screenerScenario4")) {
+            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
+            rasScreenerScenario4StepsImpl.rasScreenerSubmissionScenario4();
         }
     }
 

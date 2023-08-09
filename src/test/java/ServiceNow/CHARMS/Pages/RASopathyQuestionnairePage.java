@@ -453,6 +453,24 @@ public class RASopathyQuestionnairePage {
     }
 
     /***
+     * USE THIS METHOD TO DYNAMICALLY CLICK ON ALL CHECKBOXES ON RAS SCREENER
+     * @param text
+     * @return
+     */
+    public WebElement dynamicClickOnCheckboxesScreener(int index) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='Questions']//child::div[2]//child::div[3]//child::div[1]//child::fieldset//child::legend/following-sibling::div//child::ul//child::li[" + index + "]//child::span//child::label"));
+    }
+
+    /***
+     * USE THIS METHOD TO DYNAMICALLY IMPUT TEXT IN TEXT BOX FOR CHECKED OPTIONS ON RAS SCREENER
+     * @param text
+     * @return
+     */
+    public WebElement dynamicEnterTextOnCheckboxesScreener(int index) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='Questions']//child::div[2]//child::div[3]//child::div[1]//child::fieldset//child::legend/following-sibling::div//child::ul//child::li[" + index + "]//child::span//child::input"));
+    }
+
+    /***
      * USE THIS METHOD TO DYNAMICALLY LOCATE TEXT BOXES ON HOW DID YOU HEAR ABOUT THIS STUDY PAGE ON RAS SCREENER
      * @param text
      * @return
