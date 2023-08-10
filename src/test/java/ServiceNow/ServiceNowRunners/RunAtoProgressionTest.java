@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/ServiceNow/ATO/Features"
 		, glue="ServiceNow.ATO.Steps"
-		, tags="@allato"
+		, tags="@Progression"
 		, dryRun = false
 		, monochrome=true
 		, strict = true

@@ -13,7 +13,6 @@ import java.util.Set;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.LineIterator;
 import org.apache.commons.lang.StringUtils;
-//import org.apache.commons.lang.tuple.Pair;
 
 /**
  * This class has functions that will get some states about cucumber gherkin
@@ -201,7 +200,7 @@ public class GherkinFeatureDiagnostics {
 				singleStepList.add(step);
 			}
 		}
-		
+
 		return allSteps;
 	}
 

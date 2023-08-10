@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/ServiceNow/COVIDDash/Features"
 		, glue="ServiceNow.COVIDDash.Steps"
-		, tags="@smoke"
+		, tags="@Smoke"
 		, dryRun = false
 		, monochrome=true
 		, strict = true

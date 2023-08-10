@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
 		, "rerun:target/failed.txt","pretty"}
 		, features="src/test/java/ServiceNow/ITPG/Features"
 		, glue="ServiceNow.ITPG.Steps"
-		, tags="@ITPG"
+		, tags="@Progression"
 		, dryRun = false
 		, monochrome=true
 		, strict = true
