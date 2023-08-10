@@ -121,7 +121,7 @@ public class ExploreGWASSteps extends PageInitializer {
 		// //}
 
 		JavascriptUtils.scrollIntoView(exploreGWASPage.dspManhattanPlot);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	public boolean isElementDisplayed() {
@@ -167,7 +167,7 @@ public class ExploreGWASSteps extends PageInitializer {
 	public void clicks_submit_for_results_to_load() {
 		exploreGWASPage.subSummaryResults.click();
 		JavascriptUtils.scrollIntoView(exploreGWASPage.dspManhattanPlot);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("selects variant lookup tab")

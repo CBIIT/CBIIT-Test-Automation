@@ -19,7 +19,7 @@ public class CEDCDSearchCohortsCohortsURLSteps extends PageInitializer {
 	public void the_user_clicks_Agricultural_Health_Study() {
 
 		JavascriptUtils.drawRedBorder(cedcdSearchCohortsPage.AHSURL);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.clickByJS(cedcdSearchCohortsPage.AHSURL);
 
 	}
@@ -58,6 +58,6 @@ public class CEDCDSearchCohortsCohortsURLSteps extends PageInitializer {
 	}
 
 	// Assert.assertEquals(expectedAHSText, actualAHSText);;
-	// CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+	// CucumberLogUtils.logScreenshot();
 
 }

@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Set;
 import org.jsoup.Jsoup;
 
-import com.nci.automation.common.Constants;
-
 /**
  * This class contains utility methods for String manipulation
  * 
@@ -162,7 +160,7 @@ public class StringUtils
 	{
 		String result = org.apache.commons.lang.StringUtils.trimToEmpty(str);
 		
-		result = result.replaceAll(Constants.REG_EX_EXTRA_SPACE, Constants.WHITE_SPACE);
+		result = result.replaceAll(FrameworkConstants.REG_EX_EXTRA_SPACE, FrameworkConstants.WHITE_SPACE);
 		
 		return result;
 	}

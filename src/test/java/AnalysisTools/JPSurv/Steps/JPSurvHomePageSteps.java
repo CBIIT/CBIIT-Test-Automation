@@ -4,6 +4,7 @@ import java.io.File;
 
 import org.junit.Assert;
 
+import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
@@ -22,6 +23,7 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	@Given("the user is on the JPSurv homepage")
 	public void the_user_is_on_the_JPSurv_homepage() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("JPSurv"));
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("user selects Dic and Txt file")

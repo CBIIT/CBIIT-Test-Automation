@@ -34,7 +34,7 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 				}
 			}
 			MiscUtils.sleep(3000);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
@@ -48,7 +48,7 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 	public void user_can_verify_that_publications_in_Submitted_for_Publication_status_are_only_editable_within_his_branch() {
 		for (int row = 1; row <= 3; row++) {
 			MiscUtils.sleep(3000);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
@@ -62,7 +62,7 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 	public void user_can_verify_that_publications_in_Accepted_for_Publication_In_Press_status_are_only_editable_within_his_branch() {
 		for (int row = 1; row <= 3; row++) {
 			MiscUtils.sleep(3000);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
@@ -95,18 +95,18 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 		MiscUtils.sleep(3000);
 		CommonUtils.clickOnElement(adminFlowPage.publicationStatusDropdown);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User applies wide search")
 	public void user_applies_wide_search() {
 		CommonUtils.clickOnElement(adminFlowPage.publicationsTabSearch);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(adminFlowPage.publicationsTabSearchButton);
 		CommonUtils.clickOnElement(adminFlowPage.publicationsTabSearchButton);
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can view any publication across DCEG")
@@ -125,14 +125,14 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 	public void user_applies_high_profile_publications_search_to_Publications() {
 		CommonUtils.clickOnElement(adminFlowPage.publicationsTabSearch);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(adminFlowPage.highProfileCheckbox);
 		CommonUtils.clickOnElement(adminFlowPage.highProfileCheckbox);
 		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(adminFlowPage.publicationsTabSearchButton);
 		CommonUtils.clickOnElement(adminFlowPage.publicationsTabSearchButton);
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can view high profile entries within their NED")
@@ -155,11 +155,11 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 		MiscUtils.sleep(2000);
 		CommonUtils.clickOnElement(adminFlowPage.publicationsTabSearch);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(adminFlowPage.publicationsTabSearchButton);
 		CommonUtils.clickOnElement(adminFlowPage.publicationsTabSearchButton);
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can view non high profile entries within their NED")
@@ -192,15 +192,15 @@ public void user_logged_in_as_SADIE_HOLMES() throws TestingException {
 		Assert.assertTrue(adminFlowPage.draftStatus.isDisplayed(), states.get("state1"));
 		CommonUtils.clickOnElement(adminFlowPage.draftStatus);
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		Assert.assertTrue(adminFlowPage.submittedForVerStatus.isDisplayed(), states.get("state2"));
 		CommonUtils.clickOnElement(adminFlowPage.submittedForVerStatus);
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		Assert.assertTrue(adminFlowPage.returnedForRevStatus.isDisplayed(), states.get("state2"));
 		CommonUtils.clickOnElement(adminFlowPage.returnedForRevStatus);
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can verify that User can operate on a clearance request that only belongs to OFFICE OF THE DIRECTOR")

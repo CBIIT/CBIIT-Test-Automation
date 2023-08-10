@@ -23,5 +23,4 @@ import org.junit.runner.RunWith;
  * @author sohilz2
  */
 public class RunGCPProgressionTest {
-
 }

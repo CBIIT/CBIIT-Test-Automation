@@ -55,7 +55,7 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         CommonUtils.selectDropDownValue(Registration_Constants.GENERAL_PURPOSE_FOR_USING_THE_DATA,
                 seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
         MiscUtils.sleep(1000);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void fillingOutRegistrationFormOrganizationNotFound() {
@@ -86,7 +86,7 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         CommonUtils.selectDropDownValue(Registration_Constants.GENERAL_PURPOSE_FOR_USING_THE_DATA,
                 seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
         MiscUtils.sleep(1000);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void userShouldNotBeAleToSelectAsAnOrganizationOption(String organizationOption) {
@@ -95,9 +95,9 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
             if(org.contains(organizationOption)){
                 CommonUtils.sendKeys(seerUserRegistrationPage.seerUserRegistrationOrganizationField,
                         organizationOption.substring(0, 5));
-                CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+                CucumberLogUtils.logScreenshot();
                 MiscUtils.sleep(1000);
-                CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+                CucumberLogUtils.logScreenshot();
                 CommonUtils.assertTrue(!org.equals(organizationOption));
                 break;
             }
@@ -132,7 +132,7 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         CommonUtils.selectDropDownValue(Registration_Constants.GENERAL_PURPOSE_FOR_USING_THE_DATA,
                 seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
         MiscUtils.sleep(1000);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void fillsOutTheSEERRegistrationFormNonInstitutional() {
@@ -152,7 +152,7 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         seerUserRegistrationPage.seerUserRegistrationCountryField.sendKeys(Registration_Constants.NI_COUNTRY_NAME);
         seerUserRegistrationPage.seerUserRegistrationCountryUSA.click();
         MiscUtils.sleep(1000);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         seerUserRegistrationPage.seerUserRegistrationAddressField.sendKeys(Registration_Constants.NI_STREET_ADDRESS);
         seerUserRegistrationPage.seerUserRegistrationCityField.sendKeys(Registration_Constants.NI_CITY_NAME);
         seerUserRegistrationPage.seerUserRegistrationStateField.sendKeys(Registration_Constants.NI_STATE);
@@ -195,14 +195,14 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         CommonUtils.waitForVisibility(seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
         CommonUtils.selectDropDownValue(Registration_Constants.GENERAL_PURPOSE_FOR_USING_THE_DATA,
                 seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         seerUserRegistrationPage.seerUserRegistrationSubmitButton.click();
         MiscUtils.sleep(2000);
         String seerRegistrationIsCompletePage = WebDriverUtils.getWebDriver().getTitle();
         CommonUtils.assertEquals(Registration_Constants.SEER_DATA_CONFIRMATION_ODS_DATA_ACCESS_REQUEST, seerRegistrationIsCompletePage);
         CommonUtils.assertEquals(Registration_Constants.THANK_YOU_REGISTRATION_IS_COMPLETE_MESSAGE,
                 seerUserRegistrationPage.seerUserRegistrationIsCompleteHeader.getText());
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void theUserShouldSeePageWhenReRegistering(String youAlreadyHaveAccessToSeerResearchData) throws TestingException{
@@ -218,6 +218,6 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         JavascriptUtils.drawBlueBorder(seerUserRegistrationPage.seerHowToRequestAccessToSeerDataLink);
         CommonUtils.assertEquals(youAlreadyHaveAccessToSeerResearchData,
                 seerUserRegistrationPage.seerHowToRequestAccessToSeerDataLink.getText());
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 }

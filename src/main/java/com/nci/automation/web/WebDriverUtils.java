@@ -5,21 +5,14 @@ import java.util.concurrent.TimeUnit;
 import com.nci.automation.utils.FrameworkConstants;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
-import com.nci.automation.common.Constants;
-import com.nci.automation.common.ScenarioContext;
-import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.LocalConfUtils;
 
 /**
@@ -38,26 +31,21 @@ public class WebDriverUtils {
 		String headless = ConfUtils.getProperty("headless");
 
 		if (webDriver == null) {
-			if (Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
-				launchMobile();
-			} else if (Constants.BROWSER_CHROME.equalsIgnoreCase(browser)) {
+			if (FrameworkConstants.BROWSER_CHROME.equalsIgnoreCase(browser)) {
 				launchChrome();
-			} else if (browser.equalsIgnoreCase(Constants.BROWSER_FIREFOX)) {
+			} else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_FIREFOX)) {
 				launchFirefox();
-			} else if (browser.equalsIgnoreCase(Constants.BROWSER_SAFARI)) {
+			} else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_SAFARI)) {
 				launchSafari();
-			} else if (browser.equalsIgnoreCase(Constants.BROWSER_EDGE)) {
+			} else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_EDGE)) {
 				launchEdge();
 			} else {
-				CucumberLogUtils.logFail(
-						"Unsupported browser in localEnv.properties file! " + "PLEASE ENTER VALID BROWSER NAME", false);
 				return null;
 			}
 		}
-		long implicitWaitInSeconds = Long
-				.valueOf(Integer.parseInt(LocalConfUtils.getProperty("implicitWaitInSeconds")));
+		long implicitWaitInSeconds = Long.valueOf(LocalConfUtils.getProperty("implicitWaitInSeconds"));
 		webDriver.manage().timeouts().implicitlyWait(implicitWaitInSeconds, TimeUnit.SECONDS);
-		if (!Constants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
+		if (!FrameworkConstants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
 			webDriver.manage().window().maximize();
 		}
 		return webDriver;
@@ -67,29 +55,7 @@ public class WebDriverUtils {
 	 * This method will close the current web-driver
 	 */
 	public static void closeWebDriver() {
-		if (webDriver != null) {
-			webDriver.quit();
-			ScenarioContext.sauceSessionId.set(null);
-			ScenarioContext.webDriver.set(null);
-			webDriver = null;
-		}
-	}
-
-	/**
-	 * Use this method in need of taking screenshot
-	 *
-	 * @return image in byte codes
-	 */
-	public static byte[] getScreenShot() {
-
-		byte[] screenshot = null;
-		ScenarioContext.webDriver.get();
-		try {
-			screenshot = ((TakesScreenshot) WebDriverUtils.webDriver).getScreenshotAs(OutputType.BYTES);
-		} catch (Exception e) {
-			CucumberLogUtils.logError("Couldn't take screenshot");
-		}
-		return screenshot;
+		webDriver.quit();
 	}
 
 	/**
@@ -127,27 +93,6 @@ public class WebDriverUtils {
 			ChromeOptions chromeOptions = new ChromeOptions();
 			chromeOptions.addArguments("--headless=new");
 			webDriver = new ChromeDriver(chromeOptions);
-		}
-	}
-
-	public static void launchMobile() {
-		String avdName = ConfUtils.getProperty("avdName");
-		String platformName = ConfUtils.getProperty("platformName");
-		String udid = ConfUtils.getProperty("udid");
-		DesiredCapabilities cap = new DesiredCapabilities();
-		if (platformName.equalsIgnoreCase(Constants.IOS_MOBILE)) {
-			cap.setCapability("deviceName", "iOS");
-			cap.setCapability("platformName", "iOS");
-			cap.setCapability(CapabilityType.BROWSER_NAME, "Safari");
-			cap.setCapability(CapabilityType.VERSION, "14");
-			cap.setCapability("udid", udid);
-			cap.setCapability("automationName", "XCUITest");
-		} else {
-			cap.setCapability("deviceName", "Android");
-			cap.setCapability("platformName", "Android");
-			cap.setCapability(CapabilityType.BROWSER_NAME, "Chrome");
-			cap.setCapability(CapabilityType.VERSION, "10");
-			cap.setCapability("avd", avdName);
 		}
 	}
 

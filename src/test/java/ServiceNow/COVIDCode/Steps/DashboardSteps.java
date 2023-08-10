@@ -19,15 +19,15 @@ public class DashboardSteps extends PageInitializer {
 	@Given("a Study Nurse has logged in")
 	public void a_Study_Nurse_has_logged_in() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("the user lands on the COVIDCode Home Page")
 	public void the_user_lands_on_the_COVIDCode_Home_Page() throws TestingException {
 		covidCodeLoginPage.LogInButton.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		loginImpl.loginToITrust();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("there is a button called {string}")
@@ -36,7 +36,7 @@ public class DashboardSteps extends PageInitializer {
 		Assert.assertTrue(servicePortalQuestionnairePage.startNewInitialQuestionnaireButton.getText()
 				.contentEquals(startNewInitialQuestionnaireText));
 
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("there is a button named {string}")
@@ -45,13 +45,13 @@ public class DashboardSteps extends PageInitializer {
 		JavascriptUtils.scrollIntoView(servicePortalQuestionnairePage.startNewFollowUpButton);
 		Assert.assertTrue(
 				servicePortalQuestionnairePage.startNewFollowUpButton.getText().contentEquals(startNewFollowUpText));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Given("a user in the CovidCode App Admins group has logged in")
 	public void a_user_in_the_CovidCode_App_Admins_group_has_logged_in() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("there is a table called {string}")
@@ -59,7 +59,7 @@ public class DashboardSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		Assert.assertTrue(servicePortalQuestionnairePage.draftInitialQuestionnaireText.getText()
 				.contentEquals(draftInitialQuestionnaireText));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("there is a table named {string}")
@@ -68,7 +68,7 @@ public class DashboardSteps extends PageInitializer {
 		JavascriptUtils.scrollIntoView(servicePortalQuestionnairePage.startNewFollowUpButton);
 		Assert.assertTrue(servicePortalQuestionnairePage.draftFollowUpQuestionnaireText.getText()
 				.contentEquals(draftFollowUpQuestionnaireText));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("the table contains the following columns, {string}, {string}, {string}, {string}, {string}")

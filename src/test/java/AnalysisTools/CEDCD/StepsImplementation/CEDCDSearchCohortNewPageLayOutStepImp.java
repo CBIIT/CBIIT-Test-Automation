@@ -16,7 +16,7 @@ public class CEDCDSearchCohortNewPageLayOutStepImp extends PageInitializer{
 		JavascriptUtils.drawBlueBorder(cedcdSearchCohortsPage.cohortEligibilityRequirementsSection);
 		JavascriptUtils.drawRedBorder(cedcdSearchCohortsPage.cohortEnrollmentSection);
 		JavascriptUtils.drawBlueBorder(cedcdSearchCohortsPage.cohortDataAndSpecimenCollectedSection);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		Assert.assertTrue(cedcdSearchCohortsPage.cohortEligibilityRequirementsSection.isDisplayed());
 		Assert.assertTrue(cedcdSearchCohortsPage.cohortEnrollmentSection.isDisplayed());
 		Assert.assertTrue(cedcdSearchCohortsPage.cohortDataAndSpecimenCollectedSection.isDisplayed());

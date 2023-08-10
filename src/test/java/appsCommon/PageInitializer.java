@@ -72,7 +72,6 @@ import GrantsApps.EM.StepImplementation.EMStepsImplementation;
 import ServiceNow.CHARMS.Constants.RASScreenerScenario1_Constants;
 import ServiceNow.CHARMS.Pages.*;
 import ServiceNow.CHARMS.ScenariosData.TestDataManagerScenario1;
-import ServiceNow.CHARMS.StepsImplementation.CHARMSHomePageImp;
 import ServiceNow.CHARMS.StepsImplementation.RASSurveyStepsImpl;
 import ServiceNow.CHARMS.StepsImplementation.RasScreenerScenario1StepsImpl;
 import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
@@ -131,12 +130,13 @@ import ServiceNow.SEER.Pages.SEERLandingPage;
 import ServiceNow.SEER.Pages.SEERUserRegistrationPage;
 import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
+import com.nci.automation.web.WebDriverUtils;
 
 /**
  * This an initializer class which will initialize all pages classes. Once pages
  * class created, create an object of it here inside the constructor
  */
-public class PageInitializer {
+public class PageInitializer extends WebDriverUtils {
 
     /** --------------- APPSCOMMON INSTANCES --------------- */
     // declare public static variables of types of all the pages
@@ -174,7 +174,6 @@ public class PageInitializer {
     public static TestAccountResetImpl testAccountResetImpl;
     public static CHARMSHomePage charmsHomePage;
     public static OKTAloginPage oktaLoginPage;
-    public static CHARMSHomePageImp charmsHomePageImpl;
     public static ClinicalGeneticsBranchPage clinicalGeneticsBranchPage;
     public static ProbandScreenerPage probandScreenerPage;
     public static MyRASLoginPage myRASLoginPage;
@@ -398,7 +397,6 @@ public class PageInitializer {
         testAccountResetImpl = new TestAccountResetImpl();
         charmsHomePage = new CHARMSHomePage();
         oktaLoginPage = new OKTAloginPage();
-        charmsHomePageImpl = new CHARMSHomePageImp();
         clinicalGeneticsBranchPage = new ClinicalGeneticsBranchPage();
         probandScreenerPage = new ProbandScreenerPage();
         myRASLoginPage = new MyRASLoginPage();

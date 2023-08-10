@@ -164,11 +164,7 @@ public class SecurityFormStepsImpl extends SecurityFormPage {
 		selectOption(controlTypeDropdown, "Common");
 		selectOption(implementationStatusDropdown, "Planned");
 		enterText(implementationDescriptionTextarea, "Automation - Implementation description");
-		captureScreenshot("System Security Plan");
-
 		switchToDefaultFrame();
-
-//		clickOnButtonInIframe("Save");
 	}
 
 	private void clickOnBackButton() {

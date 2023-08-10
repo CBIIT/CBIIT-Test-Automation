@@ -35,10 +35,10 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
                                 .publishedCollaboration(submissionName));
                 nerdDynamicXpaths.publishToNERDButton(submissionName).click();
                 MiscUtils.sleep(5000);
-                CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+                CucumberLogUtils.logScreenshot();
                 JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbuttonCRS);
                 MiscUtils.sleep(1000);
-                CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+                CucumberLogUtils.logScreenshot();
                 JavascriptUtils.clickByJS(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
         }
 
@@ -73,7 +73,7 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
                 CommonUtils.waitForVisibility(
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
                 nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton.click();
-                CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+                CucumberLogUtils.logScreenshot();
                 MiscUtils.sleep(2000);
         }
 
@@ -89,7 +89,7 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu);
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu.click();
                 WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'Submissions')]")).click();
-                CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+                CucumberLogUtils.logScreenshot();
                 CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown);
                 nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsOrderByDropDown.click();
                 MiscUtils.sleep(2000);
@@ -104,7 +104,7 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
                 WebElement element = WebDriverUtils.webDriver
                                 .findElement(By.xpath("//*[@id='crs-article']/div/div/div/div[1]/div[4]/div[1]/i"));
                 Assert.assertTrue(element.getDomAttribute("aria-hidden").contentEquals("true"));
-                CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+                CucumberLogUtils.logScreenshot();
         }
 
         /**

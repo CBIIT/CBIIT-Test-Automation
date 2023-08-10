@@ -16,7 +16,7 @@ public class SignatureExplorerSteps extends PageInitializer {
 	@When("the user navigates to the Signature Explorer page")
 	public void the_user_navigates_to_the_Signature_Explorer_page() {
 
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.clickByJS(mSigPortalHomePage.signatureExplorerTab);
 
 	}
@@ -39,7 +39,7 @@ public class SignatureExplorerSteps extends PageInitializer {
 	@Then("a download link for the graph is displayed")
 	public void a_download_link_for_the_graph_is_displayed() {
 
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		Assert.assertTrue(signatureExplorerPages.downloadFirstPlotOnSignatureExplorer.isDisplayed());
 
 	}
@@ -61,7 +61,7 @@ public class SignatureExplorerSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(signatureExplorerPages.tmbText);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		Assert.assertTrue(signatureExplorerPages.imageOnExposureSearch.isEnabled());
 
 	}

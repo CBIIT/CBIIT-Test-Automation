@@ -28,8 +28,6 @@ import com.nci.automation.utils.MiscUtils;
  */
 public class CommonUtils extends WebDriverUtils {
 
-    private static Logger logger = LogManager.getLogger(CommonUtils.class);
-
     /**
      * Use this method in need of entering keyboard keys into a WebElement by
      * selenium WebDriver.

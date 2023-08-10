@@ -28,29 +28,29 @@ public class ChangePasswordStepsImpl extends PageInitializer {
     public static void userIsOnLandingPage(String url) throws TestingException {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(url));
         loginImpl.elizabethiTrustLogin();
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void userEntersNewPasswordAccordingToPasswordPolicy() {
         CommonUtils.sendKeysToElement(changePasswordPage.passwordFieldOne, newPassword);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void userConfirmsNewPassword() {
         CommonUtils.clickOnElement(changePasswordPage.passwordFieldTwo);
         CommonUtils.sendKeysToElement(changePasswordPage.passwordFieldTwo, newPassword);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void userCanSeeTheSuccessfulOutcome() {
         CommonUtils.clickOnElement(changePasswordPage.changeButton);
         Assert.assertTrue(changePasswordPage.successMessage.isDisplayed());
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void userIsBackOnLandingPage() throws TestingException {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ChangePassword"));
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void userEntersNewPasswordThatIsTheSameAsTheirOldPassword() {
@@ -60,7 +60,7 @@ public class ChangePasswordStepsImpl extends PageInitializer {
     public static void userCanNotChangePassword() {
         CommonUtils.clickOnElement(changePasswordPage.changeButton);
         Assert.assertTrue(changePasswordPage.failureMessageOldPassword.isDisplayed());
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void userEntersNewPasswordWithoutFollowingTheCharacterLimitRule(String password) {
@@ -70,13 +70,13 @@ public class ChangePasswordStepsImpl extends PageInitializer {
     public static void userConfirmsNewPassword(String password) {
         CommonUtils.clickOnElement(changePasswordPage.passwordFieldTwo);
         CommonUtils.sendKeysToElement(changePasswordPage.passwordFieldTwo, password);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void userCanNotSeeTheSuccessfulOutcome() {
         CommonUtils.clickOnElement(changePasswordPage.changeButton);
         Assert.assertTrue(changePasswordPage.failureMessageCharacterLimit.isDisplayed());
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void userEntersNewPasswordWithTheirUsername(String username) {
@@ -93,12 +93,12 @@ public class ChangePasswordStepsImpl extends PageInitializer {
 
     public static void entersNewPasswordAccordingToPasswordPolicy() {
         CommonUtils.sendKeysToElement(changePasswordPage.passwordFieldOne, newPasswordTwo);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void confirmsNewPassword() {
         CommonUtils.clickOnElement(changePasswordPage.passwordFieldTwo);
         CommonUtils.sendKeysToElement(changePasswordPage.passwordFieldTwo, newPasswordTwo);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 }
