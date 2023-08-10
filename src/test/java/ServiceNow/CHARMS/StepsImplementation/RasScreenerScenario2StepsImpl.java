@@ -9,12 +9,12 @@ import com.nci.automation.web.JavascriptUtils;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.NoSuchFrameException;
 
-public class RasScreenerScenario4StepsImpl extends PageInitializer {
+public class RasScreenerScenario2StepsImpl extends PageInitializer {
 
     /***
      * USE THIS METHOD WILL COMPLETE THE RAS SCREENER SCENARIO 4
      */
-    public void rasScreenerSubmissionScenario4() {
+    public void rasScreenerSubmissionScenario2() {
         CommonUtils.switchToNextWindow();
         MiscUtils.sleep(2000);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
@@ -40,21 +40,7 @@ public class RasScreenerScenario4StepsImpl extends PageInitializer {
         }
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
         try {
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.FIRST_NAME).sendKeys(ras_Screener_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyFirst);
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.MIDDLE_INITIAL).sendKeys(ras_Screener_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyMi);
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.LAST_NAME).sendKeys(ras_Screener_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyLast);
-            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        } catch (NoSuchElementException e) {
-            e.printStackTrace();
-            rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.FIRST_NAME).sendKeys(ras_Screener_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyFirst);
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.MIDDLE_INITIAL).sendKeys(ras_Screener_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyMi);
-            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.LAST_NAME).sendKeys(ras_Screener_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyLast);
-            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        }
-        rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-        try {
-            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(3));
+            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(2));
             rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.FIRST_NAME).sendKeys(ras_Screener_TestDataManager.firstName);
             rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.MIDDLE_INITIAL).sendKeys(ras_Screener_TestDataManager.middleInitial);
             rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.LAST_NAME).sendKeys(ras_Screener_TestDataManager.lastName);
@@ -68,33 +54,12 @@ public class RasScreenerScenario4StepsImpl extends PageInitializer {
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         }
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-        try {
-            CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.whatIsYourRelationshipToTheProband));
-            rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.whatIsYourRelationshipToTheProband).click();
-            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        } catch (NoSuchElementException e) {
-            e.printStackTrace();
-            rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-            rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.whatIsYourRelationshipToTheProband).click();
-            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        }
-        rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-        try {
-            CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.areYouTheLegalGuardianOfTheProband));
-            rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.areYouTheLegalGuardianOfTheProband).click();
-            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        } catch (NoSuchElementException e) {
-            e.printStackTrace();
-            rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-            rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.areYouTheLegalGuardianOfTheProband).click();
-            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        }
-        rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(83));
-        CommonUtils.assertEqualsWithMessage(ras_Screener_TestDataManager.theNextSetOfQuestionsWillCollectBasicInformationAboutTheProband + ras_Screener_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyFirst + " " + ras_Screener_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyLast + ".  ", myRASSurveyPage.rasScreenerText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS WILL COLLECT BASIC INFORMATION ABOUT THE PROBAND TEXT --");
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(106));
+        CommonUtils.assertEqualsWithMessage(ras_Screener_TestDataManager.theNextSetOfQuestionsWillCollectBasicInformationAboutTheProband, myRASSurveyPage.rasScreenerText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS WILL COLLECT BASIC INFORMATION ABOUT THE PROBAND TEXT --");
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
         try {
+            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(107));
             rasopathyQuestionnairePage.calendarYearTextBox.clear();
             rasopathyQuestionnairePage.calendarYearTextBox.sendKeys(ras_Screener_TestDataManager.dateOfBirthYear);
             CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.dateOfBirthMonth, rasopathyQuestionnairePage.calendarMonthDropDown);
@@ -127,18 +92,6 @@ public class RasScreenerScenario4StepsImpl extends PageInitializer {
             e.printStackTrace();
             rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
             rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.areYouAdoptedOption).click();
-            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        }
-        rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-        try {
-            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(12));
-            CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.isTheProbandAlive));
-            rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.isTheProbandAlive).click();
-            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        } catch (NoSuchElementException e) {
-            e.printStackTrace();
-            rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-            rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.isTheProbandAlive).click();
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         }
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
@@ -243,7 +196,7 @@ public class RasScreenerScenario4StepsImpl extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(ras_Screener_TestDataManager.toDetermineEligibilityForThisStudy, myRASSurveyPage.rasScreenerText.getText(), "-- VERIFYING TO DETERMINE ELIGIBILITY FOR THIS STUDY TEXT --");
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(31));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(116));
         for(int z = 1; z < 12 ; z++) {
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(z));
         }
@@ -314,14 +267,14 @@ public class RasScreenerScenario4StepsImpl extends PageInitializer {
         CommonUtils.sendKeysToElement(myRASSurveyPage.dynamicTopTextBox(30), ras_Screener_TestDataManager.yearOfDiagnosisRas);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(124));
-        CommonUtils.assertEqualsWithMessage(ras_Screener_TestDataManager.weKnowThatRASopathiesAreAGroup, myRASSurveyPage.dynamicTopText(124).getText(), "-- VERIFYING WE KNOW THAT RASOPATHIES ARE A GROUP TEXT --");
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(101));
+        CommonUtils.assertEqualsWithMessage(ras_Screener_TestDataManager.weKnowThatRASopathiesAreAGroup, myRASSurveyPage.dynamicTopText(101).getText(), "-- VERIFYING WE KNOW THAT RASOPATHIES ARE A GROUP TEXT --");
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(123));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(43));
         CommonUtils.clickOnElement(myRASSurveyPage.rasSurveyYesRadioButton);
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(36));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(120));
         CommonUtils.clickOnElement(myRASSurveyPage.rasSurveyYesRadioButton);
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
         try {
@@ -348,18 +301,12 @@ public class RasScreenerScenario4StepsImpl extends PageInitializer {
         //*** ATTACHING FILE CAN'T BE AUTOMATED IN QUATRICS. MANUAL TESTING WAS PERFORMED FOR UPLOADING A FILE *******
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(40));
-        for(int a = 1; a < 9 ; a++) {
-            CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(a));
-        }
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(69));
         CommonUtils.assertEqualsWithMessage(ras_Screener_TestDataManager.weWillNowAskAFewRemainingQuestionsRegarding, myRASSurveyPage.rasScreenerText.getText(), "-- VERIFYING WE WILL NOW ASK A FEW REMAINING QUESTIONS TEXT --");
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
         try {
-            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(70));
+            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(126));
             CommonUtils.scrollIntoView(rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.howDidYouHearAboutThisStudy));
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.howDidYouHearAboutThisStudy));
             rasopathyQuestionnairePage.dynamicLocatorForHowDidYouHearAboutStudyTextBoxes(ras_Screener_TestDataManager.howDidYouHearAboutThisStudy).sendKeys(ras_Screener_TestDataManager.howDidYouHearAboutThisStudyOtherReason);
@@ -373,7 +320,7 @@ public class RasScreenerScenario4StepsImpl extends PageInitializer {
         }
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
         try {
-            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(127));
+            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(71));
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.haveYouOrOtherFamilyMembersParticipatedInOtherStudy));
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         } catch (NoSuchElementException e) {

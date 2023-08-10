@@ -97,6 +97,8 @@ public class PageInitializer {
     public static RASopathyQuestionnairePage rasopathyQuestionnairePage;
     public static MyRASIIQFormPage myRASIIQFormPage;
     public static RasScreenerScenario1StepsImpl rasScreenerScenario1StepsImpl;
+    public static RasScreenerScenario2StepsImpl rasScreenerScenario2StepsImpl;
+    public static RasScreenerScenario3StepsImpl rasScreenerScenario3StepsImpl;
     public static RasScreenerScenario4StepsImpl rasScreenerScenario4StepsImpl;
     public static RAS_Screener_Constants ras_Screener_Constants;
     public static RAS_Survey_Constants ras_Survey_Constants;
@@ -311,6 +313,8 @@ public class PageInitializer {
         myRASLoginPage = new MyRASLoginPage();
         myRASHomePage = new MyRASHomePage();
         rasScreenerScenario1StepsImpl = new RasScreenerScenario1StepsImpl();
+        rasScreenerScenario2StepsImpl = new RasScreenerScenario2StepsImpl();
+        rasScreenerScenario3StepsImpl = new RasScreenerScenario3StepsImpl();
         rasScreenerScenario4StepsImpl = new RasScreenerScenario4StepsImpl();
         rasopathyQuestionnairePage = new RASopathyQuestionnairePage();
         ras_Screener_Constants = new RAS_Screener_Constants();

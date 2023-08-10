@@ -50,6 +50,12 @@ public class RasScreenerScenario1StepsImpl extends PageInitializer {
         if(sheetName.contentEquals("screenerScenario1")) {
             ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
             rasScreenerScenario1StepsImpl.rasScreenerSubmissionScenario1();
+        }else if(sheetName.contentEquals("screenerScenario2")) {
+            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
+            rasScreenerScenario2StepsImpl.rasScreenerSubmissionScenario2();
+        }else if(sheetName.contentEquals("screenerScenario3")) {
+            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
+            rasScreenerScenario3StepsImpl.rasScreenerSubmissionScenario3();
         }else if(sheetName.contentEquals("screenerScenario4")) {
             ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
             rasScreenerScenario4StepsImpl.rasScreenerSubmissionScenario4();
@@ -228,16 +234,18 @@ public class RasScreenerScenario1StepsImpl extends PageInitializer {
         }
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
         try {
-            rasopathyQuestionnairePage.dynamicEmailAddressTextBox(ras_Screener_Constants.CONFIRM_EMAIL_ADDRESS).sendKeys(ras_Screener_TestDataManager.emailAddress);
+            CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicEmailAddressTextBox(ras_Screener_Constants.EMAIL_ADDRESS));
+            rasopathyQuestionnairePage.dynamicEmailAddressTextBox(ras_Screener_Constants.EMAIL_ADDRESS).sendKeys(ras_Screener_TestDataManager.emailAddress);
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         } catch (NoSuchElementException e) {
             e.printStackTrace();
             rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-            rasopathyQuestionnairePage.dynamicEmailAddressTextBox(ras_Screener_Constants.CONFIRM_EMAIL_ADDRESS).sendKeys(ras_Screener_TestDataManager.emailAddress);
+            rasopathyQuestionnairePage.dynamicEmailAddressTextBox(ras_Screener_Constants.EMAIL_ADDRESS).sendKeys(ras_Screener_TestDataManager.emailAddress);
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         }
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
         try {
+            CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicEmailAddressTextBox(ras_Screener_Constants.CONFIRM_EMAIL_ADDRESS));
             rasopathyQuestionnairePage.dynamicEmailAddressTextBox(ras_Screener_Constants.CONFIRM_EMAIL_ADDRESS).sendKeys(ras_Screener_TestDataManager.emailAddressConfirm);
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         } catch (NoSuchElementException e) {
@@ -389,9 +397,14 @@ public class RasScreenerScenario1StepsImpl extends PageInitializer {
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         }
         rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-        rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-        MiscUtils.sleep(1000);
-        logOutOfNativeView();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(91));
+        CommonUtils.assertEqualsWithMessage(ras_Screener_TestDataManager.youAreAlmostDone, myRASSurveyPage.rasScreenerText.getText(), "-- VERIFYING YOU ARE ALMOST DONE TEXT --");
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+//        rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
+//        MiscUtils.sleep(2000);
+//        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+//        MiscUtils.sleep(1000);
+//        logOutOfNativeView();
     }
 
     /***
@@ -1496,8 +1509,7 @@ public class RasScreenerScenario1StepsImpl extends PageInitializer {
     }
 
     public void rasScreenerSurveyScenario1PartThree() {
-//        CommonUtils.sendKeys(myRASSurveyPage.rasSurveyAffFile,COVIDConstants.IIQ_STUDY_DOCUMENTATION_PDF_PATH);
-//        MiscUtils.sleep(2000);
+        //*** ATTACHING FILE CAN'T BE AUTOMATED IN QUATRICS. MANUAL TESTING WAS PERFORMED FOR UPLOADING A FILE *******
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.theNextSetOfQuestionsWillAskAboutHeartText);
