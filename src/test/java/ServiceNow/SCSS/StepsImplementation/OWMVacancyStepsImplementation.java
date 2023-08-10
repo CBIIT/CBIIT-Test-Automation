@@ -56,7 +56,7 @@ public class OWMVacancyStepsImplementation extends PageInitializer {
             CommonUtils.waitForVisibility(owmVacancyPage.saveButton);
             CommonUtils.clickOnElement(owmVacancyPage.saveButton);
             MiscUtils.sleep(2000);
-        }else{
+        } else {
             CommonUtils.waitForVisibility(owmVacancyPage.saveAndFinalizeButton);
             CommonUtils.clickOnElement(owmVacancyPage.saveAndFinalizeButton);
             MiscUtils.sleep(2000);
