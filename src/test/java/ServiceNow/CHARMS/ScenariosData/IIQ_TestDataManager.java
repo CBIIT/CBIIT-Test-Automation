@@ -3,7 +3,6 @@ package ServiceNow.CHARMS.ScenariosData;
 import ServiceNow.CHARMS.Constants.CHARMSConstants;
 import appsCommon.PageInitializer;
 import com.nci.automation.utils.ExcelReader;
-
 import java.util.Map;
 
 public class IIQ_TestDataManager extends PageInitializer {
