@@ -12,6 +12,7 @@ import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortsCategoriesOfDat
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
 import AnalysisTools.Comets2.Pages.Comets2Page;
+import AnalysisTools.GDSTracking.Pages.GDSLoginPage;
 import AnalysisTools.ICRP.Pages.ICRPHomePage;
 import AnalysisTools.ICRP.Pages.ICRPSearchDatabasePage;
 import AnalysisTools.JPSurv.Pages.JPSurvHomePage;
@@ -285,6 +286,9 @@ public class PageInitializer {
     /** Analysis Tools Landing Page instances */
     public static AnalysisToolsLandingPage analysisToolsLandingPage;
 
+    /** GDS Tracking instances **/
+    public static GDSLoginPage gdsLoginPage;
+
     /** LDLink instances **/
     public static LDLinkHomePage ldLinkHomePage;
     public static LDAssocPage ldAssocPage;
@@ -501,6 +505,9 @@ public class PageInitializer {
 
         /** Analysis Tools Landing Page Variables **/
         analysisToolsLandingPage = new AnalysisToolsLandingPage();
+
+        /** GDS Tracking Instance Variables **/
+        gdsLoginPage = new GDSLoginPage();
 
         /** LDLink Instance Variables **/
         ldLinkHomePage = new LDLinkHomePage();

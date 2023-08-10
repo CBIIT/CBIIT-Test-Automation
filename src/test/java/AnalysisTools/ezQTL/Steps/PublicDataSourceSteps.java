@@ -14,7 +14,7 @@ public class PublicDataSourceSteps extends PageInitializer {
     @Given("The user is on the ezQTL Public Data Source page")
     public void the_user_is_on_the_ezQTL_Public_Data_Source_page() throws TestingException {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ezQTL"));
-        CommonUtils.click(ezQTLHomePage.publicDataSourceTabButton);
+        CommonUtils.clickOnElement(ezQTLHomePage.publicDataSourceTabButton);
         MiscUtils.sleep(2000);
     }
 

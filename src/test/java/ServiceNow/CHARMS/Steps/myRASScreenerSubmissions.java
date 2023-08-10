@@ -1423,778 +1423,955 @@ public class myRASScreenerSubmissions extends PageInitializer {
 	/* ******************************************************************* */
 
 	/* LOGIN TO SERVICE NOW */
-	@When("a ServiceNow user navigates to CHARMS Native view and opens records that are Waiting for Elegibility Review")
-	public void a_ServiceNow_user_navigates_to_CHARMS_Native_view_and_opens_records_that_are_Waiting_for_Elegibility_Review()
-			throws TestingException {
-
-		MiscUtils.sleep(1000);
-		nativeViewLoginImpl.sideDoorAccountLogin();
-		CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator);
-		nativeViewHomePage.nativeViewFilterNavigator.sendKeys("CHARMS");
-
-		MiscUtils.sleep(4000);
-		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewDashboardLink);
-		charmsNativeViewPage.nativeViewDashboardLink.click();
-
-		MiscUtils.sleep(4000);
-		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewiFrameCHARMS);
-		CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewiFrameCHARMS);
-
-		MiscUtils.sleep(4000);
-		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewWaitingForElegibilityReviewButton);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		charmsNativeViewPage.nativeViewWaitingForElegibilityReviewButton.click();
-
-	}
-
-	/* SELECTS THE SUBMITTED MYRAS SCREENER RECORD */
-	@Given("selects the submitted MyRAS screener record")
-	public void selects_the_submitted_MyRAS_screener_record() {
-		Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
-		for (String currentWindow1 : allWindowHandles1) {
-			WebDriverUtils.webDriver.switchTo().window(currentWindow1);
-		}
-
-		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestButton);
-		charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestButton.click();
-		MiscUtils.sleep(3000);
-
-		CommonUtils.waitForVisibility(
-				charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton);
-
-		charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton.click();
-
-	}
-
-	/* VERIFIES DATA SUBMITTED IN QUALTRICS IS IMPORTED AS EXPECTED IN SERVICENOW */
-	@Given("verifies data submitted in Qualtrics is imported as expected in ServiceNow")
-	public void verifies_data_submitted_in_Qualtrics_is_imported_as_expected_in_ServiceNow() {
-
-		referralNumber = (charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordReferral
-				.getAttribute("value"));
-
-		CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordNameText);
-		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordNameText
-				.getAttribute("value").contentEquals("AutomatedFirstNameOfParticipant AutomatedLastNameOfParticipant"));
-
-		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordWaitingForEligibilityText
-				.getText().contentEquals("Waiting for Eligibility"));
-
-		Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordNewScreenerReceivedText
-				.getText().contentEquals("New Screener Received"));
-
-		Assert.assertTrue(
-				charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordMayWeHaveYourPermissionToContactThisRelativeYesText
-						.getText().contentEquals("Yes"));
-
-	}
-
-	/* VERIFIES PERSONAL INFORMATION TAB DATA IN FAMILY MEMBERS DETAILS PAGE */
-	@When("verifies Personal Information data submitted in Qualtrics is imported as expected in the Family Member Details page of ServiceNow")
-	public void verifies_Personal_Information_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_Family_Member_Details_page_of_ServiceNow() {
-
-		CommonUtils.waitForVisibility(charmsNativeViewPage.nVFamilyMemberDetailsRecordPersonalInformationTab);
-		charmsNativeViewPage.nVFamilyMemberDetailsRecordPersonalInformationTab.click();
-		MiscUtils.sleep(3000);
-		Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordPersonalInformationTabRelationshipToYou
-				.getAttribute("value").contentEquals("proband"));
-
-		Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordPersonalInformationTabFirstName
-				.getAttribute("value").contentEquals("AutomatedFirstNameOfParticipant"));
-
-		Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordPersonalInformationTabMiddleName
-				.getAttribute("value").contentEquals("Middle"));
-
-		Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordPersonalInformationTabLastName
-				.getAttribute("value").contentEquals("AutomatedLastNameOfParticipant"));
-
-	}
-
-	/* VERIFIES DEMOGRAPHICS TAB DATA IN FAMILY MEMBERS DETAILS PAGE */
-	@When("verifies Demographics data submitted in Qualtrics is imported as expected in the Family Member Details page of ServiceNow")
-	public void verifies_Demographics_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_Family_Member_Details_page_of_ServiceNow() {
-
-		charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTab.click();
-		MiscUtils.sleep(3000);
-
-		Assert.assertTrue("Is the participant adopted Data Field do not match",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabBiologicalGender.getText()
-						.contentEquals("Male"));
-
-		Assert.assertTrue("Participants identified gender Data Field do not match",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantsIdentifiedGender.getText()
-						.contentEquals("-- None --"));
-
-		Assert.assertTrue("Is the participant Ethinicity Data Field do not match",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabEthnicity.getText()
-						.contentEquals("Not Hispanic/Latino"));
-
-		Assert.assertTrue("Is the participant adopted Data Field do not match",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabIsTheParticipantAdopted.getText()
-						.contentEquals("Yes"));
-
-		Assert.assertTrue("Participant DOB Data Field do not match",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantDOB.getAttribute("value")
-						.contentEquals("04/01/1990"));
-
-		Assert.assertTrue("If Date of Birth is unkown, is this person 18 years old or older Data Field do not match",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabIfDOBUnknownAge18.getText()
-						.contentEquals("-- None --"));
-
-		Assert.assertTrue("Participant Age Data Field is not blank",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantAge.getText()
-						.contentEquals(""));
-
-		Assert.assertTrue("Participant Race (Select all that apply) Data Field do not match",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantRace.getText().contentEquals(
-						"Caucasian (white), Black/African American, Native Hawaiian/Other Pacific Islander, American Indian/Alaskan Native, Asian, Other"));
-
-		CommonUtils.assertTrueJUNIT("Participant Race Other Text Field  do not match",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantRaceOtherText
-						.getAttribute("value").contentEquals("Entering other Race"));
-
-	}
-
-	/* VERIFIES CONTACT INFO TAB DATA IN FAMILY MEMBERS DETAILS PAGE */
-	@When("verifies Contact Info data submitted in Qualtrics is imported as expected in the Family Member Details page of ServiceNow")
-	public void verifies_Contact_Info_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_Family_Member_Details_page_of_ServiceNow() {
-
-		CommonUtils.waitForVisibility(charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTab);
-
-		charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTab.click();
-		MiscUtils.sleep(3000);
-		Assert.assertTrue(
-				"This is a Contact Info Tab mismatch data for the Does the participant need legal representation?: ",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabDoesParticipantNeedLegalRepresentation
-						.getText().contentEquals("Yes"));
-
-		CommonUtils.assertTrueJUNIT("This is a Contact Info Tab mismatch data for the Legal Representative Name :",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabLegalRepresentativeName
-						.getAttribute("value")
-						.contentEquals("FirstNameOfProxyTest  MiddleNameTest  lastNameOfProxyTest"));
-		// Assert.assertTrue("This is a Contact Info Tab mismatch data for the Legal
-		// Representative Name :",
-		// charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabLegalRepresentativeName
-		// .getAttribute("value")
-		// .contentEquals("FirstNameOfProxyTest MiddleNameTest lastNameOfProxyTest"));
-
-		Assert.assertTrue(
-				"This is a Contact Info Tab mismatch data for the What is your relationship to this person? :",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabWhatIsYourRelationshipToThisPerson
-						.getText().contentEquals("Other"));
-
-		Assert.assertTrue(
-				"This is a Contact Info Tab mismatch data for the Are you the legal guardian of this person? : ",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabAreYouTheLegalGuardianOfThisPerson
-						.getText().contentEquals("Yes"));
-
-		Assert.assertTrue(
-				"This is a Contact Info Tab mismatch data for the Please specify your relationship to the participant : ",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabSpecifyYourRelationshipToTheParticipant
-						.getAttribute("value").contentEquals(""));
-
-		Assert.assertTrue("This is a Contact Info Tab mismatch data for the Contact Street Address : ",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabStreetAddress.getAttribute("value")
-						.contentEquals("9609 Medical Center Dr New Avenue Park"));
-
-		CommonUtils.assertTrueJUNIT("This is a Contact Info Tab mismatch data for the Contact State : ",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabState.getAttribute("value")
-						.contentEquals("MD"));
-
-		CommonUtils.assertTrueJUNIT("This is a Contact Info Tab mismatch data for the Contact City : ",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabCity.getAttribute("value")
-						.contentEquals("Rockville"));
-
-		CommonUtils.assertTrueJUNIT("This is a Contact Info Tab mismatch data for the Contact Country: ",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabCountry.getText()
-						.contentEquals("U.S.A"));
-
-		CommonUtils.assertTrueJUNIT("This is a Contact Info Tab mismatch data for the Contact Zipcode : ",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabZipcode.getAttribute("value")
-						.contentEquals("20850"));
-
-		CommonUtils.assertTrueJUNIT("This is a Contact Info Tab mismatch data for the Contact Email : ",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabEmail.getAttribute("value")
-						.contentEquals("automatedTest@nci.gov"));
-
-		Assert.assertTrue("This is a Contact Info Tab mismatch data for the Contact Home Phone : ",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabHomePhone.getAttribute("value")
-						.contentEquals("703-687-5816"));
-
-		Assert.assertTrue("This is a Contact Info Tab mismatch data for the Contact Cell Phone : ",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabCellPhone.getAttribute("value")
-						.contentEquals("703-687-5816"));
-
-		Assert.assertTrue("This is a Contact Info Tab mismatch data for the Contact Work Phone : ",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabWorkPhone.getAttribute("value")
-						.contentEquals("703-687-5816"));
-
-	}
-
-	/* VERIFIES MEDICAL INFORMATION TAB DATA IN FAMILY MEMBERS DETAILS PAGE */
-	@When("verifies Medical Information data submitted Qualtrics is imported as expected in the Family Member Details page of ServiceNow")
-	public void verifies_Medical_Information_data_submitted_Qualtrics_is_imported_as_expected_in_the_Family_Member_Details_page_of_ServiceNow() {
-
-		CommonUtils.waitForVisibility(charmsNativeViewPage.nVFamilyMemberDetailsRecordMedicalInfoTab);
-
-		charmsNativeViewPage.nVFamilyMemberDetailsRecordMedicalInfoTab.click();
-		MiscUtils.sleep(3000);
-		Assert.assertTrue(
-				"This is a Medical Information Tab mismatch data for the Has a physician ever diagnosed this participant with cancer? : ",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordMedicalInfoPhysicianDiagnosedParticipantWithCancer
-						.getText().contentEquals("Yes"));
-
-		Assert.assertTrue(
-				"This is a Medical Information Tab mismatch data for the Has the participant ever had genetic testing? : ",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordMedicalInfoParticipantEverHadGeneticTesting.getText()
-						.contentEquals("Yes"));
-
-		Assert.assertTrue("This is a Medical Information Tab mismatch data for the Vital Status : ",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordMedicalInfoParticipantVitalStatus.getText()
-						.contentEquals("Alive"));
-
-	}
-
-	/* VERIFIES DATA IN THE PARTICIPANT CANCER HISTORY TAB */
-	@When("verifies Participant Cancer History data submitted Qualtrics is imported as expected in the Family Member Details page of ServiceNow")
-	public void verifies_Participant_Cancer_History_data_submitted_Qualtrics_is_imported_as_expected_in_the_Family_Member_Details_page_of_ServiceNow() {
-
-		charmsNativeViewPage.nVReferralPatientCancerIntakeFormForSkinCancerButton.click();
-		MiscUtils.sleep(1000);
-		charmsNativeViewPage.nVReferralPatientIntakeFormPreviewOpenRecordButton.click();
-
-		MiscUtils.sleep(3000);
-		Assert.assertTrue(
-				"This is Participant Cancer History mismatch data for Cancer Type or Site for Skin cancer  : ",
-				charmsNativeViewPage.nVReferralPatientCancerIntakeFormCancerTypeOrSite.getAttribute("value")
-						.contentEquals("Skin cancer (i.e.Melanoma)"));
-
-		Assert.assertTrue(
-				"This is Participant Cancer History mismatch data for Currently being treated for Skin cancer : ",
-				charmsNativeViewPage.nVReferralPatientCancerIntakeFormCurrentlyBeingTreated.getText()
-						.contentEquals("Yes"));
-
-		Assert.assertTrue("This is Participant Cancer History mismatch data for Year of diagnosis for Skin cancer: ",
-				charmsNativeViewPage.nVReferralPatientCancerIntakeFormYearOfDiagnosis.getAttribute("value")
-						.contentEquals("2003"));
-
-		Assert.assertTrue(
-				"This is Participant Cancer History mismatch data for How old was the research participant when the cancer was diagnosed? for Skin cancer: ",
-				charmsNativeViewPage.nVReferralPatientCancerIntakeFormHowOldWasParticipantWhenCancerWasDiagnosed
-						.getAttribute("value").contentEquals("23"));
-
-		Assert.assertTrue(
-				"This is Participant Cancer History mismatch data for If unknown, please select an age range for Skin cancer : ",
-				charmsNativeViewPage.nVReferralPatientCancerIntakeFormIfUnknownSelectAgeRange.getText()
-						.contentEquals("-- None --"));
-
-		charmsNativeViewPage.nVReferralParticipantIntakeFormBackButton.click();
-
-		/* --------------------------------------------------------------- */
-
-		charmsNativeViewPage.nVReferralPatientCancerIntakeFormForBreastLeftButton.click();
-		MiscUtils.sleep(1000);
-		charmsNativeViewPage.nVReferralPatientIntakeFormPreviewOpenRecordButton.click();
-
-		MiscUtils.sleep(3000);
-		Assert.assertTrue(
-				"This is Participant Cancer History mismatch data for Cancer Type or Site cancer for Breast Left  : ",
-				charmsNativeViewPage.nVReferralPatientCancerIntakeFormCancerTypeOrSite.getAttribute("value")
-						.contentEquals("Breast left"));
-
-		Assert.assertTrue(
-				"This is Participant Cancer History mismatch data for Currently being treated for Breast Left : ",
-				charmsNativeViewPage.nVReferralPatientCancerIntakeFormCurrentlyBeingTreated.getText()
-						.contentEquals("Yes"));
-
-		Assert.assertTrue("This is Participant Cancer History mismatch data for Year of diagnosis for Breast Left: ",
-				charmsNativeViewPage.nVReferralPatientCancerIntakeFormYearOfDiagnosis.getAttribute("value")
-						.contentEquals("2002"));
-
-		Assert.assertTrue(
-				"This is Participant Cancer History mismatch data for How old was the research participant when the cancer was diagnosed? for Breast Left: ",
-				charmsNativeViewPage.nVReferralPatientCancerIntakeFormHowOldWasParticipantWhenCancerWasDiagnosed
-						.getAttribute("value").contentEquals("22"));
-
-		Assert.assertTrue(
-				"This is Participant Cancer History mismatch data for If unknown, please select an age range for Breast Left : ",
-				charmsNativeViewPage.nVReferralPatientCancerIntakeFormIfUnknownSelectAgeRange.getText()
-						.contentEquals("-- None --"));
-
-		charmsNativeViewPage.nVReferralParticipantIntakeFormBackButton.click();
-
-		/* --------------------------------------------------------------- */
-
-		charmsNativeViewPage.nVReferralPatientCancerIntakeFormForAnalCancerButton.click();
-		MiscUtils.sleep(1000);
-		charmsNativeViewPage.nVReferralPatientIntakeFormPreviewOpenRecordButton.click();
-
-		MiscUtils.sleep(3000);
-		Assert.assertTrue(
-				"This is Participant Cancer History mismatch data for Cancer Type or Site cancer for Anal Cancer: ",
-				charmsNativeViewPage.nVReferralPatientCancerIntakeFormCancerTypeOrSite.getAttribute("value")
-						.contentEquals("Anal cancer"));
-
-		Assert.assertTrue(
-				"This is Participant Cancer History mismatch data for Currently being treated for Anal Cancer : ",
-				charmsNativeViewPage.nVReferralPatientCancerIntakeFormCurrentlyBeingTreated.getText()
-						.contentEquals("Yes"));
-
-		Assert.assertTrue("This is Participant Cancer History mismatch data for Year of diagnosis for Anal Cancer : ",
-				charmsNativeViewPage.nVReferralPatientCancerIntakeFormYearOfDiagnosis.getAttribute("value")
-						.contentEquals("2001"));
-
-		Assert.assertTrue(
-				"This is Participant Cancer History mismatch data for How old was the research participant when the cancer was diagnosed? for Anal Cancer : ",
-				charmsNativeViewPage.nVReferralPatientCancerIntakeFormHowOldWasParticipantWhenCancerWasDiagnosed
-						.getAttribute("value").contentEquals("21"));
-
-		Assert.assertTrue(
-				"This is Participant Cancer History mismatch data for If unknown, please select an age range for Anal Cancer : ",
-				charmsNativeViewPage.nVReferralPatientCancerIntakeFormIfUnknownSelectAgeRange.getText()
-						.contentEquals("-- None --"));
-
-		charmsNativeViewPage.nVReferralParticipantIntakeFormBackButton.click();
-
-		/* --------------------------------------------------------------- */
-
-		charmsNativeViewPage.nVReferralPatientCancerIntakeFormForAdrenalGlandButton.click();
-		MiscUtils.sleep(1000);
-		charmsNativeViewPage.nVReferralPatientIntakeFormPreviewOpenRecordButton.click();
-
-		MiscUtils.sleep(3000);
-		Assert.assertTrue(
-				"This is Participant Cancer History mismatch data for Cancer Type or Site cancer for Adrenal Gland: ",
-				charmsNativeViewPage.nVReferralPatientCancerIntakeFormCancerTypeOrSite.getAttribute("value")
-						.contentEquals("Adrenal Gland"));
-
-		Assert.assertTrue(
-				"This is Participant Cancer History mismatch data for Currently being treated for Adrenal Gland : ",
-				charmsNativeViewPage.nVReferralPatientCancerIntakeFormCurrentlyBeingTreated.getText()
-						.contentEquals("Yes"));
-
-		Assert.assertTrue("This is Participant Cancer History mismatch data for Year of diagnosis for Adrenal Gland : ",
-				charmsNativeViewPage.nVReferralPatientCancerIntakeFormYearOfDiagnosis.getAttribute("value")
-						.contentEquals("2000"));
-
-		Assert.assertTrue(
-				"This is Participant Cancer History mismatch data for How old was the research participant when the cancer was diagnosed? for Adrenal Gland : ",
-				charmsNativeViewPage.nVReferralPatientCancerIntakeFormHowOldWasParticipantWhenCancerWasDiagnosed
-						.getAttribute("value").contentEquals("20"));
-
-		Assert.assertTrue(
-				"This is Participant Cancer History mismatch data for If unknown, please select an age range for Adrenal Gland : ",
-				charmsNativeViewPage.nVReferralPatientCancerIntakeFormIfUnknownSelectAgeRange.getText()
-						.contentEquals("-- None --"));
-
-		charmsNativeViewPage.nVReferralParticipantIntakeFormBackButton.click();
-
-	}
-
-	/* VERIFIES DATA IN THE PARTICIPANT GENETIC HISTORY TAB */
-	@When("verifies Participant Genetic History data submitted Qualtrics is imported as expected in the Family Member Details page of ServiceNow")
-	public void verifies_Participant_Genetic_History_data_submitted_Qualtrics_is_imported_as_expected_in_the_Family_Member_Details_page_of_ServiceNow() {
-
-		referralNumber = (charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordReferral
-				.getAttribute("value"));
-
-		charmsNativeViewPage.nVParticipantGeneticHistoryTab.click();
-		MiscUtils.sleep(2000);
-		List<WebElement> tBodyList = charmsNativeViewPage.participantGeneticHistoryTable
-				.findElements(By.tagName("tbody"));
-
-		WebElement tBody = tBodyList.get(0);
-		List<WebElement> rowList = tBody.findElements(By.tagName("tr"));
-
-		for (int j = 0; j < rowList.size(); j++) {
-			WebElement row;
-			if (0 != j) {
-				tBodyList = charmsNativeViewPage.participantGeneticHistoryTable.findElements(By.tagName("tbody"));
-
-				tBody = tBodyList.get(0);
-				rowList = tBody.findElements(By.tagName("tr"));
-				// scroll to the bottom of the page
-				((JavascriptExecutor) WebDriverUtils.webDriver).executeScript("arguments[0].scrollIntoView();",
-						charmsNativeViewPage.participantGeneticHistoryTable);
-			}
-			row = rowList.get(j);
-
-			List<WebElement> columnList = row.findElements(By.tagName("td"));
-			if (columnList.size() >= 4) {
-				for (int i = 0; i < columnList.size(); i++) {
-					if (2 == i) {
-						WebElement desciptionCol = columnList.get(i);
-						String description = desciptionCol.getAttribute("title");
-						if (!("").equals(description)) {
-							WebElement testResultColumn = columnList.get(i + 1);
-							String testResult = testResultColumn.getText();
-
-							WebElement previewIcon = columnList.get(i - 1);
-							previewIcon.click();
-
-							MiscUtils.sleep(1000);
-
-							charmsNativeViewPage.nVFamilyMemberDetailsRecordPagePreviewReferralRecordIframeOpenRecord
-									.click();
-
-							MiscUtils.sleep(1000);
-
-							MiscUtils.sleep(2000);
-							Assert.assertTrue("This is Participant Genetic History mismatch data for Test Result? : ",
-									charmsNativeViewPage.nVParticipantGeneticTestResult.getAttribute("value")
-											.contentEquals("Positive"));
-
-							Assert.assertTrue(
-									"This is Participant Genetic History mismatch data for Intake Form REFERRAL ID: ",
-									charmsNativeViewPage.nVParticipantGeneticIntakeFormReferralId.getAttribute("value")
-											.contentEquals(referralNumber));
-
-							charmsNativeViewPage.nVReferralParticipantIntakeFormBackButton.click();
-							MiscUtils.sleep(2000);
-						}
-						break;
-					}
-
-				}
-
-			}
-		}
-
-	}
-
-	/* VERIFIES DATA IN THE RAS REFERRAL PAGE */
-	@When("verifies data submitted in Qualtrics is imported as expected in the RAS Referral page of ServiceNow")
-	public void verifies_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_RAS_Referral_page_of_ServiceNow() {
-
-		Assert.assertTrue("This is RAS REFERRAL field mismatch data for the auto Populated Referral Number: ",
-				charmsNativeViewPage.nVFamilyMemberDetailsRecordPageReferral.getAttribute("value")
-						.contentEquals(referralNumber));
-
-		charmsNativeViewPage.nVFamilyMemberDetailsRecordPagePreviewReferralRecordButton.click();
-		MiscUtils.sleep(3000);
-		// CommonUtils.switchToFrame(charmsNativeViewPage.nVFamilyMemberDetailsRecordPagePreviewReferralRecordIframe);
-		// CommonUtils.waitForVisibility(
-		// charmsNativeViewPage.nVFamilyMemberDetailsRecordPagePreviewReferralRecordIframeOpenRecord);
-		charmsNativeViewPage.nVFamilyMemberDetailsRecordPagePreviewReferralRecordIframeOpenRecord.click();
-
-		MiscUtils.sleep(1000);
-		Assert.assertTrue("The RAS REFERRAL BAR TITLE NOT DISPLAYED: ",
-				charmsNativeViewPage.nVRasReferralViewPageRASReferralBarTitle.isDisplayed());
-
-		Assert.assertTrue(
-				"This is a RAS Referaal Page mismatch data for the Does the participant need legal representation?: ",
-				charmsNativeViewPage.nVRasReferralViewPageDoesParticipantNeedLegalRepresentation.getText()
-						.contentEquals("Yes"));
-
-		CommonUtils.assertTrueJUNIT("This is a RAS Referaal Page mismatch data for the Legal Representative Name : ",
-				charmsNativeViewPage.nVRasReferralViewPageLegalRepresentativeName.getAttribute("value")
-						.contentEquals("FirstNameTest  MiddleNameTest  lastNameTest"));
-
-		Assert.assertTrue(
-				"This is a RAS Referaal Page mismatch data for the What is your relationship to this person?: ",
-				charmsNativeViewPage.nVRasReferralViewPageWhatIsYourRelationshipToThisPerson.getText()
-						.contentEquals("Other"));
-
-		Assert.assertTrue(
-				"This is a RAS Referaal Page mismatch data for the Are you the legal guardian of this person?: ",
-				charmsNativeViewPage.nVRasReferralViewPageAreYouTheLegalGuardianOfThisPerson.getText()
-						.contentEquals("Yes"));
-
-		Assert.assertTrue(
-				"This is a RAS Referaal Page mismatch data for thecPlease specify your relationship to the participant : ",
-				charmsNativeViewPage.nVRasReferralViewPagespecifyYourRelationshipToTheParticipant.getAttribute("value")
-						.contentEquals(""));
-
-		Assert.assertTrue("This is a RAS Referaal Page mismatch data for the Study : ",
-				charmsNativeViewPage.nVRasReferralViewPageStudy.getAttribute("value").contentEquals("RASopathies"));
-
-		Assert.assertTrue("This is a RAS Referaal Page mismatch data for the Family Member Record:",
-				charmsNativeViewPage.nVRasReferralViewPageFamilyMemberRecord.getAttribute("value")
-						.contentEquals("Automated Test"));
-
-		Assert.assertTrue("This is a RAS Referaal Page mismatch data for the Vital Status: ",
-				charmsNativeViewPage.nVRasReferralViewPageVitalStatus.getText().contentEquals("Alive"));
-
-		Assert.assertTrue("This is a RAS Referaal Page mismatch data for the Eligibility Status : ",
-				charmsNativeViewPage.nVRasReferralViewPageEligibilityStatus.getText()
-						.contentEquals("Waiting for Eligibility"));
-
-		Assert.assertTrue("This is a RAS Referaal Page mismatch data for the Enrollment Status : ",
-				charmsNativeViewPage.nVRasReferralViewPageEnrollmentStatus.getText()
-						.contentEquals("New Screener Received"));
-
-	}
-
-	/* VERIFIES CONTACT INFO DATA IN THE RAS REFERRAL PAGE */
-	@When("verifies Contact Info data submitted in Qualtrics is imported as expected in the RAS Referral page of ServiceNow")
-	public void verifies_Contact_Info_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_RAS_Referral_page_of_ServiceNow() {
-
-		charmsNativeViewPage.nVRasReferralViewPageContactInformationTab.click();
-		MiscUtils.sleep(3000);
-		Assert.assertTrue(
-				"This is the Contact Info tab --> Contact Email mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactEmail.getAttribute("value")
-						.contentEquals("automatedTest@nci.gov"));
-
-		Assert.assertTrue(
-				"This is the Contact Info tab --> Contact Home Phone mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactHomePhone.getAttribute("value")
-						.contentEquals("703-687-5816"));
-
-		Assert.assertTrue(
-				"This is the Contact Info tab --> Contact Cell Phone mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactCellPhone.getAttribute("value")
-						.contentEquals("703-687-5816"));
-
-		Assert.assertTrue(
-				"This is the Contact Info tab --> Contact Work Phone mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactWorkPhone.getAttribute("value")
-						.contentEquals("703-687-5816"));
-
-		Assert.assertTrue(
-				"This is the Contact Info tab --> Country of Birth mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageContactInformationTabCountryOfBirth.getText()
-						.contentEquals("-- None --"));
-
-		Assert.assertTrue(
-				"This is the Contact Info tab --> Contact Street Address mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactStreetAddress
-						.getAttribute("value").contentEquals("9609 Medical Center Dr New Avenue Park"));
-
-		Assert.assertTrue(
-				"This is the Contact Info tab --> Contact City mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactCity.getAttribute("value")
-						.contentEquals("Rockville"));
-
-		Assert.assertTrue(
-				"This is the Contact Info tab --> Contact State mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactState.getAttribute("value")
-						.contentEquals("Maryland "));
-
-		Assert.assertTrue(
-				"This is the Contact Info tab --> Contact ZipCode mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactZipCode.getAttribute("value")
-						.contentEquals("20850"));
-
-	}
-
-	/* VERIFIES DEMOGRAPHICS DATA IN THE RAS REFERRAL PAGE */
-	@When("verifies Demographics data submitted in Qualtrics is imported as expected in the RAS Referral page of ServiceNow")
-	public void verifies_Demographics_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_RAS_Referral_page_of_ServiceNow() {
-
-		charmsNativeViewPage.nVRasReferralViewPageDemographicsTab.click();
-		MiscUtils.sleep(3000);
-		Assert.assertTrue(
-				"This is the Demographics tab -- > Participant Race mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageDemographicsTabParticipantRace.getText().contentEquals(
-						"Caucasian (white), Black/African American, Native Hawaiian/Other Pacific Islander, American Indian/Alaskan Native, Asian, Other"));
-
-		Assert.assertTrue(
-				"This is the Demographics tab -- > Other mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageDemographicsTabOther.getAttribute("value")
-						.contentEquals("Entering other Race"));
-
-		Assert.assertTrue(
-				"This is the Demographics tab -- > Biological Gender mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageDemographicsTabBiologicalGender.getText()
-						.contentEquals("Male"));
-
-		Assert.assertTrue(
-				"This is the Demographics tab -- > Date of Birth mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageDemographicsTabDateOfBirth.getAttribute("value")
-						.contentEquals("04/01/1990"));
-
-		Assert.assertTrue(
-				"This is the Demographics tab -- > Ethnicity mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageDemographicsTabEthnicity.getText()
-						.contentEquals("Not Hispanic/Latino"));
-
-	}
-
-	/* VERIFIES RASOPATHY HISTORY DATA IN THE RAS REFERRAL PAGE */
-	@When("verifies RASopathy History data submitted in Qualtrics is imported as expected in the RAS Referral page of ServiceNow")
-	public void verifies_RASopathy_History_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_RAS_Referral_page_of_ServiceNow() {
-
-		charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTab.click();
-		MiscUtils.sleep(3000);
-		Assert.assertTrue(
-				"This is the RASopathy History tab -- > Have you been diagnosed with a RASopathy? mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabHaveYouBeenDiagnosedWithRASopathy.getText()
-						.contentEquals("Yes"));
-
-		Assert.assertTrue(
-				"This is the RASopathy History tab -- > RASopathy diagnosis mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabRASopathyDiagnosis.getText()
-						.contentEquals("Other"));
-
-		Assert.assertTrue(
-				"This is the RASopathy History tab -- > Please specify mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabASopathyDiagnosisPleaseSpecify
-						.getAttribute("value").contentEquals(" Entering Other RASopathy"));
-
-		Assert.assertTrue("This is the RASopathy History tab -- > Age (in years) at diagnosis : ",
-				charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabAgeInYearsAtDiagnosis.getAttribute("value")
-						.contentEquals("20"));
-
-		Assert.assertTrue(
-				"This is the RASopathy History tab -- > Year of diagnosis mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabYearOfDiagnosis.getAttribute("value")
-						.contentEquals("2010"));
-
-		Assert.assertTrue(
-				"This is the RASopathy History tab -- > Has the participant been diagnosed with any of the following Conditions? mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabHasParticipantBeenDiagnosedWithAnyOfTheFollowingConditions
-						.getText().contentEquals(
-								"Feeding problems or failure to thrive, Neurocognitive/ Developmental Delay such as: Intellectual disability and language impairment, Skeletal deformities such as: Short stature, short webbed neck, unusual chest shape, curved spine, muscle or joint problems, limb overgrowth, Head/Craniofacial Abnormalities such as: Large head, broad or high forehead, short nose, small chin, swelling or bleeding of the gums, abnormal shape or movement of teeth, Eye/Ear abnormalities such as: Widely spaced eyes, eye diseases, droopy eye lids, sparse/absent eye lashes/eyebrows, low set ears, hearing loss, Skin/hair abnormalities such as: soft loose skin, fine/thin/thick/dry/brittle/curly hair, slow growing hair, tumors or small skin tags near the nose or anus, lipomas, light to dark brown birth marks (cafe au lait spots), freckles in the armpits, Heart problems such as cardiomyopathy, Genital abnormalities such as undescended testes, Other: such as endocrine issues, bleeding disorders, seizures, Non-cancerous tumors, Lymphedema"));
-
-		Assert.assertTrue(
-				"This is the RASopathy History tab -- > Other conditions mismatch for the Referral Submitted in the Referral page :  ",
-				charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabOtherConditions.getAttribute("value")
-						.contentEquals(""));
-
-		Assert.assertTrue(
-				"This is the RASopathy History tab -- > Have any of your biological relatives been diagnosed with a RASopathy? mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabHaveAnyOfYourBiologicalRelativesBeenDiagnosedWithRASopathy
-						.getText().contentEquals("No info on biological relatives"));
-
-	}
-
-	/* VERIFIES CANCER HISTORY DATA IN THE RAS REFERRAL PAGE */
-	@When("verifies Cancer History data submitted in Qualtrics is imported as expected in the RAS Referral page of ServiceNow")
-	public void verifies_Cancer_History_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_RAS_Referral_page_of_ServiceNow() {
-
-		charmsNativeViewPage.nVRasReferralViewPageCancerHistoryTab.click();
-		MiscUtils.sleep(3000);
-		Assert.assertTrue(
-				"This is the Cancer History tab -- > Has a physician ever diagnosed this participant with cancer? mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageCancerHistoryTabHasPhysicianEverDiagnosedParticipantWithCancer
-						.getText().contentEquals("Yes"));
-
-	}
-
-	/* VERIFIES GENETICS TESTING HISTORY DATA IN THE RAS REFERRAL PAGE */
-	@When("verifies Genetic Testing History data submitted in Qualtrics is imported as expected in the RAS Referral page of ServiceNow")
-	public void verifies_Genetic_Testing_History_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_RAS_Referral_page_of_ServiceNow() {
-		charmsNativeViewPage.nVRasReferralViewPageGeneticTestingHistoryTab.click();
-
-		Assert.assertTrue(
-				"This is the Genetic Testing History tab -- > Has the participant ever had genetic testing? mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageGeneticTestingHistoryTabHasParticipantEverHadGeneticTesting
-						.getText().contentEquals("Yes"));
-
-		Assert.assertTrue(
-				"This is the Genetic Testing History tab -- > Does the participant have a copy of the genetic test results? mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageGeneticTestingHistoryTabDoesParticipantHaveCopyOfGeneticTestResults
-						.getText().contentEquals("No"));
-
-		Assert.assertTrue(
-				"This is the Genetic Testing History tab -- > Participants preferred method of delivering genetic test results mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageGeneticTestingHistoryTabParticipantPreferredMethodOfDeliveringGeneticTestResults
-						.getText().contentEquals("Not answered"));
-
-		Assert.assertTrue(
-				"This is the Genetic Testing History tab -- > Have any relatives been genetically tested for inherited cancer syndromes? mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageGeneticTestingHistoryTabHaveAnyRelativesBeenGeneticallyTestedFoInheritedCancerSyndromes
-						.getText().contentEquals("Not answered"));
-
-	}
-
-	/* VERIFIES FINAL INFORMATION DATA IN THE RAS REFERRAL PAGE */
-	@When("verifies Final Information data submitted in Qualtrics is imported as expected in the RAS Referral page of ServiceNow")
-	public void verifies_Final_Information_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_RAS_Referral_page_of_ServiceNow() {
-
-		charmsNativeViewPage.nVRasReferralViewPageFinalInformationTab.click();
-		MiscUtils.sleep(3000);
-		Assert.assertTrue(
-				"This is the Final Information tab -- > How did you hear about this study? mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabHowDidYouHearAboutThisStudy.getText()
-						.contentEquals("Other"));
-
-		/*
-		 * RETEST BELOW BUG
-		 */
-		Assert.assertTrue(
-				"This is the Final Information tab -- > Please specify ? mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabPleaseSpecify.getAttribute("value")
-						.contentEquals(""));
-
-		Assert.assertTrue(
-				"This is the Final Information tab -- > Has the participant or any family member participated in any cancer study? mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabHasParticipantOrAnyFamilyMemberParticipatedInAnyCancerStudy
-						.getText().contentEquals("Not answered"));
-
-		Assert.assertTrue(
-				"This is the Final Information tab -- > Are any relatives currently receiving cancer care or follow-up? mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabAreAnyRelativesCurrentlyReceivingCancerCareOrFollowUp
-						.getText().contentEquals("Not answered"));
-
-		Assert.assertTrue(
-				"This is the Final Information tab -- > Main reasons for participating in this study? Select all that apply mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabMainReasonsForParticipatingInThisStudy
-						.getText().contentEquals(
-								"Participate in research, Identify a diagnosis, Receive genetic testing, Other"));
-
-		Assert.assertTrue(
-				"This is the Final Information tab -- > Identify a diagnosis mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabIdentifyDiagnosis.getAttribute("value")
-						.contentEquals("Reason two"));
-
-		Assert.assertTrue(
-				"This is the Final Information tab -- > Receive genetic testing mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabReceiveGeneticTesting.getAttribute("value")
-						.contentEquals("Reason three"));
-
-		Assert.assertTrue(
-				"This is the Final Information tab -- > Participate in research mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabParticipateInResearch.getAttribute("value")
-						.contentEquals("Reason one"));
-
-		Assert.assertTrue(
-				"This is the Final Information tab -- > Other mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabOther.getAttribute("value")
-						.contentEquals("Reason four"));
-
-		Assert.assertTrue(
-				"This is the Final Information tab -- > Are you a participant in any other research study or registry group? mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabAreYouParticipantInAnyOtherResearchStudyOrRegistryGroup
-						.getText().contentEquals("Other"));
-
-		Assert.assertTrue(
-				"This is the Final Information tab -- > Comments mismatch for the Referral Submitted in the Referral page : ",
-				charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabComments.getAttribute("value")
-						.contentEquals(""));
-
-	}
-
-	/* VERIFIES COMMENTS DATA IN THE RAS REFERRAL PAGE */
-	@When("verifies Comments data submitted in Qualtrics is imported as expected in the RAS Referral page of ServiceNow")
-	public void verifies_Comments_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_RAS_Referral_page_of_ServiceNow() {
-
-		charmsNativeViewPage.nVRasReferralViewPageCommentsTab.click();
-		charmsNativeViewPage.nVReferralParticipantIntakeFormBackButton.click();
-	}
-
-	/* THE SERVICENOW USER SUBMITS THE STUDY FOR ELIGIBILITY REVIEW */
-	@Given("the ServiceNow user submits the study for eligibility review")
-	public void the_ServiceNow_user_submits_the_study_for_eligibility_review() {
-
-		CommonUtils.waitForVisibility(
-				charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordSubmitForEligibilityReviewButton);
-		charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordSubmitForEligibilityReviewButton.click();
-		MiscUtils.sleep(1000);
-
-	}
-
-	/* THE SERVICENOW USER MARKS THE STUDY ELIGIBLE */
-	@Given("the ServiceNow user marks the study eligible")
-	public void the_ServiceNow_user_marks_the_study_eligible() {
-
-		CommonUtils.waitForVisibility(
-				charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordMarkEligibleButton);
-		charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordMarkEligibleButton.click();
-		MiscUtils.sleep(1000);
-
-	}
+	// @When("a ServiceNow user navigates to CHARMS Native view and opens records
+	// that are Waiting for Elegibility Review")
+	// public void
+	// a_ServiceNow_user_navigates_to_CHARMS_Native_view_and_opens_records_that_are_Waiting_for_Elegibility_Review()
+	// throws TestingException {
+
+	// MiscUtils.sleep(1000);
+	// nativeViewLoginImpl.sideDoorAccountLogin();
+	// CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator);
+	// nativeViewHomePage.nativeViewFilterNavigator.sendKeys("CHARMS");
+
+	// MiscUtils.sleep(4000);
+	// CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewDashboardLink);
+	// charmsNativeViewPage.nativeViewDashboardLink.click();
+
+	// MiscUtils.sleep(4000);
+	// CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewiFrameCHARMS);
+	// CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewiFrameCHARMS);
+
+	// MiscUtils.sleep(4000);
+	// CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewWaitingForElegibilityReviewButton);
+	// CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+	// charmsNativeViewPage.nativeViewWaitingForElegibilityReviewButton.click();
+
+	// }
+
+	// /* SELECTS THE SUBMITTED MYRAS SCREENER RECORD */
+	// @Given("selects the submitted MyRAS screener record")
+	// public void selects_the_submitted_MyRAS_screener_record() {
+	// Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
+	// for (String currentWindow1 : allWindowHandles1) {
+	// WebDriverUtils.webDriver.switchTo().window(currentWindow1);
+	// }
+
+	// CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestButton);
+	// charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestButton.click();
+	// MiscUtils.sleep(3000);
+
+	// CommonUtils.waitForVisibility(
+	// charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton);
+
+	// charmsNativeViewPage.nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton.click();
+
+	// }
+
+	// /* VERIFIES DATA SUBMITTED IN QUALTRICS IS IMPORTED AS EXPECTED IN SERVICENOW
+	// */
+	// @Given("verifies data submitted in Qualtrics is imported as expected in
+	// ServiceNow")
+	// public void
+	// verifies_data_submitted_in_Qualtrics_is_imported_as_expected_in_ServiceNow()
+	// {
+
+	// referralNumber =
+	// (charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordReferral
+	// .getAttribute("value"));
+
+	// CommonUtils.waitForVisibility(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordNameText);
+	// Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordNameText
+	// .getAttribute("value").contentEquals("AutomatedFirstNameOfParticipant
+	// AutomatedLastNameOfParticipant"));
+
+	// Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordWaitingForEligibilityText
+	// .getText().contentEquals("Waiting for Eligibility"));
+
+	// Assert.assertTrue(charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordNewScreenerReceivedText
+	// .getText().contentEquals("New Screener Received"));
+
+	// Assert.assertTrue(
+	// charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordMayWeHaveYourPermissionToContactThisRelativeYesText
+	// .getText().contentEquals("Yes"));
+
+	// }
+
+	// /* VERIFIES PERSONAL INFORMATION TAB DATA IN FAMILY MEMBERS DETAILS PAGE */
+	// @When("verifies Personal Information data submitted in Qualtrics is imported
+	// as expected in the Family Member Details page of ServiceNow")
+	// public void
+	// verifies_Personal_Information_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_Family_Member_Details_page_of_ServiceNow()
+	// {
+
+	// CommonUtils.waitForVisibility(charmsNativeViewPage.nVFamilyMemberDetailsRecordPersonalInformationTab);
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordPersonalInformationTab.click();
+	// MiscUtils.sleep(3000);
+	// Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordPersonalInformationTabRelationshipToYou
+	// .getAttribute("value").contentEquals("proband"));
+
+	// Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordPersonalInformationTabFirstName
+	// .getAttribute("value").contentEquals("AutomatedFirstNameOfParticipant"));
+
+	// Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordPersonalInformationTabMiddleName
+	// .getAttribute("value").contentEquals("Middle"));
+
+	// Assert.assertTrue(charmsNativeViewPage.nVFamilyMemberDetailsRecordPersonalInformationTabLastName
+	// .getAttribute("value").contentEquals("AutomatedLastNameOfParticipant"));
+
+	// }
+
+	// /* VERIFIES DEMOGRAPHICS TAB DATA IN FAMILY MEMBERS DETAILS PAGE */
+	// @When("verifies Demographics data submitted in Qualtrics is imported as
+	// expected in the Family Member Details page of ServiceNow")
+	// public void
+	// verifies_Demographics_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_Family_Member_Details_page_of_ServiceNow()
+	// {
+
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTab.click();
+	// MiscUtils.sleep(3000);
+
+	// Assert.assertTrue("Is the participant adopted Data Field do not match",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabBiologicalGender.getText()
+	// .contentEquals("Male"));
+
+	// Assert.assertTrue("Participants identified gender Data Field do not match",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantsIdentifiedGender.getText()
+	// .contentEquals("-- None --"));
+
+	// Assert.assertTrue("Is the participant Ethinicity Data Field do not match",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabEthnicity.getText()
+	// .contentEquals("Not Hispanic/Latino"));
+
+	// Assert.assertTrue("Is the participant adopted Data Field do not match",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabIsTheParticipantAdopted.getText()
+	// .contentEquals("Yes"));
+
+	// Assert.assertTrue("Participant DOB Data Field do not match",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantDOB.getAttribute("value")
+	// .contentEquals("04/01/1990"));
+
+	// Assert.assertTrue("If Date of Birth is unkown, is this person 18 years old or
+	// older Data Field do not match",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabIfDOBUnknownAge18.getText()
+	// .contentEquals("-- None --"));
+
+	// Assert.assertTrue("Participant Age Data Field is not blank",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantAge.getText()
+	// .contentEquals(""));
+
+	// Assert.assertTrue("Participant Race (Select all that apply) Data Field do not
+	// match",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantRace.getText().contentEquals(
+	// "Caucasian (white), Black/African American, Native Hawaiian/Other Pacific
+	// Islander, American Indian/Alaskan Native, Asian, Other"));
+
+	// CommonUtils.assertTrueJUNIT("Participant Race Other Text Field do not match",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordDemographicsTabParticipantRaceOtherText
+	// .getAttribute("value").contentEquals("Entering other Race"));
+
+	// }
+
+	// /* VERIFIES CONTACT INFO TAB DATA IN FAMILY MEMBERS DETAILS PAGE */
+	// @When("verifies Contact Info data submitted in Qualtrics is imported as
+	// expected in the Family Member Details page of ServiceNow")
+	// public void
+	// verifies_Contact_Info_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_Family_Member_Details_page_of_ServiceNow()
+	// {
+
+	// CommonUtils.waitForVisibility(charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTab);
+
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTab.click();
+	// MiscUtils.sleep(3000);
+	// Assert.assertTrue(
+	// "This is a Contact Info Tab mismatch data for the Does the participant need
+	// legal representation?: ",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabDoesParticipantNeedLegalRepresentation
+	// .getText().contentEquals("Yes"));
+
+	// CommonUtils.assertTrueJUNIT("This is a Contact Info Tab mismatch data for the
+	// Legal Representative Name :",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabLegalRepresentativeName
+	// .getAttribute("value")
+	// .contentEquals("FirstNameOfProxyTest MiddleNameTest lastNameOfProxyTest"));
+	// // Assert.assertTrue("This is a Contact Info Tab mismatch data for the Legal
+	// // Representative Name :",
+	// //
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabLegalRepresentativeName
+	// // .getAttribute("value")
+	// // .contentEquals("FirstNameOfProxyTest MiddleNameTest
+	// lastNameOfProxyTest"));
+
+	// Assert.assertTrue(
+	// "This is a Contact Info Tab mismatch data for the What is your relationship
+	// to this person? :",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabWhatIsYourRelationshipToThisPerson
+	// .getText().contentEquals("Other"));
+
+	// Assert.assertTrue(
+	// "This is a Contact Info Tab mismatch data for the Are you the legal guardian
+	// of this person? : ",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabAreYouTheLegalGuardianOfThisPerson
+	// .getText().contentEquals("Yes"));
+
+	// Assert.assertTrue(
+	// "This is a Contact Info Tab mismatch data for the Please specify your
+	// relationship to the participant : ",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabSpecifyYourRelationshipToTheParticipant
+	// .getAttribute("value").contentEquals(""));
+
+	// Assert.assertTrue("This is a Contact Info Tab mismatch data for the Contact
+	// Street Address : ",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabStreetAddress.getAttribute("value")
+	// .contentEquals("9609 Medical Center Dr New Avenue Park"));
+
+	// CommonUtils.assertTrueJUNIT("This is a Contact Info Tab mismatch data for the
+	// Contact State : ",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabState.getAttribute("value")
+	// .contentEquals("MD"));
+
+	// CommonUtils.assertTrueJUNIT("This is a Contact Info Tab mismatch data for the
+	// Contact City : ",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabCity.getAttribute("value")
+	// .contentEquals("Rockville"));
+
+	// CommonUtils.assertTrueJUNIT("This is a Contact Info Tab mismatch data for the
+	// Contact Country: ",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabCountry.getText()
+	// .contentEquals("U.S.A"));
+
+	// CommonUtils.assertTrueJUNIT("This is a Contact Info Tab mismatch data for the
+	// Contact Zipcode : ",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabZipcode.getAttribute("value")
+	// .contentEquals("20850"));
+
+	// CommonUtils.assertTrueJUNIT("This is a Contact Info Tab mismatch data for the
+	// Contact Email : ",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabEmail.getAttribute("value")
+	// .contentEquals("automatedTest@nci.gov"));
+
+	// Assert.assertTrue("This is a Contact Info Tab mismatch data for the Contact
+	// Home Phone : ",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabHomePhone.getAttribute("value")
+	// .contentEquals("703-687-5816"));
+
+	// Assert.assertTrue("This is a Contact Info Tab mismatch data for the Contact
+	// Cell Phone : ",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabCellPhone.getAttribute("value")
+	// .contentEquals("703-687-5816"));
+
+	// Assert.assertTrue("This is a Contact Info Tab mismatch data for the Contact
+	// Work Phone : ",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordContactInfoTabWorkPhone.getAttribute("value")
+	// .contentEquals("703-687-5816"));
+
+	// }
+
+	// /* VERIFIES MEDICAL INFORMATION TAB DATA IN FAMILY MEMBERS DETAILS PAGE */
+	// @When("verifies Medical Information data submitted Qualtrics is imported as
+	// expected in the Family Member Details page of ServiceNow")
+	// public void
+	// verifies_Medical_Information_data_submitted_Qualtrics_is_imported_as_expected_in_the_Family_Member_Details_page_of_ServiceNow()
+	// {
+
+	// CommonUtils.waitForVisibility(charmsNativeViewPage.nVFamilyMemberDetailsRecordMedicalInfoTab);
+
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordMedicalInfoTab.click();
+	// MiscUtils.sleep(3000);
+	// Assert.assertTrue(
+	// "This is a Medical Information Tab mismatch data for the Has a physician ever
+	// diagnosed this participant with cancer? : ",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordMedicalInfoPhysicianDiagnosedParticipantWithCancer
+	// .getText().contentEquals("Yes"));
+
+	// Assert.assertTrue(
+	// "This is a Medical Information Tab mismatch data for the Has the participant
+	// ever had genetic testing? : ",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordMedicalInfoParticipantEverHadGeneticTesting.getText()
+	// .contentEquals("Yes"));
+
+	// Assert.assertTrue("This is a Medical Information Tab mismatch data for the
+	// Vital Status : ",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordMedicalInfoParticipantVitalStatus.getText()
+	// .contentEquals("Alive"));
+
+	// }
+
+	// /* VERIFIES DATA IN THE PARTICIPANT CANCER HISTORY TAB */
+	// @When("verifies Participant Cancer History data submitted Qualtrics is
+	// imported as expected in the Family Member Details page of ServiceNow")
+	// public void
+	// verifies_Participant_Cancer_History_data_submitted_Qualtrics_is_imported_as_expected_in_the_Family_Member_Details_page_of_ServiceNow()
+	// {
+
+	// charmsNativeViewPage.nVReferralPatientCancerIntakeFormForSkinCancerButton.click();
+	// MiscUtils.sleep(1000);
+	// charmsNativeViewPage.nVReferralPatientIntakeFormPreviewOpenRecordButton.click();
+
+	// MiscUtils.sleep(3000);
+	// Assert.assertTrue(
+	// "This is Participant Cancer History mismatch data for Cancer Type or Site for
+	// Skin cancer : ",
+	// charmsNativeViewPage.nVReferralPatientCancerIntakeFormCancerTypeOrSite.getAttribute("value")
+	// .contentEquals("Skin cancer (i.e.Melanoma)"));
+
+	// Assert.assertTrue(
+	// "This is Participant Cancer History mismatch data for Currently being treated
+	// for Skin cancer : ",
+	// charmsNativeViewPage.nVReferralPatientCancerIntakeFormCurrentlyBeingTreated.getText()
+	// .contentEquals("Yes"));
+
+	// Assert.assertTrue("This is Participant Cancer History mismatch data for Year
+	// of diagnosis for Skin cancer: ",
+	// charmsNativeViewPage.nVReferralPatientCancerIntakeFormYearOfDiagnosis.getAttribute("value")
+	// .contentEquals("2003"));
+
+	// Assert.assertTrue(
+	// "This is Participant Cancer History mismatch data for How old was the
+	// research participant when the cancer was diagnosed? for Skin cancer: ",
+	// charmsNativeViewPage.nVReferralPatientCancerIntakeFormHowOldWasParticipantWhenCancerWasDiagnosed
+	// .getAttribute("value").contentEquals("23"));
+
+	// Assert.assertTrue(
+	// "This is Participant Cancer History mismatch data for If unknown, please
+	// select an age range for Skin cancer : ",
+	// charmsNativeViewPage.nVReferralPatientCancerIntakeFormIfUnknownSelectAgeRange.getText()
+	// .contentEquals("-- None --"));
+
+	// charmsNativeViewPage.nVReferralParticipantIntakeFormBackButton.click();
+
+	// /* --------------------------------------------------------------- */
+
+	// charmsNativeViewPage.nVReferralPatientCancerIntakeFormForBreastLeftButton.click();
+	// MiscUtils.sleep(1000);
+	// charmsNativeViewPage.nVReferralPatientIntakeFormPreviewOpenRecordButton.click();
+
+	// MiscUtils.sleep(3000);
+	// Assert.assertTrue(
+	// "This is Participant Cancer History mismatch data for Cancer Type or Site
+	// cancer for Breast Left : ",
+	// charmsNativeViewPage.nVReferralPatientCancerIntakeFormCancerTypeOrSite.getAttribute("value")
+	// .contentEquals("Breast left"));
+
+	// Assert.assertTrue(
+	// "This is Participant Cancer History mismatch data for Currently being treated
+	// for Breast Left : ",
+	// charmsNativeViewPage.nVReferralPatientCancerIntakeFormCurrentlyBeingTreated.getText()
+	// .contentEquals("Yes"));
+
+	// Assert.assertTrue("This is Participant Cancer History mismatch data for Year
+	// of diagnosis for Breast Left: ",
+	// charmsNativeViewPage.nVReferralPatientCancerIntakeFormYearOfDiagnosis.getAttribute("value")
+	// .contentEquals("2002"));
+
+	// Assert.assertTrue(
+	// "This is Participant Cancer History mismatch data for How old was the
+	// research participant when the cancer was diagnosed? for Breast Left: ",
+	// charmsNativeViewPage.nVReferralPatientCancerIntakeFormHowOldWasParticipantWhenCancerWasDiagnosed
+	// .getAttribute("value").contentEquals("22"));
+
+	// Assert.assertTrue(
+	// "This is Participant Cancer History mismatch data for If unknown, please
+	// select an age range for Breast Left : ",
+	// charmsNativeViewPage.nVReferralPatientCancerIntakeFormIfUnknownSelectAgeRange.getText()
+	// .contentEquals("-- None --"));
+
+	// charmsNativeViewPage.nVReferralParticipantIntakeFormBackButton.click();
+
+	// /* --------------------------------------------------------------- */
+
+	// charmsNativeViewPage.nVReferralPatientCancerIntakeFormForAnalCancerButton.click();
+	// MiscUtils.sleep(1000);
+	// charmsNativeViewPage.nVReferralPatientIntakeFormPreviewOpenRecordButton.click();
+
+	// MiscUtils.sleep(3000);
+	// Assert.assertTrue(
+	// "This is Participant Cancer History mismatch data for Cancer Type or Site
+	// cancer for Anal Cancer: ",
+	// charmsNativeViewPage.nVReferralPatientCancerIntakeFormCancerTypeOrSite.getAttribute("value")
+	// .contentEquals("Anal cancer"));
+
+	// Assert.assertTrue(
+	// "This is Participant Cancer History mismatch data for Currently being treated
+	// for Anal Cancer : ",
+	// charmsNativeViewPage.nVReferralPatientCancerIntakeFormCurrentlyBeingTreated.getText()
+	// .contentEquals("Yes"));
+
+	// Assert.assertTrue("This is Participant Cancer History mismatch data for Year
+	// of diagnosis for Anal Cancer : ",
+	// charmsNativeViewPage.nVReferralPatientCancerIntakeFormYearOfDiagnosis.getAttribute("value")
+	// .contentEquals("2001"));
+
+	// Assert.assertTrue(
+	// "This is Participant Cancer History mismatch data for How old was the
+	// research participant when the cancer was diagnosed? for Anal Cancer : ",
+	// charmsNativeViewPage.nVReferralPatientCancerIntakeFormHowOldWasParticipantWhenCancerWasDiagnosed
+	// .getAttribute("value").contentEquals("21"));
+
+	// Assert.assertTrue(
+	// "This is Participant Cancer History mismatch data for If unknown, please
+	// select an age range for Anal Cancer : ",
+	// charmsNativeViewPage.nVReferralPatientCancerIntakeFormIfUnknownSelectAgeRange.getText()
+	// .contentEquals("-- None --"));
+
+	// charmsNativeViewPage.nVReferralParticipantIntakeFormBackButton.click();
+
+	// /* --------------------------------------------------------------- */
+
+	// charmsNativeViewPage.nVReferralPatientCancerIntakeFormForAdrenalGlandButton.click();
+	// MiscUtils.sleep(1000);
+	// charmsNativeViewPage.nVReferralPatientIntakeFormPreviewOpenRecordButton.click();
+
+	// MiscUtils.sleep(3000);
+	// Assert.assertTrue(
+	// "This is Participant Cancer History mismatch data for Cancer Type or Site
+	// cancer for Adrenal Gland: ",
+	// charmsNativeViewPage.nVReferralPatientCancerIntakeFormCancerTypeOrSite.getAttribute("value")
+	// .contentEquals("Adrenal Gland"));
+
+	// Assert.assertTrue(
+	// "This is Participant Cancer History mismatch data for Currently being treated
+	// for Adrenal Gland : ",
+	// charmsNativeViewPage.nVReferralPatientCancerIntakeFormCurrentlyBeingTreated.getText()
+	// .contentEquals("Yes"));
+
+	// Assert.assertTrue("This is Participant Cancer History mismatch data for Year
+	// of diagnosis for Adrenal Gland : ",
+	// charmsNativeViewPage.nVReferralPatientCancerIntakeFormYearOfDiagnosis.getAttribute("value")
+	// .contentEquals("2000"));
+
+	// Assert.assertTrue(
+	// "This is Participant Cancer History mismatch data for How old was the
+	// research participant when the cancer was diagnosed? for Adrenal Gland : ",
+	// charmsNativeViewPage.nVReferralPatientCancerIntakeFormHowOldWasParticipantWhenCancerWasDiagnosed
+	// .getAttribute("value").contentEquals("20"));
+
+	// Assert.assertTrue(
+	// "This is Participant Cancer History mismatch data for If unknown, please
+	// select an age range for Adrenal Gland : ",
+	// charmsNativeViewPage.nVReferralPatientCancerIntakeFormIfUnknownSelectAgeRange.getText()
+	// .contentEquals("-- None --"));
+
+	// charmsNativeViewPage.nVReferralParticipantIntakeFormBackButton.click();
+
+	// }
+
+	// /* VERIFIES DATA IN THE PARTICIPANT GENETIC HISTORY TAB */
+	// @When("verifies Participant Genetic History data submitted Qualtrics is
+	// imported as expected in the Family Member Details page of ServiceNow")
+	// public void
+	// verifies_Participant_Genetic_History_data_submitted_Qualtrics_is_imported_as_expected_in_the_Family_Member_Details_page_of_ServiceNow()
+	// {
+
+	// referralNumber =
+	// (charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordReferral
+	// .getAttribute("value"));
+
+	// charmsNativeViewPage.nVParticipantGeneticHistoryTab.click();
+	// MiscUtils.sleep(2000);
+	// List<WebElement> tBodyList =
+	// charmsNativeViewPage.participantGeneticHistoryTable
+	// .findElements(By.tagName("tbody"));
+
+	// WebElement tBody = tBodyList.get(0);
+	// List<WebElement> rowList = tBody.findElements(By.tagName("tr"));
+
+	// for (int j = 0; j < rowList.size(); j++) {
+	// WebElement row;
+	// if (0 != j) {
+	// tBodyList =
+	// charmsNativeViewPage.participantGeneticHistoryTable.findElements(By.tagName("tbody"));
+
+	// tBody = tBodyList.get(0);
+	// rowList = tBody.findElements(By.tagName("tr"));
+	// // scroll to the bottom of the page
+	// ((JavascriptExecutor)
+	// WebDriverUtils.webDriver).executeScript("arguments[0].scrollIntoView();",
+	// charmsNativeViewPage.participantGeneticHistoryTable);
+	// }
+	// row = rowList.get(j);
+
+	// List<WebElement> columnList = row.findElements(By.tagName("td"));
+	// if (columnList.size() >= 4) {
+	// for (int i = 0; i < columnList.size(); i++) {
+	// if (2 == i) {
+	// WebElement desciptionCol = columnList.get(i);
+	// String description = desciptionCol.getAttribute("title");
+	// if (!("").equals(description)) {
+	// WebElement testResultColumn = columnList.get(i + 1);
+	// String testResult = testResultColumn.getText();
+
+	// WebElement previewIcon = columnList.get(i - 1);
+	// previewIcon.click();
+
+	// MiscUtils.sleep(1000);
+
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordPagePreviewReferralRecordIframeOpenRecord
+	// .click();
+
+	// MiscUtils.sleep(1000);
+
+	// MiscUtils.sleep(2000);
+	// Assert.assertTrue("This is Participant Genetic History mismatch data for Test
+	// Result? : ",
+	// charmsNativeViewPage.nVParticipantGeneticTestResult.getAttribute("value")
+	// .contentEquals("Positive"));
+
+	// Assert.assertTrue(
+	// "This is Participant Genetic History mismatch data for Intake Form REFERRAL
+	// ID: ",
+	// charmsNativeViewPage.nVParticipantGeneticIntakeFormReferralId.getAttribute("value")
+	// .contentEquals(referralNumber));
+
+	// charmsNativeViewPage.nVReferralParticipantIntakeFormBackButton.click();
+	// MiscUtils.sleep(2000);
+	// }
+	// break;
+	// }
+
+	// }
+
+	// }
+	// }
+
+	// }
+
+	// /* VERIFIES DATA IN THE RAS REFERRAL PAGE */
+	// @When("verifies data submitted in Qualtrics is imported as expected in the
+	// RAS Referral page of ServiceNow")
+	// public void
+	// verifies_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_RAS_Referral_page_of_ServiceNow()
+	// {
+
+	// Assert.assertTrue("This is RAS REFERRAL field mismatch data for the auto
+	// Populated Referral Number: ",
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordPageReferral.getAttribute("value")
+	// .contentEquals(referralNumber));
+
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordPagePreviewReferralRecordButton.click();
+	// MiscUtils.sleep(3000);
+	// //
+	// CommonUtils.switchToFrame(charmsNativeViewPage.nVFamilyMemberDetailsRecordPagePreviewReferralRecordIframe);
+	// // CommonUtils.waitForVisibility(
+	// //
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordPagePreviewReferralRecordIframeOpenRecord);
+	// charmsNativeViewPage.nVFamilyMemberDetailsRecordPagePreviewReferralRecordIframeOpenRecord.click();
+
+	// MiscUtils.sleep(1000);
+	// Assert.assertTrue("The RAS REFERRAL BAR TITLE NOT DISPLAYED: ",
+	// charmsNativeViewPage.nVRasReferralViewPageRASReferralBarTitle.isDisplayed());
+
+	// Assert.assertTrue(
+	// "This is a RAS Referaal Page mismatch data for the Does the participant need
+	// legal representation?: ",
+	// charmsNativeViewPage.nVRasReferralViewPageDoesParticipantNeedLegalRepresentation.getText()
+	// .contentEquals("Yes"));
+
+	// CommonUtils.assertTrueJUNIT("This is a RAS Referaal Page mismatch data for
+	// the Legal Representative Name : ",
+	// charmsNativeViewPage.nVRasReferralViewPageLegalRepresentativeName.getAttribute("value")
+	// .contentEquals("FirstNameTest MiddleNameTest lastNameTest"));
+
+	// Assert.assertTrue(
+	// "This is a RAS Referaal Page mismatch data for the What is your relationship
+	// to this person?: ",
+	// charmsNativeViewPage.nVRasReferralViewPageWhatIsYourRelationshipToThisPerson.getText()
+	// .contentEquals("Other"));
+
+	// Assert.assertTrue(
+	// "This is a RAS Referaal Page mismatch data for the Are you the legal guardian
+	// of this person?: ",
+	// charmsNativeViewPage.nVRasReferralViewPageAreYouTheLegalGuardianOfThisPerson.getText()
+	// .contentEquals("Yes"));
+
+	// Assert.assertTrue(
+	// "This is a RAS Referaal Page mismatch data for thecPlease specify your
+	// relationship to the participant : ",
+	// charmsNativeViewPage.nVRasReferralViewPagespecifyYourRelationshipToTheParticipant.getAttribute("value")
+	// .contentEquals(""));
+
+	// Assert.assertTrue("This is a RAS Referaal Page mismatch data for the Study :
+	// ",
+	// charmsNativeViewPage.nVRasReferralViewPageStudy.getAttribute("value").contentEquals("RASopathies"));
+
+	// Assert.assertTrue("This is a RAS Referaal Page mismatch data for the Family
+	// Member Record:",
+	// charmsNativeViewPage.nVRasReferralViewPageFamilyMemberRecord.getAttribute("value")
+	// .contentEquals("Automated Test"));
+
+	// Assert.assertTrue("This is a RAS Referaal Page mismatch data for the Vital
+	// Status: ",
+	// charmsNativeViewPage.nVRasReferralViewPageVitalStatus.getText().contentEquals("Alive"));
+
+	// Assert.assertTrue("This is a RAS Referaal Page mismatch data for the
+	// Eligibility Status : ",
+	// charmsNativeViewPage.nVRasReferralViewPageEligibilityStatus.getText()
+	// .contentEquals("Waiting for Eligibility"));
+
+	// Assert.assertTrue("This is a RAS Referaal Page mismatch data for the
+	// Enrollment Status : ",
+	// charmsNativeViewPage.nVRasReferralViewPageEnrollmentStatus.getText()
+	// .contentEquals("New Screener Received"));
+
+	// }
+
+	// /* VERIFIES CONTACT INFO DATA IN THE RAS REFERRAL PAGE */
+	// @When("verifies Contact Info data submitted in Qualtrics is imported as
+	// expected in the RAS Referral page of ServiceNow")
+	// public void
+	// verifies_Contact_Info_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_RAS_Referral_page_of_ServiceNow()
+	// {
+
+	// charmsNativeViewPage.nVRasReferralViewPageContactInformationTab.click();
+	// MiscUtils.sleep(3000);
+	// Assert.assertTrue(
+	// "This is the Contact Info tab --> Contact Email mismatch for the Referral
+	// Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactEmail.getAttribute("value")
+	// .contentEquals("automatedTest@nci.gov"));
+
+	// Assert.assertTrue(
+	// "This is the Contact Info tab --> Contact Home Phone mismatch for the
+	// Referral Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactHomePhone.getAttribute("value")
+	// .contentEquals("703-687-5816"));
+
+	// Assert.assertTrue(
+	// "This is the Contact Info tab --> Contact Cell Phone mismatch for the
+	// Referral Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactCellPhone.getAttribute("value")
+	// .contentEquals("703-687-5816"));
+
+	// Assert.assertTrue(
+	// "This is the Contact Info tab --> Contact Work Phone mismatch for the
+	// Referral Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactWorkPhone.getAttribute("value")
+	// .contentEquals("703-687-5816"));
+
+	// Assert.assertTrue(
+	// "This is the Contact Info tab --> Country of Birth mismatch for the Referral
+	// Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageContactInformationTabCountryOfBirth.getText()
+	// .contentEquals("-- None --"));
+
+	// Assert.assertTrue(
+	// "This is the Contact Info tab --> Contact Street Address mismatch for the
+	// Referral Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactStreetAddress
+	// .getAttribute("value").contentEquals("9609 Medical Center Dr New Avenue
+	// Park"));
+
+	// Assert.assertTrue(
+	// "This is the Contact Info tab --> Contact City mismatch for the Referral
+	// Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactCity.getAttribute("value")
+	// .contentEquals("Rockville"));
+
+	// Assert.assertTrue(
+	// "This is the Contact Info tab --> Contact State mismatch for the Referral
+	// Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactState.getAttribute("value")
+	// .contentEquals("Maryland "));
+
+	// Assert.assertTrue(
+	// "This is the Contact Info tab --> Contact ZipCode mismatch for the Referral
+	// Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageContactInformationTabContactZipCode.getAttribute("value")
+	// .contentEquals("20850"));
+
+	// }
+
+	// /* VERIFIES DEMOGRAPHICS DATA IN THE RAS REFERRAL PAGE */
+	// @When("verifies Demographics data submitted in Qualtrics is imported as
+	// expected in the RAS Referral page of ServiceNow")
+	// public void
+	// verifies_Demographics_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_RAS_Referral_page_of_ServiceNow()
+	// {
+
+	// charmsNativeViewPage.nVRasReferralViewPageDemographicsTab.click();
+	// MiscUtils.sleep(3000);
+	// Assert.assertTrue(
+	// "This is the Demographics tab -- > Participant Race mismatch for the Referral
+	// Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageDemographicsTabParticipantRace.getText().contentEquals(
+	// "Caucasian (white), Black/African American, Native Hawaiian/Other Pacific
+	// Islander, American Indian/Alaskan Native, Asian, Other"));
+
+	// Assert.assertTrue(
+	// "This is the Demographics tab -- > Other mismatch for the Referral Submitted
+	// in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageDemographicsTabOther.getAttribute("value")
+	// .contentEquals("Entering other Race"));
+
+	// Assert.assertTrue(
+	// "This is the Demographics tab -- > Biological Gender mismatch for the
+	// Referral Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageDemographicsTabBiologicalGender.getText()
+	// .contentEquals("Male"));
+
+	// Assert.assertTrue(
+	// "This is the Demographics tab -- > Date of Birth mismatch for the Referral
+	// Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageDemographicsTabDateOfBirth.getAttribute("value")
+	// .contentEquals("04/01/1990"));
+
+	// Assert.assertTrue(
+	// "This is the Demographics tab -- > Ethnicity mismatch for the Referral
+	// Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageDemographicsTabEthnicity.getText()
+	// .contentEquals("Not Hispanic/Latino"));
+
+	// }
+
+	// /* VERIFIES RASOPATHY HISTORY DATA IN THE RAS REFERRAL PAGE */
+	// @When("verifies RASopathy History data submitted in Qualtrics is imported as
+	// expected in the RAS Referral page of ServiceNow")
+	// public void
+	// verifies_RASopathy_History_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_RAS_Referral_page_of_ServiceNow()
+	// {
+
+	// charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTab.click();
+	// MiscUtils.sleep(3000);
+	// Assert.assertTrue(
+	// "This is the RASopathy History tab -- > Have you been diagnosed with a
+	// RASopathy? mismatch for the Referral Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabHaveYouBeenDiagnosedWithRASopathy.getText()
+	// .contentEquals("Yes"));
+
+	// Assert.assertTrue(
+	// "This is the RASopathy History tab -- > RASopathy diagnosis mismatch for the
+	// Referral Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabRASopathyDiagnosis.getText()
+	// .contentEquals("Other"));
+
+	// Assert.assertTrue(
+	// "This is the RASopathy History tab -- > Please specify mismatch for the
+	// Referral Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabASopathyDiagnosisPleaseSpecify
+	// .getAttribute("value").contentEquals(" Entering Other RASopathy"));
+
+	// Assert.assertTrue("This is the RASopathy History tab -- > Age (in years) at
+	// diagnosis : ",
+	// charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabAgeInYearsAtDiagnosis.getAttribute("value")
+	// .contentEquals("20"));
+
+	// Assert.assertTrue(
+	// "This is the RASopathy History tab -- > Year of diagnosis mismatch for the
+	// Referral Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabYearOfDiagnosis.getAttribute("value")
+	// .contentEquals("2010"));
+
+	// Assert.assertTrue(
+	// "This is the RASopathy History tab -- > Has the participant been diagnosed
+	// with any of the following Conditions? mismatch for the Referral Submitted in
+	// the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabHasParticipantBeenDiagnosedWithAnyOfTheFollowingConditions
+	// .getText().contentEquals(
+	// "Feeding problems or failure to thrive, Neurocognitive/ Developmental Delay
+	// such as: Intellectual disability and language impairment, Skeletal
+	// deformities such as: Short stature, short webbed neck, unusual chest shape,
+	// curved spine, muscle or joint problems, limb overgrowth, Head/Craniofacial
+	// Abnormalities such as: Large head, broad or high forehead, short nose, small
+	// chin, swelling or bleeding of the gums, abnormal shape or movement of teeth,
+	// Eye/Ear abnormalities such as: Widely spaced eyes, eye diseases, droopy eye
+	// lids, sparse/absent eye lashes/eyebrows, low set ears, hearing loss,
+	// Skin/hair abnormalities such as: soft loose skin,
+	// fine/thin/thick/dry/brittle/curly hair, slow growing hair, tumors or small
+	// skin tags near the nose or anus, lipomas, light to dark brown birth marks
+	// (cafe au lait spots), freckles in the armpits, Heart problems such as
+	// cardiomyopathy, Genital abnormalities such as undescended testes, Other: such
+	// as endocrine issues, bleeding disorders, seizures, Non-cancerous tumors,
+	// Lymphedema"));
+
+	// Assert.assertTrue(
+	// "This is the RASopathy History tab -- > Other conditions mismatch for the
+	// Referral Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabOtherConditions.getAttribute("value")
+	// .contentEquals(""));
+
+	// Assert.assertTrue(
+	// "This is the RASopathy History tab -- > Have any of your biological relatives
+	// been diagnosed with a RASopathy? mismatch for the Referral Submitted in the
+	// Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageRASopathyHistoryTabHaveAnyOfYourBiologicalRelativesBeenDiagnosedWithRASopathy
+	// .getText().contentEquals("No info on biological relatives"));
+
+	// }
+
+	// /* VERIFIES CANCER HISTORY DATA IN THE RAS REFERRAL PAGE */
+	// @When("verifies Cancer History data submitted in Qualtrics is imported as
+	// expected in the RAS Referral page of ServiceNow")
+	// public void
+	// verifies_Cancer_History_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_RAS_Referral_page_of_ServiceNow()
+	// {
+
+	// charmsNativeViewPage.nVRasReferralViewPageCancerHistoryTab.click();
+	// MiscUtils.sleep(3000);
+	// Assert.assertTrue(
+	// "This is the Cancer History tab -- > Has a physician ever diagnosed this
+	// participant with cancer? mismatch for the Referral Submitted in the Referral
+	// page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageCancerHistoryTabHasPhysicianEverDiagnosedParticipantWithCancer
+	// .getText().contentEquals("Yes"));
+
+	// }
+
+	// /* VERIFIES GENETICS TESTING HISTORY DATA IN THE RAS REFERRAL PAGE */
+	// @When("verifies Genetic Testing History data submitted in Qualtrics is
+	// imported as expected in the RAS Referral page of ServiceNow")
+	// public void
+	// verifies_Genetic_Testing_History_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_RAS_Referral_page_of_ServiceNow()
+	// {
+	// charmsNativeViewPage.nVRasReferralViewPageGeneticTestingHistoryTab.click();
+
+	// Assert.assertTrue(
+	// "This is the Genetic Testing History tab -- > Has the participant ever had
+	// genetic testing? mismatch for the Referral Submitted in the Referral page :
+	// ",
+	// charmsNativeViewPage.nVRasReferralViewPageGeneticTestingHistoryTabHasParticipantEverHadGeneticTesting
+	// .getText().contentEquals("Yes"));
+
+	// Assert.assertTrue(
+	// "This is the Genetic Testing History tab -- > Does the participant have a
+	// copy of the genetic test results? mismatch for the Referral Submitted in the
+	// Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageGeneticTestingHistoryTabDoesParticipantHaveCopyOfGeneticTestResults
+	// .getText().contentEquals("No"));
+
+	// Assert.assertTrue(
+	// "This is the Genetic Testing History tab -- > Participants preferred method
+	// of delivering genetic test results mismatch for the Referral Submitted in the
+	// Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageGeneticTestingHistoryTabParticipantPreferredMethodOfDeliveringGeneticTestResults
+	// .getText().contentEquals("Not answered"));
+
+	// Assert.assertTrue(
+	// "This is the Genetic Testing History tab -- > Have any relatives been
+	// genetically tested for inherited cancer syndromes? mismatch for the Referral
+	// Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageGeneticTestingHistoryTabHaveAnyRelativesBeenGeneticallyTestedFoInheritedCancerSyndromes
+	// .getText().contentEquals("Not answered"));
+
+	// }
+
+	// /* VERIFIES FINAL INFORMATION DATA IN THE RAS REFERRAL PAGE */
+	// @When("verifies Final Information data submitted in Qualtrics is imported as
+	// expected in the RAS Referral page of ServiceNow")
+	// public void
+	// verifies_Final_Information_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_RAS_Referral_page_of_ServiceNow()
+	// {
+
+	// charmsNativeViewPage.nVRasReferralViewPageFinalInformationTab.click();
+	// MiscUtils.sleep(3000);
+	// Assert.assertTrue(
+	// "This is the Final Information tab -- > How did you hear about this study?
+	// mismatch for the Referral Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabHowDidYouHearAboutThisStudy.getText()
+	// .contentEquals("Other"));
+
+	// /*
+	// * RETEST BELOW BUG
+	// */
+	// Assert.assertTrue(
+	// "This is the Final Information tab -- > Please specify ? mismatch for the
+	// Referral Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabPleaseSpecify.getAttribute("value")
+	// .contentEquals(""));
+
+	// Assert.assertTrue(
+	// "This is the Final Information tab -- > Has the participant or any family
+	// member participated in any cancer study? mismatch for the Referral Submitted
+	// in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabHasParticipantOrAnyFamilyMemberParticipatedInAnyCancerStudy
+	// .getText().contentEquals("Not answered"));
+
+	// Assert.assertTrue(
+	// "This is the Final Information tab -- > Are any relatives currently receiving
+	// cancer care or follow-up? mismatch for the Referral Submitted in the Referral
+	// page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabAreAnyRelativesCurrentlyReceivingCancerCareOrFollowUp
+	// .getText().contentEquals("Not answered"));
+
+	// Assert.assertTrue(
+	// "This is the Final Information tab -- > Main reasons for participating in
+	// this study? Select all that apply mismatch for the Referral Submitted in the
+	// Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabMainReasonsForParticipatingInThisStudy
+	// .getText().contentEquals(
+	// "Participate in research, Identify a diagnosis, Receive genetic testing,
+	// Other"));
+
+	// Assert.assertTrue(
+	// "This is the Final Information tab -- > Identify a diagnosis mismatch for the
+	// Referral Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabIdentifyDiagnosis.getAttribute("value")
+	// .contentEquals("Reason two"));
+
+	// Assert.assertTrue(
+	// "This is the Final Information tab -- > Receive genetic testing mismatch for
+	// the Referral Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabReceiveGeneticTesting.getAttribute("value")
+	// .contentEquals("Reason three"));
+
+	// Assert.assertTrue(
+	// "This is the Final Information tab -- > Participate in research mismatch for
+	// the Referral Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabParticipateInResearch.getAttribute("value")
+	// .contentEquals("Reason one"));
+
+	// Assert.assertTrue(
+	// "This is the Final Information tab -- > Other mismatch for the Referral
+	// Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabOther.getAttribute("value")
+	// .contentEquals("Reason four"));
+
+	// Assert.assertTrue(
+	// "This is the Final Information tab -- > Are you a participant in any other
+	// research study or registry group? mismatch for the Referral Submitted in the
+	// Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabAreYouParticipantInAnyOtherResearchStudyOrRegistryGroup
+	// .getText().contentEquals("Other"));
+
+	// Assert.assertTrue(
+	// "This is the Final Information tab -- > Comments mismatch for the Referral
+	// Submitted in the Referral page : ",
+	// charmsNativeViewPage.nVRasReferralViewPageFinalInformationTabComments.getAttribute("value")
+	// .contentEquals(""));
+
+	// }
+
+	// /* VERIFIES COMMENTS DATA IN THE RAS REFERRAL PAGE */
+	// @When("verifies Comments data submitted in Qualtrics is imported as expected
+	// in the RAS Referral page of ServiceNow")
+	// public void
+	// verifies_Comments_data_submitted_in_Qualtrics_is_imported_as_expected_in_the_RAS_Referral_page_of_ServiceNow()
+	// {
+
+	// charmsNativeViewPage.nVRasReferralViewPageCommentsTab.click();
+	// charmsNativeViewPage.nVReferralParticipantIntakeFormBackButton.click();
+	// }
+
+	// /* THE SERVICENOW USER SUBMITS THE STUDY FOR ELIGIBILITY REVIEW */
+	// @Given("the ServiceNow user submits the study for eligibility review")
+	// public void the_ServiceNow_user_submits_the_study_for_eligibility_review() {
+
+	// CommonUtils.waitForVisibility(
+	// charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordSubmitForEligibilityReviewButton);
+	// charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordSubmitForEligibilityReviewButton.click();
+	// MiscUtils.sleep(1000);
+
+	// }
+
+	// /* THE SERVICENOW USER MARKS THE STUDY ELIGIBLE */
+	// @Given("the ServiceNow user marks the study eligible")
+	// public void the_ServiceNow_user_marks_the_study_eligible() {
+
+	// CommonUtils.waitForVisibility(
+	// charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordMarkEligibleButton);
+	// charmsNativeViewPage.nativeViewFamilyMemberDetailsAutomatedTestRecordMarkEligibleButton.click();
+	// MiscUtils.sleep(1000);
+
+	// }
 
 	/**
 	 * 

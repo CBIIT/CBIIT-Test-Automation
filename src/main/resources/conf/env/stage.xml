@@ -7,7 +7,8 @@
 	<application id="covid19dashboard">
 
 		<login_url>https://service-stage.nci.nih.gov/nih-covid-19-dashboard?xpage=landing_pub
-		</login_url> <!-- add Stage url -->
+		</login_url> <!--
+		add Stage url -->
 
 		<role name="Role">
 			<user id="regular">
@@ -26,6 +27,27 @@
 			</default>
 		</db>
 
+	</application>
+
+	<!-- Application ID for GDS Tracking -->
+	<application id="GDSTracking">
+		<login_url>https://gds-stage.nci.nih.gov/gds/search/home.action</login_url> <!-- add
+			test url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId> <!-- add encrypted test user -->
+				<password></password> <!-- add encrypted test pass -->
+			</user>
+		</role>
+		<db>
+			<default>
+				<driverclassname></driverclassname> <!-- Add driver class-name -->
+				<url></url> <!-- complete string url -->
+				<username></username> <!-- Add db username -->
+				<password></password> <!-- Add db password -->
+			</default> <!-- comment -->
+		</db>
 	</application>
 
 	<!-- Application ID for Native View -->

@@ -43,7 +43,7 @@ public class LDLinkHomeAndLandingPageSteps extends PageInitializer {
 
 	@When("user clicks LDLink on landing page")
 	public void user_clicks_LDLink_on_landing_page() {
-		CommonUtils.click(analysisToolsLandingPage.ldLinkTextOnLandingPage);
+		CommonUtils.clickOnElement(analysisToolsLandingPage.ldLinkTextOnLandingPage);
 	}
 
 	@Then("User verify title is {string}")

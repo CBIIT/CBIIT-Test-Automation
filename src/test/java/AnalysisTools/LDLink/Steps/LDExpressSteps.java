@@ -13,32 +13,32 @@ import io.cucumber.java.en.When;
 public class LDExpressSteps extends PageInitializer {
     @When("the user clicks on the LDexpress module")
     public void the_user_clicks_on_the_LDexpress_module() {
-        CommonUtils.click(ldLinkHomePage.ldExpressWindow);
+        CommonUtils.clickOnElement(ldLinkHomePage.ldExpressWindow);
     }
 
     @When("the user calculates using RS numbers {string}, {string}, {string},{string} and GRCh38 High Coverage for genome build, CHB for population and Brain for tissue, and clicks on Variants with Warnings Link")
     public void the_user_calculates_using_RS_numbers_and_GRCh38_High_Coverage_for_genome_build_CHB_for_population_and_Brain_for_tissue_and_clicks_on_Variants_with_Warnings_Link(
             String rsNum1, String rsNum2, String rsNum3, String rsNum4) {
         CommonUtils.waitForVisibility(ldExpressPage.genomeBuildSelector);
-        CommonUtils.click(ldExpressPage.genomeBuildSelector);
+        CommonUtils.clickOnElement(ldExpressPage.genomeBuildSelector);
         CommonUtils.waitForVisibility(ldExpressPage.grCh38HighCoverageValueFromDropDown);
-        CommonUtils.click(ldExpressPage.grCh38HighCoverageValueFromDropDown);
+        CommonUtils.clickOnElement(ldExpressPage.grCh38HighCoverageValueFromDropDown);
 
         CommonUtils.sendKeys(ldExpressPage.rsNumberInputTextBox,
                 rsNum1 + Keys.ENTER + rsNum2 + Keys.ENTER + rsNum3 + Keys.ENTER + rsNum4);
         CommonUtils.waitForClickability(ldExpressPage.selectPopulationDropDown);
-        CommonUtils.click(ldExpressPage.selectPopulationDropDown);
-        CommonUtils.click(ldExpressPage.chbOptionOnPopulationDropDown);
-        CommonUtils.click(ldExpressPage.rsNumberInputTextBox);
+        CommonUtils.clickOnElement(ldExpressPage.selectPopulationDropDown);
+        CommonUtils.clickOnElement(ldExpressPage.chbOptionOnPopulationDropDown);
+        CommonUtils.clickOnElement(ldExpressPage.rsNumberInputTextBox);
         CommonUtils.waitForClickability(ldExpressPage.selectTissueDropDown);
-        CommonUtils.click(ldExpressPage.selectTissueDropDown);
-        CommonUtils.click(ldExpressPage.brainAmygdalaOptionOnTissueDropDown);
+        CommonUtils.clickOnElement(ldExpressPage.selectTissueDropDown);
+        CommonUtils.clickOnElement(ldExpressPage.brainAmygdalaOptionOnTissueDropDown);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 
-        CommonUtils.click(ldExpressPage.submitOnLdExpress);
+        CommonUtils.clickOnElement(ldExpressPage.submitOnLdExpress);
         MiscUtils.sleep(15000);
         CommonUtils.waitForVisibility(ldExpressPage.variantsWithWarningsLink);
-        CommonUtils.click(ldExpressPage.variantsWithWarningsLink);
+        CommonUtils.clickOnElement(ldExpressPage.variantsWithWarningsLink);
 
     }
 

@@ -14,14 +14,14 @@ public class LDAssocSteps extends PageInitializer {
 
     @When("the user clicks on the LDassoc module")
     public void the_user_clicks_on_the_LDassoc_module() {
-        CommonUtils.click(ldLinkHomePage.ldAssocWindow);
+        CommonUtils.clickOnElement(ldLinkHomePage.ldAssocWindow);
     }
 
     @When("the user calculates example GWAS data on the LDassoc page")
     public void the_user_calculates_example_GWAS_data_on_the_LDassoc_page() {
-        CommonUtils.click(ldAssocPage.useExampleButton);
+        CommonUtils.clickOnElement(ldAssocPage.useExampleButton);
         CommonUtils.waitForClickability(ldAssocPage.submitOnLDassoc);
-        CommonUtils.click(ldAssocPage.submitOnLDassoc);
+        CommonUtils.clickOnElement(ldAssocPage.submitOnLDassoc);
     }
 
     @Then("the {string} text displays")
@@ -42,15 +42,15 @@ public class LDAssocSteps extends PageInitializer {
         JavascriptUtils.sendKeysByJS(ldAssocPage.fileUploadInputBox, ldAssocInputFile.getAbsolutePath());
         CommonUtils.sendKeys(ldAssocPage.fileUploadInputBox, ldAssocFile);
         MiscUtils.sleep(2000);
-        CommonUtils.click(ldAssocPage.variantDropDown);
-        CommonUtils.click(ldAssocPage.variantDropDownValue);
+        CommonUtils.clickOnElement(ldAssocPage.variantDropDown);
+        CommonUtils.clickOnElement(ldAssocPage.variantDropDownValue);
         CommonUtils.sendKeys(ldAssocPage.rsNumberInputOnVariantDropDown,
                 ldAssocRsNumber);
-        CommonUtils.click(ldAssocPage.populationDropDown);
-        CommonUtils.click(ldAssocPage.populationYriDropDownValue);
+        CommonUtils.clickOnElement(ldAssocPage.populationDropDown);
+        CommonUtils.clickOnElement(ldAssocPage.populationYriDropDownValue);
         MiscUtils.sleep(2000);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        CommonUtils.click(ldAssocPage.submitOnLDassoc);
+        CommonUtils.clickOnElement(ldAssocPage.submitOnLDassoc);
     }
 
 }

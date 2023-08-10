@@ -15,7 +15,7 @@ public class HomeTabSteps extends PageInitializer {
     @Given("The user is on the ezQTL Home page")
     public void the_user_is_on_the_ezQTL_Home_page() throws TestingException {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ezQTL"));
-        CommonUtils.click(ezQTLHomePage.homeTabButton);
+        CommonUtils.clickOnElement(ezQTLHomePage.homeTabButton);
         MiscUtils.sleep(2000);
     }
 

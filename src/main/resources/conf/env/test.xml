@@ -150,6 +150,26 @@
             </default> <!-- comment -->
         </db>
     </application>
+    <!-- Application ID for GDS Tracking -->
+    <application id="GDSTracking">
+        <login_url>https://gds-test.nci.nih.gov/gds/search/home.action</login_url> <!-- add
+			test url -->
+        <role name="Role">
+            <user id="regular">
+                <name>regular</name>
+                <userId></userId> <!-- add encrypted test user -->
+                <password></password> <!-- add encrypted test pass -->
+            </user>
+        </role>
+        <db>
+            <default>
+                <driverclassname></driverclassname> <!-- Add driver class-name -->
+                <url></url> <!-- complete string url -->
+                <username></username> <!-- Add db username -->
+                <password></password> <!-- Add db password -->
+            </default> <!-- comment -->
+        </db>
+    </application>
     <!-- Application ID for LDLink -->
     <application id="LDLink">
         <login_url>https://ldlink-qa.nih.gov/?tab=home</login_url> <!-- add
@@ -697,27 +717,27 @@
         </db>
     </application>
     <!-- Application ID for ETD -->
-	<application id="ETD">
-		<login_url>https://etd-test.nci.nih.gov/etd/search#
-		</login_url> <!-- add test url -->
-		<role name="Role">
-			<user id="regular">
-				<name>regular</name>
-				<userId></userId> <!-- add encrypted test user -->
-				<password></password> <!-- add encrypted test pass -->
-			</user>
-		</role>
+    <application id="ETD">
+        <login_url>https://etd-test.nci.nih.gov/etd/search#
+        </login_url> <!-- add test url -->
+        <role name="Role">
+            <user id="regular">
+                <name>regular</name>
+                <userId></userId> <!-- add encrypted test user -->
+                <password></password> <!-- add encrypted test pass -->
+            </user>
+        </role>
 
-		<db>
-			<default>
-				<driverclassname></driverclassname> <!-- Add driver class-name -->
-				<url></url> <!-- complete string url -->
-				<username></username> <!-- Add db username -->
-				<password></password> <!-- Add db password -->
-			</default>
-		</db>
+        <db>
+            <default>
+                <driverclassname></driverclassname> <!-- Add driver class-name -->
+                <url></url> <!-- complete string url -->
+                <username></username> <!-- Add db username -->
+                <password></password> <!-- Add db password -->
+            </default>
+        </db>
 
-	</application>
+    </application>
 
     <!-- Application ID for cProSite-->
     <application id="cProSite">

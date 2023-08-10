@@ -18,7 +18,7 @@ public class AnalysesTabSteps extends PageInitializer {
     @Given("The user is on the ezQTL Analyses page")
     public void the_user_is_on_the_ezQTL_Analyses_page() throws TestingException {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ezQTL"));
-        CommonUtils.click(ezQTLHomePage.analysesTabButton);
+        CommonUtils.clickOnElement(ezQTLHomePage.analysesTabButton);
         MiscUtils.sleep(2000);
     }
 
@@ -34,17 +34,17 @@ public class AnalysesTabSteps extends PageInitializer {
 
         CommonUtils.sendKeys(ezQTLAnalysesPage.associationDataFileInput, associationData);
         CommonUtils.sendKeys(ezQTLAnalysesPage.gwasDataFileInput, gwasData);
-        CommonUtils.click(ezQTLAnalysesPage.addQtlRawDataButton);
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.addQtlRawDataButton);
         CommonUtils.sendKeys(ezQTLAnalysesPage.quantificationDataFileInput, quantificationData);
         CommonUtils.sendKeys(ezQTLAnalysesPage.genotypeDataFileInput, genotypeData);
         CommonUtils.sendKeys(ezQTLAnalysesPage.ldDataFileInput, ldData);
         CommonUtils.sendKeys(ezQTLAnalysesPage.qtlDistanceInput, qtlDistance);
         CommonUtils.sendKeys(ezQTLAnalysesPage.snpNumberInput, snpNumber);
-        CommonUtils.click(ezQTLAnalysesPage.submitJobtoQueueCheckbox);
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.submitJobtoQueueCheckbox);
         CommonUtils.sendKeys(ezQTLAnalysesPage.queueJobName, jobName);
         CommonUtils.sendKeys(ezQTLAnalysesPage.queueEmail, queueEmail);
         MiscUtils.sleep(5000);
-        CommonUtils.click(ezQTLAnalysesPage.submitButton);
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.submitButton);
     }
 
     @Then("the {string} text is displayed")
@@ -62,21 +62,21 @@ public class AnalysesTabSteps extends PageInitializer {
         CommonUtils.clickOnElement(ezQTLAnalysesPage.publicLdPublicDataCheckBox);
         CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
         CommonUtils.waitForClickability(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
-        CommonUtils.click(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
-        CommonUtils.click(ezQTLAnalysesPage.selectFirstChromosomeDropDown21Value);
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.selectFirstChromosomeDropDown21Value);
         MiscUtils.sleep(1000);
         CommonUtils.sendKeys(ezQTLAnalysesPage.firstPositionTextBox, "42743496");
         CommonUtils.clickOnElement(ezQTLAnalysesPage.submitJobtoQueueCheckbox);
         CommonUtils.sendKeys(ezQTLAnalysesPage.queueJobName, "Automation Job");
         CommonUtils.sendKeys(ezQTLAnalysesPage.queueEmail, "kevin.matarodriguez@nih.gov");
         MiscUtils.sleep(2000);
-        CommonUtils.click(ezQTLAnalysesPage.submitButton);
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.submitButton);
 
     }
 
     @When("the user clicks on the Load Sample Data link")
     public void the_user_clicks_on_the_Load_Sample_Data_link() {
-        CommonUtils.click(ezQTLAnalysesPage.loadSampleDataLink);
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.loadSampleDataLink);
     }
 
     @Then("the {string}, {string}, {string}, {string}, {string}, {string}, {string} text is displayed")
@@ -109,40 +109,40 @@ public class AnalysesTabSteps extends PageInitializer {
 
         CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
         CommonUtils.waitForClickability(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
-        CommonUtils.click(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
-        CommonUtils.click(ezQTLAnalysesPage.selectFirstChromosomeDropDown21Value);
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.selectFirstChromosomeDropDown21Value);
         MiscUtils.sleep(2000);
         CommonUtils.sendKeys(ezQTLAnalysesPage.firstPositionTextBox, "42743496");
         CommonUtils.clickOnElement(ezQTLAnalysesPage.addLocusButton);
 
         CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectSecondChromosomeDropDown);
         CommonUtils.waitForClickability(ezQTLAnalysesPage.selectSecondChromosomeDropDown);
-        CommonUtils.click(ezQTLAnalysesPage.selectSecondChromosomeDropDown);
-        CommonUtils.click(ezQTLAnalysesPage.selectSecondChromosomeDropDown21Value);
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.selectSecondChromosomeDropDown);
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.selectSecondChromosomeDropDown21Value);
         MiscUtils.sleep(2000);
         CommonUtils.sendKeys(ezQTLAnalysesPage.secondPositionTextBox, "42743496");
         CommonUtils.clickOnElement(ezQTLAnalysesPage.addLocusButton);
 
         CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectThirdChromosomeDropDown);
         CommonUtils.waitForClickability(ezQTLAnalysesPage.selectThirdChromosomeDropDown);
-        CommonUtils.click(ezQTLAnalysesPage.selectThirdChromosomeDropDown);
-        CommonUtils.click(ezQTLAnalysesPage.selectThirdChromosomeDropDown21Value);
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.selectThirdChromosomeDropDown);
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.selectThirdChromosomeDropDown21Value);
         MiscUtils.sleep(2000);
         CommonUtils.sendKeys(ezQTLAnalysesPage.thirdPositionTextBox, "42743496");
         CommonUtils.clickOnElement(ezQTLAnalysesPage.addLocusButton);
 
         CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectFourthChromosomeDropDown);
         CommonUtils.waitForClickability(ezQTLAnalysesPage.selectFourthChromosomeDropDown);
-        CommonUtils.click(ezQTLAnalysesPage.selectFourthChromosomeDropDown);
-        CommonUtils.click(ezQTLAnalysesPage.selectFourthChromosomeDropDown21Value);
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.selectFourthChromosomeDropDown);
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.selectFourthChromosomeDropDown21Value);
         MiscUtils.sleep(2000);
         CommonUtils.sendKeys(ezQTLAnalysesPage.fourthPositionTextBox, "42743496");
         CommonUtils.clickOnElement(ezQTLAnalysesPage.addLocusButton);
 
         CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectFifthChromosomeDropDown);
         CommonUtils.waitForClickability(ezQTLAnalysesPage.selectFifthChromosomeDropDown);
-        CommonUtils.click(ezQTLAnalysesPage.selectFifthChromosomeDropDown);
-        CommonUtils.click(ezQTLAnalysesPage.selectFifthChromosomeDropDown21Value);
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.selectFifthChromosomeDropDown);
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.selectFifthChromosomeDropDown21Value);
         MiscUtils.sleep(2000);
         CommonUtils.sendKeys(ezQTLAnalysesPage.fifthPositionTextBox, "42743496");
 
@@ -150,7 +150,7 @@ public class AnalysesTabSteps extends PageInitializer {
         CommonUtils.sendKeys(ezQTLAnalysesPage.queueJobName, "Automation Job");
         CommonUtils.sendKeys(ezQTLAnalysesPage.queueEmail, "kevin.matarodriguez@nih.gov");
         MiscUtils.sleep(2000);
-        CommonUtils.click(ezQTLAnalysesPage.submitButton);
+        CommonUtils.clickOnElement(ezQTLAnalysesPage.submitButton);
     }
 
     @Then("the both download links are clickable")
