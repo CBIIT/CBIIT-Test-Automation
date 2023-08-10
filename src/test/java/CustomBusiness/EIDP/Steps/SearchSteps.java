@@ -29,11 +29,11 @@ public class SearchSteps extends PageInitializer {
 		searchStepimpl.clickOnSearchButton();
 		searchStepimpl.selectActiveTraineeNHGRI();
 		Assert.assertTrue(searchStepimpl.isIDPFormDisplayed());
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		searchStepimpl.selectNCITrainingOrganization(requestData.get("NHGRI Training Organization"));
 		searchStepimpl.clickOnSaveAndSendMailButton();
 		Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		searchStepimpl.clickOnOkButton();
 	}
 	
@@ -51,11 +51,11 @@ public class SearchSteps extends PageInitializer {
 		searchStepimpl.clickOnSearchButton();
 		searchStepimpl.selectActiveTraineeNHGRI();
 		Assert.assertTrue(searchStepimpl.isIDPFormDisplayed());
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		searchStepimpl.selectNCITrainingOrganization(requestData.get("NHGRI Training Organization"));
 		searchStepimpl.clickOnSaveAndSendMailButton();
 		Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		searchStepimpl.clickOnOkButton();
 	}
 
@@ -78,18 +78,18 @@ public class SearchSteps extends PageInitializer {
 			select_the_reason_as_checkbox("Routine 6 Month follow up");
 			searchStepimpl.clickOnSaveAndSendMailButton();
 			Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			searchStepimpl.clickOnOkButton();
 		} else{
 			searchStepimpl.checkTraineeWithoutIDPCheckbox();
 			searchStepimpl.clickOnSearchButton();
 			searchStepimpl.selectActiveTrainee();	
 			Assert.assertTrue(searchStepimpl.isIDPFormDisplayed());
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			searchStepimpl.selectNCITrainingOrganization(requestData.get("NCI Training Organization"));
 			searchStepimpl.clickOnSaveAndSendMailButton();
 			Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			searchStepimpl.clickOnOkButton();
 		}
 			
@@ -153,7 +153,7 @@ public class SearchSteps extends PageInitializer {
 	@Then("User will verify initiate IDP form is opned")
 	public void verifyIDPFormOpen() {
 		Assert.assertTrue(searchStepimpl.isIDPFormDisplayed());
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User selects nci training organization as \"([^\"]*)\"")
@@ -175,7 +175,7 @@ public class SearchSteps extends PageInitializer {
 	@Then("User will verify IDP initiation is successful")
 	public void verifyIDPInitiationSuccessful() throws Exception {
 		Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	// Revise

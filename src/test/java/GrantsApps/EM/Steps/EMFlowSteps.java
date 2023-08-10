@@ -23,16 +23,16 @@ public class EMFlowSteps extends PageInitializer {
     @Given("User is on Manage I{int}E Users page")
     public void user_is_on_Manage_I_E_Users_page(Integer int1) {
         CommonUtils.assertTrue(manageI2EUsersPage.i2EPageTitle.isDisplayed());
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     @When("User inputs {string} into the Name field and clicks search")
     public void user_inputs_into_the_name_field_and_clicks_search(String name) {
         CommonUtils.sendKeys(manageI2EUsersPage.nameField, name);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(manageI2EUsersPage.searchButtonI2ESearch);
         MiscUtils.sleep(3000);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     @When("User clicks {string} button")
@@ -55,12 +55,12 @@ public class EMFlowSteps extends PageInitializer {
         CommonUtils.clickOnElement(DynamicLocators.dynamicContainsTextLocatorWithSpanTagName(text));
 
         //CommonUtils.sendKeys(manageI2EUsersPage.I2ERoleDropDownTextBox, Keys.ENTER);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     @Then("User clicks on Add Role button Inside Module")
     public void user_clicks_on_Add_Role_button_Inside_Module() {
         CommonUtils.clickOnElement(manageI2EUsersPage.addRoleButtonInsideModule);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 }

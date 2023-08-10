@@ -28,7 +28,7 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer {
 		enterPublication();
 		CommonUtils.clickOnElement(projectRelatedDeliverablePage.saveAndContinueButton);
 		enterClassesCoursesWorkshop();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(projectRelatedDeliverablePage.saveAndContinueButton);
 	}
 
@@ -46,7 +46,7 @@ public class ProjectRelatedDeliverableStepImpl extends PageInitializer {
 		eidpBasePage.selectOption(projectRelatedDeliverablePage.targetYearDropdown, "2023");
 		CommonUtils.sendKeys(projectRelatedDeliverablePage.publicationtitle, "Publication title for automation");
 		CommonUtils.sendKeys(projectRelatedDeliverablePage.publicationDescription, "Publication description");
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(projectRelatedDeliverablePage.addDeliverablesButton);
 	}
 

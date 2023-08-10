@@ -18,7 +18,7 @@ public class SEERLandingPageSteps extends PageInitializer {
 	@Given("a user is on the SEER Data Access landing page")
 	public void a_user_is_on_the_SEER_Data_Access_landing_page() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SEERDataAccess"));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Given("a new user who does not have an active SEER Research Database access request")
@@ -30,7 +30,7 @@ public class SEERLandingPageSteps extends PageInitializer {
 	@When("enter email for SEER Research Database and click on the Register for Research Data")
 	public void enter_email_for_SEER_Research_Database_and_click_on_the_Register_for_Research_Data() throws TestingException{
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SEERDataAccess"));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		SEERDataAccessRequestPageStepsImpl.enterEmailAddress349();
 	}
 

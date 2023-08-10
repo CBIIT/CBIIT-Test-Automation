@@ -18,10 +18,10 @@ public class SignOutVerificationStepImp extends PageInitializer {
 	 */
 	public void covidCodeServicePortalLogIn() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		iTrustloginPage.covidCodeLogInButton();
 		loginImpl.loginToITrust();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	/**
@@ -29,10 +29,10 @@ public class SignOutVerificationStepImp extends PageInitializer {
 	 * user is signed in and when user logs out
 	 */
 	public void covidCodeServicePortalLogOut() {
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.clickByJS(iTrustloginPage.profileDropDown);
 		JavascriptUtils.clickByJS(iTrustloginPage.covidCodeSignOutButton);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 }

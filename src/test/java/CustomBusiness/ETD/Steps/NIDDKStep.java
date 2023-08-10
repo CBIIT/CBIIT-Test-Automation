@@ -30,7 +30,7 @@ public class NIDDKStep extends PageInitializer {
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser,"BULL, MELBOURNE");
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
 		CommonUtils.clickOnElement(etdAdminNCIPage.deleteDorsey);
@@ -48,10 +48,10 @@ public class NIDDKStep extends PageInitializer {
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, "DORSEY, NOVELLA");
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 	
 	@Then("User can verify that NIDDK profile is present")

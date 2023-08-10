@@ -410,7 +410,7 @@ public class SearchStepImpl extends PageInitializer {
             eidpBasePage.scrollToElement(searchPage.traineeNameText);
             String actualName = searchPage.traineeNameText.getText();
             Assert.assertEquals(primaryMentor, actualName);
-            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+            CucumberLogUtils.logScreenshot();
             row.click();
             MiscUtils.sleep(5000);
         }
@@ -465,7 +465,7 @@ public class SearchStepImpl extends PageInitializer {
             eidpBasePage.scrollToElement(searchPage.classificationTypeText);
             String actualType = searchPage.classificationTypeText.getText();
             Assert.assertEquals(type.toUpperCase(), actualType);
-            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+            CucumberLogUtils.logScreenshot();
             eachRow.click();
         }
     }

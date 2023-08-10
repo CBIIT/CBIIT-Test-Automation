@@ -33,14 +33,14 @@ public class ETDAdminFlowStep extends PageInitializer {
 	public void user_clicks_on_organization_dropdown() {
 		CommonUtils.clickOnElement(etdAdminNCIPage.organizationDropdown);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User can see only profile related to their top IC")
 	public void user_can_see_only_profile_related_to_their_top_IC() {
 		Assert.assertTrue(etdAdminNCIPage.organizationNCI.isDisplayed());
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User chooses to view {string}")
@@ -86,7 +86,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 
 	@Then("User can not delete their profile")
 	public void user_can_not_delete_their_profile() {
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	// @manageRolesNegative
@@ -94,14 +94,14 @@ public class ETDAdminFlowStep extends PageInitializer {
 	public void user_clicks_on_Manage_Roles_tab() {
 		CommonUtils.clickOnElement(etdAdminNCIPage.manageRolesTab);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can verify the alert message")
 	public void user_can_verify_the_alert_message() {
 		Assert.assertTrue(etdAdminNCIPage.alert.isDisplayed());
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User clicks add button")
@@ -118,7 +118,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	// @manageRolesAdmin
@@ -130,14 +130,14 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User assigns an admin role")
 	public void user_assigns_an_admin_role() {
 		CommonUtils.clickOnElement(etdAdminNCIPage.roleAdmin);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User chooses an Organization\\/SAC from the dropdown")
@@ -146,7 +146,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownNCI);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("user can verify that SAVE button is enabled")
@@ -175,7 +175,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, "CLIFFORD, DAVID");
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
 		CommonUtils.clickOnElement(etdAdminNCIPage.deleteBarbara);
@@ -193,10 +193,10 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, "Agu, Barbara");
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	// @manageRolesLiaison
@@ -204,7 +204,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 	public void user_assigns_an_ETD_liaison_role() {
 		CommonUtils.clickOnElement(etdAdminNCIPage.roleETDLiaison);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User trying to save the addition without picking an organization")
@@ -229,7 +229,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownNCI);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User assigns the same organization")
@@ -241,7 +241,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 	@Then("User does not see that organization in dropdopwn choices")
 	public void user_does_not_see_that_organization_in_dropdopwn_choices() {
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can assign a liaison role successfully")
@@ -264,7 +264,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 	public void user_can_cancel_the_whole_operation() {
 		CommonUtils.clickOnElement(etdAdminNCIPage.cancelButton);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	// @manageRolesMultipleGroupsAccessNCI
@@ -276,7 +276,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(1000);
 		Assert.assertEquals("NCI OD (HNC1)", etdAdminNCIPage.orgHNC1.getText());
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	// @addUserOperations
@@ -301,14 +301,14 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.clickOnElement(etdAdminNCIPage.roleETDLiaison);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownOrganization);
 		MiscUtils.sleep(2000);
 		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownNCI);
 		MiscUtils.sleep(2000);
 		CommonUtils.clickOnElement(etdAdminNCIPage.saveButton);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User resets profile data")
@@ -391,7 +391,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 	public void user_clicks_on_Manage_ETD_Tab() {
 		CommonUtils.clickOnElement(etdAdminNCIPage.manageETDTab);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can choose an organization from the dropdown")
@@ -412,7 +412,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 	public void user_clicks_Search_button() {
 		CommonUtils.clickOnElement(etdAdminNCIPage.searchButton);
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can see profiles {string} related to the NCI applied search")
@@ -474,7 +474,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(2000);
 		Assert.assertEquals("CLIFFORD, DAVID", etdAdminNCIPage.acknowledgedByDavid.getText());
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User logs in as that person")
@@ -486,7 +486,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, "AALAI, MARRIAM");
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
 	}
@@ -495,7 +495,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 	public void user_loads_a_wide_search() {
 		CommonUtils.clickOnElement(etdAdminNCIPage.searchButton);
 		MiscUtils.sleep(9000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can see an alert on the acknowledged tier")
@@ -507,7 +507,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 		Assert.assertEquals("Our records indicate that you have already acknowledged your Emergency Tier Designation.",
 				etdAdminNCIPage.tierIsAcknowledged.getText());
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	// @manageETDNCIUserNotAcknowledgedTier
@@ -528,7 +528,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, "ABRAMS, NATALIE");
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
 	}
@@ -543,7 +543,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, "ABER, ETAN");
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
 	}
@@ -554,14 +554,14 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(3000);
 		CommonUtils.clickOnElement(etdAdminNCIPage.homeTab);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can verify that content is Tier {int} related")
 	public void user_can_verify_that_content_is_Tier_related(Integer int1) {
 		Assert.assertTrue(etdAdminNCIPage.tier1Alert.isDisplayed());
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Given("User logged in as a {string}")
@@ -579,7 +579,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 	public void user_can_verify_that_the_content_is_NCI_related() {
 		Assert.assertTrue(etdAdminNCIPage.nciHomeTab.isDisplayed());
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	// @NIDKK
@@ -587,7 +587,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 	public void user_can_verify_that_the_content_is_NIDKK_related() {
 		Assert.assertTrue(etdAdminNCIPage.niddkHomeTab.isDisplayed());
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	// @OHR
@@ -595,7 +595,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 	public void user_can_verify_that_the_content_is_OHR_related() {
 		Assert.assertTrue(etdAdminNCIPage.ohrHomeTab.isDisplayed());
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	// @manageETDReminders
@@ -620,7 +620,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.clickOnElement(etdAdminNCIPage.saveButtonAcknowledge);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can verify that reminder info is NULL")
@@ -695,14 +695,14 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(3000);
 		CommonUtils.clickOnElement(etdAdminNCIPage.flag);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can remove an exception flag")
 	public void user_can_remove_an_exception_flag() {
 		CommonUtils.clickOnElement(etdAdminNCIPage.flag);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can edit existing notes")
@@ -717,7 +717,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 	public void user_can_save_applied_changes() {
 		CommonUtils.clickOnElement(etdAdminNCIPage.saveButtonAcknowledge);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	// @manageETDresetAcknowledgementNCI
@@ -735,14 +735,14 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(3000);
 		CommonUtils.clickOnElement(etdAdminNCIPage.confirmAlert);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can successfully accomplish that step")
 	public void user_can_successfully_accomplish_that_step() {
 		Assert.assertEquals("", etdAdminNCIPage.dateNullValue.getText());
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User resets the scenario")
@@ -819,7 +819,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, "ABER, ETAN");
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
 		CommonUtils.clickOnElement(etdAdminNCIPage.aboutETDTab);
@@ -827,7 +827,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 		CommonUtils.clickOnElement(etdAdminNCIPage.homeTab);
 		Assert.assertTrue(etdAdminNCIPage.tier1Alert.isDisplayed());
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	// @manageETDEmergencyLetterAlert
@@ -840,10 +840,10 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, user);
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can verify that home tab is not authorized")
@@ -852,7 +852,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(3000);
 		Assert.assertTrue(etdAdminNCIPage.notAuthorized.isDisplayed());
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	// @TierAcknowledgedEmployee
@@ -862,14 +862,14 @@ public class ETDAdminFlowStep extends PageInitializer {
 		MiscUtils.sleep(3000);
 		CommonUtils.clickOnElement(etdAdminNCIPage.homeTab);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("employee will see a respective message")
 	public void employee_will_see_a_respective_message() {
 		Assert.assertTrue(etdAdminNCIPage.tier1Acknowledged.isDisplayed());
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	// @validateTierChangesNonEmployee
@@ -877,7 +877,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 	public void user_is_on_Manage_ETD_Tab() {
 		CommonUtils.clickOnElement(etdAdminNCIPage.manageETDTab);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User picks Tier {int}")
@@ -931,7 +931,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 	public void user_will_see_message(String string) {
 	    Assert.assertTrue(etdAdminNCIPage.notAuthorized.isDisplayed());
 	    MiscUtils.sleep(2000);
-	    CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+	    CucumberLogUtils.logScreenshot();
 	}
 	
 	@Then("User picks a {string} from dropdown")

@@ -19,7 +19,7 @@ public class GeneralInformationSteps extends PageInitializer {
 	@When("User fills mandatory fields in general information")
 	public void fillGeneralInformation(DataTable dataTable) throws Exception {
 		generalInformationStepImpl.fillGeneralInformation(dataTable);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User fills mandatory fields in general information section")
@@ -41,7 +41,7 @@ public class GeneralInformationSteps extends PageInitializer {
 		generalInformationStepImpl.selectRandomCurrentTitle();
 		generalInformationStepImpl.selectRandomHighestDegree();
 		CommonUtil.waitBrowser(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		generalInformationStepImpl.clickOnSaveAndContinueButton();
 	}
 
@@ -49,7 +49,7 @@ public class GeneralInformationSteps extends PageInitializer {
 	public void fillGeneralInformationForRenewal(DataTable data) throws Exception {
 		generalInformationStepImpl.selectRandomHighestDegree();
 		CommonUtil.waitBrowser(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		generalInformationStepImpl.clickOnSaveAndContinueButton();
 		MiscUtils.sleep(1000);
 	}
@@ -74,7 +74,7 @@ public class GeneralInformationSteps extends PageInitializer {
 		}
 		generalInformationStepImpl.selectRandomHighestDegree();
 		CommonUtil.waitBrowser(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		generalInformationStepImpl.clickOnSaveAndContinueButton();
 		MiscUtils.sleep(1000);
 	}
@@ -127,7 +127,7 @@ public class GeneralInformationSteps extends PageInitializer {
 
 		}
 		CommonUtil.waitBrowser(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 

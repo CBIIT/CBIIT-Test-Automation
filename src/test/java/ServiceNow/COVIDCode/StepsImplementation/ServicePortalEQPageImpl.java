@@ -147,7 +147,7 @@ public class ServicePortalEQPageImpl extends PageInitializer {
 		}
 		List<String> exp = new ArrayList<String>(Arrays.asList(arrayList));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		Assert.assertEquals(act, exp);
 	}
 

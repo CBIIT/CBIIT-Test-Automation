@@ -278,7 +278,7 @@ public class BusinessCaseFormPage extends BasePage {
 
 	public void impersonateUser(String userName) {
 		clickOnElement(nativeViewButtonNew);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(impersonateOption);
 		JavascriptUtils.clickByJS(impersonateOption);
 		clickOnElement(find(By.xpath("//a[text()='" + userName + "']")));

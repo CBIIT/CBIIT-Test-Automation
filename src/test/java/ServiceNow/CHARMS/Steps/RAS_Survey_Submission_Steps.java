@@ -35,7 +35,7 @@ public class RAS_Survey_Submission_Steps extends PageInitializer {
 		CommonUtils.waitForVisibility(rASSurveyPage.cHARMSEmailLogIn);
 		rASSurveyPage.cHARMSEmailLogIn.sendKeys("charmsras5@yahoo.com");
 		rASSurveyPage.cHARMSpasswordToLogIn.sendKeys(rasSurveyPin);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		rASSurveyPage.surveyNextButton.click();
 	}
 

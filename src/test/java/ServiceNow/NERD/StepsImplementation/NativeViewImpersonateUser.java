@@ -28,7 +28,7 @@ public class NativeViewImpersonateUser extends PageInitializer {
         MiscUtils.sleep(3000);
         nativeViewDashPage.enterTextImpersntSearchBox(CRSReviewers_Constants.CRS_REVIEWER_UNIQUE_NAME);
         MiscUtils.sleep(5000);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public void impersonateToAnyCRSReviewerNerd(String approver, String approverEmail) throws TestingException {
@@ -46,7 +46,7 @@ public class NativeViewImpersonateUser extends PageInitializer {
         CommonUtils.waitForVisibility(NativeViewDashboardPage.dynamicImpersonatorLocatorByEmail(approverEmail));
         CommonUtils.clickOnElement(NativeViewDashboardPage.dynamicImpersonatorLocatorByEmail(approverEmail));
         MiscUtils.sleep(5000);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public void impersonateToDocPlanningContact() throws TestingException {
@@ -62,7 +62,7 @@ public class NativeViewImpersonateUser extends PageInitializer {
         MiscUtils.sleep(3000);
         nativeViewDashPage.enterTextImpersntSearchBox(CRSReviewers_Constants.CRS_DOC_PLANNING_CONTACT_REVIEWER_NAME);
         MiscUtils.sleep(5000);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public void impersonateToStaffMemberCBIIT() throws TestingException {
@@ -78,7 +78,7 @@ public class NativeViewImpersonateUser extends PageInitializer {
         MiscUtils.sleep(3000);
         nativeViewDashPage.enterTextImpersntSearchBox(CRSReviewers_Constants.CBIIT_TEST_ACCOUNT_NAME);
         MiscUtils.sleep(5000);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public void impersonateOGCRUser() throws TestingException {
@@ -94,7 +94,7 @@ public class NativeViewImpersonateUser extends PageInitializer {
         MiscUtils.sleep(3000);
         nativeViewDashPage.enterTextImpersntSearchBox(CRSReviewers_Constants.OGCR_REVIEWER_NAME);
         MiscUtils.sleep(5000);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public void impersonateEtrackingUser() throws TestingException {
@@ -112,7 +112,7 @@ public class NativeViewImpersonateUser extends PageInitializer {
         MiscUtils.sleep(5000);
         nativeViewImpersonateUserPage.nativeViewLink.click();
         MiscUtils.sleep(2000);
-//        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+//        CucumberLogUtils.logScreenshot();
     }
 
     public void impersonateAdminUser() throws TestingException {
@@ -130,6 +130,6 @@ public class NativeViewImpersonateUser extends PageInitializer {
         MiscUtils.sleep(5000);
         nativeViewImpersonateUserPage.nativeViewLink.click();
         MiscUtils.sleep(2000);
-//        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+//        CucumberLogUtils.logScreenshot();
     }
 }

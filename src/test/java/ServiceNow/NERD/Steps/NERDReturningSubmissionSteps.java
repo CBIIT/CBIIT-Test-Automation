@@ -136,7 +136,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
     @Then("a notification is sent to the DOC Planning Contact")
     public void a_notification_is_sent_to_the_DOC_Planning_Contact() throws TestingException {
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnedToDOCText(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION));
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(1000);
         NERD_NCI_DOC_PlanningContactStepsImplementation.deleteCreatedSubmissionByDocPlanningContact(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION);
     }

@@ -16,15 +16,15 @@ public class ServicePortalQuestionnairePageImp extends PageInitializer {
 
 	public void startNewInitialQuestionnaire() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		covidCodeLoginPage.LogInButton.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		loginImpl.loginToITrust();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		servicePortalQuestionnairePage.startNewInitialQuestionnaireButton.click();
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 		CommonUtils.selectDropDownValue("User Group 1",
 				servicePortalQuestionnairePage.enrollmentCreationUserGroupIDSelectDropDown);
@@ -42,14 +42,14 @@ public class ServicePortalQuestionnairePageImp extends PageInitializer {
 
 	public void startNewFollowUpQuestionnaire() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		covidCodeLoginPage.LogInButton.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		loginImpl.loginToITrust();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		servicePortalQuestionnairePage.startNewFollowUpButton.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		servicePortalQuestionnairePage.enrollmentLookUpPatientIDSearchDropDown.click();
 		CommonUtils.selectValueFromBootStrapDropDown(
 				servicePortalQuestionnairePage.enrollmentLookUpPatientIDSearchValues, "HCC0001198");

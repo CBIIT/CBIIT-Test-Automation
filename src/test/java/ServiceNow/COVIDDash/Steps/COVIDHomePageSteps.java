@@ -5,7 +5,6 @@ import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import appsCommon.PageCache;
 import appsCommon.PageInitializer;
 import io.cucumber.java.en.Given;
@@ -40,9 +39,8 @@ public class COVIDHomePageSteps extends PageInitializer{
 	@Given("user validates that Institute, Division, Email Address, and Phone Number fields are not editable")
 	public void user_validates_that_Institute_Division_Email_Address_and_Phone_Number_fields_are_not_editabel() {
 		pageCache.getCOVIDHomePageImpl().verifyFieldsAreDiabled();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
-
 	@When("the User selects a principal Investigator by typing their name in the principal Investigator search box. {string}")
 	public void the_User_selects_a_Primary_Investigator_by_typing_their_name_in_the_Primary_Investigator_search_box(
 			String piName) {
@@ -146,7 +144,7 @@ public class COVIDHomePageSteps extends PageInitializer{
 
 	@When("does not attach an IRB Protocol Document")
 	public void does_not_attach_an_IRB_Protocol_Document() {
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("attempts to confirm and submit the study form")
@@ -156,12 +154,12 @@ public class COVIDHomePageSteps extends PageInitializer{
 
 	@Then("the user is not able to successfully submit the study form")
 	public void the_user_is_not_able_to_successfully_submit_the_study_form() {
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("sees a pop up with a message indicating study documentation is required before submitting")
 	public void sees_a_pop_up_with_the_message() {
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("when selecting {string}")
@@ -173,7 +171,7 @@ public class COVIDHomePageSteps extends PageInitializer{
 	public void under_Study_Documentation_the_user_sees_the_message(String message) {
 		String studyDocErrorMessage = pageCache.getCOVIDHomePage().studyDocumentationErrorMessage().getText();
 		Assert.assertTrue(studyDocErrorMessage.contains("required"));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("the user is on the submissions home page")
@@ -200,7 +198,6 @@ public class COVIDHomePageSteps extends PageInitializer{
 	public void an_error_message_displays_for_IRB_field_with_the_message(String irbErrorMsge) {
 		String IRBErrorMsg = pageCache.getCOVIDHomePage().irbProtocolNumberErrormsg().getText();
 		Assert.assertTrue(IRBErrorMsg.contains(irbErrorMsge));
-		CucumberLogUtils.logInfo(IRBErrorMsg);
 	}
 
 	@When("the User enters any Study Title and immediately deletes it")
@@ -212,7 +209,6 @@ public class COVIDHomePageSteps extends PageInitializer{
 	public void an_error_message_displays_for_title_with_the_message(String errorMsge) {
 		String StudyTitleErrormsg = pageCache.getCOVIDHomePage().studyTitleErrorMsg().getText();
 		Assert.assertTrue(StudyTitleErrormsg.contains(errorMsge));
-		CucumberLogUtils.logInfo(StudyTitleErrormsg);
 	}
 
 	@When("the User selects a Biospecimen Collection Frequency and then immediately selects no option")
@@ -235,7 +231,6 @@ public class COVIDHomePageSteps extends PageInitializer{
 	public void an_error_message_displays_for_aims_with_the_message(String aimErrorMsge) {
 		String studySpecifAimsErrMsg = pageCache.getCOVIDHomePage().studySpecificAimsErrorMessage().getText();
 		Assert.assertTrue(studySpecifAimsErrMsg.contains(aimErrorMsge));
-		CucumberLogUtils.logInfo(studySpecifAimsErrMsg);
 	}
 
 	@Given("successfully submits a Study Form")

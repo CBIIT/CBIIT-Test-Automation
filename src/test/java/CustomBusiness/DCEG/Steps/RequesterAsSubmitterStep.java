@@ -37,7 +37,7 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 	public void user_is_on_Clearance_Request_tab() {
 		Assert.assertTrue(createCRPage.clearanceRequestsTab.isDisplayed());
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
@@ -51,7 +51,7 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 	public void the_request_type_is_Research_Program() {
 		flowStepsImplementation.checkButton();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User chooses from dropdown CAS ID option General Program Administration")
@@ -68,21 +68,21 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.clickOnElement(createCRPage.albanesDemetrius);
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User inputs Submission Title as {string}")
 	public void user_inputs_Submission_Title_as(String title) {
 		CommonUtils.sendKeys(createCRPage.submissionTitleField, title);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User fills in Abstract field")
 	public void user_fills_in_Abstract_field() {
 		CommonUtils.sendKeys(createCRPage.abstractField, "test abstract");
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User picks Submission Type as Publication")
@@ -97,49 +97,49 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.clickOnElement(createCRPage.originJournlPublicationDropdown);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User inputs Journal or Book Name as {string}")
 	public void user_inputs_Journal_or_Book_Name_as(String string) {
 		CommonUtils.sendKeys(createCRPage.journalField, "JNCI");
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User confirms NIH Rights, PMC")
 	public void user_confirms_NIH_Rights_PMC() {
 		CommonUtils.clickOnElement(createCRPage.nihRightConfirm);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User confirms the Publisher Credibility question")
 	public void user_confirms_the_Publisher_Credibility_question() {
 		CommonUtils.clickOnElement(createCRPage.publisherCredibilityConfirm);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User confirms Genomic Data Generation question")
 	public void user_confirms_Genomic_Data_Generation_question() {
 		CommonUtils.clickOnElement(createCRPage.genomicDataGenerationConfirm);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User denies Laboratory Resources question")
 	public void user_denies_Laboratory_Resources_question() {
 		CommonUtils.clickOnElement(createCRPage.labResourcesDeny);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 	
 	@When("User confirms Laboratory Resources question")
 	public void user_confirms_Laboratory_Resources_question() {
 		CommonUtils.clickOnElement(createCRPage.labResourcesDeny);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User submits a Review Material as Manuscript")
@@ -147,10 +147,10 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 		JavascriptUtils.scrollIntoView(createCRPage.manuscriptChoice);
 		CommonUtils.clickOnElement(createCRPage.manuscriptChoice);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		flowStepsImplementation.uploadManuscript();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User submits a Review Material as Data Sharing Plan Publication")
@@ -158,10 +158,10 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 		JavascriptUtils.scrollIntoView(createCRPage.dataSharingPlanPublication);
 		CommonUtils.clickOnElement(createCRPage.dataSharingPlanPublication);
 		MiscUtils.sleep(5000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		flowStepsImplementation.uploadDataSharing();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User submits a Review Material as Data Sharing Plan Presentation")
@@ -169,59 +169,59 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 		JavascriptUtils.scrollIntoView(createCRPage.dataSharingPlanPresentation);
 		CommonUtils.clickOnElement(createCRPage.dataSharingPlanPresentation);
 		MiscUtils.sleep(5000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		flowStepsImplementation.uploadDataSharing();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User marks Patent\\/Invention as Employee Invention Report filed")
 	public void user_marks_Patent_Invention_as_Employee_Invention_Report_filed() {
 		CommonUtils.clickOnElement(createCRPage.employeeInventionChoice);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User denies Select Agents question")
 	public void user_denies_Select_Agents_question() {
 		CommonUtils.clickOnElement(createCRPage.selectAgentNo);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User confirms Helix Biowulf question")
 	public void user_confirms_Helix_Biowulf_question() {
 		CommonUtils.clickOnElement(createCRPage.helixBiowulfYES);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User confirms using Clinical Center's BTRIS system")
 	public void user_confirms_using_Clinical_Center_s_BTRIS_system() {
 		CommonUtils.clickOnElement(createCRPage.btrisYES);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User denies dual use")
 	public void user_denies_dual_use() {
 		CommonUtils.clickOnElement(createCRPage.dualUseNO);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User confirms that the paper is High Profile")
 	public void user_confirms_that_the_paper_is_High_Profile() {
 		CommonUtils.clickOnElement(createCRPage.highProfileYES);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User lists authors for submisison")
 	public void user_lists_authors_for_submisison() {
 		CommonUtils.sendKeys(createCRPage.authorsField, "test authors");
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User can verify scheduled reviewer CHRISTIAN ABNET as Branch Chief")
@@ -229,35 +229,35 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 		JavascriptUtils.scrollIntoView(createCRPage.abnetChristian);
 		Assert.assertEquals("ABNET, CHRISTIAN", createCRPage.abnetChristian.getText());
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User can verify scheduled reviewer AMY BERRINGTON as Program Director")
 	public void user_can_verify_scheduled_reviewer_AMY_BERRINGTON_as_Program_Director() {
 		Assert.assertTrue(createCRPage.berringtonAmy.isDisplayed());
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 	
 	@Then("User can verify scheduled reviewer GARCIA-CLOSAS, MONTSERRAT as Program Director")
 	public void user_can_verify_scheduled_reviewer_GARCIA_CLOSAS_MONTSERRAT_as_Program_Director() {
 		Assert.assertTrue(createCRPage.montserratGarcia.isDisplayed());
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User can verify scheduled reviewer STEPHEN CHANOCK as Division Director")
 	public void user_can_verify_scheduled_reviewer_STEPHEN_CHANOCK_as_Division_Director() {
 		Assert.assertTrue(createCRPage.chanockStephen.isDisplayed());
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User submits for verification")
 	public void user_submits_for_verification() {
 		CommonUtils.clickOnElement(createCRPage.submitForVerification);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(7000);
 	}
 
@@ -265,7 +265,7 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 	public void user_can_verify_that_their_request_is_under_My_Pending_Publications_subtab() {
 		JavascriptUtils.clickByJS(createCRPage.myActiveSubmissions);
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User deletes the request")
@@ -275,7 +275,7 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.clickOnElement(createCRPage.deleteClearanceReqConfirmation);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 	// @RequesterAsSubmitterPresentation
 
@@ -283,45 +283,45 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 	public void user_picks_Submission_Type_as_Presentation() {
 		CommonUtils.clickOnElement(createCRPage.presentationType);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User selects presentation type as Meeting Abstract")
 	public void user_selects_presentation_type_as_Meeting_Abstract() {
 		CommonUtils.clickOnElement(createCRPage.presentationDropdown);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(createCRPage.meetingAbstract);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User inputs Meeting Name as {string}")
 	public void user_inputs_Meeting_Name_as(String name) {
 		CommonUtils.sendKeys(createCRPage.meetingName, name);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User inputs Meeting Location as {string}")
 	public void user_inputs_Meeting_Location_as(String location) {
 		CommonUtils.sendKeys(createCRPage.meetingLocation, location);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User inputs Meeting Date as {string}")
 	public void user_inputs_Meeting_Date_as(String date) {
 		CommonUtils.sendKeys(createCRPage.meetingDate, date);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User puts no for  Laboratory Resources question")
 	public void user_puts_no_for_Laboratory_Resources_question() {
 		CommonUtils.clickOnElement(createCRPage.labResourcesNO);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User picks MDPL\\/Somatic Analysis as Lab results option")
@@ -330,20 +330,20 @@ public class RequesterAsSubmitterStep extends PageInitializer {
 		JavascriptUtils.scrollIntoView(createCRPage.labResourcesMDPL);
 		JavascriptUtils.clickByJS(createCRPage.labResourcesMDPL);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User uploads a Review Material as Abstract")
 	public void user_uploads_a_Review_Material_as_Abstract() {
 		flowStepsImplementation.uploadAbstract();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 	@Then("User submits data for review")
 	public void user_submits_data_for_review() {
 		JavascriptUtils.scrollIntoView(createCRPage.submitForVerification);
 		CommonUtils.clickOnElement(createCRPage.submitForVerificationButton);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 }
