@@ -18,7 +18,7 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 		MiscUtils.sleep(1000);
 		fillSkill();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(careerGoalAndActivePage.saveAndContinueButton);
 	}
 
@@ -28,7 +28,7 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 		Thread.sleep(4000);
 		fillSkillNGHRI();
 		Thread.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(careerGoalAndActivePage.saveAndContinueButton);
 	}
 
@@ -39,7 +39,7 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 		fillSkill();
 		Thread.sleep(2000);
 		completeSKills();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(careerGoalAndActivePage.saveAndContinueButton);
 	}
 	
@@ -50,7 +50,7 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 		fillSkill();
 		Thread.sleep(2000);
 		completeSKills();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(careerGoalAndActivePage.saveAndContinueButton);
 	}
 

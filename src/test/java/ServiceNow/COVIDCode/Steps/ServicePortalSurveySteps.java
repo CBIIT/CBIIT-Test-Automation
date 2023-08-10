@@ -26,7 +26,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 	public void a_user_is_on_the_COVIDCode_home_page() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Given("selects the option to Volunteer")
@@ -39,11 +39,11 @@ public class ServicePortalSurveySteps extends PageInitializer {
 	@Then("the {string} page displays with the option to start the survey")
 	public void the_page_displays_with_the_option_to_start_the_survey(String covidCodeVolunteerSurveyText) {
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		Assert.assertTrue(
 				servicePortalSurveyPage.covidCodeVolunteerSurvey.getText().contentEquals(covidCodeVolunteerSurveyText));
 		System.out.println(servicePortalSurveyPage.covidCodeVolunteerSurvey.getText());
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("starting the survey")
@@ -95,13 +95,13 @@ public class ServicePortalSurveySteps extends PageInitializer {
 		CommonUtils.clickOnElement(servicePortalSurveyPage.howWasTheSampleTakenDropDown);
 		MiscUtils.sleep(1000);
 		CommonUtils.selectValueFromBootStrapDropDown(servicePortalSurveyPage.howWasTheSampleTakenDropDownValues, nasalOrThroatSwab);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("selecting {string} checkbox")
 	public void selecting_checkbox(String rapidTesting) {
 		CommonUtils.clickOnElement(servicePortalSurveyPage.rapidTestingCheckbox);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("selecting No for being able to provide a copy of test report")
@@ -112,7 +112,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.sendKeys(servicePortalSurveyPage.canYouProvideACopyOfYourTestReportTextBox, "No");
 		CommonUtils.sendKeys(servicePortalSurveyPage.canYouProvideACopyOfYourTestReportTextBox, Keys.RETURN);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("selecting No for for ever being hospitalized")
@@ -121,7 +121,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.sendKeys(servicePortalSurveyPage.wereYouEverHospitalizedTextBox, "No");
 		CommonUtils.sendKeys(servicePortalSurveyPage.wereYouEverHospitalizedTextBox, Keys.RETURN);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("clicking next")
@@ -133,7 +133,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 	public void the_displays_where_the_user_is_able_to_enter_their_contact_information(String contactInformation) {
 		JavascriptUtils.scrollIntoView(servicePortalSurveyPage.contactInformationTxt);
 		Assert.assertTrue(servicePortalSurveyPage.contactInformationTxt.getText().contentEquals(contactInformation));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("entering required information")
@@ -174,7 +174,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 	public void clicking_Submit() {
 		CommonUtils.clickOnElement(servicePortalSurveyPage.submitButton);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("the {string} page displays")
@@ -187,7 +187,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 	public void the_user_is_able_to_see_a_message_followed_the_by_email_address(String ifYouHaveQuestionsTxt) {
 		Assert.assertTrue(
 				servicePortalSurveyPage.ifYouHaveQuestionsText.getText().contentEquals(ifYouHaveQuestionsTxt));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(2000);
 	}
 
@@ -240,7 +240,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 	@Then("a statement {string}")
 	public void a_statement(String privacyStatement) {
 		Assert.assertTrue(covidCodeLoginPage.privacyStatement.getText().contains(privacyStatement));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("searching for {string} to view follow ups")
@@ -249,7 +249,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 		CommonUtils.waitForVisibility(WebDriverUtils.webDriver.findElement(By.id("filter")));
 		MiscUtils.sleep(3000);
 		nativeViewEnrollementsPage.filterNavigator.sendKeys(covidCodeVolunteerSurveysTxt);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(3000);
 		nativeViewEnrollementsPage.nativeViewPanelNavigatorCovidCodeVolunteerSurveysLink.click();
 	}
@@ -264,7 +264,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 	@Then("information submitted via the volunteer survey is displayed")
 	public void information_submitted_via_the_volunteer_survey_is_displayed() {
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 	
 	@When("{string} option is selected")
@@ -281,7 +281,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 		MiscUtils.sleep(3000);
 		List<WebElement> values = servicePortalSurveyPage.howWasTheSampleTakenDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(values, howWasTheSampleTaken);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 	
 	@When("{string} option is selected for being able to choose")
@@ -291,7 +291,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 		CommonUtils.clickOnElement(servicePortalSurveyPage.areYouANationalInstituteOfHealthEmployeeDropDown);
 		MiscUtils.sleep(3000);
 		CommonUtils.selectValueFromBootStrapDropDown(servicePortalSurveyPage.areYouANationalInstituteOfHealthEmployeeDropDownValues, areYouANationalInstituteOfHealthEmployee);
-	    CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+	    CucumberLogUtils.logScreenshot();
 	}
 	
 	@Then("{string} required question is displays")
@@ -304,7 +304,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 	    CommonUtils.clickOnElement(servicePortalSurveyPage.wereYouTestedByOMSDropDown);
 	    MiscUtils.sleep(3000);
 	    CommonUtils.selectValueFromBootStrapDropDown(servicePortalSurveyPage.wereYouTestedByOMSDropDownValues, wereYouTestedByOMS);
-	    CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+	    CucumberLogUtils.logScreenshot();
 	}
 
 	@When("{string} option is selected for being able to provide a copy of test report")
@@ -314,7 +314,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 		MiscUtils.sleep(3000);
 		List<WebElement> values = servicePortalSurveyPage.canYouProvideCopyofTestReportDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(values, canYouProvideAcopyOfTestYesOrNo);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("{string} option is selected for being hospitalized")
@@ -323,7 +323,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 		MiscUtils.sleep(3000);
 		List<WebElement> values = servicePortalSurveyPage.wereYouEverHospitalizedDropDownValues;
 		CommonUtils.selectValueFromBootStrapDropDown(values, wereYouHospitalizedYesOrNo);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("{string} option is selected for finding out about the study")
@@ -338,14 +338,14 @@ public class ServicePortalSurveySteps extends PageInitializer {
 	public void a_COVIDcode_Volunteer_Survey_has_been_submitted_with_zip_code(String zipCode) throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.waitForClickability(covidCodeLoginPage.volunteerForTheStudyButton);
 		JavascriptUtils.clickByJS(covidCodeLoginPage.volunteerForTheStudyButton);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		Assert.assertTrue(servicePortalSurveyPage.covidCodeVolunteerSurvey.getText().contains("COVIDcode Volunteer Survey"));
 		System.out.println(servicePortalSurveyPage.covidCodeVolunteerSurvey.getText());
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.clickByJS(servicePortalSurveyPage.getStartedButton);
 		MiscUtils.sleep(1000);
 		servicePortalSurveyPage.areYouFillingThisOutForYourselfDropDown.click();
@@ -371,7 +371,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 		CommonUtils.selectValueFromBootStrapDropDown(preferredMethodOfContactValues, "Phone");
 		servicePortalSurveyPage.homeZipCodeTextBox.sendKeys(zipCode);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		servicePortalSurveyPage.nextButton.click();
 		servicePortalSurveyPage.howDidYouFindOutAboutOurStudyDropDown.click();
 		MiscUtils.sleep(3000);
@@ -379,7 +379,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 		CommonUtils.selectValueFromBootStrapDropDown(howDidYouFindOutAboutOurStudyValues, "I prefer not to answer");
 		servicePortalSurveyPage.submitButton.click();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		Assert.assertTrue(servicePortalSurveyPage.yourSurveyHasBeenSubmittedTxt.getText().contains("Your survey has been submitted successfully!"));
 		servicePortalSurveyPage.okButton.click();
 		MiscUtils.sleep(2000);	
@@ -393,7 +393,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		nativeViewEnrollementsPage.nativeViewPanelNavigatorCovidCodeInquiryTrackingLink.click();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
 		MiscUtils.sleep(2000);
 		CommonUtils.selectDropDownValue(nativeViewEnrollementsPage.covidCodeEnrollmentsSearchDropDown, "contact_email_address");
@@ -404,18 +404,18 @@ public class ServicePortalSurveySteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		JavascriptUtils.clickByJS(nativeViewSentViewPage.nativeViewPreviewVerifyEmailIcon);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(nativeViewSentViewPage.NativeViewPreviewVerifyEmailOpenRecordButton);
 		MiscUtils.sleep(2000);
 		JavascriptUtils.drawRedBorder(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewZipCode);
 		MiscUtils.sleep(5000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		Assert.assertEquals(submittedZipCode,nativeViewEnrollmentViewPage.nativeViewEnrollmentViewZipCode.getAttribute("value"));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDeleteTopButton);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDeleteDeleteSubmissionPopUpDeleteButton);
 	}
 

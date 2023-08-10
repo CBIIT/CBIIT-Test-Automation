@@ -41,12 +41,12 @@ public class FollowUpFormSteps extends PageInitializer {
 	@Given("an existing Draft Follow Up Form cleared to run automation")
 	public void an_existing_Draft_Follow_Up_Form_cleared_to_run_automation() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		covidCodeLoginPage.LogInButton.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		loginImpl.loginToITrust();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		// ADDING TEMPORARY WORK AROUND TO LOG INTO FOLLOW UP FORM
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("COVIDCode"));
 		if (CommonUtils.isElementDisplayed(servicePortalQuestionnairePage.draftFollowUpFirstDeleteButton)) {
@@ -79,7 +79,7 @@ public class FollowUpFormSteps extends PageInitializer {
 		CommonUtils.waitForClickability(followUpFormPage.diseaseCourseSymptomsFieldAfter);
 		followUpFormPage.diseaseCourseSymptomsFieldAfter.click();
 		followUpFormPage.diseasCourseSymptomsDDFeverOption.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("the user selects {string} after having selected multiple symptoms")
@@ -92,7 +92,7 @@ public class FollowUpFormSteps extends PageInitializer {
 	@Then("the user sees a pop up with the message {string}")
 	public void the_user_sees_a_pop_up_with_the_message(String noneOfTheAboveMessage) {
 		Assert.assertTrue(followUpFormPage.diseaseCoursePopUpMessage.getText().contentEquals(noneOfTheAboveMessage));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("the user selects Yes")
@@ -104,7 +104,7 @@ public class FollowUpFormSteps extends PageInitializer {
 	public void option_displays_and_replaces_all_previously_selected_symptoms(String noneOfTheAboveAfterSelecting) {
 		followUpFormPage.diseaseCourseOptionDisplayeAfterSelecting.getText()
 				.contentEquals(noneOfTheAboveAfterSelecting);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("the user attempts to add a symptom such as {string} after selecting {string} option")
@@ -118,7 +118,7 @@ public class FollowUpFormSteps extends PageInitializer {
 	public void the_user_sees_another_pop_up_with_the_message(String message) {
 		MiscUtils.sleep(3000);
 		Assert.assertTrue(followUpFormPage.diseaseCoursePopUpMessage.getText().contentEquals(message));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("{string} symptom is displayed")
@@ -126,7 +126,7 @@ public class FollowUpFormSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		Assert.assertTrue(followUpFormPage.diseaseCourseCoughTextOptionDisplayeAfterSelecting.getText()
 				.contentEquals(coughOptionAfterSelected));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("selecting {string} after having selected a symptoms")
@@ -140,7 +140,7 @@ public class FollowUpFormSteps extends PageInitializer {
 	public void the_user_is_able_to_see_another_pop_up_with_the_message(String message) {
 		MiscUtils.sleep(1000);
 		Assert.assertTrue(followUpFormPage.diseaseCoursePopUpMessage.getText().contentEquals(message));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("{string} option displays")
@@ -149,7 +149,7 @@ public class FollowUpFormSteps extends PageInitializer {
 		Assert.assertTrue(
 				followUpFormPage.diseaseCourseDontKnowTextOptionDisplayeAfterSelecting.getText()
 						.contentEquals(dontKnowDisplayed));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("the user is able to select multiple treatment items in {string} field")
@@ -160,7 +160,7 @@ public class FollowUpFormSteps extends PageInitializer {
 				followUpFormPage.diseaseCoursetreatmentItemsSectionText.getText().contentEquals(treatmentItemsField));
 		followUpFormPage.diseaseCoursetreatmentItemsField.click();
 		followUpFormPage.diseasCourseTreatmentItemDDIntubationOption.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("the user selects {string} after having selected multiple treatment items")
@@ -176,7 +176,7 @@ public class FollowUpFormSteps extends PageInitializer {
 		followUpFormPage.diseaseCoursetreatmentItemsField.click();
 		MiscUtils.sleep(2000);
 		followUpFormPage.diseasCourseTreatmentItemDDIntubationOption.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("{string} symptom is displayed in treatment item field")
@@ -185,7 +185,7 @@ public class FollowUpFormSteps extends PageInitializer {
 		Assert.assertTrue(
 				followUpFormPage.diseaseCourseIntubationTextOptionDisplayeAfterSelecting.getText()
 						.contentEquals(intubationOption));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("selecting {string} after having selected a treatment item")
@@ -287,7 +287,7 @@ public class FollowUpFormSteps extends PageInitializer {
 		Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireDOBSelectedDateCannotBeInTheFutureText.getText()
 				.contentEquals("Selected date cannot be in the future."));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		covidCodeEQPage.symptomologyTab.click();
 		covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticDropdown.click();
 		covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticSearchBox.sendKeys("Yes");
@@ -308,7 +308,7 @@ public class FollowUpFormSteps extends PageInitializer {
 				covidCodeEQPage.enrollmentQuestionnaireWhenOfficiallyDiagnosedCalendarSelectedDateCannotBeInTheFutureText
 						.getText().contentEquals("Selected date cannot be in the future."));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		covidCodeEQPage.enrollmentQuestionnaireVaccineTab.click();
 		covidCodeEQPage.enrollmentQuestionnaireVaccineHaveYouReceivedYourFirstCovidDD.click();
 		covidCodeEQPage.enrollmentQuestionnaireVaccineHaveYouReceivedYourFirstCovidSearchBox.sendKeys("Yes");
@@ -336,7 +336,7 @@ public class FollowUpFormSteps extends PageInitializer {
 				covidCodeEQPage.enrollmentQuestionnaireVaccineWhatDateDidYouReceiveTheSecondVaccineSelectedDateCannotBeInTheFutureText
 						.getText().contentEquals("Selected date cannot be in the future."));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Given("a COVIDcode User is on the Follow Up form Service Portal")
@@ -354,7 +354,7 @@ public class FollowUpFormSteps extends PageInitializer {
 	public void a_navigating_to_the_Symptomology_tab() {
 		covidCodeEQPage.symptomologyTab.click();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
@@ -370,7 +370,7 @@ public class FollowUpFormSteps extends PageInitializer {
 		Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireHaveYouOfficiallyBeenDiagnosedText.getText()
 				.contentEquals(dateOfficiallyDiagnosed));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("when a selecting {string} to Were you symptomatic?")
@@ -381,7 +381,7 @@ public class FollowUpFormSteps extends PageInitializer {
 		covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticSearchBox.sendKeys("Yes");
 		covidCodeEQPage.enrollmentQuestionnaireWereYouSymptomaticSearchBox.sendKeys(Keys.ENTER);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("when did you the first develop symptoms of COVID{int}? date picker displays")
@@ -389,7 +389,7 @@ public class FollowUpFormSteps extends PageInitializer {
 		Assert.assertTrue(covidCodeEQPage.enrollmentQuestionnaireWhenDevelopSymptomsText.getText()
 				.contentEquals("When did you first develop symptoms of COVID-19?"));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 }

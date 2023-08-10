@@ -54,7 +54,7 @@ public class EIDPLoginStepImpl extends PageInitializer {
 			CommonUtils.clickOnElement(nihLoginPage.changeUserDropdown);
 			CommonUtils.sendKeys(nihLoginPage.searchableChangeUserInput, username);
 			MiscUtils.sleep(1000);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			CommonUtils.clickOnElement(nihLoginPage.changeUserOption);
 	
 	}
@@ -81,7 +81,7 @@ public class EIDPLoginStepImpl extends PageInitializer {
 			CommonUtils.sendKeys(nihLoginPage.searchableChangeUserInput, username);
 			MiscUtils.sleep(3000);
 			CommonUtils.waitForVisibility(nihLoginPage.changeUserOption);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			CommonUtils.clickOnElement(nihLoginPage.changeUserOption);
 			MiscUtils.sleep(1000);
 	}

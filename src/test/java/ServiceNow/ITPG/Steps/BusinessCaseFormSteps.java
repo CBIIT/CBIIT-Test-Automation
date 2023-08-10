@@ -52,7 +52,7 @@ public class BusinessCaseFormSteps {
 	public void verifystate(String expectedState) throws Exception {
 		Thread.sleep(7000);
 		String actualState = businessCaseFormPage.getState();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		if (actualState != null) {
 			actualState = actualState.trim();
 			Assert.assertEquals(expectedState, actualState);
@@ -66,11 +66,11 @@ public class BusinessCaseFormSteps {
 		}
 		loginStepsImpl.enterUsername(ConfUtils.getProperty("sgugulothuUsername"));
 		String decyptedPass = EncryptionUtils.decrypt(ConfUtils.getProperty("sgugulothuPassword"));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		// loginStepsImpl.enterUsername(ConfUtils.getProperty("Username"));
 		// decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty("Password"));
 		loginStepsImpl.enterPassword(decyptedPass);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		// loginPage.enterUsername(ConfigFileReader.getConfigFileReader().getUserName());
 		// loginPage.enterPassword(ConfigFileReader.getConfigFileReader().getPassword());
 		loginStepsImpl.clickOnSignInButton();

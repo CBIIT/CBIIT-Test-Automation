@@ -62,18 +62,18 @@ public class CommonPage extends CommonUtils {
 	
 	public void clickOnYesButton() {
 		CommonUtils.clickOnElement(this.yesButton);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 	
 	public void clickOnModalFooterYesButton() {
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(WebDriverUtils.getWebDriver().findElement(By.cssSelector(".modal-footer [data-bb-handler='confirm']")));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 	
 	public void clickOnbutton(String buttonText) {
 		CommonUtils.clickOnElement(WebDriverUtils.getWebDriver().findElement(By.xpath("//*[text()='" + buttonText + "']")));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 	
 	public void clickOnSendBackToTrinee() {

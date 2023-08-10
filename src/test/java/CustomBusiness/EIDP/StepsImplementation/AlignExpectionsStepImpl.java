@@ -17,7 +17,7 @@ public class AlignExpectionsStepImpl extends PageInitializer {
 			CommonUtils.clickOnElement(aligningExpectationsPage.additionalCommentNoRadioButton);
 		}
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(aligningExpectationsPage.saveButton);
 		Thread.sleep(6000);
 	}
@@ -41,7 +41,7 @@ public class AlignExpectionsStepImpl extends PageInitializer {
 	}
 
 	public void clickOnSendIDPToTraineeButton() {
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		if (CommonUtils.isElementDisplayed(By.id("344"))) {
 			CommonUtils.clickOnElement(aligningExpectationsPage.renewalOption);
 		}

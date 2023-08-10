@@ -124,7 +124,7 @@ public class FlowStepsImplementation extends PageInitializer {
 		WebElement uploadFile = WebDriverUtils.getWebDriver().findElement(By.xpath("//input[@name='upload']"));
 		MiscUtils.sleep(3000);
 		uploadFile.sendKeys("C:\\Users\\zamant2\\Desktop\\TEST-DATA\\Manuscript.docx");
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(3000);
 	}
 
@@ -133,7 +133,7 @@ public class FlowStepsImplementation extends PageInitializer {
 		WebElement uploadFile = WebDriverUtils.getWebDriver().findElement(By.xpath("//input[@name='upload']"));
 		MiscUtils.sleep(3000);
 		uploadFile.sendKeys("C:\\Users\\zamant2\\Desktop\\TEST-DATA\\DataSharingPLan.pdf");
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(3000);
 	}
 
@@ -142,7 +142,7 @@ public class FlowStepsImplementation extends PageInitializer {
 		WebElement uploadFile = WebDriverUtils.getWebDriver().findElement(By.xpath("//input[@name='upload']"));
 		MiscUtils.sleep(3000);
 		uploadFile.sendKeys("C:\\Users\\zamant2\\Desktop\\TEST-DATA\\Abstract.docx");
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(3000);
 	}
 
@@ -192,7 +192,7 @@ public class FlowStepsImplementation extends PageInitializer {
 			MiscUtils.sleep(2000);
 			CommonUtils.clickOnElement(adminFlowPage.reassignDialogButton);
 			MiscUtils.sleep(2000);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			break;
 		case "HOLMES-LILLIE, SADIE":
 			String clearanceID1 = adminFlowPage.cR.getText();
@@ -209,7 +209,7 @@ public class FlowStepsImplementation extends PageInitializer {
 			MiscUtils.sleep(2000);
 			CommonUtils.clickOnElement(adminFlowPage.reassignDialogButton);
 			MiscUtils.sleep(2000);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			break;
 		case "CHANG, VICKY":
 			String clearanceID2 = adminFlowPage.cR.getText();
@@ -226,7 +226,7 @@ public class FlowStepsImplementation extends PageInitializer {
 			MiscUtils.sleep(2000);
 			CommonUtils.clickOnElement(adminFlowPage.reassignDialogButton);
 			MiscUtils.sleep(2000);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			break;
 		}
 	}
@@ -291,19 +291,19 @@ public class FlowStepsImplementation extends PageInitializer {
 	public void loginasUser(String user) throws TestingException {
 	if (user.equals("Admin")) {
 		dcegLogin("GEOFFREY_TOBIAS");
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	} else if (user.equals("Branch chief")) {
 		dcegLogin("CHRISTIAN_ABNET");
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	} else if (user.equals("Division director")) {
 		dcegLogin("STEPHEN_CHANOCK");
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	} else if (user.equals("Program director")) {
 		dcegLogin("MONTSERRAT_GARCIA-CLOSAS");
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 }
 	public void submitCLrequest() {
@@ -317,7 +317,7 @@ public class FlowStepsImplementation extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.clickOnElement(createCRPage.albanesDemetrius);
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.sendKeys(createCRPage.submissionTitleField,"Test submission title");
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(createCRPage.abstractField, "test abstract");
@@ -343,7 +343,7 @@ public class FlowStepsImplementation extends PageInitializer {
 		JavascriptUtils.scrollIntoView(createCRPage.dataSharingPlanPublication);
 		CommonUtils.clickOnElement(createCRPage.dataSharingPlanPublication);
 		MiscUtils.sleep(5000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		flowStepsImplementation.uploadDataSharing();
 		MiscUtils.sleep(2000);
 		CommonUtils.clickOnElement(createCRPage.employeeInventionChoice);
@@ -362,7 +362,7 @@ public class FlowStepsImplementation extends PageInitializer {
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(createCRPage.submitForReview);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(5000);
 	}
 }

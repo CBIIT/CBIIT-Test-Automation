@@ -38,7 +38,6 @@ public class SecurityFormSteps extends BasePage {
 	public void useClickOnSecurityForm(String formName) throws InterruptedException {
 		Thread.sleep(5000);
 		securityFormStepsImpl.clickOnFormName(formName);
-		basePage.captureScreenshot("Inside " + formName + " form");
 		securityFormStepsImpl.scenario = scenario;
 		this.scenario = scenario;
 	}
@@ -52,7 +51,6 @@ public class SecurityFormSteps extends BasePage {
 	@Then("User assigns the form to {string}")
 	public void assignFormTo(String user) throws InterruptedException {
 		securityFormStepsImpl.assignForm(user);
-		basePage.captureScreenshot("Assign User");
 	}
 
 	@Then("User goto {string} tab")
@@ -63,7 +61,6 @@ public class SecurityFormSteps extends BasePage {
 	@Then("User fills the approval details")
 	public void fillsApprovalDetails() throws InterruptedException {
 		securityFormStepsImpl.fillApprovalDetais();
-		basePage.captureScreenshot("Filled the approval details");
 	}
 
 	@Then("User fills the Security Category Impact Level details")
@@ -74,13 +71,11 @@ public class SecurityFormSteps extends BasePage {
 	@Then("User fills the eAuthentication Assessment Details")
 	public void fillEauthenticationAssessmentDetails() {
 		securityFormStepsImpl.filleAuthenticationDetails();
-		basePage.captureScreenshot("eAuthentication Assessment");
 	}
 
 	@Then("User fills the Assurance Levels details")
 	public void fillsTheAssuranceLevelsdetails() throws InterruptedException {
 		securityFormStepsImpl.fillAssuranceLevels();
-		basePage.captureScreenshot("Assurance Levels");
 	}
 
 	@Then("User fills the System Security Plan Controls")
@@ -198,7 +193,6 @@ public class SecurityFormSteps extends BasePage {
 	public void completeAllForms() throws InterruptedException {
 		Thread.sleep(5000);
 		//commonPage.clickOnElement(By.xpath("(//div[@class=\"open-form-btn\"])[11]/*[contains(@text(),'')]"));
-		basePage.captureScreenshot("Authority To Operate Letter");
 	}
 
 }
