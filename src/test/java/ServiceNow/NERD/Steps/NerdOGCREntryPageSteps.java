@@ -44,13 +44,15 @@ public class NerdOGCREntryPageSteps extends PageInitializer {
     public void i_am_an_authenticated_nci_nerd_ogcr_user() throws TestingException{
         NERDOGSRMemberOfCongressStepImpl.aUserIsInTheOgcrAdminGroup();
     }
-    @When("I am on the NERD {string} portal page")
-    public void i_am_on_the_nerd_portal_page(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    @When("I am on the NERD OGCR portal page")
+    public void i_am_on_the_nerd_ogcr_portal_page() {
+        CommonUtils.waitForVisibility(nerdHomePage.ogcrKnowledgeBaseText);
+        CommonUtils.assertTrue(nerdHomePage.ogcrKnowledgeBaseText.isDisplayed());
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
     @Then("I should be able to see the the same date, calendar format on the OGCR portal page as the Add New Entry form page for the {string} field.")
     public void i_should_be_able_to_see_the_the_same_date_calendar_format_on_the_ogcr_portal_page_as_the_add_new_entry_form_page_for_the_field(String string) {
+        NERDOGSRMemberOfCongressStepImpl.theOgcrUserClicksTheButton();
 
     }
 }

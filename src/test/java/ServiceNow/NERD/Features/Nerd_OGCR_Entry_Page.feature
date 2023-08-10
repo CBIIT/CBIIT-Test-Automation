@@ -20,9 +20,3 @@ Feature: NERD/OGCR Entry Page Scenarios
     When the user goes to the OGCR Knowledge Base
     And clicks the "Member of Congress" Drop down filter
     Then All Drop Down field options are same as the Add New Entry form page for the Member of Congress field.
-
-  @NERDSNOW-27 @NERDSNOW-40 @bucurgb @InProgress
-  Scenario: Test NERD OGCR - Match the "Event Date" format on both the OGCR Portal page and the New Entry Form page
-    Given I am an authenticated NCI NERD OGCR user,
-    When I am on the NERD "OGCR" portal page
-#    Then I should be able to see the the same date, calendar format on the OGCR portal page as the Add New Entry form page for the "Event Date" field.

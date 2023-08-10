@@ -2,7 +2,7 @@ Feature: RAS Screener Scenarios
 	Description: This feature file contains scenarios which submit myRAS Screeners and verifies questionnaire datas in Native View
 
 	@juarezds @myRasScreenerSubmissionOnly @InProgress @Progression
-	Scenario: Participant Screener Self Submission Scenario 1
+	Scenario: Participant Self Submission Scenarios
 	    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
 		And logs in via Okta with username "charmsparticipant3@yopmail.com" and password "Charms123"
 		And clicks on Eligibility Questionnaire to begin questionnaire

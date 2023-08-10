@@ -132,17 +132,13 @@ public class RasScreenerScenario1StepsImpl extends PageInitializer {
         CommonUtils.switchToNextWindow();
         MiscUtils.sleep(2000);
         CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        try {
-            JavascriptUtils.scrollIntoView(rasopathyQuestionnairePage.studyNextButton);
+        JavascriptUtils.scrollIntoView(rasopathyQuestionnairePage.studyNextButton);
+        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
+        MiscUtils.sleep(2000);
+        if(!rasopathyQuestionnairePage.iAmCompletingThisFormForMyselfOption.isDisplayed()){
             rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-        } catch (NoSuchElementException e) {
-            e.printStackTrace();
-            JavascriptUtils.scrollIntoView(rasopathyQuestionnairePage.studyNextButton);
-            rasScreenerScenario1StepsImpl.clickOnScreenerNextButton();
-            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         }
-        CommonUtils.waitForVisibility(rasopathyQuestionnairePage.iAmCompletingThisFormForMyselfOption);
         try {
             rasopathyQuestionnairePage.iAmCompletingThisFormForMyselfOption.click();
             CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
