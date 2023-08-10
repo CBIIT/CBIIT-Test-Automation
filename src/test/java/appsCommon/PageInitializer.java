@@ -46,12 +46,13 @@ import ServiceNow.SCSS.StepsImplementation.*;
 import ServiceNow.SEER.Pages.*;
 import ServiceNow.SEER.StepsImplementation.*;
 import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
+import com.nci.automation.web.WebDriverUtils;
 
 /**
  * This an initializer class which will initialize all pages classes. Once pages
  * class created, create an object of it here inside the constructor
  */
-public class PageInitializer {
+public class PageInitializer extends WebDriverUtils {
 
     /** --------------- APPSCOMMON INSTANCES --------------- */
     // declare public static variables of types of all the pages
@@ -89,7 +90,6 @@ public class PageInitializer {
     public static TestAccountResetImpl testAccountResetImpl;
     public static CHARMSHomePage charmsHomePage;
     public static OKTAloginPage oktaLoginPage;
-    public static CHARMSHomePageImp charmsHomePageImpl;
     public static ClinicalGeneticsBranchPage clinicalGeneticsBranchPage;
     public static ProbandScreenerPage probandScreenerPage;
     public static MyRASLoginPage myRASLoginPage;
@@ -307,7 +307,6 @@ public class PageInitializer {
         testAccountResetImpl = new TestAccountResetImpl();
         charmsHomePage = new CHARMSHomePage();
         oktaLoginPage = new OKTAloginPage();
-        charmsHomePageImpl = new CHARMSHomePageImp();
         clinicalGeneticsBranchPage = new ClinicalGeneticsBranchPage();
         probandScreenerPage = new ProbandScreenerPage();
         myRASLoginPage = new MyRASLoginPage();

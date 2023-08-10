@@ -20,7 +20,7 @@ public class CorrelateTabSteps extends PageInitializer{
 		/** This will navigate to the home page of Comets 2.0 */
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("Comets2"));
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		
 	}
 
@@ -39,9 +39,9 @@ public class CorrelateTabSteps extends PageInitializer{
 		/** This step will click on the Choose File button and click on Check Integrity to search */
 		MiscUtils.sleep(2000);
 		comets2Page.chooseFileButton.sendKeys("/Users/matarodriguezko/Downloads/cometsInput (1).xlsx");
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.clickByJS(comets2Page.checkIntegrityButton);
 		MiscUtils.sleep(10000);
 		
@@ -52,7 +52,7 @@ public class CorrelateTabSteps extends PageInitializer{
 		
 		/** This asserts that the Input data has passed QC (metabolite and sample names match in all input files) */
 		Assert.assertTrue(comets2Page.inputDataQCSuccessMessage.isDisplayed());
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		
 	}
 	
@@ -62,7 +62,7 @@ public class CorrelateTabSteps extends PageInitializer{
 		MiscUtils.sleep(2000);
 		comets2Page.chooseFileButton.sendKeys("/Users/matarodriguezko/Downloads/cometsInput.xlsx");
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.clickByJS(comets2Page.checkIntegrityButton);
 		MiscUtils.sleep(10000);
 	}
@@ -94,7 +94,7 @@ public class CorrelateTabSteps extends PageInitializer{
 	public void the_Correlation_successful_message_appears() {
 		
 		Assert.assertTrue(comets2Page.modelSuccessMessage.isDisplayed());
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		
 	}
 

@@ -78,7 +78,7 @@ public class CoPrimaryMentorSteps extends PageInitializer {
 	public void clickOnYesButton() {
 			coPrimaryMentorPage.clickOnYesButton();
 			eidpCommonPage.waitForGoBackToHomeQueueButtonVisible();
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 	} 
 	
 	@When("User clicks on APPROVE IDP button")

@@ -2,7 +2,7 @@ package ServiceNow.CHARMS.ScenariosData;
 
 import ServiceNow.CHARMS.Constants.CHARMSConstants;
 import appsCommon.PageInitializer;
-import com.nci.automation.dao.ExcelReader;
+import com.nci.automation.utils.ExcelReader;
 import java.util.Map;
 
 public class RAS_Screener_TestDataManager extends PageInitializer {

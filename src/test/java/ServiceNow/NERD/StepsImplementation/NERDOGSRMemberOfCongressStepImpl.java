@@ -38,7 +38,7 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
      */
     public static void theUserGoesToTheOgcrKnowledgeBase() {
         CommonUtils.waitForVisibility(nerdHomePage.ogcrKnowledgeBaseText);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nerdHomePage.ogcrKnowledgeBaseText);
     }
     /**
@@ -47,7 +47,7 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
      */
     public static void theOgcrUserClicksTheButton() {
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageOGCRCreateNewSubmissionLink);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageOGCRCreateNewSubmissionLink);
     }
 
@@ -59,7 +59,7 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
         CommonUtils.waitForVisibility(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressDropDown);
         CommonUtils.sendKeys(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryMemberOfCongressDropDown, Keys.ENTER);
         MiscUtils.sleep(1000);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         boolean congressNumber = false;
         int i = 1;
         while (!congressNumber) {
@@ -84,7 +84,7 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
         JavascriptUtils.drawBlueBorder(NERDOGCRAddNewEntryPage.nerdOgsrNewEntryCongressSelectedDropDown("" + 1));
         JavascriptUtils.drawBlueBorder(NERDOGCRAddNewEntryPage.nerdOgsrNewEntryCongressSelectedDropDown("" + 2));
         MiscUtils.sleep(1000);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(1000);
     }
 
@@ -123,11 +123,11 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
         CommonUtils.clickOnElement(nativeViewMembersOfCongressPage.membersOfCongressActiveFiled);
         CommonUtils.waitForVisibility(nativeViewMembersOfCongressPage.membersOfCongressActiveTextFiled);
         CommonUtils.sendKeys(nativeViewMembersOfCongressPage.membersOfCongressActiveTextFiled, active);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.sendKeys(nativeViewMembersOfCongressPage.membersOfCongressActiveTextFiled, Keys.ENTER);
         CommonUtils.clickOnElement(nativeViewMembersOfCongressPage.membersOfCongressRunButton);
         MiscUtils.sleep(500);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
        while (nativeViewMembersOfCongressPage.membersOfCongresNextPageButton.isEnabled()){
              MiscUtils.sleep(1500);
              for (int jl = 2 ; jl < 21; jl++) {String actualNativeViewCongressPersonName = NativeViewMembersOfCongressPage.nativeViewCongressPersonFirstName("" + jl).getText() + " " + NativeViewMembersOfCongressPage.nativeViewCongressPersonLastName("" + jl).getText();
@@ -139,7 +139,7 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
                      }
                      CommonUtils.assertTrue(vl == 1);
                  }
-            CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+            CucumberLogUtils.logScreenshot();
             MiscUtils.sleep(1000);
             CommonUtils.clickOnElement(nativeViewMembersOfCongressPage.membersOfCongresNextPageButton);
             MiscUtils.sleep(1000);
@@ -162,7 +162,7 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
                    congressNameNumber = true;
                }
            }
-           CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+           CucumberLogUtils.logScreenshot();
            MiscUtils.sleep(1000);
            CommonUtils.clickOnElement(nativeViewMembersOfCongressPage.membersOfCongresNextPageButton);
     }

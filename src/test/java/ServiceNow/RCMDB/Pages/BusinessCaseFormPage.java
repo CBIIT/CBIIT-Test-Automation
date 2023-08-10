@@ -612,7 +612,7 @@ public class BusinessCaseFormPage extends BasePage {
 
 	public void openApp() {
 			driver.get(EnvUtils.getApplicationUrl("RCMDB"));
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 	}
 
 	public boolean verifyEmail(String subject) throws InterruptedException {
@@ -661,7 +661,7 @@ public class BusinessCaseFormPage extends BasePage {
 					Assert.assertEquals(driver.findElement(By.xpath("//div[text()='All Tracking Records']")).getText(), "All Tracking Records");
 					Assert.assertEquals(driver.findElement(By.xpath("//div[text()='Update Cost per Box']")).getText(), "Update Cost per Box");
 					Assert.assertEquals(driver.findElement(By.xpath("//div[text()='Quarterly Costs']")).getText(), "Quarterly Costs");
-					CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+					CucumberLogUtils.logScreenshot();
 					
 		
 	}
@@ -673,7 +673,7 @@ public class BusinessCaseFormPage extends BasePage {
 		// Click on Email from side menu
 		CommonUtils.waitBrowser(5000);
 		clickOnElement(filteredIdeasList.get(1));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
@@ -747,7 +747,7 @@ public class BusinessCaseFormPage extends BasePage {
 		Thread.sleep(3000);
 		recordCustodian.sendKeys(Keys.ARROW_DOWN);
 		recordCustodian.sendKeys(Keys.ENTER);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		setText(retentionType,"T");
 		setText(yearsOfRetention,"7");
 		setText(litigationHold,"TIL");
@@ -761,7 +761,7 @@ public class BusinessCaseFormPage extends BasePage {
 		setText(RMInitials,"FR");
 		setText(additionalComments,"Test Automation");
 		switchToDefaultFrame();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	public void ClickOnSubmit() {
@@ -832,7 +832,7 @@ public class BusinessCaseFormPage extends BasePage {
 		int actualSize1 = getText(DOCSubComponent).length();
 		Assert.assertNotEquals(actualSize1, inputSize);
 		switchToDefaultFrame();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		
 	}
 
@@ -866,7 +866,7 @@ public class BusinessCaseFormPage extends BasePage {
 		setText(submittedByNIH,"443-09-0109");
 		setText(telephone,"W443-09-0109");
 		setText(dispositionAuthorityRM,"09/08/2022");
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		setText(boxes,"09/08/2022");
 		setText(RMINIT,"meric	DAA-0443-2012-0007-0003");
 		setText(approvedForTransferByFRC,"TEST");
@@ -880,7 +880,7 @@ public class BusinessCaseFormPage extends BasePage {
 		setText(revisedDispositionDateRM,"TEST");
 		setText(comments,"TEST");
 		switchToDefaultFrame();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		
 
 	}
@@ -904,7 +904,7 @@ public class BusinessCaseFormPage extends BasePage {
 		switchToFrame();
 		clickOnElement(firstQuaterlyCost);
 		
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		switchToDefaultFrame();
 		Thread.sleep(2000);
 		switchToFrame();
@@ -912,7 +912,7 @@ public class BusinessCaseFormPage extends BasePage {
 		Assert.assertEquals(quaterlyCost.getAttribute("value"), "0.00");
 		Assert.assertEquals(totalRecords.getAttribute("value"), "10");
 		Assert.assertEquals(totalBoxes.getAttribute("value"), "110");
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		switchToDefaultFrame();
 	}
 	
@@ -922,7 +922,7 @@ public class BusinessCaseFormPage extends BasePage {
 		switchToFrame();
 		clickOnElement(firstRecord);
 		
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		switchToDefaultFrame();
 		Thread.sleep(2000);
 		switchToFrame();
@@ -952,7 +952,7 @@ public class BusinessCaseFormPage extends BasePage {
 		
 		
 		
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		switchToDefaultFrame();
 	}
 

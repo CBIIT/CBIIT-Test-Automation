@@ -41,7 +41,7 @@ public class RAS_Screener_Constants {
     public final String IS_THE_PROBAND_A_PARTICIPANT_IN_ANY_OTHER_RESEARCH_STUDY_OR_REGISTRY_GROUP_OPTION_4 = "Is The proband a participant in any other research study or registry group?  Please specify. Option 4";
     public final String IS_THE_PROBAND_A_PARTICIPANT_IN_ANY_OTHER_RESEARCH_STUDY_OR_REGISTRY_GROUP_OPTION_2_OTHER = "Is The proband a participant in any other research study or registry group?  Please specify. Option 2 Other";
     public final String IS_THE_PROBAND_A_PARTICIPANT_IN_ANY_OTHER_RESEARCH_STUDY_OR_REGISTRY_GROUP_OPTION_3_OTHER = "Is The proband a participant in any other research study or registry group?  Please specify. Option 3 Other";
-    public final String TO_DETERMINE_ELIGIBILITY_FOR_THIS_STUDY = "To determine eligibility for this study, we need to collect information about medical diagnoses.  These questions ask about general medical conditions, cancer and any prior diagnosis of a RASopathy.  Please complete this information to the best of your knowledge. ";
+    public final String TO_DETERMINE_ELIGIBILITY_FOR_THIS_STUDY = "To determine eligibility for this study, we need to collect information about medical diagnoses.  These questions ask about general medical conditions, cancer and any prior diagnosis of a RASopathy.";
     public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS_OPTION_1 = "Have you ever been diagnosed with the following conditions?  Select all that apply.  If you do not see the exact condition diagnosed, please select the closest answer. Option 1";
     public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS_OPTION_2 = "Have you ever been diagnosed with the following conditions?  Select all that apply.  If you do not see the exact condition diagnosed, please select the closest answer. Option 2";
     public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS_OPTION_3 = "Have you ever been diagnosed with the following conditions?  Select all that apply.  If you do not see the exact condition diagnosed, please select the closest answer. Option 3";
@@ -82,7 +82,7 @@ public class RAS_Screener_Constants {
     public final String FOR_WHICH_SPECIFIC_RASOPATHY_OTHER = "For which specific RASopathy has GeorgeTest Scenario4 been diagnosed? Other";
     public final String AGE_AT_DIAGNOSIS = "Age at diagnosis";
     public final String YEAR_OF_DIAGNOSIS_RAS = "Year of diagnosis";
-    public final String WE_KNOW_THAT_RASOPATHIES_ARE_A_GROUP = "We know that RASopathies are a group of syndromes that have a genetic basis.  In order to help us determine eligibility for the RASopathies Study, we also need to know about any genetic testing that has been completed.  We will need a copy of any test results.  ";
+    public final String WE_KNOW_THAT_RASOPATHIES_ARE_A_GROUP = "We know that RASopathies are a group of syndromes that have a genetic basis.  In order to help us determine eligibility for the RASopathies Study, we also need to know about any genetic testing that has been completed.";
     public final String HAVE_ANY_BIOLOGICAL_RELATIVES_BEEN_DIAGNOSED_WITH_ARASOPATHY = "Have any of your biological relatives been diagnosed with a RASopathy?";
     public final String HAVE_YOU_EVER_HAD_GENETIC_TESTING = "Have you ever had genetic testing?";
     public final String HOW_DID_YOU_HEAR_ABOUT_THIS_STUDY = "How did you hear about this study?  If a specific health care provider referred you to this study, please include their name in the corresponding text box.";

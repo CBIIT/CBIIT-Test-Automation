@@ -16,6 +16,12 @@ public class RAS_Survey_Submission_Steps extends PageInitializer {
 	public void clicks_on_the_ras_survey_form() {
 		rasScreenerScenario1StepsImpl.clicksOnTheRasSurveyForm();
 	}
+
+	@Given("clicks on the IIQ Form")
+	public void clicks_on_the_iiq_form() {
+		rasScreenerScenario1StepsImpl.clicksOnTheIiqForm();
+	}
+
 	@Given("a participant enters username {string} and pin")
 	public void a_participant_enters_username_and_pin(String email) {
 		rasScreenerScenario1StepsImpl.aParticipantEntersUsernameUndPin(email);
@@ -63,7 +69,7 @@ public class RAS_Survey_Submission_Steps extends PageInitializer {
 		CommonUtils.waitForVisibility(rAS_Survey_Page.cHARMSEmailLogIn);
 		rAS_Survey_Page.cHARMSEmailLogIn.sendKeys("charmsras5@yahoo.com");
 		rAS_Survey_Page.cHARMSpasswordToLogIn.sendKeys(rasSurveyPin);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		rAS_Survey_Page.surveyNextButton.click();
 	}
 

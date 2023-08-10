@@ -81,6 +81,10 @@ public class RASopathyQuestionnairePage {
     /* ************************************************************************ */
     /* -------- BEGINNING OF Date of birth of "name" PAGE ------- */
 
+    /* IIQ Were you race No option */
+    @FindBy(xpath = "//*[@id='QID21-2-label']")
+    public WebElement iiqWereYouRaisedNoOption;
+
     /* Calendar month drop down */
     @FindBy(xpath = "//select[@aria-label='Month']")
     public WebElement calendarMonthDropDown;

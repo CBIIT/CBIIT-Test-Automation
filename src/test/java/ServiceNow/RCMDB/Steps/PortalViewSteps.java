@@ -93,7 +93,7 @@ public class PortalViewSteps {
 	public void verifystate(String expectedState) throws Exception {
 		Thread.sleep(2000);
 		String actualState = portalViewPage.getState();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		if (actualState != null) {
 			actualState = actualState.trim();
 			Assert.assertEquals(expectedState, actualState);

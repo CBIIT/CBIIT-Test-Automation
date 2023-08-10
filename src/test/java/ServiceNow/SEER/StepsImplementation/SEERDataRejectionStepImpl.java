@@ -21,14 +21,14 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
         nativeViewLoginImpl.sideDoorAccountLogin();
         CommonUtils.assertTrue(CommonUtils.getCurrentURL(WebDriverUtils.getWebDriver())
                 .contentEquals(SEERNativeView_Constants.NATIVE_VIEW_HOME_PAGE_URL));
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void proceedsToRegisterForResearchDataWithUniqueEmailAddress() {
         JavascriptUtils.scrollIntoView(seerLandingPage.researchDataRequestsEmailAddressField);
         CommonUtils.waitForVisibility(seerLandingPage.researchDataRequestsEmailAddressField);
         CommonUtils.sendKeys(seerLandingPage.researchDataRequestsEmailAddressField, newEmailThankYou320);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(seerLandingPage.registerForResearchDataButton);
         MiscUtils.sleep(1000);
     }
@@ -63,7 +63,7 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
         CommonUtils.selectDropDownValue(SEERDataRejection_Constants.GENERAL_PURPOSE_FOR_USING_THE_DATA,
                 seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
         MiscUtils.sleep(2000);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void fillsOutAllRequiredFieldsOnSEERDataRegistrationFormRejected() {
@@ -96,7 +96,7 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
         CommonUtils.selectDropDownValue(SEERDataRejection_Constants.GENERAL_PURPOSE_FOR_USING_THE_DATA,
                 seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
         MiscUtils.sleep(2000);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void verifyPrePopulatedSEERDataRegistrationForm() {
@@ -135,7 +135,7 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
                 seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField.getAttribute("class").contains(Registration_Constants.REGISTRATION_FORM_DISABLED_FIELD_ATTRIBUTE_VALUE));
         JavascriptUtils.drawBlueBorder(seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
         MiscUtils.sleep(500);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void aSEERODSAdminNavigatesTo(String SEERText, String accessRequestsText) {
@@ -143,7 +143,7 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
         MiscUtils.sleep(1000);
         JavascriptUtils.scrollIntoView(NativeViewAccessRequestPage.nativeViewSEERAccessRequestsLink(accessRequestsText));
         CommonUtils.clickOnElement(NativeViewAccessRequestPage.nativeViewSEERAccessRequestsLink(accessRequestsText));
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(1000);
         CommonUtils.switchToFrame(nativeViewAccessRequestPage.accessRequestIFrame);
         MiscUtils.sleep(1000);
@@ -158,19 +158,19 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
         nativeViewAccessRequestPage.nativeViewAccessRequestCustomerTextBox.sendKeys(SEERDataRejection_Constants.FIRST_NAME + " " + SEERDataRejection_Constants.LAST_NAME);
         MiscUtils.sleep(1000);
         nativeViewAccessRequestPage.nativeViewAccessRequestCustomerTextBox.sendKeys(Keys.ENTER);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewAccessRequestPage.nativeViewAccessRequestPreviewRecordButton);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewAccessRequestPage.nativeViewAccessRequestOpenRecordButton);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewAccessRequestPage.nativeViewAccessRequestSaveChangesDiscardButton);
         MiscUtils.sleep(1000);
         CommonUtils.assertTrue(nativeViewAccessRequestPage.accessRequestCustomerText.getText()
                 .contentEquals("Customer"));
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.selectDropDownValue("Institution",
                 nativeViewAccessRequestPage.nativeViewAccessRequestAccountTypeDropdown);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         nativeViewAccessRequestPage.nativeViewAccessSaveClientButton.click();
         MiscUtils.sleep(1000);
         CommonUtils.switchToDefaultContent();
@@ -191,10 +191,10 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
         MiscUtils.sleep(1000);
         nativeViewAccessRequestPage.nativeViewAccessRequestDatasetTextBox.sendKeys(Keys.ENTER);
         MiscUtils.sleep(500);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewAccessRequestPage.nativeViewAccessSaveClientButtonBottom);
         MiscUtils.sleep(500);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void whenTheAdminRejectsTheAccessRequests() {
@@ -210,16 +210,16 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
         MiscUtils.sleep(1000);
         nativeViewAccessRequestPage.nativeViewAccessRequestDatasetTextBox.sendKeys(Keys.ENTER);
         MiscUtils.sleep(500);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewAccessRequestPage.nativeViewAccessSaveClientButtonBottom);
         MiscUtils.sleep(500);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewAccessRequestPage.nativeViewAccessRequest);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(1000);
         CommonUtils.selectDropDownValue("Rejected",
                 nativeViewAccessRequestPage.nativeViewAccessRequestStatusDropdown);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewAccessRequestPage.nativeViewAccessSaveRejectedClientButtonBottom);
         CommonUtils.clickOnElement(nativeViewAccessRequestPage.nativeViewAccessUpdateClientButtonBottom);
         CommonUtils.switchToDefaultContent();
@@ -234,24 +234,24 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
         MiscUtils.sleep(1000);
         JavascriptUtils.scrollIntoView(nativeViewEmailsPage.nativeViewAccessEmailsButton);
         CommonUtils.clickOnElement(nativeViewEmailsPage.nativeViewAccessEmailsButton);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(1000);
         CommonUtils.switchToFrame(nativeViewAccessRequestPage.accessRequestIFrame);
         MiscUtils.sleep(1000);
         CommonUtils.assertTrue(nativeViewEmailsPage.emailsMenu.getText()
                 .contentEquals("Emails"));
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.selectDropDownValue("Recipients", nativeViewSentViewPage.nativeViewSearchDropDown);
         CommonUtils.sendKeysToElement(nativeViewSentViewPage.nativeViewSentSearchField, newEmailThankYou320);
         MiscUtils.sleep(1000);
         nativeViewSentViewPage.nativeViewSentSearchField.sendKeys(Keys.ENTER);
         CommonUtils.clickOnElement(nativeViewEmailsPage.nativeViewEmailsPreviewVerifyEmailIcon);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewSentViewPage.NativeViewPreviewVerifyEmailOpenRecordButton);
         MiscUtils.sleep(1000);
         JavascriptUtils.scrollIntoView(nativeViewSentViewPage.nativeViewPreviewVerifyEmailPreviewHTMLBodyLink);
         CommonUtils.clickOnElement(nativeViewSentViewPage.nativeViewPreviewVerifyEmailPreviewHTMLBodyLink);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.switchToFrame(nativeViewSentViewPage.nativeViewPreviewEmailIFRAME);
         MiscUtils.sleep(1000);
         JavascriptUtils.drawRedBorder(nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataHeader);
@@ -269,6 +269,6 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
                 .contentEquals(SEERDataRejection_Constants.TO_RESUBMIT_YOUR_REQUEST));
         JavascriptUtils.drawRedBorder(nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedEmailText);
         MiscUtils.sleep(1000);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 }

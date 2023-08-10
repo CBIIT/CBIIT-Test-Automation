@@ -19,7 +19,7 @@ public class InformationSteps extends PageInitializer {
 
 	@Then("API Acess page displays")
 	public void api_Acess_page_displays() {
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("API Acess page displays {string} heading")
@@ -40,7 +40,7 @@ public class InformationSteps extends PageInitializer {
 
 	@Then("user goes to source code from About page")
 	public void user_goes_to_source_code_from_About_page() {
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("user clicks on source code")
@@ -50,7 +50,7 @@ public class InformationSteps extends PageInitializer {
 
 	@Then("user goes to PLCO source code on github")
 	public void user_goes_to_PLCO_source_code_on_github() {
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("user clicks explore on GWAS results")

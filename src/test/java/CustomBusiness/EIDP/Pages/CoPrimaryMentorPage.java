@@ -90,7 +90,7 @@ public class CoPrimaryMentorPage extends CommonUtils {
 		CommonUtils.clickOnElement(approveIDP);
 		CommonUtils.clickOnElement(finalYesButton);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	public void markAsReviewedInAllTabs() {
@@ -172,7 +172,7 @@ public class CoPrimaryMentorPage extends CommonUtils {
 			e.printStackTrace();
 		}
 		try {
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -187,7 +187,7 @@ public class CoPrimaryMentorPage extends CommonUtils {
 
 	public void markNHGRIasReviewed() {
 		CommonUtils.clickOnElement(markAsReviewedCheckbox);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
@@ -202,7 +202,7 @@ public class CoPrimaryMentorPage extends CommonUtils {
 	}
 
 	public void clickOnApproveAndSubmitButton() {
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(2000);
 		String locator = "//*[@id='tdAprroveIDP']";
 		if (WebDriverUtils.getWebDriver().findElements(By.xpath(locator)).size() > 0) {
@@ -220,7 +220,7 @@ public class CoPrimaryMentorPage extends CommonUtils {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		try {
 			try {
 				String locator = "//*[@id='aprroveByTDModal']";
@@ -254,7 +254,7 @@ public class CoPrimaryMentorPage extends CommonUtils {
 	public void clickOnApproveAndSubmitButtonNHGRI() {
 		if (markAsReviewedCheckbox.isDisplayed())
 			CommonUtils.clickOnElement(markAsReviewedCheckbox);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(approvedAndSubmitButton);
 	}
 

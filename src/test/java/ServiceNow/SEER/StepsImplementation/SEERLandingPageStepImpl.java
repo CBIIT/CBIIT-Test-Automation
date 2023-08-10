@@ -22,21 +22,21 @@ public class SEERLandingPageStepImpl extends PageInitializer {
         String actualParagraphText = seerExistingAccountPage.paragraph.getText();
         JavascriptUtils.drawBlueBorder(seerExistingAccountPage.paragraph);
         CommonUtils.assertEquals(actualParagraphText, expectedParagraph);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void userSeesTheFollowingPIVCardLoginMessage(String expectedPIVCardLoginMessage) {
         String actualPIVCardLoginMessageText = seerExistingAccountPage.pIVCardLoginMessageText.getText();
         JavascriptUtils.drawBlueBorder(seerExistingAccountPage.pIVCardLoginMessageText);
         CommonUtils.assertEquals(actualPIVCardLoginMessageText, expectedPIVCardLoginMessage);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void buttonIsAlsoDisplayed(String expectedButtonText) {
         String actualButtonText = seerExistingAccountPage.backToSeerDatabaseDetailsButton.getText();
         JavascriptUtils.drawBlueBorder(seerExistingAccountPage.backToSeerDatabaseDetailsButton);
         CommonUtils.assertEquals(actualButtonText, expectedButtonText);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void theSEERDataAccessLandingPageHasTheFollowingTextDisplayed(String expectedLandingPageText) {
@@ -44,6 +44,6 @@ public class SEERLandingPageStepImpl extends PageInitializer {
         CommonUtils.assertEquals(actualLandingPageText, expectedLandingPageText);
         JavascriptUtils.scrollDown(300);
         JavascriptUtils.drawBlueBorder(seerLandingPage.landingPageText);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
     }
 }
