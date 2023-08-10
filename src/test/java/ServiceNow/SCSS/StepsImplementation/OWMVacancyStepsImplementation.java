@@ -42,7 +42,6 @@ public class OWMVacancyStepsImplementation extends PageInitializer {
             CommonUtils.clickOnElement(owmVacancyPage.orgFieldDropdown);
             CommonUtils.clickOnElement(owmVacancyPage.orgHNC1);
         } else {
-            ;
             CommonUtils.clickOnElement(owmVacancyPage.orgFieldDropdown);
             CommonUtils.clickOnElement(owmVacancyPage.orgHNC14);
         }
@@ -88,5 +87,4 @@ public class OWMVacancyStepsImplementation extends PageInitializer {
                 break;
         }
     }
-
 }
