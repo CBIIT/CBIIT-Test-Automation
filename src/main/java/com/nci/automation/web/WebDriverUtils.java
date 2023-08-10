@@ -28,7 +28,6 @@ public class WebDriverUtils {
     public static WebDriver getWebDriver() {
 
         String browser = ConfUtils.getProperty("browser");
-        String headless = ConfUtils.getProperty("headless");
 
         if (webDriver == null) {
             if (FrameworkConstants.BROWSER_CHROME.equalsIgnoreCase(browser)) {
@@ -79,16 +78,30 @@ public class WebDriverUtils {
 
     public static void launchChrome() {
         String osName = FrameworkConstants.GET_OS_NAME;
+        String headless = ConfUtils.getProperty("headless");
+
         if (osName.contains("Windows")) {
-            webDriver = new ChromeDriver();
-            webDriver.manage().window().maximize();
-            webDriver.manage().deleteAllCookies();
-            webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+            if(headless.equalsIgnoreCase(FrameworkConstants.TRUE)){
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--headless=new");
+                webDriver = new ChromeDriver(chromeOptions);
+            }else {
+                webDriver = new ChromeDriver();
+                webDriver.manage().window().maximize();
+                webDriver.manage().deleteAllCookies();
+                webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+            }
         } else if (osName.contains("Mac")) {
-            webDriver = new ChromeDriver();
-            webDriver.manage().window().maximize();
-            webDriver.manage().deleteAllCookies();
-            webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+            if(headless.equalsIgnoreCase(FrameworkConstants.TRUE)){
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--headless=new");
+                webDriver = new ChromeDriver(chromeOptions);
+            }else {
+                webDriver = new ChromeDriver();
+                webDriver.manage().window().maximize();
+                webDriver.manage().deleteAllCookies();
+                webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+            }
         } else if (osName.contains("Linux")) {
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--headless=new");
