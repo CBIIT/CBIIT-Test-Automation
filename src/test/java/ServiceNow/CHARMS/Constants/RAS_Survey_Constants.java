@@ -896,23 +896,127 @@ public class RAS_Survey_Constants {
     public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_SKIN_TUMORS = "Have you ever been diagnosed with any of the following skin tumors?  Please select all that apply. Option 5 Other";
     public final String THE_NEXT_SET_OF_QUESTIONS_ASK_ABOUT_SKELETAL_CONDITIONS = "The next set of questions ask about skeletal conditions. Skeletal conditions involve the bones throughout the body.";
     public final String HAVE_YOU_EVER_BEEN_EVALUATED_BY_AN_ORTHOPAEDIC_SURGEON = "Have you ever been evaluated by an orthopaedic surgeon?";
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
+    public final String PLEASE_PROVIDE_THE_DETAILS_BELOW_FOR_THE_ORTHOPAEDIC_OPTION_1 = "Please provide the details below for the orthopaedic surgeon who completed your evaluation. Name";
+    public final String PLEASE_PROVIDE_THE_DETAILS_BELOW_FOR_THE_ORTHOPAEDIC_OPTION_2 = "Please provide the details below for the orthopaedic surgeon who completed your evaluation.Location";
+    public final String PLEASE_PROVIDE_THE_DETAILS_BELOW_FOR_THE_ORTHOPAEDIC_OPTION_3 = "Please provide the details below for the orthopaedic surgeon who completed your evaluation. Hospital";
+    public final String HAVE_YOU_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_SKELETAL_OPTION_4_OTHER = "Have you been diagnosed with any of the following skeletal findings in the thoracic area? The thoracic area includes the chest and ribs. Please select all that apply. Option 4 Other";
+    public final String DO_YOU_HAVE_ANY_ISSUES_WITH_CURVING_OF_THE_SPINE = "Do you have any issues with curving of the spine?  This would often be diagnosed or evaluated by an orthopaedic surgeon.  Examples include scoliosis and kyphosis.";
+    public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_TYPES_OF_CURVATURE_OPTION_4_OTHER = "Have you ever been diagnosed with any of the following types of curvature of the spine? Please select all that apply. Option 4 Other";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_1_OPTION_1 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 1 Option 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_1_OPTION_2 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 1 Option 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_1_OPTION_3 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 1 Option 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_1_OPTION_4 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 1 Option 4";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_2_OPTION_1 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 2 Option 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_2_OPTION_2 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 2 Option 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_2_OPTION_3 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 2 Option 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_2_OPTION_4 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 2 Option 4";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_3_OPTION_1 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 3 Option 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_3_OPTION_2 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 3 Option 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_3_OPTION_3 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 3 Option 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_3_OPTION_4 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 3 Option 4";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_4_OPTION_1 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 4 Option 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_4_OPTION_2 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 4 Option 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_4_OPTION_3 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 4 Option 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_4_OPTION_4 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 4 Option 4";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_5_OPTION_1 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 5 Option 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_5_OPTION_2 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 5 Option 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_5_OPTION_3 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 5 Option 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_5_OPTION_4 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 5 Option 4";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_6_OPTION_1 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 6 Option 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_6_OPTION_2 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 6 Option 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_6_OPTION_3 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 6 Option 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_6_OPTION_4 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 6 Option 4";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_7_OPTION_1 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 7 Option 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_7_OPTION_2 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 7 Option 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_7_OPTION_3 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 7 Option 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_7_OPTION_4 = "Please complete the table below for each of the spine issues listed.  For each condition, please indicate your age or date when they occurred (you do not need to include both). Other Column 7 Option 4";
+    public final String HAS_YOUR_NECK_BEEN_DESCRIBED_AS_SHORT_OR_WEBBED = "Has your neck been described as short or webbed?";
+    public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_JOINT_ISSUES = "Have you ever been diagnosed with joint issues?  These conditions are often diagnosed by neurologists, rheumatologists and orthopaedic surgeons.  Examples include ulnar deviation, Achilles tendon contracture, hip dysplasia.";
+    public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_JOINT_ISSUES_6_OTHER = "Have you ever been diagnosed with the following joint issues?  Please select all that apply. Option 6 Other";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_1_OPTION_1 = "Please complete the table below for each of the joint issues listed. Column 1 Option 1";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_1_OPTION_2 = "Please complete the table below for each of the joint issues listed. Column 1 Option 2";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_1_OPTION_3 = "Please complete the table below for each of the joint issues listed. Column 1 Option 3";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_1_OPTION_4 = "Please complete the table below for each of the joint issues listed. Column 1 Option 4";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_1_OPTION_5 = "Please complete the table below for each of the joint issues listed. Column 1 Option 5";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_1_OPTION_6 = "Please complete the table below for each of the joint issues listed. Column 1 Option 6";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_2_OPTION_1 = "Please complete the table below for each of the joint issues listed. Column 2 Option 1";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_2_OPTION_2 = "Please complete the table below for each of the joint issues listed. Column 2 Option 2";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_2_OPTION_3 = "Please complete the table below for each of the joint issues listed. Column 2 Option 3";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_2_OPTION_4 = "Please complete the table below for each of the joint issues listed. Column 2 Option 4";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_2_OPTION_5 = "Please complete the table below for each of the joint issues listed. Column 2 Option 5";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_2_OPTION_6 = "Please complete the table below for each of the joint issues listed. Column 2 Option 6";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_3_OPTION_1 = "Please complete the table below for each of the joint issues listed. Column 3 Option 1";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_3_OPTION_2 = "Please complete the table below for each of the joint issues listed. Column 3 Option 2";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_3_OPTION_3 = "Please complete the table below for each of the joint issues listed. Column 3 Option 3";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_3_OPTION_4 = "Please complete the table below for each of the joint issues listed. Column 3 Option 4";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_3_OPTION_5 = "Please complete the table below for each of the joint issues listed. Column 3 Option 5";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_3_OPTION_6 = "Please complete the table below for each of the joint issues listed. Column 3 Option 6";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_4_OPTION_1 = "Please complete the table below for each of the joint issues listed. Column 4 Option 1";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_4_OPTION_2 = "Please complete the table below for each of the joint issues listed. Column 4 Option 2";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_4_OPTION_3 = "Please complete the table below for each of the joint issues listed. Column 4 Option 3";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_4_OPTION_4 = "Please complete the table below for each of the joint issues listed. Column 4 Option 4";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_4_OPTION_5 = "Please complete the table below for each of the joint issues listed. Column 4 Option 5";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_4_OPTION_6 = "Please complete the table below for each of the joint issues listed. Column 4 Option 6";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_5_OPTION_1 = "Please complete the table below for each of the joint issues listed. Column 5 Option 1";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_5_OPTION_2 = "Please complete the table below for each of the joint issues listed. Column 5 Option 2";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_5_OPTION_3 = "Please complete the table below for each of the joint issues listed. Column 5 Option 3";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_5_OPTION_4 = "Please complete the table below for each of the joint issues listed. Column 5 Option 4";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_5_OPTION_5 = "Please complete the table below for each of the joint issues listed. Column 5 Option 5";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_5_OPTION_6 = "Please complete the table below for each of the joint issues listed. Column 5 Option 6";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_6_OPTION_1 = "Please complete the table below for each of the joint issues listed. Column 6 Option 1";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_6_OPTION_2 = "Please complete the table below for each of the joint issues listed. Column 6 Option 2";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_6_OPTION_3 = "Please complete the table below for each of the joint issues listed. Column 6 Option 3";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_6_OPTION_4 = "Please complete the table below for each of the joint issues listed. Column 6 Option 4";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_6_OPTION_5 = "Please complete the table below for each of the joint issues listed. Column 6 Option 5";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_6_OPTION_6 = "Please complete the table below for each of the joint issues listed. Column 6 Option 6";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_7_OPTION_1 = "Please complete the table below for each of the joint issues listed. Column 7 Option 1";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_7_OPTION_2 = "Please complete the table below for each of the joint issues listed. Column 7 Option 2";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_7_OPTION_3 = "Please complete the table below for each of the joint issues listed. Column 7 Option 3";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_7_OPTION_4 = "Please complete the table below for each of the joint issues listed. Column 7 Option 4";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_7_OPTION_5 = "Please complete the table below for each of the joint issues listed. Column 7 Option 5";
+    public final String PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_7_OPTION_6 = "Please complete the table below for each of the joint issues listed. Column 7 Option 6";
+    public final String THE_NEXT_SET_OF_QUESTIONS_ASK_ABOUT_BLOOD_DISORDERS = "The next set of questions ask about blood disorders.";
+    public final String HAVE_YOU_EVER_HAD_AN_EVALUATION_BY_A_HEMATOLOGIST = "Have you ever had an evaluation by a hematologist or oncologist?";
+    public final String PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_HEMATOLOGIST_OPTION_1 = "Please provide the information below for the hematologist oncologist who completed your evaluation. Name";
+    public final String PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_HEMATOLOGIST_OPTION_2 = "Please provide the information below for the hematologist oncologist who completed your evaluation. Location";
+    public final String PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_HEMATOLOGIST_OPTION_3 = "Please provide the information below for the hematologist oncologist who completed your evaluation. Hospital";
+    public final String DO_YOU_HAVE_ISSUES_WITH_BLEEDING_OR_BRUISING = "Do you have issues with bleeding or bruising?";
+    public final String DO_YOU_HAVE_ANY_OF_THE_FOLLOWING_ISSUES_WITH_BLEEDING_OR_BRUISING_4_OTHER = "Do you have any of the following issues with bleeding or bruising?  Please select all that apply. Option 4 Other";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_1_OPTION_1 = "Please complete the table below for each of the bleeding bruising issues listed Column 1 Option 1";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_1_OPTION_2 = "Please complete the table below for each of the bleeding bruising issues listed Column 1 Option 2";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_1_OPTION_3 = "Please complete the table below for each of the bleeding bruising issues listed Column 1 Option 3";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_1_OPTION_4 = "Please complete the table below for each of the bleeding bruising issues listed Column 1 Option 4";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_2_OPTION_1 = "Please complete the table below for each of the bleeding bruising issues listed Column 2 Option 1";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_2_OPTION_2 = "Please complete the table below for each of the bleeding bruising issues listed Column 2 Option 2";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_2_OPTION_3 = "Please complete the table below for each of the bleeding bruising issues listed Column 2 Option 3";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_2_OPTION_4 = "Please complete the table below for each of the bleeding bruising issues listed Column 2 Option 4";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_3_OPTION_1 = "Please complete the table below for each of the bleeding bruising issues listed Column 3 Option 1";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_3_OPTION_2 = "Please complete the table below for each of the bleeding bruising issues listed Column 3 Option 2";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_3_OPTION_3 = "Please complete the table below for each of the bleeding bruising issues listed Column 3 Option 3";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_3_OPTION_4 = "Please complete the table below for each of the bleeding bruising issues listed Column 3 Option 4";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_4_OPTION_1 = "Please complete the table below for each of the bleeding bruising issues listed Column 4 Option 1";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_4_OPTION_2 = "Please complete the table below for each of the bleeding bruising issues listed Column 4 Option 2";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_4_OPTION_3 = "Please complete the table below for each of the bleeding bruising issues listed Column 4 Option 3";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_4_OPTION_4 = "Please complete the table below for each of the bleeding bruising issues listed Column 4 Option 4";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_5_OPTION_1 = "Please complete the table below for each of the bleeding bruising issues listed Column 5 Option 1";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_5_OPTION_2 = "Please complete the table below for each of the bleeding bruising issues listed Column 5 Option 2";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_5_OPTION_3 = "Please complete the table below for each of the bleeding bruising issues listed Column 5 Option 3";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_5_OPTION_4 = "Please complete the table below for each of the bleeding bruising issues listed Column 5 Option 4";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_6_OPTION_1 = "Please complete the table below for each of the bleeding bruising issues listed Column 6 Option 1";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_6_OPTION_2 = "Please complete the table below for each of the bleeding bruising issues listed Column 6 Option 2";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_6_OPTION_3 = "Please complete the table below for each of the bleeding bruising issues listed Column 6 Option 3";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_6_OPTION_4 = "Please complete the table below for each of the bleeding bruising issues listed Column 6 Option 4";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_7_OPTION_1 = "Please complete the table below for each of the bleeding bruising issues listed Column 7 Option 1";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_7_OPTION_2 = "Please complete the table below for each of the bleeding bruising issues listed Column 7 Option 2";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_7_OPTION_3 = "Please complete the table below for each of the bleeding bruising issues listed Column 7 Option 3";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_7_OPTION_4 = "Please complete the table below for each of the bleeding bruising issues listed Column 7 Option 4";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_8_OPTION_1 = "Please complete the table below for each of the bleeding bruising issues listed Column 8 Option 1";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_8_OPTION_2 = "Please complete the table below for each of the bleeding bruising issues listed Column 8 Option 2";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_8_OPTION_3 = "Please complete the table below for each of the bleeding bruising issues listed Column 8 Option 3";
+    public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_8_OPTION_4 = "Please complete the table below for each of the bleeding bruising issues listed Column 8 Option 4";
+    public final String DO_YOU_HAVE_ANY_KNOWN_BLOOD_DISORDERS = "Do you have any known blood disorders or symptoms of blood disorders?";
+    public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_BLOOD_DISORDERS_7_OTHER = "Have you ever been diagnosed with any of the following blood disorders or symptoms of blood disorders?  Please select all that apply. Option 7 Other";
+    public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_BLOOD_DISORDERS_8_OTHER = "Have you ever been diagnosed with any of the following blood disorders or symptoms of blood disorders?  Please select all that apply. Option 8 Other";
 //    public final String
 //    public final String
 //    public final String

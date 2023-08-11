@@ -2813,7 +2813,7 @@ public class RasScenario1StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(5));
-        for(int a = 1; a < 8 ; a++) {
+        for (int a = 1; a < 8; a++) {
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(a));
         }
         myRASSurveyPage.dynamicPleaseSpecifyTextBox(ras_Survey_TestDataManager.pleaseChooseTheBestTermsToDescribeYourHair7).clear();
@@ -2825,7 +2825,7 @@ public class RasScenario1StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(5));
-        for(int b = 1; b < 6 ; b++) {
+        for (int b = 1; b < 6; b++) {
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(b));
         }
         myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(5).clear();
@@ -2834,7 +2834,7 @@ public class RasScenario1StepsImpl extends PageInitializer {
         rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(5));
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(223));
-        for(int c = 1; c < 6 ; c++) {
+        for (int c = 1; c < 6; c++) {
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(c));
         }
         myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(5).clear();
@@ -2847,7 +2847,7 @@ public class RasScenario1StepsImpl extends PageInitializer {
         rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(5));
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(225));
-        for(int d = 1; d < 6 ; d++) {
+        for (int d = 1; d < 6; d++) {
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(d));
         }
         myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(5).clear();
@@ -2855,9 +2855,217 @@ public class RasScenario1StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(310));
-        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager. theNextSetOfQuestionsAskAboutSkeletalConditions, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT HAIR AND SKIN QUALITIES TEXT --");
+        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsAskAboutSkeletalConditions, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT SKELETAL CONDITIONS TEXT --");
         CucumberLogUtils.logScreenshot();
-
+        rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(387));
+        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.isTheTextureOrAmountOfYourHairSimilar));
+        CucumberLogUtils.logScreenshot();
+        rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 2));
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 2).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 2), ras_Survey_TestDataManager.pleaseProvideTheDetailsBelowForTheOrthopaedicOption1);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 2).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 2), ras_Survey_TestDataManager.pleaseProvideTheDetailsBelowForTheOrthopaedicOption2);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 2).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 2), ras_Survey_TestDataManager.pleaseProvideTheDetailsBelowForTheOrthopaedicOption3);
+        CucumberLogUtils.logScreenshot();
+        rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(2));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(226));
+        for (int e = 1; e < 5; e++) {
+            CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(e));
+        }
+        myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(4).clear();
+        CommonUtils.sendKeys(myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(4), ras_Survey_TestDataManager.haveYouBeenDiagnosedWithAnyOfTheFollowingSkeletalOption4Other);
+        CucumberLogUtils.logScreenshot();
+        rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(352));
+        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.doYouHaveAnyIssuesWithCurvingOfTheSpine));
+        CucumberLogUtils.logScreenshot();
+        rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(2));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(227));
+        for (int f = 1; f < 5; f++) {
+            CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(f));
+        }
+        myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(4).clear();
+        CommonUtils.sendKeys(myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(4), ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingTypesOfCurvatureOption1Other);
+        CucumberLogUtils.logScreenshot();
+        rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        CommonUtils.waitForClickability(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3));
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn1Option1);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 3).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 3), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn1Option2);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 3).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 3), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn1Option3);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 3).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 3), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn1Option4);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 4).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 4), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn2Option1);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 4).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 4), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn2Option2);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 4).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 4), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn2Option3);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 4).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 4), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn2Option4);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 5).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 5), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn3Option1);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 5).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 5), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn3Option2);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 5).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 5), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn3Option3);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 5).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 5), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn3Option4);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 8).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 8), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn4Option1);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 8).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 8), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn4Option2);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 8).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 8), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn4Option3);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 8).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 8), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn4Option4);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 9).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 9), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn5Option1);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 9).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 9), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn5Option2);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 9).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 9), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn5Option3);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 9).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 9), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn5Option4);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 10).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 10), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn6Option1);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 10).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 10), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn6Option2);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 10).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 10), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn6Option3);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 10).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 10), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn6Option4);
+        myRASSurveyPage.enterTextInTextAreaTextBox(1, 13).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInTextAreaTextBox(1, 13), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn7Option1);
+        myRASSurveyPage.enterTextInTextAreaTextBox(2, 13).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInTextAreaTextBox(2, 13), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn7Option2);
+        myRASSurveyPage.enterTextInTextAreaTextBox(3, 13).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInTextAreaTextBox(3, 13), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn7Option3);
+        myRASSurveyPage.enterTextInTextAreaTextBox(4, 13).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInTextAreaTextBox(4, 13), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn7Option4);
+        CucumberLogUtils.logScreenshot();
+        rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(231));
+        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.hasYourNeckBeenDescribedAsShortOrWebbed));
+        CucumberLogUtils.logScreenshot();
+        rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(353));
+        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithJointIssues));
+        CucumberLogUtils.logScreenshot();
+        rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(2));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(232));
+        for (int g = 1; g < 7; g++) {
+            CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(g));
+        }
+        myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(6).clear();
+        CommonUtils.sendKeys(myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(6), ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithTheFollowingJointIssues6Other);
+        CucumberLogUtils.logScreenshot();
+        rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        CommonUtils.waitForClickability(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3));
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn1Option1);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 3).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 3), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn1Option2);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 3).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 3), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn1Option3);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 3).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 3), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn1Option4);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(5, 3).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(5, 3), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn1Option5);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(6, 3).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(6, 3), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn1Option6);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 4).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 4), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn2Option1);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 4).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 4), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn2Option2);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 4).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 4), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn2Option3);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 4).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 4), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn2Option4);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(5, 4).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(5, 4), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn2Option5);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(6, 4).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(6, 4), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn2Option6);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 5).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 5), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn3Option1);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 5).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 5), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn3Option2);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 5).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 5), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn3Option3);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 5).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 5), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn3Option4);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(5, 5).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(5, 5), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn3Option5);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(6, 5).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(6, 5), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn3Option6);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 8).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 8), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn4Option1);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 8).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 8), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn4Option2);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 8).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 8), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn4Option3);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 8).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 8), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn4Option4);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(5, 8).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(5, 8), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn4Option5);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(6, 8).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(6, 8), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn4Option6);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 9).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 9), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn5Option1);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 9).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 9), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn5Option2);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 9).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 9), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn5Option3);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 9).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 9), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn5Option4);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(5, 9).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(5, 9), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn5Option5);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(6, 9).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(6, 9), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn5Option6);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 10).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 10), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn6Option1);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 10).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 10), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn6Option2);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 10).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 10), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn6Option3);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 10).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 10), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn6Option4);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(5, 10).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(5, 10), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn6Option5);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(6, 10).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(6, 10), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn6Option6);
+        myRASSurveyPage.enterTextInTextAreaTextBox(1, 13).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInTextAreaTextBox(1, 13), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn7Option1);
+        myRASSurveyPage.enterTextInTextAreaTextBox(2, 13).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInTextAreaTextBox(2, 13), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn7Option2);
+        myRASSurveyPage.enterTextInTextAreaTextBox(3, 13).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInTextAreaTextBox(3, 13), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn7Option3);
+        myRASSurveyPage.enterTextInTextAreaTextBox(4, 13).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInTextAreaTextBox(4, 13), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn7Option4);
+        myRASSurveyPage.enterTextInTextAreaTextBox(5, 13).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInTextAreaTextBox(5, 13), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn7Option5);
+        myRASSurveyPage.enterTextInTextAreaTextBox(6, 13).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInTextAreaTextBox(6, 13), ras_Survey_TestDataManager.pleaseCompleteTheJointIssuesListedColumn7Option6);
+        CucumberLogUtils.logScreenshot();
+        rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(311));
+        CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsAskAboutBloodDisorders, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT BLOOD DISORDERS TEXT --");
+        CucumberLogUtils.logScreenshot();
+    }
+        public void rasScreenerSurveyScenario1PartNine() {
+            rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
+            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(389));
+//            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverHadAnEvaluationByAHematologist));
+//            CucumberLogUtils.logScreenshot();
+//            rasScreenerScenario1StepsImpl.clickOnSurveySavAndNextButton();
 
 
 

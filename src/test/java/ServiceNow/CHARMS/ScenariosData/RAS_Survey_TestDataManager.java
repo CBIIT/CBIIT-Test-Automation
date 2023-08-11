@@ -769,6 +769,127 @@ public class RAS_Survey_TestDataManager extends PageInitializer {
     public String haveYouEverBeenDiagnosedWithAnyOfTheFollowingSkinTumorsOthers;
     public String theNextSetOfQuestionsAskAboutSkeletalConditions;
     public String haveYouEverBeenEvaluatedByAnOrthopaedicSurgeon;
+    public String pleaseProvideTheDetailsBelowForTheOrthopaedicOption1;
+    public String pleaseProvideTheDetailsBelowForTheOrthopaedicOption2;
+    public String pleaseProvideTheDetailsBelowForTheOrthopaedicOption3;
+    public String haveYouBeenDiagnosedWithAnyOfTheFollowingSkeletalOption4Other;
+    public String doYouHaveAnyIssuesWithCurvingOfTheSpine;
+    public String haveYouEverBeenDiagnosedWithAnyOfTheFollowingTypesOfCurvatureOption1Other;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn1Option1;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn1Option2;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn1Option3;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn1Option4;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn2Option1;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn2Option2;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn2Option3;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn2Option4;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn3Option1;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn3Option2;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn3Option3;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn3Option4;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn4Option1;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn4Option2;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn4Option3;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn4Option4;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn5Option1;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn5Option2;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn5Option3;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn5Option4;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn6Option1;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn6Option2;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn6Option3;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn6Option4;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn7Option1;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn7Option2;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn7Option3;
+    public String pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn7Option4;
+    public String hasYourNeckBeenDescribedAsShortOrWebbed;
+    public String haveYouEverBeenDiagnosedWithJointIssues;
+    public String haveYouEverBeenDiagnosedWithTheFollowingJointIssues6Other;
+    public String pleaseCompleteTheJointIssuesListedColumn1Option1;
+    public String pleaseCompleteTheJointIssuesListedColumn1Option2;
+    public String pleaseCompleteTheJointIssuesListedColumn1Option3;
+    public String pleaseCompleteTheJointIssuesListedColumn1Option4;
+    public String pleaseCompleteTheJointIssuesListedColumn1Option5;
+    public String pleaseCompleteTheJointIssuesListedColumn1Option6;
+    public String pleaseCompleteTheJointIssuesListedColumn2Option1;
+    public String pleaseCompleteTheJointIssuesListedColumn2Option2;
+    public String pleaseCompleteTheJointIssuesListedColumn2Option3;
+    public String pleaseCompleteTheJointIssuesListedColumn2Option4;
+    public String pleaseCompleteTheJointIssuesListedColumn2Option5;
+    public String pleaseCompleteTheJointIssuesListedColumn2Option6;
+    public String pleaseCompleteTheJointIssuesListedColumn3Option1;
+    public String pleaseCompleteTheJointIssuesListedColumn3Option2;
+    public String pleaseCompleteTheJointIssuesListedColumn3Option3;
+    public String pleaseCompleteTheJointIssuesListedColumn3Option4;
+    public String pleaseCompleteTheJointIssuesListedColumn3Option5;
+    public String pleaseCompleteTheJointIssuesListedColumn3Option6;
+    public String pleaseCompleteTheJointIssuesListedColumn4Option1;
+    public String pleaseCompleteTheJointIssuesListedColumn4Option2;
+    public String pleaseCompleteTheJointIssuesListedColumn4Option3;
+    public String pleaseCompleteTheJointIssuesListedColumn4Option4;
+    public String pleaseCompleteTheJointIssuesListedColumn4Option5;
+    public String pleaseCompleteTheJointIssuesListedColumn4Option6;
+    public String pleaseCompleteTheJointIssuesListedColumn5Option1;
+    public String pleaseCompleteTheJointIssuesListedColumn5Option2;
+    public String pleaseCompleteTheJointIssuesListedColumn5Option3;
+    public String pleaseCompleteTheJointIssuesListedColumn5Option4;
+    public String pleaseCompleteTheJointIssuesListedColumn5Option5;
+    public String pleaseCompleteTheJointIssuesListedColumn5Option6;
+    public String pleaseCompleteTheJointIssuesListedColumn6Option1;
+    public String pleaseCompleteTheJointIssuesListedColumn6Option2;
+    public String pleaseCompleteTheJointIssuesListedColumn6Option3;
+    public String pleaseCompleteTheJointIssuesListedColumn6Option4;
+    public String pleaseCompleteTheJointIssuesListedColumn6Option5;
+    public String pleaseCompleteTheJointIssuesListedColumn6Option6;
+    public String pleaseCompleteTheJointIssuesListedColumn7Option1;
+    public String pleaseCompleteTheJointIssuesListedColumn7Option2;
+    public String pleaseCompleteTheJointIssuesListedColumn7Option3;
+    public String pleaseCompleteTheJointIssuesListedColumn7Option4;
+    public String pleaseCompleteTheJointIssuesListedColumn7Option5;
+    public String pleaseCompleteTheJointIssuesListedColumn7Option6;
+    public String theNextSetOfQuestionsAskAboutBloodDisorders;
+    public String haveYouEverHadAnEvaluationByAHematologist;
+    public String pleaseProvideTheInformationBelowForTheHematologistOption1;
+    public String pleaseProvideTheInformationBelowForTheHematologistOption2;
+    public String pleaseProvideTheInformationBelowForTheHematologistOption3;
+    public String doYouHaveIssuesWithBleedingOrBruising;
+    public String doYouHaveAnyOfTheFollowingIssuesWithBleedingOrBruising4Other;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn1Option1;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn1Option2;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn1Option3;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn1Option4;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn2Option1;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn2Option2;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn2Option3;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn2Option4;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn3Option1;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn3Option2;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn3Option3;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn3Option4;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn4Option1;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn4Option2;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn4Option3;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn4Option4;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn5Option1;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn5Option2;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn5Option3;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn5Option4;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn6Option1;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn6Option2;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn6Option3;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn6Option4;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn7Option1;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn7Option2;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn7Option3;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn7Option4;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn8Option1;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn8Option2;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn8Option3;
+    public String pleaseCompleteBleedingBruisingIssuesListedColumn8Option4;
+    public String doYouHaveAnyKnownBloodDisorders;
+    public String haveYouEverBeenDiagnosedWithBloodDisorders7Other;
+    public String haveYouEverBeenDiagnosedWithBloodDisorders8Other;
 //    public String
 //    public String
 //    public String
@@ -777,8 +898,29 @@ public class RAS_Survey_TestDataManager extends PageInitializer {
 //    public String
 //    public String
 //    public String
-
-
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
 
 
     public void dataInitializerRasSurvey(String sheetName) {
@@ -1549,7 +1691,87 @@ public class RAS_Survey_TestDataManager extends PageInitializer {
             doYouHaveAnyHemangiomas = testDataRasSurvey.get(ras_Survey_Constants.DO_YOU_HAVE_ANY_HEMANGIOMAS);
             haveYouEverBeenDiagnosedWithAnyOfTheFollowingSkinTumorsOthers = testDataRasSurvey.get(ras_Survey_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_SKIN_TUMORS);
             theNextSetOfQuestionsAskAboutSkeletalConditions = testDataRasSurvey.get(ras_Survey_Constants.THE_NEXT_SET_OF_QUESTIONS_ASK_ABOUT_SKELETAL_CONDITIONS);
-
+            haveYouEverBeenEvaluatedByAnOrthopaedicSurgeon = testDataRasSurvey.get(ras_Survey_Constants.HAVE_YOU_EVER_BEEN_EVALUATED_BY_AN_ORTHOPAEDIC_SURGEON);
+            pleaseProvideTheDetailsBelowForTheOrthopaedicOption1 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_PROVIDE_THE_DETAILS_BELOW_FOR_THE_ORTHOPAEDIC_OPTION_1);
+            pleaseProvideTheDetailsBelowForTheOrthopaedicOption2 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_PROVIDE_THE_DETAILS_BELOW_FOR_THE_ORTHOPAEDIC_OPTION_2);
+            pleaseProvideTheDetailsBelowForTheOrthopaedicOption3 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_PROVIDE_THE_DETAILS_BELOW_FOR_THE_ORTHOPAEDIC_OPTION_3);
+            haveYouBeenDiagnosedWithAnyOfTheFollowingSkeletalOption4Other = testDataRasSurvey.get(ras_Survey_Constants.HAVE_YOU_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_SKELETAL_OPTION_4_OTHER);
+            doYouHaveAnyIssuesWithCurvingOfTheSpine = testDataRasSurvey.get(ras_Survey_Constants.DO_YOU_HAVE_ANY_ISSUES_WITH_CURVING_OF_THE_SPINE);
+            haveYouEverBeenDiagnosedWithAnyOfTheFollowingTypesOfCurvatureOption1Other = testDataRasSurvey.get(ras_Survey_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_TYPES_OF_CURVATURE_OPTION_4_OTHER);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn1Option1 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_1_OPTION_1);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn1Option2 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_1_OPTION_2);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn1Option3 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_1_OPTION_3);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn1Option4 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_1_OPTION_4);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn2Option1 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_2_OPTION_1);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn2Option2 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_2_OPTION_2);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn2Option3 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_2_OPTION_3);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn2Option4 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_2_OPTION_4);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn3Option1 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_3_OPTION_1);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn3Option2 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_3_OPTION_2);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn3Option3 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_3_OPTION_3);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn3Option4 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_3_OPTION_4);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn4Option1 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_4_OPTION_1);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn4Option2 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_4_OPTION_2);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn4Option3 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_4_OPTION_3);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn4Option4 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_4_OPTION_4);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn5Option1 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_5_OPTION_1);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn5Option2 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_5_OPTION_2);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn5Option3 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_5_OPTION_3);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn5Option4 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_5_OPTION_4);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn6Option1 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_6_OPTION_1);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn6Option2 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_6_OPTION_2);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn6Option3 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_6_OPTION_3);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn6Option4 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_6_OPTION_4);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn7Option1 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_7_OPTION_1);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn7Option2 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_7_OPTION_2);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn7Option3 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_7_OPTION_3);
+            pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn7Option4 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_FOR_EACH_OF_THE_SPINE_ISSUES_COLUMN_7_OPTION_3);
+            hasYourNeckBeenDescribedAsShortOrWebbed = testDataRasSurvey.get(ras_Survey_Constants.HAS_YOUR_NECK_BEEN_DESCRIBED_AS_SHORT_OR_WEBBED);
+            haveYouEverBeenDiagnosedWithJointIssues = testDataRasSurvey.get(ras_Survey_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_JOINT_ISSUES);
+            haveYouEverBeenDiagnosedWithTheFollowingJointIssues6Other = testDataRasSurvey.get(ras_Survey_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_JOINT_ISSUES_6_OTHER);
+            pleaseCompleteTheJointIssuesListedColumn1Option1 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_1_OPTION_1);
+            pleaseCompleteTheJointIssuesListedColumn1Option2 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_1_OPTION_2);
+            pleaseCompleteTheJointIssuesListedColumn1Option3 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_1_OPTION_3);
+            pleaseCompleteTheJointIssuesListedColumn1Option4 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_1_OPTION_4);
+            pleaseCompleteTheJointIssuesListedColumn1Option5 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_1_OPTION_5);
+            pleaseCompleteTheJointIssuesListedColumn1Option6 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_1_OPTION_6);
+            pleaseCompleteTheJointIssuesListedColumn2Option1 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_2_OPTION_1);
+            pleaseCompleteTheJointIssuesListedColumn2Option2 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_2_OPTION_2);
+            pleaseCompleteTheJointIssuesListedColumn2Option3 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_2_OPTION_3);
+            pleaseCompleteTheJointIssuesListedColumn2Option4 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_2_OPTION_4);
+            pleaseCompleteTheJointIssuesListedColumn2Option5 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_2_OPTION_5);
+            pleaseCompleteTheJointIssuesListedColumn2Option6 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_2_OPTION_6);
+            pleaseCompleteTheJointIssuesListedColumn3Option1 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_3_OPTION_1);
+            pleaseCompleteTheJointIssuesListedColumn3Option2 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_3_OPTION_2);
+            pleaseCompleteTheJointIssuesListedColumn3Option3 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_3_OPTION_3);
+            pleaseCompleteTheJointIssuesListedColumn3Option4 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_3_OPTION_4);
+            pleaseCompleteTheJointIssuesListedColumn3Option5 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_3_OPTION_5);
+            pleaseCompleteTheJointIssuesListedColumn3Option6 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_3_OPTION_6);
+            pleaseCompleteTheJointIssuesListedColumn4Option1 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_4_OPTION_1);
+            pleaseCompleteTheJointIssuesListedColumn4Option2 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_4_OPTION_2);
+            pleaseCompleteTheJointIssuesListedColumn4Option3 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_4_OPTION_3);
+            pleaseCompleteTheJointIssuesListedColumn4Option4 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_4_OPTION_4);
+            pleaseCompleteTheJointIssuesListedColumn4Option5 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_4_OPTION_5);
+            pleaseCompleteTheJointIssuesListedColumn4Option6 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_4_OPTION_6);
+            pleaseCompleteTheJointIssuesListedColumn5Option1 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_5_OPTION_1);
+            pleaseCompleteTheJointIssuesListedColumn5Option2 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_5_OPTION_2);
+            pleaseCompleteTheJointIssuesListedColumn5Option3 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_5_OPTION_3);
+            pleaseCompleteTheJointIssuesListedColumn5Option4 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_5_OPTION_4);
+            pleaseCompleteTheJointIssuesListedColumn5Option5 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_5_OPTION_5);
+            pleaseCompleteTheJointIssuesListedColumn5Option6 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_5_OPTION_6);
+            pleaseCompleteTheJointIssuesListedColumn6Option1 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_6_OPTION_1);
+            pleaseCompleteTheJointIssuesListedColumn6Option2 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_6_OPTION_2);
+            pleaseCompleteTheJointIssuesListedColumn6Option3 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_6_OPTION_3);
+            pleaseCompleteTheJointIssuesListedColumn6Option4 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_6_OPTION_4);
+            pleaseCompleteTheJointIssuesListedColumn6Option5 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_6_OPTION_5);
+            pleaseCompleteTheJointIssuesListedColumn6Option6 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_6_OPTION_6);
+            pleaseCompleteTheJointIssuesListedColumn7Option1 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_7_OPTION_1);
+            pleaseCompleteTheJointIssuesListedColumn7Option2 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_7_OPTION_2);
+            pleaseCompleteTheJointIssuesListedColumn7Option3 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_7_OPTION_3);
+            pleaseCompleteTheJointIssuesListedColumn7Option4 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_7_OPTION_4);
+            pleaseCompleteTheJointIssuesListedColumn7Option5 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_7_OPTION_5);
+            pleaseCompleteTheJointIssuesListedColumn7Option6 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_JOINT_ISSUES_LISTED_COLUMN_7_OPTION_6);
+            theNextSetOfQuestionsAskAboutBloodDisorders = testDataRasSurvey.get(ras_Survey_Constants.THE_NEXT_SET_OF_QUESTIONS_ASK_ABOUT_BLOOD_DISORDERS);
             }
         }
     }
