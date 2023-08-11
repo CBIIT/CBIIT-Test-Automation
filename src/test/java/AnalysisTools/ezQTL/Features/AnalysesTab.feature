@@ -24,7 +24,7 @@ Feature: Scenarios under the Analyses tab on ezQTL
         When the user searches using public data and five locus parameters
         Then the "Your job was successfully submitted to the queue. You will recieve an email at kevin.matarodriguez@nih.gov with your results." text is displayed
 
-    @Smoke @matakevin
+    @Smoke @Progression @matakevin
     Scenario:Download Links are clickable and display correctly
         Given The user is on the ezQTL Analyses page
         When the user clicks on the Load Sample Data link
