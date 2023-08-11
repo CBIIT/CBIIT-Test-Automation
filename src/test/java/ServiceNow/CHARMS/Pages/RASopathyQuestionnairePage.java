@@ -189,6 +189,10 @@ public class RASopathyQuestionnairePage {
     @FindBy(xpath = "//span[contains(text(),'White')]")
     public WebElement raceOfParticipantWhite;
 
+    /* Pin Text Box Locator */
+    @FindBy(xpath = "//span[contains(text(),'Email')]//parent::label//parent::span/parent::td//parent::tr//parent::tbody//child::tr[2]/child::td[2]/child::input")
+    public WebElement pinTextBox;
+
     @FindBy(xpath = "//span[contains(text(),'Black/African American')]")
     public WebElement raceOfParticipantBlackAfricanAmerican;
 
@@ -463,6 +467,15 @@ public class RASopathyQuestionnairePage {
      */
     public WebElement dynamicClickOnCheckboxesScreener(int index) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='Questions']//child::div[2]//child::div[3]//child::div[1]//child::fieldset//child::legend/following-sibling::div//child::ul//child::li[" + index + "]//child::span//child::label"));
+    }
+
+    /***
+     * USE THIS METHOD TO DYNAMICALLY CLICK ON ALL CHECKBOXES ON IIQ TABLE
+     * @param text
+     * @return
+     */
+    public WebElement dynamicClickOnCheckboxesIiqTable(int indexOne, int indexTwo) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='SkinContent']//child::div//child::div[2]//child::div[3]//child::div[1]//child::fieldset//child::legend/following-sibling::div//child::table//child::tbody//child::tr[" + indexOne + "]//child::td[" + indexTwo + "]//child::span//child::label"));
     }
 
     /***

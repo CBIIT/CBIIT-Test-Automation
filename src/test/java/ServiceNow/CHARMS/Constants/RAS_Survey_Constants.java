@@ -285,7 +285,7 @@ public class RAS_Survey_Constants {
     public final String BIOLOGICAL_MOTHER_OCCUPATION_DURING_PREGNANCY_FATHER = "Please describe your biological parents' occupation(s) during your mother's pregnancy with you?  Please list all of the occupations during the pregnancy. Father ocupation during pregnacy";
     public final String WHAT_IS_THE_HEIGHT_OF_YOUR_BIOLOGICAL_MOTHER = "What is the height of your biological mother?  Please complete the table below mother height value";
     public final String WHAT_IS_THE_HEIGHT_OF_YOUR_BIOLOGICAL_FATHER = "What is the height of your biological father?  Please complete the table below father height value";
-    public final String THE_NEXT_SET_HORMONE_RELATED_GROWTH = "The next set of questions will ask about hormone-related growth.  Growth is influenced by many things including nutrition, parental height/genetics and secreted hormones that tell the body to grow taller.  ";
+    public final String THE_NEXT_SET_HORMONE_RELATED_GROWTH = "The next set of questions will ask about hormone-related growth.";
     public final String HAVE_YOU_EVER_BEEN_EVALUATED_BY_AN_ENDOCRINOLOGIST = "Have you ever been evaluated by an endocrinologist for any reason?  These are doctors that specialize in the endocrine system, which is made up of many glands that secrete hormones.  Hormones play a role in many things in the body including growth, metabolism and salt regulation.  Endocrinologists often diagnose conditions such as diabetes and thyroid problems.";
     public final String WHAT_IS_THE_NAME_OF_THE_ENDOCRINOLOGIST_DOCTOR = "What is the name of the endocrinologist who completed your examination? Doctor";
     public final String WHAT_IS_THE_NAME_OF_THE_ENDOCRINOLOGIST_LOCATION = "What is the name of the endocrinologist who completed your examination? Location";
@@ -325,7 +325,7 @@ public class RAS_Survey_Constants {
     public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_LEARNING_DIFFERENCES_Option_3 = "Have you ever been diagnosed with any of the following learning differences?  Please select all that apply. Option 3";
     public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_LEARNING_DIFFERENCES_Option_4 = "Have you ever been diagnosed with any of the following learning differences?  Please select all that apply. Option 4";
     public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_LEARNING_DIFFERENCES_Option_4_OTHER = "Have you ever been diagnosed with any of the following learning differences?  Please select all that apply. Option 4 Other";
-    public final String THE_NEXT_SET_OF_QUESTIONS_WILL_ASK_ABOUT_HEART = "The next set of questions will ask about medical conditions associated with the heart. ";
+    public final String THE_NEXT_SET_OF_QUESTIONS_WILL_ASK_ABOUT_HEART = "The next set of questions will ask about medical conditions associated with the heart.";
     public final String HAVE_YOU_EVER_BEEN_EVALUATED_BY_A_CARDIOLOGIST = "Have you ever been evaluated by a cardiologist?  These are doctors that specialize in the heart. Cardiologists often diagnose conditions such as an irregular heart beat, an enlarged heart, and heart defects.";
     public final String WHAT_IS_THE_NAME_OF_THE_CARDIOLOGIST_DOCTOR = "What is the name of the cardiologist who completed your heart evaluation? Doctor";
     public final String WHAT_IS_THE_NAME_OF_THE_CARDIOLOGIST_LOCATION = "What is the name of the cardiologist who completed your heart evaluation? Location";
@@ -877,4 +877,49 @@ public class RAS_Survey_Constants {
     public final String PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_8_OPTION_3 = "Please complete the table below to the best of your ability regarding date of onset of symptoms, diagnosis and if any medications or procedures were undertaken.  If you do not recall the details for each condition listed, please place an 'X' in the box. Minor Column 8 Option 3";
     public final String PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_8_OPTION_4 = "Please complete the table below to the best of your ability regarding date of onset of symptoms, diagnosis and if any medications or procedures were undertaken.  If you do not recall the details for each condition listed, please place an 'X' in the box. Minor Column 8 Option 4";
     public final String THE_NEXT_SET_OF_QUESTIONS_ASK_ABOUT_HAIR_AND_SKIN_QUALITIES = "The next set of questions ask about hair and skin qualities.";
+    public final String HAVE_YOU_EVER_BEEN_EVALUATED_BY_A_DERMATOLOGIST = "Have you ever been evaluated by a dermatologist?";
+    public final String PLEASE_PROVIDE_DERMATOLOGIST_WHO_COMPLETED_YOUR_EVALUATION_OPTION1 = "Please provide the information below for the dermatologist who completed your evaluation. Name";
+    public final String PLEASE_PROVIDE_DERMATOLOGIST_WHO_COMPLETED_YOUR_EVALUATION_OPTION2 = "Please provide the information below for the dermatologist who completed your evaluation. City";
+    public final String PLEASE_PROVIDE_DERMATOLOGIST_WHO_COMPLETED_YOUR_EVALUATION_OPTION3 = "Please provide the information below for the dermatologist who completed your evaluation. Hospital";
+    public final String PLEASE_CHOOSE_THE_BEST_TERMS_TO_DESCRIBE_YOUR_HAIR_OPTION_1 = "Please choose the best term(s) to describe your hair.  Please select all that apply. Option 1";
+    public final String PLEASE_CHOOSE_THE_BEST_TERMS_TO_DESCRIBE_YOUR_HAIR_OPTION_2 = "Please choose the best term(s) to describe your hair.  Please select all that apply. Option 2";
+    public final String PLEASE_CHOOSE_THE_BEST_TERMS_TO_DESCRIBE_YOUR_HAIR_OPTION_3 = "Please choose the best term(s) to describe your hair.  Please select all that apply. Option 3";
+    public final String PLEASE_CHOOSE_THE_BEST_TERMS_TO_DESCRIBE_YOUR_HAIR_OPTION_4 = "Please choose the best term(s) to describe your hair.  Please select all that apply. Option 4";
+    public final String PLEASE_CHOOSE_THE_BEST_TERMS_TO_DESCRIBE_YOUR_HAIR_OPTION_5 = "Please choose the best term(s) to describe your hair.  Please select all that apply. Option 5";
+    public final String PLEASE_CHOOSE_THE_BEST_TERMS_TO_DESCRIBE_YOUR_HAIR_OPTION_6 = "Please choose the best term(s) to describe your hair.  Please select all that apply. Option 6";
+    public final String PLEASE_CHOOSE_THE_BEST_TERMS_TO_DESCRIBE_YOUR_HAIR_OPTION_7 = "Please choose the best term(s) to describe your hair.  Please select all that apply. Option 7";
+    public final String PLEASE_CHOOSE_THE_BEST_TERMS_TO_DESCRIBE_YOUR_HAIR_OPTION_7_OTHER = "Please choose the best term(s) to describe your hair.  Please select all that apply. Option 7 Other";
+    public final String IS_THE_TEXTURE_OR_AMOUNT_OF_YOUR_HAIR_SIMILAR = "Is the texture or amount of your hair similar to biological family members, such as your mother, father, sibling, and children?";
+    public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_PATCHES_OF_THICKENED_SKIN_OTHER = "Have you ever been diagnosed with any of the following issues involving patches of thickened skin, also known as hyperkeratotis skin? Please select all that apply. Option 5 Option";
+    public final String DO_YOU_HAVE_ANY_OF_THE_FOLLOWING_PIGMENTED_SKIN_FINDINGS = "Do you have any of the following pigmented skin findings? Select all that apply. Option 5 Other";
+    public final String DO_YOU_HAVE_ANY_HEMANGIOMAS = "Do you have any hemangiomas?";
+    public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_SKIN_TUMORS = "Have you ever been diagnosed with any of the following skin tumors?  Please select all that apply. Option 5 Other";
+    public final String THE_NEXT_SET_OF_QUESTIONS_ASK_ABOUT_SKELETAL_CONDITIONS = "The next set of questions ask about skeletal conditions. Skeletal conditions involve the bones throughout the body.";
+    public final String HAVE_YOU_EVER_BEEN_EVALUATED_BY_AN_ORTHOPAEDIC_SURGEON = "Have you ever been evaluated by an orthopaedic surgeon?";
+//    public final String
+//    public final String
+//    public final String
+//    public final String
+//    public final String
+//    public final String
+//    public final String
+//    public final String
+//    public final String
+//    public final String
+//    public final String
+//    public final String
+//    public final String
+//    public final String
+//    public final String
+//    public final String
+//    public final String
+//    public final String
+//    public final String
+//    public final String
+//    public final String
+//    public final String
+//    public final String
+//    public final String
+//    public final String
+//    public final String
 }

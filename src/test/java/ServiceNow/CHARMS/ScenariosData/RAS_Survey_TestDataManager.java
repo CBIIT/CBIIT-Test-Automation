@@ -750,12 +750,49 @@ public class RAS_Survey_TestDataManager extends PageInitializer {
     public String pleaseCompleteTheTableRegardingKidneyColumn8Option3;
     public String pleaseCompleteTheTableRegardingKidneyColumn8Option4;
     public String theNextSetOfQuestionsAskAboutHairAndSkinQualities;
+    public String haveYouEverBeenEvaluatedByADermatologist;
+    public String pleaseProvideDermatologistWhoCompletedYourEvaluationOption1;
+    public String pleaseProvideDermatologistWhoCompletedYourEvaluationOption2;
+    public String pleaseProvideDermatologistWhoCompletedYourEvaluationOption3;
+    public String pleaseChooseTheBestTermsToDescribeYourHair1;
+    public String pleaseChooseTheBestTermsToDescribeYourHair2;
+    public String pleaseChooseTheBestTermsToDescribeYourHair3;
+    public String pleaseChooseTheBestTermsToDescribeYourHair4;
+    public String pleaseChooseTheBestTermsToDescribeYourHair5;
+    public String pleaseChooseTheBestTermsToDescribeYourHair6;
+    public String pleaseChooseTheBestTermsToDescribeYourHair7;
+    public String pleaseChooseTheBestTermsToDescribeYourHair7Other;
+    public String isTheTextureOrAmountOfYourHairSimilar;
+    public String haveYouEverBeenDiagnosedWithPatchesOfThickenedSkinOther;
+    public String doYouHaveAnyOfTheFollowingPigmentedSkinFindingsOther;
+    public String doYouHaveAnyHemangiomas;
+    public String haveYouEverBeenDiagnosedWithAnyOfTheFollowingSkinTumorsOthers;
+    public String theNextSetOfQuestionsAskAboutSkeletalConditions;
+    public String haveYouEverBeenEvaluatedByAnOrthopaedicSurgeon;
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+//    public String
+
+
+
 
     public void dataInitializerRasSurvey(String sheetName) {
         /**
          * FETCHING DATA FROM EXCEL BEFORE SUBMITTING RAS SURVEY
          */
-            testDataRasSurvey = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_ONE_DATA, sheetName);
+        if (sheetName.equals("RASSurveyScenario1")) {
+
+        }else if (sheetName.equals("RASSurveyScenario2")) {
+
+        }else if (sheetName.equals("RASSurveyScenario3")) {
+
+        }else if (sheetName.equals("RASSurveyScenario4")) {
+            testDataRasSurvey = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_FOUR_DATA, sheetName);
             thankYouForStartingTheRASSurveyAndFor = testDataRasSurvey.get(ras_Survey_Constants.THANK_YOU_FOR_STARTING_THE_RAS_SURVEY_AND_FOR);
             thisQuestionnaireMayTakeYouSeveral = testDataRasSurvey.get(ras_Survey_Constants.THIS_QUESTIONNAIRE_MAY_TAKE_YOU_SEVERAL);
             theFirstBlockOfQuestions = testDataRasSurvey.get(ras_Survey_Constants.THE_FIRST_BLOCK_OF_QUESTIONS);
@@ -1494,5 +1531,25 @@ public class RAS_Survey_TestDataManager extends PageInitializer {
             pleaseCompleteTheTableRegardingKidneyColumn8Option3 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_8_OPTION_3);
             pleaseCompleteTheTableRegardingKidneyColumn8Option4 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_COMPLETE_THE_TABLE_REGARDING_KIDNEY_COLUMN_8_OPTION_4);
             theNextSetOfQuestionsAskAboutHairAndSkinQualities = testDataRasSurvey.get(ras_Survey_Constants.THE_NEXT_SET_OF_QUESTIONS_ASK_ABOUT_HAIR_AND_SKIN_QUALITIES);
+            haveYouEverBeenEvaluatedByADermatologist = testDataRasSurvey.get(ras_Survey_Constants.HAVE_YOU_EVER_BEEN_EVALUATED_BY_A_DERMATOLOGIST);
+            pleaseProvideDermatologistWhoCompletedYourEvaluationOption1 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_PROVIDE_DERMATOLOGIST_WHO_COMPLETED_YOUR_EVALUATION_OPTION1);
+            pleaseProvideDermatologistWhoCompletedYourEvaluationOption2 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_PROVIDE_DERMATOLOGIST_WHO_COMPLETED_YOUR_EVALUATION_OPTION2);
+            pleaseProvideDermatologistWhoCompletedYourEvaluationOption3 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_PROVIDE_DERMATOLOGIST_WHO_COMPLETED_YOUR_EVALUATION_OPTION3);
+            pleaseChooseTheBestTermsToDescribeYourHair1 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_CHOOSE_THE_BEST_TERMS_TO_DESCRIBE_YOUR_HAIR_OPTION_1);
+            pleaseChooseTheBestTermsToDescribeYourHair2 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_CHOOSE_THE_BEST_TERMS_TO_DESCRIBE_YOUR_HAIR_OPTION_2);
+            pleaseChooseTheBestTermsToDescribeYourHair3 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_CHOOSE_THE_BEST_TERMS_TO_DESCRIBE_YOUR_HAIR_OPTION_3);
+            pleaseChooseTheBestTermsToDescribeYourHair4 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_CHOOSE_THE_BEST_TERMS_TO_DESCRIBE_YOUR_HAIR_OPTION_4);
+            pleaseChooseTheBestTermsToDescribeYourHair5 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_CHOOSE_THE_BEST_TERMS_TO_DESCRIBE_YOUR_HAIR_OPTION_5);
+            pleaseChooseTheBestTermsToDescribeYourHair6 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_CHOOSE_THE_BEST_TERMS_TO_DESCRIBE_YOUR_HAIR_OPTION_6);
+            pleaseChooseTheBestTermsToDescribeYourHair7 = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_CHOOSE_THE_BEST_TERMS_TO_DESCRIBE_YOUR_HAIR_OPTION_7);
+            pleaseChooseTheBestTermsToDescribeYourHair7Other = testDataRasSurvey.get(ras_Survey_Constants.PLEASE_CHOOSE_THE_BEST_TERMS_TO_DESCRIBE_YOUR_HAIR_OPTION_7_OTHER);
+            isTheTextureOrAmountOfYourHairSimilar = testDataRasSurvey.get(ras_Survey_Constants.IS_THE_TEXTURE_OR_AMOUNT_OF_YOUR_HAIR_SIMILAR);
+            haveYouEverBeenDiagnosedWithPatchesOfThickenedSkinOther = testDataRasSurvey.get(ras_Survey_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_PATCHES_OF_THICKENED_SKIN_OTHER);
+            doYouHaveAnyOfTheFollowingPigmentedSkinFindingsOther = testDataRasSurvey.get(ras_Survey_Constants.DO_YOU_HAVE_ANY_OF_THE_FOLLOWING_PIGMENTED_SKIN_FINDINGS);
+            doYouHaveAnyHemangiomas = testDataRasSurvey.get(ras_Survey_Constants.DO_YOU_HAVE_ANY_HEMANGIOMAS);
+            haveYouEverBeenDiagnosedWithAnyOfTheFollowingSkinTumorsOthers = testDataRasSurvey.get(ras_Survey_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_SKIN_TUMORS);
+            theNextSetOfQuestionsAskAboutSkeletalConditions = testDataRasSurvey.get(ras_Survey_Constants.THE_NEXT_SET_OF_QUESTIONS_ASK_ABOUT_SKELETAL_CONDITIONS);
+
+            }
         }
     }

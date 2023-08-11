@@ -8,7 +8,7 @@ import com.nci.automation.web.JavascriptUtils;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.NoSuchFrameException;
 
-public class RasScreenerScenario2StepsImpl extends PageInitializer {
+public class RasScenario2StepsImpl extends PageInitializer {
 
     /***
      * USE THIS METHOD WILL COMPLETE THE RAS SCREENER SCENARIO 4

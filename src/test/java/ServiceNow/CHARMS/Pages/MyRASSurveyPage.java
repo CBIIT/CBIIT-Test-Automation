@@ -224,7 +224,7 @@ public class MyRASSurveyPage {
     }
 
     /*
-    USE THIS METHOD TO DYNAMICALLY LOCATE TEXT BOXES INS CREENER CHECK BOX OPTIONS
+    USE THIS METHOD TO DYNAMICALLY LOCATE TEXT BOXES IN SCREENER CHECK BOX OPTIONS
     */
     public WebElement screenerDynamicOtherTextBox(String text) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//span[contains(text(),'" + text + "')]//parent::span//parent::label//parent::span//child::input"));
