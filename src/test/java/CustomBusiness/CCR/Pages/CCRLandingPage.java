@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 public class CCRLandingPage extends CommonUtils {
 
     public CCRLandingPage() {
-        PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
+        PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
 
     /** Home Tab */

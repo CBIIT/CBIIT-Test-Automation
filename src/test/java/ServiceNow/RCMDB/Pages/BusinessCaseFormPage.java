@@ -22,10 +22,9 @@ import ServiceNow.ITPG.Utils.CommonUtils;
 public class BusinessCaseFormPage extends BasePage {
 
 	public BusinessCaseFormPage() {
-		PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
+		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 
-	
 	public static String startDate = "//input[@aria-label='Start date']";
 
 	@FindBy(css = ".list2_body tr .composite_field_link")

@@ -121,7 +121,7 @@ public class FlowStepsImplementation extends PageInitializer {
 
 	public void uploadManuscript() {
 		MiscUtils.sleep(3000);
-		WebElement uploadFile = WebDriverUtils.getWebDriver().findElement(By.xpath("//input[@name='upload']"));
+		WebElement uploadFile = WebDriverUtils.webDriver.findElement(By.xpath("//input[@name='upload']"));
 		MiscUtils.sleep(3000);
 		uploadFile.sendKeys("C:\\Users\\zamant2\\Desktop\\TEST-DATA\\Manuscript.docx");
 		CucumberLogUtils.logScreenshot();
@@ -130,7 +130,7 @@ public class FlowStepsImplementation extends PageInitializer {
 
 	public void uploadDataSharing() {
 		MiscUtils.sleep(3000);
-		WebElement uploadFile = WebDriverUtils.getWebDriver().findElement(By.xpath("//input[@name='upload']"));
+		WebElement uploadFile = WebDriverUtils.webDriver.findElement(By.xpath("//input[@name='upload']"));
 		MiscUtils.sleep(3000);
 		uploadFile.sendKeys("C:\\Users\\zamant2\\Desktop\\TEST-DATA\\DataSharingPLan.pdf");
 		CucumberLogUtils.logScreenshot();
@@ -139,7 +139,7 @@ public class FlowStepsImplementation extends PageInitializer {
 
 	public void uploadAbstract() {
 		MiscUtils.sleep(3000);
-		WebElement uploadFile = WebDriverUtils.getWebDriver().findElement(By.xpath("//input[@name='upload']"));
+		WebElement uploadFile = WebDriverUtils.webDriver.findElement(By.xpath("//input[@name='upload']"));
 		MiscUtils.sleep(3000);
 		uploadFile.sendKeys("C:\\Users\\zamant2\\Desktop\\TEST-DATA\\Abstract.docx");
 		CucumberLogUtils.logScreenshot();

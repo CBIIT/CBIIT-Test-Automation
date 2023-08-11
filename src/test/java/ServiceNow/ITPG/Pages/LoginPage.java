@@ -64,6 +64,6 @@ public class LoginPage extends BasePage{
 	public List<WebElement> filteredList;
 	
 	public LoginPage() {
-		PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
+		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 }

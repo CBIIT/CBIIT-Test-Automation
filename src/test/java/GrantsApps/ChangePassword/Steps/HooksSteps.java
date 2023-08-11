@@ -20,7 +20,7 @@ public class HooksSteps extends PageInitializer {
     @Before
     public void genericSetUp(Scenario scenario) {
         CucumberLogUtils.scenario = scenario;
-        WebDriverUtils.getWebDriver();
+        WebDriverUtils.setUp();
         initializeAllPages();
     }
 
