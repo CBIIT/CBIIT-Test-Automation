@@ -1,7 +1,6 @@
 package AnalysisTools.GDSTracking.Steps;
 
 import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 
@@ -20,8 +19,8 @@ public class GDSLoginSteps extends PageInitializer {
 
     @When("the user logs in with valid credentials")
     public void the_user_logs_in_with_valid_credentials() {
-        gdsLoginPage.username.sendKeys("matarodriguezko");
-        gdsLoginPage.password.sendKeys("I will get a Ceramic Matrix Grey Metallic z06!");
+        gdsLoginPage.username.sendKeys("username");
+        gdsLoginPage.password.sendKeys("Password");
         gdsLoginPage.signInButton.click();
         MiscUtils.sleep(2000);
     }
