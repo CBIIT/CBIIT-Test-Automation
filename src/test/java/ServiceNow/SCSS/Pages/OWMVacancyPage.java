@@ -92,8 +92,16 @@ public class OWMVacancyPage  extends CommonUtils {
     public WebElement orgHNC14;
 
     /** Save button **/
-    @FindBy(xpath = "//button//span[contains(text(),'save')]")
+    @FindBy(xpath = "//div[@class='steps-action']//button//span[contains(text(),'save')]")
     public WebElement saveButton;
+
+    /** Vacancy Committee Tab **/
+    @FindBy(xpath = "//div[contains(text(),'Vacancy Committee')]")
+    public WebElement vacCommiteeTab;
+
+    /** Review Finalize Tab **/
+    @FindBy(xpath = "//div[contains(text(),'Review and Finalize')]")
+    public WebElement reviewFinalizeTab;
 
     /** Save and Finalize button **/
     @FindBy(xpath = "//button//span[contains(text(),'save and finalize')]")

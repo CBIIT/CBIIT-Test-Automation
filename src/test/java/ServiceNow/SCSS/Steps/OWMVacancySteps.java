@@ -77,24 +77,24 @@ public class OWMVacancySteps  extends PageInitializer {
 
     @Given("User includes all available Mandatory Statements Page selections")
     public void user_includes_all_available_mandatory_statements_page_selections() {
-        MiscUtils.sleep(2000);
-        CommonUtils.clickOnElement(owmVacancyPage.saveButton);
+        CommonUtils.waitForVisibility(owmVacancyPage.vacCommiteeTab);
+        CommonUtils.clickOnElement(owmVacancyPage.vacCommiteeTab);
     }
 
-    @Given("User adds {string} as a {string}")
-    public void user_adds_as_a(String person) {
+    @Given("User adds {string} as a Chair")
+    public void user_adds_as_a_chair(String person) {
        oWMVacancyStepsImplementation.addChair(person);
     }
 
-    @Given("User adds {string} as an {string}")
-    public void user_adds_as_an(String person) {
-        oWMVacancyStepsImplementation.addExecutiveSecretary(person);
+
+    @Given("User adds {string} as an Executive Secretary")
+    public void user_adds_as_an_executive_secretary(String member) {
+        oWMVacancyStepsImplementation.addExecutiveSecretary(member);
     }
 
     @Given("User includes all available Email Templates selections")
     public void user_includes_all_available_email_templates_selections() {
-        MiscUtils.sleep(2000);
-        CommonUtils.clickOnElement(owmVacancyPage.saveButton);
+        CommonUtils.clickOnElement(owmVacancyPage.reviewFinalizeTab);
     }
 
     @Then("User publishes a vacancy by clicking {string} button")

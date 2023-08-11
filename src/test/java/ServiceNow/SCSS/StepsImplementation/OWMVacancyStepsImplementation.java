@@ -1,24 +1,19 @@
 package ServiceNow.SCSS.StepsImplementation;
 
 import appsCommon.PageInitializer;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 
 public class OWMVacancyStepsImplementation extends PageInitializer {
     public void selectOpenCloseDate(int openDate, int closeDate) {
         JavascriptUtils.scrollIntoView(owmVacancyPage.openCalendarTableInBasicVacancySection);
-        MiscUtils.sleep(1000);
+        CommonUtils.waitForVisibility(owmVacancyPage.openCalendarTableInBasicVacancySection);
         CommonUtils.clickOnElement(owmVacancyPage.openCalendarTableInBasicVacancySection);
-        MiscUtils.sleep(2000);
         JavascriptUtils.clickByJS(owmVacancyPage.calendarDatePicker.get(openDate));
-        MiscUtils.sleep(3000);
         JavascriptUtils.scrollIntoView(owmVacancyPage.closeCalendarTableInBasicVacancySection);
-        MiscUtils.sleep(3000);
+        CommonUtils.waitForVisibility(owmVacancyPage.closeCalendarTableInBasicVacancySection);
         CommonUtils.clickOnElement(owmVacancyPage.closeCalendarTableInBasicVacancySection);
-        MiscUtils.sleep(3000);
         JavascriptUtils.clickByJS(owmVacancyPage.calendarDatePicker.get(closeDate));
-        MiscUtils.sleep(3000);
     }
 
     public void selectPositionClassification(String position) {
@@ -51,15 +46,12 @@ public class OWMVacancyStepsImplementation extends PageInitializer {
         if (button.equals("Create vacancy")) {
             CommonUtils.waitForVisibility(owmVacancyPage.createVacancyButton);
             CommonUtils.clickOnElement(owmVacancyPage.createVacancyButton);
-            MiscUtils.sleep(2000);
         } else if (button.equals("Save")) {
             CommonUtils.waitForVisibility(owmVacancyPage.saveButton);
             CommonUtils.clickOnElement(owmVacancyPage.saveButton);
-            MiscUtils.sleep(2000);
         } else {
             CommonUtils.waitForVisibility(owmVacancyPage.saveAndFinalizeButton);
             CommonUtils.clickOnElement(owmVacancyPage.saveAndFinalizeButton);
-            MiscUtils.sleep(2000);
         }
     }
 
@@ -70,17 +62,16 @@ public class OWMVacancyStepsImplementation extends PageInitializer {
                 CommonUtils.clickOnElement(owmVacancyPage.selectComMemberDropdown);
                 CommonUtils.clickOnElement(owmVacancyPage.committeeMember(person));
                 CommonUtils.clickOnElement(owmVacancyPage.actionSaveButton);
-                MiscUtils.sleep(2000);
                 break;
         }
     }
 
-    public void addExecutiveSecretary(String person) {
-        switch (person) {
+    public void addExecutiveSecretary(String member) {
+        switch (member) {
             case "Jason Levine":
                 CommonUtils.clickOnElement(owmVacancyPage.addMemberButton);
                 CommonUtils.clickOnElement(owmVacancyPage.selectComMemberDropdown);
-                CommonUtils.clickOnElement(owmVacancyPage.committeeMember(person));
+                CommonUtils.clickOnElement(owmVacancyPage.committeeMember(member));
                 CommonUtils.clickOnElement(owmVacancyPage.roleDropdownMemberVoting);
                 CommonUtils.clickOnElement(owmVacancyPage.exeSecretaryRole);
                 CommonUtils.clickOnElement(owmVacancyPage.actionSaveButton);

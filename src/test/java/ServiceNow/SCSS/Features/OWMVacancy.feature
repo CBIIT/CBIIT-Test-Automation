@@ -16,10 +16,9 @@ Feature: OWM Vacancy Scenarios
       And User selects "Scientific Executive" as a Position Classification choice
       And User verifies that "Susan Greenhouse" is a contact for Appointment Package Initiator
       And User picks "HNC" for Organizational Code
-      And User clicks button "Save"
       And User includes all available Mandatory Statements Page selections
-      And User adds "David Rampulla" as a "Chair"
-      And User adds "Jason Levine" as an "Executive Secretary (non-voting)"
+      And User adds "David Rampulla" as a Chair
+      And User adds "Jason Levine" as an Executive Secretary
       And User clicks button "Save"
       And User includes all available Email Templates selections
       Then User publishes a vacancy by clicking "Save and Finalize" button
