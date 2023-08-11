@@ -8,7 +8,7 @@ import com.nci.automation.web.WebDriverUtils;
 
 public class CreateCRPage extends CommonUtils {
 	public CreateCRPage() {
-		PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
+		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 
 	/**Create Clearance Request Button*/

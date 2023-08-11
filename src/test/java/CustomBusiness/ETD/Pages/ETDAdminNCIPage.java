@@ -8,7 +8,7 @@ import com.nci.automation.web.WebDriverUtils;
 
 public class ETDAdminNCIPage extends CommonUtils {
 	public ETDAdminNCIPage() {
-		PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
+		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 
 	/**Change Button*/

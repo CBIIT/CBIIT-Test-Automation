@@ -7,7 +7,7 @@ import com.nci.automation.web.WebDriverUtils;
 public class PortalViewPage extends BasePage {
 
 	public PortalViewPage() {
-		PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
+		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 
 	public void navigateToPortalView() throws Exception {

@@ -205,7 +205,7 @@ public class CoPrimaryMentorPage extends CommonUtils {
 		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(2000);
 		String locator = "//*[@id='tdAprroveIDP']";
-		if (WebDriverUtils.getWebDriver().findElements(By.xpath(locator)).size() > 0) {
+		if (WebDriverUtils.webDriver.findElements(By.xpath(locator)).size() > 0) {
 			CommonUtils.clickOnElement(approvedAndSubmitButton);
 		} else {
 			CommonUtils.clickOnElement(reviewedButton);
@@ -224,7 +224,7 @@ public class CoPrimaryMentorPage extends CommonUtils {
 		try {
 			try {
 				String locator = "//*[@id='aprroveByTDModal']";
-				if (WebDriverUtils.getWebDriver().findElements(By.xpath(locator)).size() > 0) {
+				if (WebDriverUtils.webDriver.findElements(By.xpath(locator)).size() > 0) {
 					CommonUtils.clickOnElement(approvedAndSubmitButtonNCI);
 				} else {
 					CommonUtils.clickOnElement(reviewedButton);
@@ -235,7 +235,7 @@ public class CoPrimaryMentorPage extends CommonUtils {
 
 			try {
 				String locator = "//*[@id='errorAlertTD']";
-				if (WebDriverUtils.getWebDriver().findElements(By.xpath(locator)).size() > 0) {
+				if (WebDriverUtils.webDriver.findElements(By.xpath(locator)).size() > 0) {
 					CommonUtils.clickOnElement(markAsReviewedCheckbox);
 					CommonUtils.clickOnElement(approvedAndSubmitButtonNCI);
 				}
@@ -282,16 +282,16 @@ public class CoPrimaryMentorPage extends CommonUtils {
 	public void clickOnReturnToTrainnee() {
 		if (markAsReviewedCheckbox.isDisplayed())
 			CommonUtils.clickOnElement(markAsReviewedCheckbox);
-		List<WebElement> buttonEles = WebDriverUtils.getWebDriver()
+		List<WebElement> buttonEles = WebDriverUtils.webDriver
 				.findElements(By.cssSelector(".pager.wizard #tdReturnToTrainee"));
 		CommonUtils.clickOnElement(buttonEles.get(buttonEles.size() - 1));
 		CommonUtils.sendKeys(primaryMentorComments, "Return to primary mentor flow");
 		CommonUtils.clickOnElement(
-				WebDriverUtils.getWebDriver().findElement(By.cssSelector("[onclick='form_submit_toTrainee()']")));
+				WebDriverUtils.webDriver.findElement(By.cssSelector("[onclick='form_submit_toTrainee()']")));
 	}
 
 	public Boolean isTrainneeNameDisplayed() {
 		CommonUtil.waitBrowser(5000);
-		return WebDriverUtils.getWebDriver().findElement(By.linkText(SharedData.traineeName)).isDisplayed();
+		return WebDriverUtils.webDriver.findElement(By.linkText(SharedData.traineeName)).isDisplayed();
 	}
 }

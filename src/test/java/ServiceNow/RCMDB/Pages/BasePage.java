@@ -29,10 +29,10 @@ public class BasePage {
 
 	static String TAB_HEADER = "//span[@class='tab_header']//span[contains(text(), 'tabName')]"; // Change tabName
 
-	public BasePage() {
-		this.driver = WebDriverUtils.getWebDriver();
-		wait = new WebDriverWait(this.driver, Duration.ofSeconds(30));
-	}
+//	public BasePage() {
+//		this.driver = WebDriverUtils.setUp();
+//		wait = new WebDriverWait(this.driver, Duration.ofSeconds(30));
+//	}
 
 	protected WebElement getElementByXpath(String xpath) {
 		return driver.findElement(By.xpath(xpath));

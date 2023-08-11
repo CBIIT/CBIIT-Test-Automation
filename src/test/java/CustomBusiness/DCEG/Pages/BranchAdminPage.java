@@ -8,7 +8,7 @@ import com.nci.automation.web.WebDriverUtils;
 
 public class BranchAdminPage extends CommonUtils {
 	public BranchAdminPage() {
-		PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
+		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 
 	/**View ODRequest*/

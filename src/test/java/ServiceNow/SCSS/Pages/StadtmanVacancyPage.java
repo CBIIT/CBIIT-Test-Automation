@@ -7,6 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 public class StadtmanVacancyPage extends CommonUtils {
 
     public StadtmanVacancyPage() {
-        PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
+        PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
 }

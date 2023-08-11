@@ -19,7 +19,7 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
 
     public static void aSEERODSAdminNavigatesTheNativeViewPortal() {
         nativeViewLoginImpl.sideDoorAccountLogin();
-        CommonUtils.assertTrue(CommonUtils.getCurrentURL(WebDriverUtils.getWebDriver())
+        CommonUtils.assertTrue(CommonUtils.getCurrentURL(WebDriverUtils.webDriver)
                 .contentEquals(SEERNativeView_Constants.NATIVE_VIEW_HOME_PAGE_URL));
         CucumberLogUtils.logScreenshot();
     }

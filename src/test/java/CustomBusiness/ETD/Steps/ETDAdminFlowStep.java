@@ -151,7 +151,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 
 	@Then("user can verify that SAVE button is enabled")
 	public void user_can_verify_that_SAVE_button_is_enabled() {
-		WebElement e = WebDriverUtils.getWebDriver().findElement(By.xpath("//button[@id='modalAddEditSubmit']"));
+		WebElement e = WebDriverUtils.webDriver.findElement(By.xpath("//button[@id='modalAddEditSubmit']"));
 		Boolean actualValue = e.isEnabled();
 		if (actualValue) {
 			System.out.println("Button is enabled");
@@ -209,7 +209,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 
 	@When("User trying to save the addition without picking an organization")
 	public void user_trying_to_save_the_addition_without_picking_an_organization() {
-		WebElement e = WebDriverUtils.getWebDriver().findElement(By.xpath("//button[@id='modalAddEditSubmit']"));
+		WebElement e = WebDriverUtils.webDriver.findElement(By.xpath("//button[@id='modalAddEditSubmit']"));
 		Boolean actualValue = e.isEnabled();
 		if (actualValue) {
 			System.out.println("Button is enabled");
@@ -433,7 +433,7 @@ public class ETDAdminFlowStep extends PageInitializer {
 	// @manageETDWideSearch
 	@Then("User can verify Search button is enabled")
 	public void user_can_verify_Search_button_is_enabled() {
-		WebElement e = WebDriverUtils.getWebDriver().findElement(By.xpath("//a[@id='search']"));
+		WebElement e = WebDriverUtils.webDriver.findElement(By.xpath("//a[@id='search']"));
 		Boolean actualValue = e.isEnabled();
 		if (actualValue) {
 			System.out.println("Button is enabled");
