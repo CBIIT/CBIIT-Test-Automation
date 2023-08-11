@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 public class CCRDynamicXpaths extends CommonUtils {
 
     public CCRDynamicXpaths() {
-        PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
+        PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
 
     /** Method returns an open CCR vacancy **/

@@ -25,11 +25,10 @@ public class WebDriverUtils {
     private final static Logger logger = LogManager.getLogger(WebDriverUtils.class);
     public static WebDriver webDriver;
 
-    public static WebDriver getWebDriver() {
+    public static void setUp() {
 
         String browser = ConfUtils.getProperty("browser");
 
-        if (webDriver == null) {
             if (FrameworkConstants.BROWSER_CHROME.equalsIgnoreCase(browser)) {
                 launchChrome();
             } else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_FIREFOX)) {
@@ -39,16 +38,9 @@ public class WebDriverUtils {
             } else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_EDGE)) {
                 launchEdge();
             } else {
-                return null;
+                throw new RuntimeException("INVALID BROWSER");
             }
         }
-        long implicitWaitInSeconds = Long.valueOf(LocalConfUtils.getProperty("implicitWaitInSeconds"));
-        webDriver.manage().timeouts().implicitlyWait(implicitWaitInSeconds, TimeUnit.SECONDS);
-        if (!FrameworkConstants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
-            webDriver.manage().window().maximize();
-        }
-        return webDriver;
-    }
 
     /**
      * This method will close the current web-driver

@@ -169,7 +169,7 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         CommonUtils.waitForVisibility(seerLandingPage.registerForResearchDataButton);
         seerLandingPage.registerForResearchDataButton.click();
         MiscUtils.sleep(2000);
-        String seerRegistrationPage = WebDriverUtils.getWebDriver().getTitle();
+        String seerRegistrationPage = WebDriverUtils.webDriver.getTitle();
         MiscUtils.sleep(1000);
         CommonUtils.assertEquals(Registration_Constants.SEER_USER_REGISTRATION_ODS_DATA_ACCESS_REQUEST, seerRegistrationPage);
                seerUserRegistrationPage.seerUserRegistrationFirstNameField.sendKeys(Registration_Constants.NI_FIRST_NAME);
@@ -198,7 +198,7 @@ public class SEERUserRegistrationPageStepImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         seerUserRegistrationPage.seerUserRegistrationSubmitButton.click();
         MiscUtils.sleep(2000);
-        String seerRegistrationIsCompletePage = WebDriverUtils.getWebDriver().getTitle();
+        String seerRegistrationIsCompletePage = WebDriverUtils.webDriver.getTitle();
         CommonUtils.assertEquals(Registration_Constants.SEER_DATA_CONFIRMATION_ODS_DATA_ACCESS_REQUEST, seerRegistrationIsCompletePage);
         CommonUtils.assertEquals(Registration_Constants.THANK_YOU_REGISTRATION_IS_COMPLETE_MESSAGE,
                 seerUserRegistrationPage.seerUserRegistrationIsCompleteHeader.getText());

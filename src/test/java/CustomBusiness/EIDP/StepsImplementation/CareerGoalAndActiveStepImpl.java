@@ -79,7 +79,7 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 	}
 	
 	public void selectCareerGoalNIDCR() throws Exception {
-		List<WebElement> goals = WebDriverUtils.getWebDriver()
+		List<WebElement> goals = WebDriverUtils.webDriver
 				.findElements(By.cssSelector("[data-target^='#academic']"));
 		// Added check so that element is clicked only when the menu is collapsed
 		if (goals.get(0).getAttribute("class").contains("collapsed")) {
@@ -89,12 +89,12 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 			goals.get(0).click();
 		}
 		Thread.sleep(3000);
-		List<WebElement> goalOptions = WebDriverUtils.getWebDriver()
+		List<WebElement> goalOptions = WebDriverUtils.webDriver
 				.findElements(By.cssSelector(".controls.line.ta_interestGroup.collapse.in label"));
 		if (goalOptions.size() == 0) {
-			WebDriverUtils.getWebDriver().findElement(By.cssSelector("[data-target='#academic24']")).click();
+			WebDriverUtils.webDriver.findElement(By.cssSelector("[data-target='#academic24']")).click();
 			Thread.sleep(3000);
-			goalOptions = WebDriverUtils.getWebDriver()
+			goalOptions = WebDriverUtils.webDriver
 					.findElements(By.cssSelector(".controls.line.ta_interestGroup.collapse.in label"));
 		}
 		try{goalOptions.get(2).click();}catch(Exception e) {
@@ -129,11 +129,11 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		List<WebElement> skillStatus = WebDriverUtils.getWebDriver()
+		List<WebElement> skillStatus = WebDriverUtils.webDriver
 				.findElements(By.xpath("//table[@id='com_speaking']/tbody/tr/td[5]"));
 		for (int i = 0; i < skillStatus.size(); i++) {
 			if (skillStatus.get(i).getText().equals("")) {
-				List<WebElement> editButtons = WebDriverUtils.getWebDriver()
+				List<WebElement> editButtons = WebDriverUtils.webDriver
 						.findElements(By.xpath("//table[@id='com_speaking']//button[@title='Edit']"));
 				CommonUtils.clickOnElement(editButtons.get(i));
 				CommonUtils.clickOnElement(careerGoalAndActivePage.careerExplorationStatus);
@@ -166,7 +166,7 @@ public class CareerGoalAndActiveStepImpl extends PageInitializer {
 			CommonUtils.clickOnElement(careerGoalAndActivePage.editRadiobuttons.get(2));
 			CommonUtils.clickOnElement(careerGoalAndActivePage.doneButton);
 		}
-		CommonUtils.clickOnElement(WebDriverUtils.getWebDriver().findElement(By.id("careerGoalsSubmitSave")));
+		CommonUtils.clickOnElement(WebDriverUtils.webDriver.findElement(By.id("careerGoalsSubmitSave")));
 		MiscUtils.sleep(4000);
 	}
 

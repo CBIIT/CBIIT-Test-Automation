@@ -165,7 +165,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
     }
 
     public static void theUserIsNotAbleToSubmitTheRegistrationFormBecauseTheStateAndZipCodeFieldsAreRequired() {
-        String seerRegistrationPage = WebDriverUtils.getWebDriver().getTitle();
+        String seerRegistrationPage = WebDriverUtils.webDriver.getTitle();
         CommonUtils.assertTrue(seerRegistrationPage.contentEquals(Registration_Constants.SEER_USER_REGISTRATION_ODS_DATA_ACCESS_REQUEST));
         org.junit.Assert.assertTrue(Registration_Constants.VERIFYING_STATE_FIELD_IS_REQUIRED_TEXT,
                 seerUserRegistrationPage.seerUserRegistrationStateStarSign.isDisplayed());
@@ -180,7 +180,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
 
     public static void theUserLandsOnThePage(String registrationIsCompleteText) {
         MiscUtils.sleep(2000);
-        String seerRegistrationIsCompletePage = WebDriverUtils.getWebDriver().getTitle();
+        String seerRegistrationIsCompletePage = WebDriverUtils.webDriver.getTitle();
         CommonUtils.assertEquals(Registration_Constants.SEER_DATA_CONFIRMATION_ODS_DATA_ACCESS_REQUEST, seerRegistrationIsCompletePage);
         CommonUtils.assertEquals(registrationIsCompleteText,
                 seerUserRegistrationPage.seerUserRegistrationIsCompleteHeader.getText());
@@ -266,7 +266,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
 
     public static void customerAccountTypeWillBeMarkedAsPublicInNativeView(String publicAccount) {
         nativeViewLoginImpl.sideDoorAccountLogin();
-        CommonUtils.assertTrue(CommonUtils.getCurrentURL(WebDriverUtils.getWebDriver())
+        CommonUtils.assertTrue(CommonUtils.getCurrentURL(WebDriverUtils.webDriver)
                 .contentEquals(SEERNativeView_Constants.NATIVE_VIEW_HOME_PAGE_URL));
         /** Waiting for email to be sent and searchable */
         MiscUtils.sleep(2000);
@@ -296,7 +296,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
 
     public static void aNewUserWhoDoesNotHaveAnActiveSEERResearchDatabaseAccessRequest() {
         nativeViewLoginImpl.sideDoorAccountLogin();
-        CommonUtils.assertTrue(CommonUtils.getCurrentURL(WebDriverUtils.getWebDriver())
+        CommonUtils.assertTrue(CommonUtils.getCurrentURL(WebDriverUtils.webDriver)
                 .contentEquals(SEERNativeView_Constants.NATIVE_VIEW_HOME_PAGE_URL));
         /** Waiting for email to be sent and searchable */
         MiscUtils.sleep(2000);
@@ -318,7 +318,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         for (String currentWindow1 : allWindowHandles1) {
             WebDriverUtils.webDriver.switchTo().window(currentWindow1);
         }
-        String landingPageTitle = WebDriverUtils.getWebDriver().getTitle();
+        String landingPageTitle = WebDriverUtils.webDriver.getTitle();
         CommonUtils.assertEquals(Registration_Constants.SEER_DATA_ACCESS_CONFIRMATION_ODS_DATA_ACCESS_REQUEST, landingPageTitle );
                 CommonUtils.waitForVisibility(seerDataAccessRequestPage.seerDataAccessRequestHeader);
         CommonUtils.assertTrue(
@@ -453,7 +453,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         seerDataAccessRequestPage.seerDataAccessSubmitButton.click();
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
-        String seerRegistrationIsCompletePage = WebDriverUtils.getWebDriver().getTitle();
+        String seerRegistrationIsCompletePage = WebDriverUtils.webDriver.getTitle();
         CommonUtils.assertEquals(Registration_Constants.SEER_DATA_REQUEST_CONFIRMATION_ODS_DATA_ACCESS_REQUEST,
                 seerRegistrationIsCompletePage);
         CommonUtils.assertEquals(Registration_Constants.THANK_YOU_DATA_ACCESS_REQUEST_IS_COMPLETE_MESSAGE,
@@ -472,10 +472,10 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
         CommonUtils.clickOnElement(seerLandingPage.seerIncidenceDatabaseBreadcrumb);
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
-        String actualSeerCancerGovDataUrl = WebDriverUtils.getWebDriver().getCurrentUrl();
+        String actualSeerCancerGovDataUrl = WebDriverUtils.webDriver.getCurrentUrl();
         CommonUtils.assertEquals(seerIncidenceDatabaseUrl, actualSeerCancerGovDataUrl);
         MiscUtils.sleep(1000);
-        WebDriverUtils.getWebDriver().navigate().back();
+        WebDriverUtils.webDriver.navigate().back();
     }
 
     public static void theUserEntersAnEmailAddressForANonInstitutionalAccount() {
@@ -527,15 +527,15 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
                 .contentEquals(SEERDataAccessRequest_Constants.SEER_INCIDENT_DATA_VERIFY_EMAIL_ADDRESS_TEXT));
             CommonUtils.assertTrue(nativeViewSentViewPage.nativeViewPreviewEmailHelloNameText.getText().contains(Registration_Constants.FIRST_NAME));
         MiscUtils.sleep(2000);
-        String mainPageHandle = WebDriverUtils.getWebDriver().getWindowHandle();
+        String mainPageHandle = WebDriverUtils.webDriver.getWindowHandle();
         CommonUtils.clickOnElement(nativeViewSentViewPage.nativeViewPreviewEmailVerifyEMAILlink);
         MiscUtils.sleep(2000);
-        Set<String> allWindows = WebDriverUtils.getWebDriver().getWindowHandles();
+        Set<String> allWindows = WebDriverUtils.webDriver.getWindowHandles();
         Iterator<String> it = allWindows.iterator();
         while (it.hasNext()) {
             String childHandle = it.next();
             if (!childHandle.equals(mainPageHandle)) {
-                WebDriverUtils.getWebDriver().switchTo().window(childHandle);
+                WebDriverUtils.webDriver.switchTo().window(childHandle);
             }
         }
     }
