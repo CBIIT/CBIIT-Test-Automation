@@ -25,50 +25,23 @@ public class WebDriverUtils {
 	private final static Logger logger = LogManager.getLogger(WebDriverUtils.class);
 	public static WebDriver webDriver;
 
-<<<<<<< HEAD
-	public static WebDriver getWebDriver() {
-=======
-    public static void setUp() {
->>>>>>> 829249a15e6003b50d33d6afb09487b4f3b9cd62
+	public static void setUp() {
 
 		String browser = ConfUtils.getProperty("browser");
 		String headless = ConfUtils.getProperty("headless");
 
-<<<<<<< HEAD
-		if (webDriver == null) {
-			if (FrameworkConstants.BROWSER_CHROME.equalsIgnoreCase(browser)) {
-				launchChrome();
-			} else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_FIREFOX)) {
-				launchFirefox();
-			} else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_SAFARI)) {
-				launchSafari();
-			} else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_EDGE)) {
-				launchEdge();
-			} else {
-				return null;
-			}
+		if (FrameworkConstants.BROWSER_CHROME.equalsIgnoreCase(browser)) {
+			launchChrome();
+		} else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_FIREFOX)) {
+			launchFirefox();
+		} else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_SAFARI)) {
+			launchSafari();
+		} else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_EDGE)) {
+			launchEdge();
+		} else {
+			throw new RuntimeException("INVALID BROWSER");
 		}
-		long implicitWaitInSeconds = Long.valueOf(LocalConfUtils.getProperty("implicitWaitInSeconds"));
-		webDriver.manage().timeouts().implicitlyWait(implicitWaitInSeconds, TimeUnit.SECONDS);
-		if (!FrameworkConstants.BROWSER_MOBILE.equalsIgnoreCase(browser)) {
-			webDriver.manage().window().maximize();
-		}
-		return webDriver;
 	}
-=======
-            if (FrameworkConstants.BROWSER_CHROME.equalsIgnoreCase(browser)) {
-                launchChrome();
-            } else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_FIREFOX)) {
-                launchFirefox();
-            } else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_SAFARI)) {
-                launchSafari();
-            } else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_EDGE)) {
-                launchEdge();
-            } else {
-                throw new RuntimeException("INVALID BROWSER");
-            }
-        }
->>>>>>> 829249a15e6003b50d33d6afb09487b4f3b9cd62
 
 	/**
 	 * This method will close the current web-driver

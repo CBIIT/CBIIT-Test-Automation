@@ -30,13 +30,8 @@ public class ETDBasePage extends CommonUtils {
 
 	public ETDBasePage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
-<<<<<<< HEAD
-		this.driver = WebDriverUtils.getWebDriver();
-		wait = new WebDriverWait(this.driver, Duration.ofSeconds(30));
-=======
 		this.driver = WebDriverUtils.webDriver;
-		wait = new WebDriverWait(this.driver,Duration.ofSeconds(30));
->>>>>>> 829249a15e6003b50d33d6afb09487b4f3b9cd62
+		wait = new WebDriverWait(this.driver, Duration.ofSeconds(30));
 	}
 
 	protected void clickOnElements(WebElement element) {
