@@ -17,7 +17,7 @@ import ServiceNow.ATO.Utils.DriverObjectFactory;
 public class AtoPage extends BasePage {
 
 	public AtoPage() {
-		PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
+		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 
 	public static String packageCode = "";

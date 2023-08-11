@@ -62,7 +62,7 @@ public class LoginPage extends BasePage{
 	
 	public LoginPage() {
 		//PageFactory.initElements(DriverObjectFactory.getWebDriver(), this);
-		PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
+		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 	
 }

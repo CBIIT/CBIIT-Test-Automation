@@ -195,7 +195,7 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 	public void clickOnProceedOfTrainee() {
 		String xpath = "//table[@id='primaryMentorsawaitingResponseTable']//tbody//tr//td//a[text()='"
 				+ SharedData.traineeName + "']//ancestor::tr//td//img";
-		CommonUtils.clickOnElement(WebDriverUtils.getWebDriver().findElement(By.xpath(xpath)));
+		CommonUtils.clickOnElement(WebDriverUtils.webDriver.findElement(By.xpath(xpath)));
 	}
 
 	public void clickonIDpWaitigResponse() {
@@ -206,13 +206,13 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 
 	public void selecTraineeName(String str) {
 		CommonUtils.waitForVisibility(IDPHeader);
-		int sizeofTrainees = WebDriverUtils.getWebDriver().findElements(By.xpath("//td[@class='sorting_1']/a")).size();
+		int sizeofTrainees = WebDriverUtils.webDriver.findElements(By.xpath("//td[@class='sorting_1']/a")).size();
 		System.out.println("number of trainees displayed on Ui" + sizeofTrainees);
 		for (int i = 0; i <= sizeofTrainees; i++) {
-			String TraineeName = WebDriverUtils.getWebDriver().findElements(By.xpath("//td[@class='sorting_1']/a"))
+			String TraineeName = WebDriverUtils.webDriver.findElements(By.xpath("//td[@class='sorting_1']/a"))
 					.get(i).getText();
 			if (TraineeName.equalsIgnoreCase(str)) {
-				WebDriverUtils.getWebDriver()
+				WebDriverUtils.webDriver
 						.findElements(
 								By.xpath("//td[@class='sorting_1']/a/following::td/a[@data-original-title='Proceed']"))
 						.get(i).click();
@@ -224,31 +224,31 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 	public void validtingFieldsInaRow() throws InterruptedException {
 		Thread.sleep(5000);
 		CommonUtils.waitForVisibility(tableIDP);
-		int sizeofrows = WebDriverUtils.getWebDriver()
+		int sizeofrows = WebDriverUtils.webDriver
 				.findElements(By.xpath("//*[@id='primaryMentorsawaitingResponseTable']/tbody/tr")).size();
 		System.out.println("size of rows" + sizeofrows);
 		for (int i = 1; i < sizeofrows; i++) {
 			Thread.sleep(5000);
-			String GeneralInfoOriginalreview = WebDriverUtils.getWebDriver()
+			String GeneralInfoOriginalreview = WebDriverUtils.webDriver
 					.findElement(
 							By.xpath("//*[@id='primaryMentorsawaitingResponseTable']/tbody/tr[" + i + "]/td[23]/a/i"))
 					.getAttribute("alt");
 			System.out.println("GeneralInfoOriginalreview" + GeneralInfoOriginalreview);
 			System.out.println("//*[@id='primaryMentorsawaitingResponseTable']/tbody/tr[" + i + "]/td[23]/a/i");
 			Thread.sleep(2000);
-			String ProjectInfoOriginalreview = WebDriverUtils.getWebDriver()
+			String ProjectInfoOriginalreview = WebDriverUtils.webDriver
 					.findElement(
 							By.xpath("//*[@id='primaryMentorsawaitingResponseTable']/tbody/tr[" + i + "]/td[24]/a/i"))
 					.getAttribute("alt");
 			System.out.println("ProjectInfoOriginalreview" + ProjectInfoOriginalreview);
 			Thread.sleep(2000);
-			String CarrierInfoOriginalreview = WebDriverUtils.getWebDriver()
+			String CarrierInfoOriginalreview = WebDriverUtils.webDriver
 					.findElement(
 							By.xpath("//*[@id='primaryMentorsawaitingResponseTable']/tbody/tr[" + i + "]/td[25]/a/i"))
 					.getAttribute("alt");
 			System.out.println("CarrierInfoOriginalreview" + CarrierInfoOriginalreview);
 			Thread.sleep(2000);
-			String AligingExpectationsOriginalreview = WebDriverUtils.getWebDriver()
+			String AligingExpectationsOriginalreview = WebDriverUtils.webDriver
 					.findElement(
 							By.xpath("//*[@id='primaryMentorsawaitingResponseTable']/tbody/tr[" + i + "]/td[26]/a/i"))
 					.getAttribute("alt");
@@ -258,7 +258,7 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 					|| ProjectInfoOriginalreview.equalsIgnoreCase("Pending Review")
 					|| CarrierInfoOriginalreview.equalsIgnoreCase("Pending Review")
 					|| AligingExpectationsOriginalreview.equalsIgnoreCase("Pending Review")) {
-				WebDriverUtils.getWebDriver()
+				WebDriverUtils.webDriver
 						.findElement(
 								By.xpath("//*[@id='primaryMentorsawaitingResponseTable']/tbody/tr[" + i + "]/td[28]/a"))
 						.click();
@@ -273,25 +273,25 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 
 //		Thread.sleep(5000);
 //		CommonUtils.waitForVisibility(tableIDP);
-//		int sizeofrows=WebDriverUtils.getWebDriver().findElements(By.xpath("//*[@id='primaryMentorsawaitingResponseTable']/tbody/tr")).size();
+//		int sizeofrows=WebDriverUtils.webDriver.findElements(By.xpath("//*[@id='primaryMentorsawaitingResponseTable']/tbody/tr")).size();
 //		System.out.println("size of rows"+sizeofrows);
 //		for(int i=1;i<sizeofrows;i++) {
 //			Thread.sleep(5000);
-//			String GeneralInfoOriginalreview=WebDriverUtils.getWebDriver().findElement(By.xpath("//*[@id='primaryMentorsawaitingResponseTable']/tbody/tr["+i+"]/td[23]/a/i")).getAttribute("alt");
+//			String GeneralInfoOriginalreview=WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='primaryMentorsawaitingResponseTable']/tbody/tr["+i+"]/td[23]/a/i")).getAttribute("alt");
 //			System.out.println("GeneralInfoOriginalreview"+GeneralInfoOriginalreview);
 //			System.out.println("//*[@id='primaryMentorsawaitingResponseTable']/tbody/tr["+i+"]/td[23]/a/i");
 //			Thread.sleep(2000);
-//			String ProjectInfoOriginalreview=WebDriverUtils.getWebDriver().findElement(By.xpath("//*[@id='primaryMentorsawaitingResponseTable']/tbody/tr["+i+"]/td[24]/a/i")).getAttribute("alt");
+//			String ProjectInfoOriginalreview=WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='primaryMentorsawaitingResponseTable']/tbody/tr["+i+"]/td[24]/a/i")).getAttribute("alt");
 //			System.out.println("ProjectInfoOriginalreview"+ProjectInfoOriginalreview);
 //			Thread.sleep(2000);
-//			String CarrierInfoOriginalreview=WebDriverUtils.getWebDriver().findElement(By.xpath("//*[@id='primaryMentorsawaitingResponseTable']/tbody/tr["+i+"]/td[25]/a/i")).getAttribute("alt");
+//			String CarrierInfoOriginalreview=WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='primaryMentorsawaitingResponseTable']/tbody/tr["+i+"]/td[25]/a/i")).getAttribute("alt");
 //			System.out.println("CarrierInfoOriginalreview"+CarrierInfoOriginalreview);
 //			Thread.sleep(2000);
-//			String AligingExpectationsOriginalreview=WebDriverUtils.getWebDriver().findElement(By.xpath("//*[@id='primaryMentorsawaitingResponseTable']/tbody/tr["+i+"]/td[26]/a/i")).getAttribute("alt");
+//			String AligingExpectationsOriginalreview=WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='primaryMentorsawaitingResponseTable']/tbody/tr["+i+"]/td[26]/a/i")).getAttribute("alt");
 //			System.out.println("AligingExpectationsOriginalreview"+AligingExpectationsOriginalreview);
 //			Thread.sleep(2000);
 //			if(GeneralInfoOriginalreview.equalsIgnoreCase("Pending Review")||ProjectInfoOriginalreview.equalsIgnoreCase("Pending Review")||CarrierInfoOriginalreview.equalsIgnoreCase("Pending Review")||AligingExpectationsOriginalreview.equalsIgnoreCase("Pending Review")) {
-//            WebDriverUtils.getWebDriver().findElement(By.xpath("//*[@id='primaryMentorsawaitingResponseTable']/tbody/tr["+i+"]/td[28]/a[2]")).click();
+//            WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='primaryMentorsawaitingResponseTable']/tbody/tr["+i+"]/td[28]/a[2]")).click();
 //            System.out.println("//*[@id='primaryMentorsawaitingResponseTable']/tbody/tr["+i+"]/td[28]/a[2]");
 //            CommonUtils.waitForVisibility(declineBtnOk);
 //            declineBtnOk.click();
@@ -334,9 +334,9 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 
 	public void acknowledgeCoPrimaryMentor(Boolean isAcknowledge) {
 		if (isAcknowledge) {
-			WebDriverUtils.getWebDriver().findElement(By.id("agreeCoPi")).click();
+			WebDriverUtils.webDriver.findElement(By.id("agreeCoPi")).click();
 		} else {
-			WebDriverUtils.getWebDriver().findElement(By.id("disagreeCoPi")).click();
+			WebDriverUtils.webDriver.findElement(By.id("disagreeCoPi")).click();
 		}
 	}
 
@@ -355,8 +355,8 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 			NoRevisionRadioBtn.click();
 
 			CommonUtils.waitForVisibility(
-					WebDriverUtils.getWebDriver().findElement(By.xpath("//textarea[@id='reviewText1']")));
-			WebDriverUtils.getWebDriver().findElement(By.xpath("//textarea[@id='reviewText1']"))
+					WebDriverUtils.webDriver.findElement(By.xpath("//textarea[@id='reviewText1']")));
+			WebDriverUtils.webDriver.findElement(By.xpath("//textarea[@id='reviewText1']"))
 					.sendKeys("No revision");
 
 			CommonUtils.waitForVisibility(saveAndContinueBtn);
@@ -380,8 +380,8 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 			NoRevisionRadioBtn.click();
 
 			CommonUtils.waitForVisibility(
-					WebDriverUtils.getWebDriver().findElement(By.xpath("//textarea[@id='reviewText1']")));
-			WebDriverUtils.getWebDriver().findElement(By.xpath("//textarea[@id='reviewText1']"))
+					WebDriverUtils.webDriver.findElement(By.xpath("//textarea[@id='reviewText1']")));
+			WebDriverUtils.webDriver.findElement(By.xpath("//textarea[@id='reviewText1']"))
 					.sendKeys("No revision");
 
 			CommonUtils.waitForVisibility(saveAndContinueBtn);
@@ -405,8 +405,8 @@ public class IDPAwaitingResponsePage extends CommonUtils {
 			NoRevisionRadioBtn.click();
 
 			CommonUtils.waitForVisibility(
-					WebDriverUtils.getWebDriver().findElement(By.xpath("//textarea[@id='reviewText1']")));
-			WebDriverUtils.getWebDriver().findElement(By.xpath("//textarea[@id='reviewText1']"))
+					WebDriverUtils.webDriver.findElement(By.xpath("//textarea[@id='reviewText1']")));
+			WebDriverUtils.webDriver.findElement(By.xpath("//textarea[@id='reviewText1']"))
 					.sendKeys("No revision");
 
 			CommonUtils.waitForVisibility(saveAndContinueBtn);

@@ -69,7 +69,7 @@ public class DashboardStepImpl extends PageInitializer {
 
 	public Boolean selectFirstPendingReviewIDP() {
 		Boolean isSelected = false;
-		List<WebElement> reviews = WebDriverUtils.getWebDriver()
+		List<WebElement> reviews = WebDriverUtils.webDriver
 				.findElements(By.cssSelector("a[title='Pending Review']"));
 		if (reviews.size() > 0) {
 			CommonUtils.clickOnElement(reviews.get(0));
@@ -141,12 +141,12 @@ public class DashboardStepImpl extends PageInitializer {
 		Thread.sleep(5000);
 		if (CommonUtils.isElementDisplayed(By.xpath("//tr//a[contains(text(),'" + str2 + "') and contains(text(),'"
 				+ str + "')]/parent::td/following-sibling::td//a/img[@alt='proceed']"))) {
-			WebDriverUtils.getWebDriver().findElement(By.xpath("//tr//a[contains(text(),'" + str2
+			WebDriverUtils.webDriver.findElement(By.xpath("//tr//a[contains(text(),'" + str2
 					+ "') and contains(text(),'" + str + "')]/parent::td/following-sibling::td//a/img[@alt='proceed']"))
 					.click();
 		} else if (CommonUtils.isElementDisplayed(By.xpath("//tr//a[contains(text(),'" + str2
 				+ "') and contains(text(),'" + str + "')]/parent::td/following-sibling::td//a/img[@alt='Proceed']"))) {
-			WebDriverUtils.getWebDriver().findElement(By.xpath("//tr//a[contains(text(),'" + str2
+			WebDriverUtils.webDriver.findElement(By.xpath("//tr//a[contains(text(),'" + str2
 					+ "') and contains(text(),'" + str + "')]/parent::td/following-sibling::td//a/img[@alt='Proceed']"))
 					.click();
 		} else {
@@ -168,7 +168,7 @@ public class DashboardStepImpl extends PageInitializer {
 		}
 
 		Thread.sleep(25000);
-		WebElement button = WebDriverUtils.getWebDriver().findElement(By.xpath(String.format(
+		WebElement button = WebDriverUtils.webDriver.findElement(By.xpath(String.format(
 				"//h4[contains(text(),'ADD')]/ancestor::div[@class='container main']//tbody//*[text()='%s']//parent::td/following-sibling::td/a[@class=\"btn btn-primary\"]",
 				traineeName)));
 		button.click();
@@ -181,14 +181,14 @@ public class DashboardStepImpl extends PageInitializer {
 			traineeName = SharedData.traineeName.split(" ")[1] + ", " + SharedData.traineeName.split(" ")[0];
 		}
 		Thread.sleep(5000);
-		WebElement button = WebDriverUtils.getWebDriver()
+		WebElement button = WebDriverUtils.webDriver
 				.findElement(By.xpath("//a[text()='" + traineeName + "']//ancestor::tr//a[@title='Proceed']"));
 		Thread.sleep(5000);
 		button.click();
 	}
 
 	public String getIDPRequestStatus() {
-		return WebDriverUtils.getWebDriver().findElement(By.xpath("//table//tbody//td[2]")).getText();
+		return WebDriverUtils.webDriver.findElement(By.xpath("//table//tbody//td[2]")).getText();
 	}
 
 	public void clickOnSearchButton() {
@@ -198,7 +198,7 @@ public class DashboardStepImpl extends PageInitializer {
 	public Boolean selectIDPRequestOfTraineeForRenewal() throws Exception {
 		//SharedData.traineeName="GUTHRIE,Lori";
 		try {
-			CommonUtils.selectDropDownValue("100", WebDriverUtils.getWebDriver()
+			CommonUtils.selectDropDownValue("100", WebDriverUtils.webDriver
 					.findElement(By.xpath("//SELECT[@name=\"primaryMentorsawaitingResponseTable_length\"]")));
 		} catch (Exception ee3) {
 			//throw ee2;
@@ -220,26 +220,26 @@ public class DashboardStepImpl extends PageInitializer {
 		Thread.sleep(5000);
 		if (CommonUtils.isElementDisplayed(By.xpath("//tr//a[contains(text(),'" + str2 + "') and contains(text(),'"
 				+ str + "')]/parent::td/following-sibling::td//a/img[@alt='proceed']"))) {
-			WebDriverUtils.getWebDriver().findElement(By.xpath("//tr//a[contains(text(),'" + str2
+			WebDriverUtils.webDriver.findElement(By.xpath("//tr//a[contains(text(),'" + str2
 					+ "') and contains(text(),'" + str + "')]/parent::td/following-sibling::td//a/img[@alt='proceed']"))
 					.click();
 		} else if (CommonUtils.isElementDisplayed(By.xpath("//tr//a[contains(text(),'" + str2
 				+ "') and contains(text(),'" + str + "')]/parent::td/following-sibling::td//a/img[@alt='Proceed']"))) {
-			WebDriverUtils.getWebDriver().findElement(By.xpath("//tr//a[contains(text(),'" + str2
+			WebDriverUtils.webDriver.findElement(By.xpath("//tr//a[contains(text(),'" + str2
 					+ "') and contains(text(),'" + str + "')]/parent::td/following-sibling::td//a/img[@alt='Proceed']"))
 					.click();
 		} else {
 			try {
 				if (CommonUtils.isElementEnabled(
-						WebDriverUtils.getWebDriver().findElement(By.xpath("//li[@id=\"mentorsTable_next\"]/a")))) {
-					WebDriverUtils.getWebDriver().findElement(By.xpath("//li[@id=\"mentorsTable_next\"]/a")).click();
+						WebDriverUtils.webDriver.findElement(By.xpath("//li[@id=\"mentorsTable_next\"]/a")))) {
+					WebDriverUtils.webDriver.findElement(By.xpath("//li[@id=\"mentorsTable_next\"]/a")).click();
 
 				}
 			} catch (Exception ee) {
 				try {
-					if (CommonUtils.isElementEnabled(WebDriverUtils.getWebDriver()
+					if (CommonUtils.isElementEnabled(WebDriverUtils.webDriver
 							.findElement(By.xpath("//*[@id='primaryMentorsawaitingResponseTable_next']")))) {
-						WebDriverUtils.getWebDriver()
+						WebDriverUtils.webDriver
 								.findElement(By.xpath("//*[@id='primaryMentorsawaitingResponseTable_next']")).click();
 					}
 				} catch (Exception ee2) {
@@ -258,9 +258,9 @@ public class DashboardStepImpl extends PageInitializer {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		WebDriverUtils.getWebDriver().findElement(By.xpath("title=\"Verify Meeting And Accept IDP\"")).click();
-		WebDriverUtils.getWebDriver().findElement(By.id("checkboxMeetingVerified")).click();
-		WebDriverUtils.getWebDriver().findElement(By.xpath("//button[@onclick=\"form_submit_verifyMeetingPM()\"]"))
+		WebDriverUtils.webDriver.findElement(By.xpath("title=\"Verify Meeting And Accept IDP\"")).click();
+		WebDriverUtils.webDriver.findElement(By.id("checkboxMeetingVerified")).click();
+		WebDriverUtils.webDriver.findElement(By.xpath("//button[@onclick=\"form_submit_verifyMeetingPM()\"]"))
 				.click();
 	}
 }

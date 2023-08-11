@@ -134,50 +134,50 @@ public class SearchStepImpl extends PageInitializer {
     }
 
     public String getPrimaryMentorNameFromHoldConformationWindow() {
-        return WebDriverUtils.getWebDriver().findElement(By.cssSelector("#primaryMentorInfo a")).getText();
+        return WebDriverUtils.webDriver.findElement(By.cssSelector("#primaryMentorInfo a")).getText();
     }
 
     public String getTrainneeNameFromHoldConfirmationWindow() {
-        return WebDriverUtils.getWebDriver().findElement(By.cssSelector(".modal.modal-lg.fade.in .traineeDetails > a"))
+        return WebDriverUtils.webDriver.findElement(By.cssSelector(".modal.modal-lg.fade.in .traineeDetails > a"))
                 .getText();
     }
 
     public String getTraineeeNameFromCancelIdpConformationWindow() {
-        return WebDriverUtils.getWebDriver().findElement(By.cssSelector("#cancelModalUserInfo")).getText();
+        return WebDriverUtils.webDriver.findElement(By.cssSelector("#cancelModalUserInfo")).getText();
     }
 
     public String getTrainneNameFromReviseIDPConfirmationPopUp() {
-        return WebDriverUtils.getWebDriver().findElement(By.xpath("//div[@class='bootbox-body']/b[1]")).getText();
+        return WebDriverUtils.webDriver.findElement(By.xpath("//div[@class='bootbox-body']/b[1]")).getText();
     }
 
     public String getTraineeeNameFromUndoCancelIdpConformationWindow() {
-        return WebDriverUtils.getWebDriver().findElement(By.cssSelector("#undoCancelModalUserInfo")).getText();
+        return WebDriverUtils.webDriver.findElement(By.cssSelector("#undoCancelModalUserInfo")).getText();
     }
 
     public void enterReleaseHoldComments() {
-        WebDriverUtils.getWebDriver().findElement(By.id("releaseHoldComments")).sendKeys("Release hold comment");
+        WebDriverUtils.webDriver.findElement(By.id("releaseHoldComments")).sendKeys("Release hold comment");
     }
 
     public void enterCancelIdpComments(String comments) {
-        WebDriverUtils.getWebDriver().findElement(By.id("cancellationComment")).sendKeys(comments);
+        WebDriverUtils.webDriver.findElement(By.id("cancellationComment")).sendKeys(comments);
     }
 
     public void enterUndoCancelIdpComments(String comments) {
-        WebDriverUtils.getWebDriver().findElement(By.id("undoCancellationComment")).sendKeys(comments);
+        WebDriverUtils.webDriver.findElement(By.id("undoCancellationComment")).sendKeys(comments);
     }
 
     public void clickOnUndoCancelYesButton() {
-        WebDriverUtils.getWebDriver().findElement(By.id("btnUndoCancelModalOK")).click();
+        WebDriverUtils.webDriver.findElement(By.id("btnUndoCancelModalOK")).click();
     }
 
     public void clickOnReleaseHoldOkbutton() {
-        WebDriverUtils.getWebDriver().findElement(By.id("release-hold-button")).click();
+        WebDriverUtils.webDriver.findElement(By.id("release-hold-button")).click();
     }
 
     public void selectActiveTraineeNHGRI() throws Exception {
 
         Thread.sleep(8000);
-        List<WebElement> searchResults = WebDriverUtils.getWebDriver().findElement(By.id("advanced_search_results"))
+        List<WebElement> searchResults = WebDriverUtils.webDriver.findElement(By.id("advanced_search_results"))
                 .findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
         WebElement buttonEl;
         Boolean isSelected = false;
@@ -201,7 +201,7 @@ public class SearchStepImpl extends PageInitializer {
             } else {
                 searchPage.nextButton.click();
                 Thread.sleep(8000);
-                searchResults = WebDriverUtils.getWebDriver().findElement(By.id("advanced_search_results"))
+                searchResults = WebDriverUtils.webDriver.findElement(By.id("advanced_search_results"))
                         .findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
             }
         }
@@ -209,7 +209,7 @@ public class SearchStepImpl extends PageInitializer {
 
     public void selectActiveTrainee() throws Exception {
         MiscUtils.sleep(8000);
-        List<WebElement> searchResults = WebDriverUtils.getWebDriver().findElement(By.id("advanced_search_results"))
+        List<WebElement> searchResults = WebDriverUtils.webDriver.findElement(By.id("advanced_search_results"))
                 .findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
         WebElement buttonEl;
         Boolean isSelected = false;
@@ -233,7 +233,7 @@ public class SearchStepImpl extends PageInitializer {
             } else {
                 searchPage.nextButton.click();
                 MiscUtils.sleep(8000);
-                searchResults = WebDriverUtils.getWebDriver().findElement(By.id("advanced_search_results"))
+                searchResults = WebDriverUtils.webDriver.findElement(By.id("advanced_search_results"))
                         .findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
             }
         }
@@ -242,7 +242,7 @@ public class SearchStepImpl extends PageInitializer {
     public void selectReviewExistingIDP() throws Exception {
 
         MiscUtils.sleep(8000);
-        List<WebElement> searchResults = WebDriverUtils.getWebDriver().findElement(By.id("advanced_search_results"))
+        List<WebElement> searchResults = WebDriverUtils.webDriver.findElement(By.id("advanced_search_results"))
                 .findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
         WebElement buttonEl;
         Boolean isSelected = false;
@@ -261,7 +261,7 @@ public class SearchStepImpl extends PageInitializer {
             } else {
                 searchPage.nextButton.click();
                 MiscUtils.sleep(8000);
-                searchResults = WebDriverUtils.getWebDriver().findElement(By.id("advanced_search_results"))
+                searchResults = WebDriverUtils.webDriver.findElement(By.id("advanced_search_results"))
                         .findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
             }
         }
@@ -306,24 +306,24 @@ public class SearchStepImpl extends PageInitializer {
 
     public void resonForReviseIDP(String idpReason) {
         if (idpReason.contains("Primary")) {
-            WebDriverUtils.getWebDriver()
+            WebDriverUtils.webDriver
                     .findElement(By.xpath("//span[@id=\"forStartedLegend\"]/following-sibling::div/label[1]")).click();
             return;
         }
         if (idpReason.contains("Lab")) {
-            WebDriverUtils.getWebDriver()
+            WebDriverUtils.webDriver
                     .findElement(By.xpath("//span[@id=\"forStartedLegend\"]/following-sibling::div/label[2]")).click();
             return;
         }
         if (idpReason.contains("follow")) {
-            WebDriverUtils.getWebDriver()
+            WebDriverUtils.webDriver
                     .findElement(By.xpath("//span[@id=\"forStartedLegend\"]/following-sibling::div/label[3]")).click();
             return;
         }
         if (idpReason.contains("Other")) {
-            WebDriverUtils.getWebDriver()
+            WebDriverUtils.webDriver
                     .findElement(By.xpath("//span[@id=\"forStartedLegend\"]/following-sibling::div/label[4]")).click();
-            WebDriverUtils.getWebDriver().findElement(By.id("another-idp-reason-other")).sendKeys("Automation");
+            WebDriverUtils.webDriver.findElement(By.id("another-idp-reason-other")).sendKeys("Automation");
             return;
         }
     }
@@ -346,22 +346,22 @@ public class SearchStepImpl extends PageInitializer {
 
     public void clickOnButton(String buttonName) {
         String xpath = "//button[text()='" + buttonName + "']";
-        WebDriverUtils.getWebDriver().findElement(By.xpath(xpath)).click();
+        WebDriverUtils.webDriver.findElement(By.xpath(xpath)).click();
     }
 
     public void selectCheckBox(String value) {
         String xpath = "//label[normalize-space()='" + value + "']//input[@type='checkbox']";
-        WebDriverUtils.getWebDriver().findElement(By.xpath(xpath)).click();
+        WebDriverUtils.webDriver.findElement(By.xpath(xpath)).click();
     }
 
     public void clickOnButtonInGrid(String button) {
         String xpath = "//button[@data-original-title='" + button + "']";
-        WebDriverUtils.getWebDriver().findElement(By.xpath(xpath)).click();
+        WebDriverUtils.webDriver.findElement(By.xpath(xpath)).click();
     }
 
     public void clickOnPopUpYesButton() {
         String xpath = "//button[text()='Yes' and not(@id)]";
-        WebDriverUtils.getWebDriver().findElement(By.xpath(xpath)).click();
+        WebDriverUtils.webDriver.findElement(By.xpath(xpath)).click();
     }
 
     public void clickOnSearchButton() {
@@ -446,9 +446,9 @@ public class SearchStepImpl extends PageInitializer {
         MiscUtils.sleep(3000);
         clickOnSearchButton();
         MiscUtils.sleep(3000);
-        List<WebElement> rows = WebDriverUtils.getWebDriver().findElements(By.cssSelector("td.sorting_2"));
+        List<WebElement> rows = WebDriverUtils.webDriver.findElements(By.cssSelector("td.sorting_2"));
         for (WebElement each : rows) {
-            WebElement nameOrgList = WebDriverUtils.getWebDriver()
+            WebElement nameOrgList = WebDriverUtils.webDriver
                     .findElement(By.xpath("//table[@id='advanced_search_results']//tbody//tr[1]//td[4]"));
             eidpBasePage.scrollToElement(nameOrgList);
             if (each.getText().equals(nameOrg)) {
@@ -475,10 +475,10 @@ public class SearchStepImpl extends PageInitializer {
     }
 
     public void verifyNIHSAAC(String name) {
-        List<WebElement> rows = WebDriverUtils.getWebDriver()
+        List<WebElement> rows = WebDriverUtils.webDriver
                 .findElements(By.cssSelector("sorting_1 dtr-control::before"));
         for (WebElement each : rows) {
-            WebElement nameofList = WebDriverUtils.getWebDriver()
+            WebElement nameofList = WebDriverUtils.webDriver
                     .findElement(By.xpath("//table[@id ='search-results']//tbody//tr[1]//td[5]"));
             eidpBasePage.scrollToElement(nameofList);
             if (each.getText().contains(name)) {

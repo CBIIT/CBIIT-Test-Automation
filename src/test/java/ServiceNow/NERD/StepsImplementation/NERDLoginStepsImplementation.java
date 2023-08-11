@@ -11,7 +11,6 @@ import appsCommon.PageInitializer;
 public class NERDLoginStepsImplementation extends PageInitializer{
 	
 	public void loginToNerd() throws TestingException {
-		WebDriverUtils.getWebDriver();
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
 		CucumberLogUtils.logScreenshot();
 		loginImpl.loginToITrust();

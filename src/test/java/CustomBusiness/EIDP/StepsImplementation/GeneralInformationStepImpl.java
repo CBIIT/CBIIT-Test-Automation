@@ -145,7 +145,7 @@ public class GeneralInformationStepImpl extends PageInitializer {
 	}
 
 	public void chooseTraineeProceedButton(String traineeName) {
-		List<WebElement> rows = WebDriverUtils.getWebDriver().findElements(By.cssSelector("td.sorting_1"));
+		List<WebElement> rows = WebDriverUtils.webDriver.findElements(By.cssSelector("td.sorting_1"));
 		for (WebElement row : rows) {
 			if (row.getText().equals(traineeName)) {
 				break;

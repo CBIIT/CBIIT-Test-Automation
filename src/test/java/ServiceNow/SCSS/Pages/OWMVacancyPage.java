@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 public class OWMVacancyPage  extends CommonUtils {
 
     public OWMVacancyPage() {
-        PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
+        PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
 
     /** SCSS Landing Page title **/

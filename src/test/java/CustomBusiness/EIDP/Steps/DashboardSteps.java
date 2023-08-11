@@ -219,7 +219,7 @@ public class DashboardSteps extends PageInitializer {
 
 	@Then("User clicks on Home button")
 	public void user_clicks_on_Home_button() {
-		CommonUtils.clickOnElement(WebDriverUtils.getWebDriver().findElement(By.xpath("//a[@title='Home']")));
+		CommonUtils.clickOnElement(WebDriverUtils.webDriver.findElement(By.xpath("//a[@title='Home']")));
 	}
 
 	@Then("User will click on manage delegate tab")

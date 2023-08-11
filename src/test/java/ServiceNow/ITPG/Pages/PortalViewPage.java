@@ -20,7 +20,7 @@ import ServiceNow.ITPG.Utils.CommonUtils;
 public class PortalViewPage extends BasePage {
 
 	public PortalViewPage() {
-		PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
+		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 
 	@FindBy(id = "sysverb_new")
