@@ -157,8 +157,6 @@ public class SignatureVisualizationSteps extends PageInitializer {
 
 	}
 
-	}
-
 	@Then("the VCF example file is displayed")
 	public void the_VCF_example_file_is_displayed() {
 

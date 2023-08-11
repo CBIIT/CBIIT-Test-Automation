@@ -31,7 +31,6 @@ public class LDAssocSteps extends PageInitializer {
         String actualAssociationText = ldAssocPage.associationResultsText.getText();
         Assert.assertEquals(associationResultsText, actualAssociationText);
         Assert.assertTrue(ldAssocPage.associationResultsText.isDisplayed());
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
     }
 
     @When("the user uploads {string}, selects Variant drop down, enters {string} and YRI population and calculates")
@@ -49,7 +48,6 @@ public class LDAssocSteps extends PageInitializer {
         CommonUtils.clickOnElement(ldAssocPage.populationDropDown);
         CommonUtils.clickOnElement(ldAssocPage.populationYriDropDownValue);
         MiscUtils.sleep(2000);
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
         CommonUtils.clickOnElement(ldAssocPage.submitOnLDassoc);
     }
 
