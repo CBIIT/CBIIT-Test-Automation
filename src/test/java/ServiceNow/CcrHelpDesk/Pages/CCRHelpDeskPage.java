@@ -36,7 +36,7 @@ public class CCRHelpDeskPage extends CommonUtils {
 
 	public CCRHelpDeskPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
-		this.driver = WebDriverUtils.getWebDriver();
+		this.driver = WebDriverUtils.webDriver;
 		wait = new WebDriverWait(this.driver, Duration.ofSeconds(30));
 	}
 

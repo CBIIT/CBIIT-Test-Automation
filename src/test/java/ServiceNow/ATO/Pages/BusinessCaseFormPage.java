@@ -21,7 +21,7 @@ import ServiceNow.ATO.Utils.DriverObjectFactory;
 public class BusinessCaseFormPage extends BasePage {
 
 	public BusinessCaseFormPage() {
-		PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
+		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 
 	public static String startDate = "//input[@aria-label='Start date']";

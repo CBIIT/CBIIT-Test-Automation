@@ -24,7 +24,7 @@ public class DriverObjectFactory {
 			}
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		}*/
-		driver = WebDriverUtils.getWebDriver();
+		driver = WebDriverUtils.webDriver;
 		return driver;
 	}
 

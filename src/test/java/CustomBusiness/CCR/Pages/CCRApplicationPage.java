@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 public class CCRApplicationPage extends CommonUtils {
 
     public CCRApplicationPage() {
-        PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
+        PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
 
     /** Apply Now button **/

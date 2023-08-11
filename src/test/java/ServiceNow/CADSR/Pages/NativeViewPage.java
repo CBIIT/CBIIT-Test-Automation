@@ -25,7 +25,7 @@ import junit.framework.Assert;
 public class NativeViewPage extends BasePage {
 
 	public NativeViewPage() {
-		PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
+		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 
 	@FindBy(id = "sysverb_new")

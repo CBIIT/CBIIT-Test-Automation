@@ -8,7 +8,7 @@ import com.nci.automation.web.WebDriverUtils;
 
 public class DirectSubmitterPage extends CommonUtils {
 	public DirectSubmitterPage() {
-		PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
+		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 	/**Create Clearance Request Button*/
 	@FindBy(xpath = "//a[@id='createClearanceRequestId']")

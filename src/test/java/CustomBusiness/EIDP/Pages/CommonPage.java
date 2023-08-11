@@ -67,12 +67,12 @@ public class CommonPage extends CommonUtils {
 	
 	public void clickOnModalFooterYesButton() {
 		CucumberLogUtils.logScreenshot();
-		CommonUtils.clickOnElement(WebDriverUtils.getWebDriver().findElement(By.cssSelector(".modal-footer [data-bb-handler='confirm']")));
+		CommonUtils.clickOnElement(WebDriverUtils.webDriver.findElement(By.cssSelector(".modal-footer [data-bb-handler='confirm']")));
 		CucumberLogUtils.logScreenshot();
 	}
 	
 	public void clickOnbutton(String buttonText) {
-		CommonUtils.clickOnElement(WebDriverUtils.getWebDriver().findElement(By.xpath("//*[text()='" + buttonText + "']")));
+		CommonUtils.clickOnElement(WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + buttonText + "']")));
 		CucumberLogUtils.logScreenshot();
 	}
 	
@@ -81,7 +81,7 @@ public class CommonPage extends CommonUtils {
 	}
 	
 	public void clickOnYesButtonOnTrainee() {
-		CommonUtils.clickOnElement(WebDriverUtils.getWebDriver().findElement(By.cssSelector("button[onclick='form_submit_approveByLBO()']")));
+		CommonUtils.clickOnElement(WebDriverUtils.webDriver.findElement(By.cssSelector("button[onclick='form_submit_approveByLBO()']")));
 	}
 	
 	public void clickOnSubmitButton() {
@@ -98,7 +98,7 @@ public class CommonPage extends CommonUtils {
 	
 	public void enterToday() {
 		CommonUtils.clickOnElement(meetingDate);
-		CommonUtils.clickOnElement(WebDriverUtils.getWebDriver().findElement(By.cssSelector(".today.day")));
+		CommonUtils.clickOnElement(WebDriverUtils.webDriver.findElement(By.cssSelector(".today.day")));
 	}
 	
 	public void waitForGoBackToHomeQueueButtonVisible() {
