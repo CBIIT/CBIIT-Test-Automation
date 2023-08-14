@@ -93,9 +93,8 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      * @param SubmissionType
      */
     public static void creatingNewSubmission(WebElement SubmissionType) {
-        MiscUtils.sleep(1000);
         CommonUtils.waitForClickability(SubmissionType);
-        SubmissionType.click();
+        CommonUtils.clickOnElement(SubmissionType);
         Set<String> allWindowHandles1 = WebDriverUtils.webDriver.getWindowHandles();
         for (String currentWindow1 : allWindowHandles1) {
             WebDriverUtils.webDriver.switchTo().window(currentWindow1);
