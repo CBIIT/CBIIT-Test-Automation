@@ -5,15 +5,15 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 
 public class OWMVacancyStepsImplementation extends PageInitializer {
-    public void selectOpenCloseDate(int openDate, int closeDate) {
+    public void selectOpenCloseDate(String openDate, String closeDate) {
         JavascriptUtils.scrollIntoView(owmVacancyPage.openCalendarTableInBasicVacancySection);
         CommonUtils.waitForVisibility(owmVacancyPage.openCalendarTableInBasicVacancySection);
         CommonUtils.clickOnElement(owmVacancyPage.openCalendarTableInBasicVacancySection);
-        JavascriptUtils.clickByJS(owmVacancyPage.calendarDatePicker.get(openDate));
+        JavascriptUtils.clickByJS(owmVacancyPage.calendarDatePicker.get(Integer.parseInt(openDate)));
         JavascriptUtils.scrollIntoView(owmVacancyPage.closeCalendarTableInBasicVacancySection);
         CommonUtils.waitForVisibility(owmVacancyPage.closeCalendarTableInBasicVacancySection);
         CommonUtils.clickOnElement(owmVacancyPage.closeCalendarTableInBasicVacancySection);
-        JavascriptUtils.clickByJS(owmVacancyPage.calendarDatePicker.get(closeDate));
+        JavascriptUtils.clickByJS(owmVacancyPage.calendarDatePicker.get(Integer.parseInt(closeDate)));
     }
 
     public void selectPositionClassification(String position) {

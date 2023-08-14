@@ -11,7 +11,7 @@ Feature: OWM Vacancy Scenarios
       And User fills in Vacancy Title as "Project Manager"
       And User marks option as checked for Allow HR Specialist to Triage
       And User fills in field Vacancy Description as "text"
-      And User selects open and close date
+      And User selects open date as "20" and close date as "69"
       And User confirms that Cover letter document is marked as optional
       And User selects "Scientific Executive" as a Position Classification choice
       And User verifies that "Susan Greenhouse" is a contact for Appointment Package Initiator

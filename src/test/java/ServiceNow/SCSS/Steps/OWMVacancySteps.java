@@ -48,9 +48,9 @@ public class OWMVacancySteps  extends PageInitializer {
         CommonUtils.clickOnElement(owmVacancyPage.allowHRSpecialistToTriageCheckbox);
     }
 
-    @Given("User selects open and close date")
-    public void user_selects_open_and_close_date() {
-        oWMVacancyStepsImplementation.selectOpenCloseDate(20, 69);
+    @Given("User selects open date as {string} and close date as {string}")
+    public void user_selects_open_date_as_and_close_date_as(String openDate, String closeDate) {
+        oWMVacancyStepsImplementation.selectOpenCloseDate(openDate,closeDate);
         MiscUtils.sleep(3000);
     }
 
