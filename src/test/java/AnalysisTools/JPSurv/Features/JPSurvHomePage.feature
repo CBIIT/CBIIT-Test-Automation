@@ -66,7 +66,7 @@ Feature: JPSurv Upload
         And user clicks import
         Then workspace results display
 
-    @Smoke @uddins2 @Progression
+    @Smoke @uddins2
     Scenario: User Click Reset Button
         Given the user is on the JPSurv homepage
         When user selects Dic and Txt file

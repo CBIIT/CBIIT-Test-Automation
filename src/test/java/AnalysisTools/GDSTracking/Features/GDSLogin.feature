@@ -1,5 +1,5 @@
 Feature: Find Submissons features
-    @Progression @matakevin
+    @matakevin
     Scenario: Logging in redirects user to the Find Submissions page
         Given the user is on the GDS Tracking home page
         When the user logs in with valid credentials

@@ -1,6 +1,6 @@
 Feature: Explore GWAS
 
-    @Progression @NCIATWP-3124
+    @NCIATWP-3124
     Scenario: User generates BMI Manhattan Plot for East Asian All
         Given user on PLCO homepage
         When user selects explore GWAS
@@ -9,7 +9,7 @@ Feature: Explore GWAS
         And clicks submit
         Then Manhattan Plot displays
 
-    @Progression
+
     Scenario: User generates pairwise BMI Manhattan plot with top ancestry as east asian all and bottom ancestry as european all
         Given user on PLCO homepage
         When user selects explore GWAS
@@ -32,7 +32,7 @@ Feature: Explore GWAS
 
 
 
-    @Smoke1 @NCIATWP-3047
+    @Smoke @NCIATWP-3047
     Scenario: Loading Manhattan Plot Displays loading icon
         Given user on PLCO homepage
         When user selects explore GWAS
@@ -40,7 +40,7 @@ Feature: Explore GWAS
         And selects ancestry as European Female
         Then clicks submit for results to load
 
-    @Progression
+
     Scenario: User looks up BMI at Baseline for variant rs114124524
         Given user on PLCO homepage
         When user selects explore GWAS

@@ -1,6 +1,6 @@
 Feature: mSigPortal Signature Visualizations tab
 
-  @Progression @NCIATWP-3848 @matarodriguezko
+  @NCIATWP-3848 @matarodriguezko
   Scenario: Profile Comparison Chart is Displayed
     Given the user is on the mSigPortal Home page
     And the user navigates to the Visualization section
@@ -8,7 +8,7 @@ Feature: mSigPortal Signature Visualizations tab
     When the user calculates on Profile Comparison
     Then the chart is displayed
 
-  @Progression @NCIATWP-3849 @matarodriguezko
+  @NCIATWP-3849 @matarodriguezko
   Scenario: Download Plot Link is enabled
     Given the user is on the mSigPortal Home page
     And the user navigates to the Visualization section
@@ -38,7 +38,7 @@ Feature: mSigPortal Signature Visualizations tab
     And the user clicks on Cosine Similarity
     Then the calculate button is enabled on all Cosine Tabs
 
-  @Progression @NCIATWP-3985 @matarodriguezko
+  @NCIATWP-3985 @matarodriguezko
   Scenario: Profile Comparison i icon popup message
     Given the user is on the mSigPortal Home page
     And the user navigates to the Visualization section
@@ -46,7 +46,7 @@ Feature: mSigPortal Signature Visualizations tab
     And the user clicks on the i icon when on the Profile Comparison tab
     Then the cosmic Signature pop up is displayed
 
-  @Progression @NCIATWP-4020 @matarodriguezko
+  @NCIATWP-4020 @matarodriguezko
   Scenario: Mutational Profile Sample Name allows text in field
     Given the user is on the mSigPortal Home page
     And the user navigates to the Visualization section

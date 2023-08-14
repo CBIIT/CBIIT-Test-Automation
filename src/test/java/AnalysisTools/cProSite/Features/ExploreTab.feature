@@ -1,27 +1,27 @@
 Feature: Explore Tab
   Description: This is the test case for the cProSite.
 
-  @Smoke @uddins2
+  @Smoke
   Scenario: User submit default selection
     Given user is on cProSite explore Tab
     When user clicks submit
     Then results is displayed
 
-  @Smoke @uddins2
+  @Smoke
   Scenario: User submit selection with dataset as phosphorylation site
     Given user is on cProSite explore Tab
     When user changes the dataset to phosphorylation site
     And user clicks submit
     Then results is displayed
 
-  @Smoke @uddins2
+  @Smoke
   Scenario: User submit selection with dataset as PhosphorylationProtein
     Given user is on cProSite explore Tab
     When user changes the dataset to phosphorylationprotein
     And user clicks submit
     Then results is displayed
 
-  @Smoke @uddins2
+  @Smoke
   Scenario: User submit selection with RNALevel CDK1 mRNa to another and DLC1
     Given user is on cProSite explore Tab
     When user changes the dataset to rnalevel
@@ -30,7 +30,7 @@ Feature: Explore Tab
     And user clicks submit
     Then results is displayed
 
-  @Smoke @uddins2
+  @Smoke
   Scenario: User submit selection with RNALevel CDK1 Protein and mRNA and DLC1
     Given user is on cProSite explore Tab
     When user changes the dataset to rnalevel
@@ -39,7 +39,7 @@ Feature: Explore Tab
     And user clicks submit
     Then results is display tumortype
 
-  @Smoke @uddins2
+  @Smoke
   Scenario: User submit selection with Relative Protein Abundance correlation CDK1 to another protein and DLC1
     Given user is on cProSite explore Tab
     When  user change analysis to correlation
@@ -47,7 +47,7 @@ Feature: Explore Tab
     And user clicks submit
     Then results is displayed
 
-  @Smoke @uddins2
+  @Smoke
   Scenario: User submit selection with Phosphorylation Site  correlation CDK1 to another protein and DLC1
     Given user is on cProSite explore Tab
     When user changes the dataset to phosphorylation site
@@ -56,7 +56,7 @@ Feature: Explore Tab
     And user clicks submit
     Then results is displayed
 
-  @Smoke @uddins2
+  @Smoke
   Scenario: User reset calculation
     Given user is on cProSite explore Tab
     When user changes the dataset to phosphorylation site
@@ -66,14 +66,14 @@ Feature: Explore Tab
     And user click reset button
     Then page is reset
 
-  @Smoke @uddins2
+  @Smoke
   Scenario: User export data
     Given user is on cProSite explore Tab
     When user clicks submit
     And user clicks export button
     Then verify dataset download "Protein_Abundance_Tumor_vs_Adjacent_Normal-CDK1.xlsx"
 
-  @Smoke @uddins2 @Regression
+  @Smoke @Regression
   Scenario: User submit selection with Correlation Gene Correlated Gene
     Given user is on cProSite explore Tab
     When user change analysis to correlation
@@ -82,7 +82,7 @@ Feature: Explore Tab
     And user clicks submit
     Then results is displayed
 
-  @Smoke @uddins2 @Regression
+  @Smoke @Regression
   Scenario: User selects just brain cancer
     Given user is on cProSite explore Tab
     When user removes all tumor types
