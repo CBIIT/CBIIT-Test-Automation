@@ -17,6 +17,7 @@ public class TestAccountResetSteps extends PageInitializer {
 		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewIFrame);
 		CommonUtils.switchToFrame(testAccountResetPage.nativeViewIFrame);
 		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewRunFixScriptButton);
+		MiscUtils.sleep(10000);
 		testAccountResetPage.nativeViewRunFixScriptButton.click();
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewProceedInBackgroundButton);

@@ -37,7 +37,6 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
      *
      */
     public static void theUserGoesToTheOgcrKnowledgeBase() {
-        MiscUtils.sleep(500);
         CommonUtils.waitForVisibility(nerdHomePage.ogcrKnowledgeBaseText);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nerdHomePage.ogcrKnowledgeBaseText);

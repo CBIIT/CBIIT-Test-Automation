@@ -27,6 +27,9 @@ public class NativeViewCHARMSParticipantConsentPage {
     @FindBy(xpath = "//td[@aria-label='Go to Today']")
     public WebElement rasStudyConsentCallScheduleTimeTodayButton;
 
+    @FindBy(xpath = "//*[@id='x_naci_family_coho_family_history_details.u_participantdate.ui_policy_sensitive']")
+    public WebElement rasStudyNonParticipantDateButton;
+
     /**Native View Ras Study Consent Call Schedule Time Accept Button*/
     @FindBy(xpath = "//button[@id='GwtDateTimePicker_ok']")
     public WebElement rasStudyConsentCallScheduleTimeAcceptButton;
