@@ -9,8 +9,6 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.*;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -562,7 +560,8 @@ public class CommonUtils extends WebDriverUtils {
 
     /*
      *
-     * Use below method to assert expected String value with an actual String value with a message
+     * Use below method to assert expected String value with an actual String value
+     * with a message
      */
     public static void assertEqualsWithMessage(String actual, String expected, String message) {
 
@@ -625,11 +624,7 @@ public class CommonUtils extends WebDriverUtils {
 
     /**
      * USE THIS METHOD TO CLICK ON STALE ELEMENTS
-<<<<<<< HEAD
      * 
-=======
-     *
->>>>>>> 92078d40046069db66850893bb269e74285e7ad4
      * @param ele
      */
     public static void clickOnElement(WebElement ele) {
@@ -647,11 +642,7 @@ public class CommonUtils extends WebDriverUtils {
 
     /**
      * USE THIS METHOD TO SEND KEYS TO STALE ELEMENTS
-<<<<<<< HEAD
      * 
-=======
-     *
->>>>>>> 92078d40046069db66850893bb269e74285e7ad4
      * @param ele
      */
     public static void sendKeysToElement(WebElement ele, String text) {
@@ -669,6 +660,7 @@ public class CommonUtils extends WebDriverUtils {
 
     /***
      * USE THIS METHOD TO GET THE ATTRIBUTE VALUE OF THE VALUE ATTRIBUTE
+     * 
      * @param element
      * @return
      */
@@ -699,7 +691,10 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /***
-     * USE THIS METHOD TO VERIFY IF A VALUE HAS BEEN SELECTED IN A DROP DOWN, IF IT IS NOT SELECTED, A NoSuchElementException IS THROWN THAT IS ALSO HANDLED WITH THIS METHOD
+     * USE THIS METHOD TO VERIFY IF A VALUE HAS BEEN SELECTED IN A DROP DOWN, IF IT
+     * IS NOT SELECTED, A NoSuchElementException IS THROWN THAT IS ALSO HANDLED WITH
+     * THIS METHOD
+     * 
      * @param element
      * @param expectedValue
      * @param message
