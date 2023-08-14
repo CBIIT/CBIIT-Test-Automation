@@ -28,7 +28,6 @@ public class WebDriverUtils {
 	public static void setUp() {
 
 		String browser = ConfUtils.getProperty("browser");
-		String headless = ConfUtils.getProperty("headless");
 
 		if (FrameworkConstants.BROWSER_CHROME.equalsIgnoreCase(browser)) {
 			launchChrome();

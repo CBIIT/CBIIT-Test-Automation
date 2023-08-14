@@ -1,47 +1,8 @@
 package ServiceNow.CHARMS.Constants;
 
-public class RASScreenerScenario1_Constants {
+public class IIQ_Constants {
 
-    /**
-     * THIS CLASS CONTAINS RAS SCREENER CONSTANTS - RAS Survey Constants
-     */
-    public final String ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE = "Are you completing this form for someone else or for yourself?";
-    public final String FIRST_NAME = "First name";
-    public final String MIDDLE_INITIAL = "Middle Initial";
-    public final String LAST_NAME = "Last name";
-    public final String WHAT_IS_YOUR_DATE_OF_BIRTH = "What is your date of birth?";
-    public final String DATE_OF_BIRTH_MONTH = "Date of birth month";
-    public final String DATE_OF_BIRTH_YEAR = "Date of birth year";
-    public final String SEX_ASSIGNED_AT_BIRTH_OPTION = "What was your sex assigned at birth?";
-    public final String ARE_YOU_ADOPTED_OPTION = "Are you adopted?";
-    public final String WHICH_COUNTRY_DO_YOU_CURRENTLY_LIVE_IN_OPTION = "In which country do you currently live?";
-    public final String STREET_ADDRESS = "Street";
-    public final String STREET_2_ADDRESS = "Street 2 (optional)";
-    public final String CITY_TEXT = "City";
-    public final String STATE_TEXT = "State (Abbreviation)";
-    public final String ZIP_CODE_TEXT = "Zip Code";
-    public final String EMAIL_ADDRESS = "What is your email address?";
-    public final String CONFIRM_EMAIL_ADDRESS = "Please confirm your email address";
-    public final String HOME_PHONE_NUMBER = "Home phone number";
-    public final String CELL_PHONE_NUMBER = "Cell phone number";
-    public final String WORK_PHONE_NUMBER = "Work phone number";
-    public final String WHAT_IS_YOUR_ETHNICITY  = "What is your ethnicity?";
-    public final String WHAT_IS_YOUR_RACE = "What is your race? Please select all that apply.";
-    public final String ARE_YOU_A_PARTICIPANT_IN_OTHER_STUDY_GROUP = "Are you a participant in any other research study or registry group?  Please specify.";
-    public final String HAVE_YOU_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS = "Have you ever been diagnosed with the following conditions?  Select all that apply.  If you do not see the exact condition diagnosed, please select the closest answer.";
-    public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_CANCER = "Have you ever been diagnosed with cancer?";
-    public final String HAVE_YOU_BEEN_DIAGNOSED_WITH_A_RASOPATHY = "Have you been diagnosed with a RASopathy such as Noonan syndrome, Noonan syndrome with multiple lentigines, Costello syndrome, cardiofaciocutaneous syndrome, Legius syndrome, capillary arteriovenous malformation syndrome, hereditary gingival fibromatosis or SYNGAP1 syndrome?";
-    public final String HAVE_ANY_BIOLOGICAL_RELATIVES_BEEN_DIAGNOSED_WITH_ARASOPATHY = "Have any of your biological relatives been diagnosed with a RASopathy?";
-    public final String HAVE_YOU_EVER_HAD_GENETIC_TESTING = "Have you ever had genetic testing?";
-    public final String HOW_DID_YOU_HEAR_ABOUT_THIS_STUDY = "How did you hear about this study?  If a specific health care provider referred you to this study, please include their name in the corresponding text box.";
-    public final String HOW_DID_YOU_HEAR_ABOUT_THIS_STUDY_OTHER_REASON = "How did you hear about this study?  If a specific health care provider referred you to this study, please include their name in the corresponding text box. Other reason";
-    public final String HAVE_YOU_OR_OTHER_FAMILY_MEMBERS_PARTICIPATED_IN_OTHER_STUDY = "Have you or other family members ever participated in another study on RASopathies at another medical institution, university, government agency or other site?";
-    public final String WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_IN_THIS_STUDY = "What are the main reasons for participating in this study?  Select all that apply.  Please elaborate on the reason in the corresponding textbox.";
-    public final String WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_IN_THIS_STUDY_OTHER_REASON = "What are the main reasons for participating in this study?  Select all that apply.  Please elaborate on the reason in the corresponding textbox. Other reason";
-    public final String SPACE = " ";
-    public final String RAS_STUDY = "RASopathy";
-
-    /**
+     /**
      * THIS CLASS CONTAINS RAS SCREENER CONSTANTS - IIQ Form Constants
      */
     public final String PLEASE_LOG_IN_EMAIL_TEXT_BOX = "Please log in. Email";
@@ -102,7 +63,17 @@ public class RASScreenerScenario1_Constants {
             "Please fill out this information to the best of your knowledge. ";
     public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_ANY_CANCER_RADIO_BUTTON = "Have you ever been diagnosed with any cancer and/or benign tumor?";
     public final String HAVE_YOU_EVER_HAD_MEDICAL_GENETIC_TESTING_RADIO_BUTTON = "Have you ever had medical genetic testing (excluding ancestry testing)?";
-    public final String PLEASE_FILL_THE_TABLE_BELOW_WITH_HEIGHT_NUMERIC_TEXT_BOX = "Please complete the table below indicating your current height. Current height Numerical value (Estimate is OK)";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_INDICATING_YOUR_WEIGHT_COLUMN_1_OPTION_1 = "Please complete the table below indicating your weight at the specified timepoints. Please do not include weights during pregnancy, if applicable. Column 1 Option 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_INDICATING_YOUR_WEIGHT_COLUMN_1_OPTION_2 = "Please complete the table below indicating your weight at the specified timepoints. Please do not include weights during pregnancy, if applicable. Column 1 Option 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_INDICATING_YOUR_WEIGHT_COLUMN_1_OPTION_3 = "Please complete the table below indicating your weight at the specified timepoints. Please do not include weights during pregnancy, if applicable. Column 1 Option 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_INDICATING_YOUR_WEIGHT_COLUMN_1_OPTION_4 = "Please complete the table below indicating your weight at the specified timepoints. Please do not include weights during pregnancy, if applicable. Column 1 Option 4";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_INDICATING_YOUR_WEIGHT_COLUMN_1_OPTION_5 = "Please complete the table below indicating your weight at the specified timepoints. Please do not include weights during pregnancy, if applicable. Column 1 Option 5";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_INDICATING_YOUR_WEIGHT_COLUMN_2_OPTION_1 = "Please complete the table below indicating your weight at the specified timepoints. Please do not include weights during pregnancy, if applicable. Column 2 Option 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_INDICATING_YOUR_WEIGHT_COLUMN_2_OPTION_2 = "Please complete the table below indicating your weight at the specified timepoints. Please do not include weights during pregnancy, if applicable. Column 2 Option 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_INDICATING_YOUR_WEIGHT_COLUMN_2_OPTION_3 = "Please complete the table below indicating your weight at the specified timepoints. Please do not include weights during pregnancy, if applicable. Column 2 Option 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_INDICATING_YOUR_WEIGHT_COLUMN_2_OPTION_4 = "Please complete the table below indicating your weight at the specified timepoints. Please do not include weights during pregnancy, if applicable. Column 2 Option 4";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_INDICATING_YOUR_WEIGHT_COLUMN_2_OPTION_5 = "Please complete the table below indicating your weight at the specified timepoints. Please do not include weights during pregnancy, if applicable. Column 2 Option 5";
+        public final String PLEASE_FILL_THE_TABLE_BELOW_WITH_HEIGHT_NUMERIC_TEXT_BOX = "Please complete the table below indicating your current height. Current height Numerical value (Estimate is OK)";
     public final String PLEASE_FILL_THE_TABLE_BELOW_WITH_HEIGHT_UNIT_DROP_DOWN = "Please complete the table below indicating your current height. Current height unit of measure (Estimate is OK)";
     public final String PLEASE_FILL_THE_TABLE_BELOW_WITH_WEIGHT_CURRENT_NUMERIC_TEXT_BOX = "Please complete the table below indicating your weight at the specified time points. Please do not include weights during pregnancy, if applicable. Current weight Numerical value (Estimate is OK)";
     public final String PLEASE_FILL_THE_TABLE_BELOW_WITH_WEIGHT_CURRENT_UNIT_DROP_DOWN = "Please complete the table below indicating your weight at the specified time points. Please do not include weights during pregnancy, if applicable. Current weight unit of measure(Estimate is OK)";
@@ -116,4 +87,5 @@ public class RASScreenerScenario1_Constants {
             "  To submit your responses, you must continue in the questionnaire by clicking the forward arrow below. \n" +
             "  The information you have provided will be reviewed by our study team. In the meantime, you should receive an email confirming this submission. \n" +
             "  Please feel free to call at any time if you have any questions regarding this protocol and ask to speak with the study nurse. Our toll-free phone number is 1-800-518-8474 or 301-212-5250. Thank you for your willingness to consider joining our research effort. We could not do vital studies like this without the help of dedicated patients and families.";
+
 }

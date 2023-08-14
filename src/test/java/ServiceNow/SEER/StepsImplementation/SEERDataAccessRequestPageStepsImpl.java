@@ -220,7 +220,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
             throws TestingException {
         nativeViewLoginImpl.sideDoorAccountLogin();
         /** Waiting for email to be sent and searchable */
-        MiscUtils.sleep(50000);
+        MiscUtils.sleep(70000);
         nativeViewEnrollementsPage.filterNavigator.sendKeys("mailbox");
         MiscUtils.sleep(1000);
         JavascriptUtils.scrollIntoView(nativeViewSentViewPage.nativeViewmailboxSentLink);
@@ -500,7 +500,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
             throws TestingException {
         nativeViewLoginImpl.sideDoorAccountLogin();
         /** Waiting for email to be sent and searchable */
-        MiscUtils.sleep(50000);
+        MiscUtils.sleep(70000);
         nativeViewEnrollementsPage.filterNavigator.sendKeys("mailbox");
         MiscUtils.sleep(1000);
         JavascriptUtils.scrollIntoView(nativeViewSentViewPage.nativeViewmailboxSentLink);

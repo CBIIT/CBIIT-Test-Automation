@@ -27,16 +27,55 @@ public class RAS_Screener_Submission_Steps extends PageInitializer {
         rasScreenerScenario1StepsImpl.rasScreenerScenarioSelector(sheetName);
     }
 
-    @Then("data submitted for scenario is verified in native view against corresponding scenario from the excel sheet")
-    public void data_submitted_for_scenario_is_verified_in_native_view_against_corresponding_scenario_from_the_excel_sheet() {
-        rasScreenerScenario1StepsImpl.verifying_RAS_Screener_Scenario_1_Data();
-        rasScreenerScenario1StepsImpl.nativeViewConsentFlowProcessScenario1();
+    @Then("data submitted for scenario is verified in native from the excel sheet {string}")
+    public void data_submitted_for_scenario_is_verified_in_native_from_the_excel_sheet(String sheetName) {
+        if(sheetName.contentEquals("screenerScenario1")) {
+            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
+            rasScreenerScenario1StepsImpl.verifying_RAS_Screener_Scenario_1_Data();
+        }else if(sheetName.contentEquals("screenerScenario2")) {
+            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
+            rasScreenerScenario1StepsImpl.verifying_RAS_Screener_Scenario_1_Data();
+        }else if(sheetName.contentEquals("screenerScenario3")) {
+            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
+            rasScreenerScenario1StepsImpl.verifying_RAS_Screener_Scenario_1_Data();
+        }else if(sheetName.contentEquals("screenerScenario4")) {
+            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
+            rasScreenerScenario1StepsImpl.verifying_RAS_Screener_Scenario_1_Data();
+        }
     }
 
+    @Then("the consent is submitted for {string}")
+    public void the_consent_is_submitted_for(String sheetName) {
+        if(sheetName.contentEquals("screenerScenario1")) {
+            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
+            rasScreenerScenario1StepsImpl.nativeViewConsentFlowProcessScenario1(sheetName);
+        }else if(sheetName.contentEquals("screenerScenario2")) {
+            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
+            rasScreenerScenario1StepsImpl.nativeViewConsentFlowProcessScenario1(sheetName);
+        }else if(sheetName.contentEquals("screenerScenario3")) {
+            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
+            rasScreenerScenario1StepsImpl.nativeViewConsentFlowProcessScenario1(sheetName);
+        }else if(sheetName.contentEquals("screenerScenario4")) {
+            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
+            rasScreenerScenario1StepsImpl.nativeViewConsentFlowProcessScenario1(sheetName);
+        }
+    }
 
     @Given("the participant submits a Individual Information Questionnaire for excel sheet {string}")
     public void the_participant_submits_a_individual_information_questionnaire_for_excel_sheet(String sheetNameIiq) {
-        rasScreenerScenario1StepsImpl.rasScreenerIIQFormScenario1(sheetNameIiq);
+        if(sheetNameIiq.contentEquals("IIQScenario1")) {
+            iiq_TestDataManager.dataInitializerIIQ(sheetNameIiq);
+            rasScreenerScenario1StepsImpl.rasScreenerIIQFormScenario1();
+        }else if(sheetNameIiq.contentEquals("IIQScenario2")) {
+            iiq_TestDataManager.dataInitializerIIQ(sheetNameIiq);
+            rasScreenerScenario1StepsImpl.rasScreenerIIQFormScenario1();
+        }else if(sheetNameIiq.contentEquals("IIQScenario3")) {
+            iiq_TestDataManager.dataInitializerIIQ(sheetNameIiq);
+            rasScreenerScenario1StepsImpl.rasScreenerIIQFormScenario1();
+        }else if(sheetNameIiq.contentEquals("IIQScenario4")) {
+            iiq_TestDataManager.dataInitializerIIQ(sheetNameIiq);
+            rasScreenerScenario1StepsImpl.rasScreenerIIQFormScenario1();
+        }
     }
 
     @Given("a proxy is on the RASopathies Longitudinal Cohort Study login page")
