@@ -14,36 +14,26 @@ public class RAS_Survey_Submission_Steps extends PageInitializer {
 
 	@Given("clicks on the Ras Survey Form")
 	public void clicks_on_the_ras_survey_form() {
-		rasScreenerScenario1StepsImpl.clicksOnTheRasSurveyForm();
+		rasScenario1StepsImpl.clicksOnTheRasSurveyForm();
 	}
 
 	@Given("clicks on the IIQ Form")
 	public void clicks_on_the_iiq_form() {
-		rasScreenerScenario1StepsImpl.clicksOnTheIiqForm();
+		rasScenario1StepsImpl.clicksOnTheIiqForm();
 	}
 
 	@Given("a participant enters username {string} and pin")
 	public void a_participant_enters_username_and_pin(String email) {
-		rasScreenerScenario1StepsImpl.aParticipantEntersUsernameUndPin(email);
+		rasScenario1StepsImpl.aParticipantEntersUsernameUndPin(email);
 	}
 	@Then("the participant will be able to rewind the form")
 	public void the_participant_will_be_able_to_rewind_the_form() {
-		rasScreenerScenario1StepsImpl.theParticipantWillBeAbleToRewindTheForm();
+		rasScenario1StepsImpl.theParticipantWillBeAbleToRewindTheForm();
 	}
 
 	@When("the participant submits a RAS Survey from excel sheet {string}")
 	public void the_participant_submits_a_ras_survey_from_excel_sheet(String rasSurveySheet) {
-		rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1dataInitializer(rasSurveySheet);
-//        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1PartOne();
-//        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1PartTwo();
-//        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1PartThree();
-//        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1PartFour();
-//        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1PartFive();
-//        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1PartSix();
-//        rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1PartSeven();
-//		rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1PartEight();
-//		rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1PartNine();
-		rasScreenerScenario1StepsImpl.rasScreenerSurveyScenario1PartTen();
+		rasScenario1StepsImpl.rasSurveyScenarioSelector(rasSurveySheet);
 	}
 
 	static String rasSurveyPin;

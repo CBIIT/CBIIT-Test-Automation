@@ -285,7 +285,7 @@ public class RAS_Survey_Constants {
     public final String BIOLOGICAL_MOTHER_OCCUPATION_DURING_PREGNANCY_FATHER = "Please describe your biological parents' occupation(s) during your mother's pregnancy with you?  Please list all of the occupations during the pregnancy. Father ocupation during pregnacy";
     public final String WHAT_IS_THE_HEIGHT_OF_YOUR_BIOLOGICAL_MOTHER = "What is the height of your biological mother?  Please complete the table below mother height value";
     public final String WHAT_IS_THE_HEIGHT_OF_YOUR_BIOLOGICAL_FATHER = "What is the height of your biological father?  Please complete the table below father height value";
-    public final String THE_NEXT_SET_HORMONE_RELATED_GROWTH = "The next set of questions will ask about hormone-related growth.";
+    public final String THE_NEXT_SET_HORMONE_RELATED_GROWTH = "The next set of questions will ask about hormone-related growth";
     public final String HAVE_YOU_EVER_BEEN_EVALUATED_BY_AN_ENDOCRINOLOGIST = "Have you ever been evaluated by an endocrinologist for any reason?  These are doctors that specialize in the endocrine system, which is made up of many glands that secrete hormones.  Hormones play a role in many things in the body including growth, metabolism and salt regulation.  Endocrinologists often diagnose conditions such as diabetes and thyroid problems.";
     public final String WHAT_IS_THE_NAME_OF_THE_ENDOCRINOLOGIST_DOCTOR = "What is the name of the endocrinologist who completed your examination? Doctor";
     public final String WHAT_IS_THE_NAME_OF_THE_ENDOCRINOLOGIST_LOCATION = "What is the name of the endocrinologist who completed your examination? Location";
@@ -981,6 +981,10 @@ public class RAS_Survey_Constants {
     public final String PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_HEMATOLOGIST_OPTION_2 = "Please provide the information below for the hematologist oncologist who completed your evaluation. Location";
     public final String PLEASE_PROVIDE_THE_INFORMATION_BELOW_FOR_THE_HEMATOLOGIST_OPTION_3 = "Please provide the information below for the hematologist oncologist who completed your evaluation. Hospital";
     public final String DO_YOU_HAVE_ISSUES_WITH_BLEEDING_OR_BRUISING = "Do you have issues with bleeding or bruising?";
+    public final String DO_YOU_HAVE_ANY_OF_THE_FOLLOWING_ISSUES_WITH_BLEEDING_OR_BRUISING_1 = "Do you have any of the following issues with bleeding or bruising?  Please select all that apply. Option 1";
+    public final String DO_YOU_HAVE_ANY_OF_THE_FOLLOWING_ISSUES_WITH_BLEEDING_OR_BRUISING_2 = "Do you have any of the following issues with bleeding or bruising?  Please select all that apply. Option 2";
+    public final String DO_YOU_HAVE_ANY_OF_THE_FOLLOWING_ISSUES_WITH_BLEEDING_OR_BRUISING_3 = "Do you have any of the following issues with bleeding or bruising?  Please select all that apply. Option 3";
+    public final String DO_YOU_HAVE_ANY_OF_THE_FOLLOWING_ISSUES_WITH_BLEEDING_OR_BRUISING_4 = "Do you have any of the following issues with bleeding or bruising?  Please select all that apply. Option 4";
     public final String DO_YOU_HAVE_ANY_OF_THE_FOLLOWING_ISSUES_WITH_BLEEDING_OR_BRUISING_4_OTHER = "Do you have any of the following issues with bleeding or bruising?  Please select all that apply. Option 4 Other";
     public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_1_OPTION_1 = "Please complete the table below for each of the bleeding bruising issues listed Column 1 Option 1";
     public final String PLEASE_COMPLETE_BLEEDING_BRUISING_ISSUES_LISTED_COLUMN_1_OPTION_2 = "Please complete the table below for each of the bleeding bruising issues listed Column 1 Option 2";
@@ -1359,16 +1363,108 @@ public class RAS_Survey_Constants {
     public final String PLEASE_COMPLETE_THE_TABLE_BEHAVIORAL_AND_PSYCHIATRIC_CONDITIONS_COLUMN_7_OPTION_10 = "Please complete the table below for each of the diagnosed behavioral and psychiatric conditions listed.  Column 7 Option 10";
     public final String PLEASE_LIST_AND_DESCRIBE_ANY_ADDITIONAL_NEUROLOGIC_CONDITIONS = "Please list and describe any additional neurologic conditions here that were not covered by the previous questions.";
     public final String THE_NEXT_SET_OF_QUESTIONS_ASK_ABOUT_VISION_AND_HEARING = "The next set of questions ask about vision and hearing.";
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-//    public final String
-
+    public final String HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_PTOSIS = "Have you ever been diagnosed with ptosis (droopiness of the upper eyelid)?";
+    public final String DID_YOU_REQUIRE_TREATMENT_FOR_PTOSIS = "Did you require treatment for ptosis?";
+    public final String HAVE_YOU_EVER_HAD_ANY_ISSUES_WITH_YOUR_VISION = "Have you ever had any issues with your vision or eyesight?";
+    public final String PLEASE_SELECT_ALL_THE_VISIO_EYESIGHT_CONDITIONS_OPTION_6_OTHER = "Please select all the vision eyesight conditions for which you have been diagnosed. Option 6 Other";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_1_OPTION_1 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 1 Option 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_1_OPTION_2 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 1 Option 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_1_OPTION_3 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 1 Option 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_1_OPTION_4 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 1 Option 4";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_1_OPTION_5 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 1 Option 5";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_1_OPTION_6 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 1 Option 6";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_2_OPTION_1 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 2 Option 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_2_OPTION_2 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 2 Option 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_2_OPTION_3 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 2 Option 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_2_OPTION_4 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 2 Option 4";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_2_OPTION_5 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 2 Option 5";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_2_OPTION_6 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 2 Option 6";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_3_OPTION_1 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 3 Option 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_3_OPTION_2 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 3 Option 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_3_OPTION_3 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 3 Option 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_3_OPTION_4 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 3 Option 4";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_3_OPTION_5 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 3 Option 5";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_3_OPTION_6 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 3 Option 6";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_4_OPTION_1 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 4 Option 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_4_OPTION_2 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 4 Option 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_4_OPTION_3 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 4 Option 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_4_OPTION_4 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 4 Option 4";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_4_OPTION_5 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 4 Option 5";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_4_OPTION_6 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 4 Option 6";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_5_OPTION_1 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 5 Option 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_5_OPTION_2 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 5 Option 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_5_OPTION_3 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 5 Option 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_5_OPTION_4 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 5 Option 4";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_5_OPTION_5 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 5 Option 5";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_5_OPTION_6 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 5 Option 6";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_6_OPTION_1 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 6 Option 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_6_OPTION_2 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 6 Option 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_6_OPTION_3 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 6 Option 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_6_OPTION_4 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 6 Option 4";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_6_OPTION_5 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 6 Option 5";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_6_OPTION_6 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 6 Option 6";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_7_OPTION_1 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 7 Option 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_7_OPTION_2 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 7 Option 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_7_OPTION_3 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 7 Option 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_7_OPTION_4 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 7 Option 4";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_7_OPTION_5 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 7 Option 5";
+    public final String PLEASE_COMPLETE_THE_TABLE_VISION_EYESIGHT_COLUMN_7_OPTION_6 = "Please complete the table below for each of the conditions listed.  Vision eyesight. Column 7 Option 6";
+    public final String HAVE_YOU_EVER_EXPERIENCED_STABISMUS = "Have you ever experienced strabismus";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_STRABISMUS_COLUMN_1 = "Please complete the table below regarding nystagmus.  Please include the age or date when symptoms first occurred and when the diagnosis was made (you do not need to include both age and date) Column 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_STRABISMUS_COLUMN_2 = "Please complete the table below regarding nystagmus.  Please include the age or date when symptoms first occurred and when the diagnosis was made (you do not need to include both age and date) Column 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_STRABISMUS_COLUMN_3 = "Please complete the table below regarding nystagmus.  Please include the age or date when symptoms first occurred and when the diagnosis was made (you do not need to include both age and date) Column 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_STRABISMUS_COLUMN_4 = "Please complete the table below regarding nystagmus.  Please include the age or date when symptoms first occurred and when the diagnosis was made (you do not need to include both age and date) Column 4";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_STRABISMUS_COLUMN_5 = "Please complete the table below regarding nystagmus.  Please include the age or date when symptoms first occurred and when the diagnosis was made (you do not need to include both age and date) Column 5";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_STRABISMUS_COLUMN_6 = "Please complete the table below regarding nystagmus.  Please include the age or date when symptoms first occurred and when the diagnosis was made (you do not need to include both age and date) Column 6";
+    public final String HAVE_YOU_EVER_EXPERIENCED_NYSTAGMUS = "Have you experienced hearing loss?";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_NYSTAGMUS_COLUMN_1 = "Please complete the table below regarding nystagmus. Column 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_NYSTAGMUS_COLUMN_2 = "Please complete the table below regarding nystagmus. Column 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_NYSTAGMUS_COLUMN_3 = "Please complete the table below regarding nystagmus. Column 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_NYSTAGMUS_COLUMN_4 = "Please complete the table below regarding nystagmus. Column 4";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_NYSTAGMUS_COLUMN_5 = "Please complete the table below regarding nystagmus. Column 5";
+    public final String PLEASE_COMPLETE_THE_TABLE_BELOW_REGARDING_NYSTAGMUS_COLUMN_6 = "Please complete the table below regarding nystagmus. Column 6";
+    public final String HAVE_YOU_EXPERIENCED_HEARING_LOSS = "Have you experienced hearing loss?";
+    public final String HAVE_YOU_EXPERIENCED_ANY_TYPES_OF_HEARING_LOSS_OPTION_5_OTHER = "Have you experienced any of the following types of hearing loss?  Please select all that apply.  Option 5 Other";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_1_OPTION_1 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 1 Option 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_1_OPTION_2 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 1 Option 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_1_OPTION_3 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 1 Option 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_1_OPTION_4 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 1 Option 4";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_1_OPTION_5 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 1 Option 5";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_2_OPTION_1 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 2 Option 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_2_OPTION_2 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 2 Option 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_2_OPTION_3 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 2 Option 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_2_OPTION_4 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 2 Option 4";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_2_OPTION_5 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 2 Option 5";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_3_OPTION_1 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 3 Option 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_3_OPTION_2 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 3 Option 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_3_OPTION_3 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 3 Option 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_3_OPTION_4 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 3 Option 4";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_3_OPTION_5 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 3 Option 5";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_4_OPTION_1 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 4 Option 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_4_OPTION_2 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 4 Option 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_4_OPTION_3 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 4 Option 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_4_OPTION_4 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 4 Option 4";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_4_OPTION_5 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 4 Option 5";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_5_OPTION_1 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 5 Option 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_5_OPTION_2 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 5 Option 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_5_OPTION_3 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 5 Option 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_5_OPTION_4 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 5 Option 4";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_5_OPTION_5 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 5 Option 5";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_6_OPTION_1 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 6 Option 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_6_OPTION_2 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 6 Option 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_6_OPTION_3 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 6 Option 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_6_OPTION_4 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 6 Option 4";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_6_OPTION_5 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 6 Option 5";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_7_OPTION_1 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 7 Option 1";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_7_OPTION_2 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 7 Option 2";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_7_OPTION_3 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 7 Option 3";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_7_OPTION_4 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 7 Option 4";
+    public final String PLEASE_COMPLETE_THE_TABLE_HEARING_LOSS_COLUMN_7_OPTION_5 = "Please complete the table below for each of the conditions listed.  Hearing loss. Column 7 Option 5";
+    public final String DO_YOU_HAVE_ANY_OF_THE_FOLLOWING_ISSUES_WITH_YOUR_EARS_OPTION_3_OTHER = "Do you have any of the following issues with your ears?  Please select all that apply. Option 3 Other";
+    public final String IF_THERE_ARE_ANY_OTHER_HEALTH_ISSUES = "If there are any other health issues present that have not been captured by this survey, please list them here:";
+    public final String YOU_ARE_ALMOST_DONE_SURVEY = "You are almost done! Survey";
+    public final String WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST = "What is the name of the person who may be eligible for this study? Firt Name";
+    public final String WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_MIDDLE = "What is the name of the person who may be eligible for this study? MI";
+    public final String WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST = "What is the name of the person who may be eligible for this study? Last Name";
+    public final String IS_THE_PROBAND_ALIVE = "Is The proband alive?";
 }

@@ -141,7 +141,7 @@ public class MyRASSurveyPage {
     public WebElement pleaseCompleteYourBiologicalParentsBiologicalFatherYearsDropDown;
 
     /* RAS SURVEY HOW MANY TIMES HAVE YOU RECEIVED GROWTH HORMONE TREATMENT DROP DOWN*/
-    @FindBy(xpath = "//*[@id='QR~QID348']")
+    @FindBy(xpath = "//*[@id='Questions']/child::div[2]//child::div[3]//child::div//child::fieldset//child::div//child::select")
     public WebElement howManyTimesHaveYouReceivedGrowthHormoneTreatmentDropDown;
 
     /* RAS SURVEY PLEASE INDICATE THE RESULTS OF THE PRENATAL TESTS OTHER TEXT BOX*/
@@ -249,6 +249,13 @@ public class MyRASSurveyPage {
     */
     public WebElement dynamicallyEnterTextInCheckMarkedTextBox(int index) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//div[@class='QuestionBody']//child::ul//child::li[" + index + "]//child::span//child::input"));
+    }
+
+    /*
+   USE THIS METHOD TO DYNAMICALLY ENTER TEXT IN RADIO BUTTONS TEXT BOX
+*/
+    public WebElement dynamicallyEnterTextInCheckWithRadioButtons(int index) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//div[@class='QuestionBody']//child::table//child::tbody//child::tr[" + index + "]//child::th//child::input"));
     }
 
     /*

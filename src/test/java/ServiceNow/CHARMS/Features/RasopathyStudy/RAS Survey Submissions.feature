@@ -1,7 +1,7 @@
 Feature: RAS Survey Scenarios (Preview)
     This feature file contains RAS Survey submission scenarios via Qualtrics Preview
 
-    @juarezds @InProgress @Progression
+    @juarezds @InProgress  @Progression
     Scenario: Submitting the RAS Survey
     This scenario is completing the forms for someone else and selects 'No' to all questions
         Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"

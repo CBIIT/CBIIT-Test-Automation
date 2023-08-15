@@ -8,12 +8,12 @@ import com.nci.automation.web.JavascriptUtils;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.NoSuchFrameException;
 
-public class RasScenario2StepsImpl extends PageInitializer {
+public class RasScenario4StepsImpl extends PageInitializer {
 
     /***
      * USE THIS METHOD WILL COMPLETE THE RAS SCREENER SCENARIO 4
      */
-    public void rasScreenerSubmissionScenario2() {
+    public void rasScreenerSubmissionScenario4() {
         CommonUtils.switchToNextWindow();
         MiscUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
@@ -35,7 +35,21 @@ public class RasScenario2StepsImpl extends PageInitializer {
         }
         rasScenario1StepsImpl.clickOnScreenerNextButton();
         try {
-            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(2));
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.FIRST_NAME).sendKeys(ras_Screener_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyFirst);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.MIDDLE_INITIAL).sendKeys(ras_Screener_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyMi);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.LAST_NAME).sendKeys(ras_Screener_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyLast);
+            CucumberLogUtils.logScreenshot();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            rasScenario1StepsImpl.clickOnScreenerNextButton();
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.FIRST_NAME).sendKeys(ras_Screener_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyFirst);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.MIDDLE_INITIAL).sendKeys(ras_Screener_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyMi);
+            rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.LAST_NAME).sendKeys(ras_Screener_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyLast);
+            CucumberLogUtils.logScreenshot();
+        }
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        try {
+            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(3));
             rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.FIRST_NAME).sendKeys(ras_Screener_TestDataManager.firstName);
             rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.MIDDLE_INITIAL).sendKeys(ras_Screener_TestDataManager.middleInitial);
             rasopathyQuestionnairePage.dynamicTextBoxLocator(ras_Screener_Constants.LAST_NAME).sendKeys(ras_Screener_TestDataManager.lastName);
@@ -49,12 +63,33 @@ public class RasScenario2StepsImpl extends PageInitializer {
             CucumberLogUtils.logScreenshot();
         }
         rasScenario1StepsImpl.clickOnScreenerNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(106));
-        CommonUtils.assertEqualsWithMessage(ras_Screener_TestDataManager.theNextSetOfQuestionsWillCollectBasicInformationAboutTheProband, myRASSurveyPage.rasScreenerText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS WILL COLLECT BASIC INFORMATION ABOUT THE PROBAND TEXT --");
+        try {
+            CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.whatIsYourRelationshipToTheProband));
+            rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.whatIsYourRelationshipToTheProband).click();
+            CucumberLogUtils.logScreenshot();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            rasScenario1StepsImpl.clickOnScreenerNextButton();
+            rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.whatIsYourRelationshipToTheProband).click();
+            CucumberLogUtils.logScreenshot();
+        }
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        try {
+            CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.areYouTheLegalGuardianOfTheProband));
+            rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.areYouTheLegalGuardianOfTheProband).click();
+            CucumberLogUtils.logScreenshot();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            rasScenario1StepsImpl.clickOnScreenerNextButton();
+            rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.areYouTheLegalGuardianOfTheProband).click();
+            CucumberLogUtils.logScreenshot();
+        }
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(83));
+        CommonUtils.assertEqualsWithMessage(ras_Screener_TestDataManager.theNextSetOfQuestionsWillCollectBasicInformationAboutTheProband + ras_Screener_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyFirst + " " + ras_Screener_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyLast + ".  ", myRASSurveyPage.rasScreenerText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS WILL COLLECT BASIC INFORMATION ABOUT THE PROBAND TEXT --");
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnScreenerNextButton();
         try {
-            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(107));
             rasopathyQuestionnairePage.calendarYearTextBox.clear();
             rasopathyQuestionnairePage.calendarYearTextBox.sendKeys(ras_Screener_TestDataManager.dateOfBirthYear);
             CommonUtils.selectDropDownValue(ras_Screener_TestDataManager.dateOfBirthMonth, rasopathyQuestionnairePage.calendarMonthDropDown);
@@ -87,6 +122,18 @@ public class RasScenario2StepsImpl extends PageInitializer {
             e.printStackTrace();
             rasScenario1StepsImpl.clickOnScreenerNextButton();
             rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.areYouAdoptedOption).click();
+            CucumberLogUtils.logScreenshot();
+        }
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        try {
+            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(12));
+            CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.isTheProbandAlive));
+            rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.isTheProbandAlive).click();
+            CucumberLogUtils.logScreenshot();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            rasScenario1StepsImpl.clickOnScreenerNextButton();
+            rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.isTheProbandAlive).click();
             CucumberLogUtils.logScreenshot();
         }
         rasScenario1StepsImpl.clickOnScreenerNextButton();
@@ -191,7 +238,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(ras_Screener_TestDataManager.toDetermineEligibilityForThisStudy, myRASSurveyPage.rasScreenerText.getText(), "-- VERIFYING TO DETERMINE ELIGIBILITY FOR THIS STUDY TEXT --");
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnScreenerNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(116));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(31));
         for(int z = 1; z < 12 ; z++) {
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(z));
         }
@@ -262,14 +309,14 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.sendKeysToElement(myRASSurveyPage.dynamicTopTextBox(30), ras_Screener_TestDataManager.yearOfDiagnosisRas);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnScreenerNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(101));
-        CommonUtils.assertEqualsWithMessage(ras_Screener_TestDataManager.weKnowThatRASopathiesAreAGroup, myRASSurveyPage.dynamicTopText(101).getText(), "-- VERIFYING WE KNOW THAT RASOPATHIES ARE A GROUP TEXT --");
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(124));
+        CommonUtils.assertEqualsWithMessage(ras_Screener_TestDataManager.weKnowThatRASopathiesAreAGroup, myRASSurveyPage.dynamicTopText(124).getText(), "-- VERIFYING WE KNOW THAT RASOPATHIES ARE A GROUP TEXT --");
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnScreenerNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(43));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(123));
         CommonUtils.clickOnElement(myRASSurveyPage.rasSurveyYesRadioButton);
         rasScenario1StepsImpl.clickOnScreenerNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(120));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(36));
         CommonUtils.clickOnElement(myRASSurveyPage.rasSurveyYesRadioButton);
         rasScenario1StepsImpl.clickOnScreenerNextButton();
         try {
@@ -296,12 +343,18 @@ public class RasScenario2StepsImpl extends PageInitializer {
         //*** ATTACHING FILE CAN'T BE AUTOMATED IN QUATRICS. MANUAL TESTING WAS PERFORMED FOR UPLOADING A FILE *******
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnScreenerNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(40));
+        for(int a = 1; a < 9 ; a++) {
+            CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(a));
+        }
+        CucumberLogUtils.logScreenshot();
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(69));
         CommonUtils.assertEqualsWithMessage(ras_Screener_TestDataManager.weWillNowAskAFewRemainingQuestionsRegarding, myRASSurveyPage.rasScreenerText.getText(), "-- VERIFYING WE WILL NOW ASK A FEW REMAINING QUESTIONS TEXT --");
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnScreenerNextButton();
         try {
-            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(126));
+            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(70));
             CommonUtils.scrollIntoView(rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.howDidYouHearAboutThisStudy));
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.howDidYouHearAboutThisStudy));
             rasopathyQuestionnairePage.dynamicLocatorForHowDidYouHearAboutStudyTextBoxes(ras_Screener_TestDataManager.howDidYouHearAboutThisStudy).sendKeys(ras_Screener_TestDataManager.howDidYouHearAboutThisStudyOtherReason);
@@ -315,7 +368,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         }
         rasScenario1StepsImpl.clickOnScreenerNextButton();
         try {
-            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(71));
+            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(127));
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.haveYouOrOtherFamilyMembersParticipatedInOtherStudy));
             CucumberLogUtils.logScreenshot();
         } catch (NoSuchElementException e) {
@@ -400,9 +453,9 @@ public class RasScenario2StepsImpl extends PageInitializer {
     }
 
     /***
-     * USE THIS METHOD WILL COMPLETE THE RAS SURVEY SCENARIO 2
+     * USE THIS METHOD WILL COMPLETE THE RAS SURVEY SCENARIO 4
      */
-    public void rasScreenerSurveyScenario2PartOne(){
+    public void rasScreenerSurveyScenario4PartOne(){
         CommonUtils.waitForVisibility(myRASSurveyPage.rasSurveyThankYouForStartingText);
         CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.thankYouForStartingTheRASSurveyAndFor,myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THANK YOU FOR STARTING THE RAS SURVEY AND FOR YOUR TEXT --");
         CucumberLogUtils.logScreenshot();
@@ -419,7 +472,21 @@ public class RasScenario2StepsImpl extends PageInitializer {
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.toConfirmAreYouCompleting));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(58));
+        CommonUtils.waitForVisibility(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 2));
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 2).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 2), ras_Survey_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyFirst);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 2).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 2), ras_Survey_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyMi);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 2).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 2), ras_Survey_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyLast);
+        CucumberLogUtils.logScreenshot();
+        rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(55));
+        MiscUtils.sleep(2000);
+        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.isTheProbandAlive));
+        CucumberLogUtils.logScreenshot();
+        rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(336));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenIncluded));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
@@ -432,17 +499,15 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsWillAskAboutNeonatalHistory,myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS WILL ASK ABOUT BIRTH AND NEONATAL  TEXT --");
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.pleaseCompleteYourBiologicalParentsBiologicalMotherCityTextBox);
-        myRASSurveyPage.pleaseCompleteYourBiologicalParentsBiologicalMotherCityTextBox.clear();
-        int momAgeDropdownIndex = Integer.valueOf(ras_Survey_TestDataManager.pleaseCompleteYourBiologicalParentsBiologicalMotherAge) - 11;
-        int fatherDropDownIndex = Integer.valueOf(ras_Survey_TestDataManager.pleaseCompleteYourBiologicalParentsBiologicalFatherAge) - 11;
-        CommonUtils.sendKeysToElement(myRASSurveyPage.pleaseCompleteYourBiologicalParentsBiologicalMotherCityTextBox, ras_Survey_TestDataManager.pleaseCompleteYourBiologicalParentsBiologicalMotherCity);
-        CommonUtils.clickOnElement(myRASSurveyPage.pleaseCompleteYourBiologicalParentsBiologicalMotherUnsureRadioButton);
-        CommonUtils.selectDropDownValue(myRASSurveyPage.pleaseCompleteYourBiologicalParentsBiologicalMotherYearsDropDown, momAgeDropdownIndex);
-        myRASSurveyPage.pleaseCompleteYourBiologicalParentsBiologicalFatherCityTextBox.clear();
-        CommonUtils.sendKeysToElement(myRASSurveyPage.pleaseCompleteYourBiologicalParentsBiologicalFatherCityTextBox, ras_Survey_TestDataManager.pleaseCompleteYourBiologicalParentsBiologicalFatherCity);
-        CommonUtils.clickOnElement(myRASSurveyPage.pleaseCompleteYourBiologicalParentsBiologicalFatherUnsureRadioButton);
-        CommonUtils.selectDropDownValue(myRASSurveyPage.pleaseCompleteYourBiologicalParentsBiologicalFatherYearsDropDown, fatherDropDownIndex);
+        CommonUtils.waitForVisibility(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3));
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3), ras_Survey_TestDataManager.pleaseCompleteYourBiologicalParentsBiologicalMotherCity);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 3).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 3), ras_Survey_TestDataManager.pleaseCompleteYourBiologicalParentsBiologicalFatherCity);
+        CommonUtils.clickOnElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(1, 6));
+        CommonUtils.clickOnElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(2, 6));
+        CommonUtils.selectDropDownValue(ras_Survey_TestDataManager.pleaseCompleteYourBiologicalParentsBiologicalMotherAge, myRASSurveyPage.dynamicDropDownTwo(1, 9));
+        CommonUtils.selectDropDownValue(ras_Survey_TestDataManager.ras_Survey_TestDataManager.pleaseCompleteYourBiologicalParentsBiologicalFatherAge, myRASSurveyPage.dynamicDropDownTwo(2, 9));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
         try {
@@ -497,21 +562,14 @@ public class RasScenario2StepsImpl extends PageInitializer {
         for(int i = 1;i < 9;i++){
             CommonUtils.clickOnElement(myRASSurveyPage.dynamicLocatorRadioButtonNormal("" + i));
         }
-        myRASSurveyPage.pleaseIndicateTheResultsOfThePrenatalTestsOtherTextBox.clear();
-        CommonUtils.sendKeysToElement(myRASSurveyPage.pleaseIndicateTheResultsOfThePrenatalTestsOtherTextBox, ras_Survey_TestDataManager.pleaseIndicateTheResultsOfThePrenatalTestsOther);
+        myRASSurveyPage.dynamicallyEnterTextInCheckWithRadioButtons(8).clear();
+        CommonUtils.sendKeys(myRASSurveyPage.dynamicallyEnterTextInCheckWithRadioButtons(8), ras_Survey_TestDataManager.pleaseIndicateTheResultsOfThePrenatalTestsOther);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForClickability(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.wasYourBiologicalMotherDiagnosedOption1));
-        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.wasYourBiologicalMotherDiagnosedOption1));
-        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.wasYourBiologicalMotherDiagnosedOption2));
-        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.wasYourBiologicalMotherDiagnosedOption3));
-        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.wasYourBiologicalMotherDiagnosedOption4));
-        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.wasYourBiologicalMotherDiagnosedOption5));
-        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.wasYourBiologicalMotherDiagnosedOption6));
-        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.wasYourBiologicalMotherDiagnosedOption7));
-        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.wasYourBiologicalMotherDiagnosedOption8));
-        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.wasYourBiologicalMotherDiagnosedOption9));
-        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.wasYourBiologicalMotherDiagnosedOption10));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(44));
+        for (int n = 1; n < 11; n++) {
+            CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(n));
+        }
         myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(8).clear();
         CommonUtils.sendKeysToElement(myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(8), ras_Survey_TestDataManager.wasYourBiologicalMotherDiagnosedOption8PleaseSpecify);
         myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(9).clear();
@@ -743,7 +801,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         JavascriptUtils.clickByJS(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(2, 6));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.whatIsTheHeightOfYourBiologicalMotherAndFatherText);
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(410));
         myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3).clear();
         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3),ras_Survey_TestDataManager.whatIsTheHeightOfYourBiologicalMother);
         JavascriptUtils.clickByJS(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(1, 6));
@@ -759,7 +817,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
-    public void rasScreenerSurveyScenario2PartTwo(){
+    public void rasScreenerSurveyScenario4PartTwo(){
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
         try {
             CommonUtils.waitForClickability(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenEvaluatedByAnEndocrinologist));
@@ -815,11 +873,9 @@ public class RasScenario2StepsImpl extends PageInitializer {
         }
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForClickability(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.whatWasYourHeightBeforeStartingGrowthHormone));
-        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.whatWasYourHeightBeforeStartingGrowthHormone));
-        myRASSurveyPage.whatWasYourHeightBeforeStartingGrowthHormoneHeightTextBox.clear();
-        CommonUtils.sendKeysToElement(myRASSurveyPage.whatWasYourHeightBeforeStartingGrowthHormoneHeightTextBox, ras_Survey_TestDataManager.whatWasYourHeightBeforeStartingGrowthHormoneHeight);
-        CucumberLogUtils.logScreenshot();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(416));
+        myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(1).clear();
+        CommonUtils.sendKeys(myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(1), ras_Survey_TestDataManager.whatWasYourHeightBeforeStartingGrowthHormoneHeight);
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.howManyTimesHaveYouReceivedGrowthHormoneTreatmentDropDown);
         CommonUtils.selectDropDownValue(ras_Survey_TestDataManager.howManyTimesHaveYouReceivedGrowthHormoneTreatment,myRASSurveyPage.howManyTimesHaveYouReceivedGrowthHormoneTreatmentDropDown);
@@ -865,13 +921,13 @@ public class RasScenario2StepsImpl extends PageInitializer {
         }
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.atWhatAgeWereYouAbleToWalkWithoutSupportText);
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(421));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.atWhatAgeWereYouAbleToWalkWithoutSupport));
         CucumberLogUtils.logScreenshot();
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
         try {
-            CommonUtils.waitForClickability(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverReceivedPhysicalTherapy));
+            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(422));
             JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverReceivedPhysicalTherapy));
             CucumberLogUtils.logScreenshot();
         } catch (NoSuchElementException e) {
@@ -883,7 +939,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
         try {
-            CommonUtils.waitForClickability(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.atWhatAgeWereYouAbleToUseSimpleTwoWordPhrases));
+            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(423));
             JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.atWhatAgeWereYouAbleToUseSimpleTwoWordPhrases));
             CucumberLogUtils.logScreenshot();
         } catch (NoSuchElementException e) {
@@ -895,7 +951,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
         try {
-            CommonUtils.waitForClickability(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.howWouldYouDescribeYourCurrentSpeechCapabilities));
+            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(424));
             JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.howWouldYouDescribeYourCurrentSpeechCapabilities));
             CucumberLogUtils.logScreenshot();
         } catch (NoSuchElementException e) {
@@ -1001,7 +1057,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
     }
 
-    public void rasScreenerSurveyScenario2PartThree() {
+    public void rasScreenerSurveyScenario4PartThree() {
         //*** ATTACHING FILE CAN'T BE AUTOMATED IN QUATRICS. MANUAL TESTING WAS PERFORMED FOR UPLOADING A FILE *******
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
@@ -1042,15 +1098,12 @@ public class RasScenario2StepsImpl extends PageInitializer {
         }
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForClickability(myRASSurveyPage.pulmonaryValveButton);
-        JavascriptUtils.clickByJS(myRASSurveyPage.pulmonaryValveButton);
-        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingStructuralHeartIssuesOption2));
-        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingStructuralHeartIssuesOption3));
-        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingStructuralHeartIssuesOption4));
-        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingStructuralHeartIssuesOption5));
-        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingStructuralHeartIssuesOption6));
-        myRASSurveyPage.otherPleaseSpecifyTextBox.clear();
-        CommonUtils.sendKeysToElement(myRASSurveyPage.otherPleaseSpecifyTextBox, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingStructuralHeartIssuesOption6Other);
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(432));
+        for (int m = 1; m < 7; m++) {
+            CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(m));
+        }
+        myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(6).clear();
+        CommonUtils.sendKeys(myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(6), ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyOfTheFollowingStructuralHeartIssuesOption6Other);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForClickability(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingSymptomsOption1));
@@ -1201,14 +1254,14 @@ public class RasScenario2StepsImpl extends PageInitializer {
         }
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForClickability(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingTreatmentsForHeartOption1));
-        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingTreatmentsForHeartOption1));
-        JavascriptUtils.clickByJS(myRASSurveyPage.catheterInterventionTextBox);
-        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingTreatmentsForHeartOption3));
-        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingTreatmentsForHeartOption4));
-        myRASSurveyPage.otherPleaseSpecifyTextBox.clear();
-        CommonUtils.sendKeysToElement(myRASSurveyPage.otherPleaseSpecifyTextBox, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingTreatmentsForHeartOption4Specify);
-        CommonUtils.sendKeysToElement(myRASSurveyPage.medicationPleaseSpecifyTextBox, ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingTreatmentsForHeartOption1Specify);
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(436));
+        for (int ll = 1; ll < 5; ll++) {
+            CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(ll));
+        }
+        myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(1).clear();
+        CommonUtils.sendKeys(myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(1), ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingTreatmentsForHeartOption1Specify);
+        myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(4).clear();
+        CommonUtils.sendKeys(myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(4), ras_Survey_TestDataManager.haveYouEverHadAnyOfTheFollowingTreatmentsForHeartOption4Specify);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForClickability(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3));
@@ -1290,17 +1343,16 @@ public class RasScenario2StepsImpl extends PageInitializer {
         }
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForClickability(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyFunctionalHeartIssues));
-        CommonUtils.waitForVisibility(myRASSurveyPage.haveYouEverBeenDiagnosedWithAnyFunctionalHeartIssueText);
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(440));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyFunctionalHeartIssues));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.haveYouEverBeenDiagnosedOption1CheckBox);
-        JavascriptUtils.clickByJS(myRASSurveyPage.haveYouEverBeenDiagnosedOption2CheckBox);
-        JavascriptUtils.clickByJS(myRASSurveyPage.haveYouEverBeenDiagnosedOption3CheckBox);
-        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyFunctionalHeartIssuesOption4));
-        myRASSurveyPage.otherPleaseSpecifyTextBox.clear();
-        CommonUtils.sendKeysToElement(myRASSurveyPage.otherPleaseSpecifyTextBox, ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyFunctionalHeartIssuesOption4Other);
+                CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(441));
+        for (int mm = 1; mm < 5; mm++) {
+            CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(mm));
+        }
+        myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(4).clear();
+        CommonUtils.sendKeys(myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(4), ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnyFunctionalHeartIssuesOption4Other);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForClickability(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3));
@@ -1374,7 +1426,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextTwoQuestionsWillAskAboutRASopathyDiagnoses, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT TWO QUESTIONS WILL ASK ABOUT RASOPATHY DIAGNOSES TEXT --");
         CucumberLogUtils.logScreenshot();
     }
-    public void rasScreenerSurveyScenario2PartFour() {
+    public void rasScreenerSurveyScenario4PartFour() {
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouBeenDiagnosedWithARASopathy));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouBeenDiagnosedWithARASopathy));
@@ -1426,7 +1478,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 6), ras_Survey_TestDataManager.pleaseCompleteAllMedicationsToWhichYouAreAllergicColumn2);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.pleaseCompleteTheTableBelowForAllFoodsText);
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(449));
         JavascriptUtils.clickByJS(myRASSurveyPage.addButton);
         CommonUtils.waitForVisibility(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3));
         myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3).clear();
@@ -1435,7 +1487,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 6), ras_Survey_TestDataManager.pleaseCompleteAllFoodsToWhichYouAreAllergicColumn2);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.pleaseCompleteTheTableBelowForAllOtherText);
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(450));
         JavascriptUtils.clickByJS(myRASSurveyPage.addButton);
         CommonUtils.waitForVisibility(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3));
         myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3).clear();
@@ -1534,7 +1586,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
-    public void rasScreenerSurveyScenario2PartFive() {
+    public void rasScreenerSurveyScenario4PartFive() {
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForClickability(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption1));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.whichOfTheFollowingSymptomsRelatedToTheGIOption1));
@@ -1653,9 +1705,9 @@ public class RasScenario2StepsImpl extends PageInitializer {
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.doYouTakeALactoseSupplement));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.toWhatFoodsAreYouAverseTextBox);
-        myRASSurveyPage.toWhatFoodsAreYouAverseTextBox.clear();
-        CommonUtils.sendKeysToElement(myRASSurveyPage.toWhatFoodsAreYouAverseTextBox, ras_Survey_TestDataManager.toWhatFoodsAreYouAverse);
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(575));
+        myRASSurveyPage.dynamicOneTextBox(575).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.dynamicOneTextBox(575), ras_Survey_TestDataManager.toWhatFoodsAreYouAverse);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForClickability(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(1, 3));
@@ -1703,7 +1755,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         JavascriptUtils.clickByJS(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(1, 15));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(327));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(576));
         CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.areYouToiletTrained));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
@@ -1726,8 +1778,8 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.selectDropDownValue(ras_Survey_TestDataManager.howManyBowelMovementsDoYouHavePerWeek, myRASSurveyPage.medicationForAbdominalPainDropDownTwo());
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.whatIsTheLongestAmountOfTimeThatHasPassedText);
-        CommonUtils.selectDropDownValue(ras_Survey_TestDataManager.whatIsTheLongestAmountOfTimeThatHasPassedWithout, myRASSurveyPage.medicationForAbdominalPainDropDownTwo());
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(579));
+        CommonUtils.selectDropDownValue(ras_Survey_TestDataManager.whatIsTheLongestAmountOfTimeThatHasPassedWithout,myRASSurveyPage.howManyTimesHaveYouReceivedGrowthHormoneTreatmentDropDown);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.pleaseUseTheBristolStoolChart));
@@ -1866,12 +1918,12 @@ public class RasScenario2StepsImpl extends PageInitializer {
         //*********************** RUN THE CODE ABOVE ONLY ON NEW OR RESETTED FORMS ********************************/
     }
 
-    public void rasScreenerSurveyScenario2PartSix() {
+    public void rasScreenerSurveyScenario4PartSix() {
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(305));
         CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsAskAboutBreathingAndTheLungs, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT BREATHING AND THE LUNGS TEXT --");
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(380));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(454));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverHadAnEvaluationByAPulmonologist));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
@@ -1884,19 +1936,19 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 2), ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForThePulmonologistOption3);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(162));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(456));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverHadWheezingOrWhistling));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(163));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(457));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouBeenDiagnosedWithReactiveAirwayDisease));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(164));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(458));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenSeenInTheEmergencyRoomForABreathing));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(165));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(459));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenSeenInTheHospitalForABreathing));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
@@ -1904,7 +1956,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsWillAskAboutOralHealthAndDental, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS WILL ASK ABOUT ORAL HEALTH AND DENTAL HISTORY TEXT --");
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(166));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(529));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.doYouReceiveRegularDentalCare));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
@@ -1917,76 +1969,76 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 2), ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForWhereDentalOption3);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(168));
-        myRASSurveyPage.dynamicOneTextBox(168).clear();
-        CommonUtils.sendKeysToElement(myRASSurveyPage.dynamicOneTextBox(168), ras_Survey_TestDataManager.whenDidYouLastVisitADentist);
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(530));
+        myRASSurveyPage.dynamicOneTextBox(530).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.dynamicOneTextBox(530), ras_Survey_TestDataManager.whenDidYouLastVisitADentist);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(167));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(531));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.whatWasTheReasonForYourLastDentalVisitOption));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(169));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(532));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.doYourGumsBleedRegularlyWithToothBrushing));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(170));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(533));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.doYourTeethOrGumsHurtRegularly));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(171));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(534));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.doYouHavePeriodontalOrGumDisease));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(172));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(535));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouHadDentalSealantsPlaced));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(173));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(536));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.doYouCurrentlyHaveCavities));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(174));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(537));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouPreviouslyHadAnyDentalFillings));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(175));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(538));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.doesYourMouthUsuallyFeelDry));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(176));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(539));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.overallHowWouldYouRateTheOverallHealth));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(177));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(540));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.overallHowWouldYouRateYourDentalHygieneRoutine));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(178));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(541));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouHadAnyChangesInYourSenseOfSmell));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(179));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(542));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouHadAnyChangesInYourSenseOfTaste));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(180));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(543));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.doYouHaveJawOrTemporomandibularJointPain));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(181));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(544));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.doYouHaveFrequentHeadaches));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(182));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(545));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouHadAnyOrthodonticTreatment));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(183));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(546));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouHadAPalatalExpansion));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(184));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(547));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouHadAnyFacialOrDentalTrauma));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
@@ -1995,37 +2047,37 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.sendKeysToElement(myRASSurveyPage.dynamicPleaseSpecifyTextBox(ras_Survey_TestDataManager.didTheFacialOrDentalTraumaRequireSurgery), ras_Survey_TestDataManager.didTheFacialOrDentalTraumaRequireSurgeryPlease);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(186));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(548));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouHadElectiveJawSurgery));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(189));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(549));
         myRASSurveyPage.dynamicPleaseSpecifyTextBox(ras_Survey_TestDataManager.doYouHaveAHistoryOfCancerInTheMouthOrJaw).clear();
         CommonUtils.sendKeysToElement(myRASSurveyPage.dynamicPleaseSpecifyTextBox(ras_Survey_TestDataManager.doYouHaveAHistoryOfCancerInTheMouthOrJaw), ras_Survey_TestDataManager.doYouHaveAHistoryOfCancerInTheMouthOrJawPlease);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(190));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(550));
         myRASSurveyPage.dynamicPleaseSpecifyTextBox(ras_Survey_TestDataManager.doYouHaveAFamilyMemberWithAJawAbnormality).clear();
         CommonUtils.sendKeysToElement(myRASSurveyPage.dynamicPleaseSpecifyTextBox(ras_Survey_TestDataManager.doYouHaveAFamilyMemberWithAJawAbnormality), ras_Survey_TestDataManager.doYouHaveAFamilyMemberWithAJawAbnormalityPlease);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(191));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(551));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.doYouHaveAnyNumbnessInOrAroundYourMouth));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(192));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(552));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.doYouHaveAnyMouthSores));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(193));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(553));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.doYourTeethFeelSensitiveToHotOrColdFoods));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(194));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(554));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.doYouHaveProblemsMovingYourLipsTongueOrMouth));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(195));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(555));
         myRASSurveyPage.dynamicPleaseSpecifyTextBox(ras_Survey_TestDataManager.overallIsThereAnythingUnusualAboutYourTeethOrMouth).clear();
         CommonUtils.sendKeysToElement(myRASSurveyPage.dynamicPleaseSpecifyTextBox(ras_Survey_TestDataManager.overallIsThereAnythingUnusualAboutYourTeethOrMouth), ras_Survey_TestDataManager.overallIsThereAnythingUnusualAboutYourTeethOrMouthPlease);
         CucumberLogUtils.logScreenshot();
@@ -2045,20 +2097,20 @@ public class RasScenario2StepsImpl extends PageInitializer {
                 ras_Survey_TestDataManager.haveYouFeltThatLifeInGeneralIsLessSatisfying,
                 ras_Survey_TestDataManager.haveYouFeltThatLifeInGeneralIsLessSatisfying
         };
-        for (int jjj = 196; jjj < 210; jjj++) {
+        for (int jjj = 556; jjj < 570; jjj++) {
             CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(jjj));
-            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(clickingOnOptionInMultiplePages[jjj-196]));
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(clickingOnOptionInMultiplePages[jjj-556]));
             CucumberLogUtils.logScreenshot();
             rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
         }
     }
 
-    public void rasScreenerSurveyScenario2PartSeven() {
+    public void rasScreenerSurveyScenario4PartSeven() {
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(306));
         CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsAskAboutFluidBalance, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT FLUID BALANCE AND IF ANY FLUID BUILDS TEXT --");
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(331));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(460));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithALymphaticSystemIssue));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
@@ -2169,7 +2221,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsWillAskAboutTheKidneys, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS WILL ASK ABOUT THE KIDNEYS TEXT --");
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(383));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(463));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenEvaluatedByANephrologist));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
@@ -2182,7 +2234,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 2), ras_Survey_TestDataManager.pleaseListTheInformationBelowForTheNephrologistOption3);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(329));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(465));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenEvaluatedByANephrologist));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
@@ -2267,9 +2319,9 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
-    public void rasScreenerSurveyScenario2PartEight() {
+    public void rasScreenerSurveyScenario4PartEight() {
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(385));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(468));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenEvaluatedByADermatologist));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
@@ -2283,6 +2335,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(5));
+        MiscUtils.sleep(1000);
         for (int a = 1; a < 8; a++) {
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(a));
         }
@@ -2290,7 +2343,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.sendKeys(myRASSurveyPage.dynamicPleaseSpecifyTextBox(ras_Survey_TestDataManager.pleaseChooseTheBestTermsToDescribeYourHair7), ras_Survey_TestDataManager.pleaseChooseTheBestTermsToDescribeYourHair7Other);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(221));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(471));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.isTheTextureOrAmountOfYourHairSimilar));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
@@ -2303,7 +2356,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(5));
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(223));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(473));
         for (int c = 1; c < 6; c++) {
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(c));
         }
@@ -2311,12 +2364,12 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.sendKeys(myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(5), ras_Survey_TestDataManager.doYouHaveAnyOfTheFollowingPigmentedSkinFindingsOther);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(224));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(474));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.doYouHaveAnyHemangiomas));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(5));
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(225));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(475));
         for (int d = 1; d < 6; d++) {
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(d));
         }
@@ -2328,7 +2381,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsAskAboutSkeletalConditions, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT SKELETAL CONDITIONS TEXT --");
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(387));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(476));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.isTheTextureOrAmountOfYourHairSimilar));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
@@ -2342,7 +2395,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(2));
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(226));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(478));
         for (int e = 1; e < 5; e++) {
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(e));
         }
@@ -2350,12 +2403,12 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.sendKeys(myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(4), ras_Survey_TestDataManager.haveYouBeenDiagnosedWithAnyOfTheFollowingSkeletalOption4Other);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(352));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(479));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.doYouHaveAnyIssuesWithCurvingOfTheSpine));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(2));
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(227));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(480));
         for (int f = 1; f < 5; f++) {
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(f));
         }
@@ -2422,16 +2475,16 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInTextAreaTextBox(4, 13), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowForEachOfTheSpineIssuesColumn7Option4);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(231));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(482));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.hasYourNeckBeenDescribedAsShortOrWebbed));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(353));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(483));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithJointIssues));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(2));
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(232));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(484));
         for (int g = 1; g < 7; g++) {
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(g));
         }
@@ -2530,9 +2583,9 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsAskAboutBloodDisorders, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT BLOOD DISORDERS TEXT --");
         CucumberLogUtils.logScreenshot();
     }
-    public void rasScreenerSurveyScenario2PartNine() {
+    public void rasScreenerSurveyScenario4PartNine() {
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(389));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(486));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverHadAnEvaluationByAHematologist));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
@@ -2545,14 +2598,15 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 2), ras_Survey_TestDataManager.pleaseProvideTheInformationBelowForTheHematologistOption3);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(354));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(488));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager. doYouHaveIssuesWithBleedingOrBruising));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(233));
-        for (int h = 1; h < 5; h++) {
-            CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(h));
-        }
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(489));
+        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.doYouHaveAnyOfTheFollowingIssuesWithBleedingOrBruising1));
+        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.doYouHaveAnyOfTheFollowingIssuesWithBleedingOrBruising2));
+        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.doYouHaveAnyOfTheFollowingIssuesWithBleedingOrBruising3));
+        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.doYouHaveAnyOfTheFollowingIssuesWithBleedingOrBruising4));
         myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(4).clear();
         CommonUtils.sendKeys(myRASSurveyPage.dynamicallyEnterTextInCheckMarkedTextBox(4), ras_Survey_TestDataManager.doYouHaveAnyOfTheFollowingIssuesWithBleedingOrBruising4Other);
         CucumberLogUtils.logScreenshot();
@@ -2624,11 +2678,11 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 16), ras_Survey_TestDataManager.pleaseCompleteBleedingBruisingIssuesListedColumn8Option4);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(355));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(491));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.doYouHaveAnyKnownBloodDisorders));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(236));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(492));
         for (int j = 1; j < 9; j++) {
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(j));
         }
@@ -2737,7 +2791,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         }
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(238));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(494));
         for (int s = 1; s < 7; s++) {
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(s));
         }
@@ -2823,11 +2877,11 @@ public class RasScenario2StepsImpl extends PageInitializer {
         }
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(356));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(496));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.doYouHaveAHistoryOfFrequentInfections));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(391));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(497));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenEvaluatedByAnImmunologist));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
@@ -2840,7 +2894,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 2), ras_Survey_TestDataManager.pleaseProvideTheNameOfTheImmunologistOption3);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(240));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(499));
         for (int u = 1; u < 4; u++) {
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(u));
         }
@@ -2899,11 +2953,11 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 16), ras_Survey_TestDataManager.pleaseCompleteTheImmunodeficienciesListedColumn8Option3);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(357));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(501));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAnAutoimmuneDisorder));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(242));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(502));
         for (int v = 1; v < 6; v++) {
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(v));
         }
@@ -2999,9 +3053,9 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsAskAboutNervousSystem, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT NERVOUS SYSTEM TEXT --");
         CucumberLogUtils.logScreenshot();
     }
-    public void rasScreenerSurveyScenario2PartTen() {
+    public void rasScreenerSurveyScenario4PartTen() {
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(393));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(504));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenEvaluatedByANeurologist));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
@@ -3014,11 +3068,11 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 2), ras_Survey_TestDataManager.pleaseProvideTheInformationForTheNeurologistOption3);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(358));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(506));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithAStructuralBrainAbnormality));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(244));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(507));
         for (int a = 1; a < 7; a++) {
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(a));
         }
@@ -3113,11 +3167,11 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(6, 13), ras_Survey_TestDataManager.pleaseCompleteTheTableForEachOfTheConditionsListedBrainIssuesColumn7Option6);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(359));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(509));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.doYouHaveAHistoryOfSeizures));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(246));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(510));
         for (int b = 1; b < 6; b++) {
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(b));
         }
@@ -3198,7 +3252,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(5, 13), ras_Survey_TestDataManager.pleaseCompleteTheTableBelowSeizureDisordersColumn7Option5);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(395));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(512));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenEvaluatedByAPsychiatrist));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
@@ -3211,11 +3265,11 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 2), ras_Survey_TestDataManager.pleaseProvideTheInformationListedPsychiatristOption3);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(360));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(514));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithABehavioral));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(247));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(515));
         for (int c = 1; c < 11; c++) {
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(c));
         }
@@ -3333,19 +3387,19 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.theNextSetOfQuestionsAskAboutVisionAndHearing, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT SET OF QUESTIONS ASK ABOUT VISION AND HEARING TEXT --");
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(250));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(517));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverBeenDiagnosedWithPtosis));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(319));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(518));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.didYouRequireTreatmentForPtosis));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(361));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(519));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverHadAnyIssuesWithYourVision));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(253));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(520));
         for (int k = 1; k < 7; k++) {
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(k));
         }
@@ -3440,7 +3494,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(6, 13), ras_Survey_TestDataManager.pleaseCompleteTheTableVisionEyesightColumn7Option6);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(254));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(522));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverExperiencedStabismus));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
@@ -3460,7 +3514,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.clickOnElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(1, 13));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(256));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(524));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouEverExperiencedNystagmus));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
@@ -3481,11 +3535,11 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.clickOnElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(1, 18));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(362));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(525));
         JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.haveYouExperiencedHearingLoss));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(259));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(526));
         for (int l = 1; l < 6; l++) {
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(l));
         }
@@ -3559,7 +3613,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         }
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(260));
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(528));
         for (int n = 1; n < 4; n++) {
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(n));
         }
@@ -3576,8 +3630,8 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.youAreAlmostDoneSurvey, myRASSurveyPage.dynamicTopText(298).getText(), "-- VERIFYING YOU ARE ALMOST DONE TEXT --");
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
-//        rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-//        MiscUtils.sleep(1000);
-//        CucumberLogUtils.logScreenshot();
+        rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
     }
 }
