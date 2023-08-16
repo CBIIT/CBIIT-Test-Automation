@@ -1467,4 +1467,5 @@ public class RAS_Survey_Constants {
     public final String WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_MIDDLE = "What is the name of the person who may be eligible for this study? MI";
     public final String WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_LAST = "What is the name of the person who may be eligible for this study? Last Name";
     public final String IS_THE_PROBAND_ALIVE = "Is The proband alive?";
+    public final String IF_YOU_ARE_NOT_YET_ABLE_TO_USE_THE_TOILET = "If you are not yet able to use the toilet";
 }

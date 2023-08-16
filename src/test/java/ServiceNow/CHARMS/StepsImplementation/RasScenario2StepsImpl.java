@@ -11,7 +11,7 @@ import org.openqa.selenium.NoSuchFrameException;
 public class RasScenario2StepsImpl extends PageInitializer {
 
     /***
-     * USE THIS METHOD WILL COMPLETE THE RAS SCREENER SCENARIO 4
+     * USE THIS METHOD WILL COMPLETE THE RAS SCREENER SCENARIO 2
      */
     public void rasScreenerSubmissionScenario2() {
         CommonUtils.switchToNextWindow();
@@ -3576,8 +3576,8 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(ras_Survey_TestDataManager.youAreAlmostDoneSurvey, myRASSurveyPage.dynamicTopText(298).getText(), "-- VERIFYING YOU ARE ALMOST DONE TEXT --");
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
-//        rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-//        MiscUtils.sleep(1000);
-//        CucumberLogUtils.logScreenshot();
+        rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
     }
 }
