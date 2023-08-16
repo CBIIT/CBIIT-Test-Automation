@@ -225,6 +225,7 @@
 		</dependency>
 
 		<dependency>
+			<!-- https://mvnrepository.com/artifact/io.github.sukgu/automation -->
 			<groupId>io.github.sukgu</groupId>
 			<artifactId>automation</artifactId>
 			<version>0.1.3</version>
