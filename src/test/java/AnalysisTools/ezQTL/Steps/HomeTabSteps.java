@@ -5,7 +5,6 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import appsCommon.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -36,5 +35,4 @@ public class HomeTabSteps extends PageInitializer {
         CommonUtils.assertEquals(ezQTLHomePage.jiyeonChoiNameElement.getText(), jiyeonChoiName);
         CommonUtils.assertEquals(ezQTLHomePage.kevinBrownNameElement.getText(), kevinBrownName);
     }
-
 }

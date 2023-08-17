@@ -1,14 +1,12 @@
 package AnalysisTools.ICRP.Steps;
 
 import org.junit.Assert;
-
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import appsCommon.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -24,7 +22,6 @@ public class ICRPSearchSteps extends PageInitializer {
 	@When("user clicks ICRP data")
 	public void user_clicks_ICRP_data() {
 		icrpHomePage.ICRPDataBtn.click();
-
 	}
 
 	@When("user clicks search database")
@@ -34,8 +31,6 @@ public class ICRPSearchSteps extends PageInitializer {
 
 	@When("user clicks search")
 	public void user_clicks_search() {
-//		WebDriverWait wait = new WebDriverWait(WebDriverUtils.webDriver , 1800); 
-//		wait.until(ExpectedConditions.elementToBeClickable((By.xpath("//*[@class='btn btn-primary ml2']"))));
 		MiscUtils.sleep(5000);
 		icrpSearchDatabasePage.searchBtn.click();
 		MiscUtils.sleep(5000);
@@ -80,7 +75,6 @@ public class ICRPSearchSteps extends PageInitializer {
 			Assert.assertTrue(icrpSearchDatabasePage.institutionUniversityOfColoradoDenver.get(i).getText()
 					.contentEquals(institutionName));
 		}
-
 	}
 
 	@When("user selects Alexs Lemonade Stand Foundation")
@@ -90,13 +84,11 @@ public class ICRPSearchSteps extends PageInitializer {
 		icrpSearchDatabasePage.fundingPanelHeader.click();
 		icrpSearchDatabasePage.ALSFChkbox.click();
 		MiscUtils.sleep(5000);
-
 	}
 
 	@Then("projects funded by Alexs Lemonade Stand Foundation displays")
 	public void projects_funded_by_Alexs_Lemonade_Stand_Foundation_displays() {
 		Assert.assertTrue(icrpSearchDatabasePage.fundingOrgALSF.getText().contentEquals("ALSF"));
-
 	}
 
 	@When("user selects cancer type as brain tumor")
@@ -122,13 +114,11 @@ public class ICRPSearchSteps extends PageInitializer {
 		MiscUtils.sleep(5000);
 		System.out.println(icrpSearchDatabasePage.exactPhraseRadioBtn.isSelected());
 		Assert.assertTrue(icrpSearchDatabasePage.exactPhraseRadioBtn.isSelected());
-
 	}
 
 	@When("user clicks reset")
 	public void user_clicks_reset() {
 		icrpSearchDatabasePage.resetBtn.click();
-
 	}
 
 	@Then("exact phrase provided is unselected")
@@ -140,7 +130,6 @@ public class ICRPSearchSteps extends PageInitializer {
 	public void user_clicks_clear() {
 		MiscUtils.sleep(5000);
 		icrpSearchDatabasePage.clearBtn.click();
-
 	}
 
 	@Then("all projects are displayed")
@@ -159,8 +148,5 @@ public class ICRPSearchSteps extends PageInitializer {
 	@Then("projects with research area as normal functioning display")
 	public void projects_with_research_area_as_normal_functioning_display() {
 		icrpSearchDatabasePage.proj3DPrinting.click();
-		
-
 	}
-
 }

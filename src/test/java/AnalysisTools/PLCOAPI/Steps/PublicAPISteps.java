@@ -3,7 +3,6 @@ package AnalysisTools.PLCOAPI.Steps;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
 import com.nci.automation.services.RestApiHelper;
-
 import appsCommon.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -25,8 +24,5 @@ public class PublicAPISteps extends PageInitializer {
 		JsonParser parser = new JsonParser();
 		JsonArray res = parser.parse(rest.getResponseBody().asString()).getAsJsonArray();
 		String firstID = res.getAsJsonArray().get(0).getAsJsonObject().get("id").getAsString();
-		// Assert.assertEquals(, expected, actual);
-
 	}
-
 }

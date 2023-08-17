@@ -3,7 +3,6 @@ package AnalysisTools.GDSTracking.Steps;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
-
 import appsCommon.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -28,5 +27,4 @@ public class GDSLoginSteps extends PageInitializer {
     @Then("the user is on the Find Submissions tab")
     public void the_user_is_on_the_find_submissions_tab() {
     }
-
 }

@@ -1,9 +1,7 @@
 package AnalysisTools.mSigPortal.Steps;
 
 import java.util.LinkedHashMap;
-
 import org.testng.Assert;
-
 import appsCommon.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -75,7 +73,6 @@ public class APIAccessSteps extends PageInitializer {
         Assert.assertEquals(responseBodyAsString.contains("A[C>A]C"), true);
         Assert.assertEquals(responseBodyAsString.contains("A[C>A]G"), true);
         Assert.assertEquals(responseBodyAsString.contains("A[C>A]T"), true);
-
     }
 
     @Given("user sets api signature activity with default parameters on API access page")
@@ -149,5 +146,4 @@ public class APIAccessSteps extends PageInitializer {
         Assert.assertEquals(responseBodyAsString.toLowerCase().contains("6825"), true);
         Assert.assertEquals(responseBodyAsString.toLowerCase().contains("6830"), true);
     }
-
 }

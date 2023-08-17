@@ -1,10 +1,8 @@
 package AnalysisTools.PLCO.Steps;
 
 import org.junit.Assert;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
-
 import appsCommon.PageInitializer;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -15,7 +13,6 @@ public class InformationSteps extends PageInitializer {
 	@When("user selects API Access tab")
 	public void user_selects_API_Access_tab() {
 		informationPage.lnkAPIAcess.click();
-
 	}
 
 	@Then("API Acess page displays")
@@ -26,7 +23,6 @@ public class InformationSteps extends PageInitializer {
 	@Then("API Acess page displays {string} heading")
 	public void api_Acess_page_displays_heading(String heading) {
 		Assert.assertTrue(informationPage.txtAPIAccessHeading.getText().contentEquals(heading));
-
 	}
 
 	@When("user clicks on About page")
@@ -56,10 +52,8 @@ public class InformationSteps extends PageInitializer {
 
 	@When("user navigates to the About page")
 	public void user_navigates_to_the_About_page() {
-
 		MiscUtils.sleep(2000);
 		informationPage.aboutTab.click();
-
 	}
 
 	@And("user clicks explore on GWAS results")
@@ -70,7 +64,5 @@ public class InformationSteps extends PageInitializer {
 	@Then("user is on explore GWAS tab where {string} displays")
 	public void user_is_on_explore_GWAS_tab_where_displays(String summaryResults) {
 		Assert.assertEquals(summaryResults, exploreGWASPage.txtSummaryResults.getText());
-		;
 	}
-
 }

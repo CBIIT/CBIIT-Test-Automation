@@ -10,9 +10,7 @@ import com.nci.automation.web.WebDriverUtils;
 public class JPSurvHomePage extends CommonUtils {
 
 	public JPSurvHomePage() {
-
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
-
 	}
 
 	public String dicFilePath = "./src/test/resources/Tutorial_JPSURV.dic";
@@ -236,5 +234,4 @@ public class JPSurvHomePage extends CommonUtils {
 	/** Save Button **/
 	@FindBy(xpath = "//button[@onclick='save_params()']")
 	public WebElement saveBtn;
-
 }

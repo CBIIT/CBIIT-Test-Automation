@@ -17,11 +17,9 @@ public class CEDCDSearchCohortsCohortsURLSteps extends PageInitializer {
 	 */
 	@When("the user clicks Agricultural Health Study")
 	public void the_user_clicks_Agricultural_Health_Study() {
-
 		JavascriptUtils.drawRedBorder(cedcdSearchCohortsPage.AHSURL);
 		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.clickByJS(cedcdSearchCohortsPage.AHSURL);
-
 	}
 
 	/**
@@ -33,31 +31,19 @@ public class CEDCDSearchCohortsCohortsURLSteps extends PageInitializer {
 
 		// It will return the parent window name as a String
 		String parent = WebDriverUtils.webDriver.getWindowHandle();
-
 		Set<String> s = WebDriverUtils.webDriver.getWindowHandles();
 
 		// Now iterate using Iterator
 		Iterator<String> I1 = s.iterator();
-
 		while (I1.hasNext()) {
-
 			String child_window = I1.next();
-
 			if (!parent.equals(child_window)) {
 				WebDriverUtils.webDriver.switchTo().window(child_window);
-
 				System.out.println(WebDriverUtils.webDriver.switchTo().window(child_window).getTitle());
-
 				WebDriverUtils.webDriver.close();
 			}
-
 		}
 		// switch to the parent window
 		WebDriverUtils.webDriver.switchTo().window(parent);
-
 	}
-
-	// Assert.assertEquals(expectedAHSText, actualAHSText);;
-	// CucumberLogUtils.logScreenshot();
-
 }

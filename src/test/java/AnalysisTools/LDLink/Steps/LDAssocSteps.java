@@ -2,7 +2,6 @@ package AnalysisTools.LDLink.Steps;
 
 import java.io.File;
 import org.junit.Assert;
-import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
@@ -50,5 +49,4 @@ public class LDAssocSteps extends PageInitializer {
         MiscUtils.sleep(2000);
         CommonUtils.clickOnElement(ldAssocPage.submitOnLDassoc);
     }
-
 }

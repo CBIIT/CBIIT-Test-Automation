@@ -11,14 +11,10 @@ public class CEDCDSearchCohortsCategoriesofDataSortedSteps extends PageInitializ
 	public void the_user_clicks_on_the_Categories_of_Data_Collected_drop_down() {
 		/** This step clicks on the categories of data collected drop down */
 		JavascriptUtils.clickByJS(cedcdSearchCohortsPage.categoriesOfDataCollectedDropDown);
-
 	}
 
 	@Then("all selections are sorted alphabetically")
 	public void all_selections_are_sorted_alphabetically() {
-
 		cedcdSearchCohortsCategoriesOfDataOfDataSortedStepImp.sortingCategoriesOfDataCollectedAlphabetically();
-
 	}
-
 }

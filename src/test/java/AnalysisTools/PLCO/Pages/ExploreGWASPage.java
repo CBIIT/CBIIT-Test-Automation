@@ -3,7 +3,6 @@ package AnalysisTools.PLCO.Pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
@@ -14,7 +13,6 @@ public class ExploreGWASPage extends CommonUtils {
 	}
 
 	/*** Summary Results Tab WebElements ***/
-
 	/** Explore GWAS tab **/
 	@FindBy(xpath = "(//a[contains(text(),'Explore')])[1]")
 	public WebElement lnkExploreGWAS;
@@ -114,5 +112,4 @@ public class ExploreGWASPage extends CommonUtils {
 	/** Check height check box for Phenotype Correlation **/
 	@FindBy(xpath = "//label[@title='Height']")
 	public WebElement chkHeightPhenotypeCorrelation;
-
 }

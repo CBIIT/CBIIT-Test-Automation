@@ -18,5 +18,4 @@ public class BrowsePhenotypePage extends CommonUtils {
 	/** Select A Phenotype Text **/
 	@FindBy(xpath = "//*[@class='h5 text-center text-secondary my-1']")
 	public WebElement txtSelectPhenotype;
-
 }

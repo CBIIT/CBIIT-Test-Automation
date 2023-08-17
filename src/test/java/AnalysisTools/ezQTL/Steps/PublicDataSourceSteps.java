@@ -24,27 +24,19 @@ public class PublicDataSourceSteps extends PageInitializer {
             String journalColumn, String yearColumn, String titleColumn, String studyWebsiteColumn) {
         CommonUtils.assertTrue(ezQTLPublicDataSourcePage.datasetColumnElement.isDisplayed());
         CommonUtils.assertEquals(ezQTLPublicDataSourcePage.datasetColumnElement.getText(), datasetColumn);
-
         CommonUtils.assertTrue(ezQTLPublicDataSourcePage.typeColumnElement.isDisplayed());
         CommonUtils.assertEquals(ezQTLPublicDataSourcePage.typeColumnElement.getText(), typeColumn);
-
         CommonUtils.assertTrue(ezQTLPublicDataSourcePage.populationColumnElement.isDisplayed());
         CommonUtils.assertEquals(ezQTLPublicDataSourcePage.populationColumnElement.getText(), populationColumn);
-
         CommonUtils.assertTrue(ezQTLPublicDataSourcePage.genomeBuildColumnElement.isDisplayed());
         CommonUtils.assertEquals(ezQTLPublicDataSourcePage.genomeBuildColumnElement.getText(), genomeBuildColumn);
-
         CommonUtils.assertTrue(ezQTLPublicDataSourcePage.journalColumnElement.isDisplayed());
         CommonUtils.assertEquals(ezQTLPublicDataSourcePage.journalColumnElement.getText(), journalColumn);
-
         CommonUtils.assertTrue(ezQTLPublicDataSourcePage.yearColumnElement.isDisplayed());
         CommonUtils.assertEquals(ezQTLPublicDataSourcePage.yearColumnElement.getText(), yearColumn);
-
         CommonUtils.assertTrue(ezQTLPublicDataSourcePage.titleColumnElement.isDisplayed());
         CommonUtils.assertEquals(ezQTLPublicDataSourcePage.titleColumnElement.getText(), titleColumn);
-
         CommonUtils.assertTrue(ezQTLPublicDataSourcePage.studyWebsiteColumnElement.isDisplayed());
         CommonUtils.assertEquals(ezQTLPublicDataSourcePage.studyWebsiteColumnElement.getText(), studyWebsiteColumn);
     }
-
 }

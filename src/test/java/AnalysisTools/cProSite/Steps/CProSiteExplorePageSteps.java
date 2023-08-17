@@ -36,10 +36,8 @@ public class CProSiteExplorePageSteps extends PageInitializer {
 
     @When("user changes the dataset to phosphorylation site")
     public void userChangesTheDatasetToPhosphorylationSite() {
-
         cProSiteExplorePage.datasetDropdown.sendKeys("Phosphorylation Site");
         cProSiteExplorePage.datasetDropdown.sendKeys(Keys.ENTER);
-
     }
 
     @When("user changes the dataset to phosphorylationprotein")

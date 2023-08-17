@@ -1,9 +1,7 @@
 package AnalysisTools.CEDCD.Steps;
 
 import org.junit.Assert;
-
 import com.nci.automation.web.JavascriptUtils;
-
 import appsCommon.PageInitializer;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -18,7 +16,6 @@ public class CEDCDSearchCohortsRestoringSearchCriteriaAfterSwitchingTabsSteps ex
 		JavascriptUtils.clickByJS(cedcdSearchCohortsPage.categoriesOfDataCollectedDropDown);
 		JavascriptUtils.clickByJS(cedcdSearchCohortsPage.categoriesOfDataCollectedDepressionValue);
 		JavascriptUtils.clickByJS(cedcdSearchCohortsPage.searchCohortResultBtn);
-
 	}
 
 	/**
@@ -36,7 +33,6 @@ public class CEDCDSearchCohortsRestoringSearchCriteriaAfterSwitchingTabsSteps ex
 	@When("the user click back on the previous tab")
 	public void the_user_click_back_on_the_previous_tab() {
 		JavascriptUtils.clickByJS(cedcdSearchCohortsPage.searchCohortTab);
-
 	}
 
 	/**
@@ -45,9 +41,6 @@ public class CEDCDSearchCohortsRestoringSearchCriteriaAfterSwitchingTabsSteps ex
 	 */
 	@Then("the user is filtered result from before are still populated")
 	public void the_user_is_filtered_result_from_before_are_still_populated() {
-
 		Assert.assertTrue(cedcdSearchCohortsPage.categoriesOfDataCollectedDepressionValue.isEnabled());
-
 	}
-
 }

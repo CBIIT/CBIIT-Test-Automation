@@ -1,9 +1,7 @@
 package AnalysisTools.JPSurv.Steps;
 
 import java.io.File;
-
 import org.junit.Assert;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -11,7 +9,6 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import appsCommon.PageInitializer;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -28,27 +25,14 @@ public class JPSurvHomePageSteps extends PageInitializer {
 
 	@When("user selects Dic and Txt file")
 	public void user_selects_Dic_and_Txt_file() {
-		// jpsurvHomePage.fileInputTextbox.sendKeys("/Users/uddins2/git/CBIIT-Test-Automation/src/test/resources/SEER9_Survival_6CancerSitesByStage_1975_2007.dic");
-		// jpsurvHomePage.fileInputTextbox.sendKeys("/Users/uddins2/git/CBIIT-Test-Automation/src/test/resources/SEER9_Survival_6CancerSitesByStage_1975_2007.txt");
-
-		// String dicFilePath = System.getProperty("user.dir") +
-		// "/src/test/resources/SEER9_Survival_6CancerSitesByStage_1975_2007.dic";
-		// String txtFilePath = System.getProperty("user.dir") +
-		// "src/test/resources/SEER9_Survival_6CancerSitesByStage_1975_2007.txt";
-		//
-		// jpsurvHomePage.fileInputTextbox.sendKeys(dicFilePath);
-		// jpsurvHomePage.fileInputTextbox.sendKeys(txtFilePath);
-
 		File dicFile = new File(jpsurvHomePage.dicFilePath);
 		File txtFile = new File(jpsurvHomePage.txtFilePath);
 		jpsurvHomePage.fileInputTextbox.sendKeys(dicFile.getAbsolutePath());
 		jpsurvHomePage.fileInputTextbox.sendKeys(txtFile.getAbsolutePath());
-
 	}
 
 	@When("user clicks upload")
 	public void user_clicks_upload() {
-		// jpsurvHomePage.fileUploadBtn.click();
 		JavascriptUtils.clickByJS(jpsurvHomePage.fileUploadBtn);
 	}
 
@@ -109,10 +93,6 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	public void clickDownloadFullDatasetButton() {
 		CommonUtils.clickOnElement(jpsurvHomePage.downloadFullDataSetButton);
 		try {
-			// CommonUtils.getWaitObject().until(ExpectedConditions.not(ExpectedConditions.attributeContains(jpsurvHomePage.downloadFullDataSetButton.findElement(By.xpath("./span")),
-			// "class", "none")));
-			// CommonUtils.getWaitObject().until(ExpectedConditions.attributeContains(jpsurvHomePage.downloadFullDataSetButton.findElement(By.xpath("./span")),
-			// "class", "none"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -141,10 +121,6 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	public void clickexportWorkspaceButton() {
 		CommonUtils.clickOnElement(jpsurvHomePage.exportWorkspaceButton);
 		try {
-			// CommonUtils.getWaitObject().until(ExpectedConditions.not(ExpectedConditions.attributeContains(jpsurvHomePage.exportWorkspaceButton.findElement(By.xpath("./span")),
-			// "class", "none")));
-			// CommonUtils.getWaitObject().until(ExpectedConditions.attributeContains(jpsurvHomePage.exportWorkspaceButton.findElement(By.xpath("./span")),
-			// "class", "none"));
 			Thread.sleep(2000);
 		} catch (Exception e) {
 		}
@@ -176,10 +152,6 @@ public class JPSurvHomePageSteps extends PageInitializer {
 		File csvFile = new File(jpsurvHomePage.csvFilePath);
 		MiscUtils.sleep(5000);
 		jpsurvHomePage.cvsFileInputTextbox.sendKeys(csvFile.getAbsolutePath());
-
-		//
-		// JavascriptUtils.clickByJS(jpsurvHomePage.configureCSVbtn);
-
 	}
 
 	@When("user selects workspace")
@@ -207,7 +179,6 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	public void select_Calculate() {
 		MiscUtils.sleep(5000);
 		JavascriptUtils.clickByJS(jpsurvHomePage.calculateButton);
-
 	}
 
 	@When("click Reset")
@@ -216,7 +187,6 @@ public class JPSurvHomePageSteps extends PageInitializer {
 		jpsurvHomePage.showhidearrowButton.click();
 		MiscUtils.sleep(5000);
 		jpsurvHomePage.resetButton.click();
-
 	}
 
 	@Then("page is reset")
@@ -251,7 +221,6 @@ public class JPSurvHomePageSteps extends PageInitializer {
 		JavascriptUtils.scrollDown(5000);
 		MiscUtils.sleep(5000);
 		jpsurvHomePage.emailTextbox.sendKeys("shomir.uddin@nih.gov");
-
 	}
 
 	@Then("click submit")
@@ -267,7 +236,6 @@ public class JPSurvHomePageSteps extends PageInitializer {
 
 	@When("user selects non-example Dic and Txt file")
 	public void user_selects_non_example_Dic_and_Txt_file() {
-
 		File dicFile = new File(jpsurvHomePage.nonExampledicFilePath);
 		File txtFile = new File(jpsurvHomePage.nonExampletxtFilePath);
 		jpsurvHomePage.fileInputTextbox.sendKeys(dicFile.getAbsolutePath());
@@ -305,7 +273,6 @@ public class JPSurvHomePageSteps extends PageInitializer {
 		JavascriptUtils.scrollIntoView(jpsurvHomePage.intervalDD);
 		MiscUtils.sleep(4000);
 		CommonUtils.selectDropDownValue(string, jpsurvHomePage.intervalDD);
-
 	}
 
 	@When("select {string} for alive at start drop down")
@@ -318,7 +285,6 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	public void select_for_died_drop_down(String string) {
 		JavascriptUtils.scrollIntoView(jpsurvHomePage.diedDD);
 		CommonUtils.selectDropDownValue(string, jpsurvHomePage.diedDD);
-
 	}
 
 	@When("select {string} for  lost to follow up")
@@ -349,19 +315,16 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	public void select_for_rel_sur_int_se_drop_down(String string) {
 		JavascriptUtils.scrollIntoView(jpsurvHomePage.seIntRelDD);
 		CommonUtils.selectDropDownValue(string, jpsurvHomePage.seIntRelDD);
-
 	}
 
 	@When("select {string} for  rel sur cum se drop down")
 	public void select_for_rel_sur_cum_se_drop_down(String string) {
 		JavascriptUtils.scrollIntoView(jpsurvHomePage.seRelCumDD);
 		CommonUtils.selectDropDownValue(string, jpsurvHomePage.seRelCumDD);
-
 	}
 
 	@When("clicks save")
 	public void clicks_save() {
-
 		jpsurvHomePage.saveBtn.click();
 	}
 
@@ -386,5 +349,4 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	public void userClickOnYearOfDiagnosed() {
 		jpsurvHomePage.yearOfDiagnosed.click();
 	}
-
 }

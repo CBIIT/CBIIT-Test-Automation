@@ -1,9 +1,7 @@
 package AnalysisTools.LDLink.Steps;
 
 import static org.junit.Assert.assertEquals;
-
 import org.junit.Assert;
-
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
@@ -18,7 +16,6 @@ public class LDLinkHomeAndLandingPageSteps extends PageInitializer {
 	@Given("a LDlink user opens Analysis Tools page")
 	public void a_LDlink_user_opens_Analysis_Tools_page() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("Analysistools"));
-
 	}
 
 	@Then("user verifies {string} present on the screen")
@@ -38,7 +35,6 @@ public class LDLinkHomeAndLandingPageSteps extends PageInitializer {
 				.isDisplayed();
 		Assert.assertTrue(ldLinkDescriptionTextIsDisplayed);
 		Assert.assertEquals(ldLinkDescriptionText, ldLinkDescriptionOnLandingPage);
-
 	}
 
 	@When("user clicks LDLink on landing page")
@@ -57,5 +53,4 @@ public class LDLinkHomeAndLandingPageSteps extends PageInitializer {
 	public void a_LDlink_user_opens_home_page() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("LDLink"));
 	}
-
 }

@@ -1,7 +1,6 @@
 package AnalysisTools.ezQTL.Steps;
 
 import org.junit.Assert;
-
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
@@ -24,14 +23,12 @@ public class AnalysesTabSteps extends PageInitializer {
 
     @When("the user submits a job to the queue")
     public void the_user_submits_a_job_to_the_queue() {
-
     }
 
     @When("the user submits {string}, {string}, {string}, {string}, {string}. {string}, {string} {string}, {string}")
     public void the_user_submits(String associationData, String gwasData, String quantificationData,
             String genotypeData, String ldData,
             String qtlDistance, String snpNumber, String jobName, String queueEmail) {
-
         CommonUtils.sendKeys(ezQTLAnalysesPage.associationDataFileInput, associationData);
         CommonUtils.sendKeys(ezQTLAnalysesPage.gwasDataFileInput, gwasData);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.addQtlRawDataButton);
@@ -56,7 +53,6 @@ public class AnalysesTabSteps extends PageInitializer {
 
     @When("the user searches using public data")
     public void the_user_searches_using_public_data() {
-
         CommonUtils.clickOnElement(ezQTLAnalysesPage.publicAssociationDataCheckBox);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.publicGwasSourceDataCheckBox);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.publicLdPublicDataCheckBox);
@@ -71,7 +67,6 @@ public class AnalysesTabSteps extends PageInitializer {
         CommonUtils.sendKeys(ezQTLAnalysesPage.queueEmail, "kevin.matarodriguez@nih.gov");
         MiscUtils.sleep(2000);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.submitButton);
-
     }
 
     @When("the user clicks on the Load Sample Data link")
@@ -97,16 +92,13 @@ public class AnalysesTabSteps extends PageInitializer {
         CommonUtils.assertEquals(ezQTLAnalysesPage.locusQuantificationTab.getText(), locusQuantification);
         CommonUtils.waitForClickability(ezQTLAnalysesPage.locusDownloadTab);
         CommonUtils.assertEquals(ezQTLAnalysesPage.locusDownloadTab.getText(), locusDownload);
-
     }
 
     @When("the user searches using public data and five locus parameters")
     public void the_user_searches_using_public_data_and_five_locus_parameters() {
-
         CommonUtils.clickOnElement(ezQTLAnalysesPage.publicAssociationDataCheckBox);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.publicGwasSourceDataCheckBox);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.publicLdPublicDataCheckBox);
-
         CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
         CommonUtils.waitForClickability(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
@@ -114,7 +106,6 @@ public class AnalysesTabSteps extends PageInitializer {
         MiscUtils.sleep(2000);
         CommonUtils.sendKeys(ezQTLAnalysesPage.firstPositionTextBox, "42743496");
         CommonUtils.clickOnElement(ezQTLAnalysesPage.addLocusButton);
-
         CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectSecondChromosomeDropDown);
         CommonUtils.waitForClickability(ezQTLAnalysesPage.selectSecondChromosomeDropDown);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.selectSecondChromosomeDropDown);
@@ -122,7 +113,6 @@ public class AnalysesTabSteps extends PageInitializer {
         MiscUtils.sleep(2000);
         CommonUtils.sendKeys(ezQTLAnalysesPage.secondPositionTextBox, "42743496");
         CommonUtils.clickOnElement(ezQTLAnalysesPage.addLocusButton);
-
         CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectThirdChromosomeDropDown);
         CommonUtils.waitForClickability(ezQTLAnalysesPage.selectThirdChromosomeDropDown);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.selectThirdChromosomeDropDown);
@@ -130,7 +120,6 @@ public class AnalysesTabSteps extends PageInitializer {
         MiscUtils.sleep(2000);
         CommonUtils.sendKeys(ezQTLAnalysesPage.thirdPositionTextBox, "42743496");
         CommonUtils.clickOnElement(ezQTLAnalysesPage.addLocusButton);
-
         CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectFourthChromosomeDropDown);
         CommonUtils.waitForClickability(ezQTLAnalysesPage.selectFourthChromosomeDropDown);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.selectFourthChromosomeDropDown);
@@ -138,14 +127,12 @@ public class AnalysesTabSteps extends PageInitializer {
         MiscUtils.sleep(2000);
         CommonUtils.sendKeys(ezQTLAnalysesPage.fourthPositionTextBox, "42743496");
         CommonUtils.clickOnElement(ezQTLAnalysesPage.addLocusButton);
-
         CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectFifthChromosomeDropDown);
         CommonUtils.waitForClickability(ezQTLAnalysesPage.selectFifthChromosomeDropDown);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.selectFifthChromosomeDropDown);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.selectFifthChromosomeDropDown21Value);
         MiscUtils.sleep(2000);
         CommonUtils.sendKeys(ezQTLAnalysesPage.fifthPositionTextBox, "42743496");
-
         CommonUtils.clickOnElement(ezQTLAnalysesPage.submitJobtoQueueCheckbox);
         CommonUtils.sendKeys(ezQTLAnalysesPage.queueJobName, "Automation Job");
         CommonUtils.sendKeys(ezQTLAnalysesPage.queueEmail, "kevin.matarodriguez@nih.gov");
@@ -169,12 +156,10 @@ public class AnalysesTabSteps extends PageInitializer {
         MiscUtils.sleep(5000);
         JavascriptUtils.sendKeysByJS(ezQTLAnalysesPage.ldAssociationDataDropDrop, "qtl");
         MiscUtils.sleep(5000);
-        // CommonUtils.sendKeys(ezQTLAnalysesPage.ldAssociationDataDropDrop, "QTL");
         MiscUtils.sleep(5000);
     }
 
     @Then("the {string} link is displayed")
     public void the_link_is_displayed(String string) {
     }
-
 }

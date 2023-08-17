@@ -2,8 +2,6 @@ package AnalysisTools.LDLink.Steps;
 
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-
-import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import appsCommon.PageInitializer;
@@ -23,7 +21,6 @@ public class LDExpressSteps extends PageInitializer {
         CommonUtils.clickOnElement(ldExpressPage.genomeBuildSelector);
         CommonUtils.waitForVisibility(ldExpressPage.grCh38HighCoverageValueFromDropDown);
         CommonUtils.clickOnElement(ldExpressPage.grCh38HighCoverageValueFromDropDown);
-
         CommonUtils.sendKeys(ldExpressPage.rsNumberInputTextBox,
                 rsNum1 + Keys.ENTER + rsNum2 + Keys.ENTER + rsNum3 + Keys.ENTER + rsNum4);
         CommonUtils.waitForClickability(ldExpressPage.selectPopulationDropDown);
@@ -37,7 +34,6 @@ public class LDExpressSteps extends PageInitializer {
         MiscUtils.sleep(15000);
         CommonUtils.waitForVisibility(ldExpressPage.variantsWithWarningsLink);
         CommonUtils.clickOnElement(ldExpressPage.variantsWithWarningsLink);
-
     }
 
     @Then("the {string} and {string} warning messages display")
@@ -49,7 +45,5 @@ public class LDExpressSteps extends PageInitializer {
         Assert.assertEquals(warning1, warningText1);
         Assert.assertEquals(warning2, warningText2);
         MiscUtils.sleep(1000);
-
     }
-
 }

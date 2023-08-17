@@ -10,13 +10,10 @@ import com.nci.automation.web.WebDriverUtils;
 public class SignatureVisualizationsPage extends CommonUtils {
 
 	public SignatureVisualizationsPage() {
-
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
-
 	}
 
 	/** These are the elements on the Signature Visualizations Page */
-
 	/** Data Sources User radio button value */
 	@FindBy(xpath = "//input[@id='radioUser']")
 	public WebElement userDataSourceRadioButton;
@@ -154,5 +151,4 @@ public class SignatureVisualizationsPage extends CommonUtils {
 
 	@FindBy(xpath = "//div[4]//div[2]//button[1]")
 	public WebElement submitButton1;
-
 }

@@ -1,20 +1,14 @@
 package AnalysisTools.AnalysisToolsRunners;
 
-import java.io.File;
-
-import org.junit.BeforeClass;
-import org.junit.runner.RunWith;
-
-import com.nci.automation.utils.LocalConfUtils;
-import com.nci.automation.web.ConfUtils;
-
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
+import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = { "html:target/html-reports/cucumber-default-report", "json:target/cucumber.json",
         "junit:target/cucumber.xml", "rerun:target/failed.txt",
-        "pretty" }, features = "src/test/java/AnalysisTools/ezQTL/Features", glue = "AnalysisTools.ezQTL.Steps", tags = "@Smoke", dryRun = false, monochrome = true, strict = true
+        "pretty",
+        "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }, features = "src/test/java/AnalysisTools/ezQTL/Features", glue = "AnalysisTools.ezQTL.Steps", tags = "@Smoke", dryRun = true, monochrome = true, strict = true
 
 )
 
@@ -25,13 +19,5 @@ import io.cucumber.junit.CucumberOptions;
  * @author sohilz2
  */
 public class RunEZqtlSmokeTest {
-
-    @BeforeClass
-    public static void runSetup() {
-
-        String reportsOutput = LocalConfUtils.getRootDir() + File.separator + "html-reports";
-        ConfUtils.setBaseResultsDir(reportsOutput);
-        System.out.println("Starting Test Execution...");
-    }
 
 }

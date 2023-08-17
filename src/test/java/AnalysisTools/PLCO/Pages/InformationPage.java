@@ -3,7 +3,6 @@ package AnalysisTools.PLCO.Pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
@@ -48,5 +47,4 @@ public class InformationPage extends CommonUtils {
 	/** Explore GWAS Results **/
 	@FindBy(xpath = "//*[@id=\"root\"]/div[1]/div[1]/div/div[2]/a")
 	public WebElement lnkExploreGwasResults;
-
 }
