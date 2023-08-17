@@ -1,12 +1,19 @@
 Feature: RAS Survey Scenarios (Preview)
-    This feature file contains RAS Survey submission scenarios via Qualtrics Preview
+  This feature file contains RAS Survey submission scenarios via Qualtrics Preview
 
-    @juarezds @InProgress @Progression
-    Scenario: Submitting the RAS Survey
-    This scenario is completing the forms for someone else and selects 'No' to all questions
-        Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
-        And logs in via Okta with username "charmsras5@yahoo.com" and password "RASTest2023$$"
-        And clicks on the Ras Survey Form
-        And a participant enters username "charmsras5@yahoo.com" and pin
-#		Then the participant will be able to rewind the form
-        When the participant submits a RAS Survey from excel sheet "RASSurveyScenario4"
+  @juarezds @InProgress
+  Scenario Outline: This scenario outline is completing the RAS Survey
+    Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
+    And logs in via Okta with username "<Email>" and password "<Password>"
+    And clicks on the Ras Survey Form
+    And a participant enters username "<Email>" and pin
+    When the participant submits a RAS Survey from excel sheet "<SurveyScenario>"
+
+    Examples:
+      | Email                          | Password      | SurveyScenario     |
+#      | charmsras1@yahoo.com           | RASTest2022$$ | RASSurveyScenario1 |
+#      | charmsras2@yahoo.com           | RASTest2023$$ | RASSurveyScenario2 |
+#      | charmsras3@yahoo.com           | RASTest2023$$ | RASSurveyScenario3 |
+#      | charmsras5@yahoo.com           | RASTest2023$$ | RASSurveyScenario4|
+      | charmsras6@gmail.com           | RASTest2023$$ | RASSurveyScenario3 |
+#      | charmsparticipant3@yopmail.com | Charms123     | RASSurveyScenario4 |

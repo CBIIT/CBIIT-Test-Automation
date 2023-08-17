@@ -133,6 +133,7 @@ public class RasScenario1StepsImpl extends PageInitializer {
             rasScenario1StepsImpl.rasScreenerSurveyScenario1PartEight();
             rasScenario1StepsImpl.rasScreenerSurveyScenario1PartNine();
             rasScenario1StepsImpl.rasScreenerSurveyScenario1PartTen();
+            logOutOfNativeView();
         }else if(sheetName.contentEquals("RASSurveyScenario2")) {
             ras_Survey_TestDataManager.dataInitializerRasSurvey(sheetName);
             rasScenario2StepsImpl.rasScreenerSurveyScenario2PartOne();
@@ -145,9 +146,20 @@ public class RasScenario1StepsImpl extends PageInitializer {
             rasScenario2StepsImpl.rasScreenerSurveyScenario2PartEight();
             rasScenario2StepsImpl.rasScreenerSurveyScenario2PartNine();
             rasScenario2StepsImpl.rasScreenerSurveyScenario2PartTen();
+            logOutOfNativeView();
         }else if(sheetName.contentEquals("RASSurveyScenario3")) {
             ras_Survey_TestDataManager.dataInitializerRasSurvey(sheetName);
-            rasScenario1StepsImpl.rasScreenerIIQFormScenario1();
+            rasScenario3StepsImpl.rasScreenerSurveyScenario3PartOne();
+            rasScenario3StepsImpl.rasScreenerSurveyScenario3PartTwo();
+            rasScenario3StepsImpl.rasScreenerSurveyScenario3PartThree();
+            rasScenario3StepsImpl.rasScreenerSurveyScenario3PartFour();
+            rasScenario3StepsImpl.rasScreenerSurveyScenario3PartFive();
+            rasScenario3StepsImpl.rasScreenerSurveyScenario3PartSix();
+            rasScenario3StepsImpl.rasScreenerSurveyScenario3PartSeven();
+            rasScenario3StepsImpl.rasScreenerSurveyScenario3PartEight();
+            rasScenario3StepsImpl.rasScreenerSurveyScenario3PartNine();
+            rasScenario3StepsImpl.rasScreenerSurveyScenario3PartTen();
+            logOutOfNativeView();
         }else if(sheetName.contentEquals("RASSurveyScenario4")) {
             ras_Survey_TestDataManager.dataInitializerRasSurvey(sheetName);
             rasScenario4StepsImpl.rasScreenerSurveyScenario4PartOne();
@@ -160,6 +172,7 @@ public class RasScenario1StepsImpl extends PageInitializer {
             rasScenario4StepsImpl.rasScreenerSurveyScenario4PartEight();
             rasScenario4StepsImpl.rasScreenerSurveyScenario4PartNine();
             rasScenario4StepsImpl.rasScreenerSurveyScenario4PartTen();
+            logOutOfNativeView();
         }
     }
 
@@ -196,7 +209,7 @@ public class RasScenario1StepsImpl extends PageInitializer {
         CommonUtils.waitForVisibility(myRASHomePage.rasoptathyRasSurveyButton);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(myRASHomePage.rasoptathyRasSurveyButton);
-        MiscUtils.sleep(20000);
+        MiscUtils.sleep(30000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForClickability(myRASHomePage.rasoptathyRasSurveyCloseButton);
         CommonUtils.clickOnElement(myRASHomePage.rasoptathyRasSurveyCloseButton);
@@ -1459,7 +1472,7 @@ public class RasScenario1StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(153));
-        CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.areYouToiletTrained));
+        CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.ifYouAreNotYetAbleToUseTheToilet));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
         CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicLocator(ras_Survey_TestDataManager.pleaseUseTheBristolStoolChart));

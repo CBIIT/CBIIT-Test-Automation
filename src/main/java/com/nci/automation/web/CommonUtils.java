@@ -12,6 +12,7 @@ import java.util.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -637,6 +638,24 @@ public class CommonUtils extends WebDriverUtils {
                 break;
             } catch (WebDriverException ex) {
                 MiscUtils.sleep(2000);
+                count++;
+            }
+        }
+    }
+
+    /**
+     * USE THIS METHOD TO CLICK ON STALE ELEMENTS
+     *
+     * @param ele
+     */
+    public static void clickOnElementSD(WebElement ele) {
+        int count = 0;
+        while (count < 5) {
+            try {
+                ele.click();
+                break;
+            } catch (Exception ex) {
+                MiscUtils.sleep(1000);
                 count++;
             }
         }
