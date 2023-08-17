@@ -1,9 +1,6 @@
 */target/*
 /target/
 /target
-*/test-output/*
-/test-output/
-/test-output
 src/main/resources/conf/localConf.properties
 src/main/resources/conf/localEnv.properties
 target/classes/conf/localConf.properties
@@ -17,15 +14,6 @@ true
 /.DS_Store
 */.DS_Store/*
 reports/.DS_Store
-.apt_generated
-.apt_generated_tests
-src/.DS_Store
-src/test/.DS_Store
-reports/
-.classpath
-src/.DS_Store
-src/test/.DS_Store
-src/test/java/ServiceNow/CHARMS/.DS_Store
 /.classpath/
 /.classpath
 */.classpath/*
@@ -59,4 +47,3 @@ src/test/java/ServiceNow/BrownBag
 src/main/resources/conf/.DS_Store
 src/test/resources/.DS_Store
 src/main/java/com/drivers/.DS_Store
-
