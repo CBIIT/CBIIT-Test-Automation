@@ -22,7 +22,6 @@ import com.nci.automation.utils.LocalConfUtils;
  */
 public class WebDriverUtils {
 
-	private final static Logger logger = LogManager.getLogger(WebDriverUtils.class);
 	public static WebDriver webDriver;
 
 	public static void setUp() {
