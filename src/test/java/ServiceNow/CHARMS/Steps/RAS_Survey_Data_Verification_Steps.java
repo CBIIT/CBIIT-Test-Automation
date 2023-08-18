@@ -10,13 +10,11 @@ import org.openqa.selenium.By;
 
 public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
 
-
     @Then("RAS Survey Data for Scenario One is verified")
     public void ras_survey_Data_for_scenario_one_is_verified() {
         /**
          * DATA VERIFICATION
          */
-
         /**
          * NAVIGATING TO RAS SURVEY TABLE
          */
@@ -27,31 +25,22 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
         CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewIframe);
         WebDriverUtils.webDriver.findElement(By.xpath("//a[@aria-label='Preview record: IIQ0001090']")).click();
         CommonUtils.clickOnElement(participantDetailsPage.openRecordButton);
-
         /**
          * EXAMPLE OF CLICKING ON TAB
          */
         CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("RASopathy History"));
-
         /**
          *  ----- BEGINNING Basic information SECTION VALIDATION ----- DIEGO
          */
-
         /**
          *  ----- END Basic information SECTION VALIDATION ----- DIEGO
          */
-
-
-
         /**
          *  ----- BEGINNING DEMOGRAPHICS SECTION VALIDATION ----- HAMID
          */
-
         /**
          *  ----- END DEMOGRAPHICS SECTION VALIDATION ----- HAMID
          */
-
-
         /**
          *  ----- BEGINNING RASopathy History SECTION VALIDATION ----- ALENA
          */
@@ -60,7 +49,6 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
         /**
          *  ----- END RASopathy History SECTION VALIDATION ----- ALENA
          */
-
         /**
          *  ----- BEGINNING Birth and Gestation SECTION VALIDATION ----- ALENA
          */
@@ -77,17 +65,10 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
         CommonUtils.verifyingDropDownValueIsSelected(ras_survey_native_view.dropdownDidBioMotherEverLiveWorkWhereOtherUseTobacco,"Yes","Yes value is displayed for Did the participants mother ever live/work in a place where others use tobacco dropdown");
         CommonUtils.assertEqualsWithMessage(ras_survey_native_view.fieldBioFatherOccupationWhileMotherWasPregnant.getText(), "", "No value is displayed for Biological mothers occupation while pregnant with the participant field");
         CommonUtils.assertEqualsWithMessage(ras_survey_native_view.checkboxBiologicalFathersOccupationUnknown.getAttribute("value"), "false", "Biological fathers occupation unknown checkbox is unchecked");
-        /*  ----- END Birth and Gestation SECTION VALIDATION ----- ALENA
-         */
-
+        /** ----- END Birth and Gestation SECTION VALIDATION ----- ALENA
         /**
          *  ----- BEGINNING GROWTH SECTION VALIDATION ----- DIEGO
          */
-
-        /**
-         *  ----- END GROWTH SECTION VALIDATION ----- DIEGO
-         */
-
+        /**  ----- END GROWTH SECTION VALIDATION ----- DIEGO**/
     }
-
 }
