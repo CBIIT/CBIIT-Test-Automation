@@ -68,7 +68,6 @@
 
 	<!-- Application ID for ICRP -->
 	<application id="ICRP">
-
 		<login_url>https://icrpartnership.org/</login_url><!-- add prod url -->
 		<role name="Role">
 			<user id="regular">
