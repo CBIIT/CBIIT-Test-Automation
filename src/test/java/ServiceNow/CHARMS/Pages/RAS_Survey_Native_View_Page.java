@@ -8,9 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class RAS_Survey_Native_View_Page {
 
-    /**
-     * STORE RAS SURVEY NATIVE VIEW ELEMENTS HERE
-     */
+    /*** STORE RAS SURVEY NATIVE VIEW ELEMENTS HERE*/
     /** Diagnosed with a RASopathy by a physician through testing dropdown **/
     @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.diagnosed_rasopathy']")
     public WebElement dropdownDiagnosedWithRasopathyByPhysician;
@@ -63,8 +61,7 @@ public class RAS_Survey_Native_View_Page {
     @FindBy(xpath = "//div//textarea[@id='x_naci_family_coho_rasopathy_iiq.fathers_occupation_while_pregnant']")
     public WebElement fieldBioFatherOccupationWhileMotherWasPregnant;
 
-    /***
-     * USE THIS METHOD TO DYNAMICALLY LOCATE TABS BY SPECIFYING EXACT TEXT
+    /** USE THIS METHOD TO DYNAMICALLY LOCATE TABS BY SPECIFYING EXACT TEXT
      * @param text
      * @return
      */
