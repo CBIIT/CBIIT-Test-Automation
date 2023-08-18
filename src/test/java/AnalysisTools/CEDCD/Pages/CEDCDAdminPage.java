@@ -132,5 +132,4 @@ public class CEDCDAdminPage extends CommonUtils {
 
 	@FindBy(xpath = "//div[contains(text(),'Warning: Session Timeout')]")
 	public WebElement sessionTimeout;
-
 }
