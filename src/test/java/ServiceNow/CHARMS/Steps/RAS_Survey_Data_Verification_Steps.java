@@ -9,8 +9,6 @@ import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 
 public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
-
-
     @Then("RAS Survey Data for Scenario One is verified")
     public void ras_survey_Data_for_scenario_one_is_verified() {
         /**
@@ -41,12 +39,8 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
          *  ----- END Basic information SECTION VALIDATION ----- DIEGO
          */
 
-
-
-        /**
-         *  ----- BEGINNING DEMOGRAPHICS SECTION VALIDATION ----- HAMID
-         */
-        //CHECK WITH DIEGO WHETHER ELEMENT OR LIST WEB ELEMENTS SHOULD BE USED FOR THE DROPDOWN
+        /** ----- BEGINNING DEMOGRAPHICS SECTION VALIDATION ----- HAMID */
+        CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Demographics"));
         CommonUtils.verifyingDropDownValueIsSelected(ras_survey_native_view.includedInPublishedCaseReportDropDown, "", "-- VERIFYING THE SELECTED VALUE IN INCLUDED IN PUBLISHED CASE REPORT DROPDOWN");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(ras_survey_native_view.biologicalMotherBirthLocation), "", "-- VERIFYING BIOLOGICAL MOTHER BIRTH LOCATION --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(ras_survey_native_view.biologicalMotherBirthLocationUnknown), "", "VERIFYING BIOLOGICAL MOTHER BIRTH LOCATION UNKNOWN CHECKBOX");
@@ -58,10 +52,7 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(ras_survey_native_view.biologicalFathersAgeAtBirth), "", "VERIFYING BIOLOGICAL FATHERS AGE AT BIRTH");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(ras_survey_native_view.biologicalFathersHeight), "", "VERIFYING BIOLOGICAL FATHERS HEIGHT");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(ras_survey_native_view.biologicalFatherHeightUnknown), "", "VERIFYING BIOLOGICAL FATHERS HEIGHT UNKNOWN CHECKBOX");
-        /**
-         *  ----- END DEMOGRAPHICS SECTION VALIDATION ----- HAMID
-         */
-
+        /***  ----- END DEMOGRAPHICS SECTION VALIDATION ----- HAMID      */
 
         /**
          *  ----- BEGINNING RASopathy History SECTION VALIDATION ----- ALENA
