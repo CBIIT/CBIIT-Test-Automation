@@ -48,19 +48,13 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(ras_survey_native_view.biologicalFathersAgeAtBirth), "", "VERIFYING BIOLOGICAL FATHERS AGE AT BIRTH");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(ras_survey_native_view.biologicalFathersHeight), "", "VERIFYING BIOLOGICAL FATHERS HEIGHT");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(ras_survey_native_view.biologicalFatherHeightUnknown), "", "VERIFYING BIOLOGICAL FATHERS HEIGHT UNKNOWN CHECKBOX");
-        /***  ----- END DEMOGRAPHICS SECTION VALIDATION ----- HAMID      */
+        /**  ----- END DEMOGRAPHICS SECTION VALIDATION ----- HAMID      */
 
-        /**
-         *  ----- BEGINNING RASopathy History SECTION VALIDATION ----- ALENA
-         */
+        /** ----- BEGINNING RASopathy History SECTION VALIDATION ----- ALENA         */
         CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("RASopathy History"));
         CommonUtils.verifyingDropDownValueIsSelected(ras_survey_native_view.dropdownDiagnosedWithRasopathyByPhysician,"No","No value is displayed for Diagnosed with a RASopathy by a physician through testing");
-        /**
-         *  ----- END RASopathy History SECTION VALIDATION ----- ALENA
-         */
-        /**
-         *  ----- BEGINNING Birth and Gestation SECTION VALIDATION ----- ALENA
-         */
+        /** ----- END RASopathy History SECTION VALIDATION ----- ALENA         */
+        /** ----- BEGINNING Birth and Gestation SECTION VALIDATION ----- ALENA         */
         CommonUtils.clickOnElement(ras_survey_native_view.dynamicTabLocator("Birth & Gestation"));
         CommonUtils.verifyingDropDownValueIsSelected(ras_survey_native_view.dropdownDiagnosedWithHypoglycemiaDuringNewbornPeriod,"No","No value is displayed for Diagnosed with hypoglycemia during the newborn period dropdown");
         CommonUtils.verifyingDropDownValueIsSelected(ras_survey_native_view.dropdownWereMedicationsTakenWhileMotherWasPregnant,"No"," No value is displayed for Were medications taken while biological mother was pregnant with the participant dropdown");

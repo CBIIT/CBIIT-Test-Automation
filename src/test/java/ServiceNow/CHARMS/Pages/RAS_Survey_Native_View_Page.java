@@ -13,7 +13,6 @@ public class RAS_Survey_Native_View_Page {
     /*** STORE RAS SURVEY NATIVE VIEW ELEMENTS HERE*/
 
     /** ------------------BEGINNING OF DEMOGRAPHIC INFORMATION SECTION--------------------- */
-
     /** Included in published case report or in a different public manner drop down */
     @FindBy(xpath = "//select[@id='x_naci_family_coho_rasopathy_iiq.published_case']")
     public WebElement includedInPublishedCaseReportDropDown;
@@ -85,7 +84,6 @@ public class RAS_Survey_Native_View_Page {
     /** Insert And Stay Button on Demographics tab */
     @FindBy(xpath = "//button[@id='sysverb_delete_bottom']")
     public WebElement deleteButtonDemographicsTab;
-
     /** ------------------END OF DEMOGRAPHIC INFORMATION SECTION--------------------- */
 
     /** Diagnosed with a RASopathy by a physician through testing dropdown **/
