@@ -28,31 +28,6 @@ import com.nci.automation.utils.MiscUtils;
  */
 public class CommonUtils extends WebDriverUtils {
 
-
-    private static Logger logger = LogManager.getLogger(CommonUtils.class);
-
-    /**
-     * Use this method in need of clicking on a WebElement by selenium WebDriver.
-     *
-     * @param element Pass the desired WebElement to be clicked.
-     */
-    public static void click(WebElement element) {
-        waitForClickability(element);
-        element.click();
-    }
-
-    /**
-     * Use this method in need of entering value to a text box through selenium
-     * WebDriver.
-     *
-     * @param element Pass the element to which the text needs to be entered.
-     * @param value   Pass the desired text/value in the second parameter.
-     */
-    public static void sendKeys(WebElement element, String value) {
-        element.clear();
-        element.sendKeys(value);
-    }
-
     /**
      * Use this method in need of entering keyboard keys into a WebElement by
      * selenium WebDriver.
@@ -103,7 +78,7 @@ public class CommonUtils extends WebDriverUtils {
      * Use this over loaded method in need of selecting an element of dropDown by
      * index.
      *
-     * @param dropDownElement      WebElement of the dropDown.
+     * @param dropDownElement        WebElement of the dropDown.
      * @param //indexOfDropDownValue Pass the index
      */
     public static void selectDropDownValue(WebElement dropDownElement, int index) {
@@ -715,5 +690,33 @@ public class CommonUtils extends WebDriverUtils {
             System.out.println("File is deleted");
         }
     }
-}
 
+    /***
+     * USE THIS METHOD TO VERIFY IF A VALUE HAS BEEN SELECTED IN A DROP DOWN, IF IT IS NOT SELECTED, A NoSuchElementException IS THROWN THAT IS ALSO HANDLED WITH THIS METHOD
+     * @param element
+     * @param expectedValue
+     * @param message
+     */
+    public static void verifyingDropDownValueIsSelected(WebElement element, String expectedValue, String message) {
+        Select select = new Select(element);
+        try {
+            Assert.assertEquals(select.getFirstSelectedOption().getText(), expectedValue, message);
+        } catch (AssertionError e) {
+            e.printStackTrace();
+        } catch (WebDriverException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Use this method in need of entering value to a text box through selenium
+     * WebDriver.
+     *
+     * @param element Pass the element to which the text needs to be entered.
+     * @param value   Pass the desired text/value in the second parameter.
+     */
+    public static void sendKeys(WebElement element, String value) {
+        element.clear();
+        element.sendKeys(value);
+    }
+}

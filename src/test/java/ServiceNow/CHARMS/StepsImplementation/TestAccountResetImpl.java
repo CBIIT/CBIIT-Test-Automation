@@ -17,7 +17,7 @@ public class TestAccountResetImpl extends PageInitializer {
 	public void resetTestAccount() throws TestingException {
 
 		WebDriverUtils.webDriver.get(
-				"https://service-test.nci.nih.gov/nav_to.do?uri=%2Fsys_script_fix.do%3Fsys_id%3Da32b45c21be638106daea681f54bcb81%26sysparm_view%3D%26sysparm_domain%3Dnull%26sysparm_domain_scope%3Dnull%26sysparm_record_row%3D1%26sysparm_record_rows%3D603%26sysparm_record_list%3DORDERBYDESCsys_updated_on");
+				"https://service-test.nci.nih.gov/sys_script_fix.do?sys_id=a32b45c21be638106daea681f54bcb81&sysparm_view=&sysparm_domain=null&sysparm_domain_scope=null&sysparm_record_row=1&sysparm_record_rows=940&sysparm_record_list=ORDERBYDESCsys_updated_on");
 		MiscUtils.sleep(2000);
 		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "Username");
 		iTrustloginPage.enterPassword("Password");

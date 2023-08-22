@@ -29,11 +29,11 @@ public class SearchSteps extends PageInitializer {
 		searchStepimpl.clickOnSearchButton();
 		searchStepimpl.selectActiveTraineeNHGRI();
 		Assert.assertTrue(searchStepimpl.isIDPFormDisplayed());
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		searchStepimpl.selectNCITrainingOrganization(requestData.get("NHGRI Training Organization"));
 		searchStepimpl.clickOnSaveAndSendMailButton();
 		Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		searchStepimpl.clickOnOkButton();
 	}
 	
@@ -51,11 +51,11 @@ public class SearchSteps extends PageInitializer {
 		searchStepimpl.clickOnSearchButton();
 		searchStepimpl.selectActiveTraineeNHGRI();
 		Assert.assertTrue(searchStepimpl.isIDPFormDisplayed());
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		searchStepimpl.selectNCITrainingOrganization(requestData.get("NHGRI Training Organization"));
 		searchStepimpl.clickOnSaveAndSendMailButton();
 		Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		searchStepimpl.clickOnOkButton();
 	}
 
@@ -66,20 +66,33 @@ public class SearchSteps extends PageInitializer {
 		if (!requestData.get("Search For").isEmpty()) {
 			searchStepimpl.selectSearchForDropdown(requestData.get("Search For"));
 		}
-		searchStepimpl.checkTraineeWithoutIDPCheckbox();
 		if (!requestData.get("Classification Type").isEmpty()) {
 			searchStepimpl.selectClassificationType(requestData.get("Classification Type"));
 		}
-		searchStepimpl.clickOnSearchButton();
-		searchStepimpl.selectActiveTraineeNHGRI();
-		Assert.assertTrue(searchStepimpl.isIDPFormDisplayed());
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		searchStepimpl.selectNCITrainingOrganization(requestData.get("NCI Training Organization"));
-		searchStepimpl.clickOnSaveAndSendMailButton();
-		Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		searchStepimpl.clickOnOkButton();
-
+		if (requestData.get("IDP Type").equalsIgnoreCase("Renewal")){
+			searchStepimpl.selectCurrentIDPStatus("Completed");
+			searchStepimpl.clickOnSearchButton();
+			searchStepimpl.selectActiveTrainee();
+			MiscUtils.sleep(2000);
+			searchStepimpl.clickYesButtonForRenewal();
+			select_the_reason_as_checkbox("Routine 6 Month follow up");
+			searchStepimpl.clickOnSaveAndSendMailButton();
+			Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
+			CucumberLogUtils.logScreenshot();
+			searchStepimpl.clickOnOkButton();
+		} else{
+			searchStepimpl.checkTraineeWithoutIDPCheckbox();
+			searchStepimpl.clickOnSearchButton();
+			searchStepimpl.selectActiveTrainee();	
+			Assert.assertTrue(searchStepimpl.isIDPFormDisplayed());
+			CucumberLogUtils.logScreenshot();
+			searchStepimpl.selectNCITrainingOrganization(requestData.get("NCI Training Organization"));
+			searchStepimpl.clickOnSaveAndSendMailButton();
+			Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
+			CucumberLogUtils.logScreenshot();
+			searchStepimpl.clickOnOkButton();
+		}
+			
 	}
 
 	@Then("Select reason for revise idp and Click On save and send email button")
@@ -140,7 +153,7 @@ public class SearchSteps extends PageInitializer {
 	@Then("User will verify initiate IDP form is opned")
 	public void verifyIDPFormOpen() {
 		Assert.assertTrue(searchStepimpl.isIDPFormDisplayed());
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User selects nci training organization as \"([^\"]*)\"")
@@ -162,7 +175,7 @@ public class SearchSteps extends PageInitializer {
 	@Then("User will verify IDP initiation is successful")
 	public void verifyIDPInitiationSuccessful() throws Exception {
 		Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	// Revise
@@ -185,12 +198,8 @@ public class SearchSteps extends PageInitializer {
 	@Then("User click on {string} on the grid")
 	public void user_click_on_on_the_grid(String button) throws Exception {
 		button = button.trim();
-		try {
-			CommonUtils.selectDropDownValue("100", WebDriverUtils.getWebDriver()
-					.findElement(By.xpath("//SELECT[@name='advanced_search_results_length']")));
-		} catch (Exception ee3) {
-			// throw ee2;
-		}
+		MiscUtils.sleep(4000);
+		CommonUtils.selectDropDownValue("100", searchPage.advancedSearchResultLength);
 		switch (button) {
 		case "Revise Existing IDP":
 			searchStepimpl.selectActiveCompletedIDP();
@@ -215,8 +224,8 @@ public class SearchSteps extends PageInitializer {
 
 	@Then("Select the reason as {string} checkbox")
 	public void select_the_reason_as_checkbox(String value) {
+		MiscUtils.sleep(2000);
 		searchStepimpl.selectCheckBox(value);
-		MiscUtils.sleep(5000);
 	}
 
 	@Then("User clicks on yes button in pop up")
@@ -245,23 +254,23 @@ public class SearchSteps extends PageInitializer {
 
 	@When("User reads the trainee name from cancel idp confirmation window")
 	public void readPrimaryMentorAndTrainneeNamesFromCancelIdpWindow() {
-		CommonUtil.waitBrowser(4000);
+		MiscUtils.sleep(2000);
 		SharedData.traineeName = searchStepimpl.getTraineeeNameFromCancelIdpConformationWindow();
 	}
 
 	@When("User reads the trainee name from undo cancel idp confirmation window")
 	public void readTrainneeNameFromUndoCancelIdpWindow() {
-		CommonUtil.waitBrowser(4000);
+		MiscUtils.sleep(2000);
 		SharedData.traineeName = searchStepimpl.getTraineeeNameFromUndoCancelIdpConformationWindow();
 	}
 
 	@When("User enters release hold comments and clicks on ok button")
 	public void enterReleaseHoldComments() {
-		CommonUtil.waitBrowser(4000);
+		MiscUtils.sleep(2000);
 		searchStepimpl.enterReleaseHoldComments();
 		searchStepimpl.clickOnReleaseHoldOkbutton();
 		eidpCommonPage.clickOnOkButton();
-		CommonUtil.waitBrowser(2000);
+		MiscUtils.sleep(2000);
 	}
 
 	@When("User enters comments and clicks on yes button on cancel idp window")
@@ -276,18 +285,16 @@ public class SearchSteps extends PageInitializer {
 
 	@When("User enters comments and clicks on yes button on undo cancel idp window")
 	public void enterUndoCancelIdpComments() {
-		CommonUtil.waitBrowser(4000);
 		searchStepimpl.enterUndoCancelIdpComments("Undo cancel idp for testing");
 		searchStepimpl.clickOnUndoCancelYesButton();
-		CommonUtil.waitBrowser(3000);
 		eidpCommonPage.clickOnOkButton();
-		CommonUtil.waitBrowser(3000);
+		MiscUtils.sleep(2000);
 	}
 
 	@When("User selects IDP type as Trainees with IDP")
 	public void traineesWithIDP() {
 		searchStepimpl.checkTraineeWithIDPCheckbox();
-		CommonUtil.waitBrowser(3000);
+		MiscUtils.sleep(3000);
 	}
 
 	@When("User enters {string} to first name input box")
@@ -298,21 +305,19 @@ public class SearchSteps extends PageInitializer {
 	@When("User enters {string} to last name input box")
 	public void user_enters_to_last_name_input_box(String lastName) {
 		searchStepimpl.enterTraineeLastName(lastName);
-		CommonUtil.waitBrowser(3000);
+		MiscUtils.sleep(3000);
 	}
 
 	@When("User will click Search button")
 	public void user_will_click_Search_button() {
 		searchStepimpl.clickOnSearchButton();
-		CommonUtil.waitBrowser(5000);
+		MiscUtils.sleep(5000);
 		JavascriptUtils.scrollDown(1000);
-		CommonUtil.waitBrowser(5000);
 	}
 
 	@Then("verify expected results as {string} and {string}")
 	public void verify_expected_results_as_and(String firstName, String lastName) {
 		searchStepimpl.verifyFirmlyExpectedName(firstName, lastName);
-		CommonUtil.waitBrowser(5000);
 	}
 
 	@When("User will select {string} as Classification type")
@@ -366,7 +371,6 @@ public class SearchSteps extends PageInitializer {
 	@When("User will select {string} as Training Organization")
 	public void user_will_select_as_Training_Organization(String nameOrganization) {
 		searchStepimpl.selectTrainingOrganization(nameOrganization);
-		CommonUtil.waitBrowser(3000);
 	}
 
 	@When("User will verify first page search results of {string}")

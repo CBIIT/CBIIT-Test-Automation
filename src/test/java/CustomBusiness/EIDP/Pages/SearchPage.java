@@ -5,140 +5,223 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-import CustomBusiness.EIDP.Util.CommonUtil;
-import CustomBusiness.EIDP.Util.SharedData;
 
 public class SearchPage extends CommonUtils {
 
-	public String value;
-
+	/* ------ Org Classification dropdown ------ */
 	@FindBy(id = "orgStatClassification")
 	public WebElement searchForDropdown;
 
+	/* ------ Current IDP status dropwdown ------ */
 	@FindBy(id = "select2-idpStatus-container")
 	public WebElement currentIDPStatusDropdown;
 
+	/* ------ IDP type dropdown ------ */
 	@FindBy(id = "select2-idpTypes-container")
 	public WebElement idpType;
 
-	@FindBy(how = How.ID, id = "trainees_without_idp_ck")
+	/* ------ Trainees without IDP Radio button ------ */
+	@FindBy(id = "trainees_without_idp_ck")
 	public WebElement traineesWithoutIDPCheckbox;
 
-	@FindBy(how = How.CSS, css = "[placeholder='Select Trainee Classification(s)']")
+	/* ------ Classification type text box ------ */
+	@FindBy(css = "[placeholder='Select Trainee Classification(s)']")
 	public WebElement classificationTypeInput;
 
+	/* ------ List of classification ------ */
 	@FindAll({ @FindBy(css = "#select2-trainee-classifications-results li") })
 	public List<WebElement> classificationOptions;
 
-	@FindBy(how = How.ID, id = "lastName")
+	/* ------ Trainee last name input ------ */
+	@FindBy(id = "lastName")
 	public WebElement trainneLastName;
 
-	@FindBy(how = How.ID, id = "advanced_search_btn")
+	/* ------ Search button ------ */
+	@FindBy(id = "advanced_search_btn")
 	public WebElement searchButton;
 
-	@FindBy(how = How.LINK_TEXT, linkText = "Next")
+	/* ------ Next button for search result table ------ */
+	@FindBy(linkText = "Next")
 	public WebElement nextButton;
 
-	@FindBy(how = How.ID, id = "initiate-btn-save")
+	/* ------ IDP save and send email button ------ */
+	@FindBy(id = "initiate-btn-save")
 	public WebElement saveAndSendEmailButton;
 
-	@FindBy(how = How.ID, id = "initiate-btn-close")
+	/* ------ Close button ------ */
+	@FindBy(id = "initiate-btn-close")
 	public WebElement closeButton;
 
-	@FindBy(how = How.ID, id = "initiate-group")
+	/* ------ NCI training org dropdown ------ */
+	@FindBy(id = "initiate-group")
 	public WebElement nciTrainingOrganizationDropdown;
 
-	@FindBy(how=How.ID,id="select2-fellowCurrentTrainingTitle-container")
+	/* ------ Fellow training title ------ */
+	@FindBy(id="select2-fellowCurrentTrainingTitle-container")
 	public WebElement fellowTrainingTitleDropdownClick;
 	
-	@FindBy(how = How.XPATH,xpath="//span[@class=\"select2-search select2-search--dropdown\"]/input")
+	/* ------ Fellow training title dropdown ------ */
+	@FindBy(xpath="//span[@class=\"select2-search select2-search--dropdown\"]/input")
 	public WebElement fellowTrainingTitleDropdown;
 	
-	@FindBy(how = How.XPATH,xpath="//span[@class=\"select2-search select2-search--dropdown\"]/following-sibling::span/ul/li")
+	/* ------ Fellow training title selection ------ */
+	@FindBy(xpath="//span[@class=\"select2-search select2-search--dropdown\"]/following-sibling::span/ul/li")
 	public WebElement fellowTrainingTitleSelections;
 	
-    @FindBy(how = How.ID, id ="nedOrg")
+	/* ------ NED org dropdown ------ */
+    @FindBy(id ="nedOrg")
 	public WebElement nedOrgDropdowns;
 
-	@FindBy(how = How.ID, id = "idpStatus")
+	/* ------ NCI current IDP status ------ */
+	@FindBy(id = "idpStatus")
 	public WebElement nciCurrentIDPStatus;
 
-	@FindBy(how = How.ID, id = "initiate-trainee")
-
+	/* ------ Trainee name ------ */
+	@FindBy(id = "initiate-trainee")
 	public WebElement traineeName;
 
-	@FindBy(how = How.CLASS_NAME, className = "bootbox-body")
+	/* ------ IDP initiation message ------ */
+	@FindBy(className = "bootbox-body")
 	public WebElement idpInitiationMessage;
 
-	@FindBy(how = How.XPATH, xpath = "//div[@class='modal-dialog modal-sm']//button[@class='btn btn-primary']")
+	/* ------ OK button ------ */
+	@FindBy( xpath = "//div[@class='modal-dialog modal-sm']//button[@class='btn btn-primary']")
 	public WebElement okButton;
 
-	@FindBy(how = How.XPATH, xpath = "//button[@data-original-title='Revise existing IDP']")
+	/* ------ Revise existing IDP button ------ */
+	@FindBy( xpath = "//button[@data-original-title='Revise existing IDP']")
 	public WebElement reviseExistingIDP;
 
-	@FindBy(how = How.CSS, css = "span[class='select2-search select2-search--dropdown'] input")
+	/* ------ Search input field ------ */
+	@FindBy(css = "span[class='select2-search select2-search--dropdown'] input")
 	public WebElement searchInputField;
 
+	/* ------ Initiate trainee name ------ */
 	@FindBy(id = "initiate-trainee-another")
 	public WebElement initiateTraineeAnotherName;
 
-	@FindBy(how = How.XPATH, xpath = "//div[@style]//button[contains(text(),'Save & Send Email')]")
+	/* ------ Save and send email button ------ */
+	@FindBy( xpath = "//div[@style]//button[contains(text(),'Save & Send Email')]")
 	public WebElement saveAndSendEmail;
 
-	@FindBy(how = How.ID, id = "trainees_with_idp_div")
+	/* ------ Trainee with IDP checkbox ------ */
+	@FindBy(id = "trainees_with_idp_div")
 	public WebElement traineesWithIDPCheckbox;
 
-	@FindBy(how = How.ID, id = "firstName")
+	/* ------ Trainee First name box ------ */
+	@FindBy(id = "firstName")
 	public WebElement TraineeFirstName;
 
-	@FindBy(how = How.ID, id = "clear_btn")
+	/* ------ Clear search button ------ */
+	@FindBy(id = "clear_btn")
 	public WebElement ClearButton;
 
-	@FindBy(how = How.XPATH, xpath = "//table[@id='advanced_search_results']/tbody/tr[1]/td[1]/a")
+	/* ------ Search result table first row first cell ------ */
+	@FindBy(xpath = "//table[@id='advanced_search_results']/tbody/tr[1]/td[1]/a")
 	public WebElement searchResultTableFirstRowFirstCell;
 
-	@FindBy(how = How.XPATH, xpath = "//table[@id='advanced_search_results']/tbody/tr[1]/td[3]")
+	/* ------ Search result table first row third cell ------ */
+	@FindBy(xpath = "//table[@id='advanced_search_results']/tbody/tr[1]/td[3]")
 	public WebElement searchResultTableFirstRowThirdCell;
 
-	@FindBy(how = How.XPATH, xpath = "//span[@id='select2-primaryMentor-container']")
+	/* ------ Select PM ------ */
+	@FindBy(xpath = "//span[@id='select2-primaryMentor-container']")
 	public WebElement selectPrimaryMentor;
 
-	@FindBy(how = How.XPATH, xpath = "//input[@id='search-btn']")
+	/* ------ search button for AO ------ */
+	@FindBy(xpath = "//input[@id='search-btn']")
 	public WebElement searchButtonCallowayGloria;
 
-	@FindBy(how = How.XPATH, xpath = "//table[@id='search-results']/tbody/tr[1]/td[1]/a")
+	/* ------ search result third cell for AO ------ */
+	@FindBy(xpath = "//table[@id='search-results']/tbody/tr[1]/td[1]/a")
 	public WebElement searchResultTableFirstRowThirdCellCalloway;
 
-	@FindBy(how = How.XPATH, xpath = "//select[@id='trainee-classifications']")
+	/* ------ Classification type for AO ------ */
+	@FindBy(xpath = "//select[@id='trainee-classifications']")
 	public WebElement classificationTypeDropDownGloriaGalloway;
 
-	@FindBy(how = How.XPATH, xpath = "//select[@id='primaryMentor']")
+	/* ------ Select PM dropdown ------ */
+	@FindBy(xpath = "//select[@id='primaryMentor']")
 	public WebElement choosePrimaryMentor;
 
-	@FindBy(how = How.ID, id = "select2-trainingOrg-container")
-	public WebElement nciTrainingOrgDropdown;
-
-	@FindBy(how = How.XPATH, xpath = "//select[@id='trainingOrg']")
+	/* ------ Dropdown value as CBIIT ------ */
+	@FindBy(xpath = "//select[@id='trainingOrg']")
 	public WebElement chooseCBIIT;
 
-	@FindBy(how = How.XPATH, xpath = "//span[@id='select2-trainingOrg-container']")
+	/* ------ Select training org dropdown ------ */
+	@FindBy(xpath = "//span[@id='select2-trainingOrg-container']")
 	public WebElement selectTrainingOrganizationDropdown;
 
-	@FindBy(how = How.XPATH, xpath = "//table[@id='advanced_search_results']//tbody//tr[1]//td[2])[1]")
+	/* ------ Search result first row second cell ------ */
+	@FindBy(xpath = "//table[@id='advanced_search_results']//tbody//tr[1]//td[2])[1]")
 	public WebElement searchResultFirstRowSecondCell;
 
-	@FindBy(how = How.XPATH, xpath = "(//input[@class='select2-search__field'])[2]")
+	/* ------ NIHSAC input box ------ */
+	@FindBy(xpath = "(//input[@class='select2-search__field'])[2]")
 	public WebElement inputBoxNIHSAC;
 
-	@FindBy(how = How.XPATH, xpath = "//select[@id='groups']")
+	/* ------ AO NIHSAC groups selection dropdown ------ */
+	@FindBy(xpath = "//select[@id='groups']")
 	public WebElement chooseDropdownNIHSACGloriaCalloway;
 
-	@FindBy(how = How.XPATH, xpath = "//*[@id='trainees_without_idp_div']")
+	/* ------ Trainee without IDP checkbox ------ */
+	@FindBy(xpath = "//*[@id='trainees_without_idp_div']")
 	public WebElement traineeWithoutIDPCHeckBox;
+
+	/* ------ Search input box ------ */
+	@FindBy(xpath = "//span/input[@class='select2-search__field']")
+	public WebElement searchBoxInput;
+
+	/* ------ advanced search length selection dropdown ------ */
+	@FindBy(xpath = "//SELECT[@name='advanced_search_results_length']")
+	public WebElement advancedSearchResultLength;
+
+	/* ------ Search results text ------ */
+	@FindBy(id = "advanced_search_results")
+	public WebElement advancedSearchResults;
+
+	/* ------ YES button for renewal ------ */
+	@FindBy(xpath = "//button[@data-bb-handler='confirm' and contains(text(),'Yes')]")
+	public WebElement yesButtonforRenewal;
+
+	/* ------ Trainee name text------ */
+	@FindBy(xpath = "//span[@class='dtr-title' and text()='Primary Mentor']/following-sibling::span/a")
+	public WebElement traineeNameText;
+
+	/* ------ Classification Type Text------ */
+	@FindBy(xpath = "//span[@class='dtr-data' and text()='EMPLOYEE']")
+	public WebElement classificationTypeText;
+	
+	/* ------ Initiate IDP active buttons ------ */
+	@FindBy(xpath = "//button[@class='btn btn-primary initiateAnother'][not(@disabled)]")
+	public List<WebElement> activeButtons;
+
+	/* ------ On Hold IDP active buttons ------ */
+	@FindBy(xpath = "//button[@class='btn btn-primary holdIDP'][not(@disabled)]")
+	public List<WebElement> holdIDPActiveButtons;
+
+	/* ------ Cancel IDP active buttons ------ */
+	@FindBy(xpath = "//button[@class='btn btn-primary'][not(@disabled)]")
+	public List<WebElement> cancelIDPActiveButtons;
+
+	/* ------ Undo IDP active buttons ------ */
+	@FindBy(xpath = "//button[@class='btn btn-primary'][not(@disabled)]")
+	public List<WebElement> undoIDPActiveButtons;
+	
+	/* ------ Exit survey IDP active buttons ------ */
+	@FindBy(xpath = "//button[@class='btn btn-primary exitSurvey'][not(@disabled)]")
+	public List<WebElement> exitSurveyIDPActiveButtons;
+
+	/* ------ Rows in PM table ------ */
+	@FindBy(css = "td.sorting_2")
+	public List<WebElement> rowsPM;
+
+	/* ------ Rows in Verification Type table ------ */
+	@FindBy(css = "td.sorting_1.dtr-control::before")
+	public List<WebElement> rowsVerificationType;
 
 	/***
 	 * USE THIS METHOD TO DYNAMICALLY SELECT CLASSIFICATION TYPE
@@ -148,6 +231,16 @@ public class SearchPage extends CommonUtils {
 	public WebElement classificationType(String type){
 		return WebDriverUtils.webDriver.findElement(
 				By.xpath("//*[@id='select2-trainee-classifications-results']//li[text()='" + type + "']"));
+	}
+
+	/***
+	 * USE THIS METHOD TO DYNAMICALLY SELECT STATUS OPTION TYPE
+	 * @param optionType
+	 * @return
+	 */
+	public WebElement statusOption(String optionType){
+		return WebDriverUtils.webDriver.findElement(
+				By.xpath("//li[@role='treeitem'][text()=\"" + optionType + "\"]"));
 	}
 
 	public SearchPage() {

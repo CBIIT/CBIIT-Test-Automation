@@ -14,16 +14,16 @@ public class AlignExpectionsStepImpl extends PageInitializer {
 		CommonUtils.sendKeys(aligningExpectationsPage.description,
 				"This filed dedicated for expectations about aligning and it is a textarea field.");
 		if (CommonUtils.isElementDisplayed(aligningExpectationsPage.additionalCommentNoRadioButton)) {
-			CommonUtils.click(aligningExpectationsPage.additionalCommentNoRadioButton);
+			CommonUtils.clickOnElement(aligningExpectationsPage.additionalCommentNoRadioButton);
 		}
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(aligningExpectationsPage.saveButton);
+		CucumberLogUtils.logScreenshot();
+		CommonUtils.clickOnElement(aligningExpectationsPage.saveButton);
 		Thread.sleep(6000);
 	}
 
 	public void clickOnSaveButton() {
-		CommonUtils.click(aligningExpectationsPage.saveButton);
+		CommonUtils.clickOnElement(aligningExpectationsPage.saveButton);
 	}
 
 	public void enterAligningDescription(String descriptionVal) {
@@ -36,39 +36,24 @@ public class AlignExpectionsStepImpl extends PageInitializer {
 	}
 
 	public void clickOnReviewAndTakeActionButton() {
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		// try {
-		// 	if (CommonUtils.isElementPresentWithoutWait("//*[@id='tdAprroveIDP']")) {
-		// 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		// 		CommonUtils.click(By.xpath("//*[@id='tdAprroveIDP']"));
-		// 	} else {
-		// 		CommonUtils.waitForVisibility(aligningExpectationsPage.reviewAndTakeActionButton);
-		// 		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		// 		CommonUtils.click(aligningExpectationsPage.reviewAndTakeActionButton);
-		// 	}
-		// } catch (Exception e) {
-
-		// }
+			CommonUtils.waitForClickability(aligningExpectationsPage.reviewAndTakeActionButton);
+			CommonUtils.clickOnElement(aligningExpectationsPage.reviewAndTakeActionButton);
 	}
 
 	public void clickOnSendIDPToTraineeButton() {
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		if (CommonUtils.isElementDisplayed(By.id("344"))) {
-			CommonUtils.click(aligningExpectationsPage.renewalOption);
+			CommonUtils.clickOnElement(aligningExpectationsPage.renewalOption);
 		}
 		if (CommonUtils.isElementDisplayed(aligningExpectationsPage.updatesForRenewalYearText)) {
 			CommonUtils.sendKeys(aligningExpectationsPage.updatesForRenewalYearText,
 					"Lets Try automated test It should work fine hopefully");
 		}
 		if (CommonUtils.isElementDisplayed(aligningExpectationsPage.saveAndPreviousBtn)) {
-			CommonUtils.click(aligningExpectationsPage.saveAndPreviousBtn);
-			CommonUtils.click(aligningExpectationsPage.reviewAndTakeActionButton);
+			CommonUtils.clickOnElement(aligningExpectationsPage.saveAndPreviousBtn);
+			CommonUtils.clickOnElement(aligningExpectationsPage.reviewAndTakeActionButton);
 		}
-		CommonUtils.click(aligningExpectationsPage.sendIDPToTraineeButton);
+		CommonUtils.clickOnElement(aligningExpectationsPage.sendIDPToTraineeButton);
 	}
 
 	private WebElement find(By id) {

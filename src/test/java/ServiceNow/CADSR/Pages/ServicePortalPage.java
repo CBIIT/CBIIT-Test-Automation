@@ -27,7 +27,7 @@ import ServiceNow.ITPG.Utils.CommonUtils;
 public class ServicePortalPage extends BasePage {
 
 	public ServicePortalPage() {
-		PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
+		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 
 	/** submit a ticket button **/

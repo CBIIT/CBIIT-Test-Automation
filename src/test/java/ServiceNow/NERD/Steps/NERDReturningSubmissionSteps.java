@@ -5,8 +5,6 @@ import ServiceNow.NERD.StepsImplementation.NERDApplicationStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERD_NCI_CRSReviewerStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERD_NCI_DOC_PlanningContactStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERD_NCI_StaffMemberStepsImplementation;
-import org.junit.Assert;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -14,7 +12,6 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import appsCommon.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -44,7 +41,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 
     @Then("the Collaboration shows as {string} in the Submissions page")
     public void the_Collaboration_shows_as_in_the_Submissions_page(String ReturnedToDOC) throws TestingException {
-       NERD_NCI_DOC_PlanningContactStepsImplementation.theCollaborationShowsAsInTheSubmissionsPage(ReturnedToDOC);
+        NERD_NCI_DOC_PlanningContactStepsImplementation.theCollaborationShowsAsInTheSubmissionsPage(ReturnedToDOC);
         NERD_NCI_DOC_PlanningContactStepsImplementation.deleteCreatedSubmissionByDocPlanningContact(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER);
     }
 
@@ -113,6 +110,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
         NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER);
         NERDApplicationStepsImplementation.verifyingIncrementedArticleVersionNumber(versionNumber);
         NERDApplicationStepsImplementation.returningOfSubmissionToDOCPlaningContact(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER);
+        NERDApplicationStepsImplementation.checkingEmailWasNotReceived();
         NERD_NCI_DOC_PlanningContactStepsImplementation.deleteCreatedSubmissionByDocPlanningContact(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER);
     }
 
@@ -138,7 +136,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
     @Then("a notification is sent to the DOC Planning Contact")
     public void a_notification_is_sent_to_the_DOC_Planning_Contact() throws TestingException {
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnedToDOCText(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION));
-        CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+        CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(1000);
         NERD_NCI_DOC_PlanningContactStepsImplementation.deleteCreatedSubmissionByDocPlanningContact(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION);
     }
@@ -198,6 +196,19 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
     public void they_are_able_to_return_the_Collaboration_to_a_Program_Staff_user() throws TestingException {
         NERDApplicationStepsImplementation.returningOfSubmissionToTheProgramStaffInSameDOC(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_DOC_PLAN_CONTACT_SUBMISSION);
         NERDApplicationStepsImplementation.deleteCreatedSubmissionByProgramStaff(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_DOC_PLAN_CONTACT_SUBMISSION);
+    }
+
+    @Given("a DOC Planning Contact is on the CRS Knowledge Management System home page")
+    public void a_doc_planning_contact_is_on_the_crs_knowledge_management_system_home_page() throws TestingException{
+       NERDApplicationStepsImplementation.aDocPlanningContactIsOnTheCrsKnowledgeManagementSystemHomePage();
+    }
+    @When("selecting the Published Only checkbox")
+    public void selecting_the_published_only_checkbox() {
+        NERDApplicationStepsImplementation.selectingThePublishedOnlyCheckbox();
+    }
+    @Then("the DOC Planning Contact is able to see only published submissions")
+    public void the_doc_planning_contact_is_able_to_see_only_published_submissions() {
+        NERDApplicationStepsImplementation.theDocPlanningContactIsAbleToSeeOnlyPublishedSubmissions();
     }
 
 }

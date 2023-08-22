@@ -6,7 +6,6 @@ import appsCommon.PageInitializer;
 import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 
 public class DUA_AgreementsSteps extends PageInitializer {
 

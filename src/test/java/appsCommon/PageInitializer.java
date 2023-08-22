@@ -1,4 +1,5 @@
 package appsCommon;
+import com.nci.automation.web.WebDriverUtils;
 
 import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
 import AnalysisTools.CEDCD.Pages.CEDCDBiospecimenCountsPage;
@@ -25,60 +26,10 @@ import AnalysisTools.mSigPortal.Pages.CatalogPages;
 import AnalysisTools.mSigPortal.Pages.MSigPortalHomePage;
 import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
 import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
-import GrantsApps.ChangePassword.Pages.ChangePasswordPage;
-import GrantsApps.ChangePassword.StepsImplementation.ChangePasswordStepsImpl;
-import ServiceNow.CHARMS.Constants.RAS_SCREENER_CONSTANTS;
-import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
-import ServiceNow.CHARMS.Pages.*;
-import ServiceNow.CHARMS.ScenariosData.TestDataManager;
-import ServiceNow.CHARMS.StepsImplementation.CHARMSHomePageImp;
-import ServiceNow.CHARMS.StepsImplementation.FanconiEligibilityQuestionnaireStepsImpl;
-import ServiceNow.CHARMS.StepsImplementation.RASSurveyStepsImpl;
-import ServiceNow.CHARMS.StepsImplementation.RasScreenerStepsImpl;
-import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
-import ServiceNow.CICDBuild.Pages.DevOpsLoginPage;
-import ServiceNow.CICDBuild.Pages.DevOpsNativeViewPage;
-import ServiceNow.CICDBuild.StepsImplementation.DevOpsAutomatedBuildStepsImplementation;
-import ServiceNow.COVIDCode.Pages.COVIDCodeLoginPage;
-import ServiceNow.COVIDCode.Pages.EnrollmentQuestionnairePage;
-import ServiceNow.COVIDCode.Pages.FollowUpFormPage;
-import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentViewPage;
-import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentsPage;
-import ServiceNow.COVIDCode.Pages.ServicePortalQuestionnairePage;
-import ServiceNow.COVIDCode.Pages.ServicePortalSurveyPage;
-import ServiceNow.COVIDCode.StepsImplementation.COVIDCodeLoginStepsImpl;
-import ServiceNow.COVIDCode.StepsImplementation.DashboardStepImpl;
-import ServiceNow.COVIDCode.StepsImplementation.FollowUpFormPageImpl;
-import ServiceNow.COVIDCode.StepsImplementation.NativeViewStepsImpl;
-import ServiceNow.COVIDCode.StepsImplementation.ServicePortalEQPageImpl;
-import ServiceNow.COVIDCode.StepsImplementation.ServicePortalQuestionnairePageImp;
-import ServiceNow.COVIDCode.StepsImplementation.SignOutVerificationStepImp;
-import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
-import ServiceNow.COVIDDash.Pages.COVIDHomePage;
-import ServiceNow.COVIDDash.Pages.SubmissionsPage;
-import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
-import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
-import ServiceNow.NERD.Pages.NERDCRSTCollaborationsPage;
-import ServiceNow.NERD.Pages.NERDCRSTOtherAccomplishmentsPage;
-import ServiceNow.NERD.Pages.NERDCRSTopAccomplishmentsPage;
-import ServiceNow.NERD.Pages.NERDDOCCollaborationsPage;
-import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
-import ServiceNow.NERD.Pages.NERDHomePage;
-import ServiceNow.NERD.Pages.NERDKnowledgebasePage;
-import ServiceNow.NERD.Pages.NERDSubmissionsPage;
-import ServiceNow.NERD.Pages.NativeViewImpersonateUserPage;
-import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
-import ServiceNow.NERD.StepsImplementation.NativeViewImpersonateUser;
-import ServiceNow.SEER.Pages.NativeViewAccessRequestPage;
-import ServiceNow.SEER.Pages.NativeViewCustomersPage;
-import ServiceNow.SEER.Pages.NativeViewEmailsPage;
-import ServiceNow.SEER.Pages.NativeViewSentViewPage;
-import ServiceNow.SEER.Pages.SEERDataAccessRequestPage;
-import ServiceNow.SEER.Pages.SEERExistingAccountPage;
-import ServiceNow.SEER.Pages.SEERIncidenceDatabaseDetailsPage;
-import ServiceNow.SEER.Pages.SEERLandingPage;
-import ServiceNow.SEER.Pages.SEERUserRegistrationPage;
-import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
+import CustomBusiness.CCR.Pages.CCRApplicationPage;
+import CustomBusiness.CCR.Pages.CCRDynamicXpaths;
+import CustomBusiness.CCR.Pages.CCRLandingPage;
+import CustomBusiness.CCR.StepsImplementation.CCRStepsImplementation;
 import CustomBusiness.DCEG.Pages.AdminFlowPage;
 import CustomBusiness.DCEG.Pages.BranchAdminPage;
 import CustomBusiness.DCEG.Pages.CreateCRPage;
@@ -105,15 +56,118 @@ import CustomBusiness.EIDP.StepsImplementation.EIDPLoginStepImpl;
 import CustomBusiness.EIDP.StepsImplementation.GeneralInformationStepImpl;
 import CustomBusiness.EIDP.StepsImplementation.ProjectRelatedDeliverableStepImpl;
 import CustomBusiness.EIDP.StepsImplementation.SearchStepImpl;
+import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
 import CustomBusiness.ETD.Pages.ETDAdminNCIPage;
 import CustomBusiness.ETD.Pages.ETDBasePage;
 import CustomBusiness.ETD.StepsImplementation.ETDFlowStepsImpl;
+import GrantsApps.ChangePassword.Pages.ChangePasswordPage;
+import GrantsApps.ChangePassword.StepsImplementation.ChangePasswordStepsImpl;
+import GrantsApps.EM.Pages.ManageI2EUsersPage;
+import GrantsApps.EM.StepImplementation.EMStepsImplementation;
+import ServiceNow.CHARMS.Constants.IIQ_Constants;
+import ServiceNow.CHARMS.Constants.RAS_Screener_Constants;
+import ServiceNow.CHARMS.Constants.RAS_Survey_Constants;
+import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
+import ServiceNow.CHARMS.Pages.CGBIIQPage;
+import ServiceNow.CHARMS.Pages.CGBIIQPages;
+import ServiceNow.CHARMS.Pages.CHARMSHomePage;
+import ServiceNow.CHARMS.Pages.CHARMSNativeViewPage;
+import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
+import ServiceNow.CHARMS.Pages.FHQSurveyPage;
+import ServiceNow.CHARMS.Pages.FHQSurveyPortalPage;
+import ServiceNow.CHARMS.Pages.FanconiEligibilityQuestionnairePage;
+import ServiceNow.CHARMS.Pages.FanconiLoginPage;
+import ServiceNow.CHARMS.Pages.FanconiScreenerNVPage;
+import ServiceNow.CHARMS.Pages.MelanomaHomePage;
+import ServiceNow.CHARMS.Pages.MelanomaLoginPage;
+import ServiceNow.CHARMS.Pages.MelanomaQuestionnairePage;
+import ServiceNow.CHARMS.Pages.MyRASHomePage;
+import ServiceNow.CHARMS.Pages.MyRASIIQFormPage;
+import ServiceNow.CHARMS.Pages.MyRASLoginPage;
+import ServiceNow.CHARMS.Pages.MyRASStudyConsentPage;
+import ServiceNow.CHARMS.Pages.MyRASSurveyPage;
+import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
+import ServiceNow.CHARMS.Pages.NativeViewCHARMSParticipantConsentPage;
+import ServiceNow.CHARMS.Pages.NativeViewCHARMSParticipantDetailsPage;
+import ServiceNow.CHARMS.Pages.OKTAloginPage;
+import ServiceNow.CHARMS.Pages.ParticipantDetailsPage;
+import ServiceNow.CHARMS.Pages.ProbandScreenerPage;
+import ServiceNow.CHARMS.Pages.RAS_Survey_Native_View_Page;
+import ServiceNow.CHARMS.Pages.RAS_Survey_Page;
+import ServiceNow.CHARMS.Pages.RASopathyQuestionnairePage;
+import ServiceNow.CHARMS.Pages.ReferralTablePage;
+import ServiceNow.CHARMS.Pages.ScreenerRecordTablePage;
+import ServiceNow.CHARMS.Pages.TestAccountResetPage;
+import ServiceNow.CHARMS.ScenariosData.IIQ_TestDataManager;
+import ServiceNow.CHARMS.ScenariosData.RAS_Screener_TestDataManager;
+import ServiceNow.CHARMS.ScenariosData.RAS_Survey_TestDataManager;
+import ServiceNow.CHARMS.StepsImplementation.FanconiEligibilityQuestionnaireStepsImpl;
+import ServiceNow.CHARMS.StepsImplementation.RASSurveyStepsImpl;
+import ServiceNow.CHARMS.StepsImplementation.RasScenario1StepsImpl;
+import ServiceNow.CHARMS.StepsImplementation.RasScenario2StepsImpl;
+import ServiceNow.CHARMS.StepsImplementation.RasScreenerScenario3StepsImpl;
+import ServiceNow.CHARMS.StepsImplementation.RasScreenerScenario4StepsImpl;
+import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
+import ServiceNow.CICDBuild.Pages.DevOpsLoginPage;
+import ServiceNow.CICDBuild.Pages.DevOpsNativeViewPage;
+import ServiceNow.CICDBuild.StepsImplementation.DevOpsAutomatedBuildStepsImplementation;
+import ServiceNow.COVIDCode.Pages.COVIDCodeLoginPage;
+import ServiceNow.COVIDCode.Pages.EnrollmentQuestionnairePage;
+import ServiceNow.COVIDCode.Pages.FollowUpFormPage;
+import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentViewPage;
+import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentsPage;
+import ServiceNow.COVIDCode.Pages.ServicePortalQuestionnairePage;
+import ServiceNow.COVIDCode.Pages.ServicePortalSurveyPage;
+import ServiceNow.COVIDCode.StepsImplementation.COVIDCodeLoginStepsImpl;
+import ServiceNow.COVIDCode.StepsImplementation.DashboardStepImpl;
+import ServiceNow.COVIDCode.StepsImplementation.FollowUpFormPageImpl;
+import ServiceNow.COVIDCode.StepsImplementation.NativeViewStepsImpl;
+import ServiceNow.COVIDCode.StepsImplementation.ServicePortalEQPageImpl;
+import ServiceNow.COVIDCode.StepsImplementation.ServicePortalQuestionnairePageImp;
+import ServiceNow.COVIDCode.StepsImplementation.SignOutVerificationStepImp;
+import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
+import ServiceNow.COVIDDash.Pages.COVIDHomePage;
+import ServiceNow.COVIDDash.Pages.SubmissionsPage;
+import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
+import ServiceNow.ESR.Pages.NCINativeViewPage;
+import ServiceNow.ETracking.Pages.EtrackAssetsRecords_NativeViewPage;
+import ServiceNow.GCP.Pages.GCPNotifications_NativeViewPage;
+import ServiceNow.NERD.Pages.Covid19ActivitiesSubmissionsPage;
+import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
+import ServiceNow.NERD.Pages.NERDCRSTCollaborationsPage;
+import ServiceNow.NERD.Pages.NERDCRSTOtherAccomplishmentsPage;
+import ServiceNow.NERD.Pages.NERDCRSTopAccomplishmentsPage;
+import ServiceNow.NERD.Pages.NERDDOCCollaborationsPage;
+import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
+import ServiceNow.NERD.Pages.NERDHomePage;
+import ServiceNow.NERD.Pages.NERDKnowledgebasePage;
+import ServiceNow.NERD.Pages.NERDOGCRAddNewEntryPage;
+import ServiceNow.NERD.Pages.NERDSubmissionsPage;
+import ServiceNow.NERD.Pages.NativeViewImpersonateUserPage;
+import ServiceNow.NERD.Pages.NativeViewMembersOfCongressPage;
+import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
+import ServiceNow.NERD.StepsImplementation.NativeViewImpersonateUser;
+import ServiceNow.SCSS.Pages.OWMVacancyPage;
+import ServiceNow.SCSS.Pages.StadtmanVacancyPage;
+import ServiceNow.SCSS.StepsImplementation.OWMVacancyStepsImplementation;
+import ServiceNow.SCSS.StepsImplementation.SCSSLoginStepsImplementation;
+import ServiceNow.SCSS.StepsImplementation.StadtmanVacancyStepsImplementation;
+import ServiceNow.SEER.Pages.NativeViewAccessRequestPage;
+import ServiceNow.SEER.Pages.NativeViewCustomersPage;
+import ServiceNow.SEER.Pages.NativeViewEmailsPage;
+import ServiceNow.SEER.Pages.NativeViewSentViewPage;
+import ServiceNow.SEER.Pages.SEERDataAccessRequestPage;
+import ServiceNow.SEER.Pages.SEERExistingAccountPage;
+import ServiceNow.SEER.Pages.SEERIncidenceDatabaseDetailsPage;
+import ServiceNow.SEER.Pages.SEERLandingPage;
+import ServiceNow.SEER.Pages.SEERUserRegistrationPage;
+import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 
 /**
  * This an initializer class which will initialize all pages classes. Once pages
  * class created, create an object of it here inside the constructor
  */
-public class PageInitializer {
+public class PageInitializer extends WebDriverUtils {
 
     /** --------------- APPSCOMMON INSTANCES --------------- */
     // declare public static variables of types of all the pages
@@ -124,6 +178,8 @@ public class PageInitializer {
     /** --------------- GRANTS INSTANCES --------------- */
     public static ChangePasswordPage changePasswordPage;
     public static ChangePasswordStepsImpl changePasswordStepsImpl;
+    public static EMStepsImplementation emStepsImplementation;
+    public static ManageI2EUsersPage manageI2EUsersPage;
 
     /** --------------- SERVICENOW INSTANCES --------------- */
     /** COVIDDash instances */
@@ -149,23 +205,30 @@ public class PageInitializer {
     public static TestAccountResetImpl testAccountResetImpl;
     public static CHARMSHomePage charmsHomePage;
     public static OKTAloginPage oktaLoginPage;
-    public static CHARMSHomePageImp charmsHomePageImpl;
     public static ClinicalGeneticsBranchPage clinicalGeneticsBranchPage;
     public static ProbandScreenerPage probandScreenerPage;
     public static MyRASLoginPage myRASLoginPage;
     public static MyRASHomePage myRASHomePage;
     public static RASopathyQuestionnairePage rasopathyQuestionnairePage;
-    public static RasScreenerStepsImpl rasScreenerStepsImpl;
-    public static RAS_SCREENER_CONSTANTS rasScreenerConstants;
+    public static MyRASIIQFormPage myRASIIQFormPage;
+    public static RasScenario1StepsImpl rasScreenerScenario1StepsImpl;
+    public static RasScenario2StepsImpl rasScreenerScenario2StepsImpl;
+    public static RasScreenerScenario3StepsImpl rasScreenerScenario3StepsImpl;
+    public static RasScreenerScenario4StepsImpl rasScreenerScenario4StepsImpl;
+    public static RAS_Screener_Constants ras_Screener_Constants;
+    public static RAS_Survey_Constants ras_Survey_Constants;
+    public static IIQ_Constants iiq_Constants;
     public static TestAccountResetPage testAccountResetPage;
     public static MyRASStudyConsentPage myRasStudyConsentPage;
     public static CGBIIQPage cgbIIQPage;
     public static CGBIIQPages cGBIIQPages;
-    public static RASSurveyPage rASSurveyPage;
+    public static RAS_Survey_Page rAS_Survey_Page;
     public static RASSurveyStepsImpl rASSurveyStepsImpl;
     public static FHQSurveyPage fHQSurveyPage;
     public static FHQSurveyPortalPage fHQSurveyPortalPage;
-    public static TestDataManager testDataManager;
+    public static RAS_Screener_TestDataManager ras_Screener_TestDataManager;
+    public static RAS_Survey_TestDataManager ras_Survey_TestDataManager;
+    public static IIQ_TestDataManager iiq_TestDataManager;
     public static ParticipantDetailsPage participantDetailsPage;
     public static ReferralTablePage referralTablePage;
     public static FanconiEligibilityQuestionnairePage fanconiEligibilityQuestionnairePage;
@@ -173,7 +236,9 @@ public class PageInitializer {
 	public static FanconiLoginPage fanconiLoginPage;
 	public static CHARMSParticipantDetailsPage cHARMSParticipantDetailsPage;
 	public static FanconiEligibilityQuestionnaireStepsImpl fanconiEligibilityQuestionnaireStepsImpl;
-
+    public static ScreenerRecordTablePage screenerRecordTablePage;
+    public static MyRASSurveyPage myRASSurveyPage;
+    public static RAS_Survey_Native_View_Page ras_survey_native_view;
     // Melanoma and Spitzoid Tumor instances
     public static MelanomaLoginPage melanomaLoginPage;
     public static MelanomaHomePage melanomaHomePage;
@@ -204,6 +269,21 @@ public class PageInitializer {
     public static NERDCRSTCollaborationsPage nerdCRSTCollaborationsPage;
     public static NERDDOCCollaborationsPage nerdDOCCollaborationsPage;
     public static NERDCRSTOtherAccomplishmentsPage nerdcrstOtherAccomplishmentsPage;
+    public static NERDOGCRAddNewEntryPage nERDOGCRAddNewEntryPage;
+    public static Covid19ActivitiesSubmissionsPage covid19ActivitiesSubmissionsPage;
+
+    /** SCSS instances */
+    public static OWMVacancyPage owmVacancyPage;
+    public static StadtmanVacancyPage stadtmanVacancyPage;
+    public static StadtmanVacancyStepsImplementation stadtmanVacancyStepsImplementation;
+    public static OWMVacancyStepsImplementation oWMVacancyStepsImplementation;
+    public static SCSSLoginStepsImplementation sCCSLoginStepsImplementation;
+
+    /** eTracking instances */
+    public static EtrackAssetsRecords_NativeViewPage etrackAssetsRecords_NativeViewPage;
+
+    /** GCP instances */
+    public static GCPNotifications_NativeViewPage gCPNotifications_NativeViewPage;
 
     /** --------------- CUSTOM BUSINESS APP INSTANCES --------------- */
     /** EIDP instances */
@@ -227,6 +307,7 @@ public class PageInitializer {
     public static IDPAwaitingResponsePage iDPAwaitingResponsePage;
     public static TraineeReviewPage traineeReviewPage;
     public static CoPrimaryMentorPage coPrimaryMentorPage;
+    public static TraineeReviewStepsImpl traineeReviewStepsImpl;
 
     /** DCEG instances */
     public static CreateCRPage createCRPage;
@@ -284,6 +365,15 @@ public class PageInitializer {
     /** CProSite instances **/
     public static CProSiteExplorePage cProSiteExplorePage;
 
+    /** CCR instances **/
+    public static CCRLandingPage cCRLandingPage;
+    public static CCRStepsImplementation cCRStepsImplementation;
+    public static CCRDynamicXpaths cCRDynamicXpaths;
+    public static CCRApplicationPage cCRApplicationPage;
+
+    /** ESR INSTANCES */
+    public static NCINativeViewPage nciNativeViewPage;
+
     /** --------------- NATIVE VIEW INSTANCES --------------- */
     public static NativeViewLoginImpl nativeViewLoginImpl;
     public static NativeViewHomePage nativeViewHomePage;
@@ -298,6 +388,13 @@ public class PageInitializer {
     public static NativeViewAccessRequestPage nativeViewAccessRequestPage;
     public static NativeViewEmailsPage nativeViewEmailsPage;
     public static NativeViewDashboardPage nativeViewDashPage;
+    public static NativeViewMembersOfCongressPage nativeViewMembersOfCongressPage;
+
+    public static NativeViewCHARMSDashboardPage nativeViewCHARMSDashboardPage;
+
+    public  static NativeViewCHARMSParticipantDetailsPage nativeViewCHARMSParticipantDetailsPage;
+
+    public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
 
     public static void initializeAllPages() {
         /** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
@@ -329,20 +426,26 @@ public class PageInitializer {
         testAccountResetImpl = new TestAccountResetImpl();
         charmsHomePage = new CHARMSHomePage();
         oktaLoginPage = new OKTAloginPage();
-        charmsHomePageImpl = new CHARMSHomePageImp();
         clinicalGeneticsBranchPage = new ClinicalGeneticsBranchPage();
         probandScreenerPage = new ProbandScreenerPage();
         myRASLoginPage = new MyRASLoginPage();
         myRASHomePage = new MyRASHomePage();
-        rasScreenerStepsImpl = new RasScreenerStepsImpl();
+        rasScreenerScenario1StepsImpl = new RasScenario1StepsImpl();
+        rasScreenerScenario2StepsImpl = new RasScenario2StepsImpl();
+        rasScreenerScenario3StepsImpl = new RasScreenerScenario3StepsImpl();
+        rasScreenerScenario4StepsImpl = new RasScreenerScenario4StepsImpl();
         rasopathyQuestionnairePage = new RASopathyQuestionnairePage();
-        rasScreenerConstants = new RAS_SCREENER_CONSTANTS();
+        ras_Screener_Constants = new RAS_Screener_Constants();
+        ras_Survey_Constants = new RAS_Survey_Constants();
+        iiq_Constants = new IIQ_Constants();
         testAccountResetPage = new TestAccountResetPage();
         myRasStudyConsentPage = new MyRASStudyConsentPage();
-        testDataManager = new TestDataManager();
+        ras_Screener_TestDataManager = new RAS_Screener_TestDataManager();
+        ras_Survey_TestDataManager = new RAS_Survey_TestDataManager();
+        iiq_TestDataManager = new IIQ_TestDataManager();
         cgbIIQPage = new CGBIIQPage();
         cGBIIQPages = new CGBIIQPages();
-        rASSurveyPage = new RASSurveyPage();
+        rAS_Survey_Page = new RAS_Survey_Page();
         rASSurveyStepsImpl = new RASSurveyStepsImpl();
         fHQSurveyPortalPage = new FHQSurveyPortalPage();
         fHQSurveyPage = new FHQSurveyPage();
@@ -353,9 +456,12 @@ public class PageInitializer {
 		fanconiScreenerNVPage =new FanconiScreenerNVPage();
 		cHARMSParticipantDetailsPage = new CHARMSParticipantDetailsPage();
 		fanconiEligibilityQuestionnaireStepsImpl = new FanconiEligibilityQuestionnaireStepsImpl();
-		
-
-        // Melanoma and Spitzoid Tumor instances
+        screenerRecordTablePage = new ScreenerRecordTablePage();
+        myRASIIQFormPage = new MyRASIIQFormPage();
+        ras_survey_native_view = new RAS_Survey_Native_View_Page();
+        myRASSurveyPage = new MyRASSurveyPage();
+        
+        /** Melanoma and Spitzoid Tumor instances */
         melanomaLoginPage = new MelanomaLoginPage();
         melanomaHomePage = new MelanomaHomePage();
         melanomaQuestionnairePage = new MelanomaQuestionnairePage();
@@ -385,6 +491,18 @@ public class PageInitializer {
         nerdDOCCollaborationsPage = new NERDDOCCollaborationsPage();
         nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
         nerdcrstOtherAccomplishmentsPage = new NERDCRSTOtherAccomplishmentsPage();
+        covid19ActivitiesSubmissionsPage = new Covid19ActivitiesSubmissionsPage();
+        nERDOGCRAddNewEntryPage = new NERDOGCRAddNewEntryPage();
+
+        /** ESR INSTANCE VARIABLES */
+        nciNativeViewPage = new NCINativeViewPage();
+
+        /** SCSS Instance Variables */
+        owmVacancyPage = new OWMVacancyPage();
+        stadtmanVacancyPage = new StadtmanVacancyPage();
+        oWMVacancyStepsImplementation = new OWMVacancyStepsImplementation();
+        stadtmanVacancyStepsImplementation = new StadtmanVacancyStepsImplementation();
+        sCCSLoginStepsImplementation = new SCSSLoginStepsImplementation();
 
         /** --------------- CUSTOM BUSINESS APP INSTANCE VARIABLES --------------- */
         /** EIDP Instance Variables */
@@ -408,6 +526,7 @@ public class PageInitializer {
         iDPAwaitingResponsePage = new IDPAwaitingResponsePage();
         traineeReviewPage = new TraineeReviewPage();
         coPrimaryMentorPage = new CoPrimaryMentorPage();
+        traineeReviewStepsImpl = new TraineeReviewStepsImpl();
 
         /** DCEG Instance Variables */
         createCRPage = new CreateCRPage();
@@ -465,6 +584,13 @@ public class PageInitializer {
         /** CProSite Instance Variables **/
         cProSiteExplorePage = new CProSiteExplorePage();
 
+        /** CCR Instance Variables **/
+        cCRLandingPage = new CCRLandingPage();
+        cCRStepsImplementation = new CCRStepsImplementation();
+        cCRStepsImplementation = new CCRStepsImplementation();
+        cCRDynamicXpaths = new CCRDynamicXpaths();
+        cCRApplicationPage = new CCRApplicationPage();
+
         /** --------------- NATIVE VIEW INSTANCE VARIABLES --------------- */
         nativeViewLoginImpl = new NativeViewLoginImpl();
         nativeViewHomePage = new NativeViewHomePage();
@@ -479,9 +605,22 @@ public class PageInitializer {
         nativeViewAccessRequestPage = new NativeViewAccessRequestPage();
         nativeViewEmailsPage = new NativeViewEmailsPage();
         nativeViewDashPage = new NativeViewDashboardPage();
+        nativeViewMembersOfCongressPage = new NativeViewMembersOfCongressPage();
+        nativeViewCHARMSDashboardPage = new NativeViewCHARMSDashboardPage();
+        nativeViewCHARMSParticipantDetailsPage = new NativeViewCHARMSParticipantDetailsPage();
+        nativeViewCHARMSParticipantConsentPage = new NativeViewCHARMSParticipantConsentPage();
 
         /** Grants ChangePassword app **/
         changePasswordPage = new ChangePasswordPage();
         changePasswordStepsImpl = new ChangePasswordStepsImpl();
+        emStepsImplementation = new EMStepsImplementation();
+        manageI2EUsersPage = new ManageI2EUsersPage();
+
+        /** eTracking INSTANCE VARIABLES */
+        etrackAssetsRecords_NativeViewPage = new EtrackAssetsRecords_NativeViewPage();
+
+        /** GCP INSTANCE VARIABLES */
+        gCPNotifications_NativeViewPage = new  GCPNotifications_NativeViewPage();
+
     }
 }

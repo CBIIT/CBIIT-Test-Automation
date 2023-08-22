@@ -38,7 +38,7 @@ public class DevOpsAutomatedBuildStepsImplementation extends PageInitializer {
 		//WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='user_info_dropdown']")).click();
 		//MiscUtils.sleep(2000);
 		//WebDriverUtils.webDriver.findElement(By.xpath("//*[@href='logout.do']")).click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	public void selectingApplicationAsDeploymentType(String application) {

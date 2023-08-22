@@ -25,7 +25,7 @@ public class CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp extends PageIni
 
 		Collections.sort(cancerTypeDropDownSortAlphabetically);
 		Assert.assertEquals(cancerTypeDropDownSortAlphabetically, cancerTypeDropDown);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 

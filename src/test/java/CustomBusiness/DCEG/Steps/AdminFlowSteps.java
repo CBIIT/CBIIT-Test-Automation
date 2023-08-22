@@ -34,7 +34,7 @@ public class AdminFlowSteps extends PageInitializer {
 	public void user_can_verify_that_Researcher_ID_tab_is_present() {
 		Assert.assertTrue(adminFlowPage.researcherIDTab.isDisplayed());
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
@@ -42,14 +42,14 @@ public class AdminFlowSteps extends PageInitializer {
 	public void user_can_verify_that_Administration_tab_is_present() {
 		Assert.assertTrue(adminFlowPage.administrationTab.isDisplayed());
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User selects to view the submitted request")
 	public void user_selects_to_view_the_submitted_request() {
-		CommonUtils.click(createCRPage.viewFirstReq);
+		CommonUtils.clickOnElement(createCRPage.viewFirstReq);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	// @AdminViewCR
@@ -57,21 +57,21 @@ public class AdminFlowSteps extends PageInitializer {
 	public void user_is_on_Clearance_Requests_tab() {
 		Assert.assertTrue(adminFlowPage.clearanceRequestTab.isDisplayed());
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Given("User navigates to CR Search subtab")
 	public void user_navigates_to_CR_Search_subtab() {
-		CommonUtils.click(adminFlowPage.clearanceRequestTabSearch);
+		CommonUtils.clickOnElement(adminFlowPage.clearanceRequestTabSearch);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User clicks Search")
 	public void user_clicks_Search() {
-		CommonUtils.click(adminFlowPage.searchButton);
+		CommonUtils.clickOnElement(adminFlowPage.searchButton);
 		MiscUtils.sleep(5000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can verify that User can view any request")
@@ -86,23 +86,23 @@ public class AdminFlowSteps extends PageInitializer {
 	// @AdminViewPublications
 	@Given("User is on Publications tab")
 	public void user_is_on_Publications_tab() {
-		CommonUtils.click(adminFlowPage.publicationsTab);
+		CommonUtils.clickOnElement(adminFlowPage.publicationsTab);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Given("User navigates to Publications Search subtab")
 	public void user_navigates_to_Publications_Search_subtab() {
-		CommonUtils.click(adminFlowPage.publicationsTabSearch);
+		CommonUtils.clickOnElement(adminFlowPage.publicationsTabSearch);
 		MiscUtils.sleep(2000);
 	}
 
 	@When("User clicks Search button")
 	public void user_clicks_Search_button() {
 		JavascriptUtils.scrollIntoView(adminFlowPage.publicationsTabSearchButton);
-		CommonUtils.click(adminFlowPage.publicationsTabSearchButton);
+		CommonUtils.clickOnElement(adminFlowPage.publicationsTabSearchButton);
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can verify that User can view any publication across DCEG")
@@ -117,15 +117,15 @@ public class AdminFlowSteps extends PageInitializer {
 	// @AdminResearcherIDSearch
 	@Given("User navigates to Reseacher ID tab")
 	public void user_navigates_to_Reseacher_ID_tab() {
-		CommonUtils.click(adminFlowPage.researcherIDTab);
+		CommonUtils.clickOnElement(adminFlowPage.researcherIDTab);
 		MiscUtils.sleep(2000);
 	}
 
 	@When("User applies organization search as OFFICE OF THE DIRECTOR")
 	public void user_applies_organization_search_as_OFFICE_OF_THE_DIRECTOR() {
-		CommonUtils.click(adminFlowPage.officeOfDirectorResID);
+		CommonUtils.clickOnElement(adminFlowPage.officeOfDirectorResID);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(adminFlowPage.searchButtonResearcherID);
+		CommonUtils.clickOnElement(adminFlowPage.searchButtonResearcherID);
 		MiscUtils.sleep(4000);
 	}
 
@@ -144,11 +144,11 @@ public class AdminFlowSteps extends PageInitializer {
 
 	@When("User applies organization search as TRANS-DIVISIONAL RESEARCH PROGRAM")
 	public void user_applies_organization_search_as_TRANS_DIVISIONAL_RESEARCH_PROGRAM() {
-		CommonUtils.click(adminFlowPage.transDivisionalResearchProgram);
+		CommonUtils.clickOnElement(adminFlowPage.transDivisionalResearchProgram);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(adminFlowPage.officeOfDirectorResID);
+		CommonUtils.clickOnElement(adminFlowPage.officeOfDirectorResID);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(adminFlowPage.searchButtonResearcherID);
+		CommonUtils.clickOnElement(adminFlowPage.searchButtonResearcherID);
 		MiscUtils.sleep(4000);
 	}
 
@@ -171,9 +171,9 @@ public class AdminFlowSteps extends PageInitializer {
 	public void user_inputs_Researcher_s_last_name_as_Abnet() {
 		CommonUtils.sendKeys(adminFlowPage.researcherLastNameField, "Abnet");
 		MiscUtils.sleep(3000);
-		CommonUtils.click(adminFlowPage.searchButtonResearcherID);
+		CommonUtils.clickOnElement(adminFlowPage.searchButtonResearcherID);
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can see the targeted person")
@@ -188,9 +188,9 @@ public class AdminFlowSteps extends PageInitializer {
 	// @AdminTabReassignment
 	@When("User clicks on Admin Tab")
 	public void user_clicks_on_Admin_Tab() {
-		CommonUtils.click(adminFlowPage.administrationTab);
+		CommonUtils.clickOnElement(adminFlowPage.administrationTab);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("user can verify that the following tabs are available")
@@ -200,16 +200,16 @@ public class AdminFlowSteps extends PageInitializer {
 		MiscUtils.sleep(3000);
 		Assert.assertTrue(adminFlowPage.delegationManagement.isDisplayed(), tabs.get("tab2"));
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User goes to Reassignment tab")
 	public void user_goes_to_Reassignment_tab() {
-		CommonUtils.click(adminFlowPage.reassignmentEnterButton1);
+		CommonUtils.clickOnElement(adminFlowPage.reassignmentEnterButton1);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(adminFlowPage.reassignmentEnterButton2);
+		CommonUtils.clickOnElement(adminFlowPage.reassignmentEnterButton2);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User applies search for {string} as {string}")
@@ -217,12 +217,12 @@ public class AdminFlowSteps extends PageInitializer {
 		MiscUtils.sleep(6000);
 		CommonUtils.sendKeys(adminFlowPage.nameOfCurrentAssigneeSearchField, name);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(adminFlowPage.chanockDropdownChoice);
+		CommonUtils.clickOnElement(adminFlowPage.chanockDropdownChoice);
 		MiscUtils.sleep(2000);
 		flowStepsImplementation.selectRole(role);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(adminFlowPage.searchButtonReassignment);
+		CucumberLogUtils.logScreenshot();
+		CommonUtils.clickOnElement(adminFlowPage.searchButtonReassignment);
 		MiscUtils.sleep(3000);
 	}
 
@@ -256,9 +256,9 @@ public class AdminFlowSteps extends PageInitializer {
 		String alertText = adminFlowPage.reassignAlert.getText();
 		Assert.assertTrue(adminFlowPage.reassignAlert.isDisplayed());
 		System.out.println(alertText);
-		CommonUtils.click(adminFlowPage.yesAlert);
+		CommonUtils.clickOnElement(adminFlowPage.yesAlert);
 		MiscUtils.sleep(7000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
@@ -267,18 +267,18 @@ public class AdminFlowSteps extends PageInitializer {
 		JavascriptUtils.scrollIntoView(adminFlowPage.clearanceRequestTabInactive);
 		JavascriptUtils.clickByJS(adminFlowPage.clearanceRequestTabInactive);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(adminFlowPage.clearanceRequestTabSearch);
+		CommonUtils.clickOnElement(adminFlowPage.clearanceRequestTabSearch);
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(adminFlowPage.clReqIDReviewer, "DOGBE");
 		MiscUtils.sleep(2000);
-		CommonUtils.click(adminFlowPage.searchButton);
+		CommonUtils.clickOnElement(adminFlowPage.searchButton);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(adminFlowPage.viewFirstReqDodbe);
+		CommonUtils.clickOnElement(adminFlowPage.viewFirstReqDodbe);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(adminFlowPage.history);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can see the previous and new assignee as part of the History transaction")
@@ -328,9 +328,9 @@ public class AdminFlowSteps extends PageInitializer {
 	public void user_applies_checkmark_Select_All() {
 		MiscUtils.sleep(4000);
 		JavascriptUtils.scrollIntoView(adminFlowPage.selectAll);
-		CommonUtils.click(adminFlowPage.selectAll);
+		CommonUtils.clickOnElement(adminFlowPage.selectAll);
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
@@ -347,24 +347,24 @@ public class AdminFlowSteps extends PageInitializer {
 
 	@When("User applies a wide search for {string}")
 	public void user_applies_a_wide_search_for(String string) {
-		CommonUtils.click(adminFlowPage.anyDrop);
+		CommonUtils.clickOnElement(adminFlowPage.anyDrop);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(adminFlowPage.checkedSubmiterMark);
+		CommonUtils.clickOnElement(adminFlowPage.checkedSubmiterMark);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(adminFlowPage.selectAllCheckmark);
+		CommonUtils.clickOnElement(adminFlowPage.selectAllCheckmark);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(adminFlowPage.searchButtonReassignment);
+		CommonUtils.clickOnElement(adminFlowPage.searchButtonReassignment);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can successfully clear the search result")
 	public void user_can_successfully_clear_the_search_result() {
-		CommonUtils.click(adminFlowPage.clearButton);
+		CommonUtils.clickOnElement(adminFlowPage.clearButton);
 		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(adminFlowPage.noData);
 		Assert.assertTrue(adminFlowPage.noData.isDisplayed());
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("a search for {string} is applied")
@@ -372,9 +372,9 @@ public class AdminFlowSteps extends PageInitializer {
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(adminFlowPage.nameOfCurrentAssigneeSearchField, name);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(adminFlowPage.chanockDropdownChoice);
+		CommonUtils.clickOnElement(adminFlowPage.chanockDropdownChoice);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(adminFlowPage.searchButtonReassignment);
+		CommonUtils.clickOnElement(adminFlowPage.searchButtonReassignment);
 		MiscUtils.sleep(3000);
 
 	}
@@ -392,13 +392,13 @@ public class AdminFlowSteps extends PageInitializer {
 		Assert.assertTrue(adminFlowPage.completedTab.isDisplayed(), tabs.get("tab3"));
 		flowStepsImplementation.verifyCompletedResults();
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
 	@Then("User can verify that In-flight Clearance Requests are read only")
 	public void user_can_verify_that_In_flight_Clearance_Requests_are_read_only() {
-		CommonUtils.click(adminFlowPage.inflightTab);
+		CommonUtils.clickOnElement(adminFlowPage.inflightTab);
 		MiscUtils.sleep(4000);
 		JavascriptUtils.scrollIntoView(adminFlowPage.viewFirstRequestInflight);
 		JavascriptUtils.clickByJS(adminFlowPage.viewFirstRequestInflight);
@@ -409,14 +409,14 @@ public class AdminFlowSteps extends PageInitializer {
 		}
 		WebDriverUtils.webDriver.close();
 		WebDriverUtils.webDriver.switchTo().window(winHandleBefore);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
 	@Then("User can verify that Completed Requests are read only")
 	public void user_can_verify_that_Completed_Requests_are_read_only() {
-		CommonUtils.click(adminFlowPage.completedTab);
-		CommonUtils.click(adminFlowPage.viewFirstRequestCompleted);
+		CommonUtils.clickOnElement(adminFlowPage.completedTab);
+		CommonUtils.clickOnElement(adminFlowPage.viewFirstRequestCompleted);
 		MiscUtils.sleep(4000);
 		String winHandleBefore = WebDriverUtils.webDriver.getWindowHandle();
 		for (String winHandle : WebDriverUtils.webDriver.getWindowHandles()) {
@@ -424,14 +424,14 @@ public class AdminFlowSteps extends PageInitializer {
 		}
 		WebDriverUtils.webDriver.close();
 		WebDriverUtils.webDriver.switchTo().window(winHandleBefore);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User opens a clearance request to view")
 	public void user_opens_a_clearance_request_to_view() {
-		CommonUtils.click(adminFlowPage.firstCRView);
+		CommonUtils.clickOnElement(adminFlowPage.firstCRView);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can verify that the CR opens as expected")
@@ -442,7 +442,7 @@ public class AdminFlowSteps extends PageInitializer {
 		}
 		Assert.assertTrue(adminFlowPage.clRequestSummary.isDisplayed());
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		WebDriverUtils.webDriver.close();
 		WebDriverUtils.webDriver.switchTo().window(winHandleBefore);
 		MiscUtils.sleep(1000);
@@ -452,40 +452,40 @@ public class AdminFlowSteps extends PageInitializer {
 	public void user_can_export_each_of_the_tabs_below(io.cucumber.datatable.DataTable data) throws AWTException {
 		Map<String, String> tabs = CommonUtil.getMapFromDataTable(data);
 		Assert.assertTrue(adminFlowPage.pendingTab.isDisplayed(), tabs.get("tab1"));
-		CommonUtils.click(adminFlowPage.pendingTab);
-		CommonUtils.click(adminFlowPage.exportResults);
+		CommonUtils.clickOnElement(adminFlowPage.pendingTab);
+		CommonUtils.clickOnElement(adminFlowPage.exportResults);
 		MiscUtils.sleep(3000);
 		Assert.assertTrue(adminFlowPage.inflightTab.isDisplayed(), tabs.get("tab2"));
 		MiscUtils.sleep(3000);
-		CommonUtils.click(adminFlowPage.inflightTab);
-		CommonUtils.click(adminFlowPage.exportResults);
+		CommonUtils.clickOnElement(adminFlowPage.inflightTab);
+		CommonUtils.clickOnElement(adminFlowPage.exportResults);
 		MiscUtils.sleep(3000);
 		Assert.assertTrue(adminFlowPage.completedTab.isDisplayed(), tabs.get("tab3"));
 		MiscUtils.sleep(3000);
-		CommonUtils.click(adminFlowPage.completedTab);
+		CommonUtils.clickOnElement(adminFlowPage.completedTab);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(adminFlowPage.exportResultsCompleted);
+		CommonUtils.clickOnElement(adminFlowPage.exportResultsCompleted);
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can verify that Re-assign option is not available for INFLIGHT tab")
 	public void user_can_verify_that_Re_assign_option_is_not_available_for_INFLIGHT_tab() throws Exception {
-		CommonUtils.click(adminFlowPage.inflightTab);
+		CommonUtils.clickOnElement(adminFlowPage.inflightTab);
 		MiscUtils.sleep(5000);
 		flowStepsImplementation.verifyElementAbsent("(//input[@name='reassignButton'])[1]");
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
 	@Then("User can verify that Re-assign option is not available for  COMPLETED tab")
 	public void user_can_verify_that_Re_assign_option_is_not_available_for_COMPLETED_tab() throws Exception {
-		CommonUtils.click(adminFlowPage.completedTab);
+		CommonUtils.clickOnElement(adminFlowPage.completedTab);
 		MiscUtils.sleep(5000);
 		flowStepsImplementation.verifyElementAbsent("(//input[@name='reassignButton'])[1]");
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		;
 	}
 
@@ -496,13 +496,13 @@ public class AdminFlowSteps extends PageInitializer {
 
 	@When("User performs a wide search")
 	public void user_performs_a_wide_search() {
-		CommonUtils.click(adminFlowPage.transDivisionalResearchProgram);
+		CommonUtils.clickOnElement(adminFlowPage.transDivisionalResearchProgram);
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clearByJS(adminFlowPage.researcherLastNameField);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(adminFlowPage.searchButtonResearcherID);
+		CommonUtils.clickOnElement(adminFlowPage.searchButtonResearcherID);
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can verify that the data returned contains all authorized DCEGCS users and their corresponding available Researcher ID's")
@@ -516,9 +516,9 @@ public class AdminFlowSteps extends PageInitializer {
 
 	@Then("User will see create a researcher id option")
 	public void user_will_see_create_a_researcher_id_option() {
-		CommonUtils.click(adminFlowPage.createResearcherID);
+		CommonUtils.clickOnElement(adminFlowPage.createResearcherID);
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User logged in as ALBANES DEMETRIUS user")
@@ -534,9 +534,9 @@ public class AdminFlowSteps extends PageInitializer {
 	@When("User picks Publication Status as Pending Submission")
 	public void user_picks_Publication_Status_as_Pending_Submission() {
 		JavascriptUtils.scrollIntoView(adminFlowPage.pendingSubmissionStatus);
-		CommonUtils.click(adminFlowPage.pendingSubmissionStatus);
+		CommonUtils.clickOnElement(adminFlowPage.pendingSubmissionStatus);
 		MiscUtils.sleep(4000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can verify that publications in Pending Submission status are editable")
@@ -550,12 +550,12 @@ public class AdminFlowSteps extends PageInitializer {
 
 	@When("User picks Publication Status as Submitted for Publication")
 	public void user_picks_Publication_Status_as_Submitted_for_Publication() {
-		CommonUtils.click(adminFlowPage.pendingSubmissionStatus);
+		CommonUtils.clickOnElement(adminFlowPage.pendingSubmissionStatus);
 		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(adminFlowPage.submittedForPublicationStatus);
-		CommonUtils.click(adminFlowPage.submittedForPublicationStatus);
+		CommonUtils.clickOnElement(adminFlowPage.submittedForPublicationStatus);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can verify that publications in Submitted for Publication status are editable")
@@ -569,12 +569,12 @@ public class AdminFlowSteps extends PageInitializer {
 
 	@When("User picks Publication Status as Accepted for Publication\\/In Press")
 	public void user_picks_Publication_Status_as_Accepted_for_Publication_In_Press() {
-		CommonUtils.click(adminFlowPage.submittedForPublicationStatus);
+		CommonUtils.clickOnElement(adminFlowPage.submittedForPublicationStatus);
 		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(adminFlowPage.accecptedForPublicationStatus);
-		CommonUtils.click(adminFlowPage.accecptedForPublicationStatus);
+		CommonUtils.clickOnElement(adminFlowPage.accecptedForPublicationStatus);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can verify that publications in Accepted for Publication\\/In Press status are editable")
@@ -588,12 +588,12 @@ public class AdminFlowSteps extends PageInitializer {
 
 	@When("User picks Publication Status as E-Published \\(ahead of print)")
 	public void user_picks_Publication_Status_as_E_Published_ahead_of_print() {
-		CommonUtils.click(adminFlowPage.accecptedForPublicationStatus);
+		CommonUtils.clickOnElement(adminFlowPage.accecptedForPublicationStatus);
 		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(adminFlowPage.epublishedStatus);
-		CommonUtils.click(adminFlowPage.epublishedStatus);
+		CommonUtils.clickOnElement(adminFlowPage.epublishedStatus);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can verify that publications in E-Published \\(ahead of print) status are editable")
@@ -607,12 +607,12 @@ public class AdminFlowSteps extends PageInitializer {
 
 	@When("User picks Publication Status as Published")
 	public void user_picks_Publication_Status_as_Published() {
-		CommonUtils.click(adminFlowPage.epublishedStatus);
+		CommonUtils.clickOnElement(adminFlowPage.epublishedStatus);
 		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(adminFlowPage.publishedStatus);
-		CommonUtils.click(adminFlowPage.publishedStatus);
+		CommonUtils.clickOnElement(adminFlowPage.publishedStatus);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can verify that publications in Published status are editable")
@@ -627,23 +627,23 @@ public class AdminFlowSteps extends PageInitializer {
 
 	@When("User picks Publication Status as Not Published\\/Abandoned")
 	public void user_picks_Publication_Status_as_Not_Published_Abandoned() {
-		CommonUtils.click(adminFlowPage.publishedStatus);
+		CommonUtils.clickOnElement(adminFlowPage.publishedStatus);
 		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(adminFlowPage.notPublishedStatus);
-		CommonUtils.click(adminFlowPage.notPublishedStatus);
+		CommonUtils.clickOnElement(adminFlowPage.notPublishedStatus);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can verify that publications status can be reset to Published")
 	public void user_can_verify_that_publications_status_can_be_reset_to_Published() {
-		CommonUtils.click(adminFlowPage.viewFirstUnpublishedReq);
+		CommonUtils.clickOnElement(adminFlowPage.viewFirstUnpublishedReq);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(adminFlowPage.publicationStatusDropdown);
+		CommonUtils.clickOnElement(adminFlowPage.publicationStatusDropdown);
 		MiscUtils.sleep(3000);
-		CommonUtils.click(adminFlowPage.publishedDropdownChoice);
+		CommonUtils.clickOnElement(adminFlowPage.publishedDropdownChoice);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
@@ -652,17 +652,17 @@ public class AdminFlowSteps extends PageInitializer {
 			io.cucumber.datatable.DataTable data) {
 		Map<String, String> states = CommonUtil.getMapFromDataTable(data);
 		Assert.assertTrue(adminFlowPage.draftClRequestStatus.isDisplayed(), states.get("state1"));
-		CommonUtils.click(adminFlowPage.draftClRequestStatus);
+		CommonUtils.clickOnElement(adminFlowPage.draftClRequestStatus);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		Assert.assertTrue(adminFlowPage.submittedForVerificationClRequestStatus.isDisplayed(), states.get("state2"));
-		CommonUtils.click(adminFlowPage.submittedForVerificationClRequestStatus);
+		CommonUtils.clickOnElement(adminFlowPage.submittedForVerificationClRequestStatus);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		Assert.assertTrue(adminFlowPage.returnedForRevisionClRequestStatus.isDisplayed(), states.get("state3"));
-		CommonUtils.click(adminFlowPage.returnedForRevisionClRequestStatus);
+		CommonUtils.clickOnElement(adminFlowPage.returnedForRevisionClRequestStatus);
 		MiscUtils.sleep(3000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
@@ -676,12 +676,12 @@ public class AdminFlowSteps extends PageInitializer {
 				}
 			}
 			MiscUtils.sleep(3000);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
 			}
-			CommonUtils.click(adminFlowPage.paginationRight);
+			CommonUtils.clickOnElement(adminFlowPage.paginationRight);
 		}
 
 	}
@@ -696,12 +696,12 @@ public class AdminFlowSteps extends PageInitializer {
 				}
 			}
 			MiscUtils.sleep(3000);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
 			}
-			CommonUtils.click(adminFlowPage.paginationRight);
+			CommonUtils.clickOnElement(adminFlowPage.paginationRight);
 		}
 	}
 	
@@ -715,12 +715,12 @@ public class AdminFlowSteps extends PageInitializer {
 				}
 			}
 			MiscUtils.sleep(3000);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
 			}
-			CommonUtils.click(adminFlowPage.paginationRight);
+			CommonUtils.clickOnElement(adminFlowPage.paginationRight);
 			
 		}
 	}

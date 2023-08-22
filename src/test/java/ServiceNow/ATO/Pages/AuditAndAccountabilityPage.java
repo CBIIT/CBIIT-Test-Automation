@@ -36,6 +36,6 @@ public class AuditAndAccountabilityPage extends BasePage{
 
 	
 	public AuditAndAccountabilityPage() {
-		PageFactory.initElements(WebDriverUtils.getWebDriver(), this);
+		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 }

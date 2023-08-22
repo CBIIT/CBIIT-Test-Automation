@@ -1,8 +1,6 @@
-Feature: CRS Reviewers Test Scenarios 
-
-Description: This feature file contains test scenarios related to CRS Reviewers
+Feature: CRS Reviewers Test Scenarios
    
-  @SS-3450 @Regression @bucurgb @Regression @Smoke
+  @SS-3450 @bucurgb @Regression @Smoke
   Scenario: Verifying New OM Category Type - Service Portal
     Given a CRS reviewer is logged into NERDs CRS Knowledge Management System
     When adding a new OM entry
@@ -11,4 +9,15 @@ Description: This feature file contains test scenarios related to CRS Reviewers
     And when selecting Other "Other"
     Then the If Other is selected above, please specify "If Other is selected above, please specify" field displays
 
- 
+  @SS-3871 @SS-3938 @chaudhryma @Regression
+  Scenario: Test Special topics filter missing "Women's Health"
+    Given a CRS reviewer is logged into NERDs CRS Knowledge Management System
+    And clicks the "Special Topic" filter
+    Then the field options are "All", "Big data/Data sharing", "COVID-19","Communications","Early Detection","Metastatic","Minority health/Health disparities","Moonshot","Partnerships","Pediatric","Rare", "Report/Guidance/Policy", "Sex/Gender differences", "Training/Workforce development", "Women's health", and "Workforce"
+
+  @SS-3481 @SS-3499 @chaudhryma @Regression
+  Scenario: Verifying COVID added to OM category type
+    Given a CRS reviewer is logged into NERDs CRS Knowledge Management System
+    When adding a new OM entry
+    Then OM Content Type "OM Content Type" displays
+    Then the following check box option is displayed as COVID19 Leadership Messages "COVID-19 Leadership Messages"

@@ -30,7 +30,7 @@ public class ETDBasePage extends CommonUtils {
 
 	public ETDBasePage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
-		this.driver = WebDriverUtils.getWebDriver();
+		this.driver = WebDriverUtils.webDriver;
 		wait = new WebDriverWait(this.driver,Duration.ofSeconds(30));
 	}
 
@@ -96,7 +96,7 @@ public class ETDBasePage extends CommonUtils {
 	}
 
 	public void moveToElementByXpath(WebElement element) {
-		Actions actions = new Actions(WebDriverUtils.getWebDriver());
+		Actions actions = new Actions(WebDriverUtils.webDriver);
 		wait.until(ExpectedConditions.visibilityOf(element));
 		actions.moveToElement(element).perform();
 

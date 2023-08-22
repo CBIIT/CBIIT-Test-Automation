@@ -92,7 +92,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		JavascriptUtils.drawBlueBorder(
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsRvsStatusDropDown);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Given("a user has logged into the COVIDcode application in Native View")
@@ -110,7 +110,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		nativeViewEnrollementsPage.nativeViewPanelNavigatorMyInquiryTrackingRecordsLink.click();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Given("opens a new  Inquiry Tracking record by clicking on {string} button")
@@ -125,7 +125,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		MiscUtils.sleep(3000);
 		nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactTab.click();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
@@ -138,27 +138,27 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		JavascriptUtils.drawBlueBorder(
 				nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactCovidTestResult_F_U_1Text);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		Assert.assertTrue(nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactCovidTestResult_F_U_2Text
 				.getText().contentEquals(CovidTestResult_F_U_2));
 		JavascriptUtils.drawBlueBorder(
 				nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactCovidTestResult_F_U_2Text);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		Assert.assertTrue(
 				nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactCOVIDtestResultReceivedQuestionText
 						.getText().contentEquals(COVIDtestResultReceived));
 		JavascriptUtils.drawBlueBorder(
 				nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactCOVIDtestResultReceivedQuestionText);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		Assert.assertTrue(
 				nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactTelephoneInterviewDate_timeText
 						.getText().contentEquals(TelephoneInterviewDate_time));
 		JavascriptUtils.drawBlueBorder(
 				nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactTelephoneInterviewDate_timeText);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
@@ -188,7 +188,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 				"11-17-2020");
 		JavascriptUtils.drawBlueBorder(
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsRvsPaymentRequestedDatefField);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
@@ -230,7 +230,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		nativeViewEnrollmentViewPage.diseaseCoursesDrugTreatmentsLockButton.click();
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Given("a COVIDCode App Admin users is in the Native View")
@@ -276,7 +276,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		nativeViewEnrollmentViewPage.diseaseCoursesDrugTreatmentsSearchbar.sendKeys(Keys.ENTER);
 		nativeViewEnrollmentViewPage.diseaseCoursesDrugTreatmentsLockButton.click();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Given("a COVIDCode App Admin user is in Native View")
@@ -303,16 +303,16 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 	@Then("{string} and {string} are available as field options")
 	public void and_are_available_as_field_options(String FedexRequested, String AppointmentMade) {
 		CommonUtils.selectDropDownValue(FedexRequested, nativeViewEnrollementsPage.specimensSampleOutcomeDD);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(2000);
 		Assert.assertTrue(nativeViewEnrollementsPage.specimensSampleOutcomeDD.getText().contains(FedexRequested));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(2000);
 		CommonUtils.selectDropDownValue(AppointmentMade, nativeViewEnrollementsPage.specimensSampleOutcomeDD);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(2000);
 		Assert.assertTrue(nativeViewEnrollementsPage.specimensSampleOutcomeDD.getText().contains(AppointmentMade));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Given("a Study Nurse is in Native view")
@@ -336,7 +336,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		Assert.assertTrue(nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactAssignedToText.getText()
 				.contentEquals(AssignedTo));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(1000);
 	}
 
@@ -367,7 +367,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		Assert.assertTrue(nativeViewEnrollementsPage.myInquiryTrackingRecordsStudyTeamContactAssignedToMeNameText
 				.getText().contentEquals(Name));
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Given("a Study Nurse is in Native View")
@@ -438,7 +438,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsInchesErrorMessage);
 		Assert.assertTrue(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsInchesErrorMessage.getText()
 				.contentEquals(errorMessage));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("on the Follow Up form in Native View")
@@ -463,7 +463,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		nativeViewEnrollementsPage.covidCodeEnrollmentsNewButton.click();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("the user is able to see the {string} and {string} fields in Native View")
@@ -473,7 +473,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		Assert.assertTrue(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewHospitalNameText.getText()
 				.contentEquals(hospitalName));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Given("a COVIDCode user is on the Initial questionnaire page in Native View")
@@ -484,7 +484,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		nativeViewEnrollementsPage.covidCodeEnrollmentsNewButton.click();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("the systems does not allow any future dates to be selected for the any date picker")
@@ -506,7 +506,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsWhatIsYourDateOfBirthSelectedDateCannotBeInTheFutureText
 						.getText().contentEquals("Selected date cannot be in the future."));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyTab);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyTab.click();
 		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyWereYouSymptomaticDropDown);
@@ -531,7 +531,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyDateOfficiallyDiagnosedSelectedDateCannotBeInTheFutureText
 						.getText().contentEquals("Selected date cannot be in the future."));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsTab);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsTab.click();
 		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsConsentedDate);
@@ -578,7 +578,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewParticipantEventsMedicalReleaseAuthorizationSignedSelectedDateCannotBeInTheFutureText
 						.getText().contentEquals("Selected date cannot be in the future."));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineTab);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineTab.click();
 		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineHaveYouReceivedYourFirstCOVIDVaccineDD);
@@ -607,7 +607,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewVaccineHaveYouReceivedYourSecondVaccineSelectedDateCannotBeInTheFutureText
 						.getText().contentEquals("Selected date cannot be in the future."));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Given("COVIDCode user is on the Follow Up form page in Native View")
@@ -620,7 +620,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		nativeViewEnrollementsPage.covidCodeEnrollmentsNewButton.click();
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("the system does not allow any future dates to be selected for the any date picker")
@@ -638,7 +638,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 				nativeViewEnrollmentViewPage.nativeViewFollowUpDemographicsWhatIsYourDateOfBirthSelectedDateCannotBeInTheFutureText
 						.getText().contentEquals("Selected date cannot be in the future."));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		nativeViewEnrollmentViewPage.nativeViewFollowUpSymptomologyTab.click();
 		CommonUtils.selectDropDownValue("Yes",
 				nativeViewEnrollmentViewPage.nativeViewFollowUpSymptomologyWereYouSymptomaticDropDown);
@@ -656,7 +656,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 				nativeViewEnrollmentViewPage.nativeViewFollowUpSymptomologyDateOfficiallyDiagnosedSelectedDateCannotBeInTheFutureText
 						.getText().contentEquals("Selected date cannot be in the future."));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		nativeViewEnrollmentViewPage.nativeViewFollowUpParticipantEventsTab.click();
 		nativeViewEnrollmentViewPage.nativeViewFollowUpParticipantEventsConsentedDate.sendKeys("02/22/2026");
 		MiscUtils.sleep(1000);
@@ -696,7 +696,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 				nativeViewEnrollmentViewPage.nativeViewFollowUpParticipantEventsMedicalReleaseAuthorizationSignedSelectedDateCannotBeInTheFutureText
 						.getText().contentEquals("Selected date cannot be in the future."));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		nativeViewEnrollmentViewPage.nativeViewFollowUpVaccineTab.click();
 		CommonUtils.selectDropDownValue("Yes",
 				nativeViewEnrollmentViewPage.nativeViewFollowUpVaccineHaveYouReceivedYourFirstCOVIDVaccineDD);
@@ -718,7 +718,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 				nativeViewEnrollmentViewPage.nativeViewFollowUpVaccineHaveYouReceivedYourSecondVaccineSelectedDateCannotBeInTheFutureText
 						.getText().contentEquals("Selected date cannot be in the future."));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("on the enrollment form in Native View")
@@ -746,7 +746,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		Assert.assertTrue(
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyHaveYouOfficiallyBeenDiagnosedWithCOVID19Text
 						.getText().contentEquals(haveYouBeenDiagnozed));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("a COVIDcode user is logged into the COVIDcode application in Native View")
@@ -764,9 +764,9 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		nativeViewStepsImpl.nativeViewNavigateToCovidCodeEnrollmentQuestionnaire();
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(nativeViewEnrollementsPage.covidCodeEnrollmentsNewButton);
+		CommonUtils.clickOnElement(nativeViewEnrollementsPage.covidCodeEnrollmentsNewButton);
 		;
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.selectDropDownValue(groupNumber,
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewUserGroupIDDropDown);
 		CommonUtils.sendKeys(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewPatientLastNameField, "TestLastName");
@@ -795,17 +795,17 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		
 		
 		//CONTINUE HERE
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("the COVIDcode Admin user uploads files in various formats")
 	public void the_COVIDcode_Admin_user_uploads_files_in_various_formats() {
-		CommonUtils.click(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewAddAttachmentTopButton);
+		CommonUtils.clickOnElement(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewAddAttachmentTopButton);
 		MiscUtils.sleep(3000);
 		CommonUtils.sendKeys(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewChooseFileAttachmentsButton,
 				COVIDConstants.DOC_PATH);
 		MiscUtils.sleep(6000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
@@ -814,19 +814,19 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		Assert.assertEquals("[download]",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewChooseFileAttachmentsDownloadText.getText());
 		MiscUtils.sleep(1000);
-		CommonUtils.click(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewChooseFileAttachmentsCloseButton);
+		CommonUtils.clickOnElement(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewChooseFileAttachmentsCloseButton);
 	}
 
 	@When("the COVIDcode Admin user submits the Initial Questionnaire")
 	public void the_COVIDcode_Admin_user_submits_the_Initial_Questionnaire() {
 		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSubmitForReviewButton);
-		CommonUtils.click(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSubmitForReviewButton);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CommonUtils.clickOnElement(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSubmitForReviewButton);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("the COVIDcode Admin user should be able to see the files uploaded")
 	public void the_COVIDcode_Admin_user_should_be_able_to_see_the_files_uploaded() {
-		CommonUtils.click(nativeViewEnrollmentViewPage.nativeViewAllBreadCrumbLink);
+		CommonUtils.clickOnElement(nativeViewEnrollmentViewPage.nativeViewAllBreadCrumbLink);
 		MiscUtils.sleep(5000);
 		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.covidCodeEnrollmentsSearchDropDown);
 		CommonUtils.selectDropDownValue(nativeViewEnrollementsPage.covidCodeEnrollmentsSearchDropDown, "zztextsearchyy");
@@ -837,17 +837,17 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		MiscUtils.sleep(3000);
 		JavascriptUtils.clickByJS(nativeViewSentViewPage.nativeViewPreviewVerifyEmailIcon);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(nativeViewSentViewPage.NativeViewPreviewVerifyEmailOpenRecordButton);
+		CucumberLogUtils.logScreenshot();
+		CommonUtils.clickOnElement(nativeViewSentViewPage.NativeViewPreviewVerifyEmailOpenRecordButton);
 		MiscUtils.sleep(2000);
 		Assert.assertTrue(
 				nativeViewEnrollementsPage.nativeViewDownloadAttachmentLink.getText().contentEquals("[download]"));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(3000);
-		CommonUtils.click(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDeleteTopButton);
+		CommonUtils.clickOnElement(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDeleteTopButton);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDeleteDeleteSubmissionPopUpDeleteButton);
+		CucumberLogUtils.logScreenshot();
+		CommonUtils.clickOnElement(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDeleteDeleteSubmissionPopUpDeleteButton);
 
 	}
 
@@ -862,7 +862,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		JavascriptUtils.drawRedBorder(nativeViewEnrollementsPage.specimenSampleCodeLink);
 		Assert.assertTrue(nativeViewEnrollementsPage.specimenSampleCodeLink.getText().trim().contains(sampleCode));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Given("a COVIDcode user is on the existing Initial Questionnaire form")
@@ -889,7 +889,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		JavascriptUtils.drawRedBorder(nativeViewEnrollmentViewPage.nativeViewEnrollmentWhichOrgansShowFailureText);
 		Assert.assertTrue(nativeViewEnrollmentViewPage.nativeViewEnrollmentWhichOrgansShowFailureText.getText().trim()
 				.contentEquals(whichOrgansFailed));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("field options are: Liver, Kidney, Lungs, Heart, Central Nervous system, Hematologic System, Other, Other \\(free text field)")
@@ -907,7 +907,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		JavascriptUtils.scrollIntoView(nativeViewEnrollmentViewPage.failedOrganOtherTextBox);
 		nativeViewEnrollmentViewPage.failedOrganOtherTextBox.sendKeys("Test");
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("a COVIDCode provider is on the Disease Course section on the Follow Up Form in Native View")
@@ -920,7 +920,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
 		MiscUtils.sleep(500);
 		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewFollowUpAllBreadCrumbLink);
-		CommonUtils.click(nativeViewEnrollmentViewPage.nativeViewFollowUpAllBreadCrumbLink);	
+		CommonUtils.clickOnElement(nativeViewEnrollmentViewPage.nativeViewFollowUpAllBreadCrumbLink);
 		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.covidCodeFollowUpsGroup1link);
 		nativeViewEnrollementsPage.covidCodeFollowUpsGroup1link.click();
 		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDiseaseCoursesNewButton);
@@ -955,7 +955,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		JavascriptUtils.scrollIntoView(nativeViewEnrollmentViewPage.otherDrugTreatmentsTextBox);
 		nativeViewEnrollmentViewPage.otherDrugTreatmentsTextBox.sendKeys("Test");
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Given("a COVIDcode User logs into the COVIDcode application in Native View")

@@ -24,7 +24,7 @@ public class COVIDHomePageImpl extends PageInitializer {
 
 	public void navigateToCOVIDDashLoginPage() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("covid19dashboard"));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	public void clickOnLoginToAccessBtn() {
@@ -36,19 +36,19 @@ public class COVIDHomePageImpl extends PageInitializer {
 	public void verifyUserLoggedIn() {
 		MiscUtils.sleep(3000);
 		Assert.assertTrue(WebDriverUtils.webDriver.getCurrentUrl().contains(covid));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	public void loginToCovidDashboard() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("covid19dashboard"));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(2000);
 		covidHomePage.clickITrustRedirectButton();
 		MiscUtils.sleep(2060);
 		loginImpl.loginToITrust();
 		iTrustloginPage.clickSignInButton();
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	public void verifyFieldsAreDiabled() {
@@ -68,7 +68,7 @@ public class COVIDHomePageImpl extends PageInitializer {
 		Assert.assertEquals(dvsn, covidHomePage.divisionField().getAttribute(attName));
 		Assert.assertEquals(piEml, covidHomePage.emailAddressField().getAttribute(attName).substring(12));
 		Assert.assertEquals(piPhn, covidHomePage.phonNumberField().getAttribute(attName));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	public void submitButtonIsDisbaled() {

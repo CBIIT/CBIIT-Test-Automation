@@ -19,7 +19,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.web.WebDriverUtils;
 
 public class BasePage {
@@ -30,10 +29,10 @@ public class BasePage {
 
 	static String TAB_HEADER = "//span[@class='tab_header']//span[contains(text(), 'tabName')]"; // Change tabName
 
-	public BasePage() {
-		this.driver = WebDriverUtils.getWebDriver();
-		wait = new WebDriverWait(this.driver, Duration.ofSeconds(40));
-	}
+//	public BasePage() {
+//		this.driver = WebDriverUtils.getWebDriver();
+//		wait = new WebDriverWait(this.driver, Duration.ofSeconds(40));
+//	}
 
 	protected WebElement getElementByXpath(String xpath) {
 		return driver.findElement(By.xpath(xpath));
@@ -220,31 +219,6 @@ public class BasePage {
 		}
 		// Switching to Parent window i.e Main Window.
 		driver.switchTo().window(MainWindow);
-	}
-
-	public void captureScreenshot(String fileName) {
-		// String destination = HookSteps.foldeName +"/"+ captureCount + ". " + fileName
-		// + ".png";
-		// TakesScreenshot ts = (TakesScreenshot) driver;
-		// File source = ts.getScreenshotAs(OutputType.FILE);
-		/*
-		 * File finalDestination = new File(destination); try {
-		 * FileUtils.copyFile(source, finalDestination); } catch (IOException e) {
-		 * e.printStackTrace(); } captureCount++;
-		 */
-		if (ScenarioContext.scenario.get() == null) {
-			return;
-		}
-		byte[] screenshot = ((TakesScreenshot) WebDriverUtils.getWebDriver()).getScreenshotAs(OutputType.BYTES);
-//		ScenarioContext.scenario.get().write(DateUtils.getLogTime() + ": Screenshot: " + fileName);
-		if (ScenarioContext.isTakeScreenShots()) {
-			try {
-//				ScenarioContext.scenario.get().embed(screenshot, "image/png");
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
 	}
 
 	public void clickOnButton(String btnName) {

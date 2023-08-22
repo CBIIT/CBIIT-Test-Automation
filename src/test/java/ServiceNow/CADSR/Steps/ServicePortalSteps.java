@@ -5,11 +5,8 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.testng.Assert;
 
-import com.nci.automation.common.QcTestResult;
-import com.nci.automation.common.ScenarioContext;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.EncryptionUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
@@ -504,7 +501,7 @@ public class ServicePortalSteps {
 
 	@After
 	public void genericTearDown(Scenario s) throws TestingException {
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		if (WebDriverUtils.webDriver != null) {
 			WebDriverUtils.closeWebDriver();
 			PageCache.getInstance().destroyInstances();

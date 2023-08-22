@@ -21,6 +21,7 @@ reports/.DS_Store
 /.idea/
 /.idea
 /test-output/
+test-output
 .apt_generated
 .apt_generated_tests
 .vscode
@@ -44,3 +45,6 @@ src/main/java/com/nci/automation/dao/PasswordEncrypter.java
 src/main/.DS_Store
 src/test/java/ServiceNow/BrownBag
 src/main/resources/conf/.DS_Store
+src/test/resources/.DS_Store
+src/main/java/com/drivers/.DS_Store
+

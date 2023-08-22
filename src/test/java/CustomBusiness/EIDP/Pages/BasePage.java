@@ -22,7 +22,7 @@ public class BasePage extends CommonUtils{
 
 	public BasePage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
-		this.driver = WebDriverUtils.getWebDriver();
+		this.driver = WebDriverUtils.webDriver;
 		wait = new WebDriverWait(this.driver, Duration.ofSeconds(30));
 	
 	}

@@ -121,55 +121,55 @@ public class FlowStepsImplementation extends PageInitializer {
 
 	public void uploadManuscript() {
 		MiscUtils.sleep(3000);
-		WebElement uploadFile = WebDriverUtils.getWebDriver().findElement(By.xpath("//input[@name='upload']"));
+		WebElement uploadFile = WebDriverUtils.webDriver.findElement(By.xpath("//input[@name='upload']"));
 		MiscUtils.sleep(3000);
 		uploadFile.sendKeys("C:\\Users\\zamant2\\Desktop\\TEST-DATA\\Manuscript.docx");
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(3000);
 	}
 
 	public void uploadDataSharing() {
 		MiscUtils.sleep(3000);
-		WebElement uploadFile = WebDriverUtils.getWebDriver().findElement(By.xpath("//input[@name='upload']"));
+		WebElement uploadFile = WebDriverUtils.webDriver.findElement(By.xpath("//input[@name='upload']"));
 		MiscUtils.sleep(3000);
 		uploadFile.sendKeys("C:\\Users\\zamant2\\Desktop\\TEST-DATA\\DataSharingPLan.pdf");
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(3000);
 	}
 
 	public void uploadAbstract() {
 		MiscUtils.sleep(3000);
-		WebElement uploadFile = WebDriverUtils.getWebDriver().findElement(By.xpath("//input[@name='upload']"));
+		WebElement uploadFile = WebDriverUtils.webDriver.findElement(By.xpath("//input[@name='upload']"));
 		MiscUtils.sleep(3000);
 		uploadFile.sendKeys("C:\\Users\\zamant2\\Desktop\\TEST-DATA\\Abstract.docx");
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(3000);
 	}
 
 	public void selectRole(String role) {
 		switch (role) {
 		case "Reviewer":
-			CommonUtils.click(adminFlowPage.dropdownRole);
+			CommonUtils.clickOnElement(adminFlowPage.dropdownRole);
 			MiscUtils.sleep(2000);
-			CommonUtils.click(adminFlowPage.selectAllCheckmark);
+			CommonUtils.clickOnElement(adminFlowPage.selectAllCheckmark);
 			MiscUtils.sleep(2000);
-			CommonUtils.click(adminFlowPage.reviewerCheckmark);
+			CommonUtils.clickOnElement(adminFlowPage.reviewerCheckmark);
 			MiscUtils.sleep(2000);
 			break;
 		case "Requestor":
-			CommonUtils.click(adminFlowPage.dropdownRole);
+			CommonUtils.clickOnElement(adminFlowPage.dropdownRole);
 			MiscUtils.sleep(2000);
-			CommonUtils.click(adminFlowPage.selectAllCheckmark);
+			CommonUtils.clickOnElement(adminFlowPage.selectAllCheckmark);
 			MiscUtils.sleep(2000);
-			CommonUtils.click(adminFlowPage.requestorCheckmark);
+			CommonUtils.clickOnElement(adminFlowPage.requestorCheckmark);
 			MiscUtils.sleep(2000);
 			break;
 		case "Submitter":
-			CommonUtils.click(adminFlowPage.anyDrop);
+			CommonUtils.clickOnElement(adminFlowPage.anyDrop);
 			MiscUtils.sleep(2000);
-			CommonUtils.click(adminFlowPage.checkedRequesterMark);
+			CommonUtils.clickOnElement(adminFlowPage.checkedRequesterMark);
 			MiscUtils.sleep(2000);
-			CommonUtils.click(adminFlowPage.submitterCheckmark);
+			CommonUtils.clickOnElement(adminFlowPage.submitterCheckmark);
 			MiscUtils.sleep(2000);
 			break;
 		}
@@ -180,53 +180,53 @@ public class FlowStepsImplementation extends PageInitializer {
 		case "DOGBE, NADIA":
 			String clearanceID = adminFlowPage.cR.getText();
 			System.out.println(clearanceID);
-			CommonUtils.click(adminFlowPage.firstCRcheckbox);
+			CommonUtils.clickOnElement(adminFlowPage.firstCRcheckbox);
 			MiscUtils.sleep(2000);
-			CommonUtils.click(adminFlowPage.reassign);
+			CommonUtils.clickOnElement(adminFlowPage.reassign);
 			MiscUtils.sleep(2000);
-			CommonUtils.click(adminFlowPage.reassigName);
+			CommonUtils.clickOnElement(adminFlowPage.reassigName);
 			MiscUtils.sleep(2000);
 			CommonUtils.sendKeys(adminFlowPage.reassigName, "DOGBE, NADIA");
 			MiscUtils.sleep(2000);
-			CommonUtils.click(adminFlowPage.dogbeNadiaDropdown);
+			CommonUtils.clickOnElement(adminFlowPage.dogbeNadiaDropdown);
 			MiscUtils.sleep(2000);
-			CommonUtils.click(adminFlowPage.reassignDialogButton);
+			CommonUtils.clickOnElement(adminFlowPage.reassignDialogButton);
 			MiscUtils.sleep(2000);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			break;
 		case "HOLMES-LILLIE, SADIE":
 			String clearanceID1 = adminFlowPage.cR.getText();
 			System.out.println(clearanceID1);
-			CommonUtils.click(adminFlowPage.firstCRcheckbox);
+			CommonUtils.clickOnElement(adminFlowPage.firstCRcheckbox);
 			MiscUtils.sleep(2000);
-			CommonUtils.click(adminFlowPage.reassign);
+			CommonUtils.clickOnElement(adminFlowPage.reassign);
 			MiscUtils.sleep(2000);
-			CommonUtils.click(adminFlowPage.reassigName);
+			CommonUtils.clickOnElement(adminFlowPage.reassigName);
 			MiscUtils.sleep(2000);
 			CommonUtils.sendKeys(adminFlowPage.reassigName, "HOLMES-LILLIE, SADIE");
 			MiscUtils.sleep(2000);
-			CommonUtils.click(adminFlowPage.HOLMESSADIEDropdown);
+			CommonUtils.clickOnElement(adminFlowPage.HOLMESSADIEDropdown);
 			MiscUtils.sleep(2000);
-			CommonUtils.click(adminFlowPage.reassignDialogButton);
+			CommonUtils.clickOnElement(adminFlowPage.reassignDialogButton);
 			MiscUtils.sleep(2000);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			break;
 		case "CHANG, VICKY":
 			String clearanceID2 = adminFlowPage.cR.getText();
 			System.out.println(clearanceID2);
-			CommonUtils.click(adminFlowPage.firstCRcheckbox);
+			CommonUtils.clickOnElement(adminFlowPage.firstCRcheckbox);
 			MiscUtils.sleep(2000);
-			CommonUtils.click(adminFlowPage.reassign);
+			CommonUtils.clickOnElement(adminFlowPage.reassign);
 			MiscUtils.sleep(2000);
-			CommonUtils.click(adminFlowPage.reassigName);
+			CommonUtils.clickOnElement(adminFlowPage.reassigName);
 			MiscUtils.sleep(2000);
 			CommonUtils.sendKeys(adminFlowPage.reassigName, "CHANG, VICKY");
 			MiscUtils.sleep(2000);
-			CommonUtils.click(adminFlowPage.CHANGVICKYDropdown);
+			CommonUtils.clickOnElement(adminFlowPage.CHANGVICKYDropdown);
 			MiscUtils.sleep(2000);
-			CommonUtils.click(adminFlowPage.reassignDialogButton);
+			CommonUtils.clickOnElement(adminFlowPage.reassignDialogButton);
 			MiscUtils.sleep(2000);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			break;
 		}
 	}
@@ -291,78 +291,78 @@ public class FlowStepsImplementation extends PageInitializer {
 	public void loginasUser(String user) throws TestingException {
 	if (user.equals("Admin")) {
 		dcegLogin("GEOFFREY_TOBIAS");
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	} else if (user.equals("Branch chief")) {
 		dcegLogin("CHRISTIAN_ABNET");
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	} else if (user.equals("Division director")) {
 		dcegLogin("STEPHEN_CHANOCK");
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	} else if (user.equals("Program director")) {
 		dcegLogin("MONTSERRAT_GARCIA-CLOSAS");
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 }
 	public void submitCLrequest() {
-		CommonUtils.click(createCRPage.createClearanceRequestButton);
+		CommonUtils.clickOnElement(createCRPage.createClearanceRequestButton);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(createCRPage.casDropdown);
+		CommonUtils.clickOnElement(createCRPage.casDropdown);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(createCRPage.genProgramAdministration);
+		CommonUtils.clickOnElement(createCRPage.genProgramAdministration);
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(createCRPage.requesterField, "Albanes");
 		MiscUtils.sleep(2000);
-		CommonUtils.click(createCRPage.albanesDemetrius);
+		CommonUtils.clickOnElement(createCRPage.albanesDemetrius);
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.sendKeys(createCRPage.submissionTitleField,"Test submission title");
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(createCRPage.abstractField, "test abstract");
 		MiscUtils.sleep(2000);
-		CommonUtils.click(createCRPage.publication);
+		CommonUtils.clickOnElement(createCRPage.publication);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(createCRPage.publicationDropdown);
+		CommonUtils.clickOnElement(createCRPage.publicationDropdown);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(createCRPage.originJournlPublicationDropdown);
+		CommonUtils.clickOnElement(createCRPage.originJournlPublicationDropdown);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(createCRPage.nihRightConfirm);
+		CommonUtils.clickOnElement(createCRPage.nihRightConfirm);
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(createCRPage.journalField, "JNCI");
 		MiscUtils.sleep(2000);
-		CommonUtils.click(createCRPage.publisherCredibilityConfirm);
+		CommonUtils.clickOnElement(createCRPage.publisherCredibilityConfirm);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(createCRPage.publisherCredibilityConfirm);
+		CommonUtils.clickOnElement(createCRPage.publisherCredibilityConfirm);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(createCRPage.genomicDataGenerationConfirm);
+		CommonUtils.clickOnElement(createCRPage.genomicDataGenerationConfirm);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(createCRPage.labResourcesDeny);
+		CommonUtils.clickOnElement(createCRPage.labResourcesDeny);
 		MiscUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(createCRPage.dataSharingPlanPublication);
-		CommonUtils.click(createCRPage.dataSharingPlanPublication);
+		CommonUtils.clickOnElement(createCRPage.dataSharingPlanPublication);
 		MiscUtils.sleep(5000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		flowStepsImplementation.uploadDataSharing();
 		MiscUtils.sleep(2000);
-		CommonUtils.click(createCRPage.employeeInventionChoice);
+		CommonUtils.clickOnElement(createCRPage.employeeInventionChoice);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(createCRPage.selectAgentNo);
+		CommonUtils.clickOnElement(createCRPage.selectAgentNo);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(createCRPage.helixBiowulfYES);
+		CommonUtils.clickOnElement(createCRPage.helixBiowulfYES);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(createCRPage.btrisYES);
+		CommonUtils.clickOnElement(createCRPage.btrisYES);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(createCRPage.dualUseNO);
+		CommonUtils.clickOnElement(createCRPage.dualUseNO);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(createCRPage.highProfileYES);
+		CommonUtils.clickOnElement(createCRPage.highProfileYES);
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(createCRPage.authorsField, "test authors");
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(createCRPage.submitForReview);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(5000);
 	}
 }

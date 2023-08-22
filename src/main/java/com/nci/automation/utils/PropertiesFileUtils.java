@@ -14,41 +14,6 @@ import org.apache.commons.lang.StringUtils;
  */
 public class PropertiesFileUtils {
 
-	public Properties propertiesFile;
-
-	public PropertiesFileUtils(String filePath) {
-
-		propertiesFile = new Properties();
-		File inputFile = new File(filePath);
-
-		try {
-			FileInputStream fis = new FileInputStream(inputFile);
-			propertiesFile.load(fis);
-			MiscUtils.closeQuietly(fis);
-		}
-		catch(Exception e) {
-			CucumberLogUtils.logError("Error loading properties file");
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * This method will load the properties in to the System from given
-	 * {@code configPath} path.
-	 *
-	 * @param properties
-	 *            the properties object into which the properties from
-	 *            {@code configPath}.
-	 *
-	 * @param configPath
-	 *            the path to the config file to be loaded.
-	 *
-	 * @throws IOException
-	 *             if there is error accessing properties file from configPath.
-	 *
-	 * @throws NPE
-	 *             if {@code configPath} is blank OR properties is {@code null}
-	 */
 	public static void loadPropsFromResource(Properties properties,
 			String configPath)
 			throws IOException {
@@ -61,6 +26,5 @@ public class PropertiesFileUtils {
 			throw new NullPointerException(
 					"properties config path can not be null");
 		}
-
 	}
 }

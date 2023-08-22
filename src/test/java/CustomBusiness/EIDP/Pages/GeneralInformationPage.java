@@ -1,77 +1,100 @@
 package CustomBusiness.EIDP.Pages;
 
-import java.util.List;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-import CustomBusiness.EIDP.Util.CommonUtil;
 
 public class GeneralInformationPage extends CommonUtils{
 
-	@FindBy(how = How.ID, id = "currentYearOfTraining")
+	/* ------ Current year of training dropdown ------ */
+	@FindBy(id = "currentYearOfTraining")
 	public WebElement currentYearOfTrainingDropdown;
 	
-	@FindBy(how=How.ID, id = "highestDegreeObtained")
+	/* ------ Highest degree obtained dropdown ------ */
+	@FindBy(id = "highestDegreeObtained")
 	public WebElement highestDegreeDropdown2;
 	
-	@FindBy(how=How.ID, id = "highestdegreeSelect")
+	/* ------ Highest degree selection dropdown ------ */
+	@FindBy(id = "highestdegreeSelect")
 	public WebElement highestDegreeDropdown;
 
-	@FindBy(how = How.ID, id ="select2-primaryMentors-container")
+	/* ------ Primary Mentors name ------ */
+	@FindBy(id ="select2-primaryMentors-container")
 	public WebElement primaryMentorsName;
 	
-	@FindBy(how = How.XPATH,xpath="(//i[@class=\"fa fa-pencil\"])[1]" )
+	/* ------ General info edit button ------ */
+	@FindBy(xpath="(//i[@class=\"fa fa-pencil\"])[1]" )
 	public WebElement generalInformationEdit;
 	
-	@FindBy(how = How.ID, id ="select2-isCoPiSelect-container")
+	/* ------ Co-PM name ------ */
+	@FindBy(id ="select2-isCoPiSelect-container")
 	public WebElement coPrimaryMentorsName;
 	
-	@FindBy(how = How.ID, id= "select2-labbranchChief-container")
+	/* ------ LBO name dropdown ------ */
+	@FindBy(id= "select2-labbranchChief-container")
 	public WebElement labBranchNameDropdown;
 	
-	@FindBy(how = How.CSS, css="span[class='select2-search select2-search--dropdown'] input")
+	/* ------ Search input field ------ */
+	@FindBy(css="span[class='select2-search select2-search--dropdown'] input")
 	public WebElement searchInputField;
 	
-	@FindBy(how = How.CSS, css = "li[role='treeitem']")
+	/* ------ Role dropdown options ------ */
+	@FindBy(css = "li[role='treeitem']")
 	public WebElement dropdownOptions;
 	
-	@FindBy(how = How.ID, id= "btnSaveAndCont")
+	/* ------ save and continue button ------ */
+	@FindBy(id= "btnSaveAndCont")
 	public WebElement saveAndContinueButton;
 	
-	@FindBy(how = How.ID, id = "traineeName")
+	/* ------ Trainee name ------ */
+	@FindBy(id = "traineeName")
 	public WebElement traineeName;
 	
-	@FindBy(how = How.PARTIAL_LINK_TEXT, partialLinkText = "Decline IDP")
+	/* ------ Decline IDP button ------ */
+	@FindBy(partialLinkText = "Decline IDP")
 	public WebElement declineIDPButton;
 	
+	/* ------ General information tab ------ */
 	@FindBy(css = "a[href*='/idp/review-general']")
 	public WebElement generalInformationTab;
 	
+	/* ------ Review and take action button ------ */
 	@FindBy(xpath = "//span[text()='REVIEW & TAKE ACTION']")
 	public WebElement reviewAndTakeAction;
 	
+	/* ------ Send IDP to PM button ------ */
 	@FindBy(xpath="//input[@value=\"Send IDP to the Primary Mentor\"]")
 	public WebElement sendIdpToPrimaryMentor;
 	
+	/* ------ Yes button after submission ------ */
 	@FindBy(xpath="//button[@onclick=\"form_submit_onHold()\"]")
 	public WebElement yesButton;
 
-	@FindBy(how = How.ID, id = "trainingTitle")
+	/* ------ Current Title ------ */
+	@FindBy(id = "trainingTitle")
 	public WebElement currentTitle;
 	
-	@FindBy( how = How.XPATH, xpath ="(//a[@title='Proceed'])[1]")
+	/* ------ Proceed button ------ */
+	@FindBy(xpath ="(//a[@title='Proceed'])[1]")
 	public WebElement ProceedButton;
 	
-	@FindBy( how = How.XPATH, xpath ="(//a[@title='Completed'])[1]")
+	/* ------ General info completed button ------ */
+	@FindBy(xpath ="(//a[@title='Completed'])[1]")
 	public WebElement clickOnCompletedGeneralInfobutton;
 	
-	
-	@FindBy( how = How.XPATH, xpath ="//li[@id='advancedSearchtabs']")
+	/* ------ Advance search tab ------ */
+	@FindBy(xpath ="//li[@id='advancedSearchtabs']")
 	public WebElement searchSection;
+
+	/* ------ Co PM YES button ------ */
+	@FindBy(id = "coprimMentorYes")
+	public WebElement coPMYES;
+
+	/* ------ Co PM NO button ------ */
+	@FindBy(id = "coprimMentorNo")
+	public WebElement coPMNO;
 	
 	public GeneralInformationPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);

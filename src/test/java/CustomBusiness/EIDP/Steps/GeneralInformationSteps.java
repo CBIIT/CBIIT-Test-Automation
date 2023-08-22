@@ -17,23 +17,19 @@ import io.cucumber.datatable.DataTable;
 public class GeneralInformationSteps extends PageInitializer {
 
 	@When("User fills mandatory fields in general information")
-	public void fillGeneralInformation() throws Exception {
-		generalInformationStepImpl.fillGeneralInformation();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+	public void fillGeneralInformation(DataTable dataTable) throws Exception {
+		generalInformationStepImpl.fillGeneralInformation(dataTable);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User fills mandatory fields in general information section")
 	public void user_fills_mandatory_fields_in_general_information_section(io.cucumber.datatable.DataTable data)
 			throws Exception {
-		// if (CommonUtils.isElementPresent(By.id("orcidId"))) {
-		// 	CommonUtils.sendKeys(WebDriverUtils.webDriver.findElement(By.id("orcidId")), "9999-9999-9999-9999");
-		// }
 		Map<String, String> requestData = CommonUtil.getMapFromDataTable(data);
-		Thread.sleep(2000);
 		generalInformationStepImpl.enterPrimaryMentor(requestData.get("Primary Mentor"));
-		Thread.sleep(2000);
+		MiscUtils.sleep(2000);
 		generalInformationStepImpl.enterLabBranchName(requestData.get("Lab Driector name"));
-		Thread.sleep(2000);
+		MiscUtils.sleep(2000);
 		String coPrimaryMentor = requestData.get("Co Primary Mentor");
 		System.out.println("coPrimaryMentor = " + coPrimaryMentor);
 		if (coPrimaryMentor != null && !"".equals(coPrimaryMentor)) {
@@ -42,35 +38,18 @@ public class GeneralInformationSteps extends PageInitializer {
 		} else {
 			generalInformationStepImpl.doYouHaveCoPrimaryMentory(false);
 		}
-
-		try {
-			generalInformationStepImpl.selectRandomCurrentTitle();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		generalInformationStepImpl.selectRandomCurrentTitle();
 		generalInformationStepImpl.selectRandomHighestDegree();
 		CommonUtil.waitBrowser(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		generalInformationStepImpl.clickOnSaveAndContinueButton();
 	}
 
 	@When("User fills general information for renewal")
 	public void fillGeneralInformationForRenewal(DataTable data) throws Exception {
-		/*
-		 * Map<String, String> requestData = CommonUtil.getMapFromDataTable(data);
-		 * generalInformationStepImpl.enterPrimaryMentor(requestData.
-		 * get("Primary Mentor"));
-		 * generalInformationStepImpl.enterLabBranchName(requestData.
-		 * get("Lab Driector name")); String coPrimaryMentor =
-		 * requestData.get("Co Primary Mentor"); System.out.println("coPrimaryMentor = "
-		 * + coPrimaryMentor); if (coPrimaryMentor != null &&
-		 * !"".equals(coPrimaryMentor)) {
-		 * generalInformationStepImpl.doYouHaveCoPrimaryMentory(true);
-		 * generalInformationStepImpl.selectCoPrimaryMentor(coPrimaryMentor); }
-		 */
 		generalInformationStepImpl.selectRandomHighestDegree();
 		CommonUtil.waitBrowser(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		generalInformationStepImpl.clickOnSaveAndContinueButton();
 		MiscUtils.sleep(1000);
 	}
@@ -95,7 +74,7 @@ public class GeneralInformationSteps extends PageInitializer {
 		}
 		generalInformationStepImpl.selectRandomHighestDegree();
 		CommonUtil.waitBrowser(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		generalInformationStepImpl.clickOnSaveAndContinueButton();
 		MiscUtils.sleep(1000);
 	}
@@ -107,12 +86,9 @@ public class GeneralInformationSteps extends PageInitializer {
 
 	@When("User selects primary mentor as \"([^\"]*)\"")
 	public void selectPrimaryMentor(String name) throws Exception {
-		// if (CommonUtils.isElementPresent(By.id("orcidId"))) {
-		// 	CommonUtils.sendKeys(WebDriverUtils.webDriver.findElement(By.id("orcidId")), "9999-9999-9999-9999");
-		// }
 		generalInformationStepImpl.enterPrimaryMentor(name);
 		generalInformationStepImpl.selectRandomHighestDegree();
-		CommonUtil.waitBrowser(2000);
+		MiscUtils.sleep(2000);
 		generalInformationStepImpl.clickOnSaveAndContinueButton();
 	}
 
@@ -126,17 +102,17 @@ public class GeneralInformationSteps extends PageInitializer {
 
 	@When("User will click on Search tab")
 	public void user_will_click_on_Seacrh_tab() {
-		CommonUtils.click(generalInformationPage.searchSection);
+		CommonUtils.clickOnElement(generalInformationPage.searchSection);
 	}
 
 	@When("User clicks on Proceed button")
 	public void user_clicks_on_Proceed_button() {
-		CommonUtils.click(generalInformationPage.ProceedButton);
+		CommonUtils.clickOnElement(generalInformationPage.ProceedButton);
 	}
 
 	@Then("User will click on General Information section")
 	public void user_will_click_on_General_Information_section() {
-		CommonUtils.click(generalInformationPage.clickOnCompletedGeneralInfobutton);
+		CommonUtils.clickOnElement(generalInformationPage.clickOnCompletedGeneralInfobutton);
 
 	}
 
@@ -151,7 +127,7 @@ public class GeneralInformationSteps extends PageInitializer {
 
 		}
 		CommonUtil.waitBrowser(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 

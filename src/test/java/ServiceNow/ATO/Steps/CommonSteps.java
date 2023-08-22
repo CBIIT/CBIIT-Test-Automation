@@ -6,17 +6,11 @@ import io.cucumber.java.Scenario;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
-import com.nci.automation.common.QcTestResult;
-import com.nci.automation.common.ScenarioContext;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.ConfUtils;
-import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 
 import ServiceNow.ATO.Pages.BasePage;
 import ServiceNow.ATO.Pages.CommonPage;
 import ServiceNow.ATO.Utils.DriverObjectFactory;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -81,13 +75,11 @@ public class CommonSteps {
 
 	@When("User clicks on submit button")
 	public void clickOnSubmitButton() {
-		basePage.captureScreenshot("Before submit");
 		commonPage.clickOnSubmitButton();
 	}
 	
 	@When("User clicks submit button")
 	public void clickSubmitButton() {
-		basePage.captureScreenshot("Before submit");
 		commonPage.clickSubmitButton();
 	}
 

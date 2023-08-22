@@ -8,7 +8,7 @@ import com.nci.automation.web.WebDriverUtils;
 
 public class RegularUserFlowPage extends CommonUtils {
 	public RegularUserFlowPage() {
-		PageFactory.initElements(WebDriverUtils.getWebDriver(), this);			
+		PageFactory.initElements(WebDriverUtils.webDriver, this);			
 	}
 	
 	/**View ODRequest*/

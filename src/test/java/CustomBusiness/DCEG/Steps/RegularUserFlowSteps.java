@@ -20,20 +20,20 @@ public class RegularUserFlowSteps extends PageInitializer {
 
 	@When("User on an editable publication")
 	public void user_on_an_editable_publication() {
-		CommonUtils.click(adminFlowPage.publicationsTab);
+		CommonUtils.clickOnElement(adminFlowPage.publicationsTab);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CommonUtils.click(directSubmitterPage.viewFirstPublication);
+		CucumberLogUtils.logScreenshot();
+		CommonUtils.clickOnElement(directSubmitterPage.viewFirstPublication);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User chooses to add non-NIH group")
 	public void user_chooses_to_add_non_NIH_group() {
 		JavascriptUtils.scrollIntoView(regularUserFlowPage.addNonNHIGroup);
-		CommonUtils.click(regularUserFlowPage.addNonNHIGroup);
+		CommonUtils.clickOnElement(regularUserFlowPage.addNonNHIGroup);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
@@ -45,7 +45,7 @@ public class RegularUserFlowSteps extends PageInitializer {
 		JavascriptUtils.scrollIntoView(regularUserFlowPage.addGroupButton);
 		JavascriptUtils.clickByJS(regularUserFlowPage.addGroupButton);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can successfully add non-NIH group")
@@ -59,7 +59,7 @@ public class RegularUserFlowSteps extends PageInitializer {
 
 	@When("User chooses to add non-nhi author")
 	public void user_chooses_to_add_non_nhi_author() {
-		CommonUtils.click(regularUserFlowPage.addNonNHIAuthor);
+		CommonUtils.clickOnElement(regularUserFlowPage.addNonNHIAuthor);
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(regularUserFlowPage.nonNHIAuthFirstName, "Patricia");
 		MiscUtils.sleep(2000);
@@ -67,9 +67,9 @@ public class RegularUserFlowSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.sendKeys(regularUserFlowPage.nonNHIAuthAffiliation, "New Affiliation");
 		MiscUtils.sleep(2000);
-		CommonUtils.click(regularUserFlowPage.addAuthorButton);
+		CommonUtils.clickOnElement(regularUserFlowPage.addAuthorButton);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can verify that non-nih author was added successfully")
@@ -86,9 +86,9 @@ public class RegularUserFlowSteps extends PageInitializer {
 	public void usre_is_able_to_perform_an_NIH_author_search() {
 		CommonUtils.sendKeys(regularUserFlowPage.searchForAuthors, "MADIGAN");
 		MiscUtils.sleep(2000);
-		CommonUtils.click(regularUserFlowPage.madiganP);
+		CommonUtils.clickOnElement(regularUserFlowPage.madiganP);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
@@ -106,9 +106,9 @@ public class RegularUserFlowSteps extends PageInitializer {
 	public void user_inputs_PubMed_id_as(Integer pubMedID) {
 		CommonUtils.sendKeys(regularUserFlowPage.pubMedField, "33737737");
 		MiscUtils.sleep(2000);
-		CommonUtils.click(regularUserFlowPage.pubMedImportButton);
+		CommonUtils.clickOnElement(regularUserFlowPage.pubMedImportButton);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("User can verify that author match has been applied")
@@ -119,9 +119,9 @@ public class RegularUserFlowSteps extends PageInitializer {
 		if (result) {
 			System.out.println("Author Mallapaty is displayed");
 		}
-		CommonUtils.click(regularUserFlowPage.resetPublication);
+		CommonUtils.clickOnElement(regularUserFlowPage.resetPublication);
 		MiscUtils.sleep(2000);
-		CommonUtils.click(regularUserFlowPage.resetPublAlert);
+		CommonUtils.clickOnElement(regularUserFlowPage.resetPublAlert);
 		MiscUtils.sleep(2000);
 	}
 
@@ -135,12 +135,12 @@ public class RegularUserFlowSteps extends PageInitializer {
 				}
 			}
 			MiscUtils.sleep(3000);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
 			}
-			CommonUtils.click(adminFlowPage.paginationRight);
+			CommonUtils.clickOnElement(adminFlowPage.paginationRight);
 		}
 	}
 
@@ -154,15 +154,15 @@ public class RegularUserFlowSteps extends PageInitializer {
 				}
 			}
 			MiscUtils.sleep(3000);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
 				MiscUtils.sleep(4000);
 				each.click();
 				CommonUtils.sendKeys(regularUserFlowPage.titleField, "Edited title");
 				MiscUtils.sleep(2000);
-				CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-				CommonUtils.click(regularUserFlowPage.cancelButton);
+				CucumberLogUtils.logScreenshot();
+				CommonUtils.clickOnElement(regularUserFlowPage.cancelButton);
 				MiscUtils.sleep(2000);
 				break;
 			}
@@ -180,12 +180,12 @@ public class RegularUserFlowSteps extends PageInitializer {
 					System.out.println("Pending Submission item is present");
 				}
 			}
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
 			}
-			CommonUtils.click(adminFlowPage.paginationRight);
+			CommonUtils.clickOnElement(adminFlowPage.paginationRight);
 			MiscUtils.sleep(2000);
 		}
 	}
@@ -200,12 +200,12 @@ public class RegularUserFlowSteps extends PageInitializer {
 				}
 			}
 			MiscUtils.sleep(3000);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
 			}
-			CommonUtils.click(adminFlowPage.paginationRight);
+			CommonUtils.clickOnElement(adminFlowPage.paginationRight);
 			MiscUtils.sleep(2000);
 		}
 	}
@@ -220,12 +220,12 @@ public class RegularUserFlowSteps extends PageInitializer {
 				}
 			}
 			MiscUtils.sleep(3000);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
 			}
-			CommonUtils.click(adminFlowPage.paginationRight);
+			CommonUtils.clickOnElement(adminFlowPage.paginationRight);
 			MiscUtils.sleep(2000);
 		}
 	}
@@ -240,12 +240,12 @@ public class RegularUserFlowSteps extends PageInitializer {
 				}
 			}
 			MiscUtils.sleep(3000);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
 			}
-			CommonUtils.click(adminFlowPage.paginationRight);
+			CommonUtils.clickOnElement(adminFlowPage.paginationRight);
 			MiscUtils.sleep(2000);
 		}
 	}
@@ -260,12 +260,12 @@ public class RegularUserFlowSteps extends PageInitializer {
 				}
 			}
 			MiscUtils.sleep(3000);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
 				Assert.assertTrue(each.isDisplayed());
 			}
-			CommonUtils.click(adminFlowPage.paginationRight);
+			CommonUtils.clickOnElement(adminFlowPage.paginationRight);
 			MiscUtils.sleep(2000);
 		}
 	}
@@ -280,7 +280,7 @@ public class RegularUserFlowSteps extends PageInitializer {
 				}
 			}
 			MiscUtils.sleep(3000);
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
 			List<WebElement> view = WebDriverUtils.webDriver.findElements(By.xpath("//a[@id='editpub']"));
 			for (WebElement each : view) {
 				MiscUtils.sleep(4000);
@@ -288,8 +288,8 @@ public class RegularUserFlowSteps extends PageInitializer {
 				CommonUtils.sendKeys(regularUserFlowPage.titleFieldPublication, "Edited title");
 				MiscUtils.sleep(2000);
 				System.out.println("Pending Submission item is editable");
-				CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-				CommonUtils.click(regularUserFlowPage.cancelButtonPublication);
+				CucumberLogUtils.logScreenshot();
+				CommonUtils.clickOnElement(regularUserFlowPage.cancelButtonPublication);
 				MiscUtils.sleep(2000);
 				break;
 			}
@@ -298,7 +298,7 @@ public class RegularUserFlowSteps extends PageInitializer {
 
 	@Then("User can verify that publications in Submitted for Publication status are only editable where user is a requestor")
 	public void user_can_verify_that_publications_in_Submitted_for_Publication_status_are_only_editable_where_user_is_a_requestor() {
-		CommonUtils.click(directSubmitterPage.viewFirstPublication);
+		CommonUtils.clickOnElement(directSubmitterPage.viewFirstPublication);
 		MiscUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(regularUserFlowPage.requestorMURPHYGWEN);
 		Assert.assertTrue(regularUserFlowPage.requestorMURPHYGWEN.isDisplayed());
@@ -306,13 +306,13 @@ public class RegularUserFlowSteps extends PageInitializer {
 		if (result) {
 			System.out.println("requestor MURPHY GWENA is displayed, Publication can not be edited");
 		}
-		CommonUtils.click(regularUserFlowPage.backToPublications);
+		CommonUtils.clickOnElement(regularUserFlowPage.backToPublications);
 		MiscUtils.sleep(3000);
 	}
 
 	@Then("User can verify that publications in Accepted for Publication\\/In Press status are only editable where user is a requestor")
 	public void user_can_verify_that_publications_in_Accepted_for_Publication_In_Press_status_are_only_editable_where_user_is_a_requestor() {
-		CommonUtils.click(directSubmitterPage.viewFirstPublication);
+		CommonUtils.clickOnElement(directSubmitterPage.viewFirstPublication);
 		MiscUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(regularUserFlowPage.requestorVOGTMANNEMILY);
 		Assert.assertTrue(regularUserFlowPage.requestorVOGTMANNEMILY.isDisplayed());
@@ -320,13 +320,13 @@ public class RegularUserFlowSteps extends PageInitializer {
 		if (result) {
 			System.out.println("requestor VOGTMAN NEMILY is displayed, Publication can not be edited");
 		}
-		CommonUtils.click(regularUserFlowPage.backToPublications);
+		CommonUtils.clickOnElement(regularUserFlowPage.backToPublications);
 		MiscUtils.sleep(3000);
 	}
 
 	@Then("User can verify that publications in E-Published \\(ahead of print) status are only editable where user is a requestor")
 	public void user_can_verify_that_publications_in_E_Published_ahead_of_print_status_are_only_editable_where_user_is_a_requestor() {
-		CommonUtils.click(directSubmitterPage.viewFirstPublication);
+		CommonUtils.clickOnElement(directSubmitterPage.viewFirstPublication);
 		MiscUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(regularUserFlowPage.requestorGREENEMARK);
 		Assert.assertTrue(regularUserFlowPage.requestorGREENEMARK.isDisplayed());
@@ -334,13 +334,13 @@ public class RegularUserFlowSteps extends PageInitializer {
 		if (result) {
 			System.out.println("requestor GREENE MARK is displayed, Publication can not be edited");
 		}
-		CommonUtils.click(regularUserFlowPage.backToPublications);
+		CommonUtils.clickOnElement(regularUserFlowPage.backToPublications);
 		MiscUtils.sleep(3000);
 	}
 
 	@Then("User can verify that publications in Published status are only editable where user is a requestor")
 	public void user_can_verify_that_publications_in_Published_status_are_only_editable_where_user_is_a_requestor() {
-		CommonUtils.click(directSubmitterPage.viewFirstPublication);
+		CommonUtils.clickOnElement(directSubmitterPage.viewFirstPublication);
 		MiscUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(regularUserFlowPage.requestorBERRINGTONAMY);
 		Assert.assertTrue(regularUserFlowPage.requestorBERRINGTONAMY.isDisplayed());
@@ -348,7 +348,7 @@ public class RegularUserFlowSteps extends PageInitializer {
 		if (result) {
 			System.out.println("requestor GREENE MARK is displayed, Publication can not be edited");
 		}
-		CommonUtils.click(regularUserFlowPage.backToPublications);
+		CommonUtils.clickOnElement(regularUserFlowPage.backToPublications);
 		MiscUtils.sleep(3000);
 	}
 }

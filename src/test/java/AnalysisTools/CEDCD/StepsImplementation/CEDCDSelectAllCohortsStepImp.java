@@ -22,7 +22,7 @@ public class CEDCDSelectAllCohortsStepImp extends PageInitializer {
 	public void clickOnSelectAllCheckbox() {
 		JavascriptUtils.clickByJS(cedcdSearchCohortsPage.searchCohortSelectAllCheckbox);
 //		JavascriptUtils.scrollIntoView(cedcdSearchCohortsPage.bCFRCohort);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		cedcdSearchCohortsPage.viewSelectedCohortDataButton.click();
 	}
 

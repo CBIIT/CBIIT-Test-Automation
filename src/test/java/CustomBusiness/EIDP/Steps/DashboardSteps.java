@@ -17,7 +17,8 @@ public class DashboardSteps extends PageInitializer {
 	@When("User will click on search in dashboard")
 	public void clickOnSearch() {
 			eidpDashboardStepImpl.clickOnSearch();
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+			CucumberLogUtils.logScreenshot();
+			MiscUtils.sleep(2000);
 	}
 
 	@When("User click on Search button")
@@ -33,23 +34,19 @@ public class DashboardSteps extends PageInitializer {
 	@When("User will click on manage delegate button in dashboard")
 	public void clickOnManageDelegate() {
 		eidpDashboardStepImpl.clickOnManageDelegate();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User will click on IDP Awaiting response button")
 	public void clickOnIDPAwaitingResponse() {
-		try {
 			eidpDashboardStepImpl.clickOnIDPAwaitResponsButton();
-			CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		} catch (Exception e) {
-
-		}
+			CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User will clickOn start idp button")
 	public void clickOnStartIDPButton() throws Exception {
 		eidpDashboardStepImpl.clickOnStartIDPButton();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("user will click on revise idp button")
@@ -72,13 +69,13 @@ public class DashboardSteps extends PageInitializer {
 	@When("User clicks on VERIFY MEETING button")
 	public void clickOnVerifyMeetingButton() {
 		eidpDashboardStepImpl.clickOnVerifyMeetingButton();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User clicks on Verify meeting and accept IDP button")
 	public void verifyMeetingAndAccept() {
 		eidpCommonPage.clickOnVerifyMeetingAndAcceptIDPButton();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User enters meeting date and submits")
@@ -89,7 +86,7 @@ public class DashboardSteps extends PageInitializer {
 			eidpCommonPage.waitForGoBackToHomePageButtonVisible();
 		} catch (Exception e) {
 		}
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User enters verify meeting checkbox and submits")
@@ -156,25 +153,25 @@ public class DashboardSteps extends PageInitializer {
 	@When("User clicks on the trainee specific IDP NHGRI request")
 	public void selectIncompleteIDPrequestOfTrainneeNHGRI() throws Exception {
 		eidpDashboardStepImpl.selectIDPRequestOfTraineeNHGRI();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User clicks on the trainee specific IDP request")
 	public void selectIncompleteIDPrequestOfTrainnee() throws Exception {
 		eidpDashboardStepImpl.selectIDPRequestOfTrainee();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User clicks on the trainee specific IDP being co-primary mentor")
 	public void user_clicks_on_the_trainee_specific_IDP_being_co_primary_mentor() throws Exception {
 		eidpDashboardStepImpl.clickProceedButtonOfTraineeCoPrimaryMentorNHGRI();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("User clicks on the trainee specific IDP request for renewal")
 	public void selectIncompleteIDPrequestOfTrainneeForRenewal() throws Exception {
 		eidpDashboardStepImpl.selectIDPRequestOfTraineeForRenewal();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("Complete Process")
@@ -195,7 +192,6 @@ public class DashboardSteps extends PageInitializer {
 	@When("User clicks on Decline IDP button")
 	public void clickOnDeclineIDPButton() throws Exception {
 		generalInformationStepImpl.clickOnGeneralInformationTab();
-		SharedData.traineeName = generalInformationStepImpl.getTraineeName();
 		generalInformationStepImpl.clickOnDeclineIDPButton();
 		eidpCommonPage.clickOnOkButton();
 	}
@@ -203,7 +199,7 @@ public class DashboardSteps extends PageInitializer {
 	@Then("Trainee verifies IDP request status as \"([^\"]*)\"")
 	public void verifyRequestStatus(String expectedStatus) {
 		String actualStatus = eidpDashboardStepImpl.getIDPRequestStatus();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		if (actualStatus != null) {
 			actualStatus = actualStatus.trim();
 			Assert.assertEquals(expectedStatus, actualStatus);
@@ -223,12 +219,12 @@ public class DashboardSteps extends PageInitializer {
 
 	@Then("User clicks on Home button")
 	public void user_clicks_on_Home_button() {
-		CommonUtils.click(WebDriverUtils.getWebDriver().findElement(By.xpath("//a[@title='Home']")));
+		CommonUtils.clickOnElement(WebDriverUtils.webDriver.findElement(By.xpath("//a[@title='Home']")));
 	}
 
 	@Then("User will click on manage delegate tab")
 	public void user_will_click_on_manage_delegate_tab() {
-		CommonUtils.click(eidpDashboardPage.manageDelegateTab);
+		CommonUtils.clickOnElement(eidpDashboardPage.manageDelegateTab);
 	}
 
 }

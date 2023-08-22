@@ -12,6 +12,18 @@ public class NativeViewImpersonateUserPage extends CommonUtils {
     @FindBy(linkText= "Native View")
     public WebElement nativeViewLink;
 
+    /** Native View Link Main Page */
+    @FindBy(xpath = "//span[normalize-space()='Native View']")
+    public WebElement nativeViewLinkMainPage;
+
+    /** Native View Name Button */
+    @FindBy(xpath = "//*[@id='crs-kd-nav']/div/div[1]/div//button")
+    public WebElement nativeViewNameButton;
+
+    /** Native View Log Out Button */
+    @FindBy(xpath = "//*[@id='crs-kd-nav']/div/div[1]/div/ul/li[8]/a")
+    public WebElement nativeViewLogOutButton;
+
     public NativeViewImpersonateUserPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

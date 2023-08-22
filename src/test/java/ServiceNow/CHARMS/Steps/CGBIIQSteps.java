@@ -51,7 +51,7 @@ public class CGBIIQSteps extends PageInitializer {
 	public void types_the_One_time_pin_in_the_textbook_labeled_One_Time_pin__CGB_IIQ() {
 
 		cGBIIQPages.oneTimePin.sendKeys("123456");
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -95,7 +95,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.completingForSomeoneElseRadioButton);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -106,7 +106,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		cGBIIQPages.probandsName.sendKeys(probandName);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -117,7 +117,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.probandFemaleSex);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -128,7 +128,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.probandFemaleSex);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -139,7 +139,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.probandsHispanicEthnicity);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -157,7 +157,7 @@ public class CGBIIQSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(cGBIIQPages.probandsOtherRace);
 		MiscUtils.sleep(500);
 		cGBIIQPages.probandsOtherRaceTextbox.sendKeys("Other " + "\"" + "Race");
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -165,7 +165,7 @@ public class CGBIIQSteps extends PageInitializer {
 	@When("types the One-time pin in the textbook labeled One Time pin")
 	public void types_the_One_time_pin_in_the_textbook_labeled_One_Time_pin() {
 		// cGBIIQPages.oneTimePin.sendKeys("123456");
-		// CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		// CucumberLogUtils.logScreenshot();
 		// MiscUtils.sleep(2000);
 		// JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		// JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
@@ -180,7 +180,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(800);
 		CommonUtils.waitForClickability(cGBIIQPages.yesSelection);
 		JavascriptUtils.clickByJS(cGBIIQPages.yesSelection);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -189,7 +189,7 @@ public class CGBIIQSteps extends PageInitializer {
 	public void selects_if_the_participant_is_Adopted__CGB_IIQ() {
 		MiscUtils.sleep(1500);
 		JavascriptUtils.clickByJS(cGBIIQPages.yesSelection);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -198,7 +198,7 @@ public class CGBIIQSteps extends PageInitializer {
 	public void selects_for_the_participant_raised_by_someone_other_than_their_biological_blood_parent__CGB_IIQ() {
 		MiscUtils.sleep(1500);
 		JavascriptUtils.clickByJS(cGBIIQPages.yesSelection);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -211,7 +211,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		cGBIIQPages.guardianNameProxyFlow.sendKeys(nameOfGuardian);
 		cGBIIQPages.guardianRelationshipToProbandProxyFlow.sendKeys(relationshipOfGuardian);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -221,7 +221,7 @@ public class CGBIIQSteps extends PageInitializer {
 		// MiscUtils.sleep(1500);
 		// JavascriptUtils.clickByJS(cGBIIQPages.previousYearButton);
 		// JavascriptUtils.clickByJS(cGBIIQPages.probandsDOBDay);
-		// CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		// CucumberLogUtils.logScreenshot();
 		// CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		// JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -243,7 +243,7 @@ public class CGBIIQSteps extends PageInitializer {
 		cGBIIQPages.city.sendKeys(City);
 		cGBIIQPages.state.sendKeys(State);
 		cGBIIQPages.country.sendKeys(Country);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -274,7 +274,7 @@ public class CGBIIQSteps extends PageInitializer {
 		cGBIIQPages.multipleAnswers.get(18).click();
 		cGBIIQPages.multipleAnswers.get(19).click();
 		cGBIIQPages.multipleAnswers.get(20).click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -289,7 +289,7 @@ public class CGBIIQSteps extends PageInitializer {
 		cGBIIQPages.multipleAnswers.get(7).click();
 		cGBIIQPages.multipleAnswers.get(8).click();
 		cGBIIQPages.multipleAnswers.get(9).click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -302,7 +302,7 @@ public class CGBIIQSteps extends PageInitializer {
 		cGBIIQPages.multipleAnswers.get(1).click();
 		cGBIIQPages.multipleAnswers.get(2).click();
 		cGBIIQPages.multipleAnswers.get(4).click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -312,7 +312,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.marriedMaritalStatus);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -323,7 +323,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.probandsOccupation);
 		cGBIIQPages.probandsOccupationTextBoxProxyFlow.sendKeys(Occupation);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -333,7 +333,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.yesSelection);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 		MiscUtils.sleep(1500);
@@ -344,7 +344,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.householdIncome);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 		MiscUtils.sleep(1500);
@@ -355,7 +355,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.educationLevel);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -364,7 +364,7 @@ public class CGBIIQSteps extends PageInitializer {
 	public void on_the_medical_history_section_of_IIQ_Survey_page_clicks_on_the_forward_arrow_button__CGB_IIQ() {
 
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -374,7 +374,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.yesSelection);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -385,7 +385,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.conceivedBySpermAndEggDonation);
 		MiscUtils.sleep(1500);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -395,7 +395,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.yesSelection);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -405,7 +405,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.yesSelection);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -415,7 +415,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.probandTwinBirth);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -426,7 +426,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.fraternalTwinValue);
 		cGBIIQPages.fraternalTwinValue.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -441,7 +441,7 @@ public class CGBIIQSteps extends PageInitializer {
 		cGBIIQPages.siblingFirstName.sendKeys(SiblingFirstName);
 		CommonUtils.selectDropDownValue(SiblingLastInitial, cGBIIQPages.siblingLastNameInitial);
 		CommonUtils.selectDropDownValue(RelationshipToProband, cGBIIQPages.siblingRelationshipToProband);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(1500);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -451,7 +451,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.yesSelection);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -463,7 +463,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.parentsRelationshipToEachotherRadioButton);
 		cGBIIQPages.parentsRelationshipToEachotherTextBox.sendKeys(RelationshipBetweenParents);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -473,7 +473,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.fullTermBirth);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -486,7 +486,7 @@ public class CGBIIQSteps extends PageInitializer {
 		cGBIIQPages.numericalWeightProband.sendKeys(NumericalWeight);
 		MiscUtils.sleep(1500);
 		CommonUtils.selectDropDownValue(UnitMeasurementWeight, cGBIIQPages.unitOfMeasurementWeightProband);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 		MiscUtils.sleep(1500);
@@ -500,7 +500,7 @@ public class CGBIIQSteps extends PageInitializer {
 		cGBIIQPages.numericalWeight.sendKeys(NumericalWeight);
 		MiscUtils.sleep(1500);
 		CommonUtils.selectDropDownValue(UnitMeasurementWeight, cGBIIQPages.unitOfMeasurementWeight);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 		MiscUtils.sleep(1500);
@@ -518,7 +518,7 @@ public class CGBIIQSteps extends PageInitializer {
 		CommonUtils.selectDropDownValue(UnitMeasurementHeadCircumference,
 				cGBIIQPages.unitOfMeasurementHeadCircumferenceProband);
 		MiscUtils.sleep(1500);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 		MiscUtils.sleep(1500);
@@ -536,7 +536,7 @@ public class CGBIIQSteps extends PageInitializer {
 		CommonUtils.selectDropDownValue(UnitMeasurementHeadCircumference,
 				cGBIIQPages.unitOfMeasurementHeadCircumference);
 		MiscUtils.sleep(1500);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 		MiscUtils.sleep(1500);
@@ -546,7 +546,7 @@ public class CGBIIQSteps extends PageInitializer {
 	public void the_user_clicks_the_forward_arrow_on_the_cancer_and_benign_tumor_history_section_of_IIQ_Survey_page__CGB_IIQ() {
 
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -556,7 +556,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.yesSelection);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -566,7 +566,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.cancerBenignTumorAdrenalGlandValue);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -588,7 +588,7 @@ public class CGBIIQSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(cGBIIQPages.treatmentReceivedRadiation);
 		JavascriptUtils.clickByJS(cGBIIQPages.treatmentReceivedImmunotherapy);
 		JavascriptUtils.clickByJS(cGBIIQPages.treatmentReceivedOther);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(1500);
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
@@ -600,7 +600,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.yesSelection);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -610,7 +610,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.yesSelection);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -628,7 +628,7 @@ public class CGBIIQSteps extends PageInitializer {
 		cGBIIQPages.hospitalLocationProbandFlow.sendKeys(HospitalLocationOfEvaluation);
 		CommonUtils.selectDropDownValue(ResultsOfEvaluation, cGBIIQPages.bestSummaryOfEvaluationProbandFlow);
 		MiscUtils.sleep(1500);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
@@ -639,7 +639,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.yesSelection);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -648,7 +648,7 @@ public class CGBIIQSteps extends PageInitializer {
 	@When("upload the genetic test results - CGB IIQ")
 	public void upload_the_genetic_test_results__CGB_IIQ() {
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -658,7 +658,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		cGBIIQPages.numericalCurrentHeight.sendKeys(CurrentHeight);
 		CommonUtils.selectDropDownValue(CurrentHeightUnits, cGBIIQPages.UnitOfMeasurementCurrentHeight);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -668,7 +668,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		cGBIIQPages.numericalCurrentHeightProbandFlow.sendKeys(CurrentHeight);
 		CommonUtils.selectDropDownValue(CurrentHeightUnits, cGBIIQPages.UnitOfMeasurementCurrentHeightProbandFlow);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -691,7 +691,7 @@ public class CGBIIQSteps extends PageInitializer {
 		CommonUtils.selectDropDownValue(WeightAt18YearsOldUnits, cGBIIQPages.UnitOfMeasurementWeightAt18);
 		CommonUtils.selectDropDownValue(WeightAt30YearsOldUnits, cGBIIQPages.UnitOfMeasurementWeightAt30);
 		CommonUtils.selectDropDownValue(WeightAt40YearsOldUnits, cGBIIQPages.UnitOfMeasurementWeightAt40);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -701,7 +701,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		cGBIIQPages.ageProbandWeighedTheMost.sendKeys(ageProbandWasTallestEver);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -713,7 +713,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.ageInYears);
 		cGBIIQPages.ageProbandHadFirstMenstrualPeriodTextBox.sendKeys(AgeofFirstMenstrualPeriod);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -725,7 +725,7 @@ public class CGBIIQSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(cGBIIQPages.ageProbandHadMostRecentMenstrualPeriod);
 		MiscUtils.sleep(2000);
 		cGBIIQPages.ageProbandHadMostRecentMenstrualPeriodTextBox.sendKeys(AgeofMostRecentMenstrualPeriod);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -735,7 +735,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.stillHavingPeriodsRadioButton);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -745,7 +745,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.yesSelection);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -756,7 +756,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.ageOfFirstPregnancyProbandFlow);
 		cGBIIQPages.ageOfFirstPregnancyProbandFlow.sendKeys(AgeOfFirstPregnancy);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -767,7 +767,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		cGBIIQPages.numberOfTimesProbandHasBeenPregnantProbandFlow.sendKeys(numberOfTimesProbandHasBeenPregnant);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -777,7 +777,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.yesSelection);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -787,7 +787,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.yesSelection);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -800,7 +800,7 @@ public class CGBIIQSteps extends PageInitializer {
 		CommonUtils.waitForVisibility(cGBIIQPages.ageWhenConsultedDrOverDifficultiesGettingPregnant);
 		cGBIIQPages.ageWhenConsultedDrOverDifficultiesGettingPregnant
 				.sendKeys(AgeProbandConsultedDrOverFailedPregnancies);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -810,7 +810,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.diagnosisPregnancyDifficultyLowSpermCount);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -819,7 +819,7 @@ public class CGBIIQSteps extends PageInitializer {
 	public void on_the_Female_Hormones_section_of_IIQ_Survey_page_clicks_on_the_forward_arrow_button__CGB_IIQ() {
 
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -829,7 +829,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.yesSelection);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -839,7 +839,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.yesSelection);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 	}
@@ -851,7 +851,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.ageInYears);
 		cGBIIQPages.ageProbandWasPrescribedHormonesTextBox.sendKeys(AgeProbandWasPrescribedHormones);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -864,7 +864,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.weeksProbandTookPrescribedHormones);
 		cGBIIQPages.weeksProbandTookPrescribedHormonesTextBox.sendKeys(WeeksProbandTookPrescribedHormones);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -874,7 +874,7 @@ public class CGBIIQSteps extends PageInitializer {
 	public void the_user_lands_on_the_page__CGB_IIQ(String YouAreAlmostDoneText) {
 		MiscUtils.sleep(2000);
 		Assert.assertTrue(cGBIIQPages.youAreAlmostDoneText.getText().contains(YouAreAlmostDoneText));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("the user clicks the forward arrow button - CGB IIQ")
@@ -908,7 +908,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		cGBIIQPages.probandsName.sendKeys(probandName);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -919,7 +919,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.probandMaleSex);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -930,7 +930,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.probandMaleSex);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -942,7 +942,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.numberOfPregnanciesFatheredRadioButton);
 		cGBIIQPages.numberOfPregnanciesFatheredTextBox.sendKeys(numberOfPregnanciesFathered);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -953,7 +953,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.yesSelection);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -964,7 +964,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(cGBIIQPages.completingForSomeoneMyselfRadioButton);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -977,7 +977,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		cGBIIQPages.guardiansNameProbandFlow.sendKeys(nameOfGuardian);
 		cGBIIQPages.guardiansRelationshipToProbandProbandFlow.sendKeys(relationshipOfGuardian);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -990,7 +990,7 @@ public class CGBIIQSteps extends PageInitializer {
 		cGBIIQPages.probandCity.sendKeys(City);
 		cGBIIQPages.probandState.sendKeys(State);
 		cGBIIQPages.probandCountry.sendKeys(Country);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -1004,7 +1004,7 @@ public class CGBIIQSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(cGBIIQPages.probandsOccupation);
 		CommonUtils.waitForVisibility(cGBIIQPages.probandsOccupationTextBox);
 		cGBIIQPages.probandsOccupationTextBox.sendKeys(Occupation);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -1024,7 +1024,7 @@ public class CGBIIQSteps extends PageInitializer {
 		CommonUtils.selectDropDownValue(UnitMeasurementHeadCircumference,
 				cGBIIQPages.unitOfMeasurementHeadCircumferenceProband);
 		MiscUtils.sleep(1500);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 		MiscUtils.sleep(1500);
@@ -1044,7 +1044,7 @@ public class CGBIIQSteps extends PageInitializer {
 		cGBIIQPages.hospitalLocationProbandFlow.sendKeys(HospitalLocationOfEvaluation);
 		CommonUtils.selectDropDownValue(ResultsOfEvaluation, cGBIIQPages.bestSummaryOfEvaluationProbandFlow);
 		MiscUtils.sleep(1500);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(2000);
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
@@ -1065,7 +1065,7 @@ public class CGBIIQSteps extends PageInitializer {
 		cGBIIQPages.hospitalLocation.sendKeys(HospitalLocationOfEvaluation);
 		CommonUtils.selectDropDownValue(ResultsOfEvaluation, cGBIIQPages.bestSummaryOfEvaluation);
 		MiscUtils.sleep(1500);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(2000);
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
@@ -1089,7 +1089,7 @@ public class CGBIIQSteps extends PageInitializer {
 		CommonUtils.selectDropDownValue(WeightAt18YearsOldUnits, cGBIIQPages.UnitOfMeasurementWeightAt18ProbandFlow);
 		CommonUtils.selectDropDownValue(WeightAt30YearsOldUnits, cGBIIQPages.UnitOfMeasurementWeightAt30ProbandFlow);
 		CommonUtils.selectDropDownValue(WeightAt40YearsOldUnits, cGBIIQPages.UnitOfMeasurementWeightAt40ProbandFlow);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -1100,7 +1100,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		cGBIIQPages.ageOfFirstPregnancyProbandFlow.sendKeys(AgeOfFirstPregnancy);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -1111,7 +1111,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		cGBIIQPages.numberOfTimesProbandHasBeenPregnantProbandFlow.sendKeys(numberOfTimesProbandHasBeenPregnant);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		JavascriptUtils.clickByJS(cGBIIQPages.nextButton);
 
@@ -1156,7 +1156,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(cGBIIQPages.completingForSomeoneElseRadioButton);
 		cGBIIQPages.completingForSomeoneElseRadioButton.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1166,7 +1166,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(cGBIIQPages.probandsName);
 		cGBIIQPages.probandsName.sendKeys(probandName);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1176,7 +1176,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(cGBIIQPages.probandFemaleSex);
 		cGBIIQPages.probandFemaleSex.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1186,7 +1186,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.probandFemaleSex);
 		cGBIIQPages.probandFemaleSex.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1196,7 +1196,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(cGBIIQPages.probandsHispanicEthnicity);
 		cGBIIQPages.probandsHispanicEthnicity.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1212,7 +1212,7 @@ public class CGBIIQSteps extends PageInitializer {
 		cGBIIQPages.probandsAsianRace.click();
 		cGBIIQPages.probandsOtherRace.click();
 		cGBIIQPages.probandsOtherRaceTextbox.sendKeys("Other Race");
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1223,7 +1223,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(cGBIIQPages.yesSelection);
 		cGBIIQPages.yesSelection.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1234,7 +1234,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(cGBIIQPages.yesSelection);
 		cGBIIQPages.yesSelection.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1245,7 +1245,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(1500);
 		CommonUtils.waitForVisibility(cGBIIQPages.yesSelection);
 		cGBIIQPages.yesSelection.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 
@@ -1259,7 +1259,7 @@ public class CGBIIQSteps extends PageInitializer {
 		CommonUtils.waitForVisibility(cGBIIQPages.guardianNameProxyFlow);
 		cGBIIQPages.guardianNameProxyFlow.sendKeys(nameOfGuardian);
 		cGBIIQPages.guardianRelationshipToProbandProxyFlow.sendKeys(relationshipOfGuardian);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 
@@ -1272,7 +1272,7 @@ public class CGBIIQSteps extends PageInitializer {
 		CommonUtils.waitForVisibility(cGBIIQPages.probandsDOBDay);
 		cGBIIQPages.previousYearButton.click();
 		cGBIIQPages.probandsDOBDay.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 
@@ -1286,7 +1286,7 @@ public class CGBIIQSteps extends PageInitializer {
 		cGBIIQPages.city.sendKeys(City);
 		cGBIIQPages.state.sendKeys(State);
 		cGBIIQPages.country.sendKeys(Country);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 
@@ -1308,7 +1308,7 @@ public class CGBIIQSteps extends PageInitializer {
 		cGBIIQPages.multipleAnswers.get(9).click();
 		cGBIIQPages.multipleAnswers.get(10).click();
 		cGBIIQPages.multipleAnswers.get(11).click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 
@@ -1324,7 +1324,7 @@ public class CGBIIQSteps extends PageInitializer {
 		cGBIIQPages.multipleAnswers.get(7).click();
 		cGBIIQPages.multipleAnswers.get(8).click();
 		cGBIIQPages.multipleAnswers.get(9).click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 
@@ -1338,7 +1338,7 @@ public class CGBIIQSteps extends PageInitializer {
 		cGBIIQPages.multipleAnswers.get(1).click();
 		cGBIIQPages.multipleAnswers.get(2).click();
 		cGBIIQPages.multipleAnswers.get(4).click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1349,7 +1349,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.marriedMaritalStatus);
 		cGBIIQPages.marriedMaritalStatus.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1361,7 +1361,7 @@ public class CGBIIQSteps extends PageInitializer {
 		CommonUtils.waitForVisibility(cGBIIQPages.probandsOccupation);
 		cGBIIQPages.probandsOccupation.click();
 		cGBIIQPages.probandsOccupationTextBox.sendKeys(Occupation);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1372,7 +1372,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.yesSelection);
 		cGBIIQPages.yesSelection.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 		MiscUtils.sleep(1500);
@@ -1384,7 +1384,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.householdIncome);
 		cGBIIQPages.householdIncome.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 		MiscUtils.sleep(1500);
@@ -1396,7 +1396,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.educationLevel);
 		cGBIIQPages.educationLevel.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1406,7 +1406,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.nextButton);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1417,7 +1417,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.yesSelection);
 		cGBIIQPages.yesSelection.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1429,7 +1429,7 @@ public class CGBIIQSteps extends PageInitializer {
 		CommonUtils.waitForVisibility(cGBIIQPages.conceivedBySpermAndEggDonation);
 		cGBIIQPages.conceivedBySpermAndEggDonation.click();
 		MiscUtils.sleep(1500);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1440,7 +1440,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.yesSelection);
 		cGBIIQPages.yesSelection.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1451,7 +1451,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.yesSelection);
 		cGBIIQPages.yesSelection.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1462,7 +1462,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.probandTwinBirth);
 		cGBIIQPages.probandTwinBirth.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1473,7 +1473,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.fraternalTwinValue);
 		cGBIIQPages.fraternalTwinValue.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1488,7 +1488,7 @@ public class CGBIIQSteps extends PageInitializer {
 		cGBIIQPages.siblingFirstName.sendKeys(SiblingFirstName);
 		CommonUtils.selectDropDownValue(SiblingLastInitial, cGBIIQPages.siblingLastNameInitial);
 		CommonUtils.selectDropDownValue(RelationshipToProband, cGBIIQPages.siblingRelationshipToProband);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(1500);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1499,7 +1499,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.yesSelection);
 		cGBIIQPages.yesSelection.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1512,7 +1512,7 @@ public class CGBIIQSteps extends PageInitializer {
 		CommonUtils.waitForVisibility(cGBIIQPages.parentsRelationshipToEachotherRadioButton);
 		cGBIIQPages.parentsRelationshipToEachotherRadioButton.click();
 		cGBIIQPages.parentsRelationshipToEachotherTextBox.sendKeys(RelationshipBetweenParents);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1523,7 +1523,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.fullTermBirth);
 		cGBIIQPages.fullTermBirth.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1543,7 +1543,7 @@ public class CGBIIQSteps extends PageInitializer {
 		CommonUtils.selectDropDownValue(UnitMeasurementHeadCircumference,
 				cGBIIQPages.unitOfMeasurementHeadCircumference);
 		MiscUtils.sleep(1500);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 		MiscUtils.sleep(1500);
@@ -1554,7 +1554,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.nextButton);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1565,7 +1565,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.yesSelection);
 		cGBIIQPages.yesSelection.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1576,7 +1576,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.cancerBenignTumorAdrenalGlandValue);
 		cGBIIQPages.cancerBenignTumorAdrenalGlandValue.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1599,7 +1599,7 @@ public class CGBIIQSteps extends PageInitializer {
 		cGBIIQPages.treatmentReceivedRadiation.click();
 		cGBIIQPages.treatmentReceivedImmunotherapy.click();
 		cGBIIQPages.treatmentReceivedOther.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(1500);
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
@@ -1612,7 +1612,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.yesSelection);
 		cGBIIQPages.yesSelection.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1623,7 +1623,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.yesSelection);
 		cGBIIQPages.yesSelection.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1641,7 +1641,7 @@ public class CGBIIQSteps extends PageInitializer {
 		cGBIIQPages.hospitalLocationNonPreview.sendKeys(HospitalLocationOfEvaluation);
 		CommonUtils.selectDropDownValue(ResultsOfEvaluation, cGBIIQPages.bestSummaryOfEvaluation);
 		MiscUtils.sleep(1500);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		MiscUtils.sleep(2000);
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
@@ -1654,7 +1654,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.yesSelection);
 		cGBIIQPages.yesSelection.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1665,7 +1665,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.nextButton);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1688,7 +1688,7 @@ public class CGBIIQSteps extends PageInitializer {
 		CommonUtils.selectDropDownValue(WeightAt18YearsOldUnits, cGBIIQPages.UnitOfMeasurementWeightAt18);
 		CommonUtils.selectDropDownValue(WeightAt30YearsOldUnits, cGBIIQPages.UnitOfMeasurementWeightAt30);
 		CommonUtils.selectDropDownValue(WeightAt40YearsOldUnits, cGBIIQPages.UnitOfMeasurementWeightAt40);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1700,7 +1700,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.mostProbandHasEverWeighed);
 		cGBIIQPages.mostProbandHasEverWeighed.sendKeys(MostedEverWeighed);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1711,7 +1711,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.ageProbandWeighedTheMost);
 		cGBIIQPages.ageProbandWeighedTheMost.sendKeys(ageProbandWasHeaviestEver);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1723,7 +1723,7 @@ public class CGBIIQSteps extends PageInitializer {
 		CommonUtils.waitForVisibility(cGBIIQPages.ageInYears);
 		cGBIIQPages.ageInYears.click();
 		cGBIIQPages.ageProbandHadFirstMenstrualPeriodTextBox.sendKeys(AgeofFirstMenstrualPeriod);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1736,7 +1736,7 @@ public class CGBIIQSteps extends PageInitializer {
 		cGBIIQPages.ageProbandHadMostRecentMenstrualPeriod.click();
 		MiscUtils.sleep(2000);
 		cGBIIQPages.ageProbandHadMostRecentMenstrualPeriodTextBox.sendKeys(AgeofMostRecentMenstrualPeriod);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1747,7 +1747,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.stillHavingPeriodsRadioButton);
 		cGBIIQPages.stillHavingPeriodsRadioButton.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1758,7 +1758,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.yesSelection);
 		cGBIIQPages.yesSelection.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1769,7 +1769,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.ageOfFirstPregnancy);
 		cGBIIQPages.ageOfFirstPregnancy.sendKeys(AgeOfFirstPregnancy);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1780,7 +1780,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.numberOfTimesProbandHasBeenPregnant);
 		cGBIIQPages.numberOfTimesProbandHasBeenPregnant.sendKeys(numberOfTimesProbandHasBeenPregnant);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1791,7 +1791,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.yesSelection);
 		cGBIIQPages.yesSelection.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1802,7 +1802,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.yesSelection);
 		cGBIIQPages.yesSelection.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1815,7 +1815,7 @@ public class CGBIIQSteps extends PageInitializer {
 		CommonUtils.waitForVisibility(cGBIIQPages.ageWhenConsultedDrOverDifficultiesGettingPregnant);
 		cGBIIQPages.ageWhenConsultedDrOverDifficultiesGettingPregnant
 				.sendKeys(AgeProbandConsultedDrOverFailedPregnancies);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1826,7 +1826,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.diagnosisPregnancyDifficultyLowSpermCount);
 		cGBIIQPages.diagnosisPregnancyDifficultyLowSpermCount.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1836,7 +1836,7 @@ public class CGBIIQSteps extends PageInitializer {
 
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.nextButton);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1847,7 +1847,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.yesSelection);
 		cGBIIQPages.yesSelection.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1858,7 +1858,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.yesSelection);
 		cGBIIQPages.yesSelection.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1871,7 +1871,7 @@ public class CGBIIQSteps extends PageInitializer {
 		CommonUtils.waitForVisibility(cGBIIQPages.ageInYears);
 		cGBIIQPages.ageInYears.click();
 		cGBIIQPages.ageProbandWasPrescribedHormonesTextBox.sendKeys(AgeProbandWasPrescribedHormones);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		JavascriptUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1884,7 +1884,7 @@ public class CGBIIQSteps extends PageInitializer {
 		CommonUtils.waitForVisibility(cGBIIQPages.weeksProbandTookPrescribedHormones);
 		cGBIIQPages.weeksProbandTookPrescribedHormones.click();
 		cGBIIQPages.weeksProbandTookPrescribedHormonesTextBox.sendKeys(WeeksProbandTookPrescribedHormones);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.scrollIntoView(cGBIIQPages.nextButton);
 		cGBIIQPages.nextButton.click();
 	}
@@ -1895,7 +1895,7 @@ public class CGBIIQSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(cGBIIQPages.youAreAlmostDoneText);
 		Assert.assertTrue(cGBIIQPages.youAreAlmostDoneText.getText().contains(YouAreAlmostDoneText));
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	@Then("the user clicks the forward arrow button")

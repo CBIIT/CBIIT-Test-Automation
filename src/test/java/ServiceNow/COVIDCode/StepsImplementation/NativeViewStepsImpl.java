@@ -54,7 +54,7 @@ public class NativeViewStepsImpl extends PageInitializer {
 		CommonUtils.selectDropDownValue("No",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewDemographicsAreYouHispaniceOrLatinoDropDown);
 		MiscUtils.sleep(500);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 
 	}
 
@@ -65,7 +65,7 @@ public class NativeViewStepsImpl extends PageInitializer {
 
 	public void nativeViewFillOutSymptomologySection() {
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyTab.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.selectDropDownValue("Yes",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyWereYouSymptomaticDropDown);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyWhenFirstDevelopSymptomsField
@@ -75,7 +75,7 @@ public class NativeViewStepsImpl extends PageInitializer {
 		CommonUtils.selectDropDownValue("Yes",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyHaveYouOfficiallyBeenDiagnosedWithCOVID19);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewSymptomologyDateOfficiallyDiagnosed.sendKeys("04-09-2020");
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	} 
 
 	/***
@@ -84,16 +84,16 @@ public class NativeViewStepsImpl extends PageInitializer {
 	 */
 	public void nativeViewFillOutExposuresAndRiskFactorsSection() {
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewExposuredAndRiskFactorsTab.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewExposuredAndRiskFactorsTellMeMedicalConditionsUnlockButton
 				.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
+		CucumberLogUtils.logScreenshot();
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewExposuredAndRiskFactorstellMeMedicalConditionsSearchBar
 				.sendKeys("Asthma");
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewExposuredAndRiskFactorstellMeMedicalConditionsSearchBar
 				.sendKeys(Keys.RETURN);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.selectDropDownValue("Never",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewExposuredAndRiskFactorsHasPatientVapedDropDown);
 		CommonUtils.selectDropDownValue("Currently smokes daily",
@@ -127,7 +127,7 @@ public class NativeViewStepsImpl extends PageInitializer {
 		CommonUtils.selectDropDownValue("Yes",
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewExposuredAndRiskFactorsDidYouThePatientWearAMaskDD);
 		MiscUtils.sleep(1000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	/***
@@ -151,7 +151,7 @@ public class NativeViewStepsImpl extends PageInitializer {
 		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.filterNavigator);
 		nativeViewEnrollementsPage.filterNavigator.sendKeys("CovidCode App");
 		MiscUtils.sleep(5000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		nativeViewEnrollementsPage.nativeViewPanelNavigatorCovidCodeEnrollmentsLink.click();
 	}
 
@@ -162,7 +162,7 @@ public class NativeViewStepsImpl extends PageInitializer {
 		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.filterNavigator);
 		nativeViewEnrollementsPage.filterNavigator.sendKeys("CovidCode App");
 		MiscUtils.sleep(5000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		nativeViewEnrollementsPage.nativeViewPanelNavigatorSpecimensLink.click();
 	}
 
@@ -175,7 +175,7 @@ public class NativeViewStepsImpl extends PageInitializer {
 		MiscUtils.sleep(500);
 		nativeViewEnrollementsPage.filterNavigator.sendKeys("CovidCode App");
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	/***
@@ -186,7 +186,7 @@ public class NativeViewStepsImpl extends PageInitializer {
 		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.filterNavigator);
 		nativeViewEnrollementsPage.filterNavigator.sendKeys("CovidCode App");
 		MiscUtils.sleep(5000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		nativeViewEnrollementsPage.nativeViewPanelNavigatorMyInquiryTrackingRecordsLink.click();
 	}
 
@@ -199,7 +199,7 @@ public class NativeViewStepsImpl extends PageInitializer {
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
 		MiscUtils.sleep(2000);
 		nativeViewEnrollementsPage.covidCodeEnrollmentsNewButton.click();
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 		CommonUtils.selectDropDownValue(group,
 				nativeViewEnrollmentViewPage.nativeViewEnrollmentViewUserGroupIDDropDown);
 		CommonUtils.selectDropDownValue(consent, nativeViewEnrollmentViewPage.nativeViewEnrollmentViewConsentDropDown);
@@ -215,7 +215,7 @@ public class NativeViewStepsImpl extends PageInitializer {
 		CommonUtils.waitForVisibility(nativeViewEnrollmentViewPage.nativeViewEnrollmentViewZipCode);
 		nativeViewEnrollmentViewPage.nativeViewEnrollmentViewZipCode.sendKeys("20850");
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	/***
@@ -237,7 +237,7 @@ public class NativeViewStepsImpl extends PageInitializer {
 		MiscUtils.sleep(2000);
 		nativeViewEnrollementsPage.covidCodeEnrollmentsSearchTextBox.sendKeys(Keys.RETURN);
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	/***
@@ -293,7 +293,7 @@ public class NativeViewStepsImpl extends PageInitializer {
 			Assert.assertTrue(match);
 		}
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	}
 	
 	/***
@@ -356,7 +356,7 @@ public class NativeViewStepsImpl extends PageInitializer {
 		List<String> act = new ArrayList<String>(Arrays.asList(lists.get(0).getText().split("\n")));
 		List<String> exp = new ArrayList<String>(Arrays.asList(arrayList));
 		MiscUtils.sleep(2000);
-		CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
+		CucumberLogUtils.logScreenshot();
 	    Assert.assertEquals(act, exp);
 	}
 }
