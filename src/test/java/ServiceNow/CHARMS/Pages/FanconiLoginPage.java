@@ -25,4 +25,12 @@ public class FanconiLoginPage extends CommonUtils {
 	@FindBy(xpath = "//div/a[@aria-label='Review Eligibility Questionnaire']/img[@role='presentation']")
 	public WebElement eligibilityQuestionnaireLink;
 
+	/* Log Out Drop Down Link */
+	@FindBy(xpath = "//button[@id='user-info-dropdown']")
+	public WebElement LogoutDropDownLink;
+
+	/* Log Out Button */
+	@FindBy(xpath = "(//a[normalize-space()='Sign Out'])[1]")
+	public WebElement LogoutButton;
+
 }

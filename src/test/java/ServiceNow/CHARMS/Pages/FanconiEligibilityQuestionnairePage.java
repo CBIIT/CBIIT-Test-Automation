@@ -2,6 +2,7 @@ package ServiceNow.CHARMS.Pages;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -15,9 +16,37 @@ public class FanconiEligibilityQuestionnairePage extends CommonUtils {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 
-	/* *************************************************************** */
+	public  WebElement dynamicCancerDropDownLocator(String text, int i) {
+		// (//select[@name='QR~QID212#1~1'])[1]
+
+		// return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text +
+		// "']//parent::tr/td[2]"));
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//select[@name='" + text + i + "'])[1]"));
+
+	}
+	
+	public WebElement dynamicCancerTextBoxLocator(String text, int i) {
+
+		// (xpath = "(//input[@name='QR~QID212#2~1~1~TEXT'])[1]")
+
+		// return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text +
+		// "']//parent::tr/td[2]"));
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//input[@name='" + text + i + "~1~TEXT'])[1]"));
+
+	}
+
+	public  WebElement dynamicCancerDateOrAgeLocator(String text, int i) {
+		// "(//select[@name='QR~QID212#10~1'])[1]")
+
+		// return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text +
+		// "']//parent::tr/td[2]"));
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//select[@name='" + text + i + "'])[1]"));
+
+	}
+
+     /*************************************************************/
 	/* GENERAL LOCATORS ON Fanconi ELigibility Questionnaire PAGE */
-	/* *************************************************************** */
+	/**************************************************************/
 
 	/* Next Button */
 	@FindBy(xpath = "//input[@class='NextButton Button']")
@@ -35,16 +64,11 @@ public class FanconiEligibilityQuestionnairePage extends CommonUtils {
 	@FindBy(xpath = "//span[contains(text(),'No, I am completing this form for myself')]")
 	public WebElement proxyOption;
 
-	/*
-	 * Participant: Are you completing this questionnaire for someone else Radio
-	 * Button List
-	 */
+	/* Participant: Are you completing this questionnaire for someone else Radio Button List */
 	@FindBy(xpath = "(//span[contains(@class,'LabelWrapper')])")
 	public List<WebElement> participantCompletingRBtonList;
 
-	/*
-	 * Banner1: The next set of questions will collect basic information about you.
-	 */
+	/* The next set of questions will collect basic information about you.*/	 
 	@FindBy(xpath = "//div[@class='QuestionText BorderColor']")
 	public WebElement banner1;
 
@@ -59,7 +83,35 @@ public class FanconiEligibilityQuestionnairePage extends CommonUtils {
 	/* Participant: Last Name textBox */
 	@FindBy(xpath = "(//input[@name='QR~QID2~6~TEXT'])[1]")
 	public WebElement lastNameTextBox;
+	
+	/* Participant: First Name By Proxy textBox */
+	@FindBy(xpath = "(//input[@id='QR~QID105~4'])[1]")
+	public WebElement firstNameByProxyTextBox;
 
+	/* Participant: Middle Initial By Proxy textBox */
+	@FindBy(xpath = "(//input[@id='QR~QID105~5'])[1]")
+	public WebElement middleNameByProxyTextBox;
+
+	/* Participant: Last Name By Proxy textBox */
+	@FindBy(xpath = "(//input[@id='QR~QID105~6'])[1]")
+	public WebElement lastNameByProxyTextBox;
+	
+	/* Participant: Proxy First Name textBox */
+	@FindBy(xpath = "(//input[@id='QR~QID3~4'])[1]")
+	public WebElement proxyFirstNameTextBox;
+
+	/* Participant:Proxy Middle Initial textBox */
+	@FindBy(xpath = "(//input[@id='QR~QID3~5'])[1]")
+	public WebElement proxyMiddleNameTextBox;
+
+	/* Participant: Proxy Last Name textBox */
+	@FindBy(xpath = "(//input[@id='QR~QID3~6'])[1]")
+	public WebElement proxyLastNameTextBox;
+	
+	/* Participant:What is your relationship to participant? textBox */
+	@FindBy(xpath = "(//input[@title='Other'])[1]")
+	public WebElement yourRelationshipToParticipantOtherTextBox;
+	
 	/* Participant: Bone Marrow Syndrome Study Radio Button List */
 	@FindBy(xpath = "(//span[contains(@class,'LabelWrapper')])")
 	public List<WebElement> participateBoneMarrowSyndromeStudyRBtonList;
@@ -75,12 +127,10 @@ public class FanconiEligibilityQuestionnairePage extends CommonUtils {
 	@FindBy(xpath = "//input[@aria-label='Year']")
 	public WebElement calendarYearTextBox;
 
-	
-	 /* Calendar day option */  
-	  @FindBy(xpath = "//span[contains(@aria-label,'21')]") 
-	  public WebElement calendarDayOption;
-	 
-	
+	/* Calendar day option */
+	@FindBy(xpath = "//span[contains(@aria-label,'21')]")
+	public WebElement calendarDayOption;
+
 	/* Calendar day option */
 	@FindBy(xpath = "(//div[@class='dayContainer'])[1]")
 	public List<WebElement> calendarDay;
@@ -92,11 +142,19 @@ public class FanconiEligibilityQuestionnairePage extends CommonUtils {
 	/* Participant: Current Gender Radio Button List */
 	@FindBy(xpath = "(//span[contains(@class,'LabelWrapper')])")
 	public List<WebElement> currentGenderRBtonList;
-
+	
+	/* Participant: Current Gender Different term text box */
+	@FindBy(xpath = "(//input[@title='I use a different term:'])[1]")
+	public WebElement currentGenderDifferentTermTextBox;
+	
 	/* Participant: Pronouns Radio Button List */
 	@FindBy(xpath = "(//span[contains(@class,'LabelWrapper')])")
 	public List<WebElement> pronounsRBtonList;
-
+	
+	/* Participant: Pronouns  Different term text box */
+	@FindBy(xpath = "(//input[@title='I use a different term:'])[1]")
+	public WebElement pronounsDifferentTermTextBox;
+	
 	/* Participant: Adopted Radio Button List */
 	@FindBy(xpath = "(//span[contains(@class,'LabelWrapper')])")
 	public List<WebElement> adoptedRBtonList;
@@ -124,6 +182,30 @@ public class FanconiEligibilityQuestionnairePage extends CommonUtils {
 	/* Participant: Mailing Address Zip Code TextBox */
 	@FindBy(xpath = "(//input[@name='QR~QID110~9~TEXT'])[1]")
 	public WebElement zipCodeTextBox;
+	
+	/* Participant: Country currently lived Drop-down list option */
+	@FindBy(xpath = "(//select[@id='QR~QID156'])[1]")
+	public WebElement countrylivedProxyDropDownList;
+	
+	/* Participant: Mailing Address Street TextBox */
+	@FindBy(xpath = "(//input[@id='QR~QID14~4'])[1]")
+	public WebElement streetProxyTextBox;
+
+	/* Participant: Mailing Address Street Optional TextBox */
+	@FindBy(xpath = "(//input[@id='QR~QID14~5'])[1]")
+	public WebElement additionalStreetProxyTextBox;
+
+	/* Participant: Mailing Address City TextBox */
+	@FindBy(xpath = "(//input[@id='QR~QID14~6'])[1]")
+	public WebElement cityProxyTextBox;
+
+	/* Participant: Mailing Address State TextBox */
+	@FindBy(xpath = "(//input[@id='QR~QID14~7'])[1]")
+	public WebElement stateProxyTextBox;
+
+	/* Participant: Mailing Address Zip Code TextBox */
+	@FindBy(xpath = "(//input[@id='QR~QID14~8'])[1]")
+	public WebElement zipCodeProxyTextBox;
 
 	/* Participant: Email Address TextBox */
 	@FindBy(xpath = "//input[@name='QR~QID15~TEXT']")
@@ -134,27 +216,27 @@ public class FanconiEligibilityQuestionnairePage extends CommonUtils {
 	public WebElement confirmEmailAddressTextBox;
 
 	/* Participant: Home Phone Number TextBox */
-	@FindBy(xpath = "(//input[@name='QR~QID17~4~TEXT'])[1]")
+	@FindBy(xpath = "(//input[contains(@type,'text')])[1]")
 	public WebElement homePhoneNumberTextBox;
 
 	/* Participant: Preferred Home Phone Number TextBox */
-	@FindBy(xpath = "(//label[@for='QR~QID17~4~1'])[1]")
+	@FindBy(xpath = "//tbody/tr[1]/td[1]/label[1]")
 	public WebElement preferredHomePhoneNumberTextBox;
 
 	/* Participant: Cell Phone Number TextBox */
-	@FindBy(xpath = "(//input[@name='QR~QID17~5~TEXT'])[1]")
+	@FindBy(xpath = "(//input[contains(@type,'text')])[2]")
 	public WebElement cellPhoneNumberTextBox;
 
 	/* Participant: Preferred Cell Phone Number TextBox */
-	@FindBy(xpath = "(//label[@for='QR~QID17~5~1'])[1]")
+	@FindBy(xpath = "//tbody/tr[2]/td[1]/label[1]")
 	public WebElement preferredCellPhoneNumberTextBox;
 
 	/* Participant: Work Phone Number TextBox */
-	@FindBy(xpath = "(//input[@name='QR~QID17~8~TEXT'])[1]")
+	@FindBy(xpath = "(//input[contains(@type,'text')])[3]")
 	public WebElement workPhoneNumberTextBox;
 
 	/* Participant: Preferred Work Phone Number TextBox */
-	@FindBy(xpath = "(//label[@for='QR~QID17~8~1'])[1]")
+	@FindBy(xpath = "//tbody/tr[3]/td[1]/label[1]")
 	public WebElement preferredWorkPhoneNumberTextBox;
 
 	/* Participant: Ethnicity options */
@@ -166,7 +248,7 @@ public class FanconiEligibilityQuestionnairePage extends CommonUtils {
 	public List<WebElement> raceRBtonList;
 
 	/* Participant: participation in other Race Name TextBox */
-	@FindBy(xpath = "(//input[@title='Other (please specify)'])[1]")
+	@FindBy(xpath = "(//span[contains(@class,'LabelWrapper')])[6]/input")
 	public WebElement otherRaceNameTextBox;
 
 	/* Participant: Common options */
@@ -234,8 +316,7 @@ public class FanconiEligibilityQuestionnairePage extends CommonUtils {
 	 */
 	@FindBy(xpath = "//input[contains(@id, 'QR~QID97#4')]")
 	public List<WebElement> otherStudyNoLongerStartYearList;
-	
-	
+
 	/************************************ */
 
 	/* Participant: participation in other study Name TextBox */
@@ -274,18 +355,30 @@ public class FanconiEligibilityQuestionnairePage extends CommonUtils {
 	 */
 	@FindBy(xpath = "(//input[@name='QR~QID97#4~x1~2~TEXT'])[1]")
 	public WebElement otherStudyNoLongerEndYearTextBox;
-	
+
 	/************************************ */
+	
+	/* Participant: the age when Participant diagnosed with Fanconi anemia TextBox */
+	@FindBy(xpath = "(//input[@title='Age in years (if under age 1 year, please enter 0)'])[1]")
+	public WebElement ageParticipantDiagnosedWithFanconiTextBox;
 
 	/* Participant: send the information by FAX Radio Button */
 	@FindBy(xpath = "(//li[contains(@class,'Selection reg')])[1]")
 	public WebElement faxRadioButton;
 
+	/*Participant: Where was the chromosome breakage test performed? TextBox */
+	@FindBy(xpath = "(//input[contains(@title,'Other (please specify)')])[1]")
+	public WebElement chromosomBreakageTestPerformedTextBox;
+	
+	/*Participant: Please check FA genes tested.(Mark all that apply).TextBox */
+	@FindBy(xpath = "//input[@title='Other genes/syndromes']")
+	public WebElement checkFAGenesTestedTextBox;
+	
 	/*
-	 * Participant: the age when Participant diagnosed with Fanconi anemia TextBox
+	 * Participant: the date when Participant diagnosed with Fanconi anemia TextBox
 	 */
-	@FindBy(xpath = "(//input[@title='Age in years (if under age 1 year, please enter 0)'])[1]")
-	public WebElement ageParticipantDiagnosedWithFanconiTextBox;
+	@FindBy(xpath = "(//input[@title='Date (MM/DD/YYYY)'])[1]")
+	public WebElement dateParticipantDiagnosedWithFanconiTextBox;
 
 	/* Participant: Gene Name Drop Down List */
 	@FindBy(xpath = "(//select[@name='QR~QID166#3~1'])[1]")
@@ -324,20 +417,47 @@ public class FanconiEligibilityQuestionnairePage extends CommonUtils {
 	 */
 	@FindBy(xpath = "//td[@class='c4   ']")
 	public List<WebElement> yesForFeaturesOptions;
+	
+	/*
+	 * Participant: Have you been told that you have any of the following features
+	 */
+	@FindBy(xpath = "//td[@class='c5   ']")
+	public List<WebElement> noForFeaturesOptions;
+	
+	/*
+	 * Participant: Have you been told that you have any of the following features
+	 */
+	@FindBy(xpath = "//td[@class='c6 last  ']")
+	public List<WebElement> unsureForFeaturesOptions;
 
 	/*
 	 * Participant diagnosed with bone marrow: Do you want report date or age of
 	 * diagnosis?
 	 */
 	@FindBy(xpath = "(//select[@name='QR~QID197#6~1'])[1]")
+	public WebElement reportDateOrAgeOfDiagnosisDropDownList1;
+	
+	/*
+	 * Participant diagnosed with bone marrow: Do you want report date or age of
+	 * diagnosis?
+	 */
+	@FindBy(xpath = "(//tr[@class='Choice ']/child::td/select)[1]")
 	public WebElement reportDateOrAgeOfDiagnosisDropDownList;
 
 	/* Participant diagnosed with bone marrow: Month of diagnosis */
 	@FindBy(xpath = "(//select[@name='QR~QID197#1~1'])[1]")
+	public WebElement monthOfDiagnosisDropDownList1;
+	
+	/* Participant diagnosed with bone marrow: Month of diagnosis */
+	@FindBy(xpath = "(//tr[@class='Choice ']/child::td/select)[2]")
 	public WebElement monthOfDiagnosisDropDownList;
 
 	/* Participant diagnosed with bone marrow: Year of diagnosis */
 	@FindBy(xpath = "(//select[@name='QR~QID197#4~1'])[1]")
+	public WebElement yearOfDiagnosisDropDownList1;
+	
+	/* Participant diagnosed with bone marrow: Year of diagnosis */
+	@FindBy(xpath = "(//tr[@class='Choice ']/child::td/select)[3]")
 	public WebElement yearOfDiagnosisDropDownList;
 
 	/*
@@ -345,10 +465,21 @@ public class FanconiEligibilityQuestionnairePage extends CommonUtils {
 	 * year, please select 0)
 	 */
 	@FindBy(xpath = "(//select[@name='QR~QID197#5~1'])[1]")
+	public WebElement ageAtDiagnosisDropDownList1;
+	
+	/*
+	 * Participant diagnosed with bone marrow: Age at diagnosis(If diagnosed under 1
+	 * year, please select 0)
+	 */
+	@FindBy(xpath = "(//tr[@class='Choice ']/child::td/select)[4]")
 	public WebElement ageAtDiagnosisDropDownList;
 
 	/* Participant diagnosed with bone marrow: Was treatment received? */
 	@FindBy(xpath = "(//select[@name='QR~QID197#7~1'])[1]")
+	public WebElement wasTreatmentReceivedDropDownList1;
+	
+	/* Participant diagnosed with bone marrow: Was treatment received? */
+	@FindBy(xpath = "(//tr[@class='Choice ']/child::td/select)[5]")
 	public WebElement wasTreatmentReceivedDropDownList;
 
 	/*
@@ -356,13 +487,34 @@ public class FanconiEligibilityQuestionnairePage extends CommonUtils {
 	 * please specify treatment (for example androgren, eltrombopag, other)
 	 */
 	@FindBy(xpath = "(//input[@name='QR~QID197#2~1~1~TEXT'])[1]")
+	public WebElement treatmentReceivedTextBox1;
+	
+	/*
+	 * Participant diagnosed with bone marrow: Treatment--If treatment received,
+	 * please specify treatment (for example androgren, eltrombopag, other)
+	 */
+	@FindBy(xpath = "//tbody//tr[@class='Choice ']/child::td//input")
 	public WebElement treatmentReceivedTextBox;
+	
+	/*
+	 * Participant diagnosed with bone marrow: Treatment--If treatment received,
+	 * please specify treatment (for example androgren, eltrombopag, other)
+	 */
+	@FindBy(xpath = "//tbody//tr[@class='Choice ']/child::td//textarea")
+	public WebElement treatmentReceivedProxyTextBox;
 
 	/*
 	 * Participant diagnosed with bone marrow: Did you receive or are you receiving
 	 * blood transfusions?
 	 */
 	@FindBy(xpath = "(//select[@name='QR~QID197#3~1'])[1]")
+	public WebElement didYouReceiveBloodTransfusionDropDownList1;
+	
+	/*
+	 * Participant diagnosed with bone marrow: Did you receive or are you receiving
+	 * blood transfusions?
+	 */
+	@FindBy(xpath = "(//tr[@class='Choice ']/child::td/select)[6]")
 	public WebElement didYouReceiveBloodTransfusionDropDownList;
 
 	/*
@@ -371,47 +523,88 @@ public class FanconiEligibilityQuestionnairePage extends CommonUtils {
 	 */
 	@FindBy(xpath = "(//input[@title='Age'])[1]")
 	public WebElement ageParticipantDiagnosedWithMDSTextBox;
-
+	
 	/*
-	 * Participant: received a bone marrow, stem cell, or cord blood transplant
-	 * TextBox
+	 * Participant: the age when Participant diagnosed with myelodysplastic syndrome
+	 * (MDS) TextBox
 	 */
+	@FindBy(xpath = "(//input[@title='Date (MM/DD/YYYY)'])[1]")
+	public WebElement dateParticipantDiagnosedWithMDSTextBox;
+
+	/* Participant:received a bone marrow, stem cell, or cord blood transplant TextBox  */
 	@FindBy(xpath = "(//input[@title='Yes (specify treatment institution)'])[1]")
 	public WebElement treatmentInstitutionTextBox;
+	
+	/* Participant:received a bone marrow, stem cell, or cord blood transplant TextBox  */
+	@FindBy(xpath = "(//textarea[@title='Yes (specify treatment center including city, state, and phone number if known)'])[1]")
+	public WebElement treatmentInstitutionProxyTextBox;
+	
 
-	/*
-	 * Participant Information about Bone Marrow :Do you want to report date or age
-	 * of your transplant?
-	 */
+	/* Participant:Information about Bone Marrow :Do you want to report date or age  of your transplant?*/
 	@FindBy(xpath = "(//select[@name='QR~QID209#6~1'])[1]")
-	public WebElement wantToReportDateOrAgeDropDownList;
+	public WebElement wantToReportDateOrAgeDropDownList1;
 
 	/* Participant Information about Bone Marrow :Month of transplant */
 	@FindBy(xpath = "(//select[@name='QR~QID209#1~1'])[1]")
-	public WebElement monthOfTransplantDropDownList;
+	public WebElement monthOfTransplantDropDownList1;
 
 	/* Participant Information about Bone Marrow :Year of transplant */
 	@FindBy(xpath = "(//select[@name='QR~QID209#4~1'])[1]")
-	public WebElement yearOfTransplantDropDownList;
+	public WebElement yearOfTransplantDropDownList1;
 
 	/*
 	 * Participant Information about Bone Marrow :Age at transplant (If diagnosed
 	 * under 1 year, please select 0)
 	 */
 	@FindBy(xpath = "(//select[@name='QR~QID209#5~1'])[1]")
-	public WebElement ageAtTransplantDropDownList;
+	public WebElement ageAtTransplantDropDownList1;
 
 	/* Participant Information about Bone Marrow :Donor type */
 	@FindBy(xpath = "(//select[@name='QR~QID209#7~1'])[1]")
-	public WebElement donorTypeDropDownList;
+	public WebElement donorTypeDropDownList1;
 
 	/* Participant Information about Bone Marrow :Transplant donor match */
 	@FindBy(xpath = "(//select[@name='QR~QID209#2~1'])[1]")
-	public WebElement transpalntDonarTypeDropDownList;
+	public WebElement transpalntDonarTypeDropDownList1;
 
 	/* Participant Information about Bone Marrow :Stem cell source */
 	@FindBy(xpath = "(//select[@name='QR~QID209#3~1'])[1]")
+	public WebElement stemCellSourceDropDownList1;
+	
+	/************************/
+
+	/* Participant:Information about Bone Marrow :Do you want to report date or age  of your transplant?*/
+	@FindBy(xpath = "(//tr[@class='Choice ']/child::td/select)[1]")
+	public WebElement wantToReportDateOrAgeDropDownList;
+
+	/* Participant Information about Bone Marrow :Month of transplant */
+	@FindBy(xpath = "(//tr[@class='Choice ']/child::td/select)[2]")
+	public WebElement monthOfTransplantDropDownList;
+
+	/* Participant Information about Bone Marrow :Year of transplant */
+	@FindBy(xpath = "(//tr[@class='Choice ']/child::td/select)[3]")
+	public WebElement yearOfTransplantDropDownList;
+
+	/*
+	 * Participant Information about Bone Marrow :Age at transplant (If diagnosed
+	 * under 1 year, please select 0)
+	 */
+	@FindBy(xpath = "(//tr[@class='Choice ']/child::td/select)[4]")
+	public WebElement ageAtTransplantDropDownList;
+
+	/* Participant Information about Bone Marrow :Donor type */
+	@FindBy(xpath = "(//tr[@class='Choice ']/child::td/select)[5]")
+	public WebElement donorTypeDropDownList;
+
+	/* Participant Information about Bone Marrow :Transplant donor match */
+	@FindBy(xpath = "(//tr[@class='Choice ']/child::td/select)[6]")
+	public WebElement transpalntDonarTypeDropDownList;
+
+	/* Participant Information about Bone Marrow :Stem cell source */
+	@FindBy(xpath = "(//tr[@class='Choice ']/child::td/select)[7]")
 	public WebElement stemCellSourceDropDownList;
+	
+	
 
 	/* Participant: received current medication Option */
 	@FindBy(xpath = "(//span[contains(text(),'Name of Medication(s)')])[1]")
@@ -420,10 +613,26 @@ public class FanconiEligibilityQuestionnairePage extends CommonUtils {
 	/* Participant: received current medication TextBox */
 	@FindBy(xpath = "(//textarea[@title='Name of Medication(s)'])[1]")
 	public WebElement currentMedicationTextBox;
+	
+	/* Participant: received current medication Not Applicable Option */
+	@FindBy(xpath = "(//span[contains(text(),'Not Applicable')])[1]")
+	public WebElement currentMedicationNotApplicableOption;
 
 	/* Participant Primary Cancer: Tumor Type */
-	@FindBy(xpath = "(//select[contains(@name,'QR~QID212#1~1')])[1]")
-	public WebElement tumorTypeDropDownList;
+	@FindBy(xpath = "(//select[@name='QR~QID212#1~1'])[1]")
+	public WebElement tumorTypeDropDownList1;
+
+	/* Participant Primary Cancer: Tumor Type */
+	@FindBy(xpath = "(//select[@name='QR~QID212#1~2'])[1]")
+	public WebElement tumorTypeDropDownList2;
+
+	/* Participant Primary Cancer: Tumor Type */
+	@FindBy(xpath = "(//select[@name='QR~QID212#1~3'])[1]")
+	public WebElement tumorTypeDropDownList3;
+
+	/* Participant Primary Cancer: Tumor Type */
+	@FindBy(xpath = "(//select[@name='QR~QID212#1~4'])[1]")
+	public WebElement tumorTypeDropDownList4;
 
 	/* Participant Primary Cancer: Additional Details */
 	@FindBy(xpath = "(//input[@name='QR~QID212#2~1~1~TEXT'])[1]")
@@ -473,18 +682,45 @@ public class FanconiEligibilityQuestionnairePage extends CommonUtils {
 	/* Participant: Physician Name TextBox */
 	@FindBy(xpath = "(//input[@title='<span style=\"font-family:Arial,Helvetica,sans-serif;\">Physician</span>'])[1]")
 	public WebElement physicianNameTextBox;
+	
+	/* Participant: Fanconi Anemia Research Fund TextBox */
+	@FindBy(xpath = "(//input[contains(@title,'<span style=\"font-family:Arial,Helvetica,sans-serif;\">Fanconi Anemia Research Fund</span>')])[1]")
+	public WebElement fanconiAnemiaResearchFundTextBox;
+	
+	/* Participant: Genetic counselor TextBox */
+	@FindBy(xpath = "(//input[contains(@title,'<span style=\"font-family:Arial,Helvetica,sans-serif;\">Genetic counselor</span>')])[1]")
+	public WebElement geneticCounselorTextBox;
+	
+	/* Participant: Other TextBox */
+	@FindBy(xpath = "(//input[contains(@title,'Other')])[1]")
+	public WebElement otherProviderTextBox;
 
 	/* Participant: Health care provider Name TextBox */
 	@FindBy(xpath = "(//input[@name='QR~QID192~7~TEXT'])[1]")
-	public WebElement healthCareProviderNameTextBox;
+	public WebElement healthCareProviderName1TextBox;
 
 	/* Participant: Health care provider Address TextBox */
 	@FindBy(xpath = "(//input[@name='QR~QID192~3~TEXT'])[1]")
-	public WebElement healthCareProviderAddressTextBox;
+	public WebElement healthCareProviderAddress1TextBox;
 
 	/* Participant: Health care provider Phone Number TextBox */
 	@FindBy(xpath = "(//input[@name='QR~QID192~1~TEXT'])[1]")
+	public WebElement healthCareProviderPhoneNumber1TextBox;
+	
+	/*****************************************/
+	
+	/* Participant: Health care provider Name TextBox */
+	@FindBy(xpath = "(//tbody/tr/td[2]/input)[1]")
+	public WebElement healthCareProviderNameTextBox;
+
+	/* Participant: Health care provider Address TextBox */
+	@FindBy(xpath = "(//tbody/tr/td[2]/input)[2]")
+	public WebElement healthCareProviderAddressTextBox;
+
+	/* Participant: Health care provider Phone Number TextBox */
+	@FindBy(xpath = "(//tbody/tr/td[2]/input)[3]")
 	public WebElement healthCareProviderPhoneNumberTextBox;
+
 
 	/* Participant: Participate in Research TextBox */
 	@FindBy(xpath = "(//input[@title='<span style=\"font-family:Arial,Helvetica,sans-serif;\">Participate in research</span>'])[1]")

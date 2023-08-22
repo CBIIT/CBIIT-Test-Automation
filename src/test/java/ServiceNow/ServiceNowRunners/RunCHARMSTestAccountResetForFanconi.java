@@ -8,9 +8,9 @@ import org.junit.runner.RunWith;
 //import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = { "html:target/html-reports/cucumber-default-report/report", "json:target/cucumber.json",
+@CucumberOptions(plugin = { "html:target/html-reports/cucumber-default-report", "json:target/cucumber.json",
 		"junit:target/cucumber.xml", "rerun:target/failed.txt",
-		"pretty" }, features = "src/test/java/ServiceNow/CHARMS/Features/FanconiStudy", glue = "ServiceNow.CHARMS.Steps", tags = "@Regression", dryRun = false, monochrome = true, strict = true
+		"pretty" }, features = "src/test/java/ServiceNow/CHARMS/Features/FanconiStudy", glue = "ServiceNow.CHARMS.Steps", tags = "@TestAccountReset", dryRun = false, monochrome = true, strict = true
 
 )
 
@@ -20,6 +20,6 @@ import org.junit.runner.RunWith;
  * 
  * @author sohilz2
  */
-public class RunCHARMSRegressionTest {
+public class RunCHARMSTestAccountResetForFanconi {
 
-}                        
+}

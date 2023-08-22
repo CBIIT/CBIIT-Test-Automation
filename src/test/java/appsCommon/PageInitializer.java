@@ -32,6 +32,7 @@ import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
 import ServiceNow.CHARMS.Pages.*;
 import ServiceNow.CHARMS.ScenariosData.TestDataManager;
 import ServiceNow.CHARMS.StepsImplementation.CHARMSHomePageImp;
+import ServiceNow.CHARMS.StepsImplementation.FanconiEligibilityQuestionnaireStepsImpl;
 import ServiceNow.CHARMS.StepsImplementation.RASSurveyStepsImpl;
 import ServiceNow.CHARMS.StepsImplementation.RasScreenerStepsImpl;
 import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
@@ -171,6 +172,7 @@ public class PageInitializer {
 	public static FanconiScreenerNVPage fanconiScreenerNVPage;		
 	public static FanconiLoginPage fanconiLoginPage;
 	public static CHARMSParticipantDetailsPage cHARMSParticipantDetailsPage;
+	public static FanconiEligibilityQuestionnaireStepsImpl fanconiEligibilityQuestionnaireStepsImpl;
 
     // Melanoma and Spitzoid Tumor instances
     public static MelanomaLoginPage melanomaLoginPage;
@@ -350,6 +352,8 @@ public class PageInitializer {
 		fanconiEligibilityQuestionnairePage = new FanconiEligibilityQuestionnairePage();
 		fanconiScreenerNVPage =new FanconiScreenerNVPage();
 		cHARMSParticipantDetailsPage = new CHARMSParticipantDetailsPage();
+		fanconiEligibilityQuestionnaireStepsImpl = new FanconiEligibilityQuestionnaireStepsImpl();
+		
 
         // Melanoma and Spitzoid Tumor instances
         melanomaLoginPage = new MelanomaLoginPage();

@@ -89,7 +89,7 @@ public class HooksSteps {
 
 			System.out.println("Ending Scenario: " + s.getName());
 			String scenarioName = ScenarioContext.getScenarioName();
-			String scenarioResult = ScenarioContext.scenario.get().getStatus().toString();
+	String scenarioResult = ScenarioContext.scenario.get().getStatus().toString();
 			String scenarioResultsDir = ConfUtils.getResultsDir();
 
 			if (scenarioResult.contentEquals("passed"))
