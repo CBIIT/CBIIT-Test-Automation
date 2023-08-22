@@ -1,5 +1,6 @@
 package ServiceNow.CHARMS.StepsImplementation;
 
+import ServiceNow.CHARMS.Constants.CHARMSConstants;
 import ServiceNow.CHARMS.Constants.CHARMSRASScreenerConstants;
 import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
 import ServiceNow.COVIDDash.Utils.COVIDConstants;
@@ -107,13 +108,13 @@ public class RasScenario1StepsImpl extends PageInitializer {
             rasScenario1StepsImpl.rasScreenerIIQFormScenario1();
         }else if(sheetNameIiq.contentEquals("IIQScenario2")) {
             iiq_TestDataManager.dataInitializerIIQ(sheetNameIiq);
-            rasScenario1StepsImpl.rasScreenerIIQFormScenario1();
+            rasScenario2StepsImpl.rasScreenerIIQFormScenario2();
         }else if(sheetNameIiq.contentEquals("IIQScenario3")) {
             iiq_TestDataManager.dataInitializerIIQ(sheetNameIiq);
-            rasScenario1StepsImpl.rasScreenerIIQFormScenario1();
+            rasScenario3StepsImpl.rasScreenerIIQFormScenario3();
         }else if(sheetNameIiq.contentEquals("IIQScenario4")) {
             iiq_TestDataManager.dataInitializerIIQ(sheetNameIiq);
-            rasScenario1StepsImpl.rasScreenerIIQFormScenario1();
+            rasScenario4StepsImpl.rasScreenerIIQFormScenario4();
         }
     }
 
@@ -228,7 +229,7 @@ public class RasScenario1StepsImpl extends PageInitializer {
         CommonUtils.waitForVisibility(myRASHomePage.rasoptathyIiqButton);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(myRASHomePage.rasoptathyIiqButton);
-        MiscUtils.sleep(20000);
+        MiscUtils.sleep(30000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForClickability(myRASHomePage.rasoptathyRasSurveyCloseButton);
         CommonUtils.clickOnElement(myRASHomePage.rasoptathyRasSurveyCloseButton);
@@ -260,6 +261,21 @@ public class RasScenario1StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /***
+     * USE THIS METHOD TO ENTER EMAIL AND PIN IN THE IIQ SAMPLE FORM
+     */
+    public void aParticipantEntersUsernameUndPinSample(String email, String pin) {
+        WebDriverUtils.webDriver.get(CHARMSConstants.IIQ_SAMPLE_FORM);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicTextBoxLocator("Email"));
+        rasopathyQuestionnairePage.dynamicTextBoxLocator("Email").sendKeys(email);
+        rasopathyQuestionnairePage.pinTextBox.sendKeys(pin);
+        CucumberLogUtils.logScreenshot();
+        MiscUtils.sleep(3000);
+        rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
+        MiscUtils.sleep(3000);
+        CucumberLogUtils.logScreenshot();
+    }
     /***
      * USE THIS METHOD TO REWIND THE SURVEY FORM
      */
@@ -479,7 +495,7 @@ public class RasScenario1StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnScreenerNextButton();
         try {
-            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(93));
+            CommonUtils.waitForVisibility(rasopathyQuestionnairePage.haveAnyOfYourRelativesBeenDiagnosedNoRadioButton);
             CommonUtils.clickOnElement(rasopathyQuestionnairePage.haveAnyOfYourRelativesBeenDiagnosedNoRadioButton);
             CucumberLogUtils.logScreenshot();
         } catch (NoSuchElementException e) {
@@ -607,6 +623,7 @@ public class RasScenario1StepsImpl extends PageInitializer {
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyNonParticipantDateButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
+        MiscUtils.sleep(2000);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubmitForEligibilityButton);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsSubmitForEligibilityButton);
@@ -1027,6 +1044,7 @@ public class RasScenario1StepsImpl extends PageInitializer {
         rasScenario1StepsImpl.clickOnScreenerNextButton();
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
+        logOutOfNativeView();
     }
 
     /***
@@ -1832,6 +1850,7 @@ public class RasScenario1StepsImpl extends PageInitializer {
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
+
     }
 
     /***
@@ -1959,5 +1978,6 @@ public class RasScenario1StepsImpl extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(screenerRecordTablePage.finalInformationMainReasonsForParticipatingInThisStudyOtherReasonsField.getText(), ras_Screener_TestDataManager.whatAreMainReasonsForParticipatingInStudyOtherReason, "-- VERIFYING MAIN REASONS FOR PARTICIPATING IN STUDY FIELD --");
         CommonUtils.verifyingDropDownValueIsSelected(screenerRecordTablePage.finalInformationAreYouAParticipantInAnyOtherResearchStudyOrRegistryGroupDropDown, ras_Screener_TestDataManager.areYouAParticipantInOtherStudyGroup, "-- VERIFYING IF PARTICIPANT IS PART OF RESEARCH STUDY OR REGISTRY GROUP --");
         CucumberLogUtils.logScreenshot();
+        logOutOfNativeView();
     }
 }

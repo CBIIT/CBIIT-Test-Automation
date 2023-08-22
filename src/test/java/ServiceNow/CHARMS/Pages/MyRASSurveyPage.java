@@ -120,6 +120,10 @@ public class MyRASSurveyPage {
     @FindBy(xpath = "//*[@id='QR~QID318#1~1~1~TEXT']")
     public WebElement pleaseCompleteYourBiologicalParentsBiologicalMotherCityTextBox;
 
+    /* IIQ HOW ARE THE BIOLOGICAL PARENTS BLOOD-RELATED TO EACH OTHER TEXT AREA*/
+    @FindBy(xpath = "//*[@id='QR~QID42~1~TEXT']")
+    public WebElement HowAreYourBiologicalTextArea;
+
     /* RAS SURVEY PLEASE COMPLETE THE TABLE BELOW REGARDING YOUR BIOLOGICAL PARENTS. BIOLOGICAL MOTHER UNSURE RADIO BUTTON*/
     @FindBy(xpath = "//*[@id='QID318']/div[3]/div/fieldset/fieldset/div/table/tbody/tr[1]/td[6]/label")
     public WebElement pleaseCompleteYourBiologicalParentsBiologicalMotherUnsureRadioButton;
@@ -216,6 +220,14 @@ public class MyRASSurveyPage {
     public WebElement dynamicTopText(int pageNumber) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='QID" + pageNumber + "']/div[3]/div"));
     }
+
+    /*
+    USE THIS METHOD TO MOVE THE SLIDER IN A PAGE
+    */
+    public WebElement dynamicSlider(int page, int number) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='QID" + page + "~" + number + "~handle']"));
+    }
+
     /*
     USE THIS METHOD TO DYNAMICALLY LOCATE TEXT AT TOP OF PAGE
     */

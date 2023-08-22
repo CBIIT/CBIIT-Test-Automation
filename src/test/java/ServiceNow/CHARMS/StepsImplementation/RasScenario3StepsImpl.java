@@ -363,6 +363,350 @@ public class RasScenario3StepsImpl extends PageInitializer {
     }
 
     /***
+     * USE THIS METHOD WILL COMPLETE THE IIQ FORM SCENARIO 1
+     */
+    public void rasScreenerIIQFormScenario3() {
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(14));
+        CommonUtils.assertEqualsWithMessage(iiq_TestDataManager.thisIsACopyForLowerEnvironmentsText, myRASSurveyPage.dynamicTopText(14).getText(), "-- VERIFYING THIS IS THE COPY FOR LOWER ENVIRONMENTS TEXT --");
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(16));
+        CommonUtils.assertEqualsWithMessage(iiq_TestDataManager.someOfThisInformationText, myRASSurveyPage.dynamicTopText(16).getText(), "-- VERIFYING SOME OF THIS INFORMATION TEXT --");
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(35));
+        CommonUtils.assertEqualsWithMessage(iiq_TestDataManager.thisFirstSectionOfTheQuestionnaireText, myRASSurveyPage.dynamicTopText(35).getText(), "-- VERIFYING THIS FIRST QUESTION OF THE QUESTIONNAIRE TEXT --");
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        try {
+            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(102));
+            CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.areYouCompletingThisFormForYourselfRadioButton));
+            CucumberLogUtils.logScreenshot();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            rasScenario1StepsImpl.clickOnScreenerNextButton();
+            CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.areYouCompletingThisFormForYourselfRadioButton));
+            CucumberLogUtils.logScreenshot();
+        }
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(105));
+        myRASSurveyPage.dynamicOneTextBox(105).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.dynamicOneTextBox(105), iiq_TestDataManager.pleaseConfirmTheNameOfThePerson);
+        CucumberLogUtils.logScreenshot();
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        try {
+            rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.whatIsYourBiologicalSexRadioButton).click();
+            CucumberLogUtils.logScreenshot();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            rasScenario1StepsImpl.clickOnScreenerNextButton();
+            rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.whatIsYourBiologicalSexRadioButton).click();
+            CucumberLogUtils.logScreenshot();
+        }
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(107));
+        MiscUtils.sleep(2000);
+        rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.forWhichSexDoYouIdentifyRadioButton).click();
+        CucumberLogUtils.logScreenshot();
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        try {
+            CommonUtils.waitForClickability(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.doYouConsiderYourselfToBeRadioButton));
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.doYouConsiderYourselfToBeRadioButton));
+            CucumberLogUtils.logScreenshot();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            rasScenario1StepsImpl.clickOnScreenerNextButton();
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.doYouConsiderYourselfToBeRadioButton));
+            CucumberLogUtils.logScreenshot();
+        }
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        try {
+            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(109));
+            CommonUtils.waitForClickability(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.whatIsYourRaceCheckBox));
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.whatIsYourRaceCheckBox));
+            CucumberLogUtils.logScreenshot();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            rasScenario1StepsImpl.clickOnScreenerNextButton();
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.whatIsYourRaceCheckBox));
+            CucumberLogUtils.logScreenshot();
+        }
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(110));
+        JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.areYouOfAshkenazyJewishDescentRadioButton));
+        CucumberLogUtils.logScreenshot();
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        try {
+            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(111));
+            MiscUtils.sleep(1000);
+            CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.areYouAdoptedRadioButton));
+            CucumberLogUtils.logScreenshot();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            rasScenario1StepsImpl.clickOnScreenerNextButton();
+            CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.areYouAdoptedRadioButton));
+            CucumberLogUtils.logScreenshot();
+        }
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        try {
+            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(112));
+            MiscUtils.sleep(1000);
+            CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.wereYouRaisedPrimarilyRadioButton));
+            CucumberLogUtils.logScreenshot();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            rasScenario1StepsImpl.clickOnScreenerNextButton();
+            CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.wereYouRaisedPrimarilyRadioButton));
+            CucumberLogUtils.logScreenshot();
+        }
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        try {
+            rasopathyQuestionnairePage.calendarYearTextBox.clear();
+            rasopathyQuestionnairePage.calendarYearTextBox.sendKeys(iiq_TestDataManager.whatIsYourDateOfBirthYearDropDown);
+            CommonUtils.selectDropDownValue(iiq_TestDataManager.whatIsYourDateOfBirthMonthDropDown, rasopathyQuestionnairePage.calendarMonthDropDown);
+            rasopathyQuestionnairePage.iIQcalendarDayOption.click();
+            CucumberLogUtils.logScreenshot();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            rasScenario1StepsImpl.clickOnScreenerNextButton();
+            rasopathyQuestionnairePage.calendarYearTextBox.clear();
+            rasopathyQuestionnairePage.calendarYearTextBox.sendKeys(iiq_TestDataManager.whatIsYourDateOfBirthYearDropDown);
+            CommonUtils.selectDropDownValue(iiq_TestDataManager.whatIsYourDateOfBirthMonthDropDown, rasopathyQuestionnairePage.calendarMonthDropDown);
+            rasopathyQuestionnairePage.iIQcalendarDayOption.click();
+            CucumberLogUtils.logScreenshot();
+        }
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(158));
+        CommonUtils.waitForVisibility(myRASSurveyPage.enterTextInDoctorLocationHospitalTextBox(1));
+        myRASSurveyPage.enterTextInDoctorLocationHospitalTextBox(1).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInDoctorLocationHospitalTextBox(1), iiq_TestDataManager.whereWereYouBornCityTextBox);
+        myRASSurveyPage.enterTextInDoctorLocationHospitalTextBox(2).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInDoctorLocationHospitalTextBox(2), iiq_TestDataManager.whereWereYouBornStateTextBox);
+        myRASSurveyPage.enterTextInDoctorLocationHospitalTextBox(3).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInDoctorLocationHospitalTextBox(3), iiq_TestDataManager.whereWereYouBornCountryTextBox);
+        myRASSurveyPage.enterTextInDoctorLocationHospitalTextBox(4).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInDoctorLocationHospitalTextBox(4), iiq_TestDataManager.whereWereYouBornDontKnowTextBox);
+        CucumberLogUtils.logScreenshot();
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(116));
+        CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesIiqTable(1,2));
+        CucumberLogUtils.logScreenshot();
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(117));
+        MiscUtils.sleep(2000);
+        CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesIiqTable(1,4));
+        CucumberLogUtils.logScreenshot();
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        try {
+            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(118));
+            MiscUtils.sleep(500);
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.whatIsYourFammilysReligiousBackgroundCheckBox));
+            CucumberLogUtils.logScreenshot();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            rasScenario1StepsImpl.clickOnScreenerNextButton();
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.whatIsYourFammilysReligiousBackgroundCheckBox));
+            CucumberLogUtils.logScreenshot();
+        }
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        try {
+            CommonUtils.waitForClickability(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.whatIsYourMaritalStatusCheckBox));
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.whatIsYourMaritalStatusCheckBox));
+            CucumberLogUtils.logScreenshot();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            rasScenario1StepsImpl.clickOnScreenerNextButton();
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.whatIsYourMaritalStatusCheckBox));
+            CucumberLogUtils.logScreenshot();
+        }
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(120));
+        MiscUtils.sleep(1000);
+        CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.whatIsYourMainOccupationRadioButton));
+        CucumberLogUtils.logScreenshot();
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        try {
+            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(121));
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.doYouCurrentlyHaveHealthInsuranceRadioButton));
+            CucumberLogUtils.logScreenshot();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            rasScenario1StepsImpl.clickOnScreenerNextButton();
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.doYouCurrentlyHaveHealthInsuranceRadioButton));
+            CucumberLogUtils.logScreenshot();
+        }
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        try {
+            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(122));
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.whatIsTheTotalCombinedYearlyIncomeRadioButton));
+            CucumberLogUtils.logScreenshot();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            rasScenario1StepsImpl.clickOnScreenerNextButton();
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.whatIsTheTotalCombinedYearlyIncomeRadioButton));
+            CucumberLogUtils.logScreenshot();
+        }
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        try {
+            CommonUtils.waitForClickability(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.whatIsTheHighestLevelOfSchoolingRadioButton));
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.whatIsTheHighestLevelOfSchoolingRadioButton));
+            CucumberLogUtils.logScreenshot();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            rasScenario1StepsImpl.clickOnScreenerNextButton();
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.whatIsTheHighestLevelOfSchoolingRadioButton));
+            CucumberLogUtils.logScreenshot();
+        }
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(36));
+        CommonUtils.assertEqualsWithMessage(iiq_Constants.THIS_SECTION_ASKS_YOU_TEXT, myRASIIQFormPage.screenerIiqFormThisSectionAsksDetailedMedicalHistoryText.getText(), "-- VERIFYING THIS SECTION ASKS DETAILED MEDICAL HISTORY TEXT --");
+        CucumberLogUtils.logScreenshot();
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(124));
+        MiscUtils.sleep(2000);
+        CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.wereYouConceivedUsingVitroRadioButton));
+        CucumberLogUtils.logScreenshot();
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(127));
+        MiscUtils.sleep(2000);
+        CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.wereYouATwinRadioButton));
+        CucumberLogUtils.logScreenshot();
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        if(!myRASSurveyPage.dynamicTopText(131).isDisplayed()) {
+            CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.wereYouATwinRadioButton));
+            CucumberLogUtils.logScreenshot();
+            rasScenario1StepsImpl.clickOnScreenerNextButton();
+        }
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(131));
+        MiscUtils.sleep(2000);
+        CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.areYourBiologicalParentsBloodRelatedRadioButton));
+        CucumberLogUtils.logScreenshot();
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        if(!rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.wouldYouSayYouWereBornRadioButton).isDisplayed()) {
+            CucumberLogUtils.logScreenshot();
+            rasScenario1StepsImpl.clickOnScreenerNextButton();
+        }
+        try {
+            CommonUtils.waitForClickability(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.wouldYouSayYouWereBornRadioButton));
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.wouldYouSayYouWereBornRadioButton));
+            CucumberLogUtils.logScreenshot();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            rasScenario1StepsImpl.clickOnScreenerNextButton();
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.wouldYouSayYouWereBornRadioButton));
+            CucumberLogUtils.logScreenshot();
+        }
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(133));
+        MiscUtils.sleep(2000);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3),iiq_TestDataManager.pleaseFillOutBirtWeightNumericTextBox);
+        CommonUtils.selectDropDownValue(iiq_TestDataManager.pleaseFillOutBirtWeightUnitDropDown,myRASSurveyPage.dynamicDropDownTwo(1,6));
+        CommonUtils.clickOnElement(myRASSurveyPage.gaggingRadioButton(1,9));
+        CucumberLogUtils.logScreenshot();
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(172));
+        MiscUtils.sleep(3000);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3),iiq_TestDataManager.pleaseFillOutHeadNumericTextBox);
+        CommonUtils.selectDropDownValue(iiq_TestDataManager.pleaseFillOutHeadUnitDropDown,myRASSurveyPage.dynamicDropDownTwo(1,6));
+        CommonUtils.clickOnElement(myRASSurveyPage.gaggingRadioButton(1,9));
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 3).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 3),iiq_TestDataManager.pleaseFillOutHeadCircumferenceNumericTextBox);
+        CommonUtils.selectDropDownValue(iiq_TestDataManager.pleaseFillOutHeadCircumferenceUnitDropDown,myRASSurveyPage.dynamicDropDownTwo(2,6));
+        CommonUtils.clickOnElement(myRASSurveyPage.gaggingRadioButton(2,9));
+        CucumberLogUtils.logScreenshot();
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        CommonUtils.waitForVisibility(myRASIIQFormPage.screenerIiqFormThisSectionWillAskAboutCancerText);
+        CommonUtils.assertEqualsWithMessage(iiq_Constants.THIS_SECTION_WILL_ASK_ABOUT_CANCER_TEXT, myRASIIQFormPage.screenerIiqFormThisSectionWillAskAboutCancerText.getText(), "-- VERIFYING THIS SECTION WILL ASK ABOUT CANCER TEXT --");
+        CucumberLogUtils.logScreenshot();
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        try {
+            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(134));
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.haveYouEverBeenDiagnosedWithAnyCancerRadioButton));
+            CucumberLogUtils.logScreenshot();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            rasScenario1StepsImpl.clickOnScreenerNextButton();
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.haveYouEverBeenDiagnosedWithAnyCancerRadioButton));
+            CucumberLogUtils.logScreenshot();
+        }
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        try {
+            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(136));
+            MiscUtils.sleep(2000);
+            CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.haveYouEverHadMedicalGeneticTestingRadioButton));
+            CucumberLogUtils.logScreenshot();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            rasScenario1StepsImpl.clickOnScreenerNextButton();
+            CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.haveYouEverHadMedicalGeneticTestingRadioButton));
+            CucumberLogUtils.logScreenshot();
+        }
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(140));
+        MiscUtils.sleep(2000);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3),iiq_TestDataManager.pleaseFillTheTableBelowWithHeightNumericTextBox);
+        CommonUtils.selectDropDownValue(iiq_TestDataManager.pleaseFillTheTableBelowWithHeightUnitDropDown,myRASSurveyPage.dynamicDropDownTwo(1,6));
+        CommonUtils.clickOnElement(myRASSurveyPage.gaggingRadioButton(1,9));
+        CucumberLogUtils.logScreenshot();
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(174));
+        MiscUtils.sleep(2000);
+        CommonUtils.waitForVisibility(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3));
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3),iiq_TestDataManager.pleaseCompleteTheTableBelowIndicatingYourWeightColumn1Option1);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 3).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 3),iiq_TestDataManager.pleaseCompleteTheTableBelowIndicatingYourWeightColumn1Option2);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 3).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(3, 3),iiq_TestDataManager.pleaseCompleteTheTableBelowIndicatingYourWeightColumn1Option3);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 3).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(4, 3),iiq_TestDataManager.pleaseCompleteTheTableBelowIndicatingYourWeightColumn1Option4);
+        myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(5, 3).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(5, 3),iiq_TestDataManager.pleaseCompleteTheTableBelowIndicatingYourWeightColumn1Option5);
+        CommonUtils.selectDropDownValue(iiq_TestDataManager.pleaseCompleteTheTableBelowIndicatingYourWeightColumn2Option1,myRASSurveyPage.dynamicDropDownTwo(1,6));
+        CommonUtils.selectDropDownValue(iiq_TestDataManager.pleaseCompleteTheTableBelowIndicatingYourWeightColumn2Option2,myRASSurveyPage.dynamicDropDownTwo(2,6));
+        CommonUtils.selectDropDownValue(iiq_TestDataManager.pleaseCompleteTheTableBelowIndicatingYourWeightColumn2Option3,myRASSurveyPage.dynamicDropDownTwo(3,6));
+        CommonUtils.selectDropDownValue(iiq_TestDataManager.pleaseCompleteTheTableBelowIndicatingYourWeightColumn2Option4,myRASSurveyPage.dynamicDropDownTwo(4,6));
+        CommonUtils.selectDropDownValue(iiq_TestDataManager.pleaseCompleteTheTableBelowIndicatingYourWeightColumn2Option5,myRASSurveyPage.dynamicDropDownTwo(5,6));
+        CommonUtils.clickOnElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(1,9));
+        CommonUtils.clickOnElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(2,9));
+        CommonUtils.clickOnElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(3,9));
+        CommonUtils.clickOnElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(4,9));
+        CommonUtils.clickOnElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(5,9));
+        CommonUtils.clickOnElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(1,12));
+        CommonUtils.clickOnElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(2,12));
+        CommonUtils.clickOnElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(3,12));
+        CommonUtils.clickOnElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(4,12));
+        CommonUtils.clickOnElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenRadioButton(5,12));
+        CucumberLogUtils.logScreenshot();
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(142));
+        myRASSurveyPage.dynamicOneTextBox(142).clear();
+        CommonUtils.sendKeysToElement(myRASSurveyPage.dynamicOneTextBox(142), iiq_TestDataManager.atWhatAgeWereYouAtTheHighestWeightTextBox);
+        CucumberLogUtils.logScreenshot();
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        try {
+            CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(155));
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.haveYouSoughtMedicalAdviceRegardingFertilityRadioButton));
+            CucumberLogUtils.logScreenshot();
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+            rasScenario1StepsImpl.clickOnScreenerNextButton();
+            JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.haveYouSoughtMedicalAdviceRegardingFertilityRadioButton));
+            CucumberLogUtils.logScreenshot();
+        }
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(100));
+        CommonUtils.assertEqualsWithMessage(iiq_Constants.YOU_ARE_ALMOST_DONE_TEXT, myRASIIQFormPage.screenerIiqFormYouAreAlmostDoneText.getText(), "-- VERIFYING YOU ARE ALMOST DONE TEXT --");
+        CucumberLogUtils.logScreenshot();
+        MiscUtils.sleep(1000);
+        rasScenario1StepsImpl.clickOnScreenerNextButton();
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
+        MiscUtils.sleep(1000);
+        rasScenario1StepsImpl.logOutOfNativeView();
+    }
+
+    /***
      * USE THIS METHOD WILL COMPLETE THE RAS SURVEY SCENARIO 3
      */
     public void rasScreenerSurveyScenario3PartOne(){
@@ -1180,5 +1524,6 @@ public class RasScenario3StepsImpl extends PageInitializer {
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
+        rasScenario1StepsImpl.logOutOfNativeView();
     }
 }

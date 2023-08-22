@@ -26,6 +26,12 @@ public class RAS_Survey_Submission_Steps extends PageInitializer {
 	public void a_participant_enters_username_and_pin(String email) {
 		rasScenario1StepsImpl.aParticipantEntersUsernameUndPin(email);
 	}
+
+	@Given("a participant enters username {string} and pin {string}")
+	public void a_participant_enters_username_and_pin(String email, String pin) {
+		rasScenario1StepsImpl.aParticipantEntersUsernameUndPinSample(email, pin);
+	}
+
 	@Then("the participant will be able to rewind the form")
 	public void the_participant_will_be_able_to_rewind_the_form() {
 		rasScenario1StepsImpl.theParticipantWillBeAbleToRewindTheForm();
