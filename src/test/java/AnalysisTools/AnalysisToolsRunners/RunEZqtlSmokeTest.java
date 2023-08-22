@@ -6,9 +6,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = { "html:target/html-reports/cucumber-default-report", "json:target/cucumber.json",
-        "junit:target/cucumber.xml", "rerun:target/failed.txt",
-        "pretty",
-        "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }, features = "src/test/java/AnalysisTools/ezQTL/Features", glue = "AnalysisTools.ezQTL.Steps", tags = "@Smoke", dryRun = true, monochrome = true, strict = true
+                "junit:target/cucumber.xml", "rerun:target/failed.txt",
+                "pretty",
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }, features = "src/test/java/AnalysisTools/ezQTL/Features", glue = "AnalysisTools.ezQTL.Steps", tags = "@Smoke", dryRun = false, monochrome = true, strict = true
 
 )
 
