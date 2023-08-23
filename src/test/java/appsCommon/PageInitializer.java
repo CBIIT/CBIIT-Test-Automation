@@ -117,7 +117,6 @@ public class PageInitializer extends WebDriverUtils {
     public static ParticipantDetailsPage participantDetailsPage;
     public static ScreenerRecordTablePage screenerRecordTablePage;
     public static MyRASSurveyPage myRASSurveyPage;
-
     public static RAS_Survey_Native_View_Page ras_survey_native_view;
 
     // Melanoma and Spitzoid Tumor instances
@@ -271,11 +270,8 @@ public class PageInitializer extends WebDriverUtils {
     public static NativeViewEmailsPage nativeViewEmailsPage;
     public static NativeViewDashboardPage nativeViewDashPage;
     public static NativeViewMembersOfCongressPage nativeViewMembersOfCongressPage;
-
     public static NativeViewCHARMSDashboardPage nativeViewCHARMSDashboardPage;
-
     public  static NativeViewCHARMSParticipantDetailsPage nativeViewCHARMSParticipantDetailsPage;
-
     public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
 
     public static void initializeAllPages() {
