@@ -174,6 +174,8 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
             whatAreMainReasonsForParticipatingInStudy = testDataForRasScreener.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_IN_THIS_STUDY);
             whatAreMainReasonsForParticipatingInStudyOtherReason = testDataForRasScreener.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_IN_THIS_STUDY_OTHER_REASON);
             youAreAlmostDone = testDataForRasScreener.get(ras_Screener_Constants.YOU_ARE_ALMOST_DONE);
+            toDetermineEligibilityForThisStudy = testDataForRasScreener.get(ras_Screener_Constants.TO_DETERMINE_ELIGIBILITY_FOR_THIS_STUDY);
+            weKnowThatRASopathiesAreAGroup = testDataForRasScreener.get(ras_Screener_Constants.WE_KNOW_THAT_RASOPATHIES_ARE_A_GROUP);
         }else if (sheetName.equals("screenerScenario2")) {
             testDataForRasScreener = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_TWO_DATA, sheetName);
             areYouCompletingThisFormForSomeoneElseOrYourself = testDataForRasScreener.get(ras_Screener_Constants.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE);

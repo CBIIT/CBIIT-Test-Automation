@@ -1,5 +1,6 @@
 package ServiceNow.NERD.Steps;
 
+import ServiceNow.NERD.StepsImplementation.NERDApplicationStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERDOGSRMemberOfCongressStepImpl;
 import appsCommon.PageInitializer;
 import com.nci.automation.xceptions.TestingException;
@@ -21,7 +22,7 @@ public class NERDOGSRMemberOfCongressSteps extends PageInitializer {
 
     @When("the OGCR user clicks the Add New Entry button")
     public void the_ogcr_user_clicks_the_add_new_entry_button() {
-
+        NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageOGCRCreateNewSubmissionLink);
     }
 
     @Then("the Member of Congress drop down field only includes options that have the {string} flag enabled in the Member of Congress table")

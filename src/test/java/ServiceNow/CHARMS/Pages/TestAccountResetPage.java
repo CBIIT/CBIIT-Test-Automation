@@ -32,7 +32,7 @@ public class TestAccountResetPage {
 	 * Native View Proceed in Background button
 	 */
 
-	@FindBy(xpath = "//button[normalize-space()='Proceed in Background']")
+	@FindBy(xpath = "//*[@id='confirm_proceed_button']")
 	public WebElement nativeViewProceedInBackgroundButton;
 
 	/*

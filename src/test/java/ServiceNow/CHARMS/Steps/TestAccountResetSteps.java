@@ -1,12 +1,11 @@
 package ServiceNow.CHARMS.Steps;
 
+import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializer;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 
 public class TestAccountResetSteps extends PageInitializer {
 
@@ -17,11 +16,12 @@ public class TestAccountResetSteps extends PageInitializer {
 		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewIFrame);
 		CommonUtils.switchToFrame(testAccountResetPage.nativeViewIFrame);
 		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewRunFixScriptButton);
-		MiscUtils.sleep(10000);
+		MiscUtils.sleep(2000);
 		testAccountResetPage.nativeViewRunFixScriptButton.click();
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewProceedInBackgroundButton);
 		testAccountResetPage.nativeViewProceedInBackgroundButton.click();
+		MiscUtils.sleep(7000);
+		SEERDataAccessRequestPageStepsImpl.nativeViewLogOut();
 	}
-
 }
