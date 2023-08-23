@@ -641,24 +641,6 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * USE THIS METHOD TO CLICK ON STALE ELEMENTS
-     *
-     * @param ele
-     */
-    public static void clickOnElementSD(WebElement ele) {
-        int count = 0;
-        while (count < 5) {
-            try {
-                ele.click();
-                break;
-            } catch (Exception ex) {
-                MiscUtils.sleep(1000);
-                count++;
-            }
-        }
-    }
-
-    /**
      * USE THIS METHOD TO SEND KEYS TO STALE ELEMENTS
      *
      * @param ele
