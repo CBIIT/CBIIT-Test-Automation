@@ -1,8 +1,8 @@
-Feature: RAS Survey Scenarios (Preview)
-  This feature file contains RAS Survey submission scenarios via Qualtrics Preview
+Feature: RAS Survey Scenarios
+  This feature file contains RAS Survey scenarios submission
 
-  @juarezds @InProgress
-  Scenario Outline: This scenario outline is completing the RAS Survey
+  @bucurgb @myRasStudy @OnlyRasSurveys
+  Scenario Outline: This scenario outline is completing the RAS Surveys only
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "<Email>" and password "<Password>"
     And clicks on the Ras Survey Form
@@ -11,9 +11,7 @@ Feature: RAS Survey Scenarios (Preview)
 
     Examples:
       | Email                          | Password      | SurveyScenario     |
-#      | charmsras1@yahoo.com           | RASTest2022$$ | RASSurveyScenario1 |
-#      | charmsras2@yahoo.com           | RASTest2023$$ | RASSurveyScenario2 |
-#      | charmsras3@yahoo.com           | RASTest2023$$ | RASSurveyScenario3 |
-#      | charmsras5@yahoo.com           | RASTest2023$$ | RASSurveyScenario4|
-      | charmsras6@gmail.com           | RASTest2023$$ | RASSurveyScenario3 |
-#      | charmsparticipant3@yopmail.com | Charms123     | RASSurveyScenario4 |
+      | charmsras1@yahoo.com           | RASTest2022$$ | RASSurveyScenario1 |
+      | charmsras2@yahoo.com           | RASTest2023$$ | RASSurveyScenario2 |
+      | charmsras3@yahoo.com           | RASTest2023$$ | RASSurveyScenario3 |
+      | charmsras5@yahoo.com           | RASTest2023$$ | RASSurveyScenario4|

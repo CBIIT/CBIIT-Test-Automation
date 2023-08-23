@@ -1,8 +1,8 @@
 Feature: RAS Screener Scenarios
   Description: This feature file contains scenarios which submit the IIQ Form
 
-  @juarezds @myRasScreenerSubmissionOnly @InProgress
-  Scenario Outline: This scenario outline is completing the IIQ Folm
+  @bucurgb @myRasStudy @OnlyIiqForms
+  Scenario Outline: This scenario outline is completing the IIQ Forms only
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "<Email>" and password "<Password>"
     And clicks on the IIQ Form
@@ -15,10 +15,9 @@ Feature: RAS Screener Scenarios
       | charmsras2@yahoo.com           | RASTest2023$$ | IIQScenario4 |
       | charmsras3@yahoo.com           | RASTest2023$$ | IIQScenario3 |
       | charmsras5@yahoo.com           | RASTest2023$$ | IIQScenario2 |
-      | charmsras6@gmail.com           | RASTest2023$$ | IIQScenario4 |
-      | charmsparticipant3@yopmail.com | Charms123     | IIQScenario4 |
 
-  @bucurgb @myRasScreenerSubmissionOnly @SampleForm
+
+  @bucurgb @myRasStudy @SampleIiqForm
   Scenario: This scenario outline is completing the IIQ Folm - SAMPLE
     And a participant enters username "diego1@test.com" and pin "123456"
-    And the participant submits a Individual Information Questionnaire for excel sheet "IIQScenario3"
+    And the participant submits a Individual Information Questionnaire for excel sheet "IIQScenario4"
