@@ -47,6 +47,7 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
      */
     public static void theOgcrUserClicksTheButton() {
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageOGCRCreateNewSubmissionLink);
+        MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageOGCRCreateNewSubmissionLink);
     }
