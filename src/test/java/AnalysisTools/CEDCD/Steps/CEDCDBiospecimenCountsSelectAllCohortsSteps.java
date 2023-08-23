@@ -24,13 +24,8 @@ public class CEDCDBiospecimenCountsSelectAllCohortsSteps extends PageInitializer
 	
 	
 	@Given("the user is on the CEDCD Biospecimen Tab")
-	public void the_user_is_on_the_CEDCD_Biospecimen_Tab() throws TestingException {
-		
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
-		MiscUtils.sleep(3000);
-		CucumberLogUtils.logScreenshot();
+	public void the_user_is_on_the_CEDCD_Biospecimen_Tab() {
 		cedcdStartUps.setUpOnBiospecimenTabPage();
-		
 	}
 	
 	@When("the user clicks on the Biospecimen Counts tab")
