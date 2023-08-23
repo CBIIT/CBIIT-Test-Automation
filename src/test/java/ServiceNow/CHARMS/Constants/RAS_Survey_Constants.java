@@ -61,7 +61,6 @@ public class RAS_Survey_Constants {
             "These are conditions often detected on routine fetal ultrasound.  Please select all that apply. Option 6";
     public final String WERE_YOU_DIAGNOSED_WITH_ANY_OF_THE_FOLLOWING_DURING_PREGNANCY_OPTION_7 = "Were you diagnosed with any of the following conditions during your mother's pregnancy? \n" +
             "These are conditions often detected on routine fetal ultrasound.  Please select all that apply. Option 7";
-
     public final String DURING_HER_PREGNANCY_WITH_YOU = "During her pregnancy with you, did your mother have any prenatal tests to identify fetal birth defects or fetal medical problems?";
     public final String PLEASE_INDICATE_THE_RESULTS_OF_THE_PRENATAL_TESTS_OTHER = "Please indicate the results of the prenatal tests administered to your biological mother during her pregnancy with you. Other";
     public final String WAS_YOUR_BIOLOGICAL_MOTHER_DIAGNOSED_1 = "Was your biological mother diagnosed with any of the following conditions prior to or during her pregnancy with you?  Please select all that apply. Option 1";
@@ -112,7 +111,6 @@ public class RAS_Survey_Constants {
             "Select all that apply Option 14 Please Specify";
     public final String PLEASE_SELECT_ALL_MEDICATIONS_YOUR_MOTHER_TOOK_OPTION_15_PLEASE_SPECIFY = "Please select all medications your mother took during her pregnancy with you. \n" +
             "Select all that apply Option 15 Please Specify";
-
     public final String PLEASE_PROVIDE_DETAILS_OF_THE_MEDICATION_TAKEN_COLUMN_1_OPTION_1 = "Please provide details on the name of the medication taken, reason it was taken and approximate length of time it was taken. \n" +
             "If you are unsure of the name of or reason for the medication, write 'Unsure' or place an 'X' in the text box. Column 1 Oprion 1";
     public final String PLEASE_PROVIDE_DETAILS_OF_THE_MEDICATION_TAKEN_COLUMN_1_OPTION_2 = "Please provide details on the name of the medication taken, reason it was taken and approximate length of time it was taken. \n" +
@@ -240,7 +238,6 @@ public class RAS_Survey_Constants {
             "Please select all that apply. Option 9";
     public final String WHICH_VAPING_PRODUCTS_DID_YOUR_MOTHER_USE_OPTION_10 = "Which vaping products did your mother use during her pregnancy with you? \n" +
             "Please select all that apply. Option 10";
-
     public final String WHICH_VAPING_PRODUCTS_DID_YOUR_MOTHER_USE_OPTION_10_PLEASE_SPECIFY = "Which vaping products did your mother use during her pregnancy with you? \n" +
             "Please select all that apply. Option 10 Please Specify";
     public final String DID_YOUR_BIOLOGICAL_MOTHER_DRINK = "Did your biological mother drink any alcoholic beverages during her pregnancy with you?";
