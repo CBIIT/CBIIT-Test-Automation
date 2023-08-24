@@ -12,9 +12,9 @@ import appsCommon.PageInitializer;
 public class CEDCDStartUps extends PageInitializer {
 
 	/** This method takes you to the CEDCD homepage and logs a screenshot */
-	public void startUpCEDCDBrowser() throws TestingException {
+	public void startUpCEDCDBrowser() {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
-		MiscUtils.sleep(3000);
+		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenshot();
 	}
 
@@ -23,7 +23,7 @@ public class CEDCDStartUps extends PageInitializer {
 		JavascriptUtils.clickByJS(cedcdSearchCohortsPage.searchCohortTab);
 	}
 
-	public void setUpOnBiospecimenTabPage() throws TestingException {
+	public void setUpOnBiospecimenTabPage() {
 		startUpCEDCDBrowser();
 		JavascriptUtils.clickByJS(cedcdBiospecimenCountsPage.biospecimenTab);
 	}

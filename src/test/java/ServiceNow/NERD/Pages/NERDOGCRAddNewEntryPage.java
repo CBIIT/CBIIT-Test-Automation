@@ -59,7 +59,7 @@ public class NERDOGCRAddNewEntryPage {
     public WebElement nerdOgcrNewEntryOGCRContentType;
 
     /** NERD OGCR NEW ENTRY PAGE OGCR CContent Type DROP DOWN */
-    @FindBy(xpath = "//*[@id='s2id_sp_formfield_ogcr_content_type']")
+    @FindBy(xpath = "//*[@id='select2-chosen-1']")
     public WebElement nerdOgcrNewEntryOGCRContentTypeDropDown;
 
     /** NERD OGCR NEW ENTRY PAGE OGCR CContent Type DROP DOWN VALUES */

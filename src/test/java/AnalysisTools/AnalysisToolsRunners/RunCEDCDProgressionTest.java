@@ -15,9 +15,8 @@ import org.junit.runner.RunWith;
 /**
  * This class is annotated with @RunWith(Cucumber.class) and it will run
  * cucumber feature(s).
- * 
+ *
  * @author sohilz2
  */
 public class RunCEDCDProgressionTest {
-
 }

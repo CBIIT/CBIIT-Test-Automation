@@ -20,7 +20,6 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	@Given("the user is on the CEDCD homepage")
 	public void the_user_is_on_the_CEDCD_homepage() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
-		MiscUtils.sleep(3000);
 		CucumberLogUtils.logScreenshot();
 	}
 
@@ -605,7 +604,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 
 	@When("the user is logged in as Admin")
 	public void the_user_is_logged_in_as_Admin() throws TestingException {
-		JavascriptUtils.clickByJS(cedcdAdminPage.nihLoginBtn);
+		CommonUtils.clickOnElement(cedcdAdminPage.nihLoginBtn);
 		CommonUtils.waitForClickability(iTrustloginPage.signInButton);
 		loginImpl.shomirITrustLogin();
 	}

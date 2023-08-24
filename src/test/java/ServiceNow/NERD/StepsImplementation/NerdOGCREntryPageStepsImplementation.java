@@ -52,7 +52,8 @@ public class NerdOGCREntryPageStepsImplementation extends PageInitializer {
         CommonUtils.waitForVisibility(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryOGCRContentType);
         MiscUtils.sleep(1000);
         JavascriptUtils.drawBlueBorder(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryOGCRContentType);
-        JavascriptUtils.clickByJS(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryOGCRContentTypeDropDown);
+        CommonUtils.waitForClickability(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryOGCRContentTypeDropDown);
+        CommonUtils.clickOnElement(nERDOGCRAddNewEntryPage.nerdOgcrNewEntryOGCRContentTypeDropDown);
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         for (int i = 1; i < actualOGCRContentTypeValue.length - 1; i++) {

@@ -18,7 +18,7 @@ public class CEDCDAdminPage extends CommonUtils {
 	 */
 
 	/** NIH Login Button */
-	@FindBy(linkText = "NIH Login")
+	@FindBy(xpath = "//a[@class='login-button']")
 	public WebElement nihLoginBtn;
 
 	/** External Login Button */

@@ -5,10 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
-import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializer;
 
@@ -21,9 +18,6 @@ public class CEDCDBiospecimenCountsSelectAllCohortsSteps extends PageInitializer
 	 */
 	@Given("the user is on the CEDCD Biospecimen Tab")
 	public void the_user_is_on_the_CEDCD_Biospecimen_Tab() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
-		MiscUtils.sleep(3000);
-		CucumberLogUtils.logScreenshot();
 		cedcdStartUps.setUpOnBiospecimenTabPage();
 	}
 
