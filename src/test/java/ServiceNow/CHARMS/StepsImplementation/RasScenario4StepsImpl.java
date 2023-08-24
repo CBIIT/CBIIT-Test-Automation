@@ -449,7 +449,6 @@ public class RasScenario4StepsImpl extends PageInitializer {
         rasScenario1StepsImpl.clickOnScreenerNextButton();
         MiscUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
-
         rasScenario1StepsImpl.logOutOfNativeView();
     }
 
