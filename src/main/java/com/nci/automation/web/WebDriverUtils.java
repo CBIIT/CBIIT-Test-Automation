@@ -22,6 +22,7 @@ import com.nci.automation.utils.LocalConfUtils;
  */
 public class WebDriverUtils {
 
+	private final static Logger logger = LogManager.getLogger(WebDriverUtils.class);
 	public static WebDriver webDriver;
 
 	public static void setUp() {
@@ -72,22 +73,22 @@ public class WebDriverUtils {
 		String headless = ConfUtils.getProperty("headless");
 
 		if (osName.contains("Windows")) {
-			if (headless.equalsIgnoreCase(FrameworkConstants.TRUE)) {
+			if(headless.equalsIgnoreCase(FrameworkConstants.TRUE)){
 				ChromeOptions chromeOptions = new ChromeOptions();
 				chromeOptions.addArguments("--headless=new");
 				webDriver = new ChromeDriver(chromeOptions);
-			} else {
+			}else {
 				webDriver = new ChromeDriver();
 				webDriver.manage().window().maximize();
 				webDriver.manage().deleteAllCookies();
 				webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 			}
 		} else if (osName.contains("Mac")) {
-			if (headless.equalsIgnoreCase(FrameworkConstants.TRUE)) {
+			if(headless.equalsIgnoreCase(FrameworkConstants.TRUE)){
 				ChromeOptions chromeOptions = new ChromeOptions();
 				chromeOptions.addArguments("--headless=new");
 				webDriver = new ChromeDriver(chromeOptions);
-			} else {
+			}else {
 				webDriver = new ChromeDriver();
 				webDriver.manage().window().maximize();
 				webDriver.manage().deleteAllCookies();
