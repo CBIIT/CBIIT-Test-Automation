@@ -117,7 +117,6 @@ public class PageInitializer extends WebDriverUtils {
     public static ParticipantDetailsPage participantDetailsPage;
     public static ScreenerRecordTablePage screenerRecordTablePage;
     public static MyRASSurveyPage myRASSurveyPage;
-
     public static RAS_Survey_Native_View_Page ras_survey_native_view;
 
     // Melanoma and Spitzoid Tumor instances

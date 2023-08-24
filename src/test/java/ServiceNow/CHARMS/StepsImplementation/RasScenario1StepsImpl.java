@@ -186,9 +186,10 @@ public class RasScenario1StepsImpl extends PageInitializer {
         myRASLoginPage.loginToMyRASButton.click();
         oktaLoginPage.usernameTxtBox.sendKeys(username);
         oktaLoginPage.passwordTxtBox.sendKeys(password);
-        CommonUtils.waitForVisibility(oktaLoginPage.loginBtn);
-        oktaLoginPage.loginBtn.click();
+        CommonUtils.waitForClickability(oktaLoginPage.loginBtn);
         MiscUtils.sleep(1000);
+        CommonUtils.clickOnElement(oktaLoginPage.loginBtn);
+        MiscUtils.sleep(2000);
         CommonUtils.waitForVisibility(myRASHomePage.warningAgreeButton);
         CucumberLogUtils.logScreenshot();
         myRASHomePage.warningAgreeButton.click();
@@ -566,7 +567,7 @@ public class RasScenario1StepsImpl extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(ras_Screener_TestDataManager.youAreAlmostDone, myRASSurveyPage.rasScreenerText.getText(), "-- VERIFYING YOU ARE ALMOST DONE TEXT --");
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnScreenerNextButton();
-        MiscUtils.sleep(2000);
+        MiscUtils.sleep(3000);
         CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(1000);
         logOutOfNativeView();
@@ -618,7 +619,7 @@ public class RasScenario1StepsImpl extends PageInitializer {
             CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         }
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantDetailsPage.nativeSubjectFlagButton);
-        JavascriptUtils.clickByJS(nativeViewCHARMSParticipantDetailsPage.nativeSubjectFlagButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeSubjectFlagButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyNonParticipantDateButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyNonParticipantDateButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
@@ -1040,7 +1041,7 @@ public class RasScenario1StepsImpl extends PageInitializer {
         CommonUtils.waitForVisibility(myRASIIQFormPage.screenerIiqFormYouAreAlmostDoneText);
         CommonUtils.assertEqualsWithMessage(iiq_Constants.YOU_ARE_ALMOST_DONE_TEXT, myRASIIQFormPage.screenerIiqFormYouAreAlmostDoneText.getText(), "-- VERIFYING YOU ARE ALMOST DONE TEXT --");
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(1000);
+        MiscUtils.sleep(3000);
         rasScenario1StepsImpl.clickOnScreenerNextButton();
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
@@ -1848,9 +1849,10 @@ public class RasScenario1StepsImpl extends PageInitializer {
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        MiscUtils.sleep(1000);
+        MiscUtils.sleep(3000);
         CucumberLogUtils.logScreenshot();
-
+        MiscUtils.sleep(1000);
+        logOutOfNativeView();
     }
 
     /***

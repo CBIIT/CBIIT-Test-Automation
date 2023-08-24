@@ -21,7 +21,7 @@ public class TestAccountResetSteps extends PageInitializer {
 		MiscUtils.sleep(1000);
 		CommonUtils.waitForVisibility(testAccountResetPage.nativeViewProceedInBackgroundButton);
 		testAccountResetPage.nativeViewProceedInBackgroundButton.click();
-		MiscUtils.sleep(7000);
+		MiscUtils.sleep(10000);
 		SEERDataAccessRequestPageStepsImpl.nativeViewLogOut();
 	}
 }

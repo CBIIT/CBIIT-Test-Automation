@@ -1067,7 +1067,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(1000);
         rasScenario1StepsImpl.clickOnScreenerNextButton();
-        MiscUtils.sleep(1000);
+        MiscUtils.sleep(3000);
         CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(1000);
         rasScenario1StepsImpl.logOutOfNativeView();
@@ -4253,7 +4253,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        MiscUtils.sleep(1000);
+        MiscUtils.sleep(3000);
         CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(1000);
         rasScenario1StepsImpl.logOutOfNativeView();

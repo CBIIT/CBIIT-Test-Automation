@@ -449,6 +449,7 @@ public class RasScenario4StepsImpl extends PageInitializer {
         rasScenario1StepsImpl.clickOnScreenerNextButton();
         MiscUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
+
         rasScenario1StepsImpl.logOutOfNativeView();
     }
 
@@ -1075,6 +1076,7 @@ public class RasScenario4StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnScreenerNextButton();
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(151));
+        MiscUtils.sleep(2000);
         CommonUtils.assertEqualsWithMessage(iiq_TestDataManager.theNextFewQuestionsAskAboutBeingPrescribedFemaleHormones, myRASSurveyPage.rasSurveyText.getText(), "-- VERIFYING THE NEXT FEW QUESTIONS ASK ABOUT BEING PRESCRIBED FEMALE HORMONES TEXT --");
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnScreenerNextButton();
@@ -1121,7 +1123,7 @@ public class RasScenario4StepsImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(1000);
         rasScenario1StepsImpl.clickOnScreenerNextButton();
-        MiscUtils.sleep(1000);
+        MiscUtils.sleep(3000);
         CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(1000);
         rasScenario1StepsImpl.logOutOfNativeView();
@@ -4306,7 +4308,7 @@ public class RasScenario4StepsImpl extends PageInitializer {
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        MiscUtils.sleep(1000);
+        MiscUtils.sleep(3000);
         CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(1000);
         rasScenario1StepsImpl.logOutOfNativeView();
