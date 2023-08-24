@@ -2,10 +2,6 @@ Feature: RAS Screener Scenarios
   Description: This feature file contains scenarios which submit myRAS Screeners, Consent Flows, IIQ Forrms and the RAS Surveys. No data verification in Native View
 
   @bucurgb @myRasStudy @Regression
-  Scenario: Test Account Reset
-    Then test account is reset to be used for next test execution
-
-  @bucurgb @myRasStudy @Regression
   Scenario Outline: This scenario outline is completing the myRAS Screeners, Consent Flows, IIQ Forrms and the RAS Surveys
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "<Email>" and password "<Password>"
@@ -22,8 +18,6 @@ Feature: RAS Screener Scenarios
     And clicks on the Ras Survey Form
     And a participant enters username "<Email>" and pin
     When the participant submits a RAS Survey from excel sheet "<SurveyScenario>"
-
-
     Examples:
       | Email                | Password      | ScreenerScenario  | IIQScenario  | SurveyScenario     |
       | charmsras1@yahoo.com | RASTest2022$$ | screenerScenario1 | IIQScenario1 | RASSurveyScenario1 |

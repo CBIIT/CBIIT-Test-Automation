@@ -11,6 +11,6 @@ Feature: RAS Screener Scenarios
     Examples:
       | Email                | Password      | ScreenerScenario  |
       | charmsras1@yahoo.com | RASTest2022$$ | screenerScenario1 |
-      | charmsras2@yahoo.com | RASTest2023$$ | screenerScenario3 |
+      | charmsras2@yahoo.com | RASTest2023$$ | screenerScenario2 |
       | charmsras3@yahoo.com | RASTest2023$$ | screenerScenario3 |
       | charmsras5@yahoo.com | RASTest2023$$ | screenerScenario4 |
