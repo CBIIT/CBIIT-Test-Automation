@@ -133,7 +133,6 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
     public String whatAreTheMainReasonsForParticipatingOptin4;
     public String youAreAlmostDone;
 
-
     public void dataInitializerRasScreener(String sheetName) {
         /**
          * FETCHING DATA FROM EXCEL BEFORE SUBMITTING SCREENER
