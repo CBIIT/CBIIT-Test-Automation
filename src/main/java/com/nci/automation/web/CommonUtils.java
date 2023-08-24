@@ -629,7 +629,7 @@ public class CommonUtils extends WebDriverUtils {
      */
     public static void clickOnElement(WebElement ele) {
         int count = 0;
-        while (count < 5) {
+        while (count < 10) {
             try {
                 ele.click();
                 break;

@@ -225,6 +225,7 @@ public class PageInitializer extends WebDriverUtils {
     public static CEDCDStartUps cedcdStartUps;
     public static CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp cedcdSearchCohortsCategoriesOfDataOfDataSortedStepImp;
     public static CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp cedcdBiospecimenCountsAlphabeticalCancerTypeStepImp;
+    public static CEDCD_Public_Site_Steps_Impl cedcd_public_site_steps_impl;
 
     /** Comets 2.0 Instances */
     public static Comets2Page comets2Page;
@@ -269,11 +270,8 @@ public class PageInitializer extends WebDriverUtils {
     public static NativeViewEmailsPage nativeViewEmailsPage;
     public static NativeViewDashboardPage nativeViewDashPage;
     public static NativeViewMembersOfCongressPage nativeViewMembersOfCongressPage;
-
     public static NativeViewCHARMSDashboardPage nativeViewCHARMSDashboardPage;
-
     public  static NativeViewCHARMSParticipantDetailsPage nativeViewCHARMSParticipantDetailsPage;
-
     public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
 
     public static void initializeAllPages() {
@@ -438,6 +436,7 @@ public class PageInitializer extends WebDriverUtils {
         cedcdStartUps = new CEDCDStartUps();
         cedcdSearchCohortsCategoriesOfDataOfDataSortedStepImp = new CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp();
         cedcdBiospecimenCountsAlphabeticalCancerTypeStepImp = new CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp();
+        cedcd_public_site_steps_impl = new CEDCD_Public_Site_Steps_Impl();
 
         /** Comets 2.0 Instance Variables */
         comets2Page = new Comets2Page();
