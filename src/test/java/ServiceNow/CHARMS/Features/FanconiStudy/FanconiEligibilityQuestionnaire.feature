@@ -3,7 +3,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
   
   Description:This feature file has different submissions and assertion scenarios for the Fanconi Eligibility Questionnaire by the proband and the legal guardian (Proxy)
 
-  # @jains @FanconiSubmission @Regression
+  #@jains @FanconiSubmission @Regression
   Scenario: Participant fills the Fanconi screener for all different scenarios
     Given All scenarios are submitted
 
@@ -113,7 +113,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
     Given the study nurse log in Native View and go to Study Screener page
     Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Study Screener page for all scenarios
 
-  #@jains @FanconiAssertion @Regression
+  @jains @FanconiAssertion @Regression
   Scenario: Fanconi Study Screener page Assertions for one scenario at a time in ServiceNow
     Given the study nurse log in Native View and go to Study Screener page
     Then data submitted via the Fanconi Eligibility Questionnaire is verified in Fanconi Study Screener page for each scenario

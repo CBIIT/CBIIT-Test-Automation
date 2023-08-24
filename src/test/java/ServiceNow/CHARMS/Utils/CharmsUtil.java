@@ -12,14 +12,11 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-
-import com.nci.automation.dao.ExcelReader;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.JavascriptUtils;
-import com.nci.automation.web.WebDriverUtils;
-import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+
+import com.nci.automation.utils.ExcelReader;
+import com.nci.automation.utils.MiscUtils;
+import com.nci.automation.web.WebDriverUtils;
 
 public class CharmsUtil {
 
@@ -40,7 +37,6 @@ public class CharmsUtil {
 			e.printStackTrace();
 		}
 		return currentRow;
-
 	}
 
 	/* @param webElement:Element to be highlighted */
@@ -48,7 +44,6 @@ public class CharmsUtil {
 
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) WebDriverUtils.webDriver;
 		jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:2px solid red')", webElement);
-
 	}
 
 	/* @param webElement:Element to be Unhighlighted */
@@ -56,7 +51,6 @@ public class CharmsUtil {
 
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) WebDriverUtils.webDriver;
 		jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:none; background:white')", webElement);
-
 	}
 
 	/* @param webElement:Element to be clicked to avoid the exception */
@@ -76,8 +70,8 @@ public class CharmsUtil {
 				count++;
 			}
 		}
-
 	}
+	
 	/* @param webElement:Element to be clicked to avoid the exception */
 	public static void clickOnRadioButtonElement(WebElement webElement) {
 		CharmsUtil.labelHighlight(webElement);
@@ -93,7 +87,6 @@ public class CharmsUtil {
 				count++;
 			}
 		}
-
 	}
 
 
@@ -112,7 +105,6 @@ public class CharmsUtil {
 				count++;
 			}
 		}
-
 	}
 
 	/* @param webElement:Element to be Verified */
@@ -252,10 +244,10 @@ public class CharmsUtil {
 	}
 
 	/*
-	 * @param webElement: WebElement is Actual value, List is the Expected Dropdown
-	 * list.@return ComponentTestResult:Comparison results list for each option
+	 * @param webElement:WebElement is Actual value, List is the Expected Dropdown
+	 * list.
+	 * @return ComponentTestResult:Comparison results list for each option
 	 * (actual v.s. expected)
-	 * 
 	 */
 	public static ComponentTestResult verifyDropDowns(WebElement webElement, List<String> list) {
 
@@ -300,9 +292,7 @@ public class CharmsUtil {
 
 	/*
 	 * @param webElement:WebElement compared to the expected Dropdown values
-	 * 
 	 * @param dropdownList: Expected Dropdown list
-	 * 
 	 * @param dropdownSelectedIndex:The Dropdown selected index @return
 	 */
 

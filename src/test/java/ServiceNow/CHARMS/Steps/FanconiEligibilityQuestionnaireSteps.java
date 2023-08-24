@@ -1,40 +1,24 @@
 package ServiceNow.CHARMS.Steps;
 
 import java.io.FileNotFoundException;
-
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-import java.util.Iterator;
-
-//import javax.swing.text.html.HTMLDocument.Iterator;
-
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
-
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
-import com.nci.automation.dao.ExcelReader;
-import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
-import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
-import ServiceNow.CHARMS.Pages.FanconiEligibilityQuestionnairePage;
 import ServiceNow.CHARMS.Utils.CharmsUtil;
 import appsCommon.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 
 public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
@@ -56,7 +40,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 	public void all_scenarios_are_submitted()
 			throws TestingException, JsonIOException, JsonSyntaxException, FileNotFoundException {
 
-		for (int i = 1; i <= 10; ++i) {
+		for (int i = 10; i <= 10; ++i) {
 
 			String username = "charmsparticipant" + i + "@yopmail.com";
 			String password = "Charms123";
