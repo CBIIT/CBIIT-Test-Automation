@@ -14,7 +14,7 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
     public String areYouCompletingThisFormForSomeoneElseOrYourself;
     public String firstName;
     public String middleInitial;
-    public  String lastName;
+    public String lastName;
     public String whatIsYourDateOfBirth;
     public String dateOfBirthMonth;
     public String dateOfBirthYear;
