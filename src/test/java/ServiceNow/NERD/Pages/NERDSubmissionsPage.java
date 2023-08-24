@@ -32,7 +32,7 @@ public class NERDSubmissionsPage extends CommonUtils {
 	 * CRS Knowledge Management System Submissions Page OGCR Create New
 	 * Submission link
 	 */
-	@FindBy(xpath = "//div[contains(text(), 'OGCR')]/a")
+	@FindBy(xpath = "//*[@id='ogcrAccordion']//child::div[1]//child::h4//child::a//child::span//child::div//child::a")
 	public WebElement crsKnowledgeManagementSystemSubmissionsPageOGCRCreateNewSubmissionLink;
 
 	/** CRS Knowledge Management System Submissions Page Collaborations link */
