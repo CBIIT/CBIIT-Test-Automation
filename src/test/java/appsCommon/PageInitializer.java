@@ -254,6 +254,7 @@ public class PageInitializer extends WebDriverUtils {
 
     /** ESR INSTANCES */
     public static NCINativeViewPage nciNativeViewPage;
+    public static ESRTicketCreationPage esrTicketCreationPage;
 
     /** --------------- NATIVE VIEW INSTANCES --------------- */
     public static NativeViewLoginImpl nativeViewLoginImpl;
@@ -368,6 +369,7 @@ public class PageInitializer extends WebDriverUtils {
 
         /** ESR INSTANCE VARIABLES */
         nciNativeViewPage = new NCINativeViewPage();
+        esrTicketCreationPage = new ESRTicketCreationPage();
 
         /** SCSS Instance Variables */
         owmVacancyPage = new OWMVacancyPage();
