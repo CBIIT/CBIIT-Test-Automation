@@ -25,7 +25,6 @@ public class ESRDefaultNotificationsStepsImplementation extends PageInitializer 
     public static void defaultNotificationConfirmation() {
         esrTicketCreationPage.linkToNewESRTicket.click();
         esrTicketCreationPage.notesTabESRTicket.click();
-        MiscUtils.sleep(5000);
         CucumberLogUtils.logScreenshot();
     }
 }
