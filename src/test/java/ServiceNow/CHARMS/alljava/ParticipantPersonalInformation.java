@@ -10,9 +10,7 @@ public class ParticipantPersonalInformation {
     private String proxyFirstname;
     private String proxyMiddleName;
     private String proxyLastName;
-
-
-    
+	
     public ParticipantPersonalInformation(String firstName, String middleName, String lastName, String proxyFirstname,
 			String proxyMiddleName, String proxyLastName) {
 		super();
@@ -23,80 +21,54 @@ public class ParticipantPersonalInformation {
 		this.proxyMiddleName = proxyMiddleName;
 		this.proxyLastName = proxyLastName;
 	}
-
-
-
+	
 	public String getFirstName() {
 		return firstName;
 	}
-
-
 
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 
-
-
 	public String getMiddleName() {
 		return middleName;
 	}
-
-
-
+	
 	public void setMiddleName(String middleName) {
 		this.middleName = middleName;
 	}
-
-
 
 	public String getLastName() {
 		return lastName;
 	}
 
-
-
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
-
 
 	public String getProxyFirstname() {
 		return proxyFirstname;
 	}
 
-
-
 	public void setProxyFirstname(String proxyFirstname) {
 		this.proxyFirstname = proxyFirstname;
 	}
-
-
 
 	public String getProxyMiddleName() {
 		return proxyMiddleName;
 	}
 
-
-
 	public void setProxyMiddleName(String proxyMiddleName) {
 		this.proxyMiddleName = proxyMiddleName;
 	}
-
-
 
 	public String getProxyLastName() {
 		return proxyLastName;
 	}
 
-
-
 	public void setProxyLastName(String proxyLastName) {
 		this.proxyLastName = proxyLastName;
 	}
-
-
 
 	public int compareTo(ParticipantPersonalInformation participantPersonalInformation) {
 		CompareToBuilder compareToBuilder = new CompareToBuilder();
@@ -107,6 +79,5 @@ public class ParticipantPersonalInformation {
 		compareToBuilder.append(getProxyMiddleName(), participantPersonalInformation.getProxyMiddleName());
 		compareToBuilder.append(getProxyLastName(), participantPersonalInformation.getProxyLastName());
 		return compareToBuilder.toComparison();
-	}
- 
+	} 
 };
