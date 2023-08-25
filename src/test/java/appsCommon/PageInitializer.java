@@ -12,6 +12,7 @@ import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortNewPageLayOutSte
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
 import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
+import AnalysisTools.CEDCD.StepsImplementation.CEDCD_Public_Site_Steps_Impl;
 import AnalysisTools.Comets2.Pages.Comets2Page;
 import AnalysisTools.ICRP.Pages.ICRPHomePage;
 import AnalysisTools.ICRP.Pages.ICRPSearchDatabasePage;
@@ -105,8 +106,8 @@ import ServiceNow.CHARMS.StepsImplementation.FanconiEligibilityQuestionnaireStep
 import ServiceNow.CHARMS.StepsImplementation.RASSurveyStepsImpl;
 import ServiceNow.CHARMS.StepsImplementation.RasScenario1StepsImpl;
 import ServiceNow.CHARMS.StepsImplementation.RasScenario2StepsImpl;
-import ServiceNow.CHARMS.StepsImplementation.RasScreenerScenario3StepsImpl;
-import ServiceNow.CHARMS.StepsImplementation.RasScreenerScenario4StepsImpl;
+import ServiceNow.CHARMS.StepsImplementation.RasScenario3StepsImpl;
+import ServiceNow.CHARMS.StepsImplementation.RasScenario4StepsImpl;
 import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
 import ServiceNow.CICDBuild.Pages.DevOpsLoginPage;
 import ServiceNow.CICDBuild.Pages.DevOpsNativeViewPage;

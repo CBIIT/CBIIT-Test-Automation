@@ -23,9 +23,8 @@ import io.cucumber.java.en.Then;
 public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
 	String referralValue;
-	String excelSheet = "/Users/jains18/git/CBIIT-Test-Automation/src/main/resources/data.xlsx";
-	String consent = "/Users/jains18/git/CBIIT-Test-Automation/src/main/resources/Family Cohort Study Consent.pdf";
-
+	String consent = System.getProperty("user.name") + "git/CBIIT-Test-Automation/src/main/resources/Family Cohort Study Consent.pdf";
+	
 	SoftAssert softAssert = new SoftAssert();
 
 	Map<String, String> currentRow; // Excel Data Reader for FanconiScreener Tab
