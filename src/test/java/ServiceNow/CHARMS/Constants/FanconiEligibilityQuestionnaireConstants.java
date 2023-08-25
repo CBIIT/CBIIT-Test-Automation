@@ -64,18 +64,14 @@ public class FanconiEligibilityQuestionnaireConstants {
 
     @SuppressWarnings("serial")
     public static final ArrayList<String> AGE_DATE_FANCONI = new ArrayList<String>() {
-
-        {
-            add("Age in years (if under age 1 year, please enter 0)");
+        {  add("Age in years (if under age 1 year, please enter 0)");
             add("Date (MM/DD/YYYY)");
             add("Unknown/Unsure");
         }
-
     };
 
     @SuppressWarnings("serial")
     public static final ArrayList<String> STUDY_REGISTRYGROUP = new ArrayList<String>() {
-
         {
             add("Fanconi Anemia Research Fund");
             add("Fanconi Anemia Research Study at");
@@ -89,28 +85,25 @@ public class FanconiEligibilityQuestionnaireConstants {
 
     @SuppressWarnings("serial")
     public static final ArrayList<String> PLACE_CHROMOSOME_BREAKAGE_TEST_PERFORMED = new ArrayList<String>() {
-
         {
             add("Rockefeller University");
             add("Oregon Health Sciences University");
             add("Quest Diagnostics");
             add("Unknown/Unsure");
         }
-
     };
+    
     @SuppressWarnings("serial")
     public static final ArrayList<String> HOW_CHROMOSOME_BREAKAGE_TEST_RESULTS = new ArrayList<String>() {
-
         {
             add("Fax");
             add("Upload to this questionnaire");
             add("Mail");
-
         }
     };
+ 
     @SuppressWarnings("serial")
     public static final ArrayList<String> WHAT_CHROMOSOME_BREAKAGE_TEST_RESULTS = new ArrayList<String>() {
-
         {
             add("Diagnostic of Fanconi anemia");
             add("Not consistent with Fanconi anemia");
@@ -118,22 +111,21 @@ public class FanconiEligibilityQuestionnaireConstants {
             add("Unknown/Unsure");
         }
     };
+
     @SuppressWarnings("serial")
     public static final ArrayList<String> RECEIVED_EVER__BONE_MARROW_TRANSPLANT = new ArrayList<String>() {
-
         {
             add("Yes(specify treatment institution)");
             add("No");
             add("Unknown/Unsure");
-
         }
     };
+    
     @SuppressWarnings("serial")
     public static final ArrayList<String> CURRENT_MEDICATION = new ArrayList<String>() {
         {
             add("Name of Medication(s)");
             add("Not Applicable");
-
         }
     };
 
@@ -146,7 +138,6 @@ public class FanconiEligibilityQuestionnaireConstants {
             add("Fanconi Anemia Research Fund");
             add("Genetic counselor");
             add("Family member");
-
         }
     };
 
@@ -156,9 +147,9 @@ public class FanconiEligibilityQuestionnaireConstants {
             add("Name");
             add("Address");
             add("Phone number");
-
         }
     };
+    
     @SuppressWarnings("serial")
     public static final ArrayList<String> MAIN_REASON_FOR_PARTICIPATION = new ArrayList<String>() {
         {
@@ -166,8 +157,6 @@ public class FanconiEligibilityQuestionnaireConstants {
             add("Screen for potential cancer diagnosis");
             add("Receive genetic testing");
             add("Other");
-
         }
     };
-
 };
