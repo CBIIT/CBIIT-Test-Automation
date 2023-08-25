@@ -30,8 +30,8 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	public WebElement nativeViewFCSMSformAccessIframe;
 
 	/* *************************************************************** */
-
 	/* ************* ServiceNow Studio CHARMS Referrals ************* */
+	/* *************************************************************** */
 
 	/* -------- CHARMS Referrals x button ------------ */
 	@FindBy(xpath = "/html/body/div[1]/section/editor-tabset/ul/li[1]/a")
@@ -78,8 +78,8 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	public WebElement charmsReferralsPopUpDeleteButton;
 
 	/* *************************************************************** */
-
 	/* ************* FAMILY MEMBER DETAILS ************* */
+	/* *************************************************************** */
 
 	/* ---- Family Member Details x button ------ */
 	@FindBy(xpath = "/html/body/div[1]/section/editor-tabset/ul/li[2]/a")
@@ -114,8 +114,8 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	public WebElement familyMemberDetailsShowListPopUpDeleteButton;
 
 	/* *************************************************************** */
-
 	/* ************* FCSMS FORM ACCESS ************* */
+	/* *************************************************************** */
 
 	/* ------- FCSMS Form Access ------ */
 	@FindBy(xpath = "//*[@id='navigation-modules']/ul/li[1]/ul/li[1]/ul/li[9]/a")
@@ -146,8 +146,8 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	public WebElement fcsmsFormAccessShowListDeleteButton;
 
 	/* *************************************************************** */
-
 	/* **** BEGINNING OF NATIVE VIEW ELEMENTS FOR ALL PAGES ***** */
+	/* *************************************************************** */
 
 	/*--------- Dashboard Link  */
 	@FindBy(xpath = "//ul[@aria-label='Modules for Application: CHARMS']//div//div[@class='sn-widget-list-title'][normalize-space()='Dashboard']")
@@ -205,8 +205,8 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	
 
 	/* *************************************************************** */
-
 	/* *** VERIFIES PERSONAL INFORMATION DATA IN FAMILY MEMBERS DETAILS PAGE*** */
+	/* *************************************************************** */
 
 	/* --------- PERSONAL INFORMATION tab ----------- */
 	@FindBy(xpath = "//form[@name=\"x_naci_family_coho_family_history_details.do\"]//div[@role=\"tablist\"]//span[normalize-space()=\"Personal Information\"]")
@@ -229,8 +229,8 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	public WebElement nVFamilyMemberDetailsRecordPersonalInformationTabLastName;
 
 	/* *************************************************************** */
-
 	/* *** VERIFIES DEMOGRAPHICS DATA IN FAMILY MEMBERS DETAILS PAGE *** */
+	/* *************************************************************** */
 
 	/* --------- DEMOGRAPHICS tab ----------- */
 	@FindBy(xpath = "//form[@name=\"x_naci_family_coho_family_history_details.do\"]//div[@role=\"tablist\"]//span[normalize-space()=\"Demographics\"]")
@@ -273,8 +273,8 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	public WebElement nVFamilyMemberDetailsRecordDemographicsTabParticipantRaceOtherText;
 
 	/* *************************************************************** */
-
 	/* **** VERIFIES CONTACT INFO DATA IN FAMILY MEMBERS DETAILS PAGE *** */
+	/* *************************************************************** */
 
 	/* --------- CONTACT INFO tab ----------- */
 	@FindBy(xpath = "//form[@name=\"x_naci_family_coho_family_history_details.do\"]//div[@role=\"tablist\"]//span[normalize-space()=\"Contact Info\"]")
@@ -337,8 +337,8 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	public WebElement nVFamilyMemberDetailsRecordContactInfoTabWorkPhone;
 
 	/* *************************************************************** */
-
 	/* *** VERIFIES MEDICAL INFORMATION DATA IN FAMILY MEMBERS DETAILS PAGE *** */
+	/* *************************************************************** */
 
 	/* --------- MEDICAL INFORMATION tab ----------- */
 	@FindBy(xpath = "//form[@name=\"x_naci_family_coho_family_history_details.do\"]//div[@role=\"tablist\"]//span[normalize-space()=\"Medical Information\"]")
@@ -363,8 +363,8 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	public WebElement nVFamilyMemberDetailsRecordMedicalInfoParticipantVitalStatus;
 
 	/* *************************************************************** */
-
 	/* *** VERIFIES DATA IN THE PARTICIPANT CANCER HISTORY TAB *** */
+	/* *************************************************************** */
 
 	@FindBy(xpath = "\"(//span[starts-with(normalize-space(), 'Patient Cancer History')])[1]\")")
 	public WebElement nVPatientCancerHistorytTab;
@@ -406,7 +406,6 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	public WebElement nVReferralParticipantIntakeFormBackButton;
 
 	/* *************************************************************** */
-
 	@FindBy(xpath = "//*[@id=\"tabs2_list\"]/span[2]/span/span[2]")
 	public WebElement nVParticipantGeneticHistoryTab;
 
@@ -426,43 +425,6 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	@FindBy(xpath = "//div[@data-position-below-header=\"true\"]")
 	public WebElement nVFamilyMembersDetailPage;
 
-	/*
-	 * 
-	 * 
-	 * @FindBy(xpath =
-	 * "//body[1]/div[2]/div[2]/div[1]/div[2]/span[1]/div[2]/div[4]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/a[1]")
-	 * public WebElement nVParticipantGeneticHistoryOtherGenesSyndromes;
-	 * 
-	 * @FindBy(xpath =
-	 * "//body[1]/div[2]/div[2]/div[1]/div[2]/span[1]/div[2]/div[4]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/a[1]")
-	 * public WebElement nVParticipantGeneticHistoryHrasCostelloSyndrome;
-	 * 
-	 * @FindBy(xpath =
-	 * "//body[1]/div[2]/div[2]/div[1]/div[2]/span[1]/div[2]/div[4]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/table[1]/tbody[1]/tr[3]/td[2]/a[1]")
-	 * public WebElement nVParticipantGeneticHistorySpred1LegiusSyndrome;
-	 * 
-	 * @FindBy(xpath =
-	 * "//body[1]/div[2]/div[2]/div[1]/div[2]/span[1]/div[2]/div[4]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]/a[1]")
-	 * public WebElement nVParticipantGeneticHistoryBrafKrasMek1Map2k1Mek2Mapk2;
-	 * 
-	 * @FindBy(xpath = "//tbody/tr[5]/td[2]/a[1]") public WebElement
-	 * nVParticipantGeneticHistoryBrafCblKrasLztr1Map3k8MrasNr;
-	 * 
-	 * @FindBy(xpath = "//tbody/tr[6]/td[2]/a[1]") public WebElement
-	 * nVParticipantGeneticHistoryPtpn11Raf1NoonanSyndrome;
-	 * 
-	 * @FindBy(xpath = "//tbody/tr[7]/td[2]/a[1]") public WebElement
-	 * nVParticipantGeneticHistorySyngap1Syndrome;
-	 * 
-	 * @FindBy(xpath = "//tbody/tr[8]/td[2]/a[1]") public WebElement
-	 * nVParticipantGeneticHistoryRasa1CapillaryArteriovenousMalformat;
-	 * 
-	 * @FindBy(xpath =
-	 * "//select[@name=\"sys_select.x_naci_family_coho_fcsms_intake_form_patient_genetic_tests.tested_genes_syndromes\"]//option[@selected=\"SELECTED\"]")
-	 * public WebElement
-	 * nVParticipantGeneticTestsIntakeFormTestedGenesHereditaryCancerSyndromes;
-	 */
-
 	@FindBy(xpath = "//select[@id=\"sys_select.x_naci_family_coho_fcsms_intake_form_patient_genetic_tests.tested_genes_syndromes\"]//option[@selected=\"SELECTED\"]")
 	public WebElement nVParticipantGeneticTestedGenesSyndromes;
 
@@ -473,8 +435,8 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	public WebElement nVParticipantGeneticTestResult;
 
 	/* *************************************************************** */
-
 	/* ************* VERIFIES DATA IN THE RAS REFERRAL PAGE ************* */
+	/* *************************************************************** */
 
 	/* Family Member Details Page --> Referral data field populated automatically */
 	@FindBy(xpath = "//input[@name=\"sys_display.x_naci_family_coho_family_history_details.proband_screener\"]")
@@ -540,8 +502,10 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	@FindBy(xpath = "//select[@name=\"sys_readonly.x_naci_family_coho_ras_referral.family_member_record.enrollment_status\"]//option[@selected=\"SELECTED\"]")
 	public WebElement nVRasReferralViewPageEnrollmentStatus;
 
+	/* *************************************************************** */
 	/* ******* RAS REFERRAL VIEW PAGE--> CONTACT INFO TAB******** */
-
+	/* *************************************************************** */
+	
 	/* RAS Referral view page --> Contact Information Tab */
 	@FindBy(xpath = "//span[normalize-space()=\"Contact Information\"]")
 	public WebElement nVRasReferralViewPageContactInformationTab;
@@ -582,7 +546,9 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	@FindBy(xpath = "//input[@name=\"x_naci_family_coho_ras_referral.family_member_record.zipcode\"]")
 	public WebElement nVRasReferralViewPageContactInformationTabContactZipCode;
 
+	/* *************************************************************** */
 	/* ******* RAS REFERRAL VIEW PAGE--> DEMOGRAPHIC TAB******** */
+	/* *************************************************************** */
 
 	/* RAS Referral view page --> Demographics Tab */
 	@FindBy(xpath = "//span[normalize-space()=\"Demographics\"]")
@@ -824,9 +790,9 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	public WebElement nativeViewSignConsentButton;
 
 	/* **************************************************** */
-
-	/** ----- BEGINNING OF Native view RAS Survey Data Verification ------- */
-
+	/** BEGINNING OF Native view RAS Survey Data Verification */
+/* *************************************************************** */
+	
 	/* ----- Native view Rasopathy Survey module ------- */
 	@FindBy(xpath = "//div[contains(text(),'RASopathy Surveys')]")
 	public WebElement nativeViewRasSurveyRASopathySurveysModule;
@@ -843,11 +809,9 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	@FindBy(xpath = "//a[normalize-space()='Open Record']")
 	public WebElement nativeViewRasSurveyOpenRecordButton;
 
-	/**
-	 * ************************** BEGINNING OF BASIC INFORMATION SECTION
-	 * **************************
-	 * 
-	 */
+	/* *************************************************************** */
+	/* BEGINNING OF BASIC INFORMATION SECTION */
+	/* *************************************************************** */
 
 	/* ----- Native view Rasopathy Participant name text box ------- */
 	@FindBy(xpath = "//input[@name='sys_display.x_naci_family_coho_rasopathy_iiq.participant']")
@@ -865,17 +829,13 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	@FindBy(xpath = "//option[normalize-space()='Awaiting Enrollment Forms']")
 	public WebElement nativeViewRasSurveyEnrollmentStatusField;
 
-	/**
-	 * ************************** END OF BASIC INFORMATION SECTION
-	 * **************************
-	 * 
-	 */
-
-	/**
-	 * ************************** BEGINNING OF DEMOGRAPHICS SECTION
-	 * **************************
-	 * 
-	 */
+	/* *************************************************************** */
+	/* END OF BASIC INFORMATION SECTION */
+	/* *************************************************************** */
+	
+	/* *************************************************************** */
+	/* BEGINNING OF DEMOGRAPHICS SECTION */
+	/* *************************************************************** */
 
 	/* ----- Native view Rasopathy Survey button ------- */
 	@FindBy(xpath = "//div[contains(text(),'RASopathy Surveys')]")
@@ -885,10 +845,9 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	@FindBy(xpath = "//span[normalize-space()='Demographics']")
 	public WebElement nativeViewRasSurveyDemographicsTab;
 
-	/*
-	 * ----- Native view Rasopathy Survey
-	 * "Included in published case report or in a different public manner" drop down
-	 * -------
+	/* Native view Rasopathy Survey
+	 * "Included in published case report or in a different public manner" drop-down
+	 * 
 	 */
 
 	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.published_case']//option[@value='1'][normalize-space()='Yes']")
@@ -944,18 +903,15 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.dad_height']")
 	public WebElement nativeViewRasSurveyBiologicalFatherHeightTextBox;
 
-	/**
-	 * ************************** END OF DEMOGRAPHICS SECTION
-	 * **************************
-	 */
+	/* *************************************************************** */
+	/*END OF DEMOGRAPHICS SECTION */
+	/* *************************************************************** */
 
-	/**
-	 * ************************** BEGINNING OF BIRTH & GESTATION SECTION
-	 * **************************
-	 */
+	/* *************************************************************** */
+	/* BEGINNING OF BIRTH & GESTATION SECTION */
+	/* *************************************************************** */
 
 	/* ----- Native view Rasopathy Survey Birth & Gestation tab ------- */
-
 	@FindBy(xpath = "//span[normalize-space()='Birth & Gestation']")
 	public WebElement nativeViewRasSurveyBirthAndGestationTab;
 
@@ -1241,8 +1197,7 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	@FindBy(xpath = "//select[@name='x_naci_family_coho_rasopathy_iiq.highest_level_of_schooling_ras']//option[@selected='SELECTED']")
 	public WebElement nativeViewRasSurveyHighestLevelOfSchoolingDropdown;
 
-	/**
-	 * *************************** END OF DEVELOPMENT SECTION
+	/*END OF DEVELOPMENT SECTION
 	 * **************************
 	 */
 
