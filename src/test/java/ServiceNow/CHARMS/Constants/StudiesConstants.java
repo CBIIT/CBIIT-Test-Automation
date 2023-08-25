@@ -19,7 +19,6 @@ public class StudiesConstants {
 			add("Yes");
 			add("No");
 		}
-
 	};
 
 	@SuppressWarnings("serial")
@@ -34,7 +33,6 @@ public class StudiesConstants {
 
 	@SuppressWarnings("serial")
 	public static final ArrayList<String> CURRENT_GENDER_IDENTITY = new ArrayList<String>() {
-
 		{
 			add("Female");
 			add("Male");
@@ -43,7 +41,6 @@ public class StudiesConstants {
 			add("Unknown/Unsure");
 			add("Prefer not to answer");
 		};
-
 	};
 
 	public static final ArrayList<String> PRONOUNS = new ArrayList<String>() {
@@ -68,23 +65,19 @@ public class StudiesConstants {
 			add("Other (please specify)");
 			add("Unknown/Unsure");
 		}
-
 	};
 
 	@SuppressWarnings("serial")
 	public static final ArrayList<String> AGE_DATE = new ArrayList<String>() {
-
 		{
 			add("Age in years (if under age 1 year, please enter 0)");
 			add("Date (MM/DD/YYYY)");
 			add("Unknown/Unsure");
 		}
-
 	};
 
 	@SuppressWarnings("serial")
 	public static final ArrayList<String> CANCER_TYPE_LIST = new ArrayList<String>() {
-
 		{
 			add("Abdominal cancer");
 			add("Anal cancer");
@@ -149,5 +142,4 @@ public class StudiesConstants {
 			add("Other cancer, specify");
 		}
 	};
-
 };
