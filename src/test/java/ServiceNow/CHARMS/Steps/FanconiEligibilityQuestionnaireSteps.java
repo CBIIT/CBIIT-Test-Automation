@@ -21,7 +21,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
-
 	String referralValue;
 	String consent = System.getProperty("user.name") + "git/CBIIT-Test-Automation/src/main/resources/Family Cohort Study Consent.pdf";
 	
