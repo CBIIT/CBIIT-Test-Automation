@@ -2,7 +2,7 @@ Feature: ESR Default Notifications
 
   Description: This feature file contains scenarios relating to notifications in ESR
 
-  @ESR-533 @Progression @sarwarahmed1
+  @ESR-533 @Regression @sarwarahmed1
   Scenario: Test a submitted request notification for the creation of an ESR ticket
     Given a user logs in with valid credentials for Native View on the NCI at your service page "nativeViewSideDoor"
     And user searches "ESR" in the filter bar
