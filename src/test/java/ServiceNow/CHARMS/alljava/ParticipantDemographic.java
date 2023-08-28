@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class ParticipantDemographic {
-
     private Date participantDateOfBirth;
     private int  participantAge;
 
@@ -36,7 +35,6 @@ public class ParticipantDemographic {
 
     @SuppressWarnings("serial")
     public static final ArrayList<String> CURRENT_GENDER_IDENTITY = new ArrayList<String>() {
-
         {
             add("Female");
             add("Male");
@@ -45,7 +43,6 @@ public class ParticipantDemographic {
             add("Unknown/Unsure");
             add("Prefer not to answer");
         };
-
     };
 
   
