@@ -45,9 +45,6 @@ public class ParticipantDemographic {
         };
     };
 
-  
-
-
     public static final ArrayList<String> PRONOUNS = new ArrayList<String>() {
         {
             add("She/her");
@@ -70,7 +67,6 @@ public class ParticipantDemographic {
             add("Other (please specify)");
             add("Unknown/Unsure");
         }
-
     };
 
 
