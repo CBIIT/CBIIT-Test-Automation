@@ -31,5 +31,4 @@ public class FanconiLoginPage extends CommonUtils {
 	/* Log Out Button */
 	@FindBy(xpath = "(//a[normalize-space()='Sign Out'])[1]")
 	public WebElement LogoutButton;
-
 }
