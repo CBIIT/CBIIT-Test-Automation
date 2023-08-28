@@ -9,15 +9,12 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import ServiceNow.CHARMS.Pages.FanconiLoginPage;
 import ServiceNow.CHARMS.Utils.CharmsUtil;
 import appsCommon.PageInitializer;
 import io.cucumber.java.en.Given;
 
-
-public class FanconiLoginSteps extends PageInitializer {
-	
+public class FanconiLoginSteps extends PageInitializer {	
 	@Given("a Participant is on the Fanconi Study login page")
 	public void a_Participant_is_on_the_Fanconi_Study_login_page() 
 		throws TestingException, JsonIOException, JsonSyntaxException, FileNotFoundException {
