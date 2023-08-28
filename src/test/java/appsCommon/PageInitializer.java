@@ -1,4 +1,5 @@
 package appsCommon;
+
 import com.nci.automation.web.WebDriverUtils;
 import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
 import AnalysisTools.CEDCD.Pages.CEDCDBiospecimenCountsPage;
@@ -419,7 +420,7 @@ public class PageInitializer extends WebDriverUtils {
         servicePortalQuestionnairePageImp = new ServicePortalQuestionnairePageImp();
         dashboardStepImpl = new DashboardStepImpl();
 
-        /** CHARMS Instance Variables */
+        /** CHARMS Instance Variables **/
         charmsNativeViewPage = new CHARMSNativeViewPage();
         testAccountResetImpl = new TestAccountResetImpl();
         charmsHomePage = new CHARMSHomePage();
@@ -458,8 +459,6 @@ public class PageInitializer extends WebDriverUtils {
         myRASIIQFormPage = new MyRASIIQFormPage();
         ras_survey_native_view = new RAS_Survey_Native_View_Page();
         myRASSurveyPage = new MyRASSurveyPage();
-        
-        /** Melanoma and Spitzoid Tumor instances */
         melanomaLoginPage = new MelanomaLoginPage();
         melanomaHomePage = new MelanomaHomePage();
         melanomaQuestionnairePage = new MelanomaQuestionnairePage();
