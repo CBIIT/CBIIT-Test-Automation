@@ -619,6 +619,5 @@ public class PageInitializer extends WebDriverUtils {
 
         /** GCP INSTANCE VARIABLES */
         gCPNotifications_NativeViewPage = new  GCPNotifications_NativeViewPage();
-
     }
 }
