@@ -1,6 +1,5 @@
 package appsCommon;
 import com.nci.automation.web.WebDriverUtils;
-
 import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
 import AnalysisTools.CEDCD.Pages.CEDCDBiospecimenCountsPage;
 import AnalysisTools.CEDCD.Pages.CEDCDCohortPage;
@@ -233,10 +232,10 @@ public class PageInitializer extends WebDriverUtils {
     public static ParticipantDetailsPage participantDetailsPage;
     public static ReferralTablePage referralTablePage;
     public static FanconiEligibilityQuestionnairePage fanconiEligibilityQuestionnairePage;
-	public static FanconiScreenerNVPage fanconiScreenerNVPage;		
-	public static FanconiLoginPage fanconiLoginPage;
-	public static CHARMSParticipantDetailsPage cHARMSParticipantDetailsPage;
-	public static FanconiEligibilityQuestionnaireStepsImpl fanconiEligibilityQuestionnaireStepsImpl;
+    public static FanconiScreenerNVPage fanconiScreenerNVPage;		
+    public static FanconiLoginPage fanconiLoginPage;
+    public static CHARMSParticipantDetailsPage cHARMSParticipantDetailsPage;
+    public static FanconiEligibilityQuestionnaireStepsImpl fanconiEligibilityQuestionnaireStepsImpl;
     public static ScreenerRecordTablePage screenerRecordTablePage;
     public static MyRASSurveyPage myRASSurveyPage;
     public static RAS_Survey_Native_View_Page ras_survey_native_view;
@@ -451,10 +450,10 @@ public class PageInitializer extends WebDriverUtils {
         participantDetailsPage = new ParticipantDetailsPage();
         referralTablePage = new ReferralTablePage();
     	fanconiLoginPage = new FanconiLoginPage();
-		fanconiEligibilityQuestionnairePage = new FanconiEligibilityQuestionnairePage();
-		fanconiScreenerNVPage =new FanconiScreenerNVPage();
-		cHARMSParticipantDetailsPage = new CHARMSParticipantDetailsPage();
-		fanconiEligibilityQuestionnaireStepsImpl = new FanconiEligibilityQuestionnaireStepsImpl();
+	fanconiEligibilityQuestionnairePage = new FanconiEligibilityQuestionnairePage();
+	fanconiScreenerNVPage =new FanconiScreenerNVPage();
+	cHARMSParticipantDetailsPage = new CHARMSParticipantDetailsPage();
+	fanconiEligibilityQuestionnaireStepsImpl = new FanconiEligibilityQuestionnaireStepsImpl();
         screenerRecordTablePage = new ScreenerRecordTablePage();
         myRASIIQFormPage = new MyRASIIQFormPage();
         ras_survey_native_view = new RAS_Survey_Native_View_Page();
