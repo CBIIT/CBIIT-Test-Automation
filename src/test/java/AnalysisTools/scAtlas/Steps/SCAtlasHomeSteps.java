@@ -1,7 +1,5 @@
 package AnalysisTools.scAtlas.Steps;
 
-import org.testng.Assert;
-
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
