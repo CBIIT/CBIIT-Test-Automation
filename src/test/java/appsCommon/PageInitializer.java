@@ -12,6 +12,8 @@ import AnalysisTools.JPSurv.Pages.*;
 import AnalysisTools.LDLink.Pages.*;
 import AnalysisTools.PLCO.Pages.*;
 import AnalysisTools.mSigPortal.Pages.*;
+import AnalysisTools.scAtlas.Pages.SCAtlasCohortsPage;
+import AnalysisTools.scAtlas.Pages.SCAtlasHomePage;
 import CustomBusiness.CCR.Pages.*;
 import CustomBusiness.CCR.StepsImplementation.*;
 import CustomBusiness.DCEG.Pages.*;
@@ -217,6 +219,10 @@ public class PageInitializer extends WebDriverUtils {
     public static LDLinkHomePage ldLinkHomePage;
     public static LDAssocPage ldAssocPage;
     public static LDExpressPage ldExpressPage;
+
+    /** scAtlas instances **/
+    public static SCAtlasHomePage scAtlasHomePage;
+    public static SCAtlasCohortsPage scAtlasCohortsPage;
 
     /** ezQTL instances **/
     public static EZQTLHomePage ezQTLHomePage;
@@ -442,6 +448,10 @@ public class PageInitializer extends WebDriverUtils {
         ldLinkHomePage = new LDLinkHomePage();
         ldExpressPage = new LDExpressPage();
         ldAssocPage = new LDAssocPage();
+
+        /** scAtlas Instance Variables **/
+        scAtlasHomePage = new SCAtlasHomePage();
+        scAtlasCohortsPage = new SCAtlasCohortsPage();
 
         /** ezQTL Instance Variables **/
         ezQTLHomePage = new EZQTLHomePage();
