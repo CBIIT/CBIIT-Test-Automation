@@ -37,16 +37,13 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 
 	/* Method to click Eligibility Questionnaire link */
 	public void eligibilityQuestionnairelinkClicked() {
-
 		Set<String> allWindowHandles = WebDriverUtils.webDriver.getWindowHandles();
 		for (String currentWindow : allWindowHandles) {
 			WebDriverUtils.webDriver.switchTo().window(currentWindow);
 			MiscUtils.sleep(2000);
 		}
-
 		JavascriptUtils.scrollIntoView(fanconiEligibilityQuestionnairePage.nextButton);
 		CommonUtils.waitForVisibility(fanconiEligibilityQuestionnairePage.nextButton);
-		// CucumberLogUtils.takeScreenShot(HooksSteps.scenario);
 	}
 
 	/*****************************************************************/
@@ -60,7 +57,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 			CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
 		}
 	}
-
 	/*
 	 * Method to submit 'Are you completing this questionnaire for someone else?or
 	 * Yourself
