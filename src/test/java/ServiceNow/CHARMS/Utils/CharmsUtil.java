@@ -17,7 +17,7 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.WebDriverUtils;
 
 /* @author SONIKA JAIN */
-public class CharmsUtil {	
+public class CharmsUtil {
 	/* Excel Data Reader */
 	public static Map<String, String> testManagerData(String excelSheet, String sheet, int rowNum) {
 		ExcelReader excelReader = new ExcelReader();
@@ -27,7 +27,6 @@ public class CharmsUtil {
 			List<Map<String, String>> excelDataMapList = excelReader.getData(excelSheet, sheet);
 			currentRow = excelDataMapList.get(rowNum);
 			// System.out.println("Scenario " + rowNum + 1 + ": Picked ");
-
 		} catch (InvalidFormatException | IOException e) {
 			e.printStackTrace();
 		}
@@ -53,7 +52,7 @@ public class CharmsUtil {
 		int count = 0;
 		while (count < 5) {
 			try {
-				webElement.click();	
+				webElement.click();
 				MiscUtils.sleep(1200);
 				break;
 			} catch (WebDriverException ex) {
@@ -62,14 +61,14 @@ public class CharmsUtil {
 			}
 		}
 	}
-	
+
 	/* @param webElement:Element to be clicked to avoid the exception */
 	public static void clickOnRadioButtonElement(WebElement webElement) {
 		CharmsUtil.labelHighlight(webElement);
 		int count = 0;
 		while (count < 5) {
 			try {
-				webElement.click();	
+				webElement.click();
 				MiscUtils.sleep(400);
 				break;
 			} catch (WebDriverException ex) {
@@ -123,7 +122,6 @@ public class CharmsUtil {
 			String messsage) {
 		CharmsUtil.labelHighlight(webElement);
 		MiscUtils.sleep(200);
-
 		Select select = new Select(webElement);
 		String actualValue = select.getFirstSelectedOption().getText(); // getFirstSelectedOption() returns the selected
 
@@ -191,9 +189,9 @@ public class CharmsUtil {
 	}
 
 	/*
-	 * @param webElement: Method to compare the expected Value
-	 * to the actual value and then adding in to the Comparison Results list and
-	 * then adding that list to the final Component Test Result
+	 * @param webElement: Method to compare the expected Value to the actual value
+	 * and then adding in to the Comparison Results list and then adding that list
+	 * to the final Component Test Result
 	 */
 	public static ComponentTestResult verifyLabel(WebElement webElement, String expectedValue) {
 		CharmsUtil.labelHighlight(webElement);
@@ -218,8 +216,9 @@ public class CharmsUtil {
 	/*
 	 * @param webElement:WebElement is Actual value, List is the Expected Dropdown
 	 * list.
-	 * @return ComponentTestResult:Comparison results list for each option
-	 * (actual v.s. expected)
+	 * 
+	 * @return ComponentTestResult:Comparison results list for each option (actual
+	 * v.s. expected)
 	 */
 	public static ComponentTestResult verifyDropDowns(WebElement webElement, List<String> list) {
 		CharmsUtil.labelHighlight(webElement);
@@ -227,7 +226,7 @@ public class CharmsUtil {
 		String result = "PASSED";
 		List<ComparisionResult> comparisionResultList = new ArrayList<ComparisionResult>();
 
-		Select select = new Select(webElement);		
+		Select select = new Select(webElement);
 		// getting the list in the dropdown with getOptions()
 		List<WebElement> dropDownOptions = select.getOptions();
 
@@ -255,7 +254,9 @@ public class CharmsUtil {
 
 	/*
 	 * @param webElement:WebElement compared to the expected Dropdown values
+	 * 
 	 * @param dropdownList: Expected Dropdown list
+	 * 
 	 * @param dropdownSelectedIndex:The Dropdown selected index @return
 	 */
 	public static ComponentTestResult verifySelect2DropDowns(WebElement webElement, List<String> dropdownList,
@@ -299,8 +300,7 @@ public class CharmsUtil {
 		String actualValue = null;
 		if (webElement.getAttribute("value") != null) {
 			actualValue = webElement.getAttribute("value");
-		}
-		else {
+		} else {
 			actualValue = webElement.getText();
 		}
 		try {
