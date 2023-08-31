@@ -2,17 +2,13 @@ package ServiceNow.CHARMS.NativeView.Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import java.util.List;
-
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
 public class CHARMSNativeViewPage extends CommonUtils {
-
 	/* ------ Studio link ------ */
 	@FindBy(xpath = "//*[@id='bb0c4ba0c3120200ca27ff9c02d3ae7e']/div/div")
 	public WebElement studioLink;
