@@ -3,22 +3,15 @@ package ServiceNow.CHARMS.StepsImplementation;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
-
-import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
-import ServiceNow.CHARMS.Pages.FanconiScreenerNVPage;
-import ServiceNow.CHARMS.Steps.HooksSteps;
 import ServiceNow.CHARMS.Utils.CharmsUtil;
 import appsCommon.PageInitializer;
 
@@ -26,7 +19,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 
 	String referralValue;
 	String excelSheet = "/Users/" + System.getProperty("user.name") + "/git/CBIIT-Test-Automation/src/main/resources/data.xlsx";
-
 	String consent = "/Users/" + System.getProperty("user.name") + "/git/CBIIT-Test-Automation/src/main/resources/Family Cohort Study Consent.pdf";
 
 	Map<String, String> currentRow; // Excel Data Reader for FanconiScreener Tab
@@ -50,22 +42,19 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to click Initial pages with Information on Study related */
 	/*****************************************************************/
 	public void initialStudyRelatedPageClicked() {
-
 		for (int i = 1; i <= 6; ++i) {
-
 			// Click Next Button
 			CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
 		}
 	}
+	
 	/*
 	 * Method to submit 'Are you completing this questionnaire for someone else?or
 	 * Yourself
 	 */
 	public void participantSubmission() {
-
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.participantCompletingRBtonList,
 				currentRow.get("AreYouCompletingThisQuestionnaireForSomeoneElse"));
-
 		// Click Next Button
 		CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
 	}
@@ -74,7 +63,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to submit the Participant and Proxy Name details */
 	/*****************************************************************/
 	public void participantNameSelected() {
-
 		if (currentRow.get("AreYouCompletingThisQuestionnaireForSomeoneElse")
 				.contentEquals("Yes, I am completing this form for someone else")) {
 
@@ -143,10 +131,8 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 		CommonUtils.waitForVisibility(fanconiEligibilityQuestionnairePage.calendarMonthDropDown);
 		CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.calendarMonthDropDown,
 				currentRow.get("DOBMonth"));
-
 		fanconiEligibilityQuestionnairePage.calendarYearTextBox.clear();
-		MiscUtils.sleep(500);
-
+		MiscUtils.sleep(300);
 		CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.calendarYearTextBox,
 				currentRow.get("DOBYear"));
 		CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.calendarDayOption);
@@ -160,18 +146,15 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 
 		// Click Next Button
 		CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-
 	}
 
 	/*****************************************************************/
 	/* Method to submit Participant Current Gender and Pronouns */
 	/*****************************************************************/
 	public void participantGenderInformationSelected() {
-
 		if (currentRow.get("CurrentGender").isEmpty()) {
 			// do nothing
 		}
-
 		else {
 			// What is your current gender? (select one)
 			CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.currentGenderRBtonList,
@@ -187,7 +170,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 			if (currentRow.get("Pronouns").isEmpty()) {
 				// do nothing
 			}
-
 			else {
 				// What are your pronouns?
 				CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.pronounsRBtonList,
@@ -197,7 +179,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 					CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.pronounsDifferentTermTextBox,
 							currentRow.get("PronounsOther"));
 				}
-
 				// Click Next Button
 				CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
 			}
@@ -208,7 +189,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to add the Country and Address details */
 	/*****************************************************************/
 	public void participantCountrySelected() {
-
 		if (currentRow.get("AreYouCompletingThisQuestionnaireForSomeoneElse")
 				.contentEquals("Yes, I am completing this form for someone else")) {
 
@@ -236,7 +216,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 				CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
 			}
 		}
-
 		else {
 			// In which country do you currently live DropDown List?
 			CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.countrylivedDropDownList,
@@ -287,7 +266,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	 */
 	/*****************************************************************/
 	public void participatedInBoneMarrowFailureStudy() {
-
 		// Are or were you a participant in the NIH Inherited Bone Marrow Failure
 		// Syndrome study?
 		CharmsUtil.selectRadioButtonValue(
@@ -301,7 +279,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to submit if Participant is adopted */
 	/*****************************************************************/
 	public void IsParticipantAdopted() {
-
 		// Are you adopted?
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.adoptedRBtonList,
 				currentRow.get("AreYouAdopted"));
@@ -312,7 +289,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 
 	/* Method to submit the phone details */
 	public void phoneNumbersAdded() {
-
 		// Please list your phone numbers below.
 		CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.homePhoneNumberTextBox,
 				currentRow.get("HomePhoneNumber"));
@@ -332,23 +308,19 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 		}
 		// Click Next Button
 		CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
-
 	}
 
 	/* Method to submit the Ethnicity details */
 	public void ethnicitySelected() {
-
 		// What is your ethnicity?
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.ethnicityRBtonList,
 				currentRow.get("Ethnicity"));
-
 		// Click Next Button
 		CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
 	}
 
 	/* Method to submit the Race details */
 	public void raceSelected() {
-
 		// What is your race? Please select all that apply.
 		for (int j = 1; j <= 6; ++j) {
 			if (currentRow.get("Race" + j) != null) {
@@ -371,11 +343,9 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	 */
 	/*****************************************************************/
 	public void IsOtherMedicalInstitutionSelected() {
-
 		// institution, university, government agency or other site?
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				currentRow.get("HaveYouEverParticipatedInFanconiAnemiaStudyAtAnotherMedicalInstitution"));
-
 		// Click Next Button
 		CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
 	}
@@ -384,16 +354,14 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to submit Specifications of Another Medical Institution selected */
 	/*****************************************************************/
 	public void otherMedicalInstitutionSelected() {
-
 		if (currentRow.get("HaveYouEverParticipatedInFanconiAnemiaStudyAtAnotherMedicalInstitution")
 				.contentEquals("Yes"))
-
 		{
 			// Please specify the study(ies) or registry group(s) regarding participation in
 			// other studies.
 			CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 					currentRow.get("SpecifyParticipationInOtherStudies0"));
-
+			
 			fanconiEligibilityQuestionnairePage.commonRBtonList.get(1).click();
 			CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.fanconiAnemiaResearcStudyAt1TextBox,
 					currentRow.get("SpecifyParticipationInOtherStudiesDetails1"));
@@ -428,7 +396,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	 */
 	/*****************************************************************/
 	public void otherMedicalInstitutionDetailsAdded() {
-
 		// Please complete the table below to provide additional information regarding
 		// participation in other studies.
 		int k = 0;
@@ -436,9 +403,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 
 		if (currentRow.get("HaveYouEverParticipatedInFanconiAnemiaStudyAtAnotherMedicalInstitution")
 				.contentEquals("Yes")) {
-
 			for (int i = 0; i <= 5; ++i) {
-
 				// Excel Data Reader
 				Map<String, String> currentRowForAnotherStudy = CharmsUtil.testManagerData(excelSheet, "OtherStudies",
 						i);
@@ -453,7 +418,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 				// Other Study Name
 				CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.otherStudyNameList.get(i),
 						otherStudyName);
-
+				
 				// Other Study Contact Person
 				CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.otherStudyContactPersonList.get(i),
 						otherStudyContactPerson);
@@ -480,12 +445,9 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 				// End Year: End Year
 				CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.otherStudyNoLongerStartYearList.get(j),
 						otherStudyParticipationYear2);
-
 				k = k + 2;
 				j = j + 2;
-
 			}
-
 			// Click Next Button
 			CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
 		} else {
@@ -544,7 +506,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	 */
 	/*****************************************************************/
 	public void chromosomeBreakageTestSelected() {
-
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				currentRow.get("HaveYouHadAChromosomeBreakageTestForFAOnBloodSample"));
 
@@ -556,7 +517,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to submit Where was the chromosome breakage test performed? */
 	/*****************************************************************/
 	public void whereChromosomeBreakageTestPerformed() {
-
 		if (currentRow.get("HaveYouHadAChromosomeBreakageTestForFAOnBloodSample").contentEquals("Yes")) {
 			// Where was the chromosome breakage test performed?
 			CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
@@ -565,9 +525,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 			if (currentRow.get("WhereWasTheChromosomeBreakageTestPerformed").contentEquals("Other (please specify)")) {
 				CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.chromosomBreakageTestPerformedTextBox,
 						currentRow.get("WhereWasTheChromosomeBreakageTestPerformedOther"));
-
 			}
-
 			// Click Next Button
 			CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
 		}
@@ -579,16 +537,13 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 			// What was the chromosome breakage test result?
 			CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 					currentRow.get("WhatWasTheChromosomeBreakageTestResultInconclusive"));
-
 			// Click Next Button
 			CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
 
 			// Sometimes after an inconclusive result, a second test is ordered.
 			// Did you have a second chromosome breakage test done on a skin biopsy sample?
-
 			CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 					currentRow.get("InconclusiveResult"));
-
 			// Click Next Button
 			CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
 		}
@@ -603,7 +558,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 			// What was the chromosome breakage test result?
 			CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 					currentRow.get("WhatWasTheChromosomeBreakageTestResult"));
-
 			// Click Next Button
 			CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
 		} else {
@@ -615,7 +569,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to provide the chromosome breakage test results to us */
 	/*****************************************************************/
 	public void toProvideChromosomeBreakageTestResults() {
-
 		if (currentRow.get("HowWouldYouLikeToProvideChromosomeBreakageTestResults").isEmpty()) {
 			// Do nothing
 		}
@@ -638,7 +591,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/*Method to submit ever had complementation testing or genetic testing forFanconi*/
 	/*****************************************************************/
 	public void hadComplementationGeneticTesting() {
-
 		// Have you ever had complementation testing or genetic testing for Fanconi
 		// anemia genes?
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
@@ -652,9 +604,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to provide Was the genetic testing positive for Fanconi anemia */
 	/*****************************************************************/
 	public void WasTheGeneticTestingPositive() {
-
 		if (currentRow.get("HaveYouEverHadComplementationGeneticTesting").contentEquals("Yes")) {
-
 			// Was the genetic testing positive for Fanconi anemia (did the complementation
 			// or genetic testing identify a specific gene for Fanconi anemia)?
 			CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
@@ -672,21 +622,17 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 
 		if (currentRow.get("WasTheGeneticTestingPositiveForFanconiAnemia").contentEquals("No")
 				|| currentRow.get("WasTheGeneticTestingPositiveForFanconiAnemia").contentEquals("Unknown/Unsure"))
-
 		{
 			int optionsLength = fanconiEligibilityQuestionnairePage.commonRBtonList.size();
 			for (int i = 0; i <= 21; ++i) {
 				CharmsUtil.clickOnRadioButtonElement(fanconiEligibilityQuestionnairePage.commonRBtonList.get(i));
 			}
-
 			// CharmsUtil.clickOnRadioButtonElement(fanconiEligibilityQuestionnairePage.commonRBtonList.get(22));
 			CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.checkFAGenesTestedTextBox,
 					currentRow.get("FAGenesTestedTextBox"));
-
 			for (int i = 23; i <= optionsLength - 2; ++i) {
 				CharmsUtil.clickOnRadioButtonElement(fanconiEligibilityQuestionnairePage.commonRBtonList.get(i));
 			}
-
 			// Click Next Button
 			CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
 		} else {
@@ -698,13 +644,9 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/*Method to submit Was the genetic testing positive for Fanconi anemia*/
 	/*****************************************************************/
 	public void mutationsVariantsInformationSelected() {
-
 		if (currentRow.get("WasTheGeneticTestingPositiveForFanconiAnemia").contentEquals("Yes"))
-
 		{
-			// Indicate which mutations/variants were found below(if you have the
-			// information).
-
+		// Indicate which mutations/variants were found below(if you have the information
 			CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.geneNameDropDownList,
 					currentRow.get("GeneName"));
 			CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.mutationVariant1TextBox,
@@ -725,9 +667,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to provide if you have a copy of the genetic test results? */
 	/*****************************************************************/
 	public void haveCopyOfGeneticTestResults() {
-
 		if (currentRow.get("HaveYouEverHadComplementationGeneticTesting").contentEquals("Yes")) {
-
 			// Do you have a copy of the genetic test results?
 			CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 					currentRow.get("DoYouHaveCopyOfGeneticTestResults"));
@@ -742,9 +682,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to submit how you like to provide the genetic test results to us? */
 	/*****************************************************************/
 	public void howProvideGeneticTestResults() {
-
 		if (currentRow.get("DoYouHaveCopyOfGeneticTestResults").contentEquals("Yes")) {
-
 			// How would you like to provide the genetic test results to us? Please select
 			CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 					currentRow.get("HowWouldYouLikeToProvideGeneticTestResults"));
@@ -762,18 +700,15 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to provide any of the following features? */
 	/*****************************************************************/
 	public void featuresOptionsSelected() {
-
 		// Have you been told that you have any of the following features?
 		// Please select yes, no, or unknown/unsure for each statement below.
 		int optionsLength = fanconiEligibilityQuestionnairePage.yesForFeaturesOptions.size();
 
 		if (currentRow.get("LowBirthWeight").contentEquals("Yes")) {
-
 			for (int i = 0; i <= optionsLength - 1; ++i) {
 				CharmsUtil.clickOnRadioButtonElement(fanconiEligibilityQuestionnairePage.yesForFeaturesOptions.get(i));
 			}
 		}
-
 		else if (currentRow.get("LowBirthWeight").contentEquals("No")) {
 			for (int i = 0; i <= optionsLength - 1; ++i) {
 				CharmsUtil.clickOnRadioButtonElement(fanconiEligibilityQuestionnairePage.noForFeaturesOptions.get(i));
@@ -793,7 +728,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to submit if you ever been diagnosed with bone marrow failure? */
 	/*****************************************************************/
 	public void everBeenDiagnosedWithBoneMarrowFailure() {
-
 		// Have you ever been diagnosed with bone marrow failure?
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				currentRow.get("HaveYouEverBeenDiagnosedWithBoneMarrowFailure"));
@@ -807,7 +741,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to report date or age of diagnosis? */
 	/*****************************************************************/
 	public void reportDateOrAgeOfDiagnosis() {
-
 		if (currentRow.get("HaveYouEverBeenDiagnosedWithBoneMarrowFailure").contentEquals("Yes")) {
 			// Do you want report date or age of diagnosis? (Bone marrow failure)
 			CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.reportDateOrAgeOfDiagnosisDropDownList,
@@ -863,7 +796,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/*Method to report if ever been diagnosed with myelodysplastic syndrome (MDS)*/
 	/*****************************************************************/
 	public void diagnosedWithMyelodysplasticSyndrome() {
-
 		if (currentRow.get("HaveYouEverBeenDiagnosedWithBoneMarrowFailure").contentEquals("Yes")) {
 
 			// Have you ever been diagnosed with myelodysplastic syndrome (MDS)?
@@ -880,30 +812,22 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	}
 
 	/*****************************************************************/
-	/*
-	 * Method to report When were you diagnosed with myelodysplastic syndrome(MDS)
-	 */
+	/*Method to report When were you diagnosed with myelodysplastic syndrome(MDS)*/
 	/*****************************************************************/
 	public void ageOrDateWhenMyelodysplasticSyndromeDiagnosed() {
-
 		if (currentRow.get("HaveYouEverBeenDiagnosedWithMyelodysplasticSyndrome").contentEquals("Yes")) {
-
 			// When were you diagnosed with myelodysplastic syndrome (MDS)? Please enter the
 			// age or date when you were diagnosed with MDS below.
 			CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 					currentRow.get("AgeOrDateWhenMyelodysplasticSyndromeDiagnosed"));
-
 			if (currentRow.get("AgeOrDateWhenMyelodysplasticSyndromeDiagnosed").contentEquals("Age")) {
-
 				CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.ageParticipantDiagnosedWithMDSTextBox,
 						currentRow.get("AgeWhenMyelodysplasticSyndromeDiagnosed"));
 			}
-
 			if (currentRow.get("AgeOrDateWhenMyelodysplasticSyndromeDiagnosed").contentEquals("Date (MM/DD/YYYY)")) {
 				CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.dateParticipantDiagnosedWithMDSTextBox,
 						currentRow.get("DateWhenMyelodysplasticSyndromeDiagnosed"));
 			}
-
 			// Click Next Button
 			CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
 
@@ -920,26 +844,21 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	 */
 	/*****************************************************************/
 	public void everReceivedBoneMarrowTransplant() {
-
 		if (currentRow.get("HaveYouEverBeenDiagnosedWithMyelodysplasticSyndrome").contentEquals("Yes")
 				|| currentRow.get("HaveYouEverBeenDiagnosedWithMyelodysplasticSyndrome").contentEquals("No"))
-
 		{
 			// Have you ever received a bone marrow, stem cell, or cord blood transplant?
 			CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 					currentRow.get("HaveYouEverReceivedBoneMarrowTransplant"));
-
 			if (currentRow.get("HaveYouEverReceivedBoneMarrowTransplant")
 					.contentEquals("Yes (specify treatment center including city, state, and phone number if known)")) {
 				CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.treatmentInstitutionProxyTextBox,
 						currentRow.get("BoneMarrowTransplantTreatmentInstitution"));
-
 			} else if (currentRow.get("HaveYouEverReceivedBoneMarrowTransplant")
 					.contentEquals("Yes (specify treatment institution)")) {
 				CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.treatmentInstitutionTextBox,
 						currentRow.get("BoneMarrowTransplantTreatmentInstitution"));
 			}
-
 			// Click Next Button
 			CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
 		} else {
@@ -955,9 +874,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	 */
 	/*****************************************************************/
 	public void reportDateOrAgeOfTransplant() {
-
 		if (currentRow.get("HaveYouEverBeenDiagnosedWithMyelodysplasticSyndrome").contentEquals("Yes")) {
-
 			if (currentRow.get("HaveYouEverReceivedBoneMarrowTransplant")
 					.contentEquals("Yes (specify treatment center including city, state, and phone number if known)")) {
 				// Do you want to report date or age of your transplant?
@@ -987,7 +904,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 				// Stem cell source
 				CharmsUtil.selectDropDownValue(fanconiEligibilityQuestionnairePage.stemCellSourceDropDownList,
 						currentRow.get("StemCellSource"));
-
 			}
 
 			if (currentRow.get("HaveYouEverReceivedBoneMarrowTransplant")
@@ -1030,7 +946,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to submit information Have you ever been diagnosed with cancer? */
 	/*****************************************************************/
 	public void everBeenDiagnosedWithCancer() {
-
 		// Have you ever been diagnosed with cancer?
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				currentRow.get("HaveYouEverBeenDiagnosedWithCancer"));
@@ -1043,7 +958,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to provide all information about cancer */
 	/*****************************************************************/
 	public void cancerdetailsAdded() {
-
 		if (currentRow.get("HaveYouEverBeenDiagnosedWithCancer").contentEquals("No")) {
 			// Do nothing
 		} else {
@@ -1111,7 +1025,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 							currentRowForCancerHistory.get("NameOfPhysicianWhoPerformedBiopsy"));
 				}
 			}
-
 			if (currentRow.get("AreYouCompletingThisQuestionnaireForSomeoneElse")
 					.contentEquals("Yes, I am completing this form for someone else")) {
 				for (int i = 0; i <= 3; i++) {
@@ -1185,7 +1098,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to add current medication(s) that you are receiving? */
 	/*****************************************************************/
 	public void currentMedicationsAreYouReceiving() {
-
 		// What current medication(s) are you receiving? (if any)
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.currentMedicationOption,
 				currentRow.get("WhatCurrentMedicationsAreYouReceiving"));
@@ -1196,7 +1108,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 		} else {
 			CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.currentMedicationNotApplicableOption);
 		}
-
 		// Click Next Button
 		CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
 	}
@@ -1205,7 +1116,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to add How did you hear about this study? */
 	/*****************************************************************/
 	public void howDidYouHearAboutThisStudy() {
-
 		// How did you hear about this study?If a specific health care provider referred
 		// you to this study, please include their name in the corresponding text box.
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
@@ -1215,22 +1125,18 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 			CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.physicianNameTextBox,
 					currentRow.get("HearAboutThisStudyText"));
 		}
-
 		if (currentRow.get("HowDidYouHearAboutThisStudy").contentEquals("Fanconi Anemia Research Fund")) {
 			CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.fanconiAnemiaResearchFundTextBox,
 					currentRow.get("HearAboutThisStudyText"));
 		}
-
 		if (currentRow.get("HowDidYouHearAboutThisStudy").contentEquals("Genetic counselor")) {
 			CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.geneticCounselorTextBox,
 					currentRow.get("HearAboutThisStudyText"));
 		}
-
 		if (currentRow.get("HowDidYouHearAboutThisStudy").contentEquals("Other")) {
 			CharmsUtil.sendKeysToElement(fanconiEligibilityQuestionnairePage.otherProviderTextBox,
 					currentRow.get("HearAboutThisStudyText"));
 		}
-
 		// Click Next Button
 		CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
 	}
@@ -1239,7 +1145,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to add name,address,and phone number of the health care provider */
 	/*****************************************************************/
 	public void healthCareProviderInformation() {
-
 		// In case we require additional medical information to determine if you are
 		// eligible to participate in our research study, please provide us with the
 		// name, address, and phone number of the health care provider who is most
@@ -1259,7 +1164,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method for permission to call this individual to seek more information? */
 	/*****************************************************************/
 	public void permissionToCallProvider() {
-
 		// Do we have your permission to call this individual to seek more information?
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
 				currentRow.get("DoWeHaveYourPermissionToCallThisIndividualToSeekMoreInformation"));
@@ -1272,7 +1176,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to add main reasons for participating in this study */
 	/*****************************************************************/
 	public void mainReasonToParticipateInThisStudy() {
-
 		// What are the main reasons for participating in this study? Select all that
 		// apply. Please elaborate on the reason in the corresponding text box.
 		CharmsUtil.selectRadioButtonValue(fanconiEligibilityQuestionnairePage.commonRBtonList,
@@ -1307,7 +1210,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* *** Method to click the final Submit button **** */
 	/*****************************************************************/
 	public void clickSubmitButton() {
-
 		// click the final Submit button
 		CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
 	}
@@ -1318,13 +1220,11 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/******************************************************************/
 
 	/* Method to log in to native view */
-	public void loginToNativeView1() {
-		
+	public void loginToNativeView1() {	
 		 nativeViewLoginImpl.sideDoorAccountLogin();
 	}
 	
 	public void loginToNativeView() {	
-
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
 		CommonUtils.waitForVisibility(iTrustloginPage.loginLink);
 		CharmsUtil.clickOnElement(iTrustloginPage.loginLink);
@@ -1334,14 +1234,12 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 		CommonUtils.waitForVisibility(WebDriverUtils.webDriver.findElement(By.linkText("Native View")));
 		CharmsUtil.clickOnElement(WebDriverUtils.webDriver.findElement(By.linkText("Native View")));
 		CommonUtils.maximizeWindow();
-
 	}
 
 	/*****************************************************************/
 	/* Method to Login to the Participant details page in Native View */
 	/*****************************************************************/
 	public void loginToParticipantDetailsPageInNativeView() {
-
 		CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator);
 		CharmsUtil.sendKeysToElement(nativeViewHomePage.nativeViewFilterNavigator, "CHARMS");
 		CommonUtils.waitForVisibility(CHARMSParticipantDetailsPage.nVFamiliesLinkInNavigator);
@@ -1349,14 +1247,12 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 		CharmsUtil.clickOnElement(CHARMSParticipantDetailsPage.nVAllParticipantDetailsLinkInNavigator);
 		CommonUtils.waitForVisibility(CHARMSParticipantDetailsPage.nVParticipantDetailsListViewiFrame);
 		CommonUtils.switchToFrame(CHARMSParticipantDetailsPage.nVParticipantDetailsListViewiFrame);
-
 	}
 
 	/*****************************************************************/
 	/* Method to click the participant detail record in list view page */
 	/*****************************************************************/
 	public void participantDetailRecordClicked(int rowNumForAssertion) {
-
 		/* Excel Data Reader for FanconiScreener Tab */
 		currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
 		String participantView = currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName");
@@ -1365,7 +1261,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 		System.out.println(participantView);
 
 		if (currentRow.get("ParticipantFirstName").isBlank()) {
-
 			CharmsUtil.clickOnElement(CHARMSParticipantDetailsPage.dynamicPreviewButtonLocator(participantProxyView));
 			System.out.println(participantProxyView);
 		} else {
@@ -1377,7 +1272,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to assert the General Information on Participant Details page */
 	/********************************************************************************/
 	public void generalInformationAssertionOnparticipantDetailPage(int rowNumForAssertion) {
-
 		// Excel Data Reader
 		Map<String, String> currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
 
@@ -1411,7 +1305,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to assert the Personal Information on Participant Details */
 	/********************************************************************************/
 	public void personalInformationAssertionOnparticipantDetailPage(int rowNumForAssertion) {
-
 		// Excel Data Reader
 		Map<String, String> currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
 
@@ -1440,14 +1333,12 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 				cHARMSParticipantDetailsPage.nVParticipantPersonalInformationTabLastName,
 				currentRow.get("ParticipantLastName"),
 				" Last Name of the Personal Information on Participant Details page ");
-
 	}
 
 	/********************************************************************************/
 	/* Method to assert the Demographic Information on Participant Details */
 	/********************************************************************************/
 	public void demographicsAssertionOnparticipantDetailPage(int rowNumForAssertion) {
-
 		// Excel Data Reader
 		Map<String, String> currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
 
@@ -1510,7 +1401,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to assert the Contact Info on Participant Details page */
 	/********************************************************************************/
 	public void contactInformationAssertionOnparticipantDetailPage(int rowNumForAssertion) {
-
 		// Excel Data Reader
 		Map<String, String> currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
 
@@ -1528,8 +1418,8 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 				" Contact Street Address of the Contact Info on Participant Details page ");
 
 		// Contact State Assertion
-	//	CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantContactInfoTabState,
-	//			currentRow.get("State"), " Contact State of the Contact Info on Participant Details page ");
+	    CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantContactInfoTabState,
+				currentRow.get("State"), " Contact State of the Contact Info on Participant Details page ");
 
 		// Contact City Assertion
 		CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantContactInfoTabCity,
@@ -1572,7 +1462,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to click the Back Button on Participant details page */
 	/********************************************************************************/
 	public void participantDetailsBackButtonClicked() {
-
 		CHARMSParticipantDetailsPage.nVAllParticipantDetailsBackButton.click();
 	}
 
@@ -1581,7 +1470,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/********************************************************************************/
 
 	public void fanconiEligibilityQuestionnaireSubmissionScenario(int rowNumForAssertion) {
-
 		/* Excel Data Reader for FanconiScreener Tab */
 		currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
 
@@ -1732,19 +1620,16 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 
 		// What are the main reasons for participating in this study?
 		fanconiEligibilityQuestionnaireStepsImpl.mainReasonToParticipateInThisStudy();
-
 	}
 
 	/******************************************************************/
 	/***** METHODS FOR THE FANCONI SCREENER PAGE IN NATIVE VIEW ****/
 	/******************************************************************/
-
 	
 	/*****************************************************************/
 	/* Method to Login to the the All referral list view in Native View */
 	/*****************************************************************/
 	public void loginToFanconiStudyPageInNativeView() {
-
 		CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator);
 		CharmsUtil.clickOnElement(nativeViewHomePage.nativeViewFilterNavigator);
 		CharmsUtil.sendKeysToElement(nativeViewHomePage.nativeViewFilterNavigator, "All Referrals");
@@ -1752,7 +1637,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 		CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVAllReferralsButton);
 		CommonUtils.waitForVisibility(fanconiScreenerNVPage.nVReferralsListViewiFrame);
 		CommonUtils.switchToFrame(fanconiScreenerNVPage.nVReferralsListViewiFrame);
-
 	}
 
 	/*****************************************************************/
@@ -1761,13 +1645,9 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	public void fanconiStudyPreviewRecordClicked(int rowNumForAssertion) {
 
 		/* Excel Data Reader for FanconiScreener Tab */
-		currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
-		
+		currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);	
 		String referallName = currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName");
 		String referallProxyName = currentRow.get("ProxyFirstName") + " " + currentRow.get("ProxyLastName");
-
-		// JavascriptUtils.scrollIntoView(fanconiScreenerNVPage.dynamicReferralPreviewButtonLocator(referallName));
-		// CommonUtils.waitForVisibility(fanconiScreenerNVPage.dynamicReferralPreviewButtonLocator(referallName));
 
 		if (currentRow.get("ParticipantFirstName").isBlank()) {
 			System.out.println(referallProxyName);
@@ -1782,7 +1662,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to assert the Fanconi Study: General Information */
 	/*****************************************************************/
 	public void generalInformationAssertionOnFanconiStudyPage(int rowNumForAssertion) {
-
 		/* Excel Data Reader for FanconiScreener Tab */
 	//	currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
 		referralValue = fanconiScreenerNVPage.nVFScreenerNumberValue.getText();
@@ -1838,7 +1717,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	public void contactInformationAssertionOnFanconiStudyPage(int rowNumForAssertion) {
 
 		/* Excel Data Reader for FanconiScreener Tab */
-	//	currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
+	   //	currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
 
 		CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVFScreenerContactInfoTab);
 
@@ -1878,8 +1757,8 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 				" Contact Street Address of the Contact Information in Fanconi Study screener page ");
 
 		// Contact State Assertion
-	//	CharmsUtil.assertTextBoxData(softAssert,fanconiScreenerNVPage.nVFScreenerState,
-	//	 currentRow.get("State"), " Contact State of the Contact Information in  Fanconi Study screener page ");
+	   CharmsUtil.assertTextBoxData(softAssert,fanconiScreenerNVPage.nVFScreenerState,
+	           currentRow.get("State"), " Contact State of the Contact Information in  Fanconi Study screener page ");
 		
 		// Contact City Assertion
 		CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVFScreenerCity, currentRow.get("City"),
@@ -1917,14 +1796,12 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVFScreenerPreferredPhone,
 				currentRow.get("PreferredPhoneNumber"),
 				" Contact Preferred phone of the Contact Information in Fanconi Study screener page ");
-
 	}
 
 	/*****************************************************************/
 	/* Method to assert the Fanconi Study: Demographics Information */
 	/*****************************************************************/
 	public void demographicsAssertionOnFanconiStudyPage(int rowNumForAssertion) {
-
 		/* Excel Data Reader for FanconiScreener Tab */
 	    //currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
 
@@ -1970,14 +1847,12 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVFScreenerPronounsOtherText,
 				currentRow.get("PronounsOther"),
 				" Other Pronouns Other Pronouns of the Demographics in Fanconi Study screener page ");
-
 	}
 
 	/*****************************************************************/
 	/* Method to assert the Fanconi Study:Fanconi History Information */
 	/*****************************************************************/
 	public void fanconiHistoryAssertionOnFanconiStudyPage(int rowNumForAssertion) {
-
 		/* Excel Data Reader for FanconiScreener Tab */
 	//	currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
 
@@ -2004,14 +1879,12 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fanconiScreenerNVPage.nVFScreenerDateOfFanconiDiagnosis,
 				currentRow.get("WhenWereYouDiagnosedWithFanconiAnemiaDate"),
 				" Date of Fanconi diagnosis of the Fanconi History in Fanconi Study Screener page ");
-
 	}
 
 	/*****************************************************************/
 	/*Method to assert Fanconi Study:Genetic Testing History Information*/
 	/*****************************************************************/
 	public void geneticTestingHistoryAssertionOnFanconiStudyPage(int rowNumForAssertion) {
-
 		/* Excel Data Reader for FanconiScreener Tab */
 	//	currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
 
@@ -2038,14 +1911,12 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 		CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.nVFScreenerGeneticTestResultsDeliveryMethod,
 				currentRow.get("HowWouldYouLikeToProvideGeneticTestResults"),
 				" Participants preferred method of delivering genetic test results of the Genetic Testing History in Fanconi Study Screener page ");
-
 	}
 
 	/*****************************************************************/
 	/* Method to assert the Fanconi Study:FA Genes Tested */
 	/*****************************************************************/
 	public void fAGenesTestedAssertionOnFanconiStudyPage(int rowNumForAssertion) {
-
 		/* Excel Data Reader for FanconiScreener Tab */
 	//	currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
 
@@ -2055,13 +1926,8 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 		// FA Genes Tested Checkboxes Assertion
 		// int number = fanconiScreenerNVPage.nVFScreenerFAGenesTested.size();
 		for (int i = 0; i <= 26; ++i) {
-
-			// String testnew=
-			// fanconiScreenerNVPage.nVFScreenerFAGenesTested.get(i).getDomAttribute("area-label");
-
 			CharmsUtil.assertCheckBox(softAssert, fanconiScreenerNVPage.nVFScreenerFAGenesTested.get(i), false,
 					"FA Genes checkBox number: " + i + " Tested of the FA Genes Tested in Fanconi Study Screener page");
-
 		}
 	}
 
@@ -2069,7 +1935,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to assert the Fanconi Study:Medical History Information */
 	/*****************************************************************/
 	public void medicalHistoryAssertionOnFanconiStudyPage(int rowNumForAssertion) {
-
 		/* Excel Data Reader for FanconiScreener Tab */
 	//	currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
 
@@ -2194,7 +2059,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 				currentRow.get("DoWeHaveYourPermissionToCallThisIndividualToSeekMoreInformation"),
 				" Permission to contact Provider Assertion of the Medical History in Fanconi Study Screener page ");
 
-		// JavascriptUtils.scrollIntoView(fanconiScreenerNVPage.nVFScreenerBoneMarrowFailure);
 		// Bone marrow failure? Assertion
 		CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.nVFScreenerBoneMarrowFailure,
 				currentRow.get("HaveYouEverBeenDiagnosedWithBoneMarrowFailure"),
@@ -2230,14 +2094,12 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 		CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.nVFScreenerReceivedBloodTransfusions,
 				currentRow.get("DidYouReceiveOrReceivingBloodTransfusion"),
 				" Did You receive Blood Transfusions of the Medical History in Fanconi Study Screener page ");
-
 	}
 
 	/*****************************************************************/
 	/* Method to assert the Fanconi Study: Participant Features */
 	/*****************************************************************/
 	public void participantFeaturesAssertionOnFanconiStudyPage(int rowNumForAssertion) {
-
 		/* Excel Data Reader for FanconiScreener Tab */
 	//	currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
 
@@ -2333,14 +2195,12 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 		CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.nVFScreenerMetabolicDisorders,
 				currentRow.get("MetabolicDisorders"),
 				" Metabolic Disorders of the Participant Features in Fanconi Study Screener page ");
-
 	}
 
 	/*****************************************************************/
 	/* Method to assert the Fanconi Study: Final Information */
 	/*****************************************************************/
 	public void finaInformationAssertionOnFanconiStudyPage(int rowNumForAssertion) {
-
 		/* Excel Data Reader for FanconiScreener Tab */
 	//	currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
 
@@ -2400,7 +2260,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/*Method to assert the Fanconi Study:Intake participates in another study*/
 	/*****************************************************************/
 	public void intakeParticipatesInAnotherStudyAssertionOnFanconiStudyPage(int rowNumForAssertion) {
-
 		/* Excel Data Reader for FanconiScreener Tab */
 		// currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener",
 		// rowNumForAssertion);
@@ -2497,7 +2356,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to assert the Fanconi Study: Genetic Mutation/Variants */
 	/*****************************************************************/
 	public void geneticMutationVariantsAssertionOnFanconiStudyPage(int rowNumForAssertion) {
-
 		/* Excel Data Reader for FanconiScreener Tab */
 		// currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener",
 		// rowNumForAssertion);
@@ -2563,7 +2421,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to assert the Fanconi Study: Patient Cancer History */
 	/*****************************************************************/
 	public void cancerHistoryAssertionOnFanconiStudyPage(int rowNumForAssertion) {
-
 		/* Excel Data Reader for FanconiScreener Tab */
 		// currentRowForCancerHistory = CharmsUtil.testManagerData(excelSheet, "Cancer",
 		// rowNumForAssertion);
@@ -2647,8 +2504,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/*****************************************************************/
 	/* Method to assert all data in the Fanconi Study page */
 	/*****************************************************************/
-	public void fanconiStudyPageAssertions(int rowNumForAssertion) {
-		
+	public void fanconiStudyPageAssertions(int rowNumForAssertion) {		
 		/* Excel Data Reader for FanconiScreener Tab */
 		currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
 				
@@ -2680,8 +2536,8 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 		fanconiEligibilityQuestionnaireStepsImpl.geneticMutationVariantsAssertionOnFanconiStudyPage(rowNumForAssertion);
 		// Fanconi Study Screener: Patient Cancer History Assertion
 		fanconiEligibilityQuestionnaireStepsImpl.cancerHistoryAssertionOnFanconiStudyPage(rowNumForAssertion);
-
-		//softAssert.assertAll();
+		
+		softAssert.assertAll();
 	}
 
 	/****************************************************************************/
@@ -2690,7 +2546,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 
 	/* Method to assert the Fanconi Study: Consent Flow */
 	public void fanconiConsentAssertionOnFanconiStudyPage(int rowNumForAssertion) {
-
 		// Enrollment status Assertion
 		CharmsUtil.assertDropDownData(softAssert, cHARMSParticipantDetailsPage.nVParticipantEnrollmentStatus,
 				"New Screener Received", " Enrollment Status of the General Information on Participant Details page ");
@@ -2771,8 +2626,8 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 		CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantGoToToday);
 		CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantGoToToday);
 
-		// CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantTimeIconOkButton);
-		// cHARMSParticipantDetailsPage.nVParticipantTimeIconOkButton.click();
+		CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantTimeIconOkButton);
+		cHARMSParticipantDetailsPage.nVParticipantTimeIconOkButton.click();
 
 		// Cohort
 		CharmsUtil.assertTextBoxData(softAssert, cHARMSParticipantDetailsPage.nVParticipantCohortTextBox, "field",
@@ -2806,8 +2661,8 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 
 		CharmsUtil.clickOnElement(cHARMSParticipantDetailsPage.nVParticipantGoToToday);
 
-		// CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantTimeIconOkButton);
-		// cHARMSParticipantDetailsPage.nVParticipantTimeIconOkButton.click();
+		CharmsUtil.labelHighlight(cHARMSParticipantDetailsPage.nVParticipantTimeIconOkButton);
+		cHARMSParticipantDetailsPage.nVParticipantTimeIconOkButton.click();
 
 		// Consent By
 
@@ -2878,7 +2733,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to assert the Participant Detail: Complete page */
 	/*****************************************************************/
 	public void participantDetailPageAssertion(int rowNumForAssertion) {
-
 		/* Click the Participant details Record */
 		fanconiEligibilityQuestionnaireStepsImpl.participantDetailRecordClicked(rowNumForAssertion);
 		/* General Information on Participant Details page is verified */
@@ -2897,7 +2751,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* Method to assert the Fanconi Study: Every tab on the page */
 	/*****************************************************************/
 	public void fanconiStudyCompleteAssertion(int rowNumForAssertion) {
-
 		// Excel Data Reader for FanconiScreener, Cancer tab
 		currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
 		currentRowForCancerHistory = CharmsUtil.testManagerData(excelSheet, "Cancer", rowNumForAssertion);
@@ -3250,7 +3103,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 				currentRow.get("DoWeHaveYourPermissionToCallThisIndividualToSeekMoreInformation"),
 				" Permission to contact Provider Assertion of the Medical History in Fanconi Study Screener page ");
 
-		// JavascriptUtils.scrollIntoView(fanconiScreenerNVPage.nVFScreenerBoneMarrowFailure);
 		// Bone marrow failure? Assertion
 		CharmsUtil.assertDropDownData(softAssert, fanconiScreenerNVPage.nVFScreenerBoneMarrowFailure,
 				currentRow.get("HaveYouEverBeenDiagnosedWithBoneMarrowFailure"),
@@ -3440,7 +3292,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 		List<WebElement> rowList = fanconiScreenerNVPage.nVFScreenerIntakeParticipatesInAnotherStudyTableLinks;
 
 		for (int j = 0; j <= rowList.size() - 1; j++) {
-
 			// Excel Data Reader
 			currentRowForAnotherStudy = CharmsUtil.testManagerData(excelSheet, "OtherStudies", j);
 
@@ -3524,8 +3375,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 
 		// Genetic Mutation/Variants Tab
 		CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVFScreenerGeneticMutationvariantTab);
-
-		// CommonUtils.switchToFrame(fanconiScreenerNVPage.nVReferralsListViewiFrame);
 
 		// Preview button for the Genetic Mutation/Variants details clicked
 		CharmsUtil.clickOnElement(fanconiScreenerNVPage.nVFScreenerGeneticMutationvariantPreviewRecordButton);
