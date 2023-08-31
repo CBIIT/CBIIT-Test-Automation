@@ -1393,12 +1393,13 @@ public class RasScenario1StepsImpl extends PageInitializer {
         }
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        MiscUtils.sleep(1000);
-        CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(6));
-        CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(6));
+        MiscUtils.sleep(2000);
+        CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(5));
+        CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(5));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        MiscUtils.sleep(1000);
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(97));
+        MiscUtils.sleep(2000);
     }
 
     public void rasScreenerSurveyScenario1PartThree() {
