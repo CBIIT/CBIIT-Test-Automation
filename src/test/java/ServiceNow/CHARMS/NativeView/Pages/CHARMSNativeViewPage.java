@@ -203,7 +203,6 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	@FindBy(xpath ="(//span[normalize-space()='All Participant Details'])[1]")
 	public WebElement nVAllParticipantDetailsLink;
 	
-
 	/* *************************************************************** */
 	/* *** VERIFIES PERSONAL INFORMATION DATA IN FAMILY MEMBERS DETAILS PAGE*** */
 	/* *************************************************************** */
@@ -854,16 +853,16 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	public WebElement nativeViewRasSurveyIncludedInPublishedCaseReportOrInADifferentPublicMannerDropDown;
 
 	/*
-	 * ----- Native view Rasopathy Survey
+	 * Native view Rasopathy Survey
 	 * "Additional information about authors, publication year or PubMedID" text box
-	 * -------
+	 *
 	 */
 	@FindBy(xpath = "//textarea[@name='x_naci_family_coho_rasopathy_iiq.published_info']")
 	public WebElement nativeViewRasSurveyAdditionalInformationAboutAuthorsPublicationYearOrPubMedIDTextBox;
 
 	/*
-	 * ----- Native view Rasopathy Survey "Biological mother birth location" text
-	 * box -------
+	 * Native view Rasopathy Survey "Biological mother birth location" text
+	 * box
 	 */
 	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.bio_mom_birth_location']")
 	public WebElement nativeViewRasSurveyBiologicalMotherBirthLocationTextBox;
