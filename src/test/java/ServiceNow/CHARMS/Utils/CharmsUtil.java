@@ -22,11 +22,9 @@ public class CharmsUtil {
 	public static Map<String, String> testManagerData(String excelSheet, String sheet, int rowNum) {
 		ExcelReader excelReader = new ExcelReader();
 		Map<String, String> currentRow = null;
-
 		try {
 			List<Map<String, String>> excelDataMapList = excelReader.getData(excelSheet, sheet);
 			currentRow = excelDataMapList.get(rowNum);
-			// System.out.println("Scenario " + rowNum + 1 + ": Picked ");
 		} catch (InvalidFormatException | IOException e) {
 			e.printStackTrace();
 		}
@@ -48,7 +46,6 @@ public class CharmsUtil {
 	/* @param webElement:Element to be clicked to avoid the exception */
 	public static void clickOnElement(WebElement webElement) {
 		CharmsUtil.labelHighlight(webElement);
-
 		int count = 0;
 		while (count < 5) {
 			try {
@@ -108,7 +105,6 @@ public class CharmsUtil {
 		CharmsUtil.labelHighlight(webElement);
 		MiscUtils.sleep(300);
 		String actualValue = null;
-
 		if (webElement.getAttribute("value") != null) {
 			actualValue = webElement.getAttribute("value");
 		} else {
@@ -124,7 +120,6 @@ public class CharmsUtil {
 		MiscUtils.sleep(200);
 		Select select = new Select(webElement);
 		String actualValue = select.getFirstSelectedOption().getText(); // getFirstSelectedOption() returns the selected
-
 		// option in the dropdown.
 		if (expectedValue == "Don't know") {
 			expectedValue = "Unknown/Unsure";
@@ -139,7 +134,6 @@ public class CharmsUtil {
 		Select dropDown = new Select(webElement);
 		List<WebElement> e = dropDown.getOptions();
 		int itemCount = e.size();
-
 		for (int l = 0; l < itemCount; l++) {
 			if (e.get(l).getText().equals(selectedValue)) {
 				try {
@@ -150,22 +144,10 @@ public class CharmsUtil {
 					MiscUtils.sleep(2000);
 					e.get(l).click();
 				}
-				// System.out.println(e.get(l).getText());
 				return true;
 			}
 		}
 		return false;
-	}
-
-	/* Method to print the Dropdown List values */
-	public static void printDropDownValue(WebElement webElement) {
-		Select dropDown = new Select(webElement);
-		List<WebElement> e = dropDown.getOptions();
-
-		int itemCount = e.size();
-		for (int l = 0; l < itemCount; l++) {
-			// System.out.println(e.get(l).getText());
-		}
 	}
 
 	/* Method to select a value from the Radio Button List */
@@ -181,7 +163,6 @@ public class CharmsUtil {
 					radioButtonList.get(l).click();
 					MiscUtils.sleep(2000);
 				}
-				// System.out.println(radioButtonList.get(l).getText());
 				return true;
 			}
 		}
@@ -225,11 +206,8 @@ public class CharmsUtil {
 		MiscUtils.sleep(500);
 		String result = "PASSED";
 		List<ComparisionResult> comparisionResultList = new ArrayList<ComparisionResult>();
-
 		Select select = new Select(webElement);
-		// getting the list in the dropdown with getOptions()
 		List<WebElement> dropDownOptions = select.getOptions();
-
 		int size = list.size();
 		if (dropDownOptions.size() < size) {
 			size = dropDownOptions.size();
@@ -268,13 +246,11 @@ public class CharmsUtil {
 		WebElement select2ElementResults = WebDriverUtils.webDriver
 				.findElement(By.xpath("//div[@id='select2-drop']/ul[@class='select2-results']"));
 		List<WebElement> selectResultsAsListCollection = select2ElementResults.findElements(By.tagName("li"));
-
 		int size = dropdownList.size();
 		List<ComparisionResult> comparisionResultList = new ArrayList<ComparisionResult>();
 		if (selectResultsAsListCollection.size() < size) {
 			size = selectResultsAsListCollection.size();
 		}
-
 		for (int i = 0; i < size; i++) {
 			String options = selectResultsAsListCollection.get(i).getText();
 			try {
