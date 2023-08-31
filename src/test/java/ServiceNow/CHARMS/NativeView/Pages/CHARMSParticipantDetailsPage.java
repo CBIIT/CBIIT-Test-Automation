@@ -2,74 +2,57 @@ package ServiceNow.CHARMS.NativeView.Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import java.util.List;
-
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
 public class CHARMSParticipantDetailsPage extends CommonUtils {
-	
-    /*
-     * USE THIS METHOD TO DYNAMICALLY LOCATE RECORD BUTTONS ON
-     * @param text
-     * @return
-     */
-	  public static WebElement dynamicPreviewButtonLocator1(String text) {
-		  return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::tr/td[2]"));
-	        
-	    }
-	  
-	  public static WebElement dynamicPreviewButtonLocator(String text) {
-		  return WebDriverUtils.webDriver.findElement(By.xpath("(//a[normalize-space()='" + text + "'])[1]"));
-		  	        
-	    }
-	  
-	  // //table/tbody[@class='list2_body']/child::tr/td[3]//a[normalize-space()='Fanconi-2 tester-2']
-	  //(//a[normalize-space()='Fanconi-3 tester-3'])[1]
+	/* USE THIS METHOD TO DYNAMICALLY LOCATE RECORD BUTTONS ON */
+	public static WebElement dynamicPreviewButtonLocator1(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::tr/td[2]"));
+	}
+
+	public static WebElement dynamicPreviewButtonLocator(String text) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//a[normalize-space()='" + text + "'])[1]"));
+	}
 
 	/* VERIFIES DATA In Participant Details Page */
-
 	public CHARMSParticipantDetailsPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
-	
-	/* *************************************************************** */
+
+	/* **************************** */
 	/* VERIFIES NAVIGATION PANEL */
-	/* *************************************************************** */
-	
+	/* ***************************/
+
 	/* CHARMS Navigation-> All Participant Details in Navigation Panel */
 	@FindBy(xpath = "(//span[@class='nav-favorite-title ng-binding'][normalize-space()='Families'])[1]")
 	public static WebElement nVFamiliesLinkInNavigator;
-	
-	
+
 	/* CHARMS Navigation-> All Participant Details in Navigation Panel */
 	@FindBy(xpath = "(//span[normalize-space()='All Participant Details'])[1]")
 	public static WebElement nVAllParticipantDetailsLinkInNavigator;
-	
+
 	/* CHARMS Navigation-> All Participant Details in Navigation Panel */
 	@FindBy(xpath = "(//div[@id='gsft_nav']//a[.='All Participant Details'])[1]")
 	public static WebElement nVAllParticipantDetailsLinkInNavigator1;
-	
+
 	/* CHARMS Navigation-> All Participant Details Back Button */
 	@FindBy(xpath = "(//button[@aria-label='Back'])[1]")
 	public static WebElement nVAllParticipantDetailsBackButton;
-	
 
-	/* *************************************************************** */
+	/* ****************************************** */
 	/* VERIFIES PARTICIPANT DETAILS LIST VIEW */
-	/* *************************************************************** */
-	
+	/* ***************************************** */
+
 	/* Participant List View-> iFrame */
 	@FindBy(xpath = "//iframe[@id='gsft_main']")
 	public static WebElement nVParticipantDetailsListViewiFrame;
-	
+
 	@FindBy(xpath = "//iframe[@id='templateIframe']")
 	public static WebElement nVParticipantDetailsListViewNavigatoriFrame;
-	
+
 	/* *************************************************************** */
 	/* VERIFIES GENERAL INFORMATION DATA */
 	/* *************************************************************** */
@@ -89,21 +72,18 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	/* Participant--> Family Member ID TextBox */
 	@FindBy(xpath = "(//input[@name='x_naci_family_coho_family_history_details.family_member_id'])[1]")
 	public WebElement nVParticipantFamilyMemberID;
-	
-	/* Participant--> May we have your permission to contact this relative? DropDown */
-	@FindBy(xpath = "(//select[@id='x_naci_family_coho_family_history_details.permission_to_contact'])[1]")
-	public WebElement nVpermissionToContactThisRelative;
-	
-	/* Participant--> May we have your permission to contact this relative? DropDown */
-	@FindBy(xpath = "(//select[@id='sys_readonly.x_naci_family_coho_family_history_details.enrollment_status'])[1]")
-	public WebElement nVpermissionEnrollmentStatus;
-
 
 	/*
 	 * Participant--> May we have your permission to contact this relative? DropDown
 	 */
-//	@FindBy(xpath = "(//select[@id='x_naci_family_coho_family_history_details.permission_to_contact'])[1]")
-//	public WebElement nVParticipantPermissionToContactRelative;
+	@FindBy(xpath = "(//select[@id='x_naci_family_coho_family_history_details.permission_to_contact'])[1]")
+	public WebElement nVpermissionToContactThisRelative;
+
+	/*
+	 * Participant--> May we have your permission to contact this relative?DropDown
+	 */
+	@FindBy(xpath = "(//select[@id='sys_readonly.x_naci_family_coho_family_history_details.enrollment_status'])[1]")
+	public WebElement nVpermissionEnrollmentStatus;
 
 	/* Participant--> Study */
 	@FindBy(xpath = "(//input[@name='sys_display.x_naci_family_coho_family_history_details.family.study'])[1]")
@@ -169,11 +149,10 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	@FindBy(xpath = "(//button[@aria-labelledby='x_naci_family_coho_family_history_details.race_title_text'])[1]")
 	public WebElement nVParticipantDemographicsTabRace;
 
-	
-	/* DEMOGRAPHICS tab-> Participant Race  details (Select all that apply) */
+	/* DEMOGRAPHICS tab-> Participant Race details (Select all that apply) */
 	@FindBy(xpath = "(//p[@id='x_naci_family_coho_family_history_details.race_nonedit'])[1]")
 	public WebElement nVParticipantDemographicsTabRaceDetails;
-			
+
 	/* DEMOGRAPHICS tab-> Participant Race Other TextBox */
 	@FindBy(xpath = "(//input[@name='x_naci_family_coho_family_history_details.other_race'])[1]")
 	public WebElement nVParticipantDemographicsTabRaceOtherText;
@@ -385,27 +364,25 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	/* *************************************************************** */
 	/* VERIFIES CONSENT PAGE DATA */
 	/* *************************************************************** */
-	
-	/* Consent  */
-	
+
 	@FindBy(xpath = "(//button[@id='study_panel_review'])[1]")
 	public WebElement nVParticipantSubmitForEligibilityReviewButton;
 
 	@FindBy(xpath = "(//button[@id='mark_eligible'])[1]")
 	public WebElement nVParticipantMarkEligibleButton;
-		
-	//Hold/Non-Participant Date Text Box
-		@FindBy(xpath = "(//input[@id='x_naci_family_coho_family_history_details.u_participantdate'])[1]")
-		public WebElement nVParticipantHoldDateTextBox;
-		
-		//Hold/Non-Participant Date Button
-		@FindBy(xpath = "(//span[@class='icon icon-calendar'])[3]")
-		public WebElement nVParticipantHoldDateButton;
-		
-		//Hold/Non-Participant Date Button
-		@FindBy(xpath = "(//td[@aria-label='Go to Today'])[1]")
-		public WebElement nVParticipantHoldGoToTodayButton;
-		
+
+	// Hold/Non-Participant Date Text Box
+	@FindBy(xpath = "(//input[@id='x_naci_family_coho_family_history_details.u_participantdate'])[1]")
+	public WebElement nVParticipantHoldDateTextBox;
+
+	// Hold/Non-Participant Date Button
+	@FindBy(xpath = "(//span[@class='icon icon-calendar'])[3]")
+	public WebElement nVParticipantHoldDateButton;
+
+	// Hold/Non-Participant Date Button
+	@FindBy(xpath = "(//td[@aria-label='Go to Today'])[1]")
+	public WebElement nVParticipantHoldGoToTodayButton;
+
 	@FindBy(xpath = "(//span[normalize-space()='Consents (1)'])[1]")
 	public WebElement nVParticipantConsentTableTab;
 
@@ -425,19 +402,19 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	// Consent call Date time Icon
 	@FindBy(xpath = "(//span[@class='icon-calendar icon'])[1]")
 	public WebElement nVParticipantTimeIcon;
-	
+
 	// Consent call scheduled time-->Go to today Date link
 	@FindBy(xpath = "(//td[@aria-label='Go to Today'])[1]")
 	public WebElement nVParticipantGoToToday;
-	
+
 	// Consent call Date time Icon Close Button
 	@FindBy(xpath = "(//button[@id='GwtDateTimePicker_ok'])[1]")
 	public WebElement nVParticipantTimeIconOkButton;
-	
+
 	// Consent Call Date
 	@FindBy(xpath = "(//input[@id='x_naci_family_coho_fcsms_consent.consent_call_date'])[1]")
 	public WebElement nVParticipantConsentCallDatesTextBox;
-	
+
 	// Consent call Date time Icon
 	@FindBy(xpath = "(//span[contains(@class,'icon icon-calendar')])[2]")
 	public WebElement nVParticipantTimeIcon1;
@@ -457,7 +434,7 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	// Consent Type
 	@FindBy(xpath = "(//select[@id='x_naci_family_coho_fcsms_consent.consent_type'])[1]")
 	public WebElement nVParticipantConsentTypeDropDown;
-	
+
 	// Consent call Date time Icon
 	@FindBy(xpath = "(//span[@class='icon icon-calendar'])[3]")
 	public WebElement nVParticipantTimeIcon3;
@@ -473,7 +450,7 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	// Consent Date
 	@FindBy(xpath = "(//input[@id='x_naci_family_coho_fcsms_consent.consent_date'])[1]")
 	public WebElement nVParticipantConsentDateTextBox;
-	
+
 	// Consent Date Date time Icon
 	@FindBy(xpath = "(//span[@class='icon icon-calendar'])[4]")
 	public WebElement nVParticipantTimeIcon4;
@@ -526,15 +503,14 @@ public class CHARMSParticipantDetailsPage extends CommonUtils {
 	@FindBy(xpath = "(//button[@id='call_complete'])[1]")
 	public WebElement nVParticipantCallCompleteButton;
 
-	//Attachment button
+	// Attachment button
 	@FindBy(xpath = "(//button[@id='header_add_attachment'])[1]")
 	public WebElement nVParticipantAttachmentButton;
 
-	//Choose File
+	// Choose File
 	@FindBy(xpath = "(//input[@id='loadFileXml'])[1]")
 	public WebElement nVParticipantChooseFileButton;
 
 	@FindBy(xpath = "(//button[@id='hard_consent_received'])[1]")
 	public WebElement nVParticipantHardCopyOfConsentReceivedButton;
-	
 }
