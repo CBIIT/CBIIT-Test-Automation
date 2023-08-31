@@ -191,7 +191,7 @@ public class CharmsUtil {
 	}
 
 	/*
-	 * @author SonikaJain /* @param webElement: Method to compare the expected Value
+	 * @param webElement: Method to compare the expected Value
 	 * to the actual value and then adding in to the Comparison Results list and
 	 * then adding that list to the final Component Test Result
 	 */
