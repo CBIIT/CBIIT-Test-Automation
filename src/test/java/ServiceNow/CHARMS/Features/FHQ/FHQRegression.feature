@@ -3,7 +3,7 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
   
   Description: This feature file contains the FHQ Regression scenarios to submit all the New FHQ record producers for all relations to the Participant. It includes Participant, Partner, Parent, Child, Sibling, Aunt Uncle, Niece Nephew, Grandchild, Cousin.
 
-  @jains @FHQRegression
+  @jains 
   Scenario: FHQ Regression Record (Participant RP)
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -241,7 +241,7 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And click the new Cousin added and verify the completed record producer data
     And click the FHQ Home button
 
-   @jains @FHQRegression
+   @jains
   Scenario: FHQ Regression Record (Participant RP)
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -263,7 +263,7 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And finally the Complete-Submit Button is clicked to submit the Participant Personal record producer
     And Generate Scenario Report for the Initial visit of the Participant on the FHQ Survey landing page
 
-  @jains @FHQRegression
+  @jains 
   Scenario: FHQ Regression Record (Partner RP)
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -285,7 +285,7 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And the ExtentReport is generated
     And Partner FHQ results are added to the ExtentReport
 
-  @jains @FHQRegression
+  @jains 
   Scenario: FHQ Regression Record (Parent RP)
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -316,7 +316,7 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And click the new parent added and verify the completed record producer data
     And click the FHQ Home button
 
-  @jains @FHQRegression
+  @jains 
   Scenario: FHQ Regression Record (Child RP)
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -350,7 +350,7 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And click the new Child added and verify the completed record producer data
     And click the FHQ Home button
 
-  @jains @FHQRegression
+  @jains 
   Scenario: FHQ Regression Record (Sibling RP)
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -382,7 +382,7 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And click the new Sibling added and verify the completed record producer data
     And click the FHQ Home button
 
-  @jains @FHQRegression
+  @jains 
   Scenario: FHQ Regression Record (AuntUncle RP)
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -414,7 +414,7 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And click the new AuntUncle added and verify the completed record producer data
     And click the FHQ Home button
 
-  @jains @FHQRegression
+  @jains 
   Scenario: FHQ Regression Record (NieceNephew RP)
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -445,7 +445,7 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And NieceNephew list view page is updated and verified
     And click the FHQ Home button
 
-  @jains @FHQRegression
+  @jains 
   Scenario: FHQ Regression Record (GrandParents RP)
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -473,7 +473,7 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And click the new GrandParent added and verify the completed record producer data
     And click the FHQ Home button
 
-   @jains @FHQRegression
+   @jains 
   Scenario: FHQ Regression Record (GrandChild RP)
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -504,7 +504,7 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And click the new GrandChild added and verify the completed record producer data
     And click the FHQ Home button
 
-  @jains @FHQRegression
+  @jains 
   Scenario: FHQ Regression Record (Cousin RP)
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
