@@ -12,10 +12,10 @@ import ServiceNow.CHARMS.Utils.CharmsUtil;
 import appsCommon.PageInitializer;
 import io.cucumber.java.en.Given;
 
-public class FanconiLoginSteps extends PageInitializer {	
+public class FanconiLoginSteps extends PageInitializer {
 	@Given("a Participant is on the Fanconi Study login page")
-	public void a_Participant_is_on_the_Fanconi_Study_login_page() 
-		throws TestingException, JsonIOException, JsonSyntaxException, FileNotFoundException {
+	public void a_Participant_is_on_the_Fanconi_Study_login_page()
+			throws TestingException, JsonIOException, JsonSyntaxException, FileNotFoundException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("fanconiLogin"));
 		MiscUtils.sleep(1000);
 	}
@@ -24,13 +24,13 @@ public class FanconiLoginSteps extends PageInitializer {
 	public void logs_in_Fanconi_page_via_Okta_with_username_and_password(String username, String password) {
 		CommonUtils.waitForVisibility(fanconiLoginPage.enrollLoginButton);
 		CharmsUtil.clickOnElement(fanconiLoginPage.enrollLoginButton);
-		CharmsUtil.sendKeysToElement(oktaLoginPage.usernameTxtBox,username);
-		CharmsUtil.sendKeysToElement(oktaLoginPage.passwordTxtBox,password);
+		CharmsUtil.sendKeysToElement(oktaLoginPage.usernameTxtBox, username);
+		CharmsUtil.sendKeysToElement(oktaLoginPage.passwordTxtBox, password);
 		MiscUtils.sleep(600);
 		CommonUtils.waitForVisibility(oktaLoginPage.loginBtn);
 		CharmsUtil.clickOnElement(oktaLoginPage.loginBtn);
 		CommonUtils.waitForVisibility(fanconiLoginPage.warningAgreeButton);
-		CharmsUtil.clickOnElement(fanconiLoginPage.warningAgreeButton);	
+		CharmsUtil.clickOnElement(fanconiLoginPage.warningAgreeButton);
 	}
 
 	@Given("clicks the Fanconi Eligibility Questionnaire widget")

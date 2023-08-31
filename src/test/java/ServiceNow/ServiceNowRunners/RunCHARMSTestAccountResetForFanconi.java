@@ -9,10 +9,9 @@ import org.junit.runner.RunWith;
 		"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 		features = "src/test/java/ServiceNow/CHARMS/Features",
 		glue = "ServiceNow.CHARMS.Steps",
-		tags = "@TestAccountReset",
+		tags = "@FanconiTestAccountReset",
 		dryRun = false,
-		monochrome = true,
-		strict = true
+		monochrome = true
 )
 
 /**

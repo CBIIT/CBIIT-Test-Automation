@@ -1252,15 +1252,6 @@ public class CHARMSNativeViewPage extends CommonUtils {
 	@FindBy(xpath = "//input[@name='x_naci_family_coho_rasopathy_iiq.please_specify_heart_issues']")
 	public WebElement nativeViewRasSurveyDiagnosedStructuralHeartIssuesPleaseSpecifiyTextBox;
 
-	/**
-	 * ************************** END OF HEART SECTION **************************
-	 */
-
-	/**
-	 * ************************** BEGINNING OF MEDICAL HISTORY SECTION
-	 * **************************
-	 */
-
 	/* ------- Native View Rasopothy Survey Medical History Tab ------- */
 	@FindBy(xpath = "//span[normalize-space()='Medical History']")
 	public WebElement nativeViewRasSurveyMedicalHistoryTab;
