@@ -233,7 +233,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static ParticipantDetailsPage participantDetailsPage;
 	public static ReferralTablePage referralTablePage;
 	public static FanconiEligibilityQuestionnairePage fanconiEligibilityQuestionnairePage;
-	public static FanconiScreenerNVPage fanconiScreenerNVPage;		
+	public static FanconiScreenerNVPage fanconiScreenerNVPage;
 	public static FanconiLoginPage fanconiLoginPage;
 	public static CHARMSParticipantDetailsPage cHARMSParticipantDetailsPage;
 	public static FanconiEligibilityQuestionnaireStepsImpl fanconiEligibilityQuestionnaireStepsImpl;
@@ -246,7 +246,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static MelanomaQuestionnairePage melanomaQuestionnairePage;
 
 	/** CICDBuild instances */
-	//ServiceNow DevOps instances
+	// ServiceNow DevOps instances
 	public static DevOpsLoginPage devOpsLoginPage;
 	public static DevOpsNativeViewPage devOpsNativeViewPage;
 	public static DevOpsAutomatedBuildStepsImplementation devOpsAutomatedBuildStepsImplementation;
@@ -392,7 +392,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewDashboardPage nativeViewDashPage;
 	public static NativeViewMembersOfCongressPage nativeViewMembersOfCongressPage;
 	public static NativeViewCHARMSDashboardPage nativeViewCHARMSDashboardPage;
-	public  static NativeViewCHARMSParticipantDetailsPage nativeViewCHARMSParticipantDetailsPage;
+	public static NativeViewCHARMSParticipantDetailsPage nativeViewCHARMSParticipantDetailsPage;
 	public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
 
 	public static void initializeAllPages() {
@@ -452,7 +452,7 @@ public class PageInitializer extends WebDriverUtils {
 		referralTablePage = new ReferralTablePage();
 		fanconiLoginPage = new FanconiLoginPage();
 		fanconiEligibilityQuestionnairePage = new FanconiEligibilityQuestionnairePage();
-		fanconiScreenerNVPage =new FanconiScreenerNVPage();
+		fanconiScreenerNVPage = new FanconiScreenerNVPage();
 		cHARMSParticipantDetailsPage = new CHARMSParticipantDetailsPage();
 		fanconiEligibilityQuestionnaireStepsImpl = new FanconiEligibilityQuestionnaireStepsImpl();
 		screenerRecordTablePage = new ScreenerRecordTablePage();
@@ -464,7 +464,7 @@ public class PageInitializer extends WebDriverUtils {
 		melanomaQuestionnairePage = new MelanomaQuestionnairePage();
 
 		/** CICDBuild Instance Variables */
-		//ServiceNow DevOps instances
+		// ServiceNow DevOps instances
 		devOpsLoginPage = new DevOpsLoginPage();
 		devOpsNativeViewPage = new DevOpsNativeViewPage();
 		devOpsAutomatedBuildStepsImplementation = new DevOpsAutomatedBuildStepsImplementation();
@@ -536,7 +536,7 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** ETD Instance Variables */
 		etdFlowStepsImpl = new ETDFlowStepsImpl();
-		etdAdminNCIPage  = new ETDAdminNCIPage();
+		etdAdminNCIPage = new ETDAdminNCIPage();
 		etdBasePage = new ETDBasePage();
 
 		/** --------------- ANALYSIS TOOLS INSTANCE VARIABLES --------------- */
@@ -618,6 +618,6 @@ public class PageInitializer extends WebDriverUtils {
 		etrackAssetsRecords_NativeViewPage = new EtrackAssetsRecords_NativeViewPage();
 
 		/** GCP INSTANCE VARIABLES */
-		gCPNotifications_NativeViewPage = new  GCPNotifications_NativeViewPage();
+		gCPNotifications_NativeViewPage = new GCPNotifications_NativeViewPage();
 	}
 }
