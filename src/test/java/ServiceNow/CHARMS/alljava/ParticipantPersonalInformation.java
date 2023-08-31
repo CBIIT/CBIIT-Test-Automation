@@ -3,7 +3,6 @@ package ServiceNow.CHARMS.alljava;
 import org.apache.commons.lang3.builder.CompareToBuilder;
 
 public class ParticipantPersonalInformation {
-
     private String firstName;
     private String middleName;
     private String lastName;
