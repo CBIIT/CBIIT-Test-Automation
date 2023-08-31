@@ -69,10 +69,10 @@ public class FHQUtil {
 		return componentTestResult;
 	}
 
-	 * @param webElement:Drop-down WebElement that needs to be compared to the expected Drop-down values
+	/* @param webElement:Drop-down WebElement that needs to be compared to the expected Drop-down values
 	 * @param dropdownList: Expected Drop-down value list
 	 * @param dropdownSelectedIndex:The Drop-down value selected index
-	 * @return*/
+	 * @return */
 
 	public static ComponentTestResult verifySelect2DropDowns(WebElement webElement, List<String> dropdownList,
 			int dropdownSelectedIndex) {
