@@ -18,24 +18,23 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	/* *************************************************************** */
 	/* ********** LOCATORS IN FANCONI STUDY SCREENER ***************** */
 	/* *************************************************************** */
-	
+
 	public FanconiScreenerNVPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 
 	/* Use This Method To Dynamically Locate Record Buttons On */
 	public WebElement dynamicReferralPreviewButtonLocator(String text) {
-
-		return WebDriverUtils.webDriver.findElement(By.xpath("//a[normalize-space()='" + text + "']//parent::a"));		      
+		return WebDriverUtils.webDriver.findElement(By.xpath("//a[normalize-space()='" + text + "']//parent::a"));
 	}
 
 	/* NV Fanconi Screener: All referaal button in Navigator */
-	@FindBy(xpath ="(//div[@class='sn-widget-list-title'][normalize-space()='All Referrals'])[1]")
+	@FindBy(xpath = "(//div[@class='sn-widget-list-title'][normalize-space()='All Referrals'])[1]")
 	public WebElement nVAllReferralsButton;
 
 	/* CHARMS Referrals List view-> iFrame */
 	@FindBy(xpath = "//iframe[@id='gsft_main']")
-	public WebElement nVReferralsListViewiFrame;  
+	public WebElement nVReferralsListViewiFrame;
 
 	/* NV Fanconi Screener: Participant Details Preview button */
 	@FindBy(xpath = "(//a[@title='Preview Fanconi-1 tester-1'])[1]")
@@ -64,7 +63,7 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	/* NV Fanconi Screener: Open record button */
 	@FindBy(xpath = "(//a[normalize-space()='Open Record'])[1]")
 	public WebElement nVOpenRecordButton;
-	
+
 	/* NV Fanconi Screener: Number Value */
 	@FindBy(xpath = "(//span[@class='form_display_value'])[1]")
 	public WebElement nVFScreenerNumberValue;
@@ -233,7 +232,10 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	@FindBy(xpath = "(//span[normalize-space()='Fanconi History'])[1]")
 	public WebElement nVFScreenerHistoryTab;
 
-	/* Fanconi History tab->History of Fanconi anemia study involvement: DropDown selected option */
+	/*
+	 * Fanconi History tab->History of Fanconi anemia study involvement: DropDown
+	 * selected option
+	 */
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.history_of_fanconi_anemia_study_involvement'])[1]")
 	public WebElement nVFScreenerHistoryOfFanconiAnemiaStudyInvolvement;
 
@@ -257,19 +259,31 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	@FindBy(xpath = "(//span[normalize-space()='Genetic Testing History'])[1]")
 	public WebElement nVFScreenerGeneticTestingHistoryTab;
 
-	/* Genetic Testing History tab->Complementation Testing previously done?Dropdown selected option */
+	/*
+	 * Genetic Testing History tab->Complementation Testing previously done?Dropdown
+	 * selected option
+	 */
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.complementation_testing_previously_done'])[1]")
 	public WebElement nVFScreenerIsComplementationTestingPreviouslyDone;
 
-	/* Genetic Testing History tab->Genetic testing positive for Fanconi? Dropdown selected option */
+	/*
+	 * Genetic Testing History tab->Genetic testing positive for Fanconi? Dropdown
+	 * selected option
+	 */
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.genetic_testing_positive_for_fanconi'])[1]")
 	public WebElement nVFScreenerGeneticTestingPositiveForFanconi;
 
-	/* Genetic Testing History tab->Does the participant have a copy of the genetic test results? Dropdown selected option */
+	/*
+	 * Genetic Testing History tab->Does the participant have a copy of the genetic
+	 * test results? Dropdown selected option
+	 */
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.genetic_test_result'])[1]")
 	public WebElement nVFScreenerDoesGeneticTestResultCopy;
 
-	/* Genetic Testing History tab->Participants preferred method of delivering genetic test results: Dropdown selected option */
+	/*
+	 * Genetic Testing History tab->Participants preferred method of delivering
+	 * genetic test results: Dropdown selected option
+	 */
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.participants_preferred_method_of_delivering_genetic_test_results'])[1]")
 	public WebElement nVFScreenerGeneticTestResultsDeliveryMethod;
 
@@ -297,15 +311,23 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	@FindBy(xpath = "(//span[normalize-space()='Medical History'])[1]")
 	public WebElement nVFScreenerMedicalHistoryTab;
 
-	/* Medical History tab->: Ever diagnosed with Cancer? Dropdown selected option */
+	/*
+	 * Medical History tab->: Ever diagnosed with Cancer? Dropdown selected option
+	 */
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.ever_diagnosed_with_cancer'])[1]")
 	public WebElement nVFScreenerEverDiagnosedWithCancer;
 
-	/* Medical History tab->: Chromosome breakage test on blood: Dropdown selected option */
+	/*
+	 * Medical History tab->: Chromosome breakage test on blood: Dropdown selected
+	 * option
+	 */
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.chromosome_breakage_test_on_blood'])[1]")
 	public WebElement nVFScreenerChromosomeBreakageTestOnBlood;
 
-	/* Medical History tab->: Chromosome breakage test location Dropdown selected option */
+	/*
+	 * Medical History tab->: Chromosome breakage test location Dropdown selected
+	 * option
+	 */
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.chromosome_breakage_test_location'])[1]")
 	public WebElement nVFScreenerChromosomeBreakageTestLocation;
 
@@ -313,19 +335,31 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.chromosome_breakage_result'])[1]")
 	public WebElement nVFScreenerChromosomeBreakageResult;
 
-	/* Medical History tab->: Chromosome breakage test on skin Dropdown selected option  */	
+	/*
+	 * Medical History tab->: Chromosome breakage test on skin Dropdown selected
+	 * option
+	 */
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.chromosome_breakage_test_on_skin'])[1]")
 	public WebElement nVFScreenerChromosomeBreakageTestOnSkin;
 
-	/* Medical History tab->: Chromosome breakage skin test result Dropdown selected option */
+	/*
+	 * Medical History tab->: Chromosome breakage skin test result Dropdown selected
+	 * option
+	 */
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.chromosome_breakage_skin_test_result'])[1]")
 	public WebElement nVFScreenerChromosomeBreakageSkinTestResult;
 
-	/* Medical History tab->: Chromosome Breakage Blood Test Result Delivery* Dropdown selected option  */	
+	/*
+	 * Medical History tab->: Chromosome Breakage Blood Test Result Delivery*
+	 * Dropdown selected option
+	 */
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.test_result_delivery_method'])[1]")
 	public WebElement nVFScreenerChromosomeBreakageBloodTestResultDelivery;
 
-	/* Medical History tab->: Diagnosed with Myelodsplastic Syndrome (MDS) Dropdown selected option */
+	/*
+	 * Medical History tab->: Diagnosed with Myelodsplastic Syndrome (MDS) Dropdown
+	 * selected option
+	 */
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.diagnosed_with_mylodsplastic_syndrome_mds'])[1]")
 	public WebElement nVFScreenerDiagnosedWithMyelodsplasticSyndrome;
 
@@ -333,15 +367,24 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	@FindBy(xpath = "(//input[@name='x_naci_family_coho_fanconi_study_screener.age_when_diagnosed_myelodysplastic_syndrome'])[1]")
 	public WebElement nVFScreenerAgeWhenMyelodysplasticSyndromeDiagnosed;
 
-	/* Medical History tab->: Date when myelodysplastic syndrome diagnosed: DatePicker */
+	/*
+	 * Medical History tab->: Date when myelodysplastic syndrome diagnosed:
+	 * DatePicker
+	 */
 	@FindBy(xpath = "(//input[@name='x_naci_family_coho_fanconi_study_screener.date_when_myelodysplastic_syndrome_diagnosed'])[1]")
 	public WebElement nVFScreenerDateWhenMyelodysplasticSyndromeDiagnosed;
 
-	/* Medical History tab->: Ever received transplant (bone marrow/stem cell/ cord blood)? Dropdown selected option */
+	/*
+	 * Medical History tab->: Ever received transplant (bone marrow/stem cell/ cord
+	 * blood)? Dropdown selected option
+	 */
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.ever_received_transplant_bone_marrow_stem_cell_cord_blood'])[1]")
 	public WebElement nVFScreenerEverReceivedBoneMarrowTransplant;
 
-	/* Medical History tab->: Transplant treatment institution (bone marrow/stem cell/ cord blood): Textbox */
+	/*
+	 * Medical History tab->: Transplant treatment institution (bone marrow/stem
+	 * cell/ cord blood): Textbox
+	 */
 	@FindBy(xpath = "(//input[@name='x_naci_family_coho_fanconi_study_screener.transplant_treatment_institution_bone_marrow_stem_cell_cord_blood'])[1]")
 	public WebElement nVFScreenerTransplantTreatmentInstitution;
 
@@ -385,7 +428,10 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	@FindBy(xpath = "(//input[@name='x_naci_family_coho_fanconi_study_screener.health_care_provider_phone_number_text'])[1]")
 	public WebElement nVFScreenerHealthCareProviderPhoneNumber;
 
-	/* Medical History tab->: Permission to contact Provider: Dropdown selected option */
+	/*
+	 * Medical History tab->: Permission to contact Provider: Dropdown selected
+	 * option
+	 */
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.permission_to_contact_provider'])[1]")
 	public WebElement nVFScreenerPermissionToContactProvider;
 
@@ -405,7 +451,10 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	@FindBy(xpath = "(//input[@name='x_naci_family_coho_fanconi_study_screener.bone_anemia_lowbloodcount_year_of_diagnosis'])[1]")
 	public WebElement nVFScreenerBoneMarrowFailureYearOfDiagnosis;
 
-	/* Medical History tab->: Bone marrow failure was treatment received? Dropdown selected option */
+	/*
+	 * Medical History tab->: Bone marrow failure was treatment received? Dropdown
+	 * selected option
+	 */
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.bone_anemia_lowbloodcount_was_treatment_received'])[1]")
 	public WebElement nVFScreenerBoneMarrowFailureWasTreatmentReceived;
 
@@ -413,7 +462,9 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	@FindBy(xpath = "(//input[@name='x_naci_family_coho_fanconi_study_screener.bone_anemia_lowbloodcount_treatment'])[1]")
 	public WebElement nVFScreenerTreatment;
 
-	/* Medical History tab->: Received blood transfusions Dropdown selected option */
+	/*
+	 * Medical History tab->: Received blood transfusions Dropdown selected option
+	 */
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.bone_anemia_lowbloodcount_received_blood_transfusions'])[1]")
 	public WebElement nVFScreenerReceivedBloodTransfusions;
 
@@ -429,7 +480,10 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.low_birth_weight'])[1]")
 	public WebElement nVFScreenerLowBirthWeight;
 
-	/*Participant Features tab->: Feeding problems or Failure to thrive Dropdown selected option */
+	/*
+	 * Participant Features tab->: Feeding problems or Failure to thrive Dropdown
+	 * selected option
+	 */
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.feeding_problems_or_failure_to_thrive'])[1]")
 	public WebElement nVFScreenerFeedingProblemsOrFailureToThrive;
 
@@ -437,7 +491,10 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.short_stature'])[1]")
 	public WebElement nVFScreenerShortStature;
 
-	/* Participant Features tab->: Neurocognitive/ Developmental delay Dropdown selected option */
+	/*
+	 * Participant Features tab->: Neurocognitive/ Developmental delay Dropdown
+	 * selected option
+	 */
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.neurocognitive_developmental_delay'])[1]")
 	public WebElement nVFScreenerDevelopmentalDelay;
 
@@ -445,7 +502,10 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.skin_abnormalities'])[1]")
 	public WebElement nVFScreenerSkinAbnormalities;
 
-	/* Participant Features tab->: Head/Craniofacial abnormalities Dropdown selected option */
+	/*
+	 * Participant Features tab->: Head/Craniofacial abnormalities Dropdown selected
+	 * option
+	 */
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.head_craniofacial_abnormalities'])[1]")
 	public WebElement nVFScreenerHeadCraniofacialAbnormalities;
 
@@ -461,7 +521,9 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.ear_abnormalities'])[1]")
 	public WebElement nVFScreenerEarAbnormalities;
 
-	/* Participant Features tab->: Extremity abnormalities Dropdown selected option */
+	/*
+	 * Participant Features tab->: Extremity abnormalities Dropdown selected option
+	 */
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.extremity_abnormalities'])[1]")
 	public WebElement nVFScreenerExtremityAbnormalities;
 
@@ -485,7 +547,10 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.genital_abnormalities'])[1]")
 	public WebElement nVFScreenerGenitalAbnormalities;
 
-	/* Participant Features tab->: Fertility problems, hypogonadism Dropdownselected option */
+	/*
+	 * Participant Features tab->: Fertility problems, hypogonadism Dropdownselected
+	 * option
+	 */
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.fertility_problems_hypogonadism'])[1]")
 	public WebElement nVFScreenerFertilityProblemsHypogonadism;
 
@@ -508,11 +573,17 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	@FindBy(xpath = "//button[@id='x_naci_family_coho_fanconi_study_screener.main_reasons_for_participating_unlock']//span[@class='icon icon-locked']")
 	public WebElement nVFScreenerParticpantInNIHInheritedBoneMarrowFailureSyndromeStudyLock;
 
-	/* Final Information tab->: Participant in NIH Inherited Bone Marrow Failure Syndrome study? Dropdown selected option */	 
+	/*
+	 * Final Information tab->: Participant in NIH Inherited Bone Marrow Failure
+	 * Syndrome study? Dropdown selected option
+	 */
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.particpant_in_inherited_bone_marrow_study'])[1]")
 	public WebElement nVFScreenerParticpantInNIHInheritedBoneMarrowFailureSyndromeStudy;
 
-	/* Final Information tab->: Main reasons for participating in this study? Select all that apply: Textbox */
+	/*
+	 * Final Information tab->: Main reasons for participating in this study? Select
+	 * all that apply: Textbox
+	 */
 	@FindBy(xpath = "(//p[contains(text(),'Participate in research, Identify a diagnosis, Rec')])[1]")
 	public WebElement nVFScreenerMainReasonsForParticipatingInStudy;
 
@@ -536,7 +607,10 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	@FindBy(xpath = "(//textarea[@name='x_naci_family_coho_fanconi_study_screener.previous_studies'])[1]")
 	public WebElement nVFScreenerPreviousStudies;
 
-	/*Final Information tab->: How did you hear about this study? Dropdown selected option */
+	/*
+	 * Final Information tab->: How did you hear about this study? Dropdown selected
+	 * option
+	 */
 	@FindBy(xpath = "(//select[@name='x_naci_family_coho_fanconi_study_screener.hear_about_this_study'])[1]")
 	public WebElement nVFScreenerHowDidYouHearAboutThisStudy;
 
@@ -553,11 +627,11 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	/* NV Fanconi Screener: Back button */
 	@FindBy(xpath = "(//button[@title='Back'])[1]")
 	public WebElement nVFScreenerBackButton;
-	
-	/* NV Fanconi Screener: CHARMS Referrals Link on Referral list view  */
+
+	/* NV Fanconi Screener: CHARMS Referrals Link on Referral list view */
 	@FindBy(xpath = "(//a[normalize-space()='CHARMS Referrals'])[1]")
 	public WebElement nVFScreenerCHARMSReferralLink;
-	
+
 	/* ************************************************************ */
 	/* ** LOCATORS In Intake participates in another study Tab ** */
 	/* ************************************************************ */
@@ -569,7 +643,7 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	/* Intake participates in another study tab */
 	@FindBy(xpath = "//span[@aria-controls='x_naci_family_coho_fanconi_study_screener.x_naci_family_coho_intake_participate_another_study.intake_form_id_list']")
 	public WebElement nVFScreenerIntakeParticipatesInAnotherStudyTab1;
-	
+
 	/* Intake participates in another study tab */
 	@FindBy(xpath = "(//div[@class='tabs2_strip tabs2_strip_deferred']//span)[4]")
 	public WebElement nVFScreenerIntakeParticipatesInAnotherStudyTab;
@@ -577,11 +651,16 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	@FindBy(xpath = "(//td[normalize-space()='No records to display'])[1]")
 	public WebElement nVFScreenerIntakeParticipatesInAnotherStudyBlank;
 
-	/* Intake participates in another stud tab--> Intake Form Table Preview Button */
+	/*
+	 * Intake participates in another stud tab--> Intake Form Table Preview Button
+	 */
 	@FindBy(xpath = "//table[@id='x_naci_family_coho_fanconi_study_screener.x_naci_family_coho_intake_participate_another_study.intake_form_id_table']/tbody/tr/td[2]")
 	public List<WebElement> nVFScreenerIntakeParticipatesInAnotherStudyTableLinks;
 
-	/* Intake participates in another study tab--> Intake participates in another study Title */
+	/*
+	 * Intake participates in another study tab--> Intake participates in another
+	 * study Title
+	 */
 	@FindBy(xpath = "(//div[@class='navbar-title-caption'])[1]")
 	public WebElement IntakeParticipatesInAnotherStudyTitle;
 
@@ -636,11 +715,11 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	/* Genetic Mutation/Variants tab */
 	@FindBy(xpath = "//span[normalize-space()='Genetic Mutation/Variants (1)']")
 	public WebElement nVFScreenerGeneticMutationvariantTab2;
-	
+
 	/* Genetic Mutation/Variants tab */
 	@FindBy(xpath = "(//div[@class='tabs2_strip tabs2_strip_deferred']//span)[8]")
 	public WebElement nVFScreenerGeneticMutationvariantTab;
-	
+
 	/* Genetic Mutation/Variants tab */
 	@FindBy(xpath = "//table[@id='x_naci_family_coho_fanconi_study_screener.x_naci_family_coho_genetic_mutation_variant.screener_table']/tbody/tr/td[2] ")
 	public List<WebElement> nVFScreenerGeneticMutationvariantTableLinks;
@@ -688,11 +767,11 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	/* Cancer History Tab */
 	@FindBy(xpath = "(//span[normalize-space()='Fanconi Screener: Patient Cancer History (4)'])[1]")
 	public WebElement nVFScreenerCancerHistoryTab1;
-	
+
 	/* Cancer History Tab */
 	@FindBy(xpath = "(//div[@class='tabs2_strip tabs2_strip_deferred']//span)[12]")
 	public WebElement nVFScreenerCancerHistoryTab;
-	
+
 	/* Cancer History Tab-- Total records */
 	@FindBy(xpath = "//tr[@record_class='x_naci_family_coho_mock_up_intake_patient_cancer']//td[@class='list_decoration_cell col-small col-center ']")
 	public List<WebElement> nVFScreenerCancerHistoryTableRowsLink;
@@ -717,7 +796,10 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	@FindBy(xpath = "(//input[@id='x_naci_family_coho_mock_up_intake_patient_cancer.year_of_diagnosis'])[1]")
 	public WebElement nVFScreenerCancerHistoryYearOfDiagnosis;
 
-	/* Cancer History Tab-->How old was the research participant when the cancer was diagnosed? */
+	/*
+	 * Cancer History Tab-->How old was the research participant when the cancer was
+	 * diagnosed?
+	 */
 	@FindBy(xpath = "(//input[@id='x_naci_family_coho_mock_up_intake_patient_cancer.age_in_years_at_diagnosis'])[1]")
 	public WebElement nVFScreenerCancerHistoryHowOldWhenCancerDiagnosed;
 
@@ -740,5 +822,4 @@ public class FanconiScreenerNVPage extends PageInitializer {
 	/* Cancer History Tab-->Name of physician who performed the biopsy */
 	@FindBy(xpath = "(//input[@id='x_naci_family_coho_mock_up_intake_patient_cancer.biopsy_physician'])[1]")
 	public WebElement nVFScreenerCancerHistoryNameOfPhysician;
-
 }
