@@ -1,7 +1,6 @@
 package ServiceNow.CHARMS.Steps;
 
 import java.io.FileNotFoundException;
-
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 import com.nci.automation.utils.MiscUtils;
@@ -9,7 +8,6 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import ServiceNow.CHARMS.Pages.FanconiLoginPage;
 import ServiceNow.CHARMS.Utils.CharmsUtil;
 import appsCommon.PageInitializer;
 import io.cucumber.java.en.Given;
@@ -24,7 +22,6 @@ public class FanconiLoginSteps extends PageInitializer {
 
 	@Given("logs in Fanconi page via Okta with username {string} and password {string}")
 	public void logs_in_Fanconi_page_via_Okta_with_username_and_password(String username, String password) {
-		//MiscUtils.sleep(500);
 		CommonUtils.waitForVisibility(fanconiLoginPage.enrollLoginButton);
 		CharmsUtil.clickOnElement(fanconiLoginPage.enrollLoginButton);
 		CharmsUtil.sendKeysToElement(oktaLoginPage.usernameTxtBox,username);
