@@ -48,7 +48,6 @@ public class CharmsUtil {
 
 	/* @param webElement:Element to be clicked to avoid the exception */
 	public static void clickOnElement(WebElement webElement) {
-		//	JavascriptUtils.scrollIntoView(webElement);
 		CharmsUtil.labelHighlight(webElement);
 
 		int count = 0;
@@ -118,7 +117,6 @@ public class CharmsUtil {
 		}
 		softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + messsage + "-->");
 	}
-
 
 	/* webElement:A DropDown value to be Verified */
 	public static void assertDropDownData(SoftAssert softAssert, WebElement webElement, String expectedValue,
@@ -224,7 +222,6 @@ public class CharmsUtil {
 	 * (actual v.s. expected)
 	 */
 	public static ComponentTestResult verifyDropDowns(WebElement webElement, List<String> list) {
-
 		CharmsUtil.labelHighlight(webElement);
 		MiscUtils.sleep(500);
 		String result = "PASSED";
