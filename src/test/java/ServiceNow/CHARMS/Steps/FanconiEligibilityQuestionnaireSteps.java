@@ -39,10 +39,8 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 			throws TestingException, JsonIOException, JsonSyntaxException, FileNotFoundException {
 
 		for (int i = 10; i <= 10; ++i) {
-
 			String username = "charmsparticipant" + i + "@yopmail.com";
 			String password = "Charms123";
-
 			System.out.println(username);
 			MiscUtils.sleep(1000);
 			if (i != 1) {
