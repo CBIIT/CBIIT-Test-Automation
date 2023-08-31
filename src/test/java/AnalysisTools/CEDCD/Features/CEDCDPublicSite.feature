@@ -2,13 +2,13 @@ Feature: Test Cases on the Public Site
   
   Description: This is an automated suite for test cases under the Public Site
 
-  @SS-3453 @Smoke @matarodriguezko @Progression
+  @SS-3453 @SS-3228 @Smoke @juarezds @NEED_REVIEW
   Scenario: The Clear All button clears all the selection on the Biospecimen Counts Tab
     Given the user is on the CEDCD Biospecimen Tab
     And the user selects All Types from the Specimen Type drop down
     And the user selects All Cancers from the Cancer Type drop down
     And the user selects All Cohorts from the Cohorts drop down
-    And the user searches results
+    And the user clicks search on Biospecimen Counts tab
     When the user clicks on the Clear All button
     Then all previously selected fields are no longer selected
 

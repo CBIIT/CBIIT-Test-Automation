@@ -9,8 +9,6 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.*;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -631,7 +629,7 @@ public class CommonUtils extends WebDriverUtils {
      */
     public static void clickOnElement(WebElement ele) {
         int count = 0;
-        while (count < 5) {
+        while (count < 10) {
             try {
                 ele.click();
                 break;

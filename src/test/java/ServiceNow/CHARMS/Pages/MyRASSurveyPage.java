@@ -120,6 +120,10 @@ public class MyRASSurveyPage {
     @FindBy(xpath = "//*[@id='QR~QID318#1~1~1~TEXT']")
     public WebElement pleaseCompleteYourBiologicalParentsBiologicalMotherCityTextBox;
 
+    /* IIQ HOW ARE THE BIOLOGICAL PARENTS BLOOD-RELATED TO EACH OTHER TEXT AREA*/
+    @FindBy(xpath = "//*[@id='QR~QID42~1~TEXT']")
+    public WebElement HowAreYourBiologicalTextArea;
+
     /* RAS SURVEY PLEASE COMPLETE THE TABLE BELOW REGARDING YOUR BIOLOGICAL PARENTS. BIOLOGICAL MOTHER UNSURE RADIO BUTTON*/
     @FindBy(xpath = "//*[@id='QID318']/div[3]/div/fieldset/fieldset/div/table/tbody/tr[1]/td[6]/label")
     public WebElement pleaseCompleteYourBiologicalParentsBiologicalMotherUnsureRadioButton;
@@ -141,7 +145,7 @@ public class MyRASSurveyPage {
     public WebElement pleaseCompleteYourBiologicalParentsBiologicalFatherYearsDropDown;
 
     /* RAS SURVEY HOW MANY TIMES HAVE YOU RECEIVED GROWTH HORMONE TREATMENT DROP DOWN*/
-    @FindBy(xpath = "//*[@id='QR~QID348']")
+    @FindBy(xpath = "//*[@id='Questions']/child::div[2]//child::div[3]//child::div//child::fieldset//child::div//child::select")
     public WebElement howManyTimesHaveYouReceivedGrowthHormoneTreatmentDropDown;
 
     /* RAS SURVEY PLEASE INDICATE THE RESULTS OF THE PRENATAL TESTS OTHER TEXT BOX*/
@@ -216,6 +220,14 @@ public class MyRASSurveyPage {
     public WebElement dynamicTopText(int pageNumber) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='QID" + pageNumber + "']/div[3]/div"));
     }
+
+    /*
+    USE THIS METHOD TO MOVE THE SLIDER IN A PAGE
+    */
+    public WebElement dynamicSlider(int page, int number) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='QID" + page + "~" + number + "~handle']"));
+    }
+
     /*
     USE THIS METHOD TO DYNAMICALLY LOCATE TEXT AT TOP OF PAGE
     */
@@ -249,6 +261,13 @@ public class MyRASSurveyPage {
     */
     public WebElement dynamicallyEnterTextInCheckMarkedTextBox(int index) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//div[@class='QuestionBody']//child::ul//child::li[" + index + "]//child::span//child::input"));
+    }
+
+    /*
+   USE THIS METHOD TO DYNAMICALLY ENTER TEXT IN RADIO BUTTONS TEXT BOX
+*/
+    public WebElement dynamicallyEnterTextInCheckWithRadioButtons(int index) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//div[@class='QuestionBody']//child::table//child::tbody//child::tr[" + index + "]//child::th//child::input"));
     }
 
     /*

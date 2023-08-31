@@ -14,7 +14,7 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
     public String areYouCompletingThisFormForSomeoneElseOrYourself;
     public String firstName;
     public String middleInitial;
-    public  String lastName;
+    public String lastName;
     public String whatIsYourDateOfBirth;
     public String dateOfBirthMonth;
     public String dateOfBirthYear;
@@ -133,7 +133,6 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
     public String whatAreTheMainReasonsForParticipatingOptin4;
     public String youAreAlmostDone;
 
-
     public void dataInitializerRasScreener(String sheetName) {
         /**
          * FETCHING DATA FROM EXCEL BEFORE SUBMITTING SCREENER
@@ -174,6 +173,9 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
             whatAreMainReasonsForParticipatingInStudy = testDataForRasScreener.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_IN_THIS_STUDY);
             whatAreMainReasonsForParticipatingInStudyOtherReason = testDataForRasScreener.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_IN_THIS_STUDY_OTHER_REASON);
             youAreAlmostDone = testDataForRasScreener.get(ras_Screener_Constants.YOU_ARE_ALMOST_DONE);
+            toDetermineEligibilityForThisStudy = testDataForRasScreener.get(ras_Screener_Constants.TO_DETERMINE_ELIGIBILITY_FOR_THIS_STUDY);
+            weKnowThatRASopathiesAreAGroup = testDataForRasScreener.get(ras_Screener_Constants.WE_KNOW_THAT_RASOPATHIES_ARE_A_GROUP);
+            weWillNowAskAFewRemainingQuestionsRegarding = testDataForRasScreener.get(ras_Screener_Constants.WE_WILL_NOW_ASK_A_FEW_REMAINING_QUESTIONS_REGARDING);
         }else if (sheetName.equals("screenerScenario2")) {
             testDataForRasScreener = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_TWO_DATA, sheetName);
             areYouCompletingThisFormForSomeoneElseOrYourself = testDataForRasScreener.get(ras_Screener_Constants.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE);

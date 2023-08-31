@@ -24,58 +24,22 @@ public class RAS_Screener_Submission_Steps extends PageInitializer {
 
     @When("the participant submits a screener from excel sheet {string}")
     public void the_participant_submits_a_screener_from_excel_sheet(String sheetName) {
-        rasScreenerScenario1StepsImpl.rasScreenerScenarioSelector(sheetName);
+        rasScenario1StepsImpl.rasScreenerScenarioSelector(sheetName);
     }
 
     @Then("data submitted for scenario is verified in native from the excel sheet {string}")
     public void data_submitted_for_scenario_is_verified_in_native_from_the_excel_sheet(String sheetName) {
-        if(sheetName.contentEquals("screenerScenario1")) {
-            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
-            rasScreenerScenario1StepsImpl.verifying_RAS_Screener_Scenario_1_Data();
-        }else if(sheetName.contentEquals("screenerScenario2")) {
-            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
-            rasScreenerScenario1StepsImpl.verifying_RAS_Screener_Scenario_1_Data();
-        }else if(sheetName.contentEquals("screenerScenario3")) {
-            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
-            rasScreenerScenario1StepsImpl.verifying_RAS_Screener_Scenario_1_Data();
-        }else if(sheetName.contentEquals("screenerScenario4")) {
-            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
-            rasScreenerScenario1StepsImpl.verifying_RAS_Screener_Scenario_1_Data();
-        }
+        rasScenario1StepsImpl.rasScreenerVerificationScenarioSelector(sheetName);
     }
 
     @Then("the consent is submitted for {string}")
     public void the_consent_is_submitted_for(String sheetName) {
-        if(sheetName.contentEquals("screenerScenario1")) {
-            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
-            rasScreenerScenario1StepsImpl.nativeViewConsentFlowProcessScenario1(sheetName);
-        }else if(sheetName.contentEquals("screenerScenario2")) {
-            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
-            rasScreenerScenario1StepsImpl.nativeViewConsentFlowProcessScenario1(sheetName);
-        }else if(sheetName.contentEquals("screenerScenario3")) {
-            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
-            rasScreenerScenario1StepsImpl.nativeViewConsentFlowProcessScenario1(sheetName);
-        }else if(sheetName.contentEquals("screenerScenario4")) {
-            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
-            rasScreenerScenario1StepsImpl.nativeViewConsentFlowProcessScenario1(sheetName);
-        }
+        rasScenario1StepsImpl.rasConsentScenarioSelector(sheetName);
     }
 
     @Given("the participant submits a Individual Information Questionnaire for excel sheet {string}")
     public void the_participant_submits_a_individual_information_questionnaire_for_excel_sheet(String sheetNameIiq) {
-        if(sheetNameIiq.contentEquals("IIQScenario1")) {
-            iiq_TestDataManager.dataInitializerIIQ(sheetNameIiq);
-            rasScreenerScenario1StepsImpl.rasScreenerIIQFormScenario1();
-        }else if(sheetNameIiq.contentEquals("IIQScenario2")) {
-            iiq_TestDataManager.dataInitializerIIQ(sheetNameIiq);
-            rasScreenerScenario1StepsImpl.rasScreenerIIQFormScenario1();
-        }else if(sheetNameIiq.contentEquals("IIQScenario3")) {
-            iiq_TestDataManager.dataInitializerIIQ(sheetNameIiq);
-            rasScreenerScenario1StepsImpl.rasScreenerIIQFormScenario1();
-        }else if(sheetNameIiq.contentEquals("IIQScenario4")) {
-            iiq_TestDataManager.dataInitializerIIQ(sheetNameIiq);
-            rasScreenerScenario1StepsImpl.rasScreenerIIQFormScenario1();
-        }
+        rasScenario1StepsImpl.iiqScenarioSelector(sheetNameIiq);
     }
 
     @Given("a proxy is on the RASopathies Longitudinal Cohort Study login page")
@@ -90,12 +54,12 @@ public class RAS_Screener_Submission_Steps extends PageInitializer {
 
     @Given("logs in via Okta with username {string} and password {string}")
     public void logs_in_via_Okta_with_username_and_password(String username, String password) {
-        rasScreenerScenario1StepsImpl.logsInViaOktaWithUsernameAndPassword(username, password);
+        rasScenario1StepsImpl.logsInViaOktaWithUsernameAndPassword(username, password);
     }
 
     @Given("clicks on Eligibility Questionnaire to begin questionnaire")
     public void clicks_on_Eligibility_Questionnaire_to_begin_questionnaire() {
-        rasScreenerScenario1StepsImpl.clicksOnEligibilityQuestionnaireToBeginQuestionnaire();
+        rasScenario1StepsImpl.clicksOnEligibilityQuestionnaireToBeginQuestionnaire();
     }
 
     @Given("clicks next after reviewing the STUDY INTRODUCTION")
