@@ -29,6 +29,6 @@ public class ESRDefaultNotificationsSteps extends PageInitializer {
 
     @Then("user checks the activity feed to confirm the Federal Lead approval notification was sent")
     public void user_checks_the_activity_feed_to_confirm_the_federal_lead_approval_notification_was_sent() {
-
+        ESRDefaultNotificationsStepsImplementation.verifyNotificationsSent();
     }
 }

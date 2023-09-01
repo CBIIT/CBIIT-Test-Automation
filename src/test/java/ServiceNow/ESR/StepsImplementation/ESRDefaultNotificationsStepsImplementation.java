@@ -47,8 +47,10 @@ public class ESRDefaultNotificationsStepsImplementation extends PageInitializer 
         esrTicketCreationPage.definitionDoneTextBox.sendKeys(docText);
         esrTicketCreationPage.risksTextBox.sendKeys(docText);
         esrTicketCreationPage.updateButton.click();
+    }
+
+    public static void verifyNotificationsSent() {
         esrTicketCreationPage.notesTabESRTicket.click();
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(3000);
     }
 }
