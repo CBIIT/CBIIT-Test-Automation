@@ -16,4 +16,19 @@ public class ESRDefaultNotificationsSteps extends PageInitializer {
     public void user_checks_the_activity_feed_and_confirms_request_notification_is_sent() {
         ESRDefaultNotificationsStepsImplementation.defaultNotificationConfirmation();
     }
+
+    @And("user proceeds into the catalog task")
+    public void user_proceeds_into_the_catalog_task() {
+        ESRDefaultNotificationsStepsImplementation.selectFirstCatalogTask();
+    }
+
+    @And("fills out catalog task with required information such as {string} to get into the Federal Lead Approval stage")
+    public void fills_out_catalog_task_with_required_information_such_as_to_get_into_the_federal_lead_approval_stage(String docText) {
+        ESRDefaultNotificationsStepsImplementation.completeFirstCatalogTaskInformation(docText);
+    }
+
+    @Then("user checks the activity feed to confirm the Federal Lead approval notification was sent")
+    public void user_checks_the_activity_feed_to_confirm_the_federal_lead_approval_notification_was_sent() {
+
+    }
 }

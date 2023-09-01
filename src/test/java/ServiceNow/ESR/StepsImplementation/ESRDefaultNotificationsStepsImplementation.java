@@ -27,4 +27,28 @@ public class ESRDefaultNotificationsStepsImplementation extends PageInitializer 
         esrTicketCreationPage.notesTabESRTicket.click();
         CucumberLogUtils.logScreenshot();
     }
+
+    public static void selectFirstCatalogTask() {
+        esrTicketCreationPage.linkToNewESRTicket.click();
+        CommonUtils.scrollIntoView(esrTicketCreationPage.catalogTaskTitle);
+        esrTicketCreationPage.catalogTaskItem.click();
+    }
+
+    public static void completeFirstCatalogTaskInformation(String docText) {
+        CommonUtils.selectDropDownValue(esrTicketCreationPage.approvalDropdownCatalogTask, 3);
+        esrTicketCreationPage.docSelectionBox.sendKeys(docText);
+        esrTicketCreationPage.getBusinessJustificationCheckBox.click();
+        CommonUtils.selectDropDownValue(esrTicketCreationPage.overallPriorityDropdown, 1);
+        esrTicketCreationPage.startDateButton.click();
+        esrTicketCreationPage.selectPresentDate.click();
+        esrTicketCreationPage.endDateButton.click();
+        esrTicketCreationPage.selectPresentDate.click();
+        esrTicketCreationPage.scopeTextBox.sendKeys(docText);
+        esrTicketCreationPage.definitionDoneTextBox.sendKeys(docText);
+        esrTicketCreationPage.risksTextBox.sendKeys(docText);
+        esrTicketCreationPage.updateButton.click();
+        esrTicketCreationPage.notesTabESRTicket.click();
+        CucumberLogUtils.logScreenshot();
+        MiscUtils.sleep(3000);
+    }
 }

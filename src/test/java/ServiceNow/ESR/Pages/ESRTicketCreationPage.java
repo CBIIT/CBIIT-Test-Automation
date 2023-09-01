@@ -54,4 +54,56 @@ public class ESRTicketCreationPage {
     /** Notes Tab in ESR ticket */
     @FindBy(xpath = "//span[@class='tabs2_tab default-focus-outline']")
     public WebElement notesTabESRTicket;
+
+    /** Catalog task item in ESR */
+    @FindBy(xpath = "//body[1]/div[2]/div[2]/div[1]/div[1]/span[1]/div[2]/div[4]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]")
+    public WebElement catalogTaskItem;
+
+    /** Catalog task title text */
+    @FindBy(xpath = "//a[@title='Catalog Tasks Context Menu']")
+    public WebElement catalogTaskTitle;
+
+    /** Approval dropdown in catalog task */
+    @FindBy(xpath = "//select[@aria-required='true']")
+    public WebElement approvalDropdownCatalogTask;
+
+    /** DOC selection box */
+    @FindBy(xpath = "//input[@class='questionsetreference form-control element_reference_input'][1]")
+    public WebElement docSelectionBox;
+
+    /** Check box for business justification */
+    @FindBy(xpath= "//tbody/tr[2]/td[1]/div[1]/div[1]/div[1]/fieldset[1]/div[2]/div[1]/div[1]")
+    public WebElement getBusinessJustificationCheckBox;
+
+    /** Dropdown for overall priority */
+    @FindBy(xpath= "//tbody/tr[12]/td[1]/div[1]/div[1]/div[1]/div[2]/select[1]")
+    public WebElement overallPriorityDropdown;
+
+    /** Planned start date button */
+    @FindBy(xpath = "//body[1]/div[2]/form[1]/span[2]/span[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]/div[2]/div[1]/table[1]/tbody[1]/tr[6]/td[1]/span[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/span[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[1]/div[1]/div[2]/span[1]/span[1]/a[1]")
+    public WebElement startDateButton;
+
+    /** Planned End Date Button */
+    @FindBy(xpath = "//body[1]/div[2]/form[1]/span[2]/span[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]/div[2]/div[1]/table[1]/tbody[1]/tr[6]/td[1]/span[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/span[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[1]/div[1]/div[2]/span[1]/span[1]/a[1]")
+    public WebElement endDateButton;
+
+    /** Select today's date button */
+    @FindBy(xpath = "//td[@aria-label='Go to Today']")
+    public WebElement selectPresentDate;
+
+    /** Scope text box */
+    @FindBy(xpath = "//tbody/tr[2]/td[1]/div[1]/div[1]/div[1]/div[2]/textarea[1]")
+    public WebElement scopeTextBox;
+
+    /** Definition of done text box */
+    @FindBy(xpath = "/html/body/div[2]/form/span[2]/span/div/div/div/div/table/tbody/tr[2]/td/div[2]/div/table/tbody/tr[6]/td/span/div[2]/table/tbody/tr[3]/td/div/div/div/div[2]/textarea")
+    public WebElement definitionDoneTextBox;
+
+    /** Risks text box */
+    @FindBy(xpath = "/html/body/div[2]/form/span[2]/span/div/div/div/div/table/tbody/tr[2]/td/div[2]/div/table/tbody/tr[6]/td/span/div[2]/table/tbody/tr[4]/td/div/div/div/div[2]/textarea")
+    public WebElement risksTextBox;
+
+    /** Update Button to submit catalog task */
+    @FindBy(xpath = "//nav[@role='navigation']//div//div//span//span//span//button[@value='sysverb_update']")
+    public WebElement updateButton;
 }
