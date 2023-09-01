@@ -68,7 +68,6 @@ public class OWMVacancyPage  extends CommonUtils {
 
     /** Position Classification Dropdown Scientific Director **/
     @FindBy(xpath = "(//div[contains(text(),'Scientific Director')])[2]")
-
     public WebElement positionScientificDirector;
 
     /** Appointment Package Initiator **/
