@@ -10,7 +10,7 @@ Feature: ESR Default Notifications
     And user fills out all required information including "Test Project", "Test Description", "Sue Pan", "Aaron Taye", "Aaron Bell" and "123" and clicks submit
     Then user checks the activity feed and confirms request notification is sent
 
-  @ESR-580 @ESR-578 @Progression @sarwarahmed1
+  @ESR-580 @ESR-578 @Regression @sarwarahmed1
   Scenario: Test a submitted request notification for the creation of an ESR ticket
     Given a user logs in with valid credentials for Native View on the NCI at your service page "nativeViewSideDoor"
     And user searches "ESR" in the filter bar
