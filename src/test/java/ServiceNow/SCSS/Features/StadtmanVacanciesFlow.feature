@@ -3,7 +3,7 @@ Feature: Stadtman Vacancy Scenarios
   Background: common steps
     Given User is on SCSS Landing page and user is "Stadtman Vacancy Manager"
 
-  @Regression @Smoke @Nekrashevich
+  @Regression @Smoke @Nekrashevich @APPTRACK-892
   Scenario: Create a vacancy as Stadtman Vacancy Manager
     And User is on SCSS landing page
     And User navigates to tab "Vacancy Dashboard"
