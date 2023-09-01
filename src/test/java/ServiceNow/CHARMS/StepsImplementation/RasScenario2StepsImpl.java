@@ -8,6 +8,7 @@ import com.nci.automation.web.JavascriptUtils;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.NoSuchFrameException;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 
 public class RasScenario2StepsImpl extends PageInitializer {
 
@@ -17,6 +18,9 @@ public class RasScenario2StepsImpl extends PageInitializer {
     public void rasScreenerSubmissionScenario2() {
         CommonUtils.switchToNextWindow();
         MiscUtils.sleep(2000);
+        CommonUtils.waitForVisibility(myRASSurveyPage.rasSurveyThisCopyText);
+        //ASSERTING THAT THIS IS THE COPY FOR LOWER ENVIRONMENTS ONLY!!! MESSAGE DISPLAYS
+        Assert.assertEquals(myRASSurveyPage.rasSurveyThisCopyText.getText(), ras_Screener_Constants.THIS_IS_A_COPY);
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.scrollIntoView(rasopathyQuestionnairePage.studyNextButton);
         CucumberLogUtils.logScreenshot();
