@@ -24,7 +24,6 @@ Feature: Applicant Flow Scenarios
     And User can edit "<country>" field
     And User can edit "<zip>" field
     And User saves the updated section
-
     Examples:
       | firstName | middleName | lastName | email           | phone      | businessPhone | address   | appNumber | city  | state | country  | zip   |
       | Mario     | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    |  7 Mills  | 12378     | Reston| VA    | UsA      | 20453 |
