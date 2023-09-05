@@ -57,7 +57,7 @@ Feature: SEER User Registration Scenarios
     And the 'SEER Incidence Database' bread crumb displays
     And when clicking, user is directed to "https://seer.cancer.gov/data/"
 
-  @ODS-273 @ODS-386 @ODS-286 @bucurgb @Regression
+  @ODS-373 @ODS-386 @ODS-286 @bucurgb @Regression
   Scenario: Verifying bread crumbs on "Thank you - your registration is complete." page
     Given a user is on the SEER Data Access landing page
     When user enters email address for a Non-Institutional Account

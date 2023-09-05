@@ -68,7 +68,6 @@ public class OWMVacancyPage  extends CommonUtils {
 
     /** Position Classification Dropdown Scientific Director **/
     @FindBy(xpath = "(//div[contains(text(),'Scientific Director')])[2]")
-
     public WebElement positionScientificDirector;
 
     /** Appointment Package Initiator **/
@@ -92,7 +91,7 @@ public class OWMVacancyPage  extends CommonUtils {
     public WebElement orgHNC14;
 
     /** Save button **/
-    @FindBy(xpath = "//div[@class='steps-action']//button//span[contains(text(),'save')]")
+    @FindBy(xpath = "//div[@class='steps-action']//button//span[contains(text(),'Save')]")
     public WebElement saveButton;
 
     /** Vacancy Committee Tab **/
@@ -104,7 +103,7 @@ public class OWMVacancyPage  extends CommonUtils {
     public WebElement reviewFinalizeTab;
 
     /** Save and Finalize button **/
-    @FindBy(xpath = "//button//span[contains(text(),'save and finalize')]")
+    @FindBy(xpath = "//button//span[contains(text(),'Save and Finalize')]")
     public WebElement saveAndFinalizeButton;
 
     /** Select Committee Member dropdown **/
@@ -122,7 +121,7 @@ public class OWMVacancyPage  extends CommonUtils {
     }
 
     /** Action Save button **/
-    @FindBy(xpath = "//button[@class='ant-btn ant-btn-link ActionButton']//span[contains(text(),'save')]")
+    @FindBy(xpath = "//button[@class='ant-btn ant-btn-link ActionButton']//span[contains(text(),'Save')]")
     public WebElement actionSaveButton;
 
     /** Executive Secretary (non-voting) role **/
@@ -130,7 +129,7 @@ public class OWMVacancyPage  extends CommonUtils {
     public WebElement exeSecretaryRole;
 
     /** Add Member button **/
-    @FindBy(xpath = "//button//span[contains(text(),' add member')]")
+    @FindBy(xpath = "//button//span[contains(text(),' Add Member')]")
     public WebElement addMemberButton;
 
     /** Role dropdwon **/

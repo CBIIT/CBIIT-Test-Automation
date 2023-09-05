@@ -1,9 +1,9 @@
-# Author: @SonikaJain
+
 Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal for the Initial visit of the Patient
   
   Description: This feature file contains the scenario to submit the New FHQ Partner record producer to the patient
 
-  @jains @FHQRegression
+  @jains 
   Scenario: FHQ Aunt Uncle Record
     Given a proband is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -13,7 +13,7 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And click the new AuntUncle added and verify the completed record producer data
      And click the FHQ Home button
 
-@jains @FHQRegression
+@jains 
   Scenario: FHQ Aunt Uncle Record
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
