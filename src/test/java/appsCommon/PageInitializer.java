@@ -25,7 +25,6 @@ import GrantsApps.ChangePassword.StepsImplementation.*;
 import GrantsApps.EM.Pages.*;
 import GrantsApps.EM.StepImplementation.*;
 import ServiceNow.CHARMS.Constants.*;
-import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
 import ServiceNow.CHARMS.Pages.*;
 import ServiceNow.CHARMS.ScenariosData.*;
 import ServiceNow.CHARMS.StepsImplementation.*;
@@ -161,9 +160,11 @@ public class PageInitializer extends WebDriverUtils {
 	/** SCSS instances */
 	public static OWMVacancyPage owmVacancyPage;
 	public static StadtmanVacancyPage stadtmanVacancyPage;
+	public static ApplicantFlowPage applicantFlowPage;
 	public static StadtmanVacancyStepsImplementation stadtmanVacancyStepsImplementation;
 	public static OWMVacancyStepsImplementation oWMVacancyStepsImplementation;
 	public static SCSSLoginStepsImplementation sCCSLoginStepsImplementation;
+	public static ApplicantFlowStepsImplementation applicantFlowStepsImplementation;
 
 	/** eTracking instances */
 	public static EtrackAssetsRecords_NativeViewPage etrackAssetsRecords_NativeViewPage;
@@ -260,7 +261,6 @@ public class PageInitializer extends WebDriverUtils {
 
 	/** ESR INSTANCES */
 	public static NCINativeViewPage nciNativeViewPage;
-	public static ESRTicketCreationPage esrTicketCreationPage;
 
 	/** --------------- NATIVE VIEW INSTANCES --------------- */
 	public static NativeViewLoginImpl nativeViewLoginImpl;
@@ -379,14 +379,15 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** ESR INSTANCE VARIABLES */
 		nciNativeViewPage = new NCINativeViewPage();
-		esrTicketCreationPage = new ESRTicketCreationPage();
 
 		/** SCSS Instance Variables */
 		owmVacancyPage = new OWMVacancyPage();
 		stadtmanVacancyPage = new StadtmanVacancyPage();
+		applicantFlowPage = new ApplicantFlowPage();
 		oWMVacancyStepsImplementation = new OWMVacancyStepsImplementation();
 		stadtmanVacancyStepsImplementation = new StadtmanVacancyStepsImplementation();
 		sCCSLoginStepsImplementation = new SCSSLoginStepsImplementation();
+		applicantFlowStepsImplementation = new ApplicantFlowStepsImplementation();
 
 		/** --------------- CUSTOM BUSINESS APP INSTANCE VARIABLES --------------- */
 		/** EIDP Instance Variables */
