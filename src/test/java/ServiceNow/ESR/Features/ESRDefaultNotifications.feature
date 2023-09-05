@@ -1,5 +1,4 @@
 Feature: ESR Default Notifications
-
   Description: This feature file contains scenarios relating to notifications in ESR
 
   @ESR-533 @Regression @sarwarahmed1
