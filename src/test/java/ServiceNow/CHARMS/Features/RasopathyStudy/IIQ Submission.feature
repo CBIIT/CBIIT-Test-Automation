@@ -1,7 +1,7 @@
 Feature: RAS Screener Scenarios
   Description: This feature file contains scenarios which submit the IIQ Form
 
-  @bucurgb @myRasStudy @IiqFormsOnly
+  @bucurgb @myRasStudy @IIQ
   Scenario Outline: This scenario outline is completing the IIQ Forms only
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "<Email>" and password "<Password>"
