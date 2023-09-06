@@ -30,7 +30,7 @@ public class SCSSLoginStepsImplementation extends PageInitializer {
             MiscUtils.sleep(2000);
             nativeViewDashPage.clickImpersonateSearchDD();
             MiscUtils.sleep(3000);
-            nativeViewDashPage.enterTextImpersntSearchBox(SCSS_Constants.OWM_VACANCY_MANAGER);
+            nativeViewDashPage.enterTextImpersntSearchBox(SCSS_Constants.STADTMAN_VACANCY_MANAGER);
             MiscUtils.sleep(5000);
             WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SCSSPortalView"));
         } else {

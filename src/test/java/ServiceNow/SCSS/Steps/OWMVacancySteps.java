@@ -83,9 +83,8 @@ public class OWMVacancySteps  extends PageInitializer {
 
     @Given("User adds {string} as a Chair")
     public void user_adds_as_a_chair(String person) {
-       oWMVacancyStepsImplementation.addChair(person);
+        oWMVacancyStepsImplementation.addChair(person);
     }
-
 
     @Given("User adds {string} as an Executive Secretary")
     public void user_adds_as_an_executive_secretary(String member) {
