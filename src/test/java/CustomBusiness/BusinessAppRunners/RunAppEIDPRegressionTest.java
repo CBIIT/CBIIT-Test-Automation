@@ -13,7 +13,7 @@ import io.cucumber.junit.CucumberOptions;
 		, "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 		, features="src/test/java/CustomBusiness/EIDP/Features"
 		, glue="CustomBusiness.EIDP.Steps"
-		, tags = "@Regression"
+		, tags = "@InitiatesIDPNCI"
 		, dryRun = false
 		, monochrome = true
 		, strict = true

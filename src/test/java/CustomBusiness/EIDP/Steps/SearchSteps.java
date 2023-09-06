@@ -80,7 +80,7 @@ public class SearchSteps extends PageInitializer {
 			Assert.assertTrue(searchStepimpl.isIDPInitationSuccess());
 			CucumberLogUtils.logScreenshot();
 			searchStepimpl.clickOnOkButton();
-		} else{
+		} else {
 			searchStepimpl.checkTraineeWithoutIDPCheckbox();
 			searchStepimpl.clickOnSearchButton();
 			searchStepimpl.selectActiveTrainee();	
@@ -92,7 +92,6 @@ public class SearchSteps extends PageInitializer {
 			CucumberLogUtils.logScreenshot();
 			searchStepimpl.clickOnOkButton();
 		}
-			
 	}
 
 	@Then("Select reason for revise idp and Click On save and send email button")

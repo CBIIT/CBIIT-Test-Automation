@@ -1,6 +1,8 @@
 package CustomBusiness.EIDP.StepsImplementation;
 
 import java.util.List;
+
+import com.nci.automation.utils.CucumberLogUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.MiscUtils;
@@ -22,6 +24,7 @@ public class DashboardStepImpl extends PageInitializer {
 	public void clickOnSearch() {
 		CommonUtils.waitForClickability(eidpDashboardPage.search);
 		CommonUtils.clickOnElement(eidpDashboardPage.search);
+		CucumberLogUtils.logScreenshot();
 	}
 
 	public void clickOnManageDelegate() {
