@@ -16,6 +16,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.NoSuchFrameException;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 public class RasScenario1StepsImpl extends PageInitializer {
     /***
@@ -293,6 +294,9 @@ public class RasScenario1StepsImpl extends PageInitializer {
     public void rasScreenerSubmissionScenario1() {
         CommonUtils.switchToNextWindow();
         MiscUtils.sleep(2000);
+        CommonUtils.waitForVisibility(myRASSurveyPage.rasSurveyThisCopyText);
+        //ASSERTING THAT THIS IS THE COPY FOR LOWER ENVIRONMENTS ONLY!!! MESSAGE DISPLAYS
+        Assert.assertEquals(myRASSurveyPage.rasSurveyThisCopyText.getText(), ras_Screener_Constants.THIS_IS_A_COPY);
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.scrollIntoView(rasopathyQuestionnairePage.studyNextButton);
         CucumberLogUtils.logScreenshot();
@@ -1393,12 +1397,13 @@ public class RasScenario1StepsImpl extends PageInitializer {
         }
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        MiscUtils.sleep(1000);
-        CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(6));
-        CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(6));
+        MiscUtils.sleep(2000);
+        CommonUtils.waitForVisibility(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(5));
+        CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicClickOnCheckboxesScreener(5));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnSurveySavAndNextButton();
-        MiscUtils.sleep(1000);
+        CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(97));
+        MiscUtils.sleep(2000);
     }
 
     public void rasScreenerSurveyScenario1PartThree() {
