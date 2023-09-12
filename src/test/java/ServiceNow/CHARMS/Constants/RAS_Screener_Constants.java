@@ -128,4 +128,5 @@ public class RAS_Screener_Constants {
     public final String YOU_ARE_ALMOST_DONE = "You are almost done!";
     public final String SPACE = " ";
     public final String RAS_STUDY = "RASopathy";
+    public final String THIS_IS_A_COPY = "THIS IS THE COPY FOR LOWER ENVIRONMENTS ONLY!!!";
 }

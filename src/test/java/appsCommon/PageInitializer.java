@@ -25,6 +25,7 @@ import GrantsApps.ChangePassword.StepsImplementation.*;
 import GrantsApps.EM.Pages.*;
 import GrantsApps.EM.StepImplementation.*;
 import ServiceNow.CHARMS.Constants.*;
+import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
 import ServiceNow.CHARMS.Pages.*;
 import ServiceNow.CHARMS.ScenariosData.*;
 import ServiceNow.CHARMS.StepsImplementation.*;
@@ -261,6 +262,7 @@ public class PageInitializer extends WebDriverUtils {
 
 	/** ESR INSTANCES */
 	public static NCINativeViewPage nciNativeViewPage;
+	public static ESRTicketCreationPage esrTicketCreationPage;
 
 	/** --------------- NATIVE VIEW INSTANCES --------------- */
 	public static NativeViewLoginImpl nativeViewLoginImpl;
@@ -379,6 +381,7 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** ESR INSTANCE VARIABLES */
 		nciNativeViewPage = new NCINativeViewPage();
+		esrTicketCreationPage = new ESRTicketCreationPage();
 
 		/** SCSS Instance Variables */
 		owmVacancyPage = new OWMVacancyPage();
