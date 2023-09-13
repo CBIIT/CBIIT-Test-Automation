@@ -10,11 +10,11 @@ import com.nci.automation.web.WebDriverUtils;
 public class OKTAloginPage extends CommonUtils {
 	
 	/** Username Text Box */
-	@FindBy (xpath = "//input[@name='username']")
+	@FindBy (xpath = "//input[@type='text']")
 	public WebElement usernameTxtBox;
 	
 	/** Password Text Box */
-	@FindBy (xpath = "//input[@name='password']")
+	@FindBy (xpath = "//input[@type='password']")
 	public WebElement passwordTxtBox;
 	
 	/** Next Button */ 
