@@ -12,6 +12,10 @@ public class MyRASSurveyPage {
     @FindBy(xpath = "//*[@id='LogoContainer']//parent::div//child::div[3]//child::div//child::div[2]//child::div[3]")
     public WebElement rasSurveyText;
 
+    /* THIS IS THE COPY FOR LOWER ENVIRONMENTS ONLY */
+    @FindBy(xpath = "//div[@role='main']//child::div[2]//child::div[3]//child::div//child::div//child::p//child::span//child::b//child::span")
+    public WebElement rasSurveyThisCopyText;
+
     /* RAS SCREENER TEXT*/
     @FindBy(xpath = "//*[@id='Header']//parent::div//parent::div//child::div[4]//child::div//child::div[2]//child::div[3]//child::div")
     public WebElement rasScreenerText;

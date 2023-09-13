@@ -10,9 +10,7 @@ import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializer;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-//import cucumber.api.junit.Cucumber;
 
 public class MelanomaScreenerSubmission extends PageInitializer {
 
