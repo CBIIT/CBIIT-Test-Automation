@@ -19,11 +19,11 @@ public class MyRASHomePage {
 	public WebElement rasoptathyEligibilityQuestionnaire;
 
 	/* RASopathy RAS Survey Button */
-	@FindBy(xpath = "(//div[@ng-repeat='survey in c.data.dSurveys'])[6]")
+	@FindBy(xpath = "(//span[normalize-space()='RAS Survey'])[2]")
 	public WebElement rasoptathyRasSurveyButton;
 
 	/* RASopathy RAS IIQ Button */
-	@FindBy(xpath = "(//div[@ng-repeat='survey in c.data.dSurveys'])[5]")
+	@FindBy(xpath = "(//span[normalize-space()='Individual Information Questionnaire'])[2]")
 	public WebElement rasoptathyIiqButton;
 
 	/* RASopathy RAS Survey Go Button */

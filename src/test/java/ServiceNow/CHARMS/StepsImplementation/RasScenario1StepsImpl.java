@@ -1865,6 +1865,7 @@ public class RasScenario1StepsImpl extends PageInitializer {
      */
     public static void logOutOfNativeView() {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
+        MiscUtils.sleep(2000);
         CommonUtils.clickOnElement(nativeViewHomePage.profileModule);
         CommonUtils.clickOnElement(nativeViewHomePage.logOutButton);
     }
