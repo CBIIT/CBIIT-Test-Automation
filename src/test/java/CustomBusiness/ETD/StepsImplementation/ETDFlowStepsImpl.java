@@ -1,30 +1,27 @@
 package CustomBusiness.ETD.StepsImplementation;
 
-import java.util.List;
-
-import CustomBusiness.ETD.Steps.HooksSteps;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
+import appsCommon.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.EncryptionUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import appsCommon.PageInitializer;
+import java.util.List;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 public class ETDFlowStepsImpl extends PageInitializer {
 
 	public void etdLogin(String userName) throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ETD"));
-		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "Username");
-		iTrustloginPage.enterPassword("Password");
+		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "nekrashevicha2Username");
 		MiscUtils.sleep(3000);
+		iTrustloginPage.enterPassword("nekrashevicha2Password");
+		MiscUtils.sleep(5000);
 		iTrustloginPage.clickSignInButton();
 		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(etdAdminNCIPage.changeUserButtonNCI);
@@ -33,13 +30,13 @@ public class ETDFlowStepsImpl extends PageInitializer {
 		CommonUtils.clickOnElement(etdAdminNCIPage.inputFieldChangeUser);
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, userName);
-		//JavascriptUtils.enterValueByJS(etdAdminNCIPage.inputFieldChangeUser, userName);
 		MiscUtils.sleep(4000);
 		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.logScreenshot();
 	}
+
 
 	public void selectTab(String tab) {
 		if (tab.equalsIgnoreCase("Home")) {
