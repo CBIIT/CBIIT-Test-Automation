@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 
 public class ApplicantFlowSteps extends PageInitializer {
+    
     @Given("User is on Profile tab")
     public void user_is_on_profile_tab() {
         CommonUtils.waitForVisibility(applicantFlowPage.tabProfile);
