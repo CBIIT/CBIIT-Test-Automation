@@ -12,6 +12,7 @@ public class ApplicantFlowStepsImplementation extends PageInitializer {
             CommonUtils.clickOnElement(applicantFlowPage.btnEditProfileTab);
         }
     }
+
     public void pickDegree(String degree){
         if(degree.equals("Masters")){
             CommonUtils.clickOnElement(applicantFlowPage.dropdownDegree);
