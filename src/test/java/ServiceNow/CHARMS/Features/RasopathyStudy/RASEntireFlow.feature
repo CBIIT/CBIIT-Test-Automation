@@ -1,7 +1,7 @@
 Feature: RAS Screener Scenarios
   Description: This feature file contains scenarios which submit myRAS Screeners, Consent Flows, IIQ Forrms and the RAS Surveys. No data verification in Native View
 
-  @bucurgb @myRasStudy @Regression
+  @bucurgb @myRasStudy @Regression @2CP2-2332
   Scenario Outline: This scenario outline is completing the myRAS Screeners, Consent Flows, IIQ Forrms and the RAS Surveys
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "<Email>" and password "<Password>"
