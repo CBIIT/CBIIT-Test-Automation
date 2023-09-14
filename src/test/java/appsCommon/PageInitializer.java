@@ -282,6 +282,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewCHARMSDashboardPage nativeViewCHARMSDashboardPage;
 	public static NativeViewCHARMSParticipantDetailsPage nativeViewCHARMSParticipantDetailsPage;
 	public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
+	public static NativeViewCHARMSParticipantStudyPage nativeViewCHARMSParticipantStudyPage;
 
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
@@ -498,6 +499,7 @@ public class PageInitializer extends WebDriverUtils {
 		nativeViewCHARMSDashboardPage = new NativeViewCHARMSDashboardPage();
 		nativeViewCHARMSParticipantDetailsPage = new NativeViewCHARMSParticipantDetailsPage();
 		nativeViewCHARMSParticipantConsentPage = new NativeViewCHARMSParticipantConsentPage();
+		nativeViewCHARMSParticipantStudyPage = new NativeViewCHARMSParticipantStudyPage();
 
 		/** Grants ChangePassword app **/
 		changePasswordPage = new ChangePasswordPage();

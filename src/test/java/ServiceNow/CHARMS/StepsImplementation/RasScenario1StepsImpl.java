@@ -66,38 +66,16 @@ public class RasScenario1StepsImpl extends PageInitializer {
      * THIS METHOD WILL SELECT THE SCREENER FOR VERIFICATION ACCORDING TO THE SHEET CHOSEN IN THE FEATURE FILE
      */
     public void rasScreenerVerificationScenarioSelector(String sheetName) {
-        if (sheetName.contentEquals("screenerScenario1")) {
             ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
-            rasScenario1StepsImpl.verifying_RAS_Screener_Scenario_1_Data();
-        } else if (sheetName.contentEquals("screenerScenario2")) {
-            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
-            rasScenario1StepsImpl.verifying_RAS_Screener_Scenario_1_Data();
-        } else if (sheetName.contentEquals("screenerScenario3")) {
-            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
-            rasScenario1StepsImpl.verifying_RAS_Screener_Scenario_1_Data();
-        } else if (sheetName.contentEquals("screenerScenario4")) {
-            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
-            rasScenario1StepsImpl.verifying_RAS_Screener_Scenario_1_Data();
-        }
+            rasScenario1StepsImpl.verifying_RAS_Screener_Scenario_1_Data(sheetName);
     }
 
     /***
      * THIS METHOD WILL SELECT THE CONSENT FLOW ACCORDING TO THE SHEET CHOSEN IN THE FEATURE FILE
      */
     public void rasConsentScenarioSelector(String sheetName) {
-        if (sheetName.contentEquals("screenerScenario1")) {
             ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
             rasScenario1StepsImpl.nativeViewConsentFlowProcessScenario1(sheetName);
-        } else if (sheetName.contentEquals("screenerScenario2")) {
-            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
-            rasScenario1StepsImpl.nativeViewConsentFlowProcessScenario1(sheetName);
-        } else if (sheetName.contentEquals("screenerScenario3")) {
-            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
-            rasScenario1StepsImpl.nativeViewConsentFlowProcessScenario1(sheetName);
-        } else if (sheetName.contentEquals("screenerScenario4")) {
-            ras_Screener_TestDataManager.dataInitializerRasScreener(sheetName);
-            rasScenario1StepsImpl.nativeViewConsentFlowProcessScenario1(sheetName);
-        }
     }
 
     /***
@@ -1667,8 +1645,7 @@ public class RasScenario1StepsImpl extends PageInitializer {
                 ras_Survey_TestDataManager.haveYouBeenIrritableWithOtherPeopleBecause,
                 ras_Survey_TestDataManager.haveYouHadDifficultyDoingYourUsualJobs,
                 ras_Survey_TestDataManager.haveYouFeltThatLifeInGeneralIsLessSatisfying,
-                ras_Survey_TestDataManager.haveYouFeltThatLifeInGeneralIsLessSatisfying
-        };
+                ras_Survey_TestDataManager.haveYouFeltThatLifeInGeneralIsLessSatisfying};
         for (int jjj = 196; jjj < 210; jjj++) {
             CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(jjj));
             JavascriptUtils.clickByJS(rasopathyQuestionnairePage.dynamicLocator(clickingOnOptionInMultiplePages[jjj - 196]));
@@ -1891,20 +1868,44 @@ public class RasScenario1StepsImpl extends PageInitializer {
     /***
      * THIS METHOD VERIFIES RAS SCREENER SCENARIO 1 DATA IN NATIVE VIEW
      */
-    public void verifying_RAS_Screener_Scenario_1_Data() {
-        ras_Screener_TestDataManager.dataInitializerRasScreener("screenerScenario1");
+    public void verifying_RAS_Screener_Scenario_1_Data(String sheetName) {
         nativeViewLoginImpl.sideDoorAccountLogin();
-        CommonUtils.sendKeysToElement(nativeViewHomePage.nativeViewFilterNavigator, "CHARMS");
-        CommonUtils.clickOnElement(charmsNativeViewPage.dashboardModuleLink);
-        CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewiFrameCHARMS);
+        MiscUtils.sleep(1000);
+        if (nativeViewEnrollementsPage.filterNavigatorIconButton.isDisplayed()) {
+            CommonUtils.clickOnElement(nativeViewEnrollementsPage.filterNavigatorIconButton);
+            CommonUtils.waitForVisibility(nativeViewEnrollementsPage.filterNavigator);
+        }
+        nativeViewEnrollementsPage.filterNavigator.clear();
+        MiscUtils.sleep(500);
+        nativeViewEnrollementsPage.filterNavigator.sendKeys("CHARMS");
+        CommonUtils.waitForClickability(nativeViewCHARMSDashboardPage.nativeViewAllParticipantsDetailsButton);
+        JavascriptUtils.scrollIntoView(nativeViewCHARMSDashboardPage.nativeViewAllParticipantsDetailsButton);
         CucumberLogUtils.logScreenshot();
-        JavascriptUtils.scrollIntoView(charmsNativeViewPage.dynamicDashboardModuleLinkLocator("Eligibility Review Needed"));
+        JavascriptUtils.clickByJS(nativeViewCHARMSDashboardPage.nativeViewAllParticipantsDetailsButton);
+        CommonUtils.waitForVisibility(nativeViewAccessRequestPage.accessRequestIFrame);
+        CommonUtils.switchToFrame(nativeViewAccessRequestPage.accessRequestIFrame);
+        CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyParticipantsDetailsMenu);
+        CommonUtils.assertTrue(nativeViewCHARMSDashboardPage.rasStudyParticipantsDetailsMenu.getText()
+                .contains("Participant Details"));
         CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(charmsNativeViewPage.dynamicDashboardModuleLinkLocator("Eligibility Review Needed"));
-        CommonUtils.switchToNextWindow();
-        System.out.println("---- RETRIEVING DATA FROM EXCEL ----");
-        CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.firstName + ras_Screener_Constants.SPACE + ras_Screener_TestDataManager.lastName));
+        if (sheetName.contentEquals("screenerScenario1")) {
+            CommonUtils.waitForVisibility(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.firstName + " " + ras_Screener_TestDataManager.lastName));
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.firstName + " " + ras_Screener_TestDataManager.lastName));
+        } else if (sheetName.contentEquals("screenerScenario2")) {
+            CommonUtils.waitForVisibility(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.firstName + " " + ras_Screener_TestDataManager.lastName));
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.firstName + " " + ras_Screener_TestDataManager.lastName));
+        } else if (sheetName.contentEquals("screenerScenario3")) {
+            CommonUtils.waitForVisibility(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyFirst + " " + ras_Screener_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyLast));
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyFirst + " " + ras_Screener_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyLast));
+        } else if (sheetName.contentEquals("screenerScenario4")) {
+            CommonUtils.waitForVisibility(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyFirst + " " + ras_Screener_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyLast));
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator(ras_Screener_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyFirst + " " + ras_Screener_TestDataManager.whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyLast));
+        }
+        MiscUtils.sleep(1000);
         System.out.println("---- VERIFYING PARTICIPANT RECORD PREVIEW DATA ----");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.firstNameRecordPreviewField), ras_Screener_TestDataManager.firstName, "-- VERIFYING PREVIEW RECORD FIRST NAME --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.lastNameRecordPreviewField), ras_Screener_TestDataManager.lastName, "-- VERIFYING PREVIEW RECORD LAST NAME --");
@@ -1912,7 +1913,10 @@ public class RasScenario1StepsImpl extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactHomePhoneRecordPreviewField), ras_Screener_TestDataManager.homePhoneNumber, "-- VERIFYING PREVIEW RECORD CONTACT HOME PHONE NUMBER --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactEmailRecordPreviewField), ras_Screener_TestDataManager.emailAddress, "-- VERIFYING PREVIEW RECORD CONTACT EMAIL ADDRESS --");
         CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(participantDetailsPage.openRecordButton);
+        if (CommonUtils.isElementDisplayed(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton)) {
+            CucumberLogUtils.logScreenshot();
+            CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        }
         System.out.println("---- VERIFYING PARTICIPANT NAME DATA ----");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.nameTextBox), ras_Screener_TestDataManager.firstName + ras_Screener_Constants.SPACE + ras_Screener_TestDataManager.lastName, "-- VERIFYING FULL NAME --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.firstNameTextBox), ras_Screener_TestDataManager.firstName, "-- VERIFYING FIRST NAME --");
@@ -1940,24 +1944,26 @@ public class RasScenario1StepsImpl extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactWorkPhone), ras_Screener_TestDataManager.workPhoneNumber, "-- VERIFYING CONTACT WORK PHONE --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactPreferredPhone), ras_Screener_TestDataManager.cellPhoneNumber, "-- VERIFYING PREFERRED PHONE --");
         CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(participantDetailsPage.medicalInformationTab);
-        System.out.println("---- VERIFYING PARTICIPANT MEDICAL INFORMATION DATA ----");
-        CommonUtils.verifyingDropDownValueIsSelected(participantDetailsPage.hasAPhysicianEverDiagnosedThisParticipantWithCancerDropDown, ras_Screener_TestDataManager.haveYouBeenDiagnosedWithCancer, "-- VERIFYING IF PARTICIPANT HAS BEEN DIAGNOSED WITH CANCER --");
-        rasScenario1StepsImpl.verifyingDropDownOption(participantDetailsPage.vitalStatusYesDropDownOption, "-- VERIFYING VITAL STATUS --");
-        CommonUtils.verifyingDropDownValueIsSelected(participantDetailsPage.hasTheParticipantEverHadGeneticTestingDropDown, ras_Screener_TestDataManager.haveYouEverHadGeneticTesting, "-- VERIFYING IF THE PARTICIPANT HAS HAD GENETIC TESTING --");
+        CommonUtils.clickOnElement(participantDetailsPage.participantStudiesTab);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(participantDetailsPage.rasopathyHistoryTab);
-        System.out.println("---- VERIFYING PARTICIPANT RASOPATHY HISTORY DATA ----");
-        CommonUtils.verifyingDropDownValueIsSelected(participantDetailsPage.haveYouBeenDiagnosedWithARasopathyDropDown, ras_Screener_TestDataManager.haveYouBeenDiagnosedWithARasopathy, "-- VERIFYING IF PARTICIPANT HAS BEEN DIAGNOSED WITH A RASOPATHY --");
-        CommonUtils.verifyingDropDownValueIsSelected(participantDetailsPage.haveAnyOfYourBiologicalRelativesBeenDiagnosedWithARasopathyDropDown, ras_Screener_TestDataManager.haveAnyOfYourBiologicalRelativesBeenDiagnosedWithARasopathy, "-- VERIFYING IF BIOLOGICAL RELATIVES HAVE BEEN DIAGNOSED WITH A RASOPATHY --");
+        CommonUtils.waitForVisibility(participantDetailsPage.participantStudiesInfoButton);
+        CommonUtils.clickOnElement(participantDetailsPage.participantStudiesInfoButton);
         CucumberLogUtils.logScreenshot();
+        CommonUtils.waitForClickability(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.waitForClickability(nativeViewCHARMSParticipantStudyPage.participantStudyScreenerInfoButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSParticipantStudyPage.participantStudyScreenerInfoButton);
         System.out.println("---- OPENING AND VERIFYING SCREENER RECORD DATA ----");
-        CommonUtils.clickOnElement(screenerRecordTablePage.referralPreviewButton);
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.screenerPreviewFamilyMemberRecordField), ras_Screener_TestDataManager.firstName + ras_Screener_Constants.SPACE + ras_Screener_TestDataManager.lastName, "-- VERIFYING SCREENER PREVIEW RECORD FAMILY MEMBER RECORD NAME --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.screenerPreviewContactEmailAddressField), ras_Screener_TestDataManager.emailAddress, "-- VERIFYING SCREENER PREVIEW RECORD CONTACT EMAIL ADDRESS FIELD --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.screenerPreviewStudyField), ras_Screener_Constants.RAS_STUDY, "-- VERIFYING SCREENER PREVIEW STUDY FIELD --");
         CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(screenerRecordTablePage.openRecordButton);
+        CommonUtils.waitForClickability(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+        CucumberLogUtils.logScreenshot();
+        rasScenario1StepsImpl.verifyingDropDownOption(participantDetailsPage.vitalStatusYesDropDownOption, "-- VERIFYING VITAL STATUS --");
+        CommonUtils.clickOnElement(screenerRecordTablePage.contactInformationButton);
         System.out.println("---- VERIFYING SCREENER RECORD NAME AND CONTACT INFORMATION DATA ----");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.screenerStudyField), ras_Screener_Constants.RAS_STUDY, "-- VERIFYING STUDY FIELD --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(screenerRecordTablePage.familyMemberRecordField), ras_Screener_TestDataManager.firstName + ras_Screener_Constants.SPACE + ras_Screener_TestDataManager.lastName, "-- VERIFYING FAMILY MEMBER RECORD FIELD --");

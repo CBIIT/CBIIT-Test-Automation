@@ -13,8 +13,8 @@ public class ScreenerRecordTablePage {
     public WebElement referralPreviewButton;
 
     /* OPEN RECORD BUTTON */
-    @FindBy(xpath = "//a[contains(text(),'Open Record')]")
-    public WebElement openRecordButton;
+    @FindBy(xpath = "//span[contains(text(),'Contact Information')]")
+    public WebElement contactInformationButton;
 
     /* SCREENER PREVIEW FAMILY MEMBER RECORD FIELD */
     @FindBy(xpath = "//input[@id='x_naci_family_coho_ras_referral.family_member_record_label']")
