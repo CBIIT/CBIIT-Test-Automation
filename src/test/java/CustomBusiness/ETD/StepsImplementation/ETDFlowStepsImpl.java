@@ -12,7 +12,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
+
 
 public class ETDFlowStepsImpl extends PageInitializer {
 
@@ -56,19 +56,19 @@ public class ETDFlowStepsImpl extends PageInitializer {
 
 	public void verifyContent(String content) {
 		if (content.equalsIgnoreCase("Home")) {
-			Assert.assertTrue(etdAdminNCIPage.titleHomeTab.isDisplayed());
+			CommonUtils.assertTrue(etdAdminNCIPage.titleHomeTab.isDisplayed());
 			MiscUtils.sleep(2000);
 			CucumberLogUtils.logScreenshot();
 		} else if (content.equalsIgnoreCase("About ETD")) {
-			Assert.assertTrue(etdAdminNCIPage.titleAboutETD.isDisplayed());
+			CommonUtils.assertTrue(etdAdminNCIPage.titleAboutETD.isDisplayed());
 			MiscUtils.sleep(2000);
 			CucumberLogUtils.logScreenshot();
 		} else if (content.equalsIgnoreCase("Manage ETD")) {
-			Assert.assertTrue(etdAdminNCIPage.organizationNCI.isDisplayed());
+			CommonUtils.assertTrue(etdAdminNCIPage.organizationNCI.isDisplayed());
 			MiscUtils.sleep(2000);
 			CucumberLogUtils.logScreenshot();
 		} else {
-			Assert.assertTrue(etdAdminNCIPage.titleManageRoles.isDisplayed());
+			CommonUtils.assertTrue(etdAdminNCIPage.titleManageRoles.isDisplayed());
 			MiscUtils.sleep(2000);
 			CucumberLogUtils.logScreenshot();
 		}
@@ -109,19 +109,19 @@ public class ETDFlowStepsImpl extends PageInitializer {
 
 	public void selectAlert(String alert) {
 		if (alert.equalsIgnoreCase("content of Tier1")) {
-			Assert.assertTrue(etdAdminNCIPage.tier1Alert.isDisplayed());
+			CommonUtils.assertTrue(etdAdminNCIPage.tier1Alert.isDisplayed());
 			MiscUtils.sleep(2000);
 			CucumberLogUtils.logScreenshot();
 		} else if (alert.equalsIgnoreCase("content of Tier2")) {
-			Assert.assertTrue(etdAdminNCIPage.tier2Alert.isDisplayed());
+			CommonUtils.assertTrue(etdAdminNCIPage.tier2Alert.isDisplayed());
 			MiscUtils.sleep(2000);
 			CucumberLogUtils.logScreenshot();
 		} else if (alert.equalsIgnoreCase("content of Tier3")) {
-			Assert.assertTrue(etdAdminNCIPage.tier3Alert.isDisplayed());
+			CommonUtils.assertTrue(etdAdminNCIPage.tier3Alert.isDisplayed());
 			MiscUtils.sleep(2000);
 			CucumberLogUtils.logScreenshot();
 		} else {
-			Assert.assertTrue(etdAdminNCIPage.tier3DAlert.isDisplayed());
+			CommonUtils.assertTrue(etdAdminNCIPage.tier3DAlert.isDisplayed());
 			MiscUtils.sleep(2000);
 			CucumberLogUtils.logScreenshot();
 		}
