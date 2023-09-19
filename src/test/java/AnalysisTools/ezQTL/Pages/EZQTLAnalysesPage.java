@@ -57,7 +57,11 @@ public class EZQTLAnalysesPage extends CommonUtils {
     public WebElement submitButton;
 
     /* This is the submit button */
-    @FindBy(xpath = "//p[contains(text(),'Your job was successfully submitted to the queue. You will recieve an email at kevin.matarodriguez@nih.gov with your results.')]")
+    @FindBy(xpath = "//p[contains(text(),'Your job was successfully submitted. You will recieve an email at kevin.matarodriguez@nih.gov with your results.')]")
+    // Your job was successfully submitted. You will recieve an email at
+    // kevin.matarodriguez@nih.gov with your results.
+    // p[contains(text(),'Your job was successfully submitted to the queue. You will
+    // recieve an email at kevin.matarodriguez@nih.gov with your results.')]
     public WebElement queueSubmissionConfirmationMessage;
 
     /* This is the public data check box for Association (QTL) Data */
@@ -172,7 +176,7 @@ public class EZQTLAnalysesPage extends CommonUtils {
      * This is the Download Results button on the Locus Download sub-tab on Analyses
      * tab
      */
-    @FindBy(xpath = "//button[contains(text(),'Download Results')]")
+    @FindBy(xpath = "//a[contains(text(),'Download Results')]")
     public WebElement downloadResultsButton;
 
     /*

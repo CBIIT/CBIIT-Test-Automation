@@ -44,8 +44,16 @@ public class AnalysesTabSteps extends PageInitializer {
         CommonUtils.clickOnElement(ezQTLAnalysesPage.submitButton);
     }
 
+    @Then("the {string} texts is displayed")
+    public void the_texts_is_displayed(String submittedConfirmation) {
+        System.out.println(ezQTLAnalysesPage.queueSubmissionConfirmationMessage.getText());
+        Assert.assertEquals(ezQTLAnalysesPage.queueSubmissionConfirmationMessage.getText(), submittedConfirmation);
+        MiscUtils.sleep(5000);
+    }
+
     @Then("the {string} text is displayed")
     public void the_text_is_displayed(String submittedConfirmation) {
+        MiscUtils.sleep(2000);
         System.out.println(ezQTLAnalysesPage.queueSubmissionConfirmationMessage.getText());
         Assert.assertEquals(ezQTLAnalysesPage.queueSubmissionConfirmationMessage.getText(), submittedConfirmation);
         MiscUtils.sleep(5000);
@@ -72,6 +80,7 @@ public class AnalysesTabSteps extends PageInitializer {
     @When("the user clicks on the Load Sample Data link")
     public void the_user_clicks_on_the_Load_Sample_Data_link() {
         CommonUtils.clickOnElement(ezQTLAnalysesPage.loadSampleDataLink);
+        MiscUtils.sleep(1000);
     }
 
     @Then("the {string}, {string}, {string}, {string}, {string}, {string}, {string} text is displayed")
@@ -102,6 +111,7 @@ public class AnalysesTabSteps extends PageInitializer {
         CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
         CommonUtils.waitForClickability(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
+        MiscUtils.sleep(1000);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.selectFirstChromosomeDropDown21Value);
         MiscUtils.sleep(2000);
         CommonUtils.sendKeys(ezQTLAnalysesPage.firstPositionTextBox, "42743496");
@@ -109,6 +119,7 @@ public class AnalysesTabSteps extends PageInitializer {
         CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectSecondChromosomeDropDown);
         CommonUtils.waitForClickability(ezQTLAnalysesPage.selectSecondChromosomeDropDown);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.selectSecondChromosomeDropDown);
+        MiscUtils.sleep(1000);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.selectSecondChromosomeDropDown21Value);
         MiscUtils.sleep(2000);
         CommonUtils.sendKeys(ezQTLAnalysesPage.secondPositionTextBox, "42743496");
@@ -116,6 +127,7 @@ public class AnalysesTabSteps extends PageInitializer {
         CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectThirdChromosomeDropDown);
         CommonUtils.waitForClickability(ezQTLAnalysesPage.selectThirdChromosomeDropDown);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.selectThirdChromosomeDropDown);
+        MiscUtils.sleep(1000);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.selectThirdChromosomeDropDown21Value);
         MiscUtils.sleep(2000);
         CommonUtils.sendKeys(ezQTLAnalysesPage.thirdPositionTextBox, "42743496");
@@ -123,6 +135,7 @@ public class AnalysesTabSteps extends PageInitializer {
         CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectFourthChromosomeDropDown);
         CommonUtils.waitForClickability(ezQTLAnalysesPage.selectFourthChromosomeDropDown);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.selectFourthChromosomeDropDown);
+        MiscUtils.sleep(1000);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.selectFourthChromosomeDropDown21Value);
         MiscUtils.sleep(2000);
         CommonUtils.sendKeys(ezQTLAnalysesPage.fourthPositionTextBox, "42743496");
@@ -130,8 +143,9 @@ public class AnalysesTabSteps extends PageInitializer {
         CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectFifthChromosomeDropDown);
         CommonUtils.waitForClickability(ezQTLAnalysesPage.selectFifthChromosomeDropDown);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.selectFifthChromosomeDropDown);
+        MiscUtils.sleep(1000);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.selectFifthChromosomeDropDown21Value);
-        MiscUtils.sleep(2000);
+        MiscUtils.sleep(1000);
         CommonUtils.sendKeys(ezQTLAnalysesPage.fifthPositionTextBox, "42743496");
         CommonUtils.clickOnElement(ezQTLAnalysesPage.submitJobtoQueueCheckbox);
         CommonUtils.sendKeys(ezQTLAnalysesPage.queueJobName, "Automation Job");
