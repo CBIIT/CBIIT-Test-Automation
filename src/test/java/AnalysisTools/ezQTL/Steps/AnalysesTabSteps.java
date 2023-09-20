@@ -11,6 +11,7 @@ import appsCommon.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.Keys;
 
 public class AnalysesTabSteps extends PageInitializer {
 
@@ -27,8 +28,8 @@ public class AnalysesTabSteps extends PageInitializer {
 
     @When("the user submits {string}, {string}, {string}, {string}, {string}. {string}, {string} {string}, {string}")
     public void the_user_submits(String associationData, String gwasData, String quantificationData,
-            String genotypeData, String ldData,
-            String qtlDistance, String snpNumber, String jobName, String queueEmail) {
+                                 String genotypeData, String ldData,
+                                 String qtlDistance, String snpNumber, String jobName, String queueEmail) {
         CommonUtils.sendKeys(ezQTLAnalysesPage.associationDataFileInput, associationData);
         CommonUtils.sendKeys(ezQTLAnalysesPage.gwasDataFileInput, gwasData);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.addQtlRawDataButton);
@@ -85,8 +86,8 @@ public class AnalysesTabSteps extends PageInitializer {
 
     @Then("the {string}, {string}, {string}, {string}, {string}, {string}, {string} text is displayed")
     public void the_text_is_displayed(String locusQC, String locusLD, String locusAlignment, String locusColocalization,
-            String locusTable,
-            String locusQuantification, String locusDownload) {
+                                      String locusTable,
+                                      String locusQuantification, String locusDownload) {
         CommonUtils.waitForClickability(ezQTLAnalysesPage.locusQcTab);
         CommonUtils.assertEquals(ezQTLAnalysesPage.locusQcTab.getText(), locusQC);
         CommonUtils.waitForClickability(ezQTLAnalysesPage.locusLdTab);
@@ -175,5 +176,42 @@ public class AnalysesTabSteps extends PageInitializer {
 
     @Then("the {string} link is displayed")
     public void the_link_is_displayed(String string) {
+    }
+
+    @When("the user submits {string}, {string}, {string}, {string}, {string}, {int} times")
+    public void the_user_submits_times(String ezQTLAssociationData, String qtlDistance, String position, String jobName, String jobEmail, int loops) {
+        for (int i = 0; i < loops; i++) {
+            CommonUtils.sendKeys(ezQTLAnalysesPage.associationDataFileInput, ezQTLAssociationData);
+            MiscUtils.sleep(1000);
+            CommonUtils.clickOnElement(ezQTLAnalysesPage.publicGwasSourceDataCheckBox);
+            MiscUtils.sleep(3000);
+            CommonUtils.clickOnElement(ezQTLAnalysesPage.publicGwasSourceDataProjectTextbox);
+            CommonUtils.clickOnElement(ezQTLAnalysesPage.educationalAttainmentOkBay2016ValueOnGwasDropdown);
+            CommonUtils.clickOnElement(ezQTLAnalysesPage.publicLdPublicDataCheckBox);
+            CommonUtils.sendKeys(ezQTLAnalysesPage.qtlDistanceInput, qtlDistance);
+            CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectEducationalFirstChromosomeDropDown);
+            CommonUtils.waitForClickability(ezQTLAnalysesPage.selectEducationalFirstChromosomeDropDown);
+            CommonUtils.clickOnElement(ezQTLAnalysesPage.selectEducationalFirstChromosomeDropDown);
+            MiscUtils.sleep(1000);
+            CommonUtils.clickOnElement(ezQTLAnalysesPage.selectFirstChromosomeDropDown8Value);
+            MiscUtils.sleep(2000);
+            CommonUtils.sendKeys(ezQTLAnalysesPage.firstPositionTextBox, position);
+            CommonUtils.clickOnElement(ezQTLAnalysesPage.submitJobtoQueueCheckbox);
+            MiscUtils.sleep(1000);
+            CommonUtils.sendKeys(ezQTLAnalysesPage.queueJobName, jobName + " " +i);
+            CommonUtils.sendKeys(ezQTLAnalysesPage.queueEmail, jobEmail);
+            MiscUtils.sleep(2000);
+            if (i < loops) {
+                CommonUtils.clickOnElement(ezQTLAnalysesPage.submitButton);
+                CommonUtils.waitForClickability(ezQTLAnalysesPage.queueSubmissionConfirmationMessageCloseButton);
+                CommonUtils.clickOnElement(ezQTLAnalysesPage.queueSubmissionConfirmationMessageCloseButton);
+                CommonUtils.clickOnElement(ezQTLAnalysesPage.resetButton);
+                MiscUtils.sleep(1000);
+            } else if (i == loops) {
+                break;
+            } else {
+                System.err.println("SOMETHING ELSE WENT WRONG");
+            }
+        }
     }
 }

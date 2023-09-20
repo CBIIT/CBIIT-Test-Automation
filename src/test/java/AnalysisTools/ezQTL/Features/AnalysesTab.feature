@@ -3,7 +3,7 @@ Feature: Scenarios under the Analyses tab on ezQTL
     @Smoke @matakevin
     Scenario:Submitting queue using User provided sample files
         Given The user is on the ezQTL Analyses page
-        When the user submits "/Users/matarodriguezko/CBIIT-Test-Automation/src/test/resources/ezQTLResources/MX2.eQTL.txt", "/Users/matarodriguezko/CBIIT-Test-Automation/src/test/resources/ezQTLResources/MX2.GWAS.txt", "/Users/matarodriguezko/CBIIT-Test-Automation/src/test/resources/ezQTLResources/MX2.quantification.txt", "/Users/matarodriguezko/CBIIT-Test-Automation/src/test/resources/ezQTLResources/MX2.genotyping.txt", "/Users/matarodriguezko/CBIIT-Test-Automation/src/test/resources/ezQTLResources/MX2.LD.gz". "100", "" "Automation Job", "kevin.matarodriguez@nih.gov"
+        When the user submits "/Users/matarodriguezko/CBIIT-Test-Automation/src/test/resources/ezQTLResources/MX2.eQTL.txt", "/Users/matarodriguezko/CBIIT-Test-Automation/src/test/resources/ezQTLResources/MX2.GWAS.txt", "/Users/matarodriguezko/CBIIT-Test-Automation/src/test/resources/ezQTLResources/MX2.quantification.txt", "/Users/matarodriguezko/CBIIT-Test-Automation/src/test/resources/ezQTLResources/MX2.genotyping.txt", "/Users/matarodriguezko/CBIIT-Test-Automation/src/test/resources/ezQTLResources/MX2.LD.gz", "100", "" "Automation Job", "kevin.matarodriguez@nih.gov"
         Then the "Your job was successfully submitted. You will recieve an email at kevin.matarodriguez@nih.gov with your results." text is displayed
 
     @Smoke @matakevin
@@ -43,3 +43,9 @@ Feature: Scenarios under the Analyses tab on ezQTL
         Given The user is on the ezQTL Analyses page
         When the user clicks on the Load Sample Data link
         And recalculates on the Locus LD
+
+    @Progression @matakevin
+    Scenario:Submitting queue using User provided sample files
+        Given The user is on the ezQTL Analyses page
+        When the user submits "/Users/matarodriguezko/Downloads/SLC52A2_eQTL_res_for_ezQTL_Female.txt", "1000", "145577796", "Long Running Job", "kevin.matarodriguez@nih.gov", 30 times
+        Then the "Your job was successfully submitted. You will recieve an email at kevin.matarodriguez@nih.gov with your results." text is displayed

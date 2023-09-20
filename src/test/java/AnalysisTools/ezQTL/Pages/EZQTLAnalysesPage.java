@@ -40,6 +40,10 @@ public class EZQTLAnalysesPage extends CommonUtils {
     @FindBy(xpath = "//input[@id='qtls-snp-input']")
     public WebElement snpNumberInput;
 
+//    /* This is the text box for Position Number Input */
+//    @FindBy(xpath = "//input[@name='locusInformation.0.select_position']")
+//    public WebElement positionNumberInput;
+
     /* This is the check box */
     @FindBy(xpath = "//input[@id='toggleQueue']")
     public WebElement submitJobtoQueueCheckbox;
@@ -56,17 +60,29 @@ public class EZQTLAnalysesPage extends CommonUtils {
     @FindBy(xpath = "//button[contains(text(),'Submit')]")
     public WebElement submitButton;
 
-    /* This is the submit button */
+    /* This is the Reset button */
+    @FindBy(xpath = "//button[contains(text(),'Reset')]")
+    public WebElement resetButton;
+
+    /* This is the successful submission confirmation popup */
     @FindBy(xpath = "//p[contains(text(),'Your job was successfully submitted. You will recieve an email at kevin.matarodriguez@nih.gov with your results.')]")
-    // Your job was successfully submitted. You will recieve an email at
-    // kevin.matarodriguez@nih.gov with your results.
-    // p[contains(text(),'Your job was successfully submitted to the queue. You will
-    // recieve an email at kevin.matarodriguez@nih.gov with your results.')]
     public WebElement queueSubmissionConfirmationMessage;
 
-    /* This is the public data check box for Association (QTL) Data */
+    /* This is the successful submission popup close button */
+    @FindBy(xpath = "//button[contains(text(),'Close')]")
+    public WebElement queueSubmissionConfirmationMessageCloseButton;
+
+    /* This is the public data check box for GWAS Data */
     @FindBy(xpath = "//input[@id='gwasSource']")
     public WebElement publicGwasSourceDataCheckBox;
+
+    /* This is the public data check box for GWAS Data Project text box */
+    @FindBy(xpath = "//div[contains(text(),'GWAS_2-Hour-Glucose_Saxena_2010')]")
+    public WebElement publicGwasSourceDataProjectTextbox;
+
+    /* This is the public data check box for GWAS Data Project text box */
+    @FindBy(xpath = "//div[contains(text(),'GWAS_Educational-Attainment_Okbay_2016')]")
+    public WebElement educationalAttainmentOkBay2016ValueOnGwasDropdown;
 
     /* This is the public data check box for GWAS Data */
     @FindBy(xpath = "//input[@id='ldPublic']")
@@ -79,6 +95,10 @@ public class EZQTLAnalysesPage extends CommonUtils {
     /* This is the first Chromosome drop down */
     @FindBy(xpath = "(//div[@class=' css-1hwfws3'])[9]")
     public WebElement selectFirstChromosomeDropDown;
+
+    /* This is the first Chromosome drop down when selecting education value */
+    @FindBy(xpath = "(//div[@class=' css-1hwfws3'])[6]")
+    public WebElement selectEducationalFirstChromosomeDropDown;
 
     /* This is the second Chromosome drop down */
     @FindBy(xpath = "(//div[@class=' css-1hwfws3'])[10]")
@@ -99,6 +119,10 @@ public class EZQTLAnalysesPage extends CommonUtils {
     /* This is the chromosome 21 value on the first Chromosome drop down */
     @FindBy(xpath = "(//div[contains(text(),'21')])[1]")
     public WebElement selectFirstChromosomeDropDown21Value;
+
+    /* This is the chromosome 8 value on the first Chromosome drop down */
+    @FindBy(xpath = "(//div[contains(text(),'8')])[1]")
+    public WebElement selectFirstChromosomeDropDown8Value;
 
     /* This is the chromosome 21 value on the second Chromosome drop down */
     @FindBy(xpath = "(//div[contains(text(),'21')])[2]")
