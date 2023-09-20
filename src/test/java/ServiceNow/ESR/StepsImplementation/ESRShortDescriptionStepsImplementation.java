@@ -9,6 +9,7 @@ public class ESRShortDescriptionStepsImplementation extends PageInitializer {
         esrTicketCreationPage.linkToNewESRTicket.click();
         String actualIDField = esrShortDescriptionPage.esrIDFieldText.getText();
         CommonUtils.assertEquals(actualIDField, expectedIDField);
-
+        String actualStageField = esrShortDescriptionPage.stageFieldText.getText();
+        CommonUtils.assertEquals(actualIDField, expectedStageField);
     }
 }
