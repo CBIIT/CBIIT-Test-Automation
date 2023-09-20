@@ -15,5 +15,4 @@ public class ESRShortDescriptionSteps extends PageInitializer {
     public void user_goes_into_the_new_esr_ticket_and_confirms_the_fields_and(String expectedIDField, String expectedProjectField) {
         ESRShortDescriptionStepsImplementation.findShortDescriptionFieldsTwo(expectedIDField, expectedProjectField);
     }
-
 }
