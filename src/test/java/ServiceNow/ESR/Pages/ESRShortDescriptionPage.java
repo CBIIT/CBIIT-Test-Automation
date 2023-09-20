@@ -17,4 +17,8 @@ public class ESRShortDescriptionPage {
     /** Stage field in short description on RITM */
     @FindBy(xpath = "//label[@for='sys_readonly.sc_req_item.u_esr_correlation_id']//span[@data-html='false']")
     public WebElement stageFieldText;
+
+    /** Project Name field in short description */
+    @FindBy(xpath = "//span[@aria-label='Project Name']")
+    public WebElement projectNameFieldText;
 }
