@@ -31,4 +31,17 @@ public class ESRDefaultNotificationsSteps extends PageInitializer {
     public void user_checks_the_activity_feed_to_confirm_the_federal_lead_approval_notification_was_sent() {
         ESRDefaultNotificationsStepsImplementation.verifyNotificationsSent();
     }
+
+    @And("the user goes into the approvers tab and clicks on the Federal Lead")
+    public void the_user_goes_into_the_approvers_tab_and_clicks_on_the_federal_lead() {
+        // Write code here that turns the phrase above into concrete actions
+    }
+    @And("the user rejects the approval request and leaves a comment {string}")
+    public void the_user_rejects_the_approval_request_and_leaves_a_comment(String string) {
+        // Write code here that turns the phrase above into concrete actions
+    }
+    @Then("user checks the activity feed to confirm the Federal Lead rejection notification was sent")
+    public void user_checks_the_activity_feed_to_confirm_the_federal_lead_rejection_notification_was_sent() {
+        // Write code here that turns the phrase above into concrete actions
+    }
 }

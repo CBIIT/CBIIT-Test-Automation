@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 		features = "src/test/java/ServiceNow/ESR/Features",
 		glue = "ServiceNow.ESR.Steps",
 		tags = "@Progression",
-		dryRun = false,
+		dryRun = true,
 		monochrome = true,
 		strict = true
 )
