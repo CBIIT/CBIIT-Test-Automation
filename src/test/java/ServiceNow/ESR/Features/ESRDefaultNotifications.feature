@@ -10,7 +10,7 @@ Feature: ESR Default Notifications
     Then user checks the activity feed and confirms request notification is sent
 
   @ESR-580 @ESR-578 @Regression @sarwarahmed1
-  Scenario: Test a submitted request notification for the creation of an ESR ticket
+  Scenario: Test a Federal Lead request and approval notification
     Given a user logs in with valid credentials for Native View on the NCI at your service page "nativeViewSideDoor"
     And user searches "ESR" in the filter bar
     And the user clicks on create ESR
@@ -20,7 +20,7 @@ Feature: ESR Default Notifications
     Then user checks the activity feed to confirm the Federal Lead approval notification was sent
 
   @ESR-581 @Progression @sarwarahmed1
-  Scenario: Test a submitted request notification for the creation of an ESR ticket
+  Scenario: Test a Federal Lead rejection notification
     Given a user logs in with valid credentials for Native View on the NCI at your service page "nativeViewSideDoor"
     And user searches "ESR" in the filter bar
     And the user clicks on create ESR
