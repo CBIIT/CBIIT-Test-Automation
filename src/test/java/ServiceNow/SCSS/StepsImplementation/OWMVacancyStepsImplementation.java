@@ -23,6 +23,9 @@ public class OWMVacancyStepsImplementation extends PageInitializer {
         } else if (position.equals("Senior Scientific Officer")) {
             CommonUtils.clickOnElement(owmVacancyPage.positionClassificationDropdown);
             CommonUtils.clickOnElement(owmVacancyPage.positionSeniorScientificOfficer);
+        } else if (position.equals("Senior Investigator")) {
+            CommonUtils.clickOnElement(owmVacancyPage.positionClassificationDropdown);
+            CommonUtils.clickOnElement(stadtmanVacancyPage.positionSeniorInvestigator);
         } else {
             CommonUtils.clickOnElement(owmVacancyPage.positionClassificationDropdown);
             CommonUtils.clickOnElement(owmVacancyPage.positionScientificDirector);
@@ -36,6 +39,9 @@ public class OWMVacancyStepsImplementation extends PageInitializer {
         } else if (code.equals("HNC1")) {
             CommonUtils.clickOnElement(owmVacancyPage.orgFieldDropdown);
             CommonUtils.clickOnElement(owmVacancyPage.orgHNC1);
+        } else if (code.equals("HNA")) {
+            CommonUtils.clickOnElement(owmVacancyPage.orgFieldDropdown);
+            CommonUtils.clickOnElement(stadtmanVacancyPage.orgHNA);
         } else {
             CommonUtils.clickOnElement(owmVacancyPage.orgFieldDropdown);
             CommonUtils.clickOnElement(owmVacancyPage.orgHNC14);
@@ -56,26 +62,18 @@ public class OWMVacancyStepsImplementation extends PageInitializer {
     }
 
     public void addChair(String person) {
-        switch (person) {
-            case "David Rampulla":
                 CommonUtils.clickOnElement(owmVacancyPage.addMemberButton);
                 CommonUtils.clickOnElement(owmVacancyPage.selectComMemberDropdown);
                 CommonUtils.clickOnElement(owmVacancyPage.committeeMember(person));
                 CommonUtils.clickOnElement(owmVacancyPage.actionSaveButton);
-                break;
-        }
     }
 
     public void addExecutiveSecretary(String member) {
-        switch (member) {
-            case "Jason Levine":
                 CommonUtils.clickOnElement(owmVacancyPage.addMemberButton);
                 CommonUtils.clickOnElement(owmVacancyPage.selectComMemberDropdown);
                 CommonUtils.clickOnElement(owmVacancyPage.committeeMember(member));
                 CommonUtils.clickOnElement(owmVacancyPage.roleDropdownMemberVoting);
                 CommonUtils.clickOnElement(owmVacancyPage.exeSecretaryRole);
                 CommonUtils.clickOnElement(owmVacancyPage.actionSaveButton);
-                break;
-        }
     }
 }

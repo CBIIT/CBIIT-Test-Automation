@@ -1,30 +1,27 @@
 package CustomBusiness.ETD.StepsImplementation;
 
-import java.util.List;
-
-import CustomBusiness.ETD.Steps.HooksSteps;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
+import appsCommon.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.EncryptionUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import appsCommon.PageInitializer;
+import java.util.List;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+
 
 public class ETDFlowStepsImpl extends PageInitializer {
 
 	public void etdLogin(String userName) throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ETD"));
-		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "Username");
-		iTrustloginPage.enterPassword("Password");
+		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "nekrashevicha2Username");
 		MiscUtils.sleep(3000);
+		iTrustloginPage.enterPassword("nekrashevicha2Password");
+		MiscUtils.sleep(5000);
 		iTrustloginPage.clickSignInButton();
 		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(etdAdminNCIPage.changeUserButtonNCI);
@@ -33,13 +30,13 @@ public class ETDFlowStepsImpl extends PageInitializer {
 		CommonUtils.clickOnElement(etdAdminNCIPage.inputFieldChangeUser);
 		MiscUtils.sleep(4000);
 		CommonUtils.sendKeys(etdAdminNCIPage.inputFieldChangeUser, userName);
-		//JavascriptUtils.enterValueByJS(etdAdminNCIPage.inputFieldChangeUser, userName);
 		MiscUtils.sleep(4000);
 		CucumberLogUtils.logScreenshot();
 		CommonUtils.clickOnElement(etdAdminNCIPage.dropdownChangeUser);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.logScreenshot();
 	}
+
 
 	public void selectTab(String tab) {
 		if (tab.equalsIgnoreCase("Home")) {
@@ -59,19 +56,19 @@ public class ETDFlowStepsImpl extends PageInitializer {
 
 	public void verifyContent(String content) {
 		if (content.equalsIgnoreCase("Home")) {
-			Assert.assertTrue(etdAdminNCIPage.titleHomeTab.isDisplayed());
+			CommonUtils.assertTrue(etdAdminNCIPage.titleHomeTab.isDisplayed());
 			MiscUtils.sleep(2000);
 			CucumberLogUtils.logScreenshot();
 		} else if (content.equalsIgnoreCase("About ETD")) {
-			Assert.assertTrue(etdAdminNCIPage.titleAboutETD.isDisplayed());
+			CommonUtils.assertTrue(etdAdminNCIPage.titleAboutETD.isDisplayed());
 			MiscUtils.sleep(2000);
 			CucumberLogUtils.logScreenshot();
 		} else if (content.equalsIgnoreCase("Manage ETD")) {
-			Assert.assertTrue(etdAdminNCIPage.organizationNCI.isDisplayed());
+			CommonUtils.assertTrue(etdAdminNCIPage.organizationNCI.isDisplayed());
 			MiscUtils.sleep(2000);
 			CucumberLogUtils.logScreenshot();
 		} else {
-			Assert.assertTrue(etdAdminNCIPage.titleManageRoles.isDisplayed());
+			CommonUtils.assertTrue(etdAdminNCIPage.titleManageRoles.isDisplayed());
 			MiscUtils.sleep(2000);
 			CucumberLogUtils.logScreenshot();
 		}
@@ -112,19 +109,19 @@ public class ETDFlowStepsImpl extends PageInitializer {
 
 	public void selectAlert(String alert) {
 		if (alert.equalsIgnoreCase("content of Tier1")) {
-			Assert.assertTrue(etdAdminNCIPage.tier1Alert.isDisplayed());
+			CommonUtils.assertTrue(etdAdminNCIPage.tier1Alert.isDisplayed());
 			MiscUtils.sleep(2000);
 			CucumberLogUtils.logScreenshot();
 		} else if (alert.equalsIgnoreCase("content of Tier2")) {
-			Assert.assertTrue(etdAdminNCIPage.tier2Alert.isDisplayed());
+			CommonUtils.assertTrue(etdAdminNCIPage.tier2Alert.isDisplayed());
 			MiscUtils.sleep(2000);
 			CucumberLogUtils.logScreenshot();
 		} else if (alert.equalsIgnoreCase("content of Tier3")) {
-			Assert.assertTrue(etdAdminNCIPage.tier3Alert.isDisplayed());
+			CommonUtils.assertTrue(etdAdminNCIPage.tier3Alert.isDisplayed());
 			MiscUtils.sleep(2000);
 			CucumberLogUtils.logScreenshot();
 		} else {
-			Assert.assertTrue(etdAdminNCIPage.tier3DAlert.isDisplayed());
+			CommonUtils.assertTrue(etdAdminNCIPage.tier3DAlert.isDisplayed());
 			MiscUtils.sleep(2000);
 			CucumberLogUtils.logScreenshot();
 		}

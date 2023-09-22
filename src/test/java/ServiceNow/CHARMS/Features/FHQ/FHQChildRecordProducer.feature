@@ -3,7 +3,7 @@ Feature: All FHQ Child Record Producers submisiion and verification in the FHQ S
   
   Description: This feature file contains all scenarios which verify questionnaires for all FHQ Child Record Producers submisiion and verification
 
-  @jains @FHQRegression
+  @jains 
   Scenario: FHQ Child Record
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -37,7 +37,7 @@ Feature: All FHQ Child Record Producers submisiion and verification in the FHQ S
     And click the new Child added and verify the completed record producer data
     And click the FHQ Home button
     
-      @jains @FHQRegression
+      @jains
   Scenario: FHQ Child Record
     Given a proband is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -47,7 +47,7 @@ Feature: All FHQ Child Record Producers submisiion and verification in the FHQ S
     And click the new Child added and verify the completed record producer data
       And click the FHQ Home button
 
-  @jains @FHQRegression
+  @jains 
   Scenario: FHQ Parent Record
     Given a proband is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -56,7 +56,7 @@ Feature: All FHQ Child Record Producers submisiion and verification in the FHQ S
     And user clicks the Children Grid link on FHQ Grid page to land on the FHQ Childs list view page
     And click the new Child added and verify the completed record producer data
 
-  @jains @FHQRegression
+  @jains 
   Scenario: FHQ Child Record
     Given a user is logged on FHQ Landing Page after filling out patient data using the Test Account credentials in Test side door login page
     And user clicks the Children Grid link on FHQ Grid page to land on the FHQ Childs list view page
