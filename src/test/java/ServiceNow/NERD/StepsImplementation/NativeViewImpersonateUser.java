@@ -112,7 +112,7 @@ public class NativeViewImpersonateUser extends PageInitializer {
         MiscUtils.sleep(5000);
         nativeViewImpersonateUserPage.nativeViewLink.click();
         MiscUtils.sleep(2000);
-//        CucumberLogUtils.logScreenshot();
+        CucumberLogUtils.logScreenshot();
     }
 
     public void impersonateAdminUser() throws TestingException {
@@ -128,8 +128,9 @@ public class NativeViewImpersonateUser extends PageInitializer {
         MiscUtils.sleep(3000);
         nativeViewDashPage.enterTextImpersntSearchBox(GCPNotifications_NativeView_Constants.ADMIN_USER_EMAIL);
         MiscUtils.sleep(5000);
+        CucumberLogUtils.logScreenshot();
         nativeViewImpersonateUserPage.nativeViewLink.click();
         MiscUtils.sleep(2000);
-//        CucumberLogUtils.logScreenshot();
+        CucumberLogUtils.logScreenshot();
     }
 }

@@ -179,4 +179,8 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
     public static void thereIsNoFieldCalled(String barcode) {
         CommonUtils.assertTrue(!barcode.equals(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberLabel.getText()));
     }
+
+    public static void thereIsAFieldCalledStatus(){
+
+    }
 }

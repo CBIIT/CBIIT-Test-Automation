@@ -66,7 +66,6 @@ public class NerdOGCREntryPageStepsImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
-    @Given("clicks the {string} Drop down filter")
     public static void clicksTheDropDownFilter(String memberOfCongress) {
         MiscUtils.sleep(5000);
         CommonUtils.assertTrue(
@@ -88,6 +87,7 @@ public class NerdOGCREntryPageStepsImplementation extends PageInitializer {
             try {
                 String actualCongressPersonInfo = NERDOGCRAddNewEntryPage.nerdOgsrNewEntryCongressPersonInfo("" + i).getText();
                 JavascriptUtils.scrollIntoView(NERDOGCRAddNewEntryPage.nerdOgsrNewEntryCongressPersonInfo("" + i));
+                System.out.println(actualCongressPersonInfo);
                 i++;
                 formCongressPeopleList.add(actualCongressPersonInfo);
             } catch (NoSuchElementException e) {
@@ -121,6 +121,7 @@ public class NerdOGCREntryPageStepsImplementation extends PageInitializer {
                 String[] portalCongressPerson = actualPortalCongressPersonInfo.split("\\)");
                 JavascriptUtils.scrollIntoView(NERDOGCRAddNewEntryPage.nerdOgcrPortalPageMemberOfCongressFilterDropDownValues("" + i));
                 formPortalCongressPeopleList.add(portalCongressPerson[0].trim() + ")");
+                System.out.println(portalCongressPerson[0].trim() + ")");
                 JavascriptUtils.drawBlueBorder(NERDOGCRAddNewEntryPage.nerdOgcrPortalPageMemberOfCongressFilterDropDownValues("" + i));
                 i++;
             } catch (NoSuchElementException e) {
@@ -144,6 +145,8 @@ public class NerdOGCREntryPageStepsImplementation extends PageInitializer {
                 v++;
             }
             CommonUtils.assertTrue(v == 1);
+//            CucumberLogUtils.logScreenshot();
         }
+        CucumberLogUtils.logScreenshot();
     }
 }
