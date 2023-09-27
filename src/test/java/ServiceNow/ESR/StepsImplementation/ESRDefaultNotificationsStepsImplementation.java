@@ -77,6 +77,5 @@ public class ESRDefaultNotificationsStepsImplementation extends PageInitializer 
         esrTicketCreationPage.additionalCommentFieldInRequestedItem.sendKeys(testComment);
         esrTicketCreationPage.additionalCommentPostButton.click();
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(3000);
     }
 }
