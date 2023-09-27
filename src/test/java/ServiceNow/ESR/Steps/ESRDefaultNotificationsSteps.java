@@ -44,4 +44,9 @@ public class ESRDefaultNotificationsSteps extends PageInitializer {
     public void user_checks_the_activity_feed_to_confirm_the_federal_lead_rejection_notification_was_sent() {
         ESRDefaultNotificationsStepsImplementation.rejectionNotificationSent();
     }
+
+    @Then("user submits an additional comment {string} on the requested item and confirms the notification")
+    public void user_submits_an_additional_comment_on_the_requested_item_and_confirms_the_notification(String testComment) {
+        ESRDefaultNotificationsStepsImplementation.additionalCommentAddedOnRequestedItem(testComment);
+    }
 }

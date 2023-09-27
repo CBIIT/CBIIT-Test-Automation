@@ -122,4 +122,12 @@ public class ESRTicketCreationPage {
     /** Additional comments section on catalog task for approvers */
     @FindBy(xpath = "//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']")
     public WebElement additionalCommentField;
+
+    /** Additional comments section on requested item */
+    @FindBy(xpath = "//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Additional comments (Customer visible)']")
+    public WebElement additionalCommentFieldInRequestedItem;
+
+    /** Post button for additional comment on Requested Item */
+    @FindBy(xpath = "//button[@ng-keypress='submitCheck($event)']")
+    public WebElement additionalCommentPostButton;
 }

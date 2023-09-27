@@ -70,4 +70,13 @@ public class ESRDefaultNotificationsStepsImplementation extends PageInitializer 
         esrTicketCreationPage.notesTabESRTicket.click();
         CucumberLogUtils.logScreenshot();
     }
+
+    public static void additionalCommentAddedOnRequestedItem(String testComment) {
+        esrTicketCreationPage.linkToNewESRTicket.click();
+        esrTicketCreationPage.notesTabESRTicket.click();
+        esrTicketCreationPage.additionalCommentFieldInRequestedItem.sendKeys(testComment);
+        esrTicketCreationPage.additionalCommentPostButton.click();
+        CucumberLogUtils.logScreenshot();
+        MiscUtils.sleep(3000);
+    }
 }
