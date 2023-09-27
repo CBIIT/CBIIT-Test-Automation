@@ -95,4 +95,36 @@ public class ApplicantFlowStepsImplementation extends PageInitializer {
         CommonUtils.sendKeys(applicantFlowPage.fldZipProfile, Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
         CommonUtils.sendKeys(applicantFlowPage.fldZipProfile,zip);
     }
+
+    public void editSexChoice(){
+     if(applicantFlowPage.buttonMaleSex.isSelected()){
+           CommonUtils.clickOnElement(applicantFlowPage.buttonFemaleSex);
+       }else {
+           CommonUtils.clickOnElement(applicantFlowPage.buttonMaleSex);
+       }
+    }
+
+    public void editEthnicityChoice(){
+        if(applicantFlowPage.buttonHispanicOrLatino.isSelected()){
+            CommonUtils.clickOnElement(applicantFlowPage.buttonNotHispanicOrLatino);
+        }else {
+            CommonUtils.clickOnElement(applicantFlowPage.buttonHispanicOrLatino);
+        }
+    }
+
+    public void editRaceChoice(){
+        if(applicantFlowPage.buttonAmericanIndianAlaskaNative.isSelected()){
+            CommonUtils.clickOnElement(applicantFlowPage.buttonAsian);
+        }else {
+            CommonUtils.clickOnElement(applicantFlowPage.buttonAmericanIndianAlaskaNative);
+        }
+    }
+
+    public void editDisabilityChoice(){
+        if(applicantFlowPage.buttonBlind.isSelected()){
+            CommonUtils.clickOnElement(applicantFlowPage.buttonDeaf);
+        }else {
+            CommonUtils.clickOnElement(applicantFlowPage.buttonAmericanIndianAlaskaNative);
+        }
+    }
 }

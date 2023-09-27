@@ -26,3 +26,22 @@ Feature: Applicant Flow Scenarios
      Examples:
      | firstName | middleName | lastName | email           | phone      | businessPhone | address   | appNumber | city  | state | country  | zip   |
      | Mario     | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    |  7 Mills  | 12378     | Reston| VA    | UsA      | 20453 |
+
+
+  @Regression @Smoke @Nekrashevich @APPTRACK-712
+  Scenario: Edit Demographics of Profile
+    And User is on SCSS landing page
+    And User is on Profile tab
+    And User clicks Edit for "Demographics" section
+    And User chooses to share demographic details
+    And User edits sex choice
+    And User edits ethnicity choice
+    And User edits race choice
+    And User edits disability choice
+    And User saves the updated section
+    And User clicks Edit for "Demographics" section
+    And User chooses not to share demographic details
+    And User saves the updated section
+
+
+
