@@ -53,4 +53,21 @@ public class ESRDefaultNotificationsStepsImplementation extends PageInitializer 
         esrTicketCreationPage.notesTabESRTicket.click();
         CucumberLogUtils.logScreenshot();
     }
+
+    public static void clickFederalLeadApprover() {
+        esrTicketCreationPage.approverTab.click();
+        esrTicketCreationPage.federalLeadApprovalTask.click();
+        CucumberLogUtils.logScreenshot();
+    }
+
+    public static void rejectApprovalRequest(String testComment) {
+        CommonUtils.selectDropDownValue(esrTicketCreationPage.stateFieldApprovalTask, 6);
+        esrTicketCreationPage.additionalCommentField.sendKeys(testComment);
+        esrTicketCreationPage.updateButton.click();
+    }
+
+    public static void rejectionNotificationSent() {
+        esrTicketCreationPage.notesTabESRTicket.click();
+        CucumberLogUtils.logScreenshot();
+    }
 }
