@@ -5,7 +5,7 @@ Feature: Applicant Flow Scenarios
 
   @Regression @Smoke @Nekrashevich @APPTRACK-758
   Scenario Outline: Edit Basic Information of Profile
-    And User is on SCSS landing page
+    When User is on SCSS landing page
     And User is on Profile tab
     And User clicks Edit for "Basic Information" section
     And User inputs "<firstName>" into first name field
