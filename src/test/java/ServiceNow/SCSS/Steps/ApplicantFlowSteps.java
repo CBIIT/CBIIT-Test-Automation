@@ -92,4 +92,34 @@ public class ApplicantFlowSteps extends PageInitializer {
         CommonUtils.waitForVisibility(applicantFlowPage.buttonSave);
         CommonUtils.clickOnElement(applicantFlowPage.buttonSave);
     }
+
+    @Given("User edits sex choice")
+    public void user_edits_sex_choice() {
+       applicantFlowStepsImplementation.editSexChoice();
+    }
+
+    @Given("User edits ethnicity choice")
+    public void user_edits_ethnicity_choice() {
+        applicantFlowStepsImplementation.editEthnicityChoice();
+    }
+
+    @Given("User edits race choice")
+    public void user_edits_race_choice() {
+        applicantFlowStepsImplementation.editRaceChoice();
+    }
+
+    @Given("User edits disability choice")
+    public void user_edits_disability_choice() {
+        applicantFlowStepsImplementation.editDisabilityChoice();
+    }
+
+    @Given("User chooses not to share demographic details")
+    public void user_chooses_not_to_share_demographic_details() {
+        CommonUtils.clickOnElement(applicantFlowPage.buttonNotShareDemographics);
+    }
+
+    @Given("User chooses to share demographic details")
+    public void user_chooses_to_share_demographic_details() {
+        CommonUtils.clickOnElement(applicantFlowPage.buttonShareDemographics);
+    }
 }

@@ -5,7 +5,7 @@ Feature: Stadtman Vacancy Scenarios
 
   @Regression @Smoke @Nekrashevich @APPTRACK-892
   Scenario: Create a vacancy as Stadtman Vacancy Manager
-    And User is on SCSS landing page
+    When User is on SCSS landing page
     And User navigates to tab "Vacancy Dashboard"
     And User clicks button "Create vacancy"
     And User fills in Vacancy Title as "Project Manager"
