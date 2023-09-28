@@ -26,6 +26,26 @@ public class OWMVacancyPage  extends CommonUtils {
     @FindBy(xpath = "//*[contains(text(),'+ Create Vacancy')]")
     public WebElement createVacancyButton;
 
+    /** Basic Vacancy Information text **/
+    @FindBy(xpath = "//h3[normalize-space()='Basic Vacancy Information']")
+    public WebElement basicVacancyInformationText;
+
+    /** Mandatory Statements text **/
+    @FindBy(xpath = "//h3[normalize-space()='Mandatory Statements']")
+    public WebElement mandatoryStatementsText;
+
+    /** Vacancy Committee text **/
+    @FindBy(xpath = "//h3[normalize-space()='Vacancy Committee']")
+    public WebElement vacancyCommitteeText;
+
+    /** Email Templates text **/
+    @FindBy(xpath = "//h3[normalize-space()='Email Templates']")
+    public WebElement emailTemplatesText;
+
+    /** Review and Finalize text **/
+    @FindBy(xpath = "//h3[normalize-space()='Review and Finalize']")
+    public WebElement reviewAndFinalizeText;
+
     /** Vacancy Title field **/
     @FindBy(xpath = "//input[@id='BasicInfo_title']")
     public WebElement vacancyTitleField;
@@ -33,6 +53,18 @@ public class OWMVacancyPage  extends CommonUtils {
     /** Vacancy Description Field **/
     @FindBy(xpath = "(//div[@class='ql-editor ql-blank'])[1]")
     public WebElement vacancyDescriptionField;
+
+    /** Vacancy Open Date Text Box **/
+    @FindBy(xpath = "//*[@id='BasicInfo_openDate']")
+    public WebElement vacancyOpenDateTextBox;
+
+    /** Vacancy Close Date Text Box **/
+    @FindBy(xpath = "//*[@id='BasicInfo_closeDate']")
+    public WebElement vacancyCloseDateTextBox;
+
+    /** Vacancy Scoring Due Date Text Box **/
+    @FindBy(xpath = "//*[@id='BasicInfo_scoringDueByDate']")
+    public WebElement vacancyScoringDueDateTextBox;
 
     /** Basic Vacancy Open Date calendar table **/
     @FindBy(xpath = "//input[@id='BasicInfo_openDate']")
@@ -54,9 +86,31 @@ public class OWMVacancyPage  extends CommonUtils {
     @FindBy(xpath = "//input[@id='BasicInfo_applicationDocuments_1_isDocumentOptional']")
     public WebElement coverLetterOptionalCheckmark;
 
+    /** Curriculum Vitae Optional checkmark **/
+    @FindBy(xpath = "//input[@id='BasicInfo_applicationDocuments_0_isDocumentOptional']")
+    public WebElement curriculumVitaeOptionalCheckmark;
+
+    /** Qualification Statement Optional checkmark **/
+    @FindBy(xpath = "//input[@id='BasicInfo_applicationDocuments_3_isDocumentOptional']")
+    public WebElement qualificationStatementOptionalCheckmark;
+
+    /** Recommendations Slider**/
+    @FindBy(xpath = "//div[@role='slider']")
+    public WebElement recommendationsSlider;
+
     /** Position Classification Dropdown **/
     @FindBy(xpath = "//span//input[@id='BasicInfo_positionClassification']")
     public WebElement positionClassificationDropdown;
+
+    /** Position Classification Dropdown Option **/
+    public WebElement positionClassificationDropdownOption(String value) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//div[@class='ant-select-item-option-content'][normalize-space()='" + value + "']"));
+    }
+
+//    /** Position Classification Dropdown Option **/
+//    public WebElement organizationCodeDropdownOption(String value) {
+//        return WebDriverUtils.webDriver.findElement(By.xpath("//div[@class='ant-select-item-option-content'][normalize-space()='" + value + "']"));
+//    }
 
     /** Position Classification Dropdown Scientific Executive **/
     @FindBy(xpath = "(//div[contains(text(),'Scientific Executive')])[2]")
@@ -71,7 +125,7 @@ public class OWMVacancyPage  extends CommonUtils {
     public WebElement positionScientificDirector;
 
     /** Appointment Package Initiator **/
-    @FindBy(xpath = "(//span[@class='ant-select-selection-item'])[2]")
+    @FindBy(xpath = "//label[@for='BasicInfo_appointmentPackageIndicator']//parent::div//parent::div//child::div[2]//child::div//child::div//child::div//child::div//child::span[2]")
     public WebElement apptPackageInitiatorField;
 
     /** Organizational Field Dropdown **/
@@ -94,9 +148,61 @@ public class OWMVacancyPage  extends CommonUtils {
     @FindBy(xpath = "//div[@class='steps-action']//button//span[contains(text(),'Save')]")
     public WebElement saveButton;
 
+//    /** Add Member Button **/
+//    @FindBy(xpath = "//button[@class='ant-btn ant-btn-secondary AddButton']")
+//    public WebElement addMemberButton;
+
+    /** Save Member Button **/
+    @FindBy(xpath = "//button[@class='ant-btn ant-btn-link ActionButton']")
+    public WebElement saveNewMemberButton;
+
+    /** Committee Member One Dropdown **/
+    @FindBy(xpath = "//div[contains(@class,'css-1hwfws3')]")
+    public WebElement committeeMemberOneDropdown;
+
+    /** Committee Role One Dropdown **/
+    @FindBy(xpath = "//div[contains(@class,'css-1hwfws3')]")
+    public WebElement roleOneDropdown;
+
+    /** Committee Role Two Dropdown **/
+    @FindBy(xpath = "//span[@title='Member (voting)']")
+    public WebElement roleTwoDropdown;
+
+    /** At Least One Committee Member Text **/
+    @FindBy(xpath = "//*[@id='VacancyCommittee_vacancyCommitteeValidator_help']/div")
+    public WebElement atLeastOneCommitteeMemberText;
+
+    /** At Least One Email Template Text **/
+    @FindBy(xpath = "//*[@id='EmailTemplates_emailTemplatesValidator_help']/div")
+    public WebElement atLeastOneEmailTemplateText;
+
     /** Vacancy Committee Tab **/
     @FindBy(xpath = "//div[contains(text(),'Vacancy Committee')]")
     public WebElement vacCommiteeTab;
+
+    /** Mandatory Statement Equal Opportunity Employer Button **/
+    @FindBy(xpath = "//*[@id='MandatoryStatements_equalOpportunityEmployer']")
+    public WebElement mandatoryStatementEqualOpportunityEmployerButton;
+
+    /** Mandatory Statement Standards of Conduct Button **/
+    @FindBy(xpath = "//*[@id='MandatoryStatements_standardsOfConduct']")
+    public WebElement mandatoryStatementStandardsOfConductButton;
+
+    /** Application saved Button **/
+    @FindBy(xpath = "//*[@id='EmailTemplates_emailTemplates_0_active']")
+    public WebElement applicationSavedButton;
+
+    /** Application submitted confirmation Button **/
+    @FindBy(xpath = "//*[@id='EmailTemplates_emailTemplates_1_active']")
+    public WebElement applicationSubmittedButton;
+
+    /** Mandatory Statement Foreign Education Button **/
+    @FindBy(xpath = "//*[@id='MandatoryStatements_foreignEducation']")
+    public WebElement mandatoryStatementForeignEducationButton;
+
+    /** Mandatory Statement Reasonable Accommodation Button **/
+    @FindBy(xpath = "//*[@id='MandatoryStatements_reasonableAccomodation']")
+    public WebElement mandatoryStatementReasonableAccommodationButton;
 
     /** Review Finalize Tab **/
     @FindBy(xpath = "//div[contains(text(),'Review and Finalize')]")
@@ -147,4 +253,16 @@ public class OWMVacancyPage  extends CommonUtils {
     /** Close Confirmation Alert **/
     @FindBy(xpath = "//span[normalize-space()='Close']")
     public WebElement closeConfirmationAlert;
+
+    /** OK Confirmation Alert **/
+    @FindBy(xpath = "//span[normalize-space()='OK']")
+    public WebElement acceptConfirmationAlert;
+
+    /** Ready To Finalize Vacancy Text **/
+    @FindBy(xpath = "//h2[normalize-space()='Ready to finalize vacancy?']")
+    public WebElement readyToFinalizeVacancyText;
+
+    /** Vacancy Finalized Text **/
+    @FindBy(xpath = "//h2[normalize-space()='Vacancy finalized']")
+    public WebElement vacancyFinalizedText;
 }
