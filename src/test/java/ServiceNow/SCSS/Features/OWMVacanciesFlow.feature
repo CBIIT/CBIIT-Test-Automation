@@ -3,9 +3,9 @@ Feature: OWM Vacancy Scenarios
   Background: common steps
     Given User is on SCSS Landing page and user is "OWM Vacancy Manager"
 
-    @Regression @Smoke @Nekrashevich @APPTRACK-7
+    @Regression @Smoke @Nekrashevich @APPTRACK-711
     Scenario: Create a vacancy as OWM Vacancy Manager
-      And User is on SCSS landing page
+      When User is on SCSS landing page
       And User navigates to tab "Vacancy Dashboard"
       And User clicks button "Create vacancy"
       And User fills in Vacancy Title as "Project Manager"
