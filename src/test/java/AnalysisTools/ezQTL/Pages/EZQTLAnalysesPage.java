@@ -65,7 +65,7 @@ public class EZQTLAnalysesPage extends CommonUtils {
     public WebElement resetButton;
 
     /* This is the successful submission confirmation popup */
-    @FindBy(xpath = "//p[contains(text(),'Your job was successfully submitted. You will recieve an email at kevin.matarodriguez@nih.gov with your results.')]")
+    @FindBy(xpath = "//p[contains(text(),'Your job was successfully submitted. You will receive an email at kevin.matarodriguez@nih.gov with your results.')]")
     public WebElement queueSubmissionConfirmationMessage;
 
     /* This is the successful submission popup close button */

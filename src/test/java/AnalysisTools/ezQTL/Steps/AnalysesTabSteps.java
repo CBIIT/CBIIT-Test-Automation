@@ -27,9 +27,7 @@ public class AnalysesTabSteps extends PageInitializer {
     }
 
     @When("the user submits {string}, {string}, {string}, {string}, {string}. {string}, {string} {string}, {string}")
-    public void the_user_submits(String associationData, String gwasData, String quantificationData,
-                                 String genotypeData, String ldData,
-                                 String qtlDistance, String snpNumber, String jobName, String queueEmail) {
+    public void the_user_submits(String associationData, String gwasData, String quantificationData, String genotypeData, String ldData, String qtlDistance, String snpNumber, String jobName, String queueEmail) {
         CommonUtils.sendKeys(ezQTLAnalysesPage.associationDataFileInput, associationData);
         CommonUtils.sendKeys(ezQTLAnalysesPage.gwasDataFileInput, gwasData);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.addQtlRawDataButton);
@@ -85,9 +83,7 @@ public class AnalysesTabSteps extends PageInitializer {
     }
 
     @Then("the {string}, {string}, {string}, {string}, {string}, {string}, {string} text is displayed")
-    public void the_text_is_displayed(String locusQC, String locusLD, String locusAlignment, String locusColocalization,
-                                      String locusTable,
-                                      String locusQuantification, String locusDownload) {
+    public void the_text_is_displayed(String locusQC, String locusLD, String locusAlignment, String locusColocalization, String locusTable, String locusQuantification, String locusDownload) {
         CommonUtils.waitForClickability(ezQTLAnalysesPage.locusQcTab);
         CommonUtils.assertEquals(ezQTLAnalysesPage.locusQcTab.getText(), locusQC);
         CommonUtils.waitForClickability(ezQTLAnalysesPage.locusLdTab);
@@ -180,11 +176,11 @@ public class AnalysesTabSteps extends PageInitializer {
 
     @When("the user submits {string}, {string}, {string}, {string}, {string}, {int} times")
     public void the_user_submits_times(String ezQTLAssociationData, String qtlDistance, String position, String jobName, String jobEmail, int loops) {
-        for (int i = 0; i < loops; i++) {
+        for (int i = 1; i <= loops; i++) {
             CommonUtils.sendKeys(ezQTLAnalysesPage.associationDataFileInput, ezQTLAssociationData);
             MiscUtils.sleep(1000);
             CommonUtils.clickOnElement(ezQTLAnalysesPage.publicGwasSourceDataCheckBox);
-            MiscUtils.sleep(3000);
+            MiscUtils.sleep(1000);
             CommonUtils.clickOnElement(ezQTLAnalysesPage.publicGwasSourceDataProjectTextbox);
             CommonUtils.clickOnElement(ezQTLAnalysesPage.educationalAttainmentOkBay2016ValueOnGwasDropdown);
             CommonUtils.clickOnElement(ezQTLAnalysesPage.publicLdPublicDataCheckBox);
@@ -198,17 +194,47 @@ public class AnalysesTabSteps extends PageInitializer {
             CommonUtils.sendKeys(ezQTLAnalysesPage.firstPositionTextBox, position);
             CommonUtils.clickOnElement(ezQTLAnalysesPage.submitJobtoQueueCheckbox);
             MiscUtils.sleep(1000);
-            CommonUtils.sendKeys(ezQTLAnalysesPage.queueJobName, jobName + " " +i);
+            CommonUtils.sendKeys(ezQTLAnalysesPage.queueJobName, jobName + " " + i);
             CommonUtils.sendKeys(ezQTLAnalysesPage.queueEmail, jobEmail);
-            MiscUtils.sleep(2000);
-            if (i < loops) {
-                CommonUtils.clickOnElement(ezQTLAnalysesPage.submitButton);
+            CommonUtils.clickOnElement(ezQTLAnalysesPage.submitButton);
+            MiscUtils.sleep(5000);
+            if (i <= loops) {
                 CommonUtils.waitForClickability(ezQTLAnalysesPage.queueSubmissionConfirmationMessageCloseButton);
                 CommonUtils.clickOnElement(ezQTLAnalysesPage.queueSubmissionConfirmationMessageCloseButton);
                 CommonUtils.clickOnElement(ezQTLAnalysesPage.resetButton);
                 MiscUtils.sleep(1000);
-            } else if (i == loops) {
-                break;
+            } else {
+                System.err.println("SOMETHING ELSE WENT WRONG");
+            }
+        }
+
+    }
+
+    @Then("the user submits {string}, {string}, {string}, {string}, {int} times")
+    public void the_user_submits_times(String qtlDistance, String position, String jobName, String jobEmail, int loops) {
+        for (int i = 1; i <= loops; i++) {
+            CommonUtils.clickOnElement(ezQTLAnalysesPage.publicAssociationDataCheckBox);
+            CommonUtils.clickOnElement(ezQTLAnalysesPage.publicGwasSourceDataCheckBox);
+            CommonUtils.clickOnElement(ezQTLAnalysesPage.publicLdPublicDataCheckBox);
+            CommonUtils.sendKeys(ezQTLAnalysesPage.qtlDistanceInput, qtlDistance);
+            CommonUtils.scrollIntoView(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
+            CommonUtils.waitForClickability(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
+            CommonUtils.clickOnElement(ezQTLAnalysesPage.selectFirstChromosomeDropDown);
+            MiscUtils.sleep(1000);
+            CommonUtils.clickOnElement(ezQTLAnalysesPage.selectFirstChromosomeDropDown21Value);
+            MiscUtils.sleep(2000);
+            CommonUtils.sendKeys(ezQTLAnalysesPage.firstPositionTextBox, position);
+            CommonUtils.clickOnElement(ezQTLAnalysesPage.submitJobtoQueueCheckbox);
+            MiscUtils.sleep(1000);
+            CommonUtils.sendKeys(ezQTLAnalysesPage.queueJobName, jobName + " " + i);
+            CommonUtils.sendKeys(ezQTLAnalysesPage.queueEmail, jobEmail);
+            CommonUtils.clickOnElement(ezQTLAnalysesPage.submitButton);
+            MiscUtils.sleep(5000);
+            if (i <= loops) {
+                CommonUtils.waitForClickability(ezQTLAnalysesPage.queueSubmissionConfirmationMessageCloseButton);
+                CommonUtils.clickOnElement(ezQTLAnalysesPage.queueSubmissionConfirmationMessageCloseButton);
+                CommonUtils.clickOnElement(ezQTLAnalysesPage.resetButton);
+                MiscUtils.sleep(1000);
             } else {
                 System.err.println("SOMETHING ELSE WENT WRONG");
             }
