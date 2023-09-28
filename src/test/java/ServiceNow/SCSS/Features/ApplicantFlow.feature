@@ -3,7 +3,7 @@ Feature: Applicant Flow Scenarios
   Background: common steps
     Given User is on SCSS Landing page and user is "Okta Verified Applicant"
 
-  @Regression @Smoke @Nekrashevich @APPTRACK-711 @APPTRACK-758
+  @Regression @Smoke @Nekrashevich @APPTRACK-758
   Scenario Outline: Edit Basic Information of Profile
     And User is on SCSS landing page
     And User is on Profile tab
@@ -30,7 +30,7 @@ Feature: Applicant Flow Scenarios
 
   @Regression @Smoke @Nekrashevich @APPTRACK-712
   Scenario: Edit Demographics of Profile
-    And User is on SCSS landing page
+    When User is on SCSS landing page
     And User is on Profile tab
     And User clicks Edit for "Demographics" section
     And User chooses to share demographic details
@@ -41,7 +41,7 @@ Feature: Applicant Flow Scenarios
     And User saves the updated section
     And User clicks Edit for "Demographics" section
     And User chooses not to share demographic details
-    And User saves the updated section
+    Then User saves the updated section
 
 
 
