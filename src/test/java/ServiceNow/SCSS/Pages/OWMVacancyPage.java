@@ -113,7 +113,7 @@ public class OWMVacancyPage  extends CommonUtils {
 //    }
 
     /** Position Classification Dropdown Scientific Executive **/
-    @FindBy(xpath = "(//div[contains(text(),'Scientific Executive')])[2]")
+    @FindBy(xpath = "//div[@class='rc-virtual-list-holder-inner']//div[@title='Scientific Executive']")
     public WebElement positionScientificExecutive;
 
     /** Position Classification Dropdown  Senior Scientific Officer **/

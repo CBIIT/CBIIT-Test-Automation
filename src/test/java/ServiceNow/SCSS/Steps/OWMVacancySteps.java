@@ -7,11 +7,12 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.testng.Assert;
 
 public class OWMVacancySteps  extends PageInitializer {
 
-    @Given("User is on SCSS Landing page and user is {string}")
+    @When("User is on SCSS Landing page and user is {string}")
     public void user_is_on_scss_landing_page_and_user_is(String user) {
         sCCSLoginStepsImplementation.sCSSLogin(user);
     }
