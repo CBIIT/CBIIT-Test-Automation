@@ -107,6 +107,11 @@ public class OWMVacancyPage  extends CommonUtils {
         return WebDriverUtils.webDriver.findElement(By.xpath("//div[@class='ant-select-item-option-content'][normalize-space()='" + value + "']"));
     }
 
+    /** Position Classification Dropdown Options **/
+    public WebElement positionClassificationDropdownOptions(int value) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//div[@class='rc-virtual-list-holder-inner']//child::div[" + value + "]//child::div"));
+    }
+
 //    /** Position Classification Dropdown Option **/
 //    public WebElement organizationCodeDropdownOption(String value) {
 //        return WebDriverUtils.webDriver.findElement(By.xpath("//div[@class='ant-select-item-option-content'][normalize-space()='" + value + "']"));
@@ -148,9 +153,13 @@ public class OWMVacancyPage  extends CommonUtils {
     @FindBy(xpath = "//div[@class='steps-action']//button//span[contains(text(),'Save')]")
     public WebElement saveButton;
 
-//    /** Add Member Button **/
-//    @FindBy(xpath = "//button[@class='ant-btn ant-btn-secondary AddButton']")
-//    public WebElement addMemberButton;
+    /** SCSS Log out User Button **/
+    @FindBy(xpath = "//button[@class='ant-btn ant-btn-link ant-dropdown-trigger Login']")
+    public WebElement logOutUserButton;
+
+    /** SCSS Log out Button **/
+    @FindBy(xpath = "//span[@class='ant-dropdown-menu-title-content']")
+    public WebElement logOutButton;
 
     /** Save Member Button **/
     @FindBy(xpath = "//button[@class='ant-btn ant-btn-link ActionButton']")

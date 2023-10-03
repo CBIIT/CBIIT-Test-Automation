@@ -3,7 +3,7 @@ Feature: OWM Vacancy Scenarios
   Background: common steps
     Given User is on SCSS Landing page and user is "OWM Vacancy Manager"
 
-    @Regression @Smoke @Nekrashevich @APPTRACK-7 @Progression
+    @Regression @Smoke @Nekrashevich @APPTRACK-7 @APPTRACK-91 @APPTRACK-876 @APPTRACK-992 @Progression
     Scenario: Create a vacancy as OWM Vacancy Manager
       And User is on SCSS landing page
       And User navigates to tab "Vacancy Dashboard"
@@ -15,5 +15,7 @@ Feature: OWM Vacancy Scenarios
       And User includes all available Email Templates selections
       Then User publishes a vacancy
       And User verify that a vacancy is finalized
+#      When an applicant is on the SCSS landing page
+#      And the applicant navigates to the "Vacancy Dashboard"
 
 
