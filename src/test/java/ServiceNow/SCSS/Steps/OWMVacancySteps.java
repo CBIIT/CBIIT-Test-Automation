@@ -69,4 +69,38 @@ public class OWMVacancySteps  extends PageInitializer {
         oWMVacancyStepsImplementation.userVerifyThatAVacancyIsFinalized();
         oWMVacancyStepsImplementation.logOutScss();
     }
+
+    @When("an {string} is on the SCSS landing page")
+    public void an_is_on_the_scss_landing_page(String user) {
+        sCCSLoginStepsImplementation.sCSSLogin(user);
+    }
+
+    @Then("the applicant should see the published vacancy")
+    public void the_applicant_should_see_the_published_vacancy() {
+        oWMVacancyStepsImplementation.theApplicantShouldSeeThePublishedVacancy();
+    }
+
+    @Then("the User should see the menu options {string}, {string}, {string}, {string}, {string}")
+    public void the_user_should_see_the_menu_options(String home, String vacancyDashboard, String yourVacancies, String reports, String profile) {
+        oWMVacancyStepsImplementation.theUserShouldSeeTheMenuOptions(home, vacancyDashboard, yourVacancies, reports, profile);
+    }
+
+    @Then("User is able to see the NIH link and the {string} on the Home page")
+    public void user_is_able_to_see_the_nih_link_and_the_on_the_home_page(String openVacancies) {
+        oWMVacancyStepsImplementation.userIsAbleToSeeTheNihLinkAndTheOnTheHomePage(openVacancies);
+    }
+
+    @Then("User can see all vacancies")
+    public void user_can_see_all_vacancies() {
+        oWMVacancyStepsImplementation.userCanSeeAllVacancies();
+    }
+
+    @Then("User navigates and can see all vacancies under {string} tab")
+    public void user_navigates_and_can_see_all_vacancies_under_tab(String yourVacancies) {
+        oWMVacancyStepsImplementation.userNavigatesAndCanSeeAllVacanciesUnderTab(yourVacancies);
+    }
+    @Then("used navigates to see {string}")
+    public void used_navigates_to_see(String reports) {
+        oWMVacancyStepsImplementation.usedNavigatesToSeeReports(reports);
+    }
 }
