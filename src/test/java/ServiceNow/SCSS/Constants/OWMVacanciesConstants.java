@@ -23,8 +23,7 @@ public class OWMVacanciesConstants {
     public static final String[] VACANCY_POSITION_CLASSIFICATIONS = {"Research Fellow", "Senior Research Fellow", "Staff Scientist 1", "Investigator 1", "Clinical Fellow", "Senior Clinical Fellow",
             "Assistant Clinical Investigator 1", "Staff Clinician 1", "Science Policy Leader Tier 2", "Science Program Leader Tier 2", "Senior Investigator", "Senior Investigator (HS)", "Investigator 2",
             "Investigator (HS)", "Senior Clinician", "Senior Clinician (HS)", "Senior Scientist", "Assistant Clinical Investigator 2",  "Assistant Clinical Investigator (HS)", "Staff Clinician 2", "Staff Clinician (HS)",
-            "Staff Scientist 2", "Staff Scientist 2 (Clinical)", "Staff Scientist 2 (Facility Head)", "Scientific Executive", "Senior Scientific Officer","SBRBPAS", "N/A"
-    };
+            "Staff Scientist 2", "Staff Scientist 2 (Clinical)", "Staff Scientist 2 (Facility Head)", "Scientific Executive", "Senior Scientific Officer","SBRBPAS", "N/A"};
     public static final String VACANCY_INSTITUTE = "NCI";
     public static final String VACANCY_TITLE_COLUMN_OPTION = "Vacancy Title";
     public static final String VACANCY_INSTITUTE_COLUMN_OPTION = "Institute/Office/Program";

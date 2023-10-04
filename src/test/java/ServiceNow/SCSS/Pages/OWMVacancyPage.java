@@ -127,7 +127,6 @@ public class OWMVacancyPage  extends CommonUtils {
         return WebDriverUtils.webDriver.findElement(By.xpath("//p[normalize-space()='" + value + "']"));
     }
 
-
     /** Vacancy Close Date Text Box **/
     @FindBy(xpath = "//*[@id='BasicInfo_closeDate']")
     public WebElement vacancyCloseDateTextBox;
