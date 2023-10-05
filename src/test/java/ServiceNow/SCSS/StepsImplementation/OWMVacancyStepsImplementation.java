@@ -345,11 +345,11 @@ public class OWMVacancyStepsImplementation extends PageInitializer {
         CommonUtils.switchToFrame(nativeViewAccessRequestPage.accessRequestIFrame);
         CommonUtils.waitForVisibility(nativeViewSCSSReportsPage.focusAreaReportingText);
         CommonUtils.assertEqualsWithMessage(NativeViewSCSSConstants.FOCUS_AREA_REPORTING_TEXT , nativeViewSCSSReportsPage.focusAreaReportingText.getText(), "-- VERIFYING FOCUS AREA REPORTING TEXT --");
-        JavascriptUtils.scrollIntoView(nativeViewSCSSReportsPage.nativeViewReportsText(5));
-        CommonUtils.assertEqualsWithMessage(NativeViewSCSSConstants.VACANCY_DATES_OPEN_CLOSE_TEXT, nativeViewSCSSReportsPage.nativeViewReportsText(5).getText(), "-- SCSS VACANCY DATES - OPEN AND CLOSE TEXT --");
-        JavascriptUtils.scrollIntoView(nativeViewSCSSReportsPage.nativeViewReportsText(6));
-        CommonUtils.assertEqualsWithMessage(NativeViewSCSSConstants.VACANCY_DATES_INDIVIDUAL_SCORING_TEXT, nativeViewSCSSReportsPage.nativeViewReportsText(6).getText(), "-- SCSS VACANCY DATES - INDIVIDUAL SCORING TEXT --");
-        JavascriptUtils.scrollIntoView(nativeViewSCSSReportsPage.nativeViewReportsText(7));
-        CommonUtils.assertEqualsWithMessage(NativeViewSCSSConstants.APPLICANT_DECISION_DATE_TEXT, nativeViewSCSSReportsPage.nativeViewReportsText(7).getText(), "-- SCSS APPLICANT DECISION DATE TEXT --");
+        JavascriptUtils.scrollIntoView(nativeViewSCSSReportsPage.nativeViewReportsText(NativeViewSCSSConstants.VACANCY_DATES_OPEN_CLOSE_TEXT));
+        CommonUtils.assertEqualsWithMessage(NativeViewSCSSConstants.VACANCY_DATES_OPEN_CLOSE_TEXT, nativeViewSCSSReportsPage.nativeViewReportsText(NativeViewSCSSConstants.VACANCY_DATES_OPEN_CLOSE_TEXT).getText(), "-- SCSS VACANCY DATES - OPEN AND CLOSE TEXT --");
+        JavascriptUtils.scrollIntoView(nativeViewSCSSReportsPage.nativeViewReportsText(NativeViewSCSSConstants.VACANCY_DATES_INDIVIDUAL_SCORING_TEXT));
+        CommonUtils.assertEqualsWithMessage(NativeViewSCSSConstants.VACANCY_DATES_INDIVIDUAL_SCORING_TEXT, nativeViewSCSSReportsPage.nativeViewReportsText(NativeViewSCSSConstants.VACANCY_DATES_INDIVIDUAL_SCORING_TEXT).getText(), "-- SCSS VACANCY DATES - INDIVIDUAL SCORING TEXT --");
+        JavascriptUtils.scrollIntoView(nativeViewSCSSReportsPage.nativeViewReportsText(NativeViewSCSSConstants.APPLICANT_DECISION_DATE_TEXT));
+        CommonUtils.assertEqualsWithMessage(NativeViewSCSSConstants.APPLICANT_DECISION_DATE_TEXT, nativeViewSCSSReportsPage.nativeViewReportsText(NativeViewSCSSConstants.APPLICANT_DECISION_DATE_TEXT).getText(), "-- SCSS APPLICANT DECISION DATE TEXT --");
     }
 }

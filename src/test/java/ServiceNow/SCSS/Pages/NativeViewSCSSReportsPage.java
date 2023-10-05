@@ -18,7 +18,7 @@ public class NativeViewSCSSReportsPage extends CommonUtils {
     public WebElement focusAreaReportingText;
 
     /** Dynamic locator for Native View Reports Text **/
-    public WebElement nativeViewReportsText(int value) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("//div[contains(@class,'grid-stack-container')]//child::div[" + value + "]//child::div[3]//child::div"));
+    public WebElement nativeViewReportsText(String value) {
+        return WebDriverUtils.webDriver.findElement(By.xpath("//div[contains(text(),'" + value + "')]"));
     }
 }
