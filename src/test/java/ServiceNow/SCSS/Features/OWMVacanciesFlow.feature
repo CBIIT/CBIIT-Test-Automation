@@ -16,7 +16,7 @@ Feature: OWM Vacancy Scenarios
       When an "applicant" is on the SCSS landing page
       Then the applicant should see the published vacancy
 
-    @Regression @Smoke @bucurgb @UserStoryTagToBeConfirmed @Progression
+    @Regression @Smoke @bucurgb @UserStoryTagToBeConfirmed
     Scenario: Create a vacancy as OWM Vacancy Manager
       Given User is on SCSS Landing page and user is "OWM Vacancy Manager"
       And User is on SCSS landing page
