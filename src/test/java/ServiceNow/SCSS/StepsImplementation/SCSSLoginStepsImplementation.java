@@ -2,6 +2,7 @@ package ServiceNow.SCSS.StepsImplementation;
 
 import ServiceNow.SCSS.Constants.SCSS_Constants;
 import appsCommon.PageInitializer;
+import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
@@ -21,6 +22,7 @@ public class SCSSLoginStepsImplementation extends PageInitializer {
             nativeViewDashPage.enterTextImpersntSearchBox(SCSS_Constants.OWM_VACANCY_MANAGER);
             MiscUtils.sleep(5000);
             WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SCSSPortalView"));
+            CucumberLogUtils.logScreenshot();
         } else if (user.equals("Stadtman Vacancy Manager")) {
             nativeViewLoginImpl.sideDoorAccountLogin();
             MiscUtils.sleep(5000);
@@ -33,6 +35,7 @@ public class SCSSLoginStepsImplementation extends PageInitializer {
             nativeViewDashPage.enterTextImpersntSearchBox(SCSS_Constants.STADTMAN_VACANCY_MANAGER);
             MiscUtils.sleep(5000);
             WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SCSSPortalView"));
+            CucumberLogUtils.logScreenshot();
         } else {
             nativeViewLoginImpl.sideDoorAccountLogin();
             MiscUtils.sleep(5000);
@@ -45,6 +48,8 @@ public class SCSSLoginStepsImplementation extends PageInitializer {
             nativeViewDashPage.enterTextImpersntSearchBox(SCSS_Constants.OKTA_APPLICANT);
             MiscUtils.sleep(5000);
             WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SCSSPortalView"));
+            CucumberLogUtils.logScreenshot();
+            WebDriverUtils.webDriver.manage().deleteAllCookies();
         }
     }
 }

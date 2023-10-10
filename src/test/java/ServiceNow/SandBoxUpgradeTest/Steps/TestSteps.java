@@ -16,7 +16,6 @@ public class TestSteps extends PageInitializer {
     public void testing() {
         WebDriverUtils.webDriver.get("https://service-sandbox.nci.nih.gov/side_door.do");
         Shadow shadow = new Shadow(WebDriverUtils.webDriver);
-
         WebDriverUtils.webDriver.findElement(By.xpath("//input[@type='text']")).sendKeys("CBIITTestAccount");
         WebDriverUtils.webDriver.findElement(By.xpath("//input[@type='password']")).sendKeys("curlbylawdighalvekinlarswould");
         WebDriverUtils.webDriver.findElement(By.xpath("//button[@type='submit']")).click();
