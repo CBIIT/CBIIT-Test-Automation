@@ -3,6 +3,8 @@ package ServiceNow.ETracking.StepsImplementation;
 import ServiceNow.ETracking.Constants.EtrackAssetsRecords_NativeView_Constants;
 import ServiceNow.SEER.Constants.SEERNativeView_Constants;
 import appsCommon.PageInitializer;
+import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.xceptions.TestingException;
@@ -181,6 +183,31 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
     }
 
     public static void thereIsAFieldCalledStatus(){
+        CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusField);
+        JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusField);
+        CucumberLogUtils.logScreenshot();
+    }
 
+    public static void theUserClicksTheStatusField(){
+        JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDown);
+        CommonUtils.clickOnElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDown);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    public static void theFollowingFieldOptionsAreAvailable(String checkedOut,String inStockroom,String inTransfer){
+        CommonUtils.waitForClickability(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDown);
+        CommonUtils.clickOnElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDownOptions(checkedOut));
+        JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDownOptions(checkedOut));
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDownOptions(inStockroom));
+        JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDownOptions(inStockroom));
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.clickOnElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDownOptions(inTransfer));
+        JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDownOptions(inTransfer));
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.assertEqualsWithMessage(checkedOut,etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDownOptions(checkedOut).getText(),"verify the checked Out drop down option" );
+        CommonUtils.assertEqualsWithMessage(inStockroom,etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDownOptions(inStockroom).getText(),"verify the In Stockroom drop down option" );
+        CommonUtils.assertEqualsWithMessage(inTransfer,etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDownOptions(inTransfer).getText(),"verify the In Transfer drop down option" );
+        CucumberLogUtils.logScreenshot();
     }
 }

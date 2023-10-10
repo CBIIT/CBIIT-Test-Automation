@@ -37,5 +37,5 @@ Feature: Etrack Assets Records Test Scenarios
   Scenario:Test Add Status Field for Asset Form
     Given an eTracking user is on an Asset record
     Then  There is a field called Status
-#    When the user clicks the "Status" field
-#    Then the following field options are available, "In stockroom", "In transfer", "Checked out"
+    When the user clicks the Status field
+    Then the following field options are available, "Checked out", "In stockroom", "In transfer"

@@ -89,13 +89,13 @@ public class EtrackAssetsRecords_NativeViewSteps extends PageInitializer {
         EtrackAssetsRecords_NativeViewStepImplimentation.thereIsAFieldCalledStatus();
     }
 
-    @When("the user clicks the {string} field")
-    public void the_user_clicks_the_field(String string) {
-
+    @When("the user clicks the Status field")
+    public void the_user_clicks_the_status_field() {
+        EtrackAssetsRecords_NativeViewStepImplimentation.theUserClicksTheStatusField();
     }
 
     @Then("the following field options are available, {string}, {string}, {string}")
-    public void the_following_field_options_are_available(String string, String string2, String string3) {
-
+    public void the_following_field_options_are_available(String checkedOut, String inStockroom, String inTransfer) {
+        EtrackAssetsRecords_NativeViewStepImplimentation.theFollowingFieldOptionsAreAvailable(checkedOut,inStockroom,inTransfer);
     }
 }
