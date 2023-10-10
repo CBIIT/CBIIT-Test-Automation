@@ -147,7 +147,6 @@ public class OWMVacancyPage  extends CommonUtils {
     @FindBy(xpath = "//a[@class='link-disabled']")
     public WebElement whoWeAreText;
 
-
     /** Calendar DatePicker **/
     @FindBy(xpath = "//div[@class='ant-picker-cell-inner']")
     public List<WebElement> calendarDatePicker;

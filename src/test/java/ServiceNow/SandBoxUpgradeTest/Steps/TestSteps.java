@@ -19,7 +19,7 @@ public class TestSteps extends PageInitializer {
         WebDriverUtils.webDriver.findElement(By.xpath("//input[@type='text']")).sendKeys("CBIITTestAccount");
         WebDriverUtils.webDriver.findElement(By.xpath("//input[@type='password']")).sendKeys("curlbylawdighalvekinlarswould");
         WebDriverUtils.webDriver.findElement(By.xpath("//button[@type='submit']")).click();
-        MiscUtils.sleep(80000);
+        MiscUtils.sleep(3000);
         shadow.findElementByXPath("//*[@class='sn-polaris-navigation polaris-header-menu']//child::div[1]").click();
         shadow.findElementByXPath("//*[@class='sn-polaris-nav-header-filter can-animate']//child::input").sendKeys("Email Properties");
         MiscUtils.sleep(2000);
