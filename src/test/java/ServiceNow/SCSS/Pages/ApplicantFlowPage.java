@@ -95,4 +95,44 @@ public class ApplicantFlowPage extends CommonUtils {
     /**  button save Profile tab **/
     @FindBy(xpath = "//button//span[.='Save']")
     public WebElement buttonSave;
+
+    /**  button Share Demographics Profile tab **/
+    @FindBy(xpath = "//label[@class='ant-radio-wrapper ant-radio-wrapper-in-form-item']//input[@value='1']")
+    public WebElement buttonShareDemographics;
+
+    /**  button  NOT Share Demographics Profile tab **/
+    @FindBy(xpath = "//label[@class='ant-radio-wrapper ant-radio-wrapper-in-form-item']//input[@value='0']")
+    public WebElement buttonNotShareDemographics;
+
+    /**  button Female Sex Profile tab **/
+    @FindBy(xpath = "//div[@class='ant-space-item']//input[@value='Male']")
+    public WebElement buttonFemaleSex;
+
+    /**  button Male Sex Profile tab **/
+    @FindBy(xpath = "//div[@class='ant-space-item']//input[@value='Female']")
+    public WebElement buttonMaleSex;
+
+    /**  button Hispanic or Latino Profile tab **/
+    @FindBy(xpath = "//div[@id='demographics_ethnicity']//input[@value='1']")
+    public WebElement buttonHispanicOrLatino;
+
+    /**  button Not Hispanic or Latino Profile tab **/
+    @FindBy(xpath = "//div[@id='demographics_ethnicity']//input[@value='0']")
+    public WebElement buttonNotHispanicOrLatino;
+
+    /**  button American Indian or Alaska Native Profile tab **/
+    @FindBy(xpath = "//input[@value='American Indian']")
+    public WebElement buttonAmericanIndianAlaskaNative;
+
+    /**  button Asian Profile tab **/
+    @FindBy(xpath = "//input[@value='Asian']")
+    public WebElement buttonAsian;
+
+    /**  button Blind Profile tab **/
+    @FindBy(xpath = "//input[@value='Blind']")
+    public WebElement buttonBlind;
+
+    /**  button Deaf Profile tab **/
+    @FindBy(xpath = "//input[@value='Deaf']")
+    public WebElement buttonDeaf;
 }
