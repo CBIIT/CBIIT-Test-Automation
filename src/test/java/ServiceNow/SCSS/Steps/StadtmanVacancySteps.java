@@ -2,7 +2,7 @@ package ServiceNow.SCSS.Steps;
 
 import appsCommon.PageInitializer;
 import com.nci.automation.web.CommonUtils;
-import io.cucumber.java.en.Given;
+
 
 public class StadtmanVacancySteps  extends PageInitializer {
 
