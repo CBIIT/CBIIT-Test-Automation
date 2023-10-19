@@ -1,18 +1,14 @@
 package appsCommon;
 
-
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.nci.automation.utils.EncryptionUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 
 public class ITrustLoginPage extends CommonUtils{
 
@@ -23,17 +19,9 @@ public class ITrustLoginPage extends CommonUtils{
 	@FindBy(xpath = "//input[@id='USER']")
 	public WebElement userNameField;
 
-	/**Sidedoor Username field*/
-	@FindBy(xpath = "//input[@id='user_name']")
-	public WebElement sideDoorUserNameField;
-
 	/** Password field */
 	@FindBy(xpath = "//input[@id='PASSWORD']")
 	public WebElement passwordField;
-	
-	/**Sidedoor Password field */
-	@FindBy(xpath = "//input[@id='user_password']")
-	public WebElement sideDoorPasswordField;
 
 	/** Sign in button */
 	@FindBy(xpath="//button[@type='submit']")
@@ -70,39 +58,22 @@ public class ITrustLoginPage extends CommonUtils{
 		userNameField.clear();
 		sendKeys(userNameField, ConfUtils.getProperty(username));
 	}
-	/**
-	 * Enters user-name to Sidedoor
-	 * @throws TestingException
-	 */
-	public void enterSideDoorUsername(WebElement sideUserNameField, String username) throws TestingException {
-		sideDoorUserNameField.clear();
-		sendKeys(sideDoorUserNameField, ConfUtils.getProperty(username));
-	}
-	
+
 	/**
 	 * Enters password to ITrust
 	 * @throws TestingException
 	 */
 	public void enterPassword(String password) throws TestingException {
 		passwordField.clear();
-		String decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty(password));
-		sendKeys(passwordField, decyptedPass);
-	}
-	/**
-	 * Enters password to Sidedoor
-	 * @throws TestingException
-	 */
-	public void enterSideDoorPassword(String password) throws TestingException {
-		sideDoorPasswordField.clear();
-		String decyptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty(password));
-		sendKeys(sideDoorPasswordField, decyptedPass);
+		String decryptedPass=EncryptionUtils.decrypt(ConfUtils.getProperty(password));
+		sendKeys(passwordField, decryptedPass);
 	}
 	
 	/**
 	 * Clicks ITrust sign-in button
 	 */
 	public void clickSignInButton(){
-		JavascriptUtils.clickByJS(signInButton);
+		CommonUtils.clickOnElement(signInButton);
 	}
 	
 	/** Clicks on log in button on the COVIDCode home page */

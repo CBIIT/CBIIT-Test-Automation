@@ -23,6 +23,6 @@ import org.junit.runner.RunWith;
  * @author juarezds
  */
 
-public class RunSanboxTestProgressionTest {
+public class Run_Sandbox_Progression_Test {
 
 }

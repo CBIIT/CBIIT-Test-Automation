@@ -6,8 +6,8 @@ import ServiceNow.NERD.Constants.NCI_Staff_Members_Constants;
 import ServiceNow.NERD.Constants.ReturningSubmissions_Constants;
 import ServiceNow.NERD.Constants.TopAccomplishmentsSubmission_Constants;
 import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
-import ServiceNow.NERD.Steps.HooksSteps;
 import ServiceNow.SEER.Constants.SEERNativeView_Constants;
+import appsCommon.ServiceNow_Login_Methods;
 import appsCommon.PageInitializer;
 import java.util.Set;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -1137,7 +1137,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      *
      */
    public static void aDocPlanningContactIsOnTheCrsKnowledgeManagementSystemHomePage() throws TestingException {
-        nativeViewLoginImpl.sideDoorAccountLogin();
+       ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         nativeViewImpersonateUser.impersonateToDocPlanningContact();
        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
        CucumberLogUtils.logScreenshot();

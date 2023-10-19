@@ -266,7 +266,6 @@ public class PageInitializer extends WebDriverUtils {
 	public static ESRShortDescriptionPage esrShortDescriptionPage;
 
 	/** --------------- NATIVE VIEW INSTANCES --------------- */
-	public static NativeViewLoginImpl nativeViewLoginImpl;
 	public static NativeViewHomePage nativeViewHomePage;
 	public static NativeViewImpersonateUser nativeViewImpersonateUser;
 	public static NativeViewImpersonateUserPage nativeViewImpersonateUserPage;
@@ -485,7 +484,6 @@ public class PageInitializer extends WebDriverUtils {
 		cCRApplicationPage = new CCRApplicationPage();
 
 		/** --------------- NATIVE VIEW INSTANCE VARIABLES --------------- */
-		nativeViewLoginImpl = new NativeViewLoginImpl();
 		nativeViewHomePage = new NativeViewHomePage();
 		nativeViewImpersonateUser = new NativeViewImpersonateUser();
 		nativeViewImpersonateUserPage = new NativeViewImpersonateUserPage();
@@ -516,5 +514,7 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** GCP INSTANCE VARIABLES */
 		gCPNotifications_NativeViewPage = new GCPNotifications_NativeViewPage();
+
+		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}
 }

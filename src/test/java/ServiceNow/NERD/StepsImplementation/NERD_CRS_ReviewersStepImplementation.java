@@ -3,7 +3,7 @@ package ServiceNow.NERD.StepsImplementation;
 import ServiceNow.NERD.Constants.CRSReviewers_Constants;
 import ServiceNow.NERD.Pages.NERDCRSTOtherAccomplishmentsPage;
 import ServiceNow.NERD.Pages.NERDKnowledgebasePage;
-import ServiceNow.NERD.Steps.HooksSteps;
+import appsCommon.ServiceNow_Login_Methods;
 import appsCommon.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -18,7 +18,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
     public String topAccomplishmentsAccordion;
 
     public static void aCRSReviewerIsLoggedIntoNERDsCRSKnowledgeManagementSystem() throws TestingException {
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         nativeViewImpersonateUser.impersonateToCRSReviewer();
         NERDApplicationStepsImplementation.userIsOnSubmissionsPage("NERD");
     }
@@ -80,7 +80,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
     }
 
     public static void aCRSReviewerAndEmailIOnTheNERDHomePage(String crsReviewer, String approvedEmail) throws TestingException {
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         nativeViewImpersonateUser.impersonateToAnyCRSReviewerNerd(crsReviewer, approvedEmail);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         MiscUtils.sleep(1500);
@@ -88,7 +88,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
     }
 
     public static void aCRSReviewerIsOnTheNERDHomePage() throws TestingException {
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         nativeViewImpersonateUser.impersonateToAnyCRSReviewerNerd(CRSReviewers_Constants.CRS_REVIEWER_NAME, CRSReviewers_Constants.CRS_REVIEWER_EMAIL);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         MiscUtils.sleep(1500);
@@ -153,7 +153,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
 
     public void aCRSReviewerIsViewingTheListOfThePublished(String topAccomplishmentsAccordion) throws TestingException {
         this.topAccomplishmentsAccordion = topAccomplishmentsAccordion;
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         nativeViewImpersonateUser.impersonateToAnyCRSReviewerNerd(CRSReviewers_Constants.CRS_REVIEWER_NAME, CRSReviewers_Constants.CRS_REVIEWER_EMAIL);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         MiscUtils.sleep(1500);

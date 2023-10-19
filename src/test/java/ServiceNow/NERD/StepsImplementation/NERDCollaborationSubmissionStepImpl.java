@@ -2,6 +2,7 @@ package ServiceNow.NERD.StepsImplementation;
 
 import ServiceNow.NERD.Constants.TopAccomplishmentsSubmission_Constants;
 import ServiceNow.NERD.Pages.NERDDOCCollaborationsPage;
+import appsCommon.ServiceNow_Login_Methods;
 import appsCommon.PageInitializer;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -26,7 +27,7 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
     }
 
     public static void aRegularUserHasSubmittedACollaboration() throws TestingException {
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         NERDApplicationStepsImplementation.creatingNewSubmission(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink);
@@ -62,7 +63,7 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
 
     public static void aDOCPlanningContactClicksTheSubmitToCRSButtonForACollaboration(String nameOfRecord)
             throws TestingException {
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         NERDApplicationStepsImplementation.creatingNewSubmission(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink);

@@ -1,6 +1,7 @@
 package ServiceNow.CHARMS.Steps;
 
 import appsCommon.DynamicLocators;
+import appsCommon.ServiceNow_Login_Methods;
 import appsCommon.PageInitializer;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
@@ -17,7 +18,7 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
         /**
          * NAVIGATING TO RAS SURVEY TABLE
          */
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         CommonUtils.sendKeysToElement(nativeViewHomePage.nativeViewFilterNavigator, "CHARMS");
         JavascriptUtils.scrollIntoView(DynamicLocators.dynamicTextLocator("RASopathy Surveys"));
         CommonUtils.clickOnElement(DynamicLocators.dynamicTextLocator("RASopathy Surveys"));

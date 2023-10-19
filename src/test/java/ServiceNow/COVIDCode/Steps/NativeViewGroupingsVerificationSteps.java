@@ -1,5 +1,6 @@
 package ServiceNow.COVIDCode.Steps;
 
+import appsCommon.ServiceNow_Login_Methods;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.Select;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -18,7 +19,7 @@ public class NativeViewGroupingsVerificationSteps extends PageInitializer {
 	@Given("an internal user is logged into native view and searches for {string}")
 	public void an_internal_user_is_logged_into_native_view_and_searches_for(String covidCodeApplication)
 			throws TestingException {
-		nativeViewLoginImpl.nativeViewLogin();
+		ServiceNow_Login_Methods.nativeViewLogin();
 		nativeViewEnrollementsPage.filterNavigator.sendKeys(covidCodeApplication);
 		MiscUtils.sleep(3000);
 	}
@@ -136,7 +137,7 @@ public class NativeViewGroupingsVerificationSteps extends PageInitializer {
 
 	@When("navigating to the Specimens module in Native View")
 	public void navigating_to_the_Specimens_module_in_Native_View() throws TestingException {
-		nativeViewLoginImpl.nativeViewLogin();
+		ServiceNow_Login_Methods.nativeViewLogin();
 		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.filterNavigator);
 		nativeViewEnrollementsPage.filterNavigator.sendKeys("CovidCode App");
 		MiscUtils.sleep(3000);
@@ -170,7 +171,7 @@ public class NativeViewGroupingsVerificationSteps extends PageInitializer {
 
 	@Given("a COVIDcode user is logs into native view")
 	public void a_COVIDcode_user_is_logs_into_native_view() throws TestingException {
-		nativeViewLoginImpl.nativeViewLogin();
+		ServiceNow_Login_Methods.nativeViewLogin();
 	}
 
 	@Given("searches for the COVIDcode application")
@@ -209,7 +210,7 @@ public class NativeViewGroupingsVerificationSteps extends PageInitializer {
 
 	@Given("a COVIDcode User is on the Follow Up form")
 	public void a_COVIDcode_User_is_on_the_Follow_Up_form() throws TestingException {
-		nativeViewLoginImpl.nativeViewLogin();
+		ServiceNow_Login_Methods.nativeViewLogin();
 		nativeViewStepsImpl.nativeViewNavigateToCovidCodeFollowUpQuestionnaire();
 		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.followUpsContextMenuLink);
 		nativeViewEnrollementsPage.followUpsContextMenuLink.click();

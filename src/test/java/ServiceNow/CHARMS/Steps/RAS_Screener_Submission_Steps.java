@@ -1,5 +1,7 @@
 package ServiceNow.CHARMS.Steps;
+
 import java.util.Set;
+import appsCommon.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
 import org.openqa.selenium.*;
 import org.testng.Assert;
@@ -284,7 +286,7 @@ public class RAS_Screener_Submission_Steps extends PageInitializer {
     @When("a ServiceNow user navigates to CHARMS Native view and opens records that are Awaiting PI Signature")
     public void a_ServiceNow_user_navigates_to_CHARMS_Native_view_and_opens_records_that_are_Awaiting_PI_Signature() throws TestingException {
 
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
 
         CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator);
         nativeViewHomePage.nativeViewFilterNavigator.sendKeys("CHARMS");

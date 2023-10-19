@@ -1,5 +1,6 @@
 package ServiceNow.COVIDCode.Steps;
 
+import appsCommon.ServiceNow_Login_Methods;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -21,7 +22,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 	@Given("a COVIDcode Study nurse with an Admin role has logged in to the COVIDcode Study Native View application")
 	public void a_COVIDcode_Study_nurse_with_an_Admin_role_has_logged_in_to_the_COVIDcode_Study_Native_View_application()
 			throws TestingException {
-		nativeViewLoginImpl.nativeViewLogin();
+		ServiceNow_Login_Methods.nativeViewLogin();
 	}
 
 	@Given("is on the COVIDcode Enrollments page")
@@ -62,7 +63,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 
 	@When("the COVIDcode user is on the COVIDcode Study Native View application")
 	public void the_COVIDcode_user_is_on_the_COVIDcode_Study_Native_View_application() throws TestingException {
-		nativeViewLoginImpl.nativeViewLogin();
+		ServiceNow_Login_Methods.nativeViewLogin();
 	}
 
 	@Given("the COVIDcode user is on the COVIDcode Enrollments page and clicks on New button")
@@ -97,7 +98,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 
 	@Given("a user has logged into the COVIDcode application in Native View")
 	public void a_user_has_logged_into_the_COVIDcode_application_in_Native_View() throws TestingException {
-		nativeViewLoginImpl.nativeViewLogin();
+		ServiceNow_Login_Methods.nativeViewLogin();
 	}
 
 	@Given("navigates to My Inquiry Tracking Records")
@@ -194,7 +195,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 
 	@Given("a COVIDCode App Admin user is in the Native View")
 	public void a_COVIDCode_App_Admin_user_is_in_the_Native_View() throws TestingException {
-		nativeViewLoginImpl.nativeViewLogin();
+		ServiceNow_Login_Methods.nativeViewLogin();
 
 	}
 
@@ -235,7 +236,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 
 	@Given("a COVIDCode App Admin users is in the Native View")
 	public void a_COVIDCode_App_Admin_users_is_in_the_Native_View() throws TestingException {
-		nativeViewLoginImpl.nativeViewLogin();
+		ServiceNow_Login_Methods.nativeViewLogin();
 
 	}
 
@@ -281,7 +282,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 
 	@Given("a COVIDCode App Admin user is in Native View")
 	public void a_COVIDCode_App_Admin_user_is_in_Native_View() throws TestingException {
-		nativeViewLoginImpl.nativeViewLogin();
+		ServiceNow_Login_Methods.nativeViewLogin();
 	}
 
 	@When("the user opens a Specimens record")
@@ -317,7 +318,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 
 	@Given("a Study Nurse is in Native view")
 	public void a_Study_Nurse_is_in_Native_view() throws TestingException {
-		nativeViewLoginImpl.nativeViewLogin();
+		ServiceNow_Login_Methods.nativeViewLogin();
 
 	}
 
@@ -342,7 +343,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 
 	@Given("a Study Nurse is in the Native view")
 	public void a_Study_Nurse_is_in_the_Native_view() throws TestingException {
-		nativeViewLoginImpl.nativeViewLogin();
+		ServiceNow_Login_Methods.nativeViewLogin();
 
 	}
 
@@ -372,7 +373,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 
 	@Given("a Study Nurse is in Native View")
 	public void a_Study_Nurse_is_in_Native_View() throws TestingException {
-		nativeViewLoginImpl.nativeViewLogin();
+		ServiceNow_Login_Methods.nativeViewLogin();
 
 	}
 
@@ -396,7 +397,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 
 	@When("on the Initial Questionnaire form in Native View")
 	public void on_the_Initial_Questionnaire_form_in_Native_View() throws TestingException {
-		nativeViewLoginImpl.nativeViewLogin();
+		ServiceNow_Login_Methods.nativeViewLogin();
 		nativeViewStepsImpl.nativeViewNavigateToCovidCodeEnrollmentQuestionnaire();
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
 		MiscUtils.sleep(2000);
@@ -443,7 +444,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 
 	@When("on the Follow Up form in Native View")
 	public void on_the_Follow_Up_form_in_Native_View() throws TestingException {
-		nativeViewLoginImpl.nativeViewLogin();
+		ServiceNow_Login_Methods.nativeViewLogin();
 		nativeViewStepsImpl.nativeViewNavigateToCovidCodeFollowUpQuestionnaire();
 		MiscUtils.sleep(2000);
 		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.followUpsContextMenuLink);
@@ -457,7 +458,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 
 	@When("a COVIDcode user is on the Initial Questionnaire form in Native View")
 	public void a_COVIDcode_user_is_on_the_Initial_Questionnaire_form_in_Native_View() throws TestingException {
-		nativeViewLoginImpl.nativeViewLogin();
+		ServiceNow_Login_Methods.nativeViewLogin();
 		nativeViewStepsImpl.nativeViewNavigateToCovidCodeEnrollmentQuestionnaire();
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
 		MiscUtils.sleep(1000);
@@ -478,7 +479,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 
 	@Given("a COVIDCode user is on the Initial questionnaire page in Native View")
 	public void a_COVIDCode_user_is_on_the_Initial_questionnaire_page_in_Native_View() throws TestingException {
-		nativeViewLoginImpl.nativeViewLogin();
+		ServiceNow_Login_Methods.nativeViewLogin();
 		nativeViewStepsImpl.nativeViewNavigateToCovidCodeEnrollmentQuestionnaire();
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
 		MiscUtils.sleep(1000);
@@ -612,7 +613,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 
 	@Given("COVIDCode user is on the Follow Up form page in Native View")
 	public void covidcode_user_is_on_the_Follow_Up_form_page_in_Native_View() throws TestingException {
-		nativeViewLoginImpl.nativeViewLogin();
+		ServiceNow_Login_Methods.nativeViewLogin();
 		nativeViewStepsImpl.nativeViewNavigateToCovidCodeFollowUpQuestionnaire();
 		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.followUpsContextMenuLink);
 		nativeViewEnrollementsPage.followUpsContextMenuLink.click();
@@ -723,7 +724,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 
 	@When("on the enrollment form in Native View")
 	public void on_the_enrollment_form_in_Native_View() throws TestingException {
-		nativeViewLoginImpl.nativeViewLogin();
+		ServiceNow_Login_Methods.nativeViewLogin();
 		nativeViewStepsImpl.nativeViewNavigateToCovidCodeEnrollmentQuestionnaire();
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
 		MiscUtils.sleep(2000);
@@ -751,12 +752,12 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 
 	@When("a COVIDcode user is logged into the COVIDcode application in Native View")
 	public void a_COVIDcode_user_is_logged_into_the_COVIDcode_application_in_Native_View() throws TestingException {
-		nativeViewLoginImpl.nativeViewLogin();
+		ServiceNow_Login_Methods.nativeViewLogin();
 	}
 
 	@Given("a COVIDcode Admin user is on the COVIDcode Native View page")
 	public void a_COVIDcode_Admin_user_is_on_the_COVIDcode_Native_View_page() throws TestingException {
-		nativeViewLoginImpl.nativeViewLogin();
+		ServiceNow_Login_Methods.nativeViewLogin();
 	}
 
 	@Given("the COVIDcode Admin user fill outs an Initial Questionnaire for a {string} user")
@@ -913,7 +914,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 	@When("a COVIDCode provider is on the Disease Course section on the Follow Up Form in Native View")
 	public void a_COVIDCode_provider_is_on_the_Disease_Course_section_on_the_Follow_Up_Form_in_Native_View()
 			throws TestingException {
-		nativeViewLoginImpl.nativeViewLogin();
+		ServiceNow_Login_Methods.nativeViewLogin();
 		nativeViewStepsImpl.nativeViewNavigateToCovidCodeFollowUpQuestionnaire();
 		CommonUtils.waitForVisibility(nativeViewEnrollementsPage.followUpsContextMenuLink);
 		nativeViewEnrollementsPage.followUpsContextMenuLink.click();
@@ -960,7 +961,7 @@ public class NativeViewEQSubmissionSteps extends PageInitializer {
 
 	@Given("a COVIDcode User logs into the COVIDcode application in Native View")
 	public void a_COVIDcode_User_logs_into_the_COVIDcode_application_in_Native_View() throws TestingException {
-		nativeViewLoginImpl.nativeViewLogin();
+		ServiceNow_Login_Methods.nativeViewLogin();
 		MiscUtils.sleep(2000);
 	}
 

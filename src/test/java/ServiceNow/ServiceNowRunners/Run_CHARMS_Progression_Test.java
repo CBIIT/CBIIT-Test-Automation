@@ -22,6 +22,6 @@ import org.junit.runner.RunWith;
  *
  * @author sohilz2
  */
-public class RunCHARMSProgressionTest {
+public class Run_CHARMS_Progression_Test {
 
 }

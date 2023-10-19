@@ -1,6 +1,7 @@
 package CustomBusiness.CCR.StepsImplementation;
 
 import CustomBusiness.CCR.Constants.CCR_CONSTANTS;
+import appsCommon.ServiceNow_Login_Methods;
 import appsCommon.PageInitializer;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -14,7 +15,7 @@ import org.openqa.selenium.support.ui.Select;
 public class CCRStepsImplementation extends PageInitializer {
 
     public void ccrLogin(){
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CCR"));
     }
 

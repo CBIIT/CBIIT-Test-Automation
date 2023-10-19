@@ -3,7 +3,7 @@ package ServiceNow.NERD.StepsImplementation;
 import ServiceNow.NERD.Constants.NERDOGSRMemberOfCongress_Constants;
 import ServiceNow.NERD.Pages.NERDOGCRAddNewEntryPage;
 import ServiceNow.NERD.Pages.NativeViewMembersOfCongressPage;
-import ServiceNow.NERD.Steps.HooksSteps;
+import appsCommon.ServiceNow_Login_Methods;
 import appsCommon.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -27,7 +27,7 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
      *
      */
     public static void aUserIsInTheOgcrAdminGroup() throws TestingException {
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         nativeViewImpersonateUser.impersonateOGCRUser();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
     }
@@ -102,7 +102,7 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
         MiscUtils.sleep(1000);
         Alert alt = WebDriverUtils.webDriver.switchTo().alert();
         alt.accept();
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         MiscUtils.sleep(1000);
         if(nativeViewEnrollementsPage.filterNavigatorIconButton.isDisplayed()){
             CommonUtils.clickOnElement(nativeViewEnrollementsPage.filterNavigatorIconButton);

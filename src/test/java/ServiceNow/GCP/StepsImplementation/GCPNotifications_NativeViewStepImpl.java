@@ -1,6 +1,7 @@
 package ServiceNow.GCP.StepsImplementation;
 
 import ServiceNow.GCP.Constants.GCPNotifications_NativeView_Constants;
+import appsCommon.ServiceNow_Login_Methods;
 import appsCommon.PageInitializer;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -11,7 +12,7 @@ import org.openqa.selenium.Keys;
 public class GCPNotifications_NativeViewStepImpl extends PageInitializer {
 
     public static void aUserWithAdminRightsIsInTheNativeView() throws TestingException {
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         nativeViewImpersonateUser.impersonateAdminUser();
     }
 

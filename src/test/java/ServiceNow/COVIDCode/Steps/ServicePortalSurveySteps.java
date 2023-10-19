@@ -1,12 +1,11 @@
 package ServiceNow.COVIDCode.Steps;
 
 import java.util.List;
-
+import appsCommon.ServiceNow_Login_Methods;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -14,7 +13,6 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import appsCommon.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -387,7 +385,7 @@ public class ServicePortalSurveySteps extends PageInitializer {
 
 	@Then("Study Staff Nurses are able to see the volunteer's submitted zip code {string} in a Inquiry Tracking record in native view")
 	public void study_Staff_Nurses_are_able_to_see_the_volunteer_s_submitted_zip_code_in_a_Inquiry_Tracking_record_in_native_view(String submittedZipCode) throws TestingException {
-		nativeViewLoginImpl.nativeViewLogin();
+		ServiceNow_Login_Methods.nativeViewLogin();
 		MiscUtils.sleep(2000);
 		nativeViewEnrollementsPage.filterNavigator.sendKeys("COVIDCode Application");
 		MiscUtils.sleep(2000);

@@ -1221,11 +1221,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/* **** PARTICIPANT DETAILS PAGE IN NATIVE VIEW ASSERTIONS ****** */
 	/******************************************************************/
 
-	/* Method to log in to native view */
-	public void loginToNativeView1() {
-		nativeViewLoginImpl.sideDoorAccountLogin();
-	}
-
 	public void loginToNativeView() {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
 		CommonUtils.waitForVisibility(iTrustloginPage.loginLink);
