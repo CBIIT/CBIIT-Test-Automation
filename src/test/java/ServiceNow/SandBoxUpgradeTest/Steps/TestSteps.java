@@ -9,21 +9,19 @@ import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Given;
 import io.github.sukgu.Shadow;
 import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Wait;
 
 public class TestSteps extends PageInitializer {
 
     ShadowPage shadowPage = new ShadowPage();
+    Shadow shadow = new Shadow(WebDriverUtils.webDriver);
     @Given("testing")
     public void testing() throws Exception {
         WebDriverUtils.webDriver.get("https://service-sandbox.nci.nih.gov/side_door.do");
-        Shadow shadow = new Shadow(WebDriverUtils.webDriver);
         shadowPage.usernameTextbox.sendKeys("CBIITTestAccount");
         shadowPage.passwordTextbox.sendKeys("curlbylawdighalvekinlarswould");
         shadowPage.submitButton.click();
         MiscUtils.sleep(3000);
+
 
        // shadowPage.searchMenu.click();
 

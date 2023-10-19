@@ -48,12 +48,18 @@ import ServiceNow.SEER.Pages.*;
 import ServiceNow.SEER.StepsImplementation.*;
 import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
 import com.nci.automation.web.WebDriverUtils;
+import io.github.sukgu.Shadow;
 
 /**
  * This an initializer class which will initialize all pages classes. Once pages
  * class created, create an object of it here inside the constructor
  */
 public class PageInitializer extends WebDriverUtils {
+
+	/**
+	 * SHADOW DOM INITIALIZER
+	 */
+	public static Shadow shadow = new Shadow(WebDriverUtils.webDriver);
 
 	/** --------------- APPSCOMMON INSTANCES --------------- */
 	// declare public static variables of types of all the pages
