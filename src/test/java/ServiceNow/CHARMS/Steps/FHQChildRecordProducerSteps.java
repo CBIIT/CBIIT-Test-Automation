@@ -1,6 +1,8 @@
 package ServiceNow.CHARMS.Steps;
 
 import java.util.ArrayList;
+
+import appsCommon.ServiceNow_Login_Methods;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import com.nci.automation.utils.MiscUtils;
@@ -26,21 +28,7 @@ public class FHQChildRecordProducerSteps extends PageInitializer {
 	@Given("a user is logged on FHQ Landing Page after filling out patient data using the Test Account credentials in Test side door login page")
 	public void a_user_is_logged_on_FHQ_Landing_Page_after_filling_out_patient_data_using_the_Test_Account_credentials_in_Test_side_door_login_page()
 			throws TestingException {
-
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeViewSideDoor"));
-
-		WebDriverUtils.webDriver.switchTo()
-		.frame(WebDriverUtils.webDriver.findElement(By.xpath("//iframe[@id='gsft_main']")));
-
-		CommonUtils.waitForClickability(nativeViewSideDoorLoginPage.nativeViewSideDoorLogInButton);
-
-		nativeViewSideDoorLoginPage.enterUsername(nativeViewSideDoorLoginPage.nativeViewSideDoorUserName,
-				"sideDoorUserName");
-
-		nativeViewSideDoorLoginPage.enterPassword(nativeViewSideDoorLoginPage.nativeViewSideDoorPassword,
-				"sideDoorPassword");
-
-		nativeViewSideDoorLoginPage.clickSignInButton();
+		ServiceNow_Login_Methods.nativeViewSideDoorLogin();
 
 		WebDriverUtils.webDriver.get("https://service-test.nci.nih.gov/ncifamily");
 		CommonUtils.maximizeWindow();

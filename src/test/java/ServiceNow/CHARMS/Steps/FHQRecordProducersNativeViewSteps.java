@@ -2,6 +2,8 @@ package ServiceNow.CHARMS.Steps;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
+
+import appsCommon.ServiceNow_Login_Methods;
 import org.openqa.selenium.By;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -35,15 +37,7 @@ public class FHQRecordProducersNativeViewSteps extends PageInitializer {
 		WebDriverUtils.webDriver.switchTo()
 		.frame(WebDriverUtils.webDriver.findElement(By.xpath("//iframe[@id='gsft_main']")));
 
-		CommonUtils.waitForClickability(nativeViewSideDoorLoginPage.nativeViewSideDoorLogInButton);
-
-		nativeViewSideDoorLoginPage.enterUsername(nativeViewSideDoorLoginPage.nativeViewSideDoorUserName,
-				"sideDoorUserName");
-
-		nativeViewSideDoorLoginPage.enterPassword(nativeViewSideDoorLoginPage.nativeViewSideDoorPassword,
-				"sideDoorPassword");
-
-		nativeViewSideDoorLoginPage.clickSignInButton();
+		ServiceNow_Login_Methods.nativeViewSideDoorLogin();
 
 	}
 

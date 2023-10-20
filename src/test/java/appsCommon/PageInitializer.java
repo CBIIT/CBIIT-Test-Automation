@@ -48,18 +48,12 @@ import ServiceNow.SEER.Pages.*;
 import ServiceNow.SEER.StepsImplementation.*;
 import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
 import com.nci.automation.web.WebDriverUtils;
-import io.github.sukgu.Shadow;
 
 /**
  * This an initializer class which will initialize all pages classes. Once pages
  * class created, create an object of it here inside the constructor
  */
 public class PageInitializer extends WebDriverUtils {
-
-	/**
-	 * SHADOW DOM INITIALIZER
-	 */
-	public static Shadow shadow = new Shadow(WebDriverUtils.webDriver);
 
 	/** --------------- APPSCOMMON INSTANCES --------------- */
 	// declare public static variables of types of all the pages
@@ -275,7 +269,6 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewHomePage nativeViewHomePage;
 	public static NativeViewImpersonateUser nativeViewImpersonateUser;
 	public static NativeViewImpersonateUserPage nativeViewImpersonateUserPage;
-	public static NativeViewSideDoorLoginPage nativeViewSideDoorLoginPage;
 	public static NativeViewEnrollmentsPage nativeViewEnrollementsPage;
 	public static NativeViewEnrollmentViewPage nativeViewEnrollmentViewPage;
 	public static NativeViewStepsImpl nativeViewStepsImpl;
@@ -493,7 +486,6 @@ public class PageInitializer extends WebDriverUtils {
 		nativeViewHomePage = new NativeViewHomePage();
 		nativeViewImpersonateUser = new NativeViewImpersonateUser();
 		nativeViewImpersonateUserPage = new NativeViewImpersonateUserPage();
-		nativeViewSideDoorLoginPage = new NativeViewSideDoorLoginPage();
 		nativeViewEnrollementsPage = new NativeViewEnrollmentsPage();
 		nativeViewEnrollmentViewPage = new NativeViewEnrollmentViewPage();
 		nativeViewCustomersPage = new NativeViewCustomersPage();

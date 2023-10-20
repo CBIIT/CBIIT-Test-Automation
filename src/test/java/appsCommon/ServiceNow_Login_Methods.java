@@ -12,6 +12,7 @@ public class ServiceNow_Login_Methods extends PageInitializer {
 
     /**
      * USE THIS METHOD TO LOG IN TO SERVICE NOW USING THE SIDE DOOR TEST ACCOUNT
+     * USERNAME AND PASSWORD ARE SPECIFIED IN THE LOCAL ENV PROPERTIES FILE
      */
     public static void nativeViewSideDoorLogin() {
         MiscUtils.sleep(2000);
@@ -19,7 +20,7 @@ public class ServiceNow_Login_Methods extends PageInitializer {
         NativeView_SideDoor_Login_Page.enterSideDoorUsername("SideDoorUsername");
         NativeView_SideDoor_Login_Page.enterSideDoorPassword("SideDoorPassword");
         NativeView_SideDoor_Login_Page.clickSignInButton();
-        MiscUtils.sleep(500);
+        MiscUtils.sleep(3000);
     }
 
     /***
