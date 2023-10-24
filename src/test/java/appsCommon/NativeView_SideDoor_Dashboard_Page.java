@@ -27,6 +27,32 @@ public class NativeView_SideDoor_Dashboard_Page {
     @FindElementBy(xpath = "//*[@id='gsft_main']")
     public static WebElement nativeViewiFrame;
 
+    /* PROFILE BUTTON  */
+    @FindElementBy(xpath = "//div[@class='header-avatar-button contextual-zone-button user-menu']")
+    public static WebElement profileButton;
+
+    /* IMPERSONATE USER BUTTON  */
+    @FindElementBy(xpath = "//button[contains(text(),'Impersonate user')]")
+    public static WebElement impersonateUserButton;
+
+    /* IMPERSONATE ANOTHER USER BUTTON  */
+    @FindElementBy(xpath = "//button[contains(text(),'Impersonate another user')]")
+    public static WebElement impersonateAnotherUserButton;
+
+    /* IMPERSONATE USER SEARCH TEXT BOX  */
+    @FindElementBy(xpath = "//input[@class='now-typeahead-native-input']")
+    public static WebElement impersonateSearchTextBox;
+
+    /* IMPERSONATE WINDOW USER BUTTON  */
+    @FindElementBy(xpath = "//div[@class='now-modal-footer']/now-button[2]")
+    public static WebElement impersonateUserWindowButton;
+
+    /**
+     * USE THIS METHOD TO SEARCH ANY TEXT USING THE NATIVE VIEW FILTER NAVIGATOR
+     *
+     * @param text
+     * @return
+     */
     public static WebElement dynamicFilterNavigatorTextSearch(String text) {
         return shadow.findElementByXPath("//*[text()='" + text + "'][1]");
     }

@@ -60,6 +60,7 @@ public class PageInitializer extends WebDriverUtils {
 	/** iTrust instances */
 	public static ITrustLoginPage iTrustloginPage;
 	public static ITrustLoginPageImpl loginImpl;
+	public static ServiceNow_NCISP_Page serviceNow_ncisp_page;
 
 	/** --------------- GRANTS INSTANCES --------------- */
 	public static ChangePasswordPage changePasswordPage;
@@ -289,6 +290,7 @@ public class PageInitializer extends WebDriverUtils {
 		// create instances of all pages and assign them to the variables
 		iTrustloginPage = new ITrustLoginPage();
 		loginImpl = new ITrustLoginPageImpl();
+		serviceNow_ncisp_page = new ServiceNow_NCISP_Page();
 
 		/** --------------- SERVICENOW INSTANCE VARIABLES --------------- */
 		/** COVIDDash Instance Variables */

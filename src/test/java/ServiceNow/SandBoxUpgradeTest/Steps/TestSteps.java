@@ -20,6 +20,8 @@ public class TestSteps extends NativeView_SideDoor_PageInitializer {
     @Given("testing")
     public void testing() throws Exception {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.filterNavigatorSearch("CHARMS CGB IIQ");
+        ServiceNow_Common_Methods.impersonateAnyUser("Diego Juarez");
+       // ServiceNow_Common_Methods.impersonateAnyUser("Grace Liou");
+        //ServiceNow_Common_Methods.filterNavigatorSearch("CHARMS CGB IIQ");
     }
 }
