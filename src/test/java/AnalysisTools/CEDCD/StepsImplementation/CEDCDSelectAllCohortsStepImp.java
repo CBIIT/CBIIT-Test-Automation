@@ -2,10 +2,8 @@ package AnalysisTools.CEDCD.StepsImplementation;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.JavascriptUtils;
 import appsCommon.PageInitializers.PageInitializer;

@@ -12,6 +12,7 @@ import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
 public class SignatureVisualizationSteps extends PageInitializer {
 
 	@Given("the user is on the mSigPortal Home page")

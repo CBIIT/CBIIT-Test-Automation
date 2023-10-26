@@ -3,11 +3,9 @@ package AnalysisTools.PLCOAPI.Steps;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
 import com.nci.automation.services.RestApiHelper;
-
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-
 
 public class PublicAPISteps extends PageInitializer {
 	

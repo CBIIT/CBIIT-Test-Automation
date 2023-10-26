@@ -4,8 +4,6 @@ import appsCommon.PageInitializers.PageInitializer;
 
 
 public class LDLinkHomePageImpl extends PageInitializer {
-	
-
 
 
 }
