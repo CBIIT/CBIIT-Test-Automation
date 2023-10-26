@@ -1,8 +1,8 @@
 package CustomBusiness.CCR.StepsImplementation;
 
 import CustomBusiness.CCR.Constants.CCR_CONSTANTS;
-import appsCommon.ServiceNow_Login_Methods;
-import appsCommon.PageInitializer;
+import appsCommon.Utils.ServiceNow_Login_Methods;
+import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;

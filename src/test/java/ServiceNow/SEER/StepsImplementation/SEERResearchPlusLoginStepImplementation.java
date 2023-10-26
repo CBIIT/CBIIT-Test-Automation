@@ -1,8 +1,7 @@
 package ServiceNow.SEER.StepsImplementation;
 
 import ServiceNow.SEER.Constants.SEERDataAccessRequest_Constants;
-import appsCommon.PageInitializer;
-import com.nci.automation.utils.MiscUtils;
+import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 

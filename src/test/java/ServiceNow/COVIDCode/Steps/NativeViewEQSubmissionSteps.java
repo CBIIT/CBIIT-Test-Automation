@@ -1,6 +1,6 @@
 package ServiceNow.COVIDCode.Steps;
 
-import appsCommon.ServiceNow_Login_Methods;
+import appsCommon.Utils.ServiceNow_Login_Methods;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -11,7 +11,7 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import ServiceNow.COVIDDash.Utils.COVIDConstants;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

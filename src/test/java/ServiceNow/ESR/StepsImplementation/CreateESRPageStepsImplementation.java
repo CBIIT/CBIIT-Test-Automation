@@ -1,7 +1,7 @@
 package ServiceNow.ESR.StepsImplementation;
 
-import appsCommon.ServiceNow_Login_Methods;
-import appsCommon.PageInitializer;
+import appsCommon.Utils.ServiceNow_Login_Methods;
+import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;

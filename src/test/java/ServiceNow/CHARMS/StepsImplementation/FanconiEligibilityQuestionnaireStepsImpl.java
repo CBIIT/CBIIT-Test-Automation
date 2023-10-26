@@ -13,7 +13,7 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
 import ServiceNow.CHARMS.Utils.CharmsUtil;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 
 public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 

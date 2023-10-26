@@ -2,7 +2,7 @@ package ServiceNow.SEER.StepsImplementation;
 
 import ServiceNow.SEER.Constants.*;
 import ServiceNow.SEER.Pages.NativeViewCustomersPage;
-import appsCommon.ServiceNow_Login_Methods;
+import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
@@ -11,7 +11,7 @@ import org.openqa.selenium.Keys;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 import java.util.Iterator;
 import java.util.Set;
 

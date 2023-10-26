@@ -1,6 +1,5 @@
 package ServiceNow.COVIDDash.StepsImplementation;
 
-import ServiceNow.COVIDDash.Steps.HooksSteps;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
@@ -12,8 +11,8 @@ import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 
 import ServiceNow.COVIDDash.Utils.COVIDConstants;
-import appsCommon.PageCache;
-import appsCommon.PageInitializer;
+import appsCommon.Utils.PageCache;
+import appsCommon.PageInitializers.PageInitializer;
 
 public class COVIDHomePageImpl extends PageInitializer {
 

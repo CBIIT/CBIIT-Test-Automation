@@ -2,8 +2,8 @@ package ServiceNow.ETracking.StepsImplementation;
 
 import ServiceNow.ETracking.Constants.EtrackAssetsRecords_NativeView_Constants;
 import ServiceNow.SEER.Constants.SEERNativeView_Constants;
-import appsCommon.ServiceNow_Login_Methods;
-import appsCommon.PageInitializer;
+import appsCommon.Utils.ServiceNow_Login_Methods;
+import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.xceptions.TestingException;

@@ -3,14 +3,7 @@ package AnalysisTools.JPSurv.Steps;
 import java.io.File;
 
 import com.nci.automation.utils.CucumberLogUtils;
-import io.cucumber.java.After;
-import io.cucumber.java.Scenario;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
@@ -18,7 +11,7 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

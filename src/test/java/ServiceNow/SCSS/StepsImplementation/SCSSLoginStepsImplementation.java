@@ -1,8 +1,8 @@
 package ServiceNow.SCSS.StepsImplementation;
 
 import ServiceNow.SCSS.Constants.SCSS_Constants;
-import appsCommon.ServiceNow_Login_Methods;
-import appsCommon.PageInitializer;
+import appsCommon.Utils.ServiceNow_Login_Methods;
+import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.EnvUtils;

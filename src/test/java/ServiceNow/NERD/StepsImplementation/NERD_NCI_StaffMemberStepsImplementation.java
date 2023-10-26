@@ -2,8 +2,8 @@ package ServiceNow.NERD.StepsImplementation;
 
 import ServiceNow.NERD.Constants.NCI_Staff_Members_Constants;
 import ServiceNow.NERD.Constants.ReturningSubmissions_Constants;
-import appsCommon.ServiceNow_Login_Methods;
-import appsCommon.PageInitializer;
+import appsCommon.Utils.ServiceNow_Login_Methods;
+import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
