@@ -13,7 +13,7 @@ public class NativeViewAccessRequestPage extends CommonUtils {
 
     /** Native View SEER Access Requested Link */
     public static WebElement nativeViewSEERAccessRequestsLink(String accessRequestsText) {
-        return WebDriverUtils.webDriver.findElement (By.xpath( "//div[contains(text(),'" + accessRequestsText + "')]"));
+        return WebDriverUtils.webDriver.findElement (By.xpath( "//div[@class='sn-widget-list-title'][normalize-space()='" + accessRequestsText + "']"));
     }
 
     /**Native View Access Requests IFRAME*/
