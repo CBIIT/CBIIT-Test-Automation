@@ -28,7 +28,7 @@ Feature: Applicant Flow Scenarios
      | Mario     | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    |  7 Mills  | 12378     | Reston| VA    | UsA      | 20453 |
 
 
-  @Regression @Smoke @Nekrashevich @APPTRACK-712
+  @Regression @Smoke @Nekrashevich @APPTRACK-712 @Progression
   Scenario: Edit Demographics of Profile
     When User is on SCSS landing page
     And User is on Profile tab
@@ -52,10 +52,10 @@ Feature: Applicant Flow Scenarios
   And User can verify that equal opportunity employer statement is displayed
   And User clicks "Apply" button
   And User uploads "Cover Letter"
-  And User uplaods "Qualification Statement"
- And User uploads "Vision Statement"
- And User uploads "Curriculum Vitae"
- And User clicks "Next" button
- And User fills in "Reference 1" section fields
- And User fills in "Reference 2" section fields
- And User chose not to answer the demographic questions
+  And User uploads "Qualification Statement"
+  And User uploads "Vision Statement"
+  And User uploads "Curriculum Vitae"
+  And User clicks "Next" button
+  And User fills in "Reference 1" section fields
+  And User fills in "Reference 2" section fields
+  And User chose not to answer the demographic questions
