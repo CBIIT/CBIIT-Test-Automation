@@ -1,15 +1,12 @@
 package CustomBusiness.EIDP.Steps;
 
 import java.util.Map;
-import org.openqa.selenium.By;
+
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.JavascriptUtils;
-import com.nci.automation.web.WebDriverUtils;
 import CustomBusiness.EIDP.Util.CommonUtil;
-import appsCommon.PageInitializer;
-import io.cucumber.java.en.Given;
+import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.datatable.DataTable;

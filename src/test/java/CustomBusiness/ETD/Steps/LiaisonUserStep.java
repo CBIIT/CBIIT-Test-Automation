@@ -2,9 +2,7 @@ package CustomBusiness.ETD.Steps;
 
 import org.testng.Assert;
 import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.CommonUtils;
-import appsCommon.PageInitializer;
-import io.cucumber.java.en.Given;
+import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
