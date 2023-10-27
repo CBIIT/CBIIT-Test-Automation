@@ -2,8 +2,7 @@ package ServiceNow.NERD.StepsImplementation;
 
 import ServiceNow.NERD.Constants.NERDOGSRMemberOfCongress_Constants;
 import ServiceNow.NERD.Pages.NERDOGCRAddNewEntryPage;
-import ServiceNow.NERD.Steps.HooksSteps;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;

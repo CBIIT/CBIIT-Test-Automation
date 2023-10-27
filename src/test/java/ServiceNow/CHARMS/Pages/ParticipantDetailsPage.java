@@ -132,6 +132,17 @@ public class ParticipantDetailsPage {
     @FindBy(xpath = "//input[@id='x_naci_family_coho_family_history_details.preferred_phone']")
     public WebElement contactPreferredPhone;
 
+    /**
+     * RELATED LINKS SECTION
+     */
+    /* PARTICIPANT STUDIES TAB */
+    @FindBy(xpath = "//span[contains(text(),'Participant Studies')]")
+    public WebElement participantStudiesTab;
+
+    /* PARTICIPANT STUDIES INFO BUTTON */
+    @FindBy(xpath = "//a[normalize-space()='RASopathy']//parent::td//parent::tr//child::td[2]//child::a")
+    public WebElement participantStudiesInfoButton;
+
     /***
      * MEDICAL INFORMATION SECTION
      */
@@ -144,7 +155,7 @@ public class ParticipantDetailsPage {
     public WebElement hasAPhysicianEverDiagnosedThisParticipantWithCancerDropDown;
 
     /* VITAL STATUS YES DROP DOWN OPTION */
-    @FindBy(xpath = "//select[@id='x_naci_family_coho_family_history_details.person_alive']/option[2]")
+    @FindBy(xpath = "//*[@id='x_naci_family_coho_ras_referral.family_member_record.person_alive']")
     public WebElement vitalStatusYesDropDownOption;
 
     /* HAS THE PARTICIPANT EVER HAD GENETIC TESTING? DROP DOWN */
@@ -160,11 +171,11 @@ public class ParticipantDetailsPage {
     public WebElement rasopathyHistoryTab;
 
     /* HAVE YOU BEEN DIAGNOSED WITH A RASOPATHY? DROP DOWN */
-    @FindBy(xpath = "//select[@id='sys_readonly.x_naci_family_coho_family_history_details.ras_screenerras_screener_reference.rasopathy_diagnosis']")
+    @FindBy(xpath = "//*[@id='x_naci_family_coho_ras_referral.rasopathy_diagnosis']")
     public WebElement haveYouBeenDiagnosedWithARasopathyDropDown;
 
     /* HAVE ANY OF YOUR BIOLOGICAL RELATIVES BEEN DIAGNOSED WITH A RASOPATHY? DROP DOWN */
-    @FindBy(xpath = "//select[@id='sys_readonly.x_naci_family_coho_family_history_details.ras_screenerras_screener_reference.realtives_rasopathy_diagnosis']")
+    @FindBy(xpath = "//*[@id='x_naci_family_coho_ras_referral.realtives_rasopathy_diagnosis']")
     public WebElement haveAnyOfYourBiologicalRelativesBeenDiagnosedWithARasopathyDropDown;
     public ParticipantDetailsPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);

@@ -1,26 +1,28 @@
 Feature: Stadtman Vacancy Scenarios
 
-  Background: common steps
+  @Regression @Smoke @Nekrashevich @APPTRACK-7 @APPTRACK-91
+  Scenario: Create a vacancy as OWM Vacancy Manager
     Given User is on SCSS Landing page and user is "Stadtman Vacancy Manager"
-
-  @Regression @Smoke @Nekrashevich @APPTRACK-892
-  Scenario: Create a vacancy as Stadtman Vacancy Manager
     And User is on SCSS landing page
     And User navigates to tab "Vacancy Dashboard"
     And User clicks button "Create vacancy"
-    And User fills in Vacancy Title as "Project Manager"
-    And User marks option as checked for Allow HR Specialist to Triage
-    And User marks Enables Focus Area as checked
-    And User fills in field Vacancy Description as "text"
-    And User selects open date as "25" and close date as "75"
-    And User confirms that Cover letter document is marked as optional
-    And User selects "Senior Investigator" as a Position Classification choice
-    And User verifies that "Roland Owens" is a contact for Appointment Package Initiator
-    And User picks "HNA" for Organizational Code
-    And User includes all available Mandatory Statements Page selections
-    And User adds "Daniel Pine" as a Chair
-    And User adds "Lisa Mirabello" as an Executive Secretary
-    And User clicks button "Save"
+    And the user submits the "Basic Vacancy Information"
+    And the user is selecting the "Mandatory Statements"
+    And the user is adding "Vacancy Committee" members
+    And the user chooses "Email Templates"
     And User includes all available Email Templates selections
-    Then User publishes a vacancy by clicking "Save and Finalize" button
-    And User cav verify that a vacancy is finalized
+    Then User publishes a vacancy
+    And User verify that a vacancy is finalized
+    When an "applicant" is on the SCSS landing page
+    Then applicant should see the published vacancy
+
+  @Regression @Smoke @bucurgb @UserStoryTagToBeConfirmed
+  Scenario: Create a vacancy as OWM Vacancy Manager
+    Given User is on SCSS Landing page and user is "Stadtman Vacancy Manager"
+    And User is on SCSS landing page
+    Then the User should see the menu options "Home", "Vacancy Dashboard", "Your Vacancies", "Reports", "Profile"
+    And User is able to see the NIH link and the "Open Vacancies" on the Home page
+    And User navigates to tab "Vacancy Dashboard"
+    And User can see all vacancies
+    And User navigates and can see all vacancies under "Your Vacancies" tab
+    And used navigates to see "Reports"

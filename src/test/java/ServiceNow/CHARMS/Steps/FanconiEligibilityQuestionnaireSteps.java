@@ -16,7 +16,7 @@ import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
 import ServiceNow.CHARMS.Utils.CharmsUtil;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 

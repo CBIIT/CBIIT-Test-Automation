@@ -9,7 +9,7 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import CustomBusiness.EIDP.Util.SharedData;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 
 public class DashboardStepImpl extends PageInitializer {
 

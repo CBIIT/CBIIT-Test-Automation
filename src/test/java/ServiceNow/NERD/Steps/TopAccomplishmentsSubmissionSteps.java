@@ -1,10 +1,11 @@
 package ServiceNow.NERD.Steps;
 
 import ServiceNow.NERD.StepsImplementation.NERDApplicationStepsImplementation;
+import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -14,7 +15,7 @@ public class TopAccomplishmentsSubmissionSteps extends PageInitializer{
 	@Given("a Program Staff member is on the CRS Knowledge Management System page")
 	public void a_Program_Staff_member_is_on_the_CRS_Knowledge_Management_System_page() 
 			throws TestingException{
-		nativeViewLoginImpl.sideDoorAccountLogin();
+		ServiceNow_Login_Methods.nativeViewSideDoorLogin();
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
 	}
 

@@ -5,6 +5,7 @@ import ServiceNow.NERD.StepsImplementation.NERDApplicationStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERD_NCI_CRSReviewerStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERD_NCI_DOC_PlanningContactStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERD_NCI_StaffMemberStepsImplementation;
+import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -12,7 +13,7 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -24,7 +25,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
     @Given("a published Collaboration has been returned to the DOC Planning Contact by the CRS Reviewer")
     public void a_published_Collaboration_has_been_returned_to_the_DOC_Planning_Contact_by_the_CRS_Reviewer()
             throws TestingException {
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         NERD_NCI_StaffMemberStepsImplementation.creatingOfSubmissionByProgramStaff(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER);
         NERD_NCI_DOC_PlanningContactStepsImplementation.submittingOfSubmissionToCRSReviewer(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER);
         NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER);
@@ -77,7 +78,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 
     @Given("a Collaboration has been submitted to the DOC Planning Contact")
     public void a_Collaboration_has_been_submitted_to_the_DOC_Planning_Contact() throws TestingException {
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         NERD_NCI_StaffMemberStepsImplementation.creatingOfSubmissionByProgramStaff(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_UNDER_REVIEW_TEXT);
     }
 
@@ -90,7 +91,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 
     @Given("a published Collaboration has been returned to the Program Staff with the article version number as {string}")
     public void a_published_Collaboration_has_been_returned_to_the_Program_Staff_with_the_article_version_number_as(String versionNumber) throws TestingException {
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         NERD_NCI_StaffMemberStepsImplementation.creatingOfSubmissionByProgramStaff(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER);
         NERD_NCI_DOC_PlanningContactStepsImplementation.submittingOfSubmissionToCRSReviewer(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER);
         NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER);
@@ -116,7 +117,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 
     @Given("a published Collaboration is returned to the DOC Planning Contact")
     public void a_published_Collaboration_is_returned_to_the_DOC_Planning_Contact() throws TestingException {
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         NERD_NCI_StaffMemberStepsImplementation.creatingOfSubmissionByProgramStaff(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION);
         NERD_NCI_DOC_PlanningContactStepsImplementation.submittingOfSubmissionToCRSReviewer(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION);
         NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTOMATION);
@@ -143,7 +144,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 
     @Given("a DOC Planning Contact creates a Collaboration submission")
     public void a_DOC_Planning_Contact_creates_a_Collaboration_submission() throws TestingException {
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         NERD_NCI_DOC_PlanningContactStepsImplementation.creatingOfCollaborationSubmissionByDOCPlaningContact(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink, ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_DOC_PLAN_CONTACT);
     }
 
@@ -155,7 +156,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 
     @Given("a Collaboration has been returned to a Program Staff")
     public void a_Collaboration_has_been_returned_to_a_Program_Staff() throws TestingException {
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         NERD_NCI_StaffMemberStepsImplementation.creatingOfSubmissionByProgramStaff(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_RETURN_TO_STUFF);
         NERD_NCI_DOC_PlanningContactStepsImplementation.returningSubmissionToProgramStaffByDOCContact(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_RETURN_TO_STUFF);
     }
@@ -168,7 +169,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 
     @Given("a published Collaboration started by a Program Staff has been returned to the DOC Planning Contact")
     public void a_published_Collaboration_started_by_a_Program_Staff_has_been_returned_to_the_DOC_Planning_Contact() throws TestingException {
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         NERD_NCI_StaffMemberStepsImplementation.creatingOfSubmissionByProgramStaff(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTHOR);
         NERD_NCI_DOC_PlanningContactStepsImplementation.submittingOfSubmissionToCRSReviewer(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTHOR);
         NERD_NCI_CRSReviewerStepsImplementation.publishingOfSubmissionByCRSReviewer(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_AUTHOR);
@@ -188,7 +189,7 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
 
     @Given("a DOC Planning Contact creates a Collaboration")
     public void a_DOC_Planning_Contact_creates_a_Collaboration() throws TestingException {
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         NERD_NCI_DOC_PlanningContactStepsImplementation.creatingOfCollaborationSubmissionByDOCPlaningContact(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink, ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_DOC_PLAN_CONTACT_SUBMISSION);
     }
 

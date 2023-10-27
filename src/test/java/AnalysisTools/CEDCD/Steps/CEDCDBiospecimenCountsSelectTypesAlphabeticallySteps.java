@@ -3,7 +3,7 @@ package AnalysisTools.CEDCD.Steps;
 import java.util.ArrayList;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.web.JavascriptUtils;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 

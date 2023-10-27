@@ -2,7 +2,7 @@ package CustomBusiness.EIDP.Steps;
 
 import com.nci.automation.xceptions.TestingException;
 import CustomBusiness.EIDP.Util.SharedData;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
