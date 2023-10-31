@@ -21,7 +21,7 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
         CommonUtils.sendKeysToElement(nativeViewHomePage.nativeViewFilterNavigator, "CHARMS");
         JavascriptUtils.scrollIntoView(DynamicLocators.dynamicTextLocator("RASopathy Surveys"));
         CommonUtils.clickOnElement(DynamicLocators.dynamicTextLocator("RASopathy Surveys"));
-        CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewIframe);
+    //    CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewIframe);
         WebDriverUtils.webDriver.findElement(By.xpath("//a[@aria-label='Preview record: IIQ0001090']")).click();
         CommonUtils.clickOnElement(participantDetailsPage.openRecordButton);
         /**

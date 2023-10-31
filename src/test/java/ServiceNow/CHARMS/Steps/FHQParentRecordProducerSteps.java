@@ -19,75 +19,37 @@ import io.cucumber.java.en.When;
 public class FHQParentRecordProducerSteps extends PageInitializer {
 
 	private ArrayList<StepTestResult> scenarioReportList = new ArrayList<StepTestResult>();
-	
 
-	
 	ExtentReports extent =new ExtentReports();
 
 	@Given("user clicks the Parents Grid link on FHQ Grid page to land on the FHQ Parents list view page")
 	public void user_clicks_the_Parents_Grid_link_on_FHQ_Grid_page_to_land_on_the_FHQ_Parents_list_view_page() {
-
 		MiscUtils.sleep(100);
-
 		fHQSurveyPortalPage.parentsLinkOnFamilyGrid.click();
-
 		MiscUtils.sleep(300);
-
-		StepTestResult stepTestResult = new StepTestResult(
-				"User clicked the Participant Parents Grid link on FHQ Grid page and lands on the FHQ Parents list view page");
-
+		StepTestResult stepTestResult = new StepTestResult("User clicked the Participant Parents Grid link on FHQ Grid page and lands on the FHQ Parents list view page");
 		scenarioReportList.add(stepTestResult);
-
 	}
 
 	@Given("verifies the Parents List View details")
 	public void verifies_the_Parents_List_View_details() {
-
-		ComponentTestResult charmsBannerTest = FHQUtil.verifyLabel(
-				fHQSurveyPortalPage.familyCohortStudyManagementSystemLabel,
-				"Family Cohort Study Management System: RASopathies");
-
+		ComponentTestResult charmsBannerTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.familyCohortStudyManagementSystemLabel,"Family Cohort Study Management System: RASopathies");
 		ComponentTestResult homeButtonTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.homeButton, "FHQ Home");
-
 		ComponentTestResult listViewButtonTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.listViewButton, "List View");
-
 		ComponentTestResult contextMenuTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.parentContextMenuButton, "");
-
 		ComponentTestResult labelTest1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.parentsBanner, "Parents");
-
 		ComponentTestResult labelTest2 = FHQUtil.verifyLabel(fHQSurveyPortalPage.newButtonLinkOnListView, "New");
-
-		ComponentTestResult labelTest3 = FHQUtil.verifyLabel(fHQSurveyPortalPage.rowsDetailsOnListView,
-				"The blue highlighted rows represent the incompleted family records");
-
+		ComponentTestResult labelTest3 = FHQUtil.verifyLabel(fHQSurveyPortalPage.rowsDetailsOnListView,"The blue highlighted rows represent the incompleted family records");
 		ComponentTestResult labelTest4 = FHQUtil.verifyLabel(fHQSurveyPortalPage.allDetailsOnListView, "All");
-
-		ComponentTestResult labelTest5 = FHQUtil.verifyLabel(
-				fHQSurveyPortalPage.parentRelationToPatientBannerOnListView,
-				"Relation to Patient in (Biological Mother, Biological Father)");
-
+		ComponentTestResult labelTest5 = FHQUtil.verifyLabel(fHQSurveyPortalPage.parentRelationToPatientBannerOnListView,"Relation to Patient in (Biological Mother, Biological Father)");
 		ComponentTestResult labelTest6 = FHQUtil.verifyLabel(fHQSurveyPortalPage.firstNameOnListView, "First Name");
-
-		ComponentTestResult labelTest7 = FHQUtil.verifyLabel(fHQSurveyPortalPage.firstInitialOfLastNameOnListView,
-				"First Initial of LAST Name");
-
+		ComponentTestResult labelTest7 = FHQUtil.verifyLabel(fHQSurveyPortalPage.firstInitialOfLastNameOnListView,"First Initial of LAST Name");
 		ComponentTestResult labelTest8 = FHQUtil.verifyLabel(fHQSurveyPortalPage.vitalStatusOnListView, "Vital Status");
-
-		ComponentTestResult labelTest9 = FHQUtil.verifyLabel(fHQSurveyPortalPage.yearOfBirthOnListView,
-				"Year of Birth");
-
-		ComponentTestResult labelTest10 = FHQUtil.verifyLabel(fHQSurveyPortalPage.relationToPatientOnListView1,
-				"Relation to Patient");
-
-		ComponentTestResult labelTest11 = FHQUtil.verifyLabel(fHQSurveyPortalPage.relationToPatientOnListViewValue2,
-				"Biological Mother");
-
-		ComponentTestResult labelTest12 = FHQUtil.verifyLabel(fHQSurveyPortalPage.relationToPatientOnListViewValue1,
-				"Biological Father");
-
-		StepTestResult stepTestResult = new StepTestResult(
-				"The Participant Parents details on the List View page are verified");
-
+		ComponentTestResult labelTest9 = FHQUtil.verifyLabel(fHQSurveyPortalPage.yearOfBirthOnListView,"Year of Birth");
+		ComponentTestResult labelTest10 = FHQUtil.verifyLabel(fHQSurveyPortalPage.relationToPatientOnListView1,"Relation to Patient");
+		ComponentTestResult labelTest11 = FHQUtil.verifyLabel(fHQSurveyPortalPage.relationToPatientOnListViewValue2,"Biological Mother");
+		ComponentTestResult labelTest12 = FHQUtil.verifyLabel(fHQSurveyPortalPage.relationToPatientOnListViewValue1,"Biological Father");
+		StepTestResult stepTestResult = new StepTestResult("The Participant Parents details on the List View page are verified");
 		stepTestResult.add(charmsBannerTest);
 		stepTestResult.add(homeButtonTest);
 		stepTestResult.add(listViewButtonTest);
@@ -104,39 +66,21 @@ public class FHQParentRecordProducerSteps extends PageInitializer {
 		stepTestResult.add(labelTest10);
 		stepTestResult.add(labelTest11);
 		stepTestResult.add(labelTest12);
-
 		scenarioReportList.add(stepTestResult);
-
 	}
 
 	@When("clicks the New button on the FHQ Parents list view page it lands on the New FHQ Parent record producer page")
 	public void clicks_the_New_button_on_the_FHQ_Parents_list_view_page_it_lands_on_the_New_FHQ_Parent_record_producer_page() {
-
 		fHQSurveyPortalPage.newButtonLinkOnListView.click();
-
 		MiscUtils.sleep(300);
-
-		ComponentTestResult charmsBannerTest = FHQUtil.verifyLabel(
-				fHQSurveyPortalPage.familyCohortStudyManagementSystemLabel,
-				"Family Cohort Study Management System: RASopathies");
-
+		ComponentTestResult charmsBannerTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.familyCohortStudyManagementSystemLabel,"Family Cohort Study Management System: RASopathies");
 		ComponentTestResult homeButtonTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.homeButton, "FHQ Home");
-
 		ComponentTestResult listViewButtonTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.listView1Button, "List View");
-
 		ComponentTestResult formViewButtonTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.formViewButton, "Form View");
-
-		ComponentTestResult bannerTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.familyHealthBanner,
-				"We know families come in various configurations. This survey is primarily meant to record health information on your biological (blood-related) relatives. It's okay not to know information about some of your relatives. You will have a chance to tell us about any non-biological relatives you would like us to add to your family tree (for example, an adopted sibling or a step-parent) at the end of the survey.");
-
+		ComponentTestResult bannerTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.familyHealthBanner,"We know families come in various configurations. This survey is primarily meant to record health information on your biological (blood-related) relatives. It's okay not to know information about some of your relatives. You will have a chance to tell us about any non-biological relatives you would like us to add to your family tree (for example, an adopted sibling or a step-parent) at the end of the survey.");
 		ComponentTestResult labelTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.parentBanner, "Parent");
-
-		ComponentTestResult bannerTest1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.participantParentInformationBanner,
-				"You are currently filling out information for the participants parent.");
-
-		StepTestResult stepTestResult = new StepTestResult(
-				"Clicked the New button on the FHQ Parents list view page and the user lands on the New FHQ Parent record producer page");
-
+		ComponentTestResult bannerTest1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.participantParentInformationBanner,"You are currently filling out information for the participants parent.");
+		StepTestResult stepTestResult = new StepTestResult("Clicked the New button on the FHQ Parents list view page and the user lands on the New FHQ Parent record producer page");
 		stepTestResult.add(charmsBannerTest);
 		stepTestResult.add(homeButtonTest);
 		stepTestResult.add(listViewButtonTest);
@@ -144,50 +88,25 @@ public class FHQParentRecordProducerSteps extends PageInitializer {
 		stepTestResult.add(bannerTest);
 		stepTestResult.add(labelTest);
 		stepTestResult.add(bannerTest1);
-
 		scenarioReportList.add(stepTestResult);
-
 	}
 
 	@When("fills the First Name, First Initial of LAST name, Year of Birth, Vital Status,Year of Death, Age of Death information of the Parent related to the Patient")
 	public void fills_the_First_Name_First_Initial_of_LAST_name_Year_of_Birth_Vital_Status_Year_of_Death_Age_of_Death_information_of_the_Parent_related_to_the_Patient() {
-
-		ComponentTestResult labelTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.WhichParentLabel,
-				"Which parent is this?");
-
-		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.WhichParentDropDown,
-				FHQSurveyPageConstants.TYPES_OF_PARENTS, 1);
-
-		ComponentTestResult labelTest1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.firstNameLabel, "First Name");
-
-		ComponentTestResult labelTest2 = FHQUtil.verifyLabel(fHQSurveyPortalPage.firstNameTextBox, "");
-
-		fHQSurveyPortalPage.firstNameTextBox.sendKeys("Participant Mother FN");
-
-		ComponentTestResult labelTest3 = FHQUtil.verifyLabel(fHQSurveyPortalPage.firstInitialLastNameLabel,
-				"First Initial of LAST Name");
-
-		ComponentTestResult dropdownTest1 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown1,
-				FHQSurveyPageConstants.firstInitialLastName(), 4);
-
-		ComponentTestResult labelTest4 = FHQUtil.verifyLabel(fHQSurveyPortalPage.thisRelativeAdoptedLabel,
-				"Was this relative adopted?");
-
-		ComponentTestResult dropdownTest2 = FHQUtil.verifySelect2DropDowns(
-				fHQSurveyPortalPage.WasThisRelativeAdoptedDropDown,
-				FHQSurveyPageConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER, 1);
-
-		ComponentTestResult labelTest5 = FHQUtil.verifyLabel(fHQSurveyPortalPage.yearOfBirthLabel, "Year of Birth");
-
-		ComponentTestResult banner1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.yearOfBirthdateLabelBanner,
-				"An estimated age is preferred over \"Don't Know\". Examples: early 40s = 42; mid-40s = 45; late 40s = 48.");
-
-		ComponentTestResult dropdownTest3 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown1,
-				FHQSurveyPageConstants.yearOfBirthOrDeath(), 45);
-
-		ComponentTestResult labelTest6 = FHQUtil.verifyLabel(fHQSurveyPortalPage.vitalStatusLabel, "Vital Status");
-
-		ComponentTestResult dropdownTest4 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown1,
+		ComponentTestResult labelTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.WhichParentLabel,"Which parent is this?");
+ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.WhichParentDropDown,FHQSurveyPageConstants.TYPES_OF_PARENTS, 1);
+ComponentTestResult labelTest1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.firstNameLabel, "First Name");
+ComponentTestResult labelTest2 = FHQUtil.verifyLabel(fHQSurveyPortalPage.firstNameTextBox, "");
+fHQSurveyPortalPage.firstNameTextBox.sendKeys("Participant Mother FN");
+ComponentTestResult labelTest3 = FHQUtil.verifyLabel(fHQSurveyPortalPage.firstInitialLastNameLabel,"First Initial of LAST Name");
+ComponentTestResult dropdownTest1 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown1,FHQSurveyPageConstants.firstInitialLastName(), 4);
+ComponentTestResult labelTest4 = FHQUtil.verifyLabel(fHQSurveyPortalPage.thisRelativeAdoptedLabel,"Was this relative adopted?");
+ComponentTestResult dropdownTest2 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.WasThisRelativeAdoptedDropDown,FHQSurveyPageConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER, 1);
+ComponentTestResult labelTest5 = FHQUtil.verifyLabel(fHQSurveyPortalPage.yearOfBirthLabel, "Year of Birth");
+ComponentTestResult banner1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.yearOfBirthdateLabelBanner,"An estimated age is preferred over \"Don't Know\". Examples: early 40s = 42; mid-40s = 45; late 40s = 48.");
+ComponentTestResult dropdownTest3 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown1,FHQSurveyPageConstants.yearOfBirthOrDeath(), 45);
+ComponentTestResult labelTest6 = FHQUtil.verifyLabel(fHQSurveyPortalPage.vitalStatusLabel, "Vital Status");
+ComponentTestResult dropdownTest4 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown1,
 				FHQSurveyPageConstants.VITAL_STATUS_LIST, 2);
 
 		ComponentTestResult labelTest7 = FHQUtil.verifyLabel(fHQSurveyPortalPage.yearOfDeathOrAgeLabel,
@@ -1156,16 +1075,14 @@ public class FHQParentRecordProducerSteps extends PageInitializer {
 		scenarioReportList.add(stepTestResult);
 
 	}
-	
+
 	@Then("Generate Scenario Report for the details of the Patient Parent in the FHQ Survey")
 	public void generate_Scenario_Report_for_the_details_of_the_Patient_Partner_in_the_FHQ_Survey_page() {
-
 		for (StepTestResult tr : scenarioReportList) {
 			System.out.println(tr.toString());
-
 		}
 	}
-	
+
 
 	@When("click the new parent added and verify the completed record producer data")
 	public void click_the_new_parent_added_and_verify_the_completed_record_producer_data() {
@@ -1187,31 +1104,21 @@ public class FHQParentRecordProducerSteps extends PageInitializer {
 
 		ComponentTestResult parentNameTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.parentfirstNameBannerOnCRP,
 				"Participant Mother FN");
-
 		Assert.assertTrue("First Name Banner do not match",
 				fHQSurveyPortalPage.parentfirstNameBannerOnCRP.getText().contentEquals("Participant Mother FN"));
-
 		System.out.println("First Name Banner Matched");
-
 		ComponentTestResult labelTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.parentRelationToPatientOnCRP,
 				"Relation to Patient");
-
 		ComponentTestResult labelTest1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.parentRelationToPatientOnCRPValue,
 				"Biological Mother");
-
 		Assert.assertTrue("Relation to Patient do not match",
 				fHQSurveyPortalPage.parentRelationToPatientOnCRPValue.getText().contentEquals("Biological Mother"));
-
 		System.out.println("Relation to Patient Matched");
-
 		ComponentTestResult labelTest2 = FHQUtil.verifyLabel(fHQSurveyPortalPage.parentFirstNameOnCRP, "First Name");
-
 		ComponentTestResult labelTest3 = FHQUtil.verifyLabel(fHQSurveyPortalPage.parentFirstNameOnCRPValue,
 				"Participant Mother FN");
-
 		Assert.assertTrue("First Name do not match ", fHQSurveyPortalPage.parentFirstNameOnCRPValue
 				.getAttribute("value").contentEquals("Participant Mother FN"));
-
 		System.out.println("First Name Matched");
 
 		ComponentTestResult labelTest4 = FHQUtil.verifyLabel(fHQSurveyPortalPage.parentFirstInitialOfLASTNameOnCRP,
@@ -1286,7 +1193,7 @@ public class FHQParentRecordProducerSteps extends PageInitializer {
 
 		Assert.assertTrue("The cause of this relative death do not match ",
 				fHQSurveyPortalPage.parentCauseOfDeathOnCRPValue.getAttribute("value")
-						.contentEquals("Reason of Death of this relative is not Known"));
+				.contentEquals("Reason of Death of this relative is not Known"));
 
 		System.out.println("The cause of this relative death Matched");
 
@@ -1352,7 +1259,7 @@ public class FHQParentRecordProducerSteps extends PageInitializer {
 
 		Assert.assertTrue("Total number of Miscarriages do not match ",
 				fHQSurveyPortalPage.parentTotalNumberOfMiscarriagesOnCRPValue.getAttribute("value")
-						.contentEquals("Don't Know"));
+				.contentEquals("Don't Know"));
 
 		System.out.println("Total number of Miscarriages Matched");
 
@@ -1364,7 +1271,7 @@ public class FHQParentRecordProducerSteps extends PageInitializer {
 
 		Assert.assertTrue("Total number of Stillbirths do not match ",
 				fHQSurveyPortalPage.parentTotaNumberOfStillbirthsOnCRPValue.getAttribute("value")
-						.contentEquals("Don't Know"));
+				.contentEquals("Don't Know"));
 
 		System.out.println("Total number of Stillbirths Matched");
 
@@ -1376,7 +1283,7 @@ public class FHQParentRecordProducerSteps extends PageInitializer {
 
 		Assert.assertTrue("Total Number of Induced Abortions do not match ",
 				fHQSurveyPortalPage.parentTotalNumberOfInducedAbortionsOnCRPValue.getAttribute("value")
-						.contentEquals("Don't Know"));
+				.contentEquals("Don't Know"));
 
 		System.out.println("Total number of Induced Abortions Matched");
 
@@ -1388,7 +1295,7 @@ public class FHQParentRecordProducerSteps extends PageInitializer {
 
 		Assert.assertTrue("Total number of Tubal/Ectopic/Molar Pregnancies do not match ",
 				fHQSurveyPortalPage.parentTotalNumberOfTubalOnCRPValue.getAttribute("value")
-						.contentEquals("Don't Know"));
+				.contentEquals("Don't Know"));
 
 		System.out.println("Total number of Tubal/Ectopic/Molar Pregnancies Matched");
 
@@ -1433,55 +1340,25 @@ public class FHQParentRecordProducerSteps extends PageInitializer {
 
 		Assert.assertTrue("How many siblings does this relative have do not match ",
 				fHQSurveyPortalPage.parentHowManySiblingsOnCRPValue.getAttribute("value").contentEquals("1"));
-
 		System.out.println("How many siblings does this relative have had Matched");
-
-		ComponentTestResult labelTest44 = FHQUtil.verifyLabel(fHQSurveyPortalPage.parentAdditionalInfoOnCRP,
-				"Is there anything else you would like us to know about this relative?");
-
-		ComponentTestResult labelTest45 = FHQUtil.verifyLabel(fHQSurveyPortalPage.parentAdditionalInfoOnCRPValue,
-				"There is nothing else to tell about this Participant Parent.");
-
+		ComponentTestResult labelTest44 = FHQUtil.verifyLabel(fHQSurveyPortalPage.parentAdditionalInfoOnCRP,"Is there anything else you would like us to know about this relative?");
+		ComponentTestResult labelTest45 = FHQUtil.verifyLabel(fHQSurveyPortalPage.parentAdditionalInfoOnCRPValue,"There is nothing else to tell about this Participant Parent.");
 		Assert.assertTrue("Is there anything else you would like us to know about this relative do not match ",
-				fHQSurveyPortalPage.parentAdditionalInfoOnCRPValue.getAttribute("value")
-						.contentEquals("There is nothing else to tell about this Participant Parent."));
-
+				fHQSurveyPortalPage.parentAdditionalInfoOnCRPValue.getAttribute("value").contentEquals("There is nothing else to tell about this Participant Parent."));
 		System.out.println("Is there anything else you would like us to know about this relative Matched");
-
-		ComponentTestResult labelTest46 = FHQUtil.verifyLabel(fHQSurveyPortalPage.relatedListsOnCRPValue,
-				"Related Lists");
-
-		Assert.assertTrue("Related Lists do not match ",
-				fHQSurveyPortalPage.relatedListsOnCRPValue.getText().contentEquals("Related Lists"));
-
+		ComponentTestResult labelTest46 = FHQUtil.verifyLabel(fHQSurveyPortalPage.relatedListsOnCRPValue,"Related Lists");
+		Assert.assertTrue("Related Lists do not match ",fHQSurveyPortalPage.relatedListsOnCRPValue.getText().contentEquals("Related Lists"));
 		System.out.println("Related Lists Matched");
-
-		ComponentTestResult labelTest47 = FHQUtil.verifyLabel(fHQSurveyPortalPage.rASopathiesInfoOnCRPValue,
-				"RASopathies 1");
-
-		Assert.assertTrue("RASopathies do not match ",
-				fHQSurveyPortalPage.rASopathiesInfoOnCRPValue.getText().contentEquals("RASopathies 1"));
-
+		ComponentTestResult labelTest47 = FHQUtil.verifyLabel(fHQSurveyPortalPage.rASopathiesInfoOnCRPValue,"RASopathies 1");
+		Assert.assertTrue("RASopathies do not match ",fHQSurveyPortalPage.rASopathiesInfoOnCRPValue.getText().contentEquals("RASopathies 1"));
 		System.out.println("RASopathies 1 Matched");
-
 		ComponentTestResult labelTest48 = FHQUtil.verifyLabel(fHQSurveyPortalPage.cancersInfoOnCRPValue, "Cancers 1");
-
-		Assert.assertTrue("Cancers 1 do not match ",
-				fHQSurveyPortalPage.cancersInfoOnCRPValue.getText().contentEquals("Cancers 1"));
-
+		Assert.assertTrue("Cancers 1 do not match ",fHQSurveyPortalPage.cancersInfoOnCRPValue.getText().contentEquals("Cancers 1"));
 		System.out.println("Cancers 1 Matched");
-
-		ComponentTestResult labelTest49 = FHQUtil.verifyLabel(fHQSurveyPortalPage.medicalConditionsInfoOnCRPValue,
-				"Medical Conditions 1");
-
-		Assert.assertTrue("Medical Conditions 1 do not match ",
-				fHQSurveyPortalPage.medicalConditionsInfoOnCRPValue.getText().contentEquals("Medical Conditions 1"));
-
+		ComponentTestResult labelTest49 = FHQUtil.verifyLabel(fHQSurveyPortalPage.medicalConditionsInfoOnCRPValue,"Medical Conditions 1");
+		Assert.assertTrue("Medical Conditions 1 do not match ",fHQSurveyPortalPage.medicalConditionsInfoOnCRPValue.getText().contentEquals("Medical Conditions 1"));
 		System.out.println("Medical Conditions 1 Matched");
-
-		StepTestResult stepTestResult = new StepTestResult(
-				"Verified the new Parent added and all the field data in the completed record producer");
-
+		StepTestResult stepTestResult = new StepTestResult("Verified the new Parent added and all the field data in the completed record producer");
 		stepTestResult.add(charmsBannerTest);
 		stepTestResult.add(homeButtonTest);
 		stepTestResult.add(listViewButtonTest);
@@ -1541,46 +1418,27 @@ public class FHQParentRecordProducerSteps extends PageInitializer {
 
 	@When("click the FHQ Home button")
 	public void click_the_FHQ_Home_button() {
-
 		ComponentTestResult homeButtonTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.homeButton, "FHQ Home");
-
 		fHQSurveyPortalPage.homeButton.click();
-
 		StepTestResult stepTestResult = new StepTestResult("The FHQ Home button is clicked to go to Family Grid page");
-
 		stepTestResult.add(homeButtonTest);
 		scenarioReportList.add(stepTestResult);
-
 	}
 	
 	@When("the ExtentReport is generated")
 	public void the_ExtentReport_is_generated() {
-
 		String path =System.getProperty("user.dir")+"\\CBIIT-Test-Automation\\reports\\FHQRegression.html";
-
 		ExtentSparkReporter reporter = new ExtentSparkReporter(path);
-
 		reporter.config().setReportName("FHQ Regression Automation Results");
-
 		reporter.config().setDocumentTitle("FHQ Regression Results");
-
 		extent.attachReporter(reporter);
-
 		extent.setSystemInfo("Tester", "Sonika jain");
 	}
 
 	@When("Partner FHQ results are added to the ExtentReport")
 	public void partner_FHQ_results_are_added_to_the_ExtentReport() {
-		
-		 extent.createTest("Initial Demo");
-
-
+		extent.createTest("Initial Demo");
 		System.out.println(scenarioReportList);
-		
-
-		
-
 		extent.flush();
 	}
-
 }

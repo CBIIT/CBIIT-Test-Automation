@@ -1875,12 +1875,12 @@ public class RasScenario1StepsImpl extends PageInitializer {
         ras_Screener_TestDataManager.dataInitializerRasScreener("screenerScenario1");
         nativeViewLoginImpl.sideDoorAccountLogin();
         CommonUtils.sendKeysToElement(nativeViewHomePage.nativeViewFilterNavigator, "CHARMS");
-        CommonUtils.clickOnElement(charmsNativeViewPage.dashboardModuleLink);
+  //      CommonUtils.clickOnElement(charmsNativeViewPage.dashboardModuleLink);
         CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewiFrameCHARMS);
         CucumberLogUtils.logScreenshot();
-        JavascriptUtils.scrollIntoView(charmsNativeViewPage.dynamicDashboardModuleLinkLocator("Eligibility Review Needed"));
+  //      JavascriptUtils.scrollIntoView(charmsNativeViewPage.dynamicDashboardModuleLinkLocator("Eligibility Review Needed"));
         CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(charmsNativeViewPage.dynamicDashboardModuleLinkLocator("Eligibility Review Needed"));
+ //       CommonUtils.clickOnElement(charmsNativeViewPage.dynamicDashboardModuleLinkLocator("Eligibility Review Needed"));
         CommonUtils.switchToNextWindow();
         System.out.println("---- RETRIEVING DATA FROM EXCEL ----");
         CucumberLogUtils.logScreenshot();
