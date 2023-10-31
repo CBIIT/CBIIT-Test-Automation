@@ -1,6 +1,5 @@
 package ServiceNow.ESR.Pages;
 
-import appsCommon.PageInitializer;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

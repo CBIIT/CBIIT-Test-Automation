@@ -1,7 +1,8 @@
 package ServiceNow.CHARMS.Steps;
 
-import appsCommon.DynamicLocators;
-import appsCommon.PageInitializer;
+import appsCommon.Utils.Dynamic_Locators;
+import appsCommon.Utils.ServiceNow_Login_Methods;
+import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
@@ -17,11 +18,11 @@ public class RAS_Survey_Data_Verification_Steps extends PageInitializer {
         /**
          * NAVIGATING TO RAS SURVEY TABLE
          */
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         CommonUtils.sendKeysToElement(nativeViewHomePage.nativeViewFilterNavigator, "CHARMS");
-        JavascriptUtils.scrollIntoView(DynamicLocators.dynamicTextLocator("RASopathy Surveys"));
-        CommonUtils.clickOnElement(DynamicLocators.dynamicTextLocator("RASopathy Surveys"));
-    //    CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewIframe);
+        JavascriptUtils.scrollIntoView(Dynamic_Locators.dynamicTextLocator("RASopathy Surveys"));
+        CommonUtils.clickOnElement(Dynamic_Locators.dynamicTextLocator("RASopathy Surveys"));
+        CommonUtils.switchToFrame(charmsNativeViewPage.nativeViewIframe);
         WebDriverUtils.webDriver.findElement(By.xpath("//a[@aria-label='Preview record: IIQ0001090']")).click();
         CommonUtils.clickOnElement(participantDetailsPage.openRecordButton);
         /**

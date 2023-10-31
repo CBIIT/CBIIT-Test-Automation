@@ -13,7 +13,7 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
 import ServiceNow.CHARMS.Utils.CharmsUtil;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 
 public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 
@@ -1220,11 +1220,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 	/******************************************************************/
 	/* **** PARTICIPANT DETAILS PAGE IN NATIVE VIEW ASSERTIONS ****** */
 	/******************************************************************/
-
-	/* Method to log in to native view */
-	public void loginToNativeView1() {
-		nativeViewLoginImpl.sideDoorAccountLogin();
-	}
 
 	public void loginToNativeView() {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));

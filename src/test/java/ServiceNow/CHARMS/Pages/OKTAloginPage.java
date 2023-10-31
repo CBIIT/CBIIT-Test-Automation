@@ -7,9 +7,10 @@ import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
-public class OKTAloginPage extends CommonUtils {	
+public class OKTAloginPage extends CommonUtils {
+	
 	/** Username Text Box */
-	@FindBy (xpath = "//input[@name='identifier']")
+	@FindBy (xpath = "//input[@type='text']")
 	public WebElement usernameTxtBox;
 	
 	/** Password Text Box */
@@ -31,8 +32,11 @@ public class OKTAloginPage extends CommonUtils {
 	/* Send Push Button */
 	@FindBy (xpath = "//input[@value='Send Push']")
 	public WebElement sendPushButton;
-		
+	
+	
 	public OKTAloginPage() {	
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
-	}	
+	}
+
+	
 }

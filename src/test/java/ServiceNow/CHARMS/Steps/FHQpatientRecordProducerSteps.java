@@ -1,6 +1,7 @@
 package ServiceNow.CHARMS.Steps;
 
 import java.util.ArrayList;
+import org.openqa.selenium.By;
 import org.testng.asserts.SoftAssert;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -9,13 +10,13 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import ServiceNow.CHARMS.Constants.FHQSurveyPageConstants;
-import ServiceNow.CHARMS.Pages.FHQSubmissionPage;
 import ServiceNow.CHARMS.StepsImplementation.FHQSubmissionStepsImpl;
 import ServiceNow.CHARMS.Utils.CharmsUtil;
 import ServiceNow.CHARMS.Utils.ComponentTestResult;
 import ServiceNow.CHARMS.Utils.FHQUtil;
 import ServiceNow.CHARMS.Utils.StepTestResult;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.Utils.ServiceNow_Login_Methods;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -54,7 +55,7 @@ public class FHQpatientRecordProducerSteps extends PageInitializer {
 		MiscUtils.sleep(300);
 		StepTestResult stepTestResult = new StepTestResult(
 				"User navigates to CHARMS FHQ Survey page and opens FHQ Landing Page");
-	//	stepTestResult.add(charmsBannerTest);
+		stepTestResult.add(charmsBannerTest);
 		stepTestResult.add(bannerTest);
 		stepTestResult.add(labelTest);
 		scenarioReportList.add(stepTestResult);
@@ -556,4 +557,51 @@ public class FHQpatientRecordProducerSteps extends PageInitializer {
 		stepTestResult.add(labelTest2);
 		scenarioReportList.add(stepTestResult);
 	}
+
+
+    @Given("a user lands on FHQ Survey Page using the Test Account credentials in Test side door login page")
+    public void a_user_lands_on_FHQ_Survey_Page_using_the_Test_Account_credentials_in_Test_side_door_login_page()
+            throws TestingException {
+        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeViewSideDoor"));
+        WebDriverUtils.webDriver.switchTo()
+                .frame(WebDriverUtils.webDriver.findElement(By.xpath("//iframe[@id='gsft_main']")));
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+    }
+
+    @Given("logs in Rasopathy page via Okta with username {string} and password {string}")
+    public void logs_in_Rasopathy_page_via_Okta_with_username_and_password(String username, String password) {
+        MiscUtils.sleep(300);
+        CommonUtils.waitForVisibility(myRASLoginPage.loginToMyRASButton);
+        myRASLoginPage.loginToMyRASButton.click();
+        oktaLoginPage.usernameTxtBox.sendKeys(username);
+        oktaLoginPage.passwordTxtBox.sendKeys(password);
+        CommonUtils.waitForVisibility(oktaLoginPage.loginBtn);
+        oktaLoginPage.loginBtn.click();
+        MiscUtils.sleep(300);
+        oktaLoginPage.agreeBtn.click();
+    }
+
+    @When("the user navigates to CHARMS FHQ Survey page and opens FHQ Landing Page Qualtrics")
+    public void the_user_navigates_to_CHARMS_FHQ_Survey_page_and_opens_FHQ_Landing_Page_Qualtrics()
+            throws TestingException {
+        WebDriverUtils.webDriver.get("https://service-test.nci.nih.gov/myras?id=fmi_landing");
+        CommonUtils.maximizeWindow();
+        ComponentTestResult charmsBannerTest = FHQUtil.verifyLabel(
+                fHQSurveyPortalPage.familyCohortStudyManagementSystemLabel,
+                "Family Cohort Study Management System: RASopathies");
+        ComponentTestResult bannerTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.familyHealthBanner1,
+                "We know families come in various configurations. This survey is primarily meant to record health information on your biological (blood-related) relatives. It's okay not to know information about some of your relatives. You will have a chance to tell us about any non-biological relatives you would like us to add to your family tree (for example, an adopted sibling or a step-parent) at the end of the survey.");
+        ComponentTestResult labelTest = FHQUtil.verifyLabel(
+                fHQSurveyPortalPage.startYourFamilyHealthQuiestionnaireLink1,
+                "Click here to start your family health questionnaire");
+        CommonUtils.waitForVisibility(fHQSurveyPortalPage.startYourFamilyHealthQuiestionnaireLink1);
+        fHQSurveyPortalPage.startYourFamilyHealthQuiestionnaireLink.click();
+        MiscUtils.sleep(300);
+        StepTestResult stepTestResult = new StepTestResult(
+                "User navigates to CHARMS FHQ Survey page and opens FHQ Landing Page");
+        stepTestResult.add(charmsBannerTest);
+        stepTestResult.add(bannerTest);
+        stepTestResult.add(labelTest);
+        scenarioReportList.add(stepTestResult);
+    }
 }

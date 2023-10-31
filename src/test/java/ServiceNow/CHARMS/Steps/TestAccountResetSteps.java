@@ -1,7 +1,7 @@
 package ServiceNow.CHARMS.Steps;
 
 import com.nci.automation.xceptions.TestingException;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Then;
 
 public class TestAccountResetSteps extends PageInitializer {

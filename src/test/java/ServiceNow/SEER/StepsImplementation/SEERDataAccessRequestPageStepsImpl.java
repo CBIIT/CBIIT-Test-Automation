@@ -2,7 +2,7 @@ package ServiceNow.SEER.StepsImplementation;
 
 import ServiceNow.SEER.Constants.*;
 import ServiceNow.SEER.Pages.NativeViewCustomersPage;
-import ServiceNow.SEER.Steps.HooksSteps;
+import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
@@ -11,7 +11,7 @@ import org.openqa.selenium.Keys;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -218,7 +218,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
 
     public static void userVerifiesEmailAddressByClickingOnTheEmailVerificationLinkThatIsSentToTheUserAfterSubmittingASEERUserRegistrationForm()
             throws TestingException {
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         /** Waiting for email to be sent and searchable */
         MiscUtils.sleep(70000);
         nativeViewEnrollementsPage.filterNavigator.sendKeys("mailbox");
@@ -265,7 +265,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
     }
 
     public static void customerAccountTypeWillBeMarkedAsPublicInNativeView(String publicAccount) {
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         CommonUtils.assertTrue(CommonUtils.getCurrentURL(WebDriverUtils.webDriver)
                 .contentEquals(SEERNativeView_Constants.NATIVE_VIEW_HOME_PAGE_URL));
         /** Waiting for email to be sent and searchable */
@@ -295,7 +295,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
     }
 
     public static void aNewUserWhoDoesNotHaveAnActiveSEERResearchDatabaseAccessRequest() {
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         CommonUtils.assertTrue(CommonUtils.getCurrentURL(WebDriverUtils.webDriver)
                 .contentEquals(SEERNativeView_Constants.NATIVE_VIEW_HOME_PAGE_URL));
         /** Waiting for email to be sent and searchable */
@@ -498,7 +498,7 @@ public class SEERDataAccessRequestPageStepsImpl extends PageInitializer {
 
         public static void userConfirmsTheirEmailAddressByClickingOnTheEmailVerificationLinkSentToTheUsersEmailAddress()
             throws TestingException {
-        nativeViewLoginImpl.sideDoorAccountLogin();
+            ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         /** Waiting for email to be sent and searchable */
         MiscUtils.sleep(70000);
         nativeViewEnrollementsPage.filterNavigator.sendKeys("mailbox");

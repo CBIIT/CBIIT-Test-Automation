@@ -1,7 +1,6 @@
 package ServiceNow.SEER.StepsImplementation;
 
-import ServiceNow.SEER.Steps.HooksSteps;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
