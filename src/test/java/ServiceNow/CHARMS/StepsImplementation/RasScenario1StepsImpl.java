@@ -5,6 +5,8 @@ import ServiceNow.CHARMS.Constants.CHARMSRASScreenerConstants;
 import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
 import ServiceNow.COVIDDash.Utils.COVIDConstants;
 import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
+import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
+import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -576,19 +578,13 @@ public class RasScenario1StepsImpl extends PageInitializer {
     public void nativeViewConsentFlowProcessScenario1(String sheetName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         MiscUtils.sleep(1000);
-        if (nativeViewEnrollementsPage.filterNavigatorIconButton.isDisplayed()) {
-            CommonUtils.clickOnElement(nativeViewEnrollementsPage.filterNavigatorIconButton);
-            CommonUtils.waitForVisibility(nativeViewEnrollementsPage.filterNavigator);
-        }
-        nativeViewEnrollementsPage.filterNavigator.clear();
-        MiscUtils.sleep(500);
-        nativeViewEnrollementsPage.filterNavigator.sendKeys("CHARMS");
-        CommonUtils.waitForClickability(nativeViewCHARMSDashboardPage.nativeViewAllParticipantsDetailsButton);
-        JavascriptUtils.scrollIntoView(nativeViewCHARMSDashboardPage.nativeViewAllParticipantsDetailsButton);
+
+        ServiceNow_Common_Methods.filterNavigatorSearch("All Participant Details");
         CucumberLogUtils.logScreenshot();
-        JavascriptUtils.clickByJS(nativeViewCHARMSDashboardPage.nativeViewAllParticipantsDetailsButton);
-        CommonUtils.waitForVisibility(nativeViewAccessRequestPage.accessRequestIFrame);
-        CommonUtils.switchToFrame(nativeViewAccessRequestPage.accessRequestIFrame);
+
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+
+
         CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyParticipantsDetailsMenu);
         CommonUtils.assertTrue(nativeViewCHARMSDashboardPage.rasStudyParticipantsDetailsMenu.getText()
                 .contains("Participant Details"));
@@ -1835,7 +1831,7 @@ public class RasScenario1StepsImpl extends PageInitializer {
      * USE THIS METHOD TO LOG OUT OF NATIVE VIEW
      */
     public static void logOutOfNativeView() {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
+        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ServiceNow NCISP"));
         MiscUtils.sleep(2000);
         CommonUtils.clickOnElement(nativeViewHomePage.profileModule);
         CommonUtils.clickOnElement(nativeViewHomePage.logOutButton);

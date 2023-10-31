@@ -22,6 +22,7 @@
             </default>
         </db>
     </application>
+
     <!-- ITPG URL-->
     <application id="ITPGURl">
         <login_url>https://service-test.nci.nih.gov/ncisp
@@ -43,6 +44,7 @@
             </default>
         </db>
     </application>
+
     <!-- CADSR Application-->
     <application id="cadsrTestUrl">
         <login_url>https://service-sandbox.nci.nih.gov/login.do
@@ -65,6 +67,7 @@
             </default>
         </db>
     </application>
+
     <!-- Application ID for Fanconi Study Login Page -->
 	<application id="fanconiLogin">
 		<login_url>https://service-test.nci.nih.gov/fanconi</login_url> <!-- add test url -->
@@ -84,8 +87,9 @@
 			</default>
 		</db>
 	</application>
+
     <!-- Application ID for Native View -->
-    <application id="nativeview">
+    <application id="ServiceNow NCISP">
         <login_url>https://service-test.nci.nih.gov/ncisp</login_url> <!-- add test
 			url -->
         <role name="Role">
@@ -110,7 +114,6 @@
 
         <login_url>https://service-test.nci.nih.gov/side_door.do</login_url> <!-- add test
 			url -->
-
         <role name="Role">
             <user id="regular">
                 <name>regular</name>
@@ -118,7 +121,6 @@
                 <password></password> <!-- add encrypted test pass -->
             </user>
         </role>
-
         <db>
             <default>
                 <driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -149,6 +151,7 @@
             </default> <!-- comment -->
         </db>
     </application>
+
     <!-- Application ID for COVIDCode -->
     <application id="COVIDCode">
         <login_url>https://service-test.nci.nih.gov/covidcode</login_url> <!-- add
@@ -169,6 +172,7 @@
             </default> <!-- comment -->
         </db>
     </application>
+
     <!-- Application ID for LDLink -->
     <application id="LDLink">
         <login_url>https://ldlink-qa.nci.nih.gov/?tab=home</login_url> <!-- add
@@ -189,6 +193,7 @@
             </default> <!-- comment -->
         </db>
     </application>
+
     <!-- Application ID for Analysistools -->
     <application id="Analysistools">
         <login_url>https://analysistools-qa.cancer.gov/</login_url> <!-- add test
@@ -209,6 +214,7 @@
             </default> <!-- comment -->
         </db>
     </application>
+
     <!-- Application ID for PLCO -->
     <application id="PLCO">
         <login_url>https://exploregwas-qa.cancer.gov/plco-atlas/#/</login_url> <!--
@@ -229,6 +235,7 @@
             </default> <!-- comment -->
         </db>
     </application>
+
     <!-- Application ID for CEDCD -->
     <application id="CEDCD">
         <login_url>https://cedcd-qa.nci.nih.gov/home
@@ -249,6 +256,7 @@
             </default>
         </db>
     </application>
+
     <!-- Application ID for mSigPortal -->
     <application id="MSigPortal">
         <login_url>https://analysistools-qa.cancer.gov/mutational-signatures/#/
@@ -269,6 +277,7 @@
             </default>
         </db>
     </application>
+
     <!-- Application ID for NERD -->
     <application id="NERD">
         <login_url>https://service-test.nci.nih.gov/nerd
@@ -289,6 +298,7 @@
             </default>
         </db>
     </application>
+
     <!-- Application ID for Comets Explorer -->
     <application id="Comets2">
         <login_url>https://www.comets-analytics-test.org/index.html
@@ -309,6 +319,7 @@
             </default>
         </db>
     </application>
+
     <!-- Application ID for SEER Data Access -->
     <application id="SEERDataAccess">
         <login_url>https://service-test.nci.nih.gov/seer-data-access
@@ -329,6 +340,7 @@
             </default>
         </db>
     </application>
+
     <!-- Application ID for NERD -->
     <application id="NERD">
         <login_url>https://service-test.nci.nih.gov/nerd
@@ -349,6 +361,7 @@
             </default>
         </db>
     </application>
+
     <!-- Application ID for EIDP -->
     <application id="EidpUrlNHGRI">
         <login_url>https://idp-test.nih.gov/nhgri/idp</login_url> <!-- add test
@@ -388,6 +401,7 @@
             </default>
         </db>
     </application>
+
     <application id="EidpUrlNIDCR">
         <login_url>https://idp-test.nih.gov/nidcr/idp</login_url> <!-- add test
 			url -->
@@ -407,6 +421,7 @@
             </default>
         </db>
     </application>
+
     <application id="EidpUrlNHLBI">
         <login_url>https://idp-test.nih.gov/nhlbi/idp</login_url> <!-- add test
 			url -->
@@ -426,6 +441,7 @@
             </default>
         </db>
     </application>
+
     <!-- Application ID for AppTracker -->
     <application id="AppTracker">
         <login_url>https://service-test.nci.nih.gov/nci-scss.do#/
@@ -448,6 +464,7 @@
             </default>
         </db>
     </application>
+
     <!-- Application ID for AppTrackerNativeView -->
     <application id="AppTrackerNativeView">
         <login_url>window.open('https://service-test.nci.nih.gov/ncisp','_blank');
@@ -470,6 +487,7 @@
             </default>
         </db>
     </application>
+
     <!-- Application ID for ICRP-->
     <application id="ICRP">
         <login_url>https://icrpartnership-test.org/
@@ -490,6 +508,7 @@
             </default>
         </db>
     </application>
+
     <!-- Application ID for SEER Data Access -->
     <application id="SEERDataAccess">
         <login_url>https://service-test.nci.nih.gov/seer-data-access
@@ -510,6 +529,7 @@
             </default>
         </db>
     </application>
+
     <!-- ATO application URL-->
     <application id="AtoTestUrl">
         <login_url>https://service-test.nci.nih.gov/ncisp
@@ -531,6 +551,7 @@
             </default>
         </db>
     </application>
+
     <application id="FASTAtoTestUrl">
         <login_url>https://service-test.nci.nih.gov/ncisp
         </login_url> <!-- add test url -->
@@ -551,6 +572,7 @@
             </default>
         </db>
     </application>
+
     <application id="NIDCR">
         <login_url>https://idp-test.cancer.gov/nidcr/idp/
         </login_url> <!-- add test url -->
@@ -570,6 +592,7 @@
             </default>
         </db>
     </application>
+
     <!-- Application ID for myRAS Study - CHARMS -->
     <application id="myRASLoginPage">
         <login_url>https://service-test.nci.nih.gov/myras
@@ -590,6 +613,7 @@
             </default>
         </db>
     </application>
+
     <!-- Application ID for RASSurvey  - CHARMS -->
     <application id="RASSurvey">
         <login_url></login_url> <!-- add test url -->
@@ -609,6 +633,7 @@
             </default>
         </db>
     </application>
+
     <!-- Application ID for Native View Sidedoor-->
     <application id="nativeviewSideDoor">
         <login_url>https://service-test.nci.nih.gov/side_door.do</login_url> <!-- add test
@@ -629,6 +654,7 @@
             </default>
         </db>
     </application>
+
     <!-- Application ID for Melanoma and Spitzoid Tumor-->
     <application id="melanoma">
         <login_url>https://service-test.nci.nih.gov/mymelanoma</login_url> <!-- add test
@@ -649,6 +675,7 @@
             </default>
         </db>
     </application>
+
     <!--CCR HelpDesk -->
     <application id="CCRHelpdesk">
         <login_url>https://service-test.nci.nih.gov/ncisp?id=nci_sc_cat_item
@@ -669,6 +696,7 @@
             </default>
         </db>
     </application>
+
     <!--Record Management -->
     <application id="RCMDB">
         <login_url>https://service-test.nci.nih.gov/ncisp
@@ -689,6 +717,7 @@
             </default>
         </db>
     </application>
+
     <!-- Application ID for ETD -->
 	<application id="ETD">
 		<login_url>https://etd-test.nci.nih.gov/etd/search#
@@ -700,7 +729,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -709,12 +737,10 @@
 				<password></password> <!-- Add db password -->
 			</default>
 		</db>
-
 	</application>
 
     <!-- Application ID for cProSite-->
     <application id="cProSite">
-
         <login_url>https://cprosite-qa.ccr.cancer.gov/#/
         </login_url> <!-- add test url -->
         <role name="Role">
@@ -734,14 +760,10 @@
         </db>
     </application>
 
-
-
     <!-- Application ID for JPsurv-->
     <application id="JPSurv">
-
         <login_url>https://analysistools-qa.cancer.gov/jpsurv/
         </login_url> <!-- add test url -->
-
         <role name="Role">
             <user id="regular">
                 <name>regular</name>
@@ -779,6 +801,7 @@
             </default>
         </db>
     </application>
+
     <!-- Application ID for ChangePassword-->
     <application id="ChangePassword">
         <login_url>https://i2e-test.nci.nih.gov/changepassword/
@@ -840,6 +863,7 @@
             </default>
         </db>
     </application>
+
     <!-- Application ID for SCSS Portal View-->
     <application id="SCSSPortalView">
         <login_url>https://service-test.nci.nih.gov/nci-scss.do#/

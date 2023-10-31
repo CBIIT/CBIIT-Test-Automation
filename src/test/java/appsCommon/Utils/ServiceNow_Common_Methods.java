@@ -56,7 +56,7 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
     }
 
     /**
-     * USE THIS METHOD TO SEARCH THE FILTER NAVIGATOR AND CLICK ON ANY MODULE
+     * USE THIS METHOD TO CLICK ON ALL TAB AND SEARCH THE FILTER NAVIGATOR AND CLICK ON ANY MODULE
      * THE FIRST STRING ARGUMENT IS TO SEARCH THE FILTER NAVIGATOR
      * THE SECOND STRING ARGUMENT IS TO SELECT ON THE DESIRED MODULE - AN EXACT TEXT MATCH NEEDS TO BE PARAMETERIZED
      * THIS METHOD ALSO SWITCHES TO THE NATIVE VIEW IFRAME AFTER CLICKING ON A MODULE
@@ -64,7 +64,7 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
      *
      * @param text
      */
-    public static void filterNavigatorSearch(String text) {
+    public static void filterNavigatorSearchWithAllTabString(String text) {
         CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allTab);
         NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys(text);
         CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch(text));
@@ -72,4 +72,15 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         MiscUtils.sleep(2000);
     }
+
+    /**
+     * USE THIS METHOD TO SEARCH THE FILTER NAVIGATOR WITHOUT CLICKING ON THE ALL TAB
+     * @param text
+     */
+    public static void filterNavigatorSearch(String text){
+        NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys(text);
+        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch(text));
+        MiscUtils.sleep(3000);
+    }
+
 }

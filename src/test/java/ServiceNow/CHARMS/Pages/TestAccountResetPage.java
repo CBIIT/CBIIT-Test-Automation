@@ -11,7 +11,7 @@ public class TestAccountResetPage {
 	 * Native View Run Fix Script button
 	 */
 
-	@FindBy(xpath = "//span[contains(@class,'navbar_ui_actions')]//button[contains(@title,\"Run this Fix Script now – ignores the 'Run once' field value, honors 'Unloadable' field\")][normalize-space()='Run Fix Script']")
+	@FindBy(xpath = "//button[contains(text(),'Run Fix Script')]")
 	public WebElement nativeViewRunFixScriptButton;
 
 	/*
@@ -32,7 +32,7 @@ public class TestAccountResetPage {
 	 * Native View Proceed in Background button
 	 */
 
-	@FindBy(xpath = "//*[@id='confirm_proceed_button']")
+	@FindBy(xpath = "//button[contains(text(),'Proceed in Background')]")
 	public WebElement nativeViewProceedInBackgroundButton;
 
 	/*
