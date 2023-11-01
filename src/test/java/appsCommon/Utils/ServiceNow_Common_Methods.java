@@ -1,10 +1,13 @@
 package appsCommon.Utils;
 
 import appsCommon.PageInitializers.NativeView_SideDoor_PageInitializer;
+import appsCommon.Pages.NativeViewHomePage;
 import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
 import appsCommon.Pages.ServiceNow_NCISP_Page;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.EnvUtils;
+import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 
@@ -83,4 +86,13 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
         MiscUtils.sleep(3000);
     }
 
+    /***
+     * USE THIS METHOD TO LOG OUT OF NATIVE VIEW
+     */
+    public static void logOutOfNativeView() {
+        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ServiceNow NCISP"));
+        MiscUtils.sleep(2000);
+        CommonUtils.clickOnElement(NativeViewHomePage.profileModule);
+        CommonUtils.clickOnElement(NativeViewHomePage.logOutButton);
+    }
 }
