@@ -5,7 +5,7 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import ServiceNow.CHARMS.StepsImplementation.FHQSubmissionStepsImpl;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
@@ -73,13 +73,22 @@ public class FHQSubmissionSteps extends PageInitializer {
 		FHQSubmissionStepsImpl.scenarioAssertionForFHQ(sheetName);
 	}
 	@Given("participant open RASopathies Longitudinal Cohort Study login page")
-	public void participant_open_ra_sopathies_longitudinal_cohort_study_login_page() throws TestingException {
+	public void participant_open_rasopathies_longitudinal_cohort_study_login_page() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("myRASLoginPage"));
 	}
 	@Then("logs Rasopathy page via Okta with username {string} and password {string}")
 	public void logs_rasopathy_page_via_okta_with_username_and_password(String username, String password) throws TestingException {
 		FHQSubmissionStepsImpl.loginToRASStudyPage(username, password);
 	}
+	@Then("clicks CHARMS FHQ Relative Link page")
+	public void clicks_charms_fhq_relative_link_page() throws TestingException {
+	FHQSubmissionStepsImpl.loginToFHQGridPage();
+	}	
+	@Then("participant submits FHQ Relative from excel sheet {string}")
+	public void participant_submits_fhq_relative_from_excel_sheet(String sheetName) throws TestingException {
+		FHQSubmissionStepsImpl.scenarioSelectorForFHQ(sheetName); 
+	}
+	
 	@Then("clicks CHARMS FHQ Survey page")
 	public void clicks_charms_fhq_survey_page() throws TestingException {
 		FHQSubmissionStepsImpl.loginToFHQPage();

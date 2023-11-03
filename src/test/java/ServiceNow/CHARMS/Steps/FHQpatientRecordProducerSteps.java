@@ -36,7 +36,6 @@ public class FHQpatientRecordProducerSteps extends PageInitializer {
 		FHQSubmissionStepsImpl.loginToRASStudyPage(username, password);
 	}
 
-	@SuppressWarnings("static-access")
 	@Then("logs in CHARMS FHQ Survey page")
 	public void logs_in_charms_fhq_survey_page() throws TestingException {
 		WebDriverUtils.webDriver.get("https://service-test.nci.nih.gov/myras?id=fmi_landing");

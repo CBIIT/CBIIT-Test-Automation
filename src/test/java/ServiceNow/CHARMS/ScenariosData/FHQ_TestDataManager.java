@@ -2,7 +2,7 @@ package ServiceNow.CHARMS.ScenariosData;
 
 import ServiceNow.CHARMS.Constants.CHARMSConstants;
 import ServiceNow.CHARMS.Constants.FHQConstants;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.ExcelReader;
 import java.util.Map;
 
@@ -743,7 +743,8 @@ public class FHQ_TestDataManager extends PageInitializer {
 			typeOfBirthValue = testDataForFHQ.get(FHQConstants.TYPE_OF_BIRTH_VALUE);
 			hasThisRelativeEverHadAnyMiscarriagesOrStillbirths = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS);
 			hasThisRelativeEverHadAnyMiscarriagesOrStillbirthsValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS_VALUE);
-			pleaseIdentifyTheNumberOfEachOfTheFollowingPregnancyResultsForThisPerson = testDataForFHQ.get(FHQConstants.PLEASE_IDENTIFY_THE_NUMBER_OF_EACH_OF_THE_FOLLOWING_PREGNANCY_RESULTS_FOR_THIS_PERSON);
+			//pleaseIdentifyTheNumberOfEachOfTheFollowingPregnancyResultsForThisPerson = testDataForFHQ.get(FHQConstants.PLEASE_IDENTIFY_THE_NUMBER_OF_EACH_OF_THE_FOLLOWING_PREGNANCY_RESULTS_FOR_THIS_PERSON);
+			pleaseIdentifyTheNumberOfEachOfTheFollowingPregnancyResults = testDataForFHQ.get(FHQConstants.PLEASE_IDENTIFY_THE_NUMBER_OF_EACH_OF_THE_FOLLOWING_PREGNANCY_RESULTS);	
 			totalNumberOfMiscarriages = testDataForFHQ.get(FHQConstants.TOTAL_NUMBER_OF_MISCARRIAGES);
 			lessThan20WeeksOfPregnancy = testDataForFHQ.get(FHQConstants.LESS_THAN_20_WEEKS_OF_PREGNANCY);
 			totalNumberOfMiscarriagesValue = testDataForFHQ.get(FHQConstants.TOTAL_NUMBER_OF_MISCARRIAGES_VALUE);
@@ -943,7 +944,6 @@ public class FHQ_TestDataManager extends PageInitializer {
 			other = testDataForFHQ.get(FHQConstants.OTHER);
 			isThereAnythingElseYouWouldLikeUsToKnowAboutThisRelative = testDataForFHQ.get(FHQConstants.IS_THERE_ANYTHING_ELSE_YOU_WOULD_LIKE_US_TO_KNOW_ABOUT_THIS_RELATIVE);
 			addAdditionalInformation = testDataForFHQ.get(FHQConstants.ADD_ADDITIONAL_INFORMATION);
-			//	addAdditionalInformationForSibling = testDataForFHQ.get(FHQConstants.ADD_ADDITIONAL_INFORMATION_FOR_SIBLING);
 			youWillNotBeAbleToModifyThisRecordAfterYouSubmit = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_SUBMIT);
 			completeAndSubmit = testDataForFHQ.get(FHQConstants.COMPLETE_AND_SUBMIT);
 			participationStatus = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS);
@@ -996,7 +996,6 @@ public class FHQ_TestDataManager extends PageInitializer {
 			typeOfBirthValue = testDataForFHQ.get(FHQConstants.TYPE_OF_BIRTH_VALUE);
 			hasThisRelativeEverHadAnyMiscarriagesOrStillbirths = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS);
 			hasThisRelativeEverHadAnyMiscarriagesOrStillbirthsValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS_VALUE);
-			//	pleaseIdentifyTheNumberOfEachOfTheFollowingPregnancyResultsForThisPerson = testDataForFHQ.get(FHQConstants.PLEASE_IDENTIFY_THE_NUMBER_OF_EACH_OF_THE_FOLLOWING_PREGNANCY_RESULTS_FOR_THIS_PERSON);
 			pleaseIdentifyTheNumberOfEachOfTheFollowingPregnancyResults = testDataForFHQ.get(FHQConstants.PLEASE_IDENTIFY_THE_NUMBER_OF_EACH_OF_THE_FOLLOWING_PREGNANCY_RESULTS);
 			totalNumberOfMiscarriages = testDataForFHQ.get(FHQConstants.TOTAL_NUMBER_OF_MISCARRIAGES);
 			lessThan20WeeksOfPregnancy = testDataForFHQ.get(FHQConstants.LESS_THAN_20_WEEKS_OF_PREGNANCY);
