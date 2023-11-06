@@ -1,6 +1,6 @@
 package ServiceNow.CHARMS.ScenariosData;
 
-import ServiceNow.CHARMS.Constants.CHARMSConstants;
+import ServiceNow.CHARMS.Constants.CHARMS_Data_File_Path_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.ExcelReader;
 import java.util.Map;
@@ -138,7 +138,7 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
          * FETCHING DATA FROM EXCEL BEFORE SUBMITTING SCREENER
          */
         if (sheetName.equals("screenerScenario1")) {
-            testDataForRasScreener = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_ONE_DATA, sheetName);
+            testDataForRasScreener = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_ONE_DATA, sheetName);
             areYouCompletingThisFormForSomeoneElseOrYourself = testDataForRasScreener.get(ras_Screener_Constants.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE);
             firstName = testDataForRasScreener.get(ras_Screener_Constants.FIRST_NAME);
             middleInitial = testDataForRasScreener.get(ras_Screener_Constants.MIDDLE_INITIAL);
@@ -177,7 +177,7 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
             weKnowThatRASopathiesAreAGroup = testDataForRasScreener.get(ras_Screener_Constants.WE_KNOW_THAT_RASOPATHIES_ARE_A_GROUP);
             weWillNowAskAFewRemainingQuestionsRegarding = testDataForRasScreener.get(ras_Screener_Constants.WE_WILL_NOW_ASK_A_FEW_REMAINING_QUESTIONS_REGARDING);
         }else if (sheetName.equals("screenerScenario2")) {
-            testDataForRasScreener = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_TWO_DATA, sheetName);
+            testDataForRasScreener = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_TWO_DATA, sheetName);
             areYouCompletingThisFormForSomeoneElseOrYourself = testDataForRasScreener.get(ras_Screener_Constants.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE);
             firstName = testDataForRasScreener.get(ras_Screener_Constants.FIRST_NAME);
             middleInitial = testDataForRasScreener.get(ras_Screener_Constants.MIDDLE_INITIAL);
@@ -290,7 +290,7 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
             whatAreTheMainReasonsForParticipatingOptin4 = testDataForRasScreener.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_4);
             youAreAlmostDone = testDataForRasScreener.get(ras_Screener_Constants.YOU_ARE_ALMOST_DONE);
         }else if (sheetName.equals("screenerScenario3")) {
-            testDataForRasScreener = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_THREE_DATA, sheetName);
+            testDataForRasScreener = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_THREE_DATA, sheetName);
             areYouCompletingThisFormForSomeoneElseOrYourself = testDataForRasScreener.get(ras_Screener_Constants.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE);
             whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyFirst = testDataForRasScreener.get(ras_Screener_Constants.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST);
             whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyMi = testDataForRasScreener.get(ras_Screener_Constants.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_MIDDLE);
@@ -336,7 +336,7 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
             weWillNowAskAFewRemainingQuestionsRegarding = testDataForRasScreener.get(ras_Screener_Constants.WE_WILL_NOW_ASK_A_FEW_REMAINING_QUESTIONS_REGARDING);
             youAreAlmostDone = testDataForRasScreener.get(ras_Screener_Constants.YOU_ARE_ALMOST_DONE);
         }else if (sheetName.equals("screenerScenario4")) {
-            testDataForRasScreener = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_FOUR_DATA, sheetName);
+            testDataForRasScreener = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_FOUR_DATA, sheetName);
             areYouCompletingThisFormForSomeoneElseOrYourself = testDataForRasScreener.get(ras_Screener_Constants.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE);
             whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyFirst = testDataForRasScreener.get(ras_Screener_Constants.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_FIRST);
             whatIsTheNameOfThePersonWhoMayBeEligibleForThisStudyMi = testDataForRasScreener.get(ras_Screener_Constants.WHAT_IS_THE_NAME_OF_THE_PERSON_WHO_MAY_BE_ELIGIBLE_FOR_THIS_STUDY_MIDDLE);
@@ -454,6 +454,45 @@ public class RAS_Screener_TestDataManager extends PageInitializer {
             whatAreTheMainReasonsForParticipatingOptin3 = testDataForRasScreener.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_3);
             whatAreTheMainReasonsForParticipatingOptin4 = testDataForRasScreener.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_4);
             youAreAlmostDone = testDataForRasScreener.get(ras_Screener_Constants.YOU_ARE_ALMOST_DONE);
+        }if (sheetName.equals("screenerScenario5")) {
+            testDataForRasScreener = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_FIVE_DATA, sheetName);
+            areYouCompletingThisFormForSomeoneElseOrYourself = testDataForRasScreener.get(ras_Screener_Constants.ARE_YOU_COMPLETING_THIS_FORM_FOR_SOMEONE_ELSE);
+            firstName = testDataForRasScreener.get(ras_Screener_Constants.FIRST_NAME);
+            middleInitial = testDataForRasScreener.get(ras_Screener_Constants.MIDDLE_INITIAL);
+            lastName = testDataForRasScreener.get(ras_Screener_Constants.LAST_NAME);
+            whatIsYourDateOfBirth = testDataForRasScreener.get(ras_Screener_Constants.WHAT_IS_YOUR_DATE_OF_BIRTH);
+            dateOfBirthMonth = testDataForRasScreener.get(ras_Screener_Constants.DATE_OF_BIRTH_MONTH);
+            dateOfBirthYear = testDataForRasScreener.get(ras_Screener_Constants.DATE_OF_BIRTH_YEAR);
+            sexAssignedAtBirthOption = testDataForRasScreener.get(ras_Screener_Constants.SEX_ASSIGNED_AT_BIRTH_OPTION);
+            areYouAdoptedOption = testDataForRasScreener.get(ras_Screener_Constants.ARE_YOU_ADOPTED_OPTION);
+            countryOption = testDataForRasScreener.get(ras_Screener_Constants.WHICH_COUNTRY_DO_YOU_CURRENTLY_LIVE_IN_OPTION);
+            street = testDataForRasScreener.get(ras_Screener_Constants.STREET_ADDRESS);
+            street2 = testDataForRasScreener.get(ras_Screener_Constants.STREET_2_ADDRESS);
+            city = testDataForRasScreener.get(ras_Screener_Constants.CITY_TEXT);
+            state = testDataForRasScreener.get(ras_Screener_Constants.STATE_TEXT);
+            zipcode = testDataForRasScreener.get(ras_Screener_Constants.ZIP_CODE_TEXT);
+            emailAddress = testDataForRasScreener.get(ras_Screener_Constants.EMAIL_ADDRESS);
+            emailAddressConfirm = testDataForRasScreener.get(ras_Screener_Constants.CONFIRM_EMAIL_ADDRESS);
+            homePhoneNumber = testDataForRasScreener.get(ras_Screener_Constants.HOME_PHONE_NUMBER);
+            cellPhoneNumber = testDataForRasScreener.get(ras_Screener_Constants.CELL_PHONE_NUMBER);
+            workPhoneNumber = testDataForRasScreener.get(ras_Screener_Constants.WORK_PHONE_NUMBER);
+            whatIsYourEthnicity = testDataForRasScreener.get(ras_Screener_Constants.WHAT_IS_YOUR_ETHNICITY);
+            whatIsYourRace = testDataForRasScreener.get(ras_Screener_Constants.WHAT_IS_YOUR_RACE);
+            areYouAParticipantInOtherStudyGroup = testDataForRasScreener.get(ras_Screener_Constants.ARE_YOU_A_PARTICIPANT_IN_OTHER_STUDY_GROUP);
+            haveYouBeenDiagnosedWithFollowingConditions = testDataForRasScreener.get(ras_Screener_Constants.HAVE_YOU_BEEN_DIAGNOSED_WITH_THE_FOLLOWING_CONDITIONS);
+            haveYouBeenDiagnosedWithCancer = testDataForRasScreener.get(ras_Screener_Constants.HAVE_YOU_EVER_BEEN_DIAGNOSED_WITH_CANCER);
+            haveYouBeenDiagnosedWithARasopathy = testDataForRasScreener.get(ras_Screener_Constants.HAVE_YOU_BEEN_DIAGNOSED_WITH_A_RASOPATHY);
+            haveAnyOfYourBiologicalRelativesBeenDiagnosedWithARasopathy = testDataForRasScreener.get(ras_Screener_Constants.HAVE_ANY_BIOLOGICAL_RELATIVES_BEEN_DIAGNOSED_WITH_ARASOPATHY);
+            haveYouEverHadGeneticTesting = testDataForRasScreener.get(ras_Screener_Constants.HAVE_YOU_EVER_HAD_GENETIC_TESTING);
+            howDidYouHearAboutThisStudy = testDataForRasScreener.get(ras_Screener_Constants.HOW_DID_YOU_HEAR_ABOUT_THIS_STUDY);
+            howDidYouHearAboutThisStudyOtherReason = testDataForRasScreener.get(ras_Screener_Constants.HOW_DID_YOU_HEAR_ABOUT_THIS_STUDY_OTHER_REASON);
+            haveYouOrOtherFamilyMembersParticipatedInOtherStudy = testDataForRasScreener.get(ras_Screener_Constants.HAVE_YOU_OR_OTHER_FAMILY_MEMBERS_PARTICIPATED_IN_OTHER_STUDY);
+            whatAreMainReasonsForParticipatingInStudy = testDataForRasScreener.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_IN_THIS_STUDY);
+            whatAreMainReasonsForParticipatingInStudyOtherReason = testDataForRasScreener.get(ras_Screener_Constants.WHAT_ARE_THE_MAIN_REASONS_FOR_PARTICIPATING_IN_THIS_STUDY_OTHER_REASON);
+            youAreAlmostDone = testDataForRasScreener.get(ras_Screener_Constants.YOU_ARE_ALMOST_DONE);
+            toDetermineEligibilityForThisStudy = testDataForRasScreener.get(ras_Screener_Constants.TO_DETERMINE_ELIGIBILITY_FOR_THIS_STUDY);
+            weKnowThatRASopathiesAreAGroup = testDataForRasScreener.get(ras_Screener_Constants.WE_KNOW_THAT_RASOPATHIES_ARE_A_GROUP);
+            weWillNowAskAFewRemainingQuestionsRegarding = testDataForRasScreener.get(ras_Screener_Constants.WE_WILL_NOW_ASK_A_FEW_REMAINING_QUESTIONS_REGARDING);
         }
     }
 }
