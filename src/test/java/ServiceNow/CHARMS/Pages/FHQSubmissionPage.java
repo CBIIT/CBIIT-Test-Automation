@@ -126,6 +126,11 @@ public class FHQSubmissionPage extends CommonUtils {
 	public WebElement dynamicLocatorForButtonUsingText(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//td[@data-th='" + text + "']"));
 	}
+	/* Method to dynamically locate elements in FHQ for Buttons using text */
+	public WebElement dynamicLocatorForButtonUsingText(String text, int i) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//td[@data-th='" + text + "'])["+i+"]"));
+		//(//td[@data-th='First Name'])[2]
+	}
 	/* Method to dynamically locate elements in FHQ  USING TEXT */
 	public WebElement dynamicLocatorUsingText(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']"));

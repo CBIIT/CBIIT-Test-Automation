@@ -238,6 +238,9 @@ public class FHQ_TestDataManager extends PageInitializer {
 	public String auntUncleFirstInitialOfLASTNameValue2;
 	public String auntUncleVitalStatusValue2;
 	public String auntUncleYearOfBirthValue2;
+	public String auntUncleFirstNameValue;
+	public String auntUncleFirstInitialOfLASTNameValue;
+	public String auntUncleVitalStatusValue;
 	public String auntUncle;
 	public String auntsUnclesDetails;
 	public String auntUncleBanner;
@@ -976,6 +979,9 @@ public class FHQ_TestDataManager extends PageInitializer {
 			auntUncleVitalStatusValue2 = testDataForFHQ.get(FHQConstants. AUNT_UNCLE_VITAL_STATUS_VALUE_2);
 			auntUncleYearOfBirthValue2 = testDataForFHQ.get(FHQConstants. AUNT_UNCLE_YEAR_OF_BIRTH_VALUE_2);
 			relationToPatientValue2 = testDataForFHQ.get(FHQConstants.RELATION_TO_PATIENT_VALUE_2);		
+			auntUncleFirstNameValue = testDataForFHQ.get(FHQConstants.AUNT_UNCLE_FIRST_NAME_VALUE);
+			auntUncleFirstInitialOfLASTNameValue = testDataForFHQ.get(FHQConstants. AUNT_UNCLE_FIRST_INITIAL_OF_LAST_NAME_VALUE);
+			auntUncleVitalStatusValue = testDataForFHQ.get(FHQConstants. AUNT_UNCLE_VITAL_STATUS_VALUE);
 			relationToPatientValue = testDataForFHQ.get(FHQConstants.RELATION_TO_PATIENT_VALUE);
 			auntUncle = testDataForFHQ.get(FHQConstants.AUNT_UNCLE);
 			auntsUnclesDetails = testDataForFHQ.get(FHQConstants.AUNTS_UNCLES_DETAILS);
@@ -1257,7 +1263,8 @@ public class FHQ_TestDataManager extends PageInitializer {
 			typeOfBirthValue = testDataForFHQ.get(FHQConstants.TYPE_OF_BIRTH_VALUE);
 			hasThisRelativeEverHadAnyMiscarriagesOrStillbirths = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS);
 			hasThisRelativeEverHadAnyMiscarriagesOrStillbirthsValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS_VALUE);
-			pleaseIdentifyTheNumberOfEachOfTheFollowingPregnancyResultsForThisPerson = testDataForFHQ.get(FHQConstants.PLEASE_IDENTIFY_THE_NUMBER_OF_EACH_OF_THE_FOLLOWING_PREGNANCY_RESULTS_FOR_THIS_PERSON);
+			pleaseIdentifyTheNumberOfEachOfTheFollowingPregnancyResults = testDataForFHQ.get(FHQConstants.PLEASE_IDENTIFY_THE_NUMBER_OF_EACH_OF_THE_FOLLOWING_PREGNANCY_RESULTS);	
+			//pleaseIdentifyTheNumberOfEachOfTheFollowingPregnancyResultsForThisPerson = testDataForFHQ.get(FHQConstants.PLEASE_IDENTIFY_THE_NUMBER_OF_EACH_OF_THE_FOLLOWING_PREGNANCY_RESULTS_FOR_THIS_PERSON);
 			totalNumberOfMiscarriages = testDataForFHQ.get(FHQConstants.TOTAL_NUMBER_OF_MISCARRIAGES);
 			lessThan20WeeksOfPregnancy = testDataForFHQ.get(FHQConstants.LESS_THAN_20_WEEKS_OF_PREGNANCY);
 			totalNumberOfMiscarriagesValue = testDataForFHQ.get(FHQConstants.TOTAL_NUMBER_OF_MISCARRIAGES_VALUE);

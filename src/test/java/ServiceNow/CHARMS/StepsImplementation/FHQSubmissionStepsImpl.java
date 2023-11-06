@@ -216,7 +216,8 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		commonFamilyFieldsInListViewPageAssertions();
 		auntUncleListViewTableAssertions();
 		auntUncleListViewTableValuesAssertions();
-		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForButtonUsingText(FHQConstants.FIRST_NAME));
+	//	CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingAnchorTag2(fHQ_TestDataManager.auntUncleFirstNameValue2,1));
+		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForButtonUsingText(FHQConstants.FIRST_NAME,1));
 		assertFamilyFormBanners();
 		auntUncleBasicInformationSubmissionsAndAssertions();
 		twinOrMultipleBirthQuestionsForAuntUncle();
@@ -241,7 +242,8 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		commonFamilyFieldsInListViewPageAssertions();
 		auntUncleListViewTableAssertions();
 		auntUncleListViewTableValuesAssertions();
-		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForButtonUsingText(FHQConstants.FIRST_NAME));
+		//CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingAnchorTag2(fHQ_TestDataManager.auntUncleFirstNameValue2,1));
+		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForButtonUsingText(FHQConstants.FIRST_NAME,2));
 		assertFamilyFormBanners();
 		auntUncleBasicInformationSubmissionsAndAssertions();
 		twinOrMultipleBirthQuestionsForAuntUncle();
@@ -319,7 +321,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		medicalConditionQuestionsSubmissionsAndAssertions(19," in Maternal Grandfather ");
 		otherInformation();
 		finalSubmissionSteps();
-		//softAssert.assertAll();
+		softAssert.assertAll();
 	}
 	/************************************************************************/
 	/*  GRANDPARENTS - Paternal GrandMother (Father's Mother) FORM IN PORTAL */
@@ -339,7 +341,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		medicalConditionQuestionsSubmissionsAndAssertions(19," in Paternal Grandmother ");
 		otherInformation();
 		finalSubmissionSteps();
-		//softAssert.assertAll();
+		softAssert.assertAll();
 	}
 	/************************************************************************/
 	/*  GRANDPARENTS - Paternal Grandfather (Father's Father) FORM IN PORTAL */
@@ -359,7 +361,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		medicalConditionQuestionsSubmissionsAndAssertions(19," in Maternal Grandmother ");
 		otherInformation();
 		finalSubmissionSteps();
-		//softAssert.assertAll();
+		softAssert.assertAll();
 	}
 	/*******************************************************/
 			/*  GRANDCHILDREN FORM IN PORTAL */
@@ -380,7 +382,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		questionsForChildSubmissionsAndAssertions(19," in GrandChild Form ");
 		otherInformation();
 		finalSubmissionSteps();
-		//softAssert.assertAll();
+		softAssert.assertAll();
 	}
 	/*************************************************/
 			/*  COUSIN FORM IN PORTAL */
@@ -390,7 +392,9 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		commonFamilyFieldsInListViewPageAssertions();
 		cousinListViewTableLabelsAssertions();
 		cousinListViewTableValuesAssertions();
-		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForButtonUsingText(FHQConstants.FIRST_NAME));
+		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForButtonUsingText(FHQConstants.FIRST_NAME,2));
+		
+		//CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorForButtonUsingText(FHQConstants.FIRST_NAME));
 		assertFamilyFormBanners();
 		cousinBasicInformationSubmissionsAndAssertions();
 		twinOrMultipleBirthQuestionsSubmissionsAndAssertions(11," in Cousin Form ");
@@ -1362,14 +1366,14 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.relativeFillingInfoBanner,fHQ_TestDataManager.youAreCurrentlyFillingOutInformationForTheParticipantsAuntUncle, " You are currently filling out information for the participant's aunt/uncle.Label in the Aunt/Uncle Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.AUNT_UNCLE_BASIC_INFORMATION),fHQ_TestDataManager.auntUncleBasicInformation, " Basic Information Label in the Aunt/Uncle Form ");		 			 		 			 
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.FIRST_NAME),fHQ_TestDataManager.firstName, " First Name label for Aunt/Uncle in the Aunt/Uncle Form ");
-		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForTextBox("first_name"),fHQ_TestDataManager.auntUncleFirstNameValue1, " Aunt/Uncle First Name Value in the Aunt/Uncle Form ");	
+		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorForTextBox("first_name"),fHQ_TestDataManager.auntUncleFirstNameValue, " Aunt/Uncle First Name Value in the Aunt/Uncle Form ");	
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.PARTICIPANT_FIRST_INITIAL_OF_LAST_NAME),fHQ_TestDataManager.firstInitialOfLASTName, " First Initial of LAST Name label for Aunt/Uncle in the Aunt/Uncle Form ");
-		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocator3ForDropDown(2),fHQ_TestDataManager.auntUncleFirstInitialOfLASTNameValue1,"");	
+		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocator3ForDropDown(2),fHQ_TestDataManager.auntUncleFirstInitialOfLASTNameValue,"");	
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.YEAR_OF_BIRTH),fHQ_TestDataManager.yearOfBirth, " Year of Birth label for Aunt/Uncle in the Aunt/Uncle Form "); 
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.yearOfBirthdateLabelBanner1,fHQ_TestDataManager.anEstimatedDateIsPreferred, " An estimated date is preferred banner for Aunt/Uncle in the Aunt/Uncle Form ");		
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(3),FHQConstants.yearOfBirthOrDeathAfter1900(),fHQ_TestDataManager.auntUncleYearOfBirthSelected);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.VITAL_STATUS),fHQ_TestDataManager.vitalStatus, " Vital Status Label for Aunt/Uncle in the Aunt/Uncle Form ");
-		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocator3ForDropDown(4),fHQ_TestDataManager.auntUncleVitalStatusValue1, " Vital Status Label for Aunt/Uncle in the Aunt/Uncle Form ");
+		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocator3ForDropDown(4),fHQ_TestDataManager.auntUncleVitalStatusValue, " Vital Status Label for Aunt/Uncle in the Aunt/Uncle Form ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.PARTICIPANT_SEX_ASSIGNED_AT_BIRTH),"Sex assigned at birth"," Sex assigned at birth Label for Aunt/Uncle in the Aunt/Uncle Form ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.dynamicLocator3ForDropDown(8),FHQConstants.SEX_ASSIGNED_AT_BIRTH,fHQ_TestDataManager.auntUncleSexAssignedAtBirthSelected);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.PARTICIPANT_GENDER_IDENTITY), "Gender Identity", " Gender Identity Label for Aunt/Uncle in the Aunt/Uncle Form ");

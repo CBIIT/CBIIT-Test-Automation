@@ -237,7 +237,10 @@ public class FHQConstants {
 	public static final String AUNT_UNCLE_FIRST_NAME_VALUE_2 = "Aunt/Uncle First Name Value 2";
 	public static final String AUNT_UNCLE_FIRST_INITIAL_OF_LAST_NAME_VALUE_2 = "Aunt/Uncle First Initial of LAST Name Value 2";
 	public static final String AUNT_UNCLE_VITAL_STATUS_VALUE_2 = "Aunt/Uncle Vital Status Value 2";
-	public static final String AUNT_UNCLE_YEAR_OF_BIRTH_VALUE_2 = "Aunt/Uncle Year of Birth Value 2";
+	public static final String AUNT_UNCLE_YEAR_OF_BIRTH_VALUE_2 = "Aunt/Uncle Year of Birth Value 2";	
+	public static final String AUNT_UNCLE_FIRST_NAME_VALUE = "Aunt/Uncle First Name Value";
+	public static final String AUNT_UNCLE_FIRST_INITIAL_OF_LAST_NAME_VALUE = "Aunt/Uncle First Initial of LAST Name Value";
+	public static final String AUNT_UNCLE_VITAL_STATUS_VALUE = "Aunt/Uncle Vital Status Value";
 	public static final String AUNT_UNCLE = "Aunt/Uncle";
 	public static final String AUNTS_UNCLES_DETAILS = "Aunts/Uncles Details";
 	public static final String AUNT_UNCLE_BANNER = "Please enter one record per each family member for whom you have knowledge:";

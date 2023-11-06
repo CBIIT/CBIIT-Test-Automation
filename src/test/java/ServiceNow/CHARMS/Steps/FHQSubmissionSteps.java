@@ -87,8 +87,7 @@ public class FHQSubmissionSteps extends PageInitializer {
 	@Then("participant submits FHQ Relative from excel sheet {string}")
 	public void participant_submits_fhq_relative_from_excel_sheet(String sheetName) throws TestingException {
 		FHQSubmissionStepsImpl.scenarioSelectorForFHQ(sheetName); 
-	}
-	
+	}	
 	@Then("clicks CHARMS FHQ Survey page")
 	public void clicks_charms_fhq_survey_page() throws TestingException {
 		FHQSubmissionStepsImpl.loginToFHQPage();
