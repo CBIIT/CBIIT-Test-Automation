@@ -18,11 +18,11 @@ public class NativeViewHomePage extends CommonUtils {
 
 	/** NATIVE VIEW PROFILE MODULE*/
 	@FindBy(xpath = "//*[@class='sub-avatar']")
-	public WebElement profileModule;
+	public static WebElement profileModule;
 
 	/** NATIVE VIEW LOG OUT BUTTON */
 	@FindBy(xpath = "//*[contains(text(),'Log out')]")
-	public WebElement logOutButton;
+	public static WebElement logOutButton;
 
 	public NativeViewHomePage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
