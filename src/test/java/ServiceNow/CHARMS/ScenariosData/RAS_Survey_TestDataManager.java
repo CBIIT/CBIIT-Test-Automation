@@ -1,6 +1,6 @@
 package ServiceNow.CHARMS.ScenariosData;
 
-import ServiceNow.CHARMS.Constants.CHARMSConstants;
+import ServiceNow.CHARMS.Constants.CHARMS_Data_File_Path_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.ExcelReader;
 
@@ -1357,7 +1357,7 @@ public class RAS_Survey_TestDataManager extends PageInitializer {
         }
      }
     public void dataInitializerRasSurvey1(String sheetName) {
-        testDataRasSurvey = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_ONE_DATA, sheetName);
+        testDataRasSurvey = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_ONE_DATA, sheetName);
         thankYouForStartingTheRASSurveyAndFor = testDataRasSurvey.get(ras_Survey_Constants.THANK_YOU_FOR_STARTING_THE_RAS_SURVEY_AND_FOR);
         thisQuestionnaireMayTakeYouSeveral = testDataRasSurvey.get(ras_Survey_Constants.THIS_QUESTIONNAIRE_MAY_TAKE_YOU_SEVERAL);
         theFirstBlockOfQuestions = testDataRasSurvey.get(ras_Survey_Constants.THE_FIRST_BLOCK_OF_QUESTIONS);
@@ -1520,7 +1520,7 @@ public class RAS_Survey_TestDataManager extends PageInitializer {
     }
 
         public void dataInitializerRasSurvey2(String sheetName) {
-            testDataRasSurvey = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_TWO_DATA, sheetName);
+            testDataRasSurvey = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_TWO_DATA, sheetName);
             thankYouForStartingTheRASSurveyAndFor = testDataRasSurvey.get(ras_Survey_Constants.THANK_YOU_FOR_STARTING_THE_RAS_SURVEY_AND_FOR);
             thisQuestionnaireMayTakeYouSeveral = testDataRasSurvey.get(ras_Survey_Constants.THIS_QUESTIONNAIRE_MAY_TAKE_YOU_SEVERAL);
             theFirstBlockOfQuestions = testDataRasSurvey.get(ras_Survey_Constants.THE_FIRST_BLOCK_OF_QUESTIONS);
@@ -2843,7 +2843,7 @@ public class RAS_Survey_TestDataManager extends PageInitializer {
             youAreAlmostDoneSurvey = testDataRasSurvey.get(ras_Survey_Constants.YOU_ARE_ALMOST_DONE_SURVEY);
         }
         public void dataInitializerRasSurvey3(String sheetName) {
-            testDataRasSurvey = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_THREE_DATA, sheetName);
+            testDataRasSurvey = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_THREE_DATA, sheetName);
             thankYouForStartingTheRASSurveyAndFor = testDataRasSurvey.get(ras_Survey_Constants.THANK_YOU_FOR_STARTING_THE_RAS_SURVEY_AND_FOR);
             thisQuestionnaireMayTakeYouSeveral = testDataRasSurvey.get(ras_Survey_Constants.THIS_QUESTIONNAIRE_MAY_TAKE_YOU_SEVERAL);
             theFirstBlockOfQuestions = testDataRasSurvey.get(ras_Survey_Constants.THE_FIRST_BLOCK_OF_QUESTIONS);
@@ -3010,7 +3010,7 @@ public class RAS_Survey_TestDataManager extends PageInitializer {
         }
 
         public void dataInitializerRasSurvey4(String sheetName) {
-            testDataRasSurvey = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_FOUR_DATA, sheetName);
+            testDataRasSurvey = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_FOUR_DATA, sheetName);
             thankYouForStartingTheRASSurveyAndFor = testDataRasSurvey.get(ras_Survey_Constants.THANK_YOU_FOR_STARTING_THE_RAS_SURVEY_AND_FOR);
             thisQuestionnaireMayTakeYouSeveral = testDataRasSurvey.get(ras_Survey_Constants.THIS_QUESTIONNAIRE_MAY_TAKE_YOU_SEVERAL);
             theFirstBlockOfQuestions = testDataRasSurvey.get(ras_Survey_Constants.THE_FIRST_BLOCK_OF_QUESTIONS);
