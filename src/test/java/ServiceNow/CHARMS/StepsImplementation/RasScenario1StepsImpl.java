@@ -168,11 +168,9 @@ public class RasScenario1StepsImpl extends PageInitializer {
         myRASLoginPage.loginToMyRASButton.click();
 
         try {
-            oktaLoginPage.usernameTxtBox.isDisplayed();
             oktaLoginPage.usernameTxtBox.clear();
             oktaLoginPage.usernameTxtBox.sendKeys(username);
             oktaLoginPage.passwordTxtBox.sendKeys(password);
-            CommonUtils.waitForClickability(oktaLoginPage.loginBtn);
             MiscUtils.sleep(1000);
             CommonUtils.clickOnElement(oktaLoginPage.loginBtn);
             MiscUtils.sleep(2000);
@@ -181,7 +179,6 @@ public class RasScenario1StepsImpl extends PageInitializer {
             myRASHomePage.warningAgreeButton.click();
         } catch (NoSuchElementException e) {
             CommonUtils.sendKeysToElement(oktaLoginPage.passwordTxtBox, password);
-            CommonUtils.waitForClickability(oktaLoginPage.loginBtn);
             MiscUtils.sleep(1000);
             CommonUtils.clickOnElement(oktaLoginPage.loginBtn);
             MiscUtils.sleep(2000);
@@ -607,8 +604,10 @@ public class RasScenario1StepsImpl extends PageInitializer {
             CucumberLogUtils.logScreenshot();
             CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
         }
+        MiscUtils.sleep(2000);
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantDetailsPage.nativeSubjectFlagButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeSubjectFlagButton);
+        MiscUtils.sleep(2000);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyNonParticipantDateButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyNonParticipantDateButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSParticipantConsentPage.rasStudyConsentCallScheduleTimeTodayButton);
@@ -626,8 +625,6 @@ public class RasScenario1StepsImpl extends PageInitializer {
         /* BEGINNING: CONSENT FLOW PROCESS */
         JavascriptUtils.scrollIntoView(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsTab);
-
-
         CommonUtils.hoverOverElement(participantDetailsPage.consentStatusText);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantDetailsPage.nativeViewPatientDetailsConsentsPreviewButton);
         CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
@@ -664,19 +661,9 @@ public class RasScenario1StepsImpl extends PageInitializer {
         CommonUtils.waitForClickability(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAddFileButton);
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentAddFileButton);
         CucumberLogUtils.logScreenshot();
-
         MiscUtils.sleep(5000);
 
-//        String jse = "arguments[0].type='file'";
-//        ((JavascriptExecutor)WebDriverUtils.webDriver).executeScript(jse, nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileButton);
-//         nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileButton.sendKeys(COVIDConstants.IIQ_STUDY_DOCUMENTATION_PDF_PATH);
-
          JavascriptUtils.uploadFileToHiddenFieldWithInputTag(nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileButton, COVIDConstants.IIQ_STUDY_DOCUMENTATION_PDF_PATH);
-
-
-
-//        CommonUtils.sendKeys(nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileButton,
-//                COVIDConstants.IIQ_STUDY_DOCUMENTATION_PDF_PATH);
         MiscUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(nativeViewCHARMSParticipantConsentPage.rasStudyConsentChoseFileCloseButton);
@@ -1913,9 +1900,7 @@ public class RasScenario1StepsImpl extends PageInitializer {
         CommonUtils.clickOnElement(participantDetailsPage.participantStudiesTab);
         CucumberLogUtils.logScreenshot();
 
-        //*****
         CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator("Waiting for Eligibility"));
-
         CommonUtils.waitForVisibility(participantDetailsPage.participantStudiesInfoButton);
         CommonUtils.clickOnElement(participantDetailsPage.participantStudiesInfoButton);
         CucumberLogUtils.logScreenshot();

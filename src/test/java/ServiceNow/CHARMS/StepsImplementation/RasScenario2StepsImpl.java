@@ -569,6 +569,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.whatTypeOfBirthWas));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnScreenerNextButton();
+        MiscUtils.sleep(2000);
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(40));
         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3),iiq_TestDataManager.InTheTableBelowPleaseGiveTheNamesColumn1Option1);
         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 3),iiq_TestDataManager.InTheTableBelowPleaseGiveTheNamesColumn1Option2);
