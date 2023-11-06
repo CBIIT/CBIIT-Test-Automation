@@ -7,7 +7,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
   Scenario: Participant fills the Fanconi screener for all different scenarios
     Given All scenarios are submitted
 
-  @jains @FanconiSubmission
+  @jains @FanconiSubmission @Regression
   Scenario: Participant fills the Fanconi screener by the Proband for scenario 1
     Given a Participant is on the Fanconi Study login page
     And logs in Fanconi page via Okta with username "charmsparticipant1@yopmail.com" and password "Charms123"
