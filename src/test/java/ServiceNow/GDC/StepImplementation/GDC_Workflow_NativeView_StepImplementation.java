@@ -1,16 +1,14 @@
 package ServiceNow.GDC.StepImplementation;
 
 import ServiceNow.GDC.Constants.GDC_WorkFlow_NV_Constants;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.xceptions.TestingException;
-import org.junit.Assert;
 import org.openqa.selenium.Keys;
-
-import javax.crypto.Cipher;
 
 public class GDC_Workflow_NativeView_StepImplementation extends PageInitializer {
 
@@ -73,7 +71,7 @@ public class GDC_Workflow_NativeView_StepImplementation extends PageInitializer 
     }
 
     public static void iAmAuthenticatedGDCFulfillerInNV() throws TestingException {
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         nativeViewImpersonateUser.impersonateGDCFulfillerUser();
         nativeViewEnrollementsPage.filterNavigator.clear();
         gDC_Workflow_NativeView_Page.nVFilterNavigator.sendKeys(GDC_WorkFlow_NV_Constants.GDC_NATIVE_VIEW_FILTER_NAVIGATION_SEARCH_BOX);

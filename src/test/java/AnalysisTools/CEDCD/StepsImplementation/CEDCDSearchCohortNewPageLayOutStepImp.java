@@ -1,13 +1,10 @@
 package AnalysisTools.CEDCD.StepsImplementation;
 
-import AnalysisTools.CEDCD.Steps.HooksSteps;
 import org.junit.Assert;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.JavascriptUtils;
-
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 
 public class CEDCDSearchCohortNewPageLayOutStepImp extends PageInitializer{
 	

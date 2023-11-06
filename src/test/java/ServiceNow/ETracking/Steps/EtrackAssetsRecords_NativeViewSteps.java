@@ -1,7 +1,7 @@
 package ServiceNow.ETracking.Steps;
 
 import ServiceNow.ETracking.StepsImplementation.EtrackAssetsRecords_NativeViewStepImplimentation;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

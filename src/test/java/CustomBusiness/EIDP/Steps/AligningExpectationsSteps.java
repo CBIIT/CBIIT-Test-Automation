@@ -3,9 +3,7 @@ package CustomBusiness.EIDP.Steps;
 import org.junit.Assert;
 import com.nci.automation.utils.MiscUtils;
 import CustomBusiness.EIDP.Util.SharedData;
-import appsCommon.PageInitializer;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
+import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.When;
 
 public class AligningExpectationsSteps extends PageInitializer {

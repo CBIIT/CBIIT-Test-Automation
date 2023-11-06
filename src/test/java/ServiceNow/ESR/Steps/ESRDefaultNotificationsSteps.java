@@ -1,7 +1,7 @@
 package ServiceNow.ESR.Steps;
 
 import ServiceNow.ESR.StepsImplementation.ESRDefaultNotificationsStepsImplementation;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 

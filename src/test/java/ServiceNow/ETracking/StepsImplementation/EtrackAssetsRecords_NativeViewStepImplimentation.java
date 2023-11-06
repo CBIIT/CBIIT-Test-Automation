@@ -2,9 +2,9 @@ package ServiceNow.ETracking.StepsImplementation;
 
 import ServiceNow.ETracking.Constants.EtrackAssetsRecords_NativeView_Constants;
 import ServiceNow.SEER.Constants.SEERNativeView_Constants;
-import appsCommon.PageInitializer;
+import appsCommon.Utils.ServiceNow_Login_Methods;
+import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.xceptions.TestingException;
@@ -21,7 +21,7 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
      * All Etracking Asset methods needs Screenshots once the issues is resolved
      */
     public static void aEtrackingUserOpensAnAssetRecord() throws TestingException {
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         nativeViewImpersonateUser.impersonateEtrackingUser();
         nativeViewEnrollementsPage.filterNavigator.clear();
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVeTrackingFilterNavigator);
@@ -73,7 +73,7 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
     }
 
     public static void anEtrackingUserIsOnAnAssetRecord() throws TestingException {
-        nativeViewLoginImpl.sideDoorAccountLogin();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         nativeViewImpersonateUser.impersonateEtrackingUser();
         nativeViewEnrollementsPage.filterNavigator.clear();
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVeTrackingFilterNavigator);

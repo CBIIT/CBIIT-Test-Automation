@@ -1,7 +1,7 @@
 package ServiceNow.ESR.Steps;
 
 import ServiceNow.ESR.StepsImplementation.ESRShortDescriptionStepsImplementation;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Then;
 
 public class ESRShortDescriptionSteps extends PageInitializer {

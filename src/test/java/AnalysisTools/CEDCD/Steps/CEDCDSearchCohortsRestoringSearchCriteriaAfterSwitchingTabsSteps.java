@@ -1,11 +1,8 @@
 package AnalysisTools.CEDCD.Steps;
 
 import org.junit.Assert;
-
 import com.nci.automation.web.JavascriptUtils;
-
-import appsCommon.PageInitializer;
-import io.cucumber.java.en.Given;
+import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 

@@ -2,7 +2,6 @@ package ServiceNow.CICDBuild.StepsImplementation;
 
 import java.util.List;
 
-import ServiceNow.CICDBuild.Steps.HooksSteps;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -12,7 +11,7 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 
 public class DevOpsAutomatedBuildStepsImplementation extends PageInitializer {
 

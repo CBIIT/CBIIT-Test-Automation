@@ -2,7 +2,7 @@ package CustomBusiness.EIDP.StepsImplementation;
 
 import com.nci.automation.web.CommonUtils;
 import CustomBusiness.EIDP.Util.CommonUtil;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 
 public class TraineeReviewStepsImpl extends PageInitializer{
     
