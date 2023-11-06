@@ -1,6 +1,7 @@
 package ServiceNow.CHARMS.StepsImplementation;
 
 import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.Utils.ServiceNow_Common_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -347,7 +348,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         rasScenario1StepsImpl.clickOnScreenerNextButton();
         MiscUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
-        rasScenario1StepsImpl.logOutOfNativeView();
+        ServiceNow_Common_Methods.logOutOfNativeView();
     }
 
     /***
@@ -568,6 +569,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         CommonUtils.clickOnElement(rasopathyQuestionnairePage.dynamicLocator(iiq_TestDataManager.whatTypeOfBirthWas));
         CucumberLogUtils.logScreenshot();
         rasScenario1StepsImpl.clickOnScreenerNextButton();
+        MiscUtils.sleep(2000);
         CommonUtils.waitForVisibility(myRASSurveyPage.dynamicTopText(40));
         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(1, 3),iiq_TestDataManager.InTheTableBelowPleaseGiveTheNamesColumn1Option1);
         CommonUtils.sendKeysToElement(myRASSurveyPage.enterTextInPleaseProvideDetailsOnTheNameOfTheMedicationTakenTextBox(2, 3),iiq_TestDataManager.InTheTableBelowPleaseGiveTheNamesColumn1Option2);
@@ -968,7 +970,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
         MiscUtils.sleep(3000);
         CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(1000);
-        rasScenario1StepsImpl.logOutOfNativeView();
+        ServiceNow_Common_Methods.logOutOfNativeView();
     }
 
     /***
@@ -3564,6 +3566,6 @@ public class RasScenario2StepsImpl extends PageInitializer {
         MiscUtils.sleep(3000);
         CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(1000);
-        rasScenario1StepsImpl.logOutOfNativeView();
+        ServiceNow_Common_Methods.logOutOfNativeView();
     }
 }
