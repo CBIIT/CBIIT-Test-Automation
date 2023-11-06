@@ -1,5 +1,6 @@
 package ServiceNow.CHARMS.Steps;
 
+import appsCommon.Utils.ServiceNow_Login_Methods;
 import org.testng.asserts.SoftAssert;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
@@ -11,9 +12,10 @@ import io.cucumber.java.en.Then;
 
 public class FHQSubmissionSteps extends PageInitializer {
 	SoftAssert softAssert = new SoftAssert();
-	@Given("the study nurse logs into Native View with username {string} and password {string}")
-	public void the_study_nurse_logs_into_native_view_with_username_and_password(String username, String password) throws TestingException {
-		FHQSubmissionStepsImpl.loginToNativeViewForFHQ(username, password);
+
+	@Given("the study nurse logs into Native View")
+	public void the_study_nurse_logs_into_native_view() {
+		ServiceNow_Login_Methods.nativeViewSideDoorLogin();
 		FHQSubmissionStepsImpl.loginToFHQPatientInNativeView();
 	}
 	@Then("data submitted for FHQ Patient is verified in FHQ Patient page of NativeView from excel sheet {string}")

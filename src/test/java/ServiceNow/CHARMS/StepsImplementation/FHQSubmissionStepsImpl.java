@@ -1,5 +1,8 @@
 package ServiceNow.CHARMS.StepsImplementation;
 
+import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
+import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
+import appsCommon.Utils.ServiceNow_Common_Methods;
 import org.openqa.selenium.By;
 import org.testng.asserts.SoftAssert;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -578,16 +581,17 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 	}
 	/* Method to Login to the FHQ list view in Native View */
 	public static void loginToFHQPatientInNativeView() {
-		CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator);
-		CharmsUtil.clickOnElement(nativeViewHomePage.nativeViewFilterNavigator);
-		CharmsUtil.sendKeysToElement(nativeViewHomePage.nativeViewFilterNavigator, "FHQ Application Menu");
-		CommonUtils.waitForVisibility(FHQSubmissionPage.nVFHQApplicationMenuLink);
-		//CharmsUtil.clickOnElement(FHQSubmissionPage.nVFHQApplicationMenuLink);
-		fHQSubmissionPage.dynamicLocatorContainsText("Patient(s)").click();
-		CommonUtils.waitForVisibility(fHQSubmissionPage.nVListViewiFrame);
-		CommonUtils.switchToFrame(fHQSubmissionPage.nVListViewiFrame);
-		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicFHQPatientPreviewButtonLocator("sonikatestaccount sonikatestaccount"));
-		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorUsingContainsNormalizeSpace("Open Record",1));				
+
+		ServiceNow_Common_Methods.filterNavigatorSearch("FHQ Patients");
+		MiscUtils.sleep(2000);
+		CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+		CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator("CHARMSAutomatedTestThree"));
+		CommonUtils.clickOnElement(NativeViewCHARMSDashboardPage.nativeViewnewScreenerReceivedLocator("CHARMSAutomatedTestThree"));
+		MiscUtils.sleep(2000);
+		if (CommonUtils.isElementDisplayed(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton)) {
+			CucumberLogUtils.logScreenshot();
+			CommonUtils.clickOnElement(nativeViewCHARMSDashboardPage.rasStudyOpenRecordButton);
+		}
 	}
 	/* Assertions of common fields on the List View Page */
 	public static void commonFamilyFieldsInListViewPageAssertions() {
