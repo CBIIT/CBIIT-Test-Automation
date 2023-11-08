@@ -4,7 +4,7 @@ import com.nci.automation.utils.EncryptionUtils;
 import com.nci.automation.web.ConfUtils;
 import ServiceNow.CcrHelpDesk.Pages.CCRHelpDeskPage;
 import ServiceNow.CcrHelpDesk.Pages.LoginStepsImplCCR;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

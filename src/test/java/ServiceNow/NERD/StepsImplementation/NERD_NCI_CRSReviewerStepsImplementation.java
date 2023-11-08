@@ -1,6 +1,7 @@
 package ServiceNow.NERD.StepsImplementation;
 
-import appsCommon.PageInitializers.PageInitializer;
+import ServiceNow.NERD.Steps.HooksSteps;
+import appsCommon.PageInitializer;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;

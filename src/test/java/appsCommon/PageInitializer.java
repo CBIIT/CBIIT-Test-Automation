@@ -48,10 +48,6 @@ import ServiceNow.SCSS.StepsImplementation.*;
 import ServiceNow.SEER.Pages.*;
 import ServiceNow.SEER.StepsImplementation.*;
 import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
-import appsCommon.Pages.ITrustLoginPage;
-import appsCommon.Pages.NativeViewHomePage;
-import appsCommon.Pages.ServiceNow_NCISP_Page;
-import appsCommon.StepsImplementation.ITrustLoginPageImpl;
 import com.nci.automation.web.WebDriverUtils;
 
 /**
@@ -63,9 +59,8 @@ public class PageInitializer extends WebDriverUtils {
 	/** --------------- APPSCOMMON INSTANCES --------------- */
 	// declare public static variables of types of all the pages
 	/** iTrust instances */
-	public static appsCommon.Pages.ITrustLoginPage iTrustloginPage;
+	public static ITrustLoginPage iTrustloginPage;
 	public static ITrustLoginPageImpl loginImpl;
-	public static ServiceNow_NCISP_Page serviceNow_ncisp_page;
 
 	/** --------------- GRANTS INSTANCES --------------- */
 	public static ChangePasswordPage changePasswordPage;
@@ -272,9 +267,11 @@ public class PageInitializer extends WebDriverUtils {
 	public static ESRShortDescriptionPage esrShortDescriptionPage;
 
 	/** --------------- NATIVE VIEW INSTANCES --------------- */
+	public static NativeViewLoginImpl nativeViewLoginImpl;
 	public static NativeViewHomePage nativeViewHomePage;
 	public static NativeViewImpersonateUser nativeViewImpersonateUser;
 	public static NativeViewImpersonateUserPage nativeViewImpersonateUserPage;
+	public static NativeViewSideDoorLoginPage nativeViewSideDoorLoginPage;
 	public static NativeViewEnrollmentsPage nativeViewEnrollementsPage;
 	public static NativeViewEnrollmentViewPage nativeViewEnrollmentViewPage;
 	public static NativeViewStepsImpl nativeViewStepsImpl;
@@ -298,7 +295,6 @@ public class PageInitializer extends WebDriverUtils {
 		// create instances of all pages and assign them to the variables
 		iTrustloginPage = new ITrustLoginPage();
 		loginImpl = new ITrustLoginPageImpl();
-		serviceNow_ncisp_page = new ServiceNow_NCISP_Page();
 
 		/** --------------- SERVICENOW INSTANCE VARIABLES --------------- */
 		/** COVIDDash Instance Variables */
@@ -493,9 +489,11 @@ public class PageInitializer extends WebDriverUtils {
 		cCRApplicationPage = new CCRApplicationPage();
 
 		/** --------------- NATIVE VIEW INSTANCE VARIABLES --------------- */
+		nativeViewLoginImpl = new NativeViewLoginImpl();
 		nativeViewHomePage = new NativeViewHomePage();
 		nativeViewImpersonateUser = new NativeViewImpersonateUser();
 		nativeViewImpersonateUserPage = new NativeViewImpersonateUserPage();
+		nativeViewSideDoorLoginPage = new NativeViewSideDoorLoginPage();
 		nativeViewEnrollementsPage = new NativeViewEnrollmentsPage();
 		nativeViewEnrollmentViewPage = new NativeViewEnrollmentViewPage();
 		nativeViewCustomersPage = new NativeViewCustomersPage();

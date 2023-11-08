@@ -1,6 +1,6 @@
 package ServiceNow.SCSS.Steps;
 
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Given;

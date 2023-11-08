@@ -1,8 +1,8 @@
 package GrantsApps.ChangePassword.StepsImplementation;
 
 import java.util.Random;
-
-import appsCommon.PageInitializers.PageInitializer;
+import GrantsApps.ChangePassword.Steps.HooksSteps;
+import appsCommon.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;

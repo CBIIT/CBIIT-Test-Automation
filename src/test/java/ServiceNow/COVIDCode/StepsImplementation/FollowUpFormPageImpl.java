@@ -2,6 +2,7 @@ package ServiceNow.COVIDCode.StepsImplementation;
 
 import java.util.List;
 
+import ServiceNow.COVIDCode.Steps.HooksSteps;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -11,7 +12,7 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 
 public class FollowUpFormPageImpl extends PageInitializer{
 	

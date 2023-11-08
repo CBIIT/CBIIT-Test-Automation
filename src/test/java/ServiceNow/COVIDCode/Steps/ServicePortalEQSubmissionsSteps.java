@@ -13,7 +13,7 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import ServiceNow.COVIDCode.StepsImplementation.ServicePortalEQPageImpl;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

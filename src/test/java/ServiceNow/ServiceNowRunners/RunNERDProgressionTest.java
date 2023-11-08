@@ -1,4 +1,4 @@
-package ServiceNow.ServiceNowRunners.NERDRunners;
+package ServiceNow.ServiceNowRunners;
 
 import com.nci.automation.utils.LocalConfUtils;
 import com.nci.automation.web.ConfUtils;
@@ -25,7 +25,7 @@ import java.io.File;
 *  @author sohilz2
 */
 
-public class Run_NERD_Progression_Test {
+public class RunNERDProgressionTest {
     @BeforeClass
     public static void runSetup() {
 

@@ -1,5 +1,5 @@
 Feature: test
 
   @Progression
-  Scenario: Next Experience UI test
+  Scenario: sandbox test
     Given testing

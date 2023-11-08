@@ -1,4 +1,4 @@
-package ServiceNow.ServiceNowRunners.ATORunners;
+package ServiceNow.ServiceNowRunners;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -16,6 +16,6 @@ import org.junit.runner.RunWith;
 		, monochrome=true
 		, strict = true
 		)
-public class Run_Ato_Progression_Test {
+public class RunAtoProgressionTest {
 
 }

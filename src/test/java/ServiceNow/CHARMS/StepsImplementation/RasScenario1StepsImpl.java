@@ -5,8 +5,7 @@ import ServiceNow.CHARMS.Constants.CHARMSRASScreenerConstants;
 import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
 import ServiceNow.COVIDDash.Utils.COVIDConstants;
 import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
-import appsCommon.Utils.ServiceNow_Login_Methods;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -574,7 +573,7 @@ public class RasScenario1StepsImpl extends PageInitializer {
      * USE THIS METHOD FOR NATIVE VIEW CONSENT FLOW PROCESS SCENARIO 1
      */
     public void nativeViewConsentFlowProcessScenario1(String sheetName) {
-        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        nativeViewLoginImpl.sideDoorAccountLogin();
         MiscUtils.sleep(1000);
         if (nativeViewEnrollementsPage.filterNavigatorIconButton.isDisplayed()) {
             CommonUtils.clickOnElement(nativeViewEnrollementsPage.filterNavigatorIconButton);
@@ -1849,7 +1848,7 @@ public class RasScenario1StepsImpl extends PageInitializer {
      * THIS METHOD VERIFIES RAS SCREENER SCENARIO 1 DATA IN NATIVE VIEW
      */
     public void verifying_RAS_Screener_Scenario_1_Data(String sheetName) {
-        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        nativeViewLoginImpl.sideDoorAccountLogin();
         MiscUtils.sleep(1000);
         if (nativeViewEnrollementsPage.filterNavigatorIconButton.isDisplayed()) {
             CommonUtils.clickOnElement(nativeViewEnrollementsPage.filterNavigatorIconButton);

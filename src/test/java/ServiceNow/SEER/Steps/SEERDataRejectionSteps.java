@@ -1,7 +1,7 @@
 package ServiceNow.SEER.Steps;
 
 import ServiceNow.SEER.StepsImplementation.SEERDataRejectionStepImpl;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;

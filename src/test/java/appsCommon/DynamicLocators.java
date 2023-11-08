@@ -1,10 +1,10 @@
-package appsCommon.Utils;
+package appsCommon;
 
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class Dynamic_Locators {
+public class DynamicLocators {
     /**
      * THIS CLASS CONTAINS DYNAMIC LOCATORS
      */

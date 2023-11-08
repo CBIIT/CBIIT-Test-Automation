@@ -4,13 +4,14 @@ import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.ETracking.Constants.EtrackAssetsRecords_NativeView_Constants;
 import ServiceNow.GCP.Constants.GCPNotifications_NativeView_Constants;
 import ServiceNow.NERD.Constants.CRSReviewers_Constants;
+import ServiceNow.NERD.Steps.HooksSteps;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 
 public class NativeViewImpersonateUser extends PageInitializer {
 

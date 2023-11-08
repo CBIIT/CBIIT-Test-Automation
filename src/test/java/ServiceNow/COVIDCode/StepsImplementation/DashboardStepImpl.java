@@ -4,7 +4,7 @@ import org.junit.Assert;
 
 import com.nci.automation.web.JavascriptUtils;
 
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 
 public class DashboardStepImpl extends PageInitializer {
 	

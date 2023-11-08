@@ -1,15 +1,17 @@
 package GrantsApps.EM.Steps;
 
-import appsCommon.Utils.Dynamic_Locators;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.DynamicLocators;
+import appsCommon.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
+import org.testng.Assert;
 
 public class EMFlowSteps extends PageInitializer {
 
@@ -35,7 +37,7 @@ public class EMFlowSteps extends PageInitializer {
 
     @When("User clicks {string} button")
     public void user_clicks_button(String text) {
-        CommonUtils.clickOnElement(Dynamic_Locators.dynamicContainsTextLocator(text));
+        CommonUtils.clickOnElement(DynamicLocators.dynamicContainsTextLocator(text));
         MiscUtils.sleep(1000);
     }
 
@@ -50,7 +52,7 @@ public class EMFlowSteps extends PageInitializer {
     public void selects_from_role_organization_drop_down(String text) {
         CommonUtils.clickOnElement(manageI2EUsersPage.roleOrganizationDropDown);
         CommonUtils.sendKeysToElement(manageI2EUsersPage.roleOrganizationDropDown, text);
-        CommonUtils.clickOnElement(Dynamic_Locators.dynamicContainsTextLocatorWithSpanTagName(text));
+        CommonUtils.clickOnElement(DynamicLocators.dynamicContainsTextLocatorWithSpanTagName(text));
 
         //CommonUtils.sendKeys(manageI2EUsersPage.I2ERoleDropDownTextBox, Keys.ENTER);
         CucumberLogUtils.logScreenshot();

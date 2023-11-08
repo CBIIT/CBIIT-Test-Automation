@@ -2,8 +2,9 @@ package CustomBusiness.EIDP.Steps;
 
 import com.nci.automation.xceptions.TestingException;
 import CustomBusiness.EIDP.Util.SharedData;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class LoginSteps extends PageInitializer {

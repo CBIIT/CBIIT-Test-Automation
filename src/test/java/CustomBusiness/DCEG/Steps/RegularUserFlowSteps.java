@@ -12,7 +12,7 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 //import cucumber.api.java.en.Then;
 //import cucumber.api.java.en.When;
 

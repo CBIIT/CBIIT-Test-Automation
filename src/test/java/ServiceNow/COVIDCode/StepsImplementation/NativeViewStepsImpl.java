@@ -1,9 +1,11 @@
 package ServiceNow.COVIDCode.StepsImplementation;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import appsCommon.Utils.ServiceNow_Login_Methods;
+
+import ServiceNow.COVIDCode.Steps.HooksSteps;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -12,7 +14,8 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.xceptions.TestingException;
-import appsCommon.PageInitializers.PageInitializer;
+
+import appsCommon.PageInitializer;
 
 public class NativeViewStepsImpl extends PageInitializer {
 
@@ -297,7 +300,7 @@ public class NativeViewStepsImpl extends PageInitializer {
 	 * This method creates a new Enrollment Questionnaire for User Group 1, enters all required information and submits for review
 	 */
 	public void submitForReviewEQGroup1 () throws TestingException {
-		ServiceNow_Login_Methods.nativeViewLogin();
+		nativeViewLoginImpl.nativeViewLogin();
 		nativeViewStepsImpl.nativeViewNavigateToCovidCodeEnrollmentQuestionnaire();
 		CommonUtils.switchToFrame(nativeViewEnrollementsPage.NativeViewFrame);
 		MiscUtils.sleep(500);

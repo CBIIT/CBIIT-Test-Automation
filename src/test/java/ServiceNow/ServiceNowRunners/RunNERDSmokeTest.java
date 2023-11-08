@@ -1,4 +1,4 @@
-package ServiceNow.ServiceNowRunners.NERDRunners;
+package ServiceNow.ServiceNowRunners;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -22,5 +22,5 @@ import org.junit.runner.RunWith;
  */
 
 
-public class Run_NERD_Smoke_Test {
+public class RunNERDSmokeTest {
 }

@@ -1,6 +1,6 @@
 package AnalysisTools.CEDCD.StepsImplementation;
 
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 

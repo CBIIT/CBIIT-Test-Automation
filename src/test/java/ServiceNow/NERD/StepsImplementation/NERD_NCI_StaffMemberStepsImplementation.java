@@ -2,8 +2,8 @@ package ServiceNow.NERD.StepsImplementation;
 
 import ServiceNow.NERD.Constants.NCI_Staff_Members_Constants;
 import ServiceNow.NERD.Constants.ReturningSubmissions_Constants;
-import appsCommon.Utils.ServiceNow_Login_Methods;
-import appsCommon.PageInitializers.PageInitializer;
+import ServiceNow.NERD.Steps.HooksSteps;
+import appsCommon.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -132,7 +132,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
 
     public static void aProgramStaffMemberIsOnTheCRSKnowledgeManagementSystemPage(String submissionsPage)
             throws TestingException {
-        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        nativeViewLoginImpl.sideDoorAccountLogin();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         MiscUtils.sleep(1000);
         CommonUtils.assertEquals(NCI_Staff_Members_Constants.CRS_KNOWLEDGE_MANAGEMENT_SYSTEM_TEXT_MAIN_PAGE, nerdKnowledgeBasePage.nerdCRSKnowledgeMainText.getText());

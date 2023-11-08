@@ -1,7 +1,6 @@
 package ServiceNow.ESR.StepsImplementation;
 
-import appsCommon.Utils.ServiceNow_Login_Methods;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
@@ -10,7 +9,7 @@ public class CreateESRPageStepsImplementation extends PageInitializer {
 
     public static void nativeViewSideDoorLogInHomePage(String appID) {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(appID));
-        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        loginImpl.loginToNativeViewSideDoor();
     }
 
     public static void clickCreateTicketAndSwitchToFrame() {

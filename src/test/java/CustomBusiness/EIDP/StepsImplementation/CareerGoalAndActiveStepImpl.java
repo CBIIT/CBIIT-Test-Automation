@@ -1,14 +1,14 @@
 package CustomBusiness.EIDP.StepsImplementation;
 
 import java.util.List;
-
+import CustomBusiness.EIDP.Steps.HooksSteps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 
 public class CareerGoalAndActiveStepImpl extends PageInitializer {
 	

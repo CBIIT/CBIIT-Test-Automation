@@ -7,7 +7,7 @@ import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.xceptions.TestingException;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 
 public class CEDCDBiospecimenCountsSelectAllCohortsSteps extends PageInitializer{
 	

@@ -1,4 +1,4 @@
-package ServiceNow.ServiceNowRunners.SEERRunners;
+package ServiceNow.ServiceNowRunners;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -23,5 +23,5 @@ import org.junit.runner.RunWith;
  * @author juarezds
  */
 
-public class Run_SEER_Regression_Test {
+public class RunSEERRegressionTest {
 }

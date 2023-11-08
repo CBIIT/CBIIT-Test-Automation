@@ -1,6 +1,6 @@
 package CustomBusiness.ETD.Steps;
 
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.After;

@@ -1,4 +1,4 @@
-package appsCommon.Utils;
+package appsCommon;
 
 import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.COVIDDash.NativeView.StepsImplementation.NativeViewDashboardPageImpl;
@@ -6,8 +6,6 @@ import ServiceNow.COVIDDash.Pages.COVIDHomePage;
 import ServiceNow.COVIDDash.Pages.SubmissionsPage;
 import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
 import ServiceNow.COVIDDash.StepsImplementation.SubmissionsPageImpl;
-import appsCommon.Pages.ITrustLoginPage;
-import appsCommon.StepsImplementation.ITrustLoginPageImpl;
 
 public class PageCache {
 

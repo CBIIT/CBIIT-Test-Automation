@@ -1,4 +1,4 @@
-package ServiceNow.ServiceNowRunners.CHARMSRunners.FanconiStudy;
+package ServiceNow.ServiceNowRunners;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -22,6 +22,6 @@ strict = true
  * 
  * @author sohilz2
  */
-public class Run_CHARMS_Fanconi_Regression_Test {
+public class RunCHARMSFanconiRegressionTest {
 
 }

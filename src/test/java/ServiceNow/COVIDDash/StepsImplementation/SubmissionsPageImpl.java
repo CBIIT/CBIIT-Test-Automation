@@ -2,6 +2,7 @@ package ServiceNow.COVIDDash.StepsImplementation;
 
 import java.util.List;
 
+import ServiceNow.COVIDDash.Steps.HooksSteps;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
@@ -9,8 +10,8 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.xceptions.TestingException;
 
-import appsCommon.Utils.PageCache;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageCache;
+import appsCommon.PageInitializer;
 
 public class SubmissionsPageImpl extends PageInitializer {
 

@@ -1,4 +1,4 @@
-package ServiceNow.ServiceNowRunners.CHARMSRunners;
+package ServiceNow.ServiceNowRunners;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -22,6 +22,6 @@ import org.junit.runner.RunWith;
  *
  * @author sohilz2
  */
-public class Run_CHARMS_Progression_Test {
+public class RunCHARMSProgressionTest {
 
 }

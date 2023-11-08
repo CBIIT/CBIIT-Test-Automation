@@ -2,7 +2,7 @@ package ServiceNow.SEER.Steps;
 
 import ServiceNow.SEER.Constants.DUA_Constants;
 import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

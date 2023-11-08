@@ -1,6 +1,6 @@
 package CustomBusiness.CCR.Steps;
 
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.Given;

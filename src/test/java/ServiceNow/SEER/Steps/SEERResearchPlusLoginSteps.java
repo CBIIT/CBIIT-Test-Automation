@@ -1,7 +1,7 @@
 package ServiceNow.SEER.Steps;
 
 import ServiceNow.SEER.StepsImplementation.SEERResearchPlusLoginStepImplementation;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 

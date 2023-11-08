@@ -2,7 +2,9 @@ package CustomBusiness.EIDP.Steps;
 
 import com.nci.automation.utils.MiscUtils;
 import CustomBusiness.EIDP.Util.CommonUtil;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class CareerGoalAndActivitySteps extends PageInitializer{

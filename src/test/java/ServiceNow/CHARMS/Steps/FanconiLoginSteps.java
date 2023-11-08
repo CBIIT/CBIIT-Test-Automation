@@ -9,7 +9,7 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import ServiceNow.CHARMS.Utils.CharmsUtil;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 import io.cucumber.java.en.Given;
 
 public class FanconiLoginSteps extends PageInitializer {

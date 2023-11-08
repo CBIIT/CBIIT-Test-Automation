@@ -2,10 +2,15 @@ package AnalysisTools.CEDCD.Steps;
 
 import java.util.Iterator;
 import java.util.Set;
+
+import org.junit.Assert;
+
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import appsCommon.PageInitializers.PageInitializer;
+
+import appsCommon.PageInitializer;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 public class CEDCDSearchCohortsCohortsURLSteps extends PageInitializer {

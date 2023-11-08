@@ -1,5 +1,6 @@
 package CustomBusiness.EIDP.StepsImplementation;
 
+import CustomBusiness.EIDP.Steps.HooksSteps;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.EncryptionUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -8,7 +9,7 @@ import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 
 public class EIDPLoginStepImpl extends PageInitializer {
 

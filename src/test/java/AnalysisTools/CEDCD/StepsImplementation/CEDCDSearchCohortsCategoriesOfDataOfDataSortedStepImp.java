@@ -2,8 +2,10 @@ package AnalysisTools.CEDCD.StepsImplementation;
 
 import java.util.ArrayList;
 import java.util.Collections;
+
 import org.junit.Assert;
-import appsCommon.PageInitializers.PageInitializer;
+
+import appsCommon.PageInitializer;
 
 public class CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp extends PageInitializer {
 

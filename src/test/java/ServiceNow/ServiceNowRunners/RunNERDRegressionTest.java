@@ -1,4 +1,4 @@
-package ServiceNow.ServiceNowRunners.NERDRunners;
+package ServiceNow.ServiceNowRunners;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -21,5 +21,5 @@ import org.junit.runner.RunWith;
  *  @author sohilz2
  */
 
-	public class Run_NERD_Regression_Test {
+	public class RunNERDRegressionTest {
 }

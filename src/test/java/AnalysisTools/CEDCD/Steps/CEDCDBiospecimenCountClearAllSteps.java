@@ -5,7 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import com.nci.automation.utils.MiscUtils;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 
 public class CEDCDBiospecimenCountClearAllSteps extends PageInitializer {
 

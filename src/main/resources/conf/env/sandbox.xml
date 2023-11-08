@@ -173,7 +173,7 @@
 
 	</application>
 	<!-- Application ID for Native View Sidedoor-->
-	<application id="Native View Side Door">
+	<application id="nativeviewSideDoor">
 		<login_url>https://service-sandbox.nci.nih.gov/side_door.do</login_url> <!-- add test
 			url -->
 		<role name="Role">

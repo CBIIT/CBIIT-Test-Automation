@@ -1,7 +1,7 @@
 package ServiceNow.GCP.Steps;
 
 import ServiceNow.GCP.StepsImplementation.GCPNotifications_NativeViewStepImpl;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

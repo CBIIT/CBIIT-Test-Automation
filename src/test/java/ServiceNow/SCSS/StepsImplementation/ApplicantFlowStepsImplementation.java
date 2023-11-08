@@ -1,6 +1,6 @@
 package ServiceNow.SCSS.StepsImplementation;
 
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 import com.nci.automation.web.CommonUtils;
 import org.openqa.selenium.Keys;
 

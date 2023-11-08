@@ -4,8 +4,8 @@ import ServiceNow.SEER.Constants.Registration_Constants;
 import ServiceNow.SEER.Constants.SEERDataRejection_Constants;
 import ServiceNow.SEER.Constants.SEERNativeView_Constants;
 import ServiceNow.SEER.Pages.NativeViewAccessRequestPage;
-import appsCommon.PageInitializers.PageInitializer;
-import appsCommon.Utils.ServiceNow_Login_Methods;
+import ServiceNow.SEER.Steps.HooksSteps;
+import appsCommon.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -18,7 +18,7 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
     public static String newEmailThankYou320 = "seerThankYou320" + CommonUtils.email;
 
     public static void aSEERODSAdminNavigatesTheNativeViewPortal() {
-        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        nativeViewLoginImpl.sideDoorAccountLogin();
         CommonUtils.assertTrue(CommonUtils.getCurrentURL(WebDriverUtils.webDriver)
                 .contentEquals(SEERNativeView_Constants.NATIVE_VIEW_HOME_PAGE_URL));
         CucumberLogUtils.logScreenshot();

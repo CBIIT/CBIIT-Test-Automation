@@ -106,28 +106,4 @@ public class ESRTicketCreationPage {
     /** Update Button to submit catalog task */
     @FindBy(xpath = "//nav[@role='navigation']//div//div//span//span//span//button[@value='sysverb_update']")
     public WebElement updateButton;
-
-    /** Approval Tab to show list of approvers */
-    @FindBy(xpath = "//body/div[@data-position-below-header='true']/div[@aria-label='Section Tab Lists']/span[2]/span[1]/span[2]")
-    public WebElement approverTab;
-
-    /** Federal Lead approver under the approver tab */
-    @FindBy(xpath = "/html[1]/body[1]/div[2]/div[2]/div[1]/div[2]/span[1]/div[2]/div[4]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/table[1]/tbody[1]/tr[1]/td[3]/a[1]")
-    public WebElement federalLeadApprovalTask;
-
-    /** State field in approval catalog task */
-    @FindBy(xpath = "//select[@aria-required='false']")
-    public WebElement stateFieldApprovalTask;
-
-    /** Additional comments section on catalog task for approvers */
-    @FindBy(xpath = "//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Comments']")
-    public WebElement additionalCommentField;
-
-    /** Additional comments section on requested item */
-    @FindBy(xpath = "//div[@ng-show='multipleInputs']//div//div//div//textarea[@placeholder='Additional comments (Customer visible)']")
-    public WebElement additionalCommentFieldInRequestedItem;
-
-    /** Post button for additional comment on Requested Item */
-    @FindBy(xpath = "//button[@ng-keypress='submitCheck($event)']")
-    public WebElement additionalCommentPostButton;
 }

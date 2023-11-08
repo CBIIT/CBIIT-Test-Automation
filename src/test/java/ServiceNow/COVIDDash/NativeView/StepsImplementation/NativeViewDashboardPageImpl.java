@@ -5,8 +5,8 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 
-import appsCommon.Utils.PageCache;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageCache;
+import appsCommon.PageInitializer;
 
 public class NativeViewDashboardPageImpl extends PageInitializer {
 

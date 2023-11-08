@@ -2,7 +2,7 @@ package ServiceNow.SCSS.StepsImplementation;
 
 import ServiceNow.SCSS.Constants.NativeViewSCSSConstants;
 import ServiceNow.SCSS.Constants.OWMVacanciesConstants;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;

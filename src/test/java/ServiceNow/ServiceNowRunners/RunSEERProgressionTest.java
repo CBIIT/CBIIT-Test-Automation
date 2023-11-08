@@ -8,8 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(plugin = {"html:target/html-reports/cucumber-default-report", "json:target/cucumber.json",
         "junit:target/cucumber.xml", "rerun:target/failed.txt",
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
-        features = "src/test/java/ServiceNow/SandBoxUpgradeTest/Features",
-        glue = "ServiceNow.SandBoxUpgradeTest.Steps",
+        features = "src/test/java/ServiceNow/SEER/Features",
+        glue = "ServiceNow.SEER.Steps",
         tags = "@Progression",
         dryRun = false,
         monochrome = true,
@@ -23,6 +23,6 @@ import org.junit.runner.RunWith;
  * @author juarezds
  */
 
-public class Run_Sandbox_Progression_Test {
+public class RunSEERProgressionTest {
 
 }

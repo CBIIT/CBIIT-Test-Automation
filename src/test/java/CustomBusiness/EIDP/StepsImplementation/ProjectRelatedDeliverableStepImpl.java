@@ -1,7 +1,7 @@
 package CustomBusiness.EIDP.StepsImplementation;
 
 import CustomBusiness.EIDP.Util.CommonUtil;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;

@@ -1,7 +1,7 @@
 package ServiceNow.NERD.Steps;
 
 import ServiceNow.NERD.StepsImplementation.Covid19ActivitiesSubmissionsStepImplementation;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Then;
 

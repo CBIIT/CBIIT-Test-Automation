@@ -13,7 +13,7 @@ import com.nci.automation.xceptions.TestingException;
 
 import ServiceNow.CADSR.Pages.ServicePortalPage;
 import ServiceNow.CADSR.StepsImplementation.LoginStepsImpl;
-import appsCommon.Utils.PageCache;
+import appsCommon.PageCache;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

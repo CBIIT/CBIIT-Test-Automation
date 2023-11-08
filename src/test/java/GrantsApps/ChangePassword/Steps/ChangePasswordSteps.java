@@ -4,7 +4,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import com.nci.automation.xceptions.TestingException;
 import GrantsApps.ChangePassword.StepsImplementation.ChangePasswordStepsImpl;
-import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.PageInitializer;
 
 public class ChangePasswordSteps extends PageInitializer {
 
