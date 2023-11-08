@@ -18,7 +18,7 @@ public class SignatureVisualizationSteps extends PageInitializer {
 
 	@Given("the user is on the mSigPortal Home page")
 	public void the_user_is_on_the_mSigPortal_Home_page() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("MSigPortal"));
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("mSigPortal"));
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.logScreenshot();
 	}

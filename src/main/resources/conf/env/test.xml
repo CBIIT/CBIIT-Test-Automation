@@ -287,7 +287,7 @@
         </db>
     </application>
     <!-- Application ID for mSigPortal -->
-    <application id="MSigPortal">
+    <application id="mSigPortal">
         <login_url>https://analysistools-qa.cancer.gov/mutational-signatures/#/
         </login_url> <!-- add
         test url -->
