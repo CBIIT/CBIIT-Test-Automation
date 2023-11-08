@@ -1,4 +1,4 @@
-package appsCommon.PageInitializers;
+package appsCommon;
 
 import AnalysisTools.CEDCD.Pages.*;
 import AnalysisTools.CEDCD.Steps.*;
@@ -37,6 +37,7 @@ import ServiceNow.COVIDCode.StepsImplementation.*;
 import ServiceNow.COVIDCode.StepsImplementation.DashboardStepImpl;
 import ServiceNow.COVIDDash.NativeView.Pages.*;
 import ServiceNow.COVIDDash.Pages.*;
+import ServiceNow.COVIDDash.Pages.ITrustLoginPage;
 import ServiceNow.COVIDDash.StepsImplementation.*;
 import ServiceNow.ETracking.Pages.*;
 import ServiceNow.GCP.Pages.*;
@@ -48,6 +49,7 @@ import ServiceNow.SCSS.StepsImplementation.*;
 import ServiceNow.SEER.Pages.*;
 import ServiceNow.SEER.StepsImplementation.*;
 import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
+import appsCommon.PageInitializers.NativeView_SideDoor_PageInitializer;
 import com.nci.automation.web.WebDriverUtils;
 
 /**
@@ -59,8 +61,7 @@ public class PageInitializer extends WebDriverUtils {
 	/** --------------- APPSCOMMON INSTANCES --------------- */
 	// declare public static variables of types of all the pages
 	/** iTrust instances */
-	public static ITrustLoginPage iTrustloginPage;
-	public static ITrustLoginPageImpl loginImpl;
+	public static ServiceNow.COVIDDash.Pages.ITrustLoginPage iTrustloginPage;
 
 	/** --------------- GRANTS INSTANCES --------------- */
 	public static ChangePasswordPage changePasswordPage;
@@ -267,11 +268,8 @@ public class PageInitializer extends WebDriverUtils {
 	public static ESRShortDescriptionPage esrShortDescriptionPage;
 
 	/** --------------- NATIVE VIEW INSTANCES --------------- */
-	public static NativeViewLoginImpl nativeViewLoginImpl;
-	public static NativeViewHomePage nativeViewHomePage;
 	public static NativeViewImpersonateUser nativeViewImpersonateUser;
 	public static NativeViewImpersonateUserPage nativeViewImpersonateUserPage;
-	public static NativeViewSideDoorLoginPage nativeViewSideDoorLoginPage;
 	public static NativeViewEnrollmentsPage nativeViewEnrollementsPage;
 	public static NativeViewEnrollmentViewPage nativeViewEnrollmentViewPage;
 	public static NativeViewStepsImpl nativeViewStepsImpl;
@@ -294,7 +292,6 @@ public class PageInitializer extends WebDriverUtils {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
 		// create instances of all pages and assign them to the variables
 		iTrustloginPage = new ITrustLoginPage();
-		loginImpl = new ITrustLoginPageImpl();
 
 		/** --------------- SERVICENOW INSTANCE VARIABLES --------------- */
 		/** COVIDDash Instance Variables */
@@ -489,11 +486,8 @@ public class PageInitializer extends WebDriverUtils {
 		cCRApplicationPage = new CCRApplicationPage();
 
 		/** --------------- NATIVE VIEW INSTANCE VARIABLES --------------- */
-		nativeViewLoginImpl = new NativeViewLoginImpl();
-		nativeViewHomePage = new NativeViewHomePage();
 		nativeViewImpersonateUser = new NativeViewImpersonateUser();
 		nativeViewImpersonateUserPage = new NativeViewImpersonateUserPage();
-		nativeViewSideDoorLoginPage = new NativeViewSideDoorLoginPage();
 		nativeViewEnrollementsPage = new NativeViewEnrollmentsPage();
 		nativeViewEnrollmentViewPage = new NativeViewEnrollmentViewPage();
 		nativeViewCustomersPage = new NativeViewCustomersPage();

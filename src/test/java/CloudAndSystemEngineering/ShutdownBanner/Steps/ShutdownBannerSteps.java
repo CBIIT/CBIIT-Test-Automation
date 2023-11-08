@@ -1,10 +1,9 @@
 package CloudAndSystemEngineering.ShutdownBanner.Steps;
 
 import CloudAndSystemEngineering.ShutdownBanner.StepsImplementation.ShutdownBannerStepImpl;
-import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-public class ShutdownBannerSteps extends PageInitializer{
+public class ShutdownBannerSteps {
     @Given("a user is on the webpage")
     public void a_user_is_on_the_webpage() {
         ShutdownBannerStepImpl.aUserIsOnTheWebpage();

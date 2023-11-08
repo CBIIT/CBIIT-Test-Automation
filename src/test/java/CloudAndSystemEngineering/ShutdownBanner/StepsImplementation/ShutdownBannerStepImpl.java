@@ -1,7 +1,6 @@
 package CloudAndSystemEngineering.ShutdownBanner.StepsImplementation;
 
 import CloudAndSystemEngineering.ShutdownBanner.Constants.ShutdownBannerConstants;
-import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-public class ShutdownBannerStepImpl extends PageInitializer {
+public class ShutdownBannerStepImpl {
     public static void aUserIsOnTheWebpage() {
         long startTime = System.currentTimeMillis();
         WebDriverUtils.webDriver.get(ShutdownBannerConstants.WEBSITE_URL);
