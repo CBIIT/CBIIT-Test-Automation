@@ -10,6 +10,7 @@ import AnalysisTools.LDLink.Pages.*;
 import AnalysisTools.PLCO.Pages.*;
 import AnalysisTools.cProSite.Pages.*;
 import AnalysisTools.mSigPortal.Pages.*;
+import CloudAndSystemEngineering.ShutdownBanner.Pages.ShutdownBannerLocatorsPage;
 import CustomBusiness.CCR.Pages.*;
 import CustomBusiness.CCR.StepsImplementation.*;
 import CustomBusiness.DCEG.Pages.*;
@@ -289,6 +290,9 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewCHARMSParticipantStudyPage nativeViewCHARMSParticipantStudyPage;
 	public static NativeViewSCSSReportsPage nativeViewSCSSReportsPage;
 
+	/** --------------- CLOUD AND SYSTEM ENGINEERING INSTANCES --------------- */
+	public static ShutdownBannerLocatorsPage shutdownBannerLocatorsPage;
+
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
 		// create instances of all pages and assign them to the variables
@@ -518,6 +522,9 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** GCP INSTANCE VARIABLES */
 		gCPNotifications_NativeViewPage = new GCPNotifications_NativeViewPage();
+
+		/** CLOUD AND SYSTEM ENGINEERING VARIABLES */
+		shutdownBannerLocatorsPage = new ShutdownBannerLocatorsPage();
 
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}
