@@ -166,6 +166,18 @@ public class FHQConstants {
 	public static final String YEAR_OF_DIAGNOSIS_FOR_CANCER_SELECTED = "Year of diagnosis for Cancer selected";
 	public static final String AGE_OF_DIAGNOSIS_FOR_CANCER_SELECTED = "Age of diagnosis for Cancer selected";
 	public static final String ADDITIONAL_INFORMATION_ADDED_FOR_CANCER = "Additional Information added for Cancer";	
+	
+	public static final String HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR = "Has this relative ever been diagnosed with a benign tumor?";
+	public static final String HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR_VALUE = "Has this relative ever been diagnosed with a benign tumor Value";
+	public static final String PLEASE_SELECT_THE_ADD_BUTTON_BELOW_TO_ADD_EACH_BENIGN_TUMOR_THIS_RELATIVE_HAS_HAD = "Please select the 'Add' button below to add each benign tumor this relative has had.";
+	public static final String BENIGN_TUMOR = "Benign Tumor";
+	public static final String SPECIFY_OTHER_BENIGN_TUMOR = "Specify other benign tumor";
+	public static final String BENIGN_TUMOR_OPTION_SELECTED = "Benign Tumor option selected";
+	public static final String YEAR_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED = "Year of diagnosis for Benign Tumor selected";
+	public static final String AGE_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED = "Age of diagnosis for Benign Tumor selected";
+	public static final String ADDITIONAL_INFORMATION_ADDED_FOR_BENIGN_TUMOR = "Additional Information added for Benign Tumor";	
+	
+
 	public static final String HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_MEDICAL_CONDITIONS_LISTED_BELOW = "Has this relative ever been diagnosed with any of the medical conditions listed below?";
 	public static final String MEDICAL_CONDITIONS_BANNER = "Congenital heart disease, developmental disorder, uncommon physical features, other medical conditions.";
 	public static final String HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_MEDICAL_CONDITIONS_LISTED_BELOW_VALUE = "Has this relative ever been diagnosed with any of the medical conditions listed below Value";
@@ -751,6 +763,24 @@ public class FHQConstants {
 			add("Other cancer");
 		}
 	};
+	
+	@SuppressWarnings("serial")
+	public static final ArrayList<String> BENIGN_TUMOR_TYPE = new ArrayList<String>() {
+		{
+			add("-- None --");
+			add("Atypical Spitz tumor");
+			add("Colon polyps (benign)");
+			add("Cystic nephroma");
+			add("Giant congenital nevus");
+			add("Lipoma");
+			add("Nasal chondromesenchymal hamartoma");
+			add("Neurofibroma");
+			add("Schwannoma");
+			add("Spitz nevus");
+			add("Thyroid nodules (benign)");
+		}
+	};
+	
 	@SuppressWarnings("serial")
 	public static final ArrayList<String> MEDICAL_CONDITIONS_TYPE = new ArrayList<String>() {
 		{

@@ -314,6 +314,10 @@ public class FHQSubmissionPage extends CommonUtils {
 
 	@FindBy(xpath = "(//label[contains(text(),\"Please select the 'Add' button below to add each c\")])[1]")
 	public WebElement diagnosedWithCancerAddButtonInfo;
+	
+	@FindBy(xpath = "(//label[contains(text(),\"Please select the 'Add' button below to add each b\")])[1]")
+	public WebElement diagnosedWithBenignTumorAddButtonInfo;
+	
 
 	/* Please select the 'Add' button below to add each medical condition this parent has had. Label*/
 	@FindBy(xpath = "(//label[contains(text(),\"Please select the 'Add' button below to add each m\")])[1]")

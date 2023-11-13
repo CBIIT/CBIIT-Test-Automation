@@ -82,7 +82,7 @@ public class FHQSubmissionSteps extends PageInitializer {
 	}
 	@Then("clicks CHARMS FHQ Relative Link page")
 	public void clicks_charms_fhq_relative_link_page() throws TestingException {
-	FHQSubmissionStepsImpl.loginToFHQGridPage();
+		FHQSubmissionStepsImpl.loginToFHQGridPage();
 	}	
 	@Then("participant submits FHQ Relative from excel sheet {string}")
 	public void participant_submits_fhq_relative_from_excel_sheet(String sheetName) throws TestingException {
@@ -215,6 +215,36 @@ public class FHQSubmissionSteps extends PageInitializer {
 	@Then("participant submits FHQ Cousin from excel sheet {string}")
 	public void participant_submits_fhq_cousin_from_excel_sheet(String sheetName) throws TestingException {
 		FHQSubmissionStepsImpl.scenarioSelectorForFHQ(sheetName);
+	}
+	@Then("participant submits FHQ Participant from excel name {string} and excel sheet {string}")
+	public void participant_submits_fhq_participant_from_excel_name_and_excel_sheet(String excelName, String sheetName)throws TestingException {
+		FHQSubmissionStepsImpl.scenarioSelectorForFHQ_test(excelName,sheetName); 
+	}
+	@Then("participant submits FHQ Partner from excel name {string} and excel sheet {string}")
+	public void participant_submits_fhq_partner_from_excel_name_and_excel_sheet(String excelName, String sheetName)throws TestingException {
+		FHQSubmissionStepsImpl.scenarioSelectorForFHQ_test(excelName,sheetName); 
+	}
+	@Then("participant submits FHQ Mother from excel name {string} and excel sheet {string}")
+	public void participant_submits_fhq_mother_from_excel_name_and_excel_sheet(String excelName, String sheetName)throws TestingException {
+		FHQSubmissionStepsImpl.scenarioSelectorForFHQ_test(excelName,sheetName); 
+	}
+	@Then("participant submits FHQ Father from excel name {string} and excel sheet {string}")
+	public void participant_submits_fhq_father_from_excel_name_and_excel_sheet(String excelName, String sheetName)throws TestingException {
+		FHQSubmissionStepsImpl.scenarioSelectorForFHQ_test(excelName,sheetName); 
+	}
+	
+	
+	
+	
+	@Then("participant submits FHQ Relatives Form from excel name {string} and excel sheet {string}")
+	public void participant_submits_fhq_relatives_form_from_excel_name_and_excel_sheet(String excelName, String sheetName)throws TestingException {
+		
+		FHQSubmissionStepsImpl.scenarioSelectorForFHQ_test1(excelName,sheetName); 
+	}
+	
+	@Then("participant submits FHQ Relatives Form from excel name {string}")
+	public void participant_submits_fhq_Relatives_form_from_excel_name(String excelName) throws TestingException {
+		FHQSubmissionStepsImpl.scenarioSelectorForFHQ_testTest(excelName); 
 	}
 }
 
