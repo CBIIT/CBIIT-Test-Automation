@@ -189,4 +189,10 @@ public class JavascriptUtils extends WebDriverUtils {
 		js.executeScript("window.scrollBy(" + x + "," + y + ")", "");
 	}
 
+	public static void uploadFileToHiddenFieldWithInputTag(WebElement element, String filePath){
+		String jse = "arguments[0].type='file'";
+		((JavascriptExecutor)WebDriverUtils.webDriver).executeScript(jse, element);
+		element.sendKeys(filePath);
+	}
+
 }

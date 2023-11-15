@@ -3,10 +3,32 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
   
   Description: This feature file contains the FHQ Regression scenarios to submit all the New FHQ record producers for all relations to the Participant. It includes Participant, Partner, Parent, Child, Sibling, Aunt Uncle, Niece Nephew, Grandchild, Cousin.
 
-  @jains 
+  @jains
+  Scenario: FHQ Regression Record (Participant RP)
+    Given a proxy is on the RASopathies Longitudinal Cohort Study login page for FHQ
+    And logs in Rasopathy page via Okta for FHQ with username "charmsras1@yahoo.com" and password "RASTest2022$$"
+    When the user navigates to CHARMS FHQ Survey page and opens FHQ Landing Page Qualtrics
+    Then Verify the New Details of participant immediate family banner is visible on the page
+    And selects option To confirm your identity, please indicate your relationship to the participant drop-down
+    And Sex assigned at birth, Gender Identity information of the participant are filled
+    And Total Miscarriages, Total Still births, Total Induced Abortions, Total Tubal Ectopic Molar Pregnancies details of the participant are filled
+    And Participant Total children details are filled
+    And Participant Child MRVS details are filled
+    And Participant Child MRVS table are verified
+    And Participant Partner details are filled
+    And Participant Partner MRVS details are filled
+    And Participant Partner MRVS table are verified
+    And Participant Siblings details are filled
+    And Participant Sibling MRVS details are filled
+    And Participant Sibling MRVS table are verified
+    And Participant additional Informations are filled
+    And finally the Complete-Submit Button is clicked to submit the Participant Personal record producer
+    And Generate Scenario Report for the Initial visit of the Participant on the FHQ Survey landing page
+
+  @jains
   Scenario: FHQ Regression Record (Participant RP)
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
-    And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
+    And logs in Rasopathy page via Okta for FHQ with username "charmsras4@yahoo.com" and password "RASTest2021$$"
     When the user navigates to CHARMS FHQ Survey page and opens FHQ Landing Page Qualtrics
     Then Verify the New Details of participant immediate family banner is visible on the page
     And selects option To confirm your identity, please indicate your relationship to the participant drop-down
@@ -241,32 +263,10 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And click the new Cousin added and verify the completed record producer data
     And click the FHQ Home button
 
-   @jains
-  Scenario: FHQ Regression Record (Participant RP)
-    Given a proxy is on the RASopathies Longitudinal Cohort Study login page
-    And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
-    When the user navigates to CHARMS FHQ Survey page and opens FHQ Landing Page Qualtrics
-    Then Verify the New Details of participant immediate family banner is visible on the page
-    And selects option To confirm your identity, please indicate your relationship to the participant drop-down
-    And Sex assigned at birth, Gender Identity information of the participant are filled
-    And Total Miscarriages, Total Still births, Total Induced Abortions, Total Tubal Ectopic Molar Pregnancies details of the participant are filled
-    And Participant Total children details are filled
-    And Participant Child MRVS details are filled
-    And Participant Child MRVS table are verified
-    And Participant Partner details are filled
-    And Participant Partner MRVS details are filled
-    And Participant Partner MRVS table are verified
-    And Participant Siblings details are filled
-    And Participant Sibling MRVS details are filled
-    And Participant Sibling MRVS table are verified
-    And Participant additional Informations are filled
-    And finally the Complete-Submit Button is clicked to submit the Participant Personal record producer
-    And Generate Scenario Report for the Initial visit of the Participant on the FHQ Survey landing page
-
-  @jains 
+  @jains
   Scenario: FHQ Regression Record (Partner RP)
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
-    And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
+    And logs in Rasopathy page via Okta for FHQ with username "charmsras4@yahoo.com" and password "RASTest2021$$"
     Given a user is logged on FHQ Family Cohort Study Management Page
     And verifies FHQ Family Cohort Study Management Page
     And user clicks the Partner Grid link on FHQ Grid page to land on the FHQ Partners list view page
@@ -285,10 +285,10 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And the ExtentReport is generated
     And Partner FHQ results are added to the ExtentReport
 
-  @jains 
+  @jains
   Scenario: FHQ Regression Record (Parent RP)
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
-    And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
+    And logs in Rasopathy page via Okta for FHQ with username "charmsras4@yahoo.com" and password "RASTest2021$$"
     Given a user is logged on FHQ Family Cohort Study Management Page
     And verifies FHQ Family Cohort Study Management Page
     And user clicks the Parents Grid link on FHQ Grid page to land on the FHQ Parents list view page
@@ -316,10 +316,10 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And click the new parent added and verify the completed record producer data
     And click the FHQ Home button
 
-  @jains 
+  @jains
   Scenario: FHQ Regression Record (Child RP)
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
-    And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
+    And logs in Rasopathy page via Okta for FHQ with username "charmsras4@yahoo.com" and password "RASTest2021$$"
     Given a user is logged on FHQ Family Cohort Study Management Page
     And verifies FHQ Family Cohort Study Management Page
     And user clicks the Children Grid link on FHQ Grid page to land on the FHQ Childs list view page
@@ -350,10 +350,10 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And click the new Child added and verify the completed record producer data
     And click the FHQ Home button
 
-  @jains 
+  @jains
   Scenario: FHQ Regression Record (Sibling RP)
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
-    And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
+    And logs in Rasopathy page via Okta for FHQ with username "charmsras4@yahoo.com" and password "RASTest2021$$"
     Given a user is logged on FHQ Family Cohort Study Management Page
     And verifies FHQ Family Cohort Study Management Page
     And user clicks the Siblings Grid link on FHQ Grid page to land on the FHQ Siblings list view page
@@ -382,10 +382,10 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And click the new Sibling added and verify the completed record producer data
     And click the FHQ Home button
 
-  @jains 
+  @jains
   Scenario: FHQ Regression Record (AuntUncle RP)
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
-    And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
+    And logs in Rasopathy page via Okta for FHQ with username "charmsras4@yahoo.com" and password "RASTest2021$$"
     Given a user is logged on FHQ Family Cohort Study Management Page
     And verifies FHQ Family Cohort Study Management Page
     And user clicks the AuntUncle Grid link on FHQ Grid page to land on the FHQ AuntUncle list view page
@@ -414,10 +414,10 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And click the new AuntUncle added and verify the completed record producer data
     And click the FHQ Home button
 
-  @jains 
+  @jains
   Scenario: FHQ Regression Record (NieceNephew RP)
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
-    And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
+    And logs in Rasopathy page via Okta for FHQ with username "charmsras4@yahoo.com" and password "RASTest2021$$"
     Given a user is logged on FHQ Family Cohort Study Management Page
     And verifies FHQ Family Cohort Study Management Page
     And user clicks the NieceNephew Grid link on FHQ Grid page to land on the FHQ NieceNephew list view page
@@ -445,10 +445,10 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And NieceNephew list view page is updated and verified
     And click the FHQ Home button
 
-  @jains 
+  @jains
   Scenario: FHQ Regression Record (GrandParents RP)
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
-    And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
+    And logs in Rasopathy page via Okta for FHQ with username "charmsras4@yahoo.com" and password "RASTest2021$$"
     Given a user is logged on FHQ Family Cohort Study Management Page
     And verifies FHQ Family Cohort Study Management Page
     And user clicks the Grandparents Grid link on FHQ Grid page to land on the FHQ Grandparents list view page
@@ -473,10 +473,10 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And click the new GrandParent added and verify the completed record producer data
     And click the FHQ Home button
 
-   @jains 
+  @jains
   Scenario: FHQ Regression Record (GrandChild RP)
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
-    And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
+    And logs in Rasopathy page via Okta for FHQ with username "charmsras4@yahoo.com" and password "RASTest2021$$"
     Given a user is logged on FHQ Family Cohort Study Management Page
     And verifies FHQ Family Cohort Study Management Page
     And user clicks the Grandchildren Grid link on FHQ Grid page to land on the FHQ Grandchildren list view page
@@ -504,10 +504,10 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And click the new GrandChild added and verify the completed record producer data
     And click the FHQ Home button
 
-  @jains 
+  @jains
   Scenario: FHQ Regression Record (Cousin RP)
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
-    And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
+    And logs in Rasopathy page via Okta for FHQ with username "charmsras4@yahoo.com" and password "RASTest2021$$"
     Given a user is logged on FHQ Family Cohort Study Management Page
     And verifies FHQ Family Cohort Study Management Page
     And user clicks the Cousin Grid link on FHQ Grid page to land on the FHQ Cousin list view page
@@ -533,3 +533,48 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And Cousin list view page is updated and verified
     And click the new Cousin added and verify the completed record producer data
     And click the FHQ Home button
+
+  @jains
+  Scenario: User Fills the Patient Personal Record Producer on the Landing FHQ page
+    Given a proxy is on the RASopathies Longitudinal Cohort Study login page
+    And logs in Rasopathy page via Okta with username "charmsras1@yahoo.com" and password "RASTest2022$$"
+    When the user navigates to CHARMS FHQ Survey page and opens FHQ Landing Page Qualtrics
+    Then Verify the New Details of participant immediate family banner is visible on the page
+    And selects option To confirm your identity, please indicate your relationship to the participant drop-down
+    And Sex assigned at birth, Gender Identity information of the participant are filled
+    And Total Miscarriages, Total Still births, Total Induced Abortions, Total Tubal Ectopic Molar Pregnancies details of the participant are filled
+    And Participant Total children details are filled
+    And Participant Child MRVS details are filled
+    And Participant Child MRVS table are verified
+    And Participant Partner details are filled
+    And Participant Partner MRVS details are filled
+    And Participant Partner MRVS table are verified
+    And Participant Siblings details are filled
+    And Participant Sibling MRVS details are filled
+    And Participant Sibling MRVS table are verified
+    And Participant additional Informations are filled
+    And finally the Complete-Submit Button is clicked to submit the Participant Personal record producer
+    And Generate Scenario Report for the Initial visit of the Participant on the FHQ Survey landing page
+    And Grid View page is verified
+
+  @jains
+  Scenario: User Fills the Patient Personal Record Producer on the Landing FHQ page
+    Given a user lands on FHQ Survey Page using the Test Account credentials in Test side door login page
+    When the user navigates to CHARMS FHQ Survey page and opens FHQ Landing Page
+    Then Start your family health questionnaire Link is visible and clicked
+    Then Verify the New Details of participant immediate family banner is visible on the page
+    And selects option To confirm your identity, please indicate your relationship to the participant drop-down
+    And Sex assigned at birth, Gender Identity information of the participant are filled
+    And Total Miscarriages, Total Still births, Total Induced Abortions, Total Tubal Ectopic Molar Pregnancies details of the participant are filled
+    And Participant Total children details are filled
+    And Participant Child MRVS details are filled
+    And Participant Child MRVS table are verified
+    And Participant Partner details are filled
+    And Participant Partner MRVS details are filled
+    And Participant Partner MRVS table are verified
+    And Participant Siblings details are filled
+    And Participant Sibling MRVS details are filled
+    And Participant Sibling MRVS table are verified
+    And Participant additional Informations are filled
+    And finally the Complete-Submit Button is clicked to submit the Participant Personal record producer
+    And Generate Scenario Report for the the Initial visit of the Participant on the FHQ Survey landing page

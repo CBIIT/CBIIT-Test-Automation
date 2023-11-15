@@ -1,7 +1,7 @@
 package ServiceNow.CHARMS.ScenariosData;
 
-import ServiceNow.CHARMS.Constants.CHARMSConstants;
-import appsCommon.PageInitializer;
+import ServiceNow.CHARMS.Constants.CHARMS_Data_File_Path_Constants;
+import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.ExcelReader;
 import java.util.Map;
 
@@ -231,7 +231,7 @@ public class IIQ_TestDataManager extends PageInitializer {
      */
     public void dataInitializerIIQ(String sheetName) {
         if (sheetName.equals("IIQScenario1")) {
-            testDataForIiqForm = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_ONE_DATA, sheetName);
+            testDataForIiqForm = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_ONE_DATA, sheetName);
             pleaseLogInEmailTextBox = testDataForIiqForm.get(iiq_Constants.PLEASE_LOG_IN_EMAIL_TEXT_BOX);
             pleaseLogInOneTimePinTextBox = testDataForIiqForm.get(iiq_Constants.PLEASE_LOG_IN_ONE_TIME_PIN_TEXT_BOX);
             areYouAdoptedRadioButton = testDataForIiqForm.get(iiq_Constants.ARE_YOU_ADOPTED_RADIO_BUTTON);
@@ -296,7 +296,7 @@ public class IIQ_TestDataManager extends PageInitializer {
             pleaseCompleteTheTableBelowIndicatingYourWeightColumn2Option5 = testDataForIiqForm.get(iiq_Constants.PLEASE_COMPLETE_THE_TABLE_BELOW_INDICATING_YOUR_WEIGHT_COLUMN_2_OPTION_5);
             whatHasBeenYourUsualJobOther = testDataForIiqForm.get(iiq_Constants.WHAT_HAS_BEEN_YOUR_USUAL_JOB_OTHER);
         }else if (sheetName.equals("IIQScenario2")) {
-            testDataForIiqForm = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_TWO_DATA, sheetName);
+            testDataForIiqForm = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_TWO_DATA, sheetName);
             pleaseLogInEmailTextBox = testDataForIiqForm.get(iiq_Constants.PLEASE_LOG_IN_EMAIL_TEXT_BOX);
             pleaseLogInOneTimePinTextBox = testDataForIiqForm.get(iiq_Constants.PLEASE_LOG_IN_ONE_TIME_PIN_TEXT_BOX);
             areYouAdoptedRadioButton = testDataForIiqForm.get(iiq_Constants.ARE_YOU_ADOPTED_RADIO_BUTTON);
@@ -512,7 +512,7 @@ public class IIQ_TestDataManager extends PageInitializer {
             howManyOfEachPregnancyOutcomesOption2 = testDataForIiqForm.get(iiq_Constants.HOW_MANY_OF_EACH_PREGNANCY_OUTCOMES_OPTION_2);
             howManyOfEachPregnancyOutcomesOption3 = testDataForIiqForm.get(iiq_Constants.HOW_MANY_OF_EACH_PREGNANCY_OUTCOMES_OPTION_3);
         }else if (sheetName.equals("IIQScenario3")) {
-            testDataForIiqForm = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_THREE_DATA, sheetName);
+            testDataForIiqForm = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_THREE_DATA, sheetName);
             pleaseLogInEmailTextBox = testDataForIiqForm.get(iiq_Constants.PLEASE_LOG_IN_EMAIL_TEXT_BOX);
             pleaseLogInOneTimePinTextBox = testDataForIiqForm.get(iiq_Constants.PLEASE_LOG_IN_ONE_TIME_PIN_TEXT_BOX);
             areYouAdoptedRadioButton = testDataForIiqForm.get(iiq_Constants.ARE_YOU_ADOPTED_RADIO_BUTTON);
@@ -578,7 +578,7 @@ public class IIQ_TestDataManager extends PageInitializer {
             pleaseConfirmTheNameOfThePerson = testDataForIiqForm.get(iiq_Constants.PLEASE_CONFIRM_THE_NAME_OF_THE_PERSON);
             whatHasBeenYourUsualJobOther = testDataForIiqForm.get(iiq_Constants.WHAT_HAS_BEEN_YOUR_USUAL_JOB_OTHER);
         }else if (sheetName.equals("IIQScenario4")) {
-            testDataForIiqForm = ExcelReader.excelIntoHashMap(CHARMSConstants.RAS_SCENARIO_FOUR_DATA, sheetName);
+            testDataForIiqForm = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.RAS_SCENARIO_FOUR_DATA, sheetName);
             pleaseLogInEmailTextBox = testDataForIiqForm.get(iiq_Constants.PLEASE_LOG_IN_EMAIL_TEXT_BOX);
             pleaseLogInOneTimePinTextBox = testDataForIiqForm.get(iiq_Constants.PLEASE_LOG_IN_ONE_TIME_PIN_TEXT_BOX);
             areYouAdoptedRadioButton = testDataForIiqForm.get(iiq_Constants.ARE_YOU_ADOPTED_RADIO_BUTTON);

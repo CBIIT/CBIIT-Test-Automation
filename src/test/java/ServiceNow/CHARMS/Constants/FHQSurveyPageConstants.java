@@ -5,11 +5,58 @@ import java.util.List;
 
 public class FHQSurveyPageConstants {
 
-	public static final String PATIENT_IMMEDIATE_FAMILY_BANNER = "verify the New Details of patient immediate family banner is visible";
-
-	public static final String CONFIRM_IDENTITY = "To confirm your identity, please indicate your relationship to the participant drop-down displays with values I am the participant,I am the legal guardian or legal representative for the participant";
-	public static final String CURRENT_MARRIED_RELATIONSHIP = "Are you currently married or in a long term relationship? drop-down displays with values Yes, No, Prefer not to answer";
-
+	public static final String NCI_FAMILY_STUDIES_HUB_RASOPATHIES = "NCI Family Studies Hub: RASopathies";
+	public static final String WE_KNOW_FAMILIES_COME_IN_DIFFERENT_SHAPES_AND_SIZES = "We know families come in different shapes and sizes";
+	public static final String ITS_OKAY_NOT_TO_KNOW_INFORMATION_ABOUT_SOME_OF_YOUR_RELATIVES = "It's okay not to know information about some of your relatives.";
+	public static final String CLICK_HERE_TO_START_YOUR_FAMILY_HEALTH_QUESTIONNAIRE = "Click here to start your family health questionnaire";
+	public static final String FHQ_HOME = "FHQ Home";
+	public static final String FORM_VIEW = "Form View";
+	public static final String YOU_ARE_CURRENTLY_FILLING_OUT_INFORMATION_FOR_THE_PARTICIPANT = "You are currently filling out information for the participant.";
+	public static final String PARTICIPANT = "Participant";
+	public static final String THIS_FORM_WILL_ASK_QUESTIONS_ABOUT_THE_PARTICIPANT_AND_THEIR_CHILDREN_AND_SIBLINGS = "This form will ask questions about the participant and their children and siblings.";
+	public static final String IF_YOU_ARE_FILLING_OUT_THIS_FORM_FOR_YOURSELF_YOU_ARE_REFERRED_TO_AS_THE_PARTICIPANT = "If you are filling out this form for yourself, you are referred to as the participant.";
+	public static final String PLEASE_INDICATE_YOUR_RELATIONSHIP_TO_THE_PARTICIPANT_LABEL = "Please indicate your relationship to the participant. Label";
+	public static final String PLEASE_INDICATE_YOUR_RELATIONSHIP_TO_THE_PARTICIPANT = "Please indicate your relationship to the participant.";
+	public static final String THE_FOLLOWING_QUESTIONS_ARE_ABOUT_THE_STUDY_PARTICIPANT = "The following questions are about the study participant.";
+	public static final String FIRST_NAME_OF_THE_PARTICIPANT = "First Name of the participant";
+	public static final String PARTICIPANT_FIRST_NAME = "Participant First Name";
+	public static final String FIRST_INITIAL_OF_LAST_NAME_OF_THE_PARTICIPANT_LABEL = "First Initial of LAST Name of the participant Label";
+	public static final String FIRST_INITIAL_OF_LAST_NAME_OF_THE_PARTICIPANT = "First Initial of LAST Name of the participant";
+	public static final String SEX_ASSIGNED_AT_BIRTH_LABEL = "Sex assigned at birth Label";
+	public static final String PARTICIPANT_SEX_ASSIGNED_AT_BIRTH = "Sex assigned at birth";
+	public static final String GENDER_IDENTITY_LABEL = "Gender Identity Label";
+	public static final String PARTICIPANT_GENDER_IDENTITY = "Gender Identity";
+	public static final String HAS_THE_PARTICIPANT_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS_LABEL = "Has the participant ever had any miscarriages or stillbirths? Label";
+	public static final String HAS_THE_PARTICIPANT_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS = "Has the participant ever had any miscarriages or stillbirths?";
+	public static final String TOTAL_NUMBER_OF_MISCARRIAGES_LABEL = "Total number of Miscarriages Label";
+	public static final String LESS_THAN_20_WEEKS_OF_PREGNANCY = "(less than 20 weeks of pregnancy)";
+	public static final String TOTAL_NUMBER_OF_MISCARRIAGES = "Total number of Miscarriages";
+	public static final String PLEASE_WRITE_THE_FIRST_NAME_OF_THE_PARTNERS_WITH_WHOM_THE_PARTICIPANT_HAD_THE_PREGNANCYIES_ABOVE_LABEL = "Please write the first name of the partner(s) with whom the participant had the pregnancy(ies) above.";
+	public static final String PLEASE_WRITE_THE_FIRST_NAME_OF_THE_PARTNERS_WITH_WHOM_THE_PARTICIPANT_HAD_THE_PREGNANCYIES_ABOVE_MISCARRIAGES = "Please write the first name of the partner(s) with whom the participant had the pregnancy(ies) above. Miscarriages";
+	public static final String TOTAL_NUMBER_OF_STILLBIRTHS_LABEL = "Total number of Stillbirths Label";
+	public static final String TOTAL_NUMBER_OF_STILLBIRTHS = "Total number of Stillbirths";
+	public static final String MORE_THAN_20_WEEKS_OF_PREGNANCY = "(more than 20 weeks of pregnancy)";
+	public static final String PLEASE_WRITE_THE_FIRST_NAME_OF_THE_PARTNERS_WITH_WHOM_THE_PARTICIPANT_HAD_THE_PREGNANCIES_ABOVE_STILLBIRTHS = "Please write the first name of the partner(s) with whom the participant had the pregnancy(ies) above. Stillbirths";
+	public static final String HOW_MANY_TOTAL_CHILDREN_ALIVE_AND_DECEASED_HAS_THE_PARTICIPANT_HAD_LABEL = "How many total children (alive and deceased) has the participant had? Label";
+	public static final String PLEASE_INCLUDE_LIVING_AND_DECEASED_CHILDREN = "Please include living and deceased children.";
+	public static final String HOW_MANY_TOTAL_CHILDREN_ALIVE_AND_DECEASED_HAS_THE_PARTICIPANT_HAD = "How many total children (alive and deceased) has the participant had?";
+	public static final String CHILD_LABEL = "Child Label";
+	public static final String MAIN_ADD_LABEL = "Add Label";
+	public static final String REMOVE_ALL_LABEL = "Remove All Label";
+	public static final String ACTIONS_LABEL = "Actions label";
+	public static final String PARTICIPANT_FIRST_NAME_LABEL = "First Name Label";
+	public static final String PARTICIPANT_FIRST_INITIAL_OF_LAST_NAME_LABEL = "First Initial of LAST Name Label";
+	public static final String PARTICIPANT_VITAL_STATUS_LABEL = "Vital Status Label";
+	public static final String NO_DATA_TO_DISPLAY_LABEL = "No data to display Label";
+	public static final String ADD_ROW_LABEL = "Add Row Label";
+	public static final String FIRST_NAME_LABEL = "First Name Label";
+	public static final String FIRST_INITIAL_OF_LAST_NAME_LABEL = "First Initial of LAST Name Label";
+	public static final String VITAL_STATUS_LABEL = "Vital Status Label";
+	public static final String CANCEL_LABEL = "Cancel Label";
+	public static final String ADD_LABEL = "Add Label";
+	
+	public static final String CONFIRM_IDENTITY = null;
+	
 	@SuppressWarnings("serial")
 	public static final ArrayList<String> VITAL_STATUS_LIST1 = new ArrayList<String>() {
 		{
@@ -518,5 +565,4 @@ public class FHQSurveyPageConstants {
 			add("Other medical condition");
 		}
 	};
-
 }

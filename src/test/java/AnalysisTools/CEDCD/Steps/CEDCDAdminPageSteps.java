@@ -3,15 +3,11 @@ package AnalysisTools.CEDCD.Steps;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
-
-import appsCommon.PageInitializer;
-//import cucumber.api.java.en.Then;
-//import cucumber.api.java.en.When;
+import appsCommon.PageInitializers.PageInitializer;
 
 public class CEDCDAdminPageSteps extends PageInitializer {
 	

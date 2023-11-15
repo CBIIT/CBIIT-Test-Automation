@@ -3,10 +3,8 @@ package ServiceNow.COVIDDash.Steps;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.xceptions.TestingException;
 
-import appsCommon.PageCache;
-import appsCommon.PageInitializer;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
+import appsCommon.Utils.PageCache;
+import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.When;
 
 

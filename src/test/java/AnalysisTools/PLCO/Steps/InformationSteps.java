@@ -1,11 +1,8 @@
 package AnalysisTools.PLCO.Steps;
 
 import org.junit.Assert;
-
 import com.nci.automation.utils.CucumberLogUtils;
-
-import appsCommon.PageInitializer;
-import io.cucumber.java.en.Given;
+import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 

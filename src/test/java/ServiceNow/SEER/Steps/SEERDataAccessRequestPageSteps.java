@@ -4,7 +4,7 @@ import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import ServiceNow.SEER.StepsImplementation.SEERUserRegistrationPageStepImpl;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.xceptions.TestingException;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
