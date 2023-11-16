@@ -38,4 +38,9 @@ public class EMStepsImplementation extends PageInitializer {
                 throw new RuntimeException("***** NOT VALID USER *****");
         }
     }
+
+    public static void user_is_logged_in_as_primary_ic_coordinator(){
+        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("EM"));
+        iTrustLoginPageImpl.loginToITrust();
+    }
 }

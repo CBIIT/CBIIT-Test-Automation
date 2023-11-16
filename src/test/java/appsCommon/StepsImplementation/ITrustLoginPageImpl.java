@@ -7,13 +7,17 @@ import com.nci.automation.xceptions.TestingException;
 
 public class ITrustLoginPageImpl extends PageInitializer {
 
-	public void loginToITrust() throws TestingException {
+	public void loginToITrust()  {
 		MiscUtils.sleep(3000);
 		CommonUtils.waitForVisibility(iTrustloginPage.userNameField);
-		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "Username");
-		iTrustloginPage.enterPassword("Password");
-		iTrustloginPage.clickSignInButton();
-		MiscUtils.sleep(500);
+		try {
+			iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "Username");
+			iTrustloginPage.enterPassword("Password");
+			iTrustloginPage.clickSignInButton();
+			MiscUtils.sleep(500);
+		} catch (TestingException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	public void shomirITrustLogin() throws TestingException {
