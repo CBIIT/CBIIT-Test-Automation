@@ -13,6 +13,7 @@ import com.nci.automation.web.WebDriverUtils;
 
 /****  @author SonikaJain ***/
 public class FHQUtil {
+	
 	/* @param webElement: Element to be highlighted */	
 	public static void fHQLabelHighlight(WebElement webElement) {
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) WebDriverUtils.webDriver;
@@ -23,6 +24,27 @@ public class FHQUtil {
 	public static void fHQLabelUnHighlight(WebElement webElement) {
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) WebDriverUtils.webDriver;
 		jsExecutor.executeScript("arguments[0].setAttribute('style', 'border:none; background:white')", webElement);
+	}
+	
+	public static ComponentTestResult verifyLabel1(WebElement webElement, String expectedValue) {
+		FHQUtil.fHQLabelHighlight(webElement);
+		String result = "PASSED";
+		List<ComparisionResult> comparisionResultList = new ArrayList<ComparisionResult>();
+		String actualValue = webElement.getText();
+		try {
+			Assert.assertTrue(actualValue.equals(expectedValue));
+		} catch (AssertionError ae) {
+			result = "FAILED";
+			ComparisionResult comparisionResult = new ComparisionResult(actualValue, expectedValue, "FAILED");
+			comparisionResultList.add(comparisionResult);
+		}
+ 
+		/* To unhightlight the Label */
+		MiscUtils.sleep(500);
+		ComponentTestResult componentTestResult = new ComponentTestResult();
+		componentTestResult.setComparisionResultList(comparisionResultList);
+		componentTestResult.setComponentResult(result);
+		return componentTestResult;
 	}
 
 	public static void printDropDownValue(WebElement webElement) {
@@ -76,9 +98,7 @@ public class FHQUtil {
 
 	public static ComponentTestResult verifySelect2DropDowns(WebElement webElement, List<String> dropdownList,
 			int dropdownSelectedIndex) {
-		FHQUtil.fHQLabelHighlight(webElement);
-		MiscUtils.sleep(1000);
-		webElement.click();
+		CharmsUtil.clickOnElement(webElement);
 		String result = "PASSED";
 		WebElement select2ElementResults = WebDriverUtils.webDriver
 				.findElement(By.xpath("//div[@id='select2-drop']/ul[@class='select2-results']"));
@@ -97,7 +117,7 @@ public class FHQUtil {
 				result = "FAILED";
 				ComparisionResult comparisionResult = new ComparisionResult(options, dropdownList.get(i), "FAILED");
 				comparisionResultList.add(comparisionResult);
-			}		
+			}
 		}
 		selectResultsAsListCollection.get(dropdownSelectedIndex).click();
 		ComponentTestResult componentTestResult = new ComponentTestResult();

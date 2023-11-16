@@ -1,6 +1,5 @@
 package ServiceNow.COVIDCode.StepsImplementation;
 
-import ServiceNow.COVIDCode.Steps.HooksSteps;
 import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -8,7 +7,7 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 
 public class COVIDCodeLoginStepsImpl extends PageInitializer {
 

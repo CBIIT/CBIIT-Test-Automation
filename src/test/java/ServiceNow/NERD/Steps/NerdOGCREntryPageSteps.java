@@ -1,9 +1,8 @@
 package ServiceNow.NERD.Steps;
 
-import ServiceNow.NERD.Pages.NERDKnowledgebasePage;
 import ServiceNow.NERD.StepsImplementation.NERDOGSRMemberOfCongressStepImpl;
 import ServiceNow.NERD.StepsImplementation.NerdOGCREntryPageStepsImplementation;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.xceptions.TestingException;

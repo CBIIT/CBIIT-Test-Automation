@@ -1,10 +1,11 @@
 package appsCommon.StepsImplementation;
 
+import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.xceptions.TestingException;
 
-public class ITrustLoginPageImpl {
+public class ITrustLoginPageImpl extends PageInitializer {
 
 	public void loginToITrust() throws TestingException {
 		MiscUtils.sleep(3000);

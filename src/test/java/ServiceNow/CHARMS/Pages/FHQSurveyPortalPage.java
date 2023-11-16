@@ -493,8 +493,6 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[normalize-space()='1942'])[1]")
 	public WebElement neiceNephewyearOfBirthOnListViewValue1;
 	
-	
-
 	/* LIST VIEW Page: Nieces/Nephews Relation Value */
 	@FindBy(xpath = "(//td[@data-field='relation'])[2]")
 	public WebElement neiceNephewRelationToPatientOnListViewValue1;
@@ -1481,7 +1479,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	public WebElement familyHealthBanner1;
 
 	/* Family Cohort Study Management System: RASopathies */
-	@FindBy(xpath = "(//div[normalize-space()='Family Cohort Study Management System: RASopathies'])[1]")
+	@FindBy(xpath = "(//div[normalize-space()='NCI Family Studies Hub: RASopathies'])[1]")
 	public WebElement familyCohortStudyManagementSystemLabel;
 
 	/* Family Cohort Study Management System: RASopathies */

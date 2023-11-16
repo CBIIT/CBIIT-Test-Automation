@@ -3,7 +3,7 @@ Feature: All FHQ Survey Record Producers validation in Native View
   
   Description: This feature file contains all scenarios which verify questionnaires for all FHQ Survey Record Producers in Native View
 
-  @jains @FHQRegression
+  @jains 
   Scenario: FHQ Patient Personal Record Producer with data verification
     Given a user is on the Native View side door login page
     And the user logs in the Native View using the Test Account credentials

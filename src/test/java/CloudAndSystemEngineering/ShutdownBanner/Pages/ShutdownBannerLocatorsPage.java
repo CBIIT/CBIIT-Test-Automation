@@ -15,6 +15,10 @@ public class ShutdownBannerLocatorsPage {
 	@FindBy(xpath = "/html/body/section/div/p")
 	public WebElement bannerBodyText;
 
+	/* Url Links */
+	@FindBy(xpath = "/html/body/section/div/p")
+	public WebElement urlLinks;
+
 	public ShutdownBannerLocatorsPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}

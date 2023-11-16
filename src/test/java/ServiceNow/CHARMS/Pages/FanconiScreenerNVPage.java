@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.web.WebDriverUtils;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 
 public class FanconiScreenerNVPage extends PageInitializer {
 	/* *************************************************************** */
