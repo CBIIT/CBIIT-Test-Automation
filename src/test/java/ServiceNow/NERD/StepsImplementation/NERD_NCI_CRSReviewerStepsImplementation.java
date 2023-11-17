@@ -1,6 +1,8 @@
 package ServiceNow.NERD.StepsImplementation;
 
 import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.Utils.ServiceNow_Common_Methods;
+import appsCommon.Utils.ServiceNow_Login_Methods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -82,7 +84,9 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
          * @param submissionType
          */
         public static void crsReviewerIsOnSubmissionsPage(String submissionType) throws TestingException {
-                nativeViewImpersonateUser.impersonateToCRSReviewer();
+                ServiceNow_Common_Methods.logOutOfNativeView();
+                ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+                ServiceNow_Common_Methods.impersonateAnyUser("Grace Liou");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 CommonUtils.waitForVisibility(
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu);

@@ -17,7 +17,7 @@ public class NativeViewAccessRequestPage extends CommonUtils {
     }
 
     /**Native View Access Requests IFRAME*/
-    @FindBy(xpath = "//*[@id=\'gsft_main\']")
+    @FindBy(xpath = "//*[@id='gsft_main']")
     public WebElement accessRequestIFrame;
 
     /**Native View Access Requests Dropdown Menu*/
@@ -43,6 +43,10 @@ public class NativeViewAccessRequestPage extends CommonUtils {
     /**NativeView Access Request No Records To Display Text*/
     @FindBy(xpath = "//td[normalize-space()='No records to display']")
     public WebElement nativeViewAccessRequestNoRecordsToDisplayText;
+
+    /**NativeView Access Request No Records To Display Text*/
+    @FindBy(xpath = "//*[@id='x_naci_e_tracking_etrack_assets']/div[1]")
+    public WebElement nativeViewAccessRequestNewNoRecordsToDisplayText;
 
     /**NativeView Access Request Dataset field*/
     @FindBy(xpath = "//input[@id='sys_display.x_g_nci_seer_data_access.dataset']")

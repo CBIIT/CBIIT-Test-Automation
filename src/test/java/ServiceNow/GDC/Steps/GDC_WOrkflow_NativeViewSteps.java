@@ -1,7 +1,7 @@
 package ServiceNow.GDC.Steps;
 
 import ServiceNow.GDC.StepImplementation.GDC_Workflow_NativeView_StepImplementation;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

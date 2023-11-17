@@ -1,9 +1,6 @@
 package ServiceNow.NERD.Steps;
 
-import ServiceNow.NERD.StepsImplementation.NERDApplicationStepsImplementation;
-import ServiceNow.NERD.StepsImplementation.NERDCollaborationSubmissionStepImpl;
-import ServiceNow.NERD.StepsImplementation.NERD_NCI_CRSReviewerStepsImplementation;
-import ServiceNow.NERD.StepsImplementation.NERD_NCI_StaffMemberStepsImplementation;
+import ServiceNow.NERD.StepsImplementation.*;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
@@ -19,9 +16,7 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
 
     @Given("user is on the COVID19 Activities submissions page")
     public void user_is_on_the_COVID19_Activities_submissions_page() throws TestingException {
-        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
-        NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.covid19CreateNewSubmissionButton);
+        Covid19ActivitiesSubmissionsStepImplementation.userIsOnTheCOVID19ActivitiesSubmissionsPage();
     }
 
     @Then("the section {string} displays")

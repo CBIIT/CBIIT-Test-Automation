@@ -1,10 +1,13 @@
 package ServiceNow.ETracking.StepsImplementation;
 
+import GrantsApps.EM.Pages.ManageI2EUsersPage;
 import ServiceNow.ETracking.Constants.EtrackAssetsRecords_NativeView_Constants;
 import ServiceNow.SEER.Constants.SEERNativeView_Constants;
+import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.xceptions.TestingException;
@@ -22,14 +25,9 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
      */
     public static void aEtrackingUserOpensAnAssetRecord() throws TestingException {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        nativeViewImpersonateUser.impersonateEtrackingUser();
-        nativeViewEnrollementsPage.filterNavigator.clear();
-        CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVeTrackingFilterNavigator);
-        etrackAssetsRecords_NativeViewPage.nVeTrackingFilterNavigator.sendKeys(EtrackAssetsRecords_NativeView_Constants.ETRACKING_NATIVE_VIEW_FILTER_NAVIGATION_SEARCH_BOX);
-        CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVeTrackingTab);
-        CommonUtils.waitForClickability(etrackAssetsRecords_NativeViewPage.nVEtrackingAssetsTab);
-        JavascriptUtils.clickByJS(etrackAssetsRecords_NativeViewPage.nVEtrackingAssetsTab);
-        CommonUtils.switchToFrame(etrackAssetsRecords_NativeViewPage.accessRequestIFrame);
+        ServiceNow_Common_Methods.impersonateAnyUser("Jeffrey Alderdice");
+        ServiceNow_Common_Methods.filterNavigatorSearch("Assets");
+        CucumberLogUtils.logScreenshot();
         etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewButton.click();
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberTextBox);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX);
@@ -47,20 +45,22 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CommonUtils.selectDropDownValue(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchDropDown, EtrackAssetsRecords_NativeView_Constants.ETRACKING_NATIVE_VIEW_ASSETS_ALL_RECORD_SEARCH_DROP_DOWN);
         CommonUtils.sendKeysToElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchTextBox, Keys.ENTER);
-        CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.eTrackAssetLocator(EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX));
-        CommonUtils.clickOnElement(etrackAssetsRecords_NativeViewPage.eTrackAssetLocator(EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX));
+        JavascriptUtils.clickByJS(etrackAssetsRecords_NativeViewPage.eTrackAssetLocator(EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX));
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsOpenRecordButton);
         CommonUtils.clickOnElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsOpenRecordButton);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void thereIsDeleteButton() {
         CommonUtils.waitForClickability(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsOpenRecordDeleteButton);
         CommonUtils.assertTrue(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsOpenRecordDeleteButton.getText().contentEquals(EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_OPEN_RECORD_DELETE_BUTTON));
         JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsOpenRecordDeleteButton);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void theUserClicksTheDeleteButton() {
         CommonUtils.clickOnElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsOpenRecordDeleteButton);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void theRecordIsDeleted() {
@@ -68,20 +68,18 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CommonUtils.selectDropDownValue(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchDropDown, EtrackAssetsRecords_NativeView_Constants.ETRACKING_NATIVE_VIEW_ASSETS_ALL_RECORD_SEARCH_DROP_DOWN);
         CommonUtils.sendKeysToElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchTextBox, Keys.ENTER);
-        CommonUtils.assertTrue(nativeViewAccessRequestPage.nativeViewAccessRequestNoRecordsToDisplayText.getText().contentEquals(SEERNativeView_Constants.NATIVE_VIEW_NO_RECORD_TO_DISPLAY_TEXT));
-        JavascriptUtils.drawBlueBorder(nativeViewAccessRequestPage.nativeViewAccessRequestNoRecordsToDisplayText);
+        CommonUtils.assertTrue(nativeViewAccessRequestPage.nativeViewAccessRequestNewNoRecordsToDisplayText.getText().contentEquals(SEERNativeView_Constants.NATIVE_VIEW_NO_RECORD_TO_DISPLAY_TEXT));
+        CommonUtils.assertEqualsWithMessage(nativeViewAccessRequestPage.nativeViewAccessRequestNewNoRecordsToDisplayText.getText(),SEERNativeView_Constants.NATIVE_VIEW_NO_RECORD_TO_DISPLAY_TEXT, "Verify there are no records to display created by Automation");
+        JavascriptUtils.drawBlueBorder(nativeViewAccessRequestPage.nativeViewAccessRequestNewNoRecordsToDisplayText);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void anEtrackingUserIsOnAnAssetRecord() throws TestingException {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        nativeViewImpersonateUser.impersonateEtrackingUser();
-        nativeViewEnrollementsPage.filterNavigator.clear();
-        CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVeTrackingFilterNavigator);
-        etrackAssetsRecords_NativeViewPage.nVeTrackingFilterNavigator.sendKeys(EtrackAssetsRecords_NativeView_Constants.ETRACKING_NATIVE_VIEW_FILTER_NAVIGATION_SEARCH_BOX);
-        CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVeTrackingTab);
-        CommonUtils.waitForClickability(etrackAssetsRecords_NativeViewPage.nVEtrackingAssetsTab);
-        JavascriptUtils.clickByJS(etrackAssetsRecords_NativeViewPage.nVEtrackingAssetsTab);
-        CommonUtils.switchToFrame(etrackAssetsRecords_NativeViewPage.accessRequestIFrame);
+        ServiceNow_Common_Methods.impersonateAnyUser("Jeffrey Alderdice");
+        MiscUtils.sleep(3000);
+        ServiceNow_Common_Methods.filterNavigatorSearch("Assets");
+        CucumberLogUtils.logScreenshot();
         etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewButton.click();
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberTextBox);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX);
@@ -93,12 +91,14 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateTextBox);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_EXPIRATION_DATE_TEXT_BOX);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordAssetInformationTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_ASSET_INFORMATION_TEXT_BOX);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void thereIsAFreeTextFieldCalled(String AssetInformation) {
         CommonUtils.waitForClickability(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordAssetInformation);
         CommonUtils.assertEqualsWithMessage(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordAssetInformation.getText(), AssetInformation, "--Verifying the Asset information field--");
         JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordAssetInformation);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void theUserIsAbleToEnterAtLeastOneThousandCharacters() {
@@ -107,20 +107,24 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
             numOfCharacters = numOfCharacters + EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_ASSET_INFORMATION_TEXT_BOX;
         }
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordAssetInformationTextBox, numOfCharacters);
+        System.out.println("Print Characters real lenght:::: " + numOfCharacters.length());
+        CommonUtils.assertEqualsWithMessage(Integer.toString(numOfCharacters.length()), EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_ASSET_INFORMATION_TEXT_BOX_EXPECTED_LENGTH,
+                "--Verify the Asset Information Text Box Characters count--" );
         JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordAssetInformationTextBox);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.selectDropDownValue(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordStatusDropDown, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_STATUS_DROP_DOWN);
         etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordSubmitButton.click();
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchDropDown);
         CommonUtils.selectDropDownValue(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchDropDown, EtrackAssetsRecords_NativeView_Constants.ETRACKING_NATIVE_VIEW_ASSETS_ALL_RECORD_SEARCH_DROP_DOWN);
         CommonUtils.sendKeysToElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchTextBox, Keys.ENTER);
-        CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.eTrackAssetLocator(EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX));
         CommonUtils.clickOnElement(etrackAssetsRecords_NativeViewPage.eTrackAssetLocator(EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX));
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsOpenRecordButton);
         CommonUtils.clickOnElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsOpenRecordButton);
         CommonUtils.waitForClickability(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordAssetInformation);
         CommonUtils.clickOnElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordAssetInformationTextBox);
         JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordAssetInformationTextBox);
+        CucumberLogUtils.logScreenshot();
         thereIsDeleteButton();
         theUserClicksTheDeleteButton();
         theRecordIsDeleted();
@@ -129,26 +133,35 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
     public static void theUserOpensTheModelRecord() {
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelOpenRecordButton);
         CommonUtils.clickOnElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelOpenRecordButton);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsOpenRecordButton);
         CommonUtils.clickOnElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsOpenRecordButton);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void thereIsFieldCalled(String description) {
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelRecordDescriptionField);
         JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelRecordDescriptionField);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.assertEqualsWithMessage(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelRecordDescriptionField.getText(), description, "--verifying Description field");
     }
 
     public static void theUserIsAbleToMakeTextChangesToTheDescriptionField() {
-        CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelRecordDescriptionTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_MODEL_RECORD_DESCRIPTION_TEXT_BOX);
+        CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelRecordDescriptionTextBox,
+                EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_MODEL_RECORD_DESCRIPTION_TEXT_BOX);
         JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelRecordDescriptionTextBox);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.waitForClickability(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelRecordUpdateButton);
         CommonUtils.clickOnElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelRecordUpdateButton);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.waitForClickability(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelOpenRecordButton);
         theUserOpensTheModelRecord();
-        CommonUtils.assertEqualsWithMessage(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelRecordDescriptionTextBox.getText(), EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_MODEL_RECORD_DESCRIPTION_TEXT_BOX, "--Verifying the updated Description Text Field --");
+        CommonUtils.assertEqualsWithMessage(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelRecordDescriptionTextBox.getText(),
+                EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_MODEL_RECORD_DESCRIPTION_TEXT_BOX,
+                "--Verifying the updated Description Text Field --");
         JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelRecordDescriptionTextBox);
         CommonUtils.clickOnElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsModelRecordBackButton);
+        CucumberLogUtils.logScreenshot();
         thereIsDeleteButton();
         theUserClicksTheDeleteButton();
         theRecordIsDeleted();
@@ -156,25 +169,33 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
 
     public static void thereIsADatePickerFieldCalled(String expirationDate) {
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateField);
+        JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateField);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.assertEqualsWithMessage(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateField.getText(), expirationDate, "--Verify the Expiration date field--");
     }
 
     public static void theUserClicksTheExpirationDateCalendarIconField() {
         CommonUtils.waitForClickability(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateCalendarIcon);
         JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateCalendarIcon);
+        CucumberLogUtils.logScreenshot();
         JavascriptUtils.clickByJS(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateCalendarIcon);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void theUserIsAbleToSelectAnyDate() {
         JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateCalendar);
         CommonUtils.clickOnElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateSelectGoToTodayDate);
         JavascriptUtils.clickByJS(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateCalendarIcon);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateCalendar);
         JavascriptUtils.clickByJS(etrackAssetsRecords_NativeViewPage.eTrackAssetExpirationDateSelectAnyDate);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void thereIsAFieldCalled(String decalNumber) {
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberLabel);
+        JavascriptUtils.drawBlueBorder(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberLabel);
+        CucumberLogUtils.logScreenshot();
         CommonUtils.assertEqualsWithMessage(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberLabel.getText(), decalNumber, "--Verify the Decal number field--");
     }
 

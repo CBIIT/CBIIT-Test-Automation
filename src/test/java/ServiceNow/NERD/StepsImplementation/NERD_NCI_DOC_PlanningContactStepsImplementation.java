@@ -2,6 +2,8 @@ package ServiceNow.NERD.StepsImplementation;
 
 import ServiceNow.NERD.Constants.ReturningSubmissions_Constants;
 import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.Utils.ServiceNow_Common_Methods;
+import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -135,7 +137,8 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
          * @param submissionName
          */
         public static void deleteCreatedSubmissionByDocPlanningContact(String submissionName) throws TestingException {
-                nativeViewImpersonateUser.impersonateToDocPlanningContact();
+                ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+                ServiceNow_Common_Methods.impersonateAnyUser("Karen Ortner");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 WebDriverUtils.webDriver.navigate().refresh();
                 MiscUtils.sleep(6000);
@@ -388,6 +391,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                 Assert.assertTrue("VERIFYING RANK FIELD IS NOT DISPLAYED",
                                 element.getDomAttribute("aria-hidden").contentEquals("true"));
                 CucumberLogUtils.logScreenshot();
+                ServiceNow_Common_Methods.logOutOfNativeView();
                 NERD_NCI_DOC_PlanningContactStepsImplementation
                                 .deleteCreatedSubmissionByDocPlanningContact(collaborationName);
         }

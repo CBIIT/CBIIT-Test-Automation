@@ -63,7 +63,7 @@ Feature: Ruturning published Collaboration by the CRS Rreviewer/DOC Planning Con
     Given a DOC Planning Contact creates a Collaboration
     Then they are able to return the Collaboration to a Program Staff user
 
-  @SS-3454 @SS-3362 @bucurgb @Regression1 @Progression
+  @SS-3454 @SS-3362 @bucurgb @Regression1
   Scenario: Verifying Publish only filter
     Given a DOC Planning Contact is on the CRS Knowledge Management System home page
     When selecting the Published Only checkbox

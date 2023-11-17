@@ -550,6 +550,8 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(3000);
         CommonUtils.clickOnElement(createNewSubmissionPage.popUpSubmissionConfirmationOkButton);
+        MiscUtils.sleep(3000);
+        CucumberLogUtils.logScreenshot();
     }
 
     /**
