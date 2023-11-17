@@ -164,11 +164,13 @@ public class RAS_Scenario_One_StepsImpl extends PageInitializer {
 
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(myRASLoginPage.loginToMyRASButton);
-        myRASLoginPage.loginToMyRASButton.click();
+        CommonUtils.clickOnElement(myRASLoginPage.loginToMyRASButton);
 
         try {
             oktaLoginPage.usernameTxtBox.clear();
             oktaLoginPage.usernameTxtBox.sendKeys(username);
+            CommonUtils.clickOnElement(oktaLoginPage.nextButton);
+            MiscUtils.sleep(1000);
             oktaLoginPage.passwordTxtBox.sendKeys(password);
             MiscUtils.sleep(1000);
             CommonUtils.clickOnElement(oktaLoginPage.loginBtn);

@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 		"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 features = "src/test/java/ServiceNow/CHARMS/Features/FHQ",
 glue = "ServiceNow.CHARMS.Steps", 
-tags = "@Regression", 
+tags = "@FHQRegression", 
 dryRun = false, 
 monochrome = true, 
 strict = true
@@ -20,8 +20,9 @@ strict = true
  * This class is annotated with @RunWith(Cucumber.class) and it will run
  * cucumber feature(s).
  * 
- * @author sohilz2
+ * @author sohilz2      
  */
 public class RunCHARMSFHQRegressionTest {
 
 }
+

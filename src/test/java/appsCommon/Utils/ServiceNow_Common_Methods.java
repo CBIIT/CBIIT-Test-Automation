@@ -18,7 +18,6 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
      * @param user
      */
     public static void impersonateAnyUser(String user) {
-
         CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.profileButton);
         try {
             boolean impersonateUser = NativeView_SideDoor_Dashboard_Page.impersonateUserButton.getText().contentEquals("Impersonate user");

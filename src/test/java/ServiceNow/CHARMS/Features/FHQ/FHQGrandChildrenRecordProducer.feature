@@ -3,7 +3,7 @@ Feature: All FHQ GrandChild Record Producers submisiion and verification in the 
   
   Description: This feature file contains all scenarios which verify questionnaires for FHQ GrandChild Record Producers submisiion and verification
 
- @jains @FHQRegression
+ @jains 
   Scenario: FHQ Grandparent Record
     Given a proband is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -12,7 +12,7 @@ Feature: All FHQ GrandChild Record Producers submisiion and verification in the 
     And click the new GrandChild added and verify the completed record producer data
     And click the FHQ Home button
 
-  @jains @FHQRegression
+  @jains 
   Scenario: FHQ GrandChild Record
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -42,7 +42,7 @@ Feature: All FHQ GrandChild Record Producers submisiion and verification in the 
     And click the new GrandChild added and verify the completed record producer data
     And click the FHQ Home button
 
-  @jains @FHQRegression
+  @jains 
   Scenario: FHQ GrandChild Record
     Given a user is logged on FHQ Landing Page after filling out patient data using the Test Account credentials in Test side door login page
     And user clicks the Grandchildren Grid link on FHQ Grid page to land on the FHQ Grandchildren list view page

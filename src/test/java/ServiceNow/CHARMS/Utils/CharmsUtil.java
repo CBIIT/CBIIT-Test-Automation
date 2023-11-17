@@ -16,6 +16,8 @@ import com.nci.automation.utils.ExcelReader;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.WebDriverUtils;
 
+import ServiceNow.CHARMS.Constants.FHQSurveyPageConstants;
+
 /* @author SONIKA JAIN */
 public class CharmsUtil {
 	/* Excel Data Reader */
@@ -98,10 +100,24 @@ public class CharmsUtil {
 		boolean actualValue = webElement.isSelected();
 		softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + messsage + "-->");
 	}
+	
+	/* @param webElement:Button Labelto be Verified */
+	public static void assertButtonLabel(SoftAssert softAssert, WebElement webElement, String expectedValue, String messsage) {		
+		CharmsUtil.labelHighlight(webElement);
+		String actualValue = webElement.getText();
+		softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + messsage + "-->");
+	}
+	
+	/* @param webElement:Button Labelto be Verified */
+	public static void assertButtonLabelWithSpace(SoftAssert softAssert, WebElement webElement, String expectedValue, String messsage) {		
+		CharmsUtil.labelHighlight(webElement);
+		String actualValue = webElement.getText();
+		String actualValueWithSpace = actualValue.trim();
+		softAssert.assertEquals(actualValueWithSpace, expectedValue, "Assertion Failed for" + messsage + "-->");
+	}
 
 	/* webElement:A text box to be Verified */
-	public static void assertTextBoxData(SoftAssert softAssert, WebElement webElement, String expectedValue,
-			String messsage) {
+	public static void assertTextBoxData(SoftAssert softAssert, WebElement webElement, String expectedValue,String messsage) {
 		CharmsUtil.labelHighlight(webElement);
 		MiscUtils.sleep(300);
 		String actualValue = null;
@@ -113,6 +129,22 @@ public class CharmsUtil {
 		softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + messsage + "-->");
 	}
 
+	/* webElement:A text box to be Verified */
+	public static void assertTextBoxDataSelected(SoftAssert softAssert, WebElement webElement, String expectedValue,String messsage) {
+		CharmsUtil.labelHighlight(webElement);
+		MiscUtils.sleep(300);
+		String actualValue = null;
+		if (webElement.getAttribute("value") != null) {
+			actualValue = webElement.getAttribute("value");
+		} 
+		if (webElement.getAttribute("value") != null) {
+			actualValue = webElement.getAttribute("value");
+		}
+		else {
+			actualValue = webElement.getText();
+		}
+		softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + messsage + "-->");
+	}
 	/* webElement:A DropDown value to be Verified */
 	public static void assertDropDownData(SoftAssert softAssert, WebElement webElement, String expectedValue,
 			String messsage) {
@@ -149,7 +181,50 @@ public class CharmsUtil {
 		}
 		return false;
 	}
+	
+	public static void SelectValueFromDropDown(WebElement webElement, List<String> dropdownList, String dropDownValue) {
+		CharmsUtil.clickOnElement(webElement);
+		WebElement select2ElementResults = WebDriverUtils.webDriver
+				.findElement(By.xpath("//div[@id='select2-drop']/ul[@class='select2-results']"));
+		List<WebElement> selectResultsAsListCollection = select2ElementResults.findElements(By.tagName("li"));
+		int size = dropdownList.size();
+		if (selectResultsAsListCollection.size() < size) {
+			size = selectResultsAsListCollection.size();
+		}
+		for (int i = 0; i < size; i++)  {
+			String options = selectResultsAsListCollection.get(i).getText();
+			if ( options.equals(dropDownValue))
+			{
+				selectResultsAsListCollection.get(i).click();
+				MiscUtils.sleep(1000);
+				break;
+			}
+		}
+	}
 
+	/*
+	 * public static ComponentTestResult verifySelect2DropDowns(WebElement
+	 * webElement, List<String> dropdownList, int dropdownSelectedIndex) {
+	 * CharmsUtil.clickOnElement(webElement); String result = "PASSED"; WebElement
+	 * select2ElementResults = WebDriverUtils.webDriver .findElement(By.xpath(
+	 * "//div[@id='select2-drop']/ul[@class='select2-results']")); List<WebElement>
+	 * selectResultsAsListCollection =
+	 * select2ElementResults.findElements(By.tagName("li")); int size =
+	 * dropdownList.size(); List<ComparisionResult> comparisionResultList = new
+	 * ArrayList<ComparisionResult>(); if (selectResultsAsListCollection.size() <
+	 * size) { size = selectResultsAsListCollection.size(); }
+	 * 
+	 * for (int i = 0; i < size; i++) { String options =
+	 * selectResultsAsListCollection.get(i).getText(); try {
+	 * Assert.assertTrue(options.equals(dropdownList.get(i))); } catch
+	 * (AssertionError ae) { result = "FAILED"; ComparisionResult comparisionResult
+	 * = new ComparisionResult(options, dropdownList.get(i), "FAILED");
+	 * comparisionResultList.add(comparisionResult); } }
+	 * selectResultsAsListCollection.get(dropdownSelectedIndex).click();
+	 * ComponentTestResult componentTestResult = new ComponentTestResult();
+	 * componentTestResult.setComparisionResultList(comparisionResultList);
+	 * componentTestResult.setComponentResult(result); return componentTestResult; }
+	 */
 	/* Method to select a value from the Radio Button List */
 	public static boolean selectRadioButtonValue(List<WebElement> radioButtonList, String selectedValue) {
 		int itemCount = radioButtonList.size();
