@@ -42,6 +42,11 @@ public class NativeView_SideDoor_Dashboard_Page {
     /* IMPERSONATE WINDOW USER BUTTON  */
     @FindElementBy(xpath = "//div[@class='now-modal-footer']/now-button[2]")
     public static WebElement impersonateUserWindowButton;
+
+    /* FILTER NAVIGATION EMAILS BUTTON  */
+    @FindElementBy(xpath = "//div[@class='sn-polaris-nav-body']/sn-collapsible-list[2]")
+    public static WebElement filterNavigationEmailsButton;
+
     /**
      * USE THIS METHOD TO SEARCH ANY TEXT USING THE NATIVE VIEW FILTER NAVIGATOR
      *
