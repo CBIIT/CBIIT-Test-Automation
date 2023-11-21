@@ -18,7 +18,6 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
      * @param user
      */
     public static void impersonateAnyUser(String user) {
-
         CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.profileButton);
         try {
             boolean impersonateUser = NativeView_SideDoor_Dashboard_Page.impersonateUserButton.getText().contentEquals("Impersonate user");
@@ -34,7 +33,7 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
             MiscUtils.sleep(2000);
             CommonUtils.sendKeysToElement(NativeView_SideDoor_Dashboard_Page.impersonateSearchTextBox, user);
             MiscUtils.sleep(2000);
-            NativeView_SideDoor_Dashboard_Page.impersonateSearchTextBox.sendKeys(Keys.ENTER);
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateSearchFirstValue);
             MiscUtils.sleep(1000);
             CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateUserWindowButton);
             MiscUtils.sleep(3000);

@@ -1619,7 +1619,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 		// What are the main reasons for participating in this study?
 		fanconiEligibilityQuestionnaireStepsImpl.mainReasonToParticipateInThisStudy();
 	}
-
 	/******************************************************************/
 	/***** METHODS FOR THE FANCONI SCREENER PAGE IN NATIVE VIEW ****/
 	/******************************************************************/
@@ -1636,12 +1635,10 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 		CommonUtils.waitForVisibility(fanconiScreenerNVPage.nVReferralsListViewiFrame);
 		CommonUtils.switchToFrame(fanconiScreenerNVPage.nVReferralsListViewiFrame);
 	}
-
 	/*****************************************************************/
 	/* Method to click Fanconi Preview button on Referall list view page */
 	/*****************************************************************/
 	public void fanconiStudyPreviewRecordClicked(int rowNumForAssertion) {
-
 		/* Excel Data Reader for FanconiScreener Tab */
 		currentRow = CharmsUtil.testManagerData(excelSheet, "FanconiScreener", rowNumForAssertion);
 		String referallName = currentRow.get("ParticipantFirstName") + " " + currentRow.get("ParticipantLastName");
@@ -1655,7 +1652,6 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 			CharmsUtil.clickOnElement(fanconiScreenerNVPage.dynamicReferralPreviewButtonLocator(referallName));
 		}
 	}
-
 	/*****************************************************************/
 	/* Method to assert the Fanconi Study: General Information */
 	/*****************************************************************/

@@ -120,6 +120,10 @@ public class PageInitializer extends WebDriverUtils {
 	public static RASSurveyStepsImpl rASSurveyStepsImpl;
 	public static FHQSurveyPage fHQSurveyPage;
 	public static FHQSurveyPortalPage fHQSurveyPortalPage;
+	public static FHQSubmissionPage fHQSubmissionPage;
+	public static FHQSubmissionStepsImpl fHQSubmissionStepsImpl;
+	public static FHQConstants fHQConstants;
+	public static FHQ_TestDataManager fHQ_TestDataManager;
 	public static RAS_Screener_TestDataManager ras_Screener_TestDataManager;
 	public static RAS_Survey_TestDataManager ras_Survey_TestDataManager;
 	public static IIQ_TestDataManager iiq_TestDataManager;
@@ -351,6 +355,10 @@ public class PageInitializer extends WebDriverUtils {
 		rASSurveyStepsImpl = new RASSurveyStepsImpl();
 		fHQSurveyPortalPage = new FHQSurveyPortalPage();
 		fHQSurveyPage = new FHQSurveyPage();
+		fHQSubmissionPage = new FHQSubmissionPage();
+		fHQSubmissionStepsImpl = new FHQSubmissionStepsImpl();
+		fHQ_TestDataManager = new FHQ_TestDataManager();
+		fHQConstants = new FHQConstants();
 		participantDetailsPage = new ParticipantDetailsPage();
 		referralTablePage = new ReferralTablePage();
 		fanconiLoginPage = new FanconiLoginPage();

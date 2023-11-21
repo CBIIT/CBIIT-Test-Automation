@@ -3,7 +3,7 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
   
   Description: This feature file contains the scenario to submit the New FHQ Partner record producer to the Participant
 
-  @jains @FHQRegression
+  @jains 
   Scenario: FHQ Partner Record
     Given a proxy is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -23,7 +23,7 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And click the new Partner added and verify the completed record producer data
     And click the FHQ Home button
 
-  @jains @FHQRegression
+  @jains 
   Scenario: FHQ Partner Record
     Given a proband is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -31,7 +31,7 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And user clicks the Partner Grid link on FHQ Grid page to land on the FHQ Partners list view page
     And click the new Partner added and verify the completed record producer data
 
-  @jains @FHQRegression
+  @jains 
   Scenario: FHQ Partner Record
     Given a user is logged on FHQ Landing Page after filling out patient data using the Test Account credentials in Test side door login page
     And user clicks the Partner Grid link on FHQ Grid page to land on the FHQ Partners list view page
