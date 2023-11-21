@@ -2,6 +2,7 @@ package ServiceNow.NERD.StepsImplementation;
 
 import ServiceNow.NERD.Constants.TopAccomplishmentsSubmission_Constants;
 import ServiceNow.NERD.Pages.NERDDOCCollaborationsPage;
+import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.MiscUtils;
@@ -10,6 +11,7 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
+import org.openqa.selenium.WebDriver;
 
 public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
 
@@ -32,11 +34,13 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
         NERDApplicationStepsImplementation.creatingNewSubmission(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink);
         NERDApplicationStepsImplementation.creatingOfNewSubmissionByStaffMember("Diego Test");
+        ServiceNow_Common_Methods.logOutOfNativeView();
     }
 
     public static void theDOCPlanningContactLocatesTheRecordInTheirCollaborationQueue(String nameOfRecord)
             throws TestingException {
-        nativeViewImpersonateUser.impersonateToDocPlanningContact();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        ServiceNow_Common_Methods.impersonateAnyUser("Karen Ortner");
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         NERDApplicationStepsImplementation.clickingOnCollaborationsLink();
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.publishedCollaboration(nameOfRecord));
@@ -68,7 +72,9 @@ public class NERDCollaborationSubmissionStepImpl extends PageInitializer {
         NERDApplicationStepsImplementation.creatingNewSubmission(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink);
         NERDApplicationStepsImplementation.creatingOfNewSubmissionByStaffMember("Diego Test");
-        nativeViewImpersonateUser.impersonateToDocPlanningContact();
+        ServiceNow_Common_Methods.logOutOfNativeView();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        ServiceNow_Common_Methods.impersonateAnyUser("Karen Ortner");
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         NERDApplicationStepsImplementation.clickingOnCollaborationsLink();
         MiscUtils.sleep(1000);

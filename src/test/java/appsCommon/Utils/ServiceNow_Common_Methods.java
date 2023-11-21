@@ -37,9 +37,13 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
             MiscUtils.sleep(1000);
             CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateUserWindowButton);
             MiscUtils.sleep(3000);
-            System.out.println(ServiceNow_NCISP_Page.nativeViewLink.getText());
-            MiscUtils.sleep(2000);
-            CommonUtils.clickOnElement(ServiceNow_NCISP_Page.nativeViewLink);
+            Boolean nativeViewIsPresent = ServiceNow_NCISP_Page.allPresentNativeViewLinks.size() > 0;
+            if (nativeViewIsPresent == true) {
+                System.out.println(ServiceNow_NCISP_Page.nativeViewLink.getText());
+                MiscUtils.sleep(2000);
+                CommonUtils.clickOnElement(ServiceNow_NCISP_Page.nativeViewLink);
+                MiscUtils.sleep(2000);
+            }
         } catch (NoSuchElementException e) {
             System.out.println(NativeView_SideDoor_Dashboard_Page.impersonateAnotherUserButton.getText());
             MiscUtils.sleep(2000);
@@ -54,6 +58,7 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
             System.out.println(ServiceNow_NCISP_Page.nativeViewLink.getText());
             MiscUtils.sleep(2000);
             CommonUtils.clickOnElement(ServiceNow_NCISP_Page.nativeViewLink);
+            MiscUtils.sleep(2000);
         }
     }
 
@@ -80,8 +85,22 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
      * @param text
      */
     public static void filterNavigatorSearch(String text){
-        NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys(text);
-        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch(text));
+        if(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.getAttribute("class").equals("sn-global-typeahead-input -global")){
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allTab);
+            NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys(text);
+            MiscUtils.sleep(3000);
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch(text));
+            MiscUtils.sleep(3000);
+            CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+            MiscUtils.sleep(2000);
+        }else {
+            NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys(text);
+            MiscUtils.sleep(3000);
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch(text));
+            MiscUtils.sleep(3000);
+            CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+            MiscUtils.sleep(2000);
+        }
         MiscUtils.sleep(3000);
     }
 

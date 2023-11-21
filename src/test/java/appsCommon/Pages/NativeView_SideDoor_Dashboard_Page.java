@@ -18,6 +18,9 @@ public class NativeView_SideDoor_Dashboard_Page {
     /* FILTER NAVIGATOR TEXT BOX */
     @FindElementBy(xpath = "//*[@class='sn-polaris-nav-header-filter can-animate']//child::input")
     public static WebElement filterNavigatorTextBox;
+    /* PIN */
+    @FindElementBy(xpath = "//*[@class='sn-polaris-nav-header-controls pin']//child::button")
+    public static WebElement sideMenuPin;
     /* iFrame */
     @FindElementBy(xpath = "//*[@id='gsft_main']")
     public static WebElement nativeViewiFrame;
@@ -33,12 +36,17 @@ public class NativeView_SideDoor_Dashboard_Page {
     /* IMPERSONATE USER SEARCH TEXT BOX */
     @FindElementBy(xpath = "//input[@class='now-typeahead-native-input']")
     public static WebElement impersonateSearchTextBox;
-    /* IMPERSONATE USER SEARCH FIRST VALUE */
+    /* IMPERSONATE USER SEARCH FIRST VALUE  */
     @FindElementBy(xpath = "//div[@class='now-dropdown-list']//child::div[1]//child::div[1]")
     public static WebElement impersonateSearchFirstValue;
-    /* IMPERSONATE WINDOW USER BUTTON */
+    /* IMPERSONATE WINDOW USER BUTTON  */
     @FindElementBy(xpath = "//div[@class='now-modal-footer']/now-button[2]")
     public static WebElement impersonateUserWindowButton;
+
+    /* FILTER NAVIGATION EMAILS BUTTON  */
+    @FindElementBy(xpath = "//div[@class='sn-polaris-nav-body']/sn-collapsible-list[2]")
+    public static WebElement filterNavigationEmailsButton;
+
     /**
      * USE THIS METHOD TO SEARCH ANY TEXT USING THE NATIVE VIEW FILTER NAVIGATOR
      *

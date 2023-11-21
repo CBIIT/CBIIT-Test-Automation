@@ -2,6 +2,8 @@ package ServiceNow.NERD.StepsImplementation;
 
 import ServiceNow.NERD.Constants.ReturningSubmissions_Constants;
 import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.Utils.ServiceNow_Common_Methods;
+import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -40,7 +42,9 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
          * @param submissionName
          */
         public static void submittingOfSubmissionToCRSReviewer(String submissionName) throws TestingException {
-                nativeViewImpersonateUser.impersonateToDocPlanningContact();
+                ServiceNow_Common_Methods.logOutOfNativeView();
+                ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+                ServiceNow_Common_Methods.impersonateAnyUser("Karen Ortner");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 CommonUtils.waitForVisibility(
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
@@ -69,9 +73,10 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
          *
          * @param submissionName
          */
-        public static void resubmittingOfSubmissionByDOCContactToCRSREviewer(String submissionName)
-                        throws TestingException {
-                nativeViewImpersonateUser.impersonateToDocPlanningContact();
+        public static void resubmittingOfSubmissionByDOCContactToCRSREviewer(String submissionName) {
+                ServiceNow_Common_Methods.logOutOfNativeView();
+                ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+                ServiceNow_Common_Methods.impersonateAnyUser("Karen Ortner");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 CommonUtils.waitForVisibility(
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
@@ -127,6 +132,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                         nerdDynamicXpaths.returnedToDOCText(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER).getText().contentEquals(ReturnedToDOC));
                 JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnedToDOCText(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER));
                 MiscUtils.sleep(2000);
+                ServiceNow_Common_Methods.logOutOfNativeView();
         }
 
         /**
@@ -135,7 +141,9 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
          * @param submissionName
          */
         public static void deleteCreatedSubmissionByDocPlanningContact(String submissionName) throws TestingException {
-                nativeViewImpersonateUser.impersonateToDocPlanningContact();
+                ServiceNow_Common_Methods.logOutOfNativeView();
+                ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+                ServiceNow_Common_Methods.impersonateAnyUser("Karen Ortner");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 WebDriverUtils.webDriver.navigate().refresh();
                 MiscUtils.sleep(6000);
@@ -164,8 +172,10 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
          * @param FiscalYear
          */
         public static void fillingOutRequiredFieldsByDOCPlaningContact(String submissionName, String PleaseSpecify,
-                        String FiscalYear) throws TestingException {
-                nativeViewImpersonateUser.impersonateToDocPlanningContact();
+                        String FiscalYear) {
+                ServiceNow_Common_Methods.logOutOfNativeView();
+                ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+                ServiceNow_Common_Methods.impersonateAnyUser("Karen Ortner");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 MiscUtils.sleep(7000);
                 CommonUtils.waitForVisibility(
@@ -202,8 +212,10 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
          * @param FiscalYear
          */
         public static void verifyingByDOCContactThatFieldsOfSubmissionAreClearedAndRequired(String submissionName,
-                        String PleaseSpecify, String FiscalYear) throws TestingException {
-                nativeViewImpersonateUser.impersonateToDocPlanningContact();
+                        String PleaseSpecify, String FiscalYear) {
+                ServiceNow_Common_Methods.logOutOfNativeView();
+                ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+                ServiceNow_Common_Methods.impersonateAnyUser("Karen Ortner");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 WebDriverUtils.webDriver.navigate().refresh();
                 MiscUtils.sleep(7000);
@@ -250,7 +262,9 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
          * @param submissionName
          */
         public static void editingAndReturningSubmissionToProgramStaff(String submissionName) throws TestingException {
-                nativeViewImpersonateUser.impersonateToDocPlanningContact();
+                ServiceNow_Common_Methods.logOutOfNativeView();
+                ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+                ServiceNow_Common_Methods.impersonateAnyUser("Karen Ortner");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 WebDriverUtils.webDriver.navigate().refresh();
                 MiscUtils.sleep(5000);
@@ -292,7 +306,9 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
          */
         public static void returningSubmissionToProgramStaffByDOCContact(String submissionName)
                         throws TestingException {
-                nativeViewImpersonateUser.impersonateToDocPlanningContact();
+                ServiceNow_Common_Methods.logOutOfNativeView();
+                ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+                ServiceNow_Common_Methods.impersonateAnyUser("Karen Ortner");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 WebDriverUtils.webDriver.navigate().refresh();
                 MiscUtils.sleep(7000);
@@ -320,7 +336,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
          */
         public static void creatingOfCollaborationSubmissionByDOCPlaningContact(WebElement SubmissionType,
                         String submissionName) throws TestingException {
-                nativeViewImpersonateUser.impersonateToDocPlanningContact();
+                ServiceNow_Common_Methods.impersonateAnyUser("Karen Ortner");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 MiscUtils.sleep(1000);
                 CommonUtils.waitForClickability(SubmissionType);
@@ -388,6 +404,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                 Assert.assertTrue("VERIFYING RANK FIELD IS NOT DISPLAYED",
                                 element.getDomAttribute("aria-hidden").contentEquals("true"));
                 CucumberLogUtils.logScreenshot();
+                ServiceNow_Common_Methods.logOutOfNativeView();
                 NERD_NCI_DOC_PlanningContactStepsImplementation
                                 .deleteCreatedSubmissionByDocPlanningContact(collaborationName);
         }

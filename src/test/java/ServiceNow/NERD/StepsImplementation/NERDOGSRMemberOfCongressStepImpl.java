@@ -3,6 +3,7 @@ package ServiceNow.NERD.StepsImplementation;
 import ServiceNow.NERD.Constants.NERDOGSRMemberOfCongress_Constants;
 import ServiceNow.NERD.Pages.NERDOGCRAddNewEntryPage;
 import ServiceNow.NERD.Pages.NativeViewMembersOfCongressPage;
+import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -28,7 +29,7 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
      */
     public static void aUserIsInTheOgcrAdminGroup() throws TestingException {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        nativeViewImpersonateUser.impersonateOGCRUser();
+        ServiceNow_Common_Methods.impersonateAnyUser("Sonia Hawkins");
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
     }
 
@@ -97,30 +98,18 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
         CommonUtils.waitForVisibility(nativeViewImpersonateUserPage.nativeViewNameButton);
         CommonUtils.clickOnElement(nativeViewImpersonateUserPage.nativeViewNameButton);
         CommonUtils.waitForVisibility(nativeViewImpersonateUserPage.nativeViewLogOutButton);
-        MiscUtils.sleep(1000);
+//        MiscUtils.sleep(1000);
         CommonUtils.clickOnElement(nativeViewImpersonateUserPage.nativeViewLogOutButton);
         MiscUtils.sleep(1000);
         Alert alt = WebDriverUtils.webDriver.switchTo().alert();
         alt.accept();
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        MiscUtils.sleep(1000);
-        if(nativeViewEnrollementsPage.filterNavigatorIconButton.isDisplayed()){
-            CommonUtils.clickOnElement(nativeViewEnrollementsPage.filterNavigatorIconButton);
-            CommonUtils.waitForVisibility(nativeViewEnrollementsPage.filterNavigator);
-        }
-        nativeViewEnrollementsPage.filterNavigator.clear();
-        MiscUtils.sleep(500);
-        nativeViewEnrollementsPage.filterNavigator.sendKeys("Congress");
-        MiscUtils.sleep(1000);
-        JavascriptUtils.scrollIntoView(nativeViewMembersOfCongressPage.nativeViewMembersOfCongressButton);
-        JavascriptUtils.clickByJS(nativeViewMembersOfCongressPage.nativeViewMembersOfCongressButton);
-        MiscUtils.sleep(1000);
-        CommonUtils.switchToFrame(nativeViewAccessRequestPage.accessRequestIFrame);
-        MiscUtils.sleep(1000);
-        CommonUtils.assertTrue(nativeViewMembersOfCongressPage.membersOfCongressMenu.getText()
-                .contains("Congress"));
+        ServiceNow_Common_Methods.filterNavigatorSearch("Members of Congress");
+//        MiscUtils.sleep(2000);
+        CommonUtils.waitForClickability(nativeViewMembersOfCongressPage.membersOfCongressFilterIcon);
         CommonUtils.clickOnElement(nativeViewMembersOfCongressPage.membersOfCongressFilterIcon);
-        MiscUtils.sleep(500);
+//        MiscUtils.sleep(5000);
+        CommonUtils.waitForClickability(nativeViewMembersOfCongressPage.membersOfCongressActiveFiled);
         CommonUtils.clickOnElement(nativeViewMembersOfCongressPage.membersOfCongressActiveFiled);
         CommonUtils.waitForVisibility(nativeViewMembersOfCongressPage.membersOfCongressActiveTextFiled);
         CommonUtils.sendKeys(nativeViewMembersOfCongressPage.membersOfCongressActiveTextFiled, active);

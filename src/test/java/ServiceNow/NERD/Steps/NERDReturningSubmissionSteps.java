@@ -5,6 +5,7 @@ import ServiceNow.NERD.StepsImplementation.NERDApplicationStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERD_NCI_CRSReviewerStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERD_NCI_DOC_PlanningContactStepsImplementation;
 import ServiceNow.NERD.StepsImplementation.NERD_NCI_StaffMemberStepsImplementation;
+import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -58,9 +59,9 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
     }
 
     @Then("the {string} and {string} field values are not cleared and are required")
-    public void the_and_field_values_are_not_cleared_and_are_required(String PleaseSpecify, String FiscalYear)
-            throws TestingException {
-        nativeViewImpersonateUser.impersonateToStaffMemberCBIIT();
+    public void the_and_field_values_are_not_cleared_and_are_required(String PleaseSpecify, String FiscalYear) {
+        ServiceNow_Common_Methods.logOutOfNativeView();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         NERDApplicationStepsImplementation.openingNewTabToEditSubmission(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER);
         NERDApplicationStepsImplementation.verifyingThatFieldsOfSubmissionAreClearedAndRequired(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER, PleaseSpecify, FiscalYear);
@@ -70,7 +71,8 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
     @Then("the options available for the {string} field are {string}, {string}, {string}, and {string}")
     public void the_options_available_for_the_field_are_and(String PleaseSpecify, String Edited, String NocChange,
                                                             String Ended, String NotLedByNCI) throws TestingException {
-        nativeViewImpersonateUser.impersonateToStaffMemberCBIIT();
+        ServiceNow_Common_Methods.logOutOfNativeView();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         NERDApplicationStepsImplementation.verifyingAvailableOptionsOfSubmission(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER, PleaseSpecify, Edited, NocChange, Ended, NotLedByNCI);
         NERDApplicationStepsImplementation.deletingOfSubmission(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION_NAME_CRS_REVIEWER);

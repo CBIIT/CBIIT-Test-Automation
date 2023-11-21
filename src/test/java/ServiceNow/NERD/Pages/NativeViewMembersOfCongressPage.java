@@ -36,7 +36,7 @@ public class NativeViewMembersOfCongressPage extends CommonUtils {
     public WebElement membersOfCongressRunButton;
 
     /**Native View Members of Congress Next Page Button*/
-    @FindBy(xpath = "//*[@id='x_26385_crs_kd_member_of_congress_expanded']/div[5]/div[1]/table//child::tbody//child::tr//child::td[2]//child::span[1]//child::button[3]")
+    @FindBy(xpath = "//*[@id='x_26385_crs_kd_member_of_congress_expanded']/div[7]//child::div[2]/table//child::tbody//child::tr//child::td[2]//child::span[1]//child::button[3]")
     public WebElement membersOfCongresNextPageButton;
 
     /** Native View Congress Person First Name */
