@@ -29,13 +29,16 @@ public class Search_Scenarios_Steps extends PageInitializer {
 
     @Given("is able to navigate to {string} hyperlink")
     public void is_able_to_navigate_to_hyperlink(String linkText) {
+        String emWindowHandle = WebDriverUtils.webDriver.getWindowHandle();
+        System.out.println(WebDriverUtils.webDriver.getWindowHandle());
         CommonUtils.clickOnElement(ManageI2EUsersPage.dynamicFooterLinkLocator(linkText));
         CommonUtils.switchToNextWindow();
         String actualPageTitle = WebDriverUtils.webDriver.getTitle();
         String expectedPageTitle = "eRA Modules and Services | eRA Intranet";
         Assert.assertEquals(actualPageTitle, expectedPageTitle);
 
-        WebDriverUtils.webDriver.switchTo().window("Enterprise Maintenance");
+        WebDriverUtils.webDriver.switchTo().window(emWindowHandle);
+
         MiscUtils.sleep(3000);
     }
 }
