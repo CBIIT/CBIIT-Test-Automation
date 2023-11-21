@@ -1,13 +1,13 @@
 Feature: Etrack Assets Records Test Scenarios
 
-  @ETRACK-2 @ETRACK-14 @chaudhryma @Regression
+  @ETRACK-2 @ETRACK-14 @chaudhryma @Regression @Progression
   Scenario: Test Delete Asset Records
     Given a eTracking user opens an Asset record
     Then there is a Delete button
     When the user clicks the Delete button
     Then the record is deleted
 
-  @ETRACK-6 @ETRACK-9 @chaudhryma @Regression
+  @ETRACK-6 @ETRACK-9 @chaudhryma @Regression @Progression
   Scenario: Create Asset Information Field
     Given an eTracking user is on an Asset record
     Then there is a free text field called "Asset information"
@@ -33,7 +33,7 @@ Feature: Etrack Assets Records Test Scenarios
     Then there is a field called "Decal number"
     And there is no field called "Barcode"
 
-  @ETRACK-12 @ETRACK-19 @chaudhryma @Regression @Progression
+  @ETRACK-12 @ETRACK-19 @chaudhryma @Regression
   Scenario:Test Add Status Field for Asset Form
     Given an eTracking user is on an Asset record
     Then  There is a field called Status
