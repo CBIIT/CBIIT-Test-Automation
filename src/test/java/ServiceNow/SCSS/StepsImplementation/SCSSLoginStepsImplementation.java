@@ -50,7 +50,6 @@ public class SCSSLoginStepsImplementation extends PageInitializer {
             MiscUtils.sleep(5000);
             WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SCSSPortalView"));
             CucumberLogUtils.logScreenshot();
-            WebDriverUtils.webDriver.manage().deleteAllCookies();
         }
     }
 }

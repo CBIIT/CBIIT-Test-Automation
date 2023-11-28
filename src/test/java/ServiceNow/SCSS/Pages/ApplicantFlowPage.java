@@ -6,7 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ApplicantFlowPage extends CommonUtils {
+public class
+ApplicantFlowPage extends CommonUtils {
 
     public ApplicantFlowPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
