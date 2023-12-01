@@ -6,9 +6,14 @@ import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Given;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Search_Scenarios_Steps extends PageInitializer {
 
@@ -30,15 +35,68 @@ public class Search_Scenarios_Steps extends PageInitializer {
     @Given("is able to navigate to {string} hyperlink")
     public void is_able_to_navigate_to_hyperlink(String linkText) {
         String emWindowHandle = WebDriverUtils.webDriver.getWindowHandle();
-        System.out.println(WebDriverUtils.webDriver.getWindowHandle());
-        CommonUtils.clickOnElement(ManageI2EUsersPage.dynamicFooterLinkLocator(linkText));
-        CommonUtils.switchToNextWindow();
-        String actualPageTitle = WebDriverUtils.webDriver.getTitle();
-        String expectedPageTitle = "eRA Modules and Services | eRA Intranet";
-        Assert.assertEquals(actualPageTitle, expectedPageTitle);
 
-        WebDriverUtils.webDriver.switchTo().window(emWindowHandle);
+        switch (linkText){
+            case "IMPAC II ":
+                CommonUtils.clickOnElement(ManageI2EUsersPage.dynamicFooterLinkLocator(linkText));
+                CommonUtils.switchToNextWindow();
+                String actualIMPACIIPageTitle = WebDriverUtils.webDriver.getTitle();
+                String expectedIMPACIIPageTitle = "eRA Modules and Services | eRA Intranet";
+                Assert.assertEquals(actualIMPACIIPageTitle, expectedIMPACIIPageTitle);
+                WebDriverUtils.webDriver.switchTo().window(emWindowHandle);
+                break;
+            case "I2E Home":
+                CommonUtils.clickOnElement(manageI2EUsersPage.i2eHomeHyperlink);
+                MiscUtils.sleep(3000);
+                String actual_I2E_PageTitle = WebDriverUtils.webDriver.getTitle();
+                String expected_I2E_PageTitle = "NCI’s IMPAC II Extension (I2E) System";
+                Assert.assertEquals(actual_I2E_PageTitle, expected_I2E_PageTitle);
+                WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("EM"));
+                MiscUtils.sleep(2000);
+                break;
+            case "Workbench":
+                CommonUtils.clickOnElement(ManageI2EUsersPage.dynamicFooterLinkLocator(linkText));
+                CommonUtils.switchToNextWindow();
+                String actualWorkbenchPageTitle = WebDriverUtils.webDriver.getTitle();
+                String expectedWorkbenchPageTitle = "Workbench";
+                Assert.assertEquals(actualWorkbenchPageTitle, expectedWorkbenchPageTitle);
+                WebDriverUtils.webDriver.switchTo().window(emWindowHandle);
+                MiscUtils.sleep(3000);
+                break;
+        }
+    }
 
-        MiscUtils.sleep(3000);
+    @Given("user is able to confirm that the {string} drop down has the following options {string}, {string}, {string}")
+    public void user_is_able_to_confirm_that_the_drop_down_has_the_following_options(String helpDropDown, String option1, String option2, String option3) {
+        CommonUtils.clickOnElement(ManageI2EUsersPage.dynamicFooterLinkLocator(helpDropDown));
+        MiscUtils.sleep(2000);
+
+        List<String> actualHelpDropDownValues = new ArrayList<>();
+        for(WebElement option : manageI2EUsersPage.i2eHelpDropDownValues){
+            actualHelpDropDownValues.add(option.getText());
+        }
+
+        List<String> expectedValues = new ArrayList<>();
+        expectedValues.add(option1);
+        expectedValues.add(option2);
+        expectedValues.add(option3);
+
+        Assert.assertEquals(actualHelpDropDownValues, expectedValues);
+
+    }
+
+    @Given("User can open respective hyperlinks {string}, {string}, {string} successfully")
+    public void user_can_open_respective_hyperlinks_successfully(String userGuide, String videoTutorials, String releaseNotes) {
+        String emWindowHandle = WebDriverUtils.webDriver.getWindowHandle();
+        for(WebElement option : manageI2EUsersPage.i2eHelpDropDownValues){
+            if (option.getText().equals(userGuide)){
+                option.click();
+                MiscUtils.sleep(1000);
+                CommonUtils.switchToNextWindow();
+                String actual_EM_UserGuideTitle = webDriver.getCurrentUrl();
+                System.out.println(actual_EM_UserGuideTitle);
+
+            }
+        }
     }
 }

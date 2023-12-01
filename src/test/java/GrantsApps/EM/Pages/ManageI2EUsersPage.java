@@ -82,6 +82,18 @@ public class ManageI2EUsersPage {
     @FindBy(xpath = "//h1[contains(text(),'Manage I2E Users')]")
     public WebElement i2ePageTitle;
 
+    /**
+     * I2E Home Hyperlink
+     */
+    @FindBy(xpath = "//a[@title='I2E Home']")
+    public WebElement i2eHomeHyperlink;
+
+    /**
+     * I2E Help-drown options
+     */
+    @FindBy(xpath = "//*[@id='headerCollapse']/ul/li[2]/div/div/a")
+    public List<WebElement> i2eHelpDropDownValues;
+
     /***
      * USE THIS METHOD TO DYNAMICALLY LOCATE A USER
      * @param user
