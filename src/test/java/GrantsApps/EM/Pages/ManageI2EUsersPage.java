@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import java.util.List;
 
 public class ManageI2EUsersPage {
@@ -103,7 +102,7 @@ public class ManageI2EUsersPage {
         return WebDriverUtils.webDriver.findElement(By.xpath("//span[contains(text(),'" + user + "')]"));
     }
 
-    public static WebElement dynamicFooterLinkLocator(String text) {
+    public static WebElement dynamicLinkLocator(String text) {
        return WebDriverUtils.webDriver.findElement(By.xpath("//a[text()='" + text + "']"));
     }
 
