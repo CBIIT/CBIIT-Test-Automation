@@ -7,7 +7,9 @@ import appsCommon.Pages.ServiceNow_NCISP_Page;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
+import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 
@@ -96,12 +98,13 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
         }else {
             NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys(text);
             MiscUtils.sleep(3000);
-            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch(text));
-            MiscUtils.sleep(3000);
-            CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+//            JavascriptUtils.clickByJS(NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch(text));
+            NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch(text).click();
+            //CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch(text));
             MiscUtils.sleep(2000);
+            CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+            MiscUtils.sleep(3000);
         }
-        MiscUtils.sleep(3000);
     }
 
     /***
