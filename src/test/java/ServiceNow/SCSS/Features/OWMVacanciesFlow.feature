@@ -1,6 +1,6 @@
 Feature: OWM Vacancy Scenarios
 
-    @Regression @Smoke @Nekrashevich @APPTRACK-7 @APPTRACK-91 @APPTRACK-876 @APPTRACK-992
+    @Regression @Smoke @Nekrashevich @APPTRACK-7 @APPTRACK-91 @APPTRACK-876 @APPTRACK-992 @Progression
     Scenario: Create a vacancy as OWM Vacancy Manager
       Given User is on SCSS Landing page and user is "OWM Vacancy Manager"
       And User is on SCSS landing page
