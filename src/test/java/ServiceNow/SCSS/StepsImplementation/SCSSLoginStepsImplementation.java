@@ -16,36 +16,16 @@ public class SCSSLoginStepsImplementation extends PageInitializer {
         if (user.equals ("OWM Vacancy Manager")) {
             ServiceNow_Login_Methods.nativeViewSideDoorLogin();
             ServiceNow_Common_Methods.impersonateAnyUser(SCSS_Constants.OWM_VACANCY_MANAGER);
-
-
-//            MiscUtils.sleep(5000);
-//            WebDriverUtils.refreshPage(webDriver);
             WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SCSSPortalView"));
             CucumberLogUtils.logScreenshot();
         } else if (user.equals("Stadtman Vacancy Manager")) {
             ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-            MiscUtils.sleep(5000);
-            nativeViewDashPage.clickUserDropDown();
-            MiscUtils.sleep(2000);
-            nativeViewDashPage.clickImpersonateUserLink();
-            MiscUtils.sleep(2000);
-            nativeViewDashPage.clickImpersonateSearchDD();
-            MiscUtils.sleep(3000);
-            nativeViewDashPage.enterTextImpersntSearchBox(SCSS_Constants.STADTMAN_VACANCY_MANAGER);
-            MiscUtils.sleep(5000);
+            ServiceNow_Common_Methods.impersonateAnyUser(SCSS_Constants.STADTMAN_VACANCY_MANAGER);
             WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SCSSPortalView"));
             CucumberLogUtils.logScreenshot();
         } else {
             ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-            MiscUtils.sleep(5000);
-            nativeViewDashPage.clickUserDropDown();
-            MiscUtils.sleep(2000);
-            nativeViewDashPage.clickImpersonateUserLink();
-            MiscUtils.sleep(2000);
-            nativeViewDashPage.clickImpersonateSearchDD();
-            MiscUtils.sleep(3000);
-            nativeViewDashPage.enterTextImpersntSearchBox(SCSS_Constants.OKTA_APPLICANT);
-            MiscUtils.sleep(5000);
+            ServiceNow_Common_Methods.impersonateAnyUser(SCSS_Constants.OKTA_APPLICANT);
             WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SCSSPortalView"));
             CucumberLogUtils.logScreenshot();
         }

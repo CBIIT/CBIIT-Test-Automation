@@ -37,9 +37,12 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
             MiscUtils.sleep(1000);
             CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateUserWindowButton);
             MiscUtils.sleep(3000);
-            System.out.println(ServiceNow_NCISP_Page.nativeViewLink.getText());
-            MiscUtils.sleep(2000);
-            CommonUtils.clickOnElement(ServiceNow_NCISP_Page.nativeViewLink);
+            boolean nativeViewIsPresent = !ServiceNow_NCISP_Page.allPresentNativeViewLinks.isEmpty();
+            if (nativeViewIsPresent) {
+                System.out.println(ServiceNow_NCISP_Page.nativeViewLink.getText());
+                MiscUtils.sleep(2000);
+                CommonUtils.clickOnElement(ServiceNow_NCISP_Page.nativeViewLink);
+            }
         } catch (NoSuchElementException e) {
             System.out.println(NativeView_SideDoor_Dashboard_Page.impersonateAnotherUserButton.getText());
             MiscUtils.sleep(2000);
