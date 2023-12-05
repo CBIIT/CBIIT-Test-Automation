@@ -64,7 +64,7 @@ public class PageInitializer extends WebDriverUtils {
 	// declare public static variables of types of all the pages
 	/** iTrust instances */
 	public static appsCommon.Pages.ITrustLoginPage iTrustloginPage;
-	public static ITrustLoginPageImpl loginImpl;
+	public static ITrustLoginPageImpl iTrustLoginPageImpl;
 	public static ServiceNow_NCISP_Page serviceNow_ncisp_page;
 
 	/** --------------- GRANTS INSTANCES --------------- */
@@ -299,7 +299,7 @@ public class PageInitializer extends WebDriverUtils {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
 		// create instances of all pages and assign them to the variables
 		iTrustloginPage = new ITrustLoginPage();
-		loginImpl = new ITrustLoginPageImpl();
+		iTrustLoginPageImpl = new ITrustLoginPageImpl();
 		serviceNow_ncisp_page = new ServiceNow_NCISP_Page();
 
 		/** --------------- SERVICENOW INSTANCE VARIABLES --------------- */

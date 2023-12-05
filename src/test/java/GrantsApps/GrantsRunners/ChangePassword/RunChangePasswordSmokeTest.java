@@ -1,4 +1,4 @@
-package GrantsApps.GrantsRunners;
+package GrantsApps.GrantsRunners.ChangePassword;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
