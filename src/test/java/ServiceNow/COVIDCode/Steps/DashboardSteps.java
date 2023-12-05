@@ -26,7 +26,7 @@ public class DashboardSteps extends PageInitializer {
 	public void the_user_lands_on_the_COVIDCode_Home_Page() throws TestingException {
 		covidCodeLoginPage.LogInButton.click();
 		CucumberLogUtils.logScreenshot();
-		loginImpl.loginToITrust();
+		iTrustLoginPageImpl.loginToITrust();
 		CucumberLogUtils.logScreenshot();
 	}
 

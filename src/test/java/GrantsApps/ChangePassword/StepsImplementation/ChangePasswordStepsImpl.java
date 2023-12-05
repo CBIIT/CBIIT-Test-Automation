@@ -27,7 +27,7 @@ public class ChangePasswordStepsImpl extends PageInitializer {
 
     public static void userIsOnLandingPage(String url) throws TestingException {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(url));
-        loginImpl.elizabethiTrustLogin();
+        iTrustLoginPageImpl.elizabethiTrustLogin();
         CucumberLogUtils.logScreenshot();
     }
 

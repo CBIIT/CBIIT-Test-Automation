@@ -23,7 +23,7 @@ public class ServicePortalIQScenarioSteps extends PageInitializer {
 		CucumberLogUtils.logScreenshot();
 		covidCodeLoginPage.LogInButton.click();
 		CucumberLogUtils.logScreenshot();
-		loginImpl.loginToITrust();
+		iTrustLoginPageImpl.loginToITrust();
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
 		servicePortalQuestionnairePage.startNewInitialQuestionnaireButton.click();
@@ -104,7 +104,7 @@ public class ServicePortalIQScenarioSteps extends PageInitializer {
 		CucumberLogUtils.logScreenshot();
 		covidCodeLoginPage.LogInButton.click();
 		CucumberLogUtils.logScreenshot();
-		loginImpl.loginToITrust();
+		iTrustLoginPageImpl.loginToITrust();
 		CucumberLogUtils.logScreenshot();
 		// Start New initial questionnaire, select Group1 and click on create Enrollment
 		// Button
