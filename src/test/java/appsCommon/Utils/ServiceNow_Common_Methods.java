@@ -8,25 +8,22 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 
 public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializer {
 
     /***
-     * USE THIS METHOD TO IMPERSONATE ANY USER
+     * USE THIS METHOD TO IMPERSONATE ANY USER AND LAND IN NATIVE VIEW
      * @param user
      */
-    public static void impersonateAnyUser(String user) {
+    public static void impersonate_Any_User_And_Land_In_Native_View(String user) {
         CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.profileButton);
         try {
             boolean impersonateUser = NativeView_SideDoor_Dashboard_Page.impersonateUserButton.getText().contentEquals("Impersonate user");
             if (impersonateUser) {
-                System.out.println(NativeView_SideDoor_Dashboard_Page.impersonateUserButton.getText());
                 MiscUtils.sleep(2000);
                 CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateUserButton);
             } else {
-                System.out.println(NativeView_SideDoor_Dashboard_Page.impersonateAnotherUserButton.getText());
                 MiscUtils.sleep(2000);
                 CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateAnotherUserButton);
             }
@@ -37,26 +34,67 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
             MiscUtils.sleep(1000);
             CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateUserWindowButton);
             MiscUtils.sleep(3000);
-            boolean nativeViewIsPresent = !ServiceNow_NCISP_Page.allPresentNativeViewLinks.isEmpty();
-            if (nativeViewIsPresent) {
-                System.out.println(ServiceNow_NCISP_Page.nativeViewLink.getText());
-                MiscUtils.sleep(2000);
-                CommonUtils.clickOnElement(ServiceNow_NCISP_Page.nativeViewLink);
-            }
-        } catch (NoSuchElementException e) {
-            System.out.println(NativeView_SideDoor_Dashboard_Page.impersonateAnotherUserButton.getText());
+            CommonUtils.clickOnElement(ServiceNow_NCISP_Page.nativeViewLink);
             MiscUtils.sleep(2000);
-            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateAnotherUserButton);
+        } catch (NoSuchElementException e) {
+            boolean impersonateUser = NativeView_SideDoor_Dashboard_Page.impersonateUserButton.getText().contentEquals("Impersonate user");
+            if (impersonateUser) {
+                MiscUtils.sleep(2000);
+                CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateUserButton);
+            } else {
+                MiscUtils.sleep(2000);
+                CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateAnotherUserButton);
+            }
             MiscUtils.sleep(2000);
             CommonUtils.sendKeysToElement(NativeView_SideDoor_Dashboard_Page.impersonateSearchTextBox, user);
             MiscUtils.sleep(2000);
-            NativeView_SideDoor_Dashboard_Page.impersonateSearchTextBox.sendKeys(Keys.ENTER);
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateSearchFirstValue);
             MiscUtils.sleep(1000);
             CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateUserWindowButton);
             MiscUtils.sleep(3000);
-            System.out.println(ServiceNow_NCISP_Page.nativeViewLink.getText());
-            MiscUtils.sleep(2000);
             CommonUtils.clickOnElement(ServiceNow_NCISP_Page.nativeViewLink);
+            MiscUtils.sleep(2000);
+        }
+    }
+
+    /**
+     * USE THIS METHOD TO IMPERSONATE ANY USER WITHOUT LANDING IN NATIVE VIEW
+     * @param user
+     */
+    public static void impersonate_Any_User_Without_Landing_In_Native_View(String user){
+        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.profileButton);
+        try {
+            boolean impersonateUser = NativeView_SideDoor_Dashboard_Page.impersonateUserButton.getText().contentEquals("Impersonate user");
+            if (impersonateUser) {
+                MiscUtils.sleep(2000);
+                CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateUserButton);
+            } else {
+                MiscUtils.sleep(2000);
+                CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateAnotherUserButton);
+            }
+            MiscUtils.sleep(2000);
+            CommonUtils.sendKeysToElement(NativeView_SideDoor_Dashboard_Page.impersonateSearchTextBox, user);
+            MiscUtils.sleep(2000);
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateSearchFirstValue);
+            MiscUtils.sleep(1000);
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateUserWindowButton);
+            MiscUtils.sleep(2000);
+        } catch (NoSuchElementException e) {
+            boolean impersonateUser = NativeView_SideDoor_Dashboard_Page.impersonateUserButton.getText().contentEquals("Impersonate user");
+            if (impersonateUser) {
+                MiscUtils.sleep(2000);
+                CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateUserButton);
+            } else {
+                MiscUtils.sleep(2000);
+                CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateAnotherUserButton);
+            }
+            MiscUtils.sleep(2000);
+            CommonUtils.sendKeysToElement(NativeView_SideDoor_Dashboard_Page.impersonateSearchTextBox, user);
+            MiscUtils.sleep(2000);
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateSearchFirstValue);
+            MiscUtils.sleep(1000);
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateUserWindowButton);
+            MiscUtils.sleep(2000);
         }
     }
 

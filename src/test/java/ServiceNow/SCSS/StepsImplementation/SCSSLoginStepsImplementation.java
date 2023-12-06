@@ -15,17 +15,17 @@ public class SCSSLoginStepsImplementation extends PageInitializer {
     public void sCSSLogin(String user) {
         if (user.equals ("OWM Vacancy Manager")) {
             ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-            ServiceNow_Common_Methods.impersonateAnyUser(SCSS_Constants.OWM_VACANCY_MANAGER);
+            ServiceNow_Common_Methods.impersonate_Any_User_Without_Landing_In_Native_View(SCSS_Constants.OWM_VACANCY_MANAGER);
             WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SCSSPortalView"));
             CucumberLogUtils.logScreenshot();
         } else if (user.equals("Stadtman Vacancy Manager")) {
             ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-            ServiceNow_Common_Methods.impersonateAnyUser(SCSS_Constants.STADTMAN_VACANCY_MANAGER);
+            ServiceNow_Common_Methods.impersonate_Any_User_Without_Landing_In_Native_View(SCSS_Constants.STADTMAN_VACANCY_MANAGER);
             WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SCSSPortalView"));
             CucumberLogUtils.logScreenshot();
         } else {
             ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-            ServiceNow_Common_Methods.impersonateAnyUser(SCSS_Constants.OKTA_APPLICANT);
+            ServiceNow_Common_Methods.impersonate_Any_User_Without_Landing_In_Native_View(SCSS_Constants.OKTA_APPLICANT);
             WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SCSSPortalView"));
             CucumberLogUtils.logScreenshot();
         }

@@ -16,10 +16,6 @@ public class ServiceNow_NCISP_Page {
     @FindBy(linkText = "Native View")
     public static WebElement nativeViewLink;
 
-    /** NATIVE VIEW LINK CONDITION**/
-    @FindAll({@FindBy(linkText = "Native View")})
-    public static List<WebElement> allPresentNativeViewLinks;
-
     public ServiceNow_NCISP_Page(){
         ElementFieldDecorator decorator = new ElementFieldDecorator(new DefaultElementLocatorFactory(WebDriverUtils.webDriver));
         PageFactory.initElements(decorator, this);
