@@ -103,7 +103,7 @@ Then User can successfully edit that profile
 And User resets profile data
 
 
-@filterOutManageRolesTabAdminPostiveNCI @Regression @Needs_review
+@filterOutManageRolesTabAdminPostiveNCI @Regression @Needs_review @Progression
 Scenario: filter out profiles
 When User clicks on Manage Roles tab
 Then user can see the filter option present
