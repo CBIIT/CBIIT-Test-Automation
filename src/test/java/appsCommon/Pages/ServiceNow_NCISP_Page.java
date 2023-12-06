@@ -8,8 +8,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.DefaultElementLocatorFactory;
 
-import java.util.List;
-
 public class ServiceNow_NCISP_Page {
 
     /** NATIVE LINK **/
