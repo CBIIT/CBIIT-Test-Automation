@@ -17,13 +17,12 @@ import org.openqa.selenium.WebElement;
 public class ETDFlowStepsImpl extends PageInitializer {
 
 	public void etdLogin(String userName) throws TestingException {
-//		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ETD"));
-//		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "nekrashevicha2Username");
-//		MiscUtils.sleep(3000);
-//		iTrustloginPage.enterPassword("nekrashevicha2Password");
-//		MiscUtils.sleep(5000);
-//		iTrustloginPage.clickSignInButton();
-
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ETD"));
+		iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "nekrashevicha2Username");
+		MiscUtils.sleep(3000);
+		iTrustloginPage.enterPassword("nekrashevicha2Password");
+		MiscUtils.sleep(5000);
+		iTrustloginPage.clickSignInButton();
 		MiscUtils.sleep(3000);
 		JavascriptUtils.scrollIntoView(etdAdminNCIPage.changeUserButtonNCI);
 		JavascriptUtils.clickByJS(etdAdminNCIPage.changeUserButtonNCI);
