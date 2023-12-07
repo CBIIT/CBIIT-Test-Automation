@@ -9,8 +9,7 @@ public class ApplicantFlowSteps extends PageInitializer {
 
     @Given("User is on Profile tab")
     public void user_is_on_profile_tab() {
-        CommonUtils.waitForVisibility(applicantFlowPage.tabProfile);
-        CommonUtils.clickOnElement(applicantFlowPage.tabProfile);
+        applicantFlowStepsImplementation.userIsOnProfileTab();
     }
 
     @Given("User clicks Edit for {string} section")
@@ -90,8 +89,7 @@ public class ApplicantFlowSteps extends PageInitializer {
 
     @Given("User saves the updated section")
     public void user_saves_the_updated_section() {
-        CommonUtils.waitForVisibility(applicantFlowPage.buttonSave);
-        CommonUtils.clickOnElement(applicantFlowPage.buttonSave);
+        applicantFlowStepsImplementation.userSavesUpdatedSection();
     }
 
     @Given("User edits sex choice")
