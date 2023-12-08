@@ -3,6 +3,7 @@ package GrantsApps.EM.Pages;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -101,10 +102,10 @@ public class ManageI2EUsersPage {
     public WebElement showAdvancedFilters;
 
     /**
-     * I2E Account Status
+     * I2E Account Status Drop down
      */
     @FindBy(xpath = "//ng-select2[@multiple='false']//span//ul")
-    public WebElement i2eAccountStatus;
+    public WebElement i2eAccountStatusDropDown;
 
     /**
      * I2E Account Status Value
@@ -119,11 +120,17 @@ public class ManageI2EUsersPage {
     public WebElement createButton;
 
     /**
+     * User's full name
+     */
+    @FindBy(xpath = "/html/body/app-root/div/div/div[2]/main/app-search/div/div[2]/div/div/div/table/tbody/tr[1]/td[1]/app-user-details-renderer/lib-name-render/div/a")
+    public WebElement fullNEDName;
+
+    /**
      * Create New Account page title
      */
-
     @FindBy(xpath = "//main[@data-select2-id='main']//app-create-account//div//div//div//h3")
     public WebElement createNewAccountTitle;
+
     /***
      * USE THIS METHOD TO DYNAMICALLY LOCATE A USER
      * @param user

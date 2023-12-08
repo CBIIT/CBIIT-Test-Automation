@@ -134,8 +134,8 @@ public class EMStepsImplementation extends PageInitializer {
     }
 
     public static void selects_values_in_i2e_account_status_drop_down_list(String text) {
-        CommonUtils.waitForVisibility(manageI2EUsersPage.i2eAccountStatus);
-        manageI2EUsersPage.i2eAccountStatus.click();
+        CommonUtils.waitForVisibility(manageI2EUsersPage.i2eAccountStatusDropDown);
+        manageI2EUsersPage.i2eAccountStatusDropDown.click();
         CommonUtils.selectValueFromBootStrapDropDown(manageI2EUsersPage.i2eAccountStatusValues, text);
         MiscUtils.sleep(2000);
     }

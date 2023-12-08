@@ -195,4 +195,9 @@ public class JavascriptUtils extends WebDriverUtils {
 		element.sendKeys(filePath);
 	}
 
+	public static String getTextUsingJS(WebElement e){
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) webDriver;
+		return (String) jsExecutor.executeScript("return arguments[0].textContent;", e);
+	}
+
 }
