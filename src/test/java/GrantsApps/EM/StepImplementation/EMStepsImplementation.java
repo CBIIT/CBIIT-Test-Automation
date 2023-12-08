@@ -40,25 +40,25 @@ public class EMStepsImplementation extends PageInitializer {
         }
     }
 
-    public static void user_is_logged_in_as_primary_ic_coordinator(){
+    public static void user_is_logged_in_as_primary_ic_coordinator() {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("EM"));
         iTrustLoginPageImpl.loginToITrust();
         CucumberLogUtils.logScreenshot();
     }
 
-    public static void verifies_that_first_and_last_name_of_logged_in_user_are_shown(String user){
+    public static void verifies_that_first_and_last_name_of_logged_in_user_are_shown(String user) {
         String actualUser = ManageI2EUsersPage.dynamicUserTextLocator(user).getText();
         Assert.assertEquals(actualUser, user);
         CucumberLogUtils.logScreenshot();
     }
 
-    public static void verifyingUserIsOnI2EPage(String expectedPageName){
+    public static void verifyingUserIsOnI2EPage(String expectedPageName) {
         String actualPageName = manageI2EUsersPage.i2ePageTitle.getText();
         Assert.assertEquals(actualPageName, expectedPageName);
         CucumberLogUtils.logScreenshot();
     }
 
-    public static void is_able_to_navigate_to_hyperlink(String linkText){
+    public static void is_able_to_navigate_to_hyperlink(String linkText) {
         String emWindowHandle = WebDriverUtils.webDriver.getWindowHandle();
 
         switch (linkText) {
@@ -90,7 +90,8 @@ public class EMStepsImplementation extends PageInitializer {
                 break;
         }
     }
-    public static void verifyingHelpDropDownOptions(String helpDropDown, String option1, String option2, String option3){
+
+    public static void verifyingHelpDropDownOptions(String helpDropDown, String option1, String option2, String option3) {
         CommonUtils.clickOnElement(ManageI2EUsersPage.dynamicLinkLocator(helpDropDown));
         MiscUtils.sleep(2000);
 
@@ -107,7 +108,7 @@ public class EMStepsImplementation extends PageInitializer {
         Assert.assertEquals(actualHelpDropDownValues, expectedValues);
     }
 
-    public static void verifyingHelpDropDownUrls(String hyperlinkText, String URL){
+    public static void verifyingHelpDropDownUrls(String hyperlinkText, String URL) {
         String emMainWindowHandle = webDriver.getWindowHandle();
         ManageI2EUsersPage.dynamicLinkLocator("Help ").click();
         CucumberLogUtils.logScreenshot();
@@ -122,13 +123,33 @@ public class EMStepsImplementation extends PageInitializer {
         MiscUtils.sleep(1000);
     }
 
-    public static void verifyingContactOptions(String option1, String option2){
+    public static void verifyingContactOptions(String option1, String option2) {
         ManageI2EUsersPage.dynamicLinkLocator("Contact ").click();
         MiscUtils.sleep(2000);
         String actualEmailTechnicalSupportText = ManageI2EUsersPage.dynamicLinkLocator(option1).getText();
         Assert.assertEquals(actualEmailTechnicalSupportText, option1.trim());
         String actualEmailBusinessPolicyText = ManageI2EUsersPage.dynamicLinkLocator(option2).getText();
         Assert.assertEquals(actualEmailBusinessPolicyText, option2.trim());
+        CucumberLogUtils.logScreenshot();
+    }
+
+    public static void selects_values_in_i2e_account_status_drop_down_list(String text) {
+        CommonUtils.waitForVisibility(manageI2EUsersPage.i2eAccountStatus);
+        manageI2EUsersPage.i2eAccountStatus.click();
+        CommonUtils.selectValueFromBootStrapDropDown(manageI2EUsersPage.i2eAccountStatusValues, text);
+        MiscUtils.sleep(2000);
+    }
+
+    public static void clicks_create_on_the_first_record_in_the_results() {
+        MiscUtils.sleep(5000);
+        JavascriptUtils.scrollIntoView(manageI2EUsersPage.createButton);
+        JavascriptUtils.clickByJS(manageI2EUsersPage.createButton);
+        MiscUtils.sleep(2000);
+    }
+
+    public static void user_can_verify_the_page_name_is(String expectedPageName) {
+        String actualPageName = manageI2EUsersPage.createNewAccountTitle.getText();
+        Assert.assertEquals(actualPageName, expectedPageName);
         CucumberLogUtils.logScreenshot();
     }
 }

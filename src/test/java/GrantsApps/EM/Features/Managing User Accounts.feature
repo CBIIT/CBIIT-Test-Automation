@@ -8,3 +8,4 @@ Feature: Managing User Accounts
     And selects "Not Created" in I2E Account Status drop down list
     And searches
     And clicks Create on the first record in the results
+    And User can verify the page name is "Create New Account"

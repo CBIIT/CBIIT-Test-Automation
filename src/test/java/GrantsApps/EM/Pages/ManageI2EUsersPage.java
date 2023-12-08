@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
 import java.util.List;
 
 public class ManageI2EUsersPage {
@@ -93,6 +94,36 @@ public class ManageI2EUsersPage {
     @FindBy(xpath = "//*[@id='headerCollapse']/ul/li[2]/div/div/a")
     public List<WebElement> i2eHelpDropDownValues;
 
+    /**
+     * Show Advanced Filters link
+     */
+    @FindBy(xpath = "//body/app-root/div/div/div/main/app-search/div/div/div/a[1]")
+    public WebElement showAdvancedFilters;
+
+    /**
+     * I2E Account Status
+     */
+    @FindBy(xpath = "//ng-select2[@multiple='false']//span//ul")
+    public WebElement i2eAccountStatus;
+
+    /**
+     * I2E Account Status Value
+     */
+    @FindBy(xpath = "/html/body/span/span/span/ul/li")
+    public List<WebElement> i2eAccountStatusValues;
+
+    /**
+     * Create Button
+     */
+    @FindBy(xpath = "//tbody/tr[1]/td[8]/app-action-cell-renderer[1]/div[1]/button[1]")
+    public WebElement createButton;
+
+    /**
+     * Create New Account page title
+     */
+
+    @FindBy(xpath = "//main[@data-select2-id='main']//app-create-account//div//div//div//h3")
+    public WebElement createNewAccountTitle;
     /***
      * USE THIS METHOD TO DYNAMICALLY LOCATE A USER
      * @param user
@@ -103,7 +134,7 @@ public class ManageI2EUsersPage {
     }
 
     public static WebElement dynamicLinkLocator(String text) {
-       return WebDriverUtils.webDriver.findElement(By.xpath("//a[text()='" + text + "']"));
+        return WebDriverUtils.webDriver.findElement(By.xpath("//a[text()='" + text + "']"));
     }
 
     public ManageI2EUsersPage() {
