@@ -16,7 +16,7 @@ import org.testng.Assert;
 
 public class Managing_User_Accounts_Steps extends PageInitializer {
 
-    String actualNEDname;
+    String expectedNEDname;
 
     @Given("clicks Show Advanced Filters")
     public void clicks_show_advanced_filters() {
@@ -37,9 +37,9 @@ public class Managing_User_Accounts_Steps extends PageInitializer {
     public void user_can_verify_that_user_s_full_name_is_displayed() {
         MiscUtils.sleep(5000);
         JavascriptUtils.scrollIntoView(manageI2EUsersPage.createButton);
-        actualNEDname = JavascriptUtils.getTextUsingJS(manageI2EUsersPage.fullNEDName);
-        System.out.println(actualNEDname);
+        expectedNEDname = JavascriptUtils.getTextUsingJS(manageI2EUsersPage.fullNEDName);
     }
+
     @Given("clicks Create on the first record in the results")
     public void clicks_create_on_the_first_record_in_the_results() {
         EMStepsImplementation.clicks_create_on_the_first_record_in_the_results();
@@ -49,6 +49,17 @@ public class Managing_User_Accounts_Steps extends PageInitializer {
     @Given("User can verify the page name is {string}")
     public void user_can_verify_the_page_name_is(String expectedName) {
         EMStepsImplementation.user_can_verify_the_page_name_is(expectedName);
+    }
+
+    @Given("can verify that User's full name is displayed")
+    public void can_verify_that_user_s_full_name_is_displayed() {
+        String actual_NED_full_name = createNewAccountPage.full_NED_name.getText();
+        Assert.assertEquals(actual_NED_full_name, expectedNEDname);
+    }
+
+    @Given("can verify the respective wording of Full Name tooltip {string}")
+    public void can_verify_the_respective_wording_of_full_name_tooltip(String expectedWording_of_full_name_tooltip) {
+        EMStepsImplementation.user_can_verify_the_respective_wording_of_full_name_tooltip(expectedWording_of_full_name_tooltip);
     }
 
 }

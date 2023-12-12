@@ -148,8 +148,14 @@ public class EMStepsImplementation extends PageInitializer {
     }
 
     public static void user_can_verify_the_page_name_is(String expectedPageName) {
-        String actualPageName = manageI2EUsersPage.createNewAccountTitle.getText();
+        String actualPageName = createNewAccountPage.createNewAccountTitle.getText();
         Assert.assertEquals(actualPageName, expectedPageName);
         CucumberLogUtils.logScreenshot();
+    }
+
+    public static void user_can_verify_the_respective_wording_of_full_name_tooltip(String expectedWording_of_full_name_tooltip) {
+        createNewAccountPage.tooltipNEDnameLink.click();
+        String actualWording_of_full_name_tooltip = createNewAccountPage.tooltipNEDnameText.getText();
+        Assert.assertEquals(actualWording_of_full_name_tooltip, expectedWording_of_full_name_tooltip);
     }
 }

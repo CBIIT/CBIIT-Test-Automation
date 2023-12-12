@@ -10,3 +10,5 @@ Feature: Managing User Accounts
     And gets the full NED name of the first record
     And clicks Create on the first record in the results
     And User can verify the page name is "Create New Account"
+    And can verify that User's full name is displayed
+    And can verify the respective wording of Full Name tooltip "Legal Name is always displayed first, followed by Preferred Name."
