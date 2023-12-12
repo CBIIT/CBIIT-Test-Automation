@@ -12,6 +12,7 @@ import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -157,5 +158,37 @@ public class EMStepsImplementation extends PageInitializer {
         createNewAccountPage.tooltipNEDnameLink.click();
         String actualWording_of_full_name_tooltip = createNewAccountPage.tooltipNEDnameText.getText();
         Assert.assertEquals(actualWording_of_full_name_tooltip, expectedWording_of_full_name_tooltip);
+    }
+
+    public static void user_can_verify_that_the_following_fields_have_values_displayed_nih_network_id_e_mail_ned_organization_sac_code_ned_classification() {
+        boolean is_NIH_network_id_displayed = createNewAccountPage.nihNetworkID.isDisplayed();
+        Assert.assertTrue(is_NIH_network_id_displayed, "-- VERIFYING THAT NIH NETWORK ID VALUE IS DISPLAYED --");
+        boolean is_email_displayed = createNewAccountPage.email.isDisplayed();
+        Assert.assertTrue(is_email_displayed, "--VERIFYING THAT EMAIL VALUE IS DISPLAYED --");
+        boolean is_NED_organization_displayed = createNewAccountPage.ned_organisation.isDisplayed();
+        Assert.assertTrue(is_NED_organization_displayed, "--VERIFYING THAT NED ORGANISATION VALUE IS DISPLAYED --");
+        boolean is_SAC_code_displayed = createNewAccountPage.sac_code.isDisplayed();
+        Assert.assertTrue(is_SAC_code_displayed, "--VERIFYING THAT SAC CODE VALUE IS DISPLAYED --");
+        boolean is_NED_classification_displayed = createNewAccountPage.ned_classification.isDisplayed();
+        Assert.assertTrue(is_NED_classification_displayed, "--VERIFYING THAT NED CLASSIFICATION VALUE IS DISPLAYED --");
+        CucumberLogUtils.logScreenshot();
+    }
+
+    public static void user_can_verify_that_account_status_is_set_to(String expectedAccountStatus) {
+        String actualAccountStatus = createNewAccountPage.account_status.getText();
+        Assert.assertEquals(actualAccountStatus, expectedAccountStatus);
+    }
+
+    public static void user_can_verify_the_table_title_is(String expectedI2ErolesTableTitle) {
+        String actualI2ErolesTableTitle = createNewAccountPage.active_I2E_roles_table_title.getText();
+        Assert.assertEquals(actualI2ErolesTableTitle, expectedI2ErolesTableTitle);
+    }
+
+    public static void user_can_verify_the_pdf_document_link_opens_upon_clicking_on_the_list_of_i2e_roles_hyperlink(String expected_I2E_roles_pdf_url) {
+        createNewAccountPage.list_of_I2E_roles_link.click();
+        CommonUtils.switchToNextWindow();
+        CucumberLogUtils.logScreenshot();
+        String actual_I2E_roles_pdf_url = webDriver.getCurrentUrl();
+        Assert.assertEquals(actual_I2E_roles_pdf_url, expected_I2E_roles_pdf_url);
     }
 }

@@ -12,6 +12,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 public class Managing_User_Accounts_Steps extends PageInitializer {
@@ -62,4 +63,23 @@ public class Managing_User_Accounts_Steps extends PageInitializer {
         EMStepsImplementation.user_can_verify_the_respective_wording_of_full_name_tooltip(expectedWording_of_full_name_tooltip);
     }
 
+    @Given("can verify that the following fields have values displayed: NIH \\(Network) ID, E-mail, NED Organization, SAC Code, NED Classification")
+    public void can_verify_that_the_following_fields_have_values_displayed_nih_network_id_e_mail_ned_organization_sac_code_ned_classification() {
+        EMStepsImplementation.user_can_verify_that_the_following_fields_have_values_displayed_nih_network_id_e_mail_ned_organization_sac_code_ned_classification();
+    }
+
+    @Given("can verify that Account Status is set to {string}")
+    public void can_verify_that_account_status_is_set_to(String expectedAccountStatus) {
+        EMStepsImplementation.user_can_verify_that_account_status_is_set_to(expectedAccountStatus);
+    }
+
+    @Given("can verify the table title is {string}")
+    public void can_verify_the_table_title_is(String expectedI2ErolesTableTitle) {
+        EMStepsImplementation.user_can_verify_the_table_title_is(expectedI2ErolesTableTitle);
+    }
+
+    @Given("can verify the PDF document link {string} opens upon clicking on the List of I2E Roles hyperlink")
+    public void can_verify_the_pdf_document_link_opens_upon_clicking_on_the_list_of_i2e_roles_hyperlink(String expected_I2E_roles_pdf_url) {
+        EMStepsImplementation.user_can_verify_the_pdf_document_link_opens_upon_clicking_on_the_list_of_i2e_roles_hyperlink(expected_I2E_roles_pdf_url);
+    }
 }
