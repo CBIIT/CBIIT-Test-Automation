@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class CreateNewAccountPage {
 
     /**
@@ -79,6 +81,12 @@ public class CreateNewAccountPage {
      */
     @FindBy(xpath = "//a[@taget='_blank']")
     public WebElement list_of_I2E_roles_link;
+
+    /**
+     * LIST OF ACTIVE I2E ROLES HEADERS
+     */
+    @FindBy(xpath = "/html/body/app-root/div/div/div[2]/main/app-create-account/div/app-role-information/div/div[2]/form/div/table/thead/tr/th")
+    public List<WebElement> active_I2E_roles_headers;
 
     public CreateNewAccountPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);

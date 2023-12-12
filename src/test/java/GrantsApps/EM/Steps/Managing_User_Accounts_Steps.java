@@ -82,4 +82,9 @@ public class Managing_User_Accounts_Steps extends PageInitializer {
     public void can_verify_the_pdf_document_link_opens_upon_clicking_on_the_list_of_i2e_roles_hyperlink(String expected_I2E_roles_pdf_url) {
         EMStepsImplementation.user_can_verify_the_pdf_document_link_opens_upon_clicking_on_the_list_of_i2e_roles_hyperlink(expected_I2E_roles_pdf_url);
     }
+
+    @Given("can verify that the following fields {string}, {string}, {string}, {string}, {string} are present")
+    public void can_verify_that_the_following_fields_are_present(String expectedRoleText, String expectedRoleOrganisationText, String expectedAssignedCAtext, String expectedStartDateText, String expectedAction) {
+        EMStepsImplementation.user_can_verify_that_the_following_fields_are_present(expectedRoleText, expectedRoleOrganisationText, expectedAssignedCAtext, expectedStartDateText, expectedAction);
+    }
 }

@@ -1,5 +1,6 @@
 package GrantsApps.EM.StepImplementation;
 
+import GrantsApps.EM.Pages.CreateNewAccountPage;
 import GrantsApps.EM.Pages.ManageI2EUsersPage;
 import GrantsApps.EM.Utils.EM_Constants;
 import appsCommon.PageInitializers.PageInitializer;
@@ -185,10 +186,29 @@ public class EMStepsImplementation extends PageInitializer {
     }
 
     public static void user_can_verify_the_pdf_document_link_opens_upon_clicking_on_the_list_of_i2e_roles_hyperlink(String expected_I2E_roles_pdf_url) {
+        String emMainWindowHandle = webDriver.getWindowHandle();
         createNewAccountPage.list_of_I2E_roles_link.click();
         CommonUtils.switchToNextWindow();
         CucumberLogUtils.logScreenshot();
         String actual_I2E_roles_pdf_url = webDriver.getCurrentUrl();
         Assert.assertEquals(actual_I2E_roles_pdf_url, expected_I2E_roles_pdf_url);
+        webDriver.switchTo().window(emMainWindowHandle);
     }
+
+    public static void user_can_verify_that_the_following_fields_are_present(String expectedRoleText, String expectedRoleOrganisationText, String expectedAssignedCAtext, String expectedStartDateText, String expectedAction) {
+        List<String> actualHeaders = new ArrayList<>();
+        List<String> expectedHeaders = new ArrayList<>();
+        expectedHeaders.add(expectedRoleText);
+        expectedHeaders.add(expectedRoleOrganisationText);
+        expectedHeaders.add(expectedAssignedCAtext);
+        expectedHeaders.add(expectedStartDateText);
+        expectedHeaders.add(expectedAction);
+        for (WebElement header : createNewAccountPage.active_I2E_roles_headers) {
+            String actualHeader = header.getText();
+            actualHeaders.add(actualHeader);
+        }
+        Assert.assertEquals(actualHeaders,expectedHeaders);
+
+    }
+
 }
