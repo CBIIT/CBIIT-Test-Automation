@@ -44,7 +44,7 @@ public class FollowUpFormSteps extends PageInitializer {
 		CucumberLogUtils.logScreenshot();
 		covidCodeLoginPage.LogInButton.click();
 		CucumberLogUtils.logScreenshot();
-		loginImpl.loginToITrust();
+		iTrustLoginPageImpl.loginToITrust();
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
 		// ADDING TEMPORARY WORK AROUND TO LOG INTO FOLLOW UP FORM

@@ -52,61 +52,26 @@ public class FHQChildRecordProducerSteps extends PageInitializer {
 
 	@Given("verifies the Child List View details")
 	public void verifies_the_Child_List_View_details() {
-
-		ComponentTestResult charmsBannerTest = FHQUtil.verifyLabel(
-				fHQSurveyPortalPage.familyCohortStudyManagementSystemLabel,
-				"Family Cohort Study Management System: RASopathies");
-
+		ComponentTestResult charmsBannerTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.familyCohortStudyManagementSystemLabel,"Family Cohort Study Management System: RASopathies");
 		ComponentTestResult homeButtonTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.homeButton, "FHQ Home");
-
 		ComponentTestResult listViewButtonTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.listViewButton, "List View");
-
 		ComponentTestResult contextMenuTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.childContextMenuButton, "");
-
 		ComponentTestResult labelTest1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.childrenBanner, "Sons/Daughters");
-
 		ComponentTestResult labelTest2 = FHQUtil.verifyLabel(fHQSurveyPortalPage.newButtonLinkOnListView, "New");
-
-		 ComponentTestResult labelTest3 =
-		 FHQUtil.verifyLabel(fHQSurveyPortalPage.rowsDetailsOnListView,
-		 "The blue highlighted rows represent the incompleted family records");
-
+		ComponentTestResult labelTest3 = FHQUtil.verifyLabel(fHQSurveyPortalPage.rowsDetailsOnListView, "The blue highlighted rows represent the incompleted family records");
 		ComponentTestResult labelTest4 = FHQUtil.verifyLabel(fHQSurveyPortalPage.allDetailsOnListView, "All");
-
-		ComponentTestResult labelTest5 = FHQUtil.verifyLabel(fHQSurveyPortalPage.childRelationToPatientBannerOnListView,
-				"Relation to patient = Son/Daughter");
-
+		ComponentTestResult labelTest5 = FHQUtil.verifyLabel(fHQSurveyPortalPage.childRelationToPatientBannerOnListView,"Relation to patient = Son/Daughter");
 		ComponentTestResult labelTest6 = FHQUtil.verifyLabel(fHQSurveyPortalPage.firstNameOnListView, "First Name");
-
-		ComponentTestResult labelTest7 = FHQUtil.verifyLabel(fHQSurveyPortalPage.firstInitialOfLastNameOnListView,
-				"First Initial of LAST Name");
-
+		ComponentTestResult labelTest7 = FHQUtil.verifyLabel(fHQSurveyPortalPage.firstInitialOfLastNameOnListView,"First Initial of LAST Name");
 		ComponentTestResult labelTest8 = FHQUtil.verifyLabel(fHQSurveyPortalPage.vitalStatusOnListView, "Vital Status");
-
-		ComponentTestResult labelTest9 = FHQUtil.verifyLabel(fHQSurveyPortalPage.yearOfBirthOnListView,
-				"Year of Birth");
-
-		ComponentTestResult labelTest10 = FHQUtil.verifyLabel(fHQSurveyPortalPage.relationToPatientOnListView,
-				"Relation to patient");
-
-		ComponentTestResult labelTest11 = FHQUtil.verifyLabel(fHQSurveyPortalPage.sexAssignedAtBirthOnListView,
-				"Sex assigned at birth");
-
-		ComponentTestResult labelTest12 = FHQUtil.verifyLabel(fHQSurveyPortalPage.childFirstNameOnListViewValue,
-				"Participant Child FN");
-
-		ComponentTestResult labelTest13 = FHQUtil
-				.verifyLabel(fHQSurveyPortalPage.childFirstInitialOfLastNameOnListViewValue, "A");
-
-		ComponentTestResult labelTest14 = FHQUtil.verifyLabel(fHQSurveyPortalPage.childVitalStatusOnListViewValue,
-				"Alive");
-
-		ComponentTestResult labelTest15 = FHQUtil.verifyLabel(fHQSurveyPortalPage.childRelationToPatientOnListViewValue,
-				"Son/Daughter");
-
-		StepTestResult stepTestResult = new StepTestResult(
-				"The Participant Sons/Daughters details on the List View page are verified");
-
+		ComponentTestResult labelTest9 = FHQUtil.verifyLabel(fHQSurveyPortalPage.yearOfBirthOnListView,"Year of Birth");
+		ComponentTestResult labelTest10 = FHQUtil.verifyLabel(fHQSurveyPortalPage.relationToPatientOnListView,"Relation to patient");
+		ComponentTestResult labelTest11 = FHQUtil.verifyLabel(fHQSurveyPortalPage.sexAssignedAtBirthOnListView,"Sex assigned at birth");
+		ComponentTestResult labelTest12 = FHQUtil.verifyLabel(fHQSurveyPortalPage.childFirstNameOnListViewValue,"Participant Child FN");
+		ComponentTestResult labelTest13 = FHQUtil.verifyLabel(fHQSurveyPortalPage.childFirstInitialOfLastNameOnListViewValue, "A");
+		ComponentTestResult labelTest14 = FHQUtil.verifyLabel(fHQSurveyPortalPage.childVitalStatusOnListViewValue,"Alive");
+		ComponentTestResult labelTest15 = FHQUtil.verifyLabel(fHQSurveyPortalPage.childRelationToPatientOnListViewValue,"Son/Daughter");
+		StepTestResult stepTestResult = new StepTestResult("The Participant Sons/Daughters details on the List View page are verified");
 		stepTestResult.add(charmsBannerTest);
 		stepTestResult.add(homeButtonTest);
 		stepTestResult.add(listViewButtonTest);
@@ -126,40 +91,21 @@ public class FHQChildRecordProducerSteps extends PageInitializer {
 		stepTestResult.add(labelTest13);
 		stepTestResult.add(labelTest14);
 		stepTestResult.add(labelTest15);
-
 		scenarioReportList.add(stepTestResult);
-
 	}
 
 	@When("clicks the New button on the FHQ Childs list view page it lands on the FHQ new child record producer page")
 	public void clicks_the_New_button_on_the_FHQ_Childs_list_view_page_it_lands_on_the_FHQ_new_child_record_producer_page() {
-
 		fHQSurveyPortalPage.newButtonLinkOnListView.click();
-
-		ComponentTestResult charmsBannerTest = FHQUtil.verifyLabel(
-				fHQSurveyPortalPage.familyCohortStudyManagementSystemLabel,
-				"Family Cohort Study Management System: RASopathies");
-
+		ComponentTestResult charmsBannerTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.familyCohortStudyManagementSystemLabel,"Family Cohort Study Management System: RASopathies");
 		ComponentTestResult homeButtonTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.homeButton, "FHQ Home");
-
 		ComponentTestResult listViewButtonTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.listView1Button, "List View");
-
 		ComponentTestResult formViewButtonTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.formViewButton, "Form View");
-
-		ComponentTestResult headerBanner = FHQUtil.verifyLabel(fHQSurveyPortalPage.headerBanner,
-				"We know families come in various configurations. This survey is primarily meant to record health information on your biological (blood-related) relatives. It's okay not to know information about some of your relatives. You will have a chance to tell us about any non-biological relatives you would like us to add to your family tree (for example, an adopted sibling or a step-parent) at the end of the survey.");
-
+		ComponentTestResult headerBanner = FHQUtil.verifyLabel(fHQSurveyPortalPage.headerBanner,"We know families come in various configurations. This survey is primarily meant to record health information on your biological (blood-related) relatives. It's okay not to know information about some of your relatives. You will have a chance to tell us about any non-biological relatives you would like us to add to your family tree (for example, an adopted sibling or a step-parent) at the end of the survey.");
 		ComponentTestResult labelTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.fHQChildBanner, "Son/Daughter");
-
-		ComponentTestResult childRelationBanner = FHQUtil.verifyLabel(fHQSurveyPortalPage.childRelationBanner,
-				"You are currently filling out information for the participants son/daughter.");
-
-		ComponentTestResult labelTest1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.fHQChildBanner1,
-				"Please make sure you have completed all partner records before completing children records.");
-
-		StepTestResult stepTestResult = new StepTestResult(
-				"Clicked the New button on the FHQ Childs list view page to land on the FHQ new Participant Child(SonDaughter)record producer page ");
-
+		ComponentTestResult childRelationBanner = FHQUtil.verifyLabel(fHQSurveyPortalPage.childRelationBanner,"You are currently filling out information for the participants son/daughter.");
+		ComponentTestResult labelTest1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.fHQChildBanner1,"Please make sure you have completed all partner records before completing children records.");
+		StepTestResult stepTestResult = new StepTestResult("Clicked the New button on the FHQ Childs list view page to land on the FHQ new Participant Child(SonDaughter)record producer page ");
 		stepTestResult.add(charmsBannerTest);
 		stepTestResult.add(headerBanner);
 		stepTestResult.add(homeButtonTest);
@@ -168,66 +114,31 @@ public class FHQChildRecordProducerSteps extends PageInitializer {
 		stepTestResult.add(labelTest);
 		stepTestResult.add(childRelationBanner);
 		stepTestResult.add(labelTest1);
-
 		scenarioReportList.add(stepTestResult);
-
 	}
 
 	@When("fills the First Name, First Initial of LAST name, Year of Birth, Vital Status,Year of Death, Age of Death information for the Child")
 	public void fills_the_First_Name_First_Initial_of_LAST_name_Year_of_Birth_Vital_Status_Year_of_Death_Age_of_Death_information_for_the_Child() {
-
 		ComponentTestResult labelTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.firstNameLabel, "First Name");
-
 		ComponentTestResult labelTest1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.firstNameTextBox, "");
-
 		fHQSurveyPortalPage.firstNameTextBox.sendKeys("Participant New Child FN");
-
-		ComponentTestResult labelTest2 = FHQUtil.verifyLabel(fHQSurveyPortalPage.firstInitialLastNameLabel,
-				"First Initial of LAST Name");
-
-		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown,
-				FHQSurveyPageConstants.firstInitialLastName(), 16);
-
+		ComponentTestResult labelTest2 = FHQUtil.verifyLabel(fHQSurveyPortalPage.firstInitialLastNameLabel,"First Initial of LAST Name");
+		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown,FHQSurveyPageConstants.firstInitialLastName(), 16);
 		ComponentTestResult labelTest3 = FHQUtil.verifyLabel(fHQSurveyPortalPage.yearOfBirthLabel, "Year of Birth");
-
-		ComponentTestResult estimatedAgeBanner1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.dateLabelBanner4,
-				"An estimated age is preferred over \"Don't Know\". Examples: early 40s = 42; mid-40s = 45; late 40s = 48.");
-
-		ComponentTestResult dropdownTest1 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown,
-				FHQSurveyPageConstants.yearOfBirthOrDeathAfter1900(), 65);
-
+		ComponentTestResult estimatedAgeBanner1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.dateLabelBanner4,"An estimated age is preferred over \"Don't Know\". Examples: early 40s = 42; mid-40s = 45; late 40s = 48.");
+		ComponentTestResult dropdownTest1 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown,FHQSurveyPageConstants.yearOfBirthOrDeathAfter1900(), 65);
 		ComponentTestResult labelTest4 = FHQUtil.verifyLabel(fHQSurveyPortalPage.vitalStatusLabel, "Vital Status");
-
-		ComponentTestResult dropdownTest2 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown,
-				FHQSurveyPageConstants.VITAL_STATUS_LIST, 2);
-
-		ComponentTestResult labelTest5 = FHQUtil.verifyLabel(fHQSurveyPortalPage.yearOfDeathOrAgeLabel,
-				"Please provide the year of death or the age of death");
-
-		ComponentTestResult dropdownTest3 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown,
-				FHQSurveyPageConstants.YEAR_OR_AGE_OF_DEATH, 1);
-
+		ComponentTestResult dropdownTest2 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown,FHQSurveyPageConstants.VITAL_STATUS_LIST, 2);
+		ComponentTestResult labelTest5 = FHQUtil.verifyLabel(fHQSurveyPortalPage.yearOfDeathOrAgeLabel,"Please provide the year of death or the age of death");
+		ComponentTestResult dropdownTest3 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown,FHQSurveyPageConstants.YEAR_OR_AGE_OF_DEATH, 1);
 		ComponentTestResult labelTest6 = FHQUtil.verifyLabel(fHQSurveyPortalPage.yearOfDeathLabel, "Year of Death");
-
-		ComponentTestResult estimatedAgeBanner2 = FHQUtil.verifyLabel(fHQSurveyPortalPage.dateLabelBanner5,
-				"An estimated age is preferred over \"Don't Know\". Examples: early 40s = 42; mid-40s = 45; late 40s = 48.");
-
-		ComponentTestResult dropdownTest4 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown,
-				FHQSurveyPageConstants.yearOfBirthOrDeathAfter1900(), 74);
-
-		ComponentTestResult labelTest7 = FHQUtil.verifyLabel(fHQSurveyPortalPage.causeOfThisRelativeDeathLabel,
-				"What was the cause of this relative death?");
-
-		ComponentTestResult labelTest8 = FHQUtil.verifyLabel(fHQSurveyPortalPage.causeOfDeathInformationBanner,
-				"If you don't know, you can write \"don't know\" in the text box.");
-
+		ComponentTestResult estimatedAgeBanner2 = FHQUtil.verifyLabel(fHQSurveyPortalPage.dateLabelBanner5,"An estimated age is preferred over \"Don't Know\". Examples: early 40s = 42; mid-40s = 45; late 40s = 48.");
+		ComponentTestResult dropdownTest4 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown,FHQSurveyPageConstants.yearOfBirthOrDeathAfter1900(), 74);
+		ComponentTestResult labelTest7 = FHQUtil.verifyLabel(fHQSurveyPortalPage.causeOfThisRelativeDeathLabel,"What was the cause of this relative death?");
+		ComponentTestResult labelTest8 = FHQUtil.verifyLabel(fHQSurveyPortalPage.causeOfDeathInformationBanner,"If you don't know, you can write \"don't know\" in the text box.");
 		ComponentTestResult labelTest9 = FHQUtil.verifyLabel(fHQSurveyPortalPage.causeOfDeathTextBox, "");
-
 		fHQSurveyPortalPage.causeOfDeathTextBox.sendKeys("Reason of Death of this child is not Known");
-
-		StepTestResult stepTestResult = new StepTestResult(
-				"The Participant Child(SonDaughter) First Name, First Initial of LAST name, Year of Birth, Vital Status,Year of Death, Age of Death information details are filled and verified");
-
+		StepTestResult stepTestResult = new StepTestResult("The Participant Child(SonDaughter) First Name, First Initial of LAST name, Year of Birth, Vital Status,Year of Death, Age of Death information details are filled and verified");
 		stepTestResult.add(labelTest);
 		stepTestResult.add(labelTest1);
 		stepTestResult.add(labelTest2);
@@ -245,92 +156,50 @@ public class FHQChildRecordProducerSteps extends PageInitializer {
 		stepTestResult.add(labelTest7);
 		stepTestResult.add(labelTest8);
 		stepTestResult.add(labelTest9);
-
 		scenarioReportList.add(stepTestResult);
-
 	}
 
 	@When("fills the Sex assigned at birth, Gender Identity information")
 	public void fills_the_Sex_assigned_at_birth_Gender_Identity_information() {
-
-		ComponentTestResult labelTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.sexAssignedAtBirthLabel,
-				"Sex assigned at birth");
-
-		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown1,
-				FHQSurveyPageConstants.SEX_ASSIGNED_AT_BIRTH, 2);
-
-		ComponentTestResult labelTest1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.genderIdentityLabel,
-				"Gender Identity");
-
-		ComponentTestResult dropdownTest1 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown1,
-				FHQSurveyPageConstants.GENDER_IDENTITY, 2);
-
-		StepTestResult stepTestResult = new StepTestResult(
-				"The Sex assigned at birth and Gender Identity information details of the Participant Child(SonDaughter) are filled and verified ");
-
+		ComponentTestResult labelTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.sexAssignedAtBirthLabel,"Sex assigned at birth");
+		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown1,FHQSurveyPageConstants.SEX_ASSIGNED_AT_BIRTH, 2);
+		ComponentTestResult labelTest1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.genderIdentityLabel,"Gender Identity");
+		ComponentTestResult dropdownTest1 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown1,FHQSurveyPageConstants.GENDER_IDENTITY, 2);
+		StepTestResult stepTestResult = new StepTestResult("The Sex assigned at birth and Gender Identity information details of the Participant Child(SonDaughter) are filled and verified ");
 		stepTestResult.add(labelTest);
 		stepTestResult.add(dropdownTest);
 		stepTestResult.add(labelTest1);
 		stepTestResult.add(dropdownTest1);
-
 		scenarioReportList.add(stepTestResult);
 	}
 
 	@When("fills the Which best describes this relative? information")
 	public void fills_the_Which_best_describes_this_relative_information() {
-
-		ComponentTestResult labelTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.bestDescribeThisRelativeLabel,
-				"Which best describes this relative?");
-
-		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(
-				fHQSurveyPortalPage.bestDescribeThisRelativeDropDown, FHQSurveyPageConstants.CHILD_DISCRIPTION, 2);
-
-		StepTestResult stepTestResult = new StepTestResult(
-				"Which best describes this Participant Child(SonDaughter) information details are filled and verified ");
-
+		ComponentTestResult labelTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.bestDescribeThisRelativeLabel,"Which best describes this relative?");
+		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.bestDescribeThisRelativeDropDown, FHQSurveyPageConstants.CHILD_DISCRIPTION, 2);
+		StepTestResult stepTestResult = new StepTestResult("Which best describes this Participant Child(SonDaughter) information details are filled and verified ");
 		stepTestResult.add(labelTest);
 		stepTestResult.add(dropdownTest);
-
 		scenarioReportList.add(stepTestResult);
 	}
 
 	@When("fills the other biological parent of this relative")
 	public void fills_the_other_biological_parent_of_this_relative() {
-
-		ComponentTestResult labelTest = FHQUtil.verifyLabel(
-				fHQSurveyPortalPage.isOtherBiologicalParentOfThisRelativeLabel,
-				"Is the other biological parent of this relative one of the partners you have entered?");
-
-		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(
-				fHQSurveyPortalPage.isOtherBiologicalParentOfThisRelativeChildDropDown,
-				FHQSurveyPageConstants.OTHER_BIOLOGICAL_PARENT, 3);
-
-		StepTestResult stepTestResult = new StepTestResult(
-				"The other biological parent of this Participant Child(SonDaughter) information details are filled and verified");
-
+		ComponentTestResult labelTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.isOtherBiologicalParentOfThisRelativeLabel,"Is the other biological parent of this relative one of the partners you have entered?");
+		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.isOtherBiologicalParentOfThisRelativeChildDropDown,FHQSurveyPageConstants.OTHER_BIOLOGICAL_PARENT, 3);
+		StepTestResult stepTestResult = new StepTestResult("The other biological parent of this Participant Child(SonDaughter) information details are filled and verified");
 		stepTestResult.add(labelTest);
-		stepTestResult.add(dropdownTest);
-		
+		stepTestResult.add(dropdownTest);	
 		scenarioReportList.add(stepTestResult);
 	}
 
 	@When("fills the Type of birth, Which best describes this child? information")
 	public void fills_the_Type_of_birth_Which_best_describes_this_child_information() {
-
-		ComponentTestResult labelTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.isThisRelativeTwinOrMultipleBirthLabel,
-				"Is this relative a twin or part of a multiple birth?");
-
-		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown1,
-				FHQSurveyPageConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER, 1);
-
+		ComponentTestResult labelTest = FHQUtil.verifyLabel(fHQSurveyPortalPage.isThisRelativeTwinOrMultipleBirthLabel,"Is this relative a twin or part of a multiple birth?");
+		ComponentTestResult dropdownTest = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown1,FHQSurveyPageConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER, 1);
 		ComponentTestResult labelTest1 = FHQUtil.verifyLabel(fHQSurveyPortalPage.typeOfBirthLabel, "Type of birth");
-
-		ComponentTestResult dropdownTest1 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown1,
-				FHQSurveyPageConstants.TYPE_OF_BIRTH, 4);
-
-		StepTestResult stepTestResult = new StepTestResult(
-				"The Participant Child(SonDaughter) Type of birth, Which best describes this Participant child information details are filled and verified");
-
+		ComponentTestResult dropdownTest1 = FHQUtil.verifySelect2DropDowns(fHQSurveyPortalPage.fHQFieldDropDown1,FHQSurveyPageConstants.TYPE_OF_BIRTH, 4);
+		StepTestResult stepTestResult = new StepTestResult("The Participant Child(SonDaughter) Type of birth, Which best describes this Participant child information details are filled and verified");
 		stepTestResult.add(labelTest);
 		stepTestResult.add(dropdownTest);
 		stepTestResult.add(labelTest1);

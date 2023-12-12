@@ -29,6 +29,7 @@ import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
 import ServiceNow.CHARMS.Pages.*;
 import ServiceNow.CHARMS.ScenariosData.*;
 import ServiceNow.CHARMS.StepsImplementation.*;
+import ServiceNow.CHARMS.StepsImplementation.RASStudy.*;
 import ServiceNow.CICDBuild.Pages.*;
 import ServiceNow.CICDBuild.StepsImplementation.*;
 import ServiceNow.COVIDCode.Pages.*;
@@ -63,7 +64,7 @@ public class PageInitializer extends WebDriverUtils {
 	// declare public static variables of types of all the pages
 	/** iTrust instances */
 	public static appsCommon.Pages.ITrustLoginPage iTrustloginPage;
-	public static ITrustLoginPageImpl loginImpl;
+	public static ITrustLoginPageImpl iTrustLoginPageImpl;
 	public static ServiceNow_NCISP_Page serviceNow_ncisp_page;
 
 	/** --------------- GRANTS INSTANCES --------------- */
@@ -102,10 +103,11 @@ public class PageInitializer extends WebDriverUtils {
 	public static MyRASHomePage myRASHomePage;
 	public static RASopathyQuestionnairePage rasopathyQuestionnairePage;
 	public static MyRASIIQFormPage myRASIIQFormPage;
-	public static RasScenario1StepsImpl rasScenario1StepsImpl;
+	public static RAS_Scenario_One_StepsImpl ras_scenario_one_stepsImpl;
 	public static RasScenario2StepsImpl rasScenario2StepsImpl;
 	public static RasScenario3StepsImpl rasScenario3StepsImpl;
 	public static RasScenario4StepsImpl rasScenario4StepsImpl;
+	public static RAS_Scenario_Five_StepsImpl ras_scenario_five_stepsImpl;
 	public static RAS_Screener_Constants ras_Screener_Constants;
 	public static RAS_Survey_Constants ras_Survey_Constants;
 	public static IIQ_Constants iiq_Constants;
@@ -117,6 +119,10 @@ public class PageInitializer extends WebDriverUtils {
 	public static RASSurveyStepsImpl rASSurveyStepsImpl;
 	public static FHQSurveyPage fHQSurveyPage;
 	public static FHQSurveyPortalPage fHQSurveyPortalPage;
+	public static FHQSubmissionPage fHQSubmissionPage;
+	public static FHQSubmissionStepsImpl fHQSubmissionStepsImpl;
+	public static FHQConstants fHQConstants;
+	public static FHQ_TestDataManager fHQ_TestDataManager;
 	public static RAS_Screener_TestDataManager ras_Screener_TestDataManager;
 	public static RAS_Survey_TestDataManager ras_Survey_TestDataManager;
 	public static IIQ_TestDataManager iiq_TestDataManager;
@@ -293,7 +299,7 @@ public class PageInitializer extends WebDriverUtils {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
 		// create instances of all pages and assign them to the variables
 		iTrustloginPage = new ITrustLoginPage();
-		loginImpl = new ITrustLoginPageImpl();
+		iTrustLoginPageImpl = new ITrustLoginPageImpl();
 		serviceNow_ncisp_page = new ServiceNow_NCISP_Page();
 
 		/** --------------- SERVICENOW INSTANCE VARIABLES --------------- */
@@ -324,10 +330,11 @@ public class PageInitializer extends WebDriverUtils {
 		probandScreenerPage = new ProbandScreenerPage();
 		myRASLoginPage = new MyRASLoginPage();
 		myRASHomePage = new MyRASHomePage();
-		rasScenario1StepsImpl = new RasScenario1StepsImpl();
+		ras_scenario_one_stepsImpl = new RAS_Scenario_One_StepsImpl();
 		rasScenario2StepsImpl = new RasScenario2StepsImpl();
 		rasScenario3StepsImpl = new RasScenario3StepsImpl();
 		rasScenario4StepsImpl = new RasScenario4StepsImpl();
+		ras_scenario_five_stepsImpl = new RAS_Scenario_Five_StepsImpl();
 		rasopathyQuestionnairePage = new RASopathyQuestionnairePage();
 		ras_Screener_Constants = new RAS_Screener_Constants();
 		ras_Survey_Constants = new RAS_Survey_Constants();
@@ -343,6 +350,10 @@ public class PageInitializer extends WebDriverUtils {
 		rASSurveyStepsImpl = new RASSurveyStepsImpl();
 		fHQSurveyPortalPage = new FHQSurveyPortalPage();
 		fHQSurveyPage = new FHQSurveyPage();
+		fHQSubmissionPage = new FHQSubmissionPage();
+		fHQSubmissionStepsImpl = new FHQSubmissionStepsImpl();
+		fHQ_TestDataManager = new FHQ_TestDataManager();
+		fHQConstants = new FHQConstants();
 		participantDetailsPage = new ParticipantDetailsPage();
 		referralTablePage = new ReferralTablePage();
 		fanconiLoginPage = new FanconiLoginPage();

@@ -3,13 +3,13 @@ package ServiceNow.SCSS.Steps;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
 
 public class ApplicantFlowSteps extends PageInitializer {
-    
+
     @Given("User is on Profile tab")
     public void user_is_on_profile_tab() {
-        CommonUtils.waitForVisibility(applicantFlowPage.tabProfile);
-        CommonUtils.clickOnElement(applicantFlowPage.tabProfile);
+        applicantFlowStepsImplementation.userIsOnProfileTab();
     }
 
     @Given("User clicks Edit for {string} section")
@@ -29,17 +29,17 @@ public class ApplicantFlowSteps extends PageInitializer {
 
     @Given("User inputs {string} into last name field")
     public void user_inputs_into_last_name_field(String lastName) {
-     applicantFlowStepsImplementation.enterLastNameProfileTab(lastName);
+        applicantFlowStepsImplementation.enterLastNameProfileTab(lastName);
     }
 
     @Given("User inputs {string} into email field")
-    public void user_inputs_into_email_field(String  email) {
-       applicantFlowStepsImplementation.enterEmailProfileTab(email);
+    public void user_inputs_into_email_field(String email) {
+        applicantFlowStepsImplementation.enterEmailProfileTab(email);
     }
 
     @Given("User inputs {string} into phone field")
     public void user_inputs_into_phone_field(String phone) {
-       applicantFlowStepsImplementation.enterPhoneProfileTab(phone);
+        applicantFlowStepsImplementation.enterPhoneProfileTab(phone);
     }
 
     @Given("User inputs {string} into business phone field")
@@ -59,27 +59,27 @@ public class ApplicantFlowSteps extends PageInitializer {
 
     @Given("User inputs {string} into city field")
     public void user_inputs_into_city_field(String city) {
-       applicantFlowStepsImplementation.enterCityProfileTab(city);
+        applicantFlowStepsImplementation.enterCityProfileTab(city);
     }
 
     @Given("User inputs {string} into state field")
     public void user_inputs_into_state_field(String state) {
-       applicantFlowStepsImplementation.enterStateProfileTab(state);
+        applicantFlowStepsImplementation.enterStateProfileTab(state);
     }
 
     @Given("User inputs {string} into country field")
     public void user_inputs_into_country_field(String country) {
-       applicantFlowStepsImplementation.enterCountryProfileTab(country);
+        applicantFlowStepsImplementation.enterCountryProfileTab(country);
     }
 
     @Given("User inputs {string} into zip field")
     public void user_inputs_into_zip_field(String zip) {
-       applicantFlowStepsImplementation.enterZipProfileTab(zip);
+        applicantFlowStepsImplementation.enterZipProfileTab(zip);
     }
 
     @Given("User picks highest degree option as {string}")
     public void user_picks_highest_degree_option_as(String degree) {
-       applicantFlowStepsImplementation.pickDegree(degree);
+        applicantFlowStepsImplementation.pickDegree(degree);
     }
 
     @Given("User confirms being a US Citizen")
@@ -89,13 +89,12 @@ public class ApplicantFlowSteps extends PageInitializer {
 
     @Given("User saves the updated section")
     public void user_saves_the_updated_section() {
-        CommonUtils.waitForVisibility(applicantFlowPage.buttonSave);
-        CommonUtils.clickOnElement(applicantFlowPage.buttonSave);
+        applicantFlowStepsImplementation.userSavesUpdatedSection();
     }
 
     @Given("User edits sex choice")
     public void user_edits_sex_choice() {
-       applicantFlowStepsImplementation.editSexChoice();
+        applicantFlowStepsImplementation.editSexChoice();
     }
 
     @Given("User edits ethnicity choice")

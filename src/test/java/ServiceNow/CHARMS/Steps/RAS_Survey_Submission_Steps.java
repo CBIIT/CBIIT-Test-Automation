@@ -9,31 +9,31 @@ public class RAS_Survey_Submission_Steps extends PageInitializer {
 
 	@Given("clicks on the Ras Survey Form")
 	public void clicks_on_the_ras_survey_form() {
-		rasScenario1StepsImpl.clicksOnTheRasSurveyForm();
+		ras_scenario_one_stepsImpl.clicksOnTheRasSurveyForm();
 	}
 
 	@Given("clicks on the IIQ Form")
 	public void clicks_on_the_iiq_form() {
-		rasScenario1StepsImpl.clicksOnTheIiqForm();
+		ras_scenario_one_stepsImpl.clicksOnTheIiqForm();
 	}
 
 	@Given("a participant enters username {string} and pin")
 	public void a_participant_enters_username_and_pin(String email) {
-		rasScenario1StepsImpl.aParticipantEntersUsernameUndPin(email);
+		ras_scenario_one_stepsImpl.aParticipantEntersUsernameUndPin(email);
 	}
 
 	@Given("a participant enters username {string} and pin {string}")
 	public void a_participant_enters_username_and_pin(String email, String pin) {
-		rasScenario1StepsImpl.aParticipantEntersUsernameUndPinSample(email, pin);
+		ras_scenario_one_stepsImpl.aParticipantEntersUsernameUndPinSample(email, pin);
 	}
 
 	@Then("the participant will be able to rewind the form")
 	public void the_participant_will_be_able_to_rewind_the_form() {
-		rasScenario1StepsImpl.theParticipantWillBeAbleToRewindTheForm();
+		ras_scenario_one_stepsImpl.theParticipantWillBeAbleToRewindTheForm();
 	}
 
 	@When("the participant submits a RAS Survey from excel sheet {string}")
 	public void the_participant_submits_a_ras_survey_from_excel_sheet(String rasSurveySheet) {
-		rasScenario1StepsImpl.rasSurveyScenarioSelector(rasSurveySheet);
+		ras_scenario_one_stepsImpl.rasSurveyScenarioSelector(rasSurveySheet);
 	}
 }
