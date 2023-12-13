@@ -31,7 +31,7 @@ public class EtrackAssetsRecords_NativeViewSteps extends PageInitializer {
 
     @Given("an eTracking user is on an Asset record")
     public void an_e_tracking_user_is_on_an_asset_record() throws TestingException {
-       EtrackAssetsRecords_NativeViewStepImplimentation.anEtrackingUserIsOnAnAssetRecord();
+       EtrackAssetsRecords_NativeViewStepImplimentation.anEtrackingUserImpersonation();
     }
 
     @Then("there is a free text field called {string}")

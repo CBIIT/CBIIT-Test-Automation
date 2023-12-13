@@ -12,7 +12,7 @@ public class NERDLoginStepsImplementation extends PageInitializer{
 	public void loginToNerd() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
 		CucumberLogUtils.logScreenshot();
-		loginImpl.loginToITrust();
+		iTrustLoginPageImpl.loginToITrust();
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
 	}

@@ -97,9 +97,9 @@ public class NativeViewImpersonateUser extends PageInitializer {
     }
 
     public void impersonateEtrackingUser() throws TestingException {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
-        MiscUtils.sleep(2000);
-        nativeViewImpersonateUserPage.nativeViewLink.click();
+//        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
+//        MiscUtils.sleep(2000);
+//        nativeViewImpersonateUserPage.nativeViewLink.click();
         MiscUtils.sleep(5000);
         nativeViewDashPage.clickUserDropDown();
         MiscUtils.sleep(2000);

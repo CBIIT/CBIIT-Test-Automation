@@ -100,9 +100,19 @@ public class EtrackAssetsRecords_NativeViewPage extends CommonUtils{
     @FindBy(xpath = "//*[@id='x_naci_e_tracking_etrack_assets.asset_information']")
     public WebElement nVEtrackAssetsNewRecordAssetInformationTextBox;
 
+    /** Native View eTracking NEW Assets Record Status Field */
+    @FindBy(xpath = "//label[@for='x_naci_e_tracking_etrack_assets.asset_status']")
+    public WebElement nVEtrackAssetsNewRecordStatusField;
+
     /** Native View eTracking NEW Assets Record Status Drop Down Box */
     @FindBy(xpath = "//*[@id='x_naci_e_tracking_etrack_assets.asset_status']")
     public WebElement nVEtrackAssetsNewRecordStatusDropDown;
+
+    /** Native View eTracking NEW Assets Record Status Drop Down options */
+    public WebElement nVEtrackAssetsNewRecordStatusDropDownOptions(String value) {
+        return WebDriverUtils.webDriver
+                .findElement(By.xpath("//option[@value='" + value + "']"));
+    }
 
     /** Native View eTracking Assets New Record Submit Button */
     @FindBy(xpath = "//*[@id='sysverb_insert_bottom']")

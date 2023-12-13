@@ -39,7 +39,7 @@ public class ServiceNow_Login_Methods extends PageInitializer {
         iTrustloginPage.loginLink.click();
         MiscUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
-        loginImpl.loginToITrust();
+        iTrustLoginPageImpl.loginToITrust();
         MiscUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(WebDriverUtils.webDriver.findElement(By.linkText("Native View")));

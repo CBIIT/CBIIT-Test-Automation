@@ -7,6 +7,9 @@ import io.github.sukgu.support.FindElementBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.DefaultElementLocatorFactory;
+
+import java.util.List;
+
 public class NativeView_SideDoor_Dashboard_Page {
     /**
      * THIS CLASS CONTAINS NATIVE VIEW DASHBOARD ELEMENTS
@@ -42,14 +45,18 @@ public class NativeView_SideDoor_Dashboard_Page {
     /* IMPERSONATE WINDOW USER BUTTON */
     @FindElementBy(xpath = "//div[@class='now-modal-footer']/now-button[2]")
     public static WebElement impersonateUserWindowButton;
+
+    /* ASSETS MENU BUTTON */
+    @FindElementBy(xpath = "//*[text()='Assets'][1]")
+    public static WebElement assetsMenuButton;
     /**
      * USE THIS METHOD TO SEARCH ANY TEXT USING THE NATIVE VIEW FILTER NAVIGATOR
      *
      * @param text
      * @return
      */
-    public static WebElement dynamicFilterNavigatorTextSearch(String text) {
-        return shadow.findElementByXPath("//*[text()='" + text + "'][1]");
+    public static List<WebElement> dynamicFilterNavigatorTextSearch(String text) {
+        return shadow.findElementsByXPath("//*[text()='" + text + "'][1]");
     }
     public NativeView_SideDoor_Dashboard_Page() {
         ElementFieldDecorator decorator = new ElementFieldDecorator(new DefaultElementLocatorFactory(WebDriverUtils.webDriver));
