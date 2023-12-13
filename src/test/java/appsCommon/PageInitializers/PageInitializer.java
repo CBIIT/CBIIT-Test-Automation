@@ -295,6 +295,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
 	public static NativeViewCHARMSParticipantStudyPage nativeViewCHARMSParticipantStudyPage;
 	public static NativeViewSCSSReportsPage nativeViewSCSSReportsPage;
+	public static ServiceNow_NCISP_Page serviceNow_NCISP_Page;
 	/** --------------- CLOUD AND SYSTEM ENGINEERING INSTANCES --------------- */
 	public static ShutdownBannerLocatorsPage shutdownBannerLocatorsPage;
 
@@ -520,6 +521,7 @@ public class PageInitializer extends WebDriverUtils {
 		nativeViewCHARMSParticipantConsentPage = new NativeViewCHARMSParticipantConsentPage();
 		nativeViewCHARMSParticipantStudyPage = new NativeViewCHARMSParticipantStudyPage();
 		nativeViewSCSSReportsPage = new NativeViewSCSSReportsPage();
+		serviceNow_NCISP_Page = new ServiceNow_NCISP_Page();
 
 		/** Grants ChangePassword app **/
 		changePasswordPage = new ChangePasswordPage();

@@ -577,12 +577,8 @@ public class RAS_Scenario_One_StepsImpl extends PageInitializer {
     public void nativeViewConsentFlowProcessScenario1(String sheetName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         MiscUtils.sleep(2000);
-
         ServiceNow_Common_Methods.filterNavigatorSearch("All Participant Details");
         CucumberLogUtils.logScreenshot();
-
-        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
-
         if (sheetName.contentEquals("screenerScenario1")) {
             CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator(ras_Screener_TestDataManager.firstName + " " + ras_Screener_TestDataManager.lastName));
             CucumberLogUtils.logScreenshot();
@@ -1833,11 +1829,8 @@ public class RAS_Scenario_One_StepsImpl extends PageInitializer {
     public void verifying_RAS_Screener_Scenario_1_Data(String sheetName) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         MiscUtils.sleep(2000);
-
         ServiceNow_Common_Methods.filterNavigatorSearch("All Participant Details");
         CucumberLogUtils.logScreenshot();
-
-        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         CommonUtils.waitForVisibility(nativeViewCHARMSDashboardPage.rasStudyParticipantsDetailsMenu);
         CucumberLogUtils.logScreenshot();
         if (sheetName.contentEquals("screenerScenario1")) {
@@ -1896,12 +1889,10 @@ public class RAS_Scenario_One_StepsImpl extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactWorkPhone), ras_Screener_TestDataManager.workPhoneNumber, "-- VERIFYING CONTACT WORK PHONE --");
         CommonUtils.assertEqualsWithMessage(CommonUtils.getAttributeValueOfValueAttribute(participantDetailsPage.contactPreferredPhone), ras_Screener_TestDataManager.cellPhoneNumber, "-- VERIFYING PREFERRED PHONE --");
         CucumberLogUtils.logScreenshot();
-
         JavascriptUtils.scrollIntoView(participantDetailsPage.participantStudiesTab);
         CommonUtils.clickOnElement(participantDetailsPage.participantStudiesTab);
         CucumberLogUtils.logScreenshot();
-
-        CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator("Waiting for Eligibility"));
+        CommonUtils.hoverOverElement(participantDetailsPage.dynamicRecordButtonLocator("RASopathy"));
         CommonUtils.waitForVisibility(participantDetailsPage.participantStudiesInfoButton);
         CommonUtils.clickOnElement(participantDetailsPage.participantStudiesInfoButton);
         CucumberLogUtils.logScreenshot();

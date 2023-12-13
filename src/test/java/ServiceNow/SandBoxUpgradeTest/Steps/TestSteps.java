@@ -1,24 +1,22 @@
 package ServiceNow.SandBoxUpgradeTest.Steps;
 
-import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
+import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
-import io.cucumber.java.en.Given;
-import io.github.sukgu.Shadow;
+import org.openqa.selenium.chrome.ChromeDriver;
+
 
 public class TestSteps extends PageInitializer {
 
-    Shadow shadow = new Shadow(WebDriverUtils.webDriver);
-    @Given("testing")
-    public void testing() throws TestingException {
-       // ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        //MiscUtils.sleep(3100);
-        //ServiceNow_Common_Methods.filterNavigatorSearch("CHARMS Studies");
-        testAccountResetImpl.resetTestAccountSignIn();
-        testAccountResetImpl.resetTestAccount();
-
+    public static void main(String args[])
+    {    webDriver = new ChromeDriver();
+        webDriver.manage().window().maximize();
+        testOne();
+    }
+    public static void testOne() {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        MiscUtils.sleep(2000);
+        ServiceNow_Common_Methods.filterNavigatorSearch("All Participant Details");
     }
 }

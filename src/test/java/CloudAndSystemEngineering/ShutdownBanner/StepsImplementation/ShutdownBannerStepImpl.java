@@ -5,6 +5,7 @@ import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
@@ -18,13 +19,10 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -34,8 +32,9 @@ public class ShutdownBannerStepImpl extends PageInitializer {
     public static List<String> urlsListProd = new ArrayList<>();
     public static HashSet<String> brokenLinks = new HashSet<>();
     public static HashSet<String> pagesNotLoading = new HashSet<>();
+    public static HashSet<String> pagesWithoutBanner = new HashSet<>();
 
-    public static void generatingLinksFromUrl() {
+    public static void generatingLinksFromUrlExcelSheet() {
         HashSet<String> mainWorkingLinks = new HashSet<>();
         for (String listUrlsProd:urlsListProd) {
             mainWorkingLinks.add(listUrlsProd);
@@ -46,12 +45,19 @@ public class ShutdownBannerStepImpl extends PageInitializer {
         String[] urlSearchWord = urlsplit[0].split("//");
         System.out.println("SEARCH WORD: " + urlsplit[0]);
         System.out.println("TOTAL LINKS NOT FILTERED: " + links.size());
-        for(int i=0;i<links.size();i++)
-        {
+        for(int i=0;i<links.size();i++){
             WebElement E1= links.get(i);
             String url= E1.getAttribute("href");
-            if (url !=null && url.contains(urlsplit[0])){
-                mainWorkingLinks.add(url);
+            if (url !=null && url.contains(urlsplit[0]) && !url.contains(".pdf") && !url.contains(".xls") && !url.contains("#")){
+                List<String> uniqueURL = new ArrayList<>();
+                for(String j:mainWorkingLinks){
+                    if(url.equalsIgnoreCase(j)){
+                        uniqueURL.add(url);
+                    }
+                }
+                if (uniqueURL.size()==0){
+                    mainWorkingLinks.add(url);
+                }
             }
         }
         }
@@ -90,17 +96,21 @@ public class ShutdownBannerStepImpl extends PageInitializer {
                     if (code >= 400) {
                         System.out.println("Broken Link: " + urlSet);
                         brokenLinks.add(urlSet);
-                    } else {
-                    long startTime = System.currentTimeMillis();
-                    WebDriverUtils.webDriver.get(urlSet);
-//                    WebDriverWait wait = new WebDriverWait(WebDriverUtils.webDriver, Duration.ofMillis(10000));
-//                    wait.until(ExpectedConditions.visibilityOf(shutdownBannerLocatorsPage.bannerBodyText));
-//                    CommonUtils.assertEqualsWithMessage(shutdownBannerLocatorsPage.bannerBodyText.getText(), ShutdownBannerConstants.MESSAGE_BODY_ENGLISH, "ASSERTING THE SPANISH BANNER BODY TEXT");
-//                    CommonUtils.assertEqualsWithMessage(shutdownBannerLocatorsPage.bannerTitleText.getText(), ShutdownBannerConstants.MESSAGE_TITLE_ENGLISH, "ASSERTING THE SPANISH BANNER TITLE TEXT");
-                    CucumberLogUtils.logScreenshot();
-                    long endTime = System.currentTimeMillis();
-                    long totalTime = endTime - startTime;
-                    System.out.println(totalTime + " Milliseconds load time for: " + urlSet);
+                    } else{
+                        long startTime = System.currentTimeMillis();
+                        WebDriverUtils.webDriver.get(urlSet);
+                        if (CommonUtils.isElementDisplayed(shutdownBannerLocatorsPage.bannerBodyText)){
+                            JavascriptUtils.scrollIntoView(shutdownBannerLocatorsPage.bannerBodyText);
+                            CommonUtils.assertEqualsWithMessage(shutdownBannerLocatorsPage.bannerBodyText.getText(), ShutdownBannerConstants.MESSAGE_BODY_ENGLISH, "ASSERTING THE SPANISH BANNER BODY TEXT");
+                            CommonUtils.assertEqualsWithMessage(shutdownBannerLocatorsPage.bannerTitleText.getText(), ShutdownBannerConstants.MESSAGE_TITLE_ENGLISH, "ASSERTING THE SPANISH BANNER TITLE TEXT");
+                        }
+                        else{
+                            pagesWithoutBanner.add(urlSet);
+                        }
+                        CucumberLogUtils.logScreenshot();
+                        long endTime = System.currentTimeMillis();
+                        long totalTime = endTime - startTime;
+                        System.out.println(totalTime + " Milliseconds load time for: " + urlSet);
                         }
                 } catch (Exception e) {
                     pagesNotLoading.add(urlSet);
@@ -117,6 +127,12 @@ public class ShutdownBannerStepImpl extends PageInitializer {
         System.out.println("ALL BROKEN LINKS ARE: " + brokenLinks.size());
         System.out.println("***********************************************************************************************************************");
         for (String bl:brokenLinks) {
+            System.out.println(bl);
+        }
+        System.out.println("***********************************************************************************************************************");
+        System.out.println("PAGES WITHOUT BANNER: " + pagesWithoutBanner.size());
+        System.out.println("***********************************************************************************************************************");
+        for (String bl:pagesWithoutBanner) {
             System.out.println(bl);
         }
     }
@@ -136,10 +152,14 @@ public class ShutdownBannerStepImpl extends PageInitializer {
                         } else{
                         long startTime = System.currentTimeMillis();
                         WebDriverUtils.webDriver.get(urlSet);
-                        WebDriverWait wait = new WebDriverWait(WebDriverUtils.webDriver, Duration.ofMillis(10000));
-                        wait.until(ExpectedConditions.visibilityOf(shutdownBannerLocatorsPage.bannerBodyText));
-                        CommonUtils.assertEqualsWithMessage(shutdownBannerLocatorsPage.bannerBodyText.getText(), ShutdownBannerConstants.MESSAGE_BODY_ENGLISH, "ASSERTING THE SPANISH BANNER BODY TEXT");
-                        CommonUtils.assertEqualsWithMessage(shutdownBannerLocatorsPage.bannerTitleText.getText(), ShutdownBannerConstants.MESSAGE_TITLE_ENGLISH, "ASSERTING THE SPANISH BANNER TITLE TEXT");
+                        if (shutdownBannerLocatorsPage.bannerLinkPresent.size() == 1){
+                            JavascriptUtils.scrollIntoView(shutdownBannerLocatorsPage.bannerBodyText);
+                            CommonUtils.assertEqualsWithMessage(shutdownBannerLocatorsPage.bannerBodyText.getText(), ShutdownBannerConstants.MESSAGE_BODY_ENGLISH, "ASSERTING THE SPANISH BANNER BODY TEXT");
+                            CommonUtils.assertEqualsWithMessage(shutdownBannerLocatorsPage.bannerTitleText.getText(), ShutdownBannerConstants.MESSAGE_TITLE_ENGLISH, "ASSERTING THE SPANISH BANNER TITLE TEXT");
+                        }
+                        else{
+                            pagesWithoutBanner.add(urlSet);
+                        }
                         CucumberLogUtils.logScreenshot();
                         long endTime = System.currentTimeMillis();
                         long totalTime = endTime - startTime;
@@ -162,9 +182,15 @@ public class ShutdownBannerStepImpl extends PageInitializer {
         for (String bl:brokenLinks) {
             System.out.println(bl);
         }
+        System.out.println("***********************************************************************************************************************");
+        System.out.println("PAGES WITHOUT BANNER: " + pagesWithoutBanner.size());
+        System.out.println("***********************************************************************************************************************");
+        for (String bl:pagesWithoutBanner) {
+            System.out.println(bl);
+        }
     }
 
-    public static void getAllLinksFromSitemap ()  {
+    public static void getAllLinksFromExcelSheet ()  {
         DataFormatter formatter = new DataFormatter();
         try {
             FileInputStream file= new FileInputStream(ShutdownBannerConstants.BANNER_URL_LIST_PRPD);

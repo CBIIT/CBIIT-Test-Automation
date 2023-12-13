@@ -37,9 +37,12 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
             MiscUtils.sleep(1000);
             CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateUserWindowButton);
             MiscUtils.sleep(3000);
-            System.out.println(ServiceNow_NCISP_Page.nativeViewLink.getText());
-            MiscUtils.sleep(2000);
-            CommonUtils.clickOnElement(ServiceNow_NCISP_Page.nativeViewLink);
+            boolean nativeViewIsPresent = ServiceNow_NCISP_Page.allPresentNativeViewLinks.size() > 0;
+            if (nativeViewIsPresent == true) {
+                System.out.println(ServiceNow_NCISP_Page.nativeViewLink.getText());
+                MiscUtils.sleep(2000);
+                CommonUtils.clickOnElement(ServiceNow_NCISP_Page.nativeViewLink);
+            }
         } catch (NoSuchElementException e) {
             System.out.println(NativeView_SideDoor_Dashboard_Page.impersonateAnotherUserButton.getText());
             MiscUtils.sleep(2000);
@@ -58,31 +61,24 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
     }
 
     /**
-     * USE THIS METHOD TO CLICK ON ALL TAB AND SEARCH THE FILTER NAVIGATOR AND CLICK ON ANY MODULE
-     * THE FIRST STRING ARGUMENT IS TO SEARCH THE FILTER NAVIGATOR
-     * THE SECOND STRING ARGUMENT IS TO SELECT ON THE DESIRED MODULE - AN EXACT TEXT MATCH NEEDS TO BE PARAMETERIZED
-     * THIS METHOD ALSO SWITCHES TO THE NATIVE VIEW IFRAME AFTER CLICKING ON A MODULE
-     * TO INTERACT WITH ELEMENTS IN A TABLE
-     *
-     * @param text
-     */
-    public static void filterNavigatorSearchWithAllTabString(String text) {
-        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allTab);
-        NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys(text);
-        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch(text));
-        MiscUtils.sleep(3000);
-        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
-        MiscUtils.sleep(2000);
-    }
-
-    /**
      * USE THIS METHOD TO SEARCH THE FILTER NAVIGATOR WITHOUT CLICKING ON THE ALL TAB
      * @param text
      */
     public static void filterNavigatorSearch(String text){
-        NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys(text);
-        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch(text));
-        MiscUtils.sleep(3000);
+        if(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.getAttribute("class").equals("sn-global-typeahead-input -global")){
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allTab);
+            NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys(text);
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch(text));
+            MiscUtils.sleep(3000);
+            CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+            MiscUtils.sleep(2000);
+        }else {
+            NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys(text);
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch(text));
+            MiscUtils.sleep(3000);
+            CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+            MiscUtils.sleep(2000);
+        }
     }
 
     /***

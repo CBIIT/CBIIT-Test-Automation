@@ -18,6 +18,9 @@ public class NativeView_SideDoor_Dashboard_Page {
     /* FILTER NAVIGATOR TEXT BOX */
     @FindElementBy(xpath = "//*[@class='sn-polaris-nav-header-filter can-animate']//child::input")
     public static WebElement filterNavigatorTextBox;
+    /* PIN */
+    @FindElementBy(xpath = "//*[@class='sn-polaris-nav-header-controls pin']//child::button")
+    public static WebElement sideMenuPin;
     /* iFrame */
     @FindElementBy(xpath = "//*[@id='gsft_main']")
     public static WebElement nativeViewiFrame;
