@@ -87,4 +87,29 @@ public class Managing_User_Accounts_Steps extends PageInitializer {
     public void can_verify_that_the_following_fields_are_present(String expectedRoleText, String expectedRoleOrganisationText, String expectedAssignedCAtext, String expectedStartDateText, String expectedAction) {
         EMStepsImplementation.user_can_verify_that_the_following_fields_are_present(expectedRoleText, expectedRoleOrganisationText, expectedAssignedCAtext, expectedStartDateText, expectedAction);
     }
+
+    @Given("can verify that {string} title is present")
+    public void can_verify_that_title_is_present(String expectedTitle) {
+        EMStepsImplementation.user_can_verify_that_title_is_present(expectedTitle);
+    }
+
+    @Given("clicks Add Role button")
+    public void clicks_add_role_button() {
+        EMStepsImplementation.user_clicks_add_role_button();
+    }
+
+    @Given("clicks I2E Role drop down")
+    public void clicks_i2e_role_drop_down() {
+        EMStepsImplementation.user_clicks_i2e_role_drop_down();
+    }
+
+    @Given("selects {string} Role")
+    public void selects_role(String roleText) {
+        CommonUtils.selectValueFromBootStrapDropDown(createNewAccountPage.i2e_role_drop_down_values, roleText);
+    }
+
+    @Given("can verify that Business Area drop down is pre-populated with {string} value")
+    public void can_verify_that_business_area_drop_down_is_pre_populated_with_value(String expectedAdministrativeText) {
+        EMStepsImplementation.user_can_verify_that_business_area_drop_down_is_pre_populated_with_value(expectedAdministrativeText);
+    }
 }

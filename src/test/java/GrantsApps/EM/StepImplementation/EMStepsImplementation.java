@@ -207,8 +207,26 @@ public class EMStepsImplementation extends PageInitializer {
             String actualHeader = header.getText();
             actualHeaders.add(actualHeader);
         }
-        Assert.assertEquals(actualHeaders,expectedHeaders);
+        Assert.assertEquals(actualHeaders, expectedHeaders);
+    }
+
+    public static void user_can_verify_that_title_is_present(String expectedTitle) {
+        String actualTitle = createNewAccountPage.cancer_activity_monitors_optional_title.getText();
+        Assert.assertEquals(actualTitle, expectedTitle);
+    }
+
+    public static void user_clicks_add_role_button() {
+        createNewAccountPage.add_role_button.click();
 
     }
 
+    public static void user_clicks_i2e_role_drop_down() {
+        MiscUtils.sleep(2000);
+        createNewAccountPage.i2e_role_drop_down.click();
+    }
+
+    public static void user_can_verify_that_business_area_drop_down_is_pre_populated_with_value(String expectedAdministrativeText) {
+        String actualAdministrativeText = createNewAccountPage.administrative_business_area.getText();
+        CommonUtils.assertEquals(actualAdministrativeText, expectedAdministrativeText);
+    }
 }

@@ -88,6 +88,36 @@ public class CreateNewAccountPage {
     @FindBy(xpath = "/html/body/app-root/div/div/div[2]/main/app-create-account/div/app-role-information/div/div[2]/form/div/table/thead/tr/th")
     public List<WebElement> active_I2E_roles_headers;
 
+    /**
+     * CANCER ACTIVITY MONITORS (OPTIONAL) TITLE
+     */
+    @FindBy(xpath = "//body/app-root/div/div/div/main[@data-select2-id='main']/app-create-account/div/div/div/h5[1]")
+    public WebElement cancer_activity_monitors_optional_title;
+
+    /**
+     * ADD ROLE BUTTON
+     */
+    @FindBy(xpath = "//span[@ngbtooltip='Unlock the account to make changes']//button")
+    public WebElement add_role_button;
+
+    /**
+     * I2E ROLE DROP DOWN
+     */
+    @FindBy(xpath = "//ng-select2[@multiple='true']//span[@dir='ltr']//span//span[@role='combobox']")
+    public WebElement i2e_role_drop_down;
+
+    /**
+     * I2E ROLE DROP DOWN VALUES
+     */
+    @FindBy(xpath = "//li//span[1]//b[1]")
+    public List<WebElement> i2e_role_drop_down_values;
+
+    /**
+     * BUSINESS AREA ADMINISTRATIVE VALUE
+     */
+    @FindBy(xpath="//span[@title='Administrative']")
+    public WebElement administrative_business_area;
+
     public CreateNewAccountPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
