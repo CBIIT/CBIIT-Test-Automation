@@ -229,4 +229,44 @@ public class EMStepsImplementation extends PageInitializer {
         String actualAdministrativeText = createNewAccountPage.administrative_business_area.getText();
         CommonUtils.assertEquals(actualAdministrativeText, expectedAdministrativeText);
     }
+
+    public static void user_can_verify_that_all_the_docs_contain_in_role_organization_drop_down_list(String expectedCBIITtext) {
+        createNewAccountPage.role_organization_drop_down.click();
+        String firstCBIITvalue = createNewAccountPage.role_organization_first_cbiit_value.getText();
+        boolean isCBIITtextDisplayedFirstOption = firstCBIITvalue.contains(expectedCBIITtext);
+        Assert.assertTrue(isCBIITtextDisplayedFirstOption, "---- VERIFYING IF CBIIT TEXT IS DISPLAYED FOR THE FIRST VALUE ---");
+        createNewAccountPage.role_organization_drop_down_arrow.click();
+        String secondCBIITvalue = createNewAccountPage.role_organization_second_cbiit_value.getText();
+        boolean isCBIITtextDisplayedSecondOption = secondCBIITvalue.contains(expectedCBIITtext);
+        Assert.assertTrue(isCBIITtextDisplayedSecondOption, "---- VERIFYING IF CBIIT TEXT IS DISPLAYED FOR THE SECOND VALUE ---");
+        String thirdCBIITvalue = createNewAccountPage.role_organization_third_cbiit_value.getText();
+        boolean isCBIITtextDisplayedThirdOption = thirdCBIITvalue.contains(expectedCBIITtext);
+        Assert.assertTrue(isCBIITtextDisplayedThirdOption, "---- VERIFYING IF CBIIT TEXT IS DISPLAYED FOR THE THIRD VALUE ---");
+        String fourthCBIITvalue = createNewAccountPage.role_organization_fourth_cbiit_value.getText();
+        boolean isCBIITtextDisplayedFourthOption = fourthCBIITvalue.contains(expectedCBIITtext);
+        Assert.assertTrue(isCBIITtextDisplayedFourthOption, "---- VERIFYING IF CBIIT TEXT IS DISPLAYED FOR THE FOURTH VALUE ---");
+        String fifthCBIITvalue = createNewAccountPage.role_organization_fifth_cbiit_value.getText();
+        boolean isCBIITtextDisplayedFifthOption = fifthCBIITvalue.contains(expectedCBIITtext);
+        Assert.assertTrue(isCBIITtextDisplayedFifthOption, "---- VERIFYING IF CBIIT TEXT IS DISPLAYED FOR THE FIFTH VALUE ---");
+        String sixthCBIITvalue = createNewAccountPage.role_organization_sixth_cbiit_value.getText();
+        boolean isCBIITtextDisplayedSixthOption = sixthCBIITvalue.contains(expectedCBIITtext);
+        Assert.assertTrue(isCBIITtextDisplayedSixthOption, "---- VERIFYING IF CBIIT TEXT IS DISPLAYED FOR THE SIXTH VALUE ---");
+    }
+
+    public static void user_saves_changes() {
+        createNewAccountPage.save_changes_button.click();
+        CommonUtils.acceptAlert();
+    }
+
+    public static void user_can_verify_the_success_message_is_displayed(String expectedSuccessMessage) {
+        String actualSuccessMessage = createNewAccountPage.success_message.getText();
+        Assert.assertEquals(actualSuccessMessage,expectedSuccessMessage);
+    }
+
+    public static void user_can_verify_that_return_to_manage_i2e_users_hyperlink_directs_to_url(String searchPageExpectedURL) {
+        createNewAccountPage.return_to_manage_i2e_users_hyperlink.click();
+        MiscUtils.sleep(2000);
+        String searchPageActualURL = webDriver.getCurrentUrl();
+        Assert.assertEquals(searchPageActualURL,searchPageExpectedURL);
+    }
 }

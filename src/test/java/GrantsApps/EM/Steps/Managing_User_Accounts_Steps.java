@@ -112,4 +112,34 @@ public class Managing_User_Accounts_Steps extends PageInitializer {
     public void can_verify_that_business_area_drop_down_is_pre_populated_with_value(String expectedAdministrativeText) {
         EMStepsImplementation.user_can_verify_that_business_area_drop_down_is_pre_populated_with_value(expectedAdministrativeText);
     }
+
+    @Given("can verify that all the DOCs contain {string} in Role Organization drop down list")
+    public void can_verify_that_all_the_docs_contain_in_role_organization_drop_down_list(String expectedCBIITtext) {
+        EMStepsImplementation.user_can_verify_that_all_the_docs_contain_in_role_organization_drop_down_list(expectedCBIITtext);
+    }
+
+    @Given("selects CENTER FOR BIOMEDICAL INFORMATICS & INFORMATION TECHNOLOGY \\(OD CBIIT) value in the Role Organization drop down list")
+    public void selects_center_for_biomedical_informatics_information_technology_od_cbiit_value_in_the_role_organization_drop_down_list() {
+        createNewAccountPage.role_organization_first_cbiit_value.click();
+    }
+
+    @Given("clicks Add Role button within Add Role pop up")
+    public void clicks_add_role_button_within_add_role_pop_up() {
+        createNewAccountPage.add_role_button_pop_up.click();
+    }
+
+    @Given("saves changes")
+        public void saves_changes(){
+        EMStepsImplementation.user_saves_changes();
+    }
+
+    @Given("can verify the success message is displayed {string}")
+    public void can_verify_the_success_message_is_displayed(String expectedSuccessMessage) {
+        EMStepsImplementation.user_can_verify_the_success_message_is_displayed(expectedSuccessMessage);
+    }
+
+    @Given("can verify that Return to Manage I2E Users hyperlink directs to url {string}")
+    public void can_verify_that_return_to_manage_i2e_users_hyperlink_directs_to_url(String searchPageExpectedURL) {
+       EMStepsImplementation.user_can_verify_that_return_to_manage_i2e_users_hyperlink_directs_to_url(searchPageExpectedURL);
+    }
 }

@@ -115,8 +115,80 @@ public class CreateNewAccountPage {
     /**
      * BUSINESS AREA ADMINISTRATIVE VALUE
      */
-    @FindBy(xpath="//span[@title='Administrative']")
+    @FindBy(xpath = "//span[@title='Administrative']")
     public WebElement administrative_business_area;
+
+    /**
+     * ROLE ORGANIZATION DROP DOWN
+     */
+    @FindBy(xpath = "//div[@role='document']//div//app-add-role-modal//form//div//div//div//app-nci-organization-dropdown//div//nz-tree-select//div//input[@autocomplete='off']")
+    public WebElement role_organization_drop_down;
+
+    /**
+     * ROLE ORGANIZATION DROP DOWN 1ST  VALUE
+     */
+    @FindBy(xpath = "//nz-tree-node-title[@title='CENTER FOR BIOMEDICAL INFORMATICS & INFORMATION TECHNOLOGY (OD CBIIT)']//span")
+    public WebElement role_organization_first_cbiit_value;
+
+    /**
+     * ROLE ORGANIZATION DROP DOWN ARROW
+     */
+    @FindBy(xpath = "//nz-tree-node[1]//nz-tree-node-switcher[1]")
+    public WebElement role_organization_drop_down_arrow;
+
+    /**
+     * ROLE ORGANIZATION DROP DOWN SECOND VALUE
+     */
+    @FindBy(xpath = "//nz-tree-node-title[@title='OFFICE OF DATA SHARING (OD CBIIT ODS)']//span")
+    public WebElement role_organization_second_cbiit_value;
+
+    /**
+     * ROLE ORGANIZATION DROP DOWN THIRD VALUE
+     */
+    @FindBy(xpath = "//nz-tree-node-title[@title='EVALUATION & STRATEGIC INITIATIVES BRANCH (OD CBIIT ESIB)']//span")
+    public WebElement role_organization_third_cbiit_value;
+
+    /**
+     * ROLE ORGANIZATION DROP DOWN FOURTH VALUE
+     */
+    @FindBy(xpath = "//nz-tree-node-title[@title='CANCER INFORMATICS BRANCH (OD CBIIT CIB)']//span")
+    public WebElement role_organization_fourth_cbiit_value;
+
+    /**
+     * ROLE ORGANIZATION DROP DOWN FIFTH VALUE
+     */
+    @FindBy(xpath = "//nz-tree-node-title[@title='BUSINESS OPERATIONS BRANCH (OD CBIIT BOB)']//span")
+    public WebElement role_organization_fifth_cbiit_value;
+
+    /**
+     * ROLE ORGANIZATION DROP DOWN SIXTH VALUE
+     */
+    @FindBy(xpath = "//nz-tree-node-title[contains(@title,'BRANCH (OD CBIIT IIOB)')]//span")
+    public WebElement role_organization_sixth_cbiit_value;
+
+    /**
+     * ADD ROLE BUTTON WITHIN ADD ROLE POP UP
+     */
+    @FindBy(xpath = "//span[@ngbtooltip='Complete all required fields']//button[@type='button']")
+    public WebElement add_role_button_pop_up;
+
+    /**
+     * SAVE CHANGES BUTTON
+     */
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement save_changes_button;
+
+    /**
+     * SUCCESS MESSAGE
+     */
+    @FindBy(xpath = "//div[@role='alert']//span//p")
+    public WebElement success_message;
+
+    /**
+     * RETURN TO MANAGE I2E USERS HYPERLINK
+     */
+    @FindBy(xpath = "//a[@routerlink='/search']")
+    public WebElement return_to_manage_i2e_users_hyperlink;
 
     public CreateNewAccountPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);

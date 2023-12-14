@@ -22,3 +22,9 @@ Feature: Managing User Accounts
     And clicks I2E Role drop down
     And selects "I2E Technical Support" Role
     And can verify that Business Area drop down is pre-populated with "Administrative" value
+    And can verify that all the DOCs contain "CBIIT" in Role Organization drop down list
+    And selects CENTER FOR BIOMEDICAL INFORMATICS & INFORMATION TECHNOLOGY (OD CBIIT) value in the Role Organization drop down list
+    And clicks Add Role button within Add Role pop up
+    And saves changes
+    And can verify the success message is displayed "Success! I2E account has been created."
+    And can verify that Return to Manage I2E Users hyperlink directs to url "https://i2e-test.nci.nih.gov/em/#/search"
