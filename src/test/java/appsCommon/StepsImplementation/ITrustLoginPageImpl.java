@@ -14,7 +14,7 @@ public class ITrustLoginPageImpl extends PageInitializer {
 			iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "Username");
 			iTrustloginPage.enterPassword("Password");
 			iTrustloginPage.clickSignInButton();
-			MiscUtils.sleep(500);
+			MiscUtils.sleep(2000);
 		} catch (TestingException e) {
 			throw new RuntimeException(e);
 		}
