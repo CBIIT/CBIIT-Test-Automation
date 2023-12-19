@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EMStepsImplementation extends PageInitializer {
+
     static String expectedNEDname;
 
     public void emLogin(String userName) throws TestingException {
