@@ -190,6 +190,17 @@ public class CreateNewAccountPage {
     @FindBy(xpath = "//a[@routerlink='/search']")
     public WebElement return_to_manage_i2e_users_hyperlink;
 
+    /**
+     * CHANGE HISTORY TEXT
+     */
+    @FindBy(xpath = "//h6[contains(text(),'Change History')]")
+    public WebElement changeHistoryText;
+
+    /**
+     * CANCEL BUTTON
+     */
+    @FindBy(xpath = "//button[contains(text(), 'Cancel')]")
+    public WebElement cancelButton;
     public CreateNewAccountPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }

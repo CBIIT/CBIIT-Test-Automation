@@ -1,6 +1,5 @@
 package GrantsApps.EM.StepImplementation;
 
-import GrantsApps.EM.Pages.CreateNewAccountPage;
 import GrantsApps.EM.Pages.ManageI2EUsersPage;
 import GrantsApps.EM.Utils.EM_Constants;
 import appsCommon.PageInitializers.PageInitializer;
@@ -13,11 +12,11 @@ import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class EMStepsImplementation extends PageInitializer {
+    static String expectedNEDname;
 
     public void emLogin(String userName) throws TestingException {
         switch (userName) {
@@ -142,6 +141,12 @@ public class EMStepsImplementation extends PageInitializer {
         MiscUtils.sleep(2000);
     }
 
+    public static void user_can_verify_that_user_s_full_name_is_displayed() {
+        MiscUtils.sleep(5000);
+        JavascriptUtils.scrollIntoView(manageI2EUsersPage.createButton);
+        expectedNEDname = JavascriptUtils.getTextUsingJS(manageI2EUsersPage.fullNEDName);
+    }
+
     public static void clicks_create_on_the_first_record_in_the_results() {
         MiscUtils.sleep(5000);
         JavascriptUtils.scrollIntoView(manageI2EUsersPage.createButton);
@@ -152,11 +157,18 @@ public class EMStepsImplementation extends PageInitializer {
     public static void user_can_verify_the_page_name_is(String expectedPageName) {
         String actualPageName = createNewAccountPage.createNewAccountTitle.getText();
         Assert.assertEquals(actualPageName, expectedPageName);
+        MiscUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
+    }
+
+    public static void user_can_verify_that_users_full_name_is_displayed() {
+        String actual_NED_full_name = createNewAccountPage.full_NED_name.getText();
+        Assert.assertEquals(actual_NED_full_name, expectedNEDname);
     }
 
     public static void user_can_verify_the_respective_wording_of_full_name_tooltip(String expectedWording_of_full_name_tooltip) {
         createNewAccountPage.tooltipNEDnameLink.click();
+        MiscUtils.sleep(1000);
         String actualWording_of_full_name_tooltip = createNewAccountPage.tooltipNEDnameText.getText();
         Assert.assertEquals(actualWording_of_full_name_tooltip, expectedWording_of_full_name_tooltip);
     }
@@ -183,12 +195,14 @@ public class EMStepsImplementation extends PageInitializer {
     public static void user_can_verify_the_table_title_is(String expectedI2ErolesTableTitle) {
         String actualI2ErolesTableTitle = createNewAccountPage.active_I2E_roles_table_title.getText();
         Assert.assertEquals(actualI2ErolesTableTitle, expectedI2ErolesTableTitle);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void user_can_verify_the_pdf_document_link_opens_upon_clicking_on_the_list_of_i2e_roles_hyperlink(String expected_I2E_roles_pdf_url) {
         String emMainWindowHandle = webDriver.getWindowHandle();
         createNewAccountPage.list_of_I2E_roles_link.click();
         CommonUtils.switchToNextWindow();
+        MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         String actual_I2E_roles_pdf_url = webDriver.getCurrentUrl();
         Assert.assertEquals(actual_I2E_roles_pdf_url, expected_I2E_roles_pdf_url);
@@ -208,11 +222,13 @@ public class EMStepsImplementation extends PageInitializer {
             actualHeaders.add(actualHeader);
         }
         Assert.assertEquals(actualHeaders, expectedHeaders);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void user_can_verify_that_title_is_present(String expectedTitle) {
         String actualTitle = createNewAccountPage.cancer_activity_monitors_optional_title.getText();
         Assert.assertEquals(actualTitle, expectedTitle);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void user_clicks_add_role_button() {
@@ -228,10 +244,12 @@ public class EMStepsImplementation extends PageInitializer {
     public static void user_can_verify_that_business_area_drop_down_is_pre_populated_with_value(String expectedAdministrativeText) {
         String actualAdministrativeText = createNewAccountPage.administrative_business_area.getText();
         CommonUtils.assertEquals(actualAdministrativeText, expectedAdministrativeText);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void user_can_verify_that_all_the_docs_contain_in_role_organization_drop_down_list(String expectedCBIITtext) {
         createNewAccountPage.role_organization_drop_down.click();
+        CommonUtils.waitForClickability(createNewAccountPage.role_organization_first_cbiit_value);
         String firstCBIITvalue = createNewAccountPage.role_organization_first_cbiit_value.getText();
         boolean isCBIITtextDisplayedFirstOption = firstCBIITvalue.contains(expectedCBIITtext);
         Assert.assertTrue(isCBIITtextDisplayedFirstOption, "---- VERIFYING IF CBIIT TEXT IS DISPLAYED FOR THE FIRST VALUE ---");
@@ -261,6 +279,8 @@ public class EMStepsImplementation extends PageInitializer {
     public static void user_can_verify_the_success_message_is_displayed(String expectedSuccessMessage) {
         String actualSuccessMessage = createNewAccountPage.success_message.getText();
         Assert.assertEquals(actualSuccessMessage,expectedSuccessMessage);
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
     }
 
     public static void user_can_verify_that_return_to_manage_i2e_users_hyperlink_directs_to_url(String searchPageExpectedURL) {
@@ -268,5 +288,6 @@ public class EMStepsImplementation extends PageInitializer {
         MiscUtils.sleep(2000);
         String searchPageActualURL = webDriver.getCurrentUrl();
         Assert.assertEquals(searchPageActualURL,searchPageExpectedURL);
+        CucumberLogUtils.logScreenshot();
     }
 }

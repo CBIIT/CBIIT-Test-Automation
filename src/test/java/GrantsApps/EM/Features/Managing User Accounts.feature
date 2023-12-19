@@ -1,7 +1,7 @@
 Feature: Managing User Accounts
   Description:  This Feature file contains Scenarios that verify User Account creation functionalities
 
-  @ENTMAINT-492 @ENTMAINT-943 @puzikovam2 @andreyeve @Progression
+  @ENTMAINT-510 @ENTMAINT-515 @ENTMAINT-539 @ENTMAINT-551 @ENTMAINT-554 @ENTMAINT-945 @puzikovam2 @andreyeve @Regression
   Scenario: Verify Create Account for "Not Created" Account scenario
     Given User is logged in as Primary IC Coordinator
     And clicks Show Advanced Filters
@@ -18,6 +18,9 @@ Feature: Managing User Accounts
     And can verify the PDF document link "https://i2e-test.nci.nih.gov/em/assets/docs/I2E%20Roles%20and%20Descriptions.pdf" opens upon clicking on the List of I2E Roles hyperlink
     And can verify that the following fields "Role", "Role Organization", "Assigned Cancer Activities", "Start Date", "Action" are present
     And can verify that "Cancer Activity Monitors (Optional)" title is present
+    And can verify that I2E Account History is not present
+    And can verify that Save Changes button is disabled
+    And can verify that Cancel button is enabled
     And clicks Add Role button
     And clicks I2E Role drop down
     And selects "I2E Technical Support" Role

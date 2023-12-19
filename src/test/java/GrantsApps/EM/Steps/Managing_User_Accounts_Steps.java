@@ -1,23 +1,13 @@
 package GrantsApps.EM.Steps;
 
-import GrantsApps.EM.Pages.ManageI2EUsersPage;
 import GrantsApps.EM.StepImplementation.EMStepsImplementation;
 import appsCommon.PageInitializers.PageInitializer;
-import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.JavascriptUtils;
-import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 public class Managing_User_Accounts_Steps extends PageInitializer {
-
-    String expectedNEDname;
 
     @Given("clicks Show Advanced Filters")
     public void clicks_show_advanced_filters() {
@@ -36,15 +26,12 @@ public class Managing_User_Accounts_Steps extends PageInitializer {
 
     @And("gets the full NED name of the first record")
     public void user_can_verify_that_user_s_full_name_is_displayed() {
-        MiscUtils.sleep(5000);
-        JavascriptUtils.scrollIntoView(manageI2EUsersPage.createButton);
-        expectedNEDname = JavascriptUtils.getTextUsingJS(manageI2EUsersPage.fullNEDName);
+        EMStepsImplementation.user_can_verify_that_user_s_full_name_is_displayed();
     }
 
     @Given("clicks Create on the first record in the results")
     public void clicks_create_on_the_first_record_in_the_results() {
         EMStepsImplementation.clicks_create_on_the_first_record_in_the_results();
-
     }
 
     @Given("User can verify the page name is {string}")
@@ -54,8 +41,7 @@ public class Managing_User_Accounts_Steps extends PageInitializer {
 
     @Given("can verify that User's full name is displayed")
     public void can_verify_that_user_s_full_name_is_displayed() {
-        String actual_NED_full_name = createNewAccountPage.full_NED_name.getText();
-        Assert.assertEquals(actual_NED_full_name, expectedNEDname);
+      EMStepsImplementation.user_can_verify_that_users_full_name_is_displayed();
     }
 
     @Given("can verify the respective wording of Full Name tooltip {string}")
@@ -129,7 +115,7 @@ public class Managing_User_Accounts_Steps extends PageInitializer {
     }
 
     @Given("saves changes")
-        public void saves_changes(){
+    public void saves_changes() {
         EMStepsImplementation.user_saves_changes();
     }
 
@@ -140,6 +126,21 @@ public class Managing_User_Accounts_Steps extends PageInitializer {
 
     @Given("can verify that Return to Manage I2E Users hyperlink directs to url {string}")
     public void can_verify_that_return_to_manage_i2e_users_hyperlink_directs_to_url(String searchPageExpectedURL) {
-       EMStepsImplementation.user_can_verify_that_return_to_manage_i2e_users_hyperlink_directs_to_url(searchPageExpectedURL);
+        EMStepsImplementation.user_can_verify_that_return_to_manage_i2e_users_hyperlink_directs_to_url(searchPageExpectedURL);
+    }
+
+    @Given("can verify that I2E Account History is not present")
+    public void can_verify_that_i2e_account_history_is_not_present() {
+        Assert.assertFalse(createNewAccountPage.changeHistoryText.isDisplayed());
+    }
+
+    @Given("can verify that Save Changes button is disabled")
+    public void can_verify_that_save_changes_button_is_disabled() {
+        Assert.assertFalse(createNewAccountPage.save_changes_button.isEnabled());
+    }
+
+    @Given("can verify that Cancel button is enabled")
+    public void can_verify_that_cancel_button_is_enabled() {
+        Assert.assertTrue(createNewAccountPage.cancelButton.isEnabled());
     }
 }
