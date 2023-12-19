@@ -72,6 +72,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static ChangePasswordStepsImpl changePasswordStepsImpl;
 	public static EMStepsImplementation emStepsImplementation;
 	public static ManageI2EUsersPage manageI2EUsersPage;
+	public static CreateNewAccountPage createNewAccountPage;
 
 	/** --------------- SERVICENOW INSTANCES --------------- */
 	/** COVIDDash instances */
@@ -518,11 +519,15 @@ public class PageInitializer extends WebDriverUtils {
 		nativeViewCHARMSParticipantStudyPage = new NativeViewCHARMSParticipantStudyPage();
 		nativeViewSCSSReportsPage = new NativeViewSCSSReportsPage();
 
+		/****** GRANTS INSTANCES *******/
 		/** Grants ChangePassword app **/
 		changePasswordPage = new ChangePasswordPage();
 		changePasswordStepsImpl = new ChangePasswordStepsImpl();
+
+		/** GRANTS ENTERPRISE MAINTENANCE **/
 		emStepsImplementation = new EMStepsImplementation();
 		manageI2EUsersPage = new ManageI2EUsersPage();
+		createNewAccountPage = new CreateNewAccountPage();
 
 		/** eTracking INSTANCE VARIABLES */
 		etrackAssetsRecords_NativeViewPage = new EtrackAssetsRecords_NativeViewPage();
