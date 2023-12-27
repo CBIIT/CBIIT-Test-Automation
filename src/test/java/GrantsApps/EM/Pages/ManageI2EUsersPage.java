@@ -28,34 +28,10 @@ public class ManageI2EUsersPage {
     public WebElement searchButtonI2ESearch;
 
     /**
-     * Edit Button
-     */
-    @FindBy(xpath = "//div//button[@title='Modify Account']")
-    public WebElement editButton;
-
-    /**
-     * add Role Button
-     */
-    @FindBy(xpath = "//button[normalize-space()='Add Role']")
-    public WebElement addRoleBUTTON;
-
-    /**
-     * I2E Drop Down
-     */
-    @FindBy(xpath = "//select[@id='i2eRole-select']")
-    public WebElement i2eDropDown;
-
-    /**
      * I2E Role Drop down
      */
     @FindBy(xpath = "//ng-select2[@multiple='true']//span[@dir='ltr']//span//span[@role='combobox']")
     public WebElement I2ERoleDropD;
-
-    /**
-     * I2E Role Drop down values
-     */
-    @FindBy(xpath = "/html/body/span/span/span[2]/ul/li")
-    public List<WebElement> I2ERoleDropDownValues;
 
     /**
      * I2E Role Drop down text box
@@ -93,6 +69,37 @@ public class ManageI2EUsersPage {
     @FindBy(xpath = "//*[@id='headerCollapse']/ul/li[2]/div/div/a")
     public List<WebElement> i2eHelpDropDownValues;
 
+    /**
+     * Show Advanced Filters link
+     */
+    @FindBy(xpath = "//body/app-root/div/div/div/main/app-search/div/div/div/a[1]")
+    public WebElement showAdvancedFilters;
+
+    /**
+     * I2E Account Status Drop down
+     */
+    @FindBy(xpath = "//ng-select2[@multiple='false']//span//ul")
+    public WebElement i2eAccountStatusDropDown;
+
+    /**
+     * I2E Account Status Value
+     */
+    @FindBy(xpath = "/html/body/span/span/span/ul/li")
+    public List<WebElement> i2eAccountStatusValues;
+
+    /**
+     * Create Button
+     */
+    @FindBy(xpath = "//tbody/tr[1]/td[8]/app-action-cell-renderer[1]/div[1]/button[1]")
+    public WebElement createButton;
+
+    /**
+     * User's full name
+     */
+    @FindBy(xpath = "/html/body/app-root/div/div/div[2]/main/app-search/div/div[2]/div/div/div/table/tbody/tr[1]/td[1]/app-user-details-renderer/lib-name-render/div/a")
+    public WebElement fullNEDName;
+
+
     /***
      * USE THIS METHOD TO DYNAMICALLY LOCATE A USER
      * @param user
@@ -102,8 +109,13 @@ public class ManageI2EUsersPage {
         return WebDriverUtils.webDriver.findElement(By.xpath("//span[contains(text(),'" + user + "')]"));
     }
 
+    /***
+     * USE THIS METHOD TO DYNAMICALLY LOCATE LINKS
+     * @param text
+     * @return
+     */
     public static WebElement dynamicLinkLocator(String text) {
-       return WebDriverUtils.webDriver.findElement(By.xpath("//a[text()='" + text + "']"));
+        return WebDriverUtils.webDriver.findElement(By.xpath("//a[text()='" + text + "']"));
     }
 
     public ManageI2EUsersPage() {

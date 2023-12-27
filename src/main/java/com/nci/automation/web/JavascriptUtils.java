@@ -195,4 +195,14 @@ public class JavascriptUtils extends WebDriverUtils {
 		element.sendKeys(filePath);
 	}
 
+	/***
+	 * USE THIS METHOD TO GET TEXT OF A WEB ELEMENT USING JS
+	 * @param e
+	 * @return
+	 */
+	public static String getTextUsingJS(WebElement e){
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) webDriver;
+		return (String) jsExecutor.executeScript("return arguments[0].textContent;", e);
+	}
+
 }
