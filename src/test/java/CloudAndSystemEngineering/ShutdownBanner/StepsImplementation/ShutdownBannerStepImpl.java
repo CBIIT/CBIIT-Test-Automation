@@ -48,6 +48,7 @@ public class ShutdownBannerStepImpl extends PageInitializer {
         for(int i=0;i<links.size();i++){
             WebElement E1= links.get(i);
             String url= E1.getAttribute("href");
+            /** Please remove or add conditions below for the application URLs based on the application pages naming convention for better filtering of URLs gathered**/
             if (url !=null && url.contains(urlsplit[0]) && !url.contains(".pdf") && !url.contains(".xls") && !url.contains("#")){
                 List<String> uniqueURL = new ArrayList<>();
                 for(String j:mainWorkingLinks){
@@ -84,6 +85,7 @@ public class ShutdownBannerStepImpl extends PageInitializer {
                 String[] urlSearchWord = urlsplit[0].split("\\<");
                 urlList.add(urlSearchWord[0]);
             }
+            System.out.println("");
             System.out.println("***********************************************************************************************************************");
             System.out.println("NUMBER OF MAIN URLS FROM EXCEL: " + urlsListProd.size());
             System.out.println("NUMBER OF UNIQUE URLS FROM SITEMAP FOR: " + listUrlsProd + " - " + urlList.size());
@@ -99,7 +101,7 @@ public class ShutdownBannerStepImpl extends PageInitializer {
                     } else{
                         long startTime = System.currentTimeMillis();
                         WebDriverUtils.webDriver.get(urlSet);
-                        if (CommonUtils.isElementDisplayed(shutdownBannerLocatorsPage.bannerBodyText)){
+                        if (shutdownBannerLocatorsPage.bannerLinkPresent.size() == 1){
                             JavascriptUtils.scrollIntoView(shutdownBannerLocatorsPage.bannerBodyText);
                             CommonUtils.assertEqualsWithMessage(shutdownBannerLocatorsPage.bannerBodyText.getText(), ShutdownBannerConstants.MESSAGE_BODY_ENGLISH, "ASSERTING THE SPANISH BANNER BODY TEXT");
                             CommonUtils.assertEqualsWithMessage(shutdownBannerLocatorsPage.bannerTitleText.getText(), ShutdownBannerConstants.MESSAGE_TITLE_ENGLISH, "ASSERTING THE SPANISH BANNER TITLE TEXT");
@@ -138,6 +140,7 @@ public class ShutdownBannerStepImpl extends PageInitializer {
     }
 
     public static void theUserShouldSeeTheShutdownBannerNoSiteMap() {
+        System.out.println("");
         System.out.println("VERIFYING PAGES: " + urlsListProd.size());
         System.out.println("***********************************************************************************************************************");
             for (String urlSet:urlsListProd) {
@@ -190,12 +193,52 @@ public class ShutdownBannerStepImpl extends PageInitializer {
         }
     }
 
+    public static void checkPageLoadingTime() {
+        System.out.println("");
+        System.out.println("VERIFYING PAGES: " + urlsListProd.size());
+        System.out.println("***********************************************************************************************************************");
+        for (String urlSet:urlsListProd) {
+            try {
+                URL link = new URL(urlSet);
+                HttpURLConnection httpConn = (HttpURLConnection) link.openConnection();
+                httpConn.connect();
+                int code = httpConn.getResponseCode();
+                if (code >= 400) {
+                    System.out.println("Broken Link: " + urlSet);
+                    brokenLinks.add(urlSet);
+                } else{
+                    long startTime = System.currentTimeMillis();
+                    WebDriverUtils.webDriver.get(urlSet);
+                    CucumberLogUtils.logScreenshot();
+                    long endTime = System.currentTimeMillis();
+                    long totalTime = endTime - startTime;
+                    System.out.println(totalTime + " Milliseconds load time for: " + urlSet);
+                }
+
+            } catch (IOException e) {
+                pagesNotLoading.add(urlSet);
+            }
+        }
+        System.out.println("***********************************************************************************************************************");
+        System.out.println("PAGES THAT ARE NOT LOADING: " + pagesNotLoading.size());
+        System.out.println("***********************************************************************************************************************");
+        for (String bl:pagesNotLoading) {
+            System.out.println(bl);
+        }
+        System.out.println("***********************************************************************************************************************");
+        System.out.println("ALL BROKEN LINKS ARE: " + brokenLinks.size());
+        System.out.println("***********************************************************************************************************************");
+        for (String bl:brokenLinks) {
+            System.out.println(bl);
+        }
+    }
+
     public static void getAllLinksFromExcelSheet ()  {
         DataFormatter formatter = new DataFormatter();
         try {
             FileInputStream file= new FileInputStream(ShutdownBannerConstants.BANNER_URL_LIST_PRPD);
             Workbook book= new XSSFWorkbook(file);
-            Sheet sheet= book.getSheet(ShutdownBannerConstants.BANNER_URL_LIST_PROD_SHEET_NAME_NO_SITEMAP);
+            Sheet sheet= book.getSheet(ShutdownBannerConstants.BANNER_URL_LIST_PROD_SHEET_NAME);
             int lastRowNumber= sheet.getLastRowNum();
             for (int i = 0; i <= lastRowNumber; i++) {
                 Row row=sheet.getRow(i);
