@@ -11,3 +11,10 @@ Feature: EM Flow Sprint One
     And selects "I2E Technical Support" from I2E Role drop down
     And selects "CENTER FOR BIOMEDICAL INFORMATICS & INFORMATION TECHNOLOGY (OD CBIIT)" from Role Organization drop down
     And User clicks on Add Role button Inside Module
+    Then User can verify that the ItwoE Technical Support Role is displayed in the Active User Roles grid
+    When User clicks Add Role button
+    And User clicks I2E Role drop down
+    And User selects  I2E Technical Support Role
+    And selects "CENTER FOR BIOMEDICAL INFORMATICS & INFORMATION TECHNOLOGY (OD CBIIT)" from Role Organization drop down
+    Then warning message with user "Mata Rodriguez, Kevin" displays with "has already active I2E Technical Support role for the same NCI Organization. Please select a different I2E Role or NCI Organization to proceed."
+    Then User saves ITwoE Technical Support Role that was added role

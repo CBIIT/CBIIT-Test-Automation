@@ -73,6 +73,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static EMStepsImplementation emStepsImplementation;
 	public static ManageI2EUsersPage manageI2EUsersPage;
 	public static CreateNewAccountPage createNewAccountPage;
+	public static AccountDetailsPage accountDetailsPage;
 
 	/** --------------- SERVICENOW INSTANCES --------------- */
 	/** COVIDDash instances */
@@ -523,6 +524,7 @@ public class PageInitializer extends WebDriverUtils {
 		/** Grants ChangePassword app **/
 		changePasswordPage = new ChangePasswordPage();
 		changePasswordStepsImpl = new ChangePasswordStepsImpl();
+		accountDetailsPage = new AccountDetailsPage();
 
 		/** GRANTS ENTERPRISE MAINTENANCE **/
 		emStepsImplementation = new EMStepsImplementation();
