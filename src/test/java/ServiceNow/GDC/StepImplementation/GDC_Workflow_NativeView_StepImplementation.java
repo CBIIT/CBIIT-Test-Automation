@@ -1,58 +1,65 @@
 package ServiceNow.GDC.StepImplementation;
 
+import ServiceNow.GCP.Constants.GCPNotifications_NativeView_Constants;
 import ServiceNow.GDC.Constants.GDC_WorkFlow_NV_Constants;
+import ServiceNow.GDC.Pages.GDC_Workflow_NativeView_Page;
+import ServiceNow.NERD.Constants.NCI_Staff_Members_Constants;
+import ServiceNow.NERD.Constants.NERDOGSRMemberOfCongress_Constants;
+import ServiceNow.SEER.Constants.SEERNativeView_Constants;
 import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
+import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
+import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import org.openqa.selenium.Keys;
 
 public class GDC_Workflow_NativeView_StepImplementation extends PageInitializer {
 
     public static void createNewGDCRecord(){
-        CommonUtils.waitForVisibility(gDC_Workflow_NativeView_Page.nVFilterNavigator);
-        CommonUtils.waitForVisibility(gDC_Workflow_NativeView_Page.nVGDCCreateNewTab);
-        CommonUtils.clickOnElement(gDC_Workflow_NativeView_Page.nVGDCCreateNewTab);
-        CommonUtils.switchToFrame(etrackAssetsRecords_NativeViewPage.accessRequestIFrame);
+
         CommonUtils.clickOnElement(gDC_Workflow_NativeView_Page.nVGDCShortDescriptionLabel);
         CommonUtils.sendKeys(gDC_Workflow_NativeView_Page.nVGDCShortDescriptionTextBox, GDC_WorkFlow_NV_Constants.GDC_NATIVE_VIEW_SHORT_DESCRIPTION_TEXT_BOX);
         CommonUtils.sendKeys(gDC_Workflow_NativeView_Page.nVGDCRecordSubmitterSearchTextBox, GDC_WorkFlow_NV_Constants.GDC_NATIVE_VIEW_SUBMITTER_SEARCH_TEXT_BOX);
-        MiscUtils.sleep(500);
-        CommonUtils.waitForVisibility(gDC_Workflow_NativeView_Page.nVGDCCreateNewRecord1stSaveButton);
-        CommonUtils.waitForClickability(gDC_Workflow_NativeView_Page.nVGDCCreateNewRecord1stSaveButton);
-        CommonUtils.clickOnElement(gDC_Workflow_NativeView_Page.nVGDCCreateNewRecord1stSaveButton);
         MiscUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
         CommonUtils.waitForVisibility(gDC_Workflow_NativeView_Page.nVGDCRecordAssignedToSearchTextBox);
         CommonUtils.sendKeys(gDC_Workflow_NativeView_Page.nVGDCRecordAssignedToSearchTextBox, Keys.ENTER);
         CommonUtils.sendKeys(gDC_Workflow_NativeView_Page.nVGDCRecordAssignedToSearchTextBox, GDC_WorkFlow_NV_Constants.GDC_NATIVE_VIEW_ASSIGNED_TO_USER_TEXT_BOX);
         MiscUtils.sleep(500);
-        CommonUtils.waitForVisibility(gDC_Workflow_NativeView_Page.nVGDCExistedRecordAssigneToSavedButton);
-        CommonUtils.clickOnElement(gDC_Workflow_NativeView_Page.nVGDCExistedRecordAssigneToSavedButton);
+        CommonUtils.sendKeys(gDC_Workflow_NativeView_Page.nVGDCRecordCategoryDropDown, Keys.ENTER);
+        MiscUtils.sleep(1000);
+        CommonUtils.selectDropDownValue(gDC_Workflow_NativeView_Page.nVGDCRecordCategoryDropDown, GDC_WorkFlow_NV_Constants.GDC_CATEGORY_DROPDOWN_FIELD);
+        MiscUtils.sleep(500);
+        CommonUtils.waitForVisibility(gDC_Workflow_NativeView_Page.nVGDCCreateNewRecord1stSaveButton);
+        CommonUtils.waitForClickability(gDC_Workflow_NativeView_Page.nVGDCCreateNewRecord1stSaveButton);
+        CommonUtils.clickOnElement(gDC_Workflow_NativeView_Page.nVGDCCreateNewRecord1stSaveButton);
         JavascriptUtils.drawBlueBorder(gDC_Workflow_NativeView_Page.nVGDCRecordStateTextBox);
         CucumberLogUtils.logScreenshot();
     }
 
     public static void deleteAutomatedGDCRecord() throws TestingException {
-        nativeViewImpersonateUser.impersonateToStaffMemberCBIIT();
-        nativeViewImpersonateUserPage.nativeViewLink.click();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.waitForVisibility(nativeViewEnrollementsPage.filterNavigator);
-        nativeViewEnrollementsPage.filterNavigator.clear();
-        gDC_Workflow_NativeView_Page.nVFilterNavigator.sendKeys(GDC_WorkFlow_NV_Constants.GDC_NATIVE_VIEW_FILTER_NAVIGATION_SEARCH_BOX);
-        CucumberLogUtils.logScreenshot();
-        CommonUtils.waitForVisibility(gDC_Workflow_NativeView_Page.nVGDCAllTab);
-        CommonUtils.clickOnElement(gDC_Workflow_NativeView_Page.nVGDCAllTab);
-        CommonUtils.switchToFrame(gDC_Workflow_NativeView_Page.accessRequestIFrame);
+        MiscUtils.sleep(2000);
+        WebDriverUtils.webDriver.get(GDC_WorkFlow_NV_Constants.GDC_NATIVE_VIEW_FILTER_NAVIGATION_ALL_UNDER_GDC_URL);
+        MiscUtils.sleep(3000);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        MiscUtils.sleep(2000);
         CommonUtils.waitForVisibility(gDC_Workflow_NativeView_Page.nVGDCAllRecordSearchDropDown);
         CommonUtils.selectDropDownValue(gDC_Workflow_NativeView_Page.nVGDCAllRecordSearchDropDown, GDC_WorkFlow_NV_Constants.GDC_NATIVE_ALL_RECORD_SEARCH_DROP_DOWN);
+        MiscUtils.sleep(3000);
         CommonUtils.sendKeysToElement(gDC_Workflow_NativeView_Page.nVGDCAllRecordSearchTextBox, GDC_WorkFlow_NV_Constants.GDC_NATIVE_VIEW_SHORT_DESCRIPTION_TEXT_BOX);
+        MiscUtils.sleep(3000);
         CommonUtils.sendKeys(gDC_Workflow_NativeView_Page.nVGDCAllRecordSearchTextBox, Keys.ENTER);
-        CommonUtils.waitForVisibility(gDC_Workflow_NativeView_Page.nVGDCRecordLocator);
-        CommonUtils.clickOnElement(gDC_Workflow_NativeView_Page.nVGDCRecordLocator);
+        CommonUtils.hoverOverElement(gDC_Workflow_NativeView_Page.nVRecordName(GDC_WorkFlow_NV_Constants.GDC_NATIVE_VIEW_SHORT_DESCRIPTION_TEXT_BOX));
+        CommonUtils.waitForClickability(gDC_Workflow_NativeView_Page.nVRecordLocator(GDC_WorkFlow_NV_Constants.GDC_NATIVE_VIEW_SHORT_DESCRIPTION_TEXT_BOX));
+        CommonUtils.clickOnElement(gDC_Workflow_NativeView_Page.nVRecordLocator(GDC_WorkFlow_NV_Constants.GDC_NATIVE_VIEW_SHORT_DESCRIPTION_TEXT_BOX));
         CommonUtils.waitForVisibility(gDC_Workflow_NativeView_Page.nVGDCOpenRecordButton);
         CommonUtils.clickOnElement(gDC_Workflow_NativeView_Page.nVGDCOpenRecordButton);
         CommonUtils.waitForVisibility(gDC_Workflow_NativeView_Page.nVGDCRecordDeleteButton);
@@ -65,16 +72,40 @@ public class GDC_Workflow_NativeView_StepImplementation extends PageInitializer 
         CommonUtils.sendKeysToElement(gDC_Workflow_NativeView_Page.nVGDCAllRecordSearchTextBox, GDC_WorkFlow_NV_Constants.GDC_NATIVE_VIEW_SHORT_DESCRIPTION_TEXT_BOX);
         CommonUtils.sendKeys(gDC_Workflow_NativeView_Page.nVGDCAllRecordSearchTextBox, Keys.ENTER);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.waitForVisibility(gDC_Workflow_NativeView_Page.nVGDCRecordNoRecordToDisplay);
-        JavascriptUtils.drawBlueBorder(gDC_Workflow_NativeView_Page.nVGDCRecordNoRecordToDisplay);
+        CommonUtils.assertEqualsWithMessage(nativeViewAccessRequestPage.nativeViewAccessRequestEmailsNoRecordsToDisplayText.getText(),SEERNativeView_Constants.NATIVE_VIEW_NO_RECORD_TO_DISPLAY_TEXT, "Verify there are no records to display created by Automation");
+        JavascriptUtils.drawBlueBorder(nativeViewAccessRequestPage.nativeViewAccessRequestEmailsNoRecordsToDisplayText);
         CucumberLogUtils.logScreenshot();
     }
 
     public static void iAmAuthenticatedGDCFulfillerInNV() throws TestingException {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        nativeViewImpersonateUser.impersonateGDCFulfillerUser();
-        nativeViewEnrollementsPage.filterNavigator.clear();
-        gDC_Workflow_NativeView_Page.nVFilterNavigator.sendKeys(GDC_WorkFlow_NV_Constants.GDC_NATIVE_VIEW_FILTER_NAVIGATION_SEARCH_BOX);
+        ServiceNow_Common_Methods.impersonateAnyUser("wwysoc2@uchicago.edu");
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
+        MiscUtils.sleep(2000);
+        WebDriverUtils.webDriver.get(GDC_WorkFlow_NV_Constants.GDC_NATIVE_VIEW_FILTER_NAVIGATION_CREATE_NEW_UNDER_GDC_URL);
+        MiscUtils.sleep(3000);
+        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+        MiscUtils.sleep(2000);
+//        if(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.getAttribute("class").equals("sn-global-typeahead-input -global")){
+//            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allTab);
+//            NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("GDC");
+//            MiscUtils.sleep(3000);
+//            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.filterNavigationMembersOfCongress);
+//            MiscUtils.sleep(3000);
+//            CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+//            MiscUtils.sleep(2000);
+//        }else {
+//            NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("GDC");
+//            MiscUtils.sleep(3000);
+//            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.filterNavigationMembersOfCongress);
+//            MiscUtils.sleep(3000);
+//            CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+//            MiscUtils.sleep(2000);
+//        }
+
+//        nativeViewEnrollementsPage.filterNavigator.clear();
+//        gDC_Workflow_NativeView_Page.nVFilterNavigator.sendKeys(GDC_WorkFlow_NV_Constants.GDC_NATIVE_VIEW_FILTER_NAVIGATION_SEARCH_BOX);
         CucumberLogUtils.logScreenshot();
         createNewGDCRecord();
     }
@@ -127,6 +158,7 @@ public class GDC_Workflow_NativeView_StepImplementation extends PageInitializer 
         CommonUtils.clickOnElement(gDC_Workflow_NativeView_Page.nVGDCRecordConfigureBusinessDurationField);
         MiscUtils.sleep(5000);
         CucumberLogUtils.logScreenshot();
+        ServiceNow_Common_Methods.logOutOfNativeView();
         deleteAutomatedGDCRecord();
     }
 }

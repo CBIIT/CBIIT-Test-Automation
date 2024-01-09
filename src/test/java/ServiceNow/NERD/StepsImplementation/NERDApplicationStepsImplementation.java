@@ -1138,7 +1138,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      */
    public static void aDocPlanningContactIsOnTheCrsKnowledgeManagementSystemHomePage() throws TestingException {
        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-       ServiceNow_Common_Methods.impersonateAnyUser("Karen Ortner");
+       ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
        CucumberLogUtils.logScreenshot();
        CommonUtils.waitForVisibility(

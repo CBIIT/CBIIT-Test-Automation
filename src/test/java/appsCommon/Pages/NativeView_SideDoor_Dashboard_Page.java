@@ -47,6 +47,18 @@ public class NativeView_SideDoor_Dashboard_Page {
     @FindElementBy(xpath = "//div[@class='sn-polaris-nav-body']/sn-collapsible-list[2]")
     public static WebElement filterNavigationEmailsButton;
 
+    /* FILTER NAVIGATION NOTIFICATIONS BUTTON  */
+    @FindElementBy(xpath = "//div[@class='sn-polaris-nav-body']/sn-collapsible-list[2]/div/div/ul/li[2]/span")
+    public static WebElement filterNavigationNotificationButton;
+
+    /* FILTER NAVIGATION MEMBERS OF CONGRESS */
+    @FindElementBy(xpath = "//span[@class='menu-item-row highlighted-menu-item-row']")
+    public static WebElement filterNavigationMembersOfCongress;
+
+    /* ASSETS MENU BUTTON */
+    @FindElementBy(xpath = "//*[text()='Assets'][1]")
+    public static WebElement assetsMenuButton;
+
     /**
      * USE THIS METHOD TO SEARCH ANY TEXT USING THE NATIVE VIEW FILTER NAVIGATOR
      *

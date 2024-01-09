@@ -37,6 +37,18 @@ public class GDC_Workflow_NativeView_Page extends CommonUtils {
     @FindBy(xpath = "//span[@id='x_g_nci_gdc_case_hide_search']//div//input")
     public WebElement nVGDCAllRecordSearchTextBox;
 
+    /** Native View Record Name Dynamic Xpath */
+    public WebElement nVRecordName(String value) {
+        return WebDriverUtils.webDriver
+                .findElement(By.xpath("//div[normalize-space()='" + value + "']"));
+    }
+
+    /** Native View Record locator Dynamic Xpath */
+    public WebElement nVRecordLocator(String value) {
+        return WebDriverUtils.webDriver
+                .findElement(By.xpath("//div[normalize-space()='" + value + "']//parent::div//parent::td//parent::tr//child::td[2]//child::a"));
+    }
+
     /** Native View GDC Record locator */
     @FindBy(xpath = "//td[@class='list_decoration_cell col-small col-center ']//a")
     public WebElement nVGDCRecordLocator;
@@ -56,6 +68,10 @@ public class GDC_Workflow_NativeView_Page extends CommonUtils {
     /** Native View GDC Record Submitter Search TEXT BOX */
     @FindBy(xpath = "//input[@id='sys_display.x_g_nci_gdc_case.submitter']")
     public WebElement nVGDCRecordSubmitterSearchTextBox;
+
+    /** Native View GDC Record Category Drop Down */
+    @FindBy(xpath = "//select[@id='x_g_nci_gdc_case.category_gdc']")
+    public WebElement nVGDCRecordCategoryDropDown;
 
     /** Native View GDC Create New Record 1st Save Button */
     @FindBy(xpath = "//button[@id='sysverb_insert_and_stay']")
@@ -82,7 +98,7 @@ public class GDC_Workflow_NativeView_Page extends CommonUtils {
     public WebElement nVGDCRecordConfirmDeleteButton;
 
     /** Native View GDC Record Start Work Button */
-    @FindBy(xpath = "//div[@id='x_g_nci_gdc_case.form_header']//script[7]//parent::span//child::button[4]")
+    @FindBy(xpath = "//button[@class='form_action_button header  action_context btn btn-primary'][1]")
     public WebElement nVGDCRecordStartWorkButton;
 
     /** Native View GDC Record Resolved Button */

@@ -3,6 +3,7 @@ package ServiceNow.NERD.StepsImplementation;
 import ServiceNow.NERD.Constants.NERDOGSRMemberOfCongress_Constants;
 import ServiceNow.NERD.Pages.NERDOGCRAddNewEntryPage;
 import ServiceNow.NERD.Pages.NativeViewMembersOfCongressPage;
+import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import appsCommon.PageInitializers.PageInitializer;
@@ -98,17 +99,36 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
         CommonUtils.waitForVisibility(nativeViewImpersonateUserPage.nativeViewNameButton);
         CommonUtils.clickOnElement(nativeViewImpersonateUserPage.nativeViewNameButton);
         CommonUtils.waitForVisibility(nativeViewImpersonateUserPage.nativeViewLogOutButton);
-//        MiscUtils.sleep(1000);
+        MiscUtils.sleep(1000);
         CommonUtils.clickOnElement(nativeViewImpersonateUserPage.nativeViewLogOutButton);
         MiscUtils.sleep(1000);
         Alert alt = WebDriverUtils.webDriver.switchTo().alert();
         alt.accept();
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.filterNavigatorSearch("Members of Congress");
-//        MiscUtils.sleep(2000);
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
+        if(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.getAttribute("class").equals("sn-global-typeahead-input -global")){
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allTab);
+            NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("Members of Congress");
+            MiscUtils.sleep(3000);
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.filterNavigationEmailsButton);
+            MiscUtils.sleep(3000);
+            CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+            MiscUtils.sleep(2000);
+        }else {
+            NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("Members of Congress");
+            MiscUtils.sleep(3000);
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.filterNavigationEmailsButton);
+            MiscUtils.sleep(3000);
+            CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+            MiscUtils.sleep(2000);
+        }
+
+
+        MiscUtils.sleep(2000);
         CommonUtils.waitForClickability(nativeViewMembersOfCongressPage.membersOfCongressFilterIcon);
         CommonUtils.clickOnElement(nativeViewMembersOfCongressPage.membersOfCongressFilterIcon);
-//        MiscUtils.sleep(5000);
+        MiscUtils.sleep(5000);
         CommonUtils.waitForClickability(nativeViewMembersOfCongressPage.membersOfCongressActiveFiled);
         CommonUtils.clickOnElement(nativeViewMembersOfCongressPage.membersOfCongressActiveFiled);
         CommonUtils.waitForVisibility(nativeViewMembersOfCongressPage.membersOfCongressActiveTextFiled);

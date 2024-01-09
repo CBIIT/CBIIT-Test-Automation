@@ -1,5 +1,6 @@
 package ServiceNow.NERD.StepsImplementation;
 
+import ServiceNow.NERD.Constants.ReturningSubmissions_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
@@ -137,10 +138,9 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
 
         /**
          * This method verifies rank field is not visible AND deletes submission
-         * @param collaborationName
          */
-        public static void verifyingRankFieldIsNotDisplayedAndDeletingSubmission(String collaborationName){
+        public static void verifyingRankFieldIsNotDisplayedAndDeletingSubmission(){
                 crsReviersDoesNotSeeRankFieldOnCollaborationSubmissions();
-                crsReviewerDeletingSubmissionAfterClickingCancelButton(collaborationName);
+                crsReviewerDeletingSubmissionAfterClickingCancelButton(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION);
         }
 }

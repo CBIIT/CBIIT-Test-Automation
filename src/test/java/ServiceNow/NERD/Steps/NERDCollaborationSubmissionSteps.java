@@ -1,5 +1,6 @@
 package ServiceNow.NERD.Steps;
 
+import ServiceNow.NERD.Constants.ReturningSubmissions_Constants;
 import ServiceNow.NERD.StepsImplementation.*;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.web.CommonUtils;
@@ -68,15 +69,15 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
         NERDCollaborationSubmissionStepImpl.aRegularUserHasSubmittedACollaboration();
     }
 
-    @When("the DOC Planning Contact locates the record {string} in their Collaboration queue")
-    public void the_DOC_Planning_Contact_locates_the_record_in_their_Collaboration_queue(String nameOfRecord)
-            throws TestingException {
-        NERDCollaborationSubmissionStepImpl.theDOCPlanningContactLocatesTheRecordInTheirCollaborationQueue(nameOfRecord);
-    }
+    @When("the DOC Planning Contact locates the record in their Collaboration queue")
+    public void the_doc_planning_contact_locates_the_record_in_their_collaboration_queue()
+             throws TestingException {
+            NERDCollaborationSubmissionStepImpl.theDOCPlanningContactLocatesTheRecordInTheirCollaborationQueue(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION);
+        }
 
-    @When("clicks the Edit button for the record {string}")
-    public void clicks_the_Edit_button_for_the_record(String nameOfRecord) {
-        NERDCollaborationSubmissionStepImpl.clicksTheEditButtonForTheRecord(nameOfRecord);
+    @When("clicks the Edit button for the record")
+    public void clicks_the_edit_button_for_the_record() {
+        NERDCollaborationSubmissionStepImpl.clicksTheEditButtonForTheRecord(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION);
     }
 
     @When("lands on the submission edit page for author {string}")
@@ -84,27 +85,24 @@ public class NERDCollaborationSubmissionSteps extends PageInitializer {
         NERDCollaborationSubmissionStepImpl.landsOnTheSubmissionEditPageForAuthor(author);
     }
 
-    @Then("the Rank field is not visible and {string} collaboration is deleted for Automation Testing")
-    public void the_Rank_field_is_not_visible_and_collaboration_is_deleted_for_Automation_Testing(
-            String collaborationName) throws TestingException {
-        NERDCollaborationSubmissionStepImpl.theRankFieldIsNotVisibleAndCollaborationIsDeletedForAutomationTesting(collaborationName);
+    @Then("the Rank field is not visible and collaboration is deleted for Automation Testing")
+    public void the_rank_field_is_not_visible_and_collaboration_is_deleted_for_automation_testing() throws TestingException {
+        NERDCollaborationSubmissionStepImpl.theRankFieldIsNotVisibleAndCollaborationIsDeletedForAutomationTesting(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION);
     }
 
-    @Given("a DOC Planning Contact clicks the Submit to CRS button for a Collaboration {string}")
-    public void a_DOC_Planning_Contact_clicks_the_Submit_to_CRS_button_for_a_Collaboration(String nameOfRecord)
-            throws TestingException {
-        NERDCollaborationSubmissionStepImpl.aDOCPlanningContactClicksTheSubmitToCRSButtonForACollaboration(nameOfRecord);
+    @Given("a DOC Planning Contact clicks the Submit to CRS button for a Collaboration")
+    public void a_doc_planning_contact_clicks_the_submit_to_crs_button_for_a_collaboration()throws TestingException {
+        NERDCollaborationSubmissionStepImpl.aDOCPlanningContactClicksTheSubmitToCRSButtonForACollaboration();
     }
 
-    @When("the CRS Reviewer locates the record {string} in the Submissions page")
-    public void the_CRS_Reviewer_locates_the_record_in_the_Submissions_page(String collaborationName)
-            throws TestingException {
-        NERDCollaborationSubmissionStepImpl.theCRSReviewerLocatesTheRecordInTheSubmissionsPage(collaborationName);
+    @When("the CRS Reviewer locates the record in the Submissions page")
+    public void the_crs_reviewer_locates_the_record_in_the_submissions_page()  throws TestingException {
+        NERDCollaborationSubmissionStepImpl.theCRSReviewerLocatesTheRecordInTheSubmissionsPage();
     }
 
-    @Then("the Rank field is not visible and {string} collaboration is deleted")
-    public void the_Rank_field_is_not_visible_and_collaboration_is_deleted(String collaborationName) {
+    @Then("the Rank field is not visible and collaboration is deleted")
+    public void the_rank_field_is_not_visible_and_collaboration_is_deleted() {
         NERD_NCI_CRSReviewerStepsImplementation
-                .verifyingRankFieldIsNotDisplayedAndDeletingSubmission(collaborationName);
+                .verifyingRankFieldIsNotDisplayedAndDeletingSubmission();
     }
 }

@@ -14,6 +14,9 @@ public class GCPNotifications_NativeView_Constants {
     /* GCP NATIVE VIEW RECORD SEARCH DROP DOWN */
     public static final String GCP_NATIVE_VIEW_RECORD_SEARCH_DROP_DOWN = "name";
 
+    /* GCP NATIVE VIEW NOTIFICATIONS UNDER SYSTEM NOTIFICATION URL */
+    public static final String GCP_NATIVE_VIEW_NOTIFICATIONS_UNDER_SYSTEM_NOTIFICATION_URL = "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sysevent_email_action_list.do%3Fsysparm_userpref_module%3D57c7122e0a00008200e0f94513f2f7ee%26sysparm_query%3D%2B%2509%2509%2509active%253Dtrue%255EEQ";
+
     /* NATIVE VIEW GCP SEARCH TEXT BOX GCP EMPLOYEE TRAINING EXPIRED*/
     public static final String NATIVE_VIEW_GCP_SEARCH_TEXT_BOX_GCP_EMPLOYEE_TRAINING_EXPIRED = "GCP Employee Training expired";
 

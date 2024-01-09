@@ -74,7 +74,7 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
     public static void filterNavigatorSearchWithAllTabString(String text) {
         CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allTab);
         NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys(text);
-        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch(text));
+        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.assetsMenuButton);
         MiscUtils.sleep(3000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         MiscUtils.sleep(2000);
@@ -89,14 +89,14 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
             CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allTab);
             NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys(text);
             MiscUtils.sleep(3000);
-            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch(text));
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.assetsMenuButton);
             MiscUtils.sleep(3000);
             CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
             MiscUtils.sleep(2000);
         }else {
             NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys(text);
             MiscUtils.sleep(3000);
-            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch(text));
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.assetsMenuButton);
             MiscUtils.sleep(3000);
             CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
             MiscUtils.sleep(2000);

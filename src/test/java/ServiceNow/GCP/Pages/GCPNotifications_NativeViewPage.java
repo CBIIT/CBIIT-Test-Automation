@@ -43,6 +43,12 @@ public class GCPNotifications_NativeViewPage extends CommonUtils {
                 .findElement(By.xpath("//a[normalize-space()='" + value + "']//parent::td//parent::tr//child::td[2]//child::a"));
     }
 
+    /** Native View Record Name Dynamic Xpath */
+    public WebElement nVRecordName(String value) {
+        return WebDriverUtils.webDriver
+                .findElement(By.xpath("//a[normalize-space()='" + value + "']"));
+    }
+
     /** Native View Open Record Button */
     @FindBy(xpath = "//a[normalize-space()='Open Record']")
     public WebElement nVOpenRecordButton;

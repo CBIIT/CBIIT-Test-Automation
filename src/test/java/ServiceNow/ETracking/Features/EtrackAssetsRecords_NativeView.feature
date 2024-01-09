@@ -1,6 +1,6 @@
 Feature: Etrack Assets Records Test Scenarios
 
-  @ETRACK-2 @ETRACK-14 @chaudhryma @Regression
+  @ETRACK-2 @ETRACK-14 @chaudhryma @Regression @Progression
   Scenario: Test Delete Asset Records
     Given a eTracking user opens an Asset record
     Then there is a Delete button

@@ -44,7 +44,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
         public static void submittingOfSubmissionToCRSReviewer(String submissionName) throws TestingException {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-                ServiceNow_Common_Methods.impersonateAnyUser("Karen Ortner");
+                ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 CommonUtils.waitForVisibility(
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
@@ -76,7 +76,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
         public static void resubmittingOfSubmissionByDOCContactToCRSREviewer(String submissionName) {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-                ServiceNow_Common_Methods.impersonateAnyUser("Karen Ortner");
+                ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 CommonUtils.waitForVisibility(
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsLink);
@@ -143,7 +143,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
         public static void deleteCreatedSubmissionByDocPlanningContact(String submissionName) throws TestingException {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-                ServiceNow_Common_Methods.impersonateAnyUser("Karen Ortner");
+                ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 WebDriverUtils.webDriver.navigate().refresh();
                 MiscUtils.sleep(6000);
@@ -175,7 +175,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                         String FiscalYear) {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-                ServiceNow_Common_Methods.impersonateAnyUser("Karen Ortner");
+                ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 MiscUtils.sleep(7000);
                 CommonUtils.waitForVisibility(
@@ -215,7 +215,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                         String PleaseSpecify, String FiscalYear) {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-                ServiceNow_Common_Methods.impersonateAnyUser("Karen Ortner");
+                ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 WebDriverUtils.webDriver.navigate().refresh();
                 MiscUtils.sleep(7000);
@@ -264,7 +264,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
         public static void editingAndReturningSubmissionToProgramStaff(String submissionName) throws TestingException {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-                ServiceNow_Common_Methods.impersonateAnyUser("Karen Ortner");
+                ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 WebDriverUtils.webDriver.navigate().refresh();
                 MiscUtils.sleep(5000);
@@ -308,7 +308,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                         throws TestingException {
                 ServiceNow_Common_Methods.logOutOfNativeView();
                 ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-                ServiceNow_Common_Methods.impersonateAnyUser("Karen Ortner");
+                ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 WebDriverUtils.webDriver.navigate().refresh();
                 MiscUtils.sleep(7000);
@@ -336,7 +336,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
          */
         public static void creatingOfCollaborationSubmissionByDOCPlaningContact(WebElement SubmissionType,
                         String submissionName) throws TestingException {
-                ServiceNow_Common_Methods.impersonateAnyUser("Karen Ortner");
+                ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 MiscUtils.sleep(1000);
                 CommonUtils.waitForClickability(SubmissionType);
@@ -404,7 +404,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                 Assert.assertTrue("VERIFYING RANK FIELD IS NOT DISPLAYED",
                                 element.getDomAttribute("aria-hidden").contentEquals("true"));
                 CucumberLogUtils.logScreenshot();
-                ServiceNow_Common_Methods.logOutOfNativeView();
+//                ServiceNow_Common_Methods.logOutOfNativeView();
                 NERD_NCI_DOC_PlanningContactStepsImplementation
                                 .deleteCreatedSubmissionByDocPlanningContact(collaborationName);
         }
