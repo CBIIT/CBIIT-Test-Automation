@@ -36,6 +36,10 @@ public class ShutdownBannerStepImpl extends PageInitializer {
 
     public static void generatingLinksFromUrlExcelSheet() {
         HashSet<String> mainWorkingLinks = new HashSet<>();
+        if(ShutdownBannerConstants.PASSWORD_WEBSITE == true ) {
+            WebDriverUtils.webDriver.get(ShutdownBannerConstants.PASSWORD_WEBSITE_URL);
+            MiscUtils.sleep(20000);
+        }
         for (String listUrlsProd:urlsListProd) {
             mainWorkingLinks.add(listUrlsProd);
             WebDriverUtils.webDriver.get(listUrlsProd);
@@ -49,7 +53,7 @@ public class ShutdownBannerStepImpl extends PageInitializer {
             WebElement E1= links.get(i);
             String url= E1.getAttribute("href");
             /** Please remove or add conditions below for the application URLs based on the application pages naming convention for better filtering of URLs gathered**/
-            if (url !=null && url.contains(urlsplit[0]) && !url.contains(".pdf") && !url.contains(".xls") && !url.contains("#")){
+            if (url !=null && url.contains(urlsplit[0]) && !url.contains(".pdf") && !url.contains(".xls") && !url.contains(".json") && !url.contains("help") && !url.contains("ftp")  && !url.contains("-ext")){
                 List<String> uniqueURL = new ArrayList<>();
                 for(String j:mainWorkingLinks){
                     if(url.equalsIgnoreCase(j)){
@@ -143,6 +147,10 @@ public class ShutdownBannerStepImpl extends PageInitializer {
         System.out.println("");
         System.out.println("VERIFYING PAGES: " + urlsListProd.size());
         System.out.println("***********************************************************************************************************************");
+        if(ShutdownBannerConstants.PASSWORD_WEBSITE == true ) {
+            WebDriverUtils.webDriver.get(ShutdownBannerConstants.PASSWORD_WEBSITE_URL);
+            MiscUtils.sleep(20000);
+        }
             for (String urlSet:urlsListProd) {
                 try {
                         URL link = new URL(urlSet);
@@ -197,6 +205,10 @@ public class ShutdownBannerStepImpl extends PageInitializer {
         System.out.println("");
         System.out.println("VERIFYING PAGES: " + urlsListProd.size());
         System.out.println("***********************************************************************************************************************");
+        if(ShutdownBannerConstants.PASSWORD_WEBSITE == true ) {
+            WebDriverUtils.webDriver.get(ShutdownBannerConstants.PASSWORD_WEBSITE_URL);
+            MiscUtils.sleep(20000);
+        }
         for (String urlSet:urlsListProd) {
             try {
                 URL link = new URL(urlSet);

@@ -5,7 +5,7 @@ Feature: Shutdown Banner
     Given a user is on the webpage
     Then the user should be able to gather all application pages
 
-  @bucurgb @CO3-1029 @CO3-1028 @CO3-1044
+  @bucurgb @CO3-1029 @CO3-1028 @CO3-1044 @Progression
   Scenario: Verifying the page loading time from excel sheet
     Given a user is on the webpage
     Then the user should see the page loading time in the console

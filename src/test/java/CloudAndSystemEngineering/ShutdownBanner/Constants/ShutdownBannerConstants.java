@@ -1,9 +1,10 @@
 package CloudAndSystemEngineering.ShutdownBanner.Constants;
 
 public class ShutdownBannerConstants {
-    public static final String WEBSITE_URL = "https://bannertestnonprod.nci.nih.gov/";
+    public static final String PASSWORD_WEBSITE_URL = "https://idp-test.nih.gov/";
+    public static final boolean PASSWORD_WEBSITE = false;
     public static final String BANNER_URL_LIST_PRPD = System.getProperty("user.dir") + "/src/test/java/CloudAndSystemEngineering/ShutdownBanner/Resources/BannerUrlListProd.xlsx";
-    public static final String BANNER_URL_LIST_PROD_SHEET_NAME = "Sheet6";
+    public static final String BANNER_URL_LIST_PROD_SHEET_NAME = "Sheet11";
     public static final String TEST_URL = "https://ldlink.nih.gov/?tab=home";
     public static final String MESSAGE_BODY_SPANISH = "Ante la falta de fondos del gobierno, no se actualizará este sitio web y la organización no responderá a transacciones ni consultas hasta que se aprueben los fondos. El Centro Clínico de los Institutos Nacionales de la Salud (NIH), el hospital de investigación, permanecerá abierto. Consulte cc.nih.gov (en inglés). Infórmese sobre el funcionamiento del gobierno federal y el reinicio de las actividades en OPM.gov.";
     public static final String MESSAGE_TITLE_SPANISH = "La falta de fondos del gobierno federal";
