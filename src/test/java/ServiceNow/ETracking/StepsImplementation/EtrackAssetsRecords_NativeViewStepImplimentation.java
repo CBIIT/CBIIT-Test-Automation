@@ -72,6 +72,7 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CommonUtils.assertEqualsWithMessage(nativeViewAccessRequestPage.nativeViewAccessRequestNewNoRecordsToDisplayText.getText(),SEERNativeView_Constants.NATIVE_VIEW_NO_RECORD_TO_DISPLAY_TEXT, "Verify there are no records to display created by Automation");
         JavascriptUtils.drawBlueBorder(nativeViewAccessRequestPage.nativeViewAccessRequestNewNoRecordsToDisplayText);
         CucumberLogUtils.logScreenshot();
+        ServiceNow_Common_Methods.logOutOfNativeView();
     }
 
     public static void anEtrackingUserIsOnAnAssetRecord() throws TestingException {
@@ -79,7 +80,8 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         ServiceNow_Common_Methods.impersonateAnyUser("Jeffrey Alderdice");
         MiscUtils.sleep(3000);
         ServiceNow_Common_Methods.filterNavigatorSearch("Assets");
-        CucumberLogUtils.logScreenshot();
+        //CucumberLogUtils.logScreenshot();
+        MiscUtils.sleep(2000);
         etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewButton.click();
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberTextBox);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX);

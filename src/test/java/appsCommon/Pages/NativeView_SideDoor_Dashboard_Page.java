@@ -5,6 +5,7 @@ import io.github.sukgu.Shadow;
 import io.github.sukgu.support.ElementFieldDecorator;
 import io.github.sukgu.support.FindElementBy;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.DefaultElementLocatorFactory;
 public class NativeView_SideDoor_Dashboard_Page {
@@ -22,7 +23,7 @@ public class NativeView_SideDoor_Dashboard_Page {
     @FindElementBy(xpath = "//*[@class='sn-polaris-nav-header-controls pin']//child::button")
     public static WebElement sideMenuPin;
     /* iFrame */
-    @FindElementBy(xpath = "//*[@id='gsft_main']")
+    @FindElementBy(css = "iframe[title='Main Content']")
     public static WebElement nativeViewiFrame;
     /* PROFILE BUTTON */
     @FindElementBy(xpath = "//div[@class='header-avatar-button contextual-zone-button user-menu']")
