@@ -8,8 +8,12 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
+<<<<<<< HEAD
 import appsCommon.PageInitializer;
 import io.cucumber.java.en.And;
+=======
+import appsCommon.PageInitializers.PageInitializer;
+>>>>>>> 1f082a8263f81d9e192c053b5c975c4db2fbce07
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

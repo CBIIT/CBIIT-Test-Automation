@@ -1,6 +1,6 @@
 package AnalysisTools.ICRP.Steps;
 
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.After;

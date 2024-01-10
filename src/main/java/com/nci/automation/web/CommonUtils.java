@@ -721,4 +721,14 @@ public class CommonUtils extends WebDriverUtils {
         element.clear();
         element.sendKeys(value);
     }
+
+    public static void hoverOverElement(WebElement e){
+        Actions actions = new Actions(WebDriverUtils.webDriver);
+        actions.moveToElement(e).build().perform();
+    }
+
+    public static void hoverAndClickElement(int x, int y){
+        Actions actions = new Actions(WebDriverUtils.webDriver);
+        actions.moveToLocation(x, y).build().perform();
+    }
 }

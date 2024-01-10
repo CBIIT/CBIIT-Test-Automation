@@ -6,7 +6,8 @@ import io.cucumber.java.en.When;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.xceptions.TestingException;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
+
 
 public class CEDCDBiospecimenCountsAlphabeticalCancerTypeSteps extends PageInitializer {
 

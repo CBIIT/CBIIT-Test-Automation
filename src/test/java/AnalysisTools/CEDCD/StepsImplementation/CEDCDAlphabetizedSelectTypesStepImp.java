@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 
 public class CEDCDAlphabetizedSelectTypesStepImp extends PageInitializer {
 

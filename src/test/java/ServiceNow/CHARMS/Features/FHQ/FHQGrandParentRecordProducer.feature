@@ -3,7 +3,7 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
   
   Description: This feature file contains the scenario to submit the New FHQ record producer for the Grandparent to the patient
 
- @jains @FHQRegression
+ @jains 
  Scenario: FHQ Grandparent Record
     Given a proband is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -13,7 +13,7 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     And click the new GrandParent added and verify the completed record producer data
     And click the FHQ Home button
 
- @jains @FHQRegression
+ @jains 
   Scenario: FHQ Grandparent Record
     Given a proband is on the RASopathies Longitudinal Cohort Study login page
     And logs in Rasopathy page via Okta with username "charmsras4@yahoo.com" and password "RASTest2021$$"
@@ -42,7 +42,7 @@ Feature: FHQ Landing Page on the RASopathies Longitudinal Cohort Study Portal fo
     
     
 
-  @jains @FHQRegression
+  @jains 
   Scenario: FHQ Grandparent Record
     Given a user is logged on FHQ Landing Page after filling out patient data using the Test Account credentials in Test side door login page
     And user clicks the Grandparents Grid link on FHQ Grid page to land on the FHQ Grandparents list view page

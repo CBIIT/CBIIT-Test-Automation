@@ -2,7 +2,7 @@ package AnalysisTools.CEDCD.StepsImplementation;
 
 import java.util.List;
 import org.openqa.selenium.WebElement;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 
 public class CEDCDSearchFemaleCohortsStepImp extends PageInitializer {
 

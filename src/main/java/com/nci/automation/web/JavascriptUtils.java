@@ -191,6 +191,7 @@ public class JavascriptUtils extends WebDriverUtils {
 		js.executeScript("window.scrollBy(" + x + "," + y + ")", "");
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Use this method in need of sending a file on a WebElement internally. This is
 	 * used
@@ -201,6 +202,12 @@ public class JavascriptUtils extends WebDriverUtils {
 	public static void sendKeysByJS(WebElement element, String input) {
 		JavascriptExecutor js = (JavascriptExecutor) webDriver;
 		js.executeScript("arguments[0].setAttribute('value', '" + input + "')", element);
+=======
+	public static void uploadFileToHiddenFieldWithInputTag(WebElement element, String filePath){
+		String jse = "arguments[0].type='file'";
+		((JavascriptExecutor)WebDriverUtils.webDriver).executeScript(jse, element);
+		element.sendKeys(filePath);
+>>>>>>> 1f082a8263f81d9e192c053b5c975c4db2fbce07
 	}
 
 }

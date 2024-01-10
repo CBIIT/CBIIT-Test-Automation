@@ -14,7 +14,7 @@ public class ParticipantDetailsPage {
      * @return
      */
     public WebElement dynamicRecordButtonLocator(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("//*[text()='" + text + "']//parent::tr/td[2]"));
+        return WebDriverUtils.webDriver.findElement(By.xpath("//td[normalize-space()='" + text + "']"));
     }
 
     /* OPEN RECORD BUTTON */
@@ -136,7 +136,7 @@ public class ParticipantDetailsPage {
      * RELATED LINKS SECTION
      */
     /* PARTICIPANT STUDIES TAB */
-    @FindBy(xpath = "//span[contains(text(),'Participant Studies')]")
+    @FindBy(xpath = "//span[normalize-space()='Participant Studies (1)']")
     public WebElement participantStudiesTab;
 
     /* PARTICIPANT STUDIES INFO BUTTON */
@@ -177,6 +177,11 @@ public class ParticipantDetailsPage {
     /* HAVE ANY OF YOUR BIOLOGICAL RELATIVES BEEN DIAGNOSED WITH A RASOPATHY? DROP DOWN */
     @FindBy(xpath = "//*[@id='x_naci_family_coho_ras_referral.realtives_rasopathy_diagnosis']")
     public WebElement haveAnyOfYourBiologicalRelativesBeenDiagnosedWithARasopathyDropDown;
+
+    /* CONSENT STATUS TEXT */
+    @FindBy(xpath = "//td[normalize-space()='Consent Call Pending']")
+    public WebElement consentStatusText;
+
     public ParticipantDetailsPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
