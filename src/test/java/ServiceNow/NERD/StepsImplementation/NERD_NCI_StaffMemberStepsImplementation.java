@@ -16,7 +16,6 @@ import org.junit.Assert;
 import java.util.Set;
 
 public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
-
     /**
      * This method will submit Application to DOC Planing Contact
      *
