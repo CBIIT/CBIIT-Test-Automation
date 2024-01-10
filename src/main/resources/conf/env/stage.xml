@@ -231,11 +231,30 @@
 		</db>
 	</application>
 
+	<!-- ENTERPRISE MAINTENANCE -->
+	<application id="EM">
+		<login_url>https://i2e-stage.nci.nih.gov/em</login_url> <!-- add test url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId> <!-- add encrypted test user -->
+				<password></password> <!-- add encrypted test pass -->
+			</user>
+		</role>
+		<db>
+			<default>
+				<driverclassname></driverclassname> <!-- Add driver class-name -->
+				<url></url> <!-- complete string url -->
+				<username></username> <!-- Add db username -->
+				<password></password> <!-- Add db password -->
+			</default>
+		</db>
+	</application>
+
 	<!-- Application ID for ezQTL-->
 	<application id="ezQTL">
 		<login_url>https://analysistools-stage.cancer.gov/ezqtl/#/home
 		</login_url> <!-- add test url -->
-
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>

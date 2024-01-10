@@ -34,7 +34,7 @@
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>4.14.1</version>
+			<version>4.15.0</version>
 		</dependency>
 
 		<!-- cucumber libraries -->
@@ -236,7 +236,8 @@
 				<configuration>
 					<useSystemClassLoader>false</useSystemClassLoader>
 					<includes>
-						<include></include>
+						<include>
+						</include>
 					</includes>
 					<testFailureIgnore>true</testFailureIgnore> <!-- to get report even when fails -->
 				</configuration>

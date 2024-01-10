@@ -305,7 +305,6 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
     public void a_CRS_Reviewer_has_navigated_to_the_Submissions_page() throws TestingException {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         NERD_NCI_CRSReviewerStepsImplementation.returningOfSubmissionByCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
-
         nativeViewImpersonateUser.impersonateToDocPlanningContact();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         CommonUtils.waitForVisibility(
@@ -390,7 +389,6 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
 
     @Then("the submission is published")
     public void the_submission_is_published() {
-
         JavascriptUtils.scrollIntoView(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu);
         nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu.click();
@@ -410,7 +408,6 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
 
     @Then("the status reads {string}")
     public void the_status_reads(String published) {
-
         JavascriptUtils.scrollIntoView(
                 nerdDynamicXpaths.publishedCollaboration("NCI Cancer Data Standards Repository and Registry (caDSR)"));
         JavascriptUtils.drawRedBorder(nerdCrsKnowledgeDatabaseSubmissionsPage.publishedText);

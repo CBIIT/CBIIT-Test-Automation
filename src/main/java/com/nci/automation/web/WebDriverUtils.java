@@ -23,8 +23,10 @@ import com.nci.automation.utils.LocalConfUtils;
  */
 public class WebDriverUtils {
 
-	private final static Logger logger = LogManager.getLogger(WebDriverUtils.class);
-	public static WebDriver webDriver;
+
+    private final static Logger logger = LogManager.getLogger(WebDriverUtils.class);
+    public static WebDriver webDriver;
+    public static Shadow shadowDriver = new Shadow(webDriver);
 
 	public static void setUp() {
 
@@ -73,34 +75,35 @@ public class WebDriverUtils {
 		String osName = FrameworkConstants.GET_OS_NAME;
 		String headless = ConfUtils.getProperty("headless");
 
-		if (osName.contains("Windows")) {
-			if(headless.equalsIgnoreCase(FrameworkConstants.TRUE)){
-				ChromeOptions chromeOptions = new ChromeOptions();
-				chromeOptions.addArguments("--headless=new");
-				webDriver = new ChromeDriver(chromeOptions);
-			}else {
-				webDriver = new ChromeDriver();
-				webDriver.manage().window().maximize();
-				webDriver.manage().deleteAllCookies();
-				webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-			}
-		} else if (osName.contains("Mac")) {
-			if(headless.equalsIgnoreCase(FrameworkConstants.TRUE)){
-				ChromeOptions chromeOptions = new ChromeOptions();
-				chromeOptions.addArguments("--headless=new");
-				webDriver = new ChromeDriver(chromeOptions);
-			}else {
-				webDriver = new ChromeDriver();
-				webDriver.manage().window().maximize();
-				webDriver.manage().deleteAllCookies();
-				webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-			}
-		} else if (osName.contains("Linux")) {
-			ChromeOptions chromeOptions = new ChromeOptions();
-			chromeOptions.addArguments("--headless=new");
-			webDriver = new ChromeDriver(chromeOptions);
-		}
-	}
+        if (osName.contains("Windows")) {
+            if(headless.equalsIgnoreCase(FrameworkConstants.TRUE)){
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--headless=new");
+                webDriver = new ChromeDriver(chromeOptions);
+            }else {
+                webDriver = new ChromeDriver();
+                webDriver.manage().window().maximize();
+                webDriver.manage().deleteAllCookies();
+                webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+                shadowDriver.setImplicitWait(20);
+            }
+        } else if (osName.contains("Mac")) {
+            if(headless.equalsIgnoreCase(FrameworkConstants.TRUE)){
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--headless=new");
+                webDriver = new ChromeDriver(chromeOptions);
+            }else {
+                webDriver = new ChromeDriver();
+                webDriver.manage().window().maximize();
+                webDriver.manage().deleteAllCookies();
+                webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+            }
+        } else if (osName.contains("Linux")) {
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.addArguments("--headless=new");
+            webDriver = new ChromeDriver(chromeOptions);
+        }
+    }
 
 	public static void launchFirefox() {
 		String osName = FrameworkConstants.GET_OS_NAME;

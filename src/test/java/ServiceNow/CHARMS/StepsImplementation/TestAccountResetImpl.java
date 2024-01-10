@@ -21,14 +21,10 @@ public class TestAccountResetImpl extends PageInitializer {
 
     public void resetTestAccountSignIn() throws TestingException {
         if (LocalConfUtils.getProperty("env").equals("test")) {
-
+            ServiceNow_Login_Methods.nativeViewSideDoorLogin();
             WebDriverUtils.webDriver.get(
                     "https://service-test.nci.nih.gov/sys_script_fix.do?sys_id=a32b45c21be638106daea681f54bcb81&sysparm_view=&sysparm_domain=null&sysparm_domain_scope=null&sysparm_record_row=1&sysparm_record_rows=940&sysparm_record_list=ORDERBYDESCsys_updated_on");
             MiscUtils.sleep(2000);
-            iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "Username");
-            iTrustloginPage.enterPassword("Password");
-            iTrustloginPage.clickSignInButton();
-            MiscUtils.sleep(500);
         } else if (LocalConfUtils.getProperty("env").equals("dev2")) {
             ServiceNow_Login_Methods.nativeViewSideDoorLogin();
             WebDriverUtils.webDriver.get(
@@ -39,14 +35,15 @@ public class TestAccountResetImpl extends PageInitializer {
     }
 
     public void resetTestAccount() {
-        MiscUtils.sleep(2000);
-        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
-        CommonUtils.waitForVisibility(testAccountResetPage.nativeViewRunFixScriptButton);
-        MiscUtils.sleep(2000);
-        testAccountResetPage.nativeViewRunFixScriptButton.click();
-        MiscUtils.sleep(1000);
-        CommonUtils.waitForVisibility(testAccountResetPage.nativeViewProceedInBackgroundButton);
-        testAccountResetPage.nativeViewProceedInBackgroundButton.click();
-        MiscUtils.sleep(10000);
+        if(LocalConfUtils.getProperty("env").equals("test")){
+            MiscUtils.sleep(2000);
+            CommonUtils.waitForVisibility(testAccountResetPage.nativeViewRunFixScriptButton);
+            MiscUtils.sleep(2000);
+            testAccountResetPage.nativeViewRunFixScriptButton.click();
+            MiscUtils.sleep(1000);
+            CommonUtils.waitForVisibility(testAccountResetPage.nativeViewProceedInBackgroundButton);
+            testAccountResetPage.nativeViewProceedInBackgroundButton.click();
+            MiscUtils.sleep(10000);
+        }
     }
 }

@@ -45,6 +45,7 @@ import ServiceNow.COVIDDash.StepsImplementation.*;
 import ServiceNow.ETracking.Pages.*;
 import ServiceNow.GCP.Pages.*;
 import ServiceNow.ESR.Pages.*;
+import ServiceNow.GDC.Pages.GDC_Workflow_NativeView_Page;
 import ServiceNow.NERD.Pages.*;
 import ServiceNow.NERD.StepsImplementation.*;
 import ServiceNow.SCSS.Pages.*;
@@ -68,7 +69,7 @@ public class PageInitializer extends WebDriverUtils {
 	// declare public static variables of types of all the pages
 	/** iTrust instances */
 	public static appsCommon.Pages.ITrustLoginPage iTrustloginPage;
-	public static ITrustLoginPageImpl loginImpl;
+	public static ITrustLoginPageImpl iTrustLoginPageImpl;
 	public static ServiceNow_NCISP_Page serviceNow_ncisp_page;
 
 	/** --------------- GRANTS INSTANCES --------------- */
@@ -76,6 +77,8 @@ public class PageInitializer extends WebDriverUtils {
 	public static ChangePasswordStepsImpl changePasswordStepsImpl;
 	public static EMStepsImplementation emStepsImplementation;
 	public static ManageI2EUsersPage manageI2EUsersPage;
+	public static CreateNewAccountPage createNewAccountPage;
+	public static AccountDetailsPage accountDetailsPage;
 
 	/** --------------- SERVICENOW INSTANCES --------------- */
 	/** COVIDDash instances */
@@ -187,6 +190,10 @@ public class PageInitializer extends WebDriverUtils {
 
 	/** GCP instances */
 	public static GCPNotifications_NativeViewPage gCPNotifications_NativeViewPage;
+
+	/** GDC instances */
+	public static GDC_Workflow_NativeView_Page gDC_Workflow_NativeView_Page;
+
 
 	/** --------------- CUSTOM BUSINESS APP INSTANCES --------------- */
 	/** EIDP instances */
@@ -320,7 +327,7 @@ public class PageInitializer extends WebDriverUtils {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
 		// create instances of all pages and assign them to the variables
 		iTrustloginPage = new ITrustLoginPage();
-		loginImpl = new ITrustLoginPageImpl();
+		iTrustLoginPageImpl = new ITrustLoginPageImpl();
 		serviceNow_ncisp_page = new ServiceNow_NCISP_Page();
 
 		/** --------------- SERVICENOW INSTANCE VARIABLES --------------- */
@@ -561,11 +568,16 @@ public class PageInitializer extends WebDriverUtils {
 		nativeViewCHARMSParticipantStudyPage = new NativeViewCHARMSParticipantStudyPage();
 		nativeViewSCSSReportsPage = new NativeViewSCSSReportsPage();
 
+		/****** GRANTS INSTANCES *******/
 		/** Grants ChangePassword app **/
 		changePasswordPage = new ChangePasswordPage();
 		changePasswordStepsImpl = new ChangePasswordStepsImpl();
+		accountDetailsPage = new AccountDetailsPage();
+
+		/** GRANTS ENTERPRISE MAINTENANCE **/
 		emStepsImplementation = new EMStepsImplementation();
 		manageI2EUsersPage = new ManageI2EUsersPage();
+		createNewAccountPage = new CreateNewAccountPage();
 
 		/** eTracking INSTANCE VARIABLES */
 		etrackAssetsRecords_NativeViewPage = new EtrackAssetsRecords_NativeViewPage();
@@ -581,6 +593,9 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** GCP INSTANCE VARIABLES */
 		gCPNotifications_NativeViewPage = new GCPNotifications_NativeViewPage();
+
+		/** GDC INSTANCE VARIABLES */
+		gDC_Workflow_NativeView_Page = new GDC_Workflow_NativeView_Page();
 
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}

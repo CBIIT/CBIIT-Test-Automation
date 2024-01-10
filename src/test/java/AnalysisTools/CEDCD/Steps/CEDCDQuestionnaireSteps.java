@@ -27,7 +27,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	public void a_Admin_user_adds_a_Cohort_Study_linked_to_Cohort_Owner() throws TestingException {
 		MiscUtils.sleep(3000);
 		JavascriptUtils.clickByJS(cedcdAdminPage.nihLoginBtn);
-		loginImpl.shomirITrustLogin();
+		iTrustLoginPageImpl.shomirITrustLogin();
 		MiscUtils.sleep(2000);
 		cedcdAdminPage.addNewCohortlnk.click();
 		MiscUtils.sleep(2000);
@@ -47,7 +47,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	public void a_Cohort_Owner_logs_in() throws TestingException {
 		MiscUtils.sleep(3000);
 		JavascriptUtils.clickByJS(cedcdAdminPage.nihLoginBtn);
-		loginImpl.loginToITrust();
+		iTrustLoginPageImpl.loginToITrust();
 	}
 
 	@When("selects linked Cohort")
@@ -606,7 +606,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	public void the_user_is_logged_in_as_Admin() throws TestingException {
 		CommonUtils.clickOnElement(cedcdAdminPage.nihLoginBtn);
 		CommonUtils.waitForClickability(iTrustloginPage.signInButton);
-		loginImpl.shomirITrustLogin();
+		iTrustLoginPageImpl.shomirITrustLogin();
 	}
 
 	@When("user selects add new Cohort")
@@ -649,7 +649,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	@When("the user is logged in as a Cohort Owner")
 	public void the_user_is_logged_in_as_a_Cohort_Owner() throws TestingException {
 		cedcdAdminPage.nihLoginBtn.click();
-		loginImpl.loginToITrust();
+		iTrustLoginPageImpl.loginToITrust();
 	}
 
 	@When("the Cohort Owner selects their Cohort questionnaire")
@@ -1222,7 +1222,7 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 	public void a_Cohort_Owner_logs_in_and_selects_their_first_questionnaire() throws TestingException {
 		MiscUtils.sleep(500);
 		JavascriptUtils.clickByJS(cedcdAdminPage.nihLoginBtn);
-		loginImpl.loginToITrust();
+		iTrustLoginPageImpl.loginToITrust();
 		MiscUtils.sleep(2000);
 		CucumberLogUtils.logScreenshot();
 		Assert.assertTrue(cedcdCohortPage.chooseACohortText.getText()
