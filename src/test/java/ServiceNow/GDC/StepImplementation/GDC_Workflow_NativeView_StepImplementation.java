@@ -87,25 +87,6 @@ public class GDC_Workflow_NativeView_StepImplementation extends PageInitializer 
         MiscUtils.sleep(3000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         MiscUtils.sleep(2000);
-//        if(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.getAttribute("class").equals("sn-global-typeahead-input -global")){
-//            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allTab);
-//            NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("GDC");
-//            MiscUtils.sleep(3000);
-//            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.filterNavigationMembersOfCongress);
-//            MiscUtils.sleep(3000);
-//            CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
-//            MiscUtils.sleep(2000);
-//        }else {
-//            NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("GDC");
-//            MiscUtils.sleep(3000);
-//            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.filterNavigationMembersOfCongress);
-//            MiscUtils.sleep(3000);
-//            CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
-//            MiscUtils.sleep(2000);
-//        }
-
-//        nativeViewEnrollementsPage.filterNavigator.clear();
-//        gDC_Workflow_NativeView_Page.nVFilterNavigator.sendKeys(GDC_WorkFlow_NV_Constants.GDC_NATIVE_VIEW_FILTER_NAVIGATION_SEARCH_BOX);
         CucumberLogUtils.logScreenshot();
         createNewGDCRecord();
     }
@@ -132,6 +113,7 @@ public class GDC_Workflow_NativeView_StepImplementation extends PageInitializer 
         JavascriptUtils.drawBlueBorder(gDC_Workflow_NativeView_Page.nVGDCRecordStateTextBox);
         CommonUtils.waitForVisibility(gDC_Workflow_NativeView_Page.nVGDCRecordStateTextBox);
         CucumberLogUtils.logScreenshot();
+        ServiceNow_Common_Methods.logOutOfNativeView();
         deleteAutomatedGDCRecord();
     }
 

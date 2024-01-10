@@ -236,6 +236,7 @@
 					<useSystemClassLoader>false</useSystemClassLoader>
 					<includes>
 						<include>
+							Run_NERD_Progression_Test.java
 						</include>
 					</includes>
 					<testFailureIgnore>true</testFailureIgnore> <!-- to get report even when fails -->
