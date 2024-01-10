@@ -33,10 +33,20 @@ public class GCPNotifications_NativeViewPage extends CommonUtils {
     @FindBy(xpath = "//*[@id='sysevent_email_action_hide_search']//child::input")
     public WebElement nVGCPSearchTextBox;
 
+    /** Native View GCP Search Result First Row */
+    @FindBy(xpath = "//*[@id='sysevent_email_action_table']/tbody//child::tr")
+    public WebElement nVGCPSearchResultFirstRow;
+
     /** Native View Record locator Dynamic Xpath */
     public WebElement nVRecordLocator(String value) {
         return WebDriverUtils.webDriver
                 .findElement(By.xpath("//a[normalize-space()='" + value + "']//parent::td//parent::tr//child::td[2]//child::a"));
+    }
+
+    /** Native View Record Name Dynamic Xpath */
+    public WebElement nVRecordName(String value) {
+        return WebDriverUtils.webDriver
+                .findElement(By.xpath("//a[normalize-space()='" + value + "']"));
     }
 
     /** Native View Open Record Button */
@@ -51,15 +61,15 @@ public class GCPNotifications_NativeViewPage extends CommonUtils {
     @FindBy(xpath = "//*[@id='notification_preview_title']")
     public WebElement nVGCPRecordNotificationPreviewTitle;
 
-    /** Native View GCP Employee Training expired Notification Body Title */
+    /** Native View GCP Notification Body Title */
     @FindBy(xpath = "//strong[normalize-space()='Body']")
-    public WebElement nVGCPGCPEmployeeTrainingExpiredNotificationBodyTitle;
+    public WebElement nVGCPGCPNotificationBodyTitle;
 
-    /** Native View GCP Employee Training expired Notification Body iFrame */
+    /** Native View GCP Notification Body iFrame */
     @FindBy(xpath = "//iframe[@id='simulated_html_iframe']")
-    public WebElement nVGCPGCPEmployeeTrainingExpiredNotificationBodyiFrame;
+    public WebElement nVGCPGCPNotificationBodyiFrame;
 
-    /** Native View GCP Employee Training expired Notification Body Content */
+    /** Native View GCP Notification Body Content */
     @FindBy(xpath = "//*[@id='simulated_body']")
-    public WebElement nVGCPGCPEmployeeTrainingExpiredNotificationBodyContent;
+    public WebElement nVGCPNotificationBodyContent;
 }

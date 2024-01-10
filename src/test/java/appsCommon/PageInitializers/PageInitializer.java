@@ -41,6 +41,7 @@ import ServiceNow.COVIDDash.StepsImplementation.*;
 import ServiceNow.ETracking.Pages.*;
 import ServiceNow.GCP.Pages.*;
 import ServiceNow.ESR.Pages.*;
+import ServiceNow.GDC.Pages.GDC_Workflow_NativeView_Page;
 import ServiceNow.NERD.Pages.*;
 import ServiceNow.NERD.StepsImplementation.*;
 import ServiceNow.SCSS.Pages.*;
@@ -185,6 +186,10 @@ public class PageInitializer extends WebDriverUtils {
 
 	/** GCP instances */
 	public static GCPNotifications_NativeViewPage gCPNotifications_NativeViewPage;
+
+	/** GDC instances */
+	public static GDC_Workflow_NativeView_Page gDC_Workflow_NativeView_Page;
+
 
 	/** --------------- CUSTOM BUSINESS APP INSTANCES --------------- */
 	/** EIDP instances */
@@ -536,6 +541,9 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** GCP INSTANCE VARIABLES */
 		gCPNotifications_NativeViewPage = new GCPNotifications_NativeViewPage();
+
+		/** GDC INSTANCE VARIABLES */
+		gDC_Workflow_NativeView_Page = new GDC_Workflow_NativeView_Page();
 
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}
