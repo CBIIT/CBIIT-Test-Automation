@@ -20,6 +20,9 @@ import CustomBusiness.EIDP.Pages.BasePage;
 import CustomBusiness.EIDP.StepsImplementation.*;
 import CustomBusiness.ETD.Pages.*;
 import CustomBusiness.ETD.StepsImplementation.*;
+import CustomBusiness.Egrants.Pages.EgrantsQuickLinkAndManagementMenuPage;
+import CustomBusiness.Egrants.Pages.EgrantsSearchAndFileManagementScenariosPage;
+import CustomBusiness.Egrants.StepsImplementation.EgrantsStepImplementation;
 import GrantsApps.ChangePassword.Pages.*;
 import GrantsApps.ChangePassword.StepsImplementation.*;
 import GrantsApps.EM.Pages.*;
@@ -296,6 +299,12 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewCHARMSParticipantStudyPage nativeViewCHARMSParticipantStudyPage;
 	public static NativeViewSCSSReportsPage nativeViewSCSSReportsPage;
 
+	/** --------------- EGRANTS INSTANCES --------------- */
+	public static EgrantsQuickLinkAndManagementMenuPage egrantsQuickLinkAndManagementMenuPage;
+	public static EgrantsStepImplementation egrantsStepImplementation;
+	public static EgrantsSearchAndFileManagementScenariosPage egrantsSearchandFileManagementScenariosPage;
+
+
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
 		// create instances of all pages and assign them to the variables
@@ -534,6 +543,11 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** GCP INSTANCE VARIABLES */
 		gCPNotifications_NativeViewPage = new GCPNotifications_NativeViewPage();
+
+		/** EGRANTS INSTANCE VARIABLES */
+		egrantsQuickLinkAndManagementMenuPage = new EgrantsQuickLinkAndManagementMenuPage();
+		egrantsSearchandFileManagementScenariosPage = new EgrantsSearchAndFileManagementScenariosPage();
+		egrantsStepImplementation = new EgrantsStepImplementation();
 
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}
