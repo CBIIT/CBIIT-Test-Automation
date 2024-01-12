@@ -12,7 +12,7 @@ import appsCommon.PageInitializers.PageInitializer;
 
 public class EIDPLoginStepImpl extends PageInitializer {
 
-	public void eidpApplicationLogin(String username, String password) {
+	public void eidpApplicationLogin(String username, String password) throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("EidpUrlNHGRI"));
 		CommonUtils.sendKeys(nihLoginPage.username, ConfUtils.getProperty(username));
 		String decyptedPass = EncryptionUtils.decrypt(ConfUtils.getProperty(password));
@@ -24,7 +24,7 @@ public class EIDPLoginStepImpl extends PageInitializer {
 	 * This method will login to application based on the environment
 	 * @param username, password, appName
 	 */
-	public void ApplicationLogin(String username, String password,String appName) {
+	 public void ApplicationLogin(String username, String password,String appName) throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(appName));
 		CommonUtils.waitForVisibility(nihLoginPage.username);
 		CommonUtils.sendKeys(nihLoginPage.username, ConfUtils.getProperty(username));
@@ -55,6 +55,7 @@ public class EIDPLoginStepImpl extends PageInitializer {
 			MiscUtils.sleep(1000);
 			CucumberLogUtils.logScreenshot();
 			CommonUtils.clickOnElement(nihLoginPage.changeUserOption);
+
 	}
 
 	public String lastNameFirstName(String userName){

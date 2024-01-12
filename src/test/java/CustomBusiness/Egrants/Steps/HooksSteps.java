@@ -31,5 +31,4 @@ public class HooksSteps extends PageInitializer {
 	public void genericTearDown()  {
 		closeWebDriver();
 	}
-
 }
