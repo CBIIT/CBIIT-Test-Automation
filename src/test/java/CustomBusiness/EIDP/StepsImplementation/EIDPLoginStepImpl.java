@@ -20,11 +20,11 @@ public class EIDPLoginStepImpl extends PageInitializer {
 		CommonUtils.clickOnElement(nihLoginPage.signInButton);
 		MiscUtils.sleep(3000);
 	}
-	/**
+	 /**
 	 * This method will login to application based on the environment
 	 * @param username, password, appName
 	 */
-	public void ApplicationLogin(String username, String password,String appName) throws TestingException {
+	 public void ApplicationLogin(String username, String password,String appName) throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl(appName));
 		CommonUtils.waitForVisibility(nihLoginPage.username);
 		CommonUtils.sendKeys(nihLoginPage.username, ConfUtils.getProperty(username));
@@ -48,13 +48,13 @@ public class EIDPLoginStepImpl extends PageInitializer {
 	}
 
 	public void changeUser(String username) {
-		CommonUtils.waitForVisibility(nihLoginPage.changeUserButton);
-		CommonUtils.clickOnElement(nihLoginPage.changeUserButton);
-		CommonUtils.clickOnElement(nihLoginPage.changeUserDropdown);
-		CommonUtils.sendKeys(nihLoginPage.searchableChangeUserInput, username);
-		MiscUtils.sleep(1000);
-		CucumberLogUtils.logScreenshot();
-		CommonUtils.clickOnElement(nihLoginPage.changeUserOption);
+			CommonUtils.waitForVisibility(nihLoginPage.changeUserButton);
+			CommonUtils.clickOnElement(nihLoginPage.changeUserButton);
+			CommonUtils.clickOnElement(nihLoginPage.changeUserDropdown);
+			CommonUtils.sendKeys(nihLoginPage.searchableChangeUserInput, username);
+			MiscUtils.sleep(1000);
+			CucumberLogUtils.logScreenshot();
+			CommonUtils.clickOnElement(nihLoginPage.changeUserOption);
 
 	}
 
@@ -72,16 +72,16 @@ public class EIDPLoginStepImpl extends PageInitializer {
 	}
 
 	public void changeUserToTrainee(String username) {
-		MiscUtils.sleep(3000);
-		eidpBasePage.scrollToElement(nihLoginPage.changeUserButton);
-		CommonUtils.clickOnElement(nihLoginPage.changeUserButton);
-		CommonUtils.clickOnElement(nihLoginPage.changeUserDropdown);
-		MiscUtils.sleep(1000);
-		CommonUtils.sendKeys(nihLoginPage.searchableChangeUserInput, username);
-		MiscUtils.sleep(3000);
-		CommonUtils.waitForVisibility(nihLoginPage.changeUserOption);
-		CucumberLogUtils.logScreenshot();
-		CommonUtils.clickOnElement(nihLoginPage.changeUserOption);
-		MiscUtils.sleep(1000);
+			MiscUtils.sleep(3000);
+			eidpBasePage.scrollToElement(nihLoginPage.changeUserButton);
+			CommonUtils.clickOnElement(nihLoginPage.changeUserButton);
+			CommonUtils.clickOnElement(nihLoginPage.changeUserDropdown);
+			MiscUtils.sleep(1000);
+			CommonUtils.sendKeys(nihLoginPage.searchableChangeUserInput, username);
+			MiscUtils.sleep(3000);
+			CommonUtils.waitForVisibility(nihLoginPage.changeUserOption);
+			CucumberLogUtils.logScreenshot();
+			CommonUtils.clickOnElement(nihLoginPage.changeUserOption);
+			MiscUtils.sleep(1000);
 	}
 }
