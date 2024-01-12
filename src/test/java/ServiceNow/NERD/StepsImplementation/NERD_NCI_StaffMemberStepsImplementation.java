@@ -2,6 +2,7 @@ package ServiceNow.NERD.StepsImplementation;
 
 import ServiceNow.NERD.Constants.NCI_Staff_Members_Constants;
 import ServiceNow.NERD.Constants.ReturningSubmissions_Constants;
+import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -15,14 +16,14 @@ import org.junit.Assert;
 import java.util.Set;
 
 public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
-
     /**
      * This method will submit Application to DOC Planing Contact
      *
      * @param submissionName
      */
-    public static void submittingOfApplicationToDocPlaningContact(String submissionName) throws TestingException {
-        nativeViewImpersonateUser.impersonateToStaffMemberCBIIT();
+    public static void submittingOfApplicationToDocPlaningContact(String submissionName) {
+        ServiceNow_Common_Methods.logOutOfNativeView();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         WebDriverUtils.webDriver.navigate().refresh();
         MiscUtils.sleep(5000);
@@ -86,9 +87,10 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
      *
      * @param submissionName
      */
-    public static void deletingOfSubmissionByProgramStaff(String submissionName) throws TestingException {
-        nativeViewImpersonateUser.impersonateToStaffMemberCBIIT();
-        MiscUtils.sleep(5000);
+    public static void deletingOfSubmissionByProgramStaff(String submissionName) {
+        ServiceNow_Common_Methods.logOutOfNativeView();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        MiscUtils.sleep(2000);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         WebDriverUtils.webDriver.navigate().refresh();
         MiscUtils.sleep(5000);
@@ -106,11 +108,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
      *
      * @param submissionName
      */
-    public static void creatingOfSubmissionByProgramStaff(String submissionName) throws TestingException {
-        if (!nativeViewDashPage.textUserDropDown().equalsIgnoreCase("CBIIT Test Account")) {
-            nativeViewImpersonateUser.impersonateToStaffMemberCBIIT();
-            MiscUtils.sleep(5000);
-        }
+    public static void creatingOfSubmissionByProgramStaff(String submissionName) {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageCollaborationsCreateNewSubmissionLink);
         NERDApplicationStepsImplementation.creatingOfNewSubmissionByStaffMember(submissionName);
@@ -145,5 +143,4 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageSubmissionsLink);
         CucumberLogUtils.logScreenshot();
     }
-
 }

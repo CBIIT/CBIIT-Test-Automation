@@ -16,6 +16,9 @@ public class ReturningSubmissions_Constants {
     /* COLLABORATIONS NEW SUBMISSION VERSION NUMBER  */
     public static final String COLLABORATIONS_NEW_SUBMISSION_VERSION_NUMBER = "CollaborationAutomationTest" + CommonUtils.lastNameRandomizer();
 
+    /* COLLABORATIONS NEW SUBMISSION  */
+    public static final String COLLABORATIONS_NEW_SUBMISSION = "CollaborationNewSubmission" + CommonUtils.lastNameRandomizer();
+
     /* COLLABORATIONS NEW SUBMISSION NAME DOC PLAN CONTACT */
     public static final String COLLABORATIONS_NEW_SUBMISSION_NAME_DOC_PLAN_CONTACT = "DOCPlanContactCreateCollabarationTest" + CommonUtils.lastNameRandomizer();
 
