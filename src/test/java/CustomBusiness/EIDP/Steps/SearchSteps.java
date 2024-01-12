@@ -198,23 +198,23 @@ public class SearchSteps extends PageInitializer {
 		MiscUtils.sleep(4000);
 		CommonUtils.selectDropDownValue("100", searchPage.advancedSearchResultLength);
 		switch (button) {
-			case "Revise Existing IDP":
-				searchStepimpl.selectActiveCompletedIDP();
-				break;
-			case "Release Hold":
-				searchStepimpl.selectReleaseHoldIDP();
-				break;
-			case "Cancel IDP":
-				searchStepimpl.selectCancelIDP();
-				break;
-			case "Undo Cancel IDP":
-				searchStepimpl.selectUndoCancelIDP();
-				break;
-			case "Exist Survey":
-				searchStepimpl.selectExistSurveyIDP();
-				break;
-			default:
-				break;
+		case "Revise Existing IDP":
+			searchStepimpl.selectActiveCompletedIDP();
+			break;
+		case "Release Hold":
+			searchStepimpl.selectReleaseHoldIDP();
+			break;
+		case "Cancel IDP":
+			searchStepimpl.selectCancelIDP();
+			break;
+		case "Undo Cancel IDP":
+			searchStepimpl.selectUndoCancelIDP();
+			break;
+		case "Exist Survey":
+			searchStepimpl.selectExistSurveyIDP();
+			break;
+		default:
+			break;
 		}
 
 	}
