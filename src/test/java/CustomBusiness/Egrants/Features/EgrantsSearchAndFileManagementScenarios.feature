@@ -22,7 +22,7 @@ Given User is logged in the application and is on the landing page
     Then verifies the success message "Done! New document has been created"
     And clicks on uploaded document
 
-  @InstitutionalFileUpload @nesarh2 @Regression @Progression
+  @InstitutionalFileUpload @nesarh2 @Regression
   Scenario: Test Institutional file upload
     And clicks on Institutional Files menu
     And clicks on AAVOGEN, INC.
