@@ -92,6 +92,9 @@ public class WebDriverUtils {
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--headless=new");
                 webDriver = new ChromeDriver(chromeOptions);
+				webDriver.manage().window().maximize();
+				webDriver.manage().deleteAllCookies();
+				webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
             }else {
                 webDriver = new ChromeDriver();
                 webDriver.manage().window().maximize();
@@ -102,6 +105,9 @@ public class WebDriverUtils {
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--headless=new");
             webDriver = new ChromeDriver(chromeOptions);
+			webDriver.manage().window().maximize();
+			webDriver.manage().deleteAllCookies();
+			webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         }
     }
 
