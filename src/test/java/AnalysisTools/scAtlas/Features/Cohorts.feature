@@ -1,6 +1,6 @@
 Feature:These are features on the Cohorts Page of scAtlas
 
-    @NCIATWP-6677 @matakevin @Smoke @Progression
+    @NCIATWP-6677 @matakevin @Smoke
     Scenario: Gene Filter on NCI-Clarity using "RP11-1260E13.2"
         Given the user is on the scAtlas home page
         When the user clicks NCI-CLARITY window
