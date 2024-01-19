@@ -235,7 +235,7 @@
     </application>
 
     <!-- Application ID for Analysistools -->
-    <application id="Analysistools">
+    <application id="AnalysisToolsLandingPage">
         <login_url>https://analysistools-qa.cancer.gov/</login_url> <!-- add test
 			url -->
         <role name="Role">

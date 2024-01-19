@@ -15,7 +15,7 @@ public class LDLinkHomeAndLandingPageSteps extends PageInitializer {
 
 	@Given("a LDlink user opens Analysis Tools page")
 	public void a_LDlink_user_opens_Analysis_Tools_page() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("Analysistools"));
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("AnalysisToolsLandingPage"));
 	}
 
 	@Then("user verifies {string} present on the screen")

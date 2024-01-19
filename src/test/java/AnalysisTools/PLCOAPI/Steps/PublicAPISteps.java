@@ -3,11 +3,7 @@ package AnalysisTools.PLCOAPI.Steps;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
 import com.nci.automation.services.RestApiHelper;
-<<<<<<< HEAD
-import appsCommon.PageInitializer;
-=======
 import appsCommon.PageInitializers.PageInitializer;
->>>>>>> 1f082a8263f81d9e192c053b5c975c4db2fbce07
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 

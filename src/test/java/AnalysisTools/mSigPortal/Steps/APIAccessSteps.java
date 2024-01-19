@@ -2,7 +2,7 @@ package AnalysisTools.mSigPortal.Steps;
 
 import java.util.LinkedHashMap;
 import org.testng.Assert;
-import appsCommon.PageInitializer;
+import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.RestAssured;
