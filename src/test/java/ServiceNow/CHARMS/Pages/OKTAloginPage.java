@@ -21,6 +21,10 @@ public class OKTAloginPage extends CommonUtils {
 	@FindBy (xpath = "//input[@value='Next']")
 	public WebElement nextButton;
 	
+	/** Verify button*/
+	@FindBy (xpath = "//input[@value='Verify']")
+	public WebElement verifyBtn;
+	
 	/** Login button*/
 	@FindBy (xpath = "//input[@type='submit']")
 	public WebElement loginBtn;

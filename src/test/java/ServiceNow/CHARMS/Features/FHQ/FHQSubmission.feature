@@ -1,18 +1,117 @@
 Feature: FHQ Form Submission Scenarios
   Description:This feature file contains scenarios which submit FHQ Screener by Participant or Legal guardian of the participant
 
-  @FHQRegression
-  Scenario Outline: This scenario outline the completion of the FHQ Form
+  @FHQRegression @Final
+  Scenario Outline: This scenario outline the completion of the FHQ Form for all the Relatives
     Given participant open RASopathies Longitudinal Cohort Study login page
     Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
-    # And clicks CHARMS FHQ Relative Link page
+    #And clicks CHARMS FHQ Relative Link page
     And participant submits FHQ Relatives Form from excel name "<FHQScenario>"
 
     Examples: 
       | Email                | Password      | FHQScenario  |
-      | charmsras2@yahoo.com | RASTest2023$$ | FHQScenario2 |
+      | charmsras2@yahoo.com | RASTest2023$$ | FHQScenario1 |
 
-  #@FHQRegression
+  @FHQRegression @Final 
+  Scenario Outline: This scenario outline the completion of the FHQ Form
+    Given participant open RASopathies Longitudinal Cohort Study login page
+    Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
+    And clicks CHARMS FHQ Relative Link page
+    And user submits FHQ Relative from excel name "<FHQScenario>" and excel sheet "<FHQRelative>"
+
+    Examples: 
+      | Email                | Password      | FHQScenario  | FHQRelative |
+      | charmsras2@yahoo.com | RASTest2023$$ | FHQScenario1 | Partner     |
+
+  @FHQRegression @Final 
+  Scenario Outline: This scenario outline the completion of the FHQ Form
+    Given participant open RASopathies Longitudinal Cohort Study login page
+    Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
+    And clicks CHARMS FHQ Relative Link page
+    And user submits FHQ Relative from excel name "<FHQScenario>" and excel sheet "<FHQRelative>"
+
+    Examples: 
+      | Email                | Password      | FHQScenario  | FHQRelative |
+      | charmsras2@yahoo.com | RASTest2023$$ | FHQScenario1 | Mother      |
+
+  @FHQRegression @Final @TestRegression
+  Scenario Outline: This scenario outline the completion of the FHQ Form
+    Given participant open RASopathies Longitudinal Cohort Study login page
+    Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
+    And clicks CHARMS FHQ Relative Link page
+    And user submits FHQ Relative from excel name "<FHQScenario>" and excel sheet "<FHQRelative>"
+
+    Examples: 
+      | Email                | Password      | FHQScenario  | FHQRelative |
+      | charmsras2@yahoo.com | RASTest2023$$ | FHQScenario1 | Father      |
+
+  @FHQRegression @Final
+  Scenario Outline: This scenario outline the completion of the FHQ Form
+    Given participant open RASopathies Longitudinal Cohort Study login page
+    Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
+    And clicks CHARMS FHQ Relative Link page
+    And user submits FHQ Relative from excel name "<FHQScenario>" and excel sheet "<FHQRelative>"
+
+    Examples: 
+      | Email                | Password      | FHQScenario  | FHQRelative |
+      | charmsras2@yahoo.com | RASTest2023$$ | FHQScenario1 | Children    |
+
+  @FHQRegression @Final
+  Scenario Outline: This scenario outline the completion of the FHQ Form
+    Given participant open RASopathies Longitudinal Cohort Study login page
+    Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
+    And clicks CHARMS FHQ Relative Link page
+    And user submits FHQ Relative from excel name "<FHQScenario>" and excel sheet "<FHQRelative>"
+
+    Examples: 
+      | Email                | Password      | FHQScenario  | FHQRelative |
+      | charmsras2@yahoo.com | RASTest2023$$ | FHQScenario1 | Sibling     |
+
+  @FHQRegression @Final 
+  Scenario Outline: This scenario outline the completion of the FHQ Form
+    Given participant open RASopathies Longitudinal Cohort Study login page
+    Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
+    And clicks CHARMS FHQ Relative Link page
+    And user submits FHQ Relative from excel name "<FHQScenario>" and excel sheet "<FHQRelative>"
+
+    Examples: 
+      | Email                | Password      | FHQScenario  | FHQRelative |
+      | charmsras2@yahoo.com | RASTest2023$$ | FHQScenario1 | Aunt        |
+
+  @FHQRegression @Final
+  Scenario Outline: This scenario outline the completion of the FHQ Form
+    Given participant open RASopathies Longitudinal Cohort Study login page
+    Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
+    And clicks CHARMS FHQ Relative Link page
+    And user submits FHQ Relative from excel name "<FHQScenario>" and excel sheet "<FHQRelative>"
+
+    Examples: 
+      | Email                | Password      | FHQScenario  | FHQRelative |
+      | charmsras2@yahoo.com | RASTest2023$$ | FHQScenario1 | Uncle       |
+
+  @FHQRegression @Final
+  Scenario Outline: This scenario outline the completion of the FHQ Form
+    Given participant open RASopathies Longitudinal Cohort Study login page
+    Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
+    And clicks CHARMS FHQ Relative Link page
+    And user submits FHQ Relative from excel name "<FHQScenario>" and excel sheet "<FHQRelative>"
+
+    Examples: 
+      | Email                | Password      | FHQScenario  | FHQRelative |
+      | charmsras2@yahoo.com | RASTest2023$$ | FHQScenario1 | NieceNephew |
+
+  @FHQRegression @Final
+  Scenario Outline: This scenario outline the completion of the FHQ Form
+    Given participant open RASopathies Longitudinal Cohort Study login page
+    Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
+    And clicks CHARMS FHQ Relative Link page
+    And user submits FHQ Relative from excel name "<FHQScenario>" and excel sheet "<FHQRelative>"
+
+    Examples: 
+      | Email                | Password      | FHQScenario  | FHQRelative         |
+      | charmsras2@yahoo.com | RASTest2023$$ | FHQScenario1 | MaternalGrandMother |
+
+  @FHQRegression
   Scenario Outline: This scenario outline the completion of the FHQ Form
     Given participant open RASopathies Longitudinal Cohort Study login page
     Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
@@ -21,9 +120,9 @@ Feature: FHQ Form Submission Scenarios
 
     Examples: 
       | Email                | Password      | FHQScenario  | FHQRelative |
-      | charmsras2@yahoo.com | RASTest2023$$ | FHQScenario2 | Participant |
+      | charmsras2@yahoo.com | RASTest2023$$ | FHQScenario1 | Participant |
 
-  #@FHQRegression
+  @FHQRegression
   Scenario Outline: This scenario outline the completion of the FHQ Form
     Given participant open RASopathies Longitudinal Cohort Study login page
     Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
@@ -32,9 +131,9 @@ Feature: FHQ Form Submission Scenarios
 
     Examples: 
       | Email                | Password      | FHQScenario  | FHQRelative |
-      | charmsras2@yahoo.com | RASTest2023$$ | FHQScenario2 | Partner     |
+      | charmsras2@yahoo.com | RASTest2023$$ | FHQScenario1 | Partner     |
 
-  #@FHQRegression
+  @FHQRegression
   Scenario Outline: This scenario outline the completion of the FHQ Form
     Given participant open RASopathies Longitudinal Cohort Study login page
     Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
@@ -43,9 +142,9 @@ Feature: FHQ Form Submission Scenarios
 
     Examples: 
       | Email                | Password      | FHQScenario  | FHQRelative |
-      | charmsras2@yahoo.com | RASTest2023$$ | FHQScenario2 | Mother      |
+      | charmsras2@yahoo.com | RASTest2023$$ | FHQScenario1 | Mother      |
 
-  #@FHQRegression
+  @FHQRegression
   Scenario Outline: This scenario outline the completion of the FHQ Form
     Given participant open RASopathies Longitudinal Cohort Study login page
     Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
@@ -54,18 +153,18 @@ Feature: FHQ Form Submission Scenarios
 
     Examples: 
       | Email                | Password      | FHQScenario  | FHQRelative |
-      | charmsras2@yahoo.com | RASTest2023$$ | FHQScenario2 | Father      |
+      | charmsras2@yahoo.com | RASTest2023$$ | FHQScenario1 | Father      |
 
-  #@FHQRegression
+  @FHQRegression
   Scenario Outline: This scenario outline the completion of the FHQ Form
     Given participant open RASopathies Longitudinal Cohort Study login page
     Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
     And clicks CHARMS FHQ Survey page
     And participant submits FHQ Participant from excel sheet "<FHQScenario>"
- 
+
     Examples: 
       | Email                | Password      | FHQScenario |
-      | charmsras5@yahoo.com | RASTest2023$$ | Participant |
+      | charmsras1@yahoo.com | RASTest2022$$ | Participant |
 
   @FHQRegression
   Scenario Outline: This scenario outline the completion of the FHQ Form
@@ -91,7 +190,7 @@ Feature: FHQ Form Submission Scenarios
       | charmsras1@yahoo.com | RASTest2022$$ | GrandChildren       |
       | charmsras1@yahoo.com | RASTest2022$$ | Cousin              |
 
-  @FHQRegression @Verified
+  @FHQRegression
   Scenario Outline: This scenario outline the completion of the FHQ Form
     Given participant open RASopathies Longitudinal Cohort Study login page
     Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
@@ -100,9 +199,9 @@ Feature: FHQ Form Submission Scenarios
 
     Examples: 
       | Email                | Password      | FHQScenario |
-      | charmsras5@yahoo.com | RASTest2023$$ | Partner     |
+      | charmsras1@yahoo.com | RASTest2022$$ | Partner     |
 
-  @FHQRegression @Verified
+  @FHQRegression
   Scenario Outline: This scenario outline the completion of the FHQ Form
     Given participant open RASopathies Longitudinal Cohort Study login page
     Then logs Rasopathy page via Okta with username "<Email>" and password "<Password>"
@@ -133,7 +232,7 @@ Feature: FHQ Form Submission Scenarios
 
     Examples: 
       | Email                | Password      | FHQScenario |
-      | charmsras5@yahoo.com | RASTest2023$$ | Children    |
+      | charmsras2@yahoo.com | RASTest2023$$ | Children    |
 
   @FHQRegression
   Scenario Outline: This scenario outline the completion of the FHQ Form
@@ -256,7 +355,7 @@ Feature: FHQ Form Submission Scenarios
       | Email                | Password      | FHQScenario |
       | charmsras1@yahoo.com | RASTest2022$$ | Parent      |
 
-  @FHQRegression 
+  @FHQRegression
   Scenario Outline: This scenario outline the assertion of the completed FHQ Form
     Given the study nurse logs into Native View
     Then data submitted for FHQ Patient is verified in FHQ Patient page of NativeView from excel sheet "<FHQScenario>"
@@ -298,15 +397,15 @@ Feature: FHQ Form Submission Scenarios
     Then data submitted for FHQ Children is verified in FHQ Patient page of NativeView from excel sheet "<FHQScenario>"
 
     Examples: 
-     | FHQScenario |
-     | Children    |
+      | FHQScenario |
+      | Children    |
 
   @FHQRegression
   Scenario Outline: This scenario outline the assertion of the completed FHQ Form
     Given the study nurse logs into Native View
     Then data submitted for FHQ Sibling is verified in FHQ Patient page of NativeView from excel sheet "<FHQScenario>"
 
-    Examples:
+    Examples: 
       | FHQScenario |
       | Sibling     |
 
@@ -315,7 +414,7 @@ Feature: FHQ Form Submission Scenarios
     Given the study nurse logs into Native View
     Then data submitted for FHQ AuntUncle is verified in FHQ Patient page of NativeView from excel sheet "<FHQScenario>"
 
-    Examples:
+    Examples: 
       | FHQScenario |
       | AuntUncle   |
 
@@ -343,8 +442,8 @@ Feature: FHQ Form Submission Scenarios
     Then data submitted for FHQ MaternalGrandFather is verified in FHQ Patient page of NativeView from excel sheet "<FHQScenario>"
 
     Examples: 
-     | FHQScenario         |
-     | MaternalGrandFather |
+      | FHQScenario         |
+      | MaternalGrandFather |
 
   @FHQRegression
   Scenario Outline: This scenario outline the assertion of the completed FHQ Form

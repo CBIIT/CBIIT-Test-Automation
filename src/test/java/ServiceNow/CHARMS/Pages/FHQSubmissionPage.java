@@ -32,8 +32,7 @@ public class FHQSubmissionPage extends CommonUtils {
 	public WebElement dynamicLocatorForGrandParent(String text1,String text2) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//div[@aria-label=\"Grandparent(s) related list\"]//table[@role=\"presentation\"])[1]//tr//td[normalize-space()='" +text1 +"']/parent::tr/td[3][normalize-space()='" + text2 +"']"));
 	//	(//div[@aria-label="Grandparent(s) related list"]//table[@role="presentation"])[1]//tr//td[normalize-space()='Un/Un/1900']/parent::tr/td[3][normalize-space()='MaternalGrandmotherFirstName']
-	}
-	
+	}	
 	/* Method to dynamically locate Labels in Relative Information form section of FHQ participant page in Native View*/
 	public WebElement dynamicLocatorForLabels() {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//div[@aria-label=\"Relative Information form section\"]//label"));
@@ -53,7 +52,8 @@ public class FHQSubmissionPage extends CommonUtils {
 	public WebElement dynamicLocatorContainsText(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'" + text + "')]"));
 		//label[contains(text(),"If the partner name is not visible in the dropdown")]
-		//span[@class="label-text"][contains(text(),"To confirm your identity, please indicate your rel")]		
+		//span[@class="label-text"][contains(text(),"To confirm your identity, please indicate your rel")]
+		////span[contains(text(),'Please make sure you have completed all Partner re')]
 	}	
 	/* Method to dynamically locate elements in FHQ AND Questions in Native View */
 	public WebElement dynamicLocatorContainsText(String text, int i) {
@@ -75,6 +75,11 @@ public class FHQSubmissionPage extends CommonUtils {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//select[@aria-required=\"false\"])[" + i + "]"));
 		// (//select[@aria-required="false"])[4]
 	}	
+	/* Dynamic Help Text Banner */
+	public WebElement dynamicLocatorForHelpTextBanner(int i) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//div[@class=\"help-tag-container\"]//span)[" + i + "]"));
+		// (//div[@class=\"help-tag-container\"]//span)[3]
+	}
 	/* Method to dynamically locate TEXT BOXES with Values ON FHQ FORMS and Native View*/
 	public WebElement dynamicLocatorTextBoxForReadOnlyInput(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//select[@aria-label='" + text + "']"));
@@ -160,6 +165,7 @@ public class FHQSubmissionPage extends CommonUtils {
 	/* Method to dynamically locate titles using contains in FHQ */
 	public WebElement dynamicLocatorUsingTitle(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(@title,'" + text + "')]"));
+		//
 	}
 	/* Method to dynamically locate titles in FHQ */
 	public WebElement dynamicLocatorForTitle(String text) {
@@ -190,13 +196,17 @@ public class FHQSubmissionPage extends CommonUtils {
 	/* Method to dynamically locate ELEMENTS In Drop down List  */
 	public WebElement dynamicLocator3ForDropDown(int i) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//span[@id='select2-chosen-" + i + "'])[1]"));
-		//(//span[@id='select2-chosen-1'])[1]
+		//(//span[@id='select2-chosen-14'])[1]
 	}
 	/* Method to dynamically locate TEXT BOXES ON FHQ FORMS*/	
 	public WebElement dynamicLocatorElementInTable(int int1, int int2) {
 		return WebDriverUtils.webDriver.findElement(By.cssSelector("tbody tr:nth-child("+ int1 +") td:nth-child(" + int2 +")"));	
 		//tbody tr:nth-child(1) td:nth-child(5)
 	}
+	/* Note: */
+	@FindBy(xpath = "(//p[contains(@class,'text')])[4]")
+	public WebElement noteMyRasLandingPage;
+				
 	/* RELATION RP:Form: Any Field DropDown */
 	@FindBy(xpath = "(//span[@class='select2-chosen'][normalize-space()='-- None --'])[1]")
 	public WebElement fHQFieldDropDown;
@@ -245,7 +255,7 @@ public class FHQSubmissionPage extends CommonUtils {
 	public WebElement otherBiologicalParentDropdown;
 
 	/* RELATION RP:Short Description Information Banner on a new RP */
-	@FindBy(xpath = "//div[@class=\"text-muted sc-cat-item-short-description ng-binding ng-scope\"]")
+	@FindBy(xpath = "//span[contains(text(),'We would like to ask some questions about Siblings')]")
 	public WebElement siblingInformationBanner;
 
 	/* Other Biological Parent Dropdown Value */
@@ -275,7 +285,7 @@ public class FHQSubmissionPage extends CommonUtils {
 	public WebElement rowsDetailsOnListView;
 
 	/* RELATION RP:Short Description Information Banner on a new RP */
-	@FindBy(xpath = "//div[@class=\"text-muted sc-cat-item-short-description ng-binding ng-scope\"]")
+	@FindBy(xpath = "(//strong[contains(text(),'Please provide what information you can about this')])[1]")
 	public WebElement shortDescriptionInformationBanner;
 
 	/* PARTNER RP: Is this your (the participant's) current partner? Label */
@@ -287,7 +297,7 @@ public class FHQSubmissionPage extends CommonUtils {
 	public WebElement yearOfBirthdateLabelBanner;
 
 	/* RELATION RP:Year Of Birth Label */
-	@FindBy(xpath = "//label[contains(@for,\"sp_formfield_year_of_birth\")]//span[contains(@title,\"Examples: select 1995 if you know the date is in the 1990s but unsure the exact year; select 1982 if you know it was in the early 1980s; select 1977 if you know it was in the late 1970s.\")][contains(text(),\"Examples: select 1995 if you know the date is in t\")]")
+	@FindBy(xpath = "//label[contains(@for,'sp_formfield_year_benign_tumor')]//div[contains(@ng-if,'field.expand_help')]//div[1]")
 	public WebElement yearOfBirthdateLabelBanner1;
 
 	/* PARTNER:Please describe how the participant is related TextBox */
@@ -318,7 +328,10 @@ public class FHQSubmissionPage extends CommonUtils {
 	@FindBy(xpath = "(//label[contains(text(),\"Please select the 'Add' button below to add each b\")])[1]")
 	public WebElement diagnosedWithBenignTumorAddButtonInfo;
 	
-
+	/* Children Help Text Banner */
+	@FindBy(xpath = "(//div[@class=\"help-tag-container\"]//span)[3]")
+	public WebElement childrenHelpTextBanner;
+	
 	/* Please select the 'Add' button below to add each medical condition this parent has had. Label*/
 	@FindBy(xpath = "(//label[contains(text(),\"Please select the 'Add' button below to add each m\")])[1]")
 	public WebElement parentDiagnosedWithMedicalConditionsAddButtonInfo;
@@ -361,7 +374,7 @@ public class FHQSubmissionPage extends CommonUtils {
 	@FindBy(xpath = "(//td[@ng-if='!field._loadingData'][normalize-space()='No data to display'])[4]")
 	public WebElement siblingNoDataToDisplay ;
 
-	@FindBy(xpath ="(//p[contains(text(),'Please enter one record per each family member for')])[1]")
+	@FindBy(xpath ="(//span[contains(text(),'Please enter one record per each family member for')])[1]")
 	public WebElement auntUncleInformationBanner;
 
 	@FindBy(xpath ="//a[contains(text(),\"Relation to Patient in (Biological Mother, Biologi\")]")
@@ -369,7 +382,13 @@ public class FHQSubmissionPage extends CommonUtils {
 
 	@FindBy(xpath ="(//a[contains(text(),\"Relation to Patient in (Paternal grandfather (Fath\")])[1]")
 	public WebElement relationToPatientGrandParentLink;
-
+	
+	@FindBy(xpath ="//div[@class=\"form-group m-b-xs ng-scope\"]//p//em")
+	public WebElement submitFormHelpTextBanner;	
+	
+	@FindBy(xpath ="(//button[normalize-space()='Complete'])[1]")
+	public WebElement completeButton;
+			
 	/* ************* NATIVE VIEW * ************* */
 	/* NV: FHQ CHARMS Referrals List view-> iFrame */
 	@FindBy(xpath = "//iframe[@id='gsft_main']")

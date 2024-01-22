@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 		"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 features = "src/test/java/ServiceNow/CHARMS/Features/FHQ",
 glue = "ServiceNow.CHARMS.Steps", 
-tags = "@FHQRegression", 
+tags = "@TestRegression", 
 dryRun = false, 
 monochrome = true, 
 strict = true

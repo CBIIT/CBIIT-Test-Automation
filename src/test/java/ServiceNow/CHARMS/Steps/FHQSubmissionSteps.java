@@ -234,26 +234,21 @@ public class FHQSubmissionSteps extends PageInitializer {
 	public void participant_submits_fhq_father_from_excel_name_and_excel_sheet(String excelName, String sheetName)throws TestingException {
 		FHQSubmissionStepsImpl.scenarioSelectorForFHQ_test(excelName,sheetName); 
 	}
-	
-	
-	
-	
 	@Then("participant submits FHQ Relatives Form from excel name {string} and excel sheet {string}")
 	public void participant_submits_fhq_relatives_form_from_excel_name_and_excel_sheet(String excelName, String sheetName)throws TestingException {
-		
-		FHQSubmissionStepsImpl.scenarioSelectorForFHQ_test1(excelName,sheetName); 
+	FHQSubmissionStepsImpl.scenarioSelectorForFHQ_test(excelName,sheetName); 
 	}
-	
 	@Then("participant submits FHQ Relatives Form from excel name {string}")
 	public void participant_submits_fhq_Relatives_form_from_excel_name(String excelName) throws TestingException {
-		FHQSubmissionStepsImpl.scenarioSelectorForFHQ_testTest(excelName); 
+		FHQSubmissionStepsImpl.scenarioSelectorForFHQ_testFinal(excelName);
+	}
+	
+	//Final steps
+	@Then("user submits FHQ Relative from excel name {string} and excel sheet {string}")
+	public void user_submits_fhq_relative_from_excel_name_and_excel_sheet(String excelName, String sheetName)throws TestingException {
+		FHQSubmissionStepsImpl.scenarioSelectorForFHQ_test(excelName,sheetName); 
 	}
 }
-
-
-
-
-
 
 
 
