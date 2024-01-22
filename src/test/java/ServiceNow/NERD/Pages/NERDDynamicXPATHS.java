@@ -21,7 +21,6 @@ public class NERDDynamicXPATHS extends CommonUtils {
 	/** Edit Button */
 	public WebElement editButton(String value) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//a[contains(text(),'" + value + "')]/following::button/span[contains(text(),'Edit')])[1]"));
-
 	}
 
 	/** Delete Button */

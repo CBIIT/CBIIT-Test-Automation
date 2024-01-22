@@ -166,7 +166,7 @@ public class RasScenario2StepsImpl extends PageInitializer {
             rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.whatIsYourRace).click();
             CommonUtils.sendKeysToElement(myRASSurveyPage.dynamicPleaseSpecifyTextBox(ras_Screener_TestDataManager.whatIsYourRace), ras_Screener_TestDataManager.whatIsYourRaceOther);
             CucumberLogUtils.logScreenshot();
-         } catch (NoSuchElementException e) {
+        } catch (NoSuchElementException e) {
             e.printStackTrace();
             ras_scenario_one_stepsImpl.clickOnScreenerNextButton();
             rasopathyQuestionnairePage.dynamicLocator(ras_Screener_TestDataManager.whatIsYourRace).click();

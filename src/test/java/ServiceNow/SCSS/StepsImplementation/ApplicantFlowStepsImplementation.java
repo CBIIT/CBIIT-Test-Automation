@@ -5,6 +5,17 @@ import com.nci.automation.web.CommonUtils;
 import org.openqa.selenium.Keys;
 
 public class ApplicantFlowStepsImplementation extends PageInitializer {
+
+    public void userIsOnProfileTab(){
+        CommonUtils.waitForVisibility(applicantFlowPage.tabProfile);
+        CommonUtils.clickOnElement(applicantFlowPage.tabProfile);
+    }
+
+    public void userSavesUpdatedSection(){
+        CommonUtils.waitForVisibility(applicantFlowPage.buttonSave);
+        CommonUtils.clickOnElement(applicantFlowPage.buttonSave);
+    }
+
     public void clickEditButton(String tab) {
         if (tab.equals("Basic Information")){
             CommonUtils.clickOnElement(applicantFlowPage.btnEditProfileTab);

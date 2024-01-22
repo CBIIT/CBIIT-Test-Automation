@@ -33,7 +33,7 @@ public class SearchSteps extends PageInitializer {
 		CucumberLogUtils.logScreenshot();
 		searchStepimpl.clickOnOkButton();
 	}
-	
+
 	@When("User creates IDP NGHRI request with university details")
 	public void createIDPrequestNHGRIWithUni(DataTable dataTable) throws Exception {
 		Map<String, String> requestData = CommonUtil.getMapFromDataTable(dataTable);
@@ -80,7 +80,7 @@ public class SearchSteps extends PageInitializer {
 		} else{
 			searchStepimpl.checkTraineeWithoutIDPCheckbox();
 			searchStepimpl.clickOnSearchButton();
-			searchStepimpl.selectActiveTrainee();	
+			searchStepimpl.selectActiveTrainee();
 			Assert.assertTrue(searchStepimpl.isIDPFormDisplayed());
 			CucumberLogUtils.logScreenshot();
 			searchStepimpl.selectNCITrainingOrganization(requestData.get("NCI Training Organization"));
@@ -89,7 +89,7 @@ public class SearchSteps extends PageInitializer {
 			CucumberLogUtils.logScreenshot();
 			searchStepimpl.clickOnOkButton();
 		}
-			
+
 	}
 
 	@Then("Select reason for revise idp and Click On save and send email button")
