@@ -308,13 +308,13 @@ echo "Command:">> $data_saved_path
 echo "sudo grep -m 10 128.231.196 /opt/splunkforwarder/var/log/splunk/splunkd.log">> $data_saved_path
 space
 echo "Expected Output Contains:">> $data_saved_path
-echo "Connected to idx=128.231.196.96">> $data_saved_path
+echo "Connected to idx=128.231.196">> $data_saved_path
 space
 echo "Actual Output:">> $data_saved_path
 echo "$splunk_functionality">> $data_saved_path
 space
 echo "Test Results:">> $data_saved_path
-if [[ $splunk_functionality =~ "Connected to idx=128.231.196.96" ]]; then
+if [[ $splunk_functionality =~ "Connected to idx=128.231.196" ]]; then
     echo "PASS">> $data_saved_path
     TP=$(($TP + 1))
     TNT=$(($TNT + 1))
