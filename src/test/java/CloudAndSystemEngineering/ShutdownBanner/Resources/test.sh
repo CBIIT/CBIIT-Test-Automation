@@ -280,6 +280,48 @@ else
     TNP=$(($TNP + 1))
     TNT=$(($TNT + 1))
 fi
+echo "-------------------------------------------------------------------">> $data_saved_path
+splunk_restart="$(sudo service splunk restart)"
+echo "Command:">> $data_saved_path
+echo "sudo service splunk restart">> $data_saved_path
+space
+echo "Expected Output Contains:">> $data_saved_path
+echo "Restarting splunk (via systemctl):">> $data_saved_path
+space
+echo "Actual Output:">> $data_saved_path
+echo "$splunk_restart">> $data_saved_path
+space
+echo "Test Results:">> $data_saved_path
+if [[ $splunk_restart =~ "Restarting splunk (via systemctl):" ]]; then
+    echo "PASS">> $data_saved_path
+    TP=$(($TP + 1))
+    TNT=$(($TNT + 1))
+else
+    echo "FAIL">> $data_saved_path
+    TNP=$(($TNP + 1))
+    TNT=$(($TNT + 1))
+fi
+echo "-------------------------------------------------------------------">> $data_saved_path
+splunk_functionality="$(sudo grep -m 10 128.231.196 /opt/splunkforwarder/var/log/splunk/splunkd.log)"
+echo "Command:">> $data_saved_path
+echo "sudo grep -m 10 128.231.196 /opt/splunkforwarder/var/log/splunk/splunkd.log">> $data_saved_path
+space
+echo "Expected Output Contains:">> $data_saved_path
+echo "Connected to idx=128.231.196.96">> $data_saved_path
+space
+echo "Actual Output:">> $data_saved_path
+echo "$splunk_functionality">> $data_saved_path
+space
+echo "Test Results:">> $data_saved_path
+if [[ $splunk_functionality =~ "Connected to idx=128.231.196.96" ]]; then
+    echo "PASS">> $data_saved_path
+    TP=$(($TP + 1))
+    TNT=$(($TNT + 1))
+else
+    echo "FAIL">> $data_saved_path
+    TNP=$(($TNP + 1))
+    TNT=$(($TNT + 1))
+fi
 #*********************************************************
 echo "Testing Date:$(TZ=America/New_York date +"%F") Time:$(TZ=America/New_York date +"%T")">> $logs_file_path
 echo "">> $logs_file_path
