@@ -1,4 +1,5 @@
 #!/bin/bash
+cd /tmp
 DATE=$(TZ=America/New_York date "+%Y-%m-%d-%H-%M-%S")
 logs_file="security-agents-testing-$DATE.log"
 logs_file_path="/tmp/security-agents-testing-$DATE.log"
