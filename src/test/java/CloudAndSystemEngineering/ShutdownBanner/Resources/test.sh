@@ -323,7 +323,7 @@ else
     TNT=$(($TNT + 1))
 fi
 #*********************************************************
-echo "Testing Date:$(TZ=America/New_York date +"%F") Time:$(TZ=America/New_York date +"%T")">> $logs_file_path
+echo "Testing Date:$(TZ=America/New_York date +"%F") Time:$(TZ=America/New_York date +"%T") EST">> $logs_file_path
 echo "">> $logs_file_path
 echo "*******************************************************************">> $logs_file_path
 echo "SECURITY AGENTS TESTING">> $logs_file_path
