@@ -7,6 +7,8 @@ import AnalysisTools.Comets2.Pages.*;
 import AnalysisTools.ICRP.Pages.*;
 import AnalysisTools.JPSurv.Pages.*;
 import AnalysisTools.LDLink.Pages.*;
+import AnalysisTools.MCAExplorer.Pages.MCAExplorerPage;
+import AnalysisTools.MCAExplorer.StepsImplementations.MCAExplorerStepImp;
 import AnalysisTools.PLCO.Pages.*;
 import AnalysisTools.cProSite.Pages.*;
 import AnalysisTools.mSigPortal.Pages.*;
@@ -311,6 +313,11 @@ public class PageInitializer extends WebDriverUtils {
 	public static EgrantsSearchAndFileManagementScenariosPage egrantsSearchandFileManagementScenariosPage;
 
 
+	/** ------------ MCA EXPLORER INSTANCES ------------*/
+	public static MCAExplorerPage mcaExplorerPage;
+	public static MCAExplorerStepImp mcaExplorerStepImp;
+	
+	
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
 		// create instances of all pages and assign them to the variables
@@ -558,6 +565,11 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** GDC INSTANCE VARIABLES */
 		gDC_Workflow_NativeView_Page = new GDC_Workflow_NativeView_Page();
+		
+		
+		/** MCAEXPLORER INSTANCE VARIABLES */
+		mcaExplorerPage = new MCAExplorerPage();
+		mcaExplorerStepImp = new MCAExplorerStepImp();
 
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}
