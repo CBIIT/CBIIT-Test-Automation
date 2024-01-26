@@ -339,11 +339,11 @@ if [[ "$failed_validation" =~ "0"( |$) ]]; then
     echo "*******************************************************************">> $logs_file_path
     echo "Tests completed succesfuly!">> $logs_file_path
     echo "*******************************************************************">> $logs_file_path
-    aws s3 cp /tmp/$logs_file s3://al2023-imagebuilder-pipeline-qa-testing-logs
+    sudo aws s3 cp /tmp/$logs_file s3://al2023-imagebuilder-pipeline-qa-testing-logs
 else
     echo "*******************************************************************">> $logs_file_path
     echo "Some tests have failed. Please check above for details.">> $logs_file_path
     echo "*******************************************************************">> $logs_file_path
-    aws s3 cp /tmp/$logs_file s3://al2023-imagebuilder-pipeline-qa-testing-logs
+    sudo aws s3 cp /tmp/$logs_file s3://al2023-imagebuilder-pipeline-qa-testing-logs
     exit 1
 fi
