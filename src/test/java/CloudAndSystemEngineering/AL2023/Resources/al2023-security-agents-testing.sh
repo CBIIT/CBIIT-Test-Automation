@@ -223,13 +223,13 @@ echo "Command:">> $data_saved_path
 echo "sudo /opt/cylance/desktop/cylance -s">> $data_saved_path
 space
 echo "Expected Output Contains:">> $data_saved_path
-echo "Registratio Status: Registred">> $data_saved_path
+echo "Registration Status: Registred">> $data_saved_path
 space
 echo "Actual Output:">> $data_saved_path
 echo "$cylance_status">> $data_saved_path
 space
 echo "Test Results:">> $data_saved_path
-if [[ $cylance_status =~ "Registratio Status: Registred" ]]; then
+if [[ $cylance_status =~ "Registration Status: Registred" ]]; then
     echo "PASS">> $data_saved_path
     TP=$(($TP + 1))
     TNT=$(($TNT + 1))
