@@ -16,20 +16,20 @@ touch $data_saved_file
 touch $failed_saved_file
 touch $logs_file
 #**************** Kernel Testig ************************
-echo "Kernel Testing">> $data_saved_path
-echo "-------------------------------------------------------------------">> $data_saved_path
 kernel_version="$(uname -r)"
-echo "Command:">> $data_saved_path
-echo "uname -r">> $data_saved_path
-space
-echo "Expected Output Contains:">> $data_saved_path
-echo "6.1.61-85.141">> $data_saved_path
-space
-echo "Actual Output:">> $data_saved_path
-echo "$kernel_version">> $data_saved_path
-space
-echo "Test Results:">> $data_saved_path
 if [[ $kernel_version =~ "6.1.61-85.141" ]]; then
+    echo "Kernel Testing">> $data_saved_path
+    echo "-------------------------------------------------------------------">> $data_saved_path
+    echo "Command:">> $data_saved_path
+    echo "uname -r">> $data_saved_path
+    space
+    echo "Expected Output Contains:">> $data_saved_path
+    echo "6.1.61-85.141">> $data_saved_path
+    space
+    echo "Actual Output:">> $data_saved_path
+    echo "$kernel_version">> $data_saved_path
+    space
+    echo "Test Results:">> $data_saved_path
     echo "PASS">> $data_saved_path
     TP=$(($TP + 1))
     TNT=$(($TNT + 1))
@@ -50,22 +50,22 @@ else
     TNP=$(($TNP + 1))
     TNT=$(($TNT + 1))
 fi
-echo "*******************************************************************">> $data_saved_path
 #**************** Centrify Testig ************************
-echo "Centrify Testing">> $data_saved_path
-echo "-------------------------------------------------------------------">> $data_saved_path
 centrify_version="$(adinfo --version)"
-echo "Command:">> $data_saved_path
-echo "adinfo --version">> $data_saved_path
-space
-echo "Expected Output Contains:">> $data_saved_path
-echo "CentrifyDC 6.0.0-151">> $data_saved_path
-space
-echo "Actual Output:">> $data_saved_path
-echo "$centrify_version">> $data_saved_path
-space
-echo "Test Results:">> $data_saved_path
 if [[ $centrify_version =~ "adinfo (CentrifyDC 6.0.0-151)" ]]; then
+    echo "*******************************************************************">> $data_saved_path
+    echo "Centrify Testing">> $data_saved_path
+    echo "-------------------------------------------------------------------">> $data_saved_path
+    echo "Command:">> $data_saved_path
+    echo "adinfo --version">> $data_saved_path
+    space
+    echo "Expected Output Contains:">> $data_saved_path
+    echo "CentrifyDC 6.0.0-151">> $data_saved_path
+    space
+    echo "Actual Output:">> $data_saved_path
+    echo "$centrify_version">> $data_saved_path
+    space
+    echo "Test Results:">> $data_saved_path
     echo "PASS">> $data_saved_path
     TP=$(($TP + 1))
     TNT=$(($TNT + 1))
@@ -87,19 +87,19 @@ else
     TNP=$(($TNP + 1))
     TNT=$(($TNT + 1))
 fi
-echo "-------------------------------------------------------------------">> $data_saved_path
 centrify_status="$(sudo systemctl status centrifydc)"
-echo "Command:">> $data_saved_path
-echo "sudo systemctl status centrifydc">> $data_saved_path
-space
-echo "Expected Output Contains:">> $data_saved_path
-echo "centrifydc.service; enabled;">> $data_saved_path
-space
-echo "Actual Output:">> $data_saved_path
-echo "$centrify_status">> $data_saved_path
-space
-echo "Test Results:">> $data_saved_path
 if [[ $centrify_status =~ "centrifydc.service; enabled;" ]]; then
+    echo "-------------------------------------------------------------------">> $data_saved_path
+    echo "Command:">> $data_saved_path
+    echo "sudo systemctl status centrifydc">> $data_saved_path
+    space
+    echo "Expected Output Contains:">> $data_saved_path
+    echo "centrifydc.service; enabled;">> $data_saved_path
+    space
+    echo "Actual Output:">> $data_saved_path
+    echo "$centrify_status">> $data_saved_path
+    space
+    echo "Test Results:">> $data_saved_path
     echo "PASS">> $data_saved_path
     TP=$(($TP + 1))
     TNT=$(($TNT + 1))
@@ -119,22 +119,22 @@ else
     TNP=$(($TNP + 1))
     TNT=$(($TNT + 1))
 fi
-echo "*******************************************************************">> $data_saved_path
 #**************** Nessus Testig ************************
-echo "Nessus Testing">> $data_saved_path
-echo "-------------------------------------------------------------------">> $data_saved_path
 nessus_version="$(rpm -qa | grep NessusAgent)"
-echo "Command:">> $data_saved_path
-echo "rpm -qa | grep NessusAgent">> $data_saved_path
-space
-echo "Expected Output Contains:">> $data_saved_path
-echo "NessusAgent-10.5.0-amzn2.x86_64">> $data_saved_path
-space
-echo "Actual Output:">> $data_saved_path
-echo "$nessus_version">> $data_saved_path
-space
-echo "Test Results:">> $data_saved_path
 if [[ $nessus_version =~ "NessusAgent-10.5.0-amzn2.x86_64" ]]; then
+    echo "*******************************************************************">> $data_saved_path
+    echo "Nessus Testing">> $data_saved_path
+    echo "-------------------------------------------------------------------">> $data_saved_path
+    echo "Command:">> $data_saved_path
+    echo "rpm -qa | grep NessusAgent">> $data_saved_path
+    space
+    echo "Expected Output Contains:">> $data_saved_path
+    echo "NessusAgent-10.5.0-amzn2.x86_64">> $data_saved_path
+    space
+    echo "Actual Output:">> $data_saved_path
+    echo "$nessus_version">> $data_saved_path
+    space
+    echo "Test Results:">> $data_saved_path
     echo "PASS">> $data_saved_path
     TP=$(($TP + 1))
     TNT=$(($TNT + 1))
@@ -156,19 +156,19 @@ else
     TNP=$(($TNP + 1))
     TNT=$(($TNT + 1))
 fi
-echo "-------------------------------------------------------------------">> $data_saved_path
 nessus_service_status="$(sudo systemctl status nessusagent.service)"
-echo "Command:">> $data_saved_path
-echo "sudo systemctl status nessusagent.service">> $data_saved_path
-space
-echo "Expected Output Contains:">> $data_saved_path
-echo "Active: active (running)">> $data_saved_path
-space
-echo "Actual Output:">> $data_saved_path
-echo "$nessus_service_status">> $data_saved_path
-space
-echo "Test Results:">> $data_saved_path
 if [[ $nessus_service_status =~ "Active: active (running)" ]]; then
+    echo "-------------------------------------------------------------------">> $data_saved_path
+    echo "Command:">> $data_saved_path
+    echo "sudo systemctl status nessusagent.service">> $data_saved_path
+    space
+    echo "Expected Output Contains:">> $data_saved_path
+    echo "Active: active (running)">> $data_saved_path
+    space
+    echo "Actual Output:">> $data_saved_path
+    echo "$nessus_service_status">> $data_saved_path
+    space
+    echo "Test Results:">> $data_saved_path
     echo "PASS">> $data_saved_path
     TP=$(($TP + 1))
     TNT=$(($TNT + 1))
@@ -188,19 +188,19 @@ else
     TNP=$(($TNP + 1))
     TNT=$(($TNT + 1))
 fi
-echo "-------------------------------------------------------------------">> $data_saved_path
 nessus_status="$(sudo /opt/nessus_agent/sbin/nessuscli agent status)"
-echo "Command:">> $data_saved_path
-echo "sudo /opt/nessus_agent/sbin/nessuscli agent status">> $data_saved_path
-space
-echo "Expected Output Contains:">> $data_saved_path
-echo "Running: Yes">> $data_saved_path
-space
-echo "Actual Output:">> $data_saved_path
-echo "$nessus_status">> $data_saved_path
-space
-echo "Test Results:">> $data_saved_path
 if [[ $nessus_status =~ "Running: Yes" ]]; then
+    echo "-------------------------------------------------------------------">> $data_saved_path
+    echo "Command:">> $data_saved_path
+    echo "sudo /opt/nessus_agent/sbin/nessuscli agent status">> $data_saved_path
+    space
+    echo "Expected Output Contains:">> $data_saved_path
+    echo "Running: Yes">> $data_saved_path
+    space
+    echo "Actual Output:">> $data_saved_path
+    echo "$nessus_status">> $data_saved_path
+    space
+    echo "Test Results:">> $data_saved_path
     echo "PASS">> $data_saved_path
     TP=$(($TP + 1))
     TNT=$(($TNT + 1))
@@ -220,22 +220,22 @@ else
     TNP=$(($TNP + 1))
     TNT=$(($TNT + 1))
 fi
-echo "-------------------------------------------------------------------">> $data_saved_path
 DATERESTART=$(TZ=America/New_York date "+%a %Y-%m-%d")
 sudo systemctl restart nessusagent
 sleep 3
 nessus_status="$(sudo /bin/systemctl status nessusagent.service)"
-echo "Command:">> $data_saved_path
-echo "sudo systemctl restart nessusagent | /bin/systemctl status nessusagent.service">> $data_saved_path
-space
-echo "Expected Output Contains:">> $data_saved_path
-echo "Active:active (running) since $DATERESTART">> $data_saved_path
-space
-echo "Actual Output:">> $data_saved_path
-echo "$nessus_status">> $data_saved_path
-space
-echo "Test Results:">> $data_saved_path
 if [[ $nessus_status =~ "     Active: active (running) since $DATERESTART" ]]; then
+    echo "-------------------------------------------------------------------">> $data_saved_path
+    echo "Command:">> $data_saved_path
+    echo "sudo systemctl restart nessusagent | /bin/systemctl status nessusagent.service">> $data_saved_path
+    space
+    echo "Expected Output Contains:">> $data_saved_path
+    echo "Active:active (running) since $DATERESTART">> $data_saved_path
+    space
+    echo "Actual Output:">> $data_saved_path
+    echo "$nessus_status">> $data_saved_path
+    space
+    echo "Test Results:">> $data_saved_path
     echo "PASS">> $data_saved_path
     TP=$(($TP + 1))
     TNT=$(($TNT + 1))
@@ -255,22 +255,22 @@ else
     TNP=$(($TNP + 1))
     TNT=$(($TNT + 1))
 fi
-echo "*******************************************************************">> $data_saved_path
 #**************** FireEye Testig ************************
-echo "FireEye Testing">> $data_saved_path
-echo "-------------------------------------------------------------------">> $data_saved_path
 fireeye_version="$(rpm -qa | grep xagt)"
-echo "Command:">> $data_saved_path
-echo "rpm -qa | grep xagt">> $data_saved_path
-space
-echo "Expected Output Contains:">> $data_saved_path
-echo "xagt-35.31.25-1.el7.x86_64">> $data_saved_path
-space
-echo "Actual Output:">> $data_saved_path
-echo "$fireeye_version">> $data_saved_path
-space
-echo "Test Results:">> $data_saved_path
 if [[ $fireeye_version =~ "xagt-35.31.25-1.el7.x86_64" ]]; then
+    echo "*******************************************************************">> $data_saved_path
+    echo "FireEye Testing">> $data_saved_path
+    echo "-------------------------------------------------------------------">> $data_saved_path
+    echo "Command:">> $data_saved_path
+    echo "rpm -qa | grep xagt">> $data_saved_path
+    space
+    echo "Expected Output Contains:">> $data_saved_path
+    echo "xagt-35.31.25-1.el7.x86_64">> $data_saved_path
+    space
+    echo "Actual Output:">> $data_saved_path
+    echo "$fireeye_version">> $data_saved_path
+    space
+    echo "Test Results:">> $data_saved_path
     echo "PASS">> $data_saved_path
     TP=$(($TP + 1))
     TNT=$(($TNT + 1))
@@ -292,19 +292,19 @@ else
     TNP=$(($TNP + 1))
     TNT=$(($TNT + 1))
 fi
-echo "-------------------------------------------------------------------">> $data_saved_path
 fireye_service_status="$(sudo service xagt status)"
-echo "Command:">> $data_saved_path
-echo "sudo service xagt status">> $data_saved_path
-space
-echo "Expected Output Contains:">> $data_saved_path
-echo "Active: active (running)">> $data_saved_path
-space
-echo "Actual Output:">> $data_saved_path
-echo "$fireye_service_status">> $data_saved_path
-space
-echo "Test Results:">> $data_saved_path
 if [[ $fireye_service_status =~ "Active: active (running)" ]]; then
+    echo "-------------------------------------------------------------------">> $data_saved_path
+    echo "Command:">> $data_saved_path
+    echo "sudo service xagt status">> $data_saved_path
+    space
+    echo "Expected Output Contains:">> $data_saved_path
+    echo "Active: active (running)">> $data_saved_path
+    space
+    echo "Actual Output:">> $data_saved_path
+    echo "$fireye_service_status">> $data_saved_path
+    space
+    echo "Test Results:">> $data_saved_path
     echo "PASS">> $data_saved_path
     TP=$(($TP + 1))
     TNT=$(($TNT + 1))
@@ -324,57 +324,57 @@ else
     TNP=$(($TNP + 1))
     TNT=$(($TNT + 1))
 fi
-echo "-------------------------------------------------------------------">> $data_saved_path
 DATERESTARTFIREEYE=$(TZ=America/New_York date "+%a %Y-%m-%d")
 sudo service xagt restart
 sleep 3
 fireye_status="$(sudo service xagt status)"
-echo "Command:">> $data_saved_path
-echo "sudo service xagt restart | sudo service xagt status">> $data_saved_path
-space
-echo "Expected Output Contains:">> $data_saved_path
-echo "Active:active (running) since $DATERESTARTFIREEYE">> $data_saved_path
-space
-echo "Actual Output:">> $data_saved_path
-echo "$fireye_status">> $data_saved_path
-space
-echo "Test Results:">> $data_saved_path
 if [[ $fireye_status =~ "     Active: active (running) since $DATERESTARTFIREEYE" ]]; then
+    echo "-------------------------------------------------------------------">> $data_saved_path
+    echo "Command:">> $data_saved_path
+    echo "sudo service xagt restart | sudo service xagt status">> $data_saved_path
+    space
+    echo "Expected Output Contains:">> $data_saved_path
+    echo "Active:active (running) since $DATERESTARTFIREEYE">> $data_saved_path
+    space
+    echo "Actual Output:">> $data_saved_path
+    echo "$fireye_status">> $data_saved_path
+    space
+    echo "Test Results:">> $data_saved_path
     echo "PASS">> $data_saved_path
     TP=$(($TP + 1))
     TNT=$(($TNT + 1))
 else
-  echo "-------------------------------------------------------------------">> $failed_saved_path
-  echo "Command:">> $failed_saved_path
-  echo "sudo service xagt restart | sudo service xagt status">> $failed_saved_path
-  spacef
-  echo "Expected Output Contains:">> $failed_saved_path
-  echo "Active:active (running) since $DATERESTARTFIREEYE">> $failed_saved_path
-  spacef
-  echo "Actual Output:">> $failed_saved_path
-  echo "$fireye_status">> $failed_saved_path
-  spacef
-  echo "Test Results:">> $failed_saved_path
+    echo "-------------------------------------------------------------------">> $failed_saved_path
+    echo "Command:">> $failed_saved_path
+    echo "sudo service xagt restart | sudo service xagt status">> $failed_saved_path
+    spacef
+    echo "Expected Output Contains:">> $failed_saved_path
+    echo "Active:active (running) since $DATERESTARTFIREEYE">> $failed_saved_path
+    spacef
+    echo "Actual Output:">> $failed_saved_path
+    echo "$fireye_status">> $failed_saved_path
+    spacef
+    echo "Test Results:">> $failed_saved_path
     echo "FAIL">> $failed_saved_path
     TNP=$(($TNP + 1))
     TNT=$(($TNT + 1))
 fi
-echo "*******************************************************************">> $data_saved_path
 #**************** Cylance Testig ************************
-echo "Cylance Testing">> $data_saved_path
-echo "-------------------------------------------------------------------">> $data_saved_path
 cylance_status="$(sudo /opt/cylance/desktop/cylance -s)"
-echo "Command:">> $data_saved_path
-echo "sudo /opt/cylance/desktop/cylance -s">> $data_saved_path
-space
-echo "Expected Output Contains:">> $data_saved_path
-echo "Registration Status: Registred">> $data_saved_path
-space
-echo "Actual Output:">> $data_saved_path
-echo "$cylance_status">> $data_saved_path
-space
-echo "Test Results:">> $data_saved_path
 if [[ $cylance_status =~ "Registration Status: Registred" ]]; then
+    echo "*******************************************************************">> $data_saved_path
+    echo "Cylance Testing">> $data_saved_path
+    echo "-------------------------------------------------------------------">> $data_saved_path
+    echo "Command:">> $data_saved_path
+    echo "sudo /opt/cylance/desktop/cylance -s">> $data_saved_path
+    space
+    echo "Expected Output Contains:">> $data_saved_path
+    echo "Registration Status: Registred">> $data_saved_path
+    space
+    echo "Actual Output:">> $data_saved_path
+    echo "$cylance_status">> $data_saved_path
+    space
+    echo "Test Results:">> $data_saved_path
     echo "PASS">> $data_saved_path
     TP=$(($TP + 1))
     TNT=$(($TNT + 1))
@@ -396,22 +396,22 @@ else
     TNP=$(($TNP + 1))
     TNT=$(($TNT + 1))
 fi
-echo "*******************************************************************">> $data_saved_path
 #**************** Splunk Universal Forwarder Testig ************************
-echo "Splunk Universal Forwarder Testing">> $data_saved_path
-echo "-------------------------------------------------------------------">> $data_saved_path
 splunk_version="$(rpm -qa | grep splunkforwarder)"
-echo "Command:">> $data_saved_path
-echo "splunkforwarder-9.0.1-82c987350fde.x86_64">> $data_saved_path
-space
-echo "Expected Output Contains:">> $data_saved_path
-echo "xagt-35.31.25-1.el7.x86_64">> $data_saved_path
-space
-echo "Actual Output:">> $data_saved_path
-echo "$splunk_version">> $data_saved_path
-space
-echo "Test Results:">> $data_saved_path
 if [[ $splunk_version =~ "splunkforwarder-9.0.1-82c987350fde.x86_64" ]]; then
+    echo "*******************************************************************">> $data_saved_path
+    echo "Splunk Universal Forwarder Testing">> $data_saved_path
+    echo "-------------------------------------------------------------------">> $data_saved_path
+    echo "Command:">> $data_saved_path
+    echo "splunkforwarder-9.0.1-82c987350fde.x86_64">> $data_saved_path
+    space
+    echo "Expected Output Contains:">> $data_saved_path
+    echo "xagt-35.31.25-1.el7.x86_64">> $data_saved_path
+    space
+    echo "Actual Output:">> $data_saved_path
+    echo "$splunk_version">> $data_saved_path
+    space
+    echo "Test Results:">> $data_saved_path
     echo "PASS">> $data_saved_path
     TP=$(($TP + 1))
     TNT=$(($TNT + 1))
@@ -433,20 +433,20 @@ else
     TNP=$(($TNP + 1))
     TNT=$(($TNT + 1))
 fi
-echo "-------------------------------------------------------------------">> $data_saved_path
 splunk_service_status="$(sudo service splunk status)"
-echo "Command:">> $data_saved_path
-echo "sudo service splunk status">> $data_saved_path
-space
-echo "Expected Output Contains:">> $data_saved_path
-echo "splunkd is running">> $data_saved_path
-echo "splunk helpers are running">> $data_saved_path
-space
-echo "Actual Output:">> $data_saved_path
-echo "$splunk_service_status">> $data_saved_path
-space
-echo "Test Results:">> $data_saved_path
 if [[ $splunk_service_status =~ "splunkd is running" ]] && [[ $splunk_service_status =~ "splunk helpers are running" ]]; then
+    echo "-------------------------------------------------------------------">> $data_saved_path
+    echo "Command:">> $data_saved_path
+    echo "sudo service splunk status">> $data_saved_path
+    space
+    echo "Expected Output Contains:">> $data_saved_path
+    echo "splunkd is running">> $data_saved_path
+    echo "splunk helpers are running">> $data_saved_path
+    space
+    echo "Actual Output:">> $data_saved_path
+    echo "$splunk_service_status">> $data_saved_path
+    space
+    echo "Test Results:">> $data_saved_path
     echo "PASS">> $data_saved_path
     TP=$(($TP + 1))
     TNT=$(($TNT + 1))
@@ -467,19 +467,19 @@ else
     TNP=$(($TNP + 1))
     TNT=$(($TNT + 1))
 fi
-echo "-------------------------------------------------------------------">> $data_saved_path
 splunk_service_status="$(sudo systemctl status splunk)"
-echo "Command:">> $data_saved_path
-echo "sudo systemctl status splunk">> $data_saved_path
-space
-echo "Expected Output Contains:">> $data_saved_path
-echo "Active: active (running)">> $data_saved_path
-space
-echo "Actual Output:">> $data_saved_path
-echo "$splunk_service_status">> $data_saved_path
-space
-echo "Test Results:">> $data_saved_path
 if [[ $splunk_service_status =~ "Active: active (running)" ]]; then
+    echo "-------------------------------------------------------------------">> $data_saved_path
+    echo "Command:">> $data_saved_path
+    echo "sudo systemctl status splunk">> $data_saved_path
+    space
+    echo "Expected Output Contains:">> $data_saved_path
+    echo "Active: active (running)">> $data_saved_path
+    space
+    echo "Actual Output:">> $data_saved_path
+    echo "$splunk_service_status">> $data_saved_path
+    space
+    echo "Test Results:">> $data_saved_path
     echo "PASS">> $data_saved_path
     TP=$(($TP + 1))
     TNT=$(($TNT + 1))
@@ -499,51 +499,51 @@ else
     TNP=$(($TNP + 1))
     TNT=$(($TNT + 1))
 fi
-echo "-------------------------------------------------------------------">> $data_saved_path
 splunk_restart="$(sudo service splunk restart)"
-echo "Command:">> $data_saved_path
-echo "sudo service splunk restart">> $data_saved_path
-space
-echo "Expected Output Contains:">> $data_saved_path
-echo "Restarting splunk (via systemctl):">> $data_saved_path
-space
-echo "Actual Output:">> $data_saved_path
-echo "$splunk_restart">> $data_saved_path
-space
-echo "Test Results:">> $data_saved_path
 if [[ $splunk_restart =~ "Restarting splunk (via systemctl):" ]]; then
+    echo "-------------------------------------------------------------------">> $data_saved_path
+    echo "Command:">> $data_saved_path
+    echo "sudo service splunk restart">> $data_saved_path
+    space
+    echo "Expected Output Contains:">> $data_saved_path
+    echo "Restarting splunk (via systemctl):">> $data_saved_path
+    space
+    echo "Actual Output:">> $data_saved_path
+    echo "$splunk_restart">> $data_saved_path
+    space
+    echo "Test Results:">> $data_saved_path
     echo "PASS">> $data_saved_path
     TP=$(($TP + 1))
     TNT=$(($TNT + 1))
 else
-  echo "-------------------------------------------------------------------">> $failed_saved_path
-  echo "Command:">> $failed_saved_path
-  echo "sudo service splunk restart">> $failed_saved_path
-  spacef
-  echo "Expected Output Contains:">> $failed_saved_path
-  echo "Restarting splunk (via systemctl):">> $failed_saved_path
-  spacef
-  echo "Actual Output:">> $failed_saved_path
-  echo "$splunk_restart">> $failed_saved_path
-  spacef
-  echo "Test Results:">> $failed_saved_path
+    echo "-------------------------------------------------------------------">> $failed_saved_path
+    echo "Command:">> $failed_saved_path
+    echo "sudo service splunk restart">> $failed_saved_path
+    spacef
+    echo "Expected Output Contains:">> $failed_saved_path
+    echo "Restarting splunk (via systemctl):">> $failed_saved_path
+    spacef
+    echo "Actual Output:">> $failed_saved_path
+    echo "$splunk_restart">> $failed_saved_path
+    spacef
+    echo "Test Results:">> $failed_saved_path
     echo "FAIL">> $failed_saved_path
     TNP=$(($TNP + 1))
     TNT=$(($TNT + 1))
 fi
-echo "-------------------------------------------------------------------">> $data_saved_path
 splunk_functionality="$(sudo grep -m 10 128.231.196 /opt/splunkforwarder/var/log/splunk/splunkd.log)"
-echo "Command:">> $data_saved_path
-echo "sudo grep -m 10 128.231.196 /opt/splunkforwarder/var/log/splunk/splunkd.log">> $data_saved_path
-space
-echo "Expected Output Contains:">> $data_saved_path
-echo "Connected to idx=128.231.196">> $data_saved_path
-space
-echo "Actual Output:">> $data_saved_path
-echo "$splunk_functionality">> $data_saved_path
-space
-echo "Test Results:">> $data_saved_path
 if [[ $splunk_functionality =~ "Connected to idx=128.231.196" ]]; then
+    echo "-------------------------------------------------------------------">> $data_saved_path
+    echo "Command:">> $data_saved_path
+    echo "sudo grep -m 10 128.231.196 /opt/splunkforwarder/var/log/splunk/splunkd.log">> $data_saved_path
+    space
+    echo "Expected Output Contains:">> $data_saved_path
+    echo "Connected to idx=128.231.196">> $data_saved_path
+    space
+    echo "Actual Output:">> $data_saved_path
+    echo "$splunk_functionality">> $data_saved_path
+    space
+    echo "Test Results:">> $data_saved_path
     echo "PASS">> $data_saved_path
     TP=$(($TP + 1))
     TNT=$(($TNT + 1))
