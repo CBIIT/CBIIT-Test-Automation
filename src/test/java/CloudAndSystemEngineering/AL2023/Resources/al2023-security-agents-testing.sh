@@ -11,6 +11,29 @@ TNP=0
 TNT=0
 touch $data_saved_file
 touch $logs_file
+#**************** Kernel Testig ************************
+echo "Kernel Testing">> $data_saved_path
+echo "-------------------------------------------------------------------">> $data_saved_path
+kernel_version="$(uname -r)"
+echo "Command:">> $data_saved_path
+echo "uname -r">> $data_saved_path
+space
+echo "Expected Output Contains:">> $data_saved_path
+echo "6.1.61-85.141.amzn2023.x86_64">> $data_saved_path
+space
+echo "Actual Output:">> $data_saved_path
+echo "$kernel_version">> $data_saved_path
+space
+echo "Test Results:">> $data_saved_path
+if [[ $kernel_version =~ "6.1.61-85.141.amzn2023.x86_64" ]]; then
+    echo "PASS">> $data_saved_path
+    TP=$(($TP + 1))
+    TNT=$(($TNT + 1))
+else
+    echo "FAIL">> $data_saved_path
+    TNP=$(($TNP + 1))
+    TNT=$(($TNT + 1))
+fi
 #**************** Centrify Testig ************************
 echo "Centrify Testing">> $data_saved_path
 echo "-------------------------------------------------------------------">> $data_saved_path
