@@ -361,7 +361,7 @@ else
 fi
 #**************** Cylance Testig ************************
 cylance_version="$(rpm -qa | grep Cylance)"
-if [[ $cylance_status =~ "Registration Status: Registred" ]]; then
+if [[ $cylance_status =~ "CylancePROTECT-3.2.1000-5322.x86_64" ]]; then
     echo "*******************************************************************">> $data_saved_path
     echo "Cylance Testing">> $data_saved_path
     echo "-------------------------------------------------------------------">> $data_saved_path
