@@ -379,8 +379,6 @@ if [[ $cylance_status =~ "CylancePROTECT-3.2.1000-5322.x86_64" ]]; then
     TP=$(($TP + 1))
     TNT=$(($TNT + 1))
 else
-    echo "*******************************************************************">> $failed_saved_path
-    echo "Cylance Testing">> $failed_saved_path
     echo "-------------------------------------------------------------------">> $failed_saved_path
     echo "Command:">> $failed_saved_path
     echo "rpm -qa | grep Cylance">> $failed_saved_path
@@ -398,8 +396,6 @@ else
 fi
 cylance_status="$(sudo /opt/cylance/desktop/cylance -s)"
 if [[ $cylance_status =~ "Registration Status: Registred" ]]; then
-    echo "*******************************************************************">> $data_saved_path
-    echo "Cylance Testing">> $data_saved_path
     echo "-------------------------------------------------------------------">> $data_saved_path
     echo "Command:">> $data_saved_path
     echo "sudo /opt/cylance/desktop/cylance -s">> $data_saved_path
