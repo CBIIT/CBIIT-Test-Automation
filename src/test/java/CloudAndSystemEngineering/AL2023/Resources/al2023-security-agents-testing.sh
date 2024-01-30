@@ -403,10 +403,10 @@ if [[ $splunk_version =~ "splunkforwarder-9.0.1-82c987350fde.x86_64" ]]; then
     echo "Splunk Universal Forwarder Testing">> $data_saved_path
     echo "-------------------------------------------------------------------">> $data_saved_path
     echo "Command:">> $data_saved_path
-    echo "splunkforwarder-9.0.1-82c987350fde.x86_64">> $data_saved_path
+    echo "rpm -qa | grep splunkforwarder">> $data_saved_path
     space
     echo "Expected Output Contains:">> $data_saved_path
-    echo "xagt-35.31.25-1.el7.x86_64">> $data_saved_path
+    echo "splunkforwarder-9.0.1-82c987350fde.x86_64">> $data_saved_path
     space
     echo "Actual Output:">> $data_saved_path
     echo "$splunk_version">> $data_saved_path
