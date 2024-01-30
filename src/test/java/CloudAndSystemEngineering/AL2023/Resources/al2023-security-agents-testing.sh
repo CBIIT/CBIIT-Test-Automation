@@ -360,6 +360,42 @@ else
     TNT=$(($TNT + 1))
 fi
 #**************** Cylance Testig ************************
+cylance_version="$(rpm -qa | grep Cylance)"
+if [[ $cylance_status =~ "Registration Status: Registred" ]]; then
+    echo "*******************************************************************">> $data_saved_path
+    echo "Cylance Testing">> $data_saved_path
+    echo "-------------------------------------------------------------------">> $data_saved_path
+    echo "Command:">> $data_saved_path
+    echo "rpm -qa | grep Cylance">> $data_saved_path
+    space
+    echo "Expected Output Contains:">> $data_saved_path
+    echo "CylancePROTECT-3.2.1000-5322.x86_64">> $data_saved_path
+    space
+    echo "Actual Output:">> $data_saved_path
+    echo "$cylance_version">> $data_saved_path
+    space
+    echo "Test Results:">> $data_saved_path
+    echo "PASS">> $data_saved_path
+    TP=$(($TP + 1))
+    TNT=$(($TNT + 1))
+else
+    echo "*******************************************************************">> $failed_saved_path
+    echo "Cylance Testing">> $failed_saved_path
+    echo "-------------------------------------------------------------------">> $failed_saved_path
+    echo "Command:">> $failed_saved_path
+    echo "rpm -qa | grep Cylance">> $failed_saved_path
+    spacef
+    echo "Expected Output Contains:">> $failed_saved_path
+    echo "CylancePROTECT-3.2.1000-5322.x86_64">> $failed_saved_path
+    spacef
+    echo "Actual Output:">> $failed_saved_path
+    echo "$cylance_version">> $failed_saved_path
+    spacef
+    echo "Test Results:">> $failed_saved_path
+    echo "FAIL">> $failed_saved_path
+    TNP=$(($TNP + 1))
+    TNT=$(($TNT + 1))
+fi
 cylance_status="$(sudo /opt/cylance/desktop/cylance -s)"
 if [[ $cylance_status =~ "Registration Status: Registred" ]]; then
     echo "*******************************************************************">> $data_saved_path
