@@ -420,10 +420,10 @@ else
     echo "Splunk Universal Forwarder Testing">> $failed_saved_path
     echo "-------------------------------------------------------------------">> $failed_saved_path
     echo "Command:">> $failed_saved_path
-    echo "splunkforwarder-9.0.1-82c987350fde.x86_64">> $failed_saved_path
+    echo "rpm -qa | grep splunkforwarder">> $failed_saved_path
     spacef
     echo "Expected Output Contains:">> $failed_saved_path
-    echo "xagt-35.31.25-1.el7.x86_64">> $failed_saved_path
+    echo "splunkforwarder-9.0.1-82c987350fde.x86_64">> $failed_saved_path
     spacef
     echo "Actual Output:">> $failed_saved_path
     echo "$splunk_version">> $failed_saved_path
