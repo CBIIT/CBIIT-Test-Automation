@@ -499,8 +499,6 @@ else
                     echo "Cylence Testing">> $failed_saved_path
                     df=$(($df + 1))
     fi
-    echo "*******************************************************************">> $failed_saved_path
-    echo "Cylance Testing">> $failed_saved_path
     echo "-------------------------------------------------------------------">> $failed_saved_path
     echo "Command:">> $failed_saved_path
     echo "sudo /opt/cylance/desktop/cylance -s">> $failed_saved_path
