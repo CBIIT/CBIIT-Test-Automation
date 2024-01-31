@@ -18,7 +18,7 @@ touch $logs_file
 #**************** Kernel Testig ************************
 kernel_version="$(uname -r)"
 if [[ $kernel_version =~ "6.1.61-85.141" ]]; then
-    echo "Kernel Testing">> $data_saved_path
+    echo "Kernel Testing that PASS">> $data_saved_path
     echo "-------------------------------------------------------------------">> $data_saved_path
     echo "Command:">> $data_saved_path
     echo "uname -r">> $data_saved_path
@@ -34,7 +34,7 @@ if [[ $kernel_version =~ "6.1.61-85.141" ]]; then
     TP=$(($TP + 1))
     TNT=$(($TNT + 1))
 else
-    echo "Kernel Testing">> $failed_saved_path
+    echo "Kernel Testing that FAIL">> $failed_saved_path
     echo "-------------------------------------------------------------------">> $failed_saved_path
     echo "Command:">> $failed_saved_path
     echo "uname -r">> $failed_saved_path
@@ -56,7 +56,7 @@ a=0
 af=0
 if [[ $centrify_version =~ "adinfo (CentrifyDC 6.0.0-151)" ]]; then
     echo "*******************************************************************">> $data_saved_path
-    echo "Centrify Testing">> $data_saved_path
+    echo "Centrify Testing that PASS">> $data_saved_path
     echo "-------------------------------------------------------------------">> $data_saved_path
     a=$(($a + 1))
     echo "Command:">> $data_saved_path
@@ -74,7 +74,7 @@ if [[ $centrify_version =~ "adinfo (CentrifyDC 6.0.0-151)" ]]; then
     TNT=$(($TNT + 1))
 else
     echo "*******************************************************************">> $failed_saved_path
-    echo "Centrify Testing">> $failed_saved_path
+    echo "Centrify Testing that FAIL">> $failed_saved_path
     echo "-------------------------------------------------------------------">> $failed_saved_path
     af=$(($af + 1))
     echo "Command:">> $failed_saved_path
@@ -95,7 +95,7 @@ centrify_status="$(sudo systemctl status centrifydc)"
 if [[ $centrify_status =~ "centrifydc.service; enabled;" ]]; then
   if [[ $a == 0 ]]; then
         echo "*******************************************************************">> $data_saved_path
-        echo "Centrify Testing">> $data_saved_path
+        echo "Centrify Testing that PASS">> $data_saved_path
         a=$(($a + 1))
   fi
     echo "-------------------------------------------------------------------">> $data_saved_path
@@ -115,7 +115,7 @@ if [[ $centrify_status =~ "centrifydc.service; enabled;" ]]; then
 else
     if [[ $af == 0 ]]; then
           echo "*******************************************************************">> $failed_saved_path
-          echo "Centrify Testing">> $failed_saved_path
+          echo "Centrify Testing that FAIL">> $failed_saved_path
           af=$(($af + 1))
     fi
     echo "-------------------------------------------------------------------">> $failed_saved_path
@@ -139,7 +139,7 @@ b=0
 bf=0
 if [[ $nessus_version =~ "NessusAgent-10.5.0-amzn2.x86_64" ]]; then
     echo "*******************************************************************">> $data_saved_path
-    echo "Nessus Testing">> $data_saved_path
+    echo "Nessus Testing that PASS">> $data_saved_path
     echo "-------------------------------------------------------------------">> $data_saved_path
     b=$(($b + 1))
     echo "Command:">> $data_saved_path
@@ -157,7 +157,7 @@ if [[ $nessus_version =~ "NessusAgent-10.5.0-amzn2.x86_64" ]]; then
     TNT=$(($TNT + 1))
 else
     echo "*******************************************************************">> $failed_saved_path
-    echo "Nessus Testing">> $failed_saved_path
+    echo "Nessus Testing that FAIL">> $failed_saved_path
     echo "-------------------------------------------------------------------">> $failed_saved_path
     bf=$(($bf + 1))
     echo "Command:">> $failed_saved_path
@@ -178,7 +178,7 @@ nessus_service_status="$(sudo systemctl status nessusagent.service)"
 if [[ $nessus_service_status =~ "Active: active (running)" ]]; then
     if [[ $b == 0 ]]; then
           echo "*******************************************************************">> $data_saved_path
-          echo "Nessus Testing">> $data_saved_path
+          echo "Nessus Testing that PASS">> $data_saved_path
           b=$(($b + 1))
     fi
     echo "-------------------------------------------------------------------">> $data_saved_path
@@ -198,7 +198,7 @@ if [[ $nessus_service_status =~ "Active: active (running)" ]]; then
 else
     if [[ $bf == 0 ]]; then
             echo "*******************************************************************">> $failed_saved_path
-            echo "Nessus Testing">> $failed_saved_path
+            echo "Nessus Testing that FAIL">> $failed_saved_path
             bf=$(($bf + 1))
     fi
     echo "-------------------------------------------------------------------">> $failed_saved_path
@@ -220,7 +220,7 @@ nessus_status="$(sudo /opt/nessus_agent/sbin/nessuscli agent status)"
 if [[ $nessus_status =~ "Running: Yes" ]]; then
     if [[ $b == 0 ]]; then
             echo "*******************************************************************">> $data_saved_path
-            echo "Nessus Testing">> $data_saved_path
+            echo "Nessus Testing that PASS">> $data_saved_path
             b=$(($b + 1))
     fi
     echo "-------------------------------------------------------------------">> $data_saved_path
@@ -240,7 +240,7 @@ if [[ $nessus_status =~ "Running: Yes" ]]; then
 else
     if [[ $bf == 0 ]]; then
             echo "*******************************************************************">> $failed_saved_path
-            echo "Nessus Testing">> $failed_saved_path
+            echo "Nessus Testing that FAIL">> $failed_saved_path
             bf=$(($bf + 1))
     fi
     echo "-------------------------------------------------------------------">> $failed_saved_path
@@ -265,7 +265,7 @@ nessus_status="$(sudo /bin/systemctl status nessusagent.service)"
 if [[ $nessus_status =~ "     Active: active (running) since $DATERESTART" ]]; then
     if [[ $b == 0 ]]; then
             echo "*******************************************************************">> $data_saved_path
-            echo "Nessus Testing">> $data_saved_path
+            echo "Nessus Testing that PASS">> $data_saved_path
             b=$(($b + 1))
     fi
     echo "-------------------------------------------------------------------">> $data_saved_path
@@ -285,7 +285,7 @@ if [[ $nessus_status =~ "     Active: active (running) since $DATERESTART" ]]; t
 else
     if [[ $bf == 0 ]]; then
             echo "*******************************************************************">> $failed_saved_path
-            echo "Nessus Testing">> $failed_saved_path
+            echo "Nessus Testing that FAIL">> $failed_saved_path
             bf=$(($bf + 1))
     fi
     echo "-------------------------------------------------------------------">> $failed_saved_path
@@ -309,7 +309,7 @@ cf=0
 fireeye_version="$(rpm -qa | grep xagt)"
 if [[ $fireeye_version =~ "xagt-35.31.25-1.el7.x86_64" ]]; then
     echo "*******************************************************************">> $data_saved_path
-    echo "FireEye Testing">> $data_saved_path
+    echo "FireEye Testing that PASS">> $data_saved_path
     echo "-------------------------------------------------------------------">> $data_saved_path
     c=$(($c + 1))
     echo "Command:">> $data_saved_path
@@ -327,7 +327,7 @@ if [[ $fireeye_version =~ "xagt-35.31.25-1.el7.x86_64" ]]; then
     TNT=$(($TNT + 1))
 else
     echo "*******************************************************************">> $failed_saved_path
-    echo "FireEye Testing">> $failed_saved_path
+    echo "FireEye Testing that FAIL">> $failed_saved_path
     echo "-------------------------------------------------------------------">> $failed_saved_path
     cf=$(($cf + 1))
     echo "Command:">> $failed_saved_path
@@ -348,7 +348,7 @@ fireye_service_status="$(sudo service xagt status)"
 if [[ $fireye_service_status =~ "Active: active (running)" ]]; then
     if [[ $c == 0 ]]; then
               echo "*******************************************************************">> $data_saved_path
-              echo "FireEye Testing">> $data_saved_path
+              echo "FireEye Testing that PASS">> $data_saved_path
               c=$(($c + 1))
     fi
     echo "-------------------------------------------------------------------">> $data_saved_path
@@ -368,7 +368,7 @@ if [[ $fireye_service_status =~ "Active: active (running)" ]]; then
 else
     if [[ $cf == 0 ]]; then
                 echo "*******************************************************************">> $failed_saved_path
-                echo "FireEye Testing">> $failed_saved_path
+                echo "FireEye Testing that FAIL">> $failed_saved_path
                 cf=$(($cf + 1))
     fi
     echo "-------------------------------------------------------------------">> $failed_saved_path
@@ -393,7 +393,7 @@ fireye_status="$(sudo service xagt status)"
 if [[ $fireye_status =~ "     Active: active (running) since $DATERESTARTFIREEYE" ]]; then
     if [[ $c == 0 ]]; then
                 echo "*******************************************************************">> $data_saved_path
-                echo "FireEye Testing">> $data_saved_path
+                echo "FireEye Testing that PASS">> $data_saved_path
                 c=$(($c + 1))
     fi
     echo "-------------------------------------------------------------------">> $data_saved_path
@@ -413,7 +413,7 @@ if [[ $fireye_status =~ "     Active: active (running) since $DATERESTARTFIREEYE
 else
     if [[ $cf == 0 ]]; then
                   echo "*******************************************************************">> $failed_saved_path
-                  echo "FireEye Testing">> $failed_saved_path
+                  echo "FireEye Testing that FAIL">> $failed_saved_path
                   cf=$(($cf + 1))
     fi
     echo "-------------------------------------------------------------------">> $failed_saved_path
@@ -437,7 +437,7 @@ df=0
 cylance_version="$(rpm -qa | grep Cylance)"
 if [[ $cylance_version =~ "CylancePROTECT-3.2.1000-5322.x86_64" ]]; then
     echo "*******************************************************************">> $data_saved_path
-    echo "Cylance Testing">> $data_saved_path
+    echo "Cylance Testing that PASS">> $data_saved_path
     echo "-------------------------------------------------------------------">> $data_saved_path
     d=$(($d + 1))
     echo "Command:">> $data_saved_path
@@ -455,7 +455,7 @@ if [[ $cylance_version =~ "CylancePROTECT-3.2.1000-5322.x86_64" ]]; then
     TNT=$(($TNT + 1))
 else
     echo "*******************************************************************">> $failed_saved_path
-    echo "Cylance Testing">> $failed_saved_path
+    echo "Cylance Testing that FAIL">> $failed_saved_path
     echo "-------------------------------------------------------------------">> $failed_saved_path
     df=$(($df + 1))
     echo "Command:">> $failed_saved_path
@@ -476,7 +476,7 @@ cylance_status="$(sudo /opt/cylance/desktop/cylance -s)"
 if [[ $cylance_status =~ "Registration Status: Registred" ]]; then
     if [[ $d == 0 ]]; then
                   echo "*******************************************************************">> $data_saved_path
-                  echo "Cylence Testing">> $data_saved_path
+                  echo "Cylence Testing that PASS">> $data_saved_path
                   d=$(($d + 1))
     fi
     echo "-------------------------------------------------------------------">> $data_saved_path
@@ -496,7 +496,7 @@ if [[ $cylance_status =~ "Registration Status: Registred" ]]; then
 else
     if [[ $df == 0 ]]; then
                     echo "*******************************************************************">> $failed_saved_path
-                    echo "Cylence Testing">> $failed_saved_path
+                    echo "Cylence Testing that FAIL">> $failed_saved_path
                     df=$(($df + 1))
     fi
     echo "-------------------------------------------------------------------">> $failed_saved_path
@@ -520,7 +520,7 @@ ef=0
 splunk_version="$(rpm -qa | grep splunkforwarder)"
 if [[ $splunk_version =~ "splunkforwarder-9.0.1-82c987350fde.x86_64" ]]; then
     echo "*******************************************************************">> $data_saved_path
-    echo "Splunk Universal Forwarder Testing">> $data_saved_path
+    echo "Splunk Universal Forwarder Testing that PASS">> $data_saved_path
     echo "-------------------------------------------------------------------">> $data_saved_path
     e=$(($e + 1))
     echo "Command:">> $data_saved_path
@@ -538,7 +538,7 @@ if [[ $splunk_version =~ "splunkforwarder-9.0.1-82c987350fde.x86_64" ]]; then
     TNT=$(($TNT + 1))
 else
     echo "*******************************************************************">> $failed_saved_path
-    echo "Splunk Universal Forwarder Testing">> $failed_saved_path
+    echo "Splunk Universal Forwarder Testing that FAIL">> $failed_saved_path
     echo "-------------------------------------------------------------------">> $failed_saved_path
     ef=$(($ef + 1))
     echo "Command:">> $failed_saved_path
@@ -559,7 +559,7 @@ splunk_service_status="$(sudo service splunk status)"
 if [[ $splunk_service_status =~ "splunkd is running" ]] && [[ $splunk_service_status =~ "splunk helpers are running" ]]; then
     if [[ $e == 0 ]]; then
                     echo "*******************************************************************">> $data_saved_path
-                    echo "Cylence Testing">> $data_saved_path
+                    echo "Splunk Universal Forwarder Testing that PASS">> $data_saved_path
                     e=$(($e + 1))
     fi
     echo "-------------------------------------------------------------------">> $data_saved_path
@@ -580,7 +580,7 @@ if [[ $splunk_service_status =~ "splunkd is running" ]] && [[ $splunk_service_st
 else
     if [[ $ef == 0 ]]; then
                     echo "*******************************************************************">> $failed_saved_path
-                    echo "Cylence Testing">> $failed_saved_path
+                    echo "Splunk Universal Forwarder Testing that FAIL">> $failed_saved_path
                     ef=$(($ef + 1))
     fi
     echo "-------------------------------------------------------------------">> $failed_saved_path
@@ -603,7 +603,7 @@ splunk_service_status="$(sudo systemctl status splunk)"
 if [[ $splunk_service_status =~ "Active: active (running)" ]]; then
     if [[ $e == 0 ]]; then
                       echo "*******************************************************************">> $data_saved_path
-                      echo "Cylence Testing">> $data_saved_path
+                      echo "Splunk Universal Forwarder Testing that PASS">> $data_saved_path
                       e=$(($e + 1))
     fi
     echo "-------------------------------------------------------------------">> $data_saved_path
@@ -623,7 +623,7 @@ if [[ $splunk_service_status =~ "Active: active (running)" ]]; then
 else
     if [[ $ef == 0 ]]; then
                       echo "*******************************************************************">> $failed_saved_path
-                      echo "Cylence Testing">> $failed_saved_path
+                      echo "Splunk Universal Forwarder Testing that FAIL">> $failed_saved_path
                       ef=$(($ef + 1))
     fi
     echo "-------------------------------------------------------------------">> $failed_saved_path
@@ -645,7 +645,7 @@ splunk_restart="$(sudo service splunk restart)"
 if [[ $splunk_restart =~ "Restarting splunk (via systemctl):" ]]; then
     if [[ $e == 0 ]]; then
                         echo "*******************************************************************">> $data_saved_path
-                        echo "Cylence Testing">> $data_saved_path
+                        echo "Splunk Universal Forwarder Testing that PASS">> $data_saved_path
                         e=$(($e + 1))
     fi
     echo "-------------------------------------------------------------------">> $data_saved_path
@@ -665,7 +665,7 @@ if [[ $splunk_restart =~ "Restarting splunk (via systemctl):" ]]; then
 else
     if [[ $ef == 0 ]]; then
                           echo "*******************************************************************">> $failed_saved_path
-                          echo "Cylence Testing">> $failed_saved_path
+                          echo "Splunk Universal Forwarder Testing that FAIL">> $failed_saved_path
                           ef=$(($ef + 1))
     fi
     echo "-------------------------------------------------------------------">> $failed_saved_path
@@ -687,7 +687,7 @@ splunk_functionality="$(sudo grep -m 10 128.231.196 /opt/splunkforwarder/var/log
 if [[ $splunk_functionality =~ "Connected to idx=128.231.196" ]]; then
     if [[ $e == 0 ]]; then
                           echo "*******************************************************************">> $data_saved_path
-                          echo "Cylence Testing">> $data_saved_path
+                          echo "Splunk Universal Forwarder Testing that PASS">> $data_saved_path
                           e=$(($e + 1))
     fi
     echo "-------------------------------------------------------------------">> $data_saved_path
@@ -707,7 +707,7 @@ if [[ $splunk_functionality =~ "Connected to idx=128.231.196" ]]; then
 else
     if [[ $ef == 0 ]]; then
                           echo "*******************************************************************">> $failed_saved_path
-                          echo "Cylence Testing">> $failed_saved_path
+                          echo "Splunk Universal Forwarder Testing that FAIL">> $failed_saved_path
                           ef=$(($ef + 1))
     fi
     echo "-------------------------------------------------------------------">> $failed_saved_path
