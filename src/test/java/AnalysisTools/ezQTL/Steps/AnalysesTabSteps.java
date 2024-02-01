@@ -82,6 +82,10 @@ public class AnalysesTabSteps extends PageInitializer {
         MiscUtils.sleep(1000);
     }
 
+    @Then("the {string}, {string}, {string}, {string}, {string}, {string}, {string} texts is displayed")
+    public void the_texts_is_displayed(String string, String string2, String string3, String string4, String string5, String string6, String string7) {
+    }
+
     @Then("the {string}, {string}, {string}, {string}, {string}, {string}, {string} text is displayed")
     public void the_text_is_displayed(String locusQC, String locusLD, String locusAlignment, String locusColocalization, String locusTable, String locusQuantification, String locusDownload) {
         CommonUtils.waitForClickability(ezQTLAnalysesPage.locusQcTab);
