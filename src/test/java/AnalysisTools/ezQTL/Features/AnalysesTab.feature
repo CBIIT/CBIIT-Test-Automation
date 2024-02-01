@@ -44,7 +44,7 @@ Feature: Scenarios under the Analyses tab on ezQTL
         When the user clicks on the Load Sample Data link
         And recalculates on the Locus LD
 
-    @Smoke @matakevin
+    @matakevin @NEEDSREVIEW
     Scenario:Submitting queue however many specified times
         Given The user is on the ezQTL Analyses page
         Then the user submits "/Users/matarodriguezko/Downloads/SLC52A2_eQTL_res_for_ezQTL_Female.txt", "1000", "145577796", "Long Running Job", "kevin.matarodriguez@nih.gov", 1 times
