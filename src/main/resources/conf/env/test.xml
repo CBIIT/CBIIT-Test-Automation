@@ -255,9 +255,9 @@
         </db>
     </application>
 
-    <!-- Application ID for PLCO -->
-    <application id="PLCO">
-        <login_url>https://exploregwas-qa.cancer.gov/plco-atlas/#/</login_url> <!--
+    <!-- Application ID for GWAS Explorer -->
+    <application id="GWASExplorer">
+        <login_url>https://exploregwas-qa.cancer.gov/#/</login_url> <!--
 			add test url -->
         <role name="Role">
             <user id="regular">

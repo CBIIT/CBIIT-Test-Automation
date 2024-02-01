@@ -22,7 +22,7 @@ public class ExploreGWASPage extends CommonUtils {
 	public WebElement btnPlusAnthropometricMeasures;
 
 	/** BMI Plus Mark Box **/
-	@FindBy(xpath = "//label[@title='BMI']")
+	@FindBy(xpath = "//*[@id='root']/div[2]/div[1]/div/div[1]/div/div[2]/div[1]/div[1]/i")
 	public WebElement btnBMI;
 
 	/** Height Plus Mark Box **/
@@ -38,7 +38,7 @@ public class ExploreGWASPage extends CommonUtils {
 	public WebElement chkBMIBaseLineSummary;
 
 	/** Height BQ Check Box for Summary Results **/
-	@FindBy(xpath = "//*[@title='Height (BQ)']")
+	@FindBy(xpath = "(//*[@id='root']/div[2]/div[1]/div/div[1]/div/div[2]/div[1]/div[2]/div/label/span/text())[2]")
 	public WebElement chkHeight;
 
 	/** Ancestry/Sex drop down Top */
@@ -110,6 +110,6 @@ public class ExploreGWASPage extends CommonUtils {
 	public WebElement chkBMIBaseLinePhenotypeCorrelations;
 
 	/** Check height check box for Phenotype Correlation **/
-	@FindBy(xpath = "//label[@title='Height']")
+	@FindBy(xpath = "(//*[@id='root']/div[2]/div[1]/div/div[1]/div/div[2]/div[1]/div[2]/div/label/span/text())[2]")
 	public WebElement chkHeightPhenotypeCorrelation;
 }

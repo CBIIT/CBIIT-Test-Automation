@@ -8,7 +8,7 @@ Feature: Informational tabs ( About,Home, and APIAcess)
         And clicks on Github
         Then user goes to source code from About page
 
-    @Smoke
+    @Smoke @matarodriguezko @Regression
     Scenario: User navigates to API Access page
         Given user on PLCO homepage
         When user selects API Access tab

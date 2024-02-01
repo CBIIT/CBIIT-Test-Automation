@@ -15,6 +15,9 @@ public class InformationSteps extends PageInitializer {
 		informationPage.lnkAPIAcess.click();
 	}
 
+	@Then("API Access page displays")
+	public void api_access_page_displays() {
+	}
 	@Then("API Acess page displays")
 	public void api_Acess_page_displays() {
 		CucumberLogUtils.logScreenshot();

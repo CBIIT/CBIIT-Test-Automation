@@ -20,7 +20,7 @@ public class ExploreGWASSteps extends PageInitializer {
 
 	@Given("user on PLCO homepage")
 	public void user_on_PLCO_homepage() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("PLCO"));
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("GWASExplorer"));
 	}
 
 	@When("user selects explore GWAS")

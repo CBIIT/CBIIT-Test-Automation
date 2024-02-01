@@ -15,7 +15,7 @@ Feature: mSigPortal Signature Visualizations tab
     When the user calculates sample data
     Then the download plot link is displayed
 
-  @Smoke @NCIATWP-3851 @matarodriguezko
+  @NCIATWP-3851 @matarodriguezko @NEEDSREVIEW
   Scenario: Success message on the Download Tab
     Given the user is on the mSigPortal Home page
     And the user navigates to the Visualization section
@@ -54,7 +54,7 @@ Feature: mSigPortal Signature Visualizations tab
     And then navigates to the Mutational Profiles tab
     Then text can be entered in at the Sample Name text box
 
-  @Smoke @matarodriguezko
+  @matarodriguezko @NEEDSREVIEW
   Scenario: The Plot on Profiler Summary is displayed
     Given the user is on the mSigPortal Home page
     And the user navigates to the Visualization section

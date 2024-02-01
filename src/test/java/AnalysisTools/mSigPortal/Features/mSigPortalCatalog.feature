@@ -2,7 +2,7 @@ Feature: mSigPortal Catalog Section
 
   Scenario: SBS Graph is being displayed
 
-  @Smoke @matarodriguezko
+  @matarodriguezko @NEEDSREVIEW
   Scenario: Etiology graph on Catalog Page is displayed
     Given the user is on the mSigPortal Home page
     When the user navigates to the Catalog page
