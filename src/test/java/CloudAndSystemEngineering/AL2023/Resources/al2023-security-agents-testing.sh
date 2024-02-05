@@ -388,7 +388,7 @@ else
 fi
 DATERESTARTFIREEYE=$(TZ=America/New_York date "+%a %Y-%m-%d")
 sudo service xagt restart
-sleep 3
+sleep 6
 fireye_status="$(sudo service xagt status)"
 if [[ $fireye_status =~ "     Active: active (running) since $DATERESTARTFIREEYE" ]]; then
     if [[ $c == 0 ]]; then
