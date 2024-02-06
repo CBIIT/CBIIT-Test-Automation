@@ -1,11 +1,8 @@
 package AnalysisTools.AnalysisToolsRunners;
 
-
-
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
-
 
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = { 
@@ -13,12 +10,11 @@ import org.junit.runner.RunWith;
 	    "junit:target/cucumber.xml", "rerun:target/failed.txt", "pretty" }
         , features = {"src/test/java/AnalysisTools/MCAExplorer/Features" }
         , glue = "AnalysisTools.MCAExplorer.Steps"
-        , tags = "@regression"
+        , tags = "@Regression"
         , dryRun = false, monochrome = true
         , strict = true
 
 )
-
 public class RunMCAExplorerRegressionTest {
 
 }
