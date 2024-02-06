@@ -12,9 +12,7 @@ import com.nci.automation.web.WebDriverUtils;
 public class MCAExplorerPage extends CommonUtils {
 
 	public MCAExplorerPage() {
-
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
-
 	}
 
 	/** paircheckbox **/
@@ -116,7 +114,6 @@ public class MCAExplorerPage extends CommonUtils {
 	@FindBy(xpath="(//div[text()='All chromosomes'])[2]")
 	public WebElement plotDropdown_allchromosome;
 	
-	
 	@FindBy(xpath = "//div[contains(@class,'col-lg-6 col-md-12')]")
 	public WebElement chart_header_text;
 	
@@ -142,7 +139,6 @@ public class MCAExplorerPage extends CommonUtils {
 	
 	@FindBy(xpath="(//div[contains(@class,'select__control select__control--is-focused')])[1]")
 	public WebElement groupA_Study_dropdown;
-
 	
 	@FindBy(id="react-select-65-option-1")
 	public WebElement groupA_Study_dropdown_biobank;
@@ -160,18 +156,15 @@ public class MCAExplorerPage extends CommonUtils {
 	@FindBy(id = "AminAgeCompare")
 	public WebElement groupA_age_End;
 	
-	
 	@FindBy(xpath="(//div[contains(@class,'select__value-container select__value-container--is-multi')])[3]")
 	public WebElement groupB_Study_dropdown;
 
-	
 	@FindBy(id="react-select-67-option-1")
 	public WebElement groupB_Study_dropdown_biobank;
 	
 	@FindBy(xpath="(//div[contains(@class,'select__value-container select__value-container--is-multi')])[4]")
 	public WebElement groupB_copynumber_dropdown;
 
-	
 	@FindBy(id="react-select-68-option-2")
 	public WebElement groupB_copynum_dropdown_loss;
 	
@@ -183,13 +176,6 @@ public class MCAExplorerPage extends CommonUtils {
 	
 	@FindBy(xpath = "//button[@class='btn btn-link']")
 	public WebElement download_comparison_image_btn;
-	
-	
-	
-	
-	
-	
-	
 	
 	/** Graph X cell */
 	@FindBy(css = "g.X")

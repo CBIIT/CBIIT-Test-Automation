@@ -59,7 +59,6 @@ import appsCommon.Pages.NativeViewHomePage;
 import appsCommon.Pages.ServiceNow_NCISP_Page;
 import appsCommon.StepsImplementation.ITrustLoginPageImpl;
 import com.nci.automation.web.WebDriverUtils;
-
 /**
  * This an initializer class which will initialize all pages classes. Once pages
  * class created, create an object of it here inside the constructor
@@ -195,7 +194,6 @@ public class PageInitializer extends WebDriverUtils {
 	/** GDC instances */
 	public static GDC_Workflow_NativeView_Page gDC_Workflow_NativeView_Page;
 
-
 	/** --------------- CUSTOM BUSINESS APP INSTANCES --------------- */
 	/** EIDP instances */
 	public static AligningExpectationsPage aligningExpectationsPage;
@@ -312,11 +310,9 @@ public class PageInitializer extends WebDriverUtils {
 	public static EgrantsStepImplementation egrantsStepImplementation;
 	public static EgrantsSearchAndFileManagementScenariosPage egrantsSearchandFileManagementScenariosPage;
 
-
 	/** ------------ MCA EXPLORER INSTANCES ------------*/
 	public static MCAExplorerPage mcaExplorerPage;
 	public static MCAExplorerStepImp mcaExplorerStepImp;
-	
 	
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */

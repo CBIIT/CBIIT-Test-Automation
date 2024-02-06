@@ -1,13 +1,10 @@
 package AnalysisTools.MCAExplorer.StepsImplementations;
 
 import org.junit.Assert;
-
 import com.nci.automation.web.CommonUtils;
-
 import appsCommon.PageInitializers.PageInitializer;
-
 public class MCAExplorerStepImp extends PageInitializer {
-
+	
 	public void isCircleImageIsAvailable() {
 		CommonUtils.waitForVisibility(mcaExplorerPage.summaryCircle);
 		Assert.assertTrue(CommonUtils.isElementDisplayed(mcaExplorerPage.summaryCircle));

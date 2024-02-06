@@ -3,17 +3,12 @@
  */
 package AnalysisTools.MCAExplorer.Steps;
 
-import org.junit.Assert;
 import org.openqa.selenium.Keys;
-
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-
-import CustomBusiness.EIDP.Util.CommonUtil;
 import appsCommon.PageInitializers.PageInitializer;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -35,16 +30,13 @@ public class MCAExplorer extends PageInitializer {
 	
 	@Then("user clicks export data, {string} should get downloaded")
 	public void user_clicks_export_data_should_get_downloaded(String string) {
-	    //mcaExplorerPage.export_data_btn.click();
 	    JavascriptUtils.clickByJS(mcaExplorerPage.export_data_btn);
 	}
-	
 
 	@Then("clicks on submit button")
 	public void clicks_on_submit_button() {
 		JavascriptUtils.clickByJS(mcaExplorerPage.submitButton);
 	}
-
 	@Then("verify if the circle is present on the screen")
 	public void verify_if_the_circle_is_present_on_the_screen() {
 		mcaExplorerStepImp.isCircleImageIsAvailable();
@@ -52,7 +44,7 @@ public class MCAExplorer extends PageInitializer {
 
 	@Then("Verify the chart header is {string}")
 	public void verifyChartHeader(String expectedHeader) {
-		Assert.assertTrue(CommonUtils.isElementDisplayed(mcaExplorerPage.chartHeader));
+		CommonUtils.assertTrue(CommonUtils.isElementDisplayed(mcaExplorerPage.chartHeader));
 	}
 
 	@Then("verify that there are {int} rows in the result")
@@ -75,13 +67,8 @@ public class MCAExplorer extends PageInitializer {
 
 	@Then("user select {string} in plot type")
 	public void user_select_in_plot_type(String string) {
-		// JavascriptUtils.clearByJS(mcaExplorerPage.plotDropDown);
-		//CommonUtils.sendKeys(mcaExplorerPage.plotDropDown, string);
-		//CommonUtils.sendKeys(mcaExplorerPage.plotDropDown, Keys.TAB);
-		//if(string == "Chromosome level") {
 		CommonUtils.clickOnElement(mcaExplorerPage.plotDropDown);
 		CommonUtils.clickOnElement(mcaExplorerPage.plotDropdown_chromosomelevel);
-		//}
 	}
 
 	@Then("select chromosome {int} in chromosome dropdown")
