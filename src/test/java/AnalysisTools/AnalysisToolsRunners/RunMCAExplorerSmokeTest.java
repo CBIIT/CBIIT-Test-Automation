@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 		"junit:target/cucumber.xml", "rerun:target/failed.txt", "pretty" }
         , features = {"src/test/java/AnalysisTools/MCAExplorer/Features" }
         , glue = "AnalysisTools.MCAExplorer.Steps"
-        , tags = "@smoke"
+        , tags = "@Smoke"
         , dryRun = false
         , monochrome = true
         , strict = true

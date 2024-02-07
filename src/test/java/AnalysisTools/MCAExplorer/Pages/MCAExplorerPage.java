@@ -1,7 +1,6 @@
 package AnalysisTools.MCAExplorer.Pages;
 
 import java.util.List;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
@@ -28,19 +27,15 @@ public class MCAExplorerPage extends CommonUtils {
 	public WebElement age_checkbox;
 
 	/** age first textbox **/
-	@FindBy(id = "AminAgeCompare")
-	public WebElement AmInageCompare;
-
-	/** Bage first textbox **/
-	@FindBy(id = "BminAgeCompare")
-	public WebElement BmInageCompare;
+	@FindBy(id = "aminAgeCompare")
+	public WebElement amInageCompare;
 
 	/** A age second textbox **/
-	@FindBy(id = "AmaxAgeCompare")
+	@FindBy(id = "amaxAgeCompare")
 	public WebElement AmaxAgeCompare;
 
 	/** B age second textbox **/
-	@FindBy(id = "BmaxAgeCompare")
+	@FindBy(id = "amaxAgeCompare")
 	public WebElement BmaxAgeCompare;
 
 	/** study dropdown **/
@@ -70,7 +65,6 @@ public class MCAExplorerPage extends CommonUtils {
 	/** Compare submit */
 	@FindBy(xpath = "//*[@id = 'compareSubmit']")
 	public WebElement submitButton2;
-	
 	
 	/** Advance setting button */
 	@FindBy(xpath = "//*[text()='Advanced settings']")
@@ -104,20 +98,23 @@ public class MCAExplorerPage extends CommonUtils {
 	@FindBy(xpath = "//div[text()='Showing rows ']")
 	public WebElement showingRows;
 
-	// ** Plot Type Dropdown
+	/* Plot Type Dropdown */
 	@FindBy(xpath = "//div[@class=' css-1dimb5e-singleValue']/following-sibling::div[1]")
 	public WebElement plotDropDown;
 	
+	/* Dropdown levels */
 	@FindBy(xpath="//div[text()='Chromosome level']")
 	public WebElement plotDropdown_chromosomelevel;
 	
+	/** plot chromosomes **/
 	@FindBy(xpath="(//div[text()='All chromosomes'])[2]")
 	public WebElement plotDropdown_allchromosome;
 	
+	/** Chromosome dropdown **/
 	@FindBy(xpath = "//div[contains(@class,'col-lg-6 col-md-12')]")
 	public WebElement chart_header_text;
 	
-	
+	/** Chromosome dropdown **/
 	@FindBy(xpath ="//div[@class='d-flex ']//a[1]")
 	public WebElement export_data_btn;
 
@@ -137,43 +134,55 @@ public class MCAExplorerPage extends CommonUtils {
 	@FindBy(css = "input[name='chrY']")
 	public WebElement chromosomeYCheckbox;
 	
+	/**study button**/
 	@FindBy(xpath="(//div[contains(@class,'select__control select__control--is-focused')])[1]")
 	public WebElement groupA_Study_dropdown;
 	
+	/**study dropdown**/
 	@FindBy(id="react-select-65-option-1")
 	public WebElement groupA_Study_dropdown_biobank;
 	
+	/** select group A**/
 	@FindBy(xpath="(//div[contains(@class,'select__value-container select__value-container--is-multi')])[2]")
 	public WebElement groupA_copynumber_dropdown;
-
 	
+	/** copy number**/
 	@FindBy(id="react-select-66-option-2")
 	public WebElement groupA_copynum_dropdown_loss;
 	
-	@FindBy(id = "AminAgeCompare")
+	/** age group a **/
+	@FindBy(id = "aminAgeCompare")
 	public WebElement groupA_age_Start;
 	
-	@FindBy(id = "AminAgeCompare")
+	/** age groupa end **/
+	@FindBy(id = "aminAgeCompare")
 	public WebElement groupA_age_End;
 	
+	/** study dropdown **/
 	@FindBy(xpath="(//div[contains(@class,'select__value-container select__value-container--is-multi')])[3]")
 	public WebElement groupB_Study_dropdown;
 
+	/**  biobank dropdown **/
 	@FindBy(id="react-select-67-option-1")
 	public WebElement groupB_Study_dropdown_biobank;
 	
+	/**  biobank dropdown **/
 	@FindBy(xpath="(//div[contains(@class,'select__value-container select__value-container--is-multi')])[4]")
 	public WebElement groupB_copynumber_dropdown;
-
+	
+	 /** copy number dropdown **/
 	@FindBy(id="react-select-68-option-2")
 	public WebElement groupB_copynum_dropdown_loss;
 	
+	 /** age group b start **/
 	@FindBy(id = "BminAgeCompare")
 	public WebElement groupB_age_Start;
 	
+	/** age group b end **/
 	@FindBy(id = "BminAgeCompare")
 	public WebElement groupB_age_End;
 	
+	/** download button **/
 	@FindBy(xpath = "//button[@class='btn btn-link']")
 	public WebElement download_comparison_image_btn;
 	
