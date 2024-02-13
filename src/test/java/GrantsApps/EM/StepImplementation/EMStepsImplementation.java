@@ -291,4 +291,17 @@ public class EMStepsImplementation extends PageInitializer {
         Assert.assertEquals(searchPageActualURL,searchPageExpectedURL);
         CucumberLogUtils.logScreenshot();
     }
+
+    public void loginAsLiBin() {
+        MiscUtils.sleep(2000);
+        JavascriptUtils.clickByJS(manageI2EUsersPage.changeuserDr);
+        MiscUtils.sleep(4000);
+        CommonUtils.clickOnElement(manageI2EUsersPage.changeuserField);
+        MiscUtils.sleep(2000);
+        CommonUtils.sendKeys(manageI2EUsersPage.changeuserFieldInput, "Li, Bin");
+        MiscUtils.sleep(2000);
+        CommonUtils.waitForClickability(manageI2EUsersPage.liBinOption);
+        CommonUtils.clickOnElement(manageI2EUsersPage.liBinOption);
+        MiscUtils.sleep(2000);
+    }
 }
