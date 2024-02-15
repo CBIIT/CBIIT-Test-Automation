@@ -16,7 +16,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-
 import java.util.List;
 
 public class EMFlowSteps extends PageInitializer {
@@ -329,4 +328,3 @@ public class EMFlowSteps extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 }
-
