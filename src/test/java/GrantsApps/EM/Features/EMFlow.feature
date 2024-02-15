@@ -20,7 +20,6 @@ Feature: EM Flow Sprint One
     Then warning message with user "Mata Rodriguez, Kevin" displays with "has already active I2E Technical Support role for the same NCI Organization. Please select a different I2E Role or NCI Organization to proceed."
      Then User saves ITwoE Technical Support Role that was added role
 
-
   @verifyLeftSideNavigationLinks @Jira999 @Regression
   Scenario: Verify Left Side Navigation links
     And User can verify that first and last name of logged in user "Diego Juarez" are shown
