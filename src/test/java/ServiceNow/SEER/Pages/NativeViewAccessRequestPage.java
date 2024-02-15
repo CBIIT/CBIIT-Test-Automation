@@ -17,7 +17,7 @@ public class NativeViewAccessRequestPage extends CommonUtils {
     }
 
     /**Native View Access Requests IFRAME*/
-    @FindBy(xpath = "//*[@id=\'gsft_main\']")
+    @FindBy(xpath = "//*[@id='gsft_main']")
     public WebElement accessRequestIFrame;
 
     /**Native View Access Requests Dropdown Menu*/

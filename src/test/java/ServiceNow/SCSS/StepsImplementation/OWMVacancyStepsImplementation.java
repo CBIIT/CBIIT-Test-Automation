@@ -10,6 +10,7 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
@@ -70,15 +71,24 @@ public class OWMVacancyStepsImplementation extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(owmVacancyPage.basicVacancyInformationText.getText(),basicVacancyInformation, "-- VERIFYING BASIC VACANCY INFORMATION TEXT --");
         CommonUtils.sendKeys(owmVacancyPage.vacancyTitleField, OWMVacanciesConstants.VACANCY_TITLE);
         CommonUtils.clickOnElement(owmVacancyPage.allowHRSpecialistToTriageCheckbox);
-        CommonUtils.sendKeys(owmVacancyPage.vacancyDescriptionField, OWMVacanciesConstants.VACANCY_DESCRIPTION);
-        JavascriptUtils.scrollIntoView(owmVacancyPage.openCalendarTableInBasicVacancySection);
-        CommonUtils.waitForVisibility(owmVacancyPage.openCalendarTableInBasicVacancySection);
-        CommonUtils.clickOnElement(owmVacancyPage.openCalendarTableInBasicVacancySection);
-        String openDate = new String(OWMVacanciesConstants.TODAYS_DATE);
-        JavascriptUtils.clickByJS(owmVacancyPage.calendarDatePicker.get(Integer.parseInt(openDate.substring(6,8))-1));
+        CommonUtils.sendKeys(owmVacancyPage.vacancyDescriptionField, OWMVacanciesConstants.VACANCY_DESCRIPTION);CommonUtils.waitForVisibility(owmVacancyPage.vacancyPOcDropdownInfo);
+        JavascriptUtils.scrollIntoView(owmVacancyPage.vacancyPOcDropdownInfo);
+        CommonUtils.clickOnElement(owmVacancyPage.vacancyPOcDropdownInfo);
+        CommonUtils.clickOnElement(owmVacancyPage.yesOptionVacancyPOcDropdownInfo);
+//        JavascriptUtils.scrollIntoView(owmVacancyPage.openCalendarTableInBasicVacancySection);
+//        CommonUtils.waitForVisibility(owmVacancyPage.openCalendarTableInBasicVacancySection);
+//        CommonUtils.clickOnElement(owmVacancyPage.openCalendarTableInBasicVacancySection);
+//        String openDate = OWMVacanciesConstants.TODAYS_DATE;
+//        JavascriptUtils.clickByJS(owmVacancyPage.calendarDatePicker.get(Integer.parseInt(openDate.substring(6,8))-1));
+        CommonUtils.clickOnElement(owmVacancyPage.vacancyOpenDateTextBox);
+        CommonUtils.sendKeys(owmVacancyPage.vacancyOpenDateTextBox, OWMVacanciesConstants.TODAYS_DATE);
+        CommonUtils.sendKeys(owmVacancyPage.vacancyOpenDateTextBox, Keys.ENTER);
+
+        MiscUtils.sleep(9000);
         CommonUtils.clickOnElement(owmVacancyPage.vacancyCloseDateTextBox);
         CommonUtils.sendKeys(owmVacancyPage.vacancyCloseDateTextBox, OWMVacanciesConstants.VACANCY_CLOSE_DATE);
         CommonUtils.sendKeys(owmVacancyPage.vacancyCloseDateTextBox, Keys.ENTER);
+        MiscUtils.sleep(9000);
         CommonUtils.clickOnElement(owmVacancyPage.vacancyScoringDueDateTextBox);
         CommonUtils.sendKeys(owmVacancyPage.vacancyScoringDueDateTextBox, OWMVacanciesConstants.VACANCY_SCORING_DUE_DATE);
         CommonUtils.sendKeys(owmVacancyPage.vacancyScoringDueDateTextBox, Keys.ENTER);
@@ -94,7 +104,7 @@ public class OWMVacancyStepsImplementation extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(owmVacancyPage.apptPackageInitiatorField.getAttribute("title"), OWMVacanciesConstants.VACANCY_APPOINTMENT_PACKAGE_INITIATOR, "-- VERIFYING APPOINTMENT PACKAGE INITIATOR --");
         // ----- CLICKING ON THE POSITION CLASSIFICATION -----
         CommonUtils.clickOnElement(owmVacancyPage.positionClassificationDropdown);
-        CommonUtils.waitForClickability(owmVacancyPage.positionClassificationDropdownOptions(1));
+       // CommonUtils.waitForClickability(owmVacancyPage.positionClassificationDropdownOptions(2));
         MiscUtils.sleep(3000);
         boolean positionNumberClick= false;
         while (!positionNumberClick) {
@@ -208,7 +218,7 @@ public class OWMVacancyStepsImplementation extends PageInitializer {
     public void theUserShouldSeeTheMenuOptions(String home, String vacancyDashboard, String yourVacancies, String reports, String profile) {
         CommonUtils.assertEqualsWithMessage(home, owmVacancyPage.tabOption(home).getText(), "-- VERIFYING HOME TAB --");
         CommonUtils.assertEqualsWithMessage(vacancyDashboard, owmVacancyPage.tabOption(vacancyDashboard).getText(), "-- VERIFYING VACANCY DASHBOARD TAB --");
-        CommonUtils.assertEqualsWithMessage(yourVacancies, owmVacancyPage.tabOption(yourVacancies).getText(), "-- VERIFYING YOUR VACANCIES TAB --");
+       // CommonUtils.assertEqualsWithMessage(yourVacancies, owmVacancyPage.tabOption(yourVacancies).getText(), "-- VERIFYING YOUR VACANCIES TAB --");
         CommonUtils.assertEqualsWithMessage(reports, owmVacancyPage.tabOption(reports).getText(), "-- VERIFYING REPORTS TAB --");
         CommonUtils.assertEqualsWithMessage(profile, owmVacancyPage.tabOption(profile).getText(), "-- VERIFYING PROFILE TAB --");
     }

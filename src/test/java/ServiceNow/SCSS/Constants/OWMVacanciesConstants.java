@@ -5,7 +5,8 @@ import com.nci.automation.web.CommonUtils;
 public class OWMVacanciesConstants {
     public static final String VACANCY_TITLE = "OWM " + CommonUtils.lastNameRandomizer();
     public static final String VACANCY_DESCRIPTION = "OMW Test Description";
-    public static final String TODAYS_DATE = CommonUtils.getDateAsString();
+  //  public static final String TODAYS_DATE = CommonUtils.getDateAsString();
+   public static final String TODAYS_DATE = "02/24/2024";
     public static final String VACANCY_CLOSE_DATE = "11/24/2024";
     public static final String VACANCY_SCORING_DUE_DATE = "11/24/2024";
     public static final String VACANCY_POSITION_CLASSIFICATION = "Senior Clinician (HS)";

@@ -3,7 +3,7 @@ Feature: Applicant Flow Scenarios
   Background: common steps
     Given User is on SCSS Landing page and user is "Okta Verified Applicant"
 
-  @Regression @Smoke @Nekrashevich @APPTRACK-758
+  @Regression @Smoke @Nekrashevich @APPTRACK-758 @Stage
   Scenario Outline: Edit Basic Information of Profile
     When User is on SCSS landing page
     And User is on Profile tab
@@ -28,7 +28,7 @@ Feature: Applicant Flow Scenarios
      | Mario     | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    |  7 Mills  | 12378     | Reston| VA    | USA      | 20453 |
 
 
-  @Regression @Smoke @Nekrashevich @APPTRACK-712
+  @Regression @Smoke @Nekrashevich @APPTRACK-712 @Stage
   Scenario: Edit Demographics of Profile
     When User is on SCSS landing page
     And User is on Profile tab

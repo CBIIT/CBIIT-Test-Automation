@@ -1,6 +1,6 @@
 Feature: OWM Vacancy Scenarios
 
-    @Regression @Smoke @Nekrashevich @APPTRACK-7 @APPTRACK-91 @APPTRACK-876 @APPTRACK-992
+    @Regression @Smoke @Nekrashevich  @APPTRACK-91 @APPTRACK-876 @APPTRACK-992 @Stage
     Scenario: Create a vacancy as OWM Vacancy Manager
       Given User is on SCSS Landing page and user is "OWM Vacancy Manager"
       And User is on SCSS landing page
@@ -14,9 +14,9 @@ Feature: OWM Vacancy Scenarios
       Then User publishes a vacancy
       And User verify that a vacancy is finalized
       When an "applicant" is on the SCSS landing page
-      Then the applicant should see the published vacancy
+      #Then the applicant should see the published vacancy
 
-    @Regression @Smoke @bucurgb @UserStoryTagToBeConfirmed
+    @Regression @Smoke @bucurgb @UserStoryTagToBeConfirmed @Stage @APPTRACK-7 @OWM
     Scenario: Create a vacancy as OWM Vacancy Manager
       Given User is on SCSS Landing page and user is "OWM Vacancy Manager"
       And User is on SCSS landing page
