@@ -2,7 +2,6 @@ package AnalysisTools.MCAExplorer.StepsImplementations;
 
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-
 import com.nci.automation.web.CommonUtils;
 import appsCommon.PageInitializers.PageInitializer;
 
