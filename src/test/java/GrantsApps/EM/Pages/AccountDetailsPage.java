@@ -62,7 +62,6 @@ public class AccountDetailsPage {
     @FindBy(xpath = "(//span[@title='Remove all items'])[1]")
     public WebElement removeItemsBAIcon;
 
-
     public AccountDetailsPage(){
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
