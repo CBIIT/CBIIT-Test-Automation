@@ -1,4 +1,5 @@
 package AnalysisTools.MCAExplorer.Steps;
+
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
@@ -77,5 +78,4 @@ public class MCAExplorer_pairwiseplots_steps extends PageInitializer {
 		CommonUtils.assertEquals(CommonUtils.getText(mcaExplorerPage.chart_header_text).trim(),
 				"Study: PLCOUK Biobank; Types: Loss; Age: 5-20");
 	}
-
 }
