@@ -83,4 +83,19 @@ public class EtrackAssetsRecords_NativeViewSteps extends PageInitializer {
     public void there_is_no_field_called(String barcode) {
         EtrackAssetsRecords_NativeViewStepImplimentation.thereIsNoFieldCalled(barcode);
     }
+
+    @Then("There is a field called Status")
+    public void there_is_a_field_called_status() {
+        EtrackAssetsRecords_NativeViewStepImplimentation.thereIsAFieldCalledStatus();
+    }
+
+    @When("the user clicks the Status field")
+    public void the_user_clicks_the_status_field() {
+        EtrackAssetsRecords_NativeViewStepImplimentation.theUserClicksTheStatusField();
+    }
+
+    @Then("the following field options are available, {string}, {string}, {string}")
+    public void the_following_field_options_are_available(String checkedOut, String inStockroom, String inTransfer) {
+        EtrackAssetsRecords_NativeViewStepImplimentation.theFollowingFieldOptionsAreAvailable(checkedOut,inStockroom,inTransfer);
+    }
 }

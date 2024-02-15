@@ -7,7 +7,10 @@ import appsCommon.Pages.ServiceNow_NCISP_Page;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
+import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 
 public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializer {
@@ -16,7 +19,7 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
      * USE THIS METHOD TO IMPERSONATE ANY USER AND LAND IN NATIVE VIEW
      * @param user
      */
-    public static void impersonate_Any_User_And_Land_In_Native_View(String user) {
+    public static void impersonateAnyUser(String user) {
         CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.profileButton);
         try {
             boolean impersonateUser = NativeView_SideDoor_Dashboard_Page.impersonateUserButton.getText().contentEquals("Impersonate user");
@@ -34,21 +37,21 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
             MiscUtils.sleep(1000);
             CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateUserWindowButton);
             MiscUtils.sleep(3000);
-            CommonUtils.clickOnElement(ServiceNow_NCISP_Page.nativeViewLink);
-            MiscUtils.sleep(2000);
-        } catch (NoSuchElementException e) {
-            boolean impersonateUser = NativeView_SideDoor_Dashboard_Page.impersonateUserButton.getText().contentEquals("Impersonate user");
-            if (impersonateUser) {
+            Boolean nativeViewIsPresent = ServiceNow_NCISP_Page.allPresentNativeViewLinks.size() > 0;
+            if (nativeViewIsPresent == true) {
+                System.out.println(ServiceNow_NCISP_Page.nativeViewLink.getText());
                 MiscUtils.sleep(2000);
-                CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateUserButton);
-            } else {
+                CommonUtils.clickOnElement(ServiceNow_NCISP_Page.nativeViewLink);
                 MiscUtils.sleep(2000);
-                CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateAnotherUserButton);
             }
+        } catch (NoSuchElementException e) {
+            System.out.println(NativeView_SideDoor_Dashboard_Page.impersonateAnotherUserButton.getText());
+            MiscUtils.sleep(2000);
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateAnotherUserButton);
             MiscUtils.sleep(2000);
             CommonUtils.sendKeysToElement(NativeView_SideDoor_Dashboard_Page.impersonateSearchTextBox, user);
             MiscUtils.sleep(2000);
-            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateSearchFirstValue);
+            NativeView_SideDoor_Dashboard_Page.impersonateSearchTextBox.sendKeys(Keys.ENTER);
             MiscUtils.sleep(1000);
             CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateUserWindowButton);
             MiscUtils.sleep(3000);
@@ -95,6 +98,7 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
             MiscUtils.sleep(1000);
             CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.impersonateUserWindowButton);
             MiscUtils.sleep(2000);
+            CommonUtils.clickOnElement(ServiceNow_NCISP_Page.nativeViewLink);
         }
     }
 
@@ -110,7 +114,7 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
     public static void filterNavigatorSearchWithAllTabString(String text) {
         CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allTab);
         NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys(text);
-        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch(text));
+        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.assetsMenuButton);
         MiscUtils.sleep(3000);
         CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         MiscUtils.sleep(2000);
@@ -121,8 +125,22 @@ public class ServiceNow_Common_Methods extends NativeView_SideDoor_PageInitializ
      * @param text
      */
     public static void filterNavigatorSearch(String text){
-        NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys(text);
-        CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.dynamicFilterNavigatorTextSearch(text));
+        if(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.getAttribute("class").equals("sn-global-typeahead-input -global")){
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allTab);
+            NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys(text);
+            MiscUtils.sleep(3000);
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.assetsMenuButton);
+            MiscUtils.sleep(3000);
+            CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+            MiscUtils.sleep(2000);
+        }else {
+            NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys(text);
+            MiscUtils.sleep(3000);
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.assetsMenuButton);
+            MiscUtils.sleep(3000);
+            CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+            MiscUtils.sleep(2000);
+        }
         MiscUtils.sleep(3000);
     }
 

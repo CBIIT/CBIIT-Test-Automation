@@ -44,6 +44,15 @@ public class NativeViewAccessRequestPage extends CommonUtils {
     @FindBy(xpath = "//td[normalize-space()='No records to display']")
     public WebElement nativeViewAccessRequestNoRecordsToDisplayText;
 
+    /**NativeView Access Request No Records To Display Text*/
+    @FindBy(xpath = "//*[@id='x_naci_e_tracking_etrack_assets']/div[1]")
+    public WebElement nativeViewAccessRequestNewNoRecordsToDisplayText;
+
+    /**NativeView Access Request Emails No Records To Display Text*/
+    @FindBy(xpath = "//div[@class='list2_empty-state-list']")
+    public WebElement nativeViewAccessRequestEmailsNoRecordsToDisplayText;
+
+
     /**NativeView Access Request Dataset field*/
     @FindBy(xpath = "//input[@id='sys_display.x_g_nci_seer_data_access.dataset']")
     public WebElement nativeViewAccessRequestDatasetTextBox;

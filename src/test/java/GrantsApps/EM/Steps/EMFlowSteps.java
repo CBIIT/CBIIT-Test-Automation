@@ -10,6 +10,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
+import org.testng.Assert;
 
 public class EMFlowSteps extends PageInitializer {
 
@@ -51,8 +52,6 @@ public class EMFlowSteps extends PageInitializer {
         CommonUtils.clickOnElement(manageI2EUsersPage.roleOrganizationDropDown);
         CommonUtils.sendKeysToElement(manageI2EUsersPage.roleOrganizationDropDown, text);
         CommonUtils.clickOnElement(Dynamic_Locators.dynamicContainsTextLocatorWithSpanTagName(text));
-
-        //CommonUtils.sendKeys(manageI2EUsersPage.I2ERoleDropDownTextBox, Keys.ENTER);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -61,4 +60,45 @@ public class EMFlowSteps extends PageInitializer {
         CommonUtils.clickOnElement(manageI2EUsersPage.addRoleButtonInsideModule);
         CucumberLogUtils.logScreenshot();
     }
+
+    @Then("User can verify that the ItwoE Technical Support Role is displayed in the Active User Roles grid")
+    public void user_can_verify_that_the_I_E_Technical_Support_Role_is_displayed_in_the_Active_User_Roles_grid() {
+        Assert.assertTrue(accountDetailsPage.i2eTechSupportRoleDisplayed.isDisplayed());
+    }
+
+    @When("User clicks Add Role button")
+    public void user_clicks_Add_Role_button() {
+        CommonUtils.clickOnElement(accountDetailsPage.addRole);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    @When("User clicks I2E Role drop down")
+    public void user_clicks_I_E_Role_drop_down() {
+        MiscUtils.sleep(2000);
+        CommonUtils.clickOnElement(accountDetailsPage.I2ERoleDropDown);
+    }
+
+    @When("User selects  I2E Technical Support Role")
+    public void user_selects_I_E_Technical_Support_Role() {
+        CommonUtils.clickOnElement(accountDetailsPage.technicalSupportRole);
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    @Then("warning message with user {string} displays with {string}")
+    public void warning_message_with_user_displays_with(String user, String message) {
+        System.out.println(accountDetailsPage.duplicateRoleWarningMessage.getText());
+        Assert.assertTrue(accountDetailsPage.duplicateRoleWarningMessage.getText().contains(user));
+        Assert.assertTrue(accountDetailsPage.duplicateRoleWarningMessage.getText().contains(message));
+        CucumberLogUtils.logScreenshot();
+    }
+
+    @Then("User saves ITwoE Technical Support Role that was added role")
+    public void user_saves_ITwoE_Technical_Support_Role_that_was_added_role() {
+        CommonUtils.clickOnElement(accountDetailsPage.addRoleModalClose);
+        MiscUtils.sleep(2000);
+        CommonUtils.clickOnElement(accountDetailsPage.saveChangesButton);
+        MiscUtils.sleep(2000);
+    }
 }
+

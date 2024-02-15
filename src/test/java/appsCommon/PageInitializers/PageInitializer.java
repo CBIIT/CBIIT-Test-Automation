@@ -20,6 +20,9 @@ import CustomBusiness.EIDP.Pages.BasePage;
 import CustomBusiness.EIDP.StepsImplementation.*;
 import CustomBusiness.ETD.Pages.*;
 import CustomBusiness.ETD.StepsImplementation.*;
+import CustomBusiness.Egrants.Pages.EgrantsQuickLinkAndManagementMenuPage;
+import CustomBusiness.Egrants.Pages.EgrantsSearchAndFileManagementScenariosPage;
+import CustomBusiness.Egrants.StepsImplementation.EgrantsStepImplementation;
 import GrantsApps.ChangePassword.Pages.*;
 import GrantsApps.ChangePassword.StepsImplementation.*;
 import GrantsApps.EM.Pages.*;
@@ -41,6 +44,7 @@ import ServiceNow.COVIDDash.StepsImplementation.*;
 import ServiceNow.ETracking.Pages.*;
 import ServiceNow.GCP.Pages.*;
 import ServiceNow.ESR.Pages.*;
+import ServiceNow.GDC.Pages.GDC_Workflow_NativeView_Page;
 import ServiceNow.NERD.Pages.*;
 import ServiceNow.NERD.StepsImplementation.*;
 import ServiceNow.SCSS.Pages.*;
@@ -72,6 +76,8 @@ public class PageInitializer extends WebDriverUtils {
 	public static ChangePasswordStepsImpl changePasswordStepsImpl;
 	public static EMStepsImplementation emStepsImplementation;
 	public static ManageI2EUsersPage manageI2EUsersPage;
+	public static CreateNewAccountPage createNewAccountPage;
+	public static AccountDetailsPage accountDetailsPage;
 
 	/** --------------- SERVICENOW INSTANCES --------------- */
 	/** COVIDDash instances */
@@ -184,6 +190,10 @@ public class PageInitializer extends WebDriverUtils {
 	/** GCP instances */
 	public static GCPNotifications_NativeViewPage gCPNotifications_NativeViewPage;
 
+	/** GDC instances */
+	public static GDC_Workflow_NativeView_Page gDC_Workflow_NativeView_Page;
+
+
 	/** --------------- CUSTOM BUSINESS APP INSTANCES --------------- */
 	/** EIDP instances */
 	public static AligningExpectationsPage aligningExpectationsPage;
@@ -294,6 +304,12 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
 	public static NativeViewCHARMSParticipantStudyPage nativeViewCHARMSParticipantStudyPage;
 	public static NativeViewSCSSReportsPage nativeViewSCSSReportsPage;
+
+	/** --------------- EGRANTS INSTANCES --------------- */
+	public static EgrantsQuickLinkAndManagementMenuPage egrantsQuickLinkAndManagementMenuPage;
+	public static EgrantsStepImplementation egrantsStepImplementation;
+	public static EgrantsSearchAndFileManagementScenariosPage egrantsSearchandFileManagementScenariosPage;
+
 
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
@@ -518,17 +534,30 @@ public class PageInitializer extends WebDriverUtils {
 		nativeViewCHARMSParticipantStudyPage = new NativeViewCHARMSParticipantStudyPage();
 		nativeViewSCSSReportsPage = new NativeViewSCSSReportsPage();
 
+		/****** GRANTS INSTANCES *******/
 		/** Grants ChangePassword app **/
 		changePasswordPage = new ChangePasswordPage();
 		changePasswordStepsImpl = new ChangePasswordStepsImpl();
+		accountDetailsPage = new AccountDetailsPage();
+
+		/** GRANTS ENTERPRISE MAINTENANCE **/
 		emStepsImplementation = new EMStepsImplementation();
 		manageI2EUsersPage = new ManageI2EUsersPage();
+		createNewAccountPage = new CreateNewAccountPage();
 
 		/** eTracking INSTANCE VARIABLES */
 		etrackAssetsRecords_NativeViewPage = new EtrackAssetsRecords_NativeViewPage();
 
 		/** GCP INSTANCE VARIABLES */
 		gCPNotifications_NativeViewPage = new GCPNotifications_NativeViewPage();
+
+		/** EGRANTS INSTANCE VARIABLES */
+		egrantsQuickLinkAndManagementMenuPage = new EgrantsQuickLinkAndManagementMenuPage();
+		egrantsSearchandFileManagementScenariosPage = new EgrantsSearchAndFileManagementScenariosPage();
+		egrantsStepImplementation = new EgrantsStepImplementation();
+
+		/** GDC INSTANCE VARIABLES */
+		gDC_Workflow_NativeView_Page = new GDC_Workflow_NativeView_Page();
 
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}
