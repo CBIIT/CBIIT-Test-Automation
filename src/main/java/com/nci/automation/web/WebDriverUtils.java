@@ -25,6 +25,7 @@ public class WebDriverUtils {
 
     private final static Logger logger = LogManager.getLogger(WebDriverUtils.class);
     public static WebDriver webDriver;
+    public static Shadow shadowDriver = new Shadow(webDriver);
 
     public static void setUp() {
 
@@ -83,6 +84,7 @@ public class WebDriverUtils {
                 webDriver.manage().window().maximize();
                 webDriver.manage().deleteAllCookies();
                 webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+                shadowDriver.setImplicitWait(20);
             }
         } else if (osName.contains("Mac")) {
             if(headless.equalsIgnoreCase(FrameworkConstants.TRUE)){

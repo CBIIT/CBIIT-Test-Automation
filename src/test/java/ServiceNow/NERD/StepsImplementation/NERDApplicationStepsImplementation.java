@@ -7,6 +7,8 @@ import ServiceNow.NERD.Constants.ReturningSubmissions_Constants;
 import ServiceNow.NERD.Constants.TopAccomplishmentsSubmission_Constants;
 import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
 import ServiceNow.SEER.Constants.SEERNativeView_Constants;
+import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
+import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import appsCommon.PageInitializers.PageInitializer;
 import java.util.Set;
@@ -266,29 +268,34 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
     }
 
     public static void checkingEmailWasNotReceived() throws TestingException {
-        nativeViewImpersonateUser.impersonateToStaffMemberCBIIT();
-        MiscUtils.sleep(500);
-        CommonUtils.clickOnElement(nativeViewImpersonateUserPage.nativeViewLinkMainPage);
-        MiscUtils.sleep(500);
-        nativeViewEnrollementsPage.filterNavigator.clear();
-        MiscUtils.sleep(500);
-        nativeViewEnrollementsPage.filterNavigator.sendKeys("Emails");
-        MiscUtils.sleep(1000);
-        JavascriptUtils.scrollIntoView(nativeViewEmailsPage.nativeViewAccessEmailsButton);
-        JavascriptUtils.clickByJS(nativeViewEmailsPage.nativeViewAccessEmailsButton);
-        MiscUtils.sleep(1000);
-        CommonUtils.switchToFrame(nativeViewAccessRequestPage.accessRequestIFrame);
-        MiscUtils.sleep(1000);
-        CommonUtils.assertTrue(nativeViewEmailsPage.emailsMenu.getText()
-                .contentEquals("Emails"));
-        CommonUtils.selectDropDownValue("Recipients", nativeViewSentViewPage.nativeViewSearchDropDown);
+        ServiceNow_Common_Methods.logOutOfNativeView();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        if(NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.getAttribute("class").equals("sn-global-typeahead-input -global")){
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allTab);
+            NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("Emails");
+            MiscUtils.sleep(3000);
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.filterNavigationEmailsButton);
+            MiscUtils.sleep(3000);
+            CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+            MiscUtils.sleep(2000);
+        }else {
+            NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("Emails");
+            MiscUtils.sleep(3000);
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.filterNavigationEmailsButton);
+            MiscUtils.sleep(3000);
+            CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
+            MiscUtils.sleep(2000);
+        }
+        MiscUtils.sleep(3000);
+        CommonUtils.waitForVisibility(nativeViewSentViewPage.nativeViewSearchDropDown);
+        CommonUtils.selectDropDownValue(nativeViewSentViewPage.nativeViewSearchDropDown, "recipients");
         CommonUtils.sendKeysToElement(nativeViewSentViewPage.nativeViewSentSearchField, CRSReviewers_Constants.CRS_DOC_PLANNING_CONTACT_REVIEWER_EMAIL);
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         nativeViewSentViewPage.nativeViewSentSearchField.sendKeys(Keys.ENTER);
         MiscUtils.sleep(1000);
-        CommonUtils.assertTrue(nativeViewAccessRequestPage.nativeViewAccessRequestNoRecordsToDisplayText.getText().contentEquals(SEERNativeView_Constants.NATIVE_VIEW_NO_RECORD_TO_DISPLAY_TEXT));
-        JavascriptUtils.drawBlueBorder(nativeViewAccessRequestPage.nativeViewAccessRequestNoRecordsToDisplayText);
+        CommonUtils.assertEqualsWithMessage(nativeViewAccessRequestPage.nativeViewAccessRequestEmailsNoRecordsToDisplayText.getText(),SEERNativeView_Constants.NATIVE_VIEW_NO_RECORD_TO_DISPLAY_TEXT, "Verify there are no records to display");
+        JavascriptUtils.drawBlueBorder(nativeViewAccessRequestPage.nativeViewAccessRequestEmailsNoRecordsToDisplayText);
         MiscUtils.sleep(500);
         CucumberLogUtils.logScreenshot();
     }
@@ -550,6 +557,8 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(3000);
         CommonUtils.clickOnElement(createNewSubmissionPage.popUpSubmissionConfirmationOkButton);
+        MiscUtils.sleep(3000);
+        CucumberLogUtils.logScreenshot();
     }
 
     /**
@@ -614,17 +623,8 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      * @param submissionName
      */
     public static void deleteCreatedSubmissionByProgramStaff(String submissionName) throws TestingException {
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
-        MiscUtils.sleep(2000);
-        nativeViewDashPage.clickNativeViewLink();
-        MiscUtils.sleep(5000);
-        nativeViewDashPage.clickUserDropDown();
-        MiscUtils.sleep(2000);
-        nativeViewDashPage.clickImpersonateUserLink();
-        MiscUtils.sleep(2000);
-        nativeViewDashPage.clickImpersonateSearchDD();
-        MiscUtils.sleep(2000);
-        nativeViewDashPage.enterTextImpersntSearchBox(ReturningSubmissions_Constants.CBIIT_TEST_ACCOUNT_TEXT);
+        ServiceNow_Common_Methods.logOutOfNativeView();
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         MiscUtils.sleep(5000);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         WebDriverUtils.webDriver.navigate().refresh();
@@ -1138,7 +1138,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      */
    public static void aDocPlanningContactIsOnTheCrsKnowledgeManagementSystemHomePage() throws TestingException {
        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        nativeViewImpersonateUser.impersonateToDocPlanningContact();
+       ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
        CucumberLogUtils.logScreenshot();
        CommonUtils.waitForVisibility(

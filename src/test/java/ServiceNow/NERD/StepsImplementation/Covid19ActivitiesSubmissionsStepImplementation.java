@@ -2,12 +2,22 @@ package ServiceNow.NERD.StepsImplementation;
 
 import ServiceNow.NERD.Pages.Covid19ActivitiesSubmissionsPage;
 import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
+import com.nci.automation.web.WebDriverUtils;
 
 public class Covid19ActivitiesSubmissionsStepImplementation extends PageInitializer {
+
+    public static void userIsOnTheCOVID19ActivitiesSubmissionsPage(){
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+        NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.covid19CreateNewSubmissionButton);
+    }
+
     /**
      * This method will verify that Checkbox options are Displayed
      *

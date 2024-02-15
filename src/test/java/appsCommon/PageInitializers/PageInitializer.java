@@ -7,6 +7,8 @@ import AnalysisTools.Comets2.Pages.*;
 import AnalysisTools.ICRP.Pages.*;
 import AnalysisTools.JPSurv.Pages.*;
 import AnalysisTools.LDLink.Pages.*;
+import AnalysisTools.MCAExplorer.Pages.MCAExplorerPage;
+import AnalysisTools.MCAExplorer.StepsImplementations.MCAExplorerStepImp;
 import AnalysisTools.PLCO.Pages.*;
 import AnalysisTools.cProSite.Pages.*;
 import AnalysisTools.mSigPortal.Pages.*;
@@ -20,6 +22,9 @@ import CustomBusiness.EIDP.Pages.BasePage;
 import CustomBusiness.EIDP.StepsImplementation.*;
 import CustomBusiness.ETD.Pages.*;
 import CustomBusiness.ETD.StepsImplementation.*;
+import CustomBusiness.Egrants.Pages.EgrantsQuickLinkAndManagementMenuPage;
+import CustomBusiness.Egrants.Pages.EgrantsSearchAndFileManagementScenariosPage;
+import CustomBusiness.Egrants.StepsImplementation.EgrantsStepImplementation;
 import GrantsApps.ChangePassword.Pages.*;
 import GrantsApps.ChangePassword.StepsImplementation.*;
 import GrantsApps.EM.Pages.*;
@@ -41,6 +46,7 @@ import ServiceNow.COVIDDash.StepsImplementation.*;
 import ServiceNow.ETracking.Pages.*;
 import ServiceNow.GCP.Pages.*;
 import ServiceNow.ESR.Pages.*;
+import ServiceNow.GDC.Pages.GDC_Workflow_NativeView_Page;
 import ServiceNow.NERD.Pages.*;
 import ServiceNow.NERD.StepsImplementation.*;
 import ServiceNow.SCSS.Pages.*;
@@ -53,7 +59,6 @@ import appsCommon.Pages.NativeViewHomePage;
 import appsCommon.Pages.ServiceNow_NCISP_Page;
 import appsCommon.StepsImplementation.ITrustLoginPageImpl;
 import com.nci.automation.web.WebDriverUtils;
-
 /**
  * This an initializer class which will initialize all pages classes. Once pages
  * class created, create an object of it here inside the constructor
@@ -186,6 +191,9 @@ public class PageInitializer extends WebDriverUtils {
 	/** GCP instances */
 	public static GCPNotifications_NativeViewPage gCPNotifications_NativeViewPage;
 
+	/** GDC instances */
+	public static GDC_Workflow_NativeView_Page gDC_Workflow_NativeView_Page;
+
 	/** --------------- CUSTOM BUSINESS APP INSTANCES --------------- */
 	/** EIDP instances */
 	public static AligningExpectationsPage aligningExpectationsPage;
@@ -297,6 +305,15 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewCHARMSParticipantStudyPage nativeViewCHARMSParticipantStudyPage;
 	public static NativeViewSCSSReportsPage nativeViewSCSSReportsPage;
 
+	/** --------------- EGRANTS INSTANCES --------------- */
+	public static EgrantsQuickLinkAndManagementMenuPage egrantsQuickLinkAndManagementMenuPage;
+	public static EgrantsStepImplementation egrantsStepImplementation;
+	public static EgrantsSearchAndFileManagementScenariosPage egrantsSearchandFileManagementScenariosPage;
+
+	/** ------------ MCA EXPLORER INSTANCES ------------*/
+	public static MCAExplorerPage mcaExplorerPage;
+	public static MCAExplorerStepImp mcaExplorerStepImp;
+	
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
 		// create instances of all pages and assign them to the variables
@@ -536,6 +553,19 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** GCP INSTANCE VARIABLES */
 		gCPNotifications_NativeViewPage = new GCPNotifications_NativeViewPage();
+
+		/** EGRANTS INSTANCE VARIABLES */
+		egrantsQuickLinkAndManagementMenuPage = new EgrantsQuickLinkAndManagementMenuPage();
+		egrantsSearchandFileManagementScenariosPage = new EgrantsSearchAndFileManagementScenariosPage();
+		egrantsStepImplementation = new EgrantsStepImplementation();
+
+		/** GDC INSTANCE VARIABLES */
+		gDC_Workflow_NativeView_Page = new GDC_Workflow_NativeView_Page();
+		
+		
+		/** MCAEXPLORER INSTANCE VARIABLES */
+		mcaExplorerPage = new MCAExplorerPage();
+		mcaExplorerStepImp = new MCAExplorerStepImp();
 
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}
