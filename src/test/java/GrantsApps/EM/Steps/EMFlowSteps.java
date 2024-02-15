@@ -14,7 +14,10 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+
+import java.util.List;
 
 public class EMFlowSteps extends PageInitializer {
 
@@ -80,8 +83,9 @@ public class EMFlowSteps extends PageInitializer {
     public void tester_deletes_role_to_re_run_test_before_adding_role(String role) {
 
         try {
+            MiscUtils.sleep(2000);
             if (WebDriverUtils.webDriver.findElement(By.xpath("(//span[contains(text(),'"+ role + "')]//parent::td//parent::tr/td)[5]/span/button")).isDisplayed()) {
-                WebDriverUtils.webDriver.findElement(By.xpath("(//span[contains(text(),'I2E Technical Support')]//parent::td//parent::tr/td)[5]/span/button")).click();
+                WebDriverUtils.webDriver.findElement(By.xpath("(//span[contains(text(),'"+ role + "')]//parent::td//parent::tr/td)[5]/span/button")).click();
                 WebDriverUtils.webDriver.findElement(By.xpath("//button[normalize-space()='Yes']")).click();
             }
         } catch (WebDriverException e) {
@@ -247,6 +251,82 @@ public class EMFlowSteps extends PageInitializer {
     public void user_now_logs_in_as_EM_Representative_Bin_Li() {
         MiscUtils.sleep(5000);
         emStepsImplementation.loginAsLiBin();
+    }
+
+    @Then("User can verify that the GM Action Manager Role is displayed in the Active User Roles grid")
+    public void user_can_verify_that_the_gm_action_manager_role_is_displayed_in_the_active_user_roles_grid() {
+        Assert.assertTrue(accountDetailsPage.gmActionManagerRoleText.isDisplayed());
+    }
+
+    @Then("User Saves Changes")
+    public void user_Saves_Changes() {
+        CommonUtils.waitForClickability(accountDetailsPage.saveChangesButton);
+        CommonUtils.clickOnElement(accountDetailsPage.saveChangesButton);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    @When("User can verify that predictive search {string} is available for ITwoE Role dropdown")
+    public void user_can_verify_that_predictive_search_is_available_for_i_two_e_role_dropdown(String role) {
+        CommonUtils.clickOnElement(manageI2EUsersPage.I2ERoleDropD);
+        CommonUtils.sendKeysToElement(manageI2EUsersPage.I2ERoleDropDownTextBox, role);
+
+        List<WebElement> roles = WebDriverUtils.webDriver.findElements(By.xpath("/html/body/span/span/span[2]/ul/li"));
+
+        for (WebElement gmRole : roles){
+           String actualText = gmRole.getText();
+           CommonUtils.assertTrueTestNG(actualText.contains(role), "--- PREDICTIVE SEARCH IS NOT WORKING ---");
+        }
+    }
+
+    @When("User chooses Administrative option from Business Area dropdown")
+    public void user_chooses_administrative_option_from_business_area_dropdown() {
+        CommonUtils.clickOnElement(accountDetailsPage.addRoleModalClose);
+        CommonUtils.clickOnElement(accountDetailsPage.addRole);
+        CommonUtils.clickOnElement(accountDetailsPage.allBADropDown);
+        CommonUtils.clickOnElement(accountDetailsPage.administrativeBADropDownOption);
+    }
+
+    @Then("User can verify that appropriate ITwoE roles are available via ITwoE Role dropdown")
+    public void user_can_verify_that_appropriate_i_two_e_roles_are_available_via_i_two_e_role_dropdown() {
+        CommonUtils.clickOnElement(manageI2EUsersPage.I2ERoleDropD);
+        Assert.assertTrue(accountDetailsPage.i2ETechSupportDropDownOption.isDisplayed());
+        CucumberLogUtils.logScreenshot();
+    }
+
+    @Then("User can pick eGrants Access Representative role")
+    public void user_can_pick_e_grants_access_representative_role() {
+        CommonUtils.clickOnElement(accountDetailsPage.eGrantsAccessRepresentativeRole);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    @Then("User can remove eGrants Access Representative role")
+    public void user_can_remove_e_grants_access_representative_role() {
+        CommonUtils.waitForClickability(accountDetailsPage.removeItemsIconi2E);
+        CommonUtils.clickOnElement(accountDetailsPage.removeItemsIconi2E);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    @When("User clears Administrative option form Business Area choice")
+    public void user_clears_Administrative_option_form_Business_Area_choice() {
+        CommonUtils.waitForClickability(accountDetailsPage.removeItemsBAIcon);
+        CommonUtils.clickOnElement(accountDetailsPage.removeItemsBAIcon);
+        CommonUtils.clickOnElement(accountDetailsPage.allBADropDown);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    @Then("ItwoE roles choices are cleared too")
+    public void i_E_roles_choices_are_cleared_too() {
+
+        Dynamic_Locators.dynamicTextLocator("");
+        Assert.assertTrue(accountDetailsPage.I2ERoleDropDown.isDisplayed());
+        System.out.println("ItwoE roles choices are cleared");
+        CucumberLogUtils.logScreenshot();
+    }
+
+    @Then("ItwoE roles choices are cleared too with message {string}")
+    public void itwo_e_roles_choices_are_cleared_too_with_message(String message) {
+        Assert.assertTrue(Dynamic_Locators.dynamicTextLocator(message).isDisplayed(), "--- MESSAGE DOES NOT APPEAR!! ---");
+        CucumberLogUtils.logScreenshot();
     }
 }
 
