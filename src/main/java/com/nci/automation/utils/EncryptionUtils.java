@@ -18,6 +18,7 @@ public class EncryptionUtils {
 
 	/**
 	 * Decrypt a string using Apache Commons Base64 api
+	 * 
 	 * @param property
 	 * @return
 	 */
@@ -27,5 +28,10 @@ public class EncryptionUtils {
 			decodedStr = new String(Base64.decodeBase64(property));
 
 		return decodedStr;
+	}
+
+	public static void main(String args[]) {
+		String pwd = "";
+		System.out.println(EncryptionUtils.encrypt(pwd));
 	}
 }

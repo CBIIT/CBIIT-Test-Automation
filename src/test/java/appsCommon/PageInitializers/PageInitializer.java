@@ -10,6 +10,8 @@ import AnalysisTools.CEDCD.Steps.*;
 import AnalysisTools.CEDCD.StepsImplementation.*;
 import AnalysisTools.JPSurv.Pages.*;
 import AnalysisTools.LDLink.Pages.*;
+import AnalysisTools.MCAExplorer.Pages.MCAExplorerPage;
+import AnalysisTools.MCAExplorer.StepsImplementations.MCAExplorerStepImp;
 import AnalysisTools.PLCO.Pages.*;
 import AnalysisTools.mSigPortal.Pages.*;
 import AnalysisTools.scAtlas.Pages.SCAtlasCohortsPage;
@@ -61,7 +63,6 @@ import appsCommon.Pages.NativeViewHomePage;
 import appsCommon.Pages.ServiceNow_NCISP_Page;
 import appsCommon.StepsImplementation.ITrustLoginPageImpl;
 import com.nci.automation.web.WebDriverUtils;
-
 /**
  * This an initializer class which will initialize all pages classes. Once pages
  * class created, create an object of it here inside the constructor
@@ -197,7 +198,6 @@ public class PageInitializer extends WebDriverUtils {
 	/** GDC instances */
 	public static GDC_Workflow_NativeView_Page gDC_Workflow_NativeView_Page;
 
-
 	/** --------------- CUSTOM BUSINESS APP INSTANCES --------------- */
 	/** EIDP instances */
 	public static AligningExpectationsPage aligningExpectationsPage;
@@ -331,7 +331,10 @@ public class PageInitializer extends WebDriverUtils {
 	public static EgrantsStepImplementation egrantsStepImplementation;
 	public static EgrantsSearchAndFileManagementScenariosPage egrantsSearchandFileManagementScenariosPage;
 
-
+	/** ------------ MCA EXPLORER INSTANCES ------------*/
+	public static MCAExplorerPage mcaExplorerPage;
+	public static MCAExplorerStepImp mcaExplorerStepImp;
+	
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
 		// create instances of all pages and assign them to the variables
@@ -610,6 +613,11 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** GDC INSTANCE VARIABLES */
 		gDC_Workflow_NativeView_Page = new GDC_Workflow_NativeView_Page();
+		
+		
+		/** MCAEXPLORER INSTANCE VARIABLES */
+		mcaExplorerPage = new MCAExplorerPage();
+		mcaExplorerStepImp = new MCAExplorerStepImp();
 
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}
