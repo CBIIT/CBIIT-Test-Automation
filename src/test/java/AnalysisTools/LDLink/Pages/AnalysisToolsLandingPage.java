@@ -13,9 +13,20 @@ public class AnalysisToolsLandingPage extends CommonUtils {
     public WebElement ldLinkTextOnLandingPage;
 
     /* LDLink description text on Analysis Tools Landing Page */
-    @FindBy(xpath = "//div[contains(text(),'A suite of web-based applications designed to easily and efficiently explore linkage disequilibrium in population subgroups. All population genotype data originates from Phase 3 of the 1000 Genomes Project and variant RS numbers are indexed based on dbSNP build 151.')]")
+    @FindBy(xpath = "//*[@id='landing-blockcontent']/div[24]/div/text()")
     public WebElement ldLinkDescriptionTextOnLandingPage;
 
+    /* THIS IS THE SCREEN TEXT ON LDLINK SECURITY PAGE THAT DISPLAYS UNTIL VULNERABILITY IS FIXED */
+    @FindBy(xpath = "//h1[contains(text(),'Your connection is not private')]")
+    public WebElement securityScreenConnectionIsNotPrivateText;
+
+    /* THIS IS THE SECURITY SCREEN THAT DISPLAYS FOR VULNERABILITY ISSUES -- WILL BE CHANGED LATER */
+    @FindBy(xpath = "//button[contains(text(),'Advanced')]")
+    public WebElement securityScreenAdvancedButton;
+
+    /* This is the proceed link on security vulnerability page that directs to the correct LDLink page */
+    @FindBy(xpath = "//a[@id='proceed-link']")
+    public WebElement securityScreenProceedLink;
     public AnalysisToolsLandingPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
