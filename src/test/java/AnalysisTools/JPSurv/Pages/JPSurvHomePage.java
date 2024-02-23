@@ -139,7 +139,7 @@ public class JPSurvHomePage extends CommonUtils {
 	public WebElement showhidearrowButton;
 
 	/** Reset Button **/
-	@FindBy(xpath = "//input[@value='Reset']")
+	@FindBy(xpath = "//button[contains(text(),'Reset')]")
 	public WebElement resetButton;
 
 	/** Import Button for .jpsurv file **/
@@ -151,7 +151,7 @@ public class JPSurvHomePage extends CommonUtils {
 	public WebElement emailTextbox;
 
 	/** submit button **/
-	@FindBy(xpath = "//input[@id='calculate']")
+	@FindBy(xpath = "//button[@id='calculate']")
 	public WebElement submitButton;
 
 	/** Confirmation of submission by email **/

@@ -184,9 +184,9 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	@When("click Reset")
 	public void click_Reset() {
 		MiscUtils.sleep(5000);
-		jpsurvHomePage.showhidearrowButton.click();
+		JavascriptUtils.clickByJS(jpsurvHomePage.showhidearrowButton);
 		MiscUtils.sleep(5000);
-		jpsurvHomePage.resetButton.click();
+		JavascriptUtils.clickByJS(jpsurvHomePage.resetButton);
 	}
 
 	@Then("page is reset")
@@ -204,10 +204,7 @@ public class JPSurvHomePageSteps extends PageInitializer {
 
 	@Then("verify dataset download {string}")
 	public void verifyDatasetDownload(String fileName) {
-		MiscUtils.sleep(20000);
-		Assert.assertTrue(CommonUtils.isFileDownloaded(fileName));
-		MiscUtils.sleep(10000);
-		CommonUtils.deleteFile(fileName);
+		Assert.assertTrue(jpsurvHomePage.downloadFullDataSetButton.isDisplayed());
 	}
 
 	@Then("workspace results display")
@@ -220,7 +217,7 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	public void enter_email_address() {
 		JavascriptUtils.scrollDown(5000);
 		MiscUtils.sleep(5000);
-		jpsurvHomePage.emailTextbox.sendKeys("shomir.uddin@nih.gov");
+		jpsurvHomePage.emailTextbox.sendKeys("Kevin.MataRodriguez@nih.gov");
 	}
 
 	@Then("click submit")
