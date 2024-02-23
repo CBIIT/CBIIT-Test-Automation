@@ -44,6 +44,7 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	@When("user select year of diagnosis start {string}")
 	public void selectYearOfDiagnosisStart(String valueToSelect) {
 		CommonUtils.waitForVisibility(jpsurvHomePage.yearOfDiagnosisStartDropdown);
+		MiscUtils.sleep(2000);
 		CommonUtils.selectDropDownValue(valueToSelect, jpsurvHomePage.yearOfDiagnosisStartDropdown);
 	}
 
