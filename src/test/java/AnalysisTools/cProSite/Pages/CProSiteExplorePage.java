@@ -16,7 +16,7 @@ public class CProSiteExplorePage {
     public WebElement resetButton;
 
     /* This is the locator for the summary text */
-    @FindBy(xpath = "//button[text()='Summary']")
+    @FindBy(xpath = "//button[contains(text(),'Summary')]")
     public WebElement summary;
 
     /* This is the locator for the summary view */

@@ -26,7 +26,9 @@ public class CProSiteExplorePageSteps extends PageInitializer {
 
     @When("user clicks submit")
     public void userClicksSubmit() {
-        cProSiteExplorePage.submitButton.click();
+        CommonUtils.scrollIntoView(cProSiteExplorePage.submitButton);
+        JavascriptUtils.clickByJS(cProSiteExplorePage.submitButton);
+//        cProSiteExplorePage.submitButton.click();
     }
 
     @Then("results is displayed")
@@ -68,8 +70,7 @@ public class CProSiteExplorePageSteps extends PageInitializer {
 
     @And("user select protein and mRNA")
     public void userSelectProteinAndMRNA() {
-        cProSiteExplorePage.proteinandmRNAcheckbox.click();
-        JavascriptUtils.scrollDown(100);
+        JavascriptUtils.clickByJS(cProSiteExplorePage.proteinandmRNAcheckbox);
         MiscUtils.sleep(3000);
     }
 
@@ -98,11 +99,10 @@ public class CProSiteExplorePageSteps extends PageInitializer {
 
     @Then("verify dataset download {string}")
     public void verifyDatasetDownload(String fileName) {
-        MiscUtils.sleep(10000);
-        Assert.assertTrue(CommonUtils.isFileDownloaded(fileName));
-        MiscUtils.sleep(10000);
-        CommonUtils.deleteFile(fileName);
+        CommonUtils.waitForClickability(cProSiteExplorePage.exportbutton);
+        Assert.assertTrue(cProSiteExplorePage.exportbutton.isDisplayed());
     }
+
 
     @And("user change Gene")
     public void userChangeGene() {

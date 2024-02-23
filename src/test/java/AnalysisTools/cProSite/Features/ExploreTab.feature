@@ -71,7 +71,7 @@ Feature: Explore Tab
     Given user is on cProSite explore Tab
     When user clicks submit
     And user clicks export button
-    Then verify dataset download "Protein_Abundance_Tumor_vs_Adjacent_Normal-CDK1.xlsx"
+    Then verify dataset download "Protein_Abundance_Tumor_vs_Normal-CDK1.xlsx"
 
   @Smoke @Regression
   Scenario: User submit selection with Correlation Gene Correlated Gene
