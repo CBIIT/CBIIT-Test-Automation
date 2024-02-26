@@ -7,10 +7,10 @@ Scenario: User searchs by search term
 Given user on ICRP home page
 When user clicks ICRP data
 And user clicks search database 
-And user searchs by "Glioma organoids as patient avatars to improve precision medicine" in search terms
+And user searchs by "Glioma invasion under Mechanical Constraints: Mechanotaxis of the 3D Biomimicry Microenvironment" in search terms
 And user selects exact phrase provided 
 And user clicks search
-Then study titled "Glioma organoids as patient avatars to improve precision medicine" is displayed
+Then study titled "Glioma invasion under Mechanical Constraints: Mechanotaxis of the 3D Biomimicry Microenvironment" is displayed
 
 
 @Smoke @uddins2 
@@ -19,7 +19,7 @@ Given user on ICRP home page
 When user clicks ICRP data
 And user clicks search database
 And user clicks search
-Then "Total Base Projects: 18,957 /" and "Total Projects: 23,914" displays
+Then " Total Base Projects: 5,484 / " and " Total Projects: 6,490 " displays
 
 @Smoke @uddins2 
 Scenario: User searches by Institution
@@ -67,7 +67,7 @@ And user clicks clear
 And user clicks search
 Then all projects are displayed 
 
-@Smoke @uddins2 @Progression
+@Smoke @matako @Progression
 Scenario: user searchs by common scientific outline research area
 Given user on ICRP home page
 When user clicks ICRP data

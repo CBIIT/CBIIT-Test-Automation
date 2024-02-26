@@ -1,4 +1,4 @@
-package AnalysisTools.PLCO.Steps;
+package AnalysisTools.GWASExplorer.Steps;
 
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -28,7 +28,7 @@ public class HooksSteps extends PageInitializer {
 	 * This method runs after each scenario
 	 */
 	@After
-	public void genericTearDown()  {
+	public void genericTearDown() {
 		closeWebDriver();
 	}
 

@@ -2,6 +2,8 @@ package appsCommon.PageInitializers;
 
 import AnalysisTools.Comets2.Pages.*;
 import AnalysisTools.GDSTracking.Pages.GDSLoginPage;
+import AnalysisTools.GWASExplorer.Pages.BrowsePhenotypesPage;
+import AnalysisTools.GWASExplorer.Pages.GwasExplorerHomePage;
 import AnalysisTools.ICRP.Pages.*;
 import AnalysisTools.ezQTL.Pages.*;
 import AnalysisTools.cProSite.Pages.*;
@@ -12,7 +14,7 @@ import AnalysisTools.JPSurv.Pages.*;
 import AnalysisTools.LDLink.Pages.*;
 import AnalysisTools.MCAExplorer.Pages.MCAExplorerPage;
 import AnalysisTools.MCAExplorer.StepsImplementations.MCAExplorerStepImp;
-import AnalysisTools.PLCO.Pages.*;
+import AnalysisTools.GWASExplorer.Pages.*;
 import AnalysisTools.mSigPortal.Pages.*;
 import AnalysisTools.scAtlas.Pages.SCAtlasCohortsPage;
 import AnalysisTools.scAtlas.Pages.SCAtlasHomePage;
@@ -258,10 +260,10 @@ public class PageInitializer extends WebDriverUtils {
 	public static EZQTLAnalysesPage ezQTLAnalysesPage;
 	public static EZQTLDocumentationPage ezQTLDocumentationPage;
 	public static EZQTLPublicDataSourcePage ezQTLPublicDataSourcePage;
-	/** PLCO instances **/
+	/** GWAS Explorer instances **/
 	public static ExploreGWASPage exploreGWASPage;
-	public static BrowsePhenotypePage browsePhenotypePage;
-	public static InformationPage informationPage;
+	public static BrowsePhenotypesPage browsePhenotypesPage;
+	public static GwasExplorerHomePage gwasExplorerHomePage;
 
 	/** CEDCD instances */
 	public static CEDCDCohortPage cedcdCohortPage;
@@ -518,8 +520,8 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** PLCO Instance Variables **/
 		exploreGWASPage = new ExploreGWASPage();
-		browsePhenotypePage = new BrowsePhenotypePage();
-		informationPage = new InformationPage();
+		browsePhenotypesPage = new BrowsePhenotypesPage();
+		gwasExplorerHomePage = new GwasExplorerHomePage();
 
 		/** CEDCD Instance Variables */
 		cedcdCohortPage = new CEDCDCohortPage();

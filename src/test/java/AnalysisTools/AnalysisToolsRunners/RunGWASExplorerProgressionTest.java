@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(plugin = { "html:target/html-reports/cucumber-default-report", "json:target/cucumber.json",
 		"junit:target/cucumber.xml", "rerun:target/failed.txt",
 		"pretty",
-		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }, features = "src/test/java/AnalysisTools/PLCO/Features", glue = "AnalysisTools.PLCO.Steps", tags = "@Progression", dryRun = false, monochrome = true, strict = true
+		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }, features = "src/test/java/AnalysisTools/GWASExplorer/Features", glue = "AnalysisTools.GWASExplorer.Steps", tags = "@Progression", dryRun = false, monochrome = true, strict = true
 
 )
 
@@ -18,6 +18,6 @@ import org.junit.runner.RunWith;
  * 
  * @author sohilz2
  */
-public class RunPLCOProgressionTest {
+public class RunGWASExplorerProgressionTest {
 
 }

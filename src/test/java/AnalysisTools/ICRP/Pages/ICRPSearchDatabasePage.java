@@ -10,7 +10,7 @@ import com.nci.automation.web.WebDriverUtils;
 public class ICRPSearchDatabasePage extends CommonUtils {
 
 	/* This is the locator for the */
-	@FindBy(xpath = "//*[@class='btn btn-primary ml2']")
+	@FindBy(xpath = "//button[contains(text(),'Search')]")
 	public WebElement searchBtn;
 
 	/* This is the locator for the totalBaseProj */
@@ -38,8 +38,8 @@ public class ICRPSearchDatabasePage extends CommonUtils {
 	public List<WebElement> projTitles;
 
 	/* This is the locator for the projGliomaOrganoids */
-	@FindBy(xpath = "//*[@title=' Glioma organoids as patient avatars to improve precision medicine']")
-	public WebElement projGliomaOrganoids;
+	@FindBy(xpath = "//a[contains(text(),' Glioma invasion under Mechanical Constraints: Mechanotaxis of the 3D Biomimicry Microenvironment ')]")
+	public WebElement projGliomaInvastion;
 
 	/* This is the locator for the institutionPanelHeader */
 	@FindBy(xpath = "(//*[@class='ui-panel-header'])[2]")

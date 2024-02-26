@@ -1,39 +1,32 @@
-package AnalysisTools.PLCO.Steps;
+package AnalysisTools.GWASExplorer.Steps;
 
-import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
+import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-import com.nci.automation.xceptions.TestingException;
-import appsCommon.PageInitializers.PageInitializer;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+
+import java.util.concurrent.TimeUnit;
 
 public class ExploreGWASSteps extends PageInitializer {
 
-	@Given("user on PLCO homepage")
-	public void user_on_PLCO_homepage() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("GWASExplorer"));
-	}
-
 	@When("user selects explore GWAS")
 	public void user_selects_explore_GWAS() {
-		exploreGWASPage.lnkExploreGWAS.click();
+		JavascriptUtils.clickByJS(exploreGWASPage.lnkExploreGWAS);
 	}
 
 	@When("selects phenotype as BMI at baseline")
 	public void selects_phenotype_as_BMI_at_baseline() throws InterruptedException {
 		Thread.sleep(1000);
-		exploreGWASPage.btnPlusAnthropometricMeasures.click();
+		JavascriptUtils.clickByJS(exploreGWASPage.btnPlusAnthropometricMeasures);
 		Thread.sleep(1000);
-		exploreGWASPage.btnBMI.click();
+		JavascriptUtils.clickByJS(exploreGWASPage.btnBMI);
 		Thread.sleep(1000);
 	}
 
@@ -46,7 +39,7 @@ public class ExploreGWASSteps extends PageInitializer {
 
 	@When("clicks submit")
 	public void clicks_submit() {
-		exploreGWASPage.subSummaryResults.click();
+		JavascriptUtils.clickByJS(exploreGWASPage.subSummaryResults);
 	}
 
 	@Then("Manhattan Plot displays")
@@ -77,7 +70,7 @@ public class ExploreGWASSteps extends PageInitializer {
 
 	@When("selects Pairwise Plots")
 	public void selects_Pairwise_Plots() {
-		exploreGWASPage.chkPairWise.click();
+		JavascriptUtils.clickByJS(exploreGWASPage.chkPairWise);
 	}
 
 	@When("selects top ancestry as East Asian All")
@@ -108,7 +101,7 @@ public class ExploreGWASSteps extends PageInitializer {
 	@When("selects variant lookup tab")
 	public void selects_variant_lookup_tab() {
 		MiscUtils.sleep(2000);
-		exploreGWASPage.lnkVariantLookUp.click();
+		JavascriptUtils.clickByJS(exploreGWASPage.lnkVariantLookUp);
 	}
 
 	@When("writes variant as {string}")
@@ -118,8 +111,8 @@ public class ExploreGWASSteps extends PageInitializer {
 
 	@When("selects phenotype as BMI at baseline for variant lookup")
 	public void selects_phenotype_as_BMI_at_baseline_for_variant_lookup() {
-		exploreGWASPage.btnPlusAnthropometricMeasures.click();
-		exploreGWASPage.btnBMI.click();
+		JavascriptUtils.clickByJS(exploreGWASPage.btnPlusAnthropometricMeasures);
+		JavascriptUtils.clickByJS(exploreGWASPage.btnBMI);
 	}
 
 	@When("selects ancestry as European for variant lookup")
@@ -140,17 +133,17 @@ public class ExploreGWASSteps extends PageInitializer {
 
 	@When("selects Phenotype Correlations tab")
 	public void selects_Phenotype_Correlations_tab() {
-		exploreGWASPage.lnkPhenotypeCorrelationsTab.click();
+		JavascriptUtils.clickByJS(exploreGWASPage.lnkPhenotypeCorrelationsTab);
 	}
 
 	@When("selects phenotype as BMI at baseline for phenotype correlation")
 	public void selects_phenotype_as_BMI_at_baseline_for_phenotype_correlation() {
-		exploreGWASPage.btnPlusAnthropometricMeasures.click();
-		exploreGWASPage.btnBMI.click();
+		JavascriptUtils.clickByJS(exploreGWASPage.btnPlusAnthropometricMeasures);
+		JavascriptUtils.clickByJS(exploreGWASPage.btnBMI);
 	}
 
 	@When("selects phenotype as height BQ for phenotype correlation")
 	public void selects_phenotype_as_height_BQ_for_phenotype_correlation() {
-		exploreGWASPage.chkHeightPhenotypeCorrelation.click();
+		JavascriptUtils.clickByJS(exploreGWASPage.chkHeightPhenotypeCorrelation);
 	}
 }

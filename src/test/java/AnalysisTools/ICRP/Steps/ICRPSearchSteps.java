@@ -32,7 +32,7 @@ public class ICRPSearchSteps extends PageInitializer {
 	@When("user clicks search")
 	public void user_clicks_search() {
 		MiscUtils.sleep(5000);
-		icrpSearchDatabasePage.searchBtn.click();
+		JavascriptUtils.clickByJS(icrpSearchDatabasePage.searchBtn);
 		MiscUtils.sleep(5000);
 	}
 
@@ -57,7 +57,7 @@ public class ICRPSearchSteps extends PageInitializer {
 	@Then("study titled {string} is displayed")
 	public void study_titled_is_displayed(String gliomaOrganoids) {
 		Assert.assertTrue(icrpSearchDatabasePage.projTitles.size() == 1);
-		Assert.assertTrue(icrpSearchDatabasePage.projGliomaOrganoids.getText().contentEquals(gliomaOrganoids));
+		Assert.assertTrue(icrpSearchDatabasePage.projGliomaInvastion.getText().contentEquals(gliomaOrganoids));
 
 	}
 
@@ -104,7 +104,7 @@ public class ICRPSearchSteps extends PageInitializer {
 
 	@Then("projects with cancer type as Brain Tumor display")
 	public void projects_with_cancer_type_as_Brain_Tumor_display() {
-		icrpSearchDatabasePage.projGliomaOrganoids.click();
+		icrpSearchDatabasePage.projGliomaInvastion.click();
 		CommonUtils.switchToAnotherWindow();
 		Assert.assertTrue(icrpSearchDatabasePage.brainTumortxt.getText().contentEquals("Brain Tumor"));
 	}
