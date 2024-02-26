@@ -41,6 +41,10 @@ public class ICRPSearchDatabasePage extends CommonUtils {
 	@FindBy(xpath = "//a[contains(text(),' Glioma invasion under Mechanical Constraints: Mechanotaxis of the 3D Biomimicry Microenvironment ')]")
 	public WebElement projGliomaInvastion;
 
+	/* This is the select drop down for pagination */
+	@FindBy(xpath = "/html/body/div[1]/div/div/section/div[2]/icrp-root/div/icrp-search-page/div/div[2]/div/div[2]/icrp-results-table-panel/div/ui-table/div[2]/div[2]/select")
+	public WebElement paginationDropDown;
+
 	/* This is the locator for the institutionPanelHeader */
 	@FindBy(xpath = "(//*[@class='ui-panel-header'])[2]")
 	public WebElement institutionPanelHeader;
@@ -73,9 +77,13 @@ public class ICRPSearchDatabasePage extends CommonUtils {
 	@FindBy(xpath = "(//*[@placeholder='Select Cancer Types'])[2]")
 	public WebElement cancerTypeTxtbox;
 
-	/* This is the locator for the brainTumortxt */
+	/* This is the locator for the brainTumortext */
 	@FindBy(xpath = "//li[contains(text(), 'Brain Tumor')]")
-	public WebElement brainTumortxt;
+	public WebElement brainTumorText;
+
+	/* This is the locator for the normal functioning text */
+	@FindBy(xpath = "//*[@id='project-view-component']/div/ul[2]/li")
+	public WebElement normalFunctioningText;
 
 	/* This is the locator for the resetBtn */
 	@FindBy(xpath = "(//*[@class='btn btn-default ml2'])[1]")
@@ -98,8 +106,8 @@ public class ICRPSearchDatabasePage extends CommonUtils {
 	public WebElement normalFunctioningChkbox;
 
 	/* This is the locator for the proj3DPrinting */
-	@FindBy(xpath = "//*[@href='/project/128199']")
-	public WebElement proj3DPrinting;
+	@FindBy(xpath = "/html/body/div[1]/div/div/section/div[2]/icrp-root/div/icrp-search-page/div/div[2]/div/div[2]/icrp-results-table-panel/div/ui-table/div[1]/table/tbody/tr[1]/td[1]/a")
+	public WebElement firstReturnedProjectList;
 
 	/* This is the locator for the projectTitles list */
 	@FindBy(xpath = "//table/tbody/tr/td[1]/a")

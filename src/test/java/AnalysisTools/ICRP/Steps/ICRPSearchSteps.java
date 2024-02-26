@@ -26,7 +26,7 @@ public class ICRPSearchSteps extends PageInitializer {
 
 	@When("user clicks search database")
 	public void user_clicks_search_database() {
-		icrpHomePage.searchDatabaseBtn.click();
+		JavascriptUtils.clickByJS(icrpHomePage.searchDatabaseBtn);
 	}
 
 	@When("user clicks search")
@@ -56,6 +56,7 @@ public class ICRPSearchSteps extends PageInitializer {
 
 	@Then("study titled {string} is displayed")
 	public void study_titled_is_displayed(String gliomaOrganoids) {
+		CommonUtils.waitForVisibility(icrpSearchDatabasePage.projGliomaInvastion);
 		Assert.assertTrue(icrpSearchDatabasePage.projTitles.size() == 1);
 		Assert.assertTrue(icrpSearchDatabasePage.projGliomaInvastion.getText().contentEquals(gliomaOrganoids));
 
@@ -102,11 +103,13 @@ public class ICRPSearchSteps extends PageInitializer {
 		MiscUtils.sleep(5000);
 	}
 
-	@Then("projects with cancer type as Brain Tumor display")
-	public void projects_with_cancer_type_as_Brain_Tumor_display() {
-		icrpSearchDatabasePage.projGliomaInvastion.click();
+	@Then("projects with cancer type as {string} display")
+	public void projects_with_cancer_type_as_display(String brainTumorText) {
+		CommonUtils.selectDropDownValue(icrpSearchDatabasePage.paginationDropDown, "300");
+		CommonUtils.waitForVisibility(icrpSearchDatabasePage.projGliomaInvastion);
+		JavascriptUtils.clickByJS(icrpSearchDatabasePage.projGliomaInvastion);
 		CommonUtils.switchToAnotherWindow();
-		Assert.assertTrue(icrpSearchDatabasePage.brainTumortxt.getText().contentEquals("Brain Tumor"));
+		Assert.assertTrue(icrpSearchDatabasePage.brainTumorText.getText().contentEquals(brainTumorText));
 	}
 
 	@Then("exact phrase provided is selected")
@@ -134,6 +137,8 @@ public class ICRPSearchSteps extends PageInitializer {
 
 	@Then("all projects are displayed")
 	public void all_projects_are_displayed() {
+		MiscUtils.sleep(10000);
+		System.out.println(icrpSearchDatabasePage.allProjTxt.getText());
 		Assert.assertTrue(icrpSearchDatabasePage.allProjTxt.getText()
 				.contentEquals("All projects are shown below. Use the form on the left to refine search results"));
 	}
@@ -145,8 +150,12 @@ public class ICRPSearchSteps extends PageInitializer {
 		icrpSearchDatabasePage.normalFunctioningChkbox.click();
 	}
 
-	@Then("projects with research area as normal functioning display")
-	public void projects_with_research_area_as_normal_functioning_display() {
-		icrpSearchDatabasePage.proj3DPrinting.click();
+	@Then("projects with research area as {string} display")
+	public void projects_with_research_area_as_display(String normalFunctioningText) {
+		JavascriptUtils.clickByJS(icrpSearchDatabasePage.firstReturnedProjectList);
+		CommonUtils.switchToAnotherWindow();
+		CommonUtils.scrollIntoView(icrpSearchDatabasePage.normalFunctioningText);
+		System.out.println(icrpSearchDatabasePage.normalFunctioningText.getText());
+		Assert.assertTrue(icrpSearchDatabasePage.normalFunctioningText.getText().contentEquals(normalFunctioningText));
 	}
 }
