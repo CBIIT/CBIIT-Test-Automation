@@ -26,6 +26,7 @@ public class ICRPSearchSteps extends PageInitializer {
 
 	@When("user clicks search database")
 	public void user_clicks_search_database() {
+		CommonUtils.waitForClickability(icrpHomePage.searchDatabaseBtn);
 		JavascriptUtils.clickByJS(icrpHomePage.searchDatabaseBtn);
 	}
 
@@ -81,7 +82,7 @@ public class ICRPSearchSteps extends PageInitializer {
 	@When("user selects Alexs Lemonade Stand Foundation")
 	public void user_selects_Alexs_Lemonade_Stand_Foundation() {
 		MiscUtils.sleep(5000);
-		JavascriptUtils.scrollIntoView(icrpSearchDatabasePage.fundingPanelHeader);
+		CommonUtils.scrollIntoView(icrpSearchDatabasePage.fundingPanelHeader);
 		icrpSearchDatabasePage.fundingPanelHeader.click();
 		icrpSearchDatabasePage.ALSFChkbox.click();
 		MiscUtils.sleep(5000);
