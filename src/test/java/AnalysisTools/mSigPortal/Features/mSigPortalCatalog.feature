@@ -2,14 +2,14 @@ Feature: mSigPortal Catalog Section
 
   Scenario: SBS Graph is being displayed
 
-  @matarodriguezko @NEEDSREVIEW
+  @matakevin @NEEDSREVIEW
   Scenario: Etiology graph on Catalog Page is displayed
     Given the user is on the mSigPortal Home page
     When the user navigates to the Catalog page
     And the user calculates by clicking on the SBS Graph
     Then a download link for the graph is displayed on the Catalog page
 
-  @Smoke @uddins2
+  @Smoke @matakevin
   Scenario: SBS24 plot for Aflatoxin etiologies under cancer reference signature category displays
     Given the user is on the mSigPortal Home page
     When the user navigates to the Catalog page
@@ -18,14 +18,14 @@ Feature: mSigPortal Catalog Section
     And the user selects SBS24 signature
     Then SBS24 plot displays
 
-  @Smoke @uddins2
+  @Smoke @matakevin
   Scenario: SBS96 Pie chart displays on RS in mSigPortal
     Given the user is on the mSigPortal Home page
     When the user navigates to the Catalog page
     And the user clicks Reference Signature tab
     Then the SBS96 Pie chart is displays
 
-  @Smoke @uddins
+  @Smoke @matakevin
   Scenario: SBS1 plot displays in RS profile
     Given the user is on the mSigPortal Home page
     When the user navigates to the Catalog page
