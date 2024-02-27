@@ -1,6 +1,6 @@
 Feature: Playwright Sample Test
 
-  @Progression
+  @Progression @juarezds
   Scenario: This is a Playwright Test
     Given I work at the beautiful NCI
     When I am a tester
