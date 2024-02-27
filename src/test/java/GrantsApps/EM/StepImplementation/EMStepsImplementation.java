@@ -11,6 +11,7 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import java.util.ArrayList;
 import java.util.List;
@@ -303,5 +304,10 @@ public class EMStepsImplementation extends PageInitializer {
         CommonUtils.waitForClickability(manageI2EUsersPage.liBinOption);
         CommonUtils.clickOnElement(manageI2EUsersPage.liBinOption);
         MiscUtils.sleep(2000);
+    }
+
+    public void clickOutside() {
+        Actions action = new Actions(WebDriverUtils.webDriver);
+        action.moveByOffset(0, 0).click().build().perform();
     }
 }

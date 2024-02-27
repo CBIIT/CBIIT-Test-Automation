@@ -16,6 +16,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class EMFlowSteps extends PageInitializer {
@@ -83,8 +85,8 @@ public class EMFlowSteps extends PageInitializer {
 
         try {
             MiscUtils.sleep(2000);
-            if (WebDriverUtils.webDriver.findElement(By.xpath("(//span[contains(text(),'"+ role + "')]//parent::td//parent::tr/td)[5]/span/button")).isDisplayed()) {
-                WebDriverUtils.webDriver.findElement(By.xpath("(//span[contains(text(),'"+ role + "')]//parent::td//parent::tr/td)[5]/span/button")).click();
+            if (WebDriverUtils.webDriver.findElement(By.xpath("(//span[contains(text(),'" + role + "')]//parent::td//parent::tr/td)[5]/span/button")).isDisplayed()) {
+                WebDriverUtils.webDriver.findElement(By.xpath("(//span[contains(text(),'" + role + "')]//parent::td//parent::tr/td)[5]/span/button")).click();
                 WebDriverUtils.webDriver.findElement(By.xpath("//button[normalize-space()='Yes']")).click();
             }
         } catch (WebDriverException e) {
@@ -125,8 +127,8 @@ public class EMFlowSteps extends PageInitializer {
     public void user_can_verify_that_first_and_last_name_of_logged_in_user_are_shown(String expectedName) {
 
         // I2E User Name locator
-       String actualName = WebDriverUtils.webDriver.findElement(By.xpath("//body/app-root/app-header/lib-header/header/nav/div/div/ul/li/span[1]")).getText();
-       Assert.assertEquals(actualName, expectedName);
+        String actualName = WebDriverUtils.webDriver.findElement(By.xpath("//body/app-root/app-header/lib-header/header/nav/div/div/ul/li/span[1]")).getText();
+        Assert.assertEquals(actualName, expectedName);
     }
 
     @When("user clicks on My DOC Discrepancies")
@@ -269,9 +271,9 @@ public class EMFlowSteps extends PageInitializer {
 
         List<WebElement> roles = WebDriverUtils.webDriver.findElements(By.xpath("/html/body/span/span/span[2]/ul/li"));
 
-        for (WebElement gmRole : roles){
-           String actualText = gmRole.getText();
-           CommonUtils.assertTrueTestNG(actualText.contains(role), "--- PREDICTIVE SEARCH IS NOT WORKING ---");
+        for (WebElement gmRole : roles) {
+            String actualText = gmRole.getText();
+            CommonUtils.assertTrueTestNG(actualText.contains(role), "--- PREDICTIVE SEARCH IS NOT WORKING ---");
         }
     }
 
@@ -311,18 +313,48 @@ public class EMFlowSteps extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
-    @Then("ItwoE roles choices are cleared too")
-    public void i_E_roles_choices_are_cleared_too() {
-
-        Dynamic_Locators.dynamicTextLocator("");
-        Assert.assertTrue(accountDetailsPage.I2ERoleDropDown.isDisplayed());
-        System.out.println("ItwoE roles choices are cleared");
-        CucumberLogUtils.logScreenshot();
-    }
-
     @Then("ItwoE roles choices are cleared too with message {string}")
     public void itwo_e_roles_choices_are_cleared_too_with_message(String message) {
         Assert.assertTrue(Dynamic_Locators.dynamicTextLocator(message).isDisplayed(), "--- MESSAGE DOES NOT APPEAR!! ---");
         CucumberLogUtils.logScreenshot();
+    }
+
+    @When("User chooses Administrative option from Business Area dropdown again")
+    public void user_chooses_administrative_option_from_business_area_dropdown_again() {
+        CommonUtils.clickOnElement(accountDetailsPage.allBADropDown);
+        CommonUtils.waitForClickability(accountDetailsPage.administrativeBADropDownOption);
+        CommonUtils.clickOnElement(accountDetailsPage.administrativeBADropDownOption);
+        //emStepsImplementation.clickOutside();
+        MiscUtils.sleep(5000);
+    }
+
+    @Then("User can verify that Administrative related roles {string}, {string}, {string}, {string} are reflected in I2E Role dropdown")
+    public void user_can_verify_that_administrative_related_roles_are_reflected_in_i2e_role_dropdown(String role1, String role2, String role3, String role4) {
+        MiscUtils.sleep(6000);
+        CommonUtils.clickOnElement(manageI2EUsersPage.I2ERoleDropD);
+        MiscUtils.sleep(6000);
+        ArrayList<String> list = new ArrayList();
+        list.add(role1);
+        list.add(role2);
+        list.add(role3);
+        list.add(role4);
+
+        List<WebElement> i2eRoles = WebDriverUtils.webDriver.findElements(By.xpath("/html/body/span/span/span[2]/ul/li"));
+        ArrayList<String> actualRoleTextValues = new ArrayList<>();
+        for(WebElement i2eRole : i2eRoles){
+            String actualRoleText = i2eRole.getText();
+            actualRoleTextValues.add(actualRoleText);
+        }
+
+        Assert.assertEquals(actualRoleTextValues, list);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    @When("User picks Financial from Business Area dropdown")
+    public void user_picks_financial_from_business_area_dropdown() {
+        CommonUtils.clickOnElement(accountDetailsPage.allBADropDown);
+        CommonUtils.waitForClickability(accountDetailsPage.financialBA);
+        CommonUtils.clickOnElement(accountDetailsPage.financialBA);
+
     }
 }

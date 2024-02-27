@@ -38,7 +38,7 @@ Feature: EM Flow Sprint One
     And User can verify that first and last name of logged in user "Bin Li" are shown
     And User is on Manage I2E Users page
 
-  @I2ERoleDropdownList @Jira950
+  @I2ERoleDropdownList @Jira950 @Progression
   Scenario: I2E Role Drop Down List
     And User is on Manage I2E Users page
     When User inputs "Mata Rodriguez, Kevin Osmaldo" into the Name field and clicks search
@@ -57,3 +57,6 @@ Feature: EM Flow Sprint One
     And User can remove eGrants Access Representative role
     When User clears Administrative option form Business Area choice
     Then ItwoE roles choices are cleared too with message " Role is required. "
+#    When User chooses Administrative option from Business Area dropdown again
+#    Then User can verify that Administrative related roles "eGrants Access Representative", "I2E Coordinator", "I2E Technical Support", "Primary I2E Coordinator" are reflected in I2E Role dropdown
+    When User picks Financial from Business Area dropdown

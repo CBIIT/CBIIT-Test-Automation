@@ -62,6 +62,10 @@ public class AccountDetailsPage {
     @FindBy(xpath = "(//span[@title='Remove all items'])[1]")
     public WebElement removeItemsBAIcon;
 
+    /** BUSINESS AREA FINANCIAL DROP DOWN OPTION */
+    @FindBy(xpath = "//select[@id='businessArea-select']//option[contains(text(),'Financial')]")
+    public WebElement financialBA;
+
     public AccountDetailsPage(){
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
