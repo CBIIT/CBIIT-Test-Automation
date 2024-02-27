@@ -3,7 +3,6 @@ package ServiceNow.ETracking.StepsImplementation;
 import GrantsApps.EM.Pages.ManageI2EUsersPage;
 import ServiceNow.ETracking.Constants.EtrackAssetsRecords_NativeView_Constants;
 import ServiceNow.SEER.Constants.SEERNativeView_Constants;
-import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import appsCommon.PageInitializers.PageInitializer;
@@ -26,10 +25,9 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
      */
     public static void aEtrackingUserOpensAnAssetRecord() throws TestingException {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonate_Any_User_And_Land_In_Native_View("Jeffrey Alderdice");
+        ServiceNow_Common_Methods.impersonateAnyUser("Jeffrey Alderdice");
         ServiceNow_Common_Methods.filterNavigatorSearch("Assets");
         CucumberLogUtils.logScreenshot();
-        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewButton.click();
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberTextBox);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX);
@@ -70,6 +68,7 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CommonUtils.selectDropDownValue(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchDropDown, EtrackAssetsRecords_NativeView_Constants.ETRACKING_NATIVE_VIEW_ASSETS_ALL_RECORD_SEARCH_DROP_DOWN);
         CommonUtils.sendKeysToElement(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsAllRecordSearchTextBox, Keys.ENTER);
+        CommonUtils.assertTrue(nativeViewAccessRequestPage.nativeViewAccessRequestNewNoRecordsToDisplayText.getText().contentEquals(SEERNativeView_Constants.NATIVE_VIEW_NO_RECORD_TO_DISPLAY_TEXT));
         CommonUtils.assertEqualsWithMessage(nativeViewAccessRequestPage.nativeViewAccessRequestNewNoRecordsToDisplayText.getText(),SEERNativeView_Constants.NATIVE_VIEW_NO_RECORD_TO_DISPLAY_TEXT, "Verify there are no records to display created by Automation");
         JavascriptUtils.drawBlueBorder(nativeViewAccessRequestPage.nativeViewAccessRequestNewNoRecordsToDisplayText);
         CucumberLogUtils.logScreenshot();
@@ -78,12 +77,11 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
 
     public static void anEtrackingUserIsOnAnAssetRecord() throws TestingException {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonate_Any_User_And_Land_In_Native_View("Jeffrey Alderdice");
-        MiscUtils.sleep(6000);
+        ServiceNow_Common_Methods.impersonateAnyUser("Jeffrey Alderdice");
+        MiscUtils.sleep(3000);
         ServiceNow_Common_Methods.filterNavigatorSearch("Assets");
-        CucumberLogUtils.logScreenshot();
+        //CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(2000);
-        CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
         etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewButton.click();
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberTextBox);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordDecalNumberTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_DECAL_NUMBER_TEXT_BOX);
@@ -95,12 +93,6 @@ public class EtrackAssetsRecords_NativeViewStepImplimentation extends PageInitia
         CommonUtils.waitForVisibility(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateTextBox);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordExpirationDateTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_EXPIRATION_DATE_TEXT_BOX);
         CommonUtils.sendKeys(etrackAssetsRecords_NativeViewPage.nVEtrackAssetsNewRecordAssetInformationTextBox, EtrackAssetsRecords_NativeView_Constants.ETRACKING_ASSETS_NEW_RECORD_ASSET_INFORMATION_TEXT_BOX);
-        CucumberLogUtils.logScreenshot();
-    }
-
-    public static void anEtrackingUserImpersonation() throws TestingException {
-        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        ServiceNow_Common_Methods.impersonate_Any_User_And_Land_In_Native_View("Jeffrey Alderdice");
         CucumberLogUtils.logScreenshot();
     }
 

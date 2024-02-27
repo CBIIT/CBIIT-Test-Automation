@@ -1,6 +1,9 @@
 package ServiceNow.NERD.StepsImplementation;
 
+import ServiceNow.NERD.Constants.ReturningSubmissions_Constants;
 import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.Utils.ServiceNow_Common_Methods;
+import appsCommon.Utils.ServiceNow_Login_Methods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -20,7 +23,9 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
          * @param submissionName
          */
         public static void publishingOfSubmissionByCRSReviewer(String submissionName) throws TestingException {
-                nativeViewImpersonateUser.impersonateToCRSReviewer();
+                ServiceNow_Common_Methods.logOutOfNativeView();
+                ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+                ServiceNow_Common_Methods.impersonateAnyUser("Grace Liou");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 CommonUtils.waitForVisibility(
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu);
@@ -48,7 +53,9 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
          * @param submissionName
          */
         public static void returningOfSubmissionByCRSReviewer(String submissionName) throws TestingException {
-                nativeViewImpersonateUser.impersonateToCRSReviewer();
+                ServiceNow_Common_Methods.logOutOfNativeView();
+                ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+                ServiceNow_Common_Methods.impersonateAnyUser("Grace Liou");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 CommonUtils.waitForVisibility(
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu);
@@ -82,7 +89,9 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
          * @param submissionType
          */
         public static void crsReviewerIsOnSubmissionsPage(String submissionType) throws TestingException {
-                nativeViewImpersonateUser.impersonateToCRSReviewer();
+                ServiceNow_Common_Methods.logOutOfNativeView();
+                ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+                ServiceNow_Common_Methods.impersonateAnyUser("Grace Liou");
                 WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
                 CommonUtils.waitForVisibility(
                                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemHomePageDropDownMenu);
@@ -99,7 +108,6 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
          * when opening a collaborations submission
          */
         public static void crsReviersDoesNotSeeRankFieldOnCollaborationSubmissions() {
-
                 WebElement element = WebDriverUtils.webDriver
                                 .findElement(By.xpath("//*[@id='crs-article']/div/div/div/div[1]/div[4]/div[1]/i"));
                 Assert.assertTrue(element.getDomAttribute("aria-hidden").contentEquals("true"));
@@ -130,11 +138,9 @@ public class NERD_NCI_CRSReviewerStepsImplementation extends PageInitializer {
 
         /**
          * This method verifies rank field is not visible AND deletes submission
-         * @param collaborationName
          */
-        public static void verifyingRankFieldIsNotDisplayedAndDeletingSubmission(String collaborationName){
+        public static void verifyingRankFieldIsNotDisplayedAndDeletingSubmission(){
                 crsReviersDoesNotSeeRankFieldOnCollaborationSubmissions();
-                crsReviewerDeletingSubmissionAfterClickingCancelButton(collaborationName);
+                crsReviewerDeletingSubmissionAfterClickingCancelButton(ReturningSubmissions_Constants.COLLABORATIONS_NEW_SUBMISSION);
         }
-
 }

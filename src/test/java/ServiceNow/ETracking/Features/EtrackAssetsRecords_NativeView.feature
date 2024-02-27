@@ -1,9 +1,5 @@
 Feature: Etrack Assets Records Test Scenarios
 
-  @ETRACK-5 @ETRACK-17 @chaudhryma @Regression
-  Scenario: Test Update Barcode to Decal Number
-    Given an eTracking user is on an Asset record
-
   @ETRACK-2 @ETRACK-14 @chaudhryma @Regression
   Scenario: Test Delete Asset Records
     Given a eTracking user opens an Asset record
@@ -36,3 +32,10 @@ Feature: Etrack Assets Records Test Scenarios
     Given an eTracking user is on an Asset record
     Then there is a field called "Decal number"
     And there is no field called "Barcode"
+
+  @ETRACK-12 @ETRACK-19 @chaudhryma @Regression
+  Scenario:Test Add Status Field for Asset Form
+    Given an eTracking user is on an Asset record
+    Then  There is a field called Status
+    When the user clicks the Status field
+    Then the following field options are available, "Checked out", "In stockroom", "In transfer"

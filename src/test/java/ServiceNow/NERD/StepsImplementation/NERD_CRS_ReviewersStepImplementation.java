@@ -3,6 +3,7 @@ package ServiceNow.NERD.StepsImplementation;
 import ServiceNow.NERD.Constants.CRSReviewers_Constants;
 import ServiceNow.NERD.Pages.NERDCRSTOtherAccomplishmentsPage;
 import ServiceNow.NERD.Pages.NERDKnowledgebasePage;
+import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -19,7 +20,8 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
 
     public static void aCRSReviewerIsLoggedIntoNERDsCRSKnowledgeManagementSystem() throws TestingException {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        nativeViewImpersonateUser.impersonateToCRSReviewer();
+        ServiceNow_Common_Methods.impersonateAnyUser("Grace Liou");
+//        nativeViewImpersonateUser.impersonateToCRSReviewer();
         NERDApplicationStepsImplementation.userIsOnSubmissionsPage("NERD");
     }
 
@@ -89,7 +91,8 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
 
     public static void aCRSReviewerIsOnTheNERDHomePage() throws TestingException {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        nativeViewImpersonateUser.impersonateToAnyCRSReviewerNerd(CRSReviewers_Constants.CRS_REVIEWER_NAME, CRSReviewers_Constants.CRS_REVIEWER_EMAIL);
+        ServiceNow_Common_Methods.impersonateAnyUser("hoffmanela@nih.gov");
+        MiscUtils.sleep(1500);
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         MiscUtils.sleep(1500);
         CucumberLogUtils.logScreenshot();
@@ -154,7 +157,7 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
     public void aCRSReviewerIsViewingTheListOfThePublished(String topAccomplishmentsAccordion) throws TestingException {
         this.topAccomplishmentsAccordion = topAccomplishmentsAccordion;
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        nativeViewImpersonateUser.impersonateToAnyCRSReviewerNerd(CRSReviewers_Constants.CRS_REVIEWER_NAME, CRSReviewers_Constants.CRS_REVIEWER_EMAIL);
+        ServiceNow_Common_Methods.impersonateAnyUser("hoffmanela@nih.gov");
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         MiscUtils.sleep(1500);
         CucumberLogUtils.logScreenshot();

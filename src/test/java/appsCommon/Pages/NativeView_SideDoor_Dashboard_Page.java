@@ -5,11 +5,9 @@ import io.github.sukgu.Shadow;
 import io.github.sukgu.support.ElementFieldDecorator;
 import io.github.sukgu.support.FindElementBy;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.DefaultElementLocatorFactory;
-
-import java.util.List;
-
 public class NativeView_SideDoor_Dashboard_Page {
     /**
      * THIS CLASS CONTAINS NATIVE VIEW DASHBOARD ELEMENTS
@@ -25,7 +23,7 @@ public class NativeView_SideDoor_Dashboard_Page {
     @FindElementBy(xpath = "//*[@class='sn-polaris-nav-header-controls pin']//child::button")
     public static WebElement sideMenuPin;
     /* iFrame */
-    @FindElementBy(xpath = "//*[@id='gsft_main']")
+    @FindElementBy(css = "iframe[title='Main Content']")
     public static WebElement nativeViewiFrame;
     /* PROFILE BUTTON */
     @FindElementBy(xpath = "//div[@class='header-avatar-button contextual-zone-button user-menu']")
@@ -39,24 +37,37 @@ public class NativeView_SideDoor_Dashboard_Page {
     /* IMPERSONATE USER SEARCH TEXT BOX */
     @FindElementBy(xpath = "//input[@class='now-typeahead-native-input']")
     public static WebElement impersonateSearchTextBox;
-    /* IMPERSONATE USER SEARCH FIRST VALUE */
+    /* IMPERSONATE USER SEARCH FIRST VALUE  */
     @FindElementBy(xpath = "//div[@class='now-dropdown-list']//child::div[1]//child::div[1]")
     public static WebElement impersonateSearchFirstValue;
-    /* IMPERSONATE WINDOW USER BUTTON */
+    /* IMPERSONATE WINDOW USER BUTTON  */
     @FindElementBy(xpath = "//div[@class='now-modal-footer']/now-button[2]")
     public static WebElement impersonateUserWindowButton;
+
+    /* FILTER NAVIGATION EMAILS BUTTON  */
+    @FindElementBy(xpath = "//div[@class='sn-polaris-nav-body']/sn-collapsible-list[2]")
+    public static WebElement filterNavigationEmailsButton;
+
+    /* FILTER NAVIGATION NOTIFICATIONS BUTTON  */
+    @FindElementBy(xpath = "//div[@class='sn-polaris-nav-body']/sn-collapsible-list[2]/div/div/ul/li[2]/span")
+    public static WebElement filterNavigationNotificationButton;
+
+    /* FILTER NAVIGATION MEMBERS OF CONGRESS */
+    @FindElementBy(xpath = "//span[@class='menu-item-row highlighted-menu-item-row']")
+    public static WebElement filterNavigationMembersOfCongress;
 
     /* ASSETS MENU BUTTON */
     @FindElementBy(xpath = "//*[text()='Assets'][1]")
     public static WebElement assetsMenuButton;
+
     /**
      * USE THIS METHOD TO SEARCH ANY TEXT USING THE NATIVE VIEW FILTER NAVIGATOR
      *
      * @param text
      * @return
      */
-    public static List<WebElement> dynamicFilterNavigatorTextSearch(String text) {
-        return shadow.findElementsByXPath("//*[text()='" + text + "'][1]");
+    public static WebElement dynamicFilterNavigatorTextSearch(String text) {
+        return shadow.findElementByXPath("//*[text()='" + text + "'][1]");
     }
     public NativeView_SideDoor_Dashboard_Page() {
         ElementFieldDecorator decorator = new ElementFieldDecorator(new DefaultElementLocatorFactory(WebDriverUtils.webDriver));
