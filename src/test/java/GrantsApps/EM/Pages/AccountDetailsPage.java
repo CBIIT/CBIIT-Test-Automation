@@ -10,6 +10,10 @@ public class AccountDetailsPage {
     @FindBy(xpath = "(//td//span[contains(text(),'I2E Technical Support')])[1]")
     public WebElement i2eTechSupportRoleDisplayed;
 
+    /** GM ACTION MANAGER ROLE TEXT */
+    @FindBy(xpath = "//span[contains(text(),'GM Action Manager')]")
+    public WebElement gmActionManagerRoleText;
+
     /** ADD ROLE BUTTON */
     @FindBy(xpath = "//button[normalize-space()='Add Role']")
     public WebElement addRole;
@@ -34,6 +38,33 @@ public class AccountDetailsPage {
     @FindBy(xpath = "//span//button[contains(text(),' Save Changes ')]")
     public WebElement saveChangesButton;
 
+    /** Business Area All Bootstrap drop down **/
+    @FindBy(xpath = "//select[@id='businessArea-select']//option[contains(text(),'All')]")
+    public WebElement allBADropDown;
+
+    /** Business Area Administrative Drop Down Option */
+    @FindBy(xpath = "//select[@id='businessArea-select']//option[contains(text(),'Administrative')]")
+    public WebElement administrativeBADropDownOption;
+
+    /** I2E TECHNICAL SUPPORT DROP DOWN OPTION **/
+    @FindBy(xpath = "//ul[@class='select2-results__options']//b[contains(text(),'I2E Technical Support')]")
+    public WebElement i2ETechSupportDropDownOption;
+
+    /** eGrants ACCESS REPRESENTATIVE ROLE **/
+    @FindBy(xpath = "//ul[@class='select2-results__options']//b[contains(text(),'eGrants Access Representative')]")
+    public WebElement eGrantsAccessRepresentativeRole;
+
+    /** REMOVE ITEMS I2E DROP DOWN ICON */
+    @FindBy(xpath = "(//span[@title='Remove all items'])[2]")
+    public WebElement removeItemsIconi2E;
+
+    /** REMOVE ITEMS BUSINESS AREA ICON */
+    @FindBy(xpath = "(//span[@title='Remove all items'])[1]")
+    public WebElement removeItemsBAIcon;
+
+    /** BUSINESS AREA FINANCIAL DROP DOWN OPTION */
+    @FindBy(xpath = "//select[@id='businessArea-select']//option[contains(text(),'Financial')]")
+    public WebElement financialBA;
 
     public AccountDetailsPage(){
         PageFactory.initElements(WebDriverUtils.webDriver, this);

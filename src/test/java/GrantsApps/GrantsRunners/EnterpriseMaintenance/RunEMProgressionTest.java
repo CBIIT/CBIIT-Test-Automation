@@ -12,8 +12,6 @@ import org.junit.runner.RunWith;
         , glue = "GrantsApps.EM.Steps"
         , tags = "@Progression"
         , dryRun = false
-        , monochrome = false
-        , strict = true
 )
 public class RunEMProgressionTest {
 }
