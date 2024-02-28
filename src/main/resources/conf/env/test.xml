@@ -297,6 +297,50 @@
         </db>
     </application>
 
+    <!-- Application ID for ACT24 Participant -->
+    <application id="ACT24Participant">
+        <login_url>https://act24-test.cancer.gov/act24/participant/id/252cff45-fc47-4a01-a85a-b51056db7315
+        </login_url> <!-- add
+        test url -->
+        <role name="Role">
+            <user id="regular">
+                <name>regular</name>
+                <userId></userId> <!-- add encrypted test user -->
+                <password></password> <!-- add encrypted test pass -->
+            </user>
+        </role>
+        <db>
+            <default>
+                <driverclassname></driverclassname> <!-- Add driver class-name -->
+                <url></url> <!-- complete string url -->
+                <username></username> <!-- Add db username -->
+                <password></password> <!-- Add db password -->
+            </default>
+        </db>
+    </application>
+
+    <!-- Application ID for ACT24 Researcher -->
+    <application id="ACT24Researcher">
+        <login_url>https://act24-test.cancer.gov/act24/researcher/login?
+        </login_url> <!-- add
+        test url -->
+        <role name="Role">
+            <user id="regular">
+                <name>regular</name>
+                <userId></userId> <!-- add encrypted test user -->
+                <password></password> <!-- add encrypted test pass -->
+            </user>
+        </role>
+        <db>
+            <default>
+                <driverclassname></driverclassname> <!-- Add driver class-name -->
+                <url></url> <!-- complete string url -->
+                <username></username> <!-- Add db username -->
+                <password></password> <!-- Add db password -->
+            </default>
+        </db>
+    </application>
+
     <!-- Application ID for mSigPortal -->
     <application id="mSigPortal">
         <login_url>https://analysistools-qa.cancer.gov/mutational-signatures/#/

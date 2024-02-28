@@ -1,5 +1,6 @@
 package appsCommon.PageInitializers;
 
+import AnalysisTools.ACT24.Pages.*;
 import AnalysisTools.Comets2.Pages.*;
 import AnalysisTools.GDSTracking.Pages.GDSLoginPage;
 import AnalysisTools.GWASExplorer.Pages.BrowsePhenotypesPage;
@@ -298,6 +299,10 @@ public class PageInitializer extends WebDriverUtils {
 	/** CProSite instances **/
 	public static CProSiteExplorePage cProSiteExplorePage;
 
+	/** ACT24 instances **/
+	public static ACT24ParticipantPortalPage act24ParticipantPortalPage;
+	public static ACT24ResearcherPortalPage act24ResearcherPortalPage;
+
 	/** CCR instances **/
 	public static CCRLandingPage cCRLandingPage;
 	public static CCRStepsImplementation cCRStepsImplementation;
@@ -518,7 +523,11 @@ public class PageInitializer extends WebDriverUtils {
 		ezQTLDocumentationPage = new EZQTLDocumentationPage();
 		ezQTLPublicDataSourcePage = new EZQTLPublicDataSourcePage();
 
-		/** PLCO Instance Variables **/
+		/** ACT24 Instance Variables **/
+		act24ParticipantPortalPage = new ACT24ParticipantPortalPage();
+		act24ResearcherPortalPage = new ACT24ResearcherPortalPage();
+
+		/** GWAS Explorer Instance Variables **/
 		exploreGWASPage = new ExploreGWASPage();
 		browsePhenotypesPage = new BrowsePhenotypesPage();
 		gwasExplorerHomePage = new GwasExplorerHomePage();
