@@ -99,6 +99,41 @@ public class ManageI2EUsersPage {
     @FindBy(xpath = "/html/body/app-root/div/div/div[2]/main/app-search/div/div[2]/div/div/div/table/tbody/tr[1]/td[1]/app-user-details-renderer/lib-name-render/div/a")
     public WebElement fullNEDName;
 
+    /** My DOC Discrepancies */
+    @FindBy(xpath = "//li[@class='list-group-item']//a[contains(text(),'My DOC Discrepancies')]")
+    public WebElement myDOCDiscrepancies;
+
+    /** IMPAC II Portfolio Analysis */
+    @FindBy(xpath = "//li[@class='list-group-item']//a[contains(text(),'IMPAC II Portfolio Analysis')]")
+    public WebElement impac2PortfolioAnalysis;
+
+    /** I2E Portfolio Analysis */
+    @FindBy(xpath = "//li[@class='list-group-item']//a[contains(text(),'I2E Portfolio Analysis')]")
+    public WebElement i2EPortfolioAnalysis;
+
+    /** Accounts Audit */
+    @FindBy(xpath = "//li[@class='list-group-item']//a[contains(text(),'Accounts Audit ')]")
+    public WebElement accountsAudit;
+
+    /** NEAR */
+    @FindBy(xpath = "//li[@class='list-group-item']//a[contains(text(),'NEAR')]")
+    public WebElement near;
+
+    /** Change UserDr */
+    @FindBy(xpath = "//a[@id='change-user-dropdown']")
+    public WebElement changeuserDr;
+
+    /** Change User Field */
+    @FindBy(xpath = "(//span[@class='select2-selection select2-selection--single']//span[@class='select2-selection__rendered'])[1]")
+    public WebElement changeuserField;
+
+    /** Change User Field Input */
+    @FindBy(xpath = "//span[@class='select2-search select2-search--dropdown']//input[@role='searchbox']")
+    public WebElement changeuserFieldInput;
+
+    /** Li Bin Option */
+    @FindBy(xpath = "//span[@class='select2-results']//li[contains(text(),'Li, Bin [OD CBIIT]')]")
+    public WebElement liBinOption;
 
     /***
      * USE THIS METHOD TO DYNAMICALLY LOCATE A USER
