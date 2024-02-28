@@ -19,15 +19,15 @@ public class Example {
             page.getByLabel("Password", new Page.GetByLabelOptions().setExact(true)).click();
             page.getByLabel("Password", new Page.GetByLabelOptions().setExact(true)).fill("curlbylawdighalvekinlarswould");
             page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Log in")).click();
-            page.navigate("https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/%24pa_dashboard.do");
+            assertThat(page.getByLabel("StartNow Implementation", new Page.GetByLabelOptions().setExact(true))).containsText("StartNow Implementation");
+            assertThat(page.getByLabel("Getting Started", new Page.GetByLabelOptions().setExact(true))).containsText("Getting Started");
             page.getByPlaceholder("Filter").click();
             page.getByPlaceholder("Filter").fill("CHARMS");
             page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Dashboard")).click();
-            Page page1 = page.waitForPopup(() -> {
-                page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel("Eligibility Review Needed, Total number of records is:").click();
-            });
-            page1.getByLabel("(empty) - Open record: kristine1  rojas1").click();
-            assertThat(page1.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Name").setExact(true))).isVisible();
+//            page1.getByLabel("(empty) - Open record: far heen]").click();
+//            page1.locator("#tabs2_section").getByText("Demographics").click();
+//            assertThat(page1.getByLabel("Demographics form section").getByLabel("Biological Gender")).containsText("-- None --9FemaleMaleUnknown/UnsurePrefer not to answer");
+//            assertThat(page1.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Date of Birth"))).hasValue("02/11/1998");
         }
     }
 }
