@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -12,11 +13,10 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.asserts.SoftAssert;
+
 import com.nci.automation.utils.ExcelReader;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.WebDriverUtils;
-
-import ServiceNow.CHARMS.Constants.FHQSurveyPageConstants;
 
 /* @author SONIKA JAIN */
 public class CharmsUtil {
@@ -113,9 +113,24 @@ public class CharmsUtil {
 		CharmsUtil.labelHighlight(webElement);
 		String actualValue = webElement.getText();
 		String actualValueWithSpace = actualValue.trim();
+		if (expectedValue == null) {		
+			expectedValue ="";
+		}
 		softAssert.assertEquals(actualValueWithSpace, expectedValue, "Assertion Failed for" + messsage + "-->");
+	}	
+	public static boolean compareValues(WebElement webElement, String expectedValue) {		
+		CharmsUtil.labelHighlight(webElement);
+		String actualValue = webElement.getText();
+		String actualValueWithSpace = actualValue.trim();
+		if (expectedValue == null) {		
+			expectedValue ="";
+		}
+		if(actualValueWithSpace.equals(expectedValue)) {
+			return true;
+		}
+		return false;
+//		softAssert.assertEquals(actualValueWithSpace, expectedValue, "Assertion Failed for" + messsage + "-->");
 	}
-
 	/* webElement:A text box to be Verified */
 	public static void assertTextBoxData(SoftAssert softAssert, WebElement webElement, String expectedValue,String messsage) {
 		CharmsUtil.labelHighlight(webElement);
@@ -123,8 +138,10 @@ public class CharmsUtil {
 		String actualValue = null;
 		if (webElement.getAttribute("value") != null) {
 			actualValue = webElement.getAttribute("value");
+			actualValue = actualValue.trim();
 		} else {
 			actualValue = webElement.getText();
+			actualValue = actualValue.trim();
 		}
 		softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + messsage + "-->");
 	}
@@ -158,7 +175,12 @@ public class CharmsUtil {
 		}
 		softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + messsage + "-->");
 	}
-
+	public static void compareExpectedActualValue(SoftAssert softAssert,WebElement webElement, String expectedValue,String messsage) {		
+		CharmsUtil.labelHighlight(webElement);
+		Select select = new Select(webElement);
+		String actualValue = select.getFirstSelectedOption().getText(); // getFirstSelectedOption() returns the selected
+	softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + messsage + "-->");
+	}
 	/* Method to select a value from the Drop down List */
 	public static boolean selectDropDownValue(WebElement webElement, String selectedValue) {
 		CharmsUtil.labelHighlight(webElement);

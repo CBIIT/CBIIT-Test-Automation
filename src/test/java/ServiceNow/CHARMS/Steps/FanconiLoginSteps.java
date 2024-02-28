@@ -1,13 +1,16 @@
 package ServiceNow.CHARMS.Steps;
 
 import java.io.FileNotFoundException;
+
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
+import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
+
 import ServiceNow.CHARMS.Utils.CharmsUtil;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
@@ -19,20 +22,18 @@ public class FanconiLoginSteps extends PageInitializer {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("fanconiLogin"));
 		MiscUtils.sleep(1000);
 	}
-
 	@Given("logs in Fanconi page via Okta with username {string} and password {string}")
 	public void logs_in_Fanconi_page_via_Okta_with_username_and_password(String username, String password) {
-		CommonUtils.waitForVisibility(fanconiLoginPage.enrollLoginButton);
-		CharmsUtil.clickOnElement(fanconiLoginPage.enrollLoginButton);
+		CommonUtils.waitForVisibility(fanconiLoginPage.enrollLoginButton1);
+		CharmsUtil.clickOnElement(fanconiLoginPage.enrollLoginButton1);
 		CharmsUtil.sendKeysToElement(oktaLoginPage.usernameTxtBox, username);
+		CharmsUtil.clickOnElement(oktaLoginPage.nextButton);
 		CharmsUtil.sendKeysToElement(oktaLoginPage.passwordTxtBox, password);
-		MiscUtils.sleep(600);
-		CommonUtils.waitForVisibility(oktaLoginPage.loginBtn);
-		CharmsUtil.clickOnElement(oktaLoginPage.loginBtn);
-		CommonUtils.waitForVisibility(fanconiLoginPage.warningAgreeButton);
-		CharmsUtil.clickOnElement(fanconiLoginPage.warningAgreeButton);
+		CharmsUtil.clickOnElement(oktaLoginPage.verifyBtn);	
+		CucumberLogUtils.logScreenshot();
+		CommonUtils.waitForVisibility(oktaLoginPage.agreeBtn);
+		CharmsUtil.clickOnElement(oktaLoginPage.agreeBtn);
 	}
-
 	@Given("clicks the Fanconi Eligibility Questionnaire widget")
 	public void clicks_the_Fanconi_Eligibility_Questionnaire_widget() {
 		fanconiLoginPage.eligibilityQuestionnaireLink.click();

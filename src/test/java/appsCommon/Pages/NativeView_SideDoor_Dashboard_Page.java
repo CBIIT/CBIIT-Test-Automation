@@ -1,13 +1,15 @@
 package appsCommon.Pages;
 
-import com.nci.automation.web.WebDriverUtils;
-import io.github.sukgu.Shadow;
-import io.github.sukgu.support.ElementFieldDecorator;
-import io.github.sukgu.support.FindElementBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.DefaultElementLocatorFactory;
+
+import com.nci.automation.web.WebDriverUtils;
+
+import io.github.sukgu.Shadow;
+import io.github.sukgu.support.ElementFieldDecorator;
+import io.github.sukgu.support.FindElementBy;
 public class NativeView_SideDoor_Dashboard_Page {
     /**
      * THIS CLASS CONTAINS NATIVE VIEW DASHBOARD ELEMENTS
@@ -19,6 +21,10 @@ public class NativeView_SideDoor_Dashboard_Page {
     /* FILTER NAVIGATOR TEXT BOX */
     @FindElementBy(xpath = "//*[@class='sn-polaris-nav-header-filter can-animate']//child::input")
     public static WebElement filterNavigatorTextBox;
+    /* FILTER NAVIGATOR TEXT BOX */
+    @FindBy(css = ".super-filter-header.all-results-toggle.no-interaction")
+    public static WebElement filterNavigatorResultsTextBox;
+   
     /* PIN */
     @FindElementBy(xpath = "//*[@class='sn-polaris-nav-header-controls pin']//child::button")
     public static WebElement sideMenuPin;
@@ -59,6 +65,11 @@ public class NativeView_SideDoor_Dashboard_Page {
     /* ASSETS MENU BUTTON */
     @FindElementBy(xpath = "//*[text()='Assets'][1]")
     public static WebElement assetsMenuButton;
+    
+	/* NV: FHQ Patients Menu Link In NV Navigator */
+	@FindBy(css = "a[class='nested-item item-label keyboard-navigatable highlighted-item']")
+	public static  WebElement nVFHQFilterMatchLink;
+	
 
     /**
      * USE THIS METHOD TO SEARCH ANY TEXT USING THE NATIVE VIEW FILTER NAVIGATOR
