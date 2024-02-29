@@ -11,7 +11,7 @@ public class DUA_AgreementsSteps extends PageInitializer {
 
     @Given("a user is on the SEER Data Access Request")
     public void a_user_is_on_the_SEER_Data_Access_Request() {
-        WebDriverUtils.webDriver.get(DUA_Constants.SEER_DATA_ACCESS_REQUEST);
+        WebDriverUtils.webDriver.get(DUA_Constants.SEER_DATA_ACCESS_REQUEST_URL);
     }
 
     @Then("DUA Agreements are verified")
@@ -21,7 +21,7 @@ public class DUA_AgreementsSteps extends PageInitializer {
 
     @Given("a user is on the SEER Data Access Research Plus Request")
     public void a_user_is_on_the_SEER_Data_Access_Research_Plus_Request() {
-        WebDriverUtils.webDriver.get(DUA_Constants.SEER_DATA_ACCESS_REQUEST_INSTITUTION);
+        WebDriverUtils.webDriver.get(DUA_Constants.SEER_DATA_ACCESS_REQUEST_INSTITUTION_URL);
     }
 
     @Then("DUA Research Plus Agreements are verified")
