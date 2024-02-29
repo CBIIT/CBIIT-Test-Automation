@@ -1,6 +1,6 @@
 package AnalysisTools.AnalysisToolsRunners;
 
-import io.cucumber.junit.CucumberOptions;
+import io.cucumber.testng.CucumberOptions;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(plugin = {
@@ -10,9 +10,6 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
         , glue = "AnalysisTools.MCAExplorer.Steps"
         , tags = "@Smoke"
         , dryRun = false
-        , monochrome = true
-        , strict = true
-
 )
 
 public class RunMCAExplorerSmokeTest extends AbstractTestNGCucumberTests {
