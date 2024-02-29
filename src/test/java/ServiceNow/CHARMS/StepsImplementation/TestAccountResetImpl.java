@@ -1,7 +1,5 @@
 package ServiceNow.CHARMS.StepsImplementation;
 
-import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
-import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.LocalConfUtils;
 import com.nci.automation.utils.MiscUtils;
