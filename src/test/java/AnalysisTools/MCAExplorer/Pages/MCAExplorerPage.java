@@ -41,9 +41,16 @@ public class MCAExplorerPage extends CommonUtils {
 	/** study dropdown **/
 	@FindBy(id = "react-select-12-placeholder")
 	public WebElement study_drodpown;
-
+	
+	
+	
+	
 	@FindBy(xpath = "react-select-12-input")
 	public WebElement study_dropdown_plco;
+	
+	/** group A study dropdown BioBank**/
+	@FindBy(xpath="react-select-10-option-1")
+	public WebElement groupA_Study_biobank;
 
 	/** age **/
 	@FindBy(id = "AminAgeCompare")
@@ -119,7 +126,7 @@ public class MCAExplorerPage extends CommonUtils {
 	public WebElement export_data_btn;
 
 	/** Chromosome dropdown **/
-	@FindBy(id = "react-select-10-input") //react-select-10-input
+	@FindBy(xpath = "//*[text()='Chromosome']/following-sibling::div//input") //react-select-10-input
 	public WebElement chromosomeDropdown;
 
 	/** Clear button in Study drop down */
@@ -135,43 +142,45 @@ public class MCAExplorerPage extends CommonUtils {
 	public WebElement chromosomeYCheckbox;
 	
 	/**study button**/
-	@FindBy(xpath="(//div[contains(@class,'select__control select__control--is-focused')])[1]")
+	@FindBy(xpath="(//div[contains(@class,'select__indicator select__dropdown-indicator')])[1]")
 	public WebElement groupA_Study_dropdown;
 	
 	/**study dropdown**/
-	@FindBy(id="react-select-65-option-1")
+	@FindBy(xpath="(//*[text()='Study']/following-sibling::*//div[contains(@class,'select__option')])[1]")
 	public WebElement groupA_Study_dropdown_biobank;
 	
+	
+	
 	/** select group A**/
-	@FindBy(xpath="(//div[contains(@class,'select__value-container select__value-container--is-multi')])[2]")
+	@FindBy(xpath="(//div[contains(@class,'select__indicator select__dropdown-indicator')])[2]")
 	public WebElement groupA_copynumber_dropdown;
 	
 	/** copy number**/
-	@FindBy(id="react-select-66-option-2")
+	@FindBy(xpath="(//*[text()='Copy Number State']/following-sibling::*//div[contains(@class,'select__option')])[1]")
 	public WebElement groupA_copynum_dropdown_loss;
 	
 	/** age group a **/
-	@FindBy(id = "aminAgeCompare")
+	@FindBy(id = "AminAgeCompare")
 	public WebElement groupA_age_Start;
 	
 	/** age groupa end **/
-	@FindBy(id = "aminAgeCompare")
+	@FindBy(id = "AmaxAgeCompare")
 	public WebElement groupA_age_End;
 	
 	/** study dropdown **/
-	@FindBy(xpath="(//div[contains(@class,'select__value-container select__value-container--is-multi')])[3]")
+	@FindBy(xpath="(//div[contains(@class,'select__indicator select__dropdown-indicator')])[3]")
 	public WebElement groupB_Study_dropdown;
 
 	/**  biobank dropdown **/
-	@FindBy(id="react-select-67-option-1")
+	@FindBy(id="react-select-13-option-1")
 	public WebElement groupB_Study_dropdown_biobank;
 	
 	/**  biobank dropdown **/
-	@FindBy(xpath="(//div[contains(@class,'select__value-container select__value-container--is-multi')])[4]")
+	@FindBy(xpath="(//div[contains(@class,'select__indicator select__dropdown-indicator')])[4]")
 	public WebElement groupB_copynumber_dropdown;
 	
 	 /** copy number dropdown **/
-	@FindBy(id="react-select-68-option-2")
+	@FindBy(xpath="(//*[text()='Copy Number State']/following-sibling::*//div[contains(@class,'select__option')])")
 	public WebElement groupB_copynum_dropdown_loss;
 	
 	 /** age group b start **/

@@ -60,17 +60,32 @@ public class MCAExplorerStepImp extends PageInitializer {
 	public void user_selects_study_copy_number_state_and_age_range_in_both_group_a_and_group_b(String start,
 			String end) {
 		CommonUtils.clickOnElement(mcaExplorerPage.groupA_Study_dropdown);
+		try {
+			Thread.sleep(1000);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		CommonUtils.clickOnElement(mcaExplorerPage.groupA_Study_dropdown_biobank);
 		CommonUtils.clickOnElement(mcaExplorerPage.groupA_copynumber_dropdown);
 		CommonUtils.clickOnElement(mcaExplorerPage.groupA_copynum_dropdown_loss);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		mcaExplorerPage.groupA_age_Start.sendKeys(start);
 		mcaExplorerPage.groupA_age_End.sendKeys(end);
 		CommonUtils.clickOnElement(mcaExplorerPage.groupB_Study_dropdown);
-		CommonUtils.clickOnElement(mcaExplorerPage.groupB_Study_dropdown_biobank);
+		CommonUtils.clickOnElement(mcaExplorerPage.groupA_Study_dropdown_biobank);
 		CommonUtils.clickOnElement(mcaExplorerPage.groupB_copynumber_dropdown);
 		CommonUtils.clickOnElement(mcaExplorerPage.groupB_copynum_dropdown_loss);
 		mcaExplorerPage.groupB_age_Start.sendKeys(start);
 		mcaExplorerPage.groupB_age_End.sendKeys(end);
+	}
+	
+	public void user_selects_age_range_copy_num_Study() {
+		
 	}
 
 	public void zoom_feature() {
@@ -99,7 +114,7 @@ public class MCAExplorerStepImp extends PageInitializer {
 		CommonUtils.sendKeys(mcaExplorerPage.groupB_min_age, min);
 		CommonUtils.sendKeys(mcaExplorerPage.groupB_max_age, max);
 	}
-	
+
 	public void selet_in_plot_type() {
 		CommonUtils.clickOnElement(mcaExplorerPage.plotDropDown);
 		CommonUtils.clickOnElement(mcaExplorerPage.plotDropdown_allchromosome);

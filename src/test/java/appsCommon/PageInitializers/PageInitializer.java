@@ -10,6 +10,7 @@ import AnalysisTools.LDLink.Pages.*;
 import AnalysisTools.MCAExplorer.Pages.MCAExplorerPage;
 import AnalysisTools.MCAExplorer.StepsImplementations.MCAExplorerStepImp;
 import AnalysisTools.PLCO.Pages.*;
+import AnalysisTools.ThreeDVizSNP.Pages.ThreeDVizSNPPage;
 import AnalysisTools.cProSite.Pages.*;
 import AnalysisTools.mSigPortal.Pages.*;
 import CustomBusiness.CCR.Pages.*;
@@ -314,6 +315,9 @@ public class PageInitializer extends WebDriverUtils {
 	public static MCAExplorerPage mcaExplorerPage;
 	public static MCAExplorerStepImp mcaExplorerStepImp;
 	
+	/** --------------- ThreeDVIZSNP --------*/
+	public static ThreeDVizSNPPage ThreeDVizSNPPage;
+	
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
 		// create instances of all pages and assign them to the variables
@@ -566,6 +570,9 @@ public class PageInitializer extends WebDriverUtils {
 		/** MCAEXPLORER INSTANCE VARIABLES */
 		mcaExplorerPage = new MCAExplorerPage();
 		mcaExplorerStepImp = new MCAExplorerStepImp();
+		
+		/** ThreeDVizSNP **/
+		ThreeDVizSNPPage = new ThreeDVizSNPPage();
 
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}
