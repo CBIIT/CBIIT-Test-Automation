@@ -31,7 +31,7 @@ public class LDExpressSteps extends PageInitializer {
         CommonUtils.clickOnElement(ldExpressPage.selectTissueDropDown);
         CommonUtils.clickOnElement(ldExpressPage.brainAmygdalaOptionOnTissueDropDown);
         CommonUtils.clickOnElement(ldExpressPage.submitOnLdExpress);
-        MiscUtils.sleep(15000);
+        MiscUtils.sleep(130000);
         CommonUtils.waitForVisibility(ldExpressPage.variantsWithWarningsLink);
         CommonUtils.clickOnElement(ldExpressPage.variantsWithWarningsLink);
     }

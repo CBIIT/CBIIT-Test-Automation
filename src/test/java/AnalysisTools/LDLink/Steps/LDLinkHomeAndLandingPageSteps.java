@@ -19,7 +19,7 @@ public class LDLinkHomeAndLandingPageSteps extends PageInitializer {
 
 	@Given("a LDlink user opens Analysis Tools page")
 	public void a_LDlink_user_opens_Analysis_Tools_page() throws TestingException {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("AnalysisToolsLandingPage"));
+		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("Analysistools"));
 	}
 
 	@Then("user verifies {string} present on the screen")
@@ -44,13 +44,13 @@ public class LDLinkHomeAndLandingPageSteps extends PageInitializer {
 	@When("user clicks LDLink on landing page")
 	public void user_clicks_LDLink_on_landing_page() throws InterruptedException {
 		CommonUtils.clickOnElement(analysisToolsLandingPage.ldLinkTextOnLandingPage);
-		if(analysisToolsLandingPage.securityScreenConnectionIsNotPrivateText.isDisplayed()){
-			CommonUtils.clickOnElement(analysisToolsLandingPage.securityScreenAdvancedButton);
-			Thread.sleep(2000);
-			CommonUtils.clickOnElement(analysisToolsLandingPage.securityScreenProceedLink);
-		}else{
-			System.out.println("THE SECURITY VULNERABILITY SCREEN IS NOT PRESENT");
-		}
+//		if(analysisToolsLandingPage.securityScreenConnectionIsNotPrivateText.isDisplayed()){
+//			CommonUtils.clickOnElement(analysisToolsLandingPage.securityScreenAdvancedButton);
+//			Thread.sleep(2000);
+//			CommonUtils.clickOnElement(analysisToolsLandingPage.securityScreenProceedLink);
+//		}else{
+//			System.out.println("THE SECURITY VULNERABILITY SCREEN IS NOT PRESENT");
+//		}
 	}
 
 	@Then("User verify title is {string}")
@@ -63,11 +63,5 @@ public class LDLinkHomeAndLandingPageSteps extends PageInitializer {
 	@When("a LDlink user opens home page")
 	public void a_LDlink_user_opens_home_page() throws TestingException {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("LDLink"));
-		if(analysisToolsLandingPage.securityScreenConnectionIsNotPrivateText.isDisplayed()){
-			CommonUtils.clickOnElement(analysisToolsLandingPage.securityScreenAdvancedButton);
-			CommonUtils.clickOnElement(analysisToolsLandingPage.securityScreenProceedLink);
-		}else{
-			System.out.println("THE SECURITY VULNERABILITY SCREEN IS NOT PRESENT");
-		}
 	}
 }
