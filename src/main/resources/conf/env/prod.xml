@@ -86,9 +86,29 @@
 		</db>
 	</application>
 
-	<!-- Application ID for ICRP -->
+	<!-- Application ID for JPSurv -->
 	<application id="JPSurv">
 		<login_url>https://analysistools.cancer.gov/jpsurv/#</login_url><!-- add prod url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default><!-- comment -->
+		</db>
+	</application>
+
+	<!-- Application ID for mSigPortal -->
+	<application id="mSigPortal">
+		<login_url>https://analysistools.cancer.gov/mutational-signatures/#/</login_url><!-- add prod url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
