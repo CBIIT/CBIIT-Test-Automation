@@ -50,7 +50,7 @@ public class MCAExplorer_pairwiseplots_steps extends PageInitializer {
 
 	@When("user selects age checkbox")
 	public void user_selects_age_checkbox() {
-		mcaExplorerPage.age_checkbox.click();
+		JavascriptUtils.clickByJS(mcaExplorerPage.age_checkbox);
 	}
 	
 	@When("user selects study,copy number state and age range in both Group A and Group B")

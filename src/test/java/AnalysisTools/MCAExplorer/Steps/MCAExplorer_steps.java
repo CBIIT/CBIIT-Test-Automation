@@ -18,7 +18,7 @@ public class MCAExplorer_steps extends PageInitializer {
 
 	@Then("clicks on advance filters")
 	public void clicks_on_advance_filters() {
-		mcaExplorerPage.advanceSettings.click();
+		JavascriptUtils.clickByJS(mcaExplorerPage.advanceSettings);
 	}
 
 	@Then("user clicks export data, {string} should get downloaded")
