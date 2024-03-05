@@ -18,7 +18,7 @@ Feature: Scenarios under the Analyses tab on ezQTL
         When the user clicks on the Load Sample Data link
         Then the "Locus QC", "Locus LD", "Locus Alignment", "Locus Colocalization", "Locus Table", "Locus Quantification", "Locus Download" texts is displayed
 
-    @Smoke @matakevin
+    @Progression @matakevin
     Scenario:Calculating multiple locus jobs
         Given The user is on the ezQTL Analyses page
         When the user searches using public data and five locus parameters
