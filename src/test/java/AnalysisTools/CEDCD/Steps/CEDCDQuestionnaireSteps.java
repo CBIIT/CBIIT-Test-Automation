@@ -75,10 +75,10 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 
 		/** A4 clearing of previous data and completion of section */
 		cedcdCohortPage.a4aName.sendKeys("Kevin Mata");
-		cedcdCohortPage.a4aCohortPosition.sendKeys("Test Lead");
+		cedcdCohortPage.a4aCohortPosition.sendKeys("Tester");
 		cedcdCohortPage.a4aCountryCode.sendKeys("");
 		cedcdCohortPage.a4aPhone.sendKeys("7036875816");
-		cedcdCohortPage.a4aEmail.sendKeys("diego.juarez@mail.com");
+		cedcdCohortPage.a4aEmail.sendKeys("matakevin@mail.com");
 		cedcdCohortPage.a4bRadioButtonNo.click();
 		cedcdCohortPage.a4bName.sendKeys("Kevin Mata");
 		cedcdCohortPage.a4bCohortPosition.sendKeys("Tester");
@@ -91,9 +91,9 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 		MiscUtils.sleep(2000);
 		cedcdCohortPage.principalInvestigatorTab.click();
 		MiscUtils.sleep(2000);
-		cedcdCohortPage.a5InvestigatorsName.sendKeys("Shomir Uddin");
+		cedcdCohortPage.a5InvestigatorsName.sendKeys("Kevin Mata");
 		cedcdCohortPage.a5InvestigatorsInstitution.sendKeys("National Cancer Institute");
-		cedcdCohortPage.a5InvestigatorsEmails.sendKeys("Shomir.Uddinn@mail.com");
+		cedcdCohortPage.a5InvestigatorsEmails.sendKeys("QA@mail.com");
 
 		/** A6 Selecting same as 4a checkbox */
 		MiscUtils.sleep(2000);
