@@ -187,6 +187,8 @@ import appsCommon.Pages.ITrustLoginPage;
 import appsCommon.Pages.NativeViewHomePage;
 import appsCommon.Pages.ServiceNow_NCISP_Page;
 import appsCommon.StepsImplementation.ITrustLoginPageImpl;
+import AnalysisTools.ThreeDVizSNP.Pages.*;
+import AnalysisTools.ThreeDVizSNP.StepsImplementations.*;
 /**
  * This an initializer class which will initialize all pages classes. Once pages
  * class created, create an object of it here inside the constructor
@@ -442,7 +444,9 @@ public class PageInitializer extends WebDriverUtils {
 	public static MCAExplorerPage mcaExplorerPage;
 	public static MCAExplorerStepImp mcaExplorerStepImp;
 	
-
+	/** --------------- ThreeDVIZSNP --------*/
+	public static ThreeDVizSNPPage ThreeDVizSNPPage;
+	public static ThreeDVizSNPStepImp ThreeDVizSNPStepImp;
 	
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
@@ -696,6 +700,10 @@ public class PageInitializer extends WebDriverUtils {
 		/** MCAEXPLORER INSTANCE VARIABLES */
 		mcaExplorerPage = new MCAExplorerPage();
 		mcaExplorerStepImp = new MCAExplorerStepImp();
+		
+		/** 3DVIZSNP INSTANCE VERIABLES */
+		ThreeDVizSNPPage =  new ThreeDVizSNPPage();
+		ThreeDVizSNPStepImp = new ThreeDVizSNPStepImp();
 		
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}

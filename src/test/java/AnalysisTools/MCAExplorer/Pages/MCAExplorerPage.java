@@ -42,9 +42,6 @@ public class MCAExplorerPage extends CommonUtils {
 	@FindBy(id = "react-select-12-placeholder")
 	public WebElement study_drodpown;
 	
-	
-	
-	
 	@FindBy(xpath = "react-select-12-input")
 	public WebElement study_dropdown_plco;
 	
@@ -148,9 +145,7 @@ public class MCAExplorerPage extends CommonUtils {
 	/**study dropdown**/
 	@FindBy(xpath="(//*[text()='Study']/following-sibling::*//div[contains(@class,'select__option')])[1]")
 	public WebElement groupA_Study_dropdown_biobank;
-	
-	
-	
+
 	/** select group A**/
 	@FindBy(xpath="(//div[contains(@class,'select__indicator select__dropdown-indicator')])[2]")
 	public WebElement groupA_copynumber_dropdown;
