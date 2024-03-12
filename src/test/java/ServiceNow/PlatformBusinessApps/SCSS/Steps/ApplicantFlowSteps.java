@@ -1,4 +1,4 @@
-package ServiceNow.SCSS.Steps;
+package ServiceNow.PlatformBusinessApps.SCSS.Steps;
 
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.web.CommonUtils;

@@ -1,4 +1,4 @@
-package ServiceNow.SCSS.Constants;
+package ServiceNow.PlatformBusinessApps.SCSS.Constants;
 
 import com.nci.automation.web.CommonUtils;
 

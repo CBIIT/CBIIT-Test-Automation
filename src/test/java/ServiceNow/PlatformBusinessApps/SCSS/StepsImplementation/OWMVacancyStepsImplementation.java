@@ -1,7 +1,7 @@
-package ServiceNow.SCSS.StepsImplementation;
+package ServiceNow.PlatformBusinessApps.SCSS.StepsImplementation;
 
-import ServiceNow.SCSS.Constants.NativeViewSCSSConstants;
-import ServiceNow.SCSS.Constants.OWMVacanciesConstants;
+import ServiceNow.PlatformBusinessApps.SCSS.Constants.NativeViewSCSSConstants;
+import ServiceNow.PlatformBusinessApps.SCSS.Constants.OWMVacanciesConstants;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -10,7 +10,6 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Then;
-import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;

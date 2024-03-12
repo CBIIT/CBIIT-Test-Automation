@@ -1,7 +1,7 @@
-package ServiceNow.SCSS.StepsImplementation;
+package ServiceNow.PlatformBusinessApps.SCSS.StepsImplementation;
 
-import ServiceNow.SCSS.Constants.OWMVacanciesConstants;
-import ServiceNow.SCSS.Constants.StadtmanVacanciesConstants;
+import ServiceNow.PlatformBusinessApps.SCSS.Constants.OWMVacanciesConstants;
+import ServiceNow.PlatformBusinessApps.SCSS.Constants.StadtmanVacanciesConstants;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;

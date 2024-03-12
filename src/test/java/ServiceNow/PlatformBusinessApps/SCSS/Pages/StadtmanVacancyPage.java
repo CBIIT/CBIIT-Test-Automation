@@ -1,4 +1,4 @@
-package ServiceNow.SCSS.Pages;
+package ServiceNow.PlatformBusinessApps.SCSS.Pages;
 
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;

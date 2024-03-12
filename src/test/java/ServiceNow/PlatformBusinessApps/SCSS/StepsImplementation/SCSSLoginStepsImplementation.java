@@ -1,14 +1,12 @@
-package ServiceNow.SCSS.StepsImplementation;
+package ServiceNow.PlatformBusinessApps.SCSS.StepsImplementation;
 
-import ServiceNow.SCSS.Constants.SCSS_Constants;
+import ServiceNow.PlatformBusinessApps.SCSS.Constants.SCSS_Constants;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
-import org.openqa.selenium.WebDriver;
 
 public class SCSSLoginStepsImplementation extends PageInitializer {
 
