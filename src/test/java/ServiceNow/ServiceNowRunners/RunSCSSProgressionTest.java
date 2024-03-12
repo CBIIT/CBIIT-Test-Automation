@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         , "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
         , features="src/test/java/ServiceNow/SCSS/Features"
         , glue="ServiceNow.SCSS.Steps"
-        , tags="@APPTRACK-758"
+        , tags="@APPTRACK-67"
         , dryRun=false
         , monochrome=true
         , strict=true

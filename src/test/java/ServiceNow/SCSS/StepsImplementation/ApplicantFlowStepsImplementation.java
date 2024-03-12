@@ -95,7 +95,8 @@ public class ApplicantFlowStepsImplementation extends PageInitializer {
         CommonUtils.sendKeys(applicantFlowPage.fldStateProfile,state);
     }
 
-    public void enterCountryProfileTab(String country) {
+    public void
+    enterCountryProfileTab(String country) {
         CommonUtils.waitForVisibility(applicantFlowPage.fldCountryProfile);
         CommonUtils.sendKeys(applicantFlowPage.fldCountryProfile, Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
         CommonUtils.sendKeys(applicantFlowPage.fldCountryProfile,country);
