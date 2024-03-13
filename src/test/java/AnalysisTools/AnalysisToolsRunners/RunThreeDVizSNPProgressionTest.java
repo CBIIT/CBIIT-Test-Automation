@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 		"junit:target/cucumber.xml", "rerun:target/failed.txt", "pretty" } 
 		, features = {"src/test/java/AnalysisTools/ThreeDVizSNP/Features" }
 		, glue = "AnalysisTools.ThreeDVizSNP.Steps"
-		, tags = "@Progression"
+		, tags = "@TC13"
 		, dryRun = false 
 		, monochrome = true 
 		, strict = true

@@ -3,7 +3,6 @@ package AnalysisTools.ThreeDVizSNP.Steps;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
-
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -73,20 +72,64 @@ public class ThreeDVizSNP_steps extends PageInitializer {
 	public void varientHeader() {
 		ThreeDVizSNPPage.varientHeader.click();
 	}
-	
+
 	@Then("Verify that sorting order is getting changed based on varient")
 	public void verifySorting() {
 		ThreeDVizSNPPage.sortingOrderApplied.click();
 	}
-	
+
 	@Then("User entered {string} filter")
 	public void filterdata(String filterName) {
 		ThreeDVizSNPPage.filterOption.sendKeys(filterName);
 	}
-	
+
 	@Then("Verify Records are getting filtered as expected")
 	public void verifyRecordsFilter() {
 		ThreeDVizSNPStepImp.verifyNumberOfPagesDisplayed();
 	}
 
+	@Then("user clicks Long-running Job checkbox,entering email and name")
+	public void longRunningJobAndEnterEmailAndname() {
+		ThreeDVizSNPStepImp.longRunningJobSubmit();
+	}
+
+	@Then("User enter invalid text in Gene Textbox")
+	public void enterGeneText() {
+		ThreeDVizSNPPage.gene.sendKeys("12345");
+	}
+
+	@Then("User should verify Error message Gene symbols searched for are not found in the attached file is getting displayed.")
+	public void verifyErrorMessage() {
+		ThreeDVizSNPStepImp.validateErrorMessage();
+	}
+
+	@Then("User should verify Error message Visualization Job Failed is getting displayed.")
+	public void verifyErrorMessageFailedJob() {
+		ThreeDVizSNPStepImp.validateErrorMessageForInvalidVcf();
+	}
+
+	@Then("User clicks choose file and upload invalid file")
+	public void uploadInvalidFile() {
+		ThreeDVizSNPStepImp.uploadInvalidVCFFIle();
+	}
+
+	@Then("User should verify that email notification is sent")
+	public void verifyEmailNotificationSent() {
+		ThreeDVizSNPStepImp.verifyEmailNotificationSent();
+	}
+
+	@Then("User clicks svg,json,png button and download files")
+	public void validateButtons() {
+		ThreeDVizSNPStepImp.DownloadFilesForSvgPngAndJson();
+	}
+
+	@Then("Verify that all the mini windows are interactable")
+	public void interactWithAllMiniWindow() {
+		ThreeDVizSNPStepImp.miniWindowInteraction();
+	}
+
+	@Then("user clicks feedback button")
+	public void provideFeedback() {
+		ThreeDVizSNPStepImp.feedbackOption();
+	}
 }
