@@ -1,4 +1,4 @@
-package AnalysisTools.LDLink.Steps;
+package AnalysisTools.GWASTarget.Steps;
 
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
