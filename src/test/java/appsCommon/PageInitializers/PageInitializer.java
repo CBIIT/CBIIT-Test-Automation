@@ -2,9 +2,9 @@ package appsCommon.PageInitializers;
 
 import AnalysisTools.ACT24.Pages.*;
 import AnalysisTools.Comets2.Pages.*;
-import AnalysisTools.GDSTracking.Pages.GDSLoginPage;
-import AnalysisTools.GWASExplorer.Pages.BrowsePhenotypesPage;
-import AnalysisTools.GWASExplorer.Pages.GwasExplorerHomePage;
+import AnalysisTools.GDSTracking.Pages.*;
+import AnalysisTools.GWASExplorer.Pages.*;
+import AnalysisTools.GWASTarget.Pages.*;
 import AnalysisTools.ICRP.Pages.*;
 import AnalysisTools.ezQTL.Pages.*;
 import AnalysisTools.cProSite.Pages.*;
@@ -15,7 +15,6 @@ import AnalysisTools.JPSurv.Pages.*;
 import AnalysisTools.LDLink.Pages.*;
 import AnalysisTools.MCAExplorer.Pages.MCAExplorerPage;
 import AnalysisTools.MCAExplorer.StepsImplementations.MCAExplorerStepImp;
-import AnalysisTools.GWASExplorer.Pages.*;
 import AnalysisTools.mSigPortal.Pages.*;
 import AnalysisTools.scAtlas.Pages.SCAtlasCohortsPage;
 import AnalysisTools.scAtlas.Pages.SCAtlasHomePage;
@@ -304,6 +303,10 @@ public class PageInitializer extends WebDriverUtils {
 	public static ACT24ParticipantPortalPage act24ParticipantPortalPage;
 	public static ACT24ResearcherPortalPage act24ResearcherPortalPage;
 
+	/** GWAS Target instances **/
+	public static GWASTargetHomePages gwasTargetHomePages;
+	public static GWASTargetAnalysisPages gwasTargetAnalysisPages;
+
 	/** CCR instances **/
 	public static CCRLandingPage cCRLandingPage;
 	public static CCRStepsImplementation cCRStepsImplementation;
@@ -565,6 +568,10 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** CProSite Instance Variables **/
 		cProSiteExplorePage = new CProSiteExplorePage();
+
+		/** GWS Target Instance Variables **/
+		gwasTargetHomePages = new GWASTargetHomePages();
+		gwasTargetAnalysisPages = new GWASTargetAnalysisPages();
 
 		/** CCR Instance Variables **/
 		cCRLandingPage = new CCRLandingPage();
