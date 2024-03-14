@@ -1,6 +1,6 @@
 Feature: Test Member of congress results appearance
 
-  @SS-5200 @SS-5212 @bucurgb @Regression
+  @SS-5200 @SS-5212 @bucurgb @Regression @Progression
   Scenario: Test Member of congress results appearance
     Given a user is in the OGCR Admin Group
     When the user goes to the OGCR Knowledge Base

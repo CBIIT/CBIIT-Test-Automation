@@ -1,4 +1,4 @@
-package GrantsApps.EM.Steps;
+package GrantsApps.EM.selenium.Steps;
 
 import appsCommon.Utils.Dynamic_Locators;
 import appsCommon.PageInitializers.PageInitializer;
@@ -30,16 +30,16 @@ public class EMFlowSteps extends PageInitializer {
     @Given("User is on Manage I{int}E Users page")
     public void user_is_on_Manage_I_E_Users_page(Integer int1) {
         CommonUtils.assertTrue(manageI2EUsersPage.i2EPageTitle.isDisplayed());
-        CucumberLogUtils.logScreenshot();
+        //CucumberLogUtils.logScreenshot();
     }
 
     @When("User inputs {string} into the Name field and clicks search")
     public void user_inputs_into_the_name_field_and_clicks_search(String name) {
         CommonUtils.sendKeys(manageI2EUsersPage.nameField, name);
-        CucumberLogUtils.logScreenshot();
+        //CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(manageI2EUsersPage.searchButtonI2ESearch);
         MiscUtils.sleep(3000);
-        CucumberLogUtils.logScreenshot();
+        //CucumberLogUtils.logScreenshot();
     }
 
     @When("User clicks {string} button")
@@ -66,7 +66,7 @@ public class EMFlowSteps extends PageInitializer {
     @Then("User clicks on Add Role button Inside Module")
     public void user_clicks_on_Add_Role_button_Inside_Module() {
         CommonUtils.clickOnElement(manageI2EUsersPage.addRoleButtonInsideModule);
-        CucumberLogUtils.logScreenshot();
+        //CucumberLogUtils.logScreenshot();
     }
 
     @Then("User can verify that the ItwoE Technical Support Role is displayed in the Active User Roles grid")
@@ -261,7 +261,7 @@ public class EMFlowSteps extends PageInitializer {
     public void user_Saves_Changes() {
         CommonUtils.waitForClickability(accountDetailsPage.saveChangesButton);
         CommonUtils.clickOnElement(accountDetailsPage.saveChangesButton);
-        CucumberLogUtils.logScreenshot();
+       // CucumberLogUtils.logScreenshot();
     }
 
     @When("User can verify that predictive search {string} is available for ITwoE Role dropdown")
@@ -289,20 +289,20 @@ public class EMFlowSteps extends PageInitializer {
     public void user_can_verify_that_appropriate_i_two_e_roles_are_available_via_i_two_e_role_dropdown() {
         CommonUtils.clickOnElement(manageI2EUsersPage.I2ERoleDropD);
         Assert.assertTrue(accountDetailsPage.i2ETechSupportDropDownOption.isDisplayed());
-        CucumberLogUtils.logScreenshot();
+      //  CucumberLogUtils.logScreenshot();
     }
 
     @Then("User can pick eGrants Access Representative role")
     public void user_can_pick_e_grants_access_representative_role() {
         CommonUtils.clickOnElement(accountDetailsPage.eGrantsAccessRepresentativeRole);
-        CucumberLogUtils.logScreenshot();
+       // CucumberLogUtils.logScreenshot();
     }
 
     @Then("User can remove eGrants Access Representative role")
     public void user_can_remove_e_grants_access_representative_role() {
         CommonUtils.waitForClickability(accountDetailsPage.removeItemsIconi2E);
         CommonUtils.clickOnElement(accountDetailsPage.removeItemsIconi2E);
-        CucumberLogUtils.logScreenshot();
+       // CucumberLogUtils.logScreenshot();
     }
 
     @When("User clears Administrative option form Business Area choice")
@@ -310,13 +310,13 @@ public class EMFlowSteps extends PageInitializer {
         CommonUtils.waitForClickability(accountDetailsPage.removeItemsBAIcon);
         CommonUtils.clickOnElement(accountDetailsPage.removeItemsBAIcon);
         CommonUtils.clickOnElement(accountDetailsPage.allBADropDown);
-        CucumberLogUtils.logScreenshot();
+       // CucumberLogUtils.logScreenshot();
     }
 
     @Then("ItwoE roles choices are cleared too with message {string}")
     public void itwo_e_roles_choices_are_cleared_too_with_message(String message) {
         Assert.assertTrue(Dynamic_Locators.dynamicTextLocator(message).isDisplayed(), "--- MESSAGE DOES NOT APPEAR!! ---");
-        CucumberLogUtils.logScreenshot();
+       // CucumberLogUtils.logScreenshot();
     }
 
     @When("User chooses Administrative option from Business Area dropdown again")

@@ -1,13 +1,14 @@
-package GrantsApps.EM.Steps;
+package GrantsApps.EM.playwright.Steps;
 
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.web.PlaywrightUtils;
 import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 
-public class HooksSteps extends PageInitializer {
+public class HooksSteps {
     /**
      * THESE ARE HOOKS
      * HOOKS EXECUTE BEFORE AND AFTER EACH SCENARIO
@@ -20,8 +21,7 @@ public class HooksSteps extends PageInitializer {
     @Before
     public void genericSetUp(Scenario scenario) {
         CucumberLogUtils.scenario = scenario;
-        WebDriverUtils.setUp();
-        initializeAllPages();
+        PlaywrightUtils.setUp();
     }
 
     /**
@@ -29,7 +29,6 @@ public class HooksSteps extends PageInitializer {
      */
     @After
     public void genericTearDown()  {
-        closeWebDriver();
+        PlaywrightUtils.tearDown();
     }
-
 }

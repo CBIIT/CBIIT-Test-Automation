@@ -1,7 +1,7 @@
-package GrantsApps.EM.StepImplementation;
+package GrantsApps.EM.selenium.StepImplementation;
 
-import GrantsApps.EM.Pages.ManageI2EUsersPage;
-import GrantsApps.EM.Utils.EM_Constants;
+import GrantsApps.EM.selenium.Pages.ManageI2EUsersPage;
+import GrantsApps.EM.selenium.Utils.EM_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;

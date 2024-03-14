@@ -1,6 +1,6 @@
-package GrantsApps.EM.Steps;
+package GrantsApps.EM.selenium.Steps;
 
-import GrantsApps.EM.StepImplementation.EMStepsImplementation;
+import GrantsApps.EM.selenium.StepImplementation.EMStepsImplementation;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.web.CommonUtils;
 import io.cucumber.java.en.And;

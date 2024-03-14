@@ -57,6 +57,6 @@ Feature: EM Flow Sprint One
     And User can remove eGrants Access Representative role
     When User clears Administrative option form Business Area choice
     Then ItwoE roles choices are cleared too with message " Role is required. "
-#    When User chooses Administrative option from Business Area dropdown again
-#    Then User can verify that Administrative related roles "eGrants Access Representative", "I2E Coordinator", "I2E Technical Support", "Primary I2E Coordinator" are reflected in I2E Role dropdown
-    When User picks Financial from Business Area dropdown
+    #When User chooses Administrative option from Business Area dropdown again
+    #Then User can verify that Administrative related roles "eGrants Access Representative", "I2E Coordinator", "I2E Technical Support", "Primary I2E Coordinator" are reflected in I2E Role dropdown
+    #When User picks Financial from Business Area dropdown

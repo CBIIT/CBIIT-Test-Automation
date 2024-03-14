@@ -1,4 +1,4 @@
-package GrantsApps.EM.Pages;
+package GrantsApps.EM.selenium.Pages;
 
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.By;

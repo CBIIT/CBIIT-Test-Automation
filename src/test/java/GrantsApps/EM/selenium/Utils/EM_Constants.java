@@ -1,4 +1,4 @@
-package GrantsApps.EM.Utils;
+package GrantsApps.EM.selenium.Utils;
 
 public class EM_Constants {
 
