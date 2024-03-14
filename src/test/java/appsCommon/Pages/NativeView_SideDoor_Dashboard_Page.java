@@ -57,6 +57,10 @@ public class NativeView_SideDoor_Dashboard_Page {
     @FindElementBy(xpath = "//div[@class='now-modal-footer']/now-button[2]")
     public static WebElement impersonateUserWindowButton;
 
+    /* NV POP UP CANCEL BUTTON  */
+    @FindElementBy(xpath = "//div[@class='now-button -primary -md']")
+    public static WebElement NVPopUpDiscardCancelButton;
+
     /* FILTER NAVIGATION EMAILS BUTTON  */
     @FindElementBy(xpath = "//div[@class='sn-polaris-nav-body']/sn-collapsible-list[2]")
     public static WebElement filterNavigationEmailsButton;
