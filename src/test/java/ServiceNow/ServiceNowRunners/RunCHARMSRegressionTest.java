@@ -11,8 +11,7 @@ import org.junit.runner.RunWith;
 		glue = "ServiceNow.CHARMS.Steps",
 		tags = "@Regression",
 		dryRun = false,
-		monochrome = true,
-		strict = true
+		monochrome = true//, strict = true
 )
 
 /**

@@ -2,13 +2,11 @@ package ServiceNow.CHARMS.StepsImplementation;
 
 import org.openqa.selenium.By;
 import org.testng.asserts.SoftAssert;
-
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
-
 import ServiceNow.CHARMS.Constants.FHQConstants;
 import ServiceNow.CHARMS.Pages.FHQSubmissionPage;
 import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
@@ -663,6 +661,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.CLICK_HERE_TO_START_YOUR_FAMILY_HEALTH_QUESTIONNAIRE),header5," Click here to start your family health questionnaire Label the FHQ Survey: ");
 		CucumberLogUtils.logScreenshot();
 		CharmsUtil.clickOnElement(fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.CLICK_HERE_TO_START_YOUR_FAMILY_HEALTH_QUESTIONNAIRE));
+		CucumberLogUtils.logScreenshot();
 	} 
 	/* Method to land on FHQ Grid page and do text message assertions */
 	public static void loginToFHQGridPage() {
@@ -1034,14 +1033,17 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CucumberLogUtils.logScreenshot();
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.HAS_THE_PARTICIPANT_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS),"Has the participant ever had any miscarriages or stillbirths?"," Has the participant ever had any miscarriages or stillbirths? Label ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.fHQFieldDropDown1,FHQConstants.YES_NO_DONT_KNOW_PREFER_NOT_TO_ANSWER,fHQ_TestDataManager.hasTheParticipantEverHadAnyMiscarriagesOrStillbirths);
+		CucumberLogUtils.logScreenshot();
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.TOTAL_NUMBER_OF_MISCARRIAGES),"Total number of Miscarriages"," Total number of Miscarriages Label ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.LESS_THAN_20_WEEKS_OF_PREGNANCY),fHQ_TestDataManager.lessThan20WeeksOfPregnancy," less than 20 weeks of pregnancy Label ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.fHQFieldDropDown1,FHQConstants.numberUpToN(20),fHQ_TestDataManager.totalNumberOfMiscarriages);
+		CucumberLogUtils.logScreenshot();
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.PLEASE_WRITE_THE_FIRST_NAME_OF_THE_PARTNERS_WITH_WHOM_THE_PARTICIPANT_HAD_THE_PREGNANCYIES_ABOVE),fHQ_TestDataManager.pleaseWriteTheFirstNameOfThePartnersWithWhomTheParticipantHadThePregnancyiesAbove," Please write the first name of the partner(s) with whom the participant had the pregnancy(ies) above. Label1 ");
 		CharmsUtil.sendKeysToElement(fHQSubmissionPage.dynamicLocatorForTextBox("miscarriage_partners"),fHQ_TestDataManager.pleaseWriteTheFirstNameOfThePartnersWithWhomTheParticipantHadThePregnancyiesAboveMiscarriages);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.TOTAL_NUMBER_OF_STILLBIRTHS),"Total number of Stillbirths"," Total number of Stillbirths Label ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorContainsText(FHQConstants.MORE_THAN_20_WEEKS_OF_PREGNANCY),fHQ_TestDataManager.moreThan20WeeksOfPregnancy," Header ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.fHQFieldDropDown1,FHQConstants.numberUpToN(20),fHQ_TestDataManager.totalNumberOfStillbirths);
+		CucumberLogUtils.logScreenshot();
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.partnerHeading2,fHQ_TestDataManager.pleaseWriteTheFirstNameOfThePartnersWithWhomTheParticipantHadThePregnancyiesAbove," Please write the first name of the partner(s) with whom the participant had the pregnancy(ies) above. Label2 ");	
 		CharmsUtil.sendKeysToElement(fHQSubmissionPage.dynamicLocatorForTextBox("stillbirth_partners"), fHQ_TestDataManager.pleaseWriteTheFirstNameOfThePartnersWithWhomTheParticipantHadThePregnancyiesAboveStillbirths);
 	}
@@ -1077,6 +1079,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HOW_MANY_TOTAL_CHILDREN_ALIVE_AND_DECEASED_HAS_THE_PARTICIPANT_HAD),"How many total children (alive and deceased) has the participant had?"," How many total children (alive and deceased) has the participant had? Label ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.childrenHelpTextBanner,fHQ_TestDataManager.pleaseIncludeLivingAndDeceasedChildren," Please include living and deceased children. Label ");			
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.fHQFieldDropDown1,FHQConstants.numberUpToN(20),fHQ_TestDataManager.howManyTotalChildrenAliveAndDeceasedHasTheParticipantHad);
+		CucumberLogUtils.logScreenshot();
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.CHILDREN),fHQ_TestDataManager.children," Children Label ");		
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("Add a row for Children"),fHQ_TestDataManager.add," Add Label for child ");
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("Remove all rows for Children"),fHQ_TestDataManager.removeAll," Remove All Label for child ");		
@@ -1086,6 +1089,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.HOW_MANY_TOTAL_CHILDREN_ALIVE_AND_DECEASED_HAS_THE_PARTICIPANT_HAD),"How many total children (alive and deceased) has the participant had?"," How many total children (alive and deceased) has the participant had? Label ");
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingTitle(FHQConstants.PLEASE_INCLUDE_LIVING_AND_DECEASED_CHILDREN),fHQ_TestDataManager.pleaseIncludeLivingAndDeceasedChildren," Please include living and deceased children. Label ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.fHQFieldDropDown,FHQConstants.numberUpToN(20),fHQ_TestDataManager.howManyTotalChildrenAliveAndDeceasedHasTheParticipantHad);
+		CucumberLogUtils.logScreenshot();
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.CHILD),fHQ_TestDataManager.child," Child Label ");		
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("Add a row for Children"),fHQ_TestDataManager.add," Add Label for child ");
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorForButton("Remove all rows for Children"),fHQ_TestDataManager.removeAll," Remove All Label for child ");		
@@ -1105,6 +1109,7 @@ public class FHQSubmissionStepsImpl extends PageInitializer {
 		CharmsUtil.sendKeysToElement(fHQSubmissionPage.dynamicLocatorForTextBox("first_name_child"), fHQ_TestDataManager.childfirstName);
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.PARTICIPANT_FIRST_INITIAL_OF_LAST_NAME),fHQ_TestDataManager.firstInitialOfLASTName, " First Initial of LAST Name label for child  in MRVS Page ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.fHQFieldDropDown,FHQConstants.firstInitialLastName(),fHQ_TestDataManager.childfirstInitialOfLASTName);
+		
 		CharmsUtil.assertTextBoxData(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.PARTICIPANT_VITAL_STATUS),fHQ_TestDataManager.vitalStatus, " Vital Status label for child  in MRVS Page ");
 		CharmsUtil.SelectValueFromDropDown(fHQSubmissionPage.fHQFieldDropDown,FHQConstants.VITAL_STATUS_LIST,fHQ_TestDataManager.childvitalStatus);
 		CharmsUtil.assertButtonLabel(softAssert, fHQSubmissionPage.dynamicLocatorUsingNormalizeSpace(FHQConstants.CANCEL),fHQ_TestDataManager.cancel, " Cancel button label for child  in MRVS Page ");

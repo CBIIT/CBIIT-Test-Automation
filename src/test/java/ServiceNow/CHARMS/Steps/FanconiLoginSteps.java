@@ -1,7 +1,6 @@
 package ServiceNow.CHARMS.Steps;
 
 import java.io.FileNotFoundException;
-
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -10,7 +9,6 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import ServiceNow.CHARMS.Utils.CharmsUtil;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;

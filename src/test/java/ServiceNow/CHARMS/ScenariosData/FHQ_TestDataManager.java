@@ -1,9 +1,7 @@
 package ServiceNow.CHARMS.ScenariosData;
 
 import java.util.Map;
-
 import com.nci.automation.utils.ExcelReader;
-
 import ServiceNow.CHARMS.Constants.CHARMS_Data_File_Path_Constants;
 import ServiceNow.CHARMS.Constants.FHQConstants;
 import appsCommon.PageInitializers.PageInitializer;

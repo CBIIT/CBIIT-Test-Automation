@@ -2,12 +2,10 @@ package appsCommon.Utils;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
-
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
-
 import appsCommon.PageInitializers.NativeView_SideDoor_PageInitializer;
 import appsCommon.Pages.NativeViewHomePage;
 import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
