@@ -7,7 +7,6 @@ import io.cucumber.testng.CucumberOptions;
         "junit:target/cucumber.xml", "rerun:target/failed.txt",
         "pretty",
         "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }, features = "src/test/java/AnalysisTools/GWASTarget/Features", glue = "AnalysisTools.GWASTarget.Steps", tags = "@Smoke", dryRun = false
-
 )
 /**
  * This class is annotated with @RunWith(Cucumber.class) and it will run
@@ -16,5 +15,4 @@ import io.cucumber.testng.CucumberOptions;
  * @author sohilz2
  */
 public class RunGWASTargetSmokeTest extends AbstractTestNGCucumberTests {
-
 }

@@ -7,9 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 		"junit:target/cucumber.xml", "rerun:target/failed.txt",
 		"pretty",
 		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }, features = "src/test/java/AnalysisTools/ICRP/Features", glue = "AnalysisTools.ICRP.Steps", tags = "@Smoke", dryRun = false
-
 )
-
 /**
  * This class is annotated with @RunWith(Cucumber.class) and it will run
  * cucumber feature(s).
