@@ -1,10 +1,8 @@
 package ServiceNow.ServiceNowRunners;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-import org.junit.runner.RunWith;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
-@RunWith(Cucumber.class)
 @CucumberOptions(plugin= {"html:target/html-reports/cucumber-default-report"
         , "json:target/cucumber.json"
         , "junit:target/cucumber.xml"
@@ -14,9 +12,8 @@ import org.junit.runner.RunWith;
         , glue="ServiceNow.SCSS.Steps"
         , tags="@Regression"
         , dryRun =false
-        , monochrome=false
-        , strict =true
 )
 
-public class RunSCSSRegressionTest {
+public class RunSCSSRegressionTest extends AbstractTestNGCucumberTests
+{
 }

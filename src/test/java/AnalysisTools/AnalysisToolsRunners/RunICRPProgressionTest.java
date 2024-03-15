@@ -1,15 +1,8 @@
 package AnalysisTools.AnalysisToolsRunners;
 
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
-
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-import org.junit.BeforeClass;
-import org.junit.runner.RunWith;
-
-
-
-@RunWith(Cucumber.class)
 @CucumberOptions(plugin= {"html:target/html-reports/cucumber-default-report"
 		, "json:target/cucumber.json"
 		, "junit:target/cucumber.xml"
@@ -18,12 +11,6 @@ import org.junit.runner.RunWith;
 		, glue="AnalysisTools.ICRP.Steps"
 		, tags="@Progression"
 		, dryRun = false
-		, monochrome=true
-		, strict = true
-		
-		)
-
-
-public class RunICRPProgressionTest {
-
+)
+public class RunICRPProgressionTest extends AbstractTestNGCucumberTests{
 }

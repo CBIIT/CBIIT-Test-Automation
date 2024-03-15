@@ -10,11 +10,8 @@ import org.junit.runner.RunWith;
 		features = "src/test/java/ServiceNow/CHARMS/Features",
 		glue = "ServiceNow.CHARMS.Steps",
 		tags = "@TestAccountReset",
-		dryRun = false,
-		monochrome = true,
-		strict = true
+		dryRun = false
 )
-
 /**
  * This class is annotated with @RunWith(Cucumber.class) and it will run
  * cucumber feature(s).

@@ -1,28 +1,16 @@
 package ServiceNow.ServiceNowRunners.CHARMSRunners.FanconiStudy;
 
-import org.junit.runner.RunWith;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-
-@RunWith(Cucumber.class)
 @CucumberOptions(plugin = {"html:target/html-reports/cucumber-default-report", "json:target/cucumber.json",
 		"junit:target/cucumber.xml", "rerun:target/failed.txt",
 		"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 features = "src/test/java/ServiceNow/CHARMS/Features/FanconiStudy",
 glue = "ServiceNow.CHARMS.Steps", 
 tags = "@Regression", 
-dryRun = false, 
-monochrome = true//, 
-//strict = true
+dryRun = false
 )
-
-/**
- * This class is annotated with @RunWith(Cucumber.class) and it will run
- * cucumber feature(s).
- * 
- * @author sohilz2
- */
-public class Run_CHARMS_Fanconi_Regression_Test {
+public class Run_CHARMS_Fanconi_Regression_Test extends AbstractTestNGCucumberTests{
 
 }
