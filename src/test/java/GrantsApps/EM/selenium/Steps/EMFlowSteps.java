@@ -30,7 +30,7 @@ public class EMFlowSteps extends PageInitializer {
     @Given("User is on Manage I{int}E Users page")
     public void user_is_on_Manage_I_E_Users_page(Integer int1) {
         CommonUtils.assertTrue(manageI2EUsersPage.i2EPageTitle.isDisplayed());
-        //CucumberLogUtils.logScreenshot();
+        CucumberLogUtils.logScreenshot();
     }
 
     @When("User inputs {string} into the Name field and clicks search")

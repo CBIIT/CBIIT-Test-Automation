@@ -26,10 +26,14 @@ public class Example {
             page.locator("#USER").press("Tab");
             page.locator("#PASSWORD").fill("Avengersassemble99?");
             page.locator("#PASSWORD").press("Enter");
+
+
             page.getByLabel("Name", new Page.GetByLabelOptions().setExact(true)).click();
             page.getByLabel("Name", new Page.GetByLabelOptions().setExact(true)).fill("rodriguez");
             page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Mata Rodriguez, Kevin Osmaldo")).click();
             page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Search")).click();
+
+
             page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Edit")).click();
 
             MiscUtils.sleep(2000);

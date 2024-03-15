@@ -3,11 +3,10 @@ Feature: EM Flow
 #  Background: common steps
 #    Given User is logged in as Primary ITwoE Coordinator "Diego Juarez" - PW
 
-@I2ERoleDropdownList @Jira950 @Progression
-Scenario: I2E Role Drop Down List
-  Given User is logged in as Primary ITwoE Coordinator "Diego Juarez" - PW
-#And User is on Manage I2E Users page
-#When User inputs "Mata Rodriguez, Kevin Osmaldo" into the Name field and clicks search
+  @I2ERoleDropdownList @Jira950 @Progression
+  Scenario: I2E Role Drop Down List
+    Given User is logged in as Primary ITwoE Coordinator - PW
+    When User inputs "Mata Rodriguez, Kevin Osmaldo" into the Name field and clicks search - PW
 #When User clicks "Edit" button
 #And tester deletes "GM Action Manager" role to re-run test before adding role
 #When User clicks "Add Role" button
