@@ -1,4 +1,4 @@
-package ServiceNow.PlatformBusinessApps.SCSS.Steps;
+package ServiceNow.SCSS.Steps;
 
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;

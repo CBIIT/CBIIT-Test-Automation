@@ -1,4 +1,4 @@
-package ServiceNow.PlatformBusinessApps.SCSS.Constants;
+package ServiceNow.SCSS.Constants;
 
 public class NativeViewSCSSConstants {
     public static final String FOCUS_AREA_REPORTING_TEXT = "Focus Area Reporting";

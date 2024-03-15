@@ -14,7 +14,7 @@ Feature: OWM Vacancy Scenarios
       Then User publishes a vacancy
       And User verify that a vacancy is finalized
       When an "applicant" is on the SCSS landing page
-      #Then the applicant should see the published vacancy
+      Then the applicant should see the published vacancy
 
     @Regression @Smoke @bucurgb @UserStoryTagToBeConfirmed @Stage @APPTRACK-7 @OWM
     Scenario: Create a vacancy as OWM Vacancy Manager

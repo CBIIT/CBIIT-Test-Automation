@@ -1,8 +1,11 @@
-package ServiceNow.PlatformBusinessApps.SCSS.StepsImplementation;
+package ServiceNow.SCSS.StepsImplementation;
 
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.web.CommonUtils;
 import org.openqa.selenium.Keys;
+
+import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public class ApplicantFlowStepsImplementation extends PageInitializer {
 
@@ -139,4 +142,16 @@ public class ApplicantFlowStepsImplementation extends PageInitializer {
             CommonUtils.clickOnElement(applicantFlowPage.buttonAmericanIndianAlaskaNative);
         }
     }
+
+    public void closeOutlookWindow() throws AWTException {
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_ALT);
+        robot.keyPress(KeyEvent.VK_F4);
+        robot.keyRelease(KeyEvent.VK_ALT);
+        robot.keyRelease(KeyEvent.VK_F4);
+        robot.keyPress(KeyEvent.VK_DOWN);
+        robot.keyPress(KeyEvent.VK_ENTER);
+
+    }
 }
+

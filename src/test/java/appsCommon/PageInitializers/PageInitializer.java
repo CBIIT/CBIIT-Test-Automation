@@ -50,14 +50,8 @@ import ServiceNow.PlatformBusinessApps.GCP.Pages.GCPNotifications_NativeViewPage
 import ServiceNow.PlatformBusinessApps.NERD.Pages.*;
 import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NERDLoginStepsImplementation;
 import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NativeViewImpersonateUser;
-import ServiceNow.PlatformBusinessApps.SCSS.Pages.ApplicantFlowPage;
-import ServiceNow.PlatformBusinessApps.SCSS.Pages.NativeViewSCSSReportsPage;
-import ServiceNow.PlatformBusinessApps.SCSS.Pages.OWMVacancyPage;
-import ServiceNow.PlatformBusinessApps.SCSS.Pages.StadtmanVacancyPage;
-import ServiceNow.PlatformBusinessApps.SCSS.StepsImplementation.ApplicantFlowStepsImplementation;
-import ServiceNow.PlatformBusinessApps.SCSS.StepsImplementation.OWMVacancyStepsImplementation;
-import ServiceNow.PlatformBusinessApps.SCSS.StepsImplementation.SCSSLoginStepsImplementation;
-import ServiceNow.PlatformBusinessApps.SCSS.StepsImplementation.StadtmanVacancyStepsImplementation;
+import ServiceNow.SCSS.Pages.*;
+import ServiceNow.SCSS.StepsImplementation.*;
 import ServiceNow.PlatformBusinessApps.SEER.Pages.*;
 import ServiceNow.PlatformBusinessApps.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
@@ -185,12 +179,14 @@ public class PageInitializer extends WebDriverUtils {
 
 	/** SCSS instances */
 	public static OWMVacancyPage owmVacancyPage;
+	public static UnauthenticatedApplicantPage unauthenticatedApplicantPage;
 	public static StadtmanVacancyPage stadtmanVacancyPage;
 	public static ApplicantFlowPage applicantFlowPage;
 	public static StadtmanVacancyStepsImplementation stadtmanVacancyStepsImplementation;
 	public static OWMVacancyStepsImplementation oWMVacancyStepsImplementation;
 	public static SCSSLoginStepsImplementation sCCSLoginStepsImplementation;
 	public static ApplicantFlowStepsImplementation applicantFlowStepsImplementation;
+	public static UnauthenticatedApplicantFlowStepsImplementation unauthenticatedApplicantFlowStepsImplementation;
 
 	/** eTracking instances */
 	public static EtrackAssetsRecords_NativeViewPage etrackAssetsRecords_NativeViewPage;
