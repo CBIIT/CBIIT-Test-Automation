@@ -135,17 +135,6 @@ public class ApplicantFlowSteps extends PageInitializer {
     // throw new io.cucumber.java.PendingException();
     // }
 
-    @Given("selects highest education option {string} - PW")
-    public void selects_highest_education_option_pw(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-
-    @Given("selects highest education {string} - PW")
-    public void selects_highest_education_pw(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
 
     @Given("selects highest education {string}")
     public void selects_highest_education(String string) {
