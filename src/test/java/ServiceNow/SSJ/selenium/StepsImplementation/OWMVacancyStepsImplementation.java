@@ -1,7 +1,7 @@
-package ServiceNow.SCSS.StepsImplementation;
+package ServiceNow.SSJ.selenium.StepsImplementation;
 
-import ServiceNow.SCSS.Constants.NativeViewSCSSConstants;
-import ServiceNow.SCSS.Constants.OWMVacanciesConstants;
+import ServiceNow.SSJ.selenium.Constants.NativeViewSCSSConstants;
+import ServiceNow.SSJ.selenium.Constants.OWMVacanciesConstants;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;

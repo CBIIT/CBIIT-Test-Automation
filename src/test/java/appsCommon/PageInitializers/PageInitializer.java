@@ -54,9 +54,15 @@ import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NERDLoginStepsIm
 import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NativeViewImpersonateUser;
 import ServiceNow.PlatformBusinessApps.SEER.Pages.*;
 import ServiceNow.PlatformBusinessApps.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
-import ServiceNow.SCSS.Pages.*;
-import ServiceNow.SCSS.StepsImplementation.*;
 import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
+import ServiceNow.SSJ.selenium.Pages.ApplicantFlowPage;
+import ServiceNow.SSJ.selenium.Pages.NativeViewSCSSReportsPage;
+import ServiceNow.SSJ.selenium.Pages.OWMVacancyPage;
+import ServiceNow.SSJ.selenium.Pages.StadtmanVacancyPage;
+import ServiceNow.SSJ.selenium.StepsImplementation.ApplicantFlowStepsImplementation;
+import ServiceNow.SSJ.selenium.StepsImplementation.OWMVacancyStepsImplementation;
+import ServiceNow.SSJ.selenium.StepsImplementation.SCSSLoginStepsImplementation;
+import ServiceNow.SSJ.selenium.StepsImplementation.StadtmanVacancyStepsImplementation;
 import appsCommon.Pages.ITrustLoginPage;
 import appsCommon.Pages.NativeViewHomePage;
 import appsCommon.Pages.ServiceNow_NCISP_Page;

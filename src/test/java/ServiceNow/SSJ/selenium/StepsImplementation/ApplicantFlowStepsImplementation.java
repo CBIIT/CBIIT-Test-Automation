@@ -1,4 +1,4 @@
-package ServiceNow.SCSS.StepsImplementation;
+package ServiceNow.SSJ.selenium.StepsImplementation;
 
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.web.CommonUtils;

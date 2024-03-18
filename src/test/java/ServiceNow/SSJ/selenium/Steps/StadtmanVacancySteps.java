@@ -1,4 +1,4 @@
-package ServiceNow.SCSS.Steps;
+package ServiceNow.SSJ.selenium.Steps;
 
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;

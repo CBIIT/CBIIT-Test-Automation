@@ -1,4 +1,4 @@
-package ServiceNow.SCSS.Pages;
+package ServiceNow.SSJ.selenium.Pages;
 
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;

@@ -3,7 +3,7 @@ Feature: EM Flow
 #  Background: common steps
 #    Given User is logged in as Primary ITwoE Coordinator "Diego Juarez" - PW
 
-  @I2ERoleDropdownList @Jira950 @Progression
+  @I2ERoleDropdownList @Jira950 @InProgress
   Scenario: I2E Role Drop Down List
     Given User is logged in as Primary ITwoE Coordinator - PW
     When User inputs "Mata Rodriguez, Kevin Osmaldo" into the Name field and clicks search - PW

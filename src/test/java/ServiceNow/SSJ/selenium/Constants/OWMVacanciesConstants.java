@@ -1,4 +1,4 @@
-package ServiceNow.SCSS.Constants;
+package ServiceNow.SSJ.selenium.Constants;
 
 import com.nci.automation.web.CommonUtils;
 
