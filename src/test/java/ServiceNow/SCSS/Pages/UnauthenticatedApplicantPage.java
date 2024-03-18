@@ -72,6 +72,10 @@ public class UnauthenticatedApplicantPage extends CommonUtils {
     @FindBy(xpath = "//div[contains(text(),'An error occurred while trying to create your account.  Please try again later.')]")
     public WebElement errorAccountOkta;
 
+    /** Login dropDown menu on main page **/
+    @FindBy(xpath = "//button[@class='ant-btn ant-btn-link ant-dropdown-trigger Login']")
+    public WebElement logInMainPage;
+
     public UnauthenticatedApplicantPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
 

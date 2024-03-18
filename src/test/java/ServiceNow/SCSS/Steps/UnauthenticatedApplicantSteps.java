@@ -21,7 +21,7 @@ public class UnauthenticatedApplicantSteps  extends PageInitializer {
 
     @Given("User is on AppTracker home page and user is Unauthenticated Applicant")
     public void user_is_on_AppTracker_home_page_and_user_is_Unauthenticated_Applicant() throws TestingException {
-        unauthenticatedApplicantFlowStepsImplementation.loginUnauthentcated();
+        unauthenticatedApplicantFlowStepsImplementation.loginUnauthenticated();
     }
 
     @When("User  clicks on the register for Okta within the Login dropdown")
