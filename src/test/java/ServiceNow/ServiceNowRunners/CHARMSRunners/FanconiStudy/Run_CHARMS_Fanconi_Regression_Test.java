@@ -12,5 +12,4 @@ tags = "@Regression",
 dryRun = false
 )
 public class Run_CHARMS_Fanconi_Regression_Test extends AbstractTestNGCucumberTests{
-
 }

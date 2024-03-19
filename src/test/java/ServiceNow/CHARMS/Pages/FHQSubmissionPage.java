@@ -12,7 +12,7 @@ public class FHQSubmissionPage extends CommonUtils {
 	public FHQSubmissionPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
-	/* Method to dynamically locate Relative tabs element in FHQ participant page in Native View*/
+	/* Method to dynamically locate Relative tabs element in FHQ participant page in Native View */
 	public WebElement dynamicLocatorForRelativeTab(int i) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//span["+i +"]//span[1]//span[2]"));			
 	}	
@@ -24,19 +24,19 @@ public class FHQSubmissionPage extends CommonUtils {
 	public WebElement dynamicLocatorForAddedRelative(String text1,String text2) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//div[contains(@aria-label,'" + text1 +"')]//tr//td[normalize-space()='"+text2+"']/parent::tr/td[3]"));
 	}
-	/* Method to dynamically locate Added Relative element in FHQ participant page in Native View*/
+	/* Method to dynamically locate Added Relative element in FHQ participant page in Native View */
 	public WebElement dynamicLocatorForAddedRelatives(String text1,String text2) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//td[@class='vt'][normalize-space()='" + text1 +"']/parent::tr//td[@class='vt'][normalize-space()='"+text2+"']/parent::tr/td[3]"));
 	}
-	/* Method to dynamically locate GrandParents element in FHQ participant page in Native View*/
+	/* Method to dynamically locate GrandParents element in FHQ participant page in Native View */
 	public WebElement dynamicLocatorForGrandParent(String text1,String text2) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//div[@aria-label=\"Grandparent(s) related list\"]//table[@role=\"presentation\"])[1]//tr//td[normalize-space()='" +text1 +"']/parent::tr/td[3][normalize-space()='" + text2 +"']"));
 	}	
-	/* Method to dynamically locate Labels in Relative Information form section of FHQ participant page in Native View*/
+	/* Method to dynamically locate Labels in Relative Information form section of FHQ participant page in Native View */
 	public WebElement dynamicLocatorForLabels() {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//div[@aria-label=\"Relative Information form section\"]//label"));
 	}	
-	/* Method to dynamically locate Labels in Relative Information form section of FHQ participant page in Native View*/
+	/* Method to dynamically locate Labels in Relative Information form section of FHQ participant page in Native View */
 	public WebElement dynamicLocatorForParents(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//div[@aria-label=\"Parent(s) related list\"]//tr//td[normalize-space()='" + text +"']/parent::tr/td[2]"));
 	}

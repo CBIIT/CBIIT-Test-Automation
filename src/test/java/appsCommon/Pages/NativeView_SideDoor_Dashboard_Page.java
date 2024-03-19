@@ -11,8 +11,7 @@ import io.github.sukgu.support.FindElementBy;
 
 /*THIS CLASS CONTAINS NATIVE VIEW DASHBOARD ELEMENTS*/
 public class NativeView_SideDoor_Dashboard_Page {   
-    public static Shadow shadow = new Shadow(WebDriverUtils.webDriver);
- 
+    public static Shadow shadow = new Shadow(WebDriverUtils.webDriver); 
     /* ALL TAB */
     @FindElementBy(css = "div[aria-label='All']")
     public static WebElement allTab;
@@ -81,14 +80,10 @@ public class NativeView_SideDoor_Dashboard_Page {
 	@FindBy(css = "a[class='nested-item item-label keyboard-navigatable highlighted-item']")
 	public static  WebElement nVFHQFilterMatchLink;
 	
-    /* USE THIS METHOD TO SEARCH ANY TEXT USING THE NATIVE VIEW FILTER NAVIGATOR
-     * @param text
-     * @return
-     */
+    /* USE THIS METHOD TO SEARCH ANY TEXT USING THE NATIVE VIEW FILTER NAVIGATOR @param text @return */
     public static WebElement dynamicFilterNavigatorTextSearch(String text) {
         return shadow.findElementByXPath("//*[text()='" + text + "'][1]");
-    }
-    
+    }    
     public NativeView_SideDoor_Dashboard_Page() {
         ElementFieldDecorator decorator = new ElementFieldDecorator(new DefaultElementLocatorFactory(WebDriverUtils.webDriver));
         PageFactory.initElements(decorator, this);

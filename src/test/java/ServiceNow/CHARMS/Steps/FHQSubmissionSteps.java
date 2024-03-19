@@ -1,19 +1,16 @@
 package ServiceNow.CHARMS.Steps;
 
 import org.testng.asserts.SoftAssert;
-
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-
 import ServiceNow.CHARMS.StepsImplementation.FHQSubmissionStepsImpl;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 public class FHQSubmissionSteps extends PageInitializer {
-	SoftAssert softAssert = new SoftAssert();
-	
+	SoftAssert softAssert = new SoftAssert();	
 	@Given("the study nurse logs into Native View")
 	public void the_study_nurse_logs_into_native_view() {
 		FHQSubmissionStepsImpl.nativeViewSideDoorLogin("CBIITTestAccount","curlbylawdighalvekinlarswould");
