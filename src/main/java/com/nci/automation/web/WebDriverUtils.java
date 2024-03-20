@@ -1,7 +1,6 @@
 package com.nci.automation.web;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 import com.nci.automation.utils.FrameworkConstants;
 import io.github.sukgu.Shadow;
 import org.apache.logging.log4j.LogManager;
@@ -14,7 +13,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
-import com.nci.automation.utils.LocalConfUtils;
 
 /**
  * This class contains web driver related methods

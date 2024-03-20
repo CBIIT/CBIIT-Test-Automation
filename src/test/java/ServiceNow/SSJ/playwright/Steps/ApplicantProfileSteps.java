@@ -13,10 +13,6 @@ import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Given;
 import org.testng.Assert;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class ApplicantProfileSteps {
 
     @Given("User is on SCSS Landing page and user is {string} - PW")
