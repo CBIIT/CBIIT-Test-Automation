@@ -189,6 +189,8 @@ import appsCommon.Pages.ServiceNow_NCISP_Page;
 import appsCommon.StepsImplementation.ITrustLoginPageImpl;
 import AnalysisTools.ThreeDVizSNP.Pages.*;
 import AnalysisTools.ThreeDVizSNP.StepsImplementations.*;
+import AnalysisTools.ThreeDVizSNP.Pages.*;
+import AnalysisTools.ThreeDVizSNP.StepsImplementations.*;
 /**
  * This an initializer class which will initialize all pages classes. Once pages
  * class created, create an object of it here inside the constructor
