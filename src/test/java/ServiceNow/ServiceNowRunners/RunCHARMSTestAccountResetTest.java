@@ -10,12 +10,6 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 		tags = "@TestAccountReset",
 		dryRun = false
 )
-/**
- * This class is annotated with @RunWith(Cucumber.class) and it will run
- * cucumber feature(s).
- * 
- * @author sohilz2
- */
+/* @author sohilz2 */
 public class RunCHARMSTestAccountResetTest extends AbstractTestNGCucumberTests{
-
 }
