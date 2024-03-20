@@ -38,7 +38,7 @@ Feature: EM Flow Sprint One
     And User can verify that first and last name of logged in user "Bin Li" are shown
     And User is on Manage I2E Users page
 
-  @I2ERoleDropdownList @Jira950
+  @I2ERoleDropdownList @Jira950 @IN_PROGRESS
   Scenario: I2E Role Drop Down List
     And User is on Manage I2E Users page
 #    When User inputs "Mata Rodriguez, Kevin Osmaldo" into the Name field and clicks search
