@@ -122,24 +122,4 @@ public class ApplicantFlowSteps extends PageInitializer {
     public void user_chooses_to_share_demographic_details() {
         CommonUtils.clickOnElement(applicantFlowPage.buttonShareDemographics);
     }
-
-    // @Given("User picks highest degree option {string} - PW")
-    // public void user_picks_highest_degree_option_pw(String string) {
-    // PlaywrightUtils.page.getByLabel("Highest Level of Education").click();
-    // PlaywrightUtils.page.getByTitle("Bachelors").locator("div").click();
-    // }
-
-    // @Given("user picks highest degree option {string} - PW")
-    // public void user_picks_highest_degree_option_pw(String string) {
-    // // Write code here that turns the phrase above into concrete actions
-    // throw new io.cucumber.java.PendingException();
-    // }
-
-
-    @Given("selects highest education {string}")
-    public void selects_highest_education(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
-
 }
