@@ -10,7 +10,7 @@ import io.cucumber.testng.CucumberOptions;
         , "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
         , features="src/test/java/ServiceNow/SCSS/Features"
         , glue="ServiceNow.SCSS.Steps"
-        , tags="@APPTRACK-91"
+        , tags="@APPTRACK-845"
         , dryRun=false
 )
 
