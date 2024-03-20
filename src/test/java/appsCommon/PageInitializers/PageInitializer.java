@@ -570,8 +570,7 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** GDC INSTANCE VARIABLES */
 		gDC_Workflow_NativeView_Page = new GDC_Workflow_NativeView_Page();
-		
-		
+
 		/** MCAEXPLORER INSTANCE VARIABLES */
 		mcaExplorerPage = new MCAExplorerPage();
 		mcaExplorerStepImp = new MCAExplorerStepImp();
