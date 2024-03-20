@@ -1,19 +1,15 @@
 package ServiceNow.ServiceNowRunners;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-import org.junit.runner.RunWith;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
-@RunWith(Cucumber.class)
 @CucumberOptions(plugin = {"html:target/html-reports/cucumber-default-report", "json:target/cucumber.json",
         "junit:target/cucumber.xml", "rerun:target/failed.txt",
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         features = "src/test/java/ServiceNow/SandBoxUpgradeTest/Features",
         glue = "ServiceNow.SandBoxUpgradeTest.Steps",
         tags = "@Progression",
-        dryRun = false,
-        monochrome = true,
-        strict = true
+        dryRun = false
 )
 
 /**
@@ -23,6 +19,6 @@ import org.junit.runner.RunWith;
  * @author juarezds
  */
 
-public class Run_Sandbox_Progression_Test {
+public class Run_Sandbox_Progression_Test  extends AbstractTestNGCucumberTests{
 
 }
