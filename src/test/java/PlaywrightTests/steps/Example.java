@@ -28,6 +28,7 @@ public class Example {
             page.locator("#PASSWORD").press("Enter");
 
 
+
             page.getByLabel("Name", new Page.GetByLabelOptions().setExact(true)).click();
             page.getByLabel("Name", new Page.GetByLabelOptions().setExact(true)).fill("rodriguez");
             page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Mata Rodriguez, Kevin Osmaldo")).click();
