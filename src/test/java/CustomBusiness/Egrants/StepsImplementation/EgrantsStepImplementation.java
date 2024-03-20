@@ -1,6 +1,7 @@
 package CustomBusiness.Egrants.StepsImplementation;
 
 import CustomBusiness.Egrants.Pages.EgrantsQuickLinkAndManagementMenuPage;
+import CustomBusiness.Egrants.Utils.CommonUtilEgrants;
 import CustomBusiness.Egrants.Utils.Egrants_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -8,7 +9,13 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+
+import java.util.concurrent.TimeUnit;
+
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class EgrantsStepImplementation extends PageInitializer {
 
@@ -169,5 +176,76 @@ public class EgrantsStepImplementation extends PageInitializer {
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.createNewButton);
 		MiscUtils.sleep(3000);
 		CucumberLogUtils.logScreenshot();
+	}
+
+	public static void clicks_on_management_menu() {
+		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.managementMenu);
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	public static void selects_qc_reason() {
+		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.qcReason);
+		CommonUtils.selectDropDownValue(egrantsQuickLinkAndManagementMenuPage.qcReason, "Change");
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	public static void selects_qc_person() {
+		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.qcPerson);
+		CommonUtils.selectDropDownValue(egrantsQuickLinkAndManagementMenuPage.qcPerson, "3928");
+		MiscUtils.sleep(1000);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	public static void clicks_on_assign_button() {
+		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.assignButton);
+		MiscUtils.sleep(2000);
+		if (CommonUtils.getAlertText().contentEquals("Are you sure that you want to assign QC Change documents to Test, User?")){
+			MiscUtils.sleep(2000);
+			CommonUtils.acceptAlert();
+			System.out.println("Alert Present");
+			CucumberLogUtils.logScreenshot();
+		} else {
+			CommonUtils.dismissAlert();
+			System.out.println("Alert Not Present");
+
+		}
+	}
+
+	public static void clicks_on_from_dropdown() {
+		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.fromQC);
+		CommonUtils.selectDropDownValue(egrantsQuickLinkAndManagementMenuPage.fromQC, "122");
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	public static void clicks_on_to_dropdown() {
+		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.toQC);
+		CommonUtils.selectDropDownValue(egrantsQuickLinkAndManagementMenuPage.toQC, "3928");
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	public static void clicks_on_percentage_dropdown() {
+		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.percentageQC);
+		CommonUtils.selectDropDownValue(egrantsQuickLinkAndManagementMenuPage.percentageQC, "10");
+		MiscUtils.sleep(2000);
+		CucumberLogUtils.logScreenshot();
+	}
+
+	public static void clicks_on_route_button() {
+		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.routeButton);
+		MiscUtils.sleep(2000);
+		if (CommonUtils.getAlertText().contentEquals("Are you sure that you want to route 10%  QC documents from D'Avella, Joseph to Test, User?")){
+			MiscUtils.sleep(2000);
+			CommonUtils.acceptAlert();
+			System.out.println("Alert Present");
+			CucumberLogUtils.logScreenshot();
+		} else {
+			CommonUtils.dismissAlert();
+			System.out.println("Alert Not Present");
+
+		}
 	}
 }
