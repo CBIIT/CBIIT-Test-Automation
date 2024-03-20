@@ -1,4 +1,4 @@
-package ServiceNow.SSJ.playwright.Steps;
+package ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;

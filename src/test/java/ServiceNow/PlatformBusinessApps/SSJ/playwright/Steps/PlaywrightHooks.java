@@ -1,4 +1,4 @@
-package ServiceNow.SSJ.playwright.Steps;
+package ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps;
 
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.PlaywrightUtils;

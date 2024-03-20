@@ -1,4 +1,4 @@
-package ServiceNow.SSJ.selenium.Constants;
+package ServiceNow.PlatformBusinessApps.SSJ.selenium.Constants;
 
 public class NativeViewSCSSConstants {
     public static final String FOCUS_AREA_REPORTING_TEXT = "Focus Area Reporting";

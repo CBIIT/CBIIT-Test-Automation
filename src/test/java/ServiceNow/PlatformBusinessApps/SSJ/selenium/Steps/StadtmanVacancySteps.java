@@ -1,4 +1,4 @@
-package ServiceNow.SSJ.selenium.Steps;
+package ServiceNow.PlatformBusinessApps.SSJ.selenium.Steps;
 
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;

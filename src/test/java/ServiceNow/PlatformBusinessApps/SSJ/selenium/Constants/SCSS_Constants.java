@@ -1,4 +1,4 @@
-package ServiceNow.SSJ.selenium.Constants;
+package ServiceNow.PlatformBusinessApps.SSJ.selenium.Constants;
 
 public class SCSS_Constants {
     public static final String OWM_VACANCY_MANAGER = "Susan Greenhouse";
