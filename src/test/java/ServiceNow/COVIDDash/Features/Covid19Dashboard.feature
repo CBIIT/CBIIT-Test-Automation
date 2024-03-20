@@ -1,5 +1,4 @@
 Feature: COVID19 Dashboard Scenarios
-
   Description: This feature file tests COVIDDASH-7, 8, 20, 134, 135, 138, 136, 137, 140, 142, 143, 148
 
   @smoke @regression @juarezds @test
@@ -14,7 +13,6 @@ Feature: COVID19 Dashboard Scenarios
     Examples:
       | PI Name      | istitName | dvsnName | piEmail  | piPhonNum  |
       | Diego Juarez | NCI       | OD       | @nih.gov | 2402766573 |
-
 
   @smoke  @regression @juarezds
   Scenario: Validate Study Submission
@@ -95,7 +93,7 @@ Feature: COVID19 Dashboard Scenarios
 
       Thank you for your interest in the COVID-19 Biorepository
       """
-
+      
   @regression @juarezds
   Scenario: Verifying empty field messages
     Given a User has logged in to the NIH COVID-19 Biorepository Dashboard Application

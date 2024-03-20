@@ -3,22 +3,16 @@ package ServiceNow.CHARMS.Pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
 public class FHQSurveyPortalPage extends CommonUtils {
-
 	public FHQSurveyPortalPage() {
-
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
-
 	}
-
 	/* *************************************************************** */
 	/* ************ GENERAL LOCATORS ON FAMILY GRID PAGE ************* */
 	/* *************************************************************** */
-
 	/* Home Button */
 	@FindBy(xpath = "(//a[normalize-space()='FHQ Home'])[1]")
 	public WebElement homeButton;
@@ -155,23 +149,15 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//button[@aria-label='FHQ Childs Context Menu'])[1]")
 	public WebElement cousinContextMenuButton;
 
-	/*
-	 * LIST VIEW Page: The blue highlighted rows represent the incompleted family
-	 * records on LIST VIEW Page
-	 */
+	/* LIST VIEW Page: The blue highlighted rows represent the incompleted family records on LIST VIEW Page */
 	@FindBy(xpath = "(//div[contains(text(),'The blue highlighted rows represent the incomplete')])[1]")
 	public WebElement rowsDetailsOnListView;
 
-	/*
-	 * LIST VIEW Page: The blue highlighted rows represent the incompleted family
-	 * records on LIST VIEW Page
-	 */
+	/* LIST VIEW Page: The blue highlighted rows represent the incompleted family records on LIST VIEW Page */
 	@FindBy(xpath = "(//a[@class='sp-breadcrumb-link ng-binding'][normalize-space()='All'])[1]")
 	public WebElement allDetailsOnListView;
 
-	/*
-	 * LIST VIEW Page: Relation to Patient in (Biological Mother, Biological Father)
-	 */
+	/* LIST VIEW Page: Relation to Patient in (Biological Mother, Biological Father)*/
 	@FindBy(xpath = "(//a[contains(text(),'Relation to Patient in (Biological Mother, Biologi')])[1]")
 	public WebElement parentRelationToPatientBannerOnListView;
 
@@ -183,10 +169,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//a[normalize-space()='Relation to patient = Niece/Nephew'])[1]")
 	public WebElement neiceNephewRelationToPatientBannerOnListView;
 
-	/*
-	 * LIST VIEW Page: Relation to Patient in (Paternal grandfather (Father's
-	 * Father), Paternal grandmother (Father's Mother),)
-	 */
+	/*LIST VIEW Page: Relation to Patient in (Paternal grandfather (Father's Father), Paternal grandmother (Father's Mother),) */
 	@FindBy(xpath = "(//a[contains(text(),\"Relation to Patient in (Paternal grandfather (Fath\")])[1]")
 	public WebElement grandParentRelationToPatientBannerOnListView;
 
@@ -198,10 +181,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//a[normalize-space()='Relation to patient = Cousin'])[1]")
 	public WebElement cousinRelationToPatientBannerOnListView;
 
-	/*
-	 * LIST VIEW Page: No records in FHQ Child using that filter on LIST VIEW Page
-	 * Banner
-	 */
+	/* LIST VIEW Page: No records in FHQ Child using that filter on LIST VIEW Page Banner */
 	@FindBy(xpath = "(//div[@class='alert alert-info ng-binding ng-scope'])[1]")
 	public WebElement noRecordsOnListView;
 
@@ -264,26 +244,6 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	/* LIST VIEW Page: Son/Daughter Banner on FHQ Child List view Page */
 	@FindBy(xpath = "//a[normalize-space()=\"Relation to patient = Son/Daughter\"]")
 	public WebElement ChildrelationToPatientSonDaughterBannerOnListView;
-
-	// /* LIST VIEW Page: Son/Daughter Banner on FHQ Child List view Page Value */
-	// @FindBy(xpath = "(//span[@aria-label='Open record:
-	// Tubal/Ectopic/Molar'])[1]")
-	// public WebElement childFirstNameOnListViewValue1;
-	//
-	// /* LIST VIEW Page: Son/Daughter First Name on FHQ Child List view Page Value
-	// */
-	// @FindBy(xpath = "(//span[@aria-label='Open record: Miscarriage'])[1]")
-	// public WebElement childFirstNameOnListViewValue2;
-	//
-	// /* LIST VIEW Page: Son/Daughter First Name on FHQ Child List view Page Value
-	// */
-	// @FindBy(xpath = "(//span[@aria-label='Open record: Stillbirth'])[1]")
-	// public WebElement childFirstNameOnListViewValue3;
-	//
-	// /* LIST VIEW Page: Son/Daughter First Name on FHQ Child List view Page Value
-	// */
-	// @FindBy(xpath = "(//span[@aria-label='Open record: Induced Abortion'])[1]")
-	// public WebElement childFirstNameOnListViewValue4;
 
 	/* LIST VIEW Page: Son/Daughter First Name on FHQ Child List view Page Value */
 	@FindBy(xpath = "(//span[@aria-label='Open record: Participant Child FN'])[1]")
@@ -593,14 +553,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	/* *** GENERAL LOCATORS ON All RELATIONS FHQ NEW RECORD PRODUCERS ** */
 	/* *************************************************************** */
 
-	/*
-	 * RELATION RP:We know families come in various configurations. This survey is
-	 * primarily meant to record health information on your biological
-	 * (blood-related) relatives. It's okay not to know information about some of
-	 * your relatives. You will have a chance to tell us about any non-biological
-	 * relatives you would like us to add to your family tree (for example, an
-	 * adopted sibling or a step-parent) at the end of the survey. on a new RP
-	 */
+	/* RELATION RP:Header Banner */
 	@FindBy(xpath = "(//p[contains(text(),\"We know families come in various configurations. T\")])[1]")
 	public WebElement headerBanner;
 
@@ -711,11 +664,6 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[normalize-space()='What was the cause of this relative death?'])[1]")
 	public WebElement causeOfThisRelativeDeathLabel;
 
-	// /* RELATION RP:What was the cause of this relatives death? Label */
-	// @FindBy(xpath = "(//span[normalize-space()='What was the cause of this
-	// relative death?'])[1]")
-	// public WebElement causeOfThisRelativeDeathLabel1;
-
 	/* RELATION RP:If you don't know, you can write "don't know" in the text box */
 	@FindBy(xpath = "(//div[@class='well wrapper-xs m-b-sm flex-row justify-between ng-scope'])[4]")
 	public WebElement causeOfDeathInformation;
@@ -772,42 +720,23 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[normalize-space()='Has this relative been diagnosed with a RASopathy?'])[1]")
 	public WebElement diagnosedWithRasopathyLabel;
 
-	/*
-	 * RELATION RP:Examples of RASopathies include Noonan Syndrome, Costello
-	 * Syndrome, Legius Syndrome, Capillary Arteriovenous Malformation Syndrome,
-	 * Cardiofaciocutaneous Syndrome, or Noonan Syndrome with Multiple Lentigines
-	 * (formerly known as LEOPARD Syndrome) Banner
-	 */
+	/* RELATION RP: RASopathies Banner */
 	@FindBy(xpath = "//span[@class=\"ng-binding\"][normalize-space()=\"Examples of RASopathies include Noonan Syndrome, Costello Syndrome, Legius Syndrome, Capillary Arteriovenous Malformation Syndrome, Cardiofaciocutaneous Syndrome, or Noonan Syndrome with Multiple Lentigines (formerly known as LEOPARD Syndrome)\"]")
 	public WebElement diagnosedWithRasopathyBanner;
 
-	/*
-	 * RELATION RP:Examples of RASopathies include Noonan Syndrome, Costello
-	 * Syndrome, Legius Syndrome, Capillary Arteriovenous Malformation Syndrome,
-	 * Cardiofaciocutaneous Syndrome, or Noonan Syndrome with Multiple Lentigines
-	 * (formerly known as LEOPARD Syndrome) Information
-	 */
+	/* RELATION RP: RASopathies Banner Information */
 	@FindBy(xpath = "//span[@class=\"ng-binding\"][normalize-space()=\"Examples of RASopathies include Noonan Syndrome, Costello Syndrome, Legius Syndrome, Capillary Arteriovenous Malformation Syndrome, Cardiofaciocutaneous Syndrome, or Noonan Syndrome with Multiple Lentigines (formerly known as LEOPARD Syndrome)\"]")
 	public WebElement diagnosedWithRasopathyInformationBanner;
 
-	/*
-	 * RELATION RP:If multiple RASopathy diagnoses, please press Add button below to
-	 * add an additional row. Banner
-	 */
+	/* RELATION RP:If multiple RASopathy Add button Banner */
 	@FindBy(xpath = "(//label[contains(text(),\"Please select the 'Add' button below to add each R\")])[1]")
 	public WebElement rasopathyAddButtonInfoBanner;
 
-	/*
-	 * RELATION RP:If multiple RASopathy diagnoses, please press Add button below to
-	 * add an additional row. Banner
-	 */
+	/* RELATION RP:If multiple RASopathy Add button Banner */
 	@FindBy(xpath = "(//label[contains(text(),\"Please select the 'Add' button below to add each R\")])[1]")
 	public WebElement rasopathyAddButtonInfoBanner1;
 
-	/*
-	 * RELATION RP:Please select the 'Add' button below to add each RASopathy this
-	 * person has had.
-	 */
+	/* RELATION RP:Please select the 'Add' button below to add each RASopathy this person has had. */
 	@FindBy(xpath = "//div[@id=\"rasopathy_mrvs_label\"]//div[@class=\"ng-scope\"]")
 	public WebElement personDiagnosedWithRasopathyAddButtonInfo;
 
@@ -939,52 +868,31 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//td[normalize-space()='Other Cancer for Cousin'])[1]")
 	public WebElement cousinSpecifyOtherCancerBannerValue;
 
-	/*
-	 * RELATION RP: Please provide the year of diagnosis or the age of diagnosis
-	 * Banner
-	 */
+	/* RELATION RP: Please provide the year of diagnosis or the age of diagnosis Banner */
 	@FindBy(xpath = "(//th[contains(@class,'text-nowrap ng-binding ng-scope')][contains(text(),'Please provide the year of diagnosis or the age of')])[1]")
 	public WebElement yearOrAgeOfDiagnosisBanner;
 
-	/*
-	 * RELATION RP: Please provide the year of diagnosis or the age of diagnosis
-	 * Banner
-	 */
+	/* RELATION RP: Please provide the year of diagnosis or the age of diagnosis Banner */
 	@FindBy(xpath = "(//th[contains(@class,'text-nowrap ng-binding ng-scope')][contains(text(),'Please provide the year of diagnosis or the age of')])[2]")
 	public WebElement yearOrAgeOfDiagnosis1Banner;
 
-	/*
-	 * RELATION RP: Please provide the year of diagnosis or the age of diagnosis
-	 * Banner
-	 */
+	/* RELATION RP: Please provide the year of diagnosis or the age of diagnosis Banner */
 	@FindBy(xpath = "(//th[contains(@class,'text-nowrap ng-binding ng-scope')][contains(text(),'Please provide the year of diagnosis or the age of')])[3]")
 	public WebElement yearOrAgeOfDiagnosis2Banner;
 
-	/*
-	 * RELATION RP: Please provide the year of diagnosis or the age of diagnosis
-	 * Banner
-	 */
+	/* RELATION RP: Please provide the year of diagnosis or the age of diagnosis Banner */
 	@FindBy(xpath = "(//th[contains(@class,'text-nowrap ng-binding ng-scope')][contains(text(),'Please provide the year of diagnosis or the age of')])[4]")
 	public WebElement yearOrAgeOfDiagnosis3Banner;
 
-	/*
-	 * RELATION RP: Please provide the year of diagnosis or the age of diagnosis
-	 * Banner Value
-	 */
+	/* RELATION RP: Please provide the year of diagnosis or the age of diagnosis Banner Value */
 	@FindBy(xpath = "(//td[normalize-space()='Age of diagnosis'])[1]")
 	public WebElement yearOrAgeOfDiagnosisBannerValue;
 
-	/*
-	 * RELATION RP: Please provide the year of diagnosis or the age of diagnosis
-	 * Banner Value
-	 */
+	/*RELATION RP: Please provide the year of diagnosis or the age of diagnosis Banner Value */
 	@FindBy(xpath = "(//td[normalize-space()='Age of diagnosis'])[2]")
 	public WebElement yearOrAgeOfDiagnosis1BannerValue;
 
-	/*
-	 * RELATION RP: Please provide the year of diagnosis or the age of diagnosis
-	 * Banner Value
-	 */
+	/* RELATION RP: Please provide the year of diagnosis or the age of diagnosis Banner Value */
 	@FindBy(xpath = "(//td[normalize-space()='Age of diagnosis'])[3]")
 	public WebElement yearOrAgeOfDiagnosis2BannerValue;
 
@@ -1100,30 +1008,19 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[normalize-space()='Has this relative ever been diagnosed with cancer?'])[1]")
 	public WebElement diagnosedWithCancerLabel;
 
-	/*
-	 * RELATION RP:If yes,please enter a date or age of diagnosis if possible Banner
-	 */
+	/* RELATION RP:If yes,please enter a date or age of diagnosis if possible Banner */
 	@FindBy(xpath = "(//span[@class='ng-binding'][normalize-space()='If yes, please enter a date or age of diagnosis if possible.'])[1]")
 	public WebElement diagnosedWithCancerBanner;
 
-	/*
-	 * RELATION RP:Has this relative ever been diagnosed with any of the medical
-	 * conditions listed below?Label
-	 */
+	/* RELATION RP:Has this relative ever been diagnosed with any of the medical conditions listed below?Label */
 	@FindBy(xpath = "//span[normalize-space()=\"Has this relative ever been diagnosed with any of the medical conditions listed below?\"]")
 	public WebElement diagnosedWithMedicalConditionsLabel;
 
-	/*
-	 * RELATION RP:Congenital heart disease, Developmental disorder, uncommon
-	 * physical features, Other medical conditions. Banner
-	 */
+	/* RELATION RP:Congenital heart disease, Developmental disorder, uncommonphysical features, Other medical conditions. Banner */
 	@FindBy(xpath = "(//span[contains(@ng-bind,'::field.help_text')][normalize-space()='Congenital heart disease, developmental disorder, uncommon physical features, other medical conditions.'])[1]")
 	public WebElement diagnosedWithMedicalConditionsBanner;
 
-	/*
-	 * RELATION RP:Congenital heart disease, Developmental disorder, Uncommon
-	 * physical features, Other medical conditions. Banner
-	 */
+	/* RELATION RP:Congenital heart disease, Developmental disorder, Uncommon physical features, Other medical conditions. Banner*/
 	@FindBy(xpath = "(//span[@class='ng-binding'][normalize-space()='Congenital heart disease, developmental disorder, uncommon physical features, other medical conditions.'])[1]")
 	public WebElement relativeDiagnosedWithMedicalConditionsInformation;
 
@@ -1155,38 +1052,23 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//button[@type='button'][normalize-space()='Add'])[1]")
 	public WebElement addButton;
 
-	/*
-	 * RELATION RP:Has this relative ever had any miscarriages, stillbirths, induced
-	 * abortions, or ectopic pregnancies? Label
-	 */
+	/*RELATION RP:Has this relative ever had any miscarriages, stillbirths, induced abortions, or ectopic pregnancies? Label */
 	@FindBy(xpath = "(//span[normalize-space()='Has this relative ever had any miscarriages, stillbirths, induced abortions, or ectopic pregnancies?'])[1]")
 	public WebElement BirthsLabel;
 
-	/*
-	 * RELATION RP:Please identify the number of each of the following pregnancy
-	 * results for this person. Banner
-	 */
+	/* RELATION RP:Please identify the number of each of the following pregnancy results for this person. Banner */
 	@FindBy(xpath = "(//label[contains(text(),'Please identify the number of each of the followin')])[1]")
 	public WebElement personbirthsBanner;
 
-	/*
-	 * RELATION RP:Has this relative ever had any miscarriages, stillbirths, induced
-	 * abortions, or ectopic pregnancies? Label
-	 */
+	/* RELATION RP:Has this relative ever had any miscarriages, stillbirths, induced abortions, or ectopic pregnancies? Label */
 	@FindBy(xpath = "(//span[normalize-space()='Has the participant ever had any miscarriages, stillbirths, induced abortions, or ectopic pregnancies?'])[1]")
 	public WebElement participantPregnanciesLabel;
 
-	/*
-	 * RELATION RP:Has this relative ever had any miscarriages, stillbirths, induced
-	 * abortions, or ectopic pregnancies? Label
-	 */
+	/* RELATION RP:Has this relative ever had any miscarriages, stillbirths, induced abortions, or ectopic pregnancies? Label */
 	@FindBy(xpath = "(//span[normalize-space()='Has this relative ever had any miscarriages, stillbirths, induced abortions, or ectopic pregnancies?'])[1]")
 	public WebElement pregnanciesLabel;
 
-	/*
-	 * RELATION RP:Please identify the number of each of the following pregnancy
-	 * results for this parent. banner
-	 */
+	/* RELATION RP:Please identify the number of each of the following pregnancy results for this parent. banner */
 	@FindBy(xpath = "(//label[contains(text(),'Please identify the number of each of the followin')])[1]")
 	public WebElement birthsBanner;
 
@@ -1218,9 +1100,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[normalize-space()='How many total children (alive and deceased) has this relative had?'])[1]")
 	public WebElement auntUncletotalChildrenThisRelativeHadLabel;
 
-	/*
-	 * RELATION RP:Do you have any information on Participants relatives?Label
-	 */
+	/* RELATION RP:Do you have any information on Participants relatives?Label */
 	@FindBy(xpath = "//span[normalize-space()=\"Is this an aunt or uncle?\"]")
 	public WebElement informationOnParticipantRelativesLabel;
 
@@ -1228,25 +1108,15 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[normalize-space()='Was this relative adopted?'])[1]")
 	public WebElement thisRelativeAdoptedLabel;
 
-	/*
-	 * RELATION RP:Please include all biological children, living and
-	 * deceased.Banner
-	 */
+	/*RELATION RP:Please include all biological children, living and deceased.Banner */
 	@FindBy(xpath = "//div[@id=\"how_many_total_children_alive_and_deceased_has_child_had\"]//div[contains(@class,\"text-muted well wrapper-xs m-b-sm flex-row justify-between ng-scope\")]")
 	public WebElement childincludeAllChildrenBanner;
 
-	/*
-	 * RELATION RP:Please include all biological children, living and deceased.
-	 * Please do not include miscarriages, stillbirths, or abortions. These will be
-	 * collected elsewhere. Banner
-	 */
+	/* RELATION RP: Banner */
 	@FindBy(xpath = "(//span[contains(@class,'ng-binding')][normalize-space()='Please include all biological children, living and deceased. Please do not include miscarriages, stillbirths, or abortions. These will be collected elsewhere.'])[1]")
 	public WebElement includeAllChildrenBanner;
 
-	/*
-	 * RELATION RP:Please select the 'Add' button below to add each child this
-	 * person has.Label
-	 */
+	/* RELATION RP:Please select the 'Add' button below to add each child this person has.Label */
 	@FindBy(xpath = "//div[@id=\"child_mrvs_label\"]//div[contains(@class,\"ng-scope\")]")
 	public WebElement eachChildThisPersonHasLabel;
 
@@ -1254,10 +1124,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//td[normalize-space()='Sibling child FN'])[1]")
 	public WebElement siblingChildFirstNameBannerValue;
 
-	/*
-	 * RELATION RP:Is there anything else you would like us to know about this
-	 * person? Label
-	 */
+	/* RELATION RP:Is there anything else you would like us to know about this person? Label */
 	@FindBy(xpath = "//span[normalize-space()=\"Is there anything else you would like us to know about this person?\"]")
 	public WebElement anythingElseAboutThisPersonLabel;
 
@@ -1371,36 +1238,23 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[@class='ng-binding'])[1]")
 	public WebElement addRowTypeOfDiagnosisLabel;
 
-	/*
-	 * MRVS PAGE:Type Of Diagnosis(Rasopathy,Cancer or Medical Conditions)DropDown
-	 */
+	/* MRVS PAGE:Type Of Diagnosis(Rasopathy,Cancer or Medical Conditions)DropDown */
 	@FindBy(xpath = "(//span[@class='select2-chosen'])[1]")
 	public WebElement addRowTypeOfDiagnosisDropDown;
 
-	/*
-	 * MRVS PAGE:Type Of Diagnosis (OtherRasopathy, OtherCancer or OtherMedical
-	 * Conditions)Label
-	 */
+	/* MRVS PAGE:Type Of Diagnosis (OtherRasopathy, OtherCancer or OtherMedical Conditions)Label*/
 	@FindBy(xpath = "(//span[@class='ng-binding'])[2]")
 	public WebElement addRowOtherTypeOfDiagnosisLabel;
 
-	/*
-	 * MRVS PAGE:Type Of Diagnosis (OtherRasopathy, OtherCancer or OtherMedical
-	 * Conditions)TextBox
-	 */
+	/* MRVS PAGE:Type Of Diagnosis (OtherRasopathy, OtherCancer or OtherMedical Conditions)TextBox*/
 	@FindBy(xpath = "(//input[@type='string'])[1]")
 	public WebElement addRowOtherTypeOfDiagnosisTextBox;
 
-	/*
-	 * MRVS PAGE:Please provide the year of diagnosis or the age of diagnosis Label
-	 */
+	/* MRVS PAGE:Please provide the year of diagnosis or the age of diagnosis Label */
 	@FindBy(xpath = "(//span[@class='ng-binding'])[3]")
 	public WebElement addRowYearOrAgeOfDiagnosisLabel;
 
-	/*
-	 * MRVS PAGE:Please provide the year of diagnosis or the age of diagnosis Drop
-	 * Down
-	 */
+	/* MRVS PAGE:Please provide the year of diagnosis or the age of diagnosis Drop Down*/
 	@FindBy(xpath = "(//span[@class='select2-chosen'])[2]")
 	public WebElement addRowYearOrAgeOfDiagnosisDropDown;
 
@@ -1408,17 +1262,11 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[@class='ng-binding'][normalize-space()='Year of diagnosis'])[1]")
 	public WebElement addRowYearOfDiagnosisLabel;
 
-	/*
-	 * MRVS PAGE:An estimated age is preferred over "Don't Know". Examples: early
-	 * 40s = 42; mid-40s = 45; late 40s = 48. Banner
-	 */
+	/* MRVS PAGE:An estimated age is preferred over "Don't Know". Examples: early 40s = 42; mid-40s = 45; late 40s = 48. Banner */
 	@FindBy(xpath = "(//div[@class='well wrapper-xs m-b-sm flex-row justify-between ng-scope'])[1]")
 	public WebElement addRowestimatedAgeBanner1;
 
-	/*
-	 * MRVS PAGE:An estimated age is preferred over "Don't Know". Examples: early
-	 * 40s = 42; mid-40s = 45; late 40s = 48. Banner
-	 */
+	/* MRVS PAGE:An estimated age is preferred over "Don't Know". Examples: early 40s = 42; mid-40s = 45; late 40s = 48. Banner */
 	@FindBy(xpath = "(//div[@class='well wrapper-xs m-b-sm flex-row justify-between ng-scope'])[2]")
 	public WebElement addRowestimatedAgeBanner2;
 
@@ -1502,24 +1350,15 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//th[normalize-space()='Records'])[1]")
 	public WebElement recordsBanner;
 
-	/*
-	 * PARTICIPANT RP: This form will ask questions about the participant and their
-	 * children and siblings.--> banner
-	 */
+	/* PARTICIPANT RP: This form will ask questions about the participant and their children and siblings.--> banner */
 	@FindBy(xpath = "(//div[@class='text-muted sc-cat-item-short-description ng-binding ng-scope'])[1]")
 	public WebElement participantFamilyBanner;
 
-	/*
-	 * PARTICIPANT RP: If you are filling out this form for your self you are the
-	 * participant.-->Banner
-	 */
+	/* PARTICIPANT RP: If you are filling out this form for your self you are the participant.-->Banner */
 	@FindBy(xpath = "(//label[contains(text(),'If you are filling out this form for your self, yo')])[1]")
 	public WebElement participantProbandBanner;
 
-	/*
-	 * PARTICIPANT RP: You are currently filling out information for the
-	 * participant. -->Banner
-	 */
+	/* PARTICIPANT RP: You are currently filling out information for the participant. -->Banner */
 	@FindBy(xpath = "(//p[contains(text(),'You are currently filling out information for the ')])[1]")
 	public WebElement participantInformationBanner;
 
@@ -1527,10 +1366,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[normalize-space()='Please indicate your relationship to the participant.'])[1]")
 	public WebElement relationshipToParticipantLabel;
 
-	/*
-	 * PARTICIPANT RP: To confirm your identity, please indicate your relationship
-	 * to the participant. DropDown
-	 */
+	/* PARTICIPANT RP: To confirm your identity, please indicate your relationship to the participant. DropDown */
 	@FindBy(xpath = "//div[@id='select2-drop']/ul[@class='select2-results']")
 	public WebElement patientsRelationshipToPatientDropDownValue;
 
@@ -1538,29 +1374,19 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//label[contains(text(),'The following questions are about the study partic')])[1]")
 	public WebElement studyParticipantLabel;
 
-	/*
-	 * PARTICIPANT RP:Are you currently married or in a long-term relationship?Label
-	 */
+	/* PARTICIPANT RP:Are you currently married or in a long-term relationship?Label */
 	@FindBy(xpath = "//span[contains(text(),\"Are you currently married or in a long-term relati\")]")
 	public WebElement patientsCurrentlyMarriedLabel;
 
-	/*
-	 * PARTICIPANT RP:Are you currently married or in a long-term
-	 * relationship?DropDown
-	 */
+	/* PARTICIPANT RP:Are you currently married or in a long-term relationship?DropDown */
 	@FindBy(xpath = "(//span[@id='select2-chosen-2'])[1]")
 	public WebElement patientsCurrentlyMarriedDropDown;
 
-	/*
-	 * PARTICIPANT RP: Are you currently married or in a long-term relationship?
-	 * DropDown Value
-	 */
+	/* PARTICIPANT RP: Are you currently married or in a long-term relationship? DropDown Value */
 	@FindBy(xpath = "(//div[@id='select2-drop'])[1]")
 	public WebElement patientsCurrentlyMarriedDropDownValue;
 
-	/*
-	 * PARTICIPANT RP:Please fill out the following about your current partner label
-	 */
+	/* PARTICIPANT RP:Please fill out the following about your current partner label */
 	@FindBy(xpath = "(//label[contains(text(),'Please fill out the following about your current p')])[1]")
 	public WebElement patientsCurrentPartnerLabel;
 
@@ -1612,12 +1438,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[normalize-space()='How many total children (alive and deceased) has the participant had?'])[1]")
 	public WebElement participantTotalChildrenHaveLabel;
 
-	/*
-	 * PARTICIPANT RP: Please include living and deceased children. You may include
-	 * biologic and non-biologic (e.g. step, adopted, etc.) children. Please do not
-	 * include miscarriages, stillbirths, or abortions. These will be collected
-	 * elsewhere. Banner
-	 */
+	/* PARTICIPANT RP: Banner */
 	@FindBy(xpath = "(//span[normalize-space()='Please include living and deceased children. You may include biologic and non-biologic (e.g. step, adopted, etc.) children. Please do not include miscarriages, stillbirths, or abortions. These will be collected elsewhere.'])[1]")
 	public WebElement participantTotalChildrenHaveBanner;
 
@@ -1705,18 +1526,11 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "//button[normalize-space()=\"Close\"]")
 	public WebElement patientsChildMRVSAddRowCloseButton;
 
-	/*
-	 * PARTICIPANT RP:How many total different partners has the participant had
-	 * biological children with? Label
-	 */
+	/* PARTICIPANT RP:How many total different partners has the participant had biological children with? Label */
 	@FindBy(xpath = "//span[normalize-space()=\"How many total different partners has the participant had biological children with?\"]")
 	public WebElement participantDifferentPartnerLabel;
 
-	/*
-	 * PARTICIPANT RP: We will ask about donor materials (i.e. sperm, egg) as well
-	 * as adoptive children in a later question. Please do not count them here.--
-	 * More Information banner text
-	 */
+	/* PARTICIPANT RP: Information banner text */
 	@FindBy(xpath = "(//span[contains(@title,'Please do not count them here.')])[1]")
 	public WebElement participantDifferentPartnerBanner;
 
@@ -1800,10 +1614,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//td[normalize-space()='Deceased'])[1]")
 	public WebElement partnerVitalStatusBannerValue;
 
-	/*
-	 * PARTICIPANT RP:We would like to ask you some questions about Siblings details
-	 * Banner
-	 */
+	/* PARTICIPANT RP:We would like to ask you some questions about Siblings details Banner*/
 	@FindBy(xpath = "(//label[contains(text(),'We would like to ask you some questions about Sibl')])[1]")
 	public WebElement participantSiblingsDetailsBanner;
 
@@ -1811,11 +1622,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[normalize-space()='How many siblings does the participant have?'])[1]")
 	public WebElement participantTotalSiblingsHaveLabel;
 
-	/*
-	 * PARTICIPANT RP: Please include all full and half siblings, living and
-	 * deceased. Please do not include miscarriages, stillbirths, or abortions.
-	 * These will be collected elsewhere. Label
-	 */
+	/* PARTICIPANT RP: Label */
 	@FindBy(xpath = "(//span[@title='Please include all full and half siblings, living and deceased. Please do not include miscarriages, stillbirths, or abortions. These will be collected elsewhere.'])[1]")
 	public WebElement participantSiblingsDetailsBanner1;
 
@@ -1843,9 +1650,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "//span[normalize-space()=\"Types of Sibling relation\"]")
 	public WebElement siblingMRVSAddRowSiblingsTypeLabel;
 
-	/*
-	 * PARTICIPANT RP: patient's Siblings MRVS Types of Siblings relation DropDown
-	 */
+	/* PARTICIPANT RP: patient's Siblings MRVS Types of Siblings relation DropDown */
 	@FindBy(xpath = "(//span[@class='select2-chosen'][normalize-space()='-- None --'])[1]")
 	public WebElement siblingMRVSAddRowSiblingsTypeDropDown;
 
@@ -1929,10 +1734,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//td[normalize-space()=\"Prefer not to answer\"])[1]")
 	public WebElement siblingVitalStatusBannerValue;
 
-	/*
-	 * PARTICIPANT RP: Please add participant's parents and grandparents to the
-	 * table below Banner
-	 */
+	/* PARTICIPANT RP: Please add participant's parents and grandparents to the table below Banner */
 	@FindBy(xpath = "(//label[contains(text(),\"Please add participant's parents and grandparents \")])[1]")
 	public WebElement participantParentMRVSBanner;
 
@@ -1996,17 +1798,11 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "//button[normalize-space()=\"Close\"]")
 	public WebElement parentMRVSAddRowCloseButton;
 
-	/*
-	 * PARTICIPANT RP: Is there anything else you would like us to know about the
-	 * participant?Label
-	 */
+	/* PARTICIPANT RP: Is there anything else you would like us to know about the participant?Label */
 	@FindBy(xpath = "//span[normalize-space()=\"Is there anything else you would like us to know about the participant?\"]")
 	public WebElement anythingElseAboutThisParticipantLabel;
 
-	/*
-	 * PARTICIPANT RP: Is there anything else you would like us to know about the
-	 * participant?TextBox
-	 */
+	/* PARTICIPANT RP: Is there anything else you would like us to know about the participant?TextBox */
 	@FindBy(xpath = "(//textarea[@id='sp_formfield_is_there_anything_else_you_would_like_us_to_know_about_this_patient'])[1]")
 	public WebElement anythingElseAboutThisParticipantTextBox;
 
@@ -2030,17 +1826,11 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "//select[@name=\"IO:c81c92c31bbc8d906daea681f54bcbac\"]")
 	public WebElement nVFHQPatientPersonalsTotalMiscarriagesDropDown;
 
-	/*
-	 * NV PARTICIPANT RP: Please write the first name of the partner(s) with whom
-	 * the participant had the pregnancy(ies) above.Label
-	 */
+	/* NV PARTICIPANT RP: Please write the first name of the partner(s) with whom the participant had the pregnancy(ies) above.Label */
 	@FindBy(xpath = "(//span[@class='ng-binding'][contains(text(),'Please write the first name of the partner(s) with')])[1]")
 	public WebElement partnerPregnancyMiscarriageLabel;
 
-	/*
-	 * NV PARTICIPANT RP: Please write the first name of the partner(s) with whom
-	 * the participant had the pregnancy(ies) above.TextBox
-	 */
+	/* NV PARTICIPANT RP: Please write the first name of the partner(s) with whom the participant had the pregnancy(ies) above.TextBox */
 	@FindBy(xpath = "(//input[@id='sp_formfield_miscarriage_partners'])[1]")
 	public WebElement partnerPregnancyMiscarriageTextBox;
 
@@ -2052,17 +1842,11 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "//select[@name=\"IO:8e4c16071bbc8d906daea681f54bcb70\"]")
 	public WebElement nVFHQPatientPersonalsTotalStillbirthsDropDown;
 
-	/*
-	 * NV PARTICIPANT RP: Please write the first name of the partner(s) with whom
-	 * the participant had the pregnancy(ies) above.Label
-	 */
+	/* NV PARTICIPANT RP: Please write the first name of the partner(s) with whom the participant had the pregnancy(ies) above.Label*/
 	@FindBy(xpath = "(//span[@class='ng-binding'][contains(text(),'Please write the first name of the partner(s) with')])[2]")
 	public WebElement partnerPregnancyTotalStillbirthLabel;
 
-	/*
-	 * NV PARTICIPANT RP: Please write the first name of the partner(s) with whom
-	 * the participant had the pregnancy(ies) above.TextBox
-	 */
+	/* NV PARTICIPANT RP: Please write the first name of the partner(s) with whomthe participant had the pregnancy(ies) above.TextBox */
 	@FindBy(xpath = "(//input[@id='sp_formfield_stillbirth_partners'])[1]")
 	public WebElement partnerPregnancyStillbirthTextBox;
 
@@ -2074,17 +1858,11 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "//select[contains(@name,\"IO:458cd6c71bbc8d906daea681f54bcb16\")]")
 	public WebElement nVFHQPatientPersonalsTotalInducedAbortionsDropDown;
 
-	/*
-	 * NV PARTICIPANT RP: Please write the first name of the partner(s) with whom
-	 * the participant had the pregnancy(ies) above.Label
-	 */
+	/* NV PARTICIPANT RP: Please write the first name of the partner(s) with whom the participant had the pregnancy(ies) above.Label*/
 	@FindBy(xpath = "(//span[@class='ng-binding'][contains(text(),'Please write the first name of the partner(s) with')])[3]")
 	public WebElement partnerPregnancyInducedAbortionLabel;
 
-	/*
-	 * NV PARTICIPANT RP: Please write the first name of the partner(s) with whom
-	 * the participant had the pregnancy(ies) above.TextBox
-	 */
+	/* NV PARTICIPANT RP: Please write the first name of the partner(s) with whom the participant had the pregnancy(ies) above.TextBox */
 	@FindBy(xpath = "(//input[@id='sp_formfield_abortion_partners'])[1]")
 	public WebElement partnerPregnancyInducedAbortionTextBox;
 
@@ -2092,17 +1870,11 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "//label[contains(@for,\"sp_formfield_tubal_ectopic_molar_pregnancies\")]//span[2]")
 	public WebElement TotalTubalEctopicMolarPregnanciesLabel1;
 
-	/*
-	 * NV PARTICIPANT RP: Please write the first name of the partner(s) with whom
-	 * the participant had the pregnancy(ies) above.Label
-	 */
+	/* NV PARTICIPANT RP: Please write the first name of the partner(s) with whom the participant had the pregnancy(ies) above.Label */
 	@FindBy(xpath = "(//span[@class='ng-binding'][contains(text(),'Please write the first name of the partner(s) with')])[4]")
 	public WebElement partnerPregnancyEctopicMolarLabel;
 
-	/*
-	 * NV PARTICIPANT RP: Please write the first name of the partner(s) with whom
-	 * the participant had the pregnancy(ies) above.TextBox
-	 */
+	/* NV PARTICIPANT RP: Please write the first name of the partner(s) with whom the participant had the pregnancy(ies) above.TextBox */
 	@FindBy(xpath = "(//input[@id='sp_formfield_ectopic_partners'])[1]")
 	public WebElement partnerPregnancyEctopicMolarTextBox;
 
@@ -2194,10 +1966,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//h2[normalize-space()='Partner'])[1]")
 	public WebElement PartnerBanner;
 
-	/*
-	 * PARTNER RP:You are currently filling out information for the participants
-	 * partner.Banner
-	 */
+	/* PARTNER RP:You are currently filling out information for the participants partner.Banner */
 	@FindBy(xpath = "(//p[@class='ng-binding'])[1]")
 	public WebElement partnerRelationBanner;
 
@@ -2233,10 +2002,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "//span[normalize-space()=\"Is the participant blood-related to this person?\"]")
 	public WebElement isParticipantBloodRelatedToThisPersonLabel;
 
-	/*
-	 * PARTNER RP: If you are filling out this form for your self you are the
-	 * participant. Banner
-	 */
+	/* PARTNER RP: If you are filling out this form for your self you are the participant. Banner */
 	@FindBy(xpath = "(//span[@class='ng-binding'][normalize-space()='If you are filling out this form for your self you are the participant.'])[1]")
 	public WebElement isParticipantBloodRelatedToThisPersonBanner;
 
@@ -2244,31 +2010,19 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[@id='select2-chosen-11'])[1]")
 	public WebElement isParticipantBloodRelatedToThisPersonDropDown;
 
-	/*
-	 * PARTNER RP: Please describe how the participant is related to this person
-	 * Label
-	 */
+	/* PARTNER RP: Please describe how the participant is related to this person Label */
 	@FindBy(xpath = "(//span[normalize-space()='Please describe how the participant is related to this person'])[1]")
 	public WebElement participantRelatedToThisPartnerLabel;
 
-	/*
-	 * PARTNER RP: Please describe how the participant is related to this person
-	 * TextBox
-	 */
+	/* PARTNER RP: Please describe how the participant is related to this person TextBox */
 	@FindBy(xpath = "(//input[@id='sp_formfield_please_describe_how_the_participant_is_related_to_this_person'])[1]")
 	public WebElement participantRelatedToThisPartnerTextBox;
 
-	/*
-	 * PARTNER RP: Is there any additional information you would like us to know or
-	 * understand about this relative? Label
-	 */
+	/* PARTNER RP: Is there any additional information you would like us to know or understand about this relative? Label*/
 	@FindBy(xpath = "//span[normalize-space()=\"Is there any additional information you would like us to know or understand about this relative?\"]")
 	public WebElement anyAdditionalInformationRelatedToThisPartnerLabel;
 
-	/*
-	 * PARTNER RP: Is there any additional information you would like us to know or
-	 * understand about this partner? Text Box
-	 */
+	/* PARTNER RP: Is there any additional information you would like us to know or understand about this partner? Text Box */
 	@FindBy(xpath = "//textarea[contains(@name,\"additional_information\")]")
 	public WebElement anyAdditionalInformationRelatedToThisPartnerTextBox;
 
@@ -2280,10 +2034,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "//h2[normalize-space()='Parent']")
 	public WebElement parentBanner;
 
-	/*
-	 * PARENT RP: You are currently filling out information for the participants
-	 * parent.Banner
-	 */
+	/* PARENT RP: You are currently filling out information for the participants parent.Banner */
 	@FindBy(xpath = "(//p[contains(text(),'You are currently filling out information for the ')])[1]")
 	public WebElement participantParentInformationBanner;
 
@@ -2319,17 +2070,11 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[@id='select2-chosen-13'])[1]")
 	public WebElement parentTypeOfBirthDropDown;
 
-	/*
-	 * PARENT RP:Has this relative ever had any miscarriages, stillbirths, induced
-	 * abortions, or ectopic pregnancies? DropDown
-	 */
+	/* PARENT RP:Has this relative ever had any miscarriages, stillbirths, induced abortions, or ectopic pregnancies? DropDown */
 	@FindBy(xpath = "(//span[@id='select2-chosen-14'])[1]")
 	public WebElement parentBirthLabelDropDown;
 
-	/*
-	 * PARENT RP: Please identify the number of each of the following pregnancy
-	 * results for this parent. Banner
-	 */
+	/* PARENT RP: Please identify the number of each of the following pregnancy results for this parent. Banner */
 	@FindBy(xpath = "(//label[contains(text(),'Please identify the number of each of the followin')])[1]")
 	public WebElement parentbirthsBanner;
 
@@ -2337,10 +2082,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[normalize-space()='Total number of Miscarriages'])[1]")
 	public WebElement parentTotalMiscarriagesLabel;
 
-	/*
-	 * PARENT RP: Total number of Miscarriages:(less than 20 weeks of
-	 * pregnancy)Banner
-	 */
+	/* PARENT RP: Total number of Miscarriages:(less than 20 weeks of pregnancy)Banner */
 	@FindBy(xpath = "(//span[contains(text(),'(less than 20 weeks of pregnancy)')])[1]")
 	public WebElement parentTotalMiscarriagesBanner;
 
@@ -2352,10 +2094,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[normalize-space()='Total number of Stillbirths'])[1]")
 	public WebElement parentTotalStillbirthsLabel;
 
-	/*
-	 * PARENT RP: Total number of Stillbirths:(more than 20 weeks of
-	 * pregnancy)Banner
-	 */
+	/* PARENT RP: Total number of Stillbirths:(more than 20 weeks of pregnancy)Banner */
 	@FindBy(xpath = "(//span[contains(text(),'(more than 20 weeks of pregnancy)')])[1]")
 	public WebElement parentTotalStillbirthsBanner;
 
@@ -2371,15 +2110,11 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[@id='select2-chosen-17'])[1]")
 	public WebElement parentTotalInducedAbortionsDropDown;
 
-	/*
-	 * PARENT RP: Total number of Tubal/Ectopic/Molar Pregnancies Label
-	 */
+	/* PARENT RP: Total number of Tubal/Ectopic/Molar Pregnancies Label */
 	@FindBy(xpath = "//label[@for=\"sp_formfield_total_number_of_tubal_ectopic_molar_pregnancies\"]//span[2]")
 	public WebElement parentTotalTubalEctopicMolarPregnanciesLabel;
 
-	/*
-	 * PARENT RP: Total number of Tubal/Ectopic/Molar Pregnancies DropDown
-	 */
+	/* PARENT RP: Total number of Tubal/Ectopic/Molar Pregnancies DropDown */
 	@FindBy(xpath = "(//span[@id='select2-chosen-18'])[1]")
 	public WebElement parentTotalTubalEctopicMolarPregnanciesDropDown;
 
@@ -2391,10 +2126,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[@id='select2-chosen-20'])[1]")
 	public WebElement parentDiagnosedWithCancerDropDown;
 
-	/*
-	 * PARENT RP: Has this relative ever been diagnosed with any of the medical
-	 * conditions listed below? DropDown
-	 */
+	/* PARENT RP: Has this relative ever been diagnosed with any of the medical conditions listed below? DropDown */
 	@FindBy(xpath = "(//span[@id='select2-chosen-21'])[1]")
 	public WebElement parentDiagnosedWithMedicalConditionsDropDown;
 
@@ -2402,11 +2134,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[normalize-space()='How many siblings does this relative have?'])[1]")
 	public WebElement howManySiblingsThisRelativeHaveLabel;
 
-	/*
-	 * PARENT RP: Please include all full and half siblings, living and deceased.
-	 * Please do not include miscarriages, stillbirths, or abortions. These will be
-	 * collected elsewhere. Banner
-	 */
+	/* PARENT RP: Banner */
 	@FindBy(xpath = "(//span[@class='ng-binding'][normalize-space()='Please include all full and half siblings, living and deceased. Please do not include miscarriages, stillbirths, or abortions. These will be collected elsewhere.'])[1]")
 	public WebElement howManySiblingsThisRelativeHaveBanner;
 
@@ -2414,10 +2142,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[@id='select2-chosen-22'])[1]")
 	public WebElement howManySiblingsThisRelativeHaveDropDown;
 
-	/*
-	 * PARENT RP: Please select the 'Add' button below to add each sibling this
-	 * parent has. Label
-	 */
+	/* PARENT RP: Please select the 'Add' button below to add each sibling this parent has. Label */
 	@FindBy(xpath = "(//label[contains(text(),\"Please select the 'Add' button below to add each s\")])[1]")
 	public WebElement selectAddButtonToAddEachSiblingLabel;
 
@@ -2437,10 +2162,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//td[normalize-space()='Parent Sibling FN'])[1]")
 	public WebElement parentsiblingFirstNameBannerValue;
 
-	/*
-	 * PARENT RP: Please identify the number of each of the following pregnancy
-	 * results for this parent. Label
-	 */
+	/* PARENT RP: Please identify the number of each of the following pregnancy results for this parent. Label */
 	@FindBy(xpath = "(//label[contains(text(),'Please identify the number of each of the followin')])[1]")
 	public WebElement identifyPregnancyResultsForThisParentLabel;
 
@@ -2448,10 +2170,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "//span[normalize-space()=\"Has this relative been diagnosed with a RASopathy?\"]")
 	public WebElement relativeDiagnosedWithRasopathyLabel;
 
-	/*
-	 * PARENT RP: Please select the 'Add' button below to add each RASopathy this
-	 * parent has had. Label
-	 */
+	/* PARENT RP: Please select the 'Add' button below to add each RASopathy this parent has had. Label*/
 	@FindBy(xpath = "(//label[contains(text(),\"Please select the 'Add' button below to add each R\")])[1]")
 	public WebElement parentDiagnosedWithRasopathyAddButtonInfo;
 
@@ -2459,38 +2178,23 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "//span[normalize-space()=\"Has this relative ever been diagnosed with cancer?\"]")
 	public WebElement relativeDiagnosedWithCancerLabel;
 
-	/*
-	 * PARENT RP: Please select the 'Add' button below to add each cancer this
-	 * parent has had. Label
-	 */
+	/* PARENT RP: Please select the 'Add' button below to add each cancer this parent has had. Label */
 	@FindBy(xpath = "(//label[contains(text(),\"Please select the 'Add' button below to add each c\")])[1]")
 	public WebElement parentDiagnosedWithCancerAddButtonInfo;
 
-	/*
-	 * PARENT RP: Has this relative ever been diagnosed with any of the medical
-	 * conditions listed below? Label
-	 */
+	/* PARENT RP: Has this relative ever been diagnosed with any of the medical conditions listed below? Label */
 	@FindBy(xpath = "//span[normalize-space()=\"Has this relative ever been diagnosed with any of the medical conditions listed below?\"]")
 	public WebElement parentDiagnosedWithMedicalConditionsLabel;
 
-	/*
-	 * PARENT RP: Please select the 'Add' button below to add each medical condition
-	 * this parent has had. Label
-	 */
+	/* PARENT RP: Please select the 'Add' button below to add each medical condition this parent has had. Label */
 	@FindBy(xpath = "(//label[contains(text(),\"Please select the 'Add' button below to add each m\")])[1]")
 	public WebElement parentDiagnosedWithMedicalConditionsAddButtonInfo;
 
-	/*
-	 * PARENT RP: Is there anything else you would like us to know about this
-	 * relative Text Box
-	 */
+	/* PARENT RP: Is there anything else you would like us to know about this relative Text Box */
 	@FindBy(xpath = "//span[normalize-space()=\"Is there anything else you would like us to know about this relative?\"]")
 	public WebElement anythingElseAboutThisRelativeLabel;
 
-	/*
-	 * PARENT RP: Is there anything else you would like us to know about this person
-	 * Text Box
-	 */
+	/* PARENT RP: Is there anything else you would like us to know about this person Text Box */
 	@FindBy(xpath = "//textarea[@name=\"is_there_anything_else_you_would_like_us_to_know_about_this_parent_grandparent\"]")
 	public WebElement anythingElseAboutThisRelativeTextBox;
 
@@ -2522,17 +2226,11 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//h2[normalize-space()='Son/Daughter'])[1]")
 	public WebElement fHQChildBanner;
 
-	/*
-	 * CHILD RP: You are currently filling out information for the participants
-	 * son/daughter.
-	 */
+	/* CHILD RP: You are currently filling out information for the participants son/daughter.*/
 	@FindBy(xpath = "(//p[@class='ng-binding'])[1]")
 	public WebElement childRelationBanner;
 
-	/*
-	 * CHILD RP: Please make sure you have completed all partner records before
-	 * completing children records. Banner
-	 */
+	/* CHILD RP: Please make sure you have completed all partner records before completing children records. Banner */
 	@FindBy(xpath = "(//p[contains(text(),'Please make sure you have completed all partner re')])[1]")
 	public WebElement fHQChildBanner1;
 
@@ -2540,17 +2238,11 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "//span[normalize-space()=\"Which best describes this relative?\"]")
 	public WebElement bestDescribeThisRelativeLabel;
 
-	/*
-	 * CHILD RP: Is the other biological parent of this relative one of the partners
-	 * you have entered? Label
-	 */
+	/*CHILD RP: Is the other biological parent of this relative one of the partners you have entered? Label*/
 	@FindBy(xpath = "//span[normalize-space()=\"Is the other biological parent of this relative one of the partners you have entered?\"]")
 	public WebElement isOtherBiologicalParentOfThisRelativeLabel;
 
-	/*
-	 * CHILD RP: Is the other biological parent of this relative one of the partners
-	 * you have entered? DropDown
-	 */
+	/* CHILD RP: Is the other biological parent of this relative one of the partners you have entered? DropDown */
 	@FindBy(xpath = "(//span[@id='select2-chosen-10'])[1]")
 	public WebElement isOtherBiologicalParentOfThisRelativeChildDropDown;
 
@@ -2570,12 +2262,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "//div[@id=\"has_child_been_diagnosed_with_a_rasopathy\"]//span[@class=\"type-choice field-actual state-mandatory\"]")
 	public WebElement childDiagnosedWithRasopathyInformationLink;
 
-	/*
-	 * CHILD RP: Examples of RASopathies include Noonan Syndrome, Costello Syndrome,
-	 * Legius Syndrome, Capillary Arteriovenous Malformation Syndrome,
-	 * Cardiofaciocutaneous Syndrome, or Noonan Syndrome with Multiple Lentigines
-	 * (formerly known as LEOPARD Syndrome) Information
-	 */
+	/* CHILD RP: Information */
 	@FindBy(xpath = "//span[@class=\"ng-binding\"][normalize-space()=\"Examples of RASopathies include Noonan Syndrome, Costello Syndrome, Legius Syndrome, Capillary Arteriovenous Malformation Syndrome, Cardiofaciocutaneous Syndrome, or Noonan Syndrome with Multiple Lentigines (formerly known as LEOPARD Syndrome)\"]")
 	public WebElement childDiagnosedWithRasopathyInformation;
 
@@ -2583,10 +2270,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[@id='select2-chosen-10'])[1]")
 	public WebElement childDiagnosedWithRasopathyDropDown;
 
-	/*
-	 * CHILD RP: Please select the 'Add' button below to add each RASopathy this
-	 * child has had. Label
-	 */
+	/* CHILD RP: Please select the 'Add' button below to add each RASopathy this child has had. Label*/
 	@FindBy(xpath = "//label[contains(text(),\"Please select the \"Add\" button below to add each R\")]")
 	public WebElement addRasopathyButtonLabel;
 
@@ -2614,10 +2298,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[@id='select2-chosen-17'])[1]")
 	public WebElement relativeDiagnosedWithCancerDropDown;
 
-	/*
-	 * CHILD RP: Please select the 'Add' button below to add each cancer this person
-	 * has had. Label
-	 */
+	/* CHILD RP: Please select the 'Add' button below to add each cancer this person has had. Label */
 	@FindBy(xpath = "//div[@id=\"cancer_mrvs_label\"]//div[@class=\"ng-scope\"]")
 	public WebElement personDiagnosedWithCancerAddButtonInfo;
 
@@ -2629,31 +2310,19 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	/* ********* MEDICAL CONDITIONS DETAILS QUESTIONS **************** */
 	/* *************************************************************** */
 
-	/*
-	 * CHILD RP: Has this relative ever been diagnosed with any of the medical
-	 * conditions listed below? Label
-	 */
+	/* CHILD RP: Has this relative ever been diagnosed with any of the medical conditions listed below? Label */
 	@FindBy(xpath = "//span[normalize-space()=\"Has this relative ever been diagnosed with any of the medical conditions listed below?\"]")
 	public WebElement relativeDiagnosedWithMedicalConditionsLabel;
 
-	/*
-	 * CHILD RP: Has this child ever been diagnosed with any of the medical
-	 * conditions listed below? Information Link
-	 */
+	/* CHILD RP: Has this child ever been diagnosed with any of the medical conditions listed below? Information Link */
 	@FindBy(xpath = "//div[@id=\"has_child_ever_been_diagnosed_with_any_of_the_conditions_listed_below\"]//span[@class=\"type-choice field-actual state-mandatory\"]")
 	public WebElement childDiagnosedWithMedicalConditionsInformationLink;
 
-	/*
-	 * CHILD RP: Has this child ever been diagnosed with any of the medical
-	 * conditions listed below? DropDown
-	 */
+	/* CHILD RP: Has this child ever been diagnosed with any of the medicalconditions listed below? DropDown */
 	@FindBy(xpath = "(//span[@id='select2-chosen-18'])[1]")
 	public WebElement childDiagnosedWithMedicalConditionsDropDown;
 
-	/*
-	 * CHILD RP: Please select the 'Add' button below to add each medical condition
-	 * this person has had.Add Button Information
-	 */
+	/*CHILD RP: Please select the 'Add' button below to add each medical conditionthis person has had.Add Button Information */
 	@FindBy(xpath = "//div[@id=\"medical_condition_mrvs_label\"]//div[@class=\"ng-scope\"]")
 	public WebElement relativeDiagnosedWithMedicalConditionsAddButtonInfo;
 
@@ -2665,24 +2334,15 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	/* ********* CHILDS CURRENT PATNER DETAILS QUESTIONS **************** */
 	/* *************************************************************** */
 
-	/*
-	 * CHILD RP: :Is this child currently married or in a long-term relationship?
-	 * Label
-	 */
+	/* CHILD RP: :Is this child currently married or in a long-term relationship? Label */
 	@FindBy(xpath = "//label[@for=\"sp_formfield_is_child_currently_married_or_in_a_long_term_relationship\"]//span[@class=\"ng-binding\"]")
 	public WebElement childMarriedOrLongTermRelationShipLabel;
 
-	/*
-	 * CHILD RP: Is this child currently married or in a long-term relationship?
-	 * DropDown
-	 */
+	/* CHILD RP: Is this child currently married or in a long-term relationship? DropDown */
 	@FindBy(xpath = "//div[33]//div[1]//span[1]//div[1]//a[1]//span[1]")
 	public WebElement childMarriedOrLongTermRelationShipDropDown;
 
-	/*
-	 * CHILD RP: Please fill out the following about this child's current
-	 * partner.Information Label
-	 */
+	/* CHILD RP: Please fill out the following about this child's current partner.Information Label */
 	@FindBy(xpath = "//div[@id=\"current_partner_label\"]//div[contains(@class,\"ng-scope\")]")
 	public WebElement childCurrentPartnerInformationLabel;
 
@@ -2718,23 +2378,15 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "//span[normalize-space()=\"How many TOTAL pregnancies has this child had?\"]")
 	public WebElement totalPregnanciesChildFatheredLabel;
 
-	/*
-	 * CHILD RP: :How many TOTAL pregnancies has this child had or fathered?
-	 * Information Link
-	 */
+	/* CHILD RP: :How many TOTAL pregnancies has this child had or fathered? Information Link */
 	@FindBy(xpath = "//i[contains(@aria-label,\"{h} for How many TOTAL pregnancies has this child had or fathered?\")]")
 	public WebElement totalPregnanciesChildFatheredInformationLink;
 
-	/*
-	 * CHILD RP: How many TOTAL pregnancies has this child had or fathered?DropDown
-	 */
+	/* CHILD RP: How many TOTAL pregnancies has this child had or fathered?DropDown */
 	@FindBy(xpath = "//div[38]//div[1]//span[1]//div[1]//a[1]//span[1]")
 	public WebElement totalPregnanciesChildFatheredDropDown;
 
-	/*
-	 * CHILD RP: Please identify the number of each of the following pregnancy
-	 * results for this child. Label
-	 */
+	/* CHILD RP: Please identify the number of each of the following pregnancy results for this child. Label */
 	@FindBy(xpath = "//label[contains(text(),\"Please identify the number of each of the followin\")]")
 	public WebElement identifyPregnancyResultsForThisChildLabel;
 
@@ -2762,17 +2414,11 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	/* **** Total children (alive and deceased) has this child had DETAILS ** */
 	/* ********************************************************************** */
 
-	/*
-	 * CHILD RP: How many total children (alive and deceased) has this child had?
-	 * Label
-	 */
+	/* CHILD RP: How many total children (alive and deceased) has this child had? Label */
 	@FindBy(xpath = "(//span[normalize-space()='How many total children (alive and deceased) has this child had?'])[1]")
 	public WebElement totalChildrenThisChildHadLabel;
 
-	/*
-	 * CHILD RP: How many total children (alive and deceased) has this child had?
-	 * DropDown
-	 */
+	/* CHILD RP: How many total children (alive and deceased) has this child had? DropDown */
 	@FindBy(xpath = "//div[45]//div[1]//span[1]//div[1]//a[1]//span[1]")
 	public WebElement totalChildrenThisChildHadDropDown;
 
@@ -2792,38 +2438,23 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	/* ****** child's children been with their current partner DETAILS ****** */
 	/* ********************************************************************** */
 
-	/*
-	 * CHILD RP: Have all of this child's children been with their current partner?
-	 * Label
-	 */
+	/* CHILD RP: Have all of this child's children been with their current partner? Label */
 	@FindBy(xpath = "//label[@for=\"sp_formfield_have_all_of_child_s_children_been_with_partner\"]//span[@class=\"ng-binding\"]")
 	public WebElement childCurrentPartnerLabel;
 
-	/*
-	 * CHILD RP: Have all of this child's children been with their current partner?
-	 * DropDown
-	 */
+	/* CHILD RP: Have all of this child's children been with their current partner?DropDown */
 	@FindBy(xpath = "//div[48]//div[1]//span[1]//div[1]//a[1]//span[1]")
 	public WebElement childCurrentPartnerDropDown;
 
-	/*
-	 * CHILD RP: How many total different partners has child had children with?
-	 * Label
-	 */
+	/* CHILD RP: How many total different partners has child had children with?Label */
 	@FindBy(xpath = "//span[normalize-space()=\"How many total different partners has child had children with?\"]")
 	public WebElement childTotalDifferentPartnerLabel;
 
-	/*
-	 * CHILD RP: How many total different partners has child had children with? Drop
-	 * Down
-	 */
+	/* CHILD RP: How many total different partners has child had children with? Drop Down */
 	@FindBy(xpath = "//div[49]//div[1]//span[1]//div[1]//a[1]//span[1]")
 	public WebElement childTotalDifferentPartnerDropDown;
 
-	/*
-	 * CHILD RP: Please select the 'Add' button below to add each partner this child
-	 * has had children with Label
-	 */
+	/* CHILD RP: Please select the 'Add' button below to add each partner this child has had children with Label */
 	@FindBy(xpath = "(//label[contains(text(),\"Please select the 'Add' button below to add each p\")])[1]")
 	public WebElement addButtonToAddPartnerThisChildHasLabel;
 
@@ -2843,23 +2474,15 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//a[@class='select2-choice select2-default form-control'])[4]")
 	public WebElement otherBiologicalParentDropDown;
 
-	/*
-	 * CHILD RP: How many total children (alive and deceased) has this relative had?
-	 * DropDown
-	 */
+	/* CHILD RP: How many total children (alive and deceased) has this relative had? DropDown */
 	@FindBy(xpath = "(//span[@id='select2-chosen-21'])[1]")
 	public WebElement totalChildrenPatientHadDropDown;
 
-	/*
-	 * CHILD RP: Is there anything else you would like us to know about this child?
-	 * Label
-	 */
+	/* CHILD RP: Is there anything else you would like us to know about this child? Label */
 	@FindBy(xpath = "(//span[normalize-space()='Is there anything else you would like us to know about this child?'])[1]")
 	public WebElement anythingElseAboutChildLabel;
-	/*
-	 * CHILD RP: Is there anything else you would like us to know about this child?
-	 * TextBox
-	 */
+	
+	/* CHILD RP: Is there anything else you would like us to know about this child? TextBox */
 	@FindBy(xpath = "(//textarea[@id='sp_formfield_is_there_anything_else_you_would_like_us_to_know_about_child'])[1]")
 	public WebElement anythingElseAboutChildTextBox;
 
@@ -2871,10 +2494,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//h2[normalize-space()='Sibling'])[1]")
 	public WebElement fHQSiblingBanner;
 
-	/*
-	 * SIBLING RP: You are currently filling out information for the participants
-	 * sibling.Banner
-	 */
+	/* SIBLING RP: You are currently filling out information for the participants sibling.Banner */
 	@FindBy(xpath = "(//p[contains(text(),'You are currently filling out information for the ')])[1]")
 	public WebElement siblingRelationBanner;
 
@@ -2898,16 +2518,11 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "//span[normalize-space()=\"Does this sibling have a current spouse or partner?\"]")
 	public WebElement fHQDoesSiblingHaveCurrentSpouseLabel;
 
-	/*
-	 * SIBLING RP: Please fill out the following about this sibling's current
-	 * partner.Label
-	 */
+	/* SIBLING RP: Please fill out the following about this sibling's current partner.Label */
 	@FindBy(xpath = "(//label[contains(text(),\"Please fill out the following about this sibling's\")])[1]")
 	public WebElement fHQDoesSiblingHaveCurrentSpouseBanner;
 
-	/*
-	 * SIBLING RP: Has this relative been diagnosed with a RASopathy? DropDown
-	 */
+	/* SIBLING RP: Has this relative been diagnosed with a RASopathy? DropDown */
 	@FindBy(xpath = "(//span[contains(text(),'-- None --')])[17]")
 	public WebElement birthsLabelDropDown;
 
@@ -2931,10 +2546,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[@id='select2-chosen-16'])[1]")
 	public WebElement cousinTotalTubalDropDown;
 
-	/*
-	 * SIBLING RP: Please select the 'Add' button below to add each Child this
-	 * sibling has had. Banner
-	 */
+	/* SIBLING RP: Please select the 'Add' button below to add each Child thissibling has had. Banner */
 	@FindBy(xpath = "(//label[contains(text(),\"Please select the 'Add' button below to add each C\")])[1]")
 	public WebElement fHQSelectAddToAddSiblingChildrenBanner;
 
@@ -2958,10 +2570,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//button[@type='button'][normalize-space()='Add'])[1]")
 	public WebElement addSiblingRasopathyButton;
 
-	/*
-	 * SIBLING RP: Please select the 'Add' button below to add each RASopathy this
-	 * sibling has had. Add Button Information
-	 */
+	/* SIBLING RP: Please select the 'Add' button below to add each RASopathy thissibling has had. Add Button Information */
 	@FindBy(xpath = "(//label[contains(text(),\"Please select the 'Add' button below to add each R\")])[1]")
 	public WebElement siblingDiagnosedWithRasopathyAddButtonInfo;
 
@@ -2969,31 +2578,19 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[normalize-space()='Has this relative ever been diagnosed with cancer?'])[1]")
 	public WebElement siblingDiagnosedWithCancerLabel;
 
-	/*
-	 * SIBLING RP: Please select the 'Add' button below to add each cancer this
-	 * sibling has had. Add Button Information
-	 */
+	/* SIBLING RP: Please select the 'Add' button below to add each cancer this sibling has had. Add Button Information */
 	@FindBy(xpath = "(//label[contains(text(),\"Please select the 'Add' button below to add each c\")])[1]")
 	public WebElement siblingDiagnosedWithCancerAddButtonInfo;
 
-	/*
-	 * SIBLING RP: Has this relative ever been diagnosed with any of the conditions
-	 * listed below? Label
-	 */
+	/* SIBLING RP: Has this relative ever been diagnosed with any of the conditions listed below? Label */
 	@FindBy(xpath = "//span[normalize-space()=\"Has this relative ever been diagnosed with any of the medical conditions listed below?\"]")
 	public WebElement siblingDiagnosedWithMedicalConditionsLabel;
 
-	/*
-	 * SIBLING RP: Please select the 'Add' button below to add each medical
-	 * condition this sibling has had. Add Button Information
-	 */
+	/* SIBLING RP: Please select the 'Add' button below to add each medical condition this sibling has had. Add Button Information */
 	@FindBy(xpath = "(//label[contains(text(),\"Please select the 'Add' button below to add each m\")])[1]")
 	public WebElement siblingDiagnosedWithMedicalConditionsAddButtonInfo;
 
-	/*
-	 * SIBLING RP: Is there anything else you would like us to know about this
-	 * relative? Text Box
-	 */
+	/* SIBLING RP: Is there anything else you would like us to know about this relative? Text Box */
 	@FindBy(xpath = "(//textarea[contains(@name,'is_there_anything_else_you_would_like_us_to_know_about_sibling')])[1]")
 	public WebElement anythingElseAboutSiblingTextBox;
 
@@ -3005,38 +2602,23 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//h2[normalize-space()='Aunt/Uncle'])[1]")
 	public WebElement auntUncleBanner;
 
-	/*
-	 * AUNT/UNCLE RP: You are currently filling out information for the participants
-	 * aunt/uncle.
-	 */
+	/* AUNT/UNCLE RP: You are currently filling out information for the participants aunt/uncle. */
 	@FindBy(xpath = "(//p[@class='ng-binding'])[1]")
 	public WebElement auntUncleRelationBanner;
 
-	/*
-	 * AUNT/UNCLE RP: Please enter one record per each family member for whom you
-	 * have knowledge: Banner
-	 */
+	/* AUNT/UNCLE RP: Please enter one record per each family member for whom you have knowledge: Banner */
 	@FindBy(xpath = "(//p[contains(text(),'Please enter one record per each family member for')])[1]")
 	public WebElement shortDescriptionInformationBanner1;
 
-	/*
-	 * AUNT/UNCLE RP: Is this relative the participant's mother's sibling or their
-	 * father's sibling Label
-	 */
+	/* AUNT/UNCLE RP: Is this relative the participant's mother's sibling or their father's sibling Label */
 	@FindBy(xpath = "(//span[contains(text(),\"Is this relative the participant's mother's sibling or their father's sibling\")])[1]")
 	public WebElement relativeParticipantsMotherOrFatherSiblingLabel;
 
-	/*
-	 * AUNT/UNCLE RP: Is this relative the participant's mother's sibling or their
-	 * father's sibling Banner
-	 */
+	/* AUNT/UNCLE RP: Is this relative the participant's mother's sibling or their father's sibling Banner*/
 	@FindBy(xpath = "(//span[@class='ng-binding'][normalize-space()='If you are filling out this form for your self you are the participant.'])[1]")
 	public WebElement relativeParticipantsMotherOrFatherSiblingBanner;
 
-	/*
-	 * AUNT/UNCLE RP: Is this relative the participant's mother's sibling or their
-	 * father's sibling DropDown
-	 */
+	/* AUNT/UNCLE RP: Is this relative the participant's mother's sibling or their father's sibling DropDown */
 	@FindBy(xpath = "//div[@id='s2id_sp_formfield_parent_sibling']")
 	public WebElement relativeParticipantsMotherOrFatherSiblingDropDown;
 
@@ -3076,9 +2658,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//input[@id='sp_formfield_other_gender'])[1]")
 	public WebElement otherGenderTextBox;
 
-	/*
-	 * AUNT/UNCLE RP: Is this relative a twin or part of a multiple birth? DropDown
-	 */
+	/* AUNT/UNCLE RP: Is this relative a twin or part of a multiple birth? DropDown */
 	@FindBy(xpath = "(//span[@id='select2-chosen-10'])[1]")
 	public WebElement auntUncleTwinOrMultipleBirthDropDown;
 
@@ -3118,17 +2698,11 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[@id='select2-chosen-18'])[1]")
 	public WebElement auntUnclediagnosedWithCancerDropDown;
 
-	/*
-	 * AUNT/UNCLE RP: Please Press Add button below to add each cancer (name of
-	 * Aunt) has had. Banner
-	 */
+	/* AUNT/UNCLE RP: Please Press Add button below to add each cancer (name of Aunt) has had. Banner */
 	@FindBy(xpath = "(//label[contains(text(),\"Please select the 'Add' button below to add each c\")])[1]")
 	public WebElement auntUnclediagnosedWithCancerAddButtonInfo;
 
-	/*
-	 * AUNT/UNCLE RP: Please press add button below to add each Medical condition
-	 * (name of Aunt) has had. Banner
-	 */
+	/* AUNT/UNCLE RP: Please press add button below to add each Medical condition(name of Aunt) has had. Banner */
 	@FindBy(xpath = "(//label[contains(text(),\"Please select the 'Add' button below to add each m\")])[1]")
 	public WebElement auntUncleDiagnosedWithMedicalConditionsAddButtonInfo;
 
@@ -3136,10 +2710,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//button[@type='button'][normalize-space()='Add'])[3]")
 	public WebElement addMedicalConditionsAuntUncleButton;
 
-	/*
-	 * AUNT/UNCLE RP: Has this relative ever been diagnosed with any of the medical
-	 * conditions listed below? DropDown
-	 */
+	/* AUNT/UNCLE RP: Has this relative ever been diagnosed with any of the medical conditions listed below? DropDown */
 	@FindBy(xpath = "(//span[@id='select2-chosen-19'])[1]")
 	public WebElement auntUnclediagnosedWithMedicalConditionsDropDown;
 
@@ -3147,10 +2718,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[@id='select2-chosen-20'])[1]")
 	public WebElement auntUncletotalChildrenThisRelativeHadDropDown;
 
-	/*
-	 * AUNT/UNCLE RP: Please select the 'Add' button below to add each Child this
-	 * relative has had. Banner
-	 */
+	/* AUNT/UNCLE RP: Please select the 'Add' button below to add each Child this relative has had. Banner */
 	@FindBy(xpath = "(//label[contains(text(),\"Please select the 'Add' button below to add each C\")])[1]")
 	public WebElement addButtonEachChildThisRelativeHasBanner;
 
@@ -3174,10 +2742,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//td[normalize-space()=\"Don't Know\"])[1]")
 	public WebElement auntUncleVitalStatusBannerValue;
 
-	/*
-	 * AUNT/UNCLE RP: Is there anything else you would like us to know about this
-	 * relative? TextBox
-	 */
+	/* AUNT/UNCLE RP: Is there anything else you would like us to know about this relative? TextBox */
 	@FindBy(xpath = "(//textarea[contains(@name,'is_there_anything_else_you_would_like_us_to_know_about_aunt_uncle')])[1]")
 	public WebElement anythingElseAboutAuntUncleTextBox;
 
@@ -3189,17 +2754,11 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//h2[normalize-space()='Niece/Nephew'])[1]")
 	public WebElement nieceNephewBanner;
 
-	/*
-	 * NIECE/NEPHEW RP: You are currently filling out information for the
-	 * participants niece/nephew. Banner
-	 */
+	/* NIECE/NEPHEW RP: You are currently filling out information for the participants niece/nephew. Banner */
 	@FindBy(xpath = "(//p[contains(text(),'You are currently filling out information for the ')])[1]")
 	public WebElement neiceNephewRelationBanner;
 
-	/*
-	 * NIECE/NEPHEW RP:Please make sure you have completed all partner records
-	 * before completing children records.Banner
-	 */
+	/* NIECE/NEPHEW RP:Please make sure you have completed all partner records before completing children records.Banner */
 	@FindBy(xpath = "(//p[contains(text(),'Please make sure you have completed all partner re')])[1]")
 	public WebElement neiceNephewRelationBanner1;
 
@@ -3207,12 +2766,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "//span[normalize-space()=\"Who is the parent of this niece/nephew?\"]")
 	public WebElement parentOfThisNieceNephewLabel;
 
-	/*
-	 * NIECE/NEPHEW RP:If the sibling name is not visible in the drop down, that
-	 * means the sibling record is incomplete on the home page. Please return to the
-	 * homepage and complete the sibling record(s) before completing the
-	 * niece/nephew records. Banner
-	 */
+	/* NIECE/NEPHEW RP: Banner */
 	@FindBy(xpath = "(//span[@title='If the sibling name is not visible in the dropdown, that means the sibling record is incomplete on the home page. Please return to the homepage and complete the sibling record(s) before completing the niece/nephew records.'])[1]")
 	public WebElement parentOfThisNieceNephewBanner;
 
@@ -3228,10 +2782,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "//span[normalize-space()=\"What was the cause of death?\"]")
 	public WebElement causeOfThisNieceNephewDeathLabel;
 
-	/*
-	 * NIECE/NEPHEW RP: If you don't know, you can write "don't know" in the text
-	 * box. Banner
-	 */
+	/* NIECE/NEPHEW RP: If you don't know, you can write "don't know" in the text box. Banner */
 	@FindBy(xpath = "(//input[@name='cause_of_death'])[1]")
 	public WebElement causeOfThisNieceNephewDeathBanner;
 
@@ -3271,11 +2822,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[@id='select2-chosen-2'])[1]")
 	public WebElement whichGrandParentDropDown;
 
-
-	/*
-	 * GRANDPARENT RP: You are currently filling out information for the
-	 * participants paternal grandmother.Banner
-	 */
+	/* GRANDPARENT RP: You are currently filling out information for the participants paternal grandmother.Banner */
 	@FindBy(xpath = "(//p[contains(text(),'You are currently filling out information for the ')])[1]")
 	public WebElement grandParentInformationBanner;
 
@@ -3311,30 +2858,19 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[contains(@class,'select2-chosen')][normalize-space()='-- None --'])[19]")
 	public WebElement grandParentDiagnosedWithRasopathyInformationDropDown;
 
-	/*
-	 * GRANDPARENT RP: Has this relative ever been diagnosed with cancer? DropDown
-	 */
+	/* GRANDPARENT RP: Has this relative ever been diagnosed with cancer? DropDown */
 	@FindBy(xpath = "(//span[contains(@class,'select2-chosen')][normalize-space()='-- None --'])[20]")
 	public WebElement grandParentDiagnosedWithCancerLabelDropDown;
 
-	/*
-	 * GRANDPARENT RP: Has this relative ever been diagnosed with any of the medical
-	 * conditions listed below? DropDown
-	 */
+	/* GRANDPARENT RP: Has this relative ever been diagnosed with any of the medical conditions listed below? DropDown */
 	@FindBy(xpath = "(//span[contains(@class,'select2-chosen')][normalize-space()='-- None --'])[21]")
 	public WebElement grandParentDiagnosedWithMedicalConditionsLabelDropDown;
 
-	/*
-	 * GRANDPARENT RP: Has this relative ever been diagnosed with one of the medical
-	 * conditions listed below? Label
-	 */
+	/* GRANDPARENT RP: Has this relative ever been diagnosed with one of the medical conditions listed below? Label */
 	@FindBy(xpath = "//span[contains(text(),\"Has this relative ever been diagnosed with one of \")]")
 	public WebElement grandParentDiagnosedWithMedicalConditionsLabel;
 
-	/*
-	 * GRANDPARENT RP: Has this relative ever been diagnosed with one of the medical
-	 * conditions listed below? DropDown
-	 */
+	/* GRANDPARENT RP: Has this relative ever been diagnosed with one of the medical conditions listed below? DropDown */
 	@FindBy(xpath = "//div[39]//div[1]//span[1]//div[1]//a[1]//span[1]")
 	public WebElement grandParentMedicalConditionDropDown;
 
@@ -3370,10 +2906,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//h2[normalize-space()='Grandchild'])[1]")
 	public WebElement grandChildBanner;
 
-	/*
-	 * GRANDCHILD RP: You are currently filling out information for the participants
-	 * grandchild.
-	 */
+	/* GRANDCHILD RP: You are currently filling out information for the participants grandchild. */
 	@FindBy(xpath = "(//p[@class='ng-binding'])[1]")
 	public WebElement grandChildRelationBanner;
 
@@ -3381,12 +2914,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "//span[normalize-space()=\"Who is the parent of this grandchild?\"]")
 	public WebElement parentOfThisGrandChildLabel;
 
-	/*
-	 * GRANDCHILD RP: If the child name is not visible in the dropdown, that means
-	 * the child record is incomplete on the home page. Please return to the
-	 * homepage and complete the child record(s) before completing the grandchild
-	 * records. Banner
-	 */
+	/* GRANDCHILD RP: Banner */
 	@FindBy(xpath = "(//span[@class='ng-binding'][normalize-space()='If the child name is not visible in the dropdown, that means the child record is incomplete on the home page. Please return to the homepage and complete the child record(s) before completing the grandchild records.'])[1]")
 	public WebElement parentOfThisGrandChildBanner;
 
@@ -3406,10 +2934,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//h2[normalize-space()='Cousin'])[1]")
 	public WebElement cousinBanner;
 
-	/*
-	 * COUSIN RP: You are currently filling out information for the participants
-	 * cousin.
-	 */
+	/* COUSIN RP: You are currently filling out information for the participants cousin.*/
 	@FindBy(xpath = "(//p[@class='ng-binding'])[1]")
 	public WebElement cousinRelationBanner;
 
@@ -3485,15 +3010,11 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[normalize-space()='Deceased'])[1]")
 	public WebElement vitalStatusOnCRPValue;
 
-	/*
-	 * CRP: Please provide the year of death or the age of death On CRP Page
-	 */
+	/* CRP: Please provide the year of death or the age of death On CRP Page */
 	@FindBy(xpath = "(//span[normalize-space()='Please provide the year of death or the age of death'])[1]")
 	public WebElement yearOfDeathOrAgeOfDeathOnCRP;
 
-	/*
-	 * CRP: Please provide the year of death or the age of death On CRP Value
-	 */
+	/* CRP: Please provide the year of death or the age of death On CRP Value */
 	@FindBy(xpath = "(//span[contains(text(),'Year of Death')])[1]")
 	public WebElement yearOfDeathOrAgeOfDeathOnCRPValue;
 
@@ -3565,35 +3086,23 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[@id='select2-chosen-5'])[1]")
 	public WebElement describesThisRelativeOnCRPValue;
 
-	/*
-	 * CRP: Is the other biological parent of this relative one of partners you have
-	 * entered On CRP Page
-	 */
+	/* CRP: Is the other biological parent of this relative one of partners you have entered On CRP Page */
 	@FindBy(xpath = "(//span[normalize-space()='Is the other biological parent of this relative one of partners you have entered'])[1]")
 	public WebElement biologicalParentOfThisRelativeOnCRP;
 
-	/*
-	 * CRP: Is the other biological parent of this relative one of partners you have
-	 * entered On CRP Page Value
-	 */
+	/* CRP: Is the other biological parent of this relative one of partners you have entered On CRP Page Value */
 	@FindBy(xpath = "(//span[@id='select2-chosen-6'])[1]")
 	public WebElement biologicalParentOfThisRelativeOnCRPValue;
 
-	/*
-	 * CRP: Is this relative a twin or part of a multiple birth?On CRP Page
-	 */
+	/* CRP: Is this relative a twin or part of a multiple birth?On CRP Page */
 	@FindBy(xpath = "(//span[normalize-space()='Is this relative a twin or part of a multiple birth?'])[1]")
 	public WebElement twinOnCRP;
 
-	/*
-	 * CRP: Is this relative a twin or part of a multiple birth?On CRP Page Value
-	 */
+	/* CRP: Is this relative a twin or part of a multiple birth?On CRP Page Value */
 	@FindBy(xpath = "(//span[@id='select2-chosen-7'])[1]")
 	public WebElement twinOnCRPValue;
 
-	/*
-	 * CRP: Is this relative a twin or part of a multiple birth?On CRP Page Value
-	 */
+	/* CRP: Is this relative a twin or part of a multiple birth?On CRP Page Value */
 	@FindBy(xpath = "(//span[contains(text(),'Yes')])[1]")
 	public WebElement twinOnCRPValue1;
 
@@ -3617,31 +3126,19 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[normalize-space()='Fraternal triplet'])[1]")
 	public WebElement typeOfBirthOnCRPValue3;
 
-	/*
-	 * CRP: Has this relative ever had any miscarriages, stillbirths, induced
-	 * abortions ... On CRP Page
-	 */
+	/* CRP: Has this relative ever had any miscarriages, stillbirths, induced abortions ... On CRP Page */
 	@FindBy(xpath = "(//span[normalize-space()='Has this relative ever had any miscarriages, stillbirths, induced abortions ...'])[1]")
 	public WebElement miscarriageStillBirthsOnCRP;
 
-	/*
-	 * CRP: Has this relative ever had any miscarriages, stillbirths, induced
-	 * abortions ... On CRP Page Value
-	 */
+	/* CRP: Has this relative ever had any miscarriages, stillbirths, induced abortions ... On CRP Page Value */
 	@FindBy(xpath = "(//span[@id='select2-chosen-9'])[1]")
 	public WebElement miscarriageStillBirthsOnCRPValue;
 
-	/*
-	 * CRP: Has this relative ever had any miscarriages, stillbirths, induced
-	 * abortions ... On CRP Page Value
-	 */
+	/* CRP: Has this relative ever had any miscarriages, stillbirths, induced abortions ... On CRP Page Value */
 	@FindBy(xpath = "(//span[contains(@class,'select2-chosen')][normalize-space()='Yes'])[2]")
 	public WebElement miscarriageStillBirthsOnCRPValue1;
 
-	/*
-	 * CRP: Has this relative ever had any miscarriages, stillbirths, induced
-	 * abortions ... On CRP Page Value
-	 */
+	/* CRP: Has this relative ever had any miscarriages, stillbirths, induced abortions ... On CRP Page Value */
 	@FindBy(xpath = "(//span[contains(text(),'Yes')])[2]")
 	public WebElement miscarriageStillBirthsOnCRPValue2;
 
@@ -3701,27 +3198,19 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "//div[@id='tubal_ectopic_molar_pregnancies']//label")
 	public WebElement totalNumberOfTubalOnCRP1;
 
-	/*
-	 * CRP: Total Number of Tubal/Ectopic/Molar Pregnancies On CRP Page Value
-	 */
+	/* CRP: Total Number of Tubal/Ectopic/Molar Pregnancies On CRP Page Value */
 	@FindBy(xpath = "(//input[@id='sp_formfield_total_number_of_tubal_ectopic_molar_pregnancies'])[1]")
 	public WebElement totalNumberOfTubalOnCRPValue;
 
-	/*
-	 * CRP: Total Number of Tubal/Ectopic/Molar Pregnancies On CRP Page Value
-	 */
+	/* CRP: Total Number of Tubal/Ectopic/Molar Pregnancies On CRP Page Value */
 	@FindBy(xpath = "(//input[@name='tubal_ectopic_molar_pregnancies'])[1]")
 	public WebElement totalNumberOfTubalOnCRPValue1;
 
-	/*
-	 * CRP: Total Number of Tubal/Ectopic/Molar Pregnancies On CRP Page Value
-	 */
+	/* CRP: Total Number of Tubal/Ectopic/Molar Pregnancies On CRP Page Value */
 	@FindBy(xpath = "(//input[@id='sp_formfield_tubal_ectopic_molar_pregnancies'])[1]")
 	public WebElement totalNumberOfTubalOnCRPValue2;
 
-	/*
-	 * CRP: Total Number of Tubal/Ectopic/Molar Pregnancies On CRP Page Value
-	 */
+	/* CRP: Total Number of Tubal/Ectopic/Molar Pregnancies On CRP Page Value */
 	@FindBy(xpath = "(//input[@name='total_number_of_tubal_ectopic_molar_pregnancies'])[1]")
 	public WebElement totalNumberOfTubalOnCRPValue3;
 
@@ -3741,90 +3230,55 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[normalize-space()='Has this relative ever been diagnosed with cancer?'])[1]")
 	public WebElement diagnosedWithCancerOnCRP;
 
-	/*
-	 * CRP: Has this relative ever been diagnosed with cancer? On CRP Page Value
-	 */
+	/* CRP: Has this relative ever been diagnosed with cancer? On CRP Page Value */
 	@FindBy(xpath = "(//span[contains(text(),'Yes')])[4]")
 	public WebElement diagnosedWithCancerOnCRPValue;
 	
-	/*
-	 * CRP: Has this relative ever been diagnosed with cancer? On CRP Page Value
-	 */
+	/* CRP: Has this relative ever been diagnosed with cancer? On CRP Page Value */
 	@FindBy(xpath = "(//span[@id='select2-chosen-11'])[1]")
 	public WebElement grandParentDiagnosedWithCancerOnCRPValue;
 
-	/*
-	 * CRP: Has this relative ever been diagnosed with any of the medical conditions
-	 * ... On CRP Page
-	 */
+	/* CRP: Has this relative ever been diagnosed with any of the medical conditions ... On CRP Page */
 	@FindBy(xpath = "(//span[normalize-space()='Has this relative ever been diagnosed with any medical conditions?'])[1]")
 	public WebElement diagnosedWithMedicalConditionsOnCRP;
 
-	/*
-	 * CRP: Has this relative ever been diagnosed with any of the medical conditions
-	 * ... On CRP Page
-	 */
+	/* CRP: Has this relative ever been diagnosed with any of the medical conditions ... On CRP Page */
 	@FindBy(xpath = "(//span[normalize-space()='Has this relative ever been diagnosed with any medical conditions?'])[1]")
 	public WebElement diagnosedWithMedicalConditionsOnCRP1;
 
-	/*
-	 * CRP: Has this relative ever been diagnosed with any of the medical conditions
-	 * ... On CRP Page Value
-	 */
+	/* CRP: Has this relative ever been diagnosed with any of the medical conditions ... On CRP Page Value */
 	@FindBy(xpath = "(//span[@id='select2-chosen-12'])[1]")
 	public WebElement diagnosedWithMedicalConditionsOnCRPValue;
 	
-	/*CRP: Has this relative ever been diagnosed with any of the medical conditions On CRP Page Value
-	 */
+	/* CRP: Has this relative ever been diagnosed with any of the medical conditions On CRP Page Value */
 	@FindBy(xpath = "(//span[@id='select2-chosen-12'])[1]")
 	public WebElement grandParentDiagnosedWithMedicalConditionsOnCRPValue;
 
-	/*
-	 * CRP: Has this relative ever been diagnosed with any of the medical conditions
-	 * ... On CRP Page Value
-	 */
+	/* CRP: Has this relative ever been diagnosed with any of the medical conditions ... On CRP Page Value */
 	@FindBy(xpath = "(//span[contains(text(),'Yes')])[5]")
 	public WebElement diagnosedWithMedicalConditionsOnCRPValue1;
 
-	/*
-	 * CRP: How many total children (alive and deceased) has this relative had? On
-	 * CRP Page
-	 */
+	/* CRP: How many total children (alive and deceased) has this relative had? On CRP Page */
 	@FindBy(xpath = "(//span[normalize-space()='How many total children (alive and deceased) has this relative had?'])[1]")
 	public WebElement howManyChildrenOnCRP;
 
-	/*
-	 * CRP: How many total children (alive and deceased) has this relative had? On
-	 * CRP Page
-	 */
+	/* CRP: How many total children (alive and deceased) has this relative had? On CRP Page */
 	@FindBy(xpath = "(//span[normalize-space()='How many total children (alive and deceased) does this relative have?'])[1]")
 	public WebElement howManyChildrenOnCRP1;
 
-	/*
-	 * CRP: How many total children (alive and deceased) has this relative had? On
-	 * CRP Page Value
-	 */
+	/* CRP: How many total children (alive and deceased) has this relative had? On CRP Page Value */
 	@FindBy(xpath = "(//input[@id='sp_formfield_how_many_total_children_alive_and_deceased_has_child_had'])[1]")
 	public WebElement howManyChildrenOnCRPValue;
 
-	/*
-	 * CRP: How many total children (alive and deceased) has this relative had? On
-	 * CRP Page Value
-	 */
+	/* CRP: How many total children (alive and deceased) has this relative had? On CRP Page Value */
 	@FindBy(xpath = "(//span[contains(@class,'select2-chosen')][normalize-space()='1'])[1]")
 	public WebElement howManyChildrenOnCRPValue1;
 
-	/*
-	 * CRP: How many total children (alive and deceased) has this relative had? On
-	 * CRP Page Value
-	 */
+	/* CRP: How many total children (alive and deceased) has this relative had? On CRP Page Value */
 	@FindBy(xpath = "(//span[@class='select2-chosen'][normalize-space()='1'])[1]")
 	public WebElement howManyChildrenOnCRPValue2;
 
-	/*
-	 * CRP: How many total children (alive and deceased) has this relative had? On
-	 * CRP Page Value
-	 */
+	/* CRP: How many total children (alive and deceased) has this relative had? On CRP Page Value */
 	@FindBy(xpath = "(//input[@id='sp_formfield_total_num_children'])[1]")
 	public WebElement howManyChildrenOnCRPValue3;
 
@@ -3836,52 +3290,31 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//input[@id='sp_formfield_how_many_siblings'])[1]")
 	public WebElement howManySiblingsOnCRPValue;
 
-	/*
-	 * CRP:Is there anything else you would like us to know about this relative? On
-	 * CRP Page
-	 */
+	/* CRP:Is there anything else you would like us to know about this relative? On CRP Page */
 	@FindBy(xpath = "(//span[normalize-space()='Is there anything else you would like us to know about this relative?'])[1]")
 	public WebElement additionalInfoOnCRP;
 
-	/*
-	 * CRP: Is there anything else you would like us to know about this relative? On
-	 * CRP Page Value
-	 */
+	/* CRP: Is there anything else you would like us to know about this relative? On CRP Page Value */
 	@FindBy(xpath = "(//textarea[contains(@name,'additional_information')])[1]")
 	public WebElement additionalInfoOnCRPValue;
 
-	/*
-	 * CRP: Is there anything else you would like us to know about this relative? On
-	 * CRP Page Value
-	 */
+	/* CRP: Is there anything else you would like us to know about this relative? On CRP Page Value */
 	@FindBy(xpath = "(//textarea[@id='sp_formfield_is_there_anything_else_you_would_like_us_to_know_about_child'])[1]")
 	public WebElement additionalInfoOnCRPValue1;
 
-	/*
-	 * CRP: Is there anything else you would like us to know about this relative? On
-	 * CRP Page Value
-	 */
+	/* CRP: Is there anything else you would like us to know about this relative? On CRP Page Value */
 	@FindBy(xpath = "(//textarea[@name='is_there_anything_else_you_would_like_us_to_know_about_aunt_uncle'])[1]")
 	public WebElement additionalInfoOnCRPValue2;
 
-	/*
-	 * CRP: Is there anything else you would like us to know about this relative? On
-	 * CRP Page Value
-	 */
+	/* CRP: Is there anything else you would like us to know about this relative? On CRP Page Value */
 	@FindBy(xpath = "(//textarea[@name='is_there_anything_else_you_would_like_us_to_know_about_child'])[1]")
 	public WebElement additionalInfoOnCRPValue3;
 
-	/*
-	 * CRP: Is there anything else you would like us to know about this relative? On
-	 * CRP Page Value
-	 */
+	/* CRP: Is there anything else you would like us to know about this relative? On CRP Page Value */
 	@FindBy(xpath = "(//textarea[@id='sp_formfield_is_there_anything_else_you_would_like_us_to_know_about_this_parent_grandparent'])[1]")
 	public WebElement additionalInfoOnCRPValue4;
 
-	/*
-	 * CRP: Is there anything else you would like us to know about this relative? On
-	 * CRP Page Value
-	 */
+	/* CRP: Is there anything else you would like us to know about this relative? On CRP Page Value */
 	@FindBy(xpath = "(//textarea[@id='sp_formfield_is_there_anything_else_you_would_like_us_to_know_about_sibling'])[1]")
 	public WebElement additionalInfoOnCRPValue5;
 
@@ -4021,10 +3454,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "//div[@id='is_this_the_participants_current_partner']//div[@class='ng-scope']")
 	public WebElement currentPartnerOnCRP;
 
-	/*
-	 * CRP PARTNER: Is this your (the participant's) current partner On CRP Page
-	 * Value
-	 */
+	/* CRP PARTNER: Is this your (the participant's) current partner On CRP Page Value */
 	@FindBy(xpath = "(//span[contains(text(),'Yes')])[1]")
 	public WebElement currentPartnerOnCRPValue;
 
@@ -4032,24 +3462,15 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[normalize-space()='Is the participant blood-related to this person?'])[1]")
 	public WebElement bloodRelativeOnCRP;
 
-	/*
-	 * CRP PARTNER: Is the participant blood-related to this person? On CRP Page
-	 * Value
-	 */
+	/* CRP PARTNER: Is the participant blood-related to this person? On CRP Page Value */
 	@FindBy(xpath = "(//span[contains(text(),'Yes')])[2]")
 	public WebElement bloodRelativeOnCRPValue;
 
-	/*
-	 * CRP PARTNER: Please describe how the participant is related to this person On
-	 * CRP Page
-	 */
+	/* CRP PARTNER: Please describe how the participant is related to this person On CRP Page */
 	@FindBy(xpath = "(//span[normalize-space()='Please describe how the participant is related to this person'])[1]")
 	public WebElement howParticipantRelatedOnCRP;
 
-	/*
-	 * CRP PARTNER: Please describe how the participant is related to this person On
-	 * CRP Page Value
-	 */
+	/* CRP PARTNER: Please describe how the participant is related to this person On CRP Page Value */
 	@FindBy(xpath = "(//input[contains(@name,'please_describe_how_the_participant_is_related_to_this_person')])[1]")
 	public WebElement howParticipantRelatedOnCRPValue;
 
@@ -4133,9 +3554,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[normalize-space()='Deceased'])[1]")
 	public WebElement parentVitalStatusOnCRPValue;
 
-	/*
-	 * CRP PARENT: Please provide the year of death or the age of death On CRP Page
-	 */
+	/* CRP PARENT: Please provide the year of death or the age of death On CRP Page */
 	@FindBy(xpath = "(//span[normalize-space()='Please provide the year of death or the age of death'])[1]")
 	public WebElement parentYearOfDeathOrAgeOfDeathOnCRP;
 
@@ -4147,9 +3566,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//input[@id='sp_formfield_year_of_death'])[1]")
 	public WebElement parentYearOfDeathOnCRPValue;
 
-	/*
-	 * CRP PARENT: Please provide the year of death or the age of death On CRP Value
-	 */
+	/* CRP PARENT: Please provide the year of death or the age of death On CRP Value */
 	@FindBy(xpath = "(//span[contains(@class,'select2-chosen')])[4]")
 	public WebElement parentYearOfDeathOrAgeOfDeathOnCRPValue;
 
@@ -4177,16 +3594,11 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[contains(text(),'Female')])[2]")
 	public WebElement parentGenderIdentityOnCRPValue;
 
-	/*
-	 * CRP PARENT: Is this relative a twin or part of a multiple birth?On CRP Page
-	 */
+	/* CRP PARENT: Is this relative a twin or part of a multiple birth?On CRP Page */
 	@FindBy(xpath = "(//span[normalize-space()='Is this relative a twin or part of a multiple birth?'])[1]")
 	public WebElement parentTwinOnCRP;
 
-	/*
-	 * CRP PARENT: Is this relative a twin or part of a multiple birth?On CRP Page
-	 * Value
-	 */
+	/* CRP PARENT: Is this relative a twin or part of a multiple birth?On CRP Page Value */
 	@FindBy(xpath = "(//span[@id='select2-chosen-7'])[1]")
 	public WebElement parentTwinOnCRPValue;
 
@@ -4198,17 +3610,11 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[normalize-space()='Fraternal Twin'])[1]")
 	public WebElement parentTypeOfBirthOnCRPValue;
 
-	/*
-	 * CRP PARENT: Has this relative ever had any miscarriages, stillbirths, induced
-	 * abortions ... On CRP Page
-	 */
+	/* CRP PARENT: Has this relative ever had any miscarriages, stillbirths, induced abortions ... On CRP Page */
 	@FindBy(xpath = "(//span[normalize-space()='Has this relative ever had any miscarriages, stillbirths, induced abortions ...'])[1]")
 	public WebElement parentMiscarriageStillBirthsOnCRP;
 
-	/*
-	 * CRP PARENT: Has this relative ever had any miscarriages, stillbirths, induced
-	 * abortions ... On CRP Page Value
-	 */
+	/*CRP PARENT: Has this relative ever had any miscarriages, stillbirths, induced abortions ... On CRP Page Value */
 	@FindBy(xpath = "(//span[@id='select2-chosen-9'])[1]")
 	public WebElement parentMiscarriageStillBirthsOnCRPValue;
 
@@ -4240,9 +3646,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "//div[@id='total_number_of_tubal_ectopic_molar_pregnancies']//div[contains(@class,'form-group ng-scope ng-isolate-scope form-group-has-focus')]//div[contains(@class,'ng-scope')]//span[2]")
 	public WebElement parentTotalNumberOfTubalOnCRP;
 
-	/*
-	 * CRP PARENT: Total Number of Tubal/Ectopic/Molar Pregnancies On CRP Page Value
-	 */
+	/* CRP PARENT: Total Number of Tubal/Ectopic/Molar Pregnancies On CRP Page Value */
 	@FindBy(xpath = "(//input[@id='sp_formfield_total_number_of_tubal_ectopic_molar_pregnancies'])[1]")
 	public WebElement parentTotalNumberOfTubalOnCRPValue;
 
@@ -4250,10 +3654,7 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[normalize-space()='Has this relative been diagnosed with a RASopathy?'])[1]")
 	public WebElement parentDiagnosedWithRASopathyOnCRP;
 
-	/*
-	 * CRP PARENT: Has this relative been diagnosed with a RASopathy On CRP Page
-	 * Value
-	 */
+	/* CRP PARENT: Has this relative been diagnosed with a RASopathy On CRP Page Value */
 	@FindBy(xpath = "(//span[@id='select2-chosen-10'])[1]")
 	public WebElement parentDiagnosedWithRASopathyOnCRPValue;
 
@@ -4261,24 +3662,15 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//span[normalize-space()='Has this relative ever been diagnosed with cancer?'])[1]")
 	public WebElement parentDiagnosedWithCancerOnCRP;
 
-	/*
-	 * CRP PARENT: Has this relative ever been diagnosed with cancer? On CRP Page
-	 * Value
-	 */
+	/* CRP PARENT: Has this relative ever been diagnosed with cancer? On CRP Page Value */
 	@FindBy(xpath = "(//span[@id='select2-chosen-11'])[1]")
 	public WebElement parentDiagnosedWithCancerOnCRPValue;
 
-	/*
-	 * CRP PARENT: Has this relative ever been diagnosed with any of the medical
-	 * conditions ... On CRP Page
-	 */
+	/* CRP PARENT: Has this relative ever been diagnosed with any of the medical conditions On CRP Page */
 	@FindBy(xpath = "(//span[normalize-space()='Has this relative ever been diagnosed with any medical conditions?'])[1]")
 	public WebElement parentDiagnosedWithMedicalConditionsOnCRP;
 
-	/*
-	 * CRP PARENT: Has this relative ever been diagnosed with any of the medical
-	 * conditions ... On CRP Page Value
-	 */
+	/* CRP PARENT: Has this relative ever been diagnosed with any of the medical conditions ... On CRP Page Value */
 	@FindBy(xpath = "(//span[@id='select2-chosen-12'])[1]")
 	public WebElement parentDiagnosedWithMedicalConditionsOnCRPValue;
 
@@ -4290,17 +3682,11 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	@FindBy(xpath = "(//input[@id='sp_formfield_how_many_siblings'])[1]")
 	public WebElement parentHowManySiblingsOnCRPValue;
 
-	/*
-	 * CRP PARENT: Is there anything else you would like us to know about this
-	 * relative? On CRP Page
-	 */
+	/* CRP PARENT: Is there anything else you would like us to know about this relative? On CRP Page */
 	@FindBy(xpath = "(//span[normalize-space()='Is there anything else you would like us to know about this relative?'])[1]")
 	public WebElement parentAdditionalInfoOnCRP;
 
-	/*
-	 * CRP PARENT: Is there anything else you would like us to know about this
-	 * relative? On CRP Page Value
-	 */
+	/* CRP PARENT: Is there anything else you would like us to know about this relative? On CRP Page Value */
 	@FindBy(xpath = "(//textarea[@id='sp_formfield_is_there_anything_else_you_would_like_us_to_know_about_this_parent_grandparent'])[1]")
 	public WebElement parentAdditionalInfoOnCRPValue;
 
@@ -4319,5 +3705,4 @@ public class FHQSurveyPortalPage extends CommonUtils {
 	/* CRP PARENT: Related family member details On CRP Page */
 	@FindBy(xpath = "(//a[normalize-space()='Related family member details'])[1]")
 	public WebElement parentRelatedFamilyMemberDetailsOnCRPValue;
-
 }

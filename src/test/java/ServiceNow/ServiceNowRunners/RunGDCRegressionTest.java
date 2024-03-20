@@ -1,25 +1,15 @@
 package ServiceNow.ServiceNowRunners;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-import org.junit.runner.RunWith;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
-@RunWith(Cucumber.class)
 @CucumberOptions(plugin = {"html:target/html-reports/cucumber-default-report", "json:target/cucumber.json",
         "junit:target/cucumber.xml", "rerun:target/failed.txt",
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         features = "src/test/java/ServiceNow/PlatformBusinessApps/GDC/Features",
         glue = "ServiceNow.PlatformBusinessApps.GDC.Steps",
         tags = "@Regression",
-        dryRun = false,
-        monochrome = true,
-        strict = true
+        dryRun = false
 )
-
-/**
- * This class is annotated with @RunWith(Cucumber.class) and it will run
- * cucumber feature(s).
- */
-public class RunGDCRegressionTest {
-
+public class RunGDCRegressionTest extends AbstractTestNGCucumberTests{
 }
