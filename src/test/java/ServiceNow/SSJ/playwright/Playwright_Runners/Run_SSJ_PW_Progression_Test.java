@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
         , features = "src/test/java/ServiceNow/SSJ/playwright/Features"
         , glue = "ServiceNow.SSJ.playwright.Steps"
         , tags = "@Progression"
-        , dryRun = true
+        , dryRun = false
 )
 public class Run_SSJ_PW_Progression_Test extends AbstractTestNGCucumberTests {
 }

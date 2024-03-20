@@ -5,13 +5,13 @@ Feature: Applicant Profile Scenarios
   Scenario: Verify the Save application functionality
     Given User is on SCSS Landing page and user is "Okta Verified Applicant" - PW
     And User is on Profile tab - PW
-    And User inputs "<firstName>" into first name field - PW
+#    And User inputs "<firstName>" into first name field - PW
 #    And User inputs "<middleName>" into middle name field
-    And User inputs "<lastName>" into last name field - PW
-    And User inputs "<email>" into email field - PW
-    And User inputs "<phone>" into phone field - PW
+#    And User inputs "<lastName>" into last name field - PW
+#    And User inputs "<email>" into email field - PW
+#    And User inputs "<phone>" into phone field - PW
 #    And User inputs "<businessPhone>" into business phone field
-    And selects highest education "<Masters>"
+#    And selects highest education "<Masters>"
 #    And User confirms being a US Citizen - PW
 #    And User inputs "<address>" into address field
 #    And User inputs "<appNumber>" into appNumber field

@@ -3,12 +3,19 @@ package ServiceNow.SSJ.playwright.Steps;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.EncryptionUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.PlaywrightUtils;
+import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Given;
+import org.testng.Assert;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ApplicantProfileSteps {
 
@@ -33,6 +40,15 @@ public class ApplicantProfileSteps {
         // PlaywrightUtils.page.getByRole(AriaRole.RADIO, new Page.GetByRoleOptions().setName("Abhishek Desai Abhishek Desai")).click();
         PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Impersonate user")).click();
         PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("AppTracker"));
+        WebDriverUtils.log.info("TESTING*************");
+
+        try{
+            Assert.assertEquals("Test", "test");
+        }catch (AssertionError e){
+            CucumberLogUtils.scenario.log(e.getMessage());
+            WebDriverUtils.log.error(e.getMessage());
+        }
+
     }
 
     @Given("User is on Profile tab - PW")

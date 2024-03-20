@@ -2,6 +2,10 @@ package com.nci.automation.utils;
 
 import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.Scenario;
+
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 /**
@@ -14,6 +18,8 @@ import org.openqa.selenium.TakesScreenshot;
 public class CucumberLogUtils {
 
     public static Scenario scenario;
+    public static Logger log = (Logger) LogManager.getLogger(CucumberLogUtils.class);
+
 
     /***
      * USE THIS METHOD TO ATTACH SCREENSHOT TO REPORT

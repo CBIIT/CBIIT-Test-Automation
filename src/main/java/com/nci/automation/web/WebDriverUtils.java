@@ -23,7 +23,7 @@ import com.nci.automation.utils.LocalConfUtils;
  */
 public class WebDriverUtils {
 
-    private final static Logger logger = LogManager.getLogger(WebDriverUtils.class);
+    public static Logger log = LogManager.getLogger(WebDriverUtils.class);
     public static WebDriver webDriver;
     public static Shadow shadowDriver = new Shadow(webDriver);
 
