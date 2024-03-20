@@ -16,7 +16,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,10 +35,10 @@ public class EMFlowSteps extends PageInitializer {
     @When("User inputs {string} into the Name field and clicks search")
     public void user_inputs_into_the_name_field_and_clicks_search(String name) {
         CommonUtils.sendKeys(manageI2EUsersPage.nameField, name);
-        //CucumberLogUtils.logScreenshot();
+        CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(manageI2EUsersPage.searchButtonI2ESearch);
         MiscUtils.sleep(3000);
-        //CucumberLogUtils.logScreenshot();
+        CucumberLogUtils.logScreenshot();
     }
 
     @When("User clicks {string} button")
