@@ -1,6 +1,6 @@
 Feature: Returning published Collaboration by the CRS Reviewer/DOC Planning Contact
 
-  @SS-3893 @SS-3937 @bucurgb @Regression1 @Progression
+  @SS-3893 @SS-3937 @bucurgb @Regression1
   Scenario: Verifying "Please Specify" and "Fiscal Year" field values
     Given a published Collaboration has been returned to the DOC Planning Contact by the CRS Reviewer
     Then the "Please specify" and "Fiscal Year" field values are cleared and are required
