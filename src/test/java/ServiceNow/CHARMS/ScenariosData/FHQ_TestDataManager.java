@@ -1,13 +1,12 @@
 package ServiceNow.CHARMS.ScenariosData;
 
+import java.util.Map;
+import com.nci.automation.utils.ExcelReader;
 import ServiceNow.CHARMS.Constants.CHARMS_Data_File_Path_Constants;
 import ServiceNow.CHARMS.Constants.FHQConstants;
 import appsCommon.PageInitializers.PageInitializer;
-import com.nci.automation.utils.ExcelReader;
-import java.util.Map;
 
 public class FHQ_TestDataManager extends PageInitializer {
-
 	/* Participant */
 	public Map<String, String> testDataForFHQ;
 	public String  relationshipIdentity;
@@ -25,6 +24,9 @@ public class FHQ_TestDataManager extends PageInitializer {
 	public String  yearOfBirthValueNV;
 	public String  nCIFamilyStudiesHubRASopathies;
 	public String  weKnowFamiliesComeInDifferentShapesAndSizes;
+	public String  asYouGoThroughYourRelativesInformationInTh;
+	public String  submitFHQQuestionnaire;
+	public String  note;
 	public String  itsOkayNotToKnowInformationAboutSomeOfYourRelatives;
 	public String  clickHereToStartYourFamilyHealthQuestionnaire;
 	public String  fHQHome;
@@ -54,6 +56,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 	public String  pleaseIncludeLivingAndDeceasedChildren;
 	public String  howManyTotalChildrenAliveAndDeceasedHasTheParticipantHad;
 	public String  child;
+	public String  children;
 	public String  add;
 	public String  removeAll;
 	public String  actions;
@@ -79,8 +82,8 @@ public class FHQ_TestDataManager extends PageInitializer {
 	public String  vitalStatusOfSibling;
 	public String  isThereAnythingElseYouWouldLikeUsToKnowAboutTheParticipant;
 	public String  addAdditionalInformation;
-	public String  completeAndSubmit;
-	public String  youWillNotBeAbleToModifyThisRecordAfterYouSubmit;
+	public String  complete;
+	public String  youWillNotBeAbleToModifyThisRecordAfterYouComplete;
 	/* PARTNER */
 	public String  listView;
 	public String  partners;
@@ -126,7 +129,8 @@ public class FHQ_TestDataManager extends PageInitializer {
 	public String pleaseIdentifyTheNumberOfEachOfTheFollowingPregnancyResults;
 	public String totalNumberOfMiscarriagesValue;
 	public String totalNumberOfStillbirthsValue;	
-	public String medicalHistory;
+	/* RASOPATHY */
+	public String medicalHistory;	
 	public String hasThisRelativeBeenDiagnosedWithARASopathy;
 	public String rASopathyHistoryBanner;
 	public String hasThisRelativeBeenDiagnosedWithARASopathyValue;
@@ -146,9 +150,22 @@ public class FHQ_TestDataManager extends PageInitializer {
 	public String hasThisRelativeEverBeenDiagnosedWithCancer;
 	public String hasThisRelativeEverBeenDiagnosedWithCancerValue;
 	public String pleaseSelectTheAddButtonBelowToAddEachCancerThisRelativeHasHad;
+	/* CANCER */
 	public String cancers;
 	public String cancer;
 	public String specifyOtherCancer;
+	/* BENIGN TUMOR */
+	public String hasThisRelativeEverBeenDiagnosedWithABenignTumor;
+	public String hasThisRelativeEverBeenDiagnosedWithBenignTumor;
+	public String hasThisRelativeEverBeenDiagnosedWithABenignTumorValue;
+	public String pleaseSelectTheAddButtonBelowToAddEachBenignTumorThisRelativeHasHad;
+	public String benignTumor;
+	public String specifyOtherBenignTumor;
+	public String benignTumorOptionSelected;
+	public String additionalInformationAddedForBenignTumor;
+	public String yearOfDiagnosisForBenignTumorSelected;
+	public String ageOfDiagnosisForBenignTumorSelected;
+	/* MEDICAL CONDITIONS */
 	public String hasThisRelativeEverBeenDiagnosedWithAnyOfTheMedicalConditionsListedBelow;
 	public String medicalConditionsBanner;
 	public String hasThisRelativeEverBeenDiagnosedWithAnyOfTheMedicalConditionsListedBelowValue;
@@ -180,6 +197,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 	/* CHILD */
 	public String sonsDaughters;
 	public String sonDaughter;
+	public String theBlueHighlightedRowsBanner;
 	public String addNewSonsDaughters;
 	public String all;
 	public String relationToPatientSonDaughter;
@@ -191,6 +209,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 	public String childYearOfBirthValue;
 	public String relationToPatientValue;
 	public String childSexAssignedAtBirthValue;
+	public String cousinBanner;
 	public String pleaseMakeSureYouHaveCompletedAllPartnerRecordsBeforeCompletingChildrenRecords;
 	public String youAreCurrentlyFillingOutInformationForTheParticipantsSonDaughter;
 	public String childBasicInformation;
@@ -264,6 +283,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 	public String nieceNephewSexAssignedAtBirthValue;
 	public String nieceNephew;
 	public String youAreCurrentlyFillingOutInformationForTheParticipantsNieceNephew; //Check
+	public String pleaseMakeSureYouHaveCompletedAllSiblingRecords;
 	public String nieceNephewBasicInformation;
 	public String neiceNephewYearOfBirthSelected;
 	public String neiceNephewSexAssignedAtBirthSelected;
@@ -313,20 +333,27 @@ public class FHQ_TestDataManager extends PageInitializer {
 	public String addNewGrandChildren;
 	public String relationToPatientGrandChild;
 	public String sexAssignedAtBirthValue;
+	public String pleaseMakeSureYouHaveCompletedAllChildrenRecords;
 	/* Cousin */
 	public String cousins;
 	public String cousin;
 	public String addNewCousins;
 	public String relationToPatientCousin;
-
+	public String parentOfThisRelativeValue1;
+	public String sexAssignedAtBirthValue1;
+	public String parentOfThisRelativeValue2;
+	public String sexAssignedAtBirthValue2;
+	
 	/* FETCHING DATA FROM EXCEL BEFORE SUBMITTING FHQ */		
-	public void dataInitializerFHQ(String sheetName){ 	
-		/* ****** PARTICIPANT FORM ******* */
-		if (sheetName.equals("Participant")) {
+	public void dataInitializerFHQ(String sheetName) {
+		/******* PARTICIPANT FORM ******/
+		if (sheetName.equals("Participant")) {	
 			testDataForFHQ = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.FHQ_SCENARIO_ONE_DATA, sheetName);
 			nCIFamilyStudiesHubRASopathies = testDataForFHQ.get(FHQConstants.NCI_FAMILY_STUDIES_HUB_RASOPATHIES);
 			weKnowFamiliesComeInDifferentShapesAndSizes = testDataForFHQ.get(FHQConstants.WE_KNOW_FAMILIES_COME_IN_DIFFERENT_SHAPES_AND_SIZES);
-			itsOkayNotToKnowInformationAboutSomeOfYourRelatives = testDataForFHQ.get(FHQConstants.ITS_OKAY_NOT_TO_KNOW_INFORMATION_ABOUT_SOME_OF_YOUR_RELATIVES);
+			asYouGoThroughYourRelativesInformationInTh = testDataForFHQ.get(FHQConstants.AS_YOU_GO_THROUGH_YOUR_RELATIVES_INFORMATION_IN_TH);
+			submitFHQQuestionnaire = testDataForFHQ.get(FHQConstants.ONCE_YOU_CLICK_SUBMIT_FHQ_QUESTIONNAIRE);
+			note = testDataForFHQ.get(FHQConstants.NOTE);		
 			clickHereToStartYourFamilyHealthQuestionnaire = testDataForFHQ.get(FHQConstants.CLICK_HERE_TO_START_YOUR_FAMILY_HEALTH_QUESTIONNAIRE);
 			fHQHome = testDataForFHQ.get(FHQConstants.FHQ_HOME);
 			formView = testDataForFHQ.get(FHQConstants.FORM_VIEW);
@@ -336,11 +363,12 @@ public class FHQ_TestDataManager extends PageInitializer {
 			ifYouAreFillingOutThisFormForYourselfYouAreReferredToAsTheParticipant = testDataForFHQ.get(FHQConstants.IF_YOU_ARE_FILLING_OUT_THIS_FORM_FOR_YOURSELF_YOU_ARE_REFERRED_TO_AS_THE_PARTICIPANT);
 			pleaseIndicateYourRelationshipToTheParticipant = testDataForFHQ.get(FHQConstants.PLEASE_INDICATE_YOUR_RELATIONSHIP_TO_THE_PARTICIPANT);
 			theFollowingQuestionsAreAboutTheStudyParticipant = testDataForFHQ.get(FHQConstants.THE_FOLLOWING_QUESTIONS_ARE_ABOUT_THE_STUDY_PARTICIPANT);
-			firstName = testDataForFHQ.get(FHQConstants.FIRST_NAME);
+			firstNameOfTheParticipant = testDataForFHQ.get(FHQConstants.FIRST_NAME_OF_THE_PARTICIPANT);
 			firstInitialOfLASTName = testDataForFHQ.get(FHQConstants.FIRST_INITIAL_OF_LAST_NAME);		
 			vitalStatus = testDataForFHQ.get(FHQConstants.VITAL_STATUS);
-			firstNameOfTheParticipant = testDataForFHQ.get(FHQConstants.FIRST_NAME_OF_THE_PARTICIPANT);
 			participantFirstName = testDataForFHQ.get(FHQConstants.PARTICIPANT_FIRST_NAME);
+			participantFirstInitialOfLASTName = testDataForFHQ.get(FHQConstants.PARTICIPANT_FIRST_INITIAL_OF_LAST_NAME);
+			participantFirstInitialOfLASTNameValue = testDataForFHQ.get(FHQConstants.PARTICIPANT_FIRST_INITIAL_OF_LAST_NAME_VALUE);
 			firstInitialOfLASTNameOfTheParticipant = testDataForFHQ.get(FHQConstants.FIRST_INITIAL_OF_LAST_NAME_OF_THE_PARTICIPANT);
 			sexAssignedAtBirth = testDataForFHQ.get(FHQConstants.PARTICIPANT_SEX_ASSIGNED_AT_BIRTH);
 			genderIdentity = testDataForFHQ.get(FHQConstants.PARTICIPANT_GENDER_IDENTITY);
@@ -356,9 +384,11 @@ public class FHQ_TestDataManager extends PageInitializer {
 			pleaseIncludeLivingAndDeceasedChildren = testDataForFHQ.get(FHQConstants.PLEASE_INCLUDE_LIVING_AND_DECEASED_CHILDREN);
 			howManyTotalChildrenAliveAndDeceasedHasTheParticipantHad = testDataForFHQ.get(FHQConstants.HOW_MANY_TOTAL_CHILDREN_ALIVE_AND_DECEASED_HAS_THE_PARTICIPANT_HAD);
 			child = testDataForFHQ.get(FHQConstants.CHILD);
+			children = testDataForFHQ.get(FHQConstants.CHILDREN);
 			add= testDataForFHQ.get(FHQConstants.ADD);
 			removeAll= testDataForFHQ.get(FHQConstants.REMOVE_ALL);
 			actions= testDataForFHQ.get(FHQConstants.ACTIONS);
+			firstName= testDataForFHQ.get(FHQConstants.FIRST_NAME);
 			childfirstName= testDataForFHQ.get(FHQConstants.CHILD_FIRST_NAME);
 			childfirstInitialOfLASTName= testDataForFHQ.get(FHQConstants.CHILD_FIRST_INITIAL_OF_LAST_NAME);
 			childvitalStatus= testDataForFHQ.get(FHQConstants.CHILD_VITAL_STATUS);
@@ -385,8 +415,8 @@ public class FHQ_TestDataManager extends PageInitializer {
 			siblingVitalStatus = testDataForFHQ.get(FHQConstants.SIBLING_VITAL_STATUS);
 			isThereAnythingElseYouWouldLikeUsToKnowAboutTheParticipant = testDataForFHQ.get(FHQConstants.IS_THERE_ANYTHING_ELSE_YOU_WOULD_LIKE_US_TO_KNOW_ABOUT_THE_PARTICIPANT);
 			addAdditionalInformation = testDataForFHQ.get(FHQConstants.ADD_ADDITIONAL_INFORMATION);
-			youWillNotBeAbleToModifyThisRecordAfterYouSubmit = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_SUBMIT);
-			completeAndSubmit = testDataForFHQ.get(FHQConstants.COMPLETE_AND_SUBMIT);
+			youWillNotBeAbleToModifyThisRecordAfterYouComplete = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_COMPLETE);
+			complete = testDataForFHQ.get(FHQConstants.COMPLETE);
 			relationshipIdentity = testDataForFHQ.get(FHQConstants.RELATIONSHIP_IDENTITY);
 			relationshipIdentityValue = testDataForFHQ.get(FHQConstants.RELATIONSHIP_IDENTITY_VALUE);
 			firstInitialOfLASTNameParticipant = testDataForFHQ.get(FHQConstants.FIRST_INITIAL_OF_LAST_NAME_PARTICIPANT);
@@ -394,7 +424,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			participantFirstInitialOfLASTNameValue = testDataForFHQ.get(FHQConstants.PARTICIPANT_FIRST_INITIAL_OF_LAST_NAME_VALUE);
 			pleaseWriteFirstNameOfPartnersWithWhomParticipantHadMiscarriages = testDataForFHQ.get(FHQConstants.PLEASE_WRITE_FIRST_NAME_OF_PARTNERS_WITH_WHOM_PARTICIPANT_HAD_MISCARRIAGES);
 			pleaseWriteFirstNameOfPartnersWithWhomParticipantHadStillbirths = testDataForFHQ.get(FHQConstants.PLEASE_WRITE_FIRST_NAME_OF_PARTNERS_WITH_WHOM_PARTICIPANT_HAD_STILLBIRTHS);
-			participantValue = testDataForFHQ.get(FHQConstants.PARTICIPANT_VALUE);			
+			participantValue = testDataForFHQ.get(FHQConstants.PARTICIPANT_VALUE);				
 		}
 		/* ************* PARTNER FORM ******************** */
 		if (sheetName.equals("Partner")) {
@@ -437,8 +467,8 @@ public class FHQ_TestDataManager extends PageInitializer {
 			other = testDataForFHQ.get(FHQConstants.OTHER);
 			isThereAnyAdditionalInformationYouWouldLikeUsToKnowOrUnderstandAboutThisRelative = testDataForFHQ.get(FHQConstants.IS_THERE_ANY_ADDITIONAL_INFORMATION_YOU_WOULD_LIKE_US_TO_KNOW_OR_UNDERSTAND_ABOUT_THIS_RELATIVE);
 			addAdditionalInformation = testDataForFHQ.get(FHQConstants.ADD_ADDITIONAL_INFORMATION);		
-			completeAndSubmit = testDataForFHQ.get(FHQConstants.COMPLETE_AND_SUBMIT);
-			youWillNotBeAbleToModifyThisRecordAfterYouSubmit = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_SUBMIT);
+			complete = testDataForFHQ.get(FHQConstants.COMPLETE);
+			youWillNotBeAbleToModifyThisRecordAfterYouComplete = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_COMPLETE);
 			participationStatus = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS);
 			participationStatusValue = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS_VALUE);
 			partnerYearOfBirthValueNV = testDataForFHQ.get(FHQConstants.PARTNER_YEAR_OF_BIRTH_VALUE_NV);
@@ -449,11 +479,10 @@ public class FHQ_TestDataManager extends PageInitializer {
 			testDataForFHQ = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.FHQ_SCENARIO_ONE_DATA, sheetName);
 			nCIFamilyStudiesHubRASopathies = testDataForFHQ.get(FHQConstants.NCI_FAMILY_STUDIES_HUB_RASOPATHIES);
 			weKnowFamiliesComeInDifferentShapesAndSizes = testDataForFHQ.get(FHQConstants.WE_KNOW_FAMILIES_COME_IN_DIFFERENT_SHAPES_AND_SIZES);
-			itsOkayNotToKnowInformationAboutSomeOfYourRelatives = testDataForFHQ.get(FHQConstants.ITS_OKAY_NOT_TO_KNOW_INFORMATION_ABOUT_SOME_OF_YOUR_RELATIVES);	
+			asYouGoThroughYourRelativesInformationInTh = testDataForFHQ.get(FHQConstants.AS_YOU_GO_THROUGH_YOUR_RELATIVES_INFORMATION_IN_TH);
 			listView = testDataForFHQ.get(FHQConstants.LIST_VIEW);
 			formView = testDataForFHQ.get(FHQConstants.FORM_VIEW);
 			parents = testDataForFHQ.get(FHQConstants.PARENTS);
-			addNewParents = testDataForFHQ.get(FHQConstants.ADD_NEW_PARENTS);
 			theBlueHighlightedRowsRepresentTheIncompletedFamilyRecords = testDataForFHQ.get(FHQConstants.THE_BLUE_HIGHLIGHTED_ROWS_REPRESENT_THE_INCOMPLETED_FAMILY_RECORDS);
 			all = testDataForFHQ.get(FHQConstants.ALL);
 			firstName = testDataForFHQ.get(FHQConstants.FIRST_NAME);
@@ -539,6 +568,16 @@ public class FHQ_TestDataManager extends PageInitializer {
 			yearOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
 			ageOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
 			additionalInformationAddedForCancer = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_CANCER);		
+			/* Benign Tumor Form */
+			hasThisRelativeEverBeenDiagnosedWithABenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithBenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithABenignTumorValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR_VALUE);
+			pleaseSelectTheAddButtonBelowToAddEachBenignTumorThisRelativeHasHad = testDataForFHQ.get(FHQConstants.PLEASE_SELECT_THE_ADD_BUTTON_BELOW_TO_ADD_EACH_BENIGN_TUMOR_THIS_RELATIVE_HAS_HAD);
+			benignTumor = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR);
+			benignTumorOptionSelected = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR_OPTION_SELECTED);
+			yearOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			ageOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			additionalInformationAddedForBenignTumor = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_BENIGN_TUMOR);		
 			/* Medical Condition Form */
 			hasThisRelativeEverBeenDiagnosedWithAnyOfTheMedicalConditionsListedBelow = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_MEDICAL_CONDITIONS_LISTED_BELOW);
 			medicalConditionsBanner = testDataForFHQ.get(FHQConstants.MEDICAL_CONDITIONS_BANNER);
@@ -552,7 +591,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			yearOfDiagnosisForMedicalConditionSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_MEDICAL_CONDITION_SELECTED);
 			ageOfDiagnosisForMedicalConditionSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_MEDICAL_CONDITION_SELECTED);
 			additionalInformationAddedForMedicalCondition = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_MEDICAL_CONDITION);
-			/* Sibling ADDiTION */
+			/* Sibling ADDITION */
 			howManySiblingsDoesThisRelativeHave = testDataForFHQ.get(FHQConstants.HOW_MANY_SIBLINGS_DOES_THIS_RELATIVE_HAVE);
 			howManySiblingsDoesThisRelativeHaveBanner = testDataForFHQ.get(FHQConstants.HOW_MANY_SIBLINGS_DOES_THIS_RELATIVE_HAVE_BANNER);
 			howManySiblingsDoesThisRelativeHaveValue = testDataForFHQ.get(FHQConstants.HOW_MANY_SIBLINGS_DOES_THIS_RELATIVE_HAVE_VALUE);
@@ -569,8 +608,8 @@ public class FHQ_TestDataManager extends PageInitializer {
 			other = testDataForFHQ.get(FHQConstants.OTHER);
 			isThereAnythingElseYouWouldLikeUsToKnowAboutThisRelative = testDataForFHQ.get(FHQConstants.IS_THERE_ANYTHING_ELSE_YOU_WOULD_LIKE_US_TO_KNOW_ABOUT_THIS_RELATIVE);
 			addAdditionalInformation = testDataForFHQ.get(FHQConstants.ADD_ADDITIONAL_INFORMATION);
-			youWillNotBeAbleToModifyThisRecordAfterYouSubmit = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_SUBMIT);
-			completeAndSubmit = testDataForFHQ.get(FHQConstants.COMPLETE_AND_SUBMIT);	
+			youWillNotBeAbleToModifyThisRecordAfterYouComplete = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_COMPLETE);
+			complete = testDataForFHQ.get(FHQConstants.COMPLETE);	
 			participationStatus = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS);
 			participationStatusValue = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS_VALUE);
 			yearOfBirthValueNV = testDataForFHQ.get(FHQConstants.YEAR_OF_BIRTH_VALUE_NV);
@@ -580,11 +619,10 @@ public class FHQ_TestDataManager extends PageInitializer {
 			testDataForFHQ = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.FHQ_SCENARIO_ONE_DATA, sheetName);
 			nCIFamilyStudiesHubRASopathies = testDataForFHQ.get(FHQConstants.NCI_FAMILY_STUDIES_HUB_RASOPATHIES);
 			weKnowFamiliesComeInDifferentShapesAndSizes = testDataForFHQ.get(FHQConstants.WE_KNOW_FAMILIES_COME_IN_DIFFERENT_SHAPES_AND_SIZES);
-			itsOkayNotToKnowInformationAboutSomeOfYourRelatives = testDataForFHQ.get(FHQConstants.ITS_OKAY_NOT_TO_KNOW_INFORMATION_ABOUT_SOME_OF_YOUR_RELATIVES);	
+			asYouGoThroughYourRelativesInformationInTh = testDataForFHQ.get(FHQConstants.AS_YOU_GO_THROUGH_YOUR_RELATIVES_INFORMATION_IN_TH);
 			listView = testDataForFHQ.get(FHQConstants.LIST_VIEW);
 			formView = testDataForFHQ.get(FHQConstants.FORM_VIEW);
 			parents = testDataForFHQ.get(FHQConstants.PARENTS);
-			addNewParents = testDataForFHQ.get(FHQConstants.ADD_NEW_PARENTS);
 			theBlueHighlightedRowsRepresentTheIncompletedFamilyRecords = testDataForFHQ.get(FHQConstants.THE_BLUE_HIGHLIGHTED_ROWS_REPRESENT_THE_INCOMPLETED_FAMILY_RECORDS);
 			all = testDataForFHQ.get(FHQConstants.ALL);
 			firstName = testDataForFHQ.get(FHQConstants.FIRST_NAME);
@@ -622,6 +660,16 @@ public class FHQ_TestDataManager extends PageInitializer {
 			twinOrPartOfAMultipleBirthValueAdded = testDataForFHQ.get(FHQConstants.TWIN__OR_PART_OF_A_MULTIPLE_BIRTH_VALUE_ADDED);
 			typeOfBirth = testDataForFHQ.get(FHQConstants.PARTICIPANT_TYPE_OF_BIRTH);
 			typeOfBirthValueAdded = testDataForFHQ.get(FHQConstants.TYPE_OF_BIRTH_VALUE_ADDED);
+			/* Miscarriage Questions */
+			hasThisRelativeEverHadAnyMiscarriagesOrStillbirths = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS);
+			hasThisRelativeEverHadAnyMiscarriagesOrStillbirthsValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS_VALUE);
+			pleaseIdentifyTheNumberOfEachOfTheFollowingPregnancyResults = testDataForFHQ.get(FHQConstants.PLEASE_IDENTIFY_THE_NUMBER_OF_EACH_OF_THE_FOLLOWING_PREGNANCY_RESULTS);
+			totalNumberOfMiscarriages = testDataForFHQ.get(FHQConstants.TOTAL_NUMBER_OF_MISCARRIAGES);
+			lessThan20WeeksOfPregnancy = testDataForFHQ.get(FHQConstants.LESS_THAN_20_WEEKS_OF_PREGNANCY);
+			totalNumberOfMiscarriagesValue = testDataForFHQ.get(FHQConstants.TOTAL_NUMBER_OF_MISCARRIAGES_VALUE);
+			totalNumberOfStillbirths = testDataForFHQ.get(FHQConstants.TOTAL_NUMBER_OF_STILLBIRTHS);
+			moreThan20WeeksOfPregnancy = testDataForFHQ.get(FHQConstants.MORE_THAN_20_WEEKS_OF_PREGNANCY);
+			totalNumberOfStillbirthsValue = testDataForFHQ.get(FHQConstants.TOTAL_NUMBER_OF_STILLBIRTHS_VALUE);	
 			/* RASOPATHY Form */
 			medicalHistory = testDataForFHQ.get(FHQConstants.MEDICAL_HISTORY);
 			hasThisRelativeBeenDiagnosedWithARASopathy = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_BEEN_DIAGNOSED_WITH_A_RASOPATHY);
@@ -659,6 +707,17 @@ public class FHQ_TestDataManager extends PageInitializer {
 			yearOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
 			ageOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
 			additionalInformationAddedForCancer = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_CANCER);		
+			/* Benign Tumor Form */
+			hasThisRelativeEverBeenDiagnosedWithABenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithBenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithABenignTumorValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR_VALUE);
+			pleaseSelectTheAddButtonBelowToAddEachBenignTumorThisRelativeHasHad = testDataForFHQ.get(FHQConstants.PLEASE_SELECT_THE_ADD_BUTTON_BELOW_TO_ADD_EACH_BENIGN_TUMOR_THIS_RELATIVE_HAS_HAD);
+			benignTumor = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR);
+			benignTumorOptionSelected = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR_OPTION_SELECTED);
+			//specifyOtherBenignTumor = testDataForFHQ.get(FHQConstants.SPECIFY_OTHER_BENIGN_TUMOR);
+			yearOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			ageOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			additionalInformationAddedForBenignTumor = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_BENIGN_TUMOR);		
 			/* Medical Condition Form */
 			hasThisRelativeEverBeenDiagnosedWithAnyOfTheMedicalConditionsListedBelow = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_MEDICAL_CONDITIONS_LISTED_BELOW);
 			medicalConditionsBanner = testDataForFHQ.get(FHQConstants.MEDICAL_CONDITIONS_BANNER);
@@ -672,7 +731,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			yearOfDiagnosisForMedicalConditionSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_MEDICAL_CONDITION_SELECTED);
 			ageOfDiagnosisForMedicalConditionSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_MEDICAL_CONDITION_SELECTED);
 			additionalInformationAddedForMedicalCondition = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_MEDICAL_CONDITION);
-			/* Sibling ADDiTION */
+			/* Sibling ADDITION */
 			howManySiblingsDoesThisRelativeHave = testDataForFHQ.get(FHQConstants.HOW_MANY_SIBLINGS_DOES_THIS_RELATIVE_HAVE);
 			howManySiblingsDoesThisRelativeHaveBanner = testDataForFHQ.get(FHQConstants.HOW_MANY_SIBLINGS_DOES_THIS_RELATIVE_HAVE_BANNER);
 			howManySiblingsDoesThisRelativeHaveValue = testDataForFHQ.get(FHQConstants.HOW_MANY_SIBLINGS_DOES_THIS_RELATIVE_HAVE_VALUE);
@@ -689,12 +748,12 @@ public class FHQ_TestDataManager extends PageInitializer {
 			other = testDataForFHQ.get(FHQConstants.OTHER);
 			isThereAnythingElseYouWouldLikeUsToKnowAboutThisRelative = testDataForFHQ.get(FHQConstants.IS_THERE_ANYTHING_ELSE_YOU_WOULD_LIKE_US_TO_KNOW_ABOUT_THIS_RELATIVE);
 			addAdditionalInformation = testDataForFHQ.get(FHQConstants.ADD_ADDITIONAL_INFORMATION);
-			youWillNotBeAbleToModifyThisRecordAfterYouSubmit = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_SUBMIT);
-			completeAndSubmit = testDataForFHQ.get(FHQConstants.COMPLETE_AND_SUBMIT);
+			youWillNotBeAbleToModifyThisRecordAfterYouComplete = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_COMPLETE);
+			complete = testDataForFHQ.get(FHQConstants.COMPLETE);
 			participationStatus = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS);
 			participationStatusValue = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS_VALUE);
 			yearOfBirthValueNV = testDataForFHQ.get(FHQConstants.YEAR_OF_BIRTH_VALUE_NV);
-		}
+		}	
 		/*  *********** Children FORM ************** */
 		if (sheetName.equals("Children")) {
 			testDataForFHQ = ExcelReader.excelIntoHashMap(CHARMS_Data_File_Path_Constants.FHQ_SCENARIO_ONE_DATA, sheetName);
@@ -706,6 +765,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			sonsDaughters = testDataForFHQ.get(FHQConstants.SONS_DAUGHTERS);
 			addNewSonsDaughters = testDataForFHQ.get(FHQConstants.ADD_NEW_SONS_DAUGHTERS);
 			theBlueHighlightedRowsRepresentTheIncompletedFamilyRecords = testDataForFHQ.get(FHQConstants.THE_BLUE_HIGHLIGHTED_ROWS_REPRESENT_THE_INCOMPLETED_FAMILY_RECORDS);
+			theBlueHighlightedRowsBanner = testDataForFHQ.get(FHQConstants.THE_BLUE_HIGHLIGHTED_ROWS_BANNER);
 			all = testDataForFHQ.get(FHQConstants.ALL);
 			relationToPatientSonDaughter = testDataForFHQ.get(FHQConstants.RELATION_TO_PATIENT_SON_DAUGHTER);
 			firstName = testDataForFHQ.get(FHQConstants.FIRST_NAME);
@@ -746,7 +806,6 @@ public class FHQ_TestDataManager extends PageInitializer {
 			typeOfBirthValue = testDataForFHQ.get(FHQConstants.TYPE_OF_BIRTH_VALUE);
 			hasThisRelativeEverHadAnyMiscarriagesOrStillbirths = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS);
 			hasThisRelativeEverHadAnyMiscarriagesOrStillbirthsValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS_VALUE);
-			//pleaseIdentifyTheNumberOfEachOfTheFollowingPregnancyResultsForThisPerson = testDataForFHQ.get(FHQConstants.PLEASE_IDENTIFY_THE_NUMBER_OF_EACH_OF_THE_FOLLOWING_PREGNANCY_RESULTS_FOR_THIS_PERSON);
 			pleaseIdentifyTheNumberOfEachOfTheFollowingPregnancyResults = testDataForFHQ.get(FHQConstants.PLEASE_IDENTIFY_THE_NUMBER_OF_EACH_OF_THE_FOLLOWING_PREGNANCY_RESULTS);	
 			totalNumberOfMiscarriages = testDataForFHQ.get(FHQConstants.TOTAL_NUMBER_OF_MISCARRIAGES);
 			lessThan20WeeksOfPregnancy = testDataForFHQ.get(FHQConstants.LESS_THAN_20_WEEKS_OF_PREGNANCY);
@@ -764,7 +823,6 @@ public class FHQ_TestDataManager extends PageInitializer {
 			add = testDataForFHQ.get(FHQConstants.ADD);
 			removeAll = testDataForFHQ.get(FHQConstants.REMOVE_ALL);
 			actions = testDataForFHQ.get(FHQConstants.ACTIONS);
-			rASopathy = testDataForFHQ.get(FHQConstants.RASOPATHY);
 			specifyOtherRASopathy = testDataForFHQ.get(FHQConstants.SPECIFY_OTHER_RASOPATHY);
 			pleaseProvideTheYearOfDiagnosisOrTheAgeOfDiagnosis = testDataForFHQ.get(FHQConstants.PLEASE_PROVIDE_THE_YEAR_OF_DIAGNOSIS_OR_THE_AGE_OF_DIAGNOSIS);
 			yearOfDiagnosis = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS);
@@ -790,7 +848,17 @@ public class FHQ_TestDataManager extends PageInitializer {
 			specifyOtherCancerSelected = testDataForFHQ.get(FHQConstants.SPECIFY_OTHER_CANCER_SELECTED);
 			yearOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
 			ageOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
-			additionalInformationAddedForCancer = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_CANCER);		
+			additionalInformationAddedForCancer = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_CANCER);	
+			/* Benign Tumor Form */
+			hasThisRelativeEverBeenDiagnosedWithABenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithBenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithABenignTumorValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR_VALUE);
+			pleaseSelectTheAddButtonBelowToAddEachBenignTumorThisRelativeHasHad = testDataForFHQ.get(FHQConstants.PLEASE_SELECT_THE_ADD_BUTTON_BELOW_TO_ADD_EACH_BENIGN_TUMOR_THIS_RELATIVE_HAS_HAD);
+			benignTumor = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR);
+			benignTumorOptionSelected = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR_OPTION_SELECTED);
+			yearOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			ageOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			additionalInformationAddedForBenignTumor = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_BENIGN_TUMOR);			
 			/* Medical Condition Form for Child */
 			hasThisRelativeEverBeenDiagnosedWithAnyOfTheMedicalConditionsListedBelow = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_MEDICAL_CONDITIONS_LISTED_BELOW);
 			medicalConditionsBanner = testDataForFHQ.get(FHQConstants.MEDICAL_CONDITIONS_BANNER);
@@ -810,6 +878,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			howManyTotalChildrenAliveAndDeceasedHasThisRelaiveHadSelected = testDataForFHQ.get(FHQConstants.HOW_MANY_TOTAL_CHILDREN_ALIVE_AND_DECEASED_HAS_THIS_RELATIVE_HAD_SELECTED);		
 			pleaseSelectTheAddButtonBelowToAddEachChildThisRelativeHas = testDataForFHQ.get(FHQConstants.PLEASE_SELECT_THE_ADD_BUTTON_BELOW_TO_ADD_EACH_CHILD_THIS_RELATIVE_HAS);
 			child = testDataForFHQ.get(FHQConstants.CHILD);
+			children = testDataForFHQ.get(FHQConstants.CHILDREN);
 			add= testDataForFHQ.get(FHQConstants.ADD);
 			removeAll= testDataForFHQ.get(FHQConstants.REMOVE_ALL);
 			actions= testDataForFHQ.get(FHQConstants.ACTIONS);
@@ -823,9 +892,8 @@ public class FHQ_TestDataManager extends PageInitializer {
 			other = testDataForFHQ.get(FHQConstants.OTHER);
 			isThereAnythingElseYouWouldLikeUsToKnowAboutThisRelative = testDataForFHQ.get(FHQConstants.IS_THERE_ANYTHING_ELSE_YOU_WOULD_LIKE_US_TO_KNOW_ABOUT_THIS_RELATIVE);
 			addAdditionalInformation = testDataForFHQ.get(FHQConstants.ADD_ADDITIONAL_INFORMATION);
-			//	addAdditionalInformationForChild = testDataForFHQ.get(FHQConstants.ADD_ADDITIONAL_INFORMATION_FOR_CHILD);
-			youWillNotBeAbleToModifyThisRecordAfterYouSubmit = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_SUBMIT);
-			completeAndSubmit = testDataForFHQ.get(FHQConstants.COMPLETE_AND_SUBMIT);
+			youWillNotBeAbleToModifyThisRecordAfterYouComplete = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_COMPLETE);
+			complete = testDataForFHQ.get(FHQConstants.COMPLETE);
 			participationStatus = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS);
 			participationStatusValue = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS_VALUE);
 			yearOfBirthValueNV = testDataForFHQ.get(FHQConstants.YEAR_OF_BIRTH_VALUE_NV);
@@ -841,6 +909,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			siblings = testDataForFHQ.get(FHQConstants.SIBLINGS);
 			addNewSiblings = testDataForFHQ.get(FHQConstants.ADD_NEW_SIBLINGS);
 			theBlueHighlightedRowsRepresentTheIncompletedFamilyRecords = testDataForFHQ.get(FHQConstants.THE_BLUE_HIGHLIGHTED_ROWS_REPRESENT_THE_INCOMPLETED_FAMILY_RECORDS);
+			theBlueHighlightedRowsBanner = testDataForFHQ.get(FHQConstants.THE_BLUE_HIGHLIGHTED_ROWS_BANNER);
 			firstName = testDataForFHQ.get(FHQConstants.FIRST_NAME);
 			firstInitialOfLASTName = testDataForFHQ.get(FHQConstants.FIRST_INITIAL_OF_LAST_NAME);
 			vitalStatus = testDataForFHQ.get(FHQConstants.VITAL_STATUS);
@@ -871,7 +940,6 @@ public class FHQ_TestDataManager extends PageInitializer {
 			typeOfBirthValue = testDataForFHQ.get(FHQConstants.TYPE_OF_BIRTH_VALUE);	
 			hasThisRelativeEverHadAnyMiscarriagesOrStillbirths = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS);
 			hasThisRelativeEverHadAnyMiscarriagesOrStillbirthsValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS_VALUE);
-			//	pleaseIdentifyTheNumberOfEachOfTheFollowingPregnancyResultsForThisPerson = testDataForFHQ.get(FHQConstants.PLEASE_IDENTIFY_THE_NUMBER_OF_EACH_OF_THE_FOLLOWING_PREGNANCY_RESULTS_FOR_THIS_PERSON);
 			pleaseIdentifyTheNumberOfEachOfTheFollowingPregnancyResults = testDataForFHQ.get(FHQConstants.PLEASE_IDENTIFY_THE_NUMBER_OF_EACH_OF_THE_FOLLOWING_PREGNANCY_RESULTS);
 			totalNumberOfMiscarriages = testDataForFHQ.get(FHQConstants.TOTAL_NUMBER_OF_MISCARRIAGES);
 			lessThan20WeeksOfPregnancy = testDataForFHQ.get(FHQConstants.LESS_THAN_20_WEEKS_OF_PREGNANCY);
@@ -888,7 +956,6 @@ public class FHQ_TestDataManager extends PageInitializer {
 			add = testDataForFHQ.get(FHQConstants.ADD);
 			removeAll = testDataForFHQ.get(FHQConstants.REMOVE_ALL);
 			actions = testDataForFHQ.get(FHQConstants.ACTIONS);
-			rASopathy = testDataForFHQ.get(FHQConstants.RASOPATHY);
 			specifyOtherRASopathy = testDataForFHQ.get(FHQConstants.SPECIFY_OTHER_RASOPATHY);
 			pleaseProvideTheYearOfDiagnosisOrTheAgeOfDiagnosis = testDataForFHQ.get(FHQConstants.PLEASE_PROVIDE_THE_YEAR_OF_DIAGNOSIS_OR_THE_AGE_OF_DIAGNOSIS);
 			yearOfDiagnosis = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS);
@@ -915,6 +982,16 @@ public class FHQ_TestDataManager extends PageInitializer {
 			yearOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
 			ageOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
 			additionalInformationAddedForCancer = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_CANCER);		
+			/* Benign Tumor Form */
+			hasThisRelativeEverBeenDiagnosedWithABenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithBenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithABenignTumorValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR_VALUE);
+			pleaseSelectTheAddButtonBelowToAddEachBenignTumorThisRelativeHasHad = testDataForFHQ.get(FHQConstants.PLEASE_SELECT_THE_ADD_BUTTON_BELOW_TO_ADD_EACH_BENIGN_TUMOR_THIS_RELATIVE_HAS_HAD);
+			benignTumor = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR);
+			benignTumorOptionSelected = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR_OPTION_SELECTED);
+			yearOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			ageOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			additionalInformationAddedForBenignTumor = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_BENIGN_TUMOR);		
 			/* Medical Condition Form for Siblings */
 			hasThisRelativeEverBeenDiagnosedWithAnyOfTheMedicalConditionsListedBelow = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_MEDICAL_CONDITIONS_LISTED_BELOW);
 			medicalConditionsBanner = testDataForFHQ.get(FHQConstants.MEDICAL_CONDITIONS_BANNER);
@@ -934,6 +1011,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			howManyTotalChildrenAliveAndDeceasedHasThisRelaiveHadSelected = testDataForFHQ.get(FHQConstants.HOW_MANY_TOTAL_CHILDREN_ALIVE_AND_DECEASED_HAS_THIS_RELATIVE_HAD_SELECTED);		
 			pleaseSelectTheAddButtonBelowToAddEachChildThisRelativeHasHad = testDataForFHQ.get(FHQConstants.PLEASE_SELECT_THE_ADD_BUTTON_BELOW_TO_ADD_EACH_CHILD_THIS_RELATIVE_HAS_HAD);
 			child = testDataForFHQ.get(FHQConstants.CHILD);
+			children = testDataForFHQ.get(FHQConstants.CHILDREN);
 			add= testDataForFHQ.get(FHQConstants.ADD);
 			removeAll= testDataForFHQ.get(FHQConstants.REMOVE_ALL);
 			actions= testDataForFHQ.get(FHQConstants.ACTIONS);
@@ -941,14 +1019,13 @@ public class FHQ_TestDataManager extends PageInitializer {
 			childfirstInitialOfLASTName= testDataForFHQ.get(FHQConstants.CHILD_FIRST_INITIAL_OF_LAST_NAME);
 			childvitalStatus= testDataForFHQ.get(FHQConstants.CHILD_VITAL_STATUS);
 			noDataToDisplay= testDataForFHQ.get(FHQConstants.NO_DATA_TO_DISPLAY);
-			addRow= testDataForFHQ.get(FHQConstants.ADD_ROW);
 			cancel= testDataForFHQ.get(FHQConstants.CANCEL);
 			/* Other for Sibling */
 			other = testDataForFHQ.get(FHQConstants.OTHER);
 			isThereAnythingElseYouWouldLikeUsToKnowAboutThisRelative = testDataForFHQ.get(FHQConstants.IS_THERE_ANYTHING_ELSE_YOU_WOULD_LIKE_US_TO_KNOW_ABOUT_THIS_RELATIVE);
 			addAdditionalInformation = testDataForFHQ.get(FHQConstants.ADD_ADDITIONAL_INFORMATION);
-			youWillNotBeAbleToModifyThisRecordAfterYouSubmit = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_SUBMIT);
-			completeAndSubmit = testDataForFHQ.get(FHQConstants.COMPLETE_AND_SUBMIT);
+			youWillNotBeAbleToModifyThisRecordAfterYouComplete = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_COMPLETE);
+			complete = testDataForFHQ.get(FHQConstants.COMPLETE);
 			participationStatus = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS);
 			participationStatusValue = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS_VALUE);
 			yearOfBirthValueNV = testDataForFHQ.get(FHQConstants.YEAR_OF_BIRTH_VALUE_NV);
@@ -964,6 +1041,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			auntUncles = testDataForFHQ.get(FHQConstants.AUNT_UNCLES);
 			addNewauntUncles = testDataForFHQ.get(FHQConstants.ADD_NEW_AUNT_UNCLES);
 			theBlueHighlightedRowsRepresentTheIncompletedFamilyRecords = testDataForFHQ.get(FHQConstants.THE_BLUE_HIGHLIGHTED_ROWS_REPRESENT_THE_INCOMPLETED_FAMILY_RECORDS);
+			theBlueHighlightedRowsBanner = testDataForFHQ.get(FHQConstants.THE_BLUE_HIGHLIGHTED_ROWS_BANNER);
 			firstName = testDataForFHQ.get(FHQConstants.FIRST_NAME);
 			firstInitialOfLASTName = testDataForFHQ.get(FHQConstants.FIRST_INITIAL_OF_LAST_NAME);
 			vitalStatus = testDataForFHQ.get(FHQConstants.VITAL_STATUS);
@@ -994,7 +1072,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			auntUncleSexAssignedAtBirthSelected = testDataForFHQ.get(FHQConstants. AUNT_UNCLE_SEX_ASSIGNED_AT_BIRTH_SELECTED);
 			genderIdentity = testDataForFHQ.get(FHQConstants.PARTICIPANT_GENDER_IDENTITY);
 			auntUncleGenderIdentitySelected = testDataForFHQ.get(FHQConstants. AUNT_UNCLE_GENDER_IDENTITY_SELECTED);
-			/* Twin or Multiple Birth Question for Aunt/Uncle */ 
+			/* Twin or Multiple Birth Question for Aunt */ 
 			medicalHistory = testDataForFHQ.get(FHQConstants.MEDICAL_HISTORY);
 			isThisRelativeATwinOrPartOfAMultipleBirth = testDataForFHQ.get(FHQConstants.IS_THIS_RELATIVE_A_TWIN_OR_PART_OF_A_MULTIPLE_BIRTH);
 			twinOrPartOfAMultipleBirthValue = testDataForFHQ.get(FHQConstants.TWIN__OR_PART_OF_A_MULTIPLE_BIRTH_VALUE);
@@ -1009,7 +1087,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			totalNumberOfStillbirths = testDataForFHQ.get(FHQConstants.TOTAL_NUMBER_OF_STILLBIRTHS);
 			moreThan20WeeksOfPregnancy = testDataForFHQ.get(FHQConstants.MORE_THAN_20_WEEKS_OF_PREGNANCY);
 			totalNumberOfStillbirthsValue = testDataForFHQ.get(FHQConstants.TOTAL_NUMBER_OF_STILLBIRTHS_VALUE);
-			/* RASopathy Form for Aunt/Uncle */
+			/* RASopathy Form for Aunt */
 			hasThisRelativeBeenDiagnosedWithARASopathy = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_BEEN_DIAGNOSED_WITH_A_RASOPATHY);
 			rASopathyHistoryBanner = testDataForFHQ.get(FHQConstants.RASOPATHY_HISTORY_BANNER);
 			hasThisRelativeBeenDiagnosedWithARASopathyValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_BEEN_DIAGNOSED_WITH_A_RASOPATHY_VALUE);
@@ -1033,7 +1111,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			pleaseProvideTheYearOfDiagnosisOrTheAgeOfDiagnosisSelected = testDataForFHQ.get(FHQConstants.PLEASE_PROVIDE_THE_YEAR_OF_DIAGNOSIS_OR_THE_AGE_OF_DIAGNOSIS_SELECTED);
 			additionalInformationAddedForRasopathy = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_RASOPATHY);
 			cancel= testDataForFHQ.get(FHQConstants.CANCEL);
-			/* Cancer Form for Aunt/Uncle */
+			/* Cancer Form for Aunt */
 			hasThisRelativeEverBeenDiagnosedWithCancer = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_CANCER);
 			hasThisRelativeEverBeenDiagnosedWithCancerValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_CANCER_VALUE);
 			pleaseSelectTheAddButtonBelowToAddEachCancerThisRelativeHasHad = testDataForFHQ.get(FHQConstants.PLEASE_SELECT_THE_ADD_BUTTON_BELOW_TO_ADD_EACH_CANCER_THIS_RELATIVE_HAS_HAD);
@@ -1045,7 +1123,17 @@ public class FHQ_TestDataManager extends PageInitializer {
 			yearOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
 			ageOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
 			additionalInformationAddedForCancer = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_CANCER);		
-			/* Medical Condition Form for Aunt/Uncle */
+			/* Benign Tumor Form for Aunt */
+			hasThisRelativeEverBeenDiagnosedWithABenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithBenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithABenignTumorValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR_VALUE);
+			pleaseSelectTheAddButtonBelowToAddEachBenignTumorThisRelativeHasHad = testDataForFHQ.get(FHQConstants.PLEASE_SELECT_THE_ADD_BUTTON_BELOW_TO_ADD_EACH_BENIGN_TUMOR_THIS_RELATIVE_HAS_HAD);
+			benignTumor = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR);
+			benignTumorOptionSelected = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR_OPTION_SELECTED);
+			yearOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			ageOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			additionalInformationAddedForBenignTumor = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_BENIGN_TUMOR);		
+			/* Medical Condition Form for Aunt */
 			hasThisRelativeEverBeenDiagnosedWithAnyOfTheMedicalConditionsListedBelow = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_MEDICAL_CONDITIONS_LISTED_BELOW);
 			medicalConditionsBanner = testDataForFHQ.get(FHQConstants.MEDICAL_CONDITIONS_BANNER);
 			hasThisRelativeEverBeenDiagnosedWithAnyOfTheMedicalConditionsListedBelowValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_MEDICAL_CONDITIONS_LISTED_BELOW_VALUE);
@@ -1058,12 +1146,13 @@ public class FHQ_TestDataManager extends PageInitializer {
 			yearOfDiagnosisForMedicalConditionSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_MEDICAL_CONDITION_SELECTED);
 			ageOfDiagnosisForMedicalConditionSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_MEDICAL_CONDITION_SELECTED);
 			additionalInformationAddedForMedicalCondition = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_MEDICAL_CONDITION);
-			/* Aunt/Uncle's Child Information */
+			/* Aunt's Child Information */
 			howManyTotalChildrenAliveAndDeceasedHasThisRelaiveHad = testDataForFHQ.get(FHQConstants.HOW_MANY_TOTAL_CHILDREN_ALIVE_AND_DECEASED_HAS_THIS_RELATIVE_HAD);
 			childBanner = testDataForFHQ.get(FHQConstants.CHILD_BANNER);
 			howManyTotalChildrenAliveAndDeceasedHasThisRelaiveHadSelected = testDataForFHQ.get(FHQConstants.HOW_MANY_TOTAL_CHILDREN_ALIVE_AND_DECEASED_HAS_THIS_RELATIVE_HAD_SELECTED);		
 			pleaseSelectTheAddButtonBelowToAddEachChildThisRelativeHasHad = testDataForFHQ.get(FHQConstants.PLEASE_SELECT_THE_ADD_BUTTON_BELOW_TO_ADD_EACH_CHILD_THIS_RELATIVE_HAS_HAD);
 			child = testDataForFHQ.get(FHQConstants.CHILD);
+			children = testDataForFHQ.get(FHQConstants.CHILDREN);
 			add= testDataForFHQ.get(FHQConstants.ADD);
 			removeAll= testDataForFHQ.get(FHQConstants.REMOVE_ALL);
 			actions= testDataForFHQ.get(FHQConstants.ACTIONS);
@@ -1071,14 +1160,13 @@ public class FHQ_TestDataManager extends PageInitializer {
 			childfirstInitialOfLASTName= testDataForFHQ.get(FHQConstants.CHILD_FIRST_INITIAL_OF_LAST_NAME);
 			childvitalStatus= testDataForFHQ.get(FHQConstants.CHILD_VITAL_STATUS);
 			noDataToDisplay= testDataForFHQ.get(FHQConstants.NO_DATA_TO_DISPLAY);
-			addRow= testDataForFHQ.get(FHQConstants.ADD_ROW);
 			cancel= testDataForFHQ.get(FHQConstants.CANCEL);
-			/* Other for Aunt/Uncle */
+			/* Other for Aunt */
 			other = testDataForFHQ.get(FHQConstants.OTHER);
 			isThereAnythingElseYouWouldLikeUsToKnowAboutThisRelative = testDataForFHQ.get(FHQConstants.IS_THERE_ANYTHING_ELSE_YOU_WOULD_LIKE_US_TO_KNOW_ABOUT_THIS_RELATIVE);
 			addAdditionalInformation = testDataForFHQ.get(FHQConstants.ADD_ADDITIONAL_INFORMATION);
-			youWillNotBeAbleToModifyThisRecordAfterYouSubmit = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_SUBMIT);
-			completeAndSubmit = testDataForFHQ.get(FHQConstants.COMPLETE_AND_SUBMIT);	
+			youWillNotBeAbleToModifyThisRecordAfterYouComplete = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_COMPLETE);
+			complete = testDataForFHQ.get(FHQConstants.COMPLETE);	
 			participationStatus = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS);
 			participationStatusValue = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS_VALUE);
 			yearOfBirthValueNV = testDataForFHQ.get(FHQConstants.YEAR_OF_BIRTH_VALUE_NV);
@@ -1097,6 +1185,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			auntUncles = testDataForFHQ.get(FHQConstants.AUNT_UNCLES);
 			addNewauntUncles = testDataForFHQ.get(FHQConstants.ADD_NEW_AUNT_UNCLES);
 			theBlueHighlightedRowsRepresentTheIncompletedFamilyRecords = testDataForFHQ.get(FHQConstants.THE_BLUE_HIGHLIGHTED_ROWS_REPRESENT_THE_INCOMPLETED_FAMILY_RECORDS);
+			theBlueHighlightedRowsBanner = testDataForFHQ.get(FHQConstants.THE_BLUE_HIGHLIGHTED_ROWS_BANNER);
 			firstName = testDataForFHQ.get(FHQConstants.FIRST_NAME);
 			firstInitialOfLASTName = testDataForFHQ.get(FHQConstants.FIRST_INITIAL_OF_LAST_NAME);
 			vitalStatus = testDataForFHQ.get(FHQConstants.VITAL_STATUS);
@@ -1113,6 +1202,10 @@ public class FHQ_TestDataManager extends PageInitializer {
 			auntUncleYearOfBirthValue2 = testDataForFHQ.get(FHQConstants. AUNT_UNCLE_YEAR_OF_BIRTH_VALUE_2);
 			relationToPatientValue2 = testDataForFHQ.get(FHQConstants.RELATION_TO_PATIENT_VALUE_2);		
 			relationToPatientValue = testDataForFHQ.get(FHQConstants.RELATION_TO_PATIENT_VALUE);
+			auntUncleFirstNameValue = testDataForFHQ.get(FHQConstants.AUNT_UNCLE_FIRST_NAME_VALUE);
+			auntUncleFirstInitialOfLASTNameValue = testDataForFHQ.get(FHQConstants. AUNT_UNCLE_FIRST_INITIAL_OF_LAST_NAME_VALUE);
+			auntUncleVitalStatusValue = testDataForFHQ.get(FHQConstants. AUNT_UNCLE_VITAL_STATUS_VALUE);
+			relationToPatientValue = testDataForFHQ.get(FHQConstants.RELATION_TO_PATIENT_VALUE);
 			auntUncle = testDataForFHQ.get(FHQConstants.AUNT_UNCLE);
 			auntsUnclesDetails = testDataForFHQ.get(FHQConstants.AUNTS_UNCLES_DETAILS);
 			auntUncleBanner = testDataForFHQ.get(FHQConstants. AUNT_UNCLE_BANNER);
@@ -1124,7 +1217,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			auntUncleSexAssignedAtBirthSelected = testDataForFHQ.get(FHQConstants. AUNT_UNCLE_SEX_ASSIGNED_AT_BIRTH_SELECTED);
 			genderIdentity = testDataForFHQ.get(FHQConstants.PARTICIPANT_GENDER_IDENTITY);
 			auntUncleGenderIdentitySelected = testDataForFHQ.get(FHQConstants. AUNT_UNCLE_GENDER_IDENTITY_SELECTED);
-			/* Twin or Multiple Birth Question for Aunt/Uncle */ 
+			/* Twin or Multiple Birth Question for Uncle */ 
 			medicalHistory = testDataForFHQ.get(FHQConstants.MEDICAL_HISTORY);
 			isThisRelativeATwinOrPartOfAMultipleBirth = testDataForFHQ.get(FHQConstants.IS_THIS_RELATIVE_A_TWIN_OR_PART_OF_A_MULTIPLE_BIRTH);
 			twinOrPartOfAMultipleBirthValue = testDataForFHQ.get(FHQConstants.TWIN__OR_PART_OF_A_MULTIPLE_BIRTH_VALUE);
@@ -1133,14 +1226,13 @@ public class FHQ_TestDataManager extends PageInitializer {
 			hasThisRelativeEverHadAnyMiscarriagesOrStillbirths = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS);
 			hasThisRelativeEverHadAnyMiscarriagesOrStillbirthsValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS_VALUE);
 			pleaseIdentifyTheNumberOfEachOfTheFollowingPregnancyResults = testDataForFHQ.get(FHQConstants.PLEASE_IDENTIFY_THE_NUMBER_OF_EACH_OF_THE_FOLLOWING_PREGNANCY_RESULTS);	
-			//pleaseIdentifyTheNumberOfEachOfTheFollowingPregnancyResultsForThisPerson = testDataForFHQ.get(FHQConstants.PLEASE_IDENTIFY_THE_NUMBER_OF_EACH_OF_THE_FOLLOWING_PREGNANCY_RESULTS_FOR_THIS_PERSON);
 			totalNumberOfMiscarriages = testDataForFHQ.get(FHQConstants.TOTAL_NUMBER_OF_MISCARRIAGES);
 			lessThan20WeeksOfPregnancy = testDataForFHQ.get(FHQConstants.LESS_THAN_20_WEEKS_OF_PREGNANCY);
 			totalNumberOfMiscarriagesValue = testDataForFHQ.get(FHQConstants.TOTAL_NUMBER_OF_MISCARRIAGES_VALUE);
 			totalNumberOfStillbirths = testDataForFHQ.get(FHQConstants.TOTAL_NUMBER_OF_STILLBIRTHS);
 			moreThan20WeeksOfPregnancy = testDataForFHQ.get(FHQConstants.MORE_THAN_20_WEEKS_OF_PREGNANCY);
 			totalNumberOfStillbirthsValue = testDataForFHQ.get(FHQConstants.TOTAL_NUMBER_OF_STILLBIRTHS_VALUE);
-			/* RASopathy Form for Aunt/Uncle */
+			/* RASopathy Form for Uncle */
 			hasThisRelativeBeenDiagnosedWithARASopathy = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_BEEN_DIAGNOSED_WITH_A_RASOPATHY);
 			rASopathyHistoryBanner = testDataForFHQ.get(FHQConstants.RASOPATHY_HISTORY_BANNER);
 			hasThisRelativeBeenDiagnosedWithARASopathyValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_BEEN_DIAGNOSED_WITH_A_RASOPATHY_VALUE);
@@ -1164,7 +1256,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			pleaseProvideTheYearOfDiagnosisOrTheAgeOfDiagnosisSelected = testDataForFHQ.get(FHQConstants.PLEASE_PROVIDE_THE_YEAR_OF_DIAGNOSIS_OR_THE_AGE_OF_DIAGNOSIS_SELECTED);
 			additionalInformationAddedForRasopathy = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_RASOPATHY);
 			cancel= testDataForFHQ.get(FHQConstants.CANCEL);
-			/* Cancer Form for Aunt/Uncle */
+			/* Cancer Form for Uncle */
 			hasThisRelativeEverBeenDiagnosedWithCancer = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_CANCER);
 			hasThisRelativeEverBeenDiagnosedWithCancerValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_CANCER_VALUE);
 			pleaseSelectTheAddButtonBelowToAddEachCancerThisRelativeHasHad = testDataForFHQ.get(FHQConstants.PLEASE_SELECT_THE_ADD_BUTTON_BELOW_TO_ADD_EACH_CANCER_THIS_RELATIVE_HAS_HAD);
@@ -1175,8 +1267,18 @@ public class FHQ_TestDataManager extends PageInitializer {
 			specifyOtherCancerSelected = testDataForFHQ.get(FHQConstants.SPECIFY_OTHER_CANCER_SELECTED);
 			yearOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
 			ageOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
-			additionalInformationAddedForCancer = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_CANCER);		
-			/* Medical Condition Form for Aunt/Uncle */
+			additionalInformationAddedForCancer = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_CANCER);	
+			/* Benign Tumor Form for Uncle */
+			hasThisRelativeEverBeenDiagnosedWithABenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithBenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithABenignTumorValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR_VALUE);
+			pleaseSelectTheAddButtonBelowToAddEachBenignTumorThisRelativeHasHad = testDataForFHQ.get(FHQConstants.PLEASE_SELECT_THE_ADD_BUTTON_BELOW_TO_ADD_EACH_BENIGN_TUMOR_THIS_RELATIVE_HAS_HAD);
+			benignTumor = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR);
+			benignTumorOptionSelected = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR_OPTION_SELECTED);
+			yearOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			ageOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			additionalInformationAddedForBenignTumor = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_BENIGN_TUMOR);		
+			/* Medical Condition Form for Uncle */
 			hasThisRelativeEverBeenDiagnosedWithAnyOfTheMedicalConditionsListedBelow = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_MEDICAL_CONDITIONS_LISTED_BELOW);
 			medicalConditionsBanner = testDataForFHQ.get(FHQConstants.MEDICAL_CONDITIONS_BANNER);
 			hasThisRelativeEverBeenDiagnosedWithAnyOfTheMedicalConditionsListedBelowValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_MEDICAL_CONDITIONS_LISTED_BELOW_VALUE);
@@ -1189,12 +1291,13 @@ public class FHQ_TestDataManager extends PageInitializer {
 			yearOfDiagnosisForMedicalConditionSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_MEDICAL_CONDITION_SELECTED);
 			ageOfDiagnosisForMedicalConditionSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_MEDICAL_CONDITION_SELECTED);
 			additionalInformationAddedForMedicalCondition = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_MEDICAL_CONDITION);
-			/* Aunt/Uncle's Child Information */
+			/* Uncle's Child Information */
 			howManyTotalChildrenAliveAndDeceasedHasThisRelaiveHad = testDataForFHQ.get(FHQConstants.HOW_MANY_TOTAL_CHILDREN_ALIVE_AND_DECEASED_HAS_THIS_RELATIVE_HAD);
 			childBanner = testDataForFHQ.get(FHQConstants.CHILD_BANNER);
 			howManyTotalChildrenAliveAndDeceasedHasThisRelaiveHadSelected = testDataForFHQ.get(FHQConstants.HOW_MANY_TOTAL_CHILDREN_ALIVE_AND_DECEASED_HAS_THIS_RELATIVE_HAD_SELECTED);		
 			pleaseSelectTheAddButtonBelowToAddEachChildThisRelativeHasHad = testDataForFHQ.get(FHQConstants.PLEASE_SELECT_THE_ADD_BUTTON_BELOW_TO_ADD_EACH_CHILD_THIS_RELATIVE_HAS_HAD);
 			child = testDataForFHQ.get(FHQConstants.CHILD);
+			children = testDataForFHQ.get(FHQConstants.CHILDREN);
 			add= testDataForFHQ.get(FHQConstants.ADD);
 			removeAll= testDataForFHQ.get(FHQConstants.REMOVE_ALL);
 			actions= testDataForFHQ.get(FHQConstants.ACTIONS);
@@ -1204,12 +1307,12 @@ public class FHQ_TestDataManager extends PageInitializer {
 			noDataToDisplay= testDataForFHQ.get(FHQConstants.NO_DATA_TO_DISPLAY);
 			addRow= testDataForFHQ.get(FHQConstants.ADD_ROW);
 			cancel= testDataForFHQ.get(FHQConstants.CANCEL);
-			/* Other for Aunt/Uncle */
+			/* Other for Uncle */
 			other = testDataForFHQ.get(FHQConstants.OTHER);
 			isThereAnythingElseYouWouldLikeUsToKnowAboutThisRelative = testDataForFHQ.get(FHQConstants.IS_THERE_ANYTHING_ELSE_YOU_WOULD_LIKE_US_TO_KNOW_ABOUT_THIS_RELATIVE);
 			addAdditionalInformation = testDataForFHQ.get(FHQConstants.ADD_ADDITIONAL_INFORMATION);
-			youWillNotBeAbleToModifyThisRecordAfterYouSubmit = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_SUBMIT);
-			completeAndSubmit = testDataForFHQ.get(FHQConstants.COMPLETE_AND_SUBMIT);	
+			youWillNotBeAbleToModifyThisRecordAfterYouComplete = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_COMPLETE);
+			complete = testDataForFHQ.get(FHQConstants.COMPLETE);	
 			participationStatus = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS);
 			participationStatusValue = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS_VALUE);
 			yearOfBirthValueNV = testDataForFHQ.get(FHQConstants.YEAR_OF_BIRTH_VALUE_NV);
@@ -1228,6 +1331,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			niecesNephews = testDataForFHQ.get(FHQConstants. NIECES_NEPHEWS);
 			addNewNiecesNephews  = testDataForFHQ.get(FHQConstants.ADD_NEW_NIECES_NEPHEWS);
 			theBlueHighlightedRowsRepresentTheIncompletedFamilyRecords = testDataForFHQ.get(FHQConstants.THE_BLUE_HIGHLIGHTED_ROWS_REPRESENT_THE_INCOMPLETED_FAMILY_RECORDS);
+			theBlueHighlightedRowsBanner = testDataForFHQ.get(FHQConstants.THE_BLUE_HIGHLIGHTED_ROWS_BANNER);
 			all = testDataForFHQ.get(FHQConstants.ALL);
 			relationToPatientNieceNephew = testDataForFHQ.get(FHQConstants.RELATION_TO_PATIENT_NIECE_NEPHEW);
 			firstName = testDataForFHQ.get(FHQConstants.FIRST_NAME);
@@ -1246,12 +1350,12 @@ public class FHQ_TestDataManager extends PageInitializer {
 			nieceNephewSexAssignedAtBirthValue = testDataForFHQ.get(FHQConstants. NIECE_NEPHEW_SEX_ASSIGNED_AT_BIRTH_VALUE);
 			formView = testDataForFHQ.get(FHQConstants.FORM_VIEW);
 			nieceNephew = testDataForFHQ.get(FHQConstants.NIECE_NEPHEW);
-			pleaseMakeSureYouHaveCompletedAllPartnerRecordsBeforeCompletingChildrenRecords = testDataForFHQ.get(FHQConstants.PLEASE_MAKE_SURE_YOU_HAVE_COMPLETED_ALL_PARTNER_RECORDS_BEFORE_COMPLETING_CHILDREN_RECORDS);
+			pleaseMakeSureYouHaveCompletedAllSiblingRecords = testDataForFHQ.get(FHQConstants.PLEASE_MAKE_SURE_YOU_HAVE_COMPLETED_ALL_SIBLING_RECORDS);
 			youAreCurrentlyFillingOutInformationForTheParticipantsNieceNephew = testDataForFHQ.get(FHQConstants.YOU_ARE_CURRENTLY_FILLING_OUT_INFORMATION_FOR_THE_PARTICIPANTS_NIECE_NEPHEW);
 			nieceNephewBasicInformation = testDataForFHQ.get(FHQConstants.NIECE_NEPHEW_BASIC_INFORMATION);
 			anEstimatedDateIsPreferred = testDataForFHQ.get(FHQConstants.AN_ESTIMATED_DATE_IS_PREFERRED);
 			neiceNephewYearOfBirthSelected = testDataForFHQ.get(FHQConstants.NIECE_NEPHEW_YEAR_OF_BIRTH_SELECTED);
-			//nieceNephewVitalStatusSelected = testDataForFHQ.get(FHQConstants.NIECE_NEPHEW_YEAR_OF_BIRTH_SELECTED);
+			//nieceNephewVitalStatusSelected = testDataForFHQ.get(FHQConstants.NIECE_NEPHEW_VITAL_STATUS_SELECTED);
 			neiceNephewSexAssignedAtBirthSelected = testDataForFHQ.get(FHQConstants.NIECE_NEPHEW_SEX_ASSIGNED_AT_BIRTH_SELECTED);
 			genderIdentity = testDataForFHQ.get(FHQConstants.PARTICIPANT_GENDER_IDENTITY);
 			neiceNephewGenderIdentitySelected = testDataForFHQ.get(FHQConstants.NIECE_NEPHEW_GENDER_IDENTITY_SELECTED);
@@ -1264,7 +1368,6 @@ public class FHQ_TestDataManager extends PageInitializer {
 			hasThisRelativeEverHadAnyMiscarriagesOrStillbirths = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS);
 			hasThisRelativeEverHadAnyMiscarriagesOrStillbirthsValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_HAD_ANY_MISCARRIAGES_OR_STILLBIRTHS_VALUE);
 			pleaseIdentifyTheNumberOfEachOfTheFollowingPregnancyResults = testDataForFHQ.get(FHQConstants.PLEASE_IDENTIFY_THE_NUMBER_OF_EACH_OF_THE_FOLLOWING_PREGNANCY_RESULTS);	
-			//pleaseIdentifyTheNumberOfEachOfTheFollowingPregnancyResultsForThisPerson = testDataForFHQ.get(FHQConstants.PLEASE_IDENTIFY_THE_NUMBER_OF_EACH_OF_THE_FOLLOWING_PREGNANCY_RESULTS_FOR_THIS_PERSON);
 			totalNumberOfMiscarriages = testDataForFHQ.get(FHQConstants.TOTAL_NUMBER_OF_MISCARRIAGES);
 			lessThan20WeeksOfPregnancy = testDataForFHQ.get(FHQConstants.LESS_THAN_20_WEEKS_OF_PREGNANCY);
 			totalNumberOfMiscarriagesValue = testDataForFHQ.get(FHQConstants.TOTAL_NUMBER_OF_MISCARRIAGES_VALUE);
@@ -1308,6 +1411,16 @@ public class FHQ_TestDataManager extends PageInitializer {
 			yearOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
 			ageOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
 			additionalInformationAddedForCancer = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_CANCER);		
+			/* Benign Tumor Form for Niece/Nephew */
+			hasThisRelativeEverBeenDiagnosedWithABenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithBenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithABenignTumorValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR_VALUE);
+			pleaseSelectTheAddButtonBelowToAddEachBenignTumorThisRelativeHasHad = testDataForFHQ.get(FHQConstants.PLEASE_SELECT_THE_ADD_BUTTON_BELOW_TO_ADD_EACH_BENIGN_TUMOR_THIS_RELATIVE_HAS_HAD);
+			benignTumor = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR);
+			benignTumorOptionSelected = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR_OPTION_SELECTED);
+			yearOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			ageOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			additionalInformationAddedForBenignTumor = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_BENIGN_TUMOR);		
 			/* Medical Condition Form for Niece/Nephew */
 			hasThisRelativeEverBeenDiagnosedWithAnyOfTheMedicalConditionsListedBelow = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_MEDICAL_CONDITIONS_LISTED_BELOW);
 			medicalConditionsBanner = testDataForFHQ.get(FHQConstants.MEDICAL_CONDITIONS_BANNER);
@@ -1329,9 +1442,8 @@ public class FHQ_TestDataManager extends PageInitializer {
 			other = testDataForFHQ.get(FHQConstants.OTHER);
 			isThereAnythingElseYouWouldLikeUsToKnowAboutThisRelative = testDataForFHQ.get(FHQConstants.IS_THERE_ANYTHING_ELSE_YOU_WOULD_LIKE_US_TO_KNOW_ABOUT_THIS_RELATIVE);
 			addAdditionalInformation = testDataForFHQ.get(FHQConstants.ADD_ADDITIONAL_INFORMATION);
-			//addAdditionalInformationForNeiceNephew = testDataForFHQ.get(FHQConstants.ADD_ADDITIONAL_INFORMATION_FOR_NIECE_NEPHEW);
-			youWillNotBeAbleToModifyThisRecordAfterYouSubmit = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_SUBMIT);
-			completeAndSubmit = testDataForFHQ.get(FHQConstants.COMPLETE_AND_SUBMIT);	
+			youWillNotBeAbleToModifyThisRecordAfterYouComplete = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_COMPLETE);
+			complete = testDataForFHQ.get(FHQConstants.COMPLETE);	
 			participationStatus = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS);
 			participationStatusValue = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS_VALUE);
 			yearOfBirthValueNV = testDataForFHQ.get(FHQConstants.YEAR_OF_BIRTH_VALUE_NV);
@@ -1347,6 +1459,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			grandParents = testDataForFHQ.get(FHQConstants.GRANDPARENTS);
 			addNewGrandParents = testDataForFHQ.get(FHQConstants.ADD_NEW_GRANDPARENTS);
 			theBlueHighlightedRowsRepresentTheIncompletedFamilyRecords = testDataForFHQ.get(FHQConstants.THE_BLUE_HIGHLIGHTED_ROWS_REPRESENT_THE_INCOMPLETED_FAMILY_RECORDS);
+			//theBlueHighlightedRowsBanner = testDataForFHQ.get(FHQConstants.THE_BLUE_HIGHLIGHTED_ROWS_BANNER);
 			all = testDataForFHQ.get(FHQConstants.ALL);
 			relationToPatientGrandParent = testDataForFHQ.get(FHQConstants.RELATION_TO_PATIENT_GRANDPARENT);
 			firstName = testDataForFHQ.get(FHQConstants.FIRST_NAME);
@@ -1437,6 +1550,16 @@ public class FHQ_TestDataManager extends PageInitializer {
 			yearOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
 			ageOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
 			additionalInformationAddedForCancer = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_CANCER);		
+			/* Benign Tumor Form */
+			hasThisRelativeEverBeenDiagnosedWithABenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithBenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithABenignTumorValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR_VALUE);
+			pleaseSelectTheAddButtonBelowToAddEachBenignTumorThisRelativeHasHad = testDataForFHQ.get(FHQConstants.PLEASE_SELECT_THE_ADD_BUTTON_BELOW_TO_ADD_EACH_BENIGN_TUMOR_THIS_RELATIVE_HAS_HAD);
+			benignTumor = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR);
+			benignTumorOptionSelected = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR_OPTION_SELECTED);
+			yearOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			ageOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			additionalInformationAddedForBenignTumor = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_BENIGN_TUMOR);		
 			/* Medical Condition Form */
 			hasThisRelativeEverBeenDiagnosedWithAnyOfTheMedicalConditionsListedBelow = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_MEDICAL_CONDITIONS_LISTED_BELOW);
 			medicalConditionsBanner = testDataForFHQ.get(FHQConstants.MEDICAL_CONDITIONS_BANNER);
@@ -1454,8 +1577,8 @@ public class FHQ_TestDataManager extends PageInitializer {
 			other = testDataForFHQ.get(FHQConstants.OTHER);
 			isThereAnythingElseYouWouldLikeUsToKnowAboutThisRelative = testDataForFHQ.get(FHQConstants.IS_THERE_ANYTHING_ELSE_YOU_WOULD_LIKE_US_TO_KNOW_ABOUT_THIS_RELATIVE);
 			addAdditionalInformation = testDataForFHQ.get(FHQConstants.ADD_ADDITIONAL_INFORMATION);
-			youWillNotBeAbleToModifyThisRecordAfterYouSubmit = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_SUBMIT);
-			completeAndSubmit = testDataForFHQ.get(FHQConstants.COMPLETE_AND_SUBMIT);
+			youWillNotBeAbleToModifyThisRecordAfterYouComplete = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_COMPLETE);
+			complete = testDataForFHQ.get(FHQConstants.COMPLETE);
 			participationStatus = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS);
 			participationStatusValue = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS_VALUE);
 			yearOfBirthValueNV = testDataForFHQ.get(FHQConstants.YEAR_OF_BIRTH_VALUE_NV);
@@ -1471,6 +1594,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			grandParents = testDataForFHQ.get(FHQConstants.GRANDPARENTS);
 			addNewGrandParents = testDataForFHQ.get(FHQConstants.ADD_NEW_GRANDPARENTS);
 			theBlueHighlightedRowsRepresentTheIncompletedFamilyRecords = testDataForFHQ.get(FHQConstants.THE_BLUE_HIGHLIGHTED_ROWS_REPRESENT_THE_INCOMPLETED_FAMILY_RECORDS);
+			theBlueHighlightedRowsBanner = testDataForFHQ.get(FHQConstants.THE_BLUE_HIGHLIGHTED_ROWS_BANNER);
 			all = testDataForFHQ.get(FHQConstants.ALL);
 			relationToPatientGrandParent = testDataForFHQ.get(FHQConstants.RELATION_TO_PATIENT_GRANDPARENT);
 			firstName = testDataForFHQ.get(FHQConstants.FIRST_NAME);
@@ -1561,6 +1685,16 @@ public class FHQ_TestDataManager extends PageInitializer {
 			yearOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
 			ageOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
 			additionalInformationAddedForCancer = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_CANCER);		
+			/* Benign Tumor Form */
+			hasThisRelativeEverBeenDiagnosedWithABenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithBenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithABenignTumorValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR_VALUE);
+			pleaseSelectTheAddButtonBelowToAddEachBenignTumorThisRelativeHasHad = testDataForFHQ.get(FHQConstants.PLEASE_SELECT_THE_ADD_BUTTON_BELOW_TO_ADD_EACH_BENIGN_TUMOR_THIS_RELATIVE_HAS_HAD);
+			benignTumor = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR);
+			benignTumorOptionSelected = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR_OPTION_SELECTED);
+			yearOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			ageOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			additionalInformationAddedForBenignTumor = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_BENIGN_TUMOR);		
 			/* Medical Condition Form */
 			hasThisRelativeEverBeenDiagnosedWithAnyOfTheMedicalConditionsListedBelow = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_MEDICAL_CONDITIONS_LISTED_BELOW);
 			medicalConditionsBanner = testDataForFHQ.get(FHQConstants.MEDICAL_CONDITIONS_BANNER);
@@ -1578,8 +1712,8 @@ public class FHQ_TestDataManager extends PageInitializer {
 			other = testDataForFHQ.get(FHQConstants.OTHER);
 			isThereAnythingElseYouWouldLikeUsToKnowAboutThisRelative = testDataForFHQ.get(FHQConstants.IS_THERE_ANYTHING_ELSE_YOU_WOULD_LIKE_US_TO_KNOW_ABOUT_THIS_RELATIVE);
 			addAdditionalInformation = testDataForFHQ.get(FHQConstants.ADD_ADDITIONAL_INFORMATION);
-			youWillNotBeAbleToModifyThisRecordAfterYouSubmit = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_SUBMIT);
-			completeAndSubmit = testDataForFHQ.get(FHQConstants.COMPLETE_AND_SUBMIT);
+			youWillNotBeAbleToModifyThisRecordAfterYouComplete = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_COMPLETE);
+			complete = testDataForFHQ.get(FHQConstants.COMPLETE);
 			participationStatus = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS);
 			participationStatusValue = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS_VALUE);
 			yearOfBirthValueNV = testDataForFHQ.get(FHQConstants.YEAR_OF_BIRTH_VALUE_NV);
@@ -1595,6 +1729,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			grandParents = testDataForFHQ.get(FHQConstants.GRANDPARENTS);
 			addNewGrandParents = testDataForFHQ.get(FHQConstants.ADD_NEW_GRANDPARENTS);
 			theBlueHighlightedRowsRepresentTheIncompletedFamilyRecords = testDataForFHQ.get(FHQConstants.THE_BLUE_HIGHLIGHTED_ROWS_REPRESENT_THE_INCOMPLETED_FAMILY_RECORDS);
+			theBlueHighlightedRowsBanner = testDataForFHQ.get(FHQConstants.THE_BLUE_HIGHLIGHTED_ROWS_BANNER);
 			all = testDataForFHQ.get(FHQConstants.ALL);
 			relationToPatientGrandParent = testDataForFHQ.get(FHQConstants.RELATION_TO_PATIENT_GRANDPARENT);
 			firstName = testDataForFHQ.get(FHQConstants.FIRST_NAME);
@@ -1677,6 +1812,16 @@ public class FHQ_TestDataManager extends PageInitializer {
 			yearOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
 			ageOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
 			additionalInformationAddedForCancer = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_CANCER);		
+			/* Benign Tumor Form */
+			hasThisRelativeEverBeenDiagnosedWithABenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithBenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithABenignTumorValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR_VALUE);
+			pleaseSelectTheAddButtonBelowToAddEachBenignTumorThisRelativeHasHad = testDataForFHQ.get(FHQConstants.PLEASE_SELECT_THE_ADD_BUTTON_BELOW_TO_ADD_EACH_BENIGN_TUMOR_THIS_RELATIVE_HAS_HAD);
+			benignTumor = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR);
+			benignTumorOptionSelected = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR_OPTION_SELECTED);
+			yearOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			ageOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			additionalInformationAddedForBenignTumor = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_BENIGN_TUMOR);		
 			/* Medical Condition Form */
 			hasThisRelativeEverBeenDiagnosedWithAnyOfTheMedicalConditionsListedBelow = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_MEDICAL_CONDITIONS_LISTED_BELOW);
 			medicalConditionsBanner = testDataForFHQ.get(FHQConstants.MEDICAL_CONDITIONS_BANNER);
@@ -1694,8 +1839,8 @@ public class FHQ_TestDataManager extends PageInitializer {
 			other = testDataForFHQ.get(FHQConstants.OTHER);
 			isThereAnythingElseYouWouldLikeUsToKnowAboutThisRelative = testDataForFHQ.get(FHQConstants.IS_THERE_ANYTHING_ELSE_YOU_WOULD_LIKE_US_TO_KNOW_ABOUT_THIS_RELATIVE);
 			addAdditionalInformation = testDataForFHQ.get(FHQConstants.ADD_ADDITIONAL_INFORMATION);
-			youWillNotBeAbleToModifyThisRecordAfterYouSubmit = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_SUBMIT);
-			completeAndSubmit = testDataForFHQ.get(FHQConstants.COMPLETE_AND_SUBMIT);	
+			youWillNotBeAbleToModifyThisRecordAfterYouComplete = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_COMPLETE);
+			complete = testDataForFHQ.get(FHQConstants.COMPLETE);	
 			participationStatus = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS);
 			participationStatusValue = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS_VALUE);
 			yearOfBirthValueNV = testDataForFHQ.get(FHQConstants.YEAR_OF_BIRTH_VALUE_NV);
@@ -1711,6 +1856,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			grandParents = testDataForFHQ.get(FHQConstants.GRANDPARENTS);
 			addNewGrandParents = testDataForFHQ.get(FHQConstants.ADD_NEW_GRANDPARENTS);
 			theBlueHighlightedRowsRepresentTheIncompletedFamilyRecords = testDataForFHQ.get(FHQConstants.THE_BLUE_HIGHLIGHTED_ROWS_REPRESENT_THE_INCOMPLETED_FAMILY_RECORDS);
+			theBlueHighlightedRowsBanner = testDataForFHQ.get(FHQConstants.THE_BLUE_HIGHLIGHTED_ROWS_BANNER);
 			all = testDataForFHQ.get(FHQConstants.ALL);
 			relationToPatientGrandParent = testDataForFHQ.get(FHQConstants.RELATION_TO_PATIENT_GRANDPARENT);
 			firstName = testDataForFHQ.get(FHQConstants.FIRST_NAME);
@@ -1797,6 +1943,16 @@ public class FHQ_TestDataManager extends PageInitializer {
 			yearOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
 			ageOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
 			additionalInformationAddedForCancer = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_CANCER);		
+			/* Benign Tumor Form */
+			hasThisRelativeEverBeenDiagnosedWithABenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithBenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithABenignTumorValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR_VALUE);
+			pleaseSelectTheAddButtonBelowToAddEachBenignTumorThisRelativeHasHad = testDataForFHQ.get(FHQConstants.PLEASE_SELECT_THE_ADD_BUTTON_BELOW_TO_ADD_EACH_BENIGN_TUMOR_THIS_RELATIVE_HAS_HAD);
+			benignTumor = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR);
+			benignTumorOptionSelected = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR_OPTION_SELECTED);
+			yearOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			ageOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			additionalInformationAddedForBenignTumor = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_BENIGN_TUMOR);		
 			/* Medical Condition Form */
 			hasThisRelativeEverBeenDiagnosedWithAnyOfTheMedicalConditionsListedBelow = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_MEDICAL_CONDITIONS_LISTED_BELOW);
 			medicalConditionsBanner = testDataForFHQ.get(FHQConstants.MEDICAL_CONDITIONS_BANNER);
@@ -1814,8 +1970,8 @@ public class FHQ_TestDataManager extends PageInitializer {
 			other = testDataForFHQ.get(FHQConstants.OTHER);
 			isThereAnythingElseYouWouldLikeUsToKnowAboutThisRelative = testDataForFHQ.get(FHQConstants.IS_THERE_ANYTHING_ELSE_YOU_WOULD_LIKE_US_TO_KNOW_ABOUT_THIS_RELATIVE);
 			addAdditionalInformation = testDataForFHQ.get(FHQConstants.ADD_ADDITIONAL_INFORMATION);
-			youWillNotBeAbleToModifyThisRecordAfterYouSubmit = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_SUBMIT);
-			completeAndSubmit = testDataForFHQ.get(FHQConstants.COMPLETE_AND_SUBMIT);
+			youWillNotBeAbleToModifyThisRecordAfterYouComplete = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_COMPLETE);
+			complete = testDataForFHQ.get(FHQConstants.COMPLETE);
 			participationStatus = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS);
 			participationStatusValue = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS_VALUE);
 			yearOfBirthValueNV = testDataForFHQ.get(FHQConstants.YEAR_OF_BIRTH_VALUE_NV);
@@ -1830,7 +1986,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			formView = testDataForFHQ.get(FHQConstants.FORM_VIEW);
 			grandChildren = testDataForFHQ.get(FHQConstants.GRANDCHILDREN);
 			addNewGrandChildren = testDataForFHQ.get(FHQConstants.ADD_NEW_GRANDCHILDREN);
-			theBlueHighlightedRowsRepresentTheIncompletedFamilyRecords = testDataForFHQ.get(FHQConstants.THE_BLUE_HIGHLIGHTED_ROWS_REPRESENT_THE_INCOMPLETED_FAMILY_RECORDS);
+			theBlueHighlightedRowsBanner = testDataForFHQ.get(FHQConstants.THE_BLUE_HIGHLIGHTED_ROWS_BANNER);
 			all = testDataForFHQ.get(FHQConstants.ALL);
 			relationToPatientGrandChild = testDataForFHQ.get(FHQConstants.RELATION_TO_PATIENT_GRANDCHILD);
 			firstName = testDataForFHQ.get(FHQConstants.FIRST_NAME);
@@ -1854,7 +2010,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			genderIdentityValueAdded = testDataForFHQ.get(FHQConstants.GENDER_IDENTITY_VALUE_ADDED);
 			youAreCurrentlyFillingOutInformation = testDataForFHQ.get(FHQConstants.YOU_ARE_CURRENTLY_FILLING_OUT_INFORMATION);
 			grandChild = testDataForFHQ.get(FHQConstants.GRANDCHILD);
-			pleaseMakeSureYouHaveCompletedAllPartnerRecordsBeforeCompletingChildrenRecords = testDataForFHQ.get(FHQConstants.PLEASE_MAKE_SURE_YOU_HAVE_COMPLETED_ALL_PARTNER_RECORDS_BEFORE_COMPLETING_CHILDREN_RECORDS);
+			pleaseMakeSureYouHaveCompletedAllChildrenRecords = testDataForFHQ.get(FHQConstants.PLEASE_MAKE_SURE_YOU_HAVE_COMPLETED_ALL_CHILDREN_RECORDS);
 			childBasicInformation = testDataForFHQ.get(FHQConstants.CHILD_BASIC_INFORMATION);
 			whichBestDescribesThisRelative = testDataForFHQ.get(FHQConstants.WHICH_BEST_DESCRIBES_THIS_RELATIVE);
 			whichBestDescribesThisRelativeSelected = testDataForFHQ.get(FHQConstants.WHICH_BEST_DESCRIBES_THIS_RELATIVE_SELECTED);
@@ -1908,6 +2064,16 @@ public class FHQ_TestDataManager extends PageInitializer {
 			yearOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
 			ageOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
 			additionalInformationAddedForCancer = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_CANCER);		
+			/* Benign Tumor Form for GrandChild */
+			hasThisRelativeEverBeenDiagnosedWithABenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithBenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithABenignTumorValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR_VALUE);
+			pleaseSelectTheAddButtonBelowToAddEachBenignTumorThisRelativeHasHad = testDataForFHQ.get(FHQConstants.PLEASE_SELECT_THE_ADD_BUTTON_BELOW_TO_ADD_EACH_BENIGN_TUMOR_THIS_RELATIVE_HAS_HAD);
+			benignTumor = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR);
+			benignTumorOptionSelected = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR_OPTION_SELECTED);
+			yearOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			ageOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			additionalInformationAddedForBenignTumor = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_BENIGN_TUMOR);		
 			/* Medical Condition Form for GrandChild */
 			hasThisRelativeEverBeenDiagnosedWithAnyOfTheMedicalConditionsListedBelow = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_MEDICAL_CONDITIONS_LISTED_BELOW);
 			medicalConditionsBanner = testDataForFHQ.get(FHQConstants.MEDICAL_CONDITIONS_BANNER);
@@ -1929,8 +2095,8 @@ public class FHQ_TestDataManager extends PageInitializer {
 			other = testDataForFHQ.get(FHQConstants.OTHER);
 			isThereAnythingElseYouWouldLikeUsToKnowAboutThisRelative = testDataForFHQ.get(FHQConstants.IS_THERE_ANYTHING_ELSE_YOU_WOULD_LIKE_US_TO_KNOW_ABOUT_THIS_RELATIVE);
 			addAdditionalInformation = testDataForFHQ.get(FHQConstants.ADD_ADDITIONAL_INFORMATION);
-			youWillNotBeAbleToModifyThisRecordAfterYouSubmit = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_SUBMIT);
-			completeAndSubmit = testDataForFHQ.get(FHQConstants.COMPLETE_AND_SUBMIT);
+			youWillNotBeAbleToModifyThisRecordAfterYouComplete = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_COMPLETE);
+			complete = testDataForFHQ.get(FHQConstants.COMPLETE);
 			participationStatus = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS);
 			participationStatusValue = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS_VALUE);
 			yearOfBirthValueNV = testDataForFHQ.get(FHQConstants.YEAR_OF_BIRTH_VALUE_NV);
@@ -1945,7 +2111,7 @@ public class FHQ_TestDataManager extends PageInitializer {
 			formView = testDataForFHQ.get(FHQConstants.FORM_VIEW);
 			cousins = testDataForFHQ.get(FHQConstants.COUSINS);
 			addNewCousins = testDataForFHQ.get(FHQConstants.ADD_NEW_COUSINS);
-			theBlueHighlightedRowsRepresentTheIncompletedFamilyRecords = testDataForFHQ.get(FHQConstants.THE_BLUE_HIGHLIGHTED_ROWS_REPRESENT_THE_INCOMPLETED_FAMILY_RECORDS);
+			theBlueHighlightedRowsBanner = testDataForFHQ.get(FHQConstants.THE_BLUE_HIGHLIGHTED_ROWS_BANNER);
 			all = testDataForFHQ.get(FHQConstants.ALL);
 			relationToPatientCousin = testDataForFHQ.get(FHQConstants.RELATION_TO_PATIENT_COUSIN);
 			firstName = testDataForFHQ.get(FHQConstants.FIRST_NAME);
@@ -1963,12 +2129,27 @@ public class FHQ_TestDataManager extends PageInitializer {
 			relationToPatientValue = testDataForFHQ.get(FHQConstants.RELATION_TO_PATIENT_VALUE);
 			sexAssignedAtBirth = testDataForFHQ.get(FHQConstants.PARTICIPANT_SEX_ASSIGNED_AT_BIRTH);	
 			sexAssignedAtBirthValue = testDataForFHQ.get(FHQConstants.SEX_ASSIGNED_AT_BIRTH_VALUE);
-			sexAssignedAtBirthValueAdded = testDataForFHQ.get(FHQConstants.SEX_ASSIGNED_AT_BIRTH_VALUE_ADDED);
+			sexAssignedAtBirthValueAdded = testDataForFHQ.get(FHQConstants.SEX_ASSIGNED_AT_BIRTH_VALUE_ADDED);			
+			firstNameValue1 = testDataForFHQ.get(FHQConstants.FIRST_NAME_VALUE_1);
+			firstInitialOfLASTNameValue1 = testDataForFHQ.get(FHQConstants.FIRST_INITIAL_OF_LAST_NAME_VALUE_1);
+			parentOfThisRelativeValue1 = testDataForFHQ.get(FHQConstants.PARENT_OF_THIS_RELATIVE_VALUE_1); 
+			vitalStatusValue1 = testDataForFHQ.get(FHQConstants.VITAL_STATUS_VALUE_1);
+			yearOfBirthValue1 = testDataForFHQ.get(FHQConstants.YEAR_OF_BIRTH_VALUE_1);
+			relationToPatientValue1 = testDataForFHQ.get(FHQConstants.RELATION_TO_PATIENT_VALUE_1);
+			sexAssignedAtBirthValue1 = testDataForFHQ.get(FHQConstants.SEX_ASSIGNED_AT_BIRTH_VALUE_1);		
+			firstNameValue2 = testDataForFHQ.get(FHQConstants.FIRST_NAME_VALUE_2);
+			firstInitialOfLASTNameValue2 = testDataForFHQ.get(FHQConstants.FIRST_INITIAL_OF_LAST_NAME_VALUE_2);
+			parentOfThisRelativeValue2 = testDataForFHQ.get(FHQConstants.PARENT_OF_THIS_RELATIVE_VALUE_2); 
+			vitalStatusValue2 = testDataForFHQ.get(FHQConstants.VITAL_STATUS_VALUE_2);
+			yearOfBirthValue2 = testDataForFHQ.get(FHQConstants.YEAR_OF_BIRTH_VALUE_2);
+			relationToPatientValue2 = testDataForFHQ.get(FHQConstants.RELATION_TO_PATIENT_VALUE_2);
+			sexAssignedAtBirthValue2 = testDataForFHQ.get(FHQConstants.SEX_ASSIGNED_AT_BIRTH_VALUE_2);
 			anEstimatedDateIsPreferred = testDataForFHQ.get(FHQConstants.AN_ESTIMATED_DATE_IS_PREFERRED);
 			genderIdentity = testDataForFHQ.get(FHQConstants.PARTICIPANT_GENDER_IDENTITY);
 			genderIdentityValueAdded = testDataForFHQ.get(FHQConstants.GENDER_IDENTITY_VALUE_ADDED);
 			youAreCurrentlyFillingOutInformation = testDataForFHQ.get(FHQConstants.YOU_ARE_CURRENTLY_FILLING_OUT_INFORMATION);
 			cousin = testDataForFHQ.get(FHQConstants.COUSIN);
+			cousinBanner = testDataForFHQ.get(FHQConstants.COUSIN_BANNER);
 			pleaseMakeSureYouHaveCompletedAllPartnerRecordsBeforeCompletingChildrenRecords = testDataForFHQ.get(FHQConstants.PLEASE_MAKE_SURE_YOU_HAVE_COMPLETED_ALL_PARTNER_RECORDS_BEFORE_COMPLETING_CHILDREN_RECORDS);
 			childBasicInformation = testDataForFHQ.get(FHQConstants.CHILD_BASIC_INFORMATION);
 			whichBestDescribesThisRelative = testDataForFHQ.get(FHQConstants.WHICH_BEST_DESCRIBES_THIS_RELATIVE);
@@ -2023,6 +2204,16 @@ public class FHQ_TestDataManager extends PageInitializer {
 			yearOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
 			ageOfDiagnosisForCancerSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_CANCER_SELECTED);
 			additionalInformationAddedForCancer = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_CANCER);		
+			/* Benign Tumor Form for Cousin */
+			hasThisRelativeEverBeenDiagnosedWithABenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithBenignTumor = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_BENIGN_TUMOR);
+			hasThisRelativeEverBeenDiagnosedWithABenignTumorValue = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_A_BENIGN_TUMOR_VALUE);
+			pleaseSelectTheAddButtonBelowToAddEachBenignTumorThisRelativeHasHad = testDataForFHQ.get(FHQConstants.PLEASE_SELECT_THE_ADD_BUTTON_BELOW_TO_ADD_EACH_BENIGN_TUMOR_THIS_RELATIVE_HAS_HAD);
+			benignTumor = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR);
+			benignTumorOptionSelected = testDataForFHQ.get(FHQConstants.BENIGN_TUMOR_OPTION_SELECTED);
+			yearOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.YEAR_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			ageOfDiagnosisForBenignTumorSelected = testDataForFHQ.get(FHQConstants.AGE_OF_DIAGNOSIS_FOR_BENIGN_TUMOR_SELECTED);
+			additionalInformationAddedForBenignTumor = testDataForFHQ.get(FHQConstants.ADDITIONAL_INFORMATION_ADDED_FOR_BENIGN_TUMOR);		
 			/* Medical Condition Form for Cousin */
 			hasThisRelativeEverBeenDiagnosedWithAnyOfTheMedicalConditionsListedBelow = testDataForFHQ.get(FHQConstants.HAS_THIS_RELATIVE_EVER_BEEN_DIAGNOSED_WITH_ANY_OF_THE_MEDICAL_CONDITIONS_LISTED_BELOW);
 			medicalConditionsBanner = testDataForFHQ.get(FHQConstants.MEDICAL_CONDITIONS_BANNER);
@@ -2044,13 +2235,12 @@ public class FHQ_TestDataManager extends PageInitializer {
 			other = testDataForFHQ.get(FHQConstants.OTHER);
 			isThereAnythingElseYouWouldLikeUsToKnowAboutThisRelative = testDataForFHQ.get(FHQConstants.IS_THERE_ANYTHING_ELSE_YOU_WOULD_LIKE_US_TO_KNOW_ABOUT_THIS_RELATIVE);
 			addAdditionalInformation = testDataForFHQ.get(FHQConstants.ADD_ADDITIONAL_INFORMATION);
-			youWillNotBeAbleToModifyThisRecordAfterYouSubmit = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_SUBMIT);
-			completeAndSubmit = testDataForFHQ.get(FHQConstants.COMPLETE_AND_SUBMIT);
+			youWillNotBeAbleToModifyThisRecordAfterYouComplete = testDataForFHQ.get(FHQConstants.YOU_WILL_NOT_BE_ABLE_TO_MODIFY_THIS_RECORD_AFTER_YOU_COMPLETE);
+			complete = testDataForFHQ.get(FHQConstants.COMPLETE);
 			participationStatus = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS);
 			participationStatusValue = testDataForFHQ.get(FHQConstants.PARTICIPATION_STATUS_VALUE);
 			yearOfBirthValueNV = testDataForFHQ.get(FHQConstants.YEAR_OF_BIRTH_VALUE_NV);
 		}
 	}
 }
-
 

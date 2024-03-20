@@ -54,7 +54,6 @@ public class FHQSurveyPageConstants {
 	public static final String VITAL_STATUS_LABEL = "Vital Status Label";
 	public static final String CANCEL_LABEL = "Cancel Label";
 	public static final String ADD_LABEL = "Add Label";
-	
 	public static final String CONFIRM_IDENTITY = null;
 	
 	@SuppressWarnings("serial")

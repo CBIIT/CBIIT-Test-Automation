@@ -3,7 +3,6 @@ package ServiceNow.CHARMS.Pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
 
@@ -37,10 +36,7 @@ public class FHQSurveyPage extends CommonUtils {
 	@FindBy(xpath = "//a[normalize-space()=\"Preview Item\"]")
 	public WebElement nVFHQPatientPersonalsPreviewItemButton;
 
-	/*
-	 * Native View FHQ Patient Personals: New Details of patient immediate family
-	 * banner
-	 */
+	/* Native View FHQ Patient Personals: New Details of patient immediate family banner */
 	@FindBy(xpath = "//span[normalize-space()=\"New Details of patient immediate family.\"]")
 	public WebElement nVFHQPatientPersonalsNewDetailsBanner;
 
@@ -603,5 +599,4 @@ public class FHQSurveyPage extends CommonUtils {
 	/* Native View FHQ Patient Personals: Submit Button */
 	@FindBy(xpath = "//button[@id=\"submit_button\"]")
 	public WebElement nVFHQPatientPersonalsSubmitButton;
-
 }
