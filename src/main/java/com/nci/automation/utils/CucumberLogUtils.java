@@ -14,7 +14,6 @@ import org.openqa.selenium.TakesScreenshot;
 public class CucumberLogUtils {
 
     public static Scenario scenario;
-
     /***
      * USE THIS METHOD TO ATTACH SCREENSHOT TO REPORT
      */

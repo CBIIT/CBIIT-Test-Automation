@@ -33,8 +33,10 @@ import CustomBusiness.Egrants.Pages.EgrantsSearchAndFileManagementScenariosPage;
 import CustomBusiness.Egrants.StepsImplementation.EgrantsStepImplementation;
 import GrantsApps.ChangePassword.Pages.*;
 import GrantsApps.ChangePassword.StepsImplementation.*;
-import GrantsApps.EM.Pages.*;
-import GrantsApps.EM.StepImplementation.*;
+import GrantsApps.EM.selenium.Pages.AccountDetailsPage;
+import GrantsApps.EM.selenium.Pages.CreateNewAccountPage;
+import GrantsApps.EM.selenium.Pages.ManageI2EUsersPage;
+import GrantsApps.EM.selenium.StepImplementation.EMStepsImplementation;
 import ServiceNow.CHARMS.Constants.*;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
 import ServiceNow.CHARMS.Pages.*;
@@ -58,9 +60,15 @@ import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NERDLoginStepsIm
 import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NativeViewImpersonateUser;
 import ServiceNow.PlatformBusinessApps.SEER.Pages.*;
 import ServiceNow.PlatformBusinessApps.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
-import ServiceNow.SCSS.Pages.*;
-import ServiceNow.SCSS.StepsImplementation.*;
 import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.Pages.ApplicantFlowPage;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.Pages.NativeViewSCSSReportsPage;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.Pages.OWMVacancyPage;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.Pages.StadtmanVacancyPage;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.StepsImplementation.ApplicantFlowStepsImplementation;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.StepsImplementation.OWMVacancyStepsImplementation;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.StepsImplementation.SCSSLoginStepsImplementation;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.StepsImplementation.StadtmanVacancyStepsImplementation;
 import appsCommon.Pages.ITrustLoginPage;
 import appsCommon.Pages.NativeViewHomePage;
 import appsCommon.Pages.ServiceNow_NCISP_Page;
@@ -634,8 +642,7 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** GDC INSTANCE VARIABLES */
 		gDC_Workflow_NativeView_Page = new GDC_Workflow_NativeView_Page();
-		
-		
+
 		/** MCAEXPLORER INSTANCE VARIABLES */
 		mcaExplorerPage = new MCAExplorerPage();
 		mcaExplorerStepImp = new MCAExplorerStepImp();

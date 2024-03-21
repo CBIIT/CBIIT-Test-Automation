@@ -14,6 +14,10 @@ public class FanconiLoginPage extends CommonUtils {
 	/* Home Button */
 	@FindBy(xpath = "//a[@class='link']")
 	public WebElement enrollLoginButton;
+	
+	/* Home Button */
+	@FindBy(xpath = "(//a[normalize-space()='login'])[1]")
+	public WebElement enrollLoginButton1;
 
 	/* Agree Button */
 	@FindBy(xpath = "//button[contains(@class,'btn btn-default')]")
