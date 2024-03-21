@@ -1,4 +1,4 @@
-Feature: Ruturning published Collaboration by the CRS Rreviewer/DOC Planning Contact
+Feature: Returning published Collaboration by the CRS Reviewer/DOC Planning Contact
 
   @SS-3893 @SS-3937 @bucurgb @Regression1
   Scenario: Verifying "Please Specify" and "Fiscal Year" field values
