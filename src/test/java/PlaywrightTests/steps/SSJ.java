@@ -54,17 +54,32 @@ public class SSJ {
 //            page.getByLabel("Highest Level of Education").click();
 //            page.getByTitle("Bachelors").locator("div").click();
 
+
 //            page.getByLabel("Yes").check();
+
+
 //            page.getByLabel("Address").click();
+
+
 //            page.getByLabel("Address").fill("9520 Burning Branch Road");
+
+
 //            page.getByLabel("City").click();
+
 //            page.getByLabel("City").fill("Burke");
 //            page.getByLabel("State/Province").click();
+
 //            page.getByLabel("State/Province").fill("VA");
+
+
 //            page.getByLabel("Country").click();
+
 //            page.getByLabel("Country").fill("USA");
+
 //            page.getByLabel("Zip/Postal Code").click();
+
 //            page.getByLabel("Zip/Postal Code").fill("22015");
+
 //            page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Save")).click();
             assertThat(page.locator("#root")).containsText("9520 Burning Branch RoadBurke, VA 22015 USA");
             assertThat(page.locator("#root")).containsText("juarezds@nih.gov");
