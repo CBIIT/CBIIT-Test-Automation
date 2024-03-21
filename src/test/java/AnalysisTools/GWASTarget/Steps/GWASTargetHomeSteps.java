@@ -15,12 +15,9 @@ public class GWASTargetHomeSteps extends PageInitializer {
     public void the_home_page_and_text_is_displayed(String firstPassageTexts, String secondPassageTexts, String thirdPassageTexts) {
         System.out.println(gwasTargetHomePages.firstPassageText.getText());
         Assert.assertTrue(gwasTargetHomePages.firstPassageText.getText().contentEquals(firstPassageTexts));
-
         System.out.println(gwasTargetHomePages.secondPassageText.getText());
         Assert.assertTrue(gwasTargetHomePages.secondPassageText.getText().contentEquals(secondPassageTexts));
-
         System.out.println(gwasTargetHomePages.thirdPassageText.getText());
         Assert.assertTrue(gwasTargetHomePages.thirdPassageText.getText().contentEquals(thirdPassageTexts));
     }
-
 }

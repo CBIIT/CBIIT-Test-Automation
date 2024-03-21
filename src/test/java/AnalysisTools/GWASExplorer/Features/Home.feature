@@ -1,10 +1,11 @@
-Feature: These are the features for the Home Page
+Feature: These are the scenarios for the GWAS Explorer's Home page
+
   @Smoke @matakevin
   Scenario: Credits are displayed as expected
     Given the user is on the GWAS Explorer home page
     Then the credit text is displayed
 
-  @Smoke
+  @Smoke @matakevin
   Scenario: User is able to go to source code from About page
     Given the user is on the GWAS Explorer home page
     When user clicks on About page
@@ -17,19 +18,19 @@ Feature: These are the features for the Home Page
     When user selects API Access tab
     Then API Access page displays
 
-  @Smoke
+  @Smoke @matakevin
   Scenario: User views API Access Page heading
     Given the user is on the GWAS Explorer home page
     When user selects API Access tab
     Then API Acess page displays "API Access" heading
 
-  @Smoke
+  @Smoke @matakevin
   Scenario: User is able to go to source code from home page
     Given the user is on the GWAS Explorer home page
     When user clicks on source code
     Then user goes to PLCO source code on github
 
-  @Smoke
+  @Smoke @matakevin
   Scenario: User navigates from about page to Explore GWAS
     Given the user is on the GWAS Explorer home page
     When user navigates to the About page

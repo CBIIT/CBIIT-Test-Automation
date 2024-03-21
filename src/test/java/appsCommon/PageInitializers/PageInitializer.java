@@ -251,6 +251,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static LDLinkHomePage ldLinkHomePage;
 	public static LDAssocPage ldAssocPage;
 	public static LDExpressPage ldExpressPage;
+	public static LDLinkAPIAccessPage ldLinkAPIAccessPage;
 
 	/** scAtlas instances **/
 	public static SCAtlasHomePage scAtlasHomePage;
@@ -516,6 +517,7 @@ public class PageInitializer extends WebDriverUtils {
 		ldLinkHomePage = new LDLinkHomePage();
 		ldExpressPage = new LDExpressPage();
 		ldAssocPage = new LDAssocPage();
+		ldLinkAPIAccessPage = new LDLinkAPIAccessPage();
 
 		/** scAtlas Instance Variables **/
 		scAtlasHomePage = new SCAtlasHomePage();

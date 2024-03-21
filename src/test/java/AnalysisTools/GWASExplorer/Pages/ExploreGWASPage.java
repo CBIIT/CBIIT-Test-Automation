@@ -112,5 +112,4 @@ import org.openqa.selenium.support.PageFactory;
         /** Check height check box for Phenotype Correlation **/
         @FindBy(xpath = "//label[@title = 'Height ']")
         public WebElement chkHeightPhenotypeCorrelation;
-
 }

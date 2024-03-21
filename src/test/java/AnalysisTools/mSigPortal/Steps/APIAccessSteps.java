@@ -3,11 +3,9 @@ package AnalysisTools.mSigPortal.Steps;
 import java.util.LinkedHashMap;
 import org.testng.Assert;
 import appsCommon.PageInitializers.PageInitializer;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
+import io.cucumber.java.en.*;
 import io.restassured.RestAssured;
-import io.restassured.response.Response;
-import io.restassured.response.ResponseBody;
+import io.restassured.response.*;
 
 public class APIAccessSteps extends PageInitializer {
 

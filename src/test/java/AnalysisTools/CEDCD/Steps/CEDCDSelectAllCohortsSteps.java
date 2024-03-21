@@ -1,8 +1,7 @@
 package AnalysisTools.CEDCD.Steps;
 
 import appsCommon.PageInitializers.PageInitializer;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
+import io.cucumber.java.en.*;
 
 public class CEDCDSelectAllCohortsSteps extends PageInitializer {
 

@@ -9,11 +9,8 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import io.cucumber.java.en.And;
 import appsCommon.PageInitializers.PageInitializer;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 
 public class JPSurvHomePageSteps extends PageInitializer {
 
@@ -125,7 +122,6 @@ public class JPSurvHomePageSteps extends PageInitializer {
 			Thread.sleep(2000);
 		} catch (Exception e) {
 		}
-
 	}
 
 	@Then("user verify a jpsurv file downloaded with name {string}")
@@ -142,7 +138,6 @@ public class JPSurvHomePageSteps extends PageInitializer {
 				break;
 			}
 		}
-
 		Assert.assertTrue("Jpsurv file is not found with name " + fileName, fileFound);
 		fileToDelete.delete();
 	}
@@ -158,7 +153,6 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	@When("user selects workspace")
 	public void user_selects_workspace() {
 		jpsurvHomePage.WorkspaceRadiobtn.click();
-		;
 		File workspaceFile = new File(jpsurvHomePage.workspaceFilePath);
 		MiscUtils.sleep(5000);
 		jpsurvHomePage.WorkspaceFileInputTextbox.sendKeys(workspaceFile.getAbsolutePath());
@@ -257,12 +251,10 @@ public class JPSurvHomePageSteps extends PageInitializer {
 	@When("select {string} for stage drop down")
 	public void select_for_stage_drop_down(String string) {
 		CommonUtils.selectDropDownValue(string, jpsurvHomePage.stageDD);
-
 	}
 
 	@When("select {string} for year drop down")
 	public void select_for_year_drop_down(String string) {
-
 		CommonUtils.selectDropDownValue(string, jpsurvHomePage.yearDXDD);
 	}
 

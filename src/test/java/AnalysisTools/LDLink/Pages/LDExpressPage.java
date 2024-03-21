@@ -8,7 +8,7 @@ import com.nci.automation.web.WebDriverUtils;
 
 public class LDExpressPage extends CommonUtils {
 
-    /* This is the genome build button to display the drop down */
+    /* This is the genome build button to display the dropdown */
     @FindBy(xpath = "//button[@id='region-codes-men']")
     public WebElement genomeBuildSelector;
 

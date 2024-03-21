@@ -8,11 +8,8 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import io.cucumber.java.en.And;
 import appsCommon.PageInitializers.PageInitializer;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 
 public class SignatureVisualizationSteps extends PageInitializer {
 
@@ -101,8 +98,7 @@ public class SignatureVisualizationSteps extends PageInitializer {
 	@Then("the results were successfully analyzed")
 	public void the_results_were_successfully_analyzed() {
 		CucumberLogUtils.logScreenshot();
-		Assert.assertTrue(
-				signatureVisualizationsPage.downloadDescriptionText.toString().contains("successfully analyzed"));
+		Assert.assertTrue(signatureVisualizationsPage.downloadDescriptionText.toString().contains("successfully analyzed"));
 	}
 
 	@When("the user clicks on the Signature Visualization banner")

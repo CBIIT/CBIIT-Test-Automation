@@ -4,8 +4,7 @@ import appsCommon.PageInitializers.PageInitializer;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
 import com.nci.automation.services.RestApiHelper;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
+import io.cucumber.java.en.*;
 import org.testng.Assert;
 
 public class GwasAPIAccessSteps extends PageInitializer {
@@ -37,7 +36,7 @@ public class GwasAPIAccessSteps extends PageInitializer {
     public void user_receives_response_for_participant_data() {
         JsonParser parser = new JsonParser();
         String res = String.valueOf(parser.parse(rest.getResponseBody().asString()));
-//        Assert.assertTrue(res.contentEquals("{\"data\":[{\"id\":1,\"p_value_nlog_expected\":7.251811972993799,\"p_value_nlog\":13.54821356447571},{\"id\":2,\"p_value_nlog_expected\":6.774690718274137,\"p_value_nlog\":13.487315603782836},{\"id\":3,\"p_value_nlog_expected\":6.552841968657781,\"p_value_nlog\":13.479516467259208},{\"id\":4,\"p_value_nlog_expected\":6.406713932979542,\"p_value_nlog\":13.416801226031378},{\"id\":5,\"p_value_nlog_expected\":6.297569463554475,\"p_value_nlog\":13.40483458520977},{\"id\":6,\"p_value_nlog_expected\":6.209714835966758,\"p_value_nlog\":12.244277555096541},{\"id\":7,\"p_value_nlog_expected\":6.137272471682025,\"p_value_nlog\":11.682981898951889},{\"id\":8,\"p_value_nlog_expected\":6.075204004202088,\"p_value_nlog\":11.592439150513638},{\"id\":9,\"p_value_nlog_expected\":6.020907099361674,\"p_value_nlog\":11.059981844992336},{\"id\":10,\"p_value_nlog_expected\":5.972650392225243,\"p_value_nlog\":10.989276134608227}],\"columns\":[\"id\",\"p_value_nlog_expected\",\"p_value_nlog\"]}"));
+        Assert.assertTrue(res.contentEquals("{\"data\":[{\"id\":1,\"p_value_nlog_expected\":7.251811972993799,\"p_value_nlog\":13.54821356447571},{\"id\":2,\"p_value_nlog_expected\":6.774690718274137,\"p_value_nlog\":13.487315603782836},{\"id\":3,\"p_value_nlog_expected\":6.552841968657781,\"p_value_nlog\":13.479516467259208},{\"id\":4,\"p_value_nlog_expected\":6.406713932979542,\"p_value_nlog\":13.416801226031378},{\"id\":5,\"p_value_nlog_expected\":6.297569463554475,\"p_value_nlog\":13.40483458520977},{\"id\":6,\"p_value_nlog_expected\":6.209714835966758,\"p_value_nlog\":12.244277555096541},{\"id\":7,\"p_value_nlog_expected\":6.137272471682025,\"p_value_nlog\":11.682981898951889},{\"id\":8,\"p_value_nlog_expected\":6.075204004202088,\"p_value_nlog\":11.592439150513638},{\"id\":9,\"p_value_nlog_expected\":6.020907099361674,\"p_value_nlog\":11.059981844992336},{\"id\":10,\"p_value_nlog_expected\":5.972650392225243,\"p_value_nlog\":10.989276134608227}],\"columns\":[\"id\",\"p_value_nlog_expected\",\"p_value_nlog\"]}"));
         System.out.println(res);
     }
 

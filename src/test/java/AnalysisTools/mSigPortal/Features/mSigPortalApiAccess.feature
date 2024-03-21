@@ -1,4 +1,4 @@
-Feature: mSigPortal Api Access
+Feature: These are the scenarios for the API Access tab on the mSigPortal Application
 
     @Smoke @matakevin
     Scenario: User retrieves mutational signature data for SBS1

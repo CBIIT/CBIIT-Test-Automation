@@ -9,10 +9,7 @@ import com.nci.automation.web.CommonUtils;
 
 public class CEDCDCohortPage extends CommonUtils {
 
-	/**
-	 * ========================= Login.gov WebElements
-	 * =================================
-	 */
+	/** ============ Login.gov WebElements ======== */
 
 	/** Username for Login.gov */
 	@FindBy(xpath = "//input[@id = 'user_email']")
@@ -379,10 +376,7 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//b[contains(text(),'Documents')]")
 	public WebElement documentsTab;
 
-	/**
-	 * ====================================Action
-	 * Buttons==========================================
-	 */
+	/** ==========Action Buttons======= */
 
 	/** Previous Action Button */
 	@FindBy(xpath = "//button[contains(text(),'Previous')]")
@@ -404,10 +398,7 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//button[contains(text(),'Submit For Review')]")
 	public WebElement submitForReviewButton;
 
-	/**
-	 * ================================== Section Selection
-	 * ========================================
-	 */
+	/** ====== Section Selection ====== */
 
 	/** Section A */
 	@FindBy(xpath = "(//div/div/div/span[contains(text(),'Basic Information')])[2]")
@@ -443,10 +434,7 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//*[@placeholder='MM/DD/YYYY']")
 	public WebElement enrollmentDateBox;
 
-	/**
-	 * =============================== Questionnaire Section C
-	 * ===================================
-	 */
+	/** ======== Questionnaire Section C ========= */
 
 	/** Locators for Major Content Domains section */
 	@FindBy(xpath = "//b[contains(text(),'Major Content Domains')]")
@@ -592,8 +580,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//input[@id='dietaryFollowUp_1']")
 	public WebElement c8FollowUpYesRadio;
 
-	/** =================================== */
-
 	/** C.9 Dietary Supplement Use Baseline No Value */
 	@FindBy(xpath = "//input[@id='supplementBaseLine_0']")
 	public WebElement c9BaselineNoRadio;
@@ -610,8 +596,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//input[@id='supplementFollowUp_1']")
 	public WebElement c9FollowUpYesRadio;
 
-	/** =================================== */
-
 	/** C.10 Complementary and Alternative Medicine Baseline No Value */
 	@FindBy(xpath = "//input[@id='medicineBaseLine_0']")
 	public WebElement c10BaselineNoRadio;
@@ -627,8 +611,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** C.10 Complementary and Alternative Medicine Follow Up Yes Value */
 	@FindBy(xpath = "//input[@id='medicineFollowUp_1']")
 	public WebElement c10FollowUpYesRadio;
-
-	/** =================================== */
 
 	/**
 	 * C.11 Prescription Medication Use (not related to cancer treatment) Baseline
@@ -658,8 +640,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//input[@id='prescriptionFollowUp_1']")
 	public WebElement c11FollowUpYesRadio;
 
-	/** =================================== */
-
 	/**
 	 * C.12 Non-prescription Medication Use (not related to cancer treatment)
 	 * Baseline No Value
@@ -688,8 +668,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//input[@id='nonprescriptionFollowUp_1']")
 	public WebElement c12FollowUpYesRadio;
 
-	/** =================================== */
-
 	/** C.13 Alcohol Consumption Baseline No Value */
 	@FindBy(xpath = "//input[@id = 'alcoholBaseLine_0']")
 	public WebElement c13BaselineNoRadio;
@@ -706,8 +684,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//input[@id = 'alcoholFollowUp_1']")
 	public WebElement c13FollowUpYesRadio;
 
-	/** =================================== */
-
 	/** C.14 Cigarette Smoking Baseline No Value */
 	@FindBy(xpath = "//input[@id = 'cigaretteBaseLine_0']")
 	public WebElement c14BaselineNoRadio;
@@ -723,8 +699,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** C.14 Cigarette Smoking Follow Up Yes Value */
 	@FindBy(xpath = "//input[@id = 'cigaretteFollowUp_1']")
 	public WebElement c14FollowUpYesRadio;
-
-	/** =================================== */
 
 	/**
 	 * C.15 Use of tobacco products other than cigarettes check box BASELINE check
@@ -781,8 +755,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//input[@name= 'noncigarFollowUpSpecify']")
 	public WebElement c15OtherFollowUpTextBox;
 
-	/** =================================== */
-
 	/** C.16 Physical Activity Baseline No Value */
 	@FindBy(xpath = "//input[@id = 'physicalBaseLine_0']")
 	public WebElement c16BaselineNoRadio;
@@ -798,8 +770,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** C.16 Physical Activity Follow Up Yes Value */
 	@FindBy(xpath = "//input[@id = 'physicalFollowUp_1']")
 	public WebElement c16FollowUpYesRadio;
-
-	/** =================================== */
 
 	/** C.17 Sleep Habits Baseline No Value */
 	@FindBy(xpath = "//input[@id = 'sleepBaseLine_0']")
@@ -817,8 +787,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//input[@id = 'sleepFollowUp_1']")
 	public WebElement c17FollowUpYesRadio;
 
-	/** =================================== */
-
 	/** C.18 Reproductive History Baseline No Value */
 	@FindBy(xpath = "//input[@id = 'reproduceBaseLine_0']")
 	public WebElement c18BaselineNoRadio;
@@ -834,8 +802,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** C.18 Reproductive History Follow Up Yes Value */
 	@FindBy(xpath = "//input[@id = 'reproduceFollowUp_1']")
 	public WebElement c18FollowUpYesRadio;
-
-	/** =================================== */
 
 	/** C.19 Self Reported Health Baseline No Value */
 	@FindBy(xpath = "//input[@id='reportedHealthBaseLine_0']")
@@ -853,8 +819,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//input[@id='reportedHealthFollowUp_1']")
 	public WebElement c19FollowUpYesRadio;
 
-	/** =================================== */
-
 	/** C.20 Quality of Life Baseline No Value */
 	@FindBy(xpath = "//input[@id='lifeBaseLine_0']")
 	public WebElement c20BaselineNoRadio;
@@ -870,8 +834,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** C.20 Quality of Life Follow Up Yes Value */
 	@FindBy(xpath = "//input[@id='lifeFollowUp_1']")
 	public WebElement c20FollowUpYesRadio;
-
-	/** =================================== */
 
 	/** C.21 Social Support Baseline No Value */
 	@FindBy(xpath = "//input[@id='socialSupportBaseLine_0']")
@@ -889,8 +851,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//input[@id='socialSupportFollowUp_1']")
 	public WebElement c21FollowUpYesRadio;
 
-	/** =================================== */
-
 	/** C.22 Cognitive Function Baseline No Value */
 	@FindBy(xpath = "//input[@id='cognitionBaseLine_0']")
 	public WebElement c22BaselineNoRadio;
@@ -906,8 +866,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** C.22 Cognitive Function Follow Up Yes Value */
 	@FindBy(xpath = "//input[@id='cognitionFollowUp_1']")
 	public WebElement c22FollowUpYesRadio;
-
-	/** =================================== */
 
 	/** C.23 Depression Baseline No Value */
 	@FindBy(xpath = "//input[@id='depressionBaseLine_0']")
@@ -925,8 +883,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//input[@id='depressionFollowUp_1']")
 	public WebElement c23FollowUpYesRadio;
 
-	/** =================================== */
-
 	/** C.24 Other Psychosocial Variables Baseline No Value */
 	@FindBy(xpath = "//input[@id='psychosocialBaseLine_0']")
 	public WebElement c24BaselineNoRadio;
@@ -942,8 +898,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** C.24 Other Psychosocial Variables Follow Up Yes Value */
 	@FindBy(xpath = "//input[@id='psychosocialFollowUp_1']")
 	public WebElement c24FollowUpYesRadio;
-
-	/** =================================== */
 
 	/** C.25 Fatigue Baseline No Value */
 	@FindBy(xpath = "//input[@id='fatigueBaseLine_0']")
@@ -961,8 +915,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//input[@id='fatigueFollowUp_1']")
 	public WebElement c25FollowUpYesRadio;
 
-	/** =================================== */
-
 	/** C.26 Family History of Cancer Baseline No Value */
 	@FindBy(xpath = "//input[@id='cancerHistoryBaseLine_0']")
 	public WebElement c26BaselineNoRadio;
@@ -979,8 +931,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//input[@id='cancerHistoryFollowUp_1']")
 	public WebElement c26FollowUpYesRadio;
 
-	/** =================================== */
-
 	/** C.27 Family History of Cancer with Pedigrees Baseline No Value */
 	@FindBy(xpath = "//input[@id='cancerPedigreeBaseLine_0']")
 	public WebElement c27BaselineNoRadio;
@@ -996,8 +946,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	/** C.27 Family History of Cancer with Pedigrees Follow Up Yes Value */
 	@FindBy(xpath = "//input[@id='cancerPedigreeFollowUp_1']")
 	public WebElement c27FollowUpYesRadio;
-
-	/** =================================== */
 
 	/**
 	 * C.28 Physical function meassures (e.g. grip strength, gait speed, etc.)
@@ -1027,8 +975,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//input[@id='physicalMeasureFollowUp_1']")
 	public WebElement c28FollowUpYesRadio;
 
-	/** =================================== */
-
 	/**
 	 * C.29 Environmental or Occupational Exposures (e.g. air contaminants/quality,
 	 * occupational exposures and history, water source) Baseline No Value
@@ -1057,8 +1003,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//input[@id='exposureFollowUp_1']")
 	public WebElement c29FollowUpYesRadio;
 
-	/** =================================== */
-
 	/**
 	 * C.30 Residential history Information (zip code, GIS) over time? Baseline No
 	 * Value
@@ -1086,8 +1030,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	 */
 	@FindBy(xpath = "//input[@id='residenceFollowUp_1']")
 	public WebElement c30FollowUpYesRadio;
-
-	/** =================================== */
 
 	/**
 	 * C.31 Sexual Orientation and Gender Identity (Beyond Male and Female Only)
@@ -1294,10 +1236,7 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//*[@name='dataOnlineURL']")
 	public WebElement sectionFWebsiteTextBox;
 
-	/**
-	 * =============================== Questionnaire Section E
-	 * ===================================
-	 */
+	/** ========== Questionnaire Section E ======== */
 
 	/** E1's text box. Takes year in YYYY format */
 	@FindBy(xpath = "//input[@name='mortalityYear']")
@@ -1363,10 +1302,7 @@ public class CEDCDCohortPage extends CommonUtils {
 	@FindBy(xpath = "//input[@name='deathNumbers']")
 	public WebElement e5MortalityTextBox;
 
-	/**
-	 * =============================== Questionnaire Section G
-	 * ===================================
-	 */
+	/** ======= Questionnaire Section G ======= */
 
 	/** Biospecimens Collected Tabs for section G */
 	@FindBy(xpath = "//b[contains(text(),'Biospecimens Collected')]")
@@ -1721,9 +1657,7 @@ public class CEDCDCohortPage extends CommonUtils {
 	public WebElement biospecimenTabOnQuestionnaire;
 
 	/** WebElements for the G16 Table */
-
 	/** Types of Aliquots/Cancer Type */
-
 	/** Oropharyngeal Values */
 
 	/** Serum and/or Plasma/Oropharyngeal */

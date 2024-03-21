@@ -40,11 +40,7 @@ public class EZQTLAnalysesPage extends CommonUtils {
     @FindBy(xpath = "//input[@id='qtls-snp-input']")
     public WebElement snpNumberInput;
 
-//    /* This is the text box for Position Number Input */
-//    @FindBy(xpath = "//input[@name='locusInformation.0.select_position']")
-//    public WebElement positionNumberInput;
-
-    /* This is the check box */
+    /* This is the checkbox */
     @FindBy(xpath = "//input[@id='toggleQueue']")
     public WebElement submitJobtoQueueCheckbox;
 

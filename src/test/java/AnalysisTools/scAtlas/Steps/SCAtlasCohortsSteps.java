@@ -2,8 +2,7 @@ package AnalysisTools.scAtlas.Steps;
 
 import com.nci.automation.web.CommonUtils;
 import appsCommon.PageInitializers.PageInitializer;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 
 public class SCAtlasCohortsSteps extends PageInitializer {
 

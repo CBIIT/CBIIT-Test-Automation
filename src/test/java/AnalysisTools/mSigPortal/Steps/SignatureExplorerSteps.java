@@ -6,8 +6,7 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import appsCommon.PageInitializers.PageInitializer;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 
 public class SignatureExplorerSteps extends PageInitializer {
 

@@ -1,8 +1,7 @@
 package AnalysisTools.GWASExplorer.Steps;
 
 import appsCommon.PageInitializers.PageInitializer;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 import org.testng.Assert;
 
 public class BrowsePhenotypesSteps extends PageInitializer {

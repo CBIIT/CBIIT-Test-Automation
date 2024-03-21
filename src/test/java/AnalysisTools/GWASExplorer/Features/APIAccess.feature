@@ -1,6 +1,6 @@
 Feature: Scenarios for the API Access page on GWAS Explorer
 
-  @Smoke @matakevin @Prod
+  @Smoke @matakevin
   Scenario: API GET call for API Download
     Given user sends GET request for cancer phenotype
     Then user receives response for cancer phenotype

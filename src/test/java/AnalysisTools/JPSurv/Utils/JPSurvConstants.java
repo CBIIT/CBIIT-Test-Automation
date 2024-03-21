@@ -1,5 +1,5 @@
 package AnalysisTools.JPSurv.Utils;
 
-public class JPSurvContants {
+public class JPSurvConstants {
 
 }

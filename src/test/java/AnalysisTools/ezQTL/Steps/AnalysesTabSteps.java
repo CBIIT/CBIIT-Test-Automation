@@ -7,11 +7,8 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 import appsCommon.PageInitializers.PageInitializer;
-import org.openqa.selenium.Keys;
 
 public class AnalysesTabSteps extends PageInitializer {
 
@@ -211,7 +208,6 @@ public class AnalysesTabSteps extends PageInitializer {
                 System.err.println("SOMETHING ELSE WENT WRONG");
             }
         }
-
     }
 
     @Then("the user submits {string}, {string}, {string}, {string}, {int} times")

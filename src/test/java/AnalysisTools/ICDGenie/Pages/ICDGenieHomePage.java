@@ -1,5 +1,7 @@
 package AnalysisTools.ICDGenie.Pages;
 
-public class ICDGenieHomePage {
+import com.nci.automation.web.CommonUtils;
+
+public class ICDGenieHomePage extends CommonUtils {
 
 }

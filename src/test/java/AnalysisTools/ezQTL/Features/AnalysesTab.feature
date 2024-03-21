@@ -1,9 +1,9 @@
 Feature: Scenarios under the Analyses tab on ezQTL
 
-    @1Smoke @matakevin
+    @Smoke @matakevin
     Scenario:Submitting queue using User provided sample files
         Given The user is on the ezQTL Analyses page
-        When the user submits "/Users/matarodriguezko/CBIIT-Test-Automation/src/test/resources/ezQTLResources/MX2.eQTL.txt", "/Users/matarodriguezko/CBIIT-Test-Automation/src/test/resources/ezQTLResources/MX2.GWAS.txt", "/Users/matarodriguezko/CBIIT-Test-Automation/src/test/resources/ezQTLResources/MX2.quantification.txt", "/Users/matarodriguezko/CBIIT-Test-Automation/src/test/resources/ezQTLResources/MX2.genotyping.txt", "/Users/matarodriguezko/CBIIT-Test-Automation/src/test/resources/ezQTLResources/MX2.LD.gz", "100", "" "Automation Job", "kevin.matarodriguez@nih.gov"
+        When the user submits "/src/test/resources/ezQTLResources/MX2.eQTL.txt", "/src/test/resources/ezQTLResources/MX2.GWAS.txt", "/src/test/resources/ezQTLResources/MX2.quantification.txt", "/src/test/resources/ezQTLResources/MX2.genotyping.txt", "/src/test/resources/ezQTLResources/MX2.LD.gz", "100", "" "Automation Job", "kevin.matarodriguez@nih.gov"
         Then the "Your job was successfully submitted. You will receive an email at kevin.matarodriguez@nih.gov with your results." text is displayed
 
     @Smoke @matakevin
@@ -18,7 +18,7 @@ Feature: Scenarios under the Analyses tab on ezQTL
         When the user clicks on the Load Sample Data link
         Then the "Locus QC", "Locus LD", "Locus Alignment", "Locus Colocalization", "Locus Table", "Locus Quantification", "Locus Download" texts is displayed
 
-    @Smoke @Progression @matakevin
+    @Smoke @matakevin
     Scenario:Calculating multiple locus jobs
         Given The user is on the ezQTL Analyses page
         When the user searches using public data and five locus parameters
@@ -38,13 +38,13 @@ Feature: Scenarios under the Analyses tab on ezQTL
         And recalculates on the Locus LD
         Then the "Download Plot" link is displayed
 
-    @matakevin
+    @matakevin @NEEDSREVIEW
     Scenario:Recalculate on all Analyses tabs
         Given The user is on the ezQTL Analyses page
         When the user clicks on the Load Sample Data link
         And recalculates on the Locus LD
 
-    @matakevin @NEEDSREVIEW
+    @matakevin @NEEDSREVIEW #FILE NEEDS TO BE ADDED TO ezQTL RESOURCES
     Scenario:Submitting queue however many specified times
         Given The user is on the ezQTL Analyses page
         Then the user submits "/Users/matarodriguezko/Downloads/SLC52A2_eQTL_res_for_ezQTL_Female.txt", "1000", "145577796", "Long Running Job", "kevin.matarodriguez@nih.gov", 40 times

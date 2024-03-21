@@ -12,10 +12,7 @@ public class CEDCDAdminPage extends CommonUtils {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 
-	/**
-	 * ================================================= Public Site Login
-	 * WebElements =======================================================
-	 */
+	/** ======================= Public Site Login WebElements ========================= */
 
 	/** NIH Login Button */
 	@FindBy(xpath = "//a[@class='login-button']")
@@ -29,10 +26,7 @@ public class CEDCDAdminPage extends CommonUtils {
 	@FindBy(xpath = "//a[@class='login-button']")
 	public WebElement logoutButton;
 
-	/**
-	 * ================================================= Internal Login Page
-	 * WebElements =======================================================
-	 */
+	/** ============== Internal Login Page WebElements ================== */
 
 	/** Username Textbox */
 	@FindBy(id = "USER")
@@ -46,10 +40,7 @@ public class CEDCDAdminPage extends CommonUtils {
 	@FindBy(xpath = "//*[@type='submit']")
 	public WebElement loginSubmitBtn;
 
-	/**
-	 * ================================================= Manage Cohort Page
-	 * WebElements =======================================================
-	 */
+	/** ==================== Manage Cohort Page WebElements ============ */
 
 	/** Add New Cohort Hyperlink */
 	@FindBy(linkText = "Add New Cohort")
@@ -71,10 +62,7 @@ public class CEDCDAdminPage extends CommonUtils {
 	@FindBy(xpath = "(//a[contains(text(),'Review')])[1]")
 	public WebElement firstSubmittedCohort;
 
-	/**
-	 * ================================================= Add New Cohort Page
-	 * WebElements =======================================================
-	 */
+	/** ============= Add New Cohort Page WebElements ================ */
 
 	/** Cohort Name Textbox */
 	@FindBy(xpath = "(//*[@class='form-control'])[1]")
@@ -100,10 +88,7 @@ public class CEDCDAdminPage extends CommonUtils {
 	@FindBy(xpath = "(//button[@type='submit'])[2]")
 	public WebElement cohortSubmitBtn;
 
-	/**
-	 * ================================================= Cohort Questionnaire Page
-	 * WebElements =======================================================
-	 */
+	/** ========= Cohort Questionnaire Page WebElements ================= */
 
 	/** Approve Button */
 	@FindBy(xpath = "//button[contains(text(),'Approve')]")
@@ -125,10 +110,7 @@ public class CEDCDAdminPage extends CommonUtils {
 	@FindBy(xpath = "//button[contains(text(),'Cancel')]")
 	public WebElement cancelButton;
 
-	/**
-	 * =========================== General Web Elements on Admin Page
-	 * =========================
-	 */
+	/** ====== General Web Elements on Admin Page ========= */
 
 	@FindBy(xpath = "//div[contains(text(),'Warning: Session Timeout')]")
 	public WebElement sessionTimeout;

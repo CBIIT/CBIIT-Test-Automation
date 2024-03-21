@@ -1,6 +1,6 @@
-Feature: JPSurv Upload
+Feature: These are the scenarios for the Home page on the JPSurv Application
 
-    @Smoke @matako
+    @Smoke @matakevin
     Scenario: User Uploads example Dic and Txt File
         Given the user is on the JPSurv homepage
         When user selects Dic and Txt file
@@ -12,7 +12,7 @@ Feature: JPSurv Upload
         And user click calculate button
         Then user verify survival vs year at diagnosis tab displayed
 
-    @Smoke @matako
+    @Smoke @matakevin
     Scenario: User Uploads example Dic and Txt File and selects Site recode NHL and CML
         Given the user is on the JPSurv homepage
         When user selects Dic and Txt file
@@ -25,7 +25,7 @@ Feature: JPSurv Upload
         And user click calculate button
         Then user verify survival vs year at diagnosis tab displayed
 
-    @Smoke @matako
+    @Smoke @matakevin
     Scenario: User Uploads example Dic and Txt File  for email
         Given the user is on the JPSurv homepage
         When user selects Dic and Txt file
@@ -34,8 +34,7 @@ Feature: JPSurv Upload
         And click submit
         Then verify email send
 
-
-    @Smoke @matako
+    @Smoke @matakevin
     Scenario: User Upload example CSV file
         Given the user is on the JPSurv homepage
         When user selects CSV Files
@@ -59,14 +58,14 @@ Feature: JPSurv Upload
         And user click calculate button
         Then user verify survival vs year at diagnosis tab displayed
 
-    @Smoke @matako
+    @Smoke @matakevin
     Scenario: User Upload workspace file
         Given the user is on the JPSurv homepage
         When user selects workspace
         And user clicks import
         Then workspace results display
 
-    @Smoke @matako
+    @Smoke @matakevin
     Scenario: User Click Reset Button
         Given the user is on the JPSurv homepage
         When user selects Dic and Txt file
@@ -76,7 +75,7 @@ Feature: JPSurv Upload
         And click Reset
         Then page is reset
 
-    @Smoke @matako
+    @Smoke @matakevin
     Scenario: User Click Download Full Dataset
         Given the user is on the JPSurv homepage
         When user selects Dic and Txt file
@@ -86,7 +85,7 @@ Feature: JPSurv Upload
         And click download full dataset button
         Then verify dataset download "JPSurv-Tutorial_JPSURV.xlsx"
 
-    @Smoke @matako
+    @Smoke @matakevin
     Scenario: User Uploads non-example Dic and Txt File
         Given the user is on the JPSurv homepage
         When user selects non-example Dic and Txt file
@@ -94,8 +93,7 @@ Feature: JPSurv Upload
         And select Calculate
         Then user verify survival vs year at diagnosis tab displayed
 
-
-    @Smoke @matako
+    @Smoke @matakevin
     Scenario: User Uploads non-example workspace
         Given the user is on the JPSurv homepage
         When user selects non-example workspace

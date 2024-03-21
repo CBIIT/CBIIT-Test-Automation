@@ -5,8 +5,7 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
+import io.cucumber.java.en.*;
 import appsCommon.PageInitializers.PageInitializer;
 
 public class DocumentationTabSteps extends PageInitializer {
@@ -26,22 +25,16 @@ public class DocumentationTabSteps extends PageInitializer {
                         String comparisonBetweenEzqtlAndOtherTools,
                         String frequentlyAskedQuestions) {
                 CommonUtils.assertEquals(ezQTLDocumentationPage.releaseHistoryLink.getText(), releaseHistory);
-                CommonUtils.assertEquals(ezQTLDocumentationPage.inputFileFormatOfEzqtlLink.getText(),
-                                inputFileFormatOfEzqtl);
+                CommonUtils.assertEquals(ezQTLDocumentationPage.inputFileFormatOfEzqtlLink.getText(), inputFileFormatOfEzqtl);
                 CommonUtils.assertEquals(ezQTLDocumentationPage.qtlAssociationDataLink.getText(), qtlAssociationData);
                 CommonUtils.assertEquals(ezQTLDocumentationPage.quantificationDataLink.getText(), quantificationData);
                 CommonUtils.assertEquals(ezQTLDocumentationPage.genotypeDataLink.getText(), genotypeData);
                 CommonUtils.assertEquals(ezQTLDocumentationPage.ldMatrixDataLink.getText(), ldMatrixData);
                 CommonUtils.assertEquals(ezQTLDocumentationPage.gwasDataLink.getText(), gwasData);
                 CommonUtils.assertEquals(ezQTLDocumentationPage.publicDataSourceLink.getText(), publicDataSource);
-                CommonUtils.assertEquals(
-                                ezQTLDocumentationPage.relationshipBetweenInputDatasetsAndModuleFunctionsLink.getText(),
-                                relationshipBetweenInputDatasetsAndModuleFunctions);
-                CommonUtils.assertEquals(ezQTLDocumentationPage.colocalizationAnalysisLink.getText(),
-                                colocalizationAnalysis);
-                CommonUtils.assertEquals(ezQTLDocumentationPage.comparisonBetweenEzqtlAndOtherToolsLink.getText(),
-                                comparisonBetweenEzqtlAndOtherTools);
-                CommonUtils.assertEquals(ezQTLDocumentationPage.frequentlyAskedQuestionsLink.getText(),
-                                frequentlyAskedQuestions);
+                CommonUtils.assertEquals(ezQTLDocumentationPage.relationshipBetweenInputDatasetsAndModuleFunctionsLink.getText(), relationshipBetweenInputDatasetsAndModuleFunctions);
+                CommonUtils.assertEquals(ezQTLDocumentationPage.colocalizationAnalysisLink.getText(), colocalizationAnalysis);
+                CommonUtils.assertEquals(ezQTLDocumentationPage.comparisonBetweenEzqtlAndOtherToolsLink.getText(), comparisonBetweenEzqtlAndOtherTools);
+                CommonUtils.assertEquals(ezQTLDocumentationPage.frequentlyAskedQuestionsLink.getText(), frequentlyAskedQuestions);
         }
 }

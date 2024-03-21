@@ -53,4 +53,5 @@ public class GwasExplorerHomePage extends CommonUtils {
     public WebElement lnkExploreGwasResults;
     public GwasExplorerHomePage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
-}}
+    }
+}

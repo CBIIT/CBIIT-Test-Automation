@@ -8,10 +8,7 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 
@@ -28,7 +25,6 @@ public class CProSiteExplorePageSteps extends PageInitializer {
     public void userClicksSubmit() {
         CommonUtils.scrollIntoView(cProSiteExplorePage.submitButton);
         JavascriptUtils.clickByJS(cProSiteExplorePage.submitButton);
-//        cProSiteExplorePage.submitButton.click();
     }
 
     @Then("results is displayed")
@@ -102,7 +98,6 @@ public class CProSiteExplorePageSteps extends PageInitializer {
         CommonUtils.waitForClickability(cProSiteExplorePage.exportbutton);
         Assert.assertTrue(cProSiteExplorePage.exportbutton.isDisplayed());
     }
-
 
     @And("user change Gene")
     public void userChangeGene() {

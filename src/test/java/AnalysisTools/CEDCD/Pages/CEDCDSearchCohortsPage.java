@@ -11,9 +11,7 @@ import com.nci.automation.web.WebDriverUtils;
 
 public class CEDCDSearchCohortsPage extends CommonUtils {
 
-	/**
-	 * ================= Search Cohorts WebElements ================
-	 */
+	/** ===== Search Cohorts WebElements ======== */
 	/** This element is the search Cohorts tab */
 	@FindBy(xpath = "(//a[@id='searchCohortsTab'])[2]")
 	public WebElement searchCohortTab;

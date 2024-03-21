@@ -1,6 +1,5 @@
 package AnalysisTools.GWASExplorer.Pages;
 
-import AnalysisTools.GWASExplorer.Steps.BrowsePhenotypesSteps;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

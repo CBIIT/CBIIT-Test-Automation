@@ -1,6 +1,5 @@
-Feature: Search
-
-Description: ICRP Search Database
+Feature: These are the scenarios for the Search tab on the ICRP Application
+Description: Scenarios for ICRP Search Database page
 
 @Smoke @matakevin
 Scenario: User searchs by search term
@@ -11,7 +10,6 @@ And user searchs by "Glioma invasion under Mechanical Constraints: Mechanotaxis 
 And user selects exact phrase provided 
 And user clicks search
 Then study titled "Glioma invasion under Mechanical Constraints: Mechanotaxis of the 3D Biomimicry Microenvironment" is displayed
-
 
 @Smoke @matakevin
 Scenario: User searches with default parameters 

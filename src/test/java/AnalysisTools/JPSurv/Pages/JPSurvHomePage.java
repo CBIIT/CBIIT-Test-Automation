@@ -20,10 +20,7 @@ public class JPSurvHomePage extends CommonUtils {
 	public String workspaceFilePath = "./src/test/resources/6f0198be-e61b-4528-815d-5716267aa5cc-Tutorial_JPSURV_2.jpsurv";
 	public String nonExampleworkspaceFilePath = "./src/test/resources/1458ff97-5106-49ef-a3c4-9df94babe692-75surv_jpsurv_example_CTPR.jpsurv";
 
-	/**
-	 * ================================================= Input Section
-	 * =======================================================
-	 */
+	/** ===== Input Section ====== */
 
 	/** Files Format Text */
 	@FindBy(xpath = "//*[@id = 'inputTypeLabel'")
@@ -77,10 +74,7 @@ public class JPSurvHomePage extends CommonUtils {
 	@FindBy(xpath = "//label[normalize-space()='Workspace']")
 	public WebElement WorkspaceRadiobtn;
 
-	/**
-	 * ================================================= Cohort Model and
-	 * Specification =======================================================
-	 */
+	/** ====== Cohort Model and Specification ======= */
 
 	/** Year of Diagnosis drop down **/
 	@FindBy(xpath = "//select[@id='selectYear']")
@@ -169,9 +163,7 @@ public class JPSurvHomePage extends CommonUtils {
 	public WebElement yearOfDiagnosed;
 
 	/**
-	 * ================================================= CSV Dropdown
-	 * =====================================
-	 */
+	 * ====== CSV Dropdown ===== */
 
 	/** age_rec drop down **/
 	@FindBy(xpath = "//th[@id='type_1']/select")

@@ -1229,7 +1229,6 @@ public class CEDCDQuestionnaireSteps extends PageInitializer {
 				.equals("Please select the cohort you wish to update from the list below."));
 		cedcdCohortPage.firstCohortOnSelectACohortDropDown.click();
 		MiscUtils.sleep(1000);
-		// cedcdCohortPage.firstCohortOnSelectACohortDropDown.sendKeys("plco");
 		WebDriverUtils.webDriver.findElement(By.id("react-select-2-input")).sendKeys("PLCO");
 		WebDriverUtils.webDriver.findElement(By.id("react-select-2-input")).sendKeys(Keys.RETURN);
 	}

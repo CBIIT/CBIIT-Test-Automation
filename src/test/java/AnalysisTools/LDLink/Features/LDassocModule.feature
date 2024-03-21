@@ -1,4 +1,4 @@
-Feature: This feature file encompasses test cases on the LDassoc module of LDlink
+Feature: These scenarios verify the LDassoc module of the LDLink Application
 
     @Smoke @Regression @matakevin
     Scenario: Calculating the example file on LDassoc
@@ -7,7 +7,7 @@ Feature: This feature file encompasses test cases on the LDassoc module of LDlin
         When the user calculates example GWAS data on the LDassoc page
         Then the "Association Results" text displays
 
-    @matakevin
+    @matakevin @NEEDSREVIEW
     Scenario: Uploading the firewall limit txt file to LDassoc
         Given a LDlink user opens home page
         When the user clicks on the LDassoc module

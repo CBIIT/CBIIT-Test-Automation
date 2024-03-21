@@ -10,7 +10,6 @@ import com.nci.automation.web.WebDriverUtils;
 public class CEDCDBiospecimenCountsPage extends CommonUtils {
 
 	/** ======================= Biospecimen WebElements ==================== */
-
 	/** This element selects the Biospecimen tab on the home page */
 	@FindBy(xpath = "(//span[contains(text(),'Biospecimen Counts')])[2]")
 	public WebElement biospecimenTab;
