@@ -154,27 +154,16 @@ public class ApplicantProfileSteps {
         Assert.assertEquals(expectedYesOrNo, actualUSCitizenshipText);
     }
 
-    @Then("tester navigates to native view to reset account so that automated test can run again without manual intervention")
-    public void tester_navigates_to_native_view_to_reset_account_so_that_automated_test_can_run_again_without_manual_intervention() {
+    @Then("tester navigates to native view to reset account with name {string} so that automated test can run again without manual intervention")
+    public void tester_navigates_to_native_view_to_reset_account_with_name_so_that_automated_test_can_run_again_without_manual_intervention(String name) {
         PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("ServiceNow NCISP"));
         PlaywrightUtils.page.locator(Playwright_ServiceNow_NCISP_Page.nativeViewLink).click();
-
-        // -------- THIS SEARCH NEEDS TO BE STORED IN A COMMON METHOD --------
-        PlaywrightUtils.page.getByPlaceholder("Filter").fill("SCSS");
-        PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Users")).click();
-
-        // -------- THIS NEEDS TO BE STORED IN A COMMON METHOD -----------
-        PlaywrightUtils.page.frameLocator(Playwright_NativeView_Dashboard_Page.iFrame).locator("//select[@aria-label='Search a specific field of the Users list']").selectOption("First Name");
-
-        PlaywrightUtils.page.frameLocator(Playwright_NativeView_Dashboard_Page.iFrame).getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill("Mario");
+        Playwright_ServiceNow_Common_Methods.searchFilterNavigatorAndClickOption("SCSS", "Users");
+        Playwright_ServiceNow_Common_Methods.selectDropDownOptionInsideIframe(User_Table_Page.usersDropDown, "First Name");
+        PlaywrightUtils.page.frameLocator(Playwright_NativeView_Dashboard_Page.iFrame).getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(name);
         PlaywrightUtils.page.frameLocator(Playwright_NativeView_Dashboard_Page.iFrame).getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
-        PlaywrightUtils.page.frameLocator(Playwright_NativeView_Dashboard_Page.iFrame).locator(User_Table_Page.dynamicUserLocator("Mario")).click();
-        PlaywrightUtils.page.frameLocator(Playwright_NativeView_Dashboard_Page.iFrame).locator("(//*[contains(text(),'Delete')])[1]").click();
-        PlaywrightUtils.page.frameLocator(Playwright_NativeView_Dashboard_Page.iFrame).locator("(//*[contains(text(),'Delete')])[6]").click();
-    }
-
-    @Then("tester navigates to native view to reset account with name {string} so that automated test can run again without manual intervention")
-    public void tester_navigates_to_native_view_to_reset_account_with_name_so_that_automated_test_can_run_again_without_manual_intervention(String string) {
-
+        PlaywrightUtils.page.frameLocator(Playwright_NativeView_Dashboard_Page.iFrame).locator(User_Table_Page.dynamicUserLocator(name)).click();
+        PlaywrightUtils.page.frameLocator(Playwright_NativeView_Dashboard_Page.iFrame).locator(User_Table_Page.deleteButton).click();
+        PlaywrightUtils.page.frameLocator(Playwright_NativeView_Dashboard_Page.iFrame).locator(User_Table_Page.modalDialogDeleteButton).click();
     }
 }

@@ -41,4 +41,23 @@ public class Playwright_ServiceNow_Common_Methods {
         MiscUtils.sleep(2000);
         PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(Playwright_NativeView_Dashboard_Page.impersonateUserButton)).click();
     }
+
+    /***
+     * THIS METHOD SEARCHES THE FILTER NAVIGATOR AND CLICKS ON DESIRED OPTION
+     * @param searchValue
+     * @param option
+     */
+    public static void searchFilterNavigatorAndClickOption(String searchValue, String option){
+        PlaywrightUtils.page.getByPlaceholder("Filter").fill(searchValue);
+        PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(option)).click();
+    }
+
+    /***
+     * THIS METHOD SELECTS AN OPTION FROM ANY DROPDOWN INSIDE THE NATIVE VIEW iFRAME
+     * @param locator
+     * @param option
+     */
+    public static void selectDropDownOptionInsideIframe(String locator, String option){
+        PlaywrightUtils.page.frameLocator(Playwright_NativeView_Dashboard_Page.iFrame).locator(locator).selectOption(option);
+    }
 }
