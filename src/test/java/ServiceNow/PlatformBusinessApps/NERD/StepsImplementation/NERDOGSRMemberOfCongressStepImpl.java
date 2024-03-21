@@ -111,14 +111,14 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
             CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.allTab);
             NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("Members of Congress");
             MiscUtils.sleep(3000);
-            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.filterNavigationEmailsButton);
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.filterNavigationMembersOfCongress);
             MiscUtils.sleep(3000);
             CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
             MiscUtils.sleep(2000);
         }else {
             NativeView_SideDoor_Dashboard_Page.filterNavigatorTextBox.sendKeys("Members of Congress");
             MiscUtils.sleep(3000);
-            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.filterNavigationEmailsButton);
+            CommonUtils.clickOnElement(NativeView_SideDoor_Dashboard_Page.filterNavigationMembersOfCongress);
             MiscUtils.sleep(3000);
             CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
             MiscUtils.sleep(2000);

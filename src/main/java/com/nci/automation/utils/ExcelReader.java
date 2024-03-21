@@ -163,10 +163,10 @@ public class ExcelReader {
 	}
 
 	/** 
-	 * Use method below to add Excel file to HashMap and its data in Key and Value pair
-	 * @param filePath is the path to where the excel file is in the project
-	 * @param sheetName is the name of the sheet in the excel file
-	 * @return will return the excel sheet data as map in Key, Value format 
+	 * Use method below to add an Excel file to a HashMap and its data in Key and Value pair
+	 * @param filePath is the path to where the Excel file is in the project
+	 * @param sheetName is the name of the sheet in the Excel file
+	 * @return will return the Excel sheet data as map in Key, Value format
 	 */
 	public static Map<String, String> excelIntoHashMap(String filePath, String sheetName) {
 
