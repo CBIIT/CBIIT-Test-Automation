@@ -67,7 +67,7 @@ public class SEERDataAccessRequestPage extends CommonUtils {
 	public WebElement seerAcknowledgmentOfTreatmentDataLimitationsBody;
 
 	/** SEER Data Access Request: SEER Research Data Use Agreement Heading */
-	@FindBy (xpath = "//*[@id=\'data_use_agreement\']/p[1]/strong")
+	@FindBy (xpath = "//strong[normalize-space()='SEER Research Data Use Agreement']")
 	public WebElement seerResearchDataUseAgreementHeading;
 
 	/** SEER Data Access Request: SEER Research Data Use Agreement Body */

@@ -32,6 +32,7 @@ public class NERDDynamicXPATHS extends CommonUtils {
 	public WebElement docPlanningSubmissionCategories(String value) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("(//div[contains(@class,'panel-default panel ng-isolate-scope')])[" + value + "]//child::div//child::h4"));
 	}
+
 	/** DOC Planning Top Accomplishments Published texts */
     public static List<WebElement> docPlaningPublishedSubmissions(String value) {
 	List<WebElement> docPlanningPublishedList = WebDriverUtils.webDriver.findElements(By.xpath("(//div[contains(@class,'panel-default panel ng-isolate-scope')])[" + value + "]//child::div//child::h4//parent::span//parent::a//parent::h4//parent::div//parent::div//child::div[2]//child::div//child::md-content//child::md-content//child::md-list//child::md-list-item//child::div//child::div[3]//child::div[3]"));
@@ -167,4 +168,60 @@ public class NERDDynamicXPATHS extends CommonUtils {
 	 * ------------ THE END OF COLLABORATION SUBMISSIONSIONS BY STAFF MEMBER
 	 * -----------
 	 */
+
+	/** ------------ COVID-19 ACTIVITIES SUBMISSIONS BY SUPER USER / STAFF MEMBER ----------- */
+
+	/**
+	 * CRS Knowledge Management System Home Page => NERD => COVID-19 ACTIVITIES List view
+	 * value
+	 */
+	public WebElement publishedCovid19Activities(String value) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("//a[text()='" + value + "']"));
+	}
+
+	/**
+	 * CRS Knowledge Management System Home Page => NERD => View: NERD COVID-19 ACTIVITIES Submission
+	 * Page Numbers
+	 */
+	public WebElement viewPublishedCovid19ActivitiesPageNumbers(String value) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("//ul[contains(@class,'pagination-sm pagination ng-untouched ng-valid ng-isolate-scope ng-not-empty ng-dirty ng-valid-parse')]//a[contains(@class,'ng-binding')][normalize-space()='" + value + "']"));
+	}
+
+	/**
+	 * CRS Knowledge Management System Home Page => NERD => View: NERD COVID-19 ACTIVITIES Submission
+	 * Page Numbers
+	 */
+	public WebElement viewPublishedCovid19ActivitiesPageButtons(String value) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("(//div[contains(@class,'panel-body')])[5]//child::div//child::ul//child::li[" + value + "]//child::a"));
+	}
+
+	/**
+	 * CRS Knowledge Management System Home Page => NERD => View: NERD COVID-19 ACTIVITIES Submission
+	 * Page Iterator
+	 */
+	public WebElement viewPublishedCovid19ActivitiesPageIterator(String value) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("//*[@id='accordiongroup-135-3625-panel']/div/div/ul/li['" + value + "']/a"));
+	}
+
+	/**
+	 * CRS Knowledge Management System Home Page => NERD => View: NERD COVID-19 ACTIVITIES Submission Headers
+	 * value
+	 */
+	public WebElement viewPublishedCovid19ActivitiesHeaders(String value) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("//h4[normalize-space()='" + value + "']"));
+	}
+
+	/**
+	 * CRS Knowledge Management System Home Page => NERD => View: NERD COVID-19 ACTIVITIES Submission
+	 * Text value
+	 */
+	public WebElement viewPublishedCovid19ActivitiesText(String value) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("//div[normalize-space()='" + value + "']"));
+	}
+
+	/**
+	 * ------------ THE END OF COVID-19 ACTIVITIES SUBMISSIONS BY SUPER USER OR STAFF MEMBER
+	 * -----------
+	 */
+
 }

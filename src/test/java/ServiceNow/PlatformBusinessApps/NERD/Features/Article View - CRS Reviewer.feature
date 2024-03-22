@@ -1,6 +1,6 @@
 Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishments
 
-  @SS-4631 @SS-5261 @SS-4636 @SS-4637 @bucurgb @Regression @Smoke
+  @SS-4631 @SS-5261 @SS-4636 @SS-4637 @bucurgb @Regression @Smoke @NewUpdated
   Scenario Outline: CRS Reviewer Sees Published Top Accomplishments, Other accomplishments and Collaborations
     Given a CRS Reviewer is on the NERD Home Page
     Then there are three knowledge bases called "<knowledgeBaseOne>", "<knowledgeBaseTwo>", and "<knowledgeBaseThree>"
