@@ -1,6 +1,6 @@
 package ServiceNow.ServiceNowRunners.SEERRunners;
 
-import io.cucumber.junit.CucumberOptions;
+import io.cucumber.testng.CucumberOptions;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(plugin = {"html:target/html-reports/cucumber-default-report", "json:target/cucumber.json",
