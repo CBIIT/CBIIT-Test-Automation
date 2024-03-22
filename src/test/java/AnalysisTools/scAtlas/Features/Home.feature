@@ -1,4 +1,5 @@
 Feature:These are features on the Home Page of scAtlas
+
     @NCIATWP-6677 @matakevin @Smoke
     Scenario: Ensure Tumor Cell Community and T-Cell load correctly on NCI-Clarity
         Given the user is on the scAtlas home page
