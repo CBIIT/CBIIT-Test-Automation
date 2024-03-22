@@ -1,6 +1,6 @@
 Feature: Covid-19 Activities Submission page Scenarios
 
-  @SS-3419 @SS-3449 @chaudhryma @Regression @Progression
+  @SS-3419 @SS-3449 @chaudhryma @Regression
   Scenario: Verifying additional question on COVID submission and entry form - Service Portal
     Given user is on the COVID19 Activities submissions page
     Then the section "This activity aligns with the following NIH COVID-19 Strategic Plan" displays
