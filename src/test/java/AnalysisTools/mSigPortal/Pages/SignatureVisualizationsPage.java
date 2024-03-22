@@ -148,6 +148,7 @@ public class SignatureVisualizationsPage extends CommonUtils {
 	@FindBy(xpath = "//b[contains(text(),'Number of Mutations Per Sample with Regard to Mutational Profile')]")
 	public WebElement profilerSummaryHeaderText;
 
+	/** This is the submit button */
 	@FindBy(xpath = "//div[4]//div[2]//button[1]")
 	public WebElement submitButton1;
 }
