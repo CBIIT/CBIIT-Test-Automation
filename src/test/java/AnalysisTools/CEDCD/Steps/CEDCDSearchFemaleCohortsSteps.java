@@ -11,7 +11,6 @@ public class CEDCDSearchFemaleCohortsSteps extends PageInitializer {
 		cedcdStartUps.setUpOnSearchCohortsTabPage();
 	}
 
-	/** This method clicks on the search cohorts tab */
 	@When("the user clicks on the CEDCD search cohorts tab")
 	public void the_user_clicks_on_the_CEDCD_search_cohorts_tab() {
 		cedcdSearchCohortsPage.searchCohortTab.click();

@@ -10,7 +10,6 @@ import appsCommon.PageInitializers.PageInitializer;
 
 public class CEDCDStartUps extends PageInitializer {
 
-	/** This method takes you to the CEDCD homepage and logs a screenshot */
 	public void startUpCEDCDBrowser() {
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("CEDCD"));
 		MiscUtils.sleep(1000);
