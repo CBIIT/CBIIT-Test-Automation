@@ -19,11 +19,7 @@ Feature: MCAExplorer features
     And clicks on submit button
     Then verify that there are 0 rows in the result
 
-<<<<<<< HEAD
-  @TC3 @satya  @Smoke @Regression @NCIATWP-6676 @NCIATWP-6797
-=======
-  @TC3 @satya @Regression @NCIATWP-6676 @NCIATWP-6797
->>>>>>> db2fb5670f938444130084765d5773f912fb1a1d
+  @TC3 @satya @Smoke @Regression @NCIATWP-6676 @NCIATWP-6797
   Scenario: Verify data with different plot types
     Given User navigates to MCAExplorer page
     Then user select "Chromosome level" in plot type
