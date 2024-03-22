@@ -10,6 +10,7 @@ import io.cucumber.java.en.*;
 import org.junit.Assert;
 
 public class HomeSteps extends PageInitializer {
+
     @Given("the user is on the GWAS Explorer home page")
     public void the_user_is_on_the_gwas_explorer_home_page() {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("GWASExplorer"));
