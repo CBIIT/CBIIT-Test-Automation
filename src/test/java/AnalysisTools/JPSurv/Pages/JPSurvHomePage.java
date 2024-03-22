@@ -221,10 +221,6 @@ public class JPSurvHomePage extends CommonUtils {
 	@FindBy(xpath = "//input[@id='header_17']")
 	public WebElement seRelColumn;
 
-	/** This is the downloadFile button **/
-	@FindBy(xpath = "//a")
-	public WebElement downloadFile;
-
 	/** Save Button **/
 	@FindBy(xpath = "//button[@onclick='save_params()']")
 	public WebElement saveBtn;
