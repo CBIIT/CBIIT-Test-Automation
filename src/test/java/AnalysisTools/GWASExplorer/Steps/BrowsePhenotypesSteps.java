@@ -5,6 +5,7 @@ import io.cucumber.java.en.*;
 import org.testng.Assert;
 
 public class BrowsePhenotypesSteps extends PageInitializer {
+
     @When("user clicks browse phenotype tab")
     public void user_clicks_browse_phenotype_tab() {
         browsePhenotypesPage.lnkBrowsePhenotype.click();
