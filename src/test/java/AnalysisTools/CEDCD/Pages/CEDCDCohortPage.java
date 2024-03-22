@@ -123,9 +123,6 @@ public class CEDCDCohortPage extends CommonUtils {
 	 * A6 If an investigator is interested in collaborating with your cohort on a
 	 * new project, whom should they contact?
 	 */
-	// something that isn't automated is adding more than one principal
-	// investigators -- clarification is needed if automation is necessary for more
-	// than 1 PI
 
 	/** Same as the person who completed the form(4a) */
 	@FindBy(xpath = "//input[@id='default-completerName-check']")
