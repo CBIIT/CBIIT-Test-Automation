@@ -1,7 +1,6 @@
 package com.nci.automation.web;
 
 import java.time.Duration;
-
 import com.nci.automation.utils.FrameworkConstants;
 import io.github.sukgu.Shadow;
 import org.apache.logging.log4j.LogManager;

@@ -34,10 +34,7 @@ public class CommonUtils extends WebDriverUtils {
 
     public static String email = getEmail();
     public static String date = getDateAsString();
-    /**
-     * This method will read a .json file and return it in a String type written in
-     * json format - for passing REST payloads
-     */
+
     static String jsonFile;
 
     /**
@@ -335,6 +332,10 @@ public class CommonUtils extends WebDriverUtils {
         }
     }
 
+    /**
+     * This method will read a .json file and return it in a String type written in
+     * json format - for passing REST payloads
+     */
     public static String readJson(String fileName) {
         try {
             jsonFile = new String(Files.readAllBytes(Paths.get(fileName)));
