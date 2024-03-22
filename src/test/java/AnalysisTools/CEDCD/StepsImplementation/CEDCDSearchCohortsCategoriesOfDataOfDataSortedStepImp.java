@@ -7,12 +7,12 @@ import appsCommon.PageInitializers.PageInitializer;
 
 public class CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp extends PageInitializer {
 
+	/**
+	 * This step will pull the values from the drop downs in the initial order and
+	 * then sort them, compare them and verify that the drop down is sorted
+	 * alphabetically
+	 */
 	public void sortingCategoriesOfDataCollectedAlphabetically() {
-		/**
-		 * This step will pull the values from the drop downs in the initial order and
-		 * then sort them, compare them and verify that the drop down is sorted
-		 * alphabetically
-		 */
 		ArrayList<String> categoriesOfData = new ArrayList<String>();
 		System.out.println(cedcdSearchCohortsPage.categoriesOfDataCollectedValues.size());
 		for (int i = 0; i < cedcdSearchCohortsPage.categoriesOfDataCollectedValues.size(); i++) {
