@@ -5,7 +5,7 @@ Feature: These are the scenarios for the API Access tab on the mSigPortal Applic
         Given user sets api mutational signature data with signature name as SBS One
         Then SBS One data is received
 
-    @matakevin
+    @matakevin @NEEDSREVIEW
     Scenario: User retrieves mutational spectrum data
         Given user sets api mutational spectrum with default parameters on API access page
         Then mutational spectrum data is received
@@ -20,7 +20,7 @@ Feature: These are the scenarios for the API Access tab on the mSigPortal Applic
         Given user sets api signature association with default parameters on API access page
         Then signature association data is received
 
-    @matakevin
+    @matakevin @NEEDSREVIEW
     Scenario: User retrieves ethiology data
         Given user sets api ethiology data with default parameters on API access page
         Then ethiology data is received

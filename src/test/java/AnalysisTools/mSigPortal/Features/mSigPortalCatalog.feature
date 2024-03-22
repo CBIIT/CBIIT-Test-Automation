@@ -1,6 +1,6 @@
 Feature: These are the scenarios for the Catalog tab for the mSigPortal Application
 
-  @matakevin @Progression
+  @matakevin @NEEDSREVIEW
   Scenario: SBS Graph is being displayed
 
   @matakevin @NEEDSREVIEW
