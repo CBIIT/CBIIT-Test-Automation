@@ -12,32 +12,32 @@ Feature: Test Cases on the Public Site
     When the user clicks on the Clear All button
     Then all previously selected fields are no longer selected
 
-  @SS-3436 @matakevin
+  @SS-3436 @matakevin @NEEDSREVIEW
   Scenario: Selecting all Cohorts from the Biospecimen Tab
     Given the user is on the CEDCD Biospecimen Tab
     And the user clicks on the Specimen Type drop down
     And the user clicks on the All Types check box
     Then all Specimen tabs are selected
 
-  @SS-3439 @matakevin
+  @SS-3439 @matakevin @NEEDSREVIEW
   Scenario: Select Type Sorted Alphabetically
     Given the user is on the CEDCD Biospecimen Tab
     And the user clicks on the Specimen Types drop down
     Then the alphabetized Specimen Types are displayed
 
-  @SS-3509 @matakevin
+  @SS-3509 @matakevin @NEEDSREVIEW
   Scenario: Cancer Type Drop Down is sorted Alphabetically
     Given the user is on the CEDCD Biospecimen tab
     When the user clicks on the Cancer Types drop down
     Then the drop down is sorted alphabetically
 
-  @SS-3428 @matakevin
+  @SS-3428 @matakevin @NEEDSREVIEW
   Scenario: Eligible Female Cohorts returned on the Search Cohorts Tab
     Given the user is on the CEDCD Search Cohorts Tab
     When the user filters by females
     Then the results returned are for Female or All Cohorts
 
-  @SS-3430 @matakevin
+  @SS-3430 @matakevin @NEEDSREVIEW
   Scenario: Select All Cohorts
     Given the user is on the CEDCD Search Cohorts Tab
     And the user clicks on the select all check box
@@ -56,7 +56,7 @@ Feature: Test Cases on the Public Site
     And the user click back on the previous tab
     Then the user is filtered result from before are still populated
 
-  @SS-3438 @matakevin
+  @SS-3438 @matakevin @NEEDSREVIEW
   Scenario: Categories of Data Collected sorted Alphabetically
     Given the user is on the CEDCD Search Cohorts Tab
     When the user clicks on the Categories of Data Collected drop down
@@ -68,7 +68,7 @@ Feature: Test Cases on the Public Site
     When the user clicks Agricultural Health Study
     Then the Agricultural Health Study icon is shown on the web page
 
-  @matakevin
+  @matakevin @NEEDSREVIEW
   Scenario: Compare Production and QA sites Cancer Counts
     Given the user is on the CEDCD Production Site
     When The user navigates to Cancer Counts and selects the AHS cohort
