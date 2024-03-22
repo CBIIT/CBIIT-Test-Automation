@@ -15,7 +15,6 @@ public class CorrelateTabSteps extends PageInitializer {
 
 	@Given("the user is on the Comets homepage")
 	public void the_user_is_on_the_Comets_homepage() throws TestingException {
-		/** This will navigate to the home page of Comets 2.0 */
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("Comets2"));
 		MiscUtils.sleep(1000);
 		CucumberLogUtils.logScreenshot();
@@ -23,17 +22,12 @@ public class CorrelateTabSteps extends PageInitializer {
 
 	@When("the user clicks on the correlate")
 	public void the_user_clicks_on_the_correlate() {
-		/** This will click on the Correlate tab in the header */
 		MiscUtils.sleep(2000);
 		JavascriptUtils.clickByJS(comets2Page.correlateTab);
 	}
 
 	@When("the user submits a file and checks Integrity")
 	public void the_user_submits_a_file_and_checks_Integrity() {
-		/**
-		 * This step will click on the Choose File button and click on Check Integrity
-		 * to search
-		 */
 		MiscUtils.sleep(2000);
 		comets2Page.chooseFileButton.sendKeys("/Users/matarodriguezko/Downloads/cometsInput (1).xlsx");
 		CucumberLogUtils.logScreenshot();
@@ -45,20 +39,12 @@ public class CorrelateTabSteps extends PageInitializer {
 
 	@Then("the passed QC message appears")
 	public void the_passed_QC_message_appears() {
-		/**
-		 * This asserts that the Input data has passed QC (metabolite and sample names
-		 * match in all input files)
-		 */
 		Assert.assertTrue(comets2Page.inputDataQCSuccessMessage.isDisplayed());
 		CucumberLogUtils.logScreenshot();
 	}
 
 	@When("the user runs the integrity check")
 	public void the_user_runs_the_integrity_check() {
-		/**
-		 * This step will click on the Choose File button and click on Check Integrity
-		 * to search
-		 */
 		MiscUtils.sleep(2000);
 		comets2Page.chooseFileButton.sendKeys("/Users/matarodriguezko/Downloads/cometsInput.xlsx");
 		MiscUtils.sleep(1000);
@@ -69,7 +55,6 @@ public class CorrelateTabSteps extends PageInitializer {
 
 	@When("select pre-specified models")
 	public void select_pre_specified_models() {
-		/** This will click on the pre-specified models radio button */
 		JavascriptUtils.clickByJS(comets2Page.prespecifiedModelsRadioButton);
 	}
 
