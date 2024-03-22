@@ -12,11 +12,10 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.asserts.SoftAssert;
+import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.ExcelReader;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.WebDriverUtils;
-
-import ServiceNow.CHARMS.Constants.FHQSurveyPageConstants;
 
 /* @author SONIKA JAIN */
 public class CharmsUtil {
@@ -113,9 +112,25 @@ public class CharmsUtil {
 		CharmsUtil.labelHighlight(webElement);
 		String actualValue = webElement.getText();
 		String actualValueWithSpace = actualValue.trim();
+		if (expectedValue == null) {		
+			expectedValue ="";
+		}
 		softAssert.assertEquals(actualValueWithSpace, expectedValue, "Assertion Failed for" + messsage + "-->");
 	}
-
+	
+	public static boolean compareValues(WebElement webElement, String expectedValue) {		
+		CharmsUtil.labelHighlight(webElement);
+		String actualValue = webElement.getText();
+		String actualValueWithSpace = actualValue.trim();
+		if (expectedValue == null) {		
+			expectedValue ="";
+		}
+		if(actualValueWithSpace.equals(expectedValue)) {
+			return true;
+		}
+		return false;
+	}
+	
 	/* webElement:A text box to be Verified */
 	public static void assertTextBoxData(SoftAssert softAssert, WebElement webElement, String expectedValue,String messsage) {
 		CharmsUtil.labelHighlight(webElement);
@@ -123,8 +138,10 @@ public class CharmsUtil {
 		String actualValue = null;
 		if (webElement.getAttribute("value") != null) {
 			actualValue = webElement.getAttribute("value");
+			actualValue = actualValue.trim();
 		} else {
 			actualValue = webElement.getText();
+			actualValue = actualValue.trim();
 		}
 		softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + messsage + "-->");
 	}
@@ -145,9 +162,9 @@ public class CharmsUtil {
 		}
 		softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + messsage + "-->");
 	}
+	
 	/* webElement:A DropDown value to be Verified */
-	public static void assertDropDownData(SoftAssert softAssert, WebElement webElement, String expectedValue,
-			String messsage) {
+	public static void assertDropDownData(SoftAssert softAssert, WebElement webElement, String expectedValue,String messsage) {
 		CharmsUtil.labelHighlight(webElement);
 		MiscUtils.sleep(200);
 		Select select = new Select(webElement);
@@ -158,7 +175,14 @@ public class CharmsUtil {
 		}
 		softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + messsage + "-->");
 	}
-
+	
+	public static void compareExpectedActualValue(SoftAssert softAssert,WebElement webElement, String expectedValue,String messsage) {		
+		CharmsUtil.labelHighlight(webElement);
+		Select select = new Select(webElement);
+		String actualValue = select.getFirstSelectedOption().getText(); // getFirstSelectedOption() returns the selected
+	softAssert.assertEquals(actualValue, expectedValue, "Assertion Failed for" + messsage + "-->");
+	}
+	
 	/* Method to select a value from the Drop down List */
 	public static boolean selectDropDownValue(WebElement webElement, String selectedValue) {
 		CharmsUtil.labelHighlight(webElement);
@@ -191,6 +215,7 @@ public class CharmsUtil {
 		if (selectResultsAsListCollection.size() < size) {
 			size = selectResultsAsListCollection.size();
 		}
+		CucumberLogUtils.logScreenshot();
 		for (int i = 0; i < size; i++)  {
 			String options = selectResultsAsListCollection.get(i).getText();
 			if ( options.equals(dropDownValue))
@@ -201,30 +226,7 @@ public class CharmsUtil {
 			}
 		}
 	}
-
-	/*
-	 * public static ComponentTestResult verifySelect2DropDowns(WebElement
-	 * webElement, List<String> dropdownList, int dropdownSelectedIndex) {
-	 * CharmsUtil.clickOnElement(webElement); String result = "PASSED"; WebElement
-	 * select2ElementResults = WebDriverUtils.webDriver .findElement(By.xpath(
-	 * "//div[@id='select2-drop']/ul[@class='select2-results']")); List<WebElement>
-	 * selectResultsAsListCollection =
-	 * select2ElementResults.findElements(By.tagName("li")); int size =
-	 * dropdownList.size(); List<ComparisionResult> comparisionResultList = new
-	 * ArrayList<ComparisionResult>(); if (selectResultsAsListCollection.size() <
-	 * size) { size = selectResultsAsListCollection.size(); }
-	 * 
-	 * for (int i = 0; i < size; i++) { String options =
-	 * selectResultsAsListCollection.get(i).getText(); try {
-	 * Assert.assertTrue(options.equals(dropdownList.get(i))); } catch
-	 * (AssertionError ae) { result = "FAILED"; ComparisionResult comparisionResult
-	 * = new ComparisionResult(options, dropdownList.get(i), "FAILED");
-	 * comparisionResultList.add(comparisionResult); } }
-	 * selectResultsAsListCollection.get(dropdownSelectedIndex).click();
-	 * ComponentTestResult componentTestResult = new ComponentTestResult();
-	 * componentTestResult.setComparisionResultList(comparisionResultList);
-	 * componentTestResult.setComponentResult(result); return componentTestResult; }
-	 */
+	
 	/* Method to select a value from the Radio Button List */
 	public static boolean selectRadioButtonValue(List<WebElement> radioButtonList, String selectedValue) {
 		int itemCount = radioButtonList.size();
@@ -244,11 +246,9 @@ public class CharmsUtil {
 		return false;
 	}
 
-	/*
-	 * @param webElement: Method to compare the expected Value to the actual value
+	/* @param webElement: Method to compare the expected Value to the actual value
 	 * and then adding in to the Comparison Results list and then adding that list
-	 * to the final Component Test Result
-	 */
+	 * to the final Component Test Result */
 	public static ComponentTestResult verifyLabel(WebElement webElement, String expectedValue) {
 		CharmsUtil.labelHighlight(webElement);
 		MiscUtils.sleep(500);
@@ -269,13 +269,9 @@ public class CharmsUtil {
 		return componentTestResult;
 	}
 
-	/*
-	 * @param webElement:WebElement is Actual value, List is the Expected Dropdown
-	 * list.
-	 * 
+	/* @param webElement:WebElement is Actual value, List is the Expected Dropdown list.
 	 * @return ComponentTestResult:Comparison results list for each option (actual
-	 * v.s. expected)
-	 */
+	 * v.s. expected) */
 	public static ComponentTestResult verifyDropDowns(WebElement webElement, List<String> list) {
 		CharmsUtil.labelHighlight(webElement);
 		MiscUtils.sleep(500);
@@ -305,13 +301,9 @@ public class CharmsUtil {
 		return componentTestResult;
 	}
 
-	/*
-	 * @param webElement:WebElement compared to the expected Dropdown values
-	 * 
+	/* @param webElement:WebElement compared to the expected Dropdown values
 	 * @param dropdownList: Expected Dropdown list
-	 * 
-	 * @param dropdownSelectedIndex:The Dropdown selected index @return
-	 */
+	 * @param dropdownSelectedIndex:The Dropdown selected index @return */
 	public static ComponentTestResult verifySelect2DropDowns(WebElement webElement, List<String> dropdownList,
 			int dropdownSelectedIndex) {
 		CharmsUtil.labelHighlight(webElement);

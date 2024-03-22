@@ -8,9 +8,7 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializers.PageInitializer;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 
 public class ICRPSearchSteps extends PageInitializer {
 
@@ -22,20 +20,18 @@ public class ICRPSearchSteps extends PageInitializer {
 	@When("user clicks ICRP data")
 	public void user_clicks_ICRP_data() {
 		icrpHomePage.ICRPDataBtn.click();
-
 	}
 
 	@When("user clicks search database")
 	public void user_clicks_search_database() {
-		icrpHomePage.searchDatabaseBtn.click();
+		CommonUtils.waitForClickability(icrpHomePage.searchDatabaseBtn);
+		JavascriptUtils.clickByJS(icrpHomePage.searchDatabaseBtn);
 	}
 
 	@When("user clicks search")
 	public void user_clicks_search() {
-//		WebDriverWait wait = new WebDriverWait(WebDriverUtils.webDriver , 1800); 
-//		wait.until(ExpectedConditions.elementToBeClickable((By.xpath("//*[@class='btn btn-primary ml2']"))));
 		MiscUtils.sleep(5000);
-		icrpSearchDatabasePage.searchBtn.click();
+		JavascriptUtils.clickByJS(icrpSearchDatabasePage.searchBtn);
 		MiscUtils.sleep(5000);
 	}
 
@@ -59,8 +55,9 @@ public class ICRPSearchSteps extends PageInitializer {
 
 	@Then("study titled {string} is displayed")
 	public void study_titled_is_displayed(String gliomaOrganoids) {
+		CommonUtils.waitForVisibility(icrpSearchDatabasePage.projGliomaInvastion);
 		Assert.assertTrue(icrpSearchDatabasePage.projTitles.size() == 1);
-		Assert.assertTrue(icrpSearchDatabasePage.projGliomaOrganoids.getText().contentEquals(gliomaOrganoids));
+		Assert.assertTrue(icrpSearchDatabasePage.projGliomaInvastion.getText().contentEquals(gliomaOrganoids));
 
 	}
 
@@ -78,23 +75,20 @@ public class ICRPSearchSteps extends PageInitializer {
 			Assert.assertTrue(icrpSearchDatabasePage.institutionUniversityOfColoradoDenver.get(i).getText()
 					.contentEquals(institutionName));
 		}
-
 	}
 
 	@When("user selects Alexs Lemonade Stand Foundation")
 	public void user_selects_Alexs_Lemonade_Stand_Foundation() {
 		MiscUtils.sleep(5000);
-		JavascriptUtils.scrollIntoView(icrpSearchDatabasePage.fundingPanelHeader);
+		CommonUtils.scrollIntoView(icrpSearchDatabasePage.fundingPanelHeader);
 		icrpSearchDatabasePage.fundingPanelHeader.click();
 		icrpSearchDatabasePage.ALSFChkbox.click();
 		MiscUtils.sleep(5000);
-
 	}
 
 	@Then("projects funded by Alexs Lemonade Stand Foundation displays")
 	public void projects_funded_by_Alexs_Lemonade_Stand_Foundation_displays() {
 		Assert.assertTrue(icrpSearchDatabasePage.fundingOrgALSF.getText().contentEquals("ALSF"));
-
 	}
 
 	@When("user selects cancer type as brain tumor")
@@ -108,11 +102,13 @@ public class ICRPSearchSteps extends PageInitializer {
 		MiscUtils.sleep(5000);
 	}
 
-	@Then("projects with cancer type as Brain Tumor display")
-	public void projects_with_cancer_type_as_Brain_Tumor_display() {
-		icrpSearchDatabasePage.projGliomaOrganoids.click();
+	@Then("projects with cancer type as {string} display")
+	public void projects_with_cancer_type_as_display(String brainTumorText) {
+		CommonUtils.selectDropDownValue(icrpSearchDatabasePage.paginationDropDown, "300");
+		CommonUtils.waitForVisibility(icrpSearchDatabasePage.projGliomaInvastion);
+		JavascriptUtils.clickByJS(icrpSearchDatabasePage.projGliomaInvastion);
 		CommonUtils.switchToAnotherWindow();
-		Assert.assertTrue(icrpSearchDatabasePage.brainTumortxt.getText().contentEquals("Brain Tumor"));
+		Assert.assertTrue(icrpSearchDatabasePage.brainTumorText.getText().contentEquals(brainTumorText));
 	}
 
 	@Then("exact phrase provided is selected")
@@ -120,13 +116,11 @@ public class ICRPSearchSteps extends PageInitializer {
 		MiscUtils.sleep(5000);
 		System.out.println(icrpSearchDatabasePage.exactPhraseRadioBtn.isSelected());
 		Assert.assertTrue(icrpSearchDatabasePage.exactPhraseRadioBtn.isSelected());
-
 	}
 
 	@When("user clicks reset")
 	public void user_clicks_reset() {
 		icrpSearchDatabasePage.resetBtn.click();
-
 	}
 
 	@Then("exact phrase provided is unselected")
@@ -138,11 +132,12 @@ public class ICRPSearchSteps extends PageInitializer {
 	public void user_clicks_clear() {
 		MiscUtils.sleep(5000);
 		icrpSearchDatabasePage.clearBtn.click();
-
 	}
 
 	@Then("all projects are displayed")
 	public void all_projects_are_displayed() {
+		MiscUtils.sleep(10000);
+		System.out.println(icrpSearchDatabasePage.allProjTxt.getText());
 		Assert.assertTrue(icrpSearchDatabasePage.allProjTxt.getText()
 				.contentEquals("All projects are shown below. Use the form on the left to refine search results"));
 	}
@@ -154,11 +149,12 @@ public class ICRPSearchSteps extends PageInitializer {
 		icrpSearchDatabasePage.normalFunctioningChkbox.click();
 	}
 
-	@Then("projects with research area as normal functioning display")
-	public void projects_with_research_area_as_normal_functioning_display() {
-		icrpSearchDatabasePage.proj3DPrinting.click();
-		
-
+	@Then("projects with research area as {string} display")
+	public void projects_with_research_area_as_display(String normalFunctioningText) {
+		JavascriptUtils.clickByJS(icrpSearchDatabasePage.firstReturnedProjectList);
+		CommonUtils.switchToAnotherWindow();
+		CommonUtils.scrollIntoView(icrpSearchDatabasePage.normalFunctioningText);
+		System.out.println(icrpSearchDatabasePage.normalFunctioningText.getText());
+		Assert.assertTrue(icrpSearchDatabasePage.normalFunctioningText.getText().contentEquals(normalFunctioningText));
 	}
-
 }

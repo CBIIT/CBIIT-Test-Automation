@@ -9,13 +9,10 @@ import com.nci.automation.web.WebDriverUtils;
 public class SignatureVisualizationsPage extends CommonUtils {
 
 	public SignatureVisualizationsPage() {
-
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
-
 	}
 
 	/** These are the elements on the Signature Visualizations Page */
-
 	/** Data Sources User radio button value */
 	@FindBy(xpath = "//input[@id='radioUser']")
 	public WebElement userDataSourceRadioButton;
@@ -66,78 +63,92 @@ public class SignatureVisualizationsPage extends CommonUtils {
 	/** This is the description of the download tab */
 	@FindBy(xpath = "//p[contains(text(),'were successfully analyzed.')]")
 	public WebElement downloadDescriptionText;
-	
-	/** This is the Mutational Profiles section Tab at the top of the screen */
-	@FindBy (xpath = "//*[@id='root']/div[2]/div[1]/div/div[1]/div/div[3]/button")
-	public WebElement mutationalProfileTab;
-	
-	/** This is the Sample Name text box under mutational profile tab */
-	@FindBy (xpath = "//input[@id='mpSampleName']")
-	public WebElement mutationalProfileSampleNameTextBox;
-	
-	/** This is the Sample Name text box under mutational profile tab's "SB749362" value */
-	@FindBy (xpath = "//div[contains(text(),'SB749362')]")
-	public WebElement mutationalProfileSampleNameBorder;
-	
-	/** This is the Cosine Similarity tab  */
-	@FindBy (xpath = "(//button[contains(text(),'Cosine Similarity')])[1]")
-	public WebElement cosineSimilarityTab;
-	
-	/** This is the CS Within Samples tab under the Cosine Similarities tab */
-	@FindBy (xpath = "//strong[contains(text(),'CS Between Samples')]")
-	public WebElement csWithinSamplesTab;
-	
-	/** This is the Cosine Similarity Within Samples calculate button  */
-	@FindBy (xpath = "(//button[contains(text(),'Calculate')])[1]")
-	public WebElement csWithinSamplesCalculateButton;
-	
-	/** This is the CS to Reference tab under the Cosine Similarities tab */
-	@FindBy (xpath = "//strong[contains(text(),'CS to Reference Signatures')]")
-	public WebElement csToReferenceTab;
-	
-	/** This is the Cosine Similarity to Reference Signatures calculate button  */
-	@FindBy (xpath = "(//button[contains(text(),'Calculate')])[2]")
-	public WebElement csToReferenceSignaturesCalculateButton;
-	
-	/** This is the CS to Public Data tab under the Cosine Similarities tab */
-	@FindBy (xpath = "//strong[contains(text(),'CS to Public Data')]")
-	public WebElement csToPublicDataTab;
-	
-	/** This is the Cosine Similarity to Public Data calculate button  */
-	@FindBy (xpath = "(//button[contains(text(),'Calculate')])[3]")
-	public WebElement csToPublicDataCalculateButton;
-	
-	/** This is the compare signature info button */
-	@FindBy (xpath = "//button[@aria-label='compare signatures info']")
-	public WebElement compareSignatureInfoButton;
-	
-	/** This is the compare signature info pop up box */
-	@FindBy (xpath = "//div[@id='popover-basic']")
-	public WebElement signatureInfoPopUpBox;
-	
-	/** This is the Profile Type drop down on the Profile Comparison tab under Visualization section */
-	@FindBy (xpath = "(//div[contains(text(),'SBS')])[2]")
-	public WebElement profileTypeSBSDropDown;
-	
-	/** This is the "demo_input_multi.vcf.gz" text value for the Upload File browser on the user inputed table */
-	@FindBy (xpath = "//label[contains(text(),'demo_input_multi.vcf.gz')]")
-	public WebElement uploadFileVCFText;
-	
-	/** This is the calculate button on the PC to Reference Signatures on the Visualization Tab */
-	@FindBy (xpath = "(//button[contains(text(),'Calculate')])[2]")
-	public WebElement calculateOnPcReferenceSignatures;
-	
-	/** This is the submit button when on the Public Visualization page */
-	@FindBy (xpath = "(//button[contains(text(),'Submit')])[2]")
-	public WebElement visualPublicSubmitButton;
-	
-	/** This is the plot returned on the Profiler Summary when using public data */
-	@FindBy (xpath = "//*[@id='root']/div[2]/div[2]/div[2]/div")
-	public WebElement publicPlotOnProfilerSummary;
-	
-	/** This is the text header for the Profiler Summary */
-	@FindBy (xpath = "//b[contains(text(),'Number of Mutations Per Sample with Regard to Mutational Profile')]")
-	public WebElement profilerSummaryHeaderText;
-	
 
+	/** This is the Mutational Profiles section Tab at the top of the screen */
+	@FindBy(xpath = "//*[@id='root']/div[2]/div[1]/div/div[1]/div/div[3]/button")
+	public WebElement mutationalProfileTab;
+
+	/** This is the Sample Name text box under mutational profile tab */
+	@FindBy(xpath = "//input[@id='mpSampleName']")
+	public WebElement mutationalProfileSampleNameTextBox;
+
+	/**
+	 * This is the Sample Name text box under mutational profile tab's "SB749362"
+	 * value
+	 */
+	@FindBy(xpath = "//div[contains(text(),'SB749362')]")
+	public WebElement mutationalProfileSampleNameBorder;
+
+	/** This is the Cosine Similarity tab */
+	@FindBy(xpath = "(//button[contains(text(),'Cosine Similarity')])[1]")
+	public WebElement cosineSimilarityTab;
+
+	/** This is the CS Within Samples tab under the Cosine Similarities tab */
+	@FindBy(xpath = "//strong[contains(text(),'CS Between Samples')]")
+	public WebElement csWithinSamplesTab;
+
+	/** This is the Cosine Similarity Within Samples calculate button */
+	@FindBy(xpath = "(//button[contains(text(),'Calculate')])[1]")
+	public WebElement csWithinSamplesCalculateButton;
+
+	/** This is the CS to Reference tab under the Cosine Similarities tab */
+	@FindBy(xpath = "//strong[contains(text(),'CS to Reference Signatures')]")
+	public WebElement csToReferenceTab;
+
+	/** This is the Cosine Similarity to Reference Signatures calculate button */
+	@FindBy(xpath = "(//button[contains(text(),'Calculate')])[2]")
+	public WebElement csToReferenceSignaturesCalculateButton;
+
+	/** This is the CS to Public Data tab under the Cosine Similarities tab */
+	@FindBy(xpath = "//strong[contains(text(),'CS to Public Data')]")
+	public WebElement csToPublicDataTab;
+
+	/** This is the Cosine Similarity to Public Data calculate button */
+	@FindBy(xpath = "(//button[contains(text(),'Calculate')])[3]")
+	public WebElement csToPublicDataCalculateButton;
+
+	/** This is the compare signature info button */
+	@FindBy(xpath = "//button[@aria-label='compare signatures info']")
+	public WebElement compareSignatureInfoButton;
+
+	/** This is the compare signature info pop up box */
+	@FindBy(xpath = "//div[@id='popover-basic']")
+	public WebElement signatureInfoPopUpBox;
+
+	/**
+	 * This is the Profile Type drop down on the Profile Comparison tab under
+	 * Visualization section
+	 */
+	@FindBy(xpath = "(//div[contains(text(),'SBS')])[2]")
+	public WebElement profileTypeSBSDropDown;
+
+	/**
+	 * This is the "demo_input_multi.vcf.gz" text value for the Upload File browser
+	 * on the user inputed table
+	 */
+	@FindBy(xpath = "//label[contains(text(),'demo_input_multi.vcf.gz')]")
+	public WebElement uploadFileVCFText;
+
+	/**
+	 * This is the calculate button on the PC to Reference Signatures on the
+	 * Visualization Tab
+	 */
+	@FindBy(xpath = "(//button[contains(text(),'Calculate')])[2]")
+	public WebElement calculateOnPcReferenceSignatures;
+
+	/** This is the submit button when on the Public Visualization page */
+	@FindBy(xpath = "(//button[contains(text(),'Submit')])[2]")
+	public WebElement visualPublicSubmitButton;
+
+	/** This is the plot returned on the Profiler Summary when using public data */
+	@FindBy(xpath = "//*[@id='root']/div[2]/div[2]/div[2]/div")
+	public WebElement publicPlotOnProfilerSummary;
+
+	/** This is the text header for the Profiler Summary */
+	@FindBy(xpath = "//b[contains(text(),'Number of Mutations Per Sample with Regard to Mutational Profile')]")
+	public WebElement profilerSummaryHeaderText;
+
+	/** This is the submit button */
+	@FindBy(xpath = "//div[4]//div[2]//button[1]")
+	public WebElement submitButton1;
 }

@@ -1,17 +1,23 @@
 package appsCommon.PageInitializers;
 
+import AnalysisTools.ACT24.Pages.*;
+import AnalysisTools.Comets2.Pages.*;
+import AnalysisTools.GDSTracking.Pages.*;
+import AnalysisTools.GWASExplorer.Pages.*;
+import AnalysisTools.GWASTarget.Pages.*;
+import AnalysisTools.ICRP.Pages.*;
+import AnalysisTools.ezQTL.Pages.*;
+import AnalysisTools.cProSite.Pages.*;
 import AnalysisTools.CEDCD.Pages.*;
 import AnalysisTools.CEDCD.Steps.*;
 import AnalysisTools.CEDCD.StepsImplementation.*;
-import AnalysisTools.Comets2.Pages.*;
-import AnalysisTools.ICRP.Pages.*;
 import AnalysisTools.JPSurv.Pages.*;
 import AnalysisTools.LDLink.Pages.*;
 import AnalysisTools.MCAExplorer.Pages.MCAExplorerPage;
 import AnalysisTools.MCAExplorer.StepsImplementations.MCAExplorerStepImp;
-import AnalysisTools.PLCO.Pages.*;
-import AnalysisTools.cProSite.Pages.*;
 import AnalysisTools.mSigPortal.Pages.*;
+import AnalysisTools.scAtlas.Pages.SCAtlasCohortsPage;
+import AnalysisTools.scAtlas.Pages.SCAtlasHomePage;
 import CustomBusiness.CCR.Pages.*;
 import CustomBusiness.CCR.StepsImplementation.*;
 import CustomBusiness.DCEG.Pages.*;
@@ -27,8 +33,10 @@ import CustomBusiness.Egrants.Pages.EgrantsSearchAndFileManagementScenariosPage;
 import CustomBusiness.Egrants.StepsImplementation.EgrantsStepImplementation;
 import GrantsApps.ChangePassword.Pages.*;
 import GrantsApps.ChangePassword.StepsImplementation.*;
-import GrantsApps.EM.Pages.*;
-import GrantsApps.EM.StepImplementation.*;
+import GrantsApps.EM.selenium.Pages.AccountDetailsPage;
+import GrantsApps.EM.selenium.Pages.CreateNewAccountPage;
+import GrantsApps.EM.selenium.Pages.ManageI2EUsersPage;
+import GrantsApps.EM.selenium.StepImplementation.EMStepsImplementation;
 import ServiceNow.CHARMS.Constants.*;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
 import ServiceNow.CHARMS.Pages.*;
@@ -52,9 +60,15 @@ import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NERDLoginStepsIm
 import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NativeViewImpersonateUser;
 import ServiceNow.PlatformBusinessApps.SEER.Pages.*;
 import ServiceNow.PlatformBusinessApps.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
-import ServiceNow.SCSS.Pages.*;
-import ServiceNow.SCSS.StepsImplementation.*;
 import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.Pages.ApplicantFlowPage;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.Pages.NativeViewSCSSReportsPage;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.Pages.OWMVacancyPage;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.Pages.StadtmanVacancyPage;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.StepsImplementation.ApplicantFlowStepsImplementation;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.StepsImplementation.OWMVacancyStepsImplementation;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.StepsImplementation.SCSSLoginStepsImplementation;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.StepsImplementation.StadtmanVacancyStepsImplementation;
 import appsCommon.Pages.ITrustLoginPage;
 import appsCommon.Pages.NativeViewHomePage;
 import appsCommon.Pages.ServiceNow_NCISP_Page;
@@ -234,14 +248,32 @@ public class PageInitializer extends WebDriverUtils {
 	public static ETDBasePage etdBasePage;
 
 	/** --------------- ANALYSIS TOOLS INSTANCES --------------- */
+
+	/** Analysis Tools Landing Page instances */
+	public static AnalysisToolsLandingPage analysisToolsLandingPage;
+
+	/** GDS Tracking instances **/
+	public static GDSLoginPage gdsLoginPage;
+
 	/** LDLink instances **/
 	public static LDLinkHomePage ldLinkHomePage;
-	public static LDLinkLandingPage ldLinkLandingPage;
+	public static LDAssocPage ldAssocPage;
+	public static LDExpressPage ldExpressPage;
+	public static LDLinkAPIAccessPage ldLinkAPIAccessPage;
 
-	/** PLCO instances **/
+	/** scAtlas instances **/
+	public static SCAtlasHomePage scAtlasHomePage;
+	public static SCAtlasCohortsPage scAtlasCohortsPage;
+
+	/** ezQTL instances **/
+	public static EZQTLHomePage ezQTLHomePage;
+	public static EZQTLAnalysesPage ezQTLAnalysesPage;
+	public static EZQTLDocumentationPage ezQTLDocumentationPage;
+	public static EZQTLPublicDataSourcePage ezQTLPublicDataSourcePage;
+	/** GWAS Explorer instances **/
 	public static ExploreGWASPage exploreGWASPage;
-	public static BrowsePhenotypePage browsePhenotypePage;
-	public static InformationPage informationPage;
+	public static BrowsePhenotypesPage browsePhenotypesPage;
+	public static GwasExplorerHomePage gwasExplorerHomePage;
 
 	/** CEDCD instances */
 	public static CEDCDCohortPage cedcdCohortPage;
@@ -275,6 +307,14 @@ public class PageInitializer extends WebDriverUtils {
 
 	/** CProSite instances **/
 	public static CProSiteExplorePage cProSiteExplorePage;
+
+	/** ACT24 instances **/
+	public static ACT24ParticipantPortalPage act24ParticipantPortalPage;
+	public static ACT24ResearcherPortalPage act24ResearcherPortalPage;
+
+	/** GWAS Target instances **/
+	public static GWASTargetHomePages gwasTargetHomePages;
+	public static GWASTargetAnalysisPages gwasTargetAnalysisPages;
 
 	/** CCR instances **/
 	public static CCRLandingPage cCRLandingPage;
@@ -471,13 +511,40 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** --------------- ANALYSIS TOOLS INSTANCE VARIABLES --------------- */
 		/** LDLink Instance Variables **/
-		ldLinkLandingPage = new LDLinkLandingPage();
 		ldLinkHomePage = new LDLinkHomePage();
 
-		/** PLCO Instance Variables **/
+		/** --------------- ANALYSIS TOOLS INSTANCE VARIABLES --------------- */
+
+		/** Analysis Tools Landing Page Variables **/
+		analysisToolsLandingPage = new AnalysisToolsLandingPage();
+
+		/** GDS Tracking Instance Variables **/
+		gdsLoginPage = new GDSLoginPage();
+
+		/** LDLink Instance Variables **/
+		ldLinkHomePage = new LDLinkHomePage();
+		ldExpressPage = new LDExpressPage();
+		ldAssocPage = new LDAssocPage();
+		ldLinkAPIAccessPage = new LDLinkAPIAccessPage();
+
+		/** scAtlas Instance Variables **/
+		scAtlasHomePage = new SCAtlasHomePage();
+		scAtlasCohortsPage = new SCAtlasCohortsPage();
+
+		/** ezQTL Instance Variables **/
+		ezQTLHomePage = new EZQTLHomePage();
+		ezQTLAnalysesPage = new EZQTLAnalysesPage();
+		ezQTLDocumentationPage = new EZQTLDocumentationPage();
+		ezQTLPublicDataSourcePage = new EZQTLPublicDataSourcePage();
+
+		/** ACT24 Instance Variables **/
+		act24ParticipantPortalPage = new ACT24ParticipantPortalPage();
+		act24ResearcherPortalPage = new ACT24ResearcherPortalPage();
+
+		/** GWAS Explorer Instance Variables **/
 		exploreGWASPage = new ExploreGWASPage();
-		browsePhenotypePage = new BrowsePhenotypePage();
-		informationPage = new InformationPage();
+		browsePhenotypesPage = new BrowsePhenotypesPage();
+		gwasExplorerHomePage = new GwasExplorerHomePage();
 
 		/** CEDCD Instance Variables */
 		cedcdCohortPage = new CEDCDCohortPage();
@@ -511,6 +578,10 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** CProSite Instance Variables **/
 		cProSiteExplorePage = new CProSiteExplorePage();
+
+		/** GWS Target Instance Variables **/
+		gwasTargetHomePages = new GWASTargetHomePages();
+		gwasTargetAnalysisPages = new GWASTargetAnalysisPages();
 
 		/** CCR Instance Variables **/
 		cCRLandingPage = new CCRLandingPage();
@@ -552,6 +623,15 @@ public class PageInitializer extends WebDriverUtils {
 		/** eTracking INSTANCE VARIABLES */
 		etrackAssetsRecords_NativeViewPage = new EtrackAssetsRecords_NativeViewPage();
 
+		/** Grants ChangePassword app **/
+		changePasswordPage = new ChangePasswordPage();
+		changePasswordStepsImpl = new ChangePasswordStepsImpl();
+		emStepsImplementation = new EMStepsImplementation();
+		manageI2EUsersPage = new ManageI2EUsersPage();
+
+		/** eTracking INSTANCE VARIABLES */
+		etrackAssetsRecords_NativeViewPage = new EtrackAssetsRecords_NativeViewPage();
+
 		/** GCP INSTANCE VARIABLES */
 		gCPNotifications_NativeViewPage = new GCPNotifications_NativeViewPage();
 
@@ -562,8 +642,7 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** GDC INSTANCE VARIABLES */
 		gDC_Workflow_NativeView_Page = new GDC_Workflow_NativeView_Page();
-		
-		
+
 		/** MCAEXPLORER INSTANCE VARIABLES */
 		mcaExplorerPage = new MCAExplorerPage();
 		mcaExplorerStepImp = new MCAExplorerStepImp();

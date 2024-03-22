@@ -1,18 +1,8 @@
 package AnalysisTools.AnalysisToolsRunners;
 
-import java.io.File;
+import io.cucumber.testng.CucumberOptions;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-import org.junit.BeforeClass;
-import org.junit.runner.RunWith;
-
-import com.nci.automation.utils.LocalConfUtils;
-import com.nci.automation.web.ConfUtils;
-
-
-
-@RunWith(Cucumber.class)
 @CucumberOptions(plugin= {"html:target/html-reports/cucumber-default-report"
 		, "json:target/cucumber.json"
 		, "junit:target/cucumber.xml"
@@ -21,25 +11,10 @@ import com.nci.automation.web.ConfUtils;
 		, glue="AnalysisTools.mSigPortal.Steps"
 		, tags="@Smoke"
 		, dryRun = false
-		, monochrome=true
-		, strict = true
-		
-		)
-
-/**
- * This class is annotated with @RunWith(Cucumber.class) and it will run
- * cucumber feature(s).
- * 
+)
+/* 
  * @author sohilz2
  */
-public class RunMSigPortalSmokeTest {
-	
-	@BeforeClass
-	public static void runSetup() {
-		
-		String reportsOutput = LocalConfUtils.getRootDir() + File.separator + "html-reports";
-		ConfUtils.setBaseResultsDir(reportsOutput);
-		System.out.println("Starting Test Execution...");
-	}
+public class RunMSigPortalSmokeTest extends AbstractTestNGCucumberTests{	
 
 }

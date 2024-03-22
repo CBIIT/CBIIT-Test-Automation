@@ -1,0 +1,1 @@
+Feature: These are the features under the About tab for the GWAS Explorer Application
