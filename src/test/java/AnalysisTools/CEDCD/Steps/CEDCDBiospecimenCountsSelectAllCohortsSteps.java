@@ -1,8 +1,6 @@
 package AnalysisTools.CEDCD.Steps;
 
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 import org.junit.Assert;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.JavascriptUtils;
@@ -11,11 +9,6 @@ import appsCommon.PageInitializers.PageInitializer;
 
 public class CEDCDBiospecimenCountsSelectAllCohortsSteps extends PageInitializer {
 
-	/**
-	 * This step clicks lands you on the Biospecimen tab
-	 * 
-	 * @throws TestingException
-	 */
 	@Given("the user is on the CEDCD Biospecimen Tab")
 	public void the_user_is_on_the_CEDCD_Biospecimen_Tab() throws TestingException {
 		cedcdStartUps.setUpOnBiospecimenTabPage();
@@ -36,11 +29,6 @@ public class CEDCDBiospecimenCountsSelectAllCohortsSteps extends PageInitializer
 		JavascriptUtils.clickByJS(cedcdBiospecimenCountsPage.specimenTypeDropDownAllTypeValue);
 	}
 
-	/**
-	 * This method verifies that the "All Types" check box is enabled
-	 * NOTE that you can have the "All Types" check box selected and un-select the
-	 * other values but still have the "All Types" check box enabled
-	 */
 	@Then("all Specimen tabs are selected")
 	public void all_Specimen_tabs_are_selected() {
 		Assert.assertTrue(cedcdBiospecimenCountsPage.specimenTypeDropDownAllTypeValue.isEnabled());
