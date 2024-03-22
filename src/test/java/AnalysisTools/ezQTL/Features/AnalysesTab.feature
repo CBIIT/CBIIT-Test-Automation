@@ -30,7 +30,6 @@ Feature: Scenarios under the Analyses tab on ezQTL
         When the user clicks on the Load Sample Data link
         Then the both download links are clickable
 
-
     @Smoke @matakevin
     Scenario:Calculating on Analyses' Locus LD tab
         Given The user is on the ezQTL Analyses page
