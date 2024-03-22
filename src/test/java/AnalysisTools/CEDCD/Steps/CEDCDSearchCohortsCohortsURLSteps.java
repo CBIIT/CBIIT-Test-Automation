@@ -10,10 +10,6 @@ import io.cucumber.java.en.*;
 
 public class CEDCDSearchCohortsCohortsURLSteps extends PageInitializer {
 
-	/**
-	 * The method will highlight the URL in red, take a screenshot and then click
-	 * the URL
-	 */
 	@When("the user clicks Agricultural Health Study")
 	public void the_user_clicks_Agricultural_Health_Study() {
 		JavascriptUtils.drawRedBorder(cedcdSearchCohortsPage.AHSURL);
@@ -21,18 +17,10 @@ public class CEDCDSearchCohortsCohortsURLSteps extends PageInitializer {
 		JavascriptUtils.clickByJS(cedcdSearchCohortsPage.AHSURL);
 	}
 
-	/**
-	 * This method will verify that the icon displayed on the web page is the
-	 * Agricultural Health Study and take a screenshot
-	 */
 	@Then("the Agricultural Health Study icon is shown on the web page")
 	public void the_Agricultural_Health_Study_icon_is_shown_on_the_web_page() {
-
-		// It will return the parent window name as a String
 		String parent = WebDriverUtils.webDriver.getWindowHandle();
 		Set<String> s = WebDriverUtils.webDriver.getWindowHandles();
-
-		// Now iterate using Iterator
 		Iterator<String> I1 = s.iterator();
 		while (I1.hasNext()) {
 			String child_window = I1.next();
@@ -42,7 +30,6 @@ public class CEDCDSearchCohortsCohortsURLSteps extends PageInitializer {
 				WebDriverUtils.webDriver.close();
 			}
 		}
-		// switch to the parent window
 		WebDriverUtils.webDriver.switchTo().window(parent);
 	}
 }
