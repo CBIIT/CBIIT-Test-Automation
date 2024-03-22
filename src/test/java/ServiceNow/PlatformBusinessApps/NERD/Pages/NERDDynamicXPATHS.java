@@ -218,10 +218,8 @@ public class NERDDynamicXPATHS extends CommonUtils {
 	public WebElement viewPublishedCovid19ActivitiesText(String value) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//div[normalize-space()='" + value + "']"));
 	}
-
 	/**
 	 * ------------ THE END OF COVID-19 ACTIVITIES SUBMISSIONS BY SUPER USER OR STAFF MEMBER
 	 * -----------
 	 */
-
 }
