@@ -34,9 +34,6 @@ public class CEDCDBiospecimenCountClearAllSteps extends PageInitializer {
 		cedcd_public_site_steps_impl.the_user_clicks_on_the_Clear_All_button();
 	}
 
-	/**
-	 * VERIFY BELOW FUNCTIONALITY WITH DEVELOPER
-	 */
 	@Then("all previously selected fields are no longer selected")
 	public void all_previously_selected_fields_are_no_longer_selected() {
 		Assert.assertTrue(cedcdBiospecimenCountsPage.biospecimenSubmitBtn.isEnabled());
