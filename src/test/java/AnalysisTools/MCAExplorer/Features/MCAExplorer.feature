@@ -12,7 +12,7 @@ Feature: MCAExplorer features
     Then go back to full circle
     Then verify if the circle is present on the screen
 
-  @TC2 @satya @Regression @NCIATWP-6606 @NCIATWP-5438
+  @TC2 @satya @Regression  @NCIATWP-6606 @NCIATWP-5438
   Scenario: Verify graph & table will be empty when we removed the mandatory fields & try to plot the graph
     Given User navigates to MCAExplorer page
     When User clears the mandatory field Study
