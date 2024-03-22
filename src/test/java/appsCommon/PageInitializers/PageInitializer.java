@@ -50,8 +50,8 @@ import ServiceNow.PlatformBusinessApps.GCP.Pages.GCPNotifications_NativeViewPage
 import ServiceNow.PlatformBusinessApps.NERD.Pages.*;
 import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NERDLoginStepsImplementation;
 import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NativeViewImpersonateUser;
-import ServiceNow.SCSS.Pages.*;
-import ServiceNow.SCSS.StepsImplementation.*;
+import ServiceNow.SSJ.Pages.*;
+import ServiceNow.SSJ.StepsImplementation.*;
 import ServiceNow.PlatformBusinessApps.SEER.Pages.*;
 import ServiceNow.PlatformBusinessApps.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
@@ -184,7 +184,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static ApplicantFlowPage applicantFlowPage;
 	public static StadtmanVacancyStepsImplementation stadtmanVacancyStepsImplementation;
 	public static OWMVacancyStepsImplementation oWMVacancyStepsImplementation;
-	public static SCSSLoginStepsImplementation sCCSLoginStepsImplementation;
+	public static SSJLoginStepsImplementation sSJLoginStepsImplementation;
 	public static ApplicantFlowStepsImplementation applicantFlowStepsImplementation;
 	public static UnauthenticatedApplicantFlowStepsImplementation unauthenticatedApplicantFlowStepsImplementation;
 
@@ -424,14 +424,16 @@ public class PageInitializer extends WebDriverUtils {
 		esrTicketCreationPage = new ESRTicketCreationPage();
 		esrShortDescriptionPage = new ESRShortDescriptionPage();
 
-		/** SCSS Instance Variables */
+		/** SSJ Instance Variables */
 		owmVacancyPage = new OWMVacancyPage();
 		stadtmanVacancyPage = new StadtmanVacancyPage();
 		applicantFlowPage = new ApplicantFlowPage();
+		unauthenticatedApplicantPage = new UnauthenticatedApplicantPage();
 		oWMVacancyStepsImplementation = new OWMVacancyStepsImplementation();
 		stadtmanVacancyStepsImplementation = new StadtmanVacancyStepsImplementation();
-		sCCSLoginStepsImplementation = new SCSSLoginStepsImplementation();
+		sSJLoginStepsImplementation = new SSJLoginStepsImplementation();
 		applicantFlowStepsImplementation = new ApplicantFlowStepsImplementation();
+		unauthenticatedApplicantFlowStepsImplementation = new UnauthenticatedApplicantFlowStepsImplementation();
 
 		/** --------------- CUSTOM BUSINESS APP INSTANCE VARIABLES --------------- */
 		/** EIDP Instance Variables */
