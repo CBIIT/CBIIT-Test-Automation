@@ -212,7 +212,6 @@
     </application>
     <application id="EidpUrlNCI">
         <login_url>https://idp-stage.nih.gov/nci/idp</login_url> <!-- add stage
-=======
 		<login_url>https://service-stage.nci.nih.gov/nih-covid-19-dashboard?xpage=landing_pub
 		</login_url> <!-
 		add Stage url -->
@@ -419,8 +418,7 @@
 	</application>
 
 	<application id="EidpUrlNCI">
-		<login_url>https://idp-stage.nih.gov/nci/idp</login_url> <!-- add stage 
->>>>>>> afc3adfc7c66c1a85a8020c85a96ee9a649b1c46
+		<login_url>https://idp-stage.nih.gov/nci/idp</login_url> <!-- add stage
 			url -->
         <role name="Role">
             <user id="regular">

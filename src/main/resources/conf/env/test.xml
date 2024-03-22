@@ -548,7 +548,6 @@
         </db>
     </application>
 
-=======
     <!-- Application ID for AppTracker -->
     <application id="AppTracker">
         <login_url>https://service-test.nci.nih.gov/nci-scss.do#/
@@ -597,7 +596,6 @@
         </db>
     </application>
 
->>>>>>> afc3adfc7c66c1a85a8020c85a96ee9a649b1c46
     <!-- Application ID for ICRP-->
     <application id="ICRP">
         <login_url>https://icrpartnership-test.org/
