@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.*;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -25,6 +26,20 @@ import com.nci.automation.utils.MiscUtils;
  * @author juarezds
  */
 public class CommonUtils extends WebDriverUtils {
+
+    /**
+     * Use this String to pass an email concatenated with current date and time into
+     * an email text box and you can pass same value (email+date+time) in another
+     * steps.
+     */
+
+    public static String email = getEmail();
+    public static String date = getDateAsString();
+    /**
+     * This method will read a .json file and return it in a String type written in
+     * json format - for passing REST payloads
+     */
+    static String jsonFile;
 
     /**
      * Use this method in need of entering keyboard keys into a WebElement by
@@ -321,12 +336,6 @@ public class CommonUtils extends WebDriverUtils {
         }
     }
 
-    /**
-     * This method will read a .json file and return it in a String type written in
-     * json format - for passing REST payloads
-     */
-    static String jsonFile;
-
     public static String readJson(String fileName) {
         try {
             jsonFile = new String(Files.readAllBytes(Paths.get(fileName)));
@@ -389,14 +398,6 @@ public class CommonUtils extends WebDriverUtils {
     }
 
     /**
-     * Use this String to pass an email concatenated with current date and time into
-     * an email text box and you can pass same value (email+date+time) in another
-     * steps.
-     */
-
-    public static String email = getEmail();
-
-    /**
      * Use this method to pass a random LaastName as a String
      *
      * @return
@@ -427,8 +428,6 @@ public class CommonUtils extends WebDriverUtils {
         dateAsString = dateAsString.replaceAll("[^A-Za-z0-9]", "");
         return dateAsString;
     }
-
-    public static String date = getDateAsString();
 
     /**
      * Use this method to select a checkbox value
@@ -476,7 +475,7 @@ public class CommonUtils extends WebDriverUtils {
 
     /**
      * @Author @SonikaJain
-     *         Switch to new tab opened by clicking a link
+     * Switch to new tab opened by clicking a link
      */
     public static void switchToAnotherTabWindow() {
         String parent = WebDriverUtils.webDriver.getWindowHandle();
@@ -493,7 +492,7 @@ public class CommonUtils extends WebDriverUtils {
 
     /**
      * @Author @SonikaJain
-     *         Click browser back button
+     * Click browser back button
      */
     public static void clickBrowserBackButton() {
         WebDriverUtils.webDriver.navigate().back();
@@ -501,7 +500,7 @@ public class CommonUtils extends WebDriverUtils {
 
     /**
      * @Author @SonikaJain
-     *         To maximize the window
+     * To maximize the window
      */
     public static void maximizeWindow() {
         WebDriverUtils.webDriver.manage().window().maximize();
@@ -624,7 +623,7 @@ public class CommonUtils extends WebDriverUtils {
 
     /**
      * USE THIS METHOD TO CLICK ON STALE ELEMENTS
-     * 
+     *
      * @param ele
      */
     public static void clickOnElement(WebElement ele) {
@@ -642,7 +641,7 @@ public class CommonUtils extends WebDriverUtils {
 
     /**
      * USE THIS METHOD TO SEND KEYS TO STALE ELEMENTS
-     * 
+     *
      * @param ele
      */
     public static void sendKeysToElement(WebElement ele, String text) {
@@ -660,7 +659,7 @@ public class CommonUtils extends WebDriverUtils {
 
     /***
      * USE THIS METHOD TO GET THE ATTRIBUTE VALUE OF THE VALUE ATTRIBUTE
-     * 
+     *
      * @param element
      * @return
      */
@@ -694,7 +693,7 @@ public class CommonUtils extends WebDriverUtils {
      * USE THIS METHOD TO VERIFY IF A VALUE HAS BEEN SELECTED IN A DROP DOWN, IF IT
      * IS NOT SELECTED, A NoSuchElementException IS THROWN THAT IS ALSO HANDLED WITH
      * THIS METHOD
-     * 
+     *
      * @param element
      * @param expectedValue
      * @param message
@@ -722,12 +721,12 @@ public class CommonUtils extends WebDriverUtils {
         element.sendKeys(value);
     }
 
-    public static void hoverOverElement(WebElement e){
+    public static void hoverOverElement(WebElement e) {
         Actions actions = new Actions(WebDriverUtils.webDriver);
         actions.moveToElement(e).build().perform();
     }
 
-    public static void hoverAndClickElement(int x, int y){
+    public static void hoverAndClickElement(int x, int y) {
         Actions actions = new Actions(WebDriverUtils.webDriver);
         actions.moveToLocation(x, y).build().perform();
     }
