@@ -14,10 +14,8 @@ import io.cucumber.testng.CucumberOptions;
 public class RunLDLinkSmokeTest  extends AbstractTestNGCucumberTests {
 	@BeforeClass
 	public static void runSetup() {
-
 		String reportsOutput = LocalConfUtils.getRootDir() + File.separator + "html-reports";
 		ConfUtils.setBaseResultsDir(reportsOutput);
 		System.out.println("Starting Test Execution...");
 	}
-
 }

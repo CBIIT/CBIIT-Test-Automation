@@ -35,6 +35,48 @@
 		</native>
 		
 	</application>
+
+	<!-- Application ID for GWAS Explorer -->
+	<application id="GWASExplorer">
+		<login_url>https://exploregwas-dev.cancer.gov/#/</login_url> <!--
+			add test url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId> <!-- add encrypted test user -->
+				<password></password> <!-- add encrypted test pass -->
+			</user>
+		</role>
+		<db>
+			<default>
+				<driverclassname></driverclassname> <!-- Add driver class-name -->
+				<url></url> <!-- complete string url -->
+				<username></username> <!-- Add db username -->
+				<password></password> <!-- Add db password -->
+			</default> <!-- comment -->
+		</db>
+	</application>
+
+	<!-- Application ID for cProSite -->
+	<application id="cProSite">
+		<login_url>https://cprosite-dev.ccr.cancer.gov/#/</login_url> <!--
+			add test url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId> <!-- add encrypted test user -->
+				<password></password> <!-- add encrypted test pass -->
+			</user>
+		</role>
+		<db>
+			<default>
+				<driverclassname></driverclassname> <!-- Add driver class-name -->
+				<url></url> <!-- complete string url -->
+				<username></username> <!-- Add db username -->
+				<password></password> <!-- Add db password -->
+			</default> <!-- comment -->
+		</db>
+	</application>
 	
 	<application id="CEDCD">
 		<login_url>https://cedcd-dev.nci.nih.gov/home</login_url>
