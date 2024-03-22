@@ -34,48 +34,48 @@ public class InternalUserSteps extends PageInitializer {
     @Given("User enters {string} into a first name field")
     public void user_enters_into_a_first_name_field(String firstName) {
         CommonUtils.waitForVisibility(cCRApplicationPage.firstNameField);
-        CommonUtils.sendKeys(cCRApplicationPage.firstNameField,firstName);
+        CommonUtils.sendKeys(cCRApplicationPage.firstNameField, firstName);
     }
 
     @Given("User enter {string} into a middle name field")
     public void user_enter_into_a_middle_name_field(String middleName) {
         CommonUtils.waitForVisibility(cCRApplicationPage.middleNameField);
-        CommonUtils.sendKeys(cCRApplicationPage.middleNameField,middleName);
+        CommonUtils.sendKeys(cCRApplicationPage.middleNameField, middleName);
     }
 
     @Given("User enters {string} into a last name field")
     public void user_enters_into_a_last_name_field(String lastName) {
         CommonUtils.waitForVisibility(cCRApplicationPage.lastNameField);
-        CommonUtils.sendKeys(cCRApplicationPage.lastNameField,lastName);
+        CommonUtils.sendKeys(cCRApplicationPage.lastNameField, lastName);
     }
 
     @Given("User enters {string} into an email field")
     public void user_enters_into_an_email_field(String email) {
         CommonUtils.waitForVisibility(cCRApplicationPage.emailField);
-        CommonUtils.sendKeys(cCRApplicationPage.emailField,email);
+        CommonUtils.sendKeys(cCRApplicationPage.emailField, email);
     }
 
     @Given("User enters {string} into a phone field")
     public void user_enters_into_a_phone_field(String phone) {
         CommonUtils.waitForVisibility(cCRApplicationPage.phoneField);
-        CommonUtils.sendKeys(cCRApplicationPage.phoneField,phone);
+        CommonUtils.sendKeys(cCRApplicationPage.phoneField, phone);
     }
 
     @Given("User enters {string} into a business phone field")
     public void user_enters_into_a_business_phone_field(String businessPhone) {
-        CommonUtils.waitForVisibility(cCRApplicationPage. businessPhoneField);
-        CommonUtils.sendKeys(cCRApplicationPage. businessPhoneField,businessPhone);
+        CommonUtils.waitForVisibility(cCRApplicationPage.businessPhoneField);
+        CommonUtils.sendKeys(cCRApplicationPage.businessPhoneField, businessPhone);
     }
 
     @Given("User selects {string} from a degree dropdown")
     public void user_selects_from_a_degree_dropdown(String phd) {
-        CommonUtils.selectDropDownValue(" Ph.D. ",cCRApplicationPage.degreeDropdown);
+        CommonUtils.selectDropDownValue(" Ph.D. ", cCRApplicationPage.degreeDropdown);
     }
 
     @Given("User enters {string} into an other degree field")
     public void user_enters_into_an_other_degree_field(String otherDegrees) {
         CommonUtils.waitForVisibility(cCRApplicationPage.otherDegreesField);
-        CommonUtils.sendKeys(cCRApplicationPage.otherDegreesField,otherDegrees);
+        CommonUtils.sendKeys(cCRApplicationPage.otherDegreesField, otherDegrees);
     }
 
     @Given("User confirms that User is a US Citizen")
@@ -86,31 +86,32 @@ public class InternalUserSteps extends PageInitializer {
     @Given("User enters {string} into an address field")
     public void user_enters_into_an_address_field(String address) {
         CommonUtils.waitForVisibility(cCRApplicationPage.addressField);
-        CommonUtils.sendKeys(cCRApplicationPage.addressField,address);
+        CommonUtils.sendKeys(cCRApplicationPage.addressField, address);
     }
 
     @Given("User enters {string} into an address2 field")
     public void user_enters_into_an_address2_field(String address2) {
         CommonUtils.waitForVisibility(cCRApplicationPage.address2Field);
-        CommonUtils.sendKeys(cCRApplicationPage.address2Field,address2);;
+        CommonUtils.sendKeys(cCRApplicationPage.address2Field, address2);
+        ;
     }
 
     @Given("User enters {string} into a city field")
     public void user_enters_into_a_city_field(String city) {
         CommonUtils.waitForVisibility(cCRApplicationPage.cityField);
-        CommonUtils.sendKeys(cCRApplicationPage.cityField,city);
+        CommonUtils.sendKeys(cCRApplicationPage.cityField, city);
     }
 
     @Given("User enters {string} into a state field")
     public void user_enters_into_a_state_field(String state) {
         CommonUtils.waitForVisibility(cCRApplicationPage.stateField);
-        CommonUtils.sendKeys(cCRApplicationPage.stateField,state);
+        CommonUtils.sendKeys(cCRApplicationPage.stateField, state);
     }
 
     @Given("User enters {string} into a zip field")
     public void user_enters_into_a_zip_field(String zip) {
         CommonUtils.waitForVisibility(cCRApplicationPage.zipcodeField);
-        CommonUtils.sendKeys(cCRApplicationPage.zipcodeField,zip);
+        CommonUtils.sendKeys(cCRApplicationPage.zipcodeField, zip);
     }
 
     @Given("User selects United States from a country dropdown for {string} section")
@@ -118,51 +119,51 @@ public class InternalUserSteps extends PageInitializer {
         cCRStepsImplementation.chooseUSA(country);
     }
 
-   @Given("User clicks Next button for {string} section")
-   public void user_clicks_next_button_for_section(String sectionName) throws TestingException {
-       cCRStepsImplementation.clickNextButton(sectionName);
-   }
+    @Given("User clicks Next button for {string} section")
+    public void user_clicks_next_button_for_section(String sectionName) throws TestingException {
+        cCRStepsImplementation.clickNextButton(sectionName);
+    }
 
     @Given("User enters {string} into a department field")
     public void user_enters_into_a_department_field(String department) {
         CommonUtils.waitForVisibility(cCRApplicationPage.departmentField);
-        CommonUtils.sendKeys(cCRApplicationPage.departmentField,department);
+        CommonUtils.sendKeys(cCRApplicationPage.departmentField, department);
     }
 
     @Given("User enters {string} into an institution field")
     public void user_enters_into_an_institution_field(String institution) {
         CommonUtils.waitForVisibility(cCRApplicationPage.institutionField);
-        CommonUtils.sendKeys(cCRApplicationPage.institutionField,institution);
+        CommonUtils.sendKeys(cCRApplicationPage.institutionField, institution);
     }
 
     @Given("User enters {string} into a business address field")
     public void user_enters_into_a_business_address_field(String businessAddress) {
         CommonUtils.waitForVisibility(cCRApplicationPage.businessAddressField);
-        CommonUtils.sendKeys(cCRApplicationPage.businessAddressField,businessAddress);
+        CommonUtils.sendKeys(cCRApplicationPage.businessAddressField, businessAddress);
     }
 
     @Given("User enters {string} into a business address2 field")
     public void user_enters_into_a_business_address2_field(String businessAddress2) {
         CommonUtils.waitForVisibility(cCRApplicationPage.businessAddress2Field);
-        CommonUtils.sendKeys(cCRApplicationPage.businessAddress2Field,businessAddress2);
+        CommonUtils.sendKeys(cCRApplicationPage.businessAddress2Field, businessAddress2);
     }
 
     @Given("User enters {string} into a business city field")
     public void user_enters_into_a_business_city_field(String businessCity) {
         CommonUtils.waitForVisibility(cCRApplicationPage.businessCityField);
-        CommonUtils.sendKeys(cCRApplicationPage.businessCityField,businessCity);
+        CommonUtils.sendKeys(cCRApplicationPage.businessCityField, businessCity);
     }
 
     @Given("User enters {string} into a business state field")
     public void user_enters_into_a_business_state_field(String businessState) {
         CommonUtils.waitForVisibility(cCRApplicationPage.businessStateField);
-        CommonUtils.sendKeys(cCRApplicationPage.businessStateField,businessState);
+        CommonUtils.sendKeys(cCRApplicationPage.businessStateField, businessState);
     }
 
     @Given("User enters {string} into a business zip field")
     public void user_enters_into_a_business_zip_field(String businessZip) {
         CommonUtils.waitForVisibility(cCRApplicationPage.businessZipField);
-        CommonUtils.sendKeys(cCRApplicationPage.businessZipField,businessZip);
+        CommonUtils.sendKeys(cCRApplicationPage.businessZipField, businessZip);
     }
 
     @Given("User uploads {string} document")
@@ -181,13 +182,14 @@ public class InternalUserSteps extends PageInitializer {
     }
 
     @Given("User selects {string} for the question on whether the ad posted on the website contains enough information to decide on applying for a job")
-    public void user_selects_for_the_question_on_whether_the_ad_posted_on_the_website_contains_enough_information_to_decide_on_applying_for_a_job(String option) {
+    public void user_selects_for_the_question_on_whether_the_ad_posted_on_the_website_contains_enough_information_to_decide_on_applying_for_a_job(
+            String option) {
         cCRStepsImplementation.selectAdInformationOption(option);
     }
 
     @Given("User inputs {string} in the changing process text field")
     public void user_inputs_in_the_changing_process_text_field(String text) {
         CommonUtils.waitForVisibility(cCRApplicationPage.textFieldSuggestions);
-        CommonUtils.sendKeys(cCRApplicationPage.textFieldSuggestions,text);
+        CommonUtils.sendKeys(cCRApplicationPage.textFieldSuggestions, text);
     }
 }

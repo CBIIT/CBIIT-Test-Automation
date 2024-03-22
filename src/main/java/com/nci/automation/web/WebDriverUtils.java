@@ -29,18 +29,18 @@ public class WebDriverUtils {
 
         String browser = ConfUtils.getProperty("browser");
 
-            if (FrameworkConstants.BROWSER_CHROME.equalsIgnoreCase(browser)) {
-                launchChrome();
-            } else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_FIREFOX)) {
-                launchFirefox();
-            } else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_SAFARI)) {
-                launchSafari();
-            } else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_EDGE)) {
-                launchEdge();
-            } else {
-                throw new RuntimeException("INVALID BROWSER");
-            }
+        if (FrameworkConstants.BROWSER_CHROME.equalsIgnoreCase(browser)) {
+            launchChrome();
+        } else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_FIREFOX)) {
+            launchFirefox();
+        } else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_SAFARI)) {
+            launchSafari();
+        } else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_EDGE)) {
+            launchEdge();
+        } else {
+            throw new RuntimeException("INVALID BROWSER");
         }
+    }
 
     /**
      * This method will close the current web-driver
@@ -73,11 +73,11 @@ public class WebDriverUtils {
         String headless = ConfUtils.getProperty("headless");
 
         if (osName.contains("Windows")) {
-            if(headless.equalsIgnoreCase(FrameworkConstants.TRUE)){
+            if (headless.equalsIgnoreCase(FrameworkConstants.TRUE)) {
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--headless=new");
                 webDriver = new ChromeDriver(chromeOptions);
-            }else {
+            } else {
                 webDriver = new ChromeDriver();
                 webDriver.manage().window().maximize();
                 webDriver.manage().deleteAllCookies();
@@ -85,11 +85,14 @@ public class WebDriverUtils {
                 shadowDriver.setImplicitWait(20);
             }
         } else if (osName.contains("Mac")) {
-            if(headless.equalsIgnoreCase(FrameworkConstants.TRUE)){
+            if (headless.equalsIgnoreCase(FrameworkConstants.TRUE)) {
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--headless=new");
                 webDriver = new ChromeDriver(chromeOptions);
-            }else {
+                webDriver.manage().window().maximize();
+                webDriver.manage().deleteAllCookies();
+                webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+            } else {
                 webDriver = new ChromeDriver();
                 webDriver.manage().window().maximize();
                 webDriver.manage().deleteAllCookies();
@@ -99,6 +102,9 @@ public class WebDriverUtils {
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--headless=new");
             webDriver = new ChromeDriver(chromeOptions);
+            webDriver.manage().window().maximize();
+            webDriver.manage().deleteAllCookies();
+            webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         }
     }
 

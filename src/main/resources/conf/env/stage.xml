@@ -7,8 +7,8 @@
 	<application id="covid19dashboard">
 
 		<login_url>https://service-stage.nci.nih.gov/nih-covid-19-dashboard?xpage=landing_pub
-		</login_url> <!-- add Stage url -->
-
+		</login_url> <!--
+		add Stage url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -16,7 +16,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -25,15 +24,11 @@
 				<password></password> <!-- Add db password -->
 			</default>
 		</db>
-
 	</application>
 
-	<!-- Application ID for Native View -->
-	<application id="nativeview">
-
-		<login_url>https://service-stage.nci.nih.gov/ncisp</login_url> <!-- add 
-			Stage url -->
-
+	<!-- Application ID for GDS Tracking -->
+	<application id="GDSTracking">
+		<login_url>https://gds-stage.nci.nih.gov/gds/search/home.action</login_url> <!-- add test url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -41,7 +36,26 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
+		<db>
+			<default>
+				<driverclassname></driverclassname> <!-- Add driver class-name -->
+				<url></url> <!-- complete string url -->
+				<username></username> <!-- Add db username -->
+				<password></password> <!-- Add db password -->
+			</default> <!-- comment -->
+		</db>
+	</application>
 
+	<!-- Application ID for Native View -->
+	<application id="nativeview">
+		<login_url>https://service-stage.nci.nih.gov/ncisp</login_url> <!-- add Stage url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId> <!-- add encrypted test user -->
+				<password></password> <!-- add encrypted test pass -->
+			</user>
+		</role>
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -54,9 +68,7 @@
 
 	<!-- Application ID for CHARMS -->
 	<application id="CHARMS">
-
 		<login_url></login_url> <!-- add Stage url -->
-
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -64,7 +76,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -77,10 +88,7 @@
 
 	<!-- Application ID for COVIDCode -->
 	<application id="COVIDCode">
-
-		<login_url>https://service-stage.nci.nih.gov/covidcode</login_url> <!-- 
-			add stage url -->
-
+		<login_url>https://service-stage.nci.nih.gov/covidcode</login_url> <!-- add stage url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -88,7 +96,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -101,7 +108,6 @@
 
 	<!-- Application ID for CEDCD -->
 	<application id="CEDCD">
-
 		<login_url>https://cedcd-stage.nci.nih.gov/</login_url> <!-- add stage url -->
 		<role name="Role">
 			<user id="regular">
@@ -110,7 +116,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -123,10 +128,8 @@
 
 	<!-- Application ID for myRAS Study - CHARMS -->
 	<application id="myRASLoginPage">
-
 		<login_url>https://service-stage.nci.nih.gov/myras
 		</login_url> <!-- add test url -->
-
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -134,7 +137,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -143,12 +145,10 @@
 				<password></password> <!-- Add db password -->
 			</default>
 		</db>
-
 	</application>
 
 	<!-- Application ID for NERD -->
 	<application id="NERD">
-
 		<login_url>https://service-stage.nci.nih.gov/nerd
 		</login_url> <!-- add test url -->
 		<role name="Role">
@@ -158,7 +158,6 @@
 				<password></password> <!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname> <!-- Add driver class-name -->
@@ -167,10 +166,10 @@
 				<password></password> <!-- Add db password -->
 			</default>
 		</db>
-
 	</application>
 
 	<!-- Application ID for Native View Sidedoor-->
+
 	<application id="Native View Side Door">
 
 		<login_url>https://service-stage.nci.nih.gov/side_door.do</login_url> <!-- add test 
@@ -191,10 +190,10 @@
 			</default>
 		</db>
 	</application>
+
 	<!-- Application ID for EIDP -->
 	<application id="EidpUrlNHGRI">
-		<login_url>https://idp-stage.nih.gov/nhgri/idp</login_url> <!-- add stage 
-			url -->
+		<login_url>https://idp-stage.nih.gov/nhgri/idp</login_url> <!-- add stage url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -211,6 +210,7 @@
 			</default>
 		</db>
 	</application>
+
 	<application id="EidpUrlNCI">
 		<login_url>https://idp-stage.nih.gov/nci/idp</login_url> <!-- add stage 
 			url -->
@@ -251,5 +251,46 @@
 		</db>
 	</application>
 
+	<!-- Application ID for ezQTL-->
+	<application id="ezQTL">
+		<login_url>https://analysistools-stage.cancer.gov/ezqtl/#/home
+		</login_url> <!-- add test url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId> <!-- add encrypted test user -->
+				<password></password> <!-- add encrypted test pass -->
+			</user>
+		</role>
+		<db>
+			<default>
+				<driverclassname></driverclassname> <!-- Add driver class-name -->
+				<url></url> <!-- complete string url -->
+				<username></username> <!-- Add db username -->
+				<password></password> <!-- Add db password -->
+			</default>
+		</db>
+	</application>
 
+	<!-- Application ID for mSigPortal-->
+	<application id="mSigPortal">
+		<login_url>https://analysistools-stage.cancer.gov/mutational-signatures/#/
+		</login_url> <!-- add test url -->
+
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId> <!-- add encrypted test user -->
+				<password></password> <!-- add encrypted test pass -->
+			</user>
+		</role>
+		<db>
+			<default>
+				<driverclassname></driverclassname> <!-- Add driver class-name -->
+				<url></url> <!-- complete string url -->
+				<username></username> <!-- Add db username -->
+				<password></password> <!-- Add db password -->
+			</default>
+		</db>
+	</application>
 </environment>

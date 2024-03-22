@@ -12,14 +12,14 @@ Feature: MCAExplorer features
     Then go back to full circle
     Then verify if the circle is present on the screen
 
-  @TC2 @satya @Regression @NCIATWP-6606 @NCIATWP-5438
+  @TC2 @satya @Regression  @NCIATWP-6606 @NCIATWP-5438
   Scenario: Verify graph & table will be empty when we removed the mandatory fields & try to plot the graph
     Given User navigates to MCAExplorer page
     When User clears the mandatory field Study
     And clicks on submit button
     Then verify that there are 0 rows in the result
 
-  @TC3 @satya @Regression @NCIATWP-6676 @NCIATWP-6797
+  @TC3 @satya @Smoke @Regression @NCIATWP-6676 @NCIATWP-6797
   Scenario: Verify data with different plot types
     Given User navigates to MCAExplorer page
     Then user select "Chromosome level" in plot type

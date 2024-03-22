@@ -1,26 +1,18 @@
-Feature: LDLink Homepage and Landingpage Validation 
+Feature: These scenarios verifiy LDLink Homepage and Landing Page Validation
 
+    @Smoke @Regression @matakevin
+    Scenario: Analysis Tools Page - Validate LDlink
+        Given a LDlink user opens Analysis Tools page
+        Then user verifies "LDLink" present on the screen
+        Then user verifies the description "A suite of web-based applications designed to easily and efficiently explore linkage disequilibrium in population subgroups. All population genotype data originates from Phase 3 of the 1000 Genomes Project and variant RS numbers are indexed based on dbSNP build 151."
 
-@Smoke 
-Scenario: Analysis Tools Page - Validate LDlink
-When a LDlink user opens Analysis Tools page
-Then user verify "LDLink" present on the screen
-And user verify the description "A suite of web-based applications designed to easily and efficiently explore linkage disequilibrium in population subgroups. All population genotype data originates from Phase 3 of the 1000 Genomes Project and variant RS numbers are indexed based on dbSNP build 151."
+    @Smoke @Regression @matakevin
+    Scenario: User navigates from landing page to home page
+        Given a LDlink user opens Analysis Tools page
+        When user clicks LDLink on landing page
+        Then User verify title is "LDlink is a suite of web-based applications designed to easily and efficiently interrogate linkage disequilibrium in population groups. Each included application is specialized for querying and displaying unique aspects of linkage disequilibrium."
 
-
-@Smoke
-Scenario: User navigates from landing page to home page
-Given a LDlink user opens Analysis Tools page
-When user clicks LDLink on landing page 
-Then User verify title is "LDlink | An Interactive Web Tool for Exploring Linkage Disequilibrium in Population Groups"
-
-
-@Smoke
-Scenario: Home Page - Validate LDlink
-When a LDlink user opens home page
-Then User verify title is "LDlink | An Interactive Web Tool for Exploring Linkage Disequilibrium in Population Groups"
-
-
-
-			
-			
+    @Smoke @Regression @matakevin
+    Scenario: Home Page - Validate LDlink
+        When a LDlink user opens home page
+        Then User verify title is "LDlink is a suite of web-based applications designed to easily and efficiently interrogate linkage disequilibrium in population groups. Each included application is specialized for querying and displaying unique aspects of linkage disequilibrium."
