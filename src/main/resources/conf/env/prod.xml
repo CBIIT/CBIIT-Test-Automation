@@ -4,12 +4,9 @@
 
 	<profile-name>automation</profile-name>
 
-		<!-- Application ID for LDLink -->
+	<!-- Application ID for LDLink -->
 	<application id="LDLink">
-
-		<login_url>https://ldlink.nci.nih.gov/?tab=home</login_url><!-- add prod 
-			url -->
-
+		<login_url>https://ldlink.nih.gov/?tab=home</login_url><!-- add prod url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -17,7 +14,6 @@
 				<password></password><!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname><!-- Add driver class-name -->
@@ -27,14 +23,11 @@
 			</default><!-- comment -->
 		</db>
 	</application>
-	
-	
+
 	<!-- Application ID for Analysistools -->
 	<application id="Analysistools">
 
-		<login_url>https://analysistools.cancer.gov/</login_url><!-- add prod 
-			url -->
-
+		<login_url>https://analysistools.cancer.gov/</login_url><!-- add prod url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -42,7 +35,6 @@
 				<password></password><!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname><!-- Add driver class-name -->
@@ -52,14 +44,11 @@
 			</default><!-- comment -->
 		</db>
 	</application>
-	
-	
-		<!-- Application ID for CEDCD -->
+
+	<!-- Application ID for CEDCD -->
 	<application id="CEDCD">
 
-		<login_url>https://cedcd.nci.nih.gov/</login_url><!-- add prod 
-			url -->
-
+		<login_url>https://cedcd.nci.nih.gov/</login_url><!-- add prod url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -67,7 +56,6 @@
 				<password></password><!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname><!-- Add driver class-name -->
@@ -77,14 +65,10 @@
 			</default><!-- comment -->
 		</db>
 	</application>
-	
-	
-		<!-- Application ID for ICRP -->
+
+	<!-- Application ID for ICRP -->
 	<application id="ICRP">
-
-		<login_url>https://icrpartnership.org/</login_url><!-- add prod 
-			url -->
-
+		<login_url>https://icrpartnership.org/</login_url><!-- add prod url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -92,7 +76,6 @@
 				<password></password><!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname><!-- Add driver class-name -->
@@ -102,14 +85,10 @@
 			</default><!-- comment -->
 		</db>
 	</application>
-	
-	
-		<!-- Application ID for ICRP -->
+
+	<!-- Application ID for JPSurv -->
 	<application id="JPSurv">
-
-		<login_url>https://analysistools.cancer.gov/jpsurv/#</login_url><!-- add prod 
-			url -->
-
+		<login_url>https://analysistools.cancer.gov/jpsurv/#</login_url><!-- add prod url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
@@ -117,7 +96,6 @@
 				<password></password><!-- add encrypted test pass -->
 			</user>
 		</role>
-
 		<db>
 			<default>
 				<driverclassname></driverclassname><!-- Add driver class-name -->
@@ -127,13 +105,45 @@
 			</default><!-- comment -->
 		</db>
 	</application>
-	
-	
 
+	<!-- Application ID for mSigPortal -->
+	<application id="mSigPortal">
+		<login_url>https://analysistools.cancer.gov/mutational-signatures/#/</login_url><!-- add prod url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId><!-- add encrypted test user -->
+				<password></password><!-- add encrypted test pass -->
+			</user>
+		</role>
+		<db>
+			<default>
+				<driverclassname></driverclassname><!-- Add driver class-name -->
+				<url></url><!-- complete string url -->
+				<username></username><!-- Add db username -->
+				<password></password><!-- Add db password -->
+			</default><!-- comment -->
+		</db>
+	</application>
 
-
-
-	
-
-
+	<!-- Application ID for ezQTL-->
+	<application id="ezQTL">
+		<login_url>https://analysistools.cancer.gov/ezqtl/#/qtls
+		</login_url> <!-- add test url -->
+		<role name="Role">
+			<user id="regular">
+				<name>regular</name>
+				<userId></userId> <!-- add encrypted test user -->
+				<password></password> <!-- add encrypted test pass -->
+			</user>
+		</role>
+		<db>
+			<default>
+				<driverclassname></driverclassname> <!-- Add driver class-name -->
+				<url></url> <!-- complete string url -->
+				<username></username> <!-- Add db username -->
+				<password></password> <!-- Add db password -->
+			</default>
+		</db>
+	</application>
 </environment>

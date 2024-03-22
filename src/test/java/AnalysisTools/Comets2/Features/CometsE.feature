@@ -1,15 +1,15 @@
-Feature:
+Feature: These are the scenarios for the Comets Explorer application
 
 Description: This is the automated test suite for Comets Explorer
 
-@Smoke @MataRodriguezKO
+@Smoke @matakevin
 Scenario: Running Integrity Check
 Given the user is on the Comets homepage
 When the user clicks on the correlate
 And the user submits a file and checks Integrity
 Then the passed QC message appears
 
-@Smoke @MataRodriguezKO
+@Smoke @matakevin
 Scenario: Running Model
 Given the user is on the Comets homepage
 When the user clicks on the correlate

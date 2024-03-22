@@ -2,11 +2,8 @@ package ServiceNow.CHARMS.Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import java.util.List;
 
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
@@ -43,7 +40,6 @@ public class CHARMSNativeViewPage extends CommonUtils {
     @FindBy(xpath = "//a[normalize-space()='Open Record']")
     public WebElement nativeViewFamilyMemberDetailsPreviewAutomatedTestOpenRecordButton;
 
-
     /* Native view Family Member Details --> History Tab */
     @FindBy(xpath = "//span[normalize-space()='History']")
     public WebElement nativeViewFamilyMemberDetailsAutomatedTestRecordHistoryTab;
@@ -76,11 +72,13 @@ public class CHARMSNativeViewPage extends CommonUtils {
 
     /***
      * USE THIS METHOD TO DYNAMICALLY LOCATE CHARMS DASHBOARD MODULE LINKS
+     * 
      * @param text
      * @return
      */
     public WebElement dynamicDashboardModuleLinkLocator(String text) {
-        return WebDriverUtils.webDriver.findElement(By.xpath("(//*[text()='" + text + "']//parent::div//parent::div//parent::div)[1]/div[1]/following-sibling::div/div/div[3]/div/div/span/a"));
+        return WebDriverUtils.webDriver.findElement(By.xpath("(//*[text()='" + text
+                + "']//parent::div//parent::div//parent::div)[1]/div[1]/following-sibling::div/div/div[3]/div/div/span/a"));
     }
 
     /**
