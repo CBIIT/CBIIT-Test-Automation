@@ -8,8 +8,8 @@ import io.cucumber.testng.CucumberOptions;
         , "junit:target/cucumber.xml"
         , "rerun:target/failed.txt","pretty"
         ,"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
-        , features="src/test/java/ServiceNow/SSJ/Features"
-        , glue="ServiceNow.SSJ.Steps"
+        , features="src/test/java/ServiceNow/PlatformBusinessApps/SSJ/selenium/Features"
+        , glue="ServiceNow.PlatformBusinessApps.SSJ.selenium.Steps"
         , tags="@Smoke"
         , dryRun =false
 )

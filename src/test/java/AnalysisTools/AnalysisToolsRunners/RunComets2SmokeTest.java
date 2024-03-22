@@ -11,7 +11,13 @@ import io.cucumber.testng.CucumberOptions;
 		, glue="AnalysisTools.Comets2.Steps"
 		, tags="@Smoke"
 		, dryRun = false
-		)
-/* @author sohilz2 */
-public class RunComets2SmokeTest extends AbstractTestNGCucumberTests{
+)
+
+/**
+ * This class is annotated with @RunWith(Cucumber.class) and it will run
+ * cucumber feature(s).
+ * 
+ * @author sohilz2
+ */
+public class RunComets2SmokeTest extends AbstractTestNGCucumberTests {
 }
