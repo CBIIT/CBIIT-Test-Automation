@@ -3,7 +3,7 @@ package ServiceNow.ServiceNowRunners.NERDRunners;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
-@CucumberOptions(plugin= {"html:target/html-reports/cucumber-default-report.html", "json:target/cucumber.json",
+@CucumberOptions(plugin= {"html:target/html-reports/cucumber-default-report", "json:target/cucumber.json",
         "junit:target/cucumber.xml", "rerun:target/failed.txt",
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         features="src/test/java/ServiceNow/PlatformBusinessApps/NERD/Features",
@@ -18,4 +18,6 @@ import io.cucumber.testng.CucumberOptions;
 */
 
 public class Run_NERD_Progression_Test extends AbstractTestNGCucumberTests {
+
+
 }

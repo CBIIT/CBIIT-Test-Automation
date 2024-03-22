@@ -238,12 +238,16 @@ public class NERDSubmissionsPage extends CommonUtils {
 
 	/**
 	 * ------------ BEGINNING OF CRS Knowledge Management System Submissions Page
-	 * COVID-19 Activities ------------
+	 * COVID-19 Activities by SUPER USER------------
 	 */
 
 	/** COVID-19 Activities Create New Submission Link Button */
 	@FindBy(xpath = "(//a[@ng-click='c.gotoNewSubmission(tab.tmpl,$event)'][normalize-space()='+ Create new Submission'])[4]")
 	public WebElement covid19CreateNewSubmissionButton;
+
+	/** Super User COVID-19 Activities Create New Submission Link Button */
+	@FindBy(xpath = "(//a[@ng-click='c.gotoNewEntry(tab.tmpl,$event,tab.category,tab.kb)'][normalize-space()='+ Add New Entry'])[4]")
+	public WebElement superUserCovid19CreateNewSubmissionButton;
 
 	/**
 	 * COVID-19 Activities This Activity Aligns With The Following NIH Covid-19
@@ -526,6 +530,12 @@ public class NERDSubmissionsPage extends CommonUtils {
 	public WebElement collaborationsButton;
 
 	/** ------------ END OF COLLABORATIONS CATEGORY LOCATORS PAGE ----------- */
+
+	/** ------------  OTHER ACCOMPLISHMENTS CATEGORY SUBMISSION LOCATORS PAGE ----------- */
+
+	/** Super User Other Accomplishments Create New Submission Link Button */
+	@FindBy(xpath = "(//a[@ng-click='c.gotoNewEntry(tab.tmpl,$event,tab.category,tab.kb)'][normalize-space()='+ Add New Entry'])[2]")
+	public WebElement superUserOtherAccomplishmentsCreateNewSubmissionButton;
 
 	public NERDSubmissionsPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
