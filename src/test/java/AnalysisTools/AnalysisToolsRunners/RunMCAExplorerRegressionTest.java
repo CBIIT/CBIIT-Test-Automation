@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
 	    "junit:target/cucumber.xml", "rerun:target/failed.txt", "pretty" }
         , features = {"src/test/java/AnalysisTools/MCAExplorer/Features" }
         , glue = "AnalysisTools.MCAExplorer.Steps"
-        , tags = "@Regression"
+        , tags = "@Progression"
         , dryRun = false
 )
 public class RunMCAExplorerRegressionTest extends AbstractTestNGCucumberTests{
