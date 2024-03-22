@@ -1,12 +1,18 @@
 package ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation;
 
+import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Profile_Tab_After_Submission_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Profile_Tab_Page;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.PlaywrightUtils;
+import org.testng.Assert;
 
 public class ApplicantProfileStepsImpl {
 
+    /***
+     * THIS METHOD LOGS INTO SSJ WITH AN IMPERSONATED USER
+     * @param user
+     */
     public static void ssjLogin(String user) {
         if (user.equals ("OWM Vacancy Manager")) {
 
@@ -18,8 +24,23 @@ public class ApplicantProfileStepsImpl {
         }
     }
 
+    /**
+     * USE THIS METHOD TO SELECT THE HIGHEST EDUCATION WHEN FILLING OUT THE PROFILE PAGE
+     * @param highestDegree
+     */
     public static void selects_highest_education(String highestDegree){
         PlaywrightUtils.page.getByLabel(Profile_Tab_Page.highestLevelOfEducationDropDown).click();
         PlaywrightUtils.page.getByTitle(highestDegree).locator("div").click();
+    }
+
+    /**
+     * USE THIS METHOD TO VERIFY THE FULL NAME THAT WAS SUBMITTED VIA THE PROFILE PAGE
+     * @param firstName
+     * @param middleName
+     * @param lastName
+     */
+    public static void user_verifies_that_first_name_middle_name_and_last_name_saved_display_as_expected(String firstName, String middleName, String lastName){
+        String actualName = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.fullNameHeader).innerText();
+        Assert.assertEquals(actualName, firstName + " " + middleName + " " + lastName);
     }
 }

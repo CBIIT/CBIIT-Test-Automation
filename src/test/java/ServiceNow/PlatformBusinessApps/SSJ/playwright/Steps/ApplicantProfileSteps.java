@@ -1,5 +1,6 @@
 package ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps;
 
+import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Profile_Tab_After_Submission_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Profile_Tab_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.User_Table_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl;
@@ -111,8 +112,7 @@ public class ApplicantProfileSteps {
 
     @Then("user verifies that first name {string}, middle name {string}, and last name {string} saved display as expected")
     public void user_verifies_that_first_name_middle_name_and_last_name_saved_display_as_expected(String firstName, String middleName, String lastName) {
-        String actualName = PlaywrightUtils.page.locator("(//h4)[1]").innerText();
-        Assert.assertEquals(actualName, firstName + " " + middleName + " " + lastName);
+        ApplicantProfileStepsImpl.user_verifies_that_first_name_middle_name_and_last_name_saved_display_as_expected(firstName, middleName, lastName);
     }
 
     @Then("verifies that the saved address displays with {string}, {string}, {string}, {string}, {string}, {string}")
