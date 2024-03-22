@@ -38,7 +38,6 @@ public class CreateNewSubmissionPage extends CommonUtils {
 	@FindBy(xpath = "(//select[@id='x_26385_crs_kd_u_kb_nci_activities'])[1]")
 	public WebElement nCIActivitiesDropDown;
 
-
 	/** Please Specify Text */
 	@FindBy(xpath = "//div[@style='display:inline-flex;']/h4[contains(text(),'Please specify')]")
 	public WebElement pleaseSpecifyText;

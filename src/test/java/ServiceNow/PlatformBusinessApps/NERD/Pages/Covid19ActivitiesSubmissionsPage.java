@@ -27,7 +27,6 @@ public class Covid19ActivitiesSubmissionsPage extends CommonUtils {
     public static WebElement nihCovid19StrategicPlanCheckBoxesSingleElement(String value) {
         return WebDriverUtils.webDriver
                 .findElement(By.xpath("//md-checkbox[@aria-label='" + value + "']//div[@class='md-container md-ink-ripple']"));
-
     }
 
     /** NIH COVID--19 SPECIAL TOPIC COVID-19 CHECK BOX**/
@@ -66,9 +65,7 @@ public class Covid19ActivitiesSubmissionsPage extends CommonUtils {
     @FindBy(xpath = "(//div[@class='ng-binding ng-scope'])[2]")
     public WebElement nerdOtherAccomplishmentsButton;
 
-
     /** ------------ CREATE NEW OTHER ACCOMPLISHMENTS SECTION ----------- */
-
 
     public Covid19ActivitiesSubmissionsPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
