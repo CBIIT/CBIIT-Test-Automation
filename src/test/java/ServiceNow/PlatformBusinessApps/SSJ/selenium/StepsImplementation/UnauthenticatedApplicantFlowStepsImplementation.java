@@ -1,6 +1,5 @@
 package ServiceNow.PlatformBusinessApps.SSJ.selenium.StepsImplementation;
 
-
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -33,18 +32,10 @@ public class UnauthenticatedApplicantFlowStepsImplementation extends PageInitial
     }
 
     public boolean verifyRegisteredOktaUserPage() {
-        if (unauthenticatedApplicantPage.signInWithPivCardButton.isDisplayed()) {
-            return true;
-        } else {
-            return false;
-        }
+        return unauthenticatedApplicantPage.signInWithPivCardButton.isDisplayed();
     }
 
     public boolean verifyNIHLoginPage() {
-        if (unauthenticatedApplicantPage.nihPageLogo.isDisplayed()) {
-            return true;
-        } else {
-            return false;
-        }
+        return unauthenticatedApplicantPage.nihPageLogo.isDisplayed();
     }
 }

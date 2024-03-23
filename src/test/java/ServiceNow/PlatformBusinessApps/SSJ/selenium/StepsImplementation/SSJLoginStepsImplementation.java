@@ -1,6 +1,6 @@
 package ServiceNow.PlatformBusinessApps.SSJ.selenium.StepsImplementation;
 
-import ServiceNow.SSJ.Constants.SSJ_Constants;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.Constants.SSJ_Constants;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import appsCommon.PageInitializers.PageInitializer;

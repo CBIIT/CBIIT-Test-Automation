@@ -770,7 +770,6 @@
                 <name>regular</name>
                 <userId></userId> <!-- add encrypted test user -->
                 <password></password> <!-- add encrypted test pass -->
-                <password></password> <!-- add encrypted test pass -->
             </user>
         </role>
         <db>

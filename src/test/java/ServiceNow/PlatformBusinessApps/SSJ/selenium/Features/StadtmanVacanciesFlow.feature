@@ -24,21 +24,3 @@ Feature: Stadtman Vacancy Scenarios
     And User can see all vacancies
     And User navigates and can see all vacancies under "Your Vacancies" tab
     And used navigates to see "Reports"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

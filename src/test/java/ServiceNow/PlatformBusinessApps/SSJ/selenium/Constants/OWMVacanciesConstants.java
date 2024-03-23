@@ -1,4 +1,3 @@
-
 package ServiceNow.PlatformBusinessApps.SSJ.selenium.Constants;
 
 import com.nci.automation.web.CommonUtils;
@@ -6,8 +5,7 @@ import com.nci.automation.web.CommonUtils;
 public class OWMVacanciesConstants {
     public static final String VACANCY_TITLE = "OWM " + CommonUtils.lastNameRandomizer();
     public static final String VACANCY_DESCRIPTION = "OMW Test Description";
-  //  public static final String TODAYS_DATE = CommonUtils.getDateAsString();
-   public static final String TODAYS_DATE = "03/21/2024";
+    public static final String TODAYS_DATE = "03/21/2024";
     public static final String VACANCY_CLOSE_DATE = "11/24/2024";
     public static final String VACANCY_SCORING_DUE_DATE = "11/24/2024";
     public static final String VACANCY_POSITION_CLASSIFICATION = "Senior Clinician (HS)";
@@ -24,8 +22,8 @@ public class OWMVacanciesConstants {
     public static final String SPECIALIZED_SCIENTIFIC_JOBS_TEXT = "Specialized Scientific Jobs";
     public static final String[] VACANCY_POSITION_CLASSIFICATIONS = {"Research Fellow", "Senior Research Fellow", "Staff Scientist 1", "Investigator 1", "Clinical Fellow", "Senior Clinical Fellow",
             "Assistant Clinical Investigator 1", "Staff Clinician 1", "Science Policy Leader Tier 2", "Science Program Leader Tier 2", "Senior Investigator", "Senior Investigator (HS)", "Investigator 2",
-            "Investigator (HS)", "Senior Clinician", "Senior Clinician (HS)", "Senior Scientist", "Assistant Clinical Investigator 2",  "Assistant Clinical Investigator (HS)", "Staff Clinician 2", "Staff Clinician (HS)",
-            "Staff Scientist 2", "Staff Scientist 2 (Clinical)", "Staff Scientist 2 (Facility Head)", "Scientific Executive", "Senior Scientific Officer","SBRBPAS", "N/A"};
+            "Investigator (HS)", "Senior Clinician", "Senior Clinician (HS)", "Senior Scientist", "Assistant Clinical Investigator 2", "Assistant Clinical Investigator (HS)", "Staff Clinician 2", "Staff Clinician (HS)",
+            "Staff Scientist 2", "Staff Scientist 2 (Clinical)", "Staff Scientist 2 (Facility Head)", "Scientific Executive", "Senior Scientific Officer", "SBRBPAS", "N/A"};
     public static final String VACANCY_INSTITUTE = "NCI";
     public static final String VACANCY_TITLE_COLUMN_OPTION = "Vacancy Title";
     public static final String VACANCY_INSTITUTE_COLUMN_OPTION = "Institute/Office/Program";

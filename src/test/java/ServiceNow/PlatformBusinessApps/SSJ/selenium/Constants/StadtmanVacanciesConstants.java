@@ -1,4 +1,3 @@
-
 package ServiceNow.PlatformBusinessApps.SSJ.selenium.Constants;
 
 import com.nci.automation.web.CommonUtils;

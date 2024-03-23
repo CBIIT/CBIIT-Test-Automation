@@ -1,8 +1,8 @@
 package ServiceNow.PlatformBusinessApps.SSJ.selenium.Steps;
+
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-
 
 public class StadtmanVacancySteps  extends PageInitializer {
 

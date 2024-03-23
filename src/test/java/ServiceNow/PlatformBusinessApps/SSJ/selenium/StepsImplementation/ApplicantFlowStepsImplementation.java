@@ -1,4 +1,3 @@
-
 package ServiceNow.PlatformBusinessApps.SSJ.selenium.StepsImplementation;
 
 import appsCommon.PageInitializers.PageInitializer;
@@ -6,7 +5,6 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
@@ -164,7 +162,6 @@ public class ApplicantFlowStepsImplementation extends PageInitializer {
         robot.keyRelease(KeyEvent.VK_F4);
         robot.keyPress(KeyEvent.VK_DOWN);
         robot.keyPress(KeyEvent.VK_ENTER);
-
     }
 
     public boolean verifySSJLandingPageTitle(String title) {
@@ -215,14 +212,10 @@ public class ApplicantFlowStepsImplementation extends PageInitializer {
                 break;
         }
     }
+
     public boolean verifyYourApplicationsPageTitle(String title) {
         return applicantFlowPage.yourApplicationsPageTitle.getText().equals(title);
     }
 }
-
-
-
-
-
 
 

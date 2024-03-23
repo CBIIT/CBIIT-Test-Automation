@@ -1,6 +1,4 @@
-
-package ServiceNow.SSJ.Steps;
-
+package GrantsApps.EM.selenium.Steps;
 
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;

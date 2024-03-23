@@ -58,11 +58,11 @@ import ServiceNow.PlatformBusinessApps.GCP.Pages.GCPNotifications_NativeViewPage
 import ServiceNow.PlatformBusinessApps.NERD.Pages.*;
 import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NERDLoginStepsImplementation;
 import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NativeViewImpersonateUser;
-import ServiceNow.SSJ.Pages.*;
-import ServiceNow.SSJ.StepsImplementation.*;
 import ServiceNow.PlatformBusinessApps.SEER.Pages.*;
 import ServiceNow.PlatformBusinessApps.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.Pages.*;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.StepsImplementation.*;
 import appsCommon.Pages.ITrustLoginPage;
 import appsCommon.Pages.NativeViewHomePage;
 import appsCommon.Pages.ServiceNow_NCISP_Page;
@@ -190,6 +190,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static UnauthenticatedApplicantPage unauthenticatedApplicantPage;
 	public static StadtmanVacancyPage stadtmanVacancyPage;
 	public static ApplicantFlowPage applicantFlowPage;
+
 	public static StadtmanVacancyStepsImplementation stadtmanVacancyStepsImplementation;
 	public static OWMVacancyStepsImplementation oWMVacancyStepsImplementation;
 	public static SSJLoginStepsImplementation sSJLoginStepsImplementation;
@@ -330,6 +331,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewEnrollmentsPage nativeViewEnrollementsPage;
 	public static NativeViewEnrollmentViewPage nativeViewEnrollmentViewPage;
 	public static NativeViewStepsImpl nativeViewStepsImpl;
+	public static NativeViewSSJReportsPage nativeViewSSJReportsPage;
 	public static NativeViewCustomersPage nativeViewCustomersPage;
 	public static NativeViewSentViewPage nativeViewSentViewPage;
 	public static NativeViewAccessRequestPage nativeViewAccessRequestPage;
@@ -340,7 +342,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewCHARMSParticipantDetailsPage nativeViewCHARMSParticipantDetailsPage;
 	public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
 	public static NativeViewCHARMSParticipantStudyPage nativeViewCHARMSParticipantStudyPage;
-	public static NativeViewSSJReportsPage nativeViewSSJReportsPage;
+
 
 	/** --------------- EGRANTS INSTANCES --------------- */
 	public static EgrantsQuickLinkAndManagementMenuPage egrantsQuickLinkAndManagementMenuPage;

@@ -21,12 +21,6 @@ public class UnauthenticatedApplicantSteps extends PageInitializer {
         MiscUtils.sleep(3000);
     }
 
-    @When("User  clicks on the register for Okta within the Login dropdown")
-    public void user_clicks_on_the_register_for_Okta_within_the_Login_dropdown() {
-        CommonUtils.clickOnElement(unauthenticatedApplicantPage.registerForOkta);
-        MiscUtils.sleep(2000);
-    }
-
     @Given("User clicks {string} option")
     public void user_clicks_option(String option) {
         unauthenticatedApplicantFlowStepsImplementation.clickLogInOption(option);
@@ -37,7 +31,6 @@ public class UnauthenticatedApplicantSteps extends PageInitializer {
         Assert.assertTrue(unauthenticatedApplicantFlowStepsImplementation.verifyRegisteredOktaUserPage());
     }
 
-
     @When("User enters registration details")
     public void user_enters_registration_details() {
         CommonUtils.sendKeys(unauthenticatedApplicantPage.firstNameOktaRegistration, "Elena");
@@ -46,7 +39,6 @@ public class UnauthenticatedApplicantSteps extends PageInitializer {
         MiscUtils.sleep(2000);
         CommonUtils.sendKeys(unauthenticatedApplicantPage.phoneNumberOktaRegistration, "7892223434");
         MiscUtils.sleep(2000);
-
     }
 
     @When("User enters an email that has an Okta account assigned to it")
@@ -117,6 +109,6 @@ public class UnauthenticatedApplicantSteps extends PageInitializer {
 
     @Then("User is redirected to NIH Login Page")
     public void user_is_redirected_to_nih_login_page() {
-        unauthenticatedApplicantFlowStepsImplementation.verifyNIHLoginPage();
+        Assert.assertTrue(unauthenticatedApplicantFlowStepsImplementation.verifyNIHLoginPage());
     }
 }

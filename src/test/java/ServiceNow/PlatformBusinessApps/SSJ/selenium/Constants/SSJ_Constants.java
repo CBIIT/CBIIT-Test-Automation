@@ -1,4 +1,3 @@
-
 package ServiceNow.PlatformBusinessApps.SSJ.selenium.Constants;
 
 public class SSJ_Constants {

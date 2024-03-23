@@ -12,127 +12,189 @@ public class ApplicantFlowPage extends CommonUtils {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
 
-    /** tab Profile **/
+    /**
+     * tab Profile
+     **/
     @FindBy(xpath = "//span[@class='ant-menu-title-content']//*[contains(text(),'Profile')]")
     public WebElement tabProfile;
 
-    /** tab Basic Information **/
+    /**
+     * tab Basic Information
+     **/
     @FindBy(xpath = "//div[contains(text(),'Basic Information')]")
     public WebElement tabPBasicInfo;
 
-    /** tab Demographics **/
+    /**
+     * tab Demographics
+     **/
     @FindBy(xpath = "//div[contains(text(),'Demographics (optional)')]")
     public WebElement tabDemographics;
 
-    /** button Edit Profile tab **/
+    /**
+     * button Edit Profile tab
+     **/
     @FindBy(xpath = "//button//span[contains(text(),'Edit')]")
     public WebElement btnEditProfileTab;
 
-    /**  Profile first name field **/
+    /**
+     * Profile first name field
+     **/
     @FindBy(xpath = "//input[@id='basic_firstName']")
     public WebElement fldFirstNameProfile;
 
-    /**  Profile middle name field **/
+    /**
+     * Profile middle name field
+     **/
     @FindBy(xpath = "//input[@id='basic_middleName']")
     public WebElement fldMiddleNameProfile;
 
-    /**  Profile last name field **/
+    /**
+     * Profile last name field
+     **/
     @FindBy(xpath = "//div//input[@id='basic_lastName']")
     public WebElement fldLastNameProfile;
 
-    /**  Profile email field **/
+    /**
+     * Profile email field
+     **/
     @FindBy(xpath = "//div//input[@id='basic_email']")
     public WebElement fldEmailProfile;
 
-    /**  Profile phone field **/
+    /**
+     * Profile phone field
+     **/
     @FindBy(xpath = "//span//input[@name='phone']")
     public WebElement fldPhoneProfile;
 
-    /**  Profile business phone field **/
+    /**
+     * Profile business phone field
+     **/
     @FindBy(xpath = "//span//input[@name='businessPhone']")
     public WebElement fldBusinessPhoneProfile;
 
-    /**  Profile address field **/
+    /**
+     * Profile address field
+     **/
     @FindBy(xpath = "//div//input[@id='basic_address_address']")
     public WebElement fldAddressProfile;
 
-    /**  Profile app number field **/
+    /**
+     * Profile app number field
+     **/
     @FindBy(xpath = "//div//input[@id='basic_address_address2']")
     public WebElement fldAppNumberProfile;
 
-    /**  Profile city field **/
+    /**
+     * Profile city field
+     **/
     @FindBy(xpath = "//div//input[@id='basic_address_city']")
     public WebElement fldCityProfile;
 
-    /**  Profile state field **/
+    /**
+     * Profile state field
+     **/
     @FindBy(xpath = "//div//input[@id='basic_address_stateProvince']")
     public WebElement fldStateProfile;
 
-    /**  Profile country field **/
+    /**
+     * Profile country field
+     **/
     @FindBy(xpath = "//div//input[@id='basic_address_country']")
     public WebElement fldCountryProfile;
 
-    /**  Profile zip field **/
+    /**
+     * Profile zip field
+     **/
     @FindBy(xpath = "//div//input[@id='basic_address_zip']")
     public WebElement fldZipProfile;
 
-    /**  Degree dropdown **/
+    /**
+     * Degree dropdown
+     **/
     @FindBy(xpath = "(//div[@class='ant-select-selector'])[3]")
     public WebElement dropdownDegree;
 
-    /**  Degree Masters **/
+    /**
+     * Degree Masters
+     **/
     @FindBy(xpath = "//div[@title='Masters']")
     public WebElement degreeMasters;
 
-    /**  Degree Masters **/
+    /**
+     * Degree Masters
+     **/
     @FindBy(xpath = "//div[@title='Bachelors']")
     public WebElement degreeBachelors;
 
-    /**  radio button yes "Are you a US citizen" **/
+    /**
+     * radio button yes "Are you a US citizen"
+     **/
     @FindBy(xpath = "(//span//input[@class='ant-radio-input'])[1]")
     public WebElement rdButtonUSCitizen;
 
-    /**  button save Profile tab **/
+    /**
+     * button save Profile tab
+     **/
     @FindBy(xpath = "//button//span[.='Save']")
     public WebElement buttonSave;
 
-    /**  button Share Demographics Profile tab **/
+    /**
+     * button Share Demographics Profile tab
+     **/
     @FindBy(xpath = "//label[@class='ant-radio-wrapper ant-radio-wrapper-in-form-item']//input[@value='1']")
     public WebElement buttonShareDemographics;
 
-    /**  button  NOT Share Demographics Profile tab **/
+    /**
+     * button  NOT Share Demographics Profile tab
+     **/
     @FindBy(xpath = "//label[@class='ant-radio-wrapper ant-radio-wrapper-in-form-item']//input[@value='0']")
     public WebElement buttonNotShareDemographics;
 
-    /**  button Female Sex Profile tab **/
+    /**
+     * button Female Sex Profile tab
+     **/
     @FindBy(xpath = "//div[@class='ant-space-item']//input[@value='Male']")
     public WebElement buttonFemaleSex;
 
-    /**  button Male Sex Profile tab **/
+    /**
+     * button Male Sex Profile tab
+     **/
     @FindBy(xpath = "//div[@class='ant-space-item']//input[@value='Female']")
     public WebElement buttonMaleSex;
 
-    /**  button Hispanic or Latino Profile tab **/
+    /**
+     * button Hispanic or Latino Profile tab
+     **/
     @FindBy(xpath = "//div[@id='demographics_ethnicity']//input[@value='1']")
     public WebElement buttonHispanicOrLatino;
 
-    /**  button Not Hispanic or Latino Profile tab **/
+    /**
+     * button Not Hispanic or Latino Profile tab
+     **/
     @FindBy(xpath = "//div[@id='demographics_ethnicity']//input[@value='0']")
     public WebElement buttonNotHispanicOrLatino;
 
-    /**  button American Indian or Alaska Native Profile tab **/
+    /**
+     * button American Indian or Alaska Native Profile tab
+     **/
     @FindBy(xpath = "//input[@value='American Indian']")
     public WebElement buttonAmericanIndianAlaskaNative;
 
-    /**  button Asian Profile tab **/
+    /**
+     * button Asian Profile tab
+     **/
     @FindBy(xpath = "//input[@value='Asian']")
     public WebElement buttonAsian;
 
-    /**  button Blind Profile tab **/
+    /**
+     * button Blind Profile tab
+     **/
     @FindBy(xpath = "//input[@value='Blind']")
     public WebElement buttonBlind;
 
-    /**  button Deaf Profile tab **/
+    /**
+     * button Deaf Profile tab
+     **/
     @FindBy(xpath = "//input[@value='Deaf']")
     public WebElement buttonDeaf;
 
@@ -575,10 +637,7 @@ public class ApplicantFlowPage extends CommonUtils {
     /**
      * withdrawn
      */
-
     @FindBy(xpath = "(//span[contains(text(),'withdrawn')])[1]")
-
-
     public WebElement withdrawnStatus;
 
     /**
@@ -622,12 +681,6 @@ public class ApplicantFlowPage extends CommonUtils {
      */
     @FindBy(xpath = "//div[@class='ant-select-item-option-content'][normalize-space()='Peer']")
     public WebElement peerOption;
-
-    /**
-     * vacancy Director of Cybersecurity
-     **/
-    @FindBy(xpath = "//a[contains(text(),'Director of Cybersecurity')]")
-    public WebElement dirOfCybersecurityVacancy;
 
     /**
      * alert You have already applied for this position

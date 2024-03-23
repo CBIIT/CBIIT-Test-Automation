@@ -32,7 +32,6 @@ public class ApplicantFlowSteps extends PageInitializer {
         Assert.assertTrue(applicantFlowStepsImplementation.clickEditButtonBasicInfoSection());
     }
 
-
     @Given("User inputs {string} into first name field")
     public void user_inputs_into_first_name_field(String firstName) {
         applicantFlowStepsImplementation.enterFirstNameProfileTab(firstName);
@@ -162,7 +161,6 @@ public class ApplicantFlowSteps extends PageInitializer {
         MiscUtils.sleep(6000);
         applicantFlowStepsImplementation.closeOutlookWindow();
     }
-
 
     @Then("User can see References blurb")
     public void user_can_see_References_blurb() {
