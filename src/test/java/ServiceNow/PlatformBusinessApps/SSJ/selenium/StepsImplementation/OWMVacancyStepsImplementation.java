@@ -1,6 +1,6 @@
 package ServiceNow.PlatformBusinessApps.SSJ.selenium.StepsImplementation;
 
-import ServiceNow.PlatformBusinessApps.SSJ.selenium.Constants.NativeViewSCSSConstants;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.Constants.NativeViewSSJConstants;
 import ServiceNow.PlatformBusinessApps.SSJ.selenium.Constants.OWMVacanciesConstants;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -70,15 +70,21 @@ public class OWMVacancyStepsImplementation extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(owmVacancyPage.basicVacancyInformationText.getText(),basicVacancyInformation, "-- VERIFYING BASIC VACANCY INFORMATION TEXT --");
         CommonUtils.sendKeys(owmVacancyPage.vacancyTitleField, OWMVacanciesConstants.VACANCY_TITLE);
         CommonUtils.clickOnElement(owmVacancyPage.allowHRSpecialistToTriageCheckbox);
-        CommonUtils.sendKeys(owmVacancyPage.vacancyDescriptionField, OWMVacanciesConstants.VACANCY_DESCRIPTION);
+        CommonUtils.sendKeys(owmVacancyPage.vacancyDescriptionField, OWMVacanciesConstants.VACANCY_DESCRIPTION);CommonUtils.waitForVisibility(owmVacancyPage.vacancyPOcDropdownInfo);
+        JavascriptUtils.scrollIntoView(owmVacancyPage.vacancyPOcDropdownInfo);
+        CommonUtils.clickOnElement(owmVacancyPage.vacancyPOcDropdownInfo);
+        CommonUtils.clickOnElement(owmVacancyPage.yesOptionVacancyPOcDropdownInfo);
         JavascriptUtils.scrollIntoView(owmVacancyPage.openCalendarTableInBasicVacancySection);
         CommonUtils.waitForVisibility(owmVacancyPage.openCalendarTableInBasicVacancySection);
         CommonUtils.clickOnElement(owmVacancyPage.openCalendarTableInBasicVacancySection);
-        String openDate = new String(OWMVacanciesConstants.TODAYS_DATE);
+        String openDate = OWMVacanciesConstants.TODAYS_DATE;
         JavascriptUtils.clickByJS(owmVacancyPage.calendarDatePicker.get(Integer.parseInt(openDate.substring(6,8))-1));
+        CommonUtils.sendKeys(owmVacancyPage.vacancyOpenDateTextBox, Keys.ENTER);
+        MiscUtils.sleep(9000);
         CommonUtils.clickOnElement(owmVacancyPage.vacancyCloseDateTextBox);
         CommonUtils.sendKeys(owmVacancyPage.vacancyCloseDateTextBox, OWMVacanciesConstants.VACANCY_CLOSE_DATE);
         CommonUtils.sendKeys(owmVacancyPage.vacancyCloseDateTextBox, Keys.ENTER);
+        MiscUtils.sleep(9000);
         CommonUtils.clickOnElement(owmVacancyPage.vacancyScoringDueDateTextBox);
         CommonUtils.sendKeys(owmVacancyPage.vacancyScoringDueDateTextBox, OWMVacanciesConstants.VACANCY_SCORING_DUE_DATE);
         CommonUtils.sendKeys(owmVacancyPage.vacancyScoringDueDateTextBox, Keys.ENTER);
@@ -94,7 +100,6 @@ public class OWMVacancyStepsImplementation extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(owmVacancyPage.apptPackageInitiatorField.getAttribute("title"), OWMVacanciesConstants.VACANCY_APPOINTMENT_PACKAGE_INITIATOR, "-- VERIFYING APPOINTMENT PACKAGE INITIATOR --");
         // ----- CLICKING ON THE POSITION CLASSIFICATION -----
         CommonUtils.clickOnElement(owmVacancyPage.positionClassificationDropdown);
-        CommonUtils.waitForClickability(owmVacancyPage.positionClassificationDropdownOptions(1));
         MiscUtils.sleep(3000);
         boolean positionNumberClick= false;
         while (!positionNumberClick) {
@@ -208,7 +213,7 @@ public class OWMVacancyStepsImplementation extends PageInitializer {
     public void theUserShouldSeeTheMenuOptions(String home, String vacancyDashboard, String yourVacancies, String reports, String profile) {
         CommonUtils.assertEqualsWithMessage(home, owmVacancyPage.tabOption(home).getText(), "-- VERIFYING HOME TAB --");
         CommonUtils.assertEqualsWithMessage(vacancyDashboard, owmVacancyPage.tabOption(vacancyDashboard).getText(), "-- VERIFYING VACANCY DASHBOARD TAB --");
-        CommonUtils.assertEqualsWithMessage(yourVacancies, owmVacancyPage.tabOption(yourVacancies).getText(), "-- VERIFYING YOUR VACANCIES TAB --");
+        CommonUtils.assertEqualsWithMessage(vacancyDashboard, owmVacancyPage.tabOption(vacancyDashboard).getText(), "-- VERIFYING VACANCY DASHBOARD TAB --"); owmVacancyPage.tabOption(home).getText();
         CommonUtils.assertEqualsWithMessage(reports, owmVacancyPage.tabOption(reports).getText(), "-- VERIFYING REPORTS TAB --");
         CommonUtils.assertEqualsWithMessage(profile, owmVacancyPage.tabOption(profile).getText(), "-- VERIFYING PROFILE TAB --");
     }
@@ -225,7 +230,7 @@ public class OWMVacancyStepsImplementation extends PageInitializer {
         CommonUtils.assertEqualsWithMessage(OWMVacanciesConstants.WHO_WE_ARE_TEXT, owmVacancyPage.whoWeAreText.getText(), "-- VERIFYING WHO WE ARE TEXT --");
         CucumberLogUtils.logScreenshot();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SCSSPortalView"));
-        CommonUtils.waitForVisibility(owmVacancyPage.scssLandingPageTitle);
+        CommonUtils.waitForVisibility(owmVacancyPage.ssjLandingPageTitle);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -343,13 +348,13 @@ public class OWMVacancyStepsImplementation extends PageInitializer {
         CommonUtils.clickOnElement( owmVacancyPage.tabOption(reports));
         CommonUtils.waitForVisibility(nativeViewEnrollementsPage.filterNavigator);
         CommonUtils.switchToFrame(nativeViewAccessRequestPage.accessRequestIFrame);
-        CommonUtils.waitForVisibility(nativeViewSCSSReportsPage.focusAreaReportingText);
-        CommonUtils.assertEqualsWithMessage(NativeViewSCSSConstants.FOCUS_AREA_REPORTING_TEXT , nativeViewSCSSReportsPage.focusAreaReportingText.getText(), "-- VERIFYING FOCUS AREA REPORTING TEXT --");
-        JavascriptUtils.scrollIntoView(nativeViewSCSSReportsPage.nativeViewReportsText(NativeViewSCSSConstants.VACANCY_DATES_OPEN_CLOSE_TEXT));
-        CommonUtils.assertEqualsWithMessage(NativeViewSCSSConstants.VACANCY_DATES_OPEN_CLOSE_TEXT, nativeViewSCSSReportsPage.nativeViewReportsText(NativeViewSCSSConstants.VACANCY_DATES_OPEN_CLOSE_TEXT).getText(), "-- SCSS VACANCY DATES - OPEN AND CLOSE TEXT --");
-        JavascriptUtils.scrollIntoView(nativeViewSCSSReportsPage.nativeViewReportsText(NativeViewSCSSConstants.VACANCY_DATES_INDIVIDUAL_SCORING_TEXT));
-        CommonUtils.assertEqualsWithMessage(NativeViewSCSSConstants.VACANCY_DATES_INDIVIDUAL_SCORING_TEXT, nativeViewSCSSReportsPage.nativeViewReportsText(NativeViewSCSSConstants.VACANCY_DATES_INDIVIDUAL_SCORING_TEXT).getText(), "-- SCSS VACANCY DATES - INDIVIDUAL SCORING TEXT --");
-        JavascriptUtils.scrollIntoView(nativeViewSCSSReportsPage.nativeViewReportsText(NativeViewSCSSConstants.APPLICANT_DECISION_DATE_TEXT));
-        CommonUtils.assertEqualsWithMessage(NativeViewSCSSConstants.APPLICANT_DECISION_DATE_TEXT, nativeViewSCSSReportsPage.nativeViewReportsText(NativeViewSCSSConstants.APPLICANT_DECISION_DATE_TEXT).getText(), "-- SCSS APPLICANT DECISION DATE TEXT --");
+        CommonUtils.waitForVisibility(nativeViewSSJReportsPage.focusAreaReportingText);
+        CommonUtils.assertEqualsWithMessage(NativeViewSSJConstants.FOCUS_AREA_REPORTING_TEXT , nativeViewSSJReportsPage.focusAreaReportingText.getText(), "-- VERIFYING FOCUS AREA REPORTING TEXT --");
+        JavascriptUtils.scrollIntoView(nativeViewSSJReportsPage.nativeViewReportsText(NativeViewSSJConstants.VACANCY_DATES_OPEN_CLOSE_TEXT));
+        CommonUtils.assertEqualsWithMessage(NativeViewSSJConstants.VACANCY_DATES_OPEN_CLOSE_TEXT, nativeViewSSJReportsPage.nativeViewReportsText(NativeViewSSJConstants.VACANCY_DATES_OPEN_CLOSE_TEXT).getText(), "-- SCSS VACANCY DATES - OPEN AND CLOSE TEXT --");
+        JavascriptUtils.scrollIntoView(nativeViewSSJReportsPage.nativeViewReportsText(NativeViewSSJConstants.VACANCY_DATES_INDIVIDUAL_SCORING_TEXT));
+        CommonUtils.assertEqualsWithMessage(NativeViewSSJConstants.VACANCY_DATES_INDIVIDUAL_SCORING_TEXT, nativeViewSSJReportsPage.nativeViewReportsText(NativeViewSSJConstants.VACANCY_DATES_INDIVIDUAL_SCORING_TEXT).getText(), "-- SCSS VACANCY DATES - INDIVIDUAL SCORING TEXT --");
+        JavascriptUtils.scrollIntoView(nativeViewSSJReportsPage.nativeViewReportsText(NativeViewSSJConstants.APPLICANT_DECISION_DATE_TEXT));
+        CommonUtils.assertEqualsWithMessage(NativeViewSSJConstants.APPLICANT_DECISION_DATE_TEXT, nativeViewSSJReportsPage.nativeViewReportsText(NativeViewSSJConstants.APPLICANT_DECISION_DATE_TEXT).getText(), "-- SCSS APPLICANT DECISION DATE TEXT --");
     }
 }

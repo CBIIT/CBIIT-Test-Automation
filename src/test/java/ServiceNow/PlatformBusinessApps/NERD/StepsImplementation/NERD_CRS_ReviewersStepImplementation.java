@@ -20,7 +20,6 @@ public class NERD_CRS_ReviewersStepImplementation extends PageInitializer {
     public static void aCRSReviewerIsLoggedIntoNERDsCRSKnowledgeManagementSystem() throws TestingException {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser("Grace Liou");
-//        nativeViewImpersonateUser.impersonateToCRSReviewer();
         NERDApplicationStepsImplementation.userIsOnSubmissionsPage("NERD");
     }
 

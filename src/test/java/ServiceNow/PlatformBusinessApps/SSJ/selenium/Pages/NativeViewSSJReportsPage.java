@@ -7,9 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class NativeViewSCSSReportsPage extends CommonUtils {
+public class NativeViewSSJReportsPage extends CommonUtils {
 
-    public NativeViewSCSSReportsPage() {
+    public NativeViewSSJReportsPage() {
         PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
 
