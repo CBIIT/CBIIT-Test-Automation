@@ -31,7 +31,6 @@ public class ServiceNow_Login_Methods extends PageInitializer {
      * @throws TestingException
      */
     public static void nativeViewLogin() throws TestingException {
-
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("nativeview"));
         MiscUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();

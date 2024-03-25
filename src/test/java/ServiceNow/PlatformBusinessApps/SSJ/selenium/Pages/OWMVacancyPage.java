@@ -16,7 +16,7 @@ public class OWMVacancyPage  extends CommonUtils {
 
     /** SCSS Landing Page title **/
     @FindBy(xpath = "//div//h1[contains(text(),'Specialized Scientific Jobs')]")
-    public WebElement scssLandingPageTitle;
+    public WebElement ssjLandingPageTitle;
 
     /** Vacancy Dashboard Tab **/
     @FindBy(xpath = "//ul[@class='ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light']//a[@href='#/vacancy-dashboard']")
@@ -30,6 +30,18 @@ public class OWMVacancyPage  extends CommonUtils {
     /** Create vacancy button **/
     @FindBy(xpath = "//*[contains(text(),'+ Create Vacancy')]")
     public WebElement createVacancyButton;
+
+    /** SCSS Reports Open and Closed**/
+    @FindBy(xpath = "//div[contains(text(),'SCSS Vacancy Dates - Open and Closed')]")
+    public WebElement scssReportsOpenClosed;
+
+    /** SCSS Reports Individual Scoring**/
+    @FindBy(xpath = "//div[contains(text(),'SCSS Vacancy Dates - Individual Scoring')]")
+    public WebElement scssReportsIndividScoring;
+
+    /** SCSS Reports Applicant Decision Date**/
+    @FindBy(xpath = "//div[contains(text(),'SCSS Applicant Decision Date')]")
+    public WebElement scssReportsApplDecDate;
 
     /** Basic Vacancy Information text **/
     @FindBy(xpath = "//h3[normalize-space()='Basic Vacancy Information']")
@@ -54,6 +66,14 @@ public class OWMVacancyPage  extends CommonUtils {
     /** Vacancy Title field **/
     @FindBy(xpath = "//input[@id='BasicInfo_title']")
     public WebElement vacancyTitleField;
+
+    /** Vacancy POC Information dropdown **/
+    @FindBy(xpath = "(//div[@class='ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow'])[1]")
+    public WebElement vacancyPOcDropdownInfo;
+
+    /**  yesOption Vacancy POC Information dropdown **/
+    @FindBy(xpath = "//div[@class='ant-select-item-option-content'][contains(text(),'Yes')]")
+    public WebElement yesOptionVacancyPOcDropdownInfo;
 
     /** Vacancy Description Field **/
     @FindBy(xpath = "(//div[@class='ql-editor ql-blank'])[1]")
@@ -130,6 +150,10 @@ public class OWMVacancyPage  extends CommonUtils {
     /** Vacancy Close Date Text Box **/
     @FindBy(xpath = "//*[@id='BasicInfo_closeDate']")
     public WebElement vacancyCloseDateTextBox;
+
+    /** Vacancy Open Date Text Box **/
+    @FindBy(xpath = "//*[@id='BasicInfo_openDate']")
+    public WebElement vacancyOpenDateTextBox;
 
     /** Vacancy Scoring Due Date Text Box **/
     @FindBy(xpath = "//*[@id='BasicInfo_scoringDueByDate']")
