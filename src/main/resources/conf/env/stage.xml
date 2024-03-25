@@ -190,6 +190,7 @@
             </default>
         </db>
     </application>
+
     <!-- Application ID for EIDP -->
     <application id="EidpUrlNHGRI">
         <login_url>https://idp-stage.nih.gov/nhgri/idp</login_url> <!-- add stage
