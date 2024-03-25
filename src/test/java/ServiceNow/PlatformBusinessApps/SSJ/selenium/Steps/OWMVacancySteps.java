@@ -9,15 +9,15 @@ import io.cucumber.java.en.When;
 
 public class OWMVacancySteps  extends PageInitializer {
 
-    @When("User is on SCSS Landing page and user is {string}")
-    public void user_is_on_scss_landing_page_and_user_is(String user) {
-        sCCSLoginStepsImplementation.sCSSLogin(user);
+    @When("User is on SSJ Landing page and user is {string}")
+    public void user_is_on_ssj_landing_page_and_user_is(String user) {
+        sSJLoginStepsImplementation.sSJLogin(user);
     }
 
-    @Given("User is on SCSS landing page")
-        public void user_is_on_SCSS_landing_page() {
-        CommonUtils.waitForVisibility(owmVacancyPage.scssLandingPageTitle);
-        CommonUtils.assertTrue(owmVacancyPage.scssLandingPageTitle.isDisplayed());
+    @Given("User is on SSJ landing page")
+        public void user_is_on_SSJ_landing_page() {
+        CommonUtils.waitForVisibility(owmVacancyPage.ssjLandingPageTitle);
+        CommonUtils.assertTrue(owmVacancyPage.ssjLandingPageTitle.isDisplayed());
         CucumberLogUtils.logScreenshot();
     }
 
@@ -72,7 +72,7 @@ public class OWMVacancySteps  extends PageInitializer {
 
     @When("an {string} is on the SCSS landing page")
     public void an_is_on_the_scss_landing_page(String user) {
-        sCCSLoginStepsImplementation.sCSSLogin(user);
+        sSJLoginStepsImplementation.sSJLogin(user);
     }
 
     @Then("the applicant should see the published vacancy")
