@@ -221,7 +221,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 * THIS METHOD CLICKS ON INSTITUTIONAL FILES MENU
 	 * @param
 	 */
-
 	public static void user_clicks_on_institutional_files(){
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.institutionalFiles);
 		CucumberLogUtils.logScreenshot();
@@ -271,7 +270,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 * THIS METHOD CREATES A NEW DOCUMENT
 	 * @param
 	 */
-
 	public static void clicks_on_create_new_button() {
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.createNewButton);
 		MiscUtils.sleep(3000);
@@ -303,7 +301,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 * THIS METHOD SELECTS QC PERSON FROM DROPDOWN
 	 * @param
 	 */
-
 	public static void selects_qc_person() {
 		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.qcPerson);
 		CommonUtils.selectDropDownValue(egrantsQuickLinkAndManagementMenuPage.qcPerson, "3928");
