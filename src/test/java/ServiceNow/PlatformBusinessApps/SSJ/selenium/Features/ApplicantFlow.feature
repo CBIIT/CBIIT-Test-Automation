@@ -28,7 +28,7 @@ Feature: Applicant Flow Scenarios
 
   @Regression @Smoke @Nekrashevich @APPTRACK-712
   Scenario: Edit Demographics of Profile
-    And User is on Profile tab
+    When User is on Profile tab
     And User clicks Edit for Demographics section
     And User chooses to share demographic details
     And User edits sex choice
@@ -46,14 +46,14 @@ Feature: Applicant Flow Scenarios
     And User can navigate via hyperlink to learn more about NIH
     And User can see "Open Vacancies" header
     And User can see Open Vacancies text as "The closing time for the application period differs for each vacancy on the final day. Please click on a vacancy below to find the specific closing time."
-    And User can see open vacancies table columns
+    Then User can see open vacancies table columns
       | column1       | column2                  | column3            |
       | Vacancy Title | Institute/Office/Program | Application Period |
 
   @Regression @Smoke @Nekrashevich  @SSJ-763
   Scenario: Vacancy Details View for an Applicant
     And User is on SSJ landing page
-    And User clicks to apply for a live vacancy
+    When User clicks to apply for a live vacancy
     And User verifies that a vacancy title is displayed
     And User verifies that open and close dates are displayed
     And User verifies that a close date has "12:00PM ET" end period specified
@@ -65,12 +65,12 @@ Feature: Applicant Flow Scenarios
     And User can verify the description of "EQUAL OPPORTUNITY EMPLOYMENT" statement
     And User can verify the description of "STANDARDS OF CONDUCT/FINANCIAL DISCLOSURE" statement
     And User can verify the description of "FOREIGN EDUCATION" statement
-    And User can verify the description of "REASONABLE ACCOMODATION" statement
+    Then User can verify the description of "REASONABLE ACCOMODATION" statement
 
   @Regression @Smoke @Nekrashevich  @SSJ-773
   Scenario: Your Applications tab
-    And User is on Your Applications tab
+    When User is on Your Applications tab
     And User can verify "Your Applications" page title
-    And User can see the following columns displayed on Your Applications page
+    Then User can see the following columns displayed on Your Applications page
       | column1       | column2 | column3        | column4               | column5 |
       | Vacancy Title | State   | Vacancy Closes | Application Submitted | Actions |
