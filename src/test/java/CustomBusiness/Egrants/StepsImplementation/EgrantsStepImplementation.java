@@ -1,7 +1,6 @@
 package CustomBusiness.Egrants.StepsImplementation;
 
 import CustomBusiness.Egrants.Pages.EgrantsQuickLinkAndManagementMenuPage;
-import CustomBusiness.Egrants.Utils.CommonUtilEgrants;
 import CustomBusiness.Egrants.Utils.Egrants_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -9,13 +8,7 @@ import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-
-import java.util.concurrent.TimeUnit;
-
-import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class EgrantsStepImplementation extends PageInitializer {
 
@@ -26,6 +19,16 @@ public class EgrantsStepImplementation extends PageInitializer {
 	public static void user_is_logged_in_the_application_and_is_on_the_landing_page(){
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("Egrants"));
 		iTrustLoginPageImpl.loginToITrust();
+		CucumberLogUtils.logScreenshot();
+	}
+
+	/***
+	 * THIS METHOD EXPANDS QUICK LINKS MENU
+	 * @param
+	 */
+	public static void clicks_on_quickLinks() {
+		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.quickLinks);
+		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.expandQlink);
 		CucumberLogUtils.logScreenshot();
 	}
 
@@ -43,6 +46,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 				String actualPMSPageTitle = WebDriverUtils.webDriver.getTitle();
 				String expectedPMSPageTitle = Egrants_Constants.PMS_PAGE_TITLE;
 				Assert.assertEquals(actualPMSPageTitle, expectedPMSPageTitle);
+				CucumberLogUtils.logScreenshot();
 				MiscUtils.sleep(3000);
 				WebDriverUtils.webDriver.switchTo().window(emWindowHandle);
 				break;
@@ -297,7 +301,7 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD SELECTS QC PERSON FROM DROPDOWN
-	 * @param user
+	 * @param
 	 */
 
 	public static void selects_qc_person() {

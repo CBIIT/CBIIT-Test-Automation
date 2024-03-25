@@ -10,6 +10,19 @@ import org.openqa.selenium.support.PageFactory;
 public class EgrantsQuickLinkAndManagementMenuPage {
 
 	/**
+	 * Quick Links
+	 */
+	@FindBy (xpath = "//a[@id='navDrop']")
+	public WebElement quickLinks;
+
+	/**
+	 * Expand QLink
+	 */
+	@FindBy (xpath = "//a[contains(text(),'Quick Links')]")
+	public WebElement expandQlink;
+
+
+	/**
 	 * myOGA link
 	 */
 	@FindBy (xpath = "//a[text()='myOGA']")
@@ -44,6 +57,12 @@ public class EgrantsQuickLinkAndManagementMenuPage {
 	 */
 	@FindBy (xpath = "//select[@id='ddlQCperson']")
 	public WebElement qcPerson;
+
+	/**
+	 * Scroll to desired user
+	 */
+	@FindBy (xpath = "(//td/select/option[@value=3928])[1]")
+	public WebElement scrollToDesiredUser;
 
 	/**
 	 * Assign button
