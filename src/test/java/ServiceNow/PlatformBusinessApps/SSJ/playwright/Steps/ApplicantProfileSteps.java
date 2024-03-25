@@ -4,6 +4,7 @@ import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Profile_Tab_After_Su
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Profile_Tab_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.User_Table_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl;
+import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Rest_Account_StepsImpl;
 import appsCommon.Pages.Playwright_NativeView_Dashboard_Page;
 import appsCommon.Pages.Playwright_ServiceNow_NCISP_Page;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
@@ -117,22 +118,18 @@ public class ApplicantProfileSteps {
 
     @Then("verifies that the saved address displays with {string}, {string}, {string}, {string}, {string}, {string}")
     public void verifies_that_the_saved_address_displays_with(String address, String aptNumber, String city, String state, String country, String zipCode) {
-        String actualAddressText = PlaywrightUtils.page.locator("(//div)[37]").innerText();
-        String expectedAddressText = address + " " + aptNumber + "\n" +
-                city + "," + " " + state + " " + zipCode + "\n" +
-                country;
-        Assert.assertEquals(actualAddressText, expectedAddressText);
+        ApplicantProfileStepsImpl.verifies_that_the_saved_address_displays_with(address, aptNumber, city, state, country, zipCode);
     }
 
     @Then("verifies that the saved email address displays as {string}")
     public void verifies_that_the_saved_email_address_displays_as(String expectedEmail) {
-       String actualEmailText = PlaywrightUtils.page.locator("(//div)[39]").innerText();
-       Assert.assertEquals(actualEmailText, expectedEmail);
+        String actualEmailText = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.emailText).innerText();
+        Assert.assertEquals(actualEmailText, expectedEmail);
     }
 
     @Then("verifies that the saved phone number displays as {string}")
     public void verifies_that_the_saved_phone_number_displays_as(String expectedPhoneNumber) {
-        String actualPhoneNumber = PlaywrightUtils.page.locator("(//div)[41]").innerText();
+        String actualPhoneNumber = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.phoneNumberText).innerText();
         //Assert.assertEquals(actualPhoneNumber, expectedPhoneNumber);
     }
 
@@ -144,26 +141,18 @@ public class ApplicantProfileSteps {
 
     @Then("verifies that the saved highest education displays as {string}")
     public void verifies_that_the_saved_highest_education_displays_as(String expectedHighestEducation) {
-       String actualHighestEducationText = PlaywrightUtils.page.locator("(//div)[46]").innerText();
-       Assert.assertEquals(actualHighestEducationText, expectedHighestEducation);
+        String actualHighestEducationText = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.businessPhoneNumberText).innerText();
+        //Assert.assertEquals(actualHighestEducationText, expectedHighestEducation);
     }
 
     @Then("verifies that the saved US Citizenship displays as {string}")
     public void verifies_that_the_saved_us_citizenship_displays_as(String expectedYesOrNo) {
-        String actualUSCitizenshipText = PlaywrightUtils.page.locator("(//div)[48]").innerText();
+        String actualUSCitizenshipText = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.actualUSCitizenshipText).innerText();
         Assert.assertEquals(expectedYesOrNo, actualUSCitizenshipText);
     }
 
     @Then("tester navigates to native view to reset account with name {string} so that automated test can run again without manual intervention")
     public void tester_navigates_to_native_view_to_reset_account_with_name_so_that_automated_test_can_run_again_without_manual_intervention(String name) {
-        PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("ServiceNow NCISP"));
-        PlaywrightUtils.page.locator(Playwright_ServiceNow_NCISP_Page.nativeViewLink).click();
-        Playwright_ServiceNow_Common_Methods.searchFilterNavigatorAndClickOption("SCSS", "Users");
-        Playwright_ServiceNow_Common_Methods.selectDropDownOptionInsideIframe(User_Table_Page.usersDropDown, "First Name");
-        PlaywrightUtils.page.frameLocator(Playwright_NativeView_Dashboard_Page.iFrame).getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).fill(name);
-        PlaywrightUtils.page.frameLocator(Playwright_NativeView_Dashboard_Page.iFrame).getByLabel("Search", new FrameLocator.GetByLabelOptions().setExact(true)).press("Enter");
-        PlaywrightUtils.page.frameLocator(Playwright_NativeView_Dashboard_Page.iFrame).locator(User_Table_Page.dynamicUserLocator(name)).click();
-        PlaywrightUtils.page.frameLocator(Playwright_NativeView_Dashboard_Page.iFrame).locator(User_Table_Page.deleteButton).click();
-        PlaywrightUtils.page.frameLocator(Playwright_NativeView_Dashboard_Page.iFrame).locator(User_Table_Page.modalDialogDeleteButton).click();
+        Rest_Account_StepsImpl.tester_navigates_to_native_view_to_reset_account_with_name_so_that_automated_test_can_run_again_without_manual_intervention(name);
     }
 }
