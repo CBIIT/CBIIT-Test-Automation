@@ -214,7 +214,7 @@
 
     <application id="EidpUrlNCI">
         <login_url>https://idp-stage.nih.gov/nci/idp</login_url> <!-- add stage
-	 <!-add Stage url -->
+			url -->
 		<role name="Role">
 			<user id="regular">
 				<name>regular</name>
