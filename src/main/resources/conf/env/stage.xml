@@ -211,6 +211,7 @@
             </default>
         </db>
     </application>
+
     <application id="EidpUrlNCI">
         <login_url>https://idp-stage.nih.gov/nci/idp</login_url> <!-- add stage
 	 <!-add Stage url -->
@@ -374,10 +375,8 @@
 	</application>
 
 	<!-- Application ID for Native View Sidedoor-->
-
-	<application id="Native View Side Door">
-
-		<login_url>https://service-stage.nci.nih.gov/side_door.do</login_url> <!-- add test 
+    <application id="Native View Side Door">
+        <login_url>https://service-stage.nci.nih.gov/side_door.do</login_url> <!-- add test
 			url -->
 		<role name="Role">
 			<user id="regular">
@@ -456,6 +455,7 @@
         </db>
     </application>
     <!-- Application ID for SCSS Portal View STAGE-->
+
     <application id="SCSSPortalView">
         <login_url>https://service-stage.nci.nih.gov/nci-scss.do#/
         </login_url> <!-- add test url -->
@@ -474,6 +474,7 @@
                 <password></password> <!-- Add db password -->
             </default>
         </db>
+
     </application>
     <!-- Application ID for Native View Sidedoor STAGE-->
     <application id="nativeviewSideDoor">
