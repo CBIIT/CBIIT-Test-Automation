@@ -454,8 +454,8 @@
             </default>
         </db>
     </application>
-    <!-- Application ID for SCSS Portal View STAGE-->
 
+    <!-- Application ID for SCSS Portal View STAGE-->
     <application id="SCSSPortalView">
         <login_url>https://service-stage.nci.nih.gov/nci-scss.do#/
         </login_url> <!-- add test url -->
@@ -476,6 +476,7 @@
         </db>
 
     </application>
+
     <!-- Application ID for Native View Sidedoor STAGE-->
     <application id="nativeviewSideDoor">
         <login_url>https://service-stage.nci.nih.gov/side_door.do</login_url> <!-- add test
