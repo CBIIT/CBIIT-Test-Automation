@@ -14,7 +14,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD LOGS INTO eGrants
-	 * @param
 	 */
 	public static void user_is_logged_in_the_application_and_is_on_the_landing_page(){
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("Egrants"));
@@ -24,7 +23,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD EXPANDS QUICK LINKS MENU
-	 * @param
 	 */
 	public static void clicks_on_quickLinks() {
 		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.quickLinks);
@@ -78,7 +76,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD VERIFIES THE PROJECT TITLE
-	 * @param
 	 */
 	public static void verifies_the_project_title_as() {
 		String actualProjectTitle = CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.projectTitle);
@@ -90,7 +87,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD VERIFIES THE INSTITUTION NAME
-	 * @param
 	 */
 	public static void verifies_the_institution_name_as() {
 		String actualInstitutionName = CommonUtils.getText(egrantsSearchandFileManagementScenariosPage.institutionName);
@@ -124,7 +120,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD CLICKS ON ADD DOCUMENT BUTTON
-	 * @param
 	 */
 	public static void clicks_on_add_document_button() {
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.addDocumentButton);
@@ -146,7 +141,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD SELECTS A GRANT YEAR FROM A DROPDOWN
-	 * @param
 	 */
 	public static void selects_grant_year() {
 		CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.grantsDropdown, 1);
@@ -155,7 +149,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD SELECTS APPLICATON FILE AS THE DOCUMENT CATEGORY
-	 * @param
 	 */
 	public static void selects_category_as_application_file() {
 		CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.categoryDropdown, 2);
@@ -174,7 +167,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD SWITCHES DOCUMENT UPLOAD OPTION AS LOCATE FILE AND UPLOAD
-	 * @param
 	 */
 	public static void clicks_on_locate_file_and_upload_tab() {
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.locateFileAndUploadTab);
@@ -183,7 +175,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD UPLOADS A FILE DEFINED IN THE CONSTANT CLASS
-	 * @param
 	 */
 	public static void uploads_a_file() {
 		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.chooseFile, Egrants_Constants.TEST_FILE_PATH);
@@ -206,7 +197,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD SWITCHES WINDOWS TO OPEN THE UPLOADED FILE
-	 * @param
 	 */
 	public static void clicks_on_uploaded_document() {
 		String emWindowHandle = WebDriverUtils.webDriver.getWindowHandle();
@@ -219,7 +209,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD CLICKS ON INSTITUTIONAL FILES MENU
-	 * @param
 	 */
 	public static void user_clicks_on_institutional_files(){
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.institutionalFiles);
@@ -228,7 +217,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD SELECTS AN INSTITUTION
-	 * @param
 	 */
 	public static void user_selects_aavogen(){
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.aavogeninc);
@@ -237,7 +225,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD CLICKS ON CREATE A NEW DOCUMENT
-	 * @param
 	 */
 	public static void clicks_on_create_new_document_link() {
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.createNewDocumentLink);
@@ -247,7 +234,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD SELECTS ORGANIZATION DOCUMENT FROM DROPDOWN
-	 * @param
 	 */
 	public static void selects_organization_document_from_category_dropdown()  {
 		CommonUtils.selectDropDownValue(egrantsSearchandFileManagementScenariosPage.documentCategoryDropdown, 3);
@@ -268,7 +254,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD CREATES A NEW DOCUMENT
-	 * @param
 	 */
 	public static void clicks_on_create_new_button() {
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.createNewButton);
@@ -278,7 +263,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD NAVIGATES TO MANAGEMENT MENU
-	 * @param
 	 */
 	public static void clicks_on_management_menu() {
 		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.managementMenu);
@@ -288,7 +272,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD SELECTS QC REASON FROM DROPDOWN
-	 * @param
 	 */
 	public static void selects_qc_reason() {
 		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.qcReason);
@@ -299,7 +282,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD SELECTS QC PERSON FROM DROPDOWN
-	 * @param
 	 */
 	public static void selects_qc_person() {
 		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.qcPerson);
@@ -310,7 +292,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD ASSIGNS THE SELECTED QC PERSON
-	 * @param
 	 */
 	public static void clicks_on_assign_button() {
 		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.assignButton);
@@ -328,7 +309,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD SELECTS THE "FROM" USER
-	 * @param
 	 */
 	public static void clicks_on_from_dropdown() {
 		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.fromQC);
@@ -339,7 +319,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD SELECTS THE "TO" USER
-	 * @param
 	 */
 	public static void clicks_on_to_dropdown() {
 		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.toQC);
@@ -350,7 +329,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD SELECTS DOCUMENT PERCENTAGE
-	 * @param
 	 */
 	public static void clicks_on_percentage_dropdown() {
 		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.percentageQC);
@@ -361,7 +339,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 
 	/***
 	 * THIS METHOD ROUTES THE DOCUMENTS
-	 * @param
 	 */
 	public static void clicks_on_route_button() {
 		CommonUtils.clickOnElement(egrantsQuickLinkAndManagementMenuPage.routeButton);
