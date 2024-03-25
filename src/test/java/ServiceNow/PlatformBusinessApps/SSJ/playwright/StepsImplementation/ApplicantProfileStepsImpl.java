@@ -21,7 +21,7 @@ public class ApplicantProfileStepsImpl {
 
         } else {
             Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate("Maria Chaudhry");
-            PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("AppTracker"));
+            PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("SSJPortalView"));
         }
     }
 
@@ -60,6 +60,33 @@ public class ApplicantProfileStepsImpl {
                 city + "," + " " + state + " " + zipCode + "\n" +
                 country;
         Assert.assertEquals(actualAddressText, expectedAddressText);
-        CucumberLogUtils.logScreenshot();
+        //CucumberLogUtils.logScreenshot(); - *** DEBUG *** - LEAVE FOR NOW PLEASE!
+    }
+
+    /**
+     * USE THIS METHOD TO VERIFY IF US CITIZENSHIP WAS SELECTED OR NOT VIA THE PROFILE PAGE
+     * @param expectedYesOrNo
+     */
+    public static void verifies_that_the_saved_us_citizenship_displays_as(String expectedYesOrNo) {
+        String actualUSCitizenshipText = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.actualUSCitizenshipText).innerText();
+        Assert.assertEquals(expectedYesOrNo, actualUSCitizenshipText);
+    }
+
+    /**
+     * USE THIS METHOD TO VERIFY THE EMAIL ADDRESS THAT WAS SUBMITTED VIA THE PROFILE PAGE
+     * @param expectedEmail
+     */
+    public static void verifies_that_the_saved_email_address_displays_as(String expectedEmail) {
+        String actualEmailText = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.emailText).innerText();
+        Assert.assertEquals(actualEmailText, expectedEmail);
+    }
+
+    /**
+     * USE THIS METHOD TO VERIFY THE HIGHEST EDUCATION THAT WAS SUBMITTED VIA THE PROFILE PAGE
+     * @param expectedHighestEducation
+     */
+    public static void verifies_that_the_saved_highest_education_displays_as(String expectedHighestEducation) {
+        String actualHighestEducationText = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.highestLevelOfEducationText).innerText();
+        Assert.assertEquals(actualHighestEducationText, expectedHighestEducation);
     }
 }

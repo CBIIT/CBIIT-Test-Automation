@@ -1,7 +1,7 @@
 Feature: Applicant Profile Scenarios
   Description: This Feature file contains Applicant Profile Scenarios
 
-  @IN_PROGRESS @juarezds @Progression
+  @IN_PROGRESS @juarezds
   Scenario Outline: Verify the Save application functionality
     Given User is on SCSS Landing page and user is "Okta Verified Applicant" - PW
     And User is on Profile tab - PW
@@ -31,4 +31,4 @@ Feature: Applicant Profile Scenarios
 
     Examples:
       | firstName | middleName | lastName | email           | phone      | businessPhone | highestEducation | US Citizenship | address | aptNumber | city   | state | country | zip   |
-      | Mario     | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | Yes            | 7 Mills | 12378     | Reston | VA    | USA     | 20453 |
+      | SSJTest   | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | Masters          | Yes            | 7 Mills | 12378     | Reston | VA    | USA     | 20453 |

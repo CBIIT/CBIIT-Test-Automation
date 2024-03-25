@@ -2,27 +2,12 @@ package ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps;
 
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Profile_Tab_After_Submission_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Profile_Tab_Page;
-import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.User_Table_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Rest_Account_StepsImpl;
-import appsCommon.Pages.Playwright_NativeView_Dashboard_Page;
-import appsCommon.Pages.Playwright_ServiceNow_NCISP_Page;
-import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
-import com.microsoft.playwright.FrameLocator;
-import com.microsoft.playwright.Locator;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.options.AriaRole;
-import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.EncryptionUtils;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.ConfUtils;
-import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.PlaywrightUtils;
-import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.testng.Assert;
 
 public class ApplicantProfileSteps {
 
@@ -123,8 +108,7 @@ public class ApplicantProfileSteps {
 
     @Then("verifies that the saved email address displays as {string}")
     public void verifies_that_the_saved_email_address_displays_as(String expectedEmail) {
-        String actualEmailText = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.emailText).innerText();
-        Assert.assertEquals(actualEmailText, expectedEmail);
+        ApplicantProfileStepsImpl.verifies_that_the_saved_email_address_displays_as(expectedEmail);
     }
 
     @Then("verifies that the saved phone number displays as {string}")
@@ -135,20 +119,18 @@ public class ApplicantProfileSteps {
 
     @Then("verifies that the saved business phone number displays as {string}")
     public void verifies_that_the_saved_business_phone_number_displays_as(String expectedBusinessPhoneNumber) {
-        String actualBusinessPhoneNumberText = PlaywrightUtils.page.locator("(//div)[44]").innerText();
+        String actualBusinessPhoneNumberText = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.businessPhoneNumberText).innerText();
         // Assert.assertEquals(actualBusinessPhoneNumberText, expectedBusinessPhoneNumber);
     }
 
     @Then("verifies that the saved highest education displays as {string}")
     public void verifies_that_the_saved_highest_education_displays_as(String expectedHighestEducation) {
-        String actualHighestEducationText = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.businessPhoneNumberText).innerText();
-        //Assert.assertEquals(actualHighestEducationText, expectedHighestEducation);
+        ApplicantProfileStepsImpl.verifies_that_the_saved_highest_education_displays_as(expectedHighestEducation);
     }
 
     @Then("verifies that the saved US Citizenship displays as {string}")
     public void verifies_that_the_saved_us_citizenship_displays_as(String expectedYesOrNo) {
-        String actualUSCitizenshipText = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.actualUSCitizenshipText).innerText();
-        Assert.assertEquals(expectedYesOrNo, actualUSCitizenshipText);
+        ApplicantProfileStepsImpl.verifies_that_the_saved_us_citizenship_displays_as(expectedYesOrNo);
     }
 
     @Then("tester navigates to native view to reset account with name {string} so that automated test can run again without manual intervention")
