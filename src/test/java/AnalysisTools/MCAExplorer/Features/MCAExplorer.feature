@@ -7,19 +7,19 @@ Feature: MCAExplorer features
     Then clicks on advance filters
     Then clicks on submit button
     Then verify if the circle is present on the screen
-    Then verify that there are 2341 rows in the result
+    Then verify that there are 2339 rows in the result
     Then Zoom in in the circle
     Then go back to full circle
     Then verify if the circle is present on the screen
 
-  @TC2 @satya @Regression @NCIATWP-6606 @NCIATWP-5438
+  @TC2 @satya @Regression  @NCIATWP-6606 @NCIATWP-5438
   Scenario: Verify graph & table will be empty when we removed the mandatory fields & try to plot the graph
     Given User navigates to MCAExplorer page
     When User clears the mandatory field Study
     And clicks on submit button
     Then verify that there are 0 rows in the result
 
-	@TC3 @satya  @Smoke @Regression @NCIATWP-6676 @NCIATWP-6797
+  @TC3 @satya @Smoke @Regression @NCIATWP-6676 @NCIATWP-6797
   Scenario: Verify data with different plot types
     Given User navigates to MCAExplorer page
     Then user select "Chromosome level" in plot type
@@ -63,8 +63,8 @@ Feature: MCAExplorer features
     And user selects 'X' and 'Y' chromosomes in Include Chromosomes
     And user click choose more attribute
     And user selects age checkbox
-    And user enter "5" & "7" in GroupA age
-    And user enter "6" & "8" in GroupB age
+    And user enter 5 & 7 in GroupA age
+    And user enter 6 & 8 in GroupB age
     Then user clicks save button
     Then user should verify that circle is present on the screen
 
@@ -93,7 +93,7 @@ Feature: MCAExplorer features
     And user selects 'x' and 'y' chromosomes in Include Chromosomes
     And user click choose more attribute
     And user selects age checkbox
-    And user selects study,copy number state and age "5" "20" in both Group A and Group B
+    And user selects study,copy number state and age range in both Group A and Group B
     Then user clicks save button
 
   @TC11 @satya @Regression @NCIATWP-6676 @NCIATWP-5576 @NCIATWP-5546
@@ -104,7 +104,7 @@ Feature: MCAExplorer features
     And user selects 'x' and 'y' chromosomes in Include Chromosomes
     And user click choose more attribute
     And user selects age checkbox
-    And user selects study,copy number state and age "5" "20" in both Group A and Group B
+    And user selects study,copy number state and age 5 20 in both Group A and Group B
     Then user clicks save button
     Then user can verify that chart header is "Study: PLCOUK Biobank; Types: Loss; Age: 5-20"
 

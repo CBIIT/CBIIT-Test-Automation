@@ -1,196 +1,73 @@
 package appsCommon.PageInitializers;
 
-import com.nci.automation.web.WebDriverUtils;
-
-import AnalysisTools.CEDCD.Pages.CEDCDAdminPage;
-import AnalysisTools.CEDCD.Pages.CEDCDBiospecimenCountsPage;
-import AnalysisTools.CEDCD.Pages.CEDCDCohortPage;
-import AnalysisTools.CEDCD.Pages.CEDCDSearchCohortsPage;
-import AnalysisTools.CEDCD.Steps.CEDCDStartUps;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDAlphabetizedSelectTypesStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDBiospecimenCountsAlphabeticalCancerTypeStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortNewPageLayOutStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchCohortsCategoriesOfDataOfDataSortedStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDSearchFemaleCohortsStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCDSelectAllCohortsStepImp;
-import AnalysisTools.CEDCD.StepsImplementation.CEDCD_Public_Site_Steps_Impl;
-import AnalysisTools.Comets2.Pages.Comets2Page;
-import AnalysisTools.ICRP.Pages.ICRPHomePage;
-import AnalysisTools.ICRP.Pages.ICRPSearchDatabasePage;
-import AnalysisTools.JPSurv.Pages.JPSurvHomePage;
-import AnalysisTools.LDLink.Pages.LDLinkHomePage;
-import AnalysisTools.LDLink.Pages.LDLinkLandingPage;
+import AnalysisTools.ACT24.Pages.*;
+import AnalysisTools.Comets2.Pages.*;
+import AnalysisTools.GDSTracking.Pages.*;
+import AnalysisTools.GWASExplorer.Pages.*;
+import AnalysisTools.GWASTarget.Pages.*;
+import AnalysisTools.ICRP.Pages.*;
+import AnalysisTools.ezQTL.Pages.*;
+import AnalysisTools.cProSite.Pages.*;
+import AnalysisTools.CEDCD.Pages.*;
+import AnalysisTools.CEDCD.Steps.*;
+import AnalysisTools.CEDCD.StepsImplementation.*;
+import AnalysisTools.JPSurv.Pages.*;
+import AnalysisTools.LDLink.Pages.*;
 import AnalysisTools.MCAExplorer.Pages.MCAExplorerPage;
 import AnalysisTools.MCAExplorer.StepsImplementations.MCAExplorerStepImp;
-import AnalysisTools.PLCO.Pages.BrowsePhenotypePage;
-import AnalysisTools.PLCO.Pages.ExploreGWASPage;
-import AnalysisTools.PLCO.Pages.InformationPage;
-import AnalysisTools.cProSite.Pages.CProSiteExplorePage;
-import AnalysisTools.mSigPortal.Pages.CatalogPages;
-import AnalysisTools.mSigPortal.Pages.MSigPortalHomePage;
-import AnalysisTools.mSigPortal.Pages.SignatureExplorerPages;
-import AnalysisTools.mSigPortal.Pages.SignatureVisualizationsPage;
-import CustomBusiness.CCR.Pages.CCRApplicationPage;
-import CustomBusiness.CCR.Pages.CCRDynamicXpaths;
-import CustomBusiness.CCR.Pages.CCRLandingPage;
-import CustomBusiness.CCR.StepsImplementation.CCRStepsImplementation;
-import CustomBusiness.DCEG.Pages.AdminFlowPage;
-import CustomBusiness.DCEG.Pages.BranchAdminPage;
-import CustomBusiness.DCEG.Pages.CreateCRPage;
-import CustomBusiness.DCEG.Pages.DirectSubmitterPage;
-import CustomBusiness.DCEG.Pages.RegularUserFlowPage;
-import CustomBusiness.DCEG.Steps.RegularUserFlowSteps;
-import CustomBusiness.DCEG.StepsImplementation.FlowStepsImplementation;
-import CustomBusiness.EIDP.Pages.AligningExpectationsPage;
+import AnalysisTools.mSigPortal.Pages.*;
+import AnalysisTools.scAtlas.Pages.SCAtlasCohortsPage;
+import AnalysisTools.scAtlas.Pages.SCAtlasHomePage;
+import CustomBusiness.CCR.Pages.*;
+import CustomBusiness.CCR.StepsImplementation.*;
+import CustomBusiness.DCEG.Pages.*;
+import CustomBusiness.DCEG.Steps.*;
+import CustomBusiness.DCEG.StepsImplementation.*;
+import CustomBusiness.EIDP.Pages.*;
 import CustomBusiness.EIDP.Pages.BasePage;
-import CustomBusiness.EIDP.Pages.CareerGoalAndActivePage;
-import CustomBusiness.EIDP.Pages.CoPrimaryMentorPage;
-import CustomBusiness.EIDP.Pages.CommonPage;
-import CustomBusiness.EIDP.Pages.DashboardPage;
-import CustomBusiness.EIDP.Pages.DelegatePage;
-import CustomBusiness.EIDP.Pages.GeneralInformationPage;
-import CustomBusiness.EIDP.Pages.IDPAwaitingResponsePage;
-import CustomBusiness.EIDP.Pages.LoginPage;
-import CustomBusiness.EIDP.Pages.ProjectRelatedDeliverablePage;
-import CustomBusiness.EIDP.Pages.SearchPage;
-import CustomBusiness.EIDP.Pages.TraineeReviewPage;
-import CustomBusiness.EIDP.StepsImplementation.AlignExpectionsStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.CareerGoalAndActiveStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.EIDPLoginStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.GeneralInformationStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.ProjectRelatedDeliverableStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.SearchStepImpl;
-import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
-import CustomBusiness.ETD.Pages.ETDAdminNCIPage;
-import CustomBusiness.ETD.Pages.ETDBasePage;
-import CustomBusiness.ETD.StepsImplementation.ETDFlowStepsImpl;
+import CustomBusiness.EIDP.StepsImplementation.*;
+import CustomBusiness.ETD.Pages.*;
+import CustomBusiness.ETD.StepsImplementation.*;
 import CustomBusiness.Egrants.Pages.EgrantsQuickLinkAndManagementMenuPage;
 import CustomBusiness.Egrants.Pages.EgrantsSearchAndFileManagementScenariosPage;
 import CustomBusiness.Egrants.StepsImplementation.EgrantsStepImplementation;
-import GrantsApps.ChangePassword.Pages.ChangePasswordPage;
-import GrantsApps.ChangePassword.StepsImplementation.ChangePasswordStepsImpl;
-import GrantsApps.EM.Pages.AccountDetailsPage;
-import GrantsApps.EM.Pages.CreateNewAccountPage;
-import GrantsApps.EM.Pages.ManageI2EUsersPage;
-import GrantsApps.EM.StepImplementation.EMStepsImplementation;
-import ServiceNow.CHARMS.Constants.FHQConstants;
-import ServiceNow.CHARMS.Constants.IIQ_Constants;
-import ServiceNow.CHARMS.Constants.RAS_Screener_Constants;
-import ServiceNow.CHARMS.Constants.RAS_Survey_Constants;
+import GrantsApps.ChangePassword.Pages.*;
+import GrantsApps.ChangePassword.StepsImplementation.*;
+import GrantsApps.EM.selenium.Pages.AccountDetailsPage;
+import GrantsApps.EM.selenium.Pages.CreateNewAccountPage;
+import GrantsApps.EM.selenium.Pages.ManageI2EUsersPage;
+import GrantsApps.EM.selenium.StepImplementation.EMStepsImplementation;
+import ServiceNow.CHARMS.Constants.*;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
-import ServiceNow.CHARMS.Pages.CGBIIQPage;
-import ServiceNow.CHARMS.Pages.CGBIIQPages;
-import ServiceNow.CHARMS.Pages.CHARMSHomePage;
-import ServiceNow.CHARMS.Pages.CHARMSNativeViewPage;
-import ServiceNow.CHARMS.Pages.ClinicalGeneticsBranchPage;
-import ServiceNow.CHARMS.Pages.FHQSubmissionPage;
-import ServiceNow.CHARMS.Pages.FHQSurveyPage;
-import ServiceNow.CHARMS.Pages.FHQSurveyPortalPage;
-import ServiceNow.CHARMS.Pages.FanconiEligibilityQuestionnairePage;
-import ServiceNow.CHARMS.Pages.FanconiLoginPage;
-import ServiceNow.CHARMS.Pages.FanconiScreenerNVPage;
-import ServiceNow.CHARMS.Pages.MelanomaHomePage;
-import ServiceNow.CHARMS.Pages.MelanomaLoginPage;
-import ServiceNow.CHARMS.Pages.MelanomaQuestionnairePage;
-import ServiceNow.CHARMS.Pages.MyRASHomePage;
-import ServiceNow.CHARMS.Pages.MyRASIIQFormPage;
-import ServiceNow.CHARMS.Pages.MyRASLoginPage;
-import ServiceNow.CHARMS.Pages.MyRASStudyConsentPage;
-import ServiceNow.CHARMS.Pages.MyRASSurveyPage;
-import ServiceNow.CHARMS.Pages.NativeViewCHARMSDashboardPage;
-import ServiceNow.CHARMS.Pages.NativeViewCHARMSParticipantConsentPage;
-import ServiceNow.CHARMS.Pages.NativeViewCHARMSParticipantDetailsPage;
-import ServiceNow.CHARMS.Pages.NativeViewCHARMSParticipantStudyPage;
-import ServiceNow.CHARMS.Pages.OKTAloginPage;
-import ServiceNow.CHARMS.Pages.ParticipantDetailsPage;
-import ServiceNow.CHARMS.Pages.ProbandScreenerPage;
-import ServiceNow.CHARMS.Pages.RAS_Survey_Native_View_Page;
-import ServiceNow.CHARMS.Pages.RAS_Survey_Page;
-import ServiceNow.CHARMS.Pages.RASopathyQuestionnairePage;
-import ServiceNow.CHARMS.Pages.ReferralTablePage;
-import ServiceNow.CHARMS.Pages.ScreenerRecordTablePage;
-import ServiceNow.CHARMS.Pages.TestAccountResetPage;
-import ServiceNow.CHARMS.ScenariosData.FHQ_TestDataManager;
-import ServiceNow.CHARMS.ScenariosData.IIQ_TestDataManager;
-import ServiceNow.CHARMS.ScenariosData.RAS_Screener_TestDataManager;
-import ServiceNow.CHARMS.ScenariosData.RAS_Survey_TestDataManager;
-import ServiceNow.CHARMS.StepsImplementation.FHQSubmissionStepsImpl;
-import ServiceNow.CHARMS.StepsImplementation.FanconiEligibilityQuestionnaireStepsImpl;
-import ServiceNow.CHARMS.StepsImplementation.RASSurveyStepsImpl;
-import ServiceNow.CHARMS.StepsImplementation.TestAccountResetImpl;
-import ServiceNow.CHARMS.StepsImplementation.RASStudy.RAS_Scenario_Five_StepsImpl;
-import ServiceNow.CHARMS.StepsImplementation.RASStudy.RAS_Scenario_One_StepsImpl;
-import ServiceNow.CHARMS.StepsImplementation.RASStudy.RasScenario2StepsImpl;
-import ServiceNow.CHARMS.StepsImplementation.RASStudy.RasScenario3StepsImpl;
-import ServiceNow.CHARMS.StepsImplementation.RASStudy.RasScenario4StepsImpl;
-import ServiceNow.CICDBuild.Pages.DevOpsLoginPage;
-import ServiceNow.CICDBuild.Pages.DevOpsNativeViewPage;
-import ServiceNow.CICDBuild.StepsImplementation.DevOpsAutomatedBuildStepsImplementation;
-import ServiceNow.COVIDCode.Pages.COVIDCodeLoginPage;
-import ServiceNow.COVIDCode.Pages.EnrollmentQuestionnairePage;
-import ServiceNow.COVIDCode.Pages.FollowUpFormPage;
-import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentViewPage;
-import ServiceNow.COVIDCode.Pages.NativeViewEnrollmentsPage;
-import ServiceNow.COVIDCode.Pages.ServicePortalQuestionnairePage;
-import ServiceNow.COVIDCode.Pages.ServicePortalSurveyPage;
-import ServiceNow.COVIDCode.StepsImplementation.COVIDCodeLoginStepsImpl;
+import ServiceNow.CHARMS.Pages.*;
+import ServiceNow.CHARMS.ScenariosData.*;
+import ServiceNow.CHARMS.StepsImplementation.*;
+import ServiceNow.CHARMS.StepsImplementation.RASStudy.*;
+import ServiceNow.CICDBuild.Pages.*;
+import ServiceNow.CICDBuild.StepsImplementation.*;
+import ServiceNow.COVIDCode.Pages.*;
+import ServiceNow.COVIDCode.StepsImplementation.*;
 import ServiceNow.COVIDCode.StepsImplementation.DashboardStepImpl;
-import ServiceNow.COVIDCode.StepsImplementation.FollowUpFormPageImpl;
-import ServiceNow.COVIDCode.StepsImplementation.NativeViewStepsImpl;
-import ServiceNow.COVIDCode.StepsImplementation.ServicePortalEQPageImpl;
-import ServiceNow.COVIDCode.StepsImplementation.ServicePortalQuestionnairePageImp;
-import ServiceNow.COVIDCode.StepsImplementation.SignOutVerificationStepImp;
-import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
-import ServiceNow.COVIDDash.Pages.COVIDHomePage;
-import ServiceNow.COVIDDash.Pages.SubmissionsPage;
-import ServiceNow.COVIDDash.StepsImplementation.COVIDHomePageImpl;
-import ServiceNow.ESR.Pages.ESRShortDescriptionPage;
-import ServiceNow.ESR.Pages.ESRTicketCreationPage;
-import ServiceNow.ESR.Pages.NCINativeViewPage;
-import ServiceNow.ETracking.Pages.EtrackAssetsRecords_NativeViewPage;
-import ServiceNow.GCP.Pages.GCPNotifications_NativeViewPage;
-import ServiceNow.GDC.Pages.GDC_Workflow_NativeView_Page;
-import ServiceNow.NERD.Pages.Covid19ActivitiesSubmissionsPage;
-import ServiceNow.NERD.Pages.CreateNewSubmissionPage;
-import ServiceNow.NERD.Pages.NERDCRSTCollaborationsPage;
-import ServiceNow.NERD.Pages.NERDCRSTOtherAccomplishmentsPage;
-import ServiceNow.NERD.Pages.NERDCRSTopAccomplishmentsPage;
-import ServiceNow.NERD.Pages.NERDDOCCollaborationsPage;
-import ServiceNow.NERD.Pages.NERDDynamicXPATHS;
-import ServiceNow.NERD.Pages.NERDHomePage;
-import ServiceNow.NERD.Pages.NERDKnowledgebasePage;
-import ServiceNow.NERD.Pages.NERDOGCRAddNewEntryPage;
-import ServiceNow.NERD.Pages.NERDSubmissionsPage;
-import ServiceNow.NERD.Pages.NativeViewImpersonateUserPage;
-import ServiceNow.NERD.Pages.NativeViewMembersOfCongressPage;
-import ServiceNow.NERD.StepsImplementation.NERDLoginStepsImplementation;
-import ServiceNow.NERD.StepsImplementation.NativeViewImpersonateUser;
-import ServiceNow.SCSS.Pages.ApplicantFlowPage;
-import ServiceNow.SCSS.Pages.NativeViewSCSSReportsPage;
-import ServiceNow.SCSS.Pages.OWMVacancyPage;
-import ServiceNow.SCSS.Pages.StadtmanVacancyPage;
-import ServiceNow.SCSS.StepsImplementation.ApplicantFlowStepsImplementation;
-import ServiceNow.SCSS.StepsImplementation.OWMVacancyStepsImplementation;
-import ServiceNow.SCSS.StepsImplementation.SCSSLoginStepsImplementation;
-import ServiceNow.SCSS.StepsImplementation.StadtmanVacancyStepsImplementation;
-import ServiceNow.SEER.Pages.NativeViewAccessRequestPage;
-import ServiceNow.SEER.Pages.NativeViewCustomersPage;
-import ServiceNow.SEER.Pages.NativeViewEmailsPage;
-import ServiceNow.SEER.Pages.NativeViewSentViewPage;
-import ServiceNow.SEER.Pages.SEERDataAccessRequestPage;
-import ServiceNow.SEER.Pages.SEERExistingAccountPage;
-import ServiceNow.SEER.Pages.SEERIncidenceDatabaseDetailsPage;
-import ServiceNow.SEER.Pages.SEERLandingPage;
-import ServiceNow.SEER.Pages.SEERUserRegistrationPage;
-import ServiceNow.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
+import ServiceNow.COVIDDash.NativeView.Pages.*;
+import ServiceNow.COVIDDash.Pages.*;
+import ServiceNow.COVIDDash.StepsImplementation.*;
+import ServiceNow.ESR.Pages.*;
+import ServiceNow.PlatformBusinessApps.ETracking.Pages.EtrackAssetsRecords_NativeViewPage;
+import ServiceNow.PlatformBusinessApps.GDC.Pages.GDC_Workflow_NativeView_Page;
+import ServiceNow.PlatformBusinessApps.GCP.Pages.GCPNotifications_NativeViewPage;
+import ServiceNow.PlatformBusinessApps.NERD.Pages.*;
+import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NERDLoginStepsImplementation;
+import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NativeViewImpersonateUser;
+import ServiceNow.PlatformBusinessApps.SEER.Pages.*;
+import ServiceNow.PlatformBusinessApps.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
+import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.Pages.*;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.StepsImplementation.*;
 import appsCommon.Pages.ITrustLoginPage;
 import appsCommon.Pages.NativeViewHomePage;
 import appsCommon.Pages.ServiceNow_NCISP_Page;
 import appsCommon.StepsImplementation.ITrustLoginPageImpl;
-import AnalysisTools.ThreeDVizSNP.Pages.*;
-import AnalysisTools.ThreeDVizSNP.StepsImplementations.*;
-import AnalysisTools.ThreeDVizSNP.Pages.*;
-import AnalysisTools.ThreeDVizSNP.StepsImplementations.*;
+import com.nci.automation.web.WebDriverUtils;
 /**
  * This an initializer class which will initialize all pages classes. Once pages
  * class created, create an object of it here inside the constructor
@@ -308,14 +185,17 @@ public class PageInitializer extends WebDriverUtils {
 	public static NERDOGCRAddNewEntryPage nERDOGCRAddNewEntryPage;
 	public static Covid19ActivitiesSubmissionsPage covid19ActivitiesSubmissionsPage;
 
-	/** SCSS instances */
+	/** SSJ instances */
 	public static OWMVacancyPage owmVacancyPage;
+	public static UnauthenticatedApplicantPage unauthenticatedApplicantPage;
 	public static StadtmanVacancyPage stadtmanVacancyPage;
 	public static ApplicantFlowPage applicantFlowPage;
+
 	public static StadtmanVacancyStepsImplementation stadtmanVacancyStepsImplementation;
 	public static OWMVacancyStepsImplementation oWMVacancyStepsImplementation;
-	public static SCSSLoginStepsImplementation sCCSLoginStepsImplementation;
+	public static SSJLoginStepsImplementation sSJLoginStepsImplementation;
 	public static ApplicantFlowStepsImplementation applicantFlowStepsImplementation;
+	public static UnauthenticatedApplicantFlowStepsImplementation unauthenticatedApplicantFlowStepsImplementation;
 
 	/** eTracking instances */
 	public static EtrackAssetsRecords_NativeViewPage etrackAssetsRecords_NativeViewPage;
@@ -365,14 +245,32 @@ public class PageInitializer extends WebDriverUtils {
 	public static ETDBasePage etdBasePage;
 
 	/** --------------- ANALYSIS TOOLS INSTANCES --------------- */
+
+	/** Analysis Tools Landing Page instances */
+	public static AnalysisToolsLandingPage analysisToolsLandingPage;
+
+	/** GDS Tracking instances **/
+	public static GDSLoginPage gdsLoginPage;
+
 	/** LDLink instances **/
 	public static LDLinkHomePage ldLinkHomePage;
-	public static LDLinkLandingPage ldLinkLandingPage;
+	public static LDAssocPage ldAssocPage;
+	public static LDExpressPage ldExpressPage;
+	public static LDLinkAPIAccessPage ldLinkAPIAccessPage;
 
-	/** PLCO instances **/
+	/** scAtlas instances **/
+	public static SCAtlasHomePage scAtlasHomePage;
+	public static SCAtlasCohortsPage scAtlasCohortsPage;
+
+	/** ezQTL instances **/
+	public static EZQTLHomePage ezQTLHomePage;
+	public static EZQTLAnalysesPage ezQTLAnalysesPage;
+	public static EZQTLDocumentationPage ezQTLDocumentationPage;
+	public static EZQTLPublicDataSourcePage ezQTLPublicDataSourcePage;
+	/** GWAS Explorer instances **/
 	public static ExploreGWASPage exploreGWASPage;
-	public static BrowsePhenotypePage browsePhenotypePage;
-	public static InformationPage informationPage;
+	public static BrowsePhenotypesPage browsePhenotypesPage;
+	public static GwasExplorerHomePage gwasExplorerHomePage;
 
 	/** CEDCD instances */
 	public static CEDCDCohortPage cedcdCohortPage;
@@ -407,6 +305,14 @@ public class PageInitializer extends WebDriverUtils {
 	/** CProSite instances **/
 	public static CProSiteExplorePage cProSiteExplorePage;
 
+	/** ACT24 instances **/
+	public static ACT24ParticipantPortalPage act24ParticipantPortalPage;
+	public static ACT24ResearcherPortalPage act24ResearcherPortalPage;
+
+	/** GWAS Target instances **/
+	public static GWASTargetHomePages gwasTargetHomePages;
+	public static GWASTargetAnalysisPages gwasTargetAnalysisPages;
+
 	/** CCR instances **/
 	public static CCRLandingPage cCRLandingPage;
 	public static CCRStepsImplementation cCRStepsImplementation;
@@ -425,6 +331,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewEnrollmentsPage nativeViewEnrollementsPage;
 	public static NativeViewEnrollmentViewPage nativeViewEnrollmentViewPage;
 	public static NativeViewStepsImpl nativeViewStepsImpl;
+	public static NativeViewSSJReportsPage nativeViewSSJReportsPage;
 	public static NativeViewCustomersPage nativeViewCustomersPage;
 	public static NativeViewSentViewPage nativeViewSentViewPage;
 	public static NativeViewAccessRequestPage nativeViewAccessRequestPage;
@@ -435,7 +342,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewCHARMSParticipantDetailsPage nativeViewCHARMSParticipantDetailsPage;
 	public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
 	public static NativeViewCHARMSParticipantStudyPage nativeViewCHARMSParticipantStudyPage;
-	public static NativeViewSCSSReportsPage nativeViewSCSSReportsPage;
+
 
 	/** --------------- EGRANTS INSTANCES --------------- */
 	public static EgrantsQuickLinkAndManagementMenuPage egrantsQuickLinkAndManagementMenuPage;
@@ -445,10 +352,6 @@ public class PageInitializer extends WebDriverUtils {
 	/** ------------ MCA EXPLORER INSTANCES ------------*/
 	public static MCAExplorerPage mcaExplorerPage;
 	public static MCAExplorerStepImp mcaExplorerStepImp;
-	
-	/** --------------- ThreeDVIZSNP --------*/
-	public static ThreeDVizSNPPage ThreeDVizSNPPage;
-	public static ThreeDVizSNPStepImp ThreeDVizSNPStepImp;
 	
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
@@ -557,14 +460,16 @@ public class PageInitializer extends WebDriverUtils {
 		esrTicketCreationPage = new ESRTicketCreationPage();
 		esrShortDescriptionPage = new ESRShortDescriptionPage();
 
-		/** SCSS Instance Variables */
+		/** SSJ Instance Variables */
 		owmVacancyPage = new OWMVacancyPage();
 		stadtmanVacancyPage = new StadtmanVacancyPage();
 		applicantFlowPage = new ApplicantFlowPage();
+		unauthenticatedApplicantPage = new UnauthenticatedApplicantPage();
 		oWMVacancyStepsImplementation = new OWMVacancyStepsImplementation();
 		stadtmanVacancyStepsImplementation = new StadtmanVacancyStepsImplementation();
-		sCCSLoginStepsImplementation = new SCSSLoginStepsImplementation();
+		sSJLoginStepsImplementation = new SSJLoginStepsImplementation();
 		applicantFlowStepsImplementation = new ApplicantFlowStepsImplementation();
+		unauthenticatedApplicantFlowStepsImplementation = new UnauthenticatedApplicantFlowStepsImplementation();
 
 		/** --------------- CUSTOM BUSINESS APP INSTANCE VARIABLES --------------- */
 		/** EIDP Instance Variables */
@@ -606,13 +511,40 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** --------------- ANALYSIS TOOLS INSTANCE VARIABLES --------------- */
 		/** LDLink Instance Variables **/
-		ldLinkLandingPage = new LDLinkLandingPage();
 		ldLinkHomePage = new LDLinkHomePage();
 
-		/** PLCO Instance Variables **/
+		/** --------------- ANALYSIS TOOLS INSTANCE VARIABLES --------------- */
+
+		/** Analysis Tools Landing Page Variables **/
+		analysisToolsLandingPage = new AnalysisToolsLandingPage();
+
+		/** GDS Tracking Instance Variables **/
+		gdsLoginPage = new GDSLoginPage();
+
+		/** LDLink Instance Variables **/
+		ldLinkHomePage = new LDLinkHomePage();
+		ldExpressPage = new LDExpressPage();
+		ldAssocPage = new LDAssocPage();
+		ldLinkAPIAccessPage = new LDLinkAPIAccessPage();
+
+		/** scAtlas Instance Variables **/
+		scAtlasHomePage = new SCAtlasHomePage();
+		scAtlasCohortsPage = new SCAtlasCohortsPage();
+
+		/** ezQTL Instance Variables **/
+		ezQTLHomePage = new EZQTLHomePage();
+		ezQTLAnalysesPage = new EZQTLAnalysesPage();
+		ezQTLDocumentationPage = new EZQTLDocumentationPage();
+		ezQTLPublicDataSourcePage = new EZQTLPublicDataSourcePage();
+
+		/** ACT24 Instance Variables **/
+		act24ParticipantPortalPage = new ACT24ParticipantPortalPage();
+		act24ResearcherPortalPage = new ACT24ResearcherPortalPage();
+
+		/** GWAS Explorer Instance Variables **/
 		exploreGWASPage = new ExploreGWASPage();
-		browsePhenotypePage = new BrowsePhenotypePage();
-		informationPage = new InformationPage();
+		browsePhenotypesPage = new BrowsePhenotypesPage();
+		gwasExplorerHomePage = new GwasExplorerHomePage();
 
 		/** CEDCD Instance Variables */
 		cedcdCohortPage = new CEDCDCohortPage();
@@ -647,6 +579,10 @@ public class PageInitializer extends WebDriverUtils {
 		/** CProSite Instance Variables **/
 		cProSiteExplorePage = new CProSiteExplorePage();
 
+		/** GWS Target Instance Variables **/
+		gwasTargetHomePages = new GWASTargetHomePages();
+		gwasTargetAnalysisPages = new GWASTargetAnalysisPages();
+
 		/** CCR Instance Variables **/
 		cCRLandingPage = new CCRLandingPage();
 		cCRStepsImplementation = new CCRStepsImplementation();
@@ -671,7 +607,7 @@ public class PageInitializer extends WebDriverUtils {
 		nativeViewCHARMSParticipantDetailsPage = new NativeViewCHARMSParticipantDetailsPage();
 		nativeViewCHARMSParticipantConsentPage = new NativeViewCHARMSParticipantConsentPage();
 		nativeViewCHARMSParticipantStudyPage = new NativeViewCHARMSParticipantStudyPage();
-		nativeViewSCSSReportsPage = new NativeViewSCSSReportsPage();
+		nativeViewSSJReportsPage = new NativeViewSSJReportsPage();
 
 		/****** GRANTS INSTANCES *******/
 		/** Grants ChangePassword app **/
@@ -687,6 +623,15 @@ public class PageInitializer extends WebDriverUtils {
 		/** eTracking INSTANCE VARIABLES */
 		etrackAssetsRecords_NativeViewPage = new EtrackAssetsRecords_NativeViewPage();
 
+		/** Grants ChangePassword app **/
+		changePasswordPage = new ChangePasswordPage();
+		changePasswordStepsImpl = new ChangePasswordStepsImpl();
+		emStepsImplementation = new EMStepsImplementation();
+		manageI2EUsersPage = new ManageI2EUsersPage();
+
+		/** eTracking INSTANCE VARIABLES */
+		etrackAssetsRecords_NativeViewPage = new EtrackAssetsRecords_NativeViewPage();
+
 		/** GCP INSTANCE VARIABLES */
 		gCPNotifications_NativeViewPage = new GCPNotifications_NativeViewPage();
 
@@ -697,16 +642,11 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** GDC INSTANCE VARIABLES */
 		gDC_Workflow_NativeView_Page = new GDC_Workflow_NativeView_Page();
-		
-		
+
 		/** MCAEXPLORER INSTANCE VARIABLES */
 		mcaExplorerPage = new MCAExplorerPage();
 		mcaExplorerStepImp = new MCAExplorerStepImp();
-		
-		/** 3DVIZSNP INSTANCE VERIABLES */
-		ThreeDVizSNPPage =  new ThreeDVizSNPPage();
-		ThreeDVizSNPStepImp = new ThreeDVizSNPStepImp();
-		
+
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}
 }

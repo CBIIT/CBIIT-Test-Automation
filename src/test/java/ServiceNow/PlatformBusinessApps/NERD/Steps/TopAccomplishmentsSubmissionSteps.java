@@ -13,8 +13,7 @@ import io.cucumber.java.en.When;
 public class TopAccomplishmentsSubmissionSteps extends PageInitializer{
 	
 	@Given("a Program Staff member is on the CRS Knowledge Management System page")
-	public void a_Program_Staff_member_is_on_the_CRS_Knowledge_Management_System_page() 
-			throws TestingException{
+	public void a_Program_Staff_member_is_on_the_CRS_Knowledge_Management_System_page() {
 		ServiceNow_Login_Methods.nativeViewSideDoorLogin();
 		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
 	}
@@ -38,5 +37,4 @@ public class TopAccomplishmentsSubmissionSteps extends PageInitializer{
 	public void on_the_CRS_Knowledge_Management_System_page_the_Program_Staff_member_sees_options_to_Submit_Edit_and_Delete() {
 		NERDApplicationStepsImplementation.submissionOptions_SubmitEditDelete_areAvailable();
 	}
-
 }

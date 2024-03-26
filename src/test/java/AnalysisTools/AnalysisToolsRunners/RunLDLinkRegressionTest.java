@@ -25,5 +25,3 @@ public class RunLDLinkRegressionTest extends AbstractTestNGCucumberTests {
 		System.out.println("Starting Test Execution...");
 	}	
 }
-
-
