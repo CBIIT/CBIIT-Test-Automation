@@ -10,100 +10,100 @@ import org.openqa.selenium.support.PageFactory;
 public class EgrantsQuickLinkAndManagementMenuPage {
 
 	/**
-	 * Quick Links
+	 * QUICK LINKS
 	 */
 	@FindBy (xpath = "//a[@id='navDrop']")
 	public WebElement quickLinks;
 
 	/**
-	 * Expand QLink
+	 * EXPAND QUICK LINKS
 	 */
 	@FindBy (xpath = "//a[contains(text(),'Quick Links')]")
 	public WebElement expandQlink;
 
 
 	/**
-	 * myOGA link
+	 * MYOGA LINK
 	 */
 	@FindBy (xpath = "//a[text()='myOGA']")
 	public WebElement myOGALink;
 
 	/**
-	 * eRA GM link
+	 * ERA GM LINK
 	 */
 	@FindBy (xpath = "//a[text()='eRA GM']")
 	public WebElement eRAGMLink;
 
 	/**
-	 * PMS link
+	 * PMS LINK
 	 */
 	@FindBy (xpath = "//a[text()='PMS']")
 	public WebElement pMSLink;
 
 	/**
-	 * Management Menu
+	 * MANAGEMENT MENU
 	 */
 	@FindBy (xpath = "//a[text()='Management']")
 	public WebElement managementMenu;
 
 	/**
-	 * QC Reason
+	 * QC REASON
 	 */
 	@FindBy (xpath = "//select[@id='ddlQCreason']")
 	public WebElement qcReason;
 
 	/**
-	 * QC Person
+	 * QC PERSON
 	 */
 	@FindBy (xpath = "//select[@id='ddlQCperson']")
 	public WebElement qcPerson;
 
 	/**
-	 * Scroll to desired user
-	 */
-	@FindBy (xpath = "(//td/select/option[@value=3928])[1]")
-	public WebElement scrollToDesiredUser;
-
-	/**
-	 * Assign button
+	 * ASSIGN BUTTON
 	 */
 	@FindBy (xpath = "//button[@id='btnAssign']")
 	public WebElement assignButton;
 
 	/**
-	 * QC Route From
+	 * QC ROUTE FROM
 	 */
 	@FindBy (xpath = "//select[@id='ddlFromPerson']")
 	public WebElement fromQC;
 
 	/**
-	 * QC Route To
+	 * QC ROUTE TO
 	 */
 	@FindBy (xpath = "//select[@id='ddlToPerson']")
 	public WebElement toQC;
 
 	/**
-	 * QC Route Percentage
+	 * QC ROUTE PERCENTAGE
 	 */
 	@FindBy (xpath = "//select[@id='ddlPercent']")
 	public WebElement percentageQC;
 
 	/**
-	 * QC Route button
+	 * QC ROUTE BUTTON
 	 */
 	@FindBy (xpath = "//button[@id='btnRoute']")
 	public WebElement routeButton;
 
 	/**
-	 * Test user
+	 * TEST USER
 	 */
 	@FindBy (xpath = "//div[3]/div[2]/div/div[3]/table/tbody/tr/td[2]/select/option[@value='3928']")
 	public WebElement testUser;
 
+	/**
+	 * THIS METHOD DYNAMICALLY LOCATES THE LOGGED IN USER NAME
+	 */
 	public static WebElement dynamicUserTextLocator(String user) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//p[contains(text(),'" + user + "')]"));
 	}
 
+	/**
+	 * THIS METHOD DYNAMICALLY LOCATES THE LINKS WITHIN THE PAGE
+	 */
 	public static WebElement dynamicLinkLocator(String text) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//a[text()='" + text + "']"));
 	}

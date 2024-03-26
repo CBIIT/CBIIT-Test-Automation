@@ -212,6 +212,7 @@
         </db>
     </application>
 
+    <!-- Application ID for EIDP NCI Instance -->
     <application id="EidpUrlNCI">
         <login_url>https://idp-stage.nih.gov/nci/idp</login_url> <!-- add stage url -->
 		<role name="Role">
