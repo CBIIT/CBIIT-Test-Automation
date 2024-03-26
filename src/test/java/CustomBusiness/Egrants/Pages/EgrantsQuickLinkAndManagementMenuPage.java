@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-
 public class EgrantsQuickLinkAndManagementMenuPage {
 
 	/**
@@ -20,7 +19,6 @@ public class EgrantsQuickLinkAndManagementMenuPage {
 	 */
 	@FindBy (xpath = "//a[contains(text(),'Quick Links')]")
 	public WebElement expandQlink;
-
 
 	/**
 	 * MYOGA LINK

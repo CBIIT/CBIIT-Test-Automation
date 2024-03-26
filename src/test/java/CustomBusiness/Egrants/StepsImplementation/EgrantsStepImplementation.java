@@ -36,7 +36,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 */
 	public static void is_able_to_navigate_to_hyperlink(String linkText) {
 		String emWindowHandle = WebDriverUtils.webDriver.getWindowHandle();
-
 		switch (linkText) {
 			case "PMS":
 				CommonUtils.clickOnElement(EgrantsQuickLinkAndManagementMenuPage.dynamicLinkLocator(linkText));
@@ -130,7 +129,6 @@ public class EgrantsStepImplementation extends PageInitializer {
 	 * THIS METHOD SEARCHES FOR STRING WITHIN THE SEARCHBOX
 	 * @param string
 	 */
-
 	public static void searches_for_grant(String string) {
 		CommonUtils.clickOnElement(egrantsSearchandFileManagementScenariosPage.searchBoxAddDocumentPage);
 		CommonUtils.sendKeys(egrantsSearchandFileManagementScenariosPage.searchBoxAddDocumentPage,string);
