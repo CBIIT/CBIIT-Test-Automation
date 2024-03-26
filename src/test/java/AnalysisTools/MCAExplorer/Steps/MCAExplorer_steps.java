@@ -1,5 +1,6 @@
 package AnalysisTools.MCAExplorer.Steps;
 
+import com.nci.automation.services.RestApiHelper;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
@@ -94,6 +95,138 @@ public class MCAExplorer_steps extends PageInitializer {
 	@Then("select the pagination drop down as {string}")
 	public void select_the_pagination_drop_down_as(String value) {
 		mcaExplorerStepImp.selectThePaginationDropDownValue(value);
+	}
+	
+	@Given("User is able to set the env for opensearch request")
+	public void user_is_able_to_set_the_env_for_opensearch_request() {
+		mcaExplorerStepImp.setApiBaseUrl("https://mcaexplorer-qa.cancer.gov/api/opensearch/mca");
+	}
+	
+	
+	@Then("User is able to send request and receive valid response back")
+	public void user_is_able_to_send_request_and_receive_valid_response_back() {
+		mcaExplorerStepImp.sendPostReqestWithBody("{\n"
+				+ "  \"dataset\": [\n"
+				+ "    {\n"
+				+ "      \"value\": \"plco\",\n"
+				+ "      \"label\": \"PLCO\"\n"
+				+ "    }\n"
+				+ "  ],\n"
+				+ "  \"ancestry\": [\n"
+				+ "    {\n"
+				+ "      \"value\": \"ADMIXED_EUR\",\n"
+				+ "      \"label\": \"ADMIXED_EUR\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"AFR\",\n"
+				+ "      \"label\": \"African\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"AFR_EUR\",\n"
+				+ "      \"label\": \"AFR_EUR\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"ASN\",\n"
+				+ "      \"label\": \"Asian\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"ASN_EUR\",\n"
+				+ "      \"label\": \"ASN_EUR\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"EUR\",\n"
+				+ "      \"label\": \"European\"\n"
+				+ "    }\n"
+				+ "  ],\n"
+				+ "  \"maxcf\": \"1\",\n"
+				+ "  \"mincf\": \"0\",\n"
+				+ "  \"sex\": [\n"
+				+ "    {\n"
+				+ "      \"value\": \"male\"\n"
+				+ "    }\n"
+				+ "  ],\n"
+				+ "  \"types\": [\n"
+				+ "    {\n"
+				+ "      \"value\": \"loh\",\n"
+				+ "      \"label\": \"CN-LOH\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"loss\",\n"
+				+ "      \"label\": \"Loss\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"gain\",\n"
+				+ "      \"label\": \"Gain\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"undermined\",\n"
+				+ "      \"label\": \"Undermined\"\n"
+				+ "    }\n"
+				+ "  ]\n"
+				+ "}");
+	}
+	
+	@Given("User is able to set the env for open search chromosome request")
+	public void setOpenSerchEnv() {
+		mcaExplorerStepImp.setApiBaseUrl("https://mcaexplorer-qa.cancer.gov/api/opensearch/chromosome");
+	}
+	
+	@Then("User is able to send request and receive valid response back for chromosome search")
+	public void sendRequstAndVerify() {
+		mcaExplorerStepImp.sendPostReqestWithBody("{\n"
+				+ "  \"chr\": \"2\",\n"
+				+ "  \"study\": [\n"
+				+ "    {\n"
+				+ "      \"value\": \"plco\",\n"
+				+ "      \"label\": \"PLCO\"\n"
+				+ "    }\n"
+				+ "  ],\n"
+				+ "  \"ancestry\": [\n"
+				+ "    {\n"
+				+ "      \"value\": \"ADMIXED_EUR\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"AFR\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"AFR_EUR\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"ASN\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"ASN_EUR\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"EUR\"\n"
+				+ "    }\n"
+				+ "  ],\n"
+				+ "  \"maxcf\": \"1\",\n"
+				+ "  \"mincf\": \"0\",\n"
+				+ "  \"sex\": [\n"
+				+ "    {\n"
+				+ "      \"value\": \"male\"\n"
+				+ "    }\n"
+				+ "  ],\n"
+				+ "  \"types\": [\n"
+				+ "    {\n"
+				+ "      \"value\": \"loh\",\n"
+				+ "      \"label\": \"CN-LOH\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"loss\",\n"
+				+ "      \"label\": \"Loss\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"gain\",\n"
+				+ "      \"label\": \"Gain\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"undermined\",\n"
+				+ "      \"label\": \"Undermined\"\n"
+				+ "    }\n"
+				+ "  ]\n"
+				+ "}");
 	}
 
 }

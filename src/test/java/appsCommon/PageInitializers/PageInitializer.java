@@ -353,6 +353,10 @@ public class PageInitializer extends WebDriverUtils {
 	public static MCAExplorerPage mcaExplorerPage;
 	public static MCAExplorerStepImp mcaExplorerStepImp;
 	
+	/** --------------- ThreeDVIZSNP --------*/
+	public static AnalysisTools.ThreeDVizSNP.Pages.ThreeDVizSNPPage ThreeDVizSNPPage;
+	public static AnalysisTools.ThreeDVizSNP.StepsImplementations.ThreeDVizSNPStepImp ThreeDVizSNPStepImp;
+	
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
 		// create instances of all pages and assign them to the variables
@@ -646,6 +650,11 @@ public class PageInitializer extends WebDriverUtils {
 		/** MCAEXPLORER INSTANCE VARIABLES */
 		mcaExplorerPage = new MCAExplorerPage();
 		mcaExplorerStepImp = new MCAExplorerStepImp();
+		
+		/** 3DVIZSNP INSTANCE VERIABLES */
+		ThreeDVizSNPPage =  new AnalysisTools.ThreeDVizSNP.Pages.ThreeDVizSNPPage();
+		ThreeDVizSNPStepImp = new AnalysisTools.ThreeDVizSNP.StepsImplementations.ThreeDVizSNPStepImp();
+
 
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}

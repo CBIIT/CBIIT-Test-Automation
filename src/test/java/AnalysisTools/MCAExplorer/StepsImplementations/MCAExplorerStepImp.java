@@ -1,9 +1,12 @@
 package AnalysisTools.MCAExplorer.StepsImplementations;
 
-import org.junit.Assert;
+import org.testng.Assert;
 import org.openqa.selenium.Keys;
+
+import com.nci.automation.services.RestApiHelper;
 import com.nci.automation.web.CommonUtils;
 import appsCommon.PageInitializers.PageInitializer;
+import io.restassured.response.Response;
 
 public class MCAExplorerStepImp extends PageInitializer {
 
@@ -20,8 +23,8 @@ public class MCAExplorerStepImp extends PageInitializer {
 	public void validateNumberOfRows(int expectedCount) {
 		if (!CommonUtils.getText(mcaExplorerPage.showingRows).replace(",", "")
 				.contains(String.valueOf(expectedCount))) {
-			Assert.assertTrue("Expected " + expectedCount + " in number of rows but found "
-					+ CommonUtils.getText(mcaExplorerPage.showingRows), false);
+			org.testng.Assert.assertTrue(false, "Expected " + expectedCount + " in number of rows but found "
+					+ CommonUtils.getText(mcaExplorerPage.showingRows));
 		}
 	}
 
@@ -83,9 +86,9 @@ public class MCAExplorerStepImp extends PageInitializer {
 		mcaExplorerPage.groupB_age_Start.sendKeys(start);
 		mcaExplorerPage.groupB_age_End.sendKeys(end);
 	}
-	
+
 	public void user_selects_age_range_copy_num_Study() {
-		
+
 	}
 
 	public void zoom_feature() {
@@ -118,5 +121,18 @@ public class MCAExplorerStepImp extends PageInitializer {
 	public void selet_in_plot_type() {
 		CommonUtils.clickOnElement(mcaExplorerPage.plotDropDown);
 		CommonUtils.clickOnElement(mcaExplorerPage.plotDropdown_allchromosome);
+	}
+
+	RestApiHelper rest;
+
+	public void setApiBaseUrl(String url) {
+		rest = new RestApiHelper(url);
+	}
+
+	public void sendPostReqestWithBody(String body) {
+		Response response = rest.postRequestWIthBody(body);
+		System.out.print(response.getStatusCode());
+		System.out.print(rest.getResponseBody());
+		Assert.assertTrue(response.getStatusCode() == (200));
 	}
 }
