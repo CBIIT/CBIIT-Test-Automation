@@ -68,11 +68,11 @@ public class ThreeDVizSNPPage extends CommonUtils {
 	@FindBy(name = "useAsync")
 	public WebElement longRunningJobCheckBox;
 
-	/** LEMAIL ID **/
+	/** EMAIL ID **/
 	@FindBy(id = "email")
 	public WebElement emailId;
 
-	/** JOBNAME **/
+	/** JOB NAME **/
 	@FindBy(id = "jobName")
 	public WebElement jobName;
 	
