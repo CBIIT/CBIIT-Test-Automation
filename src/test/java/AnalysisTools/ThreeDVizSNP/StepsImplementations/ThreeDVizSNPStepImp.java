@@ -9,7 +9,7 @@ import appsCommon.PageInitializers.PageInitializer;
 
 public class ThreeDVizSNPStepImp extends PageInitializer {
 
-	/** Upload exmple VCF File**/
+	/** Upload example VCF File**/
 	public void uploadExampleVCFFile() {
 		String path = System.getProperty("user.dir") + "/src/test/java/AnalysisTools/example.vcf";
 		CommonUtils.sendKeys(ThreeDVizSNPPage.vcfFileUpload, path);
@@ -21,7 +21,7 @@ public class ThreeDVizSNPStepImp extends PageInitializer {
 		CommonUtils.sendKeys(ThreeDVizSNPPage.vcfFileUpload, path);
 	}
 	
-	/** Upload exmple VCF File after clicking vizulize button and then submit**/
+	/** Upload example VCF File after clicking vizulize button and then submit**/
 	public void uploadVcfFile() {
 		ThreeDVizSNPPage.visulizeButton.click();
 		uploadExampleVCFFile();

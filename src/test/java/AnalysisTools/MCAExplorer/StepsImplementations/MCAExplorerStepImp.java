@@ -5,7 +5,6 @@ import org.openqa.selenium.Keys;
 import com.nci.automation.services.RestApiHelper;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
-
 import appsCommon.PageInitializers.PageInitializer;
 import io.restassured.response.Response;
 

@@ -1,4 +1,5 @@
 package AnalysisTools.ThreeDVizSNP.Pages;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -110,7 +111,7 @@ public class ThreeDVizSNPPage extends CommonUtils {
 	@FindBy(id = "QSIFeedbackButton-btn")
 	public WebElement feedback;
 	
-	/** FEEDBACK IFRME **/
+	/** FEEDBACK IFRAME **/
 	@FindBy(xpath="//*[@title=\"ICN3D\"]")
 	public WebElement ifrmaeFeedback;
 	}
