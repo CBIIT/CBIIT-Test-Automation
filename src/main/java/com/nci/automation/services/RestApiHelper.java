@@ -2,11 +2,9 @@ package com.nci.automation.services;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
-
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
@@ -26,7 +24,6 @@ public class RestApiHelper {
 		  System.out.println(rest.getResponseBody().asString()); 
 	}
 	
-
 	public RestApiHelper(String baseUri) {
 		this.baseUri = baseUri;
 	}
@@ -132,8 +129,4 @@ public class RestApiHelper {
 		response = requestSpec.post(baseUri);
 		return response;
 	}
-	
-	
-	
-	
 }

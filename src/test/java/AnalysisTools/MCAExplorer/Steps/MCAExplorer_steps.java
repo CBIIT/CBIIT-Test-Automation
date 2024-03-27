@@ -18,17 +18,17 @@ public class MCAExplorer_steps extends PageInitializer {
 
 	@Then("clicks on advance filters")
 	public void clicks_on_advance_filters() {
-		JavascriptUtils.clickByJS(mcaExplorerPage.advanceSettings);
+		mcaExplorerStepImp.clickOnAdvaceFilter();
 	}
 
 	@Then("user clicks export data, file should get downloaded")
 	public void user_clicks_export_data_should_get_downloaded() {
-		JavascriptUtils.clickByJS(mcaExplorerPage.export_data_btn);
+		mcaExplorerStepImp.clickOnExportData();
 	}
 
 	@Then("clicks on submit button")
 	public void clicks_on_submit_button() {
-		JavascriptUtils.clickByJS(mcaExplorerPage.submitButton);
+		mcaExplorerStepImp.clickOnSubmitButton();
 	}
 
 	@Then("verify if the circle is present on the screen")

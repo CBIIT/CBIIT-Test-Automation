@@ -79,7 +79,8 @@ public class MCAExplorer_pairwiseplots_steps extends PageInitializer {
 
 	@Then("user can verify that chart header is {string}")
 	public void user_can_verify_that_chart_header_is(String string) {
-		CommonUtils.assertEquals(CommonUtils.getText(mcaExplorerPage.chart_header_text).trim(),
+		mcaExplorerStepImp.verifyChartheader(CommonUtils.getText(mcaExplorerPage.chart_header_text).trim(),
 				"Study: PLCO,UK Biobank; Types: CN-LOH");
+		
 	}
 }

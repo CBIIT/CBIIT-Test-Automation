@@ -11,106 +11,106 @@ public class ThreeDVizSNPPage extends CommonUtils {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 
-	/** choose visualize button ***/
+	/** CHOOSE VISUALIZE BUTTON ***/
 	@FindBy(xpath = "//a[text()='Visualize']")
 	public WebElement visulizeButton;
 
-	/** About Button **/
+	/** ABOUT BUTTON **/
 	@FindBy(xpath = "//a[text()='About']")
 	public WebElement aboutButton;
 
-	/** VCF FILE Upload **/
+	/** VCF FILE UPLOAD **/
 	@FindBy(name = "vcfFile")
 	public WebElement vcfFileUpload;
 
-	/** GENE Text Box **/
+	/** GENE TEXT BOX **/
 	@FindBy(name = "gene")
 	public WebElement geneTextbox;
 
-	/** Submit Button **/
+	/** SUBMIT BUTTON **/
 	@FindBy(xpath = "//button[text()='Submit']")
 	public WebElement submitButton;
 
-	/** VCF FILE INputBox **/
+	/** VCF FILE INPUTBOX **/
 	@FindBy(id = "vcfFile")
 	public WebElement vcfFIle;
 
-	/** Download Results **/
+	/** DOWNLOAD RESULTS **/
 	@FindBy(xpath = "//a[text()='Download Results']")
 	public WebElement downloadResults;
 
-	/** Number of records **/
+	/** NUMBER OF RECORDS **/
 	@FindBy(xpath = "//div[text()='Total # of Records: ']")
 	public WebElement recordCount;
 
-	/** FIrst Varient **/
+	/** FIRST VARIENT **/
 	@FindBy(xpath = "//div[text()='Variant']/parent::th/parent::tr/parent::thead/following-sibling::tbody//td")
 	public WebElement firstVarient;
 
-	/** Varient Header **/
+	/** VARIENT HEADER **/
 	@FindBy(xpath = "//*[text()='Variant']")
 	public WebElement varientHeader;
 
-	/** Varient desending sorting indicator **/
+	/** VARIENT DESENDING SORTING INDICATOR **/
 	@FindBy(xpath = "//i[@class='bi bi-sort-down ms-1']")
 	public WebElement sortingOrderApplied;
 
-	/** Filter Option **/
+	/** FILTER OPTION **/
 	@FindBy(xpath = "//input[@type=\"input\"]")
 	public WebElement filterOption;
 
-	/** Number of pages **/
+	/** NUMBER OF PAGES **/
 	@FindBy(xpath = "(//small)[2]")
 	public WebElement numberOfPages;
 
-	/** Long Running Job CheckBox **/
+	/** LONG RUNNING JOB CHECKBOX **/
 	@FindBy(name = "useAsync")
 	public WebElement longRunningJobCheckBox;
 
-	/** LEmail Id **/
+	/** LEMAIL ID **/
 	@FindBy(id = "email")
 	public WebElement emailId;
 
-	/** jobName **/
+	/** JOBNAME **/
 	@FindBy(id = "jobName")
 	public WebElement jobName;
 	
-	/** gene text box **/
+	/** GENE TEXT BOX **/
 	@FindBy(id = "gene")
 	public WebElement gene;
 	
-	/** Error Message **/
+	/** ERROR MESSAGE **/
 	@FindBy(xpath = "//pre[text()='The Gene symbols searched for are not found in the attached file, please change the search criteria of the gene symbols and resubmit the analysis.']")
 	public WebElement errorMessage;
 	
-	/** Email Notification Sent **/
+	/** EMAIL NOTIFICATION SENT **/
 	@FindBy(xpath="//span[text()=' You will receive an email once processing is complete.']")
 	public WebElement emailNotificationCnfirmation;
 	
-	/** Error Message for invalid Job**/
+	/** ERROR MESSAGE FOR INVALID JOB**/
 	@FindBy(xpath = "//div[text()='Visualization Job Failed']")
 	public WebElement invalidJobErrorMessage;
 	
-	/** SVG Button **/
+	/** SVG BUTTON **/
 	@FindBy(xpath="//button[text()='SVG' and contains(@id,'linegraph_svg')]")
 	public WebElement svgButton;
 	
-	/** PNG Button **/
+	/** PNG BUTTON **/
 	@FindBy(xpath="//button[text()='PNG' and contains(@id,'linegraph_pn')]")
 	public WebElement pngButton;
-	/** SVG Button **/
+	/** SVG BUTTON **/
 	@FindBy(xpath="//button[text()='JSON' and contains(@id,'linegraph_json')]")
 	public WebElement jsonButton;
 	
-	/** Summary Button **/
+	/** SUMMARY BUTTON **/
 	@FindBy(xpath="//a[text()='Summary']")
 	public WebElement summaryButton;
 	
-	/** Feedback button **/
+	/** FEEDBACK BUTTON **/
 	@FindBy(id = "QSIFeedbackButton-btn")
 	public WebElement feedback;
 	
-	/** Feedback ifrme **/
+	/** FEEDBACK IFRME **/
 	@FindBy(xpath="//*[@title=\"ICN3D\"]")
 	public WebElement ifrmaeFeedback;
 	}

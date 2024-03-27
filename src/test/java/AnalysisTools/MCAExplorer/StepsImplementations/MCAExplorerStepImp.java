@@ -4,6 +4,8 @@ import org.testng.Assert;
 import org.openqa.selenium.Keys;
 import com.nci.automation.services.RestApiHelper;
 import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.JavascriptUtils;
+
 import appsCommon.PageInitializers.PageInitializer;
 import io.restassured.response.Response;
 
@@ -14,7 +16,7 @@ public class MCAExplorerStepImp extends PageInitializer {
 		CommonUtils.waitForVisibility(mcaExplorerPage.summaryCircle);
 		Assert.assertTrue(CommonUtils.isElementDisplayed(mcaExplorerPage.summaryCircle));
 	}
-	
+
 	/** validate if two circles are available **/
 	public void isTwoCircleImageIsAvailable() {
 		CommonUtils.waitForVisibility(mcaExplorerPage.compareCircle);
@@ -23,8 +25,7 @@ public class MCAExplorerStepImp extends PageInitializer {
 
 	/** Validate some rows are displayed **/
 	public void validateNumberOfRows() {
-		if (!CommonUtils.getText(mcaExplorerPage.showingRows).replace(",", "")
-				.contains(String.valueOf(2))) {
+		if (!CommonUtils.getText(mcaExplorerPage.showingRows).replace(",", "").contains(String.valueOf(2))) {
 			org.testng.Assert.assertTrue(false, "Expected atleast" + 2 + " in number of rows but found "
 					+ CommonUtils.getText(mcaExplorerPage.showingRows));
 		}
@@ -42,9 +43,9 @@ public class MCAExplorerStepImp extends PageInitializer {
 		if (chromosome.equals("Y"))
 			mcaExplorerPage.chromosomeYCheckbox.click();
 	}
-	
+
 	/** select two chromosome **/
-	public void selectTwoChromosome(String firstChromosome,String secondChromosome) {
+	public void selectTwoChromosome(String firstChromosome, String secondChromosome) {
 		selectChromosome(firstChromosome);
 		selectChromosome(secondChromosome);
 	}
@@ -99,7 +100,7 @@ public class MCAExplorerStepImp extends PageInitializer {
 		mcaExplorerPage.groupB_age_Start.sendKeys(start);
 		mcaExplorerPage.groupB_age_End.sendKeys(end);
 	}
-	
+
 	/** zoom feature test */
 	public void zoom_feature() {
 		CommonUtils.clickOnElement(mcaExplorerPage.pointOnImage);
@@ -126,21 +127,21 @@ public class MCAExplorerStepImp extends PageInitializer {
 		CommonUtils.sendKeys(mcaExplorerPage.groupA_max_age, max);
 	}
 
-	/** Etner Group B Age */
+	/** Enter Group B Age */
 	public void enter_groupb_age(String min, String max) {
 		CommonUtils.sendKeys(mcaExplorerPage.groupB_min_age, min);
 		CommonUtils.sendKeys(mcaExplorerPage.groupB_max_age, max);
 	}
 
-	/** selct Plot type */
+	/** select Plot type */
 	public void selet_in_plot_type() {
 		CommonUtils.clickOnElement(mcaExplorerPage.plotDropDown);
 		CommonUtils.clickOnElement(mcaExplorerPage.plotDropdown_allchromosome);
 	}
 
-	/** test healper class object **/
+	/** Test helper class object **/
 	RestApiHelper rest;
-	
+
 	/** setting rest help class base url **/
 	public void setApiBaseUrl(String url) {
 		rest = new RestApiHelper(url);
@@ -152,5 +153,25 @@ public class MCAExplorerStepImp extends PageInitializer {
 		System.out.print(response.getStatusCode());
 		System.out.print(rest.getResponseBody());
 		Assert.assertTrue(response.getStatusCode() == (200));
+	}
+
+	/** Verify Chart header is as expected */
+	public void verifyChartheader(String currentValue, String expectedValue) {
+		CommonUtils.assertEquals(currentValue, expectedValue);
+	}
+
+	/** Click on advanced filter */
+	public void clickOnAdvaceFilter() {
+		JavascriptUtils.clickByJS(mcaExplorerPage.advanceSettings);
+	}
+
+	/** Click on Export Data button*/
+	public void clickOnExportData() {
+		JavascriptUtils.clickByJS(mcaExplorerPage.export_data_btn);
+	}
+
+	/** Click on Submit button */
+	public void clickOnSubmitButton() {
+		JavascriptUtils.clickByJS(mcaExplorerPage.submitButton);
 	}
 }
