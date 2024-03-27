@@ -125,6 +125,15 @@ public class RestApiHelper {
 	}
 	
 	
+	public Response postRequestWIthBody(String body) {
+		RestAssured.baseURI = baseUri;
+		RequestSpecification requestSpec = RestAssured.given(); 
+		requestSpec.body(body);
+		response = requestSpec.post(baseUri);
+		return response;
+	}
+	
+	
 	
 	
 }

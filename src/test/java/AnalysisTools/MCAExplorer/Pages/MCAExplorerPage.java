@@ -38,10 +38,11 @@ public class MCAExplorerPage extends CommonUtils {
 	@FindBy(id = "amaxAgeCompare")
 	public WebElement BmaxAgeCompare;
 
-	/** study dropdown **/
+	/** STUDY DROPDOWN **/
 	@FindBy(id = "react-select-12-placeholder")
 	public WebElement study_drodpown;
 	
+	/** STUDY DROPDOWN PLCO **/
 	@FindBy(xpath = "react-select-12-input")
 	public WebElement study_dropdown_plco;
 	
@@ -53,12 +54,15 @@ public class MCAExplorerPage extends CommonUtils {
 	@FindBy(id = "AminAgeCompare")
 	public WebElement groupA_min_age;
 
+	/** group a max age **/
 	@FindBy(id = "AmaxAgeCompare")
 	public WebElement groupA_max_age;
 
+	/** group b min age **/
 	@FindBy(id = "BminAgeCompare")
 	public WebElement groupB_min_age;
 
+	/** group b max age **/
 	@FindBy(id = "AmaxAgeCompare")
 	public WebElement groupB_max_age;
 
@@ -102,11 +106,11 @@ public class MCAExplorerPage extends CommonUtils {
 	@FindBy(xpath = "//div[text()='Showing rows ']")
 	public WebElement showingRows;
 
-	/* Plot Type Dropdown */
+	/** Plot Type Dropdown */
 	@FindBy(xpath = "//div[@class=' css-1dimb5e-singleValue']/following-sibling::div[1]")
 	public WebElement plotDropDown;
 	
-	/* Dropdown levels */
+	/** Dropdown levels */
 	@FindBy(xpath="//div[text()='Chromosome level']")
 	public WebElement plotDropdown_chromosomelevel;
 	
@@ -123,7 +127,7 @@ public class MCAExplorerPage extends CommonUtils {
 	public WebElement export_data_btn;
 
 	/** Chromosome dropdown **/
-	@FindBy(xpath = "//*[text()='Chromosome']/following-sibling::div//input") //react-select-10-input
+	@FindBy(xpath = "//*[text()='Chromosome']/following-sibling::div//input")
 	public WebElement chromosomeDropdown;
 
 	/** Clear button in Study drop down */

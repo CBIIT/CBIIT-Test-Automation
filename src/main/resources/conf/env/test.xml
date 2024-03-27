@@ -1035,6 +1035,8 @@
             </default>
         </db>
     </application>
+    
+    <!-- Application ID for MCAExplorer-->
     <application id="MCAExplorer">
         <login_url>https://mcaexplorer-qa.cancer.gov/#/mosaic
         </login_url> <!-- add test url -->
@@ -1054,8 +1056,10 @@
             </default>
         </db>
     </application>
+    
+    <!-- Application ID for ThreeDVizSNP-->
     <application id="ThreeDVizSNP">
-        <login_url>https://analysistools-dev.cancer.gov/3dvizsnp
+        <login_url>https://analysistools-qa.cancer.gov/3dvizsnp
         </login_url> <!-- add test url -->
         <role name="Role">
             <user id="regular">

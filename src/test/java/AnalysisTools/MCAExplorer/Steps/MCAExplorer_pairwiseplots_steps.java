@@ -28,9 +28,8 @@ public class MCAExplorer_pairwiseplots_steps extends PageInitializer {
 	}
 
 	@When("user selects {string} and {string} chromosomes in Include Chromosomes")
-	public void user_selects_and_chromosomes_in_include_chromosomes(String string, String string2) {
-		mcaExplorerStepImp.selectChromosome(string);
-		mcaExplorerStepImp.selectChromosome(string2);
+	public void user_selects_and_chromosomes_in_include_chromosomes(String firstChromosome, String selectTwoChromosome) {
+		mcaExplorerStepImp.selectTwoChromosome(firstChromosome,selectTwoChromosome);
 	}
 
 	@When("user click choose more attribute")
@@ -54,10 +53,8 @@ public class MCAExplorer_pairwiseplots_steps extends PageInitializer {
 	}
 	
 	@When("user selects study,copy number state and age range in both Group A and Group B")
-	public void user_selects_study_copy_number_state_and_age_range_in_both_group_a_and_group_b() {
-	   
-	   mcaExplorerStepImp.user_selects_study_copy_number_state_and_age_range_in_both_group_a_and_group_b("5", "10");
-	   
+	public void user_selects_study_copy_number_state_and_age_range_in_both_group_a_and_group_b() {	   
+	   mcaExplorerStepImp.user_selects_study_copy_number_state_and_age_range_in_both_group_a_and_group_b("5", "10"); 
 	}
 	
 	@Then("user clicks save button")

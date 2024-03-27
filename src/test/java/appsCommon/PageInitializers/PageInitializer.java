@@ -353,7 +353,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static MCAExplorerPage mcaExplorerPage;
 	public static MCAExplorerStepImp mcaExplorerStepImp;
 	
-	/** --------------- ThreeDVIZSNP --------*/
+	/** --------------- THREEDVIZSNP INSTANCES --------*/
 	public static AnalysisTools.ThreeDVizSNP.Pages.ThreeDVizSNPPage ThreeDVizSNPPage;
 	public static AnalysisTools.ThreeDVizSNP.StepsImplementations.ThreeDVizSNPStepImp ThreeDVizSNPStepImp;
 	
@@ -654,8 +654,7 @@ public class PageInitializer extends WebDriverUtils {
 		/** 3DVIZSNP INSTANCE VERIABLES */
 		ThreeDVizSNPPage =  new AnalysisTools.ThreeDVizSNP.Pages.ThreeDVizSNPPage();
 		ThreeDVizSNPStepImp = new AnalysisTools.ThreeDVizSNP.StepsImplementations.ThreeDVizSNPStepImp();
-
-
+		
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}
 }

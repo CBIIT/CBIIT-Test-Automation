@@ -113,8 +113,4 @@ public class ThreeDVizSNPPage extends CommonUtils {
 	/** Feedback ifrme **/
 	@FindBy(xpath="//*[@title=\"ICN3D\"]")
 	public WebElement ifrmaeFeedback;
-	
-	
-	
-
-}
+	}

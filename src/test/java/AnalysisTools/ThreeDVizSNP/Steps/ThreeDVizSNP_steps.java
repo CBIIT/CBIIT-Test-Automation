@@ -17,15 +17,12 @@ public class ThreeDVizSNP_steps extends PageInitializer {
 
 	@Then("verify that vizulise and about tabs are available")
 	public void clicks_on_advance_filters() {
-		ThreeDVizSNPPage.visulizeButton.click();
-		ThreeDVizSNPPage.aboutButton.click();
+		ThreeDVizSNPStepImp.visukizeButtionAndAboutButtonClick();
 	}
 
 	@Then("upload the vcf file and submit")
 	public void uploadVcfFile() {
-		ThreeDVizSNPPage.visulizeButton.click();
-		ThreeDVizSNPStepImp.uploadExampleVCFFile();
-		ThreeDVizSNPPage.submitButton.click();
+		ThreeDVizSNPStepImp.uploadVcfFile();
 	}
 
 	@When("User clicks Visualize Button")
