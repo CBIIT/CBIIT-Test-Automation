@@ -15,6 +15,8 @@ import AnalysisTools.JPSurv.Pages.*;
 import AnalysisTools.LDLink.Pages.*;
 import AnalysisTools.MCAExplorer.Pages.MCAExplorerPage;
 import AnalysisTools.MCAExplorer.StepsImplementations.MCAExplorerStepImp;
+import AnalysisTools.ThreeDVizSNP.Pages.ThreeDVizSNPPage;
+import AnalysisTools.ThreeDVizSNP.StepsImplementations.ThreeDVizSNPStepImp;
 import AnalysisTools.mSigPortal.Pages.*;
 import AnalysisTools.scAtlas.Pages.SCAtlasCohortsPage;
 import AnalysisTools.scAtlas.Pages.SCAtlasHomePage;
@@ -354,8 +356,8 @@ public class PageInitializer extends WebDriverUtils {
 	public static MCAExplorerStepImp mcaExplorerStepImp;
 	
 	/** --------------- THREEDVIZSNP INSTANCES --------*/
-	public static AnalysisTools.ThreeDVizSNP.Pages.ThreeDVizSNPPage threeDVizSNPPage;
-	public static AnalysisTools.ThreeDVizSNP.StepsImplementations.ThreeDVizSNPStepImp threeDVizSNPStepImp;
+	public static ThreeDVizSNPPage threeDVizSNPPage;
+	public static ThreeDVizSNPStepImp threeDVizSNPStepImp;
 	
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
@@ -652,8 +654,8 @@ public class PageInitializer extends WebDriverUtils {
 		mcaExplorerStepImp = new MCAExplorerStepImp();
 		
 		/** THREEDVIZSNP INSTANCE VARIABLES  */
-		threeDVizSNPPage =  new AnalysisTools.ThreeDVizSNP.Pages.ThreeDVizSNPPage();
-		threeDVizSNPStepImp = new AnalysisTools.ThreeDVizSNP.StepsImplementations.ThreeDVizSNPStepImp();
+		threeDVizSNPPage =  new ThreeDVizSNPPage();
+		threeDVizSNPStepImp = new ThreeDVizSNPStepImp();
 		
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}
