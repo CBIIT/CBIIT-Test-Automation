@@ -63,7 +63,7 @@ public class ThreeDVizSNPStepImp extends PageInitializer {
 
 	/** verify no. of pages displayed **/
 	public void verifyNumberOfPagesDisplayed() {
-		String numberOfPages = CommonUtils.getText(ThreeDVizSNPPage.numberOfPages);
+		String numberOfPages = CommonUtils.getText(threeDVizSNPPage.numberOfPages);
 		Assert.assertTrue(numberOfPages.contains("0"));
 	}
 
