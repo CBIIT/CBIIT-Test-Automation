@@ -99,6 +99,7 @@ public class ThreeDVizSNPPage extends CommonUtils {
 	/** PNG BUTTON **/
 	@FindBy(xpath="//button[text()='PNG' and contains(@id,'linegraph_pn')]")
 	public WebElement pngButton;
+	
 	/** SVG BUTTON **/
 	@FindBy(xpath="//button[text()='JSON' and contains(@id,'linegraph_json')]")
 	public WebElement jsonButton;
