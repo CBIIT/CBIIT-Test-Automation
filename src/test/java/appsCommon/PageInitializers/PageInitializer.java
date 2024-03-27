@@ -354,8 +354,8 @@ public class PageInitializer extends WebDriverUtils {
 	public static MCAExplorerStepImp mcaExplorerStepImp;
 	
 	/** --------------- THREEDVIZSNP INSTANCES --------*/
-	public static AnalysisTools.ThreeDVizSNP.Pages.ThreeDVizSNPPage ThreeDVizSNPPage;
-	public static AnalysisTools.ThreeDVizSNP.StepsImplementations.ThreeDVizSNPStepImp ThreeDVizSNPStepImp;
+	public static AnalysisTools.ThreeDVizSNP.Pages.ThreeDVizSNPPage threeDVizSNPPage;
+	public static AnalysisTools.ThreeDVizSNP.StepsImplementations.ThreeDVizSNPStepImp threeDVizSNPStepImp;
 	
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
@@ -651,9 +651,9 @@ public class PageInitializer extends WebDriverUtils {
 		mcaExplorerPage = new MCAExplorerPage();
 		mcaExplorerStepImp = new MCAExplorerStepImp();
 		
-		/** 3DVIZSNP INSTANCE VERIABLES */
-		ThreeDVizSNPPage =  new AnalysisTools.ThreeDVizSNP.Pages.ThreeDVizSNPPage();
-		ThreeDVizSNPStepImp = new AnalysisTools.ThreeDVizSNP.StepsImplementations.ThreeDVizSNPStepImp();
+		/** THREEDVIZSNP INSTANCE VARIABLES  */
+		threeDVizSNPPage =  new AnalysisTools.ThreeDVizSNP.Pages.ThreeDVizSNPPage();
+		threeDVizSNPStepImp = new AnalysisTools.ThreeDVizSNP.StepsImplementations.ThreeDVizSNPStepImp();
 		
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}
