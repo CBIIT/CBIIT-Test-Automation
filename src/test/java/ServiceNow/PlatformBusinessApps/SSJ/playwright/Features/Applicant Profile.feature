@@ -3,6 +3,7 @@ Feature: Applicant Profile Scenarios
 
   @IN_PROGRESS @juarezds
   Scenario Outline: Verify the Save application functionality
+    Given a test account "<firstName>" is reset before executing a test
     Given User is on SCSS Landing page and user is "Okta Verified Applicant" - PW
     And User is on Profile tab - PW
     And User inputs "<firstName>" into first name field - PW
