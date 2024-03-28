@@ -24,11 +24,11 @@ public class ACT24ResearcherPortalSteps extends PageInitializer {
         act24ResearcherStepImpl.researcherLogin(email, password);
     }
 
-    /** Looking into why the first login doesn't work but the second attempt does **/
     @Given("the Researcher is logged in {string} and {string}")
     public void the_researcher_is_logged_in_and(String email, String password) {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ACT24Researcher"));
         MiscUtils.sleep(2000);
+        /** Looking into why the first login doesn't work but the second attempt does **/
         act24ResearcherStepImpl.researcherLogin(email, password);
         MiscUtils.sleep(2000);
         act24ResearcherStepImpl.researcherLogin(email, password);
