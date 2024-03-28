@@ -1,6 +1,5 @@
 package ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps;
 
-
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Profile_Tab_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Rest_Account_StepsImpl;
@@ -8,7 +7,6 @@ import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
 
 public class ApplicantProfileSteps {
 
