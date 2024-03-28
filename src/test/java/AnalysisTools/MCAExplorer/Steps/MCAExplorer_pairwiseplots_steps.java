@@ -28,9 +28,9 @@ public class MCAExplorer_pairwiseplots_steps extends PageInitializer {
 	}
 
 	@When("user selects {string} and {string} chromosomes in Include Chromosomes")
-	public void user_selects_and_chromosomes_in_include_chromosomes(String string, String string2) {
-		mcaExplorerStepImp.selectChromosome(string);
-		mcaExplorerStepImp.selectChromosome(string2);
+	public void user_selects_and_chromosomes_in_include_chromosomes(String firstChromosome,
+			String selectTwoChromosome) {
+		mcaExplorerStepImp.selectTwoChromosome(firstChromosome, selectTwoChromosome);
 	}
 
 	@When("user click choose more attribute")
@@ -50,7 +50,7 @@ public class MCAExplorer_pairwiseplots_steps extends PageInitializer {
 
 	@When("user selects age checkbox")
 	public void user_selects_age_checkbox() {
-		mcaExplorerPage.age_checkbox.click();
+		JavascriptUtils.clickByJS(mcaExplorerPage.age_checkbox);
 	}
 
 	@Then("user clicks save button")
@@ -74,8 +74,8 @@ public class MCAExplorer_pairwiseplots_steps extends PageInitializer {
 	}
 
 	@Then("user can verify that chart header is {string}")
-	public void user_can_verify_that_chart_header_is(String string) {
-		CommonUtils.assertEquals(CommonUtils.getText(mcaExplorerPage.chart_header_text).trim(),
-				"Study: PLCOUK Biobank; Types: Loss; Age: 5-20");
+	public void user_can_verify_that_chart_header_is(String expectedValue) {
+		mcaExplorerStepImp.verifyChartheader(CommonUtils.getText(mcaExplorerPage.chart_header_text).trim(),
+				expectedValue);
 	}
 }

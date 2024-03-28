@@ -7,10 +7,10 @@ import io.cucumber.testng.CucumberOptions;
 		, "json:target/cucumber.json"
 		, "rerun:target/failed.txt"
 		, "pretty" }
-        , features = {"src/test/java/AnalysisTools/MCAExplorer/Features" }
-        , glue = "AnalysisTools.MCAExplorer.Steps"
-        , tags = "@Smoke"
+        , features = {"src/test/java/AnalysisTools/ThreeDVizSNP/Features" }
+        , glue = "AnalysisTools.ThreeDVizSNP.Steps"
+        , tags = "@Regression"
         , dryRun = false
 )
-public class RunMCAExplorerSmokeTest extends AbstractTestNGCucumberTests {
+public class RunThreeDVizSNPRegressionTest extends AbstractTestNGCucumberTests{
 }
