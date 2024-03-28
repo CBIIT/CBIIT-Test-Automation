@@ -143,4 +143,20 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageSubmissionsLink);
         CucumberLogUtils.logScreenshot();
     }
+
+    public static void thereAreFiveSubmissionsCalled(String topAccomplishments, String otherAccomplishments, String collaborations,
+                                                     String covid19Activities, String adHocDataCall){
+        CommonUtils.assertEquals(topAccomplishments, nerdHomePage.nerdKnowledgeBaseText.getText());
+        CommonUtils.assertEquals(otherAccomplishments, nerdHomePage.rockKnowledgeBaseText.getText());
+        CommonUtils.assertEquals(collaborations,
+                nerdHomePage.moonshotEvaluationKnowledgeBaseText.getText());
+        CommonUtils.assertEquals(covid19Activities, nerdHomePage.nerdKnowledgeBaseText.getText());
+        CommonUtils.assertEquals(adHocDataCall, nerdHomePage.rockKnowledgeBaseText.getText());
+
+        JavascriptUtils.drawBlueBorder(nerdHomePage.nerdKnowledgeBaseText);
+        JavascriptUtils.drawBlueBorder(nerdHomePage.rockKnowledgeBaseText);
+        JavascriptUtils.drawBlueBorder(nerdHomePage.moonshotEvaluationKnowledgeBaseText);
+        CucumberLogUtils.logScreenshot();
+
+    }
 }

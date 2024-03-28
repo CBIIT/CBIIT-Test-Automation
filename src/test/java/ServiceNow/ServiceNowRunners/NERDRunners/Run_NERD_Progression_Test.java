@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
         features="src/test/java/ServiceNow/PlatformBusinessApps/NERD/Features",
         glue="ServiceNow.PlatformBusinessApps.NERD.Steps",
         tags="@Progression",
-        dryRun = false
+        dryRun = true
 )
 
 /**
