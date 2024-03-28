@@ -27,7 +27,7 @@ Feature: MCAExplorer features
     Then clicks on submit button
     Then verify that there are 198 rows in the result
 
-  @satya @Regression @NCIATWP-5316 @NCIATWP-5326 @NCIATWP-6270
+  @satya @Regression @NCIATWP-5316 @NCIATWP-5326 @NCIATWP-6270 @Smoke
   Scenario: Verify the selection of X & Y should display on the graph & table column
     Given User navigates to MCAExplorer page
     When User selects 'X' include chromosome
@@ -56,7 +56,7 @@ Feature: MCAExplorer features
     And select the pagination drop down as '25'
     Then verify '25' rows displayed in the table
 
-  @satya @Regression @NCIATWP-6310 @NCIATWP-6298
+  @satya @Regression @NCIATWP-6310 @NCIATWP-6298 @Smoke
   Scenario: Verify the pairwise plot all chromosome circle
     Given User navigates to MCAExplorer
     When user clicks pairwise PLOTS CHECKBOX
@@ -108,7 +108,7 @@ Feature: MCAExplorer features
     Then user clicks save button
     Then user can verify that chart header is "Study: PLCOUK Biobank; Types: Loss; Age: 5-20"
 
-  @satya @Regression @NCIATWP-6478 @NCIATWP-5327
+  @satya @Regression @NCIATWP-6478 @NCIATWP-5327 @Smoke
   Scenario: verify the export data download functionality
     Given User navigates to MCAExplorer
     When user select Chromosome level in plot type
