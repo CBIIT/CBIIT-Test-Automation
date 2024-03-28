@@ -1,6 +1,5 @@
 package ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps;
 
-import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Profile_Tab_After_Submission_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Profile_Tab_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Rest_Account_StepsImpl;
@@ -113,14 +112,12 @@ public class ApplicantProfileSteps {
 
     @Then("verifies that the saved phone number displays as {string}")
     public void verifies_that_the_saved_phone_number_displays_as(String expectedPhoneNumber) {
-        String actualPhoneNumber = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.phoneNumberText).innerText();
-        //Assert.assertEquals(actualPhoneNumber, expectedPhoneNumber);
+        ApplicantProfileStepsImpl.verifies_that_the_saved_phone_number_displays_as(expectedPhoneNumber);
     }
 
     @Then("verifies that the saved business phone number displays as {string}")
     public void verifies_that_the_saved_business_phone_number_displays_as(String expectedBusinessPhoneNumber) {
-        String actualBusinessPhoneNumberText = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.businessPhoneNumberText).innerText();
-        // Assert.assertEquals(actualBusinessPhoneNumberText, expectedBusinessPhoneNumber);
+        ApplicantProfileStepsImpl.verifies_that_the_saved_business_phone_number_displays_as(expectedBusinessPhoneNumber);
     }
 
     @Then("verifies that the saved highest education displays as {string}")
