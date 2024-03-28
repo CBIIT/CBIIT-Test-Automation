@@ -3,7 +3,6 @@ package AnalysisTools.ThreeDVizSNP.StepsImplementations;
 import java.time.Duration;
 import org.junit.Assert;
 import org.openqa.selenium.NoAlertPresentException;
-
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
