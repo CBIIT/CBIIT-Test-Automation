@@ -1,4 +1,4 @@
-package AnalysisTools.MCAExplorer.Steps;
+package AnalysisTools.ThreeDVizSNP.Steps;
 
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;

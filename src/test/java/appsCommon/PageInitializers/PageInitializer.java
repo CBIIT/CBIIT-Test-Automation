@@ -16,6 +16,8 @@ import AnalysisTools.JPSurv.Pages.*;
 import AnalysisTools.LDLink.Pages.*;
 import AnalysisTools.MCAExplorer.Pages.MCAExplorerPage;
 import AnalysisTools.MCAExplorer.StepsImplementations.MCAExplorerStepImp;
+import AnalysisTools.ThreeDVizSNP.Pages.ThreeDVizSNPPage;
+import AnalysisTools.ThreeDVizSNP.StepsImplementations.ThreeDVizSNPStepImp;
 import AnalysisTools.mSigPortal.Pages.*;
 import AnalysisTools.scAtlas.Pages.SCAtlasCohortsPage;
 import AnalysisTools.scAtlas.Pages.SCAtlasHomePage;
@@ -356,6 +358,10 @@ public class PageInitializer extends WebDriverUtils {
 	public static MCAExplorerPage mcaExplorerPage;
 	public static MCAExplorerStepImp mcaExplorerStepImp;
 	
+	/** --------------- THREEDVIZSNP INSTANCES --------*/
+	public static ThreeDVizSNPPage threeDVizSNPPage;
+	public static ThreeDVizSNPStepImp threeDVizSNPStepImp;
+	
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
 		// create instances of all pages and assign them to the variables
@@ -650,7 +656,11 @@ public class PageInitializer extends WebDriverUtils {
 		/** MCAEXPLORER INSTANCE VARIABLES */
 		mcaExplorerPage = new MCAExplorerPage();
 		mcaExplorerStepImp = new MCAExplorerStepImp();
-
+		
+		/** THREEDVIZSNP INSTANCE VARIABLES  */
+		threeDVizSNPPage =  new ThreeDVizSNPPage();
+		threeDVizSNPStepImp = new ThreeDVizSNPStepImp();
+		
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}
 }
