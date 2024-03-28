@@ -115,16 +115,12 @@ public class ApplicantProfileSteps {
 
     @Then("verifies that the saved phone number displays as {string}")
     public void verifies_that_the_saved_phone_number_displays_as(String expectedPhoneNumber) {
-        String actualPhoneNumber = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.phoneNumberText).innerText();
-        String formattedExpectedPhoneNumber = CommonUtils.fixPhoneFormat(expectedPhoneNumber);
-        Assert.assertEquals(actualPhoneNumber, formattedExpectedPhoneNumber);
+        ApplicantProfileStepsImpl.verifies_that_the_saved_phone_number_displays_as(expectedPhoneNumber);
     }
 
     @Then("verifies that the saved business phone number displays as {string}")
     public void verifies_that_the_saved_business_phone_number_displays_as(String expectedBusinessPhoneNumber) {
-        String actualBusinessPhoneNumber = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.businessPhoneNumberText).innerText();
-        String formattedExpectedBusinessPhoneNumber = CommonUtils.fixPhoneFormat(expectedBusinessPhoneNumber);
-        Assert.assertEquals(actualBusinessPhoneNumber, formattedExpectedBusinessPhoneNumber);
+        ApplicantProfileStepsImpl.verifies_that_the_saved_business_phone_number_displays_as(expectedBusinessPhoneNumber);
     }
 
     @Then("verifies that the saved highest education displays as {string}")
