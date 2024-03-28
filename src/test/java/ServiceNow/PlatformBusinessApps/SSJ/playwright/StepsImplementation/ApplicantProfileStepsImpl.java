@@ -97,14 +97,22 @@ public class ApplicantProfileStepsImpl {
         Assert.assertEquals(actualHighestEducationText, expectedHighestEducation);
     }
 
-    /**USE THIS METHOD TO ASSERT ACTUAL AND EXPECTED BUSINESS PHONE NUMBER WHILE FILLING IN APPLICANT INFO**/
+    /**
+     * USE THIS METHOD IS TO ASSERT ACTUAL AND EXPECTED BUSINESS PHONE NUMBER WHILE FILLING IN APPLICANT INFO
+     *
+     * @param expectedBusinessPhoneNumber
+     */
     public static void verifies_that_the_saved_business_phone_number_displays_as(String expectedBusinessPhoneNumber) {
         String actualBusinessPhoneNumber = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.businessPhoneNumberText).innerText();
         String formattedExpectedBusinessPhoneNumber = CommonUtils.fixPhoneFormat(expectedBusinessPhoneNumber);
         org.junit.Assert.assertEquals(actualBusinessPhoneNumber, formattedExpectedBusinessPhoneNumber);
     }
 
-    /**USE THIS METHOD TO ASSERT ACTUAL AND EXPECTED PHONE NUMBER WHILE FILLING IN APPLICANT INFO**/
+    /**
+     * USE THIS METHOD TO ASSERT ACTUAL AND EXPECTED PHONE NUMBER WHILE FILLING IN APPLICANT INFO
+     *
+     * @param expectedPhoneNumber
+     */
     public static void verifies_that_the_saved_phone_number_displays_as(String expectedPhoneNumber) {
         String actualPhoneNumber = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.phoneNumberText).innerText();
         String formattedExpectedPhoneNumber = CommonUtils.fixPhoneFormat(expectedPhoneNumber);

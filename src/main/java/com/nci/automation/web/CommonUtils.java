@@ -730,7 +730,12 @@ public class CommonUtils extends WebDriverUtils {
         actions.moveToLocation(x, y).build().perform();
     }
 
-    /** Use this method to format a phone number into example +1 (201) 821 - 2343**/
+    /**
+     * Use this method to format a phone number into example +1 (201) 821 - 2343
+     *
+     * @param input
+     * @return
+     */
     public static String fixPhoneFormat(String input){
         return input.replaceFirst("(\\d{3})(\\d{3})(\\d+)","+1 ($1) $2 - $3");
     }
