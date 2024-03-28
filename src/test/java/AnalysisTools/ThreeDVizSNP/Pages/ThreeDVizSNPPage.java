@@ -112,6 +112,9 @@ public class ThreeDVizSNPPage extends CommonUtils {
 	@FindBy(id = "QSIFeedbackButton-btn")
 	public WebElement feedback;
 	
+	/** FEEDBACK BUTTON LOCATOR **/
+	public String feedbackLocator = "//button[@id='QSIFeedbackButton-btn']";
+	
 	/** FEEDBACK IFRAME **/
 	@FindBy(xpath="//*[@title=\"ICN3D\"]")
 	public WebElement ifrmaeFeedback;

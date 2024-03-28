@@ -28,8 +28,9 @@ public class MCAExplorer_pairwiseplots_steps extends PageInitializer {
 	}
 
 	@When("user selects {string} and {string} chromosomes in Include Chromosomes")
-	public void user_selects_and_chromosomes_in_include_chromosomes(String firstChromosome, String selectTwoChromosome) {
-		mcaExplorerStepImp.selectTwoChromosome(firstChromosome,selectTwoChromosome);
+	public void user_selects_and_chromosomes_in_include_chromosomes(String firstChromosome,
+			String selectTwoChromosome) {
+		mcaExplorerStepImp.selectTwoChromosome(firstChromosome, selectTwoChromosome);
 	}
 
 	@When("user click choose more attribute")
@@ -51,12 +52,7 @@ public class MCAExplorer_pairwiseplots_steps extends PageInitializer {
 	public void user_selects_age_checkbox() {
 		JavascriptUtils.clickByJS(mcaExplorerPage.age_checkbox);
 	}
-	
-	@When("user selects study,copy number state and age range in both Group A and Group B")
-	public void user_selects_study_copy_number_state_and_age_range_in_both_group_a_and_group_b() {	   
-	   mcaExplorerStepImp.user_selects_study_copy_number_state_and_age_range_in_both_group_a_and_group_b("5", "10"); 
-	}
-	
+
 	@Then("user clicks save button")
 	public void user_clicks_save_button() {
 		JavascriptUtils.clickByJS(mcaExplorerPage.submitButton2);
@@ -78,8 +74,8 @@ public class MCAExplorer_pairwiseplots_steps extends PageInitializer {
 	}
 
 	@Then("user can verify that chart header is {string}")
-	public void user_can_verify_that_chart_header_is(String string) {
+	public void user_can_verify_that_chart_header_is(String expectedValue) {
 		mcaExplorerStepImp.verifyChartheader(CommonUtils.getText(mcaExplorerPage.chart_header_text).trim(),
-				"Study: PLCO,UK Biobank; Types: CN-LOH");		
+				expectedValue);
 	}
 }
