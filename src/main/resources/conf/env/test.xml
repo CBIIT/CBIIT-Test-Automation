@@ -995,7 +995,7 @@
     </application>
 
     <!-- Application ID for SCSS Portal View-->
-    <application id="SCSSPortalView">
+    <application id="SSJPortalView">
         <login_url>https://service-test.nci.nih.gov/nci-scss.do#/
         </login_url> <!-- add test url -->
         <role name="Role">
@@ -1035,8 +1035,31 @@
             </default>
         </db>
     </application>
+    
+    <!-- Application ID for MCAExplorer-->
     <application id="MCAExplorer">
         <login_url>https://mcaexplorer-qa.cancer.gov/#/mosaic
+        </login_url> <!-- add test url -->
+        <role name="Role">
+            <user id="regular">
+                <name>regular</name>
+                <userId></userId> <!-- add encrypted test user -->
+                <password></password> <!-- add encrypted test pass -->
+            </user>
+        </role>
+        <db>
+            <default>
+                <driverclassname></driverclassname> <!-- Add driver class-name -->
+                <url></url> <!-- complete string url -->
+                <username></username> <!-- Add db username -->
+                <password></password> <!-- Add db password -->
+            </default>
+        </db>
+    </application>
+    
+    <!-- Application ID for ThreeDVizSNP-->
+    <application id="ThreeDVizSNP">
+        <login_url>https://analysistools-qa.cancer.gov/3dvizsnp
         </login_url> <!-- add test url -->
         <role name="Role">
             <user id="regular">

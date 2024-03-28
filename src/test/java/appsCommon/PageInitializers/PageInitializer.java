@@ -15,6 +15,8 @@ import AnalysisTools.JPSurv.Pages.*;
 import AnalysisTools.LDLink.Pages.*;
 import AnalysisTools.MCAExplorer.Pages.MCAExplorerPage;
 import AnalysisTools.MCAExplorer.StepsImplementations.MCAExplorerStepImp;
+import AnalysisTools.ThreeDVizSNP.Pages.ThreeDVizSNPPage;
+import AnalysisTools.ThreeDVizSNP.StepsImplementations.ThreeDVizSNPStepImp;
 import AnalysisTools.mSigPortal.Pages.*;
 import AnalysisTools.scAtlas.Pages.SCAtlasCohortsPage;
 import AnalysisTools.scAtlas.Pages.SCAtlasHomePage;
@@ -61,14 +63,8 @@ import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NativeViewImpers
 import ServiceNow.PlatformBusinessApps.SEER.Pages.*;
 import ServiceNow.PlatformBusinessApps.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
-import ServiceNow.PlatformBusinessApps.SSJ.selenium.Pages.ApplicantFlowPage;
-import ServiceNow.PlatformBusinessApps.SSJ.selenium.Pages.NativeViewSCSSReportsPage;
-import ServiceNow.PlatformBusinessApps.SSJ.selenium.Pages.OWMVacancyPage;
-import ServiceNow.PlatformBusinessApps.SSJ.selenium.Pages.StadtmanVacancyPage;
-import ServiceNow.PlatformBusinessApps.SSJ.selenium.StepsImplementation.ApplicantFlowStepsImplementation;
-import ServiceNow.PlatformBusinessApps.SSJ.selenium.StepsImplementation.OWMVacancyStepsImplementation;
-import ServiceNow.PlatformBusinessApps.SSJ.selenium.StepsImplementation.SCSSLoginStepsImplementation;
-import ServiceNow.PlatformBusinessApps.SSJ.selenium.StepsImplementation.StadtmanVacancyStepsImplementation;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.Pages.*;
+import ServiceNow.PlatformBusinessApps.SSJ.selenium.StepsImplementation.*;
 import appsCommon.Pages.ITrustLoginPage;
 import appsCommon.Pages.NativeViewHomePage;
 import appsCommon.Pages.ServiceNow_NCISP_Page;
@@ -191,14 +187,17 @@ public class PageInitializer extends WebDriverUtils {
 	public static NERDOGCRAddNewEntryPage nERDOGCRAddNewEntryPage;
 	public static Covid19ActivitiesSubmissionsPage covid19ActivitiesSubmissionsPage;
 
-	/** SCSS instances */
+	/** SSJ instances */
 	public static OWMVacancyPage owmVacancyPage;
+	public static UnauthenticatedApplicantPage unauthenticatedApplicantPage;
 	public static StadtmanVacancyPage stadtmanVacancyPage;
 	public static ApplicantFlowPage applicantFlowPage;
+
 	public static StadtmanVacancyStepsImplementation stadtmanVacancyStepsImplementation;
 	public static OWMVacancyStepsImplementation oWMVacancyStepsImplementation;
-	public static SCSSLoginStepsImplementation sCCSLoginStepsImplementation;
+	public static SSJLoginStepsImplementation sSJLoginStepsImplementation;
 	public static ApplicantFlowStepsImplementation applicantFlowStepsImplementation;
+	public static UnauthenticatedApplicantFlowStepsImplementation unauthenticatedApplicantFlowStepsImplementation;
 
 	/** eTracking instances */
 	public static EtrackAssetsRecords_NativeViewPage etrackAssetsRecords_NativeViewPage;
@@ -334,6 +333,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewEnrollmentsPage nativeViewEnrollementsPage;
 	public static NativeViewEnrollmentViewPage nativeViewEnrollmentViewPage;
 	public static NativeViewStepsImpl nativeViewStepsImpl;
+	public static NativeViewSSJReportsPage nativeViewSSJReportsPage;
 	public static NativeViewCustomersPage nativeViewCustomersPage;
 	public static NativeViewSentViewPage nativeViewSentViewPage;
 	public static NativeViewAccessRequestPage nativeViewAccessRequestPage;
@@ -344,7 +344,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewCHARMSParticipantDetailsPage nativeViewCHARMSParticipantDetailsPage;
 	public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
 	public static NativeViewCHARMSParticipantStudyPage nativeViewCHARMSParticipantStudyPage;
-	public static NativeViewSCSSReportsPage nativeViewSCSSReportsPage;
+
 
 	/** --------------- EGRANTS INSTANCES --------------- */
 	public static EgrantsQuickLinkAndManagementMenuPage egrantsQuickLinkAndManagementMenuPage;
@@ -354,6 +354,10 @@ public class PageInitializer extends WebDriverUtils {
 	/** ------------ MCA EXPLORER INSTANCES ------------*/
 	public static MCAExplorerPage mcaExplorerPage;
 	public static MCAExplorerStepImp mcaExplorerStepImp;
+	
+	/** --------------- THREEDVIZSNP INSTANCES --------*/
+	public static ThreeDVizSNPPage threeDVizSNPPage;
+	public static ThreeDVizSNPStepImp threeDVizSNPStepImp;
 	
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
@@ -462,14 +466,16 @@ public class PageInitializer extends WebDriverUtils {
 		esrTicketCreationPage = new ESRTicketCreationPage();
 		esrShortDescriptionPage = new ESRShortDescriptionPage();
 
-		/** SCSS Instance Variables */
+		/** SSJ Instance Variables */
 		owmVacancyPage = new OWMVacancyPage();
 		stadtmanVacancyPage = new StadtmanVacancyPage();
 		applicantFlowPage = new ApplicantFlowPage();
+		unauthenticatedApplicantPage = new UnauthenticatedApplicantPage();
 		oWMVacancyStepsImplementation = new OWMVacancyStepsImplementation();
 		stadtmanVacancyStepsImplementation = new StadtmanVacancyStepsImplementation();
-		sCCSLoginStepsImplementation = new SCSSLoginStepsImplementation();
+		sSJLoginStepsImplementation = new SSJLoginStepsImplementation();
 		applicantFlowStepsImplementation = new ApplicantFlowStepsImplementation();
+		unauthenticatedApplicantFlowStepsImplementation = new UnauthenticatedApplicantFlowStepsImplementation();
 
 		/** --------------- CUSTOM BUSINESS APP INSTANCE VARIABLES --------------- */
 		/** EIDP Instance Variables */
@@ -607,7 +613,7 @@ public class PageInitializer extends WebDriverUtils {
 		nativeViewCHARMSParticipantDetailsPage = new NativeViewCHARMSParticipantDetailsPage();
 		nativeViewCHARMSParticipantConsentPage = new NativeViewCHARMSParticipantConsentPage();
 		nativeViewCHARMSParticipantStudyPage = new NativeViewCHARMSParticipantStudyPage();
-		nativeViewSCSSReportsPage = new NativeViewSCSSReportsPage();
+		nativeViewSSJReportsPage = new NativeViewSSJReportsPage();
 
 		/****** GRANTS INSTANCES *******/
 		/** Grants ChangePassword app **/
@@ -646,7 +652,11 @@ public class PageInitializer extends WebDriverUtils {
 		/** MCAEXPLORER INSTANCE VARIABLES */
 		mcaExplorerPage = new MCAExplorerPage();
 		mcaExplorerStepImp = new MCAExplorerStepImp();
-
+		
+		/** THREEDVIZSNP INSTANCE VARIABLES  */
+		threeDVizSNPPage =  new ThreeDVizSNPPage();
+		threeDVizSNPStepImp = new ThreeDVizSNPStepImp();
+		
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}
 }

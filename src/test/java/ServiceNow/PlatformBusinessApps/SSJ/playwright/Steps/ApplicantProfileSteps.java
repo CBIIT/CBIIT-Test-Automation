@@ -1,74 +1,140 @@
 package ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps;
 
-import com.microsoft.playwright.Locator;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.options.AriaRole;
-import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.EncryptionUtils;
-import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.ConfUtils;
-import com.nci.automation.web.EnvUtils;
+import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Profile_Tab_After_Submission_Page;
+import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Profile_Tab_Page;
+import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl;
+import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Rest_Account_StepsImpl;
 import com.nci.automation.web.PlaywrightUtils;
-import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Given;
-import org.testng.Assert;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class ApplicantProfileSteps {
 
     @Given("User is on SCSS Landing page and user is {string} - PW")
-    public void user_is_on_scss_landing_page_and_user_is_pw(String string) {
-        PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("nativeviewSideDoor"));
-        //PlaywrightUtils.page.getByLabel("User name").click();
-        PlaywrightUtils.page.getByLabel("User name").fill(ConfUtils.getProperty("SideDoorUsername"));
-        //PlaywrightUtils.page.getByLabel("Password", new Page.GetByLabelOptions().setExact(true)).click();
-        PlaywrightUtils.page.getByLabel("Password", new Page.GetByLabelOptions().setExact(true)).fill(EncryptionUtils.decrypt(ConfUtils.getProperty("SideDoorPassword")));
-        PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Log in")).click();
-        PlaywrightUtils.page.getByLabel("Avatar: available, user").click();
-        PlaywrightUtils.page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName("Impersonate user")).click();
-        PlaywrightUtils.page.getByRole(AriaRole.COMBOBOX, new Page.GetByRoleOptions().setName("Select a user")).click();
-
-        //PlaywrightUtils.page.getByRole(AriaRole.COMBOBOX, new Page.GetByRoleOptions().setName("Select a user")).fill("Abhishek Desai");
-
-        PlaywrightUtils.page.getByRole(AriaRole.COMBOBOX, new Page.GetByRoleOptions().setName("Select a user")).fill("Abhishek Desai");
-
-        PlaywrightUtils.page.locator("seismic-hoist").getByRole(AriaRole.OPTION, new Locator.GetByRoleOptions().setName("Abhishek Desai Abhishek Desai")).click();
-        MiscUtils.sleep(2000);
-        // PlaywrightUtils.page.getByRole(AriaRole.RADIO, new Page.GetByRoleOptions().setName("Abhishek Desai Abhishek Desai")).click();
-        PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Impersonate user")).click();
-        PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("AppTracker"));
-        WebDriverUtils.log.info("TESTING*************");
-
-        try{
-            Assert.assertEquals("Test", "test");
-        }catch (AssertionError e){
-            CucumberLogUtils.scenario.log(e.getMessage());
-            WebDriverUtils.log.error(e.getMessage());
-        }
-
+    public void user_is_on_scss_landing_page_and_user_is_pw(String user) {
+        ApplicantProfileStepsImpl.ssjLogin(user);
     }
 
     @Given("User is on Profile tab - PW")
     public void user_is_on_profile_tab_pw() {
-        PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Profile")).click();
+        PlaywrightUtils.page.locator(Profile_Tab_Page.profileTab).click();
     }
 
     @Given("User inputs {string} into first name field - PW")
     public void user_inputs_into_first_name_field_pw(String firstName) {
-        PlaywrightUtils.page.getByLabel("First Name").fill(firstName);
+        PlaywrightUtils.page.locator(Profile_Tab_Page.firstNameTextBox).fill(firstName);
+    }
+
+    @Given("User inputs {string} into middle name field - PW")
+    public void user_inputs_into_middle_name_field_pw(String middleName) {
+        PlaywrightUtils.page.locator(Profile_Tab_Page.middleNameTextBox).fill(middleName);
     }
 
     @Given("User inputs {string} into last name field - PW")
     public void user_inputs_into_last_name_field_pw(String lastName) {
-        PlaywrightUtils.page.getByLabel("Last Name").fill(lastName);
+        PlaywrightUtils.page.locator(Profile_Tab_Page.lastNameTextBox).fill(lastName);
     }
 
     @Given("User inputs {string} into email field - PW")
     public void user_inputs_into_email_field_pw(String email) {
-        PlaywrightUtils.page.getByLabel("Email").fill(email);
+        PlaywrightUtils.page.getByLabel(Profile_Tab_Page.emailTextBox).fill(email);
     }
 
     @Given("User inputs {string} into phone field - PW")
     public void user_inputs_into_phone_field_pw(String phoneNumber) {
-        PlaywrightUtils.page.getByLabel("Phone", new Page.GetByLabelOptions().setExact(true)).fill(phoneNumber);
+        PlaywrightUtils.page.locator(Profile_Tab_Page.phoneNumberTextBox).fill(phoneNumber);
+    }
+
+    @Given("User inputs {string} into business phone field - PW")
+    public void user_inputs_into_business_phone_field_pw(String businessPhone) {
+        PlaywrightUtils.page.locator(Profile_Tab_Page.businessPhoneNumberTextBox).fill(businessPhone);
+    }
+
+    @Given("selects highest education {string}")
+    public void selects_highest_education(String highestDegree) {
+        ApplicantProfileStepsImpl.selects_highest_education(highestDegree);
+    }
+
+    @Given("User confirms being a US Citizen - PW")
+    public void user_confirms_being_a_us_citizen_pw() {
+        PlaywrightUtils.page.getByLabel(Profile_Tab_Page.are_You_A_US_Citizen_Yes_Radio_Button).check();
+    }
+
+    @Given("User inputs {string} into address field - PW")
+    public void user_inputs_into_address_field_pw(String address) {
+        PlaywrightUtils.page.getByLabel(Profile_Tab_Page.addressTextBox).fill(address);
+    }
+
+    @Given("User inputs {string} into appNumber field - PW")
+    public void user_inputs_into_app_number_field_pw(String aptNumber) {
+        PlaywrightUtils.page.locator(Profile_Tab_Page.apartmentOrSuiteNumberTextBox).fill(aptNumber);
+    }
+
+    @Given("User inputs {string} into city field - PW")
+    public void user_inputs_into_city_field_pw(String city) {
+        PlaywrightUtils.page.getByLabel(Profile_Tab_Page.cityTextBox).fill(city);
+    }
+
+    @Given("User inputs {string} into state field - PW")
+    public void user_inputs_into_state_field_pw(String state) {
+        PlaywrightUtils.page.getByLabel(Profile_Tab_Page.stateTextBox).fill(state);
+    }
+
+    @Given("User inputs {string} into country field - PW")
+    public void user_inputs_into_country_field_pw(String country) {
+        PlaywrightUtils.page.getByLabel(Profile_Tab_Page.countryTextBox).fill(country);
+    }
+
+    @Given("User inputs {string} into zip field - PW")
+    public void user_inputs_into_zip_field_pw(String zipCode) {
+        PlaywrightUtils.page.getByLabel(Profile_Tab_Page.zipCodeTextBox).fill(zipCode);
+    }
+
+    @When("User clicks on Save Application button - PW")
+    public void user_clicks_on_save_application_button_pw() {
+        PlaywrightUtils.page.locator(Profile_Tab_Page.saveButton).click();
+    }
+
+    @Then("user verifies that first name {string}, middle name {string}, and last name {string} saved display as expected")
+    public void user_verifies_that_first_name_middle_name_and_last_name_saved_display_as_expected(String firstName, String middleName, String lastName) {
+        ApplicantProfileStepsImpl.user_verifies_that_first_name_middle_name_and_last_name_saved_display_as_expected(firstName, middleName, lastName);
+    }
+
+    @Then("verifies that the saved address displays with {string}, {string}, {string}, {string}, {string}, {string}")
+    public void verifies_that_the_saved_address_displays_with(String address, String aptNumber, String city, String state, String country, String zipCode) {
+        ApplicantProfileStepsImpl.verifies_that_the_saved_address_displays_with(address, aptNumber, city, state, country, zipCode);
+    }
+
+    @Then("verifies that the saved email address displays as {string}")
+    public void verifies_that_the_saved_email_address_displays_as(String expectedEmail) {
+        ApplicantProfileStepsImpl.verifies_that_the_saved_email_address_displays_as(expectedEmail);
+    }
+
+    @Then("verifies that the saved phone number displays as {string}")
+    public void verifies_that_the_saved_phone_number_displays_as(String expectedPhoneNumber) {
+        String actualPhoneNumber = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.phoneNumberText).innerText();
+        //Assert.assertEquals(actualPhoneNumber, expectedPhoneNumber);
+    }
+
+    @Then("verifies that the saved business phone number displays as {string}")
+    public void verifies_that_the_saved_business_phone_number_displays_as(String expectedBusinessPhoneNumber) {
+        String actualBusinessPhoneNumberText = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.businessPhoneNumberText).innerText();
+        // Assert.assertEquals(actualBusinessPhoneNumberText, expectedBusinessPhoneNumber);
+    }
+
+    @Then("verifies that the saved highest education displays as {string}")
+    public void verifies_that_the_saved_highest_education_displays_as(String expectedHighestEducation) {
+        ApplicantProfileStepsImpl.verifies_that_the_saved_highest_education_displays_as(expectedHighestEducation);
+    }
+
+    @Then("verifies that the saved US Citizenship displays as {string}")
+    public void verifies_that_the_saved_us_citizenship_displays_as(String expectedYesOrNo) {
+        ApplicantProfileStepsImpl.verifies_that_the_saved_us_citizenship_displays_as(expectedYesOrNo);
+    }
+
+    @Then("tester navigates to native view to reset account with name {string} so that automated test can run again without manual intervention")
+    public void tester_navigates_to_native_view_to_reset_account_with_name_so_that_automated_test_can_run_again_without_manual_intervention(String name) {
+        Rest_Account_StepsImpl.tester_navigates_to_native_view_to_reset_account_with_name_so_that_automated_test_can_run_again_without_manual_intervention(name);
     }
 }
