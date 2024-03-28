@@ -6,11 +6,11 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(plugin = { "html:target/html-reports/cucumber-default-report.html"
 		, "json:target/cucumber.json"
 		, "rerun:target/failed.txt"
-		, "pretty" }
-        , features = {"src/test/java/AnalysisTools/MCAExplorer/Features" }
-        , glue = "AnalysisTools.MCAExplorer.Steps"
-        , tags = "@Smoke"
-        , dryRun = false
+		, "pretty" } 
+		, features = {"src/test/java/AnalysisTools/ThreeDVizSNP/Features" }
+		, glue = "AnalysisTools.ThreeDVizSNP.Steps"
+		, tags = "@Progression"
+		, dryRun = false 
 )
-public class RunMCAExplorerSmokeTest extends AbstractTestNGCucumberTests {
+public class RunThreeDVizSNPProgressionTest extends AbstractTestNGCucumberTests{	
 }
