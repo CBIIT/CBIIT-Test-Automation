@@ -3,7 +3,6 @@ package ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Profile_Tab_After_Submission_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Profile_Tab_Page;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
-import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.PlaywrightUtils;
@@ -105,7 +104,7 @@ public class ApplicantProfileStepsImpl {
     public static void verifies_that_the_saved_business_phone_number_displays_as(String expectedBusinessPhoneNumber) {
         String actualBusinessPhoneNumber = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.businessPhoneNumberText).innerText();
         String formattedExpectedBusinessPhoneNumber = CommonUtils.fixPhoneFormat(expectedBusinessPhoneNumber);
-        org.junit.Assert.assertEquals(actualBusinessPhoneNumber, formattedExpectedBusinessPhoneNumber);
+        Assert.assertEquals(actualBusinessPhoneNumber, formattedExpectedBusinessPhoneNumber);
     }
 
     /**
@@ -116,6 +115,6 @@ public class ApplicantProfileStepsImpl {
     public static void verifies_that_the_saved_phone_number_displays_as(String expectedPhoneNumber) {
         String actualPhoneNumber = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.phoneNumberText).innerText();
         String formattedExpectedPhoneNumber = CommonUtils.fixPhoneFormat(expectedPhoneNumber);
-        org.junit.Assert.assertEquals(actualPhoneNumber, formattedExpectedPhoneNumber);
+        Assert.assertEquals(actualPhoneNumber, formattedExpectedPhoneNumber);
     }
 }
