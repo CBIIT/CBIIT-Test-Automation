@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
         , features = "src/test/java/ServiceNow/PlatformBusinessApps/OFFBOARD/playwright/Features"
         , glue = "ServiceNow.PlatformBusinessApps.OFFBOARD.playwright.Steps"
         , tags = "@Progression"
-        , dryRun = true
+        , dryRun = false
 )
 public class Run_OffBoard_PW_Progression_Test extends AbstractTestNGCucumberTests {
 }
