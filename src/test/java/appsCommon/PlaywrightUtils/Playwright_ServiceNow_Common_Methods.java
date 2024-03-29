@@ -2,6 +2,7 @@ package appsCommon.PlaywrightUtils;
 
 import appsCommon.Pages.Playwright_NativeView_Dashboard_Page;
 import appsCommon.Pages.Playwright_NativeView_Side_Door_Login_Page;
+import appsCommon.Pages.Playwright_ServiceNow_NCISP_Page;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
@@ -59,5 +60,14 @@ public class Playwright_ServiceNow_Common_Methods {
      */
     public static void selectDropDownOptionInsideIframe(String locator, String option){
         PlaywrightUtils.page.frameLocator(Playwright_NativeView_Dashboard_Page.iFrame).locator(locator).selectOption(option);
+    }
+
+    /***
+     * THIS METHOD LOGS OUT OF NATIVE VIEW
+     */
+    public static void logOutOfNativeView(){
+        PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("ServiceNow NCISP"));
+        PlaywrightUtils.page.locator(Playwright_ServiceNow_NCISP_Page.profileAccountButton).click();
+        PlaywrightUtils.page.getByRole(AriaRole.MENUITEM, new Page.GetByRoleOptions().setName(Playwright_ServiceNow_NCISP_Page.logOutLink)).click();
     }
 }
