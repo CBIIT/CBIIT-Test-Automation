@@ -2,7 +2,7 @@ package ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps;
 
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Profile_Tab_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl;
-import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Rest_Account_StepsImpl;
+import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Reset_Account_StepsImpl;
 import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -132,6 +132,11 @@ public class ApplicantProfileSteps {
 
     @Then("tester navigates to native view to reset account with name {string} so that automated test can run again without manual intervention")
     public void tester_navigates_to_native_view_to_reset_account_with_name_so_that_automated_test_can_run_again_without_manual_intervention(String name) {
-        Rest_Account_StepsImpl.tester_navigates_to_native_view_to_reset_account_with_name_so_that_automated_test_can_run_again_without_manual_intervention(name);
+        Reset_Account_StepsImpl.tester_navigates_to_native_view_to_reset_account_with_name_so_that_automated_test_can_run_again_without_manual_intervention(name);
+    }
+
+    @Given("a test account {string} is reset before executing a test")
+    public void a_test_account_is_reset_before_executing_a_test(String testAccountName) {
+        Reset_Account_StepsImpl.a_test_account_is_reset_before_executing_a_test(testAccountName);
     }
 }
