@@ -1,7 +1,7 @@
 package ServiceNow.PlatformBusinessApps.NERD.selenium.StepsImplementation;
 
-import ServiceNow.PlatformBusinessApps.NERD.Constants.NCI_Staff_Members_Constants;
-import ServiceNow.PlatformBusinessApps.NERD.Constants.ReturningSubmissions_Constants;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.Constants.NCI_Staff_Members_Constants;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.Constants.ReturningSubmissions_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
@@ -13,7 +13,6 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import org.junit.Assert;
-
 import java.util.Set;
 
 public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {

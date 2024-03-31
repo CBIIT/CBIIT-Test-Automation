@@ -1,7 +1,7 @@
 package ServiceNow.PlatformBusinessApps.NERD.selenium.Steps;
 
-import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NERDApplicationStepsImplementation;
-import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NERDOGSRMemberOfCongressStepImpl;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.StepsImplementation.NERDOGSRMemberOfCongressStepImpl;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.Given;

@@ -1,10 +1,10 @@
 package ServiceNow.PlatformBusinessApps.NERD.selenium.Steps;
 
-import ServiceNow.PlatformBusinessApps.NERD.Constants.ReturningSubmissions_Constants;
-import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NERDApplicationStepsImplementation;
-import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NERD_NCI_CRSReviewerStepsImplementation;
-import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NERD_NCI_DOC_PlanningContactStepsImplementation;
-import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NERD_NCI_StaffMemberStepsImplementation;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.Constants.ReturningSubmissions_Constants;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.StepsImplementation.NERD_NCI_CRSReviewerStepsImplementation;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.StepsImplementation.NERD_NCI_DOC_PlanningContactStepsImplementation;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.StepsImplementation.NERD_NCI_StaffMemberStepsImplementation;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
@@ -18,7 +18,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-
 import java.util.Set;
 
 public class existingReturningCollaborationsSteps extends PageInitializer {

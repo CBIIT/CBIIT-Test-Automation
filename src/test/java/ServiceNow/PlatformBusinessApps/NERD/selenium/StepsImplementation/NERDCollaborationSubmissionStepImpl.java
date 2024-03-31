@@ -1,8 +1,8 @@
 package ServiceNow.PlatformBusinessApps.NERD.selenium.StepsImplementation;
 
-import ServiceNow.PlatformBusinessApps.NERD.Constants.ReturningSubmissions_Constants;
-import ServiceNow.PlatformBusinessApps.NERD.Constants.TopAccomplishmentsSubmission_Constants;
-import ServiceNow.PlatformBusinessApps.NERD.Pages.NERDDOCCollaborationsPage;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.Constants.ReturningSubmissions_Constants;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.Constants.TopAccomplishmentsSubmission_Constants;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.Pages.NERDDOCCollaborationsPage;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;

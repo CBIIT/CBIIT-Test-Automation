@@ -1,8 +1,8 @@
 package ServiceNow.PlatformBusinessApps.NERD.selenium.StepsImplementation;
 
-import ServiceNow.PlatformBusinessApps.NERD.Constants.NERDOGSRMemberOfCongress_Constants;
-import ServiceNow.PlatformBusinessApps.NERD.Pages.NERDOGCRAddNewEntryPage;
-import ServiceNow.PlatformBusinessApps.NERD.Pages.NativeViewMembersOfCongressPage;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.Constants.NERDOGSRMemberOfCongress_Constants;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.Pages.NERDOGCRAddNewEntryPage;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.Pages.NativeViewMembersOfCongressPage;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
 import appsCommon.Utils.ServiceNow_Common_Methods;
@@ -17,7 +17,6 @@ import com.nci.automation.xceptions.TestingException;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
-
 import java.util.ArrayList;
 import java.util.List;
 

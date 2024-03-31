@@ -1,6 +1,6 @@
 package ServiceNow.PlatformBusinessApps.NERD.selenium.StepsImplementation;
 
-import ServiceNow.PlatformBusinessApps.NERD.Constants.ReturningSubmissions_Constants;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.Constants.ReturningSubmissions_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
@@ -14,7 +14,6 @@ import com.nci.automation.xceptions.TestingException;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import java.util.Set;
 
 public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitializer {
@@ -405,7 +404,7 @@ public class NERD_NCI_DOC_PlanningContactStepsImplementation extends PageInitial
                 Assert.assertTrue("VERIFYING RANK FIELD IS NOT DISPLAYED",
                                 element.getDomAttribute("aria-hidden").contentEquals("true"));
                 CucumberLogUtils.logScreenshot();
-//                ServiceNow_Common_Methods.logOutOfNativeView();
+                ServiceNow_Common_Methods.logOutOfNativeView();
                 NERD_NCI_DOC_PlanningContactStepsImplementation
                                 .deleteCreatedSubmissionByDocPlanningContact(collaborationName);
         }

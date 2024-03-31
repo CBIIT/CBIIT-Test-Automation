@@ -1,7 +1,7 @@
 package ServiceNow.PlatformBusinessApps.NERD.selenium.StepsImplementation;
 
-import ServiceNow.PlatformBusinessApps.NERD.Constants.Covid19ActivitiesSubmissions_Constants;
-import ServiceNow.PlatformBusinessApps.NERD.Pages.Covid19ActivitiesSubmissionsPage;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.Constants.Covid19ActivitiesSubmissions_Constants;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.Pages.Covid19ActivitiesSubmissionsPage;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
@@ -14,7 +14,6 @@ import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;

@@ -2,7 +2,6 @@ package ServiceNow.PlatformBusinessApps.NERD.selenium.StepsImplementation;
 
 import ServiceNow.PlatformBusinessApps.NERD.selenium.Constants.NERDOGSRMemberOfCongress_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.selenium.Pages.NERDOGCRAddNewEntryPage;
-import ServiceNow.PlatformBusinessApps.NERD.selenium.Pages.*;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;

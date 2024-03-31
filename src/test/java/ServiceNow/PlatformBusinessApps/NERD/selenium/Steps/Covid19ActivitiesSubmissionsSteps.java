@@ -1,6 +1,6 @@
 package ServiceNow.PlatformBusinessApps.NERD.selenium.Steps;
 
-import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.Covid19ActivitiesSubmissionsStepImplementation;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.StepsImplementation.Covid19ActivitiesSubmissionsStepImplementation;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.xceptions.TestingException;

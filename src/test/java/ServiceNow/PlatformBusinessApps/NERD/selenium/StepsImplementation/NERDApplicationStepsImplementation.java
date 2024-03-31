@@ -1,11 +1,11 @@
 package ServiceNow.PlatformBusinessApps.NERD.selenium.StepsImplementation;
 
 import ServiceNow.COVIDDash.Utils.COVIDConstants;
-import ServiceNow.PlatformBusinessApps.NERD.Constants.CRSReviewers_Constants;
-import ServiceNow.PlatformBusinessApps.NERD.Constants.NCI_Staff_Members_Constants;
-import ServiceNow.PlatformBusinessApps.NERD.Constants.ReturningSubmissions_Constants;
-import ServiceNow.PlatformBusinessApps.NERD.Constants.TopAccomplishmentsSubmission_Constants;
-import ServiceNow.PlatformBusinessApps.NERD.Pages.NERDDynamicXPATHS;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.Constants.CRSReviewers_Constants;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.Constants.NCI_Staff_Members_Constants;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.Constants.ReturningSubmissions_Constants;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.Constants.TopAccomplishmentsSubmission_Constants;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.Pages.NERDDynamicXPATHS;
 import ServiceNow.PlatformBusinessApps.SEER.Constants.SEERNativeView_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Pages.NativeView_SideDoor_Dashboard_Page;
@@ -21,7 +21,6 @@ import com.nci.automation.xceptions.TestingException;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-
 import java.util.Set;
 
 public class NERDApplicationStepsImplementation extends PageInitializer {

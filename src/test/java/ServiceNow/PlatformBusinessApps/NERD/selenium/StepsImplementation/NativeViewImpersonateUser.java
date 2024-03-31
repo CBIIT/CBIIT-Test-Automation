@@ -4,7 +4,7 @@ import ServiceNow.COVIDDash.NativeView.Pages.NativeViewDashboardPage;
 import ServiceNow.PlatformBusinessApps.ETracking.Constants.EtrackAssetsRecords_NativeView_Constants;
 import ServiceNow.PlatformBusinessApps.GCP.Constants.GCPNotifications_NativeView_Constants;
 import ServiceNow.PlatformBusinessApps.GDC.Constants.GDC_WorkFlow_NV_Constants;
-import ServiceNow.PlatformBusinessApps.NERD.Constants.CRSReviewers_Constants;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.Constants.CRSReviewers_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
