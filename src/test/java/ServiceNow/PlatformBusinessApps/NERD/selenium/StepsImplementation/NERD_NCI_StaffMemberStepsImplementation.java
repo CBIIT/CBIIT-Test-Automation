@@ -157,6 +157,5 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         JavascriptUtils.drawBlueBorder(nerdHomePage.rockKnowledgeBaseText);
         JavascriptUtils.drawBlueBorder(nerdHomePage.moonshotEvaluationKnowledgeBaseText);
         CucumberLogUtils.logScreenshot();
-
     }
 }
