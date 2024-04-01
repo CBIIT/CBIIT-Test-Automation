@@ -76,6 +76,11 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         MiscUtils.sleep(2000);
     }
 
+    /**
+     * This method highlight the Under Review Text
+     *
+     * @param expectedUnderReviewText
+     */
     public static void theCreatedCollaborationsSubmissionIsDisplaysInTheCollaborationsCategorySectionWithTheStatus(String expectedUnderReviewText) {
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
@@ -267,6 +272,10 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         MiscUtils.sleep(2000);
     }
 
+    /**
+     * This method verifies that email is not received in system Logs
+     *
+     */
     public static void checkingEmailWasNotReceived() throws TestingException {
         ServiceNow_Common_Methods.logOutOfNativeView();
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
@@ -421,6 +430,11 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * This method verifies that the following check box option is displayed as COVID19 Leadership Messages
+     *
+     * @param covid19LeadershipMessages
+     */
     public static void verifyingOfOM_CheckBox(String covid19LeadershipMessages) {
         MiscUtils.sleep(1000);
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.covid19LeadershipMessagesText);

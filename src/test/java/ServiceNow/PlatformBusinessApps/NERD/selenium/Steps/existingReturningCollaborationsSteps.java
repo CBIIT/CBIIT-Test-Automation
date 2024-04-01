@@ -79,7 +79,6 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         NERD_NCI_CRSReviewerStepsImplementation.returningOfSubmissionByCRSReviewer("NCI Cancer Data Standards Repository and Registry (caDSR)");
         NERD_NCI_DOC_PlanningContactStepsImplementation.docPlaningContactIsOnSubmissionsPage("Submissions");
-
     }
 
     @When("the user clicks the {string} button")
@@ -222,7 +221,6 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
     @Then("the Status of the {string} submission reads {string}")
     public void the_Status_of_the_submission_reads(String nciCancerDataStandardsRepositoryAndRegistry,
                                                    String underReview) {
-
         CommonUtils.waitForVisibility(
                 nerdDynamicXpaths.publishedCollaboration("NCI Cancer Data Standards Repository and Registry (caDSR)"));
         Assert.assertTrue(nerdDynamicXpaths.underReviewText(nciCancerDataStandardsRepositoryAndRegistry).getText()
@@ -273,7 +271,6 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
         nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton.click();
         MiscUtils.sleep(3000);
-
     }
 
     @Then("the status of the submission reads {string}")
@@ -345,7 +342,6 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
         nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton.click();
         MiscUtils.sleep(1000);
-
         nativeViewImpersonateUser.impersonateToCRSReviewer();
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
         CommonUtils.waitForVisibility(
@@ -362,19 +358,16 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
 
     @When("the CRS Reviewer clicks the {string} button")
     public void the_CRS_Reviewer_clicks_the_button(String publishToNerd) {
-
         Assert.assertTrue(
                 nerdDynamicXpaths.publishToNERDButton("NCI Cancer Data Standards Repository and Registry (caDSR)")
                         .getText().equals(publishToNerd));
         nerdDynamicXpaths.publishToNERDButton("NCI Cancer Data Standards Repository and Registry (caDSR)").click();
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton);
         CucumberLogUtils.logScreenshot();
-
     }
 
     @When("the CRS Reviwer clicks the {string} button")
     public void the_CRS_Reviwer_clicks_the_button(String yes) {
-
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton);
         JavascriptUtils.scrollIntoView(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton);
         Assert.assertTrue(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmPopUpWindowYESbutton.getText().equals(yes));
@@ -384,7 +377,6 @@ public class existingReturningCollaborationsSteps extends PageInitializer {
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
         nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton.click();
         MiscUtils.sleep(1000);
-
     }
 
     @Then("the submission is published")

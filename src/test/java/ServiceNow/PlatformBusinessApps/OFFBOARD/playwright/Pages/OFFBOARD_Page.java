@@ -1,4 +1,4 @@
-package ServiceNow.PlatformBusinessApps.OFFBOARD.playwright.Features.Pages;
+package ServiceNow.PlatformBusinessApps.OFFBOARD.playwright.Pages;
 
 public class OFFBOARD_Page {
     /***

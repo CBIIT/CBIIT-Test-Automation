@@ -12,7 +12,7 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
-import org.junit.Assert;
+import org.testng.Assert;
 import java.util.Set;
 
 public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {

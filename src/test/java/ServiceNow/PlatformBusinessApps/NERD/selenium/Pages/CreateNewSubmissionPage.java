@@ -237,7 +237,6 @@ public class CreateNewSubmissionPage extends CommonUtils {
 	/** Edited Staff Member submission save button  */
 	@FindBy(xpath = "//button[@ng-click='c.saveSubmission()']")
 	public WebElement editedStaffMemberSubmissionSaveButton;
-	
 
 	/** ------------ END OF CREATE NEW COLLABORATION SECTION ----------- */
 

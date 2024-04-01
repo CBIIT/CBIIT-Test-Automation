@@ -97,7 +97,6 @@ public class NERDKnowledgebasePage {
     public static WebElement dynamicXpathNERDAccordian(String titleOfPublishedArticle) {
         return WebDriverUtils.webDriver
                 .findElement(By.xpath("//h4[contains(text(),'" + titleOfPublishedArticle + "')]"));
-
     }
 
     public NERDKnowledgebasePage() {

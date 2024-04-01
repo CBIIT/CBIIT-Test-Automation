@@ -124,7 +124,6 @@ public class NERDOGSRMemberOfCongressStepImpl extends PageInitializer {
             MiscUtils.sleep(2000);
         }
 
-
         MiscUtils.sleep(2000);
         CommonUtils.waitForClickability(nativeViewMembersOfCongressPage.membersOfCongressFilterIcon);
         CommonUtils.clickOnElement(nativeViewMembersOfCongressPage.membersOfCongressFilterIcon);

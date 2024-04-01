@@ -213,5 +213,4 @@ public class NERDReturningSubmissionSteps extends PageInitializer {
     public void the_doc_planning_contact_is_able_to_see_only_published_submissions() {
         NERDApplicationStepsImplementation.theDocPlanningContactIsAbleToSeeOnlyPublishedSubmissions();
     }
-
 }

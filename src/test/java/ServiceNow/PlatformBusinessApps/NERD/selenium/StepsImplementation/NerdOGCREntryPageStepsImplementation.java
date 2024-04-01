@@ -143,7 +143,7 @@ public class NerdOGCREntryPageStepsImplementation extends PageInitializer {
                 v++;
             }
             CommonUtils.assertTrue(v == 1);
-//            CucumberLogUtils.logScreenshot();
+            CucumberLogUtils.logScreenshot();
         }
         CucumberLogUtils.logScreenshot();
     }

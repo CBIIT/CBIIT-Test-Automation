@@ -1,6 +1,6 @@
 package ServiceNow.PlatformBusinessApps.OFFBOARD.playwright.Steps;
 
-import ServiceNow.PlatformBusinessApps.OFFBOARD.playwright.Features.Pages.OFFBOARD_Page;
+import ServiceNow.PlatformBusinessApps.OFFBOARD.playwright.Pages.OFFBOARD_Page;
 import ServiceNow.PlatformBusinessApps.OFFBOARD.playwright.StepsImplementation.OFFBOARD_StepsImpl;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.nci.automation.web.PlaywrightUtils;
