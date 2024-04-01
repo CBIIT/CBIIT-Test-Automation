@@ -24,6 +24,12 @@ public class NERDKnowledgebasePage {
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement topAccomplishmentsNerdKnowledgeBaseSearchButton;
 
+    /***
+     * Use the below method to locate any accordion by value
+     *
+     * @param value
+     * @return
+     */
     public static WebElement dynamicAccordion(String value) {
         return WebDriverUtils.webDriver.findElement(By.xpath("//*[contains(text(),'" + value + "')]"));
     }
