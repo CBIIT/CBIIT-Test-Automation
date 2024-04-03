@@ -1,12 +1,12 @@
 Feature: These are the features on the Researcher Portal
 
-  @Smoke @matakevin
+  @Regression @Smoke @matakevin
   Scenario: The Researcher can log in
     Given the user is on the ACT24 Researcher site
     When the user enters "Kevin.MataRodriguez@nih.gov" as email and "ACT24Test!" as password and clicks Login
     Then the Researcher is logged in
 
-  @Smoke @matakevin
+  @NEEDSREVIEW @matakevin
   Scenario Outline: The Researcher creates a new study
     Given the Researcher is logged in "Kevin.MataRodriguez@nih.gov" and "ACT24Test!"
     When the user creates a new study "<StudyName>", "<StudyDescription>", "<Abbreviation>", "<ExpectedParticipants>", "<ExpectedRecallsPerParticipant>", "<StudyStartDate>", "<StudyEndDate>"

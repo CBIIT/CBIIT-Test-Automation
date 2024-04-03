@@ -37,7 +37,12 @@ public class ACT24ResearcherPortalSteps extends PageInitializer {
     public void the_user_creates_a_new_study(String studyName, String studyDescription, String studyAbbreviation, String expectedParticipants, String recallPerParticipant, String studyStartDate, String studyEndDate) {
         MiscUtils.sleep(3000);
         act24ResearcherStepImpl.createNewStudy(studyName, studyDescription, studyAbbreviation, expectedParticipants, recallPerParticipant, studyStartDate, studyEndDate);
+        //NEED TO CHANGE STUDY ABBREVIATION (THERE CAN'T BE DUPLICATE NAMES)
         MiscUtils.sleep(2000);
+    }
+
+    @Then("the Researcher is logged in")
+    public void the_researcher_is_logged_in() {
     }
 
     @Then("the screen is displayed")
