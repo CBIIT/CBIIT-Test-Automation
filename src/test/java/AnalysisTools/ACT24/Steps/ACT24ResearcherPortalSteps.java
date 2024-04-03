@@ -17,6 +17,7 @@ public class ACT24ResearcherPortalSteps extends PageInitializer {
         MiscUtils.sleep(2000);
         Assert.assertTrue(act24ResearcherPortalPage.researcherText.isDisplayed());
     }
+
     @When("the user enters {string} as email and {string} as password and clicks Login")
     public void the_user_enters_as_email_and_as_password_and_clicks_login(String email, String password) {
         act24ResearcherStepImpl.researcherLogin(email, password);
@@ -38,6 +39,7 @@ public class ACT24ResearcherPortalSteps extends PageInitializer {
         act24ResearcherStepImpl.createNewStudy(studyName, studyDescription, studyAbbreviation, expectedParticipants, recallPerParticipant, studyStartDate, studyEndDate);
         MiscUtils.sleep(2000);
     }
+
     @Then("the screen is displayed")
     public void the_screen_is_displayed() {
         Assert.assertTrue(act24ResearcherPortalPage.successfulStudyCreationPrompt.isDisplayed());
