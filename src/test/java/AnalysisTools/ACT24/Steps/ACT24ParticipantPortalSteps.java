@@ -1,5 +1,6 @@
 package AnalysisTools.ACT24.Steps;
 
+import AnalysisTools.ACT24.StepsImpl.ACT24ParticipantStepImpl;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
@@ -26,9 +27,7 @@ public class ACT24ParticipantPortalSteps extends PageInitializer {
 
     @When("the user adds wake up time on splash screen")
     public void the_user_adds_wake_up_time_on_splash_screen() {
-        CommonUtils.clickOnElement(act24ParticipantPortalPage.splashScreenLastPageButton);
-        CommonUtils.clickOnElement(act24ParticipantPortalPage.nextButtonOnSplashScreen);
-        CommonUtils.clickOnElement(act24ParticipantPortalPage.wakeupTimeOnSplashScreenButton);
+        act24ParticipantStepImpl.addWakeTimeOnSplashScreen();
     }
     @When("the user adds a Sleeping or in Bed entry")
     public void the_user_adds_a_sleeping_or_in_bed_entry() {

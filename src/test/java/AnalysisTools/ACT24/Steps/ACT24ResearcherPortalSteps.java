@@ -1,9 +1,7 @@
 package AnalysisTools.ACT24.Steps;
 
-import AnalysisTools.ACT24.StepsImpl.ACT24ResearcherStepImpl;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Given;
