@@ -27,10 +27,12 @@ public class ACT24ParticipantPortalSteps extends PageInitializer {
     public void the_user_adds_wake_up_time_on_splash_screen() {
         act24ParticipantStepImpl.addWakeTimeOnSplashScreen();
     }
+
     @When("the user adds a Sleeping or in Bed entry")
     public void the_user_adds_a_sleeping_or_in_bed_entry() {
         CommonUtils.clickOnElement(act24ParticipantPortalPage.okOnWelcomeBackPopup);
     }
+
     @Then("the timeline displays a sleeping or in bed tile")
     public void the_timeline_displays_a_sleeping_or_in_bed_tile() {
     }

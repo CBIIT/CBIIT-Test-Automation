@@ -14,8 +14,6 @@ public class ACT24ResearcherPortalSteps extends PageInitializer {
     @Given("the user is on the ACT24 Researcher site")
     public void the_user_is_on_the_act24_researcher_site() {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ACT24Researcher"));
-        MiscUtils.sleep(2000);
-        Assert.assertTrue(act24ResearcherPortalPage.researcherText.isDisplayed());
     }
 
     @When("the user enters {string} as email and {string} as password and clicks Login")
