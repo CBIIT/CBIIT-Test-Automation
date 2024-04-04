@@ -24,9 +24,9 @@ public class CTRPCTRO_NV_Steps {
 
     @Then("following options are available in the Subcategory field when the NCI DCC Accrual Report Category is selected: {string}, {string}, {string}, {string}, {string}, {string}, {string}")
     public void following_options_are_available_in_the_subcategory_field_when_the_nci_dcc_accrual_report_category_is_selected(String accountRelated,
-                        String dataReview, String feedBack, String generalInquiries, String policyDecision, String technicalIssues, String training) {
+    String dataReview, String feedBack, String generalInquiries, String policyDecision, String technicalIssues, String training) {
     CTRPCTRO_NV_StepImpl.following_options_are_available_in_the_subcategory_field_when_the_nci_dcc_accrual_report_category_is_selected(
-                                                    accountRelated, dataReview, feedBack,generalInquiries, policyDecision, technicalIssues, training);
+    accountRelated, dataReview, feedBack,generalInquiries, policyDecision, technicalIssues, training);
     CTRPCTRO_NV_StepImpl.deleteTheRecord();
     }
 }

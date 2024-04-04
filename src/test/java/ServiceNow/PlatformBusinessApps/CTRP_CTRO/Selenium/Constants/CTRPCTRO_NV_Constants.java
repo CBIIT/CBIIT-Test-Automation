@@ -3,7 +3,6 @@ package ServiceNow.PlatformBusinessApps.CTRP_CTRO.Selenium.Constants;
 import com.nci.automation.web.CommonUtils;
 
 public class CTRPCTRO_NV_Constants {
-
     /* CTRP/CTRO NATIVE VIEW CREATE NEW CASE URL */
     public static final String CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_URL = "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/x_naci_ctrp_ctro_case.do%3Fsys_id%3D-1%26sysparm_query%3Dactive%3Dtrue%26sysparm_stack%3Dx_naci_ctrp_ctro_case.do%3Fsysparm_query%3Dactive%3Dtrue";
 
