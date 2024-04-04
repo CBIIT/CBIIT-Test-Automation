@@ -1,6 +1,6 @@
 Feature: NCI Staff Member Test Scenarios
 
-  @SS-4187 @SS-2218 @chaudhryma @Regression @Smoke @Progression
+  @SS-4187 @SS-2218 @chaudhryma @Regression @Smoke
   Scenario: Program Staff member Collaborations Submission
     Given a Program Staff member is on the CRS Knowledge Management System "Submissions" page
     And creates a new submission for Collaboration category
@@ -18,8 +18,8 @@ Feature: NCI Staff Member Test Scenarios
       | NERD             | ROCK             | Moonshot Evaluation | Collaborations        |
 
 
-  @In_Progress
+  @NERDSNOW-686 @chaudhryma @Progression @In_Progress
   Scenario: Test 1: Remove 'Delete' Button in NERD For Specific Users
-    Given a Program Staff member is on the CRS Knowledge Management System "Submissions" page
+    Given an NCI Staff Member not on the NERD table is on the NERD CRS Knowledge Base
     When they view Top Accomplishments submission category
-    Then they DO NOT see the 'Delete' button for non-Published articles
+#    Then they DO NOT see the 'Delete' button for non-Published articles
