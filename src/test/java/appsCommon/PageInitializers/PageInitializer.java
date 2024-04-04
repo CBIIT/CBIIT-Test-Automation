@@ -1,6 +1,8 @@
 package appsCommon.PageInitializers;
 
 import AnalysisTools.ACT24.Pages.*;
+import AnalysisTools.ACT24.StepsImpl.ACT24ParticipantStepImpl;
+import AnalysisTools.ACT24.StepsImpl.ACT24ResearcherStepImpl;
 import AnalysisTools.Comets2.Pages.*;
 import AnalysisTools.GDSTracking.Pages.*;
 import AnalysisTools.GWASExplorer.Pages.*;
@@ -315,6 +317,10 @@ public class PageInitializer extends WebDriverUtils {
 	public static ACT24ParticipantPortalPage act24ParticipantPortalPage;
 	public static ACT24ResearcherPortalPage act24ResearcherPortalPage;
 
+	public static ACT24ResearcherStepImpl act24ResearcherStepImpl;
+
+	public static ACT24ParticipantStepImpl act24ParticipantStepImpl;
+
 	/** GWAS Target instances **/
 	public static GWASTargetHomePages gwasTargetHomePages;
 	public static GWASTargetAnalysisPages gwasTargetAnalysisPages;
@@ -550,6 +556,8 @@ public class PageInitializer extends WebDriverUtils {
 		/** ACT24 Instance Variables **/
 		act24ParticipantPortalPage = new ACT24ParticipantPortalPage();
 		act24ResearcherPortalPage = new ACT24ResearcherPortalPage();
+		act24ResearcherStepImpl = new ACT24ResearcherStepImpl();
+		act24ParticipantStepImpl = new ACT24ParticipantStepImpl();
 
 		/** GWAS Explorer Instance Variables **/
 		exploreGWASPage = new ExploreGWASPage();
