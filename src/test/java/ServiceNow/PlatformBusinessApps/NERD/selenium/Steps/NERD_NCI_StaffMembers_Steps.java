@@ -12,6 +12,5 @@ public class NERD_NCI_StaffMembers_Steps {
 
     @When("they view Top Accomplishments submission category")
     public void they_view_top_accomplishments_submission_category() {
-
     }
 }
