@@ -81,7 +81,6 @@ public class NERDCRSTopAccomplishmentsPage {
     public WebElement nerdTopAccomplishmentsSubmitToDocPlanningPopUpYesButton;
 
     public NERDCRSTopAccomplishmentsPage() {
-
     PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
 }
