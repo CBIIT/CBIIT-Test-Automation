@@ -1,9 +1,11 @@
 package ServiceNow.PlatformBusinessApps.NERD.selenium.Constants;
 
+import com.nci.automation.web.CommonUtils;
+
 public class TopAccomplishmentsSubmission_Constants {
 
     /* TOP ACCOMPLISHMENTS SUBMISSION NAME */
-    public static final String TOP_ACCOMPLISHMENTS_SUBMISSION_NAME = "AutomationTest";
+    public static final String TOP_ACCOMPLISHMENTS_SUBMISSION_NAME = "Top Accomplishment AutomationTest " + CommonUtils.lastNameRandomizer();
 
     /* TOP ACCOMPLISHMENTS DOC DROPDOWN */
     public static final String TOP_ACCOMPLISHMENTS_DOC_DROPDOWN = "CBIIT";

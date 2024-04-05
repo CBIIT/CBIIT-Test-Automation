@@ -17,7 +17,6 @@ Feature: NCI Staff Member Test Scenarios
       | NERD             | ROCK             | Moonshot Evaluation | Other Accomplishments |
       | NERD             | ROCK             | Moonshot Evaluation | Collaborations        |
 
-
   @NERDSNOW-686 @chaudhryma @Progression @In_Progress
   Scenario: Test 1: Remove 'Delete' Button in NERD For Specific Users
     Given an NCI Staff Member not on the NERD table is on the NERD CRS Knowledge Base

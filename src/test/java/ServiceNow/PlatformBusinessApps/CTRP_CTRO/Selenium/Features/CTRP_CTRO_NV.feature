@@ -1,6 +1,6 @@
 Feature: CTRP/CTRO Native View Case Test Scenarios
 
-  @CTRPSNOW-81 @chaudhryma
+  @CTRPSNOW-81 @chaudhryma @Regression
   Scenario: Test Add Category / Subcategories to Case Forms
     Given a CTRP CTRO Helpdesk Case
     When users select 'Category'
