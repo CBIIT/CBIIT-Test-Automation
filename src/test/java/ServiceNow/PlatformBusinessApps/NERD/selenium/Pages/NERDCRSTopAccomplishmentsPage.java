@@ -7,6 +7,10 @@ import org.openqa.selenium.support.PageFactory;
 
 public class NERDCRSTopAccomplishmentsPage {
 
+    /** NERD Top Accomplishments accordion Button */
+    @FindBy(xpath = "(//div[@class='ng-binding ng-scope'])[1]")
+    public WebElement nerdTopAccomplishmentsAccordionButton;
+
     /** NERD Top Accomplishments Category text */
     @FindBy(xpath = "//h4[contains(text(),'Category')]")
     public WebElement nerdTopAccomplishmentsCategoryText;
@@ -71,8 +75,12 @@ public class NERDCRSTopAccomplishmentsPage {
     @FindBy(xpath = "//h4[contains(text(),'Author')]")
     public WebElement nerdTopAccomplishmentsAuthorText;
 
-    public NERDCRSTopAccomplishmentsPage() {
+    /** NERD CRS Knowledge Base NCI Staff Member Top Accomplishments
+     * Submit to Doc Planning Submit Pop Up Yes Button */
+    @FindBy(xpath = "//button[@ng-click='c.submitSubmission()']")
+    public WebElement nerdTopAccomplishmentsSubmitToDocPlanningPopUpYesButton;
 
+    public NERDCRSTopAccomplishmentsPage() {
     PageFactory.initElements(WebDriverUtils.webDriver, this);
     }
 }

@@ -2,6 +2,8 @@ package ServiceNow.PlatformBusinessApps.NERD.selenium.StepsImplementation;
 
 import ServiceNow.PlatformBusinessApps.NERD.selenium.Constants.NCI_Staff_Members_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.selenium.Constants.ReturningSubmissions_Constants;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.Constants.TopAccomplishmentsSubmission_Constants;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.Pages.NERDCRSTopAccomplishmentsPage;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
@@ -147,5 +149,45 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         JavascriptUtils.drawBlueBorder(
                 nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageSubmissionsLink);
         CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * NCI Staff Member submits Top Accomplishment submission to DOC planning Contact
+     * DOC Planning Contact impersonate and return the submission to Staff member
+     *
+     * This method will locate Staff Member not on the NERD table, to CRS Knowledge Management System Page
+     */
+    public static void an_nci_staff_member_not_on_the_nerd_table_is_on_the_nerd_crs_knowledge_base() {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+        MiscUtils.sleep(1000);
+        JavascriptUtils.drawBlueBorder(
+                nerdKnowledgeBasePage.nerdCRSKnowledgeMainText);
+        JavascriptUtils.drawBlueBorder(
+                nerdCrsKnowledgeDatabaseSubmissionsPage.crsKnowledgeManagementSystemSubmissionsPageSubmissionsLink);
+        CucumberLogUtils.logScreenshot();
+        MiscUtils.sleep(2000);
+        NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.topAccomplishmentsCreateNewSubmissionLink);
+
+        NERDApplicationStepsImplementation.filingOutAllRequiredFieldsOfSubmission();
+        MiscUtils.sleep(2000);
+        JavascriptUtils
+                .scrollIntoView(nerdCrsKnowledgeDatabaseSubmissionsPage.topAccomplishmentSubmitButton);
+        MiscUtils.sleep(2000);
+        CommonUtils.clickOnElement(nerdCrsKnowledgeDatabaseSubmissionsPage.topAccomplishmentSubmitButton);
+        CucumberLogUtils.logScreenshot();
+        MiscUtils.sleep(2000);
+        CommonUtils.clickOnElement(nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsSubmitToDocPlanningPopUpYesButton);
+        CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
+        CommonUtils.clickOnElement(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
+        nerdCRSTopAccomplishmentsPage.nerdTopAccomplishmentsAccordionButton.click();
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME));
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
+        MiscUtils.sleep(20000);
     }
 }

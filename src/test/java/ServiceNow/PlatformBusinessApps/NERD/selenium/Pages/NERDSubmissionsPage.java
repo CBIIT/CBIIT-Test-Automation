@@ -92,7 +92,7 @@ public class NERDSubmissionsPage extends CommonUtils {
 	public WebElement topAccomplishmentNewSubmissionCancelButton;
 
 	/** CRS Top Accomplishment Submission Submit Button */
-	@FindBy(xpath = "(//button[@class = 'md-raised md-secondary md-button md-ink-ripple'])[1]")
+	@FindBy(xpath = "//span[normalize-space()='Submit']")
 	public WebElement topAccomplishmentSubmitButton;
 
 	/** CRS Top Submissions */
