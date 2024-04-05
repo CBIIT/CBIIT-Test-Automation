@@ -17,6 +17,4 @@ import io.cucumber.testng.CucumberOptions;
 *  @author sohilz2
 */
 public class Run_NERD_Progression_Test extends AbstractTestNGCucumberTests {
-
-
 }
