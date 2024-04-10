@@ -1,6 +1,8 @@
 package appsCommon.PageInitializers;
 
 import AnalysisTools.ACT24.Pages.*;
+import AnalysisTools.ACT24.StepsImpl.ACT24ParticipantStepImpl;
+import AnalysisTools.ACT24.StepsImpl.ACT24ResearcherStepImpl;
 import AnalysisTools.Comets2.Pages.*;
 import AnalysisTools.GDSTracking.Pages.*;
 import AnalysisTools.GWASExplorer.Pages.*;
@@ -55,11 +57,12 @@ import ServiceNow.COVIDDash.Pages.*;
 import ServiceNow.COVIDDash.StepsImplementation.*;
 import ServiceNow.ESR.Pages.*;
 import ServiceNow.PlatformBusinessApps.ETracking.Pages.EtrackAssetsRecords_NativeViewPage;
+import ServiceNow.PlatformBusinessApps.CTRP_CTRO.Selenium.Pages.CTRPCTRO_NV_Page;
 import ServiceNow.PlatformBusinessApps.GDC.Pages.GDC_Workflow_NativeView_Page;
 import ServiceNow.PlatformBusinessApps.GCP.Pages.GCPNotifications_NativeViewPage;
-import ServiceNow.PlatformBusinessApps.NERD.Pages.*;
-import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NERDLoginStepsImplementation;
-import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.NativeViewImpersonateUser;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.Pages.*;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.StepsImplementation.NERDLoginStepsImplementation;
+import ServiceNow.PlatformBusinessApps.NERD.selenium.StepsImplementation.NativeViewImpersonateUser;
 import ServiceNow.PlatformBusinessApps.SEER.Pages.*;
 import ServiceNow.PlatformBusinessApps.SEER.StepsImplementation.SEERDataAccessRequestPageStepsImpl;
 import CustomBusiness.EIDP.StepsImplementation.TraineeReviewStepsImpl;
@@ -202,6 +205,9 @@ public class PageInitializer extends WebDriverUtils {
 	/** eTracking instances */
 	public static EtrackAssetsRecords_NativeViewPage etrackAssetsRecords_NativeViewPage;
 
+	/** CTRP/CTRO instances */
+	public static CTRPCTRO_NV_Page ctrpCTRO_NativeViewPage;
+
 	/** GCP instances */
 	public static GCPNotifications_NativeViewPage gCPNotifications_NativeViewPage;
 
@@ -310,6 +316,10 @@ public class PageInitializer extends WebDriverUtils {
 	/** ACT24 instances **/
 	public static ACT24ParticipantPortalPage act24ParticipantPortalPage;
 	public static ACT24ResearcherPortalPage act24ResearcherPortalPage;
+
+	public static ACT24ResearcherStepImpl act24ResearcherStepImpl;
+
+	public static ACT24ParticipantStepImpl act24ParticipantStepImpl;
 
 	/** GWAS Target instances **/
 	public static GWASTargetHomePages gwasTargetHomePages;
@@ -546,6 +556,8 @@ public class PageInitializer extends WebDriverUtils {
 		/** ACT24 Instance Variables **/
 		act24ParticipantPortalPage = new ACT24ParticipantPortalPage();
 		act24ResearcherPortalPage = new ACT24ResearcherPortalPage();
+		act24ResearcherStepImpl = new ACT24ResearcherStepImpl();
+		act24ParticipantStepImpl = new ACT24ParticipantStepImpl();
 
 		/** GWAS Explorer Instance Variables **/
 		exploreGWASPage = new ExploreGWASPage();
@@ -628,6 +640,9 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** eTracking INSTANCE VARIABLES */
 		etrackAssetsRecords_NativeViewPage = new EtrackAssetsRecords_NativeViewPage();
+
+		/** CTRP/CTRO INSTANCE VARIABLES */
+		ctrpCTRO_NativeViewPage = new CTRPCTRO_NV_Page();
 
 		/** Grants ChangePassword app **/
 		changePasswordPage = new ChangePasswordPage();

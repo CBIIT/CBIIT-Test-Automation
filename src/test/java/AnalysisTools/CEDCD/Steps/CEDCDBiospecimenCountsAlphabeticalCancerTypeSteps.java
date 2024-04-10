@@ -8,7 +8,6 @@ import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.xceptions.TestingException;
 import appsCommon.PageInitializers.PageInitializer;
 
-
 public class CEDCDBiospecimenCountsAlphabeticalCancerTypeSteps extends PageInitializer {
 
 	@Given("the user is on the CEDCD Biospecimen tab")
