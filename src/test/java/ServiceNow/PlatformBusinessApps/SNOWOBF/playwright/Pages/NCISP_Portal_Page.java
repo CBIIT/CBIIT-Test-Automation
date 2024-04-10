@@ -1,6 +1,7 @@
 package ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.Pages;
 
 public class NCISP_Portal_Page {
+
     /***
      * SERVICES LINK
      */
