@@ -31,7 +31,7 @@ public class CucumberLogUtils {
      */
     public static void playwrightScreenshot(){
         PlaywrightUtils.page.waitForLoadState();
-        final byte[] screenshot = PlaywrightUtils.page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("screenshot.png")));
+        final byte[] screenshot = PlaywrightUtils.page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("target/playwrightScreenshots/screenshot.png")));
         scenario.attach(screenshot, "image/png", "Attaching screenshot to report");
     }
 }

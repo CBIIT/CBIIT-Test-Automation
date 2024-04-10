@@ -37,6 +37,7 @@ public class Reset_Account_StepsImpl {
      */
     public static void a_test_account_is_reset_before_executing_a_test(String testAccountName) {
         Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate("Maria Chaudhry");
+        CucumberLogUtils.playwrightScreenshot();
         PlaywrightUtils.page.locator(Playwright_ServiceNow_NCISP_Page.nativeViewLink).click();
         Playwright_ServiceNow_Common_Methods.searchFilterNavigatorAndClickOption("SCSS", "Users");
         Playwright_ServiceNow_Common_Methods.selectDropDownOptionInsideIframe(User_Table_Page.usersDropDown, "First Name");
