@@ -24,43 +24,36 @@ public class ApplicantProfileSteps {
     @Given("User inputs {string} into first name field - PW")
     public void user_inputs_into_first_name_field_pw(String firstName) {
         PlaywrightUtils.page.locator(Profile_Tab_Page.firstNameTextBox).fill(firstName);
-        CucumberLogUtils.playwrightScreenshot();
     }
 
     @Given("User inputs {string} into middle name field - PW")
     public void user_inputs_into_middle_name_field_pw(String middleName) {
         PlaywrightUtils.page.locator(Profile_Tab_Page.middleNameTextBox).fill(middleName);
-        CucumberLogUtils.playwrightScreenshot();
     }
 
     @Given("User inputs {string} into last name field - PW")
     public void user_inputs_into_last_name_field_pw(String lastName) {
         PlaywrightUtils.page.locator(Profile_Tab_Page.lastNameTextBox).fill(lastName);
-        CucumberLogUtils.playwrightScreenshot();
     }
 
     @Given("User inputs {string} into email field - PW")
     public void user_inputs_into_email_field_pw(String email) {
         PlaywrightUtils.page.getByLabel(Profile_Tab_Page.emailTextBox).fill(email);
-        CucumberLogUtils.playwrightScreenshot();
     }
 
     @Given("User inputs {string} into phone field - PW")
     public void user_inputs_into_phone_field_pw(String phoneNumber) {
         PlaywrightUtils.page.locator(Profile_Tab_Page.phoneNumberTextBox).fill(phoneNumber);
-        CucumberLogUtils.playwrightScreenshot();
     }
 
     @Given("User inputs {string} into business phone field - PW")
     public void user_inputs_into_business_phone_field_pw(String businessPhone) {
         PlaywrightUtils.page.locator(Profile_Tab_Page.businessPhoneNumberTextBox).fill(businessPhone);
-        CucumberLogUtils.playwrightScreenshot();
     }
 
     @Given("selects highest education {string}")
     public void selects_highest_education(String highestDegree) {
         ApplicantProfileStepsImpl.selects_highest_education(highestDegree);
-        CucumberLogUtils.playwrightScreenshot();
     }
 
     @Given("User confirms being a US Citizen - PW")
@@ -71,7 +64,6 @@ public class ApplicantProfileSteps {
     @Given("User inputs {string} into address field - PW")
     public void user_inputs_into_address_field_pw(String address) {
         PlaywrightUtils.page.getByLabel(Profile_Tab_Page.addressTextBox).fill(address);
-        CucumberLogUtils.playwrightScreenshot();
     }
 
     @Given("User inputs {string} into appNumber field - PW")
@@ -87,7 +79,6 @@ public class ApplicantProfileSteps {
     @Given("User inputs {string} into state field - PW")
     public void user_inputs_into_state_field_pw(String state) {
         PlaywrightUtils.page.getByLabel(Profile_Tab_Page.stateTextBox).fill(state);
-        CucumberLogUtils.playwrightScreenshot();
     }
 
     @Given("User inputs {string} into country field - PW")
@@ -99,7 +90,6 @@ public class ApplicantProfileSteps {
     @Given("User inputs {string} into zip field - PW")
     public void user_inputs_into_zip_field_pw(String zipCode) {
         PlaywrightUtils.page.getByLabel(Profile_Tab_Page.zipCodeTextBox).fill(zipCode);
-        CucumberLogUtils.playwrightScreenshot();
     }
 
     @When("User clicks on Save Application button - PW")
@@ -110,43 +100,36 @@ public class ApplicantProfileSteps {
     @Then("user verifies that first name {string}, middle name {string}, and last name {string} saved display as expected")
     public void user_verifies_that_first_name_middle_name_and_last_name_saved_display_as_expected(String firstName, String middleName, String lastName) {
         ApplicantProfileStepsImpl.user_verifies_that_first_name_middle_name_and_last_name_saved_display_as_expected(firstName, middleName, lastName);
-        CucumberLogUtils.playwrightScreenshot();
     }
 
     @Then("verifies that the saved address displays with {string}, {string}, {string}, {string}, {string}, {string}")
     public void verifies_that_the_saved_address_displays_with(String address, String aptNumber, String city, String state, String country, String zipCode) {
         ApplicantProfileStepsImpl.verifies_that_the_saved_address_displays_with(address, aptNumber, city, state, country, zipCode);
-        CucumberLogUtils.playwrightScreenshot();
     }
 
     @Then("verifies that the saved email address displays as {string}")
     public void verifies_that_the_saved_email_address_displays_as(String expectedEmail) {
         ApplicantProfileStepsImpl.verifies_that_the_saved_email_address_displays_as(expectedEmail);
-        CucumberLogUtils.playwrightScreenshot();
     }
 
     @Then("verifies that the saved phone number displays as {string}")
     public void verifies_that_the_saved_phone_number_displays_as(String expectedPhoneNumber) {
         ApplicantProfileStepsImpl.verifies_that_the_saved_phone_number_displays_as(expectedPhoneNumber);
-        CucumberLogUtils.playwrightScreenshot();
     }
 
     @Then("verifies that the saved business phone number displays as {string}")
     public void verifies_that_the_saved_business_phone_number_displays_as(String expectedBusinessPhoneNumber) {
         ApplicantProfileStepsImpl.verifies_that_the_saved_business_phone_number_displays_as(expectedBusinessPhoneNumber);
-        CucumberLogUtils.playwrightScreenshot();
     }
 
     @Then("verifies that the saved highest education displays as {string}")
     public void verifies_that_the_saved_highest_education_displays_as(String expectedHighestEducation) {
         ApplicantProfileStepsImpl.verifies_that_the_saved_highest_education_displays_as(expectedHighestEducation);
-        CucumberLogUtils.playwrightScreenshot();
     }
 
     @Then("verifies that the saved US Citizenship displays as {string}")
     public void verifies_that_the_saved_us_citizenship_displays_as(String expectedYesOrNo) {
         ApplicantProfileStepsImpl.verifies_that_the_saved_us_citizenship_displays_as(expectedYesOrNo);
-        CucumberLogUtils.playwrightScreenshot();
     }
 
     @Then("tester navigates to native view to reset account with name {string} so that automated test can run again without manual intervention")
