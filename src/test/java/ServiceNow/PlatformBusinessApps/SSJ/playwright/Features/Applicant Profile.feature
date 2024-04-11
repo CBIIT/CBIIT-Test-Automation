@@ -1,7 +1,7 @@
 Feature: Applicant Profile Scenarios
   Description: This Feature file contains Applicant Profile Scenarios
 
-  @IN_PROGRESS @juarezds
+  @IN_PROGRESS @juarezds @Progression
   Scenario Outline: Verifying the Save application functionality
     Given a test account "<firstName>" is reset before executing a test
     Given User is on SCSS Landing page and user is "Okta Verified Applicant" - PW
