@@ -1,7 +1,7 @@
 Feature: Applicant Profile Scenarios
   Description: This Feature file contains Applicant Profile Scenarios
 
-  @juarezds  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98
+  @juarezds  @SSJ-32 @SSJ-33 @SSJ-36 @SSJ-92 @SSJ-98 @regression
   Scenario Outline: Verifying the Save application functionality
     Given a test account "<firstName>" is reset before executing a test
     Given User is on SCSS Landing page and user is "Okta Verified Applicant" - PW

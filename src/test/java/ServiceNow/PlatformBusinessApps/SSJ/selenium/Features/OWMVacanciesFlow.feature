@@ -1,6 +1,6 @@
 Feature: OWM Vacancy Scenarios
 
-    @Regression @Smoke @Nekrashevich  @SSJ-91 @SSJ-876 @SSJ-992
+    @Regression @Smoke @Nekrashevich  @SSJ-91 @SSJ-876 @SSJ-992 @Progression
     Scenario: Create a vacancy as OWM Vacancy Manager
       Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
       And User is on SSJ landing page
@@ -26,3 +26,5 @@ Feature: OWM Vacancy Scenarios
       And User can see all vacancies
       And User navigates and can see all vacancies under "Your Vacancies" tab
       And used navigates to see "Reports"
+
+
