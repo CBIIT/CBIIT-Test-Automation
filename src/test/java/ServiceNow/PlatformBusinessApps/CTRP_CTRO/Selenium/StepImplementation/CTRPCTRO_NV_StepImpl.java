@@ -12,6 +12,13 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 public class CTRPCTRO_NV_StepImpl extends PageInitializer {
 
@@ -122,6 +129,7 @@ public class CTRPCTRO_NV_StepImpl extends PageInitializer {
         MiscUtils.sleep(2000);
         CommonUtils.assertTrue(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseSubcategoryFieldDropDown.getText().equals(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_ALL_OPTIONS));
         CucumberLogUtils.logScreenshot();
+        CTRPCTRO_NV_StepImpl.deleteTheRecord();
     }
 
     /**
@@ -129,6 +137,7 @@ public class CTRPCTRO_NV_StepImpl extends PageInitializer {
      *
      */
     public static void deleteTheRecord() {
+        CommonUtils.waitForVisibility(CTRPCTRO_NV_Page.ctrpCTRONVCaseRecordDeleteButton);
         CommonUtils.clickOnElement(CTRPCTRO_NV_Page.ctrpCTRONVCaseRecordDeleteButton);
         MiscUtils.sleep(2000);
         CommonUtils.clickOnElement(CTRPCTRO_NV_Page.ctrpCTRONVCaseRecordPopUpDeleteButton);
@@ -144,5 +153,56 @@ public class CTRPCTRO_NV_StepImpl extends PageInitializer {
         JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.nativeViewNoRecordsToDisplayText);
         CucumberLogUtils.logScreenshot();
         ServiceNow_Common_Methods.logOutOfNativeView();
+    }
+
+    /**
+     * This method will submit CTRP/CTRO new Case in Native View by user
+     *
+     *And opens the same record by user
+     */
+    public static void a_user_is_on_the_ctrp_ctro_helpdesk_case_form() {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
+        ctrp_ctro_helpdesk_case_submit_nv();
+        CommonUtils.waitForVisibility(CTRPCTRO_NV_Page.ctrpCTRONVAllCasesSearchDropDown);
+        CommonUtils.selectDropDownValue(CTRPCTRO_NV_Page.ctrpCTRONVAllCasesSearchDropDown, CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_ALL_CASES_SEARCH_DROP_DOWN);
+        CommonUtils.sendKeysToElement(CTRPCTRO_NV_Page.ctrpCTRONVAllCasesSearchTextBox, CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SHORT_DESCRIPTION_FIELD_TEXT_BOX_OPTION);
+        CommonUtils.sendKeys(CTRPCTRO_NV_Page.ctrpCTRONVAllCasesSearchTextBox, Keys.ENTER);
+        CommonUtils.hoverOverElement(CTRPCTRO_NV_Page.nVRecordName(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SHORT_DESCRIPTION_FIELD_TEXT_BOX_OPTION));
+        CommonUtils.waitForClickability(CTRPCTRO_NV_Page.ctrpCTROCaseLocator(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SHORT_DESCRIPTION_FIELD_TEXT_BOX_OPTION));
+        JavascriptUtils.clickByJS(CTRPCTRO_NV_Page.ctrpCTROCaseLocator(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SHORT_DESCRIPTION_FIELD_TEXT_BOX_OPTION));
+        CommonUtils.waitForVisibility(CTRPCTRO_NV_Page.ctrpCTRONVCaseOpenRecordButton);
+        CommonUtils.clickOnElement(CTRPCTRO_NV_Page.ctrpCTRONVCaseOpenRecordButton);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method verifies the Category filed options
+     *
+     */
+    public static void the_category_option_is_placed_above_the_category(String nciDCCAccrualReport, String OnHoldTrials) {
+        CommonUtils.waitForVisibility(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDown);
+        CommonUtils.selectDropDownValue(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDown, CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD_DROP_DOWN_NCI_DCC_ACCRUAL_REPORT_OPTION);
+        JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD_DROP_DOWN_NCI_DCC_ACCRUAL_REPORT_OPTION));
+        CommonUtils.assertTrue(nciDCCAccrualReport.contains(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD_DROP_DOWN_NCI_DCC_ACCRUAL_REPORT_OPTION).getText()));
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.waitForVisibility(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDown);
+        CommonUtils.selectDropDownValue(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDown, CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD_DROP_DOWN_ON_HOLD_TRIALS_OPTION);
+        JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD_DROP_DOWN_ON_HOLD_TRIALS_OPTION));
+        CommonUtils.assertTrue(OnHoldTrials.contains(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD_DROP_DOWN_ON_HOLD_TRIALS_OPTION).getText()));
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method verifies the Category filed options are placed alphabetically
+     *
+     */
+    public static void all_categories_are_displayed_in_alphabetical_order() {
+         List<String> options = new ArrayList<>();
+        options.add(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDown.getText());
+        CommonUtils.assertEquals(options.toString(),CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD_DROP_DOWN_ALPHABETICAL_OPTIONS);
+        CucumberLogUtils.logScreenshot();
+        CTRPCTRO_NV_StepImpl.deleteTheRecord();
     }
 }
