@@ -12,13 +12,8 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 public class CTRPCTRO_NV_StepImpl extends PageInitializer {
 
@@ -201,7 +196,8 @@ public class CTRPCTRO_NV_StepImpl extends PageInitializer {
     public static void all_categories_are_displayed_in_alphabetical_order() {
          List<String> options = new ArrayList<>();
         options.add(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDown.getText());
-        CommonUtils.assertEquals(options.toString(),CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD_DROP_DOWN_ALPHABETICAL_OPTIONS);
+        CommonUtils.assertEqualsWithMessage(options.toString(),CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD_DROP_DOWN_ALPHABETICAL_OPTIONS,
+                "This assertion verifies that all the Category options are listed in alphabetically order");
         CucumberLogUtils.logScreenshot();
         CTRPCTRO_NV_StepImpl.deleteTheRecord();
     }
