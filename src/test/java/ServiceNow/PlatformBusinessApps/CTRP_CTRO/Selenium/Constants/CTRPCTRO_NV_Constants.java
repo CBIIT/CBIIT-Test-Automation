@@ -55,6 +55,9 @@ public class CTRPCTRO_NV_Constants {
             "Technical Issues (CBIIT)\n" +
             "Training";
 
+    /* CTRP/CTRO NATIVE VIEW CREATE NEW CASE SUBCATEGORY FIELD DROP DOWN MISSING DOCUMENTATION / INFORMATION OPTION */
+    public static final String CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_Missing_Documentation_Information_OPTION = "Missing Documentation/Information";
+
     /* CTRP/CTRO NATIVE VIEW CREATE NEW CASE ASSIGNMENT GROUP FIELD SEARCH BOX OPTION */
     public static final String CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_ASSIGNMENT_GROUP_FIELD_SEARCH_BOX_OPTION = "COVID Serology";
 

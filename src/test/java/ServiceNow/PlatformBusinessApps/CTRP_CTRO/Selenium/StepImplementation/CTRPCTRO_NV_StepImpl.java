@@ -37,7 +37,7 @@ public class CTRPCTRO_NV_StepImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryField(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD));
         CommonUtils.selectDropDownValue(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseSubcategoryFieldDropDown, CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_ACOUNT_RELATED_OPTION);
-        CommonUtils.assertEqualsWithMessage(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseSubcategoryFieldDropDown.getText(), CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_ACOUNT_RELATED_OPTION,
+        CommonUtils.assertEqualsWithMessage(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_ACOUNT_RELATED_OPTION).getText(), CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_ACOUNT_RELATED_OPTION,
                 "This assertion verifies the Sub Category field 'Account Related' on the CTRP CTRO NV Case");
         CommonUtils.waitForVisibility(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseAssignmentGroupFieldSearchBox);
         CommonUtils.sendKeys(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseAssignmentGroupFieldSearchBox, CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_ASSIGNMENT_GROUP_FIELD_SEARCH_BOX_OPTION);
@@ -54,9 +54,7 @@ public class CTRPCTRO_NV_StepImpl extends PageInitializer {
      */
     public static void a_ctrp_ctro_helpdesk_case() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
-        MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(2000);
         ctrp_ctro_helpdesk_case_submit_nv();
         CommonUtils.waitForVisibility(CTRPCTRO_NV_Page.ctrpCTRONVAllCasesSearchDropDown);
         CommonUtils.selectDropDownValue(CTRPCTRO_NV_Page.ctrpCTRONVAllCasesSearchDropDown, CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_ALL_CASES_SEARCH_DROP_DOWN);
@@ -124,7 +122,7 @@ public class CTRPCTRO_NV_StepImpl extends PageInitializer {
         JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(training));
         CucumberLogUtils.logScreenshot();
         CTRPCTRO_NV_Page.ctrpCTRONVUpdatedCaseSaveButton.click();
-        MiscUtils.sleep(2000);
+        CommonUtils.waitForVisibility(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseSubcategoryFieldDropDown);
         CommonUtils.assertTrue(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseSubcategoryFieldDropDown.getText().equals(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_ALL_OPTIONS));
         CucumberLogUtils.logScreenshot();
         CTRPCTRO_NV_StepImpl.deleteTheRecord();
@@ -188,6 +186,10 @@ public class CTRPCTRO_NV_StepImpl extends PageInitializer {
         CommonUtils.selectDropDownValue(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDown, CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD_DROP_DOWN_ON_HOLD_TRIALS_OPTION);
         JavascriptUtils.drawBlueBorder(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD_DROP_DOWN_ON_HOLD_TRIALS_OPTION));
         CommonUtils.assertTrue(OnHoldTrials.contains(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseCategoryFieldDropDownOptions(CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_CATEGORY_FIELD_DROP_DOWN_ON_HOLD_TRIALS_OPTION).getText()));
+        CommonUtils.waitForVisibility(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseSubcategoryFieldDropDown);
+        CommonUtils.selectDropDownValue(CTRPCTRO_NV_Page.ctrpCTRONVCreateNewCaseSubcategoryFieldDropDown, CTRPCTRO_NV_Constants.CTRP_CTRO_NATIVE_VIEW_CREATE_NEW_CASE_SUBCATEGORY_FIELD_DROP_DOWN_Missing_Documentation_Information_OPTION);
+        CucumberLogUtils.logScreenshot();
+        CTRPCTRO_NV_Page.ctrpCTRONVUpdatedCaseSaveButton.click();
         CucumberLogUtils.logScreenshot();
     }
 
