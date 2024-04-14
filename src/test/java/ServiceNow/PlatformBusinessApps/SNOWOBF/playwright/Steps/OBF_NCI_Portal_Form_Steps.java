@@ -1,15 +1,10 @@
 package ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.Steps;
 
-import ServiceNow.PlatformBusinessApps.OFFBOARD.playwright.Pages.OFFBOARD_Page;
-import ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.Pages.OBF_NCI_Portal_Form_Page;
 import ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.StepImpl.OBF_NCI_Portal_Form_StepImpl;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
-import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
-import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class OBF_NCI_Portal_Form_Steps {
 
