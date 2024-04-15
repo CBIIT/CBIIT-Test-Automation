@@ -10,7 +10,7 @@ Feature: Shutdown Banner
     Given a user is on the webpage
     Then the user should see the page loading time in the console
 
-  @bucurgb @CO3-1029 @CO3-1028 @CO3-1044 @Progression
+  @bucurgb @CO3-1029 @CO3-1028 @CO3-1044
   Scenario: Verifying the shutdown banner is displaying on URLs from excel sheet
     Given a user is on the webpage
     Then the user should see the shutdown banner

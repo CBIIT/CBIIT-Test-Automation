@@ -12,6 +12,8 @@ import AnalysisTools.MCAExplorer.StepsImplementations.MCAExplorerStepImp;
 import AnalysisTools.PLCO.Pages.*;
 import AnalysisTools.cProSite.Pages.*;
 import AnalysisTools.mSigPortal.Pages.*;
+import CloudAndSystemEngineering.IAMRedesign.Pages.ADConsoleLocatorsPage;
+import CloudAndSystemEngineering.ShutdownBanner.Pages.ShutdownBannerLocatorsPage;
 import CustomBusiness.CCR.Pages.*;
 import CustomBusiness.CCR.StepsImplementation.*;
 import CustomBusiness.DCEG.Pages.*;
@@ -313,7 +315,11 @@ public class PageInitializer extends WebDriverUtils {
 	/** ------------ MCA EXPLORER INSTANCES ------------*/
 	public static MCAExplorerPage mcaExplorerPage;
 	public static MCAExplorerStepImp mcaExplorerStepImp;
-	
+
+	/** ------------ CLOUD AND SYSTEMS ENGINEERING INSTANCES ------------*/
+	public static ShutdownBannerLocatorsPage shutdownBannerLocatorsPage;
+	public static ADConsoleLocatorsPage aDConsoleLocatorsPage;
+
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
 		// create instances of all pages and assign them to the variables
@@ -566,6 +572,10 @@ public class PageInitializer extends WebDriverUtils {
 		/** MCAEXPLORER INSTANCE VARIABLES */
 		mcaExplorerPage = new MCAExplorerPage();
 		mcaExplorerStepImp = new MCAExplorerStepImp();
+
+		/** CLOUD AND SYSTEMS ENGINEERING INSTANCE VARIABLES */
+		shutdownBannerLocatorsPage = new ShutdownBannerLocatorsPage();
+		aDConsoleLocatorsPage = new ADConsoleLocatorsPage();
 
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}
