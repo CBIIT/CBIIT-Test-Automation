@@ -4,10 +4,13 @@ import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Profile_Tab_After_Su
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Profile_Tab_Page;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import org.testng.Assert;
+
+import java.util.Objects;
 
 public class ApplicantProfileStepsImpl {
 
@@ -20,11 +23,13 @@ public class ApplicantProfileStepsImpl {
 
         } else if (user.equals("Stadtman Vacancy Manager")) {
 
-        } else {
+        } else if (user.equals("Maria Chaudhry")) {
             Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate("Maria Chaudhry");
+            MiscUtils.sleep(2000);
             PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("SSJPortalView"));
         }
     }
+
 
     /**
      * USE THIS METHOD TO SELECT THE HIGHEST EDUCATION WHEN FILLING OUT THE PROFILE PAGE
@@ -32,9 +37,19 @@ public class ApplicantProfileStepsImpl {
      * @param highestDegree
      */
     public static void selects_highest_education(String highestDegree) {
-        PlaywrightUtils.page.getByLabel(Profile_Tab_Page.highestLevelOfEducationDropDown).click();
-        PlaywrightUtils.page.getByTitle(highestDegree).locator("div").click();
-        CucumberLogUtils.playwrightScreenshot();
+        if(Objects.equals(highestDegree, "Masters")) {
+            PlaywrightUtils.page.getByLabel(Profile_Tab_Page.highestLevelOfEducationDropDown).click();
+            PlaywrightUtils.page.getByTitle(highestDegree).locator("div").click();
+            CucumberLogUtils.playwrightScreenshot();
+        }else if(Objects.equals(highestDegree, "Bachelors")){
+            PlaywrightUtils.page.getByLabel(Profile_Tab_Page.highestLevelOfEducationDropDown).click();
+            PlaywrightUtils.page.getByTitle(highestDegree).locator("div").click();
+            CucumberLogUtils.playwrightScreenshot();
+        }else if(Objects.equals(highestDegree, "Doctorate")){
+            PlaywrightUtils.page.getByLabel(Profile_Tab_Page.highestLevelOfEducationDropDown).click();
+            PlaywrightUtils.page.getByTitle(highestDegree).locator("div").click();
+            CucumberLogUtils.playwrightScreenshot();
+        }
     }
 
     /**

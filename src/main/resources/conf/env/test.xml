@@ -996,7 +996,7 @@
 
     <!-- Application ID for SCSS Portal View-->
     <application id="SSJPortalView">
-        <login_url>https://service-test.nci.nih.gov/nci-scss.do#/
+        <login_url>https://service-test.nci.nih.gov/nih-ssj.do#/
         </login_url> <!-- add test url -->
         <role name="Role">
             <user id="regular">
