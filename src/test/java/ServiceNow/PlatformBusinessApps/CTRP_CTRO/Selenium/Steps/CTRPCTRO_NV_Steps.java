@@ -27,6 +27,20 @@ public class CTRPCTRO_NV_Steps {
     String dataReview, String feedBack, String generalInquiries, String policyDecision, String technicalIssues, String training) {
     CTRPCTRO_NV_StepImpl.following_options_are_available_in_the_subcategory_field_when_the_nci_dcc_accrual_report_category_is_selected(
     accountRelated, dataReview, feedBack,generalInquiries, policyDecision, technicalIssues, training);
-    CTRPCTRO_NV_StepImpl.deleteTheRecord();
+    }
+
+    @Given("a user is on the CTRP CTRO Helpdesk Case form")
+    public void a_user_is_on_the_ctrp_ctro_helpdesk_case_form() {
+        CTRPCTRO_NV_StepImpl.a_user_is_on_the_ctrp_ctro_helpdesk_case_form();
+    }
+
+    @Then("the {string} category option is placed ABOVE the {string} category")
+    public void the_category_option_is_placed_above_the_category(String nciDCCAccrualReport, String OnHoldTrials) {
+        CTRPCTRO_NV_StepImpl.the_category_option_is_placed_above_the_category(nciDCCAccrualReport, OnHoldTrials);
+    }
+
+    @Then("all categories are displayed in alphabetical order")
+    public void all_categories_are_displayed_in_alphabetical_order() {
+        CTRPCTRO_NV_StepImpl.all_categories_are_displayed_in_alphabetical_order();
     }
 }
