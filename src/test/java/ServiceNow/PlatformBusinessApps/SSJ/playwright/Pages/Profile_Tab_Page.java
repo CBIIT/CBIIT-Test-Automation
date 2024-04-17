@@ -126,5 +126,4 @@ public class Profile_Tab_Page {
      * I DO NOT WANT TO SHARE DEMOGRAPHICS RADIO BUTTON
      */
     public static String shareNotDemographicsRadioButton = "I do not want to answer the";
-
 }
