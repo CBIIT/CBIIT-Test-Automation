@@ -3,6 +3,11 @@ package ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.Pages;
 public class NCISP_Portal_Page {
 
     /***
+     * NATIVE VIEW LINK
+     */
+    public static String nativeViewLink = "Native View";
+
+    /***
      * SERVICES LINK
      */
     public static String servicesLink = "Services";
