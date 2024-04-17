@@ -2,6 +2,8 @@ package appsCommon.PageInitializers;
 
 import AnalysisTools.ACT24.Pages.*;
 import AnalysisTools.Comets2.Pages.*;
+import AnalysisTools.CometsAnalytics.Pagaes.*;
+import AnalysisTools.CometsAnalytics.StepsImplemantation.*;
 import AnalysisTools.GDSTracking.Pages.*;
 import AnalysisTools.GWASExplorer.Pages.*;
 import AnalysisTools.GWASTarget.Pages.*;
@@ -359,6 +361,10 @@ public class PageInitializer extends WebDriverUtils {
 	public static ThreeDVizSNPPage threeDVizSNPPage;
 	public static ThreeDVizSNPStepImp threeDVizSNPStepImp;
 	
+	/** ----------------- COMETSANALYTICS INSTANCES -----*/
+	public static CometsAnalyticsPage cometsAnalyticsPage;
+	public static CometsAnalyticsStepImp cometsAnalyticsStepImp;
+	
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
 		// create instances of all pages and assign them to the variables
@@ -656,6 +662,10 @@ public class PageInitializer extends WebDriverUtils {
 		/** THREEDVIZSNP INSTANCE VARIABLES  */
 		threeDVizSNPPage =  new ThreeDVizSNPPage();
 		threeDVizSNPStepImp = new ThreeDVizSNPStepImp();
+		
+		/** COMETSANALYTICS INSTANCES */
+		cometsAnalyticsPage = new CometsAnalyticsPage();
+		cometsAnalyticsStepImp = new CometsAnalyticsStepImp();
 		
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}
