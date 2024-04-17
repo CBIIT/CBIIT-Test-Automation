@@ -3,6 +3,7 @@ package ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Profile_Tab_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Reset_Account_StepsImpl;
+import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.en.Given;
@@ -140,5 +141,45 @@ public class ApplicantProfileSteps {
     @Given("a test account {string} is reset before executing a test")
     public void a_test_account_is_reset_before_executing_a_test(String testAccountName) {
         Reset_Account_StepsImpl.a_test_account_is_reset_before_executing_a_test(testAccountName);
+    }
+
+    @When("User clicks Edit for Demographics section - PW")
+    public void user_clicks_edit_for_demographics_section_pw() {
+        ApplicantProfileStepsImpl.user_clicks_edit_for_demographics_section();
+    }
+
+    @When("User chooses to share demographic details - PW")
+    public void user_chooses_to_share_demographic_details_pw() {
+        PlaywrightUtils.page.getByLabel(Profile_Tab_Page.shareDemographicsRadioButton).check();
+    }
+
+    @When("User edits sex choice - PW")
+    public void user_edits_sex_choice_pw() {
+        PlaywrightUtils.page.locator(Profile_Tab_Page.sexMaleOption).click();
+    }
+
+    @When("User edits ethnicity choice - PW")
+    public void user_edits_ethnicity_choice_pw() {
+        PlaywrightUtils.page.locator(Profile_Tab_Page.ethnicityChoiceHispanicLatino).click();
+    }
+
+    @When("User edits race choice - PW")
+    public void user_edits_race_choice_pw() {
+        PlaywrightUtils.page.locator(Profile_Tab_Page.raceOptionAmericanIndianAlaska).click();
+    }
+
+    @When("User edits disability choice - PW")
+    public void user_edits_disability_choice_pw() {
+        PlaywrightUtils.page.locator(Profile_Tab_Page.disabilityChoiceDeafSeriousDifficulty).click();
+    }
+
+    @When("User chooses not to share demographic details - PW")
+    public void user_chooses_not_to_share_demographic_details_pw() {
+        PlaywrightUtils.page.getByLabel(Profile_Tab_Page.shareNotDemographicsRadioButton).check();
+    }
+
+    @Then("User saves the updated section - PW")
+    public void user_saves_the_updated_section_pw() {
+        PlaywrightUtils.page.locator(Profile_Tab_Page.SaveDemographicsSection).click();
     }
 }

@@ -7,6 +7,7 @@ import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.FrameLocator;
 import com.microsoft.playwright.PlaywrightException;
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.EncryptionUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.PlaywrightUtils;

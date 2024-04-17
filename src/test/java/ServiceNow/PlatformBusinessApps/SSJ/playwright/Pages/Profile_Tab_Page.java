@@ -78,7 +78,53 @@ public class Profile_Tab_Page {
     public static String zipCodeTextBox = "Zip/Postal Code";
 
     /**
+     * Demographics (optional) tab
+     */
+    public static String demographicsOptionalTab = "//div[@id='rc-tabs-0-tab-demographics']";
+
+    /**
+     * Demographics (optional) Edit Button
+     */
+    public static String demographicsEditButton = "//span[.='Edit']";
+
+    /**
      * SAVE BUTTON
      */
     public static String saveButton = "//button[@type='submit']";
+
+    /**
+     * Sex Male option
+     */
+    public static String sexMaleOption = "//input[@value='Male']";
+
+    /**
+     * Ethnicity option Hispanic or Latino
+     */
+    public static String ethnicityChoiceHispanicLatino = "//span[.='Hispanic or Latino']";
+
+    /**
+     * Race option American Indian or Alaska
+     */
+    public static String raceOptionAmericanIndianAlaska = "//input[@value='American Indian']";
+
+    /**
+     * Disability Choice Deaf or serious difficulty
+     */
+    public static String disabilityChoiceDeafSeriousDifficulty = "//input[@value='Deaf']";
+
+    /**
+     * Save Demographics section
+     */
+    public static String SaveDemographicsSection = "//button[@type='submit']";
+
+    /**
+     * I WANT TO SHARE DEMOGRAPHICS RADIO BUTTON
+     */
+    public static String shareDemographicsRadioButton = "I want to share my";
+
+    /**
+     * I DO NOT WANT TO SHARE DEMOGRAPHICS RADIO BUTTON
+     */
+    public static String shareNotDemographicsRadioButton = "I do not want to answer the";
+
 }

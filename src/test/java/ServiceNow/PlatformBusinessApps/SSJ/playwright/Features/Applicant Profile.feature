@@ -43,3 +43,18 @@ Feature: Applicant Profile Scenarios
       | Jessica   | Marianna   | Mollick   | mollickja@nih.gov  | 7018211343 | 2123323454    | Masters          | Yes             | 11 Kolls | 6         | Sausalito | CA    | USA     | 97712 |
       | Karen     | Elena      | Andrew    | andrewkl@nih.gov   | 8233212333 | 2202122234    | Bachelors        | Yes             | 11 Bells | 39        | Sacramento| CA    | USA     | 95512 |
 
+  @Regression @Smoke @alenan @APPTRACK-712 @Regression
+  Scenario: Edit Demographics of Profile
+    Given a test account "Maria Chaudhry" is reset before executing a test
+    When User is on SCSS Landing page and user is "Maria Chaudhry" - PW
+    When User is on Profile tab - PW
+    And User clicks Edit for Demographics section - PW
+    And User chooses to share demographic details - PW
+    And User edits sex choice - PW
+    And User edits ethnicity choice - PW
+    And User edits race choice - PW
+    And User edits disability choice - PW
+    And User saves the updated section - PW
+    And User clicks Edit for Demographics section - PW
+    And User chooses not to share demographic details - PW
+    Then User saves the updated section - PW
