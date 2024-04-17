@@ -311,4 +311,9 @@ public class OBF_NCI_Portal_Form_Page {
      * OBF REQUEST FORM SUBMITTED TEXT
      */
     public static String obf_Request_Form_SubmittedText = "We have received your request.";
+
+    /***
+     * OBF REQUEST FORM TEXT ON THE TOP
+     */
+    public static String obf_TextOnTheTop = "#catItemTop";
 }
