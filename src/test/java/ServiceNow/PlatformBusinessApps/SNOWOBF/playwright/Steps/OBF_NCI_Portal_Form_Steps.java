@@ -14,12 +14,17 @@ public class OBF_NCI_Portal_Form_Steps {
     }
 
     @When("I navigate to the NCI ServiceNow homepage {string} portal form")
-    public void i_navigate_to_the_nci_service_now_homepage_portal_form(String obfSupportSystem) {
-        OBF_NCI_Portal_Form_StepImpl.i_navigate_to_the_nci_service_now_homepage_portal_form(obfSupportSystem);
+    public void i_navigate_to_the_nci_service_now_homepage_portal_form(String obfSupportSystemTitle) {
+        OBF_NCI_Portal_Form_StepImpl.i_navigate_to_the_nci_service_now_homepage_portal_form(obfSupportSystemTitle);
     }
 
     @Then("I should see that I can navigate to the OBF Systems Support application.")
     public void i_should_see_that_i_can_navigate_to_the_obf_systems_support_application() {
         OBF_NCI_Portal_Form_StepImpl.i_should_see_that_i_can_navigate_to_the_obf_systems_support_application();
+    }
+
+    @Then("I show see the following Text at the top of the catalog item")
+    public void i_show_see_the_following_text_at_the_top_of_the_catalog_item(String expectedText) {
+        OBF_NCI_Portal_Form_StepImpl.i_show_see_the_following_text_at_the_top_of_the_catalog_item(expectedText);
     }
 }

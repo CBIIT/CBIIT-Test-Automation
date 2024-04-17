@@ -8,6 +8,11 @@ public class NCISP_Portal_Page {
     public static String servicesLink = "Services";
 
     /***
+     * NCI PAGE LINKS LOCATOR
+     */
+    public static String nciPageLinksLocator = "#fresponsive";
+
+    /***
      * CBIIT BUSINESS SERVICES LINK
      */
     public static String cbiit_BusinessServicesLink = "Business Services";
@@ -15,7 +20,7 @@ public class NCISP_Portal_Page {
     /***
      * ADMINISTRATIVE BUSINESS SERVICES LINK
      */
-    public static String administrative_BusinessServicesLink = "Administrative Business Systems ";
+    public static String administrative_BusinessServicesLink = "Administrative Business Systems";
 
     /***
      * OBF SYSTEMS SUPPORT LINK
