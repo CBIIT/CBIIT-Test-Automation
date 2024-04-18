@@ -47,8 +47,8 @@
 
     <!-- CADSR Application-->
     <application id="cadsrTestUrl">
-        <login_url>https://service-sandbox.nci.nih.gov/login.do
-        </login_url>
+        <login_url>https://service-test.nci.nih.gov/ncisp
+        </login_url>>
         <!-- <login_url>https://service-test.nci.nih.gov/login.do
         </login_url>-->
         <role name="Role">

@@ -92,9 +92,9 @@ public class CometsAnalyticsSteps extends PageInitializer {
 		cometsAnalyticsStepImp.viewSucessMessage(successMessage);
 	}
 
-	@Then("User should be able to view the results")
-	public void user_should_be_able_to_view_the_results() {
-		cometsAnalyticsStepImp.viewResults();
+	@Then("User should be able to view the downlad button")
+	public void user_should_be_able_to_view_the_download_button() {
+		cometsAnalyticsStepImp.viewDownloadButton();
 	}
 
 	@When("User should select option from Model type dropdown and and enter model name")

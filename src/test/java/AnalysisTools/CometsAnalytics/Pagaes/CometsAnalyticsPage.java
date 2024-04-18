@@ -72,6 +72,10 @@ public class CometsAnalyticsPage extends CommonUtils {
 	@FindBy(xpath = "//*[@id='results-tabs-tabpane-integrityCheckResults']/div/h2")
 	public WebElement ErrorMessage;
 
+	/** VALIDATION RESULT MESSAGE **/
+	@FindBy(xpath = "//*[@id='results-tabs-tabpane-integrityCheckResults']/div/h2")
+	public WebElement message;
+
 	/** RESET BUTTON **/
 	@FindBy(xpath = "//button[@type='reset']")
 	public WebElement resetButton;
@@ -95,56 +99,64 @@ public class CometsAnalyticsPage extends CommonUtils {
 	/** SELECTED MODEL RADIO **/
 	@FindBy(id = "selectedModel")
 	public WebElement selectedModel;
-	
-	/** PREDEFINED MODEL  CHECKBOX **/
+
+	/** PREDEFINED MODEL CHECKBOX **/
 	@FindBy(id = "showPredefinedModelTypes")
 	public WebElement showPredefinedModelTypes;
-	
+
 	/** MODEL DOWNDROP **/
-	@FindBy(id="react-select-2-input")
+	@FindBy(id = "react-select-2-input")
 	public WebElement modelDropDown;
-	
+
 	/** MODEL TYPE DROPDOWN **/
-	@FindBy(id="selectedModelType")
+	@FindBy(id = "selectedModelType")
 	public WebElement selectedModelType;
-	
+
 	/** MODEL2 DROPDOWN **/
 	@FindBy(id = "react-select-2-input")
 	public WebElement modelDropdown2;
-	
+
 	/** MODEL DROPDOWN OPTION **/
-	@FindBy(id="react-select-2-option-0")
+	@FindBy(id = "react-select-2-option-0")
 	public WebElement modelDropDownOption;
-	
+
 	/** RUN MODEL **/
 	@FindBy(xpath = "//button[text()='Run Model']")
 	public WebElement runModelButton;
 
 	/** DOWNLOAD RESULTS BUTTON **/
-	@FindBy(xpath="(//button[text()='Download Results'])[2]")
+	@FindBy(xpath = "(//button[text()='Download Results'])[2]")
 	public WebElement downloadButton;
-	
+
 	/** CUSTOM MODEL **/
-	@FindBy(id="customModel")
+	@FindBy(id = "customModel")
 	public WebElement customModelRadio;
-	
+
 	/** CSUTOM MODEL TYPES **/
-	@FindBy(id="showCustomModelTypes")
+	@FindBy(id = "showCustomModelTypes")
 	public WebElement showCustomModelTypes;
-	
+
 	/** SHOW META BOLITIES **/
-	@FindBy(id="showMetabolites")
+	@FindBy(id = "showMetabolites")
 	public WebElement showMetabolites;
-	
-	/** EXPOSURES BUTTON**/
-	@FindBy(id="react-select-2-input")
+
+	/** EXPOSURES BUTTON **/
+	@FindBy(id = "react-select-2-input")
 	public WebElement exposures;
 
 	/** HEATMAP TAB **/
-	@FindBy(xpath="//a[text()='Heatmap']")
+	@FindBy(xpath = "//a[text()='Heatmap']")
 	public WebElement heatMapTab;
-	
+
 	/** PVALUE RANGE **/
-	@FindBy(id="pValueRange")
-	public WebElement pValueRange;	
+	@FindBy(id = "pValueRange")
+	public WebElement pValueRange;
+
+	/** VALID FILE PATH **/
+	public String validFilePath = System.getProperty("user.dir")
+			+ "/src/test/java/AnalysisTools/CometsAnalytics/Utils/ValidFile.xlsx";
+
+	/** INVALID FILE PATH **/
+	public String InvalidFilePath = System.getProperty("user.dir")
+			+ "/src/test/java/AnalysisTools/CometsAnalytics/Utils/invalid.vcf";
 }

@@ -1,9 +1,8 @@
 package AnalysisTools.CometsAnalytics.StepsImplemantation;
 
 import java.util.Set;
-import org.junit.Assert;
 import org.openqa.selenium.Keys;
-import com.nci.automation.utils.MiscUtils;
+import org.testng.Assert;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
@@ -39,9 +38,7 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 
 	/** UPLOAD FILE **/
 	public void uploadFileCheckIntegrity() {
-		String path = System.getProperty("user.dir")
-				+ "/src/test/java/AnalysisTools/CometsAnalytics/Utils/ValidFile.xlsx";
-		CommonUtils.sendKeys(cometsAnalyticsPage.inputFileUpload, path);
+		CommonUtils.sendKeys(cometsAnalyticsPage.inputFileUpload, cometsAnalyticsPage.validFilePath);
 	}
 
 	/** DOWNLOAD REPORT **/
@@ -60,12 +57,11 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 		cometsAnalyticsPage.aboutCometsButton.click();
 		Set<String> s = WebDriverUtils.webDriver.getWindowHandles();
 		Assert.assertTrue(s.size() > 1);
-		WebDriverUtils.webDriver.switchTo().defaultContent();
 	}
 
 	/** CHECK HEAT MAP **/
 	public void clickOnHeatMap() {
-		MiscUtils.sleep(20000);
+		CommonUtils.waitForClickability(cometsAnalyticsPage.heatMapTab);
 		cometsAnalyticsPage.heatMapTab.click();
 	}
 
@@ -81,9 +77,9 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 	}
 
 	/** VIEW RESULTS METHOD **/
-	public void viewResults() {
+	public void viewDownloadButton() {
 		CommonUtils.waitForClickability(cometsAnalyticsPage.downloadButton);
-		CommonUtils.isElementDisplayed(cometsAnalyticsPage.downloadButton);
+		Assert.assertTrue(CommonUtils.isElementDisplayed(cometsAnalyticsPage.downloadButton));
 	}
 
 	/** SELECT MODEL DROPDOWN AND ENTER MODEL NAME **/
@@ -124,8 +120,7 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 
 	/** UPLOAD INVALID FILE **/
 	public void uploadInvalidFileAndCheck() {
-		String path = System.getProperty("user.dir") + "/src/test/java/AnalysisTools/CometsAnalytics/Utils/invalid.vcf";
-		CommonUtils.sendKeys(cometsAnalyticsPage.inputFileUpload, path);
+		CommonUtils.sendKeys(cometsAnalyticsPage.inputFileUpload, cometsAnalyticsPage.InvalidFilePath);
 	}
 
 	/** CLICK ON ABOUT BUTTON **/
@@ -145,7 +140,6 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 		JavascriptUtils.clickByJS(cometsAnalyticsPage.tutorialsButton);
 		Set<String> s = WebDriverUtils.webDriver.getWindowHandles();
 		Assert.assertTrue(s.size() > 1);
-		WebDriverUtils.webDriver.switchTo().defaultContent();
 	}
 
 	/** METHOD TO CLICK ON VIGENETTE BUTTON **/
@@ -153,13 +147,12 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 		JavascriptUtils.clickByJS(cometsAnalyticsPage.vignettesButton);
 		Set<String> s = WebDriverUtils.webDriver.getWindowHandles();
 		Assert.assertTrue(s.size() > 1);
-		WebDriverUtils.webDriver.switchTo().defaultContent();
 	}
 
 	/** METHOD TO CLICK ON CHECK INTEGRITY BUTTON AND WAIT FOR 20 SECONDS **/
 	public void clickOnCheckIntegrity() {
 		cometsAnalyticsPage.checkIntegrityButton.click();
-		MiscUtils.sleep(20000);
+		CommonUtils.waitForVisibility(cometsAnalyticsPage.message);
 	}
 
 	/** METHOD TO CLICK ON PRESPECIFIED MODEL RADIO **/

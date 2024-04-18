@@ -15,7 +15,7 @@ Feature: This feature files is for Comets Analytics features
     When User clicks on footer links like vigenette and verify new tab is opened
 
   @satya @Smoke @Regression @NCIATWP-4427
-  Scenario: Verify user is able to About Page
+  Scenario: Verify user is able to access all the links in the footer section 
     Given User navigates to comets analytics home page
     When User clicks About button
     Then User should be able to view Help, Accessibility, Current Version Functionality, Acknowledgements, Citation is getting displayed
@@ -75,7 +75,7 @@ Feature: This feature files is for Comets Analytics features
     And User upload file and click check integrity
     And User should be click pre-specified models and use model type should be clicked
     And User should select option from Model type dropdown and Model Dropdown and click run model
-    Then User should be able to view the results
+    Then User should be able to view the downlad button
 
   @satya @Regression @NCIATWP-4141
   Scenario: Verify that user is able to click custom models

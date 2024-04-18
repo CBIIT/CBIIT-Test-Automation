@@ -318,9 +318,7 @@ public class PageInitializer extends WebDriverUtils {
 	/** ACT24 instances **/
 	public static ACT24ParticipantPortalPage act24ParticipantPortalPage;
 	public static ACT24ResearcherPortalPage act24ResearcherPortalPage;
-
 	public static ACT24ResearcherStepImpl act24ResearcherStepImpl;
-
 	public static ACT24ParticipantStepImpl act24ParticipantStepImpl;
 
 	/** GWAS Target instances **/
@@ -371,7 +369,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static ThreeDVizSNPPage threeDVizSNPPage;
 	public static ThreeDVizSNPStepImp threeDVizSNPStepImp;
 	
-	/** ----------------- COMETSANALYTICS INSTANCES -----*/
+	/** ----------------- COMETS ANALYTICS INSTANCES -----*/
 	public static CometsAnalyticsPage cometsAnalyticsPage;
 	public static CometsAnalyticsStepImp cometsAnalyticsStepImp;
 	

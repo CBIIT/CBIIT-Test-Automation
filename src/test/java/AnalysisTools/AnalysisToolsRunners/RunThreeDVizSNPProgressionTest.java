@@ -10,7 +10,7 @@ import io.cucumber.testng.CucumberOptions;
 		, features ={"src/test/java/AnalysisTools/CometsAnalytics/Features"}
 		, glue = "AnalysisTools.CometsAnalytics.Steps"
 		, tags = "@Progression"
-		, dryRun = true 
+		, dryRun = false 
 )
 public class RunThreeDVizSNPProgressionTest extends AbstractTestNGCucumberTests{	
 }

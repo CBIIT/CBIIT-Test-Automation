@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
 		, "pretty"}
         , features ={"src/test/java/AnalysisTools/CometsAnalytics/Features"}
         , glue = "AnalysisTools.CometsAnalytics.Steps"
-        , tags = "@Regression"
+        , tags = "@Smoke"
         , dryRun = false      
 )
 public class RunCometsAnalyticsSmokeTest extends AbstractTestNGCucumberTests{
