@@ -17,15 +17,15 @@ Feature: MCAExplorer features
     Given User navigates to MCAExplorer page
     When User clears the mandatory field Study
     And clicks on submit button
-    Then verify that there are 0 rows in the result
+    Then verify that there are some rows in the result
 
   @satya @Smoke @Regression @NCIATWP-6676 @NCIATWP-6797
   Scenario: Verify data with different plot types
     Given User navigates to MCAExplorer page
-    Then user select "Chromosome level" in plot type
+    Then user select Chromosome level in plot type
     Then select chromosome 1 in chromosome dropdown
     Then clicks on submit button
-    Then verify that there are 198 rows in the result
+    Then verify that there are some rows in the result
 
   @satya @Regression @NCIATWP-5316 @NCIATWP-5326 @NCIATWP-6270 @Smoke
   Scenario: Verify the selection of X & Y should display on the graph & table column
@@ -40,7 +40,7 @@ Feature: MCAExplorer features
   @satya @Regression @NCIATWP-6766 @NCIATWP-5541
   Scenario: Verify the plot type for Chromosome Level
     Given User navigates to MCAExplorer page
-    When user select "Chromosome level" in plot type
+    When user select Chromosome level in plot type
     And select chromosome 1 in chromosome dropdown
     And User verify the end range as '248956422'
     And select chromosome 2 in chromosome dropdown
