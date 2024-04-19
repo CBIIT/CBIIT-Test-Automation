@@ -17,7 +17,7 @@ Feature: MCAExplorer features
     Given User navigates to MCAExplorer page
     When User clears the mandatory field Study
     And clicks on submit button
-    Then verify that there are some rows in the result
+    Then Verify there is alert on the screen
 
   @satya @Smoke @Regression @NCIATWP-6676 @NCIATWP-6797
   Scenario: Verify data with different plot types

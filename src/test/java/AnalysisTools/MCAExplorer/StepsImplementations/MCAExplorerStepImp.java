@@ -175,4 +175,9 @@ public class MCAExplorerStepImp extends PageInitializer {
 	public void clickOnSubmitButton() {
 		JavascriptUtils.clickByJS(mcaExplorerPage.submitButton);
 	}
+
+	/** VERIFY IF ALERT IS PRESENT **/
+	public void verifyIfAlertIsPresent() {
+		Assert.assertTrue(!CommonUtils.getAlertText().isEmpty());
+	}
 }
