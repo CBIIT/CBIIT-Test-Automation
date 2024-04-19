@@ -82,6 +82,9 @@ public class MCAExplorerPage extends CommonUtils {
 	@FindBy(id = "summaryCircle")
 	public WebElement summaryCircle;
 	
+	/** SUMMARY CIRCLE ELEMENT XPATH */
+	public String summaryCircleXpath = "//*[@id='summaryCircle']";
+	
 	/** COMPARE CIRCLE ELEMENT */
 	@FindBy(id = "A")
 	public WebElement compareCircle;
