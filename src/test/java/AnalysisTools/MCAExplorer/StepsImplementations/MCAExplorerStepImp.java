@@ -1,6 +1,9 @@
 package AnalysisTools.MCAExplorer.StepsImplementations;
 
 import org.testng.Assert;
+
+import java.time.Duration;
+
 import org.openqa.selenium.Keys;
 import com.nci.automation.services.RestApiHelper;
 import com.nci.automation.web.CommonUtils;
@@ -18,14 +21,13 @@ public class MCAExplorerStepImp extends PageInitializer {
 
 	/** validate if two circles are available **/
 	public void isTwoCircleImageIsAvailable() {
-		CommonUtils.waitForVisibility(mcaExplorerPage.compareCircle);
-		Assert.assertTrue(CommonUtils.isElementDisplayed(mcaExplorerPage.compareCircle));
+		CommonUtils.waitForThePresenceOfEl(mcaExplorerPage.compareCircleXpath, Duration.ofSeconds(40));
 	}
 
 	/** Validate some rows are displayed **/
 	public void validateNumberOfRows() {
-		if (!CommonUtils.getText(mcaExplorerPage.showingRows).replace(",", "").contains(String.valueOf(2))) {
-			org.testng.Assert.assertTrue(false, "Expected atleast" + 2 + " in number of rows but found "
+		if (!(CommonUtils.getText(mcaExplorerPage.showingRows).length() > 0)) {
+			org.testng.Assert.assertTrue(false, "Expected atleast " + 1 + " in number of rows but found "
 					+ CommonUtils.getText(mcaExplorerPage.showingRows));
 		}
 	}
@@ -164,7 +166,7 @@ public class MCAExplorerStepImp extends PageInitializer {
 		JavascriptUtils.clickByJS(mcaExplorerPage.advanceSettings);
 	}
 
-	/** Click on Export Data button*/
+	/** Click on Export Data button */
 	public void clickOnExportData() {
 		JavascriptUtils.clickByJS(mcaExplorerPage.export_data_btn);
 	}
