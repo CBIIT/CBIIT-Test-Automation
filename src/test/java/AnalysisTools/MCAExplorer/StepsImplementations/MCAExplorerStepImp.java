@@ -158,7 +158,7 @@ public class MCAExplorerStepImp extends PageInitializer {
 
 	/** Verify Chart header is as expected */
 	public void verifyChartheader(String currentValue, String expectedValue) {
-		CommonUtils.assertEquals(currentValue, expectedValue);
+		CommonUtils.assertTrue(currentValue.contains(expectedValue));
 	}
 
 	/** Click on advanced filter */

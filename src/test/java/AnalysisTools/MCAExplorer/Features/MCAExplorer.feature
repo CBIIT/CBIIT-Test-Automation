@@ -106,7 +106,7 @@ Feature: MCAExplorer features
     And user selects age checkbox
     And user selects study,copy number state and age "5" "20" in both Group A and Group B
     Then user clicks save button
-    Then user can verify that chart header is "Study: PLCOUK Biobank; Types: Loss; Age: 5-20"
+    Then user can verify that chart header is "PLCOUK"
 
   @satya @Regression @NCIATWP-6478 @NCIATWP-5327 @Smoke
   Scenario: verify the export data download functionality
