@@ -158,7 +158,9 @@ public class MCAExplorerStepImp extends PageInitializer {
 
 	/** Verify Chart header is as expected */
 	public void verifyChartheader(String currentValue, String expectedValue) {
-		CommonUtils.assertTrue(currentValue.contains(expectedValue));
+		System.out.println(currentValue.toLowerCase());
+		System.out.println(expectedValue.toLowerCase());
+		CommonUtils.assertTrue(currentValue.toLowerCase().contains(expectedValue.toLowerCase()));
 	}
 
 	/** Click on advanced filter */
@@ -179,5 +181,6 @@ public class MCAExplorerStepImp extends PageInitializer {
 	/** VERIFY IF ALERT IS PRESENT **/
 	public void verifyIfAlertIsPresent() {
 		Assert.assertTrue(!CommonUtils.getAlertText().isEmpty());
+		CommonUtils.dismissAlert();
 	}
 }

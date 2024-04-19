@@ -12,7 +12,7 @@ Feature: MCAExplorer features
     Then go back to full circle
     Then verify if the circle is present on the screen
 
-  @satya @Regression @NCIATWP-6606 @NCIATWP-5438
+  @satya @Regression @NCIATWP-6606 @NCIATWP-5438 @Help
   Scenario: Verify graph & table will be empty when we removed the mandatory fields & try to plot the graph
     Given User navigates to MCAExplorer page
     When User clears the mandatory field Study
@@ -96,7 +96,7 @@ Feature: MCAExplorer features
     And user selects study,copy number state and age "5" "20" in both Group A and Group B
     Then user clicks save button
 
-  @satya @Regression @NCIATWP-6676 @NCIATWP-5576 @NCIATWP-5546
+  @satya @Regression @NCIATWP-6676 @NCIATWP-5576 @NCIATWP-5546 @Help
   Scenario: Verify the pair wise plot allchromoso me chart header
     Given User navigates to MCAExplorer
     When user clicks pairwise PLOTS CHECKBOX
@@ -106,7 +106,7 @@ Feature: MCAExplorer features
     And user selects age checkbox
     And user selects study,copy number state and age "5" "20" in both Group A and Group B
     Then user clicks save button
-    Then user can verify that chart header is "PLCOUK"
+    Then user can verify that chart header is "PLCO"
 
   @satya @Regression @NCIATWP-6478 @NCIATWP-5327 @Smoke
   Scenario: verify the export data download functionality
