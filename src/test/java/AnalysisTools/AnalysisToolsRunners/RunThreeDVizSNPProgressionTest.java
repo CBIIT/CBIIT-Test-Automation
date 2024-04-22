@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 		, "json:target/cucumber.json"
 		, "rerun:target/failed.txt"
 		, "pretty"} 
-		, features ={"src/test/java/AnalysisTools/CometsAnalytics/Features"}
+		, features ={"src/test/java/AnalysisTools/ThreeDVizSNP/Features"}
 		, glue = "AnalysisTools.CometsAnalytics.Steps"
 		, tags = "@Progression"
 		, dryRun = false 

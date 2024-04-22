@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
 		, "pretty"}
         , features = {"src/test/java/AnalysisTools/MCAExplorer/Features"}
         , glue = "AnalysisTools.MCAExplorer.Steps"
-        , tags = "@Smoke"
+        , tags = "@Help"
         , dryRun = false
 )
 public class RunMCAExplorerSmokeTest extends AbstractTestNGCucumberTests{

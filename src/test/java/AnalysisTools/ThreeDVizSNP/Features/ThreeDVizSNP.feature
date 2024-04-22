@@ -6,7 +6,7 @@ Feature: TheeDVizSNP features
     Given User navigates to 3DVizSNP page
     Then verify that vizulise and about tabs are available
 
-  @satya @Smoke @Regression @NCIATWP-6014
+  @satya @Regression @NCIATWP-6014
   Scenario: 3DVizSNP is able to submit vcf file
     Given User navigates to 3DVizSNP page
     Then upload the vcf file and submit
@@ -20,7 +20,7 @@ Feature: TheeDVizSNP features
     And User should click OK in Alert
     And User click Download Results button
 
-  @Satya @Regression @NCIATWP-5931 @NCIATWP-5955
+  @Satya @Regression @Smoke @NCIATWP-5931 @NCIATWP-5955
   Scenario: 3DVizSNP Total Number of records Validation
     Given User navigates to 3DVizSNP page
     When User clicks Visualize Button
@@ -29,7 +29,7 @@ Feature: TheeDVizSNP features
     And User should click OK in Alert
     Then User should verify that Records are getting displayed as expected
 
-  @Satya @Smoke @Regression @NCIATWP-5955
+  @Satya @Smoke @Regression @NCIATWP-5955 @Trest
   Scenario: 3DVizSNP Varient Highlight Validation
     Given User navigates to 3DVizSNP page
     When User clicks Visualize Button
@@ -59,7 +59,7 @@ Feature: TheeDVizSNP features
     Then User entered 'random' filter
     Then Verify Records are getting filtered as expected
 
-  @Satya @Regression @NCIATWP-6023
+  @Satya @Regression @Smoke @NCIATWP-6023
   Scenario: 3DVizSNP Long Running Job Email Validation
     Given User navigates to 3DVizSNP page
     When User clicks Visualize Button
@@ -85,7 +85,7 @@ Feature: TheeDVizSNP features
     And User clicks submit button
     Then User should verify Error message Visualization Job Failed is getting displayed.
 
-  @Satya @Regression @NCIATWP-6012 @NCIATWP-6037
+  @Satya @Smoke @Regression @NCIATWP-6012 @NCIATWP-6037
   Scenario: 3DVizSNP svg,png,json download validation
     Given User navigates to 3DVizSNP page
     When User clicks Visualize Button
@@ -103,7 +103,7 @@ Feature: TheeDVizSNP features
     And User should click OK in Alert
     Then Verify that all the mini windows are interactable
 
-  @Satya @Regression @NCIATWP-5916 @NCIATWP-6028
+  @Satya @Smoke @Regression @NCIATWP-5916 @NCIATWP-6028
   Scenario: 3DVizSNP feedback button validation
     Given User navigates to 3DVizSNP page
     When User clicks Visualize Button

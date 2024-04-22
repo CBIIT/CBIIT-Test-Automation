@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
 		, "pretty"}
         , features ={"src/test/java/AnalysisTools/ThreeDVizSNP/Features"}
         , glue = "AnalysisTools.ThreeDVizSNP.Steps"
-        , tags = "@Smoke"
+        , tags = "@Trest"
         , dryRun = false      
 )
 public class RunThreeDVizSNPSmokeTest extends AbstractTestNGCucumberTests{

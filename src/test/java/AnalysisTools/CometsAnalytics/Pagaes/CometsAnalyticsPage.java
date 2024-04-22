@@ -40,11 +40,11 @@ public class CometsAnalyticsPage extends CommonUtils {
 	@FindBy(xpath = "//h2[text()='Accessibility']")
 	public WebElement accessibilityText;
 
-	/** ACCESIBILITY TEXT **/
+	/** CURRENT VERSION **/
 	@FindBy(xpath = "//h2[text()='Current Version Functionality']")
 	public WebElement currentVersionFunctionalityText;
 
-	/** ACCESIBILITY TEXT **/
+	/** HELP TEXT **/
 	@FindBy(xpath = "//h2[text()='Help']")
 	public WebElement HelpText;
 
