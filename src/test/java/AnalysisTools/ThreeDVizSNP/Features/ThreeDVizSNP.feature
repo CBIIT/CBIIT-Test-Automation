@@ -29,7 +29,7 @@ Feature: TheeDVizSNP features
     And User should click OK in Alert
     Then User should verify that Records are getting displayed as expected
 
-  @Satya @Smoke @Regression @NCIATWP-5955 @Trest
+  @Satya @Smoke @Regression @NCIATWP-5955
   Scenario: 3DVizSNP Varient Highlight Validation
     Given User navigates to 3DVizSNP page
     When User clicks Visualize Button

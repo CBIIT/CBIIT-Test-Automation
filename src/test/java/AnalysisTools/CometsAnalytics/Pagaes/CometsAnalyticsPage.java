@@ -36,7 +36,7 @@ public class CometsAnalyticsPage extends CommonUtils {
 	@FindBy(xpath = "//a[text()='About']")
 	public WebElement aboutButton;
 
-	/** ACCESIBILITY TEXT **/
+	/** ACCESSIBILITY TEXT **/
 	@FindBy(xpath = "//h2[text()='Accessibility']")
 	public WebElement accessibilityText;
 
