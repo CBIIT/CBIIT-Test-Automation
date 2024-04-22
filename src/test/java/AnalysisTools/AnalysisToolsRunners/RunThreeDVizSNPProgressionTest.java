@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
 		, "rerun:target/failed.txt"
 		, "pretty"} 
 		, features ={"src/test/java/AnalysisTools/ThreeDVizSNP/Features"}
-		, glue = "AnalysisTools.CometsAnalytics.Steps"
+		, glue = "AnalysisTools.ThreeDVizSNP.Steps"
 		, tags = "@Progression"
 		, dryRun = false 
 )
