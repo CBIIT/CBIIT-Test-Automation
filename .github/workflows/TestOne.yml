@@ -27,7 +27,7 @@ on:
         description: Please chose the environment
         required: true
         options:
-          - QA
+          - TEST
           - DEV
           - STAGE
           - PROD
