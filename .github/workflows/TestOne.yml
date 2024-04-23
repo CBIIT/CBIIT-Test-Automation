@@ -15,6 +15,22 @@ on:
   #   branches: [ "master" ]
   workflow_dispatch:
     inputs:
+      test-type:
+        type: choice
+        description: What type of test are you running
+        required: true
+        options:
+          - Java Selenium
+          - Playwright
+      environment:
+        type: choice
+        description: Please chose the environment
+        required: true
+        options:
+          - QA
+          - DEV
+          - STAGE
+          - PROD
       browser:
         type: choice
         description: Which browser to test
@@ -23,13 +39,6 @@ on:
           - chrome
           - firefox
           - edge
-      test-type:
-        type: choice
-        description: What type of test are you running
-        required: true
-        options:
-          - Java Selenium
-          - Playwright
 jobs:
   test:
     runs-on: ubuntu-latest
