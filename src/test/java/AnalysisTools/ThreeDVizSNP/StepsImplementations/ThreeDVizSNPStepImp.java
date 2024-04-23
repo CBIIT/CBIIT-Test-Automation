@@ -12,14 +12,12 @@ public class ThreeDVizSNPStepImp extends PageInitializer {
 
 	/** Upload example VCF File **/
 	public void uploadExampleVCFFile() {
-		String path = System.getProperty("user.dir") + "/src/test/java/AnalysisTools/ThreeDVizSNP/Utils/example.vcf";
-		CommonUtils.sendKeys(threeDVizSNPPage.vcfFileUpload, path);
+		CommonUtils.sendKeys(threeDVizSNPPage.vcfFileUpload, threeDVizSNPPage.validFilePath);
 	}
 
 	/** Upload Invalid VCF File **/
 	public void uploadInvalidVCFFIle() {
-		String path = System.getProperty("user.dir") + "/src/test/java/AnalysisTools/ThreeDVizSNP/Utils/invalid.vcf";
-		CommonUtils.sendKeys(threeDVizSNPPage.vcfFileUpload, path);
+		CommonUtils.sendKeys(threeDVizSNPPage.vcfFileUpload, threeDVizSNPPage.invalidFilePath);
 	}
 
 	/** Upload example VCF File after clicking vizulize button and then submit **/
