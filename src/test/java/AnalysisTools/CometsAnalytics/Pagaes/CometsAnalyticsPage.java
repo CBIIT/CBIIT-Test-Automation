@@ -16,7 +16,7 @@ public class CometsAnalyticsPage extends CommonUtils {
 	@FindBy(xpath = "//a[text()='Analysis']")
 	public WebElement analysisButton;
 
-	/** CHECK INTEGRETY BUTTON **/
+	/** CHECK INTEGRITY BUTTON **/
 	@FindBy(xpath = "//button[text()='Check Integrity']")
 	public WebElement checkIntegretyButton;
 
