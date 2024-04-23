@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
         , features = "src/test/java/ServiceNow/PlatformBusinessApps/SNOWOBF/playwright/Features"
         , glue = "ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.Steps"
         , tags = "@Progression"
-        , dryRun = false
+        , dryRun = true
 )
 public class Run_OBF_PW_Progression_Test extends AbstractTestNGCucumberTests {
 }

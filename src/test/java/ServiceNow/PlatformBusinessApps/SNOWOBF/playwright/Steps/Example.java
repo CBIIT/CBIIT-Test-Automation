@@ -36,6 +36,7 @@ public class Example {
             assertThat(page.getByRole(AriaRole.LIST)).containsText("OneStream/BUS");
             page.locator(".sn-polaris-nav-body").click();
             page.getByPlaceholder("Filter").click();
+            page.getByPlaceholder("Filter").click();
         }
     }
 }
