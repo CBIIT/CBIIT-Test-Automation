@@ -96,7 +96,7 @@ Feature: MCAExplorer features
     And user selects study,copy number state and age "5" "20" in both Group A and Group B
     Then user clicks save button
 
-  @satya @Regression @NCIATWP-6676 @NCIATWP-5576 @NCIATWP-5546 @Help
+  @satya @Regression @NCIATWP-6676 @NCIATWP-5576 @NCIATWP-5546 
   Scenario: Verify the pair wise plot allchromoso me chart header
     Given User navigates to MCAExplorer
     When user clicks pairwise PLOTS CHECKBOX

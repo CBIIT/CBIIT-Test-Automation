@@ -1,9 +1,7 @@
 package AnalysisTools.MCAExplorer.StepsImplementations;
 
 import org.testng.Assert;
-
 import java.time.Duration;
-
 import org.openqa.selenium.Keys;
 import com.nci.automation.services.RestApiHelper;
 import com.nci.automation.web.CommonUtils;
