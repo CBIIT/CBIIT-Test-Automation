@@ -23,8 +23,15 @@ on:
           - chrome
           - firefox
           - edge
+      test-type:
+        type: choice
+        description: What type of test are you running
+        required: true
+        options:
+          - Java Selenium
+          - Playwright
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
