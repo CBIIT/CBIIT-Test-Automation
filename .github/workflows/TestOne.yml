@@ -40,6 +40,10 @@ on:
           - firefox
           - edge
 jobs:
+  # preBuild:
+  #     commands:
+  #       - npm install --package-lock-only
+  #       - npm ci
   playwright:
     name: 'Playwright Tests'
     runs-on: ubuntu-latest
@@ -51,14 +55,9 @@ jobs:
         with:
           node-version: 18
       - name: Install dependencies
-        run: |
-          if [ -e yarn.lock ]; then
-          yarn install --frozen-lockfile
-          elif [ -e package-lock.json ]; then
-          npm ci
-          else
-          npm i
-          fi
+      - run: yarn install --frozen-lockfile
+      - run: yarn lint
+      - run: yarn test:ci
       - name: Run your tests
         run: npx playwright test
         env:
