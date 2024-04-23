@@ -15,7 +15,7 @@ Feature: This feature files is for Comets Analytics features
     When User clicks on footer links like vigenette and verify new tab is opened
 
   @satya @Smoke @Regression @NCIATWP-4427
-  Scenario: Verify user is able to access all the links in the footer section 
+  Scenario: Verify user is able to access the footer links on about page
     Given User navigates to comets analytics home page
     When User clicks About button
     Then User should be able to view Help, Accessibility, Current Version Functionality, Acknowledgements, Citation is getting displayed
