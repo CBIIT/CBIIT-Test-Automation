@@ -1,4 +1,4 @@
-package AnalysisTools.CometsAnalytics.Pagaes;
+package AnalysisTools.CometsAnalytics.Pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

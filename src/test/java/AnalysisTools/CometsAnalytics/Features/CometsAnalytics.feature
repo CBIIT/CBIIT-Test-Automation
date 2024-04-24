@@ -50,7 +50,7 @@ Feature: This feature files is for Comets Analytics features
     And User should cick reset button
     Then user should verify that its reseted and  cohort dropdown value is "Other/Undefined"
 
-  @satya @Regressio @NCIATWP-4475
+  @satya @Regression @NCIATWP-4475
   Scenario: Verify that user is able to download report
     Given User navigates to comets analytics home page
     When User clicks on Analysis button

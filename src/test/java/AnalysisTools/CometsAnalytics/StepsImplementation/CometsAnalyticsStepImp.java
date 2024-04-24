@@ -1,4 +1,4 @@
-package AnalysisTools.CometsAnalytics.StepsImplemantation;
+package AnalysisTools.CometsAnalytics.StepsImplementation;
 
 import java.util.Set;
 import org.openqa.selenium.Keys;

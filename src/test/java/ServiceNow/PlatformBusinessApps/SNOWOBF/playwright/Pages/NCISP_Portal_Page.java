@@ -3,32 +3,32 @@ package ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.Pages;
 public class NCISP_Portal_Page {
 	
 	/***
-	    * NATIVE VIEW LINK
-	    */
-	    public static String nativeViewLink = "Native View";
-	    
-    /***
-     * SERVICES LINK
-     */
-    public static String servicesLink = "Services";
+	 * NATIVE VIEW LINK
+	 */
+	public static String nativeViewLink = "Native View";
 
-    /***
-     * NCI PAGE LINKS LOCATOR
-     */
-    public static String nciPageLinksLocator = "#fresponsive";
+	/***
+	 * SERVICES LINK
+	 */
+	public static String servicesLink = "Services";
 
-    /***
-     * CBIIT BUSINESS SERVICES LINK
-     */
-    public static String cbiit_BusinessServicesLink = "Business Services";
+	/***
+	 * NCI PAGE LINKS LOCATOR
+	 */
+	public static String nciPageLinksLocator = "#fresponsive";
 
-    /***
-     * ADMINISTRATIVE BUSINESS SERVICES LINK
-     */
-    public static String administrative_BusinessServicesLink = "Administrative Business Systems";
+	/***
+	 * CBIIT BUSINESS SERVICES LINK
+	 */
+	public static String cbiit_BusinessServicesLink = "Business Services";
 
-    /***
-     * OBF SYSTEMS SUPPORT LINK
-     */
-    public static String obf_SystemsSupportLink = "OBF Systems Support";
+	/***
+	 * ADMINISTRATIVE BUSINESS SERVICES LINK
+	 */
+	public static String administrative_BusinessServicesLink = "Administrative Business Systems";
+
+	/***
+	 * OBF SYSTEMS SUPPORT LINK
+	 */
+	public static String obf_SystemsSupportLink = "OBF Systems Support";
 }
