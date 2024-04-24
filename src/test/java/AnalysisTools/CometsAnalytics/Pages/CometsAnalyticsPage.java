@@ -151,12 +151,4 @@ public class CometsAnalyticsPage extends CommonUtils {
 	/** PVALUE RANGE **/
 	@FindBy(id = "pValueRange")
 	public WebElement pValueRange;
-
-	/** VALID FILE PATH **/
-	public String validFilePath = System.getProperty("user.dir")
-			+ "/src/test/java/AnalysisTools/CometsAnalytics/Utils/ValidFile.xlsx";
-
-	/** INVALID FILE PATH **/
-	public String InvalidFilePath = System.getProperty("user.dir")
-			+ "/src/test/java/AnalysisTools/CometsAnalytics/Utils/invalid.vcf";
 }

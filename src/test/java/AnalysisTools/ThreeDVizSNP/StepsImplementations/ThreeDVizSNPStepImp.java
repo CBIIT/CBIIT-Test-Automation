@@ -6,18 +6,20 @@ import org.openqa.selenium.NoAlertPresentException;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
+
+import AnalysisTools.ThreeDVizSNP.Constant.Constants;
 import appsCommon.PageInitializers.PageInitializer;
 
 public class ThreeDVizSNPStepImp extends PageInitializer {
 
 	/** Upload example VCF File **/
 	public void uploadExampleVCFFile() {
-		CommonUtils.sendKeys(threeDVizSNPPage.vcfFileUpload, threeDVizSNPPage.validFilePath);
+		CommonUtils.sendKeys(threeDVizSNPPage.vcfFileUpload, Constants.validFilePath);
 	}
 
 	/** Upload Invalid VCF File **/
 	public void uploadInvalidVCFFIle() {
-		CommonUtils.sendKeys(threeDVizSNPPage.vcfFileUpload, threeDVizSNPPage.invalidFilePath);
+		CommonUtils.sendKeys(threeDVizSNPPage.vcfFileUpload, Constants.InvalidFilePath);
 	}
 
 	/** Upload example VCF File after clicking vizulize button and then submit **/

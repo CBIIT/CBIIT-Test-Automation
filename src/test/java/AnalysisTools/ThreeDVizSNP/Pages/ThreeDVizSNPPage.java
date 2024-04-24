@@ -119,11 +119,4 @@ public class ThreeDVizSNPPage extends CommonUtils {
 	@FindBy(xpath="//*[@title=\"ICN3D\"]")
 	public WebElement ifrmaeFeedback;
 	
-	/** INVALID FILE PATH **/
-	public String invalidFilePath =System.getProperty("user.dir") + "/src/test/java/AnalysisTools/ThreeDVizSNP/Utils/invalid.vcf";
-	
-	/** VALID FILE PATH **/
-	public String validFilePath =System.getProperty("user.dir") + "/src/test/java/AnalysisTools/ThreeDVizSNP/Utils/example.vcf";
-	
-	
 }
