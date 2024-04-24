@@ -57,7 +57,7 @@ public class ThreeDVizSNPPage extends CommonUtils {
 	public WebElement sortingOrderApplied;
 
 	/** FILTER OPTION **/
-	@FindBy(xpath = "//input[@type=\"input\"]")
+	@FindBy(xpath = "//input[@type='input']")
 	public WebElement filterOption;
 
 	/** NUMBER OF PAGES **/

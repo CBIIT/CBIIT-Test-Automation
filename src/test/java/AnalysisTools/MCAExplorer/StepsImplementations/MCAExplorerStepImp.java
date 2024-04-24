@@ -4,6 +4,7 @@ import org.testng.Assert;
 import java.time.Duration;
 import org.openqa.selenium.Keys;
 import com.nci.automation.services.RestApiHelper;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
 import appsCommon.PageInitializers.PageInitializer;
@@ -25,7 +26,7 @@ public class MCAExplorerStepImp extends PageInitializer {
 	/** Validate some rows are displayed **/
 	public void validateNumberOfRows() {
 		if (!(CommonUtils.getText(mcaExplorerPage.showingRows).length() > 0)) {
-			org.testng.Assert.assertTrue(false, "Expected atleast " + 1 + " in number of rows but found "
+			Assert.assertTrue(false, "Expected atleast " + 1 + " in number of rows but found "
 					+ CommonUtils.getText(mcaExplorerPage.showingRows));
 		}
 	}
@@ -78,18 +79,13 @@ public class MCAExplorerStepImp extends PageInitializer {
 	public void user_selects_study_copy_number_state_and_age_range_in_both_group_a_and_group_b(String start,
 			String end) {
 		CommonUtils.clickOnElement(mcaExplorerPage.groupA_Study_dropdown);
-		try {
-			Thread.sleep(1000);
-		} catch (Exception e) {
-		}
+		MiscUtils.sleep(1000);
+		
 		CommonUtils.clickOnElement(mcaExplorerPage.groupA_Study_dropdown_biobank);
 		CommonUtils.clickOnElement(mcaExplorerPage.groupA_copynumber_dropdown);
 		CommonUtils.clickOnElement(mcaExplorerPage.groupA_copynum_dropdown_loss);
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		MiscUtils.sleep(2000);
+		
 		mcaExplorerPage.groupA_age_Start.sendKeys(start);
 		mcaExplorerPage.groupA_age_End.sendKeys(end);
 		CommonUtils.clickOnElement(mcaExplorerPage.groupB_Study_dropdown);

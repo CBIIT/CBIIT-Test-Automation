@@ -7,8 +7,7 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
-
-import AnalysisTools.CometsAnalytics.Constant.Constants;
+import AnalysisTools.CometsAnalytics.Utils.CometsAnalysis_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 
 public class CometsAnalyticsStepImp extends PageInitializer {
@@ -40,7 +39,7 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 
 	/** UPLOAD FILE **/
 	public void uploadFileCheckIntegrity() {
-		CommonUtils.sendKeys(cometsAnalyticsPage.inputFileUpload, Constants.validFilePath);
+		CommonUtils.sendKeys(cometsAnalyticsPage.inputFileUpload, CometsAnalysis_Constants.VALID_FILE_PATH);
 	}
 
 	/** DOWNLOAD REPORT **/
@@ -122,7 +121,7 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 
 	/** UPLOAD INVALID FILE **/
 	public void uploadInvalidFileAndCheck() {
-		CommonUtils.sendKeys(cometsAnalyticsPage.inputFileUpload, Constants.invalidFilePath);
+		CommonUtils.sendKeys(cometsAnalyticsPage.inputFileUpload, CometsAnalysis_Constants.INVALID_FILE_PATH);
 	}
 
 	/** CLICK ON ABOUT BUTTON **/

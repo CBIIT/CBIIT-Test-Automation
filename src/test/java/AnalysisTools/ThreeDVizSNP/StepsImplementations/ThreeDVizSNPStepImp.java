@@ -1,25 +1,24 @@
 package AnalysisTools.ThreeDVizSNP.StepsImplementations;
 
 import java.time.Duration;
-import org.junit.Assert;
 import org.openqa.selenium.NoAlertPresentException;
+import org.testng.Assert;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
-
-import AnalysisTools.ThreeDVizSNP.Constant.Constants;
+import AnalysisTools.ThreeDVizSNP.Utils.ThreeDVizSNP_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 
 public class ThreeDVizSNPStepImp extends PageInitializer {
 
 	/** Upload example VCF File **/
 	public void uploadExampleVCFFile() {
-		CommonUtils.sendKeys(threeDVizSNPPage.vcfFileUpload, Constants.validFilePath);
+		CommonUtils.sendKeys(threeDVizSNPPage.vcfFileUpload, ThreeDVizSNP_Constants.VALID_FILE_PATH);
 	}
 
 	/** Upload Invalid VCF File **/
 	public void uploadInvalidVCFFIle() {
-		CommonUtils.sendKeys(threeDVizSNPPage.vcfFileUpload, Constants.InvalidFilePath);
+		CommonUtils.sendKeys(threeDVizSNPPage.vcfFileUpload, ThreeDVizSNP_Constants.INVALID_FILE_PATH);
 	}
 
 	/** Upload example VCF File after clicking vizulize button and then submit **/
