@@ -21,7 +21,7 @@ public class PlaywrightUtils {
             arguments = new ArrayList<>();
             arguments.add(maximizeWindow);
             Browser browser = playwright.chromium().launch(
-                    new BrowserType.LaunchOptions().setChannel(FrameworkConstants.BROWSER_CHROME).setHeadless(false).setArgs(arguments).setSlowMo(500));
+                    new BrowserType.LaunchOptions().setChannel(FrameworkConstants.BROWSER_CHROME).setHeadless(true).setArgs(arguments).setSlowMo(500));
             BrowserContext context = browser.newContext(new Browser.NewContextOptions().setViewportSize(null));
             page = context.newPage();
         } else if (testBrowser.equalsIgnoreCase(FrameworkConstants.BROWSER_EDGE)) {

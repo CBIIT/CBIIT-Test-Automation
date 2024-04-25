@@ -120,7 +120,7 @@ public class Profile_Tab_Page {
     /**
      * I WANT TO SHARE DEMOGRAPHICS RADIO BUTTON
      */
-    public static String shareDemographicsRadioButton = "I want to share my";
+    public static String shareDemographicsRadioButton = "//span[contains(text(),'I want to share my demographic details and help im')]";
 
     /**
      * I DO NOT WANT TO SHARE DEMOGRAPHICS RADIO BUTTON

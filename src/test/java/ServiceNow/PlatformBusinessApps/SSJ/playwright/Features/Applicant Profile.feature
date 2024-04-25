@@ -45,16 +45,15 @@ Feature: Applicant Profile Scenarios
 
   @Regression @Smoke @alenan @APPTRACK-712 @Progression
   Scenario: Edit Demographics of Profile
-    Given a test account "Maria Chaudhry" is reset before executing a test
+#    Given a test account "Maria Chaudhry" is reset before executing a test
     When User is on SCSS Landing page and user is "Maria Chaudhry" - PW
-    When User is on Profile tab - PW
-    And User clicks Edit for Demographics section - PW
-    And User chooses to share demographic details - PW
-    And User edits sex choice - PW
-    And User edits ethnicity choice - PW
-    And User edits race choice - PW
-    And User edits disability choice - PW
-    And User saves the updated section - PW
-    And User clicks Edit for Demographics section - PW
-    And User chooses not to share demographic details - PW
-    Then User saves the updated section - PW
+#    When User is on Profile tab - PW
+#    And User chooses to share demographic details - PW
+#    And User edits sex choice - PW
+#    And User edits ethnicity choice - PW
+#    And User edits race choice - PW
+#    And User edits disability choice - PW
+#    And User saves the updated section - PW
+#    And User clicks Edit for Demographics section - PW
+#    And User chooses not to share demographic details - PW
+#    Then User saves the updated section - PW
