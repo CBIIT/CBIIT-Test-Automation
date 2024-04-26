@@ -29,7 +29,6 @@ public class ApplicantProfileStepsImpl {
         }
     }
 
-
     /**
      * USE THIS METHOD TO SELECT THE HIGHEST EDUCATION WHEN FILLING OUT THE PROFILE PAGE
      *
