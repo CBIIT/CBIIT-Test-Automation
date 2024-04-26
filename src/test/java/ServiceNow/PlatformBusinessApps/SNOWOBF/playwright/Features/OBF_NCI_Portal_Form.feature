@@ -1,7 +1,7 @@
 Feature: SNOWOBF Portal form Scenarios
   Description: This Feature file contains SNOWOBF OBF Systems Support form Scenarios
 
-  @SNOWOBF-11 @SNOWOBF-2 @Chaudhryma @Regression
+  @SNOWOBF-11 @SNOWOBF-2 @Chaudhryma @Regression @Progression
   Scenario: Test Create OBF Helpdesk Link on NCI ServiceNow Homepage
     Given I am an authenticated CBIIT user
     When I navigate to the NCI ServiceNow homepage 'OBF Systems Support' portal form
