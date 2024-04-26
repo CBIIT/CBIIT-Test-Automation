@@ -19,7 +19,7 @@ public class OBF_NCI_NV_Form_StepImpl {
     }
 
     public static void i_navigate_to_the_native_view_and_type_in_the_navigation_search_window(String obfSystemsSupport) {
-     //   PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(NCISP_Portal_Page.nativeViewLink)).click();
+        PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(NCISP_Portal_Page.nativeViewLink)).click();
         Playwright_ServiceNow_Common_Methods.searchFilterNavigatorAndClickOption(obfSystemsSupport, OBF_NCI_NV_Form_Page.obf_App_NV_OBF_Systems_Support_Search_Options);
         assertThat(PlaywrightUtils.page.locator(OBF_NCI_NV_Form_Page.obf_App_NV_Search_Menu_Locator)).containsText(OBF_NCI_NV_Form_Page.obf_App_NV_Search_OBF_Systems_Support);
         }
