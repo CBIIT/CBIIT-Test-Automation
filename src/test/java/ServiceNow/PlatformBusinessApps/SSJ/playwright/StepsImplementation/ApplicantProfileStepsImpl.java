@@ -9,7 +9,6 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import org.testng.Assert;
-
 import java.util.Objects;
 
 public class ApplicantProfileStepsImpl {

@@ -234,26 +234,3 @@ Feature: OWM Vacancy Manager Scenarios
     And User can sort by Closed Individual Scoring
     And User can sort by Closed Committee Review
     And User can sort by Closed Voting Complete
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
