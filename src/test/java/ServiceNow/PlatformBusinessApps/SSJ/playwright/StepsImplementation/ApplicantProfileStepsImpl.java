@@ -37,15 +37,15 @@ public class ApplicantProfileStepsImpl {
      * @param highestDegree
      */
     public static void selects_highest_education(String highestDegree) {
-        if(Objects.equals(highestDegree, "Masters")) {
+        if (Objects.equals(highestDegree, "Masters")) {
             PlaywrightUtils.page.getByLabel(Profile_Tab_Page.highestLevelOfEducationDropDown).click();
             PlaywrightUtils.page.getByTitle(highestDegree).locator("div").click();
             CucumberLogUtils.playwrightScreenshot();
-        }else if(Objects.equals(highestDegree, "Bachelors")){
+        } else if (Objects.equals(highestDegree, "Bachelors")) {
             PlaywrightUtils.page.getByLabel(Profile_Tab_Page.highestLevelOfEducationDropDown).click();
             PlaywrightUtils.page.getByTitle(highestDegree).locator("div").click();
             CucumberLogUtils.playwrightScreenshot();
-        }else if(Objects.equals(highestDegree, "Doctorate")){
+        } else if (Objects.equals(highestDegree, "Doctorate")) {
             PlaywrightUtils.page.getByLabel(Profile_Tab_Page.highestLevelOfEducationDropDown).click();
             PlaywrightUtils.page.getByTitle(highestDegree).locator("div").click();
             CucumberLogUtils.playwrightScreenshot();
@@ -139,5 +139,13 @@ public class ApplicantProfileStepsImpl {
         String formattedExpectedPhoneNumber = CommonUtils.fixPhoneFormat(expectedPhoneNumber);
         Assert.assertEquals(actualPhoneNumber, formattedExpectedPhoneNumber);
         CucumberLogUtils.playwrightScreenshot();
+    }
+
+    /***
+     * USE THIS METHOD TO EDIT DEMOGRAPHICS SECTION
+     */
+    public static void user_clicks_edit_for_demographics_section(){
+        PlaywrightUtils.page.locator(Profile_Tab_Page.demographicsOptionalTab).click();
+        PlaywrightUtils.page.locator(Profile_Tab_Page.demographicsEditButton).click();
     }
 }
