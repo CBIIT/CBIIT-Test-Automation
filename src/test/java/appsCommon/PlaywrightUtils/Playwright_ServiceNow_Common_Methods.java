@@ -7,7 +7,6 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.EncryptionUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.ConfUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.PlaywrightUtils;
@@ -40,7 +39,6 @@ public class Playwright_ServiceNow_Common_Methods {
         PlaywrightUtils.page.getByRole(AriaRole.COMBOBOX, new Page.GetByRoleOptions().setName(Playwright_NativeView_Dashboard_Page.impersonateUserDropDown)).fill(name);
         MiscUtils.sleep(2000);
         PlaywrightUtils.page.locator(Playwright_NativeView_Dashboard_Page.impersonateDropDownOption).getByRole(AriaRole.OPTION, new Locator.GetByRoleOptions().setName(name + " " + name)).click();
-        MiscUtils.sleep(2000);
         PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(Playwright_NativeView_Dashboard_Page.impersonateUserButton)).click();
     }
 
