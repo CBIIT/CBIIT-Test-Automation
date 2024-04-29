@@ -28,7 +28,7 @@ public class NCISP_Portal_Page {
     public static String obf_SystemsSupportLink = "OBF Systems Support";
 
     /***
-     *NATIVE VIEW LINK
+     * NATIVE VIEW LINK
      */
     public static String nativeViewLink = "Native View";
 }
