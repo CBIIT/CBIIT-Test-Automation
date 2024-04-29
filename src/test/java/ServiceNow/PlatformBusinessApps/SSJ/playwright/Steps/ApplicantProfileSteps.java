@@ -149,8 +149,7 @@ public class ApplicantProfileSteps {
 
     @When("User chooses to share demographic details - PW")
     public void user_chooses_to_share_demographic_details_pw() {
-        PlaywrightUtils.page.locator(Profile_Tab_Page.demographicsOptionalTab).click();
-        PlaywrightUtils.page.locator(Profile_Tab_Page.shareDemographicsRadioButton).click();
+       ApplicantProfileStepsImpl.user_chooses_to_share_demographic_details();
     }
 
     @When("User edits sex choice - PW")
