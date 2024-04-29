@@ -11,15 +11,15 @@ Feature:These are features on the Cohorts Page of scAtlas
     Scenario: Gene Filter on Multi-Regional using "RP11-1260E13.2"
         Given the user is on the scAtlas home page
         When the user clicks Multi-Regional window
-        And the user enters "RP11-1260E13.2" in the gene filter
-        Then the "RP11-1260E13.2" gene Cell is returned
+        And the user enters "MCCC1" in the gene filter
+        Then the "MCCC1" genes Cell is returned
 
     @NCIATWP-6677 @matakevin @Smoke
     Scenario: Gene Filter on Sequential NCI-Clarity using "RP11-1260E13.2"
         Given the user is on the scAtlas home page
         When the user clicks Sequential NCI-Clarity window
-        And the user enters "RP11-1260E13.2" in the gene filter
-        Then the "RP11-1260E13.2" gene Cell is returned
+        And the user enters "SS18L1" in the gene filter
+        Then the "SS18L1" gene Cells is returned
 
     @NCIATWP-6677 @matakevin @Smoke
     Scenario: Gene Filter on NCI-Clarity using "AAAS"

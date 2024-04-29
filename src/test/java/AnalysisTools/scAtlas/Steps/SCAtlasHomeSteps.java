@@ -22,6 +22,7 @@ public class SCAtlasHomeSteps extends PageInitializer {
 
     @Then("the {string} tab is displayed but the {string} tab is not displayed")
     public void the_tab_is_displayed_but_the_tab_is_not_displayed(String tumorCellCommunity, String tCell) {
+        MiscUtils.sleep(5000);
         CommonUtils.assertTrue(scAtlasCohortsPage.tumorCellCommunityTab.isDisplayed());
     }
 
@@ -37,6 +38,7 @@ public class SCAtlasHomeSteps extends PageInitializer {
 
     @Then("the {string} and {string} tabs are displayed")
     public void the_and_tabs_are_displayed(String tumorCellCommunity, String tCell) {
+        MiscUtils.sleep(5000);
         CommonUtils.assertTrue(scAtlasCohortsPage.tumorCellCommunityTab.isDisplayed());
         CommonUtils.assertTrue(scAtlasCohortsPage.tCellTab.isDisplayed());
     }
