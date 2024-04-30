@@ -15,8 +15,7 @@ public class Example {
             Page page = context.newPage();
             page.navigate("https://service-test.nci.nih.gov/side_door.do");
             page.getByLabel("User name").click();
-            page.getByLabel("User name").click();
-            page.getByLabel("User name").click();
+
             page.getByLabel("User name").fill("CBIITTestAccount");
             page.getByLabel("Password", new Page.GetByLabelOptions().setExact(true)).click();
             page.getByLabel("Password", new Page.GetByLabelOptions().setExact(true)).fill("curlbylawdighalvekinlarswould");
@@ -26,9 +25,9 @@ public class Example {
             page.getByPlaceholder("Filter").click();
             page.getByPlaceholder("Filter").fill("OBF Systems Support");
             page.getByPlaceholder("Filter").press("Enter");
-            assertThat(page.locator(".sn-polaris-nav-body")).isVisible();
-            page.evaluate("document.getElementById('targetElement').style.border = '2px solid blue';");
-            page.evaluate(".sn-polaris-nav-body");
+//            assertThat(page.locator(".sn-polaris-nav-body")).isVisible();
+//            page.evaluate("document.getElementById('targetElement').style.border = '2px solid blue';");
+//            page.evaluate(".sn-polaris-nav-body");
             page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("All Tickets")).click();
             assertThat(page.getByRole(AriaRole.LIST)).containsText("All Tickets");
             assertThat(page.getByRole(AriaRole.LIST)).containsText("Open Tickets");

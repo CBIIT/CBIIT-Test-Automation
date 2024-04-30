@@ -1,11 +1,33 @@
 package ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.Pages;
 
+import com.nci.automation.web.CommonUtils;
+
 public class OBF_NCI_Portal_Form_Page {
 
     /***
      * OBF REQUEST FORM TITLE ON THE TOP
      */
     public static String obf_Request_Form_TitleOnTheTop = "#catItemTop";
+
+    /***
+     * OBF REQUEST FORM REQUESTED FOR CLEAR FIELD
+     */
+    public static String obf_Request_Form_RequestedForClearField = "Clear field Requested For";
+
+    /***
+     * OBF REQUEST FORM REQUESTED FOR FIELD LOCATOR
+     */
+    public static String obf_Request_Form_RequestedForFieldLocator = "#s2id_sp_formfield_requested_for a";
+
+    /***
+     * OBF REQUEST FORM REQUESTED FOR FIELD SEARCH TEXT
+     */
+    public static String obf_Request_Form_RequestedForFieldSearchText = "#s2id_autogen4_search";
+
+    /***
+     * OBF REQUEST FORM REQUESTED FOR NAME
+     */
+    public static String obf_Request_Form_RequestedForName = "Ben Foulkes";
 
     /***
      * OBF REQUEST FORM SUPERVISOR FIELD TITLE
@@ -30,7 +52,7 @@ public class OBF_NCI_Portal_Form_Page {
     /***
      * OBF REQUEST FORM SUPERVISOR NAME
      */
-    public static String obf_Request_Form_SupervisorName = "April Austin";
+    public static String obf_Request_Form_SupervisorName = "maria.chaudhry2@nih.gov";
 
     /***
      * OBF REQUEST FORM ADMINISTRATIVE OFFICER (AO) FIELD TITLE NAME
@@ -255,7 +277,7 @@ public class OBF_NCI_Portal_Form_Page {
     /***
      * OBF REQUEST FORM DESCRIPTION FIELD INPUT
      */
-    public static String obf_Request_Form_DescriptionFieldInput = "Test Description";
+    public static String obf_Request_Form_DescriptionFieldInput = "Test Description" + CommonUtils.lastNameRandomizer();
 
     /***
      * OBF REQUEST FORM PRIORITY FIELD LOCATOR

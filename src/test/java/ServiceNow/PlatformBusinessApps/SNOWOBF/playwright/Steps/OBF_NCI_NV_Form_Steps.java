@@ -21,4 +21,14 @@ public class OBF_NCI_NV_Form_Steps {
     public void i_should_see_the_following_options_in_the_obf_systems_support_module(String allTickets, String openTickets, String closedTickets, String oneStreamBus) {
         OBF_NCI_NV_Form_StepImpl.i_should_see_the_following_options_in_the_obf_systems_support_module(allTickets, openTickets, closedTickets,oneStreamBus);
     }
+
+    @When("I navigate to the New or Open Ticket for OBF Systems Solution in Native View")
+    public void i_navigate_to_the_new_or_open_ticket_for_obf_systems_solution_in_native_view() {
+        OBF_NCI_NV_Form_StepImpl.i_navigate_to_the_new_or_open_ticket_for_obf_systems_solution_in_native_view();
+    }
+
+    @Then("I should see the following layout for the Ticket:")
+    public void i_should_see_the_following_layout_for_the_ticket(String docString) {
+        OBF_NCI_NV_Form_StepImpl.i_should_see_the_following_layout_for_the_ticket(docString);
+    }
 }
