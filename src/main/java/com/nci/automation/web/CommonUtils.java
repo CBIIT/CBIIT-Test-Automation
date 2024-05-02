@@ -8,7 +8,10 @@ import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -335,6 +338,7 @@ public class CommonUtils extends WebDriverUtils {
      * json format - for passing REST payloads
      */
     static String jsonFile;
+
     public static String readJson(String fileName) {
         try {
             jsonFile = new String(Files.readAllBytes(Paths.get(fileName)));
@@ -736,7 +740,29 @@ public class CommonUtils extends WebDriverUtils {
      * @param input
      * @return
      */
-    public static String fixPhoneFormat(String input){
-        return input.replaceFirst("(\\d{3})(\\d{3})(\\d+)","+1 ($1) $2 - $3");
+    public static String fixPhoneFormat(String input) {
+        return input.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "+1 ($1) $2 - $3");
+    }
+
+    /**
+     * Returns the current date in the format "MM/dd/yyyy".
+     *
+     * @return the current date formatted as "MM/dd/yyyy"
+     */
+    public static String getTodayDate() {
+        LocalDate date = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        return date.format(formatter);
+    }
+
+    /**
+     * Returns the date one month from today in the format "dd/MM/yyyy".
+     *
+     * @return the date one month from today in the format "dd/MM/yyyy"
+     */
+    public static String getOneMonthFromTodayDate() {
+        LocalDate oneMonthFromToday = LocalDate.now().plusMonths(1);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return oneMonthFromToday.format(formatter);
     }
 }
