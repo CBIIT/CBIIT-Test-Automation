@@ -17,7 +17,7 @@ public class SSJ_Common_Utils {
     public static void selectingTodaysCalendarOption(String locator){
         List<ElementHandle> days = PlaywrightUtils.page.querySelectorAll(locator);
         for (ElementHandle day : days) {
-            if (day.getAttribute("title").equals(Playwright_Common_Utils.getCurrentDateIn_YYYYMMDD_format())) {
+            if (day.getAttribute("title").equals(CommonUtils.getCurrentDateIn_YYYYMMDD_format())) {
                 day.click();
                 break;
             }

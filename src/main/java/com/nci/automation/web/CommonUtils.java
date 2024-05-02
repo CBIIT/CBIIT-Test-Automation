@@ -765,4 +765,15 @@ public class CommonUtils extends WebDriverUtils {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return oneMonthFromToday.format(formatter);
     }
+
+    /**
+     * Returns the current date in the format "yyyy-MM-dd".
+     *
+     * @return the current date
+     */
+    public static String getCurrentDateIn_YYYYMMDD_format() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate today = LocalDate.now();
+        return today.format(formatter);
+    }
 }
