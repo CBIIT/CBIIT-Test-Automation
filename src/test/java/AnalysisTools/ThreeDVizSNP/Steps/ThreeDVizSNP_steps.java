@@ -34,6 +34,10 @@ public class ThreeDVizSNP_steps extends PageInitializer {
 	public void user_clicks_choose_file_and_upload_the_vcf_file() {
 		threeDVizSNPStepImp.uploadExampleVCFFile();
 	}
+	@Then("User should see the vcf text and one file upload filed")
+	public void user_should_see_the_vcf_text_and_one_file_upload_filed() {
+		threeDVizSNPStepImp.verifyFileUploadText();
+	}
 
 	@When("User clicks submit button")
 	public void user_clicks_submit_button() {

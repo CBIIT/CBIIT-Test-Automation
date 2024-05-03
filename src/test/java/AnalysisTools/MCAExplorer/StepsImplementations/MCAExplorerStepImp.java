@@ -67,7 +67,7 @@ public class MCAExplorerStepImp extends PageInitializer {
 	/** verify No of rows **/
 	public void verifyNoOfRows(String rows) {
 		int noOfRows = mcaExplorerPage.gridAllRows.size();
-		Assert.assertTrue(noOfRows>0);
+		validateNumberOfRows();
 	}
 
 	/** select the pagination dropdown **/

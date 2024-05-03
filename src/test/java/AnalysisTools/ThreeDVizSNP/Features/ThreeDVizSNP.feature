@@ -11,14 +11,14 @@ Feature: TheeDVizSNP features
     Given User navigates to 3DVizSNP page
     Then upload the vcf file and submit
 
-  @Satya @Regression @NCIATWP-5931 @Inprogress
+  @Satya @Regression @NCIATWP-5931 @Progression
   Scenario: 3DVizSNP Download Results validation
     Given User navigates to 3DVizSNP page
     When User clicks Visualize Button
+    Then User should see the vcf text and one file upload filed
     And User clicks choose file and upload the vcf file
     And User clicks submit button
     And User should click OK in Alert
-    And User click Download Results button
 
   @Satya1 @Regression @Smoke @NCIATWP-5931 @NCIATWP-5955
   Scenario: 3DVizSNP Total Number of records Validation

@@ -56,8 +56,7 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 	/** CLICK ABOUT COMMENT **/
 	public void clickOnAboutComment() {
 		cometsAnalyticsPage.aboutCometsButton.click();
-		Set<String> s = WebDriverUtils.webDriver.getWindowHandles();
-		Assert.assertTrue(s.size() > 1);
+		assertMoreThanOneWindowIsPresent();
 	}
 
 	/** CHECK HEAT MAP **/
@@ -139,13 +138,17 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 	/** METHOD TO CLICK ON TUTORIALS BUTTON **/
 	public void clickOnTutorials() {
 		JavascriptUtils.clickByJS(cometsAnalyticsPage.tutorialsButton);
-		Set<String> s = WebDriverUtils.webDriver.getWindowHandles();
-		Assert.assertTrue(s.size() > 1);
+		assertMoreThanOneWindowIsPresent();
 	}
 
 	/** METHOD TO CLICK ON VIGENETTE BUTTON **/
 	public void clickOnVigenette() {
 		JavascriptUtils.clickByJS(cometsAnalyticsPage.vignettesButton);
+		assertMoreThanOneWindowIsPresent();
+	}
+
+	/** METHOD TO COUNT NUMBER OF OPEN WINDOWS **/
+	public void assertMoreThanOneWindowIsPresent(){
 		Set<String> s = WebDriverUtils.webDriver.getWindowHandles();
 		Assert.assertTrue(s.size() > 1);
 	}

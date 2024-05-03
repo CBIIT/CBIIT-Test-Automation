@@ -12,6 +12,11 @@ import appsCommon.PageInitializers.PageInitializer;
 public class ThreeDVizSNPStepImp extends PageInitializer {
 
 	/** Upload example VCF File **/
+	public void verifyFileUploadText() {
+		CommonUtils.assertTrueTestNG(threeDVizSNPPage.allUploadFields.size() == 1,"asserts that there is only one upload field");
+		CommonUtils.assertEqualsWithMessage(threeDVizSNPPage.actualVcfText.getText(),ThreeDVizSNP_Constants.EXPECTED_VCF_TEXT,"asserted the vcf actual text");
+	}
+	/** Upload example VCF File **/
 	public void uploadExampleVCFFile() {
 		CommonUtils.sendKeys(threeDVizSNPPage.vcfFileUpload, ThreeDVizSNP_Constants.VALID_FILE_PATH);
 	}
@@ -21,30 +26,34 @@ public class ThreeDVizSNPStepImp extends PageInitializer {
 		CommonUtils.sendKeys(threeDVizSNPPage.vcfFileUpload, ThreeDVizSNP_Constants.INVALID_FILE_PATH);
 	}
 
-	/** Upload example VCF File after clicking vizulize button and then submit **/
+	/** Upload example VCF File after clicking visualize button and then submit **/
 	public void uploadVcfFile() {
 		threeDVizSNPPage.visulizeButton.click();
 		uploadExampleVCFFile();
 		threeDVizSNPPage.submitButton.click();
 	}
 
-	/** vizulize Button and about button click **/
+	/** Visualize Button and about button click **/
 	public void visukizeButtionAndAboutButtonClick() {
 		threeDVizSNPPage.visulizeButton.click();
 		threeDVizSNPPage.aboutButton.click();
 	}
 
-	/** Dismiss PopUp Alert **/
+	/** DISMISS POPUP ALERT AFTER WAIT **/
 	public void dismissPopUpAlert() {
-		int counter = 0;
-		while (!isAlertPresent()) {
-			counter++;
-			MiscUtils.sleep(2000);
-			if (counter > 90) {
-				break;
-			}
-		}
+		Assert.assertTrue(waitForAlertForSpecificPeriod(180),"Alert window is not present even after the wait period");
 		CommonUtils.dismissAlert();
+	}
+	
+	/** METHOD TO WAIT FOR ALERT FOR A GIVEN TIME PERIOD **/
+	public boolean waitForAlertForSpecificPeriod(int maxTimeoutInSeconds){
+		for(int waitPeriod = 0;!isAlertPresent();waitPeriod++){
+			if (waitPeriod >maxTimeoutInSeconds){
+				return false;
+			}
+			MiscUtils.sleep(1000);
+		}
+		return true;
 	}
 
 	/** Verify if alert is present **/
