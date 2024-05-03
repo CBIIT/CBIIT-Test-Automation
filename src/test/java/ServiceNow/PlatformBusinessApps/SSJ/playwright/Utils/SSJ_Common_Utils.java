@@ -23,4 +23,14 @@ public class SSJ_Common_Utils {
             }
         }
     }
+
+    public static void selectingAMonthFromTodaysDateCalendarOption(String locator){
+        List<ElementHandle> months = PlaywrightUtils.page.querySelectorAll(locator);
+        for (ElementHandle month : months) {
+            if (month.getAttribute("title").equals(CommonUtils.getDateOneMonthFromNowin_YYYY_MM_DD_format())) {
+                month.click();
+                break;
+            }
+        }
+    }
 }

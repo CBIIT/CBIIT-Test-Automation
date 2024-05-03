@@ -16,7 +16,7 @@ Feature: OWM Vacancy Manager Scenarios
     And User verifies "Yes" and "No" options are displayed for Vacancy Point of Contact Information dropdown
     And User "Holly Gemar-Griffith" confirms being a POC for this vacancy after selecting Yes for being the point of contact for this vacancy
     And User sets an "Open Date" entry as today's date
-#    And User sets a "Close Date" entry a month from the Open Date
+    And User sets a "Close Date" entry a month from the Open Date
 
 
 #    And User sets "Scoring Due By Date" entry

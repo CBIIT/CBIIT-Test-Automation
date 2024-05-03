@@ -760,9 +760,9 @@ public class CommonUtils extends WebDriverUtils {
      *
      * @return the date one month from today in the format "dd/MM/yyyy"
      */
-    public static String getOneMonthFromTodayDate() {
+    public static String getOneMonthFromTodayDatein_DD_MM_YYY_format() {
         LocalDate oneMonthFromToday = LocalDate.now().plusMonths(1);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         return oneMonthFromToday.format(formatter);
     }
 
@@ -775,5 +775,16 @@ public class CommonUtils extends WebDriverUtils {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate today = LocalDate.now();
         return today.format(formatter);
+    }
+
+    /**
+     * Returns the date one month from the current date in the format "YYYY-MM-DD".
+     *
+     * @return the date one month from the current date in "YYYY-MM-DD" format
+     */
+    public static String getDateOneMonthFromNowin_YYYY_MM_DD_format() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate oneMonthFromNow = LocalDate.now().plusMonths(1);
+        return oneMonthFromNow.format(formatter);
     }
 }

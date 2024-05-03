@@ -83,15 +83,8 @@ public class OWM_Vacancy_Manager_Steps {
     public void user_sets_an_entry_as_today_s_date(String text) {
         PlaywrightUtils.page.waitForLoadState();
         Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(text));
-
         PlaywrightUtils.page.locator(Vacancy_Dashboard_Page.openDateCalendar).click();
-
-
-
         SSJ_Common_Utils.selectingTodaysCalendarOption(Vacancy_Dashboard_Page.openDateCalendarOptions);
-
-        MiscUtils.sleep(5000);
-
     }
 
     @Then("User sets a {string} entry a month from the Open Date")
@@ -99,19 +92,21 @@ public class OWM_Vacancy_Manager_Steps {
         Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(text));
 
         PlaywrightUtils.page.locator(Vacancy_Dashboard_Page.closeDateCalendar).click();
-        MiscUtils.sleep(2000);
-        List<Locator> options = PlaywrightUtils.page.locator(Vacancy_Dashboard_Page.closeDateCalendarOptions).all();
 
-        for (Locator option : options) {
-            String reversed = new StringBuilder(CommonUtils.getOneMonthFromTodayDate()).reverse().toString();
-            System.out.println("PRINTING: " + reversed);
-            if (option.innerText().equals(reversed)) {
-                option.click();
+        PlaywrightUtils.page.locator(Vacancy_Dashboard_Page.closeDateCalendar).fill(CommonUtils.getOneMonthFromTodayDatein_DD_MM_YYY_format());
+
+
+        List<ElementHandle> list = PlaywrightUtils.page.querySelectorAll(Vacancy_Dashboard_Page.closeDateCalendarOptions);
+
+        for (ElementHandle day : list) {
+            boolean flag = day.getAttribute("title").trim().equals(CommonUtils.getDateOneMonthFromNowin_YYYY_MM_DD_format().trim());
+            System.out.println(flag);
+            if (day.getAttribute("title").trim().equals(CommonUtils.getDateOneMonthFromNowin_YYYY_MM_DD_format().trim())) {
+                PlaywrightUtils.page.locator("(//*[@title='"+ CommonUtils.getDateOneMonthFromNowin_YYYY_MM_DD_format()+ "'])[2]").click();
                 break;
             }
         }
-
-        MiscUtils.sleep(5000);
+        MiscUtils.sleep(3000);
     }
 
 }
