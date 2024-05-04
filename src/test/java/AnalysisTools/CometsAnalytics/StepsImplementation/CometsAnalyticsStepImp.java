@@ -102,8 +102,7 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 
 	/** VERIFY RESET BUTTON **/
 	public void verfyResetCustomCOhort(String expectedValue) {
-		CommonUtils.verifyingDropDownValueIsSelected(cometsAnalyticsPage.cohortDropDown, expectedValue,
-				"RESET OPERATION FAILED");
+		CommonUtils.verifyingDropDownValueIsSelected(cometsAnalyticsPage.cohortDropDown, expectedValue, "RESET OPERATION FAILED");
 	}
 
 	/** CLICK ALL MODELS AND RUN **/

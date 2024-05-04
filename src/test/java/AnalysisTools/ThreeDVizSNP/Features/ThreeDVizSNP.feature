@@ -11,7 +11,7 @@ Feature: TheeDVizSNP features
     Given User navigates to 3DVizSNP page
     Then upload the vcf file and submit
 
-  @Satya @Regression @NCIATWP-5931 @Progression
+  @Satya @Regression @NCIATWP-5931
   Scenario: 3DVizSNP Download Results validation
     Given User navigates to 3DVizSNP page
     When User clicks Visualize Button
