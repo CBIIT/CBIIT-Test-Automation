@@ -75,10 +75,20 @@ public class Example {
             page.getByLabel("Close Date", new Page.GetByLabelOptions().setExact(true)).click();
             page.locator("div:nth-child(105) > div > .ant-picker-dropdown > .ant-picker-panel-container > .ant-picker-panel > .ant-picker-date-panel > .ant-picker-header > .ant-picker-header-next-btn").click();
             page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName("31")).locator("div").click();
+
+
+
+
+
             page.getByLabel("Scoring Due By Date").click();
             page.locator("div:nth-child(106) > div > .ant-picker-dropdown > .ant-picker-panel-container > .ant-picker-panel > .ant-picker-date-panel > .ant-picker-header > .ant-picker-header-next-btn").click();
             page.getByRole(AriaRole.TABLE).getByTitle("-05-30").locator("div").click();
+
+
             assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("plus Add More"))).isVisible();
+
+
+
             page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("plus Add More")).click();
             page.locator("#BasicInfo_applicationDocuments_4_document").click();
             page.locator("#BasicInfo_applicationDocuments_4_document").fill("Reference Letter");

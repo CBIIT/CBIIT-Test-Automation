@@ -17,14 +17,15 @@ Feature: OWM Vacancy Manager Scenarios
     And User "Holly Gemar-Griffith" confirms being a POC for this vacancy after selecting Yes for being the point of contact for this vacancy
     And User sets an "Open Date" entry as today's date
     And User sets a "Close Date" entry a month from the Open Date
+    And User sets "Scoring Due By Date" entry
+    #REVIEW ABOVE STEP WITH BA
+    And User verifies "Cover Letter" application document is checked as optional by default
+    And " Add More" button is displayed for Application Documents section
+    And User can add another application document "Testing Document" by clicking on " Add More"
+    And User verifies Full Contact Details for References is set to "3" by default
+    And User verifies Full Contact Details for References slider has 16 (Zero - fifteen) options
 
 
-#    And User sets "Scoring Due By Date" entry
-#    And User verifies "Cover Letter" application document is marked as optional by default
-#    And "Add More" button is displayed for Application Documents section
-#    And User can add another application document
-#    And User verifies Full Contact Details for References is set to "3" by default
-#    And User verifies Full Contact Details for References slider has 15 options
 #    And User verifies that Number of Scoring Categories slider is set to "4" by default
 #    And User verifies Number of Scoring Categories slider has 6 options
 #    And User verifies that all positions are present via Position Classification dropdown

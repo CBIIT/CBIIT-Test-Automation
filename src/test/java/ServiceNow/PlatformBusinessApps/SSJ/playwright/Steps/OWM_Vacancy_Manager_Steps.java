@@ -16,6 +16,7 @@ import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -99,11 +100,53 @@ public class OWM_Vacancy_Manager_Steps {
         List<ElementHandle> list = PlaywrightUtils.page.querySelectorAll(Vacancy_Dashboard_Page.closeDateCalendarOptions);
         for (ElementHandle day : list) {
             if (day.getAttribute("title").trim().equals(CommonUtils.getDateOneMonthFromNowin_YYYY_MM_DD_format().trim())) {
-                PlaywrightUtils.page.locator("(//*[@title='"+ CommonUtils.getDateOneMonthFromNowin_YYYY_MM_DD_format()+ "'])[2]").click();
+                PlaywrightUtils.page.locator("(//*[@title='" + CommonUtils.getDateOneMonthFromNowin_YYYY_MM_DD_format() + "'])[2]").click();
                 break;
             }
         }
-        MiscUtils.sleep(3000);
     }
+
+    @Then("User sets {string} entry")
+    public void user_sets_entry(String text) {
+        PlaywrightUtils.page.getByLabel(text).click();
+
+        PlaywrightUtils.page.locator(Vacancy_Dashboard_Page.scoringDueByDateCalendar).fill(CommonUtils.getOneMonthFromTodayDatein_DD_MM_YYY_format());
+
+
+        List<ElementHandle> list = PlaywrightUtils.page.querySelectorAll(Vacancy_Dashboard_Page.calendarOptions);
+        for (ElementHandle day : list) {
+            if (day.getAttribute("title").trim().equals(CommonUtils.getDateOneMonthFromNowin_YYYY_MM_DD_format().trim())) {
+                PlaywrightUtils.page.locator("(//*[@title='" + CommonUtils.getDateOneMonthFromNowin_YYYY_MM_DD_format() + "'])[3]").click();
+                break;
+            }
+        }
+    }
+
+    @Then("User verifies {string} application document is checked as optional by default")
+    public void user_verifies_application_document_is_checked_as_optional_by_default(String text) {
+        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(text));
+        boolean isCheckBoxChecked = PlaywrightUtils.page.isChecked(Vacancy_Dashboard_Page.coverLetterCheckBox);
+        Assert.assertTrue(isCheckBoxChecked, "* * * * VERIFYING COVER LETTER CHECK BOX IS CHECKED BY DEFAULT * * * *");
+    }
+
+    @Then("{string} button is displayed for Application Documents section")
+    public void button_is_displayed_for_application_documents_section(String text) {
+        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(text));
+        assertThat(PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("plus Add More"))).isVisible();
+    }
+
+    @Then("User can add another application document {string} by clicking on {string}")
+    public void user_can_add_another_application_document_by_clicking_on(String document, String text) {
+        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(text));
+        PlaywrightUtils.page.locator(Playwright_Common_Locators.dynamicTextLocator(text)).click();
+        PlaywrightUtils.page.locator(Vacancy_Dashboard_Page.addDocumentTextBox).fill(document);
+    }
+
+    @Then("User verifies Full Contact Details for References is set to {string} by default")
+    public void user_verifies_full_contact_details_for_references_is_set_to_by_default(String expectedValue) {
+        String actualText = PlaywrightUtils.page.locator(Vacancy_Dashboard_Page.referencesSlider).getAttribute("aria-valuenow");
+        Assert.assertEquals(actualText, expectedValue);
+    }
+
 
 }
