@@ -97,10 +97,7 @@ public class OWM_Vacancy_Manager_Steps {
 
 
         List<ElementHandle> list = PlaywrightUtils.page.querySelectorAll(Vacancy_Dashboard_Page.closeDateCalendarOptions);
-
         for (ElementHandle day : list) {
-            boolean flag = day.getAttribute("title").trim().equals(CommonUtils.getDateOneMonthFromNowin_YYYY_MM_DD_format().trim());
-            System.out.println(flag);
             if (day.getAttribute("title").trim().equals(CommonUtils.getDateOneMonthFromNowin_YYYY_MM_DD_format().trim())) {
                 PlaywrightUtils.page.locator("(//*[@title='"+ CommonUtils.getDateOneMonthFromNowin_YYYY_MM_DD_format()+ "'])[2]").click();
                 break;
