@@ -1,7 +1,7 @@
 Feature: SNOWOBF Notifications Scenarios
   Description: This Feature file contains SNOWOBF OBF Systems Support form Notifications Scenarios
 
-  @SNOWOBF-37 @Chaudhryma @Progression
+  @SNOWOBF-37 @Chaudhryma @Regression
   Scenario: Test Create OBF Helpdesk Link on NCI ServiceNow Homepage
   Given I am an authenticated user with NCI credentials
   When I submit a ticket For "New Request for Access" and the ticket is approved
@@ -34,4 +34,3 @@ Feature: SNOWOBF Notifications Scenarios
 
     Unsubscribe | Notification Preferences
     """
-

@@ -53,6 +53,11 @@ public class OBF_NCI_NV_Form_Page {
     public static String obf_NV_Page_Search_Drop_Down_By_Label = "Search a specific field of";
 
     /***
+     *  OBF NATIVE VIEW PAGE SEARCH DROP DOWN DESCRIPTION SELECT OPTION
+     */
+    public static String obf_NV_Page_Search_Drop_Down_Description_select_Option = "Description";
+
+    /***
      *  OBF NATIVE VIEW PAGE SEARCH DROP DOWN DESCRIPTION OPTION
      */
     public static String obf_NV_Page_Search_Drop_Down_Description_Option = "Description";
@@ -78,9 +83,9 @@ public class OBF_NCI_NV_Form_Page {
     public static String obf_NV_Page_Body_Locator = "tbody";
 
     /***
-     *  OBF NATIVE VIEW PAGE PREVIEW RECORD
+     *  OBF NATIVE VIEW PAGE PREVIEW RECORD TICKET NUMBER
      */
-    public static String obf_NV_Page_Preview_Record = "Preview record: OBF";
+    public static String obf_NV_Page_Preview_Record_Ticket_Number = "Preview record: OBF";
 
     /***
      *  OBF NATIVE VIEW PAGE OPEN RECORD Button

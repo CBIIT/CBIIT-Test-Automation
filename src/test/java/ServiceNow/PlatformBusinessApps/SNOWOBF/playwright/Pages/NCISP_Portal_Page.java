@@ -23,12 +23,27 @@ public class NCISP_Portal_Page {
     public static String cbiit_BusinessServicesLink = "Business Services";
 
     /***
+     * ADMINISTRATIVE BUSINESS SERVICES LINK LOCATOR
+     */
+    public static String administrative_BusinessServicesLinkLocator = "md-content";
+
+    /***
      * ADMINISTRATIVE BUSINESS SERVICES LINK
      */
     public static String administrative_BusinessServicesLink = "Administrative Business Systems";
 
     /***
+     * ADMINISTRATIVE BUSINESS PAGE LINK
+     */
+    public static String administrative_BusinessPageLink = "Administrative Business";
+
+    /***
      * OBF SYSTEMS SUPPORT LINK
      */
     public static String obf_SystemsSupportLink = "OBF Systems Support";
+
+    /***
+     * OBF SYSTEMS SUPPORT PAGE LINK
+     */
+    public static String obf_SystemsSupportPageLink = "OBF Systems Support Request";
 }

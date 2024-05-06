@@ -82,27 +82,27 @@ public class OBF_NCI_Portal_Form_Page {
     /***
      * OBF REQUEST FORM ADMINISTRATIVE RESOURCE DIRECTOR (ARC) FIELD TITLE NAME
      */
-    public static String obf_Request_Form_AdministrativeResourceDirectorFieldTitleName = "Administrative Resource Director (ARC)";
+    public static String obf_Request_Form_AdministrativeResourceDirectorARCFieldTitleName = "Administrative Resource Director (ARC)";
 
     /***
      * OBF REQUEST FORM ADMINISTRATIVE RESOURCE DIRECTOR (ARC) FIELD LABEL
      */
-    public static String obf_Request_Form_AdministrativeResourceDirectorFieldLabel = "#s2id_autogen7-label";
+    public static String obf_Request_Form_AdministrativeResourceDirectorARCFieldLabel = "#s2id_autogen7-label";
 
     /***
      * OBF REQUEST FORM ADMINISTRATIVE RESOURCE DIRECTOR (ARC) FIELD
      */
-    public static String obf_Request_Form_AdministrativeResourceDirectorField = "#s2id_sp_formfield_administrative_resource_director a";
+    public static String obf_Request_Form_AdministrativeResourceDirectorARCField = "#s2id_sp_formfield_administrative_resource_director a";
 
     /***
      * OBF REQUEST FORM ADMINISTRATIVE RESOURCE DIRECTOR (ARC) FIELD TEXT BOX
      */
-    public static String obf_Request_Form_AdministrativeResourceDirectorFieldTextBox = "#s2id_autogen7_search";
+    public static String obf_Request_Form_AdministrativeResourceDirectorARCFieldTextBox = "#s2id_autogen7_search";
 
     /***
      * OBF REQUEST FORM DMINISTRATIVE RESOURCE DIRECTOR (ARC) NAME
      */
-    public static String obf_Request_Form_AdministrativeResourceDirectorName = "Barbara Davidson";
+    public static String obf_Request_Form_AdministrativeResourceDirectorARCName = "Barbara Davidson";
 
     /***
      * OBF REQUEST FORM ORGANIZATIONAL AFFILIATION FIELD NAME
