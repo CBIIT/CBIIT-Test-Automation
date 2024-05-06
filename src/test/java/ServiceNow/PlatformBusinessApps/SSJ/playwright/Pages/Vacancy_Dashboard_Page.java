@@ -47,4 +47,8 @@ public class Vacancy_Dashboard_Page {
      */
     public static String referencesSlider = "//div[@class='ant-slider Slider ant-slider-horizontal ant-slider-with-marks']//div[@role='slider']";
 
+    /**
+     * SLIDER OPTIONS
+     */
+    public static String sliderOptions = "(//div[@class='ant-slider-mark'])[1]//*[contains(@class,'ant-slider-mark-text')]";
 }

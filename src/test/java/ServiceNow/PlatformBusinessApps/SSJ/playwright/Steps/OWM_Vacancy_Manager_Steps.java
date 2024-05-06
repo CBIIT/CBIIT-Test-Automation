@@ -148,5 +148,17 @@ public class OWM_Vacancy_Manager_Steps {
         Assert.assertEquals(actualText, expectedValue);
     }
 
+    @Then("User verifies Full Contact Details for References slider has {int} \\(Zero - fifteen) options")
+    public void user_verifies_full_contact_details_for_references_slider_has_zero_fifteen_options(int expectedValue) {
+
+        List<ElementHandle> options = PlaywrightUtils.page.querySelectorAll(Vacancy_Dashboard_Page.sliderOptions);
+        Assert.assertEquals(expectedValue, options.size());
+        for(int i = 0; i < options.size(); i++){
+            String actualText = options.get(i).innerText();
+            String expectedText = String.valueOf(i);
+            Assert.assertEquals(actualText, expectedText);
+        }
+    }
+
 
 }
