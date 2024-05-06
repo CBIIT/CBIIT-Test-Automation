@@ -151,7 +151,7 @@ public class OWM_Vacancy_Manager_Steps {
     @Then("User verifies Full Contact Details for References slider has {int} \\(Zero - fifteen) options")
     public void user_verifies_full_contact_details_for_references_slider_has_zero_fifteen_options(int expectedValue) {
 
-        List<ElementHandle> options = PlaywrightUtils.page.querySelectorAll(Vacancy_Dashboard_Page.sliderOptions);
+        List<ElementHandle> options = PlaywrightUtils.page.querySelectorAll(Vacancy_Dashboard_Page.referencesSliderOptions);
         Assert.assertEquals(expectedValue, options.size());
         for(int i = 0; i < options.size(); i++){
             String actualText = options.get(i).innerText();
@@ -159,6 +159,38 @@ public class OWM_Vacancy_Manager_Steps {
             Assert.assertEquals(actualText, expectedText);
         }
     }
+
+    @Then("User verifies that Number of Scoring Categories slider is set to {string} by default")
+    public void user_verifies_that_number_of_scoring_categories_slider_is_set_to_by_default(String expectedValue) {
+        String actualText = PlaywrightUtils.page.locator(Vacancy_Dashboard_Page.numberOfCategoriesSlider).getAttribute("aria-valuenow");
+        Assert.assertEquals(actualText, expectedValue);
+    }
+
+    @Then("User verifies Number of Scoring Categories slider has {int} \\(One - six) options")
+    public void user_verifies_number_of_scoring_categories_slider_has_zero_six_options(int expectedValue) {
+        List<ElementHandle> options = PlaywrightUtils.page.querySelectorAll(Vacancy_Dashboard_Page.numberOfScoringSliderOptions);
+        Assert.assertEquals(expectedValue, options.size());
+        for (int i = 0; i < options.size(); i++) {
+            String actualText = options.get(i).innerText();
+            String expectedText = String.valueOf(i + 1);
+            Assert.assertEquals(actualText, expectedText);
+        }
+    }
+
+    @Then("User verifies that all positions are present via Position Classification dropdown")
+    public void user_verifies_that_all_positions_are_present_via_position_classification_dropdown() {
+        PlaywrightUtils.page.locator(Vacancy_Dashboard_Page.positionClassificationDropDown).click();
+
+        MiscUtils.sleep(3000);
+    }
+
+    @Then("User confirms that {string} checkbox is displayed")
+    public void user_confirms_that_checkbox_is_displayed(String text) {
+        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(text));
+        assertThat(PlaywrightUtils.page.locator("#BasicInfo")).containsText(text);
+    }
+
+
 
 
 }

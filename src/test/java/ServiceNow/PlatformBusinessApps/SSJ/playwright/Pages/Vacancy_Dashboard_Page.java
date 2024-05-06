@@ -48,7 +48,22 @@ public class Vacancy_Dashboard_Page {
     public static String referencesSlider = "//div[@class='ant-slider Slider ant-slider-horizontal ant-slider-with-marks']//div[@role='slider']";
 
     /**
-     * SLIDER OPTIONS
+     * REFERENCES SLIDER OPTIONS
      */
-    public static String sliderOptions = "(//div[@class='ant-slider-mark'])[1]//*[contains(@class,'ant-slider-mark-text')]";
+    public static String referencesSliderOptions = "(//div[@class='ant-slider-mark'])[1]//*[contains(@class,'ant-slider-mark-text')]";
+
+    /**
+     * NUMBER OF SCORING CATEGORIES SLIDER OPTIONS
+     */
+    public static String numberOfScoringSliderOptions = "(//div[@class='ant-slider-mark'])[2]//*[contains(@class,'ant-slider-mark-text')]";
+
+    /**
+     * NUMBER OF CATEGORIES SLIDER
+     */
+    public static String numberOfCategoriesSlider = "(//div[@role='slider'])[2]";
+
+    /**
+     * POSITION CLASSIFICATION DROPDOWN
+     */
+    public static String positionClassificationDropDown = "(//input[@aria-owns='BasicInfo_positionClassification_list'])[1]";
 }

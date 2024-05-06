@@ -92,9 +92,21 @@ public class Example {
             page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("plus Add More")).click();
             page.locator("#BasicInfo_applicationDocuments_4_document").click();
             page.locator("#BasicInfo_applicationDocuments_4_document").fill("Reference Letter");
+
             assertThat(page.locator("#BasicInfo")).containsText("Enable Reference Collection");
             assertThat(page.locator("#BasicInfo")).containsText("15");
             assertThat(page.locator("#BasicInfo")).containsText("6");
+
+
+
+
+
+
+
+
+
+
+
             assertThat(page.getByRole(AriaRole.TOOLTIP)).containsText("Select the Intramural or Extramural Professional Designation for your vacancy. Select “N/A” for Stadtman positions.");
             page.locator("label").filter(new Locator.FilterOptions().setHasText("Position Classification")).locator("a").click();
             page.locator("label").filter(new Locator.FilterOptions().setHasText("Organizational Code")).locator("a").click();
