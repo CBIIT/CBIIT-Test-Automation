@@ -39,6 +39,7 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 	public void downloadSampleInput() {
 		cometsAnalyticsPage.downloadSampleInput.click();
 	}
+
 	/**
 	 * SELECT COMET DROPDOWN
 	 * @param dropDownValue
