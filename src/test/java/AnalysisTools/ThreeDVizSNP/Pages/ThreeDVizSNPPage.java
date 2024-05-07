@@ -1,7 +1,6 @@
 package AnalysisTools.ThreeDVizSNP.Pages;
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.web.CommonUtils;
@@ -122,7 +121,7 @@ public class ThreeDVizSNPPage extends CommonUtils {
 	public WebElement ifrmaeFeedback;
 
 	/* THESE ARE ALL THE FILE INPUT FIELDS*/
-	@FindAll({@FindBy(xpath = "//div[@class='shadow p-3 rounded']//form//child::div[1]//child::div")})
+	@FindBy(xpath = "//div[@class='shadow p-3 rounded']//form//child::div[1]//child::div")
 	public List<WebElement> allUploadFields;
 
 	/** VCF TEXT**/

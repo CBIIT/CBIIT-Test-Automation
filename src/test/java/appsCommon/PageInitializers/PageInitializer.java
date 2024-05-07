@@ -674,7 +674,6 @@ public class PageInitializer extends WebDriverUtils {
 		
 		/** THREEDVIZSNP INSTANCE VARIABLES  */
 		threeDVizSNPPage =  new ThreeDVizSNPPage();
-		threeDVizSNPStepImp = new ThreeDVizSNPStepImp();
 		
 		/** COMETS ANALYTICS INSTANCE VARIABLES */
 		cometsAnalyticsPage = new CometsAnalyticsPage();
