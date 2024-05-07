@@ -31,6 +31,7 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 	 */
 	public void verify_user_is_on_analysis_page() {
 		CommonUtils.isElementDisplayed(cometsAnalyticsPage.checkIntegretyButton);
+		Assert.assertTrue(CommonUtils.isElementDisplayed(cometsAnalyticsPage.checkIntegretyButton));
 	}
 
 	/**
@@ -40,8 +41,11 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 		cometsAnalyticsPage.downloadSampleInput.click();
 	}
 
+
+
 	/**
-	 * SELECT COMET DROPDOWN
+	 *
+	 * @param dropDownValue
 	 */
 	public void selectCometDropdown(String dropDownValue) {
 		CommonUtils.selectDropDownValue(cometsAnalyticsPage.cohortDropDown, dropDownValue);
@@ -251,5 +255,11 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 		CommonUtils.sendKeys(cometsAnalyticsPage.modelDropdown2, "C");
 		JavascriptUtils.clickByJS(cometsAnalyticsPage.modelDropDownOption);
 		JavascriptUtils.clickByJS(cometsAnalyticsPage.runModelButton);
+	}
+
+	/**
+	 * METHOD TO CLICK ON ABOUT COMMENT
+	 */
+	public void clickOnAboutComment() {
 	}
 }
