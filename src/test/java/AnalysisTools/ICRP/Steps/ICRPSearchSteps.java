@@ -49,7 +49,7 @@ public class ICRPSearchSteps extends PageInitializer {
 
 	@When("user selects exact phrase provided")
 	public void user_selects_exact_phrase_provided() {
-		MiscUtils.sleep(5000);
+		MiscUtils.sleep(15000);
 		icrpSearchDatabasePage.exactPhraseRadioBtn.click();
 	}
 
@@ -63,7 +63,7 @@ public class ICRPSearchSteps extends PageInitializer {
 
 	@When("user searchs {string}")
 	public void user_searchs(String institutionName) {
-		MiscUtils.sleep(5000);
+		MiscUtils.sleep(15000);
 		JavascriptUtils.scrollIntoView(icrpSearchDatabasePage.institutionPanelHeader);
 		icrpSearchDatabasePage.institutionPanelHeader.click();
 		icrpSearchDatabasePage.institutionTxtBox.sendKeys(institutionName);
@@ -79,7 +79,7 @@ public class ICRPSearchSteps extends PageInitializer {
 
 	@When("user selects Alexs Lemonade Stand Foundation")
 	public void user_selects_Alexs_Lemonade_Stand_Foundation() {
-		MiscUtils.sleep(5000);
+		MiscUtils.sleep(15000);
 		CommonUtils.scrollIntoView(icrpSearchDatabasePage.fundingPanelHeader);
 		icrpSearchDatabasePage.fundingPanelHeader.click();
 		icrpSearchDatabasePage.ALSFChkbox.click();
@@ -93,7 +93,7 @@ public class ICRPSearchSteps extends PageInitializer {
 
 	@When("user selects cancer type as brain tumor")
 	public void user_selects_cancer_type_as_brain_tumor() {
-		MiscUtils.sleep(5000);
+		MiscUtils.sleep(15000);
 		icrpSearchDatabasePage.cancerTypePanelHeader.click();
 		icrpSearchDatabasePage.cancerTypeTxtbox.sendKeys("Brain Tumor");
 		icrpSearchDatabasePage.cancerTypeTxtbox.submit();
@@ -130,7 +130,7 @@ public class ICRPSearchSteps extends PageInitializer {
 
 	@When("user clicks clear")
 	public void user_clicks_clear() {
-		MiscUtils.sleep(5000);
+		MiscUtils.sleep(15000);
 		icrpSearchDatabasePage.clearBtn.click();
 	}
 
@@ -144,7 +144,7 @@ public class ICRPSearchSteps extends PageInitializer {
 
 	@When("user selects normal functioning")
 	public void user_selects_normal_functioning() {
-		MiscUtils.sleep(5000);
+		MiscUtils.sleep(15000);
 		icrpSearchDatabasePage.researchAreaPanelHeader.click();
 		icrpSearchDatabasePage.normalFunctioningChkbox.click();
 	}
