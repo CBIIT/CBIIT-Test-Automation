@@ -8,6 +8,7 @@ import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
 
 public class ThreeDVizSNP_steps extends PageInitializer {
 
@@ -50,14 +51,9 @@ public class ThreeDVizSNP_steps extends PageInitializer {
 		ThreeDVizSNPStepImp.dismissPopUpAlert();
 	}
 
-	@When("User click Download Results button")
-	public void user_click_download_results_button() {
-		threeDVizSNPPage.downloadResults.click();
-	}
-
 	@Then("User should verify that Records are getting displayed as expected")
 	public void verifyRecordsDisplay() {
-		CommonUtils.isElementDisplayed(threeDVizSNPPage.recordCount);
+		Assert.assertTrue(CommonUtils.isElementDisplayed(threeDVizSNPPage.recordCount));
 	}
 
 	@Then("User clicks Other varient")
