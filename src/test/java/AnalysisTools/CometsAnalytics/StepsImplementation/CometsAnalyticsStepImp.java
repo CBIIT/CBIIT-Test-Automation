@@ -64,6 +64,7 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 
 	/**
 	 * VERIFY ERROR MESSAGE
+	 * @param expectedErrorMessage
 	 */
 	public void viewErrorMessage(String expectedErrorMessage) {
 		CommonUtils.waitForVisibility(cometsAnalyticsPage.ErrorMessage);
@@ -71,8 +72,8 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 	}
 
 	/**
-	 *  CLICK ABOUT COMMENT
-	 * /
+	 * CLICK ON ABOUT COMMENT
+	 */
 	public void clickOnAboutComment() {
 		cometsAnalyticsPage.aboutCometsButton.click();
 		assertMoreThanOneWindowIsPresent();
@@ -93,8 +94,9 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 		cometsAnalyticsPage.pValueRange.click();
 	}
 
-	/**
-	 *  VIEW SUCESS MESSAGE
+	 /**
+	 * VIEW SUCESS MESSAGE
+	 * @param successMessage
 	 */
 	public void viewSucessMessage(String successMessage) {
 		CommonUtils.waitForVisibility(cometsAnalyticsPage.SuccessMessage);
@@ -135,6 +137,7 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 
 	/**
 	 *  VERIFY RESET BUTTON
+	 * @param expectedValue
 	 */
 	public void verfyResetCustomCOhort(String expectedValue) {
 		CommonUtils.verifyingDropDownValueIsSelected(cometsAnalyticsPage.cohortDropDown, expectedValue, "RESET OPERATION FAILED");
@@ -142,6 +145,7 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 
 	/**
 	 * CLICK ALL MODELS AND RUN
+	 * @param emailId
 	 */
 	public void clickAllModelsAndRun(String emailId) {
 		CommonUtils.waitForClickability(cometsAnalyticsPage.emailId);
@@ -180,7 +184,7 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 	}
 
 	/**
-	 *  METHOD TO CLICK ON TUTORIALS BUTTON
+	 *  METHOD TO CLICK ON TUTORIALS AND VERIFYING THE WINDOW IS PRESENT OR NOT
 	 */
 	public void clickOnTutorials() {
 		JavascriptUtils.clickByJS(cometsAnalyticsPage.tutorialsButton);
@@ -252,11 +256,5 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 		CommonUtils.sendKeys(cometsAnalyticsPage.modelDropdown2, "C");
 		JavascriptUtils.clickByJS(cometsAnalyticsPage.modelDropDownOption);
 		JavascriptUtils.clickByJS(cometsAnalyticsPage.runModelButton);
-	}
-
-	/**
-	 * METHOD TO CLICK ON ABOUT COMMENT
-	 */
-	public void clickOnAboutComment() {
 	}
 }
