@@ -30,7 +30,6 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 	 * CHECK INTEGRETY BUTTON
 	 */
 	public void verify_user_is_on_analysis_page() {
-		CommonUtils.isElementDisplayed(cometsAnalyticsPage.checkIntegretyButton);
 		Assert.assertTrue(CommonUtils.isElementDisplayed(cometsAnalyticsPage.checkIntegretyButton));
 	}
 
@@ -40,11 +39,8 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 	public void downloadSampleInput() {
 		cometsAnalyticsPage.downloadSampleInput.click();
 	}
-
-
-
 	/**
-	 *
+	 * SELECT COMET DROPDOWN
 	 * @param dropDownValue
 	 */
 	public void selectCometDropdown(String dropDownValue) {
