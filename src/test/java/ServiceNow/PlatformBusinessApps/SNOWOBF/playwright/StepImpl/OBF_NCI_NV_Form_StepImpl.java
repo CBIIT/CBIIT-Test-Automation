@@ -15,7 +15,7 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 public class OBF_NCI_NV_Form_StepImpl {
 
     /**
-     * THIS METHOD LOGS INTO TO SIDE DOOR AND IMPERSONATE TO OBF SYSTEMS SUPPORT FULFILLER
+     * THIS METHOD LOGS INTO SIDE DOOR AND IMPERSONATE TO OBF SYSTEMS SUPPORT FULFILLER
      */
     public static void i_am_an_authenticated_obf_fulfiller_user() {
         Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate(OBF_NCI_NV_Form_Page.obf_Fulfiller_User_Name);
