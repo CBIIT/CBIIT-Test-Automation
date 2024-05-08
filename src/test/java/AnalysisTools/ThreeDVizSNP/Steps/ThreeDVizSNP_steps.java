@@ -91,10 +91,8 @@ public class ThreeDVizSNP_steps extends PageInitializer {
 		ThreeDVizSNPStepImp.longRunningJobSubmit();
 	}
 
-	@Then("User enter invalid text in Gene Textbox")
-	public void enterGeneText() {
-		threeDVizSNPPage.gene.sendKeys("12345");
-	}
+	@Then("User enter invalid text in Gene Textbox {string}")
+	public void enterGeneText(String text) {threeDVizSNPPage.gene.sendKeys(text);}
 
 	@Then("User should verify Error message Gene symbols searched for are not found in the attached file is getting displayed.")
 	public void verifyErrorMessage() {

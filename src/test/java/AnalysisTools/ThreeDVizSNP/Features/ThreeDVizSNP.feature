@@ -73,7 +73,7 @@ Feature: TheeDVizSNP features
     Given User navigates to 3DVizSNP page
     When User clicks Visualize Button
     And User clicks choose file and upload the vcf file
-    And User enter invalid text in Gene Textbox
+    And User enter invalid text in Gene Textbox '12345'
     And User clicks submit button
     Then User should verify Error message Gene symbols searched for are not found in the attached file is getting displayed.
 

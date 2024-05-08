@@ -25,6 +25,7 @@ public class MCAExplorerStepImp extends PageInitializer {
 	 */
 	public void isTwoCircleImageIsAvailable() {
 		CommonUtils.waitForThePresenceOfEl(mcaExplorerPage.compareCircleXpath, Duration.ofSeconds(40));
+		Assert.assertTrue(CommonUtils.isElementDisplayed(mcaExplorerPage.compareCircle));
 	}
 
 	/**
@@ -95,7 +96,6 @@ public class MCAExplorerStepImp extends PageInitializer {
 	 * @param rows
 	 */
 	public void verifyNoOfRows(String rows) {
-		int noOfRows = mcaExplorerPage.gridAllRows.size();
 		validateNumberOfRows();
 	}
 
@@ -155,10 +155,10 @@ public class MCAExplorerStepImp extends PageInitializer {
 	/**
 	 * SELECT CHROMOSOME
 	 *
-	 * @param int1
+	 * @param number
 	 */
-	public void select_chtomosome(Integer int1) {
-		CommonUtils.sendKeys(mcaExplorerPage.chromosomeDropdown, String.valueOf(int1));
+	public void select_chtomosome(Integer number) {
+		CommonUtils.sendKeys(mcaExplorerPage.chromosomeDropdown, String.valueOf(number));
 		CommonUtils.sendKeys(mcaExplorerPage.chromosomeDropdown, Keys.TAB);
 	}
 
