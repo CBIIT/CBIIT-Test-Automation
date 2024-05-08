@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
         features = "src/test/java/AnalysisTools/ACT24/Features",
         glue = "AnalysisTools.ACT24.Steps",
         tags = "@Progression",
-        dryRun = false
+        dryRun = true
 )
 /**
  * This class is annotated with @RunWith(Cucumber.class) and it will run
