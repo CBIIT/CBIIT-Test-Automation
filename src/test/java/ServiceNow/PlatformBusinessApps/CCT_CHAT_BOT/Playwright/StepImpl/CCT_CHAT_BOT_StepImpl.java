@@ -20,7 +20,7 @@ public class CCT_CHAT_BOT_StepImpl {
     public static String nciMcCaskillStevensK12AwardsPageUrl;
 
     /**
-     * This Method NAVIGATES TO NATIVE VIEW AND
+     * THIS METHOD NAVIGATES TO NATIVE VIEW AND
      * OPENS THE ACTIVE FIND FUNDING CCT CHATBOT WINDOW TO TEST CCT CHAT ADDITIONAL K12 LINKS
      */
     public static void the_user_opens_the_find_funding_chatbot_on_the_nv() {
