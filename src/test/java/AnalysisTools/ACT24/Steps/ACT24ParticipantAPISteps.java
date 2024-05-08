@@ -9,7 +9,7 @@ public class ACT24ParticipantAPISteps {
     }
 
     @Then("the {string} and {int} status code is returned")
-    public void the_and_status_code_is_returned(String string, Integer int1) {
+    public void the_and_status_code_is_returned(String string, int int1) {
     }
 
     @Given("the GET call to retrieve Retrieve and Recall data from resource is requested")
@@ -17,6 +17,6 @@ public class ACT24ParticipantAPISteps {
     }
 
     @Then("the Study and Recall Data and {int} status code is returned")
-    public void the_study_and_recall_data_and_status_code_is_returned(Integer int1) {
+    public void the_study_and_recall_data_and_status_code_is_returned(int int1) {
     }
 }
