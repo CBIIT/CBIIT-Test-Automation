@@ -19,6 +19,6 @@ public class OBF_Notifications_Steps {
 
     @Then("the requested for should get a notification:")
     public void the_requested_for_should_get_a_notification(String docString) {
-        OBF_Notifications_StepImpl.the_requested_for_should_get_a_notification(docString);
+        OBF_Notifications_StepImpl.the_requested_for_should_get_a_notification();
     }
 }

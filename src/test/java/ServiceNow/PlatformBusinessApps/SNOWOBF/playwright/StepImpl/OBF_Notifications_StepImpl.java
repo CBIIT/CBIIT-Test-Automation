@@ -144,9 +144,8 @@ public class OBF_Notifications_StepImpl {
      * THIS METHOD WAITS FOR A APPROVAL NOTIFICATION EMAIL
      * AND VERIFY THE EMAIL CONTENT
      * AND DELETE THE RECORD
-     * @param docString
      */
-    public static void the_requested_for_should_get_a_notification(String docString) {
+    public static void the_requested_for_should_get_a_notification() {
         ticketNumber = PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).locator(OBF_Notifications_Page.obf_NV_Form_Ticket_Number_Text_Box_Locator).getAttribute(OBF_Notifications_Page.obf_NV_Form_Ticket_Number_Text_Box_Value);
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_Number_Label, new FrameLocator.GetByLabelOptions().setExact(true)).click();
         MiscUtils.sleep(20000); //wait for an approval email
