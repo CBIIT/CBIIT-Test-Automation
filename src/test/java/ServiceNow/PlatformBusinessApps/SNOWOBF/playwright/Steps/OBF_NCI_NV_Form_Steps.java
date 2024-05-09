@@ -29,6 +29,6 @@ public class OBF_NCI_NV_Form_Steps {
 
     @Then("I should see the following layout for the Ticket:")
     public void i_should_see_the_following_layout_for_the_ticket(String docString) {
-        OBF_NCI_NV_Form_StepImpl.i_should_see_the_following_layout_for_the_ticket(docString);
+        OBF_NCI_NV_Form_StepImpl.i_should_see_the_following_layout_for_the_ticket();
     }
 }

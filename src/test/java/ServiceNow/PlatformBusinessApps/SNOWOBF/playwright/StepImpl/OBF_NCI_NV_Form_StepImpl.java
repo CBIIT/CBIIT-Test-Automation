@@ -74,9 +74,8 @@ public class OBF_NCI_NV_Form_StepImpl {
 
     /**
      * THIS METHOD VERIFIES EACH FIELD OF THE TICKET AS A FULFILLER
-     * @param docString
      */
-    public static void i_should_see_the_following_layout_for_the_ticket(String docString) {
+    public static void i_should_see_the_following_layout_for_the_ticket() {
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_OBF_Tickets_Form_Section).getByText(OBF_NCI_NV_Form_Page.obf_NV_Page_Number_Label).isVisible();
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_OBF_Tickets_Form_Section).getByText(OBF_NCI_NV_Form_Page.obf_NV_Page_Number_Label).click();
         assertThat(PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).locator(OBF_NCI_NV_Form_Page.obf_NV_Page_Number_Label_Locator)).containsText(OBF_NCI_NV_Form_Page.obf_NV_Page_Number_Label);
