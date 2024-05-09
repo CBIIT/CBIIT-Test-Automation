@@ -51,4 +51,3 @@ public class PlaywrightUtils {
         playwright.close();
     }
 }
-
