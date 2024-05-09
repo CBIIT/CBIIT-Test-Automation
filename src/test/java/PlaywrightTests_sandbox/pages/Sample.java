@@ -1,4 +1,4 @@
-package PlaywrightTests.pages;
+package PlaywrightTests_sandbox.pages;
 
 import com.microsoft.playwright.Locator;
 import com.nci.automation.web.PlaywrightUtils;

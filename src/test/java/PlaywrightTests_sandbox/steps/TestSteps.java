@@ -1,4 +1,4 @@
-package PlaywrightTests.steps;
+package PlaywrightTests_sandbox.steps;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

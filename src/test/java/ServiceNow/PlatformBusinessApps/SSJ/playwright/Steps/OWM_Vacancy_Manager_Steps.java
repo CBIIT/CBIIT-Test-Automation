@@ -180,7 +180,7 @@ public class OWM_Vacancy_Manager_Steps {
     @Then("User verifies that all positions are present via Position Classification dropdown")
     public void user_verifies_that_all_positions_are_present_via_position_classification_dropdown() {
         PlaywrightUtils.page.locator(Vacancy_Dashboard_Page.positionClassificationDropDown).click();
-
+        
         MiscUtils.sleep(3000);
     }
 

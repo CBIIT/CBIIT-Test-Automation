@@ -1,4 +1,4 @@
-package PlaywrightTests.Runners;
+package PlaywrightTests_sandbox.Runners;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;

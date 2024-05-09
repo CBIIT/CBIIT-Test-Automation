@@ -1,9 +1,8 @@
-package PlaywrightTests.steps;
+package PlaywrightTests_sandbox.steps;
 
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.*;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
-import java.util.*;
 
 public class Example {
     public static void main(String[] args) {
