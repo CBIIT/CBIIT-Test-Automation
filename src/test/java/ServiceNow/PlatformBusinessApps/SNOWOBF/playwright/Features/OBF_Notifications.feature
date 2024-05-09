@@ -4,7 +4,7 @@ Feature: SNOWOBF Notifications Scenarios
   @SNOWOBF-37 @Chaudhryma @Regression
   Scenario: Test Create OBF Helpdesk Link on NCI ServiceNow Homepage
   Given I am an authenticated user with NCI credentials
-  When I submit a ticket For "New Request for Access" and the ticket is approved
+  When I submit a ticket For New Request for Access and the ticket is approved
   Then the requested for should get a notification:
     """
     Subject

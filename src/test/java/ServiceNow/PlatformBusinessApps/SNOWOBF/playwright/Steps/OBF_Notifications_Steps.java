@@ -12,9 +12,9 @@ public class OBF_Notifications_Steps {
         OBF_Notifications_StepImpl.i_am_an_authenticated_user_with_nci_credentials();
     }
 
-    @When("I submit a ticket For {string} and the ticket is approved")
-    public void i_submit_a_ticket_for_and_the_ticket_is_approved(String newRequestForAccess) {
-        OBF_Notifications_StepImpl.i_submit_a_ticket_for_and_the_ticket_is_approved(newRequestForAccess);
+    @When("I submit a ticket For New Request for Access and the ticket is approved")
+    public void i_submit_a_ticket_for_new_request_for_access_and_the_ticket_is_approved() {
+        OBF_Notifications_StepImpl.i_submit_a_ticket_for_and_the_ticket_is_approved();
     }
 
     @Then("the requested for should get a notification:")

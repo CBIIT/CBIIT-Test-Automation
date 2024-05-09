@@ -23,6 +23,7 @@ public class OBF_NCI_NV_Form_StepImpl {
 
     /**
      * THIS METHOD NAVIGATES TO OBF SYSTEMS SUPPORT NATIVE VIEW PAGE
+     * @param obfSystemsSupport
      */
     public static void i_navigate_to_the_native_view_and_type_in_the_navigation_search_window(String obfSystemsSupport) {
         PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(NCISP_Portal_Page.nativeViewLink)).click();
@@ -32,6 +33,10 @@ public class OBF_NCI_NV_Form_StepImpl {
 
     /**
      * THIS METHOD VERIFIES THE OBF SYSTEMS SUPPORT NATIVE VIEW PAGE MENU OPTIONS
+     * @param allTickets
+     * @param openTickets
+     * @param closedTickets
+     * @param oneStreamBus
      */
     public static void i_should_see_the_following_options_in_the_obf_systems_support_module(String allTickets, String openTickets, String closedTickets, String oneStreamBus) {
         PlaywrightUtils.page.locator(OBF_NCI_NV_Form_Page.obf_App_NV_Search_Menu_Locator).click();
@@ -69,6 +74,7 @@ public class OBF_NCI_NV_Form_StepImpl {
 
     /**
      * THIS METHOD VERIFIES EACH FIELD OF THE TICKET AS A FULFILLER
+     * @param docString
      */
     public static void i_should_see_the_following_layout_for_the_ticket(String docString) {
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_OBF_Tickets_Form_Section).getByText(OBF_NCI_NV_Form_Page.obf_NV_Page_Number_Label).isVisible();

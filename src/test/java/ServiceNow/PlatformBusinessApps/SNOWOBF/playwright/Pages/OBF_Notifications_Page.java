@@ -3,6 +3,22 @@ package ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.Pages;
 public class OBF_Notifications_Page {
 
     /***
+     * OBF APPROVAL EMAIL SUBJECT
+     */
+    public static String obf_Approval_Email_Subject (String ticketNumber2){
+        return "Your OneStream/BUS request - " + ticketNumber2 + " has been approved.";
+    }
+
+    /**
+     * NV EMAIL NOTIFICATION TICKET NUMBER LINE
+     * @param ticketNumber2
+     * @return
+     */
+    public static String nv_Email_Notification_Ticket_Number_Line(String ticketNumber2){
+        return "Number: " + ticketNumber2;
+    }
+
+    /***
      * OBF NV FORM TICKET NUMBER TEXT BOX LOCATOR
      */
     public static String obf_NV_Form_Ticket_Number_Text_Box_Locator = "//input[@id='x_g_nci_obf_tickets.number']";
@@ -16,13 +32,6 @@ public class OBF_Notifications_Page {
      * OBF NV EMAIL PAGE SUBJECT LOCATOR
      */
     public static String obf_NV_Email_Page_Subject_Locator = "[id=\"label\\.sys_email\\.subject\"]";
-
-    /***
-     * OBF APPROVAL EMAIL SUBJECT
-     */
-    public static String obf_Approval_Email_Subject (String ticketNumber2){
-        return "Your OneStream/BUS request - " + ticketNumber2 + " has been approved.";
-    }
 
     /***
      * OBF NV FORM EMAIL PREVIEW RECORD
@@ -193,15 +202,6 @@ public class OBF_Notifications_Page {
      * NV EMAIL NOTIFICATION DETAILS OF YOUR REQUEST CONTENT LINE
      */
     public static String nv_Email_Notification_Details_of_your_request_Content_Line = "Details of your request are displayed below:";
-
-    /**
-     * NV EMAIL NOTIFICATION TICKET NUMBER LINE
-     * @param ticketNumber2
-     * @return
-     */
-    public static String nv_Email_Notification_Ticket_Number_Line(String ticketNumber2){
-        return "Number: " + ticketNumber2;
-    }
 
     /***
      * NV EMAIL NOTIFICATION REQUESTED FOR CONTENT LINE

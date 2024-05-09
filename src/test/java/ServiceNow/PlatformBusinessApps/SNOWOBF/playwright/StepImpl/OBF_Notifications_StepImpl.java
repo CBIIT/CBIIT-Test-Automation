@@ -94,9 +94,8 @@ public class OBF_Notifications_StepImpl {
     /**
      *  THIS METHOD SUBMIT AN OBF TICKET FOR NEW REQUEST FOR ACCESS
      *  AND APPROVES IT
-     * @param newRequestForAccess
      */
-    public static void i_submit_a_ticket_for_and_the_ticket_is_approved(String newRequestForAccess) {
+    public static void i_submit_a_ticket_for_and_the_ticket_is_approved() {
         OBF_Notifications_StepImpl.submitATicketForNewUserAccess();
         PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(NCISP_Portal_Page.nativeViewLink)).click();
         Playwright_ServiceNow_Common_Methods.searchFilterNavigatorAndClickOption(OBF_NCI_NV_Form_Page.obf_App_NV_Search_OBF_Systems_Support, OBF_NCI_NV_Form_Page.obf_App_NV_OBF_Systems_Support_Search_Options);
