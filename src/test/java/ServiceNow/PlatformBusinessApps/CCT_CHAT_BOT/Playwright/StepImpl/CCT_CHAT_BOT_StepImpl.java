@@ -58,11 +58,9 @@ public class CCT_CHAT_BOT_StepImpl {
         MiscUtils.sleep(5000); //wait for pop-up CCT ChatBot Window
         assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Q_One_Locator)).containsText(CCT_CHAT_BOT_Constants.NV_CCT_CHAT_WINDOW_Q_ONE_TEXT);
         assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName(CCT_CHAT_BOT_Constants.NV_CCT_CHAT_WINDOW_Q_OPTION_YES_TEXT))).isVisible();
-        CucumberLogUtils.playwrightScreenshot();
         CucumberLogUtils.playwrightScreenshot1(cctChatBotWindow);
         cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Q_Option_Yes_Selected)).click();
         assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Q_One_Fragment_Locator)).containsText(CCT_CHAT_BOT_Constants.NV_CCT_CHAT_WINDOW_Q_OPTION_YES_TEXT);
-        CucumberLogUtils.playwrightScreenshot();
         CucumberLogUtils.playwrightScreenshot1(cctChatBotWindow);
     }
 
@@ -74,7 +72,6 @@ public class CCT_CHAT_BOT_StepImpl {
         assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Locator)).containsText(CCT_CHAT_BOT_Constants.NV_CCT_CHAT_WINDOW_Q_TWO_TEXT);
         assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Locator)).containsText(establishedInvestigator);
         cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Q_Option_Established_Investigator_Selected)).click();
-        CucumberLogUtils.playwrightScreenshot();
         CucumberLogUtils.playwrightScreenshot1(cctChatBotWindow);
     }
 
@@ -86,7 +83,7 @@ public class CCT_CHAT_BOT_StepImpl {
         assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Locator)).containsText(CCT_CHAT_BOT_Constants.NV_CCT_CHAT_WINDOW_Q_THREE_TEXT);
         assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Locator)).containsText(usa);
         cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Q_Option_USA_Selected).setExact(true)).click();
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot1(cctChatBotWindow);
     }
 
     /**
@@ -97,7 +94,7 @@ public class CCT_CHAT_BOT_StepImpl {
         assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Locator)).containsText(CCT_CHAT_BOT_Constants.NV_CCT_CHAT_WINDOW_Q_FOUR_TEXT);
         assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Locator)).containsText(yes);
         cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Q_Option_Yes_Selected)).click();
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot1(cctChatBotWindow);
     }
 
     /**
@@ -108,7 +105,7 @@ public class CCT_CHAT_BOT_StepImpl {
     public static void the_link_should_be_displayed_at_the_top_of_the_list(String careerDevelopmentAwardLink) {
         assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Locator)).containsText(CCT_CHAT_BOT_Constants.NV_CCT_CHAT_WINDOW_EXPECTED_LINK_ON_TOP_OF_THE_LIST);
         assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Locator)).containsText(careerDevelopmentAwardLink);
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot1(cctChatBotWindow);
     }
 
     /**
@@ -122,9 +119,10 @@ public class CCT_CHAT_BOT_StepImpl {
             cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Locator).getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Expected_Link_Selected)).click();
         });
         assertThat(nciMcCaskillStevensK12AwardsPage.getByLabel(CCT_CHAT_BOT_Constants.NV_CCT_NEW_TAB_OPENED_PAGE_HEADER_TEXT)).isVisible();
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot1(cctChatBotWindow);
         nciMcCaskillStevensK12AwardsPageUrl = nciMcCaskillStevensK12AwardsPage.url();
         Assert.assertEquals(nciMcCaskillStevensK12AwardsPageUrl,expectedURL);
+        CucumberLogUtils.playwrightScreenshot1(nciMcCaskillStevensK12AwardsPage);
     }
 
     /**
@@ -133,6 +131,6 @@ public class CCT_CHAT_BOT_StepImpl {
     public static void the_link_should_open_in_a_new_tab() {
         Assert.assertNotEquals(firstTabUrl,nciMcCaskillStevensK12AwardsPageUrl);
         assertThat(nciMcCaskillStevensK12AwardsPage.locator(CCT_CHAT_BOT_Page.nv_New_Tab_Opened_Page_Header_Locator)).containsText(CCT_CHAT_BOT_Constants.NV_CCT_NEW_TAB_OPENED_PAGE_HEADER_ONE_TEXT);
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot1(nciMcCaskillStevensK12AwardsPage);
     }
 }

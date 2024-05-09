@@ -1,7 +1,7 @@
 Feature: CCT CHAT BOT Scenarios
   Description: This Feature file contains CCT CHAT BOT Scenarios from Service Now Projects Board
 
-  @SNOWPROJ-142 @Chaudhryma @Regression @Progression
+  @SNOWPROJ-142 @Chaudhryma @Regression
   Scenario: Test 1: CCT- Add additional K12 Link to Chat Bot logic
     Given the user opens the Find Funding Chatbot on the NV
     When selects Yes to Q1 regarding finding funding opportunities
