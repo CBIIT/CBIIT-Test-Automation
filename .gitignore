@@ -51,5 +51,4 @@ src/main/java/com/.DS_Store
 src/test/java/PlaywrightTests
 src/main/resources/.DS_Store
 src/test/java/ServiceNow/COVIDDash/Resources/.DS_Store
-src/test/java/ServiceNow/PlatformBusinessApps/SNOWOBF/playwright/Steps/Example.java
 src/test/java/ServiceNow/PlatformBusinessApps/CCT_CHAT_BOT/Playwright/Steps/Example.java

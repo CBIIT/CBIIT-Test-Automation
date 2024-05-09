@@ -48,7 +48,7 @@ public class CCT_CHAT_BOT_StepImpl {
         cctChatBotWindow = PlaywrightUtils.page.waitForPopup(() -> {
             PlaywrightUtils.page.frameLocator(CCT_CHAT_BOT_Page.nv_Page_Frame_Locator).getByRole(AriaRole.LINK, new FrameLocator.GetByRoleOptions().setName(CCT_CHAT_BOT_Page.nv_Language_Tab_Test_Link)).click();
         });
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot1(cctChatBotWindow);
     }
 
     /**
@@ -59,9 +59,11 @@ public class CCT_CHAT_BOT_StepImpl {
         assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Q_One_Locator)).containsText(CCT_CHAT_BOT_Constants.NV_CCT_CHAT_WINDOW_Q_ONE_TEXT);
         assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName(CCT_CHAT_BOT_Constants.NV_CCT_CHAT_WINDOW_Q_OPTION_YES_TEXT))).isVisible();
         CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot1(cctChatBotWindow);
         cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Q_Option_Yes_Selected)).click();
         assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Q_One_Fragment_Locator)).containsText(CCT_CHAT_BOT_Constants.NV_CCT_CHAT_WINDOW_Q_OPTION_YES_TEXT);
         CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot1(cctChatBotWindow);
     }
 
     /**
@@ -73,6 +75,7 @@ public class CCT_CHAT_BOT_StepImpl {
         assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Locator)).containsText(establishedInvestigator);
         cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Q_Option_Established_Investigator_Selected)).click();
         CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot1(cctChatBotWindow);
     }
 
     /**
