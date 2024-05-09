@@ -142,7 +142,7 @@ public class OBF_Notifications_StepImpl {
 
     /**
      * THIS METHOD WAITS FOR A APPROVAL NOTIFICATION EMAIL
-     * AND VERIFY THE EMAIL CONTENT
+     * AND VERIFY THE APPROVAL EMAIL CONTENT
      * AND DELETE THE RECORD
      */
     public static void the_requested_for_should_get_a_notification() {
