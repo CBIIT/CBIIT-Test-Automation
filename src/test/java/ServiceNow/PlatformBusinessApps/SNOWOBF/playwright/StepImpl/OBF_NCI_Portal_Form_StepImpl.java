@@ -14,18 +14,20 @@ public class OBF_NCI_Portal_Form_StepImpl {
 
     /**
      * THIS METHOD NAVIGATES TO OBF Systems Support PORTAL PAGE
+     * @param obfSupportSystemTitle
      */
     public static void i_navigate_to_the_nci_service_now_homepage_portal_form(String obfSupportSystemTitle) {
         PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("ServiceNow NCISP"));
         CucumberLogUtils.playwrightScreenshot();
-        PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(NCISP_Portal_Page.servicesLink).setExact(true)).click();
         assertThat(PlaywrightUtils.page.locator(NCISP_Portal_Page.nciPageLinksLocator)).containsText(NCISP_Portal_Page.servicesLink);
-        PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(NCISP_Portal_Page.cbiit_BusinessServicesLink)).first().click();
+        PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(NCISP_Portal_Page.servicesLink).setExact(true)).click();
         assertThat(PlaywrightUtils.page.locator(NCISP_Portal_Page.nciPageLinksLocator)).containsText(NCISP_Portal_Page.cbiit_BusinessServicesLink);
-        PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(NCISP_Portal_Page.administrative_BusinessServicesLink)).click();
-        assertThat(PlaywrightUtils.page.locator(NCISP_Portal_Page.nciPageLinksLocator)).containsText(NCISP_Portal_Page.administrative_BusinessServicesLink);
+        PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(NCISP_Portal_Page.cbiit_BusinessServicesLink)).first().click();
+        assertThat(PlaywrightUtils.page.locator(NCISP_Portal_Page.administrative_BusinessServicesLinkLocator)).containsText(NCISP_Portal_Page.administrative_BusinessServicesLink);
+        PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(NCISP_Portal_Page.administrative_BusinessPageLink)).click();
         CucumberLogUtils.playwrightScreenshot();
-        PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(NCISP_Portal_Page.obf_SystemsSupportLink)).click();
+        assertThat(PlaywrightUtils.page.getByRole(AriaRole.MAIN)).containsText(NCISP_Portal_Page.obf_SystemsSupportLink);
+        PlaywrightUtils.page.getByText(NCISP_Portal_Page.obf_SystemsSupportPageLink).click();
         CucumberLogUtils.playwrightScreenshot();
         assertThat(PlaywrightUtils.page.locator(NCISP_Portal_Page.nciPageLinksLocator)).containsText(NCISP_Portal_Page.obf_SystemsSupportLink);
         PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_TitleOnTheTop).getByRole(AriaRole.HEADING, new Locator.GetByRoleOptions().setName(NCISP_Portal_Page.obf_SystemsSupportLink)).click();
@@ -35,7 +37,6 @@ public class OBF_NCI_Portal_Form_StepImpl {
 
     /**
      * THIS METHOD VERIFIES ALL FIELDS ON OBF SYSTEMS SUPPORT FORM
-     *
      * AND SUBMITS THE OBF SYSTEMS SUPPORT FORM ON PORTAL
      */
     public static void i_should_see_that_i_can_navigate_to_the_obf_systems_support_application() {
@@ -50,10 +51,6 @@ public class OBF_NCI_Portal_Form_StepImpl {
         PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_AdministrativeOfficerField).click();
         PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_AdministrativeOfficerFieldTextBox).fill(OBF_NCI_Portal_Form_Page.obf_Request_Form_AdministrativeOfficerName);
         PlaywrightUtils.page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(OBF_NCI_Portal_Form_Page.obf_Request_Form_AdministrativeOfficerName)).click();
-        assertThat(PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_AdministrativeResourceDirectorFieldLabel)).containsText(OBF_NCI_Portal_Form_Page.obf_Request_Form_AdministrativeResourceDirectorFieldTitleName);
-        PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_AdministrativeResourceDirectorField).click();
-        PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_AdministrativeResourceDirectorFieldTextBox).fill(OBF_NCI_Portal_Form_Page.obf_Request_Form_AdministrativeResourceDirectorName);
-        PlaywrightUtils.page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(OBF_NCI_Portal_Form_Page.obf_Request_Form_AdministrativeResourceDirectorName)).click();
         assertThat(PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_OrganizationalAffiliationFieldLocator)).containsText(OBF_NCI_Portal_Form_Page.obf_Request_Form_OrganizationalAffiliationFieldName);
         PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_OrganizationalAffiliationFieldLocator).getByText(OBF_NCI_Portal_Form_Page.obf_Request_Form_OrganizationalAffiliationFieldName).click();
         PlaywrightUtils.page.getByLabel(OBF_NCI_Portal_Form_Page.obf_Request_Form_OrganizationalAffiliationFieldName).fill(OBF_NCI_Portal_Form_Page.obf_Request_Form_OrganizationalAffiliationFieldTextBoxInput);
@@ -105,6 +102,11 @@ public class OBF_NCI_Portal_Form_StepImpl {
         assertThat(PlaywrightUtils.page.getByPlaceholder(OBF_NCI_Portal_Form_Page.obf_Request_Form_WhatDocsDoesTheUserNeedFIELDTextBox)).isVisible();
         PlaywrightUtils.page.getByPlaceholder(OBF_NCI_Portal_Form_Page.obf_Request_Form_WhatDocsDoesTheUserNeedFIELDTextBox).fill(OBF_NCI_Portal_Form_Page.obf_Request_Form_WhatDocsDoesTheUserNeedFIELDTextBoxInput);
         CucumberLogUtils.playwrightScreenshot();
+        assertThat(PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_AdministrativeResourceDirectorARCFieldLabel)).containsText(OBF_NCI_Portal_Form_Page.obf_Request_Form_AdministrativeResourceDirectorARCFieldTitleName);
+        PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_AdministrativeResourceDirectorARCField).click();
+        PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_AdministrativeResourceDirectorARCFieldTextBox).fill(OBF_NCI_Portal_Form_Page.obf_Request_Form_AdministrativeResourceDirectorARCName);
+        PlaywrightUtils.page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(OBF_NCI_Portal_Form_Page.obf_Request_Form_AdministrativeResourceDirectorARCName)).click();
+        CucumberLogUtils.playwrightScreenshot();
         PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_TopicFieldDropDownLocator).click();
         PlaywrightUtils.page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(OBF_NCI_Portal_Form_Page.obf_Request_Form_TopicFieldDropDownOptionFive)).click();
         CucumberLogUtils.playwrightScreenshot();
@@ -141,8 +143,14 @@ public class OBF_NCI_Portal_Form_StepImpl {
         CucumberLogUtils.playwrightScreenshot();
         PlaywrightUtils.page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName(OBF_NCI_Portal_Form_Page.obf_Request_Form_SubmittedText)).click();
         CucumberLogUtils.playwrightScreenshot();
+        PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(NCISP_Portal_Page.nativeViewLink)).click();
+        OBF_NCI_NV_Form_StepImpl.deleteTheOBFTicketAutomationRecord();
     }
 
+    /**
+     * THIS METHOD VERIFIES THE TEXT ON TOP OF OBF SYSTEMS SUPPORT FORM
+     * @param expectedText
+     */
     public static void i_show_see_the_following_text_at_the_top_of_the_catalog_item(String expectedText) {
         assertThat(PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_TextOnTheTop)).containsText(expectedText);
         CucumberLogUtils.playwrightScreenshot();

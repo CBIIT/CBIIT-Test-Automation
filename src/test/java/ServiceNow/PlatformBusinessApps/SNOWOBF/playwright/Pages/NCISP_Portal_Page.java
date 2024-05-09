@@ -31,4 +31,19 @@ public class NCISP_Portal_Page {
      * NATIVE VIEW LINK
      */
     public static String nativeViewLink = "Native View";
+
+    /***
+     * ADMINISTRATIVE BUSINESS SERVICES LINK LOCATOR
+     */
+    public static String administrative_BusinessServicesLinkLocator = "md-content";
+
+    /***
+     * ADMINISTRATIVE BUSINESS PAGE LINK
+     */
+    public static String administrative_BusinessPageLink = "Administrative Business";
+
+    /***
+     * OBF SYSTEMS SUPPORT PAGE LINK
+     */
+    public static String obf_SystemsSupportPageLink = "OBF Systems Support Request";
 }

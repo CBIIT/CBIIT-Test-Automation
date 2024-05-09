@@ -1,11 +1,33 @@
 package ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.Pages;
 
+import com.nci.automation.web.CommonUtils;
+
 public class OBF_NCI_Portal_Form_Page {
 
     /***
      * OBF REQUEST FORM TITLE ON THE TOP
      */
     public static String obf_Request_Form_TitleOnTheTop = "#catItemTop";
+
+    /***
+     * OBF REQUEST FORM REQUESTED FOR CLEAR FIELD
+     */
+    public static String obf_Request_Form_RequestedForClearField = "Clear field Requested For";
+
+    /***
+     * OBF REQUEST FORM REQUESTED FOR FIELD LOCATOR
+     */
+    public static String obf_Request_Form_RequestedForFieldLocator = "#s2id_sp_formfield_requested_for a";
+
+    /***
+     * OBF REQUEST FORM REQUESTED FOR FIELD SEARCH TEXT
+     */
+    public static String obf_Request_Form_RequestedForFieldSearchText = "#s2id_autogen4_search";
+
+    /***
+     * OBF REQUEST FORM REQUESTED FOR NAME
+     */
+    public static String obf_Request_Form_RequestedForName = "Ben Foulkes";
 
     /***
      * OBF REQUEST FORM SUPERVISOR FIELD TITLE
@@ -30,7 +52,7 @@ public class OBF_NCI_Portal_Form_Page {
     /***
      * OBF REQUEST FORM SUPERVISOR NAME
      */
-    public static String obf_Request_Form_SupervisorName = "April Austin";
+    public static String obf_Request_Form_SupervisorName = "maria.chaudhry2@nih.gov";
 
     /***
      * OBF REQUEST FORM ADMINISTRATIVE OFFICER (AO) FIELD TITLE NAME
@@ -60,27 +82,27 @@ public class OBF_NCI_Portal_Form_Page {
     /***
      * OBF REQUEST FORM ADMINISTRATIVE RESOURCE DIRECTOR (ARC) FIELD TITLE NAME
      */
-    public static String obf_Request_Form_AdministrativeResourceDirectorFieldTitleName = "Administrative Resource Director (ARC)";
+    public static String obf_Request_Form_AdministrativeResourceDirectorARCFieldTitleName = "Administrative Resource Director (ARC)";
 
     /***
      * OBF REQUEST FORM ADMINISTRATIVE RESOURCE DIRECTOR (ARC) FIELD LABEL
      */
-    public static String obf_Request_Form_AdministrativeResourceDirectorFieldLabel = "#s2id_autogen7-label";
+    public static String obf_Request_Form_AdministrativeResourceDirectorARCFieldLabel = "#s2id_autogen7-label";
 
     /***
      * OBF REQUEST FORM ADMINISTRATIVE RESOURCE DIRECTOR (ARC) FIELD
      */
-    public static String obf_Request_Form_AdministrativeResourceDirectorField = "#s2id_sp_formfield_administrative_resource_director a";
+    public static String obf_Request_Form_AdministrativeResourceDirectorARCField = "#s2id_sp_formfield_administrative_resource_director a";
 
     /***
      * OBF REQUEST FORM ADMINISTRATIVE RESOURCE DIRECTOR (ARC) FIELD TEXT BOX
      */
-    public static String obf_Request_Form_AdministrativeResourceDirectorFieldTextBox = "#s2id_autogen7_search";
+    public static String obf_Request_Form_AdministrativeResourceDirectorARCFieldTextBox = "#s2id_autogen7_search";
 
     /***
      * OBF REQUEST FORM DMINISTRATIVE RESOURCE DIRECTOR (ARC) NAME
      */
-    public static String obf_Request_Form_AdministrativeResourceDirectorName = "Barbara Davidson";
+    public static String obf_Request_Form_AdministrativeResourceDirectorARCName = "Barbara Davidson";
 
     /***
      * OBF REQUEST FORM ORGANIZATIONAL AFFILIATION FIELD NAME
@@ -255,7 +277,7 @@ public class OBF_NCI_Portal_Form_Page {
     /***
      * OBF REQUEST FORM DESCRIPTION FIELD INPUT
      */
-    public static String obf_Request_Form_DescriptionFieldInput = "Test Description";
+    public static String obf_Request_Form_DescriptionFieldInput = "Test Description" + CommonUtils.lastNameRandomizer();
 
     /***
      * OBF REQUEST FORM PRIORITY FIELD LOCATOR
