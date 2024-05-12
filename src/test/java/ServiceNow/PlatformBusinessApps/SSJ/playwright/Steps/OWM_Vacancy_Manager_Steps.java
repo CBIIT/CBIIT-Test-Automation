@@ -2,6 +2,7 @@ package ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps;
 
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Vacancy_Dashboard_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Utils.SSJ_Common_Utils;
+import ServiceNow.PlatformBusinessApps.SSJ.playwright.Utils.SSJ_Constants;
 import appsCommon.Pages.Playwright_Common_Locators;
 import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
@@ -9,6 +10,7 @@ import appsCommon.Utils.Dynamic_Locators;
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.PlaywrightException;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
@@ -18,7 +20,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
-import java.util.List;
+import java.util.*;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
@@ -100,7 +102,7 @@ public class OWM_Vacancy_Manager_Steps {
         List<ElementHandle> list = PlaywrightUtils.page.querySelectorAll(Vacancy_Dashboard_Page.closeDateCalendarOptions);
         for (ElementHandle day : list) {
             if (day.getAttribute("title").trim().equals(CommonUtils.getDateOneMonthFromNowin_YYYY_MM_DD_format().trim())) {
-                PlaywrightUtils.page.locator("(//*[@title='" + CommonUtils.getDateOneMonthFromNowin_YYYY_MM_DD_format() + "'])[2]").click();
+                PlaywrightUtils.page.locator("(//*[@title='" + CommonUtils.getDateOneMonthFromNowin_YYYY_MM_DD_format() + "'])[1]").click();
                 break;
             }
         }
@@ -116,7 +118,7 @@ public class OWM_Vacancy_Manager_Steps {
         List<ElementHandle> list = PlaywrightUtils.page.querySelectorAll(Vacancy_Dashboard_Page.calendarOptions);
         for (ElementHandle day : list) {
             if (day.getAttribute("title").trim().equals(CommonUtils.getDateOneMonthFromNowin_YYYY_MM_DD_format().trim())) {
-                PlaywrightUtils.page.locator("(//*[@title='" + CommonUtils.getDateOneMonthFromNowin_YYYY_MM_DD_format() + "'])[3]").click();
+                PlaywrightUtils.page.locator("(//*[@title='" + CommonUtils.getDateOneMonthFromNowin_YYYY_MM_DD_format() + "'])[2]").click();
                 break;
             }
         }
@@ -153,7 +155,7 @@ public class OWM_Vacancy_Manager_Steps {
 
         List<ElementHandle> options = PlaywrightUtils.page.querySelectorAll(Vacancy_Dashboard_Page.referencesSliderOptions);
         Assert.assertEquals(expectedValue, options.size());
-        for(int i = 0; i < options.size(); i++){
+        for (int i = 0; i < options.size(); i++) {
             String actualText = options.get(i).innerText();
             String expectedText = String.valueOf(i);
             Assert.assertEquals(actualText, expectedText);
@@ -180,8 +182,28 @@ public class OWM_Vacancy_Manager_Steps {
     @Then("User verifies that all positions are present via Position Classification dropdown")
     public void user_verifies_that_all_positions_are_present_via_position_classification_dropdown() {
         PlaywrightUtils.page.locator(Vacancy_Dashboard_Page.positionClassificationDropDown).click();
-        
-        MiscUtils.sleep(3000);
+        MiscUtils.sleep(2000);
+        HashSet<String> actualValues = new HashSet<>();
+        boolean flag = false;
+        for (int i = 1; !flag; i++) {
+            try {
+                String value = "" + i;
+                MiscUtils.sleep(2000);
+                Playwright_Common_Utils.scrollIntoView("(//div[@class='rc-virtual-list'])[2]/div/div/div/div[" + value + "]/div");
+                MiscUtils.sleep(2000);
+                for (ElementHandle c : PlaywrightUtils.page.querySelectorAll("(//div[@class='rc-virtual-list'])[2]/div/div/div/div/div")) {
+                    String consoleMName = c.innerText();
+                    actualValues.add(consoleMName);
+                }
+                i++;
+            } catch (PlaywrightException e) {
+                flag = true;
+            }
+        }
+        ArrayList<String> arrayList = new ArrayList<>(actualValues);
+        arrayList.sort(Comparator.naturalOrder());
+        CucumberLogUtils.playwrightScreenshot();
+        Assert.assertEquals(arrayList, SSJ_Constants.POSITION_NAMES);
     }
 
     @Then("User confirms that {string} checkbox is displayed")
@@ -189,8 +211,6 @@ public class OWM_Vacancy_Manager_Steps {
         Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(text));
         assertThat(PlaywrightUtils.page.locator("#BasicInfo")).containsText(text);
     }
-
-
 
 
 }

@@ -3,9 +3,6 @@ package appsCommon.PlaywrightUtils;
 import com.microsoft.playwright.Locator;
 import com.nci.automation.web.PlaywrightUtils;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 public class Playwright_Common_Utils {
 
     /**
