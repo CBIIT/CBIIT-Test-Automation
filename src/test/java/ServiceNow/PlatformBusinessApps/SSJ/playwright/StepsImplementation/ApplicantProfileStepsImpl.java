@@ -36,7 +36,7 @@ public class ApplicantProfileStepsImpl {
     public static void selects_highest_education(String highestDegree) {
             PlaywrightUtils.page.getByLabel(Profile_Tab_Page.highestLevelOfEducationDropDown).click();
             PlaywrightUtils.page.getByTitle(highestDegree).locator("div").click();
-            CucumberLogUtils.playwrightScreenshot();
+            CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
     }
 
     /**
@@ -49,7 +49,7 @@ public class ApplicantProfileStepsImpl {
     public static void user_verifies_that_first_name_middle_name_and_last_name_saved_display_as_expected(String firstName, String middleName, String lastName) {
         String actualName = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.fullNameHeader).innerText();
         Assert.assertEquals(actualName, firstName + " " + middleName + " " + lastName);
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
     }
 
     /**
@@ -68,7 +68,7 @@ public class ApplicantProfileStepsImpl {
                 city + "," + " " + state + " " + zipCode + "\n" +
                 country;
         Assert.assertEquals(actualAddressText, expectedAddressText);
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
     }
 
     /**
@@ -79,7 +79,7 @@ public class ApplicantProfileStepsImpl {
     public static void verifies_that_the_saved_us_citizenship_displays_as(String expectedYesOrNo) {
         String actualUSCitizenshipText = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.actualUSCitizenshipText).innerText();
         Assert.assertEquals(expectedYesOrNo, actualUSCitizenshipText);
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
     }
 
     /**
@@ -90,7 +90,7 @@ public class ApplicantProfileStepsImpl {
     public static void verifies_that_the_saved_email_address_displays_as(String expectedEmail) {
         String actualEmailText = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.emailText).innerText();
         Assert.assertEquals(actualEmailText, expectedEmail);
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
     }
 
     /**
@@ -101,7 +101,7 @@ public class ApplicantProfileStepsImpl {
     public static void verifies_that_the_saved_highest_education_displays_as(String expectedHighestEducation) {
         String actualHighestEducationText = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.highestLevelOfEducationText).innerText();
         Assert.assertEquals(actualHighestEducationText, expectedHighestEducation);
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
     }
 
     /**
@@ -113,7 +113,7 @@ public class ApplicantProfileStepsImpl {
         String actualBusinessPhoneNumber = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.businessPhoneNumberText).innerText();
         String formattedExpectedBusinessPhoneNumber = CommonUtils.fixPhoneFormat(expectedBusinessPhoneNumber);
         Assert.assertEquals(actualBusinessPhoneNumber, formattedExpectedBusinessPhoneNumber);
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
     }
 
     /**
@@ -125,7 +125,7 @@ public class ApplicantProfileStepsImpl {
         String actualPhoneNumber = PlaywrightUtils.page.locator(Profile_Tab_After_Submission_Page.phoneNumberText).innerText();
         String formattedExpectedPhoneNumber = CommonUtils.fixPhoneFormat(expectedPhoneNumber);
         Assert.assertEquals(actualPhoneNumber, formattedExpectedPhoneNumber);
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
     }
 
     /***

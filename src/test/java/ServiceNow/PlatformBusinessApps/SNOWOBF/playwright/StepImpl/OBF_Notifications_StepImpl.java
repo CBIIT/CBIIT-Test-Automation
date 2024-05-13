@@ -34,20 +34,20 @@ public class OBF_Notifications_StepImpl {
      */
     public static void submitATicketForNewUserAccess(){
         PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("ServiceNow NCISP"));
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         assertThat(PlaywrightUtils.page.locator(NCISP_Portal_Page.nciPageLinksLocator)).containsText(NCISP_Portal_Page.servicesLink);
         PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(NCISP_Portal_Page.servicesLink).setExact(true)).click();
         assertThat(PlaywrightUtils.page.locator(NCISP_Portal_Page.nciPageLinksLocator)).containsText(NCISP_Portal_Page.cbiit_BusinessServicesLink);
         PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(NCISP_Portal_Page.cbiit_BusinessServicesLink)).first().click();
         assertThat(PlaywrightUtils.page.locator(NCISP_Portal_Page.administrative_BusinessServicesLinkLocator)).containsText(NCISP_Portal_Page.administrative_BusinessServicesLink);
         PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(NCISP_Portal_Page.administrative_BusinessPageLink)).click();
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         assertThat(PlaywrightUtils.page.getByRole(AriaRole.MAIN)).containsText(NCISP_Portal_Page.obf_SystemsSupportLink);
         PlaywrightUtils.page.getByText(NCISP_Portal_Page.obf_SystemsSupportPageLink).click();
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         assertThat(PlaywrightUtils.page.locator(NCISP_Portal_Page.nciPageLinksLocator)).containsText(NCISP_Portal_Page.obf_SystemsSupportLink);
         PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_TitleOnTheTop).getByRole(AriaRole.HEADING, new Locator.GetByRoleOptions().setName(NCISP_Portal_Page.obf_SystemsSupportLink)).click();
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         PlaywrightUtils.page.getByLabel(OBF_NCI_Portal_Form_Page.obf_Request_Form_RequestedForClearField).click();
         PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_RequestedForFieldLocator).click();
         PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_RequestedForFieldSearchText).fill(OBF_NCI_Portal_Form_Page.obf_Request_Form_RequestedForName);
@@ -55,40 +55,40 @@ public class OBF_Notifications_StepImpl {
         PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_SupervisorField).click();
         PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_SupervisorFieldTextBox).fill(OBF_NCI_Portal_Form_Page.obf_Request_Form_SupervisorName);
         PlaywrightUtils.page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(OBF_NCI_Portal_Form_Page.obf_Request_Form_SupervisorName)).click();
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_ApplicationFieldDropDownLocator).click();
         PlaywrightUtils.page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(OBF_NCI_Portal_Form_Page.obf_Request_Form_ApplicationFieldDropDownSelectOneStreamBus)).click();
         assertThat(PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_TopicFieldLocator)).containsText(OBF_NCI_Portal_Form_Page.obf_Request_Form_TopicField);
         PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_TopicFieldDropDownLocator).click();
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_AdministrativeResourceDirectorARCField).isHidden();
         PlaywrightUtils.page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(OBF_NCI_Portal_Form_Page.obf_Request_Form_TopicFieldDropDownOptionFour)).click();
         PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_AccessRequestedForFIELDLOCATOR).getByText(OBF_NCI_Portal_Form_Page.obf_Request_Form_AccessRequestedForFIELD, new Locator.GetByTextOptions().setExact(true)).click();
         assertThat(PlaywrightUtils.page.getByText(OBF_NCI_Portal_Form_Page.obf_Request_Form_BudgetAnalystRadioButtonSelectOptionFIELD)).isVisible();
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_RadioButtonsSelectOptionsLocator).filter(new Locator.FilterOptions().setHasText(OBF_NCI_Portal_Form_Page.obf_Request_Form_BudgetAnalystRadioButtonSelectOptionFIELD)).click();
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_WhatDocsDoesTheUserNeedFIELDLocator).getByText(OBF_NCI_Portal_Form_Page.obf_Request_Form_WhatDocsDoesTheUserNeedFIELD).isVisible();
         assertThat(PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_WhatDocsDoesTheUserNeedFIELDLocator).getByText(OBF_NCI_Portal_Form_Page.obf_Request_Form_WhatDocsDoesTheUserNeedFIELD)).isVisible();
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         PlaywrightUtils.page.getByPlaceholder(OBF_NCI_Portal_Form_Page.obf_Request_Form_WhatDocsDoesTheUserNeedFIELDTextBox).click();
         assertThat(PlaywrightUtils.page.getByPlaceholder(OBF_NCI_Portal_Form_Page.obf_Request_Form_WhatDocsDoesTheUserNeedFIELDTextBox)).isVisible();
         PlaywrightUtils.page.getByPlaceholder(OBF_NCI_Portal_Form_Page.obf_Request_Form_WhatDocsDoesTheUserNeedFIELDTextBox).fill(OBF_NCI_Portal_Form_Page.obf_Request_Form_WhatDocsDoesTheUserNeedFIELDTextBoxInput);
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_AdministrativeResourceDirectorARCField).isVisible();
         PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_AdministrativeResourceDirectorARCField).click();
         PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_AdministrativeResourceDirectorARCFieldTextBox).fill(OBF_NCI_Portal_Form_Page.obf_Request_Form_AdministrativeResourceDirectorARCName);
         PlaywrightUtils.page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(OBF_NCI_Portal_Form_Page.obf_Request_Form_AdministrativeResourceDirectorARCName)).click();
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_DescriptionFieldLocator).getByText(OBF_NCI_Portal_Form_Page.obf_Request_Form_DescriptionField).click();
         PlaywrightUtils.page.getByLabel(OBF_NCI_Portal_Form_Page.obf_Request_Form_DescriptionField).fill(OBF_NCI_Portal_Form_Page.obf_Request_Form_DescriptionFieldInput);
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_SubmitField).isVisible();
         assertThat(PlaywrightUtils.page.locator(OBF_NCI_Portal_Form_Page.obf_Request_Form_SubmitFieldLocator)).containsText(OBF_NCI_Portal_Form_Page.obf_Request_Form_SubmitField);
         PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(OBF_NCI_Portal_Form_Page.obf_Request_Form_SubmitField)).click();
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         PlaywrightUtils.page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName(OBF_NCI_Portal_Form_Page.obf_Request_Form_SubmittedText)).click();
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
     }
 
     /**
@@ -100,7 +100,7 @@ public class OBF_Notifications_StepImpl {
         PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(NCISP_Portal_Page.nativeViewLink)).click();
         Playwright_ServiceNow_Common_Methods.searchFilterNavigatorAndClickOption(OBF_NCI_NV_Form_Page.obf_App_NV_Search_OBF_Systems_Support, OBF_NCI_NV_Form_Page.obf_App_NV_OBF_Systems_Support_Search_Options);
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).locator(OBF_NCI_NV_Form_Page.obf_NV_Page_BREADCRUMB_Locator).isVisible();
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         assertThat(PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_Search_Drop_Down_By_Label)).isVisible();
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_Search_Drop_Down_By_Label).selectOption(OBF_NCI_NV_Form_Page.obf_NV_Page_Search_Drop_Down_Description_select_Option);
         assertThat(PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_Search_Drop_Down_By_Label)).containsText(OBF_NCI_NV_Form_Page.obf_NV_Page_Search_Drop_Down_Description_Option);
@@ -108,18 +108,18 @@ public class OBF_Notifications_StepImpl {
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_Search_Text_Box, new FrameLocator.GetByLabelOptions().setExact(true)).fill(OBF_NCI_Portal_Form_Page.obf_Request_Form_DescriptionFieldInput);
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_Search_Text_Box, new FrameLocator.GetByLabelOptions().setExact(true)).press(OBF_NCI_NV_Form_Page.obf_NV_Page_Search_Text_Box_Enter);
         assertThat(PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_OBF_Tickets_Label).locator(OBF_NCI_NV_Form_Page.obf_NV_Page_Body_Locator)).containsText(OBF_NCI_Portal_Form_Page.obf_Request_Form_DescriptionFieldInput);
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         MiscUtils.sleep(20000);
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_Preview_Record_Ticket_Number).click();
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByRole(AriaRole.LINK, new FrameLocator.GetByRoleOptions().setName(OBF_NCI_NV_Form_Page.obf_NV_Page_Open_Record_Button).setExact(true)).click();
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         MiscUtils.sleep(2000);
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByRole(AriaRole.SEARCHBOX, new FrameLocator.GetByRoleOptions().setName(OBF_NCI_NV_Form_Page.obf_NV_Page_Assigned_To_Text_Box)).isVisible();
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByRole(AriaRole.SEARCHBOX, new FrameLocator.GetByRoleOptions().setName(OBF_NCI_NV_Form_Page.obf_NV_Page_Assigned_To_Text_Box)).click();
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByRole(AriaRole.COMBOBOX, new FrameLocator.GetByRoleOptions().setName(OBF_NCI_NV_Form_Page.obf_NV_Page_Assigned_To_Text_Box)).fill(OBF_NCI_NV_Form_Page.obf_NV_Page_Assigned_To_Fulfiller);
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByRole(AriaRole.CELL, new FrameLocator.GetByRoleOptions().setName(OBF_NCI_NV_Form_Page.obf_NV_Page_Assigned_To_Fulfiller)).click();
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).locator(OBF_NCI_NV_Form_Page.obf_NV_Page_Form_Header_Locator).getByRole(AriaRole.BUTTON, new Locator.GetByRoleOptions().setName(OBF_NCI_NV_Form_Page.obf_NV_Page_Save_Button)).click();
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         assertThat(PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_Notifications_Page.obf_NV_Form_Approval_Label, new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(OBF_Notifications_Page.obf_NV_Form_Approval_Label_Value_Requested);
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).locator(OBF_Notifications_Page.obf_NV_Form_Approvers_Tab_Locator).getByText(OBF_Notifications_Page.obf_NV_Form_Approvers_Tab_Label).isVisible();
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).locator(OBF_Notifications_Page.obf_NV_Form_Approvers_Tab_Locator).getByText(OBF_Notifications_Page.obf_NV_Form_Approvers_Tab_Label).click();
@@ -130,14 +130,14 @@ public class OBF_Notifications_StepImpl {
         assertThat(PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).locator(OBF_Notifications_Page.obf_NV_Approval_Page_Approve_Button_Locator)).containsText(OBF_Notifications_Page.obf_NV_Approval_Page_Approve_Button_Text);
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).locator(OBF_Notifications_Page.obf_NV_Approval_Page_Approve_Button_Locator).click();
         assertThat(PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).locator(OBF_Notifications_Page.obf_NV_Approval_Page_State_Text_Box_Locator)).hasValue(OBF_Notifications_Page.obf_NV_Approval_Page_State_Text_Box_Value_Approved);
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_Notifications_Page.obf_NV_Form_Back_Button_Label).isVisible();
         assertThat(PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_Notifications_Page.obf_NV_Form_Back_Button_Label)).containsText(OBF_Notifications_Page.obf_NV_Form_Back_Button_Label);
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_Notifications_Page.obf_NV_Form_Back_Button_Label).click();
         MiscUtils.sleep(1000);
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_Notifications_Page.obf_NV_Form_Approval_Label, new FrameLocator.GetByLabelOptions().setExact(true)).isVisible();
         assertThat(PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_Notifications_Page.obf_NV_Form_Approval_Label, new FrameLocator.GetByLabelOptions().setExact(true))).hasValue(OBF_Notifications_Page.obf_NV_Approval_Page_State_Text_Box_Value_Approved);
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
     }
 
     /**
@@ -150,7 +150,7 @@ public class OBF_Notifications_StepImpl {
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_NCI_NV_Form_Page.obf_NV_Page_Number_Label, new FrameLocator.GetByLabelOptions().setExact(true)).click();
         MiscUtils.sleep(20000); //wait for an approval email
         PlaywrightUtils.page.getByPlaceholder(OBF_Notifications_Page.obf_NV_Emails_Search_Filter_Label).isVisible();
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         PlaywrightUtils.page.getByPlaceholder(OBF_Notifications_Page.obf_NV_Emails_Search_Filter_Label).click();
         PlaywrightUtils.page.getByPlaceholder(OBF_Notifications_Page.obf_NV_Emails_Search_Filter_Label).fill(OBF_Notifications_Page.obf_NV_Search_SystemLogs);
         PlaywrightUtils.page.getByPlaceholder(OBF_Notifications_Page.obf_NV_Emails_Search_Filter_Label).press(OBF_Notifications_Page.press_Enter_Key);
@@ -175,18 +175,18 @@ public class OBF_Notifications_StepImpl {
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_Notifications_Page.nv_Email_Search_Email_Subject_Option, new FrameLocator.GetByLabelOptions().setExact(true)).click();
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_Notifications_Page.nv_Email_Search_Email_Subject_Option, new FrameLocator.GetByLabelOptions().setExact(true)).fill(OBF_Notifications_Page.obf_Approval_Email_Subject(ticketNumber));
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_Notifications_Page.nv_Run_Filter_Button).click();
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         assertThat(PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_Notifications_Page.obf_NV_Form_Email_Preview_Record).first()).isVisible();
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_Notifications_Page.obf_NV_Form_Email_Preview_Record).first().click();
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         assertThat(PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByRole(AriaRole.LINK, new FrameLocator.GetByRoleOptions().setName(OBF_NCI_NV_Form_Page.obf_NV_Page_Open_Record_Button).setExact(true))).isVisible();
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByRole(AriaRole.LINK, new FrameLocator.GetByRoleOptions().setName(OBF_NCI_NV_Form_Page.obf_NV_Page_Open_Record_Button).setExact(true)).click();
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         assertThat(PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).locator(OBF_Notifications_Page.obf_NV_Email_Page_Subject_Locator)).containsText(OBF_Notifications_Page.nv_Email_Search_Email_Subject_Option);
         assertThat(PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByLabel(OBF_Notifications_Page.nv_Email_Search_Email_Subject_Option)).hasValue(OBF_Notifications_Page.obf_Approval_Email_Subject(ticketNumber));
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName(OBF_Notifications_Page.nv_Email_Page_Preview_Email_Link)).scrollIntoViewIfNeeded();
         PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName(OBF_Notifications_Page.nv_Email_Page_Preview_Email_Link)).click();
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         assertThat(PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).frameLocator(OBF_Notifications_Page.nv_Email_Preview_Email_IFrame_Locator).getByRole(AriaRole.PARAGRAPH)).containsText(OBF_Notifications_Page.nv_Email_Notification_Content_Greeting_Hello);
         assertThat(PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).frameLocator(OBF_Notifications_Page.nv_Email_Preview_Email_IFrame_Locator).locator(OBF_Notifications_Page.nv_Email_Preview_Email_Body_Locator)).containsText(OBF_Notifications_Page.obf_Approval_Email_Subject(ticketNumber));
         assertThat(PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).frameLocator(OBF_Notifications_Page.nv_Email_Preview_Email_IFrame_Locator).locator(OBF_Notifications_Page.nv_Email_Preview_Email_Body_Locator)).containsText(OBF_Notifications_Page.nv_Approval_Email_Notification_Content_Line_Three);
@@ -200,7 +200,7 @@ public class OBF_Notifications_StepImpl {
         assertThat(PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).frameLocator(OBF_Notifications_Page.nv_Email_Preview_Email_IFrame_Locator).locator(OBF_Notifications_Page.nv_Email_Preview_Email_Body_Locator)).containsText(OBF_Notifications_Page.nv_Email_Notification_Short_description_Content_Line);
         assertThat(PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).frameLocator(OBF_Notifications_Page.nv_Email_Preview_Email_IFrame_Locator).locator(OBF_Notifications_Page.nv_Email_Preview_Email_Body_Locator)).containsText(OBF_Notifications_Page.nv_Email_Notification_Description_Content_Line);
         assertThat(PlaywrightUtils.page.frameLocator(OBF_NCI_NV_Form_Page.nv_Page_Frame_Locator).frameLocator(OBF_Notifications_Page.nv_Email_Preview_Email_IFrame_Locator).locator(OBF_Notifications_Page.nv_Email_Notification_Html_Locator)).containsText(OBF_Notifications_Page.nv_Email_Notification_Email_Signature_Content);
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
         OBF_NCI_NV_Form_StepImpl.deleteTheOBFTicketAutomationRecord();
     }
 }
