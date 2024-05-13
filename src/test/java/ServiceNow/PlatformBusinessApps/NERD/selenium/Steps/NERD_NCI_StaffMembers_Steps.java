@@ -1,10 +1,9 @@
 package ServiceNow.PlatformBusinessApps.NERD.selenium.Steps;
 
-import ServiceNow.PlatformBusinessApps.NERD.selenium.Constants.ReturningSubmissions_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.selenium.Constants.TopAccomplishmentsSubmission_Constants;
-import ServiceNow.PlatformBusinessApps.NERD.selenium.StepsImplementation.NERDApplicationStepsImplementation;
 import ServiceNow.PlatformBusinessApps.NERD.selenium.StepsImplementation.NERD_NCI_StaffMemberStepsImplementation;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class NERD_NCI_StaffMembers_Steps {
@@ -21,5 +20,15 @@ public class NERD_NCI_StaffMembers_Steps {
     @When("DOC Planning Contact returning the Top Accomplishments submission back to NCI Staff Member")
     public void doc_planning_contact_returning_the_top_accomplishments_submission_back_to_nci_staff_member() {
         NERD_NCI_StaffMemberStepsImplementation.doc_planning_contact_returning_the_top_accomplishments_submission_back_to_nci_staff_member(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME);
+    }
+
+    @When("NCI Staff Member views Top Accomplishments submission category")
+    public void nci_staff_member_views_top_accomplishments_submission_category() {
+        NERD_NCI_StaffMemberStepsImplementation.nci_staff_member_views_top_accomplishments_submission_category();
+    }
+
+    @Then("NCI Staff Member DOES NOT see the {string} button for returned record")
+    public void nci_staff_member_does_not_see_the_button_for_returned_record(String delete) {
+        NERD_NCI_StaffMemberStepsImplementation.nci_staff_member_does_not_see_the_button_for_returned_record(delete);
     }
 }
