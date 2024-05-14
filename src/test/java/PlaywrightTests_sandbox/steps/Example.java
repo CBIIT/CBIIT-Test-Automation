@@ -108,14 +108,25 @@ public class Example {
 
             assertThat(page.getByRole(AriaRole.TOOLTIP)).containsText("Select the Intramural or Extramural Professional Designation for your vacancy. Select “N/A” for Stadtman positions.");
             page.locator("label").filter(new Locator.FilterOptions().setHasText("Position Classification")).locator("a").click();
+
+
+
+
+
             page.locator("label").filter(new Locator.FilterOptions().setHasText("Organizational Code")).locator("a").click();
             assertThat(page.getByRole(AriaRole.TOOLTIP)).containsText("Provide SAC code for organization where the position will reside.");
+
+
             page.locator("label").filter(new Locator.FilterOptions().setHasText("Personnel Action Tracking Solution (PATS) Initiator")).locator("a").click();
             assertThat(page.getByRole(AriaRole.TOOLTIP)).containsText("Populate the individual who will be assembling the appointment package within the Personnel Action Tracking Solution (PATS). Value defaults to the SSJ Vacancy Manager, but can be updated within the SSJ or later in PATS.");
+
             page.getByLabel("Position Classification").click();
             page.getByTitle("Research Fellow", new Page.GetByTitleOptions().setExact(true)).locator("div").click();
             page.getByLabel("Organizational Code").click();
             page.getByTitle("HNC", new Page.GetByTitleOptions().setExact(true)).locator("div").click();
+
+
+
             assertThat(page.locator("#BasicInfo")).containsText("Holly Gemar-Griffith");
             page.getByText("Holly Gemar-Griffith").nth(1).click();
             page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Save")).click();

@@ -1,10 +1,6 @@
 package ServiceNow.PlatformBusinessApps.SSJ.playwright.Utils;
 
-import com.beust.ah.A;
-
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 public class SSJ_Constants {
 
@@ -41,7 +37,7 @@ public class SSJ_Constants {
         }
     };
 
-    public static final ArrayList<String> ORG_CODES = new ArrayList<String>() {
+    public static final ArrayList<String> ORG_CODES = new ArrayList<>() {
         {
             add("HNC");
             add("HNC1");
@@ -392,4 +388,3 @@ public class SSJ_Constants {
         }
     };
 }
-
