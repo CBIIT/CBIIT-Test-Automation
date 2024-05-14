@@ -1,7 +1,7 @@
 Feature: OWM Vacancy Manager Scenarios
   Description: This Feature file contains OWM Vacancy Manager Scenarios
 
-  @SSJ-7 @SSJ-8 @Regression @Progression @juarezds
+  @SSJ-7 @SSJ-8 @Regression @juarezds @Progression
   Scenario: Verification of Basic Vacancy Information section while creating an NCI Vacancy
     When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
@@ -27,8 +27,8 @@ Feature: OWM Vacancy Manager Scenarios
     And User verifies Full Contact Details for References slider has 16 (Zero - fifteen) options
     And User verifies that Number of Scoring Categories slider is set to "4" by default
     And User verifies Number of Scoring Categories slider has 6 (One - six) options
-#    And User verifies that all positions are present via Position Classification dropdown
-#    And  User verifies all org codes are present via Organizational Code dropdown
+    And User verifies that all positions are present via Position Classification dropdown
+    And  User verifies all org codes are present via Organizational Code dropdown
     And User verifies the text of "Position Classification" i tooltip is
     """
   Select the Intramural or Extramural Professional Designation for your vacancy. Select “N/A” for Stadtman positions.
