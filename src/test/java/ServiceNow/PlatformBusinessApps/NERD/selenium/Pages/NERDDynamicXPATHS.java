@@ -9,6 +9,15 @@ import java.util.List;
 public class NERDDynamicXPATHS extends CommonUtils {
 
 	/**
+	 * TOP ACCOMPLISHMENT TITLE
+	 * @param value
+	 * @return
+	 */
+	public WebElement topAccomplishmentSubmissionTitle(String value) {
+		return WebDriverUtils.webDriver.findElement(By.xpath("//a[text()='" + value + "']"));
+	}
+
+	/**
 	 * ------------ COLLABORATION SUBMISSIONS BY DOC PLANNING CONTACT -----------
 	 */
 
@@ -144,7 +153,7 @@ public class NERDDynamicXPATHS extends CommonUtils {
 	}
 
 	/** Submit Button Returned to Staff Member */
-	public WebElement submitButtonReturnedToStaffMember(String value) {
+	public WebElement submitButton(String value) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//a[text()='" + value + "']/following::button[1]"));
 	}
 

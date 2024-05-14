@@ -17,6 +17,6 @@ public class OFFBOARD_StepsImpl {
         PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(NCISP_Page.servicesLink).setExact(true)).click();
         PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(NCISP_Page.cbiit_BizServicesLink)).first().click();
         PlaywrightUtils.page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(NCISP_Page.cbiit_OffBoardingLink).setExact(true)).click();
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
     }
 }

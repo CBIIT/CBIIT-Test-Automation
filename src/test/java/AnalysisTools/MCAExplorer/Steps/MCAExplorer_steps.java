@@ -45,6 +45,11 @@ public class MCAExplorer_steps extends PageInitializer {
 	public void verify_that_there_are_rows_in_the_result() {
 		mcaExplorerStepImp.validateNumberOfRows();
 	}
+	
+	@Then("Verify there is alert on the screen")
+	public void verify_there_is_alert_present_on_screen() {
+		mcaExplorerStepImp.verifyIfAlertIsPresent();
+	}
 
 	@Then("Zoom in in the circle")
 	public void zoom_function() {

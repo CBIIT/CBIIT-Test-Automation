@@ -60,4 +60,10 @@ public class ReturningSubmissions_Constants {
 
     /* SUBMISSION PUBLISHED TEXT */
     public static final String SUBMISSION_PUBLISHED_TEXT = "Published";
+
+    /* SUBMISSION SUBMIT BUTTON TEXT */
+    public static final String SUBMIT_BUTTON_TEXT = "Submit";
+
+    /* SUBMISSION SUBMIT BUTTON TEXT */
+    public static final String EDIT_BUTTON_TEXT = "Edit";
 }

@@ -4,6 +4,8 @@ import AnalysisTools.ACT24.Pages.*;
 import AnalysisTools.ACT24.StepsImpl.ACT24ParticipantStepImpl;
 import AnalysisTools.ACT24.StepsImpl.ACT24ResearcherStepImpl;
 import AnalysisTools.Comets2.Pages.*;
+import AnalysisTools.CometsAnalytics.Pages.*;
+import AnalysisTools.CometsAnalytics.StepsImplementation.*;
 import AnalysisTools.GDSTracking.Pages.*;
 import AnalysisTools.GWASExplorer.Pages.*;
 import AnalysisTools.GWASTarget.Pages.*;
@@ -316,9 +318,7 @@ public class PageInitializer extends WebDriverUtils {
 	/** ACT24 instances **/
 	public static ACT24ParticipantPortalPage act24ParticipantPortalPage;
 	public static ACT24ResearcherPortalPage act24ResearcherPortalPage;
-
 	public static ACT24ResearcherStepImpl act24ResearcherStepImpl;
-
 	public static ACT24ParticipantStepImpl act24ParticipantStepImpl;
 
 	/** GWAS Target instances **/
@@ -368,6 +368,10 @@ public class PageInitializer extends WebDriverUtils {
 	/** --------------- THREEDVIZSNP INSTANCES --------*/
 	public static ThreeDVizSNPPage threeDVizSNPPage;
 	public static ThreeDVizSNPStepImp threeDVizSNPStepImp;
+	
+	/** ----------------- COMETS ANALYTICS INSTANCES -----*/
+	public static CometsAnalyticsPage cometsAnalyticsPage;
+	public static CometsAnalyticsStepImp cometsAnalyticsStepImp;
 	
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
@@ -670,7 +674,10 @@ public class PageInitializer extends WebDriverUtils {
 		
 		/** THREEDVIZSNP INSTANCE VARIABLES  */
 		threeDVizSNPPage =  new ThreeDVizSNPPage();
-		threeDVizSNPStepImp = new ThreeDVizSNPStepImp();
+		
+		/** COMETS ANALYTICS INSTANCE VARIABLES */
+		cometsAnalyticsPage = new CometsAnalyticsPage();
+		cometsAnalyticsStepImp = new CometsAnalyticsStepImp();
 		
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}
