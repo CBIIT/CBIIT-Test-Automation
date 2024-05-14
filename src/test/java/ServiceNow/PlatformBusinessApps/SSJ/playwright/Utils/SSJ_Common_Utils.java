@@ -18,7 +18,7 @@ public class SSJ_Common_Utils {
     public static void selectingTodaysCalendarOption(String locator){
         List<ElementHandle> days = PlaywrightUtils.page.querySelectorAll(locator);
         for (ElementHandle day : days) {
-            if (day.getAttribute("title").equals(CommonUtils.getCurrentDateIn_YYYYMMDD_format())) {
+            if (day.getAttribute("title").equals(CommonUtils.getCurrentDateIn_YYYY_MM_DD_format())) {
                 day.click();
                 break;
             }
@@ -33,8 +33,8 @@ public class SSJ_Common_Utils {
     public static void selectingAMonthFromTodaysDateCalendarOption(String locator){
         List<ElementHandle> list = PlaywrightUtils.page.querySelectorAll(locator);
         for (ElementHandle day : list) {
-            if (day.getAttribute("title").trim().equals(CommonUtils.getDateOneMonthFromNowin_YYYY_MM_DD_format().trim())) {
-                PlaywrightUtils.page.locator("(//*[@title='"+ CommonUtils.getDateOneMonthFromNowin_YYYY_MM_DD_format()+ "'])[2]").click();
+            if (day.getAttribute("title").trim().equals(CommonUtils.getDateOneMonthFromNowIn_YYYY_MM_DD_format().trim())) {
+                PlaywrightUtils.page.locator("(//*[@title='"+ CommonUtils.getDateOneMonthFromNowIn_YYYY_MM_DD_format()+ "'])[2]").click();
                 break;
             }
         }

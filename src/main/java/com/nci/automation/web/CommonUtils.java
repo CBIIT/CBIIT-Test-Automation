@@ -11,7 +11,6 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -771,7 +770,7 @@ public class CommonUtils extends WebDriverUtils {
      *
      * @return the current date
      */
-    public static String getCurrentDateIn_YYYYMMDD_format() {
+    public static String getCurrentDateIn_YYYY_MM_DD_format() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate today = LocalDate.now();
         return today.format(formatter);
@@ -782,7 +781,7 @@ public class CommonUtils extends WebDriverUtils {
      *
      * @return the date one month from the current date in "YYYY-MM-DD" format
      */
-    public static String getDateOneMonthFromNowin_YYYY_MM_DD_format() {
+    public static String getDateOneMonthFromNowIn_YYYY_MM_DD_format() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate oneMonthFromNow = LocalDate.now().plusMonths(1);
         return oneMonthFromNow.format(formatter);

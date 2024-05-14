@@ -100,8 +100,8 @@ public class OWM_Vacancy_Manager_Steps {
 
         List<ElementHandle> list = page.querySelectorAll(Vacancy_Dashboard_Page.closeDateCalendarOptions);
         for (ElementHandle day : list) {
-            if (day.getAttribute("title").trim().equals(CommonUtils.getDateOneMonthFromNowin_YYYY_MM_DD_format().trim())) {
-                page.locator("(//*[@title='" + CommonUtils.getDateOneMonthFromNowin_YYYY_MM_DD_format() + "'])[1]").click();
+            if (day.getAttribute("title").trim().equals(CommonUtils.getDateOneMonthFromNowIn_YYYY_MM_DD_format().trim())) {
+                page.locator("(//*[@title='" + CommonUtils.getDateOneMonthFromNowIn_YYYY_MM_DD_format() + "'])[1]").click();
                 break;
             }
         }
@@ -116,8 +116,8 @@ public class OWM_Vacancy_Manager_Steps {
 
         List<ElementHandle> list = page.querySelectorAll(Vacancy_Dashboard_Page.calendarOptions);
         for (ElementHandle day : list) {
-            if (day.getAttribute("title").trim().equals(CommonUtils.getDateOneMonthFromNowin_YYYY_MM_DD_format().trim())) {
-                page.locator("(//*[@title='" + CommonUtils.getDateOneMonthFromNowin_YYYY_MM_DD_format() + "'])[2]").click();
+            if (day.getAttribute("title").trim().equals(CommonUtils.getDateOneMonthFromNowIn_YYYY_MM_DD_format().trim())) {
+                page.locator("(//*[@title='" + CommonUtils.getDateOneMonthFromNowIn_YYYY_MM_DD_format() + "'])[2]").click();
                 break;
             }
         }
