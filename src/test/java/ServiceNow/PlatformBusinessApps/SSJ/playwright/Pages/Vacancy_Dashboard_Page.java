@@ -66,4 +66,9 @@ public class Vacancy_Dashboard_Page {
      * POSITION CLASSIFICATION DROPDOWN
      */
     public static String positionClassificationDropDown = "(//input[@aria-owns='BasicInfo_positionClassification_list'])[1]";
+
+    /**
+     * ORGANIZATIONAL CODE DROPDOWN
+     */
+    public static String organizationCodeDropDown = "//input[@aria-owns='BasicInfo_sacCode_list']";
 }

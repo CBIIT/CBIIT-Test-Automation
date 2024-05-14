@@ -28,9 +28,10 @@ Feature: OWM Vacancy Manager Scenarios
     And User verifies that Number of Scoring Categories slider is set to "4" by default
     And User verifies Number of Scoring Categories slider has 6 (One - six) options
     And User verifies that all positions are present via Position Classification dropdown
+    And  User verifies all org codes are present via Organizational Code dropdown
+    And User verifies the text of "Position Classification" i tooltip
 
-#    And  User verifies all codes are present via Organizational Code dropdown
-#    And User verifies the text of "Position Classification" i icon
+
 #    And User verifies the text of "Organizational Code" i icon
 #    And User verifies the text of "Personnel Action Tracking Solution (PATS) Initiator" i icon
 #    And User clicks "Save" button

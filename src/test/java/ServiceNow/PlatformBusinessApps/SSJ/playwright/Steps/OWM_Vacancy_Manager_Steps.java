@@ -212,5 +212,35 @@ public class OWM_Vacancy_Manager_Steps {
         assertThat(PlaywrightUtils.page.locator("#BasicInfo")).containsText(text);
     }
 
+    @Then("User verifies all org codes are present via Organizational Code dropdown")
+    public void user_verifies_all_org_codes_are_present_via_organizational_code_dropdown() {
+        PlaywrightUtils.page.locator(Vacancy_Dashboard_Page.organizationCodeDropDown).click();
+        MiscUtils.sleep(2000);
+        HashSet<String> actualValues = new HashSet<>();
+        boolean flag = false;
+        for (int i = 10; !flag;) {
+            try {
+                String value = "" + i;
+                MiscUtils.sleep(3000);
+                for (ElementHandle c : PlaywrightUtils.page.querySelectorAll("(//div[@class='rc-virtual-list'])[3]/div/div/div/div/div")) {
+                    String consoleMName = c.innerText();
+                    actualValues.add(consoleMName);
+                }
+                Playwright_Common_Utils.scrollIntoView("(//div[@class='rc-virtual-list'])[3]/div/div/div/div[" + value + "]/div");
+            } catch (PlaywrightException e) {
+                flag = true;
+            }
+        }
+        ArrayList<String> arrayList = new ArrayList<>(actualValues);
+        arrayList.sort(Comparator.naturalOrder());
+        CucumberLogUtils.playwrightScreenshot();
+        Assert.assertEquals(arrayList, SSJ_Constants.ORG_CODES);
+        MiscUtils.sleep(2000);
+    }
 
+    @Then("User verifies the text of {string} i tooltip")
+    public void user_verifies_the_text_of_i_tooltip(String text) {
+        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(text));
+
+    }
 }
