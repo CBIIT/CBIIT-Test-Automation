@@ -136,7 +136,7 @@ public class ApplicantProfileStepsImpl {
         PlaywrightUtils.page.locator(Profile_Tab_Page.demographicsEditButton).click();
     }
 
-    /***
+    /**
      * USE THIS METHOD TO SHARE DEMOGRAPHICS SECTION
      */
     public static void user_chooses_to_share_demographic_details(){

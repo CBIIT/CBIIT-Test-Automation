@@ -21,6 +21,7 @@ Feature: OWM Vacancy Manager Scenarios
     And User verifies "Cover Letter" application document is marked as optional by default
     And "Add More" button is displayed for Application Documents section
     And User can add another application document
+    And User confirms that Enable Reference Collection option is displayed
     And User verifies Full Contact Details for References is set to "3" by default
     And User verifies Full Contact Details for References slider has 15 options
     And User verifies that Number of Scoring Categories slider is set to "4" by default
