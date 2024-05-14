@@ -84,7 +84,7 @@ public class ApplicantProfileSteps {
     @Given("User inputs {string} into country field - PW")
     public void user_inputs_into_country_field_pw(String country) {
         PlaywrightUtils.page.getByLabel(Profile_Tab_Page.countryTextBox).fill(country);
-        CucumberLogUtils.playwrightScreenshot();
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
     }
 
     @Given("User inputs {string} into zip field - PW")

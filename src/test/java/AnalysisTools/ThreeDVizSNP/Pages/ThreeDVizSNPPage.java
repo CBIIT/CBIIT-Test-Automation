@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;
+import java.util.List;
 
 public class ThreeDVizSNPPage extends CommonUtils {
 
@@ -57,7 +58,7 @@ public class ThreeDVizSNPPage extends CommonUtils {
 	public WebElement sortingOrderApplied;
 
 	/** FILTER OPTION **/
-	@FindBy(xpath = "//input[@type=\"input\"]")
+	@FindBy(xpath = "//input[@type='input']")
 	public WebElement filterOption;
 
 	/** NUMBER OF PAGES **/
@@ -116,6 +117,14 @@ public class ThreeDVizSNPPage extends CommonUtils {
 	public String feedbackLocator = "//button[@id='QSIFeedbackButton-btn']";
 	
 	/** FEEDBACK IFRAME **/
-	@FindBy(xpath="//*[@title=\"ICN3D\"]")
+	@FindBy(xpath="//*[@title='ICN3D']")
 	public WebElement ifrmaeFeedback;
-	}
+
+	/* THESE ARE ALL THE FILE INPUT FIELDS*/
+	@FindBy(xpath = "//div[@class='shadow p-3 rounded']//form//child::div[1]//child::div")
+	public List<WebElement> allUploadFields;
+
+	/** VCF TEXT**/
+	@FindBy(xpath="//label[normalize-space()='VCF File']")
+	public WebElement actualVcfText;
+}
