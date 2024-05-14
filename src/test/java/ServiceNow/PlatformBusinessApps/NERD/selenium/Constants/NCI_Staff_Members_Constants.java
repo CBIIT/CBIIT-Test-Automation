@@ -57,4 +57,13 @@ public class NCI_Staff_Members_Constants {
 
     /* CRS COLLABORATION NEW SUBMISSION HHS STRATEGIC PLAN ALIGNMENT DROP DOWN */
     public static final String CRS_COLLABORATION_NEW_SUBMISSION_HHS_STRATEGIC_PLAN_ALIGNMENT_DROP_DOWN  = "Strategic Goal 1: Reform, Strengthen, and Modernize the Nation's Healthcare System";
+
+    /* DOC PLANNING RETURN TO PROGRAM NCI STAFF MESSAGE */
+    public static final String DOC_PLANNING_RETURN_TO_NCI_STAFF_MESSAGE = "Testing DOC Planning Contact Returning the TOP ACCOMPLISHMENT SUBMISSION DOC To The Program NCI Staff Member";
+
+    /* DELETE BUTTON HIDDEN*/
+    public static final String DELETE_BUTTON_HIDDEN = "true";
+
+    /* EDIT BUTTON VISIBLE */
+    public static final String BUTTON_VISIBLE = "false";
 }

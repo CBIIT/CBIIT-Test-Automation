@@ -15,4 +15,7 @@ public class TopAccomplishmentsSubmission_Constants {
 
     /* TOP ACCOMPLISHMENTS RESEARCH TYPE */
     public static final String TOP_ACCOMPLISHMENTS_RESEARCH_TYPE  = "Basic";
+
+    /* TOP ACCOMPLISHMENTS ARIA HIDDEN ATTRIBUTE */
+    public static final String TOP_ACCOMPLISHMENTS_ARIA_HIDDEN_ATTRIBUTE  = "aria-hidden";
 }

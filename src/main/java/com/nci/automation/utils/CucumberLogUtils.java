@@ -28,19 +28,10 @@ public class CucumberLogUtils {
 
     /**
      * USE THIS METHOD TO ATTACH A SCREENSHOT TO CUCUMBER REPORT WHEN USING PLAYWRIGHT
-     */
-    public static void playwrightScreenshot(){
-        PlaywrightUtils.page.waitForLoadState();
-        final byte[] screenshot = PlaywrightUtils.page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("target/playwrightScreenshots/screenshot.png")));
-        scenario.attach(screenshot, "image/png", "Attaching screenshot to report");
-    }
-
-    /**
-     * USE THIS METHOD TO ATTACH A SCREENSHOT TO CUCUMBER REPORT WHEN USING PLAYWRIGHT
      * NOTE: YOU NEED TO PARAMETERIZE THE PAGE OBJECT
      * @param page
      */
-    public static void playwrightScreenshot1(Page page){
+    public static void playwrightScreenshot(Page page){
         PlaywrightUtils.page.waitForLoadState();
         final byte[] screenshot = page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("target/playwrightScreenshots/screenshot.png")));
         scenario.attach(screenshot, "image/png", "Attaching screenshot to report");
