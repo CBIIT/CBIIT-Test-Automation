@@ -8,6 +8,8 @@ import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -335,6 +337,7 @@ public class CommonUtils extends WebDriverUtils {
      * json format - for passing REST payloads
      */
     static String jsonFile;
+
     public static String readJson(String fileName) {
         try {
             jsonFile = new String(Files.readAllBytes(Paths.get(fileName)));
@@ -736,7 +739,51 @@ public class CommonUtils extends WebDriverUtils {
      * @param input
      * @return
      */
-    public static String fixPhoneFormat(String input){
-        return input.replaceFirst("(\\d{3})(\\d{3})(\\d+)","+1 ($1) $2 - $3");
+    public static String fixPhoneFormat(String input) {
+        return input.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "+1 ($1) $2 - $3");
+    }
+
+    /**
+     * Returns the current date in the format "MM/dd/yyyy".
+     *
+     * @return the current date formatted as "MM/dd/yyyy"
+     */
+    public static String getTodayDate() {
+        LocalDate date = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        return date.format(formatter);
+    }
+
+    /**
+     * Returns the date one month from today in the format "dd/MM/yyyy".
+     *
+     * @return the date one month from today in the format "dd/MM/yyyy"
+     */
+    public static String getOneMonthFromTodayDatein_DD_MM_YYY_format() {
+        LocalDate oneMonthFromToday = LocalDate.now().plusMonths(1);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        return oneMonthFromToday.format(formatter);
+    }
+
+    /**
+     * Returns the current date in the format "yyyy-MM-dd".
+     *
+     * @return the current date
+     */
+    public static String getCurrentDateIn_YYYY_MM_DD_format() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate today = LocalDate.now();
+        return today.format(formatter);
+    }
+
+    /**
+     * Returns the date one month from the current date in the format "YYYY-MM-DD".
+     *
+     * @return the date one month from the current date in "YYYY-MM-DD" format
+     */
+    public static String getDateOneMonthFromNowIn_YYYY_MM_DD_format() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate oneMonthFromNow = LocalDate.now().plusMonths(1);
+        return oneMonthFromNow.format(formatter);
     }
 }

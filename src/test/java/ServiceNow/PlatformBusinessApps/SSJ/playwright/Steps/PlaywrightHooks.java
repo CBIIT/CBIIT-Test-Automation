@@ -5,17 +5,33 @@ import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import org.testng.asserts.SoftAssert;
 
 public class PlaywrightHooks extends PlaywrightUtils {
+
+    private AssertionError assertionError;  // to hold any assertion error during the test
+    SoftAssert softAssert;
 
     @Before
     public void start(Scenario scenario){
         CucumberLogUtils.scenario = scenario;
         setUp();
+        softAssert = new SoftAssert();
+        assertionError = null;  // reset the assertion error at the start of each test
     }
 
     @After
-    public void end(){
-        tearDown();
+    public void end() {
+        try {
+            softAssert.assertAll();
+        } catch (AssertionError error) {
+            assertionError = error;
+        } finally {
+            tearDown();  // tearDown() will be always executed
+        }
+
+        if (assertionError != null) {
+            throw assertionError;  // re-throw the assertion error after tearDown()
+        }
     }
 }

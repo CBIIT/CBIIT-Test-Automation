@@ -1,36 +1,49 @@
 Feature: OWM Vacancy Manager Scenarios
   Description: This Feature file contains OWM Vacancy Manager Scenarios
 
-  @SSJ-7 @SSJ-8 @Regression
+  @SSJ-7 @SSJ-8 @Regression @juarezds
   Scenario: Verification of Basic Vacancy Information section while creating an NCI Vacancy
-    Given User is on SSJ Landing page and user is "OWM  Vacancy Manager"
-    And User navigates to tab "Vacancy Dashboard"
-    And User clicks button "Create vacancy"
-    When User clicks "Save" button
-    Then User can see alert "Please enter a title"
-    And User fills in "Vacancy Title" field
-    And User fills in "Vacancy Description" field
-    And User enables "Allow HR Specialist to Triage" option
-    And User enables "Utilizing a Set Close Date" option
+    When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
+    And User navigates to tab "Vacancy Dashboard" - PW
+    And User clicks button "+ Create Vacancy" - PW
+    And User clicks button "Save" - PW
+    Then User can see warning message "A vacancy title is required."
+    And User fills in "Vacancy Title" field with title "Testing Automation Title"
+    And User fills in "Vacancy Description" field with description "Entering Test Description"
+    And User checks "Utilizing a Set Close Date" option
     Then User verifies Close Date entry box appears
+    And User checks "Allow HR Specialist to Triage" option
     And User verifies "Yes" and "No" options are displayed for Vacancy Point of Contact Information dropdown
-    And User confirms being a POC for this vacancy
+    And User "Holly Gemar-Griffith" confirms being a POC for this vacancy after selecting Yes for being the point of contact for this vacancy
     And User sets an "Open Date" entry as today's date
-    And User sets a "Close Date" entry
+    And User sets a "Close Date" entry a month from the Open Date
     And User sets "Scoring Due By Date" entry
-    And User verifies "Cover Letter" application document is marked as optional by default
-    And "Add More" button is displayed for Application Documents section
-    And User can add another application document
+#    #REVIEW ABOVE STEP WITH BA
+    And User verifies "Cover Letter" application document is checked as optional by default
+    And " Add More" button is displayed for Application Documents section
+    And User can add another application document "Testing Document" by clicking on " Add More"
+    And User confirms that "Enable Reference Collection" checkbox is displayed
     And User verifies Full Contact Details for References is set to "3" by default
-    And User verifies Full Contact Details for References slider has 15 options
+    And User verifies Full Contact Details for References slider has 16 (Zero - fifteen) options
     And User verifies that Number of Scoring Categories slider is set to "4" by default
-    And User verifies Number of Scoring Categories slider has 6 options
+    And User verifies Number of Scoring Categories slider has 6 (One - six) options
     And User verifies that all positions are present via Position Classification dropdown
-    And  User verifies all codes are present via Organizational Code dropdown
-    And User verifies the text of "Position Classification" i icon
-    And User verifies the text of "Organizational Code" i icon
-    And User verifies the text of "Personnel Action Tracking Solution (PATS) Initiator" i icon
-    And User clicks "Save" button
+    And  User verifies all org codes are present via Organizational Code dropdown
+    And User verifies the text of "Position Classification" i tooltip is
+    """
+  Select the Intramural or Extramural Professional Designation for your vacancy. Select “N/A” for Stadtman positions.
+    """
+    And User verifies the text of "Organizational Code" i tooltip is
+    """
+  Provide SAC code for organization where the position will reside.
+    """
+    And User verifies the text of "Personnel Action Tracking Solution (PATS) Initiator" i tooltip is
+    """
+Populate the individual who will be assembling the appointment package within the Personnel Action Tracking Solution (PATS). Value defaults to the SSJ Vacancy Manager, but can be updated within the SSJ or later in PATS.
+    """
+    Then user selects Position Classification and Organizational Code options
+    And user verifies that POC "Holly Gemar-Griffith" is displayed by default for Personnel Action Tracking Solution (PATS) Initiator drop down
+    And User clicks "Save" button to save the Basic Vacancy Information
     And User confirms that User is on "Mandatory Statements" section
 
   @SSJ-69 @Regression
