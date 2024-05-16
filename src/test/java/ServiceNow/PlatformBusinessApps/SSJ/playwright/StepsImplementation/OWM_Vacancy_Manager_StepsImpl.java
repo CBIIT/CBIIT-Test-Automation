@@ -212,6 +212,11 @@ public class OWM_Vacancy_Manager_StepsImpl {
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
+    /**
+     * Verifies if the full contact details for references is set to the default value.
+     *
+     * @param expectedValue The expected value for the attribute "aria-valuenow".
+     */
     public static void user_verifies_full_contact_details_for_references_is_set_to_by_default(String expectedValue) {
         String actualText = page.locator(Vacancy_Dashboard_Page.referencesSlider).getAttribute("aria-valuenow");
         CucumberLogUtils.playwrightScreenshot(page);
