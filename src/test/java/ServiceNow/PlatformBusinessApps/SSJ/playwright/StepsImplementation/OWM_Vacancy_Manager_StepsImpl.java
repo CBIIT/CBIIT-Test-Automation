@@ -13,6 +13,7 @@ import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.PlaywrightUtils;
 import org.testng.Assert;
 
 import java.util.ArrayList;
@@ -168,6 +169,7 @@ public class OWM_Vacancy_Manager_StepsImpl {
     }
 
     public static void user_verifies_that_all_positions_are_present_via_position_classification_dropdown() {
+//        MiscUtils.sleep(2000);
         page.locator(Vacancy_Dashboard_Page.positionClassificationDropDown).click();
         MiscUtils.sleep(2000);
         HashSet<String> actualValues = new HashSet<>();
@@ -177,7 +179,7 @@ public class OWM_Vacancy_Manager_StepsImpl {
                 String value = "" + i;
                 MiscUtils.sleep(2000);
                 Playwright_Common_Utils.scrollIntoView("(//div[@class='rc-virtual-list'])[2]/div/div/div/div[" + value + "]/div");
-                MiscUtils.sleep(2000);
+//                MiscUtils.sleep(2000);
                 for (ElementHandle c : page.querySelectorAll("(//div[@class='rc-virtual-list'])[2]/div/div/div/div/div")) {
                     String consoleMName = c.innerText();
                     actualValues.add(consoleMName);
@@ -187,6 +189,18 @@ public class OWM_Vacancy_Manager_StepsImpl {
                 flag = true;
             }
         }
+
+
+//        page.locator(Vacancy_Dashboard_Page.positionClassificationDropDown).focus();
+//
+//        for (int i = 0; i < 28; i++) {
+//            page.keyboard().press("ArrowUp"); // Scroll up
+//            page.waitForTimeout(500); // Short pause to ensure smooth scrolling
+//        }
+
+
+
+
         ArrayList<String> arrayList = new ArrayList<>(actualValues);
         arrayList.sort(Comparator.naturalOrder());
         CucumberLogUtils.playwrightScreenshot(page);
@@ -204,7 +218,7 @@ public class OWM_Vacancy_Manager_StepsImpl {
         MiscUtils.sleep(2000);
         HashSet<String> actualValues = new HashSet<>();
         boolean flag = false;
-        for (int i = 10; !flag;) {
+        for (int i = 10; !flag; ) {
             try {
                 String value = "" + i;
                 MiscUtils.sleep(3000);
@@ -232,34 +246,29 @@ public class OWM_Vacancy_Manager_StepsImpl {
 
     public static void user_selects_position_classification_and_organizational_code_options() {
 
-        page.getByLabel("Position Classification").click();
-
+       // page.getByLabel("Position Classification").click();
+        page.locator(Vacancy_Dashboard_Page.positionClassificationDropDown).click();
         MiscUtils.sleep(2000);
-        boolean flag = false;
-        for (int i = 1; !flag; i--) {
-            try {
-                String value = "" + i;
-                MiscUtils.sleep(3000);
 
-                    for (ElementHandle option : page.querySelectorAll("(//div[@class='rc-virtual-list'])[3]/div/div/div/div[" + value + "]/div")) {
-                        if (option.innerText().equals("Research Fellow")) {
-                            option.click();
-                            break;
-                        }
-                    }
-                Playwright_Common_Utils.scrollIntoView("(//div[@class='rc-virtual-list'])[3]/div/div/div/div[" + value + "]/div");
-            } catch (PlaywrightException e) {
-                flag = true;
-            }
+        page.locator(Vacancy_Dashboard_Page.positionClassificationDropDown).focus();
+        for (int i = 0; i < 28; i++) {
+            page.keyboard().press("ArrowUp"); // Scroll up
+            page.waitForTimeout(200); // Short pause to ensure smooth scrolling
+        }
+        page.getByTitle("Research Fellow", new Page.GetByTitleOptions().setExact(true)).locator("div").click();
+
+        page.locator(Vacancy_Dashboard_Page.organizationCodeDropDown).click();
+//        page.locator(Vacancy_Dashboard_Page.organizationCodeDropDown).fill("HNC");
+        page.locator(Vacancy_Dashboard_Page.organizationCodeDropDown).focus();
+        for (int i = 0; i < 346; i++) {
+            page.keyboard().press("ArrowUp"); // Scroll up
+            page.waitForTimeout(200); // Short pause to ensure smooth scrolling
         }
 
-
-
-
-        page.getByTitle("Research Fellow", new Page.GetByTitleOptions().setExact(true)).locator("div").click();
-        page.getByLabel("Organizational Code").click();
+//        page.getByLabel("Organizational Code").click();
         page.getByTitle("HNC", new Page.GetByTitleOptions().setExact(true)).locator("div").click();
-        CucumberLogUtils.playwrightScreenshot(page);
+        MiscUtils.sleep(4000);
+//        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     public static void user_verifies_that_poc_is_displayed_by_default_for_personnel_action_tracking_solution_pats_initiator_drop_down(String poc) {
