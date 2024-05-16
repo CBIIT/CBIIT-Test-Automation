@@ -14,5 +14,4 @@ public class Playwright_Common_Utils {
         Locator element = PlaywrightUtils.page.locator(locator);
         element.evaluate("element => element.scrollIntoView()");
     }
-
 }
