@@ -10,6 +10,7 @@ import AnalysisTools.GDSTracking.Pages.*;
 import AnalysisTools.GWASExplorer.Pages.*;
 import AnalysisTools.GWASTarget.Pages.*;
 import AnalysisTools.ICRP.Pages.*;
+import AnalysisTools.Soccer.playwright.Pages.SoccerPage;
 import AnalysisTools.ezQTL.Pages.*;
 import AnalysisTools.cProSite.Pages.*;
 import AnalysisTools.CEDCD.Pages.*;
@@ -20,7 +21,6 @@ import AnalysisTools.LDLink.Pages.*;
 import AnalysisTools.MCAExplorer.Pages.MCAExplorerPage;
 import AnalysisTools.MCAExplorer.StepsImplementations.MCAExplorerStepImp;
 import AnalysisTools.ThreeDVizSNP.Pages.ThreeDVizSNPPage;
-import AnalysisTools.ThreeDVizSNP.StepsImplementations.ThreeDVizSNPStepImp;
 import AnalysisTools.mSigPortal.Pages.*;
 import AnalysisTools.scAtlas.Pages.SCAtlasCohortsPage;
 import AnalysisTools.scAtlas.Pages.SCAtlasHomePage;
@@ -367,11 +367,13 @@ public class PageInitializer extends WebDriverUtils {
 	
 	/** --------------- THREEDVIZSNP INSTANCES --------*/
 	public static ThreeDVizSNPPage threeDVizSNPPage;
-	public static ThreeDVizSNPStepImp threeDVizSNPStepImp;
 	
 	/** ----------------- COMETS ANALYTICS INSTANCES -----*/
 	public static CometsAnalyticsPage cometsAnalyticsPage;
 	public static CometsAnalyticsStepImp cometsAnalyticsStepImp;
+
+	/** --------------- SOCCER INSTANCES --------*/
+	public static SoccerPage soccerPage;
 	
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
@@ -678,7 +680,7 @@ public class PageInitializer extends WebDriverUtils {
 		/** COMETS ANALYTICS INSTANCE VARIABLES */
 		cometsAnalyticsPage = new CometsAnalyticsPage();
 		cometsAnalyticsStepImp = new CometsAnalyticsStepImp();
-		
+
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}
 }
