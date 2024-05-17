@@ -1,10 +1,18 @@
 package ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps;
 
+import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Mandatory_Statements_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.OWM_Vacancy_Manager_StepsImpl;
+import appsCommon.Pages.Playwright_Common_Locators;
+import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
+
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
 public class OWM_Vacancy_Manager_Steps {
@@ -142,5 +150,50 @@ public class OWM_Vacancy_Manager_Steps {
     @Then("User confirms that User is on {string} section")
     public void user_confirms_that_user_is_on_section(String text) {
         OWM_Vacancy_Manager_StepsImpl.user_confirms_that_user_is_on_section(text);
+    }
+
+    @When("User verifies that {string} section title is displayed")
+    public void user_verifies_that_section_title_is_displayed(String text) {
+        assertThat(page.locator(Mandatory_Statements_Page.mandatoryStatementsHeaderTitle)).containsText(text);
+    }
+
+    @When("User verifies {string} text displayed for Mandatory Statements section")
+    public void user_verifies_text_displayed_for_mandatory_statements_section(String expectedText) {
+        assertThat(page.locator(Mandatory_Statements_Page.whatMandatoryJobStatementsWouldYouLikeQuestion)).containsText(expectedText);
+    }
+
+    @When("User confirms that {string} statement is disabled by default")
+    public void user_confirms_that_statement_is_disabled_by_default(String text) {
+        OWM_Vacancy_Manager_StepsImpl.user_confirms_that_statement_is_disabled_by_default(text);
+    }
+
+    @When("User verifies the text of {string} is displayed as")
+    public void user_verifies_the_text_of_is_displayed_as(String text, String docString) {
+        OWM_Vacancy_Manager_StepsImpl.user_verifies_the_text_of_is_displayed_as(text,docString);
+    }
+
+    @When("User verifies the text {string} is displayed and description text is")
+    public void user_verifies_the_text_is_displayed_and_description_text_is(String text, String docString) {
+        OWM_Vacancy_Manager_StepsImpl.user_verifies_the_text_is_displayed_and_description_text_is(text, docString);
+    }
+
+    @When("User verifies the text of Foreign Education {string} is displayed as")
+    public void user_verifies_the_text_of_foreign_education_is_displayed_as(String text, String docString) {
+        OWM_Vacancy_Manager_StepsImpl.user_verifies_the_text_of_foreign_education_is_displayed_as(text, docString);
+    }
+
+    @When("User verifies the text of Reasonable Accommodation {string} is displayed as")
+    public void user_verifies_the_text_of_reasonable_accommodation_is_displayed_as(String text, String docString) {
+        OWM_Vacancy_Manager_StepsImpl.user_verifies_the_text_of_reasonable_accommodation_is_displayed_as(text, docString);
+    }
+
+    @When("User can disable statement options for {string}, {string}, {string}")
+    public void user_can_disable_statement_options_for(String standardsOfConductText, String foreignEducationText, String reasonableAccommodationText) {
+        OWM_Vacancy_Manager_StepsImpl.user_can_disable_statement_options_for(standardsOfConductText, foreignEducationText, reasonableAccommodationText);
+    }
+
+    @When("can enable statement options for {string}, {string}, {string}")
+    public void can_enable_statement_options_for(String standardsOfConductText, String foreignEducationText, String reasonableAccommodationText) {
+        OWM_Vacancy_Manager_StepsImpl.can_enable_statement_options_for(standardsOfConductText, foreignEducationText, reasonableAccommodationText);
     }
 }

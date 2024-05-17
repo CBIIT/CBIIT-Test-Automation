@@ -1,5 +1,6 @@
 package ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation;
 
+import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Mandatory_Statements_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Vacancy_Dashboard_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Utils.SSJ_Common_Utils;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Utils.SSJ_Constants;
@@ -422,5 +423,109 @@ public class OWM_Vacancy_Manager_StepsImpl {
         Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(text));
         CucumberLogUtils.playwrightScreenshot(page);
         assertThat(page.locator(Playwright_Common_Locators.dynamicTextLocator(text))).isVisible();
+    }
+
+    /**
+     * Scrolls the page to the specified text, checks if the statement is disabled by default,
+     * takes a screenshot, and asserts that the statement is indeed disabled.
+     *
+     * @param text the text to locate on the page
+     */
+    public static void user_confirms_that_statement_is_disabled_by_default(String text) {
+        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(text));
+        boolean flag = page.locator(Mandatory_Statements_Page.equalEmploymentOpportunityEmployerButton).isDisabled();
+        CucumberLogUtils.playwrightScreenshot(page);
+        Assert.assertTrue(flag);
+    }
+
+    /**
+     * Verifies that the given text is displayed as expected.
+     *
+     * @param text       The text to be verified.
+     * @param docString  The expected text to compare.
+     */
+    public static void user_verifies_the_text_of_is_displayed_as(String text, String docString) {
+        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(text));
+        CucumberLogUtils.playwrightScreenshot(page);
+        assertThat(page.locator(Mandatory_Statements_Page.mandatoryStatementsEqualOpportunityEmployerText)).containsText(docString);
+    }
+
+    /**
+     * Verifies that the specified text is displayed and the description text is present.
+     * This method scrolls the page to make the text visible, takes a screenshot, and performs assertions.
+     *
+     * @param text     The text to be verified.
+     * @param docString The description text to be verified.
+     */
+    public static void user_verifies_the_text_is_displayed_and_description_text_is(String text, String docString) {
+        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(text));
+        CucumberLogUtils.playwrightScreenshot(page);
+        assertThat(page.locator(Mandatory_Statements_Page.mandatoryStatementsSelector)).containsText(text);
+        assertThat(page.locator(Mandatory_Statements_Page.standardsOfConductText)).containsText(docString);
+    }
+
+    /**
+     * Verifies that the text of foreign education is displayed as expected.
+     *
+     * @param text The expected text of foreign education.
+     * @param docString The expected text of the document.
+     */
+    public static void user_verifies_the_text_of_foreign_education_is_displayed_as(String text, String docString) {
+        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(text));
+        CucumberLogUtils.playwrightScreenshot(page);
+        assertThat(page.locator(Mandatory_Statements_Page.mandatoryStatementsSelector)).containsText(text);
+        assertThat(page.locator(Mandatory_Statements_Page.foreignEducationText)).containsText(docString);
+    }
+
+    /**
+     * Verifies that the text of the reasonable accommodation is displayed correctly.
+     *
+     * @param text The expected text of the reasonable accommodation.
+     * @param docString The expected text of the reasonable accommodation in doc string format.
+     */
+    public static void user_verifies_the_text_of_reasonable_accommodation_is_displayed_as(String text, String docString) {
+        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(text));
+        CucumberLogUtils.playwrightScreenshot(page);
+        assertThat(page.locator(Mandatory_Statements_Page.mandatoryStatementsSelector)).containsText(text);
+        assertThat(page.locator(Mandatory_Statements_Page.reasonableAccommodationText)).containsText(docString);
+    }
+
+    /**
+     * Disables statement options for a user.
+     *
+     * @param standardsOfConductText The text of the standards of conduct statement.
+     * @param foreignEducationText The text of the foreign education statement.
+     * @param reasonableAccommodationText The text of the reasonable accommodation statement.
+     */
+    public static void user_can_disable_statement_options_for(String standardsOfConductText, String foreignEducationText, String reasonableAccommodationText) {
+        int i =2;
+        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(standardsOfConductText));
+        page.locator("(//button[@role='switch'])["+ i +"]").click();
+        i++;
+        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(foreignEducationText));
+        page.locator("(//button[@role='switch'])[" + i + "]").click();
+        i++;
+        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(reasonableAccommodationText));
+        page.locator("(//button[@role='switch'])[" + i + "]").click();
+    }
+
+    /**
+     * Enables statement options for the given standards of conduct, foreign education, and reasonable accommodation texts.
+     *
+     * @param standardsOfConductText The text to locate the standards of conduct element.
+     * @param foreignEducationText The text to locate the foreign education element.
+     * @param reasonableAccommodationText The text to locate the reasonable accommodation element.
+     */
+    public static void can_enable_statement_options_for(String standardsOfConductText, String foreignEducationText, String reasonableAccommodationText) {
+        int i =2;
+        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(standardsOfConductText));
+        page.locator("(//button[@role='switch'])["+ i +"]").click();
+        i++;
+        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(foreignEducationText));
+        page.locator("(//button[@role='switch'])[" + i + "]").click();
+        i++;
+        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(reasonableAccommodationText));
+        page.locator("(//button[@role='switch'])[" + i + "]").click();
+        MiscUtils.sleep(2000);
     }
 }
