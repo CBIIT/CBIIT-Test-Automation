@@ -507,6 +507,7 @@ public class OWM_Vacancy_Manager_StepsImpl {
         i++;
         Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(reasonableAccommodationText));
         page.locator("(//button[@role='switch'])[" + i + "]").click();
+        CucumberLogUtils.playwrightScreenshot(page);
     }
 
     /**
@@ -526,6 +527,6 @@ public class OWM_Vacancy_Manager_StepsImpl {
         i++;
         Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(reasonableAccommodationText));
         page.locator("(//button[@role='switch'])[" + i + "]").click();
-        MiscUtils.sleep(2000);
+        CucumberLogUtils.playwrightScreenshot(page);
     }
 }
