@@ -27,6 +27,7 @@ public class PlaywrightHooks extends PlaywrightUtils {
         } catch (AssertionError error) {
             assertionError = error;
         } finally {
+            CucumberLogUtils.playwrightScreenshot(page);
             tearDown();  // tearDown() will be always executed
         }
 

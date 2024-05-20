@@ -2,10 +2,15 @@ package ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps;
 
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Mandatory_Statements_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.OWM_Vacancy_Manager_StepsImpl;
+import appsCommon.Pages.Playwright_Common_Locators;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
+
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
@@ -163,7 +168,7 @@ public class OWM_Vacancy_Manager_Steps {
 
     @When("User verifies the text of {string} is displayed as")
     public void user_verifies_the_text_of_is_displayed_as(String text, String docString) {
-        OWM_Vacancy_Manager_StepsImpl.user_verifies_the_text_of_is_displayed_as(text,docString);
+        OWM_Vacancy_Manager_StepsImpl.user_verifies_the_text_of_is_displayed_as(text, docString);
     }
 
     @When("User verifies the text {string} is displayed and description text is")
@@ -189,5 +194,48 @@ public class OWM_Vacancy_Manager_Steps {
     @When("can enable statement options for {string}, {string}, {string}")
     public void can_enable_statement_options_for(String standardsOfConductText, String foreignEducationText, String reasonableAccommodationText) {
         OWM_Vacancy_Manager_StepsImpl.can_enable_statement_options_for(standardsOfConductText, foreignEducationText, reasonableAccommodationText);
+    }
+
+    @When("User clicks on {string} option on the left bar menu")
+    public void user_clicks_on_option_on_the_left_bar_menu(String text) {
+        page.locator(Playwright_Common_Locators.dynamicTextLocator(text)).click();
+    }
+
+    @When("User verifies {string} text is displayed for Vacancy Committee section")
+    public void user_verifies_text_is_displayed_for_section(String expectedAddAndManageVacancyCommitteeText) {
+        String actualText = page.locator(Playwright_Common_Locators.dynamicTextLocator(expectedAddAndManageVacancyCommitteeText)).innerText();
+        Assert.assertEquals(actualText, expectedAddAndManageVacancyCommitteeText);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    @When("User verifies the following Vacancy Committee column headers are displayed {string}, {string}, {string}")
+    public void user_verifies_the_following_vacancy_committee_column_headers_are_displayed(String expectedCommitteeMemberText, String expectedRoleText, String expectedActionsText) {
+        String actualCommitteeMemberText = page.locator(Playwright_Common_Locators.dynamicTextLocator(expectedCommitteeMemberText)).innerText();
+        String actualRoleText = page.locator(Playwright_Common_Locators.dynamicTextLocator(expectedRoleText)).innerText();
+        String actualActionsText = page.locator(Playwright_Common_Locators.dynamicTextLocator(expectedActionsText)).innerText();
+        Assert.assertEquals(actualCommitteeMemberText, expectedCommitteeMemberText);
+        Assert.assertEquals(actualRoleText, expectedRoleText);
+        Assert.assertEquals(actualActionsText, expectedActionsText);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    @When("User confirms {string} button is displayed")
+    public void user_confirms_button_is_displayed(String expectedText) {
+        String actualText = page.locator(Playwright_Common_Locators.dynamicTextLocator(expectedText)).innerText();
+        Assert.assertEquals(actualText, expectedText);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    @Then("User can see Chair {string} role option is displayed by default for Role drop down")
+    public void user_can_see_chair_role_option_is_displayed_by_default_for_role_drop_down(String expectedText) {
+        String actualText = page.locator(Playwright_Common_Locators.dynamicTextLocator(expectedText)).innerText();
+        Assert.assertEquals(actualText, expectedText);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    @When("User clicks {string} for Actions")
+    public void user_clicks_for_actions(String text) {
+        page.locator(Playwright_Common_Locators.dynamicTextLocator(text)).click();
+        MiscUtils.sleep(2000);
     }
 }
