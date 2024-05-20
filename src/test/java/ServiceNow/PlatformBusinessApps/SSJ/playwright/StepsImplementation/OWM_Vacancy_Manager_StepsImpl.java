@@ -498,15 +498,11 @@ public class OWM_Vacancy_Manager_StepsImpl {
      * @param reasonableAccommodationText The text of the reasonable accommodation statement.
      */
     public static void user_can_disable_statement_options_for(String standardsOfConductText, String foreignEducationText, String reasonableAccommodationText) {
-        int i =2;
-        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(standardsOfConductText));
-        page.locator("(//button[@role='switch'])["+ i +"]").click();
-        i++;
-        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(foreignEducationText));
-        page.locator("(//button[@role='switch'])[" + i + "]").click();
-        i++;
-        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(reasonableAccommodationText));
-        page.locator("(//button[@role='switch'])[" + i + "]").click();
+        String[] texts = { standardsOfConductText, foreignEducationText, reasonableAccommodationText };
+        for (int i = 0; i < texts.length; i++) {
+            Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(texts[i]));
+            page.locator("(//button[@role='switch'])[" + (i + 2) + "]").click();
+        }
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -518,15 +514,11 @@ public class OWM_Vacancy_Manager_StepsImpl {
      * @param reasonableAccommodationText The text to locate the reasonable accommodation element.
      */
     public static void can_enable_statement_options_for(String standardsOfConductText, String foreignEducationText, String reasonableAccommodationText) {
-        int i =2;
-        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(standardsOfConductText));
-        page.locator("(//button[@role='switch'])["+ i +"]").click();
-        i++;
-        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(foreignEducationText));
-        page.locator("(//button[@role='switch'])[" + i + "]").click();
-        i++;
-        Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(reasonableAccommodationText));
-        page.locator("(//button[@role='switch'])[" + i + "]").click();
+        String[] texts = { standardsOfConductText, foreignEducationText, reasonableAccommodationText };
+        for (int i = 0; i < texts.length; i++) {
+            Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(texts[i]));
+            page.locator("(//button[@role='switch'])[" + (i + 2) + "]").click();
+        }
         CucumberLogUtils.playwrightScreenshot(page);
     }
 }
