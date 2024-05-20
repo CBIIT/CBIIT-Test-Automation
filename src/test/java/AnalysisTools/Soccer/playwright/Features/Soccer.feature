@@ -43,6 +43,3 @@ Feature:This feature files is for soccer features
     Given User navigates to soccer home page
     Then User click on FAQ button
     Then verify that user is able to navigate to FAQ Page
-
-
-

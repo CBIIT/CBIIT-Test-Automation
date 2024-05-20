@@ -680,7 +680,6 @@ public class PageInitializer extends WebDriverUtils {
 		/** COMETS ANALYTICS INSTANCE VARIABLES */
 		cometsAnalyticsPage = new CometsAnalyticsPage();
 		cometsAnalyticsStepImp = new CometsAnalyticsStepImp();
-
 		NativeView_SideDoor_PageInitializer.initialize_Side_Door_Pages();
 	}
 }
