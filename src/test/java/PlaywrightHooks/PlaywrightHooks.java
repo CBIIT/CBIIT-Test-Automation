@@ -1,4 +1,4 @@
-package ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps;
+package PlaywrightHooks;
 
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.PlaywrightUtils;
@@ -10,7 +10,7 @@ import org.testng.asserts.SoftAssert;
 public class PlaywrightHooks extends PlaywrightUtils {
 
     private AssertionError assertionError;  // to hold any assertion error during the test
-    SoftAssert softAssert;
+    static SoftAssert softAssert;
 
     @Before
     public void start(Scenario scenario){

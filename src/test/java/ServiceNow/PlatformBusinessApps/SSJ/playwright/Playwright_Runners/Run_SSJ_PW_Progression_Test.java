@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
         "junit:target/cucumber.xml", "rerun:target/failed.txt",
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
         , features = "src/test/java/ServiceNow/PlatformBusinessApps/SSJ/playwright/Features"
-        , glue = "ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps"
+        , glue = {"ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps", "PlaywrightHooks"}
         , tags = "@Progression"
         , dryRun = false
 )

@@ -46,27 +46,39 @@ Populate the individual who will be assembling the appointment package within th
     And User clicks "Save" button to save the Basic Vacancy Information
     And User confirms that User is on "Mandatory Statements" section
 
-  @SSJ-69 @Regression
+  @SSJ-69 @Regression @juarezds
   Scenario: Verification of Mandatory Statements section while creating an NCI Vacancy
-    Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
-    And User navigates to tab "Vacancy Dashboard"
-    And User clicks button "Create vacancy"
-    And User fills in "Vacancy Title" field
-    And User clicks "Save" button
+    When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
+    And User navigates to tab "Vacancy Dashboard" - PW
+    And User clicks button "+ Create Vacancy" - PW
+    And User fills in "Vacancy Title" field with title "Testing Automation Title"
+    And User clicks button "Save" - PW
+    And User confirms that User is on "Mandatory Statements" section
     And User verifies that "Mandatory Statements" section title is displayed
-    And User verifies "What mandatory job statements would you like to include with the posting?" text displayed for "Mandatory Statements" section
+    And User verifies "What mandatory job statements would you like to include with the posting?" text displayed for Mandatory Statements section
     And User confirms that "Equal Opportunity Employer" statement is disabled by default
-    And User verifIes the text of "Standards of Conduct/Financial Disclosure" is displayed as "The National Institutes of Health inspires public confidence in our science by maintaining high ethical principles. NIH employees are subject to Federal government-wide regulations and statutes as well as agency-specific regulations described at the NIH Ethics Website. We encourage you to review this information. The position is subject to a background investigation and requires the incumbent to complete a public financial disclosure report prior to the effective date of the appointment."
-    And User verifies the text of "Foreign Education" is displayed as "Applicants who have completed part or all of their education outside of the U.S. must have their foreign education evaluated by an accredited organization to ensure that the foreign education is equivalent to education received in accredited educational institutions in the United States. We will only accept the completed foreign education evaluation. For more information on foreign education verification, visit the https://www.naces.or website. Verification must be received prior to the effective date of the appointment."
-    And User verifies the text of "Reasonable Accommodation" is displayed as "NIH provides reasonable accommodations to applicants with disabilities. If you require reasonable accommodation during any part of the application and hiring process, please notify us. The decision on granting reasonable accommodation will be made on a case-by-case basis."
-    And User can disable statement options
-      | Standards of Conduct/Financial Disclosure | Foreign Education | Reasonable Accommodation |
-    And can enable statement options
-      | Standards of Conduct/Financial Disclosure | Foreign Education | Reasonable Accommodation |
-    And User clicks "Save" button
-    And User confirms that User is on "Vacancy Committee" section
+    And User verifies the text of "Equal Opportunity Employer" is displayed as
+    """
+Selection for this position will be based solely on merit, with no discrimination for non-merit reasons such as race, color, religion, gender, sexual orientation, national origin, political affiliation, marital status, disability, age, or membership or non-membership in an employee organization. The NIH encourages the application and nomination of qualified women, minorities, and individuals with disabilities.
+    """
+    And User verifies the text "Standards of Conduct/Financial Disclosure" is displayed and description text is
+    """
+The National Institutes of Health inspires public confidence in our science by maintaining high ethical principles. NIH employees are subject to Federal government-wide regulations and statutes as well as agency-specific regulations described at the NIH Ethics Website. We encourage you to review this information. The position is subject to a background investigation and requires the incumbent to complete a public financial disclosure report prior to the effective date of the appointment.
+    """
+    And User verifies the text of Foreign Education "Foreign Education" is displayed as
+    """
+Applicants who have completed part or all of their education outside of the U.S. must have their foreign education evaluated by an accredited organization to ensure that the foreign education is equivalent to education received in accredited educational institutions in the United States. We will only accept the completed foreign education evaluation. For more information on foreign education verification, visit the https://www.naces.org website. Verification must be received prior to the effective date of the appointment.
+    """
+    And User verifies the text of Reasonable Accommodation "Reasonable Accommodation" is displayed as
+    """
+NIH provides reasonable accommodations to applicants with disabilities. If you require reasonable accommodation during any part of the application and hiring process, please notify us. The decision on granting reasonable accommodation will be made on a case-by-case basis.
+    """
+    And User can disable statement options for "Standards of Conduct/Financial Disclosure", "Foreign Education", "Reasonable Accommodation"
+    And can enable statement options for "Standards of Conduct/Financial Disclosure", "Foreign Education", "Reasonable Accommodation"
+    And User clicks button "Save" - PW
+    Then User confirms that User is on "Vacancy Committee" section
 
-  @SSJ-185 @SSJ-306 @Regression
+  @SSJ-185 @SSJ-306
   Scenario: Verification of Vacancy Committee section while creating an NCI Vacancy Positive Flow
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -91,7 +103,7 @@ Populate the individual who will be assembling the appointment package within th
     And User clicks "Save" section button
     And User confirms that User is on "Email Templates" section
 
-  @SSJ-11 @Regression
+  @SSJ-11
   Scenario: Verification of Vacancy Committee section while creating an NCI Vacancy Negative Flow
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -107,7 +119,7 @@ Populate the individual who will be assembling the appointment package within th
     And User adds Executive Secretary (non-voting)
     Then User sees alert "At least one committee member must be of the role 'Chair'"
 
-  @SSJ-310 @SSJ-158 @SSJ-71 @Regression
+  @SSJ-310 @SSJ-158 @SSJ-71
   Scenario: Verification of Email Templates section while creating an NCI Vacancy Positive Flow
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -126,7 +138,7 @@ Populate the individual who will be assembling the appointment package within th
     And User clicks "Save" section button
     And User verifies that "Review and Finalize" section title is displayed
 
-  @SSJ-64 @SSJ-305 @Regression @Regression
+  @SSJ-64 @SSJ-305
   Scenario: Alerts validation during an NCI vacancy creation
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -155,7 +167,7 @@ Populate the individual who will be assembling the appointment package within th
     And User clicks Edit for "Vacancy Committee" section
     Then User can verify alert "At least one committee member must be of the role 'Chair' At least one committee member must be of the role 'Executive Secretary'" is present
 
-  @SSJ-221 @SSJ-100 @Regression
+  @SSJ-221 @SSJ-100
   Scenario: Create a live NCI draft vacancy
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -180,7 +192,7 @@ Populate the individual who will be assembling the appointment package within th
     When User navigates to Home tab
     Then User can see a new live vacancy under Open Vacancies
 
-  @SSJ-1 @SSJ-29 @SSJ-66 @SSJ-62 @Regression
+  @SSJ-1 @SSJ-29 @SSJ-66 @SSJ-62
   Scenario: Vacancy Dashboard verification
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -203,7 +215,7 @@ Populate the individual who will be assembling the appointment package within th
     And User sees closed vacancies colums
       | Vacancy Title | Open Date | Close Date | Actions |
 
-  @SSJ-160 @SSJ-284 @Regression
+  @SSJ-160 @SSJ-284
   Scenario: NCI Live Vacancy Edit, Copy Link and Extend options
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -229,7 +241,7 @@ Populate the individual who will be assembling the appointment package within th
     And User navigates to Home tab
     Then User can verify the updated close date on Home Tab for that live vacancy
 
-  @SSJ-93 @SSJ-146 @Regression
+  @SSJ-93 @SSJ-146
   Scenario: Vacancies sorting
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
