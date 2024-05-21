@@ -1,4 +1,4 @@
-Feature:This feature files is for soccer features
+Feature:These are the scenarios for the Soccer application
 
   @satya @Smoke @Regression @NCIATWP-1467
   Scenario: Verify user is able to open home page and go to soccer page
