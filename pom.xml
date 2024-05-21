@@ -246,7 +246,6 @@
                     <useSystemClassLoader>false</useSystemClassLoader>
                     <includes>
                         <include>
-                            RunSCAtlasSmokeTest.java
                         </include>
                     </includes>
                     <testFailureIgnore>true</testFailureIgnore> <!-- to get report even when fails -->
