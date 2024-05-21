@@ -1,4 +1,4 @@
 package AnalysisTools.Soccer.playwright.Utils;
 
-public class Constants {
+public class Soccer_Constants {
 }

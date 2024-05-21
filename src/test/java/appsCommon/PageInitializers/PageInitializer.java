@@ -10,7 +10,6 @@ import AnalysisTools.GDSTracking.Pages.*;
 import AnalysisTools.GWASExplorer.Pages.*;
 import AnalysisTools.GWASTarget.Pages.*;
 import AnalysisTools.ICRP.Pages.*;
-import AnalysisTools.Soccer.playwright.Pages.SoccerPage;
 import AnalysisTools.ezQTL.Pages.*;
 import AnalysisTools.cProSite.Pages.*;
 import AnalysisTools.CEDCD.Pages.*;
@@ -372,9 +371,6 @@ public class PageInitializer extends WebDriverUtils {
 	public static CometsAnalyticsPage cometsAnalyticsPage;
 	public static CometsAnalyticsStepImp cometsAnalyticsStepImp;
 
-	/** --------------- SOCCER INSTANCES --------*/
-	public static SoccerPage soccerPage;
-	
 	public static void initializeAllPages() {
 		/** --------------- APPSCOMMON INSTANCE VARIABLES --------------- */
 		// create instances of all pages and assign them to the variables
