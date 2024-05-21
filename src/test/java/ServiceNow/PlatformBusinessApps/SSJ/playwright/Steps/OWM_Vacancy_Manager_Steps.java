@@ -5,12 +5,8 @@ import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.OWM_Va
 import appsCommon.Pages.Playwright_Common_Locators;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
-import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.testng.Assert;
-
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static com.nci.automation.web.PlaywrightUtils.page;
 
@@ -203,39 +199,51 @@ public class OWM_Vacancy_Manager_Steps {
 
     @When("User verifies {string} text is displayed for Vacancy Committee section")
     public void user_verifies_text_is_displayed_for_section(String expectedAddAndManageVacancyCommitteeText) {
-        String actualText = page.locator(Playwright_Common_Locators.dynamicTextLocator(expectedAddAndManageVacancyCommitteeText)).innerText();
-        Assert.assertEquals(actualText, expectedAddAndManageVacancyCommitteeText);
-        CucumberLogUtils.playwrightScreenshot(page);
+        OWM_Vacancy_Manager_StepsImpl.user_verifies_text_is_displayed_for_section(expectedAddAndManageVacancyCommitteeText);
     }
 
     @When("User verifies the following Vacancy Committee column headers are displayed {string}, {string}, {string}")
     public void user_verifies_the_following_vacancy_committee_column_headers_are_displayed(String expectedCommitteeMemberText, String expectedRoleText, String expectedActionsText) {
-        String actualCommitteeMemberText = page.locator(Playwright_Common_Locators.dynamicTextLocator(expectedCommitteeMemberText)).innerText();
-        String actualRoleText = page.locator(Playwright_Common_Locators.dynamicTextLocator(expectedRoleText)).innerText();
-        String actualActionsText = page.locator(Playwright_Common_Locators.dynamicTextLocator(expectedActionsText)).innerText();
-        Assert.assertEquals(actualCommitteeMemberText, expectedCommitteeMemberText);
-        Assert.assertEquals(actualRoleText, expectedRoleText);
-        Assert.assertEquals(actualActionsText, expectedActionsText);
-        CucumberLogUtils.playwrightScreenshot(page);
+        OWM_Vacancy_Manager_StepsImpl.user_verifies_the_following_vacancy_committee_column_headers_are_displayed(expectedCommitteeMemberText, expectedRoleText, expectedActionsText);
     }
 
     @When("User confirms {string} button is displayed")
     public void user_confirms_button_is_displayed(String expectedText) {
-        String actualText = page.locator(Playwright_Common_Locators.dynamicTextLocator(expectedText)).innerText();
-        Assert.assertEquals(actualText, expectedText);
-        CucumberLogUtils.playwrightScreenshot(page);
+        OWM_Vacancy_Manager_StepsImpl.user_confirms_button_is_displayed(expectedText);
     }
 
     @Then("User can see Chair {string} role option is displayed by default for Role drop down")
     public void user_can_see_chair_role_option_is_displayed_by_default_for_role_drop_down(String expectedText) {
-        String actualText = page.locator(Playwright_Common_Locators.dynamicTextLocator(expectedText)).innerText();
-        Assert.assertEquals(actualText, expectedText);
-        CucumberLogUtils.playwrightScreenshot(page);
+        OWM_Vacancy_Manager_StepsImpl.user_can_see_chair_role_option_is_displayed_by_default_for_role_drop_down(expectedText);
     }
 
     @When("User clicks {string} for Actions")
     public void user_clicks_for_actions(String text) {
         page.locator(Playwright_Common_Locators.dynamicTextLocator(text)).click();
-        MiscUtils.sleep(2000);
+    }
+
+    @When("the user adds a Committee Member {string} for Chair role")
+    public void the_user_adds_a_committee_member_for_chair_role(String committeeMember) {
+        OWM_Vacancy_Manager_StepsImpl.the_user_adds_a_committee_member_for_chair_role(committeeMember);
+    }
+
+    @Then("User can see {string} alert")
+    public void user_can_see_alert(String expectedAlertMessage) {
+        OWM_Vacancy_Manager_StepsImpl.user_can_see_alert(expectedAlertMessage);
+    }
+
+    @Then("User adds Committee Member {string} for {string}")
+    public void user_adds_committee_member_for(String committeeMember, String roleMember) {
+       OWM_Vacancy_Manager_StepsImpl.user_adds_committee_member_for(committeeMember, roleMember);
+    }
+
+    @Then("User is directed to {string} section")
+    public void user_is_directed_to_section(String expectedText) {
+        OWM_Vacancy_Manager_StepsImpl.user_is_directed_to_section(expectedText);
+    }
+
+    @Then("User adds Committee Member {string} for {string} - PW")
+    public void user_adds_committee_member_for_pw(String committeeMember, String roleMember) {
+        OWM_Vacancy_Manager_StepsImpl.user_adds_committee_member_for_pw(committeeMember, roleMember);
     }
 }
