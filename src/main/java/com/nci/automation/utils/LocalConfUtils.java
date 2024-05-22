@@ -2,12 +2,10 @@ package com.nci.automation.utils;
 
 import java.io.File;
 import java.util.Enumeration;
+import java.util.Map;
 import java.util.Properties;
 import org.apache.commons.lang.StringUtils;
 
-/**
- * @author sohilz2
- */
 public class LocalConfUtils {
 
 	private static Properties localConf = null;
@@ -25,38 +23,34 @@ public class LocalConfUtils {
 	}
 
 	public static Properties loadLocalConf() {
-
-		/*
-		 * Check for environment variables first,
-		 * then fallback to system property
-		 */
 		String isCloud = System.getenv("isCloud");
 		if (isCloud == null) {
 			isCloud = System.getProperty("isCloud");
 		}
 
-		String localConfResourcesPath;
-		if (isCloud == null || isCloud.equalsIgnoreCase("false")) {
-			localConfResourcesPath = "conf/localEnv.properties";
-		} else {
-			localConfResourcesPath = "conf/cloudEnv.properties";
-		}
-
 		localConf = new Properties();
 
 		try {
-			PropertiesFileUtils.loadPropsFromResource(localConf, localConfResourcesPath);
+			if (isCloud != null && isCloud.equalsIgnoreCase("true")) {
+				// Load properties from environment variables
+				Map<String, String> env = System.getenv();
+				for (String envName : env.keySet()) {
+					localConf.setProperty(envName, env.get(envName));
+				}
+			} else {
+				// Load properties from local configuration file
+				String localConfResourcesPath = "conf/localEnv.properties";
+				PropertiesFileUtils.loadPropsFromResource(localConf, localConfResourcesPath);
+			}
 			localConf = loadSystemProperties(localConf);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		return localConf;
-
 	}
 
 	private static Properties loadSystemProperties(Properties localProps) {
-
 		Properties systemProperties = System.getProperties();
 		Enumeration<?> e = systemProperties.propertyNames();
 		String key, value;
@@ -68,7 +62,6 @@ public class LocalConfUtils {
 		}
 
 		return localProps;
-
 	}
 
 	public static Properties getProperties() {
@@ -80,7 +73,6 @@ public class LocalConfUtils {
 	}
 
 	public static String getProperty(String key) {
-
 		if (localConf == null) {
 			loadLocalConf();
 		}
@@ -91,17 +83,14 @@ public class LocalConfUtils {
 		}
 
 		return value;
-
 	}
 
 	public static void setProperty(String key, String value) {
-
 		if (localConf == null) {
 			loadLocalConf();
 		}
 
 		localConf.setProperty(key, value);
-
 	}
 
 	public static String getRootDir() {
