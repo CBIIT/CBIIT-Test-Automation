@@ -18,7 +18,9 @@ public class ApplicantProfileStepsImpl {
      */
     public static void ssjLogin(String user) {
         if (user.equals("OWM Vacancy Manager")) {
-
+            Playwright_ServiceNow_Common_Methods.side_Door_Test_Account_Login_Impersonate("Holly Gemar-Griffith");
+            MiscUtils.sleep(2000);
+            PlaywrightUtils.page.navigate(EnvUtils.getApplicationUrl("SSJPortalView"));
         } else if (user.equals("Stadtman Vacancy Manager")) {
 
         } else if (user.equals("Maria Chaudhry")) {
