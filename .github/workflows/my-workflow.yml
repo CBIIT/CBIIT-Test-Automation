@@ -26,5 +26,8 @@ jobs:
       - name: Run specific runner class
         run: mvn -Dtest=SSJ_Progression_Runners test
 
-      - name: Publish Test Results
-        uses: EnricoMi/publish-unit-test-result-action@v1
+      - name: Upload Cucumber Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: cucumber-report
+          path: target/cucumber-reports/*.json
