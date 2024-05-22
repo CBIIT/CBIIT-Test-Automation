@@ -78,30 +78,41 @@ NIH provides reasonable accommodations to applicants with disabilities. If you r
     And User clicks button "Save" - PW
     Then User confirms that User is on "Vacancy Committee" section
 
-  @SSJ-185 @SSJ-306
+  @SSJ-185 @SSJ-306 @Regression @juarezds
   Scenario: Verification of Vacancy Committee section while creating an NCI Vacancy Positive Flow
-    Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
-    And User navigates to tab "Vacancy Dashboard"
-    And User clicks button "Create vacancy"
-    And User fills in "Vacancy Title" field
-    And User clicks "Save" section button
+    When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
+    And User navigates to tab "Vacancy Dashboard" - PW
+    And User clicks button "+ Create Vacancy" - PW
+    And User fills in "Vacancy Title" field with title "Testing Automation Title"
+    And User clicks button "Save" - PW
     And User clicks on "Vacancy Committee" option on the left bar menu
-    And User verifies that "Vacancy Committee"  section title is displayed
-    And User verifies "Add and manage vacancy committee members" text displayed for "Vacancy Committee" section
-    And User verifies the following Vacancy Committee column headers are displayed
-      | Committee Member | Role | Actions |
-    And User confirms "Add Member" button is displayed
-    When User clicks button "Add Member"
-    Then User can see Chair role option is displayed by default
-    And User clicks Save for Actions
-    And User adds a Committee Chair
-    And User adds a Member (voting)
-    And User adds a Member (non-voting)
-    And User adds a HR Specialist (non-voting)
-    And User adds EDI Representative (non-voting)
-    And User adds Executive Secretary (non-voting)
-    And User clicks "Save" section button
-    And User confirms that User is on "Email Templates" section
+    And User verifies that "Vacancy Committee" section title is displayed
+    And User verifies "Add and manage vacancy committee members" text is displayed for Vacancy Committee section
+    And User verifies the following Vacancy Committee column headers are displayed "Committee Member", "Role", "Actions"
+    And User confirms " Add Member" button is displayed
+    When User clicks button " Add Member" - PW
+    Then User can see Chair "Chair" role option is displayed by default for Role drop down
+    When the user adds a Committee Member "David Rampulla" for Chair role
+    When User clicks "Save" for Actions
+    Then User can see "At least one committee member must be of the role 'Executive Secretary'" alert
+    When User clicks button " Add Member" - PW
+    Then User adds Committee Member "Jason Levine" for "Executive Secretary (non-voting)"
+    When User clicks "Save" for Actions
+    When User clicks button " Add Member" - PW
+    Then User adds Committee Member "Henry Rodriguez" for "HR Specialist (non-voting)" - PW
+    When User clicks "Save" for Actions
+    When User clicks button " Add Member" - PW
+    Then User adds Committee Member "Sylvia Chou" for "Member"
+    When User clicks "Save" for Actions
+    When User clicks button " Add Member" - PW
+    Then User adds Committee Member "Michael Lenardo" for "Member (read-only)"
+    When User clicks "Save" for Actions
+    When User clicks button " Add Member" - PW
+    Then User adds Committee Member "Melissa Fajardo" for "EDI Representative (non-voting)"
+    When User clicks "Save" for Actions
+    And User clicks button "Save" - PW
+    Then User is directed to "Email Templates" section
+
 
   @SSJ-11
   Scenario: Verification of Vacancy Committee section while creating an NCI Vacancy Negative Flow

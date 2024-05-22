@@ -2,6 +2,7 @@ package ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps;
 
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Mandatory_Statements_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.OWM_Vacancy_Manager_StepsImpl;
+import appsCommon.Pages.Playwright_Common_Locators;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import io.cucumber.java.en.Then;
@@ -163,7 +164,7 @@ public class OWM_Vacancy_Manager_Steps {
 
     @When("User verifies the text of {string} is displayed as")
     public void user_verifies_the_text_of_is_displayed_as(String text, String docString) {
-        OWM_Vacancy_Manager_StepsImpl.user_verifies_the_text_of_is_displayed_as(text,docString);
+        OWM_Vacancy_Manager_StepsImpl.user_verifies_the_text_of_is_displayed_as(text, docString);
     }
 
     @When("User verifies the text {string} is displayed and description text is")
@@ -189,5 +190,60 @@ public class OWM_Vacancy_Manager_Steps {
     @When("can enable statement options for {string}, {string}, {string}")
     public void can_enable_statement_options_for(String standardsOfConductText, String foreignEducationText, String reasonableAccommodationText) {
         OWM_Vacancy_Manager_StepsImpl.can_enable_statement_options_for(standardsOfConductText, foreignEducationText, reasonableAccommodationText);
+    }
+
+    @When("User clicks on {string} option on the left bar menu")
+    public void user_clicks_on_option_on_the_left_bar_menu(String text) {
+        page.locator(Playwright_Common_Locators.dynamicTextLocator(text)).click();
+    }
+
+    @When("User verifies {string} text is displayed for Vacancy Committee section")
+    public void user_verifies_text_is_displayed_for_section(String expectedAddAndManageVacancyCommitteeText) {
+        OWM_Vacancy_Manager_StepsImpl.user_verifies_text_is_displayed_for_section(expectedAddAndManageVacancyCommitteeText);
+    }
+
+    @When("User verifies the following Vacancy Committee column headers are displayed {string}, {string}, {string}")
+    public void user_verifies_the_following_vacancy_committee_column_headers_are_displayed(String expectedCommitteeMemberText, String expectedRoleText, String expectedActionsText) {
+        OWM_Vacancy_Manager_StepsImpl.user_verifies_the_following_vacancy_committee_column_headers_are_displayed(expectedCommitteeMemberText, expectedRoleText, expectedActionsText);
+    }
+
+    @When("User confirms {string} button is displayed")
+    public void user_confirms_button_is_displayed(String expectedText) {
+        OWM_Vacancy_Manager_StepsImpl.user_confirms_button_is_displayed(expectedText);
+    }
+
+    @Then("User can see Chair {string} role option is displayed by default for Role drop down")
+    public void user_can_see_chair_role_option_is_displayed_by_default_for_role_drop_down(String expectedText) {
+        OWM_Vacancy_Manager_StepsImpl.user_can_see_chair_role_option_is_displayed_by_default_for_role_drop_down(expectedText);
+    }
+
+    @When("User clicks {string} for Actions")
+    public void user_clicks_for_actions(String text) {
+        page.locator(Playwright_Common_Locators.dynamicTextLocator(text)).click();
+    }
+
+    @When("the user adds a Committee Member {string} for Chair role")
+    public void the_user_adds_a_committee_member_for_chair_role(String committeeMember) {
+        OWM_Vacancy_Manager_StepsImpl.the_user_adds_a_committee_member_for_chair_role(committeeMember);
+    }
+
+    @Then("User can see {string} alert")
+    public void user_can_see_alert(String expectedAlertMessage) {
+        OWM_Vacancy_Manager_StepsImpl.user_can_see_alert(expectedAlertMessage);
+    }
+
+    @Then("User adds Committee Member {string} for {string}")
+    public void user_adds_committee_member_for(String committeeMember, String roleMember) {
+       OWM_Vacancy_Manager_StepsImpl.user_adds_committee_member_for(committeeMember, roleMember);
+    }
+
+    @Then("User is directed to {string} section")
+    public void user_is_directed_to_section(String expectedText) {
+        OWM_Vacancy_Manager_StepsImpl.user_is_directed_to_section(expectedText);
+    }
+
+    @Then("User adds Committee Member {string} for {string} - PW")
+    public void user_adds_committee_member_for_pw(String committeeMember, String roleMember) {
+        OWM_Vacancy_Manager_StepsImpl.user_adds_committee_member_for_pw(committeeMember, roleMember);
     }
 }
