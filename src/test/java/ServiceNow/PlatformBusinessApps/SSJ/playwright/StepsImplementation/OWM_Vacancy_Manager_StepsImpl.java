@@ -1,6 +1,8 @@
 package ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation;
 
+import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Email_Templates_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Mandatory_Statements_Page;
+import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Vacancy_Committee_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Vacancy_Dashboard_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Utils.SSJ_Common_Utils;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Utils.SSJ_Constants;
@@ -520,5 +522,122 @@ public class OWM_Vacancy_Manager_StepsImpl {
             page.locator("(//button[@role='switch'])[" + (i + 2) + "]").click();
         }
         CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Verifies if the specified text is displayed for a section.
+     *
+     * @param expectedAddAndManageVacancyCommitteeText The expected text to be displayed for the section.
+     */
+    public static void user_verifies_text_is_displayed_for_section(String expectedAddAndManageVacancyCommitteeText) {
+        String actualText = page.locator(Playwright_Common_Locators.dynamicTextLocator(expectedAddAndManageVacancyCommitteeText)).innerText();
+        Assert.assertEquals(actualText, expectedAddAndManageVacancyCommitteeText);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Verifies that the following vacancy committee column headers are displayed.
+     * Compares the actual column header texts with the expected texts.
+     *
+     * @param expectedCommitteeMemberText The expected text for the "Committee Member" column header.
+     * @param expectedRoleText            The expected text for the "Role" column header.
+     * @param expectedActionsText         The expected text for the "Actions" column header.
+     */
+    public static void user_verifies_the_following_vacancy_committee_column_headers_are_displayed(String expectedCommitteeMemberText, String expectedRoleText, String expectedActionsText) {
+        String actualCommitteeMemberText = page.locator(Playwright_Common_Locators.dynamicTextLocator(expectedCommitteeMemberText)).innerText();
+        String actualRoleText = page.locator(Playwright_Common_Locators.dynamicTextLocator(expectedRoleText)).innerText();
+        String actualActionsText = page.locator(Playwright_Common_Locators.dynamicTextLocator(expectedActionsText)).innerText();
+        Assert.assertEquals(actualCommitteeMemberText, expectedCommitteeMemberText);
+        Assert.assertEquals(actualRoleText, expectedRoleText);
+        Assert.assertEquals(actualActionsText, expectedActionsText);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Confirms whether a button with the specified expected text is displayed on the page.
+     *
+     * @param expectedText the text expected to be displayed on the button
+     */
+    public static void user_confirms_button_is_displayed(String expectedText) {
+        String actualText = page.locator(Playwright_Common_Locators.dynamicTextLocator(expectedText)).innerText();
+        Assert.assertEquals(actualText, expectedText);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Checks if the "Chair" role option is displayed by default for the role dropdown.
+     *
+     * @param expectedText The expected text of the "Chair" role option.
+     */
+    public static void user_can_see_chair_role_option_is_displayed_by_default_for_role_drop_down(String expectedText) {
+        String actualText = page.locator(Playwright_Common_Locators.dynamicTextLocator(expectedText)).innerText();
+        Assert.assertEquals(actualText, expectedText);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Adds a committee member for the chair role.
+     *
+     * @param committeeMember The name of the committee member to add.
+     */
+    public static void the_user_adds_a_committee_member_for_chair_role(String committeeMember) {
+        page.locator(Vacancy_Committee_Page.vacancyCommitteeMemberDropDown).click();
+        page.waitForLoadState();
+        page.waitForSelector(Playwright_Common_Locators.dynamicTextLocator(committeeMember)).click();
+    }
+
+    /**
+     * This method verifies that the user can see an alert with the expected message.
+     *
+     * @param expectedAlertMessage the expected message of the alert that the user should see
+     */
+    public static void user_can_see_alert(String expectedAlertMessage) {
+        String actualAlertMessage = page.locator(Vacancy_Committee_Page.atLeastOneCommitteeMemberMustBeOfTheRoleExecutiveSecretaryMessage).innerText();
+        CucumberLogUtils.playwrightScreenshot(page);
+        Assert.assertEquals(actualAlertMessage, expectedAlertMessage);
+    }
+
+    /**
+     * Adds a committee member with a role to the vacancy.
+     *
+     * @param committeeMember The name of the committee member to be added.
+     * @param roleMember      The role of the committee member to be added.
+     */
+    public static void user_adds_committee_member_for(String committeeMember, String roleMember) {
+        page.locator(Vacancy_Committee_Page.vacancyCommitteeMemberDropDown).click();
+        page.waitForSelector(Playwright_Common_Locators.dynamicTextLocator(committeeMember)).click();
+        page.locator(Vacancy_Committee_Page.vacancyCommitteeMemberRoleDropDown).click();
+        page.waitForSelector(Playwright_Common_Locators.dynamicTextLocator(roleMember)).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Checks if the user is directed to a specific section in the Email Templates page.
+     *
+     * @param expectedText the expected text that should be present in the section header
+     */
+    public static void user_is_directed_to_section(String expectedText) {
+        Playwright_Common_Utils.scrollIntoView(Email_Templates_Page.emailTemplatesHeader);
+        String actualText = page.locator(Email_Templates_Page.emailTemplatesHeader).innerText();
+        CucumberLogUtils.playwrightScreenshot(page);
+        Assert.assertEquals(actualText, expectedText);
+    }
+
+    /**
+     * Adds a committee member for a specific committee role.
+     *
+     * @param committeeMember The name of the committee member to add.
+     * @param roleMember      The role of the committee member.
+     */
+    public static void user_adds_committee_member_for_pw(String committeeMember, String roleMember) {
+        page.locator(Vacancy_Committee_Page.vacancyCommitteeMemberDropDown).click();
+        page.waitForSelector(Playwright_Common_Locators.dynamicTextLocator(committeeMember)).click();
+        page.locator(Vacancy_Committee_Page.vacancyCommitteeMemberRoleDropDown).click();
+        page.locator(Vacancy_Committee_Page.vacancyCommitteeMemberRoleDropDown).focus();
+        for (int i = 0; i < 3; i++) {
+            page.keyboard().press("ArrowDown");
+            page.waitForTimeout(200);
+        }
+        page.waitForSelector(Playwright_Common_Locators.dynamicTextLocator(roleMember)).click();
     }
 }
