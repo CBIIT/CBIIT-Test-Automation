@@ -4,6 +4,8 @@ import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 
+import java.text.SimpleDateFormat;
+
 public class ACT24ResearcherStepImpl extends PageInitializer {
 
     /** THIS WILL LOGIN USER USING EMAIL AND PASSWORD **/
@@ -16,12 +18,13 @@ public class ACT24ResearcherStepImpl extends PageInitializer {
 
     /** THIS CREATES A NEW STUDY AS RESEARCHER **/
     public void createNewStudy(String studyName, String studyDescription, String studyAbbreviation, String expectedParticipants, String recallPerParticipant, String studyStartDate, String studyEndDate){
+        String timeStamp = new SimpleDateFormat("MMdd").format(new java.util.Date());
         CommonUtils.clickOnElement(act24ResearcherPortalPage.createNewStudyLink);
         MiscUtils.sleep(2000);
         CommonUtils.clickOnElement(act24ResearcherPortalPage.actualFieldStudyRadioButton);
         CommonUtils.sendKeys(act24ResearcherPortalPage.studyNameTextBox, studyName);
         CommonUtils.sendKeys(act24ResearcherPortalPage.studyDescriptionTextBox, studyDescription);
-        CommonUtils.sendKeys(act24ResearcherPortalPage.abbreviationTextBox, studyAbbreviation);
+        CommonUtils.sendKeys(act24ResearcherPortalPage.abbreviationTextBox, studyAbbreviation+timeStamp);
         CommonUtils.sendKeys(act24ResearcherPortalPage.participantCountTextBox, expectedParticipants);
         CommonUtils.sendKeys(act24ResearcherPortalPage.recallCountTextBox, recallPerParticipant);
         CommonUtils.sendKeys(act24ResearcherPortalPage.startDateTextBox, studyStartDate);

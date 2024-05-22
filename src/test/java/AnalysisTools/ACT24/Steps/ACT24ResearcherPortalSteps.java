@@ -2,12 +2,15 @@ package AnalysisTools.ACT24.Steps;
 
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.MiscUtils;
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
+
+import java.text.SimpleDateFormat;
 
 public class ACT24ResearcherPortalSteps extends PageInitializer {
 
@@ -25,7 +28,7 @@ public class ACT24ResearcherPortalSteps extends PageInitializer {
     public void the_researcher_is_logged_in_and(String email, String password) {
         WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ACT24Researcher"));
         MiscUtils.sleep(2000);
-        /** Looking into why the first login doesn't work but the second attempt does **/
+        /* Looking into why the first login doesn't work but the second attempt does */
         act24ResearcherStepImpl.researcherLogin(email, password);
         MiscUtils.sleep(2000);
         act24ResearcherStepImpl.researcherLogin(email, password);
@@ -35,7 +38,6 @@ public class ACT24ResearcherPortalSteps extends PageInitializer {
     public void the_user_creates_a_new_study(String studyName, String studyDescription, String studyAbbreviation, String expectedParticipants, String recallPerParticipant, String studyStartDate, String studyEndDate) {
         MiscUtils.sleep(3000);
         act24ResearcherStepImpl.createNewStudy(studyName, studyDescription, studyAbbreviation, expectedParticipants, recallPerParticipant, studyStartDate, studyEndDate);
-        //NEED TO CHANGE STUDY ABBREVIATION (THERE CAN'T BE DUPLICATE NAMES)
         MiscUtils.sleep(2000);
     }
 

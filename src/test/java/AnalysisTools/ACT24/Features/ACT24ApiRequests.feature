@@ -1,4 +1,4 @@
-Feature: These are API requests that are made on the ACT24' application
+Feature: These are API requests that are made on the ACT24 application
 
   @matakevin @Smoke @Regression
   Scenario: User retrieves participant list on researcher site
@@ -14,8 +14,12 @@ Feature: These are API requests that are made on the ACT24' application
 
   @matakevin @Smoke @Regression
   Scenario: Retrieve Study and Recall data from the given resource in JSON format from study 7692 with no participants
-    Then the Study 7692 Recall Data and 200 status code is returned
+    Then the Studys 7692 Recall Data and 200 status code is returned
 
   @matakevin @Smoke @Regression
   Scenario: Retrieve Study and Recall data (Summary Report, with Overlap Resolution [QC]) from the given resource in JSON format
     Then the selected participants "7685" with specified StudyIDs are returned with status code 200
+
+  @matakevin @Smoke @Regression
+  Scenario: Retrieve Study and Recall statistics (Detailed Report, with Overlap Resolution [QC]) from the given resource in JSON format
+    Then the selected participants with specified StudyID "7685,7692" detailed reports are returned with status code 200

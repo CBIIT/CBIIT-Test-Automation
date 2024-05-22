@@ -3,11 +3,11 @@ Feature: These are the features on the Participant Portal
   Background: Participant is logged in
     Given the participant on the ACT24 participant
 
-  @Regression @Smoke @matakevin
+  @matakevin @Regression @Smoke
   Scenario: The Participant splash screen is display
     Then the splash screen is displayed
 
-  @NeedsReview @matakevin
+  @matakevin @NeedsReview
   Scenario: Participant adding a sleep entry
     When the user adds wake up time on splash screen
     And the user adds a Sleeping or in Bed entry
