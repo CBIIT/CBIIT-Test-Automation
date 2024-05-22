@@ -27,21 +27,25 @@ public class LocalConfUtils {
 	public static Properties loadLocalConf() {
 
 		/*
-		 * Check for command line parameter
+		 * Check for environment variables first,
+		 * then fallback to system property
 		 */
-		String localConfResourcesPath = System.getProperty("isCloud");
+		String isCloud = System.getenv("isCloud");
+		if (isCloud == null) {
+			isCloud = System.getProperty("isCloud");
+		}
 
-		if (StringUtils.isBlank(localConfResourcesPath)) {
+		String localConfResourcesPath;
+		if (isCloud == null || isCloud.equalsIgnoreCase("false")) {
 			localConfResourcesPath = "/conf/localEnv.properties";
-		} else if (localConfResourcesPath.equalsIgnoreCase("true")) {
+		} else {
 			localConfResourcesPath = "/conf/cloudEnv.properties";
 		}
 
 		localConf = new Properties();
 
 		try {
-			PropertiesFileUtils.loadPropsFromResource(localConf,
-					localConfResourcesPath);
+			PropertiesFileUtils.loadPropsFromResource(localConf, localConfResourcesPath);
 			localConf = loadSystemProperties(localConf);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -81,7 +85,12 @@ public class LocalConfUtils {
 			loadLocalConf();
 		}
 
-		return localConf.getProperty(key);
+		String value =  System.getenv(key);
+		if (value == null) {
+			value = localConf.getProperty(key);
+		}
+
+		return value;
 
 	}
 
@@ -98,13 +107,4 @@ public class LocalConfUtils {
 	public static String getRootDir() {
 		return System.getProperty("user.dir");
 	}
-
-	public static String getResourceDir() {
-		return getRootDir() + File.separator + RESOURCE_PATH;
-	}
-
-	public static String getQcResourcesDir() {
-		return getResourceDir() + File.separator + "libs" + File.separator + "qc";
-	}
-
 }

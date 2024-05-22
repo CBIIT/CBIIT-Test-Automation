@@ -67,6 +67,8 @@ jobs:
 
       - name: Run specific runner class
         run: mvn -Dtest=SSJ_Progression_Runners test
+        env:
+          isCloud: true
 
       - name: Upload Cucumber Report
         uses: actions/upload-artifact@v2
