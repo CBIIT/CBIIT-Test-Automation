@@ -1,12 +1,18 @@
 name: CI
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        env: ['test']
+        browser: ['chrome', 'firefox', 'safari']
 
     steps:
       - uses: actions/checkout@v2
@@ -20,8 +26,8 @@ jobs:
         run: |
           echo "Username=${{ secrets.SIDEDOORPASSWORD }}" >> $GITHUB_ENV
           echo "Password=${{ secrets.SIDEDOORUSERNAME }}" >> $GITHUB_ENV
-          echo "browser=chrome" >> $GITHUB_ENV
-          echo "env=test" >> $GITHUB_ENV
+          echo "browser=${{ matrix.browser }}" >> $GITHUB_ENV
+          echo "env=${{ matrix.env }}" >> $GITHUB_ENV
 
       - name: Run specific runner class
         run: mvn -Dtest=SSJ_Progression_Runners test
@@ -30,4 +36,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: cucumber-report
-          path: target/cucumber-reports/*.json
+          path: target/cucumber-reports/report.json
