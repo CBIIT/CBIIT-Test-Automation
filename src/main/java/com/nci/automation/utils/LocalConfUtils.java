@@ -22,9 +22,7 @@ public class LocalConfUtils {
 	}
 
 	public static Properties loadLocalConf() {
-
 		String isCloud = System.getProperty("isCloud");
-
 		if (StringUtils.isBlank(isCloud)) {
 			isCloud = "false";
 		}
@@ -37,25 +35,20 @@ public class LocalConfUtils {
 			localConf.setProperty("Password", System.getenv("Password"));
 			localConf.setProperty("browser", System.getenv("browser"));
 			localConf.setProperty("env", System.getenv("env"));
-			// Also attempt to load from the cloudEnv.properties file if it exists
-			String cloudConfResourcesPath = "/conf/cloudEnv.properties";
-			try {
-				PropertiesFileUtils.loadPropsFromResource(localConf, cloudConfResourcesPath);
-			} catch (Exception e) {
-				System.out.println("cloudEnv.properties not loaded. Using environment variables.");
-			}
-		} else {
-			// local environment, load properties from localEnv.properties file
-			String localConfResourcesPath = "/conf/localEnv.properties";
-			try {
-				PropertiesFileUtils.loadPropsFromResource(localConf, localConfResourcesPath);
-				localConf = loadSystemProperties(localConf, isCloud);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			return localConf;
+		}
+
+		// local environment, load properties from localEnv.properties file
+		String localConfResourcesPath = "/conf/localEnv.properties";
+		try {
+			PropertiesFileUtils.loadPropsFromResource(localConf, localConfResourcesPath);
+			localConf = loadSystemProperties(localConf, isCloud);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return localConf;
 	}
+
 
 	private static Properties loadSystemProperties(Properties localProps, String isCloud) {
 		Properties systemProperties = System.getProperties();
