@@ -1,7 +1,7 @@
 Feature: OWM Vacancy Manager Scenarios
   Description: This Feature file contains OWM Vacancy Manager Scenarios
 
-  @SSJ-7 @SSJ-8 @Regression @juarezds
+  @SSJ-7 @SSJ-8 @Regression @juarezds @playwright
   Scenario: Verification of Basic Vacancy Information section while creating an NCI Vacancy
     When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
@@ -46,7 +46,7 @@ Populate the individual who will be assembling the appointment package within th
     And User clicks "Save" button to save the Basic Vacancy Information
     And User confirms that User is on "Mandatory Statements" section
 
-  @SSJ-69 @Regression @juarezds
+  @SSJ-69 @Regression @juarezds @playwright
   Scenario: Verification of Mandatory Statements section while creating an NCI Vacancy
     When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
@@ -78,7 +78,7 @@ NIH provides reasonable accommodations to applicants with disabilities. If you r
     And User clicks button "Save" - PW
     Then User confirms that User is on "Vacancy Committee" section
 
-  @SSJ-185 @SSJ-306
+  @SSJ-185 @SSJ-306 @playwright
   Scenario: Verification of Vacancy Committee section while creating an NCI Vacancy Positive Flow
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -103,7 +103,7 @@ NIH provides reasonable accommodations to applicants with disabilities. If you r
     And User clicks "Save" section button
     And User confirms that User is on "Email Templates" section
 
-  @SSJ-11
+  @SSJ-11 @playwright
   Scenario: Verification of Vacancy Committee section while creating an NCI Vacancy Negative Flow
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -119,7 +119,7 @@ NIH provides reasonable accommodations to applicants with disabilities. If you r
     And User adds Executive Secretary (non-voting)
     Then User sees alert "At least one committee member must be of the role 'Chair'"
 
-  @SSJ-310 @SSJ-158 @SSJ-71
+  @SSJ-310 @SSJ-158 @SSJ-71 @playwright
   Scenario: Verification of Email Templates section while creating an NCI Vacancy Positive Flow
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -138,7 +138,7 @@ NIH provides reasonable accommodations to applicants with disabilities. If you r
     And User clicks "Save" section button
     And User verifies that "Review and Finalize" section title is displayed
 
-  @SSJ-64 @SSJ-305
+  @SSJ-64 @SSJ-305 @playwright
   Scenario: Alerts validation during an NCI vacancy creation
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -167,7 +167,7 @@ NIH provides reasonable accommodations to applicants with disabilities. If you r
     And User clicks Edit for "Vacancy Committee" section
     Then User can verify alert "At least one committee member must be of the role 'Chair' At least one committee member must be of the role 'Executive Secretary'" is present
 
-  @SSJ-221 @SSJ-100
+  @SSJ-221 @SSJ-100 @playwright
   Scenario: Create a live NCI draft vacancy
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -192,7 +192,7 @@ NIH provides reasonable accommodations to applicants with disabilities. If you r
     When User navigates to Home tab
     Then User can see a new live vacancy under Open Vacancies
 
-  @SSJ-1 @SSJ-29 @SSJ-66 @SSJ-62
+  @SSJ-1 @SSJ-29 @SSJ-66 @SSJ-62 @playwright
   Scenario: Vacancy Dashboard verification
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -215,7 +215,7 @@ NIH provides reasonable accommodations to applicants with disabilities. If you r
     And User sees closed vacancies colums
       | Vacancy Title | Open Date | Close Date | Actions |
 
-  @SSJ-160 @SSJ-284
+  @SSJ-160 @SSJ-284 @playwright
   Scenario: NCI Live Vacancy Edit, Copy Link and Extend options
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -241,7 +241,7 @@ NIH provides reasonable accommodations to applicants with disabilities. If you r
     And User navigates to Home tab
     Then User can verify the updated close date on Home Tab for that live vacancy
 
-  @SSJ-93 @SSJ-146
+  @SSJ-93 @SSJ-146 @playwright
   Scenario: Vacancies sorting
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
