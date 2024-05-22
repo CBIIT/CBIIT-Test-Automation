@@ -36,6 +36,7 @@ jobs:
           echo "browser=${{ matrix.browser }}" >> $GITHUB_ENV
           echo "env=${{ matrix.env }}" >> $GITHUB_ENV
           echo "isCloud=true" >> $GITHUB_ENV
+          echo "Headless=true" >> $GITHUB_ENV
 
       - name: Print environment variables
         run: echo $isCloud $Username $Password $Browser $Env
