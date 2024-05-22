@@ -24,6 +24,7 @@ public class LocalConfUtils {
 
 	public static Properties loadLocalConf() {
 		String isCloud = System.getenv("isCloud");
+		System.out.println("IsCloud: " + isCloud); //in loadLocalConf() method in Java
 		if (isCloud == null) {
 			isCloud = System.getProperty("isCloud");
 		}

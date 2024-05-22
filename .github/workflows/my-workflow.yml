@@ -36,6 +36,9 @@ jobs:
           echo "browser=${{ matrix.browser }}" >> $GITHUB_ENV
           echo "env=${{ matrix.env }}" >> $GITHUB_ENV
 
+      - name: Print environment variables
+        run: echo $isCloud
+
       - name: Run specific runner class
         run: mvn -Dtest=SSJ_Progression_Runners test
 
@@ -64,9 +67,13 @@ jobs:
           echo "Password=${{ secrets.SIDEDOORUSERNAME }}" >> $GITHUB_ENV
           echo "browser=${{ github.event.inputs.testBrowser }}" >> $GITHUB_ENV
           echo "env=test" >> $GITHUB_ENV
+          echo "isCloud=true" >> $GITHUB_ENV
+
+      - name: Print environment variables
+        run: echo $isCloud
 
       - name: Run specific runner class
-        run: mvn clean install -Dtest=SSJ_Progression_Runners test -DisCloud=true
+        run: mvn clean install -Dtest=SSJ_Progression_Runners test
 
       - name: Upload Cucumber Report
         uses: actions/upload-artifact@v2
