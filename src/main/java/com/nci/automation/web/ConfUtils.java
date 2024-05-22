@@ -7,12 +7,13 @@ import com.nci.automation.utils.LocalConfUtils;
 
 /**
  * The class contains methods to interact with properties file.
- * 
+ *
  * @author sohilz2
  */
 public class ConfUtils {
 
 	private static final String ENVIRONMENT_PROPERTY_KEY = "env";
+	private static final String BROWSER_PROPERTY_KEY = "browser";
 
 	private static Properties localConf = null;
 	private static String resultsDir = "";
@@ -38,9 +39,20 @@ public class ConfUtils {
 		/**
 		 * Check for command line parms
 		 */
-		String returnValue = System.getProperty(ENVIRONMENT_PROPERTY_KEY);
+		String returnValue = System.getenv(ENVIRONMENT_PROPERTY_KEY);
 		if (StringUtils.isBlank(returnValue)) {
 			returnValue = getProperty(ENVIRONMENT_PROPERTY_KEY);
+		}
+		return returnValue;
+	}
+
+	public static String getBrowser() {
+		/**
+		 * Check for command line parms
+		 */
+		String returnValue = System.getenv(BROWSER_PROPERTY_KEY);
+		if (StringUtils.isBlank(returnValue)) {
+			returnValue = getProperty(BROWSER_PROPERTY_KEY);
 		}
 		return returnValue;
 	}
@@ -55,7 +67,6 @@ public class ConfUtils {
 		return resultsDir;
 	}
 
-
 	public static void setResultsDir(String resultsDirName) {
 		resultsDir = baseResultsDir + File.separator + resultsDirName;
 	}
@@ -63,5 +74,4 @@ public class ConfUtils {
 	public static void setBaseResultsDir(String baseDirName) {
 		baseResultsDir = baseDirName;
 	}
-
 }
