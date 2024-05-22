@@ -37,9 +37,9 @@ public class LocalConfUtils {
 
 		String localConfResourcesPath;
 		if (isCloud == null || isCloud.equalsIgnoreCase("false")) {
-			localConfResourcesPath = "/conf/localEnv.properties";
+			localConfResourcesPath = "conf/localEnv.properties";
 		} else {
-			localConfResourcesPath = "/conf/cloudEnv.properties";
+			localConfResourcesPath = "conf/cloudEnv.properties";
 		}
 
 		localConf = new Properties();
