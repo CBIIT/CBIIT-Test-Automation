@@ -16,9 +16,6 @@ jobs:
         with:
           java-version: 1.11
 
-      - name: Build with Maven
-        run: mvn -B clean package -DskipTests
-
       - name: Set environment variables
         run: |
           echo "Username=${{ secrets.SIDEDOORPASSWORD }}" >> $GITHUB_ENV
