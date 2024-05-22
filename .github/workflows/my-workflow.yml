@@ -31,7 +31,10 @@ jobs:
 
       - name: Set environment variables
         run: |
-          mvn test -DUsername='${{ secrets.SIDEDOORPASSWORD }}' -DPassword='${{ secrets.SIDEDOORUSERNAME }}' -Dbrowser='${{ matrix.browser }}' -Denv='${{ matrix.env }}'
+          echo "Username=${{ secrets.SIDEDOORPASSWORD }}" >> $GITHUB_ENV
+          echo "Password=${{ secrets.SIDEDOORUSERNAME }}" >> $GITHUB_ENV
+          echo "browser=${{ matrix.browser }}" >> $GITHUB_ENV
+          echo "env=${{ matrix.env }}" >> $GITHUB_ENV
 
       - name: Run specific runner class
         run: mvn -Dtest=SSJ_Progression_Runners test
@@ -57,7 +60,10 @@ jobs:
 
       - name: Set environment variables
         run: |
-          mvn test -DUsername='${{ secrets.SIDEDOORPASSWORD }}' -DPassword='${{ secrets.SIDEDOORUSERNAME }}' -Dbrowser='${{ github.event.inputs.testBrowser }}' -Denv='test'
+          echo "Username=${{ secrets.SIDEDOORPASSWORD }}" >> $GITHUB_ENV
+          echo "Password=${{ secrets.SIDEDOORUSERNAME }}" >> $GITHUB_ENV
+          echo "browser=${{ github.event.inputs.testBrowser }}" >> $GITHUB_ENV
+          echo "env=test" >> $GITHUB_ENV
 
       - name: Run specific runner class
         run: mvn -Dtest=SSJ_Progression_Runners test
