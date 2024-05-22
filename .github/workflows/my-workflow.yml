@@ -27,7 +27,7 @@ jobs:
           echo "env=test" >> $GITHUB_ENV
 
       - name: Run specific runner class
-        run: mvn test -Dtest=SSJ_Progression_Runners
+        run: mvn -Dtest=SSJ_Progression_Runners
 
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@v1
