@@ -35,9 +35,10 @@ jobs:
           echo "Password=${{ secrets.SIDEDOORUSERNAME }}" >> $GITHUB_ENV
           echo "browser=${{ matrix.browser }}" >> $GITHUB_ENV
           echo "env=${{ matrix.env }}" >> $GITHUB_ENV
+          echo "isCloud=true" >> $GITHUB_ENV
 
       - name: Print environment variables
-        run: echo $isCloud
+        run: echo $isCloud $Username $Password $Browser $Env
 
       - name: Run specific runner class
         run: mvn -Dtest=SSJ_Progression_Runners test
@@ -70,7 +71,7 @@ jobs:
           echo "isCloud=true" >> $GITHUB_ENV
 
       - name: Print environment variables
-        run: echo $isCloud
+        run: echo $isCloud $Username $Password $Browser $Env
 
       - name: Run specific runner class
         run: mvn clean install -Dtest=SSJ_Progression_Runners test

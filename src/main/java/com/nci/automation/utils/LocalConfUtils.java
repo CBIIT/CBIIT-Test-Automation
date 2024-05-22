@@ -5,6 +5,9 @@ import java.util.Enumeration;
 import java.util.Properties;
 import org.apache.commons.lang.StringUtils;
 
+/**
+ * @author sohilz2
+ */
 public class LocalConfUtils {
 
 	private static Properties localConf = null;
@@ -22,51 +25,46 @@ public class LocalConfUtils {
 	}
 
 	public static Properties loadLocalConf() {
-		String isCloud = System.getProperty("isCloud");
-		if (StringUtils.isBlank(isCloud)) {
-			isCloud = "false";
+
+		/*
+		 * Check for command line parameter
+		 */
+		String localConfResourcesPath = System.getProperty("isCloud");
+
+		if (StringUtils.isBlank(localConfResourcesPath)) {
+			localConfResourcesPath = "/conf/localEnv.properties";
+		} else if (localConfResourcesPath.equalsIgnoreCase("true")) {
+			localConfResourcesPath = "/conf/cloudEnv.properties";
 		}
 
 		localConf = new Properties();
 
-		if (isCloud.equalsIgnoreCase("true")) {
-			// cloud environment, load properties from environment variables
-			localConf.setProperty("Username", System.getenv("Username"));
-			localConf.setProperty("Password", System.getenv("Password"));
-			localConf.setProperty("browser", System.getenv("browser"));
-			localConf.setProperty("env", System.getenv("env"));
-			return localConf;
-		}
-
-		// local environment, load properties from localEnv.properties file
-		String localConfResourcesPath = "/conf/localEnv.properties";
 		try {
-			PropertiesFileUtils.loadPropsFromResource(localConf, localConfResourcesPath);
-			localConf = loadSystemProperties(localConf, isCloud);
+			PropertiesFileUtils.loadPropsFromResource(localConf,
+					localConfResourcesPath);
+			localConf = loadSystemProperties(localConf);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 		return localConf;
+
 	}
 
+	private static Properties loadSystemProperties(Properties localProps) {
 
-	private static Properties loadSystemProperties(Properties localProps, String isCloud) {
 		Properties systemProperties = System.getProperties();
 		Enumeration<?> e = systemProperties.propertyNames();
-		String key;
+		String key, value;
 
 		while (e.hasMoreElements()) {
 			key = (String) e.nextElement();
-
-			// If running in cloud, don't load the localEnv.properties
-			if(isCloud.equalsIgnoreCase("true") && key.contains("localEnv")){ // Modify the condition based on your key
-				continue;
-			}
-
-			String value = systemProperties.getProperty(key);
+			value = systemProperties.getProperty(key);
 			localProps.setProperty(key, value);
 		}
+
 		return localProps;
+
 	}
 
 	public static Properties getProperties() {
@@ -84,6 +82,7 @@ public class LocalConfUtils {
 		}
 
 		return localConf.getProperty(key);
+
 	}
 
 	public static void setProperty(String key, String value) {
@@ -93,6 +92,7 @@ public class LocalConfUtils {
 		}
 
 		localConf.setProperty(key, value);
+
 	}
 
 	public static String getRootDir() {
@@ -106,4 +106,5 @@ public class LocalConfUtils {
 	public static String getQcResourcesDir() {
 		return getResourceDir() + File.separator + "libs" + File.separator + "qc";
 	}
+
 }
