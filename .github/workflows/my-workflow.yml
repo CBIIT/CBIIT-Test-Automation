@@ -50,7 +50,6 @@ jobs:
           name: cucumber-report
           path: target/cucumber.json
 
-
   dispatch:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'workflow_dispatch' }}
@@ -81,11 +80,11 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: cucumber-report
-          path: target/html-reports/*  # Upload HTML and JSON reports
+          path: target/html-reports/*
 
   deploy-report:
     runs-on: ubuntu-latest
-    needs: [build, dispatch]
+    needs: build
     steps:
       - uses: actions/checkout@v2
       - name: Push HTML Report
