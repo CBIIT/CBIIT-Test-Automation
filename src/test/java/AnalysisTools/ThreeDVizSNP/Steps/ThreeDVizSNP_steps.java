@@ -13,9 +13,7 @@ import org.testng.Assert;
 public class ThreeDVizSNP_steps extends PageInitializer {
 
 	@Given("User navigates to 3DVizSNP page")
-	public void user_navigates_to_3DVizSNP_explorer_page() {
-		WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ThreeDVizSNP"));
-	}
+	public void user_navigates_to_3DVizSNP_explorer_page() {WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("ThreeDVizSNP"));}
 
 	@Then("verify that vizulise and about tabs are available")
 	public void clicks_on_advance_filters() {
@@ -23,48 +21,32 @@ public class ThreeDVizSNP_steps extends PageInitializer {
 	}
 
 	@Then("upload the vcf file and submit")
-	public void uploadVcfFile() {
-		ThreeDVizSNPStepImp.uploadVcfFile();
-	}
+	public void uploadVcfFile() {ThreeDVizSNPStepImp.uploadVcfFile();}
 
 	@When("User clicks Visualize Button")
-	public void user_clicks_visualize_button() {
-		threeDVizSNPPage.visulizeButton.click();
-	}
+	public void user_clicks_visualize_button() {threeDVizSNPPage.visulizeButton.click();}
 
 	@When("User clicks choose file and upload the vcf file")
-	public void user_clicks_choose_file_and_upload_the_vcf_file() {
-		ThreeDVizSNPStepImp.uploadExampleVCFFile();
-	}
+	public void user_clicks_choose_file_and_upload_the_vcf_file() {ThreeDVizSNPStepImp.uploadExampleVCFFile();}
+
 	@Then("User should see the vcf text and one file upload filed")
-	public void user_should_see_the_vcf_text_and_one_file_upload_filed() {
-		ThreeDVizSNPStepImp.verifyFileUploadText();
-	}
+	public void user_should_see_the_vcf_text_and_one_file_upload_filed() {ThreeDVizSNPStepImp.verifyFileUploadText();}
 
 	@When("User clicks submit button")
-	public void user_clicks_submit_button() {
-		threeDVizSNPPage.submitButton.click();
-	}
+	public void user_clicks_submit_button() {threeDVizSNPPage.submitButton.click();}
 
 	@When("User should click OK in Alert")
-	public void user_should_click_ok_in_alert() {
-		ThreeDVizSNPStepImp.dismissPopUpAlert();
-	}
+	public void user_should_click_ok_in_alert() {ThreeDVizSNPStepImp.dismissPopUpAlert();}
 
 	@Then("User should verify that Records are getting displayed as expected")
 	public void verifyRecordsDisplay() {
-		Assert.assertTrue(CommonUtils.isElementDisplayed(threeDVizSNPPage.recordCount));
-	}
+		Assert.assertTrue(CommonUtils.isElementDisplayed(threeDVizSNPPage.recordCount));}
 
 	@Then("User clicks Other varient")
-	public void clickOnVarient() {
-		threeDVizSNPPage.firstVarient.click();
-	}
+	public void clickOnVarient() {threeDVizSNPPage.firstVarient.click();}
 
 	@Then("Verify that selected varient is getting highlighted and exact dimensions are getting displayed")
-	public void verifySelectedVarient() {
-		ThreeDVizSNPStepImp.dismissPopUpAlert();
-	}
+	public void verifySelectedVarient() {ThreeDVizSNPStepImp.dismissPopUpAlert();}
 
 	@Then("User clicks on varient header")
 	public void varientHeader() {
@@ -100,9 +82,7 @@ public class ThreeDVizSNP_steps extends PageInitializer {
 	}
 
 	@Then("User should verify Error message Visualization Job Failed is getting displayed.")
-	public void verifyErrorMessageFailedJob() {
-		ThreeDVizSNPStepImp.validateErrorMessageForInvalidVcf();
-	}
+	public void verifyErrorMessageFailedJob() {ThreeDVizSNPStepImp.validateErrorMessageForInvalidVcf();}
 
 	@Then("User clicks choose file and upload invalid file")
 	public void uploadInvalidFile() {
@@ -115,14 +95,10 @@ public class ThreeDVizSNP_steps extends PageInitializer {
 	}
 
 	@Then("User clicks svg,json,png button and download files")
-	public void validateButtons() {
-		ThreeDVizSNPStepImp.DownloadFilesForSvgPngAndJson();
-	}
+	public void validateButtons() {ThreeDVizSNPStepImp.DownloadFilesForSvgPngAndJson();}
 
 	@Then("Verify that all the mini windows are interactable")
-	public void interactWithAllMiniWindow() {
-		ThreeDVizSNPStepImp.miniWindowInteraction();
-	}
+	public void interactWithAllMiniWindow() {ThreeDVizSNPStepImp.miniWindowInteraction();}
 
 	@Then("user clicks feedback button")
 	public void provideFeedback() {
