@@ -48,7 +48,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: cucumber-report
-          path: target/cucumber-reports/report.json
+          path: target/cucumber.json
 
 
   dispatch:
@@ -81,7 +81,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: cucumber-report
-          path: target/cucumber-reports/*  # Upload HTML and JSON reports
+          path: target/html-reports/*  # Upload HTML and JSON reports
 
   deploy-report:
     runs-on: ubuntu-latest
