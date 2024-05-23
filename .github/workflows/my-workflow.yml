@@ -81,4 +81,21 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: cucumber-report
-          path: target/cucumber.json
+          path: target/cucumber-reports/*  # Upload HTML and JSON reports
+
+  deploy-report:
+    runs-on: ubuntu-latest
+    needs: [build, dispatch]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Push HTML Report
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          git config --global user.email "diegojuarezbusiness@gmail.com"
+          git config --global user.name "iamdez99"
+          git checkout -b gh-pages
+          mv target/cucumber-reports/*.html .  # Move HTML report to root
+          git add .
+          git commit -m "Publishing cucumber report"
+          git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git gh-pages
