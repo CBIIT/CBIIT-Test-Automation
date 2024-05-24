@@ -42,7 +42,7 @@ jobs:
         run: echo $isCloud $Username $Password $Browser $Env
 
       - name: Run specific runner class
-        run: mvn -Dtest=SSJ_Progression_Runners test
+        run: mvn -B -Dtest=SSJ_Progression_Runners test
         continue-on-error: true
 
       - name: Upload Cucumber Report
@@ -76,7 +76,7 @@ jobs:
         run: echo $isCloud $Username $Password $Browser $Env
 
       - name: Run specific runner class
-        run: mvn clean install -Dtest=SSJ_Progression_Runners test
+        run: mvn -B clean install -Dtest=SSJ_Progression_Runners test
         continue-on-error: true
 
       - name: Upload Cucumber Report
