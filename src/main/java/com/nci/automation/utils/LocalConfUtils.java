@@ -1,6 +1,7 @@
 package com.nci.automation.utils;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Enumeration;
 import java.util.Properties;
 import org.apache.commons.lang.StringUtils;
@@ -24,7 +25,7 @@ public class LocalConfUtils {
 					"Report Config Path is not specified");
 	}
 
-	public static Properties loadLocalConf() {
+	public static Properties loadLocalConf() throws FileNotFoundException {
 
 		/*
 		 * Check for command line parameter
@@ -38,6 +39,13 @@ public class LocalConfUtils {
 		} else {
 			// path to localEnv.properties file
 			localConfResourcesPath = "/conf/localEnv.properties";
+		}
+
+		System.out.println("isCloud System Property: " + System.getProperty("isCloud"));
+		System.out.println("Trying to load properties from: "  + localConfResourcesPath);
+		File file = new File(localConfResourcesPath);
+		if (!file.exists()) {
+			throw new FileNotFoundException("Property file not found: " + localConfResourcesPath);
 		}
 
 		localConf = new Properties();
