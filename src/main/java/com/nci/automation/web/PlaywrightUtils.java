@@ -16,13 +16,14 @@ public class PlaywrightUtils {
 //        ConfigReader.readProperties(FrameworkConstants.CONFIGURATION_FILEPATH);
         String testBrowser = ConfUtils.getProperty("browser");
         String maximizeWindow = "--start-maximized";
+        String headless = ConfUtils.getProperty("headless");
         double setSlowMoTime = Double.parseDouble(ConfUtils.getProperty("setSlowMoTime"));
 
         if (testBrowser.equalsIgnoreCase(FrameworkConstants.BROWSER_CHROME)) {
             arguments = new ArrayList<>();
             arguments.add(maximizeWindow);
             Browser browser = playwright.chromium().launch(
-                    new BrowserType.LaunchOptions().setChannel(FrameworkConstants.BROWSER_CHROME).setHeadless(true).setArgs(arguments).setSlowMo(setSlowMoTime));
+                    new BrowserType.LaunchOptions().setChannel(FrameworkConstants.BROWSER_CHROME).setHeadless(Boolean.parseBoolean(headless)).setArgs(arguments).setSlowMo(setSlowMoTime));
             context = browser.newContext(new Browser.NewContextOptions().setViewportSize(null));
             page = context.newPage();
         } else if (testBrowser.equalsIgnoreCase(FrameworkConstants.BROWSER_EDGE)) {
