@@ -29,12 +29,15 @@ public class LocalConfUtils {
 		/*
 		 * Check for command line parameter
 		 */
-		String localConfResourcesPath = System.getProperty("isCloud");
+		//String localConfResourcesPath = System.getProperty("isCloud");
 
-		if (StringUtils.isBlank(localConfResourcesPath)) {
-			localConfResourcesPath = "/conf/localEnv.properties";
-		} else if (localConfResourcesPath.equalsIgnoreCase("true")) {
-			localConfResourcesPath = "/conf/cloudEnv.properties";
+		String localConfResourcesPath;
+
+		if (System.getProperty("isCloud").equals("true")) {
+			localConfResourcesPath = "path/to/cloudEnv.properties";
+		} else {
+			// path to localEnv.properties file
+			localConfResourcesPath = "path/to/localEnv.properties";
 		}
 
 		localConf = new Properties();
