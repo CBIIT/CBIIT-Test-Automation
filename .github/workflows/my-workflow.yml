@@ -65,6 +65,10 @@ jobs:
   dispatch:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'workflow_dispatch' }}
+    env:
+      DISPLAY: ".99"
+      SCREEN_RESOLUTION: "1280x1024x24"
+
     steps:
       - uses: actions/checkout@v2
 
