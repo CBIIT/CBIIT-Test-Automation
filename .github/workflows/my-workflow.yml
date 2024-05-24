@@ -31,12 +31,19 @@ jobs:
 
       - name: Set environment variables
         run: |
-          echo "Username=${{ secrets.SIDEDOORPASSWORD }}" >> $GITHUB_ENV
-          echo "Password=${{ secrets.SIDEDOORUSERNAME }}" >> $GITHUB_ENV
+          echo "Username=${{ secrets.SIDEDOORUSERNAME }}" >> $GITHUB_ENV
+          echo "Password=${{ secrets.SIDEDOORPASSWORD }}" >> $GITHUB_ENV
           echo "browser=${{ matrix.browser }}" >> $GITHUB_ENV
           echo "env=${{ matrix.env }}" >> $GITHUB_ENV
           echo "isCloud=true" >> $GITHUB_ENV
           echo "Headless=true" >> $GITHUB_ENV
+
+      - name: Replace variables in cloudEnv.properties
+        run: |
+          sed -i "s/Username_VAR/${{ secrets.SIDEDOORUSERNAME }}/g" src/main/resources/conf/cloudEnv.properties
+          sed -i "s/Password_VAR/${{ secrets.SIDEDOORPASSWORD }}/g" src/main/resources/conf/cloudEnv.properties
+          sed -i "s/Browser_VAR/${{ matrix.browser }}/g" src/main/resources/conf/cloudEnv.properties
+          sed -i "s/Env_VAR/${{ matrix.env }}/g" src/main/resources/conf/cloudEnv.properties
 
       - name: Print environment variables
         run: echo $isCloud $Username $Password $Browser $Env
@@ -65,11 +72,18 @@ jobs:
 
       - name: Set environment variables
         run: |
-          echo "Username=${{ secrets.SIDEDOORPASSWORD }}" >> $GITHUB_ENV
-          echo "Password=${{ secrets.SIDEDOORUSERNAME }}" >> $GITHUB_ENV
+          echo "Username=${{ secrets.SIDEDOORUSERNAME }}" >> $GITHUB_ENV
+          echo "Password=${{ secrets.SIDEDOORPASSWORD }}" >> $GITHUB_ENV
           echo "browser=${{ github.event.inputs.testBrowser }}" >> $GITHUB_ENV
           echo "env=test" >> $GITHUB_ENV
           echo "isCloud=true" >> $GITHUB_ENV
+
+      - name: Replace variables in cloudEnv.properties
+        run: |
+          sed -i "s/Username_VAR/${{ secrets.SIDEDOORUSERNAME }}/g" src/main/resources/conf/cloudEnv.properties
+          sed -i "s/Password_VAR/${{ secrets.SIDEDOORPASSWORD }}/g" src/main/resources/conf/cloudEnv.properties
+          sed -i "s/Browser_VAR/${{ github.event.inputs.testBrowser }}/g" src/main/resources/conf/cloudEnv.properties
+          sed -i "s/Env_VAR/test/g" src/main/resources/conf/cloudEnv.properties
 
       - name: Print environment variables
         run: echo $isCloud $Username $Password $Browser $Env

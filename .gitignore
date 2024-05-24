@@ -2,6 +2,7 @@
 /target/
 /target
 src/main/resources/conf/localConf.properties
+src/main/resources/conf/localEnv.properties
 target/classes/conf/localConf.properties
 target/cucumber.json
 true
