@@ -78,7 +78,7 @@ public class LocalConfUtils {
 
 	}
 
-	public static Properties getProperties() {
+	public static Properties getProperties() throws FileNotFoundException {
 		if (localConf == null) {
 			loadLocalConf();
 		}
@@ -86,7 +86,7 @@ public class LocalConfUtils {
 		return localConf;
 	}
 
-	public static String getProperty(String key) {
+	public static String getProperty(String key) throws FileNotFoundException {
 
 		if (localConf == null) {
 			loadLocalConf();
@@ -96,7 +96,7 @@ public class LocalConfUtils {
 
 	}
 
-	public static void setProperty(String key, String value) {
+	public static void setProperty(String key, String value) throws FileNotFoundException {
 
 		if (localConf == null) {
 			loadLocalConf();
