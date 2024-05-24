@@ -13,7 +13,7 @@ public class PlaywrightUtils {
 
     public static void setUp() {
         playwright = Playwright.create();
-        ConfigReader.readProperties(FrameworkConstants.CONFIGURATION_FILEPATH);
+//        ConfigReader.readProperties(FrameworkConstants.CONFIGURATION_FILEPATH);
         String testBrowser = ConfUtils.getProperty("browser");
         String maximizeWindow = "--start-maximized";
         double setSlowMoTime = Double.parseDouble(ConfUtils.getProperty("setSlowMoTime"));

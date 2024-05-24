@@ -1,7 +1,6 @@
 package com.nci.automation.utils;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Enumeration;
 import java.util.Properties;
 import org.apache.commons.lang.StringUtils;
@@ -25,27 +24,17 @@ public class LocalConfUtils {
 					"Report Config Path is not specified");
 	}
 
-	public static Properties loadLocalConf() throws FileNotFoundException {
+	public static Properties loadLocalConf() {
 
 		/*
 		 * Check for command line parameter
 		 */
-		//String localConfResourcesPath = System.getProperty("isCloud");
+		String localConfResourcesPath = System.getProperty("isCloud");
 
-		String localConfResourcesPath;
-
-		if (System.getProperty("isCloud").equals("true")) {
-			localConfResourcesPath = "/conf/cloudEnv.properties";
-		} else {
-			// path to localEnv.properties file
+		if (StringUtils.isBlank(localConfResourcesPath)) {
 			localConfResourcesPath = "/conf/localEnv.properties";
-		}
-
-		System.out.println("isCloud System Property: " + System.getProperty("isCloud"));
-		System.out.println("Trying to load properties from: "  + localConfResourcesPath);
-		File file = new File(localConfResourcesPath);
-		if (!file.exists()) {
-			throw new FileNotFoundException("Property file not found: " + localConfResourcesPath);
+		} else if (localConfResourcesPath.equalsIgnoreCase("true")) {
+			localConfResourcesPath = "/conf/cloudEnv.properties";
 		}
 
 		localConf = new Properties();
@@ -78,7 +67,7 @@ public class LocalConfUtils {
 
 	}
 
-	public static Properties getProperties() throws FileNotFoundException {
+	public static Properties getProperties() {
 		if (localConf == null) {
 			loadLocalConf();
 		}
@@ -86,7 +75,7 @@ public class LocalConfUtils {
 		return localConf;
 	}
 
-	public static String getProperty(String key) throws FileNotFoundException {
+	public static String getProperty(String key) {
 
 		if (localConf == null) {
 			loadLocalConf();
@@ -96,7 +85,7 @@ public class LocalConfUtils {
 
 	}
 
-	public static void setProperty(String key, String value) throws FileNotFoundException {
+	public static void setProperty(String key, String value) {
 
 		if (localConf == null) {
 			loadLocalConf();

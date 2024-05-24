@@ -20,7 +20,7 @@ public class ConfUtils {
 	private static String resultsDir = "";
 	private static String baseResultsDir = "";
 
-	public static Properties getProperties() throws FileNotFoundException {
+	public static Properties getProperties() {
 
 		if (localConf == null) {
 			localConf = LocalConfUtils.loadLocalConf();
@@ -28,7 +28,7 @@ public class ConfUtils {
 		return localConf;
 	}
 
-	public static String getProperty(String key) throws FileNotFoundException {
+	public static String getProperty(String key) {
 		return getProperties().getProperty(key);
 	}
 
@@ -36,7 +36,7 @@ public class ConfUtils {
 		return LocalConfUtils.getRootDir();
 	}
 
-	public static String getEnvironment() throws FileNotFoundException {
+	public static String getEnvironment() {
 		/**
 		 * Check for command line parms
 		 */
@@ -58,7 +58,7 @@ public class ConfUtils {
 		return returnValue;
 	}
 
-	public static String getEnvFileResourcePath() throws FileNotFoundException {
+	public static String getEnvFileResourcePath() {
 		String returnValue = getEnvironment();
 		returnValue = "/conf/env/" + returnValue + ".xml";
 		return returnValue;
