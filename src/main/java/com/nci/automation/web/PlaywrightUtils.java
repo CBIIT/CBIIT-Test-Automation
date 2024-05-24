@@ -29,21 +29,21 @@ public class PlaywrightUtils {
             arguments = new ArrayList<>();
             arguments.add(maximizeWindow);
             Browser browser = playwright.chromium().launch(
-                    new BrowserType.LaunchOptions().setChannel(FrameworkConstants.BROWSER_EDGE).setHeadless(false).setArgs(arguments).setSlowMo(setSlowMoTime));
+                    new BrowserType.LaunchOptions().setChannel(FrameworkConstants.BROWSER_EDGE).setHeadless(Boolean.parseBoolean(headless)).setArgs(arguments).setSlowMo(setSlowMoTime));
             context = browser.newContext(new Browser.NewContextOptions().setViewportSize(null));
             page = context.newPage();
         } else if (testBrowser.equalsIgnoreCase(FrameworkConstants.BROWSER_FIREFOX)) {
             arguments = new ArrayList<>();
             arguments.add(maximizeWindow);
             Browser browser = playwright.firefox()
-                    .launch(new BrowserType.LaunchOptions().setHeadless(false).setArgs(arguments).setSlowMo(setSlowMoTime));
+                    .launch(new BrowserType.LaunchOptions().setHeadless(Boolean.parseBoolean(headless)).setArgs(arguments).setSlowMo(setSlowMoTime));
             context = browser.newContext(new Browser.NewContextOptions().setViewportSize(null));
             page = context.newPage();
         } else if (testBrowser.equalsIgnoreCase(FrameworkConstants.BROWSER_SAFARI)) {
             arguments = new ArrayList<>();
             arguments.add(maximizeWindow);
             Browser browser = playwright.webkit()
-                    .launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(setSlowMoTime));
+                    .launch(new BrowserType.LaunchOptions().setHeadless(Boolean.parseBoolean(headless)).setSlowMo(setSlowMoTime));
            context = browser.newContext(new Browser.NewContextOptions().setViewportSize(null));
             page = context.newPage();
         }
