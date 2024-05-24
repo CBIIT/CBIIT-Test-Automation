@@ -2,6 +2,7 @@ package com.nci.automation.web;
 
 import com.microsoft.playwright.*;
 import com.nci.automation.utils.FrameworkConstants;
+
 import java.util.ArrayList;
 
 public class PlaywrightUtils {
@@ -10,6 +11,7 @@ public class PlaywrightUtils {
     public static Playwright playwright;
     public static ArrayList<String> arguments = new ArrayList<>();
     public static BrowserContext context;
+    public static Browser browser;
 
     public static void setUp() {
         playwright = Playwright.create();
@@ -18,12 +20,17 @@ public class PlaywrightUtils {
         String headless = ConfUtils.getProperty("headless");
         double setSlowMoTime = Double.parseDouble(ConfUtils.getProperty("setSlowMoTime"));
 
-        if (testBrowser.equalsIgnoreCase(FrameworkConstants.BROWSER_CHROME)) {
+        if (testBrowser.equalsIgnoreCase(FrameworkConstants.BROWSER_CHROME) && headless.equals("false")) {
             arguments = new ArrayList<>();
             arguments.add(maximizeWindow);
             Browser browser = playwright.chromium().launch(
                     new BrowserType.LaunchOptions().setChannel(FrameworkConstants.BROWSER_CHROME).setHeadless(Boolean.parseBoolean(headless)).setArgs(arguments).setSlowMo(setSlowMoTime));
             context = browser.newContext(new Browser.NewContextOptions().setViewportSize(null));
+            page = context.newPage();
+        } else if (testBrowser.equalsIgnoreCase(FrameworkConstants.BROWSER_CHROME) && headless.equals("true")) {
+            browser = playwright.chromium().launch(
+                    new BrowserType.LaunchOptions().setChannel(FrameworkConstants.BROWSER_CHROME).setHeadless(Boolean.parseBoolean(headless)).setArgs(arguments).setSlowMo(setSlowMoTime));
+            context = browser.newContext(new Browser.NewContextOptions().setViewportSize(1920, 1080));
             page = context.newPage();
         } else if (testBrowser.equalsIgnoreCase(FrameworkConstants.BROWSER_EDGE)) {
             arguments = new ArrayList<>();
@@ -44,10 +51,11 @@ public class PlaywrightUtils {
             arguments.add(maximizeWindow);
             Browser browser = playwright.webkit()
                     .launch(new BrowserType.LaunchOptions().setHeadless(Boolean.parseBoolean(headless)).setSlowMo(setSlowMoTime));
-           context = browser.newContext(new Browser.NewContextOptions().setViewportSize(null));
+            context = browser.newContext(new Browser.NewContextOptions().setViewportSize(null));
             page = context.newPage();
         }
     }
+
     public static void tearDown() {
         page.close();
         playwright.close();
