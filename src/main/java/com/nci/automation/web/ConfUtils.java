@@ -1,6 +1,7 @@
 package com.nci.automation.web;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Properties;
 import org.apache.commons.lang.StringUtils;
 import com.nci.automation.utils.LocalConfUtils;
@@ -19,7 +20,7 @@ public class ConfUtils {
 	private static String resultsDir = "";
 	private static String baseResultsDir = "";
 
-	public static Properties getProperties() {
+	public static Properties getProperties() throws FileNotFoundException {
 
 		if (localConf == null) {
 			localConf = LocalConfUtils.loadLocalConf();
@@ -27,7 +28,7 @@ public class ConfUtils {
 		return localConf;
 	}
 
-	public static String getProperty(String key) {
+	public static String getProperty(String key) throws FileNotFoundException {
 		return getProperties().getProperty(key);
 	}
 
@@ -35,7 +36,7 @@ public class ConfUtils {
 		return LocalConfUtils.getRootDir();
 	}
 
-	public static String getEnvironment() {
+	public static String getEnvironment() throws FileNotFoundException {
 		/**
 		 * Check for command line parms
 		 */
@@ -46,7 +47,7 @@ public class ConfUtils {
 		return returnValue;
 	}
 
-	public static String getBrowser() {
+	public static String getBrowser() throws FileNotFoundException {
 		/**
 		 * Check for command line parms
 		 */
@@ -57,7 +58,7 @@ public class ConfUtils {
 		return returnValue;
 	}
 
-	public static String getEnvFileResourcePath() {
+	public static String getEnvFileResourcePath() throws FileNotFoundException {
 		String returnValue = getEnvironment();
 		returnValue = "/conf/env/" + returnValue + ".xml";
 		return returnValue;
