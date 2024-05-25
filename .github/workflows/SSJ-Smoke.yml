@@ -1,4 +1,4 @@
-name: PLATFORM BUSINESS - SSJ AUTOMATION
+name: PLATFORM BUSINESS - SSJ SMOKE TESTS
 
 on:
   workflow_dispatch:
