@@ -1,4 +1,4 @@
-name: PLATFORM BUSINESS - SSJ
+name: PLATFORM BUSINESS - SSJ PROGRESSION TESTS
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
     strategy:
       matrix:
         env: ['test']
-        browser: ['chrome', 'firefox', 'safari']
+        browser: ['chrome', 'firefox', 'msedge']
     env:
       DISPLAY: ".99"
       SCREEN_RESOLUTION: "1280x1024x24"
