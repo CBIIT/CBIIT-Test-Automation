@@ -45,24 +45,22 @@ jobs:
           name: cucumber-report-${{ github.run_number }}
           path: target/${{ steps.reportpath.outputs.path }}/*
 
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v2
+        with:
+          ref: 'gh-pages'
+
       - name: Push HTML Report
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git config --global user.email "diegojuarezbusiness@gmail.com"
           git config --global user.name "iamdez99"
-          git checkout gh-pages
           mkdir -p ${{ steps.reportpath.outputs.path }}
           mv target/ssj-progression-reports/*.html ${{ steps.reportpath.outputs.path }}/
           git add .
           git commit -m "Publishing cucumber report ${{ github.run_number }}"
           git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git gh-pages
-
-      - name: Fetch remote gh-pages
-        run: git fetch origin gh-pages
-
-      - name: Checkout fetched gh-pages
-        run: git checkout gh-pages
 
       - name: Update Index
         env:
