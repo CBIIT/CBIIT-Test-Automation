@@ -58,11 +58,18 @@ jobs:
           git commit -m "Publishing cucumber report ${{ github.run_number }}"
           git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git gh-pages
 
+      - name: Fetch remote gh-pages
+        run: |
+          git fetch origin gh-pages
+
+      - name: Checkout fetched gh-pages
+        run: |
+          git checkout -b gh-pages FETCH_HEAD
+
       - name: Update Index
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          git pull origin gh-pages
           echo "<h3><a href='${{ steps.reportpath.outputs.path }}/ssj-progression-report.html'>Test Report ${{ steps.reportpath.outputs.path }}</a></h3>" >> index.html
           git add index.html 
           git commit -m "Update index.html" 
