@@ -1,4 +1,4 @@
-name: PLATFORM BUSINESS - SSJ PROGRESSION TESTS
+name: PLATFORM BUSINESS - SSJ SMOKE TESTS
 
 on:
   push:
@@ -11,6 +11,14 @@ on:
         description: 'Browser'
         required: true
         default: 'chrome'
+      runner_class:
+        description: 'The runner class to execute'
+        required: true
+        default: 'SSJ_Progression_Runners'
+      testType:
+        description: 'Type of run: smoke or regression.'
+        required: true
+        default: 'smoke'
 
 jobs:
   build:
@@ -40,7 +48,7 @@ jobs:
           echo "env=${{ matrix.env }}" >> $GITHUB_ENV
           echo "isCloud=true" >> $GITHUB_ENV
           echo "Headless=true" >> $GITHUB_ENV
-          echo "testType=regression" >> $GITHUB_ENV
+          echo "testType=${{ github.event.inputs.testType }}" >> $GITHUB_ENV
 
       - name: Replace variables in cloudEnv.properties
         run: |
@@ -53,14 +61,14 @@ jobs:
         run: echo $isCloud $Username $Password $Browser $Env
 
       - name: Run specific runner class
-        run: mvn -B -q -Dtest=Run_Progression_Test -DisCloud=true test
+        run: mvn -B -q -Dtest=${{ github.event.inputs.runner_class }} -DisCloud=true test
         continue-on-error: true
 
       - name: Upload Cucumber Report
         uses: actions/upload-artifact@v2
         if: always()
         with:
-          name: ssj-regression-report
+          name: ssj-${{ env.testType }}-report
           path: target/cucumber.json
 
   SSJ_Automation:
@@ -85,7 +93,7 @@ jobs:
           echo "browser=${{ github.event.inputs.testBrowser }}" >> $GITHUB_ENV
           echo "env=test" >> $GITHUB_ENV
           echo "isCloud=true" >> $GITHUB_ENV
-          echo "testType=regression" >> $GITHUB_ENV
+          echo "testType=${{ github.event.inputs.testType }}" >> $GITHUB_ENV
 
       - name: Replace variables in cloudEnv.properties
         run: |
@@ -98,14 +106,14 @@ jobs:
         run: echo $isCloud $Username $Password $Browser $Env
 
       - name: Run specific runner class
-        run: mvn -B clean install -Dtest=Run_Progression_Test -DisCloud=true test
+        run: mvn -B clean install -Dtest=${{ github.event.inputs.runner_class }} -DisCloud=true test
         continue-on-error: true
 
       - name: Upload Cucumber Report
         uses: actions/upload-artifact@v2
         if: always()
         with:
-          name: ssj-regression-report
+          name: ssj-${{ env.testType }}-report
           path: target/ssj-reports/*
 
       - name: Push HTML Report
