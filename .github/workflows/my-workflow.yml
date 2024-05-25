@@ -11,6 +11,10 @@ on:
         description: 'Browser'
         required: true
         default: 'chrome'
+      runner_class:
+        description: 'The runner class to execute'
+        required: true
+        default: 'SSJ_Progression_Runners'
 
 jobs:
   build:
@@ -52,7 +56,7 @@ jobs:
         run: echo $isCloud $Username $Password $Browser $Env
 
       - name: Run specific runner class
-        run: mvn -B -q -Dtest=SSJ_Progression_Runners -DisCloud=true test
+        run: mvn -B -q -Dtest=${{ github.event.inputs.runner_class }} -DisCloud=true test
         continue-on-error: true
 
       - name: Upload Cucumber Report
@@ -96,7 +100,7 @@ jobs:
         run: echo $isCloud $Username $Password $Browser $Env
 
       - name: Run specific runner class
-        run: mvn -B clean install -Dtest=SSJ_Progression_Runners -DisCloud=true test
+        run: mvn -B clean install -Dtest=${{ github.event.inputs.runner_class }} -DisCloud=true test
         continue-on-error: true
 
       - name: Upload Cucumber Report
