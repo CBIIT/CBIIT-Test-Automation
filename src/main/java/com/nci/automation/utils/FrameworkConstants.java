@@ -6,7 +6,7 @@ public class FrameworkConstants {
     public static final String GET_OS_NAME = System.getProperty("os.name");
 
     // Browser identifiers
-    public static final String BROWSER_EDGE = "edge";
+    public static final String BROWSER_EDGE = "msedge";
     public static final String BROWSER_FIREFOX = "firefox";
     public static final String BROWSER_CHROME = "chrome";
     public static final String BROWSER_SAFARI = "safari";
