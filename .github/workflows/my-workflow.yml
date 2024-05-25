@@ -123,7 +123,7 @@ jobs:
           git config --global user.email "diegojuarezbusiness@gmail.com"
           git config --global user.name "iamdez99"
           git checkout -b gh-pages
-          mv target/ssj-reports/*.html .  # Move HTML report to root
+          mv target/ssj-reports/ssj-${{ env.testType }}-report.html .  # Move HTML report to root
           git add .
           git commit -m "Publishing cucumber report"
           git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git gh-pages
