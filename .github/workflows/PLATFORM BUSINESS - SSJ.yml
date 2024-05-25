@@ -42,7 +42,7 @@ jobs:
 
       - name: Determine report path
         id: reportpath
-        run: echo "::set-output name=path::ssj-progression-reports-$(date +'%Y-%m-%d-at-%H-%M-%S')"
+        run: echo "::set-output name=path::ssj-progression-reports-$(date +'%Y-%m-%d-at-%I-%M%P')"
 
       - name: Upload Cucumber Report
         uses: actions/upload-artifact@v2
