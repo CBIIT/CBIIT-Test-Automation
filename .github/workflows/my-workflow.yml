@@ -15,6 +15,10 @@ on:
         description: 'The runner class to execute'
         required: true
         default: 'SSJ_Progression_Runners'
+      testType:
+        description: 'Type of run: smoke or regression.'
+        required: true
+        default: 'smoke'
 
 jobs:
   build:
@@ -44,6 +48,7 @@ jobs:
           echo "env=${{ matrix.env }}" >> $GITHUB_ENV
           echo "isCloud=true" >> $GITHUB_ENV
           echo "Headless=true" >> $GITHUB_ENV
+          echo "testType=${{ github.event.inputs.testType }}" >> $GITHUB_ENV
 
       - name: Replace variables in cloudEnv.properties
         run: |
@@ -63,7 +68,7 @@ jobs:
         uses: actions/upload-artifact@v2
         if: always()
         with:
-          name: cucumber-report
+          name: ssj-${{ env.testType }}-report
           path: target/cucumber.json
 
   SSJ_Automation:
@@ -88,6 +93,7 @@ jobs:
           echo "browser=${{ github.event.inputs.testBrowser }}" >> $GITHUB_ENV
           echo "env=test" >> $GITHUB_ENV
           echo "isCloud=true" >> $GITHUB_ENV
+          echo "testType=${{ github.event.inputs.testType }}" >> $GITHUB_ENV
 
       - name: Replace variables in cloudEnv.properties
         run: |
@@ -107,7 +113,7 @@ jobs:
         uses: actions/upload-artifact@v2
         if: always()
         with:
-          name: cucumber-report
+          name: ssj-${{ env.testType }}-report
           path: target/ssj-reports/*
 
       - name: Push HTML Report
