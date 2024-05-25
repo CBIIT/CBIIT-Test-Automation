@@ -7,10 +7,6 @@ on:
         description: 'Browser'
         required: true
         default: 'chrome'
-      runnerFile:
-        description: 'Name of runner file'
-        required: true
-        default: 'SSJ_Smoke_Runners'
 
 jobs:
   build:
