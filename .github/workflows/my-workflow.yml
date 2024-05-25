@@ -62,7 +62,7 @@ jobs:
           name: cucumber-report
           path: target/cucumber.json
 
-  dispatch:
+  SSJ_Automation:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'workflow_dispatch' }}
     env:
