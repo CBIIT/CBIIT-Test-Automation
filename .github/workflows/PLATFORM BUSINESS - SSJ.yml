@@ -7,10 +7,6 @@ on:
         description: 'Browser'
         required: true
         default: 'chrome'
-      runnerFile:
-        description: 'Name of runner file'
-        required: true
-        default: 'SSJ_Progression_Runners'
 
 jobs:
   build:
@@ -35,15 +31,19 @@ jobs:
           sed -i "s/ENV_VAR/test/g" src/main/resources/conf/cloudEnv.properties
 
       - name: Run specific runner class
-        run: mvn -B -q -Dtest=${{ github.event.inputs.runnerFile }} -DisCloud=true test
+        run: mvn -B -q -Dtest=SSJ_Progression_Runners -DisCloud=true test
         continue-on-error: true
+
+      - name: Determine report path
+        id: reportpath
+        run: echo "::set-output name=path::ssj-progression-reports-$(date +%Y-%m-%d-%H%M%S)"
 
       - name: Upload Cucumber Report
         uses: actions/upload-artifact@v2
         if: always()
         with:
-          name: cucumber-report
-          path: target/ssj-progression-reports/*
+          name: cucumber-report-${{ github.run_number }}
+          path: target/${{ steps.reportpath.outputs.path }}/*
 
       - name: Push HTML Report
         env:
@@ -52,7 +52,18 @@ jobs:
           git config --global user.email "diegojuarezbusiness@gmail.com"
           git config --global user.name "iamdez99"
           git checkout -b gh-pages
-          mv target/ssj-progression-reports/*.html .  # Move HTML report to root
+          mkdir ${{ steps.reportpath.outputs.path }}
+          mv target/ssj-progression-reports/*.html ${{ steps.reportpath.outputs.path }}/
           git add .
-          git commit -m "Publishing cucumber report"
+          git commit -m "Publishing cucumber report ${{ github.run_number }}"
           git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git gh-pages
+
+      - name: Update Index
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          git pull 
+          echo "<h3><a href='${{ steps.report.path }}/ssj-progression-report.html'>Test Report ${{ steps.reportpath.outputs.path }}</a></h3>" >> index.html
+          git add index.html 
+          git commit -m "Update index.html" 
+          git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git gh-pages
