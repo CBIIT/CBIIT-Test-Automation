@@ -63,7 +63,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git pull origin gh-pages
-          echo "<h3><a href='${{ steps.report.path }}/ssj-progression-report.html'>Test Report ${{ steps.reportpath.outputs.path }}</a></h3>" >> index.html
+          echo "<h3><a href='${{ steps.reportpath.outputs.path }}/ssj-progression-report.html'>Test Report ${{ steps.reportpath.outputs.path }}</a></h3>" >> index.html
           git add index.html 
           git commit -m "Update index.html" 
           git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git gh-pages
