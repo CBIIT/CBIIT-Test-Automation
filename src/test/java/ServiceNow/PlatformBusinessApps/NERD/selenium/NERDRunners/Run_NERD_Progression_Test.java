@@ -3,7 +3,7 @@ package ServiceNow.PlatformBusinessApps.NERD.selenium.NERDRunners;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
-@CucumberOptions(plugin= {"html:target/NERD-reports/NERD-Progression-report.html",
+@CucumberOptions(plugin= {"html:target/nerd-progression-reports/nerd-progression-report.html",
         "json:target/cucumber.json", "rerun:target/failed.txt",
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         features="src/test/java/ServiceNow/PlatformBusinessApps/NERD/selenium/Features",

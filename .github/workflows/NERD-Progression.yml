@@ -42,7 +42,7 @@ jobs:
 
       - name: Determine report path
         id: reportpath
-        run: echo "::set-output name=path::NERD-progression-reports-$(date +'%Y-%m-%d-at-%I-%M%P')"
+        run: echo "::set-output name=path::nerd-progression-reports-$(date +'%Y-%m-%d-at-%I-%M%P')"
 
       - name: Upload Cucumber Report
         uses: actions/upload-artifact@v2
@@ -58,7 +58,7 @@ jobs:
           git config --global user.email "diegojuarezbusiness@gmail.com"
           git config --global user.name "iamdez99"
           mkdir -p ${{ steps.reportpath.outputs.path }}
-          mv target/NERD-progression-reports/*.html ${{ steps.reportpath.outputs.path }}/
+          mv target/nerd-progression-reports/*.html ${{ steps.reportpath.outputs.path }}/
           git add .
           git commit -m "Publishing cucumber report ${{ github.run_number }}"
           git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git gh-pages
@@ -67,7 +67,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          echo "<h3><a href='${{ steps.reportpath.outputs.path }}/NERD-progression-report.html'>Test Report ${{ steps.reportpath.outputs.path }}</a></h3>" >> NERD-progression-test-results.html
-          git add NERD-progression-test-results.html 
-          git commit -m "Update NERD-progression-test-results.html" 
+          echo "<h3><a href='${{ steps.reportpath.outputs.path }}/nerd-progression-report.html'>Test Report ${{ steps.reportpath.outputs.path }}</a></h3>" >> nerd-progression-test-results.html
+          git add nerd-progression-test-results.html 
+          git commit -m "Update nerd-progression-test-results.html" 
           git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git gh-pages
