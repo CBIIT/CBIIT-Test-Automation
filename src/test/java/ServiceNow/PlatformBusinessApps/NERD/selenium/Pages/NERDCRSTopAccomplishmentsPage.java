@@ -75,10 +75,10 @@ public class NERDCRSTopAccomplishmentsPage {
     @FindBy(xpath = "//h4[contains(text(),'Author')]")
     public WebElement nerdTopAccomplishmentsAuthorText;
 
-    /** NERD CRS Knowledge Base NCI Staff Member Top Accomplishments
+    /** NERD CRS Knowledge Base NCI Staff Member New Submissions
      * Submit to Doc Planning Submit Pop Up Yes Button */
     @FindBy(xpath = "//button[@ng-click='c.submitSubmission()']")
-    public WebElement nerdTopAccomplishmentsSubmitToDocPlanningPopUpYesButton;
+    public WebElement nerdNewSubmissionsSubmitToDocPlanningPopUpYesButton;
 
     public NERDCRSTopAccomplishmentsPage() {
     PageFactory.initElements(WebDriverUtils.webDriver, this);

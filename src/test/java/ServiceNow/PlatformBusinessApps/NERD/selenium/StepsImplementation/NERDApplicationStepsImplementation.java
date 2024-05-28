@@ -466,7 +466,6 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      * @param pediatric
      * @param reportGuidancePolicy
      */
-
     public static void checkBoxOptionsAreDisplayed(String covid19, String communications, String rare,
             String bigDataDataSharing, String researchResourcesAndInfrastructure, String sexGenderDifferences,
             String partnerships,
@@ -581,9 +580,9 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      */
     public static void filingOutAllRequiredFieldsOfSubmission() {
         MiscUtils.sleep(1000);
-        nerdCrsKnowledgeDatabaseSubmissionsPage.topAccomplishmentFiscalYear2019.click();
+        nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsSelectCheckBoxFiscalYear2019.click();
         MiscUtils.sleep(2000);
-        CommonUtils.sendKeys(nerdCrsKnowledgeDatabaseSubmissionsPage.topAccomplishmentTitle, TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME);
+        CommonUtils.sendKeys(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsPageTitleTextBox, TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME);
         MiscUtils.sleep(2000);
         CommonUtils.selectDropDownValue(createNewSubmissionPage.leadDOCDropDown, TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_DOC_DROPDOWN);
         CucumberLogUtils.logScreenshot();
@@ -595,9 +594,9 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         MiscUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(2000);
-        JavascriptUtils.scrollIntoView(nerdCrsKnowledgeDatabaseSubmissionsPage.topAccomplishmentResearchType);
+        JavascriptUtils.scrollIntoView(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsPageResearchTypeDropDown);
         MiscUtils.sleep(2000);
-        CommonUtils.selectDropDownValue(nerdCrsKnowledgeDatabaseSubmissionsPage.topAccomplishmentResearchType,
+        CommonUtils.selectDropDownValue(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsPageResearchTypeDropDown,
                 TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_RESEARCH_TYPE);
         CucumberLogUtils.logScreenshot();
     }
