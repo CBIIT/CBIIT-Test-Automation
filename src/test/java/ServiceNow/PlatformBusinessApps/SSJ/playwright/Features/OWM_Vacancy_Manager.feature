@@ -1,7 +1,7 @@
 Feature: OWM Vacancy Manager Scenarios
   Description: This Feature file contains OWM Vacancy Manager Scenarios
 
-  @SSJ-7 @SSJ-8 @juarezds #@Regression
+  @SSJ-7 @SSJ-8 @juarezds @Regression @playwright
   Scenario: Verification of Basic Vacancy Information section while creating an NCI Vacancy
     When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
@@ -46,7 +46,7 @@ Populate the individual who will be assembling the appointment package within th
     And User clicks "Save" button to save the Basic Vacancy Information
     And User confirms that User is on "Mandatory Statements" section
 
-  @SSJ-69 @Regression @juarezds @Progression @playwright @Smoke
+  @SSJ-69 @Regression @juarezds @playwright
   Scenario: Verification of Mandatory Statements section while creating an NCI Vacancy
     When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
@@ -78,7 +78,7 @@ NIH provides reasonable accommodations to applicants with disabilities. If you r
     And User clicks button "Save" - PW
     Then User confirms that User is on "Vacancy Committee" section
 
-  @SSJ-185 @SSJ-306 @juarezds #@Regression
+  @SSJ-185 @SSJ-306 @juarezds @Regression
   Scenario: Verification of Vacancy Committee section while creating an NCI Vacancy Positive Flow
     When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
