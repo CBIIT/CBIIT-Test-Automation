@@ -14,195 +14,209 @@ public class MCAExplorerPage extends CommonUtils {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 
-	/** paircheckbox **/
+	/** PAIRCHECKBOX **/
 	@FindBy(id = "paircheck")
 	public WebElement pairwise_checkbox;
 
-	/** choose more attribute ***/
+	/** CHOOSE MORE ATTRIBUTE ***/
 	@FindBy(xpath = "//button[@class='accordion-button collapsed']")
 	public WebElement choose_more_attribute;
 
-	/** age checkbox **/
+	/** AGE CHECKBOX **/
 	@FindBy(xpath = "//label[text()=' Age']")
 	public WebElement age_checkbox;
 
-	/** age first textbox **/
+	/** AGE FIRST TEXTBOX **/
 	@FindBy(id = "aminAgeCompare")
 	public WebElement amInageCompare;
 
-	/** A age second textbox **/
+	/** A AGE SECOND TEXTBOX **/
 	@FindBy(id = "amaxAgeCompare")
 	public WebElement AmaxAgeCompare;
 
-	/** B age second textbox **/
+	/** B AGE SECOND TEXTBOX **/
 	@FindBy(id = "amaxAgeCompare")
 	public WebElement BmaxAgeCompare;
 
-	/** study dropdown **/
+	/** STUDY DROPDOWN **/
 	@FindBy(id = "react-select-12-placeholder")
 	public WebElement study_drodpown;
-
+	
+	/** STUDY DROPDOWN PLCO **/
 	@FindBy(xpath = "react-select-12-input")
 	public WebElement study_dropdown_plco;
+	
+	/** GROUP A STUDY DROPDOWN BIOBANK**/
+	@FindBy(xpath="react-select-10-option-1")
+	public WebElement groupA_Study_biobank;
 
-	/** age **/
+	/** AGE **/
 	@FindBy(id = "AminAgeCompare")
 	public WebElement groupA_min_age;
 
+	/** GROUP A MAX AGE **/
 	@FindBy(id = "AmaxAgeCompare")
 	public WebElement groupA_max_age;
 
+	/** GROUP B MIN AGE **/
 	@FindBy(id = "BminAgeCompare")
 	public WebElement groupB_min_age;
 
+	/** GROUP B MAX AGE **/
 	@FindBy(id = "AmaxAgeCompare")
 	public WebElement groupB_max_age;
 
-	/** Submit Button */
+	/** SUBMIT BUTTON */
 	@FindBy(xpath = "//*[@id = 'summarySubmit']")
 	public WebElement submitButton;
 
-	/** Compare submit */
+	/** COMPARE SUBMIT */
 	@FindBy(xpath = "//*[@id = 'compareSubmit']")
 	public WebElement submitButton2;
 	
-	/** Advance setting button */
+	/** ADVANCE SETTING BUTTON */
 	@FindBy(xpath = "//*[text()='Advanced settings']")
 	public WebElement advanceSettings;
 
-	/** Summary Circle element */
+	/** SUMMARY CIRCLE ELEMENT */
 	@FindBy(id = "summaryCircle")
 	public WebElement summaryCircle;
 	
-	/** Compare Circle element */
+	/** SUMMARY CIRCLE ELEMENT XPATH */
+	public String summaryCircleXpath = "//*[@id='summaryCircle']";
+	
+	/** COMPARE CIRCLE ELEMENT */
 	@FindBy(id = "A")
 	public WebElement compareCircle;
+	
+	/** COMPARE CIRCLE ELEMENT XPATH */
+	public String compareCircleXpath = "//*[@id='A']";
 
-	/** Point on Image */
+	/** POINT ON IMAGE */
 	@FindBy(css = ".track-3 > .block:nth-child(1) > .background")
 	public WebElement pointOnImage;
 
-	/** Zoom Button */
+	/** ZOOM BUTTON */
 	@FindBy(xpath = "(//a[@rel=\"tooltip\"]//*)[7]")
 	public WebElement zoomButton;
 
-	/** Breadcrum */
+	/** BREADCRUM */
 	@FindBy(xpath = "//button[text()='All chromosomes ←']")
 	public WebElement breadcrum;
 
-	/** Chart Header */
+	/** CHART HEADER */
 	@FindBy(xpath = "//div[text()=' Types: All Event Types; Sex: All Sexes; Study: PLCO; Ancestry: All Ancestries; Approach: All; Smoking: All']")
 	public WebElement chartHeader;
 
-	/** Number of rows on page */
+	/** NUMBER OF ROWS ON PAGE */
 	@FindBy(xpath = "//div[text()='Showing rows ']")
 	public WebElement showingRows;
 
-	/* Plot Type Dropdown */
+	/** PLOT TYPE DROPDOWN */
 	@FindBy(xpath = "//div[@class=' css-1dimb5e-singleValue']/following-sibling::div[1]")
 	public WebElement plotDropDown;
 	
-	/* Dropdown levels */
+	/** DROPDOWN LEVELS */
 	@FindBy(xpath="//div[text()='Chromosome level']")
 	public WebElement plotDropdown_chromosomelevel;
 	
-	/** plot chromosomes **/
+	/** PLOT CHROMOSOMES **/
 	@FindBy(xpath="(//div[text()='All chromosomes'])[2]")
 	public WebElement plotDropdown_allchromosome;
 	
-	/** Chromosome dropdown **/
+	/** CHROMOSOME DROPDOWN **/
 	@FindBy(xpath = "//div[contains(@class,'col-lg-6 col-md-12')]")
 	public WebElement chart_header_text;
 	
-	/** Chromosome dropdown **/
+	/** CHROMOSOME DROPDOWN **/
 	@FindBy(xpath ="//div[@class='d-flex ']//a[1]")
 	public WebElement export_data_btn;
 
-	/** Chromosome dropdown **/
-	@FindBy(id = "react-select-10-input") //react-select-10-input
+	/** CHROMOSOME DROPDOWN **/
+	@FindBy(xpath = "//*[text()='Chromosome']/following-sibling::div//input")
 	public WebElement chromosomeDropdown;
 
-	/** Clear button in Study drop down */
+	/** CLEAR BUTTON IN STUDY DROP DOWN */
 	@FindBy(xpath = "(//div[contains(@class,'indicatorContainer')])[2]")
 	public WebElement studyClearButton;
 
-	/** Chromosome checkbox X */
+	/** CHROMOSOME CHECKBOX X */
 	@FindBy(css = "input[name='chrX']")
 	public WebElement chromosomeXCheckbox;
 
-	/** Chromosome checkbox Y */
+	/** CHROMOSOME CHECKBOX Y */
 	@FindBy(css = "input[name='chrY']")
 	public WebElement chromosomeYCheckbox;
 	
-	/**study button**/
-	@FindBy(xpath="(//div[contains(@class,'select__control select__control--is-focused')])[1]")
+	/**STUDY BUTTON**/
+	@FindBy(xpath="(//div[contains(@class,'select__indicator select__dropdown-indicator')])[1]")
 	public WebElement groupA_Study_dropdown;
 	
-	/**study dropdown**/
-	@FindBy(id="react-select-65-option-1")
+	/**STUDY DROPDOWN**/
+	@FindBy(xpath="(//*[text()='Study']/following-sibling::*//div[contains(@class,'select__option')])[1]")
 	public WebElement groupA_Study_dropdown_biobank;
-	
-	/** select group A**/
-	@FindBy(xpath="(//div[contains(@class,'select__value-container select__value-container--is-multi')])[2]")
+
+	/** SELECT GROUP A**/
+	@FindBy(xpath="(//div[contains(@class,'select__indicator select__dropdown-indicator')])[2]")
 	public WebElement groupA_copynumber_dropdown;
 	
-	/** copy number**/
-	@FindBy(id="react-select-66-option-2")
+	/** COPY NUMBER**/
+	@FindBy(xpath="(//*[text()='Copy Number State']/following-sibling::*//div[contains(@class,'select__option')])[1]")
 	public WebElement groupA_copynum_dropdown_loss;
 	
-	/** age group a **/
-	@FindBy(id = "aminAgeCompare")
+	/** AGE GROUP A **/
+	@FindBy(id = "AminAgeCompare")
 	public WebElement groupA_age_Start;
 	
-	/** age groupa end **/
-	@FindBy(id = "aminAgeCompare")
+	/** AGE GROUPA END **/
+	@FindBy(id = "AmaxAgeCompare")
 	public WebElement groupA_age_End;
 	
-	/** study dropdown **/
-	@FindBy(xpath="(//div[contains(@class,'select__value-container select__value-container--is-multi')])[3]")
+	/** STUDY DROPDOWN **/
+	@FindBy(xpath="(//div[contains(@class,'select__indicator select__dropdown-indicator')])[3]")
 	public WebElement groupB_Study_dropdown;
 
-	/**  biobank dropdown **/
-	@FindBy(id="react-select-67-option-1")
+	/**  BIOBANK DROPDOWN **/
+	@FindBy(id="react-select-13-option-1")
 	public WebElement groupB_Study_dropdown_biobank;
 	
-	/**  biobank dropdown **/
-	@FindBy(xpath="(//div[contains(@class,'select__value-container select__value-container--is-multi')])[4]")
+	/**  BIOBANK DROPDOWN **/
+	@FindBy(xpath="(//div[contains(@class,'select__indicator select__dropdown-indicator')])[4]")
 	public WebElement groupB_copynumber_dropdown;
 	
-	 /** copy number dropdown **/
-	@FindBy(id="react-select-68-option-2")
+	 /** COPY NUMBER DROPDOWN **/
+	@FindBy(xpath="(//*[text()='Copy Number State']/following-sibling::*//div[contains(@class,'select__option')])")
 	public WebElement groupB_copynum_dropdown_loss;
 	
-	 /** age group b start **/
+	 /** AGE GROUP B START **/
 	@FindBy(id = "BminAgeCompare")
 	public WebElement groupB_age_Start;
 	
-	/** age group b end **/
+	/** AGE GROUP B END **/
 	@FindBy(id = "BminAgeCompare")
 	public WebElement groupB_age_End;
 	
-	/** download button **/
+	/** DOWNLOAD BUTTON **/
 	@FindBy(xpath = "//button[@class='btn btn-link']")
 	public WebElement download_comparison_image_btn;
 	
-	/** Graph X cell */
+	/** GRAPH X CELL */
 	@FindBy(css = "g.X")
 	public WebElement graphXcell;
 
-	/** Graph Y cell */
+	/** GRAPH Y CELL */
 	@FindBy(css = "g.Y")
 	public WebElement graphYcell;
 
-	/** End Range */
+	/** END RANGE */
 	@FindBy(css = "input[name='end']")
 	public WebElement endRange;
 
-	/** All table rows */
+	/** ALL TABLE ROWS */
 	@FindAll(@FindBy(xpath = "//div[contains(@class,'active')]//table//tbody/tr"))
 	public List<WebElement> gridAllRows;
 
-	/** page size drop down value */
+	/** PAGE SIZE DROP DOWN VALUE */
 	@FindBy(css = "div.active select[name='select-page-size']")
 	public WebElement pageSize;
 }

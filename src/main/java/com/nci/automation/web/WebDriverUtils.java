@@ -1,7 +1,6 @@
 package com.nci.automation.web;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 import com.nci.automation.utils.FrameworkConstants;
 import io.github.sukgu.Shadow;
 import org.apache.logging.log4j.LogManager;
@@ -14,7 +13,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
-import com.nci.automation.utils.LocalConfUtils;
 
 /**
  * This class contains web driver related methods
@@ -23,7 +21,7 @@ import com.nci.automation.utils.LocalConfUtils;
  */
 public class WebDriverUtils {
 
-    private final static Logger logger = LogManager.getLogger(WebDriverUtils.class);
+    public static Logger log = LogManager.getLogger(WebDriverUtils.class);
     public static WebDriver webDriver;
     public static Shadow shadowDriver = new Shadow(webDriver);
 
@@ -31,18 +29,18 @@ public class WebDriverUtils {
 
         String browser = ConfUtils.getProperty("browser");
 
-            if (FrameworkConstants.BROWSER_CHROME.equalsIgnoreCase(browser)) {
-                launchChrome();
-            } else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_FIREFOX)) {
-                launchFirefox();
-            } else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_SAFARI)) {
-                launchSafari();
-            } else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_EDGE)) {
-                launchEdge();
-            } else {
-                throw new RuntimeException("INVALID BROWSER");
-            }
+        if (FrameworkConstants.BROWSER_CHROME.equalsIgnoreCase(browser)) {
+            launchChrome();
+        } else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_FIREFOX)) {
+            launchFirefox();
+        } else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_SAFARI)) {
+            launchSafari();
+        } else if (browser.equalsIgnoreCase(FrameworkConstants.BROWSER_EDGE)) {
+            launchEdge();
+        } else {
+            throw new RuntimeException("INVALID BROWSER");
         }
+    }
 
     /**
      * This method will close the current web-driver
@@ -75,11 +73,11 @@ public class WebDriverUtils {
         String headless = ConfUtils.getProperty("headless");
 
         if (osName.contains("Windows")) {
-            if(headless.equalsIgnoreCase(FrameworkConstants.TRUE)){
+            if (headless.equalsIgnoreCase(FrameworkConstants.TRUE)) {
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--headless=new");
                 webDriver = new ChromeDriver(chromeOptions);
-            }else {
+            } else {
                 webDriver = new ChromeDriver();
                 webDriver.manage().window().maximize();
                 webDriver.manage().deleteAllCookies();
@@ -87,11 +85,14 @@ public class WebDriverUtils {
                 shadowDriver.setImplicitWait(20);
             }
         } else if (osName.contains("Mac")) {
-            if(headless.equalsIgnoreCase(FrameworkConstants.TRUE)){
+            if (headless.equalsIgnoreCase(FrameworkConstants.TRUE)) {
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--headless=new");
                 webDriver = new ChromeDriver(chromeOptions);
-            }else {
+                webDriver.manage().window().maximize();
+                webDriver.manage().deleteAllCookies();
+                webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+            } else {
                 webDriver = new ChromeDriver();
                 webDriver.manage().window().maximize();
                 webDriver.manage().deleteAllCookies();
@@ -101,6 +102,9 @@ public class WebDriverUtils {
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--headless=new");
             webDriver = new ChromeDriver(chromeOptions);
+            webDriver.manage().window().maximize();
+            webDriver.manage().deleteAllCookies();
+            webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         }
     }
 

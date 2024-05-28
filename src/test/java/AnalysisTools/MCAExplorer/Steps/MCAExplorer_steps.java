@@ -18,17 +18,17 @@ public class MCAExplorer_steps extends PageInitializer {
 
 	@Then("clicks on advance filters")
 	public void clicks_on_advance_filters() {
-		mcaExplorerPage.advanceSettings.click();
+		mcaExplorerStepImp.clickOnAdvaceFilter();
 	}
 
-	@Then("user clicks export data, {string} should get downloaded")
-	public void user_clicks_export_data_should_get_downloaded(String string) {
-		JavascriptUtils.clickByJS(mcaExplorerPage.export_data_btn);
+	@Then("user clicks export data, file should get downloaded")
+	public void user_clicks_export_data_should_get_downloaded() {
+		mcaExplorerStepImp.clickOnExportData();
 	}
 
 	@Then("clicks on submit button")
 	public void clicks_on_submit_button() {
-		JavascriptUtils.clickByJS(mcaExplorerPage.submitButton);
+		mcaExplorerStepImp.clickOnSubmitButton();
 	}
 
 	@Then("verify if the circle is present on the screen")
@@ -41,9 +41,14 @@ public class MCAExplorer_steps extends PageInitializer {
 		CommonUtils.assertTrue(CommonUtils.isElementDisplayed(mcaExplorerPage.chartHeader));
 	}
 
-	@Then("verify that there are {int} rows in the result")
-	public void verify_that_there_are_rows_in_the_result(Integer int1) {
-		mcaExplorerStepImp.validateNumberOfRows(int1);
+	@Then("verify that there are some rows in the result")
+	public void verify_that_there_are_rows_in_the_result() {
+		mcaExplorerStepImp.validateNumberOfRows();
+	}
+	
+	@Then("Verify there is alert on the screen")
+	public void verify_there_is_alert_present_on_screen() {
+		mcaExplorerStepImp.verifyIfAlertIsPresent();
 	}
 
 	@Then("Zoom in in the circle")
@@ -56,14 +61,14 @@ public class MCAExplorer_steps extends PageInitializer {
 		CommonUtils.clickOnElement(mcaExplorerPage.breadcrum);
 	}
 
-	@Then("user select {string} in plot type")
-	public void user_select_in_plot_type(String string) {
+	@Then("user select Chromosome level in plot type")
+	public void user_select_in_plot_type() {
 		mcaExplorerStepImp.select_plot_type();
 	}
 
 	@Then("select chromosome {int} in chromosome dropdown")
-	public void select_chromosome_in_chromosome_dropdown(Integer int1) {
-		mcaExplorerStepImp.select_chtomosome(int1);
+	public void select_chromosome_in_chromosome_dropdown(Integer chromosomeNumber) {
+		mcaExplorerStepImp.select_chtomosome(chromosomeNumber);
 	}
 
 	@When("User clears the mandatory field Study")
@@ -82,8 +87,8 @@ public class MCAExplorer_steps extends PageInitializer {
 	}
 
 	@When("User verify the end range as {string}")
-	public void user_verify_the_end_range_as(String value) {
-		mcaExplorerStepImp.verifyEndRange(value);
+	public void user_verify_the_end_range_as(String endRangeValue) {
+		mcaExplorerStepImp.verifyEndRange(endRangeValue);
 	}
 
 	@Then("verify {string} rows displayed in the table")
@@ -92,8 +97,138 @@ public class MCAExplorer_steps extends PageInitializer {
 	}
 
 	@Then("select the pagination drop down as {string}")
-	public void select_the_pagination_drop_down_as(String value) {
-		mcaExplorerStepImp.selectThePaginationDropDownValue(value);
+	public void select_the_pagination_drop_down_as(String dropDownValue) {
+		mcaExplorerStepImp.selectThePaginationDropDownValue(dropDownValue);
 	}
-
+	
+	@Given("User is able to set the env for opensearch request")
+	public void user_is_able_to_set_the_env_for_opensearch_request() {
+		mcaExplorerStepImp.setApiBaseUrl("https://mcaexplorer-qa.cancer.gov/api/opensearch/mca");
+	}
+	
+	@Then("User is able to send request and receive valid response back")
+	public void user_is_able_to_send_request_and_receive_valid_response_back() {
+		mcaExplorerStepImp.sendPostReqestWithBody("{\n"
+				+ "  \"dataset\": [\n"
+				+ "    {\n"
+				+ "      \"value\": \"plco\",\n"
+				+ "      \"label\": \"PLCO\"\n"
+				+ "    }\n"
+				+ "  ],\n"
+				+ "  \"ancestry\": [\n"
+				+ "    {\n"
+				+ "      \"value\": \"ADMIXED_EUR\",\n"
+				+ "      \"label\": \"ADMIXED_EUR\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"AFR\",\n"
+				+ "      \"label\": \"African\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"AFR_EUR\",\n"
+				+ "      \"label\": \"AFR_EUR\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"ASN\",\n"
+				+ "      \"label\": \"Asian\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"ASN_EUR\",\n"
+				+ "      \"label\": \"ASN_EUR\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"EUR\",\n"
+				+ "      \"label\": \"European\"\n"
+				+ "    }\n"
+				+ "  ],\n"
+				+ "  \"maxcf\": \"1\",\n"
+				+ "  \"mincf\": \"0\",\n"
+				+ "  \"sex\": [\n"
+				+ "    {\n"
+				+ "      \"value\": \"male\"\n"
+				+ "    }\n"
+				+ "  ],\n"
+				+ "  \"types\": [\n"
+				+ "    {\n"
+				+ "      \"value\": \"loh\",\n"
+				+ "      \"label\": \"CN-LOH\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"loss\",\n"
+				+ "      \"label\": \"Loss\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"gain\",\n"
+				+ "      \"label\": \"Gain\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"undermined\",\n"
+				+ "      \"label\": \"Undermined\"\n"
+				+ "    }\n"
+				+ "  ]\n"
+				+ "}");
+	}
+	
+	@Given("User is able to set the env for open search chromosome request")
+	public void setOpenSerchEnv() {
+		mcaExplorerStepImp.setApiBaseUrl("https://mcaexplorer-qa.cancer.gov/api/opensearch/chromosome");
+	}
+	
+	@Then("User is able to send request and receive valid response back for chromosome search")
+	public void sendRequstAndVerify() {
+		mcaExplorerStepImp.sendPostReqestWithBody("{\n"
+				+ "  \"chr\": \"2\",\n"
+				+ "  \"study\": [\n"
+				+ "    {\n"
+				+ "      \"value\": \"plco\",\n"
+				+ "      \"label\": \"PLCO\"\n"
+				+ "    }\n"
+				+ "  ],\n"
+				+ "  \"ancestry\": [\n"
+				+ "    {\n"
+				+ "      \"value\": \"ADMIXED_EUR\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"AFR\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"AFR_EUR\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"ASN\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"ASN_EUR\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"EUR\"\n"
+				+ "    }\n"
+				+ "  ],\n"
+				+ "  \"maxcf\": \"1\",\n"
+				+ "  \"mincf\": \"0\",\n"
+				+ "  \"sex\": [\n"
+				+ "    {\n"
+				+ "      \"value\": \"male\"\n"
+				+ "    }\n"
+				+ "  ],\n"
+				+ "  \"types\": [\n"
+				+ "    {\n"
+				+ "      \"value\": \"loh\",\n"
+				+ "      \"label\": \"CN-LOH\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"loss\",\n"
+				+ "      \"label\": \"Loss\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"gain\",\n"
+				+ "      \"label\": \"Gain\"\n"
+				+ "    },\n"
+				+ "    {\n"
+				+ "      \"value\": \"undermined\",\n"
+				+ "      \"label\": \"Undermined\"\n"
+				+ "    }\n"
+				+ "  ]\n"
+				+ "}");
+	}
 }
