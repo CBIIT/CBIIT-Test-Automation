@@ -2,7 +2,6 @@ package com.nci.automation.web;
 
 import com.microsoft.playwright.*;
 import com.nci.automation.utils.FrameworkConstants;
-
 import java.util.ArrayList;
 
 public class PlaywrightUtils {
@@ -44,19 +43,17 @@ public class PlaywrightUtils {
                     new BrowserType.LaunchOptions().setChannel(FrameworkConstants.BROWSER_EDGE).setHeadless(Boolean.parseBoolean(headless)).setArgs(arguments).setSlowMo(setSlowMoTime));
             context = browser.newContext(new Browser.NewContextOptions().setViewportSize(1920, 1080));
             page = context.newPage();
-        } else if (testBrowser.equalsIgnoreCase(FrameworkConstants.BROWSER_FIREFOX)) {
+        } else if (testBrowser.equalsIgnoreCase(FrameworkConstants.BROWSER_FIREFOX) && headless.equals("false")) {
             arguments = new ArrayList<>();
             arguments.add(maximizeWindow);
-            Browser browser = playwright.firefox()
+            browser = playwright.firefox()
                     .launch(new BrowserType.LaunchOptions().setHeadless(Boolean.parseBoolean(headless)).setArgs(arguments).setSlowMo(setSlowMoTime));
             context = browser.newContext(new Browser.NewContextOptions().setViewportSize(null));
             page = context.newPage();
-        } else if (testBrowser.equalsIgnoreCase(FrameworkConstants.BROWSER_SAFARI)) {
-            arguments = new ArrayList<>();
-            arguments.add(maximizeWindow);
-            Browser browser = playwright.webkit()
-                    .launch(new BrowserType.LaunchOptions().setHeadless(Boolean.parseBoolean(headless)).setSlowMo(setSlowMoTime));
-            context = browser.newContext(new Browser.NewContextOptions().setViewportSize(null));
+        } else if (testBrowser.equalsIgnoreCase(FrameworkConstants.BROWSER_FIREFOX) && headless.equals("true")) {
+            browser = playwright.firefox()
+                    .launch(new BrowserType.LaunchOptions().setHeadless(Boolean.parseBoolean(headless)).setArgs(arguments).setSlowMo(setSlowMoTime));
+            context = browser.newContext(new Browser.NewContextOptions().setViewportSize(1920, 1080));
             page = context.newPage();
         }
     }
