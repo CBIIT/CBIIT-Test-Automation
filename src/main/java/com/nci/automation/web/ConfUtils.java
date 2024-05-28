@@ -15,7 +15,6 @@ public class ConfUtils {
 
 	private static final String ENVIRONMENT_PROPERTY_KEY = "env";
 	private static final String BROWSER_PROPERTY_KEY = "browser";
-
 	private static Properties localConf = null;
 	private static String resultsDir = "";
 	private static String baseResultsDir = "";
