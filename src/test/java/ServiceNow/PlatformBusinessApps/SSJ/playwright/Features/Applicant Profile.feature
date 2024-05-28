@@ -43,7 +43,7 @@ Feature: Applicant Profile Scenarios
       | Jessica   | Marianna   | Mollick   | mollickja@nih.gov  | 7018211343 | 2123323454    | Masters          | Yes             | 11 Kolls | 6         | Sausalito | CA    | USA     | 97712 |
       | Karen     | Elena      | Andrew    | andrewkl@nih.gov   | 8233212333 | 2202122234    | Bachelors        | Yes             | 11 Bells | 39        | Sacramento| CA    | USA     | 95512 |
 
-  @alenan @SSJ-712 @Bug_Open @juarezds
+  @alenan @SSJ-712 @Bug_Open @juarezds @In_Progress
   Scenario: Edit Demographics of Profile
     Given a test account "Maria Chaudhry" is reset before executing a test
     When User is on SCSS Landing page and user is "Maria Chaudhry" - PW
