@@ -1,84 +1,120 @@
 Feature: OWM Vacancy Manager Scenarios
   Description: This Feature file contains OWM Vacancy Manager Scenarios
 
-  @SSJ-7 @SSJ-8 @Regression
+  @SSJ-7 @SSJ-8 @juarezds @Regression @playwright
   Scenario: Verification of Basic Vacancy Information section while creating an NCI Vacancy
-    Given User is on SSJ Landing page and user is "OWM  Vacancy Manager"
-    And User navigates to tab "Vacancy Dashboard"
-    And User clicks button "Create vacancy"
-    When User clicks "Save" button
-    Then User can see alert "Please enter a title"
-    And User fills in "Vacancy Title" field
-    And User fills in "Vacancy Description" field
-    And User enables "Allow HR Specialist to Triage" option
-    And User enables "Utilizing a Set Close Date" option
+    When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
+    And User navigates to tab "Vacancy Dashboard" - PW
+    And User clicks button "+ Create Vacancy" - PW
+    And User clicks button "Save" - PW
+    Then User can see warning message "A vacancy title is required."
+    And User fills in "Vacancy Title" field with title "Testing Automation Title"
+    And User fills in "Vacancy Description" field with description "Entering Test Description"
+    And User checks "Utilizing a Set Close Date" option
     Then User verifies Close Date entry box appears
+    And User checks "Allow HR Specialist to Triage" option
     And User verifies "Yes" and "No" options are displayed for Vacancy Point of Contact Information dropdown
-    And User confirms being a POC for this vacancy
+    And User "Holly Gemar-Griffith" confirms being a POC for this vacancy after selecting Yes for being the point of contact for this vacancy
     And User sets an "Open Date" entry as today's date
-    And User sets a "Close Date" entry
+    And User sets a "Close Date" entry a month from the Open Date
     And User sets "Scoring Due By Date" entry
-    And User verifies "Cover Letter" application document is marked as optional by default
-    And "Add More" button is displayed for Application Documents section
-    And User can add another application document
+#    #REVIEW ABOVE STEP WITH BA
+    And User verifies "Cover Letter" application document is checked as optional by default
+    And " Add More" button is displayed for Application Documents section
+    And User can add another application document "Testing Document" by clicking on " Add More"
+    And User confirms that "Enable Reference Collection" checkbox is displayed
     And User verifies Full Contact Details for References is set to "3" by default
-    And User verifies Full Contact Details for References slider has 15 options
+    And User verifies Full Contact Details for References slider has 16 (Zero - fifteen) options
     And User verifies that Number of Scoring Categories slider is set to "4" by default
-    And User verifies Number of Scoring Categories slider has 6 options
+    And User verifies Number of Scoring Categories slider has 6 (One - six) options
     And User verifies that all positions are present via Position Classification dropdown
-    And  User verifies all codes are present via Organizational Code dropdown
-    And User verifies the text of "Position Classification" i icon
-    And User verifies the text of "Organizational Code" i icon
-    And User verifies the text of "Personnel Action Tracking Solution (PATS) Initiator" i icon
-    And User clicks "Save" button
+    And  User verifies all org codes are present via Organizational Code dropdown
+    And User verifies the text of "Position Classification" i tooltip is
+    """
+  Select the Intramural or Extramural Professional Designation for your vacancy. Select “N/A” for Stadtman positions.
+    """
+    And User verifies the text of "Organizational Code" i tooltip is
+    """
+  Provide SAC code for organization where the position will reside.
+    """
+    And User verifies the text of "Personnel Action Tracking Solution (PATS) Initiator" i tooltip is
+    """
+Populate the individual who will be assembling the appointment package within the Personnel Action Tracking Solution (PATS). Value defaults to the SSJ Vacancy Manager, but can be updated within the SSJ or later in PATS.
+    """
+    Then user selects Position Classification and Organizational Code options
+    And user verifies that POC "Holly Gemar-Griffith" is displayed by default for Personnel Action Tracking Solution (PATS) Initiator drop down
+    And User clicks "Save" button to save the Basic Vacancy Information
     And User confirms that User is on "Mandatory Statements" section
 
-  @SSJ-69 @Regression
+  @SSJ-69 @juarezds @Regression @playwright
   Scenario: Verification of Mandatory Statements section while creating an NCI Vacancy
-    Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
-    And User navigates to tab "Vacancy Dashboard"
-    And User clicks button "Create vacancy"
-    And User fills in "Vacancy Title" field
-    And User clicks "Save" button
+    When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
+    And User navigates to tab "Vacancy Dashboard" - PW
+    And User clicks button "+ Create Vacancy" - PW
+    And User fills in "Vacancy Title" field with title "Testing Automation Title"
+    And User clicks button "Save" - PW
+    And User confirms that User is on "Mandatory Statements" section
     And User verifies that "Mandatory Statements" section title is displayed
-    And User verifies "What mandatory job statements would you like to include with the posting?" text displayed for "Mandatory Statements" section
+    And User verifies "What mandatory job statements would you like to include with the posting?" text displayed for Mandatory Statements section
     And User confirms that "Equal Opportunity Employer" statement is disabled by default
-    And User verifIes the text of "Standards of Conduct/Financial Disclosure" is displayed as "The National Institutes of Health inspires public confidence in our science by maintaining high ethical principles. NIH employees are subject to Federal government-wide regulations and statutes as well as agency-specific regulations described at the NIH Ethics Website. We encourage you to review this information. The position is subject to a background investigation and requires the incumbent to complete a public financial disclosure report prior to the effective date of the appointment."
-    And User verifies the text of "Foreign Education" is displayed as "Applicants who have completed part or all of their education outside of the U.S. must have their foreign education evaluated by an accredited organization to ensure that the foreign education is equivalent to education received in accredited educational institutions in the United States. We will only accept the completed foreign education evaluation. For more information on foreign education verification, visit the https://www.naces.or website. Verification must be received prior to the effective date of the appointment."
-    And User verifies the text of "Reasonable Accommodation" is displayed as "NIH provides reasonable accommodations to applicants with disabilities. If you require reasonable accommodation during any part of the application and hiring process, please notify us. The decision on granting reasonable accommodation will be made on a case-by-case basis."
-    And User can disable statement options
-      | Standards of Conduct/Financial Disclosure | Foreign Education | Reasonable Accommodation |
-    And can enable statement options
-      | Standards of Conduct/Financial Disclosure | Foreign Education | Reasonable Accommodation |
-    And User clicks "Save" button
-    And User confirms that User is on "Vacancy Committee" section
+    And User verifies the text of "Equal Opportunity Employer" is displayed as
+    """
+Selection for this position will be based solely on merit, with no discrimination for non-merit reasons such as race, color, religion, gender, sexual orientation, national origin, political affiliation, marital status, disability, age, or membership or non-membership in an employee organization. The NIH encourages the application and nomination of qualified women, minorities, and individuals with disabilities.
+    """
+    And User verifies the text "Standards of Conduct/Financial Disclosure" is displayed and description text is
+    """
+The National Institutes of Health inspires public confidence in our science by maintaining high ethical principles. NIH employees are subject to Federal government-wide regulations and statutes as well as agency-specific regulations described at the NIH Ethics Website. We encourage you to review this information. The position is subject to a background investigation and requires the incumbent to complete a public financial disclosure report prior to the effective date of the appointment.
+    """
+    And User verifies the text of Foreign Education "Foreign Education" is displayed as
+    """
+Applicants who have completed part or all of their education outside of the U.S. must have their foreign education evaluated by an accredited organization to ensure that the foreign education is equivalent to education received in accredited educational institutions in the United States. We will only accept the completed foreign education evaluation. For more information on foreign education verification, visit the https://www.naces.org website. Verification must be received prior to the effective date of the appointment.
+    """
+    And User verifies the text of Reasonable Accommodation "Reasonable Accommodation" is displayed as
+    """
+NIH provides reasonable accommodations to applicants with disabilities. If you require reasonable accommodation during any part of the application and hiring process, please notify us. The decision on granting reasonable accommodation will be made on a case-by-case basis.
+    """
+    And User can disable statement options for "Standards of Conduct/Financial Disclosure", "Foreign Education", "Reasonable Accommodation"
+    And can enable statement options for "Standards of Conduct/Financial Disclosure", "Foreign Education", "Reasonable Accommodation"
+    And User clicks button "Save" - PW
+    Then User confirms that User is on "Vacancy Committee" section
 
-  @SSJ-185 @SSJ-306 @Regression
+  @SSJ-185 @SSJ-306 @juarezds @Regression @playwright
   Scenario: Verification of Vacancy Committee section while creating an NCI Vacancy Positive Flow
-    Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
-    And User navigates to tab "Vacancy Dashboard"
-    And User clicks button "Create vacancy"
-    And User fills in "Vacancy Title" field
-    And User clicks "Save" section button
+    When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
+    And User navigates to tab "Vacancy Dashboard" - PW
+    And User clicks button "+ Create Vacancy" - PW
+    And User fills in "Vacancy Title" field with title "Testing Automation Title"
+    And User clicks button "Save" - PW
     And User clicks on "Vacancy Committee" option on the left bar menu
-    And User verifies that "Vacancy Committee"  section title is displayed
-    And User verifies "Add and manage vacancy committee members" text displayed for "Vacancy Committee" section
-    And User verifies the following Vacancy Committee column headers are displayed
-      | Committee Member | Role | Actions |
-    And User confirms "Add Member" button is displayed
-    When User clicks button "Add Member"
-    Then User can see Chair role option is displayed by default
-    And User clicks Save for Actions
-    And User adds a Committee Chair
-    And User adds a Member (voting)
-    And User adds a Member (non-voting)
-    And User adds a HR Specialist (non-voting)
-    And User adds EDI Representative (non-voting)
-    And User adds Executive Secretary (non-voting)
-    And User clicks "Save" section button
-    And User confirms that User is on "Email Templates" section
+    And User verifies that "Vacancy Committee" section title is displayed
+    And User verifies "Add and manage vacancy committee members" text is displayed for Vacancy Committee section
+    And User verifies the following Vacancy Committee column headers are displayed "Committee Member", "Role", "Actions"
+    And User confirms " Add Member" button is displayed
+    When User clicks button " Add Member" - PW
+    Then User can see Chair "Chair" role option is displayed by default for Role drop down
+    When the user adds a Committee Member "David Rampulla" for Chair role
+    When User clicks "Save" for Actions
+    Then User can see "At least one committee member must be of the role 'Executive Secretary'" alert
+    When User clicks button " Add Member" - PW
+    Then User adds Committee Member "Jason Levine" for "Executive Secretary (non-voting)"
+    When User clicks "Save" for Actions
+    When User clicks button " Add Member" - PW
+    Then User adds Committee Member "Henry Rodriguez" for "HR Specialist (non-voting)" - PW
+    When User clicks "Save" for Actions
+    When User clicks button " Add Member" - PW
+    Then User adds Committee Member "Sylvia Chou" for "Member"
+    When User clicks "Save" for Actions
+    When User clicks button " Add Member" - PW
+    Then User adds Committee Member "Michael Lenardo" for "Member (read-only)"
+    When User clicks "Save" for Actions
+    When User clicks button " Add Member" - PW
+    Then User adds Committee Member "Melissa Fajardo" for "EDI Representative (non-voting)"
+    When User clicks "Save" for Actions
+    And User clicks button "Save" - PW
+    Then User is directed to "Email Templates" section
 
-  @SSJ-11 @Regression
+
+  @SSJ-11
   Scenario: Verification of Vacancy Committee section while creating an NCI Vacancy Negative Flow
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -94,7 +130,7 @@ Feature: OWM Vacancy Manager Scenarios
     And User adds Executive Secretary (non-voting)
     Then User sees alert "At least one committee member must be of the role 'Chair'"
 
-  @SSJ-310 @SSJ-158 @SSJ-71 @Regression
+  @SSJ-310 @SSJ-158 @SSJ-71
   Scenario: Verification of Email Templates section while creating an NCI Vacancy Positive Flow
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -113,7 +149,7 @@ Feature: OWM Vacancy Manager Scenarios
     And User clicks "Save" section button
     And User verifies that "Review and Finalize" section title is displayed
 
-  @SSJ-64 @SSJ-305 @Regression @Regression
+  @SSJ-64 @SSJ-305
   Scenario: Alerts validation during an NCI vacancy creation
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -142,7 +178,7 @@ Feature: OWM Vacancy Manager Scenarios
     And User clicks Edit for "Vacancy Committee" section
     Then User can verify alert "At least one committee member must be of the role 'Chair' At least one committee member must be of the role 'Executive Secretary'" is present
 
-  @SSJ-221 @SSJ-100 @Regression
+  @SSJ-221 @SSJ-100
   Scenario: Create a live NCI draft vacancy
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -167,7 +203,7 @@ Feature: OWM Vacancy Manager Scenarios
     When User navigates to Home tab
     Then User can see a new live vacancy under Open Vacancies
 
-  @SSJ-1 @SSJ-29 @SSJ-66 @SSJ-62 @Regression
+  @SSJ-1 @SSJ-29 @SSJ-66 @SSJ-62
   Scenario: Vacancy Dashboard verification
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -190,7 +226,7 @@ Feature: OWM Vacancy Manager Scenarios
     And User sees closed vacancies colums
       | Vacancy Title | Open Date | Close Date | Actions |
 
-  @SSJ-160 @SSJ-284 @Regression
+  @SSJ-160 @SSJ-284
   Scenario: NCI Live Vacancy Edit, Copy Link and Extend options
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -216,7 +252,7 @@ Feature: OWM Vacancy Manager Scenarios
     And User navigates to Home tab
     Then User can verify the updated close date on Home Tab for that live vacancy
 
-  @SSJ-93 @SSJ-146 @Regression
+  @SSJ-93 @SSJ-146
   Scenario: Vacancies sorting
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
