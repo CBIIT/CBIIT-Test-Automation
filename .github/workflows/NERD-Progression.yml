@@ -29,12 +29,6 @@ jobs:
       - name: Set timezone
         run: sudo timedatectl set-timezone America/New_York
 
-      - name: Setup WebDriver
-        uses: rosiecki/WebDriverManager-GitHub-Action@v1
-        with:
-          browserName: 'chrome'
-          browserVersion: 'latest'
-
       - name: Replace variables in cloudEnv.properties
         run: |
           sed -i "s/SIDE_DOOR_USERNAME/${{ secrets.SIDEDOORUSERNAME }}/g" src/main/resources/conf/cloudEnv.properties
