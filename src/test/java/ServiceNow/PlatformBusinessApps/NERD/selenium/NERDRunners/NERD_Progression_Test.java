@@ -16,5 +16,5 @@ import io.cucumber.testng.CucumberOptions;
 * This class is annotated with @RunWith(Cucumber.class) and it will run cucumber feature(s).
 *  @author sohilz2
 */
-public class NERD_Progression_Runners extends AbstractTestNGCucumberTests {
+public class NERD_Progression_Test extends AbstractTestNGCucumberTests {
 }
