@@ -29,11 +29,11 @@ jobs:
       - name: Set timezone
         run: sudo timedatectl set-timezone America/New_York
 
-      - name: Set up ChromeDriver
-        uses: browser-actions/setup-chromedriver@latest
+      - name: Setup WebDriver
+        uses: rosiecki/WebDriverManager-GitHub-Action@v1
         with:
-          chromedriver-version: 'latest'
-          chromedriver-repo: 'https://chromedriver.storage.googleapis.com'
+          browserName: 'chrome'
+          browserVersion: 'latest'
 
       - name: Replace variables in cloudEnv.properties
         run: |
