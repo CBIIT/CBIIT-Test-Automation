@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      DISPLAY: ".99"
+      DISPLAY: ":99"
       SCREEN_RESOLUTION: "1280x1024x24"
 
     steps:
@@ -26,6 +26,15 @@ jobs:
         with:
           java-version: 1.11
 
+      - name: Set timezone
+        run: sudo timedatectl set-timezone America/New_York
+
+      - name: Set up ChromeDriver
+        uses: browser-actions/setup-chromedriver@latest
+        with:
+          chromedriver-version: 'latest'
+          chromedriver-repo: 'https://chromedriver.storage.googleapis.com'
+
       - name: Replace variables in cloudEnv.properties
         run: |
           sed -i "s/SIDE_DOOR_USERNAME/${{ secrets.SIDEDOORUSERNAME }}/g" src/main/resources/conf/cloudEnv.properties
@@ -34,11 +43,8 @@ jobs:
           sed -i "s/ENV_VAR/test/g" src/main/resources/conf/cloudEnv.properties
 
       - name: Run specific runner class
-        run: mvn -B -Dtest=NERD_Progression_Test -DisCloud=true test
+        run: mvn -B -q -Dtest=NERD_Progression_Test -DisCloud=true test
         continue-on-error: true
-
-      - name: Set timezone
-        run: sudo timedatectl set-timezone America/New_York
 
       - name: Determine report path
         id: reportpath
