@@ -25,4 +25,4 @@ jobs:
 
       - name: Run tests
         run: |
-          mvn -Dtest=NERD_Progression_Test test
+          mvn -Dtest=NERD_Progression_Test -DisCloud=true test
