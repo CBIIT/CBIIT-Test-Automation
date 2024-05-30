@@ -1,0 +1,73 @@
+name: PLATFORM BUSINESS - SSJ SMOKE TESTS
+
+on:
+  workflow_dispatch:
+    inputs:
+      testBrowser:
+        description: 'Browser'
+        required: true
+        default: 'chrome'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      DISPLAY: ".99"
+      SCREEN_RESOLUTION: "1280x1024x24"
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+          fetch-depth: 0
+
+      - name: Set up JDK 1.11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.11
+
+      - name: Replace variables in cloudEnv.properties
+        run: |
+          sed -i "s/SIDE_DOOR_USERNAME/${{ secrets.SIDEDOORUSERNAME }}/g" src/main/resources/conf/cloudEnv.properties
+          sed -i "s/SIDE_DOOR_PASSWORD/${{ secrets.SIDEDOORPASSWORD }}/g" src/main/resources/conf/cloudEnv.properties
+          sed -i "s/BROWSER_VAR/${{ github.event.inputs.testBrowser }}/g" src/main/resources/conf/cloudEnv.properties
+          sed -i "s/ENV_VAR/test/g" src/main/resources/conf/cloudEnv.properties
+
+      - name: Run specific runner class
+        run: mvn -B -q -Dtest=SSJ_Smoke_Runners -DisCloud=true test
+        continue-on-error: true
+
+      - name: Set timezone
+        run: sudo timedatectl set-timezone America/New_York
+
+      - name: Determine report path
+        id: reportpath
+        run: echo "::set-output name=path::ssj-smoke-reports-$(date +'%Y-%m-%d-at-%I-%M%P')"
+
+      - name: Upload Cucumber Report
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: cucumber-report-${{ github.run_number }}
+          path: target/${{ steps.reportpath.outputs.path }}/*
+
+      - name: Push HTML Report
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          git config --global user.email "diegojuarezbusiness@gmail.com"
+          git config --global user.name "iamdez99"
+          mkdir -p ${{ steps.reportpath.outputs.path }}
+          mv target/ssj-smoke-reports/*.html ${{ steps.reportpath.outputs.path }}/
+          git add .
+          git commit -m "Publishing cucumber report ${{ github.run_number }}"
+          git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git gh-pages
+
+      - name: Update Test Results
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          echo "<h3><a href='${{ steps.reportpath.outputs.path }}/ssj-smoke-report.html'>Test Report ${{ steps.reportpath.outputs.path }}</a></h3>" >> ssj-smoke-test-results.html
+          git add ssj-smoke-test-results.html 
+          git commit -m "Update ssj-smoke-test-results.html" 
+          git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git gh-pages
