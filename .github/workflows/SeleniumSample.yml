@@ -7,7 +7,7 @@ on:
   pull_request:
     branches:
       - main
-  workflow_dispatch:  # Manual trigger
+  workflow_dispatch:
 
 jobs:
   build:
@@ -26,11 +26,13 @@ jobs:
       - name: Setup Chrome Browser
         run: |
           sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
-          CHROME_VERSION=`google-chrome-stable --version | cut -d ' ' -f3`
+          sudo apt-get install -y google-chrome-stable wget unzip
+          CHROME_VERSION=`google-chrome-stable --version | awk -F "[ .]" '{print $3}'`
           echo "CHROME_VERSION="$CHROME_VERSION
-          echo "CHROME_WE_DRIVER=http://chromedriver.storage.googleapis.com/$CHROME_VERSION/chromedriver_linux64.zip"
-          curl "http://chromedriver.storage.googleapis.com/$CHROME_VERSION/chromedriver_linux64.zip" -O
+          wget https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION -O LATEST_RELEASE
+          VERSION=`cat LATEST_RELEASE`
+          echo "VERSION="$VERSION
+          wget https://chromedriver.storage.googleapis.com/$VERSION/chromedriver_linux64.zip
           unzip chromedriver_linux64.zip
           sudo mv chromedriver /usr/bin/chromedriver
           sudo chown root:root /usr/bin/chromedriver
