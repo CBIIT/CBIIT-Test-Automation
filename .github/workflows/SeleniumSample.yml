@@ -23,20 +23,6 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
 
-      - name: Setup Chrome and ChromeDriver
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable wget unzip
-          CHROME_VERSION=`google-chrome-stable --version | awk -F "[ .]" '{print $3"."$4"."$5}'`
-          CHROME_MAJOR_VERSION=`echo $CHROME_VERSION | cut -d. -f1`
-          wget "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_MAJOR_VERSION}" -O LATEST_RELEASE
-          CHROMEDRIVER_VERSION=`cat LATEST_RELEASE`
-          wget "https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip"
-          unzip chromedriver_linux64.zip
-          sudo mv chromedriver /usr/bin/chromedriver
-          sudo chown root:root /usr/bin/chromedriver
-          sudo chmod +x /usr/bin/chromedriver
-
       - name: Run tests
         run: |
           mvn -Dtest=NERD_Progression_Test test
