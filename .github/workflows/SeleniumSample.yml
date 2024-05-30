@@ -35,3 +35,7 @@ jobs:
       - name: Run tests
         run: |
           mvn -B -q -Dtest=NERD_Progression_Test -DisCloud=true test
+
+      - name: Determine report path
+        id: reportpath
+        run: echo "::set-output name=path::nerd-progression-reports-$(date +'%Y-%m-%d-at-%I-%M%P')"
