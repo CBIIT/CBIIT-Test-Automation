@@ -38,7 +38,7 @@ jobs:
           sed -i "s/ENV_VAR/test/g" src/main/resources/conf/cloudEnv.properties
 
       - name: Run specific runner class
-        run: mvn -B -Dtest=NERD_Progression_Test -DisCloud=true test -DfailIfNoTests=false
+        run: mvn -B -q -Dtest=NERD_Progression_Test -DisCloud=true test -DfailIfNoTests=false
         continue-on-error: true
 
       - name: Determine report path
