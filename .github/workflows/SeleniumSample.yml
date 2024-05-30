@@ -1,13 +1,12 @@
 name: Selenium 4 Tests
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
   workflow_dispatch:
+    inputs:
+      testBrowser:
+        description: 'Browser'
+        required: true
+        default: 'chrome'
 
 jobs:
   build:
