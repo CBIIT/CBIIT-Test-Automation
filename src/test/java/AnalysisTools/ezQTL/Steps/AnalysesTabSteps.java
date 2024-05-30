@@ -23,14 +23,15 @@ public class AnalysesTabSteps extends PageInitializer {
     public void the_user_submits_a_job_to_the_queue() {
     }
 
-    @When("the user submits {string}, {string}, {string}, {string}, {string}. {string}, {string} {string}, {string}")
+    @When("the user submits {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}")
     public void the_user_submits(String associationData, String gwasData, String quantificationData, String genotypeData, String ldData, String qtlDistance, String snpNumber, String jobName, String queueEmail) {
-        CommonUtils.sendKeys(ezQTLAnalysesPage.associationDataFileInput, associationData);
-        CommonUtils.sendKeys(ezQTLAnalysesPage.gwasDataFileInput, gwasData);
+        JavascriptUtils.uploadFileToHiddenFieldWithInputTag(ezQTLAnalysesPage.associationDataFileInput, System.getProperty("user.dir") + associationData);
+        JavascriptUtils.uploadFileToHiddenFieldWithInputTag(ezQTLAnalysesPage.gwasDataFileInput, System.getProperty("user.dir") + gwasData);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.addQtlRawDataButton);
-        CommonUtils.sendKeys(ezQTLAnalysesPage.quantificationDataFileInput, quantificationData);
-        CommonUtils.sendKeys(ezQTLAnalysesPage.genotypeDataFileInput, genotypeData);
-        CommonUtils.sendKeys(ezQTLAnalysesPage.ldDataFileInput, ldData);
+        MiscUtils.sleep(1000);
+        JavascriptUtils.uploadFileToHiddenFieldWithInputTag(ezQTLAnalysesPage.quantificationDataFileInput, System.getProperty("user.dir") + quantificationData);
+        JavascriptUtils.uploadFileToHiddenFieldWithInputTag(ezQTLAnalysesPage.genotypeDataFileInput, System.getProperty("user.dir") + genotypeData);
+        JavascriptUtils.uploadFileToHiddenFieldWithInputTag(ezQTLAnalysesPage.ldDataFileInput, System.getProperty("user.dir") + ldData);
         CommonUtils.sendKeys(ezQTLAnalysesPage.qtlDistanceInput, qtlDistance);
         CommonUtils.sendKeys(ezQTLAnalysesPage.snpNumberInput, snpNumber);
         CommonUtils.clickOnElement(ezQTLAnalysesPage.submitJobtoQueueCheckbox);
@@ -178,7 +179,7 @@ public class AnalysesTabSteps extends PageInitializer {
     @When("the user submits {string}, {string}, {string}, {string}, {string}, {int} times")
     public void the_user_submits_times(String ezQTLAssociationData, String qtlDistance, String position, String jobName, String jobEmail, int loops) {
         for (int i = 1; i <= loops; i++) {
-            CommonUtils.sendKeys(ezQTLAnalysesPage.associationDataFileInput, ezQTLAssociationData);
+            JavascriptUtils.uploadFileToHiddenFieldWithInputTag(ezQTLAnalysesPage.associationDataFileInput, System.getProperty("user.dir") + ezQTLAssociationData);
             MiscUtils.sleep(1000);
             CommonUtils.clickOnElement(ezQTLAnalysesPage.publicGwasSourceDataCheckBox);
             MiscUtils.sleep(1000);
