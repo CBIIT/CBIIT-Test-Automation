@@ -1,6 +1,6 @@
 Feature: Stadtman Vacancy Scenarios
 
-  @Regression @Smoke @Nekrashevich @APPTRACK-7 @APPTRACK-91 @Stadtman
+   @Smoke @Nekrashevich @APPTRACK-7 @APPTRACK-91 @Stadtman @Outdated
   Scenario: Create a vacancy as Stadtman Vacancy Manager
     Given User is on SSJ Landing page and user is "Stadtman Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"

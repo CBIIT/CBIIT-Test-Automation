@@ -10,7 +10,7 @@ import io.cucumber.testng.CucumberOptions;
         , "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
         , features="src/test/java/ServiceNow/PlatformBusinessApps/SSJ/selenium/Features"
         , glue="ServiceNow.PlatformBusinessApps.SSJ.selenium.Steps"
-        , tags="@Progression"
+        , tags="@SSJ-763"
         , dryRun=false
 )
 

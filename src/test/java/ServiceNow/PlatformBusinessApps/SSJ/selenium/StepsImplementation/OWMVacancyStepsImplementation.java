@@ -229,7 +229,7 @@ public class OWMVacancyStepsImplementation extends PageInitializer {
         CommonUtils.waitForVisibility(owmVacancyPage.whoWeAreText);
         CommonUtils.assertEqualsWithMessage(OWMVacanciesConstants.WHO_WE_ARE_TEXT, owmVacancyPage.whoWeAreText.getText(), "-- VERIFYING WHO WE ARE TEXT --");
         CucumberLogUtils.logScreenshot();
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SCSSPortalView"));
+        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("SSJPortalView"));
         CommonUtils.waitForVisibility(owmVacancyPage.ssjLandingPageTitle);
         CucumberLogUtils.logScreenshot();
     }
