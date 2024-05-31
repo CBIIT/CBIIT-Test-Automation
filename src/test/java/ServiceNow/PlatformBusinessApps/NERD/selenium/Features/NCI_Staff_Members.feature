@@ -22,7 +22,7 @@ Feature: NCI Staff Member Test Scenarios
     And NCI Staff Member views the returned Other Accomplishments submission
     Then NCI Staff Member DOES NOT see the 'Delete' button for Other Accomplishments submission returned record
 
-  @NERDSNOW-688 @chaudhryma @Regression @Progression @selenium
+  @NERDSNOW-688 @chaudhryma @Regression @selenium
   Scenario: Test 3: Remove 'Delete' Button in NERD For Specific Users (Collaborations submission)
     Given an NCI Staff Member not on the NERD table is on the NERD CRS Knowledge Base
     When NCI Staff Member submits new Collaborations submission
