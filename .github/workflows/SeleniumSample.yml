@@ -34,7 +34,7 @@ jobs:
 
       - name: Run tests
         run: |
-          mvn -B -q -Dtest=NERD_Progression_Test -DisCloud=true test
+          mvn -B -q -Dtest=Run_NERD_Progression_Test -DisCloud=true test
 
       - name: Determine report path
         id: reportpath
