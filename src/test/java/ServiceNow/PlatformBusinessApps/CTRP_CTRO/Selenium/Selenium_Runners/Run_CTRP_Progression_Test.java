@@ -3,11 +3,11 @@ package ServiceNow.PlatformBusinessApps.CTRP_CTRO.Selenium.Selenium_Runners;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
-@CucumberOptions(plugin= {"html:target/html-reports/cucumber-default-report.html",
+@CucumberOptions(plugin= {"html:target/ctrp-progression-reports/ctrp-progression-report.html",
         "json:target/cucumber.json", "rerun:target/failed.txt",
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
-        features="src/test/java/ServiceNow/PlatformBusinessApps/CTRP_CTRO/Selenium/Features",
-        glue="ServiceNow.PlatformBusinessApps.CTRP_CTRO.Selenium.Steps",
+        features = "src/test/java/ServiceNow/PlatformBusinessApps/CTRP_CTRO/Selenium/Features",
+        glue = {"ServiceNow.PlatformBusinessApps.CTRP_CTRO.Selenium.Steps", "Hooks"},
         tags="@Progression",
         dryRun = false
 )
