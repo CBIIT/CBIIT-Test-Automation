@@ -27,11 +27,11 @@ jobs:
           java-version: 1.11
 
       - name: Replace variables in cloudEnv.properties
-          run: |
-            sed -i "s/SIDE_DOOR_USERNAME/${{ secrets.SIDEDOORUSERNAME }}/g" src/main/resources/conf/cloudEnv.properties
-            sed -i "s/SIDE_DOOR_PASSWORD/${{ secrets.SIDEDOORPASSWORD }}/g" src/main/resources/conf/cloudEnv.properties
-            sed -i "s/BROWSER_VAR/${{ github.event.inputs.testBrowser }}/g" src/main/resources/conf/cloudEnv.properties
-            sed -i "s/ENV_VAR/test/g" src/main/resources/conf/cloudEnv.properties
+        run: |
+          sed -i "s/SIDE_DOOR_USERNAME/${{ secrets.SIDEDOORUSERNAME }}/g" src/main/resources/conf/cloudEnv.properties
+          sed -i "s/SIDE_DOOR_PASSWORD/${{ secrets.SIDEDOORPASSWORD }}/g" src/main/resources/conf/cloudEnv.properties
+          sed -i "s/BROWSER_VAR/${{ github.event.inputs.testBrowser }}/g" src/main/resources/conf/cloudEnv.properties
+          sed -i "s/ENV_VAR/test/g" src/main/resources/conf/cloudEnv.properties
 
       - name: Run specific runner class
         run: mvn -B -q -Dtest=SSJ_Progression_Runners -DisCloud=true test
