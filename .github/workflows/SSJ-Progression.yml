@@ -59,8 +59,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          if [[ ! -f "ssj-progression-test-results.html" ]]; then
-            echo "<h1>SSJ Progression Test Reports will be available here.</h1>" > ssj-progression-test-results.html
+          if grep -Fxq "<h1>Test Reports will be available here.</h1>" ssj-progression-test-results.html
+          then
+            sed -i 's/<h1>Test Reports will be available here.<\/h1>/<h1>SSJ Test Reports will be available here.<\/h1>/' ssj-progression-test-results.html
+          else
+            echo "<h1>SSJ Test Reports will be available here.</h1>" > ssj-progression-test-results.html
           fi
           echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> ssj-progression-test-results.html
           git add ssj-progression-test-results.html
