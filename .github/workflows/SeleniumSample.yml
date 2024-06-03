@@ -50,7 +50,7 @@ jobs:
           git config --global user.email "diegojuarezbusiness@gmail.com"
           git config --global user.name "iamdez99"
           mkdir -p ${{ steps.reportpath.outputs.path }}
-          mv target/cucumber-report-dir/*.html ${{ steps.reportpath.outputs.path }}/
+          mv target/nerd-progression-reports/*.html ${{ steps.reportpath.outputs.path }}/
           git add .
           git commit -m "Publishing cucumber report ${{ github.run_number }}"
           git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git gh-pages
