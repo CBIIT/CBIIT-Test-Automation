@@ -63,7 +63,7 @@ jobs:
           then
             sed -i 's/<h1>Test Reports will be available here.<\/h1>/<h1>SSJ Test Reports will be available here.<\/h1>/' ssj-progression-test-results.html
           else
-            echo "<h1>SSJ Test Reports will be available here.</h1>" > ssj-progression-test-results.html
+            echo "<h1>SSJ Test Reports will be available here.</h1>" >> ssj-progression-test-results.html
           fi
           echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> ssj-progression-test-results.html
           git add ssj-progression-test-results.html
