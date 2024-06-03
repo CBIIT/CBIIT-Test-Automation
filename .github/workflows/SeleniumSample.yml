@@ -13,12 +13,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout juarezds branch
+      - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          ref: 'juarezds'
-          token: ${{ secrets.GH_TOKEN }}
-          fetch-depth: 0
 
       - name: Set up JDK 11
         uses: actions/setup-java@v2
@@ -36,49 +32,3 @@ jobs:
       - name: Run specific runner class
         run: mvn -B -q -Dtest=Run_NERD_Progression_Test -DisCloud=true test
         continue-on-error: true
-
-      - name: List the contents of the target directory
-        run: ls -R target
-
-      - name: Determine report path
-        id: reportpath
-        run: echo "::set-output name=path::nerd-progression-reports-$(date +'%Y-%m-%d-at-%I-%M%P')"
-
-      - name: Upload Cucumber Report
-        uses: actions/upload-artifact@v2
-        if: always()
-        with:
-          name: cucumber-report-${{ github.run_number }}
-          path: target/${{ steps.reportpath.outputs.path }}/*
-
-      - name: Checkout gh-pages branch for report push
-        uses: actions/checkout@v2
-        with:
-          ref: 'gh-pages'
-          token: ${{ secrets.GH_TOKEN }}
-          fetch-depth: 0
-
-      - name: Download cucumber report
-        uses: actions/download-artifact@v2
-        with:
-          name: cucumber-report-${{ github.run_number }}
-          path: ${{ steps.reportpath.outputs.path }}/
-
-      - name: Push HTML Report
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: |
-          git config --global user.email "diegojuarezbusiness@gmail.com"
-          git config --global user.name "iamdez99"
-          git add .
-          git commit -m "Publishing cucumber report ${{ github.run_number }}"
-          git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git gh-pages
-
-      - name: Update Test Results
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: |
-          echo "<h3><a href='${{ steps.reportpath.outputs.path }}/nerd-progression-report.html'>Test Report ${{ steps.reportpath.outputs.path }}</a></h3>" >> nerd-progression-test-results.html
-          git add nerd-progression-test-results.html 
-          git commit -m "Update nerd-progression-test-results.html" 
-          git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git gh-pages
