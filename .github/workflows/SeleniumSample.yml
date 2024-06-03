@@ -37,6 +37,9 @@ jobs:
         run: mvn -B -q -Dtest=Run_NERD_Progression_Test -DisCloud=true test
         continue-on-error: true
 
+      - name: List the contents of the target directory
+        run: ls -R target
+
       - name: Determine report path
         id: reportpath
         run: echo "::set-output name=path::nerd-progression-reports-$(date +'%Y-%m-%d-at-%I-%M%P')"
