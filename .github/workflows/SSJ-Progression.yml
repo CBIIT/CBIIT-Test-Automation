@@ -71,6 +71,6 @@ jobs:
           echo "<h3><a href='${{ steps.reportpath.outputs.path }}/ssj-progression-report.html'>Test Report ${{ steps.reportpath.outputs.path }}</a></h3>" >> ssj-progression-test-results.html
           git fetch
           git checkout gh-pages || git checkout --orphan gh-pages
-          git add -u
+          git add ssj-progression-test-results.html
           git commit -m "Update ssj-progression-test-results.html" 
           git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git gh-pages
