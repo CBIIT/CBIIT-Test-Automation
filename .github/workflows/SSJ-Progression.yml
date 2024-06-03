@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: 'gh-pages' # Fetches gh-pages branch
+          ref: 'gh-pages'
           fetch-depth: 0
 
       - name: Set up JDK 1.11
@@ -71,3 +71,13 @@ jobs:
           git add ssj-progression-test-results.html
           git commit -m "Update ssj-progression-test-results.html" 
           git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
+
+      - name: Check and create index file
+        if: always()
+        run: |
+          if [[ ! -f "ssj-progression-test-results.html" ]]; then
+            echo "<h1>Test Reports will be available here.</h1>" > ssj-progression-test-results.html
+            git add ssj-progression-test-results.html
+            git commit -m "Create minimal ssj-progression-test-results.html" 
+            git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
+          fi
