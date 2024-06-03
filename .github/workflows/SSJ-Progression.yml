@@ -36,7 +36,7 @@ jobs:
         run: sudo timedatectl set-timezone America/New_York
       - name: Generate timestamp
         id: timestamp
-        run: echo "::set-output name=timestamp::$(date +'%Y-%m-%d_%H-%M-%S' --date='TZ="America/New_York"')"
+        run: echo "::set-output name=timestamp::$(date +'%Y-%m-%d_%I-%M-%S_%p' --date='TZ="America/New_York"')"
       - name: Determine report path
         id: reportpath
         run: echo "::set-output name=path::ssj-progression-reports"
