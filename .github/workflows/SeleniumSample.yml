@@ -40,6 +40,9 @@ jobs:
         id: reportpath
         run: echo "::set-output name=path::nerd-progression-reports-$(date +'%Y-%m-%d-at-%I-%M%P')"
 
+      - name: List directory contents
+        run: ls -R
+
       - name: Upload Cucumber Report
         uses: actions/upload-artifact@v2
         if: always()
