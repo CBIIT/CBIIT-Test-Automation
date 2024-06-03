@@ -67,7 +67,7 @@ Feature: Applicant Flow Scenarios
     And User can verify the description of "FOREIGN EDUCATION" statement
     Then User can verify the description of "REASONABLE ACCOMODATION" statement
 
-  @Regression @Smoke @Nekrashevich  @SSJ-773
+  @Regression @Smoke @Nekrashevich  @SSJ-773 @selenium
   Scenario: Your Applications tab
     When User is on Your Applications tab
     And User can verify "Your Applications" page title
