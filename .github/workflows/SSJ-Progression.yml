@@ -56,13 +56,13 @@ jobs:
           mv target/ssj-progression-reports/*.html ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html
           git add .
           git commit -m "Publishing cucumber report ${{ github.run_number }}"
-          git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:gh-pages
+          git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
       - name: Update Test Results and Check/Update Index File
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           if [[ ! -f "ssj-progression-test-results.html" ]]; then
-            echo "<h1>Test Reports will be available here.</h1>" > ssj-progression-test-results.html
+            echo "<h1>SSJ Progression Test Reports will be available here.</h1>" > ssj-progression-test-results.html
           fi
           echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> ssj-progression-test-results.html
           git add ssj-progression-test-results.html
