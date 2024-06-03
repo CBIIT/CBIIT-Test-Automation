@@ -7,10 +7,6 @@ on:
         description: 'Browser'
         required: true
         default: 'chrome'
-  push:
-    branches:
-      - main
-      - juarezds
 
 jobs:
   build:
