@@ -38,7 +38,7 @@ jobs:
 
       - name: Determine report path
         id: reportpath
-        run: echo "::set-output name=path::nerd-progression-reports-$(date +'%Y-%m-%d-at-%I-%M%P')"
+        run: echo "::set-output name=path::nerd-progression-reports"
 
       - name: Upload Cucumber Report
         uses: actions/upload-artifact@v2
@@ -53,8 +53,8 @@ jobs:
         run: |
           git config --global user.email "diegojuarezbusiness@gmail.com"
           git config --global user.name "iamdez99"
-          mkdir -p ${{ steps.reportpath.outputs.path }}
-          mv target/nerd-progression-reports/*.html ${{ steps.reportpath.outputs.path }}/
+          mkdir -p target/${{ steps.reportpath.outputs.path }}
+          mv target/nerd-progression-reports/*.html target/${{ steps.reportpath.outputs.path }}/
           git fetch
           git checkout gh-pages || git checkout --orphan gh-pages
           git add .
