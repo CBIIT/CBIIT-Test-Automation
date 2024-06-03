@@ -55,8 +55,8 @@ jobs:
           git config --global user.name "iamdez99"
           mkdir -p ${{ steps.reportpath.outputs.path }}
           mv target/nerd-progression-reports/*.html ${{ steps.reportpath.outputs.path }}/
-          git checkout gh-pages
-          git pull origin gh-pages
+          git fetch
+          git checkout gh-pages || git checkout --orphan gh-pages
           git add .
           git commit -m "Publishing cucumber report ${{ github.run_number }}"
           git push -f "https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
