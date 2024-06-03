@@ -13,9 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout juarezds branch
+        uses: actions/checkout@v2
         with:
-          ref: 'gh-pages'
+          ref: 'juarezds'
           token: ${{ secrets.GH_TOKEN }}
           fetch-depth: 0
 
@@ -50,6 +51,13 @@ jobs:
           name: cucumber-report-${{ github.run_number }}
           path: target/${{ steps.reportpath.outputs.path }}/*
 
+      - name: Checkout gh-pages branch for report push
+        uses: actions/checkout@v2
+        with:
+          ref: 'gh-pages'
+          token: ${{ secrets.GH_TOKEN }}
+          fetch-depth: 0
+
       - name: Push HTML Report
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -57,7 +65,7 @@ jobs:
           git config --global user.email "diegojuarezbusiness@gmail.com"
           git config --global user.name "iamdez99"
           mkdir -p ${{ steps.reportpath.outputs.path }}
-          mv target/nerd-progression-reports/*.html ${{ steps.reportpath.outputs.path }}/
+          mv ../juarezds/target/nerd-progression-reports/*.html ${{ steps.reportpath.outputs.path }}/
           git add .
           git commit -m "Publishing cucumber report ${{ github.run_number }}"
           git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git gh-pages
