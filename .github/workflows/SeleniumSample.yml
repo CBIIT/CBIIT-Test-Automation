@@ -41,9 +41,6 @@ jobs:
         id: reportpath
         run: echo "::set-output name=path::nerd-progression-reports-$(date +'%Y-%m-%d-at-%I-%M%P')"
 
-      - name: List directory contents
-        run: ls -R
-
       - name: Upload Cucumber Report
         uses: actions/upload-artifact@v2
         if: always()
@@ -58,14 +55,18 @@ jobs:
           token: ${{ secrets.GH_TOKEN }}
           fetch-depth: 0
 
+      - name: Download cucumber report
+        uses: actions/download-artifact@v2
+        with:
+          name: cucumber-report-${{ github.run_number }}
+          path: ${{ steps.reportpath.outputs.path }}/
+
       - name: Push HTML Report
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git config --global user.email "diegojuarezbusiness@gmail.com"
           git config --global user.name "iamdez99"
-          mkdir -p ${{ steps.reportpath.outputs.path }}
-          mv target/${{ steps.reportpath.outputs.path }}/*.html ${{ steps.reportpath.outputs.path }}/
           git add .
           git commit -m "Publishing cucumber report ${{ github.run_number }}"
           git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git gh-pages
