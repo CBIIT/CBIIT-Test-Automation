@@ -32,8 +32,6 @@ jobs:
       - name: Run specific runner class
         run: mvn -B -q -Dtest=SSJ_Progression_Runners -DisCloud=true test
         continue-on-error: true
-      - name: Set timezone
-        run: echo "America/New_York" > /etc/timezone
       - name: Generate timestamp
         id: timestamp
         run: echo "::set-output name=timestamp::$(TZ='America/New_York' date +'%Y-%m-%d_%I-%M-%S_%p')"
