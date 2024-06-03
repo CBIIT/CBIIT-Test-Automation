@@ -37,4 +37,44 @@ jobs:
           sed -i "s/ENV_VAR/test/g" src/main/resources/conf/cloudEnv.properties
 
       - name: Run specific runner class
-        run: mvn -
+        run: mvn -B -q -Dtest=SSJ_Progression_Runners -DisCloud=true test
+        continue-on-error: true
+
+      - name: Set timezone
+        run: sudo timedatectl set-timezone America/New_York
+
+      - name: Determine report path
+        id: reportpath
+        run: echo "::set-output name=path::ssj-progression-reports-$(date +'%Y-%m-%d-at-%I-%M%P')"
+
+      - name: Upload Cucumber Report
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: cucumber-report-${{ github.run_number }}
+          path: target/${{ steps.reportpath.outputs.path }}/*
+
+      - name: Push HTML Report
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          git config --global user.email "diegojuarezbusiness@gmail.com"
+          git config --global user.name "iamdez99"
+          mkdir -p ${{ steps.reportpath.outputs.path }}
+          mv target/ssj-progression-reports/*.html ${{ steps.reportpath.outputs.path }}/
+          git fetch
+          git checkout gh-pages || git checkout --orphan gh-pages
+          git add .
+          git commit -m "Publishing cucumber report ${{ github.run_number }}"
+          git push -f "https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
+
+      - name: Update Test Results
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          echo "<h3><a href='${{ steps.reportpath.outputs.path }}/ssj-progression-report.html'>Test Report ${{ steps.reportpath.outputs.path }}</a></h3>" >> ssj-progression-test-results.html
+          git fetch
+          git checkout gh-pages || git checkout --orphan gh-pages
+          git add -u
+          git commit -m "Update ssj-progression-test-results.html" 
+          git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git gh-pages
