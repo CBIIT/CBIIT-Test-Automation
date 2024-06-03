@@ -61,7 +61,7 @@ jobs:
           mv target/ssj-progression-reports/*.html ${{ steps.reportpath.outputs.path }}/
           git add .
           git commit -m "Publishing cucumber report ${{ github.run_number }}"
-          git push -f "https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" head:gh-pages
+          git push -f "https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:gh-pages
 
       - name: Update Test Results
         env:
@@ -70,4 +70,4 @@ jobs:
           echo "<h3><a href='${{ steps.reportpath.outputs.path }}/ssj-progression-report.html'>Test Report ${{ steps.reportpath.outputs.path }}</a></h3>" >> ssj-progression-test-results.html
           git add ssj-progression-test-results.html
           git commit -m "Update ssj-progression-test-results.html" 
-          git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git head:gh-pages
+          git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
