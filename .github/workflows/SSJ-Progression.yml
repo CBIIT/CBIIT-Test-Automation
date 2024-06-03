@@ -58,7 +58,7 @@ jobs:
           git config --global user.email "diegojuarezbusiness@gmail.com"
           git config --global user.name "iamdez99"
           mkdir -p ${{ steps.reportpath.outputs.path }}
-          mv target/ssj-progression-reports/*.html ${{ steps.reportpath.outputs.path }}/
+          mv target/ssj-progression-reports/*.html ${{ steps.reportpath.outputs.path }}/report-$(date +'%Y-%m-%d_%H-%M-%S').html
           git add .
           git commit -m "Publishing cucumber report ${{ github.run_number }}"
           git push -f "https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:gh-pages
@@ -70,7 +70,7 @@ jobs:
           if [[ ! -f "ssj-progression-test-results.html" ]]; then
             echo "<h1>Test Reports will be available here.</h1>" > ssj-progression-test-results.html
           fi
-          echo "<h3><a href='${{ steps.reportpath.outputs.path }}/ssj-progression-report.html'>Test Report ${{ steps.reportpath.outputs.path }}</a></h3>" >> ssj-progression-test-results.html
+          echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-$(date +'%Y-%m-%d_%H-%M-%S').html'>Test Report ${{ steps.reportpath.outputs.path }}</a></h3>" >> ssj-progression-test-results.html
           git add ssj-progression-test-results.html
           git commit -m "Update ssj-progression-test-results.html" 
           git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
