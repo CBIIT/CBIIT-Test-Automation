@@ -50,6 +50,23 @@ Feature: Applicant Flow Scenarios
       | column1       | column2                  | column3            |
       | Vacancy Title | Institute/Office/Program | Application Period |
 
+  @Regression @Smoke @Nekrashevich  @SSJ-763
+  Scenario: Vacancy Details View for an Applicant
+    And User is on SSJ landing page
+    When User clicks to apply for a live vacancy
+    And User verifies that a vacancy title is displayed
+    And User verifies that open and close dates are displayed
+    And User verifies that a close date has "12:00PM ET" end period specified
+    And User verifies that Point of Contact is displayed
+    And User verifies that Application Documents header is displayed
+    And User confirms that HHS and NIH are Equal Opportunity Employers Statements are displayed
+      | statement1                   | statement2                                | statement3        | statement4              |
+      | EQUAL OPPORTUNITY EMPLOYMENT | STANDARDS OF CONDUCT/FINANCIAL DISCLOSURE | FOREIGN EDUCATION | REASONABLE ACCOMODATION |
+    And User can verify the description of "EQUAL OPPORTUNITY EMPLOYMENT" statement
+    And User can verify the description of "STANDARDS OF CONDUCT/FINANCIAL DISCLOSURE" statement
+    And User can verify the description of "FOREIGN EDUCATION" statement
+    Then User can verify the description of "REASONABLE ACCOMODATION" statement
+
   @Regression @Smoke @Nekrashevich  @SSJ-773 @selenium
   Scenario: Your Applications tab
     When User is on Your Applications tab
