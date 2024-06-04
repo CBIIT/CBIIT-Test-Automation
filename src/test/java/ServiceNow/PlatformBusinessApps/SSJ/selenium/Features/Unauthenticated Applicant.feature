@@ -3,7 +3,7 @@ Feature: Unauthenticated applicant Scenarios
   Background: common steps
     Given User is on SSJ home page and user is Unauthenticated Applicant
 
-  @Regression @Nekrashevich @SSJ-124  @SSJ-365 @selenium
+  @Regression @Nekrashevich @SSJ-124 @SSJ-365 @selenium
   Scenario: Not registered option
     And User clicks on Login Dropdown
     And User clicks "Not Registered" option
