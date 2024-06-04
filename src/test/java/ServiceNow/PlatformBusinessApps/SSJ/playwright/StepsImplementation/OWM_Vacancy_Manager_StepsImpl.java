@@ -640,4 +640,29 @@ public class OWM_Vacancy_Manager_StepsImpl {
         }
         page.waitForSelector(Playwright_Common_Locators.dynamicTextLocator(roleMember)).click();
     }
+
+    /**
+     * Adds a committee member for the executive secretary.
+     *
+     * @param committeeMember The name of the committee member to be added.
+     */
+    public static void user_adds_committee_member_for_executive_secretary(String committeeMember) {
+        page.locator(Vacancy_Committee_Page.vacancyCommitteeMemberDropDown).click();
+        page.waitForSelector(Playwright_Common_Locators.dynamicTextLocator(committeeMember)).click();
+        page.locator(Vacancy_Committee_Page.vacancyCommitteeChairRoleDropDown).click();
+        page.waitForSelector(Playwright_Common_Locators.dynamicTextLocator("Executive Secretary (non-voting)")).click();
+    }
+
+    /**
+     * Adds a duplicate committee member for the executive secretary.
+     *
+     * @param committeeMember The name of the committee member to be added.
+     */
+    public static void user_adds_duplicate_committee_member_for_executive_secretary(String committeeMember) {
+        page.locator(Vacancy_Committee_Page.duplicateVacancyCommitteeMemberDropdown).click();
+        MiscUtils.sleep(3000);
+        page.locator(Playwright_Common_Locators.dynamicTextLocatorByIndex(committeeMember,2)).click();
+        page.locator(Vacancy_Committee_Page.vacancyCommitteeMemberRoleDropDown ).click();
+        page.waitForSelector(Playwright_Common_Locators.dynamicTextLocator("Executive Secretary (non-voting)")).click();
+    }
 }

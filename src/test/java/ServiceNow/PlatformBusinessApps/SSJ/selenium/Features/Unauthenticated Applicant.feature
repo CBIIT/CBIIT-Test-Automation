@@ -3,25 +3,25 @@ Feature: Unauthenticated applicant Scenarios
   Background: common steps
     Given User is on SSJ home page and user is Unauthenticated Applicant
 
-  @Nekrashevich @SSJ-124  @SSJ-365
+  @Regression @Nekrashevich @SSJ-124 @SSJ-365 @selenium
   Scenario: Not registered option
     And User clicks on Login Dropdown
     And User clicks "Not Registered" option
     Then User is redirected to Okta registration page
 
-  @Nekrashevich @SSJ-31
+  @Regression @Nekrashevich @SSJ-31 @selenium
   Scenario: Already Registered option
     And User clicks on Login Dropdown
     And User clicks "Already Registered" option
     Then User is redirected to sign in with existing credentials
 
-  @Nekrashevich @SSJ-122 @SSJ-36
+  @Regression @Nekrashevich @SSJ-122 @SSJ-36 @selenium
   Scenario: Employee/Contractor Onl option
     And User clicks on Login Dropdown
     And User clicks "Employee/Contractor Only" option
     Then User is redirected to NIH Login Page
 
-  @Nekrashevich @SSJ-298
+  @Regression @Nekrashevich @SSJ-298 @selenium
   Scenario: Okta error registration
     And User clicks on Login Dropdown
     And User clicks "Not Registered" option
@@ -29,7 +29,7 @@ Feature: Unauthenticated applicant Scenarios
     And User enters all the registration details
     Then User can verify that Okta account was not created
 
-  @Nekrashevich @SSJ-27
+  @Regression @Nekrashevich @SSJ-27 @selenium
   Scenario: Okta registration error
     And User clicks on Login Dropdown
     And User clicks "Not Registered" option
