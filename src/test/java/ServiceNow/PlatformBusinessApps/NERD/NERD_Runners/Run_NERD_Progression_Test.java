@@ -1,4 +1,4 @@
-package ServiceNow.PlatformBusinessApps.NERD.NERDRunners;
+package ServiceNow.PlatformBusinessApps.NERD.NERD_Runners;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
