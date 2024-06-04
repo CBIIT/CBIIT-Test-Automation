@@ -1,6 +1,6 @@
 Feature: NCI Staff Member Test Scenarios
 
-  @SS-4187 @SS-2218 @chaudhryma @Regression @Smoke
+  @SS-4187 @SS-2218 @chaudhryma @Regression @Smoke @selenium
   Scenario: Program Staff member Collaborations Submission
     Given a Program Staff member is on the CRS Knowledge Management System "Submissions" page
     And creates a new submission for Collaboration category
@@ -30,10 +30,11 @@ Feature: NCI Staff Member Test Scenarios
     And NCI Staff Member views the returned Collaborations submission
     Then NCI Staff Member DOES NOT see the 'Delete' button for Collaborations submission returned record
 
-  @NERDSNOW-689 @chaudhryma  @In-Progress
+  @NERDSNOW-689 @chaudhryma  @In-Progress @selenium
   Scenario: Test 4: Remove 'Delete' Button in NERD For Specific Users (COVID-19 Activities submission)
     Given an NCI Staff Member not on the NERD table is on the NERD CRS Knowledge Base
     When NCI Staff Member submits new COVID19 Activities submission
+
 #    And DOC Planning Contact returning the COVID-19 Activities submission back to NCI Staff Member
 #    And NCI Staff Member views the returned COVID-19 Activities submission
 #    Then NCI Staff Member DOES NOT see the 'Delete' button for COVID-19 Activities submission returned record

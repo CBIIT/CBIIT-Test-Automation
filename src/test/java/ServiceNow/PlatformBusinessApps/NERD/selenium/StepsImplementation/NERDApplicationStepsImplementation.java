@@ -657,7 +657,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      * Submission
      *
      */
-    public static void submissionOptions_SubmitEditDelete_areAvailable() {
+    public static void submissionOptions_SubmitEdit_areAvailable() {
         WebDriverUtils.webDriver.navigate().refresh();
         CommonUtils.assertEquals(ReturningSubmissions_Constants.BOOTSTRAP_DROPDOWN_SELECT_SUBMISSIONS, nerdCrsKnowledgeDatabaseSubmissionsPage.topSubmisionsName.getText());
         MiscUtils.sleep(2000);
@@ -671,20 +671,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         CommonUtils.assertTrue(nerdDynamicXpaths.eiditCRSButton(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME).isEnabled());
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.eiditCRSButton(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME));
         CommonUtils.assertEquals("Edit", nerdDynamicXpaths.eiditCRSButton(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME).getText());
-        CommonUtils.assertTrue(nerdDynamicXpaths.deleteCRSButton(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME).isDisplayed());
-        CommonUtils.assertTrue(nerdDynamicXpaths.deleteCRSButton(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME).isEnabled());
-        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.deleteCRSButton(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME));
-        CommonUtils.assertEquals("Delete", nerdDynamicXpaths.deleteCRSButton(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME).getText());
-        CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(2000);
-        CommonUtils.clickOnElement(nerdDynamicXpaths.deleteCRSButton(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME));
-        MiscUtils.sleep(2000);
-        CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(createNewSubmissionPage.crsKnowledgeManagementSystemConfirmDeleteButton);
-        MiscUtils.sleep(2000);
-        CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(createNewSubmissionPage.informationDialogPopUpOKbutton);
-        MiscUtils.sleep(2000);
+        Assert.assertNotEquals("Delete", nerdDynamicXpaths.deleteCRSButton(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME).getText());
         CucumberLogUtils.logScreenshot();
     }
 

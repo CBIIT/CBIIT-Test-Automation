@@ -1,6 +1,6 @@
 Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishments
 
-  @SS-4631 @SS-5261 @SS-4636 @SS-4637 @bucurgb @Regression @Smoke
+  @SS-4631 @SS-5261 @SS-4636 @SS-4637 @bucurgb @Regression @Smoke @selenium
   Scenario Outline: CRS Reviewer Sees Published Top Accomplishments, Other accomplishments and Collaborations
     Given a CRS Reviewer is on the NERD Home Page
     Then there are three knowledge bases called "<knowledgeBaseOne>", "<knowledgeBaseTwo>", and "<knowledgeBaseThree>"
@@ -17,7 +17,7 @@ Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishments
       | NERD             | ROCK             | Moonshot Evaluation | Other Accomplishments |
       | NERD             | ROCK             | Moonshot Evaluation | Collaborations        |
 
-  @SS-4631 @bucurgb @Regression @Smoke
+  @SS-4631 @bucurgb @Regression @Smoke @selenium
   Scenario Outline: CRS Reviewer Sees Top Accomplishment Fields
     Given a CRS Reviewer is viewing the list of the published "Top Accomplishments"
     Then there is a record called "<recordName>"
@@ -29,7 +29,7 @@ Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishments
       | recordName                                                                                          |
       | The genetics and epigenetics of susceptibility to dietary-induced non-alcoholic fatty liver disease |
 
-  @SS-4637 @bucurgb @Regression @Smoke
+  @SS-4637 @bucurgb @Regression @Smoke @selenium
   Scenario Outline: CRS Reviewer Sees Other Accomplishment Fields
     Given a CRS Reviewer is viewing the list of the published "Other Accomplishments"
     Then there is a record called "<recordName>"
@@ -41,7 +41,7 @@ Feature: Article View Test Automation - CRS Reviewer Views Top Accomplishments
       | recordName                                                                        |
       | Rigosertib induces mitotic arrest in pediatric cancer in a RAS-independent manner |
 
-  @SS-4636 @bucurgb @Regression @Smoke
+  @SS-4636 @bucurgb @Regression @Smoke @selenium
   Scenario Outline: CRS Reviewer Sees Collaborations
     Given a CRS Reviewer is viewing the list of the published "Collaborations"
     Then there is a record called "<recordName>"
