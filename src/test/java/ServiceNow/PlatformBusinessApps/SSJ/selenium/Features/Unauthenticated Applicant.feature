@@ -9,7 +9,7 @@ Feature: Unauthenticated applicant Scenarios
     And User clicks "Not Registered" option
     Then User is redirected to Okta registration page
 
-  @Regression @Nekrashevich  @SSJ-31 @selenium
+  @Regression @Nekrashevich @SSJ-31 @selenium
   Scenario: Already Registered option
     And User clicks on Login Dropdown
     And User clicks "Already Registered" option
