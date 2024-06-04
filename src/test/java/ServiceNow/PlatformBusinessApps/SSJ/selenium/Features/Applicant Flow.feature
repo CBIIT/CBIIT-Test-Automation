@@ -3,7 +3,7 @@ Feature: Applicant Flow Scenarios
   Background: common steps
     Given User is on SSJ Landing page and user is "Okta Verified Applicant"
 
-  @Regression @Smoke @Nekrashevich @APPTRACK-758
+  @Regression @Smoke @Nekrashevich @APPTRACK-758 @selenium
   Scenario Outline: Edit Basic Information of Profile
     And User is on Profile tab
     And User clicks Edit for Basic Information section
@@ -26,7 +26,7 @@ Feature: Applicant Flow Scenarios
       | firstName | middleName | lastName | email           | phone      | businessPhone | address | appNumber | city   | state | country | zip   |
       | Mario     | Michelle   | Pololi   | mario@gmail.com | 2018212343 | 2023323454    | 7 Mills | 12378     | Reston | VA    | USA     | 20453 |
 
-  @Regression @Smoke @Nekrashevich @APPTRACK-712
+  @Regression @Smoke @Nekrashevich @APPTRACK-712 @selenium
   Scenario: Edit Demographics of Profile
     When User is on Profile tab
     And User clicks Edit for Demographics section
@@ -40,7 +40,7 @@ Feature: Applicant Flow Scenarios
     And User chooses not to share demographic details
     Then User saves the updated section
 
-  @Regression @Smoke @Nekrashevich @SSJ-948
+  @Regression @Smoke @Nekrashevich @SSJ-948 @selenium
   Scenario: Applicant view of SSJ Landing page
     And User can see SSJ landing page title "Specialized Scientific Jobs"
     And User can navigate via hyperlink to learn more about NIH
