@@ -3,11 +3,11 @@ package ServiceNow.PlatformBusinessApps.NERD.selenium.NERDRunners;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
-@CucumberOptions(plugin= {"html:target/html-reports/cucumber-default-report.html",
+@CucumberOptions(plugin= {"html:target/nerd-smoke-reports/nerd-smoke-report.html",
 		"json:target/cucumber.json", "rerun:target/failed.txt",
 		"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
-		, features="src/test/java/ServiceNow/PlatformBusinessApps/NERD/Features"
-		, glue="ServiceNow.PlatformBusinessApps.NERD.Steps"
+		, features="src/test/java/ServiceNow/PlatformBusinessApps/NERD/selenium/Features"
+		, glue={"ServiceNow.PlatformBusinessApps.NERD.selenium.Steps", "Hooks"}
 		, tags="@Smoke"
 		, dryRun = false
 )
