@@ -114,21 +114,32 @@ NIH provides reasonable accommodations to applicants with disabilities. If you r
     Then User is directed to "Email Templates" section
 
 
-  @SSJ-11 @playwright
+  @SSJ-11 @Regression @playwright @carberalf
   Scenario: Verification of Vacancy Committee section while creating an NCI Vacancy Negative Flow
-    Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
-    And User navigates to tab "Vacancy Dashboard"
-    And User clicks button "Create vacancy"
-    And User fills in "Vacancy Title" field
-    And User clicks "Save" section button
+    When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
+    And User navigates to tab "Vacancy Dashboard" - PW
+    And User clicks button "+ Create Vacancy" - PW
+    And User fills in "Vacancy Title" field with title "Testing Automation Title SSJ"
+    And User clicks button "Save" - PW
     And User clicks on "Vacancy Committee" option on the left bar menu
-    When User clicks button "Add Member"
-    And User adds a Committee Chair
-    Then User sees alert "At least one committee member must be of the role 'Executive Secretary"
-    And User removes a Commitee Chair
-    Then User sees alert "At least one committee member must be of the role 'Chair' At least one committee member must be of the role 'Executive Secretary"
-    And User adds Executive Secretary (non-voting)
-    Then User sees alert "At least one committee member must be of the role 'Chair'"
+    When User clicks button " Add Member" - PW
+    When the user adds a Committee Member "David Rampulla" for Chair role
+    When User clicks "Save" for Actions
+    Then User can see "At least one committee member must be of the role 'Executive Secretary'" alert
+    When User clicks "Remove" for Actions
+    Then User can see "At least one committee member must be of the role 'Chair' At least one committee member must be of the role 'Executive Secretary'" alert
+    When User clicks button " Add Member" - PW
+    Then User adds Committee Member "Jason Levine" for Executive Secretary
+    When User clicks "Save" for Actions
+    Then User can see "At least one committee member must be of the role 'Chair'" alert
+    And User clicks "Remove" for Actions
+    When User clicks button " Add Member" - PW
+    When the user adds a Committee Member "Jay Kurani" for Chair role
+    And User clicks "Save" for Actions
+    When User clicks button " Add Member" - PW
+    And User adds duplicate Committee Member "Jay Kurani" for Executive Secretary
+    And User clicks "Save" for Actions
+    Then User can see "A committee member can only be listed once on a committee. Please remove duplicate committee members." alert
 
   @SSJ-310 @SSJ-158 @SSJ-71 @playwright
   Scenario: Verification of Email Templates section while creating an NCI Vacancy Positive Flow

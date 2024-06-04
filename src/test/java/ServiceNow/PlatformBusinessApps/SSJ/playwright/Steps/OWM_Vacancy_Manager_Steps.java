@@ -1,10 +1,12 @@
 package ServiceNow.PlatformBusinessApps.SSJ.playwright.Steps;
 
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Mandatory_Statements_Page;
+import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Vacancy_Committee_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.OWM_Vacancy_Manager_StepsImpl;
 import appsCommon.Pages.Playwright_Common_Locators;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import com.nci.automation.utils.MiscUtils;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
@@ -245,5 +247,15 @@ public class OWM_Vacancy_Manager_Steps {
     @Then("User adds Committee Member {string} for {string} - PW")
     public void user_adds_committee_member_for_pw(String committeeMember, String roleMember) {
         OWM_Vacancy_Manager_StepsImpl.user_adds_committee_member_for_pw(committeeMember, roleMember);
+    }
+
+    @Then("User adds Committee Member {string} for Executive Secretary")
+    public void user_adds_committee_member_for_executive_secretary(String committeeMember) {
+        OWM_Vacancy_Manager_StepsImpl.user_adds_committee_member_for_executive_secretary(committeeMember);
+    }
+
+    @When("User adds duplicate Committee Member {string} for Executive Secretary")
+    public void user_adds_duplicate_committee_member_for_executive_secretary(String committeeMember) {
+        OWM_Vacancy_Manager_StepsImpl.user_adds_duplicate_committee_member_for_executive_secretary(committeeMember);
     }
 }

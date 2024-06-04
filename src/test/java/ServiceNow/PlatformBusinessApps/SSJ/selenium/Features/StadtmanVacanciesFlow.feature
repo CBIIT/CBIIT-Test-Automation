@@ -1,6 +1,6 @@
 Feature: Stadtman Vacancy Scenarios
 
-  @Regression @Smoke @Nekrashevich @APPTRACK-7 @APPTRACK-91 @Stadtman
+  @Regression @Smoke @Nekrashevich @APPTRACK-7 @APPTRACK-91 @Stadtman @selenium
   Scenario: Create a vacancy as Stadtman Vacancy Manager
     Given User is on SSJ Landing page and user is "Stadtman Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -15,7 +15,7 @@ Feature: Stadtman Vacancy Scenarios
     When an "applicant" is on the SCSS landing page
     Then applicant should see the published vacancy
 
-  @Regression @Smoke @bucurgb @APPTRACK-67 @Stadtman
+  @Regression @Smoke @bucurgb @APPTRACK-67 @Stadtman @selenium
   Scenario: Create a vacancy as Stadtman Vacancy Manager
     Given User is on SSJ Landing page and user is "Stadtman Vacancy Manager"
     Then the User should see the menu options "Home", "Vacancy Dashboard", "Your Vacancies", "Reports", "Profile"
