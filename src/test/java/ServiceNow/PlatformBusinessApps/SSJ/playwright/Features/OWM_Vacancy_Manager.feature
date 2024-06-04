@@ -31,15 +31,15 @@ Feature: OWM Vacancy Manager Scenarios
     And  User verifies all org codes are present via Organizational Code dropdown
     And User verifies the text of "Position Classification" i tooltip is
     """
-  Select the Intramural or Extramural Professional Designation for your vacancy. Select “N/A” for Stadtman positions.
+    Select the Intramural or Extramural Professional Designation for your vacancy. Select “N/A” for Stadtman positions.
     """
     And User verifies the text of "Organizational Code" i tooltip is
     """
-  Provide SAC code for organization where the position will reside.
+    Provide SAC code for organization where the position will reside.
     """
     And User verifies the text of "Personnel Action Tracking Solution (PATS) Initiator" i tooltip is
     """
-Populate the individual who will be assembling the appointment package within the Personnel Action Tracking Solution (PATS). Value defaults to the SSJ Vacancy Manager, but can be updated within the SSJ or later in PATS.
+    Populate the individual who will be assembling the appointment package within the Personnel Action Tracking Solution (PATS). Value defaults to the SSJ Vacancy Manager, but can be updated within the SSJ or later in PATS.
     """
     Then user selects Position Classification and Organizational Code options
     And user verifies that POC "Holly Gemar-Griffith" is displayed by default for Personnel Action Tracking Solution (PATS) Initiator drop down
@@ -59,19 +59,19 @@ Populate the individual who will be assembling the appointment package within th
     And User confirms that "Equal Opportunity Employer" statement is disabled by default
     And User verifies the text of "Equal Opportunity Employer" is displayed as
     """
-Selection for this position will be based solely on merit, with no discrimination for non-merit reasons such as race, color, religion, gender, sexual orientation, national origin, political affiliation, marital status, disability, age, or membership or non-membership in an employee organization. The NIH encourages the application and nomination of qualified women, minorities, and individuals with disabilities.
+    Selection for this position will be based solely on merit, with no discrimination for non-merit reasons such as race, color, religion, gender, sexual orientation, national origin, political affiliation, marital status, disability, age, or membership or non-membership in an employee organization. The NIH encourages the application and nomination of qualified women, minorities, and individuals with disabilities.
     """
     And User verifies the text "Standards of Conduct/Financial Disclosure" is displayed and description text is
     """
-The National Institutes of Health inspires public confidence in our science by maintaining high ethical principles. NIH employees are subject to Federal government-wide regulations and statutes as well as agency-specific regulations described at the NIH Ethics Website. We encourage you to review this information. The position is subject to a background investigation and requires the incumbent to complete a public financial disclosure report prior to the effective date of the appointment.
+    The National Institutes of Health inspires public confidence in our science by maintaining high ethical principles. NIH employees are subject to Federal government-wide regulations and statutes as well as agency-specific regulations described at the NIH Ethics Website. We encourage you to review this information. The position is subject to a background investigation and requires the incumbent to complete a public financial disclosure report prior to the effective date of the appointment.
     """
     And User verifies the text of Foreign Education "Foreign Education" is displayed as
     """
-Applicants who have completed part or all of their education outside of the U.S. must have their foreign education evaluated by an accredited organization to ensure that the foreign education is equivalent to education received in accredited educational institutions in the United States. We will only accept the completed foreign education evaluation. For more information on foreign education verification, visit the https://www.naces.org website. Verification must be received prior to the effective date of the appointment.
+    Applicants who have completed part or all of their education outside of the U.S. must have their foreign education evaluated by an accredited organization to ensure that the foreign education is equivalent to education received in accredited educational institutions in the United States. We will only accept the completed foreign education evaluation. For more information on foreign education verification, visit the https://www.naces.org website. Verification must be received prior to the effective date of the appointment.
     """
     And User verifies the text of Reasonable Accommodation "Reasonable Accommodation" is displayed as
     """
-NIH provides reasonable accommodations to applicants with disabilities. If you require reasonable accommodation during any part of the application and hiring process, please notify us. The decision on granting reasonable accommodation will be made on a case-by-case basis.
+    NIH provides reasonable accommodations to applicants with disabilities. If you require reasonable accommodation during any part of the application and hiring process, please notify us. The decision on granting reasonable accommodation will be made on a case-by-case basis.
     """
     And User can disable statement options for "Standards of Conduct/Financial Disclosure", "Foreign Education", "Reasonable Accommodation"
     And can enable statement options for "Standards of Conduct/Financial Disclosure", "Foreign Education", "Reasonable Accommodation"
