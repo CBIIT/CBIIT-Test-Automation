@@ -56,9 +56,28 @@ jobs:
           git add .
           git commit -m "Update nerd-progression-test-results.html"
 
-      ## Push the updates to gh-pages
-      - name: Push HTML Report
+  update-gh-pages:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: 'gh-pages'
+
+      - name: Download Artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: cucumber-report-${{ github.run_number }}
+
+      - name: Move reports to gh-pages and commit
         run: |
-          git subtree split --prefix nerd-progression-reports -b gh-pages
-          git push -f origin gh-pages:gh-pages
-          git branch -D gh-pages
+          mv cucumber-report-${{ github.run_number }}/*.html ./
+          git config --global user.email "diegojuarezbusiness@gmail.com"
+          git config --global user.name "iamdez99"
+          git add .
+          git commit -m "Publishing cucumber report ${{ github.run_number }}"
+
+      - name: Push changes
+        run: git push
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
