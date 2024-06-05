@@ -51,6 +51,8 @@ jobs:
           echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> nerd-progression-test-results.html
       - name: Commit
         run: |
+          git config user.email "diegojuarezbusiness@gmail.com"
+          git config user.name "iamdez99"
           git add .
           git commit -m "Update nerd-progression-test-results.html"
 
