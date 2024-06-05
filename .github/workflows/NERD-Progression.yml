@@ -44,9 +44,11 @@ jobs:
         with:
           name: cucumber-report-${{ github.run_number }}
           path: target/nerd-progression-reports/*
-      - name: Push HTML Report
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Checkout gh-pages for report
+        uses: actions/checkout@v2
+        with:
+          ref: 'gh-pages'
+      - name: Move reports to gh-pages
         run: |
           git config --global user.email "diegojuarezbusiness@gmail.com"
           git config --global user.name "iamdez99"
@@ -54,16 +56,15 @@ jobs:
           mv target/nerd-progression-reports/*.html ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html
           git add .
           git commit -m "Publishing cucumber report ${{ github.run_number }}"
-          git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
+      - name: Revert Main Project Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }} # Back to head ref
+          fetch-depth: 0
       - name: Update Test Results and Check/Update Index File
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          if ! grep -Fxq "<h1>NERD Progression Test Reports will be available here.</h1>" nerd-progression-test-results.html
-          then
-              echo "<h1>NERD Progression Test Reports will be available here.</h1>" > nerd-progression-test-results.html
-          fi
+          echo -e "<h1>NERD Progression Test Reports will be available here.</h1>\n$(cat nerd-progression-test-results.html)" > nerd-progression-test-results.html
           echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> nerd-progression-test-results.html
           git add nerd-progression-test-results.html
-          git commit -m "Update nerd-progression-test-results.html" 
-          git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
+          git commit -m "Update nerd-progression-test-results.html" # commit the changes
+          git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:
