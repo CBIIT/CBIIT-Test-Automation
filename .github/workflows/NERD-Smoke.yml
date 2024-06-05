@@ -1,4 +1,4 @@
-name: PLATFORM BUSINESS - NERD SMOKE TESTS
+name: PLATFORM BUSINESS - NERD PROGRESSION TESTS
 
 on:
   workflow_dispatch:
@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: 'gh-pages'
+          ref: ${{ github.head_ref }}
           fetch-depth: 0
       - name: Set up JDK 1.11
         uses: actions/setup-java@v1
@@ -30,20 +30,20 @@ jobs:
           sed -i "s/BROWSER_VAR/${{ github.event.inputs.testBrowser }}/g" src/main/resources/conf/cloudEnv.properties
           sed -i "s/ENV_VAR/test/g" src/main/resources/conf/cloudEnv.properties
       - name: Run specific runner class
-        run: mvn -B -q -Dtest=Run_NERD_Smoke_Test -DisCloud=true test
+        run: mvn -B -q -Dtest=Run_NERD_Progression_Test -DisCloud=true test
         continue-on-error: true
       - name: Generate timestamp
         id: timestamp
         run: echo "::set-output name=timestamp::$(TZ='America/New_York' date +'%Y-%m-%d_%I-%M-%S_%p')"
       - name: Determine report path
         id: reportpath
-        run: echo "::set-output name=path::nerd-smoke-reports"
+        run: echo "::set-output name=path::nerd-progression-reports"
       - name: Upload Cucumber Report
         uses: actions/upload-artifact@v2
         if: always()
         with:
           name: cucumber-report-${{ github.run_number }}
-          path: target/nerd-smoke-reports/*
+          path: target/nerd-progression-reports/*
       - name: Push HTML Report
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -51,7 +51,7 @@ jobs:
           git config --global user.email "diegojuarezbusiness@gmail.com"
           git config --global user.name "iamdez99"
           mkdir -p ${{ steps.reportpath.outputs.path }}
-          mv target/nerd-smoke-reports/*.html ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html
+          mv target/nerd-progression-reports/*.html ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html
           git add .
           git commit -m "Publishing cucumber report ${{ github.run_number }}"
           git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
@@ -59,11 +59,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          if ! grep -Fxq "<h1>NERD Smoke Test Reports will be available here.</h1>" nerd-smoke-test-results.html
+          if ! grep -Fxq "<h1>NERD Progression Test Reports will be available here.</h1>" nerd-progression-test-results.html
           then
-              echo "<h1>NERD Smoke Test Reports will be available here.</h1>" > nerd-smoke-test-results.html
+              echo "<h1>NERD Progression Test Reports will be available here.</h1>" > nerd-progression-test-results.html
           fi
-          echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> nerd-smoke-test-results.html
-          git add nerd-smoke-test-results.html
-          git commit -m "Update nerd-smoke-test-results.html" 
+          echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> nerd-progression-test-results.html
+          git add nerd-progression-test-results.html
+          git commit -m "Update nerd-progression-test-results.html" 
           git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
