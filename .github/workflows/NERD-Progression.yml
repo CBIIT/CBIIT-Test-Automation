@@ -63,6 +63,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
+          sed -i '1s/.*/<h1>NERD Progression Test Results<\/h1>/' nerd-progression-test-results.html
           echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> nerd-progression-test-results.html
           git add nerd-progression-test-results.html
           git commit -m "Update nerd-progression-test-results.html" 
