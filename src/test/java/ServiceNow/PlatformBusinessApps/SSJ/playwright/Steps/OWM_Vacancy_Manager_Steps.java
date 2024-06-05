@@ -246,4 +246,14 @@ public class OWM_Vacancy_Manager_Steps {
     public void user_adds_committee_member_for_pw(String committeeMember, String roleMember) {
         OWM_Vacancy_Manager_StepsImpl.user_adds_committee_member_for_pw(committeeMember, roleMember);
     }
+
+    @Then("User adds Committee Member {string} for Executive Secretary")
+    public void user_adds_committee_member_for_executive_secretary(String committeeMember) {
+        OWM_Vacancy_Manager_StepsImpl.user_adds_committee_member_for_executive_secretary(committeeMember);
+    }
+
+    @When("User adds duplicate Committee Member {string} for Executive Secretary")
+    public void user_adds_duplicate_committee_member_for_executive_secretary(String committeeMember) {
+        OWM_Vacancy_Manager_StepsImpl.user_adds_duplicate_committee_member_for_executive_secretary(committeeMember);
+    }
 }

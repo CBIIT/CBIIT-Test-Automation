@@ -19,6 +19,7 @@ public class Hooks {
     public void startSelenium(Scenario scenario){
         CucumberLogUtils.scenario = scenario;
         WebDriverUtils.setUp(); // setUp for Selenium
+        PageInitializer.initializeAllPages();
         softAssert = new SoftAssert();
         assertionError = null;  // reset the assertion error at the start of each test
         PageInitializer.initializeAllPages();
