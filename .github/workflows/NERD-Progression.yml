@@ -69,6 +69,11 @@ jobs:
         with:
           name: cucumber-report-${{ github.run_number }}
 
+      - name: Check directory structure
+        run: |
+          pwd
+          ls -la
+
       - name: Move reports to gh-pages and commit
         run: |
           mv cucumber-report-${{ github.run_number }}/*.html ./
