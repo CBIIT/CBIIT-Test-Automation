@@ -30,7 +30,7 @@ jobs:
           sed -i "s/BROWSER_VAR/${{ github.event.inputs.testBrowser }}/g" src/main/resources/conf/cloudEnv.properties
           sed -i "s/ENV_VAR/test/g" src/main/resources/conf/cloudEnv.properties
       - name: Run specific runner class
-        run: mvn -B -q -Dtest=Run_SSJ_Progression_Test -DisCloud=true test
+        run: mvn -B -q -Dtest=SSJ_Progression_Runners -DisCloud=true test
         continue-on-error: true
       - name: Generate timestamp
         id: timestamp
