@@ -50,8 +50,10 @@ jobs:
         run: |
           git config --global user.email "diegojuarezbusiness@gmail.com"
           git config --global user.name "iamdez99"
+          git stash
           git fetch
           git checkout gh-pages
+          git stash pop
           mkdir -p ${{ steps.reportpath.outputs.path }}
           mv target/nerd-progression-reports/*.html ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html
           git add .
