@@ -1,1 +1,0 @@
-Feature: NCI Staff Member CRS knowledge base portal submission Test Scenarios
