@@ -2,7 +2,6 @@ package ServiceNow.PlatformBusinessApps.NERD.Steps;
 
 import ServiceNow.PlatformBusinessApps.NERD.Constants.ReturningSubmissions_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.StepsImplementation.*;
-import ServiceNow.PlatformBusinessApps.NERD.selenium.StepsImplementation.*;
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.xceptions.TestingException;
