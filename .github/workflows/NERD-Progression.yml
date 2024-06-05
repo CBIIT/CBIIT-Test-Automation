@@ -76,7 +76,7 @@ jobs:
 
       - name: Move reports to gh-pages and commit
         run: |
-          mv *.html ./
+          mv cucumber-report-*.html ./
           git config --global user.email "diegojuarezbusiness@gmail.com"
           git config --global user.name "iamdez99"
           git add .
