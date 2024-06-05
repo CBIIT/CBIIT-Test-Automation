@@ -63,7 +63,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
+          sed -i '1s/.*/<h1>NERD Smoke Test Results<\/h1>/' nerd-smoke-test-results.html
           echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> nerd-smoke-test-results.html
           git add nerd-smoke-test-results.html
-          git commit -m "Update nerd-smoke-test-results.html" 
+          git commit -m "Update nerd-smoke-test-results.html"
           git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
