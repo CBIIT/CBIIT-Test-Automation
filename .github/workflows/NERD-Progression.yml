@@ -44,45 +44,26 @@ jobs:
         with:
           name: cucumber-report-${{ github.run_number }}
           path: target/nerd-progression-reports/*
-
-      # Update Index File
-      - run: |
-          echo -e "<h1>NERD Progression Test Reports will be available here.</h1>\n$(cat nerd-progression-test-results.html)" > nerd-progression-test-results.html
-          echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> nerd-progression-test-results.html
-      - name: Commit
-        run: |
-          git config user.email "diegojuarezbusiness@gmail.com"
-          git config user.name "iamdez99"
-          git add .
-          git commit -m "Update nerd-progression-test-results.html"
-
-  update-gh-pages:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: 'gh-pages'
-
-      - name: Download Artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: cucumber-report-${{ github.run_number }}
-
-      - name: Check directory structure
-        run: |
-          pwd
-          ls -la
-
-      - name: Move reports to gh-pages and commit
-        run: |
-          mv cucumber-report-*.html ./
-          git config --global user.email "diegojuarezbusiness@gmail.com"
-          git config --global user.name "iamdez99"
-          git add .
-          git commit -m "Publishing cucumber report ${{ github.run_number }}"
-
-      - name: Push changes
-        run: git push
+      - name: Push HTML Report
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          git config --global user.email "diegojuarezbusiness@gmail.com"
+          git config --global user.name "iamdez99"
+          mkdir -p ${{ steps.reportpath.outputs.path }}
+          mv target/nerd-progression-reports/*.html ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html
+          git add .
+          git commit -m "Publishing cucumber report ${{ github.run_number }}"
+          git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
+      - name: Update Test Results and Check/Update Index File
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          if ! grep -Fxq "<h1>NERD Progression Test Reports will be available here.</h1>" nerd-progression-test-results.html
+          then
+              echo "<h1>NERD Progression Test Reports will be available here.</h1>" > nerd-progression-test-results.html
+          fi
+          echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> nerd-progression-test-results.html
+          git add nerd-progression-test-results.html
+          git commit -m "Update nerd-progression-test-results.html" 
+          git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
