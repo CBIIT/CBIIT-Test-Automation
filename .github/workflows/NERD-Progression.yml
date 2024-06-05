@@ -44,27 +44,19 @@ jobs:
         with:
           name: cucumber-report-${{ github.run_number }}
           path: target/nerd-progression-reports/*
-      - name: Checkout gh-pages for report
-        uses: actions/checkout@v2
-        with:
-          ref: 'gh-pages'
-      - name: Move reports to gh-pages
-        run: |
-          git config --global user.email "diegojuarezbusiness@gmail.com"
-          git config --global user.name "iamdez99"
-          mkdir -p ${{ steps.reportpath.outputs.path }}
-          mv target/nerd-progression-reports/*.html ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html
-          git add .
-          git commit -m "Publishing cucumber report ${{ github.run_number }}"
-      - name: Revert Main Project Checkout
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ github.head_ref }} # Back to head ref
-          fetch-depth: 0
-      - name: Update Test Results and Check/Update Index File
-        run: |
+
+      # Update Index File
+      - run: |
           echo -e "<h1>NERD Progression Test Reports will be available here.</h1>\n$(cat nerd-progression-test-results.html)" > nerd-progression-test-results.html
           echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> nerd-progression-test-results.html
-          git add nerd-progression-test-results.html
-          git commit -m "Update nerd-progression-test-results.html" # commit the changes
-          git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:
+      - name: Commit
+        run: |
+          git add .
+          git commit -m "Update nerd-progression-test-results.html"
+
+      ## Push the updates to gh-pages
+      - name: Push HTML Report
+        run: |
+          git subtree split --prefix nerd-progression-reports -b gh-pages
+          git push -f origin gh-pages:gh-pages
+          git branch -D gh-pages
