@@ -66,4 +66,7 @@ public class ReturningSubmissions_Constants {
 
     /* SUBMISSION SUBMIT BUTTON TEXT */
     public static final String EDIT_BUTTON_TEXT = "Edit";
+
+    /* SUBMISSION VIEW RECORD CATEGORY HEADER */
+    public static final String SUBMISSION_VIEW_RECORD_CATEGORY_HEADER = "Category";
 }
