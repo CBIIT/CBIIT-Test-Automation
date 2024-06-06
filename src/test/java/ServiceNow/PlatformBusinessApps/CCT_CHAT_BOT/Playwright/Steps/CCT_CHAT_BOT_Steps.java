@@ -44,7 +44,6 @@ public class CCT_CHAT_BOT_Steps {
 
     @Then("the link should open in a new tab")
     public void the_link_should_open_in_a_new_tab() {
-
         CCT_CHAT_BOT_StepImpl.the_link_should_open_in_a_new_tab();
     }
 
