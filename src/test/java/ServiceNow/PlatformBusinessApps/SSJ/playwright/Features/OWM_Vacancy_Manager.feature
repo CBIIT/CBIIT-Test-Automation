@@ -46,7 +46,7 @@ Feature: OWM Vacancy Manager Scenarios
     And User clicks "Save" button to save the Basic Vacancy Information
     And User confirms that User is on "Mandatory Statements" section
 
-  @SSJ-69 @juarezds @Regression @playwright @Progression
+  @SSJ-69 @juarezds @Regression @playwright
   Scenario: Verification of Mandatory Statements section while creating an NCI Vacancy
     When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW

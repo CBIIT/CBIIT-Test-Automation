@@ -1,6 +1,6 @@
 Feature: SEER Data Access Landing Page Scenarios
 
-@ODS-319 @ODS-329 @bucurgb @Regression @Smoke @Progression
+@ODS-319 @ODS-329 @bucurgb @Regression @Smoke
   Scenario: Test Update public submission page text for user who already has access
     Given a user is on the SEER Data Access landing page
     When the user attempts to request research data with existing email address "Diegotest@email.com"
