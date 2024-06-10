@@ -1,6 +1,7 @@
 package AnalysisTools.CometsAnalytics.StepsImplementation;
 
 import java.util.Set;
+import com.nci.automation.utils.MiscUtils;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import com.nci.automation.web.CommonUtils;
@@ -75,6 +76,8 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 	 * CLICK ON ABOUT COMMENT
 	 */
 	public void clickOnAboutComment() {
+		MiscUtils.sleep(4000);
+        CommonUtils.waitForVisibility(cometsAnalyticsPage.aboutCometsButton);
 		cometsAnalyticsPage.aboutCometsButton.click();
 		assertMoreThanOneWindowIsPresent();
 	}
@@ -99,7 +102,12 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 	 * @param successMessage
 	 */
 	public void viewSucessMessage(String successMessage) {
-		CommonUtils.waitForVisibility(cometsAnalyticsPage.SuccessMessage);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        CommonUtils.waitForVisibility(cometsAnalyticsPage.SuccessMessage);
 		Assert.assertEquals(cometsAnalyticsPage.SuccessMessage.getText(), successMessage);
 	}
 
@@ -234,10 +242,7 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 	/**
 	 * METHOD TO UPLOAD VALID FILE AND CHECK INTEGRITY
 	 */
-	public void uploadFileAndCheckIntegrity() {
-		uploadFileCheckIntegrity();
-		clickOnCheckIntegrity();
-	}
+	public void uploadFileAndCheckIntegrity() {uploadFileCheckIntegrity();clickOnCheckIntegrity();}
 
 	/**
 	 *  METHOD TO UPLOAD INVALID FILE AND CHECK INTEGRITY

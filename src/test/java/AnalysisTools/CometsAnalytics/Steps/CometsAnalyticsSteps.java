@@ -8,18 +8,15 @@ import io.cucumber.java.en.When;
 public class CometsAnalyticsSteps extends PageInitializer {
 
 	@Given("User navigates to comets analytics home page")
-	public void user_navigates_to_comets_analytics_home_page() {
-		cometsAnalyticsStepImp.gotoApplication();
+	public void User_navigates_to_comets_analytics_home_page() {cometsAnalyticsStepImp.gotoApplication();
 	}
 
 	@Then("Click on perform analysis button")
-	public void click_on_perform_analysis_button() {
-		cometsAnalyticsStepImp.clickOnAnalysisButton();
+	public void click_on_perform_analysis_button() {cometsAnalyticsStepImp.clickOnAnalysisButton();
 	}
 
 	@Then("verify that user is on anaysis page")
-	public void verify_that_user_is_on_anaysis_page() {
-		cometsAnalyticsStepImp.verify_user_is_on_analysis_page();
+	public void verify_that_user_is_on_anaysis_page() {cometsAnalyticsStepImp.verify_user_is_on_analysis_page();
 	}
 
 	@When("User clicks on Analysis button")
@@ -78,8 +75,7 @@ public class CometsAnalyticsSteps extends PageInitializer {
 	}
 
 	@Then("User should able to click HeatMap")
-	public void user_should_able_to_click_heat_map() {
-		cometsAnalyticsStepImp.clickOnHeatMap();
+	public void user_should_able_to_click_heat_map() {cometsAnalyticsStepImp.clickOnHeatMap();
 	}
 
 	@Then("User should verify sort starte By, Sort outcome, P-value functionality are working")
@@ -111,7 +107,9 @@ public class CometsAnalyticsSteps extends PageInitializer {
 	public void user_should_fill_all_the_custom_model_parameters_and_click_run_model() {
 		cometsAnalyticsStepImp.customModelFillAndRun();
 	}
-
+	@Then("User should be able to view the results")
+	public void user_should_be_able_to_view_the_results() {
+	}
 	@When("User should cick reset button")
 	public void user_should_cick_reset_button() {
 		cometsAnalyticsStepImp.clickOnResetButton();
