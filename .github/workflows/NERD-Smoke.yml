@@ -3,7 +3,7 @@ name: PLATFORM BUSINESS - NERD SMOKE TESTS
 on:
   schedule:
     # this corresponds to 6 AM EST (11 AM UTC)
-    - cron: '0 11 * * *'
+    - cron: '26 17 * * *'
   workflow_dispatch:
     inputs:
       testBrowser:
@@ -30,7 +30,11 @@ jobs:
         run: |
           sed -i "s/SIDE_DOOR_USERNAME/${{ secrets.SIDEDOORUSERNAME }}/g" src/main/resources/conf/cloudEnv.properties
           sed -i "s/SIDE_DOOR_PASSWORD/${{ secrets.SIDEDOORPASSWORD }}/g" src/main/resources/conf/cloudEnv.properties
-          sed -i "s/BROWSER_VAR/${{ github.event.inputs.testBrowser }}/g" src/main/resources/conf/cloudEnv.properties
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            sed -i "s/BROWSER_VAR/chrome/g" src/main/resources/conf/cloudEnv.properties
+          else
+            sed -i "s/BROWSER_VAR/${{ github.event.inputs.testBrowser }}/g" src/main/resources/conf/cloudEnv.properties
+          fi
           sed -i "s/ENV_VAR/test/g" src/main/resources/conf/cloudEnv.properties
       - name: Run specific runner class
         run: mvn -B -q -Dtest=Run_NERD_Smoke_Test -DisCloud=true test
