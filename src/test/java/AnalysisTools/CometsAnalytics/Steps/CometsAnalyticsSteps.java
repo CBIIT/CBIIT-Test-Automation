@@ -20,48 +20,39 @@ public class CometsAnalyticsSteps extends PageInitializer {
 	}
 
 	@When("User clicks on Analysis button")
-	public void user_clicks_on_analysis_button() {
-		cometsAnalyticsStepImp.clickOnAnalysisButton();
+	public void user_clicks_on_analysis_button() {cometsAnalyticsStepImp.clickOnAnalysisButton();
 	}
 
 	@When("User clicks on Download Sample Input")
-	public void user_clicks_on_download_sample_input() {
-		cometsAnalyticsStepImp.downloadSampleInput();
+	public void user_clicks_on_download_sample_input() {cometsAnalyticsStepImp.downloadSampleInput();
 	}
 
 	@When("User selects option {string} from Comets Chorot Dropdown")
-	public void user_selects_option_from_comets_chorot_dropdown(String dropDownValue) {
-		cometsAnalyticsStepImp.selectCometDropdown(dropDownValue);
+	public void user_selects_option_from_comets_chorot_dropdown(String dropDownValue) {cometsAnalyticsStepImp.selectCometDropdown(dropDownValue);
 	}
 
 	@When("User upload file and click check integrity")
-	public void user_upload_file_and_click_check_iintegrity() {
-		cometsAnalyticsStepImp.uploadFileAndCheckIntegrity();
+	public void user_upload_file_and_click_check_iintegrity() {cometsAnalyticsStepImp.uploadFileAndCheckIntegrity();
 	}
 
 	@Then("User clicks download report, report should get downloaded")
-	public void user_clicks_download_report_report_should_get_downloaded() {
-		cometsAnalyticsStepImp.downloadReport();
+	public void user_clicks_download_report_report_should_get_downloaded() {cometsAnalyticsStepImp.downloadReport();
 	}
 
 	@Then("User should be able to view the Error Message {string}")
-	public void user_should_be_able_to_view_the_error_message(String errorMessage) {
-		cometsAnalyticsStepImp.viewErrorMessage(errorMessage);
+	public void user_should_be_able_to_view_the_error_message(String errorMessage) {cometsAnalyticsStepImp.viewErrorMessage(errorMessage);
 	}
 
 	@When("User clicks on footer links like about comets and verify new tab is opened")
-	public void user_clicks_on_footer_links_like_about_comets_tutorials_vigenette() {
-		cometsAnalyticsStepImp.clickOnAboutComment();
+	public void user_clicks_on_footer_links_like_about_comets_tutorials_vigenette() {cometsAnalyticsStepImp.clickOnAboutComment();
 	}
 
 	@When("User clicks on footer links like tutorials and verify new tab is opened")
-	public void user_clicks_on_footer_links_like_tutorials() {
-		cometsAnalyticsStepImp.clickOnTutorials();
+	public void user_clicks_on_footer_links_like_tutorials() {cometsAnalyticsStepImp.clickOnTutorials();
 	}
 
 	@When("User clicks on footer links like vigenette and verify new tab is opened")
-	public void user_clicks_on_footer_links_like_vigenette() {
-		cometsAnalyticsStepImp.clickOnVigenette();
+	public void user_clicks_on_footer_links_like_vigenette() {cometsAnalyticsStepImp.clickOnVigenette();
 	}
 	
 	@When("User should select option from Model type dropdown and Model Dropdown and click run model")
@@ -78,13 +69,11 @@ public class CometsAnalyticsSteps extends PageInitializer {
 	}
 
 	@Then("User should verify sort starte By, Sort outcome, P-value functionality are working")
-	public void user_should_verify_sort_starte_by_sort_outcome_p_value_functionality_are_working() {
-		cometsAnalyticsStepImp.sortTestingValidation();
+	public void user_should_verify_sort_starte_by_sort_outcome_p_value_functionality_are_working() {cometsAnalyticsStepImp.sortTestingValidation();
 	}
 
 	@Then("User should be able to view the Sucess message {string}")
-	public void user_should_be_able_to_view_the_sucess_message(String successMessage) {
-		cometsAnalyticsStepImp.viewSucessMessage(successMessage);
+	public void user_should_be_able_to_view_the_sucess_message(String successMessage) {cometsAnalyticsStepImp.viewSucessMessage(successMessage);
 	}
 
 	@Then("User should be able to view the downlad button")
@@ -120,18 +109,15 @@ public class CometsAnalyticsSteps extends PageInitializer {
 	}
 
 	@When("User should be click all models set email id as {string} and click run models")
-	public void user_should_be_click_all_models_and_click_run_models(String emailId) {
-		cometsAnalyticsStepImp.clickAllModelsAndRun(emailId);
+	public void user_should_be_click_all_models_and_click_run_models(String emailId) {cometsAnalyticsStepImp.clickAllModelsAndRun(emailId);
 	}
 
 	@Then("User should get success message and result should be emailed.")
-	public void user_should_get_success_message_and_result_should_be_emailed() {
-		cometsAnalyticsStepImp.validateSuccessMessage();
+	public void user_should_get_success_message_and_result_should_be_emailed() {cometsAnalyticsStepImp.validateSuccessMessage();
 	}
 
 	@When("User upload invalid file and click check integrity")
-	public void user_upload_invalid_file_and_click_check_integrity() {
-		cometsAnalyticsStepImp.uploadInvalidFileAndCheckIntegrity();
+	public void user_upload_invalid_file_and_click_check_integrity() {cometsAnalyticsStepImp.uploadInvalidFileAndCheckIntegrity();
 	}
 
 	@When("User clicks About button")
