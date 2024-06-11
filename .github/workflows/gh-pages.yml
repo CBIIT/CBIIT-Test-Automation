@@ -1,0 +1,17 @@
+name: Update gh-pages branch
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Merge master to gh-pages
+        run: |
+          git fetch origin gh-pages:gh-pages
+          git merge master
+          git push origin gh-pages
