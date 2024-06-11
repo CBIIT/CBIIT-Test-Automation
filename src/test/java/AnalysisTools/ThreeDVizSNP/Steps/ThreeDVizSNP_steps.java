@@ -85,8 +85,7 @@ public class ThreeDVizSNP_steps extends PageInitializer {
 	public void verifyErrorMessageFailedJob() {ThreeDVizSNPStepImp.validateErrorMessageForInvalidVcf();}
 
 	@Then("User clicks choose file and upload invalid file")
-	public void uploadInvalidFile() {
-		ThreeDVizSNPStepImp.uploadInvalidVCFFIle();
+	public void uploadInvalidFile() {ThreeDVizSNPStepImp.uploadInvalidVCFFIle();
 	}
 
 	@Then("User should verify that email notification is sent")

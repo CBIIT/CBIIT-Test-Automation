@@ -1,6 +1,6 @@
 Feature:These are the scenarios for the Soccer application
 
-  @satya @Smoke @Regression @NCIATWP-1467 @playwright
+  @satya @Smoke @Regression @NCIATWP-1467  @playwright
   Scenario: Verify user is able to open home page and go to soccer page
     Given User navigates to soccer home page
     Then User click on run soccer button
@@ -43,3 +43,44 @@ Feature:These are the scenarios for the Soccer application
     Given User navigates to soccer home page
     Then User click on FAQ button
     Then verify that user is able to navigate to FAQ Page
+
+  @satya @Regression @Smoke @NCIATWP-1476  @playwright
+  Scenario: Verify user is able to get the Soccer Score with default Soccer Model
+    Given User navigates to soccer home page
+    Then User click on Soccer button
+    Then User choose a file and upload it
+    Then User click on Submit button
+    Then verify the result has graph plots
+    Then User download the results by clicking on Download Results
+
+  @satya @Regression @Smoke @NCIATWP-1476 @playwright
+  Scenario: Verify user is able to submit job with first version of Soccer Model
+    Given User navigates to soccer home page
+    Then User click on Soccer button
+    Then User selects first version of model
+    Then User choose a file and upload it
+    Then User clicks on the job to add in the queue and enters the email
+    Then User click on Submit button
+    Then Verify job has been submitted
+
+  @satya @Regression @Smoke @NCIATWP-2158 @playwright
+  Scenario: Verify user is able to click and validate urls of footer links
+    Given User navigates to soccer home page
+    Then User clicks on policies link and verify it
+    Then User clicks on the VDPolicy link and verify it
+    Then User clicks on the Accessibility link and verify it
+    Then User clicks on the viewing file link and verify it
+    Then User clicks on the FIOS link and verify it
+
+  @satya @Regression @Smoke @NCIATWP-2158 @playwright
+  Scenario: Verify user is able to click and validate urls of footer links
+    Given User navigates to soccer home page
+    Then User clicks on hhs link and verify it
+    Then User clicks on NIH link and verify it
+    Then User clicks on NCS link and verify it
+    Then User clicks on USA gov link and verify it
+
+
+
+
+

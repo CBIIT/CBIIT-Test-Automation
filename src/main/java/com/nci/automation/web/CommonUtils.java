@@ -11,6 +11,9 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.AriaRole;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,6 +21,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import com.nci.automation.utils.MiscUtils;
+
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 /**
  * This is a utility class which contains all common methods that will be used
@@ -785,5 +790,13 @@ public class CommonUtils extends WebDriverUtils {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate oneMonthFromNow = LocalDate.now().plusMonths(1);
         return oneMonthFromNow.format(formatter);
+    }
+
+
+    public static void assertNewPage(String Name, String NewPage){
+        Page newPage1 = PlaywrightUtils.context.waitForPage(() -> {
+            PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(Name)).click();});
+        MiscUtils.sleep(2000);
+        assertThat(newPage1).hasURL(NewPage);newPage1.close();
     }
 }

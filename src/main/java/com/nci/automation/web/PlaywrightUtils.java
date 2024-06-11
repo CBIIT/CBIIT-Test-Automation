@@ -22,7 +22,7 @@ public class PlaywrightUtils {
         if (testBrowser.equalsIgnoreCase(FrameworkConstants.BROWSER_CHROME) && headless.equals("false")) {
             arguments = new ArrayList<>();
             arguments.add(maximizeWindow);
-            Browser browser = playwright.chromium().launch(
+            browser = playwright.chromium().launch(
                     new BrowserType.LaunchOptions().setChannel(FrameworkConstants.BROWSER_CHROME).setHeadless(Boolean.parseBoolean(headless)).setArgs(arguments).setSlowMo(setSlowMoTime));
             context = browser.newContext(new Browser.NewContextOptions().setViewportSize(null));
             page = context.newPage();
@@ -34,7 +34,7 @@ public class PlaywrightUtils {
         } else if (testBrowser.equalsIgnoreCase(FrameworkConstants.BROWSER_EDGE) && headless.equals("false")) {
             arguments = new ArrayList<>();
             arguments.add(maximizeWindow);
-            Browser browser = playwright.chromium().launch(
+            browser = playwright.chromium().launch(
                     new BrowserType.LaunchOptions().setChannel(FrameworkConstants.BROWSER_EDGE).setHeadless(Boolean.parseBoolean(headless)).setArgs(arguments).setSlowMo(setSlowMoTime));
             context = browser.newContext(new Browser.NewContextOptions().setViewportSize(null));
             page = context.newPage();
