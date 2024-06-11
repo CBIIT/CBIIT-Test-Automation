@@ -70,8 +70,7 @@ public class CometsAnalyticsSteps extends PageInitializer {
 	}
 
 	@Then("User should be click pre-specified models and use model type should be clicked")
-	public void user_should_click() {
-		cometsAnalyticsStepImp.prespecifiedModelCLick();
+	public void user_should_click() {cometsAnalyticsStepImp.prespecifiedModelCLick();
 	}
 
 	@Then("User should able to click HeatMap")
@@ -89,8 +88,7 @@ public class CometsAnalyticsSteps extends PageInitializer {
 	}
 
 	@Then("User should be able to view the downlad button")
-	public void user_should_be_able_to_view_the_download_button() {
-		cometsAnalyticsStepImp.viewDownloadButton();
+	public void user_should_be_able_to_view_the_download_button() {cometsAnalyticsStepImp.viewDownloadButton();
 	}
 
 	@When("User should select option from Model type dropdown and and enter model name")
@@ -107,12 +105,13 @@ public class CometsAnalyticsSteps extends PageInitializer {
 	public void user_should_fill_all_the_custom_model_parameters_and_click_run_model() {
 		cometsAnalyticsStepImp.customModelFillAndRun();
 	}
+
 	@Then("User should be able to view the results")
 	public void user_should_be_able_to_view_the_results() {
 	}
+
 	@When("User should cick reset button")
-	public void user_should_cick_reset_button() {
-		cometsAnalyticsStepImp.clickOnResetButton();
+	public void user_should_cick_reset_button() {cometsAnalyticsStepImp.clickOnResetButton();
 	}
 
 	@Then("user should verify that its reseted and  cohort dropdown value is {string}")
@@ -136,8 +135,7 @@ public class CometsAnalyticsSteps extends PageInitializer {
 	}
 
 	@When("User clicks About button")
-	public void user_clicks_about_button() {
-		cometsAnalyticsStepImp.clickOnAboutButton();
+	public void user_clicks_about_button() {cometsAnalyticsStepImp.clickOnAboutButton();
 	}
 
 	@Then("User should be able to view Help, Accessibility, Current Version Functionality, Acknowledgements, Citation is getting displayed")
