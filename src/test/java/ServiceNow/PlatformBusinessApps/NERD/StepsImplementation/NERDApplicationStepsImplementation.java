@@ -466,7 +466,6 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      * @param pediatric
      * @param reportGuidancePolicy
      */
-
     public static void checkBoxOptionsAreDisplayed(String covid19, String communications, String rare,
             String bigDataDataSharing, String researchResourcesAndInfrastructure, String sexGenderDifferences,
             String partnerships,
@@ -581,9 +580,9 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      */
     public static void filingOutAllRequiredFieldsOfSubmission() {
         MiscUtils.sleep(1000);
-        nerdCrsKnowledgeDatabaseSubmissionsPage.topAccomplishmentFiscalYear2019.click();
+        nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsSelectCheckBoxFiscalYear2019.click();
         MiscUtils.sleep(2000);
-        CommonUtils.sendKeys(nerdCrsKnowledgeDatabaseSubmissionsPage.topAccomplishmentTitle, TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME);
+        CommonUtils.sendKeys(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsPageTitleTextBox, TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME);
         MiscUtils.sleep(2000);
         CommonUtils.selectDropDownValue(createNewSubmissionPage.leadDOCDropDown, TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_DOC_DROPDOWN);
         CucumberLogUtils.logScreenshot();
@@ -595,9 +594,9 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         MiscUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(2000);
-        JavascriptUtils.scrollIntoView(nerdCrsKnowledgeDatabaseSubmissionsPage.topAccomplishmentResearchType);
+        JavascriptUtils.scrollIntoView(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsPageResearchTypeDropDown);
         MiscUtils.sleep(2000);
-        CommonUtils.selectDropDownValue(nerdCrsKnowledgeDatabaseSubmissionsPage.topAccomplishmentResearchType,
+        CommonUtils.selectDropDownValue(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsPageResearchTypeDropDown,
                 TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_RESEARCH_TYPE);
         CucumberLogUtils.logScreenshot();
     }
@@ -658,7 +657,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
      * Submission
      *
      */
-    public static void submissionOptions_SubmitEditDelete_areAvailable() {
+    public static void submissionOptions_SubmitEdit_areAvailable() {
         WebDriverUtils.webDriver.navigate().refresh();
         CommonUtils.assertEquals(ReturningSubmissions_Constants.BOOTSTRAP_DROPDOWN_SELECT_SUBMISSIONS, nerdCrsKnowledgeDatabaseSubmissionsPage.topSubmisionsName.getText());
         MiscUtils.sleep(2000);
@@ -672,20 +671,7 @@ public class NERDApplicationStepsImplementation extends PageInitializer {
         CommonUtils.assertTrue(nerdDynamicXpaths.eiditCRSButton(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME).isEnabled());
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.eiditCRSButton(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME));
         CommonUtils.assertEquals("Edit", nerdDynamicXpaths.eiditCRSButton(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME).getText());
-        CommonUtils.assertTrue(nerdDynamicXpaths.deleteCRSButton(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME).isDisplayed());
-        CommonUtils.assertTrue(nerdDynamicXpaths.deleteCRSButton(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME).isEnabled());
-        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.deleteCRSButton(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME));
-        CommonUtils.assertEquals("Delete", nerdDynamicXpaths.deleteCRSButton(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME).getText());
-        CucumberLogUtils.logScreenshot();
-        MiscUtils.sleep(2000);
-        CommonUtils.clickOnElement(nerdDynamicXpaths.deleteCRSButton(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME));
-        MiscUtils.sleep(2000);
-        CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(createNewSubmissionPage.crsKnowledgeManagementSystemConfirmDeleteButton);
-        MiscUtils.sleep(2000);
-        CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(createNewSubmissionPage.informationDialogPopUpOKbutton);
-        MiscUtils.sleep(2000);
+        Assert.assertNotEquals("Delete", nerdDynamicXpaths.deleteCRSButton(TopAccomplishmentsSubmission_Constants.TOP_ACCOMPLISHMENTS_SUBMISSION_NAME).getText());
         CucumberLogUtils.logScreenshot();
     }
 

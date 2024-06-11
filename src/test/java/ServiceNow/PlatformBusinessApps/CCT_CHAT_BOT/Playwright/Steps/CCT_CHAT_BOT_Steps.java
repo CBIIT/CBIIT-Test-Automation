@@ -46,4 +46,9 @@ public class CCT_CHAT_BOT_Steps {
     public void the_link_should_open_in_a_new_tab() {
         CCT_CHAT_BOT_StepImpl.the_link_should_open_in_a_new_tab();
     }
+
+    @When("the user selects {string} for Question4 indicating they belong to an underrepresented group")
+    public void the_user_selects_for_question4_indicating_they_belong_to_an_underrepresented_group(String no) {
+        CCT_CHAT_BOT_StepImpl.the_user_selects_for_question4_indicating_they_belong_to_an_underrepresented_group(no);
+    }
 }

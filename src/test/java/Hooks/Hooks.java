@@ -22,6 +22,7 @@ public class Hooks {
         PageInitializer.initializeAllPages();
         softAssert = new SoftAssert();
         assertionError = null;  // reset the assertion error at the start of each test
+        PageInitializer.initializeAllPages();
     }
 
     @Before("@playwright")
