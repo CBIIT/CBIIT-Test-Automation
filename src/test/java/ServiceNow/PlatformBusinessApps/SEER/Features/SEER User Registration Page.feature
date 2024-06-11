@@ -1,6 +1,6 @@
 Feature: SEER User Registration Scenarios
 
-  @ODS-283 @bucurgb @Regression @Smoke @selenium @NEEDS_UPDATE
+  @ODS-283 @bucurgb @Regression @selenium @NEEDS_UPDATE
   Scenario: Verifying Sate and Zip code fields are required when selecting United States of America for Country field
     Given a user is on the SEER Data Access landing page
     And user proceeds with email verification for Research Data Requests
@@ -9,7 +9,7 @@ Feature: SEER User Registration Scenarios
     And submits the registration form
     Then the user is not able to submit the registration form because the State and Zip Code fields are required
 
-  @ODS-284 @bucurgb @Regression @Smoke @selenium
+  @ODS-284 @bucurgb @Regression @selenium
   Scenario: Verifying "Thank you - your registration is complete." page contents
     Given a user is on the SEER Data Access landing page
     When the user enters email address for a Non-Institutional Account
@@ -31,8 +31,7 @@ Feature: SEER User Registration Scenarios
       SEER is supported by the Surveillance Research Program (SRP) in NCI's Division of Cancer Control and Population Sciences (DCCPS). SRP provides national leadership in the science of cancer surveillance as well as analytical tools and methodological expertise in collecting, analyzing, interpreting, and disseminating reliable population-based statistics.
       """
 
-
-  @ODS-285 @bucurgb @Regression @Smoke @selenium
+  @ODS-285 @bucurgb @Regression @selenium
   Scenario: Verifying 'SEER Incidence Database' bread crumb directs user to https://seer.cancer.gov/data/
     Given a user is on the SEER Data Access landing page
     Then the 'SEER Incidence Database' bread crumb displays
@@ -57,7 +56,7 @@ Feature: SEER User Registration Scenarios
     And the 'SEER Incidence Database' bread crumb displays
     And when clicking, user is directed to "https://seer.cancer.gov/data/"
 
-  @ODS-373 @ODS-386 @ODS-286 @bucurgb @Regression @Smoke @selenium
+  @ODS-373 @ODS-386 @ODS-286 @bucurgb @Regression @selenium
   Scenario: Verifying bread crumbs on "Thank you - your registration is complete." page
     Given a user is on the SEER Data Access landing page
     When user enters email address for a Non-Institutional Account
@@ -66,7 +65,7 @@ Feature: SEER User Registration Scenarios
     Then user is directed to the 'Thank you - your registration is complete.' page
     Then the following breadcrumbs are displayed "Home", "SEER Data & Software", "SEER Incidence Database", "Request SEER Incidence Data", "Submission Confirmation"
 
-  @ODS-372 @ODS-385 @ODS-396 @ODS-399 @bucurgb @Regression @Smoke @selenium
+  @ODS-372 @ODS-385 @ODS-396 @ODS-399 @bucurgb @Regression @selenium
   Scenario: Verifying that ASCII characters including periods and Commas can be used in the address field - Partially
     Given a user is on the SEER Data Access landing page
     When user enter an email address for a Non-Institutional Account
@@ -74,7 +73,7 @@ Feature: SEER User Registration Scenarios
     And submits the registration form
     Then user is directed to the 'Thank you - your registration is complete.' page
 
-  @ODS-370 @ODS-392 @bucurgb @Regression @Smoke @selenium
+  @ODS-370 @ODS-392 @bucurgb @Regression @selenium
   Scenario: Verifying that "Requestors associated with HHS agencies should login with their PIV cards to request the data." is present
     Given a user is on the SEER Data Access landing page
     Then a user should see (which Federal Government Agencies can sign in with a PIV):
@@ -82,7 +81,7 @@ Feature: SEER User Registration Scenarios
     Requestors associated with HHS agencies should login with their PIV cards to request the data.
     """
 
-  @ODS-362 @ODS-345 @ODS-363 @ODS-345 @ODS-363 @ODS-345 @bucurgb @Regression @Smoke @selenium
+  @ODS-362 @ODS-345 @ODS-363 @ODS-345 @ODS-363 @ODS-345 @bucurgb @Regression @selenium
   Scenario: SEER Research Database user access logic cycle
     Given a new user who does not have an active SEER Research Database access request
     When enter email for SEER Research Database and click on the Register for Research Data
