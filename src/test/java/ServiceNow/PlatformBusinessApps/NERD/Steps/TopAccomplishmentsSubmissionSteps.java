@@ -32,8 +32,8 @@ public class TopAccomplishmentsSubmissionSteps extends PageInitializer{
 		NERDApplicationStepsImplementation.savingOfSubmission();
 	}
 
-	@Then("on the CRS Knowledge Management System page, the Program Staff member sees options to Submit, Edit, and Delete")
-	public void on_the_CRS_Knowledge_Management_System_page_the_Program_Staff_member_sees_options_to_Submit_Edit_and_Delete() {
-		NERDApplicationStepsImplementation.submissionOptions_SubmitEditDelete_areAvailable();
+	@Then("on the CRS Knowledge Management System page, the Program Staff member sees options to Submit and Edit")
+	public void on_the_crs_knowledge_management_system_page_the_program_staff_member_sees_options_to_submit_and_edit() {
+		NERDApplicationStepsImplementation.submissionOptions_SubmitEdit_areAvailable();
 	}
 }

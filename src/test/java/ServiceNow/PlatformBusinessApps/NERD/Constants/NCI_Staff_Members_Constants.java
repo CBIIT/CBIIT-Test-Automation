@@ -8,7 +8,7 @@ public class NCI_Staff_Members_Constants {
     public static final String CRS_KNOWLEDGE_MANAGEMENT_SYSTEM_TEXT_MAIN_PAGE  = "CRS Knowledge Management System";
 
     /* CRS COLLABORATION NEW SUBMISSION TITLE TEXT BOX */
-    public static final String CRS_COLLABORATION_NEW_SUBMISSION_TITLE_TEXT_BOX  = "Testing Category" + CommonUtils.lastNameRandomizer();
+    public static final String CRS_COLLABORATION_NEW_SUBMISSION_TITLE_TEXT_BOX  = "Collaboration Category Automation Testing " + CommonUtils.lastNameRandomizer();
 
     /* CRS COLLABORATION NEW SUBMISSION PLEASE SPECIFY DROP DOWN */
     public static final String CRS_COLLABORATION_NEW_SUBMISSION_PLEASE_SPECIFY_DROP_DOWN  = "New";
@@ -59,11 +59,14 @@ public class NCI_Staff_Members_Constants {
     public static final String CRS_COLLABORATION_NEW_SUBMISSION_HHS_STRATEGIC_PLAN_ALIGNMENT_DROP_DOWN  = "Strategic Goal 1: Reform, Strengthen, and Modernize the Nation's Healthcare System";
 
     /* DOC PLANNING RETURN TO PROGRAM NCI STAFF MESSAGE */
-    public static final String DOC_PLANNING_RETURN_TO_NCI_STAFF_MESSAGE = "Testing DOC Planning Contact Returning the TOP ACCOMPLISHMENT SUBMISSION DOC To The Program NCI Staff Member";
+    public static final String DOC_PLANNING_RETURN_TO_NCI_STAFF_MESSAGE = "Testing DOC Planning Contact Returning the Submissions DOC To The Program NCI Staff Member";
 
     /* DELETE BUTTON HIDDEN*/
     public static final String DELETE_BUTTON_HIDDEN = "true";
 
     /* EDIT BUTTON VISIBLE */
     public static final String BUTTON_VISIBLE = "false";
+
+    /* Buttons ARIA HIDDEN ATTRIBUTE */
+    public static final String buttons_ARIA_HIDDEN_ATTRIBUTE  = "aria-hidden";
 }

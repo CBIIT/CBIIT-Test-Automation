@@ -13,7 +13,7 @@ public class NERDDynamicXPATHS extends CommonUtils {
 	 * @param value
 	 * @return
 	 */
-	public WebElement topAccomplishmentSubmissionTitle(String value) {
+	public WebElement nciStaffMemberSubmissionTitle(String value) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//a[text()='" + value + "']"));
 	}
 
@@ -216,7 +216,7 @@ public class NERDDynamicXPATHS extends CommonUtils {
 	 * CRS Knowledge Management System Home Page => NERD => View: NERD COVID-19 ACTIVITIES Submission Headers
 	 * value
 	 */
-	public WebElement viewPublishedCovid19ActivitiesHeaders(String value) {
+	public WebElement viewSubmissionsHeaders(String value) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//h4[normalize-space()='" + value + "']"));
 	}
 
@@ -224,7 +224,7 @@ public class NERDDynamicXPATHS extends CommonUtils {
 	 * CRS Knowledge Management System Home Page => NERD => View: NERD COVID-19 ACTIVITIES Submission
 	 * Text value
 	 */
-	public WebElement viewPublishedCovid19ActivitiesText(String value) {
+	public WebElement submissionsCategory(String value) {
 		return WebDriverUtils.webDriver.findElement(By.xpath("//div[normalize-space()='" + value + "']"));
 	}
 	/**

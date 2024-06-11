@@ -15,9 +15,9 @@ public class Covid19ActivitiesSubmissionsPage extends CommonUtils {
      * ------------ COVID-19 ACTIVITIES SUBMISSION PAGE -----------
      */
 
-    /** COVID-19 ACTIVITIES SUBMISSION Link */
+    /** COVID-19 ACTIVITIES SUBMISSION Accordion Link */
     @FindBy(xpath = "(//div[@class='ng-binding ng-scope'])[4]")
-    public WebElement covid19ActivitiesSubmissionLink;
+    public WebElement covid19ActivitiesSubmissionAccordionLink;
 
     /** NIH COVID--19 STRATEGIC PLAN CHECK BOXES**/
     @FindBy(xpath = "//*[@id='x_26385_crs_kd_u_kb_nih_covid_19_strategic_plan']/div[2]/div")
@@ -60,10 +60,6 @@ public class Covid19ActivitiesSubmissionsPage extends CommonUtils {
     /** NERD COVID-19 SUBMISSIONS ITEM PER PAGE TEXT */
     @FindBy(xpath = "(//div[contains(@class,'panel-body')])[5]//child::div//child::div[2]")
     public WebElement nerdOCovid19SubmissionItemsPerPageText;
-
-    /** NERD Other Accomplishments Button */
-    @FindBy(xpath = "(//div[@class='ng-binding ng-scope'])[2]")
-    public WebElement nerdOtherAccomplishmentsButton;
 
     /** ------------ CREATE NEW OTHER ACCOMPLISHMENTS SECTION ----------- */
 

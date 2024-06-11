@@ -73,6 +73,11 @@ public class CCT_CHAT_BOT_Page {
     public static String nv_Pop_UP_CCT_Chat_Bot_Window_Q_Option_Yes_Selected = "Yes";
 
     /***
+     * NATIVE VIEW POP UP CCT CHAT BOT WINDOW QUESTION OPTION NO SELECTED
+     */
+    public static String nv_Pop_UP_CCT_Chat_Bot_Window_Q_Option_No_Selected = "No";
+
+    /***
      * NATIVE VIEW POP UP CCT CHAT BOT WINDOW QUESTION ONE FRAGMENT LOCATOR
      */
     public static String nv_Pop_UP_CCT_Chat_Bot_Window_Q_One_Fragment_Locator = "fragment";

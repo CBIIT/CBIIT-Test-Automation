@@ -1,6 +1,8 @@
 package ServiceNow.PlatformBusinessApps.NERD.StepsImplementation;
 
 import ServiceNow.PlatformBusinessApps.NERD.Constants.Covid19ActivitiesSubmissions_Constants;
+import ServiceNow.PlatformBusinessApps.NERD.Constants.Other_Accomplishments_Submissions_Constants;
+import ServiceNow.PlatformBusinessApps.NERD.Constants.ReturningSubmissions_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Pages.Covid19ActivitiesSubmissionsPage;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Utils.ServiceNow_Common_Methods;
@@ -43,14 +45,12 @@ public class Covid19ActivitiesSubmissionsStepImplementation extends PageInitiali
                                                                            String priority3SupportToAdvanceTreatment, String priority4AccelerateResearchToImprovePrevention,
                                                                            String priority5PreventAndRedressPoorCOVID19Outcomes, String other) {
         MiscUtils.sleep(1000);
-        CommonUtils.waitForVisibility(
-                nerdCrsKnowledgeDatabaseSubmissionsPage.thisActivityAlignsWithTheFollowingNIHCovid19StrategicPlanText);
+        CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.thisActivityAlignsWithTheFollowingNIHCovid19StrategicPlanText);
         String[] expectedCheckBoxesValues = {priority1ImproveFundamentalKnowledge, priority2AdvanceResearchToImproveDetection, priority3SupportToAdvanceTreatment,
                 priority4AccelerateResearchToImprovePrevention, priority5PreventAndRedressPoorCOVID19Outcomes, other};
         String[] actualCheckBoxesValue = new String[expectedCheckBoxesValues.length];
         for (int i = 0; i < actualCheckBoxesValue.length; i++) {
-            actualCheckBoxesValue[i] = covid19ActivitiesSubmissionsPage.nihCovid19StrategicPlanCheckBoxes.get(i)
-                    .getText();
+            actualCheckBoxesValue[i] = covid19ActivitiesSubmissionsPage.nihCovid19StrategicPlanCheckBoxes.get(i).getText();
             CommonUtils.clickOnElement(Covid19ActivitiesSubmissionsPage.nihCovid19StrategicPlanCheckBoxesSingleElement(actualCheckBoxesValue[i]));
         }
         for (int j = 0; j < actualCheckBoxesValue.length; j++) {
@@ -61,12 +61,20 @@ public class Covid19ActivitiesSubmissionsStepImplementation extends PageInitiali
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * This method is used to perform the necessary steps for a Super User to navigate to the Knowledge Base page in the NERD application.
+     * @throws TestingException if there is an error during the test automation process
+     */
     public static void nerduserIsOnTheKnowledgeBasePageAsSuperUser() throws TestingException {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         ServiceNow_Common_Methods.impersonateAnyUser("Grace Liou");
         NERDApplicationStepsImplementation.userIsOnSubmissionsPage("NERD");
     }
 
+    /**
+     * This method submits the COVID-19 Activities submission by Super User and
+     * when the user is on COVID-19 Activities Submission then Category is 'COVID-19 Activities'
+     */
     public static void selectTheCovid19ActivitiesCategory() throws TestingException {
         NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.superUserCovid19CreateNewSubmissionButton);
         CommonUtils.waitForVisibility(createNewSubmissionPage.titleTextBox);
@@ -81,26 +89,26 @@ public class Covid19ActivitiesSubmissionsStepImplementation extends PageInitiali
         CommonUtils.clickOnElement(covid19ActivitiesSubmissionsPage.nihCovid19CategorySubmissionSaveButton);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(covid19ActivitiesSubmissionsPage.nihCovid19CategorySubmissionOkButton);
-        CommonUtils.waitForVisibility(covid19ActivitiesSubmissionsPage.covid19ActivitiesSubmissionLink);
+        CommonUtils.waitForVisibility(covid19ActivitiesSubmissionsPage.covid19ActivitiesSubmissionAccordionLink);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(covid19ActivitiesSubmissionsPage.covid19ActivitiesSubmissionLink);
+        CommonUtils.clickOnElement(covid19ActivitiesSubmissionsPage.covid19ActivitiesSubmissionAccordionLink);
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.publishedCovid19Activities(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX));
         nerdDynamicXpaths.publishedCovid19Activities(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX).click();
         CommonUtils.switchToAnotherWindow();
         MiscUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.waitForVisibility(nerdDynamicXpaths.viewPublishedCovid19ActivitiesHeaders(Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_CATEGORY_HEADER));
-        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.viewPublishedCovid19ActivitiesHeaders(Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_CATEGORY_HEADER));
-        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.viewPublishedCovid19ActivitiesText(Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_CATEGORY_VALUE));
+        CommonUtils.waitForVisibility(nerdDynamicXpaths.viewSubmissionsHeaders(ReturningSubmissions_Constants.SUBMISSION_VIEW_RECORD_CATEGORY_HEADER));
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.viewSubmissionsHeaders(ReturningSubmissions_Constants.SUBMISSION_VIEW_RECORD_CATEGORY_HEADER));
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.submissionsCategory(Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_CATEGORY_VALUE));
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
-        String actualCategoryValue = nerdDynamicXpaths.viewPublishedCovid19ActivitiesText(Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_CATEGORY_VALUE).getText();
+        String actualCategoryValue = nerdDynamicXpaths.submissionsCategory(Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_CATEGORY_VALUE).getText();
         CommonUtils.assertEqualsWithMessage(actualCategoryValue, Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_CATEGORY_VALUE,
                 "Verify that when the user is on COVID-19 Activities Submission then Category is 'COVID-19 Activities'");
-        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.viewPublishedCovid19ActivitiesHeaders(Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_SPECIAL_TOPIC_HEADER));
-        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.viewPublishedCovid19ActivitiesText(Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_SPECIAL_TOPIC_FILTER_VALUE));
-        String actualSpecialTopicValue = nerdDynamicXpaths.viewPublishedCovid19ActivitiesText(Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_SPECIAL_TOPIC_FILTER_VALUE).getText();
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.viewSubmissionsHeaders(Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_SPECIAL_TOPIC_HEADER));
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.submissionsCategory(Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_SPECIAL_TOPIC_FILTER_VALUE));
+        String actualSpecialTopicValue = nerdDynamicXpaths.submissionsCategory(Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_SPECIAL_TOPIC_FILTER_VALUE).getText();
         String specialTopicFilterCovid19Value = Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_SPECIAL_TOPIC_COVID19_FILTER_VALUE;
         CommonUtils.assertTrue(!actualSpecialTopicValue.equals(specialTopicFilterCovid19Value));
         CommonUtils.assertTrue(actualSpecialTopicValue.equals(Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_SPECIAL_TOPIC_FILTER_VALUE));
@@ -111,10 +119,13 @@ public class Covid19ActivitiesSubmissionsStepImplementation extends PageInitiali
         MiscUtils.sleep(2000);
         CommonUtils.switchToAnotherTabWindow();
         MiscUtils.sleep(2000);
-        otherAccomplishmentsSubmission();
+        otherAccomplishmentsSubmissionBySuperUser();
     }
 
-    public static void otherAccomplishmentsSubmission() throws TestingException {
+    /**
+     * This method submits the Other Accomplishments submission by a Super User
+     */
+    public static void otherAccomplishmentsSubmissionBySuperUser() {
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.superUserOtherAccomplishmentsCreateNewSubmissionButton);
         NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.superUserOtherAccomplishmentsCreateNewSubmissionButton);
         CommonUtils.waitForVisibility(createNewSubmissionPage.titleTextBox);
@@ -126,9 +137,9 @@ public class Covid19ActivitiesSubmissionsStepImplementation extends PageInitiali
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
         CommonUtils.clickOnElement(covid19ActivitiesSubmissionsPage.nihCovid19CategorySubmissionOkButton);
-        CommonUtils.waitForVisibility(covid19ActivitiesSubmissionsPage.nerdOtherAccomplishmentsButton);
+        CommonUtils.waitForVisibility(nerdcrstOtherAccomplishmentsPage.nerdOtherAccomplishmentsAccordionButton);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(covid19ActivitiesSubmissionsPage.nerdOtherAccomplishmentsButton);
+        CommonUtils.clickOnElement(nerdcrstOtherAccomplishmentsPage.nerdOtherAccomplishmentsAccordionButton);
         MiscUtils.sleep(3000);
         CucumberLogUtils.logScreenshot();
         JavascriptUtils.scrollIntoView(nerdDynamicXpaths.publishedCovid19Activities(Covid19ActivitiesSubmissions_Constants.OTHER_ACCOMPLISHMENTS_NEW_SUBMISSION_TITLE_TEXT_BOX));
@@ -138,31 +149,34 @@ public class Covid19ActivitiesSubmissionsStepImplementation extends PageInitiali
         CommonUtils.switchToAnotherWindow();
         MiscUtils.sleep(2000);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.waitForVisibility(nerdDynamicXpaths.viewPublishedCovid19ActivitiesHeaders(Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_CATEGORY_HEADER));
-        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.viewPublishedCovid19ActivitiesHeaders(Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_CATEGORY_HEADER));
-        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.viewPublishedCovid19ActivitiesText(Covid19ActivitiesSubmissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSION_VIEW_RECORD_CATEGORY_VALUE));
+        CommonUtils.waitForVisibility(nerdDynamicXpaths.viewSubmissionsHeaders(ReturningSubmissions_Constants.SUBMISSION_VIEW_RECORD_CATEGORY_HEADER));
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.viewSubmissionsHeaders(ReturningSubmissions_Constants.SUBMISSION_VIEW_RECORD_CATEGORY_HEADER));
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.submissionsCategory(Other_Accomplishments_Submissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSIONS_PAGE_CATEGORY_VALUE));
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
-        String actualCategoryValue = nerdDynamicXpaths.viewPublishedCovid19ActivitiesText(Covid19ActivitiesSubmissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSION_VIEW_RECORD_CATEGORY_VALUE).getText();
-        CommonUtils.assertEqualsWithMessage(actualCategoryValue, Covid19ActivitiesSubmissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSION_VIEW_RECORD_CATEGORY_VALUE,
+        String actualCategoryValue = nerdDynamicXpaths.submissionsCategory(Other_Accomplishments_Submissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSIONS_PAGE_CATEGORY_VALUE).getText();
+        CommonUtils.assertEqualsWithMessage(actualCategoryValue, Other_Accomplishments_Submissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSIONS_PAGE_CATEGORY_VALUE,
                 "Verify that when the user is on Other Accomplishments Submission then Category is 'Other Accomplishments'");
-        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.viewPublishedCovid19ActivitiesHeaders(Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_SPECIAL_TOPIC_HEADER));
-        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.viewPublishedCovid19ActivitiesText(Covid19ActivitiesSubmissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSION_VIEW_RECORD_SPECIAL_TOPIC_FILTER_VALUE));
-        String actualSpecialTopicValue = nerdDynamicXpaths.viewPublishedCovid19ActivitiesText(Covid19ActivitiesSubmissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSION_VIEW_RECORD_SPECIAL_TOPIC_FILTER_VALUE).getText();
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.viewSubmissionsHeaders(Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_SPECIAL_TOPIC_HEADER));
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.submissionsCategory(Covid19ActivitiesSubmissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSION_VIEW_RECORD_SPECIAL_TOPIC_FILTER_VALUE));
+        String actualSpecialTopicValue = nerdDynamicXpaths.submissionsCategory(Covid19ActivitiesSubmissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSION_VIEW_RECORD_SPECIAL_TOPIC_FILTER_VALUE).getText();
         String specialTopicFilterCovid19Value = Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_SPECIAL_TOPIC_COVID19_FILTER_VALUE;
         CommonUtils.assertTrue(actualSpecialTopicValue.equals(specialTopicFilterCovid19Value));
         MiscUtils.sleep(1000);
     }
 
+    /**
+     * This method is used to display only the Covid19 Activities category submissions results.
+     */
     public static void onlyCovid19ActivitiesCategoryResultsAreDisplayed() throws TestingException {
         webDriver.switchTo().window(parentWindow);
         MiscUtils.sleep(1000);
-        CommonUtils.waitForVisibility(covid19ActivitiesSubmissionsPage.nerdOtherAccomplishmentsButton);
+        CommonUtils.waitForVisibility(nerdcrstOtherAccomplishmentsPage.nerdOtherAccomplishmentsAccordionButton);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(covid19ActivitiesSubmissionsPage.nerdOtherAccomplishmentsButton);
-        CommonUtils.waitForVisibility(covid19ActivitiesSubmissionsPage.covid19ActivitiesSubmissionLink);
+        CommonUtils.clickOnElement(nerdcrstOtherAccomplishmentsPage.nerdOtherAccomplishmentsAccordionButton);
+        CommonUtils.waitForVisibility(covid19ActivitiesSubmissionsPage.covid19ActivitiesSubmissionAccordionLink);
         CucumberLogUtils.logScreenshot();
-        CommonUtils.clickOnElement(covid19ActivitiesSubmissionsPage.covid19ActivitiesSubmissionLink);
+        CommonUtils.clickOnElement(covid19ActivitiesSubmissionsPage.covid19ActivitiesSubmissionAccordionLink);
         MiscUtils.sleep(1000);
         JavascriptUtils.scrollIntoView(covid19ActivitiesSubmissionsPage.nerdOCovid19SubmissionItemsPerPageText);
         CommonUtils.waitForVisibility(covid19ActivitiesSubmissionsPage.nerdOCovid19SubmissionItemsPerPageText);
