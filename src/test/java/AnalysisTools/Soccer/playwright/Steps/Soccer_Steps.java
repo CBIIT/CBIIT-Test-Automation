@@ -1,10 +1,14 @@
 package AnalysisTools.Soccer.playwright.Steps;
 
+import AnalysisTools.NIFESubmit.playwright.Pages.NIFESubmitPage;
+import AnalysisTools.NIFESubmit.playwright.Utils.NIFESubmit_Constants;
 import AnalysisTools.Soccer.playwright.Pages.SoccerPage;
 import AnalysisTools.Soccer.playwright.StepsImplementation.SoccerStepsImpl;
+import AnalysisTools.Soccer.playwright.Utils.Soccer_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.en.Given;
@@ -132,35 +136,35 @@ public class Soccer_Steps extends PageInitializer {
     }
 
     @Then("User clicks on policies link and verify it")
-    public void user_clicks_on_policies_link_and_verify_it() {SoccerStepsImpl.clickPoliciesLink();
+    public void user_clicks_on_policies_link_and_verify_it() {CommonUtils.assertNewPage(SoccerPage.policies, Soccer_Constants.policieslink);
     }
 
     @Then("User clicks on the VDPolicy link and verify it")
-    public void user_clicks_on_the_vd_policy_link_and_verify_it() {SoccerStepsImpl.clickVDPlicyLink();
+    public void user_clicks_on_the_vd_policy_link_and_verify_it() {CommonUtils.assertNewPage(SoccerPage.vdpolicy, Soccer_Constants.vdpolicyLink);
     }
 
     @Then("User clicks on the Accessibility link and verify it")
-    public void user_clicks_on_the_accessibility_link_and_verify_it() {SoccerStepsImpl.verifyAccessibilitylink();
+    public void user_clicks_on_the_accessibility_link_and_verify_it() {CommonUtils.assertNewPage(SoccerPage.accessibility, Soccer_Constants.accessibilityLink);
     }
 
     @Then("User clicks on the viewing file link and verify it")
-    public void user_clicks_on_the_viewing_file_link_and_verify_it() {SoccerStepsImpl.verfiFileLink();
+    public void user_clicks_on_the_viewing_file_link_and_verify_it() {CommonUtils.assertNewPage(SoccerPage.viewingFileAccessibility, Soccer_Constants.FileaccessibilityLink);
     }
 
     @Then("User clicks on the FIOS link and verify it")
-    public void user_clicks_on_the_fios_link_and_verify_it() {SoccerStepsImpl.verifyFIOSLink();
+    public void user_clicks_on_the_fios_link_and_verify_it() {CommonUtils.assertNewPage(SoccerPage.FOIA, Soccer_Constants.foialink);
     }
 
     @Then("User clicks on hhs link and verify it")
-    public void user_clicks_on_hhs_link_and_verify_it() {SoccerStepsImpl.verifyHHSLink();
+    public void user_clicks_on_hhs_link_and_verify_it() {CommonUtils.assertNewPage(SoccerPage.HHS, Soccer_Constants.hhsLink);
     }
 
     @Then("User clicks on NIH link and verify it")
-    public void user_clicks_on_nih_link_and_verify_it() {SoccerStepsImpl.verfyNIHLink();
+    public void user_clicks_on_nih_link_and_verify_it() {CommonUtils.assertNewPage(SoccerPage.NIH, Soccer_Constants.nihLink);
     }
 
     @Then("User clicks on NCS link and verify it")
-    public void user_clicks_on_ncs_link_and_verify_it() {SoccerStepsImpl.verifyNCSLink();
+    public void user_clicks_on_ncs_link_and_verify_it() {CommonUtils.assertNewPage(SoccerPage.NCS, Soccer_Constants.ncsLink);
     }
 
     @Then("User clicks on USA gov link and verify it")

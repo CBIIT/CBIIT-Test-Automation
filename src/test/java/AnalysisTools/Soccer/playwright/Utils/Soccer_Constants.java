@@ -15,11 +15,6 @@ public class Soccer_Constants {
     public static String vdpolicyLink = "https://www.hhs.gov/vulnerability-disclosure-policy/index.html";
 
     /***
-     * VD POLICY PAGE
-     */
-    public static String vdpolicy = "HHS Vulnerability Disclosure";
-
-    /***
      * ACCESSIBILITY LINK
      */
     public static String accessibilityLink = "https://www.cancer.gov/policies/accessibility";
@@ -69,10 +64,6 @@ public class Soccer_Constants {
      */
     public static String usagovlink = "https://www.usa.gov/";
 
-    /***
-     * USA GOV ELEMENT
-     */
-    public static String USAGov = "USA.gov";
 }
 
 
