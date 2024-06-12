@@ -68,7 +68,7 @@ Feature: TheeDVizSNP features
     And User clicks submit button
     Then User should verify that email notification is sent
 
-  @Satya  @Regression @NCIATWP-5984
+  @Satya @Regression @NCIATWP-5984
   Scenario: 3DVizSNP invalid Gene symbol validation
     Given User navigates to 3DVizSNP page
     When User clicks Visualize Button
