@@ -1122,7 +1122,7 @@
 
     <!-- Application ID for NIFESubmit-->
     <application id="NIFESubmit">
-        <login_url>https://nife-dev.cancer.gov/
+        <login_url>https://nife-qa.cancer.gov/
         </login_url> <!-- add test url -->
         <role name="Role">
             <user id="regular">

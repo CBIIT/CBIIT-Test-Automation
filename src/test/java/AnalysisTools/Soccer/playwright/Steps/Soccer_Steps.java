@@ -96,8 +96,8 @@ public class Soccer_Steps extends PageInitializer {
         PlaywrightUtils.page.getByRole(AriaRole.TAB, new Page.GetByRoleOptions().setName(SoccerPage.FAQPage)).click();
     }
 
-    @Then("verify that user is able to navigate to FAQ Page")
-    public void verify_that_user_is_able_to_navigate_to_faq_page() {
+    @Then("verify that user is on the FAQ Page")
+    public void Verify_That_User_Is_On_The_FAQ_Page() {
         assertThat(PlaywrightUtils.page.getByLabel(SoccerPage.FAQPage).getByRole(AriaRole.HEADING)).containsText(SoccerPage.FAQText);
     }
 
