@@ -63,7 +63,6 @@ public class Soccer_Constants {
      * USA GOV URL
      */
     public static String usagovlink = "https://www.usa.gov/";
-
 }
 
 
