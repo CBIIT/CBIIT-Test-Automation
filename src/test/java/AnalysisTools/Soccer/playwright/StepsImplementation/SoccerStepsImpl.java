@@ -54,17 +54,14 @@ public class SoccerStepsImpl extends PageInitializer {
         Page newPage = PlaywrightUtils.context.waitForPage(() -> {
                     PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(SoccerPage.soc_2010_system)).click();});
         assertThat(newPage).hasTitle(SoccerPage.soc_2010_system_page_title);newPage.close();
-
         MiscUtils.sleep(4000);
         Page newPage1 = PlaywrightUtils.context.waitForPage(() -> {
             PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(SoccerPage.sic_1987_system)).click();});
         assertThat(newPage1).hasTitle( SoccerPage.sic_1987_page_title);newPage1.close();
-
         MiscUtils.sleep(4000);
         Page newPage2 = PlaywrightUtils.context.waitForPage(() -> {
             PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(SoccerPage.onet_online)).click();});
         assertThat(newPage2).hasTitle( SoccerPage.onet_online_title);newPage2.close();
-
         MiscUtils.sleep(4000);
         Page newPage3 = PlaywrightUtils.context.waitForPage(() -> {
             PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(SoccerPage.nioccs)).click();});
