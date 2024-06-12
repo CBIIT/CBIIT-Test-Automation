@@ -5,7 +5,6 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.PlaywrightUtils;
-
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class Playwright_Common_Utils {

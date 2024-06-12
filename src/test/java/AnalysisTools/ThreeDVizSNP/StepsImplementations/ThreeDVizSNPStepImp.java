@@ -18,6 +18,7 @@ public class ThreeDVizSNPStepImp extends PageInitializer {
 		CommonUtils.assertTrueTestNG(threeDVizSNPPage.allUploadFields.size() == 1,"asserts that there is only one upload field");
 		CommonUtils.assertEqualsWithMessage(threeDVizSNPPage.actualVcfText.getText(),ThreeDVizSNP_Constants.EXPECTED_VCF_TEXT,"asserted the vcf actual text");
 	}
+
 	/**
 	 * UPLOAD EXAMPLE VCF FILE
 	 */
