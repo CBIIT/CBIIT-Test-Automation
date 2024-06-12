@@ -7,7 +7,6 @@ import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.PlaywrightUtils.Playwright_Common_Utils;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
-import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.en.Given;
@@ -136,35 +135,35 @@ public class Soccer_Steps extends PageInitializer {
 
     @Then("User clicks on policies link and verify it")
     public void user_clicks_on_policies_link_and_verify_it() {
-        Playwright_Common_Utils.assertNewPage(SoccerPage.policies, Soccer_Constants.policieslink);
+        Playwright_Common_Utils.assertNewPage(SoccerPage.policies, Soccer_Constants.POLICIES_LINK);
     }
 
     @Then("User clicks on the VDPolicy link and verify it")
-    public void user_clicks_on_the_vd_policy_link_and_verify_it() {Playwright_Common_Utils.assertNewPage(SoccerPage.vdpolicy, Soccer_Constants.vdpolicyLink);
+    public void user_clicks_on_the_vd_policy_link_and_verify_it() {Playwright_Common_Utils.assertNewPage(SoccerPage.vdpolicy, Soccer_Constants.VD_POLICY_LINK);
     }
 
     @Then("User clicks on the Accessibility link and verify it")
-    public void user_clicks_on_the_accessibility_link_and_verify_it() {Playwright_Common_Utils.assertNewPage(SoccerPage.accessibility, Soccer_Constants.accessibilityLink);
+    public void user_clicks_on_the_accessibility_link_and_verify_it() {Playwright_Common_Utils.assertNewPage(SoccerPage.accessibility, Soccer_Constants.ACCESSIBILITY_LINK);
     }
 
     @Then("User clicks on the viewing file link and verify it")
-    public void user_clicks_on_the_viewing_file_link_and_verify_it() {Playwright_Common_Utils.assertNewPage(SoccerPage.viewingFileAccessibility, Soccer_Constants.FileaccessibilityLink);
+    public void user_clicks_on_the_viewing_file_link_and_verify_it() {Playwright_Common_Utils.assertNewPage(SoccerPage.viewingFileAccessibility, Soccer_Constants.FILE_ACCESSIBILITY_LINK);
     }
 
     @Then("User clicks on the FIOS link and verify it")
-    public void user_clicks_on_the_fios_link_and_verify_it() {Playwright_Common_Utils.assertNewPage(SoccerPage.FOIA, Soccer_Constants.foialink);
+    public void user_clicks_on_the_fios_link_and_verify_it() {Playwright_Common_Utils.assertNewPage(SoccerPage.FOIA, Soccer_Constants.FOIA_LINK);
     }
 
     @Then("User clicks on hhs link and verify it")
-    public void user_clicks_on_hhs_link_and_verify_it() {Playwright_Common_Utils.assertNewPage(SoccerPage.HHS, Soccer_Constants.hhsLink);
+    public void user_clicks_on_hhs_link_and_verify_it() {Playwright_Common_Utils.assertNewPage(SoccerPage.HHS, Soccer_Constants.HHS_LINK);
     }
 
     @Then("User clicks on NIH link and verify it")
-    public void user_clicks_on_nih_link_and_verify_it() {Playwright_Common_Utils.assertNewPage(SoccerPage.NIH, Soccer_Constants.nihLink);
+    public void user_clicks_on_nih_link_and_verify_it() {Playwright_Common_Utils.assertNewPage(SoccerPage.NIH, Soccer_Constants.NIH_LINK);
     }
 
     @Then("User clicks on NCS link and verify it")
-    public void user_clicks_on_ncs_link_and_verify_it() {Playwright_Common_Utils.assertNewPage(SoccerPage.NCS, Soccer_Constants.ncsLink);
+    public void user_clicks_on_ncs_link_and_verify_it() {Playwright_Common_Utils.assertNewPage(SoccerPage.NCS, Soccer_Constants.NCS_LINK);
     }
 
     @Then("User clicks on USA gov link and verify it")
