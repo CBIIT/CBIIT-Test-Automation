@@ -19,7 +19,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import com.nci.automation.utils.MiscUtils;
 
-
 /**
  * This is a utility class which contains all common methods that will be used
  * through out any application. New methods can be added at any time. Modifying
