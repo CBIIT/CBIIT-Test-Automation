@@ -3,64 +3,59 @@ package AnalysisTools.Soccer.playwright.Utils;
 public class Soccer_Constants {
 
     /** PATH TO UPLOAD FILE IN SOCCER **/
-    public static String uploadFilePath = "src/test/java/AnalysisTools/Soccer/playwright/Utils/examplesoccer.csv";
+    public static final String UPLOAD_FILE_PATH = "src/test/java/AnalysisTools/Soccer/playwright/Utils/examplesoccer.csv";
     /***
      * POLICY URL
      */
-    public static String policieslink = "https://www.cancer.gov/policies";
+    public static final String POLICIES_LINK = "https://www.cancer.gov/policies";
 
     /***
      * VD POLICY URL
      */
-    public static String vdpolicyLink = "https://www.hhs.gov/vulnerability-disclosure-policy/index.html";
+    public static final String VD_POLICY_LINK = "https://www.hhs.gov/vulnerability-disclosure-policy/index.html";
 
     /***
      * ACCESSIBILITY LINK
      */
-    public static String accessibilityLink = "https://www.cancer.gov/policies/accessibility";
+    public static final String ACCESSIBILITY_LINK = "https://www.cancer.gov/policies/accessibility";
 
     /***
      * FILE ACCESSIBILITY LINK
      */
-    public static String FileaccessibilityLink = "https://www.cancer.gov/policies/accessibility";
+    public static final String FILEACCESSIBILITY_LINK = "https://www.cancer.gov/policies/accessibility";
 
     /***
      * FOIA URL
      */
-    public static String foialink = "https://www.cancer.gov/policies/foia";
+    public static final String FOIA_LINK = "https://www.cancer.gov/policies/foia";
 
     /***
      * HHS URL
      */
-    public static String hhsLink = "https://www.hhs.gov/";
+    public static final String HHS_LINK = "https://www.hhs.gov/";
 
     /***
      * HHS PAGE
      */
-    public static String HHS = "U.S. Department of Health and";
+    public static final String HHS = "U.S. Department of Health and";
 
     /***
      * NIH URL
      */
-    public static String nihLink = "https://www.nih.gov/";
+    public static final String NIH_LINK = "https://www.nih.gov/";
 
     /***
      * NIH
      */
-    public static String NIH = "National Institutes of Health";
+    public static final String NIH = "National Institutes of Health";
 
     /***
      * NCS URL
      */
-    public static String ncsLink = "https://www.cancer.gov/";
-
-    /***
-     * NATIONAL CANCER INSTITUTE
-     */
-    public static String NCS = "National Cancer Institute";
+    public static final String NCS_LINK = "https://www.cancer.gov/";
 
     /***
      * USA GOV URL
      */
-    public static String usagovlink = "https://www.usa.gov/";
+    public static final String USA_GOV_LINK = "https://www.usa.gov/";
 }
