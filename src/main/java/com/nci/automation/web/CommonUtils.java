@@ -789,12 +789,4 @@ public class CommonUtils extends WebDriverUtils {
         LocalDate oneMonthFromNow = LocalDate.now().plusMonths(1);
         return oneMonthFromNow.format(formatter);
     }
-
-
-    public static void assertNewPage(String Name, String NewPage){
-        Page newPage1 = PlaywrightUtils.context.waitForPage(() -> {
-            PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(Name)).click();});
-        MiscUtils.sleep(2000);
-        assertThat(newPage1).hasURL(NewPage);newPage1.close();
-    }
 }
