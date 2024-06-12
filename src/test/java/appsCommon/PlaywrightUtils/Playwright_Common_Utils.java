@@ -20,12 +20,12 @@ public class Playwright_Common_Utils {
     }
 
     /**
-     * asserting the new page link and footer.
+     * asserting and click on the new page link and footer.
      *
      * @param name
      * @param NewPage
      */
-    public static void assertNewPage(String Name, String NewPage){
+    public static void clickAndAssertNewPage(String Name, String NewPage){
         Page newPage1 = PlaywrightUtils.context.waitForPage(() -> {
             PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(Name)).click();});
         MiscUtils.sleep(2000);

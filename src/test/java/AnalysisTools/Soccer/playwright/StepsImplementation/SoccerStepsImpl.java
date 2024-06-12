@@ -126,7 +126,7 @@ public class SoccerStepsImpl extends PageInitializer {
      * UPLOAD A FILE
      */
     public static void uploadFile(){
-        PlaywrightUtils.page.getByLabel("Input File").setInputFiles(Paths.get(Soccer_Constants.uploadFilePath));
+        PlaywrightUtils.page.getByLabel("Input File").setInputFiles(Paths.get(Soccer_Constants.UPLOAD_FILE_PATH));
         MiscUtils.sleep(2000);
     }
 
@@ -179,7 +179,7 @@ public class SoccerStepsImpl extends PageInitializer {
             MiscUtils.sleep(2000);
             PlaywrightUtils.page.locator(SoccerPage.USAGov).click();});
         MiscUtils.sleep(2000);
-        assertThat(newPage1).hasURL(Soccer_Constants.usagovlink);newPage1.close();
+        assertThat(newPage1).hasURL(Soccer_Constants.USA_GOV_LINK);newPage1.close();
         }
     }
 
