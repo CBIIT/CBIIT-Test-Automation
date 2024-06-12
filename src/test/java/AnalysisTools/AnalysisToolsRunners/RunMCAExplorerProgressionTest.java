@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
 		, "pretty"}
 		, features = {"src/test/java/AnalysisTools/MCAExplorer/Features"}
 		, glue = "AnalysisTools.MCAExplorer.Steps"
-		, tags = "Progression"
+		, tags = "@Progression"
 		, dryRun = false
 )
 public class RunMCAExplorerProgressionTest extends AbstractTestNGCucumberTests{
