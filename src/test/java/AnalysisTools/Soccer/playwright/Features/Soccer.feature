@@ -42,7 +42,7 @@ Feature:These are the scenarios for the Soccer application
   Scenario: Verify user is able to navigate to FAQ page
     Given User navigates to soccer home page
     Then User click on FAQ button
-    Then verify that user is able to navigate to FAQ Page
+    Then verify that user is on the FAQ Page
 
   @satya @Regression @Smoke @NCIATWP-1476 @playwright
   Scenario: Verify user is able to get the Soccer Score with default Soccer Model
