@@ -1,6 +1,6 @@
 Feature:These are the scenarios for the Soccer application
 
-  @satya @Smoke @Regression @NCIATWP-1467  @playwright
+  @satya @Smoke @Regression @NCIATWP-1467 @playwright
   Scenario: Verify user is able to open home page and go to soccer page
     Given User navigates to soccer home page
     Then User click on run soccer button
