@@ -102,11 +102,7 @@ public class CometsAnalyticsStepImp extends PageInitializer {
 	 * @param successMessage
 	 */
 	public void viewSucessMessage(String successMessage) {
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        MiscUtils.sleep(5000);
         CommonUtils.waitForVisibility(cometsAnalyticsPage.SuccessMessage);
 		Assert.assertEquals(cometsAnalyticsPage.SuccessMessage.getText(), successMessage);
 	}

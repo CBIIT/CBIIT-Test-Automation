@@ -44,7 +44,7 @@ Feature:These are the scenarios for the Soccer application
     Then User click on FAQ button
     Then verify that user is able to navigate to FAQ Page
 
-  @satya @Regression @Smoke @NCIATWP-1476  @playwright
+  @satya @Regression @Smoke @NCIATWP-1476 @playwright
   Scenario: Verify user is able to get the Soccer Score with default Soccer Model
     Given User navigates to soccer home page
     Then User click on Soccer button

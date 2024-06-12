@@ -1,5 +1,6 @@
 package Hooks;
 
+import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import com.nci.automation.web.WebDriverUtils;
@@ -17,7 +18,8 @@ public class Hooks {
     @Before("@selenium")
     public void startSelenium(Scenario scenario){
         CucumberLogUtils.scenario = scenario;
-        WebDriverUtils.setUp(); // setUp for Selenium
+        WebDriverUtils.setUp();// setUp for Selenium
+        PageInitializer.initializeAllPages();
         softAssert = new SoftAssert();
         assertionError = null;  // reset the assertion error at the start of each test
     }
