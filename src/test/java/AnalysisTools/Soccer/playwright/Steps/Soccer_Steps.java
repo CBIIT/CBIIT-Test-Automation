@@ -1,7 +1,5 @@
 package AnalysisTools.Soccer.playwright.Steps;
 
-import AnalysisTools.NIFESubmit.playwright.Pages.NIFESubmitPage;
-import AnalysisTools.NIFESubmit.playwright.Utils.NIFESubmit_Constants;
 import AnalysisTools.Soccer.playwright.Pages.SoccerPage;
 import AnalysisTools.Soccer.playwright.StepsImplementation.SoccerStepsImpl;
 import AnalysisTools.Soccer.playwright.Utils.Soccer_Constants;
