@@ -240,7 +240,7 @@ public class SoccerPage {
     /***
      * NATIONAL CANCER INSTITUTE
      */
-    public static String NCS = "National Cancer Institute";
+    public static String NCI = "National Cancer Institute";
 
     /***
      * USA GOV ELEMENT

@@ -77,5 +77,5 @@ Feature:These are the scenarios for the Soccer application
     Given User navigates to soccer home page
     Then User clicks on hhs link and verify it
     Then User clicks on NIH link and verify it
-    Then User clicks on NCS link and verify it
+    Then User clicks on NCI link and verify it
     Then User clicks on USA gov link and verify it

@@ -162,8 +162,8 @@ public class Soccer_Steps extends PageInitializer {
     public void user_clicks_on_nih_link_and_verify_it() {Playwright_Common_Utils.clickAndAssertNewPage(SoccerPage.NIH, Soccer_Constants.NIH_LINK);
     }
 
-    @Then("User clicks on NCS link and verify it")
-    public void user_clicks_on_ncs_link_and_verify_it() {Playwright_Common_Utils.clickAndAssertNewPage(SoccerPage.NCS, Soccer_Constants.NCS_LINK);
+    @Then("User clicks on NCI link and verify it")
+    public void user_clicks_on_nci_link_and_verify_it() {Playwright_Common_Utils.clickAndAssertNewPage(SoccerPage.NCI, Soccer_Constants.NCI_LINK);
     }
 
     @Then("User clicks on USA gov link and verify it")

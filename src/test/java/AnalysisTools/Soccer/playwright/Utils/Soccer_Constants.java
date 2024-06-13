@@ -50,9 +50,9 @@ public class Soccer_Constants {
     public static final String NIH = "National Institutes of Health";
 
     /***
-     * NCS URL
+     * NCI URL
      */
-    public static final String NCS_LINK = "https://www.cancer.gov/";
+    public static final String NCI_LINK = "https://www.cancer.gov/";
 
     /***
      * USA GOV URL
