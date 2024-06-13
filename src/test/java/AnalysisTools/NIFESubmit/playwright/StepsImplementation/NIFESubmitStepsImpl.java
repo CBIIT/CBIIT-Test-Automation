@@ -68,9 +68,9 @@ public class NIFESubmitStepsImpl extends PageInitializer {
     }
 
     /**
-     * VERIFY NCS LINK
+     * VERIFY NCI LINK
      */
-    public static void verifyNCSLink() {
+    public static void verifyNCILink() {
         Page newPage1 = PlaywrightUtils.context.waitForPage(() -> {
             PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(NIFESubmitPage.NCI).setExact(true)).click();});
         MiscUtils.sleep(2000);

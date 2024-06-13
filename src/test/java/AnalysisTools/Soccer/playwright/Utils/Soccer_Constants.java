@@ -30,7 +30,7 @@ public class Soccer_Constants {
     public static final String FOIA_LINK = "https://www.cancer.gov/policies/foia";
 
     /***
-            * HHS URL
+     * HHS URL
      */
     public static final String HHS_LINK = "https://www.hhs.gov/";
 

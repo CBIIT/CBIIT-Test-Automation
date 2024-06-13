@@ -88,7 +88,7 @@ public class NIFESubmit_Steps extends PageInitializer {
 
     @Then("User clicks on NCS link and verify it in NIFE")
     public void user_clicks_on_ncs_link_and_verify_it_in_NIFE() {
-        NIFESubmitStepsImpl.verifyNCSLink();
+        NIFESubmitStepsImpl.verifyNCILink();
     }
 
     @Then("User clicks on USA gov link and verify it in NIFE")
