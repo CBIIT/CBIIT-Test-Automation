@@ -101,7 +101,7 @@ public class MCAExplorerPage extends CommonUtils {
 	public WebElement zoomButton;
 
 	/** BREADCRUM */
-	@FindBy(xpath = "//button[text()='All chromosomes ←']")
+	@FindBy(xpath = "//button[text()='All chromosomes']")
 	public WebElement breadcrum;
 
 	/** CHART HEADER */
