@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
 		features = "src/test/java/ServiceNow/CHARMS/playwright/Features",
 		glue = "ServiceNow.CHARMS.playwright.Steps",
 		tags = "@Regression",
-		dryRun = false
+		dryRun = true
 )
 public class Run_CHARMS_FanconiSurvey_Regression_Test extends AbstractTestNGCucumberTests{
 }
