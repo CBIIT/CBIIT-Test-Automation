@@ -37,20 +37,20 @@ jobs:
           fi
           sed -i "s/ENV_VAR/test/g" src/main/resources/conf/cloudEnv.properties
       - name: Run specific runner class
-        run: mvn -B -q -Dtest=Run_SEER_Smoke_Test -DisCloud=true test
+        run: mvn -B -q -Dtest=Run_OBF_Smoke_Test -DisCloud=true test
         continue-on-error: true
       - name: Generate timestamp
         id: timestamp
         run: echo "::set-output name=timestamp::$(TZ='America/New_York' date +'%Y-%m-%d_%I-%M-%S_%p')"
       - name: Determine report path
         id: reportpath
-        run: echo "::set-output name=path::seer-smoke-reports"
+        run: echo "::set-output name=path::obf-smoke-reports"
       - name: Upload Cucumber Report
         uses: actions/upload-artifact@v2
         if: always()
         with:
           name: cucumber-report-${{ github.run_number }}
-          path: target/seer-smoke-reports/*
+          path: target/obf-smoke-reports/*
       - name: Push HTML Report
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -62,18 +62,18 @@ jobs:
           git checkout gh-pages
           git stash pop
           mkdir -p ${{ steps.reportpath.outputs.path }}
-          mv target/seer-smoke-reports/*.html ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html
+          mv target/obf-smoke-reports/*.html ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html
           git add .
           git commit -m "Publishing cucumber report ${{ github.run_number }}"
           git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
       - name: Initialize Test Results File
-        run: echo '<h1>SEER Smoke Test Results</h1>' > seer-smoke-test-results.html
+        run: echo '<h1>OBF Smoke Test Results</h1>' > obf-smoke-test-results.html
       - name: Update Test Results and Append to Index File
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          sed -i '1s/.*/<h1>SEER Smoke Test Results<\/h1>/' seer-smoke-test-results.html
-          echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> seer-smoke-test-results.html
-          git add seer-smoke-test-results.html
-          git commit -m "Update seer-smoke-test-results.html"
+          sed -i '1s/.*/<h1>OBF Smoke Test Results<\/h1>/' obf-smoke-test-results.html
+          echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> obf-smoke-test-results.html
+          git add obf-smoke-test-results.html
+          git commit -m "Update obf-smoke-test-results.html"
           git push https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages

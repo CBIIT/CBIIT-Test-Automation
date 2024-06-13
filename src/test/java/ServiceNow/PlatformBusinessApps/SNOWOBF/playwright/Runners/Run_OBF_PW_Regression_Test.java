@@ -1,4 +1,4 @@
-package ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.Playwright_Runners;
+package ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.Runners;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
@@ -8,8 +8,8 @@ import io.cucumber.testng.CucumberOptions;
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
         , features = "src/test/java/ServiceNow/PlatformBusinessApps/SNOWOBF/playwright/Features"
         , glue = "ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.Steps"
-        , tags = "@Progression"
+        , tags = "@Regression"
         , dryRun = false
 )
-public class Run_OBF_PW_Progression_Test extends AbstractTestNGCucumberTests {
+public class Run_OBF_PW_Regression_Test extends AbstractTestNGCucumberTests {
 }
