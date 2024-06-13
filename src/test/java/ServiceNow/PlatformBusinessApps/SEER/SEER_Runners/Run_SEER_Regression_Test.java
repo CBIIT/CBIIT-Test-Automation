@@ -18,6 +18,5 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
  * 
  * @author juarezds
  */
-
 public class Run_SEER_Regression_Test extends AbstractTestNGCucumberTests {
 }

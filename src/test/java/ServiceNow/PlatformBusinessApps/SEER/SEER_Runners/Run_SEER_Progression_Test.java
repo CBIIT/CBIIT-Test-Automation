@@ -19,5 +19,4 @@ import io.cucumber.testng.CucumberOptions;
  * @author juarezds
  */
 public class Run_SEER_Progression_Test extends AbstractTestNGCucumberTests {
-
 }
