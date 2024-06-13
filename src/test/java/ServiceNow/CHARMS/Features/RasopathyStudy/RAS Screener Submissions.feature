@@ -1,7 +1,7 @@
 Feature: RAS Screener Scenarios
   Description: This feature file contains scenarios which submit myRAS Screeners and the Consent flow
 
-  @bucurgb @myRasStudy @ScreenersSubmissionAndConsentOnly@Regression
+  @bucurgb @myRasStudy @ScreenersSubmissionAndConsentOnly@Regression @Smoke
   Scenario Outline: This scenario outline is completing the RAS Screener and the Consent flow only
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "<Email>" and password "<Password>"

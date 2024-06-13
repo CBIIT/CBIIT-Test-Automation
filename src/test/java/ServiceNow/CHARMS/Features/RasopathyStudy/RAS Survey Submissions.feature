@@ -1,7 +1,7 @@
 Feature: RAS Survey Scenarios
   This feature file contains RAS Survey scenarios submission
 
-  @bucurgb @myRasStudy @RasSurvey
+  @bucurgb @myRasStudy @RasSurvey @Smoke
   Scenario Outline: This scenario outline is completing the RAS Surveys only
     Given a participant is on the RASopathies Longitudinal Cohort Study login page "myRASLoginPage"
     And logs in via Okta with username "<Email>" and password "<Password>"
