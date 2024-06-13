@@ -1,4 +1,4 @@
-package ServiceNow.ServiceNowRunners.CHARMSRunners.RASStudy;
+package ServiceNow.CHARMS.Runners;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;

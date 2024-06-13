@@ -1,20 +1,15 @@
-package ServiceNow.ServiceNowRunners;
+package ServiceNow.CHARMS.Runners;
 
+import io.cucumber.junit.CucumberOptions;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
-import io.cucumber.testng.CucumberOptions;
-
 @CucumberOptions(plugin = {"html:target/html-reports/cucumber-default-report", "json:target/cucumber.json",
 		"junit:target/cucumber.xml", "rerun:target/failed.txt",
 		"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
-		features = {"src/test/java/ServiceNow/CHARMS/Features/RASAccountReset", "src/test/java/ServiceNow/CHARMS/Features/RasopathyStudy"},
+		features = "src/test/java/ServiceNow/CHARMS/Features",
 		glue = "ServiceNow.CHARMS.Steps",
-		tags = "@Regression",
+		tags = "@TestAccountReset",
 		dryRun = false
 )
-
-/**
- * 
- * @author sohilz2
- */
-public class RunCHARMSRasRegressionTest extends AbstractTestNGCucumberTests{
+/* @author sohilz2 */
+public class RunCHARMSTestAccountResetTest extends AbstractTestNGCucumberTests{
 }

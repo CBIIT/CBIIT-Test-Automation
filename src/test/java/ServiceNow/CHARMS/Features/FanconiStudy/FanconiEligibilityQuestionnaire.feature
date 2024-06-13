@@ -7,7 +7,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
   Scenario: Participant fills the Fanconi screener for all different scenarios
     Given All scenarios are submitted
 
-  @jains @FanconiSubmission @Regression @Smoke
+  @jains @FanconiSubmission @Regression @Smoke @selenium
   Scenario: Participant fills the Fanconi screener by the Proband for scenario 1
     Given a Participant is on the Fanconi Study login page
     And logs in Fanconi page via Okta with username "charmsras1@yahoo.com" and password "RASTest2022$$"
@@ -15,7 +15,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
     Then fills the Fanconi Eligibility Questionnaire form for scenario1
     Then clicks the submit button
 
-  @jains @FanconiSubmission @Regression @Smoke
+  @jains @FanconiSubmission @Regression @Smoke @selenium
   Scenario: Participant fills the Fanconi screener by the Proband for scenario 2
     Given a Participant is on the Fanconi Study login page
     And logs in Fanconi page via Okta with username "charmsras1@yahoo.com" and password "RASTest2022$$"
@@ -23,7 +23,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
     Then fills the Fanconi Eligibility Questionnaire form for scenario2
     Then clicks the submit button
 
-  @jains @FanconiSubmission @Regression @Smoke
+  @jains @FanconiSubmission @Regression @Smoke @selenium
   Scenario: Participant fills the Fanconi screener by the Proband for scenario 3
     Given a Participant is on the Fanconi Study login page
     And logs in Fanconi page via Okta with username "charmsras1@yahoo.com" and password "RASTest2022$$"
@@ -71,7 +71,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
     Then fills the Fanconi Eligibility Questionnaire form for scenario8
     Then clicks the submit button
 
-  @jains @FanconiSubmission @Regression @Smoke
+  @jains @FanconiSubmission @Regression @Smoke @selenium
   Scenario: Participant fills the Fanconi screener by the Proxy for scenario 9
     Given a Participant is on the Fanconi Study login page
     And logs in Fanconi page via Okta with username "charmsras1@yahoo.com" and password "RASTest2022$$"
@@ -92,7 +92,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
     Given the study nurse log in Native View
     Then data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page for all scenarios
 
-  @jains @FanconiAssertion @Regression @Smoke
+  @jains @FanconiAssertion @Regression @Smoke @selenium
   Scenario: Participant Details Page Assertions for one scenario at a time in ServiceNow
     Given the study nurse log in Native View
     Then data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page for each scenario
