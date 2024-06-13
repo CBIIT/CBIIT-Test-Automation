@@ -34,5 +34,5 @@ Feature:These are the scenarios for the NIFESubmit application
     Given User navigates to the NIFE Website
     Then User clicks on hhs link and verify it in NIFE
     Then User clicks on NIH link and verify it in NIFE
-    Then User clicks on NCS link and verify it in NIFE
+    Then User clicks on NCI link and verify it in NIFE
     Then User clicks on USA gov link and verify it in NIFE

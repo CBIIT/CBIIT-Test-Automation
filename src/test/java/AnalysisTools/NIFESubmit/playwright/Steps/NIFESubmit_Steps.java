@@ -86,8 +86,8 @@ public class NIFESubmit_Steps extends PageInitializer {
         Playwright_Common_Utils.clickAndAssertNewPage(NIFESubmitPage.NIH, NIFESubmit_Constants.NIH_LINK);
     }
 
-    @Then("User clicks on NCS link and verify it in NIFE")
-    public void user_clicks_on_ncs_link_and_verify_it_in_NIFE() {
+    @Then("User clicks on NCI link and verify it in NIFE")
+    public void user_clicks_on_nci_link_and_verify_it_in_NIFE() {
         NIFESubmitStepsImpl.verifyNCILink();
     }
 
