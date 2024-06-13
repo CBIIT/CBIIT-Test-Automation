@@ -1,0 +1,37 @@
+Feature:These are the scenarios for the NIFESubmit application
+
+  @satya @Smoke @Regression  @playwright @Progression
+    Scenario: Verify Home tab is available in the NIFE Website
+    Given User navigates to the NIFE Website
+    Then User clicks on the HOME tab
+    Then Verify User is on the Home Tab
+    Then User clicks on the Submit Metadata and View Images
+
+
+  @satya @Smoke @Regression  @playwright @Progression
+  Scenario: Verify SUBMIT METADATA tab is available in the NIFE Website
+    Given User navigates to the NIFE Website
+    Then User clicks on the SUBMIT METADATA tab
+    Then Verify User is on the SUBMIT METADATA Tab
+    Then User imports the excel file
+
+
+  @satya @Regression @Smoke @NCIATWP-2158 @playwright
+  Scenario: Verify user is able to click and validate urls of footer links
+    Given User navigates to the NIFE Website
+    Then User clicks on policies link and verify it in NIFE
+    Then User clicks on the VDPolicy link and verify it in NIFE
+    Then User clicks on the Accessibility link and verify it in NIFE
+    Then User clicks on the viewing file link and verify it in NIFE
+    Then User clicks on the FIOS link and verify it in NIFE
+
+
+  @satya @Regression @Smoke  @NCIATWP-2158 @playwright
+  Scenario: Verify user is able to click and validate urls of footer links
+    Given User navigates to the NIFE Website
+    Then User clicks on hhs link and verify it in NIFE
+    Then User clicks on NIH link and verify it in NIFE
+    Then User clicks on NCS link and verify it in NIFE
+    Then User clicks on USA gov link and verify it in NIFE
+
+
