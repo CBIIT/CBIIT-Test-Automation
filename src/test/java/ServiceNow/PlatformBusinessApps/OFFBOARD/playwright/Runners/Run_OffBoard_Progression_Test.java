@@ -1,4 +1,4 @@
-package ServiceNow.PlatformBusinessApps.OFFBOARD.playwright.Playwright_Runners;
+package ServiceNow.PlatformBusinessApps.OFFBOARD.playwright.Runners;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
@@ -11,5 +11,5 @@ import io.cucumber.testng.CucumberOptions;
         , tags = "@Progression"
         , dryRun = false
 )
-public class Run_OffBoard_PW_Progression_Test extends AbstractTestNGCucumberTests {
+public class Run_OffBoard_Progression_Test extends AbstractTestNGCucumberTests {
 }

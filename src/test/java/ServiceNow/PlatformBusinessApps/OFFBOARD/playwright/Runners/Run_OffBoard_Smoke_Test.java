@@ -7,9 +7,9 @@ import io.cucumber.testng.CucumberOptions;
         "rerun:target/failed.txt",
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
         , features = "src/test/java/ServiceNow/PlatformBusinessApps/OFFBOARD/playwright/Features"
-        , glue = "ServiceNow.PlatformBusinessApps.OFFBOARD.playwright.Steps"
-        , tags = "@Progression"
+        , glue = {"ServiceNow.PlatformBusinessApps.OFFBOARD.playwright.Steps", "Hooks"}
+        , tags = "@Smoke"
         , dryRun = false
 )
-public class Run_OffBoard_Progression_Test extends AbstractTestNGCucumberTests {
+public class Run_OffBoard_Smoke_Test extends AbstractTestNGCucumberTests {
 }
