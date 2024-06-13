@@ -18,6 +18,7 @@ public class ThreeDVizSNPStepImp extends PageInitializer {
 		CommonUtils.assertTrueTestNG(threeDVizSNPPage.allUploadFields.size() == 1,"asserts that there is only one upload field");
 		CommonUtils.assertEqualsWithMessage(threeDVizSNPPage.actualVcfText.getText(),ThreeDVizSNP_Constants.EXPECTED_VCF_TEXT,"asserted the vcf actual text");
 	}
+
 	/**
 	 * UPLOAD EXAMPLE VCF FILE
 	 */
@@ -130,6 +131,7 @@ public class ThreeDVizSNPStepImp extends PageInitializer {
 	 * DOWNLOAD FILES FOR SVG PNG AND JSON
 	 */
 	public static void DownloadFilesForSvgPngAndJson() {
+		CommonUtils.switchToFrame(0);
 		threeDVizSNPPage.svgButton.click();
 		threeDVizSNPPage.pngButton.click();
 		threeDVizSNPPage.jsonButton.click();
@@ -139,6 +141,7 @@ public class ThreeDVizSNPStepImp extends PageInitializer {
 	 * MINI WINDOW INTERACTION
 	 */
 	public static void miniWindowInteraction() {
+		CommonUtils.switchToFrame(0);
 		threeDVizSNPPage.svgButton.click();
 		threeDVizSNPPage.summaryButton.click();
 	}
