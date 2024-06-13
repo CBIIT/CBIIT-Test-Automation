@@ -18,7 +18,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
   @jains @FanconiSubmission @Regression @Smoke @selenium
   Scenario: Participant fills the Fanconi screener by the Proband for scenario 2
     Given a Participant is on the Fanconi Study login page
-    And logs in Fanconi page via Okta with username "charmsras1@yahoo.com" and password "RASTest2022$$"
+    And logs in Fanconi page via Okta with username "charmsras2@yahoo.com" and password "RASTest2023$$"
     And clicks the Fanconi Eligibility Questionnaire widget
     Then fills the Fanconi Eligibility Questionnaire form for scenario2
     Then clicks the submit button
@@ -26,7 +26,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
   @jains @FanconiSubmission @Regression @Smoke @selenium
   Scenario: Participant fills the Fanconi screener by the Proband for scenario 3
     Given a Participant is on the Fanconi Study login page
-    And logs in Fanconi page via Okta with username "charmsras1@yahoo.com" and password "RASTest2022$$"
+    And logs in Fanconi page via Okta with username "charmsras3@yahoo.com" and password "RASTest2023$$"
     And clicks the Fanconi Eligibility Questionnaire widget
     Then fills the Fanconi Eligibility Questionnaire form for scenario3
     Then clicks the submit button
@@ -74,7 +74,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
   @jains @FanconiSubmission @Regression @Smoke @selenium
   Scenario: Participant fills the Fanconi screener by the Proxy for scenario 9
     Given a Participant is on the Fanconi Study login page
-    And logs in Fanconi page via Okta with username "charmsras1@yahoo.com" and password "RASTest2022$$"
+    And logs in Fanconi page via Okta with username "charmsras5@yahoo.com" and password "RASTest2023$$"
     And clicks the Fanconi Eligibility Questionnaire widget
     Then fills the Fanconi Eligibility Questionnaire form for scenario9
     Then clicks the submit button
