@@ -1,4 +1,4 @@
-package ServiceNow.PlatformBusinessApps.CCT_CHAT_BOT.Playwright.Playwright_Runners;
+package ServiceNow.PlatformBusinessApps.CCT_CHAT_BOT.Playwright.Runners;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
