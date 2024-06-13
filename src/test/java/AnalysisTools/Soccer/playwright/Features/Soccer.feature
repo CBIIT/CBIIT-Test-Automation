@@ -79,8 +79,3 @@ Feature:These are the scenarios for the Soccer application
     Then User clicks on NIH link and verify it
     Then User clicks on NCS link and verify it
     Then User clicks on USA gov link and verify it
-
-
-
-
-
