@@ -147,7 +147,7 @@ public class Soccer_Steps extends PageInitializer {
     }
 
     @Then("User clicks on the viewing file link and verify it")
-    public void user_clicks_on_the_viewing_file_link_and_verify_it() {Playwright_Common_Utils.clickAndAssertNewPage(SoccerPage.viewingFileAccessibility, Soccer_Constants.FILEACCESSIBILITY_LINK);
+    public void user_clicks_on_the_viewing_file_link_and_verify_it() {Playwright_Common_Utils.clickAndAssertNewPage(SoccerPage.viewingFileAccessibility, Soccer_Constants.FILE_ACCESSIBILITY_LINK);
     }
 
     @Then("User clicks on the FIOS link and verify it")

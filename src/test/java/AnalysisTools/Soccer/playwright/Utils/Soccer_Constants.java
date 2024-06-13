@@ -22,7 +22,7 @@ public class Soccer_Constants {
     /***
      * FILE ACCESSIBILITY LINK
      */
-    public static final String FILEACCESSIBILITY_LINK = "https://www.cancer.gov/policies/accessibility";
+    public static final String FILE_ACCESSIBILITY_LINK = "https://www.cancer.gov/policies/accessibility";
 
     /***
      * FOIA URL
@@ -30,7 +30,7 @@ public class Soccer_Constants {
     public static final String FOIA_LINK = "https://www.cancer.gov/policies/foia";
 
     /***
-     * HHS URL
+            * HHS URL
      */
     public static final String HHS_LINK = "https://www.hhs.gov/";
 
