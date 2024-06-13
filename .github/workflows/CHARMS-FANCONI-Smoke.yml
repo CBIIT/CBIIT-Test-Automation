@@ -1,4 +1,4 @@
-name: PLATFORM BUSINESS - CHARMS FANCONI STUDY SMOKE TESTS
+name: CHARMS - FANCONI STUDY SMOKE TESTS
 
 on:
   schedule:
@@ -66,13 +66,13 @@ jobs:
           git add .
           git commit -m "Publishing cucumber report ${{ github.run_number }}"
           git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
-      - name: Initialize Test Results File
-        run: echo '<h1>CHARMS - FANCONI Study Smoke Test Results</h1>' > fanconi-smoke-test-results.html
       - name: Update Test Results and Append to Index File
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          sed -i '1s/.*/<h1>CHARMS FANCONI Study Smoke Test Results<\/h1>/' fanconi-smoke-test-results.html
+          if [ ! -f fanconi-smoke-test-results.html ]; then
+              echo '<h1>CHARMS - FANCONI Study Smoke Test Results</h1>' > fanconi-smoke-test-results.html
+          fi
           echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> fanconi-smoke-test-results.html
           git add fanconi-smoke-test-results.html
           git commit -m "Update fanconi-smoke-test-results.html"
