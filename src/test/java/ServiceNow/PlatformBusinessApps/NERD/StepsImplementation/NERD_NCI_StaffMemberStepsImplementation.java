@@ -1,9 +1,6 @@
 package ServiceNow.PlatformBusinessApps.NERD.StepsImplementation;
 
-import ServiceNow.PlatformBusinessApps.NERD.Constants.NCI_Staff_Members_Constants;
-import ServiceNow.PlatformBusinessApps.NERD.Constants.Other_Accomplishments_Submissions_Constants;
-import ServiceNow.PlatformBusinessApps.NERD.Constants.ReturningSubmissions_Constants;
-import ServiceNow.PlatformBusinessApps.NERD.Constants.TopAccomplishmentsSubmission_Constants;
+import ServiceNow.PlatformBusinessApps.NERD.Constants.*;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Utils.ServiceNow_Common_Methods;
 import appsCommon.Utils.ServiceNow_Login_Methods;
@@ -466,7 +463,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
     }
 
     /**
-     * Verifies that the NCI staff member does not see the button for Collaborations submission returned record by Doc Planning Contact.
+     * Verifies that the NCI staff member does not see the Delete button for Collaborations submission returned record by Doc Planning Contact.
      *
      * @param delete The delete button value.
      */
@@ -493,6 +490,10 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         MiscUtils.sleep(10000);
     }
 
+    /**
+     * This method represents the process of an NCI staff member submitting a new COVID-19 Activities submission.
+     * NCI Staff Member submits COVID-19 Activities submission to DOC planning Contact
+     */
     public static void nci_staff_member_submits_new_covid19_activities_submission() {
         CommonUtils.waitForVisibility(covid19ActivitiesSubmissionsPage.covid19ActivitiesSubmissionAccordionLink);
         CommonUtils.clickOnElement(covid19ActivitiesSubmissionsPage.covid19ActivitiesSubmissionAccordionLink);
@@ -503,9 +504,133 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         NERDApplicationStepsImplementation.creatingNewSubmission(nerdCrsKnowledgeDatabaseSubmissionsPage.covid19CreateNewSubmissionButton);
         CommonUtils.waitForVisibility(nerdDynamicXpaths.viewSubmissionsHeaders(ReturningSubmissions_Constants.SUBMISSION_VIEW_RECORD_CATEGORY_HEADER));
         JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.viewSubmissionsHeaders(ReturningSubmissions_Constants.SUBMISSION_VIEW_RECORD_CATEGORY_HEADER));
-        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.submissionsCategory(Other_Accomplishments_Submissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSIONS_PAGE_CATEGORY_VALUE));
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.submissionsCategory(Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_CATEGORY_VALUE));
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
-        nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsSelectCheckBoxFiscalYear2019.click();
+        String actualCategoryValue = nerdDynamicXpaths.submissionsCategory(Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_CATEGORY_VALUE).getText();
+        CommonUtils.assertEqualsWithMessage(actualCategoryValue, Covid19ActivitiesSubmissions_Constants.COVID_19_SUBMISSION_VIEW_RECORD_CATEGORY_VALUE,
+                "Verify that when the user is on COVID-19 Activities Submission then Category is 'COVID-19 Activities'");
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsPageTitleTextBox);
+        CommonUtils.sendKeys(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsPageTitleTextBox, Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX);
+        CommonUtils.waitForVisibility(createNewSubmissionPage.leadDOCDropDown);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.leadDOCDropDown, Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_DOC_DROP_DOWN);
+        CucumberLogUtils.logScreenshot();
+        MiscUtils.sleep(2000);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.nCIActivitiesDropDown, Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_NCI_ACTIVITIES_DROP_DOWN);
+        JavascriptUtils.clickByJS(covid19ActivitiesSubmissionsPage.nihCovid19SpecialTopicCovid19CheckBox);
+        JavascriptUtils.clickByJS(covid19ActivitiesSubmissionsPage.nihCovid19SpecialTopicBigDataDataSharingCheckBox);
+        CommonUtils.waitForVisibility(covid19ActivitiesSubmissionsPage.nihCovid19StrategicPlanPriority1CheckBox);
+        JavascriptUtils.clickByJS(covid19ActivitiesSubmissionsPage.nihCovid19StrategicPlanPriority1CheckBox);
+        CucumberLogUtils.logScreenshot();
+        MiscUtils.sleep(2000);
+        JavascriptUtils.scrollIntoView(nerdCrsKnowledgeDatabaseSubmissionsPage.newSubmissionsPageSubmitButton);
+        MiscUtils.sleep(2000);
+        CommonUtils.clickOnElement(nerdCrsKnowledgeDatabaseSubmissionsPage.newSubmissionsPageSubmitButton);
+        CucumberLogUtils.logScreenshot();
+        MiscUtils.sleep(2000);
+        CommonUtils.clickOnElement(nerdCRSTopAccomplishmentsPage.nerdNewSubmissionsSubmitToDocPlanningPopUpYesButton);
+        CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
+        CommonUtils.clickOnElement(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
+        covid19ActivitiesSubmissionsPage.covid19ActivitiesSubmissionAccordionLink.click();
+        MiscUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.waitForVisibility(nerdDynamicXpaths.underReviewText(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX));
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX));
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
+        ServiceNow_Common_Methods.logOutOfNativeView();
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method documents the process of planning contact returning the COVID-19 activities submission back to an NCI staff member.
+     *
+     * @param submissionName The name of the submission to be returned.
+     */
+    public static void doc_planning_contact_returning_the_covid19_activities_submission_back_to_nci_staff_member(String submissionName) {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
+        MiscUtils.sleep(2000);
+        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+        WebDriverUtils.webDriver.navigate().refresh();
+        CommonUtils.waitForVisibility(covid19ActivitiesSubmissionsPage.covid19ActivitiesSubmissionAccordionLink);
+        covid19ActivitiesSubmissionsPage.covid19ActivitiesSubmissionAccordionLink.click();
+        MiscUtils.sleep(2000);
+        CommonUtils.waitForVisibility(nerdDynamicXpaths.returnButtonToStaff(submissionName));
+        JavascriptUtils.scrollIntoView(nerdDynamicXpaths.returnButtonToStaff(submissionName));
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnButtonToStaff(submissionName));
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(nerdDynamicXpaths.returnButtonToStaff(submissionName));
+        MiscUtils.sleep(2000);
+        CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField);
+        nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField.sendKeys(NCI_Staff_Members_Constants.DOC_PLANNING_RETURN_TO_NCI_STAFF_MESSAGE);
+        MiscUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
+        nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowYesButton.click();
+        nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
+        MiscUtils.sleep(2000);
+        CommonUtils.scrollIntoView(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
+        CommonUtils.assertTrue(nerdDynamicXpaths.returnedToStaffMemberText(submissionName).getText().contentEquals(ReturningSubmissions_Constants.RETURNED_TO_STUFF_MEMBER_TEXT));
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
+        MiscUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
+        ServiceNow_Common_Methods.logOutOfNativeView();
+    }
+
+    /**
+     * NCI staff member views the returned COVID-19 activities submission.
+     */
+    public static void nci_staff_member_views_the_returned_covid19_activities_submission() {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+        MiscUtils.sleep(1000);
+        CommonUtils.waitForVisibility(covid19ActivitiesSubmissionsPage.covid19ActivitiesSubmissionAccordionLink);
+        covid19ActivitiesSubmissionsPage.covid19ActivitiesSubmissionAccordionLink.click();
+        CommonUtils.scrollIntoView(nerdDynamicXpaths.nciStaffMemberSubmissionTitle(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX));
+        CommonUtils.waitForVisibility(nerdDynamicXpaths.nciStaffMemberSubmissionTitle(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX));
+        CommonUtils.assertTrue(nerdDynamicXpaths.nciStaffMemberSubmissionTitle(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX).getText()
+                .contentEquals(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX));
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.nciStaffMemberSubmissionTitle(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX));
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Verifies that the Delete button for COVID-19 activities submission returned record is not visible for NCI staff member
+     *
+     * @param delete The delete button value
+     */
+    public static void nci_staff_member_does_not_see_the_button_for_covid19_activities_submission_returned_record(String delete) {
+        String deleteButtonHidden = nerdDynamicXpaths.deleteCRSButton(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX).getAttribute(NCI_Staff_Members_Constants.buttons_ARIA_HIDDEN_ATTRIBUTE);
+        CommonUtils.assertEqualsWithMessage(deleteButtonHidden, NCI_Staff_Members_Constants.DELETE_BUTTON_HIDDEN, "Verifying that delete button is hidden for NCI Staff Member using attribute");
+        String submitButtonVisible = nerdDynamicXpaths.submitButton(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX).getAttribute(NCI_Staff_Members_Constants.buttons_ARIA_HIDDEN_ATTRIBUTE);
+        CommonUtils.assertEqualsWithMessage(submitButtonVisible, NCI_Staff_Members_Constants.BUTTON_VISIBLE, "Verifying that Submit button is Visible for NCI Staff Member using attribute");
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.submitButton(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX));
+        String editButtonVisible = nerdDynamicXpaths.eiditCRSButton(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX).getAttribute(NCI_Staff_Members_Constants.buttons_ARIA_HIDDEN_ATTRIBUTE);
+        CommonUtils.assertEqualsWithMessage(editButtonVisible, NCI_Staff_Members_Constants.BUTTON_VISIBLE, "Verifying that Edit button is Visible for NCI Staff Member using attribute");
+        nerdDynamicXpaths.submitToCRSButton(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX).isDisplayed();
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.submitToCRSButton(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX));
+        CommonUtils.assertEqualsWithMessage(ReturningSubmissions_Constants.SUBMIT_BUTTON_TEXT, nerdDynamicXpaths.submitToCRSButton(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX).getText(),
+                "Verifying that NCI Staff Member COVID-19 Activities Submission returned by Doc Planning contact has Submit Button");
+        nerdDynamicXpaths.eiditCRSButton(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX).isDisplayed();
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.eiditCRSButton(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX));
+        CommonUtils.assertEquals(ReturningSubmissions_Constants.EDIT_BUTTON_TEXT, nerdDynamicXpaths.eiditCRSButton(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX).getText());
+        CommonUtils.assertEqualsWithMessage(ReturningSubmissions_Constants.EDIT_BUTTON_TEXT,nerdDynamicXpaths.eiditCRSButton(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX).getText(),
+                "Verifying that NCI Staff Member COVID-19 Activities Submission returned by Doc Planning contact has Edit Button");
+        Assert.assertNotEquals(delete, nerdDynamicXpaths.deleteCRSButton(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX).getText(),
+                "Verifying that Delete button is removed from the NCI Staff Member COVID-19 Activities Submission returned by Doc Planning contact");
+        CucumberLogUtils.logScreenshot();
+        MiscUtils.sleep(10000);
+    }
+
+    /**
+     * This method is part of IN-Progress test case and will be addressed in next PR
+     * This method represents the process of an NCI staff member submitting a new Ad Hoc Data Call submission.
+     */
+    public static void nci_staff_member_submits_new_ad_hoc_data_call_submission() {
     }
 }
