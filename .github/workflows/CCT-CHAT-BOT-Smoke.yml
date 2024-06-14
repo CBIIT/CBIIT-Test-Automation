@@ -2,7 +2,8 @@ name: PLATFORM BUSINESS - CCT CHAT BOT SMOKE TESTS
 
 on:
   schedule:
-    - cron: '0 16 * * *'
+    # This corresponds to 12:00 PM EST (5:00 PM UTC)
+    - cron: '0 17 * * *'
   workflow_dispatch:
     inputs:
       testBrowser:
@@ -69,9 +70,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          if [ ! -f cct-smoke-test-results.html ]; then
-              echo '<h1>CCT CHAT BOT Smoke Test Results</h1>' > cct-smoke-test-results.html
-          fi
+          sed -i '1s/.*/<h1>CCT CHAT BOT Smoke Test Results<\/h1>/' cct-smoke-test-results.html
           echo "<h3><a href='${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html'>Test Report ${{ steps.reportpath.outputs.path }}/report-${{ steps.timestamp.outputs.timestamp }}.html</a></h3>" >> cct-smoke-test-results.html
           git add cct-smoke-test-results.html
           git commit -m "Update cct-smoke-test-results.html"
