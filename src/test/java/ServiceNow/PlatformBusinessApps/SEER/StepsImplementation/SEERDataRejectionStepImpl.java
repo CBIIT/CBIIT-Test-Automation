@@ -18,11 +18,17 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
 
     public static String newEmailThankYou320 = "seerThankYou320" + CommonUtils.email;
 
+    /**
+     * SEER ODS Admin navigates to the Native View
+     */
     public static void aSEERODSAdminNavigatesTheNativeViewPortal() {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * This method proceeds to register with Unique Email Address
+     */
     public static void proceedsToRegisterForResearchDataWithUniqueEmailAddress() {
         JavascriptUtils.scrollIntoView(seerLandingPage.researchDataRequestsEmailAddressField);
         CommonUtils.waitForVisibility(seerLandingPage.researchDataRequestsEmailAddressField);
@@ -32,6 +38,9 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
         MiscUtils.sleep(1000);
     }
 
+    /**
+     * This method fills out all required fields on SEER Data Registration Form
+     */
     public static void fillsOutAllRequiredFieldsOnSEERDataRegistrationForm() {
         SEERUserRegistrationPageStepImpl.validateEmailFieldReadOnly();
         MiscUtils.sleep(1000);
@@ -65,6 +74,9 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * Fills out all the required fields on the SEER Data Registration Form for a rejected registration.
+     */
     public static void fillsOutAllRequiredFieldsOnSEERDataRegistrationFormRejected() {
         SEERUserRegistrationPageStepImpl.validateEmailFieldReadOnly();
         MiscUtils.sleep(1000);
@@ -98,6 +110,9 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * This method verifies the pre-populated SEER data registration form for existing user
+    */
     public static void verifyPrePopulatedSEERDataRegistrationForm() {
         MiscUtils.sleep(1000);
         JavascriptUtils.scrollIntoView(seerUserRegistrationPage.seerUserRegistrationWhichOfTheseBestDescribeYouField);
@@ -137,6 +152,12 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * Navigates to the SEER ODS Access Request page in Native View.
+     *
+     * @param SEERText          the SEER text
+     * @param accessRequestsText the access requests text
+     */
     public static void aSEERODSAdminNavigatesTo(String SEERText, String accessRequestsText) {
         MiscUtils.sleep(2000);
         WebDriverUtils.webDriver.get(SEERDataRejection_Constants.SEER_ODS_NATIVE_VIEW_ACCESS_REQUEST_UNDER_SEER_URL);
@@ -145,6 +166,9 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
         MiscUtils.sleep(2000);
     }
 
+    /**
+     * Creates a new access request.
+     */
     public static void createsANewAccessRequest() {
         nativeViewAccessRequestPage.accessRequestNewButton.click();
         CommonUtils.assertTrue(nativeViewAccessRequestPage.accessRequestText.getText()
@@ -171,6 +195,11 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
         CommonUtils.switchToDefaultContent();
     }
 
+    /**
+     * Creates a new access request for the SEER Research Database.
+     *
+     * @param registerForResearchData the data to register for research
+     */
     public static void createsANewAccessRequestForSeerResearchDatabase(String registerForResearchData) {
         ServiceNow_Login_Methods.nativeViewSideDoorLogin();
         MiscUtils.sleep(2000);
@@ -196,6 +225,9 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
         CucumberLogUtils.logScreenshot();
     }
 
+    /**
+     * Performs the necessary actions when the admin rejects the access requests.
+     */
     public static void whenTheAdminRejectsTheAccessRequests() {
         ServiceNow_Common_Methods.filterNavigatorSearch("SEER");
         MiscUtils.sleep(2000);
@@ -227,6 +259,9 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
         CommonUtils.switchToDefaultContent();
     }
 
+    /**
+     * This method verifies the rejection email.
+     */
     public static void theUserShallReceiveARejectionEmail() {
         /** Waiting for email to be sent and searchable */
         MiscUtils.sleep(50000);
@@ -253,18 +288,22 @@ public class SEERDataRejectionStepImpl extends PageInitializer {
         CommonUtils.switchToFrame(nativeViewSentViewPage.nativeViewPreviewEmailIFRAME);
         MiscUtils.sleep(1000);
         JavascriptUtils.drawRedBorder(nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataHeader);
-        CommonUtils.assertTrue(nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataHeader.getText()
-                .contentEquals(SEERDataRejection_Constants.REJECTED_EMAIL_HEADER));
-        CommonUtils.assertTrue((nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedThankYouForSubmitting.getText() + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedRequestsRorSeerResearchPlusText.getText() + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedUseAnInstitutionAffiliatedText.getText() + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedListAnInstitutionInTheOrganizationFieldText.getText() + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedUseAnAppropriateSigningOfficialText.getText() + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedThisRequestHasBeenRejectedBasedOnText.getText())
+        CommonUtils.assertTrue(nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataHeader.getText().contentEquals(SEERDataRejection_Constants.REJECTED_EMAIL_HEADER));
+        CommonUtils.assertTrue((nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedThankYouForSubmitting.getText() + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedRequestsRorSeerResearchPlusText.getText()
+                + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedUseAnInstitutionAffiliatedText.getText() + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedListAnInstitutionInTheOrganizationFieldText.getText()
+                + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedUseAnAppropriateSigningOfficialText.getText() + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedThisRequestHasBeenRejectedBasedOnText.getText())
                 .contentEquals(SEERDataRejection_Constants.REJECTION_EMAIL_TEXT_THANK_YOU));
         CommonUtils.assertTrue((nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedEmailAddressesForTheSigningOfficialAndRequestorText.getText() + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedRequestsUsingOpenEmailText.getText())
                 .contentEquals(SEERDataRejection_Constants.EMAIL_ADDRESS_FOR_THE_SIGNING_OFFICIAL));
-        CommonUtils.assertTrue((nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedItIsUnclearTextOne.getText() + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedItIsUnclearTextTwo.getText() + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedItIsUnclearSeerDataFaqsLink.getText() + " " + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedItIsUnclearTextThree.getText())
+        CommonUtils.assertTrue((nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedItIsUnclearTextOne.getText() + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedItIsUnclearTextTwo.getText()
+                + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedItIsUnclearSeerDataFaqsLink.getText() + " " + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedItIsUnclearTextThree.getText())
                 .contentEquals(SEERDataRejection_Constants.IT_IS_UNCLEAR_EMAIL_TEXT));
-        CommonUtils.assertTrue((nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedTheOrganizationFieldWasLeftBlankText.getText() + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedTheInstitutionUniversityCompanyText.getText() + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedMustBeListedText.getText())
-                .contentEquals(SEERDataRejection_Constants.THE_ORGANIZATION_FIELD_WAS_LEFT_BLANK));
-        CommonUtils.assertTrue((nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedToResubmitYourRequestText.getText() + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedSeerDataAccessLink.getText() + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedNoteText.getText() + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedYouCannotEditYourEmailText.getText())
-                .contentEquals(SEERDataRejection_Constants.TO_RESUBMIT_YOUR_REQUEST));
+        CommonUtils.assertTrue((nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedTheOrganizationFieldWasLeftBlankText.getText() + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedTheInstitutionUniversityCompanyText.getText()
+                + nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedMustBeListedText.getText()).contentEquals(SEERDataRejection_Constants.THE_ORGANIZATION_FIELD_WAS_LEFT_BLANK));
+        CommonUtils.assertTrue((nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedToResubmitYourRequestText.getText()).contentEquals(SEERDataRejection_Constants.TO_RESUBMIT_YOUR_REQUEST));
+        CommonUtils.assertTrue((nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedSeerDataAccessLink.getText()).contentEquals(SEERDataRejection_Constants.PLEASE_GO_TO));
+        CommonUtils.assertTrue(( nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedNoteText.getText()).contentEquals(SEERDataRejection_Constants.NOTE));
+        CommonUtils.assertTrue((  nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedYouCannotEditYourEmailText.getText()).contentEquals(SEERDataRejection_Constants.IF_YOUR_REQUEST_WAS_REJECTED));
         JavascriptUtils.drawRedBorder(nativeViewSentViewPage.nativeViewPreviewEmailSEERIncidenceDataRejectedEmailText);
         MiscUtils.sleep(1000);
         CucumberLogUtils.logScreenshot();
