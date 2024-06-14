@@ -8,13 +8,11 @@ import com.nci.automation.xceptions.TestingException;
 public class ITrustLoginPageImpl extends PageInitializer {
 
 	public void loginToITrust()  {
-		MiscUtils.sleep(3000);
 		CommonUtils.waitForVisibility(iTrustloginPage.userNameField);
 		try {
 			iTrustloginPage.enterUsername(iTrustloginPage.userNameField, "Username");
 			iTrustloginPage.enterPassword("Password");
 			iTrustloginPage.clickSignInButton();
-			MiscUtils.sleep(2000);
 		} catch (TestingException e) {
 			throw new RuntimeException(e);
 		}
