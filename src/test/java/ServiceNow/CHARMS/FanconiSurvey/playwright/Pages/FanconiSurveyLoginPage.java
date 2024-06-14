@@ -1,5 +1,7 @@
 package ServiceNow.CHARMS.FanconiSurvey.playwright.Pages;
 
+import java.util.regex.Pattern;
+
 public class FanconiSurveyLoginPage {
 	/* Home Screen */
 	public static final String FANCONI_SURVEY_URL = "https://service-test.nci.nih.gov/fanconi";
@@ -40,6 +42,7 @@ public class FanconiSurveyLoginPage {
 	public static final String FA_FAMILY_CAMP = "#fa_family_camp";
 	public static final String YEAR_OF_DIAGNOSIS = "Year of diagnosis";
 	public static final String ADD_ROW = "Add Row";
+	public static final String ADD = "ADD";
 	public static String LOGIN_BUTTON_LINK = "login";
 	public static final String PASSWORD = "Password";
 	public static final String USERNAME = "Username";
@@ -123,7 +126,6 @@ public class FanconiSurveyLoginPage {
 	public static final String MEDICAL_HISTORY = "Medical History";
 	public static final String YES = "Yes";
 	public static final String CANCEL = "Cancel";
-	public static final String ADD = "Add";
 	public static final String TELEPHONE = "Telephone";
 	public static final String FAX_NUMBER = "Fax Number";
 	public static final String EMAIL_ADDRESS = "Email Address";
