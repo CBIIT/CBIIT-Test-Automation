@@ -2,7 +2,6 @@ package AnalysisTools.MCAExplorer.Steps;
 
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.EnvUtils;
-import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Given;

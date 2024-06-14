@@ -133,4 +133,11 @@ public class CCT_CHAT_BOT_StepImpl {
         assertThat(nciMcCaskillStevensK12AwardsPage.locator(CCT_CHAT_BOT_Page.nv_New_Tab_Opened_Page_Header_Locator)).containsText(CCT_CHAT_BOT_Constants.NV_CCT_NEW_TAB_OPENED_PAGE_HEADER_ONE_TEXT);
         CucumberLogUtils.playwrightScreenshot(nciMcCaskillStevensK12AwardsPage);
     }
+
+    public static void the_user_selects_for_question4_indicating_they_belong_to_an_underrepresented_group(String no) {
+        assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Locator)).containsText(CCT_CHAT_BOT_Constants.NV_CCT_CHAT_WINDOW_Q_FOUR_TEXT);
+        cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Q_Option_No_Selected)).click();
+        assertThat(cctChatBotWindow.frameLocator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Frame_Locator).locator(CCT_CHAT_BOT_Page.nv_Pop_UP_CCT_Chat_Bot_Window_Locator)).containsText(no);
+        CucumberLogUtils.playwrightScreenshot(cctChatBotWindow);
+    }
 }

@@ -35,15 +35,15 @@ Feature: OWM Vacancy Manager Scenarios
     And  User verifies all org codes are present via Organizational Code dropdown
     And User verifies the text of "Position Classification" i tooltip is
     """
-  Select the Intramural or Extramural Professional Designation for your vacancy. Select “N/A” for Stadtman positions.
+    Select the Intramural or Extramural Professional Designation for your vacancy. Select “N/A” for Stadtman positions.
     """
     And User verifies the text of "Organizational Code" i tooltip is
     """
-  Provide SAC code for organization where the position will reside.
+    Provide SAC code for organization where the position will reside.
     """
     And User verifies the text of "Personnel Action Tracking Solution (PATS) Initiator" i tooltip is
     """
-Populate the individual who will be assembling the appointment package within the Personnel Action Tracking Solution (PATS). Value defaults to the SSJ Vacancy Manager, but can be updated within the SSJ or later in PATS.
+    Populate the individual who will be assembling the appointment package within the Personnel Action Tracking Solution (PATS). Value defaults to the SSJ Vacancy Manager, but can be updated within the SSJ or later in PATS.
     """
     Then user selects Position Classification and Organizational Code options
     And user verifies that POC "Holly Gemar-Griffith" is displayed by default for Personnel Action Tracking Solution (PATS) Initiator drop down
@@ -63,19 +63,19 @@ Populate the individual who will be assembling the appointment package within th
     And User confirms that "Equal Opportunity Employer" statement is disabled by default
     And User verifies the text of "Equal Opportunity Employer" is displayed as
     """
-Selection for this position will be based solely on merit, with no discrimination for non-merit reasons such as race, color, religion, gender, sexual orientation, national origin, political affiliation, marital status, disability, age, or membership or non-membership in an employee organization. The NIH encourages the application and nomination of qualified women, minorities, and individuals with disabilities.
+    Selection for this position will be based solely on merit, with no discrimination for non-merit reasons such as race, color, religion, gender, sexual orientation, national origin, political affiliation, marital status, disability, age, or membership or non-membership in an employee organization. The NIH encourages the application and nomination of qualified women, minorities, and individuals with disabilities.
     """
     And User verifies the text "Standards of Conduct/Financial Disclosure" is displayed and description text is
     """
-The National Institutes of Health inspires public confidence in our science by maintaining high ethical principles. NIH employees are subject to Federal government-wide regulations and statutes as well as agency-specific regulations described at the NIH Ethics Website. We encourage you to review this information. The position is subject to a background investigation and requires the incumbent to complete a public financial disclosure report prior to the effective date of the appointment.
+    The National Institutes of Health inspires public confidence in our science by maintaining high ethical principles. NIH employees are subject to Federal government-wide regulations and statutes as well as agency-specific regulations described at the NIH Ethics Website. We encourage you to review this information. The position is subject to a background investigation and requires the incumbent to complete a public financial disclosure report prior to the effective date of the appointment.
     """
     And User verifies the text of Foreign Education "Foreign Education" is displayed as
     """
-Applicants who have completed part or all of their education outside of the U.S. must have their foreign education evaluated by an accredited organization to ensure that the foreign education is equivalent to education received in accredited educational institutions in the United States. We will only accept the completed foreign education evaluation. For more information on foreign education verification, visit the https://www.naces.org website. Verification must be received prior to the effective date of the appointment.
+    Applicants who have completed part or all of their education outside of the U.S. must have their foreign education evaluated by an accredited organization to ensure that the foreign education is equivalent to education received in accredited educational institutions in the United States. We will only accept the completed foreign education evaluation. For more information on foreign education verification, visit the https://www.naces.org website. Verification must be received prior to the effective date of the appointment.
     """
     And User verifies the text of Reasonable Accommodation "Reasonable Accommodation" is displayed as
     """
-NIH provides reasonable accommodations to applicants with disabilities. If you require reasonable accommodation during any part of the application and hiring process, please notify us. The decision on granting reasonable accommodation will be made on a case-by-case basis.
+    NIH provides reasonable accommodations to applicants with disabilities. If you require reasonable accommodation during any part of the application and hiring process, please notify us. The decision on granting reasonable accommodation will be made on a case-by-case basis.
     """
     And User can disable statement options for "Standards of Conduct/Financial Disclosure", "Foreign Education", "Reasonable Accommodation"
     And can enable statement options for "Standards of Conduct/Financial Disclosure", "Foreign Education", "Reasonable Accommodation"
@@ -117,24 +117,34 @@ NIH provides reasonable accommodations to applicants with disabilities. If you r
     And User clicks button "Save" - PW
     Then User is directed to "Email Templates" section
 
-
-  @SSJ-11
+  @SSJ-11 @Regression @playwright @carberalf
   Scenario: Verification of Vacancy Committee section while creating an NCI Vacancy Negative Flow
-    Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
-    And User navigates to tab "Vacancy Dashboard"
-    And User clicks button "Create vacancy"
-    And User fills in "Vacancy Title" field
-    And User clicks "Save" section button
+    When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
+    And User navigates to tab "Vacancy Dashboard" - PW
+    And User clicks button "+ Create Vacancy" - PW
+    And User fills in "Vacancy Title" field with title "Testing Automation Title SSJ"
+    And User clicks button "Save" - PW
     And User clicks on "Vacancy Committee" option on the left bar menu
-    When User clicks button "Add Member"
-    And User adds a Committee Chair
-    Then User sees alert "At least one committee member must be of the role 'Executive Secretary"
-    And User removes a Commitee Chair
-    Then User sees alert "At least one committee member must be of the role 'Chair' At least one committee member must be of the role 'Executive Secretary"
-    And User adds Executive Secretary (non-voting)
-    Then User sees alert "At least one committee member must be of the role 'Chair'"
+    When User clicks button " Add Member" - PW
+    When the user adds a Committee Member "David Rampulla" for Chair role
+    When User clicks "Save" for Actions
+    Then User can see "At least one committee member must be of the role 'Executive Secretary'" alert
+    When User clicks "Remove" for Actions
+    Then User can see "At least one committee member must be of the role 'Chair' At least one committee member must be of the role 'Executive Secretary'" alert
+    When User clicks button " Add Member" - PW
+    Then User adds Committee Member "Jason Levine" for Executive Secretary
+    When User clicks "Save" for Actions
+    Then User can see "At least one committee member must be of the role 'Chair'" alert
+    And User clicks "Remove" for Actions
+    When User clicks button " Add Member" - PW
+    When the user adds a Committee Member "Jay Kurani" for Chair role
+    And User clicks "Save" for Actions
+    When User clicks button " Add Member" - PW
+    And User adds duplicate Committee Member "Jay Kurani" for Executive Secretary
+    And User clicks "Save" for Actions
+    Then User can see "A committee member can only be listed once on a committee. Please remove duplicate committee members." alert
 
-  @SSJ-310 @SSJ-158 @SSJ-71
+  @SSJ-310 @SSJ-158 @SSJ-71 @playwright
   Scenario: Verification of Email Templates section while creating an NCI Vacancy Positive Flow
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -153,7 +163,7 @@ NIH provides reasonable accommodations to applicants with disabilities. If you r
     And User clicks "Save" section button
     And User verifies that "Review and Finalize" section title is displayed
 
-  @SSJ-64 @SSJ-305
+  @SSJ-64 @SSJ-305 @playwright
   Scenario: Alerts validation during an NCI vacancy creation
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -182,7 +192,7 @@ NIH provides reasonable accommodations to applicants with disabilities. If you r
     And User clicks Edit for "Vacancy Committee" section
     Then User can verify alert "At least one committee member must be of the role 'Chair' At least one committee member must be of the role 'Executive Secretary'" is present
 
-  @SSJ-221 @SSJ-100
+  @SSJ-221 @SSJ-100 @playwright
   Scenario: Create a live NCI draft vacancy
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -207,7 +217,7 @@ NIH provides reasonable accommodations to applicants with disabilities. If you r
     When User navigates to Home tab
     Then User can see a new live vacancy under Open Vacancies
 
-  @SSJ-1 @SSJ-29 @SSJ-66 @SSJ-62
+  @SSJ-1 @SSJ-29 @SSJ-66 @SSJ-62 @playwright
   Scenario: Vacancy Dashboard verification
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -230,7 +240,7 @@ NIH provides reasonable accommodations to applicants with disabilities. If you r
     And User sees closed vacancies colums
       | Vacancy Title | Open Date | Close Date | Actions |
 
-  @SSJ-160 @SSJ-284
+  @SSJ-160 @SSJ-284 @playwright
   Scenario: NCI Live Vacancy Edit, Copy Link and Extend options
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"
@@ -256,7 +266,7 @@ NIH provides reasonable accommodations to applicants with disabilities. If you r
     And User navigates to Home tab
     Then User can verify the updated close date on Home Tab for that live vacancy
 
-  @SSJ-93 @SSJ-146
+  @SSJ-93 @SSJ-146 @playwright
   Scenario: Vacancies sorting
     Given User is on SSJ Landing page and user is "OWM Vacancy Manager"
     And User navigates to tab "Vacancy Dashboard"

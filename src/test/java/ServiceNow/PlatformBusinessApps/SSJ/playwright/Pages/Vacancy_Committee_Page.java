@@ -16,4 +16,14 @@ public class Vacancy_Committee_Page {
      * AT LEAST ONE COMMITTEE MEMBER MUST BE OF THE ROLE 'EXECUTIVE SECRETARY'
      */
     public static String atLeastOneCommitteeMemberMustBeOfTheRoleExecutiveSecretaryMessage = "//div[@role='alert']//div";
+
+    /**
+     * VACANCY COMMITTEE MEMBER ROLE CHAIR DROP DOWN
+     */
+    public static String vacancyCommitteeChairRoleDropDown = "//span[@title='Chair']";
+
+    /**
+     * VACANCY COMMITTEE MEMBER DROP DOWN WHEN SELECTING A DUPLICATE MEMBER
+     */
+    public static String duplicateVacancyCommitteeMemberDropdown = "//div[@class=' css-1hwfws3']";
 }

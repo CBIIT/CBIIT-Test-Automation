@@ -25,7 +25,7 @@ public class CometsAnalyticsPage extends CommonUtils {
 	public WebElement tutorialsButton;
 
 	/* ABOUT COMETS BUTTON */
-	@FindBy(xpath = "//a[text()='About COMETS']")
+	@FindBy(xpath = "/html/body/footer/div/div[1]/div[3]/ul/li[1]/a")
 	public WebElement aboutCometsButton;
 
 	/* VIGNETTES BUTTON */

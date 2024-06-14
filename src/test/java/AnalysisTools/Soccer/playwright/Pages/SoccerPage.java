@@ -28,16 +28,6 @@ public class SoccerPage {
     public static String socassign_Button="SOCASSIGN";
 
     /***
-     * DOWNLOAD BUTTON
-     */
-    public static String download_Button="Download";
-
-    /***
-     * SOCASSIGN LINK
-     */
-    public static String socassign_Link = "SOCAssign";
-
-    /***
      * RESOURCES BUTTON
      */
     public static String resources_Button = "RESOURCES";
@@ -161,4 +151,99 @@ public class SoccerPage {
      * OEMED LINK
      */
     public static String oemedLInk = "/oemed-2015-103152";
+
+    /***
+     * RESULT PLOTS
+     */
+    public static String resultPlots = "Results Plot";
+
+    /***
+     * SUBMIT BUTTON
+     */
+    public static String submitButton = "Submit";
+
+    /***
+     * SOCCER BUTTON
+     */
+    public static String soccerButton = "SOCCER";
+
+    /***
+     * DOWNLOAD RESULTS
+     */
+    public static String downloadResults = "Download Results";
+
+    /***
+     * JOB SUBMITTED
+     */
+    public static String jobSubmitted = "Job Submitted";
+
+    /***
+     * EMAIL FOR THE JOB
+     */
+    public static String email = "gugulothus2@nih.gov";
+
+    /***
+     * SUBMIT CHECKBOX
+     */
+    public static String submitCheckbox = "Submit this job to a queue";
+
+    /***
+     * ENTER EMAIL ELEMENT
+     */
+    public static String enterEmail = "Enter email";
+
+    /***
+     * MODEL VERSION
+     */
+    public static String modelVersion = "1.0";
+
+    /***
+     * SOCCER MODEL
+     */
+    public static String soccerModel = "SOCcer Model";
+
+    /***
+     * POLICY PAGE
+     */
+    public static String policies = "Policies";
+
+    /***
+     * VD POLICY PAGE
+     */
+    public static String vdpolicy = "HHS Vulnerability Disclosure";
+
+    /***
+     * ACCESSIBILITY PAGE
+     */
+    public static String accessibility = "Accessibility";
+
+    /***
+     * VIEWING FILE PAGE
+     */
+    public static String viewingFileAccessibility = "Viewing Files";
+
+    /***
+     * FOIA PAGE LINK
+     */
+    public static String FOIA = "FOIA";
+
+    /***
+     * HHS PAGE
+     */
+    public static String HHS = "U.S. Department of Health and";
+
+    /***
+     * NIH
+     */
+    public static String NIH = "National Institutes of Health";
+
+    /***
+     * NATIONAL CANCER INSTITUTE
+     */
+    public static String NCI = "National Cancer Institute";
+
+    /***
+     * USA GOV ELEMENT
+     */
+    public static String USAGov = "//div//ul//li//a[contains(text(),'USA.gov')]";
 }
