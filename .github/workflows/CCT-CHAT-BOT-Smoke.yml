@@ -2,8 +2,7 @@ name: PLATFORM BUSINESS - CCT CHAT BOT SMOKE TESTS
 
 on:
   schedule:
-    # This corresponds to 6:30 AM EST (10:30 AM UTC)
-    - cron: '30 10 * * *'
+    - cron: '30 15 * * *'
   workflow_dispatch:
     inputs:
       testBrowser:
