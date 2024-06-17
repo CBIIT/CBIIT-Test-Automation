@@ -1,7 +1,5 @@
 package ServiceNow.CHARMS.FanconiSurvey.playwright.Pages;
 
-import java.util.regex.Pattern;
-
 public class FanconiSurveyLoginPage {
 	/* Home Screen */
 	public static final String FANCONI_SURVEY_URL = "https://service-test.nci.nih.gov/fanconi";
