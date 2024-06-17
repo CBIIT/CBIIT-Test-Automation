@@ -28,6 +28,7 @@ public class EMFlowSteps extends PageInitializer {
 
     @Given("User is on Manage I{int}E Users page")
     public void user_is_on_Manage_I_E_Users_page(Integer int1) {
+        CommonUtils.waitForVisibility(manageI2EUsersPage.i2EPageTitle);
         CommonUtils.assertTrue(manageI2EUsersPage.i2EPageTitle.isDisplayed());
         CucumberLogUtils.logScreenshot();
     }
@@ -89,7 +90,8 @@ public class EMFlowSteps extends PageInitializer {
                 WebDriverUtils.webDriver.findElement(By.xpath("//button[normalize-space()='Yes']")).click();
             }
         } catch (WebDriverException e) {
-            System.out.println("*** ACCOUNT NOT PRESENT -- TEST CONTINUES ***");
+            System.out.println("* * * GM ACCOUNT MANAGER ROLE NOT PRESENT -- TEST CONTINUES * * *");
+            CucumberLogUtils.scenario.log("* * * GM ACCOUNT MANAGER ROLE NOT PRESENT -- TEST CONTINUES * * *");
         }
     }
 
@@ -126,6 +128,8 @@ public class EMFlowSteps extends PageInitializer {
     public void user_can_verify_that_first_and_last_name_of_logged_in_user_are_shown(String expectedName) {
 
         // I2E User Name locator
+        MiscUtils.sleep(2000);
+        CommonUtils.waitForClickability(WebDriverUtils.webDriver.findElement(By.xpath("//body/app-root/app-header/lib-header/header/nav/div/div/ul/li/span[1]")));
         String actualName = WebDriverUtils.webDriver.findElement(By.xpath("//body/app-root/app-header/lib-header/header/nav/div/div/ul/li/span[1]")).getText();
         Assert.assertEquals(actualName, expectedName);
     }
@@ -170,9 +174,7 @@ public class EMFlowSteps extends PageInitializer {
         String actualUrl = WebDriverUtils.webDriver.getCurrentUrl();
         Assert.assertEquals(actualUrl, expectedURL);
         WebDriverUtils.webDriver.close();
-        MiscUtils.sleep(3000);
         WebDriverUtils.webDriver.switchTo().window(winHandleBefore);
-        MiscUtils.sleep(3000);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -193,9 +195,7 @@ public class EMFlowSteps extends PageInitializer {
         String actualUrl = WebDriverUtils.webDriver.getCurrentUrl();
         Assert.assertEquals(actualUrl, expectedURL);
         WebDriverUtils.webDriver.close();
-        MiscUtils.sleep(3000);
         WebDriverUtils.webDriver.switchTo().window(winHandleBefore);
-        MiscUtils.sleep(3000);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -216,9 +216,7 @@ public class EMFlowSteps extends PageInitializer {
         String actualUrl = WebDriverUtils.webDriver.getCurrentUrl();
         Assert.assertEquals(actualUrl, expectedURL);
         WebDriverUtils.webDriver.close();
-        MiscUtils.sleep(3000);
         WebDriverUtils.webDriver.switchTo().window(winHandleBefore);
-        MiscUtils.sleep(3000);
         CucumberLogUtils.logScreenshot();
     }
 
@@ -239,15 +237,12 @@ public class EMFlowSteps extends PageInitializer {
         String actualUrl = WebDriverUtils.webDriver.getCurrentUrl();
         Assert.assertEquals(actualUrl, expectedURL);
         WebDriverUtils.webDriver.close();
-        MiscUtils.sleep(3000);
         WebDriverUtils.webDriver.switchTo().window(winHandleBefore);
-        MiscUtils.sleep(3000);
         CucumberLogUtils.logScreenshot();
     }
 
     @When("user now logs in as EM Representative Bin,Li")
     public void user_now_logs_in_as_EM_Representative_Bin_Li() {
-        MiscUtils.sleep(5000);
         emStepsImplementation.loginAsLiBin();
     }
 

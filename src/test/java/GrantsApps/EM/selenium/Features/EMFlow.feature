@@ -2,7 +2,7 @@ Feature: EM Flow Sprint One
   Background: common steps
     Given User is logged in as Primary ITwoE Coordinator "Diego Juarez"
 
-  @addI2ETechnicalSupportRole @Jira1007 @Regression @juarezds
+  @addI2ETechnicalSupportRole @Jira1007 @Regression @juarezds @selenium
   Scenario: Test Add I2E Technical Support Role
     And User is on Manage I2E Users page
     When User inputs "Mata Rodriguez, Kevin Osmaldo" into the Name field and clicks search
@@ -20,7 +20,7 @@ Feature: EM Flow Sprint One
     Then warning message with user "Mata Rodriguez, Kevin" displays with "has already active I2E Technical Support role for the same NCI Organization. Please select a different I2E Role or NCI Organization to proceed."
      Then User saves ITwoE Technical Support Role that was added role
 
-  @verifyLeftSideNavigationLinks @Jira999 @Regression
+  @verifyLeftSideNavigationLinks @Jira999 @Regression @selenium
   Scenario: Verify Left Side Navigation links
     And User can verify that first and last name of logged in user "Diego Juarez" are shown
     And User is on Manage I2E Users page
@@ -37,26 +37,3 @@ Feature: EM Flow Sprint One
     When user now logs in as EM Representative Bin,Li
     And User can verify that first and last name of logged in user "Bin Li" are shown
     And User is on Manage I2E Users page
-
-  @I2ERoleDropdownList @Jira950 @IN_PROGRESS
-  Scenario: I2E Role Drop Down List
-    And User is on Manage I2E Users page
-#    When User inputs "Mata Rodriguez, Kevin Osmaldo" into the Name field and clicks search
-#    When User clicks "Edit" button
-#    And tester deletes "GM Action Manager" role to re-run test before adding role
-#    When User clicks "Add Role" button
-#    And selects "GM Action Manager" from I2E Role drop down
-#    And User clicks on Add Role button Inside Module
-#    Then User can verify that the GM Action Manager Role is displayed in the Active User Roles grid
-#    And User Saves Changes
-#    When User clicks "Add Role" button
-#    And User can verify that predictive search "GM" is available for ITwoE Role dropdown
-#    When User chooses Administrative option from Business Area dropdown
-#    Then User can verify that appropriate ITwoE roles are available via ITwoE Role dropdown
-#    And User can pick eGrants Access Representative role
-#    And User can remove eGrants Access Representative role
-#    When User clears Administrative option form Business Area choice
-#    Then ItwoE roles choices are cleared too with message " Role is required. "
-    #When User chooses Administrative option from Business Area dropdown again
-    #Then User can verify that Administrative related roles "eGrants Access Representative", "I2E Coordinator", "I2E Technical Support", "Primary I2E Coordinator" are reflected in I2E Role dropdown
-    #When User picks Financial from Business Area dropdown
