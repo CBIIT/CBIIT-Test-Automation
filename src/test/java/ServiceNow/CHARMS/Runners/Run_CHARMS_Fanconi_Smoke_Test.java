@@ -4,7 +4,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(plugin = {"html:target/fanconi-smoke-reports/fanconi-smoke-report.html", "json:target/cucumber.json",
-		"junit:target/cucumber.xml", "rerun:target/failed.txt",
+		"rerun:target/failed.txt",
 		"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 features = "src/test/java/ServiceNow/CHARMS/Features/FanconiStudy",
 glue = {"ServiceNow.CHARMS.Steps", "Hooks"},

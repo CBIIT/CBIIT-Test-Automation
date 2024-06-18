@@ -8,6 +8,7 @@ import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
+/* This method allows the submissions and assertions of the Background Information section questionnaire of the Fanconi Survey.*/
 public class FanconiSurveyStepsImpl {
     public static void backgroundInformationSection() {
         var page = PlaywrightUtils.page;
@@ -148,6 +149,7 @@ public class FanconiSurveyStepsImpl {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.SUBMIT)).click();
     }
 
+    /* This method allows to login to the Fanconi Survey page and do assertion on the main page */
     public static void login() {
         var page = PlaywrightUtils.page;
         page.navigate(FanconiSurveyLoginPage.FANCONI_SURVEY_URL);
