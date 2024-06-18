@@ -171,4 +171,12 @@ public class CCRApplicationPage extends CommonUtils {
     /** Degree Dropdown **/
     @FindBy(xpath = "//select[@id='degree']")
     public WebElement degreeDropdown;
+
+    /** Degree M.D., Ph.D **/
+    @FindBy(xpath = "//option[contains(text(),' M.D., Ph.D.')]")
+    public WebElement degreeMDPhD;
+
+    /** choose file Letter of Interest**/
+    @FindBy(xpath = "(//div[@class='input-group-btn'])[1]")
+    public WebElement chooseFileLetterOfInterest;
 }

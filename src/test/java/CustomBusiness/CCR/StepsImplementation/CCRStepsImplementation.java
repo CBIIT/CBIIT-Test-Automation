@@ -9,6 +9,7 @@ import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.JavascriptUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -55,20 +56,26 @@ public class CCRStepsImplementation extends PageInitializer {
 
     public void uploadDocuments(String document){
         switch (document) {
+            case "CV":
+                MiscUtils.sleep(2000);
+                CommonUtils.clickOnElement(cCRApplicationPage.do);
+                WebElement fileInput = webDriver.findElement(By.xpath("(//input[@placeholder='No file chosen'])[1]"));
+                fileInput.sendKeys("/src/test/java/CustomBusiness/CCR/Resources/CV.docx");
+                break;
+            case "Research Goals":
+                WebElement fileInput2 = webDriver.findElement(By.xpath("(//input[@placeholder='No file chosen'])[2]"));
+                fileInput2.sendKeys("/src/test/java/CustomBusiness/CCR/Resources/ResearchGoals.docx");
+                break;
             case "Letter of Interest":
                 MiscUtils.sleep(2000);
-                System.out.println("method");
-                JavascriptUtils.scrollIntoView(cCRApplicationPage.uploadFile1);
-                CommonUtils.sendKeys(cCRApplicationPage.uploadFile1,"text");
-                break;
-            case "CV/Bibliography":
-                MiscUtils.sleep(2000);
-                CommonUtils.sendKeys(cCRApplicationPage.uploadFile1,CCR_CONSTANTS.CV);
+                WebElement fileInput3 = webDriver.findElement(By.xpath("(//input[@placeholder='No file chosen'])[3]"));
+                fileInput3.sendKeys("/src/test/java/CustomBusiness/CCR/Resources/LetterOfInterest.docx");
                 break;
             case "Upload Diversity Statement":
-                WebElement uploadFile3 = cCRApplicationPage.uploadFile3;
-                uploadFile3.sendKeys(CCR_CONSTANTS.DIVERSITY_STATEMENT);
+                WebElement fileInput4 = webDriver.findElement(By.xpath("(//input[@placeholder='No file chosen'])[4]"));
+                fileInput4.sendKeys("/src/test/java/CustomBusiness/CCR/Resources/DiversityStatement.docx");
                 break;
+
         }
     }
 

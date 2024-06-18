@@ -3,14 +3,14 @@ Feature: CCR Landing Page Scenarios
   Background: common steps
     Given User is on CCR Landing page and user is "internal user"
 
-  @Nekrashevich @Regression @Smoke @landingPage
+  @Nekrashevich @Regression  @landingPage
   Scenario: Verify CCR Landing Page items
     And User can see "Home" tab displayed
     And User can see "Positions" tab displayed
 
   @Nekrashevich @Regression @Smoke @fillApplication @CAMS-9
   Scenario Outline: Fill In An Application As An Internal User
-    And User navigates to "Biostatistician" open vacancy
+    And User navigates to "Senior Investigator - Basic/Translational Cancer Research - Focus Area in Cancer Health Disparities" open vacancy
     And User clicks "Apply Now" button
     And User enters "<firstName>" into a first name field
     And User enter "<middleName>" into a middle name field
@@ -18,7 +18,7 @@ Feature: CCR Landing Page Scenarios
     And User enters "<email>" into an email field
     And User enters "<phone>" into a phone field
     And User enters "<businessPhone>" into a business phone field
-    And User selects " Ph.D. " from a degree dropdown
+    And User selects " M.D., Ph.D. " from a degree dropdown
     And User enters "<otherDegree(s)>" into an other degree field
     And User confirms that User is a US Citizen
     And User clicks Next button for "Basic Information" section
@@ -38,8 +38,9 @@ Feature: CCR Landing Page Scenarios
     And User enters "<businessZip>" into a business zip field
     And User selects United States from a country dropdown for "Business Address" section
     And User clicks Next button for "Business Address" section
+    And User uploads "CV" document
+    And User uploads "Research Goals" document
     And User uploads "Letter of Interest" document
-    And User uploads "CV/Bibliography" document
     And User uploads "Upload Diversity Statement" document
     And User clicks Next button for "Required Documents" section
     And User selects an outreach source as "Contacted By Member"

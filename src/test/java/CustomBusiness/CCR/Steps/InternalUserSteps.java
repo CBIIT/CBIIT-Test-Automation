@@ -4,6 +4,8 @@ import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.Given;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.Select;
 
 public class InternalUserSteps extends PageInitializer {
 
@@ -68,8 +70,11 @@ public class InternalUserSteps extends PageInitializer {
     }
 
     @Given("User selects {string} from a degree dropdown")
-    public void user_selects_from_a_degree_dropdown(String phd) {
-        CommonUtils.selectDropDownValue(" Ph.D. ", cCRApplicationPage.degreeDropdown);
+    public void user_selects_from_a_degree_dropdown(String  MDPhD) {
+        CommonUtils.clickOnElement(cCRApplicationPage.degreeDropdown);
+        CommonUtils.clickOnElement(cCRApplicationPage.degreeMDPhD);
+
+
     }
 
     @Given("User enters {string} into an other degree field")
