@@ -2,7 +2,7 @@ Feature: EM Flow Sprint One
   Background: common steps
     Given User is logged in as Primary ITwoE Coordinator "Diego Juarez"
 
-  @addI2ETechnicalSupportRole @Jira1007 @Regression @juarezds @selenium
+  @ADD_I2E_TECHNICAL_SUPPORT_ROLE @Jira1007 @Regression @JUAREZDS @selenium
   Scenario: Test Add I2E Technical Support Role
     And User is on Manage I2E Users page
     When User inputs "Mata Rodriguez, Kevin Osmaldo" into the Name field and clicks search
@@ -20,7 +20,7 @@ Feature: EM Flow Sprint One
     Then warning message with user "Mata Rodriguez, Kevin" displays with "has already active I2E Technical Support role for the same NCI Organization. Please select a different I2E Role or NCI Organization to proceed."
      Then User saves ITwoE Technical Support Role that was added role
 
-  @verifyLeftSideNavigationLinks @Jira999 @Regression @selenium
+  @VERIFY_LEFT_SIDE_NAVIGATION_LINKS @Jira999 @Regression @JUAREZDS @selenium
   Scenario: Verify Left Side Navigation links
     And User can verify that first and last name of logged in user "Diego Juarez" are shown
     And User is on Manage I2E Users page

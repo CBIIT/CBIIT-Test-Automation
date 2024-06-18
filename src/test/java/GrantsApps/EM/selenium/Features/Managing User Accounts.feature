@@ -1,7 +1,7 @@
 Feature: Managing User Accounts
   Description:  This Feature file contains Scenarios that verify User Account creation functionalities
 
-  @ENTMAINT-510 @ENTMAINT-515 @ENTMAINT-539 @ENTMAINT-551 @ENTMAINT-554 @ENTMAINT-945 @puzikovam2 @andreyeve @Regression @selenium
+  @ENTMAINT-510 @ENTMAINT-515 @ENTMAINT-539 @ENTMAINT-551 @ENTMAINT-554 @ENTMAINT-945 @PUZIKOVAM2 @ANDREYEVE @Regression @selenium
   Scenario: Verify Create Account for "Not Created" Account scenario
     Given User is logged in as Primary IC Coordinator
     And clicks Show Advanced Filters

@@ -1,6 +1,6 @@
 Feature: EM Flow
 
-  @I2ERoleDropdownList @Jira950 @Regression @playwright
+  @I2E_ROLE_DROP_DOWN_LIST @Jira950 @JUAREZDS @Regression @playwright
   Scenario: I2E Role Drop Down List
     Given User is logged in as Primary ITwoE Coordinator - PW
     When User inputs "Mata Rodriguez, Kevin Osmaldo" into the Name field and clicks search - PW
