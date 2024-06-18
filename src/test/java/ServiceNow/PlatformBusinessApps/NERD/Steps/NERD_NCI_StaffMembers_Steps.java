@@ -1,5 +1,6 @@
 package ServiceNow.PlatformBusinessApps.NERD.Steps;
 
+import ServiceNow.PlatformBusinessApps.NERD.Constants.Covid19ActivitiesSubmissions_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Constants.NCI_Staff_Members_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Constants.Other_Accomplishments_Submissions_Constants;
 import ServiceNow.PlatformBusinessApps.NERD.Constants.TopAccomplishmentsSubmission_Constants;
@@ -78,5 +79,25 @@ public class NERD_NCI_StaffMembers_Steps {
     @When("NCI Staff Member submits new COVID19 Activities submission")
     public void nci_staff_member_submits_new_covid19_activities_submission() {
         NERD_NCI_StaffMemberStepsImplementation.nci_staff_member_submits_new_covid19_activities_submission();
+    }
+
+    @When("DOC Planning Contact returning the COVID19 Activities submission back to NCI Staff Member")
+    public void doc_planning_contact_returning_the_covid19_activities_submission_back_to_nci_staff_member() {
+        NERD_NCI_StaffMemberStepsImplementation.doc_planning_contact_returning_the_covid19_activities_submission_back_to_nci_staff_member(Covid19ActivitiesSubmissions_Constants.COVID_19_NEW_SUBMISSION_TITLE_TEXT_BOX);
+    }
+
+    @When("NCI Staff Member views the returned COVID19 Activities submission")
+    public void nci_staff_member_views_the_returned_covid19_activities_submission() {
+        NERD_NCI_StaffMemberStepsImplementation.nci_staff_member_views_the_returned_covid19_activities_submission();
+    }
+
+    @Then("NCI Staff Member DOES NOT see the {string} button for COVID19 Activities submission returned record")
+    public void nci_staff_member_does_not_see_the_button_for_covid19_activities_submission_returned_record(String delete) {
+        NERD_NCI_StaffMemberStepsImplementation.nci_staff_member_does_not_see_the_button_for_covid19_activities_submission_returned_record(delete);
+    }
+
+    @When("NCI Staff Member submits new Ad Hoc Data Call submission")
+    public void nci_staff_member_submits_new_ad_hoc_data_call_submission() {
+        NERD_NCI_StaffMemberStepsImplementation.nci_staff_member_submits_new_ad_hoc_data_call_submission();
     }
 }

@@ -5,4 +5,3 @@ Feature: SEER Research Plus Login Scenarios
     Given a user is on the SEER Data Access landing page
     When the user clicks the SEER Research Plus button
     Then the user will be brought to the Sign in Page
-
