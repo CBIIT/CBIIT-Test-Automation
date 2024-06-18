@@ -1,6 +1,6 @@
-package ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.Steps;
+package ServiceNow.PlatformBusinessApps.SNOWOBF.Steps;
 
-import ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.StepImpl.OBF_Notifications_StepImpl;
+import ServiceNow.PlatformBusinessApps.SNOWOBF.StepImpl.OBF_Notifications_StepImpl;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

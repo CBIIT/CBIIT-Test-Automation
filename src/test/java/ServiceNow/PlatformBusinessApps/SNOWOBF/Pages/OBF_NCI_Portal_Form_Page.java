@@ -1,4 +1,4 @@
-package ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.Pages;
+package ServiceNow.PlatformBusinessApps.SNOWOBF.Pages;
 
 import com.nci.automation.web.CommonUtils;
 

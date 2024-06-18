@@ -1,9 +1,9 @@
-package ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.StepImpl;
+package ServiceNow.PlatformBusinessApps.SNOWOBF.StepImpl;
 
-import ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.Pages.NCISP_Portal_Page;
-import ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.Pages.OBF_NCI_NV_Form_Page;
-import ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.Pages.OBF_NCI_Portal_Form_Page;
-import ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.Pages.OBF_Notifications_Page;
+import ServiceNow.PlatformBusinessApps.SNOWOBF.Pages.OBF_NCI_NV_Form_Page;
+import ServiceNow.PlatformBusinessApps.SNOWOBF.Pages.OBF_NCI_Portal_Form_Page;
+import ServiceNow.PlatformBusinessApps.SNOWOBF.Pages.OBF_Notifications_Page;
+import ServiceNow.PlatformBusinessApps.SNOWOBF.Pages.NCISP_Portal_Page;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
 import com.microsoft.playwright.FrameLocator;
 import com.microsoft.playwright.Locator;

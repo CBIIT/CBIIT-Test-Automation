@@ -1,7 +1,7 @@
-package ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.StepImpl;
+package ServiceNow.PlatformBusinessApps.SNOWOBF.StepImpl;
 
-import ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.Pages.NCISP_Portal_Page;
-import ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.Pages.OBF_NCI_Portal_Form_Page;
+import ServiceNow.PlatformBusinessApps.SNOWOBF.Pages.OBF_NCI_Portal_Form_Page;
+import ServiceNow.PlatformBusinessApps.SNOWOBF.Pages.NCISP_Portal_Page;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;

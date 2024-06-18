@@ -1,4 +1,4 @@
-package ServiceNow.PlatformBusinessApps.SNOWOBF.playwright.Pages;
+package ServiceNow.PlatformBusinessApps.SNOWOBF.Pages;
 
 public class NCISP_Portal_Page {
 
