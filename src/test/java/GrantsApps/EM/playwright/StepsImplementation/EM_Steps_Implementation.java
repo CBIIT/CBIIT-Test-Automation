@@ -31,8 +31,8 @@ public class EM_Steps_Implementation {
     public static void user_is_logged_in_as_primary_i_two_e_coordinator_pw() {
         page.navigate(EnvUtils.getApplicationUrl("EM"));
         page.locator(ITrust_Page.usernameTextBox).fill(ConfUtils.getProperty("Username"));
-        page.locator("#PASSWORD").fill(EncryptionUtils.decrypt(ConfUtils.getProperty("Password")));
-        page.locator("#PASSWORD").press("Enter");
+        page.locator(ITrust_Page.passwordTextBox).fill(EncryptionUtils.decrypt(ConfUtils.getProperty("Password")));
+        page.locator(ITrust_Page.passwordTextBox).press("Enter");
         CucumberLogUtils.playwrightScreenshot(page);
     }
 
@@ -59,8 +59,8 @@ public class EM_Steps_Implementation {
         Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(value));
         MiscUtils.sleep(2000);
         try {
-            if (page.locator("(//*[text()='GM Action Manager'])[1]//ancestor::tr/td[5]/span").isVisible()) {
-                page.locator("(//*[text()='GM Action Manager'])[1]//ancestor::tr/td[5]/span").click();
+            if (page.locator(EM_Page.gmActionManagerRoleText).isVisible()) {
+                page.locator(EM_Page.gmActionManagerRoleText).click();
                 page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Yes")).click();
                 Playwright_Common_Utils.scrollIntoView(Playwright_Common_Locators.dynamicTextLocator(" Save Changes "));
                 page.locator(Playwright_Common_Locators.dynamicTextLocator(" Save Changes ")).click();
