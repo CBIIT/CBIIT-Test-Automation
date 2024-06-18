@@ -6,7 +6,3 @@ Feature: Background Information section of the Fanconi Survey on the Fanconi Lon
   Scenario: Participant fills and submit the Background Information section for scenario 1
     Given a Participant is on the Fanconi Study login page and logs with user credentials via Okta
     And fills the Background Information section
-
-
-
-
