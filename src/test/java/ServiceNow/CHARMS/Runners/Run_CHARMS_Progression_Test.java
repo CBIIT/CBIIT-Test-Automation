@@ -10,7 +10,6 @@ import io.cucumber.testng.CucumberOptions;
 		glue = "ServiceNow.CHARMS.Steps",
 		tags = "@Progression",
 		dryRun = false
-
 )
 public class Run_CHARMS_Progression_Test extends AbstractTestNGCucumberTests{
 }
