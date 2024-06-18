@@ -13,7 +13,7 @@ public class AnalysisToolsLandingPage extends CommonUtils {
     public WebElement ldLinkTextOnLandingPage;
 
     /* LDLink description text on Analysis Tools Landing Page */
-    @FindBy(xpath = "/html/body/main/div/div[25]/h3/following-sibling::div")
+    @FindBy(xpath = "//div[@class='tools-section']//div[contains(text(),'A suite of web-based applications designed to easily and efficiently')]")
     public WebElement ldLinkDescriptionTextOnLandingPage;
 
     /* THIS IS THE SCREEN TEXT ON LDLINK SECURITY PAGE THAT DISPLAYS UNTIL VULNERABILITY IS FIXED */
