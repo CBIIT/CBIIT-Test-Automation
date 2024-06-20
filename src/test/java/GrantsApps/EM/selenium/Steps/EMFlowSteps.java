@@ -17,7 +17,6 @@ public class EMFlowSteps extends PageInitializer {
         emStepsImplementation.emLogin(userName);
     }
 
-
     @Given("User is on Manage I{int}E Users page")
     public void user_is_on_Manage_I_E_Users_page(Integer unusedParameter) {
         EMStepsImplementation.user_is_on_Manage_I_E_Users_page(unusedParameter);
