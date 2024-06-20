@@ -12,47 +12,50 @@ import com.nci.automation.xceptions.TestingException;
 
 public class ITrustLoginPage extends CommonUtils {
 
+    /**
+     * LOGIN LINK
+     */
     @FindBy(xpath = "//ul[@class='nav navbar-nav navbar-right hidden-xs hidden-sm ng-scope']//li//a")
     public WebElement loginLink;
 
     /**
-     * Username field
+     * USERNAME FIELD
      */
     @FindBy(xpath = "//input[@id='USER']")
     public WebElement userNameField;
 
     /**
-     * Password field
+     * PASSWORD FIELD
      */
     @FindBy(xpath = "//input[@id='PASSWORD']")
     public WebElement passwordField;
 
     /**
-     * Sign in button
+     * SIGN IN BUTTON
      */
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement signInButton;
 
     /**
-     * Forgot Password link
+     * FORGOT PASSWORD LINK
      */
     @FindBy(xpath = "//a[@class='forgot-password']")
     public WebElement forgotPasswordLink;
 
     /**
-     * Trouble Signing In link
+     * TROUBLE SIGNING IN LINK
      */
     @FindBy(xpath = "//a[text()='Trouble signing in?']")
     public WebElement TroubleSigningInLink;
 
     /**
-     * Clicks on the user's profile drop down
+     * PROFILE DROP DOWN
      */
     @FindBy(xpath = "//button[@id='user-info-dropdown']")
     public WebElement profileDropDown;
 
     /**
-     * Clicks on the profile drop down and selects "Sign Out"
+     * COVID CODE SIGN OUT BUTTON
      */
     @FindBy(xpath = "//a[contains(text(),'Sign Out')]")
     public WebElement covidCodeSignOutButton;
