@@ -41,7 +41,3 @@ public class Search_Scenarios_Steps extends PageInitializer {
         EMStepsImplementation.verifyingContactOptions(option1, option2);
     }
 }
-
-
-
-
