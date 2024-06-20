@@ -2,7 +2,7 @@ Feature: EM Flow Sprint One
   Background: common steps
     Given User is logged in as Primary ITwoE Coordinator "Diego Juarez"
 
-  @ADD_I2E_TECHNICAL_SUPPORT_ROLE @Jira1007 @Regression @JUAREZDS @selenium @Progression
+  @ADD_I2E_TECHNICAL_SUPPORT_ROLE @Jira1007 @Regression @JUAREZDS @selenium
   Scenario: Test Add I2E Technical Support Role
     And User is on Manage I2E Users page
     When User inputs "Mata Rodriguez, Kevin Osmaldo" into the Name field and clicks search
