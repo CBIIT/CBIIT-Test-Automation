@@ -390,4 +390,82 @@ public class EM_Steps_Implementation {
         CucumberLogUtils.playwrightScreenshot(page);
         Assert.assertEquals(actualStringValues, expectedValues);
     }
+
+    /**
+     * This method verifies the tool tip text displayed for the Business Area dropdown.
+     *
+     * @param toolTipText The expected tool tip text to verify.
+     */
+    public static void user_can_verify_business_area_dropdown_tool_tip_text(String toolTipText) {
+        page.locator("label").filter(new Locator.FilterOptions().setHasText("Business Area")).locator("a").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+        assertThat(page.locator("#ngb-tooltip-386")).containsText(toolTipText);
+    }
+
+    /**
+     * Verifies if the option description displayed on the page matches the expected description.
+     *
+     * @param optionHeader The header of the option.
+     * @param expectedOptionText The expected description of the option.
+     */
+    public static void option_contains_the_description_expected(String optionHeader, String expectedOptionText) {
+        String actualOptionText = page.locator("//ul[@class='select2-results__options']//li//span[b[text()='" + optionHeader + "']]//following-sibling::span").innerText();
+        CucumberLogUtils.playwrightScreenshot(page);
+        Assert.assertEquals(actualOptionText, expectedOptionText);
+    }
+
+    /**
+     * Executes the necessary actions when the user selects the "All" option.
+     * This method performs the following steps:
+     * 1. Finds the textbox element with the role "Administrative".
+     * 2. Clicks on the textbox element.
+     * 3. Takes a screenshot using Playwright.
+     * 4. Finds the option element with the role "All" and name "Includes All I2E roles.".
+     * 5. Clicks on the option element.
+     * 6. Takes another screenshot using Playwright.
+     *
+     * Note: This method assumes that the Playwright library is already configured and available.
+     */
+    public static void when_user_selects_all_option() {
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Administrative")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("All Includes All I2E roles.")).click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method allows the user to verify that the administrative option is no longer selected.
+     * It captures a screenshot using CucumberLogUtils.playwrightScreenshot method and asserts that the element
+     * with id "select2-businessArea-select-container" does not contain the text "×All".
+     */
+    public static void user_can_verify_that_administrative_option_is_no_longer_selected() {
+        CucumberLogUtils.playwrightScreenshot(page);
+        assertThat(page.locator("#select2-businessArea-select-container")).containsText("×All");
+    }
+
+    /**
+     * Removes the selected value from the business area dropdown.
+     *
+     * This method clicks on the "Remove all items" option to remove all selected items from the dropdown.
+     * It also captures a screenshot using CucumberLogUtils.playwrightScreenshot() after the value is removed.
+     */
+    public static void user_removes_selected_value_from_business_area_drop_down() {
+        page.getByTitle("Remove all items").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * This method allows the user to verify that the value is no longer present.
+     * It performs the following actions:
+     * 1. Clicks on the "app-business-area-dropdown" locator element.
+     * 2. Takes a screenshot using CucumberLogUtils.playwrightScreenshot method.
+     * 3. Verifies that the "app-business-area-dropdown" locator element does not contain any text.
+     *
+     * @throws AssertionError if the value is still present
+     */
+    public static void user_can_verify_that_the_value_is_no_longer_present() {
+        page.locator("app-business-area-dropdown").getByLabel("").click();
+        CucumberLogUtils.playwrightScreenshot(page);
+        assertThat(page.locator("app-business-area-dropdown")).containsText("");
+    }
 }
