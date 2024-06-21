@@ -119,4 +119,44 @@ public class EMFlowSteps {
     public void the_following_roles_should_display(String valueOne, String valueTwo, String valueThree) {
         EM_Steps_Implementation.the_following_roles_should_display(valueOne, valueTwo, valueThree);
     }
+
+    @When("user can verify Business Area dropdown tool tip text {string}")
+    public void user_can_verify_business_area_dropdown_tool_tip_text(String toolTipText) {
+        EM_Steps_Implementation.user_can_verify_business_area_dropdown_tool_tip_text(toolTipText);
+    }
+
+    @When("user clicks on Business Area drop down")
+    public void user_clicks_on_business_area_drop_down() {
+        page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("All")).click();
+    }
+
+    @Then("{string} option contains the description expected {string}")
+    public void option_contains_the_description_expected(String optionHeader, String expectedOptionText) {
+        EM_Steps_Implementation.option_contains_the_description_expected(optionHeader, expectedOptionText);
+    }
+
+    @When("user selects Administrative option")
+    public void user_selects_administrative_option() {
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName("Administrative Facilitates")).click();
+    }
+
+    @When("when user selects All option")
+    public void when_user_selects_all_option() {
+        EM_Steps_Implementation.when_user_selects_all_option();
+    }
+
+    @Then("user can verify that Administrative option is no longer selected")
+    public void user_can_verify_that_administrative_option_is_no_longer_selected() {
+        EM_Steps_Implementation.user_can_verify_that_administrative_option_is_no_longer_selected();
+    }
+
+    @Then("user Removes selected value from business area drop down")
+    public void user_removes_selected_value_from_business_area_drop_down() {
+        EM_Steps_Implementation.user_removes_selected_value_from_business_area_drop_down();
+    }
+
+    @Then("user can verify that the value is no longer present")
+    public void user_can_verify_that_the_value_is_no_longer_present() {
+        EM_Steps_Implementation.user_can_verify_that_the_value_is_no_longer_present();
+    }
 }
