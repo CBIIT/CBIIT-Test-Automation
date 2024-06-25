@@ -31,6 +31,18 @@ public class ReturningSubmissions_Constants {
     /* COLLABORATIONS NEW SUBMISSION NAME AUTHOR */
     public static final String COLLABORATIONS_NEW_SUBMISSION_NAME_AUTHOR = "TestingAuthorSubmission" + CommonUtils.lastNameRandomizer();
 
+    /* AD HOC DATA CALL NEW SUBMISSION TITLE TEXT BOX */
+    public static final String AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX = "Ad Hoc Data Call New Submission AutomationTest " + CommonUtils.lastNameRandomizer();
+
+    /* AD HOC DATA CALL SUBMISSION POINT OF CONTACT TEXT BOX */
+    public static final String AD_HOC_DATA_CALL_SUBMISSION_POINT_OF_CONTACT_TEXT_BOX = "AD HOC DATA CALL SUBMISSION POINT OF CONTACT TEXT BOX";
+
+    /* AD HOC DATA CALL DESCRIPTION TEXT BOX */
+    public static final String AD_HOC_DATA_CALL_DESCRIPTION_TEXT_BOX = "Testing Description Ad Hoc Data Call Submission";
+
+    /* SUBMISSIONS DOC FIELD DROPDOWN */
+    public static final String SUBMISSIONS_DOC_FIELD_DROPDOWN = "CBIIT";
+
     /* RETURN TO STUFF MEMBER MESSAGE */
     public static final String RETURN_TO_STUFF_MEMBER_MESSAGE = "Return DOC Test to Staff Member";
 
