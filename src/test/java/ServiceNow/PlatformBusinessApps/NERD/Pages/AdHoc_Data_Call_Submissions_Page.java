@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class AdHoc_Data_Call_Submissions_Page {
 
     /**
-     * ------------ AD HIC DATA CALL SUBMISSION PAGE -----------
+     * ------------ AD HOC DATA CALL SUBMISSION PAGE -----------
      */
 
     /** AD HOC DATA CALL SUBMISSION ACCORDION LINK */
