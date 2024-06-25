@@ -2,8 +2,8 @@ name: PLATFORM BUSINESS - CCT CHAT BOT SMOKE TESTS
 
 on:
   schedule:
-    # This corresponds to 6:30 AM EST (10:30 AM UTC)
-    - cron: '30 10 * * *'
+    # This corresponds to 6:30 AM EST (11:30 AM UTC)
+    - cron: '30 11 * * *'
   workflow_dispatch:
     inputs:
       testBrowser:
@@ -66,8 +66,6 @@ jobs:
           git add .
           git commit -m "Publishing cucumber report ${{ github.run_number }}"
           git push -f https://${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:gh-pages
-      - name: Initialize Test Results File
-        run: echo '<h1>CCT CHAT BOT Smoke Test Results</h1>' > cct-smoke-test-results.html
       - name: Update Test Results and Append to Index File
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
