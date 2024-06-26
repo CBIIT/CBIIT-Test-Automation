@@ -1,9 +1,6 @@
 package com.nci.automation.utils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -51,7 +48,16 @@ public class ExcelReader {
 	}
 
 	private Workbook getWorkBook(String excelFilePath) throws IOException, InvalidFormatException {
-		return WorkbookFactory.create(new File(excelFilePath));
+	//	return WorkbookFactory.create(new File(excelFilePath));
+		return WorkbookFactory.create(getFileAsIOStream(excelFilePath));
+	}
+
+	private InputStream getFileAsIOStream(final String fileName) {
+		InputStream ioStream = this.getClass().getClassLoader().getResourceAsStream(fileName);
+		if (ioStream == null) {
+			throw new IllegalArgumentException(fileName + " is not found");
+		}
+		return ioStream;
 	}
 
 	private List<Map<String, String>> readSheet(Sheet sheet) {

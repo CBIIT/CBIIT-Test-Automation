@@ -21,8 +21,7 @@ import appsCommon.PageInitializers.PageInitializer;
 
 public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     String referralValue;
-    String excelSheet = "/Users/" + System.getProperty("user.name")
-            + "/git/CBIIT-Test-Automation/src/main/resources/data.xlsx";
+    String excelSheet = "data.xlsx";
      Map<String, String> currentRow; // Excel Data Reader for FanconiScreener Tab
     Map<String, String> currentRowForCancerHistory; // Excel Data Reader for Cancer History Tab
     Map<String, String> currentRowForAnotherStudy; // Excel Data Reader for Another Study Tab
