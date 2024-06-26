@@ -116,7 +116,7 @@ public class OFFBOARD_StepsImpl {
         BoundingBox fedexLabelNeededFieldBounds = PlaywrightUtils.page.locator(OFFBOARD_Page.cbiit_FedexLabelNeededFieldLocator).boundingBox();
         BoundingBox employeeAddressFieldBounds = PlaywrightUtils.page.locator(OFFBOARD_Page.cbiit_EmployeeAddressFieldLocator).boundingBox();
         if (fedexLabelNeededFieldBounds == null || employeeAddressFieldBounds == null) {
-            throw new Exception("Could not retrieve bounding box for one or both fields.");
+            throw new Exception("Could not find the element location for one or both fields on the page");
         }
         Assert.assertTrue(fedexLabelNeededFieldBounds.y > employeeAddressFieldBounds.y, "The “FedEx Label Needed” field is under “Employee Address” field");
         CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
@@ -148,7 +148,7 @@ public class OFFBOARD_StepsImpl {
         BoundingBox areBoxesNeededForItemsToBeReturnedFieldBounds = PlaywrightUtils.page.locator(OFFBOARD_Page.cbiit_AreBoxesNeededForItemsToBeReturnedFieldLocator).boundingBox();
         BoundingBox fedexLabelNeededFieldBounds = PlaywrightUtils.page.locator(OFFBOARD_Page.cbiit_FedexLabelNeededFieldLocator).boundingBox();
         if (areBoxesNeededForItemsToBeReturnedFieldBounds == null || fedexLabelNeededFieldBounds == null) {
-            throw new Exception("Could not retrieve bounding box for one or both fields.");
+            throw new Exception("Could not find the element location for one or both fields on the page");
         }
         Assert.assertTrue(areBoxesNeededForItemsToBeReturnedFieldBounds.y > fedexLabelNeededFieldBounds.y, "The “Are Boxes Needed for Items to be returned?” field is under “FedEx Label Needed” field");
         CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
