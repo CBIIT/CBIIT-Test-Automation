@@ -47,7 +47,7 @@ public class CBIIT_OFFBOARD_Form_Steps {
     }
 
     @Then("the “FedEx Label Needed” field should be under “Employee Address” field.")
-    public void the_fedexLabelNeeded_field_should_be_under_employee_address_field() throws Exception{
+    public void the_fedexLabelNeeded_field_should_be_under_employee_address_field() {
         OFFBOARD_StepsImpl.the_fedexLabelNeeded_field_should_be_under_employeeAddress_field();
     }
 
@@ -57,7 +57,7 @@ public class CBIIT_OFFBOARD_Form_Steps {
     }
 
     @Then("the “Are Boxes Needed for Items to be returned?” field should be under “FedEx Label Needed” field.")
-    public void the_areBoxesNeededForItemsToBeReturned_field_should_be_under_fedexLabelNeeded() throws  Exception{
+    public void the_areBoxesNeededForItemsToBeReturned_field_should_be_under_fedexLabelNeeded(){
         OFFBOARD_StepsImpl.the_areBoxesNeededForItemsToBeReturned_field_should_be_under_fedexLabelNeeded();
     }
 

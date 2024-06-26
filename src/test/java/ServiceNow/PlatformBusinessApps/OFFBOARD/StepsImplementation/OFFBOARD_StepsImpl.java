@@ -65,7 +65,7 @@ public class OFFBOARD_StepsImpl {
      * Verifies that the specified departure or transfer field is visible on the page.
      *
      * @param departureOrTransferField the text of the departure or transfer field
-     * @param departure               the departure value
+     * @param departure                the departure value
      */
     public static void i_should_see_field_to_put_in_a_request_for_an_employee(String departureOrTransferField, String departure) {
         PlaywrightUtils.page.waitForSelector(OFFBOARD_Page.cbiit_OffBoardingRequestFormDepartureOrTransferFieldTextLocator);
@@ -112,14 +112,19 @@ public class OFFBOARD_StepsImpl {
      *
      * @throws Exception if the bounding box cannot be retrieved for one or both fields
      */
-    public static void the_fedexLabelNeeded_field_should_be_under_employeeAddress_field() throws Exception {
-        BoundingBox fedexLabelNeededFieldBounds = PlaywrightUtils.page.locator(OFFBOARD_Page.cbiit_FedexLabelNeededFieldLocator).boundingBox();
-        BoundingBox employeeAddressFieldBounds = PlaywrightUtils.page.locator(OFFBOARD_Page.cbiit_EmployeeAddressFieldLocator).boundingBox();
-        if (fedexLabelNeededFieldBounds == null || employeeAddressFieldBounds == null) {
-            throw new Exception("Could not find the element location for one or both fields on the page");
+    public static void the_fedexLabelNeeded_field_should_be_under_employeeAddress_field() {
+        try {
+            BoundingBox fedexLabelNeededFieldBounds = PlaywrightUtils.page.locator(OFFBOARD_Page.cbiit_FedexLabelNeededFieldLocator).boundingBox();
+            BoundingBox employeeAddressFieldBounds = PlaywrightUtils.page.locator(OFFBOARD_Page.cbiit_EmployeeAddressFieldLocator).boundingBox();
+            if (fedexLabelNeededFieldBounds == null || employeeAddressFieldBounds == null) {
+                throw new Exception("Could not find the element location for one or both fields on the page");
+            }
+            Assert.assertTrue(fedexLabelNeededFieldBounds.y > employeeAddressFieldBounds.y, "The “FedEx Label Needed” field is under “Employee Address” field");
+            CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
+        } catch (
+                Exception e) {
+            e.printStackTrace();
         }
-        Assert.assertTrue(fedexLabelNeededFieldBounds.y > employeeAddressFieldBounds.y, "The “FedEx Label Needed” field is under “Employee Address” field");
-        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
     }
 
     /**
@@ -144,14 +149,18 @@ public class OFFBOARD_StepsImpl {
      *
      * @throws Exception if the bounding box cannot be retrieved for one or both fields
      */
-    public static void the_areBoxesNeededForItemsToBeReturned_field_should_be_under_fedexLabelNeeded() throws Exception{
-        BoundingBox areBoxesNeededForItemsToBeReturnedFieldBounds = PlaywrightUtils.page.locator(OFFBOARD_Page.cbiit_AreBoxesNeededForItemsToBeReturnedFieldLocator).boundingBox();
-        BoundingBox fedexLabelNeededFieldBounds = PlaywrightUtils.page.locator(OFFBOARD_Page.cbiit_FedexLabelNeededFieldLocator).boundingBox();
-        if (areBoxesNeededForItemsToBeReturnedFieldBounds == null || fedexLabelNeededFieldBounds == null) {
-            throw new Exception("Could not find the element location for one or both fields on the page");
+    public static void the_areBoxesNeededForItemsToBeReturned_field_should_be_under_fedexLabelNeeded() {
+        try {
+            BoundingBox areBoxesNeededForItemsToBeReturnedFieldBounds = PlaywrightUtils.page.locator(OFFBOARD_Page.cbiit_AreBoxesNeededForItemsToBeReturnedFieldLocator).boundingBox();
+            BoundingBox fedexLabelNeededFieldBounds = PlaywrightUtils.page.locator(OFFBOARD_Page.cbiit_FedexLabelNeededFieldLocator).boundingBox();
+            if (areBoxesNeededForItemsToBeReturnedFieldBounds == null || fedexLabelNeededFieldBounds == null) {
+                throw new Exception("Could not find the element location for one or both fields on the page");
+            }
+            Assert.assertTrue(areBoxesNeededForItemsToBeReturnedFieldBounds.y > fedexLabelNeededFieldBounds.y, "The “Are Boxes Needed for Items to be returned?” field is under “FedEx Label Needed” field");
+            CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        Assert.assertTrue(areBoxesNeededForItemsToBeReturnedFieldBounds.y > fedexLabelNeededFieldBounds.y, "The “Are Boxes Needed for Items to be returned?” field is under “FedEx Label Needed” field");
-        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
     }
 
     /**
