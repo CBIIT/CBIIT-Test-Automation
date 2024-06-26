@@ -1,11 +1,11 @@
 Feature: These are the scenarios that are under the Run Scenario tab on Cervical Cancer Prevention
 
-  @Progression @matakevin @NCIATWP-6681
+  @Progression @matakevin @NCIATWP-6681 @attemptWithPW @PlayWright
   Scenario: Implement translation to Spanish
     Given the user is on the CCP home page
     Then the translation drop down is displayed
 
-  @Progression @matakevin @NCIATWP-6966
+  @Progression @matakevin @NCIATWP-6966 @attemptWithPW
     Scenario: About page
     Given the user is on the Cervical CP home page
     Then the navbar reads "Home", "About", "Run Scenario", "Compare Scenario" in order

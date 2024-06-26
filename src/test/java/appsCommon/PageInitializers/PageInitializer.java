@@ -3,6 +3,7 @@ package appsCommon.PageInitializers;
 import AnalysisTools.ACT24.Pages.*;
 import AnalysisTools.ACT24.StepsImpl.ACT24ParticipantStepImpl;
 import AnalysisTools.ACT24.StepsImpl.ACT24ResearcherStepImpl;
+import AnalysisTools.CervicalCP.Pages.CCPRunScenarioPage;
 import AnalysisTools.Comets2.Pages.*;
 import AnalysisTools.CometsAnalytics.Pages.*;
 import AnalysisTools.CometsAnalytics.StepsImplementation.*;
@@ -314,6 +315,9 @@ public class PageInitializer extends WebDriverUtils {
 	/** CProSite instances **/
 	public static CProSiteExplorePage cProSiteExplorePage;
 
+	/** Cervical Cancer Prevention instances **/
+	public static CCPRunScenarioPage ccpRunScenarioPage;
+
 	/** ACT24 instances **/
 	public static ACT24ParticipantPortalPage act24ParticipantPortalPage;
 	public static ACT24ResearcherPortalPage act24ResearcherPortalPage;
@@ -538,6 +542,9 @@ public class PageInitializer extends WebDriverUtils {
 
 		/** GDS Tracking Instance Variables **/
 		gdsLoginPage = new GDSLoginPage();
+
+		/** Cervical Cancer Prevention Instance Variables **/
+		ccpRunScenarioPage = new CCPRunScenarioPage();
 
 		/** LDLink Instance Variables **/
 		ldLinkHomePage = new LDLinkHomePage();

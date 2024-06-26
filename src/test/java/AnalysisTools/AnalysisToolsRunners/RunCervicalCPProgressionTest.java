@@ -8,8 +8,8 @@ import io.cucumber.testng.CucumberOptions;
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         features = "src/test/java/AnalysisTools/CervicalCP/Features",
         glue = "AnalysisTools.CervicalCP.Steps",
-        tags = "@Progression",
-        dryRun = true
+        tags = "@PlayWright",
+        dryRun = false
 )
 
 /*
