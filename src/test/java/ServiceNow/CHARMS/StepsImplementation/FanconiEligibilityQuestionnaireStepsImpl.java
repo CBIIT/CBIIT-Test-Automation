@@ -30,12 +30,10 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
 
     public void resetTestAccountSignIn() throws TestingException {
         if (LocalConfUtils.getProperty("env").equals("test")) {
-            //ServiceNow_Login_Methods.nativeViewSideDoorLogin();
             WebDriverUtils.webDriver.get(
                     "https://service-test.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3Dcde8001587f64a107e87a8a60cbb3598%26sysparm_record_target%3Dsys_script_fix%26sysparm_record_row%3D1%26sysparm_record_rows%3D1173%26sysparm_record_list%3DORDERBYDESCsys_updated_on");
             MiscUtils.sleep(2000);
         } else if (LocalConfUtils.getProperty("env").equals("dev2")) {
-            //ServiceNow_Login_Methods.nativeViewSideDoorLogin();
             WebDriverUtils.webDriver.get(
                     "https://service-dev2.nci.nih.gov/now/nav/ui/classic/params/target/sys_script_fix.do%3Fsys_id%3Dcde8001587f64a107e87a8a60cbb3598%26sysparm_record_target%3Dsys_script_fix%26sysparm_record_row%3D1%26sysparm_record_rows%3D1173%26sysparm_record_list%3DORDERBYDESCsys_updated_on");
             MiscUtils.sleep(2000);
@@ -43,20 +41,28 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
     }
     public void resetTestAccount() {
         if (LocalConfUtils.getProperty("env").equals("test")) {
-            MiscUtils.sleep(2000);
+            MiscUtils.sleep(100);
             CommonUtils.switchToFrame(NativeView_SideDoor_Dashboard_Page.nativeViewiFrame);
             CommonUtils.waitForVisibility(testAccountResetPage.nativeViewRunFixScriptButton);
-            MiscUtils.sleep(2000);
             testAccountResetPage.nativeViewRunFixScriptButton.click();
-            MiscUtils.sleep(1000);
+          //  MiscUtils.sleep(1000);
             CommonUtils.waitForVisibility(testAccountResetPage.nativeViewProceedInBackgroundButton);
             testAccountResetPage.nativeViewProceedInBackgroundButton.click();
+           // MiscUtils.sleep(400);
+            CommonUtils.waitForVisibility(testAccountResetPage.nativeViewCloseButton);
             testAccountResetPage.nativeViewCloseButton.click();
-            MiscUtils.sleep(400);
-            testAccountResetPage.nativeViewProfileButton.click();
-            testAccountResetPage.nativeViewProfileLogoutButton.click();
-            MiscUtils.sleep(10000);
+            MiscUtils.sleep(300);
         }
+    }
+    public void nativeViewProfilelogOut(){
+        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("fanconiLogin"));
+        CommonUtils.waitForVisibility(oktaLoginPage.agreeBtn);
+        oktaLoginPage.agreeBtn.click();
+        CommonUtils.waitForVisibility(fanconiLoginPage.profileDropDownButton);
+        fanconiLoginPage.profileDropDownButton.click();
+        CommonUtils.waitForVisibility(fanconiLoginPage.profileLogOutButton);
+        fanconiLoginPage.profileLogOutButton.click();
+        MiscUtils.sleep(500);
     }
     /* Method to click Eligibility Questionnaire link */
     public void eligibilityQuestionnairelinkClicked() {
@@ -361,10 +367,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         }
     }
     /*****************************************************************/
-    /*
-     * Method to submit additional information regarding participation in other
-     * studies.
-     */
+    /* Method to submit additional information regarding participation in other studies.*/
     /*****************************************************************/
     public void otherMedicalInstitutionDetailsAdded() {
         // Please complete the table below to provide additional information regarding participation in other studies.
@@ -407,10 +410,10 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
                         otherStudyParticipationYear2);
                 k = k + 2;
                 j = j + 2;
-            // Click Next Button
-            CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
+            }
         }
-        }
+        // Click Next Button
+        CharmsUtil.clickOnElement(fanconiEligibilityQuestionnairePage.nextButton);
     }
     /*****************************************************************/
     /* Method to submit Have you been diagnosed with Fanconi anemia? */
@@ -1067,7 +1070,7 @@ public class FanconiEligibilityQuestionnaireStepsImpl extends PageInitializer {
         CommonUtils.maximizeWindow();
     }
     /*****************************************************************/
-    /* Method to Login to the Participant details page in Native View */
+    /*** Method to Login to the Participant details page in Native View ***/
     /*****************************************************************/
     public void loginToParticipantDetailsPageInNativeView() {
         CommonUtils.waitForVisibility(nativeViewHomePage.nativeViewFilterNavigator);

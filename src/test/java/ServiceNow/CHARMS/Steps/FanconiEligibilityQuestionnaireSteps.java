@@ -6,6 +6,8 @@ import appsCommon.PageInitializers.PageInitializer;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 import com.nci.automation.utils.MiscUtils;
+import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.Given;
@@ -16,14 +18,13 @@ import java.io.IOException;
 
 public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
     String consent = System.getProperty("user.name") + "git/CBIIT-Test-Automation/src/main/resources/Family Cohort Study Consent.pdf";
-    /******************************************************************/
-    /************** FANCONI SCREENER SUBMISSION FROM PORTAL ***********/
-    /******************************************************************/
+    /* FANCONI SCREENER SUBMISSION FROM PORTAL */
     @Given("run the Fanconi reset script to reset the accounts")
     public void run_Fanconi_reset_script_to_reset_the_accounts() throws TestingException {
         fanconiEligibilityQuestionnaireStepsImpl.loginToNativeView();
         fanconiEligibilityQuestionnaireStepsImpl.resetTestAccountSignIn();
         fanconiEligibilityQuestionnaireStepsImpl.resetTestAccount();
+        fanconiEligibilityQuestionnaireStepsImpl.nativeViewProfilelogOut();
     }
 
     @Given("All scenarios are submitted")
@@ -86,8 +87,14 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
     public void clicks_the_submit_button() {
         // Click the submit button
         fanconiEligibilityQuestionnaireStepsImpl.clickSubmitButton();
-        // Close the window
-        WebDriverUtils.closeWebDriver();
+        MiscUtils.sleep(700);
+        //LogOut
+        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("fanconiLogin"));
+        CommonUtils.waitForVisibility(fanconiLoginPage.profileDropDownButton);
+        fanconiLoginPage.profileDropDownButton.click();
+        CommonUtils.waitForVisibility(fanconiLoginPage.profileLogOutButton);
+        fanconiLoginPage.profileLogOutButton.click();
+        MiscUtils.sleep(500);
     }
 
     /******************************************************************/

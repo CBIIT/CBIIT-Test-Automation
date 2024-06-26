@@ -7,7 +7,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
   Scenario: Participant fills the Fanconi screener for all different scenarios
     Given All scenarios are submitted
 
-  @jains @FanconiSubmission @CP2-1949 @Regression @Smoke @selenium
+  @jains @FanconiSubmission @CP2-1949 @Regression @selenium @Smoke
   Scenario: Participant fills the Fanconi screener by the Proband for scenario 1
     Given run the Fanconi reset script to reset the accounts
     Given a Participant is on the Fanconi Study login page
@@ -16,40 +16,46 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
     Then fills the Fanconi Eligibility Questionnaire form for scenario1
     Then clicks the submit button
 
-  @jains @FanconiSubmission @CP2-1949 @Regression @Smoke @selenium
+
+  @jains @FanconiSubmission @CP2-1949 @Regression @selenium @Smoke
   Scenario: Participant fills the Fanconi screener by the Proband for scenario 2
+    Given run the Fanconi reset script to reset the accounts
     Given a Participant is on the Fanconi Study login page
     And logs in Fanconi page via Okta with username "charmsras2@yahoo.com" and password "RASTest2023$$"
     And clicks the Fanconi Eligibility Questionnaire widget
     Then fills the Fanconi Eligibility Questionnaire form for scenario2
     Then clicks the submit button
 
-  @jains @FanconiSubmission @CP2-1949 @Regression  @Smoke @selenium
+  @jains @FanconiSubmission @CP2-1949 @Regression @selenium @Smoke
   Scenario: Participant fills the Fanconi screener by the Proband for scenario 3
+    Given run the Fanconi reset script to reset the accounts
     Given a Participant is on the Fanconi Study login page
-    And logs in Fanconi page via Okta with username "charmsras3@yahoo.com" and password "RASTest2023$$"
+    And logs in Fanconi page via Okta with username "charmsras2@yahoo.com" and password "RASTest2023$$"
     And clicks the Fanconi Eligibility Questionnaire widget
     Then fills the Fanconi Eligibility Questionnaire form for scenario3
     Then clicks the submit button
 
-  @jains @FanconiSubmission @CP2-1949 @Regression @Smoke @selenium
+  @jains @FanconiSubmission @CP2-1949 @Regression @selenium @Smoke
   Scenario: Participant fills the Fanconi screener by the Proband for scenario 4
+    Given run the Fanconi reset script to reset the accounts
     Given a Participant is on the Fanconi Study login page
-    And logs in Fanconi page via Okta with username "charmsras4@yahoo.com" and password "RASTest2023$$"
+    And logs in Fanconi page via Okta with username "charmsras2@yahoo.com" and password "RASTest2023$$"
     And clicks the Fanconi Eligibility Questionnaire widget
     Then fills the Fanconi Eligibility Questionnaire form for scenario4
     Then clicks the submit button
 
-  @jains @FanconiSubmission @CP2-1949 @Regression @Smoke @selenium
+  @jains @FanconiSubmission @CP2-1949 @Regression @selenium @Smoke
   Scenario: Participant fills the Fanconi screener by the Proband for scenario 5
+    Given run the Fanconi reset script to reset the accounts
     Given a Participant is on the Fanconi Study login page
-    And logs in Fanconi page via Okta with username "charmsras5@yahoo.com" and password "RASTest2023$$"
+    And logs in Fanconi page via Okta with username "charmsras2@yahoo.com" and password "RASTest2023$$"
     And clicks the Fanconi Eligibility Questionnaire widget
     Then fills the Fanconi Eligibility Questionnaire form for scenario5
     Then clicks the submit button
 
   @jains @FanconiSubmission @CP2-1949 @Regression @selenium
   Scenario: Participant fills the Fanconi screener by the Proband for scenario 6
+    Given run the Fanconi reset script to reset the accounts
     Given a Participant is on the Fanconi Study login page
     And logs in Fanconi page via Okta with username "charmsras1@yahoo.com" and password "RASTest2022$$"
     And clicks the Fanconi Eligibility Questionnaire widget
@@ -58,6 +64,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
 
   @jains @FanconiSubmission @CP2-1949 @Regression @selenium
   Scenario: Participant fills the Fanconi screener by the Proband for scenario 7
+    Given run the Fanconi reset script to reset the accounts
     Given a Participant is on the Fanconi Study login page
     And logs in Fanconi page via Okta with username "charmsras1@yahoo.com" and password "RASTest2022$$"
     And clicks the Fanconi Eligibility Questionnaire widget
@@ -66,6 +73,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
 
   @jains @FanconiSubmission @CP2-1949 @Regression @selenium
   Scenario: Participant fills the Fanconi screener by the Proband for scenario 8
+    Given run the Fanconi reset script to reset the accounts
     Given a Participant is on the Fanconi Study login page
     And logs in Fanconi page via Okta with username "charmsras1@yahoo.com" and password "RASTest2022$$"
     And clicks the Fanconi Eligibility Questionnaire widget
@@ -74,6 +82,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
 
   @jains @FanconiSubmission @CP2-1949 @Regression @selenium
   Scenario: Participant fills the Fanconi screener by the Proxy for scenario 9
+    Given run the Fanconi reset script to reset the accounts
     Given a Participant is on the Fanconi Study login page
     And logs in Fanconi page via Okta with username "charmsras5@yahoo.com" and password "RASTest2023$$"
     And clicks the Fanconi Eligibility Questionnaire widget
@@ -82,6 +91,7 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
 
   @jains @FanconiSubmission @CP2-1949 @Regression @selenium
   Scenario: Participant fills the Fanconi screener by the Proxy for scenario 10
+    Given run the Fanconi reset script to reset the accounts
     Given a Participant is on the Fanconi Study login page
     And logs in Fanconi page via Okta with username "charmsras1@yahoo.com" and password "RASTest2022$$"
     And clicks the Fanconi Eligibility Questionnaire widget

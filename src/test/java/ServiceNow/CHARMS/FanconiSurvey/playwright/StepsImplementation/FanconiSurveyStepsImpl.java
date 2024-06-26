@@ -10,6 +10,38 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 
 /* This method allows the submissions and assertions of the Background Information section questionnaire of the Fanconi Survey.*/
 public class FanconiSurveyStepsImpl {
+    public static void login() {
+        var page = PlaywrightUtils.page;
+        page.navigate(FanconiSurveyLoginPage.FANCONI_SURVEY_URL);
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.LOGIN_BUTTON_LINK)).click();
+        page.getByLabel(FanconiSurveyLoginPage.USERNAME).fill(FanconiSurveyLoginPage.EMAIL);
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.NEXT)).click();
+        page.getByLabel(FanconiSurveyLoginPage.PASSWORD).fill(FanconiSurveyLoginPage.USER_PASSWORD);
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.VERIFY)).click();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.AGREE)).click();
+        assertThat(page.getByText(FanconiSurveyLoginPage.NCI_FAMILY_STUDIES_HUB)).containsText(FanconiSurveyLoginPage.NCI_FAMILY_STUDIES_HUB);
+        assertThat(page.getByText(FanconiSurveyLoginPage.PLEASE_COMPLETE_THE_AVAILABLE)).containsText(FanconiSurveyLoginPage.PLEASE_COMPLETE_THE_AVAILABLE);
+        assertThat(page.getByText(FanconiSurveyLoginPage.ELIGIBILITY_QUESTIONNAIRE).first()).containsText(FanconiSurveyLoginPage.ELIGIBILITY_QUESTIONNAIRE);
+        assertThat(page.locator(FanconiSurveyLoginPage.SELECTOR).filter(new Locator.FilterOptions().setHasText(FanconiSurveyLoginPage.FANCONI_STUDY_SURVEY))).containsText(FanconiSurveyLoginPage.FANCONI_STUDY_SURVEY);
+        assertThat(page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.UPLOAD_ATTACHMENT))).containsText(FanconiSurveyLoginPage.UPLOAD_ATTACHMENT);
+        assertThat(page.getByText(FanconiSurveyLoginPage.IF_YOU_HAVE_ANY_QUESTIONS)).containsText(FanconiSurveyLoginPage.IF_YOU_HAVE_ANY_QUESTIONS);
+        page.locator(FanconiSurveyLoginPage.SELECTOR).filter(new Locator.FilterOptions().setHasText(FanconiSurveyLoginPage.FANCONI_STUDY_SURVEY)).click();
+        assertThat(page.getByRole(AriaRole.BANNER)).containsText(FanconiSurveyLoginPage.NCI_FAMILY_STUDIES_HUB_FANCONI_CANCER);
+        assertThat(page.getByText(FanconiSurveyLoginPage.THANK_YOU_FOR_STARTING)).containsText(FanconiSurveyLoginPage.THANK_YOU_FOR_STARTING);
+        assertThat(page.getByText(FanconiSurveyLoginPage.THIS_IS_A_STUDY)).containsText(FanconiSurveyLoginPage.THIS_IS_A_STUDY);
+        assertThat(page.getByText(FanconiSurveyLoginPage.THIS_QUESTIONNAIRE_MAY_TAKE)).containsText(FanconiSurveyLoginPage.THIS_QUESTIONNAIRE_MAY_TAKE);
+        assertThat(page.getByText(FanconiSurveyLoginPage.NOTE_THE_STUDY_TEAM_REQUESTS)).containsText(FanconiSurveyLoginPage.NOTE_THE_STUDY_TEAM_REQUESTS);
+        assertThat(page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.SURVEY_SECTIONS))).containsText(FanconiSurveyLoginPage.SURVEY_SECTIONS);
+        assertThat(page.getByLabel(FanconiSurveyLoginPage.BACKGROUND_INFORMATION).locator(FanconiSurveyLoginPage.SPAN)).containsText(FanconiSurveyLoginPage.BACKGROUND_INFORMATION);
+        assertThat(page.getByLabel(FanconiSurveyLoginPage.DEMOGRAPHICS).locator(FanconiSurveyLoginPage.SPAN)).containsText(FanconiSurveyLoginPage.DEMOGRAPHICS);
+        assertThat(page.getByLabel(FanconiSurveyLoginPage.MEDICAL_HISTORY, new Page.GetByLabelOptions().setExact(true)).locator(FanconiSurveyLoginPage.SPAN)).containsText(FanconiSurveyLoginPage.MEDICAL_HISTORY);
+        assertThat(page.getByLabel(FanconiSurveyLoginPage.MEDICAL_HISTORY_CONTINUED).locator(FanconiSurveyLoginPage.SPAN)).containsText(FanconiSurveyLoginPage.MEDICAL_HISTORY_CONTINUED);
+        assertThat(page.getByLabel(FanconiSurveyLoginPage.REPRODUCTIVE_HISTORY).locator(FanconiSurveyLoginPage.SPAN)).containsText(FanconiSurveyLoginPage.REPRODUCTIVE_HISTORY);
+        assertThat(page.getByLabel(FanconiSurveyLoginPage.SURGICAL_MEDICATION_AND_OTHER_MEDICAL_HISTORY).locator(FanconiSurveyLoginPage.SPAN)).containsText(FanconiSurveyLoginPage.SURGICAL_MEDICATION_AND_OTHER_MEDICAL_HISTORY);
+        assertThat(page.getByLabel(FanconiSurveyLoginPage.SEXUAL_HISTORY).locator(FanconiSurveyLoginPage.SPAN)).containsText(FanconiSurveyLoginPage.SEXUAL_HISTORY);
+        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
+    }
+
     public static void backgroundInformationSection() {
         var page = PlaywrightUtils.page;
         assertThat(page.getByLabel(FanconiSurveyLoginPage.BACKGROUND_INFORMATION)).containsText(FanconiSurveyLoginPage.BACKGROUND_INFORMATION);
@@ -147,38 +179,6 @@ public class FanconiSurveyStepsImpl {
         page.getByLabel(FanconiSurveyLoginPage.PLEASE_PROVIDE_ANY_ADDITIONAL).fill(FanconiSurveyLoginPage.PLEASE_PROVIDE_ANY_ADDITIONAL_DETAILS);
         assertThat(page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.SUBMIT))).isVisible();
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.SUBMIT)).click();
-    }
-
-    public static void login() {
-        var page = PlaywrightUtils.page;
-        page.navigate(FanconiSurveyLoginPage.FANCONI_SURVEY_URL);
-        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.LOGIN_BUTTON_LINK)).click();
-        page.getByLabel(FanconiSurveyLoginPage.USERNAME).fill(FanconiSurveyLoginPage.EMAIL);
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.NEXT)).click();
-        page.getByLabel(FanconiSurveyLoginPage.PASSWORD).fill(FanconiSurveyLoginPage.USER_PASSWORD);
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.VERIFY)).click();
-        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.AGREE)).click();
-        assertThat(page.getByText(FanconiSurveyLoginPage.NCI_FAMILY_STUDIES_HUB)).containsText(FanconiSurveyLoginPage.NCI_FAMILY_STUDIES_HUB);
-        assertThat(page.getByText(FanconiSurveyLoginPage.PLEASE_COMPLETE_THE_AVAILABLE)).containsText(FanconiSurveyLoginPage.PLEASE_COMPLETE_THE_AVAILABLE);
-        assertThat(page.getByText(FanconiSurveyLoginPage.ELIGIBILITY_QUESTIONNAIRE).first()).containsText(FanconiSurveyLoginPage.ELIGIBILITY_QUESTIONNAIRE);
-        assertThat(page.locator(FanconiSurveyLoginPage.SELECTOR).filter(new Locator.FilterOptions().setHasText(FanconiSurveyLoginPage.FANCONI_STUDY_SURVEY))).containsText(FanconiSurveyLoginPage.FANCONI_STUDY_SURVEY);
-        assertThat(page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.UPLOAD_ATTACHMENT))).containsText(FanconiSurveyLoginPage.UPLOAD_ATTACHMENT);
-        assertThat(page.getByText(FanconiSurveyLoginPage.IF_YOU_HAVE_ANY_QUESTIONS)).containsText(FanconiSurveyLoginPage.IF_YOU_HAVE_ANY_QUESTIONS);
-        page.locator(FanconiSurveyLoginPage.SELECTOR).filter(new Locator.FilterOptions().setHasText(FanconiSurveyLoginPage.FANCONI_STUDY_SURVEY)).click();
-        assertThat(page.getByRole(AriaRole.BANNER)).containsText(FanconiSurveyLoginPage.NCI_FAMILY_STUDIES_HUB_FANCONI_CANCER);
-        assertThat(page.getByText(FanconiSurveyLoginPage.THANK_YOU_FOR_STARTING)).containsText(FanconiSurveyLoginPage.THANK_YOU_FOR_STARTING);
-        assertThat(page.getByText(FanconiSurveyLoginPage.THIS_IS_A_STUDY)).containsText(FanconiSurveyLoginPage.THIS_IS_A_STUDY);
-        assertThat(page.getByText(FanconiSurveyLoginPage.THIS_QUESTIONNAIRE_MAY_TAKE)).containsText(FanconiSurveyLoginPage.THIS_QUESTIONNAIRE_MAY_TAKE);
-        assertThat(page.getByText(FanconiSurveyLoginPage.NOTE_THE_STUDY_TEAM_REQUESTS)).containsText(FanconiSurveyLoginPage.NOTE_THE_STUDY_TEAM_REQUESTS);
-        assertThat(page.getByRole(AriaRole.CELL, new Page.GetByRoleOptions().setName(FanconiSurveyLoginPage.SURVEY_SECTIONS))).containsText(FanconiSurveyLoginPage.SURVEY_SECTIONS);
-        assertThat(page.getByLabel(FanconiSurveyLoginPage.BACKGROUND_INFORMATION).locator(FanconiSurveyLoginPage.SPAN)).containsText(FanconiSurveyLoginPage.BACKGROUND_INFORMATION);
-        assertThat(page.getByLabel(FanconiSurveyLoginPage.DEMOGRAPHICS).locator(FanconiSurveyLoginPage.SPAN)).containsText(FanconiSurveyLoginPage.DEMOGRAPHICS);
-        assertThat(page.getByLabel(FanconiSurveyLoginPage.MEDICAL_HISTORY, new Page.GetByLabelOptions().setExact(true)).locator(FanconiSurveyLoginPage.SPAN)).containsText(FanconiSurveyLoginPage.MEDICAL_HISTORY);
-        assertThat(page.getByLabel(FanconiSurveyLoginPage.MEDICAL_HISTORY_CONTINUED).locator(FanconiSurveyLoginPage.SPAN)).containsText(FanconiSurveyLoginPage.MEDICAL_HISTORY_CONTINUED);
-        assertThat(page.getByLabel(FanconiSurveyLoginPage.REPRODUCTIVE_HISTORY).locator(FanconiSurveyLoginPage.SPAN)).containsText(FanconiSurveyLoginPage.REPRODUCTIVE_HISTORY);
-        assertThat(page.getByLabel(FanconiSurveyLoginPage.SURGICAL_MEDICATION_AND_OTHER_MEDICAL_HISTORY).locator(FanconiSurveyLoginPage.SPAN)).containsText(FanconiSurveyLoginPage.SURGICAL_MEDICATION_AND_OTHER_MEDICAL_HISTORY);
-        assertThat(page.getByLabel(FanconiSurveyLoginPage.SEXUAL_HISTORY).locator(FanconiSurveyLoginPage.SPAN)).containsText(FanconiSurveyLoginPage.SEXUAL_HISTORY);
-        CucumberLogUtils.playwrightScreenshot(PlaywrightUtils.page);
     }
 
     public static void demographicSection() {

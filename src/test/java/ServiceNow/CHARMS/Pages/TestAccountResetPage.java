@@ -15,16 +15,12 @@ public class TestAccountResetPage {
 	@FindElementBy(css = "iframe[title='Main Content']")
 	public static WebElement nativeViewiFrame;
 
-	/* Native View iFrame for Proceed in background button */
-	@FindBy(xpath = "//button[normalize-space()='Proceed in Background']")
-	public WebElement nativeViewIFrameForProceedInBackgroundButton;
-
 	/* Native View Proceed in Background button */
 	@FindBy(xpath = "//button[contains(text(),'Proceed in Background')]")
 	public WebElement nativeViewProceedInBackgroundButton;
 
 	/* Native View Profile button */
-	@FindBy(css = "span[aria-label='Sonika Jain, Available']")
+	@FindBy(css = "span[class='now-avatar-content']")
 	public WebElement nativeViewProfileButton;
 
 	/* Native View profile logout  button */

@@ -11,6 +11,15 @@ public class FanconiLoginPage extends CommonUtils {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);
 	}
 
+
+	/* Profile DropDown Button */
+	@FindBy(xpath = "//i[@class='fa fa-chevron-down user-profile-dropdown']")
+	public WebElement profileDropDownButton;
+
+	/* Profile LogOut Button */
+	@FindBy(xpath = "//a[normalize-space()='Sign Out']")
+	public WebElement profileLogOutButton;
+
 	/* Home Button */
 	@FindBy(xpath = "//a[@class='link']")
 	public WebElement enrollLoginButton;
