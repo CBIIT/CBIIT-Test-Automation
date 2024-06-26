@@ -13,5 +13,3 @@ import io.cucumber.testng.CucumberOptions;
 )
 public class RunESRProgressionTest extends AbstractTestNGCucumberTests{
 }
-
-
