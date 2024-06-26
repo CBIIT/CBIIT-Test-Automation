@@ -36,9 +36,9 @@ public class CBIIT_OFFBOARD_Form_Steps {
         OFFBOARD_StepsImpl.i_open_the_offboarding_request_form();
     }
 
-    @Then("I should see {string} field")
-    public void i_should_see_field(String departureOrTransferField) {
-        OFFBOARD_StepsImpl.i_should_see_field(departureOrTransferField);
+    @Then("I should see {string} field to put in a {string} Request for an employee")
+    public void i_should_see_field_to_put_in_a_request_for_an_employee(String departureOrTransferField, String departure) {
+        OFFBOARD_StepsImpl.i_should_see_field_to_put_in_a_request_for_an_employee(departureOrTransferField, departure);
     }
 
     @Then("If user selects “NO” for the “Is the employee located On Site?” field, then show the “FedEx Label Needed” field.")
@@ -47,13 +47,23 @@ public class CBIIT_OFFBOARD_Form_Steps {
     }
 
     @Then("the “FedEx Label Needed” field should be under “Employee Address” field.")
-    public void the_fedexLabelNeeded_field_should_be_under_employee_address_field() throws Exception{
+    public void the_fedexLabelNeeded_field_should_be_under_employee_address_field() {
         OFFBOARD_StepsImpl.the_fedexLabelNeeded_field_should_be_under_employeeAddress_field();
     }
 
     @Then("If user selects “Yes” for the “FedEx Label Needed” field, then show the “Are Boxes Needed for Items to be returned?” field.")
     public void if_user_selects_yes_for_the_fedexLabelNeeded_field_then_show_the_areBoxesNeededForItemsToBeReturned_field() {
         OFFBOARD_StepsImpl.if_user_selects_yes_for_the_fedexLabelNeeded_field_then_show_the_areBoxesNeededForItemsToBeReturned_field();
+    }
+
+    @Then("the “Are Boxes Needed for Items to be returned?” field should be under “FedEx Label Needed” field.")
+    public void the_areBoxesNeededForItemsToBeReturned_field_should_be_under_fedexLabelNeeded(){
+        OFFBOARD_StepsImpl.the_areBoxesNeededForItemsToBeReturned_field_should_be_under_fedexLabelNeeded();
+    }
+
+    @Then("If user selects “No”, for the “Are Boxes Needed for Items to be returned?” field, then “Number of Boxes Needed?” field does not display")
+    public void if_user_selects_no_for_the_areBoxesNeededForItemsToBeReturned_field_then_numberOfBoxesNeeded_field_does_not_display() {
+        OFFBOARD_StepsImpl.if_user_selects_no_for_the_areBoxesNeededForItemsToBeReturned_field_then_numberOfBoxesNeeded_field_does_not_display();
     }
 
     @Then("If user selects “Yes”, for the “Are Boxes Needed for Items to be returned?” field, then show “Number of Boxes Needed?” field")
@@ -64,5 +74,25 @@ public class CBIIT_OFFBOARD_Form_Steps {
     @Then("If user selects “Yes”, for the “ Hardware Return Ticket Already Created” field , then just show “Hardware Return Ticket Number” field.")
     public void if_user_selects_yes_for_the_hardwareReturnTicketAlreadyCreated_field_then_just_show_hardwareReturnTicketNumber_field() {
         OFFBOARD_StepsImpl.if_user_selects_yes_for_the_hardwareReturnTicketAlreadyCreated_field_then_just_show_hardwareReturnTicketNumber_field();
+    }
+
+    @Then("I should see {string} field to put in a {string} Request")
+    public void i_should_see_field_to_put_in_a_request(String departureOrTransferField, String transfer) {
+        OFFBOARD_StepsImpl.i_should_see_field_to_put_in_a_request(departureOrTransferField, transfer);
+    }
+
+    @Then("If user select “Yes” for the answer to “Is the employee located On Site?” field, show “Onsite Location” field.")
+    public void if_user_select_yes_for_the_answer_to_isTheEmployeeLocatedOnSite_field_show_onsiteLocation_field() {
+        OFFBOARD_StepsImpl.if_user_select_yes_for_the_answer_to_isTheEmployeeLocatedOnSite_field_show_onsiteLocation_field();
+    }
+
+    @Then("If user selects “No”, for the “ Hardware Return Ticket Already Created” field , then show both the “Return Hardware Request” link  and “Hardware Return Ticket Number” field.")
+    public void if_user_selects_no_for_the_hardwareReturnTicketAlreadyCreated_field_then_show_both_the_returnHardwareRequest_link_and_hardwareReturnTicketNumber_field() {
+        OFFBOARD_StepsImpl.if_user_selects_no_for_the_hardwareReturnTicketAlreadyCreated_field_then_show_both_the_returnHardwareRequest_link_and_hardwareReturnTicketNumber_field();
+    }
+
+    @Then("verify that the Hardware Request link URL should be {string}")
+    public void verify_that_the_hardware_request_link_url_should_be(String expectedURL) {
+        OFFBOARD_StepsImpl.verify_that_the_hardware_request_link_url_should_be(expectedURL);
     }
 }
