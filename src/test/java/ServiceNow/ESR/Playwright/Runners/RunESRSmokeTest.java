@@ -1,4 +1,4 @@
-package ServiceNow.ServiceNowRunners;
+package ServiceNow.ESR.Playwright.Runners;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
