@@ -65,6 +65,9 @@ public class OFFBOARD_Page {
     /* CBIIT 'FEDEX LABEL NEEDED' TEXT BOX FIELD LOCATOR  */
     public static String cbiit_FedexLabelNeededTextBoxFieldLocator = "#s2id_sp_formfield_fedex_label a";
 
+    /* CBIIT 'HARDWARE RETURN TICKET ALREADY CREATED' TEXT BOX FIELD LOCATOR  */
+    public static String cbiit_Hardware_Return_Ticket_Already_CreatedTextBoxFieldLocator = "#s2id_sp_formfield_already_created a";
+
     /* CBIIT 'ARE BOXES NEEDED FOR ITEMS TO BE RETURNED' FIELD LOCATOR  */
     public static String cbiit_AreBoxesNeededForItemsToBeReturnedFieldLocator = "#boxes_needed";
 
@@ -74,9 +77,33 @@ public class OFFBOARD_Page {
     /* CBIIT 'NUMBER OF BOXES NEEDED?' TEXT BOX FIELD LOCATOR  */
     public static String cbiit_NumberOfBoxesNeededTextBoxFieldLocator = "#s2id_sp_formfield_boxes_needed a";
 
+    /* CBIIT 'RETURN HARDWARE FORM URL' FIELD LOCATOR  */
+    public static String cbiit_Return_Hardware_Form_URL_FieldLocator = "#hardware_url";
+
     /* CBIIT 'HARDWARE RETURN TICKET NUMBER' FIELD LOCATOR  */
     public static String cbiit_Hardware_Return_Ticket_NumberFieldLocator = "#hardware_ticket_number";
 
     /* CBIIT 'HARDWARE RETURN TICKET NUMBER' TEXT BOX FIELD LOCATOR  */
     public static String cbiit_Hardware_Return_Ticket_NumberTextBoxFieldLocator = "#s2id_autogen10";
+
+    /* CBIIT 'REQUEST DETAILS' LABEL  */
+    public static String cbiit_RequestDetails = "Request Details";
+
+    /* CBIIT 'DATE OF TRANSFER' FIELD LOCATOR  */
+    public static String cbiit_DateOfTransferFieldLocator = "#transfer_date";
+
+    /* CBIIT 'SHOW CALENDAR FOR DATE OF TRANSFER' FIELD LOCATOR  */
+    public static String cbiit_ShowCalendarForDateOfTransferFieldLocator = "Show Calendar for Date of Transfer";
+
+    /* CBIIT 'DATE PICKER IS OPENED' FIELD LOCATOR  */
+    public static String cbiit_DatePickerIsOpenedFieldLocator = "Date picker is opened";
+
+    /* CBIIT 'HN/SAC CODE (TRANSFER TO)' FIELD LOCATOR  */
+    public static String cbiit_HnSacTransferToFieldLocator = "#hnc_sac_code";
+
+    /* CBIIT 'ONSITE LOCATION' FIELD LOCATOR  */
+    public static String cbiit_OnlineLocationFieldLocator = "#s2id_autogen8-label";
+
+    /* CBIIT 'ONSITE LOCATION' FIELD DROP DOWN LOCATOR  */
+    public static String cbiit_OnlineLocationFieldDropDownLocator = "#s2id_sp_formfield_location a";
 }

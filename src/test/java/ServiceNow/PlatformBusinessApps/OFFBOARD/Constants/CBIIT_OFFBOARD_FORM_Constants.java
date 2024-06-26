@@ -90,5 +90,23 @@ public class CBIIT_OFFBOARD_FORM_Constants {
     public static String CBIIT_OFFBOARD_FORM_SUBMIT_BUTTON = "Submit";
 
     /* CBIIT 'HARDWARE RETURN TICKET NUMBER' TEXT BOX VALUE  */
-    public static String cbiit_Hardware_Return_Ticket_NumberTextBoxValue = "NCI-RITM0139815";
+    public static String CBIIT_HARDWARE_RETURN_TICKET_NUMBERTEXTBOXVALUE = "NCI-RITM0139815";
+
+    /* CBIIT "DATE OF TRANSFER" TEXT  */
+    public static String CBIIT_OFFBOARDING_DATE_OF_TRANSFER_TEXT = "Date of Transfer";
+
+    /* CBIIT "HN/SAC CODE (TRANSFER TO)" TEXT  */
+    public static String CBIIT_HN_SAC_CODE_TRANSFER_TO_TEXT = "HN/SAC Code (Transfer to)";
+
+    /* CBIIT "HN/SAC CODE (TRANSFER TO)" TEXT BOX VALUE  */
+    public static String CBIIT_HN_SAC_CODE_TRANSFER_TO_TEXT_BOX_Value = "Test Free Text field &^$%6";
+
+    /* CBIIT "ONSITE LOCATION" TEXT  */
+    public static String CBIIT_ONSITE_LOCATION_TEXT = "Onsite Location";
+
+    /* CBIIT 'ONSITE LOCATION' SELECTED DROP DOWN VALUE  */
+    public static String CBIIT_ONSITE_LOCATION_SELECTED_DROP_DOWN_VALUE = "Pennsylvania";
+
+    /* CBIIT "RETURN HARDWARE FORM URL" TEXT  */
+    public static String CBIIT_RETURN_HARDWARE_FORM_URL_TEXT = "Return Hardware Form URL";
 }

@@ -9,7 +9,7 @@ Feature: SEER User Registration Scenarios
     And submits the registration form
     Then the user is not able to submit the registration form because the State and Zip Code fields are required
 
-  @ODS-284 @bucurgb @Regression @selenium
+  @ODS-284 @bucurgb @Regression @Smoke @selenium
   Scenario: Verifying "Thank you - your registration is complete." page contents
     Given a user is on the SEER Data Access landing page
     When the user enters email address for a Non-Institutional Account
@@ -56,7 +56,7 @@ Feature: SEER User Registration Scenarios
     And the 'SEER Incidence Database' bread crumb displays
     And when clicking, user is directed to "https://seer.cancer.gov/data/"
 
-  @ODS-373 @ODS-386 @ODS-286 @bucurgb @Regression @selenium
+  @ODS-373 @ODS-386 @ODS-286 @bucurgb @Regression @Smoke @selenium
   Scenario: Verifying bread crumbs on "Thank you - your registration is complete." page
     Given a user is on the SEER Data Access landing page
     When user enters email address for a Non-Institutional Account
@@ -65,7 +65,7 @@ Feature: SEER User Registration Scenarios
     Then user is directed to the 'Thank you - your registration is complete.' page
     Then the following breadcrumbs are displayed "Home", "SEER Data & Software", "SEER Incidence Database", "Request SEER Incidence Data", "Submission Confirmation"
 
-  @ODS-372 @ODS-385 @ODS-396 @ODS-399 @bucurgb @Regression @selenium
+  @ODS-372 @ODS-385 @ODS-396 @ODS-399 @bucurgb @Regression @Smoke @selenium
   Scenario: Verifying that ASCII characters including periods and Commas can be used in the address field - Partially
     Given a user is on the SEER Data Access landing page
     When user enter an email address for a Non-Institutional Account
@@ -73,7 +73,7 @@ Feature: SEER User Registration Scenarios
     And submits the registration form
     Then user is directed to the 'Thank you - your registration is complete.' page
 
-  @ODS-370 @ODS-392 @bucurgb @Regression @selenium
+  @ODS-370 @ODS-392 @bucurgb @Regression @Smoke @selenium
   Scenario: Verifying that "Requestors associated with HHS agencies should login with their PIV cards to request the data." is present
     Given a user is on the SEER Data Access landing page
     Then a user should see (which Federal Government Agencies can sign in with a PIV):
@@ -81,7 +81,7 @@ Feature: SEER User Registration Scenarios
     Requestors associated with HHS agencies should login with their PIV cards to request the data.
     """
 
-  @ODS-362 @ODS-345 @ODS-363 @ODS-345 @ODS-363 @ODS-345 @bucurgb @Regression @selenium
+  @ODS-362 @ODS-345 @ODS-363 @ODS-345 @ODS-363 @ODS-345 @bucurgb @Regression @Smoke @selenium
   Scenario: SEER Research Database user access logic cycle
     Given a new user who does not have an active SEER Research Database access request
     When enter email for SEER Research Database and click on the Register for Research Data
