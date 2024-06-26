@@ -3,16 +3,12 @@ package ServiceNow.PlatformBusinessApps.OFFBOARD.StepsImplementation;
 import ServiceNow.PlatformBusinessApps.OFFBOARD.Constants.CBIIT_OFFBOARD_FORM_Constants;
 import ServiceNow.PlatformBusinessApps.OFFBOARD.Pages.NCISP_Page;
 import ServiceNow.PlatformBusinessApps.OFFBOARD.Pages.OFFBOARD_Page;
-import ServiceNow.PlatformBusinessApps.SNOWOBF.Pages.OBF_NCI_NV_Form_Page;
-import ServiceNow.PlatformBusinessApps.SNOWOBF.Pages.OBF_Notifications_Page;
 import appsCommon.PlaywrightUtils.Playwright_ServiceNow_Common_Methods;
-import com.microsoft.playwright.FrameLocator;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.BoundingBox;
 import com.nci.automation.utils.CucumberLogUtils;
-import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.EnvUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import org.testng.Assert;
@@ -21,7 +17,6 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 
 public class OFFBOARD_StepsImpl {
     public static Page returnHardwarePage;
-
     public static String returnHardwarePageUrl;
 
     /**
