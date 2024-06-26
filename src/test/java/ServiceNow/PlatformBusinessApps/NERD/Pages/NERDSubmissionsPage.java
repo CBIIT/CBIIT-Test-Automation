@@ -67,21 +67,21 @@ public class NERDSubmissionsPage extends CommonUtils {
 	@FindBy(xpath = "//div[contains(text(), 'Top Accomplishments')]")
 	public WebElement topAccomplishmentSubmissionsPageLink;
 
-	/** CRS Top Accomplishments Submission Page - Fiscal Year 2019 */
+	/** Submissions Page Select Check Box - Fiscal Year 2019 */
 	@FindBy(xpath = "//*[@id='x_26385_crs_kd_u_kb_fiscal_year']/div[2]/div[1]/md-checkbox")
-	public WebElement topAccomplishmentFiscalYear2019;
+	public WebElement submissionsSelectCheckBoxFiscalYear2019;
 
 	/** CRS Top Accomplishments Submission Page - Fiscal Year 2021 */
 	@FindBy(xpath = "(//div[@class = 'submission-checkboxes ng-scope'])[2]/md-checkbox/div[1]")
 	public WebElement topAccomplishmentFiscalYear2021;
 
-	/** CRS Top Accomplishment Submission Page - Title */
+	/** CRS Submission Page - Title Text Box */
 	@FindBy(xpath = "//input[@id = 'x_26385_crs_kd_u_kb_title']")
-	public WebElement topAccomplishmentTitle;
+	public WebElement submissionsPageTitleTextBox;
 
-	/** CRS Top Accomplishment Submission Research Type */
+	/** Submission Page Research Type Drop Down */
 	@FindBy(xpath = "//select[@id='x_26385_crs_kd_u_kb_research_type']")
-	public WebElement topAccomplishmentResearchType;
+	public WebElement submissionsPageResearchTypeDropDown;
 
 	/** CRS Top Accomplishment Submission Save Button */
 	@FindBy(xpath = "//button[@ng-show='c.save'][2]")
@@ -91,9 +91,9 @@ public class NERDSubmissionsPage extends CommonUtils {
 	@FindBy(xpath = "//button[@ng-click='c.goBacktoSubmissions()']")
 	public WebElement topAccomplishmentNewSubmissionCancelButton;
 
-	/** CRS Top Accomplishment Submission Submit Button */
+	/** New Submissions Page Submit Button */
 	@FindBy(xpath = "//span[normalize-space()='Submit']")
-	public WebElement topAccomplishmentSubmitButton;
+	public WebElement newSubmissionsPageSubmitButton;
 
 	/** CRS Top Submissions */
 	@FindBy(xpath = "(//a[contains(text(), 'Submissions')])[2]")
@@ -232,13 +232,13 @@ public class NERDSubmissionsPage extends CommonUtils {
 	public WebElement confirmReturnNoButton;
 
 	/**
-	 * ------------ END OF COLLABORATION SUBMISSIONSIONS BY DOC PLANNING CONTACT
+	 * ------------ END OF COLLABORATION SUBMISSIONS BY DOC PLANNING CONTACT
 	 * -----------
 	 */
 
 	/**
 	 * ------------ BEGINNING OF CRS Knowledge Management System Submissions Page
-	 * COVID-19 Activities by SUPER USER------------
+	 * -----------------COVID-19 Activities Submission------------
 	 */
 
 	/** COVID-19 Activities Create New Submission Link Button */
@@ -536,6 +536,13 @@ public class NERDSubmissionsPage extends CommonUtils {
 	/** Super User Other Accomplishments Create New Submission Link Button */
 	@FindBy(xpath = "(//a[@ng-click='c.gotoNewEntry(tab.tmpl,$event,tab.category,tab.kb)'][normalize-space()='+ Add New Entry'])[2]")
 	public WebElement superUserOtherAccomplishmentsCreateNewSubmissionButton;
+
+	/**
+	 * CRS Knowledge Management System Submissions Page for NCI Staff Member
+	 * Other Accomplishments Create New Submission link
+	 */
+	@FindBy(xpath = "//div[@role='tablist']//div[2]//div[1]//h4[1]//a[1]//span[1]//div[1]//a[1]")
+	public WebElement otherAccomplishmentsCreateNewSubmissionLink;
 
 	public NERDSubmissionsPage() {
 		PageFactory.initElements(WebDriverUtils.webDriver, this);

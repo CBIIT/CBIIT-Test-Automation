@@ -13,7 +13,7 @@ import static com.nci.automation.web.PlaywrightUtils.page;
 public class Hooks {
 
     private AssertionError assertionError;  // to hold any assertion error during the test
-    static SoftAssert softAssert;
+    public static SoftAssert softAssert;
 
     @Before("@selenium")
     public void startSelenium(Scenario scenario){

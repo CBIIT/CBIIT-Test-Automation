@@ -13,8 +13,8 @@ import io.cucumber.testng.CucumberOptions;
 )
 
 /**
-* This class is annotated with @RunWith(Cucumber.class) and it will run cucumber feature(s).
-*  @author sohilz2
-*/
+ * This class is annotated with @RunWith(Cucumber.class) and it will run cucumber feature(s).
+ *  @author sohilz2
+ */
 public class Run_NERD_Progression_Test extends AbstractTestNGCucumberTests {
 }
