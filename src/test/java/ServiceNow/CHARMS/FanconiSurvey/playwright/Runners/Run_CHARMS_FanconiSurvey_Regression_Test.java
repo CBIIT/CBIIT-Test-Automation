@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
         "rerun:target/failed.txt",
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         features = "src/test/java/ServiceNow/CHARMS/FanconiSurvey/Playwright/Features",
-        glue = "ServiceNow.CHARMS.FanconiSurvey.Playwright.Steps",
+        glue = {"ServiceNow.CHARMS.FanconiSurvey.Playwright.Steps","Hooks"},
         tags = "@Regression",
         dryRun = false
 )
