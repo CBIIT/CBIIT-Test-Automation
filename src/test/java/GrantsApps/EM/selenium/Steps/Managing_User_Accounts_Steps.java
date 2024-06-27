@@ -1,11 +1,20 @@
 package GrantsApps.EM.selenium.Steps;
 
+import GrantsApps.EM.selenium.Pages.ModifyAccountPage;
 import GrantsApps.EM.selenium.StepImplementation.EMStepsImplementation;
 import appsCommon.PageInitializers.PageInitializer;
+import appsCommon.Utils.Dynamic_Locators;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
+import com.nci.automation.web.JavascriptUtils;
+import com.nci.automation.web.WebDriverUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Managing_User_Accounts_Steps extends PageInitializer {
 
@@ -41,7 +50,7 @@ public class Managing_User_Accounts_Steps extends PageInitializer {
 
     @Given("can verify that User's full name is displayed")
     public void can_verify_that_user_s_full_name_is_displayed() {
-      EMStepsImplementation.user_can_verify_that_users_full_name_is_displayed();
+        EMStepsImplementation.user_can_verify_that_users_full_name_is_displayed();
     }
 
     @Given("can verify the respective wording of Full Name tooltip {string}")
@@ -142,5 +151,54 @@ public class Managing_User_Accounts_Steps extends PageInitializer {
     @Given("can verify that Cancel button is enabled")
     public void can_verify_that_cancel_button_is_enabled() {
         Assert.assertTrue(createNewAccountPage.cancelButton.isEnabled());
+    }
+
+    @Given("can verify the Add Role button")
+    public void can_verify_the_add_role_button() {
+        Assert.assertTrue(createNewAccountPage.add_role_button.isDisplayed());
+    }
+
+    @Given("can verify that {string} title is present with tooltip {string}")
+    public void can_verify_that_title_is_present_with_tooltip(String expectedTitle, String text, String expectedToolTipText) {
+        EMStepsImplementation.user_can_verify_that_title_is_present(expectedTitle);
+        webDriver.findElement(By.xpath("//main[@data-select2-id='main']//app-create-account//div//div//div//h5//a//i")).click();
+        String actualToolTipText = Dynamic_Locators.dynamicContainsTextLocator(text).getText();
+        Assert.assertEquals(actualToolTipText, expectedToolTipText);
+    }
+
+    @Given("user can verify that {string} button is enabled")
+    public void user_can_verify_that_button_is_enabled(String text) {
+        JavascriptUtils.scrollIntoView(Dynamic_Locators.dynamicTextLocator(text));
+        boolean isDeactivateAccountButtonEnabled = Dynamic_Locators.dynamicTextLocator(text).isEnabled();
+        Assert.assertTrue(isDeactivateAccountButtonEnabled, "* * * DEACTIVATE BUTTON IS NOT ENABLED * * *");
+    }
+
+    @Given("user can verify that {string} button is disabled")
+    public void user_can_verify_that_button_is_disabled(String text) {
+        boolean isSaveChangesButtonEnabled = Dynamic_Locators.dynamicTextLocator(text).isEnabled();
+        Assert.assertFalse(isSaveChangesButtonEnabled, "* * * SAVE CHANGES BUTTON IS ENABLED * * *");
+    }
+
+    @Given("user can verify that {string} section is displayed")
+    public void user_can_verify_that_section_is_displayed(String text) {
+        boolean isTextDisplayed = Dynamic_Locators.dynamicTextLocator(text).isDisplayed();
+        Assert.assertTrue(isTextDisplayed, "* * * VERIFYING I2E ACCOUNT HISTORY TEXT IS DISPLAYED * * *");
+    }
+
+    @Given("user clicks on Show for {string}")
+    public void user_clicks_on_show_for(String text) {
+        ModifyAccountPage.dynamicShowLinkLocator(text).click();
+    }
+
+    @Given("user verifies Inactive I2E Roles column header names {string}, {string}, {string}, {string}, {string}")
+    public void user_verifies_inactive_i2e_roles_column_header_names(String expectedRoleText, String expectedRoleOrganizationText, String expectedStartDateText, String expectedEndDateText, String expectedUpdateByText) {
+        MiscUtils.sleep(2000);
+        ArrayList<String> expectedValues = new ArrayList<>();
+        expectedValues.add(expectedRoleText);
+        expectedValues.add(expectedRoleOrganizationText);
+        expectedValues.add(expectedStartDateText);
+        expectedValues.add(expectedEndDateText);
+        expectedValues.add(expectedUpdateByText);
+        CommonUtils.comparingTwoLists(modifyAccountPage.actualInactiveI2ERolesColumnHeaderValues, expectedValues);
     }
 }

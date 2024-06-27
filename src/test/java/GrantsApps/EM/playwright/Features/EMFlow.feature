@@ -48,3 +48,19 @@ Feature: EM Flow
     Then user can verify that Administrative option is no longer selected
     And user Removes selected value from business area drop down
     Then user can verify that the value is no longer present
+
+  @HOME_PAGE_FOOTERS @JIRA-944 @JUAREZDS @Regression @playwright
+  Scenario: Verify Home Page Footers
+    Given User is logged in as Primary ITwoE Coordinator - PW
+    Then first and last name "Diego Juarez" of logged in user are displayed
+    Then user can navigate to "IMPAC II" hyperlink and verifies hyperlink URL "https://inside.era.nih.gov/index.htm"
+    Then user can navigate to "Accessibility" hyperlink and verify hyperlink URL "https://www.cancer.gov/policies/accessibility"
+    Then user can navigate to "Disclaimer" hyperlink and verify hyperlink URL "https://www.cancer.gov/policies/disclaimer"
+    Then user can navigate to "FOIA" hyperlink and verify hyperlink URL "https://www.cancer.gov/policies/foia"
+    Then user can navigate to "Privacy & Security" hyperlink and verify hyperlink URL "https://www.cancer.gov/policies/privacy-security"
+    Then user can navigate to "U.S. Department of Health and Human Services" hyperlink and verify hyperlink URL "https://www.hhs.gov/"
+    Then user can navigate to "National Institutes of Health" hyperlink and verify hyperlink URL "https://www.nih.gov/"
+    Then user can navigate to "National Cancer Institute" hyperlink and verifies hyperlink URL "https://www.cancer.gov/"
+    Then user can navigate to "USA.gov" hyperlink and verify hyperlink URL "https://www.usa.gov/"
+    Then user can confirm the application version number "v2.4.0"
+    Then user can verify NIH motto "NIH … Turning Discovery Into Health®"
