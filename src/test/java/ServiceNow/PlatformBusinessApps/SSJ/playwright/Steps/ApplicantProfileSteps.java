@@ -4,6 +4,7 @@ import ServiceNow.PlatformBusinessApps.SSJ.playwright.Pages.Profile_Tab_Page;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.ApplicantProfileStepsImpl;
 import ServiceNow.PlatformBusinessApps.SSJ.playwright.StepsImplementation.Reset_Account_StepsImpl;
 import com.nci.automation.utils.CucumberLogUtils;
+import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.PlaywrightUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -23,6 +24,7 @@ public class ApplicantProfileSteps {
 
     @Given("User inputs {string} into first name field - PW")
     public void user_inputs_into_first_name_field_pw(String firstName) {
+        MiscUtils.sleep(4000);
         PlaywrightUtils.page.locator(Profile_Tab_Page.firstNameTextBox).fill(firstName);
     }
 
