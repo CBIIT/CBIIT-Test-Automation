@@ -12,8 +12,8 @@ public class CreateESRPageStepsImplementation {
      * Navigates to the Create ESR page.
      */
     public static void navigateToCreateESRPage() {
-        PlaywrightUtils.page.getByPlaceholder("Filter").click();
-        PlaywrightUtils.page.getByPlaceholder("Filter").fill(CreateESRPage.ESRText);
+        PlaywrightUtils.page.getByPlaceholder(CreateESRPage.filterBoxNativeView).click();
+        PlaywrightUtils.page.getByPlaceholder(CreateESRPage.filterBoxNativeView).fill(CreateESRPage.ESRText);
         PlaywrightUtils.page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(CreateESRPage.createESRText)).click();
     }
 
@@ -24,8 +24,8 @@ public class CreateESRPageStepsImplementation {
      * @param projectDetailsText  The text to verify for project details.
      */
     public static void verifyTextOnCreateESRPage(String customerDetailsText, String projectDetailsText) {
-        assertThat(PlaywrightUtils.page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel(CreateESRPage.fullESRText)).containsText(customerDetailsText);
-        assertThat(PlaywrightUtils.page.frameLocator("iframe[name=\"gsft_main\"]").getByLabel(CreateESRPage.fullESRText)).containsText(projectDetailsText);
+        assertThat(PlaywrightUtils.page.frameLocator(CreateESRPage.iframeSelector).getByLabel(CreateESRPage.fullESRText)).containsText(customerDetailsText);
+        assertThat(PlaywrightUtils.page.frameLocator(CreateESRPage.iframeSelector).getByLabel(CreateESRPage.fullESRText)).containsText(projectDetailsText);
     }
 
 }
