@@ -46,7 +46,7 @@ Feature: OWM Vacancy Manager Scenarios
     And User clicks "Save" button to save the Basic Vacancy Information
     And User confirms that User is on "Mandatory Statements" section
 
-  @SSJ-69 @juarezds @Regression @playwright @Smoke
+  @SSJ-69 @juarezds @Regression @playwright
   Scenario: Verification of Mandatory Statements section while creating an NCI Vacancy
     When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
@@ -78,7 +78,7 @@ Feature: OWM Vacancy Manager Scenarios
     And User clicks button "Save" - PW
     Then User confirms that User is on "Vacancy Committee" section
 
-  @SSJ-185 @SSJ-306 @juarezds @Regression @playwright @Smoke
+  @SSJ-185 @SSJ-306 @juarezds @Regression @playwright
   Scenario: Verification of Vacancy Committee section while creating an NCI Vacancy Positive Flow
     When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
@@ -113,7 +113,7 @@ Feature: OWM Vacancy Manager Scenarios
     And User clicks button "Save" - PW
     Then User is directed to "Email Templates" section
 
-  @SSJ-11 @Regression @playwright @carberalf @Smoke
+  @SSJ-11 @Regression @playwright @carberalf
   Scenario: Verification of Vacancy Committee section while creating an NCI Vacancy Negative Flow
     When User is on SCSS Landing page and user is "OWM Vacancy Manager" - PW
     And User navigates to tab "Vacancy Dashboard" - PW
