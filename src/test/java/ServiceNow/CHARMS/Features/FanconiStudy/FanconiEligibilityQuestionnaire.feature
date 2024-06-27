@@ -1,6 +1,5 @@
 #Author: @SonikaJain
 Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal Cohort Study Portal
-
   Description:This feature file has different submissions and assertion scenarios for the Fanconi Eligibility Questionnaire by the proband and the legal guardian (Proxy)
 
   @jains @FanconiSubmission @Regression @selenium
@@ -15,7 +14,6 @@ Feature: Fanconi Eligibility Questionnaire-Screener on the Fanconi Longitudinal 
     And clicks the Fanconi Eligibility Questionnaire widget
     Then fills the Fanconi Eligibility Questionnaire form for scenario1
     Then clicks the submit button
-
 
   @jains @FanconiSubmission @CP2-1949 @Regression @selenium @Smoke
   Scenario: Participant fills the Fanconi screener by the Proband for scenario 2

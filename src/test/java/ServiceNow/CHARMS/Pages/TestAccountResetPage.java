@@ -12,7 +12,7 @@ public class TestAccountResetPage {
 	public WebElement nativeViewRunFixScriptButton;
 
 	/* Native View iFrame for Fix Script Run button */
-	@FindElementBy(css = "iframe[title='Main Content']")
+	@FindBy(css = "iframe[title='Main Content']")
 	public static WebElement nativeViewiFrame;
 
 	/* Native View Proceed in Background button */

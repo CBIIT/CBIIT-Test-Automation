@@ -1,14 +1,9 @@
 package ServiceNow.CHARMS.Steps;
 
-import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
-import ServiceNow.CHARMS.Utils.CharmsUtil;
 import appsCommon.PageInitializers.PageInitializer;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 import com.nci.automation.utils.MiscUtils;
-import com.nci.automation.web.CommonUtils;
-import com.nci.automation.web.EnvUtils;
-import com.nci.automation.web.WebDriverUtils;
 import com.nci.automation.xceptions.TestingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -17,8 +12,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
-    String consent = System.getProperty("user.name") + "git/CBIIT-Test-Automation/src/main/resources/Family Cohort Study Consent.pdf";
-    /* FANCONI SCREENER SUBMISSION FROM PORTAL */
     @Given("run the Fanconi reset script to reset the accounts")
     public void run_Fanconi_reset_script_to_reset_the_accounts() throws TestingException {
         fanconiEligibilityQuestionnaireStepsImpl.loginToNativeView();
@@ -85,56 +78,31 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
 
     @Then("clicks the submit button")
     public void clicks_the_submit_button() {
-        // Click the submit button
         fanconiEligibilityQuestionnaireStepsImpl.clickSubmitButton();
-        MiscUtils.sleep(700);
-        //LogOut
-        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("fanconiLogin"));
-        CommonUtils.waitForVisibility(fanconiLoginPage.profileDropDownButton);
-        fanconiLoginPage.profileDropDownButton.click();
-        CommonUtils.waitForVisibility(fanconiLoginPage.profileLogOutButton);
-        fanconiLoginPage.profileLogOutButton.click();
-        MiscUtils.sleep(500);
     }
 
-    /******************************************************************/
-    /************** FANCONI SCREENER NATIVE VIEW ASSERTION *************/
-    /******************************************************************/
     @Given("the study nurse log in Native View")
     public void the_study_nurse_log_in_Native_View() throws InvalidFormatException, IOException, TestingException {
-        // Logging into native view
         fanconiEligibilityQuestionnaireStepsImpl.loginToNativeView();
-        // Logging into the Participant details page in Native View
         fanconiEligibilityQuestionnaireStepsImpl.loginToParticipantDetailsPageInNativeView();
     }
-    /*********************************************************************/
-    /******** PARTICIPANT DETAILS PAGE IN NATIVE VIEW ASSERTIONS ********/
-    /*********************************************************************/
+
     @Then("data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page for all scenarios")
     public void data_submitted_via_the_Fanconi_Eligibility_Questionnaire_is_verified_in_Participant_Details_page_for_all_scenarios()
             throws InvalidFormatException, IOException, TestingException {
-        // Data verification in Participant Details page for all the scenarios
-        for (int i = 0; i <= 9; i++) {
-            fanconiEligibilityQuestionnaireStepsImpl.participantDetailPageAssertion(i);
-            CharmsUtil.clickOnElement(CHARMSParticipantDetailsPage.nVAllParticipantDetailsBackButton);
-        }
+        fanconiEligibilityQuestionnaireStepsImpl.allScenariosParticipantDetailPageAssertion();
     }
 
     @Then("data submitted via the Fanconi Eligibility Questionnaire is verified in Participant Details page for each scenario")
     public void data_submitted_via_the_Fanconi_Eligibility_Questionnaire_is_verified_in_Participant_Details_page_for_each_scenario()
             throws InvalidFormatException, IOException, TestingException {
-        // rowcount is the scenario num
         int rowcount = 0;
         fanconiEligibilityQuestionnaireStepsImpl.participantDetailPageAssertion(rowcount);
     }
-    /*********************************************************************/
-    /***** FANCONI STUDY SCREENER PAGE IN NATIVE VIEW ASSERTIONS *********/
-    /*********************************************************************/
+
     @Given("the study nurse log in Native View and go to Study Screener page")
     public void the_study_nurse_log_in_native_view_and_go_to_study_screener_page() {
-        // Logging into native view
         fanconiEligibilityQuestionnaireStepsImpl.loginToNativeView();
-        // Login to the All referral list view in Native View
         fanconiEligibilityQuestionnaireStepsImpl.loginToFanconiStudyPageInNativeView();
     }
 
@@ -142,10 +110,7 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
     public void data_submitted_via_the_Fanconi_Eligibility_Questionnaire_is_verified_in_Fanconi_Study_Screener_page_for_all_scenarios()
             throws InvalidFormatException, IOException, TestingException {
         for (int i = 0; i <= 9; i++) {
-            // Log into the Fanconi study page by clicking the Preview button in All
-            // referral list view page
             fanconiEligibilityQuestionnaireStepsImpl.fanconiStudyPreviewRecordClicked(i);
-            // Fanconi Screener page verification
             fanconiEligibilityQuestionnaireStepsImpl.fanconiStudyPageAssertions(i);
             fanconiScreenerNVPage.nVFScreenerBackButton.click();
             MiscUtils.sleep(2000);
@@ -164,16 +129,13 @@ public class FanconiEligibilityQuestionnaireSteps extends PageInitializer {
     @Then("data submitted is verified in Fanconi Study page")
     public void data_submitted_is_verified_in_fanconi_study_page()
             throws InvalidFormatException, IOException, TestingException {
-        // Participant complete Fanconi Study page is verified in SN
         fanconiEligibilityQuestionnaireStepsImpl.fanconiStudyCompleteAssertion(0);
     }
 
     @Then("consent in Fanconi is verified")
     public void consent_in_Fanconi_is_verified() {
         int rowcount = 1;
-        /* Click the Participant details Record */
         fanconiEligibilityQuestionnaireStepsImpl.participantDetailRecordClicked(rowcount);
-        // Participant Consent Assent Table is verified
         fanconiEligibilityQuestionnaireStepsImpl.fanconiConsentAssertionOnFanconiStudyPage(rowcount);
     }
 }
