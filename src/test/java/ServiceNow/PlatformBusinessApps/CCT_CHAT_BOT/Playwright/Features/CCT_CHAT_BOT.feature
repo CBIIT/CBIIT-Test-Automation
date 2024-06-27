@@ -1,7 +1,7 @@
 Feature: CCT CHAT BOT Scenarios
   Description: This Feature file contains CCT CHAT BOT Scenarios from Service Now Projects Board
 
-  @SNOWPROJ-142 @Chaudhryma @Regression @playwright
+  @SNOWPROJ-142 @Chaudhryma @Regression @Smoke @playwright
   Scenario: Test 1: CCT- Add additional K12 Link to Chat Bot logic
     Given the user opens the Find Funding Chatbot on the NV
     When selects Yes to Q1 regarding finding funding opportunities
@@ -12,7 +12,7 @@ Feature: CCT CHAT BOT Scenarios
     And the link to Career Development Award for Community Oncology and Prevention Research (K12) PI "https://www.cancer.gov/grants-training/training/funding/k12-mccaskill-stevens" should be clickable
     And the link should open in a new tab
 
-  @SNOWPROJ-142 @Chaudhryma @Regression @playwright
+  @SNOWPROJ-142 @Chaudhryma @Regression @Smoke @playwright
   Scenario: Test 2: CCT- Add additional K12 Link to Chat Bot logic
     Given the user opens the Find Funding Chatbot on the NV
     When selects Yes to Q1 regarding finding funding opportunities

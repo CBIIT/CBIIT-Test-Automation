@@ -69,4 +69,7 @@ public class NCI_Staff_Members_Constants {
 
     /* Buttons ARIA HIDDEN ATTRIBUTE */
     public static final String buttons_ARIA_HIDDEN_ATTRIBUTE  = "aria-hidden";
+
+    /* AD HOC DATA CALL SUBMISSION VIEW RECORD CATEGORY VALUE  */
+    public static final String AD_HOC_DATA_CALL_SUBMISSION_VIEW_RECORD_CATEGORY_VALUE = "Ad Hoc Data Call";
 }
