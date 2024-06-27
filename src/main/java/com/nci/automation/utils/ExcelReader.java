@@ -17,7 +17,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.ss.util.NumberToTextConverter;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-/***
+/**
  * 
  * @author juarezds
  *
@@ -48,7 +48,6 @@ public class ExcelReader {
 	}
 
 	private Workbook getWorkBook(String excelFilePath) throws IOException, InvalidFormatException {
-	//	return WorkbookFactory.create(new File(excelFilePath));
 		return WorkbookFactory.create(getFileAsIOStream(excelFilePath));
 	}
 

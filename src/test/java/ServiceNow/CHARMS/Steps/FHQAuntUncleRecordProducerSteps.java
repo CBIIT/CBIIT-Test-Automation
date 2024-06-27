@@ -1,7 +1,6 @@
 package ServiceNow.CHARMS.Steps;
 
 import java.util.ArrayList;
-
 import org.junit.Assert;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;

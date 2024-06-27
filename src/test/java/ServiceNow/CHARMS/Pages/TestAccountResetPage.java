@@ -1,12 +1,12 @@
 package ServiceNow.CHARMS.Pages;
 
-import io.github.sukgu.support.FindElementBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.nci.automation.web.WebDriverUtils;
 
 public class TestAccountResetPage {
+
 	/* Native View Run Fix Script button*/
 	@FindBy(xpath = "(//button[contains(text(),'Run Fix Script')])[1]")
 	public WebElement nativeViewRunFixScriptButton;
