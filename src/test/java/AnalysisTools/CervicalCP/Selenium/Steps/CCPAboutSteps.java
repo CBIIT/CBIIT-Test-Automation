@@ -1,4 +1,4 @@
-package AnalysisTools.CervicalCP.Steps;
+package AnalysisTools.CervicalCP.Selenium.Steps;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

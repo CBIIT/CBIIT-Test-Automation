@@ -1,4 +1,4 @@
-package AnalysisTools.CervicalCP.Pages;
+package AnalysisTools.CervicalCP.Selenium.Pages;
 
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.WebDriverUtils;

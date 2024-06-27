@@ -1,4 +1,4 @@
-package AnalysisTools.CervicalCP.Steps;
+package AnalysisTools.CervicalCP.Playwright.Steps;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

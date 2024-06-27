@@ -1,4 +1,4 @@
-package AnalysisTools.CervicalCP.Steps;
+package AnalysisTools.CervicalCP.Selenium.Steps;
 
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.web.EnvUtils;
