@@ -5,41 +5,42 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import java.util.List;
 
 public class ModifyAccountPage {
 
-    /* ACTUAL INACTIVE I2E ROLES COLUMN HEADER VALUES */
+    /**
+     * ACTUAL INACTIVE I2E ROLES COLUMN HEADER VALUES
+     */
     @FindBy(xpath = "(//thead)[3]/tr/th")
     public List<WebElement> actualInactiveI2ERolesColumnHeaderValues;
 
-    /*
-    ACTRUAL Inactive Cancer Activities COLUMN HEADER VALUES
+    /**
+     * ACTUAL INACTIVE CANCER ACTIVITIES COLUMN HEADER VALUES
      */
     @FindBy(xpath = "(//thead)[4]/tr/th")
     public List<WebElement> actualInactiveCancerActivitiesValues;
 
-    /*
-    ACTUAL Change History COLUMN HEADER VALUES
+    /**
+     * ACTUAL CHANGE HISTORY COLUMN HEADER VALUES
      */
     @FindBy(xpath = "(//thead)[5]/tr/th")
     public List<WebElement> actualChangeHistoryValues;
 
-    /*
-    Cancer Activity Monitors (Optional) TOOLTIP
+    /**
+     * CANCER ACTIVITY MONITORS (OPTIONAL) TOOLTIP
      */
     @FindBy(xpath = "//main[@data-select2-id='main']//app-create-account//div//div//div//h5//a//i")
     public WebElement cancerActivityMonitorsToolTip;
 
     /**
-     * Inactive I2E Roles TABLE COLUMN HEADERS
+     * INACTIVE I2E ROLES TABLE COLUMN HEADERS
      */
     @FindBy(xpath = "(//tbody)[4]/tr/td[3]")
     public List<WebElement> inactiveI2ERolesTableColumnHeaders;
 
     /**
-     * Change History DATE VALUES
+     * CHANGE HISTORY DATE VALUES
      */
     @FindBy(xpath = "(//tbody)[6]/tr/td[1]")
     public List<WebElement> changeHistoryDateValues;
