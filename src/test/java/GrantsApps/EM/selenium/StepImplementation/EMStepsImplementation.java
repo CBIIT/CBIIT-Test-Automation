@@ -1,6 +1,7 @@
 package GrantsApps.EM.selenium.StepImplementation;
 
 import GrantsApps.EM.selenium.Pages.ManageI2EUsersPage;
+import GrantsApps.EM.selenium.Pages.ModifyAccountPage;
 import GrantsApps.EM.selenium.Utils.EM_Constants;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Utils.Dynamic_Locators;
@@ -15,8 +16,12 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class EMStepsImplementation extends PageInitializer {
 
@@ -190,6 +195,7 @@ public class EMStepsImplementation extends PageInitializer {
         manageI2EUsersPage.i2eAccountStatusDropDown.click();
         CommonUtils.selectValueFromBootStrapDropDown(manageI2EUsersPage.i2eAccountStatusValues, text);
         MiscUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
     }
 
     /**
@@ -204,6 +210,7 @@ public class EMStepsImplementation extends PageInitializer {
         MiscUtils.sleep(5000);
         JavascriptUtils.scrollIntoView(manageI2EUsersPage.createButton);
         expectedNEDname = JavascriptUtils.getTextUsingJS(manageI2EUsersPage.fullNEDName);
+        CucumberLogUtils.logScreenshot();
     }
 
     /**
@@ -217,6 +224,7 @@ public class EMStepsImplementation extends PageInitializer {
         JavascriptUtils.scrollIntoView(manageI2EUsersPage.createButton);
         JavascriptUtils.clickByJS(manageI2EUsersPage.createButton);
         MiscUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
     }
 
     /**
@@ -226,9 +234,9 @@ public class EMStepsImplementation extends PageInitializer {
      */
     public static void user_can_verify_the_page_name_is(String expectedPageName) {
         String actualPageName = createNewAccountPage.createNewAccountTitle.getText();
+        CucumberLogUtils.logScreenshot();
         Assert.assertEquals(actualPageName, expectedPageName);
         MiscUtils.sleep(2000);
-        CucumberLogUtils.logScreenshot();
     }
 
     /**
@@ -241,6 +249,7 @@ public class EMStepsImplementation extends PageInitializer {
      */
     public static void user_can_verify_that_users_full_name_is_displayed() {
         String actual_NED_full_name = createNewAccountPage.full_NED_name.getText();
+        CucumberLogUtils.logScreenshot();
         Assert.assertEquals(actual_NED_full_name, expectedNEDname);
     }
 
@@ -253,6 +262,7 @@ public class EMStepsImplementation extends PageInitializer {
         createNewAccountPage.tooltipNEDnameLink.click();
         MiscUtils.sleep(1000);
         String actualWording_of_full_name_tooltip = createNewAccountPage.tooltipNEDnameText.getText();
+        CucumberLogUtils.logScreenshot();
         Assert.assertEquals(actualWording_of_full_name_tooltip, expectedWording_of_full_name_tooltip);
     }
 
@@ -263,6 +273,7 @@ public class EMStepsImplementation extends PageInitializer {
      */
     public static void user_can_verify_that_the_following_fields_have_values_displayed_nih_network_id_e_mail_ned_organization_sac_code_ned_classification() {
         boolean is_NIH_network_id_displayed = createNewAccountPage.nihNetworkID.isDisplayed();
+        CucumberLogUtils.logScreenshot();
         Assert.assertTrue(is_NIH_network_id_displayed, "-- VERIFYING THAT NIH NETWORK ID VALUE IS DISPLAYED --");
         boolean is_email_displayed = createNewAccountPage.email.isDisplayed();
         Assert.assertTrue(is_email_displayed, "--VERIFYING THAT EMAIL VALUE IS DISPLAYED --");
@@ -272,7 +283,6 @@ public class EMStepsImplementation extends PageInitializer {
         Assert.assertTrue(is_SAC_code_displayed, "--VERIFYING THAT SAC CODE VALUE IS DISPLAYED --");
         boolean is_NED_classification_displayed = createNewAccountPage.ned_classification.isDisplayed();
         Assert.assertTrue(is_NED_classification_displayed, "--VERIFYING THAT NED CLASSIFICATION VALUE IS DISPLAYED --");
-        CucumberLogUtils.logScreenshot();
     }
 
     /**
@@ -282,6 +292,7 @@ public class EMStepsImplementation extends PageInitializer {
      */
     public static void user_can_verify_that_account_status_is_set_to(String expectedAccountStatus) {
         String actualAccountStatus = createNewAccountPage.account_status.getText();
+        CucumberLogUtils.logScreenshot();
         Assert.assertEquals(actualAccountStatus, expectedAccountStatus);
     }
 
@@ -292,8 +303,8 @@ public class EMStepsImplementation extends PageInitializer {
      */
     public static void user_can_verify_the_table_title_is(String expectedI2ErolesTableTitle) {
         String actualI2ErolesTableTitle = createNewAccountPage.active_I2E_roles_table_title.getText();
-        Assert.assertEquals(actualI2ErolesTableTitle, expectedI2ErolesTableTitle);
         CucumberLogUtils.logScreenshot();
+        Assert.assertEquals(actualI2ErolesTableTitle, expectedI2ErolesTableTitle);
     }
 
     /**
@@ -338,8 +349,8 @@ public class EMStepsImplementation extends PageInitializer {
             String actualHeader = header.getText();
             actualHeaders.add(actualHeader);
         }
-        Assert.assertEquals(actualHeaders, expectedHeaders);
         CucumberLogUtils.logScreenshot();
+        Assert.assertEquals(actualHeaders, expectedHeaders);
     }
 
     /**
@@ -822,6 +833,200 @@ public class EMStepsImplementation extends PageInitializer {
      */
     public static void user_clicks_Add_Role_button() {
         CommonUtils.clickOnElement(accountDetailsPage.addRole);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Clicks the "Show Advanced Filters" button on the manageI2EUsersPage and logs a screenshot using the CucumberLogUtils.
+     */
+    public static void clicks_show_advanced_filters() {
+        manageI2EUsersPage.showAdvancedFilters.click();
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Performs a search action on the Manage I2E Users page.
+     * This method clicks the search button and logs a screenshot.
+     */
+    public static void searches() {
+        manageI2EUsersPage.searchButtonI2ESearch.click();
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method verifies if the "Add Role" button is displayed on the create new account page.
+     * It logs a screenshot and asserts that the button is displayed.
+     */
+    public static void can_verify_the_add_role_button() {
+        CucumberLogUtils.logScreenshot();
+        Assert.assertTrue(createNewAccountPage.add_role_button.isDisplayed());
+    }
+
+    /**
+     * Verifies that a title is present with a specific tooltip text.
+     *
+     * @param expectedTitle       The expected title of the element.
+     * @param text                The text used to locate the element.
+     * @param expectedToolTipText The expected tooltip text of the element.
+     */
+    public static void can_verify_that_title_is_present_with_tooltip(String expectedTitle, String text, String expectedToolTipText) {
+        EMStepsImplementation.user_can_verify_that_title_is_present(expectedTitle);
+        CommonUtils.waitForClickability(modifyAccountPage.cancerActivityMonitorsToolTip);
+        modifyAccountPage.cancerActivityMonitorsToolTip.click();
+        CommonUtils.waitForVisibility(Dynamic_Locators.dynamicContainsTextLocator(text));
+        String actualToolTipText = Dynamic_Locators.dynamicContainsTextLocator(text).getText();
+        CucumberLogUtils.logScreenshot();
+        Assert.assertEquals(actualToolTipText, expectedToolTipText);
+    }
+
+    /**
+     * Verifies if a button with the specified text is enabled.
+     *
+     * @param text the text to search for the button
+     *
+     */
+    public static void user_can_verify_that_button_is_enabled(String text) {
+        JavascriptUtils.scrollIntoView(Dynamic_Locators.dynamicTextLocator(text));
+        boolean isDeactivateAccountButtonEnabled = Dynamic_Locators.dynamicTextLocator(text).isEnabled();
+        CucumberLogUtils.logScreenshot();
+        Assert.assertTrue(isDeactivateAccountButtonEnabled, "* * * DEACTIVATE BUTTON IS NOT ENABLED * * *");
+    }
+
+    /**
+     * This method allows the user to verify whether a button is disabled or not.
+     *
+     * @param text the text of the button to verify
+     */
+    public static void user_can_verify_that_button_is_disabled(String text) {
+        boolean isSaveChangesButtonEnabled = Dynamic_Locators.dynamicTextLocator(text).isEnabled();
+        CucumberLogUtils.logScreenshot();
+        Assert.assertFalse(isSaveChangesButtonEnabled, "* * * SAVE CHANGES BUTTON IS ENABLED * * *");
+    }
+
+    /**
+     * Verifies that a section is displayed based on the given text.
+     *
+     * @param text The text to find and verify if it is displayed.
+     */
+    public static void user_can_verify_that_section_is_displayed(String text) {
+        boolean isTextDisplayed = Dynamic_Locators.dynamicTextLocator(text).isDisplayed();
+        CucumberLogUtils.logScreenshot();
+        Assert.assertTrue(isTextDisplayed, "* * * VERIFYING I2E ACCOUNT HISTORY TEXT IS DISPLAYED * * *");
+    }
+
+    /**
+     * This method simulates a user's click on the "Show" button for a specific element identified by the given text.
+     *
+     * @param text The text identifying the element for which the "Show" button needs to be clicked.
+     */
+    public static void user_clicks_on_show_for(String text) {
+        JavascriptUtils.scrollIntoView(ModifyAccountPage.dynamicShowLinkLocator(text));
+        ModifyAccountPage.dynamicShowLinkLocator(text).click();
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Verifies the column header names of the inactive I2E roles table in the user interface.
+     *
+     * @param expectedRoleText           The expected column header name for the Role.
+     * @param expectedRoleOrganizationText   The expected column header name for the Role Organization.
+     * @param expectedStartDateText      The expected column header name for the Start Date.
+     * @param expectedEndDateText        The expected column header name for the End Date.
+     * @param expectedUpdateByText       The expected column header name for the Updated By.
+     */
+    public static void user_verifies_inactive_i2e_roles_column_header_names(String expectedRoleText, String expectedRoleOrganizationText, String expectedStartDateText, String expectedEndDateText, String expectedUpdateByText) {
+        MiscUtils.sleep(2000);
+        ArrayList<String> expectedValues = new ArrayList<>();
+        expectedValues.add(expectedRoleText);
+        expectedValues.add(expectedRoleOrganizationText);
+        expectedValues.add(expectedStartDateText);
+        expectedValues.add(expectedEndDateText);
+        expectedValues.add(expectedUpdateByText);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.comparingTwoLists(modifyAccountPage.actualInactiveI2ERolesColumnHeaderValues, expectedValues);
+    }
+
+
+    /**
+     * This method verifies that the start dates are displayed in descending order.
+     * It extracts the dates from the column headers of the inactive I2E roles table on the modify account page.
+     * It compares each date with the next date in the list to ensure that they are in descending order.
+     * If any pair of dates is not in descending order, an asterisked message is logged.
+     * @throws AssertionError if the start dates are not in descending order
+     */
+    public static void user_verifies_that_start_dates_are_displayed_in_descending_order() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        List<LocalDate> dates = modifyAccountPage.inactiveI2ERolesTableColumnHeaders.stream()
+                .map(e -> LocalDate.parse(e.getText(), formatter))
+                .collect(Collectors.toList());
+        CucumberLogUtils.logScreenshot();
+        for (int i = 0; i < dates.size() - 1; i++) {
+            Assert.assertTrue(dates.get(i).compareTo(dates.get(i + 1)) >= 0, "* * * DATES ARE NOT IN DESCENDING ORDER * * *");
+        }
+    }
+
+    /**
+     * Verifies column header names for inactive cancer activities.
+     *
+     * @param expectedCancerActivityText The expected column header name for cancer activity.
+     * @param expectedTypeText The expected column header name for type.
+     * @param expectedStartDateText The expected column header name for start date.
+     * @param expectedEndDateText The expected column header name for end date.
+     * @param expectedUpdatedByText The expected column header name for updated by.
+     */
+    public static void user_verifies_inactive_cancer_activities_column_header_names(String expectedCancerActivityText, String expectedTypeText, String expectedStartDateText, String expectedEndDateText, String expectedUpdatedByText) {
+        MiscUtils.sleep(2000);
+        ArrayList<String> expectedValues = new ArrayList<>();
+        expectedValues.add(expectedCancerActivityText);
+        expectedValues.add(expectedTypeText);
+        expectedValues.add(expectedStartDateText);
+        expectedValues.add(expectedEndDateText);
+        expectedValues.add(expectedUpdatedByText);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.comparingTwoLists(modifyAccountPage.actualInactiveCancerActivitiesValues, expectedValues);
+    }
+
+    /**
+     * Verifies the column header names for change history.
+     *
+     * @param expectedDateText The expected header name for the date column.
+     * @param expectedChangesMadeText The expected header name for the changes made column.
+     * @param expectedUpdatedByText The expected header name for the updated by column.
+     */
+    public static void user_verifies_change_history_column_header_names(String expectedDateText, String expectedChangesMadeText, String expectedUpdatedByText) {
+        MiscUtils.sleep(2000);
+        ArrayList<String> expectedValues = new ArrayList<>();
+        expectedValues.add(expectedDateText);
+        expectedValues.add(expectedChangesMadeText);
+        expectedValues.add(expectedUpdatedByText);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.comparingTwoLists(modifyAccountPage.actualChangeHistoryValues, expectedValues);
+    }
+
+    /**
+     * Verifies that start dates for change history table are displayed in descending order.
+     */
+    public static void user_verifies_that_start_dates_for_change_history_table_are_displayed_in_descending_order() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        List<LocalDate> dates = modifyAccountPage.changeHistoryDateValues.stream()
+                .map(e -> LocalDate.parse(e.getText(), formatter))
+                .collect(Collectors.toList());
+        CucumberLogUtils.logScreenshot();
+        for (int i = 0; i < dates.size() - 1; i++) {
+            Assert.assertTrue(dates.get(i).compareTo(dates.get(i + 1)) >= 0, "* * * DATES ARE NOT IN DESCENDING ORDER * * *");
+        }
+    }
+
+    /**
+     * Scrolls the page to the specified hyperlink element and clicks on it.
+     * Takes a string parameter to identify the hyperlink by its text.
+     * After clicking on the hyperlink, it logs a screenshot using CucumberLogUtils.
+     *
+     * @param text the text to identify the hyperlink element
+     */
+    public static void user_is_able_to_click_on_the_hyperlink(String text) {
+        JavascriptUtils.scrollIntoView(Dynamic_Locators.dynamicTextLocator(text));
+        Dynamic_Locators.dynamicTextLocator(text).click();
         CucumberLogUtils.logScreenshot();
     }
 }

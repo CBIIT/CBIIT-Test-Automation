@@ -4,6 +4,7 @@ import GrantsApps.EM.selenium.Pages.ModifyAccountPage;
 import GrantsApps.EM.selenium.StepImplementation.EMStepsImplementation;
 import appsCommon.PageInitializers.PageInitializer;
 import appsCommon.Utils.Dynamic_Locators;
+import com.nci.automation.utils.CucumberLogUtils;
 import com.nci.automation.utils.MiscUtils;
 import com.nci.automation.web.CommonUtils;
 import com.nci.automation.web.JavascriptUtils;
@@ -13,14 +14,18 @@ import io.cucumber.java.en.Given;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Managing_User_Accounts_Steps extends PageInitializer {
 
     @Given("clicks Show Advanced Filters")
     public void clicks_show_advanced_filters() {
-        manageI2EUsersPage.showAdvancedFilters.click();
+        EMStepsImplementation.clicks_show_advanced_filters();
     }
 
     @Given("selects {string} in I2E Account Status drop down list")
@@ -30,7 +35,7 @@ public class Managing_User_Accounts_Steps extends PageInitializer {
 
     @Given("searches")
     public void searches() {
-        manageI2EUsersPage.searchButtonI2ESearch.click();
+        EMStepsImplementation.searches();
     }
 
     @And("gets the full NED name of the first record")
@@ -155,50 +160,61 @@ public class Managing_User_Accounts_Steps extends PageInitializer {
 
     @Given("can verify the Add Role button")
     public void can_verify_the_add_role_button() {
-        Assert.assertTrue(createNewAccountPage.add_role_button.isDisplayed());
+        EMStepsImplementation.can_verify_the_add_role_button();
     }
 
     @Given("can verify that {string} title is present with tooltip {string}")
     public void can_verify_that_title_is_present_with_tooltip(String expectedTitle, String text, String expectedToolTipText) {
-        EMStepsImplementation.user_can_verify_that_title_is_present(expectedTitle);
-        webDriver.findElement(By.xpath("//main[@data-select2-id='main']//app-create-account//div//div//div//h5//a//i")).click();
-        String actualToolTipText = Dynamic_Locators.dynamicContainsTextLocator(text).getText();
-        Assert.assertEquals(actualToolTipText, expectedToolTipText);
+        EMStepsImplementation.can_verify_that_title_is_present_with_tooltip(expectedTitle, text, expectedToolTipText);
     }
 
     @Given("user can verify that {string} button is enabled")
     public void user_can_verify_that_button_is_enabled(String text) {
-        JavascriptUtils.scrollIntoView(Dynamic_Locators.dynamicTextLocator(text));
-        boolean isDeactivateAccountButtonEnabled = Dynamic_Locators.dynamicTextLocator(text).isEnabled();
-        Assert.assertTrue(isDeactivateAccountButtonEnabled, "* * * DEACTIVATE BUTTON IS NOT ENABLED * * *");
+        EMStepsImplementation.user_can_verify_that_button_is_enabled(text);
     }
 
     @Given("user can verify that {string} button is disabled")
     public void user_can_verify_that_button_is_disabled(String text) {
-        boolean isSaveChangesButtonEnabled = Dynamic_Locators.dynamicTextLocator(text).isEnabled();
-        Assert.assertFalse(isSaveChangesButtonEnabled, "* * * SAVE CHANGES BUTTON IS ENABLED * * *");
+        EMStepsImplementation.user_can_verify_that_button_is_disabled(text);
     }
 
     @Given("user can verify that {string} section is displayed")
     public void user_can_verify_that_section_is_displayed(String text) {
-        boolean isTextDisplayed = Dynamic_Locators.dynamicTextLocator(text).isDisplayed();
-        Assert.assertTrue(isTextDisplayed, "* * * VERIFYING I2E ACCOUNT HISTORY TEXT IS DISPLAYED * * *");
+        EMStepsImplementation.user_can_verify_that_section_is_displayed(text);
     }
 
     @Given("user clicks on Show for {string}")
     public void user_clicks_on_show_for(String text) {
-        ModifyAccountPage.dynamicShowLinkLocator(text).click();
+        EMStepsImplementation.user_clicks_on_show_for(text);
     }
 
     @Given("user verifies Inactive I2E Roles column header names {string}, {string}, {string}, {string}, {string}")
     public void user_verifies_inactive_i2e_roles_column_header_names(String expectedRoleText, String expectedRoleOrganizationText, String expectedStartDateText, String expectedEndDateText, String expectedUpdateByText) {
-        MiscUtils.sleep(2000);
-        ArrayList<String> expectedValues = new ArrayList<>();
-        expectedValues.add(expectedRoleText);
-        expectedValues.add(expectedRoleOrganizationText);
-        expectedValues.add(expectedStartDateText);
-        expectedValues.add(expectedEndDateText);
-        expectedValues.add(expectedUpdateByText);
-        CommonUtils.comparingTwoLists(modifyAccountPage.actualInactiveI2ERolesColumnHeaderValues, expectedValues);
+        EMStepsImplementation.user_verifies_inactive_i2e_roles_column_header_names(expectedRoleText, expectedRoleOrganizationText, expectedStartDateText, expectedEndDateText, expectedUpdateByText);
+    }
+
+    @Given("user verifies that Start Dates are displayed in descending order")
+    public void user_verifies_that_start_dates_are_displayed_in_descending_order() {
+        EMStepsImplementation.user_verifies_that_start_dates_are_displayed_in_descending_order();
+    }
+
+    @Given("user verifies Inactive Cancer Activities column header names {string}, {string}, {string}, {string}, {string}")
+    public void user_verifies_inactive_cancer_activities_column_header_names(String expectedCancerActivityText, String expectedTypeText, String expectedStartDateText, String expectedEndDateText, String expectedUpdatedByText) {
+        EMStepsImplementation.user_verifies_inactive_cancer_activities_column_header_names(expectedCancerActivityText, expectedTypeText, expectedStartDateText, expectedEndDateText, expectedUpdatedByText);
+    }
+
+    @Given("user verifies Change History column header names {string}, {string}, {string}")
+    public void user_verifies_change_history_column_header_names(String expectedDateText, String expectedChangesMadeText, String expectedUpdatedByText) {
+        EMStepsImplementation.user_verifies_change_history_column_header_names(expectedDateText, expectedChangesMadeText, expectedUpdatedByText);
+    }
+
+    @Given("user verifies that Start Dates for Change History table are displayed in descending order")
+    public void user_verifies_that_start_dates_for_change_history_table_are_displayed_in_descending_order() {
+        EMStepsImplementation.user_verifies_that_start_dates_for_change_history_table_are_displayed_in_descending_order();
+    }
+
+    @Given("user is able to click on the hyperlink {string}")
+    public void user_is_able_to_click_on_the_hyperlink(String text) {
+        EMStepsImplementation.user_is_able_to_click_on_the_hyperlink(text);
     }
 }

@@ -32,9 +32,8 @@ Feature: Managing User Accounts
     And can verify the success message is displayed "Success! I2E account has been created."
     And can verify that Return to Manage I2E Users hyperlink directs to url "https://i2e-test.nci.nih.gov/em/#/search"
 
-
-  @activeAccountScenario @Jira965 @Progression @selenium
-  Scenario: Verify Create Account- Active Account scenario
+  @ACTIVE_ACCOUNT_SCENARIO @JIRA-965 @JUAREZDS @Regression @selenium
+  Scenario: Verify Create Account - Active Account scenario
     Given User is logged in as Primary IC Coordinator
     And clicks Show Advanced Filters
     And selects "Active" in I2E Account Status drop down list
@@ -61,21 +60,10 @@ Feature: Managing User Accounts
     And user can verify that "I2E Account History" section is displayed
     And user clicks on Show for "Inactive I2E Roles"
     And user verifies Inactive I2E Roles column header names "Role", "Role Organization", "Start Date", "End Date", "Updated by"
-
-
-
-#    And User can verify that the grid is sorted by Start Date in descending order
-#    And User clicks on Show under Inactive Cancer Activities if present
-#    And User can verify that the following fields are filled in
-#      |field1          |field2  |field3    |field4   |field5    |
-#      |Cancer Activity |Type    |Start Date|End Date |Updated By|
-#    And User clicks on Show under Inactive Cancer Activities if present
-#    And User can verify that the following fields are filled in
-#      |field1          |field2  |field3 |field4    |field5   |field6    |
-#      |Cancer Activity |CA Code |Type   |Start Date|End Date |Updated By|
-#    And User clicks on Show under Change History
-#    And User can verify that the following fields are filled in
-#      |field1 |field2        |field3 |
-#      |Date   |Change(s) Made|Updated By|
-#    And User can verify that the grid is sorted by Date in descending order
-#    And User can verify that User is able to click on the hyperlink "Return to Manage I2E Users"
+    And user verifies that Start Dates are displayed in descending order
+    And user clicks on Show for "Inactive Cancer Activities"
+    And user verifies Inactive Cancer Activities column header names "Cancer Activity", "Type", "Start Date", "End Date", "Updated By"
+    And user clicks on Show for "Change History"
+    And user verifies Change History column header names "Date", "Change(s) Made", "Updated By"
+    And user verifies that Start Dates for Change History table are displayed in descending order
+    And user is able to click on the hyperlink "Return to Manage I2E Users"
