@@ -41,6 +41,7 @@ import GrantsApps.ChangePassword.StepsImplementation.*;
 import GrantsApps.EM.selenium.Pages.AccountDetailsPage;
 import GrantsApps.EM.selenium.Pages.CreateNewAccountPage;
 import GrantsApps.EM.selenium.Pages.ManageI2EUsersPage;
+import GrantsApps.EM.selenium.Pages.ModifyAccountPage;
 import GrantsApps.EM.selenium.StepImplementation.EMStepsImplementation;
 import ServiceNow.CHARMS.Constants.*;
 import ServiceNow.CHARMS.NativeView.Pages.CHARMSParticipantDetailsPage;
@@ -94,6 +95,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static ManageI2EUsersPage manageI2EUsersPage;
 	public static CreateNewAccountPage createNewAccountPage;
 	public static AccountDetailsPage accountDetailsPage;
+	public static ModifyAccountPage modifyAccountPage;
 
 	/** --------------- SERVICENOW INSTANCES --------------- */
 	/** COVIDDash instances */
@@ -640,6 +642,7 @@ public class PageInitializer extends WebDriverUtils {
 		emStepsImplementation = new EMStepsImplementation();
 		manageI2EUsersPage = new ManageI2EUsersPage();
 		createNewAccountPage = new CreateNewAccountPage();
+		modifyAccountPage = new ModifyAccountPage();
 
 		/** eTracking INSTANCE VARIABLES */
 		etrackAssetsRecords_NativeViewPage = new EtrackAssetsRecords_NativeViewPage();

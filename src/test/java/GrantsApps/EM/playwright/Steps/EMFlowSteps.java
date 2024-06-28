@@ -159,4 +159,29 @@ public class EMFlowSteps {
     public void user_can_verify_that_the_value_is_no_longer_present() {
         EM_Steps_Implementation.user_can_verify_that_the_value_is_no_longer_present();
     }
+
+    @Then("first and last name {string} of logged in user are displayed")
+    public void first_and_last_name_of_logged_in_user_are_displayed(String expectedFirstAndLastName) {
+        EM_Steps_Implementation.first_and_last_name_of_logged_in_user_are_displayed(expectedFirstAndLastName);
+    }
+
+    @Then("user can navigate to {string} hyperlink and verify hyperlink URL {string}")
+    public void user_can_navigate_to_hyperlink_and_verify_hyperlink_url(String hyperlinkText, String expectedURL) {
+        EM_Steps_Implementation.user_can_navigate_to_hyperlink_and_verify_hyperlink_url(hyperlinkText, expectedURL);
+    }
+
+    @Then("user can navigate to {string} hyperlink and verifies hyperlink URL {string}")
+    public void user_can_navigate_to_hyperlink_and_verifies_hyperlink_url(String hyperlinkText, String expectedURL) {
+        EM_Steps_Implementation.user_can_navigate_to_hyperlink_and_verifies_hyperlink_url(hyperlinkText, expectedURL);
+    }
+
+    @Then("user can confirm the application version number {string}")
+    public void user_can_confirm_the_application_version_number(String applicationVersionNumber) {
+        EM_Steps_Implementation.user_can_confirm_the_application_version_number(applicationVersionNumber);
+    }
+
+    @Then("user can verify NIH motto {string}")
+    public void user_can_verify_nih_motto(String nihMottoText) {
+        EM_Steps_Implementation.user_can_verify_nih_motto(nihMottoText);
+    }
 }

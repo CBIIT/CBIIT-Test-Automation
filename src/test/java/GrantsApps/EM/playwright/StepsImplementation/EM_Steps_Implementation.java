@@ -468,4 +468,64 @@ public class EM_Steps_Implementation {
         CucumberLogUtils.playwrightScreenshot(page);
         assertThat(page.locator("app-business-area-dropdown")).containsText("");
     }
+
+    /**
+     * Displays the first and last name of the logged in user
+     *
+     * @param expectedFirstAndLastName the expected first and last name of the logged in user
+     */
+    public static void first_and_last_name_of_logged_in_user_are_displayed(String expectedFirstAndLastName) {
+        assertThat(page.locator("#headerCollapse")).containsText(expectedFirstAndLastName);
+        CucumberLogUtils.playwrightScreenshot(page);
+    }
+
+    /**
+     * Navigates to a hyperlink and verifies the URL of the hyperlink.
+     *
+     * @param hyperlinkText the text of the hyperlink to navigate to
+     * @param expectedURL the expected URL of the hyperlink
+     */
+    public static void user_can_navigate_to_hyperlink_and_verify_hyperlink_url(String hyperlinkText, String expectedURL) {
+        Page page1 = page.waitForPopup(() -> {
+            page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(hyperlinkText)).click();
+        });
+        CucumberLogUtils.playwrightScreenshot(page);
+        Assert.assertEquals(page1.url(), expectedURL);
+        page1.close();
+    }
+
+    /**
+     * This method allows the user to navigate to a hyperlink with the given text and verifies the URL of the hyperlink.
+     *
+     * @param hyperlinkText The text of the hyperlink the user wants to navigate to.
+     * @param expectedURL   The expected URL of the hyperlink.
+     */
+    public static void user_can_navigate_to_hyperlink_and_verifies_hyperlink_url(String hyperlinkText, String expectedURL) {
+        Page page5 = page.waitForPopup(() -> {
+            page.getByRole(AriaRole.CONTENTINFO).getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName(hyperlinkText)).click();
+        });
+        CucumberLogUtils.playwrightScreenshot(page);
+        Assert.assertEquals(page5.url(), expectedURL);
+        page5.close();
+    }
+
+    /**
+     * This method allows the user to confirm the application version number.
+     *
+     * @param applicationVersionNumber The application version number to confirm.
+     */
+    public static void user_can_confirm_the_application_version_number(String applicationVersionNumber) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        assertThat(page.getByRole(AriaRole.CONTENTINFO)).containsText(applicationVersionNumber);
+    }
+
+    /**
+     * Verifies if the given text is present in the NIH motto paragraph on the page.
+     *
+     * @param nihMottoText The text to verify in the NIH motto paragraph.
+     */
+    public static void user_can_verify_nih_motto(String nihMottoText) {
+        CucumberLogUtils.playwrightScreenshot(page);
+        assertThat(page.getByRole(AriaRole.PARAGRAPH)).containsText(nihMottoText);
+    }
 }
