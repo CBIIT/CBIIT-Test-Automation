@@ -1,4 +1,4 @@
-package ServiceNow.PlatformBusinessApps.OFFBOARD.playwright.Pages;
+package ServiceNow.PlatformBusinessApps.OFFBOARD.Pages;
 
 public class NCISP_Page {
 
@@ -8,9 +8,9 @@ public class NCISP_Page {
     public static String servicesLink = "Services";
 
     /***
-     * CBIIT BIZ SERVICES LINK
+     * CBIIT BIZ SERVICES LINK LOCATOR
      */
-    public static String cbiit_BizServicesLink = "CBIIT Biz Services";
+    public static String cbiit_Business_ServicesLink_Locator = "CBIIT Business Services";
 
     /***
      * CBIIT OFF-BOARDING LINK

@@ -192,6 +192,7 @@ public class PageInitializer extends WebDriverUtils {
 	public static NERDCRSTOtherAccomplishmentsPage nerdcrstOtherAccomplishmentsPage;
 	public static NERDOGCRAddNewEntryPage nERDOGCRAddNewEntryPage;
 	public static Covid19ActivitiesSubmissionsPage covid19ActivitiesSubmissionsPage;
+	public static AdHoc_Data_Call_Submissions_Page adHoc_data_call_submissions_page;
 
 	/** SSJ instances */
 	public static OWMVacancyPage owmVacancyPage;
@@ -356,7 +357,6 @@ public class PageInitializer extends WebDriverUtils {
 	public static NativeViewCHARMSParticipantConsentPage nativeViewCHARMSParticipantConsentPage;
 	public static NativeViewCHARMSParticipantStudyPage nativeViewCHARMSParticipantStudyPage;
 
-
 	/** --------------- EGRANTS INSTANCES --------------- */
 	public static EgrantsQuickLinkAndManagementMenuPage egrantsQuickLinkAndManagementMenuPage;
 	public static EgrantsStepImplementation egrantsStepImplementation;
@@ -473,6 +473,7 @@ public class PageInitializer extends WebDriverUtils {
 		nerdCRSTCollaborationsPage = new NERDCRSTCollaborationsPage();
 		nerdcrstOtherAccomplishmentsPage = new NERDCRSTOtherAccomplishmentsPage();
 		covid19ActivitiesSubmissionsPage = new Covid19ActivitiesSubmissionsPage();
+		adHoc_data_call_submissions_page = new AdHoc_Data_Call_Submissions_Page();
 		nERDOGCRAddNewEntryPage = new NERDOGCRAddNewEntryPage();
 
 		/** ESR INSTANCE VARIABLES */

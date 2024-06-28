@@ -273,7 +273,7 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
         CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsPageTitleTextBox);
         CommonUtils.sendKeys(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsPageTitleTextBox, Other_Accomplishments_Submissions_Constants.OTHER_ACCOMPLISHMENTS_SUBMISSION_NAME);
         CommonUtils.waitForVisibility(createNewSubmissionPage.leadDOCDropDown);
-        CommonUtils.selectDropDownValue(createNewSubmissionPage.leadDOCDropDown, Other_Accomplishments_Submissions_Constants.OTHER_ACCOMPLISHMENTS_DOC_DROPDOWN);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.leadDOCDropDown, Other_Accomplishments_Submissions_Constants.SUBMISSIONS_DOC_FIELD_DROPDOWN);
         CucumberLogUtils.logScreenshot();
         MiscUtils.sleep(2000);
         CommonUtils.switchToFrame(createNewSubmissionPage.DescriptionTextBoxIframe);
@@ -628,9 +628,141 @@ public class NERD_NCI_StaffMemberStepsImplementation extends PageInitializer {
     }
 
     /**
-     * This method is part of IN-Progress test case and will be addressed in next PR
-     * This method represents the process of an NCI staff member submitting a new Ad Hoc Data Call submission.
+     * This method is used when an NCI staff member submits a new ad hoc data call submission.
      */
     public static void nci_staff_member_submits_new_ad_hoc_data_call_submission() {
+        CommonUtils.waitForVisibility(adHoc_data_call_submissions_page.adHocDataCallSubmissionAccordionLink);
+        CommonUtils.clickOnElement(adHoc_data_call_submissions_page.adHocDataCallSubmissionAccordionLink);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.waitForVisibility(adHoc_data_call_submissions_page.adHocDataCallCreateNewSubmissionButton);
+        JavascriptUtils.drawBlueBorder(adHoc_data_call_submissions_page.adHocDataCallCreateNewSubmissionButton);
+        MiscUtils.sleep(2000);
+        NERDApplicationStepsImplementation.creatingNewSubmission(adHoc_data_call_submissions_page.adHocDataCallCreateNewSubmissionButton);
+        CommonUtils.waitForVisibility(nerdDynamicXpaths.viewSubmissionsHeaders(ReturningSubmissions_Constants.SUBMISSION_VIEW_RECORD_CATEGORY_HEADER));
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.viewSubmissionsHeaders(ReturningSubmissions_Constants.SUBMISSION_VIEW_RECORD_CATEGORY_HEADER));
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.submissionsCategory(NCI_Staff_Members_Constants.AD_HOC_DATA_CALL_SUBMISSION_VIEW_RECORD_CATEGORY_VALUE));
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
+        String actualCategoryValue = nerdDynamicXpaths.submissionsCategory(NCI_Staff_Members_Constants.AD_HOC_DATA_CALL_SUBMISSION_VIEW_RECORD_CATEGORY_VALUE).getText();
+        CommonUtils.assertEqualsWithMessage(actualCategoryValue, NCI_Staff_Members_Constants.AD_HOC_DATA_CALL_SUBMISSION_VIEW_RECORD_CATEGORY_VALUE,
+                "Verify that when the user is on Ad Hoc Data Call Submission then Category is 'Ad Hoc Data Call'");
+        CucumberLogUtils.logScreenshot();
+        nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsSelectCheckBoxFiscalYear2019.click();
+        CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsPageTitleTextBox);
+        CommonUtils.sendKeys(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionsPageTitleTextBox, ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX);
+        CommonUtils.waitForVisibility(createNewSubmissionPage.leadDOCDropDown);
+        CommonUtils.selectDropDownValue(createNewSubmissionPage.leadDOCDropDown, ReturningSubmissions_Constants.SUBMISSIONS_DOC_FIELD_DROPDOWN);
+        CucumberLogUtils.logScreenshot();
+        MiscUtils.sleep(2000);
+        CommonUtils.switchToFrame(createNewSubmissionPage.DescriptionTextBoxIframe);
+        createNewSubmissionPage.DescriptionTextBox.sendKeys(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_DESCRIPTION_TEXT_BOX);
+        MiscUtils.sleep(2000);
+        WebDriverUtils.webDriver.switchTo().defaultContent();
+        MiscUtils.sleep(2000);
+        CommonUtils.waitForVisibility(adHoc_data_call_submissions_page.adHocDataCallSubmissionPOCTextBox);
+        CommonUtils.sendKeys(adHoc_data_call_submissions_page.adHocDataCallSubmissionPOCTextBox, ReturningSubmissions_Constants.AD_HOC_DATA_CALL_SUBMISSION_POINT_OF_CONTACT_TEXT_BOX);
+        CucumberLogUtils.logScreenshot();
+        MiscUtils.sleep(2000);
+        JavascriptUtils.scrollIntoView(nerdCrsKnowledgeDatabaseSubmissionsPage.newSubmissionsPageSubmitButton);
+        MiscUtils.sleep(2000);
+        CommonUtils.clickOnElement(nerdCrsKnowledgeDatabaseSubmissionsPage.newSubmissionsPageSubmitButton);
+        MiscUtils.sleep(2000);
+        CommonUtils.clickOnElement(nerdCRSTopAccomplishmentsPage.nerdNewSubmissionsSubmitToDocPlanningPopUpYesButton);
+        CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
+        CommonUtils.clickOnElement(nerdCrsKnowledgeDatabaseSubmissionsPage.submissionSuccessfullyPopUpOkButton);
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.waitForVisibility(adHoc_data_call_submissions_page.adHocDataCallSubmissionAccordionLink);
+        adHoc_data_call_submissions_page.adHocDataCallSubmissionAccordionLink.click();
+        MiscUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
+        CommonUtils.waitForVisibility(nerdDynamicXpaths.underReviewText(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX));
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.underReviewText(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX));
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
+        ServiceNow_Common_Methods.logOutOfNativeView();
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * This method is used to return the ad hoc data call submission back to an NCI staff member by the doc planning contact.
+     *
+     * @param submissionName The name of the submission to be returned.
+     */
+    public static void doc_planning_contact_returning_the_ad_hoc_data_call_submission_back_to_nci_staff_member(String submissionName) {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        ServiceNow_Common_Methods.impersonateAnyUser("jonesangel@nih.gov");
+        MiscUtils.sleep(2000);
+        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+        WebDriverUtils.webDriver.navigate().refresh();
+        CommonUtils.waitForVisibility(adHoc_data_call_submissions_page.adHocDataCallSubmissionAccordionLink);
+        adHoc_data_call_submissions_page.adHocDataCallSubmissionAccordionLink.click();
+        MiscUtils.sleep(2000);
+        CommonUtils.waitForVisibility(nerdDynamicXpaths.returnButtonToStaff(submissionName));
+        JavascriptUtils.scrollIntoView(nerdDynamicXpaths.returnButtonToStaff(submissionName));
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnButtonToStaff(submissionName));
+        CucumberLogUtils.logScreenshot();
+        JavascriptUtils.clickByJS(nerdDynamicXpaths.returnButtonToStaff(submissionName));
+        MiscUtils.sleep(2000);
+        CommonUtils.waitForVisibility(nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField);
+        nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowTextField.sendKeys(NCI_Staff_Members_Constants.DOC_PLANNING_RETURN_TO_NCI_STAFF_MESSAGE);
+        MiscUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
+        nerdCrsKnowledgeDatabaseSubmissionsPage.confirmRETURNtoStaffPopUpWindowYesButton.click();
+        nerdCrsKnowledgeDatabaseSubmissionsPage.popUpOKbutton.click();
+        MiscUtils.sleep(2000);
+        CommonUtils.scrollIntoView(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
+        CommonUtils.assertTrue(nerdDynamicXpaths.returnedToStaffMemberText(submissionName).getText().contentEquals(ReturningSubmissions_Constants.RETURNED_TO_STUFF_MEMBER_TEXT));
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.returnedToStaffMemberText(submissionName));
+        MiscUtils.sleep(2000);
+        CucumberLogUtils.logScreenshot();
+        ServiceNow_Common_Methods.logOutOfNativeView();
+    }
+
+    /**
+     * This method represents the process of an NCI staff member viewing the returned ad hoc data call submission.
+     */
+    public static void nci_staff_member_views_the_returned_ad_hoc_data_call_submission() {
+        ServiceNow_Login_Methods.nativeViewSideDoorLogin();
+        WebDriverUtils.webDriver.get(EnvUtils.getApplicationUrl("NERD"));
+        MiscUtils.sleep(1000);
+        CommonUtils.waitForVisibility(adHoc_data_call_submissions_page.adHocDataCallSubmissionAccordionLink);
+        adHoc_data_call_submissions_page.adHocDataCallSubmissionAccordionLink.click();
+        CommonUtils.scrollIntoView(nerdDynamicXpaths.nciStaffMemberSubmissionTitle(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX));
+        CommonUtils.waitForVisibility(nerdDynamicXpaths.nciStaffMemberSubmissionTitle(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX));
+        CommonUtils.assertTrue(nerdDynamicXpaths.nciStaffMemberSubmissionTitle(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX).getText()
+                .contentEquals(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX));
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.nciStaffMemberSubmissionTitle(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX));
+        MiscUtils.sleep(1000);
+        CucumberLogUtils.logScreenshot();
+    }
+
+    /**
+     * Method to verify that the NCI staff member does not see the Delete button for ad hoc data call submission returned record.
+     *
+     * @param delete A string parameter representing the delete button value.
+     */
+    public static void nci_staff_member_does_not_see_the_button_for_ad_hoc_data_call_submission_returned_record(String delete) {
+        String deleteButtonHidden = nerdDynamicXpaths.deleteCRSButton(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX).getAttribute(NCI_Staff_Members_Constants.buttons_ARIA_HIDDEN_ATTRIBUTE);
+        CommonUtils.assertEqualsWithMessage(deleteButtonHidden, NCI_Staff_Members_Constants.DELETE_BUTTON_HIDDEN, "Verifying that delete button is hidden for NCI Staff Member using attribute");
+        String submitButtonVisible = nerdDynamicXpaths.submitButton(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX).getAttribute(NCI_Staff_Members_Constants.buttons_ARIA_HIDDEN_ATTRIBUTE);
+        CommonUtils.assertEqualsWithMessage(submitButtonVisible, NCI_Staff_Members_Constants.BUTTON_VISIBLE, "Verifying that Submit button is Visible for NCI Staff Member using attribute");
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.submitButton(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX));
+        String editButtonVisible = nerdDynamicXpaths.eiditCRSButton(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX).getAttribute(NCI_Staff_Members_Constants.buttons_ARIA_HIDDEN_ATTRIBUTE);
+        CommonUtils.assertEqualsWithMessage(editButtonVisible, NCI_Staff_Members_Constants.BUTTON_VISIBLE, "Verifying that Edit button is Visible for NCI Staff Member using attribute");
+        nerdDynamicXpaths.submitToCRSButton(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX).isDisplayed();
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.submitToCRSButton(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX));
+        CommonUtils.assertEqualsWithMessage(ReturningSubmissions_Constants.SUBMIT_BUTTON_TEXT, nerdDynamicXpaths.submitToCRSButton(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX).getText(),
+                "Verifying that NCI Staff Member Ad Hoc Data Call Submission returned by Doc Planning contact has Submit Button");
+        nerdDynamicXpaths.eiditCRSButton(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX).isDisplayed();
+        JavascriptUtils.drawBlueBorder(nerdDynamicXpaths.eiditCRSButton(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX));
+        CommonUtils.assertEquals(ReturningSubmissions_Constants.EDIT_BUTTON_TEXT, nerdDynamicXpaths.eiditCRSButton(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX).getText());
+        CommonUtils.assertEqualsWithMessage(ReturningSubmissions_Constants.EDIT_BUTTON_TEXT,nerdDynamicXpaths.eiditCRSButton(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX).getText(),
+                "Verifying that NCI Staff Member Ad Hoc Data Call Submission returned by Doc Planning contact has Edit Button");
+        Assert.assertNotEquals(delete, nerdDynamicXpaths.deleteCRSButton(ReturningSubmissions_Constants.AD_HOC_DATA_CALL_NEW_SUBMISSION_TITLE_TEXT_BOX).getText(),
+                "Verifying that Delete button is removed from the NCI Staff Member Ad Hoc Data Call Submission returned by Doc Planning contact");
+        CucumberLogUtils.logScreenshot();
+        MiscUtils.sleep(10000);
     }
 }
