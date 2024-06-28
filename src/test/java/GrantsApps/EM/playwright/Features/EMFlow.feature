@@ -1,6 +1,6 @@
 Feature: EM Flow
 
-  @I2E_ROLE_DROP_DOWN_LIST @Jira950 @JUAREZDS @Regression @playwright
+  @I2E_ROLE_DROP_DOWN_LIST @JIRA-950 @JUAREZDS @Regression @playwright
   Scenario: I2E Role Drop Down List
     Given User is logged in as Primary ITwoE Coordinator - PW
     When User inputs "Mata Rodriguez, Kevin Osmaldo" into the Name field and clicks search - PW
@@ -27,7 +27,7 @@ Feature: EM Flow
     When the user chooses Referral option from Business Area dropdown - PW
     Then the following roles should display "ARA Referral Liaison", "ARA Referral Officer", "Referral Officer"
 
-  @BUSINESS_AREA_DROP_DOWN @Jira938 @Regression @JUAREZDS @playwright
+  @BUSINESS_AREA_DROP_DOWN @JIRA-938 @Regression @JUAREZDS @playwright
   Scenario: Verify Business Area Drop Down List
     Given User is logged in as Primary ITwoE Coordinator - PW
     When User inputs "Mata Rodriguez, Kevin Osmaldo" into the Name field and clicks search - PW
