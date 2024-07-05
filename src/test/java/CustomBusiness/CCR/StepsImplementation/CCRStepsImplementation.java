@@ -58,7 +58,7 @@ public class CCRStepsImplementation extends PageInitializer {
         switch (document) {
             case "CV":
                 MiscUtils.sleep(2000);
-                CommonUtils.clickOnElement(cCRApplicationPage.do);
+             //   CommonUtils.clickOnElement(cCRApplicationPage.do);
                 WebElement fileInput = webDriver.findElement(By.xpath("(//input[@placeholder='No file chosen'])[1]"));
                 fileInput.sendKeys("/src/test/java/CustomBusiness/CCR/Resources/CV.docx");
                 break;
