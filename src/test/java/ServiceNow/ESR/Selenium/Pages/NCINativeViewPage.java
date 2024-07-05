@@ -1,4 +1,4 @@
-package ServiceNow.ESR.Pages;
+package ServiceNow.ESR.Selenium.Pages;
 
 import com.nci.automation.web.WebDriverUtils;
 import org.openqa.selenium.WebElement;

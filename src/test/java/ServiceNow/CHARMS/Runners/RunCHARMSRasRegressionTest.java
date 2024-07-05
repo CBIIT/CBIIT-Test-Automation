@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 		"rerun:target/failed.txt",
 		"pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 		features = {"src/test/java/ServiceNow/CHARMS/Features/RASAccountReset", "src/test/java/ServiceNow/CHARMS/Features/RasopathyStudy"},
-		glue = "ServiceNow.CHARMS.Steps",
+		glue = {"ServiceNow.CHARMS.Steps", "Hooks"},
 		tags = "@Regression",
 		dryRun = false
 )
