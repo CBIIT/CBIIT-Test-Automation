@@ -15,7 +15,7 @@ public class ITrustLoginPage extends CommonUtils {
     /**
      * LOGIN LINK
      */
-    @FindBy(xpath = "//ul[@class='nav navbar-nav navbar-right hidden-xs hidden-sm ng-scope']//li//a")
+    @FindBy(xpath = "(//a[@ng-click='clickedOnIt()'])[1]")
     public WebElement loginLink;
 
     /**
