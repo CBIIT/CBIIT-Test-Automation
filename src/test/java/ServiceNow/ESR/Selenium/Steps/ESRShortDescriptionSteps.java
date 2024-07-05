@@ -1,6 +1,6 @@
-package ServiceNow.ESR.Steps;
+package ServiceNow.ESR.Selenium.Steps;
 
-import ServiceNow.ESR.StepsImplementation.ESRShortDescriptionStepsImplementation;
+import ServiceNow.ESR.Selenium.StepsImplementation.ESRShortDescriptionStepsImplementation;
 import appsCommon.PageInitializers.PageInitializer;
 import io.cucumber.java.en.Then;
 
