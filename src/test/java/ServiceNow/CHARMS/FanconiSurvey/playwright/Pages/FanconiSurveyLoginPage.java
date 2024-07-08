@@ -515,9 +515,8 @@ public class FanconiSurveyLoginPage {
 	/** This first section of the questionnaire asks you to tell us some general medical history. Header label */
 	public static final String ASKS_YOU_TO_TELL_US_SOME_GENERAL_MEDICAL_HISTORY = "This first section of the questionnaire asks you to tell us some general medical history.";
 
-/** Did your/the participant's mother have any prenatal tests Question label */
+   /** Did your/the participant's mother have any prenatal tests Question label */
 	public static final String MOTHER_HAD_PRENATAL_TESTS_DETAIL = "Did your/the participant's mother have any prenatal tests to identify fetal birth defects or fetal medical problems during pregnancy with you/the participant?";
-
 
 	/** Please select the 'Add' button below  helper text */
 	public static final String ADD_THE_RESULTS_OF_PRENATAL_TESTS_ADMINISTERED_TO_THE_BIOLOGICAL_MOTHER = "Please select the 'Add' button below to add the results of prenatal tests administered to the biological mother of you/participant's during the pregnancy with you/participant";
