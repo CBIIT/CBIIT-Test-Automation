@@ -1,4 +1,4 @@
-package ServiceNow.ESR.StepsImplementation;
+package ServiceNow.ESR.Selenium.StepsImplementation;
 
 import appsCommon.Utils.ServiceNow_Login_Methods;
 import appsCommon.PageInitializers.PageInitializer;

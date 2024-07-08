@@ -1,4 +1,4 @@
-package ServiceNow.ESR.StepsImplementation;
+package ServiceNow.ESR.Selenium.StepsImplementation;
 
 import appsCommon.PageInitializers.PageInitializer;
 import com.nci.automation.utils.CucumberLogUtils;
