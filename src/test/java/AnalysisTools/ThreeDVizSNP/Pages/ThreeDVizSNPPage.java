@@ -46,7 +46,7 @@ public class ThreeDVizSNPPage extends CommonUtils {
 	public WebElement recordCount;
 
 	/** FIRST VARIENT **/
-	@FindBy(xpath = "//div[text()='Variant']/parent::th/parent::tr/parent::thead/following-sibling::tbody//td")
+	@FindBy(xpath = "(//div[text()='Variant']/parent::th/parent::tr/parent::thead/following-sibling::tbody//td)[17]")
 	public WebElement firstVarient;
 
 	/** VARIENT HEADER **/
